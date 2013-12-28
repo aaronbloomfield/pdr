@@ -1,0 +1,1416 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>CS 2150: 02-cpp slide set</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="pdr.css">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	<section>
+	  <h1>CS 2150</h1>
+	  <p>&nbsp;</p>
+	  <h3>Program and Data Representation</h3>
+	  <h3>Spring 2014</h3>
+	  <p>&nbsp;</p>
+	  <p class="center">
+	    <small>By <a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> / <a href="mailto:aaron@virginia.edu">aaron@virginia.edu</a> / <a href="http://twitter.com/bloomfieldaaron">@bloomfieldaaron</a><br>&nbsp;<br>
+		<a href="http://github.com/aaronbloomfield/pdr">github.com/aaronbloomfield/pdr</a></small>
+	  </p>
+	  <p>&nbsp;</p>
+	  <p>&nbsp;</p>
+	  <h2>C++</h2>
+	</section>
+
+	<section>
+	  <h1>Contents</h1>
+	  <p>&nbsp;</p>
+	  <p>Introduction to C++</p>
+	  <p>Functions</p>
+	  <p>Classes</p>
+	  <p>Rational Example</p>
+	  <p>Pre-Processor</p>
+	  <p>Pointers</p>
+	  <p>Dynamic Memory Allocation</p>
+	  <p>References</p>
+	  <p>More C++</p>
+	  <p>Sample (advanced) code</p>
+	</section>
+
+	<section>
+
+	  <section>
+	    <h1>Introduction to C++</h1>
+	  </section>
+
+	  <section>
+	    <h2>Why C++ and not Java?</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>It's good to learn a second language</li>
+	      <li>C++ is widely used
+		<ul>
+		  <li>Can be more efficient</li>
+		  <li>More control</li>
+		</ul>
+	      </li>
+	      <li>C++ will let us "get under the hood" more
+		<ul>
+		  <li>Data and program representation in memory</li>
+		  <li>Memory allocation</li>
+		</ul>
+	      </li>
+	    </ul>
+	  </section>
+
+	  <section>
+	    <h2>A brief history lesson</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>C was created in 1972 by Dennis Ritchie
+		<ul>
+		  <li>Intended to be terse, quick to write, and efficient</li>
+		</ul>
+	      </li>
+	      <li>C++ was created in 1985 by Bjarne Stroustrup
+		<ul>
+		  <li>Added classes while being backwards compatible</li>
+		  <li>Has pretty terrible syntax!</li>
+		</ul>
+	      </li>
+	    </ul>
+	  </section>
+
+	  <section>
+	    <h2>Hello World --&nbsp; Java vs. C++</h2>
+	    <p>&nbsp;</p>
+	    <pre><code data-trim>// Java
+public class HelloWorld {
+    public static void main(String [] args) {
+        System.out.println("Hello World!");
+    }
+}</code></pre>
+	    <p>&nbsp;</p>
+	    <pre><code data-trim>// C++
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    cout &lt;&lt; &quot;Hello World&quot; &lt;&lt; endl;
+    return 0;
+}</code></pre>
+	  </section>
+
+	  <section>
+	    <h2>Differences</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>main()</li>
+	      <li>Preprocessor
+		<ul>
+		  <li>#include</li>
+		</ul>
+	      </li>
+	      <li>using namespace std;</li>
+	      <li>Output</li>
+	    </ul>
+	  </section>
+
+	  <section>
+	    <h2>main()</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>Not a part of any class
+		<ul>
+		  <li>called a <i>function</i></li>
+		</ul>
+	      </li>
+	      <li>Must be global</li>
+	      <li>Must have a return type of int
+		<ul>
+		  <li>By convention, main returns 0</li>
+		</ul>
+	      </li>
+	    </ul>
+	  </section>
+
+	  <section>
+	    <h2>Preprocessor</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>Examples
+		<ul>
+		  <li>#include &lt;iostream&gt; // System file</li>
+		  <li>#include &quot;ListNode.h&quot; // user-defined file</li>
+		</ul>
+	      </li>
+	      <li>What this does
+		<ul>
+		  <li>Compiler inserts the contents of the file in the place where the #include statement appears</li>
+		</ul>
+	      </li>
+	    </ul>
+	  </section>
+
+	  <section>
+	    <h2>C++ Compilation Process Overview</h2>
+	    <p>&nbsp;</p>
+	    <ol>
+	      <li>Preprocess source file
+		<ul>
+		  <li>handle #includes and any other # statements</li>
+		</ul>
+	      </li>
+	      <li>Compile resulting file</li>
+	      <li>Link the resulting files from Step 2 (more on this later..)</li>
+	    </ol>
+	  </section>
+
+	  <section>
+	    <h2>using Directive</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>Similar to Java's <tt>import</tt>
+		<ul>
+		  <li>Allows the programmer to not have to type the full class name </li>
+		</ul>
+	      </li>
+	    </ul>
+	    <table width="100%">
+	      <tbody>
+		<tr>
+		  <td>
+		    <pre><code data-trim>// C++
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    cout &lt;&lt; "Hello World!" &lt;&lt; endl;
+    return 0;
+}</code></pre>
+		  </td>
+		  <td>
+		    <pre><code data-trim>// C++
+#include &lt;iostream&gt;
+int main() {
+    std::cout &lt;&lt; "Hello World!" 
+              &lt;&lt; std::endl;
+    return 0;
+}</code></pre>
+		  </td>
+		</tr>
+	      </tbody>
+	    </table>
+	  </section>
+
+	  <section>
+	    <h2>I/O</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>Basic I/O</li>
+	    </ul>
+	    <pre><code data-trim>// use iostream library
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int x;
+    cout &lt;&lt; "Enter a value for x: ";
+    cin &gt;&gt; x;
+    return 0;
+}</code></pre>
+	  </section>
+
+	  <section>
+	    <h2>C++ Primitive Types</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>int
+		<ul>
+		  <li>Can be 16, 32, 64 bits depending on the platform</li>
+		</ul>
+	      </li>
+	      <li>float</li>
+	      <li>double</li>
+	      <li>char
+		<ul>
+		  <li>C++ generally uses 8 bit ASCII encoding (more on this later)</li>
+		</ul>
+	      </li>
+	      <li>bool</li>
+	    </ul>
+	  </section>
+
+	  <section>
+	    <h2>C++ Operators and Expressions</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>if statement
+		<ul>
+		  <li>in C++ condition can be either int or bool</li>
+		  <li>if ( x = 0 )
+		    <ul>
+		      <li>This will NOT cause a compiler error in C++</li>
+		    </ul>
+		  </li>
+		  <li>if ( i )
+		    <ul>
+		      <li>This is valid!</li>
+		    </ul>
+		  </li>
+		</ul>
+	      </li>
+	    </ul>
+	  </section>
+
+	  <section>
+	    <h2>Operators and Expressions</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>loops, same as Java
+		<ul>
+		  <li>while, for, do while, break, continue</li>
+		</ul>
+	      </li>
+	    </ul>
+	  </section>
+	  
+	  <section>
+	    <h2>Compiler choice</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>In the past we have used g++
+		<ul>
+		  <li>From GNU's Compiler Collection</li>
+		</ul>
+	      </li>
+	      <li>We are now using clang (from LLVM)
+		<ul>
+		  <li>It has MUCH better error messages</li>
+		</ul>
+	      </li>
+	      <li>Consider:</li>
+	    </ul>
+	    <pre><code data-trim>#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    // note the spelling mistake on the next line
+    cotut &lt;&lt; "Hello World";
+    return 0;
+}</code></pre>
+	  </section>
+
+	  <section>
+	    <h2>Error comparison</h2>
+	    <p>&nbsp;</p>
+	    <table>
+	      <tr><td class="middle">g++:</td><td><img width="850" alt="g++ error message" src="images/02-cpp/g++-error-message.png"></td></tr>
+	      <tr><td class="middle">clang++:</td><td><img width="850" alt="clang++ error message" src="images/02-cpp/clang++-error-message.png"></td></tr>
+	    </table>
+	  </section>
+
+	</section>
+
+	<section>
+
+	  <section>
+	    <h1>Functions</h1>
+	  </section>
+
+	  <section>
+	    <h2>Functions</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>Methods not member of a class</li>
+	    </ul>
+	    <pre><code data-trim>
+#include &lt;iostream&gt;
+using namespace std;
+
+ret_type func_name(int a, int b, ...) {
+    &lt;function body&gt;
+}
+
+int main() {
+    ...
+    z = func_name(x, y, ...);
+    ...;
+    return 0;
+}
+</code></pre>
+	  </section>
+
+	  <section>
+	    <h2>Declaring mutually<br>recursive functions</h2>
+	    <p>&nbsp;</p>
+	    <table width="100%">
+	      <tr>
+		<td><pre><code data-trim><div class="fragment">bool even (int x);</div>
+bool odd (int x) {
+    if ( x == 0 )
+        return false;
+    else
+        return even (x-1);
+}</code></pre></td>
+		<td><pre><code data-trim><br>
+bool even (int x) {
+    if ( x == 0 )
+        return true;
+    else
+      return odd (x-1);
+}</code></pre></td>
+	      </tr>
+	    </table>
+	  </section>
+
+	  <section>
+	    <h2>Function Prototypes</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>C++ compiler process files top to bottom
+		<ul>
+		  <li>order of appearance matters without a <strong>function prototype</strong></li>
+		</ul>
+	      </li>
+	      <li>General form of a prototype:</li>
+	    </ul>
+	    <pre><code data-trim>ret_type func_name (int a, int b, ...);</code></pre>
+	  </section>
+
+	  <section>
+	    <h2>Example</h2>
+	    <p>&nbsp;</p>
+	    <pre><code data-trim>#include &lt;iostream&gt;
+using namespace std;
+
+int max(int a, int b);	// prototype
+
+int main() {
+    int x=37; int y=52;
+    cout &lt;&lt; max(x,y) &lt;&lt; endl;
+    return 0;
+}
+
+// actual function implementation
+int max(int a, int b) {
+    return (a>b) ? a : b;
+}</code></pre>
+	  </section>
+
+	</section>
+
+	<section>
+
+	  <section>
+	    <h1>Classes</h1>
+
+	  </section>
+	
+
+	  <section>
+	    <h2>Java %G-Fâ¬%@ IntCell.java-A</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>public class IntCell</li>
+	      <li>{ </li>
+	      <li> public IntCell() // default constructor</li>
+	      <li> { this(0); }</li>
+	      <li><br>
+  </li>
+  <li> // one parameter constructor</li>
+  <li> public IntCell(int initialValue)</li>
+  <li> { storedValue = initialValue; }</li>
+  <li> <br>
+  </li>
+  <li> // accessor member function</li>
+  <li> public int getValue()</li>
+  <li> { return storedValue; }</li>
+  <li> <br>
+  </li>
+  <li> // mutator member function</li>
+  <li> public void setValue(int val)</li>
+  <li> { storedValue = val; }</li>
+  <li>Java %G-Fâ¬%@ IntCell.java-A</li>
+  <li> <br>
+  </li>
+  <li> // private data member</li>
+  <li> private int storedValue;</li>
+  <li> <br>
+  </li>
+  <li> // main()</li>
+  <li> public static void main(String [] args)</li>
+  <li> {</li>
+  <li> IntCell m1 = new IntCell();</li>
+  <li> IntCell m2 = new IntCell(37);</li>
+  <li> System.out.println(m1.getValue() + -Y´ ¡ + </li>
+  <li> m2.getValue());</li>
+  <li> }</li>
+  <li> <br>
+  </li>
+  <li>}</li>
+  <li>How Would You Translate This Java Source into C++?</li>
+  <li>Need 3 files</li>
+  <li>Header file that contains class definition</li>
+  <li>IntCell.h</li>
+  <li>C++ file that contains class implementation</li>
+  <li>IntCell.cpp</li>
+  <li>C++ file that contains a main()</li>
+  <li>TestIntCell.cpp</li>
+  <li>C++ IntCell %Gâ¬%@ TestIntCell.cpp</li>
+  <li>#include <iostream> </iostream></li>
+  <li>#include "IntCell.h" </li>
+  <li>using namespace std; </li>
+  <li><br>
+  </li>
+  <li>int main( ) </li>
+  <li>{ </li>
+  <li> IntCell m1; // calls the default constructor</li>
+  <li> IntCell m2( 37 );</li>
+  <li> //IntCell m2 = 37; // does not work</li>
+  <li> cout &lt;&lt; m1.getValue( ) &lt;&lt; " " &lt;&lt; m2.getValue(
+) </li>
+  <li> &lt;&lt; endl;</li>
+  <li> m1 = m2;</li>
+  <li> m2.setValue( 40 );</li>
+  <li> cout &lt;&lt; m1.getValue( ) &lt;&lt; " " &lt;&lt; m2.getValue(
+) </li>
+  <li> &lt;&lt; endl;</li>
+  <li> return 0;</li>
+  <li>} </li>
+  <li>C++ IntCell %Gâ¬%@ IntCell.h</li>
+  <li>#ifndef INTCELL_H</li>
+  <li>#define INTCELL_H</li>
+  <li><br>
+  </li>
+  <li>class IntCell</li>
+  <li>{</li>
+  <li>public:</li>
+  <li> explicit IntCell( int initialValue = 0 );</li>
+  <li><br>
+  </li>
+  <li> int getValue( ) const;</li>
+  <li> void setValue( int val );</li>
+  <li><br>
+  </li>
+  <li>private:</li>
+  <li> int storedValue;</li>
+  <li> int max(int m);</li>
+  <li>};</li>
+  <li>#endif</li>
+  <li>C++ IntCell %Gâ¬%@ IntCell.cpp</li>
+  <li>#include "IntCell.h" </li>
+  <li><br>
+  </li>
+  <li>IntCell::IntCell( int initialValue ) : storedValue( initialValue
+) </li>
+  <li>{ </li>
+  <li>} </li>
+  <li><br>
+  </li>
+  <li>int IntCell::getValue( ) const </li>
+  <li>{ </li>
+  <li> return storedValue; </li>
+  <li>}</li>
+  <li> <br>
+  </li>
+  <li>void IntCell::setValue( int val ) </li>
+  <li>{ </li>
+  <li> storedValue = val; </li>
+  <li>} </li>
+  <li><br>
+  </li>
+  <li>int IntCell::max(int m){</li>
+  <li> return 1;</li>
+  <li>}</li>
+  <li>C++ IntCell %Gâ¬%@ IntCell.h (again)</li>
+  <li>#ifndef INTCELL_H</li>
+  <li>#define INTCELL_H</li>
+  <li><br>
+  </li>
+  <li>class IntCell</li>
+  <li>{</li>
+  <li>public:</li>
+  <li> explicit IntCell( int initialValue = 0 );</li>
+  <li><br>
+  </li>
+  <li> int getValue( ) const;</li>
+  <li> void setValue( int val );</li>
+  <li><br>
+  </li>
+  <li>private:</li>
+  <li> int storedValue;</li>
+  <li> int max(int m);</li>
+  <li>};</li>
+  <li>#endif</li>
+  <li>C++ IntCell %Gâ¬%@ TestIntCell.cpp</li>
+  <li>#include <iostream> </iostream></li>
+  <li>#include "IntCell.h" </li>
+  <li>using namespace std; </li>
+  <li><br>
+  </li>
+  <li>int main( ) </li>
+  <li>{ </li>
+  <li> IntCell m1; // calls the default constructor</li>
+  <li> IntCell m2( 37 );</li>
+  <li> //IntCell m2 = 37; // does not work</li>
+  <li> cout &lt;&lt; m1.getValue( ) &lt;&lt; " " &lt;&lt; m2.getValue(
+) </li>
+  <li> &lt;&lt; endl;</li>
+  <li> m1 = m2;</li>
+  <li> m2.setValue( 40 );</li>
+  <li> cout &lt;&lt; m1.getValue( ) &lt;&lt; " " &lt;&lt; m2.getValue(
+) </li>
+  <li> &lt;&lt; endl;</li>
+  <li> return 0;</li>
+  <li>} </li>
+  <li>Separate Compilation</li>
+</ul>
+	  </section>
+
+	</section>
+
+	<section>
+
+	  <section>
+	    <h1>Rational Ezample</h1>
+
+	  </section>
+
+	  <section>
+<ul>
+  <li>In-Class Example</li>
+  <li>(Files on Collab)</li>
+  <li>Converting Java to C++</li>
+  <li>Rational.java </li>
+  <li>to </li>
+  <li> Rational.h</li>
+  <li> Rational.cpp</li>
+  <li> TestRational.cpp</li>
+  <li>The General Conversion Process</li>
+  <li>Create .h file with class definition</li>
+  <li>Member function signatures, no implementations</li>
+  <li>Create .cpp file containing member function implementations</li>
+  <li>Create .cpp file containing main()</li>
+  <li>Reminders</li>
+  <li>int main()</li>
+  <li>Input/Output</li>
+  <li>#include <iostream></iostream></li>
+  <li>using namespace std;</li>
+  <li>cout &lt;&lt; varName &lt;&lt; ´ ´ &lt;&lt; endl;</li>
+  <li>Class syntax</li>
+  <li>public and private sections</li>
+  <li>semi-colon at the end of class declaration</li>
+  <li>ClassName::</li>
+  <li>I-F-F¢ll Explain Later, But For Now$B!D(B-A</li>
+  <li>Printing</li>
+  <li>instead of -F¡+¢ use &lt;&lt; to concatenate items to print-A</li>
+  <li>Remove this and new from conversion</li>
+  <li>Rational.h</li>
+  <li>#ifndef RATIONAL_H </li>
+  <li>#define RATIONAL_H </li>
+  <li>class Rational { </li>
+  <li> public: </li>
+  <li> Rational(); // default constructor </li>
+  <li> ~Rational(); // destructor </li>
+  <li> Rational(int numerator, int denominator); </li>
+  <li> void print() ; </li>
+  <li> Rational times(Rational b); </li>
+  <li> Rational plus(Rational b); </li>
+  <li> Rational reciprocal();</li>
+  <li> Rational divides(Rational b); </li>
+  <li> private: </li>
+  <li> int num; // the numerator </li>
+  <li> int den; // the denominator </li>
+  <li> int gcd(int m, int n); </li>
+  <li>}; </li>
+  <li>#endif </li>
+  <li>Rational.cpp</li>
+  <li>#include "Rational.h" </li>
+  <li>#include <iostream> </iostream></li>
+  <li>using namespace std; </li>
+  <li><br>
+  </li>
+  <li>// default constructor: initialize to 0/1</li>
+  <li>Rational::Rational() : num(0), den(1) { } </li>
+  <li><br>
+  </li>
+  <li>void Rational::print() </li>
+  <li>{ </li>
+  <li> if (den == 1) </li>
+  <li> { cout &lt;&lt; num &lt;&lt; "" &lt;&lt; endl; } </li>
+  <li> else </li>
+  <li> { cout &lt;&lt; num &lt;&lt; "/" &lt;&lt; den &lt;&lt; endl; } </li>
+  <li>} </li>
+  <li>Rational.cpp</li>
+  <li><br>
+  </li>
+  <li>Rational Rational::times(Rational b) </li>
+  <li>{ </li>
+  <li> return Rational(num * b.num, den * b.den); </li>
+  <li>} </li>
+  <li><br>
+  </li>
+  <li>Rational.cpp</li>
+  <li>Rational::Rational(int numerator, int denominator) </li>
+  <li> { </li>
+  <li> if (denominator == 0) </li>
+  <li> { </li>
+  <li> cout &lt;&lt; "Denominator is zero" &lt;&lt; endl; </li>
+  <li> } </li>
+  <li> int g = gcd(numerator, denominator);</li>
+  <li> num = numerator / g; </li>
+  <li> den = denominator / g; </li>
+  <li>} </li>
+  <li><br>
+  </li>
+  <li>TestRational.cpp</li>
+  <li>#include "Rational.h" </li>
+  <li><br>
+  </li>
+  <li>int main() </li>
+  <li>{ </li>
+  <li> Rational x, y, z; </li>
+  <li> // 1/2 + 1/3 = 5/6 </li>
+  <li> x = Rational(1, 2); </li>
+  <li> y = Rational(1, 3); </li>
+  <li> z = x.plus(y); </li>
+  <li> z.print(); </li>
+  <li> // $B!D(B other code very much like above</li>
+  <li>} </li>
+  <li>.h vs. .cpp?</li>
+  <li>C++ naming convention</li>
+  <li>.h // header files</li>
+  <li>function prototypes</li>
+  <li>class definitions</li>
+  <li>macro definitions</li>
+  <li>.cpp // implementation files</li>
+  <li>Definitions may only appear in 1 place</li>
+  <li>compiler errors: -Y´multiply defined XYZ¡</li>
+  <li>End of lecture on Mon, Sep 2</li>
+</ul>
+	  </section>
+
+	</section>
+
+	<section>
+
+	  <section>
+	    <h1>Pre-processor</h1>
+
+	  </section>
+
+	  <section>
+<ul>
+  <li>Pre-processor</li>
+  <li>Preprocessing</li>
+  <li>#include</li>
+  <li>Direct copy of file specified to location specified</li>
+  <li>In general, only #include .h files.</li>
+  <li>#ifndef</li>
+  <li>´if not defined¡</li>
+  <li>other preprocessor directives: #ifdef, #if</li>
+  <li>#define</li>
+  <li>Defines a macro (direct text replacement)</li>
+  <li>#define TRUE 0</li>
+  <li>if(TRUE == 0) {$B!D(B}</li>
+  <li>#define _MY_OBJECT_H </li>
+  <li>#endif</li>
+  <li>specifies the end of any #if</li>
+  <li>#define</li>
+  <li>Can define a constant</li>
+  <li>#define PI 3.14159</li>
+  <li>$B!D(B</li>
+  <li>area = PI * r * r;</li>
+  <li>Can just define an identifier</li>
+  <li>#define FOO</li>
+  <li>#ifdef FOO // is true!</li>
+  <li>#ifndef FOO // is false!</li>
+  <li><br>
+  </li>
+  <li><br>
+  </li>
+  <li>What problems arise?</li>
+  <li><br>
+  </li>
+  <li>odd.h:</li>
+  <li><br>
+  </li>
+  <li>#include ´even.h¡</li>
+  <li>bool odd (int x);</li>
+  <li>Preventing #include loops</li>
+  <li><br>
+  </li>
+  <li>odd.h:</li>
+  <li><br>
+  </li>
+  <li>#ifndef ODD_H</li>
+  <li>#define ODD_H</li>
+  <li>#include ´even.h¡</li>
+  <li>bool odd (int x);</li>
+  <li>#endif</li>
+</ul>
+	  </section>
+
+	</section>
+
+	<section>
+
+	  <section>
+	    <h1>Pointers</h1>
+
+	  </section>
+
+	  <section>
+<ul>
+  <li>Pointers</li>
+  <li>Pointer Variables</li>
+  <li>Stores a memory address of another object</li>
+  <li>Can be a primitive type or a class type</li>
+  <li>Examples of Pointers</li>
+  <li>int * x;</li>
+  <li>char *y;</li>
+  <li>Rational * rPointer;</li>
+  <li>What Types are These?</li>
+  <li>float * num1</li>
+  <li>double num2</li>
+  <li>Rational fraction1</li>
+  <li>Square * square1</li>
+  <li>int num3</li>
+  <li>C++ Syntax: * </li>
+  <li>Asterisk *</li>
+  <li>In a definition</li>
+  <li>defines pointer type</li>
+  <li>int *x</li>
+  <li>In an expression</li>
+  <li>´dereferences¡</li>
+  <li>evaluates object to which the pointer points</li>
+  <li>*x = 2</li>
+  <li><br>
+  </li>
+  <li><br>
+  </li>
+  <li>C++ Syntax: &amp;</li>
+  <li>Ampersand &amp;</li>
+  <li>In a definition</li>
+  <li>defines a reference type (more on this later)</li>
+  <li>In an expression</li>
+  <li>´address of¡</li>
+  <li>x = &amp;y </li>
+  <li>Pointer Variables</li>
+  <li>x_pointer = &amp;x</li>
+  <li>Dereferencing and Assigning</li>
+  <li>*x_pointer = 2</li>
+  <li>x_pointer = &amp;y</li>
+  <li>x_pointer = &amp;y</li>
+  <li>*x_pointer = 3</li>
+  <li>Binky-F-F¢s Pointer Fun-A</li>
+  <li>cslibrary.stanford.edu</li>
+  <li>Binky-F¢s Pointer Fun-A</li>
+  <li>http://www.youtube.com/watch?v=UvoHwFvAvQE </li>
+  <li>End of lecture on Wed, Sep 4</li>
+  <li>What Types are These?</li>
+  <li>char * x;</li>
+  <li>int **y;</li>
+  <li>Rational *rNumber1;</li>
+  <li>Square **blah;</li>
+  <li>Pointer Pitfalls: </li>
+  <li>Uninitialized Pointers</li>
+  <li>Cause runtime errors</li>
+  <li>int n = 30;</li>
+  <li>int * p;</li>
+  <li>*p = n; //ERROR!!!</li>
+  <li><br>
+  </li>
+  <li>p does not have a valid memory address!</li>
+  <li>A common initializer value used by programmers is NULL </li>
+  <li> int *p=NULL; // better code, then add code to check for NULL
+value</li>
+  <li>Uses for Pointers</li>
+  <li>swap()</li>
+  <li>void swap(int * x, int * y)</li>
+  <li>{</li>
+  <li> int temp = *x;</li>
+  <li> *x = *y;</li>
+  <li> *y = temp;</li>
+  <li>}</li>
+  <li>Calling swap()</li>
+  <li>int main()</li>
+  <li>{</li>
+  <li> int a=0;</li>
+  <li> int b=3;</li>
+  <li> cout &lt;&lt; "Before swap(): a: " &lt;&lt; a &lt;&lt; "b: " </li>
+  <li> &lt;&lt; b &lt;&lt; endl;</li>
+  <li> swap(&amp;b,&amp;a);</li>
+  <li> cout &lt;&lt; "After swap(): a: " &lt;&lt; a &lt;&lt; "b: " </li>
+  <li> &lt;&lt; b &lt;&lt; endl;</li>
+  <li><br>
+  </li>
+  <li> return 0;</li>
+  <li>}</li>
+</ul>
+	  </section>
+
+	</section>
+
+	<section>
+
+	  <section>
+	    <h1>Dynamic Memory<br>Allocation</h1>
+
+	  </section>
+
+	  <section>
+<ul>
+  <li>Dynamic Memory Allocation</li>
+  <li>new and delete</li>
+  <li><br>
+  </li>
+  <li>Static Memory Allocation</li>
+  <li>Amount of space (memory) already known </li>
+  <li><br>
+  </li>
+  <li>// declare array of 10 elements </li>
+  <li>int someArray[10];</li>
+  <li> <br>
+  </li>
+  <li>// declare a pointer to int</li>
+  <li>int *value1_address = &amp;someArray[3];</li>
+  <li>Dynamic Memory Allocation</li>
+  <li>Don-F¢t know how much memory is needed in advance-A</li>
+  <li>Need to create the space on the fly</li>
+  <li><br>
+  </li>
+  <li>new</li>
+  <li>returns a pointer to newly created -Y´thing¡</li>
+  <li>Dynamic Arrays</li>
+  <li><br>
+  </li>
+  <li>int main()</li>
+  <li>{</li>
+  <li> int n;</li>
+  <li> // read in a value from the user</li>
+  <li> cout &lt;&lt; "Please enter an integer value: " ;</li>
+  <li> cin &gt;&gt; n;</li>
+  <li><br>
+  </li>
+  <li> // use the user's input to create an array of int using new</li>
+  <li> int * ages = new int [n];</li>
+  <li><br>
+  </li>
+  <li><br>
+  </li>
+  <li>// use a loop to prompt the user to initialize the array</li>
+  <li> for (int i=0; i &lt; n; i++)</li>
+  <li> {</li>
+  <li> cout &lt;&lt; "Enter a value for ages[ " &lt;&lt; i &lt;&lt; "
+]: ";</li>
+  <li> cin &gt;&gt; ages[i];</li>
+  <li> }</li>
+  <li>// print out the contents of the array</li>
+  <li> for(int i=0; i<n; i++)=""></n;></li>
+  <li> {</li>
+  <li> cout &lt;&lt; "ages[ " &lt;&lt; i &lt;&lt; " ]: " &lt;&lt;
+ages[i];</li>
+  <li> }</li>
+  <li><br>
+  </li>
+  <li> // finished with the array</li>
+  <li> //clean up the memory used by calling delete</li>
+  <li> delete [] ages;</li>
+  <li> return 0;</li>
+  <li>}</li>
+  <li>Output</li>
+  <li>C++ Syntax: new</li>
+  <li>General form</li>
+  <li>SomeTypePtr = new SomeType;</li>
+  <li>Examples</li>
+  <li>int * intPointer = new int;</li>
+  <li>Rational * rPointer = new Rational;</li>
+  <li>int * intPointer2 = new int(0);</li>
+  <li>Rational * rPointer2 = new Rational(1,2);</li>
+  <li>Memory Management</li>
+  <li>Java is garbage collected</li>
+  <li>Allocated memory is automatically reclaimed, programmer does not
+need to think about it</li>
+  <li><br>
+  </li>
+  <li>C++ does not have garbage collection</li>
+  <li>Programmer must reclaim that memory, otherwise that memory
+can-F-F¢t be used-A</li>
+  <li>C++ Syntax -- delete</li>
+  <li>delete </li>
+  <li>delete rPointer</li>
+  <li>delete intPointer</li>
+  <li>delete []</li>
+  <li>delete [] ages</li>
+  <li>delete</li>
+  <li>#include <string></string></li>
+  <li>using namespace std;</li>
+  <li>int main()</li>
+  <li>{</li>
+  <li> string * pointerToString = new string(-Y´hi¡);</li>
+  <li> // some code that uses pointerToString here</li>
+  <li> delete pointerToString;</li>
+  <li> return 0;</li>
+  <li>}</li>
+  <li>Remember this$B!D(B</li>
+  <li>Anything allocated with new MUST be deallocated with delete</li>
+  <li>Accessing parts of an object</li>
+  <li>For a regular (i.e., non-pointer) object, use a period:</li>
+  <li>Rational r;</li>
+  <li>r.num = 4;</li>
+  <li>For a pointer, dereference it first (as *r is the object, and r
+is the pointer):</li>
+  <li>Rational *r = new Rational();</li>
+  <li>(*r).num = 4;</li>
+  <li>A shorthand for the last line is below (the arrow means
+-F-F¡follow the pointer¢):-A</li>
+  <li>r-&gt;num = 4;</li>
+  <li>References (which we haven-F¢t seen yet) work like regular
+objects-A</li>
+  <li>C++ and memory allocation</li>
+  <li>Assume int *x has been declared</li>
+  <li>And int y is from user input</li>
+  <li>Consider these separate C++ lines of code:</li>
+  <li>x = new int[10]; // 40 bytes</li>
+  <li>x = new int; // 4 bytes</li>
+  <li>x = new int[y]; // y*4 bytes</li>
+  <li>When they are deleted, how does C++ know how much memory to free
+up?</li>
+  <li>C++ and memory allocation</li>
+  <li>#include <iostream></iostream></li>
+  <li>using namespace std;</li>
+  <li><br>
+  </li>
+  <li>class Foo {</li>
+  <li> int x, y;</li>
+  <li>};</li>
+  <li><br>
+  </li>
+  <li>int main() {</li>
+  <li> cout &lt;&lt; "sizeof(int): " &lt;&lt; sizeof(int) &lt;&lt; endl;</li>
+  <li> cout &lt;&lt; "sizeof(Foo): " &lt;&lt; sizeof(Foo) &lt;&lt; endl;</li>
+  <li><br>
+  </li>
+  <li> Foo *foo = new Foo();</li>
+  <li> Foo *bar = new Foo();</li>
+  <li><br>
+  </li>
+  <li> cout &lt;&lt; "1st Foo: " &lt;&lt; foo &lt;&lt; endl;</li>
+  <li> cout &lt;&lt; "2nd Foo: " &lt;&lt; bar &lt;&lt; endl;</li>
+  <li><br>
+  </li>
+  <li> int diff = ((int)bar)-((int)foo);</li>
+  <li><br>
+  </li>
+  <li> cout &lt;&lt; "Difference: " &lt;&lt; diff &lt;&lt; endl;</li>
+  <li><br>
+  </li>
+  <li> delete foo;</li>
+  <li> delete bar;</li>
+  <li> return 0;</li>
+  <li>}</li>
+  <li>Associativity of *</li>
+  <li>Consider:</li>
+  <li>char* x, y;</li>
+  <li>We can all agree that x is a character pointer (32 bits)</li>
+  <li>But what type is y?</li>
+  <li>It-F¢s a regular char (8 bits)-A</li>
+  <li>The * is right associative, meaning that the spacing should be:</li>
+  <li>char *x, y;</li>
+  <li>This won-F¢t be consistent in this course$B!D(B-A</li>
+  <li>Doubly linked lists</li>
+  <li>A very brief overview</li>
+  <li>From lab 2</li>
+  <li>friend</li>
+  <li>Sometimes other classes need access to private data members of
+another class</li>
+  <li>class ListNode</li>
+  <li>{</li>
+  <li> public:</li>
+  <li> // $B!D(B</li>
+  <li> private:</li>
+  <li> ListNode *next, *previous;</li>
+  <li>friend class List;</li>
+  <li>};</li>
+  <li>Common mistakes</li>
+  <li>Consider a class Foo with an uninitialized ListNode* field list
+that needs to be initialized in the constructor.</li>
+  <li>What is wrong with the following two methods?</li>
+  <li>They both compile just fine</li>
+  <li><br>
+  </li>
+  <li>End of lecture on Fri, Sep 6</li>
+</ul>
+	  </section>
+
+	</section>
+
+	<section>
+
+	  <section>
+	    <h1>References</h1>
+
+	  </section>
+
+	  <section>
+<ul>
+  <li>References</li>
+  <li>References</li>
+  <li>Declaring a reference</li>
+  <li>List sampleList</li>
+  <li>List &amp; theList = sampleList;</li>
+  <li>Reference to a List object</li>
+  <li>What is a reference?</li>
+  <li>Like a pointer, it holds an address, BUT$B!D(B</li>
+  <li>Its address cannot change (its address is constant)</li>
+  <li>It MUST be initialized upon declaration (cannot be initialized to
+NULL$B!D(B normally$B!D(B)</li>
+  <li>Has implicit dereferencing</li>
+  <li>swap() with Pointers</li>
+  <li>void swap(int * x, int * y)</li>
+  <li>{</li>
+  <li> int temp = *x;</li>
+  <li> *x = *y;</li>
+  <li> *y = temp;</li>
+  <li>}</li>
+  <li>Programmer must specify dereferencing explicitly</li>
+  <li>swap with References</li>
+  <li>void swap(int &amp; x, int &amp; y)</li>
+  <li>{</li>
+  <li> int temp = x;</li>
+  <li> x = y;</li>
+  <li> y = temp;</li>
+  <li>}</li>
+  <li>Dereferencing is implied with each use</li>
+  <li>All Java non-primitive types are references</li>
+  <li>Calling swap() with references</li>
+  <li>int main()</li>
+  <li>{</li>
+  <li> int a=0;</li>
+  <li> int b=3;</li>
+  <li> cout &lt;&lt; "Before swap(): a: " &lt;&lt; a &lt;&lt; "b: "
+&lt;&lt; b &lt;&lt; endl;</li>
+  <li> swap(b,a);</li>
+  <li> cout &lt;&lt; "After swap(): a: " &lt;&lt; a &lt;&lt; "b: " </li>
+  <li> &lt;&lt; b &lt;&lt; endl;</li>
+  <li><br>
+  </li>
+  <li> return 0;</li>
+  <li>}</li>
+  <li>Accessing Members of An Object</li>
+  <li><br>
+  </li>
+  <li><br>
+  </li>
+  <li>class Square</li>
+  <li>{</li>
+  <li> public:</li>
+  <li> // constructors, etc. would be here</li>
+  <li><br>
+  </li>
+  <li> int sideLength;</li>
+  <li>};</li>
+  <li>Accessing Members through a Pointer</li>
+  <li>// other code omitted for space reasons</li>
+  <li>int main()</li>
+  <li>{</li>
+  <li> Square *squarePtr = new Square(1);</li>
+  <li> int length = squarePtr-&gt;sideLength;</li>
+  <li> return 0;</li>
+  <li>}</li>
+  <li>Accessing Members through a Reference</li>
+  <li>// other code omitted for space reasons</li>
+  <li>int main()</li>
+  <li>{</li>
+  <li> Square square = Square(1);</li>
+  <li> Square &amp; squareRef = square;</li>
+  <li> int length = squareRef.sideLength;</li>
+  <li> return 0;</li>
+  <li>}</li>
+  <li>Accessing Pointers within Objects</li>
+  <li>class example1 </li>
+  <li>{</li>
+  <li> $B!D(B</li>
+  <li> public:</li>
+  <li> int *a;</li>
+  <li>};</li>
+  <li>$B!D(B</li>
+  <li>example1 *c = new example1;</li>
+  <li>int x = 0;</li>
+  <li>(*c).a = &amp;x</li>
+  <li>c-&gt;a = &amp;x;</li>
+  <li>Pointer/Reference Cheat Sheet</li>
+</ul>
+	  </section>
+
+	</section>
+
+	<section>
+
+	  <section>
+	    <h1>More C++</h1>
+
+	  </section>
+
+	  <section>
+<ul>
+  <li>Parameter Passing</li>
+  <li>Call By Value</li>
+  <li>Actual argument is copied into formal parameter</li>
+  <li><br>
+  </li>
+  <li>int max(int a, int b);</li>
+  <li>void swap (int * x, int *y);</li>
+  <li>bool compare(Rational left, Rational right);</li>
+  <li><br>
+  </li>
+  <li>Can also pass pointers by value</li>
+  <li>Call By Reference</li>
+  <li>Pass references as parameters</li>
+  <li><br>
+  </li>
+  <li>void swap (int &amp;x, int &amp;y);</li>
+  <li><br>
+  </li>
+  <li>Use when formal parameter should be able to change the value of
+the actual argument</li>
+  <li>Call By Constant Reference</li>
+  <li>Parameters are constant (won-F¢t change) and are passed by
+reference-A</li>
+  <li><br>
+  </li>
+  <li>bool compare(const Rational &amp; left, const Rational &amp;
+right);</li>
+  <li><br>
+  </li>
+  <li>Use when there is a class type that cannot be changed by formal
+parameter</li>
+  <li>Other parameter passing types</li>
+  <li>Call by copy-restore</li>
+  <li>Call by name</li>
+  <li>Call by need</li>
+  <li>Call by macro expansion</li>
+  <li>Return Passing</li>
+  <li>Return by value</li>
+  <li>return a copy (possibly a copy of the pointer)</li>
+  <li>Return by reference</li>
+  <li>return a reference</li>
+  <li>Return by constant reference</li>
+  <li>-Y´The Big Three¡</li>
+  <li>Destructors, </li>
+  <li>Copy Constructors, </li>
+  <li>operator=</li>
+  <li><br>
+  </li>
+  <li>C++ Provides These By Default</li>
+  <li>Destructor</li>
+  <li>Copy Constructor</li>
+  <li>operator=</li>
+  <li>Destructors</li>
+  <li>Called whenever an object </li>
+  <li>goes out of scope, or</li>
+  <li>delete is called</li>
+  <li>Frees up any resources allocated during the use of an object</li>
+  <li>Example (only prototype shown):</li>
+  <li>~IntCell();</li>
+  <li><br>
+  </li>
+  <li>Copy Constructor</li>
+  <li>Special constructor that creates a new object, initialized to a
+copy of the same type of object</li>
+  <li>Called in the following situations:</li>
+  <li>declaration with initalization</li>
+  <li>IntCell copy = original;</li>
+  <li>IntCell copy(original);</li>
+  <li>if object is passed by value</li>
+  <li>if object is returned by value</li>
+  <li>operator=</li>
+  <li>aka copy assignment operator</li>
+  <li>Intended to copy the state of original into copy</li>
+  <li>Called when = is applied to two objects AFTER both have
+previously been constructed</li>
+  <li>IntCell original; // constructor called</li>
+  <li>IntCell copy;</li>
+  <li>copy = original; // operator= called</li>
+  <li>End of lecture on Mon, Sep 9</li>
+  <li>We will not be going over the remaining slides in this lecture
+set in lecture, but you should review them yourself</li>
+</ul>
+	  </section>
+
+	</section>
+
+	<section>
+
+	  <section>
+	    <h1>Sample (advanced) code</h1>
+
+	  </section>
+
+	  <section>
+<ul>
+  <li>Sample (advanced) code</li>
+  <li>test.h</li>
+  <li>class test {</li>
+  <li> static int idcount;</li>
+  <li> const int id;</li>
+  <li> int value;</li>
+  <li>public:</li>
+  <li> test();</li>
+  <li> test(int v);</li>
+  <li> test(const test&amp; x);</li>
+  <li> ~test();</li>
+  <li> test&amp; operator=(const test&amp; other);</li>
+  <li> friend ostream&amp; operator&lt;&lt;(ostream&amp; out, const
+test&amp; f);</li>
+  <li>};</li>
+  <li><br>
+  </li>
+  <li>test.cpp 1/2</li>
+  <li><br>
+  </li>
+  <li>int test::idcount = 0;</li>
+  <li><br>
+  </li>
+  <li>test::test() : id (idcount++), value(0) { </li>
+  <li> cout &lt;&lt; "calling test(); object created is " &lt;&lt; *this</li>
+  <li> &lt;&lt; "; address is " &lt;&lt; this &lt;&lt; endl; </li>
+  <li>}</li>
+  <li><br>
+  </li>
+  <li>test::test(int v) : id (idcount++), value(v) { </li>
+  <li> cout &lt;&lt; "calling test(" &lt;&lt; v &lt;&lt; "); object
+created is " &lt;&lt; *this </li>
+  <li> &lt;&lt; "; address is " &lt;&lt; this &lt;&lt; endl;</li>
+  <li>}</li>
+  <li><br>
+  </li>
+  <li>test::test(const test&amp; x) : id(x.id), value(x.value) {</li>
+  <li> cout &lt;&lt; "calling test(&amp;test) on " &lt;&lt; *this
+&lt;&lt; "; address is " &lt;&lt; this &lt;&lt; endl;</li>
+  <li>}</li>
+  <li>test.cpp 2/2</li>
+  <li><br>
+  </li>
+  <li><br>
+  </li>
+  <li><br>
+  </li>
+  <li>test::~test() {</li>
+  <li> cout &lt;&lt; "calling ~test() on " &lt;&lt; *this &lt;&lt; endl;</li>
+  <li>}</li>
+  <li><br>
+  </li>
+  <li>test&amp; test::operator=(const test&amp; other) {</li>
+  <li> cout &lt;&lt; "calling operator=(" &lt;&lt; other &lt;&lt; ")"
+&lt;&lt; endl;</li>
+  <li> test *tmp = new test(other); </li>
+  <li> return *tmp;</li>
+  <li>}</li>
+  <li><br>
+  </li>
+  <li>ostream&amp; operator&lt;&lt;(ostream&amp; out, const test&amp;
+f) {</li>
+  <li> out &lt;&lt; "test[id=" &lt;&lt; f.id &lt;&lt; ",v=" &lt;&lt;
+f.value &lt;&lt; "]";</li>
+  <li>}</li>
+  <li>The one subroutine$B!D(B</li>
+  <li>test bar(test param) {</li>
+  <li> return test(10);</li>
+  <li>}</li>
+  <li><br>
+  </li>
+  <li>main() code and output, 1/6</li>
+  <li>test a();</li>
+  <li>cout &lt;&lt; "attempted to create a: " &lt;&lt; a &lt;&lt; endl;</li>
+  <li><br>
+  </li>
+  <li>cout &lt;&lt; "----------------------------------------" &lt;&lt;
+endl;</li>
+  <li>test aa;</li>
+  <li>cout &lt;&lt; "created aa: " &lt;&lt; aa &lt;&lt; endl;</li>
+  <li>main() code and output, 2/6</li>
+  <li>cout &lt;&lt; "----------------------------------------" &lt;&lt;
+endl;</li>
+  <li>test b(1);</li>
+  <li>cout &lt;&lt; "created b: " &lt;&lt; b &lt;&lt; endl;</li>
+  <li>main() code and output, 3/6</li>
+  <li>cout &lt;&lt; "----------------------------------------" &lt;&lt;
+endl;</li>
+  <li>test *c = new test(2);</li>
+  <li>cout &lt;&lt; "created *c: " &lt;&lt; *c &lt;&lt; " at " &lt;&lt;
+c &lt;&lt; endl;</li>
+  <li>test *d = new test;</li>
+  <li>cout &lt;&lt; "created *d: " &lt;&lt; *d &lt;&lt; " at " &lt;&lt;
+d &lt;&lt; endl;</li>
+  <li>main() code and output, 4/6</li>
+  <li>cout &lt;&lt; "----------------------------------------" &lt;&lt;
+endl;</li>
+  <li>cout &lt;&lt; "about to invoke subroutine..." &lt;&lt; endl;</li>
+  <li>test e = bar(*c);</li>
+  <li>cout &lt;&lt; "finished invoking subroutine..." &lt;&lt; endl;</li>
+  <li>main() code and output, 5/6</li>
+  <li>cout &lt;&lt; "----------------------------------------" &lt;&lt;
+endl;</li>
+  <li>test f = b;</li>
+  <li><br>
+  </li>
+  <li>cout &lt;&lt; "----------------------------------------" &lt;&lt;
+endl;</li>
+  <li>cout &lt;&lt; "about to delete a test object..." &lt;&lt; endl;</li>
+  <li>delete c;</li>
+  <li>main() code and output, 6/6</li>
+  <li>cout &lt;&lt; "----------------------------------------" &lt;&lt;
+endl;</li>
+  <li>cout &lt;&lt; "assignment..." &lt;&lt; endl;</li>
+  <li>aa = b;</li>
+  <li><br>
+  </li>
+  <li>cout &lt;&lt; "----------------------------------------" &lt;&lt;
+endl;</li>
+  <li> cout &lt;&lt; "about to leave main..." &lt;&lt; endl;</li>
+</ul>
+
+	</section>
+
+	</section>
+	
+      </div>
+
+    </div>
+
+    <script src="reveal.js/lib/js/head.min.js"></script>
+    <script src="reveal.js/js/reveal.min.js"></script>
+    <script src="settings.js"></script>
+
+  </body>
+</html>
