@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>CS 2150: 01-intro slide set</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="pdr.css">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	<section>
+	  <h1>CS 2150</h1>
+	  <p>&nbsp;</p>
+	  <h3>Program and Data Representation</h3>
+	  <h3>Spring 2014</h3>
+	  <p>&nbsp;</p>
+	  <p class="center">
+	    <small>By <a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> / <a href="mailto:aaron@virginia.edu">aaron@virginia.edu</a> / <a href="http://twitter.com/bloomfieldaaron">@bloomfieldaaron</a><br>&nbsp;<br>
+		<a href="http://github.com/aaronbloomfield/pdr">github.com/aaronbloomfield/pdr</a></small>
+	  </p>
+	  <p>&nbsp;</p>
+	  <p>&nbsp;</p>
+	  <h2>Course Introduction</h2>
+	</section>
+
+	<section>
+	  <h1>Contents</h1>
+	  <p>&nbsp;</p>
+	  <p>Course Structure and Logistics</p>
+	  <p>Honor Policy</p>
+	  <p>Grading Criteria</p>
+	  <p>Course Goals</p>
+	  <p>Closing Thoughts</p>
+	</section>
+
+	<section>
+
+	  <section>
+	    <h1>Course Structure and Logistics</h1>
+	  </section>
+
+	  <section>
+	    <h2>Instructional Staff</h2>
+	    <p>&nbsp;</p>
+	    <img width="260" height="302" src="images/01-intro/aaronbloomfield.jpg" alt="Aaron Bloomfield">
+	    <p class="center">Aaron Bloomfield</p>
+	    <p class="center">Rice Hall, room 403</p>
+	    <p class="center"><a href="mailto:aaron@virginia.edu">aaron@virginia.edu</a></p>
+	    <p class="center">Office hours are M/W 1:30-3:00</p>
+	  </section>
+
+	  <section>
+	    <h2>Instructional Staff</h2>
+	    <p>&nbsp;</p>
+	    <p>About a dozen undergraduate TAs</p>
+	    <p>1 or 2 graduate graders or TAs</p>
+	  </section>
+
+	  <section>
+	    <h2>Collab</h2>
+	    <p>&nbsp;</p>
+	    <p>UVa's fancy course management system.  We'll use it for pretty much everything:</p>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>Assignment submission</li>
+	      <li>All grading</li>
+	      <li>File downloads (labs, lecture notes, etc.)</li>
+	      <li>Wikis</li>
+	      <li>Blog</li>
+	      <li>Etc.</li>
+	    </ul>
+	    <p>&nbsp;</p>
+	    <p>We'll see a tour of the Collab tools next lecture</p>
+	  </section>
+
+	  <section>
+	    <h2>Contacting Us</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>Support requests submitted via the Collab tool; we will try to respond within 24 hours.</li>
+	      <li>Questions posed through Piazza</li>
+	      <li>Office hours
+		<ul>	    
+		  <li>Will start this Sunday; we will have about 30 hours per week</li>
+		  <li>Will be posted in the <a href="https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York">CS 2150 Google Calendar</a> (which is linked to via Collab)</li>
+		  <li>Please check before heading over in case there are any changes</li>
+		  <li>Mine are in Rice 403; the TA's are in the Thornton stacks</li>
+		</ul>
+	      </li>
+	      <li>Anonymous feedback, also through Collab</li>
+	    </ul>
+	  </section>
+
+	  <section>
+	    <h2>Contacting Us</h2>
+	    <img height="600" src="images/01-intro/contacting-flowchart.png" alt="Who to contact">
+	  </section>
+
+	  <section>
+	    <h2>Contacting You</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>Announcements are posted to the course twitter feed: <a href="https://twitter.com/@UVaCS2150">@UVaCS2150</a>
+		<ul>
+		  <li>In an effort to keep it uncluttered (so that people can find what they are looking for), I will generally not respond to individual tweets from that account.</li>
+		</ul>
+	      </li>
+	      <li>Class Email
+		<ul>
+		  <li>I use this sparingly -- I expect to send 5 (five!) emails this entire semester, unless something goes very wrong -- and I've already sent one of those five</li>
+		</ul>
+	      </li>
+	      <li>Things in this course happen on a very structured schedule, so there will be no surprises as to when things happen</li>
+	    </ul>
+	  </section>
+
+	  <section>
+	    <h2>Meetings</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>Lectures: MWF 9:00-9:50 in Rice 130 or 12-12:50 in MEC 205</li>
+	      <li>Lectures will be recorded*, and posted on Collab</li>
+	      <li>Lab meetings: 1 per week
+		<ul>
+		  <li>Tues 11:00-12:45, 1:30-3:15, 3:30-5:15, 5:30-7:15, or 7:30-9:15</li>
+		  <li>You cannot attend another lab section without prior permission</li>
+		  <li>We can't register more than 44 people in a given lab.  Sorry!</li>
+		</ul>
+	      </li>
+	      <li>Office hours, if you choose to attend them</li>
+	    </ul>
+	  </section>
+
+	  <section>
+	    <h2>Lab Procedure</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>Pre-lab (due prior to coming to lab), which often includes a tutorial</li>
+	      <li>In-lab (due at the end of lab)</li>
+	      <li>Post-lab (due on the Friday morning of the lab)</li>
+	      <li>Labs begin next week</li>
+	      <li>Labs are posted Thursdays, generally by noon</li>
+	      <li>There are late policies for the labs -- these are discussed in the first lab
+	    </ul>
+	  </section>
+
+	  <section>
+	    <h2>Spring 2014 Registration Issues</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>We cannot, for any reason, allow the registration for a given lab section to go above 44 students (here are not enough computers, and you cannot use your own computer)</li>
+	      <li>The dept is not able to offer a 6th lab section</li>
+	      <li>Which means we have very little room for registration</li>
+	      <li>Priority goes to ALREADY declared computing majors</li>
+	      <li>If you want to enroll, please fill out the form at ... and we will get back to you soon</li>
+	      <li>All others will not be able to take the course -- I'm really sorry about this</li>
+	      <li>If you would like to complain about this, I have a list of people you can e-mail!</li>
+	    </ul>
+	  </section>
+
+	  <section>
+	    <h2>Expectations</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>Prerequisites: (CS 2110 or CS 2220) and CS 2102, all with a C- or above</li>
+	      <li>You understand basic programming (CS I & II):
+		<ul>
+		  <li>Can write a program longer than a screen-full</li>
+		  <li>Understand references, classes, objects, templates (generics)</li>
+		  <li>Familiar with common control structures, procedures, recursive definitions
+		</ul>
+	      </li>
+	      <li>You remember some things from CS 2102 (or will learn/refresh your understanding when you need them):
+		<ul>
+		  <li>Arithmetic, logarithms, sets, graphs</li>
+		  <li>Proof techniques (induction, contradiction)</li>
+		  <li>This material may be used in the context of a test question
+		</ul>
+	      </li>
+	    </ul>
+	  </section>
+	  
+	  <section>
+	    <h2>CS 2102 as a co-req</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>If you have not already taken CS 2102 previously, you may take it this semester.</li>
+	      <li>However, by doing so, you understand and agree that any 2102 material that ends up on the exam is your bad luck</li>
+	      <li>That's why it's listed as a pre-req!</li>
+	      <li>For the spring 2014 semester, there are still some spots available in CS 2102</li>
+	    </ul>
+	  </section>
+
+	  <section>
+	    <h2>Labs / HWs</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>Labs are much bigger in this course, and basically are the homeworks</li>
+	      <li>Labs will generally be made available on Thursday by noon, and due by the end of the following week
+		<ul>
+		  <li>Pre-lab to be done BEFORE showing up to Tuesday's lab section: all are due at the same time on Tuesday (that time is the time the first lab section starts</li>
+		  <li>In-lab to be done IN lab section</li>
+		  <li>Post-lab to be done AFTER lab section</li>
+		</ul>
+	      </li>
+	      <li>Lab attendance is required!  And you can't change sections without prior permission, as we don't have the computers or TAs to support this</li>
+	    </ul>
+	  </section>
+
+	  <section>
+	    <h2>Lab due times</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>All the labs have a specified due time, as described in lab 1, and available on the Collab wiki.  The submission server has it's clock set to the US Navy atomic clock.</li>
+	      <li>If the lab is late for ANY reason (save what is described below), then you will receive the late penalty.  Thus, you should take this into account and not wait until the last minute to try to submit.  These reasons include:
+		<ul>
+		  <li>Your Internet being down</li>
+		  <li>Your computer being slow</li>
+		  <li>UVa's Internet being down</li>
+		</ul>
+	      </li>
+	      <li>The ONLY exception is if the submission server itself, Collab, or the CS department's network that allows the server to be accessed is down.</li>
+	    </ul>	      
+	  </section>
+
+	  <section>
+	    <h2>Spring break!</h2>
+	    <p>&nbsp;</p>
+	    <img src="images/01-intro/spring-break-2014-uva.png" alt="UVa's spring break">
+	    <p>&nbsp;</p>
+	    <p>What UVa defines as "Spring break"</p>
+	  </section>
+
+	  <section>
+	    <h2>Spring break!</h2>
+	    <p>&nbsp;</p>
+	    <img src="images/01-intro/spring-break-2014-student.png" alt="UVa student's spring break">
+	    <p>&nbsp;</p>
+	    <p>What UVa students define as "Spring break"</p>
+	  </section>
+
+	  <section>
+	    <h2>Sprint break and labs</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>There are obviously no labs during spring break</li>
+	      <li>But since most labs are done over the weekends, if you decide to take both spring break weekends off, you are going to be in trouble when you return</li>
+	    </ul>
+	  </section>
+	  
+	  <section>
+	    <h2>Accounts</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>Olsson 001 Lab Accounts
+		<ul>
+		  <li>There are two of these: one for Linux, one for Windows; we do not expect to use the Windows account</li>
+		  <li>You will receive two email about this, one for each account</li>
+		</ul>
+	      </li>
+	      <li>Your Collab account
+		<ul>
+		  <li>You have this already as well: <a href="http://collab.itc.virginia.edu/portal">http://collab.itc.virginia.edu/portal</a></li>
+		</ul>
+	      </li>
+	    </ul>
+	  </section>
+
+	  <section>
+	    <h2>Unix</h2>
+	    <p>&nbsp;</p>
+	    <p>This class will program exclusively in a Unix environment.  There are a number of options (listed from easy to hard):</p>
+	    <ul>
+	      <li>Run VirtualBox (it's free) and use the course Linux image
+		<ul>
+		  <li>This is recommended; there will be extensive directions</li>
+		</ul>
+	      </li>
+	      <li>Program in Linux in Olsson 001 (when a lab is not in session)
+		<ul>
+		  <li>You can get a key for a $5 deposit (see me for this)</li>
+		</ul>
+	      </li>
+	      <li>Mac users can use a terminal window, as Mac OS X is based on Unix
+		<ul>
+		  <li>But you can't use an IDE!</li>
+		  <li>Note that some things (such as doxygen and some x86 features) are not compatible!</li>
+		</ul>
+	      </li>
+	      <li>Install a Unix OS (Linux, etc.) on your home machine
+		<ul>
+		  <li>Backup everything first!!!</li>
+		</ul>
+	      </li>
+	    </ul>
+	  </section>
+
+	  <section>
+	    <h2>Unix honor pledge</h2>
+	    <p>&nbsp;</p>
+	    <p>In order to take this class, you must agree to sign an honor pledge stating that you will not use any MS Windows development environment (including Visual Studio) for any work for this class.  If you do, it will be an honor violation, and you will receive an automatic F for the course.</p>
+	    <p>&nbsp;</p>
+	    <p>Furthermore, you cannot use any IDE (Xcode, Eclipse, Netbeans, etc. Visual Studio) on any OS for the code development in this course</p>
+	    <p>&nbsp;</p>
+	    <p>(the reason for this is to teach you Unix, not a vendetta against IDEs)</p>
+	  </section>
+
+	  <section>
+	    <h2>Compiler usage</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>We are NOT using gcc/g++ this semester
+		<ul>
+		  <li>This is a change from previous semesters</li>
+		</ul>
+	      </li>
+	      <li>Instead we are using clang++ (from LLVM)
+		<ul>
+		  <li>If you don't know what this means, you can safely ignore it</li>
+		  <li>But if you are familiar with gcc/g++, please don't use it, as clang has MUCH better error messages</li>
+		</ul>
+	      </li>
+	      <li>(Note that we may use gcc/g++ for the two x86 labs, but more on that later)</li>
+	    </ul>
+	  </section>
+
+	  <section>
+	    <h2>Textbooks</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>There are none for this course
+		<ul>
+		  <li>The books that exist are way too expensive and not all that good</li>
+		</ul>
+	      </li>
+	      <li>Instead, we will have optional online readings for those who would like to read about the course material as well</li>
+	    </ul>
+	  </section>
+
+	  <section>
+	    <h2>Course materials</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>Most of the course materials can be found online at <a href="http://github.com/aaronbloomfield/pdr">github.com/aaronbloomfield/pdr</a>
+		<ul>
+		  <li>You don't need to know git to use it (although git is not a bad thing to learn) as you can download a .zip file from that URL</li>
+		</ul>
+	      </li>
+	      <li>These slides are written using <a href="https://github.com/hakimel/reveal.js/">reveal.js</a>, a HTML-based presentation system
+		<ul>
+		  <li>The source for the slides is in the github repo</li>
+		  <li>To export to a PDF (and thus to print), you must use Google Chrome; see <a href="https://github.com/hakimel/reveal.js/#pdf-export">here</a> for deatils</li>
+		  <li>Note that the slides are not in a linear format, so printing may cause issues; you can always view the slides online</li>
+		</ul>
+	      </li>
+	      <li>Lecture recordings are stored in Collab (in the Resources/lectures directory)</li>
+	    </ul>
+	  </section>
+
+	  <section>
+	    <h2>Learning your names...</h2>
+	    <p>&nbsp;</p>
+	    <p>I am determined to learn each of your (first) names</p>
+	    <p>&nbsp;</p>
+	    <p>So if you raise your hand in lecture, and I don't call on you by name, you have to say your first name before your question</p>
+	    <p>&nbsp;</p>
+	    <p>Don't be offended if it takes me a while -- there are over 200 of you...</p>
+	  </section>
+
+	</section>
+
+	<section>
+
+	  <section>
+	    <h1>Honor Policy</h1>
+	  </section>
+
+	  <section>
+	    <h2>Class Honor Policy</h2>
+	    <p>&nbsp;</p>
+	    <p>The University of Virginia Honor Policy in effect.  In addition to the normal rules, we have this policy:</p>
+	    <p>&nbsp;</p>
+	    <p>If you are looking at another student's source code for ANY reason (including code from a student from a previous semester), you are in violation of the honor policy.  You may look at another student's source code after the program has been finally submitted by BOTH parties.</p>
+	</section>
+
+	<section>
+	    <h2>Class Honor Policy</h2>
+	    <p>&nbsp;</p>
+	    <p>Any honor violation or cheating will be referred to the honor committee, and will result in <strong class="red">immediate failure</strong> for the course</p>
+	    <p>&nbsp;</p>
+	    <p>I have done this before, and I will do it again.  Please don't test me on this.</p>
+	    <p>&nbsp;</p>
+	    <p>We will see the cheat-checking program later this semester, as we will have learned enough theory to understand how it works</p>
+	  </section>
+
+	<section>
+	    <h2>Honor pledge quiz!</h2>
+	    <p>&nbsp;</p>
+	    <p>Do these count as honor violations?</p>
+	    <ul>
+	      <li>Copying somebody's code completely, even if they've taken the course a year ago</li>
+	      <li><a href="http://www.cplusplus.com/forum/beginner/35616/">http://www.cplusplus.com/forum/beginner/35616/</a></li>
+	      <li>A student who, upon taking the class a second time, claimed s/he had already submitted the assignment before (being in the class previously), and thus was allowed to copy the assignment from somebody else</li>
+	      <li>Taking a 45 minute bathroom break during the final exam to look up the answews</li>
+	      <li>Looking up the answers on your cell phone during an exam</li>
+	    </ul>
+	    <p>&nbsp;</p>
+	    <p class="fragment">The answer to all of these is yes, by the way.</p>
+	</section>
+
+	</section>
+
+	<section>
+
+	  <section>
+	    <h1>Grading Criteria</h1>
+	  </section>
+
+	  <section>
+	    <h2>Grading Criteria</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>40% Labs (there will be 11 or 12 labs)</li>
+	      <li>30% Midterms, during lab and in lab classroom
+		<ul>
+		  <li>Midterm 1: February XXX; midterm 2: April YYY</li>
+		</ul>
+	      </li>
+	      <li>25% Final Exam, room TBA
+		<ul>
+		  <li>Common exam time is Saturday, May 3rd, from 7 p.m. to 10 p.m.</li>
+		  <li>It can NOT be taken early, so don't even ask</li>
+		</ul>
+	      </li>
+	      <li>5% Class participation
+		<ul>
+		  <li>Some examples: random in-class quizzes on readings or previously covered topics, in-class questions, speaking up in class, using Piazza, etc.</li>
+		</ul>
+	      </li>
+	      <li>We reserve the right to change this!  See the course syllabus for details...</li>
+	    </ul>
+	</section>
+
+	<section>
+	    <h2>Final exam</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>Because there are two lecture periods, this class has a common exam time: Saturday, May 3rd, from 7 p.m. to 10 p.m.
+		<ul>
+		  <li>You may NOT take it early for any reason</li>
+		  <li>You may NOT take the exam at a different time because you have a busy final exam schedule</li>
+		</ul>
+	      </li>
+	      <li>Other classes that also have an exam then:
+		<ul>
+		  <li>APMA 3110</li>
+		  <li>ECON 2020 (sections 100 and 200 only)</li>
+		</ul>
+	      </li>
+	      <li>You must let me know by the end of January if you have a conflict
+		<ul>
+		  <li>If you don't let us know by then, then you will have to take it at the common time</li>
+		</ul>
+	      </li>
+	    </ul>
+	  </section>
+
+	  <section>
+	    <h2>Compilation</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>You will receive zero credit for code that does not compile.  No exceptions!
+		<ul>
+		  <li>This is an advanced programming class, and under no circumstances should you submit code that does not compile</li>
+		</ul>
+	      </li>
+	      <li>The submission system will compile the code when you submit it
+		<ul>
+		  <li>We have a guide as to how to work through compilation errors, and what to do if you can't get it to compile</li>
+		</ul>
+	      </li>
+	    </ul>
+	  </section>
+
+	</section>
+
+	<section>
+
+	  <section>
+	    <h1>Course Goals</h1>
+	  </section>
+
+	  <section>
+	    <h2>Course Goals</h2>
+	    <p>&nbsp;</p>
+	    <ol>
+	      <li>Levels of abstraction</li>
+	      <li>Implementing data structures</li>
+	      <li>Time and space complexity analysis</li>
+	      <li>Basic program execution model (hw/sw)</li>
+	      <li>Assembly language programming</li>
+	    </ol>
+	  </section>
+
+	  <section>
+	    <h2>Course Goal 1</h2>
+	    <p>&nbsp;</p>
+	    <p>Understand program representation from high-level programming language to machine level representation</p>
+	  </section>
+
+	  <section>
+	    <h2>Levels of Abstraction: Program</h2>
+	    <p>&nbsp;</p>
+	    <p>diagram...</p>
+	  </section>
+
+	<section>
+	    <h2>Course Goal 2</h2>
+	    <p>&nbsp;</p>
+	    <p>Be able to implement basic and advanced data structures in C++</p>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>linked lists</li>
+	      <li>stacks</li>
+	      <li>queues</li>
+	      <li>hash tables</li>
+	      <li>heaps</li>
+	      <li>trees</li>
+	      <li>etc.</li>
+	    </ul>
+	  </section>
+
+	<section>
+	    <h2>Why do we care about data structures?</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>One answer (of many): time</li>
+	      <li>Consider a program that does the following:
+		<ul>
+		  <li>Creates 5 list-like data structures</li>
+		  <li>Adds 50,000 elements (even integers from 0-100,000)</li>
+		  <li>Searches for 25,000 elements (integers from 0-25,000)</li>
+		  <li>Deletes 10,000 elements (integers from 0-10,000)</li>
+		  </ul>
+	      </li>
+	      <li>And records the time each data structure takes for these operations
+		<ul>
+		  <li>See <a href="src/01-intro/DataStructureComparison.java">DataStructureComparison.java</a></li>
+		</ul>
+	      </li>
+	      <li>What are the results?</li>
+	    </ul>
+	  </section>
+
+	  <section>
+	    <h2>The results</h2>
+	    <p>&nbsp;</p>
+	    <p>From a Pentium 3.0 Ghz PC with more than sufficient memory</p>
+	    <p>&nbsp;</p>
+	    <table class="rowaltcolor">
+	      <tr><td>Data structure</td><td>Running time</td></tr>
+	      <tr><td>Vector</td><td>17.311 sec</td></tr>
+	      <tr><td>ArrayList</td><td>17.281 sec</td></tr>
+	      <tr><td>LinkedList</td><td>24.255 sec</td></tr>
+	      <tr><td>HashSet</td><td>0.122 sec</td></tr>
+	      <tr><td>TreeSet</td><td>0.119 sec</td></tr>
+	    </table>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li class="fragment">Difference between a ArrayList (most common) and TreeSet: a factor of about 150</li>
+	      <li class="fragment">Difference between a LinkedList (slowest) and TreeSet: a factor of about 200</li>
+	    </ul>
+	  </section>
+
+	  <section>
+	    <h2>The results, in more detail</h2>
+	    <p>&nbsp;</p>
+	    <p>All times are in ms (1/1000th of a second)</p>
+	    <p>&nbsp;</p>
+	    <table class="rowaltcolor">
+	      <tr><td>Data Structure</td><td>Total time</td><td>Insert time</td><td>Search time</td><td>Delete time</td></tr>
+	      <tr><td>Vector</td><td>17,311</td><td>30</td><td>12,620</td><td>4,661</td></tr>
+	      <tr><td>ArrayList</td><td>17,281</td><td>28</td><td>12,609</td><td>4,644</td></tr>
+	      <tr><td>LinkedList</td><td>24,255</td><td>54</td><td>17,934</td><td>6,267</td></tr>
+	      <tr><td>HashSet</td><td>122</td><td>103</td><td>9</td><td>10</td></tr>
+	      <tr><td>TreeSet</td><td>119</td><td>93</td><td>14</td><td>12</td></tr>
+	      <tr><td>Vector, sorted</td><td>294</td><td>36</td><td>19</td><td>239</td></tr>
+	    </table>
+	  </section>
+
+	  <section>
+	    <h2>Course Goal 3</h2>
+	    <p>&nbsp;</p>
+	    <p>Understand asymptotic time and space complexity analysis of programs</p>
+	    <p>&nbsp;</p>
+	    <p>Given a program, how much time does it take to run?  How much space (memory) does it use?</p>
+	  </section>
+
+	  <section>
+	    <h2>Course Goal 4</h2>
+	    <p>&nbsp;</p>
+	    <p>Understand basic program execution model and the underlying computer hardware and software</p>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>Fetch-execute cycle</li>
+	      <li>Memory hierarchy</li>
+	      <li>Compiler</li>
+	      <li>Number representation</li>
+	      <li>The Y2.038K (or Y2K38) problem</li>
+	    </ul>
+	  </section>
+
+	  <section>
+	    <h2>Course Goal 5</h2>
+	    <p>&nbsp;</p>
+	    <p>Be able to implement basic control and data structures in assembly language (x86)</p>
+	  </section>
+
+	  <section>
+	    <h2>CS 2150 Roadmap</h2>
+	    <p>&nbsp;</p>
+	    <table>
+	      <tr><td colspan="3"><p class="center">Data Representation</p></td><td></td><td colspan="3"><p class="center">Program Representation</p></td></tr>
+	      <tr>
+		<td class="top"><small>&nbsp;<br>&nbsp;<br>string<br>&nbsp;<br>&nbsp;<br>int x[3]<br>&nbsp;<br>&nbsp;<br>char x<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>0x9cd0f0ad<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>01101011</small></td>
+		<!-- image adapted from http://openclipart.org/detail/3677/arrow-left-right-by-torfnase -->
+		<td><img class="noborder" src="images/red-double-arrow.png" height="500" alt="vertical red double arrow"></td>
+		<td class="top">&nbsp;<br>Objects<br>&nbsp;<br>Arrays<br>&nbsp;<br>Primitive types<br>&nbsp;<br>Addresses<br>&nbsp;<br>bits</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td class="top"><small>&nbsp;<br>&nbsp;<br>Java code<br>&nbsp;<br>&nbsp;<br>C++ code<br>&nbsp;<br>&nbsp;<br>C code<br>&nbsp;<br>&nbsp;<br>x86 code<br>&nbsp;<br>&nbsp;<br>IBCM<br>&nbsp;<br>&nbsp;<br>hexadecimal</small></td>
+		<!-- image adapted from http://openclipart.org/detail/3677/arrow-left-right-by-torfnase -->
+		<td><img class="noborder" src="images/green-double-arrow.png" height="500" alt="vertical green double arrow"></td>
+		<td class="top">&nbsp;<br>High-level language<br>&nbsp;<br>Low-level language<br>&nbsp;<br>Assembly language<br>&nbsp;<br>Machine code</td>
+	      </tr>
+	    </table>
+	  </section>
+
+	</section>
+
+	<section>
+
+	  <section>
+	    <h1>Closing Thoughts</h1>
+	  </section>
+
+	  <section>
+	    <h2>Feedback from previous semesters</h2>
+	    <p>&nbsp;</p>
+	    <p>You can view my entire course evals on <a href="http://www.cs.virginia.edu/~asb/">my personal website</a> (including from last semester)</p>
+	  </section>
+
+	  <section>
+	    <h2>Feedback from previous semesters</h2>
+	    <p>&nbsp;</p>
+	    <ul>
+	      <li>This has been the most informative/ difficult CS course I've taken so far, but definitely worth it</li>
+	      <li>This course was incredibly challenging, especially for me having not programmed in over a year -- This class changed my entire perspective on computer science, and is giving me an awesome foundation for the rest of my computer science education.</li>
+	      <li>Course was difficult, however I learned a lot.</li>
+	      <li>(and a bunch of complaints about the amount of work, blah, blah, blah)</li>
+	    </ul>
+	  </section>
+
+	</section>
+	
+      </div>
+
+    </div>
+
+    <script src="reveal.js/lib/js/head.min.js"></script>
+    <script src="reveal.js/js/reveal.min.js"></script>
+    <script src="settings.js"></script>
+
+  </body>
+</html>
