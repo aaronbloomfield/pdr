@@ -6,8 +6,8 @@
 
     <title>CS 2150: 02-cpp slide set</title>
 
-    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-    <meta name="author" content="Hakim El Hattab">
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -70,131 +70,85 @@
 
 	<section>
 
-	  <section id="intro">
-	    <h1>Introduction to C++</h1>
-	  </section>
+	  <section data-markdown id="intro"><script type="text/template">
+# Introduction to C++
+	  </script></section>
 
-	  <section>
-	    <h2>Why C++ and not Java?</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>It's good to learn a second language</li>
-	      <li>C++ is widely used
-		<ul>
-		  <li>Can be more efficient</li>
-		  <li>More control</li>
-		</ul>
-	      </li>
-	      <li>C++ will let us "get under the hood" more
-		<ul>
-		  <li>Data and program representation in memory</li>
-		  <li>Memory allocation</li>
-		</ul>
-	      </li>
-	    </ul>
-	  </section>
+	  <section data-markdown><script type="text/template">
+## Why C++ and not Java?
+- It's good to learn a second language
+- C++ is widely used
+  - Can be more efficient
+  - More control
+- C++ will let us "get under the hood" more
+  - Data and program representation in memory
+  - Memory allocation
+	  </script></section>
 
-	  <section>
-	    <h2>A brief history lesson</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>C was created in 1972 by Dennis Ritchie
-		<ul>
-		  <li>Intended to be terse, quick to write, and efficient</li>
-		</ul>
-	      </li>
-	      <li>C++ was created in 1985 by Bjarne Stroustrup
-		<ul>
-		  <li>Added classes while being backwards compatible</li>
-		  <li>Has pretty terrible syntax!</li>
-		</ul>
-	      </li>
-	    </ul>
-	  </section>
+	  <section data-markdown><script type="text/template">
+## A brief history lesson
+- C was created in 1972 by Dennis Ritchie
+  - Intended to be terse, quick to write, and efficient
+- C++ was created in 1985 by Bjarne Stroustrup
+  - Added classes while being backwards compatible
+  - Has pretty terrible syntax!
+	  </script></section>
 
-	  <section>
-	    <h2>Hello World --&nbsp; Java vs. C++</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>// Java
+	  <section data-markdown><script type="text/template">
+## Hello World -- Java vs. C++
+```
+// Java
 public class HelloWorld {
     public static void main(String [] args) {
         System.out.println("Hello World!");
     }
-}</code></pre>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>// C++
-#include &lt;iostream&gt;
+}
+```
+```
+// C++
+#include <iostream>
 using namespace std;
 int main() {
-    cout &lt;&lt; &quot;Hello World&quot; &lt;&lt; endl;
+    cout << "Hello World" << endl;
     return 0;
-}</code></pre>
-	  </section>
+}
+```
+	  </script></section>
 
-	  <section>
-	    <h2>Differences</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>main()</li>
-	      <li>Preprocessor
-		<ul>
-		  <li>#include</li>
-		</ul>
-	      </li>
-	      <li>using namespace std;</li>
-	      <li>Output</li>
-	    </ul>
-	  </section>
+	  <section data-markdown><script type="text/template">
+## Differences
+- `main()`
+- Preprocessor
+  - `#include`
+- `using namespace std;`
+- Output
+	  </script></section>
 
-	  <section>
-	    <h2>main()</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>Not a part of any class
-		<ul>
-		  <li>called a <i>function</i></li>
-		</ul>
-	      </li>
-	      <li>Must be global</li>
-	      <li>Must have a return type of int
-		<ul>
-		  <li>By convention, main returns 0</li>
-		</ul>
-	      </li>
-	    </ul>
-	  </section>
+	  <section data-markdown><script type="text/template">
+## main()
+- Not a part of any class
+  - called a *function*
+- Must be global
+- Must have a return type of int
+  - By convention, main returns 0
+	  </script></section>
 
-	  <section>
-	    <h2>Preprocessor</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>Examples
-		<ul>
-		  <li>#include &lt;iostream&gt; // System file</li>
-		  <li>#include &quot;ListNode.h&quot; // user-defined file</li>
-		</ul>
-	      </li>
-	      <li>What this does
-		<ul>
-		  <li>Compiler inserts the contents of the file in the place where the #include statement appears</li>
-		</ul>
-	      </li>
-	    </ul>
-	  </section>
+	  <section data-markdown><script type="text/template">
+## Preprocessor
+- Examples
+  - `#include <iostream> // System file`
+  - `#include "ListNode.h" // user file`
+- What this does
+  - Compiler inserts the contents of the file in the place where the `#include` statement appears
+	  </script></section>
 
-	  <section>
-	    <h2>C++ Compilation Process Overview</h2>
-	    <p>&nbsp;</p>
-	    <ol>
-	      <li>Preprocess source file
-		<ul>
-		  <li>handle #includes and any other # statements</li>
-		</ul>
-	      </li>
-	      <li>Compile resulting file</li>
-	      <li>Link the resulting files from Step 2 (more on this later..)</li>
-	    </ol>
-	  </section>
+	  <section data-markdown><script type="text/template">
+## C++ Compilation Process Overview
+1. Preprocess source file
+   - handle \#includes and any other \# statements
+2. Compile resulting file
+3. Link the resulting files from step 2 (more on this later...)
+	  </script></section>
 
 	  <section>
 	    <h2>using Directive</h2>
@@ -233,103 +187,66 @@ int main() {
 	    </table>
 	  </section>
 
-	  <section>
-	    <h2>I/O</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>Basic I/O</li>
-	    </ul>
-	    <pre class="big"><code data-trim>// use iostream library
-#include &lt;iostream&gt;
+	  <section data-markdown><script type="text/template">
+## I/O
+- Basic I/O
+```
+// use iostream library
+#include <iostream>
 using namespace std;
 int main() {
     int x;
-    cout &lt;&lt; "Enter a value for x: ";
-    cin &gt;&gt; x;
+    cout << "Enter a value for x: ";
+    cin >> x;
     return 0;
-}</code></pre>
-	  </section>
+}
+```
+	  </script></section>
 
-	  <section>
-	    <h2>C++ Primitive Types</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>int
-		<ul>
-		  <li>Can be 16, 32, 64 bits depending on the platform</li>
-		</ul>
-	      </li>
-	      <li>float</li>
-	      <li>double</li>
-	      <li>char
-		<ul>
-		  <li>C++ generally uses 8 bit ASCII encoding (more on this later)</li>
-		</ul>
-	      </li>
-	      <li>bool</li>
-	    </ul>
-	  </section>
+	  <section data-markdown><script type="text/template">
+## C++ Primitive Types
+- int
+  - Can be 16, 32, 64 bits depending on the platform</li>
+- float
+- double
+- char
+  - C++ generally uses 8 bit ASCII encoding (more on this later)
+- bool
+	  </script></section>
 
-	  <section>
-	    <h2>C++ Operators and Expressions</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>if statement
-		<ul>
-		  <li>in C++ condition can be either int or bool</li>
-		  <li>if ( x = 0 )
-		    <ul>
-		      <li>This will NOT cause a compiler error in C++</li>
-		    </ul>
-		  </li>
-		  <li>if ( i )
-		    <ul>
-		      <li>This is valid!</li>
-		    </ul>
-		  </li>
-		</ul>
-	      </li>
-	    </ul>
-	  </section>
+	  <section data-markdown><script type="text/template">
+## C++ Operators and Expressions
+- if statement
+  - in C++ condition can be either `int` or `bool`</li>
+  - `if ( x = 0 )`
+    - This will NOT cause a compiler error in C++</li>
+  - `if ( i )`
+    - This is valid!
+	  </script></section>
 
-	  <section>
-	    <h2>Operators and Expressions</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>loops, same as Java
-		<ul>
-		  <li>while, for, do while, break, continue</li>
-		</ul>
-	      </li>
-	    </ul>
-	  </section>
+	  <section data-markdown><script type="text/template">
+## Operators and Expressions
+- loops, same as Java
+  - while, for, do while, break, continue</li>
+	  </script></section>
 	  
-	  <section>
-	    <h2>Compiler choice</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>In the past we have used g++
-		<ul>
-		  <li>From GNU's Compiler Collection</li>
-		</ul>
-	      </li>
-	      <li>We are now using clang (from LLVM)
-		<ul>
-		  <li>It has MUCH better error messages</li>
-		</ul>
-	      </li>
-	      <li>Consider:
-	    <pre class="big"><code data-trim>#include &lt;iostream&gt;
+	  <section data-markdown><script type="text/template">
+## Compiler choice
+- In the past we have used g++
+  - From GNU's Compiler Collection</li>
+- We are now using clang (from LLVM)
+  - It has MUCH better error messages</li>
+- Consider:
+```
 using namespace std;
 int main() {
     // note the spelling mistake on the next
     // line where 'cout' is spelled 'cotut'
     cotut &lt;&lt; "Hello World";
     return 0;
-}</code></pre>
-	      </li>
-	    </ul>
-	  </section>
+}
+```
+	  </script></section>
 
 	  <section>
 	    <h2>Error comparison</h2>
@@ -344,22 +261,20 @@ int main() {
 
 	<section>
 
-	  <section id="functions">
-	    <h1>Functions</h1>
-	  </section>
+	  <section data-markdown id="functions"><script type="text/template">
+# Functions
+	  </script></section>
 
-	  <section>
-	    <h2>Functions</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>Methods not member of a class</li>
-	    </ul>
-	    <pre class="big"><code data-trim>
-#include &lt;iostream&gt;
+	  <section data-markdown><script type="text/template">
+## Functions
+- Methods not member of a class
+
+```
+#include <iostream>
 using namespace std;
 
 ret_type func_name(int a, int b, ...) {
-    &lt;function body&gt;
+    <function body>
 }
 
 int main() {
@@ -368,8 +283,8 @@ int main() {
     ...;
     return 0;
 }
-</code></pre>
-	  </section>
+```
+	  </script></section>
 
 	  <section>
 	    <h2>Declaring mutually<br>recursive functions</h2>
@@ -400,53 +315,51 @@ bool even (int x) {
 	    </table>
 	  </section>
 
-	  <section>
-	    <h2>Function Prototypes</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>C++ compiler process files top to bottom
-		<ul>
-		  <li>order of appearance matters without a <strong>function prototype</strong></li>
-		</ul>
-	      </li>
-	      <li>General form of a prototype:</li>
-	    </ul>
-	    <pre class="big"><code data-trim>ret_type func_name (int a, int b, ...);</code></pre>
-	  </section>
+	  <section data-markdown><script type="text/template">
+## Function Prototypes
+- C++ compiler process files top to bottom
+  - order of appearance matters without a **function prototype**
+- General form of a prototype:
+```
+ret_type func_name (int a, int b, ...);
+```
+	  </script></section>
 
-	  <section>
-	    <h2>Example</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>#include &lt;iostream&gt;
+	  <section data-markdown><script type="text/template">
+## Example
+```
+#include <iostream>
 using namespace std;
 
 int max(int a, int b);	// prototype
 
 int main() {
     int x=37; int y=52;
-    cout &lt;&lt; max(x,y) &lt;&lt; endl;
+    cout << max(x,y) << endl;
     return 0;
 }
 
 // actual function implementation
 int max(int a, int b) {
     return (a>b) ? a : b;
-}</code></pre>
-	  </section>
+}
+```
+	  </script></section>
 
 	</section>
 
 	<section>
 
-	  <section id="classes">
-	    <h1>Classes</h1>
-	  </section>
+	  <section data-markdown id="classes"><script type="text/template">
+# Classes
+	  </script></section>
 
-	  <section>
-	    <h2>Java -- IntCell.java</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>public class IntCell {  
-    public IntCell() // default constructor
+	  <section data-markdown><script type="text/template">
+## Java -- IntCell.java
+```
+public class IntCell {  
+    // default constructor
+    public IntCell()
         { this(0); }
 
     // one parameter constructor
@@ -459,13 +372,14 @@ int max(int a, int b) {
 
     // mutator member function
     public void setValue(int val)
-        { storedValue = val; }</code></pre>
-	  </section>
+        { storedValue = val; }
+```
+	  </script></section>
 
-	  <section>
-	    <h2>Java -- IntCell.java</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code>    // private data member
+	  <section data-markdown><script type="text/template">
+## Java -- IntCell.java
+```
+    // private data member
     private int storedValue;
 
     // main()
@@ -475,47 +389,42 @@ int max(int a, int b) {
         System.out.println(m1.getValue() + " " + 
                  m2.getValue());
     }
-}</code></pre>
-	    </section>
+}
+```
+	    </script></section>
 
-	  <section>
-	    <h2>How Would You Translate This Java Source into C++?</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>Need 3 files
-		<ol>
-		  <li>Header file that contains class definition: IntCell.h</li>
-		  <li>C++ file that contains class implementation: IntCell.cpp</li>
-		  <li>C++ file that contains a main(): TestIntCell.cpp</li>
-		</ol></li>
-	      <li>Note the separation of interface and implementation!</li>
-	    </ul>
-	  </section>
+	  <section data-markdown><script type="text/template">
+## How Would You Translate This Java Source into C++?
+- Need 3 files
+  1. Header file that contains class definition: IntCell.h
+  2. C++ file that contains class implementation: IntCell.cpp
+  3. C++ file that contains a main(): TestIntCell.cpp
+- Note the separation of interface and implementation!
+	  </script></section>
 
-	  <section>
-	    <h2>C++ IntCell: TestIntCell.cpp</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>#include &lt;iostream&gt; 
+	  <section data-markdown><script type="text/template">
+## C++ IntCell: TestIntCell.cpp
+```
+#include <iostream>
 #include "IntCell.h" 
 using namespace std; 
 
 int main( ) { 
     IntCell m1; // calls the default constructor
     IntCell m2( 37 );
-    cout &lt;&lt; m1.getValue( ) &lt;&lt; " " &lt;&lt; m2.getValue( ) 
-         &lt;&lt; endl;
+    cout << m1.getValue( ) << " " << m2.getValue( ) << endl;
     m1 = m2;
     m2.setValue( 40 );
-    cout &lt;&lt; m1.getValue( ) &lt;&lt; " " &lt;&lt; m2.getValue( ) 
-         &lt;&lt; endl;
+    cout << m1.getValue( ) << " " << m2.getValue( ) << endl;
     return 0;
-}</code></pre>
-	  </section>
+}
+```
+	  </script></section>
 
-	  <section>
-	    <h2>C++ IntCell: IntCell.h</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>#ifndef INTCELL_H
+	  <section data-markdown><script type="text/template">
+## C++ IntCell: IntCell.h
+```
+#ifndef INTCELL_H
 #define INTCELL_H
 
 class IntCell {
@@ -530,13 +439,13 @@ class IntCell {
     int max(int m);
 };
 #endif
-</code></pre>
-	  </section>
+```
+	  </script></section>
 
-	  <section>
-	    <h2>C++ IntCell: IntCell.cpp</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>#include "IntCell.h" 
+	  <section data-markdown><script type="text/template">
+## C++ IntCell: IntCell.cpp
+```
+#include "IntCell.h" 
 
 IntCell::IntCell( int initialValue ) : storedValue( initialValue ) { 
 }
@@ -551,13 +460,14 @@ void IntCell::setValue( int val ) {
 
 int IntCell::max(int m){
     return 1;
-}</code></pre>
-	  </section>
+}
+```
+	  </script></section>
 
-	  <section>
-	    <h2>C++ IntCell: IntCell.h (again)</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>#ifndef INTCELL_H
+	  <section data-markdown><script type="text/template">
+## C++ IntCell: IntCell.h (again)
+```
+#ifndef INTCELL_H
 #define INTCELL_H
 
 class IntCell {
@@ -571,28 +481,28 @@ class IntCell {
     int storedValue;
     int max(int m);
 };
-#endif</code></pre>
-	  </section>
+#endif
+```
+	  </script></section>
 
-	  <section>
-	    <h2>C++ IntCell: TestIntCell.cpp (again)</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>#include &lt;iostream&gt; 
+	  <section data-markdown><script type="text/template">
+## C++ IntCell: TestIntCell.cpp (again)
+```
+#include <iostream>
 #include "IntCell.h" 
 using namespace std; 
 
 int main( ) { 
     IntCell m1; // calls the default constructor
     IntCell m2( 37 );
-    cout &lt;&lt; m1.getValue( ) &lt;&lt; " " &lt;&lt; m2.getValue( ) 
-         &lt;&lt; endl;
+    cout << m1.getValue( ) << " " << m2.getValue( ) << endl;
     m1 = m2;
     m2.setValue( 40 );
-    cout &lt;&lt; m1.getValue( ) &lt;&lt; " " &lt;&lt; m2.getValue( ) 
-         &lt;&lt; endl;
+    cout << m1.getValue( ) << " " << m2.getValue( ) << endl;
     return 0;
-}</code></pre>
-	  </section>
+}
+```
+	  </script></section>
 
 	  <section>
 	    <h2>Separate Compilation</h2>
