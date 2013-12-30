@@ -45,8 +45,8 @@
 	  <h3>Spring 2014</h3>
 	  <p>&nbsp;</p>
 	  <p class="center">
-	    <small>By <a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> / <a href="mailto:aaron@virginia.edu">aaron@virginia.edu</a> / <a href="http://twitter.com/bloomfieldaaron">@bloomfieldaaron</a><br>&nbsp;<br>
-		<a href="http://github.com/aaronbloomfield/pdr">github.com/aaronbloomfield/pdr</a></small>
+	    <small>By <a target="_blank" href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> / <a href="mailto:aaron@virginia.edu">aaron@virginia.edu</a> / <a target="_blank" href="http://twitter.com/bloomfieldaaron">@bloomfieldaaron</a><br>&nbsp;<br>Repository: 
+		<a target="_blank" href="http://github.com/aaronbloomfield/pdr">github.com/aaronbloomfield/pdr</a></small>
 	  </p>
 	  <p>&nbsp;</p>
 	  <p>&nbsp;</p>
@@ -115,14 +115,14 @@
 	  <section>
 	    <h2>Hello World --&nbsp; Java vs. C++</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>// Java
+	    <pre class="big"><code data-trim>// Java
 public class HelloWorld {
     public static void main(String [] args) {
         System.out.println("Hello World!");
     }
 }</code></pre>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>// C++
+	    <pre class="big"><code data-trim>// C++
 #include &lt;iostream&gt;
 using namespace std;
 int main() {
@@ -202,7 +202,8 @@ int main() {
 	    <ul>
 	      <li>Similar to Java's <span class="tt">import</span>
 		<ul>
-		  <li>Allows the programmer to not have to type the full class name </li>
+		  <li>Uses a namespace, which is somewhat similar to a Java package</li>
+		  <li>Allows the programmer to not have to type the full namespace name each time</li>
 		</ul>
 	      </li>
 	    </ul>
@@ -210,7 +211,7 @@ int main() {
 	      <tbody>
 		<tr>
 		  <td>
-		    <pre><code data-trim>// C++
+		    <pre class="big"><code data-trim>// C++
 #include &lt;iostream&gt;
 using namespace std;
 int main() {
@@ -219,7 +220,7 @@ int main() {
 }</code></pre>
 		  </td>
 		  <td>
-		    <pre><code data-trim>// C++
+		    <pre class="big"><code data-trim>// C++
 #include &lt;iostream&gt;
 int main() {
     std::cout &lt;&lt; "Hello World!" 
@@ -238,7 +239,7 @@ int main() {
 	    <ul>
 	      <li>Basic I/O</li>
 	    </ul>
-	    <pre><code data-trim>// use iostream library
+	    <pre class="big"><code data-trim>// use iostream library
 #include &lt;iostream&gt;
 using namespace std;
 int main() {
@@ -318,7 +319,7 @@ int main() {
 		</ul>
 	      </li>
 	      <li>Consider:
-	    <pre><code data-trim>#include &lt;iostream&gt;
+	    <pre class="big"><code data-trim>#include &lt;iostream&gt;
 using namespace std;
 int main() {
     // note the spelling mistake on the next
@@ -353,7 +354,7 @@ int main() {
 	    <ul>
 	      <li>Methods not member of a class</li>
 	    </ul>
-	    <pre><code data-trim>
+	    <pre class="big"><code data-trim>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -377,7 +378,7 @@ int main() {
 	      <tr>
 		<td>
 		  <pre class="fragment"><code data-trim>bool even (int x);</code></pre>
-		  <pre><code data-trim>
+		  <pre class="big"><code data-trim>
 bool odd (int x) {
     if ( x == 0 )
         return false;
@@ -387,7 +388,7 @@ bool odd (int x) {
 		    </code></pre></td>
 		<td>
 		  <p>&nbsp;</p>
-		  <pre><code data-trim>
+		  <pre class="big"><code data-trim>
 bool even (int x) {
     if ( x == 0 )
         return true;
@@ -410,13 +411,13 @@ bool even (int x) {
 	      </li>
 	      <li>General form of a prototype:</li>
 	    </ul>
-	    <pre><code data-trim>ret_type func_name (int a, int b, ...);</code></pre>
+	    <pre class="big"><code data-trim>ret_type func_name (int a, int b, ...);</code></pre>
 	  </section>
 
 	  <section>
 	    <h2>Example</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>#include &lt;iostream&gt;
+	    <pre class="big"><code data-trim>#include &lt;iostream&gt;
 using namespace std;
 
 int max(int a, int b);	// prototype
@@ -444,7 +445,7 @@ int max(int a, int b) {
 	  <section>
 	    <h2>Java -- IntCell.java</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>public class IntCell {  
+	    <pre class="big"><code data-trim>public class IntCell {  
     public IntCell() // default constructor
         { this(0); }
 
@@ -464,7 +465,7 @@ int max(int a, int b) {
 	  <section>
 	    <h2>Java -- IntCell.java</h2>
 	    <p>&nbsp;</p>
-	    <pre><code>    // private data member
+	    <pre class="big"><code>    // private data member
     private int storedValue;
 
     // main()
@@ -494,7 +495,7 @@ int max(int a, int b) {
 	  <section>
 	    <h2>C++ IntCell: TestIntCell.cpp</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>#include &lt;iostream&gt; 
+	    <pre class="big"><code data-trim>#include &lt;iostream&gt; 
 #include "IntCell.h" 
 using namespace std; 
 
@@ -514,7 +515,7 @@ int main( ) {
 	  <section>
 	    <h2>C++ IntCell: IntCell.h</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>#ifndef INTCELL_H
+	    <pre class="big"><code data-trim>#ifndef INTCELL_H
 #define INTCELL_H
 
 class IntCell {
@@ -535,7 +536,7 @@ class IntCell {
 	  <section>
 	    <h2>C++ IntCell: IntCell.cpp</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>#include "IntCell.h" 
+	    <pre class="big"><code data-trim>#include "IntCell.h" 
 
 IntCell::IntCell( int initialValue ) : storedValue( initialValue ) { 
 }
@@ -556,7 +557,7 @@ int IntCell::max(int m){
 	  <section>
 	    <h2>C++ IntCell: IntCell.h (again)</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>#ifndef INTCELL_H
+	    <pre class="big"><code data-trim>#ifndef INTCELL_H
 #define INTCELL_H
 
 class IntCell {
@@ -576,7 +577,7 @@ class IntCell {
 	  <section>
 	    <h2>C++ IntCell: TestIntCell.cpp (again)</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>#include &lt;iostream&gt; 
+	    <pre class="big"><code data-trim>#include &lt;iostream&gt; 
 #include "IntCell.h" 
 using namespace std; 
 
@@ -655,7 +656,7 @@ int main( ) {
 	  <section>
 	    <h2>Rational.h</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>#ifndef RATIONAL_H 
+	    <pre class="big"><code data-trim>#ifndef RATIONAL_H 
 #define RATIONAL_H 
 class Rational { 
   public: 
@@ -677,7 +678,7 @@ class Rational {
 	  <section>
 	    <h2>Rational.cpp</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>#include "Rational.h" 
+	    <pre class="big"><code data-trim>#include "Rational.h" 
 #include &lt;iostream&gt; 
 using namespace std; 
 
@@ -695,7 +696,7 @@ void Rational::print() {
 	  <section>
 	    <h2>Rational.cpp</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>Rational Rational::times(Rational b) { 
+	    <pre class="big"><code data-trim>Rational Rational::times(Rational b) { 
     return Rational(num * b.num, den * b.den); 
 }</code></pre>
 	  </section>
@@ -703,7 +704,7 @@ void Rational::print() {
 	  <section>
 	    <h2>Rational.cpp</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>Rational::Rational(int numerator, int denominator) { 
+	    <pre class="big"><code data-trim>Rational::Rational(int numerator, int denominator) { 
     if (denominator == 0) {
        cout &lt;&lt; "Denominator is zero" &lt;&lt; endl; 
     int g = gcd(numerator, denominator);
@@ -715,7 +716,7 @@ void Rational::print() {
 	  <section>
 	    <h2>TestRational.cpp</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>#include "Rational.h" 
+	    <pre class="big"><code data-trim>#include "Rational.h" 
 
 int main() { 
     Rational x, y, z; 
@@ -776,7 +777,7 @@ int main() {
 		<ul>
 		  <li>Defines a macro (direct text replacement)</li>
 		</ul>
-	    <pre><code data-trim>define TRUE 0
+	    <pre class="big"><code data-trim>define TRUE 0
 if(TRUE == 0) {...}
 #define MY_OBJECT_H</code></pre>
 	      </li>
@@ -792,14 +793,18 @@ if(TRUE == 0) {...}
 	    <p>&nbsp;</p>
 	    <ul>
 	      <li>Can define a constant
-	    <pre><code data-trim>define PI 3.14159
+		<pre class="big"><code data-trim>
+define PI 3.14159
 ...
-area = PI * r * r;</code></pre>
+area = PI * r * r;
+		  </code></pre>
 	      </li>
 	      <li>Can just define an identifier
-	    <pre><code data-trim>#define FOO
+		<pre class="big"><code data-trim>
+#define FOO
 #ifdef FOO   // is true!
-#ifndef FOO  // is false!</code></pre>
+#ifndef FOO  // is false!
+		  </code></pre>
 	      </li>
 	    </ul>
 	  </section>
@@ -934,7 +939,8 @@ area = PI * r * r;</code></pre>
 	  <section>
 	    <h2>Binky's Pointer Fun</h2>
 	    <p>&nbsp;</p>
-	    <p>Youtube: http://www.youtube.com/watch?v=UvoHwFvAvQE</p>
+	    <iframe width="800" height="600" src="http://www.youtube.com/embed/UvoHwFvAvQE" frameborder="0" allowfullscreen></iframe>
+	    <p>If that doesn't work, try the <a target="_blank" href="http://www.youtube.com/watch?v=UvoHwFvAvQE">direct Youtube link</a> (Firefox w/Flash enabled doesn't work, in particular)</p>
 	  </section>
 
 	  <section>
@@ -952,22 +958,26 @@ area = PI * r * r;</code></pre>
 	    <h2>Pointer Pitfalls: Uninitialized Pointers</h2>
 	    <p>&nbsp;</p>
 	    <ul>
-	      <li>Cause runtime errors</li>
-	      </ul>
-	    <pre><code data-trim>int n = 30;
+	      <li>Cause runtime errors
+		<pre class="big"><code data-trim>
+int n = 30;
 int * p;
-*p = n;    //ERROR!!!</code></pre>
-	    <ul>
+*p = n;    //ERROR!!!
+		  </code></pre>
+	      </li>
 	      <li>p does not have a valid memory address!</li>
-	      <li>A common initializer value used by programmers is NULL</li>
+	      <li>A common initializer value used by programmers is NULL
+<pre class="big"><code data-trim>
+int *p=NULL; // better code, then add code to check 
+             // for NULL value</code></pre>
+	      </li>
 	    </ul>
-<pre><code data-trim>int *p=NULL; // better code, then add code to check for NULL value</code></pre>
 	  </section>
 
 	  <section>
 	    <h2>swap()</h2>
 	    <p>&nbsp;</p>
-<pre><code data-trim>void swap(int * x, int * y) {
+<pre class="big"><code data-trim>void swap(int * x, int * y) {
     int temp = *x;
     *x = *y;
     *y = temp;
@@ -977,7 +987,7 @@ int * p;
 	  <section>
 	    <h2>Calling swap()</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>int main() {
+	    <pre class="big"><code data-trim>int main() {
     int a=0;
     int b=3;
     cout &lt;&lt; "Before swap(): a: " &lt;&lt; a &lt;&lt; "b: " 
@@ -1001,13 +1011,16 @@ int * p;
 	    <h2>Static Memory Allocation</h2>
 	    <p>&nbsp;</p>
 	    <ul>
-	      <li>Amount of space (memory) already known</li>
-	    </ul>
-<pre><code data-trim>// declare array of 10 elements 
+	      <li>Amount of space (memory) already known
+		<pre class="big"><code data-trim>
+// declare array of 10 elements 
 int someArray[10];
 
 // declare a pointer to int
-int *value1_address = &amp;someArray[3];</code></pre>
+int *value1_address = &amp;someArray[3];
+		  </code></pre>
+	      </li>
+	    </ul>
 	  </section>
 
 	  <section>
@@ -1026,29 +1039,28 @@ int *value1_address = &amp;someArray[3];</code></pre>
 	  <section>
 	    <h2>Dynamic Arrays</h2>
 	    <p>&nbsp;</p>
-<pre><code data-trim>int main() {
+<pre class="big"><code data-trim>int main() {
     int n;
     // read in a value from the user
     cout &lt;&lt; "Please enter an integer value: " ;
     cin &gt;&gt; n;
 
-    // use the user's input to create an array of int using new
+    // use the user's input to create an array of int 
+    // using new
     int * ages = new int [n];</code></pre>
 	  </section>
 
 	  <section>
 	    <h2>Dynamic Arrays, take 2</h2>
 	    <p>&nbsp;</p>
-<pre><code data-trim>    // use a loop to prompt the user to initialize the array
+<pre class="big"><code>    // use a loop to prompt the user to initialize array
     for (int i=0; i &lt; n; i++) {
         cout &lt;&lt; "Enter a value for ages[ " &lt;&lt; i &lt;&lt; " ]: ";
         cin &gt;&gt; ages[i];
     }
-
     // print out the contents of the array
     for(int i=0; i&lt;n; i++) {
         cout &lt;&lt; "ages[ " &lt;&lt; i &lt;&lt; " ]: " &lt;&lt; ages[i];
-
     // finished with the array
     //clean up the memory used by calling delete
     delete [] ages;
@@ -1112,7 +1124,7 @@ int *value1_address = &amp;someArray[3];</code></pre>
 	  <section>
 	    <h2>delete</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>#include &lt;string&gt;
+	    <pre class="big"><code data-trim>#include &lt;string&gt;
 using namespace std;
 int main() {
     string * pointerToString = new string("hi");
@@ -1134,20 +1146,21 @@ int main() {
 	    <h2>Accessing parts of an object</h2>
 	    <p>&nbsp;</p>
 	    <ul>
-	      <li>For a regular (i.e., non-pointer) object, use a period:</li>
-	    </ul>
-<pre><code data-trim>Rational r;
-r.num = 4;</code></pre>
-	    <ul>
-	      <li>For a pointer, dereference it first (as *r is the object, and r is the pointer):</li>
-	    </ul>
-<pre><code data-trim>Rational *r = new Rational();
-r.num = 4;</code></pre>
-	    <ul>
-	      <li>A shorthand for the last line is below (the arrow means "follow the pointer"):</li>
-	    </ul>
-<pre><code data-trim>r->num = 4;</code></pre>
-	    <ul>
+	      <li>For a regular (i.e., non-pointer) object, use a period:
+		<pre class="big"><code data-trim>
+Rational r;
+r.num = 4;
+		  </code></pre>
+	      </li>
+	      <li>For a pointer, dereference it first (as *r is the object, and r is the pointer):
+		<pre class="big"><code data-trim>
+Rational *r = new Rational();
+r.num = 4;
+		  </code></pre>
+	      </li>
+	      <li>A shorthand for the last line is below (the arrow means "follow the pointer"):
+		<pre class="big"><code data-trim>r->num = 4;</code></pre>
+	      </li>
 	      <li>References (which we haven't seen yet) work like regular objects</li>
 	    </ul>
 	  </section>
@@ -1173,7 +1186,7 @@ r.num = 4;</code></pre>
 	  <section>
 	    <h2>C++ and memory allocation</h2>
 	    <p>&nbsp;</p>
-<pre><code data-trim>#include &lt;iostream&gt;
+<pre class="big"><code data-trim>#include &lt;iostream&gt;
 using namespace std;
 
 class Foo {
@@ -1199,7 +1212,7 @@ int main() {
     return 0;
 }</code></pre>
 
-<pre><code data-trim>Result:
+<pre class="big"><code data-trim>Result:
     sizeof(int): 4
     sizeof(Foo): 8
     1st Foo: 0x6a0670
@@ -1238,15 +1251,18 @@ int main() {
 	    <h2>friend</h2>
 	    <p>&nbsp;</p>
 	    <ul>
-	      <li>Sometimes other classes need access to private data members of another class</li>
-	      </ul>
-	    <pre><code data-trim>class ListNode {
+	      <li>Sometimes other classes need access to private data members of another class
+	    <pre class="big"><code data-trim>
+class ListNode {
   public:
     // ...
   private:
   ListNode *next, *previous;
   friend class List;
-};</code></pre>
+};
+		  </code></pre>
+	      </li>
+	    </ul>
 	  </section>
 
 	  <section>
@@ -1255,16 +1271,26 @@ int main() {
 	    <ul>
 	      <li>Consider a class Foo with an uninitialized ListNode* field list that needs to be initialized in the constructor.</li>
 	      <li>What is wrong with the following two methods?</li>
-	      <li>They both compile just fine</li>
-	    </ul>
-	    <pre><code data-trim>Foo() {
+	      <li>They both compile just fine
+		<pre class="big"><code data-trim>
+Foo() {
 ListNode* list = new ListNode();
-}</code></pre>
-	    <p>&nbsp;</p>
-	    <pre><code data-trim>Foo() {
+}
+</code></pre>
+		<ul><ul>
+		  <li class="fragment">You are creating a local variable 'list' and not accessing the field named 'list'</li>
+		</ul></ul>
+		<pre class="big"><code data-trim>
+Foo() {
     ListNode temp;
     list = &amp;temp;
-}</code></pre>
+}
+</code></pre>
+		<ul><ul>
+		  <li class="fragment">You are making the pointer point to a local variable, which is then promptly deallocated</li>
+		</ul></ul>
+	      </li>
+	    </ul>
 	  </section>
 
 	</section>
@@ -1279,11 +1305,12 @@ ListNode* list = new ListNode();
 	    <h2>References</h2>
 	    <p>&nbsp;</p>
 	    <ul>
-	      <li>Declaring a reference</li>
-	    </ul>
-	    <pre><code data-trim>List sampleList
-List &amp; theList = sampleList;</code></pre>
-	    <ul>
+	      <li>Declaring a reference:
+		<pre class="big"><code data-trim>
+List sampleList
+List &amp; theList = sampleList;
+		  </code></pre>
+	      </li>
 	      <li>Reference to a List object</li>
 	      <li>What is a reference?</li>
 	      <li>Like a pointer, it holds an address, BUT...
@@ -1298,12 +1325,16 @@ List &amp; theList = sampleList;</code></pre>
 	  <section>
 	    <h2>swap() with Pointers</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>void swap(int * x, int * y) {
+	    <ul>
+	      <li>swap() with references:
+		<pre class="big"><code data-trim>
+void swap(int * x, int * y) {
     int temp = *x;
     *x = *y;
     *y = temp;
-}</code></pre>
-	    <ul>
+}
+		  </code></pre>
+	      </li>
 	      <li>Programmer must specify dereferencing explicitly</li>
 	      </ul>
 	  </section>
@@ -1311,12 +1342,16 @@ List &amp; theList = sampleList;</code></pre>
 	  <section>
 	    <h2>swap with References</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>void swap(int &amp; x, int &amp; y) {
+	    <ul>
+	      <li>swap() with references:
+		<pre class="big"><code data-trim>
+void swap(int &amp; x, int &amp; y) {
     int temp = x;
     x = y;
     y = temp;
-}</code></pre>
-	    <ul>
+}
+		  </code></pre>
+	      </li>
 	      <li>Dereferencing is implied with each use</li>
 	      <li>All Java non-primitive types are references</li>
 	    </ul>
@@ -1325,7 +1360,7 @@ List &amp; theList = sampleList;</code></pre>
 	  <section>
 	    <h2>Calling swap() with references</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>int main() {
+	    <pre class="big"><code data-trim>int main() {
     int a=0;
     int b=3;
     cout &lt;&lt; "Before swap(): a: " &lt;&lt; a &lt;&lt; "b: "
@@ -1340,7 +1375,7 @@ List &amp; theList = sampleList;</code></pre>
 	  <section>
 	    <h2>Accessing Members of An Object</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>class Square {
+	    <pre class="big"><code data-trim>class Square {
   public:
     // constructors, etc. would be here
     int sideLength;
@@ -1350,7 +1385,7 @@ List &amp; theList = sampleList;</code></pre>
 	  <section>
 	    <h2>Accessing Members through a Pointer</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>// other code omitted for space reasons
+	    <pre class="big"><code data-trim>// other code omitted for space reasons
 int main() {
     Square *squarePtr = new Square(1);
     int length = squarePtr-&gt;sideLength;
@@ -1362,7 +1397,7 @@ int main() {
 	  <section>
 	    <h2>Accessing Members through a Reference</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>// other code omitted for space reasons
+	    <pre class="big"><code data-trim>// other code omitted for space reasons
 int main() {
     Square square = Square(1);
     Square &amp; squareRef = square;
@@ -1374,7 +1409,7 @@ int main() {
 	  <section>
 	    <h2>Accessing Pointers within Objects</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>class example1 {
+	    <pre class="big"><code data-trim>class example1 {
     ...
   public:
     int *a;
@@ -1405,11 +1440,11 @@ c-&gt;a = &amp;x; // defrerence c, then access a</code></pre>
 	    <p>&nbsp;</p>
 	    <ul>
 	      <li>Actual argument is copied into formal parameter
-	    </ul>
-	    <pre><code data-trim>int max(int a, int b);
+		<pre class="big"><code data-trim>
+int max(int a, int b);
 void swap (int * x, int *y);
 bool compare(Rational left, Rational right);</code></pre>
-	    <ul>
+	      </li>
 	      <li>Can also pass pointers by value</li>
 	    </ul>
 	  </section>
@@ -1418,10 +1453,9 @@ bool compare(Rational left, Rational right);</code></pre>
 	    <h2>Call By Reference</h2>
 	    <p>&nbsp;</p>
 	    <ul>
-	      <li>Pass references as parameters</li>
-	      </ul>
-	    <pre><code data-trim>void swap (int &amp;x, int &amp;y);</code></pre>
-	    <ul>
+	      <li>Pass references as parameters
+		<pre class="big"><code data-trim>void swap (int &amp;x, int &amp;y);</code></pre>
+	      </li>
 	      <li>Use when formal parameter should be able to change the value of the actual argument</li>
 	    </ul>
 	  </section>
@@ -1430,10 +1464,11 @@ bool compare(Rational left, Rational right);</code></pre>
 	    <h2>Call By Constant Reference</h2>
 	    <p>&nbsp;</p>
 	    <ul>
-	      <li>Parameters are constant (won't change) and are passed by reference</li>
-	      </ul>
-	    <pre><code data-trim>bool compare(const Rational &amp; left, const Rational &amp; right);</code></pre>
-	    <ul>
+	      <li>Parameters are constant (won't change) and are passed by reference
+		<pre class="big"><code data-trim>
+bool compare(const Rational &amp; left, 
+             const Rational &amp; right);</code></pre>
+	      </li>
 	      <li>Use when there is a class type that cannot be changed by formal parameter</li>
 	    </ul>
 	  </section>
@@ -1474,20 +1509,21 @@ bool compare(Rational left, Rational right);</code></pre>
 		  <li>Allocates a new memory location for use</li>
 		  <li>Example:</li>
 		</ul>
-	      </li>
-	    </ul>
-<pre><code data-trim>Square * ptrToAnotherSquare = new Square(5);
-Triangle *ptrToTriangle = new Triangle();
+<pre class="big"><code data-trim>
+Square * ptrToAnotherSquare = 
+               new Square(5);
+Triangle *ptrToTriangle = 
+               new Triangle();
 Circle *ptrToCircle = new Circle;</code></pre>
-	    <ul>
+	      </li>
 	      <li>delete
 		<ul>
 		  <li>Reclaims memory allocated with new</li>
 		  <li>Example:</li>
 		</ul>
+		<pre class="big"><code data-trim>delete ptrToAnotherSquare;</code></pre>
 	      </li>
 	    </ul>
-	    <pre><code data-trim>delete ptrToAnotherSquare;</code></pre>
 	  </section>
 
 	  <section>
@@ -1542,7 +1578,7 @@ Circle *ptrToCircle = new Circle;</code></pre>
 	      <li>Intended to copy the state of original into copy</li>
 	      <li>Called when = is applied to two objects AFTER both have previously been constructed</li>
 	      </ul>
-	    <pre><code data-trim>IntCell original;    // constructor called
+	    <pre class="big"><code data-trim>IntCell original;    // constructor called
 IntCell copy;
 copy = original;    // operator= called</code></pre>
 	  </section>
@@ -1558,7 +1594,7 @@ copy = original;    // operator= called</code></pre>
 	  <section>
 	    <h2>test.h</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>class test {
+	    <pre class="big"><code data-trim>class test {
     static int idcount;
     const int id;
     int value;
@@ -1568,14 +1604,16 @@ public:
     test(const test&amp; x);
     ~test();
     test&amp; operator=(const test&amp; other);
-    friend ostream&amp; operator&lt;&lt;(ostream&amp; out, const test&amp; f);
+    friend ostream&amp; operator&lt;&lt;(ostream&amp; out, 
+                               const test&amp; f);
 };</code></pre>
 	  </section>
 
 	  <section>
-	    <h2>test.cpp 1/2</h2>
+	    <h2>test.cpp 1/3</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>int test::idcount = 0;
+	    <pre class="big"><code data-trim>
+int test::idcount = 0;
 
 test::test() : id (idcount++), value(0) { 
     cout &lt;&lt; "calling test(); object created is " &lt;&lt; *this
@@ -1583,23 +1621,32 @@ test::test() : id (idcount++), value(0) {
 }
 
 test::test(int v) : id (idcount++), value(v) { 
-    cout &lt;&lt; "calling test(" &lt;&lt; v &lt;&lt; "); object created is " &lt;&lt; *this 
+    cout &lt;&lt; "calling test(" &lt;&lt; v 
+         &lt;&lt; "); object created is " &lt;&lt; *this 
          &lt;&lt; "; address is " &lt;&lt; this &lt;&lt; endl;
 }
-
-test::test(const test&amp; x) : id(x.id), value(x.value) {
-    cout &lt;&lt; "calling test(&amp;test) on " &lt;&lt; *this &lt;&lt; "; address is " 
-         &lt;&lt; this &lt;&lt; endl;
-}</code></pre>
+</code></pre>
 	  </section>
 
 	  <section>
-	    <h2>test.cpp 2/2</h2>
+	    <h2>test.cpp 2/3</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>test::~test() {
+	    <pre class="big"><code data-trim>
+test::~test() {
     cout &lt;&lt; "calling ~test() on " &lt;&lt; *this &lt;&lt; endl;
 }
 
+test::test(const test&amp; x) : id(x.id), value(x.value) {
+    cout &lt;&lt; "calling test(&amp;test) on " &lt;&lt; *this 
+         &lt;&lt; "; address is " &lt;&lt; this &lt;&lt; endl;
+}
+	      </code></pre>
+	  </section>
+
+	  <section>
+	    <h2>test.cpp 3/3</h2>
+	    <p>&nbsp;</p>
+	    <pre class="big"><code data-trim>
 test&amp; test::operator=(const test&amp; other) {
     cout &lt;&lt; "calling operator=(" &lt;&lt; other &lt;&lt; ")" &lt;&lt; endl;
     test *tmp = new test(other);  
@@ -1614,7 +1661,7 @@ ostream&amp; operator&lt;&lt;(ostream&amp; out, const test&amp; f) {
 	  <section>
 	    <h2>The one subroutine...</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>test bar(test param) {
+	    <pre class="big"><code data-trim>test bar(test param) {
   return test(10);
 }</code></pre>
 	  </section>
@@ -1622,7 +1669,7 @@ ostream&amp; operator&lt;&lt;(ostream&amp; out, const test&amp; f) {
 	  <section>
 	    <h2>main() code and output, 1/6</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>test a();
+	    <pre class="big"><code data-trim>test a();
 cout &lt;&lt; "attempted to create a: " &lt;&lt; a &lt;&lt; endl;
 
 cout &lt;&lt; "----------------------------------------" &lt;&lt; endl;
@@ -1633,7 +1680,7 @@ cout &lt;&lt; "created aa: " &lt;&lt; aa &lt;&lt; endl;</code></pre>
 	  <section>
 	    <h2>main() code and output, 2/6</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>cout &lt;&lt; "----------------------------------------" &lt;&lt; endl;
+	    <pre class="big"><code data-trim>cout &lt;&lt; "----------------------------------------" &lt;&lt; endl;
 test b(1);
 cout &lt;&lt; "created b: " &lt;&lt; b &lt;&lt; endl;</code></pre>
 	  </section>
@@ -1641,7 +1688,7 @@ cout &lt;&lt; "created b: " &lt;&lt; b &lt;&lt; endl;</code></pre>
 	  <section>
 	    <h2>main() code and output, 3/6</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>cout &lt;&lt; "----------------------------------------" &lt;&lt; endl;
+	    <pre class="big"><code data-trim>cout &lt;&lt; "----------------------------------------" &lt;&lt; endl;
 test *c = new test(2);
 cout &lt;&lt; "created *c: " &lt;&lt; *c &lt;&lt; " at " &lt;&lt; c &lt;&lt; endl;
 test *d = new test;
@@ -1651,7 +1698,7 @@ cout &lt;&lt; "created *d: " &lt;&lt; *d &lt;&lt; " at " &lt;&lt; d &lt;&lt; end
 	  <section>
 	    <h2>main() code and output, 4/6</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>cout &lt;&lt; "----------------------------------------" &lt;&lt; endl;
+	    <pre class="big"><code data-trim>cout &lt;&lt; "----------------------------------------" &lt;&lt; endl;
 cout &lt;&lt; "about to invoke subroutine..." &lt;&lt; endl;
 test e = bar(*c);
 cout &lt;&lt; "finished invoking subroutine..." &lt;&lt; endl;</code></pre>
@@ -1660,7 +1707,7 @@ cout &lt;&lt; "finished invoking subroutine..." &lt;&lt; endl;</code></pre>
 	  <section>
 	    <h2>main() code and output, 5/6</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>cout &lt;&lt; "----------------------------------------" &lt;&lt; endl;
+	    <pre class="big"><code data-trim>cout &lt;&lt; "----------------------------------------" &lt;&lt; endl;
 test f = b;
 
 cout &lt;&lt; "----------------------------------------" &lt;&lt; endl;
@@ -1671,7 +1718,7 @@ delete c;</code></pre>
 	  <section>
 	    <h2>main() code and output, 6/6</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>cout &lt;&lt; "----------------------------------------" &lt;&lt; endl;
+	    <pre class="big"><code data-trim>cout &lt;&lt; "----------------------------------------" &lt;&lt; endl;
 cout &lt;&lt; "assignment..." &lt;&lt; endl;
 aa = b;
 
