@@ -375,20 +375,26 @@ int main() {
 	    <p>&nbsp;</p>
 	    <table class="wide">
 	      <tr>
-		<td><pre><code data-trim><span class="fragment">bool even (int x);</span></code><code data-trim>
+		<td>
+		  <pre class="fragment"><code data-trim>bool even (int x);</code></pre>
+		  <pre><code data-trim>
 bool odd (int x) {
     if ( x == 0 )
         return false;
     else
         return even (x-1);
-}</code></pre></td>
-		<td><pre><code data-trim><br>
+}
+		    </code></pre></td>
+		<td>
+		  <p>&nbsp;</p>
+		  <pre><code data-trim>
 bool even (int x) {
     if ( x == 0 )
         return true;
     else
       return odd (x-1);
-}</code></pre></td>
+}
+		    </code></pre></td>
 	      </tr>
 	    </table>
 	  </section>
@@ -458,7 +464,7 @@ int max(int a, int b) {
 	  <section>
 	    <h2>Java -- IntCell.java</h2>
 	    <p>&nbsp;</p>
-	    <pre><code data-trim>    // private data member
+	    <pre><code>    // private data member
     private int storedValue;
 
     // main()
@@ -662,8 +668,7 @@ class Rational {
     Rational reciprocal();
     Rational divides(Rational b); 
   private: 
-    int num; // the numerator 
-    int den; // the denominator 
+    int num, dem; // the numerator and denominator
     int gcd(int m, int n); 
 };
 #endif</code></pre>
@@ -787,16 +792,16 @@ if(TRUE == 0) {...}
 	    <p>&nbsp;</p>
 	    <ul>
 	      <li>Can define a constant
-	    </ul>
 	    <pre><code data-trim>define PI 3.14159
 ...
 area = PI * r * r;</code></pre>
-	    <ul>
-	      <li>Can just define an identifier</li>
-	    </ul>
+	      </li>
+	      <li>Can just define an identifier
 	    <pre><code data-trim>#define FOO
 #ifdef FOO   // is true!
 #ifndef FOO  // is false!</code></pre>
+	      </li>
+	    </ul>
 	  </section>
 
 	  <section>
@@ -929,7 +934,7 @@ area = PI * r * r;</code></pre>
 	  <section>
 	    <h2>Binky's Pointer Fun</h2>
 	    <p>&nbsp;</p>
-	    <p>(insert video) http://www.youtube.com/watch?v=UvoHwFvAvQE</p>
+	    <p>Youtube: http://www.youtube.com/watch?v=UvoHwFvAvQE</p>
 	  </section>
 
 	  <section>
