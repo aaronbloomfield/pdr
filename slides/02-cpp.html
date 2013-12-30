@@ -56,21 +56,21 @@
 	<section>
 	  <h1>Contents</h1>
 	  <p>&nbsp;</p>
-	  <p>Introduction to C++</p>
-	  <p>Functions</p>
-	  <p>Classes</p>
-	  <p>Rational Example</p>
-	  <p>Pre-Processor</p>
-	  <p>Pointers</p>
-	  <p>Dynamic Memory Allocation</p>
-	  <p>References</p>
-	  <p>More C++</p>
-	  <p>Sample (advanced) code</p>
+	  <p><a href="#/intro">Introduction to C++</a></p>
+	  <p><a href="#/functions">Functions</a></p>
+	  <p><a href="#/classes">Classes</a></p>
+	  <p><a href="#/rational">Rational Example</a></p>
+	  <p><a href="#/preprocessor">Pre-Processor</a></p>
+	  <p><a href="#/pointers">Pointers</a></p>
+	  <p><a href="#/dynamic">Dynamic Memory Allocation</a></p>
+	  <p><a href="#/references">References</a></p>
+	  <p><a href="#/parameters">Parameter Passing</a></p>
+	  <p><a href="#/advanced">Sample (advanced) code</a></p>
 	</section>
 
 	<section>
 
-	  <section>
+	  <section id="intro">
 	    <h1>Introduction to C++</h1>
 	  </section>
 
@@ -200,13 +200,13 @@ int main() {
 	    <h2>using Directive</h2>
 	    <p>&nbsp;</p>
 	    <ul>
-	      <li>Similar to Java's <tt>import</tt>
+	      <li>Similar to Java's <span class="tt">import</span>
 		<ul>
 		  <li>Allows the programmer to not have to type the full class name </li>
 		</ul>
 	      </li>
 	    </ul>
-	    <table width="100%">
+	    <table class="wide">
 	      <tbody>
 		<tr>
 		  <td>
@@ -317,15 +317,17 @@ int main() {
 		  <li>It has MUCH better error messages</li>
 		</ul>
 	      </li>
-	      <li>Consider:</li>
-	    </ul>
+	      <li>Consider:
 	    <pre><code data-trim>#include &lt;iostream&gt;
 using namespace std;
 int main() {
-    // note the spelling mistake on the next line
+    // note the spelling mistake on the next
+    // line where 'cout' is spelled 'cotut'
     cotut &lt;&lt; "Hello World";
     return 0;
 }</code></pre>
+	      </li>
+	    </ul>
 	  </section>
 
 	  <section>
@@ -341,7 +343,7 @@ int main() {
 
 	<section>
 
-	  <section>
+	  <section id="functions">
 	    <h1>Functions</h1>
 	  </section>
 
@@ -371,9 +373,9 @@ int main() {
 	  <section>
 	    <h2>Declaring mutually<br>recursive functions</h2>
 	    <p>&nbsp;</p>
-	    <table width="100%">
+	    <table class="wide">
 	      <tr>
-		<td><pre><code data-trim><div class="fragment">bool even (int x);</div>
+		<td><pre><code data-trim><span class="fragment">bool even (int x);</span></code><code data-trim>
 bool odd (int x) {
     if ( x == 0 )
         return false;
@@ -429,7 +431,7 @@ int max(int a, int b) {
 
 	<section>
 
-	  <section>
+	  <section id="classes">
 	    <h1>Classes</h1>
 	  </section>
 
@@ -595,7 +597,7 @@ int main( ) {
 
 	<section>
 
-	  <section>
+	  <section id="rational">
 	    <h1>Rational Example</h1>
 	  </section>
 
@@ -747,7 +749,7 @@ int main() {
 
 	<section>
 
-	  <section>
+	  <section id="preprocessor">
 	    <h1>Pre-processor</h1>
 	  </section>
 
@@ -769,12 +771,10 @@ int main() {
 		<ul>
 		  <li>Defines a macro (direct text replacement)</li>
 		</ul>
-	      </li>
-	    </ul>
 	    <pre><code data-trim>define TRUE 0
 if(TRUE == 0) {...}
 #define MY_OBJECT_H</code></pre>
-	    <ul>
+	      </li>
 	      <li>#endif
 		<ul>
 		  <li>specifies the end of any #if</li>
@@ -815,7 +815,7 @@ area = PI * r * r;</code></pre>
 
 	<section>
 
-	  <section>
+	  <section id="pointers">
 	    <h1>Pointers</h1>
 	  </section>
 
@@ -988,7 +988,7 @@ int * p;
 
 	<section>
 
-	  <section>
+	  <section id="dynamic">
 	    <h1>Dynamic Memory<br>Allocation</h1>
 	  </section>
 
@@ -1266,7 +1266,7 @@ ListNode* list = new ListNode();
 
 	<section>
 
-	  <section>
+	  <section id="references">
 	    <h1>References</h1>
 	  </section>
 
@@ -1391,7 +1391,7 @@ c-&gt;a = &amp;x; // defrerence c, then access a</code></pre>
 
 	<section>
 
-	  <section>
+	  <section id="parameters">
 	    <h1>Parameter Passing</h1>
 	  </section>
 
@@ -1546,7 +1546,7 @@ copy = original;    // operator= called</code></pre>
 
 	<section>
 
-	  <section>
+	  <section id="advanced">
 	    <h1>Sample (advanced) code</h1>
 	  </section>
 
