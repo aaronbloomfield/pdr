@@ -53,6 +53,19 @@ Contents
 - tutorials/: the tutorials that are used as part of the lab
   assignments, these are primarily Linux tutorials.
 
+
+Source code
+-----------
+
+All source code is formatted via astyle and then highlighted via
+source-highlight.  Both the original (foo.cpp) and the highlihged
+version (foo.cpp.html) are included in the repo.  All links to source
+code will like to the .html, with a "(<a href="...">src</a>)" after it
+to link to the original source code.
+
+- astyle options: -A2 -s4 --indent-switches
+- source-highlight options: -d
+
 Licensing
 ---------
 

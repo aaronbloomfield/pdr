@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>DataStructureComparison.java</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">// DataStructuresComparison.java</font></i>
+<i><font color="#9A1900">//</font></i>
+<i><font color="#9A1900">// This program will test the relative speeds of the various</font></i>
+<i><font color="#9A1900">// Collection data structres in the Java 1.5 SDK</font></i>
+<i><font color="#9A1900">//</font></i>
+<i><font color="#9A1900">// Copyright (c) 2007 by Aaron Bloomfield.</font></i>
+
+<b><font color="#000080">import</font></b> java<font color="#990000">.</font>util<font color="#990000">.*;</font>
+<b><font color="#000080">import</font></b> java<font color="#990000">.</font>text<font color="#990000">.*;</font>
+
+<b><font color="#0000FF">public</font></b> <b><font color="#0000FF">class</font></b> <font color="#008080">DataStructuresComparison</font> <font color="#FF0000">{</font>
+
+    <b><font color="#0000FF">public</font></b> <b><font color="#0000FF">static</font></b> <font color="#009900">void</font> <b><font color="#000000">main</font></b> <font color="#990000">(</font><font color="#008080">String</font> args<font color="#990000">[])</font> <font color="#FF0000">{</font>
+
+        <i><font color="#9A1900">// various counters and such</font></i>
+        <b><font color="#0000FF">final</font></b> <font color="#009900">int</font> inserts  <font color="#990000">=</font> <font color="#993399">50000</font><font color="#990000">;</font>
+        <b><font color="#0000FF">final</font></b> <font color="#009900">int</font> searches <font color="#990000">=</font> <font color="#993399">25000</font><font color="#990000">;</font>
+        <b><font color="#0000FF">final</font></b> <font color="#009900">int</font> deletes  <font color="#990000">=</font> <font color="#993399">10000</font><font color="#990000">;</font>
+        <font color="#008080">Integer</font> x<font color="#990000">;</font>
+        <font color="#009900">long</font> insertTime<font color="#990000">,</font> searchTime<font color="#990000">,</font> deleteTime<font color="#990000">,</font> startTime<font color="#990000">,</font> endTime<font color="#990000">;</font>
+        <font color="#008080">Collection</font> collection <font color="#990000">=</font> <b><font color="#0000FF">null</font></b><font color="#990000">;</font>
+
+        <i><font color="#9A1900">// allow for nice printing of the times</font></i>
+        <font color="#008080">NumberFormat</font> style <font color="#990000">=</font> NumberFormat<font color="#990000">.</font><b><font color="#000000">getNumberInstance</font></b><font color="#990000">();</font>
+        style<font color="#990000">.</font><b><font color="#000000">setMaximumFractionDigits</font></b><font color="#990000">(</font><font color="#993399">3</font><font color="#990000">);</font>
+        style<font color="#990000">.</font><b><font color="#000000">setMinimumFractionDigits</font></b><font color="#990000">(</font><font color="#993399">3</font><font color="#990000">);</font>
+
+        <i><font color="#9A1900">// print out how many of each operation will be performed</font></i>
+        System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b> <font color="#990000">(</font><font color="#FF0000">"Operations performed:"</font><font color="#990000">);</font>
+        System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b> <font color="#990000">(</font><font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">"</font> <font color="#990000">+</font> inserts <font color="#990000">+</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">insertions"</font><font color="#990000">);</font>
+        System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b> <font color="#990000">(</font><font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">"</font> <font color="#990000">+</font> searches <font color="#990000">+</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">searches"</font><font color="#990000">);</font>
+        System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b> <font color="#990000">(</font><font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">"</font> <font color="#990000">+</font> deletes <font color="#990000">+</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">deletions"</font><font color="#990000">);</font>
+
+        <i><font color="#9A1900">// create the data structure to be time tested</font></i>
+        <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> j <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> j <font color="#990000">&gt;=</font> <font color="#993399">0</font><font color="#990000">;</font> j<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+            collection <font color="#990000">=</font> <b><font color="#0000FF">null</font></b><font color="#990000">;</font>
+            <b><font color="#0000FF">switch</font></b> <font color="#990000">(</font>j<font color="#990000">)</font> <font color="#FF0000">{</font>
+                <b><font color="#0000FF">case</font></b> <font color="#993399">0</font><font color="#990000">:</font>
+                    collection <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Vector</font></b><font color="#990000">();</font>
+                    System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">print</font></b> <font color="#990000">(</font><font color="#FF0000">"Vector: "</font><font color="#990000">);</font>
+                    <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
+                <b><font color="#0000FF">case</font></b> <font color="#993399">1</font><font color="#990000">:</font>
+                    collection <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">ArrayList</font></b><font color="#990000">();</font>
+                    System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">print</font></b> <font color="#990000">(</font><font color="#FF0000">"ArrayList: "</font><font color="#990000">);</font>
+                    <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
+                <b><font color="#0000FF">case</font></b> <font color="#993399">2</font><font color="#990000">:</font>
+                    collection <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">LinkedList</font></b><font color="#990000">();</font>
+                    System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">print</font></b> <font color="#990000">(</font><font color="#FF0000">"LinkedList: "</font><font color="#990000">);</font>
+                    <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
+                <b><font color="#0000FF">case</font></b> <font color="#993399">3</font><font color="#990000">:</font>
+                    collection <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">HashSet</font></b><font color="#990000">();</font>
+                    System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">print</font></b> <font color="#990000">(</font><font color="#FF0000">"HashSet: "</font><font color="#990000">);</font>
+                    <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
+                <b><font color="#0000FF">case</font></b> <font color="#993399">4</font><font color="#990000">:</font>
+                    collection <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">TreeSet</font></b><font color="#990000">();</font>
+                    System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">print</font></b> <font color="#990000">(</font><font color="#FF0000">"TreeSet: "</font><font color="#990000">);</font>
+                    <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
+            <font color="#FF0000">}</font>
+
+            <i><font color="#9A1900">// If no more data structures to try, end the for loop</font></i>
+            <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> collection <font color="#990000">==</font> <b><font color="#0000FF">null</font></b> <font color="#990000">)</font>
+                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
+
+            <i><font color="#9A1900">// insert even numbers from 0 to inserts</font></i>
+            startTime <font color="#990000">=</font> System<font color="#990000">.</font><b><font color="#000000">currentTimeMillis</font></b><font color="#990000">();</font>
+            <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> inserts<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+                x <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Integer</font></b><font color="#990000">(</font>i<font color="#990000">*</font><font color="#993399">2</font><font color="#990000">);</font>
+                collection<font color="#990000">.</font><b><font color="#000000">add</font></b><font color="#990000">(</font>x<font color="#990000">);</font>
+            <font color="#FF0000">}</font>
+            endTime <font color="#990000">=</font> System<font color="#990000">.</font><b><font color="#000000">currentTimeMillis</font></b><font color="#990000">();</font>
+            insertTime <font color="#990000">=</font> endTime<font color="#990000">-</font>startTime<font color="#990000">;</font>
+
+            <i><font color="#9A1900">// search for even and odd numbers from 0 to searches</font></i>
+            startTime <font color="#990000">=</font> System<font color="#990000">.</font><b><font color="#000000">currentTimeMillis</font></b><font color="#990000">();</font>
+            <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> searches<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+                x <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Integer</font></b><font color="#990000">(</font>i<font color="#990000">);</font>
+                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> collection<font color="#990000">.</font><b><font color="#000000">contains</font></b><font color="#990000">(</font>x<font color="#990000">)</font> <font color="#990000">)</font> <font color="#FF0000">{</font> <font color="#FF0000">}</font>
+            <font color="#FF0000">}</font>
+            endTime <font color="#990000">=</font> System<font color="#990000">.</font><b><font color="#000000">currentTimeMillis</font></b><font color="#990000">();</font>
+            searchTime <font color="#990000">=</font> endTime<font color="#990000">-</font>startTime<font color="#990000">;</font>
+
+            <i><font color="#9A1900">// delete even and odd numbers from 0 to deletes</font></i>
+            startTime <font color="#990000">=</font> System<font color="#990000">.</font><b><font color="#000000">currentTimeMillis</font></b><font color="#990000">();</font>
+            <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> deletes<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+                x <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Integer</font></b><font color="#990000">(</font>i<font color="#990000">);</font>
+                collection<font color="#990000">.</font><b><font color="#000000">remove</font></b><font color="#990000">(</font>x<font color="#990000">);</font>
+            <font color="#FF0000">}</font>
+            endTime <font color="#990000">=</font> System<font color="#990000">.</font><b><font color="#000000">currentTimeMillis</font></b><font color="#990000">();</font>
+            deleteTime <font color="#990000">=</font> endTime<font color="#990000">-</font>startTime<font color="#990000">;</font>
+
+            <i><font color="#9A1900">// record the finish time, compute time taken, print it out</font></i>
+            <font color="#009900">double</font> timeInSec <font color="#990000">=</font> <font color="#990000">(</font>insertTime<font color="#990000">+</font>searchTime<font color="#990000">+</font>deleteTime<font color="#990000">)/</font><font color="#993399">1000.0</font><font color="#990000">;</font>
+            System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b> <font color="#990000">(</font><font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">took "</font> <font color="#990000">+</font> <font color="#990000">(</font>searchTime<font color="#990000">+</font>insertTime<font color="#990000">+</font>deleteTime<font color="#990000">)</font> <font color="#990000">+</font>
+                                <font color="#FF0000">" ms</font><font color="#CC33CC">\t</font><font color="#FF0000">"</font> <font color="#990000">+</font> style<font color="#990000">.</font><b><font color="#000000">format</font></b><font color="#990000">(</font>timeInSec<font color="#990000">)</font> <font color="#990000">+</font> <font color="#FF0000">" sec (insert: "</font> <font color="#990000">+</font>
+                                insertTime <font color="#990000">+</font> <font color="#FF0000">" ms, search: "</font> <font color="#990000">+</font> searchTime <font color="#990000">+</font>
+                                <font color="#FF0000">" ms, delete: "</font> <font color="#990000">+</font> deleteTime <font color="#990000">+</font> <font color="#FF0000">" ms)"</font><font color="#990000">);</font>
+        <font color="#FF0000">}</font>
+
+
+        <i><font color="#9A1900">// Now try doing the same thing on a Vector, but sort the stuff first</font></i>
+        <font color="#008080">Vector</font> vector <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Vector</font></b><font color="#990000">();</font>
+        System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">print</font></b> <font color="#990000">(</font><font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">Vector, sorted:"</font><font color="#990000">);</font>
+
+        <i><font color="#9A1900">// insert even numbers from 0 to inserts</font></i>
+        startTime <font color="#990000">=</font> System<font color="#990000">.</font><b><font color="#000000">currentTimeMillis</font></b><font color="#990000">();</font>
+        <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> inserts<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+            x <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Integer</font></b><font color="#990000">(</font>i<font color="#990000">*</font><font color="#993399">2</font><font color="#990000">);</font>
+            vector<font color="#990000">.</font><b><font color="#000000">add</font></b><font color="#990000">(</font>x<font color="#990000">);</font>
+        <font color="#FF0000">}</font>
+        Collections<font color="#990000">.</font><b><font color="#000000">sort</font></b><font color="#990000">(</font>vector<font color="#990000">);</font>
+        endTime <font color="#990000">=</font> System<font color="#990000">.</font><b><font color="#000000">currentTimeMillis</font></b><font color="#990000">();</font>
+        insertTime <font color="#990000">=</font> endTime<font color="#990000">-</font>startTime<font color="#990000">;</font>
+
+        <i><font color="#9A1900">// search for even and odd numbers from 0 to searches</font></i>
+        startTime <font color="#990000">=</font> System<font color="#990000">.</font><b><font color="#000000">currentTimeMillis</font></b><font color="#990000">();</font>
+        <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> searches<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+            x <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Integer</font></b><font color="#990000">(</font>i<font color="#990000">);</font>
+            <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> Collections<font color="#990000">.</font><b><font color="#000000">binarySearch</font></b><font color="#990000">(</font>vector<font color="#990000">,</font>x<font color="#990000">)</font> <font color="#990000">&gt;=</font> <font color="#993399">0</font> <font color="#990000">)</font> <font color="#FF0000">{</font> <font color="#FF0000">}</font>
+        <font color="#FF0000">}</font>
+        endTime <font color="#990000">=</font> System<font color="#990000">.</font><b><font color="#000000">currentTimeMillis</font></b><font color="#990000">();</font>
+        searchTime <font color="#990000">=</font> endTime<font color="#990000">-</font>startTime<font color="#990000">;</font>
+
+        <i><font color="#9A1900">// delete even and odd numbers from 0 to deletes</font></i>
+        <font color="#009900">int</font> index<font color="#990000">;</font>
+        startTime <font color="#990000">=</font> System<font color="#990000">.</font><b><font color="#000000">currentTimeMillis</font></b><font color="#990000">();</font>
+        <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> deletes<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+            x <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Integer</font></b><font color="#990000">(</font>i<font color="#990000">);</font>
+            index <font color="#990000">=</font> Collections<font color="#990000">.</font><b><font color="#000000">binarySearch</font></b><font color="#990000">(</font>vector<font color="#990000">,</font>x<font color="#990000">);</font>
+            <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> index <font color="#990000">&gt;=</font> <font color="#993399">0</font> <font color="#990000">)</font>
+                vector<font color="#990000">.</font><b><font color="#000000">remove</font></b><font color="#990000">(</font>index<font color="#990000">);</font>
+        <font color="#FF0000">}</font>
+        endTime <font color="#990000">=</font> System<font color="#990000">.</font><b><font color="#000000">currentTimeMillis</font></b><font color="#990000">();</font>
+        deleteTime <font color="#990000">=</font> endTime<font color="#990000">-</font>startTime<font color="#990000">;</font>
+
+        <i><font color="#9A1900">// record the finish time, compute time taken, print it out</font></i>
+        <font color="#009900">double</font> timeInSec <font color="#990000">=</font> <font color="#990000">(</font>insertTime<font color="#990000">+</font>searchTime<font color="#990000">+</font>deleteTime<font color="#990000">)/</font><font color="#993399">1000.0</font><font color="#990000">;</font>
+        System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b> <font color="#990000">(</font><font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">took "</font> <font color="#990000">+</font> <font color="#990000">(</font>searchTime<font color="#990000">+</font>insertTime<font color="#990000">+</font>deleteTime<font color="#990000">)</font> <font color="#990000">+</font>
+                            <font color="#FF0000">" ms</font><font color="#CC33CC">\t</font><font color="#FF0000">"</font> <font color="#990000">+</font> style<font color="#990000">.</font><b><font color="#000000">format</font></b><font color="#990000">(</font>timeInSec<font color="#990000">)</font> <font color="#990000">+</font> <font color="#FF0000">" sec (insert: "</font> <font color="#990000">+</font>
+                            insertTime <font color="#990000">+</font> <font color="#FF0000">" ms, search: "</font> <font color="#990000">+</font> searchTime <font color="#990000">+</font>
+                            <font color="#FF0000">" ms, delete: "</font> <font color="#990000">+</font> deleteTime <font color="#990000">+</font> <font color="#FF0000">" ms)"</font><font color="#990000">);</font>
+        System<font color="#990000">.</font><b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/** Execution run used in the lectures:</font></i>
+
+<i><font color="#9A1900">Operations performed:</font></i>
+<i><font color="#9A1900">        50000   insertions</font></i>
+<i><font color="#9A1900">        25000   searches</font></i>
+<i><font color="#9A1900">        10000   deletions</font></i>
+<i><font color="#9A1900">Vector:         took 17311 ms   17.311 sec (insert: 30 ms, search: 12620 ms, delete: 4661 ms)</font></i>
+<i><font color="#9A1900">ArrayList:      took 17281 ms   17.281 sec (insert: 28 ms, search: 12609 ms, delete: 4644 ms)</font></i>
+<i><font color="#9A1900">LinkedList:     took 24255 ms   24.255 sec (insert: 54 ms, search: 17934 ms, delete: 6267 ms)</font></i>
+<i><font color="#9A1900">HashSet:        took 122 ms     0.122 sec (insert: 103 ms, search: 9 ms, delete: 10 ms)</font></i>
+<i><font color="#9A1900">TreeSet:        took 119 ms     0.119 sec (insert: 93 ms, search: 14 ms, delete: 12 ms)</font></i>
+
+<i><font color="#9A1900">Vector, sorted: took 294 ms     0.294 sec (insert: 36 ms, search: 19 ms, delete: 239 ms)</font></i>
+<i><font color="#9A1900">*/</font></i></tt></pre>
+</body>
+</html>
