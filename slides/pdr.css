@@ -1,4 +1,8 @@
-strong.red {
+/* This file is part of the http://github.com/aaronbloomfield/pdr
+ * repo, and has the same license as the rest of the repo (CC BY-SA)
+ */
+
+/* Fixing some slide formatting to my tastes */ strong.red {
   color: #ff0000; 
 }
 li { 
@@ -10,38 +14,72 @@ p {
 p.center { 
   text-align: center;
 }
-table.rowaltcolor tr:nth-child(even) td {
-  background-color: #000033;
+
+/* default tables created by markdown */
+.reveal section table { 
+  margin-left: auto;
+  margin-right: auto;
 }
-table.rowaltcolor tr:nth-child(odd) td {
-  background-color: #333333;
+.reveal table tr:nth-child(even) td {
+  background-color: rgb(80,130,190);
+  padding-left: 5px;
 }
-table.rowaltcolor tr:first-child td {
-  background-color: #0000ff; color: black;
+.reveal table tr:nth-child(odd) td {
+  background-color: #666666;
+  padding-left: 5px;
 }
+.reveal table th {
+  background-color: rgb(20,60,110);
+  padding: 5px;
+}
+
+/* for when no formatting is desired (such as the CS 2150 roadmap) */
+.reveal table.default tr:nth-child(even) td {
+  background-color: transparent;
+  padding-left: 5px;
+}
+.reveal table.default tr:nth-child(odd) td {
+  background-color: transparent;
+  padding-left: 5px;
+}
+.reveal table th {
+  background-color: transparent;
+  padding: 5px;
+}
+
+/* make the code blocks bigger */
+.reveal pre {
+  font-size: 25px;
+  margin-right: 100px;
+}
+
+/* add spacing below the slide title */
+.reveal h2 {
+  font-variant:small-caps;
+  text-transform:none;
+  margin: -50px 0px 50px 0px;
+}
+
+/* center images on the slide */
+.reveal section img { 
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* for hard-coding table alignments */
 td.top {
   vertical-align: top;
 }
 td.middle {
   vertical-align: middle;
 }
+
+/* currently not used anymore, and slated to be removed eventually */
 span.tt { 
   font-family: monospace;
 }
 table.wide { 
   width:100%;
 }
-.reveal pre { /* make the code blocks bigger */
-  font-size: 25px;
-  margin-right: 100px;
-}
-.reveal h2 { /* add spacing below the slide title */
-  font-variant:small-caps;
-  text-transform:none;
-  margin: -50px 0px 50px 0px;
-}
-.reveal section img { 
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
- }
+
