@@ -24,8 +24,9 @@
 #include <stdio.h>
 #include <mkdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-void main (int argc, char **argv) {
+int main (int argc, char **argv) {
     int i;
     FILE *fpin, *fpout;
 
@@ -58,4 +59,6 @@ void main (int argc, char **argv) {
     fclose(fpout);
 
     mkd_cleanup(doc);
+
+    return 0;
 }

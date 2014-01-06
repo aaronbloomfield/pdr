@@ -26,7 +26,7 @@ http://www.gnu.org/software/src-highlite">
 <i><font color="#9A1900"> * The resulting document is a full HTML document -- meaning it adds</font></i>
 <i><font color="#9A1900"> * the &lt;doctype&gt;, &lt;html&gt;, &lt;head&gt;, and &lt;body&gt; tags to the document.</font></i>
 <i><font color="#9A1900"> *</font></i>
-<i><font color="#9A1900"> * To compile, try: "gcc markdown.c -o markdown -lmarkdown"</font></i>
+<i><font color="#9A1900"> * To compile: "gcc markdown.c -o markdown -lmarkdown"</font></i>
 <i><font color="#9A1900"> *</font></i>
 <i><font color="#9A1900"> * To use, specify the input file name, and optionally an output file</font></i>
 <i><font color="#9A1900"> * name.</font></i>
@@ -35,8 +35,9 @@ http://www.gnu.org/software/src-highlite">
 <b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdio.h&gt;</font>
 <b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;mkdio.h&gt;</font>
 <b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdlib.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;string.h&gt;</font>
 
-<font color="#009900">void</font> <b><font color="#000000">main</font></b> <font color="#990000">(</font><font color="#009900">int</font> argc<font color="#990000">,</font> <font color="#009900">char</font> <font color="#990000">**</font>argv<font color="#990000">)</font> <font color="#FF0000">{</font>
+<font color="#009900">int</font> <b><font color="#000000">main</font></b> <font color="#990000">(</font><font color="#009900">int</font> argc<font color="#990000">,</font> <font color="#009900">char</font> <font color="#990000">**</font>argv<font color="#990000">)</font> <font color="#FF0000">{</font>
     <font color="#009900">int</font> i<font color="#990000">;</font>
     <font color="#008080">FILE</font> <font color="#990000">*</font>fpin<font color="#990000">,</font> <font color="#990000">*</font>fpout<font color="#990000">;</font>
 
@@ -69,6 +70,8 @@ http://www.gnu.org/software/src-highlite">
     <b><font color="#000000">fclose</font></b><font color="#990000">(</font>fpout<font color="#990000">);</font>
 
     <b><font color="#000000">mkd_cleanup</font></b><font color="#990000">(</font>doc<font color="#990000">);</font>
+
+    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
 <font color="#FF0000">}</font>
 </tt></pre>
 </body>
