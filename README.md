@@ -56,8 +56,10 @@ Contents
   [slides/index.html](slides/index.html) for the table of contents.
   The slides use [reveal.js](https://github.com/hakimel/reveal.js/), a
   HTML presentation framework.
-- tutorials/: the tutorials that are used as part of the lab
-  assignments, these are primarily Linux tutorials.
+- [tutorials](tutorials/index.html): the tutorials that are used as
+  part of the lab assignments, these are primarily Linux tutorials.
+  To view the tutorials, see the
+  [tutorials/index.html](tutorials/index.html) page.
 
 Markdown
 --------

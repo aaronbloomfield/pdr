@@ -1,7 +1,7 @@
 Laboratory 1: Introduction to C++
 =================================
 
-[Go up to the labs table of contents page](../index.html)
+[Go up to the Labs table of contents page](../index.html)
 
 ### Objective ###
 
