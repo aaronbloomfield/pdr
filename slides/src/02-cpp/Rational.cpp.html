@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>Rational.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">// File Rational.cpp</font></i>
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">"Rational.h"</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<i><font color="#9A1900">// default constructor: initialize to 0/1</font></i>
+Rational<font color="#990000">::</font><b><font color="#000000">Rational</font></b><font color="#990000">()</font> <font color="#990000">:</font> <b><font color="#000000">num</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">),</font> <b><font color="#000000">den</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">)</font> <font color="#FF0000">{</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// destructor : more on these later...</font></i>
+Rational<font color="#990000">::~</font><b><font color="#000000">Rational</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// create and initialize a new Rational object</font></i>
+Rational<font color="#990000">::</font><b><font color="#000000">Rational</font></b><font color="#990000">(</font><font color="#009900">int</font> numerator<font color="#990000">,</font> <font color="#009900">int</font> denominator<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>denominator <font color="#990000">==</font> <font color="#993399">0</font><font color="#990000">)</font> <font color="#FF0000">{</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Denominator is zero"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+    <font color="#009900">int</font> g <font color="#990000">=</font> <b><font color="#000000">gcd</font></b><font color="#990000">(</font>numerator<font color="#990000">,</font> denominator<font color="#990000">);</font>
+    num <font color="#990000">=</font> numerator   <font color="#990000">/</font> g<font color="#990000">;</font>
+    den <font color="#990000">=</font> denominator <font color="#990000">/</font> g<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// return string representation of (this)</font></i>
+<font color="#009900">void</font> Rational<font color="#990000">::</font><b><font color="#000000">print</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>den <font color="#990000">==</font> <font color="#993399">1</font><font color="#990000">)</font> <font color="#FF0000">{</font>
+        cout <font color="#990000">&lt;&lt;</font> num <font color="#990000">&lt;&lt;</font> <font color="#FF0000">""</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
+        cout <font color="#990000">&lt;&lt;</font> num <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"/"</font> <font color="#990000">&lt;&lt;</font> den <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// return (this * b)</font></i>
+<font color="#008080">Rational</font> Rational<font color="#990000">::</font><b><font color="#000000">times</font></b><font color="#990000">(</font><font color="#008080">Rational</font> b<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">return</font></b> <b><font color="#000000">Rational</font></b><font color="#990000">(</font>num <font color="#990000">*</font> b<font color="#990000">.</font>num<font color="#990000">,</font> den <font color="#990000">*</font> b<font color="#990000">.</font>den<font color="#990000">);</font>
+<font color="#FF0000">}</font>
+
+
+<i><font color="#9A1900">// return (this + b)</font></i>
+<font color="#008080">Rational</font> Rational<font color="#990000">::</font><b><font color="#000000">plus</font></b><font color="#990000">(</font><font color="#008080">Rational</font> b<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <font color="#009900">int</font> numerator   <font color="#990000">=</font> <font color="#990000">(</font>num <font color="#990000">*</font> b<font color="#990000">.</font>den<font color="#990000">)</font> <font color="#990000">+</font> <font color="#990000">(</font>den <font color="#990000">*</font> b<font color="#990000">.</font>num<font color="#990000">);</font>
+    <font color="#009900">int</font> denominator <font color="#990000">=</font> den <font color="#990000">*</font> b<font color="#990000">.</font>den<font color="#990000">;</font>
+    <b><font color="#0000FF">return</font></b> <b><font color="#000000">Rational</font></b><font color="#990000">(</font>numerator<font color="#990000">,</font> denominator<font color="#990000">);</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// return (1 / this)</font></i>
+<font color="#008080">Rational</font> Rational<font color="#990000">::</font><b><font color="#000000">reciprocal</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">return</font></b> <b><font color="#000000">Rational</font></b><font color="#990000">(</font>den<font color="#990000">,</font> num<font color="#990000">);</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// return (this / b)</font></i>
+<font color="#008080">Rational</font> Rational<font color="#990000">::</font><b><font color="#000000">divides</font></b><font color="#990000">(</font><font color="#008080">Rational</font> b<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">return</font></b> <b><font color="#000000">times</font></b><font color="#990000">(</font>b<font color="#990000">.</font><b><font color="#000000">reciprocal</font></b><font color="#990000">());</font>
+<font color="#FF0000">}</font>
+
+
+<i><font color="#9A1900">/*************************************************************************</font></i>
+<i><font color="#9A1900"> *  Helper functions</font></i>
+<i><font color="#9A1900"> *************************************************************************/</font></i>
+
+<i><font color="#9A1900">// return gcd(m, n)</font></i>
+<font color="#009900">int</font> Rational<font color="#990000">::</font><b><font color="#000000">gcd</font></b><font color="#990000">(</font><font color="#009900">int</font> m<font color="#990000">,</font> <font color="#009900">int</font> n<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font><font color="#993399">0</font> <font color="#990000">==</font> n<font color="#990000">)</font>
+        <b><font color="#0000FF">return</font></b> m<font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b>
+        <b><font color="#0000FF">return</font></b> <b><font color="#000000">gcd</font></b><font color="#990000">(</font>n<font color="#990000">,</font> m <font color="#990000">%</font> n<font color="#990000">);</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

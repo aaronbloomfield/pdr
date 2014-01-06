@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>TestRational.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">// File TestRational.cpp</font></i>
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">"Rational.h"</font>
+
+<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+    <font color="#008080">Rational</font> x<font color="#990000">,</font> y<font color="#990000">,</font> z<font color="#990000">;</font>
+
+    <i><font color="#9A1900">// 1/2 + 1/3 = 5/6</font></i>
+    x <font color="#990000">=</font> <b><font color="#000000">Rational</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">,</font> <font color="#993399">2</font><font color="#990000">);</font>
+    y <font color="#990000">=</font> <b><font color="#000000">Rational</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">,</font> <font color="#993399">3</font><font color="#990000">);</font>
+    z <font color="#990000">=</font> x<font color="#990000">.</font><b><font color="#000000">plus</font></b><font color="#990000">(</font>y<font color="#990000">);</font>
+    z<font color="#990000">.</font><b><font color="#000000">print</font></b><font color="#990000">();</font>
+
+    <i><font color="#9A1900">// 8/9 + 1/9 = 1</font></i>
+    x <font color="#990000">=</font> <b><font color="#000000">Rational</font></b><font color="#990000">(</font><font color="#993399">8</font><font color="#990000">,</font> <font color="#993399">9</font><font color="#990000">);</font>
+    y <font color="#990000">=</font> <b><font color="#000000">Rational</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">,</font> <font color="#993399">9</font><font color="#990000">);</font>
+    z <font color="#990000">=</font> x<font color="#990000">.</font><b><font color="#000000">plus</font></b><font color="#990000">(</font>y<font color="#990000">);</font>
+    z<font color="#990000">.</font><b><font color="#000000">print</font></b><font color="#990000">();</font>
+
+    <i><font color="#9A1900">//  4/17 * 7/3 = 28/51</font></i>
+    x <font color="#990000">=</font> <b><font color="#000000">Rational</font></b><font color="#990000">(</font><font color="#993399">4</font><font color="#990000">,</font> <font color="#993399">17</font><font color="#990000">);</font>
+    y <font color="#990000">=</font> <b><font color="#000000">Rational</font></b><font color="#990000">(</font><font color="#993399">7</font><font color="#990000">,</font>  <font color="#993399">3</font><font color="#990000">);</font>
+    z <font color="#990000">=</font> x<font color="#990000">.</font><b><font color="#000000">times</font></b><font color="#990000">(</font>y<font color="#990000">);</font>
+    z<font color="#990000">.</font><b><font color="#000000">print</font></b><font color="#990000">();</font>
+
+    <i><font color="#9A1900">// 0/6 = 0</font></i>
+    x <font color="#990000">=</font> <b><font color="#000000">Rational</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">,</font> <font color="#993399">6</font><font color="#990000">);</font>
+    x<font color="#990000">.</font><b><font color="#000000">print</font></b><font color="#990000">();</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

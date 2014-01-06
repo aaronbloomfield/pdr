@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>dynamic_allocation.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">/* Author: Michele Co, CS 216, Spring 2007</font></i>
+<i><font color="#9A1900"> * Filename: dynamic_allocation.cpp</font></i>
+<i><font color="#9A1900"> * Description: Demonstrates dynamic allocation and de-allocation</font></i>
+<i><font color="#9A1900"> *			using new and delete</font></i>
+<i><font color="#9A1900"> */</font></i>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+    <font color="#009900">int</font> n<font color="#990000">;</font>
+    <i><font color="#9A1900">// read in a value from the user</font></i>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Please enter an integer value: "</font> <font color="#990000">;</font>
+    cin <font color="#990000">&gt;&gt;</font> n<font color="#990000">;</font>
+
+    <i><font color="#9A1900">// use the user's input to create an array of int</font></i>
+    <font color="#009900">int</font> <font color="#990000">*</font> ages <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">int</font> <font color="#990000">[</font>n<font color="#990000">];</font>
+
+    <i><font color="#9A1900">// use a loop to prompt the user to initialize the array</font></i>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font><font color="#009900">int</font> i<font color="#990000">=</font><font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> n<font color="#990000">;</font> i<font color="#990000">++)</font> <font color="#FF0000">{</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Enter a value for ages[ "</font> <font color="#990000">&lt;&lt;</font> i <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" ]: "</font> <font color="#990000">;</font>
+        cin <font color="#990000">&gt;&gt;</font> ages<font color="#990000">[</font>i<font color="#990000">];</font>
+    <font color="#FF0000">}</font>
+
+    <i><font color="#9A1900">// print out the contents of the array</font></i>
+    <b><font color="#0000FF">for</font></b><font color="#990000">(</font><font color="#009900">int</font> i<font color="#990000">=</font><font color="#993399">0</font><font color="#990000">;</font> i<font color="#990000">&lt;</font>n<font color="#990000">;</font> i<font color="#990000">++)</font> <font color="#FF0000">{</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"ages[ "</font> <font color="#990000">&lt;&lt;</font> i <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" ]: "</font> <font color="#990000">&lt;&lt;</font> ages<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" , "</font><font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+    cout <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+
+    <i><font color="#9A1900">// finished with the array, clean up the memory used by calling delete</font></i>
+    <b><font color="#0000FF">delete</font></b> <font color="#990000">[]</font> ages<font color="#990000">;</font>
+    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

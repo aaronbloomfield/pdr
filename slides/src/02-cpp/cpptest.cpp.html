@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>cpptest.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">/*</font></i>
+<i><font color="#9A1900"> * This program is designed to show some nuances of C++ syntax,</font></i>
+<i><font color="#9A1900"> * reference usage, and the various methods in a class (copy</font></i>
+<i><font color="#9A1900"> * constructor, operator=(), etc.).</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * The addresses you get when running this program will most likley</font></i>
+<i><font color="#9A1900"> * differ; that is expected.  In fact, the addresses will differ upon</font></i>
+<i><font color="#9A1900"> * successive executions of the program.  If you are compiling this on</font></i>
+<i><font color="#9A1900"> * a 64-bit machine, you may want to use the -m32 flag to g++ to</font></i>
+<i><font color="#9A1900"> * compile it in 32-bit mode -- this keeps the pointers to 32 bits (as</font></i>
+<i><font color="#9A1900"> * opposed to 64 bits).</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * Copyright (c) 2012 by Aaron Bloomfield (</font></i><u><font color="#0000FF">aaron@virginia.edu</font></u><i><font color="#9A1900">).  All</font></i>
+<i><font color="#9A1900"> * rights reesrved.</font></i>
+<i><font color="#9A1900"> */</font></i>
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<i><font color="#9A1900">//--------------------------------------------------</font></i>
+<i><font color="#9A1900">// this would be in test.h</font></i>
+
+<b><font color="#0000FF">class</font></b> <font color="#008080">test</font> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">static</font></b> <font color="#009900">int</font> idcount<font color="#990000">;</font>
+    <b><font color="#0000FF">const</font></b> <font color="#009900">int</font> id<font color="#990000">;</font>
+    <font color="#009900">int</font> value<font color="#990000">;</font>
+<b><font color="#0000FF">public</font></b><font color="#990000">:</font>
+    <b><font color="#000000">test</font></b><font color="#990000">();</font>
+    <b><font color="#000000">test</font></b><font color="#990000">(</font><font color="#009900">int</font> v<font color="#990000">);</font>
+    <b><font color="#000000">test</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> test<font color="#990000">&amp;</font> x<font color="#990000">);</font>
+    <font color="#990000">~</font><b><font color="#000000">test</font></b><font color="#990000">();</font>
+    test<font color="#990000">&amp;</font> <b><font color="#0000FF">operator</font></b><font color="#990000">=(</font><b><font color="#0000FF">const</font></b> test<font color="#990000">&amp;</font> other<font color="#990000">);</font>
+    <b><font color="#0000FF">friend</font></b> ostream<font color="#990000">&amp;</font> <b><font color="#0000FF">operator</font></b><font color="#990000">&lt;&lt;(</font>ostream<font color="#990000">&amp;</font> out<font color="#990000">,</font> <b><font color="#0000FF">const</font></b> test<font color="#990000">&amp;</font> f<font color="#990000">);</font>
+<font color="#FF0000">}</font><font color="#990000">;</font>
+
+<i><font color="#9A1900">//--------------------------------------------------</font></i>
+<i><font color="#9A1900">// this would be in test.cpp</font></i>
+
+<font color="#009900">int</font> test<font color="#990000">::</font>idcount <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+
+test<font color="#990000">::</font><b><font color="#000000">test</font></b><font color="#990000">()</font> <font color="#990000">:</font> <b><font color="#000000">id</font></b> <font color="#990000">(</font>idcount<font color="#990000">++),</font> <b><font color="#000000">value</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">)</font> <font color="#FF0000">{</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"calling test(); object created is "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font><b><font color="#0000FF">this</font></b>
+         <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"; address is "</font> <font color="#990000">&lt;&lt;</font> <b><font color="#0000FF">this</font></b> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+test<font color="#990000">::</font><b><font color="#000000">test</font></b><font color="#990000">(</font><font color="#009900">int</font> v<font color="#990000">)</font> <font color="#990000">:</font> <b><font color="#000000">id</font></b> <font color="#990000">(</font>idcount<font color="#990000">++),</font> <b><font color="#000000">value</font></b><font color="#990000">(</font>v<font color="#990000">)</font> <font color="#FF0000">{</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"calling test("</font> <font color="#990000">&lt;&lt;</font> v <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"); object created is "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font><b><font color="#0000FF">this</font></b>
+         <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"; address is "</font> <font color="#990000">&lt;&lt;</font> <b><font color="#0000FF">this</font></b> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+test<font color="#990000">::</font><b><font color="#000000">test</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> test<font color="#990000">&amp;</font> x<font color="#990000">)</font> <font color="#990000">:</font> <b><font color="#000000">id</font></b><font color="#990000">(</font>x<font color="#990000">.</font>id<font color="#990000">),</font> <b><font color="#000000">value</font></b><font color="#990000">(</font>x<font color="#990000">.</font>value<font color="#990000">)</font> <font color="#FF0000">{</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"calling test(&amp;test) on "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font><b><font color="#0000FF">this</font></b> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"; address is "</font> <font color="#990000">&lt;&lt;</font> <b><font color="#0000FF">this</font></b> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+test<font color="#990000">::~</font><b><font color="#000000">test</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"calling ~test() on "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font><b><font color="#0000FF">this</font></b> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+test<font color="#990000">&amp;</font> test<font color="#990000">::</font><b><font color="#0000FF">operator</font></b><font color="#990000">=(</font><b><font color="#0000FF">const</font></b> test<font color="#990000">&amp;</font> other<font color="#990000">)</font> <font color="#FF0000">{</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"calling operator=("</font> <font color="#990000">&lt;&lt;</font> other <font color="#990000">&lt;&lt;</font> <font color="#FF0000">")"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#008080">test</font> <font color="#990000">*</font>tmp <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">test</font></b><font color="#990000">(</font>other<font color="#990000">);</font>
+    <b><font color="#0000FF">return</font></b> <font color="#990000">*</font>tmp<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+ostream<font color="#990000">&amp;</font> <b><font color="#0000FF">operator</font></b><font color="#990000">&lt;&lt;(</font>ostream<font color="#990000">&amp;</font> out<font color="#990000">,</font> <b><font color="#0000FF">const</font></b> test<font color="#990000">&amp;</font> f<font color="#990000">)</font> <font color="#FF0000">{</font>
+    out <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"test[id="</font> <font color="#990000">&lt;&lt;</font> f<font color="#990000">.</font>id <font color="#990000">&lt;&lt;</font> <font color="#FF0000">",v="</font> <font color="#990000">&lt;&lt;</font> f<font color="#990000">.</font>value <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"]"</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+
+<i><font color="#9A1900">//--------------------------------------------------</font></i>
+<i><font color="#9A1900">// this would be in main.cpp</font></i>
+
+<font color="#008080">test</font> <b><font color="#000000">bar</font></b><font color="#990000">(</font><font color="#008080">test</font> param<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">return</font></b> <b><font color="#000000">test</font></b><font color="#990000">(</font><font color="#993399">10</font><font color="#990000">);</font>
+<font color="#FF0000">}</font>
+
+<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+
+    <i><font color="#9A1900">// this does NOT create a test object; instead, it creates a function</font></i>
+    <i><font color="#9A1900">// called a() that has no body (and thus C++ defaults it to return</font></i>
+    <i><font color="#9A1900">// 1).  Note that there is no output statement from the default</font></i>
+    <i><font color="#9A1900">// constructor.</font></i>
+    <font color="#008080">test</font> <b><font color="#000000">a</font></b><font color="#990000">();</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"attempted to create a: "</font> <font color="#990000">&lt;&lt;</font> a <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <i><font color="#9A1900">// output:</font></i>
+    <i><font color="#9A1900">// attempted to create a: 1</font></i>
+
+    <i><font color="#9A1900">// this does  create a test object, calling  the default constructor.</font></i>
+    <i><font color="#9A1900">// Since  putting parenthesis in  there for  creating an  object and</font></i>
+    <i><font color="#9A1900">// calling  the  default  constructor  has another  meaning  in  C++</font></i>
+    <i><font color="#9A1900">// (specifically,  creating  a  function),   we  have  to  omit  the</font></i>
+    <i><font color="#9A1900">// parenthesis.</font></i>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"----------------------------------------"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#008080">test</font> aa<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"created aa: "</font> <font color="#990000">&lt;&lt;</font> aa <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <i><font color="#9A1900">// output:</font></i>
+    <i><font color="#9A1900">// ----------------------------------------</font></i>
+    <i><font color="#9A1900">// calling test(); object created is test[id=0,v=0]; address is 0xff852a50</font></i>
+    <i><font color="#9A1900">// created aa: test[id=0,v=0]</font></i>
+
+    <i><font color="#9A1900">// this creates a test object, calling the specific constructor that</font></i>
+    <i><font color="#9A1900">// takes in a single int value</font></i>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"----------------------------------------"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#008080">test</font> <b><font color="#000000">b</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">);</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"created b: "</font> <font color="#990000">&lt;&lt;</font> b <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <i><font color="#9A1900">// output:</font></i>
+    <i><font color="#9A1900">// ----------------------------------------</font></i>
+    <i><font color="#9A1900">// calling test(1); object created is test[id=1,v=1]; address is 0xff852a48</font></i>
+    <i><font color="#9A1900">// created b: test[id=1,v=1]</font></i>
+
+    <i><font color="#9A1900">// this creates two test objects via pointers and new</font></i>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"----------------------------------------"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#008080">test</font> <font color="#990000">*</font>c <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">test</font></b><font color="#990000">(</font><font color="#993399">2</font><font color="#990000">);</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"created *c: "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>c <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" at "</font> <font color="#990000">&lt;&lt;</font> c <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#008080">test</font> <font color="#990000">*</font>d <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> test<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"created *d: "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>d <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" at "</font> <font color="#990000">&lt;&lt;</font> d <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <i><font color="#9A1900">// output:</font></i>
+    <i><font color="#9A1900">// ----------------------------------------</font></i>
+    <i><font color="#9A1900">// calling test(2); object created is test[id=2,v=2]; address is 0xa009008</font></i>
+    <i><font color="#9A1900">// created *c: test[id=2,v=2] at 0xa009008</font></i>
+    <i><font color="#9A1900">// calling test(); object created is test[id=3,v=0]; address is 0xa009018</font></i>
+    <i><font color="#9A1900">// created *d: test[id=3,v=0] at 0xa009018</font></i>
+
+    <i><font color="#9A1900">// subroutine invocation.  The copy constructor is invoked when the</font></i>
+    <i><font color="#9A1900">// actual parameter is copied into the formal parameter.  The</font></i>
+    <i><font color="#9A1900">// subroutine then creates test[id=4,v=10].  The parameter that was</font></i>
+    <i><font color="#9A1900">// copied into the subroutine (via the copy constructor) is then</font></i>
+    <i><font color="#9A1900">// destructed upon termination of the subroutine.</font></i>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"----------------------------------------"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"about to invoke subroutine..."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#008080">test</font> e <font color="#990000">=</font> <b><font color="#000000">bar</font></b><font color="#990000">(*</font>c<font color="#990000">);</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"finished invoking subroutine..."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <i><font color="#9A1900">// output:</font></i>
+    <i><font color="#9A1900">// ----------------------------------------</font></i>
+    <i><font color="#9A1900">// about to invoke subroutine...</font></i>
+    <i><font color="#9A1900">// calling test(&amp;test) on test[id=2,v=2]; address is 0xff852a38</font></i>
+    <i><font color="#9A1900">// calling test(10); object created is test[id=4,v=10]; address is 0xff852a40</font></i>
+    <i><font color="#9A1900">// calling ~test() on test[id=2,v=2]</font></i>
+    <i><font color="#9A1900">// finished invoking subroutine...</font></i>
+
+    <i><font color="#9A1900">// because this assignment happens in the same statement as the</font></i>
+    <i><font color="#9A1900">// declaration, it invokes the copy constructor</font></i>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"----------------------------------------"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#008080">test</font> f <font color="#990000">=</font> b<font color="#990000">;</font>
+    <i><font color="#9A1900">// output:</font></i>
+    <i><font color="#9A1900">// ----------------------------------------</font></i>
+    <i><font color="#9A1900">// calling test(&amp;test) on test[id=1,v=1]; address is 0xff852a30</font></i>
+
+    <i><font color="#9A1900">// we are only deleting one of the dynamically created test objects</font></i>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"----------------------------------------"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"about to delete a test object..."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <b><font color="#0000FF">delete</font></b> c<font color="#990000">;</font>
+    <i><font color="#9A1900">// output:</font></i>
+    <i><font color="#9A1900">// ----------------------------------------</font></i>
+    <i><font color="#9A1900">// about to delete a test object...</font></i>
+    <i><font color="#9A1900">// calling ~test() on test[id=2,v=2]</font></i>
+
+    <i><font color="#9A1900">// because this assignment does NOT happen in the same statement as</font></i>
+    <i><font color="#9A1900">// the declaration, the operator=() subroutine is called.</font></i>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"----------------------------------------"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"assignment..."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    aa <font color="#990000">=</font> b<font color="#990000">;</font>
+    <i><font color="#9A1900">// output:</font></i>
+    <i><font color="#9A1900">// ----------------------------------------</font></i>
+    <i><font color="#9A1900">// assignment...</font></i>
+    <i><font color="#9A1900">// calling operator=(test[id=1,v=1])</font></i>
+    <i><font color="#9A1900">// calling test(&amp;test) on test[id=1,v=1]; address is 0xa009008</font></i>
+
+    <i><font color="#9A1900">// upon termination of the main() function, all statically created</font></i>
+    <i><font color="#9A1900">// test objects are deallocated.</font></i>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"----------------------------------------"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"about to leave main..."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <i><font color="#9A1900">// output:</font></i>
+    <i><font color="#9A1900">// ----------------------------------------</font></i>
+    <i><font color="#9A1900">// about to leave main...</font></i>
+    <i><font color="#9A1900">// calling ~test() on test[id=1,v=1]</font></i>
+    <i><font color="#9A1900">// calling ~test() on test[id=4,v=10]</font></i>
+    <i><font color="#9A1900">// calling ~test() on test[id=1,v=1]</font></i>
+    <i><font color="#9A1900">// calling ~test() on test[id=0,v=0]</font></i>
+
+    <i><font color="#9A1900">// Note that d was created via dynamic memory allocation, so it is</font></i>
+    <i><font color="#9A1900">// not deallcoated by the program.  The operating system will clean</font></i>
+    <i><font color="#9A1900">// up the used memory, but it does not call the destructor on d.</font></i>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

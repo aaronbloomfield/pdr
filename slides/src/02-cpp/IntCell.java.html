@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>IntCell.java</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">// File IntCell.java</font></i>
+
+<b><font color="#0000FF">public</font></b> <b><font color="#0000FF">class</font></b> <font color="#008080">IntCell</font> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">public</font></b> <b><font color="#000000">IntCell</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+        <b><font color="#0000FF">this</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+
+    <b><font color="#0000FF">public</font></b> <b><font color="#000000">IntCell</font></b><font color="#990000">(</font><font color="#009900">int</font> initialValue<font color="#990000">)</font> <font color="#FF0000">{</font>
+        storedValue <font color="#990000">=</font> initialValue<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
+    <b><font color="#0000FF">public</font></b> <font color="#009900">int</font> <b><font color="#000000">getValue</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+        <b><font color="#0000FF">return</font></b> storedValue<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
+    <b><font color="#0000FF">public</font></b> <font color="#009900">void</font> <b><font color="#000000">setValue</font></b><font color="#990000">(</font><font color="#009900">int</font> val<font color="#990000">)</font> <font color="#FF0000">{</font>
+        storedValue <font color="#990000">=</font> val<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
+    <b><font color="#0000FF">private</font></b> <font color="#009900">int</font> storedValue<font color="#990000">;</font>
+
+    <b><font color="#0000FF">public</font></b> <b><font color="#0000FF">static</font></b> <font color="#009900">void</font> <b><font color="#000000">main</font></b><font color="#990000">(</font> String <font color="#990000">[]</font> args <font color="#990000">)</font> <font color="#FF0000">{</font>
+        <font color="#008080">IntCell</font> m1 <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">IntCell</font></b><font color="#990000">();</font>
+        <font color="#008080">IntCell</font> m2 <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">IntCell</font></b><font color="#990000">(</font><font color="#993399">37</font><font color="#990000">);</font>
+        System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">(</font>m1<font color="#990000">.</font><b><font color="#000000">getValue</font></b><font color="#990000">(</font> <font color="#990000">)</font> <font color="#990000">+</font> <font color="#FF0000">" "</font> <font color="#990000">+</font> m2<font color="#990000">.</font><b><font color="#000000">getValue</font></b><font color="#990000">(</font> <font color="#990000">)</font> <font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>
