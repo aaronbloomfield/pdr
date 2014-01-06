@@ -33,8 +33,10 @@ Contents
 
 - book/: the beginnings of a textbook to be used for this course.  It
   is written using LaTeX.
-- cs2150/: the materials that are specific to CS 2150 as taught at the
-  University of Virginia, such as daily announcements, due dates, etc.
+- [cs2150](cs2150/index.html): the materials that are specific to CS
+  2150 as taught at the University of Virginia, such as daily
+  announcements, due dates, etc.  To view these files, see the
+  [cs2150/index.html](cs2150/index.html) file.
 - exams/: past exams for the course; there are two midterms and a
   final for each semester.  Currently they are all in PDF format, but
   that may change in the future.  The more recent ones were developed
@@ -47,9 +49,9 @@ Contents
   rendered HTML version of each lab is also committed to this
   repository.
 - [slides](slides/index.html): Contains the slides used in the course; view
-  slides/index.html for the table of contents.  The slides use
-  [reveal.js](https://github.com/hakimel/reveal.js/), a HTML
-  presentation framework.
+  [slides/index.html](slides/index.html) for the table of contents.
+  The slides use [reveal.js](https://github.com/hakimel/reveal.js/), a
+  HTML presentation framework.
 - tutorials/: the tutorials that are used as part of the lab
   assignments, these are primarily Linux tutorials.
 
