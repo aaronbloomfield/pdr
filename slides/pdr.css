@@ -59,7 +59,7 @@ p.center {
   margin-right: 100px;
 }
 .reveal pre code { 
-  max-height: 525px;
+  max-height: 700px;
 }
 
 /* add spacing below the slide title */
@@ -88,3 +88,16 @@ td.middle {
 span.tt { 
   font-family: monospace;
 }
+
+/* for table memory cells, which need a border */
+td.border {
+  border-width:medium;
+  border-style:solid;
+}
+.reveal table.memory tr td { 
+  background-color: transparent;
+  cellspacing:100px; /* not working... */
+}
+.reveal table.memory th { 
+  text-decoration:underline;
+ }

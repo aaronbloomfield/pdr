@@ -780,46 +780,114 @@ bool even (int x);
 ## Pointer Variables
 Source code: [pointers.cpp](src/02-cpp/pointers.cpp.html) ([src](src/02-cpp/pointers.cpp))
 
-(diagram)
+<p>&nbsp;</p>
+<table class="default"><tr><td>
+<table class="memory">
+<tr><th>Variable</th><th>Address</th><th>Memory</th></tr>
+<tr><td><span class="fragment" data-fragment-index="1"><center>x</center></span></td><td>1000</td><td class="border"><span class="fragment" data-fragment-index="4"><center>1</center></span></td><td></td></tr>
+<tr><td><span class="fragment" data-fragment-index="2"><center>y</center></span></td><td>1004</td><td class="border"><span class="fragment" data-fragment-index="5"><center>5</center></span></td><td></td></tr>
+<tr><td><span class="fragment" data-fragment-index="3"><center>x_pointer</center></span></td><td>1008</td><td class="border"><span class="fragment" data-fragment-index="6"><center>1000</center></span></td><td></td></tr>
+<tr><td></td><td>1012</td><td class="border"></td><td></td></tr>
+<tr><td></td><td>1016</td><td class="border"></td><td></td></tr>
+</table>
+</td><td></td><td>
+<pre><code data-trim>
+int x = 1;
+int y = 5;
+int \* x_pointer = &x;
+cout << x_pointer;
+cout << *x_pointer;
+</code></pre>
+</td></tr></table>
+
 </script></section>
 
 <section data-markdown><script type="text/template">
 ## x_pointer = &x
-  
-(image)
+![Pointer code execution](images/02-cpp/pointers-1.png)
 </script></section>
 
 <section data-markdown><script type="text/template">
 ## Dereferencing and Assigning
 Source code: [pointers.cpp](src/02-cpp/pointers.cpp.html) ([src](src/02-cpp/pointers.cpp))
-  
-(diagram)
+
+<p>&nbsp;</p>
+<table class="default"><tr><td>
+<table class="memory">
+<tr><th>Variable</th><th>Address</th><th>Memory</th></tr>
+<tr><td><center>x</center></td><td>ffdf65d4</td><td class="border"><center><span class="fragment fade-out" data-fragment-index="1">1</span><span class="fragment fade-in" data-fragment-index="1"><strong class="red">2</strong></span></center></td></tr>
+<tr><td><center>y</center></td><td>ffdf65d8</td><td class="border"><center>5</center></td></tr>
+<tr><td></td><td>ffdf...</td><td class="border"></td></tr>
+<tr><td></td><td>ffdf...</td><td class="border"></td></tr>
+<tr><td><center>x_pointer</center></td><td>ffdf...</td><td class="border"><center>ffdf65d4</center></td></tr>
+</table>
+</td><td></td><td>
+<pre><code data-trim>
+*x_pointer = 2;
+</code></pre>
+<p>This means to dereference x_pointer</p>
+</td></tr></table>
+
 </script></section>
 
 <section data-markdown><script type="text/template">
 ## *x_pointer = 2
-  
-(image)
+![Pointer code execution](images/02-cpp/pointers-2.png)
 </script></section>
 
 <section data-markdown><script type="text/template">
 ## x_pointer = &y
 Source code: [pointers.cpp](src/02-cpp/pointers.cpp.html) ([src](src/02-cpp/pointers.cpp))
   
-(diagram)
+<p>&nbsp;</p>
+<table class="default"><tr><td>
+<table class="memory">
+<tr><th>Variable</th><th>Address</th><th>Memory</th></tr>
+<tr><td><center>x</center></td><td>ffdf65d4</td><td class="border"><center>2</center></td></tr>
+<tr><td><center>y</center></td><td>ffdf65d8</td><td class="border"><center>5</center></td></tr>
+<tr><td></td><td>ffdf...</td><td class="border"></td></tr>
+<tr><td></td><td>ffdf...</td><td class="border"></td></tr>
+<tr><td><center>x_pointer</center></td><td>ffdf...</td><td class="border"><center>ffdf65d<span class="fragment fade-out" data-fragment-index="1">4</span><span class="fragment fade-in" data-fragment-index="1"><strong class="red">8</strong></span></center></td></tr>
+</table>
+</td><td></td><td>
+<pre><code data-trim>
+x_pointer = y;
+</code></pre>
+<p>This means to get the address of y</p>
+</td></tr></table>
+
 </script></section>
 
 <section data-markdown><script type="text/template">
 ## x_pointer = &y
-  
-(image)
+![Pointer code execution](images/02-cpp/pointers-3.png)
 </script></section>
 
 <section data-markdown><script type="text/template">
 ## *x_pointer = 3
 Source code: [pointers.cpp](src/02-cpp/pointers.cpp.html) ([src](src/02-cpp/pointers.cpp))
   
-(diagram)
+<p>&nbsp;</p>
+<table class="default"><tr><td>
+<table class="memory">
+<tr><th>Variable</th><th>Address</th><th>Memory</th></tr>
+<tr><td><center>y</center></td><td>ffdf65d4</td><td class="border"><center>2</center></td></tr>
+<tr><td><center>x</center></td><td>ffdf65d8</td><td class="border"><center><span class="fragment fade-out" data-fragment-index="1">5</span><span class="fragment fade-in" data-fragment-index="1"><strong class="red">3</strong></span></center></td></tr>
+<tr><td></td><td>ffdf...</td><td class="border"></td></tr>
+<tr><td></td><td>ffdf...</td><td class="border"></td></tr>
+<tr><td><center>x_pointer</center></td><td>ffdf...</td><td class="border"><center>ffdf65d4</center></td></tr>
+</table>
+</td><td></td><td>
+<pre><code data-trim>
+*x_pointer = 3;
+</code></pre>
+<p>This means to dereference x_pointer</p>
+</td></tr></table>
+</script></section>
+
+<section data-markdown><script type="text/template">
+## *x_pointer = 3
+![Pointer code execution](images/02-cpp/pointers-4.png)
 </script></section>
 
 <section data-markdown><script type="text/template">
@@ -1049,14 +1117,11 @@ int main() {
     cout << "sizeof(int): " << sizeof(int) << endl;
     cout << "sizeof(Foo): " << sizeof(Foo) << endl;
 
-    Foo *foo = new Foo();
-    Foo *bar = new Foo();
-
+    Foo *foo = new Foo(), *bar = new Foo();
     cout << "1st Foo: " << foo << endl;
     cout << "2nd Foo: " << bar << endl;
 
     int diff = ((int)bar)-((int)foo);
-
     cout << "Difference: " << diff << endl;
 
     delete foo;
@@ -1064,6 +1129,12 @@ int main() {
     return 0;
 }
 ```
+</script></section>
+
+<section data-markdown><script type="text/template">
+## C++ and memory allocation
+Source code: [memory.cpp](src/02-cpp/memory.cpp.html) ([src](src/02-cpp/memory.cpp))  
+&nbsp;  
 Result:
 ```
     sizeof(int): 4
@@ -1271,7 +1342,7 @@ int main() {
 &nbsp;  
 &nbsp;  
 
-`o1->method()` is the same as `(*o1).method()`
+Note that `o1->method()` is the same as `(*o1).method()`
 </script></section>
 
 	</section>
@@ -1279,155 +1350,114 @@ int main() {
 	<section>
 
 <section id="parameters" data-markdown><script type="text/template">
-  <h1>Parameter Passing</h1>
+# Parameter Passing
 </script></section>
 
 <section data-markdown><script type="text/template">
 ## Call By Value
-  
-  <ul>
 - Actual argument is copied into formal parameter
-		<pre><code data-trim>
+```
 int max(int a, int b);
 void swap (int * x, int *y);
-bool compare(Rational left, Rational right);</code></pre>
-    
-- Can also pass pointers by value
-  </ul>
+bool compare(Rational left, Rational right);
+```
+- Can also pass *pointers* by value
 </script></section>
 
 <section data-markdown><script type="text/template">
 ## Call By Reference
-  
-  <ul>
 - Pass references as parameters
-		<pre><code data-trim>void swap (int &x, int &y);</code></pre>
-    
-- Use when formal parameter should be able to change the value of the actual argument
-  </ul>
+```
+void swap (int &x, int &y);
+```
+- Use when formal parameter should be *able to change the value* of the actual argument
 </script></section>
 
 <section data-markdown><script type="text/template">
 ## Call By Constant Reference
-  
-  <ul>
 - Parameters are constant (won't change) and are passed by reference
-		<pre><code data-trim>
+```
 bool compare(const Rational & left, 
-             const Rational & right);</code></pre>
-    
-- Use when there is a class type that cannot be changed by formal parameter
-  </ul>
+               const Rational & right);
+```
+- Use when there is a *class type* that *cannot be changed* by formal parameter
 </script></section>
 
 <section data-markdown><script type="text/template">
 ## Other parameter passing types
-  
-  <ul>
 - Call by copy-restore
 - Call by name
 - Call by need
 - Call by macro expansion
-  </ul>
 </script></section>
 
 <section data-markdown><script type="text/template">
 ## Return Passing
-  
-  <ul>
 - Return by value
-		<ul>
   - return a copy (possibly a copy of the pointer)
-		</ul>
 - Return by reference
-		<ul>
   - return a reference
-		</ul>
 - Return by constant reference
-  </ul>
 </script></section>
 
 <section data-markdown><script type="text/template">
 ## Review: Dynamic Memory Allocation
-  
-  <ul>
 - new
-		<ul>
   - Allocates a new memory location for use
   - Example:
-		</ul>
-<pre><code data-trim>
-Square * ptrToAnotherSquare = 
-               new Square(5);
-Triangle *ptrToTriangle = 
-               new Triangle();
-Circle *ptrToCircle = new Circle;</code></pre>
-    
+```
+Square * ptrToAnotherSquare = new Square(5);
+Triangle *ptrToTriangle = new Triangle();
+Circle *ptrToCircle = new Circle;
+```
 - delete
-		<ul>
   - Reclaims memory allocated with new
   - Example:
-		</ul>
-		<pre><code data-trim>delete ptrToAnotherSquare;</code></pre>
-    
-  </ul>
+```
+delete ptrToAnotherSquare;
+```
 </script></section>
 
 <section data-markdown><script type="text/template">
 ## The Big Three
-  
-  <ul>
 - C++ Provides These By Default
-		<ul>
   - Destructor
   - Copy Constructor
-  - operator=
-		</ul>
+  - operator=()
 - There are some problems with the defaults...
-  </ul>
 </script></section>
 
 <section data-markdown><script type="text/template">
 ## Destructors
-  
-  <ul>
 - Called whenever an object 
-		<ul>
   - goes out of scope, or
-  - delete is called
-		</ul>
+  - `delete` is called
 - Frees up any resources allocated during the use of an object
 - Example (only prototype shown): ~IntCell();
-  </ul>
 </script></section>
 
 <section data-markdown><script type="text/template">
 ## Copy Constructor
-  
-  <ul>
 - Special constructor that creates a new object, initialized to a copy of the same type of object
 - Called in the following situations:
-		<ul>
   - declaration with initalization
-  - IntCell copy = original; IntCell copy(original);
-		</ul>
-    
+```
+IntCell copy = original; // or IntCell copy(original);
+```
 - if object is passed by value
 - if object is returned by value
-  </ul>
 </script></section>
 
 <section data-markdown><script type="text/template">
-## operator=
-  
-  <ul>
+## operator=()
 - aka copy assignment operator
 - Intended to copy the state of original into copy
 - Called when = is applied to two objects AFTER both have previously been constructed
-    </ul>
-  <pre><code data-trim>IntCell original;    // constructor called
+```
+IntCell original;    // constructor called
 IntCell copy;
-copy = original;    // operator= called</code></pre>
+copy = original;    // operator= called
+```
 </script></section>
 
 	</section>
@@ -1435,31 +1465,32 @@ copy = original;    // operator= called</code></pre>
 	<section>
 
 <section id="advanced" data-markdown><script type="text/template">
-  <h1>Sample (advanced) code</h1>
+# Sample (advanced) code
 </script></section>
 
 <section data-markdown><script type="text/template">
 ## test.h
-  
-  <pre><code data-trim>class test {
+Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
+```
+class test {
     static int idcount;
     const int id;
     int value;
-public:
+  public:
     test();
     test(int v);
     test(const test& x);
     ~test();
     test& operator=(const test& other);
-    friend ostream& operator<<(ostream& out, 
-                               const test& f);
-};</code></pre>
+    friend ostream& operator<<(ostream& out, const test& f);
+};
+```
 </script></section>
 
 <section data-markdown><script type="text/template">
-## test.cpp 1/3
-  
-  <pre><code data-trim>
+## test.cpp 1/2
+Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
+```
 int test::idcount = 0;
 
 test::test() : id (idcount++), value(0) { 
@@ -1472,28 +1503,22 @@ test::test(int v) : id (idcount++), value(v) {
          << "); object created is " << *this 
          << "; address is " << this << endl;
 }
-</code></pre>
-</script></section>
 
-<section data-markdown><script type="text/template">
-## test.cpp 2/3
-  
-  <pre><code data-trim>
 test::~test() {
     cout << "calling ~test() on " << *this << endl;
 }
+```
+</script></section>
 
+<section data-markdown><script type="text/template">
+## test.cpp 2/2
+Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
+```
 test::test(const test& x) : id(x.id), value(x.value) {
     cout << "calling test(&test) on " << *this 
          << "; address is " << this << endl;
 }
-    </code></pre>
-</script></section>
 
-<section data-markdown><script type="text/template">
-## test.cpp 3/3
-  
-  <pre><code data-trim>
 test& test::operator=(const test& other) {
     cout << "calling operator=(" << other << ")" << endl;
     test *tmp = new test(other);  
@@ -1502,76 +1527,209 @@ test& test::operator=(const test& other) {
 
 ostream& operator<<(ostream& out, const test& f) {
     out << "test[id=" << f.id << ",v=" << f.value << "]";
-}</code></pre>
+}
+```
 </script></section>
 
 <section data-markdown><script type="text/template">
 ## The one subroutine...
-  
-  <pre><code data-trim>test bar(test param) {
+Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
+```
+test bar(test param) {
   return test(10);
-}</code></pre>
+}
+```
 </script></section>
 
 <section data-markdown><script type="text/template">
-## main() code and output, 1/6
-  
-  <pre><code data-trim>test a();
+## main() code and output, 1/9
+Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
+```
+// this does NOT create a test object; instead, it creates 
+// a function called a() that has no body (and thus C++ 
+// defaults it to return 1). Note that there is no output 
+// statement from the default constructor.
+
+test a();
 cout << "attempted to create a: " << a << endl;
+
+// output:
+// attempted to create a: 1
+```
+</script></section>
+
+<section data-markdown><script type="text/template">
+## main() code and output, 2/9
+Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
+```
+// this does create a test object, calling the default 
+// constructor.  Since putting parenthesis in there for 
+// creating an object and calling the default constructor 
+// has another meaning in C++ (specifically, creating a 
+// function),  we have to omit the parenthesis.
 
 cout << "----------------------------------------" << endl;
 test aa;
-cout << "created aa: " << aa << endl;</code></pre>
+cout << "created aa: " << aa << endl;
+
+// output:
+// ----------------------------------------
+// calling test(); object created is test[id=0,v=0]; 
+                   address is 0xff852a50
+// created aa: test[id=0,v=0]
+```
 </script></section>
 
 <section data-markdown><script type="text/template">
-## main() code and output, 2/6
-  
-  <pre><code data-trim>cout << "----------------------------------------" << endl;
+## main() code and output, 3/9
+Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
+```
+// this creates a test object, calling the specific 
+// constructor that takes in a single int value
+
+cout << "----------------------------------------" << endl;
 test b(1);
-cout << "created b: " << b << endl;</code></pre>
+cout << "created b: " << b << endl;
+
+// output:
+// ----------------------------------------
+// calling test(1); object created is test[id=1,v=1]; 
+//                  address is 0xff852a48
+// created b: test[id=1,v=1]
+```
 </script></section>
 
 <section data-markdown><script type="text/template">
-## main() code and output, 3/6
-  
-  <pre><code data-trim>cout << "----------------------------------------" << endl;
+## main() code and output, 4/9
+Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
+```
+// this creates two test objects via pointers and new
+
+cout << "----------------------------------------" << endl;
 test *c = new test(2);
 cout << "created *c: " << *c << " at " << c << endl;
 test *d = new test;
-cout << "created *d: " << *d << " at " << d << endl;</code></pre>
+cout << "created *d: " << *d << " at " << d << endl;
+
+// output:
+// ----------------------------------------
+// calling test(2); object created is test[id=2,v=2]; 
+//                  address is 0xa009008
+// created *c: test[id=2,v=2] at 0xa009008
+// calling test(); object created is test[id=3,v=0]; 
+//                 address is 0xa009018
+// created *d: test[id=3,v=0] at 0xa009018
+```
 </script></section>
 
 <section data-markdown><script type="text/template">
-## main() code and output, 4/6
-  
-  <pre><code data-trim>cout << "----------------------------------------" << endl;
+## main() code and output, 5/9
+Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
+```
+// subroutine invocation. The copy constructor is invoked 
+// when the actual parameter is copied into the formal 
+// parameter. The subroutine then creates test[id=4,v=10].
+// The parameter that was copied into the subroutine (via 
+// the copy constructor) is then destructed upon 
+// termination of the subroutine.
+
+cout << "----------------------------------------" << endl;
 cout << "about to invoke subroutine..." << endl;
 test e = bar(*c);
-cout << "finished invoking subroutine..." << endl;</code></pre>
+cout << "finished invoking subroutine..." << endl;
+
+// output:
+// ----------------------------------------
+// about to invoke subroutine...
+// calling test(&test) on test[id=2,v=2]; 
+//                   address is 0xff852a38
+// calling test(10); object created is test[id=4,v=10]; 
+//                   address is 0xff852a40
+// calling ~test() on test[id=2,v=2]
+// finished invoking subroutine...
+```
 </script></section>
 
 <section data-markdown><script type="text/template">
-## main() code and output, 5/6
-  
-  <pre><code data-trim>cout << "----------------------------------------" << endl;
+## main() code and output, 6/9
+Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
+```
+// because this assignment happens in the same statement as 
+// the declaration, it invokes the copy constructor
+
+cout << "----------------------------------------" << endl;
 test f = b;
+
+// output:
+// ----------------------------------------
+// calling test(&test) on test[id=1,v=1]; 
+//                     address is 0xff852a30
+```
+</script></section>
+
+<section data-markdown><script type="text/template">
+## main() code and output, 7/9
+Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
+```
+// we are only deleting one of the dynamically created test
+// objects
 
 cout << "----------------------------------------" << endl;
 cout << "about to delete a test object..." << endl;
-delete c;</code></pre>
+delete c;
+
+// output:
+// ----------------------------------------
+// about to delete a test object...
+// calling ~test() on test[id=2,v=2]
+```
 </script></section>
 
 <section data-markdown><script type="text/template">
-## main() code and output, 6/6
-  
-  <pre><code data-trim>cout << "----------------------------------------" << endl;
+## main() code and output, 8/9
+Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
+```
+// because this assignment does NOT happen in the same 
+// statement as the declaration, the operator=() subroutine
+// is called.
+
+cout << "----------------------------------------" << endl;
 cout << "assignment..." << endl;
 aa = b;
 
+// output:
+// ----------------------------------------
+// assignment...
+// calling operator=(test[id=1,v=1])
+// calling test(&test) on test[id=1,v=1]; 
+//                     address is 0xa009008
+```
+</script></section>
+
+<section data-markdown><script type="text/template">
+## main() code and output, 9/9
+Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
+```
+// upon termination of the main() function, all statically 
+// created test objects are deallocated.
+
 cout << "----------------------------------------" << endl;
-    cout << "about to leave main..." << endl;</code></pre>
-  </script></section>
+cout << "about to leave main..." << endl;
+
+// output:
+// ----------------------------------------
+// about to leave main...
+// calling ~test() on test[id=1,v=1]
+// calling ~test() on test[id=4,v=10]
+// calling ~test() on test[id=1,v=1]
+// calling ~test() on test[id=0,v=0]
+
+// Note that d was created via dynamic memory allocation, 
+// so it is not deallcoated by the program. The operating 
+// system will clean up the used memory, but it does not 
+// call the destructor on d.
+```
+ </script></section>
 
 	</section>
 	

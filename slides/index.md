@@ -13,13 +13,13 @@ Slide set 2: [C++](02-cpp.html)
 - Source code:
   - General source code: 
     [evenodd.cpp](src/02-cpp/evenodd.cpp.html) ([src](src/02-cpp/evenodd.cpp)),
-    [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp)),
     [pointers.cpp](src/02-cpp/pointers.cpp.html) ([src](src/02-cpp/pointers.cpp)), 
     [swap.cpp](src/02-cpp/swap.cpp.html) ([src](src/02-cpp/swap.cpp)),
     [dynamic_allocation.cpp](src/02-cpp/dynamic_allocation.cpp.html) ([src](src/02-cpp/dynamic_allocation.cpp)),
     [delete.cpp](src/02-cpp/delete.cpp.html) ([src](src/02-cpp/delete.cpp)),
     [memory.cpp](src/02-cpp/memory.cpp.html) ([src](src/02-cpp/memory.cpp)),
-    [swapref.cpp](src/02-cpp/swapref.cpp.html) ([src](src/02-cpp/swapref.cpp))
+    [swapref.cpp](src/02-cpp/swapref.cpp.html) ([src](src/02-cpp/swapref.cpp)),
+    [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
   - IntCell code: 
     [IntCell.java](src/02-cpp/IntCell.java.html) ([src](src/02-cpp/IntCell.java)), 
     [TestIntCell.cpp](src/02-cpp/TestIntCell.cpp.html) ([src](src/02-cpp/TestIntCell.cpp)),
