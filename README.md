@@ -33,6 +33,9 @@ Contents
 
 - book/: the beginnings of a textbook to be used for this course.  It
   is written using LaTeX.
+- [docs](docs/index.html): a series of usefull documents that are not
+  labs or tutorials.  To view these fiels, see the
+  [docs/index.html](docs/index.html) file.
 - [cs2150](cs2150/index.html): the materials that are specific to CS
   2150 as taught at the University of Virginia, such as daily
   announcements, due dates, etc.  To view these files, see the
@@ -78,6 +81,11 @@ the input file name, and optionally an output file.
 
 That being said, the extra Markdown features used in this repository
 should be compatible with the generally accepted Markdown features.
+
+For all the Markdown files, both the original (.md) file and the HTML
+version (.html) are added to the repository, so that people who do not
+have Markdown installed can still view the contents of this
+repository.
 
 
 Source code

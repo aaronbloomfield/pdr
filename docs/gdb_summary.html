@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+</head>
+<body>
+<h1>GDB command summary</h1>
+
+<p><a href="index.html">Go up to the main documents page</a></p>
+
+<p>Assembly-specific commands</p>
+
+<ul>
+<li>stepi: step one MACHINE instruction (i.e. assembly instruction),
+instead of one C++ instruction (which is what &lsquo;step&rsquo; does)</li>
+<li>info registers: display the values in the registers</li>
+<li>&lsquo;set disassembly-flavor intel&rsquo;: set the assembly output format to
+what we are used to in class (and what we are programming in)</li>
+<li>&lsquo;disassemble&rsquo;: like list, but displays the lines of assembly code
+currently being executed.</li>
+<li>&lsquo;disassemble (function)&rsquo;: prints the assembly code for the supplied
+function (up until the next label)</li>
+</ul>
+
+
+<p>Program execution</p>
+
+<ul>
+<li>run: starts a program execution, and continues until it exits,
+crashes, or hits a breakpoint</li>
+<li>start: starts a program execution, and breaks when it enters the
+main() function</li>
+<li>bt: prints a back trace, which is the list of function calls that
+got to the current point</li>
+<li>list: shows the lines of source code before and after the point at
+which the program paused</li>
+<li>up: move up the back trace function stack list</li>
+<li>down: move down the back trace function stack list</li>
+<li>step (or just &rsquo;s'): step INTO the next line of code to execute</li>
+<li>next (or just &lsquo;n&rsquo;): step OVER the next line of code to execute</li>
+<li>continue (or just &lsquo;c&rsquo;): continue execution</li>
+<li>finish: finishes executing the current function and then pauses</li>
+<li>quit: exits gdb</li>
+</ul>
+
+
+<p>Breakpoints</p>
+
+<ul>
+<li>b (pos) (or break (pos)): set a breakpoint at (pos).  A breakpoint
+can be a function name (e.g., &lsquo;b GetMax&rsquo;), a line number (e.g., &lsquo;b
+22&rsquo;), or either of the above preceded by a file name (e.g., &lsquo;b
+lab2.cpp:22&rsquo; or &lsquo;b lab2.cpp:GetMax&rsquo;)</li>
+<li>tbreak (pos): set a temporary breakpoint (only breaks the first
+time)</li>
+<li>info break: show breakpoints</li>
+<li>delete (or just &rsquo;d'): deletes all breakpoints</li>
+<li>delete (num): delete the breakpoint indicated by (num)</li>
+<li>clear (pos): clear a breakpoint, where (pos) is either a function
+name or line number</li>
+</ul>
+
+
+<p>Examining data</p>
+
+<ul>
+<li>print (or &lsquo;p&rsquo;): print the value in the given variable</li>
+<li>print *: print the destination of a pointer</li>
+<li>examine (var): look at top of stack</li>
+<li>info locals: display all the local variables and their values</li>
+<li>display (var): always display the value in (var) whenever the
+program pauses</li>
+<li>display: show the variables that have been entered with &lsquo;display&rsquo;
+and their numeric IDs</li>
+<li>undisplay (num): stop displaying the variable with numeric ID num</li>
+<li>print function_call(params): execute the function, and print the
+result</li>
+<li>set variable (var) = (value): set the variable (var) to the value
+(value)</li>
+</ul>
+
+</body>
+</html>
