@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>markdown.c</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">/* A more modern markdown converter.</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * Copyright (c) 2014 by Aaron Bloomfield</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * This is part of the </font></i><u><font color="#0000FF">https://github.com/aaronbloomfield/pdr</font></u>
+<i><font color="#9A1900"> * repository, and is released under the CC BY-SA license (along with</font></i>
+<i><font color="#9A1900"> * the rest of that repository).</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * The default markdown that is installed with Ubuntu (version 1.0.1</font></i>
+<i><font color="#9A1900"> * from 2004) does not support more modern tags, such as tables.  This</font></i>
+<i><font color="#9A1900"> * program will use the libmarkdown library, which does have support</font></i>
+<i><font color="#9A1900"> * for those tags, to perform a markdown conversion.  It requires the</font></i>
+<i><font color="#9A1900"> * libmarkdown2-dev pacakage be installed under Ubuntu.</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * The resulting document is a full HTML document -- meaning it adds</font></i>
+<i><font color="#9A1900"> * the &lt;doctype&gt;, &lt;html&gt;, &lt;head&gt;, and &lt;body&gt; tags to the document.</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * To compile, try: "gcc markdown.c -o markdown -lmarkdown"</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * To use, specify the input file name, and optionally an output file</font></i>
+<i><font color="#9A1900"> * name.</font></i>
+<i><font color="#9A1900"> */</font></i>
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdio.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;mkdio.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdlib.h&gt;</font>
+
+<font color="#009900">void</font> <b><font color="#000000">main</font></b> <font color="#990000">(</font><font color="#009900">int</font> argc<font color="#990000">,</font> <font color="#009900">char</font> <font color="#990000">**</font>argv<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <font color="#009900">int</font> i<font color="#990000">;</font>
+    <font color="#008080">FILE</font> <font color="#990000">*</font>fpin<font color="#990000">,</font> <font color="#990000">*</font>fpout<font color="#990000">;</font>
+
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>argc <font color="#990000">!=</font> <font color="#993399">2</font><font color="#990000">)</font> <font color="#990000">&amp;&amp;</font> <font color="#990000">(</font>argc <font color="#990000">!=</font> <font color="#993399">3</font><font color="#990000">)</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+        <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"Usage: %s &lt;input_file&gt; &lt;output_file&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> argv<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]);</font>
+        <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>fpin <font color="#990000">=</font> <b><font color="#000000">fopen</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">],</font><font color="#FF0000">"r"</font><font color="#990000">))</font> <font color="#990000">==</font> NULL <font color="#990000">)</font> <font color="#FF0000">{</font>
+        <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"Error: unable to open input file: %s</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> argv<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">]);</font>
+        <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>argc <font color="#990000">==</font> <font color="#993399">2</font><font color="#990000">)</font> <font color="#990000">||</font> <font color="#990000">(!</font><b><font color="#000000">strcmp</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">],</font><font color="#FF0000">"-"</font><font color="#990000">))</font> <font color="#990000">)</font>
+        fpout <font color="#990000">=</font> stdout<font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>fpout <font color="#990000">=</font> <b><font color="#000000">fopen</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">],</font><font color="#FF0000">"w"</font><font color="#990000">))</font> <font color="#990000">==</font> NULL <font color="#990000">)</font> <font color="#FF0000">{</font>
+        <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"Error: unable to open output file: %s</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> argv<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">]);</font>
+        <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+
+    MMIOT<font color="#990000">*</font> doc <font color="#990000">=</font> <b><font color="#000000">mkd_in</font></b><font color="#990000">(</font>fpin<font color="#990000">,</font> <font color="#993399">0</font><font color="#990000">);</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> doc <font color="#990000">==</font> NULL <font color="#990000">)</font> <font color="#FF0000">{</font>
+        <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"Error processing markdown input file in mkd_in()</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">);</font>
+        <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+
+    <b><font color="#000000">fprintf</font></b> <font color="#990000">(</font>fpout<font color="#990000">,</font> <font color="#FF0000">"&lt;!doctype html&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">&lt;html&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">&lt;head&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">&lt;/head&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">&lt;body&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">);</font>
+    <b><font color="#000000">markdown</font></b> <font color="#990000">(</font>doc<font color="#990000">,</font> fpout<font color="#990000">,</font> <font color="#993399">0</font><font color="#990000">);</font>
+    <b><font color="#000000">fprintf</font></b> <font color="#990000">(</font>fpout<font color="#990000">,</font> <font color="#FF0000">"&lt;/body&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">&lt;/html&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">);</font>
+    <b><font color="#000000">fclose</font></b><font color="#990000">(</font>fpout<font color="#990000">);</font>
+
+    <b><font color="#000000">mkd_cleanup</font></b><font color="#990000">(</font>doc<font color="#990000">);</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

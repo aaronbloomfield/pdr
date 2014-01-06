@@ -53,6 +53,30 @@ Contents
 - tutorials/: the tutorials that are used as part of the lab
   assignments, these are primarily Linux tutorials.
 
+Markdown
+--------
+
+The majority of the content in this repository was created using
+Markdown.  Unfortunately, the only standardized Markdown is very old
+(2004), and has limited support for many HTML features, such as
+tables.  Indeed, the default Ubuntu version of Markdown is the 2004
+version.  To address this, a [markdown.c](utils/markdown.c.html)
+([src](utils/markdown.c)) program was written to use more recent
+Markdown features.  This program uses the libmarkdown library, which
+does support more recent Markdown features.  This library installed
+on Ubuntu via the 'libmarkdown2-dev' package.  Note that reveal.js,
+which is used for the slides, also supports more modern Markdown
+features.
+
+The resulting document is a full HTML document -- meaning it adds the
+doctype, html, head, and body tags to the document, as necessary.
+
+To compile: "gcc markdown.c -o markdown -lmarkdown". To use, specify
+the input file name, and optionally an output file.
+
+That being said, the extra Markdown features used in this repository
+should be compatible with the generally accepted Markdown features.
+
 
 Source code
 -----------
@@ -60,7 +84,7 @@ Source code
 All source code is formatted via astyle and then highlighted via
 source-highlight.  Both the original (foo.cpp) and the highlihged
 version (foo.cpp.html) are included in the repo.  All links to source
-code will like to the .html, with a "(<a href="...">src</a>)" after it
+code will like to the .html, with a "([src](...))" after it
 to link to the original source code.
 
 - astyle options: -A2 -s4 --indent-switches
