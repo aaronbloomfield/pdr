@@ -16,7 +16,7 @@ p.center {
 }
 
 /* default tables created by markdown */
-.reveal section table { 
+.reveal section table {
   margin-left: auto;
   margin-right: auto;
 }
@@ -42,15 +42,24 @@ p.center {
   background-color: transparent;
   padding-left: 5px;
 }
-.reveal table th {
+.reveal table.default th {
   background-color: transparent;
   padding: 5px;
+}
+
+/* for side-by-side code blocks */
+.reveal table.wide tr td { 
+  background-color: transparent;
+  width:100%;
 }
 
 /* make the code blocks bigger */
 .reveal pre {
   font-size: 25px;
   margin-right: 100px;
+}
+.reveal pre code { 
+  max-height: 525px;
 }
 
 /* add spacing below the slide title */
@@ -79,7 +88,3 @@ td.middle {
 span.tt { 
   font-family: monospace;
 }
-table.wide { 
-  width:100%;
-}
-

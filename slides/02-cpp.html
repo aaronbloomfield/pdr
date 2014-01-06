@@ -1,31 +1,20 @@
 <!doctype html>
 <html lang="en">
-
   <head>
     <meta charset="utf-8">
-
     <title>CS 2150: 02-cpp slide set</title>
-
     <meta name="description" content="A set of slides for a course on Program and Data Representation">
     <meta name="author" content="Aaron Bloomfield">
-
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
     <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
     <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
     <link rel="stylesheet" href="pdr.css">
-
-    <!-- For syntax highlighting -->
-    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
-
-    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
-    <script>
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <script><!-- If the query includes 'print-pdf', use the PDF print sheet -->
       document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
     </script>
-
     <!--[if lt IE 9]>
     <script src="reveal.js/lib/js/html5shiv.js"></script>
     <![endif]-->
@@ -38,43 +27,41 @@
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
 
-	<section>
-	  <h1>CS 2150</h1>
-	  <p>&nbsp;</p>
-	  <h3>Program and Data Representation</h3>
-	  <h3>Spring 2014</h3>
-	  <p>&nbsp;</p>
-	  <p class="center">
-	    <small>By <a target="_blank" href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> / <a href="mailto:aaron@virginia.edu">aaron@virginia.edu</a> / <a target="_blank" href="http://twitter.com/bloomfieldaaron">@bloomfieldaaron</a><br>&nbsp;<br>Repository: 
-		<a target="_blank" href="http://github.com/aaronbloomfield/pdr">github.com/aaronbloomfield/pdr</a></small>
-	  </p>
-	  <p>&nbsp;</p>
-	  <p>&nbsp;</p>
-	  <h2>C++</h2>
-	</section>
+	<section data-markdown><script type="text/template">
+# CS 2150
+&nbsp;
+### Program and Data Representation
+### Spring 2014
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr)</small></center>
+&nbsp;  
+&nbsp;
+## C++
+	</script></section>
 
-	<section>
-	  <h1>Contents</h1>
-	  <p>&nbsp;</p>
-	  <p><a href="#/intro">Introduction to C++</a></p>
-	  <p><a href="#/functions">Functions</a></p>
-	  <p><a href="#/classes">Classes</a></p>
-	  <p><a href="#/rational">Rational Example</a></p>
-	  <p><a href="#/preprocessor">Pre-Processor</a></p>
-	  <p><a href="#/pointers">Pointers</a></p>
-	  <p><a href="#/dynamic">Dynamic Memory Allocation</a></p>
-	  <p><a href="#/references">References</a></p>
-	  <p><a href="#/parameters">Parameter Passing</a></p>
-	  <p><a href="#/advanced">Sample (advanced) code</a></p>
-	</section>
+	<section data-markdown><script type="text/template">
+# Contents
+&nbsp;  
+[Introduction to C++](#/intro)  
+[Functions](#/functions)  
+[Classes](#/classes)  
+[Rational Example](#/rational)  
+[Pre-Processor](#/preprocessor)  
+[Pointers](#/pointers)  
+[Dynamic Memory Allocation](#/dynamic)  
+[References](#/references)  
+[Parameter Passing](#/parameters)  
+[Sample (advanced) code](#/advanced)  
+	</script></section>
 
 	<section>
 
-	  <section data-markdown id="intro"><script type="text/template">
+<section data-markdown id="intro"><script type="text/template">
 # Introduction to C++
-	  </script></section>
+</script></section>
 
-	  <section data-markdown><script type="text/template">
+<section data-markdown><script type="text/template">
 ## Why C++ and not Java?
 - It's good to learn a second language
 - C++ is widely used
@@ -83,18 +70,18 @@
 - C++ will let us "get under the hood" more
   - Data and program representation in memory
   - Memory allocation
-	  </script></section>
+</script></section>
 
-	  <section data-markdown><script type="text/template">
+<section data-markdown><script type="text/template">
 ## A brief history lesson
 - C was created in 1972 by Dennis Ritchie
   - Intended to be terse, quick to write, and efficient
 - C++ was created in 1985 by Bjarne Stroustrup
   - Added classes while being backwards compatible
   - Has pretty terrible syntax!
-	  </script></section>
+</script></section>
 
-	  <section data-markdown><script type="text/template">
+<section data-markdown><script type="text/template">
 ## Hello World -- Java vs. C++
 ```
 // Java
@@ -104,6 +91,7 @@ public class HelloWorld {
     }
 }
 ```
+&nbsp;  
 ```
 // C++
 #include <iostream>
@@ -113,81 +101,85 @@ int main() {
     return 0;
 }
 ```
-	  </script></section>
+</script></section>
 
-	  <section data-markdown><script type="text/template">
+<section data-markdown><script type="text/template">
 ## Differences
 - `main()`
 - Preprocessor
   - `#include`
 - `using namespace std;`
 - Output
-	  </script></section>
+</script></section>
 
-	  <section data-markdown><script type="text/template">
+<section data-markdown><script type="text/template">
 ## main()
 - Not a part of any class
   - called a *function*
 - Must be global
 - Must have a return type of int
   - By convention, main returns 0
-	  </script></section>
+</script></section>
 
-	  <section data-markdown><script type="text/template">
+<section data-markdown><script type="text/template">
 ## Preprocessor
 - Examples
   - `#include <iostream> // System file`
   - `#include "ListNode.h" // user file`
 - What this does
   - Compiler inserts the contents of the file in the place where the `#include` statement appears
-	  </script></section>
+</script></section>
 
-	  <section data-markdown><script type="text/template">
+<section data-markdown><script type="text/template">
 ## C++ Compilation Process Overview
 1. Preprocess source file
    - handle \#includes and any other \# statements
 2. Compile resulting file
 3. Link the resulting files from step 2 (more on this later...)
-	  </script></section>
+</script></section>
 
-	  <section>
-	    <h2>using Directive</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>Similar to Java's <span class="tt">import</span>
+<section>
+  <h2>using Directive</h2>
+  <p>&nbsp;</p>
+  <ul>
+    <li>Similar to Java's <span class="tt">import</span>
 		<ul>
-		  <li>Uses a namespace, which is somewhat similar to a Java package</li>
-		  <li>Allows the programmer to not have to type the full namespace name each time</li>
+	<li>Uses a namespace, which is somewhat similar to a Java package</li>
+	<li>Allows the programmer to not have to type the full namespace name each time</li>
 		</ul>
-	      </li>
-	    </ul>
-	    <table class="wide">
-	      <tbody>
-		<tr>
-		  <td>
-		    <pre class="big"><code data-trim>// C++
+    </li>
+  </ul>
+  <table class="default">
+    <tbody>
+      <tr>
+	<td>
+	  <pre><code data-trim>
+// C++
 #include &lt;iostream&gt;
 using namespace std;
 int main() {
     cout &lt;&lt; "Hello World!" &lt;&lt; endl;
     return 0;
-}</code></pre>
-		  </td>
-		  <td>
-		    <pre class="big"><code data-trim>// C++
+}
+</code></pre>
+	</td>
+	<td>
+	  <pre><code data-trim>
+// C++
 #include &lt;iostream&gt;
 int main() {
     std::cout &lt;&lt; "Hello World!" 
               &lt;&lt; std::endl;
     return 0;
-}</code></pre>
-		  </td>
-		</tr>
-	      </tbody>
-	    </table>
-	  </section>
+}
+</code></pre>
+	</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
 
-	  <section data-markdown><script type="text/template">
+<section data-markdown><script type="text/template">
 ## I/O
 - Basic I/O
 ```
@@ -201,9 +193,9 @@ int main() {
     return 0;
 }
 ```
-	  </script></section>
+</script></section>
 
-	  <section data-markdown><script type="text/template">
+<section data-markdown><script type="text/template">
 ## C++ Primitive Types
 - int
   - Can be 16, 32, 64 bits depending on the platform</li>
@@ -212,9 +204,9 @@ int main() {
 - char
   - C++ generally uses 8 bit ASCII encoding (more on this later)
 - bool
-	  </script></section>
+</script></section>
 
-	  <section data-markdown><script type="text/template">
+<section data-markdown><script type="text/template">
 ## C++ Operators and Expressions
 - if statement
   - in C++ condition can be either `int` or `bool`</li>
@@ -222,15 +214,15 @@ int main() {
     - This will NOT cause a compiler error in C++</li>
   - `if ( i )`
     - This is valid!
-	  </script></section>
+</script></section>
 
-	  <section data-markdown><script type="text/template">
+<section data-markdown><script type="text/template">
 ## Operators and Expressions
 - loops, same as Java
   - while, for, do while, break, continue</li>
-	  </script></section>
-	  
-	  <section data-markdown><script type="text/template">
+</script></section>
+
+<section data-markdown><script type="text/template">
 ## Compiler choice
 - In the past we have used g++
   - From GNU's Compiler Collection</li>
@@ -246,76 +238,73 @@ int main() {
     return 0;
 }
 ```
-	  </script></section>
+</script></section>
 
-	  <section>
-	    <h2>Error comparison</h2>
-	    <p>&nbsp;</p>
-	    <table>
-	      <tr><td class="middle">g++:</td><td><img width="850" alt="g++ error message" src="images/02-cpp/g++-error-message.png"></td></tr>
-	      <tr><td class="middle">clang++:</td><td><img width="850" alt="clang++ error message" src="images/02-cpp/clang++-error-message.png"></td></tr>
-	    </table>
-	  </section>
+<section>
+  <h2>Error comparison</h2>
+  <p>&nbsp;</p>
+  <table class="wide">
+    <tr><td class="middle">g++:</td><td><img width="850" alt="g++ error message" src="images/02-cpp/g++-error-message.png"></td></tr>
+    <tr><td class="middle">clang++:</td><td><img width="850" alt="clang++ error message" src="images/02-cpp/clang++-error-message.png"></td></tr>
+  </table>
+</section>
 
 	</section>
 
 	<section>
 
-	  <section data-markdown id="functions"><script type="text/template">
+<section data-markdown id="functions"><script type="text/template">
 # Functions
-	  </script></section>
+</script></section>
 
-	  <section data-markdown><script type="text/template">
+<section data-markdown><script type="text/template">
 ## Functions
 - Methods not member of a class
+        #include <iostream>
+        using namespace std;
+        
+        ret_type func_name(int a, int b, ...) {
+            <function body>
+        }
+        
+        int main() {
+            ...
+            z = func_name(x, y, ...);
+            ...;
+            return 0;
+        }
+</script></section>
 
-```
-#include <iostream>
-using namespace std;
-
-ret_type func_name(int a, int b, ...) {
-    <function body>
-}
-
-int main() {
-    ...
-    z = func_name(x, y, ...);
-    ...;
-    return 0;
-}
-```
-	  </script></section>
-
-	  <section>
-	    <h2>Declaring mutually<br>recursive functions</h2>
-	    <p>&nbsp;</p>
-	    <table class="wide">
-	      <tr>
-		<td>
-		  <pre class="fragment"><code data-trim>bool even (int x);</code></pre>
-		  <pre class="big"><code data-trim>
+<section>
+  <h2>Declaring mutually<br>recursive functions</h2>
+<p>Source code: <a href="src/02-cpp/evenodd.cpp.html">evenodd.cpp</a> (<a href="src/02-cpp/evenodd.cpp">src</a>)</p>
+  <table class="wide">
+    <tr>
+      <td>
+	<pre class="fragment"><code data-trim>bool even (int x);</code></pre>
+	<pre><code data-trim>
 bool odd (int x) {
     if ( x == 0 )
         return false;
     else
         return even (x-1);
 }
-		    </code></pre></td>
+	  </code></pre></td>
 		<td>
-		  <p>&nbsp;</p>
-		  <pre class="big"><code data-trim>
+	<p>&nbsp;</p>
+	<pre><code data-trim>
 bool even (int x) {
     if ( x == 0 )
         return true;
     else
       return odd (x-1);
 }
-		    </code></pre></td>
-	      </tr>
-	    </table>
-	  </section>
+	  </code></pre></td>
+    </tr>
+  </table>
+</section>
 
-	  <section data-markdown><script type="text/template">
+<section data-markdown><script type="text/template">
 ## Function Prototypes
 - C++ compiler process files top to bottom
   - order of appearance matters without a **function prototype**
@@ -323,10 +312,11 @@ bool even (int x) {
 ```
 ret_type func_name (int a, int b, ...);
 ```
-	  </script></section>
+</script></section>
 
-	  <section data-markdown><script type="text/template">
+<section data-markdown><script type="text/template">
 ## Example
+Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
 ```
 #include <iostream>
 using namespace std;
@@ -334,51 +324,59 @@ using namespace std;
 int max(int a, int b);	// prototype
 
 int main() {
-    int x=37; int y=52;
+    int x=37, y=52;
     cout << max(x,y) << endl;
     return 0;
 }
 
 // actual function implementation
-int max(int a, int b) {
+int max(int a, int b) { 
     return (a>b) ? a : b;
 }
 ```
-	  </script></section>
+</script></section>
 
 	</section>
 
 	<section>
 
-	  <section data-markdown id="classes"><script type="text/template">
+<section data-markdown id="classes"><script type="text/template">
 # Classes
-	  </script></section>
+</script></section>
 
-	  <section data-markdown><script type="text/template">
+<section data-markdown><script type="text/template">
 ## Java -- IntCell.java
+Source code: [IntCell.java](src/02-cpp/IntCell.java.html) ([src](src/02-cpp/IntCell.java))
 ```
 public class IntCell {  
+
     // default constructor
-    public IntCell()
-        { this(0); }
+    public IntCell() {
+        this(0);
+    }
 
     // one parameter constructor
-    public IntCell(int initialValue)
-        { storedValue = initialValue; }
+    public IntCell(int initialValue) {
+        storedValue = initialValue;
+    }
 
     // accessor member function
-    public int getValue()
-        { return storedValue; }
+    public int getValue() {
+        return storedValue; 
+    }
 
-    // mutator member function
-    public void setValue(int val)
-        { storedValue = val; }
 ```
-	  </script></section>
+</script></section>
 
-	  <section data-markdown><script type="text/template">
+<section data-markdown><script type="text/template">
 ## Java -- IntCell.java
+Source code: [IntCell.java](src/02-cpp/IntCell.java.html) ([src](src/02-cpp/IntCell.java))
 ```
+    // mutator member function
+    public void setValue(int val) {
+        storedValue = val; 
+    }
+
     // private data member
     private int storedValue;
 
@@ -391,19 +389,20 @@ public class IntCell {
     }
 }
 ```
-	    </script></section>
+  </script></section>
 
-	  <section data-markdown><script type="text/template">
+<section data-markdown><script type="text/template">
 ## How Would You Translate This Java Source into C++?
 - Need 3 files
   1. Header file that contains class definition: IntCell.h
   2. C++ file that contains class implementation: IntCell.cpp
   3. C++ file that contains a main(): TestIntCell.cpp
 - Note the separation of interface and implementation!
-	  </script></section>
+</script></section>
 
-	  <section data-markdown><script type="text/template">
+<section data-markdown><script type="text/template">
 ## C++ IntCell: TestIntCell.cpp
+Source code: [TestIntCell.cpp](src/02-cpp/TestIntCell.cpp.html) ([src](src/02-cpp/TestIntCell.cpp))
 ```
 #include <iostream>
 #include "IntCell.h" 
@@ -419,10 +418,11 @@ int main( ) {
     return 0;
 }
 ```
-	  </script></section>
+</script></section>
 
-	  <section data-markdown><script type="text/template">
+<section data-markdown><script type="text/template">
 ## C++ IntCell: IntCell.h
+Source code: [IntCell.h](src/02-cpp/IntCell.h.html) ([src](src/02-cpp/IntCell.h))
 ```
 #ifndef INTCELL_H
 #define INTCELL_H
@@ -440,14 +440,16 @@ class IntCell {
 };
 #endif
 ```
-	  </script></section>
+</script></section>
 
-	  <section data-markdown><script type="text/template">
+<section data-markdown><script type="text/template">
 ## C++ IntCell: IntCell.cpp
+Source code: [IntCell.cpp](src/02-cpp/IntCell.cpp.html) ([src](src/02-cpp/IntCell.cpp))
 ```
 #include "IntCell.h" 
 
-IntCell::IntCell( int initialValue ) : storedValue( initialValue ) { 
+IntCell::IntCell( int initialValue ) : 
+	      storedValue( initialValue ) { 
 }
 
 int IntCell::getValue( ) const { 
@@ -462,10 +464,11 @@ int IntCell::max(int m){
     return 1;
 }
 ```
-	  </script></section>
+</script></section>
 
-	  <section data-markdown><script type="text/template">
+<section data-markdown><script type="text/template">
 ## C++ IntCell: IntCell.h (again)
+Source code: [IntCell.h](src/02-cpp/IntCell.h.html) ([src](src/02-cpp/IntCell.h))
 ```
 #ifndef INTCELL_H
 #define INTCELL_H
@@ -483,10 +486,11 @@ class IntCell {
 };
 #endif
 ```
-	  </script></section>
+</script></section>
 
-	  <section data-markdown><script type="text/template">
+<section data-markdown><script type="text/template">
 ## C++ IntCell: TestIntCell.cpp (again)
+Source code: [IntCell.cpp](src/02-cpp/IntCell.cpp.html) ([src](src/02-cpp/IntCell.cpp))
 ```
 #include <iostream>
 #include "IntCell.h" 
@@ -502,71 +506,53 @@ int main( ) {
     return 0;
 }
 ```
-	  </script></section>
+</script></section>
 
-	  <section>
-	    <h2>Separate Compilation</h2>
-	    <p>&nbsp;</p>
-	    <p>(diagram)</p>
-	  </section>
+<section data-markdown><script type="text/template">
+## Separate Compilation
+![Separate compilation](images/02-cpp/separate-compilation.png)
+</script></section>
 
 	</section>
 
 	<section>
 
-	  <section id="rational">
-	    <h1>Rational Example</h1>
-	  </section>
+<section id="rational" data-markdown><script type="text/template">
+# Rational Example
+</script></section>
 
-	  <section>
-	    <h2>The General Conversion Process</h2>
-	    <p>&nbsp;</p>
-	    <ol>
-	      <li>Create .h file with class definition
-		<ul>
-		  <li>Member function signatures, no implementations</li>
-		</ul></li>
-	      <li>Create .cpp file containing member function implementations</li>
-	      <li>Create .cpp file containing main()</li>
-	    </ol>
-	  </section>
+<section data-markdown><script type="text/template">
+## The General Conversion Process
+1. Create .h file with class definition
+   - Member function signatures, no implementations</li>
+2. Create .cpp file containing member function implementations</li>
+3. Create .cpp file containing main()</li>
+</script></section>
 
-	  <section>
-	    <h2>Reminders</h2>
-	    <p>&nbsp;</p>
-	    <ol>
-	      <li>int main()</li>
-	      <li>Input/Output
-		<ul>
-		  <li>#include &lt;iostream&gt;</li>
-		  <li>using namespace std;</li>
-		  <li>cout &lt;&lt; varName &lt;&lt; " " &lt;&lt; endl;</li>
-		</ul></li>
-	      <li>Class syntax
-		<ul>
-		  <li>public and private sections</li>
-		  <li>semi-colon at the end of class declaration</li>
-		  <li>ClassName::</li>
-		</ul></li>
-	    </ol>
-	  </section>
+<section data-markdown><script type="text/template">
+## Reminders
+- int main()
+- Input/Output
+  - `#include <iostream>`
+  - `using namespace std;`
+  - `cout << varName << " " << endl;`
+- Class syntax
+  - public and private sections
+  - semi-colon at the end of class declaration
+  - ClassName::
+</script></section>
 
-	  <section>
-	    <h2>I'll Explain Later, But For Now...</h2>
-	    <p>&nbsp;</p>
-	    <ol>
-	      <li>Printing
-		<ul>
-		  <li>instead of '+' use &lt;&lt; to concatenate items to print</li>
-		</ul></li>
-	      <li>Remove this and new from conversion</li>
-	    </ol>
-	  </section>
+<section data-markdown><script type="text/template">
+## We'll see why later, but for now...
+- Printing
+  - instead of '+' use '<<' to concatenate items to print
+- Remove `this` and `new` from conversion
+</script></section>
 
-	  <section>
-	    <h2>Rational.h</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>#ifndef RATIONAL_H 
+<section data-markdown><script type="text/template">
+## Rational.h
+Source code: [Rational.h](src/02-cpp/Rational.h.html) ([src](src/02-cpp/Rational.h))
+```
 #define RATIONAL_H 
 class Rational { 
   public: 
@@ -582,14 +568,16 @@ class Rational {
     int num, dem; // the numerator and denominator
     int gcd(int m, int n); 
 };
-#endif</code></pre>
-	  </section>
+#endif
+```
+</script></section>
 
-	  <section>
-	    <h2>Rational.cpp</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>#include "Rational.h" 
-#include &lt;iostream&gt; 
+<section data-markdown><script type="text/template">
+## Rational.cpp, 1 of 2
+Source code: [Rational.cpp](src/02-cpp/Rational.cpp.html) ([src](src/02-cpp/Rational.cpp))
+```
+#include "Rational.h" 
+#include <iostream> 
 using namespace std; 
 
 // default constructor: initialize to 0/1
@@ -597,36 +585,39 @@ Rational::Rational() : num(0), den(1) { }
 
 void Rational::print() { 
     if (den == 1)
-        cout &lt;&lt; num &lt;&lt; "" &lt;&lt; endl;
+        cout << num << "" << endl;
     else 
-        cout &lt;&lt; num &lt;&lt; "/" &lt;&lt; den &lt;&lt; endl;
-}</code></pre>
-	  </section>
+        cout << num << "/" << den << endl;
+}
+```
+</script></section>
 
-	  <section>
-	    <h2>Rational.cpp</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>Rational Rational::times(Rational b) { 
+<section data-markdown><script type="text/template">
+## Rational.cpp, 2 of 2
+Source code: [Rational.cpp](src/02-cpp/Rational.cpp.html) ([src](src/02-cpp/Rational.cpp))
+```
+Rational Rational::times(Rational b) { 
     return Rational(num * b.num, den * b.den); 
-}</code></pre>
-	  </section>
+}
 
-	  <section>
-	    <h2>Rational.cpp</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>Rational::Rational(int numerator, int denominator) { 
+Rational::Rational(int numerator, int denominator) { 
     if (denominator == 0) {
-       cout &lt;&lt; "Denominator is zero" &lt;&lt; endl; 
+       cout << "Denominator is zero" << endl; 
     int g = gcd(numerator, denominator);
     num = numerator / g; 
     den = denominator / g; 
-}</code></pre>
-	  </section>
+}
+```
+</script></section>
 
-	  <section>
-	    <h2>TestRational.cpp</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>#include "Rational.h" 
+<section data-markdown><script type="text/template">
+## TestRational.cpp
+Source code: [TestRational.cpp](src/02-cpp/TestRational.cpp.html) ([src](src/02-cpp/TestRational.cpp))
+```
+#include <iostream>
+using namespace std;
+
+#include "Rational.h" 
 
 int main() { 
     Rational x, y, z; 
@@ -635,468 +626,419 @@ int main() {
     y = Rational(1, 3); 
     z = x.plus(y); 
     z.print(); 
-    // ... other code very much like above
-}</code></pre>
-	  </section>
 
-	  <section>
-	    <h2>.h vs. .cpp?</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>C++ naming convention
-		<ul>
-		  <li>.h     // header files
-		    <ul>
-		      <li>function prototypes</li>
-		      <li>class definitions</li>
-		      <li>macro definitions</li>
-		      </ul>
-		  </li>
-		  <li>.cpp    // implementation files</li>
-		</ul></li>
-	      <li>Definitions may only appear in 1 place
-		<ul>
-		  <li>compiler errors: "multiply defined XYZ"</li>
-		</ul></li>
-	    </ul>
-	  </section>
+    // ... other code very much like above
+}
+```
+</script></section>
+
+<section data-markdown><script type="text/template">
+## .h vs. .cpp?
+- C++ naming convention
+  - .h files are header files
+    - function prototypes
+    - class definitions
+    - macro definitions
+  - .cpp files are implementation files
+- Definitions may only appear in 1 place
+  - compiler errors: "multiply defined XYZ"
+</script></section>
 
 	</section>
 
 	<section>
 
-	  <section id="preprocessor">
-	    <h1>Pre-processor</h1>
-	  </section>
+<section id="preprocessor" data-markdown><script type="text/template">
+# Pre-processor
+</script></section>
 
-	  <section>
-	    <h2>Preprocessing</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>#include
-		<ul>
-		  <li>Direct copy of file specified to location specified</li>
-		  <li>In general, only #include .h files.</li>
-		</ul></li>
-	      <li>#ifndef
-		<ul>
-		  <li>"if not defined"</li>
-		  <li>other preprocessor directives: #ifdef, #if</li>
-		</ul></li>
-	      <li>#define
-		<ul>
-		  <li>Defines a macro (direct text replacement)</li>
-		</ul>
-	    <pre class="big"><code data-trim>define TRUE 0
+<section data-markdown><script type="text/template">
+## Preprocessing
+- \#include
+  - Direct copy of file specified to location specified
+  - In general, only #include .h files.
+- \#ifndef
+  - "if not defined"
+  - other preprocessor directives: #ifdef, #if
+- \#define
+  - Defines a macro (direct text replacement)
+```
+define TRUE 0
 if(TRUE == 0) {...}
-#define MY_OBJECT_H</code></pre>
-	      </li>
-	      <li>#endif
-		<ul>
-		  <li>specifies the end of any #if</li>
-		</ul></li>
-	    </ul>
-	  </section>
+#define MY_OBJECT_H
+```
+- \#endif
+  - specifies the end of any #if
+</script></section>
 
-	  <section>
-	    <h2>#define</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>Can define a constant
-		<pre class="big"><code data-trim>
+<section data-markdown><script type="text/template">
+## #define
+- Can define a constant
+```
 define PI 3.14159
 ...
 area = PI * r * r;
-		  </code></pre>
-	      </li>
-	      <li>Can just define an identifier
-		<pre class="big"><code data-trim>
+```
+- Can just define an identifier
+```
 #define FOO
 #ifdef FOO   // is true!
 #ifndef FOO  // is false!
-		  </code></pre>
-	      </li>
-	    </ul>
-	  </section>
+```
+</script></section>
 
-	  <section>
-	    <h2>What problems arise?</h2>
-	    <p>&nbsp;</p>
-	    <p>(table)</p>
-	  </section>
+<section data-markdown><script type="text/template">
+## What problems arise?
+- odd.h:
+```
+#include "even.h"
+bool odd (int x);
+```
+- even.h:
+```
+#include "odd.h"
+bool even (int x);
+```
+</script></section>
 
-	  <section>
-	    <h2>Preventing #include loops</h2>
-	    <p>&nbsp;</p>
-	    <p>(table)</p>
-	  </section>
+<section data-markdown><script type="text/template">
+## Preventing #include loops
+- odd.h:
+```
+#ifndef ODD_H
+#define ODD_H
+#include “even.h”
+bool odd (int x);
+#endif
+```
+- even.h:
+```
+#ifndef EVEN_H
+#define EVEN_H
+#include “odd.h”
+bool even (int x);
+#endif
+```
+</script></section>
 
 	</section>
 
 	<section>
 
-	  <section id="pointers">
-	    <h1>Pointers</h1>
-	  </section>
+<section id="pointers" data-markdown><script type="text/template">
+# Pointers
+</script></section>
 
-	  <section>
-	    <h2>Pointer Variables</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>Stores a memory address of another object
-		<ul>
-		  <li>Can be a primitive type or a class type</li>
-		</ul></li>
-	    </ul>
-	  </section>
+<section data-markdown><script type="text/template">
+## Pointer Variables
+- Stores a memory address of another object
+  - Can be a primitive type or a class type
+</script></section>
 
-	  <section>
-	    <h2>Examples of Pointers</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>int * x;</li>
-	      <li>char *y;</li>
-	      <li>Rational * rPointer;</li>
-	    </ul>
-	  </section>
+<section data-markdown><script type="text/template">
+## Examples of Pointers
+- int * x;
+  - pointer to int
+- char *y;
+  - pointer to char
+- Rational * rPointer;
+  - pointer to Rational
+</script></section>
 
-	  <section>
-	    <h2>What Types are These?</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>float * num1</li>
-	      <li>double num2</li>
-	      <li>Rational fraction1</li>
-	      <li>Square * square1</li>
-	      <li>int num3</li>
-	    </ul>
-	  </section>
+<section data-markdown><script type="text/template">
+## What Types are These?
+- float * num1
+- double num2
+- Rational fraction1
+- Square * square1
+- int num3
+</script></section>
 
-	  <section>
-	    <h2>C++ Syntax: * </h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>Asterisk *
-		<ul>
-		  <li>In a definition</li>
-		  <li>defines pointer type</li>
-		  <li>int x</li>
-		  <li>In an expression</li>
-		  <li>"dereferences"</li>
-		  <li>evaluates object to which the pointer points</li>
-		  <li>x = 2</li>
-		</ul></li>
-	    </ul>
-	  </section>
+<section data-markdown><script type="text/template">
+## C++ Syntax: * 
+- Asterisk: *
+  - In a definition
+    - defines pointer type
+      - int x
+  - In an expression
+    - "dereferences"
+    - evaluates object to which the pointer points
+      - x = 2
+</script></section>
 
-	  <section>
-	    <h2>C++ Syntax: &amp;</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>Ampersand &amp;
-		<ul>
-		  <li>In a definition</li>
-		  <li>defines a reference type (more on this later)</li>
-		  <li>In an expression</li>
-		  <li>"address of"</li>
-		  <li>x = &amp;y</li>
-		</ul></li>
-	    </ul>
-	  </section>
+<section data-markdown><script type="text/template">
+## C++ Syntax: &
+- Ampersand: &
+  - In a definition
+    - defines a reference type (more on this later)
+  - In an expression
+    - "address of"
+      - x = &y
+</script></section>
 
-	  <section>
-	    <h2>Pointer Variables</h2>
-	    <p>&nbsp;</p>
-	    <p>(diagram)</p>
-	  </section>
+<section data-markdown><script type="text/template">
+## Pointer Variables
+Source code: [pointers.cpp](src/02-cpp/pointers.cpp.html) ([src](src/02-cpp/pointers.cpp))
 
-	  <section>
-	    <h2>x_pointer = &amp;x</h2>
-	    <p>&nbsp;</p>
-	    <p>(image)</p>
-	  </section>
+(diagram)
+</script></section>
 
-	  <section>
-	    <h2>Dereferencing and Assigning</h2>
-	    <p>&nbsp;</p>
-	    <p>(diagram)</p>
-	  </section>
+<section data-markdown><script type="text/template">
+## x_pointer = &x
+  
+(image)
+</script></section>
 
-	  <section>
-	    <h2>*x_pointer = 2</h2>
-	    <p>&nbsp;</p>
-	    <p>(image)</p>
-	  </section>
+<section data-markdown><script type="text/template">
+## Dereferencing and Assigning
+Source code: [pointers.cpp](src/02-cpp/pointers.cpp.html) ([src](src/02-cpp/pointers.cpp))
+  
+(diagram)
+</script></section>
 
-	  <section>
-	    <h2>x_pointer = &amp;y</h2>
-	    <p>&nbsp;</p>
-	    <p>(diagram)</p>
-	  </section>
+<section data-markdown><script type="text/template">
+## *x_pointer = 2
+  
+(image)
+</script></section>
 
-	  <section>
-	    <h2>x_pointer = &amp;y</h2>
-	    <p>&nbsp;</p>
-	    <p>(image)</p>
-	  </section>
+<section data-markdown><script type="text/template">
+## x_pointer = &y
+Source code: [pointers.cpp](src/02-cpp/pointers.cpp.html) ([src](src/02-cpp/pointers.cpp))
+  
+(diagram)
+</script></section>
 
-	  <section>
-	    <h2>*x_pointer = 3</h2>
-	    <p>&nbsp;</p>
-	    <p>(diagram)</p>
-	  </section>
+<section data-markdown><script type="text/template">
+## x_pointer = &y
+  
+(image)
+</script></section>
 
-	  <section>
-	    <h2>Binky's Pointer Fun</h2>
-	    <p>&nbsp;</p>
-	    <iframe width="800" height="600" src="http://www.youtube.com/embed/UvoHwFvAvQE" frameborder="0" allowfullscreen></iframe>
-	    <p>If that doesn't work, try the <a target="_blank" href="http://www.youtube.com/watch?v=UvoHwFvAvQE">direct Youtube link</a> (Firefox w/Flash enabled doesn't work, in particular)</p>
-	  </section>
+<section data-markdown><script type="text/template">
+## *x_pointer = 3
+Source code: [pointers.cpp](src/02-cpp/pointers.cpp.html) ([src](src/02-cpp/pointers.cpp))
+  
+(diagram)
+</script></section>
 
-	  <section>
-	    <h2>What Types are These?</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>char * x;</li>
-	      <li>int **y;</li>
-	      <li>Rational *rNumber1;</li>
-	      <li>Square **blah;</li>
-	    </ul>
-	  </section>
+<section data-markdown><script type="text/template">
+## Binky's Pointer Fun
+  
+<iframe width="800" height="600" src="http://www.youtube.com/embed/UvoHwFvAvQE" frameborder="0" allowfullscreen></iframe>
 
-	  <section>
-	    <h2>Pointer Pitfalls: Uninitialized Pointers</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>Cause runtime errors
-		<pre class="big"><code data-trim>
+If that doesn't work, try the [direct Youtube link](http://www.youtube.com/watch?v=UvoHwFvAvQE) (Firefox with Flash enabled doesn't work, in particular)
+</script></section>
+
+<section data-markdown><script type="text/template">
+## What Types are These?
+- char * x;
+- int **y;
+- Rational *rNumber1;
+- Square **blah;
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Pointer Pitfalls: Uninitialized Pointers
+- Cause runtime errors
+```
 int n = 30;
 int * p;
 *p = n;    //ERROR!!!
-		  </code></pre>
-	      </li>
-	      <li>p does not have a valid memory address!</li>
-	      <li>A common initializer value used by programmers is NULL
-<pre class="big"><code data-trim>
+```
+  - p does not have a valid memory address!
+  - A common initializer value used by programmers is NULL
+```
 int *p=NULL; // better code, then add code to check 
-             // for NULL value</code></pre>
-	      </li>
-	    </ul>
-	  </section>
+             // for NULL value
+```
+</script></section>
 
-	  <section>
-	    <h2>swap()</h2>
-	    <p>&nbsp;</p>
-<pre class="big"><code data-trim>void swap(int * x, int * y) {
+<section data-markdown><script type="text/template">
+## swap()
+Source code: [swap.cpp](src/02-cpp/swap.cpp.html) ([src](src/02-cpp/swap.cpp))
+```
+void swap(int * x, int * y) {
     int temp = *x;
     *x = *y;
     *y = temp;
-}</code></pre>
-	  </section>
+}
+```
+</script></section>
 
-	  <section>
-	    <h2>Calling swap()</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>int main() {
+<section data-markdown><script type="text/template">
+## Calling swap()
+Source code: [swap.cpp](src/02-cpp/swap.cpp.html) ([src](src/02-cpp/swap.cpp))
+```
+int main() {
     int a=0;
     int b=3;
-    cout &lt;&lt; "Before swap(): a: " &lt;&lt; a &lt;&lt; "b: " 
-         &lt;&lt; b &lt;&lt; endl;
-    swap(&amp;b,&amp;a);
-    cout &lt;&lt; "After swap(): a: " &lt;&lt; a &lt;&lt; "b: " 
-         &lt;&lt; b &lt;&lt; endl;
+    cout << "Before swap(): a: " << a << "b: " 
+         << b << endl;
+    swap(&b,&a);
+    cout << "After swap(): a: " << a << "b: " 
+         << b << endl;
     return 0;
-}</code></pre>
-	    </section>
+}
+```
+  </script></section>
 
 	</section>
 
 	<section>
 
-	  <section id="dynamic">
-	    <h1>Dynamic Memory<br>Allocation</h1>
-	  </section>
+<section id="dynamic" data-markdown><script type="text/template">
+# Dynamic Memory<br>Allocation
+</script></section>
 
-	  <section>
-	    <h2>Static Memory Allocation</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>Amount of space (memory) already known
-		<pre class="big"><code data-trim>
-// declare array of 10 elements 
-int someArray[10];
+<section data-markdown><script type="text/template">
+## Static Memory Allocation
+- Amount of space (memory) already known
+      // declare array of 10 elements
+      int someArray[10];
+      
+      // declare a pointer to int
+      int *value1_address = &someArray[3];
+</script></section>
 
-// declare a pointer to int
-int *value1_address = &amp;someArray[3];
-		  </code></pre>
-	      </li>
-	    </ul>
-	  </section>
+<section data-markdown><script type="text/template">
+## Dynamic Memory Allocation
+- Don't know how much memory is needed in advance
+- Need to create the space on the fly
+- `new`
+  - returns a pointer to newly created "thing"
+</script></section>
 
-	  <section>
-	    <h2>Dynamic Memory Allocation</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>Don't know how much memory is needed in advance</li>
-	      <li>Need to create the space on the fly</li>
-	      <li>new
-		<ul>
-		  <li>returns a pointer to newly created "thing"</li>
-		</ul></li>
-	    </ul>
-	  </section>
-
-	  <section>
-	    <h2>Dynamic Arrays</h2>
-	    <p>&nbsp;</p>
-<pre class="big"><code data-trim>int main() {
+<section data-markdown><script type="text/template">
+## Dynamic Arrays, 1 of 2
+Source code: [dynamic_allocation.cpp](src/02-cpp/dynamic_allocation.cpp.html) ([src](src/02-cpp/dynamic_allocation.cpp))
+```
+int main() {
     int n;
+
     // read in a value from the user
-    cout &lt;&lt; "Please enter an integer value: " ;
-    cin &gt;&gt; n;
+    cout << "Please enter an integer value: " ;
+    cin >> n;
 
     // use the user's input to create an array of int 
     // using new
-    int * ages = new int [n];</code></pre>
-	  </section>
+    int * ages = new int [n];
+```
+</script></section>
 
-	  <section>
-	    <h2>Dynamic Arrays, take 2</h2>
-	    <p>&nbsp;</p>
-<pre class="big"><code>    // use a loop to prompt the user to initialize array
-    for (int i=0; i &lt; n; i++) {
-        cout &lt;&lt; "Enter a value for ages[ " &lt;&lt; i &lt;&lt; " ]: ";
-        cin &gt;&gt; ages[i];
+<section data-markdown><script type="text/template">
+## Dynamic Arrays, 2 of 2
+Source code: [dynamic_allocation.cpp](src/02-cpp/dynamic_allocation.cpp.html) ([src](src/02-cpp/dynamic_allocation.cpp))
+```
+    // use a loop to prompt the user to initialize array
+    for (int i=0; i < n; i++) {
+        cout << "Enter a value for ages[ " << i << " ]: ";
+        cin >> ages[i];
     }
+
     // print out the contents of the array
-    for(int i=0; i&lt;n; i++) {
-        cout &lt;&lt; "ages[ " &lt;&lt; i &lt;&lt; " ]: " &lt;&lt; ages[i];
+    for(int i=0; i<n; i++) {
+        cout << "ages[ " << i << " ]: " << ages[i];
+
     // finished with the array
     //clean up the memory used by calling delete
     delete [] ages;
     return 0;
-}</code></pre>
-	  </section>
+}
+```
+</script></section>
 
-	  <section>
-	    <h2>Output</h2>
-	    <p>&nbsp;</p>
-	    <p>(image)</p>
-	  </section>
+<section data-markdown><script type="text/template">
+## Output
+  
+![Dynamic allocation execution](images/02-cpp/dynamic-allocation-execution.png)
+</script></section>
 
-	  <section>
-	    <h2>C++ Syntax: new</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>General form</li>
-	      <li>SomeTypePtr = new SomeType;</li>
-	      <li>Examples
-		<ul>
-		  <li>int * intPointer = new int;</li>
-		  <li>Rational * rPointer = new Rational;</li>
-		  <li>int * intPointer2 = new int(0);</li>
-		  <li>Rational * rPointer2 = new Rational(1,2);</li>
-		</ul></li>
-	    </ul>
-	  </section>
+<section data-markdown><script type="text/template">
+## C++ Syntax: new
+- General form
+  - SomeTypePtr = new SomeType;
+  - Examples
+    - `int * intPointer = new int;`
+    - `Rational * rPointer = new Rational;`
+    - `int * intPointer2 = new int(0);`
+    - `Rational * rp2 = new Rational(1,2);`
+</script></section>
 
-	  <section>
-	    <h2>Memory Management</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>Java is garbage collected
-		<ul>
-		  <li>Allocated memory is automatically reclaimed, programmer does not need to think about it</li>
-		</ul></li>
-	      <li>C++ does not have garbage collection
-		<ul>
-		  <li>Programmer must reclaim that memory, otherwise that memory can't be used</li>
-		</ul></li>
-	    </ul>
-	  </section>
+<section data-markdown><script type="text/template">
+## Memory Management
+- Java is *garbage collected*
+  - Allocated memory is automatically reclaimed, programmer does not need to think about it
+- C++ does not have garbage collection
+  - Programmer must reclaim that memory, otherwise that memory can't be used
+</script></section>
 
-	  <section>
-	    <h2>C++ Syntax: delete</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>delete 
-		<ul>
-		  <li>delete rPointer</li>
-		  <li>delete intPointer</li>
-		</ul></li>
-	      <li>delete []
-		<ul>
-		  <li>delete [] ages</li>
-		</ul></li>
-	    </ul>
-	  </section>
+<section data-markdown><script type="text/template">
+## C++ Syntax: delete
+- delete 
+  - `delete rPointer`
+  - `delete intPointer`
+- delete []
+  - `delete [] ages`
+</script></section>
 
-	  <section>
-	    <h2>delete</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>#include &lt;string&gt;
+<section data-markdown><script type="text/template">
+## delete
+Source code: [delete.cpp](src/02-cpp/delete.cpp.html) ([src](src/02-cpp/delete.cpp))
+```
+#include <iostream>
+#include <string>
 using namespace std;
+
 int main() {
     string * pointerToString = new string("hi");
     // some code that uses pointerToString here
     delete pointerToString;
     return 0;
-}</code></pre>
-	  </section>
+}
+```
+</script></section>
 
-	  <section>
-	    <h2>Remember this...</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>Anything allocated with new MUST be deallocated with delete</li>
-	    </ul>
-	  </section>
+<section data-markdown><script type="text/template">
+## Remember this...
+- Anything allocated with new **MUST** be deallocated with delete
+</script></section>
 
-	  <section>
-	    <h2>Accessing parts of an object</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>For a regular (i.e., non-pointer) object, use a period:
-		<pre class="big"><code data-trim>
+<section data-markdown><script type="text/template">
+## Accessing parts of an object
+- For a regular (i.e., non-pointer) object, use a period:
+```
 Rational r;
 r.num = 4;
-		  </code></pre>
-	      </li>
-	      <li>For a pointer, dereference it first (as *r is the object, and r is the pointer):
-		<pre class="big"><code data-trim>
+```
+- For a pointer, dereference it first (as *r is the object, and r is the pointer):
+```
 Rational *r = new Rational();
 r.num = 4;
-		  </code></pre>
-	      </li>
-	      <li>A shorthand for the last line is below (the arrow means "follow the pointer"):
-		<pre class="big"><code data-trim>r->num = 4;</code></pre>
-	      </li>
-	      <li>References (which we haven't seen yet) work like regular objects</li>
-	    </ul>
-	  </section>
+```    
+- A shorthand for the last line is below (the arrow means "follow the pointer"):
+```
+r->num = 4;
+```    
+- References (which we haven't seen yet) work like regular objects
+</script></section>
 
-	  <section>
-	    <h2>C++ and memory allocation</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>Assume int *x has been declared
-		<ul>
-		  <li>And int y is from user input</li>
-		</ul></li>
-	      <li>Consider these separate C++ lines of code:
-		<ul>
-		  <li>x = new int[10];        // 40 bytes</li>
-<li>x = new int;            // 4 bytes</li>
-		  <li>x = new int[y];            // y*4 bytes</li>
-		</ul></li>
-	      <li>When they are deleted, how does C++ know how much memory to free up?</li>
-	    </ul>
-	  </section>
+<section data-markdown><script type="text/template">
+## C++ and memory allocation
+- Assume `int *x` has been declared
+  - And `int y` is from user input
+- Consider these separate C++ lines of code:
+  - `x = new int[10]; // 40 bytes`
+  - `x = new int;     // 4 bytes`
+  - `x = new int[y];  // y*4 bytes`
+- When they are deleted, how does C++ know how much memory to free up?
+</script></section>
 
-	  <section>
-	    <h2>C++ and memory allocation</h2>
-	    <p>&nbsp;</p>
-<pre class="big"><code data-trim>#include &lt;iostream&gt;
+<section data-markdown><script type="text/template">
+## C++ and memory allocation
+Source code: [memory.cpp](src/02-cpp/memory.cpp.html) ([src](src/02-cpp/memory.cpp))  
+```
+#include <iostream>
 using namespace std;
 
 class Foo {
@@ -1104,537 +1046,532 @@ class Foo {
 };
 
 int main() {
-    cout &lt;&lt; "sizeof(int): " &lt;&lt; sizeof(int) &lt;&lt; endl;
-    cout &lt;&lt; "sizeof(Foo): " &lt;&lt; sizeof(Foo) &lt;&lt; endl;
+    cout << "sizeof(int): " << sizeof(int) << endl;
+    cout << "sizeof(Foo): " << sizeof(Foo) << endl;
 
     Foo *foo = new Foo();
     Foo *bar = new Foo();
 
-    cout &lt;&lt; "1st Foo: " &lt;&lt; foo &lt;&lt; endl;
-    cout &lt;&lt; "2nd Foo: " &lt;&lt; bar &lt;&lt; endl;
+    cout << "1st Foo: " << foo << endl;
+    cout << "2nd Foo: " << bar << endl;
 
     int diff = ((int)bar)-((int)foo);
 
-    cout &lt;&lt; "Difference: " &lt;&lt; diff &lt;&lt; endl;
+    cout << "Difference: " << diff << endl;
 
     delete foo;
     delete bar;
     return 0;
-}</code></pre>
-
-<pre class="big"><code data-trim>Result:
+}
+```
+Result:
+```
     sizeof(int): 4
     sizeof(Foo): 8
     1st Foo: 0x6a0670
     2nd Foo: 0x6a0680
-    Difference: 16</code></pre>
-	  </section>
+    Difference: 16
+```
+</script></section>
 
-	  <section>
-	    <h2>Associativity of *</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>Consider:
-		<ul>
-		  <li>char*  x, y;</li>
-		</ul></li>
-	      <li>We can all agree that x is a character pointer (32 bits)</li>
-	      <li>But what type is y?
-		<ul>
-		  <li>It's a regular char (8 bits)</li>
-		</ul></li>
-	      <li>The * is right associative, meaning that the spacing should be:
-		<ul>
-		  <li>char  *x, y;</li>
-		</ul></li>
-	      <li>This won't be consistent in this course...</li>
-	    </ul>
-	  </section>
+<section data-markdown><script type="text/template">
+## Associativity of *
+- Consider:
+  - `char*  x, y;`
+- We can all agree that x is a character pointer (32 bits)
+- But what type is y?
+  - It's a regular char (8 bits)
+- The * is right associative, meaning that the spacing should be:
+  - `char  *x, y;`
+- This won't be consistent in this course...
+</script></section>
 
-	  <section>
-	    <h2>Doubly linked lists (lab 2)</h2>
-	    <p>&nbsp;</p>
-<p>(image)</p>
-	  </section>
+<section data-markdown><script type="text/template">
+## Doubly linked lists (lab 2)
+  
+![Lab 2 UML diagram](images/02-cpp/lab2-uml-diagram.png)
+</script></section>
 
-	  <section>
-	    <h2>friend</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>Sometimes other classes need access to private data members of another class
-	    <pre class="big"><code data-trim>
+<section data-markdown><script type="text/template">
+## friend
+- Sometimes other classes need access to private data members of another class
+```
 class ListNode {
-  public:
-    // ...
-  private:
-  ListNode *next, *previous;
-  friend class List;
-};
-		  </code></pre>
-	      </li>
-	    </ul>
-	  </section>
 
-	  <section>
-	    <h2>Common mistakes</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>Consider a class Foo with an uninitialized ListNode* field list that needs to be initialized in the constructor.</li>
-	      <li>What is wrong with the following two methods?</li>
-	      <li>They both compile just fine
-		<pre class="big"><code data-trim>
+    public:
+      // ...
+
+    private:
+      ListNode *next, *previous;
+
+    friend class List;
+};
+```
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Common mistakes
+- Consider a class Foo with an uninitialized ListNode* field list that needs to be initialized in the constructor.
+- What is wrong with the following two methods?
+  - They both compile just fine
+- First one:
+```
 Foo() {
-ListNode* list = new ListNode();
+  ListNode* list = new ListNode();
 }
-</code></pre>
-		<ul><ul>
-		  <li class="fragment">You are creating a local variable 'list' and not accessing the field named 'list'</li>
-		</ul></ul>
-		<pre class="big"><code data-trim>
+```
+<span class="fragment"> You are creating a local variable 'list' and not accessing the field named 'list'</span>
+- Second one:
+```
 Foo() {
     ListNode temp;
-    list = &amp;temp;
+    list = &temp;
 }
-</code></pre>
-		<ul><ul>
-		  <li class="fragment">You are making the pointer point to a local variable, which is then promptly deallocated</li>
-		</ul></ul>
-	      </li>
-	    </ul>
-	  </section>
+```
+<span class="fragment">You are making the pointer point to a local variable, which is then promptly deallocated</span>
+</script></section>
 
 	</section>
 
 	<section>
 
-	  <section id="references">
-	    <h1>References</h1>
-	  </section>
+<section id="references" data-markdown><script type="text/template">
+# References
+</script></section>
 
-	  <section>
-	    <h2>References</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>Declaring a reference:
-		<pre class="big"><code data-trim>
+<section data-markdown><script type="text/template">
+## References
+- Declaring a reference:
+```
 List sampleList
-List &amp; theList = sampleList;
-		  </code></pre>
-	      </li>
-	      <li>Reference to a List object</li>
-	      <li>What is a reference?</li>
-	      <li>Like a pointer, it holds an address, BUT...
-		<ul>
-		  <li>Its address cannot change (its address is constant)</li>
-		  <li>It MUST be initialized upon declaration (cannot be initialized to NULL... normally...)</li>
-		  <li>Has implicit dereferencing</li>
-		</ul></li>
-	    </ul>
-	  </section>
+List & theList = sampleList;
+```
+  - Reference to a List object
+  - A reference is like a pointer -- it holds an address -- BUT...
+    - Its address cannot change (its address is constant)
+    - It MUST be initialized upon declaration (cannot be initialized to NULL... normally...)
+    - Has implicit dereferencing
+</script></section>
 
-	  <section>
-	    <h2>swap() with Pointers</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>swap() with references:
-		<pre class="big"><code data-trim>
+<section data-markdown><script type="text/template">
+## swap() with Pointers
+Source code: [swap.cpp](src/02-cpp/swap.cpp.html) ([src](src/02-cpp/swap.cpp))
+```
 void swap(int * x, int * y) {
     int temp = *x;
     *x = *y;
     *y = temp;
 }
-		  </code></pre>
-	      </li>
-	      <li>Programmer must specify dereferencing explicitly</li>
-	      </ul>
-	  </section>
+```
+Programmer must specify dereferencing explicitly
+    </ul>
+</script></section>
 
-	  <section>
-	    <h2>swap with References</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>swap() with references:
-		<pre class="big"><code data-trim>
-void swap(int &amp; x, int &amp; y) {
+<section data-markdown><script type="text/template">
+## swap with References
+Source code: [swapref.cpp](src/02-cpp/swapref.cpp.html) ([src](src/02-cpp/swapref.cpp))
+```
+void swap(int & x, int & y) {
     int temp = x;
     x = y;
     y = temp;
 }
-		  </code></pre>
-	      </li>
-	      <li>Dereferencing is implied with each use</li>
-	      <li>All Java non-primitive types are references</li>
-	    </ul>
-	  </section>
+```
+- Dereferencing is implied with each use
+- All Java non-primitive types are references
+</script></section>
 
-	  <section>
-	    <h2>Calling swap() with references</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>int main() {
+<section data-markdown><script type="text/template">
+## Calling swap() with references
+Source code: [swapref.cpp](src/02-cpp/swapref.cpp.html) ([src](src/02-cpp/swapref.cpp))
+```
+int main() {
     int a=0;
     int b=3;
-    cout &lt;&lt; "Before swap(): a: " &lt;&lt; a &lt;&lt; "b: "
-         &lt;&lt; b &lt;&lt; endl;
+    cout << "Before swap(): a: " << a << "b: "
+         << b << endl;
     swap(b,a);
-    cout &lt;&lt; "After swap(): a: " &lt;&lt; a &lt;&lt; "b: " 
-         &lt;&lt; b &lt;&lt; endl;
+    cout << "After swap(): a: " << a << "b: " 
+         << b << endl;
     return 0;
-}</code></pre>
-	  </section>
+}
+```
+</script></section>
 
-	  <section>
-	    <h2>Accessing Members of An Object</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>class Square {
+<section data-markdown><script type="text/template">
+## Accessing Members through a Pointer
+(no external source code)
+```
+// #include and using code lines omitted for space reasons
+
+class Square {
   public:
     // constructors, etc. would be here
     int sideLength;
-};</code></pre>
-	  </section>
+};
 
-	  <section>
-	    <h2>Accessing Members through a Pointer</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>// other code omitted for space reasons
 int main() {
     Square *squarePtr = new Square(1);
-    int length = squarePtr-&gt;sideLength;
-// equivalent to saying (*squarePtr).sideLength
+    int length = squarePtr->sideLength;
+    // equivalent to saying (*squarePtr).sideLength
     return 0;
-}</code></pre>
-	  </section>
+}
+```
+</script></section>
 
-	  <section>
-	    <h2>Accessing Members through a Reference</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>// other code omitted for space reasons
+<section data-markdown><script type="text/template">
+## Accessing Members through a Reference
+(no external source code)
+```
+// #include and using code lines omitted for space reasons
+
+class Square {
+  public:
+    // constructors, etc. would be here
+    int sideLength;
+};
+
 int main() {
     Square square = Square(1);
-    Square &amp; squareRef = square;
+    Square & squareRef = square;
     int length = squareRef.sideLength; // uses a period
     return 0;
-}</code></pre>
-	  </section>
+}
+```
+</script></section>
 
-	  <section>
-	    <h2>Accessing Pointers within Objects</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>class example1 {
-    ...
+<section data-markdown><script type="text/template">
+## Accessing Pointers within Objects
+(no external source code)
+```
+// #include and using code lines omitted for space reasons
+
+class example1 {
   public:
     int *a;
 };
-...
-example1 *c = new example1;
-int x = 0;
-(*c).a = &amp;x; // assign address of x
-c-&gt;a = &amp;x; // defrerence c, then access a</code></pre>
-	  </section>
 
-	  <section>
-	    <h2>Pointer/Reference Cheat Sheet</h2>
-	    <p>&nbsp;</p>
-	    <p>(table)</p>
-	  </section>
+int main() {
+  example1 *c = new example1;
+  int x = 0;
+  (*c).a = &x; // assign address of x
+  c->a = &x; // defrerence c, then access a
+}
+```
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Pointer/Reference Cheat Sheet
+
+| Location   | *             | &              |
+|------------|---------------|----------------|
+| Definition | "pointer to"  | "reference to" |
+| Statement  | "dereference" | "address of"   |
+
+&nbsp;  
+&nbsp;  
+
+`o1->method()` is the same as `(*o1).method()`
+</script></section>
 
 	</section>
 
 	<section>
 
-	  <section id="parameters">
-	    <h1>Parameter Passing</h1>
-	  </section>
+<section id="parameters" data-markdown><script type="text/template">
+  <h1>Parameter Passing</h1>
+</script></section>
 
-	  <section>
-	    <h2>Call By Value</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>Actual argument is copied into formal parameter
-		<pre class="big"><code data-trim>
+<section data-markdown><script type="text/template">
+## Call By Value
+  
+  <ul>
+- Actual argument is copied into formal parameter
+		<pre><code data-trim>
 int max(int a, int b);
 void swap (int * x, int *y);
 bool compare(Rational left, Rational right);</code></pre>
-	      </li>
-	      <li>Can also pass pointers by value</li>
-	    </ul>
-	  </section>
+    
+- Can also pass pointers by value
+  </ul>
+</script></section>
 
-	  <section>
-	    <h2>Call By Reference</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>Pass references as parameters
-		<pre class="big"><code data-trim>void swap (int &amp;x, int &amp;y);</code></pre>
-	      </li>
-	      <li>Use when formal parameter should be able to change the value of the actual argument</li>
-	    </ul>
-	  </section>
+<section data-markdown><script type="text/template">
+## Call By Reference
+  
+  <ul>
+- Pass references as parameters
+		<pre><code data-trim>void swap (int &x, int &y);</code></pre>
+    
+- Use when formal parameter should be able to change the value of the actual argument
+  </ul>
+</script></section>
 
-	  <section>
-	    <h2>Call By Constant Reference</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>Parameters are constant (won't change) and are passed by reference
-		<pre class="big"><code data-trim>
-bool compare(const Rational &amp; left, 
-             const Rational &amp; right);</code></pre>
-	      </li>
-	      <li>Use when there is a class type that cannot be changed by formal parameter</li>
-	    </ul>
-	  </section>
+<section data-markdown><script type="text/template">
+## Call By Constant Reference
+  
+  <ul>
+- Parameters are constant (won't change) and are passed by reference
+		<pre><code data-trim>
+bool compare(const Rational & left, 
+             const Rational & right);</code></pre>
+    
+- Use when there is a class type that cannot be changed by formal parameter
+  </ul>
+</script></section>
 
-	  <section>
-	    <h2>Other parameter passing types</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>Call by copy-restore</li>
-	      <li>Call by name</li>
-	      <li>Call by need</li>
-	      <li>Call by macro expansion</li>
-	    </ul>
-	  </section>
+<section data-markdown><script type="text/template">
+## Other parameter passing types
+  
+  <ul>
+- Call by copy-restore
+- Call by name
+- Call by need
+- Call by macro expansion
+  </ul>
+</script></section>
 
-	  <section>
-	    <h2>Return Passing</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>Return by value
+<section data-markdown><script type="text/template">
+## Return Passing
+  
+  <ul>
+- Return by value
 		<ul>
-		  <li>return a copy (possibly a copy of the pointer)</li>
-		</ul></li>
-	      <li>Return by reference
-		<ul>
-		  <li>return a reference</li>
-		</ul></li>
-	      <li>Return by constant reference</li>
-	    </ul>
-	  </section>
-
-	  <section>
-	    <h2>Review: Dynamic Memory Allocation</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>new
-		<ul>
-		  <li>Allocates a new memory location for use</li>
-		  <li>Example:</li>
+  - return a copy (possibly a copy of the pointer)
 		</ul>
-<pre class="big"><code data-trim>
+- Return by reference
+		<ul>
+  - return a reference
+		</ul>
+- Return by constant reference
+  </ul>
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Review: Dynamic Memory Allocation
+  
+  <ul>
+- new
+		<ul>
+  - Allocates a new memory location for use
+  - Example:
+		</ul>
+<pre><code data-trim>
 Square * ptrToAnotherSquare = 
                new Square(5);
 Triangle *ptrToTriangle = 
                new Triangle();
 Circle *ptrToCircle = new Circle;</code></pre>
-	      </li>
-	      <li>delete
+    
+- delete
 		<ul>
-		  <li>Reclaims memory allocated with new</li>
-		  <li>Example:</li>
+  - Reclaims memory allocated with new
+  - Example:
 		</ul>
-		<pre class="big"><code data-trim>delete ptrToAnotherSquare;</code></pre>
-	      </li>
-	    </ul>
-	  </section>
+		<pre><code data-trim>delete ptrToAnotherSquare;</code></pre>
+    
+  </ul>
+</script></section>
 
-	  <section>
-	    <h2>The Big Three</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>C++ Provides These By Default
+<section data-markdown><script type="text/template">
+## The Big Three
+  
+  <ul>
+- C++ Provides These By Default
 		<ul>
-		  <li>Destructor</li>
-		  <li>Copy Constructor</li>
-		  <li>operator=</li>
-		</ul></li>
-	      <li>There are some problems with the defaults...</li>
-	    </ul>
-	  </section>
-
-	  <section>
-	    <h2>Destructors</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>Called whenever an object 
-		<ul>
-		  <li>goes out of scope, or</li>
-		  <li>delete is called</li>
-		</ul></li>
-	      <li>Frees up any resources allocated during the use of an object</li>
-	      <li>Example (only prototype shown): ~IntCell();</li>
-	    </ul>
-	  </section>
-
-	  <section>
-	    <h2>Copy Constructor</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>Special constructor that creates a new object, initialized to a copy of the same type of object</li>
-	      <li>Called in the following situations:
-		<ul>
-		  <li>declaration with initalization</li>
-		  <li>IntCell copy = original; IntCell copy(original);</li>
+  - Destructor
+  - Copy Constructor
+  - operator=
 		</ul>
-	      </li>
-	      <li>if object is passed by value</li>
-	      <li>if object is returned by value</li>
-	    </ul>
-	  </section>
+- There are some problems with the defaults...
+  </ul>
+</script></section>
 
-	  <section>
-	    <h2>operator=</h2>
-	    <p>&nbsp;</p>
-	    <ul>
-	      <li>aka copy assignment operator</li>
-	      <li>Intended to copy the state of original into copy</li>
-	      <li>Called when = is applied to two objects AFTER both have previously been constructed</li>
-	      </ul>
-	    <pre class="big"><code data-trim>IntCell original;    // constructor called
+<section data-markdown><script type="text/template">
+## Destructors
+  
+  <ul>
+- Called whenever an object 
+		<ul>
+  - goes out of scope, or
+  - delete is called
+		</ul>
+- Frees up any resources allocated during the use of an object
+- Example (only prototype shown): ~IntCell();
+  </ul>
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Copy Constructor
+  
+  <ul>
+- Special constructor that creates a new object, initialized to a copy of the same type of object
+- Called in the following situations:
+		<ul>
+  - declaration with initalization
+  - IntCell copy = original; IntCell copy(original);
+		</ul>
+    
+- if object is passed by value
+- if object is returned by value
+  </ul>
+</script></section>
+
+<section data-markdown><script type="text/template">
+## operator=
+  
+  <ul>
+- aka copy assignment operator
+- Intended to copy the state of original into copy
+- Called when = is applied to two objects AFTER both have previously been constructed
+    </ul>
+  <pre><code data-trim>IntCell original;    // constructor called
 IntCell copy;
 copy = original;    // operator= called</code></pre>
-	  </section>
+</script></section>
 
 	</section>
 
 	<section>
 
-	  <section id="advanced">
-	    <h1>Sample (advanced) code</h1>
-	  </section>
+<section id="advanced" data-markdown><script type="text/template">
+  <h1>Sample (advanced) code</h1>
+</script></section>
 
-	  <section>
-	    <h2>test.h</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>class test {
+<section data-markdown><script type="text/template">
+## test.h
+  
+  <pre><code data-trim>class test {
     static int idcount;
     const int id;
     int value;
 public:
     test();
     test(int v);
-    test(const test&amp; x);
+    test(const test& x);
     ~test();
-    test&amp; operator=(const test&amp; other);
-    friend ostream&amp; operator&lt;&lt;(ostream&amp; out, 
-                               const test&amp; f);
+    test& operator=(const test& other);
+    friend ostream& operator<<(ostream& out, 
+                               const test& f);
 };</code></pre>
-	  </section>
+</script></section>
 
-	  <section>
-	    <h2>test.cpp 1/3</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>
+<section data-markdown><script type="text/template">
+## test.cpp 1/3
+  
+  <pre><code data-trim>
 int test::idcount = 0;
 
 test::test() : id (idcount++), value(0) { 
-    cout &lt;&lt; "calling test(); object created is " &lt;&lt; *this
-         &lt;&lt; "; address is " &lt;&lt; this &lt;&lt; endl; 
+    cout << "calling test(); object created is " << *this
+         << "; address is " << this << endl; 
 }
 
 test::test(int v) : id (idcount++), value(v) { 
-    cout &lt;&lt; "calling test(" &lt;&lt; v 
-         &lt;&lt; "); object created is " &lt;&lt; *this 
-         &lt;&lt; "; address is " &lt;&lt; this &lt;&lt; endl;
+    cout << "calling test(" << v 
+         << "); object created is " << *this 
+         << "; address is " << this << endl;
 }
 </code></pre>
-	  </section>
+</script></section>
 
-	  <section>
-	    <h2>test.cpp 2/3</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>
+<section data-markdown><script type="text/template">
+## test.cpp 2/3
+  
+  <pre><code data-trim>
 test::~test() {
-    cout &lt;&lt; "calling ~test() on " &lt;&lt; *this &lt;&lt; endl;
+    cout << "calling ~test() on " << *this << endl;
 }
 
-test::test(const test&amp; x) : id(x.id), value(x.value) {
-    cout &lt;&lt; "calling test(&amp;test) on " &lt;&lt; *this 
-         &lt;&lt; "; address is " &lt;&lt; this &lt;&lt; endl;
+test::test(const test& x) : id(x.id), value(x.value) {
+    cout << "calling test(&test) on " << *this 
+         << "; address is " << this << endl;
 }
-	      </code></pre>
-	  </section>
+    </code></pre>
+</script></section>
 
-	  <section>
-	    <h2>test.cpp 3/3</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>
-test&amp; test::operator=(const test&amp; other) {
-    cout &lt;&lt; "calling operator=(" &lt;&lt; other &lt;&lt; ")" &lt;&lt; endl;
+<section data-markdown><script type="text/template">
+## test.cpp 3/3
+  
+  <pre><code data-trim>
+test& test::operator=(const test& other) {
+    cout << "calling operator=(" << other << ")" << endl;
     test *tmp = new test(other);  
     return *tmp;
 }
 
-ostream&amp; operator&lt;&lt;(ostream&amp; out, const test&amp; f) {
-    out &lt;&lt; "test[id=" &lt;&lt; f.id &lt;&lt; ",v=" &lt;&lt; f.value &lt;&lt; "]";
+ostream& operator<<(ostream& out, const test& f) {
+    out << "test[id=" << f.id << ",v=" << f.value << "]";
 }</code></pre>
-	  </section>
+</script></section>
 
-	  <section>
-	    <h2>The one subroutine...</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>test bar(test param) {
+<section data-markdown><script type="text/template">
+## The one subroutine...
+  
+  <pre><code data-trim>test bar(test param) {
   return test(10);
 }</code></pre>
-	  </section>
+</script></section>
 
-	  <section>
-	    <h2>main() code and output, 1/6</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>test a();
-cout &lt;&lt; "attempted to create a: " &lt;&lt; a &lt;&lt; endl;
+<section data-markdown><script type="text/template">
+## main() code and output, 1/6
+  
+  <pre><code data-trim>test a();
+cout << "attempted to create a: " << a << endl;
 
-cout &lt;&lt; "----------------------------------------" &lt;&lt; endl;
+cout << "----------------------------------------" << endl;
 test aa;
-cout &lt;&lt; "created aa: " &lt;&lt; aa &lt;&lt; endl;</code></pre>
-	  </section>
+cout << "created aa: " << aa << endl;</code></pre>
+</script></section>
 
-	  <section>
-	    <h2>main() code and output, 2/6</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>cout &lt;&lt; "----------------------------------------" &lt;&lt; endl;
+<section data-markdown><script type="text/template">
+## main() code and output, 2/6
+  
+  <pre><code data-trim>cout << "----------------------------------------" << endl;
 test b(1);
-cout &lt;&lt; "created b: " &lt;&lt; b &lt;&lt; endl;</code></pre>
-	  </section>
+cout << "created b: " << b << endl;</code></pre>
+</script></section>
 
-	  <section>
-	    <h2>main() code and output, 3/6</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>cout &lt;&lt; "----------------------------------------" &lt;&lt; endl;
+<section data-markdown><script type="text/template">
+## main() code and output, 3/6
+  
+  <pre><code data-trim>cout << "----------------------------------------" << endl;
 test *c = new test(2);
-cout &lt;&lt; "created *c: " &lt;&lt; *c &lt;&lt; " at " &lt;&lt; c &lt;&lt; endl;
+cout << "created *c: " << *c << " at " << c << endl;
 test *d = new test;
-cout &lt;&lt; "created *d: " &lt;&lt; *d &lt;&lt; " at " &lt;&lt; d &lt;&lt; endl;</code></pre>
-	  </section>
+cout << "created *d: " << *d << " at " << d << endl;</code></pre>
+</script></section>
 
-	  <section>
-	    <h2>main() code and output, 4/6</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>cout &lt;&lt; "----------------------------------------" &lt;&lt; endl;
-cout &lt;&lt; "about to invoke subroutine..." &lt;&lt; endl;
+<section data-markdown><script type="text/template">
+## main() code and output, 4/6
+  
+  <pre><code data-trim>cout << "----------------------------------------" << endl;
+cout << "about to invoke subroutine..." << endl;
 test e = bar(*c);
-cout &lt;&lt; "finished invoking subroutine..." &lt;&lt; endl;</code></pre>
-	  </section>
+cout << "finished invoking subroutine..." << endl;</code></pre>
+</script></section>
 
-	  <section>
-	    <h2>main() code and output, 5/6</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>cout &lt;&lt; "----------------------------------------" &lt;&lt; endl;
+<section data-markdown><script type="text/template">
+## main() code and output, 5/6
+  
+  <pre><code data-trim>cout << "----------------------------------------" << endl;
 test f = b;
 
-cout &lt;&lt; "----------------------------------------" &lt;&lt; endl;
-cout &lt;&lt; "about to delete a test object..." &lt;&lt; endl;
+cout << "----------------------------------------" << endl;
+cout << "about to delete a test object..." << endl;
 delete c;</code></pre>
-	  </section>
+</script></section>
 
-	  <section>
-	    <h2>main() code and output, 6/6</h2>
-	    <p>&nbsp;</p>
-	    <pre class="big"><code data-trim>cout &lt;&lt; "----------------------------------------" &lt;&lt; endl;
-cout &lt;&lt; "assignment..." &lt;&lt; endl;
+<section data-markdown><script type="text/template">
+## main() code and output, 6/6
+  
+  <pre><code data-trim>cout << "----------------------------------------" << endl;
+cout << "assignment..." << endl;
 aa = b;
 
-cout &lt;&lt; "----------------------------------------" &lt;&lt; endl;
-    cout &lt;&lt; "about to leave main..." &lt;&lt; endl;</code></pre>
-	    </section>
+cout << "----------------------------------------" << endl;
+    cout << "about to leave main..." << endl;</code></pre>
+  </script></section>
 
 	</section>
 	

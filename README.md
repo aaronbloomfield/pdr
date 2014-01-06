@@ -46,7 +46,7 @@ Contents
   [markdown](http://daringfireball.net/projects/markdown/), and the 
   rendered HTML version of each lab is also committed to this
   repository.
-- slides/: Contains the slides used in the course; view
+- [slides](slides/index.html): Contains the slides used in the course; view
   slides/index.html for the table of contents.  The slides use
   [reveal.js](https://github.com/hakimel/reveal.js/), a HTML
   presentation framework.

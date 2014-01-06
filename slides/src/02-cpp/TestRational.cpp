@@ -1,5 +1,8 @@
 // File TestRational.cpp
 
+#include <iostream>
+using namespace std;
+
 #include "Rational.h"
 
 int main() {

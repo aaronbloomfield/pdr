@@ -1,6 +1,8 @@
 Program and Data Representation Slides
 ======================================
 
+[Go up to the main README file](../README.html)
+
 Slide set 1: [Course Introduction](01-intro.html)
 
 - Source code: [DataStructureComparison.java](src/01-intro/DataStructureComparison.java.html) ([src](src/01-intro/DataStructureComparison.java))
@@ -10,17 +12,19 @@ Slide set 2: [C++](02-cpp.html)
 
 - Source code:
   - General source code: 
-    [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp)),
-    [dynamic_allocation.cpp](src/02-cpp/dynamic_allocation.cpp.html) ([src](src/02-cpp/dynamic_allocation.cpp)),
     [evenodd.cpp](src/02-cpp/evenodd.cpp.html) ([src](src/02-cpp/evenodd.cpp)),
-    [memory.cpp](src/02-cpp/memory.cpp.html) ([src](src/02-cpp/memory.cpp)),
+    [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp)),
     [pointers.cpp](src/02-cpp/pointers.cpp.html) ([src](src/02-cpp/pointers.cpp)), 
-    [swap.cpp](src/02-cpp/swap.cpp.html) ([src](src/02-cpp/swap.cpp))
+    [swap.cpp](src/02-cpp/swap.cpp.html) ([src](src/02-cpp/swap.cpp)),
+    [dynamic_allocation.cpp](src/02-cpp/dynamic_allocation.cpp.html) ([src](src/02-cpp/dynamic_allocation.cpp)),
+    [delete.cpp](src/02-cpp/delete.cpp.html) ([src](src/02-cpp/delete.cpp)),
+    [memory.cpp](src/02-cpp/memory.cpp.html) ([src](src/02-cpp/memory.cpp)),
+    [swapref.cpp](src/02-cpp/swapref.cpp.html) ([src](src/02-cpp/swapref.cpp))
   - IntCell code: 
     [IntCell.java](src/02-cpp/IntCell.java.html) ([src](src/02-cpp/IntCell.java)), 
+    [TestIntCell.cpp](src/02-cpp/TestIntCell.cpp.html) ([src](src/02-cpp/TestIntCell.cpp)),
     [IntCell.h](src/02-cpp/IntCell.h.html) ([src](src/02-cpp/IntCell.h)), 
-    [IntCell.cpp](src/02-cpp/IntCell.cpp.html) ([src](src/02-cpp/IntCell.cpp)), 
-    [TestIntCell.cpp](src/02-cpp/TestIntCell.cpp.html) ([src](src/02-cpp/TestIntCell.cpp))
+    [IntCell.cpp](src/02-cpp/IntCell.cpp.html) ([src](src/02-cpp/IntCell.cpp))
   - Rational code: 
     [Rational.java](src/02-cpp/Rational.java.html) ([src](src/02-cpp/Rational.java)), 
     [Rational.h](src/02-cpp/Rational.h.html) ([src](src/02-cpp/Rational.h)),
