@@ -30,3 +30,27 @@ Slide set 2: [C++](02-cpp.html)
     [Rational.h](src/02-cpp/Rational.h.html) ([src](src/02-cpp/Rational.h)),
     [Rational.cpp](src/02-cpp/Rational.cpp.html) ([src](src/02-cpp/Rational.cpp)), 
     [TestRational.cpp](src/02-cpp/TestRational.cpp.html) ([src](src/02-cpp/TestRational.cpp))
+
+Slide set 3: Lists
+
+Slide set 4: Data Representation
+
+Slide set 5: Arrays & Big-Oh
+
+Slide set 6: Trees
+
+Slide set 7: Hashes
+
+Slide set 8: IBCM (machine language)
+
+Slide set 9: x86 (assembly language)
+
+Slide set 10: Advanced C++
+
+Slide set 11: Heaps
+
+Slide set 12: Huffman coding
+
+Slide set 13: Graphs
+
+Slide set 14: Memory

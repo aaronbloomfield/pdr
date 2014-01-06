@@ -1,6 +1,8 @@
 Laboratory 1: Introduction to C++
 =================================
 
+[Go up to the labs table of contents page](../index.html)
+
 ### Objective ###
 
 This is laboratory is intended to get you up to speed quickly with
@@ -18,8 +20,8 @@ this lab.
 
 ### Reading(s) ###
 
-1. Tutorial 1: Introduction to UNIX
-2. Optional: online sources as posted on the Readings page
+1. [Tutorial 1: Introduction to UNIX](../../tutorials/01-intro-unix/index.html)
+2. Optional: online sources as posted on the [Readings page](../../docs/readings.html)
 
 Procedure
 ---------
@@ -32,16 +34,17 @@ Procedure
 3. Write the xToN.cpp file, as described in the pre-lab section.  If
    you are unfamiliar with the Collab submission system, read through the
    in-lab section of the document.  Submit this file.
-4. Examine the Object life-cycle code posted in the labs directory on
-   Collab (lifecycle.cpp).  You may not understand everything in this
-   program by the beginning of lab, but you should by the end of next
-   week.  We will be using this program during the in-lab activity.
+4. Examine the Object life-cycle code
+   ([lifecycle.cpp](lifecycle.cpp.html)
+   ([src](lifecycle.cpp))).  You may not understand everything in
+   this program by the beginning of lab, but you should by the end of
+   next week.  We will be using this program during the in-lab activity.
 5. Read how to reboot into Linux for the in-lab.  Although the TAs
    will be able to help you, you should still have an idea how to do
    it.
 6. The due date for this lab is listed on the "Lab due dates page" --
    see the in-lab section for more details about submission deadlines.
-7. Files to download: lifecycle.cpp
+7. Files to download: [lifecycle.cpp](lifecycle.cpp.html) ([src](lifecycle.cpp))
 8. Files to submit: xToN.cpp
 
 ### In-lab ###
@@ -53,8 +56,11 @@ Procedure
    (including text files!)
 4. Did you understand the part on capitalization in the in-lab section
    of this document?
-5. Files to download: svtest.cpp, svutil.cpp, svutil.h, and
-   lifecycle.cpp
+5. Files to download: [svtest.cpp](svtest.cpp.html)
+   ([src](svtest.cpp)), [svutil.cpp](svutil.cpp.html)
+   ([src](svutil.cpp)), [svutil.h](svutil.h.html)
+   ([src](svutil.h)), and [lifecycle.cpp](lifecycle.cpp.html)
+   ([src](lifecycle.cpp))
 6. Files to submit: lifecycle.questions.txt, vector.questions.txt,
    LifeCycle.cpp, LifeCycle.h, and TestLifeCycle.cpp
 
@@ -66,8 +72,7 @@ Procedure
    sure to include your name, email ID, the date, and the name of the
    file in a header comment at the beginning of each file you submit
    (including text files!).
-3. Files to download: dsexceptions.h, LinkedList.h, inkedList.cpp,
-   and TestLinkedList.cpp
+3. Files to download: ...
 4. Files to submit: postlab1.question.txt
 
 
@@ -368,35 +373,10 @@ beginning of each file you submit.
 
 ### Linked List Template code ###
 
-Download the four linked list files.  Compile and run the program.
-The compile command is 'clang++ TestLinkedList.cpp' -- if you try to
-compile the LinkedList.cpp file, it won't work correctly.  And the
-dsexceptions.h file is necessary for this (you don't have to
-understand it, but it must be present for the program to compile).
+(the previous code was Weiss' code, which was copyrighted, so this
+section needs to be re-written)
 
-Find a #include statement at the end of LinkedList.h.  This is not the
-way that #include is typically used. We normally only include files
-that contain declarations of classes, constants, function prototypes,
-etc., but not definitions of C++ functions (i.e. the bodies of the
-functions). However, when implementing template classes, this is
-something that is necessary to make the class compile successfully.
-
-Look more closely at TestLinkedList.cpp.  The line:
-
-```
-List<int> theList;
-```
-
-declares a List of integers, called theList.  The line:
-
-```
-List<int> list2;
-```
-
-declares another List of integers, called list2.  Now all the
-functions in the List class will be available to theList and list2.
-In LinkedList.h and LinkedList.cpp, everywhere "Object" is used, int
-will be used instead.
+...
 
 Write at least one question about something in this program.  Put your
 question(s) in a text file called "postlab1.question.txt" and submit

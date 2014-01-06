@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>lifecycle.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;string&gt;</font>
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<i><font color="#9A1900">// ---------------------------------------------------  class definition</font></i>
+<b><font color="#0000FF">class</font></b> <font color="#008080">MyObject</font> <font color="#FF0000">{</font>
+<b><font color="#0000FF">public</font></b><font color="#990000">:</font>
+    <b><font color="#0000FF">static</font></b> <font color="#009900">int</font> numObjs<font color="#990000">;</font>
+    <b><font color="#000000">MyObject</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> <font color="#009900">char</font> <font color="#990000">*</font>n <font color="#990000">=</font> <font color="#FF0000">"--default--"</font><font color="#990000">);</font>      <i><font color="#9A1900">// default constructor</font></i>
+    <b><font color="#000000">MyObject</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> MyObject<font color="#990000">&amp;</font> rhs<font color="#990000">);</font>                <i><font color="#9A1900">// copy constructor</font></i>
+    <font color="#990000">~</font><b><font color="#000000">MyObject</font></b><font color="#990000">();</font>                                  <i><font color="#9A1900">// destructor</font></i>
+    <font color="#008080">string</font> <b><font color="#000000">getName</font></b><font color="#990000">()</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
+        <b><font color="#0000FF">return</font></b> name<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+    <font color="#009900">void</font> <b><font color="#000000">setName</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> <font color="#008080">string</font> newName<font color="#990000">)</font> <font color="#FF0000">{</font>
+        name <font color="#990000">=</font> newName<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+    <b><font color="#0000FF">friend</font></b> ostream<font color="#990000">&amp;</font> <b><font color="#0000FF">operator</font></b><font color="#990000">&lt;&lt;(</font>ostream<font color="#990000">&amp;</font> output<font color="#990000">,</font> <b><font color="#0000FF">const</font></b> MyObject<font color="#990000">&amp;</font> obj<font color="#990000">);</font>
+<b><font color="#0000FF">private</font></b><font color="#990000">:</font>
+    <font color="#008080">string</font> name<font color="#990000">;</font>
+    <font color="#009900">int</font> id<font color="#990000">;</font>
+<font color="#FF0000">}</font><font color="#990000">;</font>
+
+<i><font color="#9A1900">// ------------------------------------------------  default constructor</font></i>
+MyObject<font color="#990000">::</font><b><font color="#000000">MyObject</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> <font color="#009900">char</font> <font color="#990000">*</font>n<font color="#990000">)</font> <font color="#990000">:</font> <b><font color="#000000">name</font></b><font color="#990000">(</font>n<font color="#990000">)</font> <font color="#FF0000">{</font>
+    id <font color="#990000">=</font> <font color="#990000">++</font>numObjs<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"MyObject Default constructor: "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font><b><font color="#0000FF">this</font></b> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// ---------------------------------------------------  copy constructor</font></i>
+MyObject<font color="#990000">::</font><b><font color="#000000">MyObject</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> MyObject<font color="#990000">&amp;</font> rhs<font color="#990000">)</font> <font color="#990000">:</font> <b><font color="#000000">name</font></b><font color="#990000">(</font>rhs<font color="#990000">.</font>name<font color="#990000">)</font> <font color="#FF0000">{</font>
+    id <font color="#990000">=</font> <font color="#990000">++</font>numObjs<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"MyObject Copy constructor:    "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font><b><font color="#0000FF">this</font></b> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// --------------------------------------------------------  destructor</font></i>
+MyObject<font color="#990000">::~</font><b><font color="#000000">MyObject</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"MyObject Destructor:          "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font><b><font color="#0000FF">this</font></b> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// -----------------------------------------------------------  put to</font></i>
+ostream<font color="#990000">&amp;</font> <b><font color="#0000FF">operator</font></b><font color="#990000">&lt;&lt;(</font>ostream<font color="#990000">&amp;</font> output<font color="#990000">,</font> <b><font color="#0000FF">const</font></b> MyObject<font color="#990000">&amp;</font> obj<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <i><font color="#9A1900">// output in format:  ("object name",id)</font></i>
+    <b><font color="#0000FF">return</font></b> output <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"(</font><font color="#CC33CC">\"</font><font color="#FF0000">"</font> <font color="#990000">&lt;&lt;</font> obj<font color="#990000">.</font>name <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\"</font><font color="#FF0000">,"</font> <font color="#990000">&lt;&lt;</font> obj<font color="#990000">.</font>id <font color="#990000">&lt;&lt;</font> <font color="#FF0000">")"</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">//---------------------------------------------------- static variables</font></i>
+<font color="#009900">int</font> MyObject<font color="#990000">::</font>numObjs <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>  <i><font color="#9A1900">// static member for all objects in class</font></i>
+<b><font color="#0000FF">static</font></b> <font color="#008080">MyObject</font> <b><font color="#000000">staticObj</font></b><font color="#990000">(</font><font color="#FF0000">"I'm static, outside of main"</font><font color="#990000">);</font>
+
+<i><font color="#9A1900">//---------------------------------------------------------- prototypes</font></i>
+<font color="#008080">MyObject</font> <b><font color="#000000">getMaxMyObj</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> <font color="#008080">MyObject</font> o1<font color="#990000">,</font> <b><font color="#0000FF">const</font></b> <font color="#008080">MyObject</font> o2<font color="#990000">);</font>
+<font color="#009900">int</font> <b><font color="#000000">cmpMyObj</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> <font color="#008080">MyObject</font> o1<font color="#990000">,</font> <b><font color="#0000FF">const</font></b> <font color="#008080">MyObject</font> o2<font color="#990000">);</font>
+<font color="#009900">void</font> <b><font color="#000000">swapMyObj</font></b><font color="#990000">(</font>MyObject<font color="#990000">&amp;</font> o1<font color="#990000">,</font> MyObject<font color="#990000">&amp;</font> o2<font color="#990000">);</font>
+
+<i><font color="#9A1900">//--------------------------------------------------------------- main</font></i>
+<font color="#009900">int</font> <b><font color="#000000">main</font></b> <font color="#990000">()</font> <font color="#FF0000">{</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"--PART 1: Start of main--"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"--Defining o1, o2(Bob)--"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#008080">MyObject</font> o1<font color="#990000">,</font> <b><font color="#000000">o2</font></b><font color="#990000">(</font><font color="#FF0000">"Bob"</font><font color="#990000">);</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"--Defining o3(o2)--"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#008080">MyObject</font> <b><font color="#000000">o3</font></b><font color="#990000">(</font>o2<font color="#990000">);</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"--Defining array of 3 objects--"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#008080">MyObject</font> array<font color="#990000">[</font><font color="#993399">3</font><font color="#990000">];</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">--PART 2: call function using call-by-value,"</font>
+         <font color="#FF0000">" return int--"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <b><font color="#000000">cmpMyObj</font></b><font color="#990000">(</font>o1<font color="#990000">,</font> o3<font color="#990000">);</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"--call function using call-by-value, return MyObject--"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <b><font color="#000000">getMaxMyObj</font></b><font color="#990000">(</font>o1<font color="#990000">,</font> o3<font color="#990000">);</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">--PART 3:  o1: "</font> <font color="#990000">&lt;&lt;</font> o1 <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#FF0000">{</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"  --entering new block, define new o1(Sally)--"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+        <font color="#008080">MyObject</font> <b><font color="#000000">o1</font></b><font color="#990000">(</font><font color="#FF0000">"Sally"</font><font color="#990000">);</font>
+        o1<font color="#990000">.</font><b><font color="#000000">setName</font></b><font color="#990000">(</font><font color="#FF0000">"Sally"</font><font color="#990000">);</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"  o1: "</font> <font color="#990000">&lt;&lt;</font> o1 <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">o2: "</font> <font color="#990000">&lt;&lt;</font> o2 <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"  --call swap function using call-by-reference--"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+        <b><font color="#000000">swapMyObj</font></b><font color="#990000">(</font>o1<font color="#990000">,</font> o2<font color="#990000">);</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"  --were their values swapped?--"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"  o1: "</font> <font color="#990000">&lt;&lt;</font> o1 <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">o2: "</font> <font color="#990000">&lt;&lt;</font> o2 <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"  --leaving new block--"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"o1: "</font> <font color="#990000">&lt;&lt;</font> o1 <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">--PART 4: Define reference var.: { MyObject&amp; oref=o1; } --"</font>
+         <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#FF0000">{</font>
+        MyObject<font color="#990000">&amp;</font> oref<font color="#990000">=</font>o1<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"-- was anything constructed/destructed?--"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">--PART 5: new and delete--"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"--use new to create one object, then array of 2 objects--"</font>
+         <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#008080">MyObject</font> <font color="#990000">*</font>op1 <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> MyObject<font color="#990000">,</font> <font color="#990000">*</font>op2 <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> MyObject<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">];</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"--use delete to remove that one object--"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <b><font color="#0000FF">delete</font></b> op1<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"--use delete [] to remove that array of 2 objects --"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <b><font color="#0000FF">delete</font></b> <font color="#990000">[]</font> op2<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">--LAST PART:  End of main--"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">//---------------------------------------------------------- cmpMyObj</font></i>
+<font color="#009900">int</font> <b><font color="#000000">cmpMyObj</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> <font color="#008080">MyObject</font> o1<font color="#990000">,</font> <b><font color="#0000FF">const</font></b> <font color="#008080">MyObject</font> o2<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <font color="#008080">string</font> name1 <font color="#990000">=</font> o1<font color="#990000">.</font><b><font color="#000000">getName</font></b><font color="#990000">(),</font> name2 <font color="#990000">=</font> o2<font color="#990000">.</font><b><font color="#000000">getName</font></b><font color="#990000">();</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> name1 <font color="#990000">==</font> name2 <font color="#990000">)</font>
+        <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> name1 <font color="#990000">&lt;</font> name2 <font color="#990000">)</font>
+        <b><font color="#0000FF">return</font></b> <font color="#990000">-</font><font color="#993399">1</font><font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b>
+        <b><font color="#0000FF">return</font></b> <font color="#993399">1</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">//---------------------------------------------------------- getMaxMyObj</font></i>
+<font color="#008080">MyObject</font> <b><font color="#000000">getMaxMyObj</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> <font color="#008080">MyObject</font> o1<font color="#990000">,</font> <b><font color="#0000FF">const</font></b> <font color="#008080">MyObject</font> o2<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <font color="#008080">string</font> name1 <font color="#990000">=</font> o1<font color="#990000">.</font><b><font color="#000000">getName</font></b><font color="#990000">(),</font> name2 <font color="#990000">=</font> o2<font color="#990000">.</font><b><font color="#000000">getName</font></b><font color="#990000">();</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> name1 <font color="#990000">&gt;=</font> name2 <font color="#990000">)</font>
+        <b><font color="#0000FF">return</font></b> o1<font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b>
+        <b><font color="#0000FF">return</font></b> o2<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">//---------------------------------------------------------- swapMyObj</font></i>
+<font color="#009900">void</font> <b><font color="#000000">swapMyObj</font></b><font color="#990000">(</font>MyObject<font color="#990000">&amp;</font> o1<font color="#990000">,</font> MyObject<font color="#990000">&amp;</font> o2<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <font color="#008080">MyObject</font> <b><font color="#000000">tmp</font></b><font color="#990000">(</font>o1<font color="#990000">);</font>
+    o1<font color="#990000">.</font><b><font color="#000000">setName</font></b><font color="#990000">(</font>o2<font color="#990000">.</font><b><font color="#000000">getName</font></b><font color="#990000">());</font>
+    o2<font color="#990000">.</font><b><font color="#000000">setName</font></b><font color="#990000">(</font>tmp<font color="#990000">.</font><b><font color="#000000">getName</font></b><font color="#990000">());</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

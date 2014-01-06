@@ -44,10 +44,11 @@ Contents
   final for each semester.  Currently they are all in PDF format, but
   that may change in the future.  The more recent ones were developed
   using LaTeX, the earlier ones using Word.
-- labs/: the labs are the main assignments in the course, and each lab
-  is split into pre-lab, in-lab, and post-lab parts.  There are 11
-  full labs, with a partial 12th lab that is an optional component of
-  the course.  The labs are written using
+- [labs](labs/index.html): the labs are the main assignments in the
+  course, and each lab is split into pre-lab, in-lab, and post-lab
+  parts. To view the labs, see the [labs/index.html](labs/index.html)
+  file.  There are 11 full labs, with a partial 12th lab that is an
+  optional component of the course.  The labs are written using
   [markdown](http://daringfireball.net/projects/markdown/), and the 
   rendered HTML version of each lab is also committed to this
   repository.

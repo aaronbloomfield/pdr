@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>svutil.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">// utility functions for vectors of strings</font></i>
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">"svutil.h"</font>
+
+<i><font color="#9A1900">// prints the strings in the vector</font></i>
+<font color="#009900">void</font> <b><font color="#000000">svOutput</font></b> <font color="#990000">(</font> <b><font color="#0000FF">const</font></b> <font color="#008080">vector&lt;string&gt;</font> <font color="#990000">&amp;</font>vect <font color="#990000">)</font> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font><font color="#009900">int</font> i<font color="#990000">=</font><font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> vect<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">();</font> <font color="#990000">++</font>i<font color="#990000">)</font> <font color="#FF0000">{</font>
+        cout <font color="#990000">&lt;&lt;</font> vect<font color="#990000">.</font><b><font color="#000000">at</font></b><font color="#990000">(</font>i<font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" "</font><font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+    cout <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+
+<i><font color="#9A1900">// finds a string in a vector and returns its index</font></i>
+<font color="#009900">int</font> <b><font color="#000000">svFind</font></b> <font color="#990000">(</font> <b><font color="#0000FF">const</font></b> <font color="#008080">vector&lt;string&gt;</font> <font color="#990000">&amp;</font>vect<font color="#990000">,</font> <font color="#008080">string</font> s<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font><font color="#009900">int</font> i<font color="#990000">=</font><font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> vect<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">();</font> <font color="#990000">++</font>i<font color="#990000">)</font> <font color="#FF0000">{</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> vect<font color="#990000">.</font><b><font color="#000000">at</font></b><font color="#990000">(</font>i<font color="#990000">)</font> <font color="#990000">==</font> s <font color="#990000">)</font> <b><font color="#0000FF">return</font></b> i<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+    <b><font color="#0000FF">return</font></b> <font color="#990000">-</font><font color="#993399">1</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// removes an element from the vector at index idx</font></i>
+<i><font color="#9A1900">// returns true if remove successful, otherwise false</font></i>
+<font color="#009900">bool</font> <b><font color="#000000">svDeleteAt</font></b> <font color="#990000">(</font> <font color="#008080">vector&lt;string&gt;</font> <font color="#990000">&amp;</font>vect<font color="#990000">,</font> <font color="#009900">int</font> idx <font color="#990000">)</font> <font color="#FF0000">{</font>
+    <font color="#009900">int</font> lastIndex <font color="#990000">=</font> vect<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">()-</font><font color="#993399">1</font><font color="#990000">;</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> idx <font color="#990000">&lt;</font> <font color="#993399">0</font> <font color="#990000">||</font> idx <font color="#990000">&gt;</font> lastIndex <font color="#990000">)</font>
+        <b><font color="#0000FF">return</font></b> <b><font color="#0000FF">false</font></b><font color="#990000">;</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> idx <font color="#990000">==</font> lastIndex <font color="#990000">)</font>
+        vect<font color="#990000">.</font><b><font color="#000000">pop_back</font></b><font color="#990000">();</font>
+    <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
+        <font color="#008080">string</font> temp <font color="#990000">=</font> vect<font color="#990000">.</font><b><font color="#000000">at</font></b><font color="#990000">(</font>lastIndex<font color="#990000">);</font>
+        vect<font color="#990000">.</font><b><font color="#000000">pop_back</font></b><font color="#990000">();</font>
+        vect<font color="#990000">.</font><b><font color="#000000">at</font></b><font color="#990000">(</font>idx<font color="#990000">)</font> <font color="#990000">=</font> temp<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+    <b><font color="#0000FF">return</font></b> <b><font color="#0000FF">true</font></b><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// sorts a vector of string in ascending order</font></i>
+<font color="#009900">void</font> <b><font color="#000000">svSort</font></b> <font color="#990000">(</font> <font color="#008080">vector&lt;string&gt;</font> <font color="#990000">&amp;</font>vect <font color="#990000">)</font> <font color="#FF0000">{</font>
+    <i><font color="#9A1900">// not implemented yet</font></i>
+    <b><font color="#0000FF">return</font></b><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// return the index of the largest string in range index start to end</font></i>
+<font color="#009900">int</font> <b><font color="#000000">svFindMax</font></b><font color="#990000">(</font> <b><font color="#0000FF">const</font></b> <font color="#008080">vector&lt;string&gt;</font> <font color="#990000">&amp;</font>vect<font color="#990000">,</font> <font color="#009900">int</font> start<font color="#990000">,</font> <font color="#009900">int</font> end <font color="#990000">)</font> <font color="#FF0000">{</font>
+    <i><font color="#9A1900">// not implemented yet</font></i>
+    <b><font color="#0000FF">return</font></b> <font color="#990000">-</font><font color="#993399">1</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+</tt></pre>
+</body>
+</html>

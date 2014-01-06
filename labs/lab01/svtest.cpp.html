@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>svtest.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;string&gt;</font>
+
+<i><font color="#9A1900">// svutil is a library to support string-vectors, i.e. vector&lt;string&gt;</font></i>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">"svutil.h"</font>
+
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<i><font color="#9A1900">// Exercise the svutil library by defining some vector&lt;string&gt; objects and</font></i>
+<i><font color="#9A1900">// calling operations on them.</font></i>
+
+<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+    <font color="#008080">vector&lt;string&gt;</font> cs216Section1<font color="#990000">,</font> cs216Section2<font color="#990000">;</font>
+
+    cs216Section1<font color="#990000">.</font><b><font color="#000000">push_back</font></b><font color="#990000">(</font><font color="#FF0000">"Alex"</font><font color="#990000">);</font>
+    cs216Section1<font color="#990000">.</font><b><font color="#000000">push_back</font></b><font color="#990000">(</font><font color="#FF0000">"Jodi"</font><font color="#990000">);</font>
+    cs216Section1<font color="#990000">.</font><b><font color="#000000">push_back</font></b><font color="#990000">(</font><font color="#FF0000">"Kit"</font><font color="#990000">);</font>
+
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Section contains: "</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <b><font color="#000000">svOutput</font></b><font color="#990000">(</font>cs216Section1<font color="#990000">);</font>
+
+    <font color="#008080">string</font> name<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Enter student name: "</font><font color="#990000">;</font>
+    cin <font color="#990000">&gt;&gt;</font> name<font color="#990000">;</font>
+
+    <font color="#009900">int</font> posn <font color="#990000">=</font> <b><font color="#000000">svFind</font></b><font color="#990000">(</font>cs216Section1<font color="#990000">,</font> name<font color="#990000">);</font>
+
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> posn <font color="#990000">==</font> <font color="#990000">-</font><font color="#993399">1</font> <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Student not found in section."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Found student at index "</font> <font color="#990000">&lt;&lt;</font> posn <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <b><font color="#000000">svDeleteAt</font></b><font color="#990000">(</font>cs216Section1<font color="#990000">,</font> posn<font color="#990000">)</font> <font color="#990000">)</font>
+            cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Deleted student from section!"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Final section contents are:"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <b><font color="#000000">svOutput</font></b><font color="#990000">(</font>cs216Section1<font color="#990000">);</font>
+
+    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>
