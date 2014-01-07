@@ -19,7 +19,9 @@
     <script src="reveal.js/lib/js/html5shiv.js"></script>
     <![endif]-->
 
-    <script src="canvas.js"></script>
+    <script language="javascript" type="text/javascript" src="dhtmlwindow.js"></script>
+    <script language="javascript" type="text/javascript" src="canvas.js"></script>
+    <link rel="stylesheet" href="dhtmlwindow.css" type="text/css">
   </head>
 
 <body onload="init()">
@@ -52,6 +54,7 @@
       <tr>
 	<!-- <td><input type="button" value="save" id="btn" size="30" onclick="save()"></td> -->
 	<td><input type="button" value="clear" id="clr" onclick="erase()"></td>
+	<td><input type="button" value="calibrate" id="cal" onclick="calibrate()"></td>
 	<td style="width:50px"></td>
 	<td>Color:</td>
 	<td><div style="width:20px;height:20px;background:green;" id="green" onclick="color(this)"></div></td>
@@ -74,6 +77,13 @@
       </div>
 
     </div>
+
+
+<div id="calibratediv" style="display:none">
+<div id="calibratecanvasdiv"><canvas id="calibratecanvas" width="300" height="300">Get a real browser (Firefox)!</canvas></div>
+<p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
+</div>
+
 
     <script src="reveal.js/lib/js/head.min.js"></script>
     <script src="reveal.js/js/reveal.min.js"></script>
