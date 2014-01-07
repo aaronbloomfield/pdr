@@ -11,7 +11,8 @@ in this repository.  They are:
 - The submission system, which is available through Collab; this
   includes your grades, submitted assginments, regrades, support
   requests, etc.
-- Grading explanations, including grading guidelines
+- Grading explanations, including the grading guidelines
+- Email list archive
 
 The parts of this course that are in this repo are:
 

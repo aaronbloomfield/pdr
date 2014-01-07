@@ -1,5 +1,5 @@
-CS 2150: Program and Data Representation
-========================================
+CS 2150: Program and Data Representation: Course Syllabus
+=========================================================
 
 [Go up to the CS 2150 documents page](index.html)
 
@@ -119,7 +119,7 @@ of Monday, March 3rd, 2014.
 
 - Midterm Exam 1: Tuesday, February 18th during lab session in Olsson 001
 - Midterm Exam 2: Tuesday, April 1st, during lab session in Olsson 001
-- Final Exam: Saturday, May 4th, 2014, from 7 p.m. to 10 p.m.
+- Final Exam: Saturday, May 3rd, 2014, from 7 p.m. to 10 p.m.
   - The final exam is a common exam time, and conflicts with a few
     other courses: APMA 3110 and ECON 2020 (sections 100 and 200 only)
   - If you have a conflict, you must let one of us know by the end of

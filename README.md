@@ -28,8 +28,12 @@ Bloomfield](http://www.cs.virginia.edu/~asb),
 2014 semester will be the 14th consecutive semester I have taught the
 course.
 
+
 Contents
 --------
+
+**Note that the links below will not work correctly if you are viewing
+this via the github repo -- you will need to download the repo first**
 
 - book/: the beginnings of a textbook to be used for this course.  It
   is written using LaTeX.
