@@ -1,128 +1,40 @@
-<!-- this code adapted from http://stackoverflow.com/questions/2368784/draw-by-mouse-with-html5-canvas and http://stackoverflow.com/questions/4037212/html-canvas-full-screen -->
-<html>
-<script type="text/javascript">
-var canvas, ctx, flag = false,
-    prevX = 0,
-    currX = 0,
-    prevY = 0,
-    currY = 0,
-    dot_flag = false;
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 2150: 01-intro slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="pdr.css">
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <script><!-- If the query includes 'print-pdf', use the PDF print sheet -->
+      document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
 
-var x = "black",
-    y = 2;
+    <script src="canvas.js"></script>
+  </head>
 
-function init() {
-    canvas = document.getElementById('canvas');
-    ctx = canvas.getContext("2d");
-    canvas.width = document.body.clientWidth;
-    canvas.height = document.body.clientHeight;
-    w = canvas.width;
-    h = canvas.height;
-
-    canvas.addEventListener("mousemove", function (e) {
-        findxy('move', e)
-    }, false);
-    canvas.addEventListener("mousedown", function (e) {
-        findxy('down', e)
-    }, false);
-    canvas.addEventListener("mouseup", function (e) {
-        findxy('up', e)
-    }, false);
-    canvas.addEventListener("mouseout", function (e) {
-        findxy('out', e)
-    }, false);
-}
-
-function color(obj) {
-    switch (obj.id) {
-        case "green":
-            x = "green";
-            break;
-        case "blue":
-            x = "blue";
-            break;
-        case "red":
-            x = "red";
-            break;
-        case "yellow":
-            x = "yellow";
-            break;
-        case "orange":
-            x = "orange";
-            break;
-        case "black":
-            x = "black";
-            break;
-        case "white":
-            x = "white";
-            break;
-    }
-    if (x == "white") y = 14;
-    else y = 2;
-}
-
-function draw() {
-    ctx.beginPath();
-    ctx.moveTo(prevX, prevY);
-    ctx.lineTo(currX, currY);
-    ctx.strokeStyle = x;
-    ctx.lineWidth = y;
-    ctx.stroke();
-    ctx.closePath();
-}
-
-function erase() {
-    var m = confirm("Want to clear");
-    if (m) {
-        ctx.clearRect(0, 0, w, h);
-        document.getElementById("canvasimg").style.display = "none";
-    }
-}
-
-function save() {
-    document.getElementById("canvasimg").style.border = "2px solid";
-    var dataURL = canvas.toDataURL();
-    document.getElementById("canvasimg").src = dataURL;
-    document.getElementById("canvasimg").style.display = "inline";
-}
-
-function findxy(res, e) {
-    if (res == 'down') {
-        prevX = currX;
-        prevY = currY;
-        currX = e.clientX - canvas.offsetLeft;
-        currY = e.clientY - canvas.offsetTop;
-
-        flag = true;
-        dot_flag = true;
-        if (dot_flag) {
-            ctx.beginPath();
-            ctx.fillStyle = x;
-            ctx.fillRect(currX, currY, 2, 2);
-            ctx.closePath();
-            dot_flag = false;
-        }
-    }
-    if (res == 'up' || res == "out") {
-        flag = false;
-    }
-    if (res == 'move') {
-        if (flag) {
-            prevX = currX;
-            prevY = currY;
-            currX = e.clientX - canvas.offsetLeft;
-            currY = e.clientY - canvas.offsetTop;
-            draw();
-        }
-    }
-}
-</script>
 <body onload="init()">
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+<section>
 
 <h1>This is a test</h1>
 <p>&nbsp;</p>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
 <table border="1">
   <tr><td>foo</td><td>bar</td><td>baz</td><td>bletch</td></tr>
   <tr><td>foo</td><td>bar</td><td>baz</td><td>bletch</td></tr>
@@ -134,12 +46,12 @@ function findxy(res, e) {
   <tr><td>foo</td><td>bar</td><td>baz</td><td>bletch</td></tr>
 </table>
 
-    <canvas id="canvas" style="position:absolute;top:0%;left:0%"></canvas>
+    <canvas id="canvas" style="position:absolute;top:-43.5%;left:-16.9%;border:2px solid"></canvas>
 
-    <table style="position:absolute;bottom:2%">
+    <table class="default" style="position:absolute;bottom:-15%">
       <tr>
 	<!-- <td><input type="button" value="save" id="btn" size="30" onclick="save()"></td> -->
-	<td><input type="button" value="clear" id="clr" size="23" onclick="erase()"></td>
+	<td><input type="button" value="clear" id="clr" onclick="erase()"></td>
 	<td style="width:50px"></td>
 	<td>Color:</td>
 	<td><div style="width:20px;height:20px;background:green;" id="green" onclick="color(this)"></div></td>
@@ -153,5 +65,19 @@ function findxy(res, e) {
 	<td><div style="width:30px;height:30px;background:white;border:2px solid;" id="white" onclick="color(this)"></div>
       </tr>
     </table>
-</body>
+</section>
+
+<section>
+<p>slide 2</p>
+</section>
+
+      </div>
+
+    </div>
+
+    <script src="reveal.js/lib/js/head.min.js"></script>
+    <script src="reveal.js/js/reveal.min.js"></script>
+    <script src="settings.js"></script>
+
+  </body>
 </html>
