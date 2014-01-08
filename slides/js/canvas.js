@@ -18,8 +18,8 @@ var calibrateimg = new Image();
 function init() {
     canvas = document.getElementById('canvas');
     ctx = canvas.getContext("2d");
-    canvas.width = document.body.clientWidth;
-    canvas.height = document.body.clientHeight;
+    canvas.width = 960; // the width of the reveal.js slides
+    canvas.height = 700; // the height of the reveal.js slides
     w = canvas.width;
     h = canvas.height;
 
@@ -37,6 +37,10 @@ function init() {
     }, false);
 
     calibrateimg.src = "images/calibrate.png";
+
+    var pos = getPosition(document.getElementById('canvas'));
+    yoffset = pos.offsetTop;
+    xoffset = pos.offsetLeft;
 }
 
 function color(obj) {
@@ -78,11 +82,11 @@ function draw() {
 }
 
 function erase() {
-    var m = confirm("Want to clear?");
-    if (m) {
-        ctx.clearRect(0, 0, w, h);
-        document.getElementById("canvasimg").style.display = "none";
-    }
+  //var m = confirm("Want to clear?");
+  //if (m) {
+  ctx.clearRect(0, 0, w, h);
+  document.getElementById("canvasimg").style.display = "none";
+  //}
 }
 
 function save() {
@@ -124,6 +128,19 @@ function findxy(res, e) {
 }
 
 
+// this from http://stackoverflow.com/questions/9040768/getting-coordinates-of-objects-in-js
+
+function getPosition(elem) {
+    var dims = {offsetLeft:0, offsetTop:0};
+    do {
+        dims.offsetLeft += elem.offsetLeft;
+        dims.offsetTop += elem.offsetTop;
+    }
+    while (elem = elem.offsetParent);
+    return dims;
+}
+
+
 //----------------------------------------
 // calibrate functions
 //----------------------------------------
@@ -132,18 +149,27 @@ function on_mousedown_for_calibrate(e) {
     // determine the vertical and horizontal offset
     var top = parseInt(calibratewin.style.top, 10);
     var left = parseInt(calibratewin.style.left, 10);
-    var vertoff = e.clientY - top - (calibrateimg.height+1) / 2 + 12;
-    var horizoff = e.clientX - left - (calibrateimg.width+1) / 2 + 12;
+    
+    // for the spot that was clicked:
+    // * e.clientY is the distance from that to the top of the browser window (example: 437)
+    // * top (from above) is the distance between the top of the dynamic window and the top of the browser window (example: 265)
+    // * (calibrateimg.height+1) is the height of the image (example: 300)
+    // * there are 22 pixels above the image (the "Calibrate" title window)
+    //
+    // so in the example above, the click was in the center because 437-265=300/2+22
+    // or because 437-265-300/2-22 = 0
+    // so the vertical offset is e.clientY - top - (calibrateimg.height+1)/2 - 22
+    //
+    // likewise with the horizontal, but the extra is 4 instead of 22
 
-    // vertical offset should be 400; data:
-    // 725 550 300 37 1487: at center
-    // 594 550 300 -94 1487: at top
-    // 854 550 300 166 1487: at bottom
+    var vertoff = e.clientY - top - (calibrateimg.height+1) / 2 - 22;
+    var horizoff = e.clientX - left - (calibrateimg.width+1) / 2 - 4;
+    
+    var pos = getPosition(document.getElementById('canvas'));
+    yoffset = pos.offsetTop + vertoff;
+    xoffset = pos.offsetLeft + horizoff;
 
-    yoffset = (canvas.height-e.clientY)/2;
-    xoffset = (canvas.width-e.clientX)/2;
-
-    alert("vert: " +e.clientY+" "+top+" "+(calibrateimg.height+1)+" "+vertoff +" "+canvas.height + " / horiz: " + e.clientX+" "+left+" "+(calibrateimg.width+1)+" "+horizoff+" "+canvas.width + " -> " + yoffset + ", " + xoffset + " (should be 400,163)");
+    //alert("vert: " +e.clientY+" "+top+" "+(calibrateimg.height+1)+" "+vertoff +" "+canvas.height + " / horiz: " + e.clientX+" "+left+" "+(calibrateimg.width+1)+" "+horizoff+" "+canvas.width + " -> " + yoffset + ", " + xoffset + " (should be 400,163); canvas at top:" + getPosition(document.getElementById('canvas')).offsetTop + ", left:" + getPosition(document.getElementById('canvas')).offsetLeft);
 
     // all done!  close window.  This also un-grays out the window
     calibratewin.close();
