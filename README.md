@@ -107,6 +107,31 @@ to link to the original source code.
 - astyle options: -A2 -s4 --indent-switches
 - source-highlight options: -d
 
+
+Slide notes
+-----------
+
+To add a canvas to a slide (to allow drawing with a mouse or a
+stylus), add the following line in a slide:
+
+    <script language="javascript" type="text/javascript">insertCanvas(42);</script>
+
+The parameter provided (42 in this case) need to be a number, and must
+be unique (i.e., each slide needs to have a separate number).
+
+Currently, calibration is disabled, but to enable it, you would add
+the following code at the end of the .html file (just before the three
+script tags).  Also, the HTML code to insert the calibrate button
+needs to be un-commented (in the insertCanvas() javascript function).
+
+    <div id="calibratediv" style="display:none">
+      <div id="calibratecanvasdiv">
+        <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
+      </div>
+      <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
+    </div>
+
+
 Licensing
 ---------
 
@@ -130,3 +155,5 @@ BY-SA license mentioned above.
     adapted from that as well.  These images are released into the
     public domain with no restrictions; see
     [here](http://openclipart.org/share) for details.
+- [slides/images/menuicon.png](slides/images/menuicon.png) is from
+  [here](http://androgeek.com/wp-content/uploads/2010/03/android-free-menu-icon-set.png)

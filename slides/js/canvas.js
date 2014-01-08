@@ -50,7 +50,7 @@ function init() {
   }
 }
 
-function color(obj) {
+function color(obj, which) {
     switch (obj.id) {
         case "green":
             x = "green";
@@ -74,8 +74,9 @@ function color(obj) {
             x = "white";
             break;
     }
-    if (x == "white") y = 14;
-    else y = 2;
+    y = 2;
+    //if (x == "white") y = 14; // enable if the eraser is set
+    menutoggle(which);
 }
 
 function draw(which) {
@@ -94,6 +95,7 @@ function erase(which) {
   canvases['canvas_'+which].clearRect(0, 0, w, h);
   //document.getElementById("canvasimg").style.display = "none";
   //}
+  menutoggle(which);
 }
 
 function save(which) {
@@ -210,6 +212,8 @@ function calibrate(which) {
     var ctx2 = calcan.getContext("2d");
     ctx2.clearRect(0, 0, (calibrateimg.width+1), (calibrateimg.height+1));
     ctx2.drawImage(calibrateimg, 0, 0, (calibrateimg.width+1), (calibrateimg.height+1));
+
+    menutoggle(which);
 }
 
 function grayOut(vis, optionsparam) {
@@ -273,31 +277,53 @@ function grayOut(vis, optionsparam) {
 }
 
 //----------------------------------------
-// canvas insertion functions
+// canvas insertion function
 //----------------------------------------
+
+colors = new Array("red","orange","yellow","green","blue","purple","white","black");
 
 function insertCanvas(which) {
   canvases['canvas_'+which] = false;
   document.write('\
 <canvas id="canvas_'+which+'" width="1000" height="1000" style="position:fixed;top:0px;left:0px"></canvas> \
 <!-- <table class="default" style="position:absolute;bottom:-15%"> --> \
-<table class="default" style="position:fixed;bottom:-100px"> \
+<table class="default" style="position:fixed;bottom:-150px"><tr> \
+<td><input type="image" src="images/menu-icon.png" id="menu" onclick="menutoggle('+which+')"></td> \
+<td><div id="menu_'+which+'" style="display:none"> \
+<table class="default"> \
       <tr> \
-	<!-- <td><input type="button" value="save" id="btn" size="30" onclick="save('+which+')"></td> --> \
 	<td><input type="button" value="clear" id="clr" onclick="erase('+which+')"></td> \
-	<td><input type="button" value="calibrate" id="cal" onclick="calibrate('+which+')"></td> \
+	<!-- <td><input type="button" value="calibrate" id="cal" onclick="calibrate('+which+')"></td> --> \
+	<td><input type="button" value="close" id="cal" onclick="menutoggle('+which+')"></td> \
 	<td style="width:10px"></td> \
-	<!-- <td>Color:</td> --> \
-	<td><div style="width:15px;height:15px;background:green;" id="green" onclick="color(this)"></div></td> \
-	<td><div style="width:15px;height:15px;background:blue;" id="blue" onclick="color(this)"></div></td> \
-	<td><div style="width:15px;height:15px;background:red;" id="red" onclick="color(this)"></div></td> \
-	<td><div style="width:15px;height:15px;background:yellow;" id="yellow" onclick="color(this)"></div></td> \
-	<td><div style="width:15px;height:15px;background:orange;" id="orange" onclick="color(this)"></div></td> \
-	<td><div style="width:15px;height:15px;background:black;" id="black" onclick="color(this)"></div></td> \
+');
+
+  for ( var i in colors ) {
+    document.write('<td><div style="width:15px;height:15px;background:' + colors[i] + ';" id="' + colors[i] + '" onclick="color(this,' + which + ')"></div></td>');
+  }
+
+  document.write('\
 	<td style="width:50px"></td> \
-	<!-- <td>Eraser: </td> --> \
-	<!-- <td><div style="width:30px;height:30px;background:white;border:2px solid;" id="white" onclick="color(this)"></div> --> \
       </tr> \
     </table> \
+</div></td> \
+</tr></table> \
 ');
+
+  // stuff not included in the above:
+  // <td><input type="button" value="save" id="btn" size="30" onclick="save('+which+')"></td>
+  // <td>Eraser: </td>
+  // <td><div style="width:30px;height:30px;background:white;border:2px solid;" id="white" onclick="color(this)"></div> -->
+
+}
+
+//----------------------------------------
+// menu pop-up
+//----------------------------------------
+
+function menutoggle(which) {
+  if ( document.getElementById('menu_'+which).style.display == 'none' )
+    document.getElementById('menu_'+which).style.display = 'block';
+  else
+    document.getElementById('menu_'+which).style.display = 'none';
 }
