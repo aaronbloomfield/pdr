@@ -31,7 +31,7 @@ Slide set 2: [C++](02-cpp.html)
     [Rational.cpp](src/02-cpp/Rational.cpp.html) ([src](src/02-cpp/Rational.cpp)), 
     [TestRational.cpp](src/02-cpp/TestRational.cpp.html) ([src](src/02-cpp/TestRational.cpp))
 
-Slide set 3: Lists
+Slide set 3: [Lists](03-lists.html)
 
 Slide set 4: Data Representation
 

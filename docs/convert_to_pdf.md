@@ -11,12 +11,10 @@ your file.
 
 - Use [Google Docs](https://docs.google.com/), or a similar online
   document editor, that can export to PDF
-- Use [OpenOffice](http://www.openoffice.org/) or
-  [LibreOffice](http://www.libreoffice.org/).  Both are free software,
-  and are similar to Microsoft Office.  To export to a PDF choose File
-  -> Export As PDF.  Both install on Linux and Windows; for Mac OS X,
-  you will want to look at
-  [NeoOffice](http://www.neooffice.org/neojava/en/index.php)
+- Use [LibreOffice](http://www.libreoffice.org/), which is free
+  software, and is similar to Microsoft Office.  To export to a PDF
+  choose File -> Export As PDF.  Both install on Linux, Windows, and
+  Mac OS X.
 - You can install a free utility called
   [PDFCreator](http://sourceforge.net/projects/pdfcreator/), which
   will install a printer entry on your machine that will all you to

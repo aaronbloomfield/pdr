@@ -114,7 +114,8 @@ Canvas notes
 To add a canvas to a slide (to allow drawing with a mouse or a
 stylus), you must do three things:
 
-1. include the js/canvas.js and css/dhtmlwindow.js scripts, as well as
+1. The slide can NOT be Markdown, it must be all pure HTML
+2. include the js/canvas.js and css/dhtmlwindow.js scripts, as well as
    the dhtmlwindow.css CSS file
    - the two dhtmlwindow.* files are only if you want to enable
      cailbration
@@ -122,10 +123,10 @@ stylus), you must do three things:
      dhtmlwindow.js and dhtmlwindow.css files) are only called if the
      calibrate button is pressed, so if you do not include calibation,
      there is no need to include that file
-2. include the css/dhtmlwindow.css CSS file (but only if you want to
+3. include the css/dhtmlwindow.css CSS file (but only if you want to
    enable cailbration)
-3. add an `onload="init()"` to the body tag
-4. add the following line in a slide:
+4. add an `onload="init()"` to the body tag
+5. add the following line in a slide:
    `<script language="javascript" type="text/javascript">insertCanvas(42);</script>`  
    The parameter provided (42 in this case) need to be a number, and must
    be unique (i.e., each slide needs to have a separate number).
