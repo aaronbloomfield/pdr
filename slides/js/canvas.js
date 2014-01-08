@@ -1,4 +1,7 @@
-// this code adapted from http://stackoverflow.com/questions/2368784/draw-by-mouse-with-html5-canvas and http://stackoverflow.com/questions/4037212/html-canvas-full-screen
+// this code adapted from
+// http://stackoverflow.com/questions/2368784/draw-by-mouse-with-html5-canvas
+// and
+// http://stackoverflow.com/questions/4037212/html-canvas-full-screen
 
 var canvas, ctx, flag = false,
     prevX = 0,
@@ -12,20 +15,20 @@ var x = "red",
   w = 0,
   h = 0;
 
-var xoffset = 0,
-    yoffset = 0;
+var xoffset = 0, // the x offset for canvas drawing, computed in init()
+    yoffset = 0; // the x offset for canvas drawing, computed in init()
 
-var calibrateimg = new Image();
-
-var canvases = new Array();
-var canvasctx = new Array();
+var calibrateimg = new Image(); // the calibrate image target
+var canvases = new Array(); // holds a map of the canvas IDs to their CTX's
+var canvas_border = 100; // how much wider than the slide itselt to allow drawing
+var colors = new Array("red","orange","yellow","green","blue","purple","white","black"); // drawing colors
 
 function init() {
   for ( var id in canvases ) {
     canvas = document.getElementById(id);
     canvases[id] = canvas.getContext("2d");
-    canvas.width = 960; // the width of the reveal.js slides
-    canvas.height = 700; // the height of the reveal.js slides
+    canvas.width = 960+2*canvas_border; // the width of the reveal.js slides
+    canvas.height = 700+2*canvas_border; // the height of the reveal.js slides
     w = canvas.width; // all are assumed to be the same size
     h = canvas.height; // all are assumed to be the same size
 
@@ -45,8 +48,8 @@ function init() {
     calibrateimg.src = "images/calibrate.png";
 
     var pos = getPosition(canvas);
-    yoffset = pos.offsetTop;
-    xoffset = pos.offsetLeft;
+    yoffset = pos.offsetTop + canvas_border;
+    xoffset = pos.offsetLeft + canvas_border;
   }
 }
 
@@ -138,7 +141,8 @@ function findxy(res, e, which) {
 }
 
 
-// this from http://stackoverflow.com/questions/9040768/getting-coordinates-of-objects-in-js
+// this function from
+// http://stackoverflow.com/questions/9040768/getting-coordinates-of-objects-in-js
 
 function getPosition(elem) {
     var dims = {offsetLeft:0, offsetTop:0};
@@ -280,12 +284,10 @@ function grayOut(vis, optionsparam) {
 // canvas insertion function
 //----------------------------------------
 
-colors = new Array("red","orange","yellow","green","blue","purple","white","black");
-
 function insertCanvas(which) {
   canvases['canvas_'+which] = false;
   document.write('\
-<canvas id="canvas_'+which+'" width="1000" height="1000" style="position:fixed;top:0px;left:0px"></canvas> \
+<canvas id="canvas_'+which+'" width="1000" height="1000" style="position:fixed;top:-'+canvas_border+'px;left:-'+canvas_border+'px"></canvas> \
 <!-- <table class="default" style="position:absolute;bottom:-15%"> --> \
 <table class="default" style="position:fixed;bottom:-150px"><tr> \
 <td><input type="image" src="images/menu-icon.png" id="menu" onclick="menutoggle('+which+')"></td> \

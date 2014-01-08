@@ -112,16 +112,43 @@ to link to the original source code.</p>
 </ul>
 
 
-<h2>Slide notes</h2>
+<h2>Canvas notes</h2>
 
 <p>To add a canvas to a slide (to allow drawing with a mouse or a
-stylus), add the following line in a slide:</p>
+stylus), you must do three things:</p>
 
-<pre><code>&lt;script language="javascript" type="text/javascript"&gt;insertCanvas(42);&lt;/script&gt;
-</code></pre>
+<ol>
+<li>include the js/canvas.js and css/dhtmlwindow.js scripts, as well as
+the dhtmlwindow.css CSS file
 
-<p>The parameter provided (42 in this case) need to be a number, and must
-be unique (i.e., each slide needs to have a separate number).</p>
+<ul>
+<li>the two dhtmlwindow.* files are only if you want to enable
+cailbration</li>
+<li>the code to create the dynamic HTML window (from the
+dhtmlwindow.js and dhtmlwindow.css files) are only called if the
+calibrate button is pressed, so if you do not include calibation,
+there is no need to include that file</li>
+</ul>
+</li>
+<li>include the css/dhtmlwindow.css CSS file (but only if you want to
+enable cailbration)</li>
+<li>add an <code>onload="init()"</code> to the body tag</li>
+<li>add the following line in a slide:
+<code>&lt;script language="javascript" type="text/javascript"&gt;insertCanvas(42);&lt;/script&gt;</code><br/>
+The parameter provided (42 in this case) need to be a number, and must
+be unique (i.e., each slide needs to have a separate number).</li>
+</ol>
+
+
+<p>A few other notes:</p>
+
+<ul>
+<li>The canvas is larger than the slide itself, and the amount is the
+<code>canvas_border</code> variable in the canvas.js file</li>
+<li>To add colors, add them to the <code>colors</code> array in the canvas.js
+file</li>
+</ul>
+
 
 <p>Currently, calibration is disabled, but to enable it, you would add
 the following code at the end of the .html file (just before the three
