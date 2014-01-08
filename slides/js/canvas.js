@@ -8,39 +8,46 @@ var canvas, ctx, flag = false,
     dot_flag = false;
 
 var x = "red",
-    y = 2;
+  y = 2,
+  w = 0,
+  h = 0;
 
 var xoffset = 0,
     yoffset = 0;
 
 var calibrateimg = new Image();
 
+var canvases = new Array();
+var canvasctx = new Array();
+
 function init() {
-    canvas = document.getElementById('canvas');
-    ctx = canvas.getContext("2d");
+  for ( var id in canvases ) {
+    canvas = document.getElementById(id);
+    canvases[id] = canvas.getContext("2d");
     canvas.width = 960; // the width of the reveal.js slides
     canvas.height = 700; // the height of the reveal.js slides
-    w = canvas.width;
-    h = canvas.height;
+    w = canvas.width; // all are assumed to be the same size
+    h = canvas.height; // all are assumed to be the same size
 
     canvas.addEventListener("mousemove", function (e) {
-        findxy('move', e)
+        findxy('move', e, this.id)
     }, false);
     canvas.addEventListener("mousedown", function (e) {
-        findxy('down', e)
+        findxy('down', e, this.id)
     }, false);
     canvas.addEventListener("mouseup", function (e) {
-        findxy('up', e)
+        findxy('up', e, this.id)
     }, false);
     canvas.addEventListener("mouseout", function (e) {
-        findxy('out', e)
+        findxy('out', e, this.id)
     }, false);
 
     calibrateimg.src = "images/calibrate.png";
 
-    var pos = getPosition(document.getElementById('canvas'));
+    var pos = getPosition(canvas);
     yoffset = pos.offsetTop;
     xoffset = pos.offsetLeft;
+  }
 }
 
 function color(obj) {
@@ -71,32 +78,33 @@ function color(obj) {
     else y = 2;
 }
 
-function draw() {
-    ctx.beginPath();
-    ctx.moveTo(prevX-xoffset, prevY-yoffset);
-    ctx.lineTo(currX-xoffset, currY-yoffset);
-    ctx.strokeStyle = x;
-    ctx.lineWidth = y;
-    ctx.stroke();
-    ctx.closePath();
+function draw(which) {
+    canvases[which].beginPath();
+    canvases[which].moveTo(prevX-xoffset, prevY-yoffset);
+    canvases[which].lineTo(currX-xoffset, currY-yoffset);
+    canvases[which].strokeStyle = x;
+    canvases[which].lineWidth = y;
+    canvases[which].stroke();
+    canvases[which].closePath();
 }
 
-function erase() {
+function erase(which) {
   //var m = confirm("Want to clear?");
   //if (m) {
-  ctx.clearRect(0, 0, w, h);
-  document.getElementById("canvasimg").style.display = "none";
+  canvases['canvas_'+which].clearRect(0, 0, w, h);
+  //document.getElementById("canvasimg").style.display = "none";
   //}
 }
 
-function save() {
+function save(which) {
+  // NOT WORKING, as I broke it when allowing multiple canvases
     document.getElementById("canvasimg").style.border = "2px solid";
     var dataURL = canvas.toDataURL();
     document.getElementById("canvasimg").src = dataURL;
     document.getElementById("canvasimg").style.display = "inline";
 }
 
-function findxy(res, e) {
+function findxy(res, e, which) {
     if (res == 'down') {
         prevX = currX;
         prevY = currY;
@@ -106,10 +114,10 @@ function findxy(res, e) {
         flag = true;
         dot_flag = true;
         if (dot_flag) {
-            ctx.beginPath();
-            ctx.fillStyle = x;
-            ctx.fillRect(currX, currY, 2, 2);
-            ctx.closePath();
+            canvases[which].beginPath();
+            canvases[which].fillStyle = x;
+            canvases[which].fillRect(currX, currY, 2, 2);
+            canvases[which].closePath();
             dot_flag = false;
         }
     }
@@ -122,7 +130,7 @@ function findxy(res, e) {
             prevY = currY;
             currX = e.clientX - canvas.offsetLeft;
             currY = e.clientY - canvas.offsetTop;
-            draw();
+            draw(which);
         }
     }
 }
@@ -136,7 +144,7 @@ function getPosition(elem) {
         dims.offsetLeft += elem.offsetLeft;
         dims.offsetTop += elem.offsetTop;
     }
-    while (elem = elem.offsetParent);
+    while ( (elem = elem.offsetParent) );
     return dims;
 }
 
@@ -144,6 +152,9 @@ function getPosition(elem) {
 //----------------------------------------
 // calibrate functions
 //----------------------------------------
+
+var calibratewin;
+var which_canvas_id;
 
 function on_mousedown_for_calibrate(e) {
     // determine the vertical and horizontal offset
@@ -165,7 +176,7 @@ function on_mousedown_for_calibrate(e) {
     var vertoff = e.clientY - top - (calibrateimg.height+1) / 2 - 22;
     var horizoff = e.clientX - left - (calibrateimg.width+1) / 2 - 4;
     
-    var pos = getPosition(document.getElementById('canvas'));
+    var pos = getPosition(document.getElementById('canvas_'+which_canvas_id));
     yoffset = pos.offsetTop + vertoff;
     xoffset = pos.offsetLeft + horizoff;
 
@@ -175,7 +186,7 @@ function on_mousedown_for_calibrate(e) {
     calibratewin.close();
 }
 
-function calibrate() {
+function calibrate(which) {
     grayOut(true);
 
     // create the window: the window must be created BEFORE one modifies the objects in the window.
@@ -184,6 +195,9 @@ function calibrate() {
         grayOut(false);
         return true;
     };
+
+    // set which canvas ID we are on, so the event listener knows where to grab the position from
+    which_canvas_id = which;    
 
     // get the elements, and set the mousedown listener
     //var caldiv = document.getElementById("calibratecanvasdiv");
@@ -262,15 +276,16 @@ function grayOut(vis, optionsparam) {
 // canvas insertion functions
 //----------------------------------------
 
-function insertCanvas() {
+function insertCanvas(which) {
+  canvases['canvas_'+which] = false;
   document.write('\
-<canvas id="canvas" width="1000" height="1000" style="position:fixed;top:0px;left:0px"></canvas> \
+<canvas id="canvas_'+which+'" width="1000" height="1000" style="position:fixed;top:0px;left:0px"></canvas> \
 <!-- <table class="default" style="position:absolute;bottom:-15%"> --> \
 <table class="default" style="position:fixed;bottom:-100px"> \
       <tr> \
-	<!-- <td><input type="button" value="save" id="btn" size="30" onclick="save()"></td> --> \
-	<td><input type="button" value="clear" id="clr" onclick="erase()"></td> \
-	<td><input type="button" value="calibrate" id="cal" onclick="calibrate()"></td> \
+	<!-- <td><input type="button" value="save" id="btn" size="30" onclick="save('+which+')"></td> --> \
+	<td><input type="button" value="clear" id="clr" onclick="erase('+which+')"></td> \
+	<td><input type="button" value="calibrate" id="cal" onclick="calibrate('+which+')"></td> \
 	<td style="width:10px"></td> \
 	<!-- <td>Color:</td> --> \
 	<td><div style="width:15px;height:15px;background:green;" id="green" onclick="color(this)"></div></td> \
