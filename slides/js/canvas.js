@@ -257,3 +257,32 @@ function grayOut(vis, optionsparam) {
         dark.style.display = 'none';
     }
 }
+
+//----------------------------------------
+// canvas insertion functions
+//----------------------------------------
+
+function insertCanvas() {
+  document.write('\
+<canvas id="canvas" width="1000" height="1000" style="position:fixed;top:0px;left:0px"></canvas> \
+<!-- <table class="default" style="position:absolute;bottom:-15%"> --> \
+<table class="default" style="position:fixed;bottom:-100px"> \
+      <tr> \
+	<!-- <td><input type="button" value="save" id="btn" size="30" onclick="save()"></td> --> \
+	<td><input type="button" value="clear" id="clr" onclick="erase()"></td> \
+	<td><input type="button" value="calibrate" id="cal" onclick="calibrate()"></td> \
+	<td style="width:10px"></td> \
+	<!-- <td>Color:</td> --> \
+	<td><div style="width:15px;height:15px;background:green;" id="green" onclick="color(this)"></div></td> \
+	<td><div style="width:15px;height:15px;background:blue;" id="blue" onclick="color(this)"></div></td> \
+	<td><div style="width:15px;height:15px;background:red;" id="red" onclick="color(this)"></div></td> \
+	<td><div style="width:15px;height:15px;background:yellow;" id="yellow" onclick="color(this)"></div></td> \
+	<td><div style="width:15px;height:15px;background:orange;" id="orange" onclick="color(this)"></div></td> \
+	<td><div style="width:15px;height:15px;background:black;" id="black" onclick="color(this)"></div></td> \
+	<td style="width:50px"></td> \
+	<!-- <td>Eraser: </td> --> \
+	<!-- <td><div style="width:30px;height:30px;background:white;border:2px solid;" id="white" onclick="color(this)"></div> --> \
+      </tr> \
+    </table> \
+');
+}
