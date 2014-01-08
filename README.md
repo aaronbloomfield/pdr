@@ -6,20 +6,16 @@ This repository contains the materials for the course entitled "CS
 It will contain all of the slides, labs, exams, etc. used throughout
 the course.
 
-This course is a second-year course for computer science majors.  It
-is the primary data structures course in the University of Virginia's
-computer science curriculum.  Unlike many other data structure courses
-at other institutions, it is intended as the *third* course in
-sequence, meaning that students are expected to have taken two
-semesters of Java (or equivalent, although some of the examples are
-specifically from Java).
+Students in the course should view the
+[cs2150/index.html](cs2150/index.html) file in the **cloned** repo
+(i.e., don't try to view it on github.com).
 
 The contents of this repository will be filled in throughout the
 spring 2014 semester as the materials are developed (or, more
 specifically, as they are converted into a git-friendly form and added
 to this repository).  It is likely that this repository will be
-largely incomplete until the spring 2014 semester is completed
-(completion date is May, 2014).
+largely incomplete until the spring 2014 semester is completed;
+completion date is May, 2014.
 
 The primary author is [Aaron
 Bloomfield](http://www.cs.virginia.edu/~asb),
@@ -65,6 +61,45 @@ this via the github repo -- you will need to download the repo first**
   To view the tutorials, see the
   [tutorials/index.html](tutorials/index.html) page.
 
+
+Course Description
+------------------
+
+This course is a second-year course for computer science majors.  It
+is the primary data structures course in the University of Virginia's
+computer science curriculum.  Unlike many other data structure courses
+at other institutions, it is intended as the *third* course in
+sequence, meaning that students are expected to have taken two
+semesters of Java (or equivalent, although some of the examples are
+specifically from Java).  The course focuses on how programs and data
+are represented from the high level down to the low level.  For
+programs, we examine (from high to low): abstract data types, Java
+code, C++ code, C code, assembly (x86) code, and a customized machine
+language.  For data, we examine (also from high to low): abstract data
+types, objects, primitive types, and how numbers are encoded (both
+floats (IEEE 754) and integers (two's complement)).
+
+The [ABET](http://www.abet.org) course objects are as follows:
+
+- Understand program representation from the high-level programming
+  language perspective down to the underlying machine level
+  representation, including: number representation, operations,
+  conditionals, and control structures
+- Be able to implement basic and advanced abstract data types in C++
+  including: linked lists, stacks, queues, hash tables, trees, and
+  graphs
+- Be able to evaluate asymptotic time and space complexity analysis of
+  programs and data structure implementations using Big-O, Big-Omega,
+  and Big-Theta notation and assess the suitability of a data structure
+  for a particular problem
+- Understand the basic program execution model and the underlying
+  computer hardware and software (fetch-execute cycle, memory hierarchy,
+  operating system, compiler)
+- Be able to implement basic program control and data structures in an
+  assembly language (loops, conditionals, subroutines and parameter
+  passing modes, arrays)
+
+
 Markdown
 --------
 
@@ -75,19 +110,16 @@ tables.  Indeed, the default Ubuntu version of Markdown is the 2004
 version.  To address this, a [markdown.c](utils/markdown.c.html)
 ([src](utils/markdown.c)) program was written to use more recent
 Markdown features.  This program uses the libmarkdown library, which
-does support more recent Markdown features.  This library installed
-on Ubuntu via the 'libmarkdown2-dev' package.  Note that reveal.js,
-which is used for the slides, also supports more modern Markdown
-features.
-
-The resulting document is a full HTML document -- meaning it adds the
-doctype, html, head, and body tags to the document, as necessary.
-
-To compile: "gcc markdown.c -o markdown -lmarkdown". To use, specify
-the input file name, and optionally an output file.
-
+does support more recent Markdown features.  This library installed on
+Ubuntu via the 'libmarkdown2-dev' package.  Note that reveal.js, which
+is used for the slides, also supports more modern Markdown features.
 That being said, the extra Markdown features used in this repository
 should be compatible with the generally accepted Markdown features.
+
+To compile: "gcc markdown.c -o markdown -lmarkdown". To use, specify
+the input file name, and optionally an output file.  The resulting
+document is a full HTML document -- meaning it adds the doctype, html,
+head, and body tags to the document, as necessary.
 
 For all the Markdown files, both the original (.md) file and the HTML
 version (.html) are added to the repository, so that people who do not
@@ -112,23 +144,20 @@ Canvas notes
 ------------
 
 To add a canvas to a slide (to allow drawing with a mouse or a
-stylus), you must do three things:
+stylus), you must do a few things:
 
 1. The slide can NOT be Markdown, it must be all pure HTML
 2. include the js/canvas.js and css/dhtmlwindow.js scripts, as well as
-   the dhtmlwindow.css CSS file
-   - the two dhtmlwindow.* files are only if you want to enable
-     cailbration
-   - the code to create the dynamic HTML window (from the
-     dhtmlwindow.js and dhtmlwindow.css files) are only called if the
-     calibrate button is pressed, so if you do not include calibation,
-     there is no need to include that file
+   the dhtmlwindow.css CSS file (the two dhtmlwindow.* files are for
+   the calibration feature)
 3. include the css/dhtmlwindow.css CSS file (but only if you want to
    enable cailbration)
 4. add an `onload="init()"` to the body tag
 5. add the following immediately after the body tag (this is for
-calibration):
-    <div id="dhtmlwindowholder"><span style="display:none">.</span></div>
+   the calibration feature):
+
+        <div id="dhtmlwindowholder"><span style="display:none">.</span></div>
+
 6. add the following code at the end of the .html file (just before
    the three script tags):
 
