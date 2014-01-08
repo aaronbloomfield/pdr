@@ -134,12 +134,26 @@ there is no need to include that file</li>
 <li>include the css/dhtmlwindow.css CSS file (but only if you want to
 enable cailbration)</li>
 <li>add an <code>onload="init()"</code> to the body tag</li>
-<li>add the following line in a slide:
-<code>&lt;script language="javascript" type="text/javascript"&gt;insertCanvas(42);&lt;/script&gt;</code><br/>
-The parameter provided (42 in this case) need to be a number, and must
-be unique (i.e., each slide needs to have a separate number).</li>
+<li>add the following immediately after the body tag (this is for
+calibration):
+ <div id="dhtmlwindowholder"><span style="display:none">.</span></div></li>
+<li><p>add the following code at the end of the .html file (just before
+the three script tags):</p>
+
+<pre><code> &lt;div id="calibratediv" style="display:none"&gt;
+   &lt;div id="calibratecanvasdiv"&gt;
+     &lt;canvas id="calibratecanvas" width="300" height="300"&gt;Your browser does not support the canvas tag&lt;/canvas&gt;
+   &lt;/div&gt;
+   &lt;p style="text-align:center"&gt;Click the center of the target&lt;br&gt;&lt;a href="#" onClick="calibratewin.close(); return false"&gt;Close window&lt;/a&gt;&lt;/p&gt;
+ &lt;/div&gt;
+</code></pre></li>
 </ol>
 
+
+<p>Then, on each slide, you add the following:<br/>
+<code>&lt;script language="javascript" type="text/javascript"&gt;insertCanvas(42);&lt;/script&gt;</code><br/>
+The parameter provided (42 in this case) need to be a number, and must
+be unique (i.e., each slide needs to have a separate number).</p>
 
 <p>A few other notes:</p>
 
@@ -150,19 +164,6 @@ be unique (i.e., each slide needs to have a separate number).</li>
 file</li>
 </ul>
 
-
-<p>Currently, calibration is disabled, but to enable it, you would add
-the following code at the end of the .html file (just before the three
-script tags).  Also, the HTML code to insert the calibrate button
-needs to be un-commented (in the insertCanvas() javascript function).</p>
-
-<pre><code>&lt;div id="calibratediv" style="display:none"&gt;
-  &lt;div id="calibratecanvasdiv"&gt;
-    &lt;canvas id="calibratecanvas" width="300" height="300"&gt;Your browser does not support the canvas tag&lt;/canvas&gt;
-  &lt;/div&gt;
-  &lt;p style="text-align:center"&gt;Click the center of the target&lt;br&gt;&lt;a href="#" onClick="calibratewin.close(); return false"&gt;Close window&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-</code></pre>
 
 <h2>Licensing</h2>
 

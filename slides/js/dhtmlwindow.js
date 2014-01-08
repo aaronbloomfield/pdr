@@ -387,5 +387,6 @@ cleanup:function(){
 
 } //End dhtmlwindow object
 
-document.write('<div id="dhtmlwindowholder"><span style="display:none">.</span></div>') //container that holds all dhtml window divs on page
+// this was removed, as it was not properly writing data to the HTML document -- now that text needs to be included in the HTML file
+//document.write('<div id="dhtmlwindowholder"><span style="display:none">.</span></div>') //container that holds all dhtml window divs on page
 window.onunload=dhtmlwindow.cleanup

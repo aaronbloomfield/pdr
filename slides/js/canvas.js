@@ -50,6 +50,7 @@ function init() {
     var pos = getPosition(canvas);
     yoffset = pos.offsetTop + canvas_border;
     xoffset = pos.offsetLeft + canvas_border;
+    //alert("offsets: (x,y) = (" + xoffset + "," + yoffset + ")");
   }
 }
 
@@ -186,7 +187,12 @@ function on_mousedown_for_calibrate(e) {
     yoffset = pos.offsetTop + vertoff;
     xoffset = pos.offsetLeft + horizoff;
 
-    //alert("vert: " +e.clientY+" "+top+" "+(calibrateimg.height+1)+" "+vertoff +" "+canvas.height + " / horiz: " + e.clientX+" "+left+" "+(calibrateimg.width+1)+" "+horizoff+" "+canvas.width + " -> " + yoffset + ", " + xoffset + " (should be 400,163); canvas at top:" + getPosition(document.getElementById('canvas')).offsetTop + ", left:" + getPosition(document.getElementById('canvas')).offsetLeft);
+    // mac firefox needs this, but linux does not.  why?
+    xoffset += 100;
+    yoffset += 100;
+    // calibrate on a mac: vert: 725 550 300 3 900 / horiz: 634 478 300 2 1160 -> (164, 572); canvas at top:469, left:62
+
+    //alert("vert: " +e.clientY+" "+top+" "+(calibrateimg.height+1)+" "+vertoff +" "+canvas.height + " / horiz: " + e.clientX+" "+left+" "+(calibrateimg.width+1)+" "+horizoff+" "+canvas.width + " -> (" + xoffset + ", " + yoffset + "); canvas at top:" + getPosition(document.getElementById('canvas_'+which_canvas_id)).offsetTop + ", left:" + getPosition(document.getElementById('canvas_'+which_canvas_id)).offsetLeft);
 
     // all done!  close window.  This also un-grays out the window
     calibratewin.close();
@@ -295,7 +301,7 @@ function insertCanvas(which) {
 <table class="default"> \
       <tr> \
 	<td><input type="button" value="clear" id="clr" onclick="erase('+which+')"></td> \
-	<!-- <td><input type="button" value="calibrate" id="cal" onclick="calibrate('+which+')"></td> --> \
+	<td><input type="button" value="calibrate" id="cal" onclick="calibrate('+which+')"></td> \
 	<td><input type="button" value="close" id="cal" onclick="menutoggle('+which+')"></td> \
 	<td style="width:10px"></td> \
 ');

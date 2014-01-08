@@ -126,10 +126,23 @@ stylus), you must do three things:
 3. include the css/dhtmlwindow.css CSS file (but only if you want to
    enable cailbration)
 4. add an `onload="init()"` to the body tag
-5. add the following line in a slide:
-   `<script language="javascript" type="text/javascript">insertCanvas(42);</script>`  
-   The parameter provided (42 in this case) need to be a number, and must
-   be unique (i.e., each slide needs to have a separate number).
+5. add the following immediately after the body tag (this is for
+calibration):
+    <div id="dhtmlwindowholder"><span style="display:none">.</span></div>
+6. add the following code at the end of the .html file (just before
+   the three script tags):
+
+        <div id="calibratediv" style="display:none">
+          <div id="calibratecanvasdiv">
+            <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
+          </div>
+          <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
+        </div>
+
+Then, on each slide, you add the following:  
+`<script language="javascript" type="text/javascript">insertCanvas(42);</script>`  
+The parameter provided (42 in this case) need to be a number, and must
+be unique (i.e., each slide needs to have a separate number).
 
 A few other notes:
 
@@ -137,18 +150,6 @@ A few other notes:
   `canvas_border` variable in the canvas.js file
 - To add colors, add them to the `colors` array in the canvas.js
   file
-
-Currently, calibration is disabled, but to enable it, you would add
-the following code at the end of the .html file (just before the three
-script tags).  Also, the HTML code to insert the calibrate button
-needs to be un-commented (in the insertCanvas() javascript function).
-
-    <div id="calibratediv" style="display:none">
-      <div id="calibratecanvasdiv">
-        <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
-      </div>
-      <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
-    </div>
 
 
 Licensing
