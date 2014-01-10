@@ -169,9 +169,7 @@ stylus), you must do a few things:
         </div>
 
 Then, on each slide, you add the following:  
-`<script language="javascript" type="text/javascript">insertCanvas(42);</script>`  
-The parameter provided (42 in this case) need to be a number, and must
-be unique (i.e., each slide needs to have a separate number).
+`<script language="javascript" type="text/javascript">insertCanvas();</script>`  
 
 A few other notes:
 

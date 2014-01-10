@@ -22,6 +22,7 @@ var calibrateimg = new Image(); // the calibrate image target
 var canvases = new Array(); // holds a map of the canvas IDs to their CTX's
 var canvas_border = 100; // how much wider than the slide itselt to allow drawing
 var colors = new Array("red","orange","yellow","green","blue","purple","white","black"); // drawing colors
+var numCanvases = 0;
 
 function init() {
   for ( var id in canvases ) {
@@ -111,14 +112,18 @@ function save(which) {
 }
 
 function findxy(res, e, which) {
+    var canvas = document.getElementById(which);
+    //canvas.offsetTop = canvas_border;
+    //canvas.offsetLeft = canvas_border;
+    //console.log("findxy("+res+","+e+","+which+"): canvas offsets ("+canvas.offsetLeft+","+canvas.offsetTop+"), (x,y) offsets (" + xoffset +","+yoffset+") and canvas border "+canvas_border);
     if (res == 'down') {
         prevX = currX;
         prevY = currY;
-        currX = e.clientX - canvas.offsetLeft;
-        currY = e.clientY - canvas.offsetTop;
+        currX = e.clientX; // - xoffset; //canvas.offsetLeft;
+        currY = e.clientY; // - yoffset; //canvas.offsetTop;
 
         flag = true;
-        dot_flag = true;
+        dot_flag = false; // this was true, but was causing a stray pixel to be drawn from the natural (i.e., not offset) position, so it was turned to false
         if (dot_flag) {
             canvases[which].beginPath();
             canvases[which].fillStyle = x;
@@ -134,8 +139,8 @@ function findxy(res, e, which) {
         if (flag) {
             prevX = currX;
             prevY = currY;
-            currX = e.clientX - canvas.offsetLeft;
-            currY = e.clientY - canvas.offsetTop;
+            currX = e.clientX; // - xoffset; //canvas.offsetLeft;
+            currY = e.clientY; // - yoffset; //canvas.offsetTop;
             draw(which);
         }
     }
@@ -182,17 +187,14 @@ function on_mousedown_for_calibrate(e) {
 
     var vertoff = e.clientY - top - (calibrateimg.height+1) / 2 - 22;
     var horizoff = e.clientX - left - (calibrateimg.width+1) / 2 - 4;
-    
+
     var pos = getPosition(document.getElementById('canvas_'+which_canvas_id));
     yoffset = pos.offsetTop + vertoff;
     xoffset = pos.offsetLeft + horizoff;
 
-    // mac firefox needs this, but linux does not.  why?
-    xoffset += 100;
-    yoffset += 100;
-    // calibrate on a mac: vert: 725 550 300 3 900 / horiz: 634 478 300 2 1160 -> (164, 572); canvas at top:469, left:62
+    //console.log("calibrate: horizoff = " + horizoff + ", vertoff = " + vertoff + ", new offsets: (" + xoffset + "," + yoffset + "), pos.offset: (" + pos.offsetLeft+","+pos.offsetTop+")");
 
-    //alert("vert: " +e.clientY+" "+top+" "+(calibrateimg.height+1)+" "+vertoff +" "+canvas.height + " / horiz: " + e.clientX+" "+left+" "+(calibrateimg.width+1)+" "+horizoff+" "+canvas.width + " -> (" + xoffset + ", " + yoffset + "); canvas at top:" + getPosition(document.getElementById('canvas_'+which_canvas_id)).offsetTop + ", left:" + getPosition(document.getElementById('canvas_'+which_canvas_id)).offsetLeft);
+    //console.log("vert: " +e.clientY+" "+top+" "+(calibrateimg.height+1)+" "+vertoff +" "+canvas.height + " / horiz: " + e.clientX+" "+left+" "+(calibrateimg.width+1)+" "+horizoff+" "+canvas.width + " -> (" + xoffset + ", " + yoffset + "); canvas at top:" + getPosition(document.getElementById('canvas_'+which_canvas_id)).offsetTop + ", left:" + getPosition(document.getElementById('canvas_'+which_canvas_id)).offsetLeft);
 
     // all done!  close window.  This also un-grays out the window
     calibratewin.close();
@@ -290,10 +292,11 @@ function grayOut(vis, optionsparam) {
 // canvas insertion function
 //----------------------------------------
 
-function insertCanvas(which) {
+function insertCanvas() {
+  var which = ++numCanvases;
   canvases['canvas_'+which] = false;
   document.write('\
-<canvas id="canvas_'+which+'" width="1000" height="1000" style="position:fixed;top:-'+canvas_border+'px;left:-'+canvas_border+'px"></canvas> \
+<canvas id="canvas_'+which+'" width="1000" height="1000" style="position:absolute;top:-'+canvas_border+'px;left:-'+canvas_border+'px;border:2px solid"></canvas> \
 <!-- <table class="default" style="position:absolute;bottom:-15%"> --> \
 <table class="default" style="position:fixed;bottom:-150px"><tr> \
 <td><input type="image" src="images/menu-icon.png" id="menu" onclick="menutoggle('+which+')"></td> \

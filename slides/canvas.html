@@ -25,6 +25,7 @@
   </head>
 
 <body onload="init()">
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
 
     <div class="reveal">
 
@@ -51,7 +52,7 @@
   <tr><td>foo</td><td>bar</td><td>baz</td><td>bletch</td></tr>
   <tr><td>foo</td><td>bar</td><td>baz</td><td>bletch</td></tr>
 </table>
-<script language="javascript" type="text/javascript">insertCanvas(1);</script>
+<script language="javascript" type="text/javascript">insertCanvas();</script>
 </section>
 
 <section>
@@ -62,7 +63,122 @@
   <tr><td>foo</td><td>bar</td><td>baz</td><td>bletch</td></tr>
   <tr><td>foo</td><td>bar</td><td>baz</td><td>bletch</td></tr>
 </table>
-<script language="javascript" type="text/javascript">insertCanvas(66);</script>
+<script language="javascript" type="text/javascript">insertCanvas();</script>
+</section>
+
+<section>
+<h2>One line slide</h2>
+<p>&nbsp;</p>
+<p>one line of stuff</p>
+<script language="javascript" type="text/javascript">insertCanvas();</script>
+</section>
+
+<section>
+<h2>Two line slide</h2>
+<p>&nbsp;</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<script language="javascript" type="text/javascript">insertCanvas();</script>
+</section>
+
+<section>
+<h2>Three line slide</h2>
+<p>&nbsp;</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<script language="javascript" type="text/javascript">insertCanvas();</script>
+</section>
+
+<section>
+<h2>Four line slide</h2>
+<p>&nbsp;</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<script language="javascript" type="text/javascript">insertCanvas();</script>
+</section>
+
+<section>
+<h2>Five line slide</h2>
+<p>&nbsp;</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<script language="javascript" type="text/javascript">insertCanvas();</script>
+</section>
+
+<section>
+<h2>Six line slide</h2>
+<p>&nbsp;</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<script language="javascript" type="text/javascript">insertCanvas();</script>
+</section>
+
+<section>
+<h2>Seven line slide</h2>
+<p>&nbsp;</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<script language="javascript" type="text/javascript">insertCanvas();</script>
+</section>
+
+<section>
+<h2>Eight line slide</h2>
+<p>&nbsp;</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<script language="javascript" type="text/javascript">insertCanvas();</script>
+</section>
+
+<section>
+<h2>Nine line slide</h2>
+<p>&nbsp;</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<script language="javascript" type="text/javascript">insertCanvas();</script>
+</section>
+
+<section>
+<h2>Ten line slide</h2>
+<p>&nbsp;</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<p>one line of stuff</p>
+<script language="javascript" type="text/javascript">insertCanvas();</script>
 </section>
 
 <section>
@@ -71,6 +187,13 @@
 
       </div>
 
+    </div>
+
+    <div id="calibratediv" style="display:none">
+      <div id="calibratecanvasdiv">
+        <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
+      </div>
+      <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
     </div>
 
     <script src="reveal.js/lib/js/head.min.js"></script>
