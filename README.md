@@ -1,10 +1,13 @@
 Program and Data Representation
 ===============================
 
+Introduction
+------------
+
 This repository contains the materials for the course entitled "CS
 2150: Program and Data Representation" at the University of Virginia.
 It will contain all of the slides, labs, exams, etc. used throughout
-the course.
+the course.  The course description is below.
 
 Students in the course should view the
 [cs2150/index.html](cs2150/index.html) file in the **cloned** repo
@@ -25,11 +28,11 @@ Bloomfield](http://www.cs.virginia.edu/~asb),
 course.
 
 
-Contents
---------
+Repository Parts
+----------------
 
 **Note that the links below will not work correctly if you are viewing
-this via the github repo -- you will need to download the repo first**
+this online at github.com -- you will need to download the repo first**
 
 - book/: the beginnings of a textbook to be used for this course.  It
   is written using LaTeX.
@@ -156,7 +159,7 @@ stylus), you must do a few things:
 5. add the following immediately after the body tag (this is for
    the calibration feature):
 
-        <div id="dhtmlwindowholder"><span style="display:none">.</span></div>
+        <div id="dhtmlwindowholder"><span style="display:none"></span></div>
 
 6. add the following code at the end of the .html file (just before
    the three script tags):
@@ -176,7 +179,8 @@ A few other notes:
 - The canvas is larger than the slide itself, and the amount is the
   `canvas_border` variable in the canvas.js file
 - To add colors, add them to the `colors` array in the canvas.js
-  file
+  file; more colors can be found
+  [here](http://www.tutorialspoint.com/html5/html5_color_names.htm).
 
 
 Licensing
@@ -193,7 +197,7 @@ BY-SA license mentioned above.
 
 - [reveal.js](https://github.com/hakimel/reveal.js/) (used for the
   slides), released under an MIT license
-- Some of the images images
+- Some of the images
   - The green double arrow (slides/images/green-double-arrow.png) was
     adapted from [openclipart.org](http://openclipart.org),
     specifically
@@ -202,5 +206,5 @@ BY-SA license mentioned above.
     adapted from that as well.  These images are released into the
     public domain with no restrictions; see
     [here](http://openclipart.org/share) for details.
-- [slides/images/menuicon.png](slides/images/menuicon.png) is from
-  [here](http://androgeek.com/wp-content/uploads/2010/03/android-free-menu-icon-set.png)
+  - [slides/images/menu-icon.png](slides/images/menu-icon.png) is from
+    [here](http://androgeek.com/wp-content/uploads/2010/03/android-free-menu-icon-set.png)

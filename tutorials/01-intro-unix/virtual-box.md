@@ -155,64 +155,88 @@ between your virtual machine and your host machine.  To install:
 For those who are interested, here is what I did to set up the image:
 
 - Create a new VirtualBox image
-  - which I named "Student Ubuntu 12.04.2"
-  - I set the disk to resize dynamically, and everything else was set at the default
-- I installed Ubuntu 12.04.2 LTS (32 bit), desktop edition, from the
-  CD image downloaded from http://www.ubuntu.com
+  - which I named "Ubuntu 12.04.3"
+  - I set the disk to resize dynamically, and everything else was set
+    at the default
+- I installed Ubuntu 12.04.3 LTS (32 bit), desktop edition, from the
+  CD image downloaded from http://www.ubuntu.com (the specific image
+  file is
+  [here](http://releases.ubuntu.com/precise/ubuntu-12.04.3-desktop-i386.iso)
+  - when prompted, I clicked on 'download updates' and 'install 3rd
+    party software' when the options were given
   - The computer name is cassiopeia, the login name is 'student', full
     name is 'L33t Hax0r', and the password is 'password'
   - this account can run root (system) commands via 'sudo' - if you
     don't know what this means, you can safely ignore it
-  - when prompted, I clicked on 'download updates' and 'install 3rd
-    party software' when the options were given
 - Once it was finished, I rebooted, and logged in
-- when it rebooted, it asked me how to continue, as it was running in
-  low-graphics mode, I couldn't get it to accept the mouse, to I
-  clicked on a VBox menu option, and the mouse started
-  working. However, it would only start in low-graphics mode.  I
-  logged in via the terminal, and did a "sudo apt-get update" and
-  "sudo apt-get dist-upgrade", and after that completed (and a
-  reboot), the GUI worked.
-  - the VM may capture the mouse - to uncapture it, you press the
-    "host key", which is the right Control key on Linux.  To have it
-    warn you about what this is, you can reset all warnings via the
-    VirtualBox help menu, and it will warn you about this at boot-up
 - I ran 'sudo apt-get update' and then 'sudo apt-get dist-upgrade'.
-  When that finished, I rebooted, then ran 'apt-get autoremove' and
-  'apt-get clean'.
-- installed the other packages: 'sudo apt-get install clang emacs nasm
-  astyle tofrodos subversion source-highlight doxygen doxygen-doc ddd
-  python-gpgme '
+- installed the other packages: `sudo apt-get install clang emacs nasm
+  astyle tofrodos source-highlight doxygen doxygen-doc ddd git g++
+  python-gpgme`
   - python-gpgme is a supporting package for Dropbox, in case students
     want to install that
-- I installed the additional drivers indicated by the green icon on
-  the top title bar, and then rebooted - at that point, the image would
-  properly resize when going full screen
-- Notes
-  - the guest additions (the drivers that make Ubuntu in a VirtualBox
-    image work nicely with the host system) were installed by the
-    additional drivers step done before
-  - Firefox was a recent version (14.0.1), and flash worked right out
-    of the box
-- a few aliases were added (the last 4 lines of .bashrc) to help
-  prevent people from accidentally removing files
-- a few other customizations: added an Emacs and a Konsole icon on the
-  left-hand side, set up Firefox to have Collab as its home page; let
-  Firefox run for a while to download the various files it downloads
-  (bad URL list, etc.); prevented emacs from opening up in
-  split-screen (see first tip at
-  http://xenon.stanford.edu/~manku/dotemacs.html ).
-- to reduce the size of the hard disk (since I have to host it for
+- Reboot after all these apt-gets, and then ran 'apt-get autoremove'
+  and 'apt-get clean'.
+- Ran the following two commands:
+  - `sudo update-alternatives --set cc /usr/bin/clang`
+  - `sudo update-alternatives --set c++ /usr/bin/clang++`
+- Downloaded Google Chrome from
+  [here](https://www.google.com/intl/en/chrome/browser/), and installed
+  it via 'sudo dpkg -i google-chrome-stable_current_i386.deb'
+  - That installation did not work perfectly (which was expected), and
+    to fix an installation such as this you run 'sudo apt-get -f
+    install'
+  - Then ran 'apt-get autoremove' and 'apt-get clean' again
+- Added terminal, emacs, and google chrome icons to the launch bar
+- Browser customization
+  - Set both firefox and chrome's home page to Collab
+  - Cleared both histories
+  - Chrome is set as the default browser
+- The VirtualBox "Guest Additions" are what allow for proper mouse
+  integration and, more importantly, proper full-screening.  The ones
+  that the system wanted to install (via System Settings -> Hardware ->
+  Additional Drivers) appear to have a
+  [bug](https://www.virtualbox.org/ticket/11709) that has since been
+  fixed.  So I installed the latest version of the guest additions
+  (4.3.6, which matches the latest version of VirtualBox) via the
+  VirtualBox menu item Devices->Insert Guest Additions CD Image, and
+  then rebooted.  At that point, the system would full screen
+  properly.
+- I loaded up emacs, and then told it to disable showing the startup
+  messages (this could also be accomplished by following the
+  guidelines [here](http://xenon.stanford.edu/~manku/dotemacs.html)).
+- Added a few aliases were added (the last 4 lines of .bashrc) to help
+  prevent people from accidentally removing files (adding -i for rm,
+  mv, and cp; and aliasing xemacs to emacs)
+- Cloned the github repo via `git clone
+  https://github.com/aaronbloomfield/pdr`
+  - Note that a `git pull` will still have to be executed each time to
+    update it
+  - I added the pdr/cs2150/index.html page as the second tab loaded up
+    by both Firefox and Chrome
+- Ran `history -c` to remove the history of the command entered
+- To reduce the size of the hard disk (since I have to host it for
   people to download), I ran "cat /dev/zero > zero" until it ran out
   of space, then removed that file (this writes all 0's to the hard
   drive).  I shut down the guest, and ran: 'VBoxManage modifyhd
-  student-ubuntu-12.04.1.vdi --compact'.  A better way would be to
-  load up into recovery mode and run zerofill , but the grub menu does
-  not seem to be available to load into recovery mode, so I didn't
-  pursue it any further.
+  ubuntu-12.04.3.vdi --compact'.  A better way would be to load up
+  into recovery mode and run zerofill , but the grub menu does not
+  seem to be available to load into recovery mode, so I didn't pursue
+  it any further.
   - Note that in the image creation process, you may run into a
     problem with VirtualBox where it cannot register a new (or
     different) disk because it has the same UUID as a previous disk
     that you are replacing.  If so, then the command "VBoxManage
     internalcommands sethduuid disk.vdi" will change the UUID, and
     allow you to proceed
+- A few quick notes
+  - The guest hard drive reports 3.7 Gb of space used
+  - the guest additions (the drivers that make Ubuntu in a VirtualBox
+    image work nicely with the host system) were installed by the
+    additional drivers step done before
+  - Firefox was a recent version, and flash worked right out of the
+    box
+  - the VM may capture the mouse - to uncapture it, you press the
+    "host key", which is the right Control key on Linux.  To have it
+    warn you about what this is, you can reset all warnings via the
+    VirtualBox help menu, and it will warn you about this at boot-up

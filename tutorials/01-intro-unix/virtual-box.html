@@ -204,79 +204,100 @@ process) and install it</li>
 <li>Create a new VirtualBox image
 
 <ul>
-<li>which I named &ldquo;Student Ubuntu 12.04.2&rdquo;</li>
-<li>I set the disk to resize dynamically, and everything else was set at the default</li>
+<li>which I named &ldquo;Ubuntu 12.04.3&rdquo;</li>
+<li>I set the disk to resize dynamically, and everything else was set
+at the default</li>
 </ul>
 </li>
-<li>I installed Ubuntu 12.04.2 LTS (32 bit), desktop edition, from the
-CD image downloaded from http://www.ubuntu.com
+<li>I installed Ubuntu 12.04.3 LTS (32 bit), desktop edition, from the
+CD image downloaded from http://www.ubuntu.com (the specific image
+file is
+<a href="http://releases.ubuntu.com/precise/ubuntu-12.04.3-desktop-i386.iso">here</a>
 
 <ul>
+<li>when prompted, I clicked on &lsquo;download updates&rsquo; and &lsquo;install 3rd
+party software&rsquo; when the options were given</li>
 <li>The computer name is cassiopeia, the login name is &lsquo;student&rsquo;, full
 name is &lsquo;L33t Hax0r&rsquo;, and the password is &lsquo;password&rsquo;</li>
 <li>this account can run root (system) commands via &lsquo;sudo&rsquo; - if you
 don&rsquo;t know what this means, you can safely ignore it</li>
-<li>when prompted, I clicked on &lsquo;download updates&rsquo; and &lsquo;install 3rd
-party software&rsquo; when the options were given</li>
 </ul>
 </li>
 <li>Once it was finished, I rebooted, and logged in</li>
-<li>when it rebooted, it asked me how to continue, as it was running in
-low-graphics mode, I couldn&rsquo;t get it to accept the mouse, to I
-clicked on a VBox menu option, and the mouse started
-working. However, it would only start in low-graphics mode.  I
-logged in via the terminal, and did a &ldquo;sudo apt-get update&rdquo; and
-&ldquo;sudo apt-get dist-upgrade&rdquo;, and after that completed (and a
-reboot), the GUI worked.
-
-<ul>
-<li>the VM may capture the mouse - to uncapture it, you press the
-&ldquo;host key&rdquo;, which is the right Control key on Linux.  To have it
-warn you about what this is, you can reset all warnings via the
-VirtualBox help menu, and it will warn you about this at boot-up</li>
-</ul>
-</li>
-<li>I ran &lsquo;sudo apt-get update&rsquo; and then &lsquo;sudo apt-get dist-upgrade&rsquo;.
-When that finished, I rebooted, then ran &lsquo;apt-get autoremove&rsquo; and
-&lsquo;apt-get clean&rsquo;.</li>
-<li>installed the other packages: &lsquo;sudo apt-get install clang emacs nasm
-astyle tofrodos subversion source-highlight doxygen doxygen-doc ddd
-python-gpgme &rsquo;
+<li>I ran &lsquo;sudo apt-get update&rsquo; and then &lsquo;sudo apt-get dist-upgrade&rsquo;.</li>
+<li>installed the other packages: <code>sudo apt-get install clang emacs nasm
+astyle tofrodos source-highlight doxygen doxygen-doc ddd git g++
+python-gpgme</code>
 
 <ul>
 <li>python-gpgme is a supporting package for Dropbox, in case students
 want to install that</li>
 </ul>
 </li>
-<li>I installed the additional drivers indicated by the green icon on
-the top title bar, and then rebooted - at that point, the image would
-properly resize when going full screen</li>
-<li>Notes
+<li>Reboot after all these apt-gets, and then ran &lsquo;apt-get autoremove&rsquo;
+and &lsquo;apt-get clean&rsquo;.</li>
+<li>Ran the following two commands:
 
 <ul>
-<li>the guest additions (the drivers that make Ubuntu in a VirtualBox
-image work nicely with the host system) were installed by the
-additional drivers step done before</li>
-<li>Firefox was a recent version (14.0.1), and flash worked right out
-of the box</li>
+<li><code>sudo update-alternatives --set cc /usr/bin/clang</code></li>
+<li><code>sudo update-alternatives --set c++ /usr/bin/clang++</code></li>
 </ul>
 </li>
-<li>a few aliases were added (the last 4 lines of .bashrc) to help
-prevent people from accidentally removing files</li>
-<li>a few other customizations: added an Emacs and a Konsole icon on the
-left-hand side, set up Firefox to have Collab as its home page; let
-Firefox run for a while to download the various files it downloads
-(bad URL list, etc.); prevented emacs from opening up in
-split-screen (see first tip at
-http://xenon.stanford.edu/~manku/dotemacs.html ).</li>
-<li>to reduce the size of the hard disk (since I have to host it for
+<li>Downloaded Google Chrome from
+<a href="https://www.google.com/intl/en/chrome/browser/">here</a>, and installed
+it via &lsquo;sudo dpkg -i google-chrome-stable_current_i386.deb&rsquo;
+
+<ul>
+<li>That installation did not work perfectly (which was expected), and
+to fix an installation such as this you run &lsquo;sudo apt-get -f
+install&rsquo;</li>
+<li>Then ran &lsquo;apt-get autoremove&rsquo; and &lsquo;apt-get clean&rsquo; again</li>
+</ul>
+</li>
+<li>Added terminal, emacs, and google chrome icons to the launch bar</li>
+<li>Browser customization
+
+<ul>
+<li>Set both firefox and chrome&rsquo;s home page to Collab</li>
+<li>Cleared both histories</li>
+<li>Chrome is set as the default browser</li>
+</ul>
+</li>
+<li>The VirtualBox &ldquo;Guest Additions&rdquo; are what allow for proper mouse
+integration and, more importantly, proper full-screening.  The ones
+that the system wanted to install (via System Settings -> Hardware ->
+Additional Drivers) appear to have a
+<a href="https://www.virtualbox.org/ticket/11709">bug</a> that has since been
+fixed.  So I installed the latest version of the guest additions
+(4.3.6, which matches the latest version of VirtualBox) via the
+VirtualBox menu item Devices->Insert Guest Additions CD Image, and
+then rebooted.  At that point, the system would full screen
+properly.</li>
+<li>I loaded up emacs, and then told it to disable showing the startup
+messages (this could also be accomplished by following the
+guidelines <a href="http://xenon.stanford.edu/~manku/dotemacs.html">here</a>).</li>
+<li>Added a few aliases were added (the last 4 lines of .bashrc) to help
+prevent people from accidentally removing files (adding -i for rm,
+mv, and cp; and aliasing xemacs to emacs)</li>
+<li>Cloned the github repo via <code>git clone
+https://github.com/aaronbloomfield/pdr</code>
+
+<ul>
+<li>Note that a <code>git pull</code> will still have to be executed each time to
+update it</li>
+<li>I added the pdr/cs2150/index.html page as the second tab loaded up
+by both Firefox and Chrome</li>
+</ul>
+</li>
+<li>Ran <code>history -c</code> to remove the history of the command entered</li>
+<li>To reduce the size of the hard disk (since I have to host it for
 people to download), I ran &ldquo;cat /dev/zero > zero&rdquo; until it ran out
 of space, then removed that file (this writes all 0&rsquo;s to the hard
 drive).  I shut down the guest, and ran: &lsquo;VBoxManage modifyhd
-student-ubuntu-12.04.1.vdi &ndash;compact&rsquo;.  A better way would be to
-load up into recovery mode and run zerofill , but the grub menu does
-not seem to be available to load into recovery mode, so I didn&rsquo;t
-pursue it any further.
+ubuntu-12.04.3.vdi &ndash;compact&rsquo;.  A better way would be to load up
+into recovery mode and run zerofill , but the grub menu does not
+seem to be available to load into recovery mode, so I didn&rsquo;t pursue
+it any further.
 
 <ul>
 <li>Note that in the image creation process, you may run into a
@@ -285,6 +306,21 @@ different) disk because it has the same UUID as a previous disk
 that you are replacing.  If so, then the command &ldquo;VBoxManage
 internalcommands sethduuid disk.vdi&rdquo; will change the UUID, and
 allow you to proceed</li>
+</ul>
+</li>
+<li>A few quick notes
+
+<ul>
+<li>The guest hard drive reports 3.7 Gb of space used</li>
+<li>the guest additions (the drivers that make Ubuntu in a VirtualBox
+image work nicely with the host system) were installed by the
+additional drivers step done before</li>
+<li>Firefox was a recent version, and flash worked right out of the
+box</li>
+<li>the VM may capture the mouse - to uncapture it, you press the
+&ldquo;host key&rdquo;, which is the right Control key on Linux.  To have it
+warn you about what this is, you can reset all warnings via the
+VirtualBox help menu, and it will warn you about this at boot-up</li>
 </ul>
 </li>
 </ul>
