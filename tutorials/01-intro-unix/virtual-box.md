@@ -220,9 +220,9 @@ For those who are interested, here is what I did to set up the image:
   of space, then removed that file (this writes all 0's to the hard
   drive).  I shut down the guest, and ran: 'VBoxManage modifyhd
   ubuntu-12.04.3.vdi --compact'.  A better way would be to load up
-  into recovery mode and run zerofill , but the grub menu does not
-  seem to be available to load into recovery mode, so I didn't pursue
-  it any further.
+  into recovery mode and run zerofill, but the grub menu does not
+  seem to be easily available to load into recovery mode, so I didn't
+  pursue it any further.
   - Note that in the image creation process, you may run into a
     problem with VirtualBox where it cannot register a new (or
     different) disk because it has the same UUID as a previous disk
@@ -230,7 +230,8 @@ For those who are interested, here is what I did to set up the image:
     internalcommands sethduuid disk.vdi" will change the UUID, and
     allow you to proceed
 - A few quick notes
-  - The guest hard drive reports 3.7 Gb of space used
+  - The guest hard drive reported 3.8 Gb of space used prior to
+    distribution of the image
   - the guest additions (the drivers that make Ubuntu in a VirtualBox
     image work nicely with the host system) were installed by the
     additional drivers step done before

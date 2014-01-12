@@ -295,9 +295,9 @@ people to download), I ran &ldquo;cat /dev/zero > zero&rdquo; until it ran out
 of space, then removed that file (this writes all 0&rsquo;s to the hard
 drive).  I shut down the guest, and ran: &lsquo;VBoxManage modifyhd
 ubuntu-12.04.3.vdi &ndash;compact&rsquo;.  A better way would be to load up
-into recovery mode and run zerofill , but the grub menu does not
-seem to be available to load into recovery mode, so I didn&rsquo;t pursue
-it any further.
+into recovery mode and run zerofill, but the grub menu does not
+seem to be easily available to load into recovery mode, so I didn&rsquo;t
+pursue it any further.
 
 <ul>
 <li>Note that in the image creation process, you may run into a
@@ -311,7 +311,8 @@ allow you to proceed</li>
 <li>A few quick notes
 
 <ul>
-<li>The guest hard drive reports 3.7 Gb of space used</li>
+<li>The guest hard drive reported 3.8 Gb of space used prior to
+distribution of the image</li>
 <li>the guest additions (the drivers that make Ubuntu in a VirtualBox
 image work nicely with the host system) were installed by the
 additional drivers step done before</li>
