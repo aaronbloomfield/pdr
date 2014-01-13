@@ -208,3 +208,6 @@ BY-SA license mentioned above.
     [here](http://openclipart.org/share) for details.
   - [slides/images/menu-icon.png](slides/images/menu-icon.png) is from
     [here](http://androgeek.com/wp-content/uploads/2010/03/android-free-menu-icon-set.png)
+  - [slides/images/print-icon.png](slides/images/print-icon.png) is from
+    [here](http://www.iconarchive.com/show/icons8-metro-style-icons-by-visualpharm/Very-Basic-Print-icon.html);
+    the license requires a linkback, which was that link.
