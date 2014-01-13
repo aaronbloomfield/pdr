@@ -16,11 +16,11 @@ There are a number of links and other parts of this course that are
 
 - The set of online tools, which can be accesed through Collab or [here](https://libra.cs.virginia.edu/~pedagogy/).
   - These tools are:
-    [support requests](https://libra.cs.virginia.edu/~pedagogy/index.php?redirect=support.php), 
-    [lab submission](https://libra.cs.virginia.edu/~pedagogy/index.php?redirect=submit.php), 
-    [regrades](https://libra.cs.virginia.edu/~pedagogy/index.php?redirect=regrades.php), 
-    [gradebook](https://libra.cs.virginia.edu/~pedagogy/index.php?redirect=gradebook.php), and 
-    [lab extensions](https://libra.cs.virginia.edu/~pedagogy/index.php?redirect=labextension.php)
+    [support requests](https://libra.cs.virginia.edu/~pedagogy/support.php), 
+    [lab submission](https://libra.cs.virginia.edu/~pedagogy/submit.php), 
+    [regrades](https://libra.cs.virginia.edu/~pedagogy/regrades.php), 
+    [gradebook](https://libra.cs.virginia.edu/~pedagogy/gradebook.php), and 
+    [lab extensions](https://libra.cs.virginia.edu/~pedagogy/labextension.php)
 - The announcements, which are posted to the CS 2150 twitter feed:
   [@UVaCS2150](http://twitter.com/UVaCS2150)
 - The [CS 2150 Google 

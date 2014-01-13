@@ -120,6 +120,7 @@ int main() {
 - Must be global
 - Must have a return type of int
   - By convention, main returns 0
+  - You must *ALWAYS* return 0 from main()
 </script></section>
 
 <section data-markdown><script type="text/template">
@@ -136,7 +137,7 @@ int main() {
 1. Preprocess source file
    - handle \#includes and any other \# statements
 2. Compile resulting file
-3. Link the resulting files from step 2 (more on this later...)
+3. Link the resulting files from step 2 (more on this later)
 </script></section>
 
 <section>
@@ -210,32 +211,34 @@ int main() {
 <section data-markdown><script type="text/template">
 ## C++ Operators and Expressions
 - if statement
-  - in C++ condition can be either `int` or `bool`</li>
+  - In C++, the condition can be either `int` or `bool`
+  - Assume `x` is an `int`
   - `if ( x = 0 )`
     - This will NOT cause a compiler error in C++</li>
-  - `if ( i )`
+  - `if ( x )`
     - This is valid!
 </script></section>
 
 <section data-markdown><script type="text/template">
 ## Operators and Expressions
-- loops, same as Java
+- Loops, same as Java
   - while, for, do while, break, continue</li>
+  - Same syntax as well
 </script></section>
 
 <section data-markdown><script type="text/template">
 ## Compiler choice
 - In the past we have used g++
   - From GNU's Compiler Collection</li>
-- We are now using clang (from LLVM)
-  - It has MUCH better error messages</li>
+- We are now using clang++ (from LLVM)
+  - It has *MUCH* better error messages</li>
 - Consider:
 ```
 using namespace std;
 int main() {
     // note the spelling mistake on the next
     // line where 'cout' is spelled 'cotut'
-    cotut &lt;&lt; "Hello World";
+    cotut << "Hello World";
     return 0;
 }
 ```
