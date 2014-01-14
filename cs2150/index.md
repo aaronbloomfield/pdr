@@ -79,7 +79,7 @@ Semester Schedule
 
 | Num |&nbsp;| Date |&nbsp;| Day of week |&nbsp;| Lab & Tutorial |&nbsp;| Planned topic |&nbsp;| Actual lecture progress | 
 |-----||--------||-------------||----------------------------------------------------------||--------------------------||--------------------------|
-| 1 || Jan 13 || Monday || no lab this week || [01: Course introduction](../slides/01-intro.html) || |
+| 1 || Jan 13 || Monday || no lab this week || [01: Course introduction](../slides/01-intro.html) || [01: Course introduction](../slides/01-intro.html), slide 1 to slide 5-6 |
 | 2 || Jan 15 || Wednesday || || [01: Course introduction](../slides/01-intro.html), [02: C++](../slides/02-cpp.html) || |
 | 3 || Jan 17 || Friday || || [02: C++](../slides/02-cpp.html) || |
 | || Jan 20 || Monday || [Lab 1: Intro to C++](../labs/lab01/lab01.html), [Tutorial 1: Intro to UNIX](../tutorials/01-intro-unix/index.html) || (no class: MLK day) || (no class: MLK day) |
