@@ -3,7 +3,7 @@ CS 2150: Program and Data Representation: Course Syllabus
 
 [Go up to the CS 2150 documents page](index.html)
 
-### Spring 2013 ###
+### Spring 2014 ###
 
 - M/W/F 9:00-9:50 (section 001, Rice 130)
 - M/W/F 12:00-12:50 (section 002, MEC 205)
@@ -16,7 +16,8 @@ Office hours are M/W 1:30-3:00
 ### Course Info ###
 
 - Email: none; fill out a support request instead
-- TAs and their office hours will be posted on the [CS 2150 Google Calendar](https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York) (which is linked to via Collab); all office hours start Sunday, September 1st
+- Announcement feed: [@UVaCS2150](http://twitter.com/UVaCS2150)
+- TAs and their office hours will be posted on the [CS 2150 Google Calendar](https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York) (which is linked to via Collab); all office hours start the Sunday after classes start
 - Laboratory Meetings (all in Olsson 001):
   - Section 101: Tuesday, 9:00 p.m. - 10:35 a.m.
   - Section 102: Tuesday, 12:15 p.m. - 1:50 p.m.
@@ -49,7 +50,7 @@ etc.) is often a good way to get a more immediate response.
 **Prerequisites:** CS 2110 (Software Development Methods) or CS 2220
 (Engineering Software); and CS 2102 (Discrete Math), all with grades
 of C- or above.  Note that CS 2102 is allowed as a co-requisite, but
-see the details for this in the first slide set.
+see the details for this in the [first slide set](../slides/01-intro.html) (specifically, [here](../slides/01-intro.html#/2/10)).
 
 **Course objectives:** Students who complete the course will:
 
@@ -84,9 +85,9 @@ of a B, etc.  **Note:** I reserve the right to modify the weighting
 (changing the curve, adding pop quizzes, etc.), especially if
 attendance drops off significantly.  If this does happen, it will be
 clearly announced in lecture. Class participation includes such things
-as random in-class quizzes on readings or previously covered topics,
-in-class questions, speaking up in class, using the wiki or newsgroup,
-and otherwise contributing to the course.
+as random attendance quizzes or in-class quizzes on readings or
+previously covered topics, using Piazza, useful contributions to the
+github repo, or otherwise contributing to the course.
 
 **Development Environment:** In this class, you may NOT use Microsoft
 Visual Studio, any other Microsoft Windows-based development
