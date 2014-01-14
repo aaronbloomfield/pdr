@@ -1,0 +1,279 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>list.h</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">/* This file contains the List class, a singly linked unordered</font></i>
+<i><font color="#9A1900"> * templated list class.  struct List_Link is the data structure for</font></i>
+<i><font color="#9A1900"> * the list links.</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * Copyright (c) 1994, 2014 by Aaron Bloomfield</font></i>
+<i><font color="#9A1900"> * Released under a CC BY-SA license</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * Revision history</font></i>
+<i><font color="#9A1900"> * 05-01-94: Main code written</font></i>
+<i><font color="#9A1900"> * 07-12-95: Bug updates</font></i>
+<i><font color="#9A1900"> * 01-13-14: Modified to fit modern C++ compilers; reformatted</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * The tail of the list, in this implementation, is where the elements</font></i>
+<i><font color="#9A1900"> * are pushed (added) to and popped (removed) from.  For example:</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * head &lt;-- element &lt;-- element &lt;-- element &lt;-- element &lt;-- tail</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * Methods:</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * List()                 Constructor, initilized an empty list</font></i>
+<i><font color="#9A1900"> * ~List()                Destructor, deletes the entire list</font></i>
+<i><font color="#9A1900"> * void push(T item);     Adds an item to the tail of the list</font></i>
+<i><font color="#9A1900"> * T* pop();              Removes an item from the head of the list</font></i>
+<i><font color="#9A1900"> * int size();            Returns the size (length) of the list</font></i>
+<i><font color="#9A1900"> * void display();        Displays the list</font></i>
+<i><font color="#9A1900"> * int empty();           Returns 1 if the list is empty, 0 otherwise</font></i>
+<i><font color="#9A1900"> * void clear();          Clears (removes all elements from) the list</font></i>
+<i><font color="#9A1900"> * T* push_head();        Removes an item from the tail of the list</font></i>
+<i><font color="#9A1900"> * T* tail();             Returns the tail data</font></i>
+<i><font color="#9A1900"> * T* head();             Returns the head data</font></i>
+<i><font color="#9A1900"> * int element (T item);  Returns 1 if T is in the list, 0 otherwise</font></i>
+<i><font color="#9A1900"> * pop_head (T item);     Adds an item to the head of the list</font></i>
+<i><font color="#9A1900"> * int remove (T item)    Removes item, returns 1 if sucessful, else 0</font></i>
+<i><font color="#9A1900"> * T* getptr (T item)     Returns the pointer to the parameter or NULL</font></i>
+<i><font color="#9A1900"> * void save(FILE *fp)    Saves the list- calls the objects methods</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * The List class requires &lt;iostream&gt; to be included, as it uses</font></i>
+<i><font color="#9A1900"> * cout's in the display method.</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * In order to use the List class, the data type T must either be a</font></i>
+<i><font color="#9A1900"> * standard type, or be a class with the '==' operator overloaded.  To</font></i>
+<i><font color="#9A1900"> * use the display method, the data type must also have the '&lt;&lt;'</font></i>
+<i><font color="#9A1900"> * operator overloaded.  Examples follow, using a Complex class with</font></i>
+<i><font color="#9A1900"> * two attributes, real and imag (both ints).  The operator overloads</font></i>
+<i><font color="#9A1900"> * need to be functions outside the class declaration, and the</font></i>
+<i><font color="#9A1900"> * attributes used need to be public.</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> *      class Complex {</font></i>
+<i><font color="#9A1900"> *        public:</font></i>
+<i><font color="#9A1900"> *          int real, imag;</font></i>
+<i><font color="#9A1900"> *          Complex () { real = imag = 0; }</font></i>
+<i><font color="#9A1900"> *          Complex (int r, int i) { real = r; imag = i; }</font></i>
+<i><font color="#9A1900"> *          ~Complex () { }</font></i>
+<i><font color="#9A1900"> *          void set (int r, int i) { real = r; imag = i; }</font></i>
+<i><font color="#9A1900"> *      };</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> *      int operator == (Complex c1, Complex c2) {</font></i>
+<i><font color="#9A1900"> *        return ( (c1.real == c2.real) &amp;&amp; (c1.imag == c2.imag) );</font></i>
+<i><font color="#9A1900"> *      }</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> *      int operator != (Complex c1, Complex c2) {</font></i>
+<i><font color="#9A1900"> *        return ( (c1.real != c2.real) || (c1.imag != c2.imag) );</font></i>
+<i><font color="#9A1900"> *      }</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> *      ostream&amp; operator &lt;&lt; (ostream&amp; out, Complex c) {</font></i>
+<i><font color="#9A1900"> *        return (out &lt;&lt; c.real &lt;&lt; " + " &lt;&lt; c.imag &lt;&lt; "i");</font></i>
+<i><font color="#9A1900"> *      }</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> */</font></i>
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+
+<b><font color="#0000FF">template</font></b> <font color="#990000">&lt;</font><b><font color="#0000FF">class</font></b> <font color="#008080">T</font><font color="#990000">&gt;</font>
+<b><font color="#0000FF">struct</font></b> <font color="#008080">List_Link</font> <font color="#FF0000">{</font>
+    <font color="#008080">T</font> <font color="#990000">*</font>data<font color="#990000">;</font>
+    <font color="#008080">List_Link&lt;T&gt;</font> <font color="#990000">*</font>next<font color="#990000">;</font>
+<font color="#FF0000">}</font><font color="#990000">;</font>
+
+
+<b><font color="#0000FF">template</font></b> <font color="#990000">&lt;</font><b><font color="#0000FF">class</font></b> <font color="#008080">T</font><font color="#990000">&gt;</font>
+<b><font color="#0000FF">class</font></b> <font color="#008080">List</font> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">friend</font></b> <b><font color="#0000FF">class</font></b> <font color="#008080">Fsm</font><font color="#990000">;</font>
+    <i><font color="#9A1900">/*  head &lt;-- element &lt;-- element &lt;-- element &lt;-- element &lt;-- tail       */</font></i>
+<b><font color="#0000FF">private</font></b><font color="#990000">:</font>
+    <font color="#008080">List_Link&lt;T&gt;</font> <font color="#990000">*</font>_head<font color="#990000">,</font> <font color="#990000">*</font>_tail<font color="#990000">;</font>
+
+<b><font color="#0000FF">public</font></b><font color="#990000">:</font>
+    <b><font color="#000000">List</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+        _head <font color="#990000">=</font> _tail <font color="#990000">=</font> NULL<font color="#990000">;</font>
+    <font color="#FF0000">}</font> <i><font color="#9A1900">// cout &lt;&lt; "List Constructor called.\n"; }</font></i>
+
+    <font color="#990000">~</font><b><font color="#000000">List</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+        <b><font color="#000000">clear</font></b><font color="#990000">();</font>
+    <font color="#FF0000">}</font>
+
+    <font color="#009900">void</font> <b><font color="#000000">push</font></b><font color="#990000">(</font><font color="#008080">T</font> item<font color="#990000">)</font> <font color="#FF0000">{</font>
+<i><font color="#9A1900">//    cout &lt;&lt; "push(): called with element: " &lt;&lt; item &lt;&lt; endl;</font></i>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> _head <font color="#990000">==</font> NULL <font color="#990000">)</font> <font color="#FF0000">{</font>
+            _head <font color="#990000">=</font> _tail <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> List_Link<font color="#990000">&lt;</font>T<font color="#990000">&gt;;</font>
+            _head<font color="#990000">-&gt;</font>next <font color="#990000">=</font> NULL<font color="#990000">;</font>
+        <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
+            <font color="#008080">List_Link&lt;T&gt;</font> <font color="#990000">*</font>temp<font color="#990000">;</font>
+            temp <font color="#990000">=</font> _tail<font color="#990000">;</font>
+            _tail <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> List_Link<font color="#990000">&lt;</font>T<font color="#990000">&gt;;</font>
+            _tail<font color="#990000">-&gt;</font>next <font color="#990000">=</font> temp<font color="#990000">;</font>
+        <font color="#FF0000">}</font>
+        _tail<font color="#990000">-&gt;</font>data <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> T<font color="#990000">;</font>
+        <font color="#990000">*</font>_tail<font color="#990000">-&gt;</font>data <font color="#990000">=</font> item<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
+    T<font color="#990000">*</font> <b><font color="#000000">pop</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> _head <font color="#990000">==</font> NULL <font color="#990000">)</font>
+            <b><font color="#0000FF">return</font></b> NULL<font color="#990000">;</font>
+        <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
+            <font color="#008080">List_Link&lt;T&gt;</font> <font color="#990000">*</font>temp<font color="#990000">;</font>
+            <font color="#008080">T</font> <font color="#990000">*</font>ret<font color="#990000">;</font>
+            temp <font color="#990000">=</font> _tail<font color="#990000">;</font>
+            <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> _head <font color="#990000">==</font> _tail <font color="#990000">)</font>
+                _tail <font color="#990000">=</font> _head <font color="#990000">=</font> NULL<font color="#990000">;</font>
+            <b><font color="#0000FF">else</font></b>
+                _tail <font color="#990000">=</font> _tail<font color="#990000">-&gt;</font>next<font color="#990000">;</font>
+            ret <font color="#990000">=</font> temp<font color="#990000">-&gt;</font>data<font color="#990000">;</font>
+            <b><font color="#0000FF">delete</font></b> temp<font color="#990000">;</font>
+            <b><font color="#0000FF">return</font></b> ret<font color="#990000">;</font>
+        <font color="#FF0000">}</font>
+    <font color="#FF0000">}</font>
+
+    <font color="#009900">int</font> <b><font color="#000000">size</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> _tail <font color="#990000">==</font> NULL <font color="#990000">)</font>
+            <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+        <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
+            <font color="#009900">int</font> s <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+            <font color="#008080">List_Link&lt;T&gt;</font> <font color="#990000">*</font>temp<font color="#990000">;</font>
+            <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> temp <font color="#990000">=</font> _tail<font color="#990000">;</font> temp <font color="#990000">!=</font> NULL<font color="#990000">;</font> temp <font color="#990000">=</font> temp<font color="#990000">-&gt;</font>next <font color="#990000">)</font>
+                <font color="#990000">++</font>s<font color="#990000">;</font>
+            <b><font color="#0000FF">return</font></b> s<font color="#990000">;</font>
+        <font color="#FF0000">}</font>
+    <font color="#FF0000">}</font>
+
+    <font color="#009900">void</font> <b><font color="#000000">save</font></b><font color="#990000">(</font><font color="#008080">FILE</font> <font color="#990000">*</font>fp<font color="#990000">)</font> <font color="#FF0000">{</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> _head <font color="#990000">==</font> NULL <font color="#990000">)</font> <font color="#FF0000">{}</font>
+        <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
+            <font color="#008080">List_Link&lt;T&gt;</font> <font color="#990000">*</font>temp<font color="#990000">;</font>
+            <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> temp <font color="#990000">=</font> _tail<font color="#990000">;</font> temp <font color="#990000">!=</font> NULL<font color="#990000">;</font> temp <font color="#990000">=</font> temp<font color="#990000">-&gt;</font>next <font color="#990000">)</font>
+                temp<font color="#990000">-&gt;</font>data<font color="#990000">-&gt;</font><b><font color="#000000">save</font></b><font color="#990000">(</font>fp<font color="#990000">);</font>
+        <font color="#FF0000">}</font>
+    <font color="#FF0000">}</font>
+
+    <font color="#009900">void</font> <b><font color="#000000">display</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> _head <font color="#990000">==</font> NULL <font color="#990000">)</font>
+            cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"List is empty.</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+        <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
+<i><font color="#9A1900">//      cout &lt;&lt; "display(): List is printed reverse: List is not empty.\n\t";</font></i>
+            <font color="#008080">List_Link&lt;T&gt;</font> <font color="#990000">*</font>temp<font color="#990000">;</font>
+            <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> temp <font color="#990000">=</font> _tail<font color="#990000">;</font> temp <font color="#990000">!=</font> NULL<font color="#990000">;</font> temp <font color="#990000">=</font> temp<font color="#990000">-&gt;</font>next <font color="#990000">)</font>
+                cout <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>temp<font color="#990000">-&gt;</font>data <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" "</font><font color="#990000">;</font>
+            cout <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+        <font color="#FF0000">}</font>
+    <font color="#FF0000">}</font>
+
+    <font color="#009900">int</font> <b><font color="#000000">empty</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+        <b><font color="#0000FF">return</font></b> <font color="#990000">(</font> _head <font color="#990000">==</font> NULL <font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+
+    T<font color="#990000">*</font> <b><font color="#000000">tail</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> _tail <font color="#990000">==</font> NULL <font color="#990000">)</font>
+            <b><font color="#0000FF">return</font></b> NULL<font color="#990000">;</font>
+        <b><font color="#0000FF">else</font></b>
+            <b><font color="#0000FF">return</font></b> _tail<font color="#990000">-&gt;</font>data<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
+    T<font color="#990000">*</font> <b><font color="#000000">head</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> _head <font color="#990000">==</font> NULL <font color="#990000">)</font>
+            <b><font color="#0000FF">return</font></b> NULL<font color="#990000">;</font>
+        <b><font color="#0000FF">else</font></b>
+            <b><font color="#0000FF">return</font></b> _head<font color="#990000">-&gt;</font>data<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
+    <font color="#009900">int</font> <b><font color="#000000">element</font></b> <font color="#990000">(</font><font color="#008080">T</font> item<font color="#990000">)</font> <font color="#FF0000">{</font>
+        <font color="#008080">List_Link&lt;T&gt;</font> <font color="#990000">*</font>temp<font color="#990000">;</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> _tail <font color="#990000">==</font> NULL <font color="#990000">)</font>
+            <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+        <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> temp <font color="#990000">=</font> _tail<font color="#990000">;</font> temp <font color="#990000">!=</font> NULL<font color="#990000">;</font> temp <font color="#990000">=</font> temp<font color="#990000">-&gt;</font>next <font color="#990000">)</font>
+            <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">*</font>temp<font color="#990000">-&gt;</font>data <font color="#990000">==</font> item <font color="#990000">)</font>
+                <b><font color="#0000FF">return</font></b> <font color="#993399">1</font><font color="#990000">;</font>
+        <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
+    T<font color="#990000">*</font> <b><font color="#000000">getptr</font></b> <font color="#990000">(</font><font color="#008080">T</font> item<font color="#990000">)</font> <font color="#FF0000">{</font>
+        <font color="#008080">List_Link&lt;T&gt;</font> <font color="#990000">*</font>temp<font color="#990000">;</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> _tail <font color="#990000">==</font> NULL <font color="#990000">)</font>
+            <b><font color="#0000FF">return</font></b> NULL<font color="#990000">;</font>
+        <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> temp <font color="#990000">=</font> _tail<font color="#990000">;</font> temp <font color="#990000">!=</font> NULL<font color="#990000">;</font> temp <font color="#990000">=</font> temp<font color="#990000">-&gt;</font>next <font color="#990000">)</font>
+            <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">*</font>temp<font color="#990000">-&gt;</font>data <font color="#990000">==</font> item <font color="#990000">)</font>
+                <b><font color="#0000FF">return</font></b> temp<font color="#990000">-&gt;</font>data<font color="#990000">;</font>
+        <b><font color="#0000FF">return</font></b> NULL<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
+    <font color="#009900">void</font> <b><font color="#000000">clear</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+        <b><font color="#0000FF">while</font></b> <font color="#990000">(</font> <b><font color="#0000FF">this</font></b><font color="#990000">-&gt;</font><b><font color="#000000">pop</font></b><font color="#990000">()</font> <font color="#990000">!=</font> NULL <font color="#990000">)</font> <font color="#FF0000">{</font> <font color="#FF0000">}</font>
+    <font color="#FF0000">}</font>
+
+    <font color="#009900">void</font> <b><font color="#000000">push_head</font></b> <font color="#990000">(</font><font color="#008080">T</font> item<font color="#990000">)</font> <font color="#FF0000">{</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> _head <font color="#990000">==</font> NULL <font color="#990000">)</font> <font color="#FF0000">{</font>
+            _head <font color="#990000">=</font> _tail <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> List_Link<font color="#990000">&lt;</font>T<font color="#990000">&gt;;</font>
+            _head<font color="#990000">-&gt;</font>next <font color="#990000">=</font> NULL<font color="#990000">;</font>
+        <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
+            <font color="#008080">List_Link&lt;T&gt;</font> <font color="#990000">*</font>temp<font color="#990000">;</font>
+            temp <font color="#990000">=</font> _head<font color="#990000">;</font>
+            _head <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> List_Link<font color="#990000">&lt;</font>T<font color="#990000">&gt;;</font>
+            temp<font color="#990000">-&gt;</font>next <font color="#990000">=</font> _head<font color="#990000">;</font>
+            _head<font color="#990000">-&gt;</font>next <font color="#990000">=</font> NULL<font color="#990000">;</font>
+        <font color="#FF0000">}</font>
+        _head<font color="#990000">-&gt;</font>data <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> T<font color="#990000">;</font>
+        <font color="#990000">*</font>_head<font color="#990000">-&gt;</font>data <font color="#990000">=</font> item<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
+    T<font color="#990000">*</font> <b><font color="#000000">pop_head</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> _head <font color="#990000">==</font> NULL <font color="#990000">)</font>
+            <b><font color="#0000FF">return</font></b> NULL<font color="#990000">;</font>
+        <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
+            <font color="#008080">List_Link&lt;T&gt;</font> <font color="#990000">*</font>temp<font color="#990000">;</font>
+            <font color="#008080">T</font> <font color="#990000">*</font>ret<font color="#990000">;</font>
+            <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> temp <font color="#990000">=</font> _tail<font color="#990000">;</font> temp<font color="#990000">-&gt;</font>next <font color="#990000">!=</font> _head<font color="#990000">;</font> temp <font color="#990000">=</font> temp<font color="#990000">-&gt;</font>next <font color="#990000">)</font> <font color="#FF0000">{</font> <font color="#FF0000">}</font>
+            ret <font color="#990000">=</font> _head<font color="#990000">-&gt;</font>data<font color="#990000">;</font>
+            _head <font color="#990000">=</font> temp<font color="#990000">;</font>
+            temp <font color="#990000">=</font> temp<font color="#990000">-&gt;</font>next<font color="#990000">;</font>
+            <b><font color="#0000FF">delete</font></b> temp<font color="#990000">;</font>
+            _head<font color="#990000">-&gt;</font>next <font color="#990000">=</font> NULL<font color="#990000">;</font>
+            <b><font color="#0000FF">return</font></b> ret<font color="#990000">;</font>
+        <font color="#FF0000">}</font>
+    <font color="#FF0000">}</font>
+
+    <font color="#009900">int</font> <b><font color="#000000">remove</font></b> <font color="#990000">(</font><font color="#008080">T</font> item<font color="#990000">)</font> <font color="#FF0000">{</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <b><font color="#0000FF">this</font></b><font color="#990000">-&gt;</font><b><font color="#000000">element</font></b><font color="#990000">(</font>item<font color="#990000">)</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+            cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"remove(): element '"</font> <font color="#990000">&lt;&lt;</font> item <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"' exists.</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+            <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> _head <font color="#990000">==</font> _tail <font color="#990000">)</font> <font color="#FF0000">{</font>
+                <b><font color="#0000FF">delete</font></b> _head<font color="#990000">;</font>
+                _head <font color="#990000">=</font> _tail <font color="#990000">=</font> NULL<font color="#990000">;</font>
+            <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">*</font>_tail<font color="#990000">-&gt;</font>data <font color="#990000">==</font> item <font color="#990000">)</font> <font color="#FF0000">{</font>
+                <font color="#008080">List_Link&lt;T&gt;</font> <font color="#990000">*</font>temp<font color="#990000">;</font>
+                temp <font color="#990000">=</font> _tail<font color="#990000">;</font>
+                _tail <font color="#990000">=</font> _tail<font color="#990000">-&gt;</font>next<font color="#990000">;</font>
+                <b><font color="#0000FF">delete</font></b> temp<font color="#990000">;</font>
+            <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
+                <font color="#008080">List_Link&lt;T&gt;</font> <font color="#990000">*</font>temp<font color="#990000">,</font> <font color="#990000">*</font>temp2<font color="#990000">;</font>
+                <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> temp <font color="#990000">=</font> _tail<font color="#990000">;</font>
+                        <font color="#990000">*</font>temp<font color="#990000">-&gt;</font>next<font color="#990000">-&gt;</font>data <font color="#990000">!=</font> item<font color="#990000">;</font>
+                        temp <font color="#990000">=</font> temp<font color="#990000">-&gt;</font>next <font color="#990000">)</font> <font color="#FF0000">{</font> <font color="#FF0000">}</font>
+                temp2 <font color="#990000">=</font> temp<font color="#990000">-&gt;</font>next<font color="#990000">;</font>
+                temp<font color="#990000">-&gt;</font>next <font color="#990000">=</font> temp<font color="#990000">-&gt;</font>next<font color="#990000">-&gt;</font>next<font color="#990000">;</font>
+                <b><font color="#0000FF">delete</font></b> temp2<font color="#990000">;</font>
+            <font color="#FF0000">}</font>
+            <b><font color="#0000FF">return</font></b> <font color="#993399">1</font><font color="#990000">;</font>
+        <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
+            cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"remove(): element '"</font> <font color="#990000">&lt;&lt;</font> item <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"' does not exist.</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+            <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+        <font color="#FF0000">}</font>
+    <font color="#FF0000">}</font>
+
+<font color="#FF0000">}</font><font color="#990000">;</font>
+</tt></pre>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>list.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">// This file contains the main code to test the List class</font></i>
+<i><font color="#9A1900">//</font></i>
+<i><font color="#9A1900">// Copyright (c) 1994, 2014 by Aaron Bloomfield</font></i>
+<i><font color="#9A1900">// Released under a CC BY-SA license</font></i>
+<i><font color="#9A1900">//</font></i>
+<i><font color="#9A1900">// Revision history</font></i>
+<i><font color="#9A1900">// 05-07-94: Main code written</font></i>
+<i><font color="#9A1900">// 07-12-95: Bug updates</font></i>
+<i><font color="#9A1900">// 01-13-14: Modified to fit modern C++ compilers; reformatted</font></i>
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdio.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">"list.h"</font>
+
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"main(): started.</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    <font color="#008080">List&lt;int&gt;</font> <font color="#990000">*</font>l <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> List<font color="#990000">&lt;</font><font color="#009900">int</font><font color="#990000">&gt;();</font>
+    <font color="#009900">int</font> <font color="#990000">*</font>n<font color="#990000">,</font> i<font color="#990000">;</font>
+
+    l<font color="#990000">-&gt;</font><b><font color="#000000">display</font></b><font color="#990000">();</font>
+    i <font color="#990000">=</font> l<font color="#990000">-&gt;</font><b><font color="#000000">size</font></b><font color="#990000">();</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"size(): returned "</font> <font color="#990000">&lt;&lt;</font> i <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    n <font color="#990000">=</font> l<font color="#990000">-&gt;</font><b><font color="#000000">head</font></b><font color="#990000">();</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> n <font color="#990000">==</font> NULL <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"head(): returned NULL.</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"head(): returned "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>n <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    n <font color="#990000">=</font> l<font color="#990000">-&gt;</font><b><font color="#000000">tail</font></b><font color="#990000">();</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> n <font color="#990000">==</font> NULL <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"tail(): returned NULL.</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"tail(): returned "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>n <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"empty() called, returned "</font> <font color="#990000">&lt;&lt;</font> l<font color="#990000">-&gt;</font><b><font color="#000000">empty</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    i <font color="#990000">=</font> l<font color="#990000">-&gt;</font><b><font color="#000000">element</font></b><font color="#990000">(</font><font color="#993399">2</font><font color="#990000">);</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"element(): '"</font> <font color="#990000">&lt;&lt;</font> <font color="#993399">2</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"' returned: "</font> <font color="#990000">&lt;&lt;</font> i <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">push</font></b> <font color="#990000">(</font><font color="#993399">2</font><font color="#990000">);</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">display</font></b><font color="#990000">();</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"empty() called, returned "</font> <font color="#990000">&lt;&lt;</font> l<font color="#990000">-&gt;</font><b><font color="#000000">empty</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    n <font color="#990000">=</font> l<font color="#990000">-&gt;</font><b><font color="#000000">head</font></b><font color="#990000">();</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> n <font color="#990000">==</font> NULL <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"head(): returned NULL.</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"head(): returned "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>n <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    n <font color="#990000">=</font> l<font color="#990000">-&gt;</font><b><font color="#000000">tail</font></b><font color="#990000">();</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> n <font color="#990000">==</font> NULL <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"tail(): returned NULL.</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"tail(): returned "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>n <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">push</font></b> <font color="#990000">(</font><font color="#993399">3</font><font color="#990000">);</font>
+    n <font color="#990000">=</font> l<font color="#990000">-&gt;</font><b><font color="#000000">head</font></b><font color="#990000">();</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> n <font color="#990000">==</font> NULL <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"head(): returned NULL.</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"head(): returned "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>n <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    n <font color="#990000">=</font> l<font color="#990000">-&gt;</font><b><font color="#000000">tail</font></b><font color="#990000">();</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> n <font color="#990000">==</font> NULL <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"tail(): returned NULL.</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"tail(): returned "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>n <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">display</font></b><font color="#990000">();</font>
+    n <font color="#990000">=</font> l<font color="#990000">-&gt;</font><b><font color="#000000">head</font></b><font color="#990000">();</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> n <font color="#990000">==</font> NULL <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"head(): returned NULL.</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"head(): returned "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>n <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    n <font color="#990000">=</font> l<font color="#990000">-&gt;</font><b><font color="#000000">tail</font></b><font color="#990000">();</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> n <font color="#990000">==</font> NULL <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"tail(): returned NULL.</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"tail(): returned "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>n <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    i <font color="#990000">=</font> l<font color="#990000">-&gt;</font><b><font color="#000000">element</font></b><font color="#990000">(</font><font color="#993399">2</font><font color="#990000">);</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"element(): '"</font> <font color="#990000">&lt;&lt;</font> <font color="#993399">2</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"' returned: "</font> <font color="#990000">&lt;&lt;</font> i <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    i <font color="#990000">=</font> l<font color="#990000">-&gt;</font><b><font color="#000000">element</font></b><font color="#990000">(</font><font color="#993399">4</font><font color="#990000">);</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"element(): '"</font> <font color="#990000">&lt;&lt;</font> <font color="#993399">4</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"' returned: "</font> <font color="#990000">&lt;&lt;</font> i <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"empty() called, returned "</font> <font color="#990000">&lt;&lt;</font> l<font color="#990000">-&gt;</font><b><font color="#000000">empty</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+
+    l<font color="#990000">-&gt;</font><b><font color="#000000">push</font></b> <font color="#990000">(</font><font color="#993399">4</font><font color="#990000">);</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">display</font></b><font color="#990000">();</font>
+    n <font color="#990000">=</font> l<font color="#990000">-&gt;</font><b><font color="#000000">head</font></b><font color="#990000">();</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> n <font color="#990000">==</font> NULL <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"head(): returned NULL.</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"head(): returned "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>n <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    n <font color="#990000">=</font> l<font color="#990000">-&gt;</font><b><font color="#000000">tail</font></b><font color="#990000">();</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> n <font color="#990000">==</font> NULL <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"tail(): returned NULL.</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"tail(): returned "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>n <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">push</font></b> <font color="#990000">(</font><font color="#993399">5</font><font color="#990000">);</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">display</font></b><font color="#990000">();</font>
+    n <font color="#990000">=</font> l<font color="#990000">-&gt;</font><b><font color="#000000">head</font></b><font color="#990000">();</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> n <font color="#990000">==</font> NULL <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"head(): returned NULL.</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"head(): returned "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>n <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    n <font color="#990000">=</font> l<font color="#990000">-&gt;</font><b><font color="#000000">tail</font></b><font color="#990000">();</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> n <font color="#990000">==</font> NULL <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"tail(): returned NULL.</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"tail(): returned "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>n <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">display</font></b><font color="#990000">();</font>
+    n <font color="#990000">=</font> l<font color="#990000">-&gt;</font><b><font color="#000000">head</font></b><font color="#990000">();</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> n <font color="#990000">==</font> NULL <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"head(): returned NULL.</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"head(): returned "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>n <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    n <font color="#990000">=</font> l<font color="#990000">-&gt;</font><b><font color="#000000">tail</font></b><font color="#990000">();</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> n <font color="#990000">==</font> NULL <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"tail(): returned NULL.</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"tail(): returned "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>n <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">display</font></b><font color="#990000">();</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"empty() called, returned "</font> <font color="#990000">&lt;&lt;</font> l<font color="#990000">-&gt;</font><b><font color="#000000">empty</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+
+    n <font color="#990000">=</font> l<font color="#990000">-&gt;</font><b><font color="#000000">pop</font></b><font color="#990000">();</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> n <font color="#990000">==</font> NULL <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"pop(): list is empty, pop(): returning NULL</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"pop(): returning "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>n <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    i <font color="#990000">=</font> l<font color="#990000">-&gt;</font><b><font color="#000000">size</font></b><font color="#990000">();</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">display</font></b><font color="#990000">();</font>
+    n <font color="#990000">=</font> l<font color="#990000">-&gt;</font><b><font color="#000000">head</font></b><font color="#990000">();</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> n <font color="#990000">==</font> NULL <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"head(): returned NULL.</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"head(): returned "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>n <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    n <font color="#990000">=</font> l<font color="#990000">-&gt;</font><b><font color="#000000">tail</font></b><font color="#990000">();</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> n <font color="#990000">==</font> NULL <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"tail(): returned NULL.</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"tail(): returned "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>n <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"size(): returned "</font> <font color="#990000">&lt;&lt;</font> i <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    n <font color="#990000">=</font> l<font color="#990000">-&gt;</font><b><font color="#000000">pop</font></b><font color="#990000">();</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> n <font color="#990000">==</font> NULL <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"pop(): list is empty, pop(): returning NULL</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"pop(): returning "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>n <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">display</font></b><font color="#990000">();</font>
+    n <font color="#990000">=</font> l<font color="#990000">-&gt;</font><b><font color="#000000">pop</font></b><font color="#990000">();</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> n <font color="#990000">==</font> NULL <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"pop(): list is empty, pop(): returning NULL</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"pop(): returning "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>n <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">display</font></b><font color="#990000">();</font>
+    n <font color="#990000">=</font> l<font color="#990000">-&gt;</font><b><font color="#000000">pop</font></b><font color="#990000">();</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> n <font color="#990000">==</font> NULL <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"pop(): list is empty, pop(): returning NULL</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"pop(): returning "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>n <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">display</font></b><font color="#990000">();</font>
+    n <font color="#990000">=</font> l<font color="#990000">-&gt;</font><b><font color="#000000">pop</font></b><font color="#990000">();</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> n <font color="#990000">==</font> NULL <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"pop(): list is empty, pop(): returning NULL</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"pop(): returning "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>n <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">display</font></b><font color="#990000">();</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"empty() called, returned "</font> <font color="#990000">&lt;&lt;</font> l<font color="#990000">-&gt;</font><b><font color="#000000">empty</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+
+    l<font color="#990000">-&gt;</font><b><font color="#000000">push</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">);</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">push</font></b><font color="#990000">(</font><font color="#993399">2</font><font color="#990000">);</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">push</font></b><font color="#990000">(</font><font color="#993399">3</font><font color="#990000">);</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">push</font></b><font color="#990000">(</font><font color="#993399">4</font><font color="#990000">);</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">display</font></b><font color="#990000">();</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">push</font></b><font color="#990000">(</font><font color="#993399">5</font><font color="#990000">);</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">display</font></b><font color="#990000">();</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">push_head</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">display</font></b><font color="#990000">();</font>
+    n <font color="#990000">=</font> l<font color="#990000">-&gt;</font><b><font color="#000000">pop</font></b><font color="#990000">();</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> n <font color="#990000">==</font> NULL <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"pop(): list is empty, pop(): returning NULL</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"pop(): returning "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>n <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">display</font></b><font color="#990000">();</font>
+    n <font color="#990000">=</font> l<font color="#990000">-&gt;</font><b><font color="#000000">pop_head</font></b><font color="#990000">();</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> n <font color="#990000">==</font> NULL <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"pop_head(): list is empty, pop_head(): returning NULL</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"pop_head(): returning "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>n <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">display</font></b><font color="#990000">();</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"empty() called, returned "</font> <font color="#990000">&lt;&lt;</font> l<font color="#990000">-&gt;</font><b><font color="#000000">empty</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">clear</font></b><font color="#990000">();</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"clear() called.</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">display</font></b><font color="#990000">();</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"empty() called, returned "</font> <font color="#990000">&lt;&lt;</font> l<font color="#990000">-&gt;</font><b><font color="#000000">empty</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"empty() called, returned "</font> <font color="#990000">&lt;&lt;</font> l<font color="#990000">-&gt;</font><b><font color="#000000">empty</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">remove</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">);</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">push</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">);</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">display</font></b><font color="#990000">();</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">remove</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">);</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">display</font></b><font color="#990000">();</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">push</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">);</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">push</font></b><font color="#990000">(</font><font color="#993399">2</font><font color="#990000">);</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">push</font></b><font color="#990000">(</font><font color="#993399">3</font><font color="#990000">);</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">push</font></b><font color="#990000">(</font><font color="#993399">4</font><font color="#990000">);</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">push</font></b><font color="#990000">(</font><font color="#993399">5</font><font color="#990000">);</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">display</font></b><font color="#990000">();</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">remove</font></b><font color="#990000">(</font><font color="#993399">5</font><font color="#990000">);</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">display</font></b><font color="#990000">();</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">remove</font></b><font color="#990000">(</font><font color="#993399">6</font><font color="#990000">);</font>
+    l<font color="#990000">-&gt;</font><b><font color="#000000">display</font></b><font color="#990000">();</font>
+    <b><font color="#0000FF">delete</font></b> l<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"main(): Goodbye.</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+
+    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

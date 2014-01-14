@@ -139,7 +139,7 @@ version (foo.cpp.html) are included in the repo.  All links to source
 code will like to the .html, with a "([src](...))" after it
 to link to the original source code.
 
-- astyle options: -A2 -s4 --indent-switches
+- astyle options: -A2 -s4 \-\-indent-switches
 - source-highlight options: -d
 
 
