@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 2150: daily announcements set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="../slides/reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="../slides/css/pdr.css">
+    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <script><!-- If the query includes 'print-pdf', use the PDF print sheet -->
+      document.write( '<link rel="stylesheet" href="../slides/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <style>
+.reveal li {
+font-size:80%;
+line-height:120%;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	  <section data-markdown><script type="text/template">
+# CS 2150
+&nbsp;
+### Program and Data Representation
+### Spring 2014
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="daily-announcements.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png"></a></small></center>
+&nbsp;  
+&nbsp;
+## Daily Announcements
+	</script></section>
+
+	<section>
+
+	  <section>
+<p><center>Wednesday, January 15, 2014</center></p>
+<img class="stretch" src="http://imgs.xkcd.com/comics/good_code.png" alt="xkcd # 844" title="You can either hang out in the Android Loop or the HURD loop.">
+<p><center><a href="http://xkcd.com/844/">xkcd # 844</a></center></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Wednesday, January 15, 2014
+
+- Office hours will start on Sunday, schedule still to be determined
+- Registration issues: a new lab opened up, which helps somewhat
+  - I will be increasing the caps of the existing labs (and removing the registration restriction)
+  - This will hopefully solve most (if not all) of the registration issues
+- Lab 1 will be out today or tomorrow
+  - When it's ready, it will be posted on the twitter feed: [@UVaCS2150](https://twitter.com/@UVaCS2150)
+  - The VirtualBox image is already uploaded, but will need [7-zip](http://www.7-zip.org/) to unzip it
+  - The assignment submission will automatically open Sunday at noon
+- Your lab accounts and passwords will be e-mailed to you late this week or (more likely) Monday; bring your Linux password with you to lab on Tuesday!
+- Monday's lecture is posted online in a Flash movie format
+  - From the [cs2150/index.html](index.html) file in the git archive, click on the right-most link in the 'Semester Schedule' table
+- Anonymous feedback!  It's through Collab
+- We will see a brief tour of the Collab workspace and the git repo today
+- Interested in installing Linux on your machine?
+  - The dept uses Ubuntu, which is what is on the VirtualBox image
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will finish with the [course introduction](../slides/01-intro.html), and start on [C++](../slides/02-cpp.html), which will continue through all of next week
+	  </script></section>
+
+	</section>
+	
+      </div>
+
+    </div>
+
+    <script src="../slides/reveal.js/lib/js/head.min.js"></script>
+    <script src="../slides/reveal.js/js/reveal.min.js"></script>
+    <script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+  controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      slideNumber: true,
+      
+      theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+      transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+      
+      // Parallax scrolling
+      // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+      // parallaxBackgroundSize: '2100px 900px',
+      
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+		     { src: '../slides/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+		     { src: '../slides/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		     { src: '../slides/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		     { src: '../slides/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		     { src: '../slides/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+		     { src: '../slides/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+		     ]
+      });
+</script>
+
+  </body>
+</html>

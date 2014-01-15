@@ -18,7 +18,11 @@ course.
   the virtual machine that is running in VirtualBox, and is often just
   called the 'guest operating system'.
   - You are welcome to try this on a netbook host machine, but the
-    computing power of a netbook may not be enough 
+    computing power of a netbook may not be enough
+  - Your unzip program complains about needing some insane amount of
+    space (like 700 petabytes, where a petabyte is 1,000 terabytes);
+    this is a bug in many unzip programs.  Try
+    [7-zip](http://www.7-zip.org/), which has had more success.
 - You will need to install the Virtual Box client.  It can be
    downloaded for free from [here](http://www.virtualbox.org/) and
    runs on most operating systems.  

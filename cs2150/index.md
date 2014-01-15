@@ -36,6 +36,7 @@ There are a number of links and other parts of this course that are
 
 The parts of this course that are in this repo are:
 
+- [Daily announcements slide set](daily-announcements.html)
 - [Course syllabus](syllabus.html): the course syllabus
 - [Lab due dates](labduedates.html): When the various lab parts
   are due
@@ -77,9 +78,14 @@ in this repository.  A bunch of notes:
 Semester Schedule
 -----------------
 
-| Num |&nbsp;| Date |&nbsp;| Day of week |&nbsp;| Lab & Tutorial |&nbsp;| Planned topic |&nbsp;| Actual lecture progress | 
+The links in the right-most column link directly to the lecture
+recording on Collab, and you have to be logged into Collab first
+before the link will work. Some plugins (such as NoScript) will block
+that link from working.
+
+| Num |&nbsp;| Date |&nbsp;| Day of week |&nbsp;| Lab & Tutorial |&nbsp;| Planned topic |&nbsp;| Actual lecture progress (and recording) |
 |-----||--------||-------------||----------------------------------------------------------||--------------------------||--------------------------|
-| 1 || Jan 13 || Monday || no lab this week || [01: Course introduction](../slides/01-intro.html) || [01: Course introduction](../slides/01-intro.html), slide 1 to slide 5-6 |
+| 1 || Jan 13 || Monday || no lab this week || [01: Course introduction](../slides/01-intro.html) || [01: Course introduction, slide 1 to slide 5-6](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/01-intro-1b/01-intro-1b.htm) |
 | 2 || Jan 15 || Wednesday || || [01: Course introduction](../slides/01-intro.html), [02: C++](../slides/02-cpp.html) || |
 | 3 || Jan 17 || Friday || || [02: C++](../slides/02-cpp.html) || |
 | || Jan 20 || Monday || [Lab 1: Intro to C++](../labs/lab01/lab01.html), [Tutorial 1: Intro to UNIX](../tutorials/01-intro-unix/index.html) || (no class: MLK day) || (no class: MLK day) |
