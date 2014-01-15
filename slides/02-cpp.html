@@ -151,7 +151,7 @@ int main() {
 		</ul>
     </li>
   </ul>
-  <table class="default">
+  <table class="wide">
     <tbody>
       <tr>
 	<td>
@@ -160,7 +160,8 @@ int main() {
 #include &lt;iostream&gt;
 using namespace std;
 int main() {
-    cout &lt;&lt; "Hello World!" &lt;&lt; endl;
+    cout &lt;&lt; "Hello World!" 
+         &lt;&lt; endl;
     return 0;
 }
 </code></pre>
@@ -200,7 +201,7 @@ int main() {
 <section data-markdown><script type="text/template">
 ## C++ Primitive Types
 - int
-  - Can be 16, 32, 64 bits depending on the platform</li>
+  - Can be 16, 32, 64 bits depending on the platform
 - float
 - double
 - char
@@ -213,25 +214,25 @@ int main() {
 - if statement
   - In C++, the condition can be either `int` or `bool`
   - Assume `x` is an `int`
-  - `if ( x = 0 )`
-    - This will NOT cause a compiler error in C++</li>
   - `if ( x )`
     - This is valid!
+  - `if ( x = 0 )`
+    - This will *NOT* cause a compiler error in C++!
 </script></section>
 
 <section data-markdown><script type="text/template">
 ## Operators and Expressions
 - Loops, same as Java
-  - while, for, do while, break, continue</li>
+  - while, for, do while, break, continue
   - Same syntax as well
 </script></section>
 
 <section data-markdown><script type="text/template">
 ## Compiler choice
 - In the past we have used g++
-  - From GNU's Compiler Collection</li>
+  - From GNU's Compiler Collection
 - We are now using clang++ (from LLVM)
-  - It has *MUCH* better error messages</li>
+  - It has *MUCH* better error messages
 - Consider:
 ```
 using namespace std;
@@ -248,8 +249,8 @@ int main() {
   <h2>Error comparison</h2>
   <p>&nbsp;</p>
   <table class="wide">
-    <tr><td class="middle">g++:</td><td><img width="850" alt="g++ error message" src="images/02-cpp/g++-error-message.png"></td></tr>
-    <tr><td class="middle">clang++:</td><td><img width="850" alt="clang++ error message" src="images/02-cpp/clang++-error-message.png"></td></tr>
+    <tr><td class="middletrans">g++:</td><td><img width="850" alt="g++ error message" src="images/02-cpp/g++-error-message.png"></td></tr>
+    <tr><td class="middletrans">clang++:</td><td><img width="850" alt="clang++ error message" src="images/02-cpp/clang++-error-message.png"></td></tr>
   </table>
 </section>
 
@@ -263,7 +264,7 @@ int main() {
 
 <section data-markdown><script type="text/template">
 ## Functions
-- Methods not member of a class
+- Methods that are not a member of a class
         #include <iostream>
         using namespace std;
         
@@ -528,9 +529,9 @@ int main( ) {
 <section data-markdown><script type="text/template">
 ## The General Conversion Process
 1. Create .h file with class definition
-   - Member function signatures, no implementations</li>
-2. Create .cpp file containing member function implementations</li>
-3. Create .cpp file containing main()</li>
+   - Member function signatures, no implementations
+2. Create .cpp file containing member function implementations
+3. Create .cpp file containing main()
 </script></section>
 
 <section data-markdown><script type="text/template">
