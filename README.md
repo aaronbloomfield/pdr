@@ -43,10 +43,10 @@ this online at github.com -- you will need to download the repo first**
   2150 as taught at the University of Virginia, such as daily
   announcements, due dates, etc.  To view these files, see the
   [cs2150/index.html](cs2150/index.html) file.
-- exams/: past exams for the course; there are two midterms and a
-  final for each semester.  Currently they are all in PDF format, but
-  that may change in the future.  The more recent ones were developed
-  using LaTeX, the earlier ones using Word.
+- [exams](exams/index.html): past exams for the course; there are two
+  midterms and a final for each semester.  Currently they are all in
+  PDF format, but that may change in the future.  The more recent ones
+  were developed using LaTeX, the earlier ones using Word.
 - [labs](labs/index.html): the labs are the main assignments in the
   course, and each lab is split into pre-lab, in-lab, and post-lab
   parts. To view the labs, see the [labs/index.html](labs/index.html)

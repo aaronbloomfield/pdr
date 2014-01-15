@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>exam1-s08.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">// CS 216 exam 1 code</font></i>
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdio.h&gt;</font>
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<i><font color="#9A1900">/* This function will print out the results of the memory diagram</font></i>
+<i><font color="#9A1900"> * question (question 13).  The lines that are commented out in the</font></i>
+<i><font color="#9A1900"> * function are the ones that cause errors: the first a compile-time</font></i>
+<i><font color="#9A1900"> * error, the last two a run-time error.</font></i>
+<i><font color="#9A1900"> */</font></i>
+<font color="#009900">void</font> <b><font color="#000000">memoryDiagramQuestion</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Memory diagram question output: "</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#009900">int</font> a <font color="#990000">=</font> <font color="#993399">7</font><font color="#990000">;</font>
+    <font color="#009900">int</font> <font color="#990000">*</font>b <font color="#990000">=</font> <font color="#990000">&amp;</font>a<font color="#990000">;</font>
+    <font color="#009900">int</font> <font color="#990000">&amp;</font>c <font color="#990000">=</font> a<font color="#990000">;</font>
+    <font color="#009900">int</font> d<font color="#990000">[</font><font color="#993399">5</font><font color="#990000">]</font> <font color="#990000">=</font> <font color="#FF0000">{</font> <font color="#993399">1</font><font color="#990000">,</font> <font color="#993399">2</font><font color="#990000">,</font> <font color="#993399">3</font><font color="#990000">,</font> <font color="#993399">4</font><font color="#990000">,</font> <font color="#993399">5</font> <font color="#FF0000">}</font><font color="#990000">;</font>
+    <font color="#009900">int</font> <font color="#990000">*</font>e <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">int</font><font color="#990000">[</font><font color="#993399">5</font><font color="#990000">];</font>
+    <font color="#009900">int</font> <font color="#990000">*</font>f <font color="#990000">=</font> NULL<font color="#990000">;</font>
+    <font color="#009900">int</font> <font color="#990000">&amp;</font>g <font color="#990000">=</font> <font color="#990000">*</font>f<font color="#990000">;</font>
+    <i><font color="#9A1900">//c = b;</font></i>
+    c <font color="#990000">=</font> <font color="#990000">*</font>b<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"a:  "</font> <font color="#990000">&lt;&lt;</font> a <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"b:  "</font> <font color="#990000">&lt;&lt;</font> b <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"*b: "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>b <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"c:  "</font> <font color="#990000">&lt;&lt;</font> c <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"d:  "</font> <font color="#990000">&lt;&lt;</font> d <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"e:  "</font> <font color="#990000">&lt;&lt;</font> e <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"*e: "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>e <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"f:  "</font> <font color="#990000">&lt;&lt;</font> f <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <i><font color="#9A1900">//cout &lt;&lt; "*f:  " &lt;&lt; *f &lt;&lt; endl;</font></i>
+    <i><font color="#9A1900">//cout &lt;&lt; "g:  " &lt;&lt; g &lt;&lt; endl;</font></i>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// The array that is declared in question 3</font></i>
+<font color="#009900">int</font> x<font color="#990000">[</font><font color="#993399">3</font><font color="#990000">][</font><font color="#993399">2</font><font color="#990000">]</font> <font color="#990000">=</font> <font color="#FF0000">{</font> <font color="#FF0000">{</font><font color="#993399">1</font><font color="#990000">,</font><font color="#993399">2</font><font color="#FF0000">}</font><font color="#990000">,</font> <font color="#FF0000">{</font><font color="#993399">3</font><font color="#990000">,</font><font color="#993399">4</font><font color="#FF0000">}</font><font color="#990000">,</font> <font color="#FF0000">{</font><font color="#993399">5</font><font color="#990000">,</font><font color="#993399">6</font><font color="#FF0000">}</font> <font color="#FF0000">}</font><font color="#990000">;</font>
+
+<i><font color="#9A1900">// The union used for questin 12</font></i>
+<b><font color="#0000FF">union</font></b> foo <font color="#FF0000">{</font>
+    <font color="#009900">int</font> x<font color="#990000">;</font>               <i><font color="#9A1900">// used to write the int value</font></i>
+    <font color="#009900">float</font> f<font color="#990000">;</font>             <i><font color="#9A1900">// used to read the floating point value</font></i>
+    <font color="#009900">int</font> <font color="#990000">*</font>p<font color="#990000">;</font>              <i><font color="#9A1900">// used to print out the values in hex</font></i>
+    <font color="#009900">unsigned</font> <font color="#009900">char</font> c<font color="#990000">[</font><font color="#993399">4</font><font color="#990000">];</font>  <i><font color="#9A1900">// used to swap the bytes</font></i>
+<font color="#FF0000">}</font><font color="#990000">;</font>
+
+<i><font color="#9A1900">/* This function will compute the result of the endian number question</font></i>
+<i><font color="#9A1900"> * (question 12).  Because the x86 writes both the floating point</font></i>
+<i><font color="#9A1900"> * number and the int value both in the same endian format, the bytes</font></i>
+<i><font color="#9A1900"> * have to be switched to simulate what was asked in the question.</font></i>
+<i><font color="#9A1900"> */</font></i>
+<font color="#009900">void</font> <b><font color="#000000">endianNumberQuestion</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+
+    <i><font color="#9A1900">// Write the int to the union, and print out the value in hex.  This</font></i>
+    <i><font color="#9A1900">// is also the value expected for the first part of the 'partial</font></i>
+    <i><font color="#9A1900">// credit' option for this question.</font></i>
+    <font color="#008080">foo</font> bar<font color="#990000">;</font>
+    bar<font color="#990000">.</font>x <font color="#990000">=</font> <font color="#993399">2113</font><font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Decimal value: "</font> <font color="#990000">&lt;&lt;</font> bar<font color="#990000">.</font>x <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Hex value before endian swap: "</font> <font color="#990000">&lt;&lt;</font> bar<font color="#990000">.</font>p <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+
+    <i><font color="#9A1900">// Any machine will write both floating point numbers and int</font></i>
+    <i><font color="#9A1900">// numbers in the same endian format.  To simulate the exam question</font></i>
+    <i><font color="#9A1900">// (which has one type written in one endian format, and the other</font></i>
+    <i><font color="#9A1900">// one written in the other endian format), the bytes have to be</font></i>
+    <i><font color="#9A1900">// switched.  Note that it doesn't matter if this is running on a</font></i>
+    <i><font color="#9A1900">// big-endian machine or a little-endian machine, as the byte swap</font></i>
+    <i><font color="#9A1900">// will just switch the bytes to the 'other' format.</font></i>
+    <font color="#009900">unsigned</font> <font color="#009900">char</font> g<font color="#990000">;</font>
+    g <font color="#990000">=</font> bar<font color="#990000">.</font>c<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">];</font>
+    bar<font color="#990000">.</font>c<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">=</font> bar<font color="#990000">.</font>c<font color="#990000">[</font><font color="#993399">3</font><font color="#990000">];</font>
+    bar<font color="#990000">.</font>c<font color="#990000">[</font><font color="#993399">3</font><font color="#990000">]</font> <font color="#990000">=</font> g<font color="#990000">;</font>
+    g <font color="#990000">=</font> bar<font color="#990000">.</font>c<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">];</font>
+    bar<font color="#990000">.</font>c<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">]</font> <font color="#990000">=</font> bar<font color="#990000">.</font>c<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">];</font>
+    bar<font color="#990000">.</font>c<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">]</font> <font color="#990000">=</font> g<font color="#990000">;</font>
+
+    <i><font color="#9A1900">// Extract the floating point value</font></i>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Hex value after endian swap: "</font> <font color="#990000">&lt;&lt;</font> bar<font color="#990000">.</font>p <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Floating point value: "</font> <font color="#990000">&lt;&lt;</font> bar<font color="#990000">.</font>f <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+
+    <i><font color="#9A1900">// This is the second part of the 'partial credit' option for this</font></i>
+    <i><font color="#9A1900">// question.</font></i>
+    bar<font color="#990000">.</font>x <font color="#990000">=</font> <font color="#993399">0x419c0000</font><font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"0x419c0000 as a float: "</font> <font color="#990000">&lt;&lt;</font> bar<font color="#990000">.</font>f <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// Calls the two defined functions above, and then exits.</font></i>
+<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">(</font><font color="#009900">int</font> argc<font color="#990000">,</font> <font color="#009900">char</font> <font color="#990000">**</font>argv<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <b><font color="#000000">endianNumberQuestion</font></b><font color="#990000">();</font>
+    <b><font color="#000000">memoryDiagramQuestion</font></b><font color="#990000">();</font>
+    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+
+<i><font color="#9A1900">/* Output:</font></i>
+
+<i><font color="#9A1900">Decimal value: 2113</font></i>
+<i><font color="#9A1900">Hex value before endian swap: 0x841</font></i>
+<i><font color="#9A1900">Hex value after endian swap: 0x41080000</font></i>
+<i><font color="#9A1900">Floating point value: 8.5</font></i>
+<i><font color="#9A1900">0x419c0000 as a float: 19.5</font></i>
+<i><font color="#9A1900">Memory diagram question output:</font></i>
+<i><font color="#9A1900">a:  7</font></i>
+<i><font color="#9A1900">b:  0xbfc8e07c</font></i>
+<i><font color="#9A1900">*b: 7</font></i>
+<i><font color="#9A1900">c:  7</font></i>
+<i><font color="#9A1900">d:  0xbfc8e068</font></i>
+<i><font color="#9A1900">e:  0x804a008</font></i>
+<i><font color="#9A1900">*e: 0</font></i>
+<i><font color="#9A1900">f:  0</font></i>
+
+<i><font color="#9A1900">*/</font></i>
+</tt></pre>
+</body>
+</html>
