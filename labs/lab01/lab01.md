@@ -14,8 +14,8 @@ Every week we will have a lab meeting.  Each lab will consist of three
 parts: a pre-lab (to be completed by Tuesday at the due time listed on
 the [lab due dates](../../cs2150/labduedates.html) page, an in-lab
 (activity to be done during lab), and a post-lab.  The pre-lab will
-also include a tutorial.  Parts of all three of these may be required
-to turned in.  The due dates are all listed on the [lab due
+typically also include a tutorial.  Parts of all three of these may be
+required to turned in.  The due dates are all listed on the [lab due
 dates](../../cs2150/labduedates.html) page. This will all be discussed
 in this lab.
 
@@ -32,9 +32,10 @@ Procedure
    page](../../docs/readings.html)
 2. Complete [Tutorial 1: Introduction to
    UNIX](../../tutorials/01-intro-unix/index.html)
-3. Write the xToN.cpp file, as described in the pre-lab section.  If
-   you are unfamiliar with the submission system, read through the
-   in-lab section of the document.  Submit the xToN.cpp file.
+3. Write the xToN.cpp file, as described in the pre-lab section.
+   Since you are unfamiliar with the submission system, you should
+   read through the in-lab section of the document, which describes
+   the submission process.  Submit the xToN.cpp file.
 4. Examine the Object life-cycle code
    ([lifecycle.cpp](lifecycle.cpp.html)
    ([src](lifecycle.cpp))).  You may not understand everything in
@@ -69,7 +70,7 @@ Procedure
    LifeCycle.cpp, LifeCycle.h, and TestLifeCycle.cpp
 
 ### Post-lab ###
-1. See details in postlab document
+1. See details in the postlab section, below
 2. For this lab you will be submitting your code electronically.
    Your submission is due on the Friday of the week of the lab; the
    exact due time is listed on the [lab due
