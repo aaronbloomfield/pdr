@@ -1,8 +1,20 @@
 Program and Data Representation
 ===============================
 
-Introduction
-------------
+Contents
+--------
+
+- [Introduction](#introduction)
+- [Contributing to this repository](#contributing)
+- [Repository contents](#contents)
+- [Course description](#description)
+- [Markdown](#markdown)
+- [Source code](#sourcecode)
+- [Canvas notes](#canvasnotes)
+- [Licensing](#licensing)
+
+<a name="introduction">Introduction</a>
+---------------------------------------
 
 This repository contains the materials for the course entitled "CS
 2150: Program and Data Representation" at the University of Virginia.
@@ -28,8 +40,32 @@ Bloomfield](http://www.cs.virginia.edu/~asb),
 course.
 
 
-Repository Parts
-----------------
+<a name="contributing">Contributing to this Repository</a>
+----------------------------------------------------------
+
+Updates to the repository are restricted to approved individuals only,
+to prevent anybody from messing with the slides right before a
+lecture.  However, others can still contribute to this repository --
+to do so, take the following steps:
+
+1. Create a github account, if you do not have one
+2. Fork this repository: you can click on the "Fork" link in the upper
+   right, or just click
+   [here](https://github.com/aaronbloomfield/pdr/fork)
+3. Clone your forked repository on to your local machine
+4. Make any changes you want to your forked version, then commit and
+   push your changes back to your forked repo
+5. Create a pull request, following the instructions
+   [here](https://help.github.com/articles/creating-a-pull-request)
+
+At that point, I will receive a notice that a change has been
+submitted, and I'll look at it and hopefully accept it into the main
+repository.
+
+
+
+<a name="contents">Repository Contents</a>
+------------------------------------------
 
 **Note that the links below will not work correctly if you are viewing
 this online at github.com -- you will need to download the repo first**
@@ -65,8 +101,8 @@ this online at github.com -- you will need to download the repo first**
   [tutorials/index.html](tutorials/index.html) page.
 
 
-Course Description
-------------------
+<a name="description">Course Description</a>
+--------------------------------------------
 
 This course is a second-year course for computer science majors.  It
 is the primary data structures course in the University of Virginia's
@@ -103,8 +139,8 @@ The [ABET](http://www.abet.org) course objects are as follows:
   passing modes, arrays)
 
 
-Markdown
---------
+<a name="markdown">Markdown</a>
+-------------------------------
 
 The majority of the content in this repository was created using
 Markdown.  Unfortunately, the only standardized Markdown is very old
@@ -129,9 +165,18 @@ version (.html) are added to the repository, so that people who do not
 have Markdown installed can still view the contents of this
 repository.
 
+Note that Github supports an enhanced version of Markdown, called
+[Github Flavored
+Markdwon](https://help.github.com/articles/github-flavored-markdown),
+or GFM.  This mostly pertains to this README file.  In an effort to
+ensure compatibility with other Markdown programs (such as the one
+described here), GFM specific features are generally avoided.  One
+example is the use of anchors in this document -- the HTML tags are
+included instead of using GFM's version.
 
-Source code
------------
+
+<a name="sourcecode">Source code</a>
+------------------------------------
 
 All source code is formatted via astyle and then highlighted via
 source-highlight.  Both the original (foo.cpp) and the highlihged
@@ -143,8 +188,8 @@ to link to the original source code.
 - source-highlight options: -d
 
 
-Canvas notes
-------------
+<a name="canvasnotes">Canvas notes</a>
+--------------------------------------
 
 To add a canvas to a slide (to allow drawing with a mouse or a
 stylus), you must do a few things:
@@ -179,16 +224,18 @@ A few other notes:
 - The canvas is larger than the slide itself, and the amount is the
   `canvas_border` variable in the canvas.js file
 - To add colors, add them to the `colors` array in the canvas.js
-  file; more colors can be found
+  file; more color names can be found
   [here](http://www.tutorialspoint.com/html5/html5_color_names.htm).
 
 
-Licensing
----------
+<a name="licensing">Licensing</a>
+---------------------------------
 
 The material in this repository is released under a [Creative Commons
 Attribution-ShareAlike 4.0 International
 License](http://creativecommons.org/licenses/by-sa/4.0/) (CC BY-SA).
+
+Copyright (c) 2013-2014 by Aaron Bloomfield.
 
 Various components in this repository were obtained from other
 sources, all of which have compatible licenses, and all of which are
