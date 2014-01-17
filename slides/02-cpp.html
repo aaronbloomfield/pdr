@@ -414,13 +414,15 @@ Source code: [TestIntCell.cpp](src/02-cpp/TestIntCell.cpp.html) ([src](src/02-cp
 using namespace std; 
 
 int main( ) { 
-   IntCell m1; // calls the default constructor
-   IntCell m2( 37 );
-   cout << m1.getValue( ) << " " << m2.getValue( ) << endl;
-   m1 = m2;
-   m2.setValue( 40 );
-   cout << m1.getValue( ) << " " << m2.getValue( ) << endl;
-   return 0;
+    IntCell m1; // calls the default constructor
+    IntCell m2( 37 );
+    cout << m1.getValue( ) << " "
+         << m2.getValue( ) << endl;
+    m1 = m2;
+    m2.setValue( 40 );
+    cout << m1.getValue( ) << " " 
+         << m2.getValue( ) << endl;
+    return 0;
 }
 ```
 </script></section>
@@ -504,14 +506,16 @@ Source code: [TestIntCell.cpp](src/02-cpp/TestIntCell.cpp.html) ([src](src/02-cp
 #include "IntCell.h" 
 using namespace std; 
 
-int main( ) { 
-   IntCell m1; // calls the default constructor
-   IntCell m2( 37 );
-   cout << m1.getValue( ) << " " << m2.getValue( ) << endl;
-   m1 = m2;
-   m2.setValue( 40 );
-   cout << m1.getValue( ) << " " << m2.getValue( ) << endl;
-   return 0;
+int main( ) {
+    IntCell m1; // calls the default constructor
+    IntCell m2( 37 );
+    cout << m1.getValue( ) << " "
+         << m2.getValue( ) << endl;
+    m1 = m2;
+    m2.setValue( 40 );
+    cout << m1.getValue( ) << " " 
+         << m2.getValue( ) << endl;
+    return 0;
 }
 ```
 </script></section>
@@ -563,6 +567,7 @@ Source code: [Rational.h](src/02-cpp/Rational.h.html) ([src](src/02-cpp/Rational
 ```
 #ifndef RATIONAL_H
 #define RATIONAL_H 
+
 class Rational { 
   public: 
     Rational(); // default constructor 
@@ -574,9 +579,10 @@ class Rational {
     Rational reciprocal();
     Rational divides(Rational b); 
   private: 
-    int num, dem; // the numerator and denominator
+    int num, den; // the numerator and denominator
     int gcd(int m, int n); 
 };
+
 #endif
 ```
 </script></section>
@@ -610,7 +616,7 @@ Rational Rational::times(Rational b) {
 }
 
 Rational::Rational(int numerator, int denominator) { 
-    if (denominator == 0) {
+    if (denominator == 0)
        cout << "Denominator is zero" << endl; 
     int g = gcd(numerator, denominator);
     num = numerator / g; 
@@ -693,6 +699,9 @@ area = PI * r * r;
 #define FOO
 #ifdef FOO   // is true!
 #ifndef FOO  // is false!
+// ...
+#endif
+#endif
 ```
 </script></section>
 
@@ -746,21 +755,21 @@ bool even (int x);
 
 <section data-markdown><script type="text/template">
 ## Examples of Pointers
-- int * x;
-  - pointer to int
-- char *y;
-  - pointer to char
-- Rational * rPointer;
-  - pointer to Rational
+- `int * x;`
+  - pointer to `int`
+- `char *y;`
+  - pointer to `char`
+- `Rational * rPointer;`
+  - pointer to `Rational`
 </script></section>
 
 <section data-markdown><script type="text/template">
 ## What Types are These?
-- float * num1
-- double num2
-- Rational fraction1
-- Square * square1
-- int num3
+- `float * num1`
+- `double num2`
+- `Rational fraction1`
+- `Square * square1`
+- `int num3`
 </script></section>
 
 <section data-markdown><script type="text/template">
@@ -768,11 +777,11 @@ bool even (int x);
 - Asterisk: *
   - In a definition
     - defines pointer type
-      - int x
+      - `int x`
   - In an expression
     - "dereferences"
     - evaluates object to which the pointer points
-      - x = 2
+      - `x = 2`
 </script></section>
 
 <section data-markdown><script type="text/template">
@@ -782,7 +791,7 @@ bool even (int x);
     - defines a reference type (more on this later)
   - In an expression
     - "address of"
-      - x = &y
+      - `x = &y`
 </script></section>
 
 <section data-markdown><script type="text/template">
@@ -790,14 +799,14 @@ bool even (int x);
 Source code: [pointers.cpp](src/02-cpp/pointers.cpp.html) ([src](src/02-cpp/pointers.cpp))
 
 <p>&nbsp;</p>
-<table class="default"><tr><td>
-<table class="memory">
+<table class="transparent"><tr><td>
+<table class="transparent">
 <tr><th>Variable</th><th>Address</th><th>Memory</th></tr>
-<tr><td><span class="fragment" data-fragment-index="1"><center>x</center></span></td><td>1000</td><td class="border"><span class="fragment" data-fragment-index="4"><center>1</center></span></td><td></td></tr>
-<tr><td><span class="fragment" data-fragment-index="2"><center>y</center></span></td><td>1004</td><td class="border"><span class="fragment" data-fragment-index="5"><center>5</center></span></td><td></td></tr>
-<tr><td><span class="fragment" data-fragment-index="3"><center>x_pointer</center></span></td><td>1008</td><td class="border"><span class="fragment" data-fragment-index="6"><center>1000</center></span></td><td></td></tr>
-<tr><td></td><td>1012</td><td class="border"></td><td></td></tr>
-<tr><td></td><td>1016</td><td class="border"></td><td></td></tr>
+<tr><td><span class="fragment" data-fragment-index="1"><center>x</center></span></td><td>1000</td><td class="border"><span class="fragment" data-fragment-index="4"><center>1</center></span></td></tr>
+<tr><td><span class="fragment" data-fragment-index="2"><center>y</center></span></td><td>1004</td><td class="border"><span class="fragment" data-fragment-index="5"><center>5</center></span></td></tr>
+<tr><td><span class="fragment" data-fragment-index="3"><center>x_pointer</center></span></td><td>1008</td><td class="border"><span class="fragment" data-fragment-index="6"><center>1000</center></span></td></tr>
+<tr><td></td><td>1012</td><td class="border"></td></tr>
+<tr><td></td><td>1016</td><td class="border"></td></tr>
 </table>
 </td><td></td><td>
 <pre><code data-trim>
@@ -821,8 +830,8 @@ cout << *x_pointer;
 Source code: [pointers.cpp](src/02-cpp/pointers.cpp.html) ([src](src/02-cpp/pointers.cpp))
 
 <p>&nbsp;</p>
-<table class="default"><tr><td>
-<table class="memory">
+<table class="transparent"><tr><td>
+<table class="transparent">
 <tr><th>Variable</th><th>Address</th><th>Memory</th></tr>
 <tr><td><center>x</center></td><td>ffdf65d4</td><td class="border"><center><span class="fragment fade-out" data-fragment-index="1">1</span><span class="fragment fade-in" data-fragment-index="1"><strong class="red">2</strong></span></center></td></tr>
 <tr><td><center>y</center></td><td>ffdf65d8</td><td class="border"><center>5</center></td></tr>
@@ -849,8 +858,8 @@ Source code: [pointers.cpp](src/02-cpp/pointers.cpp.html) ([src](src/02-cpp/poin
 Source code: [pointers.cpp](src/02-cpp/pointers.cpp.html) ([src](src/02-cpp/pointers.cpp))
   
 <p>&nbsp;</p>
-<table class="default"><tr><td>
-<table class="memory">
+<table class="transparent"><tr><td>
+<table class="transparent">
 <tr><th>Variable</th><th>Address</th><th>Memory</th></tr>
 <tr><td><center>x</center></td><td>ffdf65d4</td><td class="border"><center>2</center></td></tr>
 <tr><td><center>y</center></td><td>ffdf65d8</td><td class="border"><center>5</center></td></tr>
@@ -877,8 +886,8 @@ x_pointer = y;
 Source code: [pointers.cpp](src/02-cpp/pointers.cpp.html) ([src](src/02-cpp/pointers.cpp))
   
 <p>&nbsp;</p>
-<table class="default"><tr><td>
-<table class="memory">
+<table class="transparent"><tr><td>
+<table class="transparent">
 <tr><th>Variable</th><th>Address</th><th>Memory</th></tr>
 <tr><td><center>y</center></td><td>ffdf65d4</td><td class="border"><center>2</center></td></tr>
 <tr><td><center>x</center></td><td>ffdf65d8</td><td class="border"><center><span class="fragment fade-out" data-fragment-index="1">5</span><span class="fragment fade-in" data-fragment-index="1"><strong class="red">3</strong></span></center></td></tr>
@@ -909,10 +918,10 @@ If that doesn't work, try the [direct Youtube link](http://www.youtube.com/watch
 
 <section data-markdown><script type="text/template">
 ## What Types are These?
-- char * x;
-- int **y;
-- Rational *rNumber1;
-- Square **blah;
+- `char * x;`
+- `int **y;`
+- `Rational *rNumber1;`
+- `Square **blah;`
 </script></section>
 
 <section data-markdown><script type="text/template">
@@ -1197,7 +1206,7 @@ class ListNode {
 - First one:
 ```
 Foo() {
-  ListNode* list = new ListNode();
+    ListNode* list = new ListNode();
 }
 ```
 <span class="fragment"> You are creating a local variable 'list' and not accessing the field named 'list'</span>
