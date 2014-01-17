@@ -89,7 +89,7 @@ stopped at the same point.
 |-----||--------||-------------||----------------------------------------------------------||--------------------------||--------------------------|
 | 1 || Jan 13 || Monday || no lab this week || [01: Course introduction](../slides/01-intro.html) || [01: course introduction, slide 1 to slide 5-6](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/01-intro-1b/01-intro-1b.htm) |
 | 2 || Jan 15 || Wednesday || || [01: Course introduction](../slides/01-intro.html), [02: C++](../slides/02-cpp.html) || [01: course introduction, slides 5-7 to 6-1 (end); 02: C++, slides 1 to 3-4](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/02-cpp-1b/02-cpp-1b.htm) |
-| 3 || Jan 17 || Friday || || [02: C++](../slides/02-cpp.html) || |
+| 3 || Jan 17 || Friday || || [02: C++](../slides/02-cpp.html) || 02: C++, slides 4 to 6-4 |
 | || Jan 20 || Monday || [Lab 1: Intro to C++](../labs/lab01/lab01.html), [Tutorial 1: Intro to UNIX](../tutorials/01-intro-unix/index.html) || (no class: MLK day) || (no class: MLK day) |
 | 4 || Jan 22 || Wednesday || || [02: C++](../slides/02-cpp.html) || |
 | 5 || Jan 24 || Friday || || [02: C++](../slides/02-cpp.html) || |

@@ -1,6 +1,7 @@
 // File IntCell.cpp
 
 #include "IntCell.h"
+using namespace std; // (not really necessary, but...)
 
 IntCell::IntCell( int initialValue ) : storedValue( initialValue ) {
 

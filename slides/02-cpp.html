@@ -414,13 +414,13 @@ Source code: [TestIntCell.cpp](src/02-cpp/TestIntCell.cpp.html) ([src](src/02-cp
 using namespace std; 
 
 int main( ) { 
-    IntCell m1; // calls the default constructor
-    IntCell m2( 37 );
-    cout << m1.getValue( ) << " " << m2.getValue( ) << endl;
-    m1 = m2;
-    m2.setValue( 40 );
-    cout << m1.getValue( ) << " " << m2.getValue( ) << endl;
-    return 0;
+   IntCell m1; // calls the default constructor
+   IntCell m2( 37 );
+   cout << m1.getValue( ) << " " << m2.getValue( ) << endl;
+   m1 = m2;
+   m2.setValue( 40 );
+   cout << m1.getValue( ) << " " << m2.getValue( ) << endl;
+   return 0;
 }
 ```
 </script></section>
@@ -434,7 +434,7 @@ Source code: [IntCell.h](src/02-cpp/IntCell.h.html) ([src](src/02-cpp/IntCell.h)
 
 class IntCell {
   public:
-    explicit IntCell( int initialValue = 0 );
+    IntCell( int initialValue = 0 );
 
     int getValue( ) const;
     void setValue( int val );
@@ -443,6 +443,7 @@ class IntCell {
     int storedValue;
     int max(int m);
 };
+
 #endif
 ```
 </script></section>
@@ -452,6 +453,7 @@ class IntCell {
 Source code: [IntCell.cpp](src/02-cpp/IntCell.cpp.html) ([src](src/02-cpp/IntCell.cpp))
 ```
 #include "IntCell.h" 
+using namespace std; // (not really necessary, but...)
 
 IntCell::IntCell( int initialValue ) : 
 	      storedValue( initialValue ) { 
@@ -480,7 +482,7 @@ Source code: [IntCell.h](src/02-cpp/IntCell.h.html) ([src](src/02-cpp/IntCell.h)
 
 class IntCell {
   public:
-    explicit IntCell( int initialValue = 0 );
+    IntCell( int initialValue = 0 );
 
     int getValue( ) const;
     void setValue( int val );
@@ -489,26 +491,27 @@ class IntCell {
     int storedValue;
     int max(int m);
 };
+
 #endif
 ```
 </script></section>
 
 <section data-markdown><script type="text/template">
 ## C++ IntCell: TestIntCell.cpp (again)
-Source code: [IntCell.cpp](src/02-cpp/IntCell.cpp.html) ([src](src/02-cpp/IntCell.cpp))
+Source code: [TestIntCell.cpp](src/02-cpp/TestIntCell.cpp.html) ([src](src/02-cpp/TestIntCell.cpp))
 ```
 #include <iostream>
 #include "IntCell.h" 
 using namespace std; 
 
 int main( ) { 
-    IntCell m1; // calls the default constructor
-    IntCell m2( 37 );
-    cout << m1.getValue( ) << " " << m2.getValue( ) << endl;
-    m1 = m2;
-    m2.setValue( 40 );
-    cout << m1.getValue( ) << " " << m2.getValue( ) << endl;
-    return 0;
+   IntCell m1; // calls the default constructor
+   IntCell m2( 37 );
+   cout << m1.getValue( ) << " " << m2.getValue( ) << endl;
+   m1 = m2;
+   m2.setValue( 40 );
+   cout << m1.getValue( ) << " " << m2.getValue( ) << endl;
+   return 0;
 }
 ```
 </script></section>
@@ -531,7 +534,7 @@ int main( ) {
 1. Create .h file with class definition
    - Member function signatures, no implementations
 2. Create .cpp file containing member function implementations
-3. Create .cpp file containing main()
+3. Create .cpp file containing `main()`
 </script></section>
 
 <section data-markdown><script type="text/template">
@@ -558,6 +561,7 @@ int main( ) {
 ## Rational.h
 Source code: [Rational.h](src/02-cpp/Rational.h.html) ([src](src/02-cpp/Rational.h))
 ```
+#ifndef RATIONAL_H
 #define RATIONAL_H 
 class Rational { 
   public: 
@@ -668,7 +672,7 @@ int main() {
 - \#define
   - Defines a macro (direct text replacement)
 ```
-define TRUE 0
+#define TRUE 0
 if(TRUE == 0) {...}
 #define MY_OBJECT_H
 ```
@@ -680,7 +684,7 @@ if(TRUE == 0) {...}
 ## #define
 - Can define a constant
 ```
-define PI 3.14159
+#define PI 3.14159
 ...
 area = PI * r * r;
 ```
