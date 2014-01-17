@@ -1,0 +1,42 @@
+#!/bin/bash
+#
+# This program will do a first take at converting text files in Radeox
+# wiki format (what all my labs and such were in previously) to
+# Markdown.  Note that this program assumes the cut-and-paste was done
+# on a Mac (if done on a different OS, then there are different
+# characters that are substituted for the non-ASCII characters).
+#
+# Most of the replacements are self-explanatory.  The first 6 are:
+# - replace long dash with --
+# - replace left and right single quote with '
+# - replace left and right double quotes with "
+# - replace {code} tags with ```
+
+for ARG in $*
+do
+  echo processing $ARG...
+  cat $ARG | \
+    sed 's/\xe2\x80\x93/--/g' | \
+    sed "s/\xe2\x80\x98/\'/g" | \
+    sed "s/\xe2\x80\x99/\'/g" | \
+    sed 's/\xe2\x80\x9c/\"/g' | \
+    sed 's/\xe2\x80\x9d/\"/g' | \
+    sed 's/\xe2\x80\xa6/.../g' | \
+    sed "s/{code:[^}]*}/\x60\x60\x60/g" | \
+    sed "s/{code}/\x60\x60\x60/g" | \
+    sed "s/^# /1. /g" | \
+    sed "s/^##\ /   1. /g" | \
+    sed "s/^#/\\\\#/g" | \
+    sed "s/^h1 \(.*\)$/\1\n===============/g" | \
+    sed "s/^h2 \(.*\)$/\1\n---------------/g" | \
+    sed "s/^h3 \(.*\)$/### \1 ###/g" | \
+    sed "s/^h4 \(.*\)$/### \1 ###/g" | \
+    sed "s/~~/\*/g" | \
+    sed "s/__/\*\*/g" | \
+    sed "s/{link:url=worksite:\([^|]*\)|text=\([^}]*\)}/[\2](\1)/g" | \
+    sed "s/{link:url=\([^|]*\)|text=\([^}]*\)}/[\2](\1)/g" | \
+    sed "s/{link:text=worksite:\([^|]*\)|url=\([^}]*\)}/[\1](\2)/g" | \
+    sed "s/{link:text=\([^|]*\)|url=\([^}]*\)}/[\1](\2)/g" | \
+    sed "s/{image:img=worksite:\([^}]*\)}/![\1](\1)/g" \
+    > $ARG.out
+done

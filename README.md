@@ -13,7 +13,7 @@ Contents
 - [Canvas notes](#canvasnotes)
 - [Licensing](#licensing)
 
-<a name="introduction">Introduction</a>
+<a name="introduction"></a>Introduction
 ---------------------------------------
 
 This repository contains the materials for the course entitled "CS
@@ -40,7 +40,7 @@ Bloomfield](http://www.cs.virginia.edu/~asb),
 course.
 
 
-<a name="contributing">Contributing to this Repository</a>
+<a name="contributing"></a>Contributing to this Repository
 ----------------------------------------------------------
 
 Updates to the repository are restricted to approved individuals only,
@@ -64,7 +64,7 @@ repository.
 
 
 
-<a name="contents">Repository Contents</a>
+<a name="contents"></a>Repository Contents
 ------------------------------------------
 
 **Note that the links below will not work correctly if you are viewing
@@ -99,9 +99,9 @@ this online at github.com -- you will need to download the repo first**
   part of the lab assignments, these are primarily Linux tutorials.
   To view the tutorials, see the
   [tutorials/index.html](tutorials/index.html) page.
+- [utils](utils/index.html): various utilities for this repository
 
-
-<a name="description">Course Description</a>
+<a name="description"></a>Course Description
 --------------------------------------------
 
 This course is a second-year course for computer science majors.  It
@@ -139,7 +139,7 @@ The [ABET](http://www.abet.org) course objects are as follows:
   passing modes, arrays)
 
 
-<a name="markdown">Markdown</a>
+<a name="markdown"></a>Markdown
 -------------------------------
 
 The majority of the content in this repository was created using
@@ -175,7 +175,7 @@ example is the use of anchors in this document -- the HTML tags are
 included instead of using GFM's version.
 
 
-<a name="sourcecode">Source code</a>
+<a name="sourcecode"></a>Source code
 ------------------------------------
 
 All source code is formatted via astyle and then highlighted via
@@ -188,7 +188,7 @@ to link to the original source code.
 - source-highlight options: -d
 
 
-<a name="canvasnotes">Canvas notes</a>
+<a name="canvasnotes"></a>Canvas notes
 --------------------------------------
 
 To add a canvas to a slide (to allow drawing with a mouse or a
@@ -228,7 +228,7 @@ A few other notes:
   [here](http://www.tutorialspoint.com/html5/html5_color_names.htm).
 
 
-<a name="licensing">Licensing</a>
+<a name="licensing"></a>Licensing
 ---------------------------------
 
 The material in this repository is released under a [Creative Commons
