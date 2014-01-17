@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>List.h</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">/*</font></i>
+<i><font color="#9A1900"> * Filename: List.h</font></i>
+<i><font color="#9A1900"> * Description: List class definition</font></i>
+<i><font color="#9A1900"> * 	also includes the prototype for non-member function print()</font></i>
+<i><font color="#9A1900"> */</font></i>
+<b><font color="#000080">#ifndef</font></b> LIST_H
+<b><font color="#000080">#define</font></b> LIST_H
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">"ListNode.h"</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">"ListItr.h"</font>
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<i><font color="#9A1900">// When reading in ListItr.h first, it starts reading in this file</font></i>
+<i><font color="#9A1900">// before declaring that ListItr is a class.  This file then include</font></i>
+<i><font color="#9A1900">// ListItr.h, but beacuse of the #ifndef LISTITR_H statement, the code</font></i>
+<i><font color="#9A1900">// in that file is not read.  Thus, in this case, this List.h file</font></i>
+<i><font color="#9A1900">// will be read in, and will not know that ListItr is a class, which</font></i>
+<i><font color="#9A1900">// will cause compilation problems later on in this file.  Got it?</font></i>
+<i><font color="#9A1900">// Isn't C++ fun???</font></i>
+<b><font color="#0000FF">class</font></b> <font color="#008080">ListItr</font><font color="#990000">;</font>
+
+<b><font color="#0000FF">class</font></b> <font color="#008080">List</font> <font color="#FF0000">{</font>
+<b><font color="#0000FF">public</font></b><font color="#990000">:</font>
+    <b><font color="#000000">List</font></b><font color="#990000">();</font>				<i><font color="#9A1900">//Constructor</font></i>
+    <b><font color="#000000">List</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> List<font color="#990000">&amp;</font> source<font color="#990000">);</font>	<i><font color="#9A1900">//Copy Constructor</font></i>
+    <font color="#990000">~</font><b><font color="#000000">List</font></b><font color="#990000">();</font>			<i><font color="#9A1900">//Destructor</font></i>
+    List<font color="#990000">&amp;</font> <b><font color="#0000FF">operator</font></b><font color="#990000">=(</font><b><font color="#0000FF">const</font></b> List<font color="#990000">&amp;</font> source<font color="#990000">);</font>	<i><font color="#9A1900">//Equals Operator</font></i>
+    <font color="#009900">bool</font> <b><font color="#000000">isEmpty</font></b><font color="#990000">()</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font>		<i><font color="#9A1900">//Returns true if empty; else false</font></i>
+    <font color="#009900">void</font> <b><font color="#000000">makeEmpty</font></b><font color="#990000">();</font>	<i><font color="#9A1900">//Removes all items except blank head and tail</font></i>
+    <font color="#008080">ListItr</font> <b><font color="#000000">first</font></b><font color="#990000">();</font> 		<i><font color="#9A1900">//Returns an iterator that points to</font></i>
+    <i><font color="#9A1900">//the ListNode in the first position</font></i>
+    <font color="#008080">ListItr</font> <b><font color="#000000">last</font></b><font color="#990000">();</font>			<i><font color="#9A1900">//Returns an iterator that points to</font></i>
+    <i><font color="#9A1900">//the ListNode in the last position</font></i>
+    <font color="#009900">void</font> <b><font color="#000000">insertAfter</font></b><font color="#990000">(</font><font color="#009900">int</font> x<font color="#990000">,</font> <font color="#008080">ListItr</font> position<font color="#990000">);</font>
+    <i><font color="#9A1900">//Inserts x after current iterator position p</font></i>
+    <font color="#009900">void</font> <b><font color="#000000">insertBefore</font></b><font color="#990000">(</font><font color="#009900">int</font> x<font color="#990000">,</font> <font color="#008080">ListItr</font> position<font color="#990000">);</font>
+    <i><font color="#9A1900">//Inserts x before current iterator position p</font></i>
+    <font color="#009900">void</font> <b><font color="#000000">insertAtTail</font></b><font color="#990000">(</font><font color="#009900">int</font> x<font color="#990000">);</font>	<i><font color="#9A1900">//Insert x at tail of list</font></i>
+    <font color="#009900">void</font> <b><font color="#000000">remove</font></b><font color="#990000">(</font><font color="#009900">int</font> x<font color="#990000">);</font>		<i><font color="#9A1900">//Removes the first occurrence of x</font></i>
+    <font color="#008080">ListItr</font> <b><font color="#000000">find</font></b><font color="#990000">(</font><font color="#009900">int</font> x<font color="#990000">);</font>		<i><font color="#9A1900">//Returns an iterator that points to</font></i>
+    <i><font color="#9A1900">// the first occurrence of x, else</font></i>
+    <i><font color="#9A1900">// return a blank iterator</font></i>
+
+    <font color="#009900">int</font> <b><font color="#000000">size</font></b><font color="#990000">()</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font> <i><font color="#9A1900">//Returns the number of elements in the list</font></i>
+
+<b><font color="#0000FF">private</font></b><font color="#990000">:</font>
+    <font color="#008080">ListNode</font> <font color="#990000">*</font>head<font color="#990000">,</font> <font color="#990000">*</font>tail<font color="#990000">;</font>	<i><font color="#9A1900">//indicates beginning and end of the list</font></i>
+    <font color="#009900">int</font> count<font color="#990000">;</font>			<i><font color="#9A1900">//#of elements in list</font></i>
+    <b><font color="#0000FF">friend</font></b> <b><font color="#0000FF">class</font></b> <font color="#008080">ListItr</font><font color="#990000">;</font>
+<font color="#FF0000">}</font><font color="#990000">;</font>
+
+<i><font color="#9A1900">// printList: non-member function prototype</font></i>
+<font color="#009900">void</font> <b><font color="#000000">printList</font></b><font color="#990000">(</font>List<font color="#990000">&amp;</font> source<font color="#990000">,</font> <font color="#009900">bool</font> direction<font color="#990000">);</font>
+<i><font color="#9A1900">//prints list forwards when direction is true</font></i>
+<i><font color="#9A1900">//or backwards when direction is false</font></i>
+<b><font color="#000080">#endif</font></b>
+<i><font color="#9A1900">/* end of List.h */</font></i>
+</tt></pre>
+</body>
+</html>

@@ -1,0 +1,653 @@
+<!doctype html>
+<html>
+<head>
+</head>
+<body>
+<h1>GDB Tutorial</h1>
+
+<p><a href="../index.html">Go up to the Tutorials table of contents page</a></p>
+
+<p>This tutorial is meant to get you used to using the GNU debugger, gdb.
+As you read through the first part of the tutorial, you are not
+expected to remember everything &ndash; there is a reference list at the
+end of this tutorial.  This reference list also exists on the <a href="../../docs/gdb_summary.html">GDB
+command summary</a> page.  The exercise, at
+the end of this tutorial, will guide you through the process of using
+those commands.  Gdb is a command-line debugger &ndash; we will be seeing
+graphical debuggers later in the semester.</p>
+
+<hr />
+
+<h2>Part I: GDB Tutorial</h2>
+
+<h3>What is a Debugger?</h3>
+
+<p>A debugger is a utility program that allows you to run a program under
+development while controlling its execution and examining the internal
+values of variables.  We think of a program running &ldquo;inside&rdquo; a
+debugger.  The debugger allows us to control the execution of the
+program by pausing its execution and then resuming it.  While paused,
+we can find out where we are in the program, what values variables
+have, reset the values of variables, etc.  The principles and commands
+described in this document are specific to the gdb debuggers for
+clang++ under UNIX, but every debugger has similar commands.</p>
+
+<p>All programmers should learn the basics of debugging and how to use a
+debugger.  It will save you literally hours of time when finding and
+fixing problems in your programs.  The few minutes of investment you
+put into learning how to use a debugger will pay off tremendously in a
+matter of weeks.  Work smart!</p>
+
+<h3>Compiling for Debugging</h3>
+
+<p>Programs normally have to be compiled with a special option to allow
+debugging to take place.  On UNIX, the option for clang++ is the -g
+option.  For example:</p>
+
+<p><code>
+clang++ -Wall -g -o prog1 prog1.cpp
+</code></p>
+
+<p>We also include the &ndash;Wall option, which lists warnings (the &lsquo;all&rsquo; is
+to list all warnings).  Note that this option leads to executable
+files that are larger and slower, so you may not want to use it for
+final distributions or time-critical programs.  But you can always
+remove the debugging information from an executable without
+recompiling it with the &ldquo;strip&rdquo; command.  See the man page for
+&ldquo;strip&rdquo;.</p>
+
+<p>The -g option causes the compiler to include information about the
+source file (the .c file) that is needed for debugging as part of the
+executable file.  So when you run the debugger, you specify the
+executable file (not the source file) as the input to the debugger.</p>
+
+<h3>How to Start Using gdb on our UNIX Systems</h3>
+
+<p>The GNU C++ compiler, clang++, has an accompanying debugger: gdb.  To
+run the command-line version, compile your program as described above,
+and then type:</p>
+
+<p><code>
+gdb prog1
+</code></p>
+
+<p>Assuming your executable (created with clang&rsquo;s -o option) was &ldquo;prog1&rdquo;.
+If you didn&rsquo;t use the -o option, then you&rsquo;ll type:</p>
+
+<p><code>
+gdb a.out
+</code></p>
+
+<p>The following sections describe the important types of things you can
+do with gdb, organized by &ldquo;category&rdquo; of activity.  These activities
+and operations will have been implemented in other debuggers you may
+have used, such as the debugger that comes with Microsoft Visual C++.</p>
+
+<h3>Executing your Program</h3>
+
+<p>Once in gdb, use the &lsquo;run&rsquo; command to start your program running.  It
+will run until it completes, until it crashes, or until it reaches a
+breakpoint that you set (more on this later).  Once it finishes,
+you&rsquo;re still in gdb, so you can run it again from the beginning.</p>
+
+<p>If your program requires command-line arguments, you can give them
+after the run command.  If you would normally run the program by
+entering:</p>
+
+<p><code>
+prog1 100 test1.dat
+</code></p>
+
+<p>In the debugger, you would enter:</p>
+
+<p><code>
+run 100 test1.dat
+</code></p>
+
+<h3>Where Am I? Where Did It Crash?</h3>
+
+<p>Under UNIX, one of the most frustrating things about running C or C++
+programs is that they normally give little useful information when
+they crash.  Part of the reason is that by default the executable file
+doesn&rsquo;t include information about the source code that is needed to
+print an error message (like the line number).</p>
+
+<p>But when you run a program inside a debugger, you can easily see what
+the current line is when a program crashes.  Type &lsquo;list&rsquo; to see the
+current and surrounding lines.</p>
+
+<p>More usefully, you can see a list of the function calls that led you
+to this point in your program.  Your program may have died deep inside
+a function that is called many times in your program, and you need to
+know which sequence of nested functions calls led to the failure.  In
+the command-line mode, type &ldquo;backtrace&rdquo; or &ldquo;bt&rdquo; to show this list.
+IMPORTANT: this command is one of the most important and useful
+debugging commands you&rsquo;ll see in this lesson.</p>
+
+<p>While we&rsquo;re talking about reaching a point in a sequence of nested
+function calls, sometimes in gdb you will need to understand the
+concept of frames.  When a program stops, you can examine local
+variables, view lines of code, etc.  that are local to that function.
+If you need to move up to the function that called this one, you need
+to move up to the higher frame using the &lsquo;up&rsquo; command to debug there.
+The &lsquo;down&rsquo; command moves you back down a frame towards where you
+started.  The up and down commands let you move up and down the
+calling stack (of nested function calls) so you can issue debug
+commands about the function that&rsquo;s &ldquo;active&rdquo; at each level.</p>
+
+<h3>Making your Program Pause: Breakpoints</h3>
+
+<p>One of the most fundamental things you want to do while debugging is
+make the program pause at a particular line or at the start of a
+function.  These locations in a program where execution pauses are
+called &ldquo;breakpoints.&rdquo;  IMPORTANT: You must choose a line of code that
+actually executes something: not a comment, for example.</p>
+
+<p>In gdb you can set breakpoints by typing either &lsquo;break&rsquo; or &lsquo;b&rsquo;
+followed by information on where you want the program to pause.  After
+the &lsquo;b&rsquo; command, you can put either:</p>
+
+<ul>
+<li>a function name (e.g., &lsquo;b GetAverage&rsquo;)</li>
+<li>a line number (e.g., &lsquo;b 23&rsquo;)</li>
+<li>either of the above preceded by a file name (e.g., &lsquo;b gdb.cpp:23&rsquo;
+or &lsquo;b gdb.cpp:GetAverage&rsquo;)</li>
+</ul>
+
+
+<p>Here, the GetAverage() function doesn&rsquo;t start on line 23 (it starts on
+line 44) &ndash; the breakpoint on line 23 is for the cout statement in the
+main() function.  We could have also set a breakpoint at the beginning
+on the GetAverage() function by calling &lsquo;b 44&rsquo;.</p>
+
+<p>At any time you can see information about all the breakpoints that
+have been defined by entering &lsquo;info break&rsquo;.  You can remove a
+breakpoint using the &lsquo;delete&rsquo; command (or just &rsquo;d').  You can delete
+all breakpoints (&rsquo;d') or a specific one (&rsquo;d 1').  Or you can type
+&lsquo;clear&rsquo; followed by the function name or line number (i.e.  &lsquo;clear
+GetAverage&rsquo;, &lsquo;clear 44&rsquo;, etc., to remove break-points at those
+positions).</p>
+
+<p>Breakpoints stick around until you delete them.  This is handy if you
+put a breakpoint inside a function that is called more than once or if
+you put one inside a loop.  You can set a temporary breakpoint with
+the &lsquo;tbreak&rsquo; command; the program pauses the first time, but after it
+pauses there, that breakpoint is cleared.</p>
+
+<h3>Controlling Execution After a Breakpoint</h3>
+
+<p>After you make your program pause, you may want to execute it
+line-by-line to see what it does next.  There are two commands that
+make a program execute the next line and then pause again: &lsquo;next&rsquo; and
+&lsquo;step&rsquo;.</p>
+
+<p>The difference between these two is how they behave when the program
+reaches a function call.  The &lsquo;step&rsquo; command steps into that function;
+in other words, you see the debugging session move into the called
+function.  The &lsquo;next&rsquo; command steps over that function call, and you
+see the current line as the one after the function call.  Both are
+useful, depending on what level of detail you need.</p>
+
+<p>Sometimes after you&rsquo;ve hit a break point and are doing line-by-line
+execution, you want to resume normal execution until the next
+breakpoint is reached (or the program completes).  The command to do
+this is &lsquo;continue&rsquo;.  A useful variant on this is the &lsquo;finish&rsquo; command
+which finishes executing the current function and then pauses.</p>
+
+<p>You can use the abbreviations &rsquo;s', &lsquo;n&rsquo; and &lsquo;c&rsquo; for the common commands
+described in this section.</p>
+
+<h3>Displaying Variables and Expressions</h3>
+
+<p>Another thing you often want to do when the program pauses is to see
+what value a variable or an expression has.  To do this, just type
+&lsquo;print&rsquo; or &lsquo;p&rsquo; followed by the variable name or expression.  If the
+variable or expression is a pointer or an address, you can print the
+value that this address references using the &lsquo;print <em>&rsquo; command (i.e.
+&lsquo;print </em>foo&rsquo;).  In addition, you can enter &lsquo;info locals&rsquo; to see all
+the local variables (and their values) displayed.</p>
+
+<p>It is often handy to have the debugger automatically display one or
+more variable values at all times so you could watch how they
+change. You do this with the &lsquo;display <var>&rsquo; command, and gdb will
+display that variable&rsquo;s value each time the program execution hits a
+breakpoint.  You can use &lsquo;display&rsquo; more than once to show multiple
+variables.</p>
+
+<p>To see info on all variables chosen for display, just enter &lsquo;display&rsquo;.
+To remove a variable from the automatic display list, use the
+&lsquo;undisplay&rsquo; command followed by the display variable&rsquo;s numeric-id
+(entering &lsquo;display&rsquo; shows the variables' numeric ids).</p>
+
+<h3>Changing a Variable&rsquo;s Value</h3>
+
+<p>If you see that a variable has the wrong value, and you&rsquo;d like to
+change that value in mid-stream before continuing execution, you can
+do this easily.  Enter &lsquo;set&rsquo; followed by the variable, an equals
+symbol (&lsquo;=&rsquo;), and the value or expression.  It&rsquo;s just like a C++
+assignment statement but without the semi-colon at the end.  For
+example:</p>
+
+<p><code>
+set x=5
+</code></p>
+
+<p>The expression can be any C++ expression, including a function call.
+So a statement like this is legal:</p>
+
+<p><code>
+set y=countNegValues(list, num)
+</code></p>
+
+<p>Assuming you have a countNegValues() method defined, of course.  This
+would execute your function and then set the variable y to be whatever
+your function returns.</p>
+
+<p>Sometimes you want to actually execute a function &ldquo;by hand&rdquo; while the
+program is stopped, even if this function isn&rsquo;t what would normally be
+called at this point in the code.  You can do this using the &lsquo;set&rsquo;
+command as shown above, or by making the function call the argument to
+the print command.  For example, you could type:</p>
+
+<p><code>
+print initQueue(&amp;myQueue)
+</code></p>
+
+<p>And the function would be called right now while the program is
+paused.  This works even if the function returns void.</p>
+
+<h3>A few final commands</h3>
+
+<p>If you find the problem while using the debugger, you may want to exit
+gdb (by entering &lsquo;quit&rsquo;), recompile your source code, and restart gdb.
+Be sure to use the &ndash;g option when recompiling!</p>
+
+<p>The &lsquo;start&rsquo; command works just like &lsquo;run&rsquo; &ndash; it starts up the
+execution of the program.  However, the &lsquo;start&rsquo; command will break at
+the beginning of the main() method, even if you did not enter a
+breakpoint there.  This is useful for then stepping through the main()
+method.</p>
+
+<h3>Final Remarks</h3>
+
+<p>The best way to learn these commands is to try them out.  Even if you
+don&rsquo;t use a debugger often, you should make sure you know the basics
+of breakpoints, single-line execution, and printing a variable&rsquo;s
+value.  These commands, along with the &lsquo;backtrace&rsquo; command, will be
+enough for you to solve most of your problems.</p>
+
+<p>Again, a programmer must know how to use a debugger just like an
+accountant must know how to use a spreadsheet program or a calculator.
+Your professors and your boss will expect it of you.  Remember this
+before you go see your instructor about a run-time bug next time!  The
+time you spend now to learn how to use a debugger will save you hours
+in the future.</p>
+
+<hr />
+
+<h2>Part II: GDB Lab Exercise</h2>
+
+<h3>The Source Code</h3>
+
+<p>We will be using the <a href="gdb.cpp.html">gdb.cpp</a> (<a href="gdb.cpp">src</a>) source
+code.  There are a few errors in the code, but don&rsquo;t fix them!  We&rsquo;ll
+use the debugger to find them.</p>
+
+<pre><code>//----------------------------------------------------------------------
+// This program reads five numbers from the keyboard, and prints out the
+// average and the maximum value
+//----------------------------------------------------------------------
+
+#include &lt;iostream&gt;
+using namespace std;
+
+// Global Constants
+const int MAX = 5;
+
+// Function Prototypes
+double GetAverage( int nIn[], int nMax);
+int GetMax( int nIn[], int nMax );
+
+
+int main() {
+
+    int nValues[MAX];
+    int nCount;
+
+    // Display a prompt:
+    cout &lt;&lt; "Enter five numbers: " &lt;&lt; endl;
+
+    // First we read in the numbers.
+    for ( nCount = 0; nCount &lt; MAX; nCount++ ) {
+        cout &lt;&lt; "Enter the next number : ";
+        cin &gt;&gt; nValues[1];
+    }
+
+    // Now we echo the input back to the user
+    for ( nCount = 1; nCount &lt; MAX; nCount++) {
+        cout &lt;&lt; "Value [ " &lt;&lt; nCount &lt;&lt; "] is : " &lt;&lt; nValues[nCount] &lt;&lt; endl;
+    }
+
+    // Now lets call a function to get the average:
+    cout &lt;&lt; "The average is " &lt;&lt; GetAverage(nValues, MAX ) &lt;&lt; endl;
+
+    // Now lets call a function to get the max:
+    cout &lt;&lt; "The max is " &lt;&lt; GetMax(nValues, MAX ) &lt;&lt; endl;
+
+    return 0;
+
+} // End of main
+
+
+double GetAverage(int nIn[], int nMax) {
+
+    double temp = 0.0;
+    for ( int i = 0; i &lt; nMax; i++)
+        temp += nIn[i];
+    temp /= nMax;
+
+    return temp;
+} // End of GetAverage()
+
+
+int GetMax( int nIn[], int nMax) {
+    int nBiggest = nIn[0];
+    for ( int i = 1; i &lt; nMax; i++)
+        if (nBiggest &gt; nIn[i])
+            nBiggest = nIn[i];
+    return nBiggest;
+} // End of GetMax()
+
+//----------------------------------------------------------------------
+// END OF LISTING
+//----------------------------------------------------------------------
+</code></pre>
+
+<h3>Running the Debugger</h3>
+
+<p>After you enter the code (remember: if you spot the errors do not
+correct them &ndash; we will use the debugger to find them!), compile the
+code.  If you plan on using the debugger, you have to specifically
+tell clang++ to include debugging information.  To do that, enter the
+&ndash;g flag.  For example, enter:</p>
+
+<p><code>
+clang++ -Wall -g -o lab2 gdb.cpp
+</code></p>
+
+<p>The &lsquo;-g&rsquo; flag will include debugging information.  The &lsquo;-o lab2&rsquo; flag
+will cause the output executable to be &lsquo;lab2.exe&rsquo; (just &lsquo;lab2&rsquo; in
+Linux/Unix).  The &lsquo;-Wall&rsquo; flag is a new one &ndash; it will include all
+warnings about your code (errors are still reported without the flag;
+this includes warnings as well).</p>
+
+<p>There are no compiler or linker errors (or warnings!), so if you get
+any you will need to find and fix them.  We should now be ready to go.</p>
+
+<p>First just run the program, and enter the numbers 2, 4, 6, 8, and 10
+&ndash; we&rsquo;ll be using those five numbers throughout the debugging of the
+program.  The first thing that you should see is that these are not
+the numbers that the program displays back to you! What happened?
+What&rsquo;s wrong?  Let&rsquo;s use the debugger to find out.</p>
+
+<p>The first feature we will use is the ability to set a breakpoint.</p>
+
+<h3>Setting up Breakpoints</h3>
+
+<p>Remember that a breakpoint is any point in the executable code where
+the execution stops, allowing the programmer to see what is going on
+inside the program as it runs.  Breakpoints allow you to run through
+portions of the code where there are no problems, so that you can
+spend your time focusing on the areas that need to be fixed.</p>
+
+<p>To set up a breakpoint, you enter the &lsquo;break&rsquo; command, and where you
+want the breakpoint to be.  There are 3 ways to specify breakpoints,
+by entering:</p>
+
+<ul>
+<li>a function name (e.g., &lsquo;b GetAverage&rsquo;)</li>
+<li>a line number (e.g., &lsquo;b 23&rsquo;)</li>
+<li>either of the above preceded by a file name (e.g., &lsquo;b gdb.cpp:23&rsquo; or
+&lsquo;b gdb.cpp:GetAverage&rsquo;)</li>
+</ul>
+
+
+<p>If we knew where the problems were, we could skip over some lines, but
+since we don&rsquo;t, put a breakpoint on the first line of the code, the
+cout statement.  You probably want to set the breakpoint based on the
+line number in the code &ndash; you can use the Emacs command &ldquo;M-x
+line-number-mode&rdquo; to have Emacs display line numbers.  Enter &lsquo;break
+x&rsquo;, where x is the line of the first cout statement in the main()
+method.  Now we need to run the program &ndash; to do this, enter &lsquo;run&rsquo;.
+Gdb should start running, then should pause and display the following:</p>
+
+<pre><code>Breakpoint 1, main () at gdb.cpp:23
+23          cout &lt;&lt; "Enter five numbers: " &lt;&lt; endl;
+(gdb)
+</code></pre>
+
+<p>Gdb is stating that it hit a breakpoint, on line 23 of gdb.cpp, and
+displays the line of code.  There are a number of commands we can
+enter at this point (try them all):</p>
+
+<ul>
+<li>&lsquo;bt&rsquo;: shows a list of the function calls that got us to this point
+(we are only in the main() method at this point, so it&rsquo;s not all
+that interesting)</li>
+<li>&lsquo;list&rsquo;: shows a listing of the source code where the breakpoint
+occurred</li>
+<li>&lsquo;info locals&rsquo; shows the current variables, and their values.  Note
+that the variables have not been initialized, so they have strange
+values!</li>
+<li>&lsquo;p nCount&rsquo; will print the current value in nCount</li>
+<li>&lsquo;p nValues&rsquo; shows all the values in the array nValues</li>
+</ul>
+
+
+<h3>Examining Data</h3>
+
+<p>One of the most powerful features of the debugger is the ability to
+look at the state of the variables as the program executes.  This way
+the programmer can see if the variables are changing the way that they
+are intended to change, and to see if the program is doing the things
+that were intended.</p>
+
+<p>The &lsquo;info locals&rsquo; command will show all the local variables of the
+current scope of execution.  Which variables are displayed will change
+as the program executes, always showing the most recently defined
+variables, values returned from functions, and changed or referenced
+variables.  When our test program hits the breakpoint, two variables
+are shown: nCount and nValues.  nCount will be some random integer
+which reflects the contents of that memory location at the beginning
+of the program.  The nValues variable looks different &ndash; it&rsquo;s an
+array, so the entire contents of the array are shown.</p>
+
+<h3>Stepping through the Code</h3>
+
+<p>Gdb allows you to step through the code in two different ways.  You
+can execute one line at a time, stepping into each function call, or
+you can run the functions without tracing their execution.  We will
+look at examples of both.</p>
+
+<p>First, let&rsquo;s see what happens when we start the program.  You should
+now be at the breakpoint from above &ndash; if not, restart the program
+(&lsquo;run&rsquo;) &ndash; it will break at the breakpoint you entered before.
+Entering &lsquo;info locals&rsquo; shows that the nCount variable is filled with a
+random number.  Let&rsquo;s step into the loop and see what happens.</p>
+
+<p>First, we&rsquo;ll start by stepping OVER commands.</p>
+
+<h3>Single Stepping through your code</h3>
+
+<p>Enter &lsquo;n&rsquo; (or &lsquo;next&rsquo;) &ndash; this steps OVER the next command.  This
+stepped over the &lsquo;cout&rsquo; command &ndash; if we had entered &rsquo;s', it would
+have started showing the execution of the cout function call, which is
+not what we want.  Note after we entered the &lsquo;n&rsquo;, it showed the output
+(&ldquo;Enter five numbers:&rdquo;) to the screen.  We were stopped BEFORE the
+line executed, so by single stepping, we caused the computer to
+execute that one line.  Nothing else has changed (&lsquo;info locals&rsquo;, &lsquo;bt&rsquo;,
+etc.  are the same), so let&rsquo;s press &lsquo;n&rsquo; again.</p>
+
+<p>Now the cout statement inside the for loop is the current line.  Also
+notice that now the nCount variable (via &lsquo;info locals&rsquo; or &lsquo;print
+nCount&rsquo;) has a value - it is zero, because that&rsquo;s where our for loop
+begins.  Press &lsquo;n&rsquo; again.  The prompt for the next number is
+displayed, since the cout statement has executed.  Step through
+another line of code.</p>
+
+<p>The code is now stopped on the cin statement.  You will need to enter
+a value and press enter.</p>
+
+<p>You should see these changes:</p>
+
+<ul>
+<li>The number you typed shows after the prompt.</li>
+<li>&lsquo;info locals&rsquo; shows that the 2 was entered into the array at index 1
+(not 0!)</li>
+</ul>
+
+
+<p>Pressing &lsquo;n&rsquo; again will take us to the beginning of the loop; pressing
+it again will increment the value of nCount in the watch windows.
+Let&rsquo;s single step through another pass through the loop.  Step over
+button twice more, entering successive values when prompted (2, 4, 6,
+8, 10).  See what happens to the variables.</p>
+
+<p>This shows you one of the errors - the data is all going into
+nValues[1].  Go to the source window, and correct the line.  Exit
+gdb (&lsquo;quit&rsquo;), recompile the program, and start up gdb again (&lsquo;gdb
+lab2&rsquo;).  Set your breakpoint, run the code, and make sure that it is
+getting the input correctly.  Try entering &lsquo;display nValues&rsquo; after the
+first breakpoint &ndash; it will always display the contents of the nValues
+array each time the program pauses.</p>
+
+<p>When you are satisfied that the input is working, you can &lsquo;continue&rsquo;
+(or &lsquo;c&rsquo;), and the program will run until the next breakpoint, or the
+end of the program.</p>
+
+<p>There appears to be a couple more errors in the code.  Let&rsquo;s address
+the problem with the average value.  To do this we&rsquo;ll need to use the
+step into ability of the debugger.</p>
+
+<p>Place a breakpoint on the line that the GetAverage() function is
+called (the cout line in the main() method, not the GetAverage()
+method itself).  Remove the breakpoint from the beginning of the
+source code: &lsquo;clear <line>&rsquo;, where <line> is the line of code where
+the breakpoint is at, or &lsquo;delete 1&rsquo;, where 1 is the breakpoint number.
+You can see the list of breakpoints by entering &lsquo;info break&rsquo;.  Once
+you have only one breakpoint set up at line that GetAverage() is
+called, run your code (&lsquo;run&rsquo;).  It will run normally (we&rsquo;ll enter the
+same values: 2, 4, 6, 8, 10) until it hits the breakpoint.</p>
+
+<p>Press the Step Into button (&rsquo;s').  Execution of the program now passes
+to the first line of the function GetAverage().  Entering &lsquo;bt&rsquo; will
+show the series of function calls that got us to this point.  We can
+now use the step over command (&lsquo;n&rsquo;) to step through the function and
+identify the errors.</p>
+
+<p>A word of caution: using the step into command at the wrong time may
+cause the IDE to load and display either assembly language or
+unfamiliar code.  Don&rsquo;t worry; all you&rsquo;ve done is stepped into the
+code for a standard function or operator such as the insertion
+operator.  To exit this code, enter &lsquo;c&rsquo; for continue (which will
+continue execution until the next breakpoint), or &lsquo;finish&rsquo;, which will
+execute until the current function ends.</p>
+
+<p>Does the printing of the maximum value work?  If so, great!  If not,
+you get to figure that one out on your own&hellip;</p>
+
+<h3>Explore on your own</h3>
+
+<p>There are still a few errors; try tracing through the function and see
+what you can fix!  Remember that there are a few different types of
+breakpoints.  Rather than entering the line number, you can enter a
+breakpoint by specifying the function call &ndash; for example, you can
+enter &lsquo;break GetAverage&rsquo; to debug the GetAverage function, rather than
+trying to figure out which line the function starts on.</p>
+
+<h3>Finishing up</h3>
+
+<p>When you are finished debugging the code with gdb &ndash; and it works
+correctly &ndash; you should submit the gdb.cpp file to inlab2.  Remember
+to put your identifying information at the top.</p>
+
+<hr />
+
+<h2>Part III: Summary of gdb commands</h2>
+
+<p>These commands are also listed on the <a href="../../docs/gdb_summary.html">GDB command
+summary</a> page.</p>
+
+<p>Assembly-specific commands</p>
+
+<ul>
+<li>stepi: step one MACHINE instruction (i.e. assembly instruction),
+instead of one C++ instruction (which is what &lsquo;step&rsquo; does)</li>
+<li>info registers: display the values in the registers</li>
+<li>&lsquo;set disassembly-flavor intel&rsquo;: set the assembly output format to
+what we are used to in class (and what we are programming in)</li>
+<li>&lsquo;disassemble&rsquo;: like list, but displays the lines of assembly code
+currently being executed.</li>
+<li>&lsquo;disassemble (function)&rsquo;: prints the assembly code for the supplied
+function (up until the next label)</li>
+</ul>
+
+
+<p>Program execution</p>
+
+<ul>
+<li>run: starts a program execution, and continues until it exits,
+crashes, or hits a breakpoint</li>
+<li>start: starts a program execution, and breaks when it enters the
+main() function</li>
+<li>bt: prints a back trace, which is the list of function calls that
+got to the current point</li>
+<li>list: shows the lines of source code before and after the point at
+which the program paused</li>
+<li>up: move up the back trace function stack list</li>
+<li>down: move down the back trace function stack list</li>
+<li>step (or just &rsquo;s'): step INTO the next line of code to execute</li>
+<li>next (or just &lsquo;n&rsquo;): step OVER the next line of code to execute</li>
+<li>continue (or just &lsquo;c&rsquo;): continue execution</li>
+<li>finish: finishes executing the current function and then pauses</li>
+<li>quit: exits gdb</li>
+</ul>
+
+
+<p>Breakpoints</p>
+
+<ul>
+<li>b (pos) (or break (pos)): set a breakpoint at (pos).  A breakpoint
+can be a function name (e.g., &lsquo;b GetMax&rsquo;), a line number (e.g., &lsquo;b
+22&rsquo;), or either of the above preceded by a file name (e.g., &lsquo;b
+lab2.cpp:22&rsquo; or &lsquo;b lab2.cpp:GetMax&rsquo;)</li>
+<li>tbreak (pos): set a temporary breakpoint (only breaks the first
+time)</li>
+<li>info break: show breakpoints</li>
+<li>delete (or just &rsquo;d'): deletes all breakpoints</li>
+<li>delete (num): delete the breakpoint indicated by (num)</li>
+<li>clear (pos): clear a breakpoint, where (pos) is either a function
+name or line number</li>
+</ul>
+
+
+<p>Examining data</p>
+
+<ul>
+<li>print (or &lsquo;p&rsquo;): print the value in the given variable</li>
+<li>print *: print the destination of a pointer</li>
+<li>examine (var): look at top of stack</li>
+<li>info locals: display all the local variables and their values</li>
+<li>display (var): always display the value in (var) whenever the
+program pauses</li>
+<li>display: show the variables that have been entered with &lsquo;display&rsquo;
+and their numeric IDs</li>
+<li>undisplay (num): stop displaying the variable with numeric ID num</li>
+<li>print function_call(params): execute the function, and print the
+result</li>
+<li>set variable (var) = (value): set the variable (var) to the value
+(value)</li>
+</ul>
+
+</body>
+</html>

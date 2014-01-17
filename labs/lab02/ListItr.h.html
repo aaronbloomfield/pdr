@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>ListItr.h</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">/*</font></i>
+<i><font color="#9A1900"> * Filename: ListItr.h</font></i>
+<i><font color="#9A1900"> * Description: ListItr class definition</font></i>
+<i><font color="#9A1900"> */</font></i>
+<b><font color="#000080">#ifndef</font></b> LISTITR_H
+<b><font color="#000080">#define</font></b> LISTITR_H
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">"ListNode.h"</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">"List.h"</font>
+
+<b><font color="#0000FF">class</font></b> <font color="#008080">ListItr</font> <font color="#FF0000">{</font>
+<b><font color="#0000FF">public</font></b><font color="#990000">:</font>
+    <b><font color="#000000">ListItr</font></b><font color="#990000">();</font>			<i><font color="#9A1900">//Constructor</font></i>
+    <b><font color="#000000">ListItr</font></b><font color="#990000">(</font>ListNode<font color="#990000">*</font> theNode<font color="#990000">);</font>	<i><font color="#9A1900">// One parameter constructor</font></i>
+    <font color="#009900">bool</font> <b><font color="#000000">isPastEnd</font></b><font color="#990000">()</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font>	<i><font color="#9A1900">//Returns true if past end position</font></i>
+    <i><font color="#9A1900">// in list, else false</font></i>
+    <font color="#009900">bool</font> <b><font color="#000000">isPastBeginning</font></b><font color="#990000">()</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font><i><font color="#9A1900">//Returns true if past first position</font></i>
+    <i><font color="#9A1900">// in list, else false</font></i>
+    <font color="#009900">void</font> <b><font color="#000000">moveForward</font></b><font color="#990000">();</font>	<i><font color="#9A1900">//Advances current to next position in list</font></i>
+    <i><font color="#9A1900">//(unless already past end of list)</font></i>
+    <font color="#009900">void</font> <b><font color="#000000">moveBackward</font></b><font color="#990000">();</font>	<i><font color="#9A1900">//Moves current back to previous position</font></i>
+    <i><font color="#9A1900">// in list (unless already past beginning of</font></i>
+    <i><font color="#9A1900">// list)</font></i>
+    <font color="#009900">int</font> <b><font color="#000000">retrieve</font></b><font color="#990000">()</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font>	<i><font color="#9A1900">//Returns item in current position</font></i>
+
+<b><font color="#0000FF">private</font></b><font color="#990000">:</font>
+    ListNode<font color="#990000">*</font> current<font color="#990000">;</font>		<i><font color="#9A1900">//holds the position in the list</font></i>
+    <b><font color="#0000FF">friend</font></b> <b><font color="#0000FF">class</font></b> <font color="#008080">List</font><font color="#990000">;</font>	<i><font color="#9A1900">// List class needs access to “current”</font></i>
+    <i><font color="#9A1900">// ListNode's private data members</font></i>
+<font color="#FF0000">}</font><font color="#990000">;</font>
+
+<b><font color="#000080">#endif</font></b>
+<i><font color="#9A1900">/* end of ListItr.h */</font></i>
+</tt></pre>
+</body>
+</html>

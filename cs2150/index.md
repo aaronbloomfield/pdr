@@ -93,43 +93,43 @@ stopped at the same point.
 | || Jan 20 || Monday || [Lab 1: Intro to C++](../labs/lab01/lab01.html), [Tutorial 1: Intro to UNIX](../tutorials/01-intro-unix/index.html) || (no class: MLK day) || (no class: MLK day) |
 | 4 || Jan 22 || Wednesday || || [02: C++](../slides/02-cpp.html) || |
 | 5 || Jan 24 || Friday || || [02: C++](../slides/02-cpp.html) || |
-| 6 || Jan 27 || Monday || [Lab 2: Linked lists](../labs/lab02/lab02.html), [Tutorial 2: GDB](02-gdb/index.html) || [02: C++](../slides/02-cpp.html) || |
+| 6 || Jan 27 || Monday || [Lab 2: Linked lists](../labs/lab02/lab02.html), [Tutorial 2: GDB](../tutorials/02-gdb/index.html) || [02: C++](../slides/02-cpp.html) || |
 | 7 || Jan 29 || Wednesday || || [03: Lists](../slides/03-lists.html) || |
 | 8 || Jan 31 || Friday || || [03: Lists](../slides/03-lists.html) || |
-| 9 || Feb 3 || Monday || [Lab 3: Stacks](../labs/lab03/lab03.html), [Tutorial 3: More UNIX, part 1](03-more-unix-pt1/index.html) || [03: Lists](../slides/03-lists.html), [04: Numbers](../slides/04-numbers.html) || |
+| 9 || Feb 3 || Monday || [Lab 3: Stacks](../labs/lab03/lab03.html), [Tutorial 3: More UNIX, part 1](../tutorials/03-more-unix-pt1/index.html) || [03: Lists](../slides/03-lists.html), [04: Numbers](../slides/04-numbers.html) || |
 | 10 || Feb 5 || Wednesday || || [04: Numbers](../slides/04-numbers.html) || |
 | 11 || Feb 7 || Friday || || [04: Numbers](../slides/04-numbers.html) || |
-| 12 || Feb 10 || Monday || [Lab 4: Numbers](../labs/lab04/lab04.html), [Tutorial 4: More UNIX, part 2](04-more-unix-pt2/index.html) || [04: Numbers](../slides/04-numbers.html) || |
+| 12 || Feb 10 || Monday || [Lab 4: Numbers](../labs/lab04/lab04.html), [Tutorial 4: More UNIX, part 2](../tutorials/04-more-unix-pt2/index.html) || [04: Numbers](../slides/04-numbers.html) || |
 | 13 || Feb 12 || Wednesday || || [05: Arrays & big-Oh](../slides/05-arrays-big-oh.html) || |
 | 14 || Feb 14 || Friday || || [05: Arrays & big-Oh](../slides/05-arrays-big-oh.html) || |
 | 15 || Feb 17 || Monday || Midterm 1 instead during Tuesday's lab || [06: Trees](../slides/06-trees.html) || |
 | 16 || Feb 19 || Wednesday || || [06: Trees](../slides/06-trees.html) || |
 | 17 || Feb 21 || Friday || || [06: Trees](../slides/06-trees.html) || |
-| 18 || Feb 24 || Monday || [Lab 5: Trees](../labs/lab05/lab05.html), [Tutorial 5: make](05-make/index.html) || [06: Trees](../slides/06-trees.html) || |
+| 18 || Feb 24 || Monday || [Lab 5: Trees](../labs/lab05/lab05.html), [Tutorial 5: make](../tutorials/05-make/index.html) || [06: Trees](../slides/06-trees.html) || |
 | 19 || Feb 26 || Wednesday || || [07: Hashes](../slides/07-hashes.html) || |
 | 20 || Feb 28 || Friday || || [07: Hashes](../slides/07-hashes.html) || |
-| 21 || Mar 3 || Monday || [Lab 6: Hashes](../labs/lab06/lab06.html), [Tutorial 6: Shell scripting, part 1](06-shell-scripts-pt1/index.html) || [07: Hashes](../slides/07-hashes.html) || |
+| 21 || Mar 3 || Monday || [Lab 6: Hashes](../labs/lab06/lab06.html), [Tutorial 6: Shell scripting, part 1](../tutorials/06-shell-scripts-pt1/index.html) || [07: Hashes](../slides/07-hashes.html) || |
 | 22 || Mar 5 || Wednesday || || [08: IBCM](../slides/08-ibcm.html) (machine language) || |
 | 23 || Mar 7 || Friday || || [08: IBCM](../slides/08-ibcm.html) (machine language) || |
 | || Mar 10 || Monday || no labs (spring break) || (no class: spring break) || (no class: spring break) |
 | || Mar 12 || Wednesday || || (no class: spring break) || (no class: spring break) |
 | || Mar 14 || Friday || || (no class: spring break) || (no class: spring break) |
-| 24 || Mar 17 || Monday || [Lab 7: IBCM](../labs/lab07/lab07.html), [Tutorial 7: Shell scripting, part 2](07-shell-scripts-pt2/index.html) || [08: IBCM](../slides/08-ibcm.html) (machine language) || |
+| 24 || Mar 17 || Monday || [Lab 7: IBCM](../labs/lab07/lab07.html), [Tutorial 7: Shell scripting, part 2](../tutorials/07-shell-scripts-pt2/index.html) || [08: IBCM](../slides/08-ibcm.html) (machine language) || |
 | 25 || Mar 19 || Wednesday || || [09: x86](../slides/09-x86.html) (assembly language) || |
 | 26 || Mar 21 || Friday || || [09: x86](../slides/09-x86.html) (assembly language) || |
-| 27 || Mar 24 || Monday || [Lab 8: x86, part 1](../labs/lab08/lab08.html), [Tutorial 8: nasm](08-nasm/index.html) || [09: x86](../slides/09-x86.html) (assembly language) || |
+| 27 || Mar 24 || Monday || [Lab 8: x86, part 1](../labs/lab08/lab08.html), [Tutorial 8: nasm](../tutorials/08-nasm/index.html) || [09: x86](../slides/09-x86.html) (assembly language) || |
 | 28 || Mar 26 || Wednesday || || [09: x86](../slides/09-x86.html) (assembly language) || |
 | 29 || Mar 28 || Friday || || [09: x86](../slides/09-x86.html) (assembly language) || |
 | 30 || Mar 31 || Monday || Midterm 2 instead during Tuesday's lab || [09: x86](../slides/09-x86.html), [10: Advanced C++](../slides/10-advanced-cpp.html) || |
 | 31 || Apr 2 || Wednesday || || [10: Advanced C++](../slides/10-advanced-cpp.html) || |
 | 32 || Apr 4 || Friday || || [11: Heaps](../slides/11-heaps.html) || |
-| 33 || Apr 7 || Monday || [Lab 9: x86, part 2](../labs/lab09/lab09.html), [Tutorial 9: C](09-c/index.html) || [12: Huffman coding](../slides/12-huffman.html) || |
+| 33 || Apr 7 || Monday || [Lab 9: x86, part 2](../labs/lab09/lab09.html), [Tutorial 9: C](../tutorials/09-c/index.html) || [12: Huffman coding](../slides/12-huffman.html) || |
 | 34 || Apr 9 || Wednesday || || [12: Huffman coding](../slides/12-huffman.html) || |
 | 35 || Apr 11 || Friday || || [13: Graphs](../slides/13-graphs.html) || |
-| 36 || Apr 14 || Monday || [Lab 10: Huffman coding](../labs/lab10/lab10.html), [Tutorial 10: Objective C](10-objc/index.html) || [13: Graphs](../slides/13-graphs.html) || |
+| 36 || Apr 14 || Monday || [Lab 10: Huffman coding](../labs/lab10/lab10.html), [Tutorial 10: Objective C](../tutorials/10-objc/index.html) || [13: Graphs](../slides/13-graphs.html) || |
 | 37 || Apr 16 || Wednesday || || [13: Graphs](../slides/13-graphs.html) || |
 | 38 || Apr 18 || Friday || || [13: Graphs](../slides/13-graphs.html) || |
-| 39 || Apr 21 || Monday || [Lab 11: Graphs](../labs/lab11/lab11.html), [Tutorial 11: doxygen](11-doxygen/index.html) || [13: Graphs](../slides/13-graphs.html) || |
+| 39 || Apr 21 || Monday || [Lab 11: Graphs](../labs/lab11/lab11.html), [Tutorial 11: doxygen](../tutorials/11-doxygen/index.html) || [13: Graphs](../slides/13-graphs.html) || |
 | 40 || Apr 23 || Wednesday || || [13: Graphs](../slides/13-graphs.html), [14: Memory](../slides/14-memory.html) || |
 | 41 || Apr 25 || Friday || || [14: Memory](../slides/14-memory.html) || |
 | 42 || Apr 28 || Monday || [Lab 12: Conclusion](../labs/lab12/lab12.html), (no tutorial for this lab) || [15: AOP](../slides/15-aop.html), [16: Course conclusion](../slides/16-conclusion.html) || |

@@ -1,6 +1,8 @@
 PDR Utilities
 -------------
 
+[Go up to the main README file](../README.html)
+
 The contents of this directory are:
 
 - [markdown.c](markdown.c.html) ([src](markdown.c)): a file to convert
