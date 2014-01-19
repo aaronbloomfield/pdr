@@ -13,30 +13,36 @@ http://www.gnu.org/software/src-highlite">
 <i><font color="#9A1900"> * Filename: ListNode.h</font></i>
 <i><font color="#9A1900"> * Description: ListNode class definition</font></i>
 <i><font color="#9A1900"> */</font></i>
+
 <b><font color="#000080">#ifndef</font></b> LISTNODE_H
 <b><font color="#000080">#define</font></b> LISTNODE_H
 
-<i><font color="#9A1900">// needed because NULL is part of std namespace</font></i>
 <b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+
+<i><font color="#9A1900">// next line needed because NULL is part of std namespace</font></i>
 <b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
 
 <b><font color="#0000FF">class</font></b> <font color="#008080">ListNode</font> <font color="#FF0000">{</font>
 <b><font color="#0000FF">public</font></b><font color="#990000">:</font>
-    <b><font color="#000000">ListNode</font></b><font color="#990000">();</font>	<i><font color="#9A1900">//Constructor</font></i>
+    <b><font color="#000000">ListNode</font></b><font color="#990000">();</font>                 <i><font color="#9A1900">// Constructor</font></i>
 
 <b><font color="#0000FF">private</font></b><font color="#990000">:</font>
     <font color="#009900">int</font> value<font color="#990000">;</font>
-    <font color="#008080">ListNode</font> <font color="#990000">*</font>next<font color="#990000">,</font> <font color="#990000">*</font>previous<font color="#990000">;</font>	<i><font color="#9A1900">//for doubly linked lists</font></i>
-    <b><font color="#0000FF">friend</font></b> <b><font color="#0000FF">class</font></b> <font color="#008080">List</font><font color="#990000">;</font>	<i><font color="#9A1900">// List needs to be able to access/change</font></i>
-    <i><font color="#9A1900">// ListNode's next and previous pointers</font></i>
-    <b><font color="#0000FF">friend</font></b> <b><font color="#0000FF">class</font></b> <font color="#008080">ListItr</font><font color="#990000">;</font>	<i><font color="#9A1900">// ListItr needs to access/change</font></i>
+    <font color="#008080">ListNode</font> <font color="#990000">*</font>next<font color="#990000">,</font> <font color="#990000">*</font>previous<font color="#990000">;</font>	<i><font color="#9A1900">// for doubly linked lists</font></i>
+
+    <i><font color="#9A1900">// List needs to be able to access/change ListNode's next and</font></i>
+    <i><font color="#9A1900">// previous pointers</font></i>
+    <b><font color="#0000FF">friend</font></b> <b><font color="#0000FF">class</font></b> <font color="#008080">List</font><font color="#990000">;</font>
+
+    <i><font color="#9A1900">// ListItr needs to access/change ListNode as well</font></i>
+    <b><font color="#0000FF">friend</font></b> <b><font color="#0000FF">class</font></b> <font color="#008080">ListItr</font><font color="#990000">;</font>
 
     <i><font color="#9A1900">// Not writing a destructor is fine in this case since there is no</font></i>
-    <i><font color="#9A1900">// dynamically allocated memory in this class</font></i>
-
+    <i><font color="#9A1900">// dynamically allocated memory in this class.  No constructor is</font></i>
+    <i><font color="#9A1900">// necessary, as an object will be set up by the List class.</font></i>
 <font color="#FF0000">}</font><font color="#990000">;</font>
+
 <b><font color="#000080">#endif</font></b>
-<i><font color="#9A1900">/* end of ListNode.h listing */</font></i>
 </tt></pre>
 </body>
 </html>

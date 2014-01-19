@@ -184,7 +184,8 @@ version (foo.cpp.html) are included in the repo.  All links to source
 code will like to the .html, with a "([src](...))" after it
 to link to the original source code.
 
-- astyle options: -A2 -s4 \-\-indent-switches
+- astyle options: -A2 -s4 -S -xG
+  - note that the current version of astyle on Ubuntu 12.04 seems to ignore the -xG flag...
 - source-highlight options: -d
 
 
