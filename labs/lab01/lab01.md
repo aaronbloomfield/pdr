@@ -54,19 +54,20 @@ Procedure
 ### In-lab ###
 1. Read through the in-lab section of this document.  You should be
    sure to be familiar with the submission system.
-2. Complete the in-lab requirements as described in the in-lab
+2. Clone the github repo into your lab account
+3. Complete the in-lab requirements as described in the in-lab
    section, below.
-3. Be sure to include your name, email ID, the date, and the name of
+4. Be sure to include your name, email ID, the date, and the name of
    the file in a header comment at the beginning of each file you submit
    (including text files!)
-4. Did you understand the part on capitalization in the in-lab section
+5. Did you understand the part on capitalization in the in-lab section
    of this document?
-5. Files to download: [svtest.cpp](svtest.cpp.html)
+6. Files to download: [svtest.cpp](svtest.cpp.html)
    ([src](svtest.cpp)), [svutil.cpp](svutil.cpp.html)
    ([src](svutil.cpp)), [svutil.h](svutil.h.html)
    ([src](svutil.h)), and [lifecycle.cpp](lifecycle.cpp.html)
    ([src](lifecycle.cpp))
-6. Files to submit: lifecycle.questions.txt, vector.questions.txt,
+7. Files to submit: lifecycle.questions.txt, vector.questions.txt,
    LifeCycle.cpp, LifeCycle.h, and TestLifeCycle.cpp
 
 ### Post-lab ###
@@ -194,6 +195,37 @@ file name, and the date.
 
 All of the files required for this lab are listed above (in the
 Procedure section), and are also listed below.
+
+### Cloning the github repo ###
+
+The first thing you need to do is clone the github repo into your lab
+account.  To do this, enter:
+
+```
+git clone https://github.com/aaronbloomfield/pdr.git
+```
+
+This will create a 'pdr' directory, which is the copy of the repo.
+Each week, you will need to update the repo with the current
+contents.  To do so, cd into that 'pdr' directory, and enter:
+
+```
+git pull
+```
+
+To view the contents in a web browser, you should enter the following
+as the URL (replacing 'mst3k' with your userid):
+
+```
+file:///home/mst3k/pdr/README.html
+```
+
+Note that there are three forward slashes there!
+
+We realize that you cannot view these directions until after you have
+the github repo cloned locally.  So hopefully you read these ahead of
+time.  Otherwise, the TAs will be able to help you with this part.
+
 
 ### Understanding C++ ###
 

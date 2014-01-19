@@ -298,7 +298,7 @@ function insertCanvas() {
   document.write('\
 <canvas id="canvas_'+which+'" width="1000" height="1000" style="position:absolute;top:-'+canvas_border+'px;left:-'+canvas_border+'px;border:0px solid"></canvas> \
 <!-- <table class="default" style="position:absolute;bottom:-15%"> --> \
-<table class="default" style="position:fixed;bottom:-150px"><tr> \
+<table class="transparent" style="position:fixed;bottom:-150px"><tr> \
 <td><input type="image" src="images/menu-icon.png" id="menu" onclick="menutoggle('+which+')"></td> \
 <td><div id="menu_'+which+'" style="display:none"> \
 <table class="default"> \

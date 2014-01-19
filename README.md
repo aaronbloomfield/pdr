@@ -19,7 +19,7 @@ Contents
 This repository contains the materials for the course entitled "CS
 2150: Program and Data Representation" at the University of Virginia.
 It will contain all of the slides, labs, exams, etc. used throughout
-the course.  The course description is below.
+the course.  The course description is [below](#description).
 
 Students in the course should view the
 [cs2150/index.html](cs2150/index.html) file in the **cloned** repo
@@ -211,9 +211,12 @@ stylus), you must do a few things:
 
         <div id="calibratediv" style="display:none">
           <div id="calibratecanvasdiv">
-            <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
+            <canvas id="calibratecanvas" width="300" height="300">Your
+                          browser does not support the canvas tag</canvas>
           </div>
-          <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
+          <p style="text-align:center">Click the center of the target<br><a 
+                          href="#" onClick="calibratewin.close(); return
+                          false">Close window</a></p>
         </div>
 
 Then, on each slide, you add the following:  

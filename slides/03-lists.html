@@ -44,9 +44,9 @@
 ## More C++ & Linked Lists
 	</script></section>
 
-	<section>
+	  <section>
 <h2>CS 2150 Roadmap</h2>
-<table class="default">
+<table class="wide">
   <tr><td colspan="3"><p class="center">Data Representation</p></td><td></td><td colspan="3"><p class="center">Program Representation</p></td></tr>
   <tr>
     <td class="top"><small>&nbsp;<br>&nbsp;<br>string<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>int x[3]<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>char x<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>0x9cd0f0ad<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>01101011</small></td>
@@ -60,7 +60,7 @@
     <td class="top">&nbsp;<br>High-level language<br>&nbsp;<br>Low-level language<br>&nbsp;<br>Assembly language<br>&nbsp;<br>Machine code</td>
   </tr>
 </table>
-	</section>
+	  </section>
 
 	<section data-markdown><script type="text/template">
 # Contents
@@ -133,11 +133,6 @@
   - iterator erase(iterator start, iterator end)
 	</script></section>
 
-	<section data-markdown><script type="text/template">
-## Further reading
-- include this slide?
-	</script></section>
-
 	</section>
 
 	<section>
@@ -161,12 +156,12 @@
 ## Function Templates
 - Not an actual function
 - A pattern for a function. Expanded by compiler as needed
-- Example:
+- Example (source code: [findMax.cpp](src/03-lists/findMax.cpp.html) ([src](src/03-lists/findMax.cpp)))
 ```
 // Return the maximum item in array a. 
 // Comparable objects must provide operator<
 template <typename Comparable> 
-const Comparable & findMax( const vector<Comparable> & a ) {
+const Comparable & findMax (const vector<Comparable> & a) {
     int maxIndex = 0; 
     for( int i = 1; i < a.size( ); i++ ) 
         if( a[ maxIndex ] < a[ i ] ) // note the use of '<'
@@ -178,11 +173,14 @@ const Comparable & findMax( const vector<Comparable> & a ) {
 
 	<section data-markdown><script type="text/template">
 ## Example
+Source code: [findMax.cpp](src/03-lists/findMax.cpp.html) ([src](src/03-lists/findMax.cpp))
 ```
 #include <iostream>
 #include "IntCell.h"
 #include <vector>
 using namespace std;
+
+// findMax() defined here
 
 int main() {
     vector<int> v1(37);
@@ -200,6 +198,7 @@ int main() {
 
 	<section data-markdown><script type="text/template">
 ## findMax() Expanded
+What the compiler is doing with the findMax() function template...
 ```
 const int & findMax(const vector<int> &a) {
     /* body of function template */
@@ -228,6 +227,7 @@ const IntCell & findMax(const vector<IntCell> &a) {
 
 	<section data-markdown><script type="text/template">
 ## ObjectCell Template Class
+Source code: [objectCell.h](src/03-lists/objectCell.h.html) ([src](src/03-lists/objectCell.h))
 ```
 #ifndef OBJECTCELL_H
 #define OBJECTCELL_H
@@ -242,19 +242,26 @@ class ObjectCell {
   private:
     Object storedValue;
 };
+
 #endif
 ```
 	</script></section>
 
 	<section data-markdown><script type="text/template">
 ## Using ObjectCell class template
+Source code: [objectCellMain.cpp](src/03-lists/objectCellMain.cpp.html) ([src](src/03-lists/objectCellMain.cpp))
 ```
+#include <iostream>
+#include "objectCell.h"
+using namespace std;
+
 int main() {
     ObjectCell<int> m1;
     ObjectCell<double> m2(3.14);
     m1.setValue(37);
     m2.setValue(m2.getValue() *2);
-    // ... 
+    // ...
+    return 0;
 }
 ```
 	</script></section>
@@ -723,23 +730,6 @@ class Queue{
 - But in the STL string class, the == operator is overloaded to do this!
 - So you can compare STL strings with ==
   - But not standard C strings (i.e. char*)
-	</script></section>
-
-	<section data-markdown><script type="text/template">
-## from_string()
-```
-template <typename theType>
-// returns false if conversion fails
-bool from_string(theType & t, 
-     const string & s, 
-     ios_base& (*theFuncPtr)(ios_base &)) {
-    // input string stream to parse
-  istringstream inputStringStream(s);
-
-    // call the appropriate function for the type
-  return !(inputStringStream >> theFuncPtr >> t).fail();
-}
-```
 	</script></section>
 
 	</section>

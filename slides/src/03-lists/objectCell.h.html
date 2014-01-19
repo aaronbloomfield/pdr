@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>objectCell.h</title>
+</head>
+<body bgcolor="white">
+<pre><tt><b><font color="#000080">#ifndef</font></b> OBJECTCELL_H
+<b><font color="#000080">#define</font></b> OBJECTCELL_H
+
+<b><font color="#0000FF">template</font></b> <font color="#990000">&lt;</font><b><font color="#0000FF">typename</font></b> <font color="#008080">Object</font><font color="#990000">&gt;</font>
+<b><font color="#0000FF">class</font></b> <font color="#008080">ObjectCell</font> <font color="#FF0000">{</font>
+<b><font color="#0000FF">public</font></b><font color="#990000">:</font>
+    <b><font color="#000000">ObjectCell</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> Object <font color="#990000">&amp;</font> initValue <font color="#990000">=</font> <b><font color="#000000">Object</font></b><font color="#990000">())</font> <font color="#990000">:</font> <b><font color="#000000">storedValue</font></b><font color="#990000">(</font>initValue<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <font color="#FF0000">}</font>
+
+    <b><font color="#0000FF">const</font></b> Object <font color="#990000">&amp;</font> <b><font color="#000000">getValue</font></b><font color="#990000">()</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
+        <b><font color="#0000FF">return</font></b> storedValue<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
+    <font color="#009900">void</font> <b><font color="#000000">setValue</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> Object <font color="#990000">&amp;</font> val<font color="#990000">)</font> <font color="#FF0000">{</font>
+        storedValue <font color="#990000">=</font> val<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
+<b><font color="#0000FF">private</font></b><font color="#990000">:</font>
+    <font color="#008080">Object</font> storedValue<font color="#990000">;</font>
+<font color="#FF0000">}</font><font color="#990000">;</font>
+
+<b><font color="#000080">#endif</font></b>
+</tt></pre>
+</body>
+</html>

@@ -151,10 +151,11 @@ int main() {
 		</ul>
     </li>
   </ul>
-  <table class="wide">
+  <table class="transparent">
     <tbody>
       <tr>
-	<td>
+	<td>&nbsp;</td>
+        <td>
 	  <pre><code data-trim>
 // C++
 #include &lt;iostream&gt;
@@ -283,8 +284,10 @@ int main() {
 <section>
   <h2>Declaring mutually<br>recursive functions</h2>
 <p>Source code: <a href="src/02-cpp/evenodd.cpp.html">evenodd.cpp</a> (<a href="src/02-cpp/evenodd.cpp">src</a>)</p>
-  <table class="wide">
+  <table class="transparent">
     <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
       <td>
 	<pre class="fragment"><code data-trim>bool even (int x);</code></pre>
 	<pre><code data-trim>
@@ -397,7 +400,7 @@ Source code: [IntCell.java](src/02-cpp/IntCell.java.html) ([src](src/02-cpp/IntC
   </script></section>
 
 <section data-markdown><script type="text/template">
-## How Would You Translate This Java Source into C++?
+## How Would You Translate This<br>Java Source into C++?
 - Need 3 files
   1. Header file that contains class definition: IntCell.h
   2. C++ file that contains class implementation: IntCell.cpp
@@ -911,7 +914,7 @@ Source code: [pointers.cpp](src/02-cpp/pointers.cpp.html) ([src](src/02-cpp/poin
 <section data-markdown><script type="text/template">
 ## Binky's Pointer Fun
   
-<iframe width="800" height="600" src="http://www.youtube.com/embed/UvoHwFvAvQE" frameborder="0" allowfullscreen></iframe>
+<iframe width="720" height="540" src="http://www.youtube.com/embed/UvoHwFvAvQE" frameborder="0" allowfullscreen></iframe>
 
 If that doesn't work, try the [direct Youtube link](http://www.youtube.com/watch?v=UvoHwFvAvQE) (Firefox with Flash enabled doesn't work, in particular)
 </script></section>
@@ -1134,14 +1137,11 @@ class Foo {
 int main() {
     cout << "sizeof(int): " << sizeof(int) << endl;
     cout << "sizeof(Foo): " << sizeof(Foo) << endl;
-
     Foo *foo = new Foo(), *bar = new Foo();
     cout << "1st Foo: " << foo << endl;
     cout << "2nd Foo: " << bar << endl;
-
     int diff = ((int)bar)-((int)foo);
     cout << "Difference: " << diff << endl;
-
     delete foo;
     delete bar;
     return 0;
@@ -1201,16 +1201,14 @@ class ListNode {
 <section data-markdown><script type="text/template">
 ## Common mistakes
 - Consider a class Foo with an uninitialized ListNode* field list that needs to be initialized in the constructor.
-- What is wrong with the following two methods?
-  - They both compile just fine
-- First one:
+- What is wrong with this constructor?  It compiles fine!
 ```
 Foo() {
     ListNode* list = new ListNode();
 }
 ```
 <span class="fragment"> You are creating a local variable 'list' and not accessing the field named 'list'</span>
-- Second one:
+- What is wrong with this constructor?  It also compiles fine!
 ```
 Foo() {
     ListNode temp;
@@ -1441,7 +1439,7 @@ delete ptrToAnotherSquare;
 - C++ Provides These By Default
   - Destructor
   - Copy Constructor
-  - operator=()
+  - `operator=()`
 - There are some problems with the defaults...
 </script></section>
 
@@ -1451,7 +1449,7 @@ delete ptrToAnotherSquare;
   - goes out of scope, or
   - `delete` is called
 - Frees up any resources allocated during the use of an object
-- Example (only prototype shown): ~IntCell();
+- Example (only prototype shown): `~IntCell();`
 </script></section>
 
 <section data-markdown><script type="text/template">
@@ -1500,7 +1498,8 @@ class test {
     test(const test& x);
     ~test();
     test& operator=(const test& other);
-    friend ostream& operator<<(ostream& out, const test& f);
+    friend ostream& operator<<(ostream& out, 
+                               const test& f);
 };
 ```
 </script></section>
@@ -1563,7 +1562,7 @@ test bar(test param) {
 ## main() code and output, 1/9
 Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
 ```
-// this does NOT create a test object; instead, it creates 
+// this does NOT create a test object; instead, it creates
 // a function called a() that has no body (and thus C++ 
 // defaults it to return 1). Note that there is no output 
 // statement from the default constructor.
@@ -1586,12 +1585,12 @@ Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptes
 // has another meaning in C++ (specifically, creating a 
 // function),  we have to omit the parenthesis.
 
-cout << "----------------------------------------" << endl;
+cout << "---------------------------------------" << endl;
 test aa;
 cout << "created aa: " << aa << endl;
 
 // output:
-// ----------------------------------------
+// ---------------------------------------
 // calling test(); object created is test[id=0,v=0]; 
                    address is 0xff852a50
 // created aa: test[id=0,v=0]
@@ -1605,12 +1604,12 @@ Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptes
 // this creates a test object, calling the specific 
 // constructor that takes in a single int value
 
-cout << "----------------------------------------" << endl;
+cout << "---------------------------------------" << endl;
 test b(1);
 cout << "created b: " << b << endl;
 
 // output:
-// ----------------------------------------
+// ---------------------------------------
 // calling test(1); object created is test[id=1,v=1]; 
 //                  address is 0xff852a48
 // created b: test[id=1,v=1]
@@ -1623,14 +1622,14 @@ Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptes
 ```
 // this creates two test objects via pointers and new
 
-cout << "----------------------------------------" << endl;
+cout << "---------------------------------------" << endl;
 test *c = new test(2);
 cout << "created *c: " << *c << " at " << c << endl;
 test *d = new test;
 cout << "created *d: " << *d << " at " << d << endl;
 
 // output:
-// ----------------------------------------
+// ---------------------------------------
 // calling test(2); object created is test[id=2,v=2]; 
 //                  address is 0xa009008
 // created *c: test[id=2,v=2] at 0xa009008
@@ -1648,16 +1647,15 @@ Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptes
 // when the actual parameter is copied into the formal 
 // parameter. The subroutine then creates test[id=4,v=10].
 // The parameter that was copied into the subroutine (via 
-// the copy constructor) is then destructed upon 
-// termination of the subroutine.
+// the copy constructor) is then destructed upon exit.
 
-cout << "----------------------------------------" << endl;
+cout << "---------------------------------------" << endl;
 cout << "about to invoke subroutine..." << endl;
 test e = bar(*c);
 cout << "finished invoking subroutine..." << endl;
 
 // output:
-// ----------------------------------------
+// ---------------------------------------
 // about to invoke subroutine...
 // calling test(&test) on test[id=2,v=2]; 
 //                   address is 0xff852a38
@@ -1672,14 +1670,14 @@ cout << "finished invoking subroutine..." << endl;
 ## main() code and output, 6/9
 Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
 ```
-// because this assignment happens in the same statement as 
-// the declaration, it invokes the copy constructor
+// because this assignment happens in the same statement
+// as the declaration, it invokes the copy constructor
 
-cout << "----------------------------------------" << endl;
+cout << "---------------------------------------" << endl;
 test f = b;
 
 // output:
-// ----------------------------------------
+// ---------------------------------------
 // calling test(&test) on test[id=1,v=1]; 
 //                     address is 0xff852a30
 ```
@@ -1689,15 +1687,15 @@ test f = b;
 ## main() code and output, 7/9
 Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
 ```
-// we are only deleting one of the dynamically created test
-// objects
+// we are only deleting one of the dynamically created 
+// test objects
 
-cout << "----------------------------------------" << endl;
+cout << "---------------------------------------" << endl;
 cout << "about to delete a test object..." << endl;
 delete c;
 
 // output:
-// ----------------------------------------
+// ---------------------------------------
 // about to delete a test object...
 // calling ~test() on test[id=2,v=2]
 ```
@@ -1708,15 +1706,15 @@ delete c;
 Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
 ```
 // because this assignment does NOT happen in the same 
-// statement as the declaration, the operator=() subroutine
-// is called.
+// statement as the declaration, the operator=() 
+// subroutine is called.
 
-cout << "----------------------------------------" << endl;
+cout << "---------------------------------------" << endl;
 cout << "assignment..." << endl;
 aa = b;
 
 // output:
-// ----------------------------------------
+// ---------------------------------------
 // assignment...
 // calling operator=(test[id=1,v=1])
 // calling test(&test) on test[id=1,v=1]; 
@@ -1728,14 +1726,14 @@ aa = b;
 ## main() code and output, 9/9
 Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
 ```
-// upon termination of the main() function, all statically 
+// upon termination of the main() function, all statically
 // created test objects are deallocated.
 
-cout << "----------------------------------------" << endl;
+cout << "---------------------------------------" << endl;
 cout << "about to leave main..." << endl;
 
 // output:
-// ----------------------------------------
+// ---------------------------------------
 // about to leave main...
 // calling ~test() on test[id=1,v=1]
 // calling ~test() on test[id=4,v=10]
