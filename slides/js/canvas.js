@@ -15,8 +15,15 @@ var x = "red",
   w = 0,
   h = 0;
 
-var xoffset = 0, // the x offset for canvas drawing, computed in init()
-    yoffset = 0; // the x offset for canvas drawing, computed in init()
+// These are the offsets from where the mouse is to where the canvas
+// mousedown point is.  If the offsets are BOTH set to zero, then the
+// init() function will try to calibrate them (likely unsuccessfully).
+// If EITHER are set to non-zero, then it will assume those are the
+// initial values to start with; these values can be determined by
+// selecting the 'notify' checkbox when doing a calibrate
+
+var xoffset = -60, // the x offset for canvas drawing, computed in init()
+    yoffset = -60; // the x offset for canvas drawing, computed in init()
 
 var calibrateimg = new Image(); // the calibrate image target
 var canvases = new Array(); // holds a map of the canvas IDs to their CTX's
@@ -48,11 +55,13 @@ function init() {
 
     calibrateimg.src = "images/calibrate.png";
 
-    var pos = getPosition(canvas);
-    yoffset = pos.offsetTop + canvas_border;
-    xoffset = pos.offsetLeft + canvas_border;
-    //alert("offsets: (x,y) = (" + xoffset + "," + yoffset + ")");
+    if ( (xoffset == 0) && (yoffset == 0) ) {
+      var pos = getPosition(canvas);
+      yoffset = pos.offsetTop + canvas_border;
+      xoffset = pos.offsetLeft + canvas_border;
+    }
   }
+  //alert("offsets: (x,y) = (" + xoffset + "," + yoffset + ")");
 }
 
 function color(obj, which) {
@@ -198,6 +207,10 @@ function on_mousedown_for_calibrate(e) {
 
     // all done!  close window.  This also un-grays out the window
     calibratewin.close();
+
+    if ( document.getElementById('cal_notify_'+which_canvas_id).checked ) {
+	alert ("calibration set to (" + xoffset + "," + yoffset + ")");
+    }
 }
 
 function calibrate(which) {
@@ -305,6 +318,7 @@ function insertCanvas() {
       <tr> \
 	<td><input type="button" value="clear" id="clr" onclick="erase('+which+')"></td> \
 	<td><input type="button" value="calibrate" id="cal" onclick="calibrate('+which+')"></td> \
+	<td><input type="checkbox" value="notify" id="cal_notify_' + which + '"><span style="margin-top:20px;font-size:50%">notify</span></td> \
 	<td><input type="button" value="close" id="cal" onclick="menutoggle('+which+')"></td> \
 	<td style="width:10px"></td> \
 ');
@@ -333,6 +347,7 @@ function insertCanvas() {
 //----------------------------------------
 
 function menutoggle(which) {
+  //alert("offsets: (x,y) = (" + xoffset + "," + yoffset + ")");
   if ( document.getElementById('menu_'+which).style.display == 'none' )
     document.getElementById('menu_'+which).style.display = 'block';
   else
