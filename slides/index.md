@@ -33,6 +33,10 @@ Slide set 2: [C++](02-cpp.html)
 
 Slide set 3: [Lists](03-lists.html)
 
+- Source code: [findMax.cpp](src/03-lists/findMax.cpp.html) ([src](src/03-lists/findMax.cpp)),
+  [objectCell.h](src/03-lists/objectCell.h.html) ([src](src/03-lists/objectCell.h)),
+  [objectCellMain.cpp](src/03-lists/objectCellMain.cpp.html) ([src](src/03-lists/objectCellMain.cpp))
+
 Slide set 4: Data Representation
 
 Slide set 5: Arrays & Big-Oh

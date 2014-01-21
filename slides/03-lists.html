@@ -41,7 +41,7 @@
 <center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="03-lists.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
 &nbsp;  
 &nbsp;
-## More C++ & Linked Lists
+## Lists (and a bit more C++)
 	</script></section>
 
 	  <section>
@@ -98,17 +98,18 @@
 ## Vector
 - Growable (can change size)
 - `#include <vector>`
-- Object & operator[](int idx)
-- Object & at(int idx)
-- int capacity() const
-- void reserve(int newCapacity)
-- int size() const
-- void clear()
-- bool empty()
-- void push_back()
-- void pop_back()
-- const Object & back() const
-- const Object & front() const
+- Operations:
+  - Object & operator[](int idx)
+  - Object & at(int idx)
+  - int capacity() const
+  - void reserve(int newCapacity)
+  - int size() const
+  - void clear()
+  - bool empty()
+  - void push_back()
+  - void pop_back()
+  - const Object & back() const
+  - const Object & front() const
 	</script></section>
 
 	<section data-markdown><script type="text/template">
@@ -126,7 +127,7 @@
 	</script></section>
 
 	<section data-markdown><script type="text/template">
-## Iterators (cont’d)
+## Iterators (cont'd)
 - Vector operations that require iterators
   - iterator insert(iterator pos, const Object &x)
   - iterator erase(iterator pos)
@@ -183,15 +184,15 @@ using namespace std;
 // findMax() defined here
 
 int main() {
-    vector<int> v1(37);
-    vector<double> v2(40);
-    vector<string> v3(80);
-    vector<IntCell> v4(75);
-    // intervening code omitted for space reasons...
-    cout << findMax(v1) << endl;  // ok: Comparable = int
-    cout << findMax(v2) << endl;  // ok: Comparable = double
-    cout << findMax(v3) << endl;  // ok: Comparable = string
-    cout << findMax(v4) << endl;  // Illegal: no operator<
+  vector<int> v1(37);
+  vector<double> v2(40);
+  vector<string> v3(80);
+  vector<IntCell> v4(75);
+  // intervening code omitted for space reasons...
+  cout << findMax(v1) << endl;  // ok: Comparable = int
+  cout << findMax(v2) << endl;  // ok: Comparable = double
+  cout << findMax(v3) << endl;  // ok: Comparable = string
+  cout << findMax(v4) << endl;  // Illegal: no operator<
 }
 ```
 	</script></section>
@@ -238,7 +239,7 @@ class ObjectCell {
     ObjectCell(const Object & initValue = Object()) 
 				: storedValue(initValue) {}
     const Object & getValue() const {return storedValue;}
-    void setValue(const Object & val) {storedValue = val;} 
+    void setValue(const Object & val) {storedValue = val;}
   private:
     Object storedValue;
 };
@@ -272,26 +273,24 @@ int main() {
 
       template <typename Keytype, typename ValueType>
       
-      class Map{/* ... */};
-      
       Map<string,Date> birthdays;
 	</script></section>
 
 	<section data-markdown><script type="text/template">
-## Templates Misc. (cont’d)
-- Non-type parameters
+## Templates Misc. (cont'd)
+- Can have non-type parameters
 ```
 template <typename Object, int size>
 class Buffer{};
 ```
-- Non-type parameter must be compile-time constant
+- But the non-type parameter must be compile-time constant
 ```
-Buffer<string,1024> buf1;
+Buffer<string,1024> buf;
 ```
 	</script></section>
 
 	<section data-markdown><script type="text/template">
-## Templates Misc. (cont’d)
+## Templates Misc. (cont'd)
 - Default template parameters
 ```
 template <typename Object=char, int size=4096>
@@ -300,7 +299,7 @@ class Buffer{};
 
 - Non-type parameter must be compile-time constant
 ```
-Buffer<> buf1;    // Buffer<char,4096>
+Buffer<> buf1;       // Buffer<char,4096>
 Buffer<int> buf2;    // Buffer<int,4096>
 ```
 	</script></section>
@@ -366,9 +365,9 @@ A0, A1, A2, A3, A4
 
 - Fixed capacity
 - Operations
-  - printList – linear time
-  - findKth – constant time
-  - insert and delete - varies
+  - printList: linear time
+  - findKth: constant time
+  - insert and delete: varies
 	</script></section>
 
 	<section data-markdown><script type="text/template">
@@ -379,8 +378,8 @@ A0, A1, A2, A3, A4
   - element
   - link (pointer!) to node containing successor
 - Operations
-  - printList, find, findKth – linear time
-  - remove – change one pointer
+  - printList, find, findKth: linear time
+  - remove: change one pointer
   - insert
     - get a new node (new)
     - adjust 2 pointers
@@ -488,15 +487,16 @@ A0, A1, A2, A3, A4
 	</script></section>
 
 	<section data-markdown><script type="text/template">
-## Implementations: Linked List
+## Stack: Linked List Implementation
 - Singly linked list
-  - Push – insert at front of list
-  - Pop – remove element at front of list
-  - Top – examine element at front of list
+  - Push: insert at front of list
+  - Pop: remove element at front of list
+  - Top: examine element at front of list
 	</script></section>
 
 	<section data-markdown><script type="text/template">
 ## Stack: Linked List Implementation
+(no external source code)
 ```
 #include "ListNode.h"
 
@@ -521,8 +521,7 @@ class Stack {
 	</script></section>
 
 	<section data-markdown><script type="text/template">
-## Implementations: Array
-- Array
+## Stack: Array Implementation
 - Avoids links, most operations are very fast constant time
 - Stack consists of
   - theArray     // the stack
@@ -533,10 +532,13 @@ class Stack {
 - Pop
   - Set return value = theArray[topOfStack]
   - Decrement topOfStack
+- Top
+  - Return theArray[topOfStack]
 	</script></section>
 
 	<section data-markdown><script type="text/template">
 ## Stack: Vector Implementation
+(no external source code)
 ```
 #include <vector>
 using namespace std;
@@ -611,10 +613,10 @@ void Stack::push(int value){
 
 	<section data-markdown><script type="text/template">
 ## Queues
-- Also a list
+- Also a list, but inserts happen at the OTHER end than removals
 - Operations
-  - Enqueue - Insert at one end (back)
-  - Dequeue - Delete at other end (front)
+  - Enqueue: insert at one end (back)
+  - Dequeue: delete at other end (front)
   - FIFO
 - Linked list and array implementations are constant time for all operations
 	</script></section>
@@ -630,7 +632,7 @@ void Stack::push(int value){
 	</script></section>
 
 	<section data-markdown><script type="text/template">
-## Array Implementation
+## Queue: Array Implementation
 - Operations
   - enqueue
     - increment current size
@@ -643,7 +645,8 @@ void Stack::push(int value){
 	</script></section>
 
 	<section data-markdown><script type="text/template">
-## Linked List Implementation
+## Queue: Linked List Implementation
+(no external source code)
 ```
 class Queue{
   public:
@@ -666,7 +669,7 @@ class Queue{
 	</script></section>
 
 	<section data-markdown><script type="text/template">
-## Linked List Implementation
+## Queue: Linked List Implementation
 - enqueue()
       void enqueue(ListNode *node) {
       
@@ -697,6 +700,7 @@ class Queue{
 ## C++ string
 - C++ <string> library
   - provides string class and member functions
+- Operations
   - size()
   - length()
   - at()
@@ -707,7 +711,7 @@ class Queue{
 	</script></section>
 
 	<section data-markdown><script type="text/template">
-## Code Demo – cStringTest.cpp
+## Selected Method Descriptions
 - at(int pos)
   - access character within string at index position, pos
   - someString.at(3);
@@ -724,12 +728,13 @@ class Queue{
 
 	<section data-markdown><script type="text/template">
 ## Entering Control-D for input
-- ... will return an empty string (length 0)
+- This will return an empty string (length 0)
 - Like Java, to compare strings, you need to compare the characters that they point to
   - .equals() in Java
 - But in the STL string class, the == operator is overloaded to do this!
 - So you can compare STL strings with ==
   - But not standard C strings (i.e. char*)
+  - And this doesn't work if you have *pointers* to the strings
 	</script></section>
 
 	</section>
