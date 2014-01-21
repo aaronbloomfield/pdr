@@ -27,7 +27,7 @@ There are a number of links and other parts of this course that are
   calendar](https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York)
 - Grading explanations, including the grading guidelines; this is
   availabe in the Collab wiki
- ([here](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/7f11823d-8dc6-47a0-a3ea-f8ea5e3f8272)
+ ([here](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/618f97d9-06f2-4da8-8197-5ddadbbc9f51)
   is the direct link, although Collab login is required)
 - Email list archive, which is a Collab tool
   ([here](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/770a28a5-0679-405a-913a-49301c5c9a60)
@@ -48,7 +48,7 @@ Labs and Tutorials
 This is a series of links to the labs and tutorials that are elsewhere
 in this repository.  A bunch of notes:
 
-- The labs are all due on specific times throughout the week, as
+- The lab parts are all due on specific times throughout the week, as
   detailed on the [lab due dates](labduedates.html) page
   - Each lab is for a given week, which (for sake of argument) we
     claim starts on a Monday
@@ -64,10 +64,8 @@ in this repository.  A bunch of notes:
 - All the labs and tutorials can be found on the [labs
   page](../labs/index.html) and the [tutorials
   page](../tutorials/index.html).  
-  - In particular, these pages have
-    additional details and links not described here
-  - The tutorials are **NOT** linked to below, in an effort to keep
-    the table size reasonable
+  - In particular, these pages have additional details and links not
+    described here
 - Note that as this repository is being filled out throughout the spring
   2014 semester, many of these links will not work until later in the
   semester

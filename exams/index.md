@@ -4,7 +4,10 @@ Exams
 [Go up to the main README file](../README.html)
 
 These are all the exams from the previous semesters of the course.  No
-solutions are provided, nor are the grading guidelines.
+solutions are provided, nor are the grading guidelines.  Currently
+they are all in PDF format, but that may change in the future.  The
+more recent ones were developed using LaTeX, the earlier ones using
+Word.
 
 - Fall 2007: [midterm 1](exam1-f07.pdf), [midterm 2](exam2-f07.pdf), [final exam](final-f07.pdf)
 - Spring 2008: [midterm 1](exam1-s08.pdf) ([exam1-s08.cpp](exam1-s08.cpp.html) ([src](exam1-s08.cpp))), [midterm 2](exam2-s08.pdf), [final exam](final-s08.pdf)
