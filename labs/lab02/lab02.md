@@ -182,101 +182,16 @@ will change.
 
 ### ListNode ###
 
-A ListNode contains an integer value, as well as next and previous pointers to other ListNodes.
-
-    /*
-     * Filename: ListNode.h
-     * Description: ListNode class definition
-     */
-    #ifndef LISTNODE_H
-    #define LISTNODE_H
-
-    // needed because NULL is part of std namespace
-    #include <iostream>
-    using namespace std;
-
-    class ListNode {
-    public:
-        ListNode();        //Constructor
-
-    private:
-        int value;
-        ListNode *next, *previous;        //for doubly linked lists
-        friend class List;        // List needs to be able to access/change
-        // ListNode's next and previous pointers
-        friend class ListItr;        // ListItr needs to access/change
-
-        // Not writing a destructor is fine in this case since there is no
-        // dynamically allocated memory in this class
-
-    };
-    #endif
-    /* end of ListNode.h listing */
+A ListNode contains an integer value, as well as next and previous
+pointers to other ListNodes.  View the [ListNode.h](ListNode.h.html)
+([src](ListNode.h])) code.
 
 ### List ###
 
 This class represents the list data structure containing ListNodes.
 It has a pointer to the first (head) and last (tail) ListNodes of the
-list, as well as a count of the number of ListNodes in the List.
-
-    /*
-     * Filename: List.h
-     * Description: List class definition
-     *         also includes the prototype for non-member function print()
-     */
-    #ifndef LIST_H
-    #define LIST_H
-
-    #include <iostream>
-    #include "ListNode.h"
-    #include "ListItr.h"
-    using namespace std;
-
-    // When reading in ListItr.h first, it starts reading in this file
-    // before declaring that ListItr is a class.  This file then include
-    // ListItr.h, but beacuse of the #ifndef LISTITR_H statement, the code
-    // in that file is not read.  Thus, in this case, this List.h file
-    // will be read in, and will not know that ListItr is a class, which
-    // will cause compilation problems later on in this file.  Got it?
-    // Isn't C++ fun???
-    class ListItr;
-
-    class List {
-    public:
-        List();                                //Constructor
-        List(const List& source);        //Copy Constructor
-        ~List();                        //Destructor
-        List& operator=(const List& source);        //Equals Operator
-        bool isEmpty() const;                //Returns true if empty; else false
-        void makeEmpty();        //Removes all items except blank head and tail
-        ListItr first();                 //Returns an iterator that points to
-        //the ListNode in the first position
-        ListItr last();                        //Returns an iterator that points to
-        //the ListNode in the last position
-        void insertAfter(int x, ListItr position);
-        //Inserts x after current iterator position p
-        void insertBefore(int x, ListItr position);
-        //Inserts x before current iterator position p
-        void insertAtTail(int x);        //Insert x at tail of list
-        void remove(int x);                //Removes the first occurrence of x
-        ListItr find(int x);                //Returns an iterator that points to
-        // the first occurrence of x, else
-        // return a blank iterator
-
-        int size() const; //Returns the number of elements in the list
-
-    private:
-        ListNode *head, *tail;        //indicates beginning and end of the list
-        int count;                        //#of elements in list
-        friend class ListItr;
-    };
-
-    // printList: non-member function prototype
-    void printList(List& source, bool direction);
-    //prints list forwards when direction is true
-    //or backwards when direction is false
-    #endif
-    /* end of List.h */
+list, as well as a count of the number of ListNodes in the List.  View
+the [List.h](List.h.html) ([src](List.h])) code.
 
 ### Explanations: ###
 
@@ -356,42 +271,9 @@ The code for the copy constructor and the operator=() method in the List class a
 ### ListItr ###
 
 Your ListItr should maintain a pointer to a current position in a
-List.  Your iterator class should look like the class definition
-below.
-
-    /*
-     * Filename: ListItr.h
-     * Description: ListItr class definition
-     */
-    #ifndef LISTITR_H
-    #define LISTITR_H
-
-    #include "ListNode.h"
-    #include "List.h"
-
-    class ListItr {
-    public:
-        ListItr();                     // Constructor
-        ListItr(ListNode* theNode);    // One parameter constructor
-        bool isPastEnd() const;        // Returns true if past end position
-                                       // in list, else false
-        bool isPastBeginning() const;  // Returns true if past first position
-                                       // in list, else false
-        void moveForward();            // Advances current to next position in list
-                                       //(unless already past end of list)
-        void moveBackward();           // Moves current back to previous position
-                                       // in list (unless already past beginning of
-                                       // list)
-        int retrieve() const;          // Returns item in current position
-
-    private:
-        ListNode* current;             // holds the position in the list
-        friend class List;             // List class needs access to "current"
-                                       // ListNode's private data members
-    };
-
-    #endif
-    /* end of ListItr.h */
+List.  Your iterator class should look like the class definition in
+the source code.  the [ListItr.h](ListItr.h.html) ([src](ListItr.h]))
+code.
 
 Your ListItr class should implement at least the following public
 methods:
