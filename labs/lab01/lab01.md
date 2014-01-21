@@ -91,9 +91,9 @@ Pre-lab
 Complete [Tutorial 1: Introduction to
 UNIX](../../tutorials/01-intro-unix/index.html) For this course, you
 will need to be familiar with Emacs.  You are welcome to use any
-editor that is not an IDE (Integrated Development Environment), but we
-expect that you are very familiar with Emacs for the exams, including
-the keyboard shortcuts!
+editor that is not an IDE (Integrated Development Environment), such
+as emacs, nano, or vim; you may be tested on the key bindings of your
+preferred editor. (Notepad doesn't count.)
 
 Below is a sample function with a `main()` function that calls it.  The
 source code for this and other examples from the book is on the Collab
