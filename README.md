@@ -216,7 +216,8 @@ stylus), you must do a few things:
 2. Include the js/canvas.js and css/dhtmlwindow.js scripts, as well as
    the dhtmlwindow.css CSS file (the two dhtmlwindow.* files are for
    the calibration feature)
-3. Add an `onload="init()"` to the body tag
+3. Add an `onload="canvasinit()"` to the body tag: `<body
+   onload="canvasinit()">`
 4. Add the following immediately after the `<body>` tag (this is for
    the calibration feature):
 
