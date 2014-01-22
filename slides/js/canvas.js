@@ -17,13 +17,14 @@ var x = "red",
 
 // These are the offsets from where the mouse is to where the canvas
 // mousedown point is.  If the offsets are BOTH set to zero, then the
-// init() function will try to calibrate them (likely unsuccessfully).
-// If EITHER are set to non-zero, then it will assume those are the
-// initial values to start with; these values can be determined by
-// selecting the 'notify' checkbox when doing a calibrate
+// canvasinit() function will try to calibrate them (likely
+// unsuccessfully).  If EITHER are set to non-zero, then it will
+// assume those are the initial values to start with; these values can
+// be determined by selecting the 'notify' checkbox when doing a
+// calibrate
 
-var xoffset = -60, // the x offset for canvas drawing, computed in init()
-    yoffset = -60; // the x offset for canvas drawing, computed in init()
+var xoffset = -60, // the x offset for canvas drawing, computed in canvasinit()
+    yoffset = -60; // the x offset for canvas drawing, computed in canvasinit()
 
 var calibrateimg = new Image(); // the calibrate image target
 var canvases = new Array(); // holds a map of the canvas IDs to their CTX's
@@ -31,7 +32,7 @@ var canvas_border = 100; // how much wider than the slide itselt to allow drawin
 var colors = new Array("red","orange","yellow","green","blue","purple","white","black"); // drawing colors
 var numCanvases = 0;
 
-function init() {
+function canvasinit() {
   for ( var id in canvases ) {
     canvas = document.getElementById(id);
     canvases[id] = canvas.getContext("2d");

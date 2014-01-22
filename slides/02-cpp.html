@@ -18,9 +18,12 @@
     <!--[if lt IE 9]>
     <script src="reveal.js/lib/js/html5shiv.js"></script>
     <![endif]-->
+    <script language="javascript" type="text/javascript" src="js/dhtmlwindow.js"></script>
+    <script language="javascript" type="text/javascript" src="js/canvas.js"></script>
+    <link rel="stylesheet" href="css/dhtmlwindow.css" type="text/css">
   </head>
 
-  <body>
+  <body onload="canvasinit()">
     <div id="dhtmlwindowholder"><span style="display:none"></span></div>
 
     <div class="reveal">
@@ -780,11 +783,11 @@ bool even (int x);
 - Asterisk: *
   - In a definition
     - defines pointer type
-      - `int x`
+      - `int * x`
   - In an expression
     - "dereferences"
     - evaluates object to which the pointer points
-      - `x = 2`
+      - `*x = 2`
 </script></section>
 
 <section data-markdown><script type="text/template">
@@ -797,10 +800,9 @@ bool even (int x);
       - `x = &y`
 </script></section>
 
-<section data-markdown><script type="text/template">
-## Pointer Variables
-Source code: [pointers.cpp](src/02-cpp/pointers.cpp.html) ([src](src/02-cpp/pointers.cpp))
-
+<section>
+<h2>Pointer Variables</h2>
+<p>Source code: <a href="src/02-cpp/pointers.cpp.html">pointers.cpp</a> (<a href="src/02-cpp/pointers.cpp">src</a>)</p>
 <p>&nbsp;</p>
 <table class="transparent"><tr><td>
 <table class="transparent">
@@ -820,8 +822,8 @@ cout << x_pointer;
 cout << *x_pointer;
 </code></pre>
 </td></tr></table>
-
-</script></section>
+<script language="javascript" type="text/javascript">insertCanvas();</script>
+</section>
 
 <section data-markdown><script type="text/template">
 ## x_pointer = &x
@@ -872,7 +874,7 @@ Source code: [pointers.cpp](src/02-cpp/pointers.cpp.html) ([src](src/02-cpp/poin
 </table>
 </td><td></td><td>
 <pre><code data-trim>
-x_pointer = y;
+x_pointer = &y;
 </code></pre>
 <p>This means to get the address of y</p>
 </td></tr></table>
@@ -892,11 +894,11 @@ Source code: [pointers.cpp](src/02-cpp/pointers.cpp.html) ([src](src/02-cpp/poin
 <table class="transparent"><tr><td>
 <table class="transparent">
 <tr><th>Variable</th><th>Address</th><th>Memory</th></tr>
-<tr><td><center>y</center></td><td>ffdf65d4</td><td class="border"><center>2</center></td></tr>
-<tr><td><center>x</center></td><td>ffdf65d8</td><td class="border"><center><span class="fragment fade-out" data-fragment-index="1">5</span><span class="fragment fade-in" data-fragment-index="1"><strong class="red">3</strong></span></center></td></tr>
+<tr><td><center>x</center></td><td>ffdf65d4</td><td class="border"><center>2</center></td></tr>
+<tr><td><center>y</center></td><td>ffdf65d8</td><td class="border"><center><span class="fragment fade-out" data-fragment-index="1">5</span><span class="fragment fade-in" data-fragment-index="1"><strong class="red">3</strong></span></center></td></tr>
 <tr><td></td><td>ffdf...</td><td class="border"></td></tr>
 <tr><td></td><td>ffdf...</td><td class="border"></td></tr>
-<tr><td><center>x_pointer</center></td><td>ffdf...</td><td class="border"><center>ffdf65d4</center></td></tr>
+<tr><td><center>x_pointer</center></td><td>ffdf...</td><td class="border"><center>ffdf65d8</center></td></tr>
 </table>
 </td><td></td><td>
 <pre><code data-trim>
@@ -927,33 +929,35 @@ If that doesn't work, try the [direct Youtube link](http://www.youtube.com/watch
 - `Square **blah;`
 </script></section>
 
-<section data-markdown><script type="text/template">
-## Pointer Pitfalls: Uninitialized Pointers
-- Cause runtime errors
-```
+<section>
+<h2>Pointer Pitfalls: Uninitialized Pointers</h2>
+<ul><li>Cause runtime errors
+<pre><code data-trim>
 int n = 30;
 int * p;
 *p = n;    //ERROR!!!
-```
-  - p does not have a valid memory address!
-  - A common initializer value used by programmers is NULL
-```
+</code></pre>
+<ul><li>p does not have a valid memory address!</li>
+<li>A common initializer value used by programmers is NULL</li>
+<pre><code data-trim>
 int *p=NULL; // better code, then add code to check 
              // for NULL value
-```
-</script></section>
+</code></pre>
+</ul></ul>
+<script language="javascript" type="text/javascript">insertCanvas();</script>
+</section>
 
-<section data-markdown><script type="text/template">
-## swap()
-Source code: [swap.cpp](src/02-cpp/swap.cpp.html) ([src](src/02-cpp/swap.cpp))
-```
+<section>
+<h2>swap()</h2>
+<p>Source code: <a href="src/02-cpp/swap.cpp.html">swap.cpp</a> (<a href="src/02-cpp/swap.cpp">src</a>)</p>
+<pre><code data-trim>
 void swap(int * x, int * y) {
     int temp = *x;
     *x = *y;
     *y = temp;
-}
-```
-</script></section>
+}</code></pre>
+<script language="javascript" type="text/javascript">insertCanvas();</script>
+</section>
 
 <section data-markdown><script type="text/template">
 ## Calling swap()
