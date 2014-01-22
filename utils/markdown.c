@@ -27,38 +27,56 @@
 #include <string.h>
 
 int main (int argc, char **argv) {
-    int i;
+    int i, inidx, outidx;
     FILE *fpin, *fpout;
-
-    if ( (argc != 2) && (argc != 3) ) {
-        printf ("Usage: %s <input_file> <output_file>\n", argv[0]);
-        exit(0);
+    char *css = NULL;
+    if ( !strcmp(argv[1],"-css") ) {
+        if ( (argc != 4) && (argc != 5) ) {
+            printf ("Usage: %s [-css <css_file>] <input_file> <output_file>\n", argv[0]);
+            exit(0);
+        }
+        css = argv[2];
+    } else {
+        if ( (argc != 2) && (argc != 3) ) {
+            printf ("Usage: %s [-css <css_file>] <input_file> <output_file>\n", argv[0]);
+            exit(0);
+        }
     }
-
-    if ( (fpin = fopen(argv[1],"r")) == NULL ) {
+    if ( css ) {
+        inidx = 3;
+        if ( argc == 4 )
+            outidx = -1;
+        else
+            outidx = 4;
+    } else {
+        inidx = 1;
+        if ( argc == 2 )
+            outidx = -1;
+        else
+            outidx = 2;
+    }
+    if ( (fpin = fopen(argv[inidx],"r")) == NULL ) {
         printf ("Error: unable to open input file: %s\n", argv[1]);
         exit(0);
     }
-
-    if ( (argc == 2) || (!strcmp(argv[2],"-")) )
+    if ( (outidx == -1) || (!strcmp(argv[outidx],"-")) )
         fpout = stdout;
-    else if ( (fpout = fopen(argv[2],"w")) == NULL ) {
+    else if ( (fpout = fopen(argv[outidx],"w")) == NULL ) {
         printf ("Error: unable to open output file: %s\n", argv[2]);
         exit(0);
     }
-
     MMIOT* doc = mkd_in(fpin, 0);
     if ( doc == NULL ) {
         printf ("Error processing markdown input file in mkd_in()\n");
         exit(0);
     }
-
-    fprintf (fpout, "<!doctype html>\n<html>\n<head>\n</head>\n<body>\n");
+    fprintf (fpout, "<!doctype html>\n<html>\n<head>\n");
+    if ( css )
+        fprintf (fpout, "<link href=\"%s\" media=\"all\" rel=\"stylesheet\" type=\"text/css\">", css);
+    fprintf (fpout, "</head>\n<body>\n");
     markdown (doc, fpout, 0);
     fprintf (fpout, "</body>\n</html>\n");
     fclose(fpout);
-
     mkd_cleanup(doc);
-
     return 0;
 }

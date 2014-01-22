@@ -170,9 +170,11 @@ program and reveal.js.
 
 To compile the program, enter: "gcc markdown.c -o markdown
 -lmarkdown". To use, specify the input file name, and optionally an
-output file.  The resulting document is a full HTML document --
-meaning it adds the `<doctype>`, `<html>`, `<head>`, and `<body>` tags
-to the document, as necessary.
+output file.  You can also specify a CSS file to use via the `-css
+<css_file>` parameters (but this has to be before the input file).
+The resulting document is a full HTML document -- meaning it adds the
+`<doctype>`, `<html>`, `<head>`, and `<body>` tags to the document, as
+necessary.
 
 For all the Markdown files in this repository, both the original (.md)
 file and the HTML version (.html) are added to the repository, so that

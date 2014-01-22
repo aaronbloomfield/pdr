@@ -38,39 +38,57 @@ http://www.gnu.org/software/src-highlite">
 <b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;string.h&gt;</font>
 
 <font color="#009900">int</font> <b><font color="#000000">main</font></b> <font color="#990000">(</font><font color="#009900">int</font> argc<font color="#990000">,</font> <font color="#009900">char</font> <font color="#990000">**</font>argv<font color="#990000">)</font> <font color="#FF0000">{</font>
-    <font color="#009900">int</font> i<font color="#990000">;</font>
+    <font color="#009900">int</font> i<font color="#990000">,</font> inidx<font color="#990000">,</font> outidx<font color="#990000">;</font>
     <font color="#008080">FILE</font> <font color="#990000">*</font>fpin<font color="#990000">,</font> <font color="#990000">*</font>fpout<font color="#990000">;</font>
-
-    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>argc <font color="#990000">!=</font> <font color="#993399">2</font><font color="#990000">)</font> <font color="#990000">&amp;&amp;</font> <font color="#990000">(</font>argc <font color="#990000">!=</font> <font color="#993399">3</font><font color="#990000">)</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
-        <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"Usage: %s &lt;input_file&gt; &lt;output_file&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> argv<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]);</font>
-        <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font>
+    <font color="#009900">char</font> <font color="#990000">*</font>css <font color="#990000">=</font> NULL<font color="#990000">;</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">!</font><b><font color="#000000">strcmp</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">],</font><font color="#FF0000">"-css"</font><font color="#990000">)</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>argc <font color="#990000">!=</font> <font color="#993399">4</font><font color="#990000">)</font> <font color="#990000">&amp;&amp;</font> <font color="#990000">(</font>argc <font color="#990000">!=</font> <font color="#993399">5</font><font color="#990000">)</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+            <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"Usage: %s [-css &lt;css_file&gt;] &lt;input_file&gt; &lt;output_file&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> argv<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]);</font>
+            <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font>
+        <font color="#FF0000">}</font>
+        css <font color="#990000">=</font> argv<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">];</font>
+    <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>argc <font color="#990000">!=</font> <font color="#993399">2</font><font color="#990000">)</font> <font color="#990000">&amp;&amp;</font> <font color="#990000">(</font>argc <font color="#990000">!=</font> <font color="#993399">3</font><font color="#990000">)</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+            <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"Usage: %s [-css &lt;css_file&gt;] &lt;input_file&gt; &lt;output_file&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> argv<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]);</font>
+            <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font>
+        <font color="#FF0000">}</font>
     <font color="#FF0000">}</font>
-
-    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>fpin <font color="#990000">=</font> <b><font color="#000000">fopen</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">],</font><font color="#FF0000">"r"</font><font color="#990000">))</font> <font color="#990000">==</font> NULL <font color="#990000">)</font> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> css <font color="#990000">)</font> <font color="#FF0000">{</font>
+        inidx <font color="#990000">=</font> <font color="#993399">3</font><font color="#990000">;</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> argc <font color="#990000">==</font> <font color="#993399">4</font> <font color="#990000">)</font>
+            outidx <font color="#990000">=</font> <font color="#990000">-</font><font color="#993399">1</font><font color="#990000">;</font>
+        <b><font color="#0000FF">else</font></b>
+            outidx <font color="#990000">=</font> <font color="#993399">4</font><font color="#990000">;</font>
+    <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
+        inidx <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> argc <font color="#990000">==</font> <font color="#993399">2</font> <font color="#990000">)</font>
+            outidx <font color="#990000">=</font> <font color="#990000">-</font><font color="#993399">1</font><font color="#990000">;</font>
+        <b><font color="#0000FF">else</font></b>
+            outidx <font color="#990000">=</font> <font color="#993399">2</font><font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>fpin <font color="#990000">=</font> <b><font color="#000000">fopen</font></b><font color="#990000">(</font>argv<font color="#990000">[</font>inidx<font color="#990000">],</font><font color="#FF0000">"r"</font><font color="#990000">))</font> <font color="#990000">==</font> NULL <font color="#990000">)</font> <font color="#FF0000">{</font>
         <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"Error: unable to open input file: %s</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> argv<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">]);</font>
         <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font>
     <font color="#FF0000">}</font>
-
-    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>argc <font color="#990000">==</font> <font color="#993399">2</font><font color="#990000">)</font> <font color="#990000">||</font> <font color="#990000">(!</font><b><font color="#000000">strcmp</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">],</font><font color="#FF0000">"-"</font><font color="#990000">))</font> <font color="#990000">)</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>outidx <font color="#990000">==</font> <font color="#990000">-</font><font color="#993399">1</font><font color="#990000">)</font> <font color="#990000">||</font> <font color="#990000">(!</font><b><font color="#000000">strcmp</font></b><font color="#990000">(</font>argv<font color="#990000">[</font>outidx<font color="#990000">],</font><font color="#FF0000">"-"</font><font color="#990000">))</font> <font color="#990000">)</font>
         fpout <font color="#990000">=</font> stdout<font color="#990000">;</font>
-    <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>fpout <font color="#990000">=</font> <b><font color="#000000">fopen</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">],</font><font color="#FF0000">"w"</font><font color="#990000">))</font> <font color="#990000">==</font> NULL <font color="#990000">)</font> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>fpout <font color="#990000">=</font> <b><font color="#000000">fopen</font></b><font color="#990000">(</font>argv<font color="#990000">[</font>outidx<font color="#990000">],</font><font color="#FF0000">"w"</font><font color="#990000">))</font> <font color="#990000">==</font> NULL <font color="#990000">)</font> <font color="#FF0000">{</font>
         <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"Error: unable to open output file: %s</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> argv<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">]);</font>
         <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font>
     <font color="#FF0000">}</font>
-
     MMIOT<font color="#990000">*</font> doc <font color="#990000">=</font> <b><font color="#000000">mkd_in</font></b><font color="#990000">(</font>fpin<font color="#990000">,</font> <font color="#993399">0</font><font color="#990000">);</font>
     <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> doc <font color="#990000">==</font> NULL <font color="#990000">)</font> <font color="#FF0000">{</font>
         <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"Error processing markdown input file in mkd_in()</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">);</font>
         <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font>
     <font color="#FF0000">}</font>
-
-    <b><font color="#000000">fprintf</font></b> <font color="#990000">(</font>fpout<font color="#990000">,</font> <font color="#FF0000">"&lt;!doctype html&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">&lt;html&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">&lt;head&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">&lt;/head&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">&lt;body&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">);</font>
+    <b><font color="#000000">fprintf</font></b> <font color="#990000">(</font>fpout<font color="#990000">,</font> <font color="#FF0000">"&lt;!doctype html&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">&lt;html&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">&lt;head&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">);</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> css <font color="#990000">)</font>
+        <b><font color="#000000">fprintf</font></b> <font color="#990000">(</font>fpout<font color="#990000">,</font> <font color="#FF0000">"&lt;link href=</font><font color="#CC33CC">\"</font><font color="#FF0000">%s</font><font color="#CC33CC">\"</font><font color="#FF0000"> media=</font><font color="#CC33CC">\"</font><font color="#FF0000">all</font><font color="#CC33CC">\"</font><font color="#FF0000"> rel=</font><font color="#CC33CC">\"</font><font color="#FF0000">stylesheet</font><font color="#CC33CC">\"</font><font color="#FF0000"> type=</font><font color="#CC33CC">\"</font><font color="#FF0000">text/css</font><font color="#CC33CC">\"</font><font color="#FF0000">&gt;"</font><font color="#990000">,</font> css<font color="#990000">);</font>
+    <b><font color="#000000">fprintf</font></b> <font color="#990000">(</font>fpout<font color="#990000">,</font> <font color="#FF0000">"&lt;/head&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">&lt;body&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">);</font>
     <b><font color="#000000">markdown</font></b> <font color="#990000">(</font>doc<font color="#990000">,</font> fpout<font color="#990000">,</font> <font color="#993399">0</font><font color="#990000">);</font>
     <b><font color="#000000">fprintf</font></b> <font color="#990000">(</font>fpout<font color="#990000">,</font> <font color="#FF0000">"&lt;/body&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">&lt;/html&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">);</font>
     <b><font color="#000000">fclose</font></b><font color="#990000">(</font>fpout<font color="#990000">);</font>
-
     <b><font color="#000000">mkd_cleanup</font></b><font color="#990000">(</font>doc<font color="#990000">);</font>
-
     <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
 <font color="#FF0000">}</font>
 </tt></pre>
