@@ -10,11 +10,11 @@
 <p>This tutorial is meant to get you used to using the GNU debugger, gdb.
 As you read through the first part of the tutorial, you are not
 expected to remember everything &ndash; there is a reference list at the
-end of this tutorial.  This reference list also exists on the <a href="../../docs/gdb_summary.html">GDB
-command summary</a> page.  The exercise, at
-the end of this tutorial, will guide you through the process of using
-those commands.  Gdb is a command-line debugger &ndash; we will be seeing
-graphical debuggers later in the semester.</p>
+end of this tutorial, and is also contained on the <a href="../../docs/gdb_summary.html">GDB command
+summary</a> page.  This tutorial will guide
+you through the process of using those commands.  Gdb is a
+command-line debugger &ndash; we may see graphical debuggers later in the
+semester.</p>
 
 <hr />
 
@@ -28,15 +28,17 @@ values of variables.  We think of a program running &ldquo;inside&rdquo; a
 debugger.  The debugger allows us to control the execution of the
 program by pausing its execution and then resuming it.  While paused,
 we can find out where we are in the program, what values variables
-have, reset the values of variables, etc.  The principles and commands
-described in this document are specific to the gdb debuggers for
-clang++ under UNIX, but every debugger has similar commands.</p>
+have, reset the values of variables, etc.  If a program crashes, the
+debugger can tell you exactly <em>where</em> the program crashsed (something
+that Java does naturally, but C++ does not).  The principles and
+commands described in this document are specific to the gdb debuggers
+for clang++ under UNIX, but every debugger has similar commands.</p>
 
-<p>All programmers should learn the basics of debugging and how to use a
-debugger.  It will save you literally hours of time when finding and
-fixing problems in your programs.  The few minutes of investment you
-put into learning how to use a debugger will pay off tremendously in a
-matter of weeks.  Work smart!</p>
+<p>All computer scientists should learn the basics of debugging and how
+to use a debugger.  It will save you literally hours of time when
+finding and fixing problems in your programs.  The few minutes of
+investment you put into learning how to use a debugger will pay off
+tremendously in a matter of weeks.  Work smart!</p>
 
 <h3>Compiling for Debugging</h3>
 
@@ -57,8 +59,8 @@ recompiling it with the &ldquo;strip&rdquo; command.  See the man page for
 &ldquo;strip&rdquo;.</p>
 
 <p>The -g option causes the compiler to include information about the
-source file (the .c file) that is needed for debugging as part of the
-executable file.  So when you run the debugger, you specify the
+source file (the .cpp file) that is needed for debugging as part of
+the executable file.  So when you run the debugger, you specify the
 executable file (not the source file) as the input to the debugger.</p>
 
 <h3>How to Start Using gdb on our UNIX Systems</h3>
@@ -81,18 +83,19 @@ gdb a.out
 <p>The following sections describe the important types of things you can
 do with gdb, organized by &ldquo;category&rdquo; of activity.  These activities
 and operations will have been implemented in other debuggers you may
-have used, such as the debugger that comes with Microsoft Visual C++.</p>
+have used, such as the debuggers that come with various IDEs.</p>
 
 <h3>Executing your Program</h3>
 
 <p>Once in gdb, use the &lsquo;run&rsquo; command to start your program running.  It
 will run until it completes, until it crashes, or until it reaches a
-breakpoint that you set (more on this later).  Once it finishes,
-you&rsquo;re still in gdb, so you can run it again from the beginning.</p>
+breakpoint that you set (more on this later) &ndash; and it will pause for
+input, of course.  Once it finishes, you&rsquo;re still in gdb, so you can
+run it again from the beginning.</p>
 
 <p>If your program requires command-line arguments, you can give them
-after the run command.  If you would normally run the program by
-entering:</p>
+after the run command.  If you would normally run the program on the
+command line by entering:</p>
 
 <p><code>
 prog1 100 test1.dat
@@ -108,9 +111,10 @@ run 100 test1.dat
 
 <p>Under UNIX, one of the most frustrating things about running C or C++
 programs is that they normally give little useful information when
-they crash.  Part of the reason is that by default the executable file
-doesn&rsquo;t include information about the source code that is needed to
-print an error message (like the line number).</p>
+they crash &ndash; usually they just say, &lsquo;segmentation fault&rsquo;.  Part of
+the reason is that by default the executable file doesn&rsquo;t include
+information about the source code that is needed to print an error
+message (like the line number).</p>
 
 <p>But when you run a program inside a debugger, you can easily see what
 the current line is when a program crashes.  Type &lsquo;list&rsquo; to see the
@@ -293,76 +297,6 @@ in the future.</p>
 code.  There are a few errors in the code, but don&rsquo;t fix them!  We&rsquo;ll
 use the debugger to find them.</p>
 
-<pre><code>//----------------------------------------------------------------------
-// This program reads five numbers from the keyboard, and prints out the
-// average and the maximum value
-//----------------------------------------------------------------------
-
-#include &lt;iostream&gt;
-using namespace std;
-
-// Global Constants
-const int MAX = 5;
-
-// Function Prototypes
-double GetAverage( int nIn[], int nMax);
-int GetMax( int nIn[], int nMax );
-
-
-int main() {
-
-    int nValues[MAX];
-    int nCount;
-
-    // Display a prompt:
-    cout &lt;&lt; "Enter five numbers: " &lt;&lt; endl;
-
-    // First we read in the numbers.
-    for ( nCount = 0; nCount &lt; MAX; nCount++ ) {
-        cout &lt;&lt; "Enter the next number : ";
-        cin &gt;&gt; nValues[1];
-    }
-
-    // Now we echo the input back to the user
-    for ( nCount = 1; nCount &lt; MAX; nCount++) {
-        cout &lt;&lt; "Value [ " &lt;&lt; nCount &lt;&lt; "] is : " &lt;&lt; nValues[nCount] &lt;&lt; endl;
-    }
-
-    // Now lets call a function to get the average:
-    cout &lt;&lt; "The average is " &lt;&lt; GetAverage(nValues, MAX ) &lt;&lt; endl;
-
-    // Now lets call a function to get the max:
-    cout &lt;&lt; "The max is " &lt;&lt; GetMax(nValues, MAX ) &lt;&lt; endl;
-
-    return 0;
-
-} // End of main
-
-
-double GetAverage(int nIn[], int nMax) {
-
-    double temp = 0.0;
-    for ( int i = 0; i &lt; nMax; i++)
-        temp += nIn[i];
-    temp /= nMax;
-
-    return temp;
-} // End of GetAverage()
-
-
-int GetMax( int nIn[], int nMax) {
-    int nBiggest = nIn[0];
-    for ( int i = 1; i &lt; nMax; i++)
-        if (nBiggest &gt; nIn[i])
-            nBiggest = nIn[i];
-    return nBiggest;
-} // End of GetMax()
-
-//----------------------------------------------------------------------
-// END OF LISTING
-//----------------------------------------------------------------------
-</code></pre>
-
 <h3>Running the Debugger</h3>
 
 <p>After you enter the code (remember: if you spot the errors do not
@@ -376,10 +310,9 @@ clang++ -Wall -g -o lab2 gdb.cpp
 </code></p>
 
 <p>The &lsquo;-g&rsquo; flag will include debugging information.  The &lsquo;-o lab2&rsquo; flag
-will cause the output executable to be &lsquo;lab2.exe&rsquo; (just &lsquo;lab2&rsquo; in
-Linux/Unix).  The &lsquo;-Wall&rsquo; flag is a new one &ndash; it will include all
-warnings about your code (errors are still reported without the flag;
-this includes warnings as well).</p>
+will cause the output executable to be &lsquo;lab2&rsquo;.  The &lsquo;-Wall&rsquo; flag is a
+new one &ndash; it will include all warnings about your code (errors are
+still reported without the flag; this includes warnings as well).</p>
 
 <p>There are no compiler or linker errors (or warnings!), so if you get
 any you will need to find and fix them.  We should now be ready to go.</p>

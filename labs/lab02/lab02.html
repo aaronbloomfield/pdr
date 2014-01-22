@@ -16,7 +16,10 @@ software development.</p>
 
 <h3>Background:</h3>
 
-<p>The linked list is a basic data structure from which one can implement stacks, queues, sets, and many other data structures.  Lists may be singly- or doubly-linked.  In this lab we will implement a doubly-linked list.</p>
+<p>The linked list is a basic data structure from which one can implement
+stacks, queues, sets, and many other data structures.  Lists may be
+singly- or doubly-linked.  In this lab we will implement a
+doubly-linked list.</p>
 
 <h3>Reading(s):</h3>
 
@@ -99,9 +102,7 @@ program (crash, etc.), the TAs will not help you until you have run
 it through the debugger and learned all that can be learned from
 this.  So make sure you understand the tutorial!</li>
 <li>Submit your debugged version of gdb.cpp to inlab2.  Remember the
-standard identifying header information.  You should keep a copy of
-your files on Home Directory.  <strong><em>This will count as your lab
-attendance credit, so be sure to do this before continuing.</em></strong></li>
+standard identifying header information.</li>
 <li>Verify to yourself that your methods are working properly with your
 linked list code using the debugger that you just learned about.
 If you have not yet completed your linked list implementation, use
@@ -132,9 +133,9 @@ contain the following 7 files:
 <li><em>Be sure you submit all 7 files!</em> If you don&rsquo;t, then your code will
 not compile properly, and you will lose points!</li>
 <li>It is due on the Friday of the week of the lab, at the time listed
-on the [Lab due dates page].  Be sure to include: your name, the
-date, and the name of the file in a banner comment at the beginning
-of each file you submit.</li>
+on the <a href="../../cs2150/labduedates.html">Lab due dates page</a>.  Be
+sure to include: your name, the date, and the name of the file in a
+banner comment at the beginning of each file you submit.</li>
 <li>Files to download: no additional files beyond the pre-lab and
 in-lab</li>
 <li>Files to submit: ListNode.h/cpp, ListItr.h/cpp, List.h/cpp,
@@ -148,20 +149,17 @@ ListTest.cpp</li>
 
 <h3>Code Description</h3>
 
-<p>Linked lists are described on the online
+<p>Linked lists are described in the online
 <a href="../../docs/readings.html">Readings</a>.</p>
 
-<p>The code in the book implements singly linked lists using a dummy
-header node.  <strong>You should implement your doubly linked list with
-dummy nodes as well</strong> (not doing so will result in point deduction).
-You will want two dummy nodes &ndash; <strong>one for the head</strong> and <strong>one for
-the tail</strong>.  A benefit of doing your implementation using dummy nodes
-is that there are fewer special cases to check for &ndash; for example you
-never have to update the head pointer on an insertBefore() or a
-remove() &ndash; the head pointer always points to the dummy header node.
-A dummy tail pointer would help out in the same respect.  The downside
-is that you use two extra &ldquo;empty&rdquo; nodes.  The book describes these
-issues on page 84.</p>
+<p>You will be implementing a doubly linked list, and you will be using
+&ldquo;dummy&rdquo; nodes as well.  You will want two dummy nodes &ndash; <strong>one for the
+head</strong> and <strong>one for the tail</strong>.  A benefit of doing your
+implementation using dummy nodes is that there are fewer special cases
+to check for &ndash; for example you never have to update the head pointer
+on an insertBefore() or a remove() &ndash; the head pointer always points
+to the dummy header node.  A dummy tail pointer would help out in the
+same respect.  The downside is that you use two extra &ldquo;empty&rdquo; nodes.</p>
 
 <p>For this lab you will need to implement three classes:</p>
 
@@ -178,7 +176,9 @@ issues on page 84.</p>
 
 <h3>Test Harness</h3>
 
-<p>We have posted a test harness for testing your whole implementation, ListTest.cpp, on the labs page.  <strong><em>The classes you implement must work with this test harness.</em></strong></p>
+<p>We have provided a test harness for testing your whole implementation:
+<a href="ListTest.cpp.html">ListTest.cpp</a> (<a href="ListTest.cpp">src</a>) <strong><em>The classes
+you implement must work with this test harness.</em></strong></p>
 
 <h3>UML Diagram</h3>
 
@@ -189,13 +189,12 @@ other.</p>
 
 <p>This diagram shows a list containing two elements, the integers 3 and
 7.  Note that there are more methods in the List and ListItr classes
-than what is shown above.</p>
-
-<p>The head and tail pointers in the List class point to dummy nodes &ndash;
-they are put there to make inserting elements into the list easier.
-It doesn&rsquo;t matter what the value of the dummy notes is set to, as it
-won&rsquo;t be used.  Each ListNode points to the nodes before and after it
-(although the dummy nodes each have one pointer pointing to NULL).</p>
+than what is shown above.  The head and tail pointers in the List
+class point to dummy nodes &ndash; they are put there to make inserting
+elements into the list easier.  It doesn&rsquo;t matter what the value of
+the dummy notes is set to, as it won&rsquo;t be used.  Each ListNode points
+to the nodes before and after it (although the dummy nodes each have
+one pointer pointing to NULL).</p>
 
 <p>Thus, our doubly linked list will have only one List object and many
 ListNode objects (2 more than the number of elements in the list).  A
@@ -208,14 +207,14 @@ will change.</p>
 
 <p>A ListNode contains an integer value, as well as next and previous
 pointers to other ListNodes.  View the <a href="ListNode.h.html">ListNode.h</a>
-(<a href="ListNode.h]">src</a>) code.</p>
+(<a href="ListNode.h]">src</a>) code for details.</p>
 
 <h3>List</h3>
 
 <p>This class represents the list data structure containing ListNodes.
 It has a pointer to the first (head) and last (tail) ListNodes of the
 list, as well as a count of the number of ListNodes in the List.  View
-the <a href="List.h.html">List.h</a> (<a href="List.h]">src</a>) code.</p>
+the <a href="List.h.html">List.h</a> (<a href="List.h]">src</a>) code for details.</p>
 
 <h3>Explanations:</h3>
 
@@ -258,14 +257,18 @@ find() to see if isPastEnd() is true.</li>
 
 
 <p>In addition, you must implement this non-List member function: void
-printList(List theList, bool forward) is a <strong>non-member function</strong>
+<code>printList(List theList, bool forward)</code> is a <strong>non-member function</strong>
 that prints a list either forwards (by default &ndash; from head to tail)
 when forward is true, or backwards (from tail to head) when forward is
 false.  <em>You must use your ListItr class to implement this function.</em></p>
 
 <h3>Some of the harder methods&hellip;</h3>
 
-<p>The code for the copy constructor and the operator=() method in the List class are shown below.  Although we are providing you with this code, you must understand how it works by the end of the lab, as you will have to implement these types of methods on future labs and exams.</p>
+<p>The code for the copy constructor and the <code>operator=()</code> method in the
+List class are shown below.  Although we are providing you with this
+code, you must understand how it works by the end of the lab, as you
+will have to implement these types of methods on future labs and
+exams.</p>
 
 <pre><code>List::List(const List&amp; source) {      // Copy Constructor
     head=new ListNode;
@@ -295,12 +298,16 @@ List&amp; List::operator=(const List&amp; source) { //Equals operator
 }
 </code></pre>
 
+<p>Note that these two methods are correctly implemented.  If they are
+causing a crash in your program, then it is likely being caused by one
+of the methods that they invoke.</p>
+
 <h3>ListItr</h3>
 
 <p>Your ListItr should maintain a pointer to a current position in a
 List.  Your iterator class should look like the class definition in
-the source code.  the <a href="ListItr.h.html">ListItr.h</a> (<a href="ListItr.h]">src</a>)
-code.</p>
+the source code.  See the <a href="ListItr.h.html">ListItr.h</a>
+(<a href="ListItr.h]">src</a>) code for details.</p>
 
 <p>Your ListItr class should implement at least the following public
 methods:</p>
@@ -338,12 +345,17 @@ clang++ List.cpp ListItr.cpp ListNode.cpp ListTest.cpp
 this later in the semester.</p>
 
 <p>Some students have had problems with the copy constructor and
-operator=() methods defined above &ndash; they would cause a crash
+<code>operator=()</code> methods defined above &ndash; they would cause a crash
 (segmentation fault).  The methods above work fine in our solution,
 but require that all the called functionality work properly as well.
 If it is causing a crash in your code, run it through the debugger to
 see where it crashes &ndash; it&rsquo;s probably a problem with one of your other
 methods.</p>
+
+<p>To start, create the .cpp file (List.cpp, ListNode.cpp, ListItr.cpp)
+that just have empty method bodies (with a dummy return value for
+non-<code>void</code> methods), and get that to compile.  Then start implementing
+one method at a time, testing as you go.</p>
 
 <hr />
 
@@ -361,9 +373,7 @@ program (crash, etc.), the <strong>TAs will not help you until you have
 run it through the debugger</strong> and learned all that can be learned
 from this.  So make sure you understand the tutorial!</li>
 <li>Submit your debugged version of gdb.cpp to inlab2.  Remember the
-standard identifying header information.  You should keep a copy of
-your files on Home Directory.  <strong><em>This will count as your lab
-attendance credit, so be sure to do this before continuing.</em></strong></li>
+standard identifying header information.</li>
 <li>Verify to yourself that your methods are working properly with your
 linked list code using the debugger that you just learned about.
 If you have not yet completed your linked list implementation, use
