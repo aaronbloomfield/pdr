@@ -435,7 +435,7 @@ C++ methods (i.e. the bodies of the methods). However, when
 implementing template classes, this is something that is necessary to
 make the class compile successfully.
 
-Look more closely at TestLinkedList.cpp. The line:
+Look more closely at list.cpp. The line:
 
 ```
 List<int> *l = new List<int>();
