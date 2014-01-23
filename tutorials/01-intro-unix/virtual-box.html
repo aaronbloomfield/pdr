@@ -149,7 +149,8 @@ firefox is installed, and the icon is on the top menu bar) and e-mail
 your files back and forth.  Or use an online file server.</p>
 
 <p>You can also set up &lsquo;shared folders&rsquo; to directly read and write files
-back and forth.  To do this:</p>
+back and forth.  <strong>HOWEVER</strong> note that students who have tried this
+have had lots of difficulties doing so.  To do this:</p>
 
 <ul>
 <li>Find the VirtualBox toolbar at the bottom (this is not the Gnome
@@ -175,6 +176,15 @@ require your password).
 mount point!.</li>
 </ul>
 
+
+<p>We have had various reports that this has not worked out so well (we
+have not had a chance to verify this yet), so proceed with caution!</p>
+
+<p>VirtualBox also provides an Automounter, which sort of works.  This
+will mount the files into /media/ and appends a suffix of &lsquo;sf_&rsquo; to
+your folder name. But then there will be permissioning issues; to fix
+those issues, you need to run: <code>sudo adduser student vboxsf</code>, followed
+by a logout and then a login.</p>
 
 <p><a href="http://dropbox.com">Dropbox</a> may be the easiest way to sync files
 between your virtual machine and your host machine.  To install:</p>

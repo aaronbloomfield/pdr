@@ -10,3 +10,4 @@ These are useful documents that are not slides nor tutorials.
 - [GDB command summary](gdb_summary.html)
 - [Compilation](compilation.html) issues
 - [Readings](readings.html) in lieu of a textbook
+- [Instructor notes](instructor.html) are notes for course instructor(s)
