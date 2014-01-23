@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+ <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <meta name="description" content="Site description" />
+  <meta name="keywords" content="IBCM, Itty Bitty Computing Machine" />
+  <title>IBCM Interface: Directions</title>
+  <link rel="stylesheet" type="text/css" href="ibcm.css" media="screen" />
+  <script type="text/javascript" src="js/rel.js"></script>
+ </head>
+
+ <body>
+  <!-- Master Container: 88px Tall -->
+  <div id="wrap">
+   <div id="top">
+    <h2><a href="./index.html" title="Back to main page">IBCM Interface</a></h2>
+     <!-- Top Menu Container -->
+	 <div id="menu">
+      <ul>
+       <li><a href="./index.html">Home</a></li>
+       <li><a href="./directions.html" class="current">Directions</a></li>
+       <li><a href="./simulator.php">Simulator</a></li>
+      </ul>
+     </div>
+   </div>
+
+   <!-- Main Content Container -->
+   <div id="content">
+
+<p>To get started programming IBCM programs, there are two documents
+(both listed on the documentation section of
+the <a href="index.html">main page</a>):
+the <a href="ibcm-poo.pdf">IBCM Principles of Operation</a> describes
+the IBCM language and all of the 16 available instructions, and
+the <a href="ibcm-code-eg.pdf">IBCM code examples</a> lists, and
+explains, two programs that have been written in IBCM.  Those programs
+can be downloaded directly <a href="summation.ibcm">here</a>
+and <a href="array-summation.ibcm">here</a>.</p>
+
+<p>The IBCM is not a real computer, of course. Nonetheless, one can
+run programs written for it. The trick is that we have written a
+PHP/Javascript "simulator", a program that makes another computer
+behave more-or-less like the IBCM 2.2.  The IBCM 2.2 simulator will
+execute all the instructions of the machine and show the contents of
+memory locations and the accumulator as it executes.</p>
+
+<p>To load a file, use the Browse button at the top of the
+<a href="simulator.php">simulator page</a>.  Find the IBCM file,
+and click on the "Load" button.  The format of your program file is
+very rigid -- the first four characters of each line are interpreted
+as a hexadecimal number. The number on the first line is loaded into
+location zero, the next into location one and so on. Characters after
+the first four on each line are ignored, so you should use them to
+comment the code.  An invalid file will either not load up at all, or
+will load up gibberish.</p>
+
+<p>The left side of the simulator lists all the memory locations
+(using the hexadecimal address), the value in memory (if any), and the
+PC (program counter) value.  Note that any blank value field is
+interpreted as'0000', as per the IBCM specification.  The simulator
+leaves uninitialized values blank to increase readability.</p>
+
+<p>The value column consists of a series of text boxes, which allow
+you to directly edit the values in memory.  The simulator will read
+the current memory location from the appropriate textbox when
+executing an instruction.  You can undo any edits by using the Revert
+button, described below.  The IBCM simulator does not check to ensure
+that your entered values are valid -- it is up to the user to do this.
+Note that all hexadecimal values must be 4 digits (i.e. '0000', not
+'0'), or else the simulator will not work correctly.  <strong>Be sure
+to read the section about crashing browsers and losing your work,
+below.</strong>  There is no way to save your edited work -- you will
+need to copy the changes by hand.  This is party due to a browser
+limitation, and partly due to the fact that memory editing is meant to
+be a debugging tool, not a means to write entire IBCM programs from
+scratch.</p>
+
+<p>The 'PC' column lists the current value of the program counter.  It
+can have three values.  Normally, it will have a left pointing arrow
+('&lt;-'), which indicates the <i>next</i> instruction that will be
+executed.  If the simulator is waiting for input, it will have a
+capital 'I' (for Input) next to the input instruction that is
+currently awaiting a value.  Lastly, if the program has halted, then a
+capital 'H' (for Halt) will be next to the halt instruction that was
+executed.</p>
+
+<p>On the right side, the values of the accumulator and program
+counter are listed, both in hexadecimal notation.  The PC field will
+also list, next to the hexadecimal address, if the simulator is
+awaiting input or is halted.  The Input box is used to read in user
+input when a program requests it.  When the simulator is waiting for
+input, it will flash the 'Input' text.  In addition, the simulator
+will specify which type of input is being requested: 'hex' or 'asc'
+for hexadecimal or ASCII input, respectively.  Note that for entering
+a hexadecimal value, you do not need to enter all 4 digits: i.e., you
+can enter '12' instead of '0012'.  This is distinctly different that
+editing memory locations (you have to enter all 4 digits for those).
+If you enter multiple characters for ASCII input, it will only read in
+the first one.</p>
+
+<p>Below this are four buttons.  Two control execution: Run, which
+will start a program executing, and Step, which will execute a single
+instruction.  Note that Run will execute until either a halt command
+is reached, or until an input command is reached.  The other two
+buttons control the resetting of the IBCM program.  The Reset button
+will reset the PC and accumulator, in effect allowing the program to
+run again.  It will not, however, modify any memory locations.  The
+Revert button will do what a Reset does, but will also reload the
+memory locations to what they were when the file was last loaded (it
+does not load the file from disk again).  Thus, if you have edited any
+of the memory locations (or the IBCM program has modified them), then
+those changes will be erased on a Revert, but not on a Reset.  Note
+that a Revert will not modify memory addresses outside the range that
+was loaded (i.e. any 'blank' values).</p>
+
+<p>Any output is displayed in the text area below these buttons.  Each
+output command prints the value (hexadecimal or ASCII character) on a
+separate line.</p>
+
+<p>A few notes:</p>
+<ul>
+<li>You will notice a slight delay when loading the simulator page.
+  This is due to the fact that a number of scripts are run when the
+  page loads (to initialize the memory table of 4096 elements, for
+  example), and this takes a bit of time.  How long this takes is
+  determined by how fast a computer it is running on (the scripts are
+  run on the client side).<br />&nbsp;</li>
+<li>Upon entering input, hitting Enter is considered the same as
+ hitting the Run button again.  If you only want to execute a single
+ instruction after an input, you  must click on the Step button.<br />&nbsp;</li>
+<li>The simulator does minimal error checking with the input from the
+ keyboard during program execution -- it is the user's responsibility
+ to ensure that the input is properly formatted.  The only error
+ checking that is done is to ensure that a non-empty string was
+ entered (if it was, then the simulator waits for more input).<br />&nbsp;</li>
+<li>Because of the limitations of threads running in web browsers,
+ there is no way to terminate a program that is stuck in an infinite
+ (or very long) loop -- the browser will not allow a polling
+ (checking) to see if a Stop button was pressed, for example.  Some
+ browsers will pause the script after a minute (or so) of execution,
+ and ask if the user wants to continue.  Alternatively, you can close
+ the web browser and restart. <strong>Note that this means if you have
+ edited any of the memory locations, and your browser hangs or is
+ restarted, you will lose any and all changes you have made to the
+ memory locations!</strong><br />&nbsp;</li>
+<li>The <a href="simulator.php">simulator page</a> is a PHP script,
+which means that it will not work if you are viewing it as a local
+file (if the beginning of your URL is &quot;file://&quot; instead of
+&quot;http://&quot;), or if the web server hosting this page does not
+have PHP installed (this includes UVa's Collab web server).<br />&nbsp;</li>
+<li>Browser compatability: It has been tested in Internet Explorer
+under Windows XP, Safari under Mac OS X, and <a
+href="http://www.mozilla.com/en-US/firefox/">Firefox</a> under Windows
+XP, Mac OS X, and Ubuntu Linux.  Note that the changing of the values
+as the simulation is run (the PC, memory values, etc.) only works
+under Firefox.  The other browsers will have the same end state after
+the program is run, but will not animate the execution of the IBCM
+program when 'Run' is pressed (the 'Step' command will still animate
+each step).<br />&nbsp;</li>
+</ul>
+
+
+     
+     <!-- Separation Divider -->
+     <div id="clear">
+     </div>
+    </div>
+     
+    <!-- Footer -->
+    <div id="footer">
+    </div>
+   </div>
+ </body>
+</html>

@@ -86,6 +86,9 @@ first**
   [cs2150/index.html](cs2150/index.html) file.
 - [exams](exams/index.html): past exams for the course; there are two
   midterms and a final for each semester.
+- [ibcm](ibcm/ibcm.html): the files necessary for the IBCM module on
+  machine langauge, which is taught about two thirds of the way into
+  the course.
 - [labs](labs/index.html): the labs are the main assignments in the
   course, and each lab is split into pre-lab, in-lab, and post-lab
   parts. To view the labs, see the [labs/index.html](labs/index.html)
@@ -202,10 +205,10 @@ Both the original file (foo.cpp) and the highlighted version
 code will like to the .html, with a "([src](...))" after it to link to
 the original source code.
 
-- astyle options: -A2 -s4 -S -xG
+- astyle options: `-A2 -s4 -S -xG`
   - note that the current version of astyle on Ubuntu 12.04 seems to
     ignore the -xG flag...
-- source-highlight options: -d
+- source-highlight options: `-d`
 
 
 <a name="canvasnotes"></a>Canvas notes
@@ -217,29 +220,34 @@ stylus), you must do a few things:
 1. The slide can NOT be Markdown, it must be all pure HTML
 2. Include the js/canvas.js and css/dhtmlwindow.js scripts, as well as
    the dhtmlwindow.css CSS file (the two dhtmlwindow.* files are for
-   the calibration feature)
+   the calibration feature):
+
+       <script language="javascript" type="text/javascript" src="js/dhtmlwindow.js"></script>
+       <script language="javascript" type="text/javascript" src="js/canvas.js"></script>
+       <link rel="stylesheet" href="css/dhtmlwindow.css" type="text/css">
+
 3. Add an `onload="canvasinit()"` to the body tag: `<body
    onload="canvasinit()">`
 4. Add the following immediately after the `<body>` tag (this is for
    the calibration feature):
 
-        <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+       <div id="dhtmlwindowholder"><span style="display:none"></span></div>
 
 5. Add the following code at the end of the .html file (just before
    the three script tags):
 
-        <div id="calibratediv" style="display:none">
-          <div id="calibratecanvasdiv">
-            <canvas id="calibratecanvas" width="300" height="300">Your
-                          browser does not support the canvas tag</canvas>
-          </div>
-          <p style="text-align:center">Click the center of the target<br><a 
-                          href="#" onClick="calibratewin.close(); return
-                          false">Close window</a></p>
-        </div>
+       <div id="calibratediv" style="display:none">
+         <div id="calibratecanvasdiv">
+           <canvas id="calibratecanvas" width="300" height="300">Your
+                         browser does not support the canvas tag</canvas>
+         </div>
+         <p style="text-align:center">Click the center of the target<br><a href="#" 
+                  onClick="calibratewin.close(); return false">Close window</a></p>
+       </div>
 
-Then, on each slide, you add the following:  
-`<script language="javascript" type="text/javascript">insertCanvas();</script>`  
+6. Then, on each slide that you want a canvas on, you add the following:
+
+       <script language="javascript" type="text/javascript">insertCanvas();</script>
 
 A few other notes:
 

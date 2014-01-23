@@ -1,0 +1,106 @@
+c00b	00		jmp	init	// skip around variables
+0fff	01	sptr			// stack pointer: is decremented AFTER usage
+0000	02	tmp			// temporary variable
+3000	03	load
+4000	04	store
+c000	05	jmp
+0000	06	zero
+0001	07	one
+0002	08	two
+0003	09	three
+0000	0a	retval
+1000	0b		readH		// read first number
+4002	0c		store	tmp	// store in tmp
+3001	0d		load	sptr	// load the stack pointer
+5004	0e		add	store	// create a store instruction
+4011	0f		store	pos1	// store the store instruction into pos2
+3002	10		load	tmp	// load up the value to push onto the stack
+b000	11	pos1	nop		// will hold the push-to-stack instruction
+3001	12		load	sptr	// load the stack pointer
+6007	13		sub	one	// decrement it
+4001	14		store	sptr	// store it back
+1000	15		readH		// read second number
+4002	16		store	tmp	// store in tmp
+3001	17		load	sptr	// load the stack pointer
+5004	18		add	store	// create a store instruction
+401b	19		store	pos2	// store the store instruction into pos1
+3002	1a		load	tmp	// load up the value to push onto the stack
+b000	1b	pos2	nop		// will hold the push-to-stack instruction
+3001	1c		load	sptr	// load the stack pointer
+6007	1d		sub	one	// decrement it
+4001	1e		store	sptr	// store it back
+f027	1f		brl	mult	// using the branch-and-link instruction
+4002	20		store	tmp	// store return value into tmp
+3001	21		load	sptr	// load the stack pointer
+5008	22		add	two	// increment the stack pointer by two for the two parameters
+4001	23		store	sptr	// store it back
+3002	24		load	tmp	// load return value from tmp
+1800	25		printH		// print out the return value (in the acc)
+0000	26		halt
+4002	27	mult	store	tmp	// store the return address into tmp
+3001	28		load	sptr	// load the stack pointer
+5004	29		add	store	// create a store instruction
+402c	2a		store	pos3	// store the store instruction into pos3
+3002	2b		load	tmp	// load up the value to push onto the stack
+b000	2c	pos3	nop		// will hold the push-to-stack instruction
+3001	2d		load	sptr	// load the stack pointer
+6007	2e		sub	one	// decrement it
+4001	2f		store	sptr	// store it back
+3006	30		load	zero	// load zero into the accumulator
+400a	31		store	retval	// if we are returning, store zero in the return value
+3001	32		load	sptr	// load the stack pointer
+5003	33		add	load	// create a load instruction
+5009	34		add	three	// move to the position of the second parameter
+4036	35		store	pos4	// store the load instruction into pos4
+b000	36	pos4	nop		// will hold the instruction to load the second parameter
+4002	37		store	tmp	// store it in tmp for later use in the recursive part
+d03a	38		jmpe	ret	// if it's zero, we're done with the recursion
+c046	39		jmp	recurse	// otherwise, we will call ourselves recursively
+3001	3a	ret	load	sptr	// load the stack pointer
+5003	3b		add	load	// create a load instruction
+5007	3c		add	one	// move to the position of the return address
+403e	3d		store	pos5	// store the load instruction into pos5
+b000	3e	pos5	nop		// will hold the instruction to load the return address
+5005	3f		add	jmp	// create a jump instruction
+4045	40		store	pos6	// store the jmp instruction into pos6
+3001	41		load	sptr	// load the stack pointer
+5007	42		add	one	// add one to 'remove' the return address
+4001	43		store	sptr	// store it back
+300a	44		load	retval	// load the return value
+b000	45	pos6	nop		// will hold the jmp (return) instruction
+3001	46	recurse	load	sptr	// load the stack pointer
+5004	47		add	store	// create a store instruction
+404b	48		store	pos7	// store the store instruction into pos2
+3002	49		load	tmp	// the second parameter is already in tmp
+6007	4a		sub	one	// subtract one
+b000	4b	pos7	nop		// will hold the push-to-stack instruction
+3001	4c		load	sptr	// load the stack pointer
+6007	4d		sub	one	// decrement it
+4001	4e		store	sptr	// store it back
+3001	4f		load	sptr	// load the stack pointer
+5003	50		add	load	// create a load instruction
+5009	51		add	three	// move to the position of the first parameter
+4053	52		store	pos8	// store the load instruction into pos4
+b000	53	pos8	nop		// will hold the instruction to load the first parameter
+4002	54		store	tmp	// store it in tmp for use in the recursive part
+3001	55		load	sptr	// load the stack pointer
+5004	56		add	store	// create a store instruction
+4059	57		store	pos9	// store the store instruction into pos1
+3002	58		load	tmp	// load up the value to push onto the stack
+b000	59	pos9	nop		// will hold the push-to-stack instruction
+3001	5a		load	sptr	// load the stack pointer
+6007	5b		sub	one	// decrement it
+4001	5c		store	sptr	// store it back
+f027	5d		brl	mult	// using the branch-and-link instruction
+4002	5e		store	tmp	// store the return value in tmp
+3001	5f		load	sptr	// load the stack pointer
+5003	60		add	load	// create a load instruction
+5007	61		add	one	// move to the position of the first parameter (one b/c the ret addr is not on the stack)
+4063	62		store	pos10	// store the load instruction into pos4
+b000	63	pos10	nop		// will hold the instruction to load the first parameter
+5002	64		add	tmp	// add the returned value to the first parameter
+400a	65		store	retval	// store it for later
+3001	66		load	sptr	// load the stack pointer
+5008	67		add	two	// increment the stack pointer by two for the two parameters
+4001	68		store	sptr	// store it back
+c03a	69		jmp	ret	// jump to the return part of this code (return value in retval)

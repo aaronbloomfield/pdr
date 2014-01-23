@@ -91,6 +91,9 @@ announcements, due dates, etc.  To view these files, see the
 <a href="cs2150/index.html">cs2150/index.html</a> file.</li>
 <li><a href="exams/index.html">exams</a>: past exams for the course; there are two
 midterms and a final for each semester.</li>
+<li><a href="ibcm/ibcm.html">ibcm</a>: the files necessary for the IBCM module on
+machine langauge, which is taught about two thirds of the way into
+the course.</li>
 <li><a href="labs/index.html">labs</a>: the labs are the main assignments in the
 course, and each lab is split into pre-lab, in-lab, and post-lab
 parts. To view the labs, see the <a href="labs/index.html">labs/index.html</a>
@@ -208,14 +211,14 @@ code will like to the .html, with a &ldquo;(<a href="...">src</a>)&rdquo; after 
 the original source code.</p>
 
 <ul>
-<li>astyle options: -A2 -s4 -S -xG
+<li>astyle options: <code>-A2 -s4 -S -xG</code>
 
 <ul>
 <li>note that the current version of astyle on Ubuntu 12.04 seems to
 ignore the -xG flag&hellip;</li>
 </ul>
 </li>
-<li>source-highlight options: -d</li>
+<li>source-highlight options: <code>-d</code></li>
 </ul>
 
 
@@ -226,34 +229,39 @@ stylus), you must do a few things:</p>
 
 <ol>
 <li>The slide can NOT be Markdown, it must be all pure HTML</li>
-<li>Include the js/canvas.js and css/dhtmlwindow.js scripts, as well as
+<li><p>Include the js/canvas.js and css/dhtmlwindow.js scripts, as well as
 the dhtmlwindow.css CSS file (the two dhtmlwindow.* files are for
-the calibration feature)</li>
-<li>Add an <code>onload="canvasinit()"</code> to the body tag: <code>&lt;body
-onload="canvasinit()"&gt;</code></li>
+the calibration feature):</p>
+
+<pre><code>&lt;script language="javascript" type="text/javascript" src="js/dhtmlwindow.js"&gt;&lt;/script&gt;
+&lt;script language="javascript" type="text/javascript" src="js/canvas.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="css/dhtmlwindow.css" type="text/css"&gt;
+</code></pre></li>
+<li><p>Add an <code>onload="canvasinit()"</code> to the body tag: <code>&lt;body
+onload="canvasinit()"&gt;</code></p></li>
 <li><p>Add the following immediately after the <code>&lt;body&gt;</code> tag (this is for
 the calibration feature):</p>
 
-<pre><code> &lt;div id="dhtmlwindowholder"&gt;&lt;span style="display:none"&gt;&lt;/span&gt;&lt;/div&gt;
+<pre><code>&lt;div id="dhtmlwindowholder"&gt;&lt;span style="display:none"&gt;&lt;/span&gt;&lt;/div&gt;
 </code></pre></li>
 <li><p>Add the following code at the end of the .html file (just before
 the three script tags):</p>
 
-<pre><code> &lt;div id="calibratediv" style="display:none"&gt;
-   &lt;div id="calibratecanvasdiv"&gt;
-     &lt;canvas id="calibratecanvas" width="300" height="300"&gt;Your
-                   browser does not support the canvas tag&lt;/canvas&gt;
-   &lt;/div&gt;
-   &lt;p style="text-align:center"&gt;Click the center of the target&lt;br&gt;&lt;a 
-                   href="#" onClick="calibratewin.close(); return
-                   false"&gt;Close window&lt;/a&gt;&lt;/p&gt;
- &lt;/div&gt;
+<pre><code>&lt;div id="calibratediv" style="display:none"&gt;
+  &lt;div id="calibratecanvasdiv"&gt;
+    &lt;canvas id="calibratecanvas" width="300" height="300"&gt;Your
+                  browser does not support the canvas tag&lt;/canvas&gt;
+  &lt;/div&gt;
+  &lt;p style="text-align:center"&gt;Click the center of the target&lt;br&gt;&lt;a href="#" 
+           onClick="calibratewin.close(); return false"&gt;Close window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+</code></pre></li>
+<li><p>Then, on each slide that you want a canvas on, you add the following:</p>
+
+<pre><code>&lt;script language="javascript" type="text/javascript"&gt;insertCanvas();&lt;/script&gt;
 </code></pre></li>
 </ol>
 
-
-<p>Then, on each slide, you add the following:<br/>
-<code>&lt;script language="javascript" type="text/javascript"&gt;insertCanvas();&lt;/script&gt;</code></p>
 
 <p>A few other notes:</p>
 

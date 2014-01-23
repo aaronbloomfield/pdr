@@ -1,0 +1,29 @@
+C00A 00 		jmp 	start 	skip around the variables
+0000 01 	 i 	dw 	0 	int i
+0000 02 	 s 	dw 	0 	int s
+0000 03 	 N 	dw 	0 	int N
+0001 04 	 one 	dw 	1
+0000 05 	 zero 	dw 	0
+0000 06 				leave space for changes
+0000 07
+0000 08
+0000 09
+1000 0A 	 start 	readH 		read N
+4003 0B 		store	N
+3004 0C 		load 	one 	i = 1
+4001 0D 		store 	i
+3005 0E 		load 	zero 	s = 0
+4002 0F 		store 	s
+3003 10 	 loop 	load 	N 	if (i > N) goto xit
+6001 11 		sub 	i
+E01A 12 		jmpl 	xit
+3002 13 		load 	s 	s += i
+5001 14 		add 	i
+4002 15 		store 	s
+3001 16 		load 	i 	i += 1
+5004 17 		add 	one
+4001 18 		store 	i
+C010 19 		jmp 	loop 	goto loop
+3002 1A 	 xit 	load 	s 	print s
+1800 1B 		printH
+0000 1C 		halt 		halt
