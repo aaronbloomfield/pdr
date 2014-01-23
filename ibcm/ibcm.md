@@ -23,7 +23,8 @@ The primary mechanism for learning IBCM is through the [IBCM slide
 set](../slides/08-ibcm.html) and the [IBCM book
 chapter](../book/index.html).  The material in both of those largely
 duplicates itself, but in different formats.  IBCM is utilized through
-an online set of web pages, described next.
+an online set of web pages, described next.  A few C++ utilities are
+described at the bottom of this page.
 
 
 Website
@@ -56,8 +57,8 @@ The mirrors are:
 - [http://people.virginia.edu/~asb2t/ibcm/](http://people.virginia.edu/~asb2t/ibcm/)
 
 
-Sample code
------------
+Sample IBCM code
+----------------
 
 The sample IBCM code included in this repository:
 
@@ -84,3 +85,27 @@ The sample IBCM code included in this repository:
   [IBCM article](dl.acm.org/citation.cfm?id=1953273).
 
 ![Busy Beaver automaton](busy-beaver.png)
+
+
+C++ Utilities
+-------------
+
+There are two C++ utility programs included, which are primarly useful
+for grading.  In particular, they allow the programs to be run through
+a series of scripts (or other automated grading system).
+
+[ibcm-parse.cpp](ibcm-parse.cpp.html) ([src](ibcm-parse.cpp)) is a
+program that will quickly check if the file names passed in via
+command line arguments look like IBCM files.  In particular, it checks
+if the first four digits on each line are all hexadecimal digits.  It
+does not program validity checking beyond this.  It is useful to tell
+the students if, on submission, their programs will parse correctly in
+an IBCM simulator.
+
+[ibcm-simulator.cpp](ibcm-simulator.cpp.html)
+([src](ibcm-simulator.cpp)) will simulate an IBCM program, and it has
+a number of command line switches that control its execution.  This
+program is useful for automating the execution of a number of IBCM
+programs without having to load each one into the web interface.  It
+will also print out traces of the entire program execution, if
+desired.  Run with the `-help` flag to see the full list of options.

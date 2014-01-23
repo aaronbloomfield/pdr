@@ -27,7 +27,8 @@ in this repository.</p>
 set</a> and the <a href="../book/index.html">IBCM book
 chapter</a>.  The material in both of those largely
 duplicates itself, but in different formats.  IBCM is utilized through
-an online set of web pages, described next.</p>
+an online set of web pages, described next.  A few C++ utilities are
+described at the bottom of this page.</p>
 
 <h2>Website</h2>
 
@@ -59,7 +60,7 @@ various website pages.</p>
 </ul>
 
 
-<h2>Sample code</h2>
+<h2>Sample IBCM code</h2>
 
 <p>The sample IBCM code included in this repository:</p>
 
@@ -89,5 +90,27 @@ below.  Details about the Turing completeness can be found in the
 
 
 <p><img src="busy-beaver.png" alt="Busy Beaver automaton" /></p>
+
+<h2>C++ Utilities</h2>
+
+<p>There are two C++ utility programs included, which are primarly useful
+for grading.  In particular, they allow the programs to be run through
+a series of scripts (or other automated grading system).</p>
+
+<p><a href="ibcm-parse.cpp.html">ibcm-parse.cpp</a> (<a href="ibcm-parse.cpp">src</a>) is a
+program that will quickly check if the file names passed in via
+command line arguments look like IBCM files.  In particular, it checks
+if the first four digits on each line are all hexadecimal digits.  It
+does not program validity checking beyond this.  It is useful to tell
+the students if, on submission, their programs will parse correctly in
+an IBCM simulator.</p>
+
+<p><a href="ibcm-simulator.cpp.html">ibcm-simulator.cpp</a>
+(<a href="ibcm-simulator.cpp">src</a>) will simulate an IBCM program, and it has
+a number of command line switches that control its execution.  This
+program is useful for automating the execution of a number of IBCM
+programs without having to load each one into the web interface.  It
+will also print out traces of the entire program execution, if
+desired.  Run with the <code>-help</code> flag to see the full list of options.</p>
 </body>
 </html>

@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>ibcm-parse.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">/* A program that will quickly check if the file names passed in via</font></i>
+<i><font color="#9A1900"> * command line arguments look like IBCM files.  In particular, it</font></i>
+<i><font color="#9A1900"> * checks if the first four digits on each line are all hexadecimal</font></i>
+<i><font color="#9A1900"> * digits.  It does not program validity checking beyond this.  It is</font></i>
+<i><font color="#9A1900"> * useful to tell the students if, on submission, their programs will</font></i>
+<i><font color="#9A1900"> * parse correctly in an IBCM simulator.</font></i>
+<i><font color="#9A1900"> */</font></i>
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;fstream&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdlib.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;ctype.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;string.h&gt;</font>
+
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<font color="#009900">int</font> <b><font color="#000000">main</font></b> <font color="#990000">(</font><font color="#009900">int</font> argc<font color="#990000">,</font> <font color="#009900">char</font> <font color="#990000">*</font>argv<font color="#990000">[])</font> <font color="#FF0000">{</font>
+    <font color="#008080">string</font> line<font color="#990000">;</font>
+    <font color="#009900">int</font> linenum <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+    <font color="#009900">bool</font> allowComments <font color="#990000">=</font> <b><font color="#0000FF">false</font></b><font color="#990000">;</font>
+    <i><font color="#9A1900">// make sure they gave some command-line parameters</font></i>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> argc <font color="#990000">==</font> <font color="#993399">1</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+        cout <font color="#990000">&lt;&lt;</font> argv<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">": no input files"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+        <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> argc<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+        <i><font color="#9A1900">// a comment has a '//' as the first two characters on a line</font></i>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">!</font><b><font color="#000000">strcmp</font></b><font color="#990000">(</font>argv<font color="#990000">[</font>i<font color="#990000">],</font><font color="#FF0000">"-allowcomments"</font><font color="#990000">)</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+            allowComments <font color="#990000">=</font> <b><font color="#0000FF">true</font></b><font color="#990000">;</font>
+            <b><font color="#0000FF">continue</font></b><font color="#990000">;</font>
+        <font color="#FF0000">}</font>
+        <i><font color="#9A1900">// open the file</font></i>
+        <font color="#008080">ifstream</font> <b><font color="#000000">file</font></b><font color="#990000">(</font>argv<font color="#990000">[</font>i<font color="#990000">]);</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">!</font>file<font color="#990000">.</font><b><font color="#000000">is_open</font></b><font color="#990000">()</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+            cout <font color="#990000">&lt;&lt;</font> argv<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">": "</font> <font color="#990000">&lt;&lt;</font> argv<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">": no such file"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+            <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">2</font><font color="#990000">);</font>
+        <font color="#FF0000">}</font>
+        <i><font color="#9A1900">// read in the entire file...</font></i>
+        <b><font color="#0000FF">while</font></b> <font color="#990000">(</font> file<font color="#990000">.</font><b><font color="#000000">good</font></b><font color="#990000">()</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+            <i><font color="#9A1900">// read in a line from the file</font></i>
+            <b><font color="#000000">getline</font></b> <font color="#990000">(</font>file<font color="#990000">,</font> line<font color="#990000">);</font>
+            linenum<font color="#990000">++;</font>
+            <i><font color="#9A1900">// is it the last line of the file?</font></i>
+            <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>line<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">()</font> <font color="#990000">==</font> <font color="#993399">0</font><font color="#990000">)</font> <font color="#990000">&amp;&amp;</font> <font color="#990000">(!</font>file<font color="#990000">.</font><b><font color="#000000">good</font></b><font color="#990000">())</font> <font color="#990000">)</font>
+                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
+            <i><font color="#9A1900">// is it a comment?</font></i>
+            <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> allowComments <font color="#990000">&amp;&amp;</font> <font color="#990000">(</font>line<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">()</font> <font color="#990000">&gt;=</font> <font color="#993399">2</font><font color="#990000">)</font> <font color="#990000">&amp;&amp;</font>
+                    <font color="#990000">(</font>line<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">'/'</font><font color="#990000">)</font> <font color="#990000">&amp;&amp;</font> <font color="#990000">(</font>line<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">'/'</font><font color="#990000">)</font> <font color="#990000">)</font>
+                <b><font color="#0000FF">continue</font></b><font color="#990000">;</font>
+            <i><font color="#9A1900">// is the line too short?</font></i>
+            <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> line<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">()</font> <font color="#990000">&lt;</font> <font color="#993399">4</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+                cout <font color="#990000">&lt;&lt;</font> argv<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">": "</font> <font color="#990000">&lt;&lt;</font> argv<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" has too short a line on line number "</font> <font color="#990000">&lt;&lt;</font> linenum <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"("</font> <font color="#990000">&lt;&lt;</font> line<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">")"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+                <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">3</font><font color="#990000">);</font>
+            <font color="#FF0000">}</font>
+            <i><font color="#9A1900">// are the first four digits hex characters?</font></i>
+            <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> j <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> j <font color="#990000">&lt;</font> <font color="#993399">4</font><font color="#990000">;</font> j<font color="#990000">++</font> <font color="#990000">)</font>
+                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">!</font><b><font color="#000000">isxdigit</font></b><font color="#990000">(</font>line<font color="#990000">[</font>j<font color="#990000">])</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+                    cout <font color="#990000">&lt;&lt;</font> argv<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">": "</font> <font color="#990000">&lt;&lt;</font> argv<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" invalid hexadecimal digit on line "</font> <font color="#990000">&lt;&lt;</font> linenum <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" character "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">(</font>j<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+                    <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">3</font><font color="#990000">);</font>
+                <font color="#FF0000">}</font>
+        <font color="#FF0000">}</font>
+        <i><font color="#9A1900">// all done with this file!</font></i>
+        file<font color="#990000">.</font><b><font color="#000000">close</font></b><font color="#990000">();</font>
+    <font color="#FF0000">}</font>
+    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>
