@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 2150: 04-numbers slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="css/pdr.css">
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <script><!-- If the query includes 'print-pdf', use the PDF print sheet -->
+      document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <script language="javascript" type="text/javascript" src="js/dhtmlwindow.js"></script>
+    <script language="javascript" type="text/javascript" src="js/canvas.js"></script>
+    <link rel="stylesheet" href="css/dhtmlwindow.css" type="text/css">
+  </head>
+
+  <body onload="canvasinit()">
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	<section data-markdown><script type="text/template">
+# CS 2150
+&nbsp;
+### Program and Data Representation
+### Spring 2014
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="04-numbers.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
+&nbsp;  
+&nbsp;
+## Data Representation
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+# Contents
+&nbsp;  
+[Introduction](#/introduction)  
+[Radix Conversion](#/radix)  
+[Machine Representation](#/machinerep)  
+[Endian-ness](#/endian)  
+[Integer Representation](#/integers)  
+[Real Representation](#/reals)  
+	</script></section>
+
+
+	<section>
+
+	  <section id="introduction" data-markdown><script type="text/template">
+# Introduction
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Numbers vs. Numerals
+- Which is bigger?
+  - 5 or 8 or 12
+- Which is "five"?
+  - five or V or cinq or 101
+- Numerals represent numbers
+	  </script></section>
+
+	  <section>
+<h2>Positional Number Systems</h2>
+<ul>
+  <li>Integers
+    <ul>
+      <li>346 = 3*10<sup>2</sup> + 4*10<sup>1</sup> + 6*10<sup>0</sup></li>
+      <li>346 = 2<sup>8</sup> + 2<sup>6</sup> + 2<sup>4</sup> + 2<sup>3</sup> + 2<sup>1</sup></li>
+      <li>\( d_{n} d_{n-1} \ldots d_{0} = \sum_{i=0}^{n} d_{i} \cdot R^{i} \)</li>
+    </ul>
+  </li>
+  <li>Reals
+    <ul>
+      <li>\( d_{n} d_{n-1} \ldots d_{0} . d_{-1} d_{-2} \ldots d_{-m} = \sum_{i=-m}^{n} d_{i} \cdot R^{i} \)</li>
+    </ul>
+  </li>
+</ul>
+	  </section>
+
+	  <section>
+<h2>Examples</h2>
+<ul>
+<li>Binary (base 2): \( 1111_2 \)</li>
+<li>Ternary (base 3): \( 120_3 \)</li>
+<li>Octal (base 8): \( 17_8 \)</li>
+<li>Hexadecimal (base 16): F</li>
+</ul>
+	  </section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="radix" data-markdown><script type="text/template">
+# Radix Conversion
+	  </script></section>
+
+	    <section>
+<h2>Conversion</h2>
+<p>Radix <i>R</i> to decimal: \( n = d_n R^n + \ldots + d_0 R^0 \)</p>
+<p>&nbsp;</p>
+<p>Decimal to radix <i>R</i>: \( \frac{n}{R} = d_n R^{n-1} + \ldots + d_1 R^0 \), remainder \( d_0 \)</p>
+	    </section>
+
+	    <section>
+<h2>Radix to Decimal</h2>
+<p>\( 42_5 \)</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>\( 121_3 \)</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<script language="javascript" type="text/javascript">insertCanvas();</script>
+	    </section>
+
+	    <section>
+<h2>Decimal to Radix</h2>
+<p>\( 42_{10} \) to radix 5</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>\( 121_{10} \) to radix 11</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<script language="javascript" type="text/javascript">insertCanvas();</script>
+	    </section>
+
+	    <section data-markdown><script type="text/template">
+## What is the value of "101"?
+- In binary: 5
+- In octal (base 8): 65
+- In decimal: 101
+- In hexadecimal: 257
+- In C, any integer that begins with '0' is octal
+  - 073 = 73<sub>8</sub> = 59<sub>10</sub> 
+- And any number that begins with '0x' is hexadecimal
+  - 0x3f = 3f<sub>16</sub> = 63<sub>10</sub>
+	    </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="machinerep" data-markdown><script type="text/template">
+# Machine<br>Representation
+	  </script></section>
+
+	    <section data-markdown><script type="text/template">
+## ENIAC
+- Started 1943 - early electronic programmable computer
+- Operational in 1946, and computed ballistics tables
+- 17,468 vacuum tubes and used 150 kW of power 
+- Earlier Computers: Z3 (Conrad Zuse) in 1941; Colossus in 1943
+
+![ENIAC](images/04-numbers/eniac.jpg)
+	    </script></section>
+
+	    <section data-markdown><script type="text/template">
+## Directions for getting **6**
+1. Choose any regular accumulator (ie. Accumulator #9). 
+2. Direct the Initiating Pulse to terminal 5i. 
+3. The initiating pulse is produced by the initiating unit's Io terminal each time the Eniac is started. This terminal is usually, by default, plugged into Program Line 1-1 (described later). Simply connect a program cable from Program Line 1-1 to terminal 5i on this Accumulator. 
+4. Set the Repeat Switch for Program Control 5 to 6. 
+5. Set the Operation Switch for Program Control 5 to ADD. 
+6. Set the Clear-Correct switch to C. 
+7. Turn on and clear the Eniac. 
+8. Normally, when the Eniac is first started, a clearing process is begun. If the Eniac had been previously started, or if there are random neons illuminated in the accumulators, the "Initial Clear" button of the Initiating device can be pressed. 
+9. Press the "Initiating Pulse Switch" that is located on the Initiating device. 
+10. **Stand back.**
+	    </script></section>
+
+	    <section data-markdown><script type="text/template">
+## ENIAC Number Representation
+- Decimal system
+  - Ring of 36 vacuum tubes to store one digits (10 flip-flops to store 0-9)
+  - Designed to emulate mechanical adding machine electronically
+  - 20 accumulators (~registers), each stores 10-digits
+- 5,000 cycles per second
+  - Perform addition/subtraction between 2 accumulators each cycle
+	    </script></section>
+
+	    <section data-markdown><script type="text/template">
+## Binary Number Representations
+- First presented by Gottfried Leibniz, 1705 ("Explication de l'Arithmetique Binaire")
+- George Boole ("Boolean" logic), 1854
+- Claude Shannon's 1937 Master's thesis: implemented Boolean algebra with switches and relays
+- Used by Atanasoff-Berry Computer, Colossus and Z3
+	    </script></section>
+
+	    <section>
+<h2>Binary Representation</h2>
+<p>\( b_{n-1} b_{n-2} b_{n-3} \ldots b_2 b_1 b_0 \)</p>
+<p>&nbsp;</p>
+<p>Value = \( \sum_{i=0}^{n-1} b_i \cdot 2^i \)</p>
+<p>&nbsp;</p>
+<p>Boolean arithmetic:</p>
+<ul>
+<li>0 + 0 = 0</li>
+<li>0 + 1 = 1</li>
+<li>1 + 0 = 1</li>
+<li>1 + 1 = 0 carry 1</li>
+</ul>
+<p>&nbsp;</p>
+<p>But what should \( n \) be?</p>
+	    </section>
+
+	    <section data-markdown><script type="text/template">
+## What is *n*?
+- Java: 
+  - byte, char = 8 bits
+  - short = 16 bits
+  - int = 32 bits
+  - long = 64 bits
+- C: implementation-defined
+  - int: can hold between 0 and `UINT_MAX`
+    - `UINT_MAX` must be at least 65535
+      - n >= 16, typical current machines n = 32
+    - sizeof(int) will "return" the byte size of an int in C/C++
+	    </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="endian" data-markdown><script type="text/template">
+# Endian-ness
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## The Great Debate
+- "Big Endian": most significant ***first*** (lowest address)
+  - 1000 0000 0000 0000 = 215 = 32768
+- "Little Endian": most significant ***last*** (highest address)
+  - 1000 0000 0000 0000 = 20 = 1
+- Which is better?
+- Note that although all the *bits* are reversed, usually it is displayed with just the *bytes* reversed
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## More on Endian-ness
+- Often refers to *byte* ordering, rather than *bit* ordering
+- Consider 0xdeadbeef
+  - On a big endian machine, that's 0xdeadbeef
+  - On a little endian machine, that's 0xefbeadde
+- 0xdeadbeef is used as a memory allocation pattern by some OSes
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Endianness
+- Its a "religious" argument: names taken from Big-Endians and Little-Endians in *Gulliver's Travels* who argued over which end of an egg to crack
+- Different orderings problematic
+  - Consider what << means in C
+    - big endian ~ multiply by 2
+    - little endian ~ divide by 2
+- Some architectures support both ("bi-endian"): PowerPC, DEC Alpha, IA/64
+- There were even some middle-endian machines once upon a time
+- Most Internet standards: big-endian
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Endian checking, 1 of 2
+(no external source code)
+```
+void CheckEndian () {
+
+  static int firsttime = 1;
+  if (firsttime) {
+    union {
+      char charword[4];
+      unsigned int intword;
+    } check;
+
+    check.charword[0] = 1;    check.charword[1] = 2;
+    check.charword[2] = 3;    check.charword[3] = 4;
+
+    // continued on next slide...
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Endian checking, 2 of 2
+(no external source code)
+```
+#ifdef IS_BIG_ENDIAN
+    if (check.intword != 0x01020304) {  /* big */
+      cerr << "ERROR: Host machine is not Big Endian.\n"
+           << "Exiting." << endl;
+      Exit (205);    }
+#else
+#ifdef IS_LITTLE_ENDIAN
+    if (check.intword != 0x04030201) {  /* little */
+      cerr << "ERROR: Host machine is not Little Endian.\n"
+           << "Exiting." << endl;  
+      Exit (206);    }
+#else
+    cerr << "ERROR: Host machine not defined as Big or "
+         << Little Endian.\nExiting." << endl;
+    Exit (207);
+#endif // IS_LITTLE_ENDIAN
+#endif // IS_BIG_ENDIAN
+    firsttime = 0;
+  }
+}
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Always writing a little Endian file
+```
+void Image::WriteInt (int value, FILE * fp) {
+  union {
+    int intvalue;
+    struct {
+#ifdef IS_LITTLE_ENDIAN
+      char a, b, c, d;
+#else
+#ifdef IS_BIG_ENDIAN
+      char d, c, b, a;
+#else
+#error Must define IS_BIG_ENDIAN or IS_LITTLE_ENDIAN
+#endif                          // IS_BIG_ENDIAN
+#endif                          // IS_LITTLE_ENDIAN
+    } endian;
+  } e;
+  e.intvalue = value;
+  fputc (e.endian.a, fp);
+  fputc (e.endian.b, fp);
+  fputc (e.endian.c, fp);
+  fputc (e.endian.d, fp);
+}
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## More on Endianness
+- Little vs. big endian deals with the *byte* order, not the *bit* order
+
+![Endian-ness](images/04-numbers/endian-ness.png)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Another way to think of Endianness
+- Big endian:
+  - the quick brown fox jumped over the lazy dog
+- Little endian
+  - dog lazy the over jumped fox brown quick the
+	  </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="integers" data-markdown><script type="text/template">
+# Integer<br>Representation
+	  </script></section>
+
+<!-- ... -->
+
+	</section>
+
+
+	<section>
+
+	  <section id="reals" data-markdown><script type="text/template">
+# Real<br>Representation
+	  </script></section>
+
+<!-- ... -->
+
+	</section>
+
+
+      </div>
+
+    </div>
+
+    <div id="calibratediv" style="display:none">
+      <div id="calibratecanvasdiv">
+        <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
+      </div>
+      <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
+    </div>
+
+    <script src="reveal.js/lib/js/head.min.js"></script>
+    <script src="reveal.js/js/reveal.min.js"></script>
+    <script src="js/settings.js"></script>
+
+  </body>
+</html>

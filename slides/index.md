@@ -37,7 +37,9 @@ Slide set 3: [Lists](03-lists.html)
   [objectCell.h](code/03-lists/objectCell.h.html) ([src](code/03-lists/objectCell.h)),
   [objectCellMain.cpp](code/03-lists/objectCellMain.cpp.html) ([src](code/03-lists/objectCellMain.cpp))
 
-Slide set 4: Data Representation
+Slide set 4: [Data Representation](04-numbers.html)
+
+- Source code: [float_to_hex.cpp](code/04-numbers/float_to_hex.cpp.html) ([src](code/04-numbers/float_to_hex.cpp))
 
 Slide set 5: Arrays & Big-Oh
 

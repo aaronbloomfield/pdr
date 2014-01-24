@@ -1,0 +1,17 @@
+<!-- Generator: GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<b><font color="#0000FF">union</font></b> foo <font color="#FF0000">{</font>
+    <font color="#009900">float</font> f<font color="#990000">;</font>
+    <font color="#009900">int</font> <font color="#990000">*</font>x<font color="#990000">;</font>
+<font color="#FF0000">}</font> bar<font color="#990000">;</font>
+
+<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+    bar<font color="#990000">.</font>f <font color="#990000">=</font> <font color="#993399">42.125</font><font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> bar<font color="#990000">.</font>x <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font> <i><font color="#9A1900">// prints in BIG endian</font></i>
+<font color="#FF0000">}</font>
+</tt></pre>
