@@ -286,7 +286,7 @@ int main() {
 
 <section>
   <h2>Declaring mutually<br>recursive functions</h2>
-<p>Source code: <a href="src/02-cpp/evenodd.cpp.html">evenodd.cpp</a> (<a href="src/02-cpp/evenodd.cpp">src</a>)</p>
+<p>Source code: <a href="code/02-cpp/evenodd.cpp.html">evenodd.cpp</a> (<a href="code/02-cpp/evenodd.cpp">src</a>)</p>
   <table class="transparent">
     <tr>
       <td>&nbsp;</td>
@@ -327,7 +327,7 @@ ret_type func_name (int a, int b, ...);
 
 <section data-markdown><script type="text/template">
 ## Example
-Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
+Source code: [cpptest.cpp](code/02-cpp/cpptest.cpp.html) ([src](code/02-cpp/cpptest.cpp))
 ```
 #include <iostream>
 using namespace std;
@@ -357,7 +357,7 @@ int max(int a, int b) {
 
 <section data-markdown><script type="text/template">
 ## Java -- IntCell.java
-Source code: [IntCell.java](src/02-cpp/IntCell.java.html) ([src](src/02-cpp/IntCell.java))
+Source code: [IntCell.java](code/02-cpp/IntCell.java.html) ([src](code/02-cpp/IntCell.java))
 ```
 public class IntCell {  
 
@@ -381,7 +381,7 @@ public class IntCell {
 
 <section data-markdown><script type="text/template">
 ## Java -- IntCell.java
-Source code: [IntCell.java](src/02-cpp/IntCell.java.html) ([src](src/02-cpp/IntCell.java))
+Source code: [IntCell.java](code/02-cpp/IntCell.java.html) ([src](code/02-cpp/IntCell.java))
 ```
     // mutator member function
     public void setValue(int val) {
@@ -413,7 +413,7 @@ Source code: [IntCell.java](src/02-cpp/IntCell.java.html) ([src](src/02-cpp/IntC
 
 <section data-markdown><script type="text/template">
 ## C++ IntCell: TestIntCell.cpp
-Source code: [TestIntCell.cpp](src/02-cpp/TestIntCell.cpp.html) ([src](src/02-cpp/TestIntCell.cpp))
+Source code: [TestIntCell.cpp](code/02-cpp/TestIntCell.cpp.html) ([src](code/02-cpp/TestIntCell.cpp))
 ```
 #include <iostream>
 #include "IntCell.h" 
@@ -435,7 +435,7 @@ int main( ) {
 
 <section data-markdown><script type="text/template">
 ## C++ IntCell: IntCell.h
-Source code: [IntCell.h](src/02-cpp/IntCell.h.html) ([src](src/02-cpp/IntCell.h))
+Source code: [IntCell.h](code/02-cpp/IntCell.h.html) ([src](code/02-cpp/IntCell.h))
 ```
 #ifndef INTCELL_H
 #define INTCELL_H
@@ -458,7 +458,7 @@ class IntCell {
 
 <section data-markdown><script type="text/template">
 ## C++ IntCell: IntCell.cpp
-Source code: [IntCell.cpp](src/02-cpp/IntCell.cpp.html) ([src](src/02-cpp/IntCell.cpp))
+Source code: [IntCell.cpp](code/02-cpp/IntCell.cpp.html) ([src](code/02-cpp/IntCell.cpp))
 ```
 #include "IntCell.h" 
 using namespace std; // (not really necessary, but...)
@@ -483,7 +483,7 @@ int IntCell::max(int m){
 
 <section data-markdown><script type="text/template">
 ## C++ IntCell: IntCell.h (again)
-Source code: [IntCell.h](src/02-cpp/IntCell.h.html) ([src](src/02-cpp/IntCell.h))
+Source code: [IntCell.h](code/02-cpp/IntCell.h.html) ([src](code/02-cpp/IntCell.h))
 ```
 #ifndef INTCELL_H
 #define INTCELL_H
@@ -506,7 +506,7 @@ class IntCell {
 
 <section data-markdown><script type="text/template">
 ## C++ IntCell: TestIntCell.cpp (again)
-Source code: [TestIntCell.cpp](src/02-cpp/TestIntCell.cpp.html) ([src](src/02-cpp/TestIntCell.cpp))
+Source code: [TestIntCell.cpp](code/02-cpp/TestIntCell.cpp.html) ([src](code/02-cpp/TestIntCell.cpp))
 ```
 #include <iostream>
 #include "IntCell.h" 
@@ -569,7 +569,7 @@ int main( ) {
 
 <section data-markdown><script type="text/template">
 ## Rational.h
-Source code: [Rational.h](src/02-cpp/Rational.h.html) ([src](src/02-cpp/Rational.h))
+Source code: [Rational.h](code/02-cpp/Rational.h.html) ([src](code/02-cpp/Rational.h))
 ```
 #ifndef RATIONAL_H
 #define RATIONAL_H 
@@ -595,7 +595,7 @@ class Rational {
 
 <section data-markdown><script type="text/template">
 ## Rational.cpp, 1 of 2
-Source code: [Rational.cpp](src/02-cpp/Rational.cpp.html) ([src](src/02-cpp/Rational.cpp))
+Source code: [Rational.cpp](code/02-cpp/Rational.cpp.html) ([src](code/02-cpp/Rational.cpp))
 ```
 #include "Rational.h" 
 #include <iostream> 
@@ -615,7 +615,7 @@ void Rational::print() {
 
 <section data-markdown><script type="text/template">
 ## Rational.cpp, 2 of 2
-Source code: [Rational.cpp](src/02-cpp/Rational.cpp.html) ([src](src/02-cpp/Rational.cpp))
+Source code: [Rational.cpp](code/02-cpp/Rational.cpp.html) ([src](code/02-cpp/Rational.cpp))
 ```
 Rational Rational::times(Rational b) { 
     return Rational(num * b.num, den * b.den); 
@@ -633,7 +633,7 @@ Rational::Rational(int numerator, int denominator) {
 
 <section data-markdown><script type="text/template">
 ## TestRational.cpp
-Source code: [TestRational.cpp](src/02-cpp/TestRational.cpp.html) ([src](src/02-cpp/TestRational.cpp))
+Source code: [TestRational.cpp](code/02-cpp/TestRational.cpp.html) ([src](code/02-cpp/TestRational.cpp))
 ```
 #include <iostream>
 using namespace std;
@@ -802,7 +802,7 @@ bool even (int x);
 
 <section>
 <h2>Pointer Variables</h2>
-<p>Source code: <a href="src/02-cpp/pointers.cpp.html">pointers.cpp</a> (<a href="src/02-cpp/pointers.cpp">src</a>)</p>
+<p>Source code: <a href="code/02-cpp/pointers.cpp.html">pointers.cpp</a> (<a href="code/02-cpp/pointers.cpp">src</a>)</p>
 <p>&nbsp;</p>
 <table class="transparent"><tr><td>
 <table class="transparent">
@@ -832,7 +832,7 @@ cout << *x_pointer;
 
 <section data-markdown><script type="text/template">
 ## Dereferencing and Assigning
-Source code: [pointers.cpp](src/02-cpp/pointers.cpp.html) ([src](src/02-cpp/pointers.cpp))
+Source code: [pointers.cpp](code/02-cpp/pointers.cpp.html) ([src](code/02-cpp/pointers.cpp))
 
 <p>&nbsp;</p>
 <table class="transparent"><tr><td>
@@ -860,7 +860,7 @@ Source code: [pointers.cpp](src/02-cpp/pointers.cpp.html) ([src](src/02-cpp/poin
 
 <section data-markdown><script type="text/template">
 ## x_pointer = &y
-Source code: [pointers.cpp](src/02-cpp/pointers.cpp.html) ([src](src/02-cpp/pointers.cpp))
+Source code: [pointers.cpp](code/02-cpp/pointers.cpp.html) ([src](code/02-cpp/pointers.cpp))
   
 <p>&nbsp;</p>
 <table class="transparent"><tr><td>
@@ -888,7 +888,7 @@ x_pointer = &y;
 
 <section data-markdown><script type="text/template">
 ## *x_pointer = 3
-Source code: [pointers.cpp](src/02-cpp/pointers.cpp.html) ([src](src/02-cpp/pointers.cpp))
+Source code: [pointers.cpp](code/02-cpp/pointers.cpp.html) ([src](code/02-cpp/pointers.cpp))
   
 <p>&nbsp;</p>
 <table class="transparent"><tr><td>
@@ -949,7 +949,7 @@ int *p=NULL; // better code, then add code to check
 
 <section>
 <h2>swap()</h2>
-<p>Source code: <a href="src/02-cpp/swap.cpp.html">swap.cpp</a> (<a href="src/02-cpp/swap.cpp">src</a>)</p>
+<p>Source code: <a href="code/02-cpp/swap.cpp.html">swap.cpp</a> (<a href="code/02-cpp/swap.cpp">src</a>)</p>
 <pre><code data-trim>
 void swap(int * x, int * y) {
     int temp = *x;
@@ -961,7 +961,7 @@ void swap(int * x, int * y) {
 
 <section data-markdown><script type="text/template">
 ## Calling swap()
-Source code: [swap.cpp](src/02-cpp/swap.cpp.html) ([src](src/02-cpp/swap.cpp))
+Source code: [swap.cpp](code/02-cpp/swap.cpp.html) ([src](code/02-cpp/swap.cpp))
 ```
 int main() {
     int a=0;
@@ -1004,7 +1004,7 @@ int main() {
 
 <section data-markdown><script type="text/template">
 ## Dynamic Arrays, 1 of 2
-Source code: [dynamic_allocation.cpp](src/02-cpp/dynamic_allocation.cpp.html) ([src](src/02-cpp/dynamic_allocation.cpp))
+Source code: [dynamic_allocation.cpp](code/02-cpp/dynamic_allocation.cpp.html) ([src](code/02-cpp/dynamic_allocation.cpp))
 ```
 int main() {
     int n;
@@ -1021,7 +1021,7 @@ int main() {
 
 <section data-markdown><script type="text/template">
 ## Dynamic Arrays, 2 of 2
-Source code: [dynamic_allocation.cpp](src/02-cpp/dynamic_allocation.cpp.html) ([src](src/02-cpp/dynamic_allocation.cpp))
+Source code: [dynamic_allocation.cpp](code/02-cpp/dynamic_allocation.cpp.html) ([src](code/02-cpp/dynamic_allocation.cpp))
 ```
     // use a loop to prompt the user to initialize array
     for (int i=0; i < n; i++) {
@@ -1077,7 +1077,7 @@ Source code: [dynamic_allocation.cpp](src/02-cpp/dynamic_allocation.cpp.html) ([
 
 <section data-markdown><script type="text/template">
 ## delete
-Source code: [delete.cpp](src/02-cpp/delete.cpp.html) ([src](src/02-cpp/delete.cpp))
+Source code: [delete.cpp](code/02-cpp/delete.cpp.html) ([src](code/02-cpp/delete.cpp))
 ```
 #include <iostream>
 #include <string>
@@ -1129,7 +1129,7 @@ r->num = 4;
 
 <section data-markdown><script type="text/template">
 ## C++ and memory allocation
-Source code: [memory.cpp](src/02-cpp/memory.cpp.html) ([src](src/02-cpp/memory.cpp))  
+Source code: [memory.cpp](code/02-cpp/memory.cpp.html) ([src](code/02-cpp/memory.cpp))  
 ```
 #include <iostream>
 using namespace std;
@@ -1155,7 +1155,7 @@ int main() {
 
 <section data-markdown><script type="text/template">
 ## C++ and memory allocation
-Source code: [memory.cpp](src/02-cpp/memory.cpp.html) ([src](src/02-cpp/memory.cpp))  
+Source code: [memory.cpp](code/02-cpp/memory.cpp.html) ([src](code/02-cpp/memory.cpp))  
 &nbsp;  
 Result:
 ```
@@ -1250,7 +1250,7 @@ List & theList = sampleList;
 
 <section data-markdown><script type="text/template">
 ## swap() with Pointers
-Source code: [swap.cpp](src/02-cpp/swap.cpp.html) ([src](src/02-cpp/swap.cpp))
+Source code: [swap.cpp](code/02-cpp/swap.cpp.html) ([src](code/02-cpp/swap.cpp))
 ```
 void swap(int * x, int * y) {
     int temp = *x;
@@ -1264,7 +1264,7 @@ Note that the programmer must specify dereferencing explicitly
 
 <section data-markdown><script type="text/template">
 ## swap with References
-Source code: [swapref.cpp](src/02-cpp/swapref.cpp.html) ([src](src/02-cpp/swapref.cpp))
+Source code: [swapref.cpp](code/02-cpp/swapref.cpp.html) ([src](code/02-cpp/swapref.cpp))
 ```
 void swap(int & x, int & y) {
     int temp = x;
@@ -1278,7 +1278,7 @@ void swap(int & x, int & y) {
 
 <section data-markdown><script type="text/template">
 ## Calling swap() with references
-Source code: [swapref.cpp](src/02-cpp/swapref.cpp.html) ([src](src/02-cpp/swapref.cpp))
+Source code: [swapref.cpp](code/02-cpp/swapref.cpp.html) ([src](code/02-cpp/swapref.cpp))
 ```
 int main() {
     int a=0;
@@ -1495,7 +1495,7 @@ copy = original;    // operator= called
 
 <section data-markdown><script type="text/template">
 ## test.h
-Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
+Source code: [cpptest.cpp](code/02-cpp/cpptest.cpp.html) ([src](code/02-cpp/cpptest.cpp))
 ```
 class test {
     static int idcount;
@@ -1515,7 +1515,7 @@ class test {
 
 <section data-markdown><script type="text/template">
 ## test.cpp 1/2
-Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
+Source code: [cpptest.cpp](code/02-cpp/cpptest.cpp.html) ([src](code/02-cpp/cpptest.cpp))
 ```
 int test::idcount = 0;
 
@@ -1538,7 +1538,7 @@ test::~test() {
 
 <section data-markdown><script type="text/template">
 ## test.cpp 2/2
-Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
+Source code: [cpptest.cpp](code/02-cpp/cpptest.cpp.html) ([src](code/02-cpp/cpptest.cpp))
 ```
 test::test(const test& x) : id(x.id), value(x.value) {
     cout << "calling test(&test) on " << *this 
@@ -1559,7 +1559,7 @@ ostream& operator<<(ostream& out, const test& f) {
 
 <section data-markdown><script type="text/template">
 ## The one subroutine...
-Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
+Source code: [cpptest.cpp](code/02-cpp/cpptest.cpp.html) ([src](code/02-cpp/cpptest.cpp))
 ```
 test bar(test param) {
   return test(10);
@@ -1569,7 +1569,7 @@ test bar(test param) {
 
 <section data-markdown><script type="text/template">
 ## main() code and output, 1/9
-Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
+Source code: [cpptest.cpp](code/02-cpp/cpptest.cpp.html) ([src](code/02-cpp/cpptest.cpp))
 ```
 // this does NOT create a test object; instead, it creates
 // a function called a() that has no body (and thus C++ 
@@ -1586,7 +1586,7 @@ cout << "attempted to create a: " << a << endl;
 
 <section data-markdown><script type="text/template">
 ## main() code and output, 2/9
-Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
+Source code: [cpptest.cpp](code/02-cpp/cpptest.cpp.html) ([src](code/02-cpp/cpptest.cpp))
 ```
 // this does create a test object, calling the default 
 // constructor.  Since putting parenthesis in there for 
@@ -1608,7 +1608,7 @@ cout << "created aa: " << aa << endl;
 
 <section data-markdown><script type="text/template">
 ## main() code and output, 3/9
-Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
+Source code: [cpptest.cpp](code/02-cpp/cpptest.cpp.html) ([src](code/02-cpp/cpptest.cpp))
 ```
 // this creates a test object, calling the specific 
 // constructor that takes in a single int value
@@ -1627,7 +1627,7 @@ cout << "created b: " << b << endl;
 
 <section data-markdown><script type="text/template">
 ## main() code and output, 4/9
-Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
+Source code: [cpptest.cpp](code/02-cpp/cpptest.cpp.html) ([src](code/02-cpp/cpptest.cpp))
 ```
 // this creates two test objects via pointers and new
 
@@ -1650,7 +1650,7 @@ cout << "created *d: " << *d << " at " << d << endl;
 
 <section data-markdown><script type="text/template">
 ## main() code and output, 5/9
-Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
+Source code: [cpptest.cpp](code/02-cpp/cpptest.cpp.html) ([src](code/02-cpp/cpptest.cpp))
 ```
 // subroutine invocation. The copy constructor is invoked 
 // when the actual parameter is copied into the formal 
@@ -1677,7 +1677,7 @@ cout << "finished invoking subroutine..." << endl;
 
 <section data-markdown><script type="text/template">
 ## main() code and output, 6/9
-Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
+Source code: [cpptest.cpp](code/02-cpp/cpptest.cpp.html) ([src](code/02-cpp/cpptest.cpp))
 ```
 // because this assignment happens in the same statement
 // as the declaration, it invokes the copy constructor
@@ -1694,7 +1694,7 @@ test f = b;
 
 <section data-markdown><script type="text/template">
 ## main() code and output, 7/9
-Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
+Source code: [cpptest.cpp](code/02-cpp/cpptest.cpp.html) ([src](code/02-cpp/cpptest.cpp))
 ```
 // we are only deleting one of the dynamically created 
 // test objects
@@ -1712,7 +1712,7 @@ delete c;
 
 <section data-markdown><script type="text/template">
 ## main() code and output, 8/9
-Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
+Source code: [cpptest.cpp](code/02-cpp/cpptest.cpp.html) ([src](code/02-cpp/cpptest.cpp))
 ```
 // because this assignment does NOT happen in the same 
 // statement as the declaration, the operator=() 
@@ -1733,7 +1733,7 @@ aa = b;
 
 <section data-markdown><script type="text/template">
 ## main() code and output, 9/9
-Source code: [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
+Source code: [cpptest.cpp](code/02-cpp/cpptest.cpp.html) ([src](code/02-cpp/cpptest.cpp))
 ```
 // upon termination of the main() function, all statically
 // created test objects are deallocated.

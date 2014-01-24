@@ -63,8 +63,8 @@ Struct and Unions
 - Unions are described
   [here](http://www.tutorialspoint.com/cprogramming/c_unions.htm)
   although that page does not give a motivating use for them.  See the
-  [float_to_hex.cpp](../slides/04-numbers/src/float_to_hex.cpp.html)
-  ([src](../slides/04-numbers/src/float_to_hex.cpp))
+  [float_to_hex.cpp](../slides/code/04-numbers/float_to_hex.cpp.html)
+  ([src](../slides/code/04-numbers/float_to_hex.cpp))
   file, and the associated lecture slides (somewhere around slide 48
   of [04-numbers](../slides/04-numbers/04-numbers.html) a better
   example.

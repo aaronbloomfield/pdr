@@ -5,37 +5,37 @@ Program and Data Representation Slides
 
 Slide set 1: [Course Introduction](01-intro.html)
 
-- Source code: [DataStructureComparison.java](src/01-intro/DataStructureComparison.java.html) ([src](src/01-intro/DataStructureComparison.java))
+- Source code: [DataStructureComparison.java](code/01-intro/DataStructureComparison.java.html) ([src](code/01-intro/DataStructureComparison.java))
 
 
 Slide set 2: [C++](02-cpp.html)
 
 - Source code:
   - General source code: 
-    [evenodd.cpp](src/02-cpp/evenodd.cpp.html) ([src](src/02-cpp/evenodd.cpp)),
-    [pointers.cpp](src/02-cpp/pointers.cpp.html) ([src](src/02-cpp/pointers.cpp)), 
-    [swap.cpp](src/02-cpp/swap.cpp.html) ([src](src/02-cpp/swap.cpp)),
-    [dynamic_allocation.cpp](src/02-cpp/dynamic_allocation.cpp.html) ([src](src/02-cpp/dynamic_allocation.cpp)),
-    [delete.cpp](src/02-cpp/delete.cpp.html) ([src](src/02-cpp/delete.cpp)),
-    [memory.cpp](src/02-cpp/memory.cpp.html) ([src](src/02-cpp/memory.cpp)),
-    [swapref.cpp](src/02-cpp/swapref.cpp.html) ([src](src/02-cpp/swapref.cpp)),
-    [cpptest.cpp](src/02-cpp/cpptest.cpp.html) ([src](src/02-cpp/cpptest.cpp))
+    [evenodd.cpp](code/02-cpp/evenodd.cpp.html) ([src](code/02-cpp/evenodd.cpp)),
+    [pointers.cpp](code/02-cpp/pointers.cpp.html) ([src](code/02-cpp/pointers.cpp)), 
+    [swap.cpp](code/02-cpp/swap.cpp.html) ([src](code/02-cpp/swap.cpp)),
+    [dynamic_allocation.cpp](code/02-cpp/dynamic_allocation.cpp.html) ([src](code/02-cpp/dynamic_allocation.cpp)),
+    [delete.cpp](code/02-cpp/delete.cpp.html) ([src](code/02-cpp/delete.cpp)),
+    [memory.cpp](code/02-cpp/memory.cpp.html) ([src](code/02-cpp/memory.cpp)),
+    [swapref.cpp](code/02-cpp/swapref.cpp.html) ([src](code/02-cpp/swapref.cpp)),
+    [cpptest.cpp](code/02-cpp/cpptest.cpp.html) ([src](code/02-cpp/cpptest.cpp))
   - IntCell code: 
-    [IntCell.java](src/02-cpp/IntCell.java.html) ([src](src/02-cpp/IntCell.java)), 
-    [TestIntCell.cpp](src/02-cpp/TestIntCell.cpp.html) ([src](src/02-cpp/TestIntCell.cpp)),
-    [IntCell.h](src/02-cpp/IntCell.h.html) ([src](src/02-cpp/IntCell.h)), 
-    [IntCell.cpp](src/02-cpp/IntCell.cpp.html) ([src](src/02-cpp/IntCell.cpp))
+    [IntCell.java](code/02-cpp/IntCell.java.html) ([src](code/02-cpp/IntCell.java)), 
+    [TestIntCell.cpp](code/02-cpp/TestIntCell.cpp.html) ([src](code/02-cpp/TestIntCell.cpp)),
+    [IntCell.h](code/02-cpp/IntCell.h.html) ([src](code/02-cpp/IntCell.h)), 
+    [IntCell.cpp](code/02-cpp/IntCell.cpp.html) ([src](code/02-cpp/IntCell.cpp))
   - Rational code: 
-    [Rational.java](src/02-cpp/Rational.java.html) ([src](src/02-cpp/Rational.java)), 
-    [Rational.h](src/02-cpp/Rational.h.html) ([src](src/02-cpp/Rational.h)),
-    [Rational.cpp](src/02-cpp/Rational.cpp.html) ([src](src/02-cpp/Rational.cpp)), 
-    [TestRational.cpp](src/02-cpp/TestRational.cpp.html) ([src](src/02-cpp/TestRational.cpp))
+    [Rational.java](code/02-cpp/Rational.java.html) ([src](code/02-cpp/Rational.java)), 
+    [Rational.h](code/02-cpp/Rational.h.html) ([src](code/02-cpp/Rational.h)),
+    [Rational.cpp](code/02-cpp/Rational.cpp.html) ([src](code/02-cpp/Rational.cpp)), 
+    [TestRational.cpp](code/02-cpp/TestRational.cpp.html) ([src](code/02-cpp/TestRational.cpp))
 
 Slide set 3: [Lists](03-lists.html)
 
-- Source code: [findMax.cpp](src/03-lists/findMax.cpp.html) ([src](src/03-lists/findMax.cpp)),
-  [objectCell.h](src/03-lists/objectCell.h.html) ([src](src/03-lists/objectCell.h)),
-  [objectCellMain.cpp](src/03-lists/objectCellMain.cpp.html) ([src](src/03-lists/objectCellMain.cpp))
+- Source code: [findMax.cpp](code/03-lists/findMax.cpp.html) ([src](code/03-lists/findMax.cpp)),
+  [objectCell.h](code/03-lists/objectCell.h.html) ([src](code/03-lists/objectCell.h)),
+  [objectCellMain.cpp](code/03-lists/objectCellMain.cpp.html) ([src](code/03-lists/objectCellMain.cpp))
 
 Slide set 4: Data Representation
 
