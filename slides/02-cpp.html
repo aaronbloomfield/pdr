@@ -1069,10 +1069,10 @@ Source code: [dynamic_allocation.cpp](code/02-cpp/dynamic_allocation.cpp.html) (
 <section data-markdown><script type="text/template">
 ## C++ Syntax: delete
 - delete 
-  - `delete rPointer`
-  - `delete intPointer`
+  - `delete rPointer;`
+  - `delete intPointer;`
 - delete []
-  - `delete [] ages`
+  - `delete [] ages;`
 </script></section>
 
 <section data-markdown><script type="text/template">
@@ -1196,11 +1196,11 @@ Why the extra space?  If only 8 bytes are needed for each `Foo`, then why is the
 class ListNode {
 
 public:
-    ListNode();                   // Constructor
+    ListNode();                // Constructor
 
 private:
     int value;
-    ListNode *next, *previous;	// for doubly linked lists
+    ListNode *next, *previous; // for doubly linked lists
 
     friend class List;
     friend class ListItr;
