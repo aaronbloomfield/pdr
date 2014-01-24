@@ -1,0 +1,284 @@
+\documentclass[11pt,twoside]{book}
+
+% this requres the installation of texlive-pstricks, as that is needed
+% by the vaucanson-g.sty and VCColor-names.def files
+
+\usepackage{palatino}
+\usepackage{url}
+\usepackage{epsfig}
+\usepackage{listings}
+\usepackage[table]{xcolor}
+\usepackage{wrapfig}
+
+\setlength{\headheight}{0pt}
+%\setlength{\footheight}{0pt}
+\setlength{\topmargin}{-.5in}
+\setlength{\oddsidemargin}{-0.25in}
+\setlength{\evensidemargin}{-0.25in}
+\setlength{\textwidth}{7truein}
+\setlength{\textheight}{9.0truein}
+\setlength{\parskip}{6pt}
+
+\input{macros}
+\raggedbottom
+
+\lstset{frameround=fttt,captionpos=b}
+
+\begin{document}
+
+\title {Program and Data Representation}
+\author {by Aaron Bloomfield}
+\maketitle
+
+\cleardoublepage
+\pagenumbering{roman}
+\addcontentsline{toc}{part}{Table of Contents}
+\tableofcontents
+
+\cleardoublepage
+\addcontentsline{toc}{part}{List of Figures}
+\listoffigures
+
+\cleardoublepage
+\addcontentsline{toc}{part}{List of Tables}
+\listoftables
+
+\cleardoublepage
+\addcontentsline{toc}{part}{List of Listings}
+\lstlistoflistings
+
+\cleardoublepage
+\pagenumbering{arabic}
+
+\chapter{Introduction}
+
+\section{Purpose}
+
+\section{How to use this book}
+
+\section{History}
+
+
+
+\part{C++}
+
+\chapter{Introduction}
+
+\section{Hello world}
+
+\section{Data types}
+
+\section{Control structures}
+
+\section{Classes and objects}
+
+\section{Header files}
+
+
+
+\chapter{Pointers, References, and Memory Management}
+
+\section{Pointers}
+
+\section{Dynamic memory allocation}
+
+\section{References}
+
+
+\chapter{Arrays}
+
+
+\chapter{Standard Template Library}
+
+\section{Introduction}
+
+\section{\tt vector}
+
+\section{\tt linked\_list}
+
+\section{\tt string}
+
+\section{\tt \ldots}
+
+
+\chapter{Advanced C++ Concepts and C++11}
+
+\section{Inheritance}
+
+\section{Dynamic dispatch}
+
+\section{Templates}
+
+
+\part{Data Structures}
+
+\chapter{Big-Oh Comparisons}
+
+\section{Introduction}
+
+\section{Big-Oh versus Big-Theta versus Big-Omega}
+
+\section{Formal proofs}
+
+
+\chapter{Lists}
+
+\section{Linked lists}
+
+\section{Stacks}
+
+\section{Queues}
+
+
+\chapter{Trees}
+
+\section{Binary trees}
+
+\section{Binary search trees}
+
+\section{AVL trees}
+
+\section{Red-black trees}
+
+\section{Splay trees}
+
+\section{Other tree applications}
+
+
+
+\chapter{Hashes}
+
+\section{Hash functions}
+
+\section{The hash table}
+
+\section{Collision resolution}
+
+\section{Analysis}
+
+
+\chapter{Heaps}
+
+\section{Structure property}
+
+\section{Ordering property}
+
+\section{Array storage}
+
+\section{Huffman coding}
+
+
+\chapter{Graphs}
+
+\section{Introduction}
+
+\section{Representation}
+
+\section{Topological sort}
+
+\section{Traveling salesperson}
+
+\section{Shortest path}
+
+\section{Minimum spanning tree}
+
+
+
+\part{Data Representation}
+
+\chapter{Integers}
+
+\section{Sign-and-magnitude}
+
+\section{One's complement}
+
+\section{Two's complement}
+
+\section{BigInteger representation}
+
+
+\chapter{Floating-point Numbers}
+
+\section{Older representations}
+
+\section{IEEE 754 floating point standard}
+
+
+
+\chapter{Strings}
+
+\section{ASCII versus UNICODE}
+
+\section{String representation}
+
+
+\chapter{Memory}
+
+\section{\ldots}
+
+\part{Assembly and Machine Language}
+
+\chapter{IBCM: The Itty Bitty Computing Machine}
+\input{ibcm}
+
+
+\chapter{x86 Assembly}
+
+\input{x86}
+
+\chapter{C Calling Convention}
+
+\input{x86-ccc}
+
+
+\part{UNIX}
+
+\chapter{Introduction}
+
+\section{History}
+
+
+
+\chapter{Compilation, Debugging, and Make}
+
+\section{Command-line compilation}
+
+\section{Debugging with GDB}
+
+\section{Using Makefiles}
+
+
+
+\chapter{Shell Scripting}
+
+\section{Introduction}
+
+\section{Bash basics}
+
+\section{Advanced Bash programming}
+
+
+
+\chapter{Source Code Modifications}
+
+\section{Pretty-printers}
+
+\section{Code documentation}
+
+
+
+\part{Related Programming Languages}
+
+\chapter{C}
+
+\chapter{Objective C}
+
+\chapter{INTERCAL}
+
+
+\part{End}
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

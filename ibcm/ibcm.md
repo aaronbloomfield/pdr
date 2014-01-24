@@ -21,7 +21,7 @@ in this repository.
 
 The primary mechanism for learning IBCM is through the [IBCM slide
 set](../slides/08-ibcm.html) and the [IBCM book
-chapter](../book/index.html).  The material in both of those largely
+chapter](../book/ibcm-chapter.pdf).  The material in both of those largely
 duplicates itself, but in different formats.  IBCM is utilized through
 an online set of web pages, described next.  A few C++ utilities are
 described at the bottom of this page.

@@ -10,16 +10,6 @@ read it!
 
 
 
-Things to fix
--------------
-
-To fix for next time (fall 2014):
-
-- The shared folders description in [Tutorial 1: Introduction to UNIX:
-  VirtualBox use](../tutorials/01-intro-unix/virtual-box.html)
-  apparently need updating (see ticket #1391).
-
-
 Lecture progress
 ----------------
 

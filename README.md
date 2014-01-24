@@ -75,8 +75,8 @@ instructions [here](https://help.github.com/articles/syncing-a-fork).
 this online at github.com -- you will need to download the repository
 first**
 
-- book/: the beginnings of a textbook to be used for this course.  It
-  is written using LaTeX.
+- [book](book/index.html): the beginnings of a textbook to be used for
+  this course.  It is written using LaTeX.
 - [docs](docs/index.html): a series of useful documents that are not
   labs or tutorials.  To view these files, see the
   [docs/index.html](docs/index.html) file.

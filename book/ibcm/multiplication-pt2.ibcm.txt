@@ -1,0 +1,46 @@
+Mem	Loc'n	Label	Opcode	Addr	Comments
+404b	48		store	pos7	store the store instruction in pos2
+3002	49		load	tmp	the 2nd parameter is already in tmp
+6007	4a		sub	one	subtract one
+b000	4b	pos7	nop		will hold the push-to-stack inst
+3001	4c		load	sptr	load the stack pointer
+6007	4d		sub	one	decrement it
+4001	4e		store	sptr	store it back
+					load the 1st parameter into tmp
+3001	4f		load	sptr	load the stack pointer
+5003	50		add	load	create a load instruction
+5009	51		add	three	move to position of 1st parameter
+4053	52		store	pos8	store the load instruction into pos4
+b000	53	pos8	nop		will hold inst to load 1st parameter
+4002	54		store	tmp	store it in tmp for use on line 058
+					push 1st parameter onto stack second
+3001	55		load	sptr	load the stack pointer
+5004	56		add	store	create a store instruction
+4059	57		store	pos9	store the store inst into pos1
+3002	58		load	tmp	load value to push onto the stack
+b000	59	pos9	nop		will hold the push-to-stack inst
+3001	5a		load	sptr	load the stack pointer
+6007	5b		sub	one	decrement it
+4001	5c		store	sptr	store it back
+					call the subroutine
+f027	5d		brl	mult	using the branch-and-link inst
+					take the return value, and add 1st
+					parameter to it, and return that
+4002	5e		store	tmp	store the return value in tmp
+3001	5f		load	sptr	load the stack pointer
+5003	60		add	load	create a load instruction
+5007	61		add	one	move to the position of the 1st 
+					parameter (one because the ret 
+					addr is not on the stack)
+4063	62		store	pos10	store the load inst into pos4
+b000	63	pos10	nop		will hold the instruction to load 
+					the 1st parameter
+5002	64		add	tmp	add returned value to the 1st param
+400a	65		store	retval	store it for later
+					clean up stack (pop the two params)
+3001	66		load	sptr	load the stack pointer
+5008	67		add	two	increment the stack pointer by two
+					for the two parameters
+4001	68		store	sptr	store it back
+c03a	69		jmp	ret	jump to the return part of this code
+					(return value in retval)

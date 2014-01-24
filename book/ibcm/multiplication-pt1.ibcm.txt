@@ -1,0 +1,46 @@
+Mem	Loc'n	Label	Opcode	Addr	Comments
+					push the return address onto stack
+4002	27	mult	store	tmp	store the return address into tmp
+3001	28		load	sptr	load the stack pointer
+5004	29		add	store	create a store instruction
+402c	2a		store	pos3	store the store inst into pos3
+3002	2b		load	tmp	load up the value to push onto stack
+b000	2c	pos3	nop		will hold the push-to-stack inst
+3001	2d		load	sptr	load the stack pointer
+6007	2e		sub	one	decrement it
+4001	2f		store	sptr	store it back
+					set possible return value of zero
+3006	30		load	zero	load zero into the accumulator
+400a	31		store	retval	if we are returning, store zero in 
+					the return value
+					get the 2nd parameter, compare to 0
+3001	32		load	sptr	load the stack pointer
+5003	33		add	load	create a load instruction
+5009	34		add	three	move to the pos of the 2nd parameter
+4036	35		store	pos4	store the load instruction into pos4
+b000	36	pos4	nop		will hold inst to load 2nd parameter
+4002	37		store	tmp	store it in tmp for use on line 049
+d03a	38		jmpe	ret	if 0, we're done with the recursion
+c046	39		jmp	recurse	otherwise call ourselves recursively
+					in order to return, we need to 
+					create a jump inst, clean up the 
+					stack, and return 0
+3001	3a	ret	load	sptr	load the stack pointer
+5003	3b		add	load	create a load instruction
+5007	3c		add	one	move to the pos of return address
+403e	3d		store	pos5	store the load instruction into pos5
+b000	3e	pos5	nop		will hold inst to load return addr
+5005	3f		add	jmp	create a jump instruction
+4045	40		store	pos6	store the jmp instruction into pos6
+3001	41		load	sptr	load the stack pointer
+5007	42		add	one	add one to 'remove' the return addr
+4001	43		store	sptr	store it back
+300a	44		load	retval	load the return value
+b000	45	pos6	nop		will hold the jmp (return) inst;
+					to call ourselves recursively, we
+					push the 2 parameters onto the stack
+					stack, then call with brl.
+					load 2nd parameter, decrement it,
+					then push it onto the stack
+3001	46	recurse	load	sptr	load the stack pointer
+5004	47		add	store	create a store instruction

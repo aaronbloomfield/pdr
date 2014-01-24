@@ -1,0 +1,152 @@
+// mem	loc'n	label	opcode	address	comments
+c010	00		jmp	init	// skip around variables
+0000	01	state		0000	// current state
+0100	02	head		3000	// current head position
+0000	03	input		0000	// current input symbol
+0000	04	initial		0000	// value of initial state (0)
+0003	05	final		0001	// value of final state (1)
+3000	06	load		3000	// value of load instruction
+4000	07	store		4000	// value of store instruction
+0060	08	trans		3000	// start of transitions
+0000	09	xpos		0000	// transition memory position
+0000	0a	zero		0000	// the constant 0
+0001	0b	one		0001	// the constant 1
+0002	0c	two		0002	// the constant 2
+0003	0d	three		0003	// the constant 3
+0004	0e	four		0004	// the constant 4
+0005	0f	five		0005	// the constant 5
+//
+// set the initial state, the final state, and the current state
+3004	10	init	load	initial	// load initial state
+4001	11		store	state	// store as current state
+//
+// read state; if final, terminate
+3001	12	start	load	state	// load current state variable
+6005	13		sub 	final	// subtract the final state
+d016	14		jmpe	exit	// if zero, then we are in the final state
+c017	15		jmp 	cont	// if not, then keep going
+0000	16	exit	halt		// we are in the final state, so halt
+//
+// read head position; use that to read the input symbol; store that somewhere known
+3002	17	cont	load	head	// load head position
+5006	18		add	load	// add load instruction value
+401a	19		store	pos1	// store the load instruction into pos1
+b000	1a	pos1	nop		// will hold the load instruction; input symbol is now in acc
+4003	1b		store	input	// store input symbol
+//
+// look for a transition function that matches the current state we are in
+3008	1c		load	trans	// load start of transitions
+4009	1d		store	xpos	// store in xpos, the transition position
+c022	1e		jmp	midloop	// skip past increment step the first time
+3009	1f	loop	load	xpos	// otherwise, we will iterate again
+500f	20		add	five	// add 5 to xpos
+4009	21		store	xpos	// store the updated value
+3009	22	midloop	load	xpos	// load current transition position
+5006	23		add	load	// create a load instruction
+4025	24		store	pos2	// store in next instruction
+b000	25	pos2	nop		// will hold the load transition function state command
+6001	26		sub	state	// subtract the current state
+d029	27		jmpe	found	// if zero, we've found a transition for the current state
+c01f	28		jmp	loop	// otherwise, continue the loop
+//
+// we've found the correct state of a transition function; now look for the correct input symbol
+3009	29	found	load	xpos	// load start of transitions
+5006	2a		add	load	// create a load instruction
+500b	2b		add	one	// move forward one for the input symbol
+402d	2c		store	pos3	// store in next instruction
+b000	2d	pos3	nop		// will hold the load transition function input symbol command
+6003	2e		sub	input	// subtract the current input symbol
+d031	2f		jmpe	bingo	// we've found the right transition
+c01f	30		jmp	loop	// otherwise, continue the loop
+//
+// now we have our transition function.  First, update the state
+3009	31	bingo	load	xpos	// load position of transition function
+5006	32		add	load	// create a load instruction
+500c	33		add	two	// move forward two for the destination state
+4035	34		store	pos4	// store in next instruction
+b000	35	pos4	nop		// will hold the load destination state command
+4001	36		store	state	// store that in the state variable
+//
+// next, update the output symbol
+3009	37		load	xpos	// load position of transition function
+5006	38		add	load	// create a load instruction
+500d	39		add	three	// move forward three for the output symbol to write
+403b	3a		store	pos5	// store in next instruction
+b000	3b	pos5	nop		// will hold the load output symbol command
+4003	3c		store	input	// store that in the input variable
+3002	3d		load	head	// load position of tape head
+5007	3e		add	store	// create a store instruction
+4041	3f		store	pos6	// store in next instruction
+3003	40		load	input	// load the output symbol to write
+b000	41	pos6	nop		// will hold the store output symbol command
+//
+// lastly, move the tape head forwards or backwards
+3009	42		load	xpos	// load position of transition function
+5006	43		add	load	// create a load instruction
+500e	44		add	four	// move forward four for the 
+4046	45		store	pos7	// store in next instruction
+b000	46	pos7	nop		// will hold the load tape direction command
+d04b	47		jmpe	moveL	// if zero, that means move the tape left
+600b	48		sub	one	// subtract one
+d04f	49		jmpe	moveR	// if it *was* one, that means move the tape right
+c012	4a		jmp	start	// otherwise, there is no movement; done with this iteration!
+3002	4b	moveL	load	head	// load the head position
+500b	4c		add	one	// add one, effectively moving the tape to the left
+4002	4d		store	head	// store the updated head position
+c012	4e		jmp	start	// done with this iteration!
+3002	4f	moveR	load	head	// load the head position
+600b	50		sub	one	// subtract one, effectively moving the tape to the right
+4002	51		store	head	// store the updated head position
+c012	52		jmp	start	// done with this iteration!
+//
+// empty space
+0000	53
+0000	54
+0000	55
+0000	56
+0000	57
+0000	58
+0000	59
+0000	5a
+0000	5b
+0000	5c
+0000	5d
+0000	5e
+0000	5f
+//
+// Transitions
+0000	60	// transition: from state 0
+0000	61	// on input 0
+0001	62	// goes to state 1
+0001	63	// and writes a 1
+0001	64	// and moves the tape right
+//
+0000	65	// transition: from state 0
+0001	66	// on input 1
+0002	67	// goes to state 2
+0001	68	// and writes a 1
+0000	69	// and moves the tape left
+//
+0001	6a	// transition: from state 1
+0000	6b	// on input 0
+0000	6c	// goes to state 0
+0001	6d	// and writes a 1
+0000	6e	// and moves the tape left
+//
+0001	6f	// transition: from state 1
+0001	70	// on input 1
+0001	71	// goes to state 1
+0001	72	// and writes a 1
+0001	73	// and moves the tape right
+//
+0002	74	// transition: from state 2
+0000	75	// on input 0
+0001	76	// goes to state 1
+0001	77	// and writes a 1
+0000	78	// and moves the tape left
+//
+0002	79	// transition: from state 2
+0001	7a	// on input 1
+0003	7b	// goes to state 3
+0001	7c	// and writes a 1
+0002	7d	// and doesn't move the tape
