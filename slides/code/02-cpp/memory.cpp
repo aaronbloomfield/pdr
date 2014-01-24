@@ -9,17 +9,17 @@ int main() {
     cout << "sizeof(int): " << sizeof(int) << endl;
     cout << "sizeof(Foo): " << sizeof(Foo) << endl;
 
-    Foo *foo = new Foo();
+    Foo *qux = new Foo();
     Foo *bar = new Foo();
 
-    cout << "1st Foo: " << foo << endl;
+    cout << "1st Foo: " << qux << endl;
     cout << "2nd Foo: " << bar << endl;
 
-    int diff = ((int)bar)-((int)foo);
+    int diff = ((int)bar)-((int)qux);
 
     cout << "Difference: " << diff << endl;
 
-    delete foo;
+    delete qux;
     delete bar;
     return 0;
 }

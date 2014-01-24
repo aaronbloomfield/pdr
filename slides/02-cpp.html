@@ -1141,12 +1141,12 @@ class Foo {
 int main() {
     cout << "sizeof(int): " << sizeof(int) << endl;
     cout << "sizeof(Foo): " << sizeof(Foo) << endl;
-    Foo *foo = new Foo(), *bar = new Foo();
-    cout << "1st Foo: " << foo << endl;
+    Foo *qux = new Foo(), *bar = new Foo();
+    cout << "1st Foo: " << qux << endl;
     cout << "2nd Foo: " << bar << endl;
-    int diff = ((int)bar)-((int)foo);
+    int diff = ((int)bar)-((int)qux);
     cout << "Difference: " << diff << endl;
-    delete foo;
+    delete qux;
     delete bar;
     return 0;
 }
@@ -1191,35 +1191,38 @@ Why the extra space?  If only 8 bytes are needed for each `Foo`, then why is the
 <section data-markdown><script type="text/template">
 ## friend
 - Sometimes other classes need access to private data members of another class
+
 ```
 class ListNode {
 
-    public:
-      // ...
+public:
+    ListNode();                   // Constructor
 
-    private:
-      ListNode *next, *previous;
+private:
+    int value;
+    ListNode *next, *previous;	// for doubly linked lists
 
     friend class List;
+    friend class ListItr;
 };
 ```
 </script></section>
 
 <section data-markdown><script type="text/template">
 ## Common mistakes
-- Consider a class Foo with an uninitialized ListNode* field list that needs to be initialized in the constructor.
+- Consider a class Foo with an uninitialized `ListNode*` field `head` that needs to be initialized in the constructor.
 - What is wrong with this constructor?  It compiles fine!
 ```
 Foo() {
-    ListNode* list = new ListNode();
+    ListNode* head = new ListNode();
 }
 ```
-<span class="fragment"> You are creating a local variable 'list' and not accessing the field named 'list'</span>
+<span class="fragment"> You are creating a local variable 'head' and not accessing the field named 'head'</span>
 - What is wrong with this constructor?  It also compiles fine!
 ```
 Foo() {
     ListNode temp;
-    list = &temp;
+    head = &temp;
 }
 ```
 <span class="fragment">You are making the pointer point to a local variable, which is then promptly deallocated</span>

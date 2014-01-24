@@ -90,7 +90,7 @@ stopped at the same point.
 | 3 || Jan 17 || Friday || || [02: C++](../slides/02-cpp.html) || [02: C++, slides 4 to 6-4](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/02-cpp-2b/02-cpp-2b.htm) |
 | || Jan 20 || Monday || [Lab 1: Intro to C++](../labs/lab01/lab01.html), [Tutorial 1: Intro to UNIX](../tutorials/01-intro-unix/index.html) || (no class: MLK day) || (no class: MLK day) |
 | 4 || Jan 22 || Wednesday || || [02: C++](../slides/02-cpp.html) || [C++, slides 7 to 8-6](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/02-cpp-3b/02-cpp-3b.htm) (the sound for the [Youtube video](http://www.youtube.com/watch?v=UvoHwFvAvQE) is not synchronized) |
-| 5 || Jan 24 || Friday || || [02: C++](../slides/02-cpp.html) || |
+| 5 || Jan 24 || Friday || || [02: C++](../slides/02-cpp.html) || C++, slides 8-6 to 9-1 |
 | 6 || Jan 27 || Monday || [Lab 2: Linked lists](../labs/lab02/lab02.html), [Tutorial 2: GDB](../tutorials/02-gdb/index.html) || [02: C++](../slides/02-cpp.html) || |
 | 7 || Jan 29 || Wednesday || || [03: Lists](../slides/03-lists.html) || |
 | 8 || Jan 31 || Friday || || [03: Lists](../slides/03-lists.html) || |

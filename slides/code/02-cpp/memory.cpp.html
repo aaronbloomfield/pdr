@@ -20,17 +20,17 @@ http://www.gnu.org/software/src-highlite">
     cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"sizeof(int): "</font> <font color="#990000">&lt;&lt;</font> <b><font color="#0000FF">sizeof</font></b><font color="#990000">(</font><font color="#009900">int</font><font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
     cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"sizeof(Foo): "</font> <font color="#990000">&lt;&lt;</font> <b><font color="#0000FF">sizeof</font></b><font color="#990000">(</font>Foo<font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
 
-    <font color="#008080">Foo</font> <font color="#990000">*</font>foo <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Foo</font></b><font color="#990000">();</font>
+    <font color="#008080">Foo</font> <font color="#990000">*</font>qux <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Foo</font></b><font color="#990000">();</font>
     <font color="#008080">Foo</font> <font color="#990000">*</font>bar <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Foo</font></b><font color="#990000">();</font>
 
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"1st Foo: "</font> <font color="#990000">&lt;&lt;</font> foo <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"1st Foo: "</font> <font color="#990000">&lt;&lt;</font> qux <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
     cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"2nd Foo: "</font> <font color="#990000">&lt;&lt;</font> bar <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
 
-    <font color="#009900">int</font> diff <font color="#990000">=</font> <font color="#990000">((</font><font color="#009900">int</font><font color="#990000">)</font>bar<font color="#990000">)-((</font><font color="#009900">int</font><font color="#990000">)</font>foo<font color="#990000">);</font>
+    <font color="#009900">int</font> diff <font color="#990000">=</font> <font color="#990000">((</font><font color="#009900">int</font><font color="#990000">)</font>bar<font color="#990000">)-((</font><font color="#009900">int</font><font color="#990000">)</font>qux<font color="#990000">);</font>
 
     cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Difference: "</font> <font color="#990000">&lt;&lt;</font> diff <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
 
-    <b><font color="#0000FF">delete</font></b> foo<font color="#990000">;</font>
+    <b><font color="#0000FF">delete</font></b> qux<font color="#990000">;</font>
     <b><font color="#0000FF">delete</font></b> bar<font color="#990000">;</font>
     <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
 <font color="#FF0000">}</font>
