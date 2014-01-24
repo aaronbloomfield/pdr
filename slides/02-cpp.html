@@ -1104,16 +1104,16 @@ int main() {
 Rational r;
 r.num = 4;
 ```
-- For a pointer, dereference it first (as *r is the object, and r is the pointer):
+- For a pointer, dereference it first (as `*r` is the object, and `r` is the pointer):
 ```
 Rational *r = new Rational();
-r.num = 4;
+(*r).num = 4;
 ```    
-- A shorthand for the last line is below (the arrow means "follow the pointer"):
+- An equivalent shorthand for the previous line is below (the arrow means "follow the pointer"):
 ```
 r->num = 4;
 ```    
-- References (which we haven't seen yet) work like regular objects
+- References (which we haven't seen yet) work like regular objects (i.e., the period syntax)
 </script></section>
 
 <section data-markdown><script type="text/template">
@@ -1165,6 +1165,8 @@ Result:
     2nd Foo: 0x6a0680
     Difference: 16
 ```
+  
+Why the extra space?  If only 8 bytes are needed for each `Foo`, then why is the second `Foo` 16 bytes beyond the first one?
 </script></section>
 
 <section data-markdown><script type="text/template">
@@ -1176,12 +1178,13 @@ Result:
   - It's a regular char (8 bits)
 - The * is right associative, meaning that the spacing should be:
   - `char  *x, y;`
-- This won't be consistent in this course...
+  - C++ doesn't care about your whitespace...
+- This may not be consistent in this course
 </script></section>
 
 <section data-markdown><script type="text/template">
 ## Doubly linked lists (lab 2)
-  
+- This is the UML diagram from [Lab 2](../labs/lab02/lab02.html)
 ![Lab 2 UML diagram](images/02-cpp/lab2-uml-diagram.png)
 </script></section>
 
@@ -1238,11 +1241,11 @@ List sampleList
 List & theList = sampleList;
 ```
   - Reference to a List object
-  - A reference is like a pointer -- it holds an address -- BUT...
-    - Its address cannot change (its address is constant)
-    - It MUST be initialized upon declaration
-      - Cannot (easily) be initialized to NULL
-    - Has implicit dereferencing
+  - A reference is like a pointer -- it holds an address -- with three primary differences:
+    1. Its address cannot change (its address is constant)
+    2. It MUST be initialized upon declaration
+       - Cannot (easily) be initialized to `NULL`
+    3. Has implicit dereferencing
 </script></section>
 
 <section data-markdown><script type="text/template">
@@ -1255,7 +1258,7 @@ void swap(int * x, int * y) {
     *y = temp;
 }
 ```
-Programmer must specify dereferencing explicitly
+Note that the programmer must specify dereferencing explicitly
     </ul>
 </script></section>
 
@@ -1392,6 +1395,7 @@ bool compare(Rational left, Rational right);
 void swap (int &x, int &y);
 ```
 - Use when formal parameter should be *able to change the value* of the actual argument
+  - This is when references are used (and for return values); nobody bothers to declare one inside method
 </script></section>
 
 <section data-markdown><script type="text/template">
@@ -1423,7 +1427,7 @@ bool compare(const Rational & left,
 
 <section data-markdown><script type="text/template">
 ## Review: Dynamic Memory Allocation
-- new
+- `new`
   - Allocates a new memory location for use
   - Example:
 ```
@@ -1431,7 +1435,7 @@ Square * ptrToAnotherSquare = new Square(5);
 Triangle *ptrToTriangle = new Triangle();
 Circle *ptrToCircle = new Circle;
 ```
-- delete
+- `delete`
   - Reclaims memory allocated with new
   - Example:
 ```
@@ -1445,7 +1449,7 @@ delete ptrToAnotherSquare;
   - Destructor
   - Copy Constructor
   - `operator=()`
-- There are some problems with the defaults...
+- There are some issues with the defaults...
 </script></section>
 
 <section data-markdown><script type="text/template">
@@ -1465,8 +1469,8 @@ delete ptrToAnotherSquare;
 ```
 IntCell copy = original; // or IntCell copy(original);
 ```
-- if object is passed by value
-- if object is returned by value
+  - if object is passed by value into a subroutine
+  - if object is returned by value from a subroutine
 </script></section>
 
 <section data-markdown><script type="text/template">

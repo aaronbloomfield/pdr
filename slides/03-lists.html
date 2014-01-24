@@ -85,13 +85,12 @@
   - `vector `
     - Replacement for C++ built-in array
     - Arrays:
-      - Can’t be copied with =
-      - Doesn’t have notion of capacity
+      - Can't be copied with =
+      - Doesn't have notion of capacity
       - No index validity checking
-    - string
-      - Replacement for C built-in string (array of characters)
-        - C strings (char array or char*)
-          - == doesn’t compare correctly
+  - `string`
+    - Replacement for C-style strings (array of characters)
+    - C strings (char array or char*) cannot comare correctly with ==
 	</script></section>
 
 	<section data-markdown><script type="text/template">
@@ -323,7 +322,7 @@ Buffer<int> buf2;    // Buffer<int,4096>
 
 	<section data-markdown><script type="text/template">
 ## Lists ADT
-- A0, A1, A2, A3, ...
+- A<sub>0</sub>, A<sub>1</sub>, A<sub>2</sub>, A<sub>3</sub>, ...
   - size N
   - empty list – list of size 0
   - A<sub>0</sub> is the first element
