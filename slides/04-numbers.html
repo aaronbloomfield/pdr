@@ -169,7 +169,7 @@
 - 17,468 vacuum tubes and used 150 kW of power 
 - Earlier Computers: Z3 (Conrad Zuse) in 1941; Colossus in 1943
 
-![ENIAC](images/04-numbers/eniac.jpg)
+![ENIAC](images/04-numbers/eniac.png)
 	    </script></section>
 
 	    <section data-markdown><script type="text/template">
@@ -373,7 +373,82 @@ void Image::WriteInt (int value, FILE * fp) {
 # Integer<br>Representation
 	  </script></section>
 
-<!-- ... -->
+	  <section data-markdown><script type="text/template">
+## Sign-and-magnitude
+- Sign Bit, sign-and-magnitude
+![sign and magnitude](images/04-numbers/sign-and-magnitude.png)
+- Algorithm to encode:
+  - Encode number using *n-1* bits
+  - First bit is 1 if the number is < 0
+- Problem!
+  - Two representations for 0
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## One's complement
+- Sign Bit, One's Complement
+![one's complement](images/04-numbers/ones-complement.png)
+- Algorithm to encode:
+  - Encode number using *n-1* bits
+  - If negative, flip all the bits
+- Problem!
+  - Still two representations for 0
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Two's complement
+- Avoids two representations for zero
+![two's complement](images/04-numbers/twos-complement.png)
+- Most common means of representing integers in computers
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Two's complement
+- Algorithm for an *n*-bit memory space:
+  - Zero is *n* 0's
+  - For positive numbers, encode normally in *n-1* bits
+    - Max value is *2<sup>n-1</sup>-1*
+    - Sign bit is zero
+    - This, zero is a "positive" number! (and is all zeros)
+  - For negative numbers, take the absolute value
+    - Then subtract that from 2<sup>n</sup>, and encode that value
+    - Max value is -2<sup>n-1</sup>
+    - Alternatively, encode the absolute value, swap the bits, and add 1
+	  </script></section>
+
+	  <section>
+<h2>Two's complement (n=8)</h2>
+<table class="transparent"><tr><td class="top">
+<ul>
+<li>0</li><ul class="fragment"><li>0<sub>d</sub> = 00000000<sub>b</sub></li></ul>
+<li>1</li><ul class="fragment"><li>1<sub>d</sub> = 00000001<sub>b</sub></li></ul>
+<li>10 = 8+2</li><ul class="fragment"><li>10<sub>d</sub> = 00001010<sub>b</sub></li></ul>
+<li>100 = 64+32+4</li><ul class="fragment"><li>100<sub>d</sub> = 01100100<sub>b</sub></li></ul>
+<li>127 = 64+32+16+8+4+2+1</li><ul class="fragment"><li>127<sub>d</sub> = 01111111<sub>b</sub></li></ul>
+</ul>
+</td><td>&nbsp;</td><td class="top">
+<ul>
+<li>-1</li><ul class="fragment"><li>+1<sub>d</sub> = 00000001<sub>b</sub></li><li>-1<sub>d</sub> = 11111111<sub>b</sub></li></ul>
+<li>-10</li><ul class="fragment"><li>+10<sub>d</sub> = 00001010<sub>b</sub></li><li>-10<sub>d</sub> = 11110110<sub>b</sub></li></ul>
+<li>-100</li><ul class="fragment"><li>+100<sub>d</sub> = 01100100<sub>b</sub></li><li>-100<sub>d</sub> = 10011100<sub>b</sub></li></ul>
+<li>-128</li><ul class="fragment"><li>+128<sub>d</sub> = 10000000<sub>b</sub></li><li>-128<sub>d</sub> = 10000000<sub>b</sub></li></ul>
+</ul>
+</td></tr></table>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Two's complement (*n*=8)
+| sign | msb | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | lsb | | |
+|---|---|---|---|---|---|---|---|---|---|
+| 0 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | = | 127 |
+| 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | = | 2 |
+| 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | = | 1 |
+| 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | = | 0 |
+| 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | = | -1 |
+| 1 | 1 | 1 | 1 | 1 | 1 | 1 | 0 | = | -2 |
+| 1 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | = | -127 |
+| 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | = | -128 |
+	  </script></section>
 
 	</section>
 
@@ -384,7 +459,284 @@ void Image::WriteInt (int value, FILE * fp) {
 # Real<br>Representation
 	  </script></section>
 
-<!-- ... -->
+	  <section data-markdown><script type="text/template">
+## Real Numbers
+- 1/3
+- &pi;
+- 0.1
+- 3.333333333333 * 10<sup>-1</sup>
+- &radic;<span style="text-decoration:overline;">&nbsp;2&nbsp;</span>
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Fixed Point
+- Radix point is fixed at some bit
+![fixed point](images/04-numbers/fixed-point.png)
+- Pros:
+  - Less computationally demanding
+  - Good for CPUs that don't have an FPU
+  - Number representation space is uniform
+- Cons:
+  - Less flexible
+  - Nobody uses it anymore
+  - Small range of values
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Floating Point
+- Each number has three parts:
+  - Sign bit (1 is negative)
+  - Mantissa (the "value" of the number)
+    - Always between 1.0 and 2.0
+  - Exponent (power of 2 to multiply mantissa by)
+![CPU image](images/04-numbers/cpu-image.png)
+	  </script></section>
+
+	  <section>
+<h2>IEEE 754 Floating Point<br>Single Precision (32 bits)</h2>
+<ul>
+<li>32 bits are split as follows:</li>
+<ul>
+  <li>bit 0: sign bit, 1 means negative (1 bit)</li>
+  <li>bits 1-8: exponent (8 bits)</li>
+  <li>bits 9-31: mantissa (23 bits)</li>
+</ul>
+<li>Exponent values:</li>
+<ul>
+  <li>0: zeros</li>
+  <li>1-254: exponent-127</l>
+  <li>255: infinities, overflow, underflow, NaN</li>
+</ul>
+</ul>
+<p>&nbsp;</p>
+<p>\( \text{value} = (1-2*\text{sign}) * (1 + \text{mantissa}) * 2^{\text{exponent}-127} \)</p>
+	  </section>
+
+	  <section>
+<h2>Mantissa</h2>
+<p class="center">\( b_{1}b_{2}b_{3}b_{4}b_{5}b_{6}b_{7}b_{8}b_{9}b_{10}b_{11}b_{12}b_{13}b_{14}b_{15}b_{16}b_{17}b_{18}b_{19}b_{20}b_{21}b_{22}b_{23} \)</p>
+<p>&nbsp;</p>
+<p class="center">\( \text{mantissa} = 1.0 + \sum^{23}_{i=1} \frac{b_i}{2^i} \)</p>
+<p>&nbsp;</p>
+<ul>
+<li>If the bits are all 1, what is the mantissa value?</li>
+<ul><li>1 + (almost) 1 = (almost) 2: the maximum value for the mantissa</li>
+<li>Actually about 1.9999999999999</li></ul>
+<li>Minimum value is all 0's</li>
+<ul><li>That's a mantissa of 1.0</li></ul>
+</ul>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Converting a float from binary to decimal
+- Example taken from [Wikipedia](http://en.wikipedia.org/wiki/Single_precision)
+- 0x41c80000 (big endian) = 0100 0001 1100 1000 0000 0000 0000 0000
+  - Sign bit: 0 (means it's positive)
+  - Exponent: 1000 0011<sub>b</sub> = 0x83 = 131<sub>d</sub>
+    - Subtract 127 from exponent yields 4
+    - Exponent offset: 2<sup>n-1</sup>-1 = 2<sup>(8-1)</sup>-1 = 127
+    - Which means multiply the mantissa by 2<sup>4</sup>=16
+  - Mantissa: 100 1000 0000 0000 0000 0000d = 0x480000
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Converting a float from binary to decimal
+- Mantissa: 100 1000 0000 0000 0000 0000
+  - Each bit represents (1/2)<sup>*n*</sup> for *n* from 1 on up
+    - Not 0 on up!
+  - This mantissa has the first and fourth bits set
+  - The '1' bits represent (1/2)<sup>1</sup> and (1/2)<sup>4</sup>
+    - That's 0.5 + 0.0625 = 0.5625
+  - Then add 1 to that
+    - Yields 1.5625
+- Now multiply by 2<sup>*exponent*</sup>
+  - 1.5625 \* 2<sup>4</sup> = 1.5625 \* 16 = 25
+- Thus, 0x41c80000 = 25.0<sub>d</sub>
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## IEEE floating point maximum<br>(finite) positive value
+- The largest float has:
+  - 0 as the sign bit (it's positive)
+  - 254 as the exponent (1111 1110)
+    - 255 is reserved for infinities and overflows
+    - That exponent is 254-127 = 127
+  - All 1's for the mantissa
+  - Which yields *almost* 2
+  - 2 \* 2<sup>127</sup> = 2<sup>128</sup> = 3.4028234 \* 10<sup>38</sup>
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## IEEE floating point minimum<br>(finite) positive value
+- The smallest float has:
+  - 0 as the sign bit (it's positive)
+  - Binary 1 as the exponent (0000 0001)
+    - 0 is reserved for zeros
+    - That exponent is 1-127 = -126
+  - All 0's for the mantissa
+    - Which yields 1.0 as the mantissa
+  - 1 \* 2<sup>-126</sup> = 2<sup>-126</sup> = 1.175494 x 10<sup>-38</sup>
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+
+
+Floating point numbers are 
+not spatially uniform
+Consider two positive floats
+Both have a mantissa with just the last bit set
+One has an exponent of -126 (i.e. 1), the other 127 (i.e. 254)
+Now flip the second to last mantissa bit in both numbers
+The number with the higher exponent will "gain" more than the number with a lower exponent
+Converting a float 
+from decimal to binary
+Algorithm to covert f into binary:
+Sign: 1 if negative, 0 if positive
+Exponent (e): find what power of 2 is required to bring the number to 1.0 <= x < 2.0
+If you have to multiply, then it's negative
+If you have to divide, then it's positive
+Add 127 to that value
+The mantissa is f/2e
+Note that e is the exponent before adding 127 to it
+Subtract 1 from the mantissa (so it's between 0.0 and 1.0)
+Convert it to it's closest representation using powers of ½
+Similar to converting a base n number to base 10
+float_to_hex.cpp
+\#include <iostream>
+using namespace std;
+
+union foo {
+  float f;
+  int *x;
+} bar;
+
+int main() {
+  bar.f = 42.125;
+  cout << bar.x << endl; // prints in BIG endian
+}
+Converting a float 
+from decimal to binary
+Take 42.125 (see float_to_hex.cpp)
+Sign is 0 (it's positive)
+42.125/25 = 42.125/32 = 1.31640625 (exactly)
+Exponent is 5+127 = 132 (1000 0100b)
+Encode the mantissa
+1.31640625-1 = 0.31640625
+0.31640625 = 1/4 + 1/16 + 1/256
+=0101 0001 0000 0000 0000 000
+In binary, then, it's:
+0100 0010 0010 1000 1000 0000 0000 0000
+
+sign bit  	exponent   		mantissa
+Example
+1/10 = 0.1 (Decimal)
+What is this in binary?
+
+Remember this from CS 101?
+What gets printed?
+
+class FloatTest {
+	public static void main (String args[]) {
+		 double y = 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 
+			     0.1 + 0.1 + 0.1 + 0.1 + 0.1;
+
+		 System.out.println (y);
+	}
+}
+
+Take care with floating-point values
+Consider
+double a = 1;
+double b = 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1
+               + 0.1 + 0.1 + 0.1 + 0.1;
+double c = .9999999999999999;
+
+Two true expressions! 
+c == b		b != a
+
+Two false expressions!
+a == b		b != c
+
+Problem lies with the finite precision of the floating-point types
+Instead with the ordering operators for closeness
+End of lecture on Fri, Sep 20
+How to solve this
+Don't compare floating-point values if you can help it!
+Both doubles and floats
+Need to test if the two doubles are "close" in value
+final double EPSILON = 0.000001;
+boolean foo = Math.abs (a-b) < EPSILON;
+Note that a float has 7 decimal places of (printed) accuracy
+And two floats may differ by a value that is at 8 decimal places
+It prints as 1.0, but is really 0.9999999999
+Floating point rounding errors
+Add 0.333333333333333333 a total of 3 times, and you don't get 1.0
+As 1/3 cannot be represented properly with a (finite) decimal number
+Any denominator that has factors that are not factors of the radix
+Decimal radix factors: 2 an 5
+Good: 25 (factors are 5 and 5), 10 (factors are 2 2 5 5), etc.
+Bad: 1/3, 1/7, 1/11, 1/12
+Same thing with 0.1 (and many others!) in binary
+Any denominator that has factors that are not factors of the radix (which is just 2!)
+I.e. 1/3, 1/5, 1/7, etc. - anything whose denominator is not a power of 2
+Floating point rounding errors
+0.1 is stored (as a 32 bit float) as
+mantissa = 100 1100 1100 1100 1100 1101
+Or?
+
+
+Which equals (exactly) .100000001490116119384765625
+
+It's a finite number in decimal, but repeating in binary
+How to solve this
+Store number as a rational number, if possible
+Works for 1/3, 1/7, etc.
+Use more digits
+A "bigger" floating point number
+BigFloat (analgous to BigInteger)
+But these still have a finite number of digits!
+Patriot Missile
+Gulf War I
+Failed to intercept incoming Iraqi scud missile (Feb 25, 1991)
+28 American soldiers killed
+Patriot Design
+Intended to operate only for a few hours 
+Defend Europe from Soviet aircraft and missile
+Four 24-bit registers (1970s design!)
+Kept time with integer counter: incremented every 1/10 second
+Calculate speed of incoming missile to predict future positions:
+	velocity = loc1 - loc0/(count1 - count0) * 0.1
+But, cannot represent 0.1 exactly!
+
+Floating Imprecision
+24-bits: 
+  0.1 = 1/24 + 1/25 +  1/28 + 1/29 
+           + 1/212 + 1/213 + 1/216 + 1/217
+                + 1/220 + 1/221
+		  = 209715 / 2097152
+
+Better Floating Point: 
+Use More Bits
+IEEE 754 Double Precision (64 bits)
+Better Floating Point
+IEEE 754r quad-precision format
+128 bits (1 sign, 15 exponent, 112 mantissa)
+About 34 decimal places of accuracy
+IBM Floating Point ("Hexadecimal")
+Use more bits in fraction, fewer in exponent (7/24 and 7/56 instead of 8/23 and 11/52)
+Decimal Formats (IEEE 754d) 
+1 decimal digit into 4 binary digits
+Cowlishaw encoding:
+Exact representation of decimals (e.g., 0.1)
+3 decimal digits (0-999) into 10 binary digits (0-1023) (24 wasted out of 1024)
+Smaller Floating Point
+16-bit floating point representations
+Minifloat: 1 sign, 5-bit exponent, 10-bit mantissa
+Range from 2.98×10-8 to 65504 
+End of lecture on Mon, Sep 23
+Also went over the first 13 slides of 05-arrays-bigoh
+	  </script></section>
+
 
 	</section>
 
