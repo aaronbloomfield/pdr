@@ -37,6 +37,12 @@ do
     sed "s/{link:url=\([^|]*\)|text=\([^}]*\)}/[\2](\1)/g" | \
     sed "s/{link:text=worksite:\([^|]*\)|url=\([^}]*\)}/[\1](\2)/g" | \
     sed "s/{link:text=\([^|]*\)|url=\([^}]*\)}/[\1](\2)/g" | \
-    sed "s/{image:img=worksite:\([^}]*\)}/![\1](\1)/g" \
+    sed "s/{image:img=worksite:\([^}]*\)}/![\1](\1)/g" |
+    sed "s_\\\u2026_..._g" | \
+    sed "s_\\\u2013_--_g" | \
+    sed "s_\\\u201c_\"_g" | \
+    sed "s_\\\u201d_\"_g" | \
+    sed "s_\\\u2018_\'_g" | \
+    sed "s_\\\u2019_\'_g" \
     > $ARG.out
 done

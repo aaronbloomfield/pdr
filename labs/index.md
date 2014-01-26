@@ -25,3 +25,7 @@ The labs for this course
       [ListTest.cpp](lab02/ListTest.cpp.html) ([src](lab02/ListTest.cpp)),
   - [Tutorial 2: GDB](../tutorials/02-gdb/index.html) and the necessary 
     [gdb.cpp](../tutorials/02-gdb/gdb.cpp.html) ([src](../tutorials/02-gdb/gdb.cpp))
+
+- [Lab 3: Stacks](lab03/lab03.html)
+  - No source code for this lab!
+  - [Tutorial 3: Unix, part 1](../tutorials/03-04-more-unix/index.html)

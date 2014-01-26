@@ -174,10 +174,11 @@ program and reveal.js.
 To compile the program, enter: "gcc markdown.c -o markdown
 -lmarkdown". To use, specify the input file name, and optionally an
 output file.  You can also specify a CSS file to use via the `-css
-<css_file>` parameters (but this has to be before the input file).
-The resulting document is a full HTML document -- meaning it adds the
-`<doctype>`, `<html>`, `<head>`, and `<body>` tags to the document, as
-necessary.
+<css_file>` parameters (but this has to be before the input file).  In
+particular, the .html files in this repository are formatted using the
+[markdown.css](markdown.css) file.  The resulting document is a full
+HTML document -- meaning it adds the `<doctype>`, `<html>`, `<head>`,
+and `<body>` tags to the document, as necessary.
 
 For all the Markdown files in this repository, both the original (.md)
 file and the HTML version (.html) are added to the repository, so that
@@ -189,9 +190,9 @@ Note that Github supports an enhanced version of Markdown, called
 Markdown](https://help.github.com/articles/github-flavored-markdown),
 or GFM.  This mostly pertains to this README file.  In an effort to
 ensure compatibility with other Markdown programs (such as the one
-described here and reveal.js), GFM specific features are generally
-avoided.  One example is the use of anchors in this document -- the
-HTML tags are included instead of using GFM's version.
+described here and what reveal.js uses), GFM specific features are
+generally avoided.  One example is the use of anchors in this document
+-- the HTML tags are included instead of using GFM's version.
 
 
 <a name="sourcecode"></a>Source code
@@ -226,7 +227,7 @@ stylus), you must do a few things:
        <script language="javascript" type="text/javascript" src="js/canvas.js"></script>
        <link rel="stylesheet" href="css/dhtmlwindow.css" type="text/css">
 
-3. Add an `onload="canvasinit()"` to the body tag: `<body
+3. Add an `onload="canvasinit()"` to the `<body>` tag: `<body
    onload="canvasinit()">`
 4. Add the following immediately after the `<body>` tag (this is for
    the calibration feature):
@@ -251,11 +252,12 @@ stylus), you must do a few things:
 
 A few other notes:
 
-- The canvas is larger than the slide itself, and the amount is the
-  `canvas_border` variable in the canvas.js file
+- The canvas is larger than the slide itself, and the amount, in
+  number of pixels, is the `canvas_border` variable in the canvas.js
+  file
 - To add colors, add them to the `colors` array in the canvas.js
   file; more color names can be found
-  [here](http://www.tutorialspoint.com/html5/html5_color_names.htm).
+  [here](http://www.tutorialspoint.com/html5/html5_color_names.htm)
 
 
 <a name="license"></a>License
