@@ -41,7 +41,7 @@
 <center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="04-numbers.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
 &nbsp;  
 &nbsp;
-## Data Representation
+## Number Representation
 	</script></section>
 
 	<section data-markdown><script type="text/template">
@@ -579,162 +579,256 @@ void Image::WriteInt (int value, FILE * fp) {
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
+## Floating point numbers are<br>not spatially uniform
+- Consider a numerical type that holds only 3 decimal digits
+  - Examples: 1.23, 12.3, 123, 1,230
+    - In scientific notation, respectively: 1.23\*10<sup>0</sup>, 1.23\*10<sup>1</sup>, 1.23\*10<sup>2</sup>, 1.23\*10<sup>3</sup>
+- Consider the next highest number for each of those examples
+  - Next highest in this numerical type, not of all real numbers
+  - 1.23 => 1.24; difference is 0.01
+  - 12.3 => 12.4; difference is 0.1
+  - 123 => 124; difference is 1
+  - 1,230 => 1,240; difference is 10
+- Depending on the exponent, the difference between two successive numbers is not the same!
+	  </script></section>
 
+	  <section data-markdown><script type="text/template">
+## Floating point numbers are<br>not spatially uniform
+- Consider two positive floats
+- Both have a mantissa with just the last bit set
+- One has an exponent of -126 (i.e. 1), the other 127 (i.e. 254)
+- Now flip the second to last mantissa bit in both numbers
+  - The number with the higher exponent will "gain" more than the number with a lower exponent
+	  </script></section>
 
-Floating point numbers are 
-not spatially uniform
-Consider two positive floats
-Both have a mantissa with just the last bit set
-One has an exponent of -126 (i.e. 1), the other 127 (i.e. 254)
-Now flip the second to last mantissa bit in both numbers
-The number with the higher exponent will "gain" more than the number with a lower exponent
-Converting a float 
-from decimal to binary
-Algorithm to covert f into binary:
-Sign: 1 if negative, 0 if positive
-Exponent (e): find what power of 2 is required to bring the number to 1.0 <= x < 2.0
-If you have to multiply, then it's negative
-If you have to divide, then it's positive
-Add 127 to that value
-The mantissa is f/2e
-Note that e is the exponent before adding 127 to it
-Subtract 1 from the mantissa (so it's between 0.0 and 1.0)
-Convert it to it's closest representation using powers of ½
-Similar to converting a base n number to base 10
-float_to_hex.cpp
-\#include <iostream>
+	  <section data-markdown><script type="text/template">
+## Converting a float<br>from decimal to binary
+- Algorithm to covert f into binary:
+  - Sign: 1 if negative, 0 if positive
+  - Exponent (*e*): find what power of 2 is required to bring the number to 1.0 <= *x* < 2.0
+    - If you have to multiply, then it's negative
+    - If you have to divide, then it's positive
+    - Add 127 to that value
+  - The mantissa is *f/2<sup>e</sup>*
+    - Note that *e* is the exponent before adding 127 to it
+    - Subtract 1 from the mantissa (so it's between 0.0 and 1.0)
+    - Convert it to it's closest representation using powers of 1/2
+    - Similar to converting a base *n* number to base 10
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Converting a float
+Source code: [float_to_hex.cpp](code/04-numbers/float_to_hex.cpp.html) ([src](code/04-numbers/float_to_hex.cpp))
+```
+#include <iostream>
 using namespace std;
 
 union foo {
-  float f;
-  int *x;
+    float f;
+    int *x;
 } bar;
 
 int main() {
-  bar.f = 42.125;
-  cout << bar.x << endl; // prints in BIG endian
+    bar.f = 42.125;
+    cout << bar.x << endl; // prints in BIG endian
 }
-Converting a float 
-from decimal to binary
-Take 42.125 (see float_to_hex.cpp)
-Sign is 0 (it's positive)
-42.125/25 = 42.125/32 = 1.31640625 (exactly)
-Exponent is 5+127 = 132 (1000 0100b)
-Encode the mantissa
-1.31640625-1 = 0.31640625
-0.31640625 = 1/4 + 1/16 + 1/256
-=0101 0001 0000 0000 0000 000
-In binary, then, it's:
-0100 0010 0010 1000 1000 0000 0000 0000
+```
+Output: 0x42288000
+	  </script></section>
 
-sign bit  	exponent   		mantissa
-Example
-1/10 = 0.1 (Decimal)
-What is this in binary?
+	  <section data-markdown><script type="text/template">
+## Converting a float<br>from decimal to binary
+- Take 42.125 (see float_to_hex.cpp)
+  - Sign is 0 (it's positive)
+  - Exponent: 42.125/2<sup>5</sup> = 42.125/32 = 1.31640625 (exactly)
+    - Exponent is 5+127 = 132 (1000 0100<sub>b</sub>)
+  - Mantissa: encode it using powers of 1/2
+    - 1.31640625-1 = 0.31640625
+    - 0.31640625 = 1/4 + 1/16 + 1/256
+    - = 0101 0001 0000 0000 0000 000
+  - In binary, then, it's:
+    - <font color='pink'>0</font><font color='green'>100 0010 0</font><font color="skyblue">010 1000 1000 0000 0000 0000</font>
+      - The <font color='pink'>sign</font>, <font color='green'>exponent</font> and <font color='skyblue'>mantissa</font> are colored appropriately
+	  </script></section>
 
-Remember this from CS 101?
-What gets printed?
+	  <section data-markdown><script type="text/template">
+## Example
+- 1/10 = 0.1 (Decimal)
+- What is this in binary?
+  - 1/10 &asymp; 1/16 + 1/32
+    - 1/16 + 1/32 = 3/32
+  - 3/32 is off from 1/10 by 0.2/32
+  - 0.2/32 = 2/320 &asymp; 1/256 + 1/512
+  - But this does not exactly equal 0.1 yet...
+	  </script></section>
 
+	  <section data-markdown><script type="text/template">
+## Dividing one by ten in binary
+![long division](images/04-numbers/long-division.png)
+Even common decimals like 0.1 cannot be represented exactly!
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Remember this from CS 1110?
+What gets printed? (source: [FloatTest.java](code/04-numbers/FloatTest.java.html) ([src](code/04-numbers/FloatTest.java)))
+```
 class FloatTest {
-	public static void main (String args[]) {
-		 double y = 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 
-			     0.1 + 0.1 + 0.1 + 0.1 + 0.1;
-
-		 System.out.println (y);
-	}
+    public static void main (String args[]) {
+        // There are 10 0.1's in the next statement
+        double y = 0.1 + 0.1 + 0.1 + 0.1 + 0.1 +
+                   0.1 + 0.1 + 0.1 + 0.1 + 0.1;
+        System.out.println (y);
+    }
 }
 
-Take care with floating-point values
-Consider
+```
+Hint: it's not 1.0!
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Take care with floating-point values
+- Consider
+```
 double a = 1;
 double b = 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1
                + 0.1 + 0.1 + 0.1 + 0.1;
 double c = .9999999999999999;
+```
+- Two true expressions! 
+  - `c == b`
+  - `b != a`
+- Two false expressions!
+  - `a == b`
+  - `b != c`
+- Problem lies with the finite precision of the floating-point types
+  - Instead with the ordering operators for closeness
+	  </script></section>
 
-Two true expressions! 
-c == b		b != a
-
-Two false expressions!
-a == b		b != c
-
-Problem lies with the finite precision of the floating-point types
-Instead with the ordering operators for closeness
-End of lecture on Fri, Sep 20
-How to solve this
-Don't compare floating-point values if you can help it!
-Both doubles and floats
-Need to test if the two doubles are "close" in value
+	  <section data-markdown><script type="text/template">
+## How to solve this
+- Don't compare floating-point values if you can help it!
+  - Both doubles and floats
+- Need to test if the two doubles are "close" in value
+```
 final double EPSILON = 0.000001;
 boolean foo = Math.abs (a-b) < EPSILON;
-Note that a float has 7 decimal places of (printed) accuracy
-And two floats may differ by a value that is at 8 decimal places
-It prints as 1.0, but is really 0.9999999999
-Floating point rounding errors
-Add 0.333333333333333333 a total of 3 times, and you don't get 1.0
-As 1/3 cannot be represented properly with a (finite) decimal number
-Any denominator that has factors that are not factors of the radix
-Decimal radix factors: 2 an 5
-Good: 25 (factors are 5 and 5), 10 (factors are 2 2 5 5), etc.
-Bad: 1/3, 1/7, 1/11, 1/12
-Same thing with 0.1 (and many others!) in binary
-Any denominator that has factors that are not factors of the radix (which is just 2!)
-I.e. 1/3, 1/5, 1/7, etc. - anything whose denominator is not a power of 2
-Floating point rounding errors
-0.1 is stored (as a 32 bit float) as
-mantissa = 100 1100 1100 1100 1100 1101
-Or?
+```
+- Note that a float has 7 decimal places of (printed) accuracy
+  - And two floats may differ by a value that is at 8 decimal places
+  - It prints as 1.0, but is really 0.9999999999
+	  </script></section>
 
+	  <section data-markdown><script type="text/template">
+## Floating point rounding errors
+- Add 0.333333333333333333 a total of 3 times, and you don't get 1.0
+  - As 1/3 cannot be represented properly with a (finite) decimal number
+    - Any denominator that has factors that are not factors of the radix
+    - Decimal radix factors: 2 an 5
+    - Good: 25 (factors are 5 and 5), 10 (factors are 2 2 5 5), etc.
+    - Bad: 1/3, 1/7, 1/11, 1/12
+  - Same thing with 0.1 (and many others!) in binary
+    - Any denominator that has factors that are not factors of the radix (which is just 2!)
+    - I.e. 1/3, 1/5, 1/7, etc. - anything whose denominator is not a power of 2
+	  </script></section>
 
-Which equals (exactly) .100000001490116119384765625
+	  <section>
+<h2>Floating point rounding errors</h2>
+<ul>
+<li>0.1 is stored (as a 32 bit float) as</li>
+<ul><li>mantissa = 100 1100 1100 1100 1100 1101</li></ul>
+<li>Or: \( \frac{1+\frac{1}{2^1}+\frac{1}{2^4}+\frac{1}{2^5}+\frac{1}{2^8}+\frac{1}{2^9}+\frac{1}{2^{12}}+\frac{1}{2^{13}}+\frac{1}{2^{16}}+\frac{1}{2^{17}}+\frac{1}{2^{20}}+\frac{1}{2^{21}}+\frac{1}{2^{23}}}{2^4} \)</li>
+<li>Which equals (exactly) 0.100000001490116119384765625</li>
+<ul><li>Only the first 7 digits, .1000000, are printed</li></ul>
+<li>It's a finite number in decimal, but repeating in binary</li>
+</ul>
+	  </section>
 
-It's a finite number in decimal, but repeating in binary
-How to solve this
-Store number as a rational number, if possible
-Works for 1/3, 1/7, etc.
-Use more digits
-A "bigger" floating point number
-BigFloat (analgous to BigInteger)
-But these still have a finite number of digits!
-Patriot Missile
-Gulf War I
-Failed to intercept incoming Iraqi scud missile (Feb 25, 1991)
-28 American soldiers killed
-Patriot Design
-Intended to operate only for a few hours 
-Defend Europe from Soviet aircraft and missile
-Four 24-bit registers (1970s design!)
-Kept time with integer counter: incremented every 1/10 second
-Calculate speed of incoming missile to predict future positions:
-	velocity = loc1 - loc0/(count1 - count0) * 0.1
-But, cannot represent 0.1 exactly!
+	  <section data-markdown><script type="text/template">
+## How to solve this
+- Store number as a rational number, if possible
+  - Works for 1/3, 1/7, etc.
+- Use more digits
+  - A "bigger" floating point number
+  - BigFloat (analgous to BigInteger)
+  - But these still have a finite number of digits!
+	  </script></section>
 
-Floating Imprecision
-24-bits: 
-  0.1 = 1/24 + 1/25 +  1/28 + 1/29 
-           + 1/212 + 1/213 + 1/216 + 1/217
-                + 1/220 + 1/221
-		  = 209715 / 2097152
+	  <section data-markdown><script type="text/template">
+## Real world example: Patriot Missile
+- Gulf War I (1990-1991)
+- Failed to intercept incoming Iraqi scud missile (Feb 25, 1991)
+- 28 American soldiers killed
+![patriot missile launch](images/04-numbers/patriot-missile.jpg)
+- GAO report: [GAO/IMTEC-92-26 Patriot Missile Software Problem](http://www.fas.org/spp/starwars/gao/im92026.htm); image from [Wikipedia](http://en.wikipedia.org/wiki/File:Patriot_missile_launch_b.jpg)
+	  </script></section>
 
-Better Floating Point: 
-Use More Bits
-IEEE 754 Double Precision (64 bits)
-Better Floating Point
-IEEE 754r quad-precision format
-128 bits (1 sign, 15 exponent, 112 mantissa)
-About 34 decimal places of accuracy
-IBM Floating Point ("Hexadecimal")
-Use more bits in fraction, fewer in exponent (7/24 and 7/56 instead of 8/23 and 11/52)
-Decimal Formats (IEEE 754d) 
-1 decimal digit into 4 binary digits
-Cowlishaw encoding:
-Exact representation of decimals (e.g., 0.1)
-3 decimal digits (0-999) into 10 binary digits (0-1023) (24 wasted out of 1024)
-Smaller Floating Point
-16-bit floating point representations
-Minifloat: 1 sign, 5-bit exponent, 10-bit mantissa
-Range from 2.98×10-8 to 65504 
-End of lecture on Mon, Sep 23
-Also went over the first 13 slides of 05-arrays-bigoh
+	  <section data-markdown><script type="text/template">
+## Patriot Design
+- Intended to operate only for a few hours 
+  - Designed to defend Europe from Soviet aircraft and missile
+- Four 24-bit registers (1970s design!)
+- Kept time with integer counter: incremented every 1/10 second
+- Calculate speed of incoming missile to predict future positions:
+  - velocity = (loc<sub>1</sub> - loc<sub>0</sub>) / (count<sub>1</sub> - count<sub>0</sub>) * 0.1)
+- But, cannot represent 0.1 exactly!
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Floating Imprecision
+- 24-bits:
+  - 0.1 = 1/2<sup>4</sup> + 1/2<sup>5</sup> + 1/2<sup>8</sup> + 1/2<sup>9</sup> + 1/2<sup>12</sup> + 1/2<sup>13</sup> + 1/2<sup>16</sup> + 1/2<sup>17</sup> + 1/2<sup>20</sup> + 1/2<sup>21</sup> = 209715 / 2097152
+  - 209715 / 2097152 = 0.099999904632568359375
+  - Error is 0.2/2097152 = 1/10485760 
+- One hour = 3,600 seconds
+  - 3600 \* 1/10485760 \* 10 = 0.0034 seconds of time skew per hour
+  - 20 hours: 0.0687s 
+- The Patriot missile missed the target by 137 meters (449 feet)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## The bug fix...
+> Two weeks before the incident, Army officials received Israeli data indicating some loss in accuracy after the system had been running for 8 consecutive hours. Consequently, Army officials modified the software to improve the system's accuracy. However, the modified software did not reach Dhahran until February 26, 1991 --  the day after the Scud incident.
+>
+> \- GAO Report
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Better Floating Point: Use More Bits
+- IEEE 754 Double Precision (64 bits)
+- 64 bits are split as follows:
+  - bit 0: sign bit, 1 means negative (1 bit)
+  - bits 1-11: exponent (11 bits)
+  - bits 12-63: mantissa (52 bits)
+  - Exponent offset is 2<sup>*e*-1</sup>-1 = 1023
+  - About 16 decimal digits of accuracy
+- Single precision: 0.1 = 209715 / 2097152
+  - Error = 9.5 \* 10<sup>-8</sup>  (20 hours to miss target)
+- Double Precision: 0.1 = 56294995342131 / 562949953421312
+  - Error = 3.608 \* 10<sup>-16</sup> (2,172,375,450 ***years*** to miss)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Other Floating Points
+- IEEE 754r quad-precision format
+  - 128 bits (1 sign, 15 exponent, 112 mantissa)
+  - About 34 decimal places of accuracy
+- IBM Floating Point ("Hexadecimal")
+  - Use more bits in fraction, fewer in exponent (7/24 and 7/56 instead of 8/23 and 11/52)
+- Decimal Formats (IEEE 754d) 
+  - 1 decimal digit into 4 binary digits
+  - Cowlishaw encoding:
+    - Exact representation of decimals (e.g., 0.1)
+    - 3 decimal digits (0-999) into 10 binary digits (0-1023) (24 wasted out of 1024)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Smaller Floating Point
+- 16-bit floating point representations
+  - Minifloat: 1 sign, 5-bit exponent, 10-bit mantissa
+  - Range from 2.98 \* 10<sup>-8</sup> to 65504 
+  - Your graphics card uses this (if you have a good one)
+  - 40 billion Floating Point Ops per second (3 Ghz Pentium = 12 billion)
+![nvidia logo](images/04-numbers/nvidia.png)
 	  </script></section>
 
 
