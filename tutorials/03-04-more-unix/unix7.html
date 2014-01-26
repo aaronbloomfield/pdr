@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<title> UNIX Tutorial Seven</title> 
+<link href="unixtut1.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="Copyright" content="Michael Stonebank, 1995" />
+</head> 
+ 
+<body>
+<h1>UNIX Tutorial Seven </h1>
+<h2>7.1 Compiling UNIX software packages &nbsp; </h2>
+<p>We have many public domain and commercial software packages installed on our 
+  systems, which are available to all users. However, students are allowed to 
+  download and install small software packages in their own home directory, software 
+  usually only useful to them personally. </p>
+<p>There are a number of steps needed to install the software.</p>
+<ul>
+  <li> Locate and download the source code (which is usually compressed)</li>
+  <li> Unpack the source code</li>
+  <li> Compile the code </li>
+  <li> Install the resulting executable</li>
+  <li> Set paths to the installation directory </li>
+</ul>
+<p>Of the above steps, probably the most difficult is the compilation stage.</p>
+
+<h3>Compiling Source Code</h3>
+<p>All high-level language code must be converted into a form the computer understands. 
+  For example, C language source code is converted into a lower-level language 
+  called assembly language. The assembly language code made by the previous stage 
+  is then converted into object code which are fragments of code which the computer 
+  understands directly. The final stage in compiling a program involves linking 
+  the object code to code libraries which contain certain built-in functions. 
+  This final stage produces an executable program.</p>
+<p>To do all these steps by hand is complicated and beyond the capability of the 
+  ordinary user. A number of utilities and tools have been developed for programmers 
+  and end-users to simplify these steps.</p>
+<h3>make and the Makefile</h3>
+<p>The <samp>make</samp> command allows programmers to manage large programs or 
+  groups of programs. It aids in developing large programs by keeping track of 
+  which portions of the entire program have been changed, compiling only those 
+  parts of the program which have changed since the last compile. </p>
+<p>The <samp>make</samp> program gets its set of compile rules from a text file 
+  called <strong>Makefile</strong> which resides in the same directory as the 
+  source files. It contains information on how to compile the software, e.g. the 
+  optimisation level, whether to include debugging info in the executable. It 
+  also contains information on where to install the finished compiled binaries 
+  (executables), manual pages, data files, dependent library files, configuration 
+  files, etc.</p>
+<p>Some packages require you to edit the Makefile by hand to set the final installation 
+  directory and any other parameters. However, many packages are now being distributed 
+  with the GNU configure utility.</p>
+<h3>configure</h3>
+<p>As the number of UNIX variants increased, it became harder to write programs 
+  which could run on all variants. Developers frequently did not have access to 
+  every system, and the characteristics of some systems changed from version to 
+  version. The GNU configure and build system simplifies the building of programs 
+  distributed as source code. All programs are built using a simple, standardised, 
+  two step process. The program builder need not install any special tools in 
+  order to build the program. </p>
+<p>The <samp>configure</samp> shell script attempts to guess correct values for 
+  various system-dependent variables used during compilation. It uses those values 
+  to create a <strong>Makefile</strong> in each directory of the package. </p>
+<p>The simplest way to compile a package is:</p>
+
+  
+<ol>
+  <li> <samp>cd</samp> to the directory containing the package's source code.<br />
+  </li>
+  <li> Type <samp>./configure</samp> to configure the package for your system.<br />
+  </li>
+  <li> Type <samp>make</samp> to compile the package.<br />
+  </li>
+  <li> Optionally, type <samp>make check</samp> to run any self-tests that come 
+    with the package.<br />
+  </li>
+  <li> Type <samp>make install</samp> to install the programs and any data files 
+    and documentation.<br />
+  </li>
+  <li> Optionally, type <samp>make clean</samp> to remove the program binaries 
+    and object files from the source code directory&nbsp; <br />
+  </li>
+</ol>
+<p>The configure utility supports a wide variety of options. You can usually use 
+  the <samp>--help</samp> option to get a list of interesting options for a particular 
+  configure script. </p>
+  
+<p>The only generic options you are likely to use are the <samp>--prefix </samp> 
+  and <samp> --exec-prefix </samp>options. These options are used to specify the 
+  installation directories. &nbsp; </p>
+<p>The directory named by the<samp> --prefix </samp>option will hold machine independent 
+  files such as documentation, data and configuration files. </p>
+<p>The directory named by the<samp> --exec-prefix </samp>option, (which is normally 
+  a subdirectory of the --prefix directory), will hold machine dependent files 
+  such as executables. </p>
+
+<h2>7.2 Downloading source code</h2>
+<p>For this example, we will download a piece of free software that converts between 
+  different units of measurements. </p>
+<p>First create a download directory&nbsp; </p>
+<p class="command"> % mkdir download </p>
+<p><a href="/Teaching/Unix/units-1.74.tar.gz">Download the software here</a> and 
+  save it to your new download directory.</p>
+<h2>7.3 Extracting the source code &nbsp; </h2>
+<p>Go into your <strong>download</strong> directory and list the contents.&nbsp; 
+</p>
+<p class="command"> % cd download </p>
+<p class="command"> % ls -l </p>
+<p>As you can see, the filename ends in tar.gz. The <samp>tar</samp> command turns 
+  several files and directories into one single tar file. This is then compressed 
+  using the <samp>gzip</samp> command (to create a tar.gz file). </p>
+<p>First unzip the file using the <samp>gunzip</samp> command. This will create 
+  a .tar file.&nbsp; </p>
+<p class="command"> % gunzip units-1.74.tar.gz </p>
+<p>Then extract the contents of the tar file. &nbsp; </p>
+<p class="command">% tar -xvf units-1.74.tar </p>
+<p>Again, list the contents of the <strong>download</strong> directory, then go 
+  to the <strong>units-1.74</strong> sub-directory.&nbsp; </p>
+<p class="command">% cd units-1.74 </p>
+<h2>7.4 Configuring and creating the Makefile &nbsp; </h2>
+<p>The first thing to do is carefully read the <strong>README</strong> and <strong>INSTALL</strong> 
+  text files (use the <samp>less</samp> command). These contain important information 
+  on how to compile and run the software.</p>
+<p>The units package uses the GNU configure system to compile the source code. 
+  We will need to specify the installation directory, since the default will be 
+  the main system area which you will not have write permissions for. We need 
+  to create an install directory in your home directory. &nbsp; </p>
+<p class="command">% mkdir ~/units174</p>
+<p>Then run the configure utility setting the installation path to this. &nbsp; 
+</p>
+<p class="command">% ./configure --prefix=$HOME/units174</p>
+<p class="hint">NOTE: <br />
+  <br />
+  The <strong>$HOME</strong> variable is an example of an environment variable. 
+  <br />
+  The value of <strong>$HOME</strong> is the path to your home directory. Just 
+  type <code><br />
+  <br />
+  % echo $HOME</code> <br />
+  <br />
+  to show the contents of this variable. We will learn more about environment 
+  variables in a later chapter.</p>
+<p>If configure has run correctly, it will have created a Makefile with all necessary 
+  options. You can view the Makefile if you wish (use the <samp>less</samp> command), 
+  but do not edit the contents of this. </p>
+<h2>7.5 Building the package&nbsp; </h2>
+<p>Now you can go ahead and build the package by running the <samp>make</samp> 
+  command.&nbsp; </p>
+<p class="command">% make</p>
+<p>After a minute or two (depending on the speed of the computer), the executables 
+  will be created. You can check to see everything compiled successfully by typing</p>
+<p class="command">% make check</p>
+<p> If everything is okay, you can now install the package. &nbsp; </p>
+<p class="command">% make install</p>
+<p>This will install the files into the <strong>~/units174</strong> directory 
+  you created earlier.</p>
+<h2>7.6 Running the software</h2>
+<p>You are now ready to run the software (assuming everything worked).&nbsp; </p>
+<p class="command">% cd ~/units174</p>
+<p>If you list the contents of the units directory, you will see a number of subdirectories.</p>
+<table border="1" align="center" cellpadding="3" cellspacing="0">
+  <tr> 
+    <td>bin</td>
+    <td>The binary executables</td>
+  </tr>
+  <tr> 
+    <td>info</td>
+    <td>GNU info formatted documentation</td>
+  </tr>
+  <tr> 
+    <td>man</td>
+    <td>Man pages</td>
+  </tr>
+  <tr> 
+    <td>share</td>
+    <td>Shared data files</td>
+  </tr>
+</table>
+<p>To run the program, change to the <strong>bin</strong> directory and type&nbsp; 
+</p>
+<p class="command">% ./units </p>
+<p>As an example, convert 6 feet to metres.&nbsp; </p>
+<p class="command">You have: 6 feet</p>
+<p class="command">You want: metres&nbsp; </p>
+<p class="stdout">* 1.8288 </p>
+<p>If you get the answer 1.8288, congratulations, it worked.</p>
+<p>To view what units it can convert between, view the data file in the share 
+  directory (the list is quite comprehensive).</p>
+<p>To read the full documentation, change into the <strong>info</strong> directory 
+  and type&nbsp; </p>
+<p class="command">% info --file=units.info</p>
+<h2>7.7 Stripping unnecessary code</h2>
+<p>When a piece of software is being developed, it is useful for the programmer 
+  to include debugging information into the resulting executable. This way, if 
+  there are problems encountered when running the executable, the programmer can 
+  load the executable into a debugging software package and track down any software 
+  bugs.</p>
+<p>This is useful for the programmer, but unnecessary for the user. We can assume 
+  that the package, once finished and available for download has already been 
+  tested and debugged. However, when we compiled the software above, debugging 
+  information was still compiled into the final executable. Since it is unlikey 
+  that we are going to need this debugging information, we can strip it out of 
+  the final executable. One of the advantages of this is a much smaller executable, 
+  which should run slightly faster.</p>
+<p>What we are going to do is look at the before and after size of the binary 
+  file. First change into the <strong>bin</strong> directory of the units installation 
+  directory.&nbsp; </p>
+<p class="command">% cd ~/units174/bin</p>
+<p class="command">% ls -l </p>
+<p>As you can see, the file is over 100 kbytes in size. You can get more information 
+  on the type of file by using the <samp>file</samp> command.&nbsp; </p>
+<p class="command">% file units</p>
+<p class="stdout">units: ELF 32-bit LSB executable, Intel 80386, version 1, dynamically 
+  linked (uses shared libs), not stripped</p>
+<p>To strip all the debug and line numbering information out of the binary file, 
+  use the <samp>strip</samp> command&nbsp; </p>
+<p class="command">% strip units</p>
+<p class="command">% ls -l </p>
+<p>As you can see, the file is now 36 kbytes - a third of its original size. Two 
+  thirds of the binary file was debug code !!!</p>
+<p>Check the file information again.&nbsp; </p>
+<p class="command">% file units</p>
+<p class="stdout">units: ELF 32-bit LSB executable, Intel 80386, version 1, dynamically 
+  linked (uses shared libs), stripped</p>
+<p class="hint">HINT: You can use the make command to install pre-stripped copies 
+  of all the binary files when you install the package. <br />
+  <br />
+  Instead of typing<samp> make install</samp>, simply type<samp> make install-strip</samp></p>
+<p>&nbsp;</p>
+
+<p class="navbar"><a href="unix6.html"><img src="media/left.gif" alt="Previous" width="37" height="39" border="0" /></a> 
+  <a href="index.html"><img src="media/home.gif" alt="Home" width="81" height="39" border="0" /></a><a href="unix8.html"><img src="media/right.gif" alt="Next" width="37" height="39" border="0" /></a> 
+</p>
+
+<p class="date"> M.Stonebank@surrey.ac.uk, &copy; October 2001 </p>
+
+<p> </p>
+</body>
+</html>

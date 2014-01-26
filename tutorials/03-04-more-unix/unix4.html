@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title> UNIX Tutorial Four </title>
+<link href="unixtut1.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="Copyright" content="Michael Stonebank, 1995" />
+</head>
+<body>
+<h1>UNIX Tutorial Four </h1>
+<h2>4.1 Wildcards</h2>
+<h3>The characters * and ?</h3>
+<p>The character * is called a wildcard, and will match against none or more character(s) 
+  in a file (or directory) name. For example, in your <strong>unixstuff</strong> 
+  directory, type </p>
+<p class="command"> % ls list*</p>
+<p>This will list all files in the current directory starting with <strong>list....</strong> 
+</p>
+<p> Try typing </p>
+<p class="command"> % ls *list</p>
+<p>This will list all files in the current directory ending with <strong>....list</strong></p>
+<p>The character ? will match exactly one character.<br />
+  So<samp> ls ?ouse </samp>will match files like <strong>house</strong> and <strong>mouse</strong>, 
+  but not <strong>grouse</strong>. <br />
+  Try typing </p>
+<p class="command"> % ls ?list</p>
+<h2>4.2 Filename conventions </h2>
+<p>We should note here that a directory is merely a special type of file. So the 
+  rules and conventions for naming files apply also to directories. </p>
+<p> In naming files, characters with special meanings such as <strong>/ * &amp; 
+  %</strong> , should be avoided. Also, avoid using spaces within names. The safest 
+  way to name a file is to use only alphanumeric characters, that is, letters 
+  and numbers, together with _ (underscore) and . (dot). </p>
+<p> File names conventionally start with a lower-case letter, and may end with 
+  a dot followed by a group of letters indicating the contents of the file. For 
+  example, all files consisting of C code may be named with the ending .c, for 
+  example, prog1.c . Then in order to list all files containing C code in your 
+  home directory, you need only type <samp>ls *.c</samp> in that directory. </p>
+<p class="hint"> <strong>Beware</strong>: some applications give the same name 
+  to all the output files they generate. <br />
+  <br />
+  For example, some compilers, unless given the appropriate option, produce compiled 
+  files named <strong>a.out</strong>. Should you forget to use that option, you 
+  are advised to rename the compiled file immediately, otherwise the next such 
+  file will overwrite it and it will be lost. </p>
+<h2>4.3 Getting Help</h2>
+<h3>On-line Manuals</h3>
+<p>There are on-line manuals which gives information about most commands. The 
+  manual pages tell you which options a particular command can take, and how each 
+  option modifies the behaviour of the command. Type man command to read the manual 
+  page for a particular command. </p>
+<p> For example, to find out more about the <samp>wc</samp> (word count) command, 
+  type </p>
+<p class="command"> % man wc </p>
+<p> Alternatively </p>
+<p class="command"> % whatis wc </p>
+<p> gives a one-line description of the command, but omits any information about 
+  options etc. </p>
+<h3>Apropos</h3>
+<p>When you are not sure of the exact name of a command, </p>
+<p class="command"> % apropos keyword </p>
+<p> will give you the commands with keyword in their manual page header. For example, 
+  try typing </p>
+<p class="command"> % apropos copy </p>
+<h2>Summary </h2>
+<table border="1" align="center" cellpadding="3" cellspacing="0">
+  <tr> 
+    <td><code>*</code></td>
+    <td>match any number of characters</td>
+  </tr>
+  <tr> 
+    <td><code>?</code></td>
+    <td>match one character</td>
+  </tr>
+  <tr> 
+    <td><code>man <var>command</var></code></td>
+    <td>read the online manual page for a command</td>
+  </tr>
+  <tr> 
+    <td><code>whatis <var>command</var></code></td>
+    <td>brief description of a command</td>
+  </tr>
+  <tr> 
+    <td><code>apropos <var>keyword </var> </code></td>
+    <td>match commands with keyword in their man pages</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p class="navbar"><a href="unix3.html"><img src="media/left.gif" alt="Previous" width="37" height="39" border="0" /></a> 
+  <a href="index.html"><img src="media/home.gif" alt="Home" width="81" height="39" border="0" /></a><a href="unix5.html"><img src="media/right.gif" alt="Next" width="37" height="39" border="0" /></a> 
+</p>
+
+
+
+<p class="date"> M.Stonebank@surrey.ac.uk, &copy; 9th October 2000 </p>
+
+</body>
+</html>

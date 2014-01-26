@@ -1,0 +1,29 @@
+<html>
+<head>
+<title> UNIX Tutorial Three </title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Copyright" content="Michael Stonebank, 1995" />
+<link href="unixtut1.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+  
+<h1>Answer 3.4 </h1>
+
+  <h2>3.4 Using Pipes </h2>
+
+    
+<h3>Exercise 3b</h3>
+<p><samp>a2ps -Phockney <var>textfile</var></samp> is the command to print a postscript 
+  file to the printer hockney. </p>
+<p> Using pipes, print all lines of <strong>list1</strong> and <strong>list2</strong> 
+  containing the letter 'p', sort the result, and print to the printer hockney.</p>
+<p>&nbsp;</p>
+<h3>Answer</h3>
+<p class="command">% cat list1 list2 | grep p | sort | a2ps -Phockney</p>
+<p>&nbsp;</p>
+<p class="date">M.Stonebank@ee.surrey.ac.uk, &copy; November, 2002</p>
+
+</body>
+</html>

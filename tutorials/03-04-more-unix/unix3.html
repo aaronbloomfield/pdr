@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<title> UNIX Tutorial Three </title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="Copyright" content="Michael Stonebank, 1995" />
+<link href="unixtut1.css" rel="stylesheet" type="text/css" />
+</head> 
+ 
+<body>
+<h1>UNIX Tutorial Three </h1>
+
+<h2>3.1 Redirection &nbsp; </h2>
+<p>Most processes initiated by UNIX commands write to the standard output (that 
+  is, they write to the terminal screen), and many take their input from the standard 
+  input (that is, they read it from the keyboard). There is also the standard 
+  error, where processes write their error messages, by default, to the terminal 
+  screen. </p>
+<p> We have already seen one use of the <samp>cat</samp> command to write the 
+  contents of a file to the screen. </p>
+<p> Now type <samp>cat</samp> without specifing a file to read </p>
+
+<p class="command"> % cat</p>
+<p>Then type a few words on the keyboard and press the <code>[Return]</code> key. 
+</p>
+<p> Finally hold the <code>[Ctrl]</code> key down and press <code>[d]</code> (written 
+  as ^D for short) to end the input. </p>
+<p> What has happened? </p>
+<p> If you run the <samp>cat</samp> command without specifing a file to read, 
+  it reads the standard input (the keyboard), and on receiving the'end of file' 
+  (^D), copies it to the standard output (the screen). </p>
+<p> In UNIX, we can redirect both the input and the output of commands. </p>
+  <p> </p>
+<h2>3.2 Redirecting the Output &nbsp; </h2>
+<p>We use the &gt; symbol to redirect the output of a command. For example, to 
+  create a file called <strong>list1</strong> containing a list of fruit, type 
+  &nbsp; </p>
+<p class="command"> % cat &gt; list1</p>
+<p>Then type in the names of some fruit. Press <code>[Return]</code> after each 
+  one. </p>
+<p class="command"> pear<br />
+  banana<br />
+  apple<br />
+  ^D (Control D to stop)</p>
+<p>What happens is the <samp>cat</samp> command reads the standard input (the 
+  keyboard) and the &gt; redirects the output, which normally goes to the screen, 
+  into a file called <strong>list1</strong> </p>
+<p> To read the contents of the file, type </p>
+
+<p class="command"> % cat list1</p>
+
+<h3>Exercise 3a</h3>
+
+<p>Using the above method, create another file called <strong>list2</strong> containing 
+  the following fruit: orange, plum, mango, grapefruit. Read the contents of <strong>list2</strong> 
+</p>
+
+<p>The form &gt;&gt; appends standard output to a file. So to add more items to 
+  the file <strong>list1</strong>, type </p>
+<p class="command"> % cat &gt;&gt; list1</p>
+<p>Then type in the names of more fruit </p>
+
+<p class="command"> peach<br />
+  grape<br />
+  orange<br />
+  ^D (Control D to stop)</p>
+<p>To read the contents of the file, type </p>
+
+<p class="command"> % cat list1</p>
+
+<p>You should now have two files. One contains six fruit, the other contains four 
+  fruit. We will now use the <samp>cat</samp> command to join (concatenate) <strong>list1</strong> 
+  and <strong>list2</strong> into a new file called <strong>biglist</strong>. 
+  Type </p>
+
+<p class="command"> % cat list1 list2 &gt; biglist</p>
+<p>What this is doing is reading the contents of <strong>list1</strong> and <strong>list2</strong> 
+  in turn, then outputing the text to the file <strong>biglist</strong> </p>
+<p> To read the contents of the new file, type </p>
+<p class="command"> % cat biglist</p>
+
+
+<h2>3.3 Redirecting the Input &nbsp; </h2>
+<p>We use the &lt; symbol to redirect the input of a command. </p>
+<p> The command <samp>sort</samp> alphabetically or numerically sorts a list. 
+  Type </p>
+
+<p class="command"> % sort </p>
+<p> Then type in the names of some vegetables. Press <code>[Return]</code> after 
+  each one. </p>
+
+<p class="command"> carrot<br />
+  beetroot<br />
+  artichoke<br />
+  ^D (control d to stop)<br />
+</p>
+<p> The output will be </p>
+
+<p class="stdout"> artichoke<br />
+  beetroot <br />
+  carrot </p>
+<p> Using &lt; you can redirect the input to come from a file rather than the 
+  keyboard. For example, to sort the list of fruit, type </p>
+
+<p class="command"> % sort &lt; biglist </p>
+<p> and the sorted list will be output to the screen. </p>
+<p> To output the sorted list to a file, type, </p>
+
+<p class="command"> % sort &lt; biglist &gt; slist </p>
+<p> Use <samp>cat</samp> to read the contents of the file <strong>slist</strong> 
+</p>
+
+
+<h2>3.4 Pipes</h2>
+<p>To see who is on the system with you, type </p>
+
+<p class="command"> % who </p>
+<p>One method to get a sorted list of names is to type, </p>
+
+<p class="command"> % who &gt; names.txt<br />
+  % sort &lt; names.txt </p>
+<p>This is a bit slow and you have to remember to remove the temporary file called 
+  names when you have finished. What you really want to do is connect the output 
+  of the <samp>who</samp> command directly to the input of the <samp>sort</samp> 
+  command. This is exactly what pipes do. The symbol for a pipe is the vertical 
+  bar | </p>
+<p> For example, typing </p>
+
+<p class="command"> % who | sort </p>
+<p>will give the same result as above, but quicker and cleaner. </p>
+<p> To find out how many users are logged on, type </p>
+
+<p class="command"> % who | wc -l <br />
+</p>
+<h3>Exercise 3b</h3>
+<p><samp>a2ps -Phockney <var>textfile</var></samp> is the command to print a postscript 
+  file to the printer hockney. </p>
+<p> Using pipes, print all lines of <strong>list1</strong> and <strong>list2</strong> 
+  containing the letter 'p', sort the result, and print to the printer hockney.</p>
+
+<p><a href="pipeanswer.html">Answer available here</a></p>
+  <p> </p>
+<p> </p>
+<p> </p>
+<h2>Summary </h2>
+<table border="1" align="center" cellpadding="3" cellspacing="0">
+  <tr> 
+    <td><code><var>command</var> &gt; <var>file</var></code></td>
+    <td>redirect standard output to a file</td>
+  </tr>
+  <tr> 
+    <td><code><var>command</var> &gt;&gt; <var>file</var></code></td>
+    <td>append standard output to a file </td>
+  </tr>
+  <tr> 
+    <td><code><var>command</var> &lt; <var>file</var></code></td>
+    <td>redirect standard input from a file</td>
+  </tr>
+  <tr> 
+    <td><code><var>command1</var> | <var>command2</var></code></td>
+    <td>pipe the output of command1 to the input of command2</td>
+  </tr>
+  <tr> 
+    <td><code>cat <var>file1 file2</var> &gt; <var>file0</var></code></td>
+    <td>concatenate file1 and file2 to file0</td>
+  </tr>
+  <tr> 
+    <td><code>sort</code></td>
+    <td>sort data</td>
+  </tr>
+  <tr> 
+    <td><code>who</code></td>
+    <td>list users currently logged in</td>
+  </tr>
+  <tr> 
+    <td><code>a2ps -P<var>printer textfile</var></code></td>
+    <td>print text file to named printer</td>
+  </tr>
+  <tr> 
+    <td><code>lpr -P<var>printer psfile</var></code></td>
+    <td>print postscript file to named printer</td>
+  </tr>
+</table>
+  
+
+<p class="navbar"><a href="unix2.html"><img src="media/left.gif" alt="Previous" width="37" height="39" border="0" /></a> 
+  <a href="index.html"><img src="media/home.gif" alt="Home" width="81" height="39" border="0" /></a><a href="unix4.html"><img src="media/right.gif" alt="Next" width="37" height="39" border="0" /></a> 
+</p>
+
+<p class="date"> M.Stonebank@surrey.ac.uk, &copy; 9th October 2000 </p>
+
+</body>
+</html>

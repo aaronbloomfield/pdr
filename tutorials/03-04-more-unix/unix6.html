@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<title> UNIX Tutorial Six</title> 
+<link href="unixtut1.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="Copyright" content="Michael Stonebank, 1995" />
+</head> 
+ 
+<body>
+<h1>UNIX Tutorial Six </h1>
+<h2>Other useful UNIX commands &nbsp; </h2>
+<h3>quota</h3>
+<p>All students are allocated a certain amount of disk space on the file system 
+  for their personal files, usually about 100Mb. If you go over your quota, you are given 7 days to remove excess files. 
+</p>
+<p> To check your current quota and how much of it you have used, type </p>
+
+<p class="command"> % quota -v </p>
+
+<h3>df</h3>
+<p>The df command reports on the space left on the file system. For example, to 
+  find out how much space is left on the fileserver, type </p>
+
+<p class="command"> % df . </p>
+
+<h3>du</h3>
+<p>The du command outputs the number of kilobyes used by each subdirectory. Useful 
+  if you have gone over quota and you want to find out which directory has the 
+  most files. In your home-directory, type </p>
+
+<p class="command"> % du </p>
+
+<h3>compress</h3>
+<p>This reduces the size of a file, thus freeing valuable disk space. For example, 
+  type </p>
+
+<p class="command"> % ls -l science.txt </p>
+<p>and note the size of the file. Then to compress science.txt, type </p>
+
+<p class="command"> % compress science.txt </p>
+<p>This will compress the file and place it in a file called science.txt.Z </p>
+<p> To see the change in size, type ls -l again. </p>
+<p> To uncomress the file, use the uncompress command. </p>
+
+<p class="command"> % uncompress science.txt.Z </p>
+
+<h3>gzip</h3>
+<p>This also compresses a file, and is more efficient than compress. For example, 
+  to zip science.txt, type </p>
+
+<p class="command"> % gzip science.txt </p>
+<p>This will zip the file and place it in a file called science.txt.gz </p>
+<p> To unzip the file, use the gunzip command. </p>
+
+<p class="command"> % gunzip science.txt.gz </p>
+
+<h3>file</h3>
+<p>file classifies the named files according to the type of data they contain, 
+  for example ascii (text), pictures, compressed data, etc.. To report on all 
+  files in your home directory, type </p>
+
+<p class="command"> % file * </p>
+
+<h3>history</h3>
+<p>The C shell keeps an ordered list of all the commands that you have entered. 
+  Each command is given a number according to the order it was entered.</p>
+
+<p class="command"> % history (show command history list)</p>
+<p>If you are using the C shell, you can use the exclamation character (!) to 
+  recall commands easily.</p>
+
+<p class="command">% !! (recall last command)</p>
+<p class="command">% !-3 (recall third most recent command) </p>
+<p class="command">% !5 (recall 5th command in list) </p>
+<p class="command">% !grep (recall last command starting with grep) </p>
+<p>You can increase the size of the history buffer by typing</p>
+
+<p class="command">% set history=100 </p>
+    <p> </p>
+<p class="navbar"><a href="unix5.html"><img src="media/left.gif" alt="Previous" width="37" height="39" border="0" /></a> 
+  <a href="index.html"><img src="media/home.gif" alt="Home" width="81" height="39" border="0" /></a> 
+  <a href="unix7.html"><img src="media/right.gif" alt="Next" width="37" height="39" border="0" /></a> 
+</p>
+
+<p class="date"> M.Stonebank@surrey.ac.uk, &copy; 24th August 2001 </p>
+
+
+</body>
+</html>

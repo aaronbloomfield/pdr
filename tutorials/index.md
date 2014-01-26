@@ -12,8 +12,12 @@ many of these links will not work until later in the semester.
 - [Tutorial 2: GDB](02-gdb/index.html)
   - Source code: [gdb.cpp](02-gdb/gdb.cpp.html)
     ([src](02-gdb/gdb.cpp))
-- [Tutorial 3: More UNIX, part 1](03-more-unix-pt1/index.html)
-- [Tutorial 4: More UNIX, part 2](04-more-unix-pt2/index.html)
+- [Tutorial 3: More UNIX, part 1](03-04-more-unix/index.html),
+  sections 1-4; this is originally from
+  [here](http://www.ee.surrey.ac.uk/Teaching/Unix/)
+- [Tutorial 4: More UNIX, part 2](03-04-more-unix/index.html),
+  sections 5-8; this is originally from
+  [here](http://www.ee.surrey.ac.uk/Teaching/Unix/)
 - [Tutorial 5: make](05-make/index.html)
 - [Tutorial 6: Shell scripting, part 1](06-shell-scripts-pt1/index.html)
 - [Tutorial 7: Shell scripting, part 2](07-shell-scripts-pt2/index.html)

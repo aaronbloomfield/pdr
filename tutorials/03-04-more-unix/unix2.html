@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title> UNIX Tutorial Two </title>
+<link href="unixtut1.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="Copyright" content="Michael Stonebank, 1995" />
+</head>
+<body>
+<h1>UNIX Tutorial Two </h1>
+<h2>2.1 Copying Files</h2>
+<h3>cp (copy)</h3>
+<p> <samp>cp <var>file1 file2</var></samp> is the command which makes a copy of 
+  <strong>file1</strong> in the current working directory and calls it <strong>file2</strong> 
+</p>
+<p> What we are going to do now, is to take a file stored in an open access area 
+  of the file system, and use the <samp>cp</samp> command to copy it to your unixstuff 
+  directory. </p>
+<p> First, <samp>cd</samp> to your unixstuff directory.</p>
+<p class="command"> % cd ~/unixstuff</p>
+<p> Then at the UNIX prompt, type, </p>
+<p class="command"> % cp /vol/examples/tutorial/science.txt . </p>
+<p> (Note: Don't forget the dot (<samp>.</samp>) at the end. Remember, in UNIX, 
+  the dot means the current directory.) </p>
+<p> The above command means copy the file <strong>science.txt</strong> to the 
+  current directory, keeping the name the same. </p>
+<p> (Note: The directory <strong>/vol/examples/tutorial/</strong> is an area to 
+  which everyone in the department has read and copy access. If you are from outside 
+  the University, you can grab a copy of the file 
+  <a href="science.txt">here</a>. 
+  
+  Use 'File/Save As..' from the menu bar to save it 
+  into your <strong>unixstuff</strong> directory.)</p>
+<p>&nbsp;</p>
+<h3>Exercise 2a</h3>
+<p>Create a backup of your <strong>science.txt</strong> file by copying it to 
+  a file called <strong>science.bak</strong> </p>
+<h2>2.2 Moving files</h2>
+<h3>mv (move)</h3>
+<p><samp>mv <var>file1 file2</var></samp> moves (or renames) <strong>file1</strong> 
+  to <strong>file2</strong> </p>
+<p> To move a file from one place to another, use the <samp>mv</samp> command. 
+  This has the effect of moving rather than copying the file, so you end up with 
+  only one file rather than two. </p>
+<p> It can also be used to rename a file, by moving the file to the same directory, 
+  but giving it a different name. </p>
+<p> We are now going to move the file science.bak to your backup directory. </p>
+<p>First, change directories to your unixstuff directory (can you remember how?). 
+  Then, inside the <strong>unixstuff</strong> directory, type</p>
+<p class="command"> % mv science.bak backups/.</p>
+<p> Type <code>ls</code> and <code>ls backups</code> to see if it has worked. 
+</p>
+<h2>2.3 Removing files and directories </h2>
+<h3>rm (remove), rmdir (remove directory)</h3>
+<p>To delete (remove) a file, use the <samp>rm</samp> command. As an example, 
+  we are going to create a copy of the <strong>science.txt</strong> file then 
+  delete it. </p>
+<p> Inside your <strong>unixstuff</strong> directory, type</p>
+<p class="command"> % cp science.txt tempfile.txt<br />
+  % ls (to check if it has created the file)<br />
+  % rm tempfile.txt <br />
+  % ls (to check if it has deleted the file) </p>
+<p> You can use the <samp>rmdir</samp> command to remove a directory (make sure 
+  it is empty first). Try to remove the <strong>backups</strong> directory. You 
+  will not be able to since UNIX will not let you remove a non-empty directory.</p>
+<p>&nbsp;</p>
+<h3>Exercise 2b</h3>
+<p>Create a directory called <strong>tempstuff</strong> using <samp>mkdir</samp> 
+  , then remove it using the <samp>rmdir</samp> command.</p>
+<h2>2.4 Displaying the contents of a file on the screen </h2>
+<h3>clear (clear screen)</h3>
+<p>Before you start the next section, you may like to clear the terminal window 
+  of the previous commands so the output of the following commands can be clearly 
+  understood. </p>
+<p> At the prompt, type </p>
+<p class="command"> % clear </p>
+<p> This will clear all text and leave you with the % prompt at the top of the 
+  window. </p>
+<p>&nbsp;</p>
+<h3>cat (concatenate)</h3>
+<p>The command <samp>cat</samp> can be used to display the contents of a file 
+  on the screen. Type: </p>
+<p class="command"> % cat science.txt </p>
+<p> As you can see, the file is longer than than the size of the window, so it 
+  scrolls past making it unreadable. </p>
+<p>&nbsp;</p>
+<h3>less</h3>
+<p>The command <samp>less</samp> writes the contents of a file onto the screen 
+  a page at a time. Type </p>
+<p class="command"> % less science.txt </p>
+<p> Press the <code>[space-bar]</code> if you want to see another page, type <code>[q]</code> 
+  if you want to quit reading. As you can see, <samp>less</samp> is used in preference 
+  to <samp>cat</samp> for long files. </p>
+<p>&nbsp;</p>
+<h3>head</h3>
+<p>The <samp>head</samp> command writes the first ten lines of a file to the screen. 
+</p>
+<p> First clear the screen then type </p>
+<p class="command"> % head science.txt </p>
+<p> Then type </p>
+<p class="command"> % head -5 science.txt </p>
+<p> What difference did the -5 do to the head command? </p>
+<p>&nbsp;</p>
+<h3>tail</h3>
+<p>The <samp>tail</samp> command writes the last ten lines of a file to the screen. 
+</p>
+<p> Clear the screen and type </p>
+<p class="command"> % tail science.txt </p>
+<p> How can you view the last 15 lines of the file? </p>
+<p>&nbsp;</p>
+<h2>2.5 Searching the contents of a file </h2>
+<h3>Simple searching using less</h3>
+<p>Using <samp>less</samp>, you can search though a text file for a keyword (pattern). 
+  For example, to search through <strong>science.txt</strong> for the word 'science', 
+  type </p>
+<p class="command"> % less science.txt </p>
+<p> then, still in <samp>less</samp> (i.e. don't press [q] to quit), type a forward 
+  slash <code>[/]</code> followed by the word to search</p>
+<p class="command"> /science</p>
+<p> As you can see, <samp>less</samp> finds and highlights the keyword. Type <code>[n]</code> 
+  to search for the next occurrence of the word. </p>
+<p>&nbsp;</p>
+<h3>grep (don't ask why it is called grep)</h3>
+<p><samp>grep</samp> is one of many standard UNIX utilities. It searches files 
+  for specified words or patterns. First clear the screen, then type </p>
+<p class="command"> % grep science science.txt </p>
+<p> As you can see, <samp>grep</samp> has printed out each line containg the word 
+  science. </p>
+<p> Or has it???? </p>
+<p> Try typing </p>
+<p class="command"> % grep Science science.txt </p>
+<p> The <samp>grep</samp> command is case sensitive; it distinguishes between 
+  Science and science. </p>
+<p> To ignore upper/lower case distinctions, use the -i option, i.e. type </p>
+<p class="command"> % grep -i science science.txt </p>
+<p> To search for a phrase or pattern, you must enclose it in single quotes (the 
+  apostrophe symbol). For example to search for spinning top, type </p>
+<p class="command"> % grep -i 'spinning top' science.txt </p>
+<p> Some of the other options of grep are: </p>
+<p> -v display those lines that do NOT match <br />
+  -n precede each maching line with the line number <br />
+  -c print only the total count of matched lines <br />
+</p>
+<p> Try some of them and see the different results. Don't forget, you can use 
+  more than one option at a time, for example, the number of lines without the 
+  words science or Science is</p>
+<p class="command"> % grep -ivc science science.txt </p>
+<p>&nbsp;</p>
+<h3>wc (word count)</h3>
+<p>A handy little utility is the <samp>wc</samp> command, short for word count. 
+  To do a word count on <strong>science.txt</strong>, type </p>
+<p class="command"> % wc -w science.txt </p>
+<p> To find out how many lines the file has, type </p>
+<p class="command"> % wc -l science.txt </p>
+<h2>Summary </h2>
+<table border="1" align="center" cellpadding="3" cellspacing="0">
+  <tr> 
+    <td><code>cp <var>file1 file2</var></code></td>
+    <td>copy file1 and call it file2</td>
+  </tr>
+  <tr> 
+    <td><code>mv <var>file1 file2</var></code></td>
+    <td>move or rename file1 to file2</td>
+  </tr>
+  <tr> 
+    <td><code>rm <var>file</var></code></td>
+    <td>remove a file</td>
+  </tr>
+  <tr> 
+    <td><code>rmdir <var>directory</var></code></td>
+    <td>remove a directory</td>
+  </tr>
+  <tr> 
+    <td><code>cat <var>file</var></code></td>
+    <td>display a file</td>
+  </tr>
+  <tr> 
+    <td><code>more <var>file</var></code></td>
+    <td>display a file a page at a time</td>
+  </tr>
+  <tr> 
+    <td><code>head <var>file</var></code></td>
+    <td>display the first few lines of a file</td>
+  </tr>
+  <tr> 
+    <td><code>tail <var>file</var></code></td>
+    <td>display the last few lines of a file</td>
+  </tr>
+  <tr> 
+    <td><code>grep <var>'keyword' file</var></code></td>
+    <td>search a file for keywords</td>
+  </tr>
+  <tr> 
+    <td><code>wc <var>file</var></code></td>
+    <td>count number of lines/words/characters in file</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p class="navbar"><a href="unix1.html"><img src="media/left.gif" alt="Previous" width="37" height="39" border="0" /></a> 
+  <a href="index.html"><img src="media/home.gif" alt="Home" width="81" height="39" border="0" /></a><a href="unix3.html"><img src="media/right.gif" alt="Next" width="37" height="39" border="0" /></a> 
+</p>
+<p class="date">M.Stonebank@surrey.ac.uk, &copy; 9th October 2000 </p>
+</body>
+</html>

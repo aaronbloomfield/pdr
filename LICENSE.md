@@ -41,3 +41,7 @@ BY-SA license mentioned above.
   [resize.gif](slides/images/resize.gif), and
   [restore.gif](slides/images/restore.gif)); the full license is in
   the [dhtmlwindow.js](slides/js/dhtmlwindow.js) file.
+- The [UNIX tutorials](tutorials/03-04-unix/index.html) are from
+  [here](http://www.ee.surrey.ac.uk/Teaching/Unix/), and is released
+  under a [CC BY-NC-SA
+  2.0](http://creativecommons.org/licenses/by-nc-sa/2.0/) license.

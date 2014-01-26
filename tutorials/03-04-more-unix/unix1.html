@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<title> UNIX Tutorial One</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="Copyright" content="Michael Stonebank, 1995" />
+<link href="unixtut1.css" rel="stylesheet" type="text/css" />
+</head> 
+ 
+<body>
+<h1>UNIX Tutorial One </h1>
+
+<h2>1.1 Listing files and directories </h2>
+<h3>ls (list) </h3>
+<p> When you first login, your current working directory is your home directory. 
+  Your home directory has the same name as your user-name, for example, ee91ab, 
+  and it is where your personal files and subdirectories are saved. </p>
+<p> To find out what is in your home directory, type </p>
+<p class="command">% ls (short for list) </p>
+<p>The <samp>ls</samp> command lists the contents of your current working directory. 
+</p>
+<p> There may be no files visible in your home directory, in which case, the UNIX 
+  prompt will be returned. Alternatively, there may already be some files inserted 
+  by the System Administrator when your account was created. </p>
+<p><samp>ls</samp> does not, in fact, cause all the files in your home directory 
+  to be listed, but only those ones whose name does not begin with a dot (.) Files 
+  beginning with a dot (.) are known as hidden files and usually contain important 
+  program configuration information. They are hidden because you should not change 
+  them unless you are very familiar with UNIX!!! </p>
+<p> To list all files in your home directory including those whose names begin 
+  with a dot, type </p>
+<p class="command">% ls -a</p>
+<p> <samp>ls</samp> is an example of a command which can take options: <samp>-a</samp> 
+  is an example of an option. The options change the behaviour of the command. 
+  There are online manual pages that tell you which options a particular command 
+  can take, and how each option modifies the behaviour of the command. (See later 
+  in this tutorial) </p>
+<h2>1.2 Making Directories </h2>
+  
+<h3>mkdir (make directory) </h3>
+<p> We will now make a subdirectory in your home directory to hold the files you 
+  will be creating and using in the course of this tutorial. To make a subdirectory 
+  called <samp>unixstuff</samp> in your current working directory type </p>
+<p class="command">% mkdir unixstuff </p>
+<p> To see the directory you have just created, type </p>
+<p class="command">% ls </p>
+<h2>1.3 Changing to a different directory&nbsp;</h2>
+    
+<h3>cd (change directory)</h3>
+<p> The command <samp>cd <var>directory</var></samp> means change the current 
+  working directory to 'directory'. The current working directory may be thought 
+  of as the directory you are in, i.e. your current position in the file-system 
+  tree. </p>
+<p> To change to the directory you have just made, type </p>
+<p class="command">% cd unixstuff </p>
+<p> Type <code>ls</code> to see the contents (which should be empty) </p>
+<h3>Exercise 1a</h3>
+<p>Make another directory inside the <strong>unixstuff</strong> directory called 
+  <strong>backups</strong> </p>
+<h2>1.4 The directories . and .. </h2>
+<p> Still in the <strong>unixstuff</strong> directory, type </p>
+<p class="command"> % ls -a </p>
+<p> As you can see, in the <strong>unixstuff</strong> directory (and in all other 
+  directories), there are two special directories called (<strong>.</strong>) 
+  and (<strong>..</strong>)</p>
+<p> In UNIX, (<strong>.</strong>) means the current directory, so typing </p>
+<p class="command"> % cd . </p>
+<p class="hint">NOTE: there is a space between cd and the dot</p>
+<p> means stay where you are (the <strong>unixstuff</strong> directory). </p>
+<p>This may not seem very useful at first, but using (<strong>.</strong>) as the 
+  name of the current directory will save a lot of typing, as we shall see later 
+  in the tutorial. </p>
+<p>&nbsp;</p>
+<p> (<strong>..</strong>) means the parent of the current directory, so typing 
+</p>
+<p class="command"> % cd .. </p>
+<p> will take you one directory up the hierarchy (back to your home directory). 
+  Try it now. </p>
+<p> Note: typing <samp>cd</samp> with no argument always returns you to your home 
+  directory. This is very useful if you are lost in the file system. </p>
+<h2>1.5 Pathnames </h2>
+<h3>pwd (print working directory) </h3>
+<p> Pathnames enable you to work out where you are in relation to the whole file-system. 
+  For example, to find out the absolute pathname of your home-directory, type 
+  <code>cd</code> to get back to your home-directory and then type </p>
+<p class="command"> % pwd </p>
+<p> The full pathname will look something like this - </p>
+<p> <strong>/a/fservb/fservb/fservb22/eebeng99/ee91ab</strong></p>
+<p> which means that ee91ab (your home directory) is in the directory eebeng99 
+  (the group directory),which is located on the fservb file-server. </p>
+<p> Note: </p>
+<p> <strong>/a/fservb/fservb/fservb22/eebeng99/ee91ab</strong></p>
+<p> can be shortened to </p>
+<p> <strong>/user/eebeng99/ee91ab</strong></p>
+<h3>&nbsp;</h3>
+<h3>Exercise 1b</h3>
+<p>Use the commands <samp>ls</samp>, <samp>pwd</samp> and <samp>cd</samp> to explore 
+  the file system. </p>
+<p> (Remember, if you get lost, type <samp>cd</samp> by itself to return to your 
+  home-directory) </p>
+<h2>1.6 More about home directories and pathnames </h2>
+<h3>Understanding pathnames</h3>
+<p>First type <samp>cd</samp> to get back to your home-directory, then type</p>
+<p class="command"> % ls unixstuff</p>
+<p>to list the conents of your unixstuff directory.</p>
+<p>&nbsp;</p>
+<p>Now type </p>
+<p class="command"> % ls backups</p>
+<p> You will get a message like this - </p>
+<p class="stdout"> backups: No such file or directory </p>
+<p> The reason is, <strong>backups</strong> is not in your current working directory. 
+  To use a command on a file (or directory) not in the current working directory 
+  (the directory you are currently in), you must either <samp>cd</samp> to the 
+  correct directory, or specify its full pathname. To list the contents of your 
+  backups directory, you must type </p>
+<p class="command"> % ls unixstuff/backups </p>
+<p>&nbsp;</p>
+<h3>~ (your home directory) </h3>
+<p>Home directories can also be referred to by the tilde <strong>~</strong> character. 
+  It can be used to specify paths starting at your home directory. So typing </p>
+<p class="command"> % ls ~/unixstuff</p>
+<p> will list the contents of your unixstuff directory, no matter where you currently 
+  are in the file system. </p>
+<p> What do you think </p>
+<p class="command"> % ls ~</p>
+<p> would list? </p>
+<p> What do you think </p>
+<p class="command"> % ls ~/.. </p>
+<p> would list? </p>
+<h2>Summary </h2>
+<table border="1" align="center" cellpadding="5" cellspacing="0">
+  <tr> 
+    <td><code>ls</code></td>
+    <td>list files and directories</td>
+  </tr>
+  <tr> 
+    <td><code>ls -a</code></td>
+    <td>list all files and directories</td>
+  </tr>
+  <tr> 
+    <td><code>mkdir</code></td>
+    <td>make a directory</td>
+  </tr>
+  <tr> 
+    <td><code>cd <i>directory</i></code></td>
+    <td>change to named directory</td>
+  </tr>
+  <tr> 
+    <td><code>cd</code></td>
+    <td>change to home-directory</td>
+  </tr>
+  <tr> 
+    <td><code>cd ~</code></td>
+    <td>change to home-directory</td>
+  </tr>
+  <tr> 
+    <td><code>cd ..</code></td>
+    <td>change to parent directory</td>
+  </tr>
+  <tr> 
+    <td><code>pwd</code></td>
+    <td>display the path of the current directory</td>
+  </tr>
+</table>
+
+<p class="navbar"><a href="unixintro.html"><img src="media/left.gif" alt="Previous" width="37" height="39" border="0" /></a> 
+  <a href="index.html"><img src="media/home.gif" alt="Home" width="81" height="39" border="0" /></a><a href="unix2.html"><img src="media/right.gif" alt="Next" width="37" height="39" border="0" /></a> 
+</p>
+
+
+<p class="date">M.Stonebank@surrey.ac.uk, &copy; 9th October 2000 </p>
+</body>
+</html>
