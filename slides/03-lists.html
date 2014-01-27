@@ -84,13 +84,13 @@
 - C++ package that implements standard data structures
   - `vector `
     - Replacement for C++ built-in array
-    - Arrays:
+    - Array problems:
       - Can't be copied with =
-      - Doesn't have notion of capacity
+      - Does not have a notion of capacity
       - No index validity checking
   - `string`
     - Replacement for C-style strings (array of characters)
-    - C strings (char array or char*) cannot comare correctly with ==
+    - C strings (char array or char*) cannot compare correctly with ==
 	</script></section>
 
 	<section data-markdown><script type="text/template">
@@ -115,7 +115,7 @@
 ## Iterators
 - iterator
   - Nested type that represents *position*
-  - STL provides
+  - STL's `vector` provides:
     - iterator begin()
     - iterator end()
   - iterator methods
@@ -147,7 +147,7 @@
   - Uses inheritance to write type-independent code
   - Or generics
 - C++ 
-  - Uses templates
+  - Uses templates (which is what generics were based on)
     - function templates
     - class templates
 	</script></section>
@@ -155,7 +155,7 @@
 	<section data-markdown><script type="text/template">
 ## Function Templates
 - Not an actual function
-- A pattern for a function. Expanded by compiler as needed
+- A pattern for a function; expanded by compiler as needed
 - Example (source code: [findMax.cpp](code/03-lists/findMax.cpp.html) ([src](code/03-lists/findMax.cpp)))
 ```
 // Return the maximum item in array a. 
@@ -163,7 +163,7 @@
 template <typename Comparable> 
 const Comparable & findMax (const vector<Comparable> & a) {
     int maxIndex = 0; 
-    for( int i = 1; i < a.size( ); i++ ) 
+    for( int i = 1; i < a.size(); i++ ) 
         if( a[ maxIndex ] < a[ i ] ) // note the use of '<'
 	    maxIndex = i; 
     return a[ maxIndex ]; 
@@ -172,7 +172,7 @@ const Comparable & findMax (const vector<Comparable> & a) {
 	</script></section>
 
 	<section data-markdown><script type="text/template">
-## Example
+## Example, continued
 Source code: [findMax.cpp](code/03-lists/findMax.cpp.html) ([src](code/03-lists/findMax.cpp))
 ```
 #include <iostream>
@@ -199,21 +199,23 @@ int main() {
 	<section data-markdown><script type="text/template">
 ## findMax() Expanded
 What the compiler is doing with the findMax() function template...
+
+(no external source code)
 ```
 const int & findMax(const vector<int> &a) {
     /* body of function template */
 }
-
 const double & findMax(const vector<double> &a) {
     /* body of function template */
 }
-
 const string & findMax(const vector<string> &a) {
     /* body of function template */
 }
-
 const IntCell & findMax(const vector<IntCell> &a) {
     /* body of function template */
+    /* this is where the error is, but it is not in your 
+       code, exactly -- it's in the code the compiler 
+       expanded from your code */
 }
 ```
 	</script></section>
@@ -269,14 +271,10 @@ int main() {
 	<section data-markdown><script type="text/template">
 ## Templates Miscellaneous
 - Templates can have more than one parameter
-
-      template <typename Keytype, typename ValueType>
-      
-      Map<string,Date> birthdays;
-	</script></section>
-
-	<section data-markdown><script type="text/template">
-## Templates Misc. (cont'd)
+```
+template <typename Keytype, typename ValueType>
+Map<string,Date> birthdays;
+```
 - Can have non-type parameters
 ```
 template <typename Object, int size>
@@ -315,9 +313,11 @@ Buffer<int> buf2;    // Buffer<int,4096>
 ## Abstract Data Types (ADT)
 - Set of objects with a set of operations that can be performed on the object
   - Definition of a type
-- A C++ class is a way to implement an ADT
-  - Hides implementation details from the programs that use them
+- A C++ class is a way to implement an ADT, as is a Java class, or C code (which is not object oriented)
+- An ADT hides implementation details from the programs that use them
   - Why?
+- We are using lists as an example to show *what* an ADT is
+  - You all should be familiar with lists from your previous courses...
 	</script></section>
 
 	<section data-markdown><script type="text/template">
@@ -364,9 +364,9 @@ A0, A1, A2, A3, A4
 
 - Fixed capacity
 - Operations
-  - printList: linear time
+  - printList, find: linear time
   - findKth: constant time
-  - insert and delete: varies
+  - insert and delete: varies (can be constant, but worst case linear)
 	</script></section>
 
 	<section data-markdown><script type="text/template">
@@ -378,17 +378,15 @@ A0, A1, A2, A3, A4
   - link (pointer!) to node containing successor
 - Operations
   - printList, find, findKth: linear time
-  - remove: change one pointer
-  - insert
-    - get a new node (new)
-    - adjust 2 pointers
+  - remove: change one pointer and call `delete`, so constant time
+  - insert: get a new node (`new`) and adjust 2 pointers, so constant time
 	</script></section>
 
 	<section data-markdown><script type="text/template">
 ## Linked List insert()
 - Special cases
-  - inserting to the front
-  - inserting at the end
+  - inserting at the front (head)
+  - inserting at the end (tail)
   - removing last node
 	</script></section>
 
@@ -414,13 +412,13 @@ A0, A1, A2, A3, A4
 	<section data-markdown><script type="text/template">
 ## Stacks
 - List with restrictions
-  - Insert and delete can only be performed at the top of the list
+  - Insert, delete, and find can only be performed at one end (the 'top') of the list
   - LIFO
 - Attributes
   - top of stack
-- Fundamental operations (constant time)
+- Fundamental operations (all constant time)
   - Push
-    - Put on the top
+    - Insert at the top
   - Pop
     - Delete from the top
     - on empty stack causes exception
@@ -433,11 +431,9 @@ A0, A1, A2, A3, A4
 ## Stack Applications
 - Undo operation in programs
 - Operator precedence
-- Symbol balancing
-  - Parenthesis matching
+- Symbol balancing (i.e., parenthesis matching)
 - Postfix calculators
-- Activation records 
-  - List of active procedures and associated information
+- Activation records: list of active procedures and associated information
 	</script></section>
 
 	<section data-markdown><script type="text/template">
@@ -462,10 +458,11 @@ A0, A1, A2, A3, A4
 
 	<section data-markdown><script type="text/template">
 ## Stack Applications: Postfix Calculator
-- If number
-  - Push number onto stack
-- If operator
-  - Apply operator to 2 numbers popped from stack, then place result on stack
+- For each input token...
+  - If number
+    - Push number onto stack
+  - If operator
+    - Apply operator to 2 numbers popped from stack, then place result on stack
 	</script></section>
 
 	<section>
@@ -521,7 +518,7 @@ class Stack {
 
 	<section data-markdown><script type="text/template">
 ## Stack: Array Implementation
-- Avoids links, most operations are very fast constant time
+- Avoids links, *most* operations are very fast (constant) time
 - Stack consists of
   - theArray     // the stack
  - topOfStack    // current index of the top
@@ -533,6 +530,7 @@ class Stack {
   - Decrement topOfStack
 - Top
   - Return theArray[topOfStack]
+- But what if the array is full?
 	</script></section>
 
 	<section data-markdown><script type="text/template">
@@ -559,7 +557,7 @@ class Stack {
 
 	<section data-markdown><script type="text/template">
 ## Stack: Vector Implementation
-- isEmpty() return true if stack is size 0
+- isEmpty(): return true if stack is size 0
 ```
 bool Stack::isEmpty() const {
     return (theStack.size()==0);
@@ -612,22 +610,23 @@ void Stack::push(int value){
 
 	<section data-markdown><script type="text/template">
 ## Queues
-- Also a list, but inserts happen at the OTHER end than removals
+- Also a list, but inserts happen at one end (the "back") and removals happen at the other end (the "front")
 - Operations
   - Enqueue: insert at one end (back)
   - Dequeue: delete at other end (front)
   - FIFO
 - Linked list and array implementations are constant time for all operations
+  - (minor disclaimer about a full vector queue...)
 	</script></section>
 
 	<section data-markdown><script type="text/template">
 ## Implementations
-- Arrays
+- Array or vector
   - theArray
   - front position/index
   - back position/index
   - current size
-- Linked List
+- Linked list
 	</script></section>
 
 	<section data-markdown><script type="text/template">
@@ -641,6 +640,7 @@ void Stack::push(int value){
     - set return value to theArray[front]
     - decrement current size
     - increment front
+- Again, have to handle the situation when the array is full
 	</script></section>
 
 	<section data-markdown><script type="text/template">

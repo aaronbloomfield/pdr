@@ -1462,6 +1462,10 @@ delete ptrToAnotherSquare;
   - `delete` is called
 - Frees up any resources allocated during the use of an object
 - Example (only prototype shown): `~IntCell();`
+- The purpose is to free up any resources that the object reserved
+  - Tyipcally things allocated via `new`
+    - Example: the destructor in List would delete all the ListNodes
+  - Can also free up: files, network sockets, etc.
 </script></section>
 
 <section data-markdown><script type="text/template">
@@ -1478,7 +1482,7 @@ IntCell copy = original; // or IntCell copy(original);
 
 <section data-markdown><script type="text/template">
 ## operator=()
-- aka copy assignment operator
+- Also known as the copy assignment operator
 - Intended to copy the state of original into copy
 - Called when = is applied to two objects AFTER both have previously been constructed
 ```
@@ -1486,6 +1490,24 @@ IntCell original;    // constructor called
 IntCell copy;
 copy = original;    // operator= called
 ```
+- This is an example of an *operator override*
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Operator overrides
+- In C++, you can override any operators for a given class
+- We've seen this already, although we haven't specified what was happening
+  - `cout << i;`
+    - `cout` is an object (of the `ostream` class), and defines an `operator<<()` method
+  - `cin >> i;` similarly
+- If you were to define your own numerical type (say, complex numbers), you could override all the arithmetic operators, so that the following could be valid code:
+```
+complex c = 3, d(5,4), e;
+e = c + d * 1;
+cout << e << endl;
+// etc.
+```
+- This is done for the `string` class, for example
 </script></section>
 
 	</section>

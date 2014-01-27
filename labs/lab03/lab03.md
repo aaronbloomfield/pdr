@@ -110,7 +110,7 @@ Procedure
       may not; your choice) include all of the List.h/cpp,
       ListItr.h/cpp, ListNode.h/cpp files from lab 2
       - For your stack code, you are welcome to submit it in many
-        files, as long as it will compile with 'clang++ *.cpp', and as
+        files, as long as it will compile with `clang++ *.cpp`, and as
         long as the total number of files submitted does not exceed 11
         files (you can submit 12 files total, but you need to submit a
         text file, described below, as well)
