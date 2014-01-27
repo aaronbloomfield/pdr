@@ -10,8 +10,8 @@ many of these links will not work until later in the semester.
 - [Tutorial 1: Introduction to UNIX](01-intro-unix/index.html)
   - And [Tutorial 1: Introduction to UNIX: VirtualBox use](01-intro-unix/virtual-box.html)
 - [Tutorial 2: GDB](02-gdb/index.html)
-  - Source code: [gdb.cpp](02-gdb/gdb.cpp.html)
-    ([src](02-gdb/gdb.cpp))
+  - Source code: [debug.cpp](02-gdb/debug.cpp.html)
+    ([src](02-gdb/debug.cpp))
 - [Tutorial 3: More UNIX, part 1](03-04-more-unix/index.html),
   sections 1-4; this is originally from
   [here](http://www.ee.surrey.ac.uk/Teaching/Unix/)

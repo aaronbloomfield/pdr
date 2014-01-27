@@ -83,12 +83,12 @@ Procedure
 1. Carry out [Tutorial 2: GDB](../../tutorials/02-gdb/index.html) on
    how to use Unix debuggers.  The debugger is an important tool that
    you will use extensively throughout the semester to debug your
-   code.  You will need to download the gdb.cpp file for the tutorial.
+   code.  You will need to download the debug.cpp file for the tutorial.
 2. In the future, if you have a post-compilation problem with your
    program (crash, etc.), the TAs will not help you until you have run
    it through the debugger and learned all that can be learned from
    this.  So make sure you understand the tutorial!
-3. Submit your debugged version of gdb.cpp to inlab2.  Remember the
+3. Submit your debugged version of debug.cpp to inlab2.  Remember the
    standard identifying header information.
 4. Verify to yourself that your methods are working properly with your
    linked list code using the debugger that you just learned about.
@@ -97,9 +97,9 @@ Procedure
    your current implementation.  You should do this by using the
    simple test cases that you used in the pre-lab.  Consult with a TA
    if you have questions.
-5. Files to download: [gdb.cpp](../../tutorials/02-gdb/gdb.cpp.html)
-   ([src](../../tutorials/02-gdb/gdb.cpp))
-6. Files to submit: gdb.cpp
+5. Files to download: [debug.cpp](../../tutorials/02-gdb/debug.cpp.html)
+   ([src](../../tutorials/02-gdb/debug.cpp))
+6. Files to submit: debug.cpp
 
 ### Post-lab ###
 
@@ -335,13 +335,13 @@ These are the same steps from the lab procedure section, above.
 
 1. Carry out the tutorial on how to use Unix debuggers.  The debugger
    is an important tool that you will use extensively throughout the
-   semester to debug your code.  You will need to download the gdb.cpp
+   semester to debug your code.  You will need to download the debug.cpp
    file for the tutorial.
 2. In the future, if you have a post-compilation problem with your
    program (crash, etc.), the **TAs will not help you until you have
    run it through the debugger** and learned all that can be learned
    from this.  So make sure you understand the tutorial!
-3. Submit your debugged version of gdb.cpp to inlab2.  Remember the
+3. Submit your debugged version of debug.cpp to inlab2.  Remember the
    standard identifying header information.
 4. Verify to yourself that your methods are working properly with your
    linked list code using the debugger that you just learned about.
@@ -350,9 +350,9 @@ These are the same steps from the lab procedure section, above.
    your current implementation.  You should do this by using the
    simple test cases that you used in the pre-lab.  Consult with a TA
    if you have questions.
-5. Files to download: [gdb.cpp](../../tutorials/02-gdb/gdb.cpp.html)
-   ([src](../../tutorials/02-gdb/gdb.cpp))
-6. Files to submit: gdb.cpp
+5. Files to download: [debug.cpp](../../tutorials/02-gdb/debug.cpp.html)
+   ([src](../../tutorials/02-gdb/debug.cpp))
+6. Files to submit: debug.cpp
 
 ------------------------------------------------------------
 

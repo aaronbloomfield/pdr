@@ -24,7 +24,7 @@ The labs for this course
       [ListItr.h](lab02/ListItr.h.html) ([src](lab02/ListItr.h)),
       [ListTest.cpp](lab02/ListTest.cpp.html) ([src](lab02/ListTest.cpp)),
   - [Tutorial 2: GDB](../tutorials/02-gdb/index.html) and the necessary 
-    [gdb.cpp](../tutorials/02-gdb/gdb.cpp.html) ([src](../tutorials/02-gdb/gdb.cpp))
+    [debug.cpp](../tutorials/02-gdb/debug.cpp.html) ([src](../tutorials/02-gdb/debug.cpp))
 
 - [Lab 3: Stacks](lab03/lab03.html)
   - No source code for this lab!

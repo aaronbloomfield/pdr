@@ -154,8 +154,8 @@ the &lsquo;b&rsquo; command, you can put either:</p>
 <ul>
 <li>a function name (e.g., &lsquo;b GetAverage&rsquo;)</li>
 <li>a line number (e.g., &lsquo;b 23&rsquo;)</li>
-<li>either of the above preceded by a file name (e.g., &lsquo;b gdb.cpp:23&rsquo;
-or &lsquo;b gdb.cpp:GetAverage&rsquo;)</li>
+<li>either of the above preceded by a file name (e.g., &lsquo;b debug.cpp:23&rsquo;
+or &lsquo;b debug.cpp:GetAverage&rsquo;)</li>
 </ul>
 
 
@@ -293,7 +293,7 @@ in the future.</p>
 
 <h3>The Source Code</h3>
 
-<p>We will be using the <a href="gdb.cpp.html">gdb.cpp</a> (<a href="gdb.cpp">src</a>) source
+<p>We will be using the <a href="debug.cpp.html">debug.cpp</a> (<a href="debug.cpp">src</a>) source
 code.  There are a few errors in the code, but don&rsquo;t fix them!  We&rsquo;ll
 use the debugger to find them.</p>
 
@@ -306,7 +306,7 @@ tell clang++ to include debugging information.  To do that, enter the
 &ndash;g flag.  For example, enter:</p>
 
 <p><code>
-clang++ -Wall -g -o lab2 gdb.cpp
+clang++ -Wall -g -o lab2 debug.cpp
 </code></p>
 
 <p>The &lsquo;-g&rsquo; flag will include debugging information.  The &lsquo;-o lab2&rsquo; flag
@@ -340,8 +340,8 @@ by entering:</p>
 <ul>
 <li>a function name (e.g., &lsquo;b GetAverage&rsquo;)</li>
 <li>a line number (e.g., &lsquo;b 23&rsquo;)</li>
-<li>either of the above preceded by a file name (e.g., &lsquo;b gdb.cpp:23&rsquo; or
-&lsquo;b gdb.cpp:GetAverage&rsquo;)</li>
+<li>either of the above preceded by a file name (e.g., &lsquo;b debug.cpp:23&rsquo; or
+&lsquo;b debug.cpp:GetAverage&rsquo;)</li>
 </ul>
 
 
@@ -354,12 +354,12 @@ x&rsquo;, where x is the line of the first cout statement in the main()
 method.  Now we need to run the program &ndash; to do this, enter &lsquo;run&rsquo;.
 Gdb should start running, then should pause and display the following:</p>
 
-<pre><code>Breakpoint 1, main () at gdb.cpp:23
+<pre><code>Breakpoint 1, main () at debug.cpp:23
 23          cout &lt;&lt; "Enter five numbers: " &lt;&lt; endl;
 (gdb)
 </code></pre>
 
-<p>Gdb is stating that it hit a breakpoint, on line 23 of gdb.cpp, and
+<p>Gdb is stating that it hit a breakpoint, on line 23 of debug.cpp, and
 displays the line of code.  There are a number of commands we can
 enter at this point (try them all):</p>
 
@@ -501,7 +501,7 @@ trying to figure out which line the function starts on.</p>
 <h3>Finishing up</h3>
 
 <p>When you are finished debugging the code with gdb &ndash; and it works
-correctly &ndash; you should submit the gdb.cpp file to inlab2.  Remember
+correctly &ndash; you should submit the debug.cpp file to inlab2.  Remember
 to put your identifying information at the top.</p>
 
 <hr />
