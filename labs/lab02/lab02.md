@@ -230,7 +230,7 @@ the [List.h](List.h.html) ([src](List.h])) code for details.
 14. `int size()` returns the number of elements in the list.
 
 In addition, you must implement this non-List member function: void
-`printList(List theList, bool forward)` is a **non-member function**
+`printList(List& theList, bool forward)` is a **non-member function**
 that prints a list either forwards (by default -- from head to tail)
 when forward is true, or backwards (from tail to head) when forward is
 false.  *You must use your ListItr class to implement this function.*
