@@ -24,7 +24,7 @@ var x = "red",
 // calibrate
 
 var xoffset = -60, // the x offset for canvas drawing, computed in canvasinit()
-    yoffset = -60; // the x offset for canvas drawing, computed in canvasinit()
+    yoffset = -66; // the x offset for canvas drawing, computed in canvasinit()
 
 var calibrateimg = new Image(); // the calibrate image target
 var canvases = new Array(); // holds a map of the canvas IDs to their CTX's

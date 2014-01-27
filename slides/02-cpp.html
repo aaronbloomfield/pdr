@@ -1382,10 +1382,10 @@ Note that `o1->method()` is the same as `(*o1).method()`
 
 <section data-markdown><script type="text/template">
 ## Call By Value
-- Actual argument is copied into formal parameter
+- Actual parameter is copied into formal parameter
 ```
 int max(int a, int b);
-void swap (int * x, int *y);
+void swap (int *x, int *y);
 bool compare(Rational left, Rational right);
 ```
 - Can also pass *pointers* by value
@@ -1503,7 +1503,7 @@ copy = original;    // operator= called
 - If you were to define your own numerical type (say, complex numbers), you could override all the arithmetic operators, so that the following could be valid code:
 ```
 complex c = 3, d(5,4), e;
-e = c + d * 1;
+e = c + d * 3;
 cout << e << endl;
 // etc.
 ```
