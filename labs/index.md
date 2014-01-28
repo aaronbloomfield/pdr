@@ -5,7 +5,7 @@ Labs
 
 The labs for this course
 
-- [Lab 1: Introduction to C++](lab01/lab01.html)
+- [Lab 1: Introduction to C++](lab01/index.html)
   - Source code
     - Lifecycle code: [lifecycle.cpp](lab01/lifecycle.cpp.html) ([src](lab01/lifecycle.cpp))
     - Vector code: [svtest.cpp](lab01/svtest.cpp.html) ([src](lab01/svtest.cpp)),
@@ -17,7 +17,7 @@ The labs for this course
     [Tutorial 1: Introduction to UNIX: VirtualBox use](../tutorials/01-intro-unix/virtual-box.html)
 
 
-- [Lab 2: Linked Lists](lab02/lab02.html)
+- [Lab 2: Linked Lists](lab02/index.html)
   - Source code: 
       [ListNode.h](lab02/ListNode.h.html) ([src](lab02/ListNode.h)),
       [List.h](lab02/List.h.html) ([src](lab02/List.h)),
@@ -26,6 +26,6 @@ The labs for this course
   - [Tutorial 2: GDB](../tutorials/02-gdb/index.html) and the necessary 
     [debug.cpp](../tutorials/02-gdb/debug.cpp.html) ([src](../tutorials/02-gdb/debug.cpp))
 
-- [Lab 3: Stacks](lab03/lab03.html)
+- [Lab 3: Stacks](lab03/index.html)
   - No source code for this lab!
   - [Tutorial 3: Unix, part 1](../tutorials/03-04-more-unix/index.html)

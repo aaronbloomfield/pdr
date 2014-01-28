@@ -22,7 +22,7 @@ credit will be given. Note that a computer program does this deduction
 
 A lab extension for an in-lab will extend the due date until the end
 of the day on Wednesday; lab extensions are discussed in [Lab
-1](../labs/lab01/lab01.html).  For the pre-labs and post-labs, the
+1](../labs/lab01/index.html).  For the pre-labs and post-labs, the
 close date is exactly 24 hours after the due date, due to the above
 mentioned late policy.
 

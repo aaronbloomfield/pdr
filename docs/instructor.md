@@ -13,7 +13,7 @@ read it!
 Lecture progress
 ----------------
 
-- [Lab 1](../labs/lab01/lab01.html): the in-lab requires getting
+- [Lab 1](../labs/lab01/index.html): the in-lab requires getting
   through The 'Rational Example' section of the [C++ slide
   set](../slides/02-cpp.html), and ideally the 'Pre-Processor' section
   as well.
