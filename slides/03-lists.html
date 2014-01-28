@@ -98,8 +98,8 @@
 - Growable (can change size)
 - `#include <vector>`
 - Operations:
-  - Object & operator[](int idx)
-  - Object & at(int idx)
+  - Object & operator[](int idx): no bounds checking
+  - Object & at(int idx): does do bounds checking
   - int capacity() const
   - void reserve(int newCapacity)
   - int size() const
@@ -222,9 +222,9 @@ const IntCell & findMax(const vector<IntCell> &a) {
 
 	<section data-markdown><script type="text/template">
 ## Class Templates
-- Similar to function template, but for classes
-  - Not actual classes
-  - Pattern for a class
+- Similar to function templates, but for classes
+  - Not an actual class
+  - But instead a pattern for a class
 	</script></section>
 
 	<section data-markdown><script type="text/template">
@@ -261,7 +261,7 @@ int main() {
     ObjectCell<int> m1;
     ObjectCell<double> m2(3.14);
     m1.setValue(37);
-    m2.setValue(m2.getValue() *2);
+    m2.setValue(m2.getValue() * 2);
     // ...
     return 0;
 }
@@ -280,24 +280,17 @@ Map<string,Date> birthdays;
 template <typename Object, int size>
 class Buffer{};
 ```
-- But the non-type parameter must be compile-time constant
-```
-Buffer<string,1024> buf;
-```
-	</script></section>
-
-	<section data-markdown><script type="text/template">
-## Templates Misc. (cont'd)
-- Default template parameters
+- Can have default values for the template parameters
 ```
 template <typename Object=char, int size=4096>
 class Buffer{};
 ```
 
-- Non-type parameter must be compile-time constant
+- But non-type parameters must be compile-time constants
 ```
-Buffer<> buf1;       // Buffer<char,4096>
-Buffer<int> buf2;    // Buffer<int,4096>
+Buffer<> buf1;             // Buffer<char,4096>
+Buffer<int> buf2;          // Buffer<int,4096>
+Buffer<string,2048> buf2;  // Buffer<string,2048>
 ```
 	</script></section>
 
@@ -417,13 +410,10 @@ A0, A1, A2, A3, A4
 - Attributes
   - top of stack
 - Fundamental operations (all constant time)
-  - Push
-    - Insert at the top
-  - Pop
-    - Delete from the top
+  - Push: insert at the top
+  - Pop: delete from the top
     - on empty stack causes exception
-  - Top
-    - Examine top of the stack
+  - Top: examine top of the stack
     - on empty stack causes exception
 	</script></section>
 
@@ -474,12 +464,7 @@ A0, A1, A2, A3, A4
 
 	<section data-markdown><script type="text/template">
 ## Stack Applications: Activation Records
-![Activation record image](images/03-lists/stack-activation-record-1.png)
-	</script></section>
-
-	<section data-markdown><script type="text/template">
-## Stack Applications: Activation Records
-![Activation record image](images/03-lists/stack-activation-record-2.png)
+![Activation record image](images/03-lists/stack-activation-record.png)
 	</script></section>
 
 	<section data-markdown><script type="text/template">
@@ -494,19 +479,19 @@ A0, A1, A2, A3, A4
 ## Stack: Linked List Implementation
 (no external source code)
 ```
-#include "ListNode.h"
+#include "StackNode.h"
 
-// assumes stack of int stored in a ListNode
+// assumes stack of int stored in StackNodes
 class Stack {
   public:
-    Stack();               // constructor    
-    ~Stack();              // destructor
-    bool isEmpty() const;  // checks for empty
-    void push(int value);  // push value onto stack
-    void pop();            // pop top of stack
-    int top();             // returns topOfStack
+    Stack();                // constructor    
+    ~Stack();               // destructor
+    bool isEmpty() const;   // checks for empty
+    void push(int value);   // push value onto stack
+    void pop();             // pop top of stack
+    int top();              // returns topOfStack
   private:
-    ListNode * topOfStack; // or perhaps StackNode...
+    StackNode *head;        // like a ListNode...
 };
 ```
 	</script></section>
