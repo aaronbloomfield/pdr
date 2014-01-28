@@ -18,8 +18,8 @@
     <!--[if lt IE 9]>
     <script src="reveal.js/lib/js/html5shiv.js"></script>
     <![endif]-->
-    <script language="javascript" type="text/javascript" src="js/dhtmlwindow.js"></script>
-    <script language="javascript" type="text/javascript" src="js/canvas.js"></script>
+    <script type="text/javascript" src="js/dhtmlwindow.js"></script>
+    <script type="text/javascript" src="js/canvas.js"></script>
     <link rel="stylesheet" href="css/dhtmlwindow.css" type="text/css">
   </head>
 
@@ -817,12 +817,12 @@ bool even (int x);
 <pre><code data-trim>
 int x = 1;
 int y = 5;
-int * x_pointer = &x;
-cout << x_pointer;
-cout << *x_pointer;
+int * x_pointer = &amp;x;
+cout &lt;&lt; x_pointer;
+cout &lt;&lt; *x_pointer;
 </code></pre>
 </td></tr></table>
-<script language="javascript" type="text/javascript">insertCanvas();</script>
+<script type="text/javascript">insertCanvas();</script>
 </section>
 
 <section data-markdown><script type="text/template">
@@ -938,13 +938,14 @@ int * p;
 *p = n;    //ERROR!!!
 </code></pre>
 <ul><li>p does not have a valid memory address!</li>
-<li>A common initializer value used by programmers is NULL</li>
+<li>A common initializer value used by programmers is NULL
 <pre><code data-trim>
 int *p=NULL; // better code, then add code to check 
              // for NULL value
 </code></pre>
+</li>
 </ul></ul>
-<script language="javascript" type="text/javascript">insertCanvas();</script>
+<script type="text/javascript">insertCanvas();</script>
 </section>
 
 <section>
@@ -956,7 +957,7 @@ void swap(int * x, int * y) {
     *x = *y;
     *y = temp;
 }</code></pre>
-<script language="javascript" type="text/javascript">insertCanvas();</script>
+<script type="text/javascript">insertCanvas();</script>
 </section>
 
 <section data-markdown><script type="text/template">

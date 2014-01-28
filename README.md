@@ -223,8 +223,8 @@ stylus), you must do a few things:
    the dhtmlwindow.css CSS file (the two dhtmlwindow.* files are for
    the calibration feature):
 
-       <script language="javascript" type="text/javascript" src="js/dhtmlwindow.js"></script>
-       <script language="javascript" type="text/javascript" src="js/canvas.js"></script>
+       <script type="text/javascript" src="js/dhtmlwindow.js"></script>
+       <script type="text/javascript" src="js/canvas.js"></script>
        <link rel="stylesheet" href="css/dhtmlwindow.css" type="text/css">
 
 3. Add an `onload="canvasinit()"` to the `<body>` tag: `<body
@@ -248,7 +248,7 @@ stylus), you must do a few things:
 
 6. Then, on each slide that you want a canvas on, you add the following:
 
-       <script language="javascript" type="text/javascript">insertCanvas();</script>
+       <script type="text/javascript">insertCanvas();</script>
 
 A few other notes:
 

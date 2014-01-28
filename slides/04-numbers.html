@@ -18,8 +18,8 @@
     <!--[if lt IE 9]>
     <script src="reveal.js/lib/js/html5shiv.js"></script>
     <![endif]-->
-    <script language="javascript" type="text/javascript" src="js/dhtmlwindow.js"></script>
-    <script language="javascript" type="text/javascript" src="js/canvas.js"></script>
+    <script type="text/javascript" src="js/dhtmlwindow.js"></script>
+    <script type="text/javascript" src="js/canvas.js"></script>
     <link rel="stylesheet" href="css/dhtmlwindow.css" type="text/css">
   </head>
 
@@ -125,7 +125,7 @@
 <p>\( 121_3 \)</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<script language="javascript" type="text/javascript">insertCanvas();</script>
+<script type="text/javascript">insertCanvas();</script>
 	    </section>
 
 	    <section>
@@ -138,7 +138,7 @@
 <p>\( 121_{10} \) to radix 11</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<script language="javascript" type="text/javascript">insertCanvas();</script>
+<script type="text/javascript">insertCanvas();</script>
 	    </section>
 
 	    <section data-markdown><script type="text/template">
@@ -420,18 +420,18 @@ void Image::WriteInt (int value, FILE * fp) {
 <h2>Two's complement (n=8)</h2>
 <table class="transparent"><tr><td class="top">
 <ul>
-<li>0</li><ul class="fragment"><li>0<sub>d</sub> = 00000000<sub>b</sub></li></ul>
-<li>1</li><ul class="fragment"><li>1<sub>d</sub> = 00000001<sub>b</sub></li></ul>
-<li>10 = 8+2</li><ul class="fragment"><li>10<sub>d</sub> = 00001010<sub>b</sub></li></ul>
-<li>100 = 64+32+4</li><ul class="fragment"><li>100<sub>d</sub> = 01100100<sub>b</sub></li></ul>
-<li>127 = 64+32+16+8+4+2+1</li><ul class="fragment"><li>127<sub>d</sub> = 01111111<sub>b</sub></li></ul>
+<li>0<ul class="fragment"><li>0<sub>d</sub> = 00000000<sub>b</sub></li></ul></li>
+<li>1<ul class="fragment"><li>1<sub>d</sub> = 00000001<sub>b</sub></li></ul></li>
+<li>10 = 8+2<ul class="fragment"><li>10<sub>d</sub> = 00001010<sub>b</sub></li></ul></li>
+<li>100 = 64+32+4<ul class="fragment"><li>100<sub>d</sub> = 01100100<sub>b</sub></li></ul></li>
+<li>127 = 64+32+16+8+4+2+1<ul class="fragment"><li>127<sub>d</sub> = 01111111<sub>b</sub></li></ul></li>
 </ul>
 </td><td>&nbsp;</td><td class="top">
 <ul>
-<li>-1</li><ul class="fragment"><li>+1<sub>d</sub> = 00000001<sub>b</sub></li><li>-1<sub>d</sub> = 11111111<sub>b</sub></li></ul>
-<li>-10</li><ul class="fragment"><li>+10<sub>d</sub> = 00001010<sub>b</sub></li><li>-10<sub>d</sub> = 11110110<sub>b</sub></li></ul>
-<li>-100</li><ul class="fragment"><li>+100<sub>d</sub> = 01100100<sub>b</sub></li><li>-100<sub>d</sub> = 10011100<sub>b</sub></li></ul>
-<li>-128</li><ul class="fragment"><li>+128<sub>d</sub> = 10000000<sub>b</sub></li><li>-128<sub>d</sub> = 10000000<sub>b</sub></li></ul>
+<li>-1<ul class="fragment"><li>+1<sub>d</sub> = 00000001<sub>b</sub></li><li>-1<sub>d</sub> = 11111111<sub>b</sub></li></ul></li>
+<li>-10<ul class="fragment"><li>+10<sub>d</sub> = 00001010<sub>b</sub></li><li>-10<sub>d</sub> = 11110110<sub>b</sub></li></ul></li>
+<li>-100<ul class="fragment"><li>+100<sub>d</sub> = 01100100<sub>b</sub></li><li>-100<sub>d</sub> = 10011100<sub>b</sub></li></ul></li>
+<li>-128<ul class="fragment"><li>+128<sub>d</sub> = 10000000<sub>b</sub></li><li>-128<sub>d</sub> = 10000000<sub>b</sub></li></ul></li>
 </ul>
 </td></tr></table>
 	  </section>
@@ -495,18 +495,20 @@ void Image::WriteInt (int value, FILE * fp) {
 	  <section>
 <h2>IEEE 754 Floating Point<br>Single Precision (32 bits)</h2>
 <ul>
-<li>32 bits are split as follows:</li>
+<li>32 bits are split as follows:
 <ul>
   <li>bit 0: sign bit, 1 means negative (1 bit)</li>
   <li>bits 1-8: exponent (8 bits)</li>
   <li>bits 9-31: mantissa (23 bits)</li>
 </ul>
-<li>Exponent values:</li>
+</li>
+<li>Exponent values:
 <ul>
   <li>0: zeros</li>
-  <li>1-254: exponent-127</l>
+  <li>1-254: exponent-127</li>
   <li>255: infinities, overflow, underflow, NaN</li>
 </ul>
+</li>
 </ul>
 <p>&nbsp;</p>
 <p>\( \text{value} = (1-2*\text{sign}) * (1 + \text{mantissa}) * 2^{\text{exponent}-127} \)</p>
@@ -519,11 +521,11 @@ void Image::WriteInt (int value, FILE * fp) {
 <p class="center">\( \text{mantissa} = 1.0 + \sum^{23}_{i=1} \frac{b_i}{2^i} \)</p>
 <p>&nbsp;</p>
 <ul>
-<li>If the bits are all 1, what is the mantissa value?</li>
+<li>If the bits are all 1, what is the mantissa value?
 <ul><li>1 + (almost) 1 = (almost) 2: the maximum value for the mantissa</li>
-<li>Actually about 1.9999999999999</li></ul>
-<li>Minimum value is all 0's</li>
-<ul><li>That's a mantissa of 1.0</li></ul>
+<li>Actually about 1.9999999999999</li></ul></li>
+<li>Minimum value is all 0's
+<ul><li>That's a mantissa of 1.0</li></ul></li>
 </ul>
 	  </section>
 
@@ -734,11 +736,11 @@ boolean foo = Math.abs (a-b) < EPSILON;
 	  <section>
 <h2>Floating point rounding errors</h2>
 <ul>
-<li>0.1 is stored (as a 32 bit float) as</li>
-<ul><li>mantissa = 100 1100 1100 1100 1100 1101</li></ul>
+<li>0.1 is stored (as a 32 bit float) as
+<ul><li>mantissa = 100 1100 1100 1100 1100 1101</li></ul></li>
 <li>Or: \( \frac{1+\frac{1}{2^1}+\frac{1}{2^4}+\frac{1}{2^5}+\frac{1}{2^8}+\frac{1}{2^9}+\frac{1}{2^{12}}+\frac{1}{2^{13}}+\frac{1}{2^{16}}+\frac{1}{2^{17}}+\frac{1}{2^{20}}+\frac{1}{2^{21}}+\frac{1}{2^{23}}}{2^4} \)</li>
-<li>Which equals (exactly) 0.100000001490116119384765625</li>
-<ul><li>Only the first 7 digits, .1000000, are printed</li></ul>
+<li>Which equals (exactly) 0.100000001490116119384765625
+<ul><li>Only the first 7 digits, .1000000, are printed</li></ul></li>
 <li>It's a finite number in decimal, but repeating in binary</li>
 </ul>
 	  </section>
