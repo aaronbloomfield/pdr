@@ -99,6 +99,11 @@ int main(int argc, char *argv[]) {
 }
 
 void printHelp(char *name) {
+    static bool helpPrinted; // Static values are initialized to 0 or 0-equivalent
+    if(helpPrinted) return;
+
+    helpPrinted = true;
+
     cout << "Usage: " << name << " [option] ..." << endl;
     cout << "Options:" << endl;
     cout << "\t[-comp <inputfile>]\tSignals the program to compile the IBCM file speicfied by <inputfile>" << endl;
@@ -113,6 +118,7 @@ void printHelp(char *name) {
     cout << "\t[-print]\t\tPrints a listing of the program before and after the simulation." << endl;
     cout << "\t[-maxticks <n>]\t\tSet the maximum number of ticks." << endl;
     cout << "\t[-stats]\t\tPrints stats of the executed program, including the number of ticks." << endl;
+    cout << "\t[-help]\t\t\tPrints this help message." << endl;
 }
 
 void checkEndian(void) {
