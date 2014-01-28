@@ -40,7 +40,9 @@ The parts of this course that are in this repo are:
 - [Course syllabus](syllabus.html): the course syllabus
 - [Lab due dates](labduedates.html): When the various lab parts
   are due
-
+- [UNIX honor pledge](unix-honor-pledge-s14.pdf), which needs to be
+  signed by all the students in the course; it is created from a
+  [.tex](unix-honor-pledge.tex) file
 
 Labs and Tutorials
 ------------------
