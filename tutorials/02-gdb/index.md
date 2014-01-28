@@ -464,7 +464,7 @@ now use the step over command ('n') to step through the function and
 identify the errors.
 
 A word of caution: using the step into command at the wrong time may
-cause the IDE to load and display either assembly language or
+cause the debugger to load and display either assembly language or
 unfamiliar code.  Don't worry; all you've done is stepped into the
 code for a standard function or operator such as the insertion
 operator.  To exit this code, enter 'c' for continue (which will

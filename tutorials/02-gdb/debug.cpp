@@ -47,7 +47,7 @@ int main() {
 double GetAverage(int nIn[], int nMax) {
 
     double temp = 0.0;
-    for ( int i = 0; i < nMax; i++)
+    for ( int i = 0; i > nMax; i++)
         temp += nIn[i];
     temp /= nMax;
 
