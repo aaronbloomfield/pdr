@@ -13,6 +13,7 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <stdio.h>
+#include <stdint.h>
 
 using namespace std;
 
@@ -27,7 +28,7 @@ int printTicks = 0;
 unsigned int maxticks = 0;
 string outputFile = "ibcm.bin";
 string inputFile;
-unsigned short mem[4096]; // TODO: this should be made to work on systems where shorts are not 16 bits long
+uint16_t mem[4096];
 
 void printHelp(char *name);
 void checkEndian(void);
@@ -35,7 +36,7 @@ void compileCode (string infilename, string outfilename);
 void simulateIBCM ();
 void readBinaryIBCMFile (string infilename);
 void dumpIBCMFile ();
-char* decodeIBCMInstruction(unsigned short inst);
+char* decodeIBCMInstruction(uint16_t inst);
 
 int main(int argc, char *argv[]) {
     int i = 1;
@@ -249,7 +250,7 @@ void readBinaryIBCMFile (string infilename) {
 
 
 union ibcm_instruction {
-    unsigned short buf;
+    uint16_t buf;
 #ifdef IS_BIG_ENDIAN //The IBCM is big endian
     struct {
         unsigned char high, low;
@@ -290,7 +291,7 @@ union ibcm_instruction {
 } ir, ir2;
 
 
-char* decodeIBCMInstruction(unsigned short inst) {
+char* decodeIBCMInstruction(uint16_t inst) {
     static string instnames[] = {"halt", "I/O", "shifts", "load", "store", "add", "sub", "and",
                                  "or", "xor", "not", "nop", "jmp", "jmpe", "jmpl", "brl"
                                 };
