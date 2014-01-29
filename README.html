@@ -169,23 +169,27 @@ the default Ubuntu version of Markdown is the 2004 version.  To
 address this, a <a href="utils/markdown.c.html">markdown.c</a>
 (<a href="utils/markdown.c">src</a>) program was written to use more recent
 Markdown features.  This program uses the libmarkdown library, which
-does support more recent Markdown features.  This library installed on
-Ubuntu via the &lsquo;libmarkdown2-dev&rsquo; package.  Note that reveal.js, which
-is used for the slides, also supports more modern Markdown features.
-And the two sets of Markdown features are not the same.  That being
-said, the extra Markdown features used in this repository should be
-compatible with the generally accepted Markdown features, and are
-intended to be features that are supported by both the provided
-program and reveal.js.</p>
+does support more recent Markdown features (the list of additional
+features that it supports can be found
+<a href="http://manpages.ubuntu.com/manpages/raring/man7/mkd-extensions.7.html">here</a>).
+This library installed on Ubuntu via the &lsquo;libmarkdown2-dev&rsquo; package.
+Note that reveal.js, which is used for the slides, also supports more
+modern Markdown features.  And the two sets of Markdown features are
+not the same (in particular, how code blocks are specified differs
+between the three versions).  That being said, the extra Markdown
+features used in this repository should be compatible with the
+generally accepted Markdown features, and are intended to be features
+that are supported by both the provided program and reveal.js.</p>
 
-<p>To compile the program, enter: &ldquo;gcc markdown.c -o markdown
+<p>To compile the program, enter: &ldquo;g++ markdown.cpp -o markdown
 -lmarkdown&rdquo;. To use, specify the input file name, and optionally an
 output file.  You can also specify a CSS file to use via the <code>-css
 &lt;css_file&gt;</code> parameters (but this has to be before the input file).  In
 particular, the .html files in this repository are formatted using the
 <a href="markdown.css">markdown.css</a> file.  The resulting document is a full
 HTML document &ndash; meaning it adds the <code>&lt;doctype&gt;</code>, <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>,
-and <code>&lt;body&gt;</code> tags to the document, as necessary.</p>
+and <code>&lt;body&gt;</code> tags to the document, as necessary.  And it handles code
+blocks properly between the local markdown and GFM.</p>
 
 <p>For all the Markdown files in this repository, both the original (.md)
 file and the HTML version (.html) are added to the repository, so that
@@ -228,41 +232,43 @@ ignore the -xG flag&hellip;</li>
 <p>To add a canvas to a slide (to allow drawing with a mouse or a
 stylus), you must do a few things:</p>
 
-<ol>
-<li>The slide can NOT be Markdown, it must be all pure HTML</li>
-<li><p>Include the js/canvas.js and css/dhtmlwindow.js scripts, as well as
-the dhtmlwindow.css CSS file (the two dhtmlwindow.* files are for
-the calibration feature):</p>
+<p>1) The slide can NOT be Markdown, it must be all pure HTML</p>
+
+<p>2) Include the js/canvas.js and css/dhtmlwindow.js scripts, as well as
+   the dhtmlwindow.css CSS file (the two dhtmlwindow.* files are for
+   the calibration feature):</p>
 
 <pre><code>&lt;script type="text/javascript" src="js/dhtmlwindow.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript" src="js/canvas.js"&gt;&lt;/script&gt;
 &lt;link rel="stylesheet" href="css/dhtmlwindow.css" type="text/css"&gt;
-</code></pre></li>
-<li><p>Add an <code>onload="canvasinit()"</code> to the <code>&lt;body&gt;</code> tag: <code>&lt;body
-onload="canvasinit()"&gt;</code></p></li>
-<li><p>Add the following immediately after the <code>&lt;body&gt;</code> tag (this is for
-the calibration feature):</p>
+</code></pre>
+
+<p>3) Add an <code>onload="canvasinit()"</code> to the <code>&lt;body&gt;</code> tag: <code>&lt;body
+   onload="canvasinit()"&gt;</code></p>
+
+<p>4) Add the following immediately after the <code>&lt;body&gt;</code> tag (this is for
+   the calibration feature):</p>
 
 <pre><code>&lt;div id="dhtmlwindowholder"&gt;&lt;span style="display:none"&gt;&lt;/span&gt;&lt;/div&gt;
-</code></pre></li>
-<li><p>Add the following code at the end of the .html file (just before
-the three script tags):</p>
+</code></pre>
+
+<p>5) Add the following code at the end of the .html file (just before
+   the three script tags):</p>
 
 <pre><code>&lt;div id="calibratediv" style="display:none"&gt;
   &lt;div id="calibratecanvasdiv"&gt;
     &lt;canvas id="calibratecanvas" width="300" height="300"&gt;Your
-                  browser does not support the canvas tag&lt;/canvas&gt;
-  &lt;/div&gt;
-  &lt;p style="text-align:center"&gt;Click the center of the target&lt;br&gt;&lt;a href="#" 
-           onClick="calibratewin.close(); return false"&gt;Close window&lt;/a&gt;&lt;/p&gt;
+            browser does not support the canvas tag&lt;/canvas&gt;
+   &lt;/div&gt;
+   &lt;p style="text-align:center"&gt;Click the center of the target&lt;br&gt;&lt;a href="#" 
+       onClick="calibratewin.close(); return false"&gt;Close window&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
-</code></pre></li>
-<li><p>Then, on each slide that you want a canvas on, you add the following:</p>
+</code></pre>
+
+<p>6) Then, on each slide that you want a canvas on, you add the following:</p>
 
 <pre><code>&lt;script type="text/javascript"&gt;insertCanvas();&lt;/script&gt;
-</code></pre></li>
-</ol>
-
+</code></pre>
 
 <p>A few other notes:</p>
 

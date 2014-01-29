@@ -218,24 +218,21 @@ Procedure section), and are also listed below.</p>
 <p>The first thing you need to do is clone the github repo into your lab
 account.  To do this, enter:</p>
 
-<p><code>
-git clone https://github.com/aaronbloomfield/pdr.git
-</code></p>
+<pre><code>git clone https://github.com/aaronbloomfield/pdr.git
+</code></pre>
 
 <p>This will create a &lsquo;pdr&rsquo; directory, which is the copy of the repo.
 Each week, you will need to update the repo with the current
 contents.  To do so, cd into that &lsquo;pdr&rsquo; directory, and enter:</p>
 
-<p><code>
-git pull
-</code></p>
+<pre><code>git pull
+</code></pre>
 
 <p>To view the contents in a web browser, you should enter the following
 as the URL (replacing &lsquo;mst3k&rsquo; with your userid):</p>
 
-<p><code>
-file:///home/mst3k/pdr/README.html
-</code></p>
+<pre><code>file:///home/mst3k/pdr/README.html
+</code></pre>
 
 <p>Note that there are three forward slashes there!</p>
 
@@ -473,17 +470,15 @@ make the class compile successfully.</p>
 
 <p>Look more closely at list.cpp. The line:</p>
 
-<p><code>
-List&lt;int&gt; *l = new List&lt;int&gt;();
-</code></p>
+<pre><code>List&lt;int&gt; *l = new List&lt;int&gt;();
+</code></pre>
 
 <p>declares a (pointer to) a List of integers, called l. A similar line,
 but with a different type, would create a list of something else.  For
 example, consider the following line:</p>
 
-<p><code>
-List&lt;char&gt; list2;
-</code></p>
+<pre><code>List&lt;char&gt; list2;
+</code></pre>
 
 <p>This declares a (non-pointer) list of characters (this is not in the
 list.cpp file, by the way).  Now all the methods

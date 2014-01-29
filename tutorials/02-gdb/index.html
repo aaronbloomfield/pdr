@@ -46,9 +46,8 @@ tremendously in a matter of weeks.  Work smart!</p>
 debugging to take place.  On UNIX, the option for clang++ is the -g
 option.  For example:</p>
 
-<p><code>
-clang++ -Wall -g -o prog1 prog1.cpp
-</code></p>
+<pre><code>clang++ -Wall -g -o prog1 prog1.cpp 
+</code></pre>
 
 <p>We also include the &ndash;Wall option, which lists warnings (the &lsquo;all&rsquo; is
 to list all warnings).  Note that this option leads to executable
@@ -69,16 +68,14 @@ executable file (not the source file) as the input to the debugger.</p>
 run the command-line version, compile your program as described above,
 and then type:</p>
 
-<p><code>
-gdb prog1
-</code></p>
+<pre><code>gdb prog1
+</code></pre>
 
 <p>Assuming your executable (created with clang&rsquo;s -o option) was &ldquo;prog1&rdquo;.
 If you didn&rsquo;t use the -o option, then you&rsquo;ll type:</p>
 
-<p><code>
-gdb a.out
-</code></p>
+<pre><code>gdb a.out
+</code></pre>
 
 <p>The following sections describe the important types of things you can
 do with gdb, organized by &ldquo;category&rdquo; of activity.  These activities
@@ -97,15 +94,13 @@ run it again from the beginning.</p>
 after the run command.  If you would normally run the program on the
 command line by entering:</p>
 
-<p><code>
-prog1 100 test1.dat
-</code></p>
+<pre><code>prog1 100 test1.dat
+</code></pre>
 
 <p>In the debugger, you would enter:</p>
 
-<p><code>
-run 100 test1.dat
-</code></p>
+<pre><code>run 100 test1.dat
+</code></pre>
 
 <h3>Where Am I? Where Did It Crash?</h3>
 
@@ -232,16 +227,14 @@ symbol (&lsquo;=&rsquo;), and the value or expression.  It&rsquo;s just like a C
 assignment statement but without the semi-colon at the end.  For
 example:</p>
 
-<p><code>
-set x=5
-</code></p>
+<pre><code>set x=5
+</code></pre>
 
 <p>The expression can be any C++ expression, including a function call.
 So a statement like this is legal:</p>
 
-<p><code>
-set y=countNegValues(list, num)
-</code></p>
+<pre><code>set y=countNegValues(list, num)
+</code></pre>
 
 <p>Assuming you have a countNegValues() method defined, of course.  This
 would execute your function and then set the variable y to be whatever
@@ -253,9 +246,8 @@ called at this point in the code.  You can do this using the &lsquo;set&rsquo;
 command as shown above, or by making the function call the argument to
 the print command.  For example, you could type:</p>
 
-<p><code>
-print initQueue(&amp;myQueue)
-</code></p>
+<pre><code>print initQueue(&amp;myQueue)
+</code></pre>
 
 <p>And the function would be called right now while the program is
 paused.  This works even if the function returns void.</p>
@@ -305,9 +297,8 @@ code.  If you plan on using the debugger, you have to specifically
 tell clang++ to include debugging information.  To do that, enter the
 &ndash;g flag.  For example, enter:</p>
 
-<p><code>
-clang++ -Wall -g -o lab2 debug.cpp
-</code></p>
+<pre><code>clang++ -Wall -g -o lab2 debug.cpp
+</code></pre>
 
 <p>The &lsquo;-g&rsquo; flag will include debugging information.  The &lsquo;-o lab2&rsquo; flag
 will cause the output executable to be &lsquo;lab2&rsquo;.  The &lsquo;-Wall&rsquo; flag is a
