@@ -6,4 +6,4 @@ markdown:
 	@echo done!
 
 clean:
-	/bin/rm -rf *~ */*~ */*/*~
+	/bin/rm -rf *~ */*~ */*/*~ */*/*/*~

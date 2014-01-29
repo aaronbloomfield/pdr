@@ -165,19 +165,20 @@ const Comparable & findMax (const vector<Comparable> & a) {
     int maxIndex = 0; 
     for( int i = 1; i < a.size(); i++ ) 
         if( a[ maxIndex ] < a[ i ] ) // note the use of '<'
-	    maxIndex = i; 
+            maxIndex = i; 
     return a[ maxIndex ]; 
 }
 ```
-	</script></section>
+&#14;	</script></section>
 
 	<section data-markdown><script type="text/template">
 ## Example, continued
 Source code: [findMax.cpp](code/03-lists/findMax.cpp.html) ([src](code/03-lists/findMax.cpp))
 ```
 #include <iostream>
-#include "IntCell.h"
 #include <vector>
+#include <string>
+#include "IntCell.h"
 using namespace std;
 
 // findMax() defined here

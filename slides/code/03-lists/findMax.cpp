@@ -1,8 +1,9 @@
 // This code requires the IntCell.h/cpp code from the 02-cpp slide set
 
 #include <iostream>
-#include "IntCell.h"
 #include <vector>
+#include <string>
+#include "IntCell.h"
 using namespace std;
 
 template <typename Comparable>
