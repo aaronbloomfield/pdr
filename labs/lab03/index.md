@@ -13,7 +13,8 @@ to be introduced to the STL library
 A stack is a basic data structure similar in use to a physical stack
 of papers.  You can add to the top (push) and take from the top (pop),
 but you are not allowed to access the middle or bottom.  A stack
-adheres to the LIFO property.
+adheres to the
+[LIFO](http://en.wikipedia.org/wiki/LIFO_%28computing%29) property.
 
 ### Reading(s): ###
 
@@ -26,36 +27,41 @@ Procedure
 
 1. Read this entire lab document before coming to lab.
 2. Go through the first half of the [Tutorial 3: Unix, part
-   1](../../tutorials/03-04-more-unix/index.html).  This 
+   1](../../tutorials/03-04-more-unix/index.html), sections 1-4.  This 
    tutorial is originally from the department of Electrical
    Engineering at the University of Surrey, and is available online
    [here](http://www.ee.surrey.ac.uk/Teaching/Unix/).  You should
-   complete the introductory part and sections 1-4.  You will be
-   somewhat familiar with some of the materials in the first few of
+   complete the introductory part and sections 1-4.  You should already
+   be somewhat familiar with some of the materials in the first few of
    these tutorials, as it was in the Unix tutorial from the first lab.
    The rest of the tutorial (sections 5-8) are for next week's lab,
    but feel free to go through it this week, if you are interested.
 3. Write up at least one question that you still have on Unix (or
    things you are still confused about) into unix.questions.txt.
-4. Your code for the pre-lab will use the pre-existing STL stack
-   class.  The STL is the Standard Template Library, and is a
-   collection of useful routines analogous to the routines in
-   Java's SDK (it contains a vector class, for example).
+4. Your code for the pre-lab will use the pre-existing STL `stack`
+   class.  The STL is the [Standard Template
+   Library](http://en.wikipedia.org/wiki/Standard_template_library),
+   and is a collection of useful routines analogous to the routines in
+   Java's SDK, albeit much smaller (it contains a vector class, for
+   example).
    - To use the stack STL class, just put `#include <stack>` at the
      top of your C++ file.  A standard clang++ installation should
      automatically find the STL stack class (this works in Linux).
    - Documentation on the STL routines can be found at
-     [http://www.sgi.com/tech/stl/](http://www.sgi.com/tech/stl/).
+     [http://www.sgi.com/tech/stl/](http://www.sgi.com/tech/stl/); the
+     stack documentation is
+     [here](http://www.sgi.com/tech/stl/stack.html).
 5. Implement a simple postfix stack calculator for integers using your
    stack.
    - **You should use the STL stack class**, rather than implement your own.
-   - An online description of postfix calculators can be found on
-     Wikipedia: http://en.wikipedia.org/wiki/Reverse_Polish_notation -
+   - An online description of postfix calculators can be found [on
+     Wikipedia](http://en.wikipedia.org/wiki/Reverse_Polish_notation) --
      you will need to implement this into postfixCalculator.h and
      postfixCalculator.cpp
    - Create a simple test driver, testPostfixCalc.cpp, which will be used
-     to demonstrate your calculator.  This file should have hard-coded
-     values for input; keyboard input is the in-lab.
+     to demonstrate your calculator (i.e., it will have the `main()`
+     function).  This file should have hard-coded values for input;
+     handling keyboard input is the in-lab.
    - The last page of this document has some sample test cases you can use.
 6. Your code must compile!  
 7. Be sure to include: your name, the date, and the name of the file
@@ -78,7 +84,8 @@ Procedure
      will be responsible for this material for the midterms and final exam.
 3. You need to expand your pre-lab code to handle keyboard input.  See
    the specifications in the in-lab section for how to handle the input.
-4. The files you submit should be a FULLY WORKING postfix calculator.
+4. The files you submit should be a FULLY WORKING postfix calculator,
+   which still uses the STL stack class.
 5. Start working on the post-lab (implementing your own stack class)
    if you get your calculator fully working before lab ends.
 6. Files to download: none (just your pre-lab source code)
@@ -97,10 +104,10 @@ Procedure
    LinkedList object, and a stack class method can just pass the value
    onto the appropriate method in the LinkedList class.  You
    don't need to implement all possible stack methods (in
-   particular, you can ignore the copy constructor, operator=(), etc.) 
-   -- just the four mentioned in the pre-lab (push, top, pop, and
-   empty).  After this lab, it is expected that you will be able to
-   implement a stack class in C++.
+   particular, you can ignore the copy constructor, `operator=()`,
+   etc.) -- just the four mentioned in the pre-lab (push(), top(),
+   pop(), and empty()).  After this lab, it is expected that you will
+   be able to implement a stack class in C++.
 2. Modify your postfix calculator to use the stack class that you have
    implemented.
 3. Be sure to include: your name, the date, and the name of the file
@@ -120,15 +127,14 @@ Procedure
    difficulties.txt) describing what difficulties you encountered
    getting your code working and what you did to solve them.
 5. The files you submit should be a FULLY WORKING postfix calculator.
-   Your code must compile!  Even if it doesn't work perfectly,
-   make sure it compiles.  In particular, make sure that the
-   capitalization case of the #includes (i.e. #include
-   "Stack.h" versus #include "stack.h") is
-   correct.
+   Your code must compile!  Even if it doesn't work perfectly, make
+   sure it compiles.  In particular, make sure that the capitalization
+   case of the #includes (i.e. `#include "Stack.h"` versus `#include
+   "stack.h"`) is correct.
 6. Files to download: none (just your in-lab source code)
 7. Files to submit: stack.h, stack.cpp, postfixCalculator.h,
-   postfixCalculator.cpp, testPostfixCalc.cpp, difficulties.txt
-   - You may submit additional stack/list files as well, if you want
+   postfixCalculator.cpp, testPostfixCalc.cpp, difficulties.txt - You
+   may submit additional stack/list files as well, if you want
 
 ------------------------------------------------------------
 
@@ -143,14 +149,20 @@ In this lab, you will:
   This stack implementation is done for the post-lab; for the pre-lab
   and the in-lab, you will be using a pre-existing stack class from
   C++'s standard template library (STL).
+  - Documentation on the STL routines can be found at
+    [http://www.sgi.com/tech/stl/](http://www.sgi.com/tech/stl/); the
+    stack documentation is
+    [here](http://www.sgi.com/tech/stl/stack.html).
 - Write a program that uses this class to implement a postfix
   calculator. This will include the following files:
-  - postfixCalculator.h, which is the class declaration of the calculator
-  - postfixCalculator.cpp, which is the implementation of the postfix calculator
+  - postfixCalculator.h, which is the class declaration of the postfix
+    calculator
+  - postfixCalculator.cpp, which is the implementation of the postfix
+    calculator
   - testPostfixCalc.cpp that has a hard-coded expression (see below)
     and evaluates that expression.
 
-The various parts of the lab develop the entire program:
+The various parts of this lab develop the entire program:
 
 - The pre-lab develops the calculator itself, without dealing with
   user input or the stack class
@@ -187,7 +199,7 @@ capacity!  For now if `pop()` or `top()` are called on an empty stack,
 terminate the program with the function call `exit(-1)`, which is from
 the `<cstdlib>` library.
 
-For this lab, you will use a stack of int values.
+For this lab, you will use a stack of `int` values.
 
 ### Input ###
 
@@ -215,6 +227,7 @@ sample input given at the very end of this document.
         p.add();
         p.add();
         cout << "Result is: " << p.getTopValue() << endl;
+        return 0;
     }
 
 Keep in mind that you can type up a few of the blocks, and comment
@@ -235,8 +248,9 @@ it, and pushing that new value back on the stack), then you would use
 the tilde.  For the non-commutative operators (operators where the
 order of the numbers matters, such as minus and divide), the first
 value you pop we'll call x, the second value you pop we'll call y; the
-result should be y-x, NOT x-y (i.e., the "lower" one in the stack
-minus/divided by the "higher" one in the stack).
+result should be *y-x* or *y/x*, NOT *x-y* (or *x/y*) -- in other
+words, the "lower" value in the stack minus/divided by the "higher"
+one in the stack).
 
 ### Useful Information ###
 
@@ -249,9 +263,9 @@ unnecessary in postfix notation.
 
 An online description of postfix calculators can be found [on
 Wikipedia](http://en.wikipedia.org/wiki/Reverse_Polish_notation) -
-note that you do **NOT** need to print out the infix form of the postfix
-expression; you only need to print the final answer.  See the last
-page of this lab for example input streams and expected output.
+note that you do **NOT** need to print out the infix form of the
+postfix expression; you only need to print the final answer.  See the
+end of this lab for example input and expected output.
 
 When you start handling input (in the in-lab), you will want to store
 your read-in values into strings.  You can use the [string
@@ -274,7 +288,7 @@ being encountered again.
 - When compiling your code, remember to compile ALL of your cpp files
   in the compile command: `clang++ postfixCalculator.cpp,
   testPostfixCalc.cpp`
-- Remember to put using namespace std; at the top of EACH file you
+- Remember to put `using namespace std;` at the top of EACH file you
   write.  Even if you don't use anything from the standard namespace,
   putting that at the top of the file will not hurt.
 
@@ -307,16 +321,17 @@ before you read something if it will be an operand (a numeric value)
 or an operator (a character), so you must read in each space-separated
 part into a string variable, and analyze that.
 
-All input is read from standard input (i.e. cin)!  You should not be
-dealing with files for this lab.  You can use the getline() method in
-the cin object for this.  Once you read in a line, your program should
-exit.  When we test your program, we will only be providing it with
-one line of input, so if your program is waiting for more, that will
-be a problem.
+All input is read from standard input (i.e. `cin`)!  You should not be
+dealing with files for this lab.  Once you read in a line, your
+program should exit.  When we test your program, we will only be
+providing it with one line of input, so if your program is waiting for
+more, that will be a problem.
 
 You need to accept both negative numbers (-5 for example), and numbers
 with multiple digits (34 is the number thirty-four, not the separate
-numbers three and four).
+numbers three and four) -- and thus negative numbers with multiple
+digits (-34, for example).  No values, nor intermediate computational
+results, will exceed what can be stored in an `int`.
 
 We provide you with a number of input files that match the input shown
 at the end of this lab document.  Recall that you can supply the
@@ -344,22 +359,22 @@ program.
     }
 
 
-Each string s that is read in must then be processed to determine if
+Each string `s` that is read in must then be processed to determine if
 it's a number or an operator.  The difficult part is if a minus sign
 is the first character of the token -- it could be a subtraction sign
 or the beginning of a negative number (recall that the unary negation
 operator is the tilde).
 
-You may find it useful to use the isdigit() or atoi() functions
+You may find it useful to use the `isdigit()` or `atoi()` functions
 provided in `<cstdlib>` in this lab.  Try searching on the web for
-info on these routines.  The atoi() function operates on a C-style
+info on these routines.  The `atoi()` function operates on a C-style
 string, which is an array of characters. You can convert a C++ string
-to one of these by calling the c_str() member function on the C++
-string object.  More string functions can be found at
+to one of these by calling the `c_str()` method of the C++ string
+object.  More string functions can be found at
 [http//www.sgi.com/tech/stl/](http://www.sgi.com/tech/stl/).
 
 Also, to check if there is any more input, you can use the `good()`
-method in cin.
+method in cin (i.e., `cin.good()`).
 
 ### Assumptions: ###
 
@@ -376,9 +391,14 @@ method in cin.
 How should the program know when you are finished providing input?
 There are a couple of ways to do this.
 
-- Only read in one line, and not accept any more input
-- Read in input until cin.good() method returns false; **this will
-   require entering a Control-D at the end of the provided input.**
+- Only read in one line, and not accept any more input -- if you
+  handle it this way, you will have to use the `getline()` method, but
+  this is likely the harder way to deal with it.
+- Read in input until `cin.good()` method returns `false`; **this will
+  require entering a Control-D at the end of the provided input**
+  (i.e., enter a line of the postfix expression, hit Enter, and then
+  hit Control-D).  The input we provide during the execution will
+  provide the Control-D at the end of said input.
 
 Either way is fine.  Our test scripts will send in all the input on a
 single line, and will provide a Control-D if necessary.  So whichever
@@ -398,13 +418,13 @@ You will also have to write up the difficulties.txt file, as described
 above in the lab procedure section.
 
 Note that you only have to implement the four stack methods described
-in the pre-lab section (and the constructor, of course): push(),
-pop(), top(), and empty().  The other methods (copy constructor,
-operator=(), etc.) do not need to be implemented for this lab.
+in the pre-lab section (and the constructor, of course): `push()`,
+`pop()`, `top()`, and `empty()`.  The other methods (copy constructor,
+`operator=()`, etc.) do not need to be implemented for this lab.
 
 If you are using an array-based implementation, you must be able to
-handle when the array fills up; you can't use the vector class to
-handle this.
+handle when the array fills up; you can't use the `vector` class for
+this lab.
 
 ### Submitting the stack / list files ###
 
@@ -428,19 +448,20 @@ long as it works, we don't really care, provided that:
 Test files
 ----------
 
-These files are all available in Collab.
+The following examples provide postfix expressions and their expected
+value.
 
-[addition.txt](/labs/lab03/input/addition.txt): `1 2 3 4 5 + + + +`;
+[addition.txt](input/addition.txt): `1 2 3 4 5 + + + +`;
 expected output: 15
 
-[subtraction.txt](/labs/lab03/input/subtraction.txt): `20 10 - -3 10 -
+[subtraction.txt](input/subtraction.txt): `20 10 - -3 10 -
 - 2 -`; expected output: 21
 
-[multiplication.txt](/labs/lab03/input/multiplication.txt): `-1 -2 -5
+[multiplication.txt](input/multiplication.txt): `-1 -2 -5
 3 * 2 -2 * * * *`; expected output: 120
 
-[division.txt](/labs/lab03/input/division.txt): `-1512 -12 -2 / / -2 /
+[division.txt](input/division.txt): `-1512 -12 -2 / / -2 /
 3 /`; expected output: 42
 
-[negation.txt](/labs/lab03/input/negation.txt): `-1 ~ ~ ~`; expected
+[negation.txt](input/negation.txt): `-1 ~ ~ ~`; expected
 output: 1

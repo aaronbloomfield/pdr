@@ -13,8 +13,8 @@ The labs for this course
       [svutil.cpp](lab01/svutil.cpp.html) ([src](lab01/svutil.cpp))
     - Linked List code: [list.h](lab01/list.h.html) ([src](lab01/list.h)),
       [list.cpp](lab01/list.cpp.html) ([src](lab01/list.cpp))
-  - [Tutorial 1: Introduction to UNIX](../tutorials/01-intro-unix/index.html) and
-    [Tutorial 1: Introduction to UNIX: VirtualBox use](../tutorials/01-intro-unix/virtual-box.html)
+  - [Tutorial 1: Introduction to Unix](../tutorials/01-intro-unix/index.html) and
+    [Tutorial 1: Introduction to Unix: VirtualBox use](../tutorials/01-intro-unix/virtual-box.html)
 
 
 - [Lab 2: Linked Lists](lab02/index.html)
@@ -28,4 +28,7 @@ The labs for this course
 
 - [Lab 3: Stacks](lab03/index.html)
   - No source code for this lab!
-  - [Tutorial 3: Unix, part 1](../tutorials/03-04-more-unix/index.html)
+  - [Tutorial 3: Unix, part
+    1](../tutorials/03-04-more-unix/index.html), sections 1-4; this
+    tutorial is originally from
+    [here](http://www.ee.surrey.ac.uk/Teaching/Unix/)

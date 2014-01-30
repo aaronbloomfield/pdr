@@ -33,7 +33,9 @@ Linked Lists
 
 Postfix Calculation
 
-- ...
+- [Reverse Polish Notation
+  article](http://en.wikipedia.org/wiki/Reverse_Polish_notation) on 
+  [Wikipedia](http://en.wikipedia.org)
 
 Stacks and Queues
 
