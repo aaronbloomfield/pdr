@@ -38,7 +38,7 @@ MyObject::~MyObject() {
     cout << "MyObject Destructor:          " << *this << endl;
 }
 
-// -----------------------------------------------------------  put to
+// ----------------------------------------------------------  print out
 ostream& operator<<(ostream& output, const MyObject& obj) {
     // output in format:  ("object name",id)
     return output << "(\"" << obj.name << "\"," << obj.id << ")";
