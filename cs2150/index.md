@@ -96,10 +96,10 @@ stopped at the same point.
 | 6 || Jan&nbsp;27 || Monday || [Lab 2: Linked lists](../labs/lab02/index.html), [Tutorial 2: GDB](../tutorials/02-gdb/index.html) || [02: C++](../slides/02-cpp.html) || [C++, slides 9-1 to  10-11](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/02-cpp-5b/02-cpp-5b.htm) (we aren't going over the remainder of the slides in lecture) |
 | 7 || Jan&nbsp;29 || Wednesday || || [03: Lists](../slides/03-lists.html) || [Lists, slides 1 to 5-8](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/03-lists-1b/03-lists-1b.htm) |
 | 8 || Jan&nbsp;31 || Friday || || [03: Lists](../slides/03-lists.html) || |
-| 9 || Feb&nbsp;3 || Monday || [Lab 3: Stacks](../labs/lab03/index.html), [Tutorial 3: More UNIX, part 1](../tutorials/03-more-unix-pt1/index.html) || [03: Lists](../slides/03-lists.html), [04: Numbers](../slides/04-numbers.html) || |
+| 9 || Feb&nbsp;3 || Monday || [Lab 3: Stacks](../labs/lab03/index.html), [Tutorial 3: More UNIX, part 1](../tutorials/03-04-more-unix/index.html), sections 1-4 || [03: Lists](../slides/03-lists.html), [04: Numbers](../slides/04-numbers.html) || |
 | 10 || Feb&nbsp;5 || Wednesday || || [04: Numbers](../slides/04-numbers.html) || |
 | 11 || Feb&nbsp;7 || Friday || || [04: Numbers](../slides/04-numbers.html) || |
-| 12 || Feb&nbsp;10 || Monday || [Lab 4: Numbers](../labs/lab04/index.html), [Tutorial 4: More UNIX, part 2](../tutorials/04-more-unix-pt2/index.html) || [04: Numbers](../slides/04-numbers.html) || |
+| 12 || Feb&nbsp;10 || Monday || [Lab 4: Numbers](../labs/lab04/index.html), [Tutorial 4: More UNIX, part 2](../tutorials/03-04-more-unix/index.html), sections 5-8 || [04: Numbers](../slides/04-numbers.html) || |
 | 13 || Feb&nbsp;12 || Wednesday || || [05: Arrays & big-Oh](../slides/05-arrays-big-oh.html) || |
 | 14 || Feb&nbsp;14 || Friday || || [05: Arrays & big-Oh](../slides/05-arrays-big-oh.html) || |
 | 15 || Feb&nbsp;17 || Monday || Midterm 1 instead during Tuesday's lab || [06: Trees](../slides/06-trees.html) || |

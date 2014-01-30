@@ -28,7 +28,19 @@ The labs for this course
 
 - [Lab 3: Stacks](lab03/index.html)
   - No source code for this lab!
-  - [Tutorial 3: Unix, part
-    1](../tutorials/03-04-more-unix/index.html), sections 1-4; this
-    tutorial is originally from
+  - [Tutorial 3: More Unix, part
+    1](../tutorials/03-04-more-unix/index.html), which is sections
+    1-4; this tutorial is originally from
+    [here](http://www.ee.surrey.ac.uk/Teaching/Unix/)
+
+- [Lab 4: Number Representation](lab04/index.html)
+  - No source code for this lab!
+  - Necessary files: [inlab4.doc](lab04/inlab4.doc),
+    [radixWorksheet.doc](lab04/radixWorksheet.doc)
+    - These will have to be submitted as PDF files; see [How To
+      Convert A File To PDF](../docs/convert_to_pdf.html) for
+      details.
+  - [Tutorial 4: More Unix, part
+    2](../tutorials/03-04-more-unix/index.html), which is sections
+    5-8; this tutorial is originally from
     [here](http://www.ee.surrey.ac.uk/Teaching/Unix/)

@@ -1,5 +1,5 @@
 Laboratory 3: Stacks
-===============
+====================
 
 [Go up to the Labs table of contents page](../index.html)
 
@@ -21,21 +21,22 @@ adheres to the
 1. Readings can be found online on the [Readings](../../docs/readings.html) page
 
 Procedure
----------------
+---------
 
 ### Pre-lab ###
 
 1. Read this entire lab document before coming to lab.
-2. Go through the first half of the [Tutorial 3: Unix, part
-   1](../../tutorials/03-04-more-unix/index.html), sections 1-4.  This 
-   tutorial is originally from the department of Electrical
+2. Go through [Tutorial 3: Unix, part
+   1](../../tutorials/03-04-more-unix/index.html), which is sections
+   1-4.  This tutorial is originally from the department of Electrical
    Engineering at the University of Surrey, and is available online
    [here](http://www.ee.surrey.ac.uk/Teaching/Unix/).  You should
-   complete the introductory part and sections 1-4.  You should already
-   be somewhat familiar with some of the materials in the first few of
-   these tutorials, as it was in the Unix tutorial from the first lab.
-   The rest of the tutorial (sections 5-8) are for next week's lab,
-   but feel free to go through it this week, if you are interested.
+   complete the introductory part and sections 1-4.  You should
+   already be somewhat familiar with some of the materials in the
+   first few of these tutorials, as it was in the Unix tutorial from
+   the first lab.  The rest of the tutorial (sections 5-8) are for
+   next week's lab, but feel free to go through it this week, if you
+   are interested.
 3. Write up at least one question that you still have on Unix (or
    things you are still confused about) into unix.questions.txt.
 4. Your code for the pre-lab will use the pre-existing STL `stack`

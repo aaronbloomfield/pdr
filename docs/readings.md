@@ -56,7 +56,7 @@ Numbers
   - [IEEE 754](http://en.wikipedia.org/wiki/IEEE_754) on
     [Wikipedia](http://en.wikipedia.org)
 
-Struct and Unions
+<a name="structsunions">Struct and Unions</a>
 
 - Recall that a struct is like a class that doesn't allow methods
   (that's not an exact definition, but close enough for now).  You can
@@ -71,7 +71,7 @@ Struct and Unions
   of [04-numbers](../slides/04-numbers/04-numbers.html) a better
   example.
 
-Arrays
+<a name="arrays">Arrays</a>
 
 - [C array basics explained with 13
   examples](http://www.thegeekstuff.com/2011/12/c-arrays/) on [The Geek
