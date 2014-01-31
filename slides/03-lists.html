@@ -407,7 +407,7 @@ A0, A1, A2, A3, A4
 ## Stacks
 - List with restrictions
   - Insert, delete, and find can only be performed at one end (the 'top') of the list
-  - LIFO
+  - LIFO: Last In, First Out
 - Attributes
   - top of stack
 - Fundamental operations (all constant time)
@@ -449,7 +449,7 @@ A0, A1, A2, A3, A4
 
 	<section data-markdown><script type="text/template">
 ## Stack Applications: Postfix Calculator
-- For each input token...
+- For each input token (number or operator)...
   - If number
     - Push number onto stack
   - If operator
@@ -482,7 +482,7 @@ A0, A1, A2, A3, A4
 ```
 #include "StackNode.h"
 
-// assumes stack of int stored in StackNodes
+// assumes a stack of ints stored in StackNodes
 class Stack {
   public:
     Stack();                // constructor    
@@ -490,7 +490,8 @@ class Stack {
     bool isEmpty() const;   // checks for empty
     void push(int value);   // push value onto stack
     void pop();             // pop top of stack
-    int top();              // returns topOfStack
+    int top() const;        // returns topOfStack
+
   private:
     StackNode *head;        // like a ListNode...
 };
@@ -528,12 +529,12 @@ using namespace std;
 
 class Stack {
   public:
-    Stack();               // constructor    
-    ~Stack();              // destructor
-    bool isEmpty() const;  // checks for empty
-    void push(int value);  // push value onto stack
-    void pop();            // pop top of stack
-    int top();    
+    Stack();                // constructor    
+    ~Stack();               // destructor
+    bool isEmpty() const;   // checks for empty
+    void push(int value);   // push value onto stack
+    void pop();             // pop top of stack
+    int top() const;        // returns topOfStack
     
   private:
     vector<int> theStack;    
@@ -573,7 +574,7 @@ void Stack::push(int value){
 ## Stacks
 - List with restrictions
   - Insert and delete can only be performed at the top of the list
-  - LIFO
+  - LIFO: Last In, First Out
 - Attributes
   - top of stack
 - Fundamental operations (constant time)
@@ -600,7 +601,7 @@ void Stack::push(int value){
 - Operations
   - Enqueue: insert at one end (back)
   - Dequeue: delete at other end (front)
-  - FIFO
+  - FIFO: First In, First Out
 - Linked list and array implementations are constant time for all operations
   - (minor disclaimer about a full vector queue...)
 	</script></section>
@@ -621,9 +622,9 @@ void Stack::push(int value){
   - enqueue
     - increment current size
     - increment back
-    - set theArray[back] = element
+    - set `theArray[back] = element`
   - dequeue
-    - set return value to theArray[front]
+    - set return value to `theArray[front]`
     - decrement current size
     - increment front
 - Again, have to handle the situation when the array is full
@@ -633,22 +634,25 @@ void Stack::push(int value){
 ## Queue: Linked List Implementation
 (no external source code)
 ```
+#include "QueueNode.h"
+
+// assumes a queue of ints stored in QueueNodes
 class Queue{
   public:
     Queue();     // constructor
     ~Queue();    // destructor
 
     // enqueue item to back of list
-    void enqueue(ListNode *node);
+    void enqueue(int value);
     
     // remove item from front of list
-    ListNode * dequeue();    
+    int dequeue();    
 
     // other supporting methods...
 
   private:
     // pointers to front and back of list
-    ListNode * front, *back;
+    QueueNode *front, *back;
 };
 ```
 	</script></section>
@@ -656,11 +660,11 @@ class Queue{
 	<section data-markdown><script type="text/template">
 ## Queue: Linked List Implementation
 - enqueue()
-      void enqueue(ListNode *node) {
+      void Queue::enqueue(int value) {
       
       }
 - dequeue()
-      ListNode * dequeue() {
+      int Queue::dequeue() {
       
       }
 	</script></section>
@@ -712,13 +716,14 @@ class Queue{
 	</script></section>
 
 	<section data-markdown><script type="text/template">
-## Entering Control-D for input
-- This will return an empty string (length 0)
+## Closing thoughts on strings
+- You have to enter Control-D for input
+  - This will return an empty string (length 0)
 - Like Java, to compare strings, you need to compare the characters that they point to
   - .equals() in Java
 - But in the STL string class, the == operator is overloaded to do this!
 - So you can compare STL strings with ==
-  - But not standard C strings (i.e. char*)
+  - But not standard C strings (i.e. `char*`)
   - And this doesn't work if you have *pointers* to the strings
 	</script></section>
 
