@@ -31,7 +31,7 @@ just a few that need an explanation:
   individual chapter(s) that are being worked on, without having to
   recompile the entire book.  This was used to generate the
   [ibcm-chapter.pdf](ibcm-chapter.pdf) file.
-- references.bib: all the references used anywhere in the book.
+- references.bib: all the references used throughout in the book.
 - Makefile: a series of targets to automate the building of the PDF
   documents in this book.
 

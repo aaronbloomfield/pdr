@@ -18,7 +18,12 @@ adheres to the
 
 ### Reading(s): ###
 
-1. Readings can be found online on the [Readings](../../docs/readings.html) page
+1. Readings can be found online on the
+   [Readings](../../docs/readings.html) page
+2. The [Wikipedia article on Reverse Polish
+   notation](http://en.wikipedia.org/wiki/Reverse_Polish_notation),
+   which is another name for postfix notation, has a good description
+   along with a sample calculation.
 
 Procedure
 ---------

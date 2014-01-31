@@ -17,7 +17,8 @@ Aaron Bloomfield and William Wulf (Proceedings of the 42nd ACM
 Technical Symposium on Computer Science Education (SIGCSE), March
 2011, Dallas, TX); that article describes the Turing completeness of
 IBCM.  Due to copyright restrictions, that article cannot be included
-in this repository.
+in this repository.  However, much of that material is similar to the
+material found in the [book chapter](../book/index.html) on IBCM.
 
 The primary mechanism for learning IBCM is through the [IBCM slide
 set](../slides/08-ibcm.html) and the [IBCM book

@@ -17,10 +17,13 @@ Contents
 ---------------------------------------
 
 This repository contains the materials for the course entitled "CS
-2150: Program and Data Representation" at the [University of
+2150: Program and Data Representation" in the [Computer Science
+Department](http://www.cs.virginia.edu) at the [University of
 Virginia](http://www.virginia.edu).  It will contain all of the
 slides, labs, exams, etc. used throughout the course.  The course
-description is [below](#description).
+description is [below](#description).  The github repository for this
+course is at
+[https://github.com/aaronbloomfield/pdr](https://github.com/aaronbloomfield/pdr).
 
 Students in the course should view the
 [cs2150/index.html](cs2150/index.html) file in the **cloned**
@@ -72,8 +75,8 @@ instructions [here](https://help.github.com/articles/syncing-a-fork).
 ------------------------------------------
 
 **Note that the links below will not work correctly if you are viewing
-this online at github.com -- you will need to download the repository
-first**
+this online at github.com -- you will need to clone (download) the
+repository first**
 
 - [book](book/index.html): the beginnings of a textbook to be used for
   this course.  It is written using LaTeX.

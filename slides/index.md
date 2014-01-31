@@ -3,12 +3,12 @@ Program and Data Representation Slides
 
 [Go up to the main README file](../README.html)
 
-Slide set 1: [Course Introduction](01-intro.html)
+[Slide set 1: Course Introduction](01-intro.html)
 
 - Source code: [DataStructureComparison.java](code/01-intro/DataStructureComparison.java.html) ([src](code/01-intro/DataStructureComparison.java))
 
 
-Slide set 2: [C++](02-cpp.html)
+[Slide set 2: C++](02-cpp.html)
 
 - Source code:
   - General source code: 
@@ -31,13 +31,13 @@ Slide set 2: [C++](02-cpp.html)
     [Rational.cpp](code/02-cpp/Rational.cpp.html) ([src](code/02-cpp/Rational.cpp)), 
     [TestRational.cpp](code/02-cpp/TestRational.cpp.html) ([src](code/02-cpp/TestRational.cpp))
 
-Slide set 3: [Lists](03-lists.html)
+[Slide set 3: Lists](03-lists.html)
 
 - Source code: [findMax.cpp](code/03-lists/findMax.cpp.html) ([src](code/03-lists/findMax.cpp)),
   [objectCell.h](code/03-lists/objectCell.h.html) ([src](code/03-lists/objectCell.h)),
   [objectCellMain.cpp](code/03-lists/objectCellMain.cpp.html) ([src](code/03-lists/objectCellMain.cpp))
 
-Slide set 4: [Numbers](04-numbers.html)
+[Slide set 4: Numbers](04-numbers.html)
 
 - Source code: [float_to_hex.cpp](code/04-numbers/float_to_hex.cpp.html) ([src](code/04-numbers/float_to_hex.cpp)), [FloatTest.java](code/04-numbers/FloatTest.java.html) ([src](code/04-numbers/FloatTest.java))
 

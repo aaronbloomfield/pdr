@@ -66,9 +66,10 @@
 ## Numbers vs. Numerals
 - Which is bigger?
   - 5 or 8 or 12
+  - What if they are sorted alphabetically?
 - Which is "five"?
   - five or V or cinq or 101
-- Numerals represent numbers
+- We use numerals represent numbers
 	  </script></section>
 
 	  <section>
@@ -89,15 +90,13 @@
 </ul>
 	  </section>
 
-	  <section>
-<h2>Examples</h2>
-<ul>
-<li>Binary (base 2): \( 1111_2 \)</li>
-<li>Ternary (base 3): \( 120_3 \)</li>
-<li>Octal (base 8): \( 17_8 \)</li>
-<li>Hexadecimal (base 16): F</li>
-</ul>
-	  </section>
+	  <section data-markdown><script type="text/template">
+## Examples
+- Binary (base 2): 1111<sub>2</sub>
+- Ternary (base 3): 120<sub>3</sub>
+- Octal (base 8): 17<sub>8</sub>
+- Hexadecimal (base 16): F
+	  </script></section>
 
 	</section>
 
@@ -109,10 +108,12 @@
 	  </script></section>
 
 	    <section>
-<h2>Conversion</h2>
-<p>Radix <i>R</i> to decimal: \( n = d_n R^n + \ldots + d_0 R^0 \)</p>
+<h2>Conversion between bases</h2>
+<p>Radix <i>R</i> to decimal:<p>
+<p>\( n = d_n R^n + \ldots + d_0 R^0 \)</p>
 <p>&nbsp;</p>
-<p>Decimal to radix <i>R</i>: \( \frac{n}{R} = d_n R^{n-1} + \ldots + d_1 R^0 \), remainder \( d_0 \)</p>
+<p>Decimal to radix <i>R</i>:</p>
+<p>\( \frac{n}{R} = d_n R^{n-1} + \ldots + d_1 R^0 \), remainder \( d_0 \)</p>
 	    </section>
 
 	    <section>
@@ -127,6 +128,7 @@
 <p>&nbsp;</p>
 <script type="text/javascript">insertCanvas();</script>
 	    </section>
+
 
 	    <section>
 <h2>Decimal to Radix</h2>
@@ -147,10 +149,28 @@
 - In octal (base 8): 65
 - In decimal: 101
 - In hexadecimal: 257
-- In C, any integer that begins with '0' is octal
+	    </script></section>
+
+	    <section data-markdown><script type="text/template">
+## Specifying numbers in other bases
+- In C/C++, any integer that begins with '0' is interpreted as octal
   - 073 = 73<sub>8</sub> = 59<sub>10</sub> 
-- And any number that begins with '0x' is hexadecimal
+- And any number that begins with '0x' is interpreted as hexadecimal
   - 0x3f = 3f<sub>16</sub> = 63<sub>10</sub>
+  - Case does not matter (0xFF == 0xff)
+- There is no (convenient) way to specify a number in binary
+  - They are almost always specified in hex anyway
+	    </script></section>
+
+	    <section data-markdown><script type="text/template">
+## Converting between binary and hexadecmial
+- Split the binary number into 4 bit chunks ('nibbles')
+- Convert each one to a ***single*** hexadecimal digit
+  - Converting through decimal, if necessary
+  - Keep in mind that it takes ***two*** hex digits to make a byte
+- Likewise, hexadecimal to binary is just converting each hex digit to 4 bits
+- Example: 0x13ac => 0001 0011 1010 1100<sub>b</sub>
+- Example: 0100 1010 1000 1101<sub>b</sub> => 0x4a8d
 	    </script></section>
 
 	</section>
@@ -176,12 +196,12 @@
 ## Directions for getting **6**
 1. Choose any regular accumulator (ie. Accumulator #9). 
 2. Direct the Initiating Pulse to terminal 5i. 
-3. The initiating pulse is produced by the initiating unit's Io terminal each time the Eniac is started. This terminal is usually, by default, plugged into Program Line 1-1 (described later). Simply connect a program cable from Program Line 1-1 to terminal 5i on this Accumulator. 
+3. The initiating pulse is produced by the initiating unit's Io terminal (usually plugged into Program Line 1-1) each time the Eniac is started. Simply connect a program cable from Program Line 1-1 to terminal 5i on this Accumulator. 
 4. Set the Repeat Switch for Program Control 5 to 6. 
 5. Set the Operation Switch for Program Control 5 to ADD. 
 6. Set the Clear-Correct switch to C. 
 7. Turn on and clear the Eniac. 
-8. Normally, when the Eniac is first started, a clearing process is begun. If the Eniac had been previously started, or if there are random neons illuminated in the accumulators, the "Initial Clear" button of the Initiating device can be pressed. 
+8. If there are random neons illuminated in the accumulators, press the "Initial Clear" button of the Initiating device
 9. Press the "Initiating Pulse Switch" that is located on the Initiating device. 
 10. **Stand back.**
 	    </script></section>
@@ -218,7 +238,7 @@
 <li>1 + 1 = 0 carry 1</li>
 </ul>
 <p>&nbsp;</p>
-<p>But what should \( n \) be?</p>
+<p>Maximum value is \( 2^n-1 \) -- but what should \( n \) be?</p>
 	    </section>
 
 	    <section data-markdown><script type="text/template">
@@ -232,8 +252,8 @@
   - int: can hold between 0 and `UINT_MAX`
     - `UINT_MAX` must be at least 65535
       - You must `#include <limits>` to access `UINT_MAX`
-      - n >= 16, typical current machines n = 32
-    - sizeof(int) will "return" the byte size of an int in C/C++
+      - n >= 16, typical current machines *n* = 32 or 64
+    - `sizeof(int)` will evaluate to the byte size of an int in C/C++
 	    </script></section>
 
 	</section>
@@ -485,12 +505,24 @@ void Image::WriteInt (int value, FILE * fp) {
 
 	  <section data-markdown><script type="text/template">
 ## Floating Point
-- Each number has three parts:
+- Each number in scientific notation has four parts: -3.24 \* 10<sup>6</sup>
   - Sign bit (1 is negative)
-  - Mantissa (the "value" of the number)
-    - Always between 1.0 and 2.0
-  - Exponent (power of 2 to multiply mantissa by)
-![CPU image](images/04-numbers/cpu-image.png)
+  - Mantissa (the "value" of the number): 3.24 in the example above
+    - Always in the range 1.0 &le; *m* < 10.0 for decimal numbers in scientific notation
+    - Always in the range 1.0 &le; *m* < 2.0 in the binary representation
+  - Base
+    - This is 10 for tyipcaly scientific notation, but 2 for computers
+    - As this is always known for floats and doubles, it is omitted
+  - Exponent (power of 2 to multiply mantissa by): 6 in the example above
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Conversion overview
+- We are going to convert a number such as -3.24 \* 10<sup>6</sup> to a format where:
+  - The mantissa is between 1 and 2 (not 1 and 10)
+  - The base is 2 (not 10)
+- Example: 106 = 1.06 \* 10<sup>2</sup> = 1.65625 * 2<sup>6</sup>
+- Once in that format, it is viable to encode in binary
 	  </script></section>
 
 	  <section>
@@ -517,7 +549,7 @@ void Image::WriteInt (int value, FILE * fp) {
 
 	  <section>
 <h2>Mantissa</h2>
-<p class="center">\( b_{1}b_{2}b_{3}b_{4}b_{5}b_{6}b_{7}b_{8}b_{9}b_{10}b_{11}b_{12}b_{13}b_{14}b_{15}b_{16}b_{17}b_{18}b_{19}b_{20}b_{21}b_{22}b_{23} \)</p>
+<p class="center" style="font-size:90%">\( b_{1}b_{2}b_{3}b_{4}b_{5}b_{6}b_{7}b_{8}b_{9}b_{10}b_{11}b_{12}b_{13}b_{14}b_{15}b_{16}b_{17}b_{18}b_{19}b_{20}b_{21}b_{22}b_{23} \)</p>
 <p>&nbsp;</p>
 <p class="center">\( \text{mantissa} = 1.0 + \sum^{23}_{i=1} \frac{b_i}{2^i} \)</p>
 <p>&nbsp;</p>
@@ -536,8 +568,8 @@ void Image::WriteInt (int value, FILE * fp) {
 - 0x41c80000 (big endian) = 0100 0001 1100 1000 0000 0000 0000 0000
   - Sign bit: 0 (means it's positive)
   - Exponent: 1000 0011<sub>b</sub> = 0x83 = 131<sub>d</sub>
-    - Subtract 127 from exponent yields 4
     - Exponent offset: 2<sup>n-1</sup>-1 = 2<sup>(8-1)</sup>-1 = 127
+    - Subtract 127 from exponent value yields 4
     - Which means multiply the mantissa by 2<sup>4</sup>=16
   - Mantissa: 100 1000 0000 0000 0000 0000d = 0x480000
 	  </script></section>
@@ -548,7 +580,7 @@ void Image::WriteInt (int value, FILE * fp) {
   - Each bit represents (1/2)<sup>*n*</sup> for *n* from 1 on up
     - Not 0 on up!
   - This mantissa has the first and fourth bits set
-  - The '1' bits represent (1/2)<sup>1</sup> and (1/2)<sup>4</sup>
+  - The '1' bits in positions 1 and 4 represent (1/2)<sup>1</sup> and (1/2)<sup>4</sup>
     - That's 0.5 + 0.0625 = 0.5625
   - Then add 1 to that
     - Yields 1.5625
@@ -606,7 +638,7 @@ void Image::WriteInt (int value, FILE * fp) {
 
 	  <section data-markdown><script type="text/template">
 ## Converting a float<br>from decimal to binary
-- Algorithm to covert f into binary:
+- Algorithm to covert *f* into binary:
   - Sign: 1 if negative, 0 if positive
   - Exponent (*e*): find what power of 2 is required to bring the number to 1.0 <= *x* < 2.0
     - If you have to multiply, then it's negative
@@ -614,8 +646,8 @@ void Image::WriteInt (int value, FILE * fp) {
     - Add 127 to that value
   - The mantissa is *f/2<sup>e</sup>*
     - Note that *e* is the exponent before adding 127 to it
-    - Subtract 1 from the mantissa (so it's between 0.0 and 1.0)
-    - Convert it to it's closest representation using powers of 1/2
+    - Subtract 1 from the mantissa (so that 0.0 &le; *m* < 1.0)
+    - Convert to it's closest representation using powers of &frac12;
     - Similar to converting a base *n* number to base 10
 	  </script></section>
 
@@ -651,7 +683,7 @@ Output: 0x42288000
     - = 0101 0001 0000 0000 0000 000
   - In binary, then, it's:
     - <font color='pink'>0</font><font color='green'>100 0010 0</font><font color="skyblue">010 1000 1000 0000 0000 0000</font>
-      - The <font color='pink'>sign</font>, <font color='green'>exponent</font> and <font color='skyblue'>mantissa</font> are colored appropriately
+      - The <font color='pink'>sign</font>, <font color='green'>exponent</font> and <font color='skyblue'>mantissa</font> are colored differently for clarity
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -672,7 +704,7 @@ Even common decimals like 0.1 cannot be represented exactly!
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Remember this from CS 1110?
+## Floating point precision in Java
 What gets printed? (source: [FloatTest.java](code/04-numbers/FloatTest.java.html) ([src](code/04-numbers/FloatTest.java)))
 ```
 class FloatTest {
@@ -690,7 +722,7 @@ Hint: it's not 1.0!
 
 	  <section data-markdown><script type="text/template">
 ## Take care with floating-point values
-- Consider
+- Consider, in Java:
 ```
 double a = 1;
 double b = 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1
@@ -713,8 +745,14 @@ double c = .9999999999999999;
   - Both doubles and floats
 - Need to test if the two doubles are "close" in value
 ```
+// Java code
 final double EPSILON = 0.000001;
 boolean foo = Math.abs (a-b) < EPSILON;
+```
+```
+// C++ (need to #include <math.h> and compile with -lm)
+#define EPSILON 0.000001
+bool foo = fabs (a-b) < EPSILON;
 ```
 - Note that a float has 7 decimal places of (printed) accuracy
   - And two floats may differ by a value that is at 8 decimal places
@@ -738,10 +776,11 @@ boolean foo = Math.abs (a-b) < EPSILON;
 <h2>Floating point rounding errors</h2>
 <ul>
 <li>0.1 is stored (as a 32 bit float) as
-<ul><li>mantissa = 100 1100 1100 1100 1100 1101</li></ul></li>
-<li>Or: \( \frac{1+\frac{1}{2^1}+\frac{1}{2^4}+\frac{1}{2^5}+\frac{1}{2^8}+\frac{1}{2^9}+\frac{1}{2^{12}}+\frac{1}{2^{13}}+\frac{1}{2^{16}}+\frac{1}{2^{17}}+\frac{1}{2^{20}}+\frac{1}{2^{21}}+\frac{1}{2^{23}}}{2^4} \)</li>
-<li>Which equals (exactly) 0.100000001490116119384765625
-<ul><li>Only the first 7 digits, .1000000, are printed</li></ul></li>
+<ul><li>mantissa = 100 1100 1100 1100 1100 1101</li></ul><br>&nbsp;</li>
+<li>Or: \( \frac{1+\frac{1}{2^1}+\frac{1}{2^4}+\frac{1}{2^5}+\frac{1}{2^8}+\frac{1}{2^9}+\frac{1}{2^{12}}+\frac{1}{2^{13}}+\frac{1}{2^{16}}+\frac{1}{2^{17}}+\frac{1}{2^{20}}+\frac{1}{2^{21}}+\frac{1}{2^{23}}}{2^4} \)<br>&nbsp;</li>
+<li>Which is exactly equal to:
+<ul><li> 0.100000001490116119384765625</li>
+<li>But only the first 7 digits, .1000000, are printed</li></ul></li>
 <li>It's a finite number in decimal, but repeating in binary</li>
 </ul>
 	  </section>
@@ -806,7 +845,7 @@ boolean foo = Math.abs (a-b) < EPSILON;
   - About 16 decimal digits of accuracy
 - Single precision: 0.1 = 209715 / 2097152
   - Error = 9.5 \* 10<sup>-8</sup>  (20 hours to miss target)
-- Double Precision: 0.1 = 56294995342131 / 562949953421312
+- Double precision: 0.1 = 56294995342131 / 562949953421312
   - Error = 3.608 \* 10<sup>-16</sup> (2,172,375,450 ***years*** to miss)
 	  </script></section>
 

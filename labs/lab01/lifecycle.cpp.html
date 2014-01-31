@@ -49,7 +49,7 @@ MyObject<font color="#990000">::~</font><b><font color="#000000">MyObject</font>
     cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"MyObject Destructor:          "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font><b><font color="#0000FF">this</font></b> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
 <font color="#FF0000">}</font>
 
-<i><font color="#9A1900">// -----------------------------------------------------------  put to</font></i>
+<i><font color="#9A1900">// ----------------------------------------------------------  print out</font></i>
 ostream<font color="#990000">&amp;</font> <b><font color="#0000FF">operator</font></b><font color="#990000">&lt;&lt;(</font>ostream<font color="#990000">&amp;</font> output<font color="#990000">,</font> <b><font color="#0000FF">const</font></b> MyObject<font color="#990000">&amp;</font> obj<font color="#990000">)</font> <font color="#FF0000">{</font>
     <i><font color="#9A1900">// output in format:  ("object name",id)</font></i>
     <b><font color="#0000FF">return</font></b> output <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"(</font><font color="#CC33CC">\"</font><font color="#FF0000">"</font> <font color="#990000">&lt;&lt;</font> obj<font color="#990000">.</font>name <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\"</font><font color="#FF0000">,"</font> <font color="#990000">&lt;&lt;</font> obj<font color="#990000">.</font>id <font color="#990000">&lt;&lt;</font> <font color="#FF0000">")"</font><font color="#990000">;</font>
