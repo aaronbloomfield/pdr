@@ -1,5 +1,5 @@
-CS 2150: Program and Data Representation
-========================================
+Program and Data Representation: CS 2150 Specific Content
+=========================================================
 
 [Go up to the main README file](../README.html)
 

@@ -1,5 +1,5 @@
-Laboratory 3: Stacks
-====================
+PDR: Laboratory 3: Stacks
+=========================
 
 [Go up to the Labs table of contents page](../index.html)
 

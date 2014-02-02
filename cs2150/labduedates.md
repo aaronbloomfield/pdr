@@ -1,5 +1,5 @@
-Lab Due Dates Page
-==================
+PDR: CS2150: Lab Due Dates Page
+===============================
 
 [Go up to the CS 2150 documents page](index.html)
 

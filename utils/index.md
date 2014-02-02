@@ -1,5 +1,5 @@
-PDR Utilities
--------------
+Program and Data Representation: Utilities
+==========================================
 
 [Go up to the main README file](../README.html)
 

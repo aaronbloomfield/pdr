@@ -1,5 +1,5 @@
-GDB command summary
-===================
+PDR: Docs: GDB command summary
+==============================
 
 [Go up to the main documents page](index.html)
 

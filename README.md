@@ -290,4 +290,4 @@ License](http://creativecommons.org/licenses/by-sa/4.0/) (CC BY-SA).
 Copyright (c) 2013-2014 by Aaron Bloomfield.
 
 Some parts of this repository are taken, with permission, from other
-sources.  The details are in the [License](LICENSE.html) file.
+sources.  The full details are in the [License](LICENSE.html) file.

@@ -1,5 +1,5 @@
-Laboratory 4: Number Representation
-===================================
+PDR: Laboratory 4: Number Representation
+========================================
 
 [Go up to the Labs table of contents page](../index.html)
 

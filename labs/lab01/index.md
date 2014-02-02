@@ -1,5 +1,5 @@
-Laboratory 1: Introduction to C++
-=================================
+PDR: Laboratory 1: Introduction to C++
+======================================
 
 [Go up to the Labs table of contents page](../index.html)
 

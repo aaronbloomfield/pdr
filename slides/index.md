@@ -1,5 +1,5 @@
-Program and Data Representation Slides
-======================================
+Program and Data Representation: Slides
+=======================================
 
 [Go up to the main README file](../README.html)
 

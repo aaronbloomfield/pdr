@@ -1,5 +1,5 @@
-Itty Bitty Computing Machine (IBCM)
-===================================
+Program and Data Representation: Itty Bitty Computing Machine (IBCM)
+====================================================================
 
 [Go up to the main README file](../README.html)
 
