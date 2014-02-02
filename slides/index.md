@@ -41,7 +41,7 @@ Program and Data Representation: Slides
 
 - Source code: [float_to_hex.cpp](code/04-numbers/float_to_hex.cpp.html) ([src](code/04-numbers/float_to_hex.cpp)), [FloatTest.java](code/04-numbers/FloatTest.java.html) ([src](code/04-numbers/FloatTest.java))
 
-Slide set 5: Arrays & Big-Oh
+[Slide set 5: Arrays & Big-Oh](05-arrays-bigoh.html)
 
 Slide set 6: Trees
 
