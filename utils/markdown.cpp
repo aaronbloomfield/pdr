@@ -78,8 +78,13 @@ int main (int argc, char **argv) {
     // read in the file into an internal string
     bool codemode = false;
     string codeprefix = "    ";
-    string file, line;
+    string file, line, firstline;
+    bool gotfirstline = false;
     while ( getline(fin,line) ) {
+        if ( !gotfirstline ) {
+            gotfirstline = true;
+            firstline = line;
+        }
         if ( (line[0] == '`') && (line[1] == '`') && (line[2] == '`') ) {
             // we ignore any language specification after the three back quotes
             codemode = !codemode;
@@ -103,7 +108,7 @@ int main (int argc, char **argv) {
         exit(0);
     }
     // write the output
-    fprintf (fpout, "<!doctype html>\n<html>\n<head>\n");
+    fprintf (fpout, "<!doctype html>\n<html>\n<head>\n<meta charset=\"utf-8\">\n<title>%s</title>\n", firstline.c_str());
     if ( css )
         fprintf (fpout, "<link href=\"%s\" media=\"all\" rel=\"stylesheet\" type=\"text/css\">", css);
     fprintf (fpout, "</head>\n<body>\n");

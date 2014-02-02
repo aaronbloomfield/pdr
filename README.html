@@ -1,6 +1,8 @@
 <!doctype html>
 <html>
 <head>
+<meta charset="utf-8">
+<title>Program and Data Representation</title>
 <link href="markdown.css" media="all" rel="stylesheet" type="text/css"></head>
 <body>
 <h1>Program and Data Representation</h1>
@@ -191,8 +193,11 @@ output file.  You can also specify a CSS file to use via the <code>-css
 particular, the .html files in this repository are formatted using the
 <a href="markdown.css">markdown.css</a> file.  The resulting document is a full
 HTML document &ndash; meaning it adds the <code>&lt;doctype&gt;</code>, <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>,
-and <code>&lt;body&gt;</code> tags to the document, as necessary.  And it handles code
-blocks properly between the local markdown and GFM.</p>
+and <code>&lt;body&gt;</code> tags to the document, as necessary.  In addition, it adds
+a character encoding (utf-8) and a title (explained next) to allow it
+to properly validate.  The title is the very first line of the file,
+as that is usually a h1 heading.  And it handles code blocks properly
+between the local markdown and GFM.</p>
 
 <p>For all the Markdown files in this repository, both the original (.md)
 file and the HTML version (.html) are added to the repository, so that

@@ -184,8 +184,11 @@ output file.  You can also specify a CSS file to use via the `-css
 particular, the .html files in this repository are formatted using the
 [markdown.css](markdown.css) file.  The resulting document is a full
 HTML document -- meaning it adds the `<doctype>`, `<html>`, `<head>`,
-and `<body>` tags to the document, as necessary.  And it handles code
-blocks properly between the local markdown and GFM.
+and `<body>` tags to the document, as necessary.  In addition, it adds
+a character encoding (utf-8) and a title (explained next) to allow it
+to properly validate.  The title is the very first line of the file,
+as that is usually a h1 heading.  And it handles code blocks properly
+between the local markdown and GFM.
 
 For all the Markdown files in this repository, both the original (.md)
 file and the HTML version (.html) are added to the repository, so that
