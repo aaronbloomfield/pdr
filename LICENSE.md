@@ -1,6 +1,8 @@
 PDR: License
 ============
 
+[Go up to the main README file](README.html)
+
 This work is licensed under a [Creative Commons Attribution-ShareAlike
 4.0 International](http://creativecommons.org/licenses/by-sa/4.0/)
 License
