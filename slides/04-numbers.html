@@ -157,6 +157,7 @@
 - In C/C++, any integer that begins with '0' is interpreted as octal
   - 073 = 73<sub>8</sub> = 59<sub>10</sub> 
 - And any number that begins with '0x' is interpreted as hexadecimal
+  - 0x73 = 73<sub>16</sub> = 115<sub>10</sub>
   - 0x3f = 3f<sub>16</sub> = 63<sub>10</sub>
   - Case does not matter (0xFF == 0xff)
 - There is no (convenient) way to specify a number in binary
@@ -168,10 +169,10 @@
 - Split the binary number into 4 bit chunks ('nibbles')
 - Convert each one to a ***single*** hexadecimal digit
   - Converting through decimal, if necessary
-  - Keep in mind that it takes ***two*** hex digits to make a byte
+  - Example: 0100 1010 1000 1101<sub>b</sub> => 0x4a8d
 - Likewise, hexadecimal to binary is just converting each hex digit to 4 bits
-- Example: 0x13ac => 0001 0011 1010 1100<sub>b</sub>
-- Example: 0100 1010 1000 1101<sub>b</sub> => 0x4a8d
+  - Example: 0x13ac => 0001 0011 1010 1100<sub>b</sub>
+- Keep in mind that it takes ***two*** hex digits to make a byte
 	    </script></section>
 
 	</section>
@@ -227,7 +228,7 @@
 
 	    <section>
 <h2>Binary Representation</h2>
-<p>\( b_{n-1} b_{n-2} b_{n-3} \ldots b_2 b_1 b_0 \)</p>
+<p><i>n</i>-bit binary number: \( b_{n-1} b_{n-2} b_{n-3} \ldots b_2 b_1 b_0 \)</p>
 <p>&nbsp;</p>
 <p>Value = \( \sum_{i=0}^{n-1} b_i \cdot 2^i \)</p>
 <p>&nbsp;</p>
@@ -250,7 +251,7 @@
   - int = 32 bits
   - long = 64 bits
 - C: implementation-defined
-  - int: can hold between 0 and `UINT_MAX`
+  - `unsigned int`: can hold between 0 and `UINT_MAX`
     - `UINT_MAX` must be at least 65535
       - You must `#include <limits>` to access `UINT_MAX`
       - n >= 16, typical current machines *n* = 32 or 64
@@ -269,9 +270,9 @@
 	  <section data-markdown><script type="text/template">
 ## The Great Debate
 - "Big Endian": most significant ***first*** (lowest address)
-  - 1000 0000 0000 0000 = 215 = 32768
+  - 1000 0000 0000 0000 = 2<sup>15</sup> = 32768
 - "Little Endian": most significant ***last*** (highest address)
-  - 1000 0000 0000 0000 = 20 = 1
+  - 1000 0000 0000 0000 = 2<sup>0</sup> = 1
 - Which is better?
 - Note that although all the *bits* are reversed, usually it is displayed with just the *bytes* reversed
 	  </script></section>
@@ -400,7 +401,7 @@ void Image::WriteInt (int value, FILE * fp) {
 - Sign Bit, sign-and-magnitude
 ![sign and magnitude](images/04-numbers/sign-and-magnitude.png)
 - Algorithm to encode:
-  - Encode number using *n-1* bits
+  - Encode number using *n*-1 bits
   - First bit is 1 if the number is < 0
 - Problem!
   - Two representations for 0
@@ -411,7 +412,7 @@ void Image::WriteInt (int value, FILE * fp) {
 - Sign Bit, One's Complement
 ![one's complement](images/04-numbers/ones-complement.png)
 - Algorithm to encode:
-  - Encode number using *n-1* bits
+  - Encode number using *n*-1 bits
   - If negative, flip all the bits
 - Problem!
   - Still two representations for 0
@@ -428,13 +429,13 @@ void Image::WriteInt (int value, FILE * fp) {
 ## Two's complement
 - Algorithm for an *n*-bit memory space:
   - Zero is *n* 0's
-  - For positive numbers, encode normally in *n-1* bits
-    - Max value is *2<sup>n-1</sup>-1*
+  - For positive numbers, encode normally in *n*-1 bits
+    - Max value is 2<sup>*n*-1</sup>-1
     - Sign bit is zero
     - This, zero is a "positive" number! (and is all zeros)
   - For negative numbers, take the absolute value
-    - Then subtract that from 2<sup>n</sup>, and encode that value
-    - Max value is -2<sup>n-1</sup>
+    - Then subtract that from 2<sup>*n*</sup>, and encode that value
+    - Max value is -2<sup>*n*-1</sup>
     - Alternatively, encode the absolute value, swap the bits, and add 1
 	  </script></section>
 
