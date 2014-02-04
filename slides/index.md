@@ -43,6 +43,8 @@ Program and Data Representation: Slides
 
 [Slide set 5: Arrays & Big-Oh](05-arrays-bigoh.html)
 
+- Source code: [cmdlineparams.cpp](code/05-arrays-bigoh/cmdlineparams.cpp.html) ([src](code/05-arrays-bigoh/cmdlineparams.cpp))
+
 Slide set 6: Trees
 
 Slide set 7: Hashes

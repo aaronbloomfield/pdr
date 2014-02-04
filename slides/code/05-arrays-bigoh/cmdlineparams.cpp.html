@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>cmdlineparams.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">// handling command-line parameters</font></i>
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<font color="#009900">int</font> <b><font color="#000000">main</font></b> <font color="#990000">(</font><font color="#009900">int</font> argc<font color="#990000">,</font> <font color="#009900">char</font><font color="#990000">*</font> argv<font color="#990000">[])</font> <font color="#FF0000">{</font>
+    <i><font color="#9A1900">// the command-line parameters are stored as C-style strings in the</font></i>
+    <i><font color="#9A1900">// argv[] array. argc contains 1 more than the number of command</font></i>
+    <i><font color="#9A1900">// line parmaeters specified.</font></i>
+    <i><font color="#9A1900">// the 0th command line parameter is always the program name.</font></i>
+    <i><font color="#9A1900">// we can print a C-style string directly through cout:</font></i>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"This program is called '"</font> <font color="#990000">&lt;&lt;</font> argv<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"'"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The following are the command line parameters you specified: "</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <i><font color="#9A1900">// this for loop starts at 1 to avoid printing the name of the program</font></i>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> argc<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+        <i><font color="#9A1900">// we can convert the C-style strings into C++-style strings:</font></i>
+        <font color="#008080">string</font> <b><font color="#000000">s</font></b><font color="#990000">(</font>argv<font color="#990000">[</font>i<font color="#990000">]);</font>
+        <i><font color="#9A1900">// and then print them out:</font></i>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">"</font> <font color="#990000">&lt;&lt;</font> s <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

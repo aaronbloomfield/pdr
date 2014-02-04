@@ -101,10 +101,20 @@ int someInts[3];
 - Note that the previous declaration is almost the same as `int* someInts = new int[3];`
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
-## int someInts[3];
-(diagram)
-	  </script></section>
+	  <section>
+<h2>int someInts[3] = {2, 4, 6};</h2>
+
+<table class="transparent">
+<tr><th>Array part</th><th>Address</th><th>Memory</th></tr>
+<tr><td>&amp;someInts[0]</td><td>1000</td><td class="border">2</td></tr>
+<tr><td>&amp;someInts[1]</td><td>1004</td><td class="border">4</td></tr>
+<tr><td>&amp;someInts[2]</td><td>1008</td><td class="border">6</td></tr>
+<tr><td></td><td></td><td class="border">...</td></tr>
+<tr><td>someInts</td><td>???</td><td class="border">1000</td></tr>
+<tr><td></td><td></td><td class="border">...</td></tr>
+</table>
+<p>This assumes that ints are 4 bytes in size</p>
+	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## Where is someInt[i] located in memory?
@@ -158,7 +168,7 @@ int m[2][3] =
 
 	  <section data-markdown><script type="text/template">
 ## C++ Implementation
-(diagram)
+![2-d array diagram](images/05-arrays-bigoh/2d-array-layout.png)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -173,6 +183,34 @@ int m[2][3] =
   - An array of C-style strings (`char*`) containing those parameters
 	  </script></section>
 
+	  <section data-markdown><script type="text/template">
+## Command-line parameters example
+Source code: [cmdlineparams.cpp](code/05-arrays-bigoh/cmdlineparams.cpp.html) ([src](code/05-arrays-bigoh/cmdlineparams.cpp))
+```
+int main (int argc, char* argv[]) {
+    // the command-line parameters are stored as C-style 
+    // strings in the argv[] array. argc contains 1 more 
+    // than the number of command line parmaeters specified.
+    // the 0th command line parameter is always the program 
+    // name. We can print a C-style string directly through 
+    // cout:
+    cout << "This program is called '" << argv[0] 
+         << "'" << endl;
+    cout << "The following are the command " 
+         << "line parameters you specified: " << endl;
+    // this for loop starts at 1 to avoid printing the 
+    // name of the program
+    for ( int i = 1; i < argc; i++ ) {
+        // we can convert the C-style strings into 
+        // C++-style strings:
+        string s(argv[i]);
+        // and then print them out:
+        cout << "\t" << s << endl;
+    }
+}
+```
+	  </script></section>
+
 	</section>
 
 
@@ -183,185 +221,293 @@ int m[2][3] =
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-Orders of growth
-Orders of Growth
-Algorithm Analysis
-Orders of growth classes
-Running Time Calculations
-Classifying functions by their
-Asymptotic Growth Rates
-Asymptotic growth rate, asymptotic order, or 
-order of functions 
-Comparing and classifying functions that ignores constant factors and small inputs. 
+## Classifying functions by their<br>Asymptotic Growth Rates
+- Asymptotic growth rate, asymptotic order, or order of functions 
+  - Comparing and classifying functions that ignores constant factors and small inputs. 
+- The sets big oh O(*g*), big theta &Theta;(*g*), big omega &Omega;(*g*)
+  - &Omega;(*g*): functions that grow ***at least as fast*** as g
+  - &Theta;(*g*): functions that grow ***at the same rate*** as g
+  - O(*g*): functions that grow ***no faster than*** g
 
-The sets big oh O(g), big theta (g), big omega (g)
-Why do we care?
-Some data structures are faster than others
-Each data structure has some operations that are fast, and some that are slow
-We need a way to compare them
-This allows us to
-Better choose the data structures that we will use
-Better design additional data structures
-Input sizes
-Your algorithm does not matter if you have 10 elements
-A shuffle sort will work just fine
+![venn diagram](images/05-arrays-bigoh/venn-diagram.png)
+	  </script></section>
 
-Consider big input sizes:
-UVa's e-mail has ~100,000 e-mail addresses
-Mapquest (for driving routes) has ~20 million intersections
-Google's index is 24 billion items
+	  <section data-markdown><script type="text/template">
+## Why do we care?
+- Some data structures are faster than others
+  - Each data structure has some operations that are fast, and some that are slow
+- We need a way to compare them
+- This allows us to
+  - Better choose the data structures that we will use
+  - Better design additional data structures
+	  </script></section>
 
-Even for small input sizes...
-This is from the first lecture set
-All times are in ms (1/1000th of a second)
-The Sets  O(g), (g), (g)
-Let g and f  be a functions from the nonnegative integers into the positive real numbers
-For some real constant c > 0 and 
-some nonnegative integer constant N0
-O(g) is the set of functions f, such that 
-f(N)  c g(N) for all N  n0
-(g) is the set of functions f, such that 
-f(N)  c g(N) for all N  n0
-(g) = O(g)  (g)
-(g) is the asymptotic order of g or the order of g
-f (g) read as "f is asymptotic order g" or "f is order g"
-Asymptotic Bounds
-The Sets big oh O(g), big theta (g), big omega (g) -- remember these meanings:
+	  <section data-markdown><script type="text/template">
+## Input sizes
+- Your algorithm does not matter if you have 10 elements
+  - A shuffle sort will work just fine
+- Consider big input sizes:
+  - UVa's e-mail has ~100,000 e-mail addresses
+  - Mapquest (for driving routes) has ~20 million intersections
+  - Google's index is 24 billion items
+	  </script></section>
 
-O(g): functions that grow no faster than g,
-or asymptotic upper bound
+	  <section data-markdown><script type="text/template">
+## Even for small input sizes...
+- This is from the first lecture set
+- All times are in ms (1/1000<sup>th</sup> of a second)
+&nbsp;  
 
-(g): functions that grow at least as fast as g,
-or asymptotic lower bound
+| Data Structure | Total time | Insert time | Search time | Delete time |
+|----------------|------------|-------------|-------------|-------------|
+| Vector         | 17,311     | 30          | 12,620      | 4,661       |
+| ArrayList      | 17,281     | 28          | 12,609      | 4,644       |
+| LinkedList     | 24,255     | 54          | 17,934      | 6,267       |
+| HashSet        | 122        | 103         | 9           | 10          |
+| TreeSet        | 119        | 93          | 14          | 12          |
+| Vector, sorted | 294        | 36          | 19          | 239         |
 
-(g): functions that grow at the same rate as g,
-or asymptotic tight bound
- O Examples
-Given f  O (h) and g  O (h) which of these are true
+&nbsp;  
+	  </script></section>
 
+	  <section data-markdown><script type="text/template">
+## The Sets  O(*g*), &Theta;(*g*), &Omega;(*g*)
+- Let *f* and *g* be a functions from the nonnegative integers into the positive real numbers
+- For some real constant *c* > 0 and some nonnegative integer constant *N*<sub>0</sub>
+  - O(*g*) is the set of functions *f*, such that 
+    - *f*(*N*) &le; c \* *g*(*N*) for all *N* &ge; *n*<sub>0</sub>
+  - &Omega;(*g*) is the set of functions f, such that 
+    - *f*(*N*) &ge; c \* *g*(*N*) for all *N* &ge; *n*<sub>0</sub>
+  - &Theta;(*g*) = O(*g*) &cap; &Omega;(*g*)
+    - &Theta;(*g*) is the asymptotic order of g or the *order* of g
+    - *f* &isin; &Theta;(*g*) read as "*f* is asymptotic order *g*" or "*f* is order *g*"
+	  </script></section>
 
-For all positive integers m, f (m) < g (m).
-For some positive integer m, f (m) < g (m).
-For some positive integer m0, and all positive integers m > m0,  f (m) < g (m).
-a and b
-b and c
-a and c
-1 is false: 
-Prove by Counter-Example
-For all positive integers m, f (m) < g (m).
-2 is true: Intuition
-If f  O (h) and g  O (h) then, for some positive integer m, f (m) < g (m).
+	  <section data-markdown><script type="text/template">
+## Asymptotic Bounds
+- The Sets big oh O(*g*), big theta &Theta;(*g*), big omega &Omega;(*g*) -- remember these meanings:
+  - O(*g*): functions that grow no faster than *g*, or asymptotic upper bound
+  - &Omega;(*g*): functions that grow at least as fast as *g*, or asymptotic lower bound
+  - &Theta;(*g*): functions that grow at the same rate as *g*, or asymptotic tight bound
+	  </script></section>
 
-g must grow faster than h, otherwise g would be in O(h).
-f must grow no faster than h, since 
-f  O (h)
-So, if g grows faster than h, but f grows as slow or slower than h, eventually, 
-g(n) > f (n) so for some m, f (m) < g (m).
+	  <section>
+<h2>Big-Oh Examples</h2>
+<p><i>f</i>(<i>n</i>) &isin; O(<i>g</i>(<i>n</i>) means: there are positive constants <i>c</i> and <i>n</i><sub>0</sub> such that <i>f</i>(<i>n</i>) &le; <i>c</i>*<i>g</i>(<i>n</i>) for all values <i>n</i> &ge; <i>n</i><sub>0</sub></p>
+&nbsp;
+<ul>
+<li>Is <i>x</i> &isin; O(<i>x</i><sup>2</sup>)?
+  <ul><li class="fragment">Yes, <i>c</i> = 1, <i>n</i><sub>0</sub> = 2 works fine</li></ul></li>
+<li>Is 10<i>x</i> &isin; O(<i>x</i>)?
+  <ul><li class="fragment">Yes, <i>c</i> = 11, <i>n</i><sub>0</sub> = 2 works fine</li></ul></li>
+<li>Is <i>x</i><sup>2</sup> &isin; O(<i>x</i>)?
+  <ul><li class="fragment">No; no matter what values for <i>c</i> and <i>n</i><sub>0</sub> we pick, <i>c</i>*<i>x</i><sup>2</sup> &gt; <i>x</i> for big enough <i>x</i></li></ul></li>
+</ul>
+	  </section>
 
-Given f  O (h) and g  O (h) which of these are true
+	  <section data-markdown><script type="text/template">
+## Given *f* &isin; O(*h*) and *g* &notin; O(*h*),<br>which of these are true?
+1. For ***all*** positive integers *m*, *f*(*m*) < *g*(*m*).
+2. For ***some*** positive integer *m*, *f*(*m*) < *g*(*m*).
+3. For ***some*** positive integer *m*<sub>0</sub>, and ***all positive*** integers *m* > *m*<sub>0</sub>,  *f*(*m*) < *g*(*m*).
+4. a and b
+5. b and c
+6. a and c
+	  </script></section>
 
+	  <section data-markdown><script type="text/template">
+## 1 is false: Prove by Counter-Example
+- Recall that *f* &isin; O(*h*) and *g* &notin; O(*h*)
+- We are disproving: for all positive integers m, *f*(*m*) < *g*(*m*):
+  - Pick *h*(*n*) = *n*<sup>2</sup>, *f*(*n*) = 5\**n*<sup>2</sup>, *g*(*n*) = *n*<sup>3</sup>
+  - For *m*=2, *f*(*m*) = 20 > 8 = *g*(*m*)
+  - Therefore, this is false
+- *f*(*n*) &isin; O(*g*(*n*)) means there are positive constants *c* and *n*<sub>0</sub> such that *f*(*n*) &le; *c*\**g*(*n*) for all values *n* &ge; *n*<sub>0</sub>.
+	  </script></section>
 
-For all positive integers m, f (m) < g (m).
-For some positive integer m, f (m) < g (m).
-For some positive integer m0, and all positive integers m > m0,  f (m) < g (m).
-a and b
-b and c
-a and c
-Lower Bound:  (Omega)
-	f(n) is  (g (n)) means:
-		There are positive constants c and n0 such that 	
-			f (n)  cg(n) 
-		for all n  n0 
+	  <section data-markdown><script type="text/template">
+## 2 is true: Intuition
+- If *f* &isin; O (h) and g &notin; O (h) then, for some positive integer m, *f*(*m*) < *g*(*m*).
+- *g* must grow faster than *h*, otherwise *g* would be in O(*h*)
+- *f* must grow no faster than *h*, since *f* &isin; O(*h*)
+- So, if *g* grows faster than *h*, but *f* grows as slow or slower than *h*, eventually, *g*(*n*) > *f*(*n*) so for some *m*, *f*(*m*) < *g*(*m*).
+	  </script></section>
 
-Theta ("Order of")
-Intuition: the set (f ) is the set of functions that grow as fast as f
-Definition: f (n)   (g (n)) if and only if both: 
-1. f (n)  O (g (n))
-and 2. f (n)   (g (n))
-Note: we do not have to pick the same c and n0 values for 1 and 2
-When we say, "f is order g" that means 
-f (n)   (g (n))
-Tight Bound Theta ()
-End of lecture on Wed, Sep 25
-Little-oh
-Let g(x)  o(f(x))
-Any function that is o(f) is also O(f)
-So both act as an upper bound
-But a O(f) bound can also be (f) and thus (f)
-Meaning the bound can be tight
-Little-oh means the bound can not be tight
-Thus, it's O(f) but not (f)
-Or, that g(x) will ALWAYS be lower than f(x)
-For some constants c and n0
-Rarely used in computer science...
-Little-omega
-Analogous to little-oh
-It's a lower bound that cannot be a tight lower bound
-If something is (f), then it's (f), but not O(f) (or o(f) or (f))
-Rarely used in computer science...
-Another Way to Define Order Classes 
-Comparing f(n) and g(n) as n approaches infinity, 
-If
+	  <section data-markdown><script type="text/template">
+## Given *f* &isin; O(*h*) and *g* &notin; O(*h*),<br>which of these are true?
+1. For ***all*** positive integers *m*, *f*(*m*) < *g*(*m*).
+2. For ***some*** positive integer *m*, *f*(*m*) < *g*(*m*).
+3. For ***some*** positive integer *m*<sub>0</sub>, and ***all positive*** integers *m* > *m*<sub>0</sub>,  *f*(*m*) < *g*(*m*).
+4. a and b
+5. b and c
+6. a and c
+	  </script></section>
 
-< , including the case in which the limit is 0 then 
-f O(g)
-> 0, including the case in which the limit is  then 
-f  (g)
-= c and 0 < c <  then f  (g)
-= 0  then f  o(g)   //read as "little oh of g"
-=   then f  (g)  //read as "little omega of g"
-A note about notation
-Technically, f(x) = O(h(x)) implies an equality
-This is really an abuse of notation, but we can deal with it
-It should be f(x)  O(h(x))
-Some Properties of O(g), (g), (g)
-Transitive: If f O(g) and g O(h), then f O(h)
-O is transitive. Also , , o,  are transitive.
-Reflexive: f  (f)
-As is big-Oh and big-omega
-Symmetric: If f  (g), then g  (f)
-Big-Oh is not symmetric!  (neither is , o, or )
- defines an equivalence relation on the functions.
-Each set (f) is an equivalence class (complexity class).
-f O(g)  g  (f)
-O(f + g) = O(max(f, g)) 
-similar equations hold for  and 
-Classification of functions
-(1) denotes the set of functions bounded by a constant (for large n)
-f  (n), f is linear
-f  (n log n), f is log-linear
-f  (n2), f is quadratic
-f  (n3), f is cubic
-f  (2n), f is exponential
+	  <section data-markdown><script type="text/template">
+## Lower Bound: &Omega; (Omega)
+- *f*(*n*) is &Omega; (*g*(*n*)) means:
+  - There are positive constants *c* and *n*<sub>0</sub> such that *f*(*n*) <font color='red'>&ge;</font> *c*\*g*(*n*) for all *n* &ge; *n*<sub>0</sub> 
+  - The difference from big-Oh is the &ge; in big-Omega versus &le; in big-Oh
+	  </script></section>
 
-nk  o(cn) for any k > 0 and any c > 1
-powers of n grow more slowly than any exponential function cn
-A note about logs
-The difference between log10x and log2x is always a constant
-Specifically, about 3.322
-Since we don't care about constants in these analyses, we'll ignore the log base
-Most things in CS are log base 2 anyway...
-Typical Growth Rates
-Does Order Class Matter?
-No, not for small inputs
-Yes, for many real problems
-Practical Complexity
-Practical Complexity
-Practical Complexity
-Practical Complexity
-Practical Complexity
-General Rules for Running Time Calculations (Big-Oh)
+	  <section>
+<img class="stretch" alt="big omega" src="images/05-arrays-bigoh/omega-diagram-1.png">
+	  </section>
 
-For loops
-At most the running time of the statements inside the for loop
-Nested loops
-Analyze from inside to out.
-Runtime of the statement * product of the sizes of the loops
-Consecutive statements
-Additive
-if/else
-Time for the test + longer of the runtimes
-Determining Running Times
+	  <section data-transition="fade" data-transition-speed="fast">
+<img class="stretch" alt="big omega" src="images/05-arrays-bigoh/omega-diagram-2.png">
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Theta ("Order of")
+- Intuition: the set &Theta;(*f*) is the set of functions that grow ***as fast as*** *f*
+- Definition: *f*(*n*) &isin; &Theta;(*g*(*n*)) if and only if both: 
+  1. *f*(*n*) &isin; O (*g*(*n*))
+  2. *f*(*n*) &isin; &Omega; (*g*(*n*))
+- Note that we do not have to pick the same *c* and *n*<sub>0</sub> values for 1 and 2
+- When we say, "f is order g" that means *f*(*n*) &isin; &Theta; (*g*(*n*))
+	  </script></section>
+
+	  <section>
+<img class="stretch" alt="big omega" src="images/05-arrays-bigoh/theta-diagram.png">
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Little-oh
+- Let *g*(x) &isin; o(*f*(x))
+  - Any function that is o(*f*) is also O(*f*)
+  - So both act as an upper bound
+  - But a O(*f*) bound can also be &Omega;(*f*) and thus &Theta;(*f*)
+    - Meaning the big-Oh bound can be tight
+  - Little-oh means the bound can not be tight
+    - Thus, it's O(*f*) but not &Omega;(*f*)
+    - Or, that *g*(x) will ALWAYS be lower than *f*(x)
+      - For some constants *c* and *n*<sub>0</sub>
+  - Rarely used in computer science...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Little-omega
+- Analogous to little-oh
+  - It's a lower bound that cannot be a tight lower bound
+  - If something is &omega;(*f*), then it's &Omega;(*f*), but not O(*f*) (or o(*f*) or &Theta;(*f*))
+- Rarely used in computer science...
+- What does this mean for little-theta?
+	  </script></section>
+
+	  <section>
+<h2>Another Way to Define Order Classes</h2>
+<ul>
+<li>Comparing <i>f</i>(<i>n</i>) and <i>g</i>(<i>n</i>) as <i>n</i> approaches infinity...</li>
+<li>If \( \lim{n \to \infty}\frac{f(n)}{g(n)} \) is:
+<ul>
+  <li>&lt; &infin;, including the case in which the limit is 0, then <i>f</i> &isin; O(<i>g</i>)</li>
+  <li>&gt; 0, including the case in which the limit is &infin;, then <i>f</i> &isin; &Omega;(<i>g</i>)</li>
+  <li>= <i>c</i> and 0 < <i>c</i> < &infin; then <i>f</i> &isin; &Theta;(<i>g</i>)</li>
+  <li>= 0  then <i>f</i> &isin; o(<i>g</i>)<ul><li>read as &quot;little oh of g&quot;</li></ul></li>
+  <li>= &infin;  then <i>f</i> &isin; &omega;(<i>g</i>)<ul><li>read as &quot;little omega of g&quot;</li></ul></li>
+</ul></li></ul>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## A note about notation
+- Technically, *f*(*n*) = O(*h*(*n*)) implies an equality
+  - This is a bit of an abuse of the notation
+  - It should be *f*(*n*) &isin; O(*h*(*n*)), as O(*h*(*n*)) is a ***set***
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Some Properties of O(*g*), &Theta;(*g*), &Omega;(*g*)
+- Transitive: If *f* &isin; O(*g*) and *g* &isin; O(*h*), then *f* &isin; O(*h*)
+  - O is transitive. Also &Omega;, &Theta;, o, &omega; are transitive
+- Reflexive: *f* &isin; &Theta;(*f*)
+  - As is big-Oh and big-omega
+- Symmetric: If *f* &isin; &Theta;(*g*), then *g* &isin; &Theta;(*f*)
+  - Big-Oh is not symmetric!  (neither is &Omega;, o, or &omega;)
+- &Theta; defines an ***equivalence relation*** on the functions
+  - Each set &Theta;(*f*) is an equivalence class (complexity class)
+- *f* &isin; O(*g*) &hArr; *g* &isin; &Omega;(*f*)
+- O(*f* + *g*) = O(max(*f*, *g*)) 
+  - similar equations hold for &Omega; and &Theta;
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Classification of functions
+- &Theta;(1) denotes the set of functions bounded by a constant (for large *n*)
+  - *f* &isin; &Theta;(*n*), *f* is linear
+  - *f* &isin; &Theta;(*n* log *n*), *f* is log-linear
+  - *f* &isin; &Theta;(*n*<sup>2</sup>), *f* is quadratic
+  - *f* &isin; &Theta;(*n*<sup>3</sup>), *f* is cubic
+  - *f* &isin; &Theta;(2<sup>*n*</sup>), *f* is exponential
+- *n*<sup>*k*</sup> &isin; <font color='red'>o</font>(*c*<sup>*n*</sup>) for any *k* > 0 and any *c* > 1
+  - powers of *n* grow slower than any exponential function *c*<sup>*n*</sup>
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## A note about logs
+- The difference between log<sub>10</sub>*n* and log<sub>2</sub>*n* is always a constant
+  - Specifically, about 3.322
+  - Since we don't care about constants in these analyses, we'll ignore the log base
+- Most things in CS are log base 2 anyway...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Typical Growth Rates
+
+| Function | Name |
+|----------|------|
+| *c* | constant |
+| log *n* | logarithmic |
+| log<sup>2</sup>*n* | log-squared |
+| *n* | linear |
+| *n* log *n* | log-linear |
+| *n*<sup>2</sup> | quadratic |
+| *n*<sup>3</sup> | cubic |
+| 2<sup>*n*</sup> | exponential |
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Does Order Class Matter?
+- No, not for small inputs
+- Yes, for many real problems
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Practical Complexity
+![graph](images/05-arrays-bigoh/graph-1.png)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Practical Complexity
+![graph](images/05-arrays-bigoh/graph-2.png)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Practical Complexity
+![graph](images/05-arrays-bigoh/graph-3.png)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Practical Complexity
+![graph](images/05-arrays-bigoh/graph-4.png)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Practical Complexity
+![graph](images/05-arrays-bigoh/graph-5.png)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## General Rules for Running Time Calculations (Big-Oh)
+- For loops
+  - At most the running time of the statements inside the for loop
+- Nested loops
+  - Analyze from inside to out
+    - Runtime of the statement \* product of the sizes of the loops
+- Consecutive statements
+  - Additive
+- if/else
+  - Time for the test + longer of the runtimes
 	  </script></section>
 
 	</section>

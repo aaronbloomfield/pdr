@@ -100,8 +100,8 @@ stopped at the same point.
 | 10 || Feb&nbsp;5 || Wednesday || || [04: Numbers](../slides/04-numbers.html) || |
 | 11 || Feb&nbsp;7 || Friday || || [04: Numbers](../slides/04-numbers.html) || |
 | 12 || Feb&nbsp;10 || Monday || [Lab 4: Numbers](../labs/lab04/index.html) / [Tutorial 4: More UNIX, part 2](../tutorials/03-04-more-unix/index.html), sections 5-8 || [04: Numbers](../slides/04-numbers.html) || |
-| 13 || Feb&nbsp;12 || Wednesday || || [05: Arrays & big-Oh](../slides/05-arrays-big-oh.html) || |
-| 14 || Feb&nbsp;14 || Friday || || [05: Arrays & big-Oh](../slides/05-arrays-big-oh.html) || |
+| 13 || Feb&nbsp;12 || Wednesday || || [05: Arrays & big-Oh](../slides/05-arrays-bigoh.html) || |
+| 14 || Feb&nbsp;14 || Friday || || [05: Arrays & big-Oh](../slides/05-arrays-bigoh.html) || |
 | 15 || Feb&nbsp;17 || Monday || Midterm 1 instead during Tuesday's lab || [06: Trees](../slides/06-trees.html) || |
 | 16 || Feb&nbsp;19 || Wednesday || || [06: Trees](../slides/06-trees.html) || |
 | 17 || Feb&nbsp;21 || Friday || || [06: Trees](../slides/06-trees.html) || |
