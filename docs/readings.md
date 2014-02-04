@@ -16,6 +16,9 @@ Introduction to C++
 
 Pointers
 
+- [Pointers](http://www.cplusplus.com/doc/tutorial/pointers/) on
+  [cplusplus.com](http://cplusplus.com) comes highly recommended from
+  various sources
 - [Pointers](http://en.wikibooks.org/wiki/C%2B%2B_Programming/Operators/Pointers)
   and [Dynamic Memory
   Allocation](http://en.wikibooks.org/wiki/C%2B%2B_Programming/Programming_Languages/C%2B%2B/Code/Statements/Variables/Operators#Dynamic_memory_allocation)
