@@ -244,7 +244,7 @@ different hard-coded input test cases.
 ### Stack Calculator Implementation: ###
 
 Your calculator must implement the following arithmetic operations: ~,
-+, -, *, and /.  The tilde (~) is the unary negation operator -- it
++, -, \*, and /.  The tilde (~) is the unary negation operator -- it
 negates the top element of the stack, and (unlike the other four
 operators) does not use a second number from the stack.  Note that
 negative numbers still use a regular minus sign (i.e. '-3') -- this
