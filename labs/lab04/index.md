@@ -20,7 +20,7 @@ lab we will use the debugger to examine some of these representations.
 1. Any of the optional readings on the
    [Readings](../../docs/readings.html) page, in particular, those on
    arrays and unions, if you feel you need a bit more background.
-2. If you are a bit confused about unions, you might want to read
+   If you are a bit confused about unions, you might want to read
    about them prior to the in-lab.  Do a Google search for 'C++
    unions'.
 
@@ -40,16 +40,19 @@ Procedure
    [here](http://www.ee.surrey.ac.uk/Teaching/Unix/).  You went
    through sections 1-4 in the last tutorial; this lab has you
    completing sections 5-8.
-3. Write the `sizeOfTest()` function (note the capitalization), as
+3. Write the `sizeOfTest()` function (note the capitalization!), as
    described in the pre-lab section.
 4. Write the `outputBinary()` function, as described in the pre-lab
    section.
 5. Write the `overflow()` function, as described in the pre-lab
    section.
 6. Combine these functions into a prelab4.cpp file, as described in
-   the pre-lab section.
-7. Complete your floating point conversion, as described in the
-   pre-lab section, into a Word file called floatingpoint.pdf; you can
+   the pre-lab section.  This program should only take in a *single*
+   `int` value as input!
+7. Get your floating point number
+   [here](http://libra.cs.virginia.edu/getfloat), and then complete
+   your floating point conversion, as described in the
+   pre-lab section, into a file called floatingpoint.pdf; you can
    convert a file into a PDF via the directions on the [How to convert
    a file to PDF](../../docs/convert_to_pdf.html) page.
 7. Files to download: none
@@ -57,8 +60,8 @@ Procedure
 
 ### In-lab ###
 
-1. Work through the steps one a time.  Be sure that you understand
-   what is happening at each step.
+1. Work through the steps in the in-lab one a time.  Be sure that you
+   understand what is happening at each step.
 2. The three parts of the in-lab, described below, have you editing
    both [inlab4.doc](inlab4.doc) and inlab4.cpp.
    1. Size of C++ data types
@@ -75,8 +78,8 @@ Procedure
 1. Write the recursive bit counter, in bitCounter,cpp, as described in
    the post-lab section.
 2. Complete the radix worksheet -- this worksheet is in the
-   `radixWorksheet.doc` file.  This will be converted to PDF
-   and called radixWorksheet.pdf.
+   [radixWorksheet.doc](radixWorksheet.doc) file.  This will be
+   converted to PDF and called radixWorksheet.pdf.
 3. Files to download: [radixWorksheet.doc](radixWorksheet.doc)
 1. Files to submit: bitCounter.cpp, radixWorksheet.pdf
 
@@ -101,10 +104,10 @@ the in-lab.  Also, the [Readings](../../docs/readings.html) on
 The size of C++ data types is dependent on the underlying hardware on
 which you are running.  A programmer may determine the size of various
 data types by using the `sizeof()` operator.  Although it looks like a
-function, it's a language construct -- like `while()` or `if()` -- so
-it's technically an operator.  `sizeof()` returns the size, in bytes,
-of a given variable or data type.  Note that you can use `sizeof()`
-with types, variables, pointers, classes, and objects.
+function, it's a language construct -- somewhat like `while()` or
+`if()` -- so it's technically an operator.  `sizeof()` returns the
+size, in bytes, of a given variable or data type.  Note that you can
+use `sizeof()` with types, variables, pointers, classes, and objects.
 
 Write a small C++ function that demonstrates the use of `sizeof()`
 with the following types: `int`, `unsigned int`, `float`, `double`,
@@ -112,7 +115,7 @@ with the following types: `int`, `unsigned int`, `float`, `double`,
 print out all the types and their respective sizes.  You will use the
 values outputted by your program to fill in the table in the in-lab
 section.  The function should be called `sizeOfTest()` (note the
-capitalization), so as not to confuse C++ with the `sizeof()`
+capitalization!), so as not to confuse C++ with the `sizeof()`
 operator.  This function should not take in any parameters.
 
 ### Binary number output ###
@@ -126,9 +129,10 @@ representation of the passed parameters in **big Endian** format.
 - If you do use for loops to do this, become familiar with the left
   shift operator (<<) and what it does to (unsigned) ints, and the
   binary and/or operators (& and |).
-- For examples, see the course notes.  You can also use a calculator
-  program (including one in Windows) to convert numbers to binary
-  (select View->Scientific).
+- For examples, see the course notes.  
+- You can also use a calculator program (including one in Windows) to
+  convert numbers to binary (select View->Scientific), as that is not
+  the coding part of this lab.
 
 
 ### The Limits of Representation ###
@@ -175,16 +179,18 @@ what you submit is a PDF file.
 
 First, you will need to determine what your floating point numbers are
 going to be -- these numbers will be different for each student.  To
-do so, visit [http://libra.cs.virginia.edu/getfloat](http://libra.cs.virginia.edu/getfloat)
+do so, visit
+[http://libra.cs.virginia.edu/getfloat](http://libra.cs.virginia.edu/getfloat)
 and enter your UVa userid.  Each floating point number is unique to
 the userid entered.  Note that the hexadecimal number printed is in
 **little Endian** format.
 
-The first number must be converted into (little-endian) format -- you
+The first number must be converted into (little-Endian) format -- you
 should leave your answer in hexadecimal, as that will be an easier way
 (versus binary) to represent the number.  The second number (the one
-in hexadecimal) needs to be converted to IEEE 754 single-precision
-(i.e. 32-bit) floating point number.
+in hexadecimal) needs to be converted to a base 10 real number as per
+the algorithm for converting IEEE 754 single-precision (i.e. 32-bit)
+floating point numbers.
 
 Note that a '0x' before a number means that the number is in
 hexadecimal.  Thus, 0x11 has decimal value 17, as that is what 11 is
@@ -205,18 +211,15 @@ In this example, you would convert -35.125 to 0x800cc2 (or 0x00800cc2
 -- same thing with the leading zeros added), and 0x401f41 (or
 0x00401f41 -- again, the same thing) to 9.95312.
 
-Note: during the conversion, you can assume that any bit in the
-mantissa after the 10th bit will be a zero.  It could be that your
+Note: during the conversion, the numbers provided do not have any 1
+bits in the mantissa after the 10th bit.  It could be that your
 floating point number needs the first 10 bits of the mantissa, or it
-could need less.  But all bits after the first 10 should be set to
-zero.
-
-You will be expected to be able to do this on a test -- although in an
-exam situation, because no calculators are allowed, the math involved
-with determining the mantissa won't be very hard.  Note that with the
-provided numbers for this pre-lab, any bit in the mantissa beyond the
-10th bit will always be zero -- so if you are getting 1's in the
-mantissa after the 10th bit, you are doing something wrong.
+could need less.  But all bits after the first 10 are supposed to be
+zero.  So if your conversion has any bits beyond that set to 1, then
+you are doing something wrong.  You will be expected to be able to do
+this on a test -- although in an exam situation, because no
+calculators are allowed, the math involved with determining the
+mantissa won't be very hard.
 
 Your conversion should be in a PDF file called floatingpoint.pdf,
 which will be submitted with the pre-lab.  The idea is to show the
@@ -237,7 +240,7 @@ this in-lab, you will have to write a few small programs, which you
 will combine into an inlab4.cpp file - the output of this program will
 give you some of the values to fill into the inlab4.doc worksheet.
 The sections below named [Representation in memory](#memory) and
-[Primitive Arrays in C++](#arrays), describe what should be in this
+[Primitive Arrays in C++](#arrays) describe what should be in this
 file.  It should not take in any input, and should just print out the
 necessary values.
 
@@ -260,7 +263,7 @@ out the pointee of an address.  Consider the C++ program that has two
 variables defined, `int i` and `int *p`.  To print out the int
 variable `i`, you would enter `x &i` (as you have to enter the address
 of the data).  If `p` is a pointer to a value, you would enter `x p` to
-print out the pointee.  This may print it using many more hexadecimal
+print out the *pointee*.  This may print it using many more hexadecimal
 digits than you wanted, so you can add a parameter to the 'x' command
 to have it print only a certain amount:
 
@@ -285,17 +288,20 @@ data types by using the `sizeof()` operator, discussed in the pre-lab.
 Note that, unlike a function, you can supply a type to the `sizeof()`
 operator (i.e., `sizeof(int)`) -- you can't do this with a function.
 
-Download the Word document called [inlab4.doc](inlab4.doc) -- this
-contains (among other things) the table below, in which you will enter
-in your answers.  Remember to include the standard identifying header
-at the top of the file (name, date, etc.).  This file will be
-submitted electronically in PDF format.
+Download the document called [inlab4.doc](inlab4.doc) -- this contains
+(among other things) the table below, in which you will enter in your
+answers.  Remember to include the standard identifying header at the
+top of the file (name, date, etc.).  This file will be submitted
+electronically in PDF format.
 
 Note: `char`, `short`, `int`, and `long` are all integral
 (i.e. integer) types.  Integral types may be either signed or
 unsigned.  Signed types have a different range of values than their
-unsigned counterpart.  Unless specified as `unsigned`, integral types
-in C++ are signed.
+unsigned counterpart.  A 32-bit `int` can have 2<sup>32</sup> =
+4,294,967,296 values.  An `unsigned int` can range from 0 to
+4,294,967,295, and a regular (i.e. signed) `int` can range from
+-2,147,483,648 to 2,147,483,647.  Unless specified as `unsigned` (as
+in: `unsigned long`), then all integral types in C++ are signed.
 
 To fill in this table, you can use the `outputBinary()` function that
 you write for the pre-lab for some of the types (specifically those of
@@ -324,29 +330,29 @@ the address ('&') of the `i` variable.
 
 For various optimization reasons, when you declare a variable in C++,
 it does not immediately initialize it.  In fact, it will initialize it
-only when it is first used.  Thus, if you set a breakpoint after you
+just before it is first used.  Thus, if you set a breakpoint after you
 declare and initialize a variable, but before it is used, the variable
 will have a random value in it.  You can solve this by printing out
 the variable via `cout` -- this causes C++ to initialize the variable
 for the output statement.  You can then set your breakpoint after this
-cout statement.
+`cout` statement.
 
 The 'max value' column can be determined by understanding how the type
 stores the values (see the lecture notes for details).  Note that you
-can assign hex constants directly in your C++ program: rather than
-saying `x=17`, you can say `x=0x11`.  You can also assign them
-directly in the debugger.  In C++, a number beginning with 0 is in
-octal, e.g. 011 is 9 decimal.  For chars, we are looking for the
-maximum integer value that can be stored therein (a char is just a
-byte-sized int); bools have only two possible values (`true` and
-`false`), so pick your max and min from those.  For pointers, it's the
-highest memory address that can be addressed.
+can assign hex constants directly to integer variables in your C++
+program: rather than saying `x=17`, you can say `x=0x11`.  You can
+also assign them directly in the debugger.  In C++, a number beginning
+with 0 is in octal, e.g. 011 is 9 decimal.  For chars, we are looking
+for the maximum integer value that can be stored therein (a char is
+just a byte-sized int); bools have only two possible values (`true`
+and `false`), so pick your max and min from those.  For pointers, it's
+the highest memory address that can be addressed.
 
 The following tables do not render very in this document, but the
 tables in [inlab4.doc](inlab4.doc) render much better.  Note that
 'zero' and 'one' should be interpreted appropriately for the given
 data type.  So 'zero' would be 0 for an `int`, 0.0 for a `float`,
-`false` for a `bool`, etc.  Likewise for 'one'.
+`false` for a `bool`, etc.  Similarly for 'one'.
 
 As was mentioned in lecture, the #define'd value `UNIT_MAX` contains
 the maximum integer value, and you must `#include <limits>` in order
@@ -372,14 +378,8 @@ And, for pointers:
 
 The results in the hex columns should be in **big endian** format,
 which is the same format that GDB displays, as well as the format that
-your `outputBinary()` program should display.
-
-To convert binary into hex, split the bits into groups of 4.  Convert
-each of the group of 4 to a decimal number, which will range from
-0-15.  To write it in hex, write 10 as a, 11 as b, 12 as c, 13 as d,
-14 as e, and 15 as f.  Thus, a 32-bit value will be split into 8
-groups of 4, and each of those groups of 4 will be a single
-hexadecimal digit.
+your `outputBinary()` program should display.  To convert binary into
+hex, see the [04-numbers slide set](../../slides/04-numbers.html).
 
 ### <a name="memory">Representation in memory</a> ###
 
@@ -389,10 +389,10 @@ understanding the underlying data representation of abstract data
 types.
 
 Recall that all Intel 80x86 machines (i.e. all Pentium-class machines)
-are little-endian.  Thus, 0xd97c34a2 is stored as: a2 34 7c d9, with
+are little-Endian.  Thus, 0xd97c34a2 is stored as: a2 34 7c d9, with
 the least significant byte listed first.  However, when you examine
 the value in gdb (using the `x/x` command), it will display it in
-big-endian format, as that is how humans think of numbers.
+big-endian format, as that is how humans typically think of numbers.
 
 Write a C++ program, called inlab4.cpp, where you consecutively
 declare variables of these types: `bool`, `char`, `int`, `double`,
@@ -420,11 +420,12 @@ understand how to use the debugger to:
 
 ### <a name="arrays">Primitive Arrays in C++</a> ###
 
-For the pre-lab, you should read the
+For the pre-lab, you should have read the
 [Readings](../../docs/readings.html) on arrays, if you feel you need a
 bit more background.  Note how two (or higher) dimensional arrays are
-stored in row-major order in C++, as opposed to being stored as arrays
-of arrays in Java.
+stored in row-major order (as described in the [05-arrays-bigoh slide
+set](../../slides/05-arrays-bigoh.html)) in C++, as opposed to being
+stored as arrays of arrays in Java.
 
 For this part, you will need to add a bit of code to your inlab4.cpp
 file.  You program should show a clear separator where the previous
@@ -477,11 +478,11 @@ Post-Lab
 
 ### Binary bit counter ###
 
-Write a recursive function that returns the number of 1's in the
-binary representation of *N*.  Use the fact that this is equal to the
-number of 1's in the representation of *N/2*, plus 1, if *N* is odd.
-You may assume that *N* is a non-negative integer stored in two's
-complement.  However, *N* will be passed in the standard decimal
+Write a ***recursive*** function that returns the number of 1's in the
+binary representation of *n*.  Use the fact that this is equal to the
+number of 1's in the representation of *n/2*, plus 1, if *n* is odd.
+You may assume that *n* is a non-negative integer stored in two's
+complement.  However, *n* will be passed in the standard decimal
 (i.e. base-10) format.  This should be a rather simple function that
 uses what you've learned about integer representation.  If you find
 you need things like global variables or the `pow()` function to
@@ -496,7 +497,9 @@ number for the command-line parameter.  And any additional command-line
 parameters beyond the first can be (and should be) ignored.
 
 **This program should take in no input, only one command-line
-parameter.**
+parameter.** Command line parameters are discussed in more detail in
+the [05-arrays-bigoh slide set](../../slides/05-arrays-bigoh.html),
+along with a source code example showing how to use them.
 
 So far, our `main()` method has had the following prototype:
 
