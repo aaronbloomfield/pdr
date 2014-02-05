@@ -68,8 +68,9 @@ int someInts[3];
 ```
   - Specify name, type, and initialization list
 ```
-int someInts[3] = {4, 37, 18};
+int someInts[] = {4, 37, 18};
 ```
+    - Size not needed in this case
 - Either way, this creates 3 ints:
 ```
 someInts[0], someInts[1], someInts[2]
@@ -97,8 +98,12 @@ int someInts[3];
   - size is only used by compiler to set aside memory for the array
   - `someInts` is set to `&someInts[0]`
   - Also called the base address
-  - Local constant -- Cannot be changed
-- Note that the previous declaration is almost the same as `int* someInts = new int[3];`
+  - Local constant -- cannot be changed
+- Note that the previous declaration is almost the same as:
+```
+int* someInts = new int[3];
+```
+  - But since this second declaration is declared with `new`, the programmer must delete it with `delete`
 	  </script></section>
 
 	  <section>
@@ -106,18 +111,18 @@ int someInts[3];
 
 <table class="transparent">
 <tr><th>Array part</th><th>Address</th><th>Memory</th></tr>
-<tr><td>&amp;someInts[0]</td><td>1000</td><td class="border">2</td></tr>
-<tr><td>&amp;someInts[1]</td><td>1004</td><td class="border">4</td></tr>
-<tr><td>&amp;someInts[2]</td><td>1008</td><td class="border">6</td></tr>
+<tr><td><code>&amp;someInts[0]</code></td><td>1000</td><td class="border">2</td></tr>
+<tr><td><code>&amp;someInts[1]</code></td><td>1004</td><td class="border">4</td></tr>
+<tr><td><code>&amp;someInts[2]</code></td><td>1008</td><td class="border">6</td></tr>
 <tr><td></td><td></td><td class="border">...</td></tr>
-<tr><td>someInts</td><td>???</td><td class="border">1000</td></tr>
+<tr><td><code>someInts</code></td><td>???</td><td class="border">1000</td></tr>
 <tr><td></td><td></td><td class="border">...</td></tr>
 </table>
 <p>This assumes that ints are 4 bytes in size</p>
 	  </section>
 
 	  <section data-markdown><script type="text/template">
-## Where is someInt[i] located in memory?
+## Where is someInt[2] located in memory?
 - Remember
   - `someInts` is a pointer to address of `someInts[0]` (i.e., `&someInt[0]`)
   - Array elements are laid out sequentially in contiguous memory addresses
@@ -133,7 +138,7 @@ int someInts[3];
   - Array base addresses are considered constant (cannot be reassigned)
   - This is one example of when pointers and arrays are NOT the same
 - Is `someInts == someOtherArray` allowed?
-  - Yes, but will only evaluate to true if someInts and someOtherArray point at the same memory location
+  - Yes, but will only evaluate to true if `someInts` and `someOtherArray` point at the same memory location
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -158,8 +163,8 @@ int main() {
 ## Multidimensional Arrays
 (no external source code)
 ```
-int m[2][3]; //2 rows, 3 columns
-int m[2][3] =
+int m[2][3]; // 2 rows, 3 columns
+int n[2][3] =
     { {1,2,3}, {4,5,6} };
     // initialize row 0: 1,2,3
     // initialize row 1: 4,5,6
@@ -168,16 +173,17 @@ int m[2][3] =
 
 	  <section data-markdown><script type="text/template">
 ## C++ Implementation
+Multi-dimensional arrays in C++ are stored in ***row major*** order
 ![2-d array diagram](images/05-arrays-bigoh/2d-array-layout.png)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Command-line parameters
-- You can define the main() method as either:
+- You can define the `main()` method as either:
   - `int main()`
   - `int main (int argc, char **argv)`
     - Or: `int main (int argc, char* argv[])`
-- The second gives us two parameters:
+- The second version gives us two parameters:
   - The number of command line parameters
     - Note that the program executable is one of them (`argv[0]`)
   - An array of C-style strings (`char*`) containing those parameters
@@ -224,10 +230,10 @@ int main (int argc, char* argv[]) {
 ## Classifying functions by their<br>Asymptotic Growth Rates
 - Asymptotic growth rate, asymptotic order, or order of functions 
   - Comparing and classifying functions that ignores constant factors and small inputs. 
-- The sets big oh O(*g*), big theta &Theta;(*g*), big omega &Omega;(*g*)
-  - &Omega;(*g*): functions that grow ***at least as fast*** as g
+- The sets are big oh, big theta, and big omega:
+  - <font color='red'>&Omega;</font>(*g*): functions that grow ***at least as fast*** as g
   - &Theta;(*g*): functions that grow ***at the same rate*** as g
-  - O(*g*): functions that grow ***no faster than*** g
+  - <font color='skyblue'>O</font>(*g*): functions that grow ***no faster than*** g
 
 ![venn diagram](images/05-arrays-bigoh/venn-diagram.png)
 	  </script></section>
@@ -235,7 +241,7 @@ int main (int argc, char* argv[]) {
 	  <section data-markdown><script type="text/template">
 ## Why do we care?
 - Some data structures are faster than others
-  - Each data structure has some operations that are fast, and some that are slow
+  - Each data structure has some operations that are fast, and some operations that are slow
 - We need a way to compare them
 - This allows us to
   - Better choose the data structures that we will use
@@ -245,15 +251,16 @@ int main (int argc, char* argv[]) {
 	  <section data-markdown><script type="text/template">
 ## Input sizes
 - Your algorithm does not matter if you have 10 elements
-  - A shuffle sort will work just fine
+  - A [bogosort](http://en.wikipedia.org/wiki/Bogosort) will work just fine
 - Consider big input sizes:
-  - UVa's e-mail has ~100,000 e-mail addresses
-  - Mapquest (for driving routes) has ~20 million intersections
-  - Google's index is 24 billion items
+  - UVa's e-mail probably has about 100,000 e-mail addresses
+  - [OpenStreetMap](http://www.openstreetmap.org), for driving routes, has 2.2 billion nodes ([ref](http://www.openstreetmap.org/stats/data_stats.html)) (as of Feb 2014)
+    - A 'node' is a point on the Earth's surface, and not necessarily an intersection
+  - Google's index is 15 billion items ([ref](http://www.worldwidewebsize.com/)) (as of Feb 2014)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Even for small input sizes...
+## Even for smaller input sizes...
 - This is from the first lecture set
 - All times are in ms (1/1000<sup>th</sup> of a second)
 &nbsp;  
@@ -271,13 +278,34 @@ int main (int argc, char* argv[]) {
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
+## Assumptions
+- We have measured the running time of our program with different input sizes, and that result is encapsulated in some function *f*(*n*)
+  - *n* is the input size, and is always a positive integer
+- We have some other function *g* that we want to compare our program to
+- So we will compare *f*(*n*) to *g*(*n*), such as:
+  - *f*(*n*) &isin; O(*g*(*n*))
+    - We could shorten this: *f* &isin; O(*g*)
+  - *f*(*n*) &notin; &Omega;(*g*(*n*))
+    - We could shorten this: *f* &notin; &Omega;(*g*)
+  - Etc.
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Worst-case Scenario
+- We always analyze the ***worst case*** run-time
+  - It makes no sense to analyze the best case, as that is rarely likely to happen
+  - And the *average* case (if you could even define what that is) may not be representative is not used in these analyses either
+- A more formal definition of *worst case*, should you be interested, can be found [here](http://en.wikipedia.org/wiki/Worst_case)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
 ## The Sets  O(*g*), &Theta;(*g*), &Omega;(*g*)
 - Let *f* and *g* be a functions from the nonnegative integers into the positive real numbers
-- For some real constant *c* > 0 and some nonnegative integer constant *N*<sub>0</sub>
+- For some real constant *c* > 0 and some nonnegative integer constant *n*<sub>0</sub>
   - O(*g*) is the set of functions *f*, such that 
-    - *f*(*N*) &le; c \* *g*(*N*) for all *N* &ge; *n*<sub>0</sub>
-  - &Omega;(*g*) is the set of functions f, such that 
-    - *f*(*N*) &ge; c \* *g*(*N*) for all *N* &ge; *n*<sub>0</sub>
+    - *f*(*n*) <font color='red'>&le;</font> c \* *g*(*n*) for all *n* &ge; *n*<sub>0</sub>
+  - &Omega;(*g*) is the set of functions *f*, such that 
+    - *f*(*n*) <font color='red'>&ge;</font> c \* *g*(*n*) for all *n* &ge; *n*<sub>0</sub>
   - &Theta;(*g*) = O(*g*) &cap; &Omega;(*g*)
     - &Theta;(*g*) is the asymptotic order of g or the *order* of g
     - *f* &isin; &Theta;(*g*) read as "*f* is asymptotic order *g*" or "*f* is order *g*"
@@ -285,52 +313,72 @@ int main (int argc, char* argv[]) {
 
 	  <section data-markdown><script type="text/template">
 ## Asymptotic Bounds
-- The Sets big oh O(*g*), big theta &Theta;(*g*), big omega &Omega;(*g*) -- remember these meanings:
-  - O(*g*): functions that grow no faster than *g*, or asymptotic upper bound
-  - &Omega;(*g*): functions that grow at least as fast as *g*, or asymptotic lower bound
-  - &Theta;(*g*): functions that grow at the same rate as *g*, or asymptotic tight bound
+- For the sets big oh O(*g*), big theta &Theta;(*g*), big omega &Omega;(*g*), remember these meanings:
+  - O(*g*): functions that grow ***no faster than*** *g*, or ***asymptotic upper bound***
+  - &Omega;(*g*): functions that grow ***at least as fast as*** *g*, or ***asymptotic lower bound***
+  - &Theta;(*g*): functions that grow ***at the same rate as*** *g*, or ***asymptotic tight bound***
 	  </script></section>
 
 	  <section>
 <h2>Big-Oh Examples</h2>
-<p><i>f</i>(<i>n</i>) &isin; O(<i>g</i>(<i>n</i>) means: there are positive constants <i>c</i> and <i>n</i><sub>0</sub> such that <i>f</i>(<i>n</i>) &le; <i>c</i>*<i>g</i>(<i>n</i>) for all values <i>n</i> &ge; <i>n</i><sub>0</sub></p>
+<p><i>f</i>(<i>n</i>) &isin; O(<i>g</i>(<i>n</i>) means that there are positive constants <i>c</i> and <i>n</i><sub>0</sub> such that <i>f</i>(<i>n</i>) &le; <i>c</i>*<i>g</i>(<i>n</i>) for all values <i>n</i> &ge; <i>n</i><sub>0</sub></p>
 &nbsp;
 <ul>
-<li>Is <i>x</i> &isin; O(<i>x</i><sup>2</sup>)?
+<li>Is <i>n</i> &isin; O(<i>n</i><sup>2</sup>)?
   <ul><li class="fragment">Yes, <i>c</i> = 1, <i>n</i><sub>0</sub> = 2 works fine</li></ul></li>
-<li>Is 10<i>x</i> &isin; O(<i>x</i>)?
+<li>Is 10<i>n</i> &isin; O(<i>n</i>)?
   <ul><li class="fragment">Yes, <i>c</i> = 11, <i>n</i><sub>0</sub> = 2 works fine</li></ul></li>
-<li>Is <i>x</i><sup>2</sup> &isin; O(<i>x</i>)?
-  <ul><li class="fragment">No; no matter what values for <i>c</i> and <i>n</i><sub>0</sub> we pick, <i>c</i>*<i>x</i><sup>2</sup> &gt; <i>x</i> for big enough <i>x</i></li></ul></li>
+<li>Is <i>n</i><sup>2</sup> &isin; O(<i>n</i>)?
+  <ul><li class="fragment">No; no matter what values for <i>c</i> and <i>n</i><sub>0</sub> we pick, <i>c</i>*<i>n</i><sup>2</sup> &gt; <i>n</i> for big enough <i>n</i></li></ul></li>
 </ul>
 	  </section>
 
-	  <section data-markdown><script type="text/template">
-## Given *f* &isin; O(*h*) and *g* &notin; O(*h*),<br>which of these are true?
-1. For ***all*** positive integers *m*, *f*(*m*) < *g*(*m*).
-2. For ***some*** positive integer *m*, *f*(*m*) < *g*(*m*).
-3. For ***some*** positive integer *m*<sub>0</sub>, and ***all positive*** integers *m* > *m*<sub>0</sub>,  *f*(*m*) < *g*(*m*).
-4. a and b
-5. b and c
-6. a and c
-	  </script></section>
+	  <section>
+<h2>Given <i>f</i> &isin; O(<i>h</i>) and <i>g</i> &notin; O(<i>h</i>),<br>which of these are true?</h2>
+<ol>
+<li>For <b><i>all</i></b> positive integers <i>m</i>, <i>f</i>(<i>m</i>) &lt; <i>g</i>(<i>m</i>).</li>
+<li>For <b><i>some</i></b> positive integer <i>m</i>, <i>f</i>(<i>m</i>) &lt; <i>g</i>(<i>m</i>).</li>
+<li>For <b><i>some</i></b> positive integer <i>m</i><sub>0</sub>, and <b><i>all positive</i></b> integers <i>m</i> > <i>m</i><sub>0</sub>,  <i>f</i>(<i>m</i>) &lt; <i>g</i>(<i>m</i>).</li>
+<li>1 and 2</li>
+<li>2 and 3</li>
+<li>1 and 3</li>
+</ol>
+<script type="text/javascript">insertCanvas();</script>
+	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## 1 is false: Prove by Counter-Example
 - Recall that *f* &isin; O(*h*) and *g* &notin; O(*h*)
-- We are disproving: for all positive integers m, *f*(*m*) < *g*(*m*):
-  - Pick *h*(*n*) = *n*<sup>2</sup>, *f*(*n*) = 5\**n*<sup>2</sup>, *g*(*n*) = *n*<sup>3</sup>
+- We are disproving: for ***all*** positive integers m, *f*(*m*) < *g*(*m*):
+  - To disprove by counter-example, you have to find just ***one*** example that does not fulfill the stated claim
+  - Pick *f*(*n*) = 5\**n*<sup>2</sup>, *g*(*n*) = *n*<sup>3</sup>, *h*(*n*) = *n*<sup>2</sup>
+    - *f* &isin; O(*h*), as 5\**n*<sup>2</sup> &le; *c* \* *n*<sup>2</sup> when *c* = 6 and *n*<sub>0</sub> = 1
+    - *g* &notin; O(*h*), as *n*<sup>3</sup> &le; *c* \* *n*<sup>2</sup> cannot be satisifed, for large *n*, with any values of *c* and *n*<sub>0</sub>
   - For *m*=2, *f*(*m*) = 20 > 8 = *g*(*m*)
   - Therefore, this is false
-- *f*(*n*) &isin; O(*g*(*n*)) means there are positive constants *c* and *n*<sub>0</sub> such that *f*(*n*) &le; *c*\**g*(*n*) for all values *n* &ge; *n*<sub>0</sub>.
+- *f*(*n*) &isin; O(*g*(*n*)) means there are positive constants *c* and *n*<sub>0</sub> such that *f*(*n*) &le; *c*\**g*(*n*) for all values *n* &ge; *n*<sub>0</sub> (but not ***all*** values of *n*, which is waht this was trying to show)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## 2 is true: Intuition
-- If *f* &isin; O (h) and g &notin; O (h) then, for some positive integer m, *f*(*m*) < *g*(*m*).
-- *g* must grow faster than *h*, otherwise *g* would be in O(*h*)
-- *f* must grow no faster than *h*, since *f* &isin; O(*h*)
-- So, if *g* grows faster than *h*, but *f* grows as slow or slower than *h*, eventually, *g*(*n*) > *f*(*n*) so for some *m*, *f*(*m*) < *g*(*m*).
+- Recall that *f* &isin; O(*h*) and *g* &notin; O(*h*)
+- Claim: for ***some*** positive integer *m*, *f*(*m*) < *g*(*m*)
+- We know:
+  - *g* must grow faster than *h*, otherwise *g* would be in O(*h*)
+  - *f* must grow no faster than *h*, since *f* &isin; O(*h*)
+    - Rephrased: *f* grows as slow as, or slower than, *h*
+- So, if *g* grows faster than *h*, but *f* grows as slow or slower than *h*, eventually, then:
+  - *g* will grow faster than *f*
+  - Or *g*(*n*) > *f*(*n*) for some large *n*
+  - Thus, for some *m*, *f*(*m*) < *g*(*m*)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## 3 is true: Deduction
+- Recall that *f* &isin; O(*h*) and *g* &notin; O(*h*)
+- Claim: for ***some*** positive integer *m*<sub>0</sub>, and ***all positive*** integers *m* > *m*<sub>0</sub>,  *f*(*m*) < *g*(*m*)
+- We know, from the previous slide, that *g* will grow faster than *f*
+  - This is essentially the definition of big-Oh, which is what the claim is basically stating: that *f* &isin; O(*g*)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -338,16 +386,17 @@ int main (int argc, char* argv[]) {
 1. For ***all*** positive integers *m*, *f*(*m*) < *g*(*m*).
 2. For ***some*** positive integer *m*, *f*(*m*) < *g*(*m*).
 3. For ***some*** positive integer *m*<sub>0</sub>, and ***all positive*** integers *m* > *m*<sub>0</sub>,  *f*(*m*) < *g*(*m*).
-4. a and b
-5. b and c
-6. a and c
+4. 1 and 2
+5. 2 and 3
+6. 1 and 3
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Lower Bound: &Omega; (Omega)
-- *f*(*n*) is &Omega; (*g*(*n*)) means:
+- *f*(*n*) &isin; &Omega; (*g*(*n*)) means:
   - There are positive constants *c* and *n*<sub>0</sub> such that *f*(*n*) <font color='red'>&ge;</font> *c*\*g*(*n*) for all *n* &ge; *n*<sub>0</sub> 
   - The difference from big-Oh is the &ge; in big-Omega versus &le; in big-Oh
+- This is a *lower* bound
 	  </script></section>
 
 	  <section>
@@ -364,8 +413,8 @@ int main (int argc, char* argv[]) {
 - Definition: *f*(*n*) &isin; &Theta;(*g*(*n*)) if and only if both: 
   1. *f*(*n*) &isin; O (*g*(*n*))
   2. *f*(*n*) &isin; &Omega; (*g*(*n*))
-- Note that we do not have to pick the same *c* and *n*<sub>0</sub> values for 1 and 2
-- When we say, "f is order g" that means *f*(*n*) &isin; &Theta; (*g*(*n*))
+- Note that we do not have to pick the same *c* and *n*<sub>0</sub> values for cases 1 and 2
+- When we say, "*f* is order *g*" that means *f*(*n*) &isin; &Theta; (*g*(*n*))
 	  </script></section>
 
 	  <section>
@@ -374,15 +423,15 @@ int main (int argc, char* argv[]) {
 
 	  <section data-markdown><script type="text/template">
 ## Little-oh
-- Let *g*(x) &isin; o(*f*(x))
-  - Any function that is o(*f*) is also O(*f*)
-  - So both act as an upper bound
-  - But a O(*f*) bound can also be &Omega;(*f*) and thus &Theta;(*f*)
+- Let *f*(*n*) &isin; <font color='red'>o</font>(*g*(*n*))
+  - Any function that is o(*g*) is also O(*g*)
+    - So both act as an upper bound
+  - But a O(*g*) bound can also be &Omega;(*g*) and thus &Theta;(*g*)
     - Meaning the big-Oh bound can be tight
   - Little-oh means the bound can not be tight
-    - Thus, it's O(*f*) but not &Omega;(*f*)
-    - Or, that *g*(x) will ALWAYS be lower than *f*(x)
-      - For some constants *c* and *n*<sub>0</sub>
+    - Thus, it's O(*g*) but not &Theta;(*g*)
+    - Or, that *f*(*n*) will ***always*** be ***strictly*** less than *g*(*n*):
+      - *f*(*n*) <font color='red'>&lt;</font> *c* \* *g*(*n*) for all *n* &ge; *n*<sub>0</sub>, for some constants *c* and *n*<sub>0</sub>
   - Rarely used in computer science...
 	  </script></section>
 
@@ -390,7 +439,7 @@ int main (int argc, char* argv[]) {
 ## Little-omega
 - Analogous to little-oh
   - It's a lower bound that cannot be a tight lower bound
-  - If something is &omega;(*f*), then it's &Omega;(*f*), but not O(*f*) (or o(*f*) or &Theta;(*f*))
+  - If something is &omega;(*g*), then it's &Omega;(*g*) but not &Theta;(*g*)
 - Rarely used in computer science...
 - What does this mean for little-theta?
 	  </script></section>
@@ -403,44 +452,45 @@ int main (int argc, char* argv[]) {
 <ul>
   <li>&lt; &infin;, including the case in which the limit is 0, then <i>f</i> &isin; O(<i>g</i>)</li>
   <li>&gt; 0, including the case in which the limit is &infin;, then <i>f</i> &isin; &Omega;(<i>g</i>)</li>
-  <li>= <i>c</i> and 0 < <i>c</i> < &infin; then <i>f</i> &isin; &Theta;(<i>g</i>)</li>
-  <li>= 0  then <i>f</i> &isin; o(<i>g</i>)<ul><li>read as &quot;little oh of g&quot;</li></ul></li>
-  <li>= &infin;  then <i>f</i> &isin; &omega;(<i>g</i>)<ul><li>read as &quot;little omega of g&quot;</li></ul></li>
+  <li>= <i>c</i> and 0 &lt; <i>c</i> &lt; &infin; then <i>f</i> &isin; &Theta;(<i>g</i>)</li>
+  <li>= 0  then <i>f</i> &isin; o(<i>g</i>)<ul><li>read as &quot;little-oh of <i>g</i>&quot;</li></ul></li>
+  <li>= &infin;  then <i>f</i> &isin; &omega;(<i>g</i>)<ul><li>read as &quot;little-omega of <i>g</i>&quot;</li></ul></li>
 </ul></li></ul>
 	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## A note about notation
-- Technically, *f*(*n*) = O(*h*(*n*)) implies an equality
-  - This is a bit of an abuse of the notation
-  - It should be *f*(*n*) &isin; O(*h*(*n*)), as O(*h*(*n*)) is a ***set***
+- Stating *f*(*n*) = O(*g*(*n*)) implies an equality
+  - This is a bit of an abuse of the notation, as O(*g*(*n*)) is a ***set***
+  - It should be *f*(*n*) &isin; O(*g*(*n*))
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Some Properties of O(*g*), &Theta;(*g*), &Omega;(*g*)
+- Reversing big-Oh: *f* &isin; O(*g*) &hArr; *g* &isin; &Omega;(*f*)
+- Adding big-Oh: O(*f* + *g*) = O(max(*f*, *g*)) 
+  - Similar equations hold for &Omega; and &Theta;
 - Transitive: If *f* &isin; O(*g*) and *g* &isin; O(*h*), then *f* &isin; O(*h*)
-  - O is transitive. Also &Omega;, &Theta;, o, &omega; are transitive
+  - Big-Oh is transitive, as are all the others (big-Theta, big-Omega, little-oh, and little-omega)
 - Reflexive: *f* &isin; &Theta;(*f*)
-  - As is big-Oh and big-omega
+  - As are big-Oh and big-omega
 - Symmetric: If *f* &isin; &Theta;(*g*), then *g* &isin; &Theta;(*f*)
-  - Big-Oh is not symmetric!  (neither is &Omega;, o, or &omega;)
+  - Big-Oh is not symmetric!  (neither are &Omega;, o, or &omega;)
 - &Theta; defines an ***equivalence relation*** on the functions
   - Each set &Theta;(*f*) is an equivalence class (complexity class)
-- *f* &isin; O(*g*) &hArr; *g* &isin; &Omega;(*f*)
-- O(*f* + *g*) = O(max(*f*, *g*)) 
-  - similar equations hold for &Omega; and &Theta;
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Classification of functions
 - &Theta;(1) denotes the set of functions bounded by a constant (for large *n*)
-  - *f* &isin; &Theta;(*n*), *f* is linear
-  - *f* &isin; &Theta;(*n* log *n*), *f* is log-linear
-  - *f* &isin; &Theta;(*n*<sup>2</sup>), *f* is quadratic
-  - *f* &isin; &Theta;(*n*<sup>3</sup>), *f* is cubic
-  - *f* &isin; &Theta;(2<sup>*n*</sup>), *f* is exponential
+  - *f* &isin; &Theta;(*n*) means *f* is linear
+  - *f* &isin; &Theta;(*n* log *n*) means *f* is log-linear
+  - *f* &isin; &Theta;(*n*<sup>2</sup>) means *f* is quadratic
+  - *f* &isin; &Theta;(*n*<sup>3</sup>) means *f* is cubic
+  - *f* &isin; &Theta;(2<sup>*n*</sup>) means *f* is exponential
 - *n*<sup>*k*</sup> &isin; <font color='red'>o</font>(*c*<sup>*n*</sup>) for any *k* > 0 and any *c* > 1
-  - powers of *n* grow slower than any exponential function *c*<sup>*n*</sup>
+  - Powers of *n* grow slower than any exponential function *c*<sup>*n*</sup>
+    - As long as *n* &ge; 1 and *c* &ge; 1, which is always the case with input sizes
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -448,7 +498,7 @@ int main (int argc, char* argv[]) {
 - The difference between log<sub>10</sub>*n* and log<sub>2</sub>*n* is always a constant
   - Specifically, about 3.322
   - Since we don't care about constants in these analyses, we'll ignore the log base
-- Most things in CS are log base 2 anyway...
+- Most things in computer science are log base 2 anyway...
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -477,37 +527,37 @@ int main (int argc, char* argv[]) {
 ![graph](images/05-arrays-bigoh/graph-1.png)
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
+	  <section data-markdown data-transition="fade" data-transition-speed="fast">><script type="text/template">
 ## Practical Complexity
 ![graph](images/05-arrays-bigoh/graph-2.png)
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
+	  <section data-markdown data-transition="fade" data-transition-speed="fast">><script type="text/template">
 ## Practical Complexity
 ![graph](images/05-arrays-bigoh/graph-3.png)
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
+	  <section data-markdown data-transition="fade" data-transition-speed="fast">><script type="text/template">
 ## Practical Complexity
 ![graph](images/05-arrays-bigoh/graph-4.png)
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
+	  <section data-markdown data-transition="fade" data-transition-speed="fast">><script type="text/template">
 ## Practical Complexity
 ![graph](images/05-arrays-bigoh/graph-5.png)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## General Rules for Running Time Calculations (Big-Oh)
+## General Rules for Running<br>Time Calculations (Big-Oh)
 - For loops
-  - At most the running time of the statements inside the for loop
+  - The number of times the for loop runs times the total running time of the statements inside the for loop
 - Nested loops
   - Analyze from inside to out
     - Runtime of the statement \* product of the sizes of the loops
 - Consecutive statements
-  - Additive
+  - Additive (remember that we remove constants!)
 - if/else
-  - Time for the test + longer of the runtimes
+  - Time for the test plus the longer of the runtimes
 	  </script></section>
 
 	</section>
@@ -527,6 +577,7 @@ int main (int argc, char* argv[]) {
   - How long will this algorithm take when *n* = 1?
   - When *n* = 100?
   - When *n* = 1,000,000,000?
+- Recall that we always analyze the worst case!
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -535,7 +586,7 @@ int main (int argc, char* argv[]) {
 - Examples:
   - Getting a vector's size
   - Linked list insert or delete (at the known end)
-  - Finding the kth element in an array or vector
+  - Finding the k<sup>th</sup> element in an array or vector
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -559,12 +610,12 @@ int main (int argc, char* argv[]) {
 
 	  <section data-markdown><script type="text/template">
 ## Running time: Log-linear
-- Log-linear (&Theta;(*n* log *n*)) typically occurs when you are going to take a linear number of steps, but takes log *n* time
+- Log-linear (&Theta;(*n* log *n*)) typically occurs when you are going to take a linear number of steps, but each one takes log *n* time
   - (or log *n* steps, each one of which takes *n* time)
 - Examples:
   - Fast sorts: merge sort and heap sort
-  - Quicksort, on a good day
-  - Inserting n elements into a data structure where each insert takes log *n* time
+  - Quicksort, on a good day (but this is not guaranteed!)
+  - Inserting *n* elements into a data structure where each insert takes log *n* time
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -575,12 +626,12 @@ int main (int argc, char* argv[]) {
   - Slow sorts: insertion sort, bubble sort, selection sort
   - Quicksort, on a bad day
   - Some graph algorithms we'll see later
-  - Nested for loops (where each goes 1 to *n*)
+  - Nested for loops (where each loop goes 1 to *n*)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Running time: exponential
-- An exponential (&Theta;(2<sup>*n*</sup>)) running time typically means you are going to try every possibility, and there are 2<sup>*n*</sup> of them
+- An exponential (&Theta;(2<sup>*n*</sup>)) running time typically means you are going to try every possible solution, and there are 2<sup>*n*</sup> of them
 - Examples (we have not seen any yet)
   - Trying to crack a binary combination lock by trying every single possibility
   - Traveling salesperson problem (we'll see that later this semester)
