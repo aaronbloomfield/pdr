@@ -8,5 +8,5 @@ union foo {
 
 int main() {
     bar.f = 42.125;
-    cout << bar.x << endl; // prints in BIG endian
+    cout << bar.x << endl; // prints in big-endian
 }

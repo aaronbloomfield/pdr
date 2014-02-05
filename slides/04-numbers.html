@@ -31,7 +31,7 @@
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
 
-	<section data-markdown><script type="text/template">
+	<section data-markdown id="cover"><script type="text/template">
 # CS 2150
 &nbsp;
 ### Program and Data Representation
@@ -39,8 +39,9 @@
 &nbsp;
 <center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
 <center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="04-numbers.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
+<center><small>Themes: [default](?#/cover), [sky](?theme=sky#/cover), [beige](?theme=beige#/cover), [simple](?theme=simple#/cover), [serif](?theme=serif#/cover), [night](?theme=night#/cover), [moon](?theme=moon#/cover), [solarized](?theme=solarized#/cover)</small></center>
 &nbsp;  
-&nbsp;
+&nbsp;  
 ## Number Representation
 	</script></section>
 
@@ -269,9 +270,9 @@
 
 	  <section data-markdown><script type="text/template">
 ## The Great Debate
-- "Big Endian": most significant ***first*** (lowest address)
+- "Big-endian": most significant ***first*** (lowest address)
   - 1000 0000 0000 0000 = 2<sup>15</sup> = 32768
-- "Little Endian": most significant ***last*** (highest address)
+- "Little-endian": most significant ***last*** (highest address)
   - 1000 0000 0000 0000 = 2<sup>0</sup> = 1
 - Which is better?
 - Note that although all the *bits* are reversed, usually it is displayed with just the *bytes* reversed
@@ -281,8 +282,8 @@
 ## More on Endian-ness
 - Often refers to *byte* ordering, rather than *bit* ordering
 - Consider 0xdeadbeef
-  - On a big endian machine, that's 0xdeadbeef
-  - On a little endian machine, that's 0xefbeadde
+  - On a big-endian machine, that's 0xdeadbeef
+  - On a little-endian machine, that's 0xefbeadde
 - 0xdeadbeef is used as a memory allocation pattern by some OSes
 	  </script></section>
 
@@ -291,9 +292,9 @@
 - Its a "religious" argument: names taken from Big-Endians and Little-Endians in *Gulliver's Travels* who argued over which end of an egg to crack
 - Different orderings problematic
   - Consider what << means in C
-    - big endian ~ multiply by 2
-    - little endian ~ divide by 2
-- Some architectures support both ("bi-endian"): PowerPC, DEC Alpha, IA/64
+    - big-endian ~ multiply by 2
+    - little-endian ~ divide by 2
+- Some architectures support both ("bi-Endian"): PowerPC, DEC Alpha, IA/64
 - There were even some middle-endian machines once upon a time
 - Most Internet standards: big-endian
 	  </script></section>
@@ -324,18 +325,18 @@ void CheckEndian () {
 ```
 #ifdef IS_BIG_ENDIAN
     if (check.intword != 0x01020304) {  /* big */
-      cerr << "ERROR: Host machine is not Big Endian.\n"
+      cerr << "ERROR: Host machine is not Big-endian.\n"
            << "Exiting." << endl;
       Exit (205);    }
 #else
 #ifdef IS_LITTLE_ENDIAN
     if (check.intword != 0x04030201) {  /* little */
-      cerr << "ERROR: Host machine is not Little Endian.\n"
+      cerr << "ERROR: Host machine is not Little-endian.\n"
            << "Exiting." << endl;  
       Exit (206);    }
 #else
     cerr << "ERROR: Host machine not defined as Big or "
-         << Little Endian.\nExiting." << endl;
+         << Little-endian.\nExiting." << endl;
     Exit (207);
 #endif // IS_LITTLE_ENDIAN
 #endif // IS_BIG_ENDIAN
@@ -346,7 +347,7 @@ void CheckEndian () {
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Always writing a little Endian file
+## Always writing a little-endian file
 ```
 void Image::WriteInt (int value, FILE * fp) {
   union {
@@ -374,16 +375,16 @@ void Image::WriteInt (int value, FILE * fp) {
 
 	  <section data-markdown><script type="text/template">
 ## More on Endianness
-- Little vs. big endian deals with the *byte* order, not the *bit* order
+- Little vs. big-endian deals with the *byte* order, not the *bit* order
 
 ![Endian-ness](images/04-numbers/endian-ness.png)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Another way to think of Endianness
-- Big endian:
+- Big-endian:
   - the quick brown fox jumped over the lazy dog
-- Little endian
+- Little-endian
   - dog lazy the over jumped fox brown quick the
 	  </script></section>
 
@@ -422,6 +423,8 @@ void Image::WriteInt (int value, FILE * fp) {
 ## Two's complement
 - Avoids two representations for zero
 ![two's complement](images/04-numbers/twos-complement.png)
+- A negative number has it's bits fipped, and then you add 1
+  - This shifts all the numbers by one, avoiding two representations for zero
 - Most common means of representing integers in computers
 	  </script></section>
 
@@ -436,7 +439,7 @@ void Image::WriteInt (int value, FILE * fp) {
   - For negative numbers, take the absolute value
     - Then subtract that from 2<sup>*n*</sup>, and encode that value
     - Max value is -2<sup>*n*-1</sup>
-    - Alternatively, encode the absolute value, swap the bits, and add 1
+    - Alternatively, encode the absolute value, flip the bits, and add 1
 	  </script></section>
 
 	  <section>
@@ -493,7 +496,7 @@ void Image::WriteInt (int value, FILE * fp) {
 
 	  <section data-markdown><script type="text/template">
 ## Fixed Point
-- Radix point is fixed at some bit
+- Radix point is fixed at some position
 ![fixed point](images/04-numbers/fixed-point.png)
 - Pros:
   - Less computationally demanding
@@ -515,7 +518,7 @@ void Image::WriteInt (int value, FILE * fp) {
   - Base
     - This is 10 for tyipcaly scientific notation, but 2 for computers
     - As this is always known for floats and doubles, it is omitted
-  - Exponent (power of 2 to multiply mantissa by): 6 in the example above
+  - Exponent (power of the base to multiply mantissa by): 6 in the example above
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -532,9 +535,9 @@ void Image::WriteInt (int value, FILE * fp) {
 <ul>
 <li>32 bits are split as follows:
 <ul>
-  <li>bit 0: sign bit, 1 means negative (1 bit)</li>
-  <li>bits 1-8: exponent (8 bits)</li>
-  <li>bits 9-31: mantissa (23 bits)</li>
+  <li>bit 1: sign bit, 1 means negative (1 bit)</li>
+  <li>bits 2-9: exponent (8 bits)</li>
+  <li>bits 10-32: mantissa (23 bits)</li>
 </ul>
 </li>
 <li>Exponent values:
@@ -567,13 +570,13 @@ void Image::WriteInt (int value, FILE * fp) {
 	  <section data-markdown><script type="text/template">
 ## Converting a float from binary to decimal
 - Example taken from [Wikipedia](http://en.wikipedia.org/wiki/Single_precision)
-- 0x41c80000 (big endian) = 0100 0001 1100 1000 0000 0000 0000 0000
+- 0x41c80000 (big-endian) = 0100 0001 1100 1000 0000 0000 0000 0000
   - Sign bit: 0 (means it's positive)
   - Exponent: 1000 0011<sub>b</sub> = 0x83 = 131<sub>d</sub>
     - Exponent offset: 2<sup>n-1</sup>-1 = 2<sup>(8-1)</sup>-1 = 127
     - Subtract 127 from exponent value yields 4
     - Which means multiply the mantissa by 2<sup>4</sup>=16
-  - Mantissa: 100 1000 0000 0000 0000 0000d = 0x480000
+  - Mantissa: 100 1000 0000 0000 0000 0000
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -667,7 +670,7 @@ union foo {
 
 int main() {
     bar.f = 42.125;
-    cout << bar.x << endl; // prints in BIG endian
+    cout << bar.x << endl; // prints in big-endian
 }
 ```
 Output: 0x42288000
