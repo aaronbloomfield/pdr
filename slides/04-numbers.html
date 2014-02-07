@@ -602,8 +602,8 @@ void Image::WriteInt (int value, FILE * fp) {
     - 255 is reserved for infinities and overflows
     - That exponent is 254-127 = 127
   - All 1's for the mantissa
-  - Which yields *almost* 2
-  - 2 \* 2<sup>127</sup> = 2<sup>128</sup> = 3.4028234 \* 10<sup>38</sup>
+    - Which yields *almost* 2
+  - 2 \* 2<sup>127</sup> = 2<sup>128</sup> = 3.402823 \* 10<sup>38</sup>
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -678,7 +678,7 @@ Output: 0x42288000
 
 	  <section data-markdown><script type="text/template">
 ## Converting a float<br>from decimal to binary
-- Take 42.125 (see float_to_hex.cpp)
+- Take 42.125 (see [float_to_hex.cpp](code/04-numbers/float_to_hex.cpp.html) ([src](code/04-numbers/float_to_hex.cpp)))
   - Sign is 0 (it's positive)
   - Exponent: 42.125/2<sup>5</sup> = 42.125/32 = 1.31640625 (exactly)
     - Exponent is 5+127 = 132 (1000 0100<sub>b</sub>)
@@ -690,6 +690,46 @@ Output: 0x42288000
     - <font color='pink'>0</font><font color='green'>100 0010 0</font><font color="skyblue">010 1000 1000 0000 0000 0000</font>
       - The <font color='pink'>sign</font>, <font color='green'>exponent</font> and <font color='skyblue'>mantissa</font> are colored differently for clarity
 	  </script></section>
+
+	  <section>
+<h2>Doing the last example by hand, part 1</h2>
+<ul>
+<li>Convert  42.125 to rational form: 42 1/8 = 337/8<ul>
+  <li>Everything stays in rational form for the entire conversion process</li>
+</ul></li>
+<li>Sign is 0 (it's positive)</li>
+<li>Exponent: <ul>
+  <li>Divide by the highest power of 2 that is <i>less</i> than the number</li>
+  <li>In this case, that is 2<sup>5</sup> = 32</li>
+  <li>\( \frac{\frac{337}{8}}{2^5} = \frac{337}{8*2^5} = \frac{337}{256} \)</li>
+  <li>Exponent is 5+127 = 132 (1000 0100<sub>b</sub>)</li>
+</ul></li>
+<li>Mantissa<ul>
+  <li>First subtract 1: 337/256 - 1 = 337/256 - 256/256 = 81/256; we then encode 81/256 using powers of 1/2</li>
+</ul></li>
+</ul>
+	  </section>
+
+	  <section>
+<h2>Doing the last example by hand, part 1</h2>
+<ul>
+<li>Mantissa: encode it using powers of 1/2<ul>
+  <li>To do this, we try to subtract increasing powers of 1/2 until we hit zero<ul>
+    <li>From 81/256 we cannot subtract 1/2 (128/256)</li>
+    <li>From 81/256 we <i>can</i> sub 1/4 (64/256), yielding 17/256</li>
+    <li>From 17/256 we cannot subtract 1/8 (32/256)</li>
+    <li>From 17/256 we <i>can</i> sub 1/16 (16/256), yielding 1/256</li>
+    <li>From 1/256 we cannot subtract 1/32 (8/256)</li>
+    <li>From 1/256 we cannot subtract 1/64 (4/256)</li>
+    <li>From 1/256 we cannot subtract 1/128 (2/256)</li>
+    <li>From 1/256 we <i>can</i> sub 1/256 (1/256), yielding zero</li>
+  </ul></li>
+  <li>Thus, the parts of the mantissa are 1/4 + 1/16 + 1/256</li>
+  <li>Encoded: 0101 0001 0000 0000 0000 000</li>
+</ul></li>
+<li>In binary, then, the full encoding is: <font color='pink'>0</font><font color='green'>100 0010 0</font><font color="skyblue">010 1000 1000 0000 0000 0000</font></li>
+</ul>
+	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## Example
@@ -842,6 +882,7 @@ bool foo = fabs (a-b) < EPSILON;
 	  <section data-markdown><script type="text/template">
 ## Better Floating Point: Use More Bits
 - IEEE 754 Double Precision (64 bits)
+  - A `float` has about 7 decimal places of accuracy, and a `double` has about 15
 - 64 bits are split as follows:
   - bit 0: sign bit, 1 means negative (1 bit)
   - bits 1-11: exponent (11 bits)
