@@ -64,7 +64,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 8 | Jan&nbsp;31 | Friday | | [03: Lists](../slides/03-lists.html) | [03: lists, slides 6 to 8-3 (end); 04: numbers, slides 1 to 3-2](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/04-numbers-1b/04-numbers-1b.htm) |
 | 9 | Feb&nbsp;3 | Monday | [Lab 3: Stacks](../labs/lab03/index.html) / [Tutorial 3: More UNIX, part 1](../tutorials/03-04-more-unix/index.html), sections 1-4 | [03: Lists](../slides/03-lists.html), [04: Numbers](../slides/04-numbers.html) | [04: numbers, slides 3-3 to 6-1](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/04-numbers-2b/04-numbers-2b.htm) |
 | 10 | Feb&nbsp;5 | Wednesday | | [04: Numbers](../slides/04-numbers.html) | [04: numbers, slides 6-1 to 7-8](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/04-numbers-3b/04-numbers-3b.htm) |
-| 11 | Feb&nbsp;7 | Friday | | [04: Numbers](../slides/04-numbers.html) | |
+| 11 | Feb&nbsp;7 | Friday | | [04: Numbers](../slides/04-numbers.html) | [04: numbers, slides 7-9 to 7-25](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/04-numbers-4b/04-numbers-4b.htm) |
 | 12 | Feb&nbsp;10 | Monday | [Lab 4: Numbers](../labs/lab04/index.html) / [Tutorial 4: More UNIX, part 2](../tutorials/03-04-more-unix/index.html), sections 5-8 | [04: Numbers](../slides/04-numbers.html) | |
 | 13 | Feb&nbsp;12 | Wednesday | | [05: Arrays & big-Oh](../slides/05-arrays-bigoh.html) | |
 | 14 | Feb&nbsp;14 | Friday | | [05: Arrays & big-Oh](../slides/05-arrays-bigoh.html) | |
