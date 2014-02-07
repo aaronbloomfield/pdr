@@ -3,91 +3,53 @@ Program and Data Representation: CS 2150 Specific Content
 
 [Go up to the main README file](../README.html)
 
-Much of the rest of this git repo is meant to be generic to anybody
-who has a class such as this one.  But this page contains details
-specific to the spring 2014 version of CS 2150 at the University of
-Virginia.
+Much of the rest of this git repo is meant to be generic to anybody who has a class such as this one.  But this page contains details specific to the spring 2014 version of CS 2150 at the University of Virginia.
 
 ------------------------------------------------------------
 
 Links
 -----
 
-There are a number of links and other parts of this course that are
-**NOT** included in this repository.  They are:
+There are a number of links and other parts of this course that are **NOT** included in this repository.  They are:
 
 - The set of online tools, which can be accesed through Collab or [here](https://libra.cs.virginia.edu/~pedagogy/).
-  - These tools are:
-    [support requests](https://libra.cs.virginia.edu/~pedagogy/support.php), 
-    [lab submission](https://libra.cs.virginia.edu/~pedagogy/submit.php), 
-    [regrades](https://libra.cs.virginia.edu/~pedagogy/regrades.php), 
-    [gradebook](https://libra.cs.virginia.edu/~pedagogy/gradebook.php), and 
-    [lab extensions](https://libra.cs.virginia.edu/~pedagogy/labextension.php)
-- The announcements, which are posted to the CS 2150 twitter feed:
-  [@UVaCS2150](http://twitter.com/UVaCS2150)
-- The [CS 2150 Google 
-  calendar](https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York)
-- Grading explanations, including the grading guidelines; this is
-  availabe in the Collab wiki
- ([here](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/618f97d9-06f2-4da8-8197-5ddadbbc9f51)
-  is the direct link, although Collab login is required)
-- Email list archive, which is a Collab tool
-  ([here](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/770a28a5-0679-405a-913a-49301c5c9a60)
-  is the direct link, although Collab login is required)
+  - These tools are: [support requests](https://libra.cs.virginia.edu/~pedagogy/support.php), [lab submission](https://libra.cs.virginia.edu/~pedagogy/submit.php), [regrades](https://libra.cs.virginia.edu/~pedagogy/regrades.php), [gradebook](https://libra.cs.virginia.edu/~pedagogy/gradebook.php), and [lab extensions](https://libra.cs.virginia.edu/~pedagogy/labextension.php)
+- The announcements, which are posted to the CS 2150 twitter feed: [@UVaCS2150](http://twitter.com/UVaCS2150)
+- The [CS 2150 Google calendar](https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York)
+- Grading explanations, including the grading guidelines; this is availabe in the Collab wiki ([here](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/618f97d9-06f2-4da8-8197-5ddadbbc9f51) is the direct link, although Collab login is required)
+- Email list archive, which is a Collab tool ([here](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/770a28a5-0679-405a-913a-49301c5c9a60) is the direct link, although Collab login is required)
 - [Piazza](https://piazza.com/); Collab can log you in directly.
 
 The parts of this course that are in this repo are:
 
 - [Daily announcements slide set](daily-announcements.html)
 - [Course syllabus](syllabus.html): the course syllabus
-- [Lab due dates](labduedates.html): When the various lab parts
-  are due
-- [UNIX honor pledge](unix-honor-pledge-s14.pdf), which needs to be
-  signed by all the students in the course; it is created from a
-  [.tex](unix-honor-pledge.tex) file
+- [Lab due dates](labduedates.html): When the various lab parts are due
+- [UNIX honor pledge](unix-honor-pledge-s14.pdf), which needs to be signed by all the students in the course; it is created from a [.tex](unix-honor-pledge.tex) file
 
 ------------------------------------------------------------
 
 Labs and Tutorials
 ------------------
 
-This is a series of links to the labs and tutorials that are elsewhere
-in this repository.  A bunch of notes:
+This is a series of links to the labs and tutorials that are elsewhere in this repository.  A bunch of notes:
 
-- The lab parts are all due on specific times throughout the week, as
-  detailed on the [lab due dates](labduedates.html) page
-  - Each lab is for a given week, which (for sake of argument) we
-    claim starts on a Monday
-  - Which lab is done on which week is listed below in the semester
-    schedule
-- The lab is released the week before, typically on a Wednesday or
-  Thursday
-  - While a version of the lab will be in this github repo for
-    some time prior, there **WILL** be modifications to that lab up
-    until the "official" release, which is when it is announced as
-    released on the twitter feed:
-    [@UVaCS2150](http://twitter.com/UVaCS2150)
-- All the labs and tutorials can be found on the [labs
-  page](../labs/index.html) and the [tutorials
-  page](../tutorials/index.html).  
-  - In particular, these pages have additional details and links not
-    described here
-- Note that as this repository is being filled out throughout the spring
-  2014 semester, many of these links will not work until later in the
-  semester
-  - And many of the links that do work may be incomplete or only
-    partially formed
+- The lab parts are all due on specific times throughout the week, as detailed on the [lab due dates](labduedates.html) page
+  - Each lab is for a given week, which (for sake of argument) we claim starts on a Monday
+  - Which lab is done on which week is listed below in the semester schedule
+- The lab is released the week before, typically on a Wednesday or Thursday
+  - While a version of the lab will be in this github repo for some time prior, there **WILL** be modifications to that lab up until the "official" release, which is when it is announced as released on the twitter feed: [@UVaCS2150](http://twitter.com/UVaCS2150)
+- All the labs and tutorials can be found on the [labs page](../labs/index.html) and the [tutorials page](../tutorials/index.html).
+  - In particular, these pages have additional details and links not described here
+- Note that as this repository is being filled out throughout the spring 2014 semester, many of these links will not work until later in the semester
+  - And many of the links that do work may be incomplete or only partially formed
 
 ------------------------------------------------------------
 
 Semester Schedule
 -----------------
 
-The links in the right-most column link directly to the lecture
-recording on Collab, and you have to be logged into Collab first
-before the link will work. Some plugins (such as NoScript) will block
-that link from working.  Unless otherwise indicated, both lectures
-stopped at the same point.
+The links in the right-most column link directly to the lecture recording on Collab, and you have to be logged into Collab first before the link will work. Some plugins (such as NoScript) will block that link from working.  Unless otherwise indicated, both lectures stopped at the same point.
 
 | Num | Date | Day of week | Lab & Tutorial | Planned topic | Actual lecture progress (and recording) |
 |-----|--------|-------------|----------------------------------------------------------|--------------------------|--------------------------|
@@ -143,17 +105,6 @@ stopped at the same point.
 Grading Concerns
 ----------------
 
-There was a problem with the in-lab 1 grading -- a one-point deduction
-was in the [grading
-guidelines](https://collab.itc.virginia.edu/portal/tool/58e790ee-ac9e-4001-9947-ebf5df8a8df5?pageName=%2Fsite%2F7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c%2Flab+1+grading+guidelines&action=printview&panel=Main&breadcrumb=0&realm=%2Fsite%2F7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c)
-that should not have been there (that deduction currently is currently
-in the grading guidelines, but struck out).  Rather than regrading everything,
-everybody will get a 1 on their lab.
+There was a problem with the in-lab 1 grading -- a one-point deduction was in the [grading guidelines](https://collab.itc.virginia.edu/portal/tool/58e790ee-ac9e-4001-9947-ebf5df8a8df5?pageName=%2Fsite%2F7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c%2Flab+1+grading+guidelines&action=printview&panel=Main&breadcrumb=0&realm=%2Fsite%2F7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c) that should not have been there (that deduction currently is currently in the grading guidelines, but struck out).  Rather than regrading everything, everybody will get a 1 on their lab.
 
-The way this is handled is that at the end of the semester, the 1
-point on the lab will affect the final grade cut-offs.  If there are
-35 lab parts, each worth 10 points, then one point on one lab is worth
-1/350th of the overall lab grade (which is 40% of the final grade).
-The final grade curve will be modified by this amount.  It's the same,
-mathematically, as increasing everybody's grade by one point, but far
-easier to effect.
+The way this is handled is that at the end of the semester, the 1 point on the lab will affect the final grade cut-offs.  If there are 35 lab parts, each worth 10 points, then one point on one lab is worth 1/350th of the overall lab grade (which is 40% of the final grade).  The final grade curve will be modified by this amount.  It's the same, mathematically, as increasing everybody's grade by one point, but far easier to effect.
