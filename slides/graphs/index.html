@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Graph Generation</title>
+<link href="../../markdown.css" media="all" rel="stylesheet" type="text/css"></head>
+<body>
+<h1>Graph Generation</h1>
+
+<p><a href="../index.html">Go up to the main slides table of contents page</a></p>
+
+<p>The files in this directory use <a href="http://www.graphviz.org/">GraphViz</a> to generate the images.  To run GraphViz:</p>
+
+<pre><code>dot -Tsvg filename.dot -o outname.svg
+</code></pre>
+
+<p>However, you can just run <code>make</code> in the slides/graphs/ directory to convert all of the .dot files in this repository.  This also creates .png and .ps versions of the graphs, which can be removed via &lsquo;make clean&rsquo;.</p>
+
+<p>Both the original .dot files, as well as the .svg files (which are what are used in the slides) are include in this repository.</p>
+
+<h2>References</h2>
+
+<ul>
+<li><a href="http://www.graphviz.org/content/FaqBalanceTree">GraphViz: creating balanced trees</a></li>
+</ul>
+
+</body>
+</html>

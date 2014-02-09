@@ -1,0 +1,53 @@
+digraph G {
+	graph [fontname = "Helvetica"];
+	node [fontname = "Helvetica"];
+	edge [fontname = "Helvetica"];
+
+	8 -> 5;
+	m8 [label="", width=0.1, style=invis];
+	8 -> m8 [style=invis];
+	8 -> 11;
+	{rank=same 5 -> m8 -> 11 [style=invis]};
+
+	5 -> 2;
+	m5 [label="", width=0.1, style=invis];
+	5 -> m5 [style=invis];
+	5 -> 6;
+	{rank=same 2 -> m5 -> 6 [style=invis]};
+
+	l2 [label="", width=0.1, style=invis];
+	2 -> l2 [style=invis];
+	m2 [label="", width=0.1, style=invis];
+	2 -> m2 [style=invis];
+	2 -> 4;
+	{rank=same l2 -> m2 -> 4 [style=invis]};
+
+	11 [color=red];
+	11 -> 10;
+	m11 [label="", width=0.1, style=invis];
+	11 -> m11 [style=invis];
+	11 -> 18;
+	{rank=same 10 -> m11 -> 18 [style=invis]};
+
+	l10 [label="", width=0.1, style=invis];
+	10 -> l10 [style=invis];
+	m10 [label="", width=0.1, style=invis];
+	10 -> m10 [style=invis];
+	10 -> 15;
+	{rank=same l10 -> m10 -> 15 [style=invis]};
+
+	l18 [label="", width=0.1, style=invis];
+	18 -> l18 [style=invis];
+	m18 [label="", width=0.1, style=invis];
+	18 -> m18 [style=invis];
+	18 -> 20;
+	{rank=same l18 -> m18 -> 20 [style=invis]};
+
+	20 [color=red];
+	20 -> 21;
+	m20 [label="", width=0.1, style=invis];
+	20 -> m20 [style=invis];
+	r20 [label="", width=0.1, style=invis];
+	20 -> r20 [style=invis];
+	{rank=same 21 -> m20 -> r20 [style=invis]};
+}

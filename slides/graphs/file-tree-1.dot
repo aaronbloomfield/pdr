@@ -1,0 +1,24 @@
+digraph G {
+	graph [fontname = "Helvetica"];
+	node [fontname = "Helvetica"];
+	edge [fontname = "Helvetica"];
+
+	home -> aaron;
+	aaron -> cs2150;
+	cs2150 -> cs4970;
+	cs4970 -> mail;
+	mail -> school;
+	cs2150 -> lab1;
+	lab1 -> lab2;
+	lab2 -> proj1;
+	projh [label="proj.h"];
+	proj1 -> projh;
+	collh [label="coll.h"];
+	lab1 -> collh;
+	collcpp [label="coll.cpp"];
+	collh -> collcpp;
+
+	{rank=same cs2150 cs4970 mail };
+	{rank=same lab1 lab2 proj1 };
+	{rank=same collh collcpp projh };
+}

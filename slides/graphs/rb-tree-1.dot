@@ -1,0 +1,86 @@
+digraph G {
+	graph [fontname = "Helvetica"];
+	node [fontname = "Helvetica"];
+	edge [fontname = "Helvetica"];
+
+	13 [style=filled, fillcolor=black, fontcolor=white];
+	13 -> 8;
+	m13 [label="", width=0.1, style=invis];
+	13 -> m13 [style=invis];
+	17 [style=filled, fillcolor=red, fontcolor=white];
+	13 -> 17;
+	{rank=same 8 -> m13 -> 17 [style=invis]};
+	
+	8 [style=filled, fillcolor=red, fontcolor=white];
+	1 [style=filled, fillcolor=black, fontcolor=white];
+	8 -> 1;
+	m8 [label="", width=0.1, style=invis];
+	8 -> m8 [style=invis];
+	11 [style=filled, fillcolor=black, fontcolor=white];
+	8 -> 11;
+	{rank=same 1 -> m8 -> 11 [style=invis]};
+
+	l1 [shape=point];
+	1 -> l1;
+	m1 [label="", width=0.1, style=invis];
+	1 -> m1 [style=invis];
+	6 [style=filled, fillcolor=red, fontcolor=white];
+	1 -> 6;
+	{rank=same l1 -> m1 -> 6 [style=invis]};
+
+	15 [style=filled, fillcolor=black, fontcolor=white];
+	17 -> 15;
+	m17 [label="", width=0.1, style=invis];
+	17 -> m17 [style=invis];
+	25 [style=filled, fillcolor=black, fontcolor=white];
+	17 -> 25;
+	{rank=same 15 -> m17 -> 25 [style=invis]};
+
+	22 [style=filled, fillcolor=red, fontcolor=white];
+	25 -> 22;
+	m25 [label="", width=0.1, style=invis];
+	25 -> m25 [style=invis];
+	27 [style=filled, fillcolor=red, fontcolor=white];
+	25 -> 27;
+	{rank=same 22 -> m25 -> 27 [style=invis]};
+
+	l6 [shape=point];
+	6 -> l6;
+	m6 [label="", width=0.1, style=invis];
+	6 -> m6 [style=invis];
+	r6 [shape=point];
+	6 -> r6;
+	{rank=same l6 -> m6 -> r6 [style=invis]};
+
+	l11 [shape=point];
+	11 -> l11;
+	m11 [label="", width=0.1, style=invis];
+	11 -> m11 [style=invis];
+	r11 [shape=point];
+	11 -> r11;
+	{rank=same l11 -> m11 -> r11 [style=invis]};
+	
+	l15 [shape=point];
+	15 -> l15;
+	m15 [label="", width=0.1, style=invis];
+	15 -> m15 [style=invis];
+	r15 [shape=point];
+	15 -> r15;
+	{rank=same l15 -> m15 -> r15 [style=invis]};
+	
+	l22 [shape=point];
+	22 -> l22;
+	m22 [label="", width=0.1, style=invis];
+	22 -> m22 [style=invis];
+	r22 [shape=point];
+	22 -> r22;
+	{rank=same l22 -> m22 -> r22 [style=invis]};
+	
+	l27 [shape=point];
+	27 -> l27;
+	m27 [label="", width=0.1, style=invis];
+	27 -> m27 [style=invis];
+	r27 [shape=point];
+	27 -> r27;
+	{rank=same l27 -> m27 -> r27 [style=invis]};
+}

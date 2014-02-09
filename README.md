@@ -149,4 +149,4 @@ The material in this repository is released under a [Creative Commons Attributio
 
 Copyright (c) 2013-2014 by Aaron Bloomfield.
 
-Some parts of this repository are taken, with permission, from other sources.  The full details are in the [License](LICENSE.html) file.
+Some parts of this repository are taken, with permission, from other sources.  The full details are in the [License](LICENSE.html) file.  In particular, some parts of this repository that were obtained elsewhere can not be used for commercial purposes.

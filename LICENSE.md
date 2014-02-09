@@ -1,5 +1,5 @@
-PDR: License
-============
+PDR: Licensing Details
+======================
 
 [Go up to the main README file](README.html)
 
@@ -17,3 +17,4 @@ Various components in this repository were obtained from other sources, all of w
 - Some of the code in [canvas.js](slides/js/canvas.js) was adapted from two [Stack Overflow](http://stackoverflow.com/) posts: [here](http://stackoverflow.com/questions/2368784/draw-by-mouse-with-html5-canvas) and [here](http://stackoverflow.com/questions/4037212/html-canvas-full-screen) (which code was adapated from those posts is described in the [canvas.js](slides/js/canvas.js) file).
 - The DHTML Window Widget (in [dhtmlwindow.js](slides/js/dhtmlwindow.js) and [dhtmlwindow.css](slides/css/dhtmlwindow.css) file) was taken from [Dynamic Drive](http://www.dynamicdrive.com), along with the various images ([close.gif](slides/images/close.gif), [max.gif](slides/images/max.gif), [min.gif](slides/images/min.gif), [resize.gif](slides/images/resize.gif), and [restore.gif](slides/images/restore.gif)); the full license is in the [dhtmlwindow.js](slides/js/dhtmlwindow.js) file.
 - The [UNIX tutorials](tutorials/03-04-unix/index.html) are from [here](http://www.ee.surrey.ac.uk/Teaching/Unix/), and is released under a [CC BY-NC-SA 2.0](http://creativecommons.org/licenses/by-nc-sa/2.0/) license.
+- The [How can I serve an evil genius flowchart](slides/images/06-trees/evil-genius-flowchart.gif) was from [here](http://ars.userfriendly.org/cartoons/?id=20100829).  The license description is [here](http://www.userfriendly.org/archivist/gallery/games.html), which states that it may be used for "non-commercial" purposes.

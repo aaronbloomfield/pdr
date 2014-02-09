@@ -1,0 +1,39 @@
+digraph G {
+	graph [fontname = "Helvetica"];
+	node [fontname = "Helvetica"];
+	edge [fontname = "Helvetica"];
+
+	5 [label="5\nb:1"];
+	4 [label="4\nb:-1"];
+	1 [label="1\nb:0"];
+	7 [label="7\nb:1"];
+	8 [label="8\nb:0"];
+	9 [label="9\nb:-1"];
+	11 [label="11\nb:0"];
+
+	5 -> 4;
+	m5 [label="", width=0.1, style=invis];
+	5 -> m5 [style=invis];
+	5 -> 9;
+	{rank=same 4 -> m5 -> 9 [style=invis]};
+	
+	4 -> 1;
+	l4 [label="", width=0.1, style=invis];
+	4 -> l4 [style=invis];
+	r4 [label="", width=0.1, style=invis];
+	4 -> r4 [style=invis];
+	{rank=same 1 -> l4 -> r4 [style=invis]};
+
+	9 -> 7;
+	m9 [label="", width=0.1, style=invis];
+	9 -> m9 [style=invis];
+	9 -> 11;
+	{rank=same 7 -> m9 -> 11 [style=invis]};
+
+	l7 [label="", width=0.1, style=invis];
+	7 -> l7 [style=invis];
+	m7 [label="", width=0.1, style=invis];
+	7 -> m7 [style=invis];
+	7 -> 8;
+	{rank=same l7 -> m7 -> 8 [style=invis]};
+}

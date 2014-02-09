@@ -1,0 +1,85 @@
+digraph G {
+	graph [fontname = "Helvetica"];
+	node [fontname = "Helvetica"];
+	edge [fontname = "Helvetica"];
+
+	vars1 [label="vars"];
+	program -> vars1;
+	program -> functions;
+	{rank=same vars1 -> functions [style=invis]};
+
+	intz1 [label="int z"];
+	vars1 -> intz1
+
+	foo1 [label="foo()"];
+	functions -> foo1;
+	main [label="main()"];
+	functions -> main
+	{rank=same foo1 -> main [style=invis]};
+
+	params1 [label="params"];
+	foo1 -> params1;
+	vars2 [label="vars"];
+	foo1 -> vars2;
+	body1 [label="body"];
+	foo1 -> body1;
+	{rank=same params1 -> vars2 -> body1 [style=invis]};
+
+	intx [label="int x"];
+	params1 -> intx;
+
+	body1 -> for;
+
+	inty [label="int y"];
+	for -> inty;
+	yltx [label="y<x"];
+	for -> yltx;
+	yinc [label="y++"];
+	for -> yinc;
+	body2 [label="body"];
+	for -> body2;
+	{rank=same inty -> yltx -> yinc -> body2 [style=invis]};
+
+	cout1 [label="cout"];
+	body2 -> cout1;
+
+	cout1 -> y;
+	endl1 [label="endl"];
+	cout1 -> endl1;
+	{rank=same y -> endl1 [style=invis]};
+
+	params2 [label="params"];
+	main -> params2;
+	vars3 [label="vars"];
+	main -> vars3;
+	body3 [label="body"];
+	main -> body3;
+	{rank=same params2 -> vars3 -> body3 [style=invis]};
+
+	intz2 [label="int z"];
+	vars3 -> intz2;
+
+	equals5 [label="=5"];
+	intz2 -> equals5;
+	
+	cout2 [label="cout"];
+	body3 -> cout2;
+	body3 -> cin;
+	foo2 [label="foo()"];
+	body3 -> foo2;
+	{rank=same cout2 -> cin -> foo2 [style=invis]};
+
+	enterz [label="\"enter z\""];
+	cout2 -> enterz;
+	endl2 [label="endl"];
+	cout2 -> endl2;
+	{rank=same enterz -> endl2 [style=invis]};
+
+	z1 [label="z"];
+	cin -> z1;
+
+	z2 [label="z"];
+	foo2 -> z2;
+	
+	
+}

@@ -1,0 +1,41 @@
+digraph G {
+	graph [fontname = "Helvetica"];
+	node [fontname = "Helvetica"];
+	edge [fontname = "Helvetica"];
+
+	div [label="/"];
+
+	star1 [label="*"];
+	div -> star1;
+	mdiv [label="", width=0.1, style=invis];
+	div -> mdiv [style=invis]
+	star2 [label="*"];
+	div -> star2;
+	{rank=same star1 -> mdiv -> star2 [style=invis]};
+
+	plus [label="+"];
+	star1 -> plus;
+	mstar1 [label="", width=0.1, style=invis];
+	star1 -> mstar1 [style=invis]
+	minus [label="-"];
+	star1 -> minus;
+	{rank=same plus -> mstar1 -> minus [style=invis]};
+
+	plus -> 1;
+	mplus [label="", width=0.1, style=invis];
+	plus -> mplus [style=invis]
+	plus -> 2;
+	{rank=same 1 -> mplus -> 2 [style=invis]};
+
+	minus -> 3;
+	mminus [label="", width=0.1, style=invis];
+	minus -> mminus [style=invis]
+	minus -> 4;
+	{rank=same 3 -> mminus -> 4 [style=invis]};
+
+	star2 -> 5;
+	mstar2 [label="", width=0.1, style=invis];
+	star2 -> mstar2 [style=invis]
+	star2 -> 6;
+	{rank=same 5 -> mstar2 -> 6 [style=invis]};
+}

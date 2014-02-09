@@ -1,0 +1,903 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 2150: 06-trees slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="css/pdr.css">
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <script><!-- If the query includes 'print-pdf', use the PDF print sheet -->
+      document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/dhtmlwindow.js"></script>
+    <script type="text/javascript" src="js/canvas.js"></script>
+    <link rel="stylesheet" href="css/dhtmlwindow.css" type="text/css">
+  </head>
+
+  <body onload="canvasinit()">
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	<section data-markdown id="cover"><script type="text/template">
+# CS 2150
+&nbsp;
+### Program and Data Representation
+### Spring 2014
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="06-trees.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
+<center><small>Themes: [default](?#/cover), [sky](?theme=sky#/cover), [beige](?theme=beige#/cover), [simple](?theme=simple#/cover), [serif](?theme=serif#/cover), [night](?theme=night#/cover), [moon](?theme=moon#/cover), [solarized](?theme=solarized#/cover)</small></center>
+&nbsp;  
+&nbsp;  
+## Trees
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+# Contents
+&nbsp;  
+[Introduction](#/introduction)  
+[Binary Search Trees](#/bsts)  
+[Expression Trees](#/exptrees)  
+[AVL Trees](#/avltrees)  
+[Red-black Trees](#/redblacktrees)  
+[Splay Trees](#/splaytrees)  
+[Applications](#/applications)  
+	</script></section>
+
+
+	<section>
+
+	  <section id="introduction" data-markdown><script type="text/template">
+# Introduction
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Data Structures
+- If we have a good list implementation, do we need any other data structures?
+- For computing: ***no***
+  - We can compute everything with just lists (actually even less).  The underlying machine memory can be thought of as a list
+- For thinking: ***yes***
+  - Lists are a very limited way of thinking about problems
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## List Limitations
+(diagram)
+(text)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Complex Relationships
+(diagram)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## List &rarr; Tree
+- List: each element has relationships with up to 2 other elements:
+(diagram)
+- Binary Tree: each element has relationships with up to ***3*** other elements:
+(diagram)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Tree Terms
+- *Root*: a node with no parent; there can only be one root
+- *Leaf*: a node with no children
+- *Sibling*: same parent
+- *Height* of a node: length of the longest path from that node to a leaf
+  - *Height of a tree*: maximum depth of a node in that tree = height of the root
+- *Depth* of a node: length of the path from the Root to that node
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Tree Terms
+(diagram, possibly with animations)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## More Tree Terms
+- *Path*:  sequence of nodes n<sub>1</sub>, n<sub>2</sub>, ..., n<sub>k</sub> such that n<sub>i</sub> is parent of n<sub>i+1</sub> for 1 &le; i &le; k
+- *Length*: number of edges in the path
+- *Internal path length*: sum of the depths of all nodes
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Other Examples of Trees
+- Files/folders on a computer
+- Compilers: parse tree
+```
+a = (b+c) * d;
+```
+- Genealogy trees
+  - Becomes complicated with some complex family relationships
+- Lab 5 -- expression trees
+![expression tree 1](graphs/exp-tree-1.svg)
+	  </script></section>
+
+	  <section>
+<h2>First child/next sibling</h2>
+<table class="transparent"><tr>
+<td class="middle"><pre><code>class TreeNode {
+  private:
+    string element;
+    TreeNode *firstChild;
+    TreeNode *nextSibling;
+  public:
+    // ...
+}</code></pre></td>
+<td><img alt="file tree 1" src="graphs/file-tree-1.svg"></td>
+</tr></table>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Tree Traversals
+Pre-order: node first, then children:
+```
+TreeNode::printTree(TreeNode tnode) {
+    tnode.print();
+    for each child c of tnode
+        c.printTree();
+}
+```
+Post-order: children first, then node:
+```
+int TreeNode::numNodes(TreeNode tnode) {
+    if( tnode == NULL )
+        return 0;
+    else {
+        sum=0;
+        for each child c of tnode
+            sum += numNodes(c);
+        return 1 + sum;
+    }
+}
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Tree Preorder Traversal
+(diagram)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Traversals of trees
+![expression tree 2](graphs/exp-tree-2.svg)
+
+- Pre-order: / \* + 1 2 - 3 4 \* 5 6
+- In-order: (((1+2) \* (3-4)) / (5\*6))
+- Post-order: 1 2 + 3 4 - \* 5 6 \* /
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## In-order Traversal
+- In-order: left node first, then self, then right node
+```
+void BST::print(BNode *curNode) {
+    if(curNode != NULL) {
+        print(curNode->left);
+        cout << curNode->element;
+        print(curNode->right);
+    }
+}
+```
+      </script></section>
+
+    </section>
+
+
+    <section>
+
+      <section id="bsts" data-markdown><script type="text/template">
+# Binary Search Trees
+      </script></section>
+
+      <section>
+<h2>Binary Trees</h2>
+<p class="center">All nodes have at most 2 children</p>
+<table class="transparent"><tr>
+<td class="middle"><pre><code>class BinaryNode {
+  public:
+    // ...
+  private:
+    int element;
+    BinaryNode *left;
+    BinaryNode *right;
+};</code></pre>
+<img alt="bst-3" src="graphs/bst-3.svg"></td>
+<td><img alt="bst-1" src="graphs/bst-1.svg"></td>
+</tr></table>
+      </section>
+
+      <section>
+<h2>Binary Trees: diagram details</h2>
+<p>In reality, any child not shown is really a <code>NULL</code> pointer, as shown below; but these are generally omitted from the diagrams</p>
+<table class="transparent"><tr>
+<td class="top"><img alt="bst-4" src="graphs/bst-4.svg"></td>
+<td><img alt="bst-2" src="graphs/bst-2.svg"></td>
+</tr></table>
+      </section>
+
+      <section data-markdown><script type="text/template">
+## Binary Search Trees (BST)
+- Each node has a *key* value that can be compared
+- Binary search tree property
+  - every node in left subtree has key whose value is < root's key value, AND
+  - every node in right subtree has key whose value is > root's key value
+      </script></section>
+
+      <section data-markdown><script type="text/template">
+## Example
+![bst-5](graphs/bst-5.svg)
+      </script></section>
+
+      <section data-markdown><script type="text/template">
+## Counter-Example
+![bst-6](graphs/bst-6.svg)
+      </script></section>
+
+      <section data-markdown><script type="text/template">
+## The difference
+- Both binary trees and binary search trees have 0-2 children per node
+- But a binary search tree is *sorted*
+      </script></section>
+
+      <section data-markdown><script type="text/template">
+## BST: find
+- Basic idea:
+  - Compare value to be found to key of the root of the tree
+    - if they are equal, then done
+    - if not equal, recurse depending on which half of tree the value should be in if it is in tree.
+      </script></section>
+
+      <section data-markdown><script type="text/template">
+## BST: find
+```
+BNode * BST::find(const int x, BNode *curNode) {
+    // handle case where a NULL pointer could be passed
+    // curNode->right or curNode->left might be NULL
+    if(curNode == NULL)
+        return NULL;
+    else if(x < curNode->element)
+        return find(x, curNode->left); // search left
+    else if(x > curNode->element)
+        return find(x, curNode->right); //search right
+    else
+        return curNode;    // matched
+}
+```
+      </script></section>
+
+      <section data-markdown><script type="text/template">
+## BST: insert
+Do a find, when we reach a `NULL` pointer, create a new node there
+```
+void BST::insert(const int x, BNode * & curNode) {
+    if(curNode==NULL)
+        curNode = new BNode(x,NULL,NULL);
+    else if(x < curNode->element)
+        insert(x, curNode->left);
+    else if(x > curNode->element)
+        insert(x, curNode->right);
+    else
+        ;    // duplicate... do nothing
+}
+```
+      </script></section>
+
+      <section data-markdown><script type="text/template">
+## BST: findMax, findMin
+To find the maximum element in BST, traverse down the right subtree links
+![bst-5](graphs/bst-5.svg)
+Similarly down the left subttree links for findMin
+      </script></section>
+
+      <section data-markdown><script type="text/template">
+## BST: remove
+- Disrupts tree structure
+- Basic idea: 
+  - find node to be removed.
+  - "fix" tree so that binary search tree property still holds true
+  - Cases:
+    - Node has no children
+    - Node has one child
+    - Node has two children
+      </script></section>
+
+      <section data-markdown><script type="text/template">
+## BST: remove: no children
+- Just remove the node (reclaiming memory), adjusting the parent pointer to `NULL`
+  - In this case, 8's left child link is changed to `NULL`
+![bst-7](graphs/bst-7.svg)
+      </script></section>
+
+      <section data-markdown><script type="text/template">
+## BST: remove: one child
+- Adjust pointer of parent to point at child, reclaim memory
+  - In this case, 4's left pointer is changed to point to 3
+![bst-8](graphs/bst-8.svg)
+      </script></section>
+
+      <section>
+<h2>BST: remove: two children</h2>
+<ul>
+  <li>Replace node with successor, then remove successor from tree<ul>
+      <li>This requires running findMin on the right sub-tree</li>
+      <li>In this case, 5 is replaced by 7 (and the node that had 7 is removed)</li>
+</ul></li></ul>
+<table class="transparent"><tr>
+<td><img alt="bst-9" src="graphs/bst-9.svg"></td>
+<td class="middle">&rarr;</td>
+<td><img alt="bst-10" src="graphs/bst-10.svg"></td>
+</tr></table>
+      </section>
+
+      <section data-markdown><script type="text/template">
+## BST Height
+- *n*-node BST: Worst case depth is *n*-1
+- Claim: Max number nodes in a  binary tree of height *h* is 2<sup>*h*+1</sup>-1
+![bst-1](graphs/bst-1.svg)
+      </script></section>
+
+      <section data-markdown><script type="text/template">
+## Proof by Induction on *h*
+- For *h*=0, tree has one node, which is 2<sup>0+1</sup>-1 = 1
+- Assume the claim is true for any tree of height *h*
+  - That the maximum number nodes in a  binary tree of height *h* is 2<sup>*h*+1</sup>-1
+- Any tree of height *h*+1 has at most 2 subtrees of height *h*; each subtree has 2<sup>*h*+1</sup>-1 nodes; add one more for the root
+- Thus, our new tree of height *h*+1 has:
+  - 2(2<sup>*h*+1</sup>-1)+1 = 2<sup>*h*+2</sup>-1 nodes
+- If we put *h*+1 into our inductive hypothesis (instead of *h*), we get the same value
+- Thus, it is proven
+      </script></section>
+
+      <section data-markdown><script type="text/template">
+## Relationship between *h* and *n*
+- Given *n* nodes and height *h*, then by the claim (proved on the last slide): *n* &le; 2<sup>*h*+1</sup>-1
+- We can simplify:
+  - *n*+1 &le; 2<sup>*h*+1</sup>
+  - log<sub>2</sub>(*n*+1) &le; log<sub>2</sub>(2<sup>*h*+1</sup>)
+  - log<sub>2</sub>(*n*+1) &le; *h*+1
+- Thus *h* &ge; log(*n*+1)-1
+- This means that the most "shortest" tree we can achieve for *n* nodes is proportional to the base-2 log of the height
+      </script></section>
+
+      <section data-markdown><script type="text/template">
+## Perfect Binary Tree
+(diagram)
+(text)
+      </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="exptrees" data-markdown><script type="text/template">
+# Expression Trees
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Expression Trees
+![exp-tree-3](graphs/exp-tree-3.svg)
+
+- Infix notation: (a + ((b+c) \* d))
+- Postfix notation: a b c + d \* +
+- Prefix notation: + a \* + b c d
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Building Expression Trees
+- REFERENCE FOR THIS (as they can't use "Textbook, Chapter 4.2.2")
+- Uses a stack
+- In-class example
+	  </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="avltrees" data-markdown><script type="text/template">
+# AVL Trees
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Animation Tools
+- http://www.qmatica.com/DataStructures/Trees/BST.html  
+  - That domain seems to be currently having problems; a mirror is at http://webdiis.unizar.es/asignaturas/EDA/AVLTree/avltree.html 
+- We'll be using this website throughout this slide set
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## AVL Trees
+- Motivation: ***Guarantee*** &Theta;(log *n*) running time on find, insert, and remove
+- Idea: Keep tree balanced after each operation
+- Solution:  AVL trees
+  - Named after the inventors, Adelson-Velskii and Landis
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## AVL Tree Property
+For every node in the tree, the *height* of the left and right sub-trees differs at most by 1
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## AVL Tree
+![avl tree 1](graphs/avl-tree-1.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## AVL balance factor
+- Each node of a BST holds:
+  - The data
+  - Left subtree node
+  - Right subtree node
+  - Maybe a parent node
+- An AVL tree also holds a balance factor
+  - The height of the *right* subtree minus the height of the *left* subtree
+  - Can be computed on the fly, as well, but that's VERY slow
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## AVL tree balance
+- "Balanced" trees
+  - 0 means balanced
+  - 1 means the right subtree is one longer than the left subtree
+  - -1 means the left is 1 more than the right
+- "Unbalanced" trees
+  - A balance factor of -2 or 2
+  - We’ll fix the tree
+- Will we ever hit -3 or 3?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## AVL Tree, with balance factors
+![avl tree 2](graphs/avl-tree-2.svg)
+By definition, a BST is a valid AVL tree if the balance factor for EVERY node is -1, 0, or 1
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Not an AVL Tree
+![avl tree 3](graphs/avl-tree-3.svg)
+Not balanced: height difference greater than 1
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## AVL Trees: find, insert
+- find: same as BST find
+- insert: same as BST insert, except might need to "fix" the AVL tree after the insert (via rotations)
+- Runtime analysis:
+  - &Theta;(*d*), where *d* is the depth of the node being found/inserted
+- What is the maximum height of an n-node AVL tree?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## AVL tree operations
+- Perform the operation (insert, delete)
+- Move back up to the root, updating the balance factors
+  - Why only those nodes?
+  - Because those are the only ones who have had their subtrees altered
+- Do tree rotations where the balance factors are 2 or -2
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## How many times to "fix" the tree?
+- Any single insert will only modify the balance factor by one
+  - So we fix the lowest off-balance nodes
+  - Then everything above it is then balanced
+- This means that we will have to only look at the bottom two unbalanced nodes
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## AVL insert
+- Let *x* be the *deepest* node where imbalance occurs
+- Four cases where the insert happened:
+  1. In the Left subtree of left child of x
+  2. In the Right subtree of left child of x
+  3. In the Left subtree of the right child of x
+  4. In the Right subtree of the right child of x
+- Cases 1 & 4: perform a single rotation
+- Cases 2 & 3: perform a double rotation
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## AVL single right rotation
+(animation)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## AVL single right rotation: before
+![avl tree 4](graphs/avl-tree-4.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## AVL single right rotation: after
+![avl tree 5](graphs/avl-tree-5.svg)
+	  </script></section>
+
+	  <section>
+<h2>AVL single right rotation</h2>
+<table class="transparent"><tr>
+<td><img alt="avl tree 6" src="graphs/avl-tree-6.svg"></td>
+<td class="middle">&rarr;</td>
+<td><img alt="avl tree 7" src="graphs/avl-tree-7.svg"></td>
+</tr></table>
+<p class="center">\( X < b < Y < a < Z \)</p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## There are also left rotations
+Note that the trees shown are not necessarily AVL trees, but the rotations are correct
+[![tree rotation](images/06-trees/Tree_rotation.png)](http://en.wikipedia.org/wiki/File:Tree_rotation.png)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+Cases 2 & 3 -- Attempt Single Rotation
+Double Rotation, Step 1
+Double Rotation, Step 2
+Double Rotation, both steps
+Double Rotation, General
+End of lecture on Wed, Oct 2
+Ack!  Terminology
+What everybody else calls a 'single right rotation', the book calls 'rotateWithLeftChild()'
+Single left rotation is 'rotateWithRightChild()'
+
+Some people will state a 'double left rotation'
+But is that a left-right?  Or a right-left?
+We'll call them 'double left-right' and 'double right-left'
+
+
+AVL Tree: Runtime Analysis
+Find
+(log n) time.  Height of tree is always (log n)
+Insert
+(log n) time.  find() takes (log n), then may have to visit every node on path back to root to perform up to 2 single rotations
+Remove
+(log n).  Left as an exercise
+Print
+(n).  No matter the data structures, it still will take n steps to print n elements
+	  </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="redblacktrees" data-markdown><script type="text/template">
+# Red-black Trees
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Red-black trees
+- Each node has a color attribute, which is either (wait for it...) red or black
+![red black tree 1](graphs/rb-tree-1.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Red-black tree properties
+All of these properties must hold for a red-black tree
+
+1. A node is either red or black.
+2. The root is black.
+3. All leaves are black. (The leaves are the null children)
+4. Both children of every red node are black. 
+   - Therefore, a black node is the only possible parent for a red node.
+5. Every simple path from a node to any descendant leaf contains the same number of black nodes. 
+   - Counting or not counting the null black nodes, it doesn't make a difference as long as you are consistent
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Insert
+- Insert the node as for a normal BST
+  - And color it red
+- 5 possible cases:
+  1. The new node is the root node
+  2. The new node's parent is black
+  3. Both the parent and uncle (aunt?) are red
+  4. Parent is red, uncle is black, new node is right child of parent
+  5. Parent is red, uncle is black, new node is left child of parent
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Case 1: new node is root 
+- Case 1 is that the new node is the root node
+  - Thus, it must be painted black, as per rule 2
+  - This adds a black node to every path in the tree, so property 5 still holds
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Case 2: new node's parent is black
+- Case 2 is when the new node's parent is a black node
+  - Property 4 (children of a red node are black) is not invalidated
+  - Property 5 (all paths from a given node to it's leaf nodes have the same number of black nodes) is not threatened
+    - The new node's children are black, but that's the same number of black nodes as the node it replaced
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Case 3: parent and uncle are red
+- We change grandparent to red
+  - And parent and uncle to black
+- Property 5 still holds
+- However, the grandparent may threaten property 2 or 4
+  - So recursively do this on the grandparent
+  - This occurs prior to any rotations
+[![red black tree case 3](images/06-trees/Red-black_tree_insert_case_3.png)](http://en.wikipedia.org/wiki/File:Red-black_tree_insert_case_3.png)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Case 4: P is red, U black, N is *right* child of P
+- Perform a left rotation on P and N
+  - Property 4 is still violated
+- Now treat it as case 5 (where P is a left-child of N)
+[![red black tree case 3](images/06-trees/Red-black_tree_insert_case_4.png)](http://en.wikipedia.org/wiki/File:Red-black_tree_insert_case_4.png)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Case 5: P is red, U black, N is *left* child of P
+- Perform a right rotation on P and G
+- This will satisfy properties 4 and 5
+[![red black tree case 3](images/06-trees/Red-black_tree_insert_case_5.png)](http://en.wikipedia.org/wiki/File:Red-black_tree_insert_case_5.png)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Removal
+- Do a normal BST remove
+  - Find next highest/lowest value, put it's value in the node to be deleted, remove that highest/lowest node
+    - Note that that node won't have 2 children!
+  - We replace the node to be deleted with it's left child
+    - This child is N, it's sibling is S, it's parent is P
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Removal cases
+- A total of 6 cases!
+  1. N is the new root
+  2. S is red
+  3. P, S, and S's children are black
+  4. S and S's children are black, but P is red
+  5. S is black, S's left child is red, S's right child is black, and N is the left child of it's parent
+  6. S is black, S's right child is red, and N is the left child of parent P
+- We won't see them in detail, though...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Why a red-black versus AVL?
+- AVL trees are more rigidly balanced than red-black trees
+  - Thus, more rotations are required during the operations in the worst case
+  - Time-critical applications will see a performance boost
+- Functional programming languages used red-black trees for associative arrays (hashes)
+  - The tree can be a persistent data structure
+    - A data structure that retains a "memory" of it's mutations
+	  </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="splaytrees" data-markdown><script type="text/template">
+# Splay Trees
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Splay Trees
+- A self-balancing tree that keeps "recently" used nodes close to the top
+  - This improves performance!
+  - Great for caches
+  - Not good for uniform access
+- Easier to implement than red-black or AVL trees
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Main operation: splaying
+- Anytime you find / insert / delete a node, you *splay* the tree around that node
+  - Perform tree rotations to make that node the new root node
+- See demo at http://www.qmatica.com/DataStructures/Trees/BST.html 
+  - That domain seems to be currently having problems; a mirror is at http://webdiis.unizar.es/asignaturas/EDA/AVLTree/avltree.html 
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Time complexity
+- How long does a splay take?
+  - &Theta;(*h*), where *h* is the height of the tree
+- A splay tree can look like a linked list
+  - Which means that the running time can be &Theta;(*n*) for a given operation!
+  - That's not good...
+- A splay tree is &Theta;(log *n*) *amortized* time
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Amortized analysis
+- An AVL tree will take &Theta;(log *n*) time for each and every operation in a series of operations
+  - Guaranteed
+- A splay tree will take an *average* of &Theta;(log n) time for the same set of operations 
+  - But some individual ones will take more time
+  - So the total cumulative time to insert a set of elements will be the same for both types of trees
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Splay tree conclusions
+- Pros
+  - Easy to implement
+  - &Theta;(log *n*) amortized time
+  - Good for caches where locality matters
+- Cons
+  - Not guaranteed &Theta;(log *n*) time for a single operation
+  - Bad access time for uniform accesses
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## More amortized analysis
+- Consider a vector insert
+  - Worst case is that you have to double the size of the array (from *n* to 2*n*), and copy the elements over, which takes n steps
+- But this doesn't happen all that often!
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Vector amortized running time
+- Consider a vector of initial capacity of 100 elements, in which we insert about 1,600 elements
+  - So *n* = 1600
+- First "doubling" is from 100->200, costing 100 copies
+  - Second is 200->400, costing 200 copies
+  - Third is 400->800, costing 400 copies
+  - Fourth is 800->1600, costing 800 copies
+  - Assume we have not (yet) doubled from 1600->3200
+- For 1,600 elements, we have 100+200+400+800 = 1500 copies
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Vector amortized running time
+- If we insert 3200 elements, we need 3100 copies
+  - 6400 requires 6300 copies
+  - *n* elements requires about *n*-100 copies
+- Which means that the number of copies is proportional to *n*
+- So a vector's insert is:
+  - &Theta;(*n*) for the worst-case
+  - &Theta;(1) *amortized* when executing many operations
+- Although an *individual* operation may take *n* steps, a series of *c* operations will take a *c*\**n* steps
+  - Where *c* is a constant
+  - And when you divide by *c*, then each operation takes an *average* of *c* steps
+	  </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="applications" data-markdown><script type="text/template">
+# Applications
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## When are trees not good to use?
+- Trees are fast -- so when would we not want to use them?
+  - When the items do not have a sorted order
+    - A list of todo tasks
+  - When we want less complexity
+    - A stack or a queue
+  - When we want an &Theta;(1) operation on retrieves
+    - Vector get()
+  - When we want an &Theta;(1) time for *all* operations
+    - Hash tables can (almost) achieve that
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Applications of Trees: Programs
+- Any program can be represented as a tree; consider the following:
+
+```
+int z;
+
+int foo (int x) {
+    for ( int y = 0; y < x; y++ )
+        cout << y << endl;
+}
+
+int main() {
+    int z = 5;
+    cout << "enter x" << endl;
+    cin >> z;
+    foo(z);
+}
+```
+- Note that there are two `int z` declarations -- this will be relevant shortly...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## The program tree
+![program tree](graphs/program-tree-1.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Notes on the program tree
+- Called a "abstract syntax tree" or a "parse tree"
+- Each node can be a different type
+  - Having different properties and different number of children
+    - A `for` loop node has four children (for init, for expression, for update, body)
+    - A body node has variable children
+  - Done through inheritance!
+    - All the specialty nodes inherit from a "node" class
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Notes on the program tree
+- Called an "abstract syntax tree" or a "parse tree"
+- A compiler will build such a tree in memory
+  - And transverse it many times
+  - For example, to figure out which 'z' is used in the main() function
+  - Or to do code generation
+    - Each node has an overridden method to generate the code for that node
+  - Or to do type checking
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Comparing two programs
+- What if we read in two programs...
+  - ... and build parse trees for each
+  - ... and compare their structure?
+- We would be able to compare two programs while ignoring such things as:
+  - Function/method order
+  - Variable renaming
+  - Different comments
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Measure of Structural Similarity
+- "A System for Detecting Software Plagiarism"
+- http://theory.stanford.edu/~aiken/moss/ 
+  - The paper the site is based on can be found [here](http://theory.stanford.edu/~aiken/publications/papers/sigmod03.pdf)
+- It will load up all the programs for a class
+  - I've run it in CS 101 with over 500 students
+- And do all *n*<sup>2</sup> comparisons
+  - That's 500<sup>2</sup> = 250,000 for CS 1110
+    - Takes under 1 minute
+  - Only 250<sup>2</sup> = 40,000 for CS 2150 this semester
+    - Takes 10 or so seconds
+- And display the most similar programs
+- As an example, we'll use CS 101 (071) HW 4...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## The algorithm to implement
+![evil genius flowchart](images/06-trees/evil-genius-flowchart.gif)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## The results...
+...
+	  </script></section>
+
+	</section>
+
+
+
+      </div>
+
+    </div>
+
+    <div id="calibratediv" style="display:none">
+      <div id="calibratecanvasdiv">
+        <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
+      </div>
+      <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
+    </div>
+
+    <script src="reveal.js/lib/js/head.min.js"></script>
+    <script src="reveal.js/js/reveal.min.js"></script>
+    <script src="js/settings.js"></script>
+
+  </body>
+</html>

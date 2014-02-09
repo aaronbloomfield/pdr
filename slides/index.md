@@ -27,7 +27,9 @@ Program and Data Representation: Slides
 
 - Source code: [cmdlineparams.cpp](code/05-arrays-bigoh/cmdlineparams.cpp.html) ([src](code/05-arrays-bigoh/cmdlineparams.cpp))
 
-Slide set 6: Trees
+[Slide set 6: Trees](06-trees.html)
+
+- The trees diagrams were generated from the files described [here](graphs/index.html)
 
 Slide set 7: Hashes
 
