@@ -90,22 +90,20 @@ someInts[0], someInts[1], someInts[2]
    - Must be copied element by element
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
-## C++ Implementation of Arrays
-- Array names are pointers to beginning of array
-```
-int someInts[3];
-```
-  - The size is only used by compiler to set aside memory for the array; it is not stored anywhere
-  - `someInts` is set to `&someInts[0]`
-    - Also called the base address
-  - Local constant that cannot be changed
-- Note that the previous declaration is almost the same as:
-```
-int* someInts = new int[3];
-```
-  - But since this second declaration is declared with `new`, the programmer must delete it with `delete`
-	  </script></section>
+	  <section>
+<h2>C++ Implementation of Arrays</h2>
+<li>Array names are pointers to beginning of array
+<pre><code>int someInts[3];</code></pre><ul>
+  <li>The size is only used by compiler to set aside memory for the array; it is not stored anywhere</li>
+  <li><code>someInts</code> is set to <code>&someInts[0]</code><ul>
+      <li>Also called the base address</li></ul></li>
+  <li>Local constant that cannot be changed</li></ul></li>
+<li>Note that the previous declaration is almost the same as:
+<pre><code>int* someInts = new int[3];</code></pre><ul>
+  <li>But since this second declaration is declared with <code>new</code>, the programmer must delete it with <code>delete</code></li></ul></li>
+<script type="text/javascript">insertCanvas();</script>
+</ul>
+	  </section>
 
 	  <section>
 <h2>int someInts[3] = {2, 4, 6};</h2>
@@ -165,7 +163,7 @@ int main() {
 (no external source code)
 ```
 int m[2][3]; // 2 rows, 3 columns
-int n[2][3] =
+int n[2][3] = // dimensions optional here
     { {1,2,3}, {4,5,6} };
     // initialize row 0: 1,2,3
     // initialize row 1: 4,5,6

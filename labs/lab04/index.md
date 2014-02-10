@@ -243,10 +243,7 @@ Write a ***recursive*** function that returns the number of 1's in the binary re
 
 This program, called bitCounter.cpp should take in a value as a command-line parameter (no input!).  See below for how to handle command-line parameters.  Note that if the program is run without any command-line parameters, your program should gracefully exit with an appropriate error message.  Your program need not handle an invalid number for the command-line parameter.  And any additional command-line parameters beyond the first can be (and should be) ignored.
 
-**This program should take in no input, only one command-line
-parameter.** Command line parameters are discussed in more detail in
-the [05-arrays-bigoh slide set](../../slides/05-arrays-bigoh.html),
-along with a source code example showing how to use them.
+**This program should take in no input, only one command-line parameter.** Command line parameters are discussed in more detail in the [05-arrays-bigoh slide set](../../slides/05-arrays-bigoh.html), along with a source code example showing how to use them.
 
 So far, our `main()` method has had the following prototype:
 

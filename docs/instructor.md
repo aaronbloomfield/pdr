@@ -11,3 +11,4 @@ Lecture progress
 ----------------
 
 - [Lab 1](../labs/lab01/index.html): the in-lab requires getting through The 'Rational Example' section of the [C++ slide set](../slides/02-cpp.html), and ideally the 'Pre-Processor' section as well.
+- [Lab 4](../labs/lab04/index.html) requires the use of command-line parameters for the post-lab, and those are discussed in the [Arrays & Big-Oh slide](../05-arrays-bigoh.html)

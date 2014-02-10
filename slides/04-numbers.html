@@ -844,6 +844,7 @@ bool foo = fabs (a-b) < EPSILON;
 ## Real world example: Patriot Missile
 - Gulf War I (1990-1991)
 - Failed to intercept incoming Iraqi scud missile (Feb 25, 1991)
+  - Both travel at about Mach 5
 - 28 American soldiers killed
 ![patriot missile launch](images/04-numbers/patriot-missile.jpg)
 - GAO report: [GAO/IMTEC-92-26 Patriot Missile Software Problem](http://www.fas.org/spp/starwars/gao/im92026.htm); image from [Wikipedia](http://en.wikipedia.org/wiki/File:Patriot_missile_launch_b.jpg)
@@ -851,26 +852,34 @@ bool foo = fabs (a-b) < EPSILON;
 
 	  <section data-markdown><script type="text/template">
 ## Patriot Design
-- Intended to operate only for a few hours 
-  - Designed to defend Europe from Soviet aircraft and missile
-- Four 24-bit registers (1970s design!)
-- Kept time with integer counter: incremented every 1/10 second
-- Calculate speed of incoming missile to predict future positions:
-  - velocity = (loc<sub>1</sub> - loc<sub>0</sub>) / (count<sub>1</sub> - count<sub>0</sub>) * 0.1)
-- But, cannot represent 0.1 exactly!
+- Intended to operate only for a few hours at a time
+  - But was left running for about 100 hours prior to the incident
+  - Designed to defend Europe from Soviet aircraft & missiles
+- Four 24 bit fixed-point registers (1970s design)
+  - Meaning there were only 24 bits of precision after the decimal place
+  - Although a `float` has somewhat similar precision
+- Kept time with integer counter: incremented every 1/10 sec
+- To calculate speed of incoming missile to predict future positions:
+  - velocity = (loc<sub>1</sub> - loc<sub>0</sub>) / ((count<sub>1</sub> - count<sub>0</sub>) * 0.1)
+- But cannot represent 0.1 exactly!
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
-## Floating Imprecision
-- 24-bits:
-  - 0.1 = 1/2<sup>4</sup> + 1/2<sup>5</sup> + 1/2<sup>8</sup> + 1/2<sup>9</sup> + 1/2<sup>12</sup> + 1/2<sup>13</sup> + 1/2<sup>16</sup> + 1/2<sup>17</sup> + 1/2<sup>20</sup> + 1/2<sup>21</sup> = 209715 / 2097152
-  - 209715 / 2097152 = 0.099999904632568359375
-  - Error is 0.2/2097152 = 1/10485760 
-- One hour = 3,600 seconds
-  - 3600 \* 1/10485760 \* 10 = 0.0034 seconds of time skew per hour
-  - 20 hours: 0.0687s 
-- The Patriot missile missed the target by 137 meters (449 feet)
-	  </script></section>
+	  <section>
+<h2>Floating Imprecision</h2>
+<ul>
+  <li>24 bits in a fixed-point register:<br>
+\( 0.1 \Rightarrow \frac{1+\frac{1}{2^1}+\frac{1}{2^4}+\frac{1}{2^5}+\frac{1}{2^8}+\frac{1}{2^9}+\frac{1}{2^{12}}+\frac{1}{2^{13}}+\frac{1}{2^{16}}+\frac{1}{2^{17}}+\frac{1}{2^{20}}+\frac{1}{2^{21}}}{2^4} \\
+= 209715 / 2097152 \\
+= 0.099999904632568359375 \)
+<ul><li>Error is 0.2/2097152 = 1/10485760</li></ul></li>
+<li>One hour = 3,600 seconds = 36,000 tenths of a second<ul>
+    <li>At 1/10485760 time error per tenth of a second, that yields 0.0034 seconds of time error per hour</li>
+    <li>100 hours: 0.34s</li></ul></li>
+<li>The Scud missile was travelling at 1,676 m/s (Mach 4.93)<ul>
+    <li>1,676 meters per second * 0.34 seconds = 570 meters (1,870 feet)</li>
+    <li>The Patriot thus missed the target by over a half a km</li></ul></li>
+</ul>
+	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## The bug fix...
@@ -888,9 +897,8 @@ bool foo = fabs (a-b) < EPSILON;
   - bits 1-11: exponent (11 bits)
   - bits 12-63: mantissa (52 bits)
   - Exponent offset is 2<sup>*e*-1</sup>-1 = 1023
-  - About 16 decimal digits of accuracy
 - Single precision: 0.1 = 209715 / 2097152
-  - Error = 9.5 \* 10<sup>-8</sup>  (20 hours to miss target)
+  - Error = 9.5 \* 10<sup>-8</sup>  (at least 20 hours to miss target)
 - Double precision: 0.1 = 56294995342131 / 562949953421312
   - Error = 3.608 \* 10<sup>-16</sup> (2,172,375,450 ***years*** to miss)
 	  </script></section>
@@ -915,7 +923,7 @@ bool foo = fabs (a-b) < EPSILON;
   - Minifloat: 1 sign, 5-bit exponent, 10-bit mantissa
   - Range from 2.98 \* 10<sup>-8</sup> to 65504 
   - Your graphics card uses this (if you have a good one)
-  - 40 billion Floating Point Ops per second (3 Ghz Pentium = 12 billion)
+  - 40 billion floating point operations per second (3 Ghz Pentium = 12 billion)
 ![nvidia logo](images/04-numbers/nvidia.png)
 	  </script></section>
 
