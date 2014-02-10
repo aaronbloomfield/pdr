@@ -62,7 +62,7 @@
 
 	  <section data-markdown><script type="text/template">
 ## Primitive Arrays in C++
-- Declaring (two ways):
+- Two ways to declare arrays:
   - Specify name, type, and size
 ```
 int someInts[3];
@@ -96,10 +96,10 @@ someInts[0], someInts[1], someInts[2]
 ```
 int someInts[3];
 ```
-  - size is only used by compiler to set aside memory for the array
+  - The size is only used by compiler to set aside memory for the array; it is not stored anywhere
   - `someInts` is set to `&someInts[0]`
-  - Also called the base address
-  - Local constant -- cannot be changed
+    - Also called the base address
+  - Local constant that cannot be changed
 - Note that the previous declaration is almost the same as:
 ```
 int* someInts = new int[3];
@@ -123,9 +123,9 @@ int* someInts = new int[3];
 	  </section>
 
 	  <section data-markdown><script type="text/template">
-## Where is someInt[2] located in memory?
+## Where is someInts[2] located in memory?
 - Remember
-  - `someInts` is a pointer to address of `someInts[0]` (i.e., `&someInt[0]`)
+  - `someInts` is a pointer to address of `someInts[0]` (i.e., `&someInts[0]`)
   - Array elements are laid out sequentially in contiguous memory addresses
 
 ```
@@ -231,7 +231,7 @@ int main (int argc, char* argv[]) {
 ## Classifying functions by their<br>Asymptotic Growth Rates
 - Asymptotic growth rate, asymptotic order, or order of functions 
   - Comparing and classifying functions that ignores constant factors and small inputs. 
-- The sets are big oh, big theta, and big omega:
+- The sets are big-oh, <font color='red'>big-theta</font>, and <font color='skyblue'>big-omega</font>:
   - <font color='red'>&Omega;</font>(*g*): functions that grow ***at least as fast*** as g
   - &Theta;(*g*): functions that grow ***at the same rate*** as g
   - <font color='skyblue'>O</font>(*g*): functions that grow ***no faster than*** g
@@ -244,7 +244,7 @@ int main (int argc, char* argv[]) {
 - Some data structures are faster than others
   - Each data structure has some operations that are fast, and some operations that are slow
 - We need a way to compare them
-- This allows us to
+- This allows us to:
   - Better choose the data structures that we will use
   - Better design additional data structures
 	  </script></section>
@@ -282,6 +282,7 @@ int main (int argc, char* argv[]) {
 ## Assumptions
 - We have measured the running time of our program with different input sizes, and that result is encapsulated in some function *f*(*n*)
   - *n* is the input size, and is always a positive integer
+  - We may not know *f*(*n*) exactly, but we still will want to classify it
 - We have some other function *g* that we want to compare our program to
 - So we will compare *f*(*n*) to *g*(*n*), such as:
   - *f*(*n*) &isin; O(*g*(*n*))
@@ -295,7 +296,7 @@ int main (int argc, char* argv[]) {
 ## Worst-case Scenario
 - We always analyze the ***worst case*** run-time
   - It makes no sense to analyze the best case, as that is rarely likely to happen
-  - And the *average* case (if you could even define what that is) may not be representative is not used in these analyses either
+  - And the *average* case (if you could even define what that is) may not be representative and is not used in these analyses either
 - A more formal definition of *worst case*, should you be interested, can be found [here](http://en.wikipedia.org/wiki/Worst_case)
 	  </script></section>
 
@@ -314,7 +315,7 @@ int main (int argc, char* argv[]) {
 
 	  <section data-markdown><script type="text/template">
 ## Asymptotic Bounds
-- For the sets big oh O(*g*), big theta &Theta;(*g*), big omega &Omega;(*g*), remember these meanings:
+- For the sets big-oh O(*g*), big-theta &Theta;(*g*), and big-omega &Omega;(*g*), remember these meanings:
   - O(*g*): functions that grow ***no faster than*** *g*, or ***asymptotic upper bound***
   - &Omega;(*g*): functions that grow ***at least as fast as*** *g*, or ***asymptotic lower bound***
   - &Theta;(*g*): functions that grow ***at the same rate as*** *g*, or ***asymptotic tight bound***
@@ -378,8 +379,8 @@ int main (int argc, char* argv[]) {
 ## 3 is true: Deduction
 - Recall that *f* &isin; O(*h*) and *g* &notin; O(*h*)
 - Claim: for ***some*** positive integer *m*<sub>0</sub>, and ***all positive*** integers *m* > *m*<sub>0</sub>,  *f*(*m*) < *g*(*m*)
-- We know, from the previous slide, that *g* will grow faster than *f*
-  - This is essentially the definition of big-Oh, which is what the claim is basically stating: that *f* &isin; O(*g*)
+- We know, from the last slide, that *g* will grow faster than *f*
+  - This is essentially the definition of big-oh, which is what the claim is basically stating: that *f* &isin; O(*g*)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -396,16 +397,16 @@ int main (int argc, char* argv[]) {
 ## Lower Bound: &Omega; (Omega)
 - *f*(*n*) &isin; &Omega; (*g*(*n*)) means:
   - There are positive constants *c* and *n*<sub>0</sub> such that *f*(*n*) <font color='red'>&ge;</font> *c*\*g*(*n*) for all *n* &ge; *n*<sub>0</sub> 
-  - The difference from big-Oh is the &ge; in big-Omega versus &le; in big-Oh
+  - The difference from big-oh is the &ge; in big-omega versus &le; in big-oh
 - This is a *lower* bound
 	  </script></section>
 
 	  <section>
-<img class="stretch" alt="big omega" src="images/05-arrays-bigoh/omega-diagram-1.png">
+<img class="stretch" alt="big-omega" src="images/05-arrays-bigoh/omega-diagram-1.png">
 	  </section>
 
 	  <section data-transition="fade" data-transition-speed="fast">
-<img class="stretch" alt="big omega" src="images/05-arrays-bigoh/omega-diagram-2.png">
+<img class="stretch" alt="big-omega" src="images/05-arrays-bigoh/omega-diagram-2.png">
 	  </section>
 
 	  <section data-markdown><script type="text/template">
@@ -419,7 +420,7 @@ int main (int argc, char* argv[]) {
 	  </script></section>
 
 	  <section>
-<img class="stretch" alt="big omega" src="images/05-arrays-bigoh/theta-diagram.png">
+<img class="stretch" alt="big-theta" src="images/05-arrays-bigoh/theta-diagram.png">
 	  </section>
 
 	  <section data-markdown><script type="text/template">
@@ -428,7 +429,7 @@ int main (int argc, char* argv[]) {
   - Any function that is o(*g*) is also O(*g*)
     - So both act as an upper bound
   - But a O(*g*) bound can also be &Omega;(*g*) and thus &Theta;(*g*)
-    - Meaning the big-Oh bound can be tight
+    - Meaning the big-oh bound can be tight
   - Little-oh means the bound can not be tight
     - Thus, it's O(*g*) but not &Theta;(*g*)
     - Or, that *f*(*n*) will ***always*** be ***strictly*** less than *g*(*n*):
@@ -468,13 +469,13 @@ int main (int argc, char* argv[]) {
 
 	  <section data-markdown><script type="text/template">
 ## Some Properties of O(*g*), &Theta;(*g*), &Omega;(*g*)
-- Reversing big-Oh: *f* &isin; O(*g*) &hArr; *g* &isin; &Omega;(*f*)
-- Adding big-Oh: O(*f* + *g*) = O(max(*f*, *g*)) 
+- Reversing big-oh: *f* &isin; O(*g*) &hArr; *g* &isin; &Omega;(*f*)
+- Adding big-oh: O(*f* + *g*) = O(max(*f*, *g*)) 
   - Similar equations hold for &Omega; and &Theta;
 - Transitive: If *f* &isin; O(*g*) and *g* &isin; O(*h*), then *f* &isin; O(*h*)
-  - Big-Oh is transitive, as are all the others (big-Theta, big-Omega, little-oh, and little-omega)
+  - Big-Oh is transitive, as are all the others (big-theta, big-omega, little-oh, and little-omega)
 - Reflexive: *f* &isin; &Theta;(*f*)
-  - As are big-Oh and big-omega
+  - As are big-oh and big-omega
 - Symmetric: If *f* &isin; &Theta;(*g*), then *g* &isin; &Theta;(*f*)
   - Big-Oh is not symmetric!  (neither are &Omega;, o, or &omega;)
 - &Theta; defines an ***equivalence relation*** on the functions
