@@ -1,0 +1,38 @@
+digraph G {
+	graph [fontname = "Helvetica"];
+	node [fontname = "Helvetica"];
+	edge [fontname = "Helvetica"];
+
+	15 -> 8;
+	m15 [label="", width=0.1, style=invis];
+	15 -> m15 [style=invis];
+	15 -> 17;
+	{rank=same 8 -> m15 -> 17 [style=invis]};
+	
+	8 -> 4;
+	m8 [label="", width=0.1, style=invis];
+	8 -> m8 [style=invis];
+	8 -> 10;
+	{rank=same 4 -> m8 -> 10 [style=invis]};
+
+	4 -> 3;
+	m4 [label="", width=0.1, style=invis];
+	4 -> m4 [style=invis];
+	4 -> 6;
+	{rank=same 3 -> m4 -> 6 [style=invis]};
+
+	5 [color=red];
+	6 -> 5 [color=red];
+	m6 [label="", width=0.1, style=invis];
+	6 -> m6 [style=invis];
+	r6 [label="", width=0.1, style=invis];
+	6 -> r6 [style=invis];
+	{rank=same 5 -> m6 -> r6 [style=invis]};
+
+	17 -> 16;
+	m17 [label="", width=0.1, style=invis];
+	17 -> m17 [style=invis];
+	l17 [label="", width=0.1, style=invis];
+	17 -> l17 [style=invis];
+	{rank=same 16 -> m17 -> l17 [style=invis]};
+}

@@ -75,8 +75,11 @@
 
 	  <section data-markdown><script type="text/template">
 ## List Limitations
-(diagram)
-(text)
+![list diagram](images/06-trees/list-diagram.png)
+
+- In a list, every element has direct relationships with only two things: 	predecessor and successor
+- Access time: &Theta;(*n*)
+- Goal: &Theta;(log *n*)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -87,9 +90,10 @@
 	  <section data-markdown><script type="text/template">
 ## List &rarr; Tree
 - List: each element has relationships with up to 2 other elements:
-(diagram)
-- Binary Tree: each element has relationships with up to ***3*** other elements:
-(diagram)
+![list diagram](graphs/list-diagram.svg)
+- Binary Tree: each element has relationships with up to ***3*** other elements
+  - A tree is a special case of a list
+![tree diagram](graphs/tree-diagram.svg)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -518,24 +522,26 @@ Not balanced: height difference greater than 1
 (animation)
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
-## AVL single right rotation: before
-![avl tree 4](graphs/avl-tree-4.svg)
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
-## AVL single right rotation: after
-![avl tree 5](graphs/avl-tree-5.svg)
-	  </script></section>
+	  <section>
+<h2>AVL single right rotation: before & after</h2>
+<table class="transparent"><tr>
+<td><img alt="avl tree 4" src="graphs/avl-tree-4.svg" width="450"></td>
+<td class="middle">&rarr;</td>
+<td class="top"><img alt="avl tree 5" src="graphs/avl-tree-5.svg" width="450"></td>
+</tr></table>
+<p>The red node is what is being inserted; the blue nodes are the 'pivots' of the rotation</p>
+	  </section>
 
 	  <section>
-<h2>AVL single right rotation</h2>
+<h2>AVL single right rotation: general case</h2>
 <table class="transparent"><tr>
 <td><img alt="avl tree 6" src="graphs/avl-tree-6.svg"></td>
 <td class="middle">&rarr;</td>
 <td><img alt="avl tree 7" src="graphs/avl-tree-7.svg"></td>
 </tr></table>
 <p class="center">\( X < b < Y < a < Z \)</p>
+<p>&nbsp;</p>
+<p class="center">The insert happens into X</p>
 	  </section>
 
 	  <section data-markdown><script type="text/template">
@@ -544,31 +550,77 @@ Note that the trees shown are not necessarily AVL trees, but the rotations are c
 [![tree rotation](images/06-trees/Tree_rotation.png)](http://en.wikipedia.org/wiki/File:Tree_rotation.png)
 	  </script></section>
 
+	  <section>
+<h2>Cases 2 & 3: attempt single rotation</h2>
+<table class="transparent"><tr>
+<td><img alt="avl tree 8" src="graphs/avl-tree-8.svg"></td>
+<td class="middle">&rarr;</td>
+<td><img alt="avl tree 9" src="graphs/avl-tree-9.svg"></td>
+</tr></table>
+<p class="center">\( X < b < Y < a < Z \)</p>
+<p class="center">Single rotation fails!  Height of X is <i>h</i>+1, height of Y is <i>h</i>+3</p>
+	  </section>
+
+	  <section>
+<h2>Double rotation, step 1</h2>
+<table class="transparent"><tr>
+<td class="top"><img alt="avl tree 10" src="graphs/avl-tree-10.svg" width="400"></td>
+<td class="middle">&rarr;</td>
+<td class="top"><img alt="avl tree 11" src="graphs/avl-tree-11.svg" width="510"></td>
+</tr></table>
+<p>This is a single left rotation on the 'child'.  The red node is what is being inserted; the blue nodes are the 'pivots' of this rotation.</p>
+	  </section>
+
+	  <section>
+<h2>Double rotation, step 2</h2>
+<table class="transparent"><tr>
+<td class="top"><img alt="avl tree 12" src="graphs/avl-tree-12.svg"></td>
+<td class="middle">&rarr;</td>
+<td class="top"><img alt="avl tree 13" src="graphs/avl-tree-13.svg"></td>
+</tr></table>
+<p>This is a single right rotation on the 'parent'.  The red node is what is being inserted; the green nodes are the 'pivots' of this rotation.</p>
+	  </section>
+
+	  <section>
+<h2>AVL double rotation: before & after</h2>
+<table class="transparent"><tr>
+<td class="top"><img alt="avl tree 14" src="graphs/avl-tree-14.svg"></td>
+<td class="middle">&rarr;</td>
+<td class="top"><img alt="avl tree 15" src="graphs/avl-tree-15.svg"></td>
+</tr></table>
+<p class="center">The red node what is being inserted</p>
+	  </section>
+
+	  <section>
+<h2>AVL double rotation: general case</h2>
+<table class="transparent"><tr>
+<td><img alt="avl tree 16" src="graphs/avl-tree-16.svg" width="300"></td>
+<td class="middle">
+  <table><tr><td>
+	<table><tr><td class="middle">&rarr;</td><td><img alt="avl tree 17" src="graphs/avl-tree-17.svg"></td></tr></table>
+  </td></tr><tr><td>&nbsp;</td></tr><tr><td>\( W < b < X < c < Y < a < Z \)</td></tr><tr><td>&nbsp;</td></tr><tr><td>The insert happens into X</td></tr></table>
+</td>
+</tr></table>
+	  </section>
+
 	  <section data-markdown><script type="text/template">
-Cases 2 & 3 -- Attempt Single Rotation
-Double Rotation, Step 1
-Double Rotation, Step 2
-Double Rotation, both steps
-Double Rotation, General
-End of lecture on Wed, Oct 2
-Ack!  Terminology
-What everybody else calls a 'single right rotation', the book calls 'rotateWithLeftChild()'
-Single left rotation is 'rotateWithRightChild()'
+## Ack!  Terminology
+- Some people will state a 'double left rotation'
+  - But is that a left-right?  Or a right-left?
+  - We'll call them 'double left-right' and 'double right-left', which specifies the order to perform the operation on the child and then the parent
+	  </script></section>
 
-Some people will state a 'double left rotation'
-But is that a left-right?  Or a right-left?
-We'll call them 'double left-right' and 'double right-left'
+	  <section>
+<h2>All the tree rotations</h2>
+<a href="http://en.wikipedia.org/wiki/File:Tree_Rebalancing.gif"><img alt="tree rotations" src="images/06-trees/1024px-Tree_Rebalancing.gif"></a>
+	  </section>
 
-
-AVL Tree: Runtime Analysis
-Find
-(log n) time.  Height of tree is always (log n)
-Insert
-(log n) time.  find() takes (log n), then may have to visit every node on path back to root to perform up to 2 single rotations
-Remove
-(log n).  Left as an exercise
-Print
-(n).  No matter the data structures, it still will take n steps to print n elements
+	  <section data-markdown><script type="text/template">
+## AVL Tree: Runtime Analysis
+- Find: &Theta;(log *n*) time.  Height of tree is always &Theta;(log *n*)
+- Insert: &Theta;(log *n*) time.  find() takes &Theta;(log *n*), then may have to visit every node on path back to root to perform up to 2 single rotations
+- Remove: &Theta;(log *n*).  Left as an exercise
+- Print: &Theta;(*n*).  No matter the data structures, it still will take *n* steps to print *n* elements
 	  </script></section>
 
 	</section>

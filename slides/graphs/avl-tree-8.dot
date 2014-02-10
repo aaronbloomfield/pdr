@@ -1,0 +1,21 @@
+digraph G {
+	graph [fontname = "Helvetica"];
+	node [fontname = "Helvetica"];
+	edge [fontname = "Helvetica"];
+
+	X [shape=triangle,label="X\n(h)",height=1];
+	Y [shape=triangle,label="Y\n(h+1)",height=2];
+	Z [shape=triangle,label="Z\n(h)",height=1];
+
+	a -> b;
+	ma [label="", width=0.1, style=invis];
+	a -> ma [style=invis];
+	a -> Z:n;
+	{rank=same b -> ma -> Z [style=invis]};
+
+	b -> X:n;
+	mb [label="", width=0.1, style=invis];
+	b -> mb [style=invis];
+	b -> Y:n;
+	{rank=same X -> mb -> Y [style=invis]};
+}
