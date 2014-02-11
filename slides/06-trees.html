@@ -82,10 +82,15 @@
 - Goal: &Theta;(log *n*)
 	  </script></section>
 
-<!--	  <section data-markdown><script type="text/template">
-## Complex Relationships
-(diagram of Cheswick's Internet was here, but I need permission to include that)
-	  </script></section> -->
+	  <section data-markdown><script type="text/template">
+## Complex Relationships: Phylogenetic Tree
+[![tree of life](images/06-trees/Tree_of_life_SVG.svg)](http://en.wikipedia.org/wiki/File:Tree_of_life_SVG.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Complex Relationships: Language Tree
+[![language tree](images/06-trees/IndoEuropeanTree.svg)](http://commons.wikimedia.org/wiki/File:IndoEuropeanTree.svg)
+	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## List &rarr; Tree
@@ -101,15 +106,25 @@
 - *Root*: a node with no parent; there can only be one root
 - *Leaf*: a node with no children
 - *Sibling*: same parent
-- *Height* of a node: length of the longest path from that node to a leaf
+- *Height* of a node: length of the ***longest*** path from that node to a leaf
+  - Thus, all leaves have height of zero
   - *Height of a tree*: maximum depth of a node in that tree = height of the root
 - *Depth* of a node: length of the path from the Root to that node
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
-## Tree Terms
-(diagram, possibly with animations)
-	  </script></section>
+	  <section>
+<h2>Tree Terms</h2>
+<table class="transparent"><tr>
+<td style="width:40%;"><a href="http://commons.wikimedia.org/wiki/File:IndoEuropeanTree.svg"><img src="images/06-trees/IndoEuropeanTree-part.svg" alt="language tree part" style="width:100%;"></a></td>
+<td class="top" style="width:60%;"><ul>
+<li>Indo-European is the root</li>
+<li>Nodes stacked on top of each other are siblings</li>
+<li>English is a leaf, and has depth 5 (English &rarr; Old English &rarr; Anglo-Frisian &rarr; West Germanic &rarr; Germaic &rarr; Indo-European)</li>
+<li>Germanic has height 6 (Germanic &rarr; West Germanic &rarr; Low Franconian &rarr; West Low Franconian &rarr; Old Dutch &rarr; Dutch &rarr; Afrikaans)</li>
+<li>The tree rooted at Germanic forms a sub-tree of the overall tree</li>
+</ul>
+</td></tr></table>
+	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## More Tree Terms
@@ -300,10 +315,10 @@ void BST::insert(const int x, BNode * & curNode) {
       </script></section>
 
       <section data-markdown><script type="text/template">
-## BST: findMax, findMin
+## BST: findMax(), findMin()
 To find the maximum element in BST, traverse down the right subtree links
 ![bst-5](graphs/bst-5.svg)
-Similarly down the left subttree links for findMin
+Similarly down the left subttree links for findMin()
       </script></section>
 
       <section data-markdown><script type="text/template">
