@@ -49,6 +49,10 @@ Numbers
 
 - [C array basics explained with 13 examples](http://www.thegeekstuff.com/2011/12/c-arrays/) on [The Geek Stuff](http://www.thegeekstuff.com/)
 
+Trees
+- The [Wikipedia article on Expression trees](http://en.wikipedia.org/wiki/Expression_tree), expecially the [section on construction of expression trees](http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_Expression_Tree)
+
+
 AVL Trees
 
 - There are a number of articles on [Wikipedia](http://en.wikipedia.org/wiki/Main_Page) that are relevant: [Binary tree](http://en.wikipedia.org/wiki/Binary_tree), [Binary search tree](http://en.wikipedia.org/wiki/Binary_search_tree), [Tree rotation](http://en.wikipedia.org/wiki/Tree_rotation), [AVL tree](http://en.wikipedia.org/wiki/AVL_tree), [Splay tree](http://en.wikipedia.org/wiki/Splay_tree), and [Red-black tree](http://en.wikipedia.org/wiki/Red-black_tree)

@@ -1,0 +1,19 @@
+digraph structs {
+	graph [fontname = "Helvetica", nodesep=1];
+	node [fontname = "Helvetica-bold"];
+	edge [fontname = "Helvetica"];
+
+	node [shape=Mrecord];
+	pointer [label="L"];
+	node1 [label="{value: 1 | next: }", ylabel="node"];
+	node2 [label="{value: 2 | next: }"];
+	node3 [label="{value: 3 | next: }"];
+	null [label="", width=0.1, style=invis];
+	
+	pointer -> node1;
+	node1 -> node2;
+	node2 -> node3;
+	node3 -> null [arrowhead=dotteeteenormal];
+	
+	{rank=same pointer -> node1 -> node2 -> node3 -> null [style=invis]};
+}

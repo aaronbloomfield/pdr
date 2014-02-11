@@ -3,9 +3,9 @@ digraph G {
 	node [fontname = "Helvetica"];
 	edge [fontname = "Helvetica"];
 	parent -> element;
-	right [label="right child"];
-	element -> right;
 	left [label="left child"];
 	element -> left;
-	{rank=same right -> left [style=invis]};
+	right [label="right child"];
+	element -> right;
+	{rank=same left -> right [style=invis]};
 }

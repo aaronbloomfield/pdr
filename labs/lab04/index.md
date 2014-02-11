@@ -70,7 +70,6 @@ Write a small C++ function that demonstrates the use of `sizeof()` with the foll
 The second coding exercise for the pre-lab is a binary output program.  The function to write is called `outputBinary()`, and it will take in one parameter, an `unsigned int`.  It must be unsigned, or else your code may not work!  You should then print out the binary representation of the passed parameters in **big Endian** format.
 
 - If you do use for loops to do this, become familiar with the left shift operator (<<) and what it does to (unsigned) ints, and the binary and/or operators (& and |).
-- For examples, see the course notes.
 - You can also use a calculator program (including one in Windows) to convert numbers to binary (select View->Scientific), as that is not the coding part of this lab.
 
 
