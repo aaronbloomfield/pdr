@@ -263,6 +263,7 @@ int main (int argc, char* argv[]) {
 ## Even for smaller input sizes...
 - This is from the first lecture set
 - All times are in ms (1/1000<sup>th</sup> of a second)
+- Source code: [DataStructureComparison.java](code/01-intro/DataStructureComparison.java.html) ([src](code/01-intro/DataStructureComparison.java))
 &nbsp;  
 
 | Data Structure | Total time | Insert time | Search time | Delete time |
@@ -299,18 +300,22 @@ int main (int argc, char* argv[]) {
 - A more formal definition of *worst case*, should you be interested, can be found [here](http://en.wikipedia.org/wiki/Worst_case)
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
-## The Sets  O(*g*), &Theta;(*g*), &Omega;(*g*)
-- Let *f* and *g* be a functions from the nonnegative integers into the positive real numbers
-- For some real constant *c* > 0 and some nonnegative integer constant *n*<sub>0</sub>
-  - O(*g*) is the set of functions *f*, such that 
-    - *f*(*n*) <font color='red'>&le;</font> c \* *g*(*n*) for all *n* &ge; *n*<sub>0</sub>
-  - &Omega;(*g*) is the set of functions *f*, such that 
-    - *f*(*n*) <font color='red'>&ge;</font> c \* *g*(*n*) for all *n* &ge; *n*<sub>0</sub>
-  - &Theta;(*g*) = O(*g*) &cap; &Omega;(*g*)
-    - &Theta;(*g*) is the asymptotic order of g or the *order* of g
-    - *f* &isin; &Theta;(*g*) read as "*f* is asymptotic order *g*" or "*f* is order *g*"
-	  </script></section>
+	  <section>
+<h2>The Sets O(<i>g</i>), &Theta;(<i>g</i>), &Omega;(<i>g</i>)</h2>
+<ul>
+<li>Let <i>f</i> and <i>g</i> be a functions from the nonnegative integers into the positive real numbers</li>
+<li>For some real constant <i>c</i> > 0 and some nonnegative integer constant <i>n</i><sub>0</sub><ul>
+  <li>O(<i>g</i>) is the set of functions <i>f</i>, such that:<ul>
+    <li><i>f</i>(<i>n</i>) <font color='red'>&le;</font> c * <i>g</i>(<i>n</i>) for all <i>n</i> &ge; <i>n</i><sub>0</sub></li></ul></li>
+  <li>&Omega;(<i>g</i>) is the set of functions <i>f</i>, such that:<ul>
+    <li><i>f</i>(<i>n</i>) <font color='red'>&ge;</font> c * <i>g</i>(<i>n</i>) for all <i>n</i> &ge; <i>n</i><sub>0</sub></li></ul></li>
+  <li>&Theta;(<i>g</i>) = O(<i>g</i>) &cap; &Omega;(<i>g</i>)<ul>
+    <li>&Theta;(<i>g</i>) is the asymptotic order of g or the <i>order</i> of g</li>
+    <li><i>f</i> &isin; &Theta;(<i>g</i>) read as &quot;<i>f</i> is asymptotic order <i>g</i>&quot; or &quot;<i>f</i> is order <i>g</i>&quot;</li></ul></li>
+</ul></li>
+</ul>
+<script type="text/javascript">insertCanvas();</script>
+	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## Asymptotic Bounds
@@ -332,6 +337,7 @@ int main (int argc, char* argv[]) {
 <li>Is <i>n</i><sup>2</sup> &isin; O(<i>n</i>)?
   <ul><li class="fragment">No; no matter what values for <i>c</i> and <i>n</i><sub>0</sub> we pick, <i>c</i>*<i>n</i><sup>2</sup> &gt; <i>n</i> for big enough <i>n</i></li></ul></li>
 </ul>
+<script type="text/javascript">insertCanvas();</script>
 	  </section>
 
 	  <section>
@@ -352,10 +358,10 @@ int main (int argc, char* argv[]) {
 - Recall that *f* &isin; O(*h*) and *g* &notin; O(*h*)
 - We are disproving: for ***all*** positive integers m, *f*(*m*) < *g*(*m*):
   - To disprove by counter-example, you have to find just ***one*** example that does not fulfill the stated claim
-  - Pick *f*(*n*) = 5\**n*<sup>2</sup>, *g*(*n*) = *n*<sup>3</sup>, *h*(*n*) = *n*<sup>2</sup>
-    - *f* &isin; O(*h*), as 5\**n*<sup>2</sup> &le; *c* \* *n*<sup>2</sup> when *c* = 6 and *n*<sub>0</sub> = 1
-    - *g* &notin; O(*h*), as *n*<sup>3</sup> &le; *c* \* *n*<sup>2</sup> cannot be satisifed, for large *n*, with any values of *c* and *n*<sub>0</sub>
-  - For *m*=2, *f*(*m*) = 20 > 8 = *g*(*m*)
+  - Pick *f*(*n*) = 5\**n*, *g*(*n*) = *n*<sup>3</sup>, *h*(*n*) = *n*<sup>2</sup>
+    - *f* &isin; O(*h*), as 5\**n* &le; *c* \* *n*<sup>2</sup> &nbsp;&nbsp;&forall; *n* > *n*<sub>0</sub> when *c* = 6 and *n*<sub>0</sub> = 2
+    - *g* &notin; O(*h*), as *n*<sup>3</sup> &le; *c* \* *n*<sup>2</sup> &nbsp;&nbsp;&forall; *n* > *n*<sub>0</sub> cannot be satisifed, for large *n*, with any values of *c* and *n*<sub>0</sub>
+  - For *m*=2, *f*(*m*) = 10 > 8 = *g*(*m*)
   - Therefore, this is false
 - *f*(*n*) &isin; O(*g*(*n*)) means there are positive constants *c* and *n*<sub>0</sub> such that *f*(*n*) &le; *c*\**g*(*n*) for all values *n* &ge; *n*<sub>0</sub> (but not ***all*** values of *n*, which is waht this was trying to show)
 	  </script></section>
@@ -484,6 +490,7 @@ int main (int argc, char* argv[]) {
 	  <section data-markdown><script type="text/template">
 ## Classification of functions
 - &Theta;(1) denotes the set of functions bounded by a constant (for large *n*)
+  - *f* &isin; &Theta;(log *n*) means *f* is logarithmic
   - *f* &isin; &Theta;(*n*) means *f* is linear
   - *f* &isin; &Theta;(*n* log *n*) means *f* is log-linear
   - *f* &isin; &Theta;(*n*<sup>2</sup>) means *f* is quadratic
