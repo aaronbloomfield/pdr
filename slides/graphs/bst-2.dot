@@ -4,44 +4,52 @@ digraph G {
 	edge [fontname = "Helvetica"];
 
 	l1 [shape=point];
-	1 -> l1;
+	1 -> l1 [arrowhead=teeteenormal];
 	m1 [label="", width=0.1, style=invis];
 	1 -> m1 [style=invis];
 	1 -> 2;
 	{rank=same l1 -> m1 -> 2 [style=invis]};
 	
 	l2 [shape=point];
-	2 -> l2;
+	2 -> l2 [arrowhead=teeteenormal];
 	m2 [label="", width=0.1, style=invis];
 	2 -> m2 [style=invis];
 	2 -> 3;
 	{rank=same l2 -> m2 -> 3 [style=invis]};
 	
 	l3 [shape=point];
-	3 -> l3;
+	3 -> l3 [arrowhead=teeteenormal];
 	m3 [label="", width=0.1, style=invis];
 	3 -> m3 [style=invis];
 	3 -> 4;
 	{rank=same l3 -> m3 -> 4 [style=invis]};
 
 	l4 [shape=point];
-	4 -> l4;
+	4 -> l4 [arrowhead=teeteenormal];
 	m4 [label="", width=0.1, style=invis];
 	4 -> m4 [style=invis];
 	4 -> 5;
 	{rank=same l4 -> m4 -> 5 [style=invis]};
 
 	l5 [shape=point];
-	5 -> l5;
+	5 -> l5 [arrowhead=teeteenormal];
 	m5 [label="", width=0.1, style=invis];
 	5 -> m5 [style=invis];
 	5 -> 6;
 	{rank=same l5 -> m5 -> 6 [style=invis]};
 
 	l6 [shape=point];
-	6 -> l6;
+	6 -> l6 [arrowhead=teeteenormal];
 	m6 [label="", width=0.1, style=invis];
 	6 -> m6 [style=invis];
 	6 -> 7;
 	{rank=same l6 -> m6 -> 7 [style=invis]};
+
+	l7 [shape=point];
+	7 -> l7 [arrowhead=teeteenormal];
+	m7 [label="", width=0.1, style=invis];
+	7 -> m7 [style=invis];
+	r7 [shape=point];
+	7 -> r7 [arrowhead=teeteenormal];
+	{rank=same l7 -> m7 -> r7 [style=invis]};
 }
