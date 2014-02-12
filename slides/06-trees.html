@@ -120,12 +120,12 @@
 <ul>
 <li>Indo-European is the root</li>
 <li>Nodes stacked on top of each other are siblings</li>
-<li>English is a leaf, and has depth 5<small><ul>
+<li>English is a leaf, and has depth 5<ul class="small">
 <li>Depth is the distance to the <i>root</i></li>
-<li>English &rarr; Old English &rarr; Anglo-Frisian &rarr; West Germanic &rarr; Germaic &rarr; Indo-European</li></ul></small></li>
-<li>Germanic is an internal node and has height 6<ul><small>
+<li>English &rarr; Old English &rarr; Anglo-Frisian &rarr; West Germanic &rarr; Germaic &rarr; Indo-European</li></ul></li>
+<li>Germanic is an internal node and has height 6<ul class="small">
 <li>Height is the distance to the <i>furthest</i> leaf</li>
-<li>Germanic &rarr; West Germanic &rarr; Low Franconian &rarr; West Low Franconian &rarr; Old Dutch &rarr; Dutch &rarr; Afrikaans</li></ul></small></li>
+<li>Germanic &rarr; West Germanic &rarr; Low Franconian &rarr; West Low Franconian &rarr; Old Dutch &rarr; Dutch &rarr; Afrikaans</li></ul></li>
 <li>The tree rooted at Germanic forms a sub-tree of the overall tree</li>
 </ul>
 </td></tr></table>
@@ -654,7 +654,7 @@ Not balanced: height difference greater than 1
 <td class="middle">&rarr;</td>
 <td><img alt="avl tree 7" src="graphs/avl-tree-7.svg"></td>
 </tr></table>
-<p class="center">\( X < b < Y < a < Z \)</p>
+<p class="center">\( X &le; b &le; Y &le; a &le; Z \)</p>
 <p class="center">The insert happens into sub-tree X, increasing it's height to <i>h</i>+1</p>
 <p class="center">Notice how sub-tree Y changes parent</p>
 	  </section>
@@ -672,7 +672,7 @@ Note that the trees shown are not necessarily AVL trees, but the rotations are c
 <td class="middle">&rarr;</td>
 <td><img alt="avl tree 9" src="graphs/avl-tree-9.svg"></td>
 </tr></table>
-<p class="center">\( X < b < Y < a < Z \)</p>
+<p class="center">\( X &le; b &le; Y &le; a &le; Z \)</p>
 <p class="center">The insert happens into sub-tree Y, increasing it's height to <i>h</i>+1</p>
 <p class="center">Single rotation fails!  New height of X is <i>h</i>+1, height of Y is <i>h</i>+3</p>
 	  </section>
@@ -730,7 +730,7 @@ Note that the trees shown are not necessarily AVL trees, but the rotations are c
 <td class="middle">
   <table><tr><td>
 	<table><tr><td class="middle">&rarr;</td><td><img alt="avl tree 17" src="graphs/avl-tree-17.svg"></td></tr></table>
-  </td></tr><tr><td>&nbsp;</td></tr><tr><td>\( W < b < X < c < Y < a < Z \)</td></tr><tr><td>&nbsp;</td></tr><tr><td>The insert happens into X</td></tr>
+  </td></tr><tr><td>&nbsp;</td></tr><tr><td>\( W &le; b &le; X &le; c &le; Y &le; a &le; Z \)</td></tr><tr><td>&nbsp;</td></tr><tr><td>The insert happens into X</td></tr>
 <tr><td>Notice sub-trees X <i>and</i> Y change parents</td></tr></table>
 </td>
 </tr></table>

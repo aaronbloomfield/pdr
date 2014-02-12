@@ -92,10 +92,11 @@ someInts[0], someInts[1], someInts[2]
 
 	  <section>
 <h2>C++ Implementation of Arrays</h2>
+<ul>
 <li>Array names are pointers to beginning of array
 <pre><code>int someInts[3];</code></pre><ul>
   <li>The size is only used by compiler to set aside memory for the array; it is not stored anywhere</li>
-  <li><code>someInts</code> is set to <code>&someInts[0]</code><ul>
+  <li><code>someInts</code> is set to <code>&amp;someInts[0]</code><ul>
       <li>Also called the base address</li></ul></li>
   <li>Local constant that cannot be changed</li></ul></li>
 <li>Note that the previous declaration is almost the same as:
