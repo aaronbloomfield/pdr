@@ -641,9 +641,10 @@ Not balanced: height difference greater than 1
 </tr></table>
 <ul>
 <li>Node 1 (red) is what is being inserted</li>
-<li>The <i><b>lowest</b></i> node with an imbalance is node 5 (balance factor of -2)</li>
+<li>The <i><b>lowest</b></i> node with an imbalance is node 5 (balance: -2)</li>
 <li>Because the insert was in 5's "left subtree of the left child", we perform a single right rotation on 5 (and it's left child, 3)</li>
 <li>Thus, the two blue nodes are the 'pivots' of the rotation</li>
+<li>Note that node 4 changes parents (from 3's right to 5's left)</li>
 </ul>
 	  </section>
 
@@ -687,10 +688,11 @@ Note that the trees shown are not necessarily AVL trees, but the rotations are c
 <li>Because the insert happened in 8's
 "right subtree of the left child", we perform a <i>double</i> rotation</li>
 <li>This consists of a single <i>left</i> rotation on the "child" (node 4), followed by a single <i>right</i> rotation on the "parent" (node 8)</li>
-<li>Note that the two rotations are in different directions!</li>
 </ul></td>
 <td class="top" style="width:40%;"><img alt="avl tree 14" src="graphs/avl-tree-14.svg" width="400"></td>
-</tr></table>
+</tr>
+<tr><td colspan="2" style="text-align:left;"><ul><li>Note that the two rotations are in different directions!</li></ul></td></tr>
+</table>
 	  </section>
 
 	  <section>
