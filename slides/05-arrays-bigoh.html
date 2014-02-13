@@ -600,6 +600,7 @@ int main (int argc, char* argv[]) {
 	  <section data-markdown><script type="text/template">
 ## Running time: logarithmic
 - Logarithmic (&Theta;(log *n*)) running time is when the search space is cut in half in each iteration
+  - Or when you are iterating up or down a data structure, such as a tree, that has &Theta;(log *n*) height
 - Examples:
   - Binary search in a sorted list
   - Search through a balanced tree
@@ -619,7 +620,7 @@ int main (int argc, char* argv[]) {
 	  <section data-markdown><script type="text/template">
 ## Running time: Log-linear
 - Log-linear (&Theta;(*n* log *n*)) typically occurs when you are going to take a linear number of steps, but each one takes log *n* time
-  - (or log *n* steps, each one of which takes *n* time)
+  - Or log *n* steps, each one of which takes *n* time
 - Examples:
   - Fast sorts: merge sort and heap sort
   - Quicksort, on a good day (but this is not guaranteed!)
@@ -633,8 +634,8 @@ int main (int argc, char* argv[]) {
 - Examples:
   - Slow sorts: insertion sort, bubble sort, selection sort
   - Quicksort, on a bad day
-  - Some graph algorithms we'll see later
-  - Nested for loops (where each loop goes 1 to *n*)
+  - Some graph algorithms we'll see later this semester
+  - Doubly nested for loops (where each loop goes 1 to *n*)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -643,6 +644,7 @@ int main (int argc, char* argv[]) {
 - Examples (we have not seen any yet)
   - Trying to crack a binary combination lock by trying every single possibility
   - Traveling salesperson problem (we'll see that later this semester)
+  - Satisfiability of a Boolean expression
 	  </script></section>
 
 	</section>
