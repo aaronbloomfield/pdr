@@ -2,10 +2,10 @@ digraph G {
 	graph [fontname = "Helvetica"];
 	node [fontname = "Helvetica"];
 	edge [fontname = "Helvetica"];
-	predecessor;
-	element;
-	successor;
-	predecessor -> element:w;
-	element -> successor:w;
+
+	// specifying :w ports for the destination of these two arrows
+	// will crash graphviz version 2.36
+	predecessor -> element;
+	element -> successor;
 	{rank=same predecessor -> element -> successor [style=invis]};
 }
