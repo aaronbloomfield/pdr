@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>TreeCalc.h</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">// Add your header information here</font></i>
+<i><font color="#9A1900">// TreeCalc.h: Tree Calculator class definition</font></i>
+<i><font color="#9A1900">// CS 2150: Lab 5</font></i>
+<i><font color="#9A1900">// NOTE: You may use any stack implementation that you wish</font></i>
+<i><font color="#9A1900">// You must submit ALL code to make your project build correctly</font></i>
+
+
+<b><font color="#000080">#ifndef</font></b> TREECALC_H
+<b><font color="#000080">#define</font></b> TREECALC_H
+
+<i><font color="#9A1900">// include your stack implementation here</font></i>
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">"TreeNode.h"</font>
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<b><font color="#0000FF">class</font></b> <font color="#008080">TreeCalc</font> <font color="#FF0000">{</font>
+<b><font color="#0000FF">public</font></b><font color="#990000">:</font>
+
+    <b><font color="#000000">TreeCalc</font></b><font color="#990000">();</font>						<i><font color="#9A1900">//Constructor</font></i>
+    <font color="#990000">~</font><b><font color="#000000">TreeCalc</font></b><font color="#990000">();</font>					<i><font color="#9A1900">//Destructor</font></i>
+
+    <font color="#009900">void</font> <b><font color="#000000">cleanTree</font></b><font color="#990000">(</font>TreeNode <font color="#990000">*</font> ptr<font color="#990000">);</font>	<i><font color="#9A1900">//Deletes tree/frees memory</font></i>
+    <font color="#009900">void</font> <b><font color="#000000">readInput</font></b><font color="#990000">();</font>				<i><font color="#9A1900">//gets data from user</font></i>
+    <font color="#009900">void</font> <b><font color="#000000">insert</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> string <font color="#990000">&amp;</font> val<font color="#990000">);</font>	<i><font color="#9A1900">//puts value in tree</font></i>
+
+    <i><font color="#9A1900">// print methods</font></i>
+    <font color="#009900">void</font> <b><font color="#000000">printPrefix</font></b><font color="#990000">(</font>TreeNode <font color="#990000">*</font> curNode<font color="#990000">)</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font>	<i><font color="#9A1900">//prints data in prefix form</font></i>
+    <font color="#009900">void</font> <b><font color="#000000">printInfix</font></b><font color="#990000">(</font>TreeNode <font color="#990000">*</font> curNode<font color="#990000">)</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font>	<i><font color="#9A1900">//prints data in infix form</font></i>
+    <font color="#009900">void</font> <b><font color="#000000">printPostfix</font></b><font color="#990000">(</font>TreeNode <font color="#990000">*</font> curNode<font color="#990000">)</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font><i><font color="#9A1900">//prints data in postfix form</font></i>
+    <font color="#009900">void</font> <b><font color="#000000">printOutput</font></b><font color="#990000">()</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font>				<i><font color="#9A1900">//prints in pre,in,post form</font></i>
+    <font color="#009900">int</font> <b><font color="#000000">calculate</font></b><font color="#990000">();</font>					<i><font color="#9A1900">//calls private calculate method</font></i>
+
+<b><font color="#0000FF">private</font></b><font color="#990000">:</font>
+    <i><font color="#9A1900">// declare a stack to hold your expression tree</font></i>
+    <font color="#009900">int</font> <b><font color="#000000">calculate</font></b><font color="#990000">(</font>TreeNode<font color="#990000">*</font> ptr<font color="#990000">)</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font>		<i><font color="#9A1900">//Evaluates tree, returns value</font></i>
+
+<font color="#FF0000">}</font><font color="#990000">;</font>
+
+<b><font color="#000080">#endif</font></b>
+</tt></pre>
+</body>
+</html>

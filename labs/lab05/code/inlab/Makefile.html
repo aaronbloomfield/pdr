@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>Makefile</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900"># Makefile for CS 2150 in-lab 5</font></i>
+
+<i><font color="#9A1900"># Defines the C++ compiler we'll be using</font></i>
+<font color="#009900">CXX	=</font> clang<font color="#990000">++</font>
+
+<i><font color="#9A1900"># Defines the flags we'll be passing to the C++ compiler</font></i>
+<font color="#009900">CXXFLAGS	=</font> -Wall -g
+
+<i><font color="#9A1900"># All of the .o files for our program</font></i>
+<font color="#009900">OFILES	=</font> avltree.o binarysearchtree.o tree_test.o
+
+<i><font color="#9A1900"># This tells make to create a .o file from a .cpp file, using the</font></i>
+<i><font color="#9A1900"># defaults above (i.e. the CXX and CXXFLAGS macros)</font></i>
+<b><font color="#000080">.SUFFIXES:</font></b> .o .cpp
+
+<i><font color="#9A1900"># How to compile our final program.  Note that we do NOT specify an</font></i>
+<i><font color="#9A1900"># output executable name -- in order for this to work with the grading</font></i>
+<i><font color="#9A1900"># system, the file needs to be a.out (a.exe in Cygwin).</font></i>
+<font color="#990000">main:</font>	<font color="#009900">$(OFILES)</font>
+	<font color="#009900">$(CXX)</font> <font color="#009900">$(OFILES)</font>
+
+<i><font color="#9A1900"># This will clean up (remove) all our object files.  The -f option</font></i>
+<i><font color="#9A1900"># tells rm to forcily remove the files (i.e. don't ask if they should</font></i>
+<i><font color="#9A1900"># be removed or not).  This removes object files (*.o) and Emacs</font></i>
+<i><font color="#9A1900"># backup files (*~)</font></i>
+<font color="#990000">clean:</font>
+	/bin/rm -f <font color="#990000">*</font>.o <font color="#990000">*~</font>
+
+<i><font color="#9A1900"># The following lines define the dependencies for this lab.  For</font></i>
+<i><font color="#9A1900"># example, if avltree.h is modified, then make knows to re-compile</font></i>
+<i><font color="#9A1900"># avltree.o and tree_test.o (and the final executable).  These lines</font></i>
+<i><font color="#9A1900"># are generated through the command 'clang++ -MM *.cpp', and that output</font></i>
+<i><font color="#9A1900"># is pasted below.</font></i>
+<font color="#990000">avltree.o:</font> avltree.cpp avltree.h avlnode.h
+<font color="#990000">binarysearchtree.o:</font> binarysearchtree.cpp binarysearchtree.h binarynode.h
+<font color="#990000">tree_test.o:</font> tree_test.cpp binarysearchtree.h binarynode.h avltree.h <font color="#990000">\</font>
+  avlnode.h
+</tt></pre>
+</body>
+</html>

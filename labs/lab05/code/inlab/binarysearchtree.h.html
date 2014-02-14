@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>binarysearchtree.h</title>
+</head>
+<body bgcolor="white">
+<pre><tt><b><font color="#000080">#ifndef</font></b> BINARY_SEARCH_TREE_H
+<b><font color="#000080">#define</font></b> BINARY_SEARCH_TREE_H
+
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">"binarynode.h"</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>       <i><font color="#9A1900">// For NULL</font></i>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;string&gt;</font>
+
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<i><font color="#9A1900">// BinarySearchTree class</font></i>
+<i><font color="#9A1900">//</font></i>
+<i><font color="#9A1900">// CONSTRUCTION: with ITEM_NOT_FOUND object used to signal failed finds</font></i>
+<i><font color="#9A1900">//</font></i>
+<i><font color="#9A1900">// ******************PUBLIC OPERATIONS*********************</font></i>
+<i><font color="#9A1900">// void insert( x )       --&gt; Insert x</font></i>
+<i><font color="#9A1900">// void remove( x )       --&gt; Remove x</font></i>
+<i><font color="#9A1900">// Comparable find( x )   --&gt; Return item that matches x</font></i>
+<i><font color="#9A1900">// Comparable findMin( )  --&gt; Return smallest item</font></i>
+<i><font color="#9A1900">// Comparable findMax( )  --&gt; Return largest item</font></i>
+<i><font color="#9A1900">// boolean isEmpty( )     --&gt; Return true if empty; else false</font></i>
+<i><font color="#9A1900">// void makeEmpty( )      --&gt; Remove all items</font></i>
+<i><font color="#9A1900">// void printTree( )      --&gt; Print tree in sorted order</font></i>
+
+<b><font color="#0000FF">class</font></b> <font color="#008080">BinarySearchTree</font> <font color="#FF0000">{</font>
+<b><font color="#0000FF">public</font></b><font color="#990000">:</font>
+    <b><font color="#0000FF">explicit</font></b> <b><font color="#000000">BinarySearchTree</font></b><font color="#990000">(</font> <b><font color="#0000FF">const</font></b> string <font color="#990000">&amp;</font> notFound <font color="#990000">);</font>
+    <b><font color="#000000">BinarySearchTree</font></b><font color="#990000">(</font> <b><font color="#0000FF">const</font></b> BinarySearchTree <font color="#990000">&amp;</font> rhs <font color="#990000">);</font>
+    <font color="#990000">~</font><b><font color="#000000">BinarySearchTree</font></b><font color="#990000">(</font> <font color="#990000">);</font>
+
+    <font color="#009900">int</font> <b><font color="#000000">GetLeftLinksFollowed</font></b><font color="#990000">()</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font>
+    <font color="#009900">int</font> <b><font color="#000000">GetRightLinksFollowed</font></b><font color="#990000">()</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font>
+    <font color="#009900">double</font> <b><font color="#000000">exp_path_length</font></b><font color="#990000">();</font>
+    <font color="#009900">int</font> <b><font color="#000000">int_path_length</font></b><font color="#990000">(</font><font color="#008080">BinaryNode</font> <font color="#990000">*</font>t<font color="#990000">,</font> <font color="#009900">int</font> depth<font color="#990000">);</font>
+
+    <font color="#009900">int</font> <b><font color="#000000">card_of</font></b><font color="#990000">()</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font>
+    <b><font color="#0000FF">const</font></b> string <font color="#990000">&amp;</font> <b><font color="#000000">findMin</font></b><font color="#990000">(</font> <font color="#990000">)</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font>
+    <b><font color="#0000FF">const</font></b> string <font color="#990000">&amp;</font> <b><font color="#000000">findMax</font></b><font color="#990000">(</font> <font color="#990000">)</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font>
+    <b><font color="#0000FF">const</font></b> string <font color="#990000">&amp;</font> <b><font color="#000000">find</font></b><font color="#990000">(</font> <b><font color="#0000FF">const</font></b> string <font color="#990000">&amp;</font> x <font color="#990000">)</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font>
+    <font color="#009900">bool</font> <b><font color="#000000">isEmpty</font></b><font color="#990000">(</font> <font color="#990000">)</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font>
+    <font color="#009900">void</font> <b><font color="#000000">printTree</font></b><font color="#990000">(</font> <font color="#990000">)</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font>
+
+    <font color="#009900">void</font> <b><font color="#000000">makeEmpty</font></b><font color="#990000">(</font> <font color="#990000">);</font>
+    <font color="#009900">void</font> <b><font color="#000000">insert</font></b><font color="#990000">(</font> <b><font color="#0000FF">const</font></b> string <font color="#990000">&amp;</font> x <font color="#990000">);</font>
+    <font color="#009900">void</font> <b><font color="#000000">remove</font></b><font color="#990000">(</font> <b><font color="#0000FF">const</font></b> string <font color="#990000">&amp;</font> x <font color="#990000">);</font>
+
+    <b><font color="#0000FF">const</font></b> BinarySearchTree <font color="#990000">&amp;</font> <b><font color="#0000FF">operator</font></b><font color="#990000">=(</font> <b><font color="#0000FF">const</font></b> BinarySearchTree <font color="#990000">&amp;</font> rhs <font color="#990000">);</font>
+
+<b><font color="#0000FF">private</font></b><font color="#990000">:</font>
+    <b><font color="#0000FF">const</font></b> <font color="#008080">string</font> ITEM_NOT_FOUND<font color="#990000">;</font>
+    <font color="#008080">BinaryNode</font> <font color="#990000">*</font>root<font color="#990000">;</font>
+    <b><font color="#0000FF">mutable</font></b> <font color="#009900">int</font> num_nodes<font color="#990000">;</font>
+    <b><font color="#0000FF">mutable</font></b> <font color="#009900">int</font> LeftLinksFollowed<font color="#990000">;</font>
+    <b><font color="#0000FF">mutable</font></b> <font color="#009900">int</font> RightLinksFollowed<font color="#990000">;</font>
+
+    <b><font color="#0000FF">const</font></b> string <font color="#990000">&amp;</font> <b><font color="#000000">elementAt</font></b><font color="#990000">(</font> <font color="#008080">BinaryNode</font> <font color="#990000">*</font>t <font color="#990000">)</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font>
+
+    <font color="#009900">void</font> <b><font color="#000000">insert</font></b><font color="#990000">(</font> <b><font color="#0000FF">const</font></b> string <font color="#990000">&amp;</font> x<font color="#990000">,</font> BinaryNode <font color="#990000">*</font> <font color="#990000">&amp;</font> t <font color="#990000">)</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font>
+    <font color="#009900">void</font> <b><font color="#000000">remove</font></b><font color="#990000">(</font> <b><font color="#0000FF">const</font></b> string <font color="#990000">&amp;</font> x<font color="#990000">,</font> BinaryNode <font color="#990000">*</font> <font color="#990000">&amp;</font> t <font color="#990000">)</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font>
+    BinaryNode <font color="#990000">*</font> <b><font color="#000000">findMin</font></b><font color="#990000">(</font> <font color="#008080">BinaryNode</font> <font color="#990000">*</font>t <font color="#990000">)</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font>
+    BinaryNode <font color="#990000">*</font> <b><font color="#000000">findMax</font></b><font color="#990000">(</font> <font color="#008080">BinaryNode</font> <font color="#990000">*</font>t <font color="#990000">)</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font>
+    BinaryNode <font color="#990000">*</font> <b><font color="#000000">find</font></b><font color="#990000">(</font> <b><font color="#0000FF">const</font></b> string <font color="#990000">&amp;</font> x<font color="#990000">,</font> <font color="#008080">BinaryNode</font> <font color="#990000">*</font>t <font color="#990000">)</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font>
+    <font color="#009900">void</font> <b><font color="#000000">makeEmpty</font></b><font color="#990000">(</font> BinaryNode <font color="#990000">*</font> <font color="#990000">&amp;</font> t <font color="#990000">)</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font>
+    <font color="#009900">void</font> <b><font color="#000000">printTree</font></b><font color="#990000">(</font> <font color="#008080">BinaryNode</font> <font color="#990000">*</font>t <font color="#990000">)</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font>
+    BinaryNode <font color="#990000">*</font> <b><font color="#000000">clone</font></b><font color="#990000">(</font> <font color="#008080">BinaryNode</font> <font color="#990000">*</font>t <font color="#990000">)</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font>
+<font color="#FF0000">}</font><font color="#990000">;</font>
+
+<b><font color="#000080">#endif</font></b>
+</tt></pre>
+</body>
+</html>

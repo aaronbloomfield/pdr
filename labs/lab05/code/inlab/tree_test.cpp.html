@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>tree_test.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;string&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;fstream&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;assert.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdlib.h&gt;</font>
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">"binarysearchtree.h"</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">"avltree.h"</font>
+
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<font color="#009900">void</font> <b><font color="#000000">print_stats</font></b><font color="#990000">(</font>BinarySearchTree <font color="#990000">*</font> tree<font color="#990000">,</font> AvlTree <font color="#990000">*</font> avl_tree<font color="#990000">)</font> <font color="#FF0000">{</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"BST: "</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Left links followed = "</font> <font color="#990000">&lt;&lt;</font> tree<font color="#990000">-&gt;</font><b><font color="#000000">GetLeftLinksFollowed</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Right links followed = "</font> <font color="#990000">&lt;&lt;</font> tree<font color="#990000">-&gt;</font><b><font color="#000000">GetRightLinksFollowed</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Total number of nodes = "</font> <font color="#990000">&lt;&lt;</font> tree<font color="#990000">-&gt;</font><b><font color="#000000">card_of</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Avg. node depth = "</font> <font color="#990000">&lt;&lt;</font> tree<font color="#990000">-&gt;</font><b><font color="#000000">exp_path_length</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"AVL Tree: "</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Left links followed = "</font> <font color="#990000">&lt;&lt;</font> avl_tree<font color="#990000">-&gt;</font><b><font color="#000000">GetLeftLinksFollowed</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Right links followed = "</font> <font color="#990000">&lt;&lt;</font> avl_tree<font color="#990000">-&gt;</font><b><font color="#000000">GetRightLinksFollowed</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Total number of nodes = "</font> <font color="#990000">&lt;&lt;</font> avl_tree<font color="#990000">-&gt;</font><b><font color="#000000">card_of</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Single Rotations = "</font> <font color="#990000">&lt;&lt;</font> avl_tree<font color="#990000">-&gt;</font><b><font color="#000000">GetSingleRotations</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Double Rotations = "</font> <font color="#990000">&lt;&lt;</font> avl_tree<font color="#990000">-&gt;</font><b><font color="#000000">GetDoubleRotations</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Avg. node depth = "</font> <font color="#990000">&lt;&lt;</font> avl_tree<font color="#990000">-&gt;</font><b><font color="#000000">exp_path_length</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<font color="#009900">int</font> <b><font color="#000000">main</font></b> <font color="#990000">()</font> <font color="#FF0000">{</font>
+    BinarySearchTree  <font color="#990000">*</font> tree<font color="#990000">;</font>
+    AvlTree  <font color="#990000">*</font> avl_tree<font color="#990000">;</font>
+    <font color="#008080">string</font> word<font color="#990000">;</font>
+    <font color="#008080">string</font> inFile<font color="#990000">;</font>
+    <b><font color="#0000FF">const</font></b> <font color="#008080">string</font> <b><font color="#000000">ITEM_NOT_FOUND</font></b><font color="#990000">(</font><font color="#FF0000">""</font><font color="#990000">);</font>
+    <font color="#009900">int</font> i<font color="#990000">;</font>
+    <font color="#009900">int</font> n<font color="#990000">=</font><font color="#993399">0</font><font color="#990000">;</font>
+    <font color="#009900">int</font> num_words<font color="#990000">=</font><font color="#993399">0</font><font color="#990000">;</font>
+    <font color="#008080">string</font>        word_found<font color="#990000">;</font>			<i><font color="#9A1900">// return value for tree-&gt;find()</font></i>
+    <font color="#008080">string</font>        avl_word_found<font color="#990000">;</font>       <i><font color="#9A1900">// return value for tree-&gt;find()</font></i>
+    <font color="#008080">string</font> response<font color="#990000">;</font>
+    tree <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">BinarySearchTree</font></b><font color="#990000">(</font>ITEM_NOT_FOUND<font color="#990000">);</font>
+    avl_tree <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">AvlTree</font></b><font color="#990000">(</font>ITEM_NOT_FOUND<font color="#990000">);</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Please enter the name of a file of words: "</font><font color="#990000">;</font>
+    cin <font color="#990000">&gt;&gt;</font> inFile<font color="#990000">;</font>
+    <font color="#008080">ifstream</font> <b><font color="#000000">fin</font></b><font color="#990000">(</font>inFile<font color="#990000">.</font><b><font color="#000000">c_str</font></b><font color="#990000">());</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(!</font>fin<font color="#990000">)</font> <font color="#FF0000">{</font>
+        cerr <font color="#990000">&lt;&lt;</font><font color="#FF0000">"Cannot open "</font> <font color="#990000">&lt;&lt;</font> inFile <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+        <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+    <b><font color="#0000FF">while</font></b> <font color="#990000">(</font>fin <font color="#990000">&gt;&gt;</font> word<font color="#990000">)</font> <font color="#FF0000">{</font>
+        n <font color="#990000">=</font> <font color="#009900">int</font> <font color="#990000">(</font>word<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">());</font>
+        <b><font color="#000000">assert</font></b><font color="#990000">(</font>n <font color="#990000">&gt;</font> <font color="#993399">0</font><font color="#990000">);</font>
+        <b><font color="#0000FF">for</font></b> <font color="#990000">(</font>i<font color="#990000">=</font><font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> n<font color="#990000">;</font> <font color="#990000">++</font>i<font color="#990000">)</font> <font color="#FF0000">{</font>			<i><font color="#9A1900">// Convert to lowercase.</font></i>
+            word<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">=</font> <b><font color="#000000">tolower</font></b><font color="#990000">(</font>word<font color="#990000">[</font>i<font color="#990000">]);</font>
+        <font color="#FF0000">}</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(!</font><b><font color="#000000">isalpha</font></b><font color="#990000">(</font>word<font color="#990000">[</font>n <font color="#990000">-</font> <font color="#993399">1</font><font color="#990000">]))</font> <font color="#FF0000">{</font>	<i><font color="#9A1900">// eliminate trailing punctuation</font></i>
+            word <font color="#990000">=</font> word<font color="#990000">.</font><b><font color="#000000">substr</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">,</font> n<font color="#990000">-</font><font color="#993399">1</font><font color="#990000">);</font>
+        <font color="#FF0000">}</font>
+        <i><font color="#9A1900">// Echo the contents the words that have been read to the screen.</font></i>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" "</font> <font color="#990000">&lt;&lt;</font> word<font color="#990000">;</font>
+        num_words<font color="#990000">++;</font>
+        tree<font color="#990000">-&gt;</font><b><font color="#000000">insert</font></b><font color="#990000">(</font>word<font color="#990000">);</font>
+        avl_tree<font color="#990000">-&gt;</font><b><font color="#000000">insert</font></b><font color="#990000">(</font>word<font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font> <font color="#990000">&lt;&lt;</font> num_words <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" words in this text</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <i><font color="#9A1900">// Print out Statistics about Shape of the trees</font></i>
+    <i><font color="#9A1900">// and number of links followed.</font></i>
+    <b><font color="#000000">print_stats</font></b><font color="#990000">(</font>tree<font color="#990000">,</font> avl_tree<font color="#990000">);</font>
+    <i><font color="#9A1900">// Find a word in both trees.</font></i>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Enter word to lookup &gt; "</font><font color="#990000">;</font>
+    cin  <font color="#990000">&gt;&gt;</font> response<font color="#990000">;</font>
+    word_found <font color="#990000">=</font> tree<font color="#990000">-&gt;</font><b><font color="#000000">find</font></b><font color="#990000">(</font>response<font color="#990000">);</font>
+    avl_word_found <font color="#990000">=</font> avl_tree<font color="#990000">-&gt;</font><b><font color="#000000">find</font></b><font color="#990000">(</font>response<font color="#990000">);</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>word_found <font color="#990000">!=</font> ITEM_NOT_FOUND <font color="#990000">&amp;&amp;</font> avl_word_found <font color="#990000">!=</font> ITEM_NOT_FOUND<font color="#990000">)</font> <font color="#FF0000">{</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Word was found: "</font> <font color="#990000">&lt;&lt;</font> word_found <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
+        cout <font color="#990000">&lt;&lt;</font> response <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" was not found in "</font>
+             <font color="#990000">&lt;&lt;</font> inFile<font color="#990000">.</font><b><font color="#000000">c_str</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+    <i><font color="#9A1900">// Print out Statistics about Shape of the trees</font></i>
+    <i><font color="#9A1900">// and number of links followed.</font></i>
+    <b><font color="#000000">print_stats</font></b><font color="#990000">(</font>tree<font color="#990000">,</font> avl_tree<font color="#990000">);</font>
+    fin<font color="#990000">.</font><b><font color="#000000">close</font></b><font color="#990000">();</font>
+    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

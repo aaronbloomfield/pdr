@@ -1,0 +1,362 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>avltree.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">/* avltree.cpp */</font></i>
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Implements an unbalanced Avl search tree.</font></i>
+<i><font color="#9A1900">* Note that all "matching" is based on the compares method.</font></i>
+<i><font color="#9A1900">* </font></i><font color="#009900">@author</font><i><font color="#9A1900"> Mark Allen Weiss</font></i>
+<i><font color="#9A1900">*/</font></i>
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Construct the tree.</font></i>
+<i><font color="#9A1900">*/</font></i>
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">"avltree.h"</font>
+
+AvlTree<font color="#990000">::</font><b><font color="#000000">AvlTree</font></b><font color="#990000">(</font> <b><font color="#0000FF">const</font></b> string <font color="#990000">&amp;</font> notFound <font color="#990000">)</font>
+    <font color="#990000">:</font> <b><font color="#000000">ITEM_NOT_FOUND</font></b><font color="#990000">(</font> notFound <font color="#990000">),</font> <b><font color="#000000">root</font></b><font color="#990000">(</font> NULL <font color="#990000">)</font> <font color="#FF0000">{</font>
+    SingleRotations <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+    DoubleRotations <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+    RightLinksFollowed <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+    LeftLinksFollowed <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+    num_nodes <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Copy constructor.</font></i>
+<i><font color="#9A1900">*/</font></i>
+AvlTree<font color="#990000">::</font><b><font color="#000000">AvlTree</font></b><font color="#990000">(</font> <b><font color="#0000FF">const</font></b> AvlTree <font color="#990000">&amp;</font> rhs <font color="#990000">)</font>
+    <font color="#990000">:</font> <b><font color="#000000">ITEM_NOT_FOUND</font></b><font color="#990000">(</font> rhs<font color="#990000">.</font>ITEM_NOT_FOUND <font color="#990000">),</font> <b><font color="#000000">root</font></b><font color="#990000">(</font> NULL <font color="#990000">)</font> <font color="#FF0000">{</font>
+    <font color="#990000">*</font><b><font color="#0000FF">this</font></b> <font color="#990000">=</font> rhs<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Destructor for the tree.</font></i>
+<i><font color="#9A1900">*/</font></i>
+AvlTree<font color="#990000">::~</font><b><font color="#000000">AvlTree</font></b><font color="#990000">(</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+    <b><font color="#000000">makeEmpty</font></b><font color="#990000">(</font> <font color="#990000">);</font>
+<font color="#FF0000">}</font>
+
+
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Returns the number of left links follwed so far in the tree.</font></i>
+<i><font color="#9A1900">*/</font></i>
+<font color="#009900">int</font> AvlTree<font color="#990000">::</font><b><font color="#000000">GetLeftLinksFollowed</font></b><font color="#990000">(</font> <font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">return</font></b> LeftLinksFollowed<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Returns the number of DoubleRotations so far in the tree.</font></i>
+<i><font color="#9A1900">*/</font></i>
+<font color="#009900">int</font> AvlTree<font color="#990000">::</font><b><font color="#000000">GetDoubleRotations</font></b><font color="#990000">(</font> <font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">return</font></b> DoubleRotations<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Returns the number of SingleRotations so far in the tree.</font></i>
+<i><font color="#9A1900">*/</font></i>
+<font color="#009900">int</font> AvlTree<font color="#990000">::</font><b><font color="#000000">GetSingleRotations</font></b><font color="#990000">(</font> <font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">return</font></b> SingleRotations<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Returns the number of right links follwed so far in the tree.</font></i>
+<i><font color="#9A1900">*/</font></i>
+<font color="#009900">int</font> AvlTree<font color="#990000">::</font><b><font color="#000000">GetRightLinksFollowed</font></b><font color="#990000">(</font> <font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">return</font></b> RightLinksFollowed<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Returns the cardinality (number of nodes) in the tree.</font></i>
+<i><font color="#9A1900">*/</font></i>
+<font color="#009900">int</font> AvlTree<font color="#990000">::</font><b><font color="#000000">card_of</font></b><font color="#990000">(</font> <font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">return</font></b> num_nodes<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Insert x into the tree; duplicates are ignored.</font></i>
+<i><font color="#9A1900">*/</font></i>
+
+<font color="#009900">void</font> AvlTree<font color="#990000">::</font><b><font color="#000000">insert</font></b><font color="#990000">(</font> <b><font color="#0000FF">const</font></b> string <font color="#990000">&amp;</font> x <font color="#990000">)</font> <font color="#FF0000">{</font>
+    <b><font color="#000000">insert</font></b><font color="#990000">(</font> x<font color="#990000">,</font> root <font color="#990000">);</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Remove x from the tree. Nothing is done if x is not found.</font></i>
+<i><font color="#9A1900">*/</font></i>
+<font color="#009900">void</font> AvlTree<font color="#990000">::</font><b><font color="#000000">remove</font></b><font color="#990000">(</font> <b><font color="#0000FF">const</font></b> string <font color="#990000">&amp;</font> x <font color="#990000">)</font> <font color="#FF0000">{</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Sorry, remove unimplemented; "</font> <font color="#990000">&lt;&lt;</font> x <font color="#990000">&lt;&lt;</font>
+         <font color="#FF0000">" still present"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Find the smallest item in the tree.</font></i>
+<i><font color="#9A1900">* Return smallest item or ITEM_NOT_FOUND if empty.</font></i>
+<i><font color="#9A1900">*/</font></i>
+<b><font color="#0000FF">const</font></b> string <font color="#990000">&amp;</font> AvlTree<font color="#990000">::</font><b><font color="#000000">findMin</font></b><font color="#990000">(</font> <font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">return</font></b> <b><font color="#000000">elementAt</font></b><font color="#990000">(</font> <b><font color="#000000">findMin</font></b><font color="#990000">(</font> root <font color="#990000">)</font> <font color="#990000">);</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Find the largest item in the tree.</font></i>
+<i><font color="#9A1900">* Return the largest item of ITEM_NOT_FOUND if empty.</font></i>
+<i><font color="#9A1900">*/</font></i>
+<b><font color="#0000FF">const</font></b> string <font color="#990000">&amp;</font> AvlTree<font color="#990000">::</font><b><font color="#000000">findMax</font></b><font color="#990000">(</font> <font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">return</font></b> <b><font color="#000000">elementAt</font></b><font color="#990000">(</font> <b><font color="#000000">findMax</font></b><font color="#990000">(</font> root <font color="#990000">)</font> <font color="#990000">);</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Find item x in the tree.</font></i>
+<i><font color="#9A1900">* Return the matching item or ITEM_NOT_FOUND if not found.</font></i>
+<i><font color="#9A1900">*/</font></i>
+<b><font color="#0000FF">const</font></b> string <font color="#990000">&amp;</font> AvlTree<font color="#990000">::</font>
+<b><font color="#000000">find</font></b><font color="#990000">(</font> <b><font color="#0000FF">const</font></b> string <font color="#990000">&amp;</font> x <font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">return</font></b> <b><font color="#000000">elementAt</font></b><font color="#990000">(</font> <b><font color="#000000">find</font></b><font color="#990000">(</font> x<font color="#990000">,</font> root <font color="#990000">)</font> <font color="#990000">);</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Make the tree logically empty.</font></i>
+<i><font color="#9A1900">*/</font></i>
+<font color="#009900">void</font> AvlTree<font color="#990000">::</font><b><font color="#000000">makeEmpty</font></b><font color="#990000">(</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+    <b><font color="#000000">makeEmpty</font></b><font color="#990000">(</font> root <font color="#990000">);</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Test if the tree is logically empty.</font></i>
+<i><font color="#9A1900">* Return true if empty, false otherwise.</font></i>
+<i><font color="#9A1900">*/</font></i>
+<font color="#009900">bool</font> AvlTree<font color="#990000">::</font><b><font color="#000000">isEmpty</font></b><font color="#990000">(</font> <font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">return</font></b> root <font color="#990000">==</font> NULL<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Print the tree contents in sorted order.</font></i>
+<i><font color="#9A1900">*/</font></i>
+<font color="#009900">void</font> AvlTree<font color="#990000">::</font><b><font color="#000000">printTree</font></b><font color="#990000">(</font> <font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <b><font color="#000000">isEmpty</font></b><font color="#990000">(</font> <font color="#990000">)</font> <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Empty tree"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b>
+        <b><font color="#000000">printTree</font></b><font color="#990000">(</font> root <font color="#990000">);</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Deep copy.</font></i>
+<i><font color="#9A1900">*/</font></i>
+<b><font color="#0000FF">const</font></b> AvlTree <font color="#990000">&amp;</font>
+AvlTree<font color="#990000">::</font>
+<b><font color="#0000FF">operator</font></b><font color="#990000">=(</font> <b><font color="#0000FF">const</font></b> AvlTree <font color="#990000">&amp;</font> rhs <font color="#990000">)</font> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <b><font color="#0000FF">this</font></b> <font color="#990000">!=</font> <font color="#990000">&amp;</font>rhs <font color="#990000">)</font> <font color="#FF0000">{</font>
+        <b><font color="#000000">makeEmpty</font></b><font color="#990000">(</font> <font color="#990000">);</font>
+        root <font color="#990000">=</font> <b><font color="#000000">clone</font></b><font color="#990000">(</font> rhs<font color="#990000">.</font>root <font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+    <b><font color="#0000FF">return</font></b> <font color="#990000">*</font><b><font color="#0000FF">this</font></b><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+
+<font color="#009900">double</font> AvlTree<font color="#990000">::</font><b><font color="#000000">exp_path_length</font></b><font color="#990000">(</font> <font color="#990000">)</font>
+<i><font color="#9A1900">/*</font></i>
+<i><font color="#9A1900">**  Calculate the expected path length of the tree</font></i>
+<i><font color="#9A1900">**  This is the public version, without a parameter.</font></i>
+<i><font color="#9A1900">*/</font></i>
+<font color="#FF0000">{</font>
+    <i><font color="#9A1900">// YOUR CODE HERE</font></i>
+    <b><font color="#0000FF">return</font></b> <font color="#990000">-</font><font color="#993399">99.0</font><font color="#990000">;</font>  <i><font color="#9A1900">// stub, remove after writing your code</font></i>
+<font color="#FF0000">}</font>
+
+<font color="#009900">int</font> AvlTree<font color="#990000">::</font><b><font color="#000000">int_path_length</font></b><font color="#990000">(</font><font color="#008080">AvlNode</font> <font color="#990000">*</font>t<font color="#990000">,</font> <font color="#009900">int</font> depth<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font> <i><font color="#9A1900">// put your actual return value here when you write this function</font></i>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Internal method to get element field in node t.</font></i>
+<i><font color="#9A1900">* Return the element field or ITEM_NOT_FOUND if t is NULL.</font></i>
+<i><font color="#9A1900">*/</font></i>
+<b><font color="#0000FF">const</font></b> string <font color="#990000">&amp;</font> AvlTree<font color="#990000">::</font><b><font color="#000000">elementAt</font></b><font color="#990000">(</font> <font color="#008080">AvlNode</font> <font color="#990000">*</font>t <font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">return</font></b> t <font color="#990000">==</font> NULL <font color="#990000">?</font> ITEM_NOT_FOUND <font color="#990000">:</font> t<font color="#990000">-&gt;</font>element<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Internal method to insert into a subtree.</font></i>
+<i><font color="#9A1900">* x is the item to insert.</font></i>
+<i><font color="#9A1900">* t is the node that roots the tree.</font></i>
+<i><font color="#9A1900">*/</font></i>
+<font color="#009900">void</font> AvlTree<font color="#990000">::</font><b><font color="#000000">insert</font></b><font color="#990000">(</font> <b><font color="#0000FF">const</font></b> string <font color="#990000">&amp;</font> x<font color="#990000">,</font> AvlNode <font color="#990000">*</font> <font color="#990000">&amp;</font> t <font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> t <font color="#990000">==</font> NULL <font color="#990000">)</font> <font color="#FF0000">{</font>
+        t <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">AvlNode</font></b><font color="#990000">(</font> x<font color="#990000">,</font> NULL<font color="#990000">,</font> NULL <font color="#990000">);</font>
+    <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> x <font color="#990000">&lt;</font> t<font color="#990000">-&gt;</font>element <font color="#990000">)</font> <font color="#FF0000">{</font>
+        <b><font color="#000000">insert</font></b><font color="#990000">(</font> x<font color="#990000">,</font> t<font color="#990000">-&gt;</font>left <font color="#990000">);</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <b><font color="#000000">height</font></b><font color="#990000">(</font> t<font color="#990000">-&gt;</font>left <font color="#990000">)</font> <font color="#990000">-</font> <b><font color="#000000">height</font></b><font color="#990000">(</font> t<font color="#990000">-&gt;</font>right <font color="#990000">)</font> <font color="#990000">==</font> <font color="#993399">2</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+            <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> x <font color="#990000">&lt;</font> t<font color="#990000">-&gt;</font>left<font color="#990000">-&gt;</font>element <font color="#990000">)</font> <font color="#FF0000">{</font>
+                <b><font color="#000000">rotateWithLeftChild</font></b><font color="#990000">(</font> t <font color="#990000">);</font>
+            <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
+                <b><font color="#000000">doubleWithLeftChild</font></b><font color="#990000">(</font> t <font color="#990000">);</font>
+            <font color="#FF0000">}</font>
+        <font color="#FF0000">}</font>
+    <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> t<font color="#990000">-&gt;</font>element <font color="#990000">&lt;</font> x <font color="#990000">)</font> <font color="#FF0000">{</font>
+        <b><font color="#000000">insert</font></b><font color="#990000">(</font> x<font color="#990000">,</font> t<font color="#990000">-&gt;</font>right <font color="#990000">);</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <b><font color="#000000">height</font></b><font color="#990000">(</font> t<font color="#990000">-&gt;</font>right <font color="#990000">)</font> <font color="#990000">-</font> <b><font color="#000000">height</font></b><font color="#990000">(</font> t<font color="#990000">-&gt;</font>left <font color="#990000">)</font> <font color="#990000">==</font> <font color="#993399">2</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+            <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> t<font color="#990000">-&gt;</font>right<font color="#990000">-&gt;</font>element <font color="#990000">&lt;</font> x <font color="#990000">)</font> <font color="#FF0000">{</font>
+                <b><font color="#000000">rotateWithRightChild</font></b><font color="#990000">(</font> t <font color="#990000">);</font>
+            <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
+                <b><font color="#000000">doubleWithRightChild</font></b><font color="#990000">(</font> t <font color="#990000">);</font>
+            <font color="#FF0000">}</font>
+        <font color="#FF0000">}</font>
+    <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b>
+        <font color="#990000">;</font>  <i><font color="#9A1900">// Duplicate; do nothing</font></i>
+    t<font color="#990000">-&gt;</font>height <font color="#990000">=</font> <b><font color="#000000">max</font></b><font color="#990000">(</font> <b><font color="#000000">height</font></b><font color="#990000">(</font> t<font color="#990000">-&gt;</font>left <font color="#990000">),</font> <b><font color="#000000">height</font></b><font color="#990000">(</font> t<font color="#990000">-&gt;</font>right <font color="#990000">)</font> <font color="#990000">)</font> <font color="#990000">+</font> <font color="#993399">1</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Internal method to find the smallest item in a subtree t.</font></i>
+<i><font color="#9A1900">* Return node containing the smallest item.</font></i>
+<i><font color="#9A1900">*/</font></i>
+AvlNode <font color="#990000">*</font>
+AvlTree<font color="#990000">::</font><b><font color="#000000">findMin</font></b><font color="#990000">(</font> <font color="#008080">AvlNode</font> <font color="#990000">*</font>t <font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> t <font color="#990000">==</font> NULL<font color="#990000">)</font>
+        <b><font color="#0000FF">return</font></b> t<font color="#990000">;</font>
+    <b><font color="#0000FF">while</font></b> <font color="#990000">(</font> t<font color="#990000">-&gt;</font>left <font color="#990000">!=</font> NULL <font color="#990000">)</font>
+        t <font color="#990000">=</font> t<font color="#990000">-&gt;</font>left<font color="#990000">;</font>
+    <b><font color="#0000FF">return</font></b> t<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Internal method to find the largest item in a subtree t.</font></i>
+<i><font color="#9A1900">* Return node containing the largest item.</font></i>
+<i><font color="#9A1900">*/</font></i>
+AvlNode <font color="#990000">*</font>
+AvlTree<font color="#990000">::</font><b><font color="#000000">findMax</font></b><font color="#990000">(</font> <font color="#008080">AvlNode</font> <font color="#990000">*</font>t <font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> t <font color="#990000">==</font> NULL <font color="#990000">)</font>
+        <b><font color="#0000FF">return</font></b> t<font color="#990000">;</font>
+    <b><font color="#0000FF">while</font></b> <font color="#990000">(</font> t<font color="#990000">-&gt;</font>right <font color="#990000">!=</font> NULL <font color="#990000">)</font>
+        t <font color="#990000">=</font> t<font color="#990000">-&gt;</font>right<font color="#990000">;</font>
+    <b><font color="#0000FF">return</font></b> t<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Internal method to find an item in a subtree.</font></i>
+<i><font color="#9A1900">* x is item to search for.</font></i>
+<i><font color="#9A1900">* t is the node that roots the tree.</font></i>
+<i><font color="#9A1900">* Return node containing the matched item.</font></i>
+<i><font color="#9A1900">*/</font></i>
+AvlNode <font color="#990000">*</font>
+AvlTree<font color="#990000">::</font><b><font color="#000000">find</font></b><font color="#990000">(</font> <b><font color="#0000FF">const</font></b> string <font color="#990000">&amp;</font> x<font color="#990000">,</font> <font color="#008080">AvlNode</font> <font color="#990000">*</font>t <font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">while</font></b> <font color="#990000">(</font> t <font color="#990000">!=</font> NULL <font color="#990000">)</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> x <font color="#990000">&lt;</font> t<font color="#990000">-&gt;</font>element <font color="#990000">)</font> <font color="#FF0000">{</font>
+            t <font color="#990000">=</font> t<font color="#990000">-&gt;</font>left<font color="#990000">;</font>
+        <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> t<font color="#990000">-&gt;</font>element <font color="#990000">&lt;</font> x <font color="#990000">)</font> <font color="#FF0000">{</font>
+            t <font color="#990000">=</font> t<font color="#990000">-&gt;</font>right<font color="#990000">;</font>
+        <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b>
+            <b><font color="#0000FF">return</font></b> t<font color="#990000">;</font>    <i><font color="#9A1900">// Match</font></i>
+    <b><font color="#0000FF">return</font></b> NULL<font color="#990000">;</font>   <i><font color="#9A1900">// No match</font></i>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Internal method to make subtree empty.</font></i>
+<i><font color="#9A1900">*/</font></i>
+<font color="#009900">void</font> AvlTree<font color="#990000">::</font><b><font color="#000000">makeEmpty</font></b><font color="#990000">(</font> AvlNode <font color="#990000">*</font> <font color="#990000">&amp;</font> t <font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> t <font color="#990000">!=</font> NULL <font color="#990000">)</font> <font color="#FF0000">{</font>
+        <b><font color="#000000">makeEmpty</font></b><font color="#990000">(</font> t<font color="#990000">-&gt;</font>left <font color="#990000">);</font>
+        <b><font color="#000000">makeEmpty</font></b><font color="#990000">(</font> t<font color="#990000">-&gt;</font>right <font color="#990000">);</font>
+        <b><font color="#0000FF">delete</font></b> t<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+    t <font color="#990000">=</font> NULL<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Internal method to clone subtree.</font></i>
+<i><font color="#9A1900">*/</font></i>
+AvlNode <font color="#990000">*</font>
+AvlTree<font color="#990000">::</font><b><font color="#000000">clone</font></b><font color="#990000">(</font> AvlNode <font color="#990000">*</font> t <font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> t <font color="#990000">==</font> NULL <font color="#990000">)</font>
+        <b><font color="#0000FF">return</font></b> NULL<font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b>
+        <b><font color="#0000FF">return</font></b> <b><font color="#0000FF">new</font></b> <b><font color="#000000">AvlNode</font></b><font color="#990000">(</font> t<font color="#990000">-&gt;</font>element<font color="#990000">,</font> <b><font color="#000000">clone</font></b><font color="#990000">(</font> t<font color="#990000">-&gt;</font>left <font color="#990000">),</font>
+                            <b><font color="#000000">clone</font></b><font color="#990000">(</font> t<font color="#990000">-&gt;</font>right <font color="#990000">),</font> t<font color="#990000">-&gt;</font>height <font color="#990000">);</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Return the height of node t or -1 if NULL.</font></i>
+<i><font color="#9A1900">*/</font></i>
+<font color="#009900">int</font> AvlTree<font color="#990000">::</font><b><font color="#000000">height</font></b><font color="#990000">(</font> <font color="#008080">AvlNode</font> <font color="#990000">*</font>t <font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">return</font></b> t <font color="#990000">==</font> NULL <font color="#990000">?</font> <font color="#990000">-</font><font color="#993399">1</font> <font color="#990000">:</font> t<font color="#990000">-&gt;</font>height<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Return maximum of lhs and rhs.</font></i>
+<i><font color="#9A1900">*/</font></i>
+<font color="#009900">int</font> AvlTree<font color="#990000">::</font><b><font color="#000000">max</font></b><font color="#990000">(</font> <font color="#009900">int</font> lhs<font color="#990000">,</font> <font color="#009900">int</font> rhs <font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">return</font></b> lhs <font color="#990000">&gt;</font> rhs <font color="#990000">?</font> lhs <font color="#990000">:</font> rhs<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Rotate binary tree node with left child.</font></i>
+<i><font color="#9A1900">* For AVL trees, this is a single rotation for case 1.</font></i>
+<i><font color="#9A1900">* Update heights, then set new root.</font></i>
+<i><font color="#9A1900">*/</font></i>
+<font color="#009900">void</font> AvlTree<font color="#990000">::</font><b><font color="#000000">rotateWithLeftChild</font></b><font color="#990000">(</font> AvlNode <font color="#990000">*</font> <font color="#990000">&amp;</font> k2 <font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
+    <font color="#008080">AvlNode</font> <font color="#990000">*</font>k1 <font color="#990000">=</font> k2<font color="#990000">-&gt;</font>left<font color="#990000">;</font>
+    k2<font color="#990000">-&gt;</font>left <font color="#990000">=</font> k1<font color="#990000">-&gt;</font>right<font color="#990000">;</font>
+    k1<font color="#990000">-&gt;</font>right <font color="#990000">=</font> k2<font color="#990000">;</font>
+    k2<font color="#990000">-&gt;</font>height <font color="#990000">=</font> <b><font color="#000000">max</font></b><font color="#990000">(</font> <b><font color="#000000">height</font></b><font color="#990000">(</font> k2<font color="#990000">-&gt;</font>left <font color="#990000">),</font> <b><font color="#000000">height</font></b><font color="#990000">(</font> k2<font color="#990000">-&gt;</font>right <font color="#990000">)</font> <font color="#990000">)</font> <font color="#990000">+</font> <font color="#993399">1</font><font color="#990000">;</font>
+    k1<font color="#990000">-&gt;</font>height <font color="#990000">=</font> <b><font color="#000000">max</font></b><font color="#990000">(</font> <b><font color="#000000">height</font></b><font color="#990000">(</font> k1<font color="#990000">-&gt;</font>left <font color="#990000">),</font> k2<font color="#990000">-&gt;</font>height <font color="#990000">)</font> <font color="#990000">+</font> <font color="#993399">1</font><font color="#990000">;</font>
+    k2 <font color="#990000">=</font> k1<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Rotate binary tree node with right child.</font></i>
+<i><font color="#9A1900">* For AVL trees, this is a single rotation for case 4.</font></i>
+<i><font color="#9A1900">* Update heights, then set new root.</font></i>
+<i><font color="#9A1900">*/</font></i>
+<font color="#009900">void</font> AvlTree<font color="#990000">::</font><b><font color="#000000">rotateWithRightChild</font></b><font color="#990000">(</font> AvlNode <font color="#990000">*</font> <font color="#990000">&amp;</font> k1 <font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
+    AvlNode <font color="#990000">*</font> k2 <font color="#990000">=</font> k1<font color="#990000">-&gt;</font>right<font color="#990000">;</font>
+    k1<font color="#990000">-&gt;</font>right <font color="#990000">=</font> k2<font color="#990000">-&gt;</font>left<font color="#990000">;</font>
+    k2<font color="#990000">-&gt;</font>left <font color="#990000">=</font> k1<font color="#990000">;</font>
+    k1<font color="#990000">-&gt;</font>height <font color="#990000">=</font> <b><font color="#000000">max</font></b><font color="#990000">(</font> <b><font color="#000000">height</font></b><font color="#990000">(</font> k1<font color="#990000">-&gt;</font>left <font color="#990000">),</font> <b><font color="#000000">height</font></b><font color="#990000">(</font> k1<font color="#990000">-&gt;</font>right <font color="#990000">)</font> <font color="#990000">)</font> <font color="#990000">+</font> <font color="#993399">1</font><font color="#990000">;</font>
+    k2<font color="#990000">-&gt;</font>height <font color="#990000">=</font> <b><font color="#000000">max</font></b><font color="#990000">(</font> <b><font color="#000000">height</font></b><font color="#990000">(</font> k2<font color="#990000">-&gt;</font>right <font color="#990000">),</font> k1<font color="#990000">-&gt;</font>height <font color="#990000">)</font> <font color="#990000">+</font> <font color="#993399">1</font><font color="#990000">;</font>
+    k1 <font color="#990000">=</font> k2<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Double rotate binary tree node: first left child.</font></i>
+<i><font color="#9A1900">* with its right child; then node k3 with new left child.</font></i>
+<i><font color="#9A1900">* For AVL trees, this is a double rotation for case 2.</font></i>
+<i><font color="#9A1900">* Update heights, then set new root.</font></i>
+<i><font color="#9A1900">*/</font></i>
+<font color="#009900">void</font> AvlTree<font color="#990000">::</font><b><font color="#000000">doubleWithLeftChild</font></b><font color="#990000">(</font> AvlNode <font color="#990000">*</font> <font color="#990000">&amp;</font> k3 <font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
+    <b><font color="#000000">rotateWithRightChild</font></b><font color="#990000">(</font> k3<font color="#990000">-&gt;</font>left <font color="#990000">);</font>
+    <b><font color="#000000">rotateWithLeftChild</font></b><font color="#990000">(</font> k3 <font color="#990000">);</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Double rotate binary tree node: first right child.</font></i>
+<i><font color="#9A1900">* with its left child; then node k1 with new right child.</font></i>
+<i><font color="#9A1900">* For AVL trees, this is a double rotation for case 3.</font></i>
+<i><font color="#9A1900">* Update heights, then set new root.</font></i>
+<i><font color="#9A1900">*/</font></i>
+<font color="#009900">void</font> AvlTree<font color="#990000">::</font><b><font color="#000000">doubleWithRightChild</font></b><font color="#990000">(</font> AvlNode <font color="#990000">*</font> <font color="#990000">&amp;</font> k1 <font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
+    <b><font color="#000000">rotateWithLeftChild</font></b><font color="#990000">(</font> k1<font color="#990000">-&gt;</font>right <font color="#990000">);</font>
+    <b><font color="#000000">rotateWithRightChild</font></b><font color="#990000">(</font> k1 <font color="#990000">);</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900">* Internal method to print a subtree in sorted order.</font></i>
+<i><font color="#9A1900">* t points to the node that roots the tree.</font></i>
+<i><font color="#9A1900">*/</font></i>
+<font color="#009900">void</font> AvlTree<font color="#990000">::</font><b><font color="#000000">printTree</font></b><font color="#990000">(</font> <font color="#008080">AvlNode</font> <font color="#990000">*</font>t <font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> t <font color="#990000">!=</font> NULL <font color="#990000">)</font> <font color="#FF0000">{</font>
+        <b><font color="#000000">printTree</font></b><font color="#990000">(</font> t<font color="#990000">-&gt;</font>left <font color="#990000">);</font>
+        cout <font color="#990000">&lt;&lt;</font> t<font color="#990000">-&gt;</font>element <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+        <b><font color="#000000">printTree</font></b><font color="#990000">(</font> t<font color="#990000">-&gt;</font>right <font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

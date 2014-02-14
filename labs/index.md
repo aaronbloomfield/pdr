@@ -27,3 +27,11 @@ The labs for this course
   - Necessary files: [inlab4.doc](lab04/inlab4.doc), [radixWorksheet.doc](lab04/radixWorksheet.doc)
     - These will have to be submitted as PDF files; see [How To Convert A File To PDF](../docs/convert_to_pdf.html) for details.
   - [Tutorial 4: More Unix, part 2](../tutorials/03-04-more-unix/index.html), which is sections 5-8; this tutorial is originally from [here](http://www.ee.surrey.ac.uk/Teaching/Unix/)
+
+- [Lab 5: Trees](lab05/index.html)
+
+  - Source code is all contained in the prelab/ and inlab/ directories of the [code.zip](lab05/code.zip) file
+    - Pre-lab: [TreeCalc.h](lab05/code/prelab/TreeCalc.h.html) ([src](lab05/code/prelab/TreeCalc.h)), [TreeCalc.cpp](lab05/code/prelab/TreeCalc.cpp.html) ([src](lab05/code/prelab/TreeCalc.cpp)), [TreeNode.cpp](lab05/code/prelab/TreeNode.cpp.html) ([src](lab05/code/prelab/TreeNode.cpp)), [TreeNode.h](lab05/code/prelab/TreeNode.h.html) ([src](lab05/code/prelab/TreeNode.h)), [TreeCalcTest.cpp](lab05/code/prelab/TreeCalcTest.cpp.html) ([src](lab05/code/prelab/TreeCalcTest.cpp)).  These files 
+    - In-lab: [Makefile](lab05/code/inlab/Makefile.html) ([src](lab05/code/inlab/Makefile)), [avlnode.h](lab05/code/inlab/avlnode.h.html) ([src](lab05/code/inlab/avlnode.h)), [binarynode.h](lab05/code/inlab/binarynode.h.html) ([src](lab05/code/inlab/binarynode.h)), [avltree.h](lab05/code/inlab/avltree.h.html) ([src](lab05/code/inlab/avltree.h)), [avltree.cpp](lab05/code/inlab/avltree.cpp.html) ([src](lab05/code/inlab/avltree.cpp)), [binarysearchtree.h](lab05/code/inlab/binarysearchtree.h.html) ([src](lab05/code/inlab/binarysearchtree.h)), [binarysearchtree.cpp](lab05/code/inlab/binarysearchtree.cpp.html) ([src](lab05/code/inlab/binarysearchtree.cpp)), [tree_test.cpp](lab05/code/inlab/tree_test.cpp.html) ([src](lab05/code/inlab/tree_test.cpp)), [testfile1.txt](lab05/code/inlab/testfile1.txt), [testfile2.txt](lab05/code/inlab/testfile2.txt), [testfile3.txt](lab05/code/inlab/testfile3.txt)
+  - [AVL tree worksheet](lab05/avl-worksheet.pdf) for the pre-lab
+  

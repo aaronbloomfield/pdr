@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>TreeCalcTest.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">// TreeCalcTest.cpp</font></i>
+<i><font color="#9A1900">// CS 2150: Tree calculator test program</font></i>
+<i><font color="#9A1900">// Your code MUST work with this test program</font></i>
+<i><font color="#9A1900">// We will be using this program to test your implementations</font></i>
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">"TreeCalc.h"</font>
+
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+    <font color="#008080">TreeCalc</font> tester<font color="#990000">;</font>
+    <i><font color="#9A1900">// read expression input from the user</font></i>
+    tester<font color="#990000">.</font><b><font color="#000000">readInput</font></b><font color="#990000">();</font>
+    <i><font color="#9A1900">// print out the output in postorder, in order, preorder forms</font></i>
+    tester<font color="#990000">.</font><b><font color="#000000">printOutput</font></b><font color="#990000">();</font>
+    <i><font color="#9A1900">// calculate the result of the expression tree</font></i>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The result of the expression tree is "</font>
+         <font color="#990000">&lt;&lt;</font> tester<font color="#990000">.</font><b><font color="#000000">calculate</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

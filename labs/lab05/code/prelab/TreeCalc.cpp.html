@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>TreeCalc.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">// Insert your header information here</font></i>
+<i><font color="#9A1900">// TreeCalc.cpp:  CS 2150 Tree Calculator method implementations</font></i>
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">"TreeCalc.h"</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<i><font color="#9A1900">//Constructor</font></i>
+TreeCalc<font color="#990000">::</font><b><font color="#000000">TreeCalc</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">//Destructor- frees memory</font></i>
+TreeCalc<font color="#990000">::~</font><b><font color="#000000">TreeCalc</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">//Deletes tree/frees memory</font></i>
+<font color="#009900">void</font> TreeCalc<font color="#990000">::</font><b><font color="#000000">cleanTree</font></b><font color="#990000">(</font>TreeNode<font color="#990000">*</font> ptr<font color="#990000">)</font> <font color="#FF0000">{</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">//Gets data from user</font></i>
+<font color="#009900">void</font> TreeCalc<font color="#990000">::</font><b><font color="#000000">readInput</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+    <font color="#008080">string</font> response<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Enter elements one by one in postfix notation"</font> <font color="#990000">&lt;&lt;</font> endl
+         <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Any non-numeric or non-operator character,"</font>
+         <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" e.g. #, will terminate input"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Enter first element: "</font><font color="#990000">;</font>
+    cin <font color="#990000">&gt;&gt;</font> response<font color="#990000">;</font>
+    <i><font color="#9A1900">//while input is legal</font></i>
+    <b><font color="#0000FF">while</font></b> <font color="#990000">(</font><b><font color="#000000">isdigit</font></b><font color="#990000">(</font>response<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">])</font> <font color="#990000">||</font> response<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]==</font><font color="#FF0000">'/'</font> <font color="#990000">||</font> response<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]==</font><font color="#FF0000">'*'</font>
+            <font color="#990000">||</font> response<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]==</font><font color="#FF0000">'-'</font> <font color="#990000">||</font> response<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]==</font><font color="#FF0000">'+'</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+        <b><font color="#000000">insert</font></b><font color="#990000">(</font>response<font color="#990000">);</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Enter next element: "</font><font color="#990000">;</font>
+        cin <font color="#990000">&gt;&gt;</font> response<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">//Puts value in tree stack</font></i>
+<font color="#009900">void</font> TreeCalc<font color="#990000">::</font><b><font color="#000000">insert</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> string<font color="#990000">&amp;</font> val<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <i><font color="#9A1900">// insert a value into the tree</font></i>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">//Prints data in prefix form</font></i>
+<font color="#009900">void</font> TreeCalc<font color="#990000">::</font><b><font color="#000000">printPrefix</font></b><font color="#990000">(</font>TreeNode<font color="#990000">*</font> ptr<font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
+    <i><font color="#9A1900">// print the tree in prefix format</font></i>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">//Prints data in infix form</font></i>
+<font color="#009900">void</font> TreeCalc<font color="#990000">::</font><b><font color="#000000">printInfix</font></b><font color="#990000">(</font>TreeNode<font color="#990000">*</font> ptr<font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
+    <i><font color="#9A1900">// print tree in infix format with appropriate parentheses</font></i>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">//Prints data in postfix form</font></i>
+<font color="#009900">void</font> TreeCalc<font color="#990000">::</font><b><font color="#000000">printPostfix</font></b><font color="#990000">(</font>TreeNode<font color="#990000">*</font> ptr<font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
+    <i><font color="#9A1900">// print the tree in postfix form</font></i>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// Prints tree in all 3 (pre,in,post) forms</font></i>
+
+<font color="#009900">void</font> TreeCalc<font color="#990000">::</font><b><font color="#000000">printOutput</font></b><font color="#990000">()</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>mystack<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">()!=</font><font color="#993399">0</font> <font color="#990000">&amp;&amp;</font> mystack<font color="#990000">.</font><b><font color="#000000">top</font></b><font color="#990000">()!=</font>NULL<font color="#990000">)</font> <font color="#FF0000">{</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Expression tree in postfix expression: "</font><font color="#990000">;</font>
+        <i><font color="#9A1900">// call your implementation of printPostfix()</font></i>
+        cout <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Expression tree in infix expression: "</font><font color="#990000">;</font>
+        <i><font color="#9A1900">// call your implementation of printInfix()</font></i>
+        cout <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Expression tree in prefix expression: "</font><font color="#990000">;</font>
+        <i><font color="#9A1900">// call your implementation of printPrefix()</font></i>
+        cout <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b>
+        cout<font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Size is 0."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">//Evaluates tree, returns value</font></i>
+<i><font color="#9A1900">// private calculate() method</font></i>
+<font color="#009900">int</font> TreeCalc<font color="#990000">::</font><b><font color="#000000">calculate</font></b><font color="#990000">(</font>TreeNode<font color="#990000">*</font> ptr<font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
+    <i><font color="#9A1900">// Traverse the tree and calculates the result</font></i>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">//Calls calculate, sets the stack back to a blank stack</font></i>
+<i><font color="#9A1900">// public calculate() method. Hides private data from user</font></i>
+<font color="#009900">int</font> TreeCalc<font color="#990000">::</font><b><font color="#000000">calculate</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+    <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+    <i><font color="#9A1900">// call private calculate method here</font></i>
+    <b><font color="#0000FF">return</font></b> i<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

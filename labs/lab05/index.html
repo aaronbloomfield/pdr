@@ -1,0 +1,271 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Laboratory 5: Trees</title>
+<link href="../../markdown.css" media="all" rel="stylesheet" type="text/css"></head>
+<body>
+<h1>Laboratory 5: Trees</h1>
+
+<p><a href="../index.html">Go up to the Labs table of contents page</a></p>
+
+<h3>Objective:</h3>
+
+<ol>
+<li>Learn about binary trees</li>
+<li>See tree traversals in the context of a useful application</li>
+<li>Evaluate the performance of binary search trees and AVL trees</li>
+</ol>
+
+
+<h3>Background:</h3>
+
+<p>A binary tree is a tree with a maximum of two children per node.  Three traversals are commonly associated with binary trees. A pre-order traversal processes the given node first and then processes its left and then right subtrees.  In an in-order traversal, first the node&rsquo;s left subtree is processed, followed by the node itself, and finally its right subtree.  A post-order traversal operates on the left subtree, followed by the right subtree, and finally on the node itself.</p>
+
+<h3>Reading(s):</h3>
+
+<p>The <a href="http://en.wikipedia.org/wiki/Expression_tree">Wikipedia article on Expression trees</a>, expecially the <a href="http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_Expression_Tree">section on construction of expression trees</a></p>
+
+<h2>Procedure</h2>
+
+<h3>Pre-lab</h3>
+
+<ol>
+<li>Complete the <a href="../../tutorials/05-make/index.html">makefile tutorial</a> prior to coming to lab.  While you will not have to write a makefile for this pre-lab, you will need to know how to write on in the future &ndash; all the following labs will be compiled via Makefiles.   There is one file that needs to be submitted from the tutorial &ndash; you should name this file Makefile-pizza.  You can compile your code for the pre-lab using &lsquo;clang++ *.cpp&rsquo;.</li>
+<li>Your file <strong>MUST</strong> be named Makefile-pizza - not Makefile-pizza.txt, not Makefile-Pizza, not Makefilepizza.  If it is not named correctly, it will break our grading scripts, and you will not get credit for that part.</li>
+<li>Come to lab with a fully functional tree calculator, as described below.</li>
+<li>Read the <a href="http://en.wikipedia.org/wiki/Expression_tree">Wikipedia article on Expression trees</a>, expecially the <a href="http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_Expression_Tree">section on construction of expression trees</a></li>
+<li>Complete the <a href="avl-worksheet.pdf">AVL tree worksheet</a>, which is a separate file.  The TAs will collect it at the beginning of lab.  <strong>You need to turn in that sheet</strong> (you can&rsquo;t write your answer on notebook paper, for example) and bubble in your ID at the bottom of both sides of the page.  Feel free to print it single sided or double sided.  We will provide copies of this in lecture for you as well.</li>
+<li>Files to download: <a href="code/prelab/TreeCalc.h.html">TreeCalc.h</a> (<a href="code/prelab/TreeCalc.h">src</a>), <a href="code/prelab/TreeCalc.cpp.html">TreeCalc.cpp</a> (<a href="code/prelab/TreeCalc.cpp">src</a>), <a href="code/prelab/TreeNode.cpp.html">TreeNode.cpp</a> (<a href="code/prelab/TreeNode.cpp">src</a>), <a href="code/prelab/TreeNode.h.html">TreeNode.h</a> (<a href="code/prelab/TreeNode.h">src</a>), <a href="code/prelab/TreeCalcTest.cpp.html">TreeCalcTest.cpp</a> (<a href="code/prelab/TreeCalcTest.cpp">src</a>).  These files are contained in the prelab/ directory of the <a href="code.zip">code.zip</a> file.</li>
+<li>Files to submit: TreeCalc.h/cpp, TreeCalcTest.cpp, TreeNode.h/cpp, Makefile-pizza</li>
+</ol>
+
+
+<h3>In-lab</h3>
+
+<ol>
+<li>Turn in the AVL worksheet at the <em>beginning</em> of lab.</li>
+<li>You should modify the code provided here as described in the in-lab description (avltree.cpp and binarytree.cpp).</li>
+<li>Devise a reasonably convincing experiment to show that AVL trees are markedly superior to randomly grown trees. We have provided testfile1.txt, testfile2.txt and testfile3.txt for you to experiment with.  Your new experiment should be in a testfile4.txt file, which you will need to submit.</li>
+<li>Examine the <a href="code/inlab/Makefile.html">Makefile</a> (<a href="code/inlab/Makefile">src</a>) for this project.  You should understand everything in the Makefile!  The grading compile command for the inlab will be performed using &lsquo;make&rsquo;.</li>
+<li>Files to download: <a href="code/inlab/Makefile.html">Makefile</a> (<a href="code/inlab/Makefile">src</a>), <a href="code/inlab/avlnode.h.html">avlnode.h</a> (<a href="code/inlab/avlnode.h">src</a>), <a href="code/inlab/binarynode.h.html">binarynode.h</a> (<a href="code/inlab/binarynode.h">src</a>), <a href="code/inlab/avltree.h.html">avltree.h</a> (<a href="code/inlab/avltree.h">src</a>), <a href="code/inlab/avltree.cpp.html">avltree.cpp</a> (<a href="code/inlab/avltree.cpp">src</a>), <a href="code/inlab/binarysearchtree.h.html">binarysearchtree.h</a> (<a href="code/inlab/binarysearchtree.h">src</a>), <a href="code/inlab/binarysearchtree.cpp.html">binarysearchtree.cpp</a> (<a href="code/inlab/binarysearchtree.cpp">src</a>), <a href="code/inlab/tree_test.cpp.html">tree_test.cpp</a> (<a href="code/inlab/tree_test.cpp">src</a>), <a href="code/inlab/testfile1.txt">testfile1.txt</a>, <a href="code/inlab/testfile2.txt">testfile2.txt</a>, <a href="code/inlab/testfile3.txt">testfile3.txt</a>.  These files are contained in the inlab/ directory of the <a href="/labs/lab05/code.zip">code.zip</a> file.</li>
+<li>Files to submit: avlnode.h, binarynode.h, avltree.h/cpp, binarysearchtree.h/cpp, tree_test.cpp, testfile4.txt, Makefile</li>
+</ol>
+
+
+<h3>Post-lab</h3>
+
+<ol>
+<li>For this lab you will be a brief lab report electronically via the submission system.</li>
+<li>Your report must be in PDF format!  See the <a href="../../docs/convert_to_pdf.html">How to convert a file to PDF</a> page for details.</li>
+<li>Files to download: (none, beyond what was done during the in-lab)</li>
+<li>Files to submit: analysis.pdf (see the post-lab section for formatting details)</li>
+</ol>
+
+
+<hr />
+
+<h2>Pre-lab</h2>
+
+<p>For this lab you will be using a stack to help you read in a postfix expression into an expression tree.  While this is similar to lab 3, you will instead be ultimately creating a expression tree for the postfix expression, rather than leaving it on the stack.  You should use the <a href="http://www.cplusplus.com/reference/stack/stack/">STL stack class</a> for this lab.</p>
+
+<p>Your tree calculator should read in expressions in postfix notation &ndash; you can assume that these will be well-formed expressions as we did in lab 3.  You will need to build an expression tree using the algorithm described in  the <a href="http://en.wikipedia.org/wiki/Expression_tree">Wikipedia article on Expression trees</a>, expecially the <a href="http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_Expression_Tree">section on construction of expression trees</a>.  Trees similar to this are used extensively in compilers.</p>
+
+<h3>Code base</h3>
+
+<p>You must use the skeleton source files provided here as a basis for your prelab.  The following guidelines apply to your implementation:</p>
+
+<ul>
+<li>Do NOT alter TreeCalcTest.cpp.  This is the testing program that we will use to run automated tests on your implementations.  Do not change it.</li>
+<li>In TreeCalc.h/TreeCalc.cpp:
+
+<ul>
+<li>Do NOT alter the <code>readInput()</code> method.  Points will be deducted if you do so.</li>
+<li>The only modification allowed in the printOutput() method is to add calls to your implemented printPrefix(), printPostfix(), and printInorder() methods</li>
+</ul>
+</li>
+<li>You should implement all the methods as listed in the class definitions for TreeCalc</li>
+<li>You may add additional supporting methods and data members to TreeCalc to complete your implementation.
+
+<ul>
+<li>Don&rsquo;t modify TreeNode &ndash; note that TreeCalc is a friend of TreeNode, so you can put all your code in TreeCalc.</li>
+</ul>
+</li>
+</ul>
+
+
+<p>Note that the code will not compile out of the box &ndash; you need to add code so that the printOutput() method in TreeCalc works.</p>
+
+<p>You should only submit the following five files:</p>
+
+<ul>
+<li>TreeCalc.cpp and TreeCalc.h</li>
+<li>The unmodified TreeNode.cpp and TreeNode.h</li>
+<li>The unmodified TreeCalcTest.cpp</li>
+</ul>
+
+
+<p>Note that the last three files should not be modified at all!  If you have additional code to include, put it in TreeCalc.cpp or TreeCalc.h (you should not need to use additional classes).  Just in case it wasn&rsquo;t clear yet, all your modifications should be in the TreeCalc.h and TreeCalc.cpp files.</p>
+
+<p>Your fully functional tree calculator code should do the following:</p>
+
+<ol>
+<li>Read user input in postfix order (assume well-formed expressions) into a stack</li>
+<li>Build an expression tree using the items in the stack (see <a href="http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_Expression_Tree">here</a> for the algorithm)</li>
+<li>Print the resulting expression tree as a <em>postfix</em> expression in the EXACT output format as shown in the next section.  Spaces matter!</li>
+<li>Print the resulting expression tree as an <em>infix</em> expression, complete with parentheses.  See the next section.  Your print method must print EXACTLY in this format, including the number of parentheses.  Spaces matter!</li>
+<li>Print the resulting expression tree as a <em>prefix</em> expression.  (See next section.  Your print method must print EXACTLY this format.)  Spaces matter!</li>
+<li>Calculate the result of your expression using the expression tree</li>
+<li>Print the result to the screen.</li>
+</ol>
+
+
+<p>Make sure your destructor works!  We will be testing that to see if there are any memory leaks.</p>
+
+<p>A few notes:</p>
+
+<ul>
+<li>We are not dealing with the negation operator (~) that we used in lab 3</li>
+<li>Thus, your code will need to be able to handle the input of negative numbers, as shown in the example below</li>
+<li>Your stack in TreeCalc.h/cpp should be called mystack (or else you will have to change the name in printOutput() &ndash; this is the one change you can make to this method)</li>
+</ul>
+
+
+<h3>Print Output Format</h3>
+
+<p>Postfix notation (also known as reverse Polish notation) involves writing the operators after the operands.  Note how parentheses are unnecessary in prefix or postfix notation.  Your print methods must print in the following format.  The only spaces are on either side of the operators.  Your entire expression must be printed on a single line that terminates with a newline character.  You should put parenthesis around each infix operation, regardless if it is needed according to operator precedence.</p>
+
+<ul>
+<li>Infix format: ((34 + 6) - (-8 / 4))</li>
+<li>Postfix format: 34 6 + -8 4 / -</li>
+<li>Prefix format: - + 34 6 / -8 4</li>
+</ul>
+
+
+<h3>Sample Execution Run</h3>
+
+<p>Below is a sample execution run to show you the input and output format we are looking for.</p>
+
+<pre><code>Enter elements one by one in postfix notation
+Any non-numeric or non-operator character, e.g. #, will terminate input
+Enter first element: 34
+Enter next element: 6
+Enter next element: +
+Enter next element: -8
+Enter next element: 4
+Enter next element: /
+Enter next element: -
+Enter next element: #
+Expression tree in postfix expression: 34 6 + -8 4 / - 
+Expression tree in infix expression: ((34 + 6) - (-8 / 4))
+Expression tree in prefix expression: - + 34 6 / -8 4 
+The result of the expression tree is 42 
+</code></pre>
+
+<hr />
+
+<h2>In-lab</h2>
+
+<p>The objective of the in-lab is to begin developing an empirical approach to the analysis of data structure performance.  In this lab you will compare the performance of BSTs and AVL trees on several data files.</p>
+
+<p>We have discussed both binary search trees and AVL trees in class.  AVL trees are a form of a balanced search tree.  For a little extra computational cost, AVL trees ensure that the heights of any two subtrees of a parent node are within 1 in value; so retrieval performance is big-theta(log n) in the worst case.</p>
+
+<p>Since a goal of the lab is to compare binary and AVL trees, we need to establish common metrics on which to compare the trees created by each algorithm. One metric for comparing the data structures is <em>retrieval time</em>. For both binary search and AVL trees, the retrieval time of a value is dependent on the depth of the node storing the value.  For example, it is much quicker to find a value stored in the root node than to find a value stored in a leaf.</p>
+
+<h3>Summary</h3>
+
+<p>You will need to download the following files: <a href="code/inlab/Makefile.html">Makefile</a> (<a href="code/inlab/Makefile">src</a>), <a href="code/inlab/avlnode.h.html">avlnode.h</a> (<a href="code/inlab/avlnode.h">src</a>), <a href="code/inlab/binarynode.h.html">binarynode.h</a> (<a href="code/inlab/binarynode.h">src</a>), <a href="code/inlab/avltree.h.html">avltree.h</a> (<a href="code/inlab/avltree.h">src</a>), <a href="code/inlab/avltree.cpp.html">avltree.cpp</a> (<a href="code/inlab/avltree.cpp">src</a>), <a href="code/inlab/binarysearchtree.h.html">binarysearchtree.h</a> (<a href="code/inlab/binarysearchtree.h">src</a>), <a href="code/inlab/binarysearchtree.cpp.html">binarysearchtree.cpp</a> (<a href="code/inlab/binarysearchtree.cpp">src</a>), <a href="code/inlab/tree_test.cpp.html">tree_test.cpp</a> (<a href="code/inlab/tree_test.cpp">src</a>), <a href="code/inlab/testfile1.txt">testfile1.txt</a>, <a href="code/inlab/testfile2.txt">testfile2.txt</a>, <a href="code/inlab/testfile3.txt">testfile3.txt</a>.  These files are contained in the inlab/ directory of the <a href="/labs/lab05/code.zip">code.zip</a> file.</p>
+
+<p>To complete this lab you will have to make the following code modifications:</p>
+
+<ol>
+<li>Edit the AVL and binary search tree code to adjust the counter variables appropriately.  These variables are: num_nodes, LeftLinksFollowed, RightLinksFollowed, SingleRotations, and DoubleRotations
+
+<ul>
+<li><strong>NOTE:</strong>  The mutable keyword before these variable declarations allows the member functions that are declared as const to modify them (the variables).  Basically, it overrides the const modifier.</li>
+<li>You <strong>should not</strong> reset the <code>LeftLinksFollowed</code> or <code>RightLinksFollowed</code> variables.</li>
+<li>Those two variables (LeftLinksFollowed and RightLinksFollowed) should only be incremented in the find method, not for the insert or delete method.</li>
+<li>A double rotation is really two single rotations, but for the purposes of this in-lab we&rsquo;ll only count it as one double rotation.</li>
+</ul>
+</li>
+<li>Implement the following methods in the AVL and binary search tree code.  See below for details as to how these methods work.
+
+<ul>
+<li><code>double AvlTree::exp_path_length();</code></li>
+<li><code>double BinarySearchTree::exp_path_length();</code></li>
+<li><code>int AvlTree::int_path_length(AvlNode *t, int depth);</code></li>
+<li><code>int BinarySearchTree::int_path_length(BinaryNode *t, int depth);</code></li>
+</ul>
+</li>
+</ol>
+
+
+<h3>Explanation</h3>
+
+<p>We will use two measures of retrieval time: expected path length and internal path length. The base counting unit we will use is the <strong>number of links followed</strong>. For example, finding element <strong>W</strong> in the tree below requires following 3 links- 2 right links and 1 left link. Note that we will keep track of all left and right links traversed <strong><em>for the life of the tree</em></strong>.</p>
+
+<p>In the following image, the bold lines indicate the path taken for locating element W. This path contains 3 links.</p>
+
+<p><img src="treepic1.png" alt="treepic1.png" /></p>
+
+<p>While measuring path length provides a good indication of the retrieval time of individual elements, we are also interested in the average retrieval time or expected path length for the elements within the tree. To calculate this, we must first calculate the internal path length.  The internal path length is defined as the sum of the depths of all nodes in a tree.  The tree in the example below has internal path length of 16, and expected path length is 1.78.   The expected path length to a given node is equivalent to the average number of links between any node and the root node, or in other words, the internal path length divided by the total number of nodes. The expected path length is the internal path length divided by the number of nodes.   You will need to modify avltree.cpp and binarysearchtree.cpp to determine and display the expected path length for each type of tree.</p>
+
+<p><img src="treepic2.png" alt="treepic2.png" /></p>
+
+<ul>
+<li>Number of nodes = 9</li>
+<li>Internal path length = 16</li>
+<li>Average node depth = 16/9 = 1.78</li>
+</ul>
+
+
+<p>The int_path_length() methods take in two parameters &ndash; a node (either the AvlNode or BinaryNode, depending on the version) and a depth. Recall that the internal path length is the sum of the depths for each and every node in the tree. The depth is how far down the tree this method is being called. If it is called on the root node, then the depth would be zero (and the function would return the total internal path length of the entire tree). The root node will call it recursively (with depth=1) on it&rsquo;s children. If it is called on a leaf node, then the depth of that particular node is just the value of the depth parameter. If it is called on an internal node, then it is going to call itself on each of the children (in each case yielding the internal path length for the child sub-trees), plus the depth of that particular internal node.</p>
+
+<h3>Input format</h3>
+
+<p>The input will be provided all on one line.  The input in each file has just one line for the paragraph.  The provided input files can be run through the program as follows:</p>
+
+<pre><code>./a.out &lt; testfile1.txt
+</code></pre>
+
+<p>Note that we are providing the file name as a command-line parameter.  The provided code handles this for you already.</p>
+
+<h3>What you need to do</h3>
+
+<p>We have already declared the necessary private data members and public inspector functions in binarysearchtree.h/cpp and avltree.h/cpp to hold this information. Your job is to modify the relevant routines to record the information correctly.</p>
+
+<p>Consult with the TAs if you have any questions.</p>
+
+<p>Once your code is working correctly, devise a reasonably convincing experiment to show that AVL trees are markedly superior to randomly grown BST trees. What does it cost to achieve such better performance? Can you characterize the situations where AVL trees perform better than BSTs? We have provided the files testfile1.txt, testfile2.txt and testfile3.txt, which in addition to your own test cases, may be of value.</p>
+
+<p>Your experiment should be in a testfile4.txt file, which you will have to submit. How and why does your example (that you include in testfile4.txt) show that AVL trees are better than BST trees? A single paragraph is fine, and this should be put into the post-lab report.  The point of the testfile4.txt is for you to generate an experiment that shows a large difference in performance between AVL trees and BST trees.  Just generating a long piece of text, with no reasoning behind it, is not what we are looking for.</p>
+
+<p>You will need to submit all of your code, along with the testfile4.txt file.  Please make sure it compiles!</p>
+
+<p>For your postlab report you will need to provide evidence comparing the two types of trees.  You may want to get started on this during lab so you can be sure that your code is doing its calculations correctly.</p>
+
+<p>If you cannot finish this during the in-lab, you can request a 24 hour lab extension.</p>
+
+<hr />
+
+<h2>Post-lab</h2>
+
+<p>Note that neither the pre-lab nor the in-lab code is being resubmitted for the post-lab.</p>
+
+<p>The deliverable for this post-lab is a PDF document, the contents of which are described below.  It must be submitted in PDF format!  See [How To Convert A File To PDF] for details.</p>
+
+<p>In the report, you should include:</p>
+
+<ol>
+<li>Your name, the date, and your CS 2150 lab section.</li>
+<li>The testfile4.txt file you used in the in-lab.  You can just cut-and-paste this into the Word document.</li>
+<li>Why the testfile4.txt file works (this is the single paragraph that was mentioned in the &lsquo;What you need to do&rsquo; section of the in-lab)</li>
+<li>Actual numerical results for some operations on both AVL trees and BSTs for the three provided test files and any additional tests you created.</li>
+<li>A characterization of situations where AVL trees are preferable to BSTs.</li>
+<li>A discussion of the costs incurred in an AVL implementation.</li>
+</ol>
+
+
+<p>For parts 5-6, a FULL page (if double spaced) is the minimum length we are looking for (that&rsquo;s a full page for parts 5 &amp; 6 combined).  Feel free to single space &ndash; the same length (in terms of words, not in terms of page length) is still required.</p>
+</body>
+</html>
