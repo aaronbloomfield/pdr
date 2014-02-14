@@ -466,6 +466,7 @@ Similarly down the left subttree links for findMin()
   - This allows a computer to compute the value of each node
 - You will have to do this for lab 5
 - See the [Wikipedia article on Expression trees](http://en.wikipedia.org/wiki/Expression_tree), expecially the [section on construction of expression trees](http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_Expression_Tree)
+  - That example is the same as the one here
   - Uses a stack!
 	  </script></section>
 
@@ -476,6 +477,89 @@ Similarly down the left subttree links for findMin()
 - Infix notation: `(a + ((b+c) * d))`
 - Postfix notation: `a b c + d * +`
 - Prefix notation: `+ a * + b c d`
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Building an expression tree
+- Given an expression in postfix notation, the algorithm to bulid an expression tree is somewhat similar to that to evaluate a postfix expression (from lab 3)
+- The algorithm is to read tokens from input:
+  - If a number or a varaiable, push it on the stack
+  - If an operator, pop off two values, attach them as children of the operator, and push that back onto the stack
+- A proper postfix expression will have only one value in the stack upon completion
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Example
+Consider the postfix expression: a b + c d e + \* \*; the final expression tree is:
+![exp tree 10](graphs/exp-tree-ex-10.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Example, step 1
+- Expression: <font color='red'>a</font>&nbsp; b + c d e + \* \*
+- We read a, and push it onto the stack
+![exp tree 1](graphs/exp-tree-ex-1.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Example, step 2
+- Expression: a <font color='red'>b</font> + c d e + \* \*
+- We read b, and push it onto the stack
+![exp tree 2](graphs/exp-tree-ex-2.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Example, step 3
+- Expression: a b <font color='red'>+</font> c d e + \* \*
+- We read '+', pop off two values (a and b), put them as children of '+', and push the result back the stack
+![exp tree 3](graphs/exp-tree-ex-3.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Example, step 4
+- Expression: a b + <font color='red'>c</font> d e + \* \*
+- We read c, and push it onto the stack
+![exp tree 4](graphs/exp-tree-ex-4.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Example, step 5
+- Expression: a b + c <font color='red'>d</font> e + \* \*
+- We read d, and push it onto the stack
+![exp tree 5](graphs/exp-tree-ex-5.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Example, step 6
+- Expression: a b + c d <font color='red'>e</font> + \* \*
+- We read e, and push it onto the stack
+![exp tree 6](graphs/exp-tree-ex-6.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/teplate">
+## Example, step 7
+- Expression: a b + c d e <font color='red'>+</font> \* \*
+- We read '+', pop off two values (d and e), put them as children of '+', and push the result back the stack
+![exp tree 7](graphs/exp-tree-ex-7.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Example, step 8
+- Expression: a b + c d e + <font color='red'>\*</font> \*
+- We read '\*', pop off two values ('+' and c), put them as children of '\*', and push the result back the stack
+![exp tree 8](graphs/exp-tree-ex-8.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Example, step 9
+- Expression: a b + c d e + \* <font color='red'>\*</font>
+- We read '\*', pop off two values ('\*' and '+'), put them as children of '\*', and push the result back the stack
+![exp tree 9](graphs/exp-tree-ex-9.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Final result
+![exp tree 10](graphs/exp-tree-ex-10.svg)
 	  </script></section>
 
 	</section>

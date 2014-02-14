@@ -1,0 +1,32 @@
+digraph G {
+	node [fontname="Helvetica",shape=circle];
+
+	plus1 [label="+"];
+	plus2 [label="+"];
+	mult1 [label="*"];
+	mult2 [label="*"];
+	hidden1 [label="",style=invis];
+	hidden2 [label="",style=invis];
+	hidden3 [label="",style=invis];
+	hidden4 [label="",style=invis];
+
+	plus1 -> a;
+	plus1 -> hidden1 [style=invis];
+	plus1 -> b;
+	{rank=same a -> hidden1 -> b [style=invis]};
+	
+	mult2 -> plus1;
+	mult2 -> hidden4 [style=invis];
+	mult2 -> mult1;
+	{rank=same plus1 -> hidden4 -> mult1 [style=invis]};
+
+	mult1 -> c;
+	mult1 -> hidden3 [style=invis];
+	mult1 -> plus2;
+	{rank=same c -> hidden3 -> plus2 [style=invis]};
+	
+	plus2 -> d;
+	plus2 -> hidden2 [style=invis];
+	plus2 -> e;
+	{rank=same d -> hidden2 -> e [style=invis]};
+}
