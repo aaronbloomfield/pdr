@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>toppings.h</title>
+</head>
+<body bgcolor="white">
+<pre><tt><b><font color="#000080">#ifndef</font></b> TOPPINGS_H
+<b><font color="#000080">#define</font></b> TOPPINGS_H
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">"cheese.h"</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">"mushrooms.h"</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">"peppers.h"</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">"pepperoni.h"</font>
+
+
+<b><font color="#0000FF">class</font></b> <font color="#008080">Toppings</font> <font color="#FF0000">{</font>
+<b><font color="#0000FF">private</font></b><font color="#990000">:</font>
+    Cheese<font color="#990000">*</font> cheese<font color="#990000">;</font>
+    Mushrooms<font color="#990000">*</font> mushrooms<font color="#990000">;</font>
+    Peppers<font color="#990000">*</font> peppers<font color="#990000">;</font>
+    Pepperoni<font color="#990000">*</font> pepperoni<font color="#990000">;</font>
+<b><font color="#0000FF">public</font></b><font color="#990000">:</font>
+    <b><font color="#000000">Toppings</font></b><font color="#990000">(</font><font color="#009900">int</font> cheeseAmount<font color="#990000">,</font> <font color="#009900">int</font> mushroomsAmount<font color="#990000">,</font> <font color="#009900">int</font> peppersAmount<font color="#990000">,</font> <font color="#009900">int</font> pepperoniAmount<font color="#990000">);</font>
+    <font color="#990000">~</font><b><font color="#000000">Toppings</font></b><font color="#990000">();</font>
+<font color="#FF0000">}</font><font color="#990000">;</font>
+<b><font color="#000080">#endif</font></b>
+</tt></pre>
+</body>
+</html>

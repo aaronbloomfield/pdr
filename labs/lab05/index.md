@@ -1,5 +1,5 @@
-Laboratory 5: Trees
-===================
+PDR: Laboratory 5: Trees
+========================
 
 [Go up to the Labs table of contents page](../index.html)
 

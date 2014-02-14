@@ -11,7 +11,7 @@ The tutorials for this course are listed below. Note that as this repository is 
   - Source code: [debug.cpp](02-gdb/debug.cpp.html) ([src](02-gdb/debug.cpp))
 - [Tutorial 3: More Unix, part 1](03-04-more-unix/index.html), which is sections 1-4; this tutorial is originally from [here](http://www.ee.surrey.ac.uk/Teaching/Unix/)
 - [Tutorial 4: More Unix, part 2](03-04-more-unix/index.html), which is sections 5-8; this tutorial is originally from [here](http://www.ee.surrey.ac.uk/Teaching/Unix/)
-- [Tutorial 5: make](05-make/index.html)
+- [Tutorial 5: make](05-make/index.html), and the necessary [pizza.zip](05-make/pizza.zip)
 - [Tutorial 6: Shell scripting, part 1](06-shell-scripts-pt1/index.html)
 - [Tutorial 7: Shell scripting, part 2](07-shell-scripts-pt2/index.html)
 - [Tutorial 8: nasm](08-nasm/index.html)

@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>Makefile</title>
+</head>
+<body bgcolor="white">
+<pre><tt><font color="#009900">CXX=</font>clang<font color="#990000">++</font> <font color="#009900">$(CXXFLAGS)</font>
+<font color="#009900">DEBUG=</font>-Wall -g
+
+<font color="#990000">pizza:</font> pizza.o pizzadough.o tomatosauce.o toppings.o mushrooms.o peppers.o cheese.o pepperoni.o
+	<font color="#009900">$(CXX)</font> <font color="#009900">$(DEBUG)</font> pizza.o pizzadough.o tomatosauce.o toppings.o mushrooms.o peppers.o cheese.o pepperoni.o -o pizza
+	@echo <font color="#FF0000">"Pizza is Hot and Ready!"</font>
+	
+<font color="#990000">pizza.o:</font> pizza.cpp
+	<font color="#009900">$(CXX)</font> -c pizza.cpp
+
+<font color="#990000">pizzadough.o:</font> pizzadough.cpp pizzadough.h
+	<font color="#009900">$(CXX)</font> -c pizzadough.cpp
+	
+<font color="#990000">tomatosauce.o:</font> tomatosauce.cpp tomatosauce.h
+	<font color="#009900">$(CXX)</font> -c tomatosauce.cpp
+	
+<font color="#990000">toppings.o:</font> pepperoni.cpp peppers.cpp mushrooms.cpp cheese.cpp toppings.cpp <font color="#990000">\</font>
+			pepperoni.h peppers.h mushrooms.h cheese.h toppings.h
+	<font color="#009900">$(CXX)</font> -c toppings.cpp
+	
+<font color="#990000">pepperoni.o:</font> pepperoni.cpp pepperoni.h
+	<font color="#009900">$(CXX)</font> -c pepperoni.cpp
+	
+<font color="#990000">mushrooms.o:</font> mushrooms.cpp mushrooms.h
+	<font color="#009900">$(CXX)</font> -c mushrooms.cpp
+	
+<font color="#990000">peppers.o:</font> peppers.cpp peppers.h
+	<font color="#009900">$(CXX)</font> -c peppers.cpp
+
+<font color="#990000">cheese.o:</font> cheese.cpp cheese.h
+	<font color="#009900">$(CXX)</font> -c cheese.cpp
+	
+	
+<font color="#990000">clean:</font>
+	-rm <font color="#990000">*</font>.o pizza
+</tt></pre>
+</body>
+</html>

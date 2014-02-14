@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>toppings.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><b><font color="#000080">#include</font></b> <font color="#FF0000">"toppings.h"</font>
+
+Toppings<font color="#990000">::</font><b><font color="#000000">Toppings</font></b><font color="#990000">(</font><font color="#009900">int</font> cheeseAmount<font color="#990000">,</font> <font color="#009900">int</font> mushroomsAmount<font color="#990000">,</font> <font color="#009900">int</font> peppersAmount<font color="#990000">,</font> <font color="#009900">int</font> pepperoniAmount<font color="#990000">)</font> <font color="#FF0000">{</font>
+    cheese<font color="#990000">=</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">Cheese</font></b><font color="#990000">(</font>cheeseAmount<font color="#990000">);</font>
+    mushrooms<font color="#990000">=</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">Mushrooms</font></b><font color="#990000">(</font>mushroomsAmount<font color="#990000">);</font>
+    peppers<font color="#990000">=</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">Peppers</font></b><font color="#990000">(</font>peppersAmount<font color="#990000">);</font>
+    pepperoni<font color="#990000">=</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">Pepperoni</font></b><font color="#990000">(</font>pepperoniAmount<font color="#990000">);</font>
+<font color="#FF0000">}</font>
+
+Toppings<font color="#990000">::</font> <font color="#990000">~</font><b><font color="#000000">Toppings</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">delete</font></b> cheese<font color="#990000">;</font>
+    <b><font color="#0000FF">delete</font></b> mushrooms<font color="#990000">;</font>
+    <b><font color="#0000FF">delete</font></b> peppers<font color="#990000">;</font>
+    <b><font color="#0000FF">delete</font></b> pepperoni<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>
