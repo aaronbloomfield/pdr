@@ -1,0 +1,54 @@
+digraph G {
+	node [fontname="Helvetica-bold",shape=circle];
+
+	G1 [style=filled,label="G",fillcolor=black,fontcolor=white,pin=true,pos="3,2.25"];
+	P1 [style=filled,label="P",fillcolor=red,fontcolor=white,pin=true,pos="2,1.75"];
+	U1 [style=filled,label="U",fillcolor=black,fontcolor=white,pin=true,pos="4,1.75"];
+	N1 [style=filled,label="N",fillcolor=red,fontcolor=white,pin=true,pos="2.5,1"];
+	dot1 [style=filled,label="",fillcolor=black,pin=true,pos="1.5,1",width=0.2];
+	dot2 [style=filled,label="",fillcolor=black,pin=true,pos="2,0.25",width=0.2];
+	dot3 [style=filled,label="",fillcolor=black,pin=true,pos="3,0.25",width=0.2];
+	dot4 [style=filled,label="",fillcolor=black,pin=true,pos="3.5,1",width=0.2,style=invis];
+	dot5 [style=filled,label="",fillcolor=black,pin=true,pos="4.5,1",width=0.2,style=invis];
+	tri1 [label="1",pin=true,pos="1.5,0.75",shape=triangle,fixedsize=true,width=0.3];
+	tri2 [label="2",pin=true,pos="2,0",shape=triangle,fixedsize=true,width=0.3];
+	tri3 [label="3",pin=true,pos="3,0",shape=triangle,fixedsize=true,width=0.3];
+	tri4 [label="4",pin=true,pos="3.55,0.83",shape=triangle,fixedsize=true,width=0.3];
+	tri5 [label="5",pin=true,pos="4.45,0.83",shape=triangle,fixedsize=true,width=0.3];
+
+	G1 -> P1;
+	G1 -> U1;
+	P1 -> N1;
+	N1 -> dot2;
+	N1 -> dot3;
+	P1 -> dot1;
+	U1 -> dot4;
+	U1 -> dot5;
+	
+	arrow [label="",pin=true,pos="5.5,1",shape=rarrow,fixedsize=true,width=1,style=filled,fillcolor=blue];
+	
+	G2 [style=filled,label="G",fillcolor=black,fontcolor=white,pin=true,pos="8.25,2.25"];
+	P2 [style=filled,label="P",fillcolor=red,fontcolor=white,pin=true,pos="6.75,1"];
+	U2 [style=filled,label="U",fillcolor=black,fontcolor=white,pin=true,pos="9.25,1.75"];
+	N2 [style=filled,label="N",fillcolor=red,fontcolor=white,pin=true,pos="7.25,1.75"];
+	dot1b [style=filled,label="",fillcolor=black,pin=true,pos="6.25,0.25",width=0.2	      ];
+	dot2b [style=filled,label="",fillcolor=black,pin=true,pos="7.25,0.25",width=0.2];
+	dot3b [style=filled,label="",fillcolor=black,pin=true,pos="7.75,1",width=0.2];
+	dot4b [style=filled,label="",fillcolor=black,pin=true,pos="8.75,1",width=0.2,style=invis];
+	dot5b [style=filled,label="",fillcolor=black,pin=true,pos="9.75,1",width=0.2,style=invis];
+	tri1b [label="1",pin=true,pos="6.25,0",shape=triangle,fixedsize=true,width=0.3];
+	tri2b [label="2",pin=true,pos="7.25,0",shape=triangle,fixedsize=true,width=0.3];
+	tri3b [label="3",pin=true,pos="7.75,0.75",shape=triangle,fixedsize=true,width=0.3];
+	tri4b [label="4",pin=true,pos="8.8,0.83",shape=triangle,fixedsize=true,width=0.3];
+	tri5b [label="5",pin=true,pos="9.7,0.83",shape=triangle,fixedsize=true,width=0.3];
+
+	G2 -> N2;
+	G2 -> U2;
+	N2 -> P2;
+	N2 -> dot3b;
+	P2 -> dot2b;
+	P2 -> dot1b;
+	U2 -> dot4b;
+	U2 -> dot5b;
+
+}
