@@ -447,7 +447,8 @@ Similarly down the left subttree links for findMin()
 - All leaves have the same depth
 - Number of leaves: 2<sup>*h*</sup>
 - Number of nodes: 1 + 2 + 2<sup>2</sup> + 2<sup>3</sup> + ... + 2<sup>*h*</sup> = 2<sup>*h*+1</sup>-1
-- Problem: a perfect binary tree can only hold *n* values where *n* = 2<sup>*h*+1</sup>-1
+- Problem: a perfect binary tree can only hold *n* values where:
+  - *n* = 2<sup>*h*+1</sup>-1
   - So you can't have, say, 5 values in a perfect binary tree!
       </script></section>
 
@@ -462,10 +463,10 @@ Similarly down the left subttree links for findMin()
 
 	  <section data-markdown><script type="text/template">
 ## Expression Trees
-- A way to keep track of a mathematical equation
+- A way to keep an internal representation of a mathematical equation
   - This allows a computer to compute the value of each node
 - You will have to do this for lab 5
-- See the [Wikipedia article on Expression trees](http://en.wikipedia.org/wiki/Expression_tree), expecially the [section on construction of expression trees](http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_Expression_Tree)
+- See the [Wikipedia article on Expression trees](http://en.wikipedia.org/wiki/Expression_tree), specifically the [section on construction of expression trees](http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_Expression_Tree)
   - That example is the same as the one here
   - Uses a stack!
 	  </script></section>
@@ -475,6 +476,7 @@ Similarly down the left subttree links for findMin()
 ![exp-tree-3](graphs/exp-tree-3.svg)
 
 - Infix notation: `(a + ((b+c) * d))`
+  - For our purposes, we will always place parentheses around all operations, even if they aren't needed
 - Postfix notation: `a b c + d * +`
 - Prefix notation: `+ a * + b c d`
 	  </script></section>
@@ -558,7 +560,7 @@ Consider the postfix expression: a b + c d e + \* \*; the final expression tree 
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Final result
+## The final result
 ![exp tree 10](graphs/exp-tree-ex-10.svg)
 	  </script></section>
 
@@ -719,9 +721,9 @@ Not balanced: height difference greater than 1
 	  <section>
 <h2>AVL single right rotation: before & after</h2>
 <table class="transparent"><tr>
-<td><img alt="avl tree 4" src="graphs/avl-tree-4.svg" width="450"></td>
+<td><img alt="avl tree 4" src="graphs/avl-tree-4.svg" width="350"></td>
 <td class="middle">&rarr;</td>
-<td class="top"><img alt="avl tree 5" src="graphs/avl-tree-5.svg" width="450"></td>
+<td class="top"><img alt="avl tree 5" src="graphs/avl-tree-5.svg" width="350"></td>
 </tr></table>
 <ul>
 <li>Node 1 (red) is what is being inserted</li>
@@ -812,7 +814,7 @@ Note that the trees shown are not necessarily AVL trees, but the rotations are c
 	  <section>
 <h2>AVL double rotation: general case</h2>
 <table class="transparent"><tr>
-<td><img alt="avl tree 16" src="graphs/avl-tree-16.svg" width="300"></td>
+<td><img alt="avl tree 16" src="graphs/avl-tree-16.svg" width="275"></td>
 <td class="middle">
   <table><tr><td>
 	<table><tr><td class="middle">&rarr;</td><td><img alt="avl tree 17" src="graphs/avl-tree-17.svg"></td></tr></table>
@@ -944,7 +946,7 @@ All of these properties must hold for a red-black tree
   4. S and S's children are black, but P is red
   5. S is black, S's left child is red, S's right child is black, and N is the left child of it's parent
   6. S is black, S's right child is red, and N is the left child of parent P
-- We won't see them in detail, though...
+- We won't see them in detail, though, but you can find details [here](http://en.wikipedia.org/wiki/Red_black_trees)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
