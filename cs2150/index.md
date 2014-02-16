@@ -12,11 +12,11 @@ Links
 
 There are a number of links and other parts of this course that are **NOT** included in this repository.  They are:
 
-- The set of online tools, which can be accesed through Collab or [here](https://libra.cs.virginia.edu/~pedagogy/).
+- The set of online tools, which can be accessed through Collab or [here](https://libra.cs.virginia.edu/~pedagogy/).
   - These tools are: [support requests](https://libra.cs.virginia.edu/~pedagogy/support.php), [lab submission](https://libra.cs.virginia.edu/~pedagogy/submit.php), [regrades](https://libra.cs.virginia.edu/~pedagogy/regrades.php), [gradebook](https://libra.cs.virginia.edu/~pedagogy/gradebook.php), and [lab extensions](https://libra.cs.virginia.edu/~pedagogy/labextension.php)
 - The announcements, which are posted to the CS 2150 twitter feed: [@UVaCS2150](http://twitter.com/UVaCS2150)
 - The [CS 2150 Google calendar](https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York)
-- Grading explanations, including the grading guidelines; this is availabe in the Collab wiki ([here](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/618f97d9-06f2-4da8-8197-5ddadbbc9f51) is the direct link, although Collab login is required)
+- Grading explanations, including the grading guidelines; this is available in the Collab wiki ([here](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/618f97d9-06f2-4da8-8197-5ddadbbc9f51) is the direct link, although Collab login is required)
 - Email list archive, which is a Collab tool ([here](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/770a28a5-0679-405a-913a-49301c5c9a60) is the direct link, although Collab login is required)
 - [Piazza](https://piazza.com/); Collab can log you in directly.
 

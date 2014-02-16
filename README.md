@@ -52,7 +52,7 @@ repository first**
 - [docs](docs/index.html): a series of useful documents that are not labs or tutorials.  To view these files, see the [docs/index.html](docs/index.html) file.
 - [cs2150](cs2150/index.html): the materials that are specific to CS 2150 as taught at the University of Virginia, such as daily announcements, due dates, etc.  To view these files, see the [cs2150/index.html](cs2150/index.html) file.
 - [exams](exams/index.html): past exams for the course; there are two midterms and a final for each semester.
-- [ibcm](ibcm/ibcm.html): the files necessary for the IBCM module on machine langauge, which is taught about two thirds of the way into the course.
+- [ibcm](ibcm/ibcm.html): the files necessary for the IBCM module on machine language, which is taught about two thirds of the way into the course.
 - [labs](labs/index.html): the labs are the main assignments in the course, and each lab is split into pre-lab, in-lab, and post-lab parts. To view the labs, see the [labs/index.html](labs/index.html) file.  There are 11 full labs, with a partial 12th lab that is an optional component of the course.  The labs are written using [markdown](http://daringfireball.net/projects/markdown/), and the rendered HTML version of each lab is also committed to this repository.
 - [slides](slides/index.html): Contains the slides used in the course; view [slides/index.html](slides/index.html) for the table of contents. The slides use [reveal.js](https://github.com/hakimel/reveal.js/), an HTML presentation framework.
 - [tutorials](tutorials/index.html): the tutorials that are used as part of the lab assignments, these are primarily Linux tutorials.  To view the tutorials, see the [tutorials/index.html](tutorials/index.html) page.
