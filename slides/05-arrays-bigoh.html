@@ -602,9 +602,9 @@ int main (int argc, char* argv[]) {
 - Logarithmic (&Theta;(log *n*)) running time is when the search space is cut in half in each iteration
   - Or when you are iterating up or down a data structure, such as a tree, that has &Theta;(log *n*) height
 - Examples:
-  - Binary search in a sorted list
-  - Search through a balanced tree
-  - Insert into a balanced tree
+  - Binary search in a sorted array or vector
+  - Search (or insert or delete) with a balanced tree
+    - Balanced tree means an AVL tree or Red-black tree
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -612,7 +612,7 @@ int main (int argc, char* argv[]) {
 - Linear (&Theta;(*n*)) running time means that we have to process each element, and there is one step (or a constant number of steps) for each one
 - Examples:
   - Printing (or otherwise iterating through) a list
-  - Finding an element in an unsorted array
+  - Finding an element in an unsorted array or vector
   - Finding an element in a sorted or unsorted linked list
   - Doubling the size of a vector's underlying array
 	  </script></section>

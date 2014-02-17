@@ -105,7 +105,7 @@
 ## Tree Terms
 - *Root*: a node with no parent; there can only be one root
 - *Leaf*: a node with no children
-- *Sibling*: same parent
+- *Siblings*: two nodes with the same parent
 - *Height* of a node: length of the ***longest*** path from that node to a leaf
   - Thus, all leaves have height of zero
   - *Height of a tree*: maximum depth of a node in that tree = height of the root
@@ -173,7 +173,7 @@
 - Pre-order: `/ * + 1 2 - 3 4 * 5 6`
 - In-order: `(((1+2) * (3-4)) / (5*6))`
   - Parentheses are added to handle operator precedence issues
-- Post-order: `1 2 + 3 4 - \* 5 6 * /`
+- Post-order: `1 2 + 3 4 - * 5 6 * /`
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -190,7 +190,7 @@ TreeNode::printTree(TreeNode tnode) {
 
 	  <section data-markdown><script type="text/template">
 ## In-order Traversal
-- In-order: left node first, then self, then right node
+- In-order: left node first, then self, then right node:
 ```
 void BST::print(BNode *curNode) {
     if(curNode != NULL) {
@@ -226,7 +226,7 @@ int TreeNode::numNodes(TreeNode tnode) {
 - Pre-order: `/ * + 1 2 - 3 4 * 5 6`
 - In-order: `(((1+2) * (3-4)) / (5*6))`
   - Parentheses are added to handle operator precedence issues
-- Post-order: `1 2 + 3 4 - \* 5 6 * /`
+- Post-order: `1 2 + 3 4 - * 5 6 * /`
 	  </script></section>
 
     </section>
