@@ -7,6 +7,8 @@ graphs:
 	@ls *.dot | grep Red-black | sed s/.dot//g | awk '{print "dot -Tps -Kneato "$$1".dot -o "$$1".ps"}' | bash
 	@ls *.dot | grep Red-black | sed s/.dot//g | awk '{print "dot -Tpng -Kneato "$$1".dot -o "$$1".png"}' | bash
 
+markdown:
+	@ls *.svg | awk '{print "["$$1"]("$$1"), "}'
 
 clean:
 	/bin/rm -f *.ps *.png *~
