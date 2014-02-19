@@ -192,7 +192,7 @@ TreeNode::printTree(TreeNode tnode) {
 ## In-order Traversal
 - In-order: left node first, then self, then right node:
 ```
-void BST::print(BNode *curNode) {
+void BST::print(BinaryNode *curNode) {
     if(curNode != NULL) {
         print(curNode->left);
         cout << curNode->element;
@@ -270,9 +270,10 @@ int TreeNode::numNodes(TreeNode tnode) {
 ## Binary Search Trees (BST)
 - Each node has a *key* value that can be compared
 - Binary search tree property:
-  - for a given node, which we will call the *root*...
-  - every node in left subtree has a key whose value is less than the root's key value, AND
-  - every node in right subtree has a key whose value is greater than the root's key value
+  - For a given node, which we will call the *root*...
+  - Every node in left subtree has a key whose value is *less* than the root's key value, AND
+  - Every node in right subtree has a key whose value is *greater* than the root's key value
+- We assume that duplicate values are not allowed
       </script></section>
 
       <section data-markdown><script type="text/template">
@@ -296,9 +297,9 @@ int TreeNode::numNodes(TreeNode tnode) {
 ## BST: find
 - Basic idea:
   - Compare value to be found to key of the root of the tree
-    - if they are equal, then done
-    - if not equal, recurse depending on which half of tree the value should be in if it is in tree
-    - if you hit a `NULL` pointer, then you have "run off" the bottom of the tree, and the value is not in the tree
+    - If they are equal, then done
+    - If not equal, recurse depending on which half of tree the value should be in if it is in tree
+    - If you hit a `NULL` pointer, then you have "run off" the bottom of the tree, and the value is not in the tree
       </script></section>
 
       <section data-markdown><script type="text/template">
@@ -314,14 +315,14 @@ int TreeNode::numNodes(TreeNode tnode) {
 ## BST: find
 (no external source code)
 ```
-BNode * BST::find(const int x, BNode *curNode) {
+BinaryNode * BST::find(int x, BinaryNode *curNode) {
     // handle case where a NULL pointer could be passed
     // curNode->right or curNode->left might be NULL
-    if(curNode == NULL)
+    if (curNode == NULL)  // we've "run" off the bottom
         return NULL;
-    else if(x < curNode->element)
-        return find(x, curNode->left); // search left
-    else if(x > curNode->element)
+    else if (x < curNode->element)
+        return find(x, curNode->left);  // search left
+    else if (x > curNode->element)
         return find(x, curNode->right); //search right
     else
         return curNode;    // matched
@@ -329,38 +330,37 @@ BNode * BST::find(const int x, BNode *curNode) {
 ```
       </script></section>
 
-      <section data-markdown><script type="text/template">
-## BST: insert
-Do a find, and when we reach a `NULL` pointer, create a new node there
-
-(no external source code)
-```
-void BST::insert(const int x, BNode * & curNode) {
-    if(curNode==NULL)
-        curNode = new BNode(x,NULL,NULL);
-    else if(x < curNode->element)
+      <section>
+<h2>BST: insert</h2>
+<p>Do a find, and when we reach a `NULL` pointer, create a new node there</p>
+<p>(no external source code)</p>
+<pre><code>void BST::insert(int x, BinaryNode * & curNode) {
+    if (curNode==NULL)
+        curNode = new BinaryNode(x,NULL,NULL);
+    else if (x < curNode->element)
         insert(x, curNode->left);
-    else if(x > curNode->element)
+    else if (x > curNode->element)
         insert(x, curNode->right);
     else
         ;    // duplicate... do nothing
 }
-```
-      </script></section>
+</code></pre>
+<script type="text/javascript">insertCanvas();</script>
+      </section>
 
       <section data-markdown><script type="text/template">
 ## BST: findMax(), findMin()
 To find the maximum element in BST, traverse down the right subtree links
 ![bst-5](graphs/bst-5.svg)
-Similarly down the left subttree links for findMin()
+Similarly down the left subttree links for `findMin()`
       </script></section>
 
       <section data-markdown><script type="text/template">
 ## BST: remove
 - Disrupts the tree structure
 - Basic idea: 
-  - find node to be removed.
-  - "fix" tree so that binary search tree property still holds true
+  - Find node to be removed.
+  - "Fix" tree so that binary search tree property still holds true
   - Three cases:
     - Node has no children
     - Node has one child
@@ -371,7 +371,7 @@ Similarly down the left subttree links for findMin()
 <h2>BST: remove: no children</h2>
 <ul>
 <li>Just remove the node (reclaiming memory), adjusting the parent pointer to <code>NULL</code><ul>
-<li>In this case, 8's left child link is changed to <code>NULL</code></li></ul></li>
+<li>In this case, 9's left child link is changed to <code>NULL</code></li></ul></li>
 </ul>
 <table class="transparent"><tr>
 <td class="top"><img alt="bst-7" src="graphs/bst-7.svg"></td>
@@ -422,11 +422,11 @@ Similarly down the left subttree links for findMin()
   - Or: *n* &le; 2<sup>*h*+1</sup>-1
 - For *h*=0, tree has one node, which yields 2<sup>0+1</sup>-1 = 1 nodes
 - Assume the claim is true for any tree of height *h*
+  - This would mean *n* &le; 2<sup>*h*+2</sup>-1 for a tree of height *h*+1
 - Any tree of height *h*+1 has at most 2 subtrees of height *h*; each subtree has 2<sup>*h*+1</sup>-1 nodes; add one more for the root
 - Thus, our new tree of height *h*+1 has:
   - 2(2<sup>*h*+1</sup>-1)+1 = 2<sup>*h*+2</sup>-1 nodes
-- If we put *h*+1 into our inductive hypothesis (instead of *h*), we get the same value
-- Thus, it is proven
+- If we put *h*+1 into our inductive hypothesis (instead of *h*), we get the same value; thus, it is proven
       </script></section>
 
       <section data-markdown><script type="text/template">
@@ -445,6 +445,7 @@ Similarly down the left subttree links for findMin()
 ![bst-13](graphs/bst-13.svg)
 
 - All leaves have the same depth
+  - And all nodes have zero or two children, but not one child
 - Number of leaves: 2<sup>*h*</sup>
 - Number of nodes: 1 + 2 + 2<sup>2</sup> + 2<sup>3</sup> + ... + 2<sup>*h*</sup> = 2<sup>*h*+1</sup>-1
 - Problem: a perfect binary tree can only hold *n* values where:
