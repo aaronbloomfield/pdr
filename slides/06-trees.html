@@ -466,7 +466,8 @@ Similarly down the left subttree links for `findMin()`
 ## Expression Trees
 - A way to keep an internal representation of a mathematical equation
   - This allows a computer to compute the value of each node
-- You will have to do this for lab 5
+- You will have to do this for [lab 5](../labs/lab05/index.html)
+ - The lab expression tree only takes in integers as input; the more generalized version presented here includes variables as well
 - See the [Wikipedia article on Expression trees](http://en.wikipedia.org/wiki/Expression_tree), specifically the [section on construction of expression trees](http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_Expression_Tree)
   - That example is the same as the one here
   - Uses a stack!
@@ -603,9 +604,9 @@ For every node in the tree, the *height* of the left and right sub-trees differs
 ## AVL balance factor
 - Each node of a BST holds:
   - The data
-  - Left subtree node
-  - Right subtree node
-  - Possibly a parent node
+  - Left child pointer
+  - Right child pointer
+  - Possibly a parent node pointer
 - An AVL tree also holds a balance factor
   - The height of the *right* subtree minus the height of the *left* subtree
     - We could have it be left minus right, but the convention in this class is to always have it be right minus left
