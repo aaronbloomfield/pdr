@@ -27,6 +27,7 @@ The parts of this course that are in this repo are:
 - [Lab due dates](labduedates.html): When the various lab parts are due
 - [UNIX honor pledge](unix-honor-pledge-s14.pdf), which needs to be signed by all the students in the course; it is created from a [.tex](unix-honor-pledge.tex) file
 - [Review session slide set](exam-review.html), which is really just a blank set of slides
+- [Frivolous regrade policy](frivolous-regrades.html) for exams
 
 ------------------------------------------------------------
 
@@ -70,7 +71,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 13 | Feb&nbsp;12 | Wednesday | | [05: Arrays & big-Oh](../slides/05-arrays-bigoh.html) | [05: arrays & big-oh, slides 3-3 to 3-25](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/05-arrays-bigoh-2b/05-arrays-bigoh-2b.htm) |
 | 14 | Feb&nbsp;14 | Friday | | [05: Arrays & big-Oh](../slides/05-arrays-bigoh.html) | all UVa classes were canceled today due to the [snow storm](https://en.wikipedia.org/wiki/February_2014_North_American_winter_storm) |
 |    | Feb&nbsp;16 | Sunday | Exam 1 review session | Exam 1 review session | [exam 1 review](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/exam1-review/exam1-review.htm) |
-| 15 | Feb&nbsp;17 | Monday | Midterm 1 instead during Tuesday's lab | [06: Trees](../slides/06-trees.html) | [05: arrays & big-oh, slides 3-26 to 4-7 (end); 06: trees, slides 1 to 2-15](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/06-trees-1b/06-trees-1b.htm) |
+| 15 | Feb&nbsp;17 | Monday | [Exam 1](../exams/exam1-s14.pdf) instead during Tuesday's lab | [06: Trees](../slides/06-trees.html) | [05: arrays & big-oh, slides 3-26 to 4-7 (end); 06: trees, slides 1 to 2-15](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/06-trees-1b/06-trees-1b.htm) |
 | 16 | Feb&nbsp;19 | Wednesday | | [06: Trees](../slides/06-trees.html) | [06: trees, slides 3 to 3-19](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/06-trees-2b/06-trees-2b.htm) |
 | 17 | Feb&nbsp;21 | Friday | | [06: Trees](../slides/06-trees.html) | |
 | 18 | Feb&nbsp;24 | Monday | [Lab 5: Trees](../labs/lab05/index.html) / [Tutorial 5: make](../tutorials/05-make/index.html) | [06: Trees](../slides/06-trees.html) | |
