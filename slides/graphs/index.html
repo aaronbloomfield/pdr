@@ -2,10 +2,10 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Graph Generation</title>
+<title>Graph Diagrams</title>
 <link href="../../markdown.css" media="all" rel="stylesheet" type="text/css"></head>
 <body>
-<h1>Graph Generation</h1>
+<h1>Graph Diagrams</h1>
 
 <p><a href="../index.html">Go up to the main slides table of contents page</a></p>
 
@@ -14,14 +14,48 @@
 <pre><code>dot -Tsvg filename.dot -o outname.svg
 </code></pre>
 
-<p>However, you can just run <code>make</code> in the slides/graphs/ directory to convert all of the .dot files in this repository to .svg files.  This also creates .png and .ps versions of the graphs, which can be removed via <code>make clean</code>.</p>
+<p>The three Red-black tree insertion case images need the <code>-Kneato</code> flag for proper layout.  You can also just run <code>make</code> in the slides/graphs/ directory to convert all of the .dot files in this repository to .svg files.  This also creates .png and .ps versions of the graphs, which can be removed via <code>make clean</code>.  A fairly recent version of GraphViz is needed for &lsquo;rarrow&rsquo; shape.</p>
 
 <p>Both the original .dot files, as well as the .svg files (which are what are used in the slides) are include in this repository.</p>
+
+<p>Some of these images (the expression trees and the red-black insertion cases) were added the the appropriate Wikiedpia pages as well.</p>
 
 <h2>References</h2>
 
 <ul>
+<li><a href="http://www.graphviz.org/">GraphViz</a></li>
 <li><a href="http://www.graphviz.org/content/FaqBalanceTree">GraphViz: creating balanced trees</a></li>
+<li>Wikipedia articles on <a href="https://en.wikipedia.org/wiki/Binary_expression_tree">Binary expression trees</a> and <a href="https://en.wikipedia.org/wiki/Red%E2%80%93black_tree">Red-black tree</a></li>
+</ul>
+
+
+<h2>Images</h2>
+
+<ul>
+<li>High-level diagrams: <a href="list-diagram-1.svg">list-diagram-1.svg</a>, <a href="list-diagram-2.svg">list-diagram-2.svg</a>, <a href="tree-diagram.svg">tree-diagram.svg</a></li>
+<li>Expression trees
+
+<ul>
+<li>Expression tree images: <a href="exp-tree-1.svg">exp-tree-1.svg</a>, <a href="exp-tree-2.svg">exp-tree-2.svg</a>, <a href="exp-tree-3.svg">exp-tree-3.svg</a></li>
+<li>Expression tree formation images: <a href="exp-tree-ex-1.svg">exp-tree-ex-1.svg</a>, <a href="exp-tree-ex-2.svg">exp-tree-ex-2.svg</a>, <a href="exp-tree-ex-3.svg">exp-tree-ex-3.svg</a>, <a href="exp-tree-ex-4.svg">exp-tree-ex-4.svg</a>, <a href="exp-tree-ex-5.svg">exp-tree-ex-5.svg</a>, <a href="exp-tree-ex-6.svg">exp-tree-ex-6.svg</a>, <a href="exp-tree-ex-7.svg">exp-tree-ex-7.svg</a>, <a href="exp-tree-ex-8.svg">exp-tree-ex-8.svg</a>, <a href="exp-tree-ex-9.svg">exp-tree-ex-9.svg</a>, <a href="exp-tree-ex-10.svg">exp-tree-ex-10.svg</a></li>
+</ul>
+</li>
+<li>Binary trees
+
+<ul>
+<li>Binary search tree images: <a href="bst-1.svg">bst-1.svg</a>, <a href="bst-2.svg">bst-2.svg</a>, <a href="bst-3.svg">bst-3.svg</a>, <a href="bst-4.svg">bst-4.svg</a>, <a href="bst-5.svg">bst-5.svg</a>, <a href="bst-6.svg">bst-6.svg</a>, <a href="bst-7.svg">bst-7.svg</a>, <a href="bst-8.svg">bst-8.svg</a>, <a href="bst-9.svg">bst-9.svg</a>, <a href="bst-10.svg">bst-10.svg</a>, <a href="bst-11.svg">bst-11.svg</a>, <a href="bst-12.svg">bst-12.svg</a>, <a href="bst-13.svg">bst-13.svg</a></li>
+<li>AVL tree images: <a href="avl-tree-1.svg">avl-tree-1.svg</a>, <a href="avl-tree-2.svg">avl-tree-2.svg</a>, <a href="avl-tree-3.svg">avl-tree-3.svg</a>, <a href="avl-tree-4.svg">avl-tree-4.svg</a>, <a href="avl-tree-5.svg">avl-tree-5.svg</a>, <a href="avl-tree-6.svg">avl-tree-6.svg</a>, <a href="avl-tree-7.svg">avl-tree-7.svg</a>, <a href="avl-tree-8.svg">avl-tree-8.svg</a>, <a href="avl-tree-9.svg">avl-tree-9.svg</a>, <a href="avl-tree-10.svg">avl-tree-10.svg</a>, <a href="avl-tree-11.svg">avl-tree-11.svg</a>, <a href="avl-tree-12.svg">avl-tree-12.svg</a>, <a href="avl-tree-13.svg">avl-tree-13.svg</a>, <a href="avl-tree-14.svg">avl-tree-14.svg</a>, <a href="avl-tree-15.svg">avl-tree-15.svg</a>, <a href="avl-tree-16.svg">avl-tree-16.svg</a>, <a href="avl-tree-17.svg">avl-tree-17.svg</a>, <a href="avl-tree-18.svg">avl-tree-18.svg</a>, <a href="avl-tree-19.svg">avl-tree-19.svg</a>, <a href="avl-tree-20.svg">avl-tree-20.svg</a></li>
+<li>Red-black tree images: <a href="rb-tree-1.svg">rb-tree-1.svg</a>, <a href="Red-black_tree_insert_case_3.svg">Red-black_tree_insert_case_3.svg</a>, <a href="Red-black_tree_insert_case_4.svg">Red-black_tree_insert_case_4.svg</a>, <a href="Red-black_tree_insert_case_5.svg">Red-black_tree_insert_case_5.svg</a></li>
+<li>Additional red-black tree images, specifically the removal cases, are not included in this repository but can be found <a href="https://github.com/aaronbloomfield/wikipedia">here</a></li>
+</ul>
+</li>
+<li>Miscellaneous trees
+
+<ul>
+<li>File tree images: <a href="file-tree-1.svg">file-tree-1.svg</a></li>
+<li>Program tree images: <a href="program-tree-1.svg">program-tree-1.svg</a></li>
+</ul>
+</li>
 </ul>
 
 </body>

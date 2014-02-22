@@ -1,0 +1,15 @@
+digraph G {
+	node [fontname="Helvetica",shape=circle];
+
+	stack [shape=record,label="<0>|<1>|<2>|<3>|<4>"];
+	plus1 [label="+"];
+	hidden1 [label="",style=invis];
+
+	stack:0:c -> plus1 [tailclip=false];
+	stack:1:c -> c [tailclip=false];
+
+	plus1 -> a;
+	plus1 -> hidden1 [style=invis];
+	plus1 -> b;
+	{rank=same a -> hidden1 -> b [style=invis]};
+}

@@ -31,7 +31,9 @@ Program and Data Representation: Slides
 
 - The trees diagrams were generated from the files described [here](graphs/index.html)
 
-Slide set 7: Hashes
+[Slide set 7: Hashes](07-hashes.html)
+
+- The hash table bucket signs as both a [pdf](misc/hash-table-buckets.pdf) and an [odt](misc/hash-table-buckets.odt)
 
 Slide set 8: IBCM (machine language)
 

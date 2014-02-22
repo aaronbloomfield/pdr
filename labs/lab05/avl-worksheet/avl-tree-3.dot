@@ -1,0 +1,38 @@
+digraph E {
+	graph [fontname = "Helvetica"];
+	node [fontname = "Helvetica",shape=circle];
+	edge [fontname = "Helvetica"];
+
+	M -> E;
+	mM [label="", width=0.1, style=invis];
+	M -> mM [style=invis];
+	M -> P;
+	{rank=same E -> mM -> P [style=invis]};
+	
+	E -> A;
+	lE [label="", width=0.1, style=invis];
+	E -> lE [style=invis];
+	E -> H;
+	{rank=same A -> lE -> H [style=invis]};
+
+	P -> O;
+	mP [label="", width=0.1, style=invis];
+	P -> mP [style=invis];
+	P -> X;
+	{rank=same O -> mP -> X [style=invis]};
+
+	lA [label="", width=0.1, style=invis];
+	A -> lA [style=invis];
+	mA [label="", width=0.1, style=invis];
+	A -> mA [style=invis];
+	A -> D;
+	{rank=same lA -> mA -> D [style=invis]};
+
+	lX [label="", width=0.1, style=invis];
+	X -> W;
+	mX [label="", width=0.1, style=invis];
+	X -> mX [style=invis];
+	rX [label="", width=0.1, style=invis];
+	X -> rX [style=invis];
+	{rank=same W -> mX -> rX [style=invis]};
+}

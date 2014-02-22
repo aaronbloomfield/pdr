@@ -1,13 +1,13 @@
 digraph G {
 	graph [fontname = "Helvetica"];
-	node [fontname = "Helvetica"];
+	node [fontname = "Helvetica",shape=circle];
 	edge [fontname = "Helvetica"];
 
 	5 -> 4;
 	null1 [label="", width=0.1, style=invis];
 	5 -> null1 [style=invis];
-	5 -> 8;
-	{rank=same 4 -> null1 -> 8 [style=invis]};
+	5 -> 9;
+	{rank=same 4 -> null1 -> 9 [style=invis]};
 	
 	1 [color=red];
 	4 -> 1;
@@ -24,9 +24,9 @@ digraph G {
 	1 -> 3;
 	{rank=same null4 -> null5 -> 3 [style=invis]};
 
-	8 -> 7;
+	9 -> 7;
 	null6 [label="", width=0.1, style=invis];
-	8 -> null6 [style=invis];
-	8 -> 11;
+	9 -> null6 [style=invis];
+	9 -> 11;
 	{rank=same 7 -> null6 -> 11 [style=invis]};
 }
