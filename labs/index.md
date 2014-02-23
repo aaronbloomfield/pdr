@@ -35,3 +35,5 @@ The labs for this course
     - In-lab: [Makefile](lab05/code/inlab/Makefile.html) ([src](lab05/code/inlab/Makefile)), [avlnode.h](lab05/code/inlab/avlnode.h.html) ([src](lab05/code/inlab/avlnode.h)), [binarynode.h](lab05/code/inlab/binarynode.h.html) ([src](lab05/code/inlab/binarynode.h)), [avltree.h](lab05/code/inlab/avltree.h.html) ([src](lab05/code/inlab/avltree.h)), [avltree.cpp](lab05/code/inlab/avltree.cpp.html) ([src](lab05/code/inlab/avltree.cpp)), [binarysearchtree.h](lab05/code/inlab/binarysearchtree.h.html) ([src](lab05/code/inlab/binarysearchtree.h)), [binarysearchtree.cpp](lab05/code/inlab/binarysearchtree.cpp.html) ([src](lab05/code/inlab/binarysearchtree.cpp)), [tree_test.cpp](lab05/code/inlab/tree_test.cpp.html) ([src](lab05/code/inlab/tree_test.cpp)), [testfile1.txt](lab05/code/inlab/testfile1.txt), [testfile2.txt](lab05/code/inlab/testfile2.txt), [testfile3.txt](lab05/code/inlab/testfile3.txt)
   - [AVL tree worksheet](lab05/avl-worksheet.pdf) for the pre-lab
   - [Tutorial 5: make](../tutorials/05-make/index.html)
+
+- [Lab 6: Hashes](lab06/index.html)
