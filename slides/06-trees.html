@@ -743,7 +743,7 @@ Not balanced: height difference greater than 1
 <td class="middle">&rarr;</td>
 <td><img alt="avl tree 7" src="graphs/avl-tree-7.svg"></td>
 </tr></table>
-<p class="center">\( X &le; b &le; Y &le; a &le; Z \)</p>
+<p class="center">\( X &lt; b &lt; Y &lt; a &lt; Z \)</p>
 <p class="center">The insert happens into sub-tree X, increasing it's height to <i>h</i>+1</p>
 <p class="center">Notice how sub-tree Y changes parent</p>
 	  </section>
@@ -761,7 +761,7 @@ Note that the trees shown are not necessarily AVL trees, but the rotations are c
 <td class="middle">&rarr;</td>
 <td><img alt="avl tree 9" src="graphs/avl-tree-9.svg"></td>
 </tr></table>
-<p class="center">\( X &le; b &le; Y &le; a &le; Z \)</p>
+<p class="center">\( X &lt; b &lt; Y &lt; a &lt; Z \)</p>
 <p class="center">The insert happens into sub-tree Y, increasing it's height to <i>h</i>+1</p>
 <p class="center">Single rotation fails!  New height of X is <i>h</i>+1, height of Y is <i>h</i>+3</p>
 	  </section>
@@ -820,7 +820,7 @@ Note that the trees shown are not necessarily AVL trees, but the rotations are c
 <td class="middle">
   <table><tr><td>
 	<table><tr><td class="middle">&rarr;</td><td><img alt="avl tree 17" src="graphs/avl-tree-17.svg"></td></tr></table>
-  </td></tr><tr><td>&nbsp;</td></tr><tr><td>\( W &le; b &le; X &le; c &le; Y &le; a &le; Z \)</td></tr><tr><td>&nbsp;</td></tr><tr><td>The insert happens into X</td></tr>
+  </td></tr><tr><td>&nbsp;</td></tr><tr><td>\( W &lt; b &lt; X &lt; c &lt; Y &lt; a &lt; Z \)</td></tr><tr><td>&nbsp;</td></tr><tr><td>The insert happens into X</td></tr>
 <tr><td>Notice sub-trees X <i>and</i> Y change parents</td></tr></table>
 </td>
 </tr></table>
@@ -832,6 +832,36 @@ Note that the trees shown are not necessarily AVL trees, but the rotations are c
   - But is that a left-right?  Or a right-left?
   - We'll call them 'double left-right' and 'double right-left', which specifies the order to perform the operation on the child and then the parent
 	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## AVL insert, again
+- Let *x* be the *deepest* node where imbalance occurs
+- Four cases where the insert happened:
+  1. In the left subtree of the left child of x
+  2. In the right subtree of the left child of x
+  3. In the left subtree of the right child of x
+  4. In the right subtree of the right child of x
+- Cases 1 & 4: perform a single rotation
+- Cases 2 & 3: perform a double rotation
+	  </script></section>
+
+	  <section>
+<h2>How an algorithm determines which way to rotate</h2>
+<table class="transparent">
+<tr>
+  <td class="top"><img alt="avl tree 21" src="graphs/avl-tree-21.svg"></td>
+  <td class="top"><img alt="avl tree 22" src="graphs/avl-tree-22.svg"></td>
+  <td class="top"><img alt="avl tree 23" src="graphs/avl-tree-23.svg"></td>
+  <td class="top"><img alt="avl tree 24" src="graphs/avl-tree-24.svg"></td>
+</tr>
+<tr><td>left-left<br>case</td><td>right-right<br>case</td><td>left-right<br>case</td><td>right-left<br>case</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+<ul>
+  <li>Given the lowest unbalanced node, and the child in the direction of the insert, compare the balance factors</li>
+  <li>-2/+1 means a double left-right, +2/+1 means a singe left, etc.</li>
+</ul>
+	  </section>
 
 	  <section>
 <h2>All the tree rotations</h2>
@@ -874,7 +904,7 @@ All of these properties must hold for a red-black tree
 4. Both children of every red node are black
    - Therefore, a black node is the only possible parent for a red node
 5. Every simple path from a node to any descendant leaf contains the same number of black nodes
-   - Counting or not counting the null black nodes, it doesn't make a difference as long as you are consistent
+   - Counting or not counting the `NULL` black nodes; it doesn't make a difference as long as you are consistent
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
