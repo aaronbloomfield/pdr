@@ -61,8 +61,33 @@ Procedure
 World Puzzle Problem
 --------------------
 
-(similar to problem 5.15a on page 210 in Weiss. The original problem statement is found in Chapter 1, on page 2 (start reading there). The algorithm you should implement is similar to the one described in the last paragraph on page 208.)
+Consider the problem called [Word Search](https://en.wikipedia.org/wiki/Word_search), illustrated in the diagram below.
 
+[![word search puzzle](500px-Wordsearch.svg.png)](https://en.wikipedia.org/wiki/File:Wordsearch.svg)
+
+In this 10x10 grid of letters, the goal is to find words in the puzzle in any of the eight directions.  The word circled in red is in the south-east direction.  Words can go backward (although none do in this example), but they cannot "wrap around" from one side to the other (or from top to bottom).
+
+For the purposes of this lab, your program will be presented with a grid of letters and a dictionary of words.  All words in the dictionary that are in the grid, in any of the 8 directions, are to be outputted.
+
+A string of letters from the grid will depend on four values:
+
+- The *x* value of the starting letter
+- The *y* value of the starting letter
+- The direciton, *d*, of the starting letter (directions can be represented as integers 1-8 if that is easier)
+- The length, *l*, of the string.
+
+This implies that your code will have quad-nested `for` loops.
+
+The goal for the pre-lab is to get it working, using a hash table that you write, without worrying about efficiency.  The goal of the post-lab is to increase it's efficiency.
+
+A few notes about the length of the words: the program to implement will not consider words of length less than 3, and the maximum word length is a constant (defined as the longest word in the input dictionary file).
+
+There are a number of optimizations that one can implement, a few of which are mentioned here.
+
+- Choose a good load factor, &lambda;, for your hash table
+- Implement a reasonable collision resolution strategy
+- In addition to storing each word, W, you can also store the *prefixes* of that word.  So if the word is "amazing", you would store "ama", "amaz", "amazi", "amazin", and "amazing" in the hash table.  There would need to be some way to differntiate between prefixes ("amaz") and the actual words ("amazing").  This way if you are working in a given direction, and the particualr string you are generating is not a prefix, then you know there are no further words in the dictionary in the given direction.
+- You can keep track of a previous hash to help compute the next one faster.  For example, if you have just computed the hash for "foo", then you can keep that hash value on hand to compute the hash for "food" faster.
 
 ------------------------------------------------------------
 
@@ -75,7 +100,7 @@ For this lab you need to implement a solution to the word puzzle problem describ
 
 The basic idea is that given a dictionary of words, we want to write a program that finds all instances of those words in a grid of letters.  This is similar to find-a-word puzzles where you circle the words, horizontally, vertically or diagonally in the grid.  As is specified on page 2 of the textbook, words can appear in any order (including backwards) in the puzzle.  However, in our case you are not given the list of words to find, you are merely given the grid and told to find all the English words in the grid.  You will be given a dictionary (list) of English words, but you should expect this to be very large.  You will want to put this list of words into a hash table to facilitate quickly checking if a particular combination of letters is a word in the dictionary.
 
-You **must** write your own hash table for this lab.  However, you can refer to the Weiss book code when understanding how your hash table code will work.  I will expect you to be able to implement a hash table after completing the lab.  You should definitely stay away from templates for your implementation.  You may use separate chaining with buckets of any type you wish (linked list, STL vectors, trees, hash tables) or open addressing with any collision resolution strategy you wish (linear probing, quadratic probing, double hashing). 
+You **must** write your own hash table for this lab.  I will expect you to be able to implement a hash table after completing the lab.  You should definitely stay away from templates for your implementation.  You may use separate chaining with buckets of any type you wish (linked list, STL vectors, trees, hash tables) or open addressing with any collision resolution strategy you wish (linear probing, quadratic probing, double hashing). 
 
 We are not as interested in how fast this runs for the pre-lab; the fast implementation is for the post-lab.  You may use any data structures that you want EXCEPT a vector of vectors, which is specifically forbidden.  You can use a vector of linked lists, however.
 
@@ -308,7 +333,7 @@ You will need to implement optimizations to your program.  Possible optimization
 - Trying the various collision resolution strategies to find the fastest one.
 - If you are using separate chaining, trying different data structures for the buckets.
 - Output to the screen (or redirected into a file) is very slow.  Buffering the input (keeping it in memory in some data structure), and then printing it out after the timing code is finished, will greatly improve performance.
-- Any of the optimizations suggested in the text, for example those described in Weiss, page 210, questions 5.15b and c (also see the online scan of those pages).
+- Any of the optimizations suggested in the description of the word puzzle.
 - Any others that you can think of?
 
 Keep track of what you tried -- if you try each of the collision resolution strategies, and find that the original one you used is faster, record all of this in the post-lab report, along with the times from the other strategies.
