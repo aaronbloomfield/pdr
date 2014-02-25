@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>timer.h</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">// NOTE: in order to compile this system on Linux (and most Unix</font></i>
+<i><font color="#9A1900">// systems) you will have to include the -lrt flag to your compiler.</font></i>
+<i><font color="#9A1900">//</font></i>
+<i><font color="#9A1900">// This timer typically has 1/1000000 second (1 micro-second) accuracy</font></i>
+<i><font color="#9A1900">// under most Linux distributions</font></i>
+
+<b><font color="#000080">#ifndef</font></b> TIMER_H
+<b><font color="#000080">#define</font></b> TIMER_H
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;string&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;time.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;sys/time.h&gt;</font>
+
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<b><font color="#0000FF">class</font></b> <font color="#008080">timer</font> <font color="#FF0000">{</font>
+<b><font color="#0000FF">private</font></b><font color="#990000">:</font>
+    <font color="#008080">timeval</font> startVar<font color="#990000">,</font> stopVar<font color="#990000">;</font>
+    <font color="#009900">bool</font> running<font color="#990000">;</font>
+
+<b><font color="#0000FF">public</font></b><font color="#990000">:</font>
+    <b><font color="#000000">timer</font></b><font color="#990000">()</font> <font color="#990000">:</font> <b><font color="#000000">running</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">)</font> <font color="#FF0000">{}</font>
+    <font color="#990000">~</font><b><font color="#000000">timer</font></b><font color="#990000">()</font> <font color="#FF0000">{}</font>
+    <b><font color="#000000">timer</font></b><font color="#990000">(</font>timer <font color="#990000">&amp;</font> myTimer<font color="#990000">);</font>
+    <font color="#009900">int</font> <b><font color="#000000">start</font></b><font color="#990000">();</font>
+    <font color="#009900">int</font> <b><font color="#000000">stop</font></b><font color="#990000">();</font>
+    <font color="#008080">string</font> <b><font color="#000000">toString</font></b><font color="#990000">();</font>
+    ostream <font color="#990000">&amp;</font> <b><font color="#000000">print</font></b><font color="#990000">(</font><font color="#008080">ostream</font> <font color="#990000">&amp;</font>theStream<font color="#990000">);</font>
+    <font color="#009900">double</font> <b><font color="#000000">getTime</font></b><font color="#990000">();</font>
+<font color="#FF0000">}</font><font color="#990000">;</font>
+
+ostream <font color="#990000">&amp;</font> <b><font color="#0000FF">operator</font></b><font color="#990000">&lt;&lt;(</font>ostream <font color="#990000">&amp;</font> theStream<font color="#990000">,</font> timer <font color="#990000">&amp;</font> theTimer<font color="#990000">);</font>
+
+<b><font color="#000080">#endif</font></b>
+</tt></pre>
+</body>
+</html>

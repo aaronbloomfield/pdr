@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>timer_test.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">// NOTE: in order to compile this system on Linux (and most Unix</font></i>
+<i><font color="#9A1900">// systems) you will have to include the -lrt flag to your compiler.</font></i>
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">"timer.h"</font>
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<font color="#009900">int</font> <b><font color="#000000">main</font></b> <font color="#990000">(</font><font color="#009900">void</font><font color="#990000">)</font> <font color="#FF0000">{</font>
+    <font color="#008080">timer</font> t<font color="#990000">;</font>
+    t<font color="#990000">.</font><b><font color="#000000">start</font></b><font color="#990000">();</font>
+    <i><font color="#9A1900">// do something that takes some time...</font></i>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> <font color="#993399">1000000000</font><font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">);</font>
+    t<font color="#990000">.</font><b><font color="#000000">stop</font></b><font color="#990000">();</font>
+    cout <font color="#990000">&lt;&lt;</font> t <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> t<font color="#990000">.</font><b><font color="#000000">getTime</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

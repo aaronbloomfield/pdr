@@ -74,7 +74,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 15 | Feb&nbsp;17 | Monday | [Exam 1](../exams/exam1-s14.pdf) instead during Tuesday's lab | [06: Trees](../slides/06-trees.html) | [05: arrays & big-oh, slides 3-26 to 4-7 (end); 06: trees, slides 1 to 2-15](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/06-trees-1b/06-trees-1b.htm) |
 | 16 | Feb&nbsp;19 | Wednesday | | [06: Trees](../slides/06-trees.html) | [06: trees, slides 3 to 3-19](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/06-trees-2b/06-trees-2b.htm) |
 | 17 | Feb&nbsp;21 | Friday | | [06: Trees](../slides/06-trees.html) | [06-trees, slides 4 to 5-13](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/06-trees-3b/06-trees-3b.htm) |
-| 18 | Feb&nbsp;24 | Monday | [Lab 5: Trees](../labs/lab05/index.html) / [Tutorial 5: make](../tutorials/05-make/index.html) | [06: Trees](../slides/06-trees.html) | |
+| 18 | Feb&nbsp;24 | Monday | [Lab 5: Trees](../labs/lab05/index.html) / [Tutorial 5: make](../tutorials/05-make/index.html) | [06: Trees](../slides/06-trees.html) | [06-trees, slides 5-13 to 6-11](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/06-trees-4b/06-trees-4b.htm) |
 | 19 | Feb&nbsp;26 | Wednesday | | [07: Hashes](../slides/07-hashes.html) | |
 | 20 | Feb&nbsp;28 | Friday | | [07: Hashes](../slides/07-hashes.html) | |
 | 21 | Mar&nbsp;3 | Monday | [Lab 6: Hashes](../labs/lab06/index.html) / [Tutorial 6: Shell scripting, part 1](../tutorials/06-shell-scripts-pt1/index.html) | [07: Hashes](../slides/07-hashes.html) | |
@@ -111,3 +111,5 @@ Grading Concerns
 There was a problem with the in-lab 1 grading -- a one-point deduction was in the [grading guidelines](https://collab.itc.virginia.edu/portal/tool/58e790ee-ac9e-4001-9947-ebf5df8a8df5?pageName=%2Fsite%2F7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c%2Flab+1+grading+guidelines&action=printview&panel=Main&breadcrumb=0&realm=%2Fsite%2F7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c) that should not have been there (that deduction currently is currently in the grading guidelines, but struck out).  Rather than regrading everything, everybody will get a 1 on their lab.
 
 The way this is handled is that at the end of the semester, the 1 point on the lab will affect the final grade cut-offs.  If there are 35 lab parts, each worth 10 points, then one point on one lab is worth 1/350th of the overall lab grade (which is 40% of the final grade).  The final grade curve will be modified by this amount.  It's the same, mathematically, as increasing everybody's grade by one point, but far easier to effect.
+
+For [exam 1](../exams/exam1-s14.pdf), the curve is 15 percentage points.

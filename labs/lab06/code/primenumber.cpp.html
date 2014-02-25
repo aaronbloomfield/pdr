@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>primenumber.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">// Prime number generation code</font></i>
+<i><font color="#9A1900">//</font></i>
+<i><font color="#9A1900">// written by Aaron Bloomfield, 2014</font></i>
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<i><font color="#9A1900">// yes, there are much faster -- and much better -- ways to check if a</font></i>
+<i><font color="#9A1900">// number is prime (see the Sieve of Eratosthenes, for one example),</font></i>
+<i><font color="#9A1900">// but this code will work correctly, it is fairly straightforward,</font></i>
+<i><font color="#9A1900">// and it is fast enough for our purposes in the hash lab</font></i>
+<font color="#009900">bool</font> <b><font color="#000000">checkprime</font></b><font color="#990000">(</font><font color="#009900">unsigned</font> <font color="#009900">int</font> p<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> p <font color="#990000">&lt;=</font> <font color="#993399">1</font> <font color="#990000">)</font> <i><font color="#9A1900">// 0 and 1 are not primes; the are both special cases</font></i>
+        <b><font color="#0000FF">return</font></b> <b><font color="#0000FF">false</font></b><font color="#990000">;</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> p <font color="#990000">==</font> <font color="#993399">2</font> <font color="#990000">)</font> <i><font color="#9A1900">// 2 is prime</font></i>
+        <b><font color="#0000FF">return</font></b> <b><font color="#0000FF">true</font></b><font color="#990000">;</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> p <font color="#990000">%</font> <font color="#993399">2</font> <font color="#990000">==</font> <font color="#993399">0</font> <font color="#990000">)</font> <i><font color="#9A1900">// even numbers other than 2 are not prime</font></i>
+        <b><font color="#0000FF">return</font></b> <b><font color="#0000FF">false</font></b><font color="#990000">;</font>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">3</font><font color="#990000">;</font> i<font color="#990000">*</font>i <font color="#990000">&lt;=</font> p<font color="#990000">;</font> i <font color="#990000">+=</font> <font color="#993399">2</font> <font color="#990000">)</font> <i><font color="#9A1900">// only go up to the sqrt of p</font></i>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> p <font color="#990000">%</font> i <font color="#990000">==</font> <font color="#993399">0</font> <font color="#990000">)</font>
+            <b><font color="#0000FF">return</font></b> <b><font color="#0000FF">false</font></b><font color="#990000">;</font>
+    <b><font color="#0000FF">return</font></b> <b><font color="#0000FF">true</font></b><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<font color="#009900">int</font> <b><font color="#000000">getNextPrime</font></b> <font color="#990000">(</font><font color="#009900">unsigned</font> <font color="#009900">int</font> n<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">while</font></b> <font color="#990000">(</font> <font color="#990000">!</font><b><font color="#000000">checkprime</font></b><font color="#990000">(++</font>n<font color="#990000">)</font> <font color="#990000">);</font>
+    <b><font color="#0000FF">return</font></b> n<font color="#990000">;</font> <i><font color="#9A1900">// all your primes belong to us</font></i>
+<font color="#FF0000">}</font>
+
+<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+    <font color="#009900">int</font> x<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Enter number: "</font><font color="#990000">;</font>
+    cin <font color="#990000">&gt;&gt;</font> x<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> x <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" is prime: "</font> <font color="#990000">&lt;&lt;</font> <b><font color="#000000">checkprime</font></b><font color="#990000">(</font>x<font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"next higest prime: "</font> <font color="#990000">&lt;&lt;</font> <b><font color="#000000">getNextPrime</font></b><font color="#990000">(</font>x<font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>
