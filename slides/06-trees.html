@@ -337,9 +337,9 @@ BinaryNode * BST::find(int x, BinaryNode *curNode) {
 <pre><code>void BST::insert(int x, BinaryNode * & curNode) {
     if (curNode==NULL)
         curNode = new BinaryNode(x,NULL,NULL);
-    else if (x < curNode->element)
+    else if (x &lt; curNode->element)
         insert(x, curNode->left);
-    else if (x > curNode->element)
+    else if (x &gt; curNode->element)
         insert(x, curNode->right);
     else
         ;    // duplicate... do nothing
