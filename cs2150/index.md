@@ -108,8 +108,9 @@ The links in the right-most column link directly to the lecture recording on Col
 Grading Concerns
 ----------------
 
-There was a problem with the in-lab 1 grading -- a one-point deduction was in the [grading guidelines](https://collab.itc.virginia.edu/portal/tool/58e790ee-ac9e-4001-9947-ebf5df8a8df5?pageName=%2Fsite%2F7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c%2Flab+1+grading+guidelines&action=printview&panel=Main&breadcrumb=0&realm=%2Fsite%2F7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c) that should not have been there (that deduction currently is currently in the grading guidelines, but struck out).  Rather than regrading everything, everybody will get a 1 on their lab.
+Promised curves:
+
+- There was a problem with the in-lab 1 grading -- a one-point deduction was in the [grading guidelines](https://collab.itc.virginia.edu/portal/tool/58e790ee-ac9e-4001-9947-ebf5df8a8df5?pageName=%2Fsite%2F7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c%2Flab+1+grading+guidelines&action=printview&panel=Main&breadcrumb=0&realm=%2Fsite%2F7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c) that should not have been there (that deduction currently is currently in the grading guidelines, but struck out).  Rather than regrading everything, everybody will get a 1 on their lab.
+- For [exam 1](../exams/exam1-s14.pdf), the curve is 15 percentage points.
 
 The way this is handled is that at the end of the semester, the 1 point on the lab will affect the final grade cut-offs.  If there are 35 lab parts, each worth 10 points, then one point on one lab is worth 1/350th of the overall lab grade (which is 40% of the final grade).  The final grade curve will be modified by this amount.  It's the same, mathematically, as increasing everybody's grade by one point, but far easier to effect.
-
-For [exam 1](../exams/exam1-s14.pdf), the curve is 15 percentage points.

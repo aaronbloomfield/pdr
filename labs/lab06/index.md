@@ -29,7 +29,8 @@ Procedure
 7. Because the pre-lab in this assignment is a bit long, this week's Unix tutorial is part of the in-lab.
 8. Note that you will be submitting different word puzzle code during the post-lab, so your pre-lab code must still work.  But it need not be efficient -- that's for the post-lab.
 9. Look over the shell script tutorial ([http://www.freeos.com/guides/lsst/](http://www.freeos.com/guides/lsst/), chapter 2) for this lab.  You will be writing a shell script during the in-lab, but you should probably start reading it before then.  Chapter 3 will be the tutorial for the next lab, so feel free to read on, if you are interested.
-10. Files to download: 
+10. Don't forget to put your name, date, and lab section at the top of each of your source code files!
+11. Files to download: 
     1. The 5 provided code files: [getWordInTable.cpp](code/getWordInTable.cpp.html) ([src](code/getWordInTable.cpp)), [primenumber.cpp](code/primenumber.cpp.html) ([src](code/primenumber.cpp)), [timer.cpp](code/timer.cpp.html) ([src](code/timer.cpp)), [timer.h](code/timer.h.html) ([src](code/timer.h)), [timer_test.cpp](code/timer_test.cpp.html) ([src](code/timer_test.cpp)).  These can also be downloaded all at once via the [code.zip](code.zip) file.
     2. The data files in the [labs/lab06/data/ directory](data/).  These can also be downloaded all at once via the [data.zip](data.zip) file.
 11. Files to submit: Makefile, wordPuzzle.cpp, timer.h/cpp, hashTable.h/cpp (see below for details)
@@ -52,8 +53,9 @@ Procedure
 1. Optimize your implementation of the word puzzle solver.  Your program should produce the same output as the sample output files in the [labs/lab06/data/ directory](data/) (your program can contain output such as timer results, as described in the in-lab section).  The input (i.e., the command-line parameters) is the exact same as for the pre-lab.
 2. The various optimizations allowed are listed in the description of the world puzzle problem as well as the post-lab section.  You will have to include a description of the optimization methods used in the post-lab report.  Your Makefile should be modified for the post-lab (probably just adding -O2).
 3. Create postlab6.pdf file (see the post-lab section for formatting details), containing the post-lab report (see below).
-4. Files to download: none beyond what has already been downloaded
-5. Files to submit: the files containing your post-lab code (Makefile, wordPuzzle.cpp, timer.h/cpp, hashTable.h/cpp), the post-lab report (postlab6.pdf -- see the post-lab section for formatting details), and the in-lab shell script again (averagetime.sh).
+4. Don't forget to put your name, date, and lab section at the top of each of your source code files!
+5. Files to download: none beyond what has already been downloaded
+6. Files to submit: the files containing your post-lab code (Makefile, wordPuzzle.cpp, timer.h/cpp, hashTable.h/cpp), the post-lab report (postlab6.pdf -- see the post-lab section for formatting details), and the in-lab shell script again (averagetime.sh).
 
 ------------------------------------------------------------
 
