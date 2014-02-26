@@ -182,13 +182,7 @@ The `int_path_length()` methods take in two parameters -- a node (either the Avl
 
 ### Input format ###
 
-The input will be provided all on one line.  The input in each file has just one line for the paragraph.  The provided input files can be run through the program as follows:
-
-```
-./a.out < testfile1.txt
-```
-
-Note that we are ***NOT*** providing the file name as a command-line parameter.  The provided skeleton code handles the input for you already.
+The input paragraph will be provided in a file, and the name of the file will be the one (and only!) input provided to the program.  Note that we are ***NOT*** providing the file name as a command-line parameter.  The provided skeleton code properly handles the input for you already.
 
 ### What you need to do ###
 
