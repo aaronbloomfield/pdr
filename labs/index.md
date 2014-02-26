@@ -36,4 +36,8 @@ The labs for this course
   - [AVL tree worksheet](lab05/avl-worksheet.pdf) for the pre-lab
   - [Tutorial 5: make](../tutorials/05-make/index.html)
 
-- [Lab 6: Hashes](lab06/index.html)
+- [Lab 6: Hashing](lab06/index.html)
+  - Source code: [getWordInTable.cpp](lab06/code/getWordInTable.cpp.html) ([src](lab06/code/getWordInTable.cpp)), [primenumber.cpp](lab06/code/primenumber.cpp.html) ([src](lab06/code/primenumber.cpp)), [timer.cpp](lab06/code/timer.cpp.html) ([src](lab06/code/timer.cpp)), [timer.h](lab06/code/timer.h.html) ([src](lab06/code/timer.h)), [timer_test.cpp](lab06/code/timer_test.cpp.html) ([src](lab06/code/timer_test.cpp))
+     - These can also be downloaded all at once via the [code.zip](lab06/code.zip) file
+  - The data files in the [labs/lab06/data/ directory](lab06/data/)
+    - These can also be downloaded all at once via the [data.zip](lab06/data.zip) file
