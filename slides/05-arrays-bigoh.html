@@ -230,10 +230,10 @@ int main (int argc, char* argv[]) {
 ## Classifying functions by their<br>Asymptotic Growth Rates
 - Asymptotic growth rate, asymptotic order, or order of functions 
   - Comparing and classifying functions that ignores constant factors and small inputs. 
-- The sets are big-oh, <font color='red'>big-theta</font>, and <font color='skyblue'>big-omega</font>:
-  - <font color='red'>&Omega;</font>(*g*): functions that grow ***at least as fast*** as g
+- The sets are big-oh, <span class='red'>big-theta</span>, and <span class='skyblue'>big-omega</span>:
+  - <span class='red'>&Omega;</span>(*g*): functions that grow ***at least as fast*** as g
   - &Theta;(*g*): functions that grow ***at the same rate*** as g
-  - <font color='skyblue'>O</font>(*g*): functions that grow ***no faster than*** g
+  - <span class='skyblue'>O</span>(*g*): functions that grow ***no faster than*** g
 
 ![venn diagram](images/05-arrays-bigoh/venn-diagram.png)
 	  </script></section>
@@ -401,7 +401,7 @@ int main (int argc, char* argv[]) {
 	  <section data-markdown><script type="text/template">
 ## Lower Bound: &Omega; (Omega)
 - *f*(*n*) &isin; &Omega; (*g*(*n*)) means:
-  - There are positive constants *c* and *n*<sub>0</sub> such that *f*(*n*) <font color='red'>&ge;</font> *c*\*g*(*n*) for all *n* &ge; *n*<sub>0</sub> 
+  - There are positive constants *c* and *n*<sub>0</sub> such that *f*(*n*) <span class='red'>&ge;</span> *c*\*g*(*n*) for all *n* &ge; *n*<sub>0</sub> 
   - The difference from big-oh is the &ge; in big-omega versus &le; in big-oh
 - This is a *lower* bound
 	  </script></section>
@@ -430,7 +430,7 @@ int main (int argc, char* argv[]) {
 
 	  <section data-markdown><script type="text/template">
 ## Little-oh
-- Let *f*(*n*) &isin; <font color='red'>o</font>(*g*(*n*))
+- Let *f*(*n*) &isin; <span class='red'>o</span>(*g*(*n*))
   - Any function that is o(*g*) is also O(*g*)
     - So both act as an upper bound
   - But a O(*g*) bound can also be &Omega;(*g*) and thus &Theta;(*g*)
@@ -438,7 +438,7 @@ int main (int argc, char* argv[]) {
   - Little-oh means the bound can not be tight
     - Thus, it's O(*g*) but not &Theta;(*g*)
     - Or, that *f*(*n*) will ***always*** be ***strictly*** less than *g*(*n*):
-      - *f*(*n*) <font color='red'>&lt;</font> *c* \* *g*(*n*) for all *n* &ge; *n*<sub>0</sub>, for some constants *c* and *n*<sub>0</sub>
+      - *f*(*n*) <span class='red'>&lt;</span> *c* \* *g*(*n*) for all *n* &ge; *n*<sub>0</sub>, for some constants *c* and *n*<sub>0</sub>
   - Rarely used in computer science...
 	  </script></section>
 
@@ -496,7 +496,7 @@ int main (int argc, char* argv[]) {
   - *f* &isin; &Theta;(*n*<sup>2</sup>) means *f* is quadratic
   - *f* &isin; &Theta;(*n*<sup>3</sup>) means *f* is cubic
   - *f* &isin; &Theta;(2<sup>*n*</sup>) means *f* is exponential
-- *n*<sup>*k*</sup> &isin; <font color='red'>o</font>(*c*<sup>*n*</sup>) for any *k* > 0 and any *c* > 1
+- *n*<sup>*k*</sup> &isin; <span class='red'>o</span>(*c*<sup>*n*</sup>) for any *k* > 0 and any *c* > 1
   - Powers of *n* grow slower than any exponential function *c*<sup>*n*</sup>
     - As long as *n* &ge; 1 and *c* &ge; 1, which is always the case with input sizes
 	  </script></section>

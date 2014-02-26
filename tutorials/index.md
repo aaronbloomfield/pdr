@@ -12,8 +12,10 @@ The tutorials for this course are listed below. Note that as this repository is 
 - [Tutorial 3: More Unix, part 1](03-04-more-unix/index.html), which is sections 1-4; this tutorial is originally from [here](http://www.ee.surrey.ac.uk/Teaching/Unix/)
 - [Tutorial 4: More Unix, part 2](03-04-more-unix/index.html), which is sections 5-8; this tutorial is originally from [here](http://www.ee.surrey.ac.uk/Teaching/Unix/)
 - [Tutorial 5: make](05-make/index.html), and the necessary [pizza.zip](05-make/pizza.zip)
-- [Tutorial 6: Shell scripting, part 1](06-shell-scripts-pt1/index.html)
-- [Tutorial 7: Shell scripting, part 2](07-shell-scripts-pt2/index.html)
+- Tutorial 6: Shell scripting, part 1
+  - This is the first 6 sections (through and including 'exit status') of the [Wikibooks article on Bash Shell Scripting](http://en.wikibooks.org/wiki/Bash_Shell_Scripting)
+- Tutorial 7: Shell scripting, part 2
+  - This is the remainder of the [Wikibooks article on Bash Shell Scripting](http://en.wikibooks.org/wiki/Bash_Shell_Scripting)
 - [Tutorial 8: nasm](08-nasm/index.html)
 - [Tutorial 9: C](09-c/index.html)
 - [Tutorial 10: Objective C](10-objc/index.html)

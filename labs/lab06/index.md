@@ -28,7 +28,7 @@ Procedure
 6. You will need to create a Makefile for this lab.  Your executable that `make` creates **MUST** be called a.out.  This means that you must NOT specify a -o flag to clang++, otherwise it will not work on the grading server!  Just let clang++ name it the default without specifying a -o flag.
 7. Because the pre-lab in this assignment is a bit long, this week's Unix tutorial is part of the in-lab.
 8. Note that you will be submitting different word puzzle code during the post-lab, so your pre-lab code must still work.  But it need not be efficient -- that's for the post-lab.
-9. Look over the shell script tutorial ([http://www.freeos.com/guides/lsst/](http://www.freeos.com/guides/lsst/), chapter 2) for this lab.  You will be writing a shell script during the in-lab, but you should probably start reading it before then.  Chapter 3 will be the tutorial for the next lab, so feel free to read on, if you are interested.
+9. Look over the shell script tutorial for this lab, which is the first 6 sections (through and including 'exit status') of the [Wikibooks article on Bash Shell Scripting](http://en.wikibooks.org/wiki/Bash_Shell_Scripting).  You will be writing a shell script during the in-lab, but you should probably start reading it before then.  The remaining sections of that article will be the tutorial for the next lab, so feel free to read on, if you are interested.
 10. Don't forget to put your name, date, and lab section at the top of each of your source code files!
 11. Files to download: 
     1. The 5 provided code files: [getWordInTable.cpp](code/getWordInTable.cpp.html) ([src](code/getWordInTable.cpp)), [primenumber.cpp](code/primenumber.cpp.html) ([src](code/primenumber.cpp)), [timer.cpp](code/timer.cpp.html) ([src](code/timer.cpp)), [timer.h](code/timer.h.html) ([src](code/timer.h)), [timer_test.cpp](code/timer_test.cpp.html) ([src](code/timer_test.cpp)).  These can also be downloaded all at once via the [code.zip](code.zip) file.
@@ -40,7 +40,7 @@ Procedure
 1. Read through the in-lab section below.  Make sure you understand what the new clang++ flag (-O2) does, and how to handle input and output.
 2. Verify with the TA the correct placement of the timer calls.
 3. Verify that your program gets the correct solution for the 250x250 grid using words.txt as the dictionary, and the 300x300 grid using words2.txt as the dictionary.  The output files for these runs are in the [labs/lab06/data/ directory](data/).
-4. Complete chapter 2 of the shell script tutorial ([http://www.freeos.com/guides/lsst/](http://www.freeos.com/guides/lsst/)).
+4. Read the shell script tutorial for this lab, which is the first 6 sections (through and including 'exit status') of the [Wikibooks article on Bash Shell Scripting](http://en.wikibooks.org/wiki/Bash_Shell_Scripting)
 5. Write the shell script described in the post-lab section (averagetime.sh).
 6. Your shell script *must* call a.out!  Otherwise it will not work, and will receive points off.
 7. Create inlab6.pdf (see the in-lab section for formatting details), containing the complexity evaluation and the results of your program executions.  See the in-lab section for details about what to include therein.
@@ -187,7 +187,7 @@ In-lab
 
 ### clang++ flags ###
 
-So far, we have learned a number of clang++ flags (-o, -g, -Wall, -c, -MM).  If you forget what these do, look at the Wiki section of the course's Collab workspace.  We'll learn one other flag today: -O2.
+So far, we have learned a number of clang++ flags (-o, -g, -Wall, -c, -MM).  If you forget what these do, look at the [compilation flags](../../docs/compiler_flags.html) page.  We'll learn one other flag today: -O2.
 
 ### clang++: -O2 ###
 
@@ -254,45 +254,45 @@ Lastly, you can provide the `-w` flag to diff to have it ignore all whitespace o
 
 ### Shell Scripting  ###
 
-Through the various programming languages we've seen (Java, C++, etc.), we can make a computer do many things.  Yet there are still limitations to what we can do in these languages.  How could you get a directory listing in Java, for example?  Or easily invoke Unix commands from C++?  While some of these things are possible, they are often difficult to accomplish.  
+Through the various programming languages we've seen (Java, C++, etc.), we can make a computer do many things.  Yet there are still limitations to what we can do in these languages.  How could you get a directory listing in Java, for example?  Or easily invoke Unix commands from C++?  While these are certainly possible, they are often difficult to accomplish.  
 
-Programmers often have a need to do these sorts of things.  For example, a script that we wrote takes all the submissions made to Collab, compiles and executes them, and saves the execution output to various files.  This allows the compilation and execution to be automated, and thus saves the graders a lot of time.
+Yet programmers often have a need to do these sorts of things.  For example, a script that we wrote takes all the submissions made to the submission server, compiles and executes them, and saves the execution output to various files.  This allows the compilation and execution to be automated, and thus saves the graders a lot of time.
 
-The *shell* is the command-line interface that you use when you are interactively using Unix (i.e. the Linux command line).  There are many shells out there, some of the more popular being bash, csh, and ksh.  Bash is the standard shell, that the vast majority of system scripts are written in (such as for Linux).  Csh (and tcsh, its successor) is a shell with C-like syntax.  Ksh is a more advanced shell that has greater capabilities, but has a big learning curve.  We'll be using bash for this tutorial, as it is the default on most systems, including Linux.
+The *shell* is the command-line interface that you use when you are interactively using Unix (i.e. the Linux command line).  There are many shells out there, some of the more popular being bash, csh, and ksh.  Bash is the standard shell, that the vast majority of system scripts are written in (such as for Linux).  Csh (and tcsh, its successor) is a shell with C-like syntax.  Ksh is a more advanced shell that has greater capabilities, but has a steep learning curve.  We'll be using bash for this tutorial, as it is the default on most systems, including Linux.
 
 The original Unix shell was written by Stephen Bourne and released 1978.  It was just called 'sh', which is short for 'shell'.  In 1987, Brian Fox updated the shell, and decided to name it 'Bourne-again shell', a play on the original author's name.  Hence the name of 'bash'.
 
-A *shell script*, then, is a series of commands for the shell to execute.  Shell scripts started off, many years ago, as just a way to have a series of simple commands in one place.  Indeed, this is largely what batch files are in Windows and DOS (remember autoexec.bat?).  Over time, additional functionality was added to these scripts, mostly the things we are used to in programming languages, such as variables and control structures (for and while loops, if and case conditionals, etc.).  Today, shell scripts are a very powerful programming language that one can use to do many things.
+A *shell script*, then, is a series of commands for the shell to execute.  Shell scripts started off, many years ago, as just a way to have a series of simple commands in one place.  Indeed, this is largely what batch files are in Windows and DOS (remember autoexec.bat?).  Over time, additional functionality was added to these scripts, mostly the things we are used to in programming languages, such as variables and control structures (`for` and `while` loops, `if` and `case` conditionals, etc.).  Today, shell scripts are a very powerful programming language that one can use to do many things.
 
-Shell scripts are useful when one needs to call a large number of Unix commands (such as the aforementioned compilation/execution example).  Significant computation, such as finding words in a word puzzle, are not well suited to shell scripts.
+Shell scripts are useful when one needs to call a large number of Unix commands (such as the aforementioned compilation/execution example).  Significant computation, such as finding words in a word puzzle, or a lot of arithmetic, are not well suited to shell scripts.
 
-In this lab, we will be learning about shell scripts.  First, review chapter 2 of the shell script tutorial (http://www.freeos.com/guides/lsst/) -- you should have read it for the pre-lab (if not, skim through it for the in-lab, and read it in detail later -- material from there will be on future exams!).  The third chapter will be assigned as the tutorial for the next lab, so feel free to skip ahead, if you would like.
+In this lab, we will be learning about shell scripts.  Read the shell script tutorial for this lab, which is the first 6 sections (through and including 'exit status') of the [Wikibooks article on Bash Shell Scripting](http://en.wikibooks.org/wiki/Bash_Shell_Scripting).  Much of the earlier material in this article should be familmiar to you from the Unix tutorials that you did for labs 3 and 4. The remaining sections of that article will be the tutorial for the next lab, so feel free to read on, if you are interested.
 
-Once chapter 2 of the tutorial is completed, you will need to write a shell script that will prompt the user for the dictionary and grid file names used by your word puzzle executable.  It will the run the program five times using those parameters.  Note that it is running the same program five times with the same parameters.  It will record the time of each execution run, and, once the runs are completed, print out the average run time.  Note that you have not yet seen conditions (if or case) or loops (for or while) in shell scripts, so we do not expect your script to have either of these -- you should just have 5 separate commands without a loop.
+Once you have read the tutorial, you will need to write a shell script that will prompt the user for the dictionary and grid file names used by your word puzzle executable.  It will the run the program five times using those parameters.  Note that it is running the same program five times with the same parameters.  It will record the time of each execution run, and, once the runs are completed, print out the average run time.  Note that you have not yet seen conditions (`if` or `case`) or loops (`for` or `while`) in shell scripts, so we do not expect your script to have either of these -- you should just have 5 separate commands without a loop.
 
-To make your life easier, you can modify your word puzzle program to print out the total time taken as the last line of output.  THIS MUST BE AN INTEGER VALUE!  Otherwise else the shell script will have problems (floating point arithmetic in bash is viable, but more complicated, so we'll stick with integer arithmetic).  Thus, you should multiply the result by 1000, and then print it out (hence you are printing out the number of milliseconds that the program took).  You should use the timer's getTime() method for this.  You can then capture that line by piping it through the 'tail -1' command -- a brief introduction on how to do all of this is presented here.  The back quote (on the same key as the tilde (~), which is usually to the left of the digit 1) tells a shell script to run the program, and use the output for something else (as opposed to displaying the output to the screen).  For example, the following line would run the program (called a.out), only keep the last line, and save that output to a variable.
+To make your life easier, you can modify your word puzzle program to print out the total time taken as the last line of output.  **THIS MUST BE AN INTEGER VALUE!**  Otherwise else the shell script will have problems (floating point arithmetic in bash is viable, but more complicated, so we'll stick with integer arithmetic).  Thus, you should multiply the timing result by 1000, and then print it out (hence you are printing out the number of milliseconds that the program took).  You should use the timer's `getTime()` method for this.  You can then capture that line by piping it through the `tail -1` command -- a brief introduction on how to do all of this is presented here.  The back quote (on the same key as the tilde (~), which is usually to the left of the digit 1) tells a shell script to run the program, and use the output for something else (as opposed to displaying the output to the screen).  For example, the following line would run the program (called a.out), only keep the last line, and save that output to a variable.
 
 ```
 RUNNING_TIME=`./a.out | tail -1`
 ```
 
-**Important note:** your shell script MUST call a.out, not a.exe.  We are going to test it on a Linux box, and if it calls a.exe, it won't work, and you won't get credit.
+**Important note:** your shell script MUST call a.out, and not anything else.  We are going to test it on a Linux box, and if it calls anything else, it won't work, and you won't get credit.
 
-Armed with this, the rest of the required concepts for the shell script are in chapter 2 of the tutorial.  This script should be named averagetime.sh.
+Armed with this, the rest of the required concepts for the shell script are in first six sections of the article.  This script should be named `averagetime.sh`.
 
-As you are going through the tutorial, if there is a Unix command that you do not know (or you once knew and have since forgotten), you can find out more information about that command by entering 'man command' at the Unix prompt.  This brings up the manual for that command, including all of the command-line parameters.  Note that if you want to see the manual page for clang++, you enter 'man gcc', not 'man clang++'.
+As you are going through the tutorial, if there is a Unix command that you do not know (or you once knew and have since forgotten), you can find out more information about that command by entering `man command` at the Unix prompt.  This brings up the manual for that command, including all of the command-line parameters.
 
-A few thoughts to help you with your shell script.  If you are unsure if something is working, you can always print out the value of the variable through the 'echo' command.  And you need not worry about the decimal precision of the average -- the result of using 'expr' with the sum over the number of runs is fine -- recall that the script has been modified to only print out an integer value (using 'expr' with floating point values will have issues).
+A few thoughts to help you with your shell script.  If you are unsure if something is working, you can always print out the value of the variable through the `echo` command.  And you need not worry about the decimal precision of the average -- the result of using 'expr' with the sum over the number of runs is fine -- recall that the script has been modified to only print out an integer value (using 'expr' with floating point values will have issues).
 
 Your script should have comments (anything on a line after a '#' is a comment).  Our solution was 10-15 lines, not counting comments.
 
 Below are a few notes to keep in mind when writing your shell script.  Bash is a very powerful language, but it can be rather finicky and unforgiving with syntax.
 
 - The shell script takes two inputs (dictionary file and grid file), in that order; no command-line parameters.
-- Your program should be called 'averagetime.sh', and should have '#!/bin/bash' as the very first line of the script
+- Your program should be called `averagetime.sh`, and should have `#!/bin/bash` as the very first line of the script
 - When setting variables, do not have spaces around the equals sign
-- Keep in mind that to grab program output (such as the output of the binary program, or the result of a mathematical calculation using 'expr'), you use back quotes (i.e. `)
-- To execute your script, you can just enter, './averagetime.sh'.  If you get a complaint about that ('permission denied', for example), enter this command: 'chmod 755 averagetime.sh'.  This tells your Unix system that averagetime.sh is a program that can be executed (remember chmod?).
+- Keep in mind that to grab program output (such as the output of the binary program, or the result of a mathematical calculation using 'expr'), you use back quotes (i.e. \`)
+- To execute your script, you can just enter, `./averagetime.sh`.  If you get a complaint about that ('permission denied', for example), enter this command: `chmod 755 averagetime.sh`.  This tells your Unix system that averagetime.sh is a program that can be executed (remember chmod?).
 
 ### In-lab Report ###
 
