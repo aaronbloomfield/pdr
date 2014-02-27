@@ -36,7 +36,7 @@ Program and Data Representation: Slides
 
 - The hash table bucket signs as both a [pdf](misc/hash-table-buckets.pdf) and an [odt](misc/hash-table-buckets.odt)
 
-Slide set 8: IBCM (machine language)
+[Slide set 8: IBCM (machine language)](08-ibcm.html)
 
 Slide set 9: x86 (assembly language)
 
