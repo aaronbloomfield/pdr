@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>bubblesort.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">//</font></i>
+<i><font color="#9A1900">// Bubblesort of an array of 5 integers.</font></i>
+<i><font color="#9A1900">//</font></i>
+<i><font color="#9A1900">// Pass through the array right to left.  On each pass through the</font></i>
+<i><font color="#9A1900">// outer loop, the smallest remaining value will "bubble" over to its</font></i>
+<i><font color="#9A1900">// appropriate final location in the left side of the array.</font></i>
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<b><font color="#0000FF">const</font></b> <font color="#009900">int</font> MAX<font color="#990000">=</font><font color="#993399">5</font><font color="#990000">;</font>
+
+<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+    <font color="#009900">int</font> A<font color="#990000">[</font>MAX<font color="#990000">];</font>
+    <font color="#009900">int</font> temp<font color="#990000">;</font>
+    <font color="#009900">int</font> k<font color="#990000">;</font>
+    <i><font color="#9A1900">// The following output line should NOT be encoded into IBCM -- it</font></i>
+    <i><font color="#9A1900">// is just to make the C++ implementation easier to understand</font></i>
+    <i><font color="#9A1900">// when run</font></i>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Enter "</font> <font color="#990000">&lt;&lt;</font> MAX <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" numbers to sort, one per line."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <i><font color="#9A1900">// read in the array values.  For IBCM implementation, assume that</font></i>
+    <i><font color="#9A1900">// array is hard coded AFTER the end of the program to perform</font></i>
+    <i><font color="#9A1900">// bubblesort</font></i>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font>k <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> k <font color="#990000">&lt;</font> MAX<font color="#990000">;</font> <font color="#990000">++</font>k<font color="#990000">)</font> <font color="#FF0000">{</font>
+        cin <font color="#990000">&gt;&gt;</font> A<font color="#990000">[</font>k<font color="#990000">];</font>
+    <font color="#FF0000">}</font>
+    <i><font color="#9A1900">// print out the user input to the screen</font></i>
+    cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Original: "</font><font color="#990000">;</font>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font>k <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> k <font color="#990000">&lt;</font> MAX<font color="#990000">;</font> <font color="#990000">++</font>k<font color="#990000">)</font> <font color="#FF0000">{</font>
+        cout <font color="#990000">&lt;&lt;</font> A<font color="#990000">[</font>k<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" "</font><font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+    <i><font color="#9A1900">// Your IBCM program should be these 2 nested for loops plus some</font></i>
+    <i><font color="#9A1900">// additional variable declarations to store the information you</font></i>
+    <i><font color="#9A1900">// need.  This is what you have to implement in IBCM.</font></i>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font><font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> MAX<font color="#990000">;</font> <font color="#990000">++</font>i<font color="#990000">)</font> <font color="#FF0000">{</font>
+        <b><font color="#0000FF">for</font></b> <font color="#990000">(</font><font color="#009900">int</font> j <font color="#990000">=</font> MAX<font color="#990000">-</font><font color="#993399">1</font><font color="#990000">;</font> j <font color="#990000">&gt;</font> i<font color="#990000">;</font> <font color="#990000">--</font>j<font color="#990000">)</font> <font color="#FF0000">{</font>
+            <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>A<font color="#990000">[</font>j<font color="#990000">]</font> <font color="#990000">&lt;</font> A<font color="#990000">[</font>j<font color="#990000">-</font><font color="#993399">1</font><font color="#990000">])</font> <font color="#FF0000">{</font>
+                <i><font color="#9A1900">//	swap(A[j], A[j-1]);</font></i>
+                temp <font color="#990000">=</font> A<font color="#990000">[</font>j<font color="#990000">];</font>
+                A<font color="#990000">[</font>j<font color="#990000">]</font> <font color="#990000">=</font> A<font color="#990000">[</font>j<font color="#990000">-</font><font color="#993399">1</font><font color="#990000">];</font>
+                A<font color="#990000">[</font>j<font color="#990000">-</font><font color="#993399">1</font><font color="#990000">]</font> <font color="#990000">=</font> temp<font color="#990000">;</font>
+            <font color="#FF0000">}</font>
+        <font color="#FF0000">}</font>
+        <i><font color="#9A1900">// You don't have to worry about all this output for the IBCM</font></i>
+        <i><font color="#9A1900">// version.</font></i>
+        cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"After Pass "</font><font color="#990000">&lt;&lt;</font> i <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"  "</font><font color="#990000">;</font>
+        <b><font color="#0000FF">for</font></b> <font color="#990000">(</font>k <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> k <font color="#990000">&lt;</font> MAX<font color="#990000">;</font> <font color="#990000">++</font>k<font color="#990000">)</font> <font color="#FF0000">{</font>
+            cout <font color="#990000">&lt;&lt;</font> A<font color="#990000">[</font>k<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" "</font><font color="#990000">;</font>
+        <font color="#FF0000">}</font>
+    <font color="#FF0000">}</font>
+    <i><font color="#9A1900">// You DO NOT have to implement this. It is only provided so that</font></i>
+    <i><font color="#9A1900">// You may build and run the program via g++ to understand how the</font></i>
+    <i><font color="#9A1900">// algorithm works.</font></i>
+    cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Sorted: "</font><font color="#990000">;</font>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font>k <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> k <font color="#990000">&lt;</font> MAX<font color="#990000">;</font> <font color="#990000">++</font>k<font color="#990000">)</font> <font color="#FF0000">{</font>
+        cout <font color="#990000">&lt;&lt;</font> A<font color="#990000">[</font>k<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" "</font><font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+    cout <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

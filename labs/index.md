@@ -42,3 +42,6 @@ The labs for this course
   - The data files in the [labs/lab06/data/ directory](lab06/data/)
     - These can also be downloaded all at once via the [data.zip](lab06/data.zip) file
   - The tutorial, for the in-lab, is the first 6 sections (through and including 'exit status') of the [Wikibooks article on Bash Shell Scripting](http://en.wikibooks.org/wiki/Bash_Shell_Scripting)
+
+- [Lab 7: IBCM](lab07/index.html) (machine language)
+  - Source code: [bubblesort.cpp](lab07/bubblesort.cpp.html) ([src](lab07/bubblesort.cpp)), [counter.cpp](lab07/counter.cpp.html) ([src](lab07/counter.cpp))
