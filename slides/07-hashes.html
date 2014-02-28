@@ -285,7 +285,9 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 <ul>
 <li>Key space: integers<br>&nbsp;</li>
 <li>Table size: 10<br>&nbsp;</li>
-<li><i>hash</i>(<i>k</i>) = <i>k</i> mod 10<br>&nbsp;</li>
+<li><i>hash</i>(<i>k</i>) = <i>k</i> mod 10<ul>
+    <li>Technically, <i>hash</i>(<i>k</i>) = <i>k</i>,<br>which is <i>then</i> mod'ed by<br>the table size of 10<br>&nbsp;</li>
+</ul></li>
 <li>Insert: 7, 18, 41, 34<br>&nbsp;</li>
 <li>How do we find them?</li>
 </ul>
@@ -362,9 +364,7 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
   - Must be deterministic
   - Must be fast
   - Must be evenly distributed
-- Additional desired properties:
-  - Avoid collisions
-  - Have keys distributed evenly among the cells
+    - This implies avoiding of collisions
 - A perfect hash function has:
   - No blanks (i.e., no empty cells)
   - No collisions

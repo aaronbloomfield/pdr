@@ -76,7 +76,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 17 | Feb&nbsp;21 | Friday | | [06: Trees](../slides/06-trees.html) | [06-trees, slides 4 to 5-13](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/06-trees-3b/06-trees-3b.htm) |
 | 18 | Feb&nbsp;24 | Monday | [Lab 5: Trees](../labs/lab05/index.html) / [Tutorial 5: make](../tutorials/05-make/index.html) | [06: Trees](../slides/06-trees.html) | [06-trees, slides 5-13 to 6-11](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/06-trees-4b/06-trees-4b.htm) |
 | 19 | Feb&nbsp;26 | Wednesday | | [07: Hashes](../slides/07-hashes.html) | [06-trees, slides 7 to 8-9 (end); 07-hashes, slides 1 to 3-5](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/07-hashes-1b/07-hashes-1b.htm) |
-| 20 | Feb&nbsp;28 | Friday | | [07: Hashes](../slides/07-hashes.html) | |
+| 20 | Feb&nbsp;28 | Friday | | [07: Hashes](../slides/07-hashes.html) | [07-hashes, slides 3-6 to 5-3](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/07-hashes-2b/07-hashes-2b.htm) |
 | 21 | Mar&nbsp;3 | Monday | [Lab 6: Hashes](../labs/lab06/index.html) / [Tutorial 6: Shell scripting, part 1](../tutorials/06-shell-scripts-pt1/index.html) | [07: Hashes](../slides/07-hashes.html) | |
 | 22 | Mar&nbsp;5 | Wednesday | | [08: IBCM](../slides/08-ibcm.html) (machine language) | |
 | 23 | Mar&nbsp;7 | Friday | | [08: IBCM](../slides/08-ibcm.html) (machine language) | |
