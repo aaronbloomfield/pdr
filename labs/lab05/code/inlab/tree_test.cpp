@@ -38,7 +38,6 @@ int main () {
     string response;
     tree = new BinarySearchTree(ITEM_NOT_FOUND);
     avl_tree = new AvlTree(ITEM_NOT_FOUND);
-    /*
     cout << "Please enter the name of a file of words: ";
     cin >> inFile;
     ifstream fin(inFile.c_str());
@@ -46,8 +45,7 @@ int main () {
         cerr <<"Cannot open " << inFile << endl;
         exit(1);
     }
-    while (fin >> word) {*/
-    while(cin >> word){
+    while (fin >> word) {
         n = int (word.size());
         assert(n > 0);
         for (i=0; i < n; ++i) {			// Convert to lowercase.
@@ -81,6 +79,6 @@ int main () {
     // Print out Statistics about Shape of the trees
     // and number of links followed.
     print_stats(tree, avl_tree);
-    //fin.close();
+    fin.close();
     return 0;
 }
