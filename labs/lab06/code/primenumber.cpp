@@ -24,7 +24,7 @@ bool checkprime(unsigned int p) {
 
 int getNextPrime (unsigned int n) {
     while ( !checkprime(++n) );
-    return n; // all your primes belong to us
+    return n; // all your primes are belong to us
 }
 
 int main() {
