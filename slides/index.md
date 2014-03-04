@@ -30,12 +30,13 @@ Program and Data Representation: Slides
 [Slide set 6: Trees](06-trees.html)
 
 - The trees diagrams were generated from the files described [here](graphs/index.html)
+- The tree animation site is [here](http://www.qmatica.com/DataStructures/Trees/BST.html) ([mirror](http://webdiis.unizar.es/asignaturas/EDA/AVLTree/avltree.html))
 
 [Slide set 7: Hashes](07-hashes.html)
 
 - The hash table bucket signs as both a [pdf](misc/hash-table-buckets.pdf) and an [odt](misc/hash-table-buckets.odt)
 
-Slide set 8: IBCM (machine language)
+[Slide set 8: IBCM (machine language)](08-ibcm.html)
 
 Slide set 9: x86 (assembly language)
 

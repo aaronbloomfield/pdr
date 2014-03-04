@@ -82,6 +82,7 @@
 | insert | &Theta;(*n*) worst case,<br>but often &Theta;(1) | &Theta;(1) |
 | remove | &Theta;(*n*) | &Theta;(*n*) |
 | findKth | &Theta;(1) | &Theta;(*n*) |
+<center>The operations are *generally* linear-time operations</center>
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -103,6 +104,7 @@
 | push | &Theta;(*n*) worst case,<br>but often &Theta;(1) | &Theta;(1) |
 | pop | &Theta;(1) | &Theta;(1) |
 | top | &Theta;(1) | &Theta;(1) |
+<center>The operations are *generally* constant-time operations</center>
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -122,6 +124,7 @@
 |-|-|-|
 | enqueue | &Theta;(*n*) worst case,<br>but often &Theta;(1) | &Theta;(1) |
 | dequeue | &Theta;(1) | &Theta;(1) |
+<center>The operations are *generally* constant-time operations</center>
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -137,22 +140,19 @@
 ## Trees
 | | BST | AVL | Red-black | Splay |
 |-|-|-|-|-|
-| find | &Theta;(*h*), where<br>*n* < *h* &le; *n*-1;<br>worst case is &Theta;(*n*) | &Theta;(log *n*) | &Theta;(log *n*)<br>amortized | &Theta;(log *n*) |
-| insert | &Theta;(*h*), where<br>*n* < *h* &le; *n*-1;<br>worst case is &Theta;(*n*) | &Theta;(log *n*) | &Theta;(log *n*)<br>amortized | &Theta;(log *n*) |
-| remove | &Theta;(*h*), where<br>*n* < *h* &le; *n*-1;<br>worst case is &Theta;(*n*) | &Theta;(log *n*) | &Theta;(log *n*)<br>amortized | &Theta;(log *n*) |
+| find | &Theta;(*h*), where<br>*n* < *h* &le; *n*-1;<br>worst case is &Theta;(*n*) | &Theta;(log *n*) | &Theta;(log *n*) | &Theta;(log *n*)<br>amortized |
+| insert | &Theta;(*h*), where<br>*n* < *h* &le; *n*-1;<br>worst case is &Theta;(*n*) | &Theta;(log *n*) | &Theta;(log *n*) | &Theta;(log *n*)<br>amortized |
+| remove | &Theta;(*h*), where<br>*n* < *h* &le; *n*-1;<br>worst case is &Theta;(*n*) | &Theta;(log *n*) | &Theta;(log *n*) | &Theta;(log *n*)<br>amortized |
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Is There Anything Faster?
 - Fastest possible search using binary comparison: &Theta;(log *n*)
-- Yes: (almost) constant time is possible: &Theta;(1)
-  - Hash tables (lookup table)
-    - Operations
-      - find
-      - insert
-      - delete
-    - No ordering property!
-      - Thus, no findMin or findMax
+- Yes: (almost) constant (&Theta;(1)) is possible with *hash tables*
+- Hash tables (lookup table)
+  - Standard set of operations: find, insert, delete
+  - No ordering property!
+    - Thus, no findMin or findMax
 	  </script></section>
 
 	</section>
@@ -165,24 +165,6 @@
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Important Terms
-- Hash table
-  - Key
-  - Hash function
-- Collision
-  - Collision resolution approaches
-    - Separate chaining
-    - Open addressing
-      - Linear probing
-        - Primary clustering
-      - Quadratic probing
-        - Secondary clustering
-      - Double hashing
-      - Rehashing
-- Load factor
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
 ## Key-value pairs
 - Hash tables store key-value pairs
   - Each value has a specific key associated with it
@@ -191,8 +173,8 @@
   - Definitions: "set", "v.tr. 1. To put in a specified position..."
   - Uva e-mail redirects: "aaron@", "asb2t@cms .virginia.edu"
   - Anything that can be stored in a tree
-    - Userid/IDnum pairs
-    - Userid/lots_of_info_about_them_in_an_object pairs
+    - Userid / IDnum pairs
+    - Userid / lots_of_info_about_them_in_an_object pairs
 	  </script></section>
 
 	  <section>
@@ -201,14 +183,14 @@
 <table class="transparent"><tr><td>
 <ul>
 <li>Hash table<ul>
-    <li>fixed size <i>array</i> of some size, usually a prime number</li>
-    <li>Should be larger than the number of elements</li></ul</li>
-<li>Key space:</li>
+    <li>fixed size <i>array</i> of some size, usually a prime number<ul>
+	<li>Should be larger than the number of elements</li></ul></li></ul></li>
+<li>Given a key space:</li>
 </ul>
 </td></tr>
 <tr><td>
-    <table class="transparent"><tr><td><img src="images/07-hashes/blob.png"></td><td class="middle">
-	  <table class="transparent"><tr><td>hash function</td></tr><tr><td><i>h</i>(<i>k</i>)</td></tr><tr><td>&rarr;</td></tr></table>
+    <table class="transparent"><tr><td><img alt="blob" src="images/07-hashes/blob.png"></td><td class="middle">
+	  <table class="transparent"><tr><td>hash function</td></tr><tr><td><i>hash</i>(<i>k</i>)</td></tr><tr><td>&rarr;</td></tr></table>
     </td></tr></table>
 </td></tr></table>
 </td><td class="middle">
@@ -232,7 +214,8 @@
 ## Hash function
 - A hash function takes in a "thing"...
   - string, int, object, etc.
-  - and returns an integer value within the bounds of the hash table array
+  - and returns an *unsigned* integer value
+    - which is then mod'ed by the size of the hash table to yield a spot within the bounds of the hash table array
 - Three *required* properties
   - Must be *deterministic*
     - Meaning it must return the same value each time for the same "thing"
@@ -244,28 +227,19 @@
 	  <section>
 <h2>Hash functions KLA</h2>
 <ul>
-<li>I'm going hash all of you into 10 buckets (0-9) by your birthday</li>
-<li>(you are welcome to make up another birthday, as long as you are consistent)<ul>
+<li>I'm going hash all of you into 10 buckets (0-9) by your birthday<ul>
+    <li>(you are welcome to make up another birthday, as long as you are consistent)</li></ul><br>&nbsp;</li>
+<li>The hash functions:<ul>
 <li class="fragment" data-fragment-index="1">By the decade of your birth year<ul>
-<li class="fragment" data-fragment-index="1">(year/10) % 10</li></ul></li>
+<li class="fragment" data-fragment-index="1"><i>hash</i>(<i>birthday</i>) = (<i>year</i>/10) % 10</li></ul></li>
 <li class="fragment" data-fragment-index="2">By the last digit of your birth year<ul>
-<li class="fragment" data-fragment-index="2">year % 10</li></ul></li>
+<li class="fragment" data-fragment-index="2"><i>hash</i>(<i>birthday</i>) = <i>year</i> % 10</li></ul></li>
 <li class="fragment" data-fragment-index="3">By the last digit of your birth month<ul>
-<li class="fragment" data-fragment-index="3">month % 10</li></ul></li>
+<li class="fragment" data-fragment-index="3"><i>hash</i>(<i>birthday</i>) = <i>month</i> % 10</li></ul></li>
 <li class="fragment" data-fragment-index="4">By the last digit of your birth day<ul>
-<li class="fragment" data-fragment-index="4">day % 10</li></ul></li>
+<li class="fragment" data-fragment-index="4"><i>hash</i>(<i>birthday</i>) = <i>day</i> % 10</li></ul></li>
 </ul></li></ul>
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
-## Issues
-- Table size
-- Keys
-- Hash function
-- Duplicate items
-- Collision resolution
-- Time-space tradeoff
-	  </script></section>
+	  </section>
 
 	  <section>
 <h2>Keys</h2>
@@ -283,7 +257,7 @@
 <td class="top">
 &nbsp;<br><small>&quot;Hello&quot;</small><br>&nbsp;<br><small>['H','i',\0]</small><br>&nbsp;<br><small>3.14</small><br>&nbsp;<br><small>'x'</small><br>&nbsp;<br><small>0x42381a</small><br>&nbsp;<br><small>01001010</small></td>
     <!-- image adapted from http://openclipart.org/detail/3677/arrow-left-right-by-torfnase -->
-    <td><img class="noborder" src="images/red-double-arrow.png" height="500" alt="vertical red double arrow"></td>
+    <td style="width:150px"><img class="noborder" src="images/red-double-arrow.png" height="500" alt="vertical red double arrow"></td>
     <td class="top">&nbsp;<br>&nbsp;<br><small>Objects</small><br>&nbsp;<br><small>Arrays</small><br>&nbsp;<br><small>Primitive types</small><br>&nbsp;<br><small>Addresses</small><br>&nbsp;<br><small>bits</small></td>
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
   </tr>
@@ -301,8 +275,8 @@
 | 000100 | "green" |
 | 000101 | "white" |
 | 000110 | ... |
-
-This can work, unless the key space is sparse, or we don't know the keys ahead of time
+&nbsp;  
+This can work, unless the key space is sparse, or we don't know the keys ahead of time.  But it's slow to look up a value in a table!
 	  </script></section>
 
 	  <section>
@@ -311,25 +285,26 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 <ul>
 <li>Key space: integers<br>&nbsp;</li>
 <li>Table size: 10<br>&nbsp;</li>
-<li><i>h</i>(<i>k</i>) = <i>k</i> mod 10<br>&nbsp;</li>
+<li><i>hash</i>(<i>k</i>) = <i>k</i> mod 10<ul>
+    <li>Technically, <i>hash</i>(<i>k</i>) = <i>k</i>,<br>which is <i>then</i> mod'ed by<br>the table size of 10<br>&nbsp;</li>
+</ul></li>
 <li>Insert: 7, 18, 41, 34<br>&nbsp;</li>
 <li>How do we find them?</li>
 </ul>
 </td><td style="width:100px"></td><td class="top">
 <table class="transparent">
 <tr><td>0</td><td class="border" style="width:100px"></td></tr>
-<tr><td>1</td><td class="border" style="width:100px"></td></tr>
+<tr><td>1</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="3">41</span></td></tr>
 <tr><td>2</td><td class="border" style="width:100px"></td></tr>
 <tr><td>3</td><td class="border" style="width:100px"></td></tr>
-<tr><td>4</td><td class="border" style="width:100px"></td></tr>
+<tr><td>4</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="4">34</span></td></tr>
 <tr><td>5</td><td class="border" style="width:100px"></td></tr>
 <tr><td>6</td><td class="border" style="width:100px"></td></tr>
-<tr><td>7</td><td class="border" style="width:100px"></td></tr>
-<tr><td>8</td><td class="border" style="width:100px"></td></tr>
+<tr><td>7</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="1">7</span></td></tr>
+<tr><td>8</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="2">18</span></td></tr>
 <tr><td>9</td><td class="border" style="width:100px"></td></tr>
 </table>
 </td></tr></table>
-<script type="text/javascript">insertCanvas();</script>
 	  </section>
 
 	  <section data-markdown><script type="text/template">
@@ -337,10 +312,10 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 - Why not just have a table of size 100
   - And map them directly to the location corresponding to their key?
 - We assume that the key space is too large
-  - Example: mapping social security numbers for students at UVA
-    - There are not 999,999,999 students at UVA even if taken across all time
+  - Example: mapping social security numbers for students at UVa
+    - There are not 999,999,999 students at UVa, even if taken across all time
 - Do you see why find max and find min are not easy?
-  - We have not preserved any ordering info.
+  - We have not preserved any ordering info
 	  </script></section>
 
 	  <section>
@@ -349,27 +324,27 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 <ul>
 <li>Key space: integers<br>&nbsp;</li>
 <li>Table size: 6<br>&nbsp;</li>
-<li><i>h</i>(<i>k</i>) = <i>k</i> mod 6<br>&nbsp;</li>
+<li><i>hash</i>(<i>k</i>) = <i>k</i> mod 6<br>&nbsp;</li>
 <li>Insert: 7, 18, 41, 34, <span class='red'>12</span><br>&nbsp;</li>
 <li>How do we find them?</li>
 </ul>
 </td><td style="width:100px"></td><td class="top">
 <table class="transparent">
-<tr><td>0</td><td class="border" style="width:100px"></td></tr>
-<tr><td>1</td><td class="border" style="width:100px"></td></tr>
+<tr><td>0</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="2">18</span><span class="fragment" data-fragment-index="5"><span class="red"> 12</span></span></td></tr>
+<tr><td>1</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="1">7</span></td></tr>
 <tr><td>2</td><td class="border" style="width:100px"></td></tr>
 <tr><td>3</td><td class="border" style="width:100px"></td></tr>
-<tr><td>4</td><td class="border" style="width:100px"></td></tr>
-<tr><td>5</td><td class="border" style="width:100px"></td></tr>
+<tr><td>4</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="4">34</span></td></tr>
+<tr><td>5</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="3">41</span></td></tr>
 </table>
 </td></tr></table>
-<script type="text/javascript">insertCanvas();</script>
 	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## Hash Table
-- Hash Function: *h*: *key* &rarr; [0, *m*-1]
-- Here, *h* = `firstletter`(*key*)<br>&nbsp;
+- Hash function: *hash*: *key* &rarr; [0, *m*-1]
+  - Really to any unsigned integer, which is then mod'ed by *m*, the table size
+- Here, *hash*(*key*) = `firstletter`(*key*)<br>&nbsp;
 
 | Location | Key | Value |
 |-|-|-|
@@ -385,36 +360,37 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 
 	  <section data-markdown><script type="text/template">
 ## Hash Functions
-- Desired properties:
-  1. Simple/fast to compute,
-  2. Avoid collisions
-  3. Have keys distributed evenly among cells.
-  4. (And obviously deterministic)
-- A perfect hash function:
-  - No blanks (empty cells)
+- Required properties described earlier
+  - Must be deterministic
+  - Must be fast
+  - Must be evenly distributed
+    - This implies avoiding of collisions
+- A perfect hash function has:
+  - No blanks (i.e., no empty cells)
   - No collisions
 	  </script></section>
 
 	  <section>
 <h2>Sample String Hash Functions</h2>
 <ul>
-<li>key space: strings</li>
+<li>Key space: strings</li>
+<li>A string <i>s</i> is made up of characters <i>s<sub>i</sub></i></li>
 <li>\( s = s_0s_1s_2s_3\ldots s_{k-1} \)</li>
 </ul>
 <p>&nbsp;</p>
 <ol>
-<li class="fragment">\( h(s) = s_0 \mod TableSize \)<br>&nbsp;</li>
-<li class="fragment">\( h(s) = \left( \sum_{i=0}^{k-1}s_i \right) \mod TableSize \)<br>&nbsp;</li>
-<li class="fragment">\( h(s) = \left( \sum_{i=0}^{k-1}s_i*37^i \right) \mod TableSize \)<br>&nbsp;</li>
+<li class="fragment">\( hash(s) = s_0 \mod table\_size \)<br>&nbsp;</li>
+<li class="fragment">\( hash(s) = \left( \sum_{i=0}^{k-1}s_i \right) \mod table\_size \)<br>&nbsp;</li>
+<li class="fragment">\( hash(s) = \left( \sum_{i=0}^{k-1}s_i*37^i \right) \mod table\_size \)<br>&nbsp;</li>
 </ol>
 	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## Collision Resolution
-- Collision: when two keys map to the same location in the hash table.  
-- Two ways to resolve collisions:
-  1. Separate Chaining (make each bucket a collection)
-  2. Open Addressing
+- Collision: when two keys map to the same location in the hash table
+- Two primary ways to resolve collisions:
+  1. Separate Chaining (make each spot in the table a 'bucket' or a collection)
+  2. Open Addressing, of which there are 3 types:
      - Linear probing
      - Quadratic probing
      - Double hashing
@@ -446,8 +422,9 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 </table>
 </td><td style="width:200px"></td><td class="top">
 <ul>
-<li>All keys that map to the same hash value are kept in a list (or &quot;bucket&quot;).<br>&nbsp;</li>
-<li><i>h</i>(<i>k</i>) = <i>k</i> mod 10<br>&nbsp;</li>
+<li>All keys that map to the same hash value are kept in a &quot;bucket&quot;<ul>
+  <li>This &quot;bucket&quot; is another data structure, typically a linked list</li></ul><br>&nbsp;</li>
+<li><i>hash</i>(<i>k</i>) = <i>k</i> mod 10<br>&nbsp;</li>
 <li>Insert: 10, 22, 107, 12, 42</li>
 </ul>
 </td></tr></table>
@@ -459,9 +436,9 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 - Definition: The *load factor*, &lambda;, of a hash table is the ratio of the number of elements divided by the table size
 - For separate chaining, &lambda; is the average number of elements in a bucket
   - Average time on unsuccessful find: &lambda;
-    - Average length of a list at hash(k)
+    - Average length of a list at *hash*(*k*)
   - Average time on successful find: 1 + (&lambda;/2)
-    - One node, plus half the avg. length of a list (not including the item)
+    - One node, plus half the average length of a list (not including the item)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -470,13 +447,13 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
   - Well, we want "constant" time for find and insert...
 - Possible sizes for hash table with separate chaining
   - &lambda; = 1
-    - Make hash table = # of elements expected
-    - So average bucket size is one
-    - Also make it a prime #
+    - Make hash table be the number of elements expected
+    - So average bucket size is 1
+    - Also make it a prime number
   - &lambda; = 0.75
-    - Java's Hashtable does this
+    - Java's [Hashtable](http://docs.oracle.com/javase/7/docs/api/java/util/Hashtable.html) but can be set to another value
     - Table will always be bigger than the number of elements
-    - This reduces the chance of a collision!
+      - This reduces the chance of a collision!
     - Good trade-off between memory use and running time
   - &lambda; = 0.5
     - Uses more memory, but fewer collisions
@@ -488,6 +465,7 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 - What is the worst case?
   - Hint: [Wikipedia](http://en.wikipedia.org/wiki/Hash_table) is wrong on this one...
   - In the worst case, every key could hash to the same spot!
+    - As nobody uses anything other than a linked list as the secondary data structure, this means it will be a &Theta;(*n*) algorithm to perform a find!
 - What is the "hopeful" average case?
 	  </script></section>
 
@@ -497,19 +475,21 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
   - But that's a lot of overhead!
 - Vectors are easier and simpler, but take up a *lot* of space
   - All those extra, unused, cells
+  - Don't *ever* use vectors for this!
 - Linked lists are quick and easy, and take up very little extra space
   - That's &Theta;(*n*)!
-  - Still faster *in practice* than trees
+  - Still faster *in practice* than trees due to having a very small number of items in the bucket
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Requirements for "Hopeful" Case
-- Function *h* is well distributed for key space
-  - For a randomly selected *k* &isin; *K*,
-  - probability(hash(*k*) = i) = 1/tablesize
-- Size of table scales linearly with number of elements
-  - Expected bucket size is &Theta;(num_elements / table_size)
-- Finding a good has function can be tough
+- Our ideal hash function and hash table:
+  - Function *hash*(*k*) is well distributed for key space
+    - For a randomly selected *k* &isin; *K*,
+    - probability(*hash*(*k*) = i) = 1/*table_size*
+  - Size of table scales linearly with number of elements
+    - Expected bucket size is &Theta;(*num_elements* / *table_size*)
+- Finding a good hash function can be tough
 	  </script></section>
 
 	</section>
@@ -524,31 +504,34 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 	  <section data-markdown><script type="text/template">
 ## Saving Memory
 ![separate chaining diagram](images/07-hashes/separate-chaining-diagram.png)
-
-- Can we avoid the overhead of all those linked lists?
+&nbsp;  
+<center>Can we avoid the overhead of all those linked lists?</center>
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Three Types of Probing Strategies
-- Linear
-- Quadratic
-- Double hashing
+- The three types:
+  - Linear
+  - Quadratic
+  - Double hashing
+- The general idea with all of them is that, if a spot is occupied, to 'probe', or try, other spots in the table to use
+  - How we determine where else to probe depends on which strategy we are using
 	  </script></section>
 
 	  <section>
 <h2>Linear Probing</h2>
 <table class="transparent"><tr><td class="top">
 <table class="transparent">
-<tr><td>0</td><td class="border" style="width:100px"></td></tr>
-<tr><td>1</td><td class="border" style="width:100px"></td></tr>
-<tr><td>2</td><td class="border" style="width:100px"></td></tr>
+<tr><td>0</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="3">8</span></td></tr>
+<tr><td>1</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="4">109</span></td></tr>
+<tr><td>2</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="5">10</span></td></tr>
 <tr><td>3</td><td class="border" style="width:100px"></td></tr>
 <tr><td>4</td><td class="border" style="width:100px"></td></tr>
 <tr><td>5</td><td class="border" style="width:100px"></td></tr>
 <tr><td>6</td><td class="border" style="width:100px"></td></tr>
 <tr><td>7</td><td class="border" style="width:100px"></td></tr>
-<tr><td>8</td><td class="border" style="width:100px"></td></tr>
-<tr><td>9</td><td class="border" style="width:100px"></td></tr>
+<tr><td>8</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="1">38</span></td></tr>
+<tr><td>9</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="2">19</span></td></tr>
 </table>
 </td><td style="width:200px"></td><td class="top">
 <ul>
@@ -563,19 +546,18 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 <li>Insert: 38, 19, 8, 109, 10</li>
 </ul>
 </td></tr></table>
-<script type="text/javascript">insertCanvas();</script>
 	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## Linear Probing
-- With all open addressing schemes, we examine cells in the order:
-  - *h*<sub>0</sub>(*k*), *h*<sub>1</sub>(*k*), *h*<sub>2</sub>(*k*), ...
-  - where *h*<sub>i</sub>(*k*) = (hash(*k*) + *f*(*i*)) mod TableSize
+- With all open addressing schemes, we examine ('probe') the cells in the order:
+  - *p*<sub>0</sub>(*k*), *p*<sub>1</sub>(*k*), *p*<sub>2</sub>(*k*), ...
+  - where: *p*<sub>i</sub>(*k*) = (*hash*(*k*) + *f*(*i*)) mod *table_size*
 - With *linear probing*, <span class="red">*f*(*i*) = *i*</span>
-  - After searching spot hash(*k*) in the array, look in:
-    - hash(*k*) + 1
-    - hash(*k*) + 2
-    - hash(*k*) + 3
+  - After searching spot *hash*(*k*) in the array, look in:
+    - *hash*(*k*) + 1
+    - *hash*(*k*) + 2
+    - *hash*(*k*) + 3
     - etc.
 	  </script></section>
 
@@ -586,19 +568,20 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
   - As table fills, increased number of attempts required to solve collision
     - And thus slower lookup times
   - "Holes" when an element is removed
+    - We'll see how to solve this later
   - When to stop looking?
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Quadratic Probing
-- With all open addressing schemes, we examine cells in the order:
-  - *h*<sub>0</sub>(*k*), *h*<sub>1</sub>(*k*), *h*<sub>2</sub>(*k*), ...
-  - where *h*<sub>i</sub>(*k*) = (hash(*k*) + *f*(*i*)) mod TableSize
+- With all open addressing schemes, we examine ('probe') the cells in the order:
+  - *p*<sub>0</sub>(*k*), *p*<sub>1</sub>(*k*), *p*<sub>2</sub>(*k*), ...
+  - where: *p*<sub>i</sub>(*k*) = (*hash*(*k*) + *f*(*i*)) mod *table_size*
 - With *quadratic probing*, <span class="red">*f*(*i*) = *i*<sup>2</sup></span>
-  - After searching spot hash(*k*) in the array, look in:
-    - hash(*k*) + 1
-    - hash(*k*) + 4
-    - hash(*k*) + 9,
+  - After searching spot *hash*(*k*) in the array, look in:
+    - *hash*(*k*) + 1
+    - *hash*(*k*) + 4
+    - *hash*(*k*) + 9
     - etc.
 	  </script></section>
 
@@ -606,16 +589,16 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 <h2>Quadratic Probing</h2>
 <table class="transparent"><tr><td class="top">
 <table class="transparent">
-<tr><td>0</td><td class="border" style="width:100px"></td></tr>
+<tr><td>0</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="3">49</span></td></tr>
 <tr><td>1</td><td class="border" style="width:100px"></td></tr>
-<tr><td>2</td><td class="border" style="width:100px"></td></tr>
-<tr><td>3</td><td class="border" style="width:100px"></td></tr>
+<tr><td>2</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="4">58</span></td></tr>
+<tr><td>3</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="5">69</span></td></tr>
 <tr><td>4</td><td class="border" style="width:100px"></td></tr>
-<tr><td>5</td><td class="border" style="width:100px"></td></tr>
+<tr><td>5</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="6">29</span></td></tr>
 <tr><td>6</td><td class="border" style="width:100px"></td></tr>
 <tr><td>7</td><td class="border" style="width:100px"></td></tr>
-<tr><td>8</td><td class="border" style="width:100px"></td></tr>
-<tr><td>9</td><td class="border" style="width:100px"></td></tr>
+<tr><td>8</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="2">18</span></td></tr>
+<tr><td>9</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="1">89</span></td></tr>
 </table>
 </td><td style="width:200px"></td><td class="top">
 <ul>
@@ -627,23 +610,22 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
     <li>etc.</li>
 </ul><br>&nbsp;</li>
 <li><i>hash</i>(<i>k</i>) = <i>k</i> mod 10<br>&nbsp;</li>
-<li>Insert: 89, 18, 49, 58, 69</li>
+<li>Insert: 89, 18, 49, 58, 69, 29</li>
 </ul>
 </td></tr></table>
-<script type="text/javascript">insertCanvas();</script>
 	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## Double Hashing
-- With all open addressing schemes, we examine cells in the order:
-  - *h*<sub>0</sub>(*k*), *h*<sub>1</sub>(*k*), *h*<sub>2</sub>(*k*), ...
-  - where *h*<sub>i</sub>(*k*) = (hash(*k*) + *f*(*i*)) mod TableSize
+- With all open addressing schemes, we examine ('probe') the cells in the order:
+  - *p*<sub>0</sub>(*k*), *p*<sub>1</sub>(*k*), *p*<sub>2</sub>(*k*), ...
+  - where: *p*<sub>i</sub>(*k*) = (*hash*(*k*) + *f*(*i*)) mod *table_size*
 - With *double hasing*, <span class="red">*f*(*i*) = *i* \* hash<sub>2</sub>(*k*)</span>
   - Which means we have to define a *secondary* hash function!
-  - After searching spot hash(*k*) in the array, look in:
-    - hash(*k*) + hash<sub>2</sub>(*k*)
-    - hash(*k*) + 2 \* hash<sub>2</sub>(*k*)
-    - hash(*k*) + 3 \* hash<sub>2</sub>(*k*)
+  - After searching spot *hash*(*k*) in the array, look in:
+    - *hash*(*k*) + 1 \* *hash*<sub>2</sub>(*k*)
+    - *hash*(*k*) + 2 \* *hash*<sub>2</sub>(*k*)
+    - *hash*(*k*) + 3 \* *hash*<sub>2</sub>(*k*)
     - etc.
 	  </script></section>
 
@@ -651,16 +633,16 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 <h2>Double Hashing</h2>
 <table class="transparent"><tr><td class="top">
 <table class="transparent">
-<tr><td>0</td><td class="border" style="width:100px"></td></tr>
+<tr><td>0</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="5">69</span></td></tr>
 <tr><td>1</td><td class="border" style="width:100px"></td></tr>
-<tr><td>2</td><td class="border" style="width:100px"></td></tr>
-<tr><td>3</td><td class="border" style="width:100px"></td></tr>
+<tr><td>2</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="6">60</span></td></tr>
+<tr><td>3</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="3">58</span></td></tr>
 <tr><td>4</td><td class="border" style="width:100px"></td></tr>
 <tr><td>5</td><td class="border" style="width:100px"></td></tr>
-<tr><td>6</td><td class="border" style="width:100px"></td></tr>
+<tr><td>6</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="4">49</span></td></tr>
 <tr><td>7</td><td class="border" style="width:100px"></td></tr>
-<tr><td>8</td><td class="border" style="width:100px"></td></tr>
-<tr><td>9</td><td class="border" style="width:100px"></td></tr>
+<tr><td>8</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="2">18</span></td></tr>
+<tr><td>9</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="1">89</span></td></tr>
 </table>
 </td><td style="width:200px"></td><td class="top">
 <ul>
@@ -673,45 +655,45 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 </ul><br>&nbsp;</li>
 <li><i>hash</i>(<i>k</i>) = <i>k</i> mod 10</li>
 <li><i>hash</i><sub>2</sub>(<i>k</i>) = 7 - (<i>k</i> mod 7)<br>&nbsp;</li>
-<li>Insert: 89, 18, 49, 58, 69, 60</li>
+<li>Insert: 89, 18, 58, 49, 69, 60</li>
 </ul>
 </td></tr></table>
-<script type="text/javascript">insertCanvas();</script>
 	  </section>
 
 	  <section>
 <h2>Double Hashing Thrashing</h2>
 <table class="transparent"><tr><td class="top">
 <table class="transparent">
-<tr><td>0</td><td class="border" style="width:100px"></td></tr>
+<tr><td>0</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="1">10</span></td></tr>
 <tr><td>1</td><td class="border" style="width:100px"></td></tr>
-<tr><td>2</td><td class="border" style="width:100px"></td></tr>
+<tr><td>2</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="2">12</span></td></tr>
 <tr><td>3</td><td class="border" style="width:100px"></td></tr>
-<tr><td>4</td><td class="border" style="width:100px"></td></tr>
+<tr><td>4</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="3">14</span></td></tr>
 <tr><td>5</td><td class="border" style="width:100px"></td></tr>
-<tr><td>6</td><td class="border" style="width:100px"></td></tr>
+<tr><td>6</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="4">16</span></td></tr>
 <tr><td>7</td><td class="border" style="width:100px"></td></tr>
-<tr><td>8</td><td class="border" style="width:100px"></td></tr>
+<tr><td>8</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="5">18</span></td></tr>
 <tr><td>9</td><td class="border" style="width:100px"></td></tr>
 </table>
 </td><td style="width:200px"></td><td class="top">
 <ul>
 <li><i>hash</i>(<i>k</i>) = <i>k</i> mod 10<br>&nbsp;</li>
 <li><i>hash</i><sub>2</sub>(<i>k</i>) = (<i>k</i> mod 5) +1<br>&nbsp;</li>
-<li>Insert: 10, 12, 14, 16, 18, 31</li>
+<li>Insert: 10, 12, 14, 16, 18, <span class='red'>36</span></li>
 </ul>
 </td></tr></table>
-<script type="text/javascript">insertCanvas();</script>
 	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## Table size must be prime!
 - The table size must always be a prime number
   - It will prevent the thrashing from the previous slide
-    - Thrashing will only occur when the double hash value is a factor of the table size
-    - The only factors of a prime number p are 1 and p
-  - Better distribution of hash keys into the table
-    - Less clustering, etc
+    - Thrashing will only occur when the double hash value is a *factor* of the table size
+    - The only factors of a prime number *p* are 1 and *p*
+      - 1 is effectively linear probing, which is fine
+      - *p* will mod to zero, which is an invalid return value for a secondary hash function
+  - It will provide better distribution of the hash keys into the table
+    - Less clustering, etc.
 - A prime number table size does not remove the need for a good hash function!
 	  </script></section>
 
@@ -729,19 +711,20 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 - Problem: when the table gets too full, running time for operations increases
 - Solution: create a bigger table and hash all the items from the original table into the new table
   - The position in a table is dependent on the table size, which means we have to *rehash* each value
+  - This means we have to re-compute the hash value for *each* element, and insert it into the new table!
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Rehashing
 - When to rehash?
-  - Half full (&lambda; = 0.5)
-  - Mostly full (&lambda; = 0.75)
+  - When half full (&lambda; = 0.5)
+  - When mostly full (&lambda; = 0.75)
     - Java's hashtable does this by default
   - When an insertion fails
   - Some other threshold
 - Cost of rehashing
   - Let's assume that the hash function computation is constant
-  - We have to do *n* inserts, and if each key hashes to the same spot, then it will be a &Theta(*n*) operation!
+  - We have to do *n* inserts, and if each key hashes to the same spot, then it will be a &Theta;(*n*<sup>2</sup>) operation!
     - Although it is not likely to ever run that slow
 	  </script></section>
 
@@ -749,18 +732,19 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 ## Removing an element
 - How to handle this?
 - You could:
-  - Rehash upon each delete (expensive)
-  - Put in a 'placeholder' or 'sentinel' value (table gets filled with these rather fast)
+  - Rehash upon each delete, which is *very* expensive
+  - Put in a 'placeholder' or 'sentinel' value
+    - But the table gets filled with these rather fast
     - Perhaps rehashing after a certain number of deletes
-  - Disallow deletes entirely
-- Hash tables are not great if you need to perform a lot of deletions
+  - Disallow deletes entirely; you can do this for [lab 6](../labs/lab06/index.html)
+- Hash tables are not an ideal data structure if you need to perform a lot of deletions
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Hashing: MD5
-- MD5: Message Digest 5
+- [MD5: Message Digest 5](http://en.wikipedia.org/wiki/Md5)
 - Given a string (or file contents, etc.) generate a 128-bit hash
-  - 2<sup>128</sup> = 3.4*10<sup>38</sup> (also the max value of a float)
+  - 2<sup>128</sup> = 3.4*10<sup>38</sup> (coincidentally, this is is also the [maximum finite value](04-numbers.html#maxfloatvalue) of a `float`)
   - Typically an MD5 is written in hex: 16e28b7986fd74f65b061de89dc8b78e
 - This could then be used as they key
   - Obviously having to mod it by the table size
@@ -770,21 +754,22 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 	  <section data-markdown><script type="text/template">
 ## Can you reverse an MD5 hash?
 - Technically, no
-  - A 129-bit file has 2<sup>129</sup> possibilities, and if you were to hash each one, it would go into 2128 buckets
-  - By the pigeonhole principle, there would be at least one hash value with multiple keys, and you don't know which one
+  - A 129-bit file has 2<sup>129</sup> possibilities, and if you were to hash each one, it would go into 2<sup>128</sup> buckets
+  - By the pigeonhole principle, there would be at least one hash value (pigeonhole) with multiple keys (pigeons), and you don't know which one
+    - In reality, *many* (and eventually *all*) would have multiple keys
 - But if a password is stored by it's MD5 hash...
   - ... then there are enough online hash libraries that you can find at least one password that hashes to that value
-  - Try Googling for '3858f62230ac3c915f300c664312c63f'
+  - Try Googling for [3858f62230ac3c915f300c664312c63f](https://www.google.com/search?q=3858f62230ac3c915f300c664312c63f)
 - Plus there are lots of weaknesses in MD5...
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## More hashing: SHA
 - MD5 has been "broken"
-  - One can generate two files that have the same hash
-    - In fact, I have the students do something similar when I teach Defense Against the Dark Arts (albeit with a weaker hashing algorithm)
+  - One can generate two files that have the same hash; this is called a [collision attack](https://en.wikipedia.org/wiki/Collision_attack)
+    - In fact, I have the students do something similar when I teach Defense Against the Dark Arts (albeit with a [weaker hashing algorithm](https://en.wikipedia.org/wiki/Crc32))
   - So it is useless for any security-related purposes
-- SHA (Secure Hash Algorithm) is a family of algorithms that (the more recent ones) are much more secure
+- [SHA (Secure Hash Algorithm)](http://en.wikipedia.org/wiki/Secure_Hash_Algorithm) is a family of algorithms that (the more recent ones) are much more secure
   - Same overall idea: it generates a hash value up to 512 bits
 	  </script></section>
 

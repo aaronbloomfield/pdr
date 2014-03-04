@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>counter.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;string&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;time.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;sys/time.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;sstream&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdlib.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;string.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdio.h&gt;</font>
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+
+<i><font color="#9A1900">// this is the timer class from lab 6, included here so as not to</font></i>
+<i><font color="#9A1900">// require multiple files to compile</font></i>
+<b><font color="#0000FF">class</font></b> <font color="#008080">timer</font> <font color="#FF0000">{</font>
+<b><font color="#0000FF">private</font></b><font color="#990000">:</font>
+    <font color="#008080">timeval</font> startVar<font color="#990000">,</font> stopVar<font color="#990000">;</font>
+    <font color="#009900">bool</font> running<font color="#990000">;</font>
+
+<b><font color="#0000FF">public</font></b><font color="#990000">:</font>
+    <b><font color="#000000">timer</font></b><font color="#990000">()</font> <font color="#990000">:</font> <b><font color="#000000">running</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">)</font> <font color="#FF0000">{}</font>
+    <font color="#990000">~</font><b><font color="#000000">timer</font></b><font color="#990000">()</font> <font color="#FF0000">{}</font>
+    <b><font color="#000000">timer</font></b><font color="#990000">(</font>timer <font color="#990000">&amp;</font> myTimer<font color="#990000">);</font>
+    <font color="#009900">int</font> <b><font color="#000000">start</font></b><font color="#990000">();</font>
+    <font color="#009900">int</font> <b><font color="#000000">stop</font></b><font color="#990000">();</font>
+    <font color="#008080">string</font> <b><font color="#000000">toString</font></b><font color="#990000">();</font>
+    ostream <font color="#990000">&amp;</font> <b><font color="#000000">print</font></b><font color="#990000">(</font><font color="#008080">ostream</font> <font color="#990000">&amp;</font>theStream<font color="#990000">);</font>
+<font color="#FF0000">}</font><font color="#990000">;</font>
+
+timer<font color="#990000">::</font><b><font color="#000000">timer</font></b><font color="#990000">(</font>timer <font color="#990000">&amp;</font> t<font color="#990000">)</font> <font color="#990000">:</font> <b><font color="#000000">running</font></b><font color="#990000">(</font>t<font color="#990000">.</font>running<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <b><font color="#000000">memcpy</font></b><font color="#990000">(&amp;</font>startVar<font color="#990000">,</font> <font color="#990000">&amp;(</font>t<font color="#990000">.</font>startVar<font color="#990000">),</font> <b><font color="#0000FF">sizeof</font></b> <font color="#990000">(</font>timeval<font color="#990000">));</font>
+    <b><font color="#000000">memcpy</font></b><font color="#990000">(&amp;</font>stopVar<font color="#990000">,</font>  <font color="#990000">&amp;(</font>t<font color="#990000">.</font>stopVar<font color="#990000">),</font>  <b><font color="#0000FF">sizeof</font></b> <font color="#990000">(</font>timeval<font color="#990000">));</font>
+<font color="#FF0000">}</font>
+
+<font color="#009900">int</font> timer<font color="#990000">::</font><b><font color="#000000">start</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(!</font>running<font color="#990000">)</font> <font color="#FF0000">{</font>
+        running <font color="#990000">=</font> <b><font color="#0000FF">true</font></b><font color="#990000">;</font>
+        <b><font color="#000000">gettimeofday</font></b><font color="#990000">(&amp;</font>startVar<font color="#990000">,</font>NULL<font color="#990000">);</font>
+        <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+    <b><font color="#0000FF">return</font></b> <font color="#993399">1</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<font color="#009900">int</font> timer<font color="#990000">::</font><b><font color="#000000">stop</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>running<font color="#990000">)</font> <font color="#FF0000">{</font>
+        running <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+        <b><font color="#000000">gettimeofday</font></b><font color="#990000">(&amp;</font>stopVar<font color="#990000">,</font>NULL<font color="#990000">);</font>
+        <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+    <b><font color="#0000FF">return</font></b> <font color="#993399">1</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+ostream <font color="#990000">&amp;</font> timer<font color="#990000">::</font><b><font color="#000000">print</font></b><font color="#990000">(</font>ostream <font color="#990000">&amp;</font> out<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">return</font></b> <font color="#990000">(</font>out <font color="#990000">&lt;&lt;</font> <b><font color="#000000">toString</font></b><font color="#990000">());</font>
+<font color="#FF0000">}</font>
+
+<font color="#008080">string</font> timer<font color="#990000">::</font><b><font color="#000000">toString</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+    <font color="#008080">ostringstream</font> out<font color="#990000">;</font>
+    <font color="#009900">int</font> ms<font color="#990000">,</font> s<font color="#990000">,</font> m<font color="#990000">,</font> h<font color="#990000">;</font>
+    <font color="#009900">int</font> totalmsec<font color="#990000">;</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>running<font color="#990000">)</font>
+        out <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Timer still running</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
+        <font color="#008080">time_t</font> sec <font color="#990000">=</font> stopVar<font color="#990000">.</font>tv_sec <font color="#990000">-</font> startVar<font color="#990000">.</font>tv_sec<font color="#990000">;</font>
+        <font color="#009900">long</font> usec <font color="#990000">=</font> stopVar<font color="#990000">.</font>tv_usec <font color="#990000">-</font> startVar<font color="#990000">.</font>tv_usec<font color="#990000">;</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> usec <font color="#990000">&lt;</font> <font color="#993399">0</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+            sec<font color="#990000">--;</font>
+            usec <font color="#990000">+=</font> <font color="#993399">1000000</font><font color="#990000">;</font>
+        <font color="#FF0000">}</font>
+        out <font color="#990000">&lt;&lt;</font> <font color="#990000">(</font>sec<font color="#990000">*</font><font color="#993399">1000</font><font color="#990000">+</font>usec<font color="#990000">/</font><font color="#993399">1000</font><font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+    <b><font color="#0000FF">return</font></b> out<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">();</font>
+<font color="#FF0000">}</font>
+
+ostream <font color="#990000">&amp;</font> <b><font color="#0000FF">operator</font></b><font color="#990000">&lt;&lt;(</font><font color="#008080">ostream</font> <font color="#990000">&amp;</font>out<font color="#990000">,</font> <font color="#008080">timer</font> <font color="#990000">&amp;</font>t<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">return</font></b> t<font color="#990000">.</font><b><font color="#000000">print</font></b><font color="#990000">(</font>out<font color="#990000">);</font>
+<font color="#FF0000">}</font>
+
+
+<i><font color="#9A1900">// this main method just counts the time taken to iterate 1 billion</font></i>
+<i><font color="#9A1900">// times through an idle loop</font></i>
+
+<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">(</font><font color="#009900">int</font> argc<font color="#990000">,</font> <font color="#009900">char</font> <font color="#990000">**</font>argv<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <i><font color="#9A1900">// check the number of parameters</font></i>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> argc <font color="#990000">!=</font> <font color="#993399">2</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+        cerr <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"usage: "</font> <font color="#990000">&lt;&lt;</font> argv<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" &lt;iterations&gt;"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+        <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+    <i><font color="#9A1900">// convert the second parameter to a int</font></i>
+    <font color="#009900">int</font> e<font color="#990000">,</font> ret<font color="#990000">;</font>
+    ret <font color="#990000">=</font> <b><font color="#000000">sscanf</font></b> <font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">],</font> <font color="#FF0000">"%d"</font><font color="#990000">,</font> <font color="#990000">&amp;</font>e<font color="#990000">);</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> ret <font color="#990000">!=</font> <font color="#993399">1</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+        cerr <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"error reading input: '"</font> <font color="#990000">&lt;&lt;</font> argv<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"'"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+        <b><font color="#000000">exit</font></b> <font color="#990000">(</font><font color="#993399">2</font><font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+    <i><font color="#9A1900">// compute 10^e</font></i>
+    <font color="#009900">long</font> n <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> e<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font>
+        n <font color="#990000">*=</font> <font color="#993399">10</font><font color="#990000">;</font>
+    <font color="#008080">timer</font> t<font color="#990000">;</font>
+    t<font color="#990000">.</font><b><font color="#000000">start</font></b><font color="#990000">();</font>
+    <i><font color="#9A1900">// do something that takes some time...</font></i>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">long</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> n<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">);</font>
+    t<font color="#990000">.</font><b><font color="#000000">stop</font></b><font color="#990000">();</font>
+    cout <font color="#990000">&lt;&lt;</font> t <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>
