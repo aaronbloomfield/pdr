@@ -244,7 +244,7 @@ If the files are not sorted the same -- meaning that the words listed are the sa
 
 ```
 ./a.out words2.txt 300x300.grid.txt | sort > output.txt
-sort words2.out.txt > words2.sorted.out.txt
+sort 300x300.words2.out.txt > words2.sorted.out.txt
 diff output.txt words2.sorted.out.txt
 ```
 
