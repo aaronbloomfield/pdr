@@ -145,7 +145,7 @@ To complete this lab you will have to make the following code modifications:
 1. Edit the AVL and binary search tree code to adjust the counter variables appropriately.  These variables are: `num_nodes`, `LeftLinksFollowed`, `RightLinksFollowed`, `SingleRotations`, and `DoubleRotations`
    - **NOTE:**  The `mutable` keyword before these variable declarations allows the member functions that are declared as const to modify them (the variables).  Basically, it overrides the const modifier.  See [here](https://en.wikipedia.org/wiki/Mutable#C.2B.2B) for more details, if you are interested.
    - You **should not** reset the `LeftLinksFollowed` or `RightLinksFollowed` variables.
-   - Those two variables (`LeftLinksFollowed` and `RightLinksFollowed`) should only be incremented in the find method, not for the `insert()` or `remove()` methods.
+   - Those two variables (`LeftLinksFollowed` and `RightLinksFollowed`) should only be incremented in the `find()` method, not for the `insert()` or `remove()` methods.
    - A double rotation is really two single rotations, but for the purposes of this in-lab we'll only count it as one double rotation.
 2. Implement the following methods in the AVL and binary search tree code.  See below for details as to how these methods work.
    - `double AvlTree::exp_path_length();`
