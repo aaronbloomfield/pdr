@@ -265,7 +265,7 @@ clang++ -O2 wordPuzzle.o timer.o hashTable.o
 <p>If the files are not sorted the same &ndash; meaning that the words listed are the same, but in a different order &ndash; then diff will report differences between the files.  You can use the Unix &lsquo;sort&rsquo; command to sort BOTH files before comparison to fix this:</p>
 
 <pre><code>./a.out words2.txt 300x300.grid.txt | sort &gt; output.txt
-sort words2.out.txt &gt; words2.sorted.out.txt
+sort 300x300.words2.out.txt &gt; words2.sorted.out.txt
 diff output.txt words2.sorted.out.txt
 </code></pre>
 
