@@ -1,0 +1,977 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 2150: 09-x86 slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="css/pdr.css">
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <script><!-- If the query includes 'print-pdf', use the PDF print sheet -->
+      document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/dhtmlwindow.js"></script>
+    <script type="text/javascript" src="js/canvas.js"></script>
+    <link rel="stylesheet" href="css/dhtmlwindow.css" type="text/css">
+  </head>
+
+  <body onload="canvasinit()">
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	<section data-markdown id="cover"><script type="text/template">
+# CS 2150
+&nbsp;
+### Program and Data Representation
+### Spring 2014
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="09-x86.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
+<center><small>Themes: [default](?#/cover), [sky](?theme=sky#/cover), [beige](?theme=beige#/cover), [simple](?theme=simple#/cover), [serif](?theme=serif#/cover), [night](?theme=night#/cover), [moon](?theme=moon#/cover), [solarized](?theme=solarized#/cover)</small></center>
+&nbsp;  
+&nbsp;  
+## x86 (assembly language)
+	</script></section>
+
+	  <section>
+<h2>CS 2150 Roadmap</h2>
+<table class="wide">
+  <tr><td colspan="3"><p class="center">Data Representation</p></td><td></td><td colspan="3"><p class="center">Program Representation</p></td></tr>
+  <tr>
+    <td class="top"><small>&nbsp;<br>&nbsp;<br>string<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>int x[3]<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>char x<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>0x9cd0f0ad<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>01101011</small></td>
+    <!-- image adapted from http://openclipart.org/detail/3677/arrow-left-right-by-torfnase -->
+    <td><img class="noborder" src="images/red-double-arrow.png" height="500" alt="vertical red double arrow"></td>
+    <td class="top">&nbsp;<br>Objects<br>&nbsp;<br>Arrays<br>&nbsp;<br>Primitive types<br>&nbsp;<br>Addresses<br>&nbsp;<br>bits</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="top"><small>&nbsp;<br>&nbsp;<br>Java code<br>&nbsp;<br>&nbsp;<br>C++ code<br>&nbsp;<br>&nbsp;<br>C code<br>&nbsp;<br>&nbsp;<br>x86 code<br>&nbsp;<br>&nbsp;<br>IBCM<br>&nbsp;<br>&nbsp;<br>hexadecimal</small></td>
+    <!-- image adapted from http://openclipart.org/detail/3677/arrow-left-right-by-torfnase -->
+    <td><img class="noborder" src="images/green-double-arrow.png" height="500" alt="vertical green double arrow"></td>
+    <td class="top">&nbsp;<br>High-level language<br>&nbsp;<br>Low-level language<br>&nbsp;<br>Assembly language<br>&nbsp;<br>Machine code</td>
+  </tr>
+</table>
+	  </section>
+
+	<section data-markdown><script type="text/template">
+# Contents
+&nbsp;  
+[Introduction to x86](#/introduction)  
+[Calling Conventions](#/callingconv)  
+[Callee Rules](#/callee)  
+[Caller Rules](#/caller)  
+[Activation Records](#/actrecs)  
+[x86 Examples](#/examples)  
+	</script></section>
+
+
+	<section>
+
+	  <section id="introduction" data-markdown><script type="text/template">
+# Introduction to x86
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+Introduction to x86
+History of x86
+1971 -- 4004, 4-bit words
+1972 -- 8008, 8-bit words
+1978 -- 8086, 16-bit words
+1982 -- 80286
+1985 -- 80386, 32-bit words
+1989 -- 80486
+1993 -- Pentium
+1995 -- Pentium Pro
+1997 -- Pentium II
+1998 -- Pentium III
+2000 - 2004 -- Pentium IV
+IBCM vs. x86
+Registers
+Fetch-Execute cycle
+Registers in x86
+Fetch Execute Cycle (same)
+while(power is on)
+{
+	IR := mem[PC]
+	PC := PC + 1 (word) // 32-bits in x86
+	execute instruction in IR
+}
+PC = program counter
+IR = instruction register
+Declaring Variables in x86
+Directives
+byte = 1 byte (DB) declare byte
+word = 2 bytes (DW)
+double = 4 bytes (DD)
+quadword = 8 bytes (DQ)
+mov command
+mov <dest> <src>
+
+Where <dest> and <src> can be:
+A register
+A combination of registers and constants
+Variable name
+Pointer: [ebx]
+Addressing Memory
+Up to 2 registers and one 32-bit signed constant can be added together to compute a memory address
+
+One register can be pre-multiplied by 2, 4, 8
+word-align
+double-align
+quadword-align
+Example
+mov ecx, eax
+mov edx, [ebx]
+mov esi, [edx+eax+4]
+mov [esi], 45
+mov [a], 15
+lea edi, [a]
+mov eax, [4*esi - edx]
+Valid
+Invalid
+Not sure
+mov eax, [4*esi + 4]
+Valid
+Invalid
+Not sure
+mov eax, [4*esi + edx+ 8]
+Valid
+Invalid
+Not sure
+mov eax, [esi + 4*edx]
+Valid
+Invalid
+Not sure
+mov eax + 4, [esi]
+Valid
+Invalid
+Not sure
+x86 Instruction Set
+Data movement instructions
+Arithmetic instructions
+Logical instructions
+Control instructions
+Data Movement Instructions
+mov
+push
+push operand onto stack (4 bytes)
+First decrements ESP (stack pointer) by 4 (stack grows DOWN)
+push eax
+push [var]
+pop
+pop top element of stack to memory or register, increment stack pointer (ESP) by 4
+lea (load effective address)
+place address specified
+lea eax, [var]
+lea edi, [ebx+4*esi]
+Arithmetic and Logic Instructions
+add, sub
+add <reg>, <reg>
+add <reg>, <mem>
+add <mem>, <reg>
+add <reg>, <constant>
+add<mem>, <constant>
+
+adds, storing result in first operand
+Arithmetic and Logic Insts (cont'd)
+inc, dec (increment and decrement by one)
+inc <reg>
+inc <mem>
+Examples
+dec eax
+inc [var]
+imul
+imul <reg32>, <reg32> (or <mem>)
+imul <reg32>, <reg32> (or <mem>), <con>
+idiv (divide 64-bit integer in EDX:EAX) by operand
+idiv ebx
+End of lecture on Mon, Oct 28
+Logical Insts
+and, or, xor
+and <reg>, <reg>
+and <reg>, <mem>
+and <mem>, <reg>
+Examples
+and eax, 0fH
+xor ecx, ecx
+Control Instructions
+jmp <label>
+go to instruction address specified by label
+cmp
+cmp operand1, operand2
+operand1 can be <reg> or <mem>
+operand2 can be <reg>, <mem>, or <con>
+Sets the machine status word
+jCC
+Uses the machine status word
+Which holds info about the results of the last instruction
+je <label> 
+jump when condition code equal is set
+jne, jz, jg, jge, jl, jle
+Control Instructions
+call <label>
+subroutine call
+pushes current code address onto  stack, then unconditionally jumps to label
+ret
+subroutine return
+Writing Basic x86 Assembly
+int n = 5;
+int i =1;
+int sum = 0;
+while(i <= n){
+	sum += i;
+	i++;
+}
+	  </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="callingconv" data-markdown><script type="text/template">
+# Calling Conventions
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+Calling Conventions
+Example
+int max(int x, int y) {
+	int theMax = (x > y) ? x : y;
+	return theMax;
+}
+
+int main() {
+	int a =5, b = 6;
+	int maxVal = max(a,b);
+	cout << "Max Value: " << maxVal << endl;
+	return 0;
+}
+Calling Conventions
+What is a calling convention?
+A set of rules/expectations between functions
+How (and where) are parameters passed?
+Which registers does the calling function expect to be preserved?
+Where should local variables be stored?
+How/where should results be returned from functions?
+
+Why?
+Separate programmers can
+share code more easily
+develop libraries 
+C Calling Convention
+Why C's calling convention?
+It's important
+Can be used with C and C++ code
+Can enable calling C library functions from assembly code
+Or other languages
+
+
+C Calling Convention
+Uses hardware stack (memory)
+Stack grows down, towards lower memory addresses
+x86 instructions used for calling convention
+pop
+push
+call
+ret
+Using a stack for calling convention is implemented on most processors.  Why?
+Recursion
+C Calling Convention Overview
+Answers to questions
+Parameters
+passed on the stack
+Registers
+saved on the stack
+Local variables
+placed in memory on the stack
+Return value
+eax register
+Calling Convention Overview (2)
+The sets of rules
+Caller
+The function which calls another function
+Callee
+The function which is called by another function
+Caller vs. Callee
+void foo() {
+	// some function code ...
+}
+
+int main() {
+	foo();
+	return 0;
+}
+Register usage
+One register is used for the return value: eax
+Three registers may be modified by the callee: eax, ecx, edx
+If the caller wants to keep those values, they need to be saved by pushing them onto the stack
+And note eax is where the return value goes
+Three registers may not be modified by a subroutine call: ebx, edi, esi
+If the subroutine wants to modify them, it needs to back them up first (onto the stack) and restore them before returning
+Two registers should almost never be modified directly: ebp, esp
+There is an exception: ebp is modified in one case by the callee
+Varying number of parameters
+Three ways to have a variable number of parameters:
+Method overloading
+Foo::bar(int) and Foo::bar(int, float)
+Default parameters
+Foo::bar (int x = 3)
+Variable arguments
+As seen next
+An aside: variable number of arguments in C/C++
+(this example from http://www.daniweb.com/forums/thread83437.html)
+
+\#include <stdarg.h>
+
+void stringstofile (FILE *filehandle, ...) {
+	va_list vargs;
+
+	va_start (vargs, filehandle);
+	while (va_arg (vargs, char *))
+		fputs (va_arg (vargs, char *), filehandle);
+	va_end (vargs);
+}
+More on variable number of arguments
+
+The C equivalent of cout is a function called printf
+
+printf ("A %s, a %s, a %s: %s!", "man", 
+		"plan", "canal", "Panama");
+printf ("A percent sign: %%");
+printf ("An int: %d\n", i);
+printf ("A float with 2 decimal digits: %.2f", 
+		float_value);
+	  </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="caller" data-markdown><script type="text/template">
+# Caller Rules
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+Calling Convention
+Part 1: Caller's Rules
+Caller Rules/Responsibilities
+Before calling the function
+Save registers that might be needed after the call (eax, ecx, edx)
+Push parameters on the stack
+Call the function
+call instruction places return address in stack
+After the called function returns
+Remove parameters from stack
+Restore saved registers
+
+Callee Rules/Responsibilities
+Prologue
+BEFORE the function body
+
+Function body
+
+Epilogue
+AFTER the function body, before the return
+Caller Summary
+"Prologue"
+Tasks to take care of BEFORE calling a subroutine
+"Epilogue"
+Tasks to complete AFTER subroutine call returns
+
+Not really called this, but I use this to parallel the equivalent components in the Callee convention
+Caller Rules ("Prologue")
+Caller-saved registers
+Registers which the calling function (caller) must save (push onto the stack) ONLY if it wants the values preserved.
+eax, ecx, edx
+
+Parameters
+Pushed in reverse order (last parameter first) onto stack
+
+Call the subroutine
+Use the call instruction
+pushes the return address onto the stack and branches to the subroutine
+Caller Rules ("Epilogue")
+Remove parameters
+Parameters pushed onto stack must be removed. (Restore stack to state before the call)
+What is done with the parameters?
+
+Return value
+If any, held in eax
+
+Restore caller-saved registers
+eax, ecx, edx
+pop them off the stack (Caller can assume no other registers were modified)
+Caller Rules Example
+
+int MyFunc(int a, int b, int c){
+	int x
+	// some code
+	return result;
+}
+
+int main(){
+	int x = 1, z=3;
+	int retVal = myFunc(x, 123, z);
+	//...
+	return 0;
+}
+Caller Rules Example
+push edx 		; caller wants edx to be preserved
+
+				; int retVal = myFunc(x, 123, z);
+push [z]		; Push last param first
+push 123		; push constant 123
+push eax 		; push first param last
+
+call _MyFunc		; call the function
+
+add esp, 12		; clean up stack
+pop edx		; restore saved edx value
+
+	; return value of myFunc is now available in eax (if any return value)
+Stack Visualization for myFunc
+	  </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="callee" data-markdown><script type="text/template">
+# Callee Rules
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+Calling Convention
+Part 2: Callee Rules
+Callee Rules Summary
+Prologue
+Tasks to perform BEFORE executing the function body
+
+Epilogue
+Tasks to perform AFTER executing function body, but BEFORE leaving function
+Callee Rules Example
+int MyFunc(int a, int b, int c){
+	int x
+	// some code
+	return result;
+}
+
+int main(){
+	int x = 1, z=3;
+	int retVal = myFunc(x, 123, z);
+	//...
+	return 0;
+}
+Callee Rules (Prologue)
+Push ebp and copy esp into ebp
+push ebp
+mov ebp, esp
+ebp -- snapshot of esp when subroutine starts
+Parameters and local variables are known distances/offsets from this pointer value
+Allocate local variables
+make space on stack (decrement stack pointer)
+Callee Rules (Prologue)
+Save callee-save registers
+ebx, edi, esi (push them onto stack)
+only need to do this if callee intends to use them, otherwise, no need to save their contents
+
+THEN, perform body of the function
+Callee Rules (Epilogue)
+Return value saved to eax
+Restore callee-saved registers
+Pop from stack (inverse order from which pushed)
+Deallocate local variables
+mov esp, ebp
+Restore base pointer
+pop ebp
+Return
+ret
+Callee Rules Example
+int MyFunc(int a, int b, int c){
+	int result;
+	result = c;
+	result += b;
+	return result;
+}
+
+int main(){
+	int x = 1, z=3;
+	int retVal = myFunc(x, 123, z);
+	//...
+	return 0;
+}
+Callee Rules Example (1)
+.CODE			; start code segment
+PUBLIC _myFunc	
+_myFunc PROC
+				; prologue
+push ebp		; save old base pointer
+mov ebp, esp		; set new base pointer
+sub esp, 4		; save room for 1 local var (result)
+push ebx		; save callee-save registers
+push esi		; both will be used by myFunc
+Callee Rules Example (2)
+			; subroutine body
+mov eax, [ebp+8]		; param 1 to eax
+mov esi, [ebp+12]		; param 2 to esi
+mov ebx, [ebp+16]		; param 3 to ebx
+mov [ebp-4], ebx		; put ebx into local var
+add [ebp-4], esi		; add esi into local var
+mov eax, [ebp-4]		; mov contents of local var to eax
+						; (return value/final result)
+Callee Rules Example (3)
+	  ; subroutine epilogue
+pop esi			; recover callee save registers
+pop ebx	 	; REVERSE of when pushed
+mov esp, ebp		; deallocate local var(s)
+pop ebp		; restore caller's base pointer
+ret		
+_myFunc ENDP
+END			; end of CODE segment
+Stack Visualization for myFunc just as it is called
+Stack Visualization for myFunc
+End of lecture on Wed, Oct 30
+The second lecture stopped a bunch of slides back (slide 47) due to many great questions
+	  </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="actrecs" data-markdown><script type="text/template">
+# Activation Records
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+Activation records
+Activation Records
+Every time a sub-routine is called, a number of things are pushed onto the stack:
+Registers
+Parameters
+Old base/stack pointers
+Local variables
+Return address
+
+All of this is called the activation record
+Memory management
+The binary program takes up a fixed amount of space
+The size of the file
+
+There are two types of memory that need to be handled:
+Dynamic memory (via new, malloc(), etc.)
+This is stored on the heap
+Static memory (on the stack)
+This is where the activation records are kept
+Memory management
+The binary program starts at the 'beginning' of the 232 = 4 Gb of memory
+The heap starts right after this
+The stack starts at the end of this 4 Gb of memory, and grows backward
+They could have chosen the heap to grow backwards, but they didn't
+As a program progresses, they both grow towards the middle
+And never the twain shall meet
+Consider this subroutine...
+void security_hole() {
+	char buffer[10];
+	scanf ( "%s", buffer); // and older C input routine
+}
+
+The stack looks like (with sizes):
+
+
+
+Addresses increase to the right (the stack grows to the left)
+What happens if the value stored into buffer is 11 bytes long?
+What if it is exactly 18 bytes long?
+We overwrite the return address
+Buffer overflow attack
+When you read in a string (etc.) that goes beyond the size of the buffer
+Hence 'buffer overflow'
+
+You can then overwrite the return address
+And set it to your own code
+For example, code that is included later on in the string
+
+We may see an example of this, if there is time in the course...
+End of lecture on Fri, Nov 1
+Much of this lecture was going over the material that was not fully presented in the last lecture (the last 6 or so slides from last time)
+	  </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="examples" data-markdown><script type="text/template">
+# x86 Examples
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+x86 Examples
+Calling Convention Practice
+C++ to x86 Assembly Code
+A note about x86 compatibility
+We are using nasm as our assembler for the x86 labs
+The x86 code samples in this slide set are either:
+"generic" x86 examples that could work in nasm if put into a proper program
+In the same way that I show C++ code snippets
+Or the output from "clang++ -S" (and probably some other flags)
+This code will NOT work with nasm, but will work with clang++ (which we aren't really using anyway for our assembly)
+x86 Examples
+All are in the lectures/09-x86/code directory on Collab
+
+int absolute_value(int x)
+int max(int x, int y)
+bool compare_string(const char * theStr1, const char * theStr2)
+int fib(int n)
+int absolute_value(int x)
+int absolute_value(int x) {
+	if(x<0)		// if x is negative
+		x = -x;	// negate x
+	return x;	// return x
+}
+test_abs.cpp
+\#include <iostream>
+using namespace std;
+extern "C" int absolute_value(int x);
+
+int absolute_value(int x) {
+	if(x<0)		// if x is negative
+		x = -x;	// negate x
+	return x;	// return x
+}
+
+int main(){
+	int theValue=0;
+	cout << "Enter a value: " << endl;
+	cin >> theValue;
+	int theResult = absolute_value(theValue);
+	cout << "The result is: " << theResult << endl;
+	return 0;
+}
+x86 Assembly for absolute_value
+; Standard prologue
+push ebp
+mov ebp, esp
+
+; procedure body
+mov eax, [ebp + 8]	; eax <- x
+cmp eax, 0		; x == 0 ?
+jge end_of_proc	; if pos goto end
+neg eax			; negate x
+
+end_of_proc:
+; Standard epilogue
+mov esp, ebp
+pop ebp
+ret
+Generating assembly with clang++
+Using the --S flag, we can generate assembly from C/C++ code
+Note that the format is a bit different
+Register specification, dest/source order, etc.
+So we need to use the following flags:
+		 -mllvm --x86-asm-syntax=intel
+The formatting is still different, but the idea is the same
+
+clang++'s assembly for absolute_value
+ (note the <src> <dest> order is reversed)
+absolute_value:
+.LFB1401:
+	pushl	%ebp
+.LCFI0:
+	movl	%esp, %ebp
+.LCFI1:
+	cmpl	$0, 8(%ebp)
+	jns		.L2
+	negl		8(%ebp)
+.L2:
+	movl	8(%ebp), %eax
+	popl		%ebp
+	ret
+clang++'s assembly for absolute_value
+ using -mllvm --x86-asm-syntax=intel
+absolute_value:
+.LFB1428:
+        push    %ebp
+.LCFI0:
+        mov     %ebp, %esp
+.LCFI1:
+        cmp     DWORD PTR [%ebp+8], 0
+        jns       .L2
+        neg      DWORD PTR [%ebp+8]
+.L2:
+        mov     %eax, DWORD PTR [%ebp+8]
+        pop      %ebp
+        ret
+clang++'s assembly output on Macs
+With g++ (what we used last year), Darwin (i.e., Mac OS X) did not support the --masm=intel flag
+But I don't know what clang++ will do...
+Can anybody test this?
+So you are stuck using the "other" format
+With the <src> and <dest> order reversed
+You can compile it on a the Linux VirtualBox image, if you want the 'correct' order
+test_abs_c.c
+\#include <stdio.h>
+
+int absolute_value(int x) {
+	if(x<0)		// if x is negative
+		x = -x;	// negate x
+	return x;	// return x
+}
+
+int main(){
+	int theValue=0;
+	printf ("Enter a value: \n");
+	scanf ("%d", &theValue);
+	int theResult = absolute_value(theValue);
+	printf ("The result is: %d\n", theResult);
+	return 0;
+}
+C++ assembly vs. C assembly
+Notice how much cleaner C translates into assembly versus C++
+
+Compare files test_abs.s and test_abs_c.s
+int max(int x, int y)
+int max(int x, int y) {
+	int theMax;
+	if(x > y) 	// if x > y then it is max
+		theMax = x;
+	else 		// else y is the max
+		theMax = y;
+	return theMax;	// return the max
+}
+test_max.cpp
+\#include <iostream>
+using namespace std;
+extern "C" int max(int x, int y);
+
+// the max function from the previous slide
+
+int main(){
+	int theValue1=0, theValue2=0;
+	cout << "Enter value 1: " << endl;
+	cin >> theValue1;
+	cout << "Enter value 2: " << endl;
+	cin >> theValue2;
+
+	int theResult = max(theValue1, theValue2);
+	cout << "The result is: " << theResult << endl;
+	return 0;
+}
+x86 code for max()
+using -mllvm --x86-asm-syntax=intel
+max:
+.LFB1428:
+        push    %ebp
+.LCFI0:
+        mov     %ebp, %esp
+.LCFI1:
+        sub      %esp, 16
+.LCFI2:
+        mov     %eax, DWORD PTR [%ebp+8]
+        cmp     %eax, DWORD PTR [%ebp+12]
+        jle       .L2
+        mov     %eax, DWORD PTR [%ebp+8]
+        mov     DWORD PTR [%ebp-4], %eax
+        jmp      .L4
+.L2:
+        mov     %eax, DWORD PTR [%ebp+12]
+        mov     DWORD PTR [%ebp-4], %eax
+.L4:
+        mov     %eax, DWORD PTR [%ebp-4]
+        leave
+        ret
+x86 code for max() using --O2
+using -mllvm --x86-asm-syntax=intel
+max:
+.LFB1428:
+        push    %ebp
+.LCFI0:
+        mov     %ebp, %esp
+.LCFI1:
+        mov     %edx, DWORD PTR [%ebp+8]
+        mov     %eax, DWORD PTR [%ebp+12]
+        cmp     %eax, %edx
+        jge       .L2
+        mov     %eax, %edx
+.L2:
+        pop     %ebp
+        ret
+End of lecture on Mon, Nov 4
+x86 code for max() without 
+the 'extern "C"' line
+using -mllvm --x86-asm-syntax=intel
+_Z3maxii:
+.LFB1428:
+        push    %ebp
+.LCFI0:
+        mov     %ebp, %esp
+.LCFI1:
+        sub      %esp, 16
+.LCFI2:
+        mov     %eax, DWORD PTR [%ebp+8]
+        cmp     %eax, DWORD PTR [%ebp+12]
+        jle       .L2
+        mov     %eax, DWORD PTR [%ebp+8]
+        mov     DWORD PTR [%ebp-4], %eax
+        jmp      .L4
+.L2:
+        mov     %eax, DWORD PTR [%ebp+12]
+        mov     DWORD PTR [%ebp-4], %eax
+.L4:
+        mov     %eax, DWORD PTR [%ebp-4]
+        leave
+        ret
+bool compare_string(char * theStr1, char * theStr2)
+
+bool compare_string (const char *theStr1, 
+				const char *theStr2) {
+	// while *theStr1 is not NULL terminator
+	// and the current corresponding bytes are equal
+	while( (*theStr1 != NULL) 
+			&& (*theStr1 == *theStr2) )
+	{
+		theStr1++;		// increment the pointers to 
+		theStr2++;		// the next char / byte
+	}
+	return (*theStr1==*theStr2);
+}
+test_string_compare.cpp
+\#include <iostream>
+\#include <string>
+using namespace std;
+
+extern "C" bool compare_string(const char* theStr1, 
+					 const char* theStr2);
+
+// code for compare_string here
+
+int main(){
+	string theValue1, theValue2;
+	cout << "Enter string 1: " << endl;
+	cin >> theValue1;
+	cout << "Enter string 2: " << endl;
+	cin >> theValue2;
+
+	bool theResult = compare_string(theValue1.c_str(), 					     theValue2.c_str());
+
+	cout << "The result is: " << theResult << endl;
+	return 0;
+}
+x86 assembly for compare_string()
+ using -mllvm --x86-asm-syntax=intel
+_compare_string:
+	push	ebp
+	mov	ebp, esp
+L11:
+	mov	eax, DWORD PTR [ebp+8]
+	cmp	BYTE PTR [eax], 0
+	je	L12
+	mov	eax, DWORD PTR [ebp+8]
+	mov	edx, DWORD PTR [ebp+12]
+	movzx	eax, BYTE PTR [eax]
+	cmp	al, BYTE PTR [edx]
+	jne	L12
+	inc	DWORD PTR [ebp+8]
+	lea	eax, [ebp+12]
+	inc	DWORD PTR [eax]
+	jmp	L11
+int fib(int n)
+
+int fib(int n) {
+	if((n==0) || (n==1))
+		return 1;
+	return fib(n-1) + fib(n-2);
+}
+test_fib.cpp
+\#include <iostream>
+using namespace std;
+extern "C" int fib(int n);
+
+int fib(int n) {
+	if((n==0) || (n==1))
+		return 1;
+	return fib(n-1) + fib(n-2);
+}
+
+int main(){
+	int theValue = 0;
+	cout << "Enter value for fib(): " << endl;	
+	cin >> theValue;
+	
+	int theResult = fib(theValue);
+	cout << "The result is: " << theResult << endl;
+	return 0;
+}
+x86 assembly for fib()
+ using -mllvm --x86-asm-syntax=intel
+fib:
+.LFB1428:
+        push    %ebp
+.LCFI0:
+        mov     %ebp, %esp
+.LCFI1:
+        push    %ebx
+.LCFI2:
+        sub      %esp, 8
+.LCFI3:
+        cmp     DWORD PTR [%ebp+8], 0
+        je        .L2
+        cmp     DWORD PTR [%ebp+8], 1
+        jne      .L4
+.L2:
+        mov     DWORD PTR [%ebp-8], 1
+        jmp     .L5
+Didn't that violate the convention?
+Not really!
+The convention states what the stack must look like when a subroutine is invoked
+The steps given in this slide set are to help learn the convention
+So as the stack was set up correctly, the convention was follows
+Do we need to even use ebp?
+If we know that the number of local variables will be fixed...
+... then we can offset everything from esp instead
+This saves the push/pop ebp operations
+clang++ likes to do this...
+RISC versus CISC
+RISC
+Reduced instruction set computer
+Fewer and simpler instructions (maybe 50 or so)
+Less chip complexity means they can run fast
+End of lecture on Wed, Nov 6
+We talked about next semester's classes before the lecture recording started
+	  </script></section>
+
+	</section>
+
+
+
+      </div>
+
+    </div>
+
+    <div id="calibratediv" style="display:none">
+      <div id="calibratecanvasdiv">
+        <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
+      </div>
+      <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
+    </div>
+
+    <script src="reveal.js/lib/js/head.min.js"></script>
+    <script src="reveal.js/js/reveal.min.js"></script>
+    <script src="js/settings.js"></script>
+
+  </body>
+</html>
