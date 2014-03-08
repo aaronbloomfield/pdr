@@ -38,6 +38,10 @@ Program and Data Representation: Slides
 
 [Slide set 8: IBCM (machine language)](08-ibcm.html)
 
+- The online simulator is [here](http://www.cs.virginia.edu/~cs216/ibcm/) (with mirrors [1](http://libra.cs.virginia.edu/ibcm/) and [2](http://people.virginia.edu/~asb2t/ibcm/))
+- Source code: [summation.ibcm](../ibcm/summation.ibcm), [array-summation.ibcm](../ibcm/array-summation.ibcm)
+- There is a separate [IBCM section](../ibcm/index.html) of this repository with more IBCM information, although that additional information will not be needed in this course
+
 Slide set 9: x86 (assembly language)
 
 Slide set 10: Advanced C++

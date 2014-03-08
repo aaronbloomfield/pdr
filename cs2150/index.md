@@ -79,7 +79,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 20 | Feb&nbsp;28 | Friday | | [07: Hashes](../slides/07-hashes.html) | [07-hashes, slides 3-6 to 5-3](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/07-hashes-2b/07-hashes-2b.htm) |
 | 21 | Mar&nbsp;3 | Monday | [Lab 6: Hashes](../labs/lab06/index.html) / [Tutorial 6: Shell scripting, part 1](../tutorials/06-shell-scripts-pt1/index.html) | [07: Hashes](../slides/07-hashes.html) | all UVa classes were canceled today due to yet another snow storm |
 | 22 | Mar&nbsp;5 | Wednesday | | [08: IBCM](../slides/08-ibcm.html) (machine language) | [07-hashes, slides 5-3 to 6-6 (end)](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/07-hashes-3a/07-hashes-3a.htm) |
-| 23 | Mar&nbsp;7 | Friday | | [08: IBCM](../slides/08-ibcm.html) (machine language) | |
+| 23 | Mar&nbsp;7 | Friday | | [08: IBCM](../slides/08-ibcm.html) (machine language) | No lecture, but a recording to watch: [08-ibcm, slides 1 to 4-15](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/08-ibcm-1/08-ibcm-1.htm) |
 | | Mar&nbsp;10 | Monday | no labs (spring break) | (no class: spring break) | (no class: spring break) |
 | | Mar&nbsp;12 | Wednesday | | (no class: spring break) | (no class: spring break) |
 | | Mar&nbsp;14 | Friday | | (no class: spring break) | (no class: spring break) |
