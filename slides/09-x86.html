@@ -67,6 +67,7 @@
 # Contents
 &nbsp;  
 [Introduction to x86](#/introduction)  
+[x86 Instruction Set](#/x86insts)  
 [Calling Conventions](#/callingconv)  
 [Callee Rules](#/callee)  
 [Caller Rules](#/caller)  
@@ -81,158 +82,355 @@
 # Introduction to x86
 	  </script></section>
 
+	  <section>
+<h2>History of x86</h2>
+<p><a href="https://en.wikipedia.org/wiki/File:C4004_%28Intel%29.jpg"><img alt="Intel 4004" src="images/09-x86/C4004.jpg"></a></p>
+<table class="transparent"><tr><td>
+<ul>
+<li>1971: 4004, 4-bit words</li>
+<li>1972: 8008, 8-bit words</li>
+<li>1978: 8086, 16-bit words</li>
+<li>1982: 80286</li>
+<li>1985: 80386, 32-bit words</li>
+<li>1989: 80486</li>
+<li>1993: Pentium</li>
+</ul>
+</td><td>
+<ul>
+<li>1995: Pentium Pro</li>
+<li>1997: Pentium II</li>
+<li>1998: Pentium III</li>
+<li>2000-2008: Pentium IV</li>
+<li>2005-2008: Pentium D</li>
+<li>2006-2011: Core 2</li>
+<li>2008-present: Core i3, i5, i7</li>
+</ul>
+</td></tr></table>
+	  </section>
+
 	  <section data-markdown><script type="text/template">
-Introduction to x86
-History of x86
-1971 -- 4004, 4-bit words
-1972 -- 8008, 8-bit words
-1978 -- 8086, 16-bit words
-1982 -- 80286
-1985 -- 80386, 32-bit words
-1989 -- 80486
-1993 -- Pentium
-1995 -- Pentium Pro
-1997 -- Pentium II
-1998 -- Pentium III
-2000 - 2004 -- Pentium IV
-IBCM vs. x86
-Registers
-Fetch-Execute cycle
-Registers in x86
-Fetch Execute Cycle (same)
-while(power is on)
-{
+## IBCM vs. x86: Registers
+![x86 registers](images/09-x86/x86-registers.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## IBCM vs. x86: Fetch Execute Cycle (same)
+```
+while(power is on) {
 	IR := mem[PC]
 	PC := PC + 1 (word) // 32-bits in x86
 	execute instruction in IR
 }
-PC = program counter
-IR = instruction register
-Declaring Variables in x86
-Directives
-byte = 1 byte (DB) declare byte
-word = 2 bytes (DW)
-double = 4 bytes (DD)
-quadword = 8 bytes (DQ)
-mov command
-mov <dest> <src>
+```
+- PC = program counter
+- IR = instruction register
+	  </script></section>
 
-Where <dest> and <src> can be:
-A register
-A combination of registers and constants
-Variable name
-Pointer: [ebx]
-Addressing Memory
-Up to 2 registers and one 32-bit signed constant can be added together to compute a memory address
+	  <section>
+<h2>Declaring Variables in x86</h2>
+<table class="transparent"><tr><td>
+<p>Directives</p>
+<ul>
+<li>byte = 1 byte (DB) declare byte</li>
+<li>word = 2 bytes (DW)</li>
+<li>double = 4 bytes (DD)</li>
+<li>quadword = 8 bytes (DQ)</li>
+</ul>
+<p>&nbsp;</p>
+<p><code>x DUP (y)</code> directive means "repeat y, x times"</p>
+</td><td>
+<pre><code>section .data
+a	DB	23
+b	DW	?
+c	DD	3000
+d	DQ	-800
+x	DD	1, 2, 3
+y	DB	8 DUP(0)
+str	DB	`hello’, 0
+z	DD	50 DUP(?)</code></pre>
+</td></tr></table>
+	  </section>
 
-One register can be pre-multiplied by 2, 4, 8
-word-align
-double-align
-quadword-align
-Example
-mov ecx, eax
+	  <section data-markdown><script type="text/template">
+## mov command
+- `mov <dest> <src>`
+- Where dest and src can be:
+  - A register
+  - A combination of registers and constants
+  - Variable name
+  - Pointer: [ebx]
+  - (but with a few exceptions we'll see shortly)
+	  </script></section>
+
+	  <section>
+<h2>Addressing Memory</h2>
+<table class="transparent"><tr><td class="top">
+<ul>
+<li>Up to <i>2 registers</i> and one <i>32-bit signed constant</i> can be added together to compute a memory address<br>&nbsp;</li>
+<li>Futhermore, one register can be pre-multiplied by 2, 4, 8<ul>
+    <li>word-align</li>
+    <li>double-align</li>
+    <li>quadword-align</li>
+</ul></li></ul>
+</td><td style="width:50px"></td><td class="top">
+<pre><code>mov eax, ebx
+mov eax, [ebx]
+mov [var], ebx
+mov eax, [esi-4]
+mov [esi+eax], cl
+mov edx, [esi+ 4*ebx]</code></pre>
+<p>&nbsp;</p>
+<p>Incorrect: (why?)</p>
+<pre><code>mov eax, [ebx – ecx]
+mov [eax + esi + edi], ebx
+mov [4*eax + 2*ebx], ecx</code></pre>
+</td></tr></table>
+	  </section>
+
+	  <section>
+<table class="transparent"><tr><td class="top">
+
+<table class="transparent">
+<tr><td class="top" colspan="2"><h2>Example</h2></td></tr>
+<tr><td class="top"><p class="center">Source code:</p><pre><code>mov ecx, eax
 mov edx, [ebx]
 mov esi, [edx+eax+4]
 mov [esi], 45
 mov [a], 15
-lea edi, [a]
-mov eax, [4*esi - edx]
-Valid
-Invalid
-Not sure
-mov eax, [4*esi + 4]
-Valid
-Invalid
-Not sure
-mov eax, [4*esi + edx+ 8]
-Valid
-Invalid
-Not sure
-mov eax, [esi + 4*edx]
-Valid
-Invalid
-Not sure
-mov eax + 4, [esi]
-Valid
-Invalid
-Not sure
-x86 Instruction Set
-Data movement instructions
-Arithmetic instructions
-Logical instructions
-Control instructions
-Data Movement Instructions
-mov
-push
-push operand onto stack (4 bytes)
-First decrements ESP (stack pointer) by 4 (stack grows DOWN)
+lea edi, [a]</code></pre></td>
+<td style="width:50px"></td>
+<td class="top">
+<p class="center">Registers:</p>
+<table class="transparent">
+<tr><td>eax</td><td class="border" style="width:100px">100</td></tr>
+<tr><td>ebx</td><td class="border" style="width:100px">104</td></tr>
+<tr><td>ecx</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="1">100</span></td></tr>
+<tr><td>edx</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="2">8</span></td></tr>
+<tr><td>esi</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="3">200</span></td></tr>
+<tr><td>edi</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="6">300</span></td></tr>
+</table>
+</td></tr></table>
+
+</td><td style="width:50px"></td><td class="top">
+<p class="center">Memory:</p>
+<table class="transparent">
+<tr><td>100</td><td class="border" style="width:100px"></td></tr>
+<tr><td>104</td><td class="border" style="width:100px">8</td></tr>
+<tr><td>108</td><td class="border" style="width:100px"></td></tr>
+<tr><td>112</td><td class="border" style="width:100px">200</td></tr>
+<tr><td>116</td><td class="border" style="width:100px"></td></tr>
+<tr><td>...</td><td class="border" style="width:100px"></td></tr>
+<tr><td>200</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="4">45</span></td></tr>
+<tr><td>204</td><td class="border" style="width:100px"></td></tr>
+<tr><td>...</td><td class="border" style="width:100px"></td></tr>
+<tr><td>a:&nbsp;300</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="5">15</span></td></tr>
+<tr><td>304</td><td class="border" style="width:100px"></td></tr>
+<tr><td>...</td><td class="border" style="width:100px"></td></tr>
+</table>
+</td></tr></table>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## `mov eax, [4*esi - edx]`
+1. Valid
+2. Invalid
+3. Not sure
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## `mov eax, [4*esi + 4]`
+1. Valid
+2. Invalid
+3. Not sure
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## `mov eax, [4*esi + edx+ 8]`
+1. Valid
+2. Invalid
+3. Not sure
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## `mov eax, [esi + 4*edx]`
+1. Valid
+2. Invalid
+3. Not sure
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## `mov eax + 4, [esi]`
+1. Valid
+2. Invalid
+3. Not sure
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Memory addressing restrictions
+- The destination cannot be a constant (duh!)
+- You cannot access memory twice in one instruction
+  - As the CPU does not have enough time to do so
+  - So the following are invalid:
+```
+mov [eax] [var]
+mov [eax+4] [ebx]
+```
+	  </script></section>
+
+	</section>
+
+	<section>
+
+	  <section data-markdown id="x86insts"><script type="text/template">
+# x86 Instruction Set
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## x86 Instruction Set
+- Data movement instructions
+- Arithmetic instructions
+- Logical instructions
+- Control instructions
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Data Movement Instructions, part 1
+- `mov`
+  - We've seen this in detail
+- `push`
+  - push operand onto stack (4 bytes)
+  - First decrements ESP (stack pointer) by 4 (stack grows DOWN)
+```
 push eax
 push [var]
-pop
-pop top element of stack to memory or register, increment stack pointer (ESP) by 4
-lea (load effective address)
-place address specified
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Data Movement Instructions, part 2
+- `pop`
+  - pop top element of stack to memory or register, increment stack pointer (ESP) by 4
+  - value is written to the parameter
+```
+pop eax
+pop [var]
+```
+- `lea` (load effective address)
+  - place address specified
+```
 lea eax, [var]
 lea edi, [ebx+4*esi]
-Arithmetic and Logic Instructions
-add, sub
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Arithmetic Instructions, part 1
+- `add`, `sub`
+```
 add <reg>, <reg>
 add <reg>, <mem>
 add <mem>, <reg>
 add <reg>, <constant>
-add<mem>, <constant>
+add <mem>, <constant>
+```
+  - adds (or subtracts), storing result in first operand
+- Similar restrictions as with data movement instructions:
+  - Destination cannot be a constant
+  - Memory cannot be accessed twice
+	  </script></section>
 
-adds, storing result in first operand
-Arithmetic and Logic Insts (cont'd)
-inc, dec (increment and decrement by one)
+	  <section data-markdown><script type="text/template">
+## Arithmetic Instructions, part 2
+- `inc`, `dec` (increment and decrement by one)
+```
 inc <reg>
 inc <mem>
-Examples
+```
+  - Specific examples:
+```
 dec eax
 inc [var]
-imul
+```
+- imul
+```
 imul <reg32>, <reg32> (or <mem>)
 imul <reg32>, <reg32> (or <mem>), <con>
-idiv (divide 64-bit integer in EDX:EAX) by operand
+```
+- idiv (divide 64-bit integer in EDX:EAX) by operand
+```
 idiv ebx
-End of lecture on Mon, Oct 28
-Logical Insts
-and, or, xor
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Logical Instructions
+- `and`, `or`, `xor`
+```
 and <reg>, <reg>
 and <reg>, <mem>
 and <mem>, <reg>
-Examples
+```
+  - Specific examples:
+```
 and eax, 0fH
 xor ecx, ecx
-Control Instructions
-jmp <label>
-go to instruction address specified by label
-cmp
-cmp operand1, operand2
-operand1 can be <reg> or <mem>
-operand2 can be <reg>, <mem>, or <con>
-Sets the machine status word
-jCC
-Uses the machine status word
-Which holds info about the results of the last instruction
-je <label> 
-jump when condition code equal is set
-jne, jz, jg, jge, jl, jle
-Control Instructions
-call <label>
-subroutine call
-pushes current code address onto  stack, then unconditionally jumps to label
-ret
-subroutine return
-Writing Basic x86 Assembly
-int n = 5;
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Control Instructions, part 1
+- `jmp <label>`
+  - go to instruction address specified by label
+- `cmp`
+  - cmp operand1, operand2
+    - Operand1 can be <reg> or <mem>
+    - Operand2 can be <reg>, <mem>, or <con>
+    - Can't access memory twice!
+  - Sets the *machine status word*
+- jCC
+  - Uses the machine status word
+    - Which holds info about the results of the last instruction
+  - Example: `je <label>`
+    - Jump when condition code equal is set
+  - Others: `jne`, `jz`, `jg`, `jge`, `jl`, `jle`, `js`, etc.
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Control Instructions, part 2
+- `call <label>`
+  - Subroutine call
+  - Pushes current code address onto  stack, then unconditionally jumps to label
+- `ret`
+  - Subroutine return
+  - Pops the return address from the stack, then jumps to that address
+	  </script></section>
+
+	  <section>
+<h2>Writing Basic x86 Assembly</h2>
+<table class="transparent">
+<tr><td><pre><code>int n = 5;
 int i =1;
 int sum = 0;
 while(i <= n){
-	sum += i;
-	i++;
-}
-	  </script></section>
+    sum += i;
+    i++;
+}</code></pre></td>
+<td style="width:50px"></td>
+<td><pre><code>section .data
+n	DD 5
+i	DD 1
+sum	DD 0
+
+section .text
+loop:  	mov ecx, [i]
+	cmp ecx, [n]
+	jg endOfLoop
+	add [sum], ecx
+	inc [i]
+	jmp loop
+endOfLoop:
+</code></pre></td></tr></table>
+	  </section>
 
 	</section>
 

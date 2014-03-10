@@ -42,7 +42,7 @@ Program and Data Representation: Slides
 - Source code: [summation.ibcm](../ibcm/summation.ibcm), [array-summation.ibcm](../ibcm/array-summation.ibcm)
 - There is a separate [IBCM section](../ibcm/index.html) of this repository with more IBCM information, although that additional information will not be needed in this course
 
-Slide set 9: x86 (assembly language)
+[Slide set 9: x86 (assembly language)](09-x86.html)
 
 Slide set 10: Advanced C++
 
