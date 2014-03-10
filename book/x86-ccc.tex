@@ -2,9 +2,7 @@
 \ldots
 \end{quotation}
 
-\section{Subroutine Calling Convention}
-
-\subsection{What is a Calling Convention?}
+\section{What is a Calling Convention?}
 
 In Section~\ref{x86-basic-program-structure.sec} we saw a simple
 example of a subroutine defined in x86 assembly language. In fact,
@@ -40,7 +38,7 @@ language subroutines that are safely callable from C and C++ code, and
 will also enable you to call C library functions from your assembly
 language code.
 
-\subsection{The C Calling Convention}
+\section{The C Calling Convention}
 
 The C calling convention is based heavily on the use of the
 hardware-supported stack. To understand the C calling convention, you
@@ -62,7 +60,7 @@ of these rules quickly result in fatal program errors; thus meticulous
 care should be used when implementing the call convention in your own
 subroutines.
 
-\subsubsection{The Caller's Rules}
+\section{The Caller's Rules}
 
 The caller should adhere to the following rules when invoking a
 subroutine:
@@ -77,7 +75,7 @@ subroutine:
   before the call. The parameters should be pushed in inverted order
   (i.e. last parameter first)~-- since the stack grows down, the first
   parameter will be stored at the lowest address (this inversion of
-  parameters was histori- cally used to allow functions to be passed a
+  parameters was historically used to allow functions to be passed a
   variable number of parameters).
 \item To call the subroutine, use the call instruction. This
   instruction places the return address on top of the parameters on
@@ -93,7 +91,7 @@ subroutine:
   that no other registers were modified by the subroutine.
 \end{numlist}
 
-\subsubsection{The Callee's Rules}
+\section{The Callee's Rules}
 
 The definition of the subroutine should adhere to the following rules:
 
@@ -113,7 +111,7 @@ pointer, EBP. The base pointer is used by convention as a point of
 reference for finding parameters and local variables on the stack.
 Essentially, when any subroutine is executing, the base pointer is a
 ``snapshot'' of the stack pointer value from when the subroutine
-started executing. Parameters and local vari- ables will always be
+started executing. Parameters and local variables will always be
 located at known, constant offsets away from the base pointer value.
 We push the old base pointer value at the beginning of the subroutine
 so that we can later restore the appropriate base pointer value for
@@ -156,7 +154,7 @@ from the base pointer.
   should be popped in the inverse order that they were pushed.
 
 \item Next, we deallocate local variables. The obvious way to do this
-  might be to add the appropri- ate value to the stack pointer (since
+  might be to add the appropriate value to the stack pointer (since
   the space was allocated by subtracting the needed amount from the
   stack pointer). In practice, a less error-prone way to deallocate
   the variables is to move the value in the base pointer into the
@@ -167,7 +165,7 @@ mov esp, ebp
 \end{lstlisting}
 
 This trick works because the base pointer always contains the value
-that the stack pointer con- tained immediately prior to the allocation
+that the stack pointer contained immediately prior to the allocation
 of the local variables.
 
 \item Immediately before returning, we must restore the caller's base
@@ -187,7 +185,7 @@ commonly said to define the {\em prologue} to the function. The latter
 half of the rules apply to the end of the function, and are thus
 commonly said to define the {\em epilogue} of the function.
 
-\subsubsection{Call Convention Example}
+\section{Calling Convention Example}
 
 The above rules may seem somewhat abstract on first examination. In practice, the rules
 become simple to use when they are well understood and familiar. To start the process of better
@@ -249,7 +247,7 @@ execution. Figure~\ref{x86-activation-record.fig} depicts the contents
 of the stack during the execution of the body of myFunc (depicted in
 Listing~\ref{x86-callee-example-1.s.lst}). Notice, lower addresses are
 depicted lower in the figure, and thus the ``top'' of the stack is the
-bottom-most cell. This corre- sponds visually to the intuitive
+bottom-most cell. This corresponds visually to the intuitive
 statement that the x86 hardware stack ``grows down.'' The cells
 depicted in the stack are 32-bit wide memory locations, thus the
 memory addresses of the cells are 4 bytes apart. From this picture we
@@ -265,3 +263,16 @@ the first parameter.
 \caption{A picture of the stack in memory during the execution of the body of myFunc}
 \label{x86-activation-record.fig}
 \end{figure}
+
+The assembly code for {\tt myFunc()} was shown above in
+Listing~\ref{x86-callee-example-1.s.lst}). The C++ code to call that
+subroutine is shown in
+Listing~\ref{x86-callee-example-main.cpp.lst}.
+
+\begin{figure}[h!]
+\lstinputlisting[caption={Example C++ code to invoke a 3-parameter x86 subroutine},label={x86-callee-example-main.cpp.lst},backgroundcolor=\color{white},frame=trBL,linewidth=6.9in,xleftmargin=0.15in,language=C++]{x86/code/callee-example-main.cpp}
+\end{figure}
+
+
+
+

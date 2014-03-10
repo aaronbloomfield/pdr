@@ -1,7 +1,10 @@
-#include <iostream.h>
+#include <iostream>
+using namespace std;
+
 extern "C" int returnTwo();
+
 int main() {
-  if(returnTwo()!=2) {
-    cerr << "Does not compute!";
-  }
+  cout << "calling returnTwo() returned: " 
+       << returnTwo() << endl;
+  return 0;
 }

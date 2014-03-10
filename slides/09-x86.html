@@ -110,7 +110,7 @@
 
 	  <section data-markdown><script type="text/template">
 ## IBCM vs. x86: Registers
-![x86 registers](images/09-x86/x86-registers.svg)
+![x86 registers](images/09-x86/x86-register-diagram.svg)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -754,17 +754,26 @@ The second lecture stopped a bunch of slides back (slide 47) due to many great q
 # Activation Records
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
-Activation records
-Activation Records
-Every time a sub-routine is called, a number of things are pushed onto the stack:
-Registers
-Parameters
-Old base/stack pointers
-Local variables
-Return address
+	  <section>
+<h2>Activation Records</h2>
+<table class="transparent"><tr>
+<td class="top">
+<ul>
+<li>Every time a sub-routine is called, a number of things are pushed onto the stack:<ul>
+    <li>Registers</li>
+    <li>Parameters</li>
+    <li>Old base/stack pointers</li>
+    <li>Local variables</li>
+    <li>Return address</li>
+</ul></li>
+<li>All of this is called the <i>activation record</i></li>
+</ul>
+</td><td>
+<img alt="x86 activation record" src="images/09-x86/x86-activation-record.svg">
+</td></tr></table>
+	  </section>
 
-All of this is called the activation record
+	  <section data-markdown><script type="text/template">
 Memory management
 The binary program takes up a fixed amount of space
 The size of the file
