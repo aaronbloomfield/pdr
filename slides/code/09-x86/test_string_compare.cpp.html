@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>test_string_compare.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;string&gt;</font>
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<b><font color="#0000FF">extern</font></b> <font color="#FF0000">"C"</font> <font color="#009900">bool</font> <b><font color="#000000">compare_string</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> <font color="#009900">char</font><font color="#990000">*</font> theStr1<font color="#990000">,</font> <b><font color="#0000FF">const</font></b> <font color="#009900">char</font><font color="#990000">*</font> theStr2<font color="#990000">);</font>
+
+<font color="#009900">bool</font> <b><font color="#000000">compare_string</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> <font color="#009900">char</font> <font color="#990000">*</font>theStr1<font color="#990000">,</font> <b><font color="#0000FF">const</font></b> <font color="#009900">char</font> <font color="#990000">*</font>theStr2<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <i><font color="#9A1900">// while *theStr1 is not NULL terminator</font></i>
+    <i><font color="#9A1900">// and the current corresponding bytes are equal</font></i>
+    <b><font color="#0000FF">while</font></b> <font color="#990000">(</font> <font color="#990000">(*</font>theStr1 <font color="#990000">!=</font> <font color="#993399">0</font><font color="#990000">)</font>
+            <font color="#990000">&amp;&amp;</font> <font color="#990000">(*</font>theStr1 <font color="#990000">==</font> <font color="#990000">*</font>theStr2<font color="#990000">)</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+        theStr1<font color="#990000">++;</font>		<i><font color="#9A1900">// increment the pointers to</font></i>
+        theStr2<font color="#990000">++;</font>		<i><font color="#9A1900">// the next char / byte</font></i>
+    <font color="#FF0000">}</font>
+    <b><font color="#0000FF">return</font></b> <font color="#990000">(*</font>theStr1<font color="#990000">==*</font>theStr2<font color="#990000">);</font>
+<font color="#FF0000">}</font>
+
+<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+    <font color="#008080">string</font> theValue1<font color="#990000">,</font> theValue2<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Enter string 1: "</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cin <font color="#990000">&gt;&gt;</font> theValue1<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Enter string 2: "</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cin <font color="#990000">&gt;&gt;</font> theValue2<font color="#990000">;</font>
+    <font color="#009900">bool</font> theResult <font color="#990000">=</font> <b><font color="#000000">compare_string</font></b><font color="#990000">(</font>theValue1<font color="#990000">.</font><b><font color="#000000">c_str</font></b><font color="#990000">(),</font> 					     theValue2<font color="#990000">.</font><b><font color="#000000">c_str</font></b><font color="#990000">());</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The result is: "</font> <font color="#990000">&lt;&lt;</font> theResult <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>
