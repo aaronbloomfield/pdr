@@ -182,7 +182,7 @@ The `int_path_length()` methods take in two parameters -- a node (either the Avl
 
 ### Input format ###
 
-The input paragraph will be provided in a file, and the name of the file will be the one (and only!) input provided to the program.  Note that we are ***NOT*** providing the file name as a command-line parameter.  The provided skeleton code properly handles the input for you already.
+The program will be provided with two input lines (i.e., there are just two `cin` calls).  The input paragraph will be provided in a file, and the name of the file will be the first input provided to the program.  Note that we are ***NOT*** providing the file name as a command-line parameter.  The second input provided is the word to search for.  The provided skeleton code properly handles the input for you already.
 
 ### What you need to do ###
 
