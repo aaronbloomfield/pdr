@@ -4,7 +4,7 @@ extern "C" int max(int x, int y);
 
 int max(int x, int y) {
     int theMax;
-    if (x > y) 		// if x > y then it is max
+    if (x > y) 		// if x > y then x is max
         theMax = x;
     else 		// else y is the max
         theMax = y;
