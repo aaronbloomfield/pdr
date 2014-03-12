@@ -442,114 +442,187 @@ endOfLoop:
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-Calling Conventions
-Example
+## Example
+```
 int max(int x, int y) {
-	int theMax = (x > y) ? x : y;
-	return theMax;
+    int theMax = (x > y) ? x : y;
+    return theMax;
 }
 
 int main() {
-	int a =5, b = 6;
-	int maxVal = max(a,b);
-	cout << "Max Value: " << maxVal << endl;
-	return 0;
+    int a =5, b = 6;
+    int maxVal = max(a,b);
+    cout << "Max value: " << maxVal << endl;
+    return 0;
 }
-Calling Conventions
-What is a calling convention?
-A set of rules/expectations between functions
-How (and where) are parameters passed?
-Which registers does the calling function expect to be preserved?
-Where should local variables be stored?
-How/where should results be returned from functions?
+```
+	  </script></section>
 
-Why?
-Separate programmers can
-share code more easily
-develop libraries 
-C Calling Convention
-Why C's calling convention?
-It's important
-Can be used with C and C++ code
-Can enable calling C library functions from assembly code
-Or other languages
+	  <section data-markdown><script type="text/template">
+## Calling Conventions
+- What is a calling convention?
+  - A set of rules/expectations between functions
+    - How (and where) are *parameters* passed?
+    - Which *registers* does the calling function expect to be preserved?
+    - Where should *local variables* be stored?
+    - How/where should results be *returned* from functions?
+- Why?
+  - Separate programmers can
+    - share code more easily
+    - develop libraries 
+	  </script></section>
 
+	  <section data-markdown><script type="text/template">
+## C Calling Convention
+- Why C's calling convention?
+  - It's important
+  - Can be used with C and C++ code
+  - Can enable calling C library functions from assembly code
+    - Or other languages
+	  </script></section>
 
-C Calling Convention
-Uses hardware stack (memory)
-Stack grows down, towards lower memory addresses
-x86 instructions used for calling convention
-pop
-push
-call
-ret
-Using a stack for calling convention is implemented on most processors.  Why?
-Recursion
-C Calling Convention Overview
-Answers to questions
-Parameters
-passed on the stack
-Registers
-saved on the stack
-Local variables
-placed in memory on the stack
-Return value
-eax register
-Calling Convention Overview (2)
-The sets of rules
-Caller
-The function which calls another function
-Callee
-The function which is called by another function
-Caller vs. Callee
+	  <section data-markdown><script type="text/template">
+## C Calling Convention
+- Uses hardware stack (memory)
+  - Stack *grows down*, towards lower memory addresses
+  - x86 instructions used for calling convention
+    - `pop`
+    - `push`
+    - `call`
+    - `ret`
+  - Using a stack for calling convention is implemented on most processors.  Why?
+    - Recursion
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## C Calling Convention Overview
+- Answers to questions
+  - Parameters: passed on the stack
+  - Registers: saved on the stack
+  - Local variables: placed in memory on the stack
+  - Return value: eax register
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Calling Convention Overview
+- The sets of rules
+  - Caller: the function which calls another function
+  - Callee: the function which is called by another function
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Caller vs. Callee
+```
 void foo() {
-	// some function code ...
+  // some function code ...
 }
 
 int main() {
-	foo();
-	return 0;
+    foo();
+    return 0;
 }
-Register usage
-One register is used for the return value: eax
-Three registers may be modified by the callee: eax, ecx, edx
-If the caller wants to keep those values, they need to be saved by pushing them onto the stack
-And note eax is where the return value goes
-Three registers may not be modified by a subroutine call: ebx, edi, esi
-If the subroutine wants to modify them, it needs to back them up first (onto the stack) and restore them before returning
-Two registers should almost never be modified directly: ebp, esp
-There is an exception: ebp is modified in one case by the callee
-Varying number of parameters
-Three ways to have a variable number of parameters:
-Method overloading
-Foo::bar(int) and Foo::bar(int, float)
-Default parameters
-Foo::bar (int x = 3)
-Variable arguments
-As seen next
-An aside: variable number of arguments in C/C++
-(this example from http://www.daniweb.com/forums/thread83437.html)
+```
 
-\#include <stdarg.h>
+- `main()` is the *caller*
+- `foo()` is the *callee*
+	  </script></section>
 
-void stringstofile (FILE *filehandle, ...) {
-	va_list vargs;
+	  <section data-markdown><script type="text/template">
+## Register usage
+- One register is used for the return value: eax
+- Three registers may be modified by the callee: eax, ecx, edx
+  - If the caller wants to keep those values, they need to be saved by pushing them onto the stack
+  - And note eax is where the return value goes
+- Three registers may not be modified by a subroutine call: ebx, edi, esi
+  - If the subroutine wants to modify them, it needs to back them up first (onto the stack) and restore them before returning
+- Two registers should almost never be modified directly: ebp, esp
+  - There is an exception: ebp is modified in one case by the callee
+	  </script></section>
 
-	va_start (vargs, filehandle);
-	while (va_arg (vargs, char *))
-		fputs (va_arg (vargs, char *), filehandle);
-	va_end (vargs);
+	  <section data-markdown><script type="text/template">
+## Varying number of parameters
+- Three ways to have a variable number of parameters:
+  - Method overloading
+    - `Foo::bar(int)` and `Foo::bar(int, float)`
+  - Default parameters
+    - `Foo::bar (int x = 3)`
+  - Variable arguments
+    - As seen next...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Variable number of arguments in C/C++
+
+This code adapted from [here](http://www.cprogramming.com/tutorial/lesson17.html)
+
+```
+#include <cstdarg>
+#include <iostream>
+using namespace std;
+
+double average ( int num, ... ) {
+  va_list arguments;
+  double sum = 0;
+  va_start ( arguments, num );
+  for ( int x = 0; x < num; x++ )
+    sum += va_arg ( arguments, double );
+  va_end ( arguments );
+  return sum / num;
 }
-More on variable number of arguments
 
-The C equivalent of cout is a function called printf
+int main() {
+  cout<< average ( 3, 12.2, 22.3, 4.5 ) <<endl;
+  cout<< average ( 5, 3.3, 2.2, 1.1, 5.5, 3.3 ) <<endl;
+}
+```
+	  </script></section>
 
+	  <section data-markdown><script type="text/template">
+## Dissection of the average() function
+- Create a data structure to hold the list of arguments:
+```
+va_list arguments;
+```
+- Initialize the arguments to store all values after num:
+```
+va_start ( arguments, num );
+```
+- Loop until all numbers are added:
+```
+for ( int x = 0; x < num; x++ )
+```
+- Adds the next value in argument list to sum:
+```
+      sum += va_arg ( arguments, double );
+```
+- Clean up the list:
+```
+va_end ( arguments );
+```
+- Return the average:
+```
+return sum / num;
+```
+	  </script></section>
+
+
+	  <section data-markdown><script type="text/template">
+## The C equivalent of cout is a function called printf
+```
 printf ("A %s, a %s, a %s: %s!", "man", 
 		"plan", "canal", "Panama");
 printf ("A percent sign: %%");
 printf ("An int: %d\n", i);
 printf ("A float with 2 decimal digits: %.2f", 
 		float_value);
+```
+Output:
+```
+A man, a plan, a canal, Panama!
+A percent sign: %
+An int: 3
+A float with 2 decimal digits: 3.14
+```
 	  </script></section>
 
 	</section>
@@ -562,85 +635,112 @@ printf ("A float with 2 decimal digits: %.2f",
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-Calling Convention
-Part 1: Caller's Rules
-Caller Rules/Responsibilities
-Before calling the function
-Save registers that might be needed after the call (eax, ecx, edx)
-Push parameters on the stack
-Call the function
-call instruction places return address in stack
-After the called function returns
-Remove parameters from stack
-Restore saved registers
-
-Callee Rules/Responsibilities
-Prologue
-BEFORE the function body
-
-Function body
-
-Epilogue
-AFTER the function body, before the return
-Caller Summary
-"Prologue"
-Tasks to take care of BEFORE calling a subroutine
-"Epilogue"
-Tasks to complete AFTER subroutine call returns
-
-Not really called this, but I use this to parallel the equivalent components in the Callee convention
-Caller Rules ("Prologue")
-Caller-saved registers
-Registers which the calling function (caller) must save (push onto the stack) ONLY if it wants the values preserved.
-eax, ecx, edx
-
-Parameters
-Pushed in reverse order (last parameter first) onto stack
-
-Call the subroutine
-Use the call instruction
-pushes the return address onto the stack and branches to the subroutine
-Caller Rules ("Epilogue")
-Remove parameters
-Parameters pushed onto stack must be removed. (Restore stack to state before the call)
-What is done with the parameters?
-
-Return value
-If any, held in eax
-
-Restore caller-saved registers
-eax, ecx, edx
-pop them off the stack (Caller can assume no other registers were modified)
-Caller Rules Example
-
-int MyFunc(int a, int b, int c){
-	int x
-	// some code
-	return result;
-}
-
-int main(){
-	int x = 1, z=3;
-	int retVal = myFunc(x, 123, z);
-	//...
-	return 0;
-}
-Caller Rules Example
-push edx 		; caller wants edx to be preserved
-
-				; int retVal = myFunc(x, 123, z);
-push [z]		; Push last param first
-push 123		; push constant 123
-push eax 		; push first param last
-
-call _MyFunc		; call the function
-
-add esp, 12		; clean up stack
-pop edx		; restore saved edx value
-
-	; return value of myFunc is now available in eax (if any return value)
-Stack Visualization for myFunc
+## Callee Summary
+- Prologue
+  - BEFORE the function body
+- Function body
+- Epilogue
+  - AFTER the function body, before the return
 	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Caller Summary
+- Prologue
+  - Tasks to take care of BEFORE calling a subroutine
+- Epilogue
+  - Tasks to complete AFTER subroutine call returns
+- (not really called this, but I use this to parallel the equivalent components in the Callee convention)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Caller Rules/Responsibilities
+- *Before* calling the function (the prologue)
+  - Save registers that might be needed after the call (eax, ecx, edx)
+  - Push parameters on the stack
+- *Call* the function
+  - `call` instruction places return address in stack
+- *After* the called function returns (the epilogue)
+  - Remove parameters from stack
+  - Restore saved registers
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Caller Rules ("Prologue")
+1. Caller-saved registers
+   - Registers which the calling function (caller) must save (push onto the stack) ONLY if it wants the values preserved.
+   - eax, ecx, edx
+2. Parameters
+   - Pushed in *reverse order* (last parameter first) onto stack
+3. Call the subroutine
+  - Use the `call` instruction
+    - pushes the return address onto the stack and branches to the subroutine
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Caller Rules ("Epilogue")
+1. Remove parameters
+   - Parameters pushed onto stack must be removed
+     - Restore stack to the state before the call
+   - What is done with the parameters?
+2. Return value
+   - If any, held in eax
+3. Restore caller-saved registers
+   - eax, ecx, edx
+   - `pop` them off the stack (Caller can assume no other registers were modified)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Caller Rules Example
+We'll see this code in the following slides:
+```
+int myFunc(int a, int b, int c){
+    int x
+    // some code
+    return result;
+}
+
+int main() {
+    int x = 1, z = 3;
+    int retVal = myFunc(x, 123, z);
+    //...
+    return 0;
+}
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Caller Rules Example
+```
+push edx         ; caller wants edx to be preserved
+
+                 ; int retVal = myFunc(x, 123, z);
+push [z]         ; Push last param first
+push 123         ; push constant 123
+push eax         ; push first param last
+
+call myFunc     ; call the function
+
+add esp, 12      ; clean up stack
+pop edx          ; restore saved edx value
+
+; return value of myFunc is now available in eax 
+; (if there is any return value)
+```
+	  </script></section>
+
+	  <section>
+<h2>Stack Memory Visualization for myFunc</h2>
+<table class="transparent">
+<tr><td>&uarr;</td><td style="width:50px"></td><td class="border" style="width:300px">value of edx</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td>To higher addresses</td><td style="width:50px"></td><td class="border" style="width:300px">copy of var z</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td>(to 0xffffffff)</td><td style="width:50px"></td><td class="border" style="width:300px">123</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">value of eax (var x)</td><td style="width:25px"></td><td>&larr; esp</td></tr>
+<tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td>To lower addresses</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td>(to 0x00000000)</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td>&darr;</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+</table>
+	  </section>
 
 	</section>
 
@@ -652,98 +752,164 @@ Stack Visualization for myFunc
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-Calling Convention
-Part 2: Callee Rules
-Callee Rules Summary
-Prologue
-Tasks to perform BEFORE executing the function body
+## Callee Rules Summary
+- Prologue
+  - Tasks to perform BEFORE executing the function body
+- Epilogue
+  - Tasks to perform AFTER executing function body, but BEFORE leaving function
+	  </script></section>
 
-Epilogue
-Tasks to perform AFTER executing function body, but BEFORE leaving function
-Callee Rules Example
-int MyFunc(int a, int b, int c){
-	int x
-	// some code
-	return result;
+	  <section data-markdown><script type="text/template">
+## Caller Rules Example
+We'll see this code in the following slides:
+```
+int myFunc(int a, int b, int c){
+    int x
+    // some code
+    return result;
 }
 
-int main(){
-	int x = 1, z=3;
-	int retVal = myFunc(x, 123, z);
-	//...
-	return 0;
+int main() {
+    int x = 1, z = 3;
+    int retVal = myFunc(x, 123, z);
+    //...
+    return 0;
 }
-Callee Rules (Prologue)
-Push ebp and copy esp into ebp
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Callee Rules (Prologue)
+Before the body of the function:
+
+1. Push ebp and copy esp into ebp
+```
 push ebp
 mov ebp, esp
-ebp -- snapshot of esp when subroutine starts
-Parameters and local variables are known distances/offsets from this pointer value
-Allocate local variables
-make space on stack (decrement stack pointer)
-Callee Rules (Prologue)
-Save callee-save registers
-ebx, edi, esi (push them onto stack)
-only need to do this if callee intends to use them, otherwise, no need to save their contents
+```
+  - ebp: snapshot of esp when subroutine starts
+    - Parameters and local variables are known distances/offsets from this pointer value
+2. Allocate local variables
+   - make space on stack (decrement stack pointer)
+	  </script></section>
 
-THEN, perform body of the function
-Callee Rules (Epilogue)
-Return value saved to eax
-Restore callee-saved registers
-Pop from stack (inverse order from which pushed)
-Deallocate local variables
+	  <section>
+<h2>Callee Rules (Prologue)</h2>
+<ol start="3">
+<li>Save callee-save registers<ul>
+    <li>ebx, edi, esi (push them onto stack)</li>
+    <li>only need to do this if callee intends to use them, otherwise, no need to save their contents</li>
+</ul></li></ol>
+<p>&nbsp;</p>
+<p>THEN, perform body of the function</p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Callee Rules (Epilogue)
+1. Return value saved to eax
+2. Restore callee-saved registers
+   - `pop` from stack (in reverse order from which pushed)
+3. Deallocate local variables
+```
 mov esp, ebp
-Restore base pointer
+```
+4. Restore base pointer
+```
 pop ebp
-Return
+```
+5. Return
+```
 ret
-Callee Rules Example
-int MyFunc(int a, int b, int c){
-	int result;
-	result = c;
-	result += b;
-	return result;
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Callee Rules Example
+With a bit more code in the `myFunc()` body:
+```
+int myFunc(int a, int b, int c) {
+    int result;
+    result = c;
+    result += b;
+    return result;
 }
 
 int main(){
-	int x = 1, z=3;
-	int retVal = myFunc(x, 123, z);
-	//...
-	return 0;
+    int x = 1, z=3;
+    int retVal = myFunc(x, 123, z);
+    //...
+    return 0;
 }
-Callee Rules Example (1)
-.CODE			; start code segment
-PUBLIC _myFunc	
-_myFunc PROC
-				; prologue
-push ebp		; save old base pointer
-mov ebp, esp		; set new base pointer
-sub esp, 4		; save room for 1 local var (result)
-push ebx		; save callee-save registers
-push esi		; both will be used by myFunc
-Callee Rules Example (2)
-			; subroutine body
-mov eax, [ebp+8]		; param 1 to eax
-mov esi, [ebp+12]		; param 2 to esi
-mov ebx, [ebp+16]		; param 3 to ebx
-mov [ebp-4], ebx		; put ebx into local var
-add [ebp-4], esi		; add esi into local var
-mov eax, [ebp-4]		; mov contents of local var to eax
-						; (return value/final result)
-Callee Rules Example (3)
-	  ; subroutine epilogue
-pop esi			; recover callee save registers
-pop ebx	 	; REVERSE of when pushed
-mov esp, ebp		; deallocate local var(s)
-pop ebp		; restore caller's base pointer
-ret		
-_myFunc ENDP
-END			; end of CODE segment
-Stack Visualization for myFunc just as it is called
-Stack Visualization for myFunc
-End of lecture on Wed, Oct 30
-The second lecture stopped a bunch of slides back (slide 47) due to many great questions
+```
 	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Callee Rules Example (1)
+```
+section .text
+myFunc:
+                ; prologue
+push ebp        ; save old base pointer
+mov ebp, esp    ; set new base pointer
+sub esp, 4      ; save room for 1 local var (result)
+push ebx        ; save callee-save registers
+push esi        ; both will be used by myFunc
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Callee Rules Example (2)
+```
+                     ; subroutine body
+mov eax, [ebp+8]     ; param 1 to eax
+mov esi, [ebp+12]    ; param 2 to esi
+mov ebx, [ebp+16]    ; param 3 to ebx
+mov [ebp-4], ebx     ; put ebx into local var
+add [ebp-4], esi     ; add esi into local var
+mov eax, [ebp-4]     ; mov contents of local var to eax
+                     ; (return value/final result)
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Callee Rules Example (3)
+```
+                ; subroutine epilogue
+pop esi         ; recover callee save registers
+pop ebx         ; REVERSE of when pushed
+mov esp, ebp    ; deallocate local var(s)
+pop ebp         ; restore caller's base pointer
+ret             ; pop top value from stack, jump there
+```
+	  </script></section>
+
+	  <section>
+<h2>Stack Memory Visualization for myFunc just as it is called</h2>
+<table class="transparent">
+<tr><td>&uarr;</td><td style="width:50px"></td><td class="border" style="width:300px">value of edx</td><td style="width:25px"></td><td>&#8598; ebp</td></tr>
+<tr><td>To higher addresses</td><td style="width:50px"></td><td class="border" style="width:300px">copy of var z</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td>(to 0xffffffff)</td><td style="width:50px"></td><td class="border" style="width:300px">123</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">value of eax (var x)</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">return address</td><td style="width:25px"></td><td>&larr; esp</td></tr>
+<tr><td>To lower addresses</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td>(to 0x00000000)</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td>&darr;</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+</table>
+	  </section>
+
+	  <section>
+<h2>Stack Memory Visualization for myFunc</h2>
+<table class="transparent">
+<tr><td>&uarr;</td><td style="width:50px"></td><td class="border" style="width:300px">value of edx</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td>To higher addresses</td><td style="width:50px"></td><td class="border" style="width:300px">copy of var z</td><td style="width:25px"></td><td>[ebp+16]</td></tr>
+<tr><td>(to 0xffffffff)</td><td style="width:50px"></td><td class="border" style="width:300px">123</td><td style="width:25px"></td><td>[ebp+12]</td></tr>
+<tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">value of eax (var x)</td><td style="width:25px"></td><td>[ebp+8]</td></tr>
+<tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">return address</td><td style="width:25px"></td><td>&larr; ebp</td></tr>
+<tr><td>To lower addresses</td><td style="width:50px"></td><td class="border" style="width:300px">local variable</td><td style="width:25px"></td><td>[ebp-4]</td></tr>
+<tr><td>(to 0x00000000)</td><td style="width:50px"></td><td class="border" style="width:300px">saved value of ebx</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td>&darr;</td><td style="width:50px"></td><td class="border" style="width:300px">saved value of esi</td><td style="width:25px"></td><td>&larr; esp</td></tr>
+</table>
+	  </section>
 
 	</section>
 
@@ -774,47 +940,59 @@ The second lecture stopped a bunch of slides back (slide 47) due to many great q
 	  </section>
 
 	  <section data-markdown><script type="text/template">
-Memory management
-The binary program takes up a fixed amount of space
-The size of the file
+## Memory management
+- The binary program takes up a fixed amount of space
+  - The size of the file (say, 10k, as an example)
+- There are two types of memory that need to be handled:
+  - Dynamic memory (via new, malloc(), etc.)
+    - This is stored on the *heap*
+  - Static memory (on the stack)
+    - This is where the activation records are kept
+	  </script></section>
 
-There are two types of memory that need to be handled:
-Dynamic memory (via new, malloc(), etc.)
-This is stored on the heap
-Static memory (on the stack)
-This is where the activation records are kept
-Memory management
-The binary program starts at the 'beginning' of the 232 = 4 Gb of memory
-The heap starts right after this
-The stack starts at the end of this 4 Gb of memory, and grows backward
-They could have chosen the heap to grow backwards, but they didn't
-As a program progresses, they both grow towards the middle
-And never the twain shall meet
-Consider this subroutine...
-void security_hole() {
-	char buffer[10];
-	scanf ( "%s", buffer); // and older C input routine
-}
+	  <section data-markdown><script type="text/template">
+## Memory management
+- The binary program starts at the 'beginning' of the 2<sup>32</sup> = 4 Gb of memory
+- The heap starts right after this
+- The stack starts at the end of this 4 Gb of memory, and grows backward
+  - They could have chosen the heap to grow backwards, but they didn't
+- As a program progresses, they both grow towards the middle
+  - And never the two shall meet
+	  </script></section>
 
-The stack looks like (with sizes):
+	  <section>
+<h2>Consider this subroutine</h2>
+<pre><code>void security_hole() {
+    char buffer[10];
+    scanf ("%s", buffer); // and older C input routine
+}</code></pre>
+<p>The stack looks like (with sizes in parenthesis):</p>
+<p>&nbsp;</p>
+<table class="transparent"><tr>
+  <td class="border">esi (4)</td>
+  <td class="border">edi (4)</td>
+  <td class="border">buffer (10)</td>
+  <td class="border">ebp (4)</td>
+  <td class="border">ret addr (4)</td>
+</tr></table>
+<p>&nbsp;</p>
+<ul>
+<li>Addresses increase to the right (the stack grows to the left)</li>
+<li class="fragment">What happens if the value stored into buffer is 11 bytes long?</li>
+<li class="fragment">What if it is exactly 18 bytes long?<ul>
+    <li class="fragment">We overwrite the return address!</li>
+</ul></li>
+</ul>
+	  </section>
 
-
-
-Addresses increase to the right (the stack grows to the left)
-What happens if the value stored into buffer is 11 bytes long?
-What if it is exactly 18 bytes long?
-We overwrite the return address
-Buffer overflow attack
-When you read in a string (etc.) that goes beyond the size of the buffer
-Hence 'buffer overflow'
-
-You can then overwrite the return address
-And set it to your own code
-For example, code that is included later on in the string
-
-We may see an example of this, if there is time in the course...
-End of lecture on Fri, Nov 1
-Much of this lecture was going over the material that was not fully presented in the last lecture (the last 6 or so slides from last time)
+	  <section data-markdown><script type="text/template">
+## Buffer overflow attack
+- When you read in a string (etc.) that goes beyond the size of the buffer
+  - Hence 'buffer overflow'
+- You can then overwrite the return address
+  - And set it to your own code
+  - For example, code that is included later on in the string
+- We may see an example of this, if there is time in the course...
 	  </script></section>
 
 	</section>
@@ -827,89 +1005,127 @@ Much of this lecture was going over the material that was not fully presented in
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-x86 Examples
-Calling Convention Practice
-C++ to x86 Assembly Code
-A note about x86 compatibility
-We are using nasm as our assembler for the x86 labs
-The x86 code samples in this slide set are either:
-"generic" x86 examples that could work in nasm if put into a proper program
-In the same way that I show C++ code snippets
-Or the output from "clang++ -S" (and probably some other flags)
-This code will NOT work with nasm, but will work with clang++ (which we aren't really using anyway for our assembly)
-x86 Examples
-All are in the lectures/09-x86/code directory on Collab
+## A note about x86 compatibility
+- We are using nasm as our assembler for the x86 labs
+- The x86 code samples in this slide set are either:
+  - "Generic" x86 examples that could work in nasm if put into a proper program
+    - In the same way that you have seen C++ code snippets
+  - Or the output from "clang++ -S" (and probably some other flags)
+    - This code will *NOT* work with nasm, but will work with clang++ (which we aren't really using anyway for our assembly)
+	  </script></section>
 
-int absolute_value(int x)
-int max(int x, int y)
-bool compare_string(const char * theStr1, const char * theStr2)
-int fib(int n)
-int absolute_value(int x)
+	  <section data-markdown><script type="text/template">
+## x86 Examples
+All are in the slides/code/09-x86/ directory in the github repo  
+&nbsp;  
+Code we'll see:
+
+- int absolute_value(int x)
+- int max(int x, int y)
+- bool compare_string(const char \*theStr1, const char \*theStr2)
+- int fib(int n)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## int absolute_value(int x)
+```
 int absolute_value(int x) {
-	if(x<0)		// if x is negative
-		x = -x;	// negate x
-	return x;	// return x
+    if(x<0)        // if x is negative
+        x = -x;    // negate x
+    return x;      // return x
 }
-test_abs.cpp
-\#include <iostream>
-using namespace std;
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## test_abs.cpp
+```
 extern "C" int absolute_value(int x);
 
 int absolute_value(int x) {
-	if(x<0)		// if x is negative
-		x = -x;	// negate x
-	return x;	// return x
+    if( x < 0 )    // if x is negative
+        x = -x;    // negate x
+    return x;      // return x
 }
 
 int main(){
-	int theValue=0;
-	cout << "Enter a value: " << endl;
-	cin >> theValue;
-	int theResult = absolute_value(theValue);
-	cout << "The result is: " << theResult << endl;
-	return 0;
+    int theValue=0;
+    cout << "Enter a value: " << endl;
+    cin >> theValue;
+    int theResult = absolute_value(theValue);
+    cout << "The result is: " << theResult << endl;
+    return 0;
 }
-x86 Assembly for absolute_value
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## x86 Assembly for absolute_value
+```
 ; Standard prologue
 push ebp
 mov ebp, esp
 
 ; procedure body
-mov eax, [ebp + 8]	; eax <- x
-cmp eax, 0		; x == 0 ?
-jge end_of_proc	; if pos goto end
-neg eax			; negate x
+mov eax, [ebp + 8]    ; eax <- x
+cmp eax, 0            ; x == 0 ?
+jge end_of_proc       ; if pos goto end
+neg eax               ; negate x
 
 end_of_proc:
 ; Standard epilogue
 mov esp, ebp
 pop ebp
 ret
-Generating assembly with clang++
-Using the --S flag, we can generate assembly from C/C++ code
-Note that the format is a bit different
-Register specification, dest/source order, etc.
-So we need to use the following flags:
-		 -mllvm --x86-asm-syntax=intel
-The formatting is still different, but the idea is the same
+```
+	  </script></section>
 
-clang++'s assembly for absolute_value
- (note the <src> <dest> order is reversed)
+	  <section data-markdown><script type="text/template">
+## Generating assembly with clang++
+- Using the -S flag, we can generate assembly from C/C++ code
+- Note that the format is a bit different
+  - Register specification, dest/source order, etc.
+- So we need to use the following flags:
+```
+-mllvm --x86-asm-syntax=intel
+```
+- The formatting is still different, but the idea is the same
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## clang++'s assembly for absolute_value
+Note the source / destination order is reversed
+```
 absolute_value:
 .LFB1401:
-	pushl	%ebp
+    pushl    %ebp
 .LCFI0:
-	movl	%esp, %ebp
+    movl     %esp, %ebp
 .LCFI1:
-	cmpl	$0, 8(%ebp)
-	jns		.L2
-	negl		8(%ebp)
+    cmpl     $0, 8(%ebp)
+    jns      .L2
+    negl     8(%ebp)
 .L2:
-	movl	8(%ebp), %eax
-	popl		%ebp
-	ret
-clang++'s assembly for absolute_value
- using -mllvm --x86-asm-syntax=intel
+    movl     8(%ebp), %eax
+    popl     %ebp
+    ret
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## All those extra opcodes...
+- `movl`, `pushl`, `compl`, `negl`, `popl`
+  - the 'l' part means 'long' (i.e. 32 bits, so the assembler doesn’t have to assume)
+- `jns` means jump if not signed (i.e. if positive)
+- `$0` is the constant 0
+- `8(%ebp)` is [ebp+8]
+  – i.e. where the parameters are
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## clang++'s assembly for absolute_value
+This is when using `-mllvm --x86-asm-syntax=intel`
+```
 absolute_value:
 .LFB1428:
         push    %ebp
@@ -917,69 +1133,94 @@ absolute_value:
         mov     %ebp, %esp
 .LCFI1:
         cmp     DWORD PTR [%ebp+8], 0
-        jns       .L2
-        neg      DWORD PTR [%ebp+8]
+        jns     .L2
+        neg     DWORD PTR [%ebp+8]
 .L2:
         mov     %eax, DWORD PTR [%ebp+8]
-        pop      %ebp
+        pop     %ebp
         ret
-clang++'s assembly output on Macs
-With g++ (what we used last year), Darwin (i.e., Mac OS X) did not support the --masm=intel flag
-But I don't know what clang++ will do...
-Can anybody test this?
-So you are stuck using the "other" format
-With the <src> and <dest> order reversed
-You can compile it on a the Linux VirtualBox image, if you want the 'correct' order
-test_abs_c.c
-\#include <stdio.h>
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## clang++'s assembly output on Macs
+- With g++ (what we used last year), Darwin (i.e., Mac OS X) did not support the `--masm=intel` flag
+- But I don't know what clang++ will do...
+  - Can anybody test this?
+- So you are stuck using the "other" format
+  - With the source / destination order reversed
+- You can compile it on a the Linux VirtualBox image, if you want the 'correct' order
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## test_abs_c.c
+```
+#include <stdio.h>
 
 int absolute_value(int x) {
-	if(x<0)		// if x is negative
-		x = -x;	// negate x
-	return x;	// return x
+    if(x<0)        // if x is negative
+        x = -x;    // negate x
+    return x;    // return x
 }
 
 int main(){
-	int theValue=0;
-	printf ("Enter a value: \n");
-	scanf ("%d", &theValue);
-	int theResult = absolute_value(theValue);
-	printf ("The result is: %d\n", theResult);
-	return 0;
+    int theValue=0;
+    printf ("Enter a value: \n");
+    scanf ("%d", &theValue);
+    int theResult = absolute_value(theValue);
+    printf ("The result is: %d\n", theResult);
+    return 0;
 }
-C++ assembly vs. C assembly
-Notice how much cleaner C translates into assembly versus C++
+```
+	  </script></section>
 
-Compare files test_abs.s and test_abs_c.s
-int max(int x, int y)
+	  <section data-markdown><script type="text/template">
+## C++ assembly vs. C assembly
+- Notice how much cleaner C translates into assembly versus C++
+- Compare files [test_abs.s](code/09-x86/test_abs.s.html) ([src](code/09-x86/test_abs.s)) and [test_abs_c.s](code/09-x86/test_abs_c.s.html) ([src](code/09-x86/test_abs_c.s))
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## int max(int x, int y)
+```
 int max(int x, int y) {
-	int theMax;
-	if(x > y) 	// if x > y then it is max
-		theMax = x;
-	else 		// else y is the max
-		theMax = y;
-	return theMax;	// return the max
+    int theMax;
+    if(x > y)         // if x > y then it is max
+        theMax = x;
+    else              // else y is the max
+        theMax = y;
+    return theMax;    // return the max
 }
-test_max.cpp
-\#include <iostream>
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## test_max.cpp
+```
+#include <iostream>
 using namespace std;
 extern "C" int max(int x, int y);
 
 // the max function from the previous slide
 
 int main(){
-	int theValue1=0, theValue2=0;
-	cout << "Enter value 1: " << endl;
-	cin >> theValue1;
-	cout << "Enter value 2: " << endl;
-	cin >> theValue2;
+    int theValue1=0, theValue2=0;
+    cout << "Enter value 1: " << endl;
+    cin >> theValue1;
+    cout << "Enter value 2: " << endl;
+    cin >> theValue2;
 
-	int theResult = max(theValue1, theValue2);
-	cout << "The result is: " << theResult << endl;
-	return 0;
+    int theResult = max(theValue1, theValue2);
+    cout << "The result is: " << theResult << endl;
+    return 0;
 }
-x86 code for max()
-using -mllvm --x86-asm-syntax=intel
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## x86 code for max()
+Using `-mllvm --x86-asm-syntax=intel`
+```
 max:
 .LFB1428:
         push    %ebp
@@ -990,10 +1231,10 @@ max:
 .LCFI2:
         mov     %eax, DWORD PTR [%ebp+8]
         cmp     %eax, DWORD PTR [%ebp+12]
-        jle       .L2
+        jle     .L2
         mov     %eax, DWORD PTR [%ebp+8]
         mov     DWORD PTR [%ebp-4], %eax
-        jmp      .L4
+        jmp     .L4
 .L2:
         mov     %eax, DWORD PTR [%ebp+12]
         mov     DWORD PTR [%ebp-4], %eax
@@ -1001,8 +1242,13 @@ max:
         mov     %eax, DWORD PTR [%ebp-4]
         leave
         ret
-x86 code for max() using --O2
-using -mllvm --x86-asm-syntax=intel
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## x86 code for max() using --O2
+Using `-mllvm --x86-asm-syntax=intel` and `-O2`
+```
 max:
 .LFB1428:
         push    %ebp
@@ -1012,15 +1258,18 @@ max:
         mov     %edx, DWORD PTR [%ebp+8]
         mov     %eax, DWORD PTR [%ebp+12]
         cmp     %eax, %edx
-        jge       .L2
+        jge     .L2
         mov     %eax, %edx
 .L2:
         pop     %ebp
         ret
-End of lecture on Mon, Nov 4
-x86 code for max() without 
-the 'extern "C"' line
-using -mllvm --x86-asm-syntax=intel
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## x86 code for max() without the 'extern "C"' line
+Using `-mllvm --x86-asm-syntax=intel`
+```
 _Z3maxii:
 .LFB1428:
         push    %ebp
@@ -1042,126 +1291,188 @@ _Z3maxii:
         mov     %eax, DWORD PTR [%ebp-4]
         leave
         ret
-bool compare_string(char * theStr1, char * theStr2)
+```
+	  </script></section>
 
+	  <section data-markdown><script type="text/template">
+## bool compare_string(char \*theStr1, char \*theStr2)
+```
 bool compare_string (const char *theStr1, 
-				const char *theStr2) {
-	// while *theStr1 is not NULL terminator
-	// and the current corresponding bytes are equal
-	while( (*theStr1 != NULL) 
-			&& (*theStr1 == *theStr2) )
-	{
-		theStr1++;		// increment the pointers to 
-		theStr2++;		// the next char / byte
-	}
-	return (*theStr1==*theStr2);
+                     const char *theStr2) {
+    // while *theStr1 is not NULL terminator
+    // and the current corresponding bytes are equal
+    while( (*theStr1 != NULL) 
+            && (*theStr1 == *theStr2) )
+    {
+        theStr1++;        // increment the pointers to 
+        theStr2++;        // the next char / byte
+    }
+    return (*theStr1==*theStr2);
 }
-test_string_compare.cpp
-\#include <iostream>
-\#include <string>
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## test_string_compare.cpp
+```
+#include <iostream>
+#include <string>
 using namespace std;
 
 extern "C" bool compare_string(const char* theStr1, 
-					 const char* theStr2);
+                               const char* theStr2);
 
 // code for compare_string here
 
 int main(){
-	string theValue1, theValue2;
-	cout << "Enter string 1: " << endl;
-	cin >> theValue1;
-	cout << "Enter string 2: " << endl;
-	cin >> theValue2;
-
-	bool theResult = compare_string(theValue1.c_str(), 					     theValue2.c_str());
-
-	cout << "The result is: " << theResult << endl;
-	return 0;
+    string theValue1, theValue2;
+    cout << "Enter string 1: " << endl;
+    cin >> theValue1;
+    cout << "Enter string 2: " << endl;
+    cin >> theValue2;
+    bool theResult = compare_string(theValue1.c_str(),
+                                    theValue2.c_str());
+    cout << "The result is: " << theResult << endl;
+    return 0;
 }
-x86 assembly for compare_string()
- using -mllvm --x86-asm-syntax=intel
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## x86 assembly for compare_string()
+Using `-mllvm --x86-asm-syntax=intel`
+```
 _compare_string:
-	push	ebp
-	mov	ebp, esp
+    push    ebp
+    mov    ebp, esp
 L11:
-	mov	eax, DWORD PTR [ebp+8]
-	cmp	BYTE PTR [eax], 0
-	je	L12
-	mov	eax, DWORD PTR [ebp+8]
-	mov	edx, DWORD PTR [ebp+12]
-	movzx	eax, BYTE PTR [eax]
-	cmp	al, BYTE PTR [edx]
-	jne	L12
-	inc	DWORD PTR [ebp+8]
-	lea	eax, [ebp+12]
-	inc	DWORD PTR [eax]
-	jmp	L11
-int fib(int n)
+    mov    eax, DWORD PTR [ebp+8]
+    cmp    BYTE PTR [eax], 0
+    je    L12
+    mov    eax, DWORD PTR [ebp+8]
+    mov    edx, DWORD PTR [ebp+12]
+    movzx    eax, BYTE PTR [eax]
+    cmp    al, BYTE PTR [edx]
+    jne    L12
+    inc    DWORD PTR [ebp+8]
+    lea    eax, [ebp+12]
+    inc    DWORD PTR [eax]
+    jmp    L11
+```
+	  </script></section>
 
+	  <section data-markdown><script type="text/template">
+## int fib(int n)
+```
 int fib(int n) {
-	if((n==0) || (n==1))
-		return 1;
-	return fib(n-1) + fib(n-2);
+    if((n==0) || (n==1))
+        return 1;
+    return fib(n-1) + fib(n-2);
 }
-test_fib.cpp
-\#include <iostream>
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## test_fib.cpp
+```
+#include <iostream>
 using namespace std;
 extern "C" int fib(int n);
 
 int fib(int n) {
-	if((n==0) || (n==1))
-		return 1;
-	return fib(n-1) + fib(n-2);
+    if((n==0) || (n==1))
+        return 1;
+    return fib(n-1) + fib(n-2);
 }
 
 int main(){
-	int theValue = 0;
-	cout << "Enter value for fib(): " << endl;	
-	cin >> theValue;
-	
-	int theResult = fib(theValue);
-	cout << "The result is: " << theResult << endl;
-	return 0;
+    int theValue = 0;
+    cout << "Enter value for fib(): " << endl;    
+    cin >> theValue;
+    int theResult = fib(theValue);
+    cout << "The result is: " << theResult << endl;
+    return 0;
 }
-x86 assembly for fib()
- using -mllvm --x86-asm-syntax=intel
-fib:
-.LFB1428:
-        push    %ebp
-.LCFI0:
-        mov     %ebp, %esp
-.LCFI1:
-        push    %ebx
-.LCFI2:
-        sub      %esp, 8
-.LCFI3:
-        cmp     DWORD PTR [%ebp+8], 0
-        je        .L2
-        cmp     DWORD PTR [%ebp+8], 1
-        jne      .L4
-.L2:
-        mov     DWORD PTR [%ebp-8], 1
-        jmp     .L5
-Didn't that violate the convention?
-Not really!
-The convention states what the stack must look like when a subroutine is invoked
-The steps given in this slide set are to help learn the convention
-So as the stack was set up correctly, the convention was follows
-Do we need to even use ebp?
-If we know that the number of local variables will be fixed...
-... then we can offset everything from esp instead
-This saves the push/pop ebp operations
-clang++ likes to do this...
-RISC versus CISC
-RISC
-Reduced instruction set computer
-Fewer and simpler instructions (maybe 50 or so)
-Less chip complexity means they can run fast
-End of lecture on Wed, Nov 6
-We talked about next semester's classes before the lecture recording started
+```
 	  </script></section>
 
-	</section>
+	  <section>
+<h2>x86 assembly for fib()</h2>
+<p>Using <code>-mllvm --x86-asm-syntax=intel</code></p>
+<table class="transparent"><tr>
+<td><pre><code>fib:
+.LFB1428:
+    push  %ebp
+.LCFI0:
+    mov   %ebp, %esp
+.LCFI1:
+    push  %ebx
+.LCFI2:
+    sub   %esp, 8
+.LCFI3:
+    cmp   DWORD PTR [%ebp+8], 0
+    je    .L2
+    cmp   DWORD PTR [%ebp+8], 1
+    jne   .L4
+.L2:
+    mov   DWORD PTR [%ebp-8], 1
+    jmp   .L5</code></pre>
+</td>
+<td><pre><code>.L4:
+    mov   %eax, DWORD PTR [%ebp+8]
+    sub   %eax, 1
+    mov   DWORD PTR [%esp], %eax
+    call  fib
+    mov   %ebx, %eax
+    mov   %eax, DWORD PTR [%ebp+8]
+    sub   %eax, 2
+    mov   DWORD PTR [%esp], %eax
+    call  fib
+    add   %ebx, %eax
+    mov   DWORD PTR [%ebp-8], %ebx
+.L5:
+    mov   %eax, DWORD PTR [%ebp-8]
+    add   %esp, 8
+    pop   %ebx
+    pop   %ebp
+    ret
+</code></pre></td></tr></table>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Didn't that violate the convention?
+- Not really!
+- The convention states what the stack must look like when a subroutine is invoked
+- The steps given in this slide set are to help learn the convention
+- So as the stack was set up correctly, the convention was follows
+	  </script></section>
+
+	  <section>
+<h2>Do we need to even use ebp?</h2>
+<table class="transparent">
+<tr><td class="top"><ul>
+<li>If we know that the number of local variables will be fixed...<ul>
+    <li>... then we can offset everything from esp instead</li>
+</ul></li>
+<li>This saves the push/pop ebp operations</li>
+<li>clang++ likes to do this...</li>
+<li>But this is not always possible if a program uses dynamic memory on the <i>stack</i></li>
+</td><td><img alt="x86 activation record" src="images/09-x86/x86-activation-record.svg"></td></tr></table>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## RISC versus CISC
+- RISC
+  - Reduced instruction set computer
+  - Fewer and simpler instructions (maybe 50 or so)
+  - Less chip complexity means they can run fast
+- CISC
+  - Complex instruction set computer
+  - More and more complex instructions (300-400 or so)
+  - More chip complexity means harder to make run fast
+	  </script></section>
+
+    </section>
 
 
 
