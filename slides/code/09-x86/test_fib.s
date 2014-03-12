@@ -1,334 +1,194 @@
-.file	"test_fib.cpp"
-.intel_syntax
-.text
-.align 2
-.def	__ZSt17__verify_groupingPKcjRKSs;
-.scl	3;
-.type	32;
-.endef
-__ZSt17__verify_groupingPKcjRKSs:
-push	ebp
-mov	ebp, esp
-sub	esp, 40
-mov	eax, DWORD PTR [ebp+16]
-mov	DWORD PTR [esp], eax
-call	__ZNKSs4sizeEv
-dec	eax
-mov	DWORD PTR [ebp-4], eax
-mov	eax, DWORD PTR [ebp+12]
-dec	eax
-mov	DWORD PTR [ebp-12], eax
-lea	eax, [ebp-12]
-mov	DWORD PTR [esp+4], eax
-lea	eax, [ebp-4]
-mov	DWORD PTR [esp], eax
-call	__ZSt3minIjERKT_S2_S2_
-mov	eax, DWORD PTR [eax]
-mov	DWORD PTR [ebp-8], eax
-mov	eax, DWORD PTR [ebp-4]
-mov	DWORD PTR [ebp-16], eax
-mov	BYTE PTR [ebp-17], 1
-mov	DWORD PTR [ebp-24], 0
-L2:
-mov	eax, DWORD PTR [ebp-24]
-cmp	eax, DWORD PTR [ebp-8]
-jae	L5
-cmp	BYTE PTR [ebp-17], 0
-je	L5
-mov	eax, DWORD PTR [ebp-16]
-mov	DWORD PTR [esp+4], eax
-mov	eax, DWORD PTR [ebp+16]
-mov	DWORD PTR [esp], eax
-call	__ZNKSsixEj
-mov	ecx, eax
-mov	eax, DWORD PTR [ebp-24]
-mov	edx, DWORD PTR [ebp+8]
-add	edx, eax
-movzx	eax, BYTE PTR [ecx]
-cmp	al, BYTE PTR [edx]
-sete	al
-mov	BYTE PTR [ebp-17], al
-lea	eax, [ebp-16]
-dec	DWORD PTR [eax]
-lea	eax, [ebp-24]
-inc	DWORD PTR [eax]
-jmp	L2
-L5:
-cmp	DWORD PTR [ebp-16], 0
-je	L6
-cmp	BYTE PTR [ebp-17], 0
-je	L6
-mov	eax, DWORD PTR [ebp-16]
-mov	DWORD PTR [esp+4], eax
-mov	eax, DWORD PTR [ebp+16]
-mov	DWORD PTR [esp], eax
-call	__ZNKSsixEj
-mov	ecx, eax
-mov	eax, DWORD PTR [ebp-8]
-mov	edx, DWORD PTR [ebp+8]
-add	edx, eax
-movzx	eax, BYTE PTR [ecx]
-cmp	al, BYTE PTR [edx]
-sete	al
-mov	BYTE PTR [ebp-17], al
-lea	eax, [ebp-16]
-dec	DWORD PTR [eax]
-jmp	L5
-L6:
-mov	DWORD PTR [esp+4], 0
-mov	eax, DWORD PTR [ebp+16]
-mov	DWORD PTR [esp], eax
-call	__ZNKSsixEj
-mov	ecx, eax
-mov	eax, DWORD PTR [ebp-8]
-mov	edx, DWORD PTR [ebp+8]
-add	edx, eax
-movzx	eax, BYTE PTR [ecx]
-cmp	al, BYTE PTR [edx]
-jg	L8
-movzx	eax, BYTE PTR [ebp-17]
-and	eax, 1
-mov	BYTE PTR [ebp-25], al
-jmp	L9
-L8:
-mov	BYTE PTR [ebp-25], 0
-L9:
-movzx	eax, BYTE PTR [ebp-25]
-mov	BYTE PTR [ebp-17], al
-movzx	eax, BYTE PTR [ebp-17]
-leave
-ret
-.lcomm __ZSt8__ioinit,16
-.align 2
-.globl _fib
-.def	_fib;
-.scl	2;
-.type	32;
-.endef
-_fib:
-push	ebp
-mov	ebp, esp
-push	ebx
-sub	esp, 8
-cmp	DWORD PTR [ebp+8], 0
-je	L12
-cmp	DWORD PTR [ebp+8], 1
-je	L12
-jmp	L11
-L12:
-mov	DWORD PTR [ebp-8], 1
-jmp	L10
-L11:
-mov	eax, DWORD PTR [ebp+8]
-dec	eax
-mov	DWORD PTR [esp], eax
-call	_fib
-mov	ebx, eax
-mov	eax, DWORD PTR [ebp+8]
-sub	eax, 2
-mov	DWORD PTR [esp], eax
-call	_fib
-add	ebx, eax
-mov	DWORD PTR [ebp-8], ebx
-L10:
-mov	eax, DWORD PTR [ebp-8]
-add	esp, 8
-pop	ebx
-pop	ebp
-ret
-.def	___main;
-.scl	2;
-.type	32;
-.endef
-.section .rdata,"dr"
-LC0:
-.ascii "Enter value for fib(): \0"
-LC1:
-.ascii "The result is: \0"
-.text
-.align 2
-.globl _main
-.def	_main;
-.scl	2;
-.type	32;
-.endef
-_main:
-push	ebp
-mov	ebp, esp
-sub	esp, 24
-and	esp, -16
-mov	eax, 0
-add	eax, 15
-add	eax, 15
-shr	eax, 4
-sal	eax, 4
-mov	DWORD PTR [ebp-12], eax
-mov	eax, DWORD PTR [ebp-12]
-call	__alloca
-call	___main
-mov	DWORD PTR [ebp-4], 0
-mov	DWORD PTR [esp+4], OFFSET FLAT:
-LC0
-mov	DWORD PTR [esp], OFFSET FLAT:
-__ZSt4cout
-call	__ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
-mov	DWORD PTR [esp+4], OFFSET FLAT:
-__ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
-mov	DWORD PTR [esp], eax
-call	__ZNSolsEPFRSoS_E
-lea	eax, [ebp-4]
-mov	DWORD PTR [esp+4], eax
-mov	DWORD PTR [esp], OFFSET FLAT:
-__ZSt3cin
-call	__ZNSirsERi
-mov	eax, DWORD PTR [ebp-4]
-mov	DWORD PTR [esp], eax
-call	_fib
-mov	DWORD PTR [ebp-8], eax
-mov	DWORD PTR [esp+4], OFFSET FLAT:
-LC1
-mov	DWORD PTR [esp], OFFSET FLAT:
-__ZSt4cout
-call	__ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
-mov	edx, eax
-mov	eax, DWORD PTR [ebp-8]
-mov	DWORD PTR [esp+4], eax
-mov	DWORD PTR [esp], edx
-call	__ZNSolsEi
-mov	DWORD PTR [esp+4], OFFSET FLAT:
-__ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
-mov	DWORD PTR [esp], eax
-call	__ZNSolsEPFRSoS_E
-mov	eax, 0
-leave
-ret
-.section	.text$_ZSt3minIjERKT_S2_S2_,"x"
-.linkonce discard
-.align 2
-.globl __ZSt3minIjERKT_S2_S2_
-.def	__ZSt3minIjERKT_S2_S2_;
-.scl	2;
-.type	32;
-.endef
-__ZSt3minIjERKT_S2_S2_:
-push	ebp
-mov	ebp, esp
-sub	esp, 4
-mov	eax, DWORD PTR [ebp+12]
-mov	edx, DWORD PTR [ebp+8]
-mov	eax, DWORD PTR [eax]
-cmp	eax, DWORD PTR [edx]
-jae	L15
-mov	eax, DWORD PTR [ebp+12]
-mov	DWORD PTR [ebp-4], eax
-jmp	L14
-L15:
-mov	eax, DWORD PTR [ebp+8]
-mov	DWORD PTR [ebp-4], eax
-L14:
-mov	eax, DWORD PTR [ebp-4]
-leave
-ret
-.text
-.align 2
-.def	__Z41__static_initialization_and_destruction_0ii;
-.scl	3;
-.type	32;
-.endef
-__Z41__static_initialization_and_destruction_0ii:
-push	ebp
-mov	ebp, esp
-sub	esp, 8
-cmp	DWORD PTR [ebp+12], 65535
-jne	L17
-cmp	DWORD PTR [ebp+8], 1
-jne	L17
-mov	DWORD PTR [esp], OFFSET FLAT:
-__ZSt8__ioinit
-call	__ZNSt8ios_base4InitC1Ev
-L17:
-cmp	DWORD PTR [ebp+12], 65535
-jne	L16
-cmp	DWORD PTR [ebp+8], 0
-jne	L16
-mov	DWORD PTR [esp], OFFSET FLAT:
-__ZSt8__ioinit
-call	__ZNSt8ios_base4InitD1Ev
-L16:
-leave
-ret
-.align 2
-.def	__GLOBAL__I_fib;
-.scl	3;
-.type	32;
-.endef
-__GLOBAL__I_fib:
-push	ebp
-mov	ebp, esp
-sub	esp, 8
-mov	DWORD PTR [esp+4], 65535
-mov	DWORD PTR [esp], 1
-call	__Z41__static_initialization_and_destruction_0ii
-leave
-ret
-.section	.ctors,"w"
-.align 4
-.long	__GLOBAL__I_fib
-.text
-.align 2
-.def	__GLOBAL__D_fib;
-.scl	3;
-.type	32;
-.endef
-__GLOBAL__D_fib:
-push	ebp
-mov	ebp, esp
-sub	esp, 8
-mov	DWORD PTR [esp+4], 65535
-mov	DWORD PTR [esp], 0
-call	__Z41__static_initialization_and_destruction_0ii
-leave
-ret
-.section	.dtors,"w"
-.align 4
-.long	__GLOBAL__D_fib
-.def	__ZNSt8ios_base4InitD1Ev;
-.scl	3;
-.type	32;
-.endef
-.def	__ZNSolsEi;
-.scl	3;
-.type	32;
-.endef
-.def	__ZNSirsERi;
-.scl	3;
-.type	32;
-.endef
-.def	__ZNSolsEPFRSoS_E;
-.scl	3;
-.type	32;
-.endef
-.def	__ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_;
-.scl	3;
-.type	32;
-.endef
-.def	__ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc;
-.scl	3;
-.type	32;
-.endef
-.def	__ZNSt8ios_base4InitC1Ev;
-.scl	3;
-.type	32;
-.endef
-.def	__ZNKSsixEj;
-.scl	3;
-.type	32;
-.endef
-.def	__ZNKSs4sizeEv;
-.scl	3;
-.type	32;
-.endef
-.def	__ZSt3minIjERKT_S2_S2_;
-.scl	3;
-.type	32;
-.endef
+	.file	"test_fib.cpp"
+	.text
+	.align	16, 0x90
+	.type	__cxx_global_var_init,@function
+__cxx_global_var_init:                  # @__cxx_global_var_init
+.Ltmp2:
+	.cfi_startproc
+# BB#0:
+	push	EBP
+.Ltmp3:
+	.cfi_def_cfa_offset 8
+.Ltmp4:
+	.cfi_offset ebp, -8
+	mov	EBP, ESP
+.Ltmp5:
+	.cfi_def_cfa_register ebp
+	sub	ESP, 24
+	lea	EAX, DWORD PTR [_ZStL8__ioinit]
+	mov	DWORD PTR [ESP], EAX
+	call	_ZNSt8ios_base4InitC1Ev
+	lea	EAX, DWORD PTR [_ZNSt8ios_base4InitD1Ev]
+	lea	ECX, DWORD PTR [_ZStL8__ioinit]
+	lea	EDX, DWORD PTR [__dso_handle]
+	mov	DWORD PTR [ESP], EAX
+	mov	DWORD PTR [ESP + 4], ECX
+	mov	DWORD PTR [ESP + 8], EDX
+	call	__cxa_atexit
+	mov	DWORD PTR [EBP - 4], EAX # 4-byte Spill
+	add	ESP, 24
+	pop	EBP
+	ret
+.Ltmp6:
+	.size	__cxx_global_var_init, .Ltmp6-__cxx_global_var_init
+.Ltmp7:
+	.cfi_endproc
+.Leh_func_end0:
+
+	.globl	fib
+	.align	16, 0x90
+	.type	fib,@function
+fib:                                    # @fib
+.Ltmp10:
+	.cfi_startproc
+# BB#0:
+	push	EBP
+.Ltmp11:
+	.cfi_def_cfa_offset 8
+.Ltmp12:
+	.cfi_offset ebp, -8
+	mov	EBP, ESP
+.Ltmp13:
+	.cfi_def_cfa_register ebp
+	sub	ESP, 24
+	mov	EAX, DWORD PTR [EBP + 8]
+	mov	DWORD PTR [EBP - 8], EAX
+	cmp	DWORD PTR [EBP - 8], 0
+	je	.LBB1_2
+# BB#1:
+	cmp	DWORD PTR [EBP - 8], 1
+	jne	.LBB1_3
+.LBB1_2:
+	mov	DWORD PTR [EBP - 4], 1
+	jmp	.LBB1_4
+.LBB1_3:
+	mov	EAX, DWORD PTR [EBP - 8]
+	sub	EAX, 1
+	mov	DWORD PTR [ESP], EAX
+	call	fib
+	mov	ECX, DWORD PTR [EBP - 8]
+	sub	ECX, 2
+	mov	DWORD PTR [ESP], ECX
+	mov	DWORD PTR [EBP - 12], EAX # 4-byte Spill
+	call	fib
+	mov	ECX, DWORD PTR [EBP - 12] # 4-byte Reload
+	add	EAX, ECX
+	mov	DWORD PTR [EBP - 4], EAX
+.LBB1_4:
+	mov	EAX, DWORD PTR [EBP - 4]
+	add	ESP, 24
+	pop	EBP
+	ret
+.Ltmp14:
+	.size	fib, .Ltmp14-fib
+.Ltmp15:
+	.cfi_endproc
+.Leh_func_end1:
+
+	.globl	main
+	.align	16, 0x90
+	.type	main,@function
+main:                                   # @main
+.Ltmp18:
+	.cfi_startproc
+# BB#0:
+	push	EBP
+.Ltmp19:
+	.cfi_def_cfa_offset 8
+.Ltmp20:
+	.cfi_offset ebp, -8
+	mov	EBP, ESP
+.Ltmp21:
+	.cfi_def_cfa_register ebp
+	sub	ESP, 40
+	lea	EAX, DWORD PTR [_ZSt4cout]
+	lea	ECX, DWORD PTR [.L.str]
+	mov	DWORD PTR [EBP - 4], 0
+	mov	DWORD PTR [EBP - 8], 0
+	mov	DWORD PTR [ESP], EAX
+	mov	DWORD PTR [ESP + 4], ECX
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	lea	ECX, DWORD PTR [_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_]
+	mov	DWORD PTR [ESP], EAX
+	mov	DWORD PTR [ESP + 4], ECX
+	call	_ZNSolsEPFRSoS_E
+	lea	ECX, DWORD PTR [_ZSt3cin]
+	lea	EDX, DWORD PTR [EBP - 8]
+	mov	DWORD PTR [ESP], ECX
+	mov	DWORD PTR [ESP + 4], EDX
+	mov	DWORD PTR [EBP - 16], EAX # 4-byte Spill
+	call	_ZNSirsERi
+	mov	ECX, DWORD PTR [EBP - 8]
+	mov	DWORD PTR [ESP], ECX
+	mov	DWORD PTR [EBP - 20], EAX # 4-byte Spill
+	call	fib
+	lea	ECX, DWORD PTR [_ZSt4cout]
+	lea	EDX, DWORD PTR [.L.str1]
+	mov	DWORD PTR [EBP - 12], EAX
+	mov	DWORD PTR [ESP], ECX
+	mov	DWORD PTR [ESP + 4], EDX
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	mov	ECX, DWORD PTR [EBP - 12]
+	mov	DWORD PTR [ESP], EAX
+	mov	DWORD PTR [ESP + 4], ECX
+	call	_ZNSolsEi
+	lea	ECX, DWORD PTR [_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_]
+	mov	DWORD PTR [ESP], EAX
+	mov	DWORD PTR [ESP + 4], ECX
+	call	_ZNSolsEPFRSoS_E
+	mov	ECX, 0
+	mov	DWORD PTR [EBP - 24], EAX # 4-byte Spill
+	mov	EAX, ECX
+	add	ESP, 40
+	pop	EBP
+	ret
+.Ltmp22:
+	.size	main, .Ltmp22-main
+.Ltmp23:
+	.cfi_endproc
+.Leh_func_end2:
+
+	.align	16, 0x90
+	.type	_GLOBAL__I_a,@function
+_GLOBAL__I_a:                           # @_GLOBAL__I_a
+.Ltmp26:
+	.cfi_startproc
+# BB#0:
+	push	EBP
+.Ltmp27:
+	.cfi_def_cfa_offset 8
+.Ltmp28:
+	.cfi_offset ebp, -8
+	mov	EBP, ESP
+.Ltmp29:
+	.cfi_def_cfa_register ebp
+	sub	ESP, 8
+	call	__cxx_global_var_init
+	add	ESP, 8
+	pop	EBP
+	ret
+.Ltmp30:
+	.size	_GLOBAL__I_a, .Ltmp30-_GLOBAL__I_a
+.Ltmp31:
+	.cfi_endproc
+.Leh_func_end3:
+
+	.type	_ZStL8__ioinit,@object  # @_ZStL8__ioinit
+	.local	_ZStL8__ioinit
+	.comm	_ZStL8__ioinit,1,1
+	.type	.L.str,@object          # @.str
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.L.str:
+	.asciz	 "Enter value for fib(): "
+	.size	.L.str, 24
+
+	.type	.L.str1,@object         # @.str1
+.L.str1:
+	.asciz	 "The result is: "
+	.size	.L.str1, 16
+
+	.section	.ctors,"aw",@progbits
+	.align	4
+	.long	_GLOBAL__I_a
+
+	.section	".note.GNU-stack","",@progbits

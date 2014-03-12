@@ -9,473 +9,431 @@ http://www.gnu.org/software/src-highlite">
 <title>test_string_compare.s</title>
 </head>
 <body bgcolor="white">
-<pre><tt><b><font color="#000080">.file</font></b>	<font color="#FF0000">"test_string_compare.cpp"</font>
-<b><font color="#000080">.intel</font></b>_syntax
-<b><font color="#000080">.text</font></b>
-<b><font color="#000080">.align</font></b> <font color="#993399">2</font>
-<b><font color="#000080">.def</font></b>	__ZSt<font color="#993399">17</font>__verify_groupingPKcjRKSs<i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.scl</font></b>	<font color="#993399">3</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.type</font></b>	<font color="#993399">32</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.endef</font></b>
-__ZSt<font color="#993399">17</font>__verify_groupingPKcjRKSs<font color="#990000">:</font>
-<b><font color="#0000FF">push</font></b>	<font color="#009900">ebp</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">ebp</font><font color="#990000">,</font> <font color="#009900">esp</font>
-<b><font color="#0000FF">sub</font></b>	<font color="#009900">esp</font><font color="#990000">,</font> <font color="#993399">40</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">16</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">call</font></b>	__ZNKSs<font color="#993399">4</font>sizeEv
-<b><font color="#0000FF">dec</font></b>	<font color="#009900">eax</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">4</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">12</font><font color="#990000">]</font>
-<b><font color="#0000FF">dec</font></b>	<font color="#009900">eax</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">12</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">lea</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">12</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">4</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">lea</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">4</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">call</font></b>	__ZSt<font color="#993399">3</font>minIjERKT_S<font color="#993399">2</font>_S<font color="#993399">2</font>_
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">eax</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">8</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">4</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">16</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">mov</font></b>	BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">17</font><font color="#990000">],</font> <font color="#993399">1</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">24</font><font color="#990000">],</font> <font color="#993399">0</font>
-<b><font color="#000080">L2:</font></b>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">24</font><font color="#990000">]</font>
-<b><font color="#0000FF">cmp</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">8</font><font color="#990000">]</font>
-<b><font color="#0000FF">jae</font></b>	L<font color="#993399">5</font>
-<b><font color="#0000FF">cmp</font></b>	BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">17</font><font color="#990000">],</font> <font color="#993399">0</font>
-<b><font color="#0000FF">je</font></b>	L<font color="#993399">5</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">16</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">4</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">16</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">call</font></b>	__ZNKSsixEj
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">ecx</font><font color="#990000">,</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">24</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">edx</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">8</font><font color="#990000">]</font>
-<b><font color="#0000FF">add</font></b>	<font color="#009900">edx</font><font color="#990000">,</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">movzx</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ecx</font><font color="#990000">]</font>
-<b><font color="#0000FF">cmp</font></b>	<font color="#009900">al</font><font color="#990000">,</font> BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">edx</font><font color="#990000">]</font>
-<b><font color="#0000FF">sete</font></b>	<font color="#009900">al</font>
-<b><font color="#0000FF">mov</font></b>	BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">17</font><font color="#990000">],</font> <font color="#009900">al</font>
-<b><font color="#0000FF">lea</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">16</font><font color="#990000">]</font>
-<b><font color="#0000FF">dec</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">eax</font><font color="#990000">]</font>
-<b><font color="#0000FF">lea</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">24</font><font color="#990000">]</font>
-<b><font color="#0000FF">inc</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">eax</font><font color="#990000">]</font>
-<b><font color="#0000FF">jmp</font></b>	L<font color="#993399">2</font>
-<b><font color="#000080">L5:</font></b>
-<b><font color="#0000FF">cmp</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">16</font><font color="#990000">],</font> <font color="#993399">0</font>
-<b><font color="#0000FF">je</font></b>	L<font color="#993399">6</font>
-<b><font color="#0000FF">cmp</font></b>	BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">17</font><font color="#990000">],</font> <font color="#993399">0</font>
-<b><font color="#0000FF">je</font></b>	L<font color="#993399">6</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">16</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">4</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">16</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">call</font></b>	__ZNKSsixEj
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">ecx</font><font color="#990000">,</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">8</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">edx</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">8</font><font color="#990000">]</font>
-<b><font color="#0000FF">add</font></b>	<font color="#009900">edx</font><font color="#990000">,</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">movzx</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ecx</font><font color="#990000">]</font>
-<b><font color="#0000FF">cmp</font></b>	<font color="#009900">al</font><font color="#990000">,</font> BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">edx</font><font color="#990000">]</font>
-<b><font color="#0000FF">sete</font></b>	<font color="#009900">al</font>
-<b><font color="#0000FF">mov</font></b>	BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">17</font><font color="#990000">],</font> <font color="#009900">al</font>
-<b><font color="#0000FF">lea</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">16</font><font color="#990000">]</font>
-<b><font color="#0000FF">dec</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">eax</font><font color="#990000">]</font>
-<b><font color="#0000FF">jmp</font></b>	L<font color="#993399">5</font>
-<b><font color="#000080">L6:</font></b>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">4</font><font color="#990000">],</font> <font color="#993399">0</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">16</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">call</font></b>	__ZNKSsixEj
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">ecx</font><font color="#990000">,</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">8</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">edx</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">8</font><font color="#990000">]</font>
-<b><font color="#0000FF">add</font></b>	<font color="#009900">edx</font><font color="#990000">,</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">movzx</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ecx</font><font color="#990000">]</font>
-<b><font color="#0000FF">cmp</font></b>	<font color="#009900">al</font><font color="#990000">,</font> BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">edx</font><font color="#990000">]</font>
-<b><font color="#0000FF">jg</font></b>	L<font color="#993399">8</font>
-<b><font color="#0000FF">movzx</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">17</font><font color="#990000">]</font>
-<b><font color="#0000FF">and</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#993399">1</font>
-<b><font color="#0000FF">mov</font></b>	BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">25</font><font color="#990000">],</font> <font color="#009900">al</font>
-<b><font color="#0000FF">jmp</font></b>	L<font color="#993399">9</font>
-<b><font color="#000080">L8:</font></b>
-<b><font color="#0000FF">mov</font></b>	BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">25</font><font color="#990000">],</font> <font color="#993399">0</font>
-<b><font color="#000080">L9:</font></b>
-<b><font color="#0000FF">movzx</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">25</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">17</font><font color="#990000">],</font> <font color="#009900">al</font>
-<b><font color="#0000FF">movzx</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">17</font><font color="#990000">]</font>
-<b><font color="#0000FF">leave</font></b>
-<b><font color="#0000FF">ret</font></b>
-<b><font color="#000080">.lcomm</font></b> __ZSt<font color="#993399">8</font>__ioinit<font color="#990000">,</font><font color="#993399">16</font>
-<b><font color="#000080">.align</font></b> <font color="#993399">2</font>
-<b><font color="#000080">.globl</font></b> _compare_string
-<b><font color="#000080">.def</font></b>	_compare_string<i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.scl</font></b>	<font color="#993399">2</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.type</font></b>	<font color="#993399">32</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.endef</font></b>
-_compare_string<font color="#990000">:</font>
-<b><font color="#0000FF">push</font></b>	<font color="#009900">ebp</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">ebp</font><font color="#990000">,</font> <font color="#009900">esp</font>
-<b><font color="#000080">L11:</font></b>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">8</font><font color="#990000">]</font>
-<b><font color="#0000FF">cmp</font></b>	BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">eax</font><font color="#990000">],</font> <font color="#993399">0</font>
-<b><font color="#0000FF">je</font></b>	L<font color="#993399">12</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">8</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">edx</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">12</font><font color="#990000">]</font>
-<b><font color="#0000FF">movzx</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">eax</font><font color="#990000">]</font>
-<b><font color="#0000FF">cmp</font></b>	<font color="#009900">al</font><font color="#990000">,</font> BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">edx</font><font color="#990000">]</font>
-<b><font color="#0000FF">jne</font></b>	L<font color="#993399">12</font>
-<b><font color="#0000FF">inc</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">8</font><font color="#990000">]</font>
-<b><font color="#0000FF">lea</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">12</font><font color="#990000">]</font>
-<b><font color="#0000FF">inc</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">eax</font><font color="#990000">]</font>
-<b><font color="#0000FF">jmp</font></b>	L<font color="#993399">11</font>
-<b><font color="#000080">L12:</font></b>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">8</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">edx</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">12</font><font color="#990000">]</font>
-<b><font color="#0000FF">movzx</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">eax</font><font color="#990000">]</font>
-<b><font color="#0000FF">cmp</font></b>	<font color="#009900">al</font><font color="#990000">,</font> BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">edx</font><font color="#990000">]</font>
-<b><font color="#0000FF">sete</font></b>	<font color="#009900">al</font>
-<b><font color="#0000FF">movzx</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#009900">al</font>
-<b><font color="#0000FF">pop</font></b>	<font color="#009900">ebp</font>
-<b><font color="#0000FF">ret</font></b>
-<b><font color="#000080">.def</font></b>	___main<i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.scl</font></b>	<font color="#993399">2</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.type</font></b>	<font color="#993399">32</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.endef</font></b>
-<b><font color="#000080">.def</font></b>	__Unwind_SjLj_Resume<i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.scl</font></b>	<font color="#993399">2</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.type</font></b>	<font color="#993399">32</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.endef</font></b>
-<b><font color="#000080">.def</font></b>	___gxx_personality_sj<font color="#993399">0</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.scl</font></b>	<font color="#993399">2</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.type</font></b>	<font color="#993399">32</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.endef</font></b>
-<b><font color="#000080">.def</font></b>	__Unwind_SjLj_Register<i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.scl</font></b>	<font color="#993399">2</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.type</font></b>	<font color="#993399">32</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.endef</font></b>
-<b><font color="#000080">.def</font></b>	__Unwind_SjLj_Unregister<i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.scl</font></b>	<font color="#993399">2</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.type</font></b>	<font color="#993399">32</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.endef</font></b>
-<b><font color="#000080">.section</font></b> <font color="#990000">.</font>rdata<font color="#990000">,</font><font color="#FF0000">"dr"</font>
-<b><font color="#000080">LC0:</font></b>
-<b><font color="#000080">.ascii</font></b> <font color="#FF0000">"Enter string 1: </font><font color="#CC33CC">\0</font><font color="#FF0000">"</font>
-<b><font color="#000080">LC1:</font></b>
-<b><font color="#000080">.ascii</font></b> <font color="#FF0000">"Enter string 2: </font><font color="#CC33CC">\0</font><font color="#FF0000">"</font>
-<b><font color="#000080">LC2:</font></b>
-<b><font color="#000080">.ascii</font></b> <font color="#FF0000">"The result is: </font><font color="#CC33CC">\0</font><font color="#FF0000">"</font>
-<b><font color="#000080">.text</font></b>
-<b><font color="#000080">.align</font></b> <font color="#993399">2</font>
-<b><font color="#000080">.globl</font></b> _main
-<b><font color="#000080">.def</font></b>	_main<i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.scl</font></b>	<font color="#993399">2</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.type</font></b>	<font color="#993399">32</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.endef</font></b>
-_main<font color="#990000">:</font>
-<b><font color="#0000FF">push</font></b>	<font color="#009900">ebp</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">ebp</font><font color="#990000">,</font> <font color="#009900">esp</font>
-<b><font color="#0000FF">push</font></b>	<font color="#009900">edi</font>
-<b><font color="#0000FF">push</font></b>	<font color="#009900">esi</font>
-<b><font color="#0000FF">push</font></b>	<font color="#009900">ebx</font>
-<b><font color="#0000FF">sub</font></b>	<font color="#009900">esp</font><font color="#990000">,</font> <font color="#993399">156</font>
-<b><font color="#0000FF">and</font></b>	<font color="#009900">esp</font><font color="#990000">,</font> <font color="#990000">-</font><font color="#993399">16</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#993399">0</font>
-<b><font color="#0000FF">add</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#993399">15</font>
-<b><font color="#0000FF">add</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#993399">15</font>
-<b><font color="#0000FF">shr</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#993399">4</font>
-<b><font color="#0000FF">sal</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#993399">4</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">140</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">140</font><font color="#990000">]</font>
-<b><font color="#0000FF">call</font></b>	__alloca
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">88</font><font color="#990000">],</font> <b><font color="#0000FF">OFFSET</font></b> FLAT<font color="#990000">:</font>
-___gxx_personality_sj<font color="#993399">0</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">84</font><font color="#990000">],</font> <b><font color="#0000FF">OFFSET</font></b> FLAT<font color="#990000">:</font>
-LLSDA<font color="#993399">1381</font>
-<b><font color="#0000FF">lea</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">80</font><font color="#990000">]</font>
-<b><font color="#0000FF">lea</font></b>	<font color="#009900">edx</font><font color="#990000">,</font> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">24</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">eax</font><font color="#990000">],</font> <font color="#009900">edx</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">edx</font><font color="#990000">,</font> <b><font color="#0000FF">OFFSET</font></b> FLAT<font color="#990000">:</font>
-L<font color="#993399">22</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">eax</font><font color="#990000">+</font><font color="#993399">4</font><font color="#990000">],</font> <font color="#009900">edx</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">eax</font><font color="#990000">+</font><font color="#993399">8</font><font color="#990000">],</font> <font color="#009900">esp</font>
-<b><font color="#0000FF">lea</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">112</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">call</font></b>	__Unwind_SjLj_Register
-<b><font color="#0000FF">call</font></b>	___main
-<b><font color="#0000FF">lea</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">40</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">108</font><font color="#990000">],</font> <font color="#990000">-</font><font color="#993399">1</font>
-<b><font color="#0000FF">call</font></b>	__ZNSsC<font color="#993399">1</font>Ev
-<b><font color="#0000FF">lea</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">56</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">108</font><font color="#990000">],</font> <font color="#993399">2</font>
-<b><font color="#0000FF">call</font></b>	__ZNSsC<font color="#993399">1</font>Ev
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">4</font><font color="#990000">],</font> <b><font color="#0000FF">OFFSET</font></b> FLAT<font color="#990000">:</font>
-LC<font color="#993399">0</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <b><font color="#0000FF">OFFSET</font></b> FLAT<font color="#990000">:</font>
-__ZSt<font color="#993399">4</font>cout
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">108</font><font color="#990000">],</font> <font color="#993399">1</font>
-<b><font color="#0000FF">call</font></b>	__ZStlsISt<font color="#993399">11</font>char_traitsIcEERSt<font color="#993399">13</font>basic_ostreamIcT_ES<font color="#993399">5</font>_PKc
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">4</font><font color="#990000">],</font> <b><font color="#0000FF">OFFSET</font></b> FLAT<font color="#990000">:</font>
-__ZSt<font color="#993399">4</font>endlIcSt<font color="#993399">11</font>char_traitsIcEERSt<font color="#993399">13</font>basic_ostreamIT_T<font color="#993399">0</font>_ES<font color="#993399">6</font>_
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">call</font></b>	__ZNSolsEPFRSoS_E
-<b><font color="#0000FF">lea</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">40</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">4</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <b><font color="#0000FF">OFFSET</font></b> FLAT<font color="#990000">:</font>
-__ZSt<font color="#993399">3</font>cin
-<b><font color="#0000FF">call</font></b>	__ZStrsIcSt<font color="#993399">11</font>char_traitsIcESaIcEERSt<font color="#993399">13</font>basic_istreamIT_T<font color="#993399">0</font>_ES<font color="#993399">7</font>_RSbIS<font color="#993399">4</font>_S<font color="#993399">5</font>_T<font color="#993399">1</font>_E
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">4</font><font color="#990000">],</font> <b><font color="#0000FF">OFFSET</font></b> FLAT<font color="#990000">:</font>
-LC<font color="#993399">1</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <b><font color="#0000FF">OFFSET</font></b> FLAT<font color="#990000">:</font>
-__ZSt<font color="#993399">4</font>cout
-<b><font color="#0000FF">call</font></b>	__ZStlsISt<font color="#993399">11</font>char_traitsIcEERSt<font color="#993399">13</font>basic_ostreamIcT_ES<font color="#993399">5</font>_PKc
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">4</font><font color="#990000">],</font> <b><font color="#0000FF">OFFSET</font></b> FLAT<font color="#990000">:</font>
-__ZSt<font color="#993399">4</font>endlIcSt<font color="#993399">11</font>char_traitsIcEERSt<font color="#993399">13</font>basic_ostreamIT_T<font color="#993399">0</font>_ES<font color="#993399">6</font>_
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">call</font></b>	__ZNSolsEPFRSoS_E
-<b><font color="#0000FF">lea</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">56</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">4</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <b><font color="#0000FF">OFFSET</font></b> FLAT<font color="#990000">:</font>
-__ZSt<font color="#993399">3</font>cin
-<b><font color="#0000FF">call</font></b>	__ZStrsIcSt<font color="#993399">11</font>char_traitsIcESaIcEERSt<font color="#993399">13</font>basic_istreamIT_T<font color="#993399">0</font>_ES<font color="#993399">7</font>_RSbIS<font color="#993399">4</font>_S<font color="#993399">5</font>_T<font color="#993399">1</font>_E
-<b><font color="#0000FF">lea</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">56</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">call</font></b>	__ZNKSs<font color="#993399">5</font>c_strEv
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">120</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">lea</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">40</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">call</font></b>	__ZNKSs<font color="#993399">5</font>c_strEv
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">edx</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">120</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">4</font><font color="#990000">],</font> <font color="#009900">edx</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">call</font></b>	_compare_string
-<b><font color="#0000FF">mov</font></b>	BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">57</font><font color="#990000">],</font> <font color="#009900">al</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">4</font><font color="#990000">],</font> <b><font color="#0000FF">OFFSET</font></b> FLAT<font color="#990000">:</font>
-LC<font color="#993399">2</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <b><font color="#0000FF">OFFSET</font></b> FLAT<font color="#990000">:</font>
-__ZSt<font color="#993399">4</font>cout
-<b><font color="#0000FF">call</font></b>	__ZStlsISt<font color="#993399">11</font>char_traitsIcEERSt<font color="#993399">13</font>basic_ostreamIcT_ES<font color="#993399">5</font>_PKc
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">edx</font><font color="#990000">,</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">movzx</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">57</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">4</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#009900">edx</font>
-<b><font color="#0000FF">call</font></b>	__ZNSolsEb
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">4</font><font color="#990000">],</font> <b><font color="#0000FF">OFFSET</font></b> FLAT<font color="#990000">:</font>
-__ZSt<font color="#993399">4</font>endlIcSt<font color="#993399">11</font>char_traitsIcEERSt<font color="#993399">13</font>basic_ostreamIT_T<font color="#993399">0</font>_ES<font color="#993399">6</font>_
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">call</font></b>	__ZNSolsEPFRSoS_E
-<b><font color="#0000FF">lea</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">56</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">108</font><font color="#990000">],</font> <font color="#993399">2</font>
-<b><font color="#0000FF">call</font></b>	__ZNSsD<font color="#993399">1</font>Ev
-<b><font color="#0000FF">lea</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">40</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">108</font><font color="#990000">],</font> <font color="#990000">-</font><font color="#993399">1</font>
-<b><font color="#0000FF">call</font></b>	__ZNSsD<font color="#993399">1</font>Ev
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">116</font><font color="#990000">],</font> <font color="#993399">0</font>
-<b><font color="#0000FF">jmp</font></b>	L<font color="#993399">13</font>
-<b><font color="#000080">L22:</font></b>
-<b><font color="#0000FF">lea</font></b>	<font color="#009900">ebp</font><font color="#990000">,</font> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">24</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">108</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">edx</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">104</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">128</font><font color="#990000">],</font> <font color="#009900">edx</font>
-<b><font color="#0000FF">cmp</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#993399">1</font>
-<b><font color="#0000FF">je</font></b>	L<font color="#993399">18</font>
-<b><font color="#000080">L14:</font></b>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">128</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">124</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">lea</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">56</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">108</font><font color="#990000">],</font> <font color="#993399">0</font>
-<b><font color="#0000FF">call</font></b>	__ZNSsD<font color="#993399">1</font>Ev
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">edx</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">124</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">128</font><font color="#990000">],</font> <font color="#009900">edx</font>
-<b><font color="#000080">L16:</font></b>
-<b><font color="#000080">L18:</font></b>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">128</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">132</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">lea</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">40</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">108</font><font color="#990000">],</font> <font color="#993399">0</font>
-<b><font color="#0000FF">call</font></b>	__ZNSsD<font color="#993399">1</font>Ev
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">edx</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">132</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">128</font><font color="#990000">],</font> <font color="#009900">edx</font>
-<b><font color="#000080">L20:</font></b>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">128</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">108</font><font color="#990000">],</font> <font color="#990000">-</font><font color="#993399">1</font>
-<b><font color="#0000FF">call</font></b>	__Unwind_SjLj_Resume
-<b><font color="#000080">L13:</font></b>
-<b><font color="#0000FF">lea</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">112</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">call</font></b>	__Unwind_SjLj_Unregister
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">116</font><font color="#990000">]</font>
-<b><font color="#0000FF">lea</font></b>	<font color="#009900">esp</font><font color="#990000">,</font> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">12</font><font color="#990000">]</font>
-<b><font color="#0000FF">pop</font></b>	<font color="#009900">ebx</font>
-<b><font color="#0000FF">pop</font></b>	<font color="#009900">esi</font>
-<b><font color="#0000FF">pop</font></b>	<font color="#009900">edi</font>
-<b><font color="#0000FF">pop</font></b>	<font color="#009900">ebp</font>
-<b><font color="#0000FF">ret</font></b>
-<b><font color="#000080">.section</font></b>	<font color="#990000">.</font>gcc_except_table<font color="#990000">,</font><font color="#FF0000">"dr"</font>
-<b><font color="#000080">LLSDA1381:</font></b>
-<b><font color="#000080">.byte</font></b>	<font color="#993399">0xff</font>
-<b><font color="#000080">.byte</font></b>	<font color="#993399">0xff</font>
-<b><font color="#000080">.byte</font></b>	<font color="#993399">0x1</font>
-<b><font color="#000080">.uleb128</font></b> LLSDACSE<font color="#993399">1381</font><font color="#990000">-</font>LLSDACSB<font color="#993399">1381</font>
-<b><font color="#000080">LLSDACSB1381:</font></b>
-<b><font color="#000080">.uleb128</font></b> <font color="#993399">0x0</font>
-<b><font color="#000080">.uleb128</font></b> <font color="#993399">0x0</font>
-<b><font color="#000080">.uleb128</font></b> <font color="#993399">0x1</font>
-<b><font color="#000080">.uleb128</font></b> <font color="#993399">0x0</font>
-<b><font color="#000080">LLSDACSE1381:</font></b>
-<b><font color="#000080">.text</font></b>
-<b><font color="#000080">.section</font></b>	<font color="#990000">.</font>text$_ZSt<font color="#993399">3</font>minIjERKT_S<font color="#993399">2</font>_S<font color="#993399">2</font>_<font color="#990000">,</font><font color="#FF0000">"x"</font>
-<b><font color="#000080">.linkonce</font></b> discard
-<b><font color="#000080">.align</font></b> <font color="#993399">2</font>
-<b><font color="#000080">.globl</font></b> __ZSt<font color="#993399">3</font>minIjERKT_S<font color="#993399">2</font>_S<font color="#993399">2</font>_
-<b><font color="#000080">.def</font></b>	__ZSt<font color="#993399">3</font>minIjERKT_S<font color="#993399">2</font>_S<font color="#993399">2</font>_<i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.scl</font></b>	<font color="#993399">2</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.type</font></b>	<font color="#993399">32</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.endef</font></b>
-__ZSt<font color="#993399">3</font>minIjERKT_S<font color="#993399">2</font>_S<font color="#993399">2</font>_<font color="#990000">:</font>
-<b><font color="#0000FF">push</font></b>	<font color="#009900">ebp</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">ebp</font><font color="#990000">,</font> <font color="#009900">esp</font>
-<b><font color="#0000FF">sub</font></b>	<font color="#009900">esp</font><font color="#990000">,</font> <font color="#993399">4</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">12</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">edx</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">8</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">eax</font><font color="#990000">]</font>
-<b><font color="#0000FF">cmp</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">edx</font><font color="#990000">]</font>
-<b><font color="#0000FF">jae</font></b>	L<font color="#993399">24</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">12</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">4</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#0000FF">jmp</font></b>	L<font color="#993399">23</font>
-<b><font color="#000080">L24:</font></b>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">8</font><font color="#990000">]</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">4</font><font color="#990000">],</font> <font color="#009900">eax</font>
-<b><font color="#000080">L23:</font></b>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">-</font><font color="#993399">4</font><font color="#990000">]</font>
-<b><font color="#0000FF">leave</font></b>
-<b><font color="#0000FF">ret</font></b>
-<b><font color="#000080">.text</font></b>
-<b><font color="#000080">.align</font></b> <font color="#993399">2</font>
-<b><font color="#000080">.def</font></b>	__Z<font color="#993399">41</font>__static_initialization_and_destruction<font color="#993399">_0</font>ii<i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.scl</font></b>	<font color="#993399">3</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.type</font></b>	<font color="#993399">32</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.endef</font></b>
-__Z<font color="#993399">41</font>__static_initialization_and_destruction<font color="#993399">_0</font>ii<font color="#990000">:</font>
-<b><font color="#0000FF">push</font></b>	<font color="#009900">ebp</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">ebp</font><font color="#990000">,</font> <font color="#009900">esp</font>
-<b><font color="#0000FF">sub</font></b>	<font color="#009900">esp</font><font color="#990000">,</font> <font color="#993399">8</font>
-<b><font color="#0000FF">cmp</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">12</font><font color="#990000">],</font> <font color="#993399">65535</font>
-<b><font color="#0000FF">jne</font></b>	L<font color="#993399">26</font>
-<b><font color="#0000FF">cmp</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">8</font><font color="#990000">],</font> <font color="#993399">1</font>
-<b><font color="#0000FF">jne</font></b>	L<font color="#993399">26</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <b><font color="#0000FF">OFFSET</font></b> FLAT<font color="#990000">:</font>
-__ZSt<font color="#993399">8</font>__ioinit
-<b><font color="#0000FF">call</font></b>	__ZNSt<font color="#993399">8</font>ios_base<font color="#993399">4</font>InitC<font color="#993399">1</font>Ev
-<b><font color="#000080">L26:</font></b>
-<b><font color="#0000FF">cmp</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">12</font><font color="#990000">],</font> <font color="#993399">65535</font>
-<b><font color="#0000FF">jne</font></b>	L<font color="#993399">25</font>
-<b><font color="#0000FF">cmp</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">8</font><font color="#990000">],</font> <font color="#993399">0</font>
-<b><font color="#0000FF">jne</font></b>	L<font color="#993399">25</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <b><font color="#0000FF">OFFSET</font></b> FLAT<font color="#990000">:</font>
-__ZSt<font color="#993399">8</font>__ioinit
-<b><font color="#0000FF">call</font></b>	__ZNSt<font color="#993399">8</font>ios_base<font color="#993399">4</font>InitD<font color="#993399">1</font>Ev
-<b><font color="#000080">L25:</font></b>
-<b><font color="#0000FF">leave</font></b>
-<b><font color="#0000FF">ret</font></b>
-<b><font color="#000080">.align</font></b> <font color="#993399">2</font>
-<b><font color="#000080">.def</font></b>	__GLOBAL__I_compare_string<i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.scl</font></b>	<font color="#993399">3</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.type</font></b>	<font color="#993399">32</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.endef</font></b>
-__GLOBAL__I_compare_string<font color="#990000">:</font>
-<b><font color="#0000FF">push</font></b>	<font color="#009900">ebp</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">ebp</font><font color="#990000">,</font> <font color="#009900">esp</font>
-<b><font color="#0000FF">sub</font></b>	<font color="#009900">esp</font><font color="#990000">,</font> <font color="#993399">8</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">4</font><font color="#990000">],</font> <font color="#993399">65535</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#993399">1</font>
-<b><font color="#0000FF">call</font></b>	__Z<font color="#993399">41</font>__static_initialization_and_destruction<font color="#993399">_0</font>ii
-<b><font color="#0000FF">leave</font></b>
-<b><font color="#0000FF">ret</font></b>
-<b><font color="#000080">.section</font></b>	<font color="#990000">.</font>ctors<font color="#990000">,</font><font color="#FF0000">"w"</font>
-<b><font color="#000080">.align</font></b> <font color="#993399">4</font>
-<b><font color="#000080">.long</font></b>	__GLOBAL__I_compare_string
-<b><font color="#000080">.text</font></b>
-<b><font color="#000080">.align</font></b> <font color="#993399">2</font>
-<b><font color="#000080">.def</font></b>	__GLOBAL__D_compare_string<i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.scl</font></b>	<font color="#993399">3</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.type</font></b>	<font color="#993399">32</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.endef</font></b>
-__GLOBAL__D_compare_string<font color="#990000">:</font>
-<b><font color="#0000FF">push</font></b>	<font color="#009900">ebp</font>
-<b><font color="#0000FF">mov</font></b>	<font color="#009900">ebp</font><font color="#990000">,</font> <font color="#009900">esp</font>
-<b><font color="#0000FF">sub</font></b>	<font color="#009900">esp</font><font color="#990000">,</font> <font color="#993399">8</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">4</font><font color="#990000">],</font> <font color="#993399">65535</font>
-<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#993399">0</font>
-<b><font color="#0000FF">call</font></b>	__Z<font color="#993399">41</font>__static_initialization_and_destruction<font color="#993399">_0</font>ii
-<b><font color="#0000FF">leave</font></b>
-<b><font color="#0000FF">ret</font></b>
-<b><font color="#000080">.section</font></b>	<font color="#990000">.</font>dtors<font color="#990000">,</font><font color="#FF0000">"w"</font>
-<b><font color="#000080">.align</font></b> <font color="#993399">4</font>
-<b><font color="#000080">.long</font></b>	__GLOBAL__D_compare_string
-<b><font color="#000080">.def</font></b>	__ZNSt<font color="#993399">8</font>ios_base<font color="#993399">4</font>InitD<font color="#993399">1</font>Ev<i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.scl</font></b>	<font color="#993399">3</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.type</font></b>	<font color="#993399">32</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.endef</font></b>
-<b><font color="#000080">.def</font></b>	__ZNSolsEb<i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.scl</font></b>	<font color="#993399">3</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.type</font></b>	<font color="#993399">32</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.endef</font></b>
-<b><font color="#000080">.def</font></b>	__ZNKSs<font color="#993399">5</font>c_strEv<i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.scl</font></b>	<font color="#993399">3</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.type</font></b>	<font color="#993399">32</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.endef</font></b>
-<b><font color="#000080">.def</font></b>	__ZStrsIcSt<font color="#993399">11</font>char_traitsIcESaIcEERSt<font color="#993399">13</font>basic_istreamIT_T<font color="#993399">0</font>_ES<font color="#993399">7</font>_RSbIS<font color="#993399">4</font>_S<font color="#993399">5</font>_T<font color="#993399">1</font>_E<i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.scl</font></b>	<font color="#993399">3</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.type</font></b>	<font color="#993399">32</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.endef</font></b>
-<b><font color="#000080">.def</font></b>	__ZNSolsEPFRSoS_E<i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.scl</font></b>	<font color="#993399">3</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.type</font></b>	<font color="#993399">32</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.endef</font></b>
-<b><font color="#000080">.def</font></b>	__ZSt<font color="#993399">4</font>endlIcSt<font color="#993399">11</font>char_traitsIcEERSt<font color="#993399">13</font>basic_ostreamIT_T<font color="#993399">0</font>_ES<font color="#993399">6</font>_<i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.scl</font></b>	<font color="#993399">3</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.type</font></b>	<font color="#993399">32</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.endef</font></b>
-<b><font color="#000080">.def</font></b>	__ZStlsISt<font color="#993399">11</font>char_traitsIcEERSt<font color="#993399">13</font>basic_ostreamIcT_ES<font color="#993399">5</font>_PKc<i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.scl</font></b>	<font color="#993399">3</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.type</font></b>	<font color="#993399">32</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.endef</font></b>
-<b><font color="#000080">.def</font></b>	__ZNSsD<font color="#993399">1</font>Ev<i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.scl</font></b>	<font color="#993399">3</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.type</font></b>	<font color="#993399">32</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.endef</font></b>
-<b><font color="#000080">.def</font></b>	__ZNSsC<font color="#993399">1</font>Ev<i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.scl</font></b>	<font color="#993399">3</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.type</font></b>	<font color="#993399">32</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.endef</font></b>
-<b><font color="#000080">.def</font></b>	__ZNSt<font color="#993399">8</font>ios_base<font color="#993399">4</font>InitC<font color="#993399">1</font>Ev<i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.scl</font></b>	<font color="#993399">3</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.type</font></b>	<font color="#993399">32</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.endef</font></b>
-<b><font color="#000080">.def</font></b>	__ZNKSsixEj<i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.scl</font></b>	<font color="#993399">3</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.type</font></b>	<font color="#993399">32</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.endef</font></b>
-<b><font color="#000080">.def</font></b>	__ZNKSs<font color="#993399">4</font>sizeEv<i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.scl</font></b>	<font color="#993399">3</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.type</font></b>	<font color="#993399">32</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.endef</font></b>
-<b><font color="#000080">.def</font></b>	__ZSt<font color="#993399">3</font>minIjERKT_S<font color="#993399">2</font>_S<font color="#993399">2</font>_<i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.scl</font></b>	<font color="#993399">3</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.type</font></b>	<font color="#993399">32</font><i><font color="#9A1900">;</font></i>
-<b><font color="#000080">.endef</font></b>
+<pre><tt><b><font color="#000080">	.file</font></b>	<font color="#FF0000">"test_string_compare.cpp"</font>
+<b><font color="#000080">	.text</font></b>
+<b><font color="#000080">	.align</font></b>	<font color="#993399">16</font><font color="#990000">,</font> <font color="#993399">0x90</font>
+<b><font color="#000080">	.type</font></b>	__cxx_global_var_init<font color="#990000">,</font>@function
+__cxx_global_var_init<font color="#990000">:</font>                  # @__cxx_global_var_init
+<b><font color="#000080">.Ltmp2</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_startproc
+# BB#<font color="#993399">0</font><font color="#990000">:</font>
+	<b><font color="#0000FF">push</font></b>	<font color="#009900">EBP</font>
+<b><font color="#000080">.Ltmp3</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_def_cfa_offset <font color="#993399">8</font>
+<b><font color="#000080">.Ltmp4</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_offset <font color="#009900">ebp</font><font color="#990000">,</font> <font color="#990000">-</font><font color="#993399">8</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">EBP</font><font color="#990000">,</font> <font color="#009900">ESP</font>
+<b><font color="#000080">.Ltmp5</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_def_cfa_register <font color="#009900">ebp</font>
+	<b><font color="#0000FF">sub</font></b>	<font color="#009900">ESP</font><font color="#990000">,</font> <font color="#993399">24</font>
+	<b><font color="#0000FF">lea</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font>_ZStL<font color="#993399">8</font>__ioinit<font color="#990000">]</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ESP</font><font color="#990000">],</font> <font color="#009900">EAX</font>
+	<b><font color="#0000FF">call</font></b>	_ZNSt<font color="#993399">8</font>ios_base<font color="#993399">4</font>InitC<font color="#993399">1</font>Ev
+	<b><font color="#0000FF">lea</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font>_ZNSt<font color="#993399">8</font>ios_base<font color="#993399">4</font>InitD<font color="#993399">1</font>Ev<font color="#990000">]</font>
+	<b><font color="#0000FF">lea</font></b>	<font color="#009900">ECX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font>_ZStL<font color="#993399">8</font>__ioinit<font color="#990000">]</font>
+	<b><font color="#0000FF">lea</font></b>	<font color="#009900">EDX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font>__dso_handle<font color="#990000">]</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ESP</font><font color="#990000">],</font> <font color="#009900">EAX</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ESP</font> <font color="#990000">+</font> <font color="#993399">4</font><font color="#990000">],</font> <font color="#009900">ECX</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ESP</font> <font color="#990000">+</font> <font color="#993399">8</font><font color="#990000">],</font> <font color="#009900">EDX</font>
+	<b><font color="#0000FF">call</font></b>	__cxa_atexit
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">4</font><font color="#990000">],</font> <font color="#009900">EAX</font> # <font color="#993399">4</font><font color="#990000">-</font><font color="#009900">byte</font> Spill
+	<b><font color="#0000FF">add</font></b>	<font color="#009900">ESP</font><font color="#990000">,</font> <font color="#993399">24</font>
+	<b><font color="#0000FF">pop</font></b>	<font color="#009900">EBP</font>
+	<b><font color="#0000FF">ret</font></b>
+<b><font color="#000080">.Ltmp6</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.size</font></b>	__cxx_global_var_init<font color="#990000">,</font> <font color="#990000">.</font>Ltmp<font color="#993399">6</font><font color="#990000">-</font>__cxx_global_var_init
+<b><font color="#000080">.Ltmp7</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_endproc
+<b><font color="#000080">.Leh</font></b>_func_end<font color="#993399">0</font><font color="#990000">:</font>
+
+<b><font color="#000080">	.globl</font></b>	compare_string
+<b><font color="#000080">	.align</font></b>	<font color="#993399">16</font><font color="#990000">,</font> <font color="#993399">0x90</font>
+<b><font color="#000080">	.type</font></b>	compare_string<font color="#990000">,</font>@function
+compare_string<font color="#990000">:</font>                         # @compare_string
+# BB#<font color="#993399">0</font><font color="#990000">:</font>
+	<b><font color="#0000FF">sub</font></b>	<font color="#009900">ESP</font><font color="#990000">,</font> <font color="#993399">12</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ESP</font> <font color="#990000">+</font> <font color="#993399">20</font><font color="#990000">]</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">ECX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ESP</font> <font color="#990000">+</font> <font color="#993399">16</font><font color="#990000">]</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ESP</font> <font color="#990000">+</font> <font color="#993399">8</font><font color="#990000">],</font> <font color="#009900">ECX</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ESP</font> <font color="#990000">+</font> <font color="#993399">4</font><font color="#990000">],</font> <font color="#009900">EAX</font>
+<b><font color="#000080">.LBB1</font></b><font color="#993399">_1</font><font color="#990000">:</font>                                # <font color="#990000">=&gt;</font><b><font color="#0000FF">This</font></b> Inner <b><font color="#0000FF">Loop</font></b> Header<font color="#990000">:</font> Depth<font color="#990000">=</font><font color="#993399">1</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">AL</font><font color="#990000">,</font> <font color="#993399">0</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">ECX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ESP</font> <font color="#990000">+</font> <font color="#993399">8</font><font color="#990000">]</font>
+	<b><font color="#0000FF">movsx</font></b>	<font color="#009900">ECX</font><font color="#990000">,</font> BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ECX</font><font color="#990000">]</font>
+	<b><font color="#0000FF">cmp</font></b>	<font color="#009900">ECX</font><font color="#990000">,</font> <font color="#993399">0</font>
+	<b><font color="#0000FF">mov</font></b>	BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ESP</font> <font color="#990000">+</font> <font color="#993399">3</font><font color="#990000">],</font> <font color="#009900">AL</font>  # <font color="#993399">1</font><font color="#990000">-</font><font color="#009900">byte</font> Spill
+	<b><font color="#0000FF">je</font></b>	<font color="#990000">.</font>LBB<font color="#993399">1_3</font>
+# BB#<font color="#993399">2</font><font color="#990000">:</font>                                 #   <b><font color="#0000FF">in</font></b> <b><font color="#0000FF">Loop</font></b><font color="#990000">:</font> Header<font color="#990000">=</font>BB<font color="#993399">1_1</font> Depth<font color="#990000">=</font><font color="#993399">1</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ESP</font> <font color="#990000">+</font> <font color="#993399">8</font><font color="#990000">]</font>
+	<b><font color="#0000FF">movsx</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EAX</font><font color="#990000">]</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">ECX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ESP</font> <font color="#990000">+</font> <font color="#993399">4</font><font color="#990000">]</font>
+	<b><font color="#0000FF">movsx</font></b>	<font color="#009900">ECX</font><font color="#990000">,</font> BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ECX</font><font color="#990000">]</font>
+	<b><font color="#0000FF">cmp</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> <font color="#009900">ECX</font>
+	<b><font color="#0000FF">sete</font></b>	<font color="#009900">DL</font>
+	<b><font color="#0000FF">mov</font></b>	BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ESP</font> <font color="#990000">+</font> <font color="#993399">3</font><font color="#990000">],</font> <font color="#009900">DL</font>  # <font color="#993399">1</font><font color="#990000">-</font><font color="#009900">byte</font> Spill
+<b><font color="#000080">.LBB1</font></b><font color="#993399">_3</font><font color="#990000">:</font>                                #   <b><font color="#0000FF">in</font></b> <b><font color="#0000FF">Loop</font></b><font color="#990000">:</font> Header<font color="#990000">=</font>BB<font color="#993399">1_1</font> Depth<font color="#990000">=</font><font color="#993399">1</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">AL</font><font color="#990000">,</font> BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ESP</font> <font color="#990000">+</font> <font color="#993399">3</font><font color="#990000">]</font>  # <font color="#993399">1</font><font color="#990000">-</font><font color="#009900">byte</font> Reload
+	<b><font color="#0000FF">test</font></b>	<font color="#009900">AL</font><font color="#990000">,</font> <font color="#993399">1</font>
+	<b><font color="#0000FF">jne</font></b>	<font color="#990000">.</font>LBB<font color="#993399">1_4</font>
+	<b><font color="#0000FF">jmp</font></b>	<font color="#990000">.</font>LBB<font color="#993399">1_5</font>
+<b><font color="#000080">.LBB1</font></b><font color="#993399">_4</font><font color="#990000">:</font>                                #   <b><font color="#0000FF">in</font></b> <b><font color="#0000FF">Loop</font></b><font color="#990000">:</font> Header<font color="#990000">=</font>BB<font color="#993399">1_1</font> Depth<font color="#990000">=</font><font color="#993399">1</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ESP</font> <font color="#990000">+</font> <font color="#993399">8</font><font color="#990000">]</font>
+	<b><font color="#0000FF">add</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> <font color="#993399">1</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ESP</font> <font color="#990000">+</font> <font color="#993399">8</font><font color="#990000">],</font> <font color="#009900">EAX</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ESP</font> <font color="#990000">+</font> <font color="#993399">4</font><font color="#990000">]</font>
+	<b><font color="#0000FF">add</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> <font color="#993399">1</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ESP</font> <font color="#990000">+</font> <font color="#993399">4</font><font color="#990000">],</font> <font color="#009900">EAX</font>
+	<b><font color="#0000FF">jmp</font></b>	<font color="#990000">.</font>LBB<font color="#993399">1_1</font>
+<b><font color="#000080">.LBB1</font></b><font color="#993399">_5</font><font color="#990000">:</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ESP</font> <font color="#990000">+</font> <font color="#993399">8</font><font color="#990000">]</font>
+	<b><font color="#0000FF">movsx</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EAX</font><font color="#990000">]</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">ECX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ESP</font> <font color="#990000">+</font> <font color="#993399">4</font><font color="#990000">]</font>
+	<b><font color="#0000FF">movsx</font></b>	<font color="#009900">ECX</font><font color="#990000">,</font> BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ECX</font><font color="#990000">]</font>
+	<b><font color="#0000FF">cmp</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> <font color="#009900">ECX</font>
+	<b><font color="#0000FF">sete</font></b>	<font color="#009900">DL</font>
+	<b><font color="#0000FF">and</font></b>	<font color="#009900">DL</font><font color="#990000">,</font> <font color="#993399">1</font>
+	<b><font color="#0000FF">movzx</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> <font color="#009900">DL</font>
+	<b><font color="#0000FF">add</font></b>	<font color="#009900">ESP</font><font color="#990000">,</font> <font color="#993399">12</font>
+	<b><font color="#0000FF">ret</font></b>
+<b><font color="#000080">.Ltmp8</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.size</font></b>	compare_string<font color="#990000">,</font> <font color="#990000">.</font>Ltmp<font color="#993399">8</font><font color="#990000">-</font>compare_string
+
+<b><font color="#000080">	.globl</font></b>	main
+<b><font color="#000080">	.align</font></b>	<font color="#993399">16</font><font color="#990000">,</font> <font color="#993399">0x90</font>
+<b><font color="#000080">	.type</font></b>	main<font color="#990000">,</font>@function
+<b><font color="#000080">main:</font></b>                                   # @main
+<b><font color="#000080">.Ltmp46</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_startproc
+<b><font color="#000080">	.cfi</font></b>_personality <font color="#993399">0</font><font color="#990000">,</font> __gxx_personality_v<font color="#993399">0</font>
+<b><font color="#000080">.Leh</font></b>_func_begin<font color="#993399">2</font><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_lsda <font color="#993399">0</font><font color="#990000">,</font> <font color="#990000">.</font>Lexception<font color="#993399">2</font>
+# BB#<font color="#993399">0</font><font color="#990000">:</font>
+	<b><font color="#0000FF">push</font></b>	<font color="#009900">EBP</font>
+<b><font color="#000080">.Ltmp47</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_def_cfa_offset <font color="#993399">8</font>
+<b><font color="#000080">.Ltmp48</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_offset <font color="#009900">ebp</font><font color="#990000">,</font> <font color="#990000">-</font><font color="#993399">8</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">EBP</font><font color="#990000">,</font> <font color="#009900">ESP</font>
+<b><font color="#000080">.Ltmp49</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_def_cfa_register <font color="#009900">ebp</font>
+	<b><font color="#0000FF">sub</font></b>	<font color="#009900">ESP</font><font color="#990000">,</font> <font color="#993399">104</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">4</font><font color="#990000">],</font> <font color="#993399">0</font>
+	<b><font color="#0000FF">lea</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">8</font><font color="#990000">]</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">ECX</font><font color="#990000">,</font> <font color="#009900">ESP</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ECX</font><font color="#990000">],</font> <font color="#009900">EAX</font>
+	<b><font color="#0000FF">call</font></b>	_ZNSsC<font color="#993399">1</font>Ev
+<b><font color="#000080">.Ltmp9</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">lea</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">16</font><font color="#990000">]</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">ECX</font><font color="#990000">,</font> <font color="#009900">ESP</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ECX</font><font color="#990000">],</font> <font color="#009900">EAX</font>
+	<b><font color="#0000FF">call</font></b>	_ZNSsC<font color="#993399">1</font>Ev
+<b><font color="#000080">.Ltmp10</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">jmp</font></b>	<font color="#990000">.</font>LBB<font color="#993399">2_1</font>
+<b><font color="#000080">.LBB2</font></b><font color="#993399">_1</font><font color="#990000">:</font>
+<b><font color="#000080">.Ltmp11</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> <font color="#009900">ESP</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EAX</font> <font color="#990000">+</font> <font color="#993399">4</font><font color="#990000">],</font> <font color="#990000">.</font>L<font color="#990000">.</font><b><font color="#0000FF">str</font></b>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EAX</font><font color="#990000">],</font> _ZSt<font color="#993399">4</font>cout
+	<b><font color="#0000FF">call</font></b>	_ZStlsISt<font color="#993399">11</font>char_traitsIcEERSt<font color="#993399">13</font>basic_ostreamIcT_ES<font color="#993399">5</font>_PKc
+<b><font color="#000080">.Ltmp12</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">36</font><font color="#990000">],</font> <font color="#009900">EAX</font> # <font color="#993399">4</font><font color="#990000">-</font><font color="#009900">byte</font> Spill
+	<b><font color="#0000FF">jmp</font></b>	<font color="#990000">.</font>LBB<font color="#993399">2_2</font>
+<b><font color="#000080">.LBB2</font></b><font color="#993399">_2</font><font color="#990000">:</font>
+<b><font color="#000080">.Ltmp13</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> <font color="#009900">ESP</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">ECX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">36</font><font color="#990000">]</font> # <font color="#993399">4</font><font color="#990000">-</font><font color="#009900">byte</font> Reload
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EAX</font><font color="#990000">],</font> <font color="#009900">ECX</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EAX</font> <font color="#990000">+</font> <font color="#993399">4</font><font color="#990000">],</font> _ZSt<font color="#993399">4</font>endlIcSt<font color="#993399">11</font>char_traitsIcEERSt<font color="#993399">13</font>basic_ostreamIT_T<font color="#993399">0</font>_ES<font color="#993399">6</font>_
+	<b><font color="#0000FF">call</font></b>	_ZNSolsEPFRSoS_E
+<b><font color="#000080">.Ltmp14</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">40</font><font color="#990000">],</font> <font color="#009900">EAX</font> # <font color="#993399">4</font><font color="#990000">-</font><font color="#009900">byte</font> Spill
+	<b><font color="#0000FF">jmp</font></b>	<font color="#990000">.</font>LBB<font color="#993399">2_3</font>
+<b><font color="#000080">.LBB2</font></b><font color="#993399">_3</font><font color="#990000">:</font>
+<b><font color="#000080">.Ltmp15</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">lea</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">8</font><font color="#990000">]</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">ECX</font><font color="#990000">,</font> <font color="#009900">ESP</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ECX</font> <font color="#990000">+</font> <font color="#993399">4</font><font color="#990000">],</font> <font color="#009900">EAX</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ECX</font><font color="#990000">],</font> _ZSt<font color="#993399">3</font>cin
+	<b><font color="#0000FF">call</font></b>	_ZStrsIcSt<font color="#993399">11</font>char_traitsIcESaIcEERSt<font color="#993399">13</font>basic_istreamIT_T<font color="#993399">0</font>_ES<font color="#993399">7</font>_RSbIS<font color="#993399">4</font>_S<font color="#993399">5</font>_T<font color="#993399">1</font>_E
+<b><font color="#000080">.Ltmp16</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">44</font><font color="#990000">],</font> <font color="#009900">EAX</font> # <font color="#993399">4</font><font color="#990000">-</font><font color="#009900">byte</font> Spill
+	<b><font color="#0000FF">jmp</font></b>	<font color="#990000">.</font>LBB<font color="#993399">2_4</font>
+<b><font color="#000080">.LBB2</font></b><font color="#993399">_4</font><font color="#990000">:</font>
+<b><font color="#000080">.Ltmp17</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> <font color="#009900">ESP</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EAX</font> <font color="#990000">+</font> <font color="#993399">4</font><font color="#990000">],</font> <font color="#990000">.</font>L<font color="#990000">.</font>str<font color="#993399">1</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EAX</font><font color="#990000">],</font> _ZSt<font color="#993399">4</font>cout
+	<b><font color="#0000FF">call</font></b>	_ZStlsISt<font color="#993399">11</font>char_traitsIcEERSt<font color="#993399">13</font>basic_ostreamIcT_ES<font color="#993399">5</font>_PKc
+<b><font color="#000080">.Ltmp18</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">48</font><font color="#990000">],</font> <font color="#009900">EAX</font> # <font color="#993399">4</font><font color="#990000">-</font><font color="#009900">byte</font> Spill
+	<b><font color="#0000FF">jmp</font></b>	<font color="#990000">.</font>LBB<font color="#993399">2_5</font>
+<b><font color="#000080">.LBB2</font></b><font color="#993399">_5</font><font color="#990000">:</font>
+<b><font color="#000080">.Ltmp19</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> <font color="#009900">ESP</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">ECX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">48</font><font color="#990000">]</font> # <font color="#993399">4</font><font color="#990000">-</font><font color="#009900">byte</font> Reload
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EAX</font><font color="#990000">],</font> <font color="#009900">ECX</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EAX</font> <font color="#990000">+</font> <font color="#993399">4</font><font color="#990000">],</font> _ZSt<font color="#993399">4</font>endlIcSt<font color="#993399">11</font>char_traitsIcEERSt<font color="#993399">13</font>basic_ostreamIT_T<font color="#993399">0</font>_ES<font color="#993399">6</font>_
+	<b><font color="#0000FF">call</font></b>	_ZNSolsEPFRSoS_E
+<b><font color="#000080">.Ltmp20</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">52</font><font color="#990000">],</font> <font color="#009900">EAX</font> # <font color="#993399">4</font><font color="#990000">-</font><font color="#009900">byte</font> Spill
+	<b><font color="#0000FF">jmp</font></b>	<font color="#990000">.</font>LBB<font color="#993399">2_6</font>
+<b><font color="#000080">.LBB2</font></b><font color="#993399">_6</font><font color="#990000">:</font>
+<b><font color="#000080">.Ltmp21</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">lea</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">16</font><font color="#990000">]</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">ECX</font><font color="#990000">,</font> <font color="#009900">ESP</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ECX</font> <font color="#990000">+</font> <font color="#993399">4</font><font color="#990000">],</font> <font color="#009900">EAX</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ECX</font><font color="#990000">],</font> _ZSt<font color="#993399">3</font>cin
+	<b><font color="#0000FF">call</font></b>	_ZStrsIcSt<font color="#993399">11</font>char_traitsIcESaIcEERSt<font color="#993399">13</font>basic_istreamIT_T<font color="#993399">0</font>_ES<font color="#993399">7</font>_RSbIS<font color="#993399">4</font>_S<font color="#993399">5</font>_T<font color="#993399">1</font>_E
+<b><font color="#000080">.Ltmp22</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">56</font><font color="#990000">],</font> <font color="#009900">EAX</font> # <font color="#993399">4</font><font color="#990000">-</font><font color="#009900">byte</font> Spill
+	<b><font color="#0000FF">jmp</font></b>	<font color="#990000">.</font>LBB<font color="#993399">2_7</font>
+<b><font color="#000080">.LBB2</font></b><font color="#993399">_7</font><font color="#990000">:</font>
+<b><font color="#000080">.Ltmp23</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">lea</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">8</font><font color="#990000">]</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">ECX</font><font color="#990000">,</font> <font color="#009900">ESP</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ECX</font><font color="#990000">],</font> <font color="#009900">EAX</font>
+	<b><font color="#0000FF">call</font></b>	_ZNKSs<font color="#993399">5</font>c_strEv
+<b><font color="#000080">.Ltmp24</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">60</font><font color="#990000">],</font> <font color="#009900">EAX</font> # <font color="#993399">4</font><font color="#990000">-</font><font color="#009900">byte</font> Spill
+	<b><font color="#0000FF">jmp</font></b>	<font color="#990000">.</font>LBB<font color="#993399">2_8</font>
+<b><font color="#000080">.LBB2</font></b><font color="#993399">_8</font><font color="#990000">:</font>
+<b><font color="#000080">.Ltmp25</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">lea</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">16</font><font color="#990000">]</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">ECX</font><font color="#990000">,</font> <font color="#009900">ESP</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ECX</font><font color="#990000">],</font> <font color="#009900">EAX</font>
+	<b><font color="#0000FF">call</font></b>	_ZNKSs<font color="#993399">5</font>c_strEv
+<b><font color="#000080">.Ltmp26</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">64</font><font color="#990000">],</font> <font color="#009900">EAX</font> # <font color="#993399">4</font><font color="#990000">-</font><font color="#009900">byte</font> Spill
+	<b><font color="#0000FF">jmp</font></b>	<font color="#990000">.</font>LBB<font color="#993399">2_9</font>
+<b><font color="#000080">.LBB2</font></b><font color="#993399">_9</font><font color="#990000">:</font>
+<b><font color="#000080">.Ltmp27</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> <font color="#009900">ESP</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">ECX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">64</font><font color="#990000">]</font> # <font color="#993399">4</font><font color="#990000">-</font><font color="#009900">byte</font> Reload
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EAX</font> <font color="#990000">+</font> <font color="#993399">4</font><font color="#990000">],</font> <font color="#009900">ECX</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">EDX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">60</font><font color="#990000">]</font> # <font color="#993399">4</font><font color="#990000">-</font><font color="#009900">byte</font> Reload
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EAX</font><font color="#990000">],</font> <font color="#009900">EDX</font>
+	<b><font color="#0000FF">call</font></b>	compare_string
+<b><font color="#000080">.Ltmp28</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">mov</font></b>	BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">65</font><font color="#990000">],</font> <font color="#009900">AL</font> # <font color="#993399">1</font><font color="#990000">-</font><font color="#009900">byte</font> Spill
+	<b><font color="#0000FF">jmp</font></b>	<font color="#990000">.</font>LBB<font color="#993399">2_10</font>
+<b><font color="#000080">.LBB2</font></b><font color="#993399">_10</font><font color="#990000">:</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">AL</font><font color="#990000">,</font> BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">65</font><font color="#990000">]</font> # <font color="#993399">1</font><font color="#990000">-</font><font color="#009900">byte</font> Reload
+	<b><font color="#0000FF">and</font></b>	<font color="#009900">AL</font><font color="#990000">,</font> <font color="#993399">1</font>
+	<b><font color="#0000FF">mov</font></b>	BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">25</font><font color="#990000">],</font> <font color="#009900">AL</font>
+<b><font color="#000080">.Ltmp29</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">ECX</font><font color="#990000">,</font> <font color="#009900">ESP</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ECX</font> <font color="#990000">+</font> <font color="#993399">4</font><font color="#990000">],</font> <font color="#990000">.</font>L<font color="#990000">.</font>str<font color="#993399">2</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ECX</font><font color="#990000">],</font> _ZSt<font color="#993399">4</font>cout
+	<b><font color="#0000FF">call</font></b>	_ZStlsISt<font color="#993399">11</font>char_traitsIcEERSt<font color="#993399">13</font>basic_ostreamIcT_ES<font color="#993399">5</font>_PKc
+<b><font color="#000080">.Ltmp30</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">72</font><font color="#990000">],</font> <font color="#009900">EAX</font> # <font color="#993399">4</font><font color="#990000">-</font><font color="#009900">byte</font> Spill
+	<b><font color="#0000FF">jmp</font></b>	<font color="#990000">.</font>LBB<font color="#993399">2_11</font>
+<b><font color="#000080">.LBB2</font></b><font color="#993399">_11</font><font color="#990000">:</font>
+	<b><font color="#0000FF">movzx</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> BYTE <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">25</font><font color="#990000">]</font>
+<b><font color="#000080">.Ltmp31</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">ECX</font><font color="#990000">,</font> <font color="#009900">ESP</font>
+	<b><font color="#0000FF">and</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> <font color="#993399">1</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ECX</font> <font color="#990000">+</font> <font color="#993399">4</font><font color="#990000">],</font> <font color="#009900">EAX</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">72</font><font color="#990000">]</font> # <font color="#993399">4</font><font color="#990000">-</font><font color="#009900">byte</font> Reload
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ECX</font><font color="#990000">],</font> <font color="#009900">EAX</font>
+	<b><font color="#0000FF">call</font></b>	_ZNSolsEb
+<b><font color="#000080">.Ltmp32</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">76</font><font color="#990000">],</font> <font color="#009900">EAX</font> # <font color="#993399">4</font><font color="#990000">-</font><font color="#009900">byte</font> Spill
+	<b><font color="#0000FF">jmp</font></b>	<font color="#990000">.</font>LBB<font color="#993399">2_12</font>
+<b><font color="#000080">.LBB2</font></b><font color="#993399">_12</font><font color="#990000">:</font>
+<b><font color="#000080">.Ltmp33</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> <font color="#009900">ESP</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">ECX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">76</font><font color="#990000">]</font> # <font color="#993399">4</font><font color="#990000">-</font><font color="#009900">byte</font> Reload
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EAX</font><font color="#990000">],</font> <font color="#009900">ECX</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EAX</font> <font color="#990000">+</font> <font color="#993399">4</font><font color="#990000">],</font> _ZSt<font color="#993399">4</font>endlIcSt<font color="#993399">11</font>char_traitsIcEERSt<font color="#993399">13</font>basic_ostreamIT_T<font color="#993399">0</font>_ES<font color="#993399">6</font>_
+	<b><font color="#0000FF">call</font></b>	_ZNSolsEPFRSoS_E
+<b><font color="#000080">.Ltmp34</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">80</font><font color="#990000">],</font> <font color="#009900">EAX</font> # <font color="#993399">4</font><font color="#990000">-</font><font color="#009900">byte</font> Spill
+	<b><font color="#0000FF">jmp</font></b>	<font color="#990000">.</font>LBB<font color="#993399">2_13</font>
+<b><font color="#000080">.LBB2</font></b><font color="#993399">_13</font><font color="#990000">:</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">4</font><font color="#990000">],</font> <font color="#993399">0</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">32</font><font color="#990000">],</font> <font color="#993399">1</font>
+<b><font color="#000080">.Ltmp38</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">lea</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">16</font><font color="#990000">]</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">ECX</font><font color="#990000">,</font> <font color="#009900">ESP</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ECX</font><font color="#990000">],</font> <font color="#009900">EAX</font>
+	<b><font color="#0000FF">call</font></b>	_ZNSsD<font color="#993399">1</font>Ev
+<b><font color="#000080">.Ltmp39</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">jmp</font></b>	<font color="#990000">.</font>LBB<font color="#993399">2_16</font>
+<b><font color="#000080">.LBB2</font></b><font color="#993399">_14</font><font color="#990000">:</font>
+<b><font color="#000080">.Ltmp40</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">20</font><font color="#990000">],</font> <font color="#009900">EAX</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">24</font><font color="#990000">],</font> <font color="#009900">EDX</font>
+	<b><font color="#0000FF">jmp</font></b>	<font color="#990000">.</font>LBB<font color="#993399">2_18</font>
+<b><font color="#000080">.LBB2</font></b><font color="#993399">_15</font><font color="#990000">:</font>
+<b><font color="#000080">.Ltmp35</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">20</font><font color="#990000">],</font> <font color="#009900">EAX</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">24</font><font color="#990000">],</font> <font color="#009900">EDX</font>
+<b><font color="#000080">.Ltmp36</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">lea</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">16</font><font color="#990000">]</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">EDX</font><font color="#990000">,</font> <font color="#009900">ESP</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EDX</font><font color="#990000">],</font> <font color="#009900">EAX</font>
+	<b><font color="#0000FF">call</font></b>	_ZNSsD<font color="#993399">1</font>Ev
+<b><font color="#000080">.Ltmp37</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">jmp</font></b>	<font color="#990000">.</font>LBB<font color="#993399">2_17</font>
+<b><font color="#000080">.LBB2</font></b><font color="#993399">_16</font><font color="#990000">:</font>
+	<b><font color="#0000FF">lea</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">8</font><font color="#990000">]</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ESP</font><font color="#990000">],</font> <font color="#009900">EAX</font>
+	<b><font color="#0000FF">call</font></b>	_ZNSsD<font color="#993399">1</font>Ev
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">4</font><font color="#990000">]</font>
+	<b><font color="#0000FF">add</font></b>	<font color="#009900">ESP</font><font color="#990000">,</font> <font color="#993399">104</font>
+	<b><font color="#0000FF">pop</font></b>	<font color="#009900">EBP</font>
+	<b><font color="#0000FF">ret</font></b>
+<b><font color="#000080">.LBB2</font></b><font color="#993399">_17</font><font color="#990000">:</font>
+<b><font color="#000080">.LBB2</font></b><font color="#993399">_18</font><font color="#990000">:</font>
+<b><font color="#000080">.Ltmp41</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">lea</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">8</font><font color="#990000">]</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">ECX</font><font color="#990000">,</font> <font color="#009900">ESP</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ECX</font><font color="#990000">],</font> <font color="#009900">EAX</font>
+	<b><font color="#0000FF">call</font></b>	_ZNSsD<font color="#993399">1</font>Ev
+<b><font color="#000080">.Ltmp42</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">jmp</font></b>	<font color="#990000">.</font>LBB<font color="#993399">2_19</font>
+<b><font color="#000080">.LBB2</font></b><font color="#993399">_19</font><font color="#990000">:</font>
+# BB#<font color="#993399">20</font><font color="#990000">:</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">20</font><font color="#990000">]</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">ECX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">24</font><font color="#990000">]</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">84</font><font color="#990000">],</font> <font color="#009900">ECX</font> # <font color="#993399">4</font><font color="#990000">-</font><font color="#009900">byte</font> Spill
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">88</font><font color="#990000">],</font> <font color="#009900">EAX</font> # <font color="#993399">4</font><font color="#990000">-</font><font color="#009900">byte</font> Spill
+	<b><font color="#0000FF">jmp</font></b>	<font color="#990000">.</font>LBB<font color="#993399">2_22</font>
+<b><font color="#000080">.LBB2</font></b><font color="#993399">_21</font><font color="#990000">:</font>
+<b><font color="#000080">.Ltmp43</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">92</font><font color="#990000">],</font> <font color="#009900">EDX</font> # <font color="#993399">4</font><font color="#990000">-</font><font color="#009900">byte</font> Spill
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">96</font><font color="#990000">],</font> <font color="#009900">EAX</font> # <font color="#993399">4</font><font color="#990000">-</font><font color="#009900">byte</font> Spill
+	<b><font color="#0000FF">call</font></b>	_ZSt<font color="#993399">9</font>terminatev
+<b><font color="#000080">.LBB2</font></b><font color="#993399">_22</font><font color="#990000">:</font>                               # <font color="#990000">%</font>unwind_resume
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">EAX</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">EBP</font> <font color="#990000">-</font> <font color="#993399">88</font><font color="#990000">]</font> # <font color="#993399">4</font><font color="#990000">-</font><font color="#009900">byte</font> Reload
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ESP</font><font color="#990000">],</font> <font color="#009900">EAX</font>
+	<b><font color="#0000FF">call</font></b>	_Unwind_Resume
+<b><font color="#000080">.Ltmp50</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.size</font></b>	main<font color="#990000">,</font> <font color="#990000">.</font>Ltmp<font color="#993399">50</font><font color="#990000">-</font>main
+<b><font color="#000080">.Ltmp51</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_endproc
+<b><font color="#000080">.Leh</font></b>_func_end<font color="#993399">2</font><font color="#990000">:</font>
+<b><font color="#000080">	.section</font></b>	<font color="#990000">.</font>gcc_except_table<font color="#990000">,</font><font color="#FF0000">"a"</font><font color="#990000">,</font>@progbits
+<b><font color="#000080">	.align</font></b>	<font color="#993399">4</font>
+GCC_except_table<font color="#993399">2</font><font color="#990000">:</font>
+<b><font color="#000080">.Lexception2</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.byte</font></b>	<font color="#993399">255</font>                     # @LPStart Encoding <font color="#990000">=</font> omit
+<b><font color="#000080">	.byte</font></b>	<font color="#993399">0</font>                       # @TType Encoding <font color="#990000">=</font> absptr
+<b><font color="#000080">	.byte</font></b>	<font color="#993399">240</font>                     # @TType base <b><font color="#0000FF">offset</font></b>
+<b><font color="#000080">	.zero</font></b>	<font color="#993399">1</font>
+<b><font color="#000080">	.byte</font></b>	<font color="#993399">3</font>                       # <b><font color="#0000FF">Call</font></b> site Encoding <font color="#990000">=</font> udata<font color="#993399">4</font>
+<b><font color="#000080">	.byte</font></b>	<font color="#993399">104</font>                     # <b><font color="#0000FF">Call</font></b> site table <b><font color="#0000FF">length</font></b>
+<b><font color="#000080">.Lset0</font></b> <font color="#990000">=</font> <font color="#990000">.</font>Leh_func_begin<font color="#993399">2</font><font color="#990000">-.</font>Leh_func_begin<font color="#993399">2</font> # <font color="#990000">&gt;&gt;</font> <b><font color="#0000FF">Call</font></b> Site <font color="#993399">1</font> <font color="#990000">&lt;&lt;</font>
+<b><font color="#000080">	.long</font></b>	<font color="#990000">.</font>Lset<font color="#993399">0</font>
+<b><font color="#000080">.Lset1</font></b> <font color="#990000">=</font> <font color="#990000">.</font>Ltmp<font color="#993399">9</font><font color="#990000">-.</font>Leh_func_begin<font color="#993399">2</font>        #   <b><font color="#0000FF">Call</font></b> between <font color="#990000">.</font>Leh_func_begin<font color="#993399">2</font> <b><font color="#0000FF">and</font></b> <font color="#990000">.</font>Ltmp<font color="#993399">9</font>
+<b><font color="#000080">	.long</font></b>	<font color="#990000">.</font>Lset<font color="#993399">1</font>
+<b><font color="#000080">	.long</font></b>	<font color="#993399">0</font>                       #     has no landing pad
+<b><font color="#000080">	.byte</font></b>	<font color="#993399">0</font>                       #   On action<font color="#990000">:</font> cleanup
+<b><font color="#000080">.Lset2</font></b> <font color="#990000">=</font> <font color="#990000">.</font>Ltmp<font color="#993399">9</font><font color="#990000">-.</font>Leh_func_begin<font color="#993399">2</font>        # <font color="#990000">&gt;&gt;</font> <b><font color="#0000FF">Call</font></b> Site <font color="#993399">2</font> <font color="#990000">&lt;&lt;</font>
+<b><font color="#000080">	.long</font></b>	<font color="#990000">.</font>Lset<font color="#993399">2</font>
+<b><font color="#000080">.Lset3</font></b> <font color="#990000">=</font> <font color="#990000">.</font>Ltmp<font color="#993399">10</font><font color="#990000">-.</font>Ltmp<font color="#993399">9</font>                 #   <b><font color="#0000FF">Call</font></b> between <font color="#990000">.</font>Ltmp<font color="#993399">9</font> <b><font color="#0000FF">and</font></b> <font color="#990000">.</font>Ltmp<font color="#993399">10</font>
+<b><font color="#000080">	.long</font></b>	<font color="#990000">.</font>Lset<font color="#993399">3</font>
+<b><font color="#000080">.Lset4</font></b> <font color="#990000">=</font> <font color="#990000">.</font>Ltmp<font color="#993399">40</font><font color="#990000">-.</font>Leh_func_begin<font color="#993399">2</font>       #     jumps to <font color="#990000">.</font>Ltmp<font color="#993399">40</font>
+<b><font color="#000080">	.long</font></b>	<font color="#990000">.</font>Lset<font color="#993399">4</font>
+<b><font color="#000080">	.byte</font></b>	<font color="#993399">0</font>                       #   On action<font color="#990000">:</font> cleanup
+<b><font color="#000080">.Lset5</font></b> <font color="#990000">=</font> <font color="#990000">.</font>Ltmp<font color="#993399">11</font><font color="#990000">-.</font>Leh_func_begin<font color="#993399">2</font>       # <font color="#990000">&gt;&gt;</font> <b><font color="#0000FF">Call</font></b> Site <font color="#993399">3</font> <font color="#990000">&lt;&lt;</font>
+<b><font color="#000080">	.long</font></b>	<font color="#990000">.</font>Lset<font color="#993399">5</font>
+<b><font color="#000080">.Lset6</font></b> <font color="#990000">=</font> <font color="#990000">.</font>Ltmp<font color="#993399">34</font><font color="#990000">-.</font>Ltmp<font color="#993399">11</font>                #   <b><font color="#0000FF">Call</font></b> between <font color="#990000">.</font>Ltmp<font color="#993399">11</font> <b><font color="#0000FF">and</font></b> <font color="#990000">.</font>Ltmp<font color="#993399">34</font>
+<b><font color="#000080">	.long</font></b>	<font color="#990000">.</font>Lset<font color="#993399">6</font>
+<b><font color="#000080">.Lset7</font></b> <font color="#990000">=</font> <font color="#990000">.</font>Ltmp<font color="#993399">35</font><font color="#990000">-.</font>Leh_func_begin<font color="#993399">2</font>       #     jumps to <font color="#990000">.</font>Ltmp<font color="#993399">35</font>
+<b><font color="#000080">	.long</font></b>	<font color="#990000">.</font>Lset<font color="#993399">7</font>
+<b><font color="#000080">	.byte</font></b>	<font color="#993399">0</font>                       #   On action<font color="#990000">:</font> cleanup
+<b><font color="#000080">.Lset8</font></b> <font color="#990000">=</font> <font color="#990000">.</font>Ltmp<font color="#993399">38</font><font color="#990000">-.</font>Leh_func_begin<font color="#993399">2</font>       # <font color="#990000">&gt;&gt;</font> <b><font color="#0000FF">Call</font></b> Site <font color="#993399">4</font> <font color="#990000">&lt;&lt;</font>
+<b><font color="#000080">	.long</font></b>	<font color="#990000">.</font>Lset<font color="#993399">8</font>
+<b><font color="#000080">.Lset9</font></b> <font color="#990000">=</font> <font color="#990000">.</font>Ltmp<font color="#993399">39</font><font color="#990000">-.</font>Ltmp<font color="#993399">38</font>                #   <b><font color="#0000FF">Call</font></b> between <font color="#990000">.</font>Ltmp<font color="#993399">38</font> <b><font color="#0000FF">and</font></b> <font color="#990000">.</font>Ltmp<font color="#993399">39</font>
+<b><font color="#000080">	.long</font></b>	<font color="#990000">.</font>Lset<font color="#993399">9</font>
+<b><font color="#000080">.Lset10</font></b> <font color="#990000">=</font> <font color="#990000">.</font>Ltmp<font color="#993399">40</font><font color="#990000">-.</font>Leh_func_begin<font color="#993399">2</font>      #     jumps to <font color="#990000">.</font>Ltmp<font color="#993399">40</font>
+<b><font color="#000080">	.long</font></b>	<font color="#990000">.</font>Lset<font color="#993399">10</font>
+<b><font color="#000080">	.byte</font></b>	<font color="#993399">0</font>                       #   On action<font color="#990000">:</font> cleanup
+<b><font color="#000080">.Lset11</font></b> <font color="#990000">=</font> <font color="#990000">.</font>Ltmp<font color="#993399">36</font><font color="#990000">-.</font>Leh_func_begin<font color="#993399">2</font>      # <font color="#990000">&gt;&gt;</font> <b><font color="#0000FF">Call</font></b> Site <font color="#993399">5</font> <font color="#990000">&lt;&lt;</font>
+<b><font color="#000080">	.long</font></b>	<font color="#990000">.</font>Lset<font color="#993399">11</font>
+<b><font color="#000080">.Lset12</font></b> <font color="#990000">=</font> <font color="#990000">.</font>Ltmp<font color="#993399">37</font><font color="#990000">-.</font>Ltmp<font color="#993399">36</font>               #   <b><font color="#0000FF">Call</font></b> between <font color="#990000">.</font>Ltmp<font color="#993399">36</font> <b><font color="#0000FF">and</font></b> <font color="#990000">.</font>Ltmp<font color="#993399">37</font>
+<b><font color="#000080">	.long</font></b>	<font color="#990000">.</font>Lset<font color="#993399">12</font>
+<b><font color="#000080">.Lset13</font></b> <font color="#990000">=</font> <font color="#990000">.</font>Ltmp<font color="#993399">43</font><font color="#990000">-.</font>Leh_func_begin<font color="#993399">2</font>      #     jumps to <font color="#990000">.</font>Ltmp<font color="#993399">43</font>
+<b><font color="#000080">	.long</font></b>	<font color="#990000">.</font>Lset<font color="#993399">13</font>
+<b><font color="#000080">	.byte</font></b>	<font color="#993399">1</font>                       #   On action<font color="#990000">:</font> <font color="#993399">1</font>
+<b><font color="#000080">.Lset14</font></b> <font color="#990000">=</font> <font color="#990000">.</font>Ltmp<font color="#993399">37</font><font color="#990000">-.</font>Leh_func_begin<font color="#993399">2</font>      # <font color="#990000">&gt;&gt;</font> <b><font color="#0000FF">Call</font></b> Site <font color="#993399">6</font> <font color="#990000">&lt;&lt;</font>
+<b><font color="#000080">	.long</font></b>	<font color="#990000">.</font>Lset<font color="#993399">14</font>
+<b><font color="#000080">.Lset15</font></b> <font color="#990000">=</font> <font color="#990000">.</font>Ltmp<font color="#993399">41</font><font color="#990000">-.</font>Ltmp<font color="#993399">37</font>               #   <b><font color="#0000FF">Call</font></b> between <font color="#990000">.</font>Ltmp<font color="#993399">37</font> <b><font color="#0000FF">and</font></b> <font color="#990000">.</font>Ltmp<font color="#993399">41</font>
+<b><font color="#000080">	.long</font></b>	<font color="#990000">.</font>Lset<font color="#993399">15</font>
+<b><font color="#000080">	.long</font></b>	<font color="#993399">0</font>                       #     has no landing pad
+<b><font color="#000080">	.byte</font></b>	<font color="#993399">0</font>                       #   On action<font color="#990000">:</font> cleanup
+<b><font color="#000080">.Lset16</font></b> <font color="#990000">=</font> <font color="#990000">.</font>Ltmp<font color="#993399">41</font><font color="#990000">-.</font>Leh_func_begin<font color="#993399">2</font>      # <font color="#990000">&gt;&gt;</font> <b><font color="#0000FF">Call</font></b> Site <font color="#993399">7</font> <font color="#990000">&lt;&lt;</font>
+<b><font color="#000080">	.long</font></b>	<font color="#990000">.</font>Lset<font color="#993399">16</font>
+<b><font color="#000080">.Lset17</font></b> <font color="#990000">=</font> <font color="#990000">.</font>Ltmp<font color="#993399">42</font><font color="#990000">-.</font>Ltmp<font color="#993399">41</font>               #   <b><font color="#0000FF">Call</font></b> between <font color="#990000">.</font>Ltmp<font color="#993399">41</font> <b><font color="#0000FF">and</font></b> <font color="#990000">.</font>Ltmp<font color="#993399">42</font>
+<b><font color="#000080">	.long</font></b>	<font color="#990000">.</font>Lset<font color="#993399">17</font>
+<b><font color="#000080">.Lset18</font></b> <font color="#990000">=</font> <font color="#990000">.</font>Ltmp<font color="#993399">43</font><font color="#990000">-.</font>Leh_func_begin<font color="#993399">2</font>      #     jumps to <font color="#990000">.</font>Ltmp<font color="#993399">43</font>
+<b><font color="#000080">	.long</font></b>	<font color="#990000">.</font>Lset<font color="#993399">18</font>
+<b><font color="#000080">	.byte</font></b>	<font color="#993399">1</font>                       #   On action<font color="#990000">:</font> <font color="#993399">1</font>
+<b><font color="#000080">.Lset19</font></b> <font color="#990000">=</font> <font color="#990000">.</font>Ltmp<font color="#993399">42</font><font color="#990000">-.</font>Leh_func_begin<font color="#993399">2</font>      # <font color="#990000">&gt;&gt;</font> <b><font color="#0000FF">Call</font></b> Site <font color="#993399">8</font> <font color="#990000">&lt;&lt;</font>
+<b><font color="#000080">	.long</font></b>	<font color="#990000">.</font>Lset<font color="#993399">19</font>
+<b><font color="#000080">.Lset20</font></b> <font color="#990000">=</font> <font color="#990000">.</font>Leh_func_end<font color="#993399">2</font><font color="#990000">-.</font>Ltmp<font color="#993399">42</font>        #   <b><font color="#0000FF">Call</font></b> between <font color="#990000">.</font>Ltmp<font color="#993399">42</font> <b><font color="#0000FF">and</font></b> <font color="#990000">.</font>Leh_func_end<font color="#993399">2</font>
+<b><font color="#000080">	.long</font></b>	<font color="#990000">.</font>Lset<font color="#993399">20</font>
+<b><font color="#000080">	.long</font></b>	<font color="#993399">0</font>                       #     has no landing pad
+<b><font color="#000080">	.byte</font></b>	<font color="#993399">0</font>                       #   On action<font color="#990000">:</font> cleanup
+<b><font color="#000080">	.byte</font></b>	<font color="#993399">1</font>                       # <font color="#990000">&gt;&gt;</font> Action <b><font color="#0000FF">Record</font></b> <font color="#993399">1</font> <font color="#990000">&lt;&lt;</font>
+                                        #   Catch TypeInfo <font color="#993399">1</font>
+<b><font color="#000080">	.byte</font></b>	<font color="#993399">0</font>                       #   No further actions
+                                        # <font color="#990000">&gt;&gt;</font> Catch TypeInfos <font color="#990000">&lt;&lt;</font>
+<b><font color="#000080">	.long</font></b>	<font color="#993399">0</font>                       # TypeInfo <font color="#993399">1</font>
+<b><font color="#000080">	.align</font></b>	<font color="#993399">4</font>
+
+<b><font color="#000080">	.text</font></b>
+<b><font color="#000080">	.align</font></b>	<font color="#993399">16</font><font color="#990000">,</font> <font color="#993399">0x90</font>
+<b><font color="#000080">	.type</font></b>	_GLOBAL__I_a<font color="#990000">,</font>@function
+_GLOBAL__I_a<font color="#990000">:</font>                           # @_GLOBAL__I_a
+<b><font color="#000080">.Ltmp54</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_startproc
+# BB#<font color="#993399">0</font><font color="#990000">:</font>
+	<b><font color="#0000FF">push</font></b>	<font color="#009900">EBP</font>
+<b><font color="#000080">.Ltmp55</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_def_cfa_offset <font color="#993399">8</font>
+<b><font color="#000080">.Ltmp56</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_offset <font color="#009900">ebp</font><font color="#990000">,</font> <font color="#990000">-</font><font color="#993399">8</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">EBP</font><font color="#990000">,</font> <font color="#009900">ESP</font>
+<b><font color="#000080">.Ltmp57</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_def_cfa_register <font color="#009900">ebp</font>
+	<b><font color="#0000FF">sub</font></b>	<font color="#009900">ESP</font><font color="#990000">,</font> <font color="#993399">8</font>
+	<b><font color="#0000FF">call</font></b>	__cxx_global_var_init
+	<b><font color="#0000FF">add</font></b>	<font color="#009900">ESP</font><font color="#990000">,</font> <font color="#993399">8</font>
+	<b><font color="#0000FF">pop</font></b>	<font color="#009900">EBP</font>
+	<b><font color="#0000FF">ret</font></b>
+<b><font color="#000080">.Ltmp58</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.size</font></b>	_GLOBAL__I_a<font color="#990000">,</font> <font color="#990000">.</font>Ltmp<font color="#993399">58</font><font color="#990000">-</font>_GLOBAL__I_a
+<b><font color="#000080">.Ltmp59</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_endproc
+<b><font color="#000080">.Leh</font></b>_func_end<font color="#993399">3</font><font color="#990000">:</font>
+
+<b><font color="#000080">	.type</font></b>	_ZStL<font color="#993399">8</font>__ioinit<font color="#990000">,</font>@object  # @_ZStL<font color="#993399">8</font>__ioinit
+<b><font color="#000080">	.local</font></b>	_ZStL<font color="#993399">8</font>__ioinit
+<b><font color="#000080">	.comm</font></b>	_ZStL<font color="#993399">8</font>__ioinit<font color="#990000">,</font><font color="#993399">1</font><font color="#990000">,</font><font color="#993399">1</font>
+<b><font color="#000080">	.type</font></b>	<font color="#990000">.</font>L<font color="#990000">.</font><b><font color="#0000FF">str</font></b><font color="#990000">,</font>@object          # @<font color="#990000">.</font><b><font color="#0000FF">str</font></b>
+<b><font color="#000080">	.section</font></b>	<font color="#990000">.</font>rodata<font color="#990000">.</font>str<font color="#993399">1.1</font><font color="#990000">,</font><font color="#FF0000">"aMS"</font><font color="#990000">,</font>@progbits<font color="#990000">,</font><font color="#993399">1</font>
+<b><font color="#000080">.L</font></b><font color="#990000">.</font><b><font color="#0000FF">str</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.asciz</font></b>	 <font color="#FF0000">"Enter string 1: "</font>
+<b><font color="#000080">	.size</font></b>	<font color="#990000">.</font>L<font color="#990000">.</font><b><font color="#0000FF">str</font></b><font color="#990000">,</font> <font color="#993399">17</font>
+
+<b><font color="#000080">	.type</font></b>	<font color="#990000">.</font>L<font color="#990000">.</font>str<font color="#993399">1</font><font color="#990000">,</font>@object         # @<font color="#990000">.</font>str<font color="#993399">1</font>
+<b><font color="#000080">.L</font></b><font color="#990000">.</font>str<font color="#993399">1</font><font color="#990000">:</font>
+<b><font color="#000080">	.asciz</font></b>	 <font color="#FF0000">"Enter string 2: "</font>
+<b><font color="#000080">	.size</font></b>	<font color="#990000">.</font>L<font color="#990000">.</font>str<font color="#993399">1</font><font color="#990000">,</font> <font color="#993399">17</font>
+
+<b><font color="#000080">	.type</font></b>	<font color="#990000">.</font>L<font color="#990000">.</font>str<font color="#993399">2</font><font color="#990000">,</font>@object         # @<font color="#990000">.</font>str<font color="#993399">2</font>
+<b><font color="#000080">.L</font></b><font color="#990000">.</font>str<font color="#993399">2</font><font color="#990000">:</font>
+<b><font color="#000080">	.asciz</font></b>	 <font color="#FF0000">"The result is: "</font>
+<b><font color="#000080">	.size</font></b>	<font color="#990000">.</font>L<font color="#990000">.</font>str<font color="#993399">2</font><font color="#990000">,</font> <font color="#993399">16</font>
+
+<b><font color="#000080">	.section</font></b>	<font color="#990000">.</font>ctors<font color="#990000">,</font><font color="#FF0000">"aw"</font><font color="#990000">,</font>@progbits
+<b><font color="#000080">	.align</font></b>	<font color="#993399">4</font>
+<b><font color="#000080">	.long</font></b>	_GLOBAL__I_a
+
+<b><font color="#000080">	.section</font></b>	<font color="#FF0000">".note.GNU-stack"</font><font color="#990000">,</font><font color="#FF0000">""</font><font color="#990000">,</font>@progbits
 </tt></pre>
 </body>
 </html>

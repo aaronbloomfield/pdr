@@ -3,11 +3,10 @@ using namespace std;
 extern "C" int absolute_value(int x);
 
 int absolute_value(int x) {
-    if (x<0)		// if x is negative
+    if (x<0)	// if x is negative
         x = -x;	// negate x
     return x;	// return x
 }
-
 
 int main() {
     int theValue=0;

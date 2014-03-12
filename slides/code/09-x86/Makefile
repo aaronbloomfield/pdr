@@ -1,5 +1,5 @@
 main:
-	echo You should read the readme.txt file!
+	@echo You should read the readme.txt file!
 
 compile:
 	gcc -o test_abs_c test_abs_c.c
@@ -9,14 +9,26 @@ compile:
 	g++ -o test_string_compare test_string_compare.cpp
 
 asm:
-	g++ -masm=intel -S test_abs_c.c -o test_abs_c.s
-	g++ -masm=intel -S test_abs.cpp -o test_abs.s
-	g++ -masm=intel -S test_fib.cpp -o test_fib.s
-	g++ -masm=intel -S test_string_compare.cpp -o test_string_compare.s
-	g++ -masm=intel -S test_max.cpp -o test_max.s
-	g++ -O2 -masm=intel -S test_max.cpp -o test_max-O2.s
+	g++ -m32 -masm=intel -S test_abs_c.c -o test_abs_c.s
+	g++ -m32 -masm=intel -S test_abs.cpp -o test_abs.s
+	g++ -m32 -masm=intel -S test_fib.cpp -o test_fib.s
+	g++ -m32 -masm=intel -S test_string_compare.cpp -o test_string_compare.s
+	g++ -m32 -masm=intel -S test_max.cpp -o test_max.s
+	g++ -O2 -m32 -masm=intel -S test_max.cpp -o test_max-O2.s
 	grep -v extern test_max.cpp > foo.cpp
-	g++ -masm=intel -S foo.cpp -o test_max-noextern.s
+	g++ -m32 -masm=intel -S foo.cpp -o test_max-noextern.s
+	/bin/rm -rf foo.cpp
+
+asmclang:
+	clang -m32 -mllvm --x86-asm-syntax=intel -S test_abs_c.c -o test_abs_c.s
+	clang++ -m32 -S test_abs.cpp -o test_abs-non-intel.s
+	clang++ -m32 -mllvm --x86-asm-syntax=intel -S test_abs.cpp -o test_abs.s
+	clang++ -m32 -mllvm --x86-asm-syntax=intel -S test_fib.cpp -o test_fib.s
+	clang++ -m32 -mllvm --x86-asm-syntax=intel -S test_string_compare.cpp -o test_string_compare.s
+	clang++ -m32 -mllvm --x86-asm-syntax=intel -S test_max.cpp -o test_max.s
+	clang++ -O2 -m32 -mllvm --x86-asm-syntax=intel -S test_max.cpp -o test_max-O2.s
+	grep -v extern test_max.cpp > foo.cpp
+	clang++ -m32 -mllvm --x86-asm-syntax=intel -S foo.cpp -o test_max-noextern.s
 	/bin/rm -rf foo.cpp
 
 clean:

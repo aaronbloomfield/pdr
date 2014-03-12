@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int absolute_value(int x) {
-    if(x<0)		// if x is negative
+    if (x<0)	// if x is negative
         x = -x;	// negate x
     return x;	// return x
 }

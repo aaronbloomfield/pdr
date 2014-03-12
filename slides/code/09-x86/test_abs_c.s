@@ -1,80 +1,79 @@
-.file	"test_abs_c.c"
-.intel_syntax
-.text
-.align 2
-.globl __Z14absolute_valuei
-.def	__Z14absolute_valuei;
-.scl	2;
-.type	32;
-.endef
-__Z14absolute_valuei:
-push	ebp
-mov	ebp, esp
-cmp	DWORD PTR [ebp+8], 0
-jns	L2
-neg	DWORD PTR [ebp+8]
-L2:
-mov	eax, DWORD PTR [ebp+8]
-pop	ebp
-ret
-.def	___main;
-.scl	2;
-.type	32;
-.endef
-.section .rdata,"dr"
-LC0:
-.ascii "Enter a value: \12\0"
-LC1:
-.ascii "%d\0"
-LC2:
-.ascii "The result is: %d\12\0"
-.text
-.align 2
-.globl _main
-.def	_main;
-.scl	2;
-.type	32;
-.endef
-_main:
-push	ebp
-mov	ebp, esp
-sub	esp, 24
-and	esp, -16
-mov	eax, 0
-add	eax, 15
-add	eax, 15
-shr	eax, 4
-sal	eax, 4
-mov	DWORD PTR [ebp-12], eax
-mov	eax, DWORD PTR [ebp-12]
-call	__alloca
-call	___main
-mov	DWORD PTR [ebp-4], 0
-mov	DWORD PTR [esp], OFFSET FLAT:
-LC0
-call	_printf
-lea	eax, [ebp-4]
-mov	DWORD PTR [esp+4], eax
-mov	DWORD PTR [esp], OFFSET FLAT:
-LC1
-call	_scanf
-mov	eax, DWORD PTR [ebp-4]
-mov	DWORD PTR [esp], eax
-call	__Z14absolute_valuei
-mov	DWORD PTR [ebp-8], eax
-mov	eax, DWORD PTR [ebp-8]
-mov	DWORD PTR [esp+4], eax
-mov	DWORD PTR [esp], OFFSET FLAT:
-LC2
-call	_printf
-mov	eax, 0
-leave
-ret
-.def	_scanf;
-.scl	2;
-.type	32;
-.endef
-.def	_printf;
-.scl	2;
-.type	32;
-.endef
+	.file	"test_abs_c.c"
+	.text
+	.globl	absolute_value
+	.align	16, 0x90
+	.type	absolute_value,@function
+absolute_value:                         # @absolute_value
+# BB#0:
+	push	EAX
+	mov	EAX, DWORD PTR [ESP + 8]
+	mov	DWORD PTR [ESP], EAX
+	cmp	DWORD PTR [ESP], 0
+	jge	.LBB0_2
+# BB#1:
+	mov	EAX, 0
+	sub	EAX, DWORD PTR [ESP]
+	mov	DWORD PTR [ESP], EAX
+.LBB0_2:
+	mov	EAX, DWORD PTR [ESP]
+	pop	EDX
+	ret
+.Ltmp0:
+	.size	absolute_value, .Ltmp0-absolute_value
+
+	.globl	main
+	.align	16, 0x90
+	.type	main,@function
+main:                                   # @main
+# BB#0:
+	push	EBP
+	mov	EBP, ESP
+	sub	ESP, 40
+	lea	EAX, DWORD PTR [.L.str]
+	mov	DWORD PTR [EBP - 4], 0
+	mov	DWORD PTR [EBP - 8], 0
+	mov	DWORD PTR [ESP], EAX
+	call	printf
+	lea	ECX, DWORD PTR [.L.str1]
+	lea	EDX, DWORD PTR [EBP - 8]
+	mov	DWORD PTR [ESP], ECX
+	mov	DWORD PTR [ESP + 4], EDX
+	mov	DWORD PTR [EBP - 16], EAX # 4-byte Spill
+	call	__isoc99_scanf
+	mov	ECX, DWORD PTR [EBP - 8]
+	mov	DWORD PTR [ESP], ECX
+	mov	DWORD PTR [EBP - 20], EAX # 4-byte Spill
+	call	absolute_value
+	lea	ECX, DWORD PTR [.L.str2]
+	mov	DWORD PTR [EBP - 12], EAX
+	mov	EAX, DWORD PTR [EBP - 12]
+	mov	DWORD PTR [ESP], ECX
+	mov	DWORD PTR [ESP + 4], EAX
+	call	printf
+	mov	ECX, 0
+	mov	DWORD PTR [EBP - 24], EAX # 4-byte Spill
+	mov	EAX, ECX
+	add	ESP, 40
+	pop	EBP
+	ret
+.Ltmp1:
+	.size	main, .Ltmp1-main
+
+	.type	.L.str,@object          # @.str
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.L.str:
+	.asciz	 "Enter a value: \n"
+	.size	.L.str, 17
+
+	.type	.L.str1,@object         # @.str1
+.L.str1:
+	.asciz	 "%d"
+	.size	.L.str1, 3
+
+	.type	.L.str2,@object         # @.str2
+.L.str2:
+	.asciz	 "The result is: %d\n"
+	.size	.L.str2, 19
+
+
+	.section	".note.GNU-stack","",@progbits
