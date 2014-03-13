@@ -44,4 +44,7 @@ The labs for this course
   - The tutorial, for the in-lab, is the first 6 sections (through and including 'exit status') of the [Wikibooks article on Bash Shell Scripting](http://en.wikibooks.org/wiki/Bash_Shell_Scripting)
 
 - [Lab 7: IBCM](lab07/index.html) (machine language)
-  - Source code: [bubblesort.cpp](lab07/bubblesort.cpp.html) ([src](lab07/bubblesort.cpp)), [counter.cpp](lab07/counter.cpp.html) ([src](lab07/counter.cpp))
+  - C++ Source code: [bubblesort.cpp](lab07/bubblesort.cpp.html) ([src](lab07/bubblesort.cpp)), [counter.cpp](lab07/counter.cpp.html) ([src](lab07/counter.cpp))
+  - IBCM source code: [summation.ibcm](../../ibcm/summation.ibcm) and [array-summation.ibcm](../../ibcm/array-summation.ibcm)
+  - The online emulator is [here](http://www.cs.virginia.edu/~cs216/ibcm), with mirrors [1](http://libra.cs.virginia.edu/~aaron/ibcm/) and [2](http://people.virginia.edu/~asb2t/ibcm/)
+  - The [IBCM book chapter](../../book/ibcm-chapter.pdf) (PDF)
