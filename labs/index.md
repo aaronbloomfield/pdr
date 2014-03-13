@@ -48,3 +48,5 @@ The labs for this course
   - IBCM source code: [summation.ibcm](../../ibcm/summation.ibcm) and [array-summation.ibcm](../../ibcm/array-summation.ibcm)
   - The online emulator is [here](http://www.cs.virginia.edu/~cs216/ibcm), with mirrors [1](http://libra.cs.virginia.edu/~aaron/ibcm/) and [2](http://people.virginia.edu/~asb2t/ibcm/)
   - The [IBCM book chapter](../../book/ibcm-chapter.pdf) (PDF)
+
+- [Lab 8: x86, part 1](lab08/index.html) (assembly language)
