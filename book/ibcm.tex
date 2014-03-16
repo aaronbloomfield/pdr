@@ -187,7 +187,7 @@ instruction to halt the computer.
 %\begin{tabular}{cccccccccc}
 \begin{tabular}{cccccp{1mm}p{1mm}ccr|lc}
 
-bit: & 0 & 1 & 2 & 3 & 4 & 5 & \ldots &  & \multicolumn{1}{r}{15} & \\
+bit: & 15 & 14 & 13 & 12 & 11 & 10 & \ldots &  & \multicolumn{1}{r}{0} & \\
 \cline{2-10}
 
 & \multicolumn{1}{|c}{0} & 0 & 0 & \multicolumn{1}{c|}{0} &
@@ -239,8 +239,8 @@ character; in the later case, only the bottom (least significant) 8
 bits of the accumulator are involved. The next two bits after the
 opcode specify if the instruction is an input or output, and if it
 will use hexadecimal values or ASCII characters.  The four
-possibilities (in/out, hex/ASCII) that are specified by the bits 5 and
-6 of the instruction word as shown in
+possibilities (in/out, hex/ASCII) that are specified by the bits 11 and
+10 of the instruction word as shown in
 Table~\ref{IBCM-io-instruction-values.tbl}.  Being as there are only
 four possibilities, the full hexadecimal encoding of each of the four
 I/O instructions is also listed.
@@ -248,7 +248,7 @@ I/O instructions is also listed.
 \begin{table}[h]
 \centering
 \begin{tabular}{ccclcl}
-\und{bit 4} & \und{bit 5} & & \und{operation} & & \und{hex value} \\
+\und{bit 11} & \und{bit 10} & & \und{operation} & & \und{hex value} \\
 0 & 0 & & read a hexadecimal word (four digits) into the accumulator &
 & 0x1000 \\
 0 & 1 & & read an ASCII character into the accumulator bits 8-15 & &
@@ -311,7 +311,7 @@ to your imagination.
 \label{ibcm-shift-3}
 \end{figure}
 
-Note that the shift instructions uses bits 5-6 to specify the shift
+Note that the shift instructions uses bits 11-10 to specify the shift
 operation.  The first bit specifies if it is a shift (0) or rotate
 (1), and the second bit specifies if it is moving left (0) or right
 (1).  This is shown in Table~\ref{IBCM-shift-instruction-values.tbl}.
@@ -319,7 +319,7 @@ operation.  The first bit specifies if it is a shift (0) or rotate
 \begin{table}[h]
 \centering
 \begin{tabular}{cccl}
-\und{bit 4} & \und{bit 5} & & \und{operation} \\
+\und{bit 11} & \und{bit 10} & & \und{operation} \\
 0 & 0 & & shift left \\
 0 & 1 & & shift right \\
 1 & 0 & & rotate left \\
@@ -329,7 +329,7 @@ operation.  The first bit specifies if it is a shift (0) or rotate
 \label{IBCM-shift-instruction-values.tbl}
 \end{table}
 
-In addition, bits 12-15 of the shift instructions specify the ``shift
+In addition, bits 3-0 of the shift instructions specify the ``shift
 count''~-- that is, the number of bits positions that the data is to
 be shifted (or rotated).
 
