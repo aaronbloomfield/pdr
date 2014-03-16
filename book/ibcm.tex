@@ -334,8 +334,8 @@ count''~-- that is, the number of bits positions that the data is to
 be shifted (or rotated).
 
 A left rotate of 3, which is what is shown in
-Figure~\ref{ibcm-shift-3}, would have the opcode set to 1 (binary
-0001), the shift/rotate bit set to 1, the left/right bit set to 0, and
+Figure~\ref{ibcm-shift-3}, would have the opcode set to 2 (binary
+0010), the shift/rotate bit set to 1, the left/right bit set to 0, and
 the shift count set to 3.  The encoded instruction, in binary, is
 shown in Figure~\ref{IBCM-right-rotate-of-3}.  Note that the
 grayed-out part of the table are the bits whose value does not matter;
@@ -344,8 +344,8 @@ we set them to 0.
 \begin{figure}[h!]
 \centering
 \begin{tabular}{|c|c|c|c|c|c} \cline{1-5}
-0 0 0 1 & 1    &  0   &\cellcolor[gray]{0.8} 0 0 0 0 0 0 & 0 0 1 1 & =
-0x1803 \\ \cline{1-5}
+0 0 1 0 & 1    &  0   &\cellcolor[gray]{0.8} 0 0 0 0 0 0 & 0 0 1 1 & =
+0x2803 \\ \cline{1-5}
 opcode  & rot. & left &\cellcolor[gray]{0.8} unused & shift \\
         & bit  & bit  &\cellcolor[gray]{0.8} bits   & count \\ \cline{1-5}
 \end{tabular}
@@ -353,7 +353,7 @@ opcode  & rot. & left &\cellcolor[gray]{0.8} unused & shift \\
 \label{IBCM-right-rotate-of-3} 
 \end{figure}
 
-As shown in the table, the hexadecimal encoding of the instruction is 0x1803.
+As shown in the table, the hexadecimal encoding of the instruction is 0x2803.
 
 \subsubsection{Other Instructions}
 
