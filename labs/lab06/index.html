@@ -220,19 +220,19 @@ Found all words in 0.000835 seconds
 
 <p>There are many times when we want our executable program to run as fast as possible.  An example of this is the current lab &ndash; as we are testing our programs for speed (and we want them to run fast), we want to tell the compiler to write an optimized executable.  To do this, we specify the -O2 flag (notice that the &lsquo;O&rsquo; is capitalized).  The &lsquo;O&rsquo; part stands for optimization level.  There are multiple optimization levels that clang++ provides, each with benefits and drawbacks.  The only allowable optimization level for this lab is 2 (i.e. &lsquo;-O2&rsquo;, not any other number after the &lsquo;O&rsquo;).  For example, to compile this program, we would enter:</p>
 
-<pre><code>clang++ -O2 --Wall wordPuzzle.cpp timer.cpp hashTable.cpp
+<pre><code>clang++ -O2 -Wall wordPuzzle.cpp timer.cpp hashTable.cpp
 </code></pre>
 
 <p>If the only files with a .cpp extension in the current directory are those three files, then we could also enter:</p>
 
-<pre><code>clang++ -O2 --Wall *.cpp
+<pre><code>clang++ -O2 -Wall *.cpp
 </code></pre>
 
-<p>If we wanted to use the &ndash;c flag (such as through a Makefile), then the commands would be:</p>
+<p>If we wanted to use the -c flag (such as through a Makefile), then the commands would be:</p>
 
-<pre><code>clang++ -O2 --c wordPuzzle.cpp
-clang++ -O2 --c timer.cpp
-clang++ -O2 --c hashTable.cpp
+<pre><code>clang++ -O2 -c wordPuzzle.cpp
+clang++ -O2 -c timer.cpp
+clang++ -O2 -c hashTable.cpp
 clang++ -O2 wordPuzzle.o timer.o hashTable.o
 </code></pre>
 
@@ -265,7 +265,7 @@ clang++ -O2 wordPuzzle.o timer.o hashTable.o
 <p>If the files are not sorted the same &ndash; meaning that the words listed are the same, but in a different order &ndash; then diff will report differences between the files.  You can use the Unix &lsquo;sort&rsquo; command to sort BOTH files before comparison to fix this:</p>
 
 <pre><code>./a.out words2.txt 300x300.grid.txt | sort &gt; output.txt
-sort words2.out.txt &gt; words2.sorted.out.txt
+sort 300x300.words2.out.txt &gt; words2.sorted.out.txt
 diff output.txt words2.sorted.out.txt
 </code></pre>
 

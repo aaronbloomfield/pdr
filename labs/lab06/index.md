@@ -194,21 +194,21 @@ So far, we have learned a number of clang++ flags (-o, -g, -Wall, -c, -MM).  If 
 There are many times when we want our executable program to run as fast as possible.  An example of this is the current lab -- as we are testing our programs for speed (and we want them to run fast), we want to tell the compiler to write an optimized executable.  To do this, we specify the -O2 flag (notice that the 'O' is capitalized).  The 'O' part stands for optimization level.  There are multiple optimization levels that clang++ provides, each with benefits and drawbacks.  The only allowable optimization level for this lab is 2 (i.e. '-O2', not any other number after the 'O').  For example, to compile this program, we would enter:
 
 ```
-clang++ -O2 --Wall wordPuzzle.cpp timer.cpp hashTable.cpp
+clang++ -O2 -Wall wordPuzzle.cpp timer.cpp hashTable.cpp
 ```
 
 If the only files with a .cpp extension in the current directory are those three files, then we could also enter:
 
 ```
-clang++ -O2 --Wall *.cpp
+clang++ -O2 -Wall *.cpp
 ```
 
-If we wanted to use the --c flag (such as through a Makefile), then the commands would be:
+If we wanted to use the -c flag (such as through a Makefile), then the commands would be:
 
 ```
-clang++ -O2 --c wordPuzzle.cpp
-clang++ -O2 --c timer.cpp
-clang++ -O2 --c hashTable.cpp
+clang++ -O2 -c wordPuzzle.cpp
+clang++ -O2 -c timer.cpp
+clang++ -O2 -c hashTable.cpp
 clang++ -O2 wordPuzzle.o timer.o hashTable.o
 ```
 
@@ -244,7 +244,7 @@ If the files are not sorted the same -- meaning that the words listed are the sa
 
 ```
 ./a.out words2.txt 300x300.grid.txt | sort > output.txt
-sort words2.out.txt > words2.sorted.out.txt
+sort 300x300.words2.out.txt > words2.sorted.out.txt
 diff output.txt words2.sorted.out.txt
 ```
 
