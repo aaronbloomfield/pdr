@@ -28,6 +28,7 @@ The parts of this course that are in this repo are:
 - [UNIX honor pledge](unix-honor-pledge-s14.pdf), which needs to be signed by all the students in the course; it is created from a [.tex](unix-honor-pledge.tex) file
 - [Review session slide set](exam-review.html), which is really just a blank set of slides
 - [Frivolous regrade policy](frivolous-regrades.html) for exams
+- [Snow Day Impacts](snowdays.html), which contains the information sent in an class-wide e-mail on March 17th about how the schedule is being adapated to three M/W/F snow days
 
 ------------------------------------------------------------
 
