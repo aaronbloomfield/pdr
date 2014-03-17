@@ -1,4 +1,4 @@
-.DATA
+section .data
 var	DB	64	; Declare a byte containing the value 64. Label the
 			; Memory location "var".
 var2	DB	?	; Declare an uninitialized byte labeled "var2".
