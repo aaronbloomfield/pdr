@@ -191,7 +191,7 @@ mov [4*eax + 2*ebx], ecx</code></pre>
 <table class="transparent"><tr><td class="top">
 
 <table class="transparent">
-<tr><td class="top" colspan="2"><h2>Example</h2></td></tr>
+<tr><td class="top" colspan="3"><h2>Example</h2></td></tr>
 <tr><td class="top"><p class="center">Source code:</p><pre><code>mov ecx, eax
 mov edx, [ebx]
 mov esi, [edx+eax+4]
@@ -231,35 +231,35 @@ lea edi, [a]</code></pre></td>
 	  </section>
 
 	  <section data-markdown><script type="text/template">
-## `mov eax, [4*esi - edx]`
+## `mov eax, [4*esi-edx]`
 1. Valid
 2. Invalid
 3. Not sure
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## `mov eax, [4*esi + 4]`
+## `mov eax, [4*esi+4]`
 1. Valid
 2. Invalid
 3. Not sure
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## `mov eax, [4*esi + edx + 8]`
+## `mov eax, [4*esi+edx+8]`
 1. Valid
 2. Invalid
 3. Not sure
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## `mov eax, [esi + 4*edx]`
+## `mov eax, [esi+4*edx]`
 1. Valid
 2. Invalid
 3. Not sure
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## `mov eax + 4, [esi]`
+## `mov eax+4, [esi]`
 1. Valid
 2. Invalid
 3. Not sure
@@ -274,6 +274,7 @@ lea edi, [a]</code></pre></td>
 ```
 mov [eax] [var]
 mov [eax+4] [ebx]
+mov 20, [eax]
 ```
 	  </script></section>
 
@@ -296,7 +297,7 @@ mov [eax+4] [ebx]
 	  <section data-markdown><script type="text/template">
 ## Data Movement Instructions, part 1
 - `mov`
-  - We've seen this in detail
+  - We've seen this in detail already
 - `push`
   - push operand onto stack (4 bytes)
   - First decrements ESP (stack pointer) by 4 (stack grows ***down***)
@@ -372,7 +373,7 @@ and <reg>, <reg>
 and <reg>, <mem>
 and <mem>, <reg>
 ```
-  - Specific examples:
+- Specific examples:
 ```
 and eax, 0fH
 xor ecx, ecx
@@ -384,21 +385,27 @@ xor ecx, ecx
 - `jmp <label>`
   - go to instruction address specified by label
 - `cmp`
+  - This must be done prior to an *conditional* jump
   - cmp operand1, operand2
     - Operand1 can be a register or memory (variable)
     - Operand2 can be a register, memory (variable), or a constant
     - Recall that you can't access memory twice!
   - Sets the *machine status word*
-- jCC
-  - Uses the machine status word
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Control Instructions, part 3
+- Conditional jumps: j*condition*
+  - Uses the machine status word, which was set via `cmp`
     - Which holds info about the results of the last instruction
+  - There are many 'condition's to determine whether to jump
   - Example: `je <label>`
     - Jump when condition code equal is set
   - Others: `jne`, `jz`, `jg`, `jge`, `jl`, `jle`, `js`, etc.
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Control Instructions, part 2
+## Control Instructions, part 3
 - `call <label>`
   - Subroutine call
   - Pushes address of the *next* instruction onto the stack, then unconditionally jumps to the label
@@ -408,12 +415,12 @@ xor ecx, ecx
 	  </script></section>
 
 	  <section>
-<h2>Writing Basic x86 Assembly</h2>
+<h2>A code block in both C/C++ and Assembly</h2>
 <table class="transparent">
 <tr><td><p>C/C++ code:</p><pre><code>int n = 5;
 int i =1;
 int sum = 0;
-while(i <= n){
+while(i &lt;= n){
     sum += i;
     i++;
 }</code></pre></td>
@@ -478,7 +485,7 @@ int main() {
 ## C Calling Convention
 - Why C's calling convention?
   - It's important
-  - Can be used with C and C++ code
+  - Is used with both C and C++ code
   - Can enable calling C library functions from assembly code
     - Or other languages, too
 	  </script></section>
@@ -486,7 +493,7 @@ int main() {
 	  <section data-markdown><script type="text/template">
 ## C Calling Convention
 - Uses hardware stack (memory)
-  - Stack *grows down*, towards lower memory addresses
+  - Stack *grows down*, toward the lower memory addresses
   - x86 instructions used for calling convention
     - `pop`
     - `push`
@@ -507,7 +514,7 @@ int main() {
 
 	  <section data-markdown><script type="text/template">
 ## Calling Convention Overview
-- The sets of rules
+- Two sets of rules
   - Caller: the function which calls another function
   - Callee: the function which is called by another function
 	  </script></section>
@@ -609,7 +616,7 @@ return sum / num;
 
 
 	  <section data-markdown><script type="text/template">
-## Output in C
+## Example: Output in C
 The C equivalent of cout is a function called `printf`
 ```
 printf ("A %s, a %s, a %s: %s!", "man", 
@@ -973,7 +980,7 @@ ret             ; pop top value from stack, jump there
   - Say, at address 10,000 or so if you have a 10 kb binary file
 - The stack starts at the end of this 4 Gb of memory, and grows backward
   - They could have chosen the heap to grow backwards, but they didn't
-- As a program progresses, they both grow towards the middle
+- As a program progresses, they both grow toward the middle
   - And never the two shall meet
 	  </script></section>
 
@@ -1558,13 +1565,15 @@ Source code: [test_fib.s](code/09-x86/test_fib.s.html) ([src](code/09-x86/test_f
 	  <section>
 <h2>Do we need to even use ebp?</h2>
 <table class="transparent">
-<tr><td class="top"><ul>
+<tr><td class="top">
+<ul>
 <li>If we know that the number of local variables will be fixed...<ul>
     <li>... then we can offset everything from esp instead</li>
 </ul></li>
 <li>This saves the push/pop ebp operations</li>
 <li>clang++ likes to do this...</li>
 <li>But this is not always possible if a program uses dynamic memory on the <i>stack</i></li>
+</ul>
 </td><td><img alt="x86 activation record" src="images/09-x86/x86-activation-record.svg"></td></tr></table>
 	  </section>
 

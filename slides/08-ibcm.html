@@ -266,7 +266,7 @@ store 300
 </tr>
 </table>
 
-	  </script></section>
+	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## IBCM instruction types
@@ -341,7 +341,7 @@ store 300
 <tr><td>B</td><td>nop</td><td><code>/* */</code></td><td>do nothing (no operation)</td></tr>
 <tr><td>C</td><td>jmp</td><td><code>goto addr</code></td><td>jump to 'addr'</td></tr>
 <tr><td>D</td><td>jmpe</td><td><code>if a == 0 goto addr</code></td><td>jump to 'addr' if accumulator equals zero</td></tr>
-<tr><td>E</td><td>jmpl</td><td><code>if a < 0 goto addr</code></td><td>jump to 'addr' if accum. is less than zero</td></tr>
+<tr><td>E</td><td>jmpl</td><td><code>if a &lt; 0 goto addr</code></td><td>jump to 'addr' if accum. is less than zero</td></tr>
 <tr><td>F</td><td>brl</td><td><code>a := PC+1; goto addr</code></td><td>jump (branch) to 'addr'; set accum. to<br>the value of the PC just before the jump<br>(i.e., to the address following the `brl`)</td></tr>
 </table>
 	  </section>
@@ -747,14 +747,14 @@ C011 1F         jmp      loop   goto loop
 
 	  <section>
 <h2>What's missing from IBCM?</h2>
-<ul class="fragment"></li>
+<ul class="fragment">
 <li>Integer multiply and divide</li>
 <li>Floating point support</li>
 <li>A bigger address space</li>
 <li>More than 1 user register</li>
 <li>What else?</li>
 </ul>
-	  </script></section>
+	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## Emulating IBCM in C++
