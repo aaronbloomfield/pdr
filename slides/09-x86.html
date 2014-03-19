@@ -159,10 +159,10 @@ z	DD	50 DUP(?)</code></pre>
 
 	  <section data-markdown><script type="text/template">
 ## mov command
-- `mov <dest> <src>`
+- `mov <dest>, <src>`
 - Where dest and src can be:
   - A register
-  - A combination of registers and constants
+  - A constant
   - Variable name
   - Pointer: [ebx]
   - (but with a few exceptions we'll see shortly)
@@ -182,12 +182,12 @@ z	DD	50 DUP(?)</code></pre>
 <pre><code>mov eax, ebx
 mov eax, [ebx]
 mov [var], ebx
-mov eax, [esi-4]
-mov [esi+eax], cl
-mov edx, [esi+ 4*ebx]</code></pre>
+mov eax, [esi - 4]
+mov [esi + eax], cl
+mov edx, [esi + 4*ebx]</code></pre>
 <p>&nbsp;</p>
 <p>Incorrect: (why?)</p>
-<pre><code>mov eax, [ebx – ecx]
+<pre><code>mov eax, [ebx - ecx]
 mov [eax + esi + edi], ebx
 mov [4*eax + 2*ebx], ecx</code></pre>
 </td></tr></table>
@@ -278,8 +278,8 @@ lea edi, [a]</code></pre></td>
   - As the CPU does not have enough time to do so at that clock speed
   - So the following instructions are invalid:
 ```
-mov [eax] [var]
-mov [eax+4] [ebx]
+mov [eax], [var]
+mov [eax+4], [ebx]
 mov 20, [eax]
 ```
 	  </script></section>
@@ -305,8 +305,8 @@ mov 20, [eax]
 - `mov`
   - We've seen this in detail already
 - `push`
-  - push operand onto stack (4 bytes)
   - First decrements ESP (stack pointer) by 4 (stack grows ***down***)
+  - push (mov) operand onto stack (4 bytes)
 ```
 push eax
 push [var]
@@ -316,7 +316,7 @@ push [var]
 	  <section data-markdown><script type="text/template">
 ## Data Movement Instructions, part 2
 - `pop`
-  - Pop top element of stack to memory or register, increment stack pointer (ESP) by 4
+  - Pop top element of stack to memory or register, then increment stack pointer (ESP) by 4
   - Value is written to the parameter
 ```
 pop eax

@@ -85,7 +85,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | | Mar&nbsp;12 | Wednesday | | (no class: spring break) | (no class: spring break) |
 | | Mar&nbsp;14 | Friday | | (no class: spring break) | (no class: spring break) |
 | 24 | Mar&nbsp;17 | Monday | [Lab 7: IBCM](../labs/lab07/index.html) / [Tutorial 7: Shell scripting, part 2](../tutorials/07-shell-scripts-pt2/index.html) | [08: IBCM](../slides/08-ibcm.html) (machine language) | Yet another snow day!  A recording to watch: [08-ibcm, slides 5-1 to 6-9 (end)](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/08-ibcm-2/08-ibcm-2.htm) |
-| 25 | Mar&nbsp;19 | Wednesday | | [09: x86](../slides/09-x86.html) (assembly language) | |
+| 25 | Mar&nbsp;19 | Wednesday | | [09: x86](../slides/09-x86.html) (assembly language) | [09-x86, slides 1 to 4-6](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/09-x86-1a/09-x86-1a.htm) |
 | 26 | Mar&nbsp;21 | Friday | | [09: x86](../slides/09-x86.html) (assembly language) | |
 | 27 | Mar&nbsp;24 | Monday | [Lab 8: x86, part 1](../labs/lab08/index.html) / [Tutorial 8: nasm](../tutorials/08-nasm/index.html) | [09: x86](../slides/09-x86.html) (assembly language) | |
 | 28 | Mar&nbsp;26 | Wednesday | | [09: x86](../slides/09-x86.html) (assembly language) | |
