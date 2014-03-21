@@ -20,11 +20,11 @@ ibcm:	ibcm-chapter.tex ibcm.tex
 	pdflatex ibcm-chapter.tex
 	pdflatex ibcm-chapter.tex
 
-x86:	x86-chapter.tex x86.tex x86-ccc.tex
-	pdflatex x86-chapter.tex
-	#bibtex x86-chapter
-	#pdflatex x86-chapter.tex
-	pdflatex x86-chapter.tex
+x86:	x86-asm-chapter.tex x86-ccc-chapter.tex x86.tex x86-ccc.tex
+	pdflatex x86-asm-chapter.tex
+	pdflatex x86-asm-chapter.tex
+	pdflatex x86-ccc-chapter.tex
+	pdflatex x86-ccc-chapter.tex
 
 clean:
 	/bin/rm -f *.log *.aux *.out *~
