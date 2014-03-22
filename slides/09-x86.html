@@ -424,9 +424,9 @@ xor ecx, ecx
 <h2>A code block in both C/C++ and Assembly</h2>
 <table class="transparent">
 <tr><td><p>C/C++ code:</p><pre><code>int n = 5;
-int i =1;
+int i = 1;
 int sum = 0;
-while(i &lt;= n){
+while (i &lt;= n) {
     sum += i;
     i++;
 }</code></pre></td>
@@ -465,7 +465,7 @@ int max(int x, int y) {
 }
 
 int main() {
-    int a =5, b = 6;
+    int a = 5, b = 6;
     int maxVal = max(a,b);
     cout << "Max value: " << maxVal << endl;
     return 0;
@@ -634,7 +634,7 @@ printf ("A float with 2 decimal digits: %.2f",
 ```
 Output:
 ```
-A man, a plan, a canal, Panama!
+A man, a plan, a canal: Panama!
 A percent sign: %
 An int: 3
 A float with 2 decimal digits: 3.14
@@ -651,22 +651,22 @@ A float with 2 decimal digits: 3.14
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Callee Summary
-- Prologue
-  - Tasks to perform BEFORE executing the function bodybody
-- Function body
-- Epilogue
-  - Tasks to perform AFTER executing function body, but BEFORE leaving function
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
 ## Caller Summary
 - Prologue
   - Tasks to take care of BEFORE calling a subroutine
 - Call the subroutine with the `call` opcode
 - Epilogue
   - Tasks to complete AFTER subroutine call returns
-- (It is not really called this, but I use this to parallel the equivalent components in the Callee convention)
+- (It is not really called this, but I use this to parallel the equivalent components in the callee convention)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Callee Summary
+- Prologue
+  - Tasks to perform BEFORE executing the function bodybody
+- Function body
+- Epilogue
+  - Tasks to perform AFTER executing function body, but BEFORE leaving function
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -754,6 +754,24 @@ pop edx          ; restore saved edx value
 <tr><td>To higher addresses</td><td style="width:50px"></td><td class="border" style="width:300px">copy of var z</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td>(to 0xffffffff)</td><td style="width:50px"></td><td class="border" style="width:300px">123</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">value of eax (var x)</td><td style="width:25px"></td><td>&larr; esp</td></tr>
+<tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td>To lower addresses</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td>(to 0x00000000)</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td>&darr;</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+</table>
+	  </section>
+
+	  <section data-transition="fade" data-transition-speed="fast">
+<h2>Stack Memory Visualization for myFunc</h2>
+<p>This is just <i><b>after</b></i> the <code>call</code> opcode is invoked.</p>
+<hr>
+<table class="transparent">
+<tr><td>&uarr;</td><td style="width:50px"></td><td class="border" style="width:300px">value of edx</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td>To higher addresses</td><td style="width:50px"></td><td class="border" style="width:300px">copy of var z</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td>(to 0xffffffff)</td><td style="width:50px"></td><td class="border" style="width:300px">123</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">value of eax (var x)</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">return address</td><td style="width:25px"></td><td>&larr; esp</td></tr>
 <tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td>To lower addresses</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td>(to 0x00000000)</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
@@ -858,7 +876,7 @@ int myFunc(int a, int b, int c) {
 }
 
 int main(){
-    int x = 1, z=3;
+    int x = 1, z = 3;
     int retVal = myFunc(x, 123, z);
     //...
     return 0;
@@ -916,13 +934,14 @@ ret             ; pop top value from stack, jump there
 <tr><td>(to 0xffffffff)</td><td style="width:50px"></td><td class="border" style="width:300px">123</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">value of eax (var x)</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">return address</td><td style="width:25px"></td><td>&larr; esp</td></tr>
+<tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td>To lower addresses</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td>(to 0x00000000)</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td>&darr;</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 </table>
 	  </section>
 
-	  <section>
+	  <section data-transition="fade" data-transition-speed="fast">
 <h2>Stack Memory Visualization for myFunc</h2>
 <p>This is after the <code>myFunc()</code> prologue is completed.</p>
 <hr>
@@ -931,7 +950,8 @@ ret             ; pop top value from stack, jump there
 <tr><td>To higher addresses</td><td style="width:50px"></td><td class="border" style="width:300px">copy of var z</td><td style="width:25px"></td><td>[ebp+16]</td></tr>
 <tr><td>(to 0xffffffff)</td><td style="width:50px"></td><td class="border" style="width:300px">123</td><td style="width:25px"></td><td>[ebp+12]</td></tr>
 <tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">value of eax (var x)</td><td style="width:25px"></td><td>[ebp+8]</td></tr>
-<tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">return address</td><td style="width:25px"></td><td>&larr; ebp</td></tr>
+<tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">return address</td><td style="width:25px"></td><td>[ebp+4]</td></tr>
+<tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">ebp backup</td><td style="width:25px"></td><td>&larr; ebp</td></tr>
 <tr><td>To lower addresses</td><td style="width:50px"></td><td class="border" style="width:300px">local variable</td><td style="width:25px"></td><td>[ebp-4]</td></tr>
 <tr><td>(to 0x00000000)</td><td style="width:50px"></td><td class="border" style="width:300px">saved value of ebx</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td>&darr;</td><td style="width:50px"></td><td class="border" style="width:300px">saved value of esi</td><td style="width:25px"></td><td>&larr; esp</td></tr>
