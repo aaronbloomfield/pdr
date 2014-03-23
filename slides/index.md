@@ -56,7 +56,7 @@ Program and Data Representation: Slides
   - You can skip a few of the sections (feel free to look at them if interested, but they are not needed): Floating Point Instructions, SIMD Parallelism, Saturated Arithmetic, and Graphics.
 
 
-Slide set 10: Advanced C++
+[Slide set 10: Advanced C++](10-advanced-cpp.html)
 
 Slide set 11: Heaps
 
