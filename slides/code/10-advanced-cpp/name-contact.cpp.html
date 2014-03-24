@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>name-contact.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<b><font color="#0000FF">class</font></b> <font color="#008080">Name</font> <font color="#FF0000">{</font>
+<b><font color="#0000FF">public</font></b><font color="#990000">:</font>
+    <b><font color="#000000">Name</font></b><font color="#990000">(</font><font color="#009900">void</font><font color="#990000">)</font> <font color="#990000">:</font> <b><font color="#000000">myName</font></b><font color="#990000">(</font><font color="#FF0000">""</font><font color="#990000">)</font> <font color="#FF0000">{</font> <font color="#FF0000">}</font>
+    <font color="#990000">~</font><b><font color="#000000">Name</font></b><font color="#990000">(</font><font color="#009900">void</font><font color="#990000">)</font> <font color="#FF0000">{</font>  <font color="#FF0000">}</font>
+    <font color="#009900">void</font> <b><font color="#000000">SetName</font></b><font color="#990000">(</font><font color="#008080">string</font> theName<font color="#990000">)</font> <font color="#FF0000">{</font>
+        myName <font color="#990000">=</font> theName<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+    <font color="#009900">void</font> <b><font color="#000000">print</font></b><font color="#990000">(</font><font color="#009900">void</font><font color="#990000">)</font> <font color="#FF0000">{</font>
+        cout <font color="#990000">&lt;&lt;</font> myName <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
+<b><font color="#0000FF">private</font></b><font color="#990000">:</font>
+    <font color="#008080">string</font> myName<font color="#990000">;</font>
+<font color="#FF0000">}</font><font color="#990000">;</font>
+
+<b><font color="#0000FF">class</font></b> <font color="#008080">Contact</font><font color="#990000">:</font> <b><font color="#0000FF">public</font></b> Name <font color="#FF0000">{</font>
+<b><font color="#0000FF">public</font></b><font color="#990000">:</font>
+    <b><font color="#000000">Contact</font></b><font color="#990000">(</font><font color="#009900">void</font><font color="#990000">)</font> <font color="#FF0000">{</font>
+        myAddress <font color="#990000">=</font> <font color="#FF0000">""</font><font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+    <font color="#990000">~</font><b><font color="#000000">Contact</font></b><font color="#990000">(</font><font color="#009900">void</font><font color="#990000">)</font> <font color="#FF0000">{</font> <font color="#FF0000">}</font>
+    <font color="#009900">void</font> <b><font color="#000000">SetAddress</font></b><font color="#990000">(</font><font color="#008080">string</font> theAddress<font color="#990000">)</font> <font color="#FF0000">{</font>
+        myAddress <font color="#990000">=</font> theAddress<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+    <font color="#009900">void</font> <b><font color="#000000">print</font></b><font color="#990000">(</font><font color="#009900">void</font><font color="#990000">)</font> <font color="#FF0000">{</font>
+        Name<font color="#990000">::</font><b><font color="#000000">print</font></b><font color="#990000">();</font>
+        cout <font color="#990000">&lt;&lt;</font> myAddress <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+<b><font color="#0000FF">private</font></b><font color="#990000">:</font>
+    <font color="#008080">string</font> myAddress<font color="#990000">;</font>
+<font color="#FF0000">}</font><font color="#990000">;</font>
+
+<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">(</font><font color="#009900">void</font><font color="#990000">)</font> <font color="#FF0000">{</font>
+    <font color="#008080">Contact</font> c<font color="#990000">;</font>
+    c<font color="#990000">.</font><b><font color="#000000">SetName</font></b><font color="#990000">(</font><font color="#FF0000">"John Doe"</font><font color="#990000">);</font>
+    c<font color="#990000">.</font><b><font color="#000000">SetAddress</font></b><font color="#990000">(</font><font color="#FF0000">"009 Olsson Hall"</font><font color="#990000">);</font>
+    c<font color="#990000">.</font><b><font color="#000000">print</font></b><font color="#990000">();</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

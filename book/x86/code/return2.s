@@ -1,14 +1,10 @@
-.486
-.MODEL FLAT
+global returnTwo
 
-.DATA
-var	DD	2
+section .data
+	var DD 2
 
-.CODE
-PUBLIC _returnTwo
-_returnTwo PROC
+section .text
+	
+returnTwo:	
 	mov eax, [var]
 	ret
-_returnTwo ENDP
-END
-	

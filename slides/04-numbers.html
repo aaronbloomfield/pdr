@@ -12,8 +12,14 @@
     <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
     <link rel="stylesheet" href="css/pdr.css">
     <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
-    <script><!-- If the query includes 'print-pdf', use the PDF print sheet -->
-      document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
+	if( window.location.search.match( /print-pdf/gi ) ) {
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = 'reveal.js/css/print/pdf.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	}
     </script>
     <!--[if lt IE 9]>
     <script src="reveal.js/lib/js/html5shiv.js"></script>
@@ -433,12 +439,12 @@ void Image::WriteInt (int value, FILE * fp) {
 - Algorithm for an *n*-bit memory space:
   - Zero is *n* 0's
   - For positive numbers, encode normally in *n*-1 bits
-    - Max value is 2<sup>*n*-1</sup>-1
+    - Maximum value is 2<sup>*n*-1</sup>-1
     - Sign bit is zero
     - This, zero is a "positive" number! (and is all zeros)
   - For negative numbers, take the absolute value
     - Then subtract that from 2<sup>*n*</sup>, and encode that value
-    - Max value is -2<sup>*n*-1</sup>
+    - Maximum value is -2<sup>*n*-1</sup>
     - Alternatively, encode the absolute value, flip the bits, and add 1
 	  </script></section>
 
@@ -594,7 +600,7 @@ void Image::WriteInt (int value, FILE * fp) {
 - Thus, 0x41c80000 = 25.0<sub>d</sub>
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
+	  <section data-markdown id="maxfloatvalue"><script type="text/template">
 ## IEEE floating point maximum<br>(finite) positive value
 - The largest float has:
   - 0 as the sign bit (it's positive)

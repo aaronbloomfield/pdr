@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>Makefile</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900"># Makefile for CS 2150 pre-lab 8</font></i>
+<i><font color="#9A1900"># This Makefile shows how to link assembly with C/C++</font></i>
+
+<i><font color="#9A1900"># Defines the C++ compiler we'll be using</font></i>
+<font color="#009900">CXX	=</font> clang<font color="#990000">++</font> -m<font color="#993399">32</font>
+
+<i><font color="#9A1900"># Defines the flags we'll be passing to the C++ compiler</font></i>
+<font color="#009900">CXXFLAGS	=</font> -Wall -g
+
+<i><font color="#9A1900"># Defines the assembler</font></i>
+<font color="#009900">AS	=</font> nasm
+
+<i><font color="#9A1900"># Defines the flags for the assembler</font></i>
+<font color="#009900">ASFLAGS	=</font> -f elf
+
+<i><font color="#9A1900"># All of the .o files for our program</font></i>
+<font color="#009900">OFILES	=</font> vecsum.o main.o
+
+<i><font color="#9A1900"># This tells make to create a .o file from a .cpp file, using the</font></i>
+<i><font color="#9A1900"># defaults above (i.e. the CXX and CXXFLAGS macros)</font></i>
+<b><font color="#000080">.SUFFIXES:</font></b> .o .cpp
+
+<i><font color="#9A1900"># This tells make to create a .o file from a .s file, using the</font></i>
+<i><font color="#9A1900"># defaults above (i.e. the AS and ASFLAGS macros)</font></i>
+<b><font color="#000080">.SUFFIXES:</font></b> .o .s
+
+<i><font color="#9A1900"># How to compile our final program.  Note that we do NOT specify an</font></i>
+<i><font color="#9A1900"># output executable name -- in order for this to work with the grading</font></i>
+<i><font color="#9A1900"># system, the file needs to be a.out (a.exe in Cygwin).</font></i>
+<font color="#990000">main:</font>	<font color="#009900">$(OFILES)</font>
+	<font color="#009900">$(CXX)</font> <font color="#009900">$(CXXFLAGS)</font> -o vecsum <font color="#009900">$(OFILES)</font>
+
+<i><font color="#9A1900"># This will clean up (remove) all our object files.  The -f option</font></i>
+<i><font color="#9A1900"># tells rm to forcily remove the files (i.e. don't ask if they should</font></i>
+<i><font color="#9A1900"># be removed or not).  This removes object files (*.o) and Emacs</font></i>
+<i><font color="#9A1900"># backup files (*~)</font></i>
+<font color="#990000">clean:</font>
+	/bin/rm -f <font color="#990000">*</font>.o <font color="#990000">*~</font>
+
+<i><font color="#9A1900"># We don't have any dependencies for this small program</font></i>
+</tt></pre>
+</body>
+</html>

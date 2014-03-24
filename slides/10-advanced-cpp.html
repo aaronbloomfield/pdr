@@ -1,0 +1,943 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 2150: 10-advanced-cpp slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="css/pdr.css">
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
+	if( window.location.search.match( /print-pdf/gi ) ) {
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = 'reveal.js/css/print/pdf.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	}
+    </script>
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/dhtmlwindow.js"></script>
+    <script type="text/javascript" src="js/canvas.js"></script>
+    <link rel="stylesheet" href="css/dhtmlwindow.css" type="text/css">
+  </head>
+
+  <body onload="canvasinit()">
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	<section data-markdown id="cover"><script type="text/template">
+# CS 2150
+&nbsp;
+### Program and Data Representation
+### Spring 2014
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="10-advanced-cpp.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
+<center><small>Themes: [default](?#/cover), [sky](?theme=sky#/cover), [beige](?theme=beige#/cover), [simple](?theme=simple#/cover), [serif](?theme=serif#/cover), [night](?theme=night#/cover), [moon](?theme=moon#/cover), [solarized](?theme=solarized#/cover)</small></center>
+&nbsp;  
+&nbsp;  
+## Advanced C++
+	</script></section>
+
+	  <section>
+<h2>CS 2150 Roadmap</h2>
+<table class="wide">
+  <tr><td colspan="3"><p class="center">Data Representation</p></td><td></td><td colspan="3"><p class="center">Program Representation</p></td></tr>
+  <tr>
+    <td class="top"><small>&nbsp;<br>&nbsp;<br>string<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>int x[3]<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>char x<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>0x9cd0f0ad<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>01101011</small></td>
+    <!-- image adapted from http://openclipart.org/detail/3677/arrow-left-right-by-torfnase -->
+    <td><img class="noborder" src="images/red-double-arrow.png" height="500" alt="vertical red double arrow"></td>
+    <td class="top">&nbsp;<br>Objects<br>&nbsp;<br>Arrays<br>&nbsp;<br>Primitive types<br>&nbsp;<br>Addresses<br>&nbsp;<br>bits</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="top"><small>&nbsp;<br>&nbsp;<br>Java code<br>&nbsp;<br>&nbsp;<br>C++ code<br>&nbsp;<br>&nbsp;<br>C code<br>&nbsp;<br>&nbsp;<br>x86 code<br>&nbsp;<br>&nbsp;<br>IBCM<br>&nbsp;<br>&nbsp;<br>hexadecimal</small></td>
+    <!-- image adapted from http://openclipart.org/detail/3677/arrow-left-right-by-torfnase -->
+    <td><img class="noborder" src="images/green-double-arrow.png" height="500" alt="vertical green double arrow"></td>
+    <td class="top">&nbsp;<br>High-level language<br>&nbsp;<br>Low-level language<br>&nbsp;<br>Assembly language<br>&nbsp;<br>Machine code</td>
+  </tr>
+</table>
+	  </section>
+
+	<section data-markdown><script type="text/template">
+# Contents
+&nbsp;  
+[C++ Review](#/youshouldknowthis)  
+[Dynamic Memory Review](#/youshouldknowthistoo)  
+[C++ Inheritance](#/multinheritanceisfun)  
+[C++ Inheritance Problems](#/andithoughtpointerswerebad)  
+[C++11](#/becauseweneedthreemorepointertypes)
+	</script></section>
+
+	<section>
+
+	  <section id="youshouldknowthis" data-markdown><script type="text/template">
+# C++ Review
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Syntax
+- \*
+  - pointer, when in a declaration statement
+```
+Rectangle *someRectangle;
+```
+  - dereferences all other times
+    - Accesses the memory address held in the pointer variable
+- &
+  - "reference" in a declaration
+```
+List & someList = someOtherList;
+void printList(const List & theList);
+```
+  - "address of"
+```
+Rectangle anotherRectangle;
+someRectangle = &anotherRectangle;
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Pointer Variables are Typed
+
+```
+double Z = 26.0;
+int * someInt = &Z;
+```
+
+- `someInt` is a pointer to an `int`
+- `&Z` is the address of a `double`
+- They don't match, so this will result in a compilation error:
+```
+cannot convert 'double*' to 'int*' in initialization
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Dereferencing: What's printed?
+```
+int n = 26;
+int * somePointer = &n;
+
+cout << somePointer << endl;
+cout << *somePointer << endl;
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Dereferencing: What's printed?
+```
+int n = 26;
+int * somePointer = &n;
+*somePointer = 45;
+
+cout << *somePointer << endl;
+cout << n << endl;
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What's the Difference Between These?
+```
+ListNode * ptr1, * ptr2;
+ptr1 = new ListNode;
+ptr2 = new ListNode;
+
+bool result1 = (ptr1 == ptr2);
+bool result2 = (*ptr1 == *ptr2);
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## References
+```
+int y = 5;
+int &x = y;
+```
+
+- We can print the value 5 easily:
+```
+cout << x << endl;
+```
+  - C++ automatically dereferences the reference
+- How do we print the address in x?
+```
+cout << &x << endl;
+```
+  - That's getting the address for a automatic dereference!
+- How do we change the address of x?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Pointer and Memory Allocation Pitfalls
+- Uninitialized pointers
+- Dereferencing NULL pointers
+- Dangling pointer
+- Losing address of dynamically allocated memory
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Pointers and Types
+```
+int main() {
+    Animal cow;
+    Animal* cowPtr1 = &cow;
+    Animal** cowPtr2(&cowPtr1);
+    Animal*** cowPtr3 = &cowPtr2;
+}
+```
+What types are `cow`, `cowPtr1`, `cowPtr2`, and `cowPtr3`?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Summary
+
+| Variable name | Type of variable | Example emory address | Value stored |
+|-|-|-|-|
+| `cow` | `Animal` | 108 | 500 |
+| `cowPtr1` | `Animal *` | 112 | 112 |
+| `cowPtr2` | `Animal **` | 116 | 116 |
+| `cowPtr3` | `Animal ***` | 120 | 120 |
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## How Can We Change cow's Weight?
+- Assume there is a setWeight(int weight) method
+  - via `cow`
+  - via `cowPtr1`
+  - via `cowPtr2`
+  - via `cowPtr3`
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## The Tree code in Weiss
+```
+void insert (const Comparable &x, BinaryNode * & t)
+```
+- BinaryNode has a left and a right pointer
+- What would happen if the second parameter was only a pointer
+  - As opposed to a reference to a pointer?
+	  </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="youshouldknowthistoo" data-markdown><script type="text/template">
+# Dynamic Memory<br>Review
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## For the upcomign examples...
+- Is this code correct?
+- Identify the problems in these code examples, if any...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+##Example 1
+```
+void someFunc(int * somePointer) {
+	int someNode(3);
+	somePointer = &someNode;
+}
+
+int main() {
+	int * firstPointer;
+	// call someFunc
+	someFunc(firstPointer);
+	cout << *firstPointer << endl;
+	return 0;
+}
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Example 2
+```
+void someFunc() {
+    double *aliasPointer;
+    aliasPointer = new double(6.27);
+    cout << *aliasPointer << endl;
+}
+
+int main() {
+    double *somePointer;
+    double someVal(3.14);
+    somePointer = &someVal;
+    someFunc();
+    cout << *somePointer << endl;
+    return 0;
+}
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Example 3
+```
+int main() {
+    double duration = 3.14;
+    {
+        double * somePtr;
+        {
+            somePtr = &duration;
+        }
+    }
+    cout << *somePtr << endl;
+    return 0;
+}
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Example 4
+```
+int main() {
+    int * anotherPtr;
+    {
+        int someVal(8);
+        cout << *anotherPtr << endl;
+        anotherPtr = &someVal;
+    }
+    
+    return 0;
+}
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Example 5
+```
+void someFunc(int *somePointer) {
+    int someVal(12);
+    {
+        int anotherVal(16);
+        somePointer = &anotherVal;
+    }
+}
+
+int main() {
+    int * yetAnotherPtr;
+    someFunc(yetAnotherPtr);
+    cout << *yetAnotherPtr << endl;
+    return 0;
+}
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Example 6
+```
+int main() {
+    float * somePtr;
+    somePtr = new float(3.14);
+    cout << *somePtr << endl;
+    delete somePtr;
+    return 0;
+}
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Example 7
+```
+void someFunc() {
+    int *aliasPtr;
+    aliasPtr = new int(25);
+    cout << *aliasPtr << endl;
+}
+
+int main() {
+    int * somePtr;
+    somePtr = new int(3);
+    someFunc();
+    cout << *somePtr << endl;
+    return 0;
+}
+```
+	  </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="multinheritanceisfun" data-markdown><script type="text/template">
+# C++ Inheritance
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Inheritance
+- Specifies hierarchical relationship between types
+- You've seen this with Java; everything inherits (eventually) from `Object`
+  - (except `Object` itself, of course)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Inheritance Example (Name)
+Source code: [name-contact.cpp](code/10-advanced-cpp/name-contact.cpp.html) ([src](code/10-advanced-cpp/name-contact.cpp))
+```
+class Name {
+public:
+    Name(void) : myName("") { }
+    ~Name(void) {  }
+    void SetName(string theName) {
+        myName = theName;
+    }
+    void print(void) {
+        cout << myName << endl;
+    }
+
+private:
+    string myName;
+};
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Inheritance Example (Contact)
+Source code: [name-contact.cpp](code/10-advanced-cpp/name-contact.cpp.html) ([src](code/10-advanced-cpp/name-contact.cpp))
+```
+class Contact: public Name {
+public:
+    Contact(void) {
+        myAddress = "";
+    }
+    ~Contact(void) { }
+    void SetAddress(string theAddress) {
+        myAddress = theAddress;
+    }
+    void print(void) {
+        Name::print();
+        cout << myAddress << endl;
+    }
+private:
+    string myAddress;
+};
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Terminology
+- derived class
+  - Contact is the "child" class of Name
+  - Inherits:
+    - Data members defined in the parent class
+    - Member functions of the parent class
+    - Same initial data layout as the base class
+  - Can add:
+    - New data members, member functions, constructors, destructors
+- parent class
+  - Name is the "parent" class of Contact
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Using this code
+Source code: [name-contact.cpp](code/10-advanced-cpp/name-contact.cpp.html) ([src](code/10-advanced-cpp/name-contact.cpp))
+```
+int main(void) { 
+    Contact c; 
+    c.SetName("John Doe");
+    c.SetAddress("009 Olsson Hall"); 
+    c.print(); 
+}
+````
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Creating a Derived Class
+- Space is allocated (on the stack or the heap) for the full object
+  - Enough space to store the data members inherited from the base class plus the data members defined in the derived class itself
+- The base class's constructor is called to initialize the data members inherited from the base class
+- The derived class's constructor is then called to initialize the data members added in the derived class  
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Destructing a Derived Class
+- Derived class's destructor called
+- Base class's destructor called
+- (i.e. in the reverse order than the constructors were called)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Problems with single inheritance
+Single inheritance has problems:
+```
+void insert (const Comparable &x, BinaryNode * & t)
+```
+- What if the parameter `x`, the element to be inserted, is a non-primitive type:
+  - Sphere (which should inherit from a Shape)
+  - BigInteger (which could inherit from BigNumber)
+  - Etc.
+- What if it also needs to be Serializable?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## C++ has *multiple* inheritance
+```
+class Sphere : public Shape, public Comparable, 
+               public Serializable {
+    // ...
+};
+```
+Sphere now has all the methods and fields in Shape, Comparable *and* Serializable
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## C++ vs. Java
+- But wait, you say -- we've seen this before:
+```
+public class Sphere extends Shape implements Comparable, 
+                    Serializable {
+```
+- Java can *fake* multiple inheritance through interfaces
+  - It's actually allowing type-substitution for multiple classes that implement an interface
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Static vs. Dynamic Dispatch
+- Static
+  - Decision on which member function to invoke made using *compile-time* type of an object  
+&nbsp;  
+- Dynamic
+  - Decision on which member function to invoke made using *run-time* type of an object
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Example
+```
+class Person {
+    public:
+    // ...
+    void print(ostream &out = cout );
+    // ...
+};
+
+class Student : public Person {
+    public:
+    // ...
+    void print(ostream &out = cout);
+    // ...
+};
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Static Dispatch Examples
+```
+Person *p;
+if ( user_input )
+    p = new Student();
+else
+    p = new Person();
+p->print(...);
+```
+&nbsp;  
+&nbsp;  
+```
+Student s(123456789, "Jane", 4.0);
+const Person &p = s;
+s.print();    // Student::print()
+p.print();    // Person::print()
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Dynamic Dispatch
+- Incurs runtime overhead
+  - Program must maintain extra information
+  - Compiler must generate code to determine which member function to invoke
+- Syntax in C++
+  - `virtual` keyword
+- Java does this by default, BTW
+  - i.e. everything is virtual
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Dynamic Dispatch
+```
+class Person {
+    public:
+    ...
+    virtual void print(ostream &out = cout);
+    ...
+};
+```
+Should also be used for the base class destructor
+	  </script></section>
+
+	  <section>
+<h2>Background: virtual method tables</h2>
+<table class="transparent"><tr><td class="top"><pre><code>class A {
+    virtual void foo()
+               { ... }
+}
+
+class B : public A {
+    virtual void foo()
+               { ... }
+}</code></pre></td><td class="top"><pre><code>void main () {
+    int which = rand() % 2;
+    A *bar;
+    if ( which )
+        bar = new A();
+    else
+        bar = new B();
+    bar->foo();
+    return 0;
+}</code></pre></td></tr></table>
+<ul>
+<li>Which <code>foo()</code> is called?</li>
+<li>It's not known until run-time!</li>
+</ul>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Virtual method tables
+- Each object contains a pointer to the virtual method table
+  - In addition to any other fields
+- That table has the addresses of the methods
+  - Any virtual method must follow the pointer to the object... (one pointer dereference)
+  - Then follow the virtual method table pointer... (second pointer dereference)
+  - Then lookup the method pointer
+  - Then jump to that method (third pointer dereference)
+	  </script></section>
+
+	  <section>
+<h2>Virtual method table example</h2>
+<table class="transparent"><tr><td class="top">
+<ul>
+<li>In main():
+<pre><code>Person *p = new Student();</code></pre></li>
+<li class="fragment" data-fragment-index="1">First the Person constructor is called...<ul>
+    <li class="fragment" data-fragment-index="2">And creates a regular Person object...</li>
+    <li class="fragment" data-fragment-index="4">Then sets up the virtual method table (VMT)...</li></ul></li>
+<li class="fragment" data-fragment-index="6">Then the Student constructor is called...<ul>
+    <li class="fragment" data-fragment-index="7">And updates the object...</li>
+    <li class="fragment" data-fragment-index="9">Then updates the VMT...</li></ul></li>
+</ul>
+</td><td style="width:20px"></td><td class="top">
+<img src="images/spacer.gif" width="388" height="1" alt="spacer" class="plain">
+<img class="fragment" src="images/10-advanced-cpp/vmt-1.svg" alt="virtual method table image 1" style="position:absolute" data-fragment-index="3">
+<img class="fragment" src="images/10-advanced-cpp/vmt-2.svg" alt="virtual method table image 2" style="position:absolute" data-fragment-index="5">
+<img class="fragment" src="images/10-advanced-cpp/vmt-3.svg" alt="virtual method table image 3" style="position:absolute" data-fragment-index="8">
+<img class="fragment" src="images/10-advanced-cpp/vmt-4.svg" alt="virtual method table image 4" style="position:absolute" data-fragment-index="10">
+</td></tr></table>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## More on virtual method tables
+- When creating a subclass object, the constructor of each subclass overwrites the appropriate pointers in the virtual method table with the overridden method pointers
+- Hence why the run-time lookup will work properly
+- Also see the [Wikipedia article on virtual method tables](http://en.wikipedia.org/wiki/Virtual_method_table)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Abstract classes
+Consider:
+```
+class foo {
+    public:
+        virtual void bar() = 0;
+};
+```
+- Must be virtual!
+- `bar()` is called a "pure virtual function" or "pure virtual method"
+  - It has no body definition in the .cpp file
+  - And thus this class can not be instantiated, since there is no method body
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## More on abstract classes
+- This is the equivalent of abstract classes in Java
+  - If you make a class that has all pure virtual methods, then it effectively acts like a Java interface  
+&nbsp;  
+- Note that a subclass does not need to define the method body...
+  - ... unless it wants to be able to be instantiated
+As a class can only be instantiated into an object if ALL the methods have defined bodies
+	  </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="andithoughtpointerswerebad" data-markdown><script type="text/template">
+# C++ Inheritance Problems
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Problems with Inheritance
+What sort of problems can this cause?
+```
+class A {
+    private: int bar;
+    public: void foo() { bar = 7; }
+}
+
+class B {
+      private: int bar;
+    public: void foo() { bar = 1; }
+}
+
+class C: public A, public B {
+    // which foo() is inherited?  Which bar?
+    // if C sets bar to something, which one?
+    // Does B's foo() and C's foo() use the same bar?
+    // Difficulty in layout memory
+}
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Semantic Ambiguities
+What if the relationship below occurs?
+![multiple inheritance diagram](images/10-advanced-cpp/multiple-inheritance.svg)
+
+- This shows both *replicated* and *shared* multiple inheritance
+  - As one of the ancestors (gp_list_node) is replicated and one is shared (person) in the parent classes of student_prof
+- In C++, replicated is the default
+  - Shared can be done by specifying that a base class is virtual:
+```
+class student: public virtual person, public gp_list_node {
+class professor: public virtual person, public gp_list_node{
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Types of multiple inheritance
+There are four types:
+
+1. Shared
+   - What Person is in the diagram on the previous slide
+2. Replicated (or repeated)
+   - What gp_list_node is in the diagram on the previous slide
+3. Non-replicated (or non-repeated)
+   - A language that does not allow shared or replicated (i.e. no common ancestors allowed)
+4. Mix-in
+   - What Java (and others) use to fake multiple inheritance through the use of interfaces
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What will this Java code do?
+```
+class Fruit {
+    static void addFruit (Fruit basket[]) 
+        { basket[0] = new Apple(); }
+    public String toString() { return "I am a Fruit"; }
+}
+
+class Apple extends Fruit {
+    public String toString() { return "I am an Apple"; }
+}
+
+class Orange extends Fruit {
+    public String toString() { return "I am an Orange"; }
+}
+
+public class Covariant {
+    public static void main (String[] args) {
+      Orange oranges[] = { new Orange(), new Orange(), 
+                           new Orange() };
+      Fruit.addFruit(oranges);
+      for ( int i = 0; i < 3; i++ )
+          System.out.println (oranges[i]);
+    }
+}
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Covariant arrays: a simpler version
+From [Wikipedia](http://en.wikipedia.org/wiki/Covariance_and_contravariance_%28computer_science%29)
+```
+// a is a single-element array of String
+String[] a = new String[1];
+
+// b is an array of Object
+Object[] b = a;
+
+// Assign an Integer to b. This would be possible if b 
+// really were an array of Object, but since it really 
+// is an array of String, we will get a 
+// java.lang.ArrayStoreException.
+b[0] = new Integer (1);
+```
+	  </script></section>
+
+	</section>
+
+
+
+	<section>
+
+	  <section id="becauseweneedthreemorepointertypes" data-markdown><script type="text/template">
+# C++11
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## C++11
+- The new standard, agreed to in August 2011
+  - It was called C++0x because it was expected to be approved before 2010...
+- It adds to the current C++ version (C++03), while not modifying the older version (much)
+- We will review some of the changes...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Move constructors
+- Consider assigning to a global vector `x` from a local vector `y`
+  - And knowing that vector `y` is going out of scope
+  - Recall that both `x` and `y` point to an array holding the values
+- You could perform a deep copy...
+- ... or just have `x`'s array pointer point to y's array
+  - And don't delete `y`'s array when it goes out of scope
+  - This prevents necessitating a deep copy
+	  </script></section>
+
+	  <section>
+<h2>Uniform initialization</h2>
+<table class="transparent"><tr><td class="top"><pre><code>class Timer {
+  public:
+    Timer();
+};
+class TimeKeeper {
+   public:
+     TimeKeeper(const Timer& t);
+     int get_time();
+};
+
+int main() {
+  // Look at the 'Timer()' in 
+  // the next line...
+  TimeKeeper time_keeper(Timer());
+  return time_keeper.get_time();
+}</code></pre></td><td class="top">
+<ul>
+<li>Is the indicated part:</li>
+</ul>
+<ol>
+<li>A variable definition for <code>time_keeper</code> that takes in a constructed Timer object</li>
+<li>A <code>time_keeper</code> function that takes in a function as a parameter?</li>
+</ol>
+<ul>
+<li>Most people want the first; the compiler insists on the second</li>
+</ul></td></tr></table>
+	  </section>
+
+	  <section data-transition="fade" data-transition-speed="fast">
+<h2>Uniform initialization</h2>
+<table class="transparent"><tr><td class="top"><pre><code>class Timer {
+  public:
+    Timer();
+};
+class TimeKeeper {
+   public:
+     TimeKeeper(const Timer& t);
+     int get_time();
+};
+
+int main() {
+  // Look at the 'Timer()' in 
+  // the next line...
+  TimeKeeper time_keeper(Timer());
+  return time_keeper.get_time();
+}</code></pre></td><td class="top">
+<ul>
+<li>The new standard will use curly-brackets for both constructor calls and initialization lists (e.g., arrays)<br>&nbsp;</li>
+<li>So we use the following:</li>
+</ul>
+<pre><code>TimeKeeper
+time_keeper{Timer()};
+</code></pre>
+</td></tr></table>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Range-based for loops
+```
+int my_array[5] = {1, 2, 3, 4, 5};
+for (int &x : my_array) {
+    x *= 2;
+}
+```
+Just like in Java
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## New (but optional) function/method syntax
+```
+struct SomeStruct  {
+    auto func_name(int x, int y) -> int;
+};
+ 
+auto SomeStruct::func_name(int x, int y) -> int {
+    return x + y;
+}
+```
+- Note the trailing return type
+- This resolves problems when you are adding lots of C++ qualifiers
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## New NULL!
+- NULL for pointers was really zero
+  - And type-checking was hard, since you are type checking a pointer against an int
+- Now there is `nullptr`
+  - Which type checks better with pointers
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Smart pointers
+- They are different than regular points or references
+- Like regular pointers, but they include memory management algorithms as well
+  - `auto_ptr` indicates that the caller must deallocate it
+  - `unique_ptr` forces only one pointer to point to that object (the "old" one points to nullptr)
+  - `shared_ptr` does reference counting, and will be deallocated (by the compiler) when nobody points to it anymore
+  - `weak_ptr` is like shared_ptr, but does not modify the reference count; used to handle circular references and reference counting
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Other improvements
+- Better handling of multitasking and threads
+- New type of `long long int` that is *guaranteed* to be at least 64 bits
+  - Most compilers support this already
+- Static assertions for debugging
+- Better hash tables in STL
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What all this means
+- Modern C++ code is very complicated, and very difficult for us anybody to understand easily
+- And it makes a single C++ course insufficient to understand the level of C++ used in the industry...
+	  </script></section>
+
+	</section>
+
+
+      </div>
+
+    </div>
+
+    <div id="calibratediv" style="display:none">
+      <div id="calibratecanvasdiv">
+        <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
+      </div>
+      <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
+    </div>
+
+    <script src="reveal.js/lib/js/head.min.js"></script>
+    <script src="reveal.js/js/reveal.min.js"></script>
+    <script src="js/settings.js"></script>
+
+  </body>
+</html>

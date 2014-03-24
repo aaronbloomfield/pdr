@@ -1,0 +1,35 @@
+digraph G {
+	// this is for the quote, 'if it is to be, it is up to me'
+	// letter frequencies: space: 9; 5: i; 4: t; 3: (none); 2: e, o, s; 1: b, f, m, p, u, comma
+
+	graph [fontname = "Helvetica"];
+	node [fontname = "Helvetica",shape=circle];
+	edge [fontname = "Helvetica"];
+
+	b [xlabel="1"]
+	f [xlabel="1"]
+	m [xlabel="1"]
+	p [xlabel="1"]
+	u [xlabel="1"]
+	comma [label=",",xlabel="1"]
+	e [xlabel="2"]
+	o [xlabel="2"]
+	s [xlabel="2"]
+	t [xlabel="4"]
+	i [xlabel="5"]
+	space [label="'  '",xlabel="9",fixedsize=true,width=0.5]
+
+	T1 [xlabel="2",fixedsize=true,width=0.5]
+	T1 -> b
+	T1 -> f
+
+	T2 [xlabel="2",fixedsize=true,width=0.5]
+	T2 -> m
+	T2 -> p
+
+	T3 [xlabel="2",fixedsize=true,width=0.5]
+	T3 -> u
+	T3 -> comma
+
+	{rank=same b -> f -> m -> p -> u -> comma -> e -> o -> s -> t -> i -> space [style=invis]};
+}

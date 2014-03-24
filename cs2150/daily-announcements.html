@@ -12,8 +12,14 @@
     <link rel="stylesheet" href="../slides/reveal.js/css/theme/default.css" id="theme">
     <link rel="stylesheet" href="../slides/css/pdr.css">
     <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
-    <script><!-- If the query includes 'print-pdf', use the PDF print sheet -->
-      document.write( '<link rel="stylesheet" href="../slides/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
+	if( window.location.search.match( /print-pdf/gi ) ) {
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = 'reveal.js/css/print/pdf.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	}
     </script>
     <!--[if lt IE 9]>
     <script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
@@ -49,6 +55,261 @@ line-height:120%;
 ## Daily Announcements
 	</script></section>
 
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Monday, March 24th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/tar.png" title="I don&#39;t know what&#39;s worse--the fact that after 15 years of using tar I still can&#39;t keep the flags straight, or that after 15 years of technological advancement I&#39;m still mucking with tar flags that were 15 years old when I started." alt="tar">
+<p class="center"><a href="http://xkcd.com/1168/">xkcd # 1168</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 25: Monday, March 24th, 2014
+
+- We have now had *three* consecutive lecture days without a snow break!
+- Lecture status
+  - See the [snow day impacts](../cs2150/snowdays.html) page for details about how this will be affecting the schedule (the contents of that page are the same as in the email)
+  - You will need to watch both the [first recorded IBCM lecture](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/08-ibcm-1/08-ibcm-1.htm) and the [second recorded IBCM lecture](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/08-ibcm-2/08-ibcm-2.htm); we will not be going over IBCM in lecture
+  - And we are a bit behind in x86 as a result...
+- [Lab 8: x86](../labs/lab08/index.html) is out
+  - Along with the readings, which are two x86 chapters: [x86 Assembly](../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../book/x86-ccc-chapter.pdf)
+- We hope to be caught up with the support requests and the grading soon...
+- There is a midterm next week (yay!), so no lab released this week
+- I promised to post a link in the second lecture on Friday... but what was the link I promised to post?  I'm senile...
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are listed in the [github repo](https://github.com/aaronbloomfield/pdr) (although x86 has separate readings, listed above)
+- Today we will continue with [x86](../slides/09-x86.html), which will take us into Friday; up next: [advanced C++](../slides/10-advanced-cpp.html)
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Friday, March 21st, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/electric_skateboard_double_comic.png" title="Unsafe vehicles, hills, and philosophy go hand in hand." alt="Electric Skateboard (Double Comic)">
+<p class="center"><a href="http://xkcd.com/409/">xkcd # 409</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 24: Friday, March 21st, 2014
+
+- We have now had two consecutive lecture days without a snow break!
+- Lecture status
+  - See the [snow day impacts](../cs2150/snowdays.html) page for details about how this will be affecting the schedule (the contents of that page are the same as in the email)
+  - You will need to watch both the [first recorded IBCM lecture](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/08-ibcm-1/08-ibcm-1.htm) and the [second recorded IBCM lecture](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/08-ibcm-2/08-ibcm-2.htm).
+    - Sorry to have to make you do that outside of lecture; that was only because of the snow days
+    - If it makes you feel any better, I know of some faculty who are holding weekend lectures (yes, really!)
+  - We will not go over IBCM in lecture
+- [Lab 7: IBCM](../labs/lab07/index.html): pre-lab was due today at 9 a.m.; no in-lab or post-lab due
+- [Lab 8: x86](../labs/lab08/index.html) is out
+  - Along with the readings, which are two x86 chapters: [x86 Assembly](../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../book/x86-ccc-chapter.pdf)
+- We caught up with the support requests over spring break
+- And grading should be caught up "soon"...
+- Did anybody go to the CS dept "town hall"?  How was it?
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are listed in the [github repo](https://github.com/aaronbloomfield/pdr) (although x86 has separate readings, listed above)
+- Today we will continue with [x86](../slides/09-x86.html)
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Wednesday, March 19th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/the_important_field.png" title="I hear in some places, you need one form of ID to buy a gun, but two to pay for it by check. It&#39;s interesting who has what incentives to care about what mistakes." alt="The Important Field">
+<p class="center"><a href="http://xkcd.com/970/">xkcd # 970</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 24: Wednesday, March 19th, 2014
+
+- Lecture status
+  - See the [snow day impacts](../cs2150/snowdays.html) page for details about how this will be affecting the schedule (the contents of that page are the same as in the email)
+    - TL;DR: in-lab 7 and post-lab 7 canceled; pre-lab 7 due Fri @ 9
+    - Why the other lab 7 parts can't be counted for extra credit...
+  - You will need to watch both the [first recorded IBCM lecture](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/08-ibcm-1/08-ibcm-1.htm) and the [second recorded IBCM lecture](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/08-ibcm-2/08-ibcm-2.htm).
+    - Sorry to have to make you do that outside of lecture; that was only because of the snow days
+    - If it makes you feel any better, I know of some faculty who are holding weekend lectures (yes, really!)
+  - We will not go over IBCM in lecture
+- [Lab 7: IBCM](../labs/lab07/index.html): pre-lab is due Fri @ 9
+- We caught up with the support requests over spring break
+- And grading should be caught up "soon"...
+- There is a CS dept "town hall" this Thursday @ 5 in Olsson 120 from 5-6
+  - Free pizza!
+  - This will be your best chance to have your opinions heard by the department chair!
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are listed in the [github repo](https://github.com/aaronbloomfield/pdr)
+  - IBCM has a separate [book chapter](../book/ibcm-chapter.pdf) as the reading
+  - x86 (the topic up next) will also have a separate book chapter or two...
+- Today we will start [x86](../slides/09-x86.html)
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section data-markdown><script type="text/template">
+## Monday, March 17th, 2014
+
+Yet another snow day today.  This is getting old...
+
+See the [snow day impacts](../cs2150/snowdays.html) page for details about how this will be affecting the schedule.
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section data-markdown><script type="text/template">
+## Friday, March 7th, 2014
+
+There was no lecture today, due to Professor Bloomfield being out of town.  However, a [recorded lecture on IBCM](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/08-ibcm-1/08-ibcm-1.htm) was to be watched instead.  Making everybody watch this lecture during spring break was necessary because of the 2 snow days that UVa has had...
+	  </script></section>
+
+	  </section>
+
+
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Wednesday, March 5th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/academia_vs_business.png" title="Some engineer out there has solved P=NP and it&#39;s locked up in an electric eggbeater calibration routine.  For every 0x5f375a86 we learn about, there are thousands we never see." alt="Academia vs. Business">
+<p class="center"><a href="http://xkcd.com/664/">xkcd # 664</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Pop Quiz!
+
+I have worked on [Lab 6](../labs/lab06/index.html) (hashes), and I think:
+
+1. It's easy!
+2. It's hard, but doable
+3. It's insane!  Where do you get off assigning this much work?
+4. I'm not talking to you.  Ever.  Again.
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 22: Wednesday, March 5th, 2014
+
+- Really?  Two snow days in one semester?
+- [Lab 6](../labs/lab06/index.html) is out, and why I didn't extend the pre-lab deadline...
+- There will <span class='red'>*not*</span> be lecture this Friday, March 7th (the day before spring break)
+  - I'll be out of town (Atlanta), along with *all* the teaching faculty
+  - I'll dock myself an attendance point for this...
+- There <span class='red'>WILL</span> be a recording for Friday's lecture that you will need to watch on your own
+  - Either Friday during your lecture time, or on your own during spring break
+  - We will pick up where that recording leaves off, so the following lecture <span class='red'>WILL NOT MAKE SENSE</span> if you do not watch the recording
+  - I wasn't planning on doing this, but the second snow day forced my hand on this one... sorry!
+- We realize we are a bit behind on the support requests; I'll be catching up during spring break
+- [Exam 1](../exams/exam1-s14.pdf) was returned last week
+  -  The average was 38.9/60 (64.8%), and the standard deviation was
+8.95 (14.9 if the grade is scaled out of 100); curve is 15 *percentage* points
+  - [Regrades](https://libra.cs.virginia.edu/~pedagogy/regrades.php) are open until the end of this week, but be aware of the [frivolous regrade policy](frivolous-regrades.html)
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are listed in the [github repo](https://github.com/aaronbloomfield/pdr)
+- Today we will finsih with [Hashes](../slides/07-hashes.html), and start on [IBCM](../slides/08-ibcm.html)
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 21: Monday, March 3rd, 2014
+
+All classes canceled today by UVa due to the snow storm.
+
+This is *really* going to mess with my meticulously planned lecture schedule.
+
+Meanwhile, a [relevant xkcd](https://xkcd.com/1322/) for yet another snow day...
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Friday, February 28th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/single_ladies.png" title="Using a ring to bind someone you covet into your dark and twisted world? Wow, just got the subtext there. Also, the apparently eager Beyoncé would&#39;ve made one badass Nazgȗl." alt="Single Ladies">
+<p class="center"><a href="http://xkcd.com/712/">xkcd # 712</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 20: Friday, February 28th, 2014
+
+- Office hours are in full swing, see the [Google calendar](https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York) for details
+- Snow day last week!  That will cause some slight rushing of future lectures...
+  - In particular, we may not get to enough of the hash lab to start it until after today's lecture
+  - And the IBCM material may not be out in time for an early start on the IBCM lab...
+- [Exam 1](../exams/exam1-s14.pdf) was returned last week
+  -  The average was 38.9/60 (64.8%), and the standard deviation was
+8.95 (14.9 if the grade is scaled out of 100); curve is 15 *percentage* points
+  - [Regrades](https://libra.cs.virginia.edu/~pedagogy/regrades.php) are open for 10 days, but be aware of the [frivolous regrade policy](frivolous-regrades.html)
+- [Lab 5](../labs/lab05/index.html) (trees): how did it go?
+- [Lab 6](../labs/lab06/index.html) is out
+  - This is a *hard* lab!  Don't wait until the last minute to start it!!!
+- There will not be lecture next Friday, March 7th (the day before spring break)
+  - I'll dock myself an attendance point for this...
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are listed in the [github repo](https://github.com/aaronbloomfield/pdr)
+- Today we will continue with [Hashes](../slides/07-hashes.html), which will take us into next Monday
+  - Up next: [IBCM](../slides/08-ibcm.html)
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Wednesday, February 26th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/real_programmers.png" title="Real programmers set the universal constants at the start such that the universe evolves to contain the disk with the data they want." alt="Real Programmers">
+<p class="center"><a href="http://xkcd.com/378/">xkcd # 378</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 19: Wednesday, February 26th, 2014
+
+- Office hours are in full swing, see the [Google calendar](https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York) for details
+- Snow day last week!  That will cause some slight rushing of future lectures...
+  - In particular, we may not get to enough of the hash lab to start it until after this Friday's lecture
+- [Exam 1](../exams/exam1-s14.pdf) was returned last week
+  -  The average was 38.9/60 (64.8%), and the standard deviation was
+8.95 (14.9 if the grade is scaled out of 100)
+  - Curve is 15 *percentage* points
+  - [Regrades](https://libra.cs.virginia.edu/~pedagogy/regrades.php) are open for 10 days, but be aware of the [frivolous regrade policy](frivolous-regrades.html)
+- [Lab 4](../labs/lab04/index.html) (numbers) grades were returned last night, regrades open for 10 days
+- [Lab 5](../labs/lab05/index.html) (trees): how is it going?
+  - There was some confusion in the lab document about how input is being provided: we will follow the source code (meaning an input file name is provided to the program via `cin` input)
+- [Lab 6](../labs/lab06/index.html) will be available in a day or so
+  - This is a *hard* lab!  Don't wait until the last minute to start it!!!
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are listed in the github repo
+- Today we will finish with [Trees](../slides/06-trees.html), and start on [Hashes](../slides/07-hashes.html)
+	  </script></section>
+
+	</section>
+	
 	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
 	<section>
@@ -187,7 +448,7 @@ line-height:120%;
 	  <section data-markdown><script type="text/template">
 ## Lecture 14: Friday, February 14th, 2014
 
-All classes canceled today by UVa due to the [snow storm](https://en.wikipedia.org/wiki/February_2014_North_American_winter_storm).
+All classes canceled today by UVa due to the [snow storm](https://en.wikipedia.org/wiki/February_11–17,_2014_North_American_winter_storm).
 
 This is really going to mess with my meticulously planned lecture schedule.
 

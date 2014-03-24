@@ -28,6 +28,7 @@ The parts of this course that are in this repo are:
 - [UNIX honor pledge](unix-honor-pledge-s14.pdf), which needs to be signed by all the students in the course; it is created from a [.tex](unix-honor-pledge.tex) file
 - [Review session slide set](exam-review.html), which is really just a blank set of slides
 - [Frivolous regrade policy](frivolous-regrades.html) for exams
+- [Snow Day Impacts](snowdays.html), which contains the information sent in an class-wide e-mail on March 17th about how the schedule is being adapated to three M/W/F snow days
 
 ------------------------------------------------------------
 
@@ -69,23 +70,23 @@ The links in the right-most column link directly to the lecture recording on Col
 | 11 | Feb&nbsp;7 | Friday | | [04: Numbers](../slides/04-numbers.html) | [04: numbers, slides 7-9 to 7-25](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/04-numbers-4b/04-numbers-4b.htm) |
 | 12 | Feb&nbsp;10 | Monday | [Lab 4: Numbers](../labs/lab04/index.html) / [Tutorial 4: More UNIX, part 2](../tutorials/03-04-more-unix/index.html), sections 5-8 | [04: Numbers](../slides/04-numbers.html) | [04: numbers, slides 7-25 to 7-33 (end); 05: arrays & big-oh, slides 1 to 3-3](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/05-arrays-bigoh-1b/05-arrays-bigoh-1b.htm) |
 | 13 | Feb&nbsp;12 | Wednesday | | [05: Arrays & big-Oh](../slides/05-arrays-bigoh.html) | [05: arrays & big-oh, slides 3-3 to 3-25](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/05-arrays-bigoh-2b/05-arrays-bigoh-2b.htm) |
-| 14 | Feb&nbsp;14 | Friday | | [05: Arrays & big-Oh](../slides/05-arrays-bigoh.html) | all UVa classes were canceled today due to the [snow storm](https://en.wikipedia.org/wiki/February_2014_North_American_winter_storm) |
+| 14 | Feb&nbsp;14 | Friday | | [05: Arrays & big-Oh](../slides/05-arrays-bigoh.html) | All UVa classes were canceled today due to the [snow storm](https://en.wikipedia.org/wiki/February_11–17,_2014_North_American_winter_storm) |
 |    | Feb&nbsp;16 | Sunday | Exam 1 review session | Exam 1 review session | [exam 1 review](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/exam1-review/exam1-review.htm) |
 | 15 | Feb&nbsp;17 | Monday | [Exam 1](../exams/exam1-s14.pdf) instead during Tuesday's lab | [06: Trees](../slides/06-trees.html) | [05: arrays & big-oh, slides 3-26 to 4-7 (end); 06: trees, slides 1 to 2-15](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/06-trees-1b/06-trees-1b.htm) |
 | 16 | Feb&nbsp;19 | Wednesday | | [06: Trees](../slides/06-trees.html) | [06: trees, slides 3 to 3-19](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/06-trees-2b/06-trees-2b.htm) |
 | 17 | Feb&nbsp;21 | Friday | | [06: Trees](../slides/06-trees.html) | [06-trees, slides 4 to 5-13](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/06-trees-3b/06-trees-3b.htm) |
 | 18 | Feb&nbsp;24 | Monday | [Lab 5: Trees](../labs/lab05/index.html) / [Tutorial 5: make](../tutorials/05-make/index.html) | [06: Trees](../slides/06-trees.html) | [06-trees, slides 5-13 to 6-11](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/06-trees-4b/06-trees-4b.htm) |
-| 19 | Feb&nbsp;26 | Wednesday | | [07: Hashes](../slides/07-hashes.html) | |
-| 20 | Feb&nbsp;28 | Friday | | [07: Hashes](../slides/07-hashes.html) | |
-| 21 | Mar&nbsp;3 | Monday | [Lab 6: Hashes](../labs/lab06/index.html) / [Tutorial 6: Shell scripting, part 1](../tutorials/06-shell-scripts-pt1/index.html) | [07: Hashes](../slides/07-hashes.html) | |
-| 22 | Mar&nbsp;5 | Wednesday | | [08: IBCM](../slides/08-ibcm.html) (machine language) | |
-| 23 | Mar&nbsp;7 | Friday | | [08: IBCM](../slides/08-ibcm.html) (machine language) | |
+| 19 | Feb&nbsp;26 | Wednesday | | [07: Hashes](../slides/07-hashes.html) | [06-trees, slides 7 to 8-9 (end); 07-hashes, slides 1 to 3-5](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/07-hashes-1b/07-hashes-1b.htm) |
+| 20 | Feb&nbsp;28 | Friday | | [07: Hashes](../slides/07-hashes.html) | [07-hashes, slides 3-6 to 5-3](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/07-hashes-2b/07-hashes-2b.htm) |
+| 21 | Mar&nbsp;3 | Monday | [Lab 6: Hashes](../labs/lab06/index.html) / [Tutorial 6: Shell scripting, part 1](../tutorials/06-shell-scripts-pt1/index.html) | [07: Hashes](../slides/07-hashes.html) | All UVa classes were canceled today due to yet another snow storm |
+| 22 | Mar&nbsp;5 | Wednesday | | [08: IBCM](../slides/08-ibcm.html) (machine language) | [07-hashes, slides 5-3 to 6-6 (end)](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/07-hashes-3a/07-hashes-3a.htm) |
+| 23 | Mar&nbsp;7 | Friday | | [08: IBCM](../slides/08-ibcm.html) (machine language) | No lecture, but a recording to watch: [08-ibcm, slides 1 to 4-15](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/08-ibcm-1/08-ibcm-1.htm) |
 | | Mar&nbsp;10 | Monday | no labs (spring break) | (no class: spring break) | (no class: spring break) |
 | | Mar&nbsp;12 | Wednesday | | (no class: spring break) | (no class: spring break) |
 | | Mar&nbsp;14 | Friday | | (no class: spring break) | (no class: spring break) |
-| 24 | Mar&nbsp;17 | Monday | [Lab 7: IBCM](../labs/lab07/index.html) / [Tutorial 7: Shell scripting, part 2](../tutorials/07-shell-scripts-pt2/index.html) | [08: IBCM](../slides/08-ibcm.html) (machine language) | |
-| 25 | Mar&nbsp;19 | Wednesday | | [09: x86](../slides/09-x86.html) (assembly language) | |
-| 26 | Mar&nbsp;21 | Friday | | [09: x86](../slides/09-x86.html) (assembly language) | |
+| 24 | Mar&nbsp;17 | Monday | [Lab 7: IBCM](../labs/lab07/index.html) / [Tutorial 7: Shell scripting, part 2](../tutorials/07-shell-scripts-pt2/index.html) | [08: IBCM](../slides/08-ibcm.html) (machine language) | Yet another snow day!  A recording to watch: [08-ibcm, slides 5-1 to 6-9 (end)](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/08-ibcm-2/08-ibcm-2.htm) |
+| 25 | Mar&nbsp;19 | Wednesday | | [09: x86](../slides/09-x86.html) (assembly language) | [09-x86, slides 1 to 4-6](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/09-x86-1a/09-x86-1a.htm) |
+| 26 | Mar&nbsp;21 | Friday | | [09: x86](../slides/09-x86.html) (assembly language) | [09-x86, slides 4-7 to 7-11](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/09-x86-2b/09-x86-2b.htm) |
 | 27 | Mar&nbsp;24 | Monday | [Lab 8: x86, part 1](../labs/lab08/index.html) / [Tutorial 8: nasm](../tutorials/08-nasm/index.html) | [09: x86](../slides/09-x86.html) (assembly language) | |
 | 28 | Mar&nbsp;26 | Wednesday | | [09: x86](../slides/09-x86.html) (assembly language) | |
 | 29 | Mar&nbsp;28 | Friday | | [09: x86](../slides/09-x86.html) (assembly language) | |
@@ -108,8 +109,9 @@ The links in the right-most column link directly to the lecture recording on Col
 Grading Concerns
 ----------------
 
-There was a problem with the in-lab 1 grading -- a one-point deduction was in the [grading guidelines](https://collab.itc.virginia.edu/portal/tool/58e790ee-ac9e-4001-9947-ebf5df8a8df5?pageName=%2Fsite%2F7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c%2Flab+1+grading+guidelines&action=printview&panel=Main&breadcrumb=0&realm=%2Fsite%2F7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c) that should not have been there (that deduction currently is currently in the grading guidelines, but struck out).  Rather than regrading everything, everybody will get a 1 on their lab.
+Promised curves:
+
+- There was a problem with the in-lab 1 grading -- a one-point deduction was in the [grading guidelines](https://collab.itc.virginia.edu/portal/tool/58e790ee-ac9e-4001-9947-ebf5df8a8df5?pageName=%2Fsite%2F7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c%2Flab+1+grading+guidelines&action=printview&panel=Main&breadcrumb=0&realm=%2Fsite%2F7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c) that should not have been there (that deduction currently is currently in the grading guidelines, but struck out).  Rather than regrading everything, everybody will get a 1 on their lab.
+- For [exam 1](../exams/exam1-s14.pdf), the curve is 15 percentage points.
 
 The way this is handled is that at the end of the semester, the 1 point on the lab will affect the final grade cut-offs.  If there are 35 lab parts, each worth 10 points, then one point on one lab is worth 1/350th of the overall lab grade (which is 40% of the final grade).  The final grade curve will be modified by this amount.  It's the same, mathematically, as increasing everybody's grade by one point, but far easier to effect.
-
-For [exam 1](../exams/exam1-s14.pdf), the curve is 15 percentage points.

@@ -12,6 +12,9 @@
 \ldots
 \end{quotation}
 
+\noindent {\em This chapter was derived from a document written by Adam Ferrari and later updated by Alan Batson, Mike Lack and Anita
+Jones}
+
 \section{Introduction}
 
 This small guide, in combination with the material covered in the
@@ -493,14 +496,14 @@ instruction set and memory model we will use for all work in this
 class (note, there are other possibilities~-- one might use only the
 older 80286 instruction set for wider compatibility, for example).
 
-\begin{wrapfigure}{r}{0.37\textwidth}
-\lstinputlisting[backgroundcolor=\color{white},frame=trBL,linewidth=2.5in,xleftmargin=0.25in,label={x86-return2.cpp.lst},language=C++,caption={C++ code to return 2}]{x86/code/return2.cpp}
-\vspace{-0.25in}\end{wrapfigure}
-
 Next, where in the C++ file we find the declaration of the global
 variable ``var'', in the assembly file we find the use of the .DATA
 and DD directives (described in Section 3.1) to reserve and initialize
 a 4-byte (i.e. integer-sized) memory region labeled ``var''.
+
+\begin{wrapfigure}{r}{0.37\textwidth}
+\lstinputlisting[backgroundcolor=\color{white},frame=trBL,linewidth=2.5in,xleftmargin=0.25in,label={x86-return2.cpp.lst},language=C++,caption={C++ code to return 2}]{x86/code/return2.cpp}
+\vspace{-0.25in}\end{wrapfigure}
 
 Next in each file, we find the declaration of the function named
 returnTwo. In the C++ file we have declared the function to be extern
@@ -520,7 +523,7 @@ by convention, hence the instruction to move the con- tents of ``var''
 into EAX in the assembly code.
 
 \begin{wrapfigure}{r}{0.48\textwidth}
-\lstinputlisting[backgroundcolor=\color{white},frame=trBL,linewidth=3.25in,xleftmargin=0.25in,label={x86-calling-return2.cpp.lst},language=C++,caption={Calling returnTwo() from C++}]{x86/code/calling-return2.cpp}
+\lstinputlisting[backgroundcolor=\color{white},frame=trBL,linewidth=4in,xleftmargin=0.25in,label={x86-calling-return2.cpp.lst},language=C++,caption={Calling returnTwo() from C++}]{x86/code/calling-return2.cpp}
 \vspace{-0.25in}
 \end{wrapfigure}
 
