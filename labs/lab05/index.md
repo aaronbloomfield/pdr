@@ -145,7 +145,7 @@ To complete this lab you will have to make the following code modifications:
 1. Edit the AVL and binary search tree code to adjust the counter variables appropriately.  These variables are: `num_nodes`, `LeftLinksFollowed`, `RightLinksFollowed`, `SingleRotations`, and `DoubleRotations`
    - **NOTE:**  The `mutable` keyword before these variable declarations allows the member functions that are declared as const to modify them (the variables).  Basically, it overrides the const modifier.  See [here](https://en.wikipedia.org/wiki/Mutable#C.2B.2B) for more details, if you are interested.
    - You **should not** reset the `LeftLinksFollowed` or `RightLinksFollowed` variables.
-   - Those two variables (`LeftLinksFollowed` and `RightLinksFollowed`) should only be incremented in the find method, not for the `insert()` or `remove()` methods.
+   - Those two variables (`LeftLinksFollowed` and `RightLinksFollowed`) should only be incremented in the `find()` method, not for the `insert()` or `remove()` methods.
    - A double rotation is really two single rotations, but for the purposes of this in-lab we'll only count it as one double rotation.
 2. Implement the following methods in the AVL and binary search tree code.  See below for details as to how these methods work.
    - `double AvlTree::exp_path_length();`
@@ -182,13 +182,7 @@ The `int_path_length()` methods take in two parameters -- a node (either the Avl
 
 ### Input format ###
 
-The input will be provided all on one line.  The input in each file has just one line for the paragraph.  The provided input files can be run through the program as follows:
-
-```
-./a.out < testfile1.txt
-```
-
-Note that we are ***NOT*** providing the file name as a command-line parameter.  The provided skeleton code handles the input for you already.
+The input paragraph will be provided in a file, and the name of the file will be the one (and only!) input provided to the program.  Note that we are ***NOT*** providing the file name as a command-line parameter.  The provided skeleton code properly handles the input for you already.
 
 ### What you need to do ###
 

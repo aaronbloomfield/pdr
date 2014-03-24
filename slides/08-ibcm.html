@@ -1,0 +1,848 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 2150: 08-ibcm slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="css/pdr.css">
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <script><!-- If the query includes 'print-pdf', use the PDF print sheet -->
+      document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/dhtmlwindow.js"></script>
+    <script type="text/javascript" src="js/canvas.js"></script>
+    <link rel="stylesheet" href="css/dhtmlwindow.css" type="text/css">
+  </head>
+
+  <body onload="canvasinit()">
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	<section data-markdown id="cover"><script type="text/template">
+# CS 2150
+&nbsp;
+### Program and Data Representation
+### Spring 2014
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="08-ibcm.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
+<center><small>Themes: [default](?#/cover), [sky](?theme=sky#/cover), [beige](?theme=beige#/cover), [simple](?theme=simple#/cover), [serif](?theme=serif#/cover), [night](?theme=night#/cover), [moon](?theme=moon#/cover), [solarized](?theme=solarized#/cover)</small></center>
+&nbsp;  
+&nbsp;  
+## IBCM (machine language)
+	</script></section>
+
+	  <section>
+<h2>CS 2150 Roadmap</h2>
+<table class="wide">
+  <tr><td colspan="3"><p class="center">Data Representation</p></td><td></td><td colspan="3"><p class="center">Program Representation</p></td></tr>
+  <tr>
+    <td class="top"><small>&nbsp;<br>&nbsp;<br>string<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>int x[3]<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>char x<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>0x9cd0f0ad<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>01101011</small></td>
+    <!-- image adapted from http://openclipart.org/detail/3677/arrow-left-right-by-torfnase -->
+    <td><img class="noborder" src="images/red-double-arrow.png" height="500" alt="vertical red double arrow"></td>
+    <td class="top">&nbsp;<br>Objects<br>&nbsp;<br>Arrays<br>&nbsp;<br>Primitive types<br>&nbsp;<br>Addresses<br>&nbsp;<br>bits</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="top"><small>&nbsp;<br>&nbsp;<br>Java code<br>&nbsp;<br>&nbsp;<br>C++ code<br>&nbsp;<br>&nbsp;<br>C code<br>&nbsp;<br>&nbsp;<br>x86 code<br>&nbsp;<br>&nbsp;<br>IBCM<br>&nbsp;<br>&nbsp;<br>hexadecimal</small></td>
+    <!-- image adapted from http://openclipart.org/detail/3677/arrow-left-right-by-torfnase -->
+    <td><img class="noborder" src="images/green-double-arrow.png" height="500" alt="vertical green double arrow"></td>
+    <td class="top">&nbsp;<br>High-level language<br>&nbsp;<br>Low-level language<br>&nbsp;<br>Assembly language<br>&nbsp;<br>Machine code</td>
+  </tr>
+</table>
+	  </section>
+
+	<section data-markdown><script type="text/template">
+# Contents
+&nbsp;  
+[Introduction](#/introduction)  
+[IBCM Description](#/ibcmdesc)  
+[Writing IBCM code](#/writingibcm)  
+[Conclusion](#/conclusion)  
+	</script></section>
+
+
+	<section>
+
+	  <section id="introduction" data-markdown><script type="text/template">
+# Introduction
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Assembly Language
+- Machine language
+  - Instructions represented as patterns of bits (0s and 1s) that can be understood and processed by a central processing unit (CPU)
+  - Program stored in main memory
+- Assembly language
+  - Human-readable notation for the machine language used to control a specific computer architecture
+- Assembler translates to bits
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Why Learn Assembly Language?
+- Machine designers
+- Compiler writers
+- Programmers (especially for OSes)
+- Assembly language programmers
+- Most importantly: it helps you understand how computers compute
+	  </script></section>
+
+	  <section>
+<h2>Memory Hierarchy, part 1</h2>
+<table class="transparent"><tr><td class="top">
+<img src="images/08-ibcm/memory-diagram.png" alt="memory diagram">
+</td><td>
+<ul>
+<li>CPU registers<ul>
+  <li>1 access per CPU cycle</li>
+  <li>3*10<sup>9</sup> accesses per sec</li>
+  <li>1 Kb total storage</li></ul></li>
+<li>Cache<ul>
+  <li>SDRAM: 10 ns</li>
+  <li>10<sup>8</sup> accesses per sec</li>
+  <li>Multiple levels possible</li>
+  <li>Higher levels are bigger and slower</li>
+  <li>1 Mb total storage</li></ul></li>
+</ul>
+</td>
+</tr></table>
+	  </section>
+
+	  <section>
+<h2>Memory Hierarchy, part 2</h2>
+<table class="transparent"><tr><td class="top">
+<img src="images/08-ibcm/memory-diagram.png" alt="memory diagram">
+</td><td class="top">
+<ul>
+<li>Main memory<ul>
+  <li>DRAM: 60 ns</li>
+  <li>2*10<sup>7</sup> accesses per sec</li>
+  <li>Limited by bus speeds</li>
+  <li>1 Gb total storage</li></ul></li>
+<li>Disk<ul>
+  <li>HDD speeds: 5 ms</li>
+  <li>200 accesses per sec</li>
+  <li>1 Tb total storage</li></ul></li>
+</ul>
+</td></tr></table>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Fetch Execute Cycle
+```
+while(power is on) {
+    IR := memory[PC]
+    Increment PC by length of instruction
+    execute instruction in IR
+}
+```
+- PC = program counter
+- IR = instruction register
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Assembly Language Instructions
+- x86
+```
+add eax, ebx
+add ecx, 1
+```
+  - Explicit use of registers<br>&nbsp;<br>&nbsp;
+- IBCM
+```
+load 100
+add 200
+store 300
+```
+  - Implied use of accumulator
+	  </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="ibcmdesc" data-markdown><script type="text/template">
+# IBCM Description
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Running IBCM programs
+- Online IBCM simulator
+  - http://www.cs.virginia.edu/~cs216/ibcm/ 
+- Mirrors:
+  - http://libra.cs.virginia.edu/ibcm/ 
+  - http://people.virginia.edu/~asb2t/ibcm/ 
+- This program will hang your browser if it gets stuck in an infinite loop, due to how web browsers (don't) handle Javascript threads and polling of web pages
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## IBCM Machine Description: CPU
+- Single accumulator
+  - 16 bits
+- Special purpose registers
+  - IR: instruction register
+    - Stores bits which encode instruction
+  - PC: program counter
+    - Stores an address of an instruction
+	  </script></section>
+
+	  <section>
+<h2>IBCM Machine Description: Memory</h2>
+<table class="transparent">
+<tr><td class="middle"><ul>
+<li>4096 16-bit words<ul>
+  <li>Word<ul>
+    <li>"chunk size" or addressable unit</li></ul></li>
+  <li>All initialized to zero initially<ul>
+    <li>Unlike C/C++</li></ul></li></ul></li>
+</ul>
+</td><td><img src="images/08-ibcm/memory-diagram.png" alt="memory diagram"></td></tr></table>
+	  </section>
+
+	  <section>
+<h2>IBCM instruction format</h2>
+
+<table class="transparent" style="border-collapse:collapse">
+
+<tr>
+  <td>&nbsp;0</td>
+  <td>1</td>
+  <td>2</td>
+  <td>3</td>
+  <td>4&nbsp;&nbsp;5</td>
+  <td style="width:300px">...</td>
+  <td style="text-align:right">15</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td style="border-top:1px solid; border-left:1px solid" class="middle">&nbsp;0</td>
+  <td style="border-top:1px solid" class="middle">0</td>
+  <td style="border-top:1px solid" class="middle">0</td>
+  <td style="border-top:1px solid; border-right:1px solid" class="middle">0</td>
+  <td style="border-top:1px solid">&nbsp;<br>&nbsp;</td>
+  <td style="border-top:1px solid; border-bottom:1px solid" class="middle">(unused)</td>
+  <td style="border-top:1px solid; border-right:1px solid; border-bottom:1px solid">&nbsp;</td>
+  <td class="middle">halt</td>
+</tr>
+<tr>
+  <td style="border-top:1px solid; border-left:1px solid" class="middle">&nbsp;0</td>
+  <td style="border-top:1px solid" class="middle">0</td>
+  <td style="border-top:1px solid" class="middle">0</td>
+  <td style="border-top:1px solid" class="middle">1</td>
+  <td style="border:1px solid">I/O<br>op</td>
+  <td class="middle">(unused)</td>
+  <td style="border-right:1px solid">&nbsp;</td>
+  <td class="middle">I/O</td>
+</tr>
+<tr>
+  <td style="border-top:1px solid; border-left:1px solid" class="middle">&nbsp;0</td>
+  <td style="border-top:1px solid" class="middle">0</td>
+  <td style="border-top:1px solid" class="middle">1</td>
+  <td style="border-top:1px solid" class="middle">0</td>
+  <td style="border:1px solid">&nbsp;shift<br>op</td>
+  <td style="border:1px solid" class="middle">(unused)</td>
+  <td style="border:1px solid" class="middle">&nbsp;count</td>
+  <td class="middle">shifts</td>
+</tr>
+<tr>
+  <td colspan="4" style="border:1px solid" class="middle">&nbsp;opcode</td>
+  <td style="border-bottom:1px solid">&nbsp;</td>
+  <td style="border-bottom:1px solid" class="middle">address</td>
+  <td style="border-bottom:1px solid; border-right:1px solid">&nbsp;<br>&nbsp;</td>
+  <td class="middle">&nbsp;others</td>
+</tr>
+</table>
+
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## IBCM instruction types
+- Halt
+  - Opcode is 0
+- I/O
+  - Opcode is 1
+  - next 2 bits specify I/O type
+- Shifts
+  - Opcode is 2
+  - next 2 bits specify shift type
+  - last 5 bits specify shift amount
+- Others
+  - Opcode is 3 to F (15)
+  - Last 12 bits specify the address for the instruction
+  - The arithmetic, memory, and control instructions
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Halt
+- The opcode (first 4 bits) is zero
+- It doesn't matter what the next 12 bits are<br>&nbsp;
+- Not much else to say here...<br>&nbsp;
+- It halts the IBCM!
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Input and output
+- The opcode (first 4 bits) is 1
+- Next two bits specify I/O type:
+  - First bit specifies input (0) or output (1)
+  - Second bit specifies hex word (0) or ascii (1)
+  - Combinations:
+    - 00: read hex word from keyboard
+    - 01: read ascii character (into acc bits 8-15)
+    - 10: write hex word to screen
+    - 11: write ascii character (from acc bits 8-15)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Shifts
+- The opcode (first 4 bits) is 2
+- Next two bits specify shift type:
+  - First bit specifies shift (0) or rotate (1)
+  - Second bit specifies direction: left (0) or right (1)
+- Consider the bits <span class="skyblue">0000</span> <span class="yellow">1111</span> <span class="pink">0000</span> <span class="lightgreen">1111</span> and a 3-bit shift/rotation:
+  - 00: shift left: <span class="skyblue">0</span><span class="yellow">111 1</span><span class="pink">000 0</span><span class="lightgreen">111 1</span><span class="red">000</span>
+  - 01: shift right: <span class="red">000</span><span class="skyblue">0 000</span><span class="yellow">1 111</span><span class="pink">0 000</span><span class="lightgreen">1</span>
+  - 10: rotate left: <span class="skyblue">0</span><span class="yellow">111 1</span><span class="pink">000 0</span><span class="lightgreen">111 1</span><span class="skyblue">000</span>
+  - 11: rotate right: <span class="lightgreen">111</span><span class="skyblue">0 000</span><span class="yellow">1 111</span><span class="pink">0 000</span><span class="lightgreen">1</span>
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Other instructions
+- Opcode (first 4 bits) varies from 3 to F (15)
+- Next 12 bits specifies the address
+- See next slide for a list...
+	  </script></section>
+
+	  <section>
+<h2>IBCM "other" instructions</h2>
+<table style="font-size:80%;line-height:120%;">
+<tr><th>Op</th><th>Name</th><th>HLL meaning</th><th>Description</th></tr>
+<tr><td>3</td><td>load</td><td><code>a := mem[addr]</code></td><td>load accumulator from memroy</td></tr>
+<tr><td>4</td><td>store</td><td><code>mem[addr] := a</code></td><td>store accumulator into memroy</td></tr>
+<tr><td>5</td><td>add</td><td><code>a := a + mem[addr]</code></td><td>add memory to accumulator</td></tr>
+<tr><td>6</td><td>sub</td><td><code>a := a - mem[addr]</code></td><td>add memory from accumulator</td></tr>
+<tr><td>7</td><td>and</td><td><code>a := a &and; mem[addr]</code></td><td>logical 'and' memory into accumulator</td></tr>
+<tr><td>8</td><td>or</td><td><code>a := a &or; mem[addr]</code></td><td>logical 'and' memory into accumulator</td></tr>
+<tr><td>9</td><td>xor</td><td><code>a := a &oplus; mem[addr]</code></td><td>logical 'xor' memory into accumulator</td></tr>
+<tr><td>A</td><td>not</td><td><code>a := !a</code></td><td>logical complement of accumulator</td></tr>
+<tr><td>B</td><td>nop</td><td><code>/* */</code></td><td>do nothing (no operation)</td></tr>
+<tr><td>C</td><td>jmp</td><td><code>goto addr</code></td><td>jump to 'addr'</td></tr>
+<tr><td>D</td><td>jmpe</td><td><code>if a == 0 goto addr</code></td><td>jump to 'addr' if accumulator equals zero</td></tr>
+<tr><td>E</td><td>jmpl</td><td><code>if a < 0 goto addr</code></td><td>jump to 'addr' if accum. is less than zero</td></tr>
+<tr><td>F</td><td>brl</td><td><code>a := PC+1; goto addr</code></td><td>jump (branch) to 'addr'; set accum. to<br>the value of the PC just before the jump<br>(i.e., to the address following the `brl`)</td></tr>
+</table>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Labels
+- We often need to jump around our code
+- For this we use labels in assembly language
+  - These are translated into absolute memory addresses later by assembler
+  - We don't have an assembler in IBCM, so we will have to translate them ourselves
+- Examples:
+```
+start   readH
+loop    load	n
+xit     load	s
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Declaring variables
+- You use the `dw` opcode
+  - It stands for Declare Word, perhaps
+- And you need to give it a label, so you can reference it in assembly language program
+- Example:
+  - `n dw 0` declares a spot with label 'n' to have value 0
+  - `load n` will load the value stored in that spot in memory
+	  </script></section>
+
+	  <section>
+<h2>IBCM Machine</h2>
+<table class="transparent">
+<tr><td>
+    <table class="transparent">
+      <tr><td>Address</td><td>Contents</td><td>Command</td></tr>
+      <tr><td>00</td><td class="border">0000</td><td>halt</td></tr>
+      <tr><td>01</td><td class="border">000f</td><td>halt</td></tr>
+      <tr><td>02</td><td class="border">0005</td><td>halt</td></tr>
+      <tr><td>03</td><td class="border">3001</td><td>load mem[1]</td></tr>
+      <tr><td>04</td><td class="border">5002</td><td>add mem[2]</td></tr>
+      <tr><td>05</td><td class="border">0000</td><td>halt</td></tr>
+    </table>
+</td><td style="width:100px"></td><td>
+    <table class="transparent">
+      <tr><td>&nbsp;</td><td></td></tr>
+      <tr><td>PC</td><td class="border" style="width:100px">&nbsp;</td></tr>
+      <tr><td></td><td>&nbsp;</td></tr>
+      <tr><td>IR</td><td class="border"></td></tr>
+      <tr><td></td><td>&nbsp;</td></tr>
+      <tr><td>Accum</td><td class="border"></td></tr>
+    </table>
+</td></tr></table>
+<script type="text/javascript">insertCanvas();</script>
+	  </section>
+
+	  <section>
+<h2>Sample Program</h2>
+<table class="transparent">
+<tr><td>
+    <table class="transparent">
+      <tr><td>Address</td><td>Contents</td><td>Command</td></tr>
+      <tr><td>00</td><td class="border">3000</td><td class="fragment">load mem[0]</td></tr>
+      <tr><td>01</td><td class="border">5000</td><td class="fragment">add mem[0]</td></tr>
+      <tr><td>02</td><td class="border">6001</td><td class="fragment">sub mem[1]</td></tr>
+      <tr><td>03</td><td class="border">8003</td><td class="fragment">or mem[3]</td></tr>
+      <tr><td>04</td><td class="border">a000</td><td class="fragment">not</td></tr>
+      <tr><td>05</td><td class="border">4000</td><td class="fragment">store mem[0]</td></tr>
+      <tr><td>06</td><td class="border">f000</td><td class="fragment">brl mem[0]</td></tr>
+    </table>
+</td><td style="width:100px"></td><td>
+    <table class="transparent">
+      <tr><td>&nbsp;</td><td></td></tr>
+      <tr><td>&nbsp;</td><td></td></tr>
+      <tr><td>PC</td><td class="border" style="width:100px">&nbsp;</td></tr>
+      <tr><td></td><td>&nbsp;</td></tr>
+      <tr><td>IR</td><td class="border"></td></tr>
+      <tr><td></td><td>&nbsp;</td></tr>
+      <tr><td>Accum</td><td class="border"></td></tr>
+    </table>
+</td></tr></table>
+<script type="text/javascript">insertCanvas();</script>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## What It Does
+- 0x3000 is a *load* of address 0 into the accum (accum is 3000)
+- 0x5000 is a *add* of address 0 to the accum (accum is 6000)
+- 0x6001 is a *subtract* of address 1 from the accum (accum is 1000)
+- 0x8003 is an *or* of the accum with memory address 3 (accum is 9003)
+- 0xA000 is a *not* of the accum (accum is 6FFC)
+- 0x4000 is a *store* of the accum into memory 0
+- 0xF000 is a *branch and link*
+  - the PC+1 (0x0007) is stored in the accum
+  - goto address 0
+- Address 0 is now 6FFC
+  - we've modified our binary code!
+  - that's a subtract of memory address FFC from the accum
+  - all memory is initialized to zero, so mem[ffc] = 0
+  - 0x0007 -- 0x0000 = 0x0007
+	  </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="writingibcm" data-markdown><script type="text/template">
+# Writing IBCM Code
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Writing IBCM Code
+- Write high level pseudo-code
+```
+for ( i = 1; i < max; i++ ) ...
+```
+- Translate into IBCM assembly instructions
+```
+load one
+store i
+```
+- Test code by hand
+  - (step through the code)
+- Encode into machine code
+```
+3016
+4005
+```
+- Load machine code into simulator and run!
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## IBCM Code to compute a sum
+- Compute the sum of integers 1 through *n*, where *n* is to be read from the keyboard
+  - The resulting sum is to be printed to the screen
+  - Halt after printing the sum
+- Pseudocode:
+```
+read n;
+i = 1;       // index in the array
+s = 0;       // ongoing sum
+while (i <= n) {
+    s+= i;
+    i +=1;
+}
+print s;
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## IBCM summation program
+```
+mem  locn label op      addr      comments
+
+C00A 00         jmp     start     skip around the variables
+0000 01   i     dw      0         int i
+0000 02   s     dw      0         int s
+0000 03   n     dw      0         int n
+0001 04   one   dw      1
+0000 05   zero  dw      0
+0000 06                           leave space for changes
+0000 07
+0000 08
+0000 09
+1000 0A   start readH             read n
+4003 0B         store   n
+3004 0C         load    one       i = 1
+4001 0D         store   i
+3005 0E         load    zero      s = 0
+4002 0F         store   s
+3003 10   loop  load    n         if (i > n) goto xit
+6001 11         sub     i
+E01A 12         jmpl    xit
+3002 13         load    s         s += i
+5001 14         add     i
+4002 15         store   s
+3001 16         load    i         i += 1
+5004 17         add     one
+4001 18         store   i
+C010 19         jmp     loop      goto loop
+3002 1A   xit   load    s         print s
+1800 1B         printH
+0000 1C         halt              halt
+```
+We'll look at this code in parts...
+      </script></section>
+
+      <section data-markdown><script type="text/template">
+## IBCM summation program: part 1
+```
+mem  locn label op      addr      comments
+
+C00A 00         jmp     start     skip around the variables
+0000 01   i     dw      0         int i
+0000 02   s     dw      0         int s
+0000 03   n     dw      0         int n
+0001 04   one   dw      1
+0000 05   zero  dw      0
+...
+1000 0A   start readH             read n
+4003 0B         store   n
+3004 0C         load    one       i = 1
+4001 0D         store   i
+3005 0E         load    zero      s = 0
+4002 0F         store   s
+```
+      </script></section>
+
+      <section data-markdown><script type="text/template">
+## IBCM summation program: part 2
+```
+mem  locn label op      addr      comments
+
+3003 10   loop  load    n         if (i > n) goto xit
+6001 11         sub     i
+E01A 12         jmpl    xit
+3002 13         load    s         s += i
+5001 14         add     i
+4002 15         store   s
+3001 16         load    i         i += 1
+5004 17         add     one
+4001 18         store   i
+C010 19         jmp     loop      goto loop
+3002 1A   xit   load    s         print s
+1800 1B         printH
+0000 1C         halt              halt
+```
+      </script></section>
+
+      <section data-markdown><script type="text/template">
+## How Would You Code This?
+```
+if (B == 0)
+    S1;
+else
+    S2;
+```
+      </script></section>
+
+      <section data-markdown><script type="text/template">
+## How Would You Code This?
+```
+while(B >= 5)
+    S;
+```
+      </script></section>
+
+      <section data-markdown><script type="text/template">
+## IBCM Code to Sum Elements in an Array
+- Compute the sum of the elements of an array and print this sum on the screen (then halt)
+  - The address of the first element of the array and the size of the array are to be read in from the keyboard
+- Pseudocode:
+```
+read a;      // array base address
+read n;      // array size
+i = 0;       // index in the array
+s = 0;       // ongoing sum
+while (i < n) {
+    s += a[i];
+    i += 1;
+}
+print s;
+```
+      </script></section>
+
+      <section data-markdown><script type="text/template">
+## IBCM Code to Sum Elements in an Array
+```
+mem  locn label op       addr   comments
+C00A 00         jmp      start  skip around the variables
+0000 01   i     dw       0      int i
+0000 02   s     dw       0      int s
+0000 03   a     dw       0      int a[]
+0000 04   n     dw       0
+0000 05   zero  dw       0
+0001 06   one   dw       1
+5000 07   adit  dw       5000
+0000 08                         leave space for changes
+0000 09
+1000 0A   start readH           read array address
+4003 0B         store    a
+1000 0C         readH           read array size
+4004 0D         store    n
+3005 0E         load     zero   i = 0; s = 0;
+4001 0F         store    i
+4002 10         store    s
+3004 11   loop  load     n      if (i >= N) goto xit
+6001 12         sub      i
+E020 13         jmpl     xit
+D020 14         jmpe     xit
+3007 15         load     adit   form the inst to add a[i]
+5003 16         add      a
+5001 17         add      i
+401A 18         store    doit   plant inst into the code
+3002 19         load     s      s += a[i]
+0000 1A   doit  dw       0
+4002 1B         store    s
+3001 1C         load     i      i += 1
+5006 1D         add      one
+4001 1E         store    i
+C011 1F         jmp      loop   goto loop
+3002 20   xit   load     s      print s
+1800 21         printH
+0000 22         halt
+```
+We'll look at this code in parts...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Array summation: initialization and halting
+```
+mem  locn label op       addr   comments
+C00A 00         jmp      start  skip around the variables
+0000 01   i     dw       0      int i
+0000 02   s     dw       0      int s
+0000 03   a     dw       0      int a[]
+0000 04   n     dw       0
+0000 05   zero  dw       0
+0001 06   one   dw       1
+5000 07   adit  dw       5000
+...                             leave space for changes
+1000 0A   start readH           read array address
+4003 0B         store    a
+1000 0C         readH           read array size
+4004 0D         store    n
+3005 0E         load     zero   i = 0; s = 0;
+4001 0F         store    i
+4002 10         store    s
+...
+3002 20   xit   load     s      print s
+1800 21         printH
+0000 22         halt
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Array summation: the inner loop
+```
+mem  locn label op      addr    comments
+...
+3004 11   loop  load     n      if (i >= N) goto xit
+6001 12         sub      i
+E020 13         jmpl     xit
+D020 14         jmpe     xit
+3007 15         load     adit   form the inst to add a[i]
+5003 16         add      a
+5001 17         add      i
+401A 18         store    doit   plant inst into the code
+3002 19         load     s      s += a[i]
+0000 1A   doit  dw       0
+4002 1B         store    s
+3001 1C         load     i      i += 1
+5006 1D         add      one
+4001 1E         store    i
+C011 1F         jmp      loop   goto loop
+...
+```
+	  </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="conclusion" data-markdown><script type="text/template">
+# Conclusion
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Notes
+- IBCM's memory
+  - Array of "words" / chunks of data
+  - Data can be the program
+  - Program can be the data
+- IBCM is Turing-complete
+  - Any program expressible in any programming language can be expressed in IBCM
+    - (with the standard exception about the whole limited-memory thing)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## IBCM Tips/Reminders
+- Use the programming steps
+  1. Pseudocode
+  2. Assembly code
+     - Comment your code clearly!
+  3. Trace the assembly
+  4. Translate to machine code... LAST!!!
+  5. Run in the simulator to verify that it works
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Use the simulators to debug your code
+- Online simulator
+  - Cannot terminate a infinite loop easily
+- Unusual behavior?
+  - Is the program logic correct?
+    - Condition specified incorrectly/inaccurately?
+  - Is the machine code correct?
+    - Opcode? Address?
+	  </script></section>
+
+	  <section>
+<h2>What's missing from IBCM?</h2>
+<ul class="fragment"></li>
+<li>Integer multiply and divide</li>
+<li>Floating point support</li>
+<li>A bigger address space</li>
+<li>More than 1 user register</li>
+<li>What else?</li>
+</ul>
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Emulating IBCM in C++
+- How might one write software to emulate an IBCM machine in C++?
+  - A switch statement with 16 cases, perhaps
+- But how to decode the instructions?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## How to decode the parts of an instruction
+- Let's assume we had to write a C++ program that could extract the parts of an IBCM instruction
+- How to do it?
+  - Assume the instruction is in an `unsigned int x`
+```
+unsigned int opcode = (x >> 12) & 0x000f
+unsigned int ioshiftop = (x >> 10) & 0x0003
+unsigned int address = x & 0x0fff
+unsigned int shiftcount = x & 0x000f
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What about encoding
+- Assume we have (unsigned ints) opcode, ioshiftop and shiftcount
+```
+unsigned int instruction = (opcode << 12) |
+                             (ioshiftop << 10) | shiftcount
+```
+- What a pain this all is!
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## A data structure to make it easier
+```
+union ibcm_instruction {
+#ifdef BIG_ENDIAN // the IBCM is big endian
+    struct { unsigned char high, low; } bytes;
+#else
+#ifdef LITTLE_ENDIAN
+    struct { unsigned char low, high; } bytes;
+#else
+#error Must define BIG_ENDIAN or LITTLE_ENDIAN
+#endif // LITTLE_ENDIAN
+#endif // BIG_ENDIAN
+    struct { unsigned int op:4, unused:12; } halt;
+    struct { unsigned int op:4, ioopt:2, unused:10 } io;
+    struct { unsigned int op:4, shiftop: 2, 
+             unused:5, shiftcout:5; } shifts;
+    struct { unsigned int op:4, address:12; } others;
+};
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Using that data structure
+```
+// read in instruction into unsgined chars a and b
+ibcm_instruction inst;
+inst.high = a;
+inst.low = b;
+if ( inst.halt.op == 0 ) { // halt
+    // ...
+} else if ( inst.io.op == 1 ) { // io
+    cout << inst.io.ioopt << endl;
+} else if ( inst.shifts.op == 2 ) { // shifts
+    cout << inst.shifts.shiftop << endl;
+    cout << inst.shifts.shiftcount << endl;
+} else { // all others
+    cout << inst.others.address << endl;
+}
+```
+	  </script></section>
+
+	</section>
+
+
+
+      </div>
+
+    </div>
+
+    <div id="calibratediv" style="display:none">
+      <div id="calibratecanvasdiv">
+        <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
+      </div>
+      <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
+    </div>
+
+    <script src="reveal.js/lib/js/head.min.js"></script>
+    <script src="reveal.js/js/reveal.min.js"></script>
+    <script src="js/settings.js"></script>
+
+  </body>
+</html>

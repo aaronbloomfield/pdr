@@ -42,8 +42,6 @@ double timer::getTime() {
 
 string timer::toString() {
     ostringstream out;
-    int ms, s, m, h;
-    int totalmsec;
     if (running)
         out << "Timer still running\n";
     else {
