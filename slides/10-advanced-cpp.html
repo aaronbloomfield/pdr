@@ -613,17 +613,27 @@ class B : public A {
   - Then jump to that method (third pointer dereference)
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
-Virtual method table diagram
-In main():
-Person *p = new Student();
-First the Person constructor is called
-And creates a regular Person object
-And sets up the virtual method table (VMT)
-Then the Student constructor is called
-Updates the object...
-And updates the VMT
-	  </script></section>
+	  <section>
+<h2>Virtual method table example</h2>
+<table class="transparent"><tr><td class="top">
+<ul>
+<li>In main():
+<pre><code>Person *p = new Student();</code></pre></li>
+<li class="fragment" data-fragment-index="1">First the Person constructor is called...<ul>
+    <li class="fragment" data-fragment-index="2">And creates a regular Person object...</li>
+    <li class="fragment" data-fragment-index="4">Then sets up the virtual method table (VMT)...</li></ul></li>
+<li class="fragment" data-fragment-index="6">Then the Student constructor is called...<ul>
+    <li class="fragment" data-fragment-index="7">And updates the object...</li>
+    <li class="fragment" data-fragment-index="9">Then updates the VMT...</li></ul></li>
+</ul>
+</td><td style="width:20px"></td><td class="top">
+<img src="images/spacer.gif" width="388" height="1" alt="spacer" class="plain">
+<img class="fragment" src="images/10-advanced-cpp/vmt-1.svg" alt="virtual method table image 1" style="position:absolute" data-fragment-index="3">
+<img class="fragment" src="images/10-advanced-cpp/vmt-2.svg" alt="virtual method table image 2" style="position:absolute" data-fragment-index="5">
+<img class="fragment" src="images/10-advanced-cpp/vmt-3.svg" alt="virtual method table image 3" style="position:absolute" data-fragment-index="8">
+<img class="fragment" src="images/10-advanced-cpp/vmt-4.svg" alt="virtual method table image 4" style="position:absolute" data-fragment-index="10">
+</td></tr></table>
+	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## More on virtual method tables

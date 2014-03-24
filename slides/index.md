@@ -58,6 +58,8 @@ Program and Data Representation: Slides
 
 [Slide set 10: Advanced C++](10-advanced-cpp.html)
 
+- Source code: [name-contact.cpp](code/10-advanced-cpp/name-contact.cpp.html) ([src](code/10-advanced-cpp/name-contact.cpp))
+
 Slide set 11: Heaps
 
 Slide set 12: Huffman coding
