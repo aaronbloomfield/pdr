@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>vecsum.s</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">; vecsum.s</font></i>
+<i><font color="#9A1900">;</font></i>
+<i><font color="#9A1900">; Author  : Adam Ferrari</font></i>
+<i><font color="#9A1900">; Date    : Jan 29, 1998</font></i>
+<i><font color="#9A1900">; Purpose : This file contains the implementation of the function</font></i>
+<i><font color="#9A1900">;           vecsum, which adds up a vector of integers.</font></i>
+<i><font color="#9A1900">; Modified for NASM by Aaron Bloomfield on 9 Nov 2007</font></i>
+	
+	global vecsum
+
+	section <font color="#990000">.</font>text
+
+<i><font color="#9A1900">;</font></i>
+<i><font color="#9A1900">; vecsum</font></i>
+<i><font color="#9A1900">; Parameter 1  - the starting address of a sequence of 32-bit integers.</font></i>
+<i><font color="#9A1900">; Parameter 2  - the number of integers in the sequence.</font></i>
+<i><font color="#9A1900">; Return value - the sum of the integers in the sequence.</font></i>
+<i><font color="#9A1900">;</font></i>
+
+<b><font color="#000080">vecsum:</font></b>
+	<i><font color="#9A1900">; Standard prologue</font></i>
+	<b><font color="#0000FF">push</font></b>  <font color="#009900">ebp</font>		<i><font color="#9A1900">; Save the old base pointer</font></i>
+	<b><font color="#0000FF">mov</font></b>   <font color="#009900">ebp</font><font color="#990000">,</font> <font color="#009900">esp</font>		<i><font color="#9A1900">; Set new value of the base pointer</font></i>
+	<b><font color="#0000FF">push</font></b>  <font color="#009900">esi</font>		<i><font color="#9A1900">; Save registers</font></i>
+
+	<b><font color="#0000FF">xor</font></b>   <font color="#009900">eax</font><font color="#990000">,</font> <font color="#009900">eax</font>		<i><font color="#9A1900">; Place zero in EAX. We will keep a running</font></i>
+				<i><font color="#9A1900">; sum of the vector elements in EAX.</font></i>
+
+	<b><font color="#0000FF">mov</font></b>   <font color="#009900">esi</font><font color="#990000">,</font> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">8</font><font color="#990000">]</font>	<i><font color="#9A1900">; Put the vector starting address in ESI.</font></i>
+	<b><font color="#0000FF">mov</font></b>   <font color="#009900">ecx</font><font color="#990000">,</font> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">12</font><font color="#990000">]</font>	<i><font color="#9A1900">; Put the vector size in ECX. We will use</font></i>
+				<i><font color="#9A1900">; ECX to indicate how many vector elements</font></i>
+				<i><font color="#9A1900">; are left to add into the sum.</font></i>
+
+	<b><font color="#0000FF">cmp</font></b>   <font color="#009900">ecx</font><font color="#990000">,</font> <font color="#993399">0</font>		<i><font color="#9A1900">; If there are not more than zero elemen</font></i>
+	<b><font color="#0000FF">jle</font></b>   vecsum_done	<i><font color="#9A1900">; in the array, skip to the end and return</font></i>
+				<i><font color="#9A1900">; zero (already in EAX).</font></i>
+
+vecsum_loop<font color="#990000">:</font>
+	<b><font color="#0000FF">mov</font></b>   <font color="#009900">edx</font><font color="#990000">,</font> <font color="#990000">[</font><font color="#009900">esi</font><font color="#990000">]</font>	<i><font color="#9A1900">; Put the current vector element into EDX.</font></i>
+	<b><font color="#0000FF">add</font></b>   <font color="#009900">eax</font><font color="#990000">,</font> <font color="#009900">edx</font>		<i><font color="#9A1900">; Add the current vector element into the</font></i>
+				<i><font color="#9A1900">; running sum.</font></i>
+	<b><font color="#0000FF">add</font></b>   <font color="#009900">esi</font><font color="#990000">,</font> <font color="#993399">4</font>		<i><font color="#9A1900">; Increment ESI to point to the next</font></i>
+				<i><font color="#9A1900">; vector element (4 bytes away).</font></i>
+	<b><font color="#0000FF">dec</font></b>   <font color="#009900">ecx</font>		<i><font color="#9A1900">; Decrement ECX, the counter of how many</font></i>
+				<i><font color="#9A1900">; left to do.</font></i>
+	<b><font color="#0000FF">cmp</font></b>   <font color="#009900">ecx</font><font color="#990000">,</font> <font color="#993399">0</font>		<i><font color="#9A1900">; If there are more than zero elements</font></i>
+	<b><font color="#0000FF">jg</font></b>    vecsum_loop	<i><font color="#9A1900">; left to add up, then do the loop again.</font></i>
+
+vecsum_done<font color="#990000">:</font>
+	<i><font color="#9A1900">; At this point, the loop is done, and we have the sum of the</font></i>
+	<i><font color="#9A1900">; vector elements in EAX, which is exactly where we want the</font></i>
+	<i><font color="#9A1900">; return value to be.</font></i>
+
+	<i><font color="#9A1900">; Standard epilogue</font></i>
+	<b><font color="#0000FF">pop</font></b>   <font color="#009900">esi</font>		<i><font color="#9A1900">; Restore registers that we used.</font></i>
+				<i><font color="#9A1900">; Note - no local variables to dealocate.</font></i>
+	<b><font color="#0000FF">pop</font></b>   <font color="#009900">ebp</font>		<i><font color="#9A1900">; Restore the caller's base pointer.</font></i>
+	<b><font color="#0000FF">ret</font></b>			<i><font color="#9A1900">; Return to the caller.</font></i>
+</tt></pre>
+</body>
+</html>

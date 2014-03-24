@@ -1,3 +1,4 @@
+section .data
 bytes	DB	10	DUP(?)	; Declare 10 uninitialized bytes starting at
 				; the address "bytes".
 arr	DD	100	DUP(0)	; Declare 100 4 bytes words, all initialized

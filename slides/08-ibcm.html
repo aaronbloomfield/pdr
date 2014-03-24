@@ -12,8 +12,14 @@
     <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
     <link rel="stylesheet" href="css/pdr.css">
     <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
-    <script><!-- If the query includes 'print-pdf', use the PDF print sheet -->
-      document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
+	if( window.location.search.match( /print-pdf/gi ) ) {
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = 'reveal.js/css/print/pdf.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	}
     </script>
     <!--[if lt IE 9]>
     <script src="reveal.js/lib/js/html5shiv.js"></script>
@@ -69,7 +75,7 @@
 [Introduction](#/introduction)  
 [IBCM Description](#/ibcmdesc)  
 [Writing IBCM code](#/writingibcm)  
-[Conclusion](#/conclusion)  
+[Conclusions](#/conclusions)  
 	</script></section>
 
 
@@ -101,7 +107,7 @@
 	  <section>
 <h2>Memory Hierarchy, part 1</h2>
 <table class="transparent"><tr><td class="top">
-<img src="images/08-ibcm/memory-diagram.png" alt="memory diagram">
+<img src="images/08-ibcm/memory-hierarchy.png" alt="memory hierarchy">
 </td><td>
 <ul>
 <li>CPU registers<ul>
@@ -122,7 +128,7 @@
 	  <section>
 <h2>Memory Hierarchy, part 2</h2>
 <table class="transparent"><tr><td class="top">
-<img src="images/08-ibcm/memory-diagram.png" alt="memory diagram">
+<img src="images/08-ibcm/memory-hierarchy.png" alt="memory hierarchy">
 </td><td class="top">
 <ul>
 <li>Main memory<ul>
@@ -208,7 +214,7 @@ store 300
   <li>All initialized to zero initially<ul>
     <li>Unlike C/C++</li></ul></li></ul></li>
 </ul>
-</td><td><img src="images/08-ibcm/memory-diagram.png" alt="memory diagram"></td></tr></table>
+</td><td><img src="images/08-ibcm/ibcm-memory.png" alt="ibcm memory diagram"></td></tr></table>
 	  </section>
 
 	  <section>
@@ -266,7 +272,7 @@ store 300
 </tr>
 </table>
 
-	  </script></section>
+	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## IBCM instruction types
@@ -341,7 +347,7 @@ store 300
 <tr><td>B</td><td>nop</td><td><code>/* */</code></td><td>do nothing (no operation)</td></tr>
 <tr><td>C</td><td>jmp</td><td><code>goto addr</code></td><td>jump to 'addr'</td></tr>
 <tr><td>D</td><td>jmpe</td><td><code>if a == 0 goto addr</code></td><td>jump to 'addr' if accumulator equals zero</td></tr>
-<tr><td>E</td><td>jmpl</td><td><code>if a < 0 goto addr</code></td><td>jump to 'addr' if accum. is less than zero</td></tr>
+<tr><td>E</td><td>jmpl</td><td><code>if a &lt; 0 goto addr</code></td><td>jump to 'addr' if accum. is less than zero</td></tr>
 <tr><td>F</td><td>brl</td><td><code>a := PC+1; goto addr</code></td><td>jump (branch) to 'addr'; set accum. to<br>the value of the PC just before the jump<br>(i.e., to the address following the `brl`)</td></tr>
 </table>
 	  </section>
@@ -477,6 +483,7 @@ store i
 - Compute the sum of integers 1 through *n*, where *n* is to be read from the keyboard
   - The resulting sum is to be printed to the screen
   - Halt after printing the sum
+- Source code: [summation.ibcm](../ibcm/summation.ibcm)
 - Pseudocode:
 ```
 read n;
@@ -570,23 +577,23 @@ C010 19         jmp     loop      goto loop
 ```
       </script></section>
 
-      <section data-markdown><script type="text/template">
-## How Would You Code This?
-```
-if (B == 0)
+      <section>
+<h2>How Would You Code This?</h2>
+<pre><code>if (B == 0)
     S1;
 else
     S2;
-```
-      </script></section>
+</code></pre>
+<script type="text/javascript">insertCanvas();</script>
+      </section>
 
-      <section data-markdown><script type="text/template">
-## How Would You Code This?
-```
-while(B >= 5)
+      <section>
+<h2>How Would You Code This?</h2>
+<pre><code>while(B >= 5)
     S;
-```
-      </script></section>
+</code></pre>
+<script type="text/javascript">insertCanvas();</script>
+      </section>
 
       <section data-markdown><script type="text/template">
 ## IBCM Code to Sum Elements in an Array
@@ -604,6 +611,7 @@ while (i < n) {
 }
 print s;
 ```
+- Source code: [array-summation.ibcm](../ibcm/array-summation.ibcm)
       </script></section>
 
       <section data-markdown><script type="text/template">
@@ -705,8 +713,8 @@ C011 1F         jmp      loop   goto loop
 
 	<section>
 
-	  <section id="conclusion" data-markdown><script type="text/template">
-# Conclusion
+	  <section id="conclusions" data-markdown><script type="text/template">
+# Conclusions
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -729,6 +737,7 @@ C011 1F         jmp      loop   goto loop
   3. Trace the assembly
   4. Translate to machine code... LAST!!!
   5. Run in the simulator to verify that it works
+- Cannot have blank lines (or comment lines)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -744,14 +753,14 @@ C011 1F         jmp      loop   goto loop
 
 	  <section>
 <h2>What's missing from IBCM?</h2>
-<ul class="fragment"></li>
+<ul class="fragment">
 <li>Integer multiply and divide</li>
 <li>Floating point support</li>
 <li>A bigger address space</li>
 <li>More than 1 user register</li>
 <li>What else?</li>
 </ul>
-	  </script></section>
+	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## Emulating IBCM in C++

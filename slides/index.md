@@ -38,9 +38,27 @@ Program and Data Representation: Slides
 
 [Slide set 8: IBCM (machine language)](08-ibcm.html)
 
-Slide set 9: x86 (assembly language)
+- The online simulator is [here](http://www.cs.virginia.edu/~cs216/ibcm/) (with mirrors [1](http://libra.cs.virginia.edu/ibcm/) and [2](http://people.virginia.edu/~asb2t/ibcm/))
+- Source code: [summation.ibcm](../ibcm/summation.ibcm), [array-summation.ibcm](../ibcm/array-summation.ibcm)
+- [IBCM book chapter](../book/ibcm-chapter.pdf) as the reading
+- There is a separate [IBCM section](../ibcm/index.html) of this repository with more IBCM information, although that additional information will not be needed in this course
 
-Slide set 10: Advanced C++
+[Slide set 9: x86 (assembly language)](09-x86.html)
+
+- [x86 book chapter](../book/x86-chapter.pdf) as the reading
+- Source code
+  - [Makefile](code/09-x86/Makefile.html) ([src](code/09-x86/Makefile))
+  - Absolute value example: [test_abs.cpp](code/09-x86/test_abs.cpp.html) ([src](code/09-x86/test_abs.cpp)), [test_abs_c.c](code/09-x86/test_abs_c.c.html) ([src](code/09-x86/test_abs_c.c)), [test_abs.s](code/09-x86/test_abs.s.html) ([src](code/09-x86/test_abs.s)), [test_abs_c.s](code/09-x86/test_abs_c.s.html) ([src](code/09-x86/test_abs_c.s)), [test_abs-non-intel.s](code/09-x86/test_abs-non-intel.s.html) ([src](code/09-x86/test_abs-non-intel.s))
+  - Fibonacci example: [test_fib.cpp](code/09-x86/test_fib.cpp.html) ([src](code/09-x86/test_fib.cpp)), [test_fib.s](code/09-x86/test_fib.s.html) ([src](code/09-x86/test_fib.s))
+  - Max example: [test_max.cpp](code/09-x86/test_max.cpp.html) ([src](code/09-x86/test_max.cpp)), [test_max.s](code/09-x86/test_max.s.html) ([src](code/09-x86/test_max.s)), [test_max-O2.s](code/09-x86/test_max-O2.s.html) ([src](code/09-x86/test_max-O2.s)), [test_max-noextern.s](code/09-x86/test_max-noextern.s.html) ([src](code/09-x86/test_max-noextern.s))
+  - String compare example: [test_string_compare.cpp](code/09-x86/test_string_compare.cpp.html) ([src](code/09-x86/test_string_compare.cpp)), [test_string_compare.s](code/09-x86/test_string_compare.s.html) ([src](code/09-x86/test_string_compare.s))
+- The tutorial for [lab 8](../labs/lab08/index.html) is the online [nasm tutorial](http://cs.lmu.edu/~ray/notes/nasmexamples/), which has more examples of assembly code
+  - You can skip a few of the sections (feel free to look at them if interested, but they are not needed): Floating Point Instructions, SIMD Parallelism, Saturated Arithmetic, and Graphics.
+
+
+[Slide set 10: Advanced C++](10-advanced-cpp.html)
+
+- Source code: [name-contact.cpp](code/10-advanced-cpp/name-contact.cpp.html) ([src](code/10-advanced-cpp/name-contact.cpp))
 
 Slide set 11: Heaps
 

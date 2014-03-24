@@ -1,8 +1,8 @@
-.486
-.MODEL FLAT
-.CODE
-PUBLIC _myFunc
-_myFunc PROC
+global myFunc
+
+section .text
+	
+myFunc:
 	; *** Standard subroutine prologue ***
 	push ebp	; Save the old base pointer value.
 	mov ebp, esp	; Set the new base pointer value.
@@ -22,10 +22,8 @@ _myFunc PROC
 				; into EAX (final result)
 
 	; *** Standard subroutine epilogue ***
-	pop esi		;  Recover register values
+	pop esi		; Recover register values
 	pop edi		
 	mov esp, ebp	; Deallocate local variables
 	pop ebp		; Restore the caller's base pointer value
 	ret
-_myFunc ENDP
-END

@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>test_abs-non-intel.s</title>
+</head>
+<body bgcolor="white">
+<pre><tt><b><font color="#000080">	.file</font></b>	<font color="#FF0000">"test_abs.cpp"</font>
+<b><font color="#000080">	.text</font></b>
+<b><font color="#000080">	.align</font></b>	<font color="#993399">16</font><font color="#990000">,</font> <font color="#993399">0x90</font>
+<b><font color="#000080">	.type</font></b>	__cxx_global_var_init<font color="#990000">,</font>@function
+__cxx_global_var_init<font color="#990000">:</font>                  # @__cxx_global_var_init
+<b><font color="#000080">.Ltmp2</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_startproc
+# BB#<font color="#993399">0</font><font color="#990000">:</font>
+	pushl	<font color="#990000">%</font><font color="#009900">ebp</font>
+<b><font color="#000080">.Ltmp3</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_def_cfa_offset <font color="#993399">8</font>
+<b><font color="#000080">.Ltmp4</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_offset <font color="#990000">%</font><font color="#009900">ebp</font><font color="#990000">,</font> <font color="#990000">-</font><font color="#993399">8</font>
+	movl	<font color="#990000">%</font><font color="#009900">esp</font><font color="#990000">,</font> <font color="#990000">%</font><font color="#009900">ebp</font>
+<b><font color="#000080">.Ltmp5</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_def_cfa_register <font color="#990000">%</font><font color="#009900">ebp</font>
+	subl	$<font color="#993399">24</font><font color="#990000">,</font> <font color="#990000">%</font><font color="#009900">esp</font>
+	leal	_ZStL<font color="#993399">8</font>__ioinit<font color="#990000">,</font> <font color="#990000">%</font><font color="#009900">eax</font>
+	movl	<font color="#990000">%</font><font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">(%</font><font color="#009900">esp</font><font color="#990000">)</font>
+	calll	_ZNSt<font color="#993399">8</font>ios_base<font color="#993399">4</font>InitC<font color="#993399">1</font>Ev
+	leal	_ZNSt<font color="#993399">8</font>ios_base<font color="#993399">4</font>InitD<font color="#993399">1</font>Ev<font color="#990000">,</font> <font color="#990000">%</font><font color="#009900">eax</font>
+	leal	_ZStL<font color="#993399">8</font>__ioinit<font color="#990000">,</font> <font color="#990000">%</font><font color="#009900">ecx</font>
+	leal	__dso_handle<font color="#990000">,</font> <font color="#990000">%</font><font color="#009900">edx</font>
+	movl	<font color="#990000">%</font><font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">(%</font><font color="#009900">esp</font><font color="#990000">)</font>
+	movl	<font color="#990000">%</font><font color="#009900">ecx</font><font color="#990000">,</font> <font color="#993399">4</font><font color="#990000">(%</font><font color="#009900">esp</font><font color="#990000">)</font>
+	movl	<font color="#990000">%</font><font color="#009900">edx</font><font color="#990000">,</font> <font color="#993399">8</font><font color="#990000">(%</font><font color="#009900">esp</font><font color="#990000">)</font>
+	calll	__cxa_atexit
+	movl	<font color="#990000">%</font><font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">-</font><font color="#993399">4</font><font color="#990000">(%</font><font color="#009900">ebp</font><font color="#990000">)</font>          # <font color="#993399">4</font><font color="#990000">-</font><font color="#009900">byte</font> Spill
+	addl	$<font color="#993399">24</font><font color="#990000">,</font> <font color="#990000">%</font><font color="#009900">esp</font>
+	popl	<font color="#990000">%</font><font color="#009900">ebp</font>
+	<b><font color="#0000FF">ret</font></b>
+<b><font color="#000080">.Ltmp6</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.size</font></b>	__cxx_global_var_init<font color="#990000">,</font> <font color="#990000">.</font>Ltmp<font color="#993399">6</font><font color="#990000">-</font>__cxx_global_var_init
+<b><font color="#000080">.Ltmp7</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_endproc
+<b><font color="#000080">.Leh</font></b>_func_end<font color="#993399">0</font><font color="#990000">:</font>
+
+<b><font color="#000080">	.globl</font></b>	absolute_value
+<b><font color="#000080">	.align</font></b>	<font color="#993399">16</font><font color="#990000">,</font> <font color="#993399">0x90</font>
+<b><font color="#000080">	.type</font></b>	absolute_value<font color="#990000">,</font>@function
+absolute_value<font color="#990000">:</font>                         # @absolute_value
+# BB#<font color="#993399">0</font><font color="#990000">:</font>
+	pushl	<font color="#990000">%</font><font color="#009900">eax</font>
+	movl	<font color="#993399">8</font><font color="#990000">(%</font><font color="#009900">esp</font><font color="#990000">),</font> <font color="#990000">%</font><font color="#009900">eax</font>
+	movl	<font color="#990000">%</font><font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">(%</font><font color="#009900">esp</font><font color="#990000">)</font>
+	cmpl	$<font color="#993399">0</font><font color="#990000">,</font> <font color="#990000">(%</font><font color="#009900">esp</font><font color="#990000">)</font>
+	<b><font color="#0000FF">jge</font></b>	<font color="#990000">.</font>LBB<font color="#993399">1_2</font>
+# BB#<font color="#993399">1</font><font color="#990000">:</font>
+	movl	$<font color="#993399">0</font><font color="#990000">,</font> <font color="#990000">%</font><font color="#009900">eax</font>
+	subl	<font color="#990000">(%</font><font color="#009900">esp</font><font color="#990000">),</font> <font color="#990000">%</font><font color="#009900">eax</font>
+	movl	<font color="#990000">%</font><font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">(%</font><font color="#009900">esp</font><font color="#990000">)</font>
+<b><font color="#000080">.LBB1</font></b><font color="#993399">_2</font><font color="#990000">:</font>
+	movl	<font color="#990000">(%</font><font color="#009900">esp</font><font color="#990000">),</font> <font color="#990000">%</font><font color="#009900">eax</font>
+	popl	<font color="#990000">%</font><font color="#009900">edx</font>
+	<b><font color="#0000FF">ret</font></b>
+<b><font color="#000080">.Ltmp8</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.size</font></b>	absolute_value<font color="#990000">,</font> <font color="#990000">.</font>Ltmp<font color="#993399">8</font><font color="#990000">-</font>absolute_value
+
+<b><font color="#000080">	.globl</font></b>	main
+<b><font color="#000080">	.align</font></b>	<font color="#993399">16</font><font color="#990000">,</font> <font color="#993399">0x90</font>
+<b><font color="#000080">	.type</font></b>	main<font color="#990000">,</font>@function
+<b><font color="#000080">main:</font></b>                                   # @main
+<b><font color="#000080">.Ltmp11</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_startproc
+# BB#<font color="#993399">0</font><font color="#990000">:</font>
+	pushl	<font color="#990000">%</font><font color="#009900">ebp</font>
+<b><font color="#000080">.Ltmp12</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_def_cfa_offset <font color="#993399">8</font>
+<b><font color="#000080">.Ltmp13</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_offset <font color="#990000">%</font><font color="#009900">ebp</font><font color="#990000">,</font> <font color="#990000">-</font><font color="#993399">8</font>
+	movl	<font color="#990000">%</font><font color="#009900">esp</font><font color="#990000">,</font> <font color="#990000">%</font><font color="#009900">ebp</font>
+<b><font color="#000080">.Ltmp14</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_def_cfa_register <font color="#990000">%</font><font color="#009900">ebp</font>
+	subl	$<font color="#993399">40</font><font color="#990000">,</font> <font color="#990000">%</font><font color="#009900">esp</font>
+	leal	_ZSt<font color="#993399">4</font>cout<font color="#990000">,</font> <font color="#990000">%</font><font color="#009900">eax</font>
+	leal	<font color="#990000">.</font>L<font color="#990000">.</font><b><font color="#0000FF">str</font></b><font color="#990000">,</font> <font color="#990000">%</font><font color="#009900">ecx</font>
+	movl	$<font color="#993399">0</font><font color="#990000">,</font> <font color="#990000">-</font><font color="#993399">4</font><font color="#990000">(%</font><font color="#009900">ebp</font><font color="#990000">)</font>
+	movl	$<font color="#993399">0</font><font color="#990000">,</font> <font color="#990000">-</font><font color="#993399">8</font><font color="#990000">(%</font><font color="#009900">ebp</font><font color="#990000">)</font>
+	movl	<font color="#990000">%</font><font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">(%</font><font color="#009900">esp</font><font color="#990000">)</font>
+	movl	<font color="#990000">%</font><font color="#009900">ecx</font><font color="#990000">,</font> <font color="#993399">4</font><font color="#990000">(%</font><font color="#009900">esp</font><font color="#990000">)</font>
+	calll	_ZStlsISt<font color="#993399">11</font>char_traitsIcEERSt<font color="#993399">13</font>basic_ostreamIcT_ES<font color="#993399">5</font>_PKc
+	leal	_ZSt<font color="#993399">4</font>endlIcSt<font color="#993399">11</font>char_traitsIcEERSt<font color="#993399">13</font>basic_ostreamIT_T<font color="#993399">0</font>_ES<font color="#993399">6</font>_<font color="#990000">,</font> <font color="#990000">%</font><font color="#009900">ecx</font>
+	movl	<font color="#990000">%</font><font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">(%</font><font color="#009900">esp</font><font color="#990000">)</font>
+	movl	<font color="#990000">%</font><font color="#009900">ecx</font><font color="#990000">,</font> <font color="#993399">4</font><font color="#990000">(%</font><font color="#009900">esp</font><font color="#990000">)</font>
+	calll	_ZNSolsEPFRSoS_E
+	leal	_ZSt<font color="#993399">3</font>cin<font color="#990000">,</font> <font color="#990000">%</font><font color="#009900">ecx</font>
+	leal	<font color="#990000">-</font><font color="#993399">8</font><font color="#990000">(%</font><font color="#009900">ebp</font><font color="#990000">),</font> <font color="#990000">%</font><font color="#009900">edx</font>
+	movl	<font color="#990000">%</font><font color="#009900">ecx</font><font color="#990000">,</font> <font color="#990000">(%</font><font color="#009900">esp</font><font color="#990000">)</font>
+	movl	<font color="#990000">%</font><font color="#009900">edx</font><font color="#990000">,</font> <font color="#993399">4</font><font color="#990000">(%</font><font color="#009900">esp</font><font color="#990000">)</font>
+	movl	<font color="#990000">%</font><font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">-</font><font color="#993399">16</font><font color="#990000">(%</font><font color="#009900">ebp</font><font color="#990000">)</font>         # <font color="#993399">4</font><font color="#990000">-</font><font color="#009900">byte</font> Spill
+	calll	_ZNSirsERi
+	movl	<font color="#990000">-</font><font color="#993399">8</font><font color="#990000">(%</font><font color="#009900">ebp</font><font color="#990000">),</font> <font color="#990000">%</font><font color="#009900">ecx</font>
+	movl	<font color="#990000">%</font><font color="#009900">ecx</font><font color="#990000">,</font> <font color="#990000">(%</font><font color="#009900">esp</font><font color="#990000">)</font>
+	movl	<font color="#990000">%</font><font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">-</font><font color="#993399">20</font><font color="#990000">(%</font><font color="#009900">ebp</font><font color="#990000">)</font>         # <font color="#993399">4</font><font color="#990000">-</font><font color="#009900">byte</font> Spill
+	calll	absolute_value
+	leal	_ZSt<font color="#993399">4</font>cout<font color="#990000">,</font> <font color="#990000">%</font><font color="#009900">ecx</font>
+	leal	<font color="#990000">.</font>L<font color="#990000">.</font>str<font color="#993399">1</font><font color="#990000">,</font> <font color="#990000">%</font><font color="#009900">edx</font>
+	movl	<font color="#990000">%</font><font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">-</font><font color="#993399">12</font><font color="#990000">(%</font><font color="#009900">ebp</font><font color="#990000">)</font>
+	movl	<font color="#990000">%</font><font color="#009900">ecx</font><font color="#990000">,</font> <font color="#990000">(%</font><font color="#009900">esp</font><font color="#990000">)</font>
+	movl	<font color="#990000">%</font><font color="#009900">edx</font><font color="#990000">,</font> <font color="#993399">4</font><font color="#990000">(%</font><font color="#009900">esp</font><font color="#990000">)</font>
+	calll	_ZStlsISt<font color="#993399">11</font>char_traitsIcEERSt<font color="#993399">13</font>basic_ostreamIcT_ES<font color="#993399">5</font>_PKc
+	movl	<font color="#990000">-</font><font color="#993399">12</font><font color="#990000">(%</font><font color="#009900">ebp</font><font color="#990000">),</font> <font color="#990000">%</font><font color="#009900">ecx</font>
+	movl	<font color="#990000">%</font><font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">(%</font><font color="#009900">esp</font><font color="#990000">)</font>
+	movl	<font color="#990000">%</font><font color="#009900">ecx</font><font color="#990000">,</font> <font color="#993399">4</font><font color="#990000">(%</font><font color="#009900">esp</font><font color="#990000">)</font>
+	calll	_ZNSolsEi
+	leal	_ZSt<font color="#993399">4</font>endlIcSt<font color="#993399">11</font>char_traitsIcEERSt<font color="#993399">13</font>basic_ostreamIT_T<font color="#993399">0</font>_ES<font color="#993399">6</font>_<font color="#990000">,</font> <font color="#990000">%</font><font color="#009900">ecx</font>
+	movl	<font color="#990000">%</font><font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">(%</font><font color="#009900">esp</font><font color="#990000">)</font>
+	movl	<font color="#990000">%</font><font color="#009900">ecx</font><font color="#990000">,</font> <font color="#993399">4</font><font color="#990000">(%</font><font color="#009900">esp</font><font color="#990000">)</font>
+	calll	_ZNSolsEPFRSoS_E
+	movl	$<font color="#993399">0</font><font color="#990000">,</font> <font color="#990000">%</font><font color="#009900">ecx</font>
+	movl	<font color="#990000">%</font><font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">-</font><font color="#993399">24</font><font color="#990000">(%</font><font color="#009900">ebp</font><font color="#990000">)</font>         # <font color="#993399">4</font><font color="#990000">-</font><font color="#009900">byte</font> Spill
+	movl	<font color="#990000">%</font><font color="#009900">ecx</font><font color="#990000">,</font> <font color="#990000">%</font><font color="#009900">eax</font>
+	addl	$<font color="#993399">40</font><font color="#990000">,</font> <font color="#990000">%</font><font color="#009900">esp</font>
+	popl	<font color="#990000">%</font><font color="#009900">ebp</font>
+	<b><font color="#0000FF">ret</font></b>
+<b><font color="#000080">.Ltmp15</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.size</font></b>	main<font color="#990000">,</font> <font color="#990000">.</font>Ltmp<font color="#993399">15</font><font color="#990000">-</font>main
+<b><font color="#000080">.Ltmp16</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_endproc
+<b><font color="#000080">.Leh</font></b>_func_end<font color="#993399">2</font><font color="#990000">:</font>
+
+<b><font color="#000080">	.align</font></b>	<font color="#993399">16</font><font color="#990000">,</font> <font color="#993399">0x90</font>
+<b><font color="#000080">	.type</font></b>	_GLOBAL__I_a<font color="#990000">,</font>@function
+_GLOBAL__I_a<font color="#990000">:</font>                           # @_GLOBAL__I_a
+<b><font color="#000080">.Ltmp19</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_startproc
+# BB#<font color="#993399">0</font><font color="#990000">:</font>
+	pushl	<font color="#990000">%</font><font color="#009900">ebp</font>
+<b><font color="#000080">.Ltmp20</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_def_cfa_offset <font color="#993399">8</font>
+<b><font color="#000080">.Ltmp21</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_offset <font color="#990000">%</font><font color="#009900">ebp</font><font color="#990000">,</font> <font color="#990000">-</font><font color="#993399">8</font>
+	movl	<font color="#990000">%</font><font color="#009900">esp</font><font color="#990000">,</font> <font color="#990000">%</font><font color="#009900">ebp</font>
+<b><font color="#000080">.Ltmp22</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_def_cfa_register <font color="#990000">%</font><font color="#009900">ebp</font>
+	subl	$<font color="#993399">8</font><font color="#990000">,</font> <font color="#990000">%</font><font color="#009900">esp</font>
+	calll	__cxx_global_var_init
+	addl	$<font color="#993399">8</font><font color="#990000">,</font> <font color="#990000">%</font><font color="#009900">esp</font>
+	popl	<font color="#990000">%</font><font color="#009900">ebp</font>
+	<b><font color="#0000FF">ret</font></b>
+<b><font color="#000080">.Ltmp23</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.size</font></b>	_GLOBAL__I_a<font color="#990000">,</font> <font color="#990000">.</font>Ltmp<font color="#993399">23</font><font color="#990000">-</font>_GLOBAL__I_a
+<b><font color="#000080">.Ltmp24</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_endproc
+<b><font color="#000080">.Leh</font></b>_func_end<font color="#993399">3</font><font color="#990000">:</font>
+
+<b><font color="#000080">	.type</font></b>	_ZStL<font color="#993399">8</font>__ioinit<font color="#990000">,</font>@object  # @_ZStL<font color="#993399">8</font>__ioinit
+<b><font color="#000080">	.local</font></b>	_ZStL<font color="#993399">8</font>__ioinit
+<b><font color="#000080">	.comm</font></b>	_ZStL<font color="#993399">8</font>__ioinit<font color="#990000">,</font><font color="#993399">1</font><font color="#990000">,</font><font color="#993399">1</font>
+<b><font color="#000080">	.type</font></b>	<font color="#990000">.</font>L<font color="#990000">.</font><b><font color="#0000FF">str</font></b><font color="#990000">,</font>@object          # @<font color="#990000">.</font><b><font color="#0000FF">str</font></b>
+<b><font color="#000080">	.section</font></b>	<font color="#990000">.</font>rodata<font color="#990000">.</font>str<font color="#993399">1.1</font><font color="#990000">,</font><font color="#FF0000">"aMS"</font><font color="#990000">,</font>@progbits<font color="#990000">,</font><font color="#993399">1</font>
+<b><font color="#000080">.L</font></b><font color="#990000">.</font><b><font color="#0000FF">str</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.asciz</font></b>	 <font color="#FF0000">"Enter a value: "</font>
+<b><font color="#000080">	.size</font></b>	<font color="#990000">.</font>L<font color="#990000">.</font><b><font color="#0000FF">str</font></b><font color="#990000">,</font> <font color="#993399">16</font>
+
+<b><font color="#000080">	.type</font></b>	<font color="#990000">.</font>L<font color="#990000">.</font>str<font color="#993399">1</font><font color="#990000">,</font>@object         # @<font color="#990000">.</font>str<font color="#993399">1</font>
+<b><font color="#000080">.L</font></b><font color="#990000">.</font>str<font color="#993399">1</font><font color="#990000">:</font>
+<b><font color="#000080">	.asciz</font></b>	 <font color="#FF0000">"The result is: "</font>
+<b><font color="#000080">	.size</font></b>	<font color="#990000">.</font>L<font color="#990000">.</font>str<font color="#993399">1</font><font color="#990000">,</font> <font color="#993399">16</font>
+
+<b><font color="#000080">	.section</font></b>	<font color="#990000">.</font>ctors<font color="#990000">,</font><font color="#FF0000">"aw"</font><font color="#990000">,</font>@progbits
+<b><font color="#000080">	.align</font></b>	<font color="#993399">4</font>
+<b><font color="#000080">	.long</font></b>	_GLOBAL__I_a
+
+<b><font color="#000080">	.section</font></b>	<font color="#FF0000">".note.GNU-stack"</font><font color="#990000">,</font><font color="#FF0000">""</font><font color="#990000">,</font>@progbits
+</tt></pre>
+</body>
+</html>

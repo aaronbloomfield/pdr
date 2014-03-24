@@ -12,8 +12,14 @@
     <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
     <link rel="stylesheet" href="css/pdr.css">
     <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
-    <script><!-- If the query includes 'print-pdf', use the PDF print sheet -->
-      document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
+	if( window.location.search.match( /print-pdf/gi ) ) {
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = 'reveal.js/css/print/pdf.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	}
     </script>
     <!--[if lt IE 9]>
     <script src="reveal.js/lib/js/html5shiv.js"></script>
@@ -308,7 +314,7 @@ int main (int argc, char* argv[]) {
   <li>O(<i>g</i>) is the set of functions <i>f</i>, such that:<ul>
     <li><i>f</i>(<i>n</i>) <span class='red'>&le;</span> c * <i>g</i>(<i>n</i>) for all <i>n</i> &ge; <i>n</i><sub>0</sub></li></ul></li>
   <li>&Omega;(<i>g</i>) is the set of functions <i>f</i>, such that:<ul>
-    <li><i>f</i>(<i>n</i>) <span color='red'>&ge;</span> c * <i>g</i>(<i>n</i>) for all <i>n</i> &ge; <i>n</i><sub>0</sub></li></ul></li>
+    <li><i>f</i>(<i>n</i>) <span class='red'>&ge;</span> c * <i>g</i>(<i>n</i>) for all <i>n</i> &ge; <i>n</i><sub>0</sub></li></ul></li>
   <li>&Theta;(<i>g</i>) = O(<i>g</i>) &cap; &Omega;(<i>g</i>)<ul>
     <li>&Theta;(<i>g</i>) is the asymptotic order of g or the <i>order</i> of g</li>
     <li><i>f</i> &isin; &Theta;(<i>g</i>) read as &quot;<i>f</i> is asymptotic order <i>g</i>&quot; or &quot;<i>f</i> is order <i>g</i>&quot;</li></ul></li>
