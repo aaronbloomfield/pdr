@@ -200,7 +200,7 @@ Recall that using the `-S` flag with clang++ will generate the assembly code.  Y
 
 ### clang++ and the Calling Convention ###
 
-As discussed in class (specifically, [here](../../slides/09-x86.html#clangconventionbreak)), clang will often optimize away many parts of the calling convention, and has even been known to pass parameters in registers.  So if you see code that is unexpected, trace it by hand to determine what is really happening.  Likely, it is an optimization of the calling convention.
+As discussed in class (specifically, [here](../../slides/09-x86.html#clangconventionbreak)), clang will often optimize away many parts of the calling convention, and has even been known to pass parameters in registers.  So if you see code that is unexpected, trace it by hand to determine what is really happening.  Likely, it is an optimization of the calling convention. To avoid this in the in-lab, use g++ rather than clang++ to compile. The correct g++ flags are -S -m32 -masm=intel.
 
 ### In-lab 8 topics: you must do ALL of these for the post-lab, but only ONE of these for the in-lab ###
 
