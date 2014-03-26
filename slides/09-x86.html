@@ -1079,7 +1079,7 @@ ret             ; pop top value from stack, jump there
   - "Generic" x86 examples that could work in nasm if put into a proper program
     - In the same way that you have seen C++ code snippets
   - Or the output from "clang++ -S" (and probably some other flags)
-    - This code will *NOT* work with nasm, but will work with clang++ (which we aren't really using anyway for our assembly)
+    - This code will *NOT* work with nasm, but will work with clang++ (which we aren't really using to compile our assembly anyway)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -1092,6 +1092,16 @@ Code we'll see:
 - int max(int x, int y)
 - bool compare_string(const char \*theStr1, const char \*theStr2)
 - int fib(int n)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## clang++ creates some odd assembly...
+- We'll see why later, but clang++ creates some odd-looking assembly
+  - Whcih does not appear to follow the calling convention
+- So you can use g++ to view the assembly
+  - The flags are different: `g++ -S -m32 -masm=intel`
+  - g++ was installed on your VirtualBox image specifically for this reason
+  - Some of the assembly shown here was generated using g++, not clang++
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
