@@ -1101,7 +1101,7 @@ Code we'll see:
 - So you can use g++ to view the assembly
   - The flags are different: `g++ -S -m32 -masm=intel`
   - g++ was installed on your VirtualBox image specifically for this reason
-  - Some of the assembly shown here was generated using g++, not clang++
+- The assembly shown in this slide set was generated using g++, not clang++
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -1109,7 +1109,7 @@ Code we'll see:
 (see next slide for the source code link)
 ```
 int absolute_value(int x) {
-    if(x<0)        // if x is negative
+    if ( x < 0 )        // if x is negative
         x = -x;    // negate x
     return x;      // return x
 }
@@ -1120,15 +1120,17 @@ int absolute_value(int x) {
 ## test_abs.cpp
 Source code: [test_abs.cpp](code/09-x86/test_abs.cpp.html) ([src](code/09-x86/test_abs.cpp))
 ```
+#include <iostream>
+using namespace std;
 extern "C" int absolute_value(int x);
 
 int absolute_value(int x) {
-    if( x < 0 )    // if x is negative
-        x = -x;    // negate x
-    return x;      // return x
+    if (x<0)	// if x is negative
+        x = -x;	// negate x
+    return x;	// return x
 }
 
-int main(){
+int main() {
     int theValue=0;
     cout << "Enter a value: " << endl;
     cin >> theValue;
@@ -1141,7 +1143,7 @@ int main(){
 
 	  <section data-markdown><script type="text/template">
 ## x86 Assembly for absolute_value
-No external source code; this is how we would write it ourselves.
+No external source code; this is how we might write it ourselves.
 ```
 ; Standard prologue
 push ebp
@@ -1171,6 +1173,10 @@ ret
 clang++ -m32 -S test_abs.cpp -o test_abs-non-intel.s
 ```
   - You'll see why it has 'non-intel' in the name shortly...
+- If you want to use g++ (which we do), you use:
+```
+g++ -m32 -S test_abs.cpp -o test_abs-non-intel.s
+```
 - The formatting is still different, but the idea is the same
 	  </script></section>
 
@@ -1180,19 +1186,19 @@ Note the source / destination order is reversed!  And lots of other differences.
 
 Source code: [test_abs-non-intel.s](code/09-x86/test_abs-non-intel.s.html) ([src](code/09-x86/test_abs-non-intel.s))
 ```
-absolute_value:                         # @absolute_value
-        pushl   %eax
-        movl    8(%esp), %eax
-        movl    %eax, (%esp)
-        cmpl    $0, (%esp)
-        jge     .LBB1_2
-        movl    $0, %eax
-        subl    (%esp), %eax
-        movl    %eax, (%esp)
+absolute_value:
+	pushl   %eax
+	movl    8(%esp), %eax
+	movl    %eax, (%esp)
+	cmpl    $0, (%esp)
+	jge     .LBB1_2
+	movl    $0, %eax
+	subl    (%esp), %eax
+	movl    %eax, (%esp)
 .LBB1_2:
-        movl    (%esp), %eax
-        popl    %edx
-        ret
+	movl    (%esp), %eax
+	popl    %edx
+	ret
 ```
 	  </script></section>
 
@@ -1217,10 +1223,14 @@ absolute_value:                         # @absolute_value
   - Intel syntax: what we will use, and what nasm uses
   - AT&T syntax: what `clang++ -S` uses by default
 
-- To make clang++ use the Intel syntax, you need to add the `-mllvm --x86-asm-syntax=intel` flags
+- To make clang++ use the Intel syntax, you need to add the <br>`-mllvm --x86-asm-syntax=intel` flags
 ```
 clang++ -m32 -mllvm --x86-asm-syntax=intel -S \
           test_abs.cpp -o test_abs.s
+```
+- For g++, use the `-masm=intel` flags:
+```
+g++ -m32 -masm=intel -S test_abs.cpp -o test_abs.s
 ```
 	  </script></section>
 
@@ -1230,18 +1240,15 @@ This is with the `-mllvm --x86-asm-syntax=intel` flags
 
 Source code: [test_abs.s](code/09-x86/test_abs.s.html) ([src](code/09-x86/test_abs.s))
 ```
-absolute_value:                         # @absolute_value
-	push   EAX
-	mov	EAX, DWORD PTR [ESP + 8]
-	mov	DWORD PTR [ESP], EAX
-	cmp	DWORD PTR [ESP], 0
-	jge	.LBB1_2
-	mov	EAX, 0
-	sub	EAX, DWORD PTR [ESP]
-	mov	DWORD PTR [ESP], EAX
-.LBB1_2:
-	mov	EAX, DWORD PTR [ESP]
-	pop	EDX
+absolute_value:
+	push    ebp
+	mov     ebp, esp
+	cmp     DWORD PTR [ebp+8], 0
+	jns     .L2
+	neg     DWORD PTR [ebp+8]
+.L2:
+	mov     eax, DWORD PTR [ebp+8]
+	pop     ebp
 	ret
 ```
 	  </script></section>
@@ -1265,7 +1272,7 @@ Source code: [test_abs_c.c](code/09-x86/test_abs_c.c.html) ([src](code/09-x86/te
 #include <stdio.h>
 
 int absolute_value(int x) {
-    if (x<0)      // if x is negative
+    if ( x < 0 )      // if x is negative
         x = -x;   // negate x
     return x;     // return x
 }
@@ -1333,24 +1340,22 @@ Using `-mllvm --x86-asm-syntax=intel`
 
 Source code: [test_max.s](code/09-x86/test_max.s.html) ([src](code/09-x86/test_max.s))
 ```
-max:                                    # @max
-	sub	ESP, 12
-	mov	EAX, DWORD PTR [ESP + 20]
-	mov	ECX, DWORD PTR [ESP + 16]
-	mov	DWORD PTR [ESP + 8], ECX
-	mov	DWORD PTR [ESP + 4], EAX
-	mov	EAX, DWORD PTR [ESP + 8]
-	cmp	EAX, DWORD PTR [ESP + 4]
-	jle	.LBB1_2
-	mov	EAX, DWORD PTR [ESP + 8]
-	mov	DWORD PTR [ESP], EAX
-	jmp	.LBB1_3
-.LBB1_2:
-	mov	EAX, DWORD PTR [ESP + 4]
-	mov	DWORD PTR [ESP], EAX
-.LBB1_3:
-	mov	EAX, DWORD PTR [ESP]
-	add	ESP, 12
+max:
+	push    ebp
+	mov     ebp, esp
+	sub     esp, 16
+	mov     eax, DWORD PTR [ebp+8]
+	cmp     eax, DWORD PTR [ebp+12]
+	jle     .L2
+	mov     eax, DWORD PTR [ebp+8]
+	mov     DWORD PTR [ebp-4], eax
+	jmp     .L3
+.L2:
+	mov     eax, DWORD PTR [ebp+12]
+	mov     DWORD PTR [ebp-4], eax
+.L3:
+	mov     eax, DWORD PTR [ebp-4]
+	leave
 	ret
 ```
 	  </script></section>
@@ -1361,11 +1366,11 @@ Using `-mllvm --x86-asm-syntax=intel` and `-O2`
 
 Source code: [test_max-O2.s](code/09-x86/test_max-O2.s.html) ([src](code/09-x86/test_max-O2.s))
 ```
-max:                                    # @max
-	mov	  EAX, DWORD PTR [ESP + 8]
-	mov	  ECX, DWORD PTR [ESP + 4]
-	cmp	  ECX, EAX
-	cmovg	EAX, ECX
+max:
+	mov     eax, DWORD PTR [esp+4]
+	mov     edx, DWORD PTR [esp+8]
+	cmp     edx, eax
+	cmovge  eax, edx
 	ret
 ```
 The [cmovg](http://www.asmpedia.org/index.php?title=CMOVG) opcode will move the greater value into the first parameter
@@ -1377,24 +1382,22 @@ Using `-mllvm --x86-asm-syntax=intel`
 
 Source code: [test_max-noextern.s](code/09-x86/test_max-noextern.s.html) ([src](code/09-x86/test_max-noextern.s))
 ```
-_Z3maxii:                               # @_Z3maxii
-	sub	ESP, 12
-	mov	EAX, DWORD PTR [ESP + 20]
-	mov	ECX, DWORD PTR [ESP + 16]
-	mov	DWORD PTR [ESP + 8], ECX
-	mov	DWORD PTR [ESP + 4], EAX
-	mov	EAX, DWORD PTR [ESP + 8]
-	cmp	EAX, DWORD PTR [ESP + 4]
-	jle	.LBB1_2
-	mov	EAX, DWORD PTR [ESP + 8]
-	mov	DWORD PTR [ESP], EAX
-	jmp	.LBB1_3
-.LBB1_2:
-	mov	EAX, DWORD PTR [ESP + 4]
-	mov	DWORD PTR [ESP], EAX
-.LBB1_3:
-	mov	EAX, DWORD PTR [ESP]
-	add	ESP, 12
+_Z3maxii:
+	push   ebp
+	mov    ebp, esp
+	sub    esp, 16
+	mov    eax, DWORD PTR [ebp+8]
+	cmp    eax, DWORD PTR [ebp+12]
+	jle    .L2
+	mov    eax, DWORD PTR [ebp+8]
+	mov    DWORD PTR [ebp-4], eax
+	jmp    .L3
+.L2:
+	mov    eax, DWORD PTR [ebp+12]
+	mov    DWORD PTR [ebp-4], eax
+.L3:
+	mov    eax, DWORD PTR [ebp-4]
+	leave
 	ret
 ```
 	  </script></section>
@@ -1450,26 +1453,13 @@ Using `-mllvm --x86-asm-syntax=intel`
 
 Source code: [test_string_compare.s](code/09-x86/test_string_compare.s.html) ([src](code/09-x86/test_string_compare.s))
 ```
-compare_string:                         # @compare_string
-      sub    ESP, 12
-      mov    EAX, DWORD PTR [ESP + 20]
-      mov    ECX, DWORD PTR [ESP + 16]
-      mov    DWORD PTR [ESP + 8], ECX
-      mov    DWORD PTR [ESP + 4], EAX
-.LBB1_1:
-      mov    AL, 0
-      mov    ECX, DWORD PTR [ESP + 8]
-      movsx  ECX, BYTE PTR [ECX]
-      cmp    ECX, 0
-      mov    BYTE PTR [ESP + 3], AL
-      je     .LBB1_3
-      mov    EAX, DWORD PTR [ESP + 8]
-      movsx  EAX, BYTE PTR [EAX]
-      mov    ECX, DWORD PTR [ESP + 4]
-      movsx  ECX, BYTE PTR [ECX]
-      cmp    EAX, ECX
-      sete   DL
-      mov    BYTE PTR [ESP + 3], DL
+compare_string:
+	push    ebp
+	mov     ebp, esp
+	jmp     .L2
+.L5:
+	add     DWORD PTR [ebp+8], 1
+	add     DWORD PTR [ebp+12], 1
 ```
 	  </script></section>
 
@@ -1477,19 +1467,19 @@ compare_string:                         # @compare_string
 ## x86 assembly for compare_string(), 2/3
 Source code: [test_string_compare.s](code/09-x86/test_string_compare.s.html) ([src](code/09-x86/test_string_compare.s))
 ```
-.LBB1_3:
-      mov    AL, BYTE PTR [ESP + 3]
-      test   AL, 1
-      jne    .LBB1_4
-      jmp    .LBB1_5
-.LBB1_4:
-      mov    EAX, DWORD PTR [ESP + 8]
-      add    EAX, 1
-      mov    DWORD PTR [ESP + 8], EAX
-      mov    EAX, DWORD PTR [ESP + 4]
-      add    EAX, 1
-      mov    DWORD PTR [ESP + 4], EAX
-      jmp    .LBB1_1
+.L2:
+	mov     eax, DWORD PTR [ebp+8]
+	movzx   eax, BYTE PTR [eax]
+	test    al, al
+	je      .L3
+	mov     eax, DWORD PTR [ebp+8]
+	movzx   edx, BYTE PTR [eax]
+	mov     eax, DWORD PTR [ebp+12]
+	movzx   eax, BYTE PTR [eax]
+	cmp     dl, al
+	jne     .L3
+	mov     eax, 1
+	jmp     .L4
 ```
 	  </script></section>
 
@@ -1497,17 +1487,19 @@ Source code: [test_string_compare.s](code/09-x86/test_string_compare.s.html) ([s
 ## x86 assembly for compare_string(), 3/3
 Source code: [test_string_compare.s](code/09-x86/test_string_compare.s.html) ([src](code/09-x86/test_string_compare.s))
 ```
-.LBB1_5:
-      mov    EAX, DWORD PTR [ESP + 8]
-      movsx  EAX, BYTE PTR [EAX]
-      mov    ECX, DWORD PTR [ESP + 4]
-      movsx  ECX, BYTE PTR [ECX]
-      cmp    EAX, ECX
-      sete   DL
-      and    DL, 1
-      movzx  EAX, DL
-      add    ESP, 12
-      ret
+.L3:
+	mov     eax, 0
+.L4:
+	test    al, al
+	jne     .L5
+	mov     eax, DWORD PTR [ebp+8]
+	movzx   edx, BYTE PTR [eax]
+	mov     eax, DWORD PTR [ebp+12]
+	movzx   eax, BYTE PTR [eax]
+	cmp     dl, al
+	sete    al
+	pop     ebp
+	ret
 ```
 	  </script></section>
 
@@ -1516,7 +1508,7 @@ Source code: [test_string_compare.s](code/09-x86/test_string_compare.s.html) ([s
 (see next slide for the source code link)
 ```
 int fib(int n) {
-    if((n==0) || (n==1))
+    if ((n==0) || (n==1))
         return 1;
     return fib(n-1) + fib(n-2);
 }
@@ -1532,7 +1524,7 @@ using namespace std;
 extern "C" int fib(int n);
 
 int fib(int n) {
-    if((n==0) || (n==1))
+    if ((n==0) || (n==1))
         return 1;
     return fib(n-1) + fib(n-2);
 }
@@ -1554,21 +1546,18 @@ Using `-mllvm --x86-asm-syntax=intel`
 
 Source code: [test_fib.s](code/09-x86/test_fib.s.html) ([src](code/09-x86/test_fib.s))
 ```
-fib:                                    # @fib
-.Ltmp10:
-	push   EBP
-	mov	EBP, ESP
-.Ltmp13:
-	sub	ESP, 24
-	mov	EAX, DWORD PTR [EBP + 8]
-	mov	DWORD PTR [EBP - 8], EAX
-	cmp	DWORD PTR [EBP - 8], 0
-	je	.LBB1_2
-	cmp	DWORD PTR [EBP - 8], 1
-	jne	.LBB1_3
-.LBB1_2:
-	mov	DWORD PTR [EBP - 4], 1
-	jmp	.LBB1_4
+fib:
+	push    ebp
+	mov     ebp, esp
+	push    ebx
+	sub     esp, 20
+	cmp     DWORD PTR [ebp+8], 0
+	je      .L2
+	cmp     DWORD PTR [ebp+8], 1
+	jne     .L3
+.L2:
+	mov     eax, 1
+	jmp     .L4
 ```
 	  </script></section>
 
@@ -1577,23 +1566,21 @@ fib:                                    # @fib
 
 Source code: [test_fib.s](code/09-x86/test_fib.s.html) ([src](code/09-x86/test_fib.s))
 ```
-.LBB1_3:
-	mov	EAX, DWORD PTR [EBP - 8]
-	sub	EAX, 1
-	mov	DWORD PTR [ESP], EAX
-	call   fib
-	mov	ECX, DWORD PTR [EBP - 8]
-	sub	ECX, 2
-	mov	DWORD PTR [ESP], ECX
-	mov	DWORD PTR [EBP - 12], EAX
-	call   fib
-	mov	ECX, DWORD PTR [EBP - 12]
-	add	EAX, ECX
-	mov	DWORD PTR [EBP - 4], EAX
-.LBB1_4:
-	mov	EAX, DWORD PTR [EBP - 4]
-	add	ESP, 24
-	pop	EBP
+.L3:
+	mov     eax, DWORD PTR [ebp+8]
+	sub     eax, 1
+	mov     DWORD PTR [esp], eax
+	call    fib
+	mov     ebx, eax
+	mov     eax, DWORD PTR [ebp+8]
+	sub     eax, 2
+	mov     DWORD PTR [esp], eax
+	call    fib
+	add     eax, ebx
+.L4:
+	add     esp, 20
+	pop     ebx
+	pop     ebp
 	ret
 ```
 	  </script></section>

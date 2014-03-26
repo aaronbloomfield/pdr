@@ -47,6 +47,7 @@ Program and Data Representation: Slides
 
 - [x86 book chapter](../book/x86-chapter.pdf) as the reading
 - Source code
+  - The generated assembly was generated using `make asm`, which uses gcc/g++; to generate it using clang/clang++, use the 'asmclang' target
   - [Makefile](code/09-x86/Makefile.html) ([src](code/09-x86/Makefile))
   - Absolute value example: [test_abs.cpp](code/09-x86/test_abs.cpp.html) ([src](code/09-x86/test_abs.cpp)), [test_abs_c.c](code/09-x86/test_abs_c.c.html) ([src](code/09-x86/test_abs_c.c)), [test_abs.s](code/09-x86/test_abs.s.html) ([src](code/09-x86/test_abs.s)), [test_abs_c.s](code/09-x86/test_abs_c.s.html) ([src](code/09-x86/test_abs_c.s)), [test_abs-non-intel.s](code/09-x86/test_abs-non-intel.s.html) ([src](code/09-x86/test_abs-non-intel.s))
   - Fibonacci example: [test_fib.cpp](code/09-x86/test_fib.cpp.html) ([src](code/09-x86/test_fib.cpp)), [test_fib.s](code/09-x86/test_fib.s.html) ([src](code/09-x86/test_fib.s))
