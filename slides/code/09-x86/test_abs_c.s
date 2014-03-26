@@ -1,79 +1,70 @@
 	.file	"test_abs_c.c"
+	.intel_syntax noprefix
 	.text
-	.globl	absolute_value
-	.align	16, 0x90
-	.type	absolute_value,@function
-absolute_value:                         # @absolute_value
-# BB#0:
-	push	EAX
-	mov	EAX, DWORD PTR [ESP + 8]
-	mov	DWORD PTR [ESP], EAX
-	cmp	DWORD PTR [ESP], 0
-	jge	.LBB0_2
-# BB#1:
-	mov	EAX, 0
-	sub	EAX, DWORD PTR [ESP]
-	mov	DWORD PTR [ESP], EAX
-.LBB0_2:
-	mov	EAX, DWORD PTR [ESP]
-	pop	EDX
+	.globl	_Z14absolute_valuei
+	.type	_Z14absolute_valuei, @function
+_Z14absolute_valuei:
+.LFB0:
+	.cfi_startproc
+	push	ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	mov	ebp, esp
+	.cfi_def_cfa_register 5
+	cmp	DWORD PTR [ebp+8], 0
+	jns	.L2
+	neg	DWORD PTR [ebp+8]
+.L2:
+	mov	eax, DWORD PTR [ebp+8]
+	pop	ebp
+	.cfi_def_cfa 4, 4
+	.cfi_restore 5
 	ret
-.Ltmp0:
-	.size	absolute_value, .Ltmp0-absolute_value
-
+	.cfi_endproc
+.LFE0:
+	.size	_Z14absolute_valuei, .-_Z14absolute_valuei
+	.section	.rodata
+.LC0:
+	.string	"Enter a value: "
+.LC1:
+	.string	"%d"
+.LC2:
+	.string	"The result is: %d\n"
+	.text
 	.globl	main
-	.align	16, 0x90
-	.type	main,@function
-main:                                   # @main
-# BB#0:
-	push	EBP
-	mov	EBP, ESP
-	sub	ESP, 40
-	lea	EAX, DWORD PTR [.L.str]
-	mov	DWORD PTR [EBP - 4], 0
-	mov	DWORD PTR [EBP - 8], 0
-	mov	DWORD PTR [ESP], EAX
+	.type	main, @function
+main:
+.LFB1:
+	.cfi_startproc
+	push	ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	mov	ebp, esp
+	.cfi_def_cfa_register 5
+	and	esp, -16
+	sub	esp, 32
+	mov	DWORD PTR [esp+24], 0
+	mov	DWORD PTR [esp], OFFSET FLAT:.LC0
+	call	puts
+	lea	eax, [esp+24]
+	mov	DWORD PTR [esp+4], eax
+	mov	DWORD PTR [esp], OFFSET FLAT:.LC1
+	call	scanf
+	mov	eax, DWORD PTR [esp+24]
+	mov	DWORD PTR [esp], eax
+	call	_Z14absolute_valuei
+	mov	DWORD PTR [esp+28], eax
+	mov	eax, DWORD PTR [esp+28]
+	mov	DWORD PTR [esp+4], eax
+	mov	DWORD PTR [esp], OFFSET FLAT:.LC2
 	call	printf
-	lea	ECX, DWORD PTR [.L.str1]
-	lea	EDX, DWORD PTR [EBP - 8]
-	mov	DWORD PTR [ESP], ECX
-	mov	DWORD PTR [ESP + 4], EDX
-	mov	DWORD PTR [EBP - 16], EAX # 4-byte Spill
-	call	__isoc99_scanf
-	mov	ECX, DWORD PTR [EBP - 8]
-	mov	DWORD PTR [ESP], ECX
-	mov	DWORD PTR [EBP - 20], EAX # 4-byte Spill
-	call	absolute_value
-	lea	ECX, DWORD PTR [.L.str2]
-	mov	DWORD PTR [EBP - 12], EAX
-	mov	EAX, DWORD PTR [EBP - 12]
-	mov	DWORD PTR [ESP], ECX
-	mov	DWORD PTR [ESP + 4], EAX
-	call	printf
-	mov	ECX, 0
-	mov	DWORD PTR [EBP - 24], EAX # 4-byte Spill
-	mov	EAX, ECX
-	add	ESP, 40
-	pop	EBP
+	mov	eax, 0
+	leave
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
 	ret
-.Ltmp1:
-	.size	main, .Ltmp1-main
-
-	.type	.L.str,@object          # @.str
-	.section	.rodata.str1.1,"aMS",@progbits,1
-.L.str:
-	.asciz	 "Enter a value: \n"
-	.size	.L.str, 17
-
-	.type	.L.str1,@object         # @.str1
-.L.str1:
-	.asciz	 "%d"
-	.size	.L.str1, 3
-
-	.type	.L.str2,@object         # @.str2
-.L.str2:
-	.asciz	 "The result is: %d\n"
-	.size	.L.str2, 19
-
-
-	.section	".note.GNU-stack","",@progbits
+	.cfi_endproc
+.LFE1:
+	.size	main, .-main
+	.ident	"GCC: (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3"
+	.section	.note.GNU-stack,"",@progbits
