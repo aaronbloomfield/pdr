@@ -1078,8 +1078,8 @@ ret             ; pop top value from stack, jump there
 - The x86 code samples in this slide set are either:
   - "Generic" x86 examples that could work in nasm if put into a proper program
     - In the same way that you have seen C++ code snippets
-  - Or the output from "clang++ -S" (and probably some other flags)
-    - This code will *NOT* work with nasm, but will work with clang++ (which we aren't really using to compile our assembly anyway)
+  - Or the output from "clang++ -S" or "g++ -S" (and probably some other flags)
+    - This code will *NOT* work with nasm, but will work with clang++/g++ (which we aren't really using to compile our assembly anyway)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -1099,7 +1099,10 @@ Code we'll see:
 - We'll see why later, but clang++ creates some odd-looking assembly
   - Whcih does not appear to follow the calling convention
 - So you can use g++ to view the assembly
-  - The flags are different: `g++ -S -m32 -masm=intel`
+  - The flags are different:
+```
+g++ -S -m32 -masm=intel
+```
   - g++ was installed on your VirtualBox image specifically for this reason
 - The assembly shown in this slide set was generated using g++, not clang++
 	  </script></section>
@@ -1164,7 +1167,7 @@ ret
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Generating assembly with clang++
+## Generating assembly with clang++ or g++
 - Using the -S flag, we can generate assembly from C/C++ code
 - Note that the format is a bit different
   - Register specification, dest/source order, etc.
@@ -1177,11 +1180,11 @@ clang++ -m32 -S test_abs.cpp -o test_abs-non-intel.s
 ```
 g++ -m32 -S test_abs.cpp -o test_abs-non-intel.s
 ```
-- The formatting is still different, but the idea is the same
+- The formatting is still slightly different from nasm, but the idea is the same
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## clang++'s assembly for absolute_value
+## g++'s assembly for absolute_value
 Note the source / destination order is reversed!  And lots of other differences...
 
 Source code: [test_abs-non-intel.s](code/09-x86/test_abs-non-intel.s.html) ([src](code/09-x86/test_abs-non-intel.s))
@@ -1204,7 +1207,7 @@ absolute_value:
 
 	  <section data-markdown><script type="text/template">
 ## Assembly differences
-- There are a lot of differences between the assembly we've seen and what `clang++ -S` produces
+- There are a lot of differences between the assembly we've seen and what `g++ -S` produces
   - `movl`, `pushl`, `compl`, `negl`, `popl`
     - the 'l' part means 'long' (i.e. 32 bits, so the assembler doesn’t have to assume)
   - `jns` means jump if not signed (i.e. if positive)
@@ -1221,7 +1224,7 @@ absolute_value:
   - You can see more details about the differences [here](https://en.wikipedia.org/wiki/X86_assembly_language#Syntax)
 - Flavors:
   - Intel syntax: what we will use, and what nasm uses
-  - AT&T syntax: what `clang++ -S` uses by default
+  - AT&T syntax: what `g++ -S` uses by default
 
 - To make clang++ use the Intel syntax, you need to add the <br>`-mllvm --x86-asm-syntax=intel` flags
 ```
@@ -1235,8 +1238,8 @@ g++ -m32 -masm=intel -S test_abs.cpp -o test_abs.s
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## clang++'s assembly for absolute_value
-This is with the `-mllvm --x86-asm-syntax=intel` flags
+## g++'s assembly for absolute_value
+This is with the `-masm=intel` flags
 
 Source code: [test_abs.s](code/09-x86/test_abs.s.html) ([src](code/09-x86/test_abs.s))
 ```
@@ -1255,7 +1258,7 @@ absolute_value:
 
 	  <section data-markdown><script type="text/template">
 ## clang++'s assembly output on Macs
-- With g++ (what we used last year), Darwin (i.e., Mac OS X) did not support the `--masm=intel` flag
+- With g++ (what we used last year), Darwin (i.e., Mac OS X) did not support the `-masm=intel` flag
   - And clang++ may not support the `-mllvm --x86-asm-syntax=intel` flags
 - But I don't know what clang++ will do...
   - Can anybody test this?
@@ -1336,7 +1339,7 @@ int main(){
 
 	  <section data-markdown><script type="text/template">
 ## x86 code for max()
-Using `-mllvm --x86-asm-syntax=intel`
+Using `g++ -masm=intel`
 
 Source code: [test_max.s](code/09-x86/test_max.s.html) ([src](code/09-x86/test_max.s))
 ```
@@ -1361,8 +1364,8 @@ max:
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## x86 code for max() using --O2
-Using `-mllvm --x86-asm-syntax=intel` and `-O2`
+## x86 code for max() using -O2
+Using `g++ -masm=intel` and `-O2`
 
 Source code: [test_max-O2.s](code/09-x86/test_max-O2.s.html) ([src](code/09-x86/test_max-O2.s))
 ```
@@ -1373,12 +1376,12 @@ max:
 	cmovge  eax, edx
 	ret
 ```
-The [cmovg](http://www.asmpedia.org/index.php?title=CMOVG) opcode will move the greater value into the first parameter
+The [cmovg](http://www.asmpedia.org/index.php?title=CMOVG) opcode will move the greater value into the first parameter; [cmovg](http://www.asmpedia.org/index.php?title=CMOVG) does the move greater than *or equal to* value
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## x86 code for max() without 'extern "C"'
-Using `-mllvm --x86-asm-syntax=intel`
+Using `g++ -masm=intel`
 
 Source code: [test_max-noextern.s](code/09-x86/test_max-noextern.s.html) ([src](code/09-x86/test_max-noextern.s))
 ```
@@ -1449,7 +1452,7 @@ int main(){
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for compare_string(), 1/3
-Using `-mllvm --x86-asm-syntax=intel`
+Using `g++ -masm=intel`
 
 Source code: [test_string_compare.s](code/09-x86/test_string_compare.s.html) ([src](code/09-x86/test_string_compare.s))
 ```
@@ -1465,6 +1468,8 @@ compare_string:
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for compare_string(), 2/3
+Using `g++ -masm=intel`
+
 Source code: [test_string_compare.s](code/09-x86/test_string_compare.s.html) ([src](code/09-x86/test_string_compare.s))
 ```
 .L2:
@@ -1485,6 +1490,8 @@ Source code: [test_string_compare.s](code/09-x86/test_string_compare.s.html) ([s
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for compare_string(), 3/3
+Using `g++ -masm=intel`
+
 Source code: [test_string_compare.s](code/09-x86/test_string_compare.s.html) ([src](code/09-x86/test_string_compare.s))
 ```
 .L3:
@@ -1542,7 +1549,7 @@ int main(){
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for fib(), 1/2
-Using `-mllvm --x86-asm-syntax=intel`
+Using `g++ -masm=intel`
 
 Source code: [test_fib.s](code/09-x86/test_fib.s.html) ([src](code/09-x86/test_fib.s))
 ```
@@ -1563,6 +1570,7 @@ fib:
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for fib(), 2/2
+Using `g++ -masm=intel`
 
 Source code: [test_fib.s](code/09-x86/test_fib.s.html) ([src](code/09-x86/test_fib.s))
 ```
@@ -1612,7 +1620,7 @@ Source code: [test_fib.s](code/09-x86/test_fib.s.html) ([src](code/09-x86/test_f
     <li>... then we can offset everything from esp instead</li>
 </ul></li>
 <li>This saves the push/pop ebp operations</li>
-<li>clang++ likes to do this...</li>
+<li>clang++ really likes to do this...</li>
 <li>But this is not always possible if a program uses dynamic memory on the <i>stack</i></li>
 </ul>
 </td><td><img alt="x86 activation record" src="images/09-x86/x86-activation-record.svg"></td></tr></table>
