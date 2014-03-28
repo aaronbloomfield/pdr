@@ -1091,7 +1091,7 @@ Code we'll see:
 - int absolute_value(int x)
 - int max(int x, int y)
 - bool compare_string(const char \*theStr1, const char \*theStr2)
-- int fib(int n)
+- int fib(unsigned int n)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -1514,7 +1514,7 @@ Source code: [test_string_compare.s](code/09-x86/test_string_compare.s.html) ([s
 ## int fib
 (see next slide for the source code link)
 ```
-int fib(int n) {
+int fib(unsigned int n) {
     if ((n==0) || (n==1))
         return 1;
     return fib(n-1) + fib(n-2);
@@ -1528,9 +1528,9 @@ Source code: [test_fib.cpp](code/09-x86/test_fib.cpp.html) ([src](code/09-x86/te
 ```
 #include <iostream>
 using namespace std;
-extern "C" int fib(int n);
+extern "C" int fib(unsigned int n);
 
-int fib(int n) {
+int fib(unsigned int n) {
     if ((n==0) || (n==1))
         return 1;
     return fib(n-1) + fib(n-2);
@@ -1601,6 +1601,21 @@ Source code: [test_fib.s](code/09-x86/test_fib.s.html) ([src](code/09-x86/test_f
 - So as the stack was set up correctly, the convention was follows
 	  </script></section>
 
+	  <section>
+<h2>Do we need to even use ebp?</h2>
+<table class="transparent">
+<tr><td class="top" style="width:50%">
+<ul>
+<li>If we know that the number of local variables will be fixed...<ul>
+    <li>... then we can offset everything from esp instead</li>
+</ul></li>
+<li>This saves the push/pop ebp operations</li>
+<li>clang++ really likes to do this...</li>
+<li>But this is not always possible if a program uses dynamic memory on the <i>stack</i></li>
+</ul>
+</td><td class="top" style="width:50%"><img alt="x86 activation record" src="images/09-x86/x86-activation-record.svg"></td></tr></table>
+	  </section>
+
 	  <section data-markdown id="clangconventionbreak"><script type="text/template">
 ## But clang breaks the calling convention!
 - Again, not really
@@ -1610,21 +1625,6 @@ Source code: [test_fib.s](code/09-x86/test_fib.s.html) ([src](code/09-x86/test_f
     - ... meaning that there is no call to an external library, or this is not code that will go *into* a library...
     - ... then parameters may be passed in the registers
 	  </script></section>
-
-	  <section>
-<h2>Do we need to even use ebp?</h2>
-<table class="transparent">
-<tr><td class="top">
-<ul>
-<li>If we know that the number of local variables will be fixed...<ul>
-    <li>... then we can offset everything from esp instead</li>
-</ul></li>
-<li>This saves the push/pop ebp operations</li>
-<li>clang++ really likes to do this...</li>
-<li>But this is not always possible if a program uses dynamic memory on the <i>stack</i></li>
-</ul>
-</td><td><img alt="x86 activation record" src="images/09-x86/x86-activation-record.svg"></td></tr></table>
-	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## RISC versus CISC
