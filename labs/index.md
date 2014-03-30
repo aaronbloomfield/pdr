@@ -54,3 +54,4 @@ The labs for this course:
   - Source code: [vecsum.s](lab08/vecsum.s.html) ([src](lab08/vecsum.s)), [main.cpp](lab08/main.cpp.html) ([src](lab08/main.cpp)), [Makefile](lab08/Makefile.html) ([src](lab08/Makefile))
   - Readings: the two x86 book chapters: [x86 Assembly](../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../book/x86-ccc-chapter.pdf)
 
+- [Lab 9: x86, part 2](lab09/index.html) (assembly language)
