@@ -1,0 +1,27 @@
+digraph G {
+	graph [fontname = "Helvetica"];
+	node [fontname = "Helvetica",shape=circle,width=0.6];
+	edge [fontname = "Helvetica"];
+
+	1 [label="-"];
+	2 [label="-"];
+	3 [label="-"];
+	
+	1 -> a;
+	m1 [label="", width=0.1, style=invis];
+	1 -> m1 [style=invis];
+	1 -> 2;
+	{rank=same a -> m1 -> 2 [style=invis]};
+
+	2 -> 3;
+	m2 [label="", width=0.1, style=invis];
+	2 -> m2 [style=invis];
+	2 -> d;
+	{rank=same 3 -> m2 -> d [style=invis]};
+
+	3 -> b;
+	m3 [label="", width=0.1, style=invis];
+	3 -> m3 [style=invis];
+	3 -> c;
+	{rank=same b -> m3 -> c [style=invis]};
+}
