@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 2150: 11-heaps-huffman slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="css/pdr.css">
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
+	if( window.location.search.match( /print-pdf/gi ) ) {
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = 'reveal.js/css/print/pdf.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	}
+    </script>
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/dhtmlwindow.js"></script>
+    <script type="text/javascript" src="js/canvas.js"></script>
+    <link rel="stylesheet" href="css/dhtmlwindow.css" type="text/css">
+  </head>
+
+  <body onload="canvasinit()">
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	<section data-markdown id="cover"><script type="text/template">
+# CS 2150
+&nbsp;
+### Program and Data Representation
+### Spring 2014
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="11-heaps-huffman.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
+<center><small>Themes: [default](?#/cover), [sky](?theme=sky#/cover), [beige](?theme=beige#/cover), [simple](?theme=simple#/cover), [serif](?theme=serif#/cover), [night](?theme=night#/cover), [moon](?theme=moon#/cover), [solarized](?theme=solarized#/cover)</small></center>
+&nbsp;  
+&nbsp;  
+## Heaps (Priority Queues) & Huffman Coding
+	</script></section>
+
+	  <section>
+<h2>CS 2150 Roadmap</h2>
+<table class="wide">
+  <tr><td colspan="3"><p class="center">Data Representation</p></td><td></td><td colspan="3"><p class="center">Program Representation</p></td></tr>
+  <tr>
+    <td class="top"><small>&nbsp;<br>&nbsp;<br>string<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>int x[3]<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>char x<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>0x9cd0f0ad<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>01101011</small></td>
+    <!-- image adapted from http://openclipart.org/detail/3677/arrow-left-right-by-torfnase -->
+    <td><img class="noborder" src="images/red-double-arrow.png" height="500" alt="vertical red double arrow"></td>
+    <td class="top">&nbsp;<br>Objects<br>&nbsp;<br>Arrays<br>&nbsp;<br>Primitive types<br>&nbsp;<br>Addresses<br>&nbsp;<br>bits</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="top"><small>&nbsp;<br>&nbsp;<br>Java code<br>&nbsp;<br>&nbsp;<br>C++ code<br>&nbsp;<br>&nbsp;<br>C code<br>&nbsp;<br>&nbsp;<br>x86 code<br>&nbsp;<br>&nbsp;<br>IBCM<br>&nbsp;<br>&nbsp;<br>hexadecimal</small></td>
+    <!-- image adapted from http://openclipart.org/detail/3677/arrow-left-right-by-torfnase -->
+    <td><img class="noborder" src="images/green-double-arrow.png" height="500" alt="vertical green double arrow"></td>
+    <td class="top">&nbsp;<br>High-level language<br>&nbsp;<br>Low-level language<br>&nbsp;<br>Assembly language<br>&nbsp;<br>Machine code</td>
+  </tr>
+</table>
+	  </section>
+
+	<section data-markdown><script type="text/template">
+# Contents
+&nbsp;  
+[Binary Heaps](#heaps)  
+[Heap Operations](#heapops)  
+[File Compression](#filecomp)  
+[Huffman Coding](#huffman)  
+[Priority Queues](#priorityqueues)  
+	</script></section>
+
+	<section>
+
+	  <section id="heaps" data-markdown><script type="text/template">
+# Binary Heaps
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+Topics
+Priority queue ADT
+Motivation
+Model
+Simple Implementations
+Binary Heap
+Applications of priority queues
+Huffman encoding
+Motivation
+Multiuser environment
+Operating system must choose which process to run on CPU 
+
+Management of limited resources
+Bandwidth on network router
+Limited bandwidth, but want to give best possible performance
+Send traffic from highest priority queue first
+VoIP
+Priority Queue ADT - Model
+operations: 
+insert
+findMin
+finds the minimum element
+deleteMin 
+finds, returns, and removes minimum element
+
+
+Implementations of Priority Queue ADT
+Binary Heap
+An implementation of priority queues
+Binary Heap Properties
+Structure Property
+Ordering Property
+Some Definitions
+A Perfect (or Complete) binary tree – A binary tree with all leaf nodes at the same depth. All internal nodes have 2 children. 
+Full Binary Tree
+A binary tree in which each node has exactly zero or two children. 
+Also known as a proper binary tree
+We will use this later for Huffman trees
+
+Heap Structure Property
+Heap Structure Property
+A binary heap is an almost complete binary tree.
+
+Almost complete binary tree – binary tree that is completely filled, with the possible exception of the bottom level, which is filled left to right.
+Examples:
+End of lecture on Wed, Nov 13
+The last few slides were gone over quickly…
+Almost complete binary tree of height h
+For h = 0, just a single node.
+For h = 1, left child or
+ two children.
+For h  2, either
+the left subtree of the root is full with height h-1 and the right is complete with height h-1, OR
+the left is complete with height h-1 and the right is full with height h-2.
+Representing Complete 
+Binary Trees in an Array
+Why better than pointers?
+No pointers – saves space
+*2, /2, + operations are faster than dereferencing pointer
+Parent easy to locate
+Heap Order Property
+Heap Order Property
+Heap order property: For every non-root node X, the key in the parent of X is less than (or equal to) the key in X.
+	  </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="heapops" data-markdown><script type="text/template">
+# Heap Operations
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+Heap Operations
+Heap Operations
+findMin:
+insert(val): percolate up.
+deleteMin: percolate down.
+
+See http://people.ksp.sk/~kuko/bak/index.html
+Heap – Insert(val)
+Basic Idea: 
+Put val at “next” leaf position
+Repeatedly exchange node with its parent if needed
+insert(int x) (Fig. 6.8)
+void insert (int x) {
+		if(currentSize == array.size() – 1)
+			array.resize(array.size() * 2);
+
+		// Percolate up
+		int hole = ++currentSize;
+		for( ; hole > 1 && x < array[hole /2]; 
+		    					hole /= 2) {
+			// if x < array[hole/2] move 
+			// item in array[hole] “down”
+			array[hole] = array[hole/2];
+		}
+		array[hole] = x;
+}
+Insert: percolate up
+End of lecture on Fri, Nov 15
+We went over the exam before the recording started
+Heap – DeleteMin
+Basic Idea: 
+Remove root (that is always the min!)
+Put “last” leaf node at root
+Find smallest child (why?)
+Swap node with smallest child if needed.
+Repeat steps 3 & 4 until no swaps needed.
+Which child to swap with
+Consider this min-heap:
+25 needs percolating!
+But which way?
+
+If we swap 25 with 
+the smallest child:
+All’s good!
+
+If we swap 25 with 
+the largest child:
+No longer a min-heap!
+DeleteMin: percolate down
+Other Heap Operations
+decreaseKey(process, amount): “raise” the priority of a process, percolate up
+increaseKey(processID, amount): “lower” the priority of a process, percolate down
+remove(processID): remove a process, move to top, then delete.   
+			1) decreaseKey(processID, -)
+			2) deleteMin()
+
+Worst case Running time for all of these: (n), because of the find() required; without the find(), it’s (log n)
+FindMax?
+ExpandHeap – when heap fills, copy into new space.
+Heaps (Summary)
+insert: percolate up.  (log N) time.
+deleteMin: percolate down.  (log N) time.
+
+Heapsort?
+Insert n elements, then remove n elements
+Each one has an insertion time of log n
+And then a removal time of log n
+Hence (n log n)
+An xkcd about heaps…
+http://
+xkcd.com
+835/ 
+	  </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="filecomp" data-markdown><script type="text/template">
+# File Compression
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+Data Compression:  
+Huffman Coding
+10.1.2 in Weiss
+Why compress files?
+Disk space is limited
+File transfer
+Bigger files take longer to transfer
+Smaller file might fit in memory more easily
+What is a file?
+Named collection of information
+C++ program
+Application executables
+Word documents
+Email
+Web pages
+Pictures, audio, video
+Data Compression
+
+
+
+Lossless compression  X = X’
+Lossy compression  X != X’
+information is lost (irreversible)
+Compression Ratio  |X|/|Y|
+Where |X| is the # of bits in X.
+Lossy Compression
+Some data is lost, but not too much.
+Standards:
+JPEG (Joint Photographic Experts Group)
+Still images
+MPEG (Motion Picture Experts Group) 
+Audio and video
+MP3 (MPEG-1, Layer 3), Ogg vorbis
+
+JPEG image quality 
+comparison
+Quality = 100
+Image size: 83,261 (100%)
+Quality = 50
+Image size: 15,138 (18%)
+Quality = 25 
+Image size: 9,553 (11%)
+Quality = 10
+Image size: 4,787 (6%)
+Quality = 1
+Image size: 1,523 (2%)
+Lossless Compression
+No data is lost.
+
+Standards:
+Gzip, Unix compress, zip, Morse code 
+PNG image file formats
+Run-length encoding (RLE)
+Lossless Compression of Text
+ASCII = fixed 8 bits per character
+Example: “hello there”
+11 characters * 8 bits = 88 bits
+
+Can we encode this message using fewer bits?
+
+Huffman Coding
+Uses frequencies of symbols in a string to build a prefix code.
+
+The more frequent a character is, the fewer bits we’ll use to represent it
+
+Prefix Code – no code in our encoding is a prefix of another code.
+Decoding a Prefix Code
+Create the Huffman coding tree
+Loop
+	start at root of tree
+		loop
+			if bit read = 1 then go right
+			else, go left
+		until node is a leaf 
+		Report character found!
+Until end of the message
+
+Decode: 1110001010011
+Huffman Trees
+Cost of a Huffman Tree containing n symbols
+
+	C(T) = p1*r1+p2*r2+p3*r3+….+ pn*rn
+
+Where:
+pi = the probability that a symbol occurs
+ri = the length of the path from the root to the node
+Huffman encoding costs
+This is the example from 2 slides ago
+	  </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="huffman" data-markdown><script type="text/template">
+# Huffman Coding
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+Huffman Encoding
+Compression Phase
+Determine the frequencies of the characters stored in the source file.
+Read the source file  
+Then store the character frequencies in a min-heap 
+Build a tree of prefix codes (a Huffman code) that determines the unique bit codes for each character.
+Write the prefix codes or code tree to the output file.
+Re-read the source file and for each character read, write its prefix code into the output file. 
+You must WRITE the prefix code/tree and the encoded file to the SAME output file
+Huffman coding example
+From Weiss, page 416
+Uses 5 letters (a, e, i, s, t), plus the space and the newline
+Total of 58 characters
+Normal ASCII encoding is 8 bits per character
+58*8 = 464 bits
+Which is 58 bytes, obviously
+Straight encoding is 3 bits per character
+58*3 = 174 bits
+Which is 21.75 bytes
+Compression step 1 (a)
+Determine frequencies of letters
+Compression step 1 (b)
+Build a min-heap
+Sorted by frequency
+Compression step 2
+Build the tree
+Start with a “forest” of trees:
+
+
+Repeat
+Take the two trees that have the lowest frequency
+The next two removals from the heap
+Make them children of a new node
+Keep track of the total frequency of that node
+And stick that tree back into the heap
+
+
+The final Huffman coding tree
+Resulting encoding table
+
+
+
+
+
+
+
+
+
+Total encoding is 146 bits
+ASCII was 464 bits: compression ratio of 3.2:1
+Straight encoding was 174 bits: compression ratio of 1.2:1
+Compression step 3
+Write the prefix codes to a file
+We’ll use regular ASCII characters
+Does this actually do any compression, then?
+
+a 001
+e 01
+i 10
+s 00000
+t 0001
+(sp) 11
+(nl) 00001
+
+Compression step 4
+Write the text to the file using the Huffman encoding
+
+sit becomes 00000 10 0001
+taste becomes 0001 001 
+			00000 0001 01
+etc.
+Decompression Phase
+Read in the prefix code structure (tree or array) from the compressed file. 
+Build a new Huffman tree for performing decompression
+Read in one bit at a time from the compressed file and move through the prefix code tree until a leaf node is reached.
+Write the character stored at the leaf node into the decompressed file.
+While there is still input, repeat.
+Huffman Coding Lab
+Compression (pre-lab)
+Decompression (in-lab)
+Report (post-lab)
+Huffman Encoding Prelab
+Write a program that reads input from a file (see class website for test files)
+Build a binary heap (priority queue) that calculates the letter frequencies
+Build the huffman tree
+Print the letter-encoding mapping to the file
+There is a specific format, as specified in the lab
+Encode the message, printing this also to the file
+
+Tips/Hints
+You may use Weiss code, or create your own heap code.
+File input/output reference material
+readfile.cpp from hashing lab
+Class resources page
+ASCII
+ASCII Character Codes
+American Standard Code for Information Interchange (ASCII)
+Character encoding standard
+Specifies  correspondence between digital bit patterns and English alphabet
+7-bit encoding with 1 bit for parity (error correction)
+128 characters
+95 printable characters
+33 non-printable characters
+
+ASCII Character Codes
+(Hexadecimal)
+	  </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="priorityqueues" data-markdown><script type="text/template">
+# Priority Queues
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+Priority Queues
+Priority Queue Operations (Weiss)
+insert( x ) 
+deleteMin( )
+findMin( )
+isEmpty( ) 
+makeEmpty( )
+size( )
+Binary Heap Class
+template <typename Comparable>
+class BinaryHeap { 
+	public: 
+		BinaryHeap( int capacity = 100 );// Constructor
+		BinaryHeap( const vector<Comparable> & items ); 
+		bool isEmpty( ) const; 
+		const Comparable & findMin( ) const;
+		void insert( const Comparable & x ); 
+		void deleteMin( );
+		void makeEmpty( );
+		int size() const;
+
+	private: 
+		int currentSize; 	// Number of elements in heap 
+		vector<Comparable> list; 	// The heap array 
+					// Internal methods
+		void buildHeap( ); 	
+		void percolateDown( int hole );
+}; 
+Heap Data Members
+int currentSize
+Size of the heap
+vector <Comparable> list
+The heap implemented as an array
+
+Constructors
+// Default constructor
+BinaryHeap( int capacity = 100 ) : list( capacity + 1 ), currentSize( 0 ) { } 
+
+// Copy constructor
+BinaryHeap( const vector<Comparable> & items ) : list( items.size( ) + 10 ), currentSize( items.size( ) ) { 
+		for( int i = 0; i < items.size( ); i++ ) 
+			list[ i + 1 ] = items[ i ]; 
+		buildHeap( ); 
+} 
+isEmpty()
+bool isEmpty( ) const {
+	return currentSize == 0; 
+} 
+findMin()
+const Comparable & findMin( ) const { 
+	if( isEmpty( ) ) 
+		throw UnderflowException( ); 
+	return list[ 1 ]; 
+} 
+insert(x)
+void insert( const Comparable & x ) { 
+	if( currentSize == list.size( ) - 1 ) 
+		list.resize( list.size( ) * 2 ); 
+	// Percolate up 
+	int hole = ++currentSize; 
+	for( ; hole>1 && x<list[hole /2]; hole /= 2 )
+		list[ hole ] = list[ hole / 2 ];
+	list[ hole ] = x; 
+} 
+deleteMin()
+void deleteMin( ) { 
+	if( isEmpty( ) ) 
+		throw Underflow( );
+	// put last element in the heap at the top
+	list[ 1 ] = list[ currentSize-- ]; 
+	// percolate down
+	percolateDown( 1 ); 
+} 
+makeEmpty() and size()
+void makeEmpty( ) {
+	currentSize = 0; 
+} 
+
+int size() const {
+	return currentSize;
+}
+buildHeap()
+// Internal method
+void buildHeap( ) { 
+	for( int i = currentSize / 2; i > 0; i-- ) 	
+		percolateDown( i ); 
+} 
+percolateDown()
+void percolateDown( int hole ) { 
+	int child; 
+	Comparable tmp = list[ hole ]; 
+	for( ; hole * 2 <= currentSize; hole = child ) { 
+		child = hole * 2; 
+		if(child!=currentSize && list[child+1] < list[child]) 
+			child++;  // look at the min of 2 children
+		if( list[ child ] < tmp ) 
+			list[ hole ] = list[ child ]; 
+		else break;
+	} 
+	list[ hole ] = tmp; 
+} 
+	  </script></section>
+
+	</section>
+
+
+
+      </div>
+
+    </div>
+
+    <div id="calibratediv" style="display:none">
+      <div id="calibratecanvasdiv">
+        <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
+      </div>
+      <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
+    </div>
+
+    <script src="reveal.js/lib/js/head.min.js"></script>
+    <script src="reveal.js/js/reveal.min.js"></script>
+    <script src="js/settings.js"></script>
+
+  </body>
+</html>

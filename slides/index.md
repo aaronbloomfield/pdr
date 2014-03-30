@@ -61,9 +61,7 @@ Program and Data Representation: Slides
 
 - Source code: [name-contact.cpp](code/10-advanced-cpp/name-contact.cpp.html) ([src](code/10-advanced-cpp/name-contact.cpp))
 
-Slide set 11: Heaps
-
-Slide set 12: Huffman coding
+[Slide set 11: Heaps and Huffman coding](11-heaps-huffman.html)
 
 Slide set 13: Graphs
 
