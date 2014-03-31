@@ -205,9 +205,9 @@ What types are `cow`, `cowPtr1`, `cowPtr2`, and `cowPtr3`?
 | Variable name | Type of variable | Example emory address | Value stored |
 |-|-|-|-|
 | `cow` | `Animal` | 108 | 500 |
-| `cowPtr1` | `Animal *` | 112 | 112 |
-| `cowPtr2` | `Animal **` | 116 | 116 |
-| `cowPtr3` | `Animal ***` | 120 | 120 |
+| `cowPtr1` | `Animal *` | 112 | 108 |
+| `cowPtr2` | `Animal **` | 116 | 112 |
+| `cowPtr3` | `Animal ***` | 120 | 116 |
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -429,7 +429,7 @@ private:
 
 	  <section data-markdown><script type="text/template">
 ## Terminology
-- derived class
+- Sub class (or derived class, or child class)
   - Contact is the "child" class of Name
   - Inherits:
     - Data members defined in the parent class
@@ -437,7 +437,7 @@ private:
     - Same initial data layout as the base class
   - Can add:
     - New data members, member functions, constructors, destructors
-- parent class
+- Super class (or base class, or parent class)
   - Name is the "parent" class of Contact
 	  </script></section>
 
@@ -519,7 +519,7 @@ public class Sphere extends Shape implements Comparable,
 class Person {
     public:
     // ...
-    void print(ostream &out = cout );
+    void print(ostream &out = cout);
     // ...
 };
 
