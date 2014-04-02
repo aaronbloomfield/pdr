@@ -93,17 +93,17 @@ The links in the right-most column link directly to the lecture recording on Col
 |    | Mar&nbsp;30 | Sunday | Exam 2 review session | Exam 2 review session | [exam 2 review](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/exam2-review/exam2-review.htm) |
 | 30 | Mar&nbsp;31 | Monday | Midterm 2 instead during Tuesday's lab | [09: x86](../slides/09-x86.html), [10: Advanced C++](../slides/10-advanced-cpp.html) | [10-advanced-cpp, slides 3-8 to 5-15](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/10-advanced-cpp-2b/10-advanced-cpp-2b.htm) |
 | 31 | Apr&nbsp;2 | Wednesday | | [10: Advanced C++](../slides/10-advanced-cpp.html) | |
-| 32 | Apr&nbsp;4 | Friday | | [11: Heaps](../slides/11-heaps.html) | |
-| 33 | Apr&nbsp;7 | Monday | [Lab 9: x86, part 2](../labs/lab09/index.html) / [Tutorial 9: C](../tutorials/09-c/index.html) | [12: Huffman coding](../slides/12-huffman.html) | |
-| 34 | Apr&nbsp;9 | Wednesday | | [12: Huffman coding](../slides/12-huffman.html) | |
-| 35 | Apr&nbsp;11 | Friday | | [13: Graphs](../slides/13-graphs.html) | |
-| 36 | Apr&nbsp;14 | Monday | [Lab 10: Huffman coding](../labs/lab10/index.html) / [Tutorial 10: Objective C](../tutorials/10-objc/index.html) | [13: Graphs](../slides/13-graphs.html) | |
-| 37 | Apr&nbsp;16 | Wednesday | | [13: Graphs](../slides/13-graphs.html) | |
-| 38 | Apr&nbsp;18 | Friday | | [13: Graphs](../slides/13-graphs.html) | |
-| 39 | Apr&nbsp;21 | Monday | [Lab 11: Graphs](../labs/lab11/index.html) / [Tutorial 11: doxygen](../tutorials/11-doxygen/index.html) | [13: Graphs](../slides/13-graphs.html) | |
-| 40 | Apr&nbsp;23 | Wednesday | | [13: Graphs](../slides/13-graphs.html), [14: Memory](../slides/14-memory.html) | |
-| 41 | Apr&nbsp;25 | Friday | | [14: Memory](../slides/14-memory.html) | |
-| 42 | Apr&nbsp;28 | Monday | [Lab 12: Conclusion](../labs/lab12/index.html) / (no tutorial for this lab) | [15: AOP](../slides/15-aop.html), [16: Course conclusion](../slides/16-conclusion.html) | |
+| 32 | Apr&nbsp;4 | Friday | | [11: Heaps and Huffman coding](../slides/11-heaps-huffman.html)| |
+| 33 | Apr&nbsp;7 | Monday | [Lab 9: x86, part 2](../labs/lab09/index.html) / [Tutorial 9: C](../tutorials/09-c/index.html) | [11: Heaps and Huffman coding](../slides/11-heaps-huffman.html) | |
+| 34 | Apr&nbsp;9 | Wednesday | | [11: Heaps and Huffman coding](../slides/11-heaps-huffman.html) | |
+| 35 | Apr&nbsp;11 | Friday | | [11: Heaps and Huffman coding](../slides/11-heaps-huffman.html) | |
+| 36 | Apr&nbsp;14 | Monday | [Lab 10: Huffman coding](../labs/lab10/index.html) / [Tutorial 10: Objective C](../tutorials/10-objc/index.html) | [12: Graphs](../slides/13-graphs.html) | |
+| 37 | Apr&nbsp;16 | Wednesday | | [12: Graphs](../slides/13-graphs.html) | |
+| 38 | Apr&nbsp;18 | Friday | | [12: Graphs](../slides/13-graphs.html) | |
+| 39 | Apr&nbsp;21 | Monday | [Lab 11: Graphs](../labs/lab11/index.html) / [Tutorial 11: doxygen](../tutorials/11-doxygen/index.html) | [12: Graphs](../slides/13-graphs.html) | |
+| 40 | Apr&nbsp;23 | Wednesday | | [12: Graphs](../slides/13-graphs.html), [13: Memory](../slides/14-memory.html) | |
+| 41 | Apr&nbsp;25 | Friday | | [13: Memory](../slides/14-memory.html) | |
+| 42 | Apr&nbsp;28 | Monday | [Lab 12: Conclusion](../labs/lab12/index.html) / (no tutorial for this lab) | [14: AOP](../slides/15-aop.html), [15: Course conclusion](../slides/16-conclusion.html) | |
 
 ------------------------------------------------------------
 
