@@ -518,16 +518,16 @@ public class Sphere extends Shape implements Comparable,
 ```
 class Person {
     public:
-    // ...
-    void print(ostream &out = cout);
-    // ...
+      // ...
+      void print(ostream &out = cout);
+      // ...
 };
 
 class Student : public Person {
     public:
-    // ...
-    void print(ostream &out = cout);
-    // ...
+      // ...
+      void print(ostream &out = cout);
+      // ...
 };
 ```
 	  </script></section>
@@ -540,7 +540,7 @@ if ( user_input )
     p = new Student();
 else
     p = new Person();
-p->print(...);
+p->print();
 ```
 &nbsp;  
 &nbsp;  
@@ -568,9 +568,9 @@ p.print();    // Person::print()
 ```
 class Person {
     public:
-    ...
-    virtual void print(ostream &out = cout);
-    ...
+      // ...
+      virtual void print(ostream &out = cout);
+      // ...
 };
 ```
 Should also be used for the base class destructor
@@ -648,7 +648,7 @@ Consider:
 ```
 class foo {
     public:
-        virtual void bar() = 0;
+      virtual void bar() = 0;
 };
 ```
 - Must be virtual!
@@ -686,7 +686,7 @@ class A {
 }
 
 class B {
-      private: int bar;
+    private: int bar;
     public: void foo() { bar = 1; }
 }
 
@@ -710,7 +710,7 @@ What if the relationship below occurs?
   - Shared can be done by specifying that a base class is virtual:
 ```
 class student: public virtual person, public gp_list_node {
-class professor: public virtual person, public gp_list_node{
+class professor: public virtual person, public gp_list_node {
 ```
 	  </script></section>
 

@@ -92,7 +92,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 29 | Mar&nbsp;28 | Friday | | [09: x86](../slides/09-x86.html) (assembly language) | [09-x86, slides 9-25 to 9-32 (end); 10-advanced-cpp, slides 1 to 3-7](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/10-advanced-cpp-1b/10-advanced-cpp-1b.htm) |
 |    | Mar&nbsp;30 | Sunday | Exam 2 review session | Exam 2 review session | [exam 2 review](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/exam2-review/exam2-review.htm) |
 | 30 | Mar&nbsp;31 | Monday | Midterm 2 instead during Tuesday's lab | [09: x86](../slides/09-x86.html), [10: Advanced C++](../slides/10-advanced-cpp.html) | [10-advanced-cpp, slides 3-8 to 5-15](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/10-advanced-cpp-2b/10-advanced-cpp-2b.htm) |
-| 31 | Apr&nbsp;2 | Wednesday | | [10: Advanced C++](../slides/10-advanced-cpp.html) | |
+| 31 | Apr&nbsp;2 | Wednesday | | [10: Advanced C++](../slides/10-advanced-cpp.html) | [10-advanced-cpp, slides 5-13 to 7-8](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/10-advanced-cpp-3b/10-advanced-cpp-3b.htm) |
 | 32 | Apr&nbsp;4 | Friday | | [11: Heaps and Huffman coding](../slides/11-heaps-huffman.html)| |
 | 33 | Apr&nbsp;7 | Monday | [Lab 9: x86, part 2](../labs/lab09/index.html) / [Tutorial 9: C](../tutorials/09-c/index.html) | [11: Heaps and Huffman coding](../slides/11-heaps-huffman.html) | |
 | 34 | Apr&nbsp;9 | Wednesday | | [11: Heaps and Huffman coding](../slides/11-heaps-huffman.html) | |
