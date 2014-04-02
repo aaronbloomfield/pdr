@@ -199,7 +199,7 @@ TreeNode::printTree(TreeNode tnode) {
 - In-order: left node first, then self, then right node:
 ```
 void BST::print(BinaryNode *curNode) {
-    if(curNode != NULL) {
+    if (curNode != NULL) {
         print(curNode->left);
         cout << curNode->element;
         print(curNode->right);
@@ -213,7 +213,7 @@ void BST::print(BinaryNode *curNode) {
 - Post-order: children first, then node:
 ```
 int TreeNode::numNodes(TreeNode tnode) {
-    if( tnode == NULL )
+    if ( tnode == NULL )
         return 0;
     else {
         sum=0;
@@ -338,7 +338,7 @@ BinaryNode * BST::find(int x, BinaryNode *curNode) {
 
       <section>
 <h2>BST: insert</h2>
-<p>Do a find, and when we reach a `NULL` pointer, create a new node there</p>
+<p>Do a find, and when we reach a <code>NULL</code> pointer, create a new node there</p>
 <p>(no external source code)</p>
 <pre><code>void BST::insert(int x, BinaryNode * & curNode) {
     if (curNode==NULL)
