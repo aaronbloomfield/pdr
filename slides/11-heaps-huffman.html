@@ -72,12 +72,62 @@
 	<section data-markdown><script type="text/template">
 # Contents
 &nbsp;  
+[Priority Queues](#priorityqueues)  
 [Binary Heaps](#heaps)  
 [Heap Operations](#heapops)  
 [File Compression](#filecomp)  
 [Huffman Coding](#huffman)  
-[Priority Queues](#priorityqueues)  
+[Priority Queue Example](#priorityqueueex)  
 	</script></section>
+
+	<section>
+
+	  <section id="priorityqueues" data-markdown><script type="text/template">
+# Priority Queues
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Motivation
+- Multiuser environment
+  - Operating system must choose which process to run on CPU 
+- Management of limited resources
+  - Bandwidth on network router
+    - Limited bandwidth, but want to give best possible performance
+    - Send traffic from highest priority queue first
+      - Example: VoIP
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Priority Queue ADT - Model
+- operations: 
+  - insert
+    - inserts with a *priority*
+  - findMin
+    - finds the minimum element
+  - deleteMin 
+    - finds, returns, and removes minimum element
+![heap cloud](images/11-heaps-huffman/heap-diagram.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Implementations of Priority Queue ADT
+
+| Data structure | insert | findMin | deleteMin |
+|-|-|-|-|
+| Unsorted array | &Theta;(1) ammortized | &Theta;(*n*) | &Theta;(*n*) |
+| Unsorted linked list | &Theta;(1) | &Theta;(*n*) | &Theta;(*n*) |
+| Sorted array | &Theta;(*n*) | &Theta;(1) | &Theta;(1) or &Theta;(*n*) |
+| Sorted linked list | &Theta;(*n*) | &Theta;(1) | &Theta;(1) |
+| Binary search tree | &Theta;(*n*) | &Theta;(*n*) | &Theta;(*n*) |
+| AVL or red-black tree | &Theta;(log *n*) | &Theta;(log *n*) | &Theta;(log *n*) |
+| Hash table | ideally constant | &Theta;(*n*) | &Theta;(*n*) |
+
+- We would like:
+  - Insert worst case &Theta;(log *n*), average case constant
+  - deleteMin worst and average case &Theta;(log *n*)
+	  </script></section>
+
+	</section>
 
 	<section>
 
@@ -86,70 +136,86 @@
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-Topics
-Priority queue ADT
-Motivation
-Model
-Simple Implementations
-Binary Heap
-Applications of priority queues
-Huffman encoding
-Motivation
-Multiuser environment
-Operating system must choose which process to run on CPU 
-
-Management of limited resources
-Bandwidth on network router
-Limited bandwidth, but want to give best possible performance
-Send traffic from highest priority queue first
-VoIP
-Priority Queue ADT - Model
-operations: 
-insert
-findMin
-finds the minimum element
-deleteMin 
-finds, returns, and removes minimum element
-
-
-Implementations of Priority Queue ADT
-Binary Heap
-An implementation of priority queues
-Binary Heap Properties
-Structure Property
-Ordering Property
-Some Definitions
-A Perfect (or Complete) binary tree – A binary tree with all leaf nodes at the same depth. All internal nodes have 2 children. 
-Full Binary Tree
-A binary tree in which each node has exactly zero or two children. 
-Also known as a proper binary tree
-We will use this later for Huffman trees
-
-Heap Structure Property
-Heap Structure Property
-A binary heap is an almost complete binary tree.
-
-Almost complete binary tree – binary tree that is completely filled, with the possible exception of the bottom level, which is filled left to right.
-Examples:
-End of lecture on Wed, Nov 13
-The last few slides were gone over quickly…
-Almost complete binary tree of height h
-For h = 0, just a single node.
-For h = 1, left child or
- two children.
-For h  2, either
-the left subtree of the root is full with height h-1 and the right is complete with height h-1, OR
-the left is complete with height h-1 and the right is full with height h-2.
-Representing Complete 
-Binary Trees in an Array
-Why better than pointers?
-No pointers – saves space
-*2, /2, + operations are faster than dereferencing pointer
-Parent easy to locate
-Heap Order Property
-Heap Order Property
-Heap order property: For every non-root node X, the key in the parent of X is less than (or equal to) the key in X.
+## Binary Heap
+- A binary heap is a data structure that is one possible implementation of a priority queue
+- It's a binary tree (*not* a BST), with a different:
+  - structure property
+  - ordering property
 	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Definitions
+A Perfect (or Complete) binary tree is a binary tree with all leaf nodes at the same depth; all internal nodes have 2 children.
+![heap 1](graphs/heap-1.svg)
+
+- This has height *h*, 2<sup>*h*+1</sup>-1 nodes, 2<sup>*h*</sup>-1 non-leaves, and 2<sup>*h*</sup> leaves
+- Note that this example is a complete binary tree, not a heap
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Full Binary Tree
+- A binary tree in which each node has exactly zero or two children. 
+  - Also known as a proper binary tree
+  - We will use this later for Huffman trees
+![heap 2](graphs/heap-2.svg)
+	  </script></section>
+
+	  <section>
+<h2>Heap Structure Property</h2>
+<p>A binary heap is an <i>almost complete</i> binary tree, which is a binary tree that is completely filled, with the possible exception of the bottom level, which is filled left to right.</p>
+<p>&nbsp;</p>
+<p>Examples:</p>
+<table class="transparent"><tr><td><img alt="heap 3" src="graphs/heap-3.svg"></td><td style="width:50px"></td><td><img alt="heap 4" src="graphs/heap-4.svg"></td></tr></table>
+	  </section>
+
+	  <section>
+<h2>Almost complete binary tree of height <i>h</i></h2>
+<table class="transparent">
+<tr><td class="middle" style="text-align:left"><ul><li>For <i>h</i> = 0, just a single node</li></ul></td><td><img alt="heap 5" src="graphs/heap-5.svg"></td><td></td></tr>
+<tr><td class="middle" style="text-align:left"><ul><li>For <i>h</i> = 1, left child or two children</li></ul></td><td><img alt="heap 6" src="graphs/heap-6.svg"></td><td><img alt="heap 7" src="graphs/heap-7.svg"></td></tr>
+<tr><td colspan="3">
+<ul>
+<li>For <i>h</i> &ge; 2, either:<ul>
+    <li>the left subtree of the root is full with height <i>h</i>-1 and the right is complete with height <i>h</i>-1, OR</li>
+    <li>the left is complete with height <i>h</i>-1 and the right is full with height <i>h</i>-2.</li></ul></li>
+</ul>
+</td></tr></table>
+	  </section>
+
+	  <section>
+<h2>Representing Complete Binary Trees in Arrays</h2>
+<table class="transparent">
+<tr><td class="top"><img alt="heap 8" src="graphs/heap-8.svg"></td>
+<td>
+<p>&nbsp;</p>
+<p>From node <i>i</i>:</p>
+<p>&nbsp;</p>
+<p>left child: 2*<i>i</i></p>
+<p>right child: (2*<i>i</i>)+1</p>
+<p>parent: floor(<i>i</i>/2)</p>
+</td></tr></table>
+<p>Implicit (array) representation:</p>
+
+<table class="transparent" style="border-collapse:collapse"><tr class="bordercfifty"><td>&nbsp;</td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td>I</td><td>J</td><td>K</td><td>L</td><td>&nbsp;</td></tr>
+<tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td></tr>
+</table>
+
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Why better than pointers?
+- No pointers – saves space
+- \*2, /2, + operations are faster than dereferencing pointer
+- Parent easy to locate
+	  </script></section>
+
+	  <section>
+<h2>Heap Order Property</h2>
+<p>Heap order property: For every non-root node X, the key in the parent of X is less than (or equal to) the key in X.  Thus, the tree is <i>partially</i> ordered.</p>
+<table class="transparent"><tr>
+<td class="top"><img alt="heap 9" src="graphs/heap-9.svg"> not a heap</td><td style="width:50px"></td><td><img alt="heap 10" src="graphs/heap-10.svg"> min-heap</td></tr>
+</table>
+	  </section>
 
 	</section>
 
@@ -161,79 +227,124 @@ Heap order property: For every non-root node X, the key in the parent of X is le
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-Heap Operations
-Heap Operations
-findMin:
-insert(val): percolate up.
-deleteMin: percolate down.
-
-See http://people.ksp.sk/~kuko/bak/index.html
-Heap – Insert(val)
-Basic Idea: 
-Put val at “next” leaf position
-Repeatedly exchange node with its parent if needed
-insert(int x) (Fig. 6.8)
-void insert (int x) {
-		if(currentSize == array.size() – 1)
-			array.resize(array.size() * 2);
-
-		// Percolate up
-		int hole = ++currentSize;
-		for( ; hole > 1 && x < array[hole /2]; 
-		    					hole /= 2) {
-			// if x < array[hole/2] move 
-			// item in array[hole] “down”
-			array[hole] = array[hole/2];
-		}
-		array[hole] = x;
-}
-Insert: percolate up
-End of lecture on Fri, Nov 15
-We went over the exam before the recording started
-Heap – DeleteMin
-Basic Idea: 
-Remove root (that is always the min!)
-Put “last” leaf node at root
-Find smallest child (why?)
-Swap node with smallest child if needed.
-Repeat steps 3 & 4 until no swaps needed.
-Which child to swap with
-Consider this min-heap:
-25 needs percolating!
-But which way?
-
-If we swap 25 with 
-the smallest child:
-All’s good!
-
-If we swap 25 with 
-the largest child:
-No longer a min-heap!
-DeleteMin: percolate down
-Other Heap Operations
-decreaseKey(process, amount): “raise” the priority of a process, percolate up
-increaseKey(processID, amount): “lower” the priority of a process, percolate down
-remove(processID): remove a process, move to top, then delete.   
-			1) decreaseKey(processID, -)
-			2) deleteMin()
-
-Worst case Running time for all of these: (n), because of the find() required; without the find(), it’s (log n)
-FindMax?
-ExpandHeap – when heap fills, copy into new space.
-Heaps (Summary)
-insert: percolate up.  (log N) time.
-deleteMin: percolate down.  (log N) time.
-
-Heapsort?
-Insert n elements, then remove n elements
-Each one has an insertion time of log n
-And then a removal time of log n
-Hence (n log n)
-An xkcd about heaps…
-http://
-xkcd.com
-835/ 
+## Heap Operations
+- findMin: just look at the root node
+- insert(val): percolate up
+- deleteMin: percolate down  
+&nbsp;  
+See [here](http://people.ksp.sk/~kuko/bak/index.html) for a good heap animation site
+![heap 11](graphs/heap-11.svg)
 	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Heap – Insert(val)
+Basic Idea: 
+
+1. Put val at "next" leaf position
+2. Repeatedly exchange node with its parent if needed
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## insert(int x)
+```
+void insert (int x) {
+    if(currentSize == array.size() – 1)
+      array.resize(array.size() * 2);
+
+    // Percolate up
+    int hole = ++currentSize;
+    for( ; hole > 1 && x < array[hole /2]; hole /= 2) {
+        // if x < array[hole/2] move 
+        // item in array[hole] "down"
+        array[hole] = array[hole/2];
+    }
+
+    array[hole] = x;
+}
+```
+	  </script></section>
+
+	  <section>
+<h2>Insert: percolate up</h2>
+<table class="transparent"><tr><td><img alt="heap 12" src="graphs/heap-12.svg"></td><td class="middle">&rarr;</td><td><img alt="heap 13" src="graphs/heap-13.svg"></td></tr></table>
+	  </section>
+
+	  <section>
+<h2>Insert expected running time</h2>
+<ul>
+<li>How far to move up?<ul>
+  <li>Half of the nodes are leaves, so half of the inserts will only move up one level</li>
+  <li>A quarter of the nodes are one level above the leaves, so one quarter of the inserts will move up two levels</li>
+  <li>One eighth will require moving up 3 levels</li>
+  <li>One sixteenth will require moving up 4 levels</li>
+  <li>Etc.</li></ul></li>
+<li>Expected running time:<br>&nbsp;</li>
+<ul>
+\( \frac{1}{2}*1 + \frac{1}{4}*2 + \frac{1}{8}*3 + \ldots = \sum_{i=1}^{n} \frac{1}{2^n}*n = 2 \)
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Heap – DeleteMin
+Basic Idea: 
+
+1. Remove root (that is always the min!)
+2. Put "last" leaf node at root
+3. Find smallest child (why?)
+4. Swap node with smallest child if needed.
+5. Repeat steps 3 & 4 until no swaps needed.
+	  </script></section>
+
+	  <section>
+<h2>Which child to swap with</h2>
+<table class="transparent">
+<tr><td class="middle" style="text-align:left"><ul><li>Consider this min-heap:<ul>
+	  <li>25 needs percolating!</li>
+	  <li>But which way?</li></ul></li>
+  </ul></td><td><img alt="heap 14" src="graphs/heap-14.svg"></td></tr>
+<tr><td class="middle" style="text-align:left"><ul><li>If we swap 25 with the smallest child:<ul>
+	  <li>All's good!</li></ul></li>
+  </ul></td><td><img alt="heap 15" src="graphs/heap-15.svg"></td></tr>
+<tr><td class="middle" style="text-align:left"><ul><li>If we swap 25 with the largest child:<ul>
+	  <li>No longer a min-heap!</li></ul></li>
+  </ul></td><td><img alt="heap 16" src="graphs/heap-16.svg"></td></tr>
+</table>
+	  </section>
+
+	  <section>
+<h2>DeleteMin: percolate down</h2>
+<table class="transparent"><tr><td><img alt="heap 17" src="graphs/heap-17.svg"></td><td class="middle">&rarr;</td><td><img alt="heap 18" src="graphs/heap-18.svg"></td></tr></table>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Other Heap Operations
+- `decreaseKey(process, amount)`: "raise" the priority of a process, percolate up
+- `increaseKey(processID, amount)`: "lower" the priority of a process, percolate down
+- `remove(processID)`: remove a process, move to top, then delete.   
+  1. `decreaseKey(processID, -infinity)`
+  2. `deleteMin()`  
+&nbsp;  
+- Worst case Running time for all of these: &Theta;(*n*), because of the find() required; without the find(), it’s &Theta;(log *n*)
+- What about FindMax?
+- ExpandHeap: when heap fills, copy into new space.
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Heaps (Summary)
+- insert: percolate up; &Theta;(log *n*) time.
+- deleteMin: percolate down; &Theta;(log *n*) time  
+&nbsp;  
+- Heapsort?
+  - Insert *n* elements, then remove n elements
+  - Each one has an insertion time of log *n*
+  - And then a removal time of log *n*
+  - Hence &Theta;(*n* log *n*)
+	  </script></section>
+
+	  <section>
+<h2>An xkcd about heaps...</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/tree.png" title="Not only is that terrible in general, but you just KNOW Billy&#39;s going to open the root present first, and then everyone will have to wait while the heap is rebuilt." alt="Tree" />
+<p class="center"><a href="http://xkcd.com/835/">xkcd # 835</a></p>
+	  </section>
 
 	</section>
 
@@ -300,7 +411,7 @@ PNG image file formats
 Run-length encoding (RLE)
 Lossless Compression of Text
 ASCII = fixed 8 bits per character
-Example: “hello there”
+Example: "hello there"
 11 characters * 8 bits = 88 bits
 
 Can we encode this message using fewer bits?
@@ -371,7 +482,7 @@ Build a min-heap
 Sorted by frequency
 Compression step 2
 Build the tree
-Start with a “forest” of trees:
+Start with a "forest" of trees:
 
 
 Repeat
@@ -458,8 +569,8 @@ ASCII Character Codes
 
 	<section>
 
-	  <section id="priorityqueues" data-markdown><script type="text/template">
-# Priority Queues
+	  <section id="priorityqueueex" data-markdown><script type="text/template">
+# Priority Queue Example
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
