@@ -55,3 +55,6 @@ The labs for this course:
   - Readings: the two x86 book chapters: [x86 Assembly](../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../book/x86-ccc-chapter.pdf)
 
 - [Lab 9: x86, part 2](lab09/index.html) (assembly language)
+  - Source code: [timer.cpp](lab06/code/timer.cpp.html) ([src](lab06/code/timer.cpp)) and  [timer.h](lab06/code/timer.h.html) ([src](lab06/code/timer.h)), both of which are from lab 6
+  - Readings: the two x86 book chapters: [x86 Assembly](../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../book/x86-ccc-chapter.pdf)
+  - The tutorial, for the post-lab, is the [C tutorial](../../tutorials/09-c/index.html); you will need to implement the linkedlist.c program.
