@@ -356,94 +356,84 @@ Basic Idea:
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-Data Compression:  
-Huffman Coding
-10.1.2 in Weiss
-Why compress files?
-Disk space is limited
-File transfer
-Bigger files take longer to transfer
-Smaller file might fit in memory more easily
-What is a file?
-Named collection of information
-C++ program
-Application executables
-Word documents
-Email
-Web pages
-Pictures, audio, video
-Data Compression
+## Why compress files?
+- Disk space is limited
+- File transfer
+  - Bigger files take longer to transfer
+- Smaller file might fit in memory more easily
+	  </script></section>
 
+	  <section data-markdown><script type="text/template">
+## What is a file?
+- Named collection of information
+  - C++ program
+  - Application executables
+  - Word documents
+  - Email
+  - Web pages
+  - Pictures, audio, video
+  - Data Compression
+- Which of these needs to be exactly the same when we use them again?
+	  </script></section>
 
+	  <section data-markdown><script type="text/template">
+## Data Compression
+![compression diagram](images/11-heaps-huffman/compression-diagram.svg)
 
-Lossless compression  X = X’
-Lossy compression  X != X’
-information is lost (irreversible)
-Compression Ratio  |X|/|Y|
-Where |X| is the # of bits in X.
-Lossy Compression
-Some data is lost, but not too much.
-Standards:
-JPEG (Joint Photographic Experts Group)
-Still images
-MPEG (Motion Picture Experts Group) 
-Audio and video
-MP3 (MPEG-1, Layer 3), Ogg vorbis
+- Lossless compression: X = X’
+- Lossy compression: X != X’
+  - Information is lost (irreversible)
+- Compression Ratio: |X|/|Y|
+  - Where |X| is the # of bits in X.
+	  </script></section>
 
-JPEG image quality 
-comparison
-Quality = 100
-Image size: 83,261 (100%)
-Quality = 50
-Image size: 15,138 (18%)
-Quality = 25 
-Image size: 9,553 (11%)
-Quality = 10
-Image size: 4,787 (6%)
-Quality = 1
-Image size: 1,523 (2%)
-Lossless Compression
-No data is lost.
+	  <section data-markdown><script type="text/template">
+## Lossy Compression
+- Some data is lost, but not too much
+- Standards:
+  - JPEG (Joint Photographic Experts Group)
+    - Still images
+  - MP3 (MPEG-1, Layer 3), Ogg vorbis
+    - Audio
+  - MPEG (Motion Picture Experts Group) 
+    - Audio and video
+    - And most video codecs (standards)
+- Compression ratios of 10:1 are possible
+	  </script></section>
 
-Standards:
-Gzip, Unix compress, zip, Morse code 
-PNG image file formats
-Run-length encoding (RLE)
-Lossless Compression of Text
-ASCII = fixed 8 bits per character
-Example: "hello there"
-11 characters * 8 bits = 88 bits
+	  <section>
+<table class="transparent">
+<tr><td colspan="2" class="top"><h2>&nbsp;<br>JPEG image quality<br>comparison</h2></td><td style="width:30%"><a href="http://en.wikipedia.org/wiki/Jpg#Sample_photographs"><img class="fragment" data-fragment-index="1" alt="jpeg @ 25%" src="images/11-heaps-huffman/jpeg-025.jpg"></a></td></tr>
+<tr>
+<td class="top">
+<ul>
+<li style="text-align:left" class="fragment" data-fragment-index="1">Quality = 100; image size: 83,261 (100%)</li>
+<li style="text-align:left" class="fragment" data-fragment-index="2">Quality = 50; image size: 15,138 (18%)</li>
+<li style="text-align:left" class="fragment" data-fragment-index="3">Quality = 25; image size: 9,553 (11%)</li>
+<li style="text-align:left" class="fragment" data-fragment-index="4">Quality = 10; image size: 4,787 (6%)</li>
+<li style="text-align:left" class="fragment" data-fragment-index="5">Quality = 1; image size: 1,523 (2%)</li>
+</ul>
+</td><td style="width:30%"><a href="http://en.wikipedia.org/wiki/Jpg#Sample_photographs"><img class="fragment" data-fragment-index="2" alt="jpeg @ 100%" src="images/11-heaps-huffman/jpeg-100.jpg"></a> <a href="http://en.wikipedia.org/wiki/Jpg#Sample_photographs"><img class="fragment" data-fragment-index="3" alt="jpeg @ 50%" src="images/11-heaps-huffman/jpeg-050.jpg"></a></td><td><a href="http://en.wikipedia.org/wiki/Jpg#Sample_photographs"><img class="fragment" data-fragment-index="4" alt="jpeg @ 10%" src="images/11-heaps-huffman/jpeg-010.jpg"></a> <a href="http://en.wikipedia.org/wiki/Jpg#Sample_photographs"><img class="fragment" data-fragment-index="5" alt="jpeg @ 1%" src="images/11-heaps-huffman/jpeg-001.jpg"></a></td></tr>
 
-Can we encode this message using fewer bits?
+</table>
+	  </section>
 
-Huffman Coding
-Uses frequencies of symbols in a string to build a prefix code.
+	  <section data-markdown><script type="text/template">
+## Lossless Compression
+- No data is lost.
+- Standards:
+  - Gzip, Unix compress, zip, Morse code 
+  - PNG image file formats
+  - Run-length encoding (RLE)
+- Can get compression ratios of 4:1
+	  </script></section>
 
-The more frequent a character is, the fewer bits we’ll use to represent it
-
-Prefix Code – no code in our encoding is a prefix of another code.
-Decoding a Prefix Code
-Create the Huffman coding tree
-Loop
-	start at root of tree
-		loop
-			if bit read = 1 then go right
-			else, go left
-		until node is a leaf 
-		Report character found!
-Until end of the message
-
-Decode: 1110001010011
-Huffman Trees
-Cost of a Huffman Tree containing n symbols
-
-	C(T) = p1*r1+p2*r2+p3*r3+….+ pn*rn
-
-Where:
-pi = the probability that a symbol occurs
-ri = the length of the path from the root to the node
-Huffman encoding costs
-This is the example from 2 slides ago
+	  <section data-markdown><script type="text/template">
+## Lossless Compression of Text
+- ASCII = fixed 8 bits per character
+- Example: "hello there"
+  - 11 characters * 8 bits = 88 bits
+- Can we encode this message using fewer bits?
 	  </script></section>
 
 	</section>
@@ -455,114 +445,390 @@ This is the example from 2 slides ago
 # Huffman Coding
 	  </script></section>
 
+	  <section>
+<h2>Huffman Coding</h2>
+<table>
+<tr style="background-color: transparent"><td style="width:60%">
+<ul><li>Uses <i>frequencies</i> of symbols in a string to build a <i>prefix code</i></li>
+<li>The more frequent a character is, the fewer bits we’ll use to represent it</li>
+<li>Prefix Code: no code in our encoding is a prefix of another code</li>
+</ul></td><td class="top">
+<table>
+<tr><th>Letter</th><th>Code</th></tr>
+<tr><td>a</td><td>0</td></tr>
+<tr><td>b</td><td>100</td></tr>
+<tr><td>c</td><td>101</td></tr>
+<tr><td>d</td><td>11</td></tr>
+</table>
+</td></tr></table>
+	  </section>
+
 	  <section data-markdown><script type="text/template">
-Huffman Encoding
-Compression Phase
-Determine the frequencies of the characters stored in the source file.
-Read the source file  
-Then store the character frequencies in a min-heap 
-Build a tree of prefix codes (a Huffman code) that determines the unique bit codes for each character.
-Write the prefix codes or code tree to the output file.
-Re-read the source file and for each character read, write its prefix code into the output file. 
-You must WRITE the prefix code/tree and the encoded file to the SAME output file
-Huffman coding example
-From Weiss, page 416
-Uses 5 letters (a, e, i, s, t), plus the space and the newline
-Total of 58 characters
-Normal ASCII encoding is 8 bits per character
-58*8 = 464 bits
-Which is 58 bytes, obviously
-Straight encoding is 3 bits per character
-58*3 = 174 bits
-Which is 21.75 bytes
-Compression step 1 (a)
-Determine frequencies of letters
-Compression step 1 (b)
-Build a min-heap
-Sorted by frequency
-Compression step 2
-Build the tree
-Start with a "forest" of trees:
-
-
-Repeat
-Take the two trees that have the lowest frequency
-The next two removals from the heap
-Make them children of a new node
-Keep track of the total frequency of that node
-And stick that tree back into the heap
-
-
-The final Huffman coding tree
-Resulting encoding table
-
-
-
-
-
-
-
-
-
-Total encoding is 146 bits
-ASCII was 464 bits: compression ratio of 3.2:1
-Straight encoding was 174 bits: compression ratio of 1.2:1
-Compression step 3
-Write the prefix codes to a file
-We’ll use regular ASCII characters
-Does this actually do any compression, then?
-
-a 001
-e 01
-i 10
-s 00000
-t 0001
-(sp) 11
-(nl) 00001
-
-Compression step 4
-Write the text to the file using the Huffman encoding
-
-sit becomes 00000 10 0001
-taste becomes 0001 001 
-			00000 0001 01
-etc.
-Decompression Phase
-Read in the prefix code structure (tree or array) from the compressed file. 
-Build a new Huffman tree for performing decompression
-Read in one bit at a time from the compressed file and move through the prefix code tree until a leaf node is reached.
-Write the character stored at the leaf node into the decompressed file.
-While there is still input, repeat.
-Huffman Coding Lab
-Compression (pre-lab)
-Decompression (in-lab)
-Report (post-lab)
-Huffman Encoding Prelab
-Write a program that reads input from a file (see class website for test files)
-Build a binary heap (priority queue) that calculates the letter frequencies
-Build the huffman tree
-Print the letter-encoding mapping to the file
-There is a specific format, as specified in the lab
-Encode the message, printing this also to the file
-
-Tips/Hints
-You may use Weiss code, or create your own heap code.
-File input/output reference material
-readfile.cpp from hashing lab
-Class resources page
-ASCII
-ASCII Character Codes
-American Standard Code for Information Interchange (ASCII)
-Character encoding standard
-Specifies  correspondence between digital bit patterns and English alphabet
-7-bit encoding with 1 bit for parity (error correction)
-128 characters
-95 printable characters
-33 non-printable characters
-
-ASCII Character Codes
-(Hexadecimal)
+## Decoding a Prefix Code
+- Create the Huffman coding tree
+- Loop
+  - start at root of tree
+    - loop
+      - if bit read = 1 then go right
+      - else, go left
+    - until node is a leaf 
+    - Report character found!
+- Until end of the message
 	  </script></section>
+
+	  <section>
+<h2>Decode: 1110001010011</h2>
+
+<table>
+<tr style="background-color: transparent"><td class="top">
+<table>
+<tr><th>Letter</th><th>Code</th></tr>
+<tr><td>a</td><td>0</td></tr>
+<tr><td>b</td><td>100</td></tr>
+<tr><td>c</td><td>101</td></tr>
+<tr><td>d</td><td>11</td></tr>
+</table>
+</td><td style="width:50px"></td><td class="top"><img alt="huffman 13" src="graphs/huffman-13.svg"></td><td style="width:50px"></td><td class="middle">This is a full<br>binary tree!</td></tr></table>
+<p>&nbsp;</p>
+<p class="center">11 100 0 101 0 0 11 = dbacaad</p>
+	  </section>
+
+	  <section>
+<h2>Huffman Trees</h2>
+<p>Cost of a Huffman Tree containing <i>n</i> symbols:</p>
+<p>&nbsp;</p>
+\( C(T) = p_1 * r_1 + p_2 * r_2 + p_3 * r_3 + \ldots + p_n * r_n \)
+<p>&nbsp;</p>
+<p>Where:</p>
+<ul>
+<li><i>p<sub>i</sub></i> = the probability that a symbol occurs</li>
+<li><i>r<sub>i</sub></i> = the length of the path from the root to the node</li>
+</ul>
+	  </section>
+
+	  <section>
+<h2>Huffman encoding costs</h2>
+<table>
+<tr style="background-color: transparent"><td class="top">
+
+<table><tr style="background-color: transparent"><td>This is the example<br> from 2 slides ago</td></tr>
+<tr style="background-color: transparent"><td>&nbsp;</td></tr>
+<tr style="background-color: transparent"><td>&nbsp;</td></tr>
+<tr style="background-color: transparent"><td>
+<table>
+<tr><th>Letter</th><th>Frequency</th><th>Code</th></tr>
+<tr><td>a</td><td>3/7</td><td>0</td></tr>
+<tr><td>b</td><td>1/7</td><td>100</td></tr>
+<tr><td>c</td><td>1/7</td><td>101</td></tr>
+<tr><td>d</td><td>2/7</td><td>11</td></tr>
+</table>
+</td></tr></table>
+
+</td><td style="width:50px"></td><td style="text-align:left">
+<ul>
+<li>a: 3/7 * 1 = 3/7</li>
+<li>b: 1/7 * 3 = 3/7</li>
+<li>c: 1/7 * 3 = 3/7</li>
+<li>d: 2/7 * 2 = 4/7</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Cost is 3/7 + 3/7 + 3/7 + 4/7 = 13/7 = 1.85 bits per character</li>
+<li>Ascii is 8 bits per char</li>
+<li>&quot;Straight&quot; encoding is 2 bits per char</li>
+</ul></td></tr></table>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Compression Phase
+1. Determine the frequencies of the characters stored in the source file
+   - Read the source file
+   - Then store the character frequencies in a *min-heap*
+2. Build a *tree* of prefix codes (a Huffman code) that determines the unique bit codes for each character
+3. Write the prefix codes or code tree to the output file
+4. Re-read the source file and for each character read, write its prefix code into the output file
+   - You must WRITE the prefix code/tree and the encoded file to the SAME output file
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Huffman coding example
+- For the quote "if it is to be, it is up to me"
+  - Total of 12 different characters; string length is 30
+- Normal ASCII encoding is 8 bits per character
+  - 30\*8 = 240 bits
+  - Which is 30 bytes, obviously
+- "Straight" encoding is 4 bits per character
+  - 30\*4 = 120 bits
+  - Which is 15 bytes
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Compression step 1 (a)
+Determine frequencies of letters
+
+| Character | Frequency |
+|-|-|
+| b | 1 |
+| e | 2 |
+| f | 1 |
+| i | 5 |
+| m | 1 |
+| o | 2 |
+| p | 1 |
+| s | 2 |
+| t | 4 |
+| u | 1 |
+| , (comma) | 1 |
+| (space) | 9 |
+	  </script></section>
+
+	  <section>
+<h2>Compression step 1 (b)</h2>
+<p>Build a min-heap, sorted by frequency</p>
+
+<table><tr style="background-color: transparent"><td class="top"><img alt="huffman-14" src="graphs/huffman-14.svg"></td><td class="top">
+
+<table>
+<tr><th>Character</th><th>Frequency</th></tr>
+<tr><td>b</td><td>1</td></tr>
+<tr><td>e</td><td>2</td></tr>
+<tr><td>f</td><td>1</td></tr>
+<tr><td>i</td><td>5</td></tr>
+<tr><td>m</td><td>1</td></tr>
+<tr><td>o</td><td>2</td></tr>
+<tr><td>p</td><td>1</td></tr>
+<tr><td>s</td><td>2</td></tr>
+<tr><td>t</td><td>4</td></tr>
+<tr><td>u</td><td>1</td></tr>
+<tr><td>, (comma)</td><td>1</td></tr>
+<tr><td>(space)</td><td>9</td></tr>
+</table>
+
+</td></table>
+
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Compression step 2
+- Build the tree, starting with a "forest" of trees:
+
+![huffman 1](graphs/huffman-1.svg)
+
+- Repeat
+  - Take the two trees that have the lowest frequency
+    - The next two removals from the heap
+  - Make them children of a new node
+  - Keep track of the total frequency of that node
+    - And stick that tree back into the heap
+
+![huffman 2](graphs/huffman-2.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Building the Huffman Tree
+![huffman 1](graphs/huffman-1.svg)
+![huffman 2](graphs/huffman-2.svg)
+![huffman 3](graphs/huffman-3.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Building the Huffman Tree
+![huffman 4](graphs/huffman-4.svg)
+![huffman 5](graphs/huffman-5.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Building the Huffman Tree
+![huffman 6](graphs/huffman-6.svg)
+![huffman 7](graphs/huffman-7.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Building the Huffman Tree
+![huffman 8](graphs/huffman-8.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Building the Huffman Tree
+![huffman 9](graphs/huffman-9.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Building the Huffman Tree
+![huffman 10](graphs/huffman-10.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Building the Huffman Tree
+![huffman 11](graphs/huffman-11.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## The final Huffman coding tree
+![huffman 12](graphs/huffman-12.svg)
+	  </script></section>
+
+	  <section>
+<h2>The Prefix codes</h2>
+<table><tr style="background-color: transparent"><td class="top"><img alt="huffman-12" src="graphs/huffman-12.svg"></td><td class="top">
+<table>
+<tr><th>Character</th><th>Frequency</th></tr>
+<tr><td>b</td><td>00000</td></tr>
+<tr><td>e</td><td>0011</td></tr>
+<tr><td>f</td><td>00001</td></tr>
+<tr><td>i</td><td>11</td></tr>
+<tr><td>m</td><td>00010</td></tr>
+<tr><td>o</td><td>1000</td></tr>
+<tr><td>p</td><td>00011</td></tr>
+<tr><td>s</td><td>1001</td></tr>
+<tr><td>t</td><td>101</td></tr>
+<tr><td>u</td><td>00100</td></tr>
+<tr><td>, (comma)</td><td>00101</td></tr>
+<tr><td>(space)</td><td>01</td></tr>
+</table>
+</td></table>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Resulting Encoding Table
+
+
+| Character | Frequency | Prefix code | Total bits
+|-|-|-|-|
+| b | 1 | 00000 | 5 | 
+| e | 2 | 0011 | 8 | 
+| f | 1 | 00001 | 5 | 
+| i | 5 | 11 | 10 | 
+| m | 1 | 00010 | 5 | 
+| o | 2 | 1000 | 8 | 
+| p | 1 | 00011 | 5 |
+| s | 2 | 1001 | 8 | 
+| t | 4 | 101 | 12 |
+| u | 1 | 00100 | 5 | 
+| , (comma) | 1 | 00101 | 5 | 
+| (space) | 9 | 01 | 18 |
+
+Total is 94 bits
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Huffman Encoding Statistics
+- Total encoding is 94 bits
+  - ASCII was 240 bits: compression ratio of 2.6:1
+  - "Straight" encoding was 120 bits: compression ratio of 1.3:1
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Compression step 3
+- Write the prefix codes to a file
+  - We’ll use regular ASCII characters
+  - Does this actually do any compression, then?
+
+```
+b 00000
+e 0011
+f 00001
+i 11
+m 00010
+o 1000
+p 00011
+s 1001
+t 101
+u 00100
+, 00101
+  01
+```
+(note the double-space to indicate a space!)
+	  </script></section>
+
+	  <section>
+<h2>The Prefix codes</h2>
+<table><tr style="background-color: transparent">
+<td class="top">
+<ul>
+<li>Write the text to the file using the Huffman encoding<br>&nbsp;</li>
+<li>&quot;be&quot; becomes 00000 0011</li>
+<li>&quot;set&quot; becomes 1001 0011 101</li>
+<li>&quot;stumps&quot; becomes 1001 101 00100 00010 00011 101</li>
+</ul>
+</td><td style="width:50px"></td><td class="top">
+<table>
+<tr><th>Character</th><th>Frequency</th></tr>
+<tr><td>b</td><td>00000</td></tr>
+<tr><td>e</td><td>0011</td></tr>
+<tr><td>f</td><td>00001</td></tr>
+<tr><td>i</td><td>11</td></tr>
+<tr><td>m</td><td>00010</td></tr>
+<tr><td>o</td><td>1000</td></tr>
+<tr><td>p</td><td>00011</td></tr>
+<tr><td>s</td><td>1001</td></tr>
+<tr><td>t</td><td>101</td></tr>
+<tr><td>u</td><td>00100</td></tr>
+<tr><td>, (comma)</td><td>00101</td></tr>
+<tr><td>(space)</td><td>01</td></tr>
+</table>
+</td></table>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Decompression Phase
+1. Read in the prefix code structure (tree or array) from the compressed file. 
+  - Build a new Huffman tree for performing decompression
+2. Read in one bit at a time from the compressed file and move through the prefix code tree until a leaf node is reached.
+3. Write the character stored at the leaf node into the decompressed file.
+4. While there is still input, repeat.
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Huffman Coding Lab
+- Compression (pre-lab)
+- Decompression (in-lab)
+- Report (post-lab)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Huffman Encoding Prelab
+- Write a program that reads input from a file (see class website for test files)
+  - Build a binary heap (priority queue) that calculates the letter frequencies
+  - Build the huffman tree
+  - Print the letter-encoding mapping to the file
+    - There is a specific format, as specified in the lab
+  - Encode the message, printing this also to the file
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Tips/Hints
+- You may use the heap code included here, or create your own heap code.
+- File input/output reference material
+  - readfile.cpp from [hashing lab](../labs/lab06/index.html): see the [Input/output with files article](http://www.cplusplus.com/doc/tutorial/files/) on [cplusplus.com](http://www.cplusplus.com/).  You can also see the code in the lab 6 [getWordInTable.cpp](../labs/lab06/code/getWordInTable.cpp.html) ([src](../labs/lab06/code/getWordInTable.cpp)) file which uses streams as well
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## ASCII
+- American Standard Code for Information Interchange (ASCII)
+  - Character encoding standard
+  - Specifies  correspondence between digital bit patterns and English alphabet
+  - 7-bit encoding with 1 bit for parity (error correction)
+  - 128 characters
+    - 95 printable characters
+    - 33 non-printable characters
+- More details in the [Wikipedia ASCII article](http://en.wikipedia.org/wiki/ASCII)
+	  </script></section>
+
+	  <section>
+<h2>ASCII Character Codes in Hexadecimal</h2>
+<table class="transparent">
+  <tr>
+    <td><img alt="ascii" src="images/11-heaps-huffman/ascii.png"></td>
+    <td style="width:50px"></td>
+    <td class="top"><p>For the lab, you only need to account for the printable characters (0x20 to 0x7e)</p><p>&nbsp;</p>
+<p>Character codes:</p>
+<ul>
+<li>32<sub>10</sub> (0x20) = space</li>
+<li>33<sub>10</sub> (0x21) = !</li>
+<li>126<sub>10</sub>(0x7e) = ~</li>
+</ul></td></tr></table>
+	  </section>
 
 	</section>
 
@@ -570,38 +836,46 @@ ASCII Character Codes
 	<section>
 
 	  <section id="priorityqueueex" data-markdown><script type="text/template">
-# Priority Queue Example
+# Priority Queue<br>Example
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-Priority Queues
-Priority Queue Operations (Weiss)
-insert( x ) 
-deleteMin( )
-findMin( )
-isEmpty( ) 
-makeEmpty( )
-size( )
-Binary Heap Class
+## Priority Queue Operations
+- insert (x) 
+- deleteMin()
+- findMin()
+- isEmpty() 
+- makeEmpty()
+- size()
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Binary Heap Class
+```
 template <typename Comparable>
 class BinaryHeap { 
-	public: 
-		BinaryHeap( int capacity = 100 );// Constructor
-		BinaryHeap( const vector<Comparable> & items ); 
-		bool isEmpty( ) const; 
-		const Comparable & findMin( ) const;
-		void insert( const Comparable & x ); 
-		void deleteMin( );
-		void makeEmpty( );
-		int size() const;
+  public: 
+    BinaryHeap( int capacity = 100 );// Constructor
+    BinaryHeap( const vector<Comparable> & items ); 
+    bool isEmpty( ) const; 
+    const Comparable & findMin( ) const;
+    void insert( const Comparable & x ); 
+    void deleteMin( );
+    void makeEmpty( );
+    int size() const;
 
-	private: 
-		int currentSize; 	// Number of elements in heap 
-		vector<Comparable> list; 	// The heap array 
-					// Internal methods
-		void buildHeap( ); 	
-		void percolateDown( int hole );
+  private: 
+    int currentSize;   // Number of elements in heap 
+    vector<Comparable> list;   // The heap array 
+
+    // Internal methods
+    void buildHeap( );   
+    void percolateDown( int hole );
 }; 
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
 Heap Data Members
 int currentSize
 Size of the heap
