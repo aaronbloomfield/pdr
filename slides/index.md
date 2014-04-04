@@ -63,6 +63,6 @@ Program and Data Representation: Slides
 
 [Slide set 11: Heaps and Huffman coding](11-heaps-huffman.html)
 
-Slide set 13: Graphs
+Slide set 12: Graphs
 
-Slide set 14: Memory
+Slide set 13: Memory
