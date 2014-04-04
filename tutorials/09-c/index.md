@@ -221,7 +221,7 @@ The following might be a good definition for a list item data structure.  We'll 
 
 ```
 struct list_item {
-  struct list_item *pred, *next;
+  struct list_item *prev, *next;
   void *datum;
 } list_item_t;
 ```

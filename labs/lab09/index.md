@@ -75,7 +75,7 @@ Note that this took 9 steps to reach the value 1.  And it also shows that this c
 
 [An image](Collatz-graph-all-30-no27.png) (from Wikipedia) shows how paths of most integers less than 50 converge to 1.
 
-This conjecture has been proven for all integers up to at least 5.6 * 10^13, but has not yet been proven for all (positive) integers.  It is widely believed to be true, however.  If you are interested, more information on this conjecture can be found [here](http://en.wikipedia.org/wiki/Collatz_conjecture](http://en.wikipedia.org/wiki/Collatz_conjecture). 
+This conjecture has been proven for all integers up to at least 5.6 * 10^13, but has not yet been proven for all (positive) integers.  It is widely believed to be true, however.  If you are interested, more information on this conjecture can be found [here](http://en.wikipedia.org/wiki/Collatz_conjecture).
 
 As the conjecture has been proven for numbers up to 5.6 \* 10^13, and our 32-bit machines can only count as high as 4.3 \* 10^9 (that's 2^32), we can safely assume that it is true for all of the input values that we will use.
 
