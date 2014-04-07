@@ -147,10 +147,11 @@
 
 	  <section data-markdown><script type="text/template">
 ## Definitions
-A Perfect (or Complete) binary tree is a binary tree with all leaf nodes at the same depth; all internal nodes have 2 children.
+A *perfect* (or *complete*) binary tree is a binary tree with all leaf nodes at the same depth; all internal nodes have 2 children.
 ![heap 1](graphs/heap-1.svg)
 
 - This has height *h*, 2<sup>*h*+1</sup>-1 nodes, 2<sup>*h*</sup>-1 non-leaves, and 2<sup>*h*</sup> leaves
+  - Note that about half of the nodes are leaves
 - Note that this example is a complete binary tree, not a heap
 	  </script></section>
 
@@ -178,8 +179,8 @@ A Perfect (or Complete) binary tree is a binary tree with all leaf nodes at the 
 <tr><td colspan="3">
 <ul>
 <li>For <i>h</i> &ge; 2, either:<ul>
-    <li>the left subtree of the root is full with height <i>h</i>-1 and the right is complete with height <i>h</i>-1, OR</li>
-    <li>the left is complete with height <i>h</i>-1 and the right is full with height <i>h</i>-2.</li></ul></li>
+    <li>the left subtree of the root is <i>complete</i> with height <i>h</i>-1 and the right is <i>almost complete</i> with height <i>h</i>-1, OR</li>
+    <li>the left is <i>almost complete</i> with height <i>h</i>-1 and the right is <i>complete</i> with height <i>h</i>-2</li></ul></li>
 </ul>
 </td></tr></table>
 	  </section>
@@ -206,14 +207,19 @@ A Perfect (or Complete) binary tree is a binary tree with all leaf nodes at the 
 
 	  <section data-markdown><script type="text/template">
 ## Why better than pointers?
-- No pointers – saves space
-- \*2, /2, + operations are faster than dereferencing pointer
+- Saves space
+  - No need to store parent/child pointers
+  - Arrays are more compact than dynamic memory
+- Saves time
+  - Arrays work better with cache (we'll see why later this semester)
+  - \*2, /2, + operations are faster than dereferencing pointer
+  - Dynamic memory allocation is slow
 - Parent easy to locate
 	  </script></section>
 
 	  <section>
 <h2>Heap Order Property</h2>
-<p>Heap order property: For every non-root node X, the key in the parent of X is less than (or equal to) the key in X.  Thus, the tree is <i>partially</i> ordered.</p>
+<p>Heap order property: For every non-root node <i>X</i>, the key in the parent of <i>X</i> is less than (or equal to) the key in <i>X</i>.  Thus, the tree is <i>partially</i> ordered.</p>
 <table class="transparent"><tr>
 <td class="top"><img alt="heap 9" src="graphs/heap-9.svg"> not a heap</td><td style="width:50px"></td><td><img alt="heap 10" src="graphs/heap-10.svg"> min-heap</td></tr>
 </table>
@@ -255,7 +261,7 @@ void insert (int x) {
 
     // Percolate up
     int hole = ++currentSize;
-    for( ; hole > 1 && x < array[hole /2]; hole /= 2) {
+    for( ; hole > 1 && x < array[hole/2]; hole /= 2 ) {
         // if x < array[hole/2] move 
         // item in array[hole] "down"
         array[hole] = array[hole/2];
