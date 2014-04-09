@@ -124,7 +124,7 @@ Come to lab with a functioning version of the pre-lab, and be prepared to demons
 
 You should be able to explain and write recursive functions for the final exam, so make sure that you understand how to implement the pre-lab program.  Speak to a TA if you have any questions.
 
-The general activity of this in-lab will be to write small snippets of C++ code, compile them so that you can look at the generated assembly code, then make modifications and recompile as needed in order to deduce the representation of a number of C++ constructs, listed below.  Remember that we are compiling using g++ (`g++ -S -masm=intel`), and not clang++.
+The general activity of this in-lab will be to write small snippets of C++ code, compile them so that you can look at the generated assembly code, then make modifications and recompile as needed in order to deduce the representation of a number of C++ constructs, listed below.  Remember that we are compiling using g++ (`g++ -S -masm=intel -m32`), and not clang++.
 
 For the in-lab, you will need to work on at least one of the items in the list below -- note that this is a different list than the previous lab.  You will need to tackle two of the more complex items from the list.  Keep working on more items as time permits, as you will have time to finish addressing the problems in your final post-lab report.  You should be prepared to explain the appropriate items from the list to the TA.
 
@@ -132,7 +132,7 @@ The deliverable for the in-lab is a PDF document named inlab9.pdf.  It must be i
 
 In your report, you should explain something from at least one item in the list in the in-lab report.  Note that for the post-lab, you will have to have two of the items fully explained, but you need only get through one for the in-lab.  Your report would presumably include the code snippets (both C++ and assembly) that you generated during lab, images, screen shots, results, etc.
 
-Recall that using the `-S` flag with g++ will generate the assembly code.  You will also want to use the `-masm=intel` flag.
+Recall that using the `-S` flag with g++ will generate the assembly code.  You will also want to use the `-masm=intel` and `-m32` flags.
 
 ### In-lab 9 list: (You must do TWO of these) ###
 
