@@ -337,7 +337,7 @@ Source code: [priority_queue.cpp](code/11-heaps-huffman/priority_queue.cpp.html)
 ```
 int priority_queue::deleteMin() {
     // make sure the heap is not empty
-    if ( heap_size < 2 )
+    if ( heap_size == 0 )
         throw "deleteMin() called on empty heap";
     // save the value to be returned
     int ret = heap[1];
@@ -361,11 +361,11 @@ void priority_queue::percolateDown(int hole) {
     // while there is a left child...
     while ( hole*2 <= heap_size ) {
         int child = hole*2; // the left child
-	// is there a right child?  if so, is it lesser?
+        // is there a right child?  if so, is it lesser?
         if ( (child+1 <= heap_size) && 
              (heap[child+1] < heap[child]) )
             child++;
-	// if the child is greater than the node...
+        // if the child is greater than the node...
         if ( x > heap[child] ) {
             heap[hole] = heap[child]; // move child up
             hole = child;             // move hole down
@@ -386,7 +386,7 @@ void priority_queue::percolateDown(int hole) {
   1. `decreaseKey(processID, -infinity)`
   2. `deleteMin()`  
 &nbsp;  
-- Worst case Running time for all of these: &Theta;(*n*), because of the find() required; without the find(), it’s &Theta;(log *n*)
+- Worst case running time for all of these: &Theta;(*n*), because of the find() required; without the find(), it’s &Theta;(log *n*)
 - What about FindMax?
 - ExpandHeap: when heap fills, copy into new space.
 	  </script></section>
@@ -404,11 +404,12 @@ void priority_queue::percolateDown(int hole) {
 - Each one has an insertion time of log *n*
 - And then a removal time of log *n*
 - Hence &Theta;(*n* log *n*)
+- But it's not a *stable* sort, so it's not used as often as mergesort
 	  </script></section>
 
 	  <section>
 <h2>An xkcd about heaps...</h2>
-<img class="stretch" src="http://imgs.xkcd.com/comics/tree.png" title="Not only is that terrible in general, but you just KNOW Billy&#39;s going to open the root present first, and then everyone will have to wait while the heap is rebuilt." alt="Tree" />
+<img class="stretch" src="images/11-heaps-huffman/tree.png" title="Not only is that terrible in general, but you just KNOW Billy&#39;s going to open the root present first, and then everyone will have to wait while the heap is rebuilt." alt="Tree" />
 <p class="center"><a href="http://xkcd.com/835/">xkcd # 835</a></p>
 	  </section>
 
@@ -438,7 +439,6 @@ void priority_queue::percolateDown(int hole) {
   - Email
   - Web pages
   - Pictures, audio, video
-  - Data Compression
 - Which of these needs to be exactly the same when we use them again?
 	  </script></section>
 
@@ -449,21 +449,20 @@ void priority_queue::percolateDown(int hole) {
 - Lossless compression: X = X’
 - Lossy compression: X != X’
   - Information is lost (irreversible)
-- Compression Ratio: |X|/|Y|
-  - Where |X| is the # of bits in X.
+- Compression ratio: |X|/|Y|
+  - Where |X| is the number of bits (i.e., file size) of X
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Lossy Compression
-- Some data is lost, but not too much
+- Some data is lost, but not "noticable" data
 - Standards:
   - JPEG (Joint Photographic Experts Group)
-    - Still images
-  - MP3 (MPEG-1, Layer 3), Ogg vorbis
+    - Still images (pictures)
+  - MP3 (MPEG-1, Layer 3), Ogg vorbis, AAC
     - Audio
-  - MPEG (Motion Picture Experts Group) 
+  - MPEG (Motion Picture Experts Group), as well as most video codecs (standards)
     - Audio and video
-    - And most video codecs (standards)
 - Compression ratios of 10:1 are possible
 	  </script></section>
 
@@ -517,7 +516,7 @@ void priority_queue::percolateDown(int hole) {
 <tr style="background-color: transparent"><td style="width:60%">
 <ul><li>Uses <i>frequencies</i> of symbols in a string to build a <i>prefix code</i></li>
 <li>The more frequent a character is, the fewer bits we’ll use to represent it</li>
-<li>Prefix Code: no code in our encoding is a prefix of another code</li>
+<li>Prefix code: no code in our encoding is a prefix of another code</li>
 </ul></td><td class="top">
 <table>
 <tr><th>Letter</th><th>Code</th></tr>
@@ -987,7 +986,7 @@ priority_queue::~priority_queue() {
 Source code: [priority_queue.cpp](code/11-heaps-huffman/priority_queue.cpp.html) ([src](code/11-heaps-huffman/priority_queue.cpp))
 ```
 int priority_queue::findMin() {
-    if ( heap_size < 2 )
+    if ( heap_size == 0 )
         throw "findMin() called on empty heap";
     return heap[1];
 }

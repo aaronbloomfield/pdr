@@ -42,7 +42,7 @@ void priority_queue::percolateUp(int hole) {
 
 int priority_queue::deleteMin() {
     // make sure the heap is not empty
-    if ( heap_size < 2 )
+    if ( heap_size == 0 )
         throw "deleteMin() called on empty heap";
     // save the value to be returned
     int ret = heap[1];
@@ -75,7 +75,7 @@ void priority_queue::percolateDown(int hole) {
 }
 
 int priority_queue::findMin() {
-    if ( heap_size < 2 )
+    if ( heap_size == 0 )
         throw "findMin() called on empty heap";
     return heap[1];
 }
