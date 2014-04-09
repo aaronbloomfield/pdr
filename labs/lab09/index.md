@@ -132,7 +132,7 @@ The deliverable for the in-lab is a PDF document named inlab9.pdf.  It must be i
 
 In your report, you should explain something from at least one item in the list in the in-lab report.  Note that for the post-lab, you will have to have two of the items fully explained, but you need only get through one for the in-lab.  Your report would presumably include the code snippets (both C++ and assembly) that you generated during lab, images, screen shots, results, etc.
 
-Recall that using the `-S` flag with g++ will generate the assembly code.  You will also want to use the `-masm=intel` flag.
+Recall that using the `-S` flag with g++ will generate the assembly code.  You will also want to use the `-masm=intel` and `-m32` flags.
 
 ### In-lab 9 list: (You must do TWO of these) ###
 
