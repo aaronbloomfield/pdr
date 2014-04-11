@@ -12,8 +12,10 @@ priority_queue::priority_queue() : heap_size(0) {
 }
 
 // builds a heap from an unsorted vector
-priority_queue::priority_queue(vector<int> vec) : heap_size(heap.size()-1) {
+priority_queue::priority_queue(vector<int> vec) : heap_size(vec.size()) {
     heap = vec;
+    heap.push_back(heap[0]);
+    heap[0] = 0;
     for ( int i = heap_size/2; i > 0; i-- )
         percolateDown(i);
 }

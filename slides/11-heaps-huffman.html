@@ -560,13 +560,13 @@ void priority_queue::percolateDown(int hole) {
 
 	  <section>
 <h2>Huffman Trees</h2>
-<p>Cost of a Huffman Tree containing <i>n</i> symbols:</p>
+<p>Cost of a file encoded via a Huffman Tree containing <i>n</i> symbols:</p>
 <p>&nbsp;</p>
 \( C(T) = p_1 * r_1 + p_2 * r_2 + p_3 * r_3 + \ldots + p_n * r_n \)
 <p>&nbsp;</p>
 <p>Where:</p>
 <ul>
-<li><i>p<sub>i</sub></i> = the probability that a symbol occurs</li>
+<li><i>p<sub>i</sub></i> = the frequency (or probability) that a symbol occurs</li>
 <li><i>r<sub>i</sub></i> = the length of the path from the root to the node</li>
 </ul>
 	  </section>
@@ -649,10 +649,7 @@ Determine frequencies of letters
 
 	  <section>
 <h2>Compression step 1 (b)</h2>
-<p>Build a min-heap, sorted by frequency</p>
-
-<table><tr style="background-color: transparent"><td class="top"><img alt="huffman-14" src="graphs/huffman-14.svg"></td><td class="top">
-
+<table><tr style="background-color: transparent"><td class="top"><p>Build a min-heap, sorted by frequency</p><img alt="huffman-14" src="graphs/huffman-14.svg"></td><td class="top">
 <table>
 <tr><th>Character</th><th>Frequency</th></tr>
 <tr><td>b</td><td>1</td></tr>
@@ -778,9 +775,10 @@ Total is 94 bits
 
 	  <section data-markdown><script type="text/template">
 ## Huffman Encoding Statistics
-- Total encoding is 94 bits
-  - ASCII was 240 bits: compression ratio of 2.6:1
-  - "Straight" encoding was 120 bits: compression ratio of 1.3:1
+- Total encoding is 94 bits for 30 characeters
+  - Or an average of 3.13 bits per character
+  - ASCII was 240 bits: compression ratio of 2.6
+  - "Straight" encoding was 120 bits: compression ratio of 1.3
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -818,7 +816,7 @@ u 00100
 </ul>
 </td><td style="width:50px"></td><td class="top">
 <table>
-<tr><th>Character</th><th>Frequency</th></tr>
+<tr><th>Character</th><th>Prefix&nbsp;code</th></tr>
 <tr><td>b</td><td>00000</td></tr>
 <tr><td>e</td><td>0011</td></tr>
 <tr><td>f</td><td>00001</td></tr>
@@ -836,12 +834,23 @@ u 00100
 	  </section>
 
 	  <section data-markdown><script type="text/template">
-## Decompression Phase
+## Compression Phase Review
+1. Determine the frequencies of the characters stored in the source file
+   - Read the source file
+   - Then store the character frequencies in a *min-heap*
+2. Build a *tree* of prefix codes (a Huffman code) that determines the unique bit codes for each character
+3. Write the prefix codes or code tree to the output file
+4. Re-read the source file and for each character read, write its prefix code into the output file
+   - You must WRITE the prefix code/tree and the encoded file to the SAME output file
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Decompression Phase Review
 1. Read in the prefix code structure (tree or array) from the compressed file. 
   - Build a new Huffman tree for performing decompression
-2. Read in one bit at a time from the compressed file and move through the prefix code tree until a leaf node is reached.
-3. Write the character stored at the leaf node into the decompressed file.
-4. While there is still input, repeat.
+2. Read in one bit at a time from the compressed file and move through the prefix code tree until a leaf node is reached
+3. Write the character stored at the leaf node into the decompressed file
+4. While there is still input, repeat
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -884,9 +893,9 @@ u 00100
 <h2>ASCII Character Codes in Hexadecimal</h2>
 <table class="transparent">
   <tr>
-    <td><img alt="ascii" src="images/11-heaps-huffman/ascii.png"></td>
-    <td style="width:50px"></td>
-    <td class="top"><p>For the lab, you only need to account for the printable characters (0x20 to 0x7e)</p><p>&nbsp;</p>
+    <td class="width:45%"><img alt="ascii" src="images/11-heaps-huffman/ascii.png"></td>
+    <td style="width:10%"></td>
+    <td class="top" style="width:45%"><p>For the lab, you only need to account for the printable characters (0x20 to 0x7e)</p><p>&nbsp;</p>
 <p>Character codes:</p>
 <ul>
 <li>32<sub>10</sub> (0x20) = space</li>
@@ -969,8 +978,10 @@ priority_queue::priority_queue() : heap_size(0) {
 
 // builds a heap from an unsorted vector
 priority_queue::priority_queue(vector<int> vec) : 
-		heap_size(heap.size()-1) {
+		heap_size(vec.size()) {
     heap = vec;
+    heap.push_back(heap[0]);
+    heap[0] = 0;
     for ( int i = heap_size/2; i > 0; i-- )
         percolateDown(i);
 }

@@ -23,8 +23,10 @@ priority_queue<font color="#990000">::</font><b><font color="#000000">priority_q
 <font color="#FF0000">}</font>
 
 <i><font color="#9A1900">// builds a heap from an unsorted vector</font></i>
-priority_queue<font color="#990000">::</font><b><font color="#000000">priority_queue</font></b><font color="#990000">(</font><font color="#008080">vector&lt;int&gt;</font> vec<font color="#990000">)</font> <font color="#990000">:</font> <b><font color="#000000">heap_size</font></b><font color="#990000">(</font>heap<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">()-</font><font color="#993399">1</font><font color="#990000">)</font> <font color="#FF0000">{</font>
+priority_queue<font color="#990000">::</font><b><font color="#000000">priority_queue</font></b><font color="#990000">(</font><font color="#008080">vector&lt;int&gt;</font> vec<font color="#990000">)</font> <font color="#990000">:</font> <b><font color="#000000">heap_size</font></b><font color="#990000">(</font>vec<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">())</font> <font color="#FF0000">{</font>
     heap <font color="#990000">=</font> vec<font color="#990000">;</font>
+    heap<font color="#990000">.</font><b><font color="#000000">push_back</font></b><font color="#990000">(</font>heap<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]);</font>
+    heap<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
     <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> heap_size<font color="#990000">/</font><font color="#993399">2</font><font color="#990000">;</font> i <font color="#990000">&gt;</font> <font color="#993399">0</font><font color="#990000">;</font> i<font color="#990000">--</font> <font color="#990000">)</font>
         <b><font color="#000000">percolateDown</font></b><font color="#990000">(</font>i<font color="#990000">);</font>
 <font color="#FF0000">}</font>
