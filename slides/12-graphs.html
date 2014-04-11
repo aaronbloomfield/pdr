@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 2150: 12-graphs slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="css/pdr.css">
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
+	if( window.location.search.match( /print-pdf/gi ) ) {
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = 'reveal.js/css/print/pdf.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	}
+    </script>
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/dhtmlwindow.js"></script>
+    <script type="text/javascript" src="js/canvas.js"></script>
+    <link rel="stylesheet" href="css/dhtmlwindow.css" type="text/css">
+  </head>
+
+  <body onload="canvasinit()">
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	<section data-markdown id="cover"><script type="text/template">
+# CS 2150
+&nbsp;
+### Program and Data Representation
+### Spring 2014
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="12-graphs.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
+<center><small>Themes: [default](?#/cover), [sky](?theme=sky#/cover), [beige](?theme=beige#/cover), [simple](?theme=simple#/cover), [serif](?theme=serif#/cover), [night](?theme=night#/cover), [moon](?theme=moon#/cover), [solarized](?theme=solarized#/cover)</small></center>
+&nbsp;  
+&nbsp;  
+## Graphs
+	</script></section>
+
+	  <section>
+<h2>CS 2150 Roadmap</h2>
+<table class="wide">
+  <tr><td colspan="3"><p class="center">Data Representation</p></td><td></td><td colspan="3"><p class="center">Program Representation</p></td></tr>
+  <tr>
+    <td class="top"><small>&nbsp;<br>&nbsp;<br>string<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>int x[3]<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>char x<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>0x9cd0f0ad<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>01101011</small></td>
+    <!-- image adapted from http://openclipart.org/detail/3677/arrow-left-right-by-torfnase -->
+    <td><img class="noborder" src="images/red-double-arrow.png" height="500" alt="vertical red double arrow"></td>
+    <td class="top">&nbsp;<br>Objects<br>&nbsp;<br>Arrays<br>&nbsp;<br>Primitive types<br>&nbsp;<br>Addresses<br>&nbsp;<br>bits</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="top"><small>&nbsp;<br>&nbsp;<br>Java code<br>&nbsp;<br>&nbsp;<br>C++ code<br>&nbsp;<br>&nbsp;<br>C code<br>&nbsp;<br>&nbsp;<br>x86 code<br>&nbsp;<br>&nbsp;<br>IBCM<br>&nbsp;<br>&nbsp;<br>hexadecimal</small></td>
+    <!-- image adapted from http://openclipart.org/detail/3677/arrow-left-right-by-torfnase -->
+    <td><img class="noborder" src="images/green-double-arrow.png" height="500" alt="vertical green double arrow"></td>
+    <td class="top">&nbsp;<br>High-level language<br>&nbsp;<br>Low-level language<br>&nbsp;<br>Assembly language<br>&nbsp;<br>Machine code</td>
+  </tr>
+</table>
+	  </section>
+
+	<section data-markdown><script type="text/template">
+# Contents
+&nbsp;  
+[Introduction](#introduction)  
+[Topological Sort](#topological)  
+[Shortest Path Algorithms](#shortestpath)  
+[Google Maps](#googlemaps)  
+[Travelling Salesperson (TSP)](#tsp)  
+[Minimum Spanning Tree (MST)](#mst)  
+	</script></section>
+
+
+
+	<section>
+
+	  <section id="introduction" data-markdown><script type="text/template">
+# Introduction
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Graph examples
+- Google Maps, of course
+  - Which actually uses MapQuest data
+  - But we'll call it Google Maps data
+- Others?
+	  </script></section>
+
+	  <section>
+<h2>Airline Routes</h2>
+<img class="stretch" src="images/12-graphs/airline-routes-from-openflights.jpg" alt="airline routes">
+	  </section>
+
+	  <section>
+<h2>Flowcharts</h2>
+<img class="stretch" src="images/12-graphs/geek-gift-flowchart.gif" alt="geek gift flowchart">
+	  </section>
+
+	  <section>
+<h2>Pre-requisite Diagrams</h2>
+<img class="stretch" src="images/12-graphs/bs-cs-chart.svg" alt="bs cs pre-req chart">
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Graphs
+- *G* = (*V*, *E*)
+- *V* are the vertices; *E* are the edges
+- Edges are of the form (*v*, *w*), where *v*, *w* &in; *V*
+  - ordered pair: directed graph or digraph
+  - unordered pair: undirected graph
+![graph](graphs/graph-1.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## How big are these graphs?
+
+- Airline routes: [Openflights](http://openflights.org), as of January 2012, has 59,036 routes between 3,209 airports ([source](http://openflights.org/data.html))
+- Google maps: information is hard to find
+  - So this is a not-so-educated guess
+  - There are probably 50 million intersections (vertices) in the US
+  - Assume each one connects to four others
+  - That's 4 * 50 million = 200 million edges
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Terminology
+- A **weight** or **cost** can be associated with each edge
+- *w* is **adjacent** to *v* iff (*v*, *w*) &in; *E*
+- **path**: sequence of vertices *w*<sub>1</sub>, *w*<sub>2</sub>, *w*<sub>3</sub>, ..., *w*<sub>n</sub> such that (*w*<sub>*i*</sub>, *w*<sub>*i*+1</sub>) &in; *E* for 1 &le; *i* < *n*
+- **length** of a path: number of edges in the path
+- **simple path**: all vertices are distinct
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## How to weight a graph?
+- For Google maps?
+- For airline routes?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## More terminology
+- **cycle**:
+  - **directed graph**: path of length &ge; 1 such that *w*<sub>1</sub> = *w*<sub>n</sub>
+  - **undirected graph**: same, except all edges are distinct
+- **connected**: there is a path from every vertex to every other vertex
+- **loop**: (*v*, *v*) &in; *E*
+- **complete graph**: there is an edge between every pair of vertices
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Digraph terminology
+- **directed acyclic graph**: no cycles; often called a "DAG"
+- **strongly connected**: there is a path from every vertex to every other vertex
+- **weakly connected**: the underlying undirected graph is connected
+![graph](graphs/graph-2.svg)
+	  </script></section>
+
+	  <section>
+<h2>Representation: Adjacency Matrix</h2>
+<p>\( A[u][v] = \left\{
+  \begin{array}{l l}
+    weight & \quad \text{if ($u$,$v$) $\in$ $E$}\\
+    0 & \quad \text{if ($u$,$v$) $\notin$ $E$}\\
+  \end{array} \right.
+\) </p>
+<p>&nbsp;</p>
+<table><tr style="background-color:transparent"><td class="top">
+<table>
+<tr><th style="width:50px"></th><th style="width:50px">1</th><th style="width:50px">2</th><th style="width:50px">3</th><th style="width:50px">4</th></tr>
+<tr><th>1</th><td></td><td></td><td></td><td></td></tr>
+<tr><th>2</th><td></td><td></td><td></td><td></td></tr>
+<tr><th>3</th><td></td><td></td><td></td><td></td></tr>
+<tr><th>4</th><td></td><td></td><td></td><td></td></tr>
+</table>
+</td><td style="width:100px"></td><td class="top"><img src="graphs/graph-3.svg" alt="graph"></td></tr></table>
+<script type="text/javascript">insertCanvas();</script>
+	  </section>
+
+	  <section>
+<h2>Representation: Adjacency List</h2>
+<table><tr style="background-color:transparent"><td class="top">
+<td class="middle"><img src="images/12-graphs/adjacency-list.svg" alt="linked list"></td>
+<td style="width:50px"></td>
+<td class="top"><img src="graphs/graph-3.svg" alt="graph"></td>
+</tr></table>
+	  </section>
+
+
+	  <section data-markdown><script type="text/template">
+## Representation in the real world
+- Two types of representation
+  - Adjacency matrix
+  - Adjacency list
+- How does Google maps probably store it?
+- How do airline routes probably store it?
+	  </script></section>
+
+	</section>
+
+
+
+	<section>
+
+	  <section id="topological" data-markdown><script type="text/template">
+# Topological Sort
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+	  </script></section>
+
+	</section>
+
+
+
+	<section>
+
+	  <section id="shortestpath" data-markdown><script type="text/template">
+# Shortest Path<br>Algorithms
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+	  </script></section>
+
+	</section>
+
+
+
+	<section>
+
+	  <section id="googlemaps" data-markdown><script type="text/template">
+# Google Maps
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+	  </script></section>
+
+	</section>
+
+
+
+	<section>
+
+	  <section id="tsp" data-markdown><script type="text/template">
+# Travelling<br>Salesperson<br>(TSP)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+	  </script></section>
+
+	</section>
+
+
+
+	<section>
+
+	  <section id="mst" data-markdown><script type="text/template">
+# Minimum Spanning Tree (MST)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+	  </script></section>
+
+	</section>
+
+
+
+
+
+
+      </div>
+
+    </div>
+
+    <div id="calibratediv" style="display:none">
+      <div id="calibratecanvasdiv">
+        <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
+      </div>
+      <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
+    </div>
+
+    <script src="reveal.js/lib/js/head.min.js"></script>
+    <script src="reveal.js/js/reveal.min.js"></script>
+    <script src="js/settings.js"></script>
+
+  </body>
+</html>

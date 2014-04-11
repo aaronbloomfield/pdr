@@ -65,6 +65,6 @@ Program and Data Representation: Slides
 
 - Source code: [priority_queue.cpp](code/11-heaps-huffman/priority_queue.cpp.html) ([src](code/11-heaps-huffman/priority_queue.cpp)), [priority_queue.h](code/11-heaps-huffman/priority_queue.h.html) ([src](code/11-heaps-huffman/priority_queue.h)), [pq-test.cpp](code/11-heaps-huffman/pq-test.cpp.html) ([src](code/11-heaps-huffman/pq-test.cpp)),
 
-Slide set 12: Graphs
+[Slide set 12: Graphs](12-graphs.html)
 
 Slide set 13: Memory
