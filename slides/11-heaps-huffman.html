@@ -734,7 +734,7 @@ Determine frequencies of letters
 <h2>The Prefix codes</h2>
 <table><tr style="background-color: transparent"><td class="top"><img alt="huffman-12" src="graphs/huffman-12.svg"></td><td class="top">
 <table>
-<tr><th>Character</th><th>Frequency</th></tr>
+<tr><th>Character</th><th>Prefix&nbsp;code</th></tr>
 <tr><td>b</td><td>00000</td></tr>
 <tr><td>e</td><td>0011</td></tr>
 <tr><td>f</td><td>00001</td></tr>
@@ -872,9 +872,12 @@ u 00100
 
 	  <section data-markdown><script type="text/template">
 ## Tips/Hints
-- You may use the heap code included here, or create your own heap code.
-- File input/output reference material
-  - readfile.cpp from [hashing lab](../labs/lab06/index.html): see the [Input/output with files article](http://www.cplusplus.com/doc/tutorial/files/) on [cplusplus.com](http://www.cplusplus.com/).  You can also see the code in the lab 6 [getWordInTable.cpp](../labs/lab06/code/getWordInTable.cpp.html) ([src](../labs/lab06/code/getWordInTable.cpp)) file which uses streams as well
+- You may use the heap code included here, or create your own heap code, but you may not use it from other sources (including the STL)
+- File input/output reference material:
+  - The [fileio.cpp](../labs/lab10/fileio.cpp.html) ([src](../labs/lab10/fileio.cpp)) file from [lab 10 (Huffman)](../labs/lab10/index.html)
+  - The [Input/output with files article](http://www.cplusplus.com/doc/tutorial/files/) on [cplusplus.com](http://www.cplusplus.com/)
+  - The [getWordInTable.cpp](../labs/lab06/code/getWordInTable.cpp.html) ([src](../labs/lab06/code/getWordInTable.cpp)) file from [lab 6 (hashes)](../labs/lab06/index.html)
+
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -928,7 +931,7 @@ u 00100
 Source code: [priority_queue.h](code/11-heaps-huffman/priority_queue.h.html) ([src](code/11-heaps-huffman/priority_queue.h))
 ```
 class priority_queue {
-public:
+  public:
     priority_queue();
     priority_queue(vector<int> vec);
     ~priority_queue();
@@ -939,8 +942,9 @@ public:
     unsigned int size();
     void makeEmpty();
     bool isEmpty();
+    void print();
 
-private:
+  private:
     vector<int> heap;
     unsigned int heap_size;
 
