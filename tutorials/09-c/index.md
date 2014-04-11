@@ -1,5 +1,5 @@
-PDR: C Tutorial C++ programmers
-===============================
+PDR: C Tutorial for C++ programmers
+===================================
 
 [Go up to the Tutorials table of contents page](../index.html)
 

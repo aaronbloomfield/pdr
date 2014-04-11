@@ -60,3 +60,9 @@ The labs for this course:
   - The tutorial, for the post-lab, is the [C tutorial](../../tutorials/09-c/index.html); you will need to implement the linkedlist.c program.
 
 - [Lab 10: Huffman coding](lab10/index.html)
+  - Source code
+    - Binary heap code from the [Heaps and Huffman slide set](../slides/11-heaps-huffman.html): [priority_queue.cpp](../slides/code/11-heaps-huffman/priority_queue.cpp.html) ([src](../slides/code/11-heaps-huffman/priority_queue.cpp)), [priority_queue.h](../slides/code/11-heaps-huffman/priority_queue.h.html) ([src](../slides/code/11-heaps-huffman/priority_queue.h)), [pq-test.cpp](../slides/code/11-heaps-huffman/pq-test.cpp.html) ([src](../slides/code/11-heaps-huffman/pq-test.cpp))
+	- File I/O example: [fileio.cpp](lab10/fileio.cpp.html) ([src](lab10/fileio.cpp))
+	- In-lab skeleton code: [inlab-skeleton.cpp](lab10/inlab-skeleton.cpp.html) ([src](lab10/inlab-skeleton.cpp))
+	- Example encoded and decoded files are in the [labs/lab10/examples/ directory](lab10/examples/), or as one [examples.zip](lab10/examples.zip) file)
+  - The tutorial, for the post-lab, is the [Objective C tutorial](../tutorials/10-objc/index.html), for which you will need the [helloworld.m](../tutorials/10-objc/helloworld.m.html) ([src](../tutorials/10-objc/helloworld.m)) file, and you will need to implement the linkedlist.c program.
