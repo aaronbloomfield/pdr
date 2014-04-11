@@ -11,3 +11,4 @@ These are useful documents that are not slides nor tutorials.
 - [Compilation](compilation.html) issues
 - [Readings](readings.html) in lieu of a textbook
 - [Instructor notes](instructor.html) are notes for course instructor(s)
+- [Tree structure of this repository](tree.html)
