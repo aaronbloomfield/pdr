@@ -217,7 +217,7 @@ As with the pre-lab, you should ensure that those files compile successfully wit
 Post-lab
 --------
 
-There are two parts to this post-lab: the time and space complexity analysis, and the [Objective C tutorial](../..//tutorials/10-objc/helloworld.m).
+There are two parts to this post-lab: the time and space complexity analysis, and the [Objective C tutorial](../../tutorials/10-objc/index.html).
 
 The Huffman decoding code was submitted for the in-lab, and won't be submitted for the post-lab.  The Huffman encoding code was be submitted for the pre-lab, and also won't be submitted for the post-lab either.
 
@@ -240,4 +240,4 @@ Space complexity -- for this, you should calculate the number of bytes that are 
 
 ### Objective C ###
 
-Read though, and complete, the [Objective C tutorial](../../tutorails/10-objc/index.html); you will need to download the [helloworld.m](../../tutorials/10-objc/helloworld.m) file, and submit a linkedlist.m file.
+Read though, and complete, the [Objective C tutorial](../../tutorials/10-objc/index.html); you will need to download the [helloworld.m](../../tutorials/10-objc/helloworld.m) file, and submit a linkedlist.m file.
