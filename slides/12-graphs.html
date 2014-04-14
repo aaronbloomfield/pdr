@@ -216,7 +216,84 @@
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
+## Topological Sort
+- Given a *directed acyclic graph*, construct an **ordering** of the vertices such that if there is a path from *v<sub>i</sub>* to *v<sub>j</sub>*, then *v<sub>j</sub>* appears after *v<sub>i</sub>* in the ordering
+  - The result is a linear list of vertices
+- **indegree** of *v*: number of edges (*u*, *v*) -- meaning the number of *incoming* edges
+![graph](graphs/graph-4.svg)
 	  </script></section>
+
+	  <section>
+<h2>Topological Sort</h2>
+<img src="graphs/graph-4.svg" alt="graph">
+<p class="fragment" style="text-align:center">One valid topological sort is: v1, v6, v8, v3, v2, v7, v4, v5</p>
+<script type="text/javascript">insertCanvas();</script>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## What is the topological sort?
+![graph](graphs/graph-5.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What is the topological sort?
+![graph](graphs/graph-6.svg)
+	  </script></section>
+
+	  <section>
+<h2>This is already topologically sorted!</h2>
+<img class="stretch" src="images/12-graphs/bs-cs-chart.svg" alt="bs cs pre-req chart">
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Topological sort
+```
+void Graph::topsort(){
+  Vertex v, w;
+  for (int counter=0; counter < NUM_VERTICES; counter++) {
+    v = findNewVertexOfInDegreeZero();
+    if (v == NOT_A_VERTEX)
+      throw CycleFound();
+    v.topologicalNum = counter;
+    for each w adjacent to v
+      w.indegree--;
+  }
+}
+```
+- What's the big-Theta running time?
+- Observation: The only new (eligible) vertices with indegree 0 are the ones adjacent to the vertex just processed
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Topological sort
+```
+void Graph::topsort(){
+  Queue q(NUM_VERTICES);
+  int counter = 0;
+  Vertex v, w;
+
+  q.makeEmpty(); // initialize the queue
+  for each vertex v
+    if (v.indegree == 0)
+      q.enqueue(v);
+  while (!q.isEmpty()) {
+    v = q.dequeue(); // get vertex of indegree 0
+    v.topologicalNum = ++counter;
+    for each w adjacent to v: // insert eligible vertices
+      if (--w.indegree == 0)
+        q.enqueue(w);
+  }
+  if (counter != NUM_VERTICES)
+    throw CycleFound();
+}
+```
+	  </script></section>
+
+	  <section>
+<h2>Another Topological Sort Example</h2>
+<img src="graphs/graph-7.svg" alt="graph">
+<script type="text/javascript">insertCanvas();</script>
+	  </section>
 
 	</section>
 
@@ -229,7 +306,168 @@
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
+## Why do we care about shortest paths?
+- The obvious answers:
+  - Map routing (car navigation systems, Google Maps, flights)
+  - 6 degrees of separation
+- But what else?
+  - Internet routing
+  - Puzzle answers (Rubik's cube)
 	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## 3 types of algorithms
+- Single pair
+- Single source
+- All pairs
+  - We won't see this in this course
+- And a variant that we'll see later:
+  - Travelling salesperson
+	  </script></section>
+
+	  <section>
+<h2>Shortest Path Algorithms</h2>
+<ul>
+<li>This version is called the &quot;single-source&quot; shortest path</li>
+<li>Given a graph \( G = (V, E) \) and a single distinguished vertex <i>s</i>, find the shortest weighted path from <i>s</i> to every other vertex in <i>G</i></li>
+</ul>
+<p>&nbsp;</p>
+<p class="center">The <b>weighted path length</b> of \( v_1, v_2, \ldots , v_n \):</p>
+<p>&nbsp;</p>
+<p class="center">\( \sum_{i=1}^{n-1}c_{i,i+1} \) where \( c_{i,j} \) is the cost of edge \( (v_i,v_j) \)</p>
+	  </section>
+
+	  <section>
+<h2>Unweighted Shortest Path</h2>
+<ul>
+<li>Special case of the weighted problem: all weights are 1</li>
+<li>Solution: breadth-first search; similar to level-order traversal for trees</li>
+</ul>
+<img src="graphs/graph-8.svg" alt="graph">
+<script type="text/javascript">insertCanvas();</script>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Unweighted Shortest Path
+```
+void Graph::unweighted (Vertex s){
+  Queue q(NUM_VERTICES);
+  Vertex v, w;
+  q.enqueue(s);
+  s.dist = 0;
+
+  while (!q.isEmpty()){
+    v = q.dequeue();
+    for each w adjacent to v
+      // each edge examined at most once,
+      // if adjacency lists are used
+      if (w.dist == INFINITY) {
+        w.dist = v.dist + 1;
+        w.path = v;
+        q.enqueue(w); // each vertex enqueued at most once
+      }
+    }
+  }
+```
+What is the big-Theta running time?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Weighted Shortest Path
+- We assume no negative weight edges
+- Dijkstra's algorithm: uses similar ideas as the unweighted case
+- Greedy algorithms: do what seems to be best at every decision point
+![known-unknown graphs](images/12-graphs/known-unknown-graphs.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Dijkstra's algorithm
+- Initialize each vertex's distance as infinity
+- Start at a given vertex *s*
+  - Update *s*'s distance to be 0
+- Repeat
+  - Pick the next unknown vertex with the shortest distance to be the next *v*
+    - If no more vertices are unknown, terminate loop
+  - Mark *v* as known
+  - For each edge from *v* to adjacent unknown vertices *w*
+    - If the total distance to *w* is less than the current distance to *w*
+      - Update *w*'s distance and the path to *w*
+	  </script></section>
+
+	  <section>
+<h2>Dijstra's Algorithm</h2>
+<table>
+<tr style="background-color:transparent"><td class="top">
+<table>
+<tr><th>V</th><th>Known?</th><th style="width:150px">Dist</th><th style="width:150px">Path</th></tr>
+<tr><th><i>v</i><sub>0</sub></th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i><sub>1</sub></th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i><sub>2</sub></th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i><sub>3</sub></th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i><sub>4</sub></th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i><sub>5</sub></th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i><sub>6</sub></th><td></td><td></td><td></td></tr>
+</table>
+</td><td style="width:50px"></td><td class="top"><img alt="graph" style="width:400px" src="graphs/graph-9.svg"></td></tr>
+</table>
+<script type="text/javascript">insertCanvas();</script>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Dijkstra's algorithm
+```
+void Graph::dijkstra(Vertex s) {
+  Vertex v,w;
+  s.dist = 0;
+
+  while (there exist unknown vertices, find the 
+	    unknown v with the smallest distance) {
+    v.known = true;
+
+    for each w adjacent to v
+      if (!w.known)
+        if (v.dist + Cost_VW < w.dist) {
+	  w.dist = v.dist + Cost_VW;
+          w.path = v;
+        }
+  }
+}
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Weighted Single Source Shortest Paths
+(another example...)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Analysis
+- How long does it take to find the smallest unknown distance?
+  - Simple scan using an array: &Theta;(*v*)
+- Total running time:
+  - Using a simple scan: &Theta;(*v*<sup>2</sup>+*e*) = O(*v*<sup>2</sup>)
+- Optimizations?
+  - Use adjacency lists and heaps
+  - Assuming that the graph is connected (i.e. *e* > *v*-1), then the running time decreases to &Theta;(*e*+*v* log *v*)
+  - We can simplify this to &Theta;(*e* log *v*)
+    - Although we won't see how to do that in this course
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Negative Cost Edges?
+- Perhaps the graph weights are the amount of fuel expended
+  - Positive means fuel was used
+  - And passing by a fuel station is a refueling, which is a negative cost edge
+- Dijkstra's algorithm does not work for negative cost edges
+  - Others do, but are much less efficient
+- What about negative cost cycles?
+	  </script></section>
+
+	  <section>
+<h2>Shortest Path Example Problem</h2>
+<p class="center">From the ICPC Mid-Atlantic Regionals, 2009</p>
+<img src="images/12-graphs/icpc-midatl-2009-shortest-path.png" alt="icpc 2009 problem" class="stretch">
+	  </section>
 
 	</section>
 
