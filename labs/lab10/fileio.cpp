@@ -3,6 +3,9 @@
 
 // included so we can use cout
 #include <iostream>
+// stdlib.h is where exit() lives
+#include <stdlib.h>
+
 using namespace std;
 
 // include the standard I/O library
