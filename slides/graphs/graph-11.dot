@@ -1,0 +1,16 @@
+digraph G {
+	graph [fontname = "Helvetica"];
+	node [fontname = "Helvetica",shape=circle,width=0.6];
+	edge [fontname = "Helvetica",dir=none];
+
+	A -> B;
+	A -> C;
+	B -> D;
+	C -> D;
+	B -> C;
+	A -> D;
+	
+	{rank=same A};
+	{rank=same B -> C [style=invis]};
+	{rank=same D};
+}

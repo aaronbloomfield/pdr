@@ -19,6 +19,12 @@ graphs:
 	@ls graph-[8].dot | sed s/.dot//g | awk '{print "dot -Tps -Kfdp "$$1".dot -o "$$1".ps"}' | bash
 	@ls graph-[8].dot | sed s/.dot//g | awk '{print "dot -Tpng -Kfdp "$$1".dot -o "$$1".png"}' | bash
 
+graphpngs:
+	@ls graph-*.dot | sed s/.dot//g | awk '{print "dot -Tpng -Kneato "$$1".dot -o "$$1".png"}' | bash
+	@ls graph-[56].dot | sed s/.dot//g | awk '{print "dot -Tpng "$$1".dot -o "$$1".png"}' | bash
+	@ls graph-[4].dot | sed s/.dot//g | awk '{print "dot -Tpng -Kneato -Gstart=5 "$$1".dot -o "$$1".png"}' | bash
+	@ls graph-[8].dot | sed s/.dot//g | awk '{print "dot -Tpng -Kfdp "$$1".dot -o "$$1".png"}' | bash
+
 markdown:
 	@ls *.svg | awk '{print "["$$1"]("$$1"), "}'
 

@@ -435,10 +435,24 @@ void Graph::dijkstra(Vertex s) {
 ```
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
-## Weighted Single Source Shortest Paths
-(another example...)
-	  </script></section>
+	  <section>
+<h2>Another Dijstra's Algorithm Example</h2>
+<table>
+<tr style="background-color:transparent"><td class="top">
+<table>
+<tr><th>V</th><th>Known?</th><th style="width:150px">Dist</th><th style="width:150px">Path</th></tr>
+<tr><th><i>v</i><sub>1</sub></th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i><sub>2</sub></th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i><sub>3</sub></th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i><sub>4</sub></th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i><sub>5</sub></th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i><sub>6</sub></th><td></td><td></td><td></td></tr>
+</table>
+</td><td style="width:50px"></td><td class="top"><img alt="graph" style="width:400px" src="graphs/graph-10.svg"></td></tr>
+</table>
+<p style="font-size:90%">This is the same graph as in the <a href="http://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Wikipedia article on Dijkstra's algorithm</a></p>
+<script type="text/javascript">insertCanvas();</script>
+	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## Analysis
@@ -480,6 +494,38 @@ void Graph::dijkstra(Vertex s) {
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
+## More on shortest path
+- We studied finding the shortest path from a single vertex to *every* vertex
+- But what about just 1 destination?
+- Solution: do the same algorithm, but stop when the destination enters the set *S*
+- Thus, the running time is the same!
+	  </script></section>
+
+	  <section>
+<h2>How would you drive to Seattle?</h2>
+<p class="fragment">And what constitutes a &quot;highway&quot;?</p>
+	  </section>
+
+	  <section>
+<h2>The Eisenhower Interstate System
+<a href="http://en.wikipedia.org/wiki/File:Map_of_current_Interstates.svg"><img class="stretch" alt="interstates" src="images/12-graphs/interstates.svg"></a>
+	  </section>
+
+	  <section>
+<h2>A Google Maps Screenshot</h2>
+<img class="stretch" alt="google maps" src="images/12-graphs/google-maps.png">
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## GPS shortest path algorithm
+(Google Maps likely uses something much more complicated)
+
+- Assume you are starting on a "side road"
+- Transition to a "main road"
+- Transition to a "highway"
+- Get as close as you can to your destination via the highway system
+- Transition to a "main road", and get as close as you can to your destination
+- Transition to a "side road", and go to your destination
 	  </script></section>
 
 	</section>
