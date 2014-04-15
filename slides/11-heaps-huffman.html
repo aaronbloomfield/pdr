@@ -343,6 +343,8 @@ int priority_queue::deleteMin() {
     int ret = heap[1];
     // move the last inserted position into the root
     heap[1] = heap[heap_size--];
+    // make sure the vector knows that there is one less element
+    heap.pop_back();
     // percolate the root down to the proper position
     percolateDown(1);
     // return the old root node

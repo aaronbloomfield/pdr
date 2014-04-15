@@ -61,6 +61,8 @@ priority_queue<font color="#990000">::~</font><b><font color="#000000">priority_
     <font color="#009900">int</font> ret <font color="#990000">=</font> heap<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">];</font>
     <i><font color="#9A1900">// move the last inserted position into the root</font></i>
     heap<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">]</font> <font color="#990000">=</font> heap<font color="#990000">[</font>heap_size<font color="#990000">--];</font>
+    <i><font color="#9A1900">// make sure the vector knows that there is one less element</font></i>
+    heap<font color="#990000">.</font><b><font color="#000000">pop_back</font></b><font color="#990000">();</font>
     <i><font color="#9A1900">// percolate the root down to the proper position</font></i>
     <b><font color="#000000">percolateDown</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">);</font>
     <i><font color="#9A1900">// return the old root node</font></i>
