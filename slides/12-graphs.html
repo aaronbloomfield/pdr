@@ -248,7 +248,7 @@
 	  <section data-markdown><script type="text/template">
 ## Topological sort
 ```
-void Graph::topsort(){
+void Graph::topsort() {
   Vertex v, w;
   for (int counter=0; counter < NUM_VERTICES; counter++) {
     v = findNewVertexOfInDegreeZero();
@@ -267,7 +267,7 @@ void Graph::topsort(){
 	  <section data-markdown><script type="text/template">
 ## Topological sort
 ```
-void Graph::topsort(){
+void Graph::topsort() {
   Queue q(NUM_VERTICES);
   int counter = 0;
   Vertex v, w;
@@ -350,13 +350,13 @@ void Graph::topsort(){
 	  <section data-markdown><script type="text/template">
 ## Unweighted Shortest Path
 ```
-void Graph::unweighted (Vertex s){
+void Graph::unweighted (Vertex s) {
   Queue q(NUM_VERTICES);
   Vertex v, w;
   q.enqueue(s);
   s.dist = 0;
 
-  while (!q.isEmpty()){
+  while (!q.isEmpty()) {
     v = q.dequeue();
     for each w adjacent to v
       // each edge examined at most once,
@@ -749,7 +749,7 @@ Idea: Grow a forest out of edges that do not create a cycle.  Pick an edge with 
 	  <section data-markdown><script type="text/template">
 ## Kruskal code
 ```
-void Graph::kruskal(){
+void Graph::kruskal() {
   int edgesAccepted = 0;
   DisjSet s(NUM_VERTICES);
 
@@ -759,7 +759,7 @@ void Graph::kruskal(){
     // edge e = (u, v)
     uset = s.find(u);    // |E| finds
     vset = s.find(v);    // |E| finds
-    if (uset != vset){
+    if (uset != vset) {
       edgesAccepted++;
       s.unionSets(uset, vset);    // |V| unions
     }

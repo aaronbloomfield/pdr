@@ -98,7 +98,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 34 | Apr&nbsp;9 | Wednesday | | [11: Heaps and Huffman coding](../slides/11-heaps-huffman.html) | [11-heaps-huffman, slides 5-8 to 7-3](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/11-heaps-huffman-3b/11-heaps-huffman-3b.htm) |
 | 35 | Apr&nbsp;11 | Friday | | [11: Heaps and Huffman coding](../slides/11-heaps-huffman.html) | [11-heaps-huffman, slides 7-3 to 8-8 (end)](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/11-heaps-huffman-4b/11-heaps-huffman-4b.htm) |
 | 36 | Apr&nbsp;14 | Monday | [Lab 10: Huffman coding](../labs/lab10/index.html) / [Tutorial 10: Objective C](../tutorials/10-objc/index.html) | [12: Graphs](../slides/12-graphs.html) | [12-graphs, slides 1 to 4-6](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/12-graphs-1b/12-graphs-1b.htm) |
-| 37 | Apr&nbsp;16 | Wednesday | | [12: Graphs](../slides/12-graphs.html) | |
+| 37 | Apr&nbsp;16 | Wednesday | | [12: Graphs](../slides/12-graphs.html) | [12-graphs, slides 4-6 to 5-10](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/12-graphs-2b/12-graphs-2b.htm) |
 | 38 | Apr&nbsp;18 | Friday | | [12: Graphs](../slides/12-graphs.html) | |
 | 39 | Apr&nbsp;21 | Monday | [Lab 11: Graphs](../labs/lab11/index.html) / [Tutorial 11: doxygen](../tutorials/11-doxygen/index.html) | [12: Graphs](../slides/12-graphs.html) | |
 | 40 | Apr&nbsp;23 | Wednesday | | [12: Graphs](../slides/12-graphs.html), [13: Memory](../slides/14-memory.html) | |
