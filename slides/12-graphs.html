@@ -316,7 +316,7 @@ void Graph::topsort(){
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## 3 types of algorithms
+## Three types of algorithms
 - Single pair
 - Single source
 - All pairs
@@ -334,7 +334,7 @@ void Graph::topsort(){
 <p>&nbsp;</p>
 <p class="center">The <b>weighted path length</b> of \( v_1, v_2, \ldots , v_n \):</p>
 <p>&nbsp;</p>
-<p class="center">\( \sum_{i=1}^{n-1}c_{i,i+1} \) where \( c_{i,j} \) is the cost of edge \( (v_i,v_j) \)</p>
+<p class="center">\( \sum_{i=1}^{n-1}c_{i,i+1} \) where \( c_{i,i+1} \) is the cost of edge \( (v_i,v_{i+1}) \)</p>
 	  </section>
 
 	  <section>
@@ -427,7 +427,7 @@ void Graph::dijkstra(Vertex s) {
     for each w adjacent to v
       if (!w.known)
         if (v.dist + Cost_VW < w.dist) {
-	  w.dist = v.dist + Cost_VW;
+          w.dist = v.dist + Cost_VW;
           w.path = v;
         }
   }
@@ -463,7 +463,7 @@ void Graph::dijkstra(Vertex s) {
 - Optimizations?
   - Use adjacency lists and heaps
   - Assuming that the graph is connected (i.e. *e* > *v*-1), then the running time decreases to &Theta;(*e*+*v* log *v*)
-  - We can simplify this to &Theta;(*e* log *v*)
+  - This can be further simplified to &Theta;(*e* log *v*)
     - Although we won't see how to do that in this course
 	  </script></section>
 
@@ -547,13 +547,14 @@ void Graph::dijkstra(Vertex s) {
   - Cost = distance because more fuel is used
 	  </script></section>
 
-	  <section>
-<h2>Easy</h2>
-<img class="stretch" src="graphs/graph-11.svg" alt="graph">
-	  </section>
+	  <section data-markdown><script type="text/template">
+## Easy<
+![graph](graphs/graph-11.svg)
+	  </script></section>
 
 	  <section>
 <h2>Hard</h2>
+<img class="stretch" alt="graph" src="graphs/graph-12.svg">
 	  </section>
 
 	  <section>
@@ -563,14 +564,14 @@ void Graph::dijkstra(Vertex s) {
 
 	  <section data-markdown><script type="text/template">
 ## Analysis
-- Hamiltonian path: a path in a connected graph that visits each vertex exactly once
-  - Hamiltonian cycle: a Hamiltonian path that ends where it started
+- *Hamiltonian path*: a path in a connected graph that visits each vertex exactly once
+  - *Hamiltonian cycle*: a Hamiltonian path that ends where it started
 - The traveling salesperson problem is thus to find the least weight Hamiltonian path (cycle) in a connected, weighted graph
 - The size of the solution space is 1/2 (*n*-1)!
   - Which means it's a &Theta;(*n*!) algorithm
   - That's exponential (specifically, 2<sup>*n*</sup> < *n*! < *n*<sup>*n*</sup> for large *n*)
-  - For 10 cities: 181,440
-  - For 20 cities: 6 * 10<sup>16</sup>
+  - For 10 cities: 181,440 possible cycles
+  - For 20 cities: 6 * 10<sup>16</sup> possible cycles
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -578,7 +579,7 @@ void Graph::dijkstra(Vertex s) {
 - This problem is ***NP-complete***
   - Meaning there is no known efficient solution
   - Just to try every possible path
-- But there are ways to get a somewhat efficient solution (Heuristic)
+- But there are ways to get a somewhat efficient solution (a *heuristic*)
   - It just might not be the most efficient path
 - What's the (usually) least expensive way to get between two US cities?
   - And is that significantly slower than the "best" algorithm?
@@ -627,8 +628,8 @@ void Graph::dijkstra(Vertex s) {
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Spanning Tree
-(image)
+## Spanning Tree (almost...)
+[![london underground](images/12-graphs/london-underground.svg)](http://commons.wikimedia.org/wiki/File:London_Underground_Zone_2.svg)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -642,10 +643,19 @@ void Graph::dijkstra(Vertex s) {
   - What remains has the same set of vertices but is a tree
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
-## Spanning Tree
-(images)
-	  </script></section>
+	  <section>
+<h2>Spanning Trees</h2>
+<p>Original graph:</p>
+<img alt="graph" src="graphs/graph-13a.svg">
+<p>Possible spanning trees:</p>
+<table class="transparent"><tr>
+<td><img alt="graph" src="graphs/graph-13b.svg"></td>
+<td><img alt="graph" src="graphs/graph-13c.svg"></td>
+<td><img alt="graph" src="graphs/graph-13d.svg"></td>
+<td><img alt="graph" src="graphs/graph-13e.svg"></td>
+</tr></table>
+
+	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## Minimal Spanning Tree
@@ -654,7 +664,7 @@ void Graph::dijkstra(Vertex s) {
   - "Cost" associated with the edge
   - Miles for a transport link, for example
 - Spanning trees each have a different total weight
-- Minimal-weigh Spanning Tree: *spanning tree with the minimal total weight*
+- Minimal-weigh spanning tree: *spanning tree with the minimal total weight*
 	  </script></section>
 
 	  <section>
@@ -677,12 +687,16 @@ void Graph::dijkstra(Vertex s) {
   - find edge (u,v) that is "safe" for KnownVertices
   - KnownVertices <- KnownVertices U {(u,v)}
 - end loop
+
+&nbsp;  
+But how to find a "safe" edge?
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Prim's algorithm
 Idea: Grow a tree by adding an edge to the "known" vertices from the "unknown" vertices.  Pick the edge with the smallest weight.
 
+&nbsp;  
 ![prim's diagram](images/12-graphs/prims-diagram.svg)
 	  </script></section>
 
@@ -695,10 +709,15 @@ Idea: Grow a tree by adding an edge to the "known" vertices from the "unknown" v
   - where the edge weight is the smallest of all edges (where *u* is in the tree and *v* is not).
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
-## MST
-(images)
-	  </script></section>
+	  <section>
+<h2>Prim's MST Algorithm</h2>
+<table class="transparent">
+<tr><td><img alt="graph" src="graphs/graph-14.svg"></td><td style="width:50px"></td><td><img class="fragment" data-fragment-index="1" alt="graph" src="graphs/graph-15.svg"></td></tr>
+</table>
+<p>&nbsp;</p>
+<p class="fragment" data-fragment-index="1" style="text-align:center">Edges: (v1,v2), (v1,v4), (v3,v4), (v4,v7), (v5,v7), (v6,v7)</p>
+<script type="text/javascript">insertCanvas();</script>
+	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## Analysis
@@ -713,14 +732,19 @@ Idea: Grow a tree by adding an edge to the "known" vertices from the "unknown" v
 ## Kruskal's MST Algorithm
 Idea: Grow a forest out of edges that do not create a cycle.  Pick an edge with the smallest weight.
 
+&nbsp;  
 ![kruskal's diagram](images/12-graphs/kruskals-diagram.svg)
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
-## MST
-
-(images)
-	  </script></section>
+	  <section>
+<h2>Kruskal's MST Algorithm</h2>
+<table class="transparent">
+<tr><td><img alt="graph" src="graphs/graph-14.svg"></td><td style="width:50px"></td><td><img class="fragment" data-fragment-index="1" alt="graph" src="graphs/graph-15.svg"></td></tr>
+</table>
+<p>&nbsp;</p>
+<p class="fragment" data-fragment-index="1" style="text-align:center">Edges: (v1,v2), (v1,v4), (v3,v4), (v4,v7), (v5,v7), (v6,v7)</p>
+<script type="text/javascript">insertCanvas();</script>
+	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## Kruskal code
@@ -729,7 +753,7 @@ void Graph::kruskal(){
   int edgesAccepted = 0;
   DisjSet s(NUM_VERTICES);
 
-  while (edgesAccepted < NUM_VERTICES ? 1){
+  while (edgesAccepted < NUM_VERTICES - 1) {
     // The next line has |E| heap ops
     e = smallest weight edge not deleted yet;
     // edge e = (u, v)
@@ -742,6 +766,7 @@ void Graph::kruskal(){
   }
 }
 ```
+When optimized, it has the same running time as Prim's and Dijkstra's: &Theta;(*e* log *v*)
 	  </script></section>
 
 	</section>
