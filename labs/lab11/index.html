@@ -36,8 +36,8 @@
 <li>Look at the middleearth.h and middleearth.cpp files.  You should understand <strong>AND DOCUMENT</strong> both of these two files.  See the in-lab for details as to what these methods do.  You should not modify any of the code in this file; only the comments.</li>
 <li>Write a program to compute a topological sort of a graph, as described in the pre-lab section; name it topological.cpp.</li>
 <li>Document your topological.cpp with doxygen commands.  You will need to change the INPUT tag (line 577 of Doxyfile) to be your specific file names.</li>
-<li>Your code should compile with <code>make</code>!  Also see the pre-lab section for more information about required make target.</li>
-<li>Files to download: <a href="../../tutorials/11-doxygen/doxygen_manual.pdf">doxygen_manual.pdf</a>, <a href="Doxyfile">Doxyfile</a>, <a href="prelab-test-full.txt">prelab-test-full.txt</a>, <a href="prelab-test-small.txt">prelab-test-small.txt</a>, <a href="middleearth.h.html">middleearth.h</a> (<a href="middleearth.h">src</a>), <a href="middleearth.cpp.html">middleearth.cpp</a> (<a href="middleearth.cpp">src</a>), <a href="fileio2.cpp.html">fileio2.cpp</a> (<a href="fileio2.cpp">src</a>)</li>
+<li>Your code should compile with <code>make</code>!  It should do <strong><em>TWO</em></strong> tasks: compile your code, and call <code>doxygen</code>.  See the pre-lab section for more information about required make target.</li>
+<li>Files to download: <a href="Doxyfile">Doxyfile</a>, <a href="prelab-test-full.txt">prelab-test-full.txt</a>, <a href="prelab-test-small.txt">prelab-test-small.txt</a>, <a href="middleearth.h.html">middleearth.h</a> (<a href="middleearth.h">src</a>), <a href="middleearth.cpp.html">middleearth.cpp</a> (<a href="middleearth.cpp">src</a>), <a href="fileio2.cpp.html">fileio2.cpp</a> (<a href="fileio2.cpp">src</a>)</li>
 <li>Files to submit: topological.cpp, middleearth.h/cpp, Makefile, Doxyfile</li>
 </ol>
 
@@ -48,6 +48,7 @@
 <li>Implement a brute-force traveling salesman solution, as described in the in-lab section.</li>
 <li>Create a Makefile that will fully compile your code.  You should not specify the resulting executable name (i.e., no <code>-o</code> output for the final link step).  It will default to a.exe (or a.out), which is what is desired.  The Makefile doxygen part should be the same as the pre-lab.</li>
 <li>Document your C++ files with doxygen commands.  You must <strong>ALSO</strong> comment middleearth.h and middleearth.cpp (this should have been done in the pre-lab).</li>
+<li>Your code should compile with <code>make</code>!  It should do <strong><em>TWO</em></strong> tasks: compile your code, and call <code>doxygen</code>.  See the pre-lab section for more information about required make target.</li>
 <li>Files to download: <a href="traveling-skeleton.cpp.html">traveling-skeleton.cpp</a> (<a href="traveling-skeleton.cpp">src</a>) (which you&rsquo;ll have to rename to traveling.cpp), and your commented middleearth.h / middleearth.cpp code from the pre-lab</li>
 <li>Files to submit: traveling.cpp, middleearth.h, middleearth.cpp, Makefile, Doxyfile</li>
 </ol>
@@ -266,6 +267,10 @@ student@cassiopeia:~/labs/lab11$
 <p>When compiled with <code>-O2</code>, the computation of a path of length 10 took 18 seconds on Linux.</p>
 
 <p>Your final program needs to both be able to compile and run with the specified command-line parameters.</p>
+
+<h3>Makefile</h3>
+
+<p>Your Makefile should have <strong>only one</strong> target, which you can name anything you want.  This target should do <strong>two</strong> things: compile your code, and run doxygen.  You can have two tabbed lines after the target specifier, which is the easiest way to accomplish this.  In other words, we are just going to call <code>make</code>, and we want it to both compile your code and create your doxygen documentation.  The in-lab Makefile should have the same dual-purpose target.</p>
 
 <hr />
 

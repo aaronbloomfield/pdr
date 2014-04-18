@@ -70,4 +70,5 @@ The labs for this course:
 - [Lab 11: Graphs](lab11/index.html)
   - Source code: [middleearth.h](lab11/middleearth.h.html) ([src](lab11/middleearth.h)), [middleearth.cpp](lab11/middleearth.cpp.html) ([src](lab11/middleearth.cpp)), [fileio2.cpp](lab11/fileio2.cpp.html) ([src](lab11/fileio2.cpp)), [traveling-skeleton.cpp](lab11/traveling-skeleton.cpp.html) ([src](lab11/traveling-skeleton.cpp)), [Doxyfile](lab11/Doxyfile)
   - Data files: [prelab-test-small.txt](lab11/prelab-test-small.txt), [prelab-test-full.txt](lab11/prelab-test-full.txt)
-  - [Doxygen tutorial](../tutorials/11-doxygen/index.html) and the necessary files for that: [doxygen_manual.pdf](lab11/../../tutorials/11-doxygen/doxygen_manual.pdf)
+  - The [Doxygen tutorial](../tutorials/11-doxygen/index.html) and the necessary files for that: [average.cpp](../tutorials/11-doxygen/average.cpp.html) ([src](../tutorials/11-doxygen/average.cpp))
+  

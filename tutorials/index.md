@@ -21,4 +21,5 @@ The tutorials for this course are listed below. Note that as this repository is 
 - [Tutorial 9: C](09-c/index.html)
 - [Tutorial 10: Objective C](10-objc/index.html)
   - Source code: [helloworld.m](10-objc/helloworld.m.html) ([src](10-objc/helloworld.m))
-- [Tutorial 11: doxygen](11-doxygen/index.html)
+- [Tutorial 11: Doxygen](11-doxygen/index.html)
+  - Source code: [average.cpp](11-doxygen/average.cpp.html) ([src](11-doxygen/average.cpp)), [Doxyfile](11-doxygen/Doxyfile)

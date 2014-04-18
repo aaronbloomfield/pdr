@@ -18,7 +18,7 @@ A graph is a set of vertices connected by edges.  In a directed graph, an edge i
 3. [The slides on graphs](../../slides/12-graphs.html)
 
 Procedure
----------------
+---------
 
 ### Pre-lab ###
 
@@ -27,8 +27,8 @@ Procedure
 3. Look at the middleearth.h and middleearth.cpp files.  You should understand **AND DOCUMENT** both of these two files.  See the in-lab for details as to what these methods do.  You should not modify any of the code in this file; only the comments.
 4. Write a program to compute a topological sort of a graph, as described in the pre-lab section; name it topological.cpp.
 5. Document your topological.cpp with doxygen commands.  You will need to change the INPUT tag (line 577 of Doxyfile) to be your specific file names.
-6. Your code should compile with `make`!  Also see the pre-lab section for more information about required make target.
-7. Files to download: [doxygen_manual.pdf](../../tutorials/11-doxygen/doxygen_manual.pdf), [Doxyfile](Doxyfile), [prelab-test-full.txt](prelab-test-full.txt), [prelab-test-small.txt](prelab-test-small.txt), [middleearth.h](middleearth.h.html) ([src](middleearth.h)), [middleearth.cpp](middleearth.cpp.html) ([src](middleearth.cpp)), [fileio2.cpp](fileio2.cpp.html) ([src](fileio2.cpp))
+6. Your code should compile with `make`!  It should do ***TWO*** tasks: compile your code, and call `doxygen`.  See the pre-lab section for more information about required make target.
+7. Files to download: [Doxyfile](Doxyfile), [prelab-test-full.txt](prelab-test-full.txt), [prelab-test-small.txt](prelab-test-small.txt), [middleearth.h](middleearth.h.html) ([src](middleearth.h)), [middleearth.cpp](middleearth.cpp.html) ([src](middleearth.cpp)), [fileio2.cpp](fileio2.cpp.html) ([src](fileio2.cpp))
 8. Files to submit: topological.cpp, middleearth.h/cpp, Makefile, Doxyfile
 
 ### In-lab ###
@@ -36,8 +36,9 @@ Procedure
 1. Implement a brute-force traveling salesman solution, as described in the in-lab section.
 2. Create a Makefile that will fully compile your code.  You should not specify the resulting executable name (i.e., no `-o` output for the final link step).  It will default to a.exe (or a.out), which is what is desired.  The Makefile doxygen part should be the same as the pre-lab.
 3. Document your C++ files with doxygen commands.  You must **ALSO** comment middleearth.h and middleearth.cpp (this should have been done in the pre-lab).
-4. Files to download: [traveling-skeleton.cpp](traveling-skeleton.cpp.html) ([src](traveling-skeleton.cpp)) (which you'll have to rename to traveling.cpp), and your commented middleearth.h / middleearth.cpp code from the pre-lab
-5. Files to submit: traveling.cpp, middleearth.h, middleearth.cpp, Makefile, Doxyfile
+4. Your code should compile with `make`!  It should do ***TWO*** tasks: compile your code, and call `doxygen`.  See the pre-lab section for more information about required make target.
+5. Files to download: [traveling-skeleton.cpp](traveling-skeleton.cpp.html) ([src](traveling-skeleton.cpp)) (which you'll have to rename to traveling.cpp), and your commented middleearth.h / middleearth.cpp code from the pre-lab
+6. Files to submit: traveling.cpp, middleearth.h, middleearth.cpp, Makefile, Doxyfile
 
 ### Post-lab ###
 
@@ -132,10 +133,10 @@ A valid topological sort would be
 cs1110 cs2110 cs2102 cs3330 cs2150 cs4414
 ```
 
-----
+------------------------------------------------------------
 
 In-lab
----------------
+------
 
 ### Introduction ###
 
@@ -244,6 +245,10 @@ The Linux results for a random seed of 14, world size of 20x20 with 20 cities, a
 When compiled with `-O2`, the computation of a path of length 10 took 18 seconds on Linux.
 
 Your final program needs to both be able to compile and run with the specified command-line parameters.
+
+### Makefile ###
+
+Your Makefile should have **only one** target, which you can name anything you want.  This target should do **two** things: compile your code, and run doxygen.  You can have two tabbed lines after the target specifier, which is the easiest way to accomplish this.  In other words, we are just going to call `make`, and we want it to both compile your code and create your doxygen documentation.  The in-lab Makefile should have the same dual-purpose target.
 
 ------------------------------------------------------------
 
