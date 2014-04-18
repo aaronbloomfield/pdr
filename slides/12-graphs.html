@@ -75,7 +75,7 @@
 [Introduction](#introduction)  
 [Topological Sort](#topological)  
 [Shortest Path Algorithms](#shortestpath)  
-[Google Maps](#googlemaps)  
+[Map Routing](#maproutes)  
 [Travelling Salesperson (TSP)](#tsp)  
 [Minimum Spanning Tree (MST)](#mst)  
 	</script></section>
@@ -400,13 +400,13 @@ What is the big-Theta running time?
 <tr style="background-color:transparent"><td class="top">
 <table>
 <tr><th>V</th><th>Known?</th><th style="width:150px">Dist</th><th style="width:150px">Path</th></tr>
-<tr><th><i>v</i><sub>0</sub></th><td></td><td></td><td></td></tr>
-<tr><th><i>v</i><sub>1</sub></th><td></td><td></td><td></td></tr>
-<tr><th><i>v</i><sub>2</sub></th><td></td><td></td><td></td></tr>
-<tr><th><i>v</i><sub>3</sub></th><td></td><td></td><td></td></tr>
-<tr><th><i>v</i><sub>4</sub></th><td></td><td></td><td></td></tr>
-<tr><th><i>v</i><sub>5</sub></th><td></td><td></td><td></td></tr>
-<tr><th><i>v</i><sub>6</sub></th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i>0</th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i>1</th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i>2</th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i>3</th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i>4</th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i>5</th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i>6</th><td></td><td></td><td></td></tr>
 </table>
 </td><td style="width:50px"></td><td class="top"><img alt="graph" style="width:400px" src="graphs/graph-9.svg"></td></tr>
 </table>
@@ -436,20 +436,21 @@ void Graph::dijkstra(Vertex s) {
 	  </script></section>
 
 	  <section>
-<h2>Another Dijstra's Algorithm Example</h2>
+<h2>Another Dijkstra's Algorithm Example</h2>
 <table>
 <tr style="background-color:transparent"><td class="top">
 <table>
 <tr><th>V</th><th>Known?</th><th style="width:150px">Dist</th><th style="width:150px">Path</th></tr>
-<tr><th><i>v</i><sub>1</sub></th><td></td><td></td><td></td></tr>
-<tr><th><i>v</i><sub>2</sub></th><td></td><td></td><td></td></tr>
-<tr><th><i>v</i><sub>3</sub></th><td></td><td></td><td></td></tr>
-<tr><th><i>v</i><sub>4</sub></th><td></td><td></td><td></td></tr>
-<tr><th><i>v</i><sub>5</sub></th><td></td><td></td><td></td></tr>
-<tr><th><i>v</i><sub>6</sub></th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i>1</th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i>2</th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i>3</th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i>4</th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i>5</th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i>6</th><td></td><td></td><td></td></tr>
 </table>
 </td><td style="width:50px"></td><td class="top"><img alt="graph" style="width:400px" src="graphs/graph-10.svg"></td></tr>
 </table>
+<p>&nbsp;</p>
 <p style="font-size:90%">This is the same graph as in the <a href="http://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Wikipedia article on Dijkstra's algorithm</a></p>
 <script type="text/javascript">insertCanvas();</script>
 	  </section>
@@ -459,7 +460,7 @@ void Graph::dijkstra(Vertex s) {
 - How long does it take to find the smallest unknown distance?
   - Simple scan using an array: &Theta;(*v*)
 - Total running time:
-  - Using a simple scan: &Theta;(*v*<sup>2</sup>+*e*) = O(*v*<sup>2</sup>)
+  - Using a simple scan: &Theta;(*v*<sup>2</sup>+*e*) = &Theta;(*v*<sup>2</sup>)
 - Optimizations?
   - Use adjacency lists and heaps
   - Assuming that the graph is connected (i.e. *e* > *v*-1), then the running time decreases to &Theta;(*e*+*v* log *v*)
@@ -473,7 +474,7 @@ void Graph::dijkstra(Vertex s) {
   - Positive means fuel was used
   - And passing by a fuel station is a refueling, which is a negative cost edge
 - Dijkstra's algorithm does not work for negative cost edges
-  - Others do, but are much less efficient
+  - Others do (such as the [Bellman-Ford algorithm](http://en.wikipedia.org/wiki/Bellman-ford)), but are much less efficient
 - What about negative cost cycles?
 	  </script></section>
 
@@ -489,8 +490,8 @@ void Graph::dijkstra(Vertex s) {
 
 	<section>
 
-	  <section id="googlemaps" data-markdown><script type="text/template">
-# Google Maps
+	  <section id="maproutes" data-markdown><script type="text/template">
+# Map Routing
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -545,10 +546,11 @@ void Graph::dijkstra(Vertex s) {
   - UPS, Federal Express, USPS
   - Any transport delivery system
   - Cost = distance because more fuel is used
+- We'll assume the graph is fully connected
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Easy<
+## Easy
 ![graph](graphs/graph-11.svg)
 	  </script></section>
 
@@ -572,6 +574,7 @@ void Graph::dijkstra(Vertex s) {
   - That's exponential (specifically, 2<sup>*n*</sup> < *n*! < *n*<sup>*n*</sup> for large *n*)
   - For 10 cities: 181,440 possible cycles
   - For 20 cities: 6 * 10<sup>16</sup> possible cycles
+  - For 21 cities, there are more possibilities than can be stored in a 64-bit `unsigned long`
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -592,6 +595,7 @@ void Graph::dijkstra(Vertex s) {
 - 85,900! = 9.61 * 10<sup>386,526</sup>
 - Assume you can compute 1 million paths each second
   - That would take only 3.04 * 10<sup>386,516</sup> years!
+    - (the exponent lowered by 10)
   - They used acceleration techniques, obviously...
 	  </script></section>
 
