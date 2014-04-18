@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>traveling-skeleton.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdio.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdlib.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;algorithm&gt;</font>
+
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">"middleearth.h"</font>
+
+<font color="#009900">float</font> <b><font color="#000000">computeDistance</font></b> <font color="#990000">(</font><font color="#008080">MiddleEarth</font> <font color="#990000">&amp;</font>me<font color="#990000">,</font> <font color="#008080">string</font> start<font color="#990000">,</font> <font color="#008080">vector&lt;string&gt;</font> dests<font color="#990000">);</font>
+<font color="#009900">void</font> <b><font color="#000000">printRoute</font></b> <font color="#990000">(</font><font color="#008080">string</font> start<font color="#990000">,</font> <font color="#008080">vector&lt;string&gt;</font> dests<font color="#990000">);</font>
+
+<font color="#009900">int</font> <b><font color="#000000">main</font></b> <font color="#990000">(</font><font color="#009900">int</font> argc<font color="#990000">,</font> <font color="#009900">char</font> <font color="#990000">**</font>argv<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <i><font color="#9A1900">// check the number of parameters</font></i>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> argc <font color="#990000">!=</font> <font color="#993399">6</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Usage: "</font> <font color="#990000">&lt;&lt;</font> argv<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" &lt;world_height&gt; &lt;world_width&gt; "</font>
+             <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"&lt;num_cities&gt; &lt;random_seed&gt; &lt;cities_to_visit&gt;"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+        <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+    <i><font color="#9A1900">// we'll assume the parameters are all well-formed</font></i>
+    <font color="#009900">int</font> width<font color="#990000">,</font> height<font color="#990000">,</font> num_cities<font color="#990000">,</font> rand_seed<font color="#990000">,</font> cities_to_visit<font color="#990000">;</font>
+    <b><font color="#000000">sscanf</font></b> <font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">],</font> <font color="#FF0000">"%d"</font><font color="#990000">,</font> <font color="#990000">&amp;</font>width<font color="#990000">);</font>
+    <b><font color="#000000">sscanf</font></b> <font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">],</font> <font color="#FF0000">"%d"</font><font color="#990000">,</font> <font color="#990000">&amp;</font>height<font color="#990000">);</font>
+    <b><font color="#000000">sscanf</font></b> <font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">3</font><font color="#990000">],</font> <font color="#FF0000">"%d"</font><font color="#990000">,</font> <font color="#990000">&amp;</font>num_cities<font color="#990000">);</font>
+    <b><font color="#000000">sscanf</font></b> <font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">4</font><font color="#990000">],</font> <font color="#FF0000">"%d"</font><font color="#990000">,</font> <font color="#990000">&amp;</font>rand_seed<font color="#990000">);</font>
+    <b><font color="#000000">sscanf</font></b> <font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">5</font><font color="#990000">],</font> <font color="#FF0000">"%d"</font><font color="#990000">,</font> <font color="#990000">&amp;</font>cities_to_visit<font color="#990000">);</font>
+    <i><font color="#9A1900">// Create the world, and select your itinerary</font></i>
+    <font color="#008080">MiddleEarth</font> <b><font color="#000000">me</font></b><font color="#990000">(</font>width<font color="#990000">,</font> height<font color="#990000">,</font> num_cities<font color="#990000">,</font> rand_seed<font color="#990000">);</font>
+    <font color="#008080">vector&lt;string&gt;</font> dests <font color="#990000">=</font> me<font color="#990000">.</font><b><font color="#000000">getItinerary</font></b><font color="#990000">(</font>cities_to_visit<font color="#990000">);</font>
+    <i><font color="#9A1900">// YOUR CODE HERE</font></i>
+    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// This method will compute the full distance of the cycle that starts</font></i>
+<i><font color="#9A1900">// at the 'start' parmater, goes to each of the cities in the dests</font></i>
+<i><font color="#9A1900">// vector IN ORDER, and ends back at the 'start' parameter.</font></i>
+<font color="#009900">float</font> <b><font color="#000000">computeDistance</font></b> <font color="#990000">(</font><font color="#008080">MiddleEarth</font> <font color="#990000">&amp;</font>me<font color="#990000">,</font> <font color="#008080">string</font> start<font color="#990000">,</font> <font color="#008080">vector&lt;string&gt;</font> dests<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <i><font color="#9A1900">// YOUR CODE HERE</font></i>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// This method will print the entire route, starting and ending at the</font></i>
+<i><font color="#9A1900">// 'start' parameter.  The output should be of the form:</font></i>
+<i><font color="#9A1900">// Erebor -&gt; Khazad-dum -&gt; Michel Delving -&gt; Bree -&gt; Cirith Ungol -&gt; Erebor</font></i>
+<font color="#009900">void</font> <b><font color="#000000">printRoute</font></b> <font color="#990000">(</font><font color="#008080">string</font> start<font color="#990000">,</font> <font color="#008080">vector&lt;string&gt;</font> dests<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <i><font color="#9A1900">// YOUR CODE HERE</font></i>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

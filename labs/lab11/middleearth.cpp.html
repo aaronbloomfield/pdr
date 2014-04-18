@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>middleearth.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><b><font color="#000080">#include</font></b> <font color="#FF0000">"middleearth.h"</font>
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;algorithm&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdlib.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;math.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;time.h&gt;</font>
+
+<i><font color="#9A1900">// The list of all the place names that we'll be using</font></i>
+<font color="#008080">string</font> all_city_names<font color="#990000">[]</font> <font color="#990000">=</font> <font color="#FF0000">{</font>
+    <i><font color="#9A1900">// human towns, cities and strongholds</font></i>
+    <font color="#FF0000">"Bree"</font><font color="#990000">,</font>             <i><font color="#9A1900">// a human and hobbit town between the Shire and Rivendell</font></i>
+    <font color="#FF0000">"Isengard"</font><font color="#990000">,</font>         <i><font color="#9A1900">// the tower fortress where Saruman resided; Gandalf was imprisoned there.</font></i>
+    <font color="#FF0000">"Minas Tirith"</font><font color="#990000">,</font>     <i><font color="#9A1900">// capital of Gondor, the "white city"; home to Boromir, Denethor, and later, Aragorn</font></i>
+    <font color="#FF0000">"Osgiliath"</font><font color="#990000">,</font>        <i><font color="#9A1900">// city on the river Anduin; is at the other end of Pelennor Fields from M. Tirith</font></i>
+    <font color="#FF0000">"Edoras"</font><font color="#990000">,</font>           <i><font color="#9A1900">// the capital city of Rohan, where King Theoden resides</font></i>
+    <font color="#FF0000">"Helm's Deep"</font><font color="#990000">,</font>      <i><font color="#9A1900">// fortress of Rohan, it is where the people of Edoras fled to from the orc invasion</font></i>
+    <font color="#FF0000">"Dunharrow"</font><font color="#990000">,</font>        <i><font color="#9A1900">// a refuge of Rohan, it is where Elrond presents the sword to Aragorn in the movie</font></i>
+    <i><font color="#9A1900">// dwarf cities</font></i>
+    <font color="#FF0000">"Moria"</font><font color="#990000">,</font>            <i><font color="#9A1900">// the enormous dwarven underground complex that the Fellowship traveled through</font></i>
+    <i><font color="#9A1900">// elvish cities</font></i>
+    <font color="#FF0000">"Lothlorien"</font><font color="#990000">,</font>       <i><font color="#9A1900">// the elvish tree-city, home of Lady Galadriel and Lord Celeborn</font></i>
+    <font color="#FF0000">"Rivendell"</font><font color="#990000">,</font>        <i><font color="#9A1900">// the elvish city that is home to Lord Elrond</font></i>
+    <font color="#FF0000">"The Grey Havens"</font><font color="#990000">,</font>  <i><font color="#9A1900">// the port city on the western coast from which the elves travel westward</font></i>
+    <i><font color="#9A1900">// hobbit villages</font></i>
+    <font color="#FF0000">"Bucklebury"</font><font color="#990000">,</font>       <i><font color="#9A1900">// a Shire village, it has a ferry across the Brandywine River that the Hobbits use</font></i>
+    <font color="#FF0000">"Bywater"</font><font color="#990000">,</font>          <i><font color="#9A1900">// a Shire village, it is the site of the Battle of Bywater (removed from the movie)</font></i>
+    <font color="#FF0000">"Hobbiton"</font><font color="#990000">,</font>         <i><font color="#9A1900">// a Shire village, it is home to Bilbo and, later, Frodo</font></i>
+    <font color="#FF0000">"Michel Delving"</font><font color="#990000">,</font>   <i><font color="#9A1900">// a Shire village, it is the chief town of the Shire</font></i>
+    <i><font color="#9A1900">// Mordor places</font></i>
+    <font color="#FF0000">"Orodruin"</font><font color="#990000">,</font>         <i><font color="#9A1900">// Mount Doom in Mordor, it is where the Ring was made, and later, unmade</font></i>
+    <font color="#FF0000">"Barad-Dur"</font><font color="#990000">,</font>        <i><font color="#9A1900">// Sauron's fortress that was part castle, part mountain</font></i>
+    <font color="#FF0000">"Minas Morgul"</font><font color="#990000">,</font>     <i><font color="#9A1900">// formerly the Gondorian city of Minas Ithil; renamed when Sauron took it over</font></i>
+    <font color="#FF0000">"Cirith Ungol"</font><font color="#990000">,</font>     <i><font color="#9A1900">// the mountianous pass that Sam &amp; Frodo went through; home of Shelob</font></i>
+    <font color="#FF0000">"Gorgoroth"</font><font color="#990000">,</font>        <i><font color="#9A1900">// the plains in Mordor that Frodo &amp; Sam had to cross to reach Mount Doom</font></i>
+    <i><font color="#9A1900">// places that are not cities</font></i>
+    <font color="#FF0000">"Emyn Muil"</font><font color="#990000">,</font>        <i><font color="#9A1900">// the rocky region that Sam &amp; Frodo climb through after leaving the Fellowship</font></i>
+    <font color="#FF0000">"Fangorn Forest"</font><font color="#990000">,</font>   <i><font color="#9A1900">// the forest where Treebeard (and the other Ents) live</font></i>
+    <font color="#FF0000">"Dagorlad"</font><font color="#990000">,</font>         <i><font color="#9A1900">// great plain/swamp between Emyn Muil &amp; Mordor where a great battle was fought long ago</font></i>
+    <font color="#FF0000">"Weathertop"</font><font color="#990000">,</font>       <i><font color="#9A1900">// the tower between Bree and Rivendell where Aragorn and the Hobbits take refuge</font></i>
+    <font color="#FF0000">"Erebor"</font><font color="#990000">,</font>           <i><font color="#9A1900">// the Lonely Mountain that Bilbo adventured to in 'The Hobbit'</font></i>
+    <font color="#FF0000">"Entwash River"</font><font color="#990000">,</font>    <i><font color="#9A1900">// a river through Rohan, which flows through Fangorn Forest</font></i>
+    <font color="#FF0000">"River Isen"</font><font color="#990000">,</font>       <i><font color="#9A1900">// river through the Gap of Rohan; Theoden's son was slain in a battle here.</font></i>
+    <font color="#FF0000">"The Black Gate"</font><font color="#990000">,</font>   <i><font color="#9A1900">// huge gate to Mordor that Aragorn and company attack as the ring is destroyed</font></i>
+    <font color="#FF0000">"The Old Forest"</font><font color="#990000">,</font>   <i><font color="#9A1900">// a forest to the west of the Shire (adventures there were removed from the movie)</font></i>
+    <font color="#FF0000">"Trollshaws"</font><font color="#990000">,</font>       <i><font color="#9A1900">// area to the west of Rivendell that was home to the trolls that Bilbo met</font></i>
+    <font color="#FF0000">"Pelennor Fields"</font><font color="#990000">,</font>  <i><font color="#9A1900">// great plain between M. Tirith and Osgiliath; site of the Battle of M. Tirith</font></i>
+    <font color="#FF0000">"Hollin"</font><font color="#990000">,</font>           <i><font color="#9A1900">// the empty plains that the Fellowship crosses between Rivendell and Moria</font></i>
+    <font color="#FF0000">"Mirkwood"</font><font color="#990000">,</font>         <i><font color="#9A1900">// Legolas' forest home; Bilbo travels there in 'The Hobbit'.</font></i>
+    <font color="#FF0000">"Misty Mountains"</font><font color="#990000">,</font>  <i><font color="#9A1900">// the north-south moutain range that runs through Middle-earth</font></i>
+    <font color="#FF0000">"Prancing Ponly"</font><font color="#990000">,</font>   <i><font color="#9A1900">// an inn in Bree where the hobbits tried to meet Gandalf, but meet Aragorn instead</font></i>
+    <i><font color="#9A1900">// places from the Hobbit book and movies</font></i>
+    <font color="#FF0000">"Laketown"</font><font color="#990000">,</font>         <i><font color="#9A1900">// also called Esgaorth, it is the town of men on the Long Lake near Erebor</font></i>
+    <font color="#FF0000">"Dale"</font><font color="#990000">,</font>             <i><font color="#9A1900">// the town of men outside Erebor, destroyed by Smaug long before the Hobbit story</font></i>
+    <font color="#FF0000">"Erebor"</font><font color="#990000">,</font>           <i><font color="#9A1900">// the Elvish name for the Lonely Mountain, where the dwarves had their fortress</font></i>
+    <font color="#FF0000">"Beorn's House"</font><font color="#990000">,</font>    <i><font color="#9A1900">// Beorn is the shape-shifter who shelters the dwarf party</font></i>
+    <font color="#FF0000">"Dol Guldur"</font><font color="#990000">,</font>       <i><font color="#9A1900">// fortress in Mirkwood where Sauron, as the Necromancer, hid during most of the Hobbit</font></i>
+    <i><font color="#9A1900">// END marker</font></i>
+    <font color="#FF0000">"END"</font>
+<font color="#FF0000">}</font><font color="#990000">;</font>
+
+<i><font color="#9A1900">// Iluvatar, the creator of Middle-Earth</font></i>
+MiddleEarth<font color="#990000">::</font><b><font color="#000000">MiddleEarth</font></b> <font color="#990000">(</font><font color="#009900">int</font> xsize<font color="#990000">,</font> <font color="#009900">int</font> ysize<font color="#990000">,</font> <font color="#009900">int</font> num_cities<font color="#990000">,</font> <font color="#009900">int</font> seed<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <i><font color="#9A1900">// set up the random number seed</font></i>
+    <b><font color="#000000">srand</font></b><font color="#990000">(</font> <font color="#990000">(</font>seed<font color="#990000">==-</font><font color="#993399">1</font><font color="#990000">)</font> <font color="#990000">?</font> <b><font color="#000000">time</font></b><font color="#990000">(</font>NULL<font color="#990000">)</font> <font color="#990000">:</font> seed <font color="#990000">);</font>
+    <i><font color="#9A1900">// count the number of cities in the array</font></i>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> num_city_names <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> all_city_names<font color="#990000">[</font>num_city_names<font color="#990000">]</font> <font color="#990000">!=</font> <font color="#FF0000">"END"</font><font color="#990000">;</font>
+            num_city_names<font color="#990000">++</font> <font color="#990000">);</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> num_cities <font color="#990000">&gt;</font> num_city_names <font color="#990000">)</font> <font color="#FF0000">{</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"There are only "</font> <font color="#990000">&lt;&lt;</font> num_city_names <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" city names, so "</font>
+             <font color="#990000">&lt;&lt;</font> num_cities <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" cities cannot be created.</font><font color="#CC33CC">\n</font><font color="#FF0000">Exiting."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+        <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> num_cities <font color="#990000">&lt;</font> <font color="#993399">5</font> <font color="#990000">)</font>
+        num_cities <font color="#990000">=</font> <font color="#993399">5</font><font color="#990000">;</font>
+    <i><font color="#9A1900">// select the num_cities names of the cities that we'll be using</font></i>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> all_city_names<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">!=</font> <font color="#FF0000">"END"</font><font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font>
+        cities<font color="#990000">.</font><b><font color="#000000">push_back</font></b><font color="#990000">(</font><b><font color="#000000">string</font></b><font color="#990000">(</font>all_city_names<font color="#990000">[</font>i<font color="#990000">]));</font>
+    <b><font color="#000000">random_shuffle</font></b><font color="#990000">(</font>cities<font color="#990000">.</font><b><font color="#000000">begin</font></b><font color="#990000">(),</font> cities<font color="#990000">.</font><b><font color="#000000">end</font></b><font color="#990000">());</font>
+    cities<font color="#990000">.</font><b><font color="#000000">erase</font></b><font color="#990000">(</font>cities<font color="#990000">.</font><b><font color="#000000">begin</font></b><font color="#990000">()+</font>num_cities<font color="#990000">,</font>cities<font color="#990000">.</font><b><font color="#000000">end</font></b><font color="#990000">());</font>
+    <i><font color="#9A1900">// compute random city positions</font></i>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">unsigned</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> cities<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">();</font> i<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+        xpos<font color="#990000">.</font><b><font color="#000000">push_back</font></b><font color="#990000">((</font><b><font color="#000000">rand</font></b><font color="#990000">()/((</font><font color="#009900">float</font><font color="#990000">)</font>RAND_MAX<font color="#990000">))</font> <font color="#990000">*</font> xsize<font color="#990000">);</font>
+        ypos<font color="#990000">.</font><b><font color="#000000">push_back</font></b><font color="#990000">((</font><b><font color="#000000">rand</font></b><font color="#990000">()/((</font><font color="#009900">float</font><font color="#990000">)</font>RAND_MAX<font color="#990000">))</font> <font color="#990000">*</font> ysize<font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+    <i><font color="#9A1900">// compute the 2-d distance array</font></i>
+    <b><font color="#0000FF">this</font></b><font color="#990000">-&gt;</font>xsize <font color="#990000">=</font> xsize<font color="#990000">;</font>
+    <b><font color="#0000FF">this</font></b><font color="#990000">-&gt;</font>ysize <font color="#990000">=</font> ysize<font color="#990000">;</font>
+    <i><font color="#9A1900">// we assume that num_cities &lt; xsize*ysize</font></i>
+    distances <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">float</font><font color="#990000">[</font>num_cities<font color="#990000">*</font>num_cities<font color="#990000">];</font> <i><font color="#9A1900">// row-major order</font></i>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> r <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> r <font color="#990000">&lt;</font> num_cities<font color="#990000">;</font> r<font color="#990000">++</font> <font color="#990000">)</font>
+        <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> c <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> c <font color="#990000">&lt;</font> num_cities<font color="#990000">;</font> c<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+            distances<font color="#990000">[</font>r<font color="#990000">*</font>num_cities<font color="#990000">+</font>c<font color="#990000">]</font> <font color="#990000">=</font> <b><font color="#000000">sqrt</font></b><font color="#990000">((</font>xpos<font color="#990000">[</font>c<font color="#990000">]-</font>xpos<font color="#990000">[</font>r<font color="#990000">])*(</font>xpos<font color="#990000">[</font>c<font color="#990000">]-</font>xpos<font color="#990000">[</font>r<font color="#990000">])</font> <font color="#990000">+</font>
+                                             <font color="#990000">(</font>ypos<font color="#990000">[</font>c<font color="#990000">]-</font>ypos<font color="#990000">[</font>r<font color="#990000">])*(</font>ypos<font color="#990000">[</font>c<font color="#990000">]-</font>ypos<font color="#990000">[</font>r<font color="#990000">]));</font>
+        <font color="#FF0000">}</font>
+    <i><font color="#9A1900">// create hash of indices so we don't have to do a linear search</font></i>
+    <i><font color="#9A1900">// each time we want to find a city name to index mapping</font></i>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">unsigned</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> cities<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">();</font> i<font color="#990000">++</font> <font color="#990000">)</font>
+        indices<font color="#990000">[</font>cities<font color="#990000">[</font>i<font color="#990000">]]</font> <font color="#990000">=</font> i<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// Sauron, the destructor of Middle-Earth.</font></i>
+MiddleEarth<font color="#990000">::~</font><b><font color="#000000">MiddleEarth</font></b> <font color="#990000">()</font> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">delete</font></b><font color="#990000">[]</font> distances<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// The Mouth of Sauroun!  (prints out info on the created 'world')</font></i>
+<font color="#009900">void</font> MiddleEarth<font color="#990000">::</font><b><font color="#000000">print</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"there are "</font> <font color="#990000">&lt;&lt;</font> num_city_names
+         <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" locations to choose from; we are using "</font> <font color="#990000">&lt;&lt;</font> cities<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"they are: "</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">unsigned</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> cities<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">();</font> i<font color="#990000">++</font> <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">"</font> <font color="#990000">&lt;&lt;</font> cities<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" @ ("</font> <font color="#990000">&lt;&lt;</font> xpos<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">", "</font> <font color="#990000">&lt;&lt;</font> ypos<font color="#990000">[</font>i<font color="#990000">]</font>
+             <font color="#990000">&lt;&lt;</font> <font color="#FF0000">")"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// prints a tab-separated table of the distances (this can be loaded</font></i>
+<i><font color="#9A1900">// into Excel or similar)</font></i>
+<font color="#009900">void</font> MiddleEarth<font color="#990000">::</font><b><font color="#000000">printTable</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Table: "</font> <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Location</font><font color="#CC33CC">\t</font><font color="#FF0000">xpos</font><font color="#CC33CC">\t</font><font color="#FF0000">ypos</font><font color="#CC33CC">\t</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">unsigned</font> <font color="#009900">int</font> r <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> r <font color="#990000">&lt;</font> cities<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">();</font> r<font color="#990000">++</font> <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> cities<font color="#990000">[</font>r<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">unsigned</font> <font color="#009900">int</font> r <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> r <font color="#990000">&lt;</font> cities<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">();</font> r<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+        cout <font color="#990000">&lt;&lt;</font> cities<font color="#990000">[</font>r<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">"</font> <font color="#990000">&lt;&lt;</font> xpos<font color="#990000">[</font>r<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">"</font> <font color="#990000">&lt;&lt;</font> ypos<font color="#990000">[</font>r<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">"</font><font color="#990000">;</font>
+        <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">unsigned</font> <font color="#009900">int</font> c <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> c <font color="#990000">&lt;</font> cities<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">();</font> c<font color="#990000">++</font> <font color="#990000">)</font>
+            cout <font color="#990000">&lt;&lt;</font> distances<font color="#990000">[</font>r<font color="#990000">*</font>cities<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">()+</font>c<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">"</font><font color="#990000">;</font>
+        cout <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// This method returns the distance between the two passed cities.  If</font></i>
+<i><font color="#9A1900">// we assume that the hash table (i.e. the map) is O(1), then this</font></i>
+<i><font color="#9A1900">// method call is also O(1)</font></i>
+<font color="#009900">float</font> MiddleEarth<font color="#990000">::</font><b><font color="#000000">getDistance</font></b> <font color="#990000">(</font><font color="#008080">string</font> city1<font color="#990000">,</font> <font color="#008080">string</font> city2<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">return</font></b> distances<font color="#990000">[</font>indices<font color="#990000">[</font>city1<font color="#990000">]*</font>cities<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">()+</font>indices<font color="#990000">[</font>city2<font color="#990000">]];</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// Returns the list of cities to travel to.  The first city is the</font></i>
+<i><font color="#9A1900">// original start point as well as the end point.  The number of</font></i>
+<i><font color="#9A1900">// cities passed in does not include this start/end point (so there</font></i>
+<i><font color="#9A1900">// will be length+1 entries in the returned vector).</font></i>
+<font color="#008080">vector&lt;string&gt;</font> MiddleEarth<font color="#990000">::</font><b><font color="#000000">getItinerary</font></b> <font color="#990000">(</font><font color="#009900">unsigned</font> <font color="#009900">int</font> length<font color="#990000">)</font> <font color="#FF0000">{</font>
+    length<font color="#990000">++;</font> <i><font color="#9A1900">// to account for the start point</font></i>
+    <i><font color="#9A1900">// check parameter</font></i>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> length <font color="#990000">&gt;</font> cities<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">()</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"You have requested a itinerary of "</font> <font color="#990000">&lt;&lt;</font> length<font color="#990000">-</font><font color="#993399">1</font>
+             <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" cities; you cannot ask for an itinerary of more than length "</font>
+             <font color="#990000">&lt;&lt;</font> cities<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">()-</font><font color="#993399">1</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+        <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+    <i><font color="#9A1900">// we need to make a deep copy of the cities vector.  itinerary is a</font></i>
+    <i><font color="#9A1900">// pointer so that it doesn't get deleted when it goes out of scope.</font></i>
+    <font color="#008080">vector&lt;string&gt;</font> itinerary<font color="#990000">;</font>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">unsigned</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> cities<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">();</font> i<font color="#990000">++</font> <font color="#990000">)</font>
+        itinerary<font color="#990000">.</font><b><font color="#000000">push_back</font></b><font color="#990000">(</font>cities<font color="#990000">[</font>i<font color="#990000">]);</font>
+    <i><font color="#9A1900">// shuffle, erase unneeded ones, and return the itinerary</font></i>
+    <b><font color="#000000">random_shuffle</font></b><font color="#990000">(</font>itinerary<font color="#990000">.</font><b><font color="#000000">begin</font></b><font color="#990000">(),</font> itinerary<font color="#990000">.</font><b><font color="#000000">end</font></b><font color="#990000">());</font>
+    itinerary<font color="#990000">.</font><b><font color="#000000">erase</font></b><font color="#990000">(</font>itinerary<font color="#990000">.</font><b><font color="#000000">begin</font></b><font color="#990000">()+</font>length<font color="#990000">,</font>itinerary<font color="#990000">.</font><b><font color="#000000">end</font></b><font color="#990000">());</font>
+    <b><font color="#0000FF">return</font></b> itinerary<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>fileio2.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">// This program shows how C-based file I/O works.  It will print a</font></i>
+<i><font color="#9A1900">// file to the screen two times.</font></i>
+
+<i><font color="#9A1900">// included so we can use cout</font></i>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;fstream&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdlib.h&gt;</font>
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<i><font color="#9A1900">// we want to use parameters</font></i>
+<font color="#009900">int</font> <b><font color="#000000">main</font></b> <font color="#990000">(</font><font color="#009900">int</font> argc<font color="#990000">,</font> <font color="#009900">char</font> <font color="#990000">**</font>argv<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <i><font color="#9A1900">// verify the correct number of parameters</font></i>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> argc <font color="#990000">!=</font> <font color="#993399">2</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Must supply the input file name as the one and only parameter"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+        <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+    <i><font color="#9A1900">// attempt to open the supplied file</font></i>
+    <font color="#008080">ifstream</font> <b><font color="#000000">file</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">],</font> ifstream<font color="#990000">::</font>binary<font color="#990000">);</font>
+    <i><font color="#9A1900">// report any problems opening the file and then exit</font></i>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">!</font>file<font color="#990000">.</font><b><font color="#000000">is_open</font></b><font color="#990000">()</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Unable to open file '"</font> <font color="#990000">&lt;&lt;</font> argv<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"'."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+        <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">2</font><font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+    <i><font color="#9A1900">// read in two strings</font></i>
+    <font color="#008080">string</font> s1<font color="#990000">,</font> s2<font color="#990000">;</font>
+    file <font color="#990000">&gt;&gt;</font> s1<font color="#990000">;</font>
+    file <font color="#990000">&gt;&gt;</font> s2<font color="#990000">;</font>
+    <i><font color="#9A1900">// output those strings</font></i>
+    cout <font color="#990000">&lt;&lt;</font> s1 <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> s2 <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <i><font color="#9A1900">// string comparison done with ==, but not shown here</font></i>
+    <i><font color="#9A1900">// close the file before exiting</font></i>
+    file<font color="#990000">.</font><b><font color="#000000">close</font></b><font color="#990000">();</font>
+<font color="#FF0000">}</font>
+
+</tt></pre>
+</body>
+</html>
