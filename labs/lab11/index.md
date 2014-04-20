@@ -53,7 +53,7 @@ Pre-lab
 
 ### Doxygen tutorial ###
 
-First, read through the [Doxygen tutorial](../../tutorials/11-doxygen/index.html).  That tutorial then directs you to look though the doxygen manual: [doxygen_manual.pdf](../../tutorials/11-doxygen/doxygen_manual.pdf).
+First, read through the [Doxygen tutorial](../../tutorials/11-doxygen/index.html).  That tutorial then directs you to look though the doxygen manual, which you can [download in PDF form](http://www.stack.nl/~dimitri/doxygen/download.html#dlmanual) (you have to extract the PDF file) or [browse it online](http://www.stack.nl/~dimitri/doxygen/manual/index.html) (which is easier to view).  Start with the ["Documenting the code" chapter](http://www.stack.nl/~dimitri/doxygen/manual/docblocks.html), as the previous chapters are covered in the tutorial.
 
 For all the code deliverables in this lab, you will need to document all of your code ***as well as the code that we provide*** using doxygen.  You will also need to submit a Doxyfile that properly generates the documentation (which really just means changing the `INPUT` line in the file).  We are not expecting you to have read through the entire user manual.  **But we are expecting you to document your code beyond the example provided.  Just putting in those tags is not what we are looking for.**  Thus, you should read some of the user manual to get an idea of what you can do with Doxygen, and you should do some of these things in your code.
 
