@@ -674,12 +674,12 @@ void Graph::dijkstra(Vertex s) {
 	  <section>
 <h2>Minimum Spanning Trees</h2>
 <ul>
-<li>Given an undirected graph <i>G</i> = (<i>V</i>,<i>E</i>), find a graph <i>G'</i> = (<i>V</i>,<i>E'</i>) such that:<ul>
+<li>Given a connected and undirected graph <i>G</i> = (<i>V</i>,<i>E</i>), find a graph <i>G'</i> = (<i>V</i>,<i>E'</i>) such that:<ul>
     <li><i>E'</i> is a subset of <i>E</i></li>
     <li>|<i>E'</i>| = |<i>V</i>| - 1</li>
     <li><i>G'</i> is connected</li>
     <li>\( \sum_{(u,v) \in E'} c_{uv} \) is minimal</li></ul></li>
-<li><i>G'</i> is a <i>minimal spanning tree</i></li>
+<li><i>G'</i> is then a <i>minimal spanning tree</i></li>
 <li>Applications: wiring a house, cable TV lines, power grids, Internet connections</li>
 </ul>
 	  </section>
@@ -710,7 +710,7 @@ Idea: Grow a tree by adding an edge to the "known" vertices from the "unknown" v
 - Incrementally add edges that connect a "new" vertex to the tree.
 - Pick the edge (*u*,*v*) where:
   - *u* is in the tree, *v* is not, AND 
-  - where the edge weight is the smallest of all edges (where *u* is in the tree and *v* is not).
+  - where the edge weight is the smallest of all edges (where *u* is in the tree and *v* is not)
 	  </script></section>
 
 	  <section>

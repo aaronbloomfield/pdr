@@ -47,7 +47,7 @@ string all_city_names[] = {
     "Hollin",           // the empty plains that the Fellowship crosses between Rivendell and Moria
     "Mirkwood",         // Legolas' forest home; Bilbo travels there in 'The Hobbit'.
     "Misty Mountains",  // the north-south moutain range that runs through Middle-earth
-    "Prancing Ponly",   // an inn in Bree where the hobbits tried to meet Gandalf, but meet Aragorn instead
+    "Prancing Pony",    // an inn in Bree where the hobbits tried to meet Gandalf, but meet Aragorn instead
     // places from the Hobbit book and movies
     "Laketown",         // also called Esgaorth, it is the town of men on the Long Lake near Erebor
     "Dale",             // the town of men outside Erebor, destroyed by Smaug long before the Hobbit story
