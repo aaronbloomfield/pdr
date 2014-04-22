@@ -1,7 +1,7 @@
 Program and Data Representation: CS 2150 Specific Content
 =========================================================
 
-[Go up to the main README file](../README.html)
+[Go up to the main README file](../README.html) ([md](../README.md))
 
 Much of the rest of this git repo is meant to be generic to anybody who has a class such as this one.  But this page contains details specific to the spring 2014 version of CS 2150 at the University of Virginia.
 
@@ -23,12 +23,12 @@ There are a number of links and other parts of this course that are **NOT** incl
 The parts of this course that are in this repo are:
 
 - [Daily announcements slide set](daily-announcements.html)
-- [Course syllabus](syllabus.html): the course syllabus
-- [Lab due dates](labduedates.html): When the various lab parts are due
+- [Course syllabus](syllabus.html) ([md](syllabus.md)): the course syllabus
+- [Lab due dates](labduedates.html) ([md](labduedates.md)): When the various lab parts are due
 - [UNIX honor pledge](unix-honor-pledge-s14.pdf), which needs to be signed by all the students in the course; it is created from a [.tex](unix-honor-pledge.tex) file
 - [Review session slide set](exam-review.html), which is really just a blank set of slides
-- [Frivolous regrade policy](frivolous-regrades.html) for exams
-- [Snow Day Impacts](snowdays.html), which contains the information sent in an class-wide e-mail on March 17th about how the schedule is being adapated to three M/W/F snow days
+- [Frivolous regrade policy](frivolous-regrades.html) ([md](frivolous-regrades.html)) for exams
+- [Snow Day Impacts](snowdays.html) ([md](snowdays.md)), which contains the information sent in an class-wide e-mail on March 17th about how the schedule is being adapated to three M/W/F snow days
 
 ------------------------------------------------------------
 
@@ -37,12 +37,12 @@ Labs and Tutorials
 
 This is a series of links to the labs and tutorials that are elsewhere in this repository.  A bunch of notes:
 
-- The lab parts are all due on specific times throughout the week, as detailed on the [lab due dates](labduedates.html) page
+- The lab parts are all due on specific times throughout the week, as detailed on the [lab due dates](labduedates.html) ([md](labduedates.md)) page
   - Each lab is for a given week, which (for sake of argument) we claim starts on a Monday
   - Which lab is done on which week is listed below in the semester schedule
 - The lab is released the week before, typically on a Wednesday or Thursday
   - While a version of the lab will be in this github repo for some time prior, there **WILL** be modifications to that lab up until the "official" release, which is when it is announced as released on the twitter feed: [@UVaCS2150](http://twitter.com/UVaCS2150)
-- All the labs and tutorials can be found on the [labs page](../labs/index.html) and the [tutorials page](../tutorials/index.html).
+- All the labs and tutorials can be found on the [labs page](../labs/index.html) ([md](../tutorials/index.md)) and the [tutorials page](../tutorials/index.html) ([md](../tutorials/index.md)).
   - In particular, these pages have additional details and links not described here
 - Note that as this repository is being filled out throughout the spring 2014 semester, many of these links will not work until later in the semester
   - And many of the links that do work may be incomplete or only partially formed

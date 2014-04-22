@@ -186,7 +186,7 @@ The `getDistance()` method will return the distance, as a float, between the two
 
 We provide the skeleton code for the algorithm -- your job is to complete traveling.cpp.
 
-1. First complete `printRoute()`, as that will be useful when debugging your code.  It should print a route in the form: `Gorgoroth -> Khazad-dum -> Emyn Muil -> Minas Morgul -> Michel Delving -> Gorgoroth`.  Note that we aren't picky about exactly how it's printed, as long as it prints all the cities.
+1. First complete `printRoute()`, as that will be useful when debugging your code.  It should print a route in the form: `Dunharrow -> Cirith Ungol -> Hobbiton -> Grey Havens -> Lothlorien -> Dunharrow`.  Note that we aren't picky about exactly how it's printed, as long as it prints all the cities.
 2. Next, complete `computeDistance()`.  You can create a sample string vector to test it, and verify it against the distances in the output of `printTable()` (see above).
 3. Start on the `main()` method.  Make sure that you can print out all the permutations of the list of destinations.  Note that for n cities, there are n! possible permutations.  Remember that the start city should not be permuted!
 4. At this point, you can now compute the distance and keep track of the minimum cycle length.
@@ -209,9 +209,10 @@ To time your code, enter `time` before the command on the command-line.  For exa
 
 ```
 student@cassiopeia:~/labs/lab11$ time ./a.out 20 20 20 14 8
-Your journey will take you along the path Hobbiton -> Moria -> Weathertop -> The Grey Havens -> 
-             Cirith Ungol -> Orodruin -> Dagorlad -> Edoras -> Hollin -> Hobbiton
- and will have length 54.9025
+./a.out 20 20 20 14 8
+Your journey will take you along the path Dunharrow -> Lothlorien -> Mirkwood -> The Grey Havens -> 
+             Minas Tirith -> Weathertop -> Hobbiton -> Edoras -> Cirith Ungol -> Dunharrow
+and will have length 53.9495
 
 real	0m0.105s
 user	0m0.076s
@@ -231,16 +232,18 @@ If the random seed (the fourth parameter) is 14, then the path lengths and paths
 
 The Linux results for a random seed of 14, world size of 20x20 with 20 cities, and various path lengths:
 
-1. Minimum path has distance 34.6778: Hobbiton -> Dagorlad -> Hobbiton
-2. Minimum path has distance 37.3285: Hobbiton -> Hollin -> Dagorlad -> Hobbiton
-3. Minimum path has distance 39.9612: Hobbiton -> Hollin -> Edoras -> Dagorlad -> Hobbiton
-4. Minimum path has distance 49.8262: Hobbiton -> Hollin -> Edoras -> Dagorlad -> Weathertop -> Hobbiton
-5. Minimum path has distance 53.6308: Hobbiton -> Weathertop -> Cirith Ungol -> Dagorlad -> Edoras -> Hollin -> Hobbiton
-6. Minimum path has distance 53.8687: Hobbiton -> Weathertop -> The Grey Havens -> Cirith Ungol -> Dagorlad -> Edoras -> Hollin -> Hobbiton
-7. Minimum path has distance 54.8758: Hobbiton -> Moria -> Weathertop -> The Grey Havens -> Cirith Ungol -> Dagorlad -> Edoras -> Hollin -> Hobbiton
-8. Minimum path has distance 54.9025: Hobbiton -> Moria -> Weathertop -> The Grey Havens -> Cirith Ungol -> Orodruin -> Dagorlad -> Edoras -> Hollin -> Hobbiton
-9. Minimum path has distance 58.4533: Hobbiton -> Hollin -> Edoras -> Minas Morgul -> Dagorlad -> Orodruin -> Cirith Ungol -> The Grey Havens -> Weathertop -> Moria -> Hobbiton
-10. Minimum path has distance 58.9542: Hobbiton -> Moria -> Weathertop -> Dunharrow -> The Grey Havens -> Cirith Ungol -> Orodruin -> Dagorlad -> Minas Morgul -> Edoras -> Hollin -> Hobbiton
+1. Minimum path has distance 16.4499: Dunharrow -> The Grey Havens -> Dunharrow
+2. Minimum path has distance 38.5555: Dunharrow -> Hobbiton -> The Grey Havens -> Dunharrow
+3. Minimum path has distance 39.1172: Dunharrow -> Cirith Ungol -> Hobbiton -> The Grey Havens -> Dunharrow
+4. Minimum path has distance 44.6487: Dunharrow -> Cirith Ungol -> Hobbiton -> The Grey Havens -> Lothlorien -> Dunharrow
+5. Minimum path has distance 51.7731: Dunharrow -> Cirith Ungol -> Hobbiton -> Minas Tirith -> The Grey Havens -> Lothlorien -> Dunharrow
+6. Minimum path has distance 53.8414: Dunharrow -> Cirith Ungol -> Edoras -> Hobbiton -> Minas Tirith -> The Grey Havens -> Lothlorien -> Dunharrow
+7. Minimum path has distance 53.9410: Dunharrow -> Cirith Ungol -> Edoras -> Hobbiton -> Minas Tirith -> The Grey Havens -> Mirkwood -> Lothlorien -> Dunharrow
+8. Minimum path has distance 53.9495: Dunharrow -> Lothlorien -> Mirkwood -> The Grey Havens -> Minas Tirith -> Weathertop -> Hobbiton -> Edoras -> Cirith Ungol -> Dunharrow
+9. Minimum path has distance 55.6973: Dunharrow -> Edoras -> Cirith Ungol -> Dagorlad -> Hobbiton -> Weathertop -> Minas Tirith -> The Grey Havens -> Mirkwood -> Lothlorien -> Dunharrow
+10. Minimum path has distance 55.7040: Dunharrow -> Lothlorien -> Mirkwood -> Orodruin -> The Grey Havens -> Minas Tirith -> Weathertop -> Hobbiton -> Dagorlad -> Cirith Ungol -> Edoras -> Dunharrow
+
+Note that your cycle may be the same cities but in reverse; this is perfectly acceptable.
 
 When compiled with `-O2`, the computation of a path of length 10 took 18 seconds on Linux.
 
