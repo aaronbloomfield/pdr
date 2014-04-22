@@ -1,7 +1,7 @@
 CS 2150: Program and Data Representation: Course Syllabus
 =========================================================
 
-[Go up to the CS 2150 documents page](index.html)
+[Go up to the CS 2150 documents page](index.html) ([md](index.md))
 
 ### Spring 2014 ###
 
@@ -28,7 +28,7 @@ CS 2150: Program and Data Representation: Course Syllabus
 
 **Availability:** It is important to us to be available to my students, and to address their concerns. If you cannot meet with one of us during our office hours, e-mail and we will find the time to meet. That being said, like everybody else we am quite busy, so it may take a day or more to find a time to meet. And if you have any comments on the course - what is working, what is not working, what can be done better, etc. - we are very interested in hearing about them. There is an anonymous feedback tool through Collab, or you can send one of us an e-mail (please do NOT email the TAs directly).  We tend to get bogged down by e-mail as the semester progresses, so seeing one of us in person (right after lecture, during office hours, etc.) is often a good way to get a more immediate response.
 
-**Prerequisites:** CS 2110 (Software Development Methods) or CS 2220 (Engineering Software); and CS 2102 (Discrete Math), all with grades of C- or above.  Note that CS 2102 is allowed as a co-requisite, but see the details for this in the [first slide set](../slides/01-intro.html) (specifically, [here](../slides/01-intro.html#/2/10)).
+**Prerequisites:** CS 2110 (Software Development Methods) or CS 2220 (Engineering Software); and CS 2102 (Discrete Math), all with grades of C- or above.  Note that CS 2102 is allowed as a co-requisite, but see the details for this in the [first slide set](../slides/01-intro.html) (specifically, [here](../slides/01-intro.html#cs2102)).
 
 **Course objectives:** Students who complete the course will:
 
@@ -51,7 +51,7 @@ We expect that grades will follow the standard decade curve: 90 and above is an 
 
 **Special Circumstances:** Students with special circumstances (athletics, extra time required on exams, final exam conflicts, LNEC considerations, etc.) need to let one of us know during the **first week of class**.
 
-**Textbooks: ** Due to the high cost of textbooks, and their relative low quality, there will be no recommended nor required textbooks this semester.  Instead, there will be selected [Readings](readings.html) that can be used in lieu of a recommended textbook.
+**Textbooks: ** Due to the high cost of textbooks, and their relative low quality, there will be no recommended nor required textbooks this semester.  Instead, there will be selected [Readings](readings.html) ([md](readings.md)) that can be used in lieu of a recommended textbook.
 
 **Exams:** There will be two midterm exams held during laboratory sessions (combined worth 30% of the final grade) and one final exam (worth 25% of the final grade). Note that we hope (but do not guarantee!) to have the first exam returned before the SEAS drop date of Monday, March 3rd, 2014.
 
@@ -67,7 +67,7 @@ Under **NO** circumstances will anybody be allowed to take the final exam early.
 
 All assignments will be submitted through our custom assignments tool, which can be accessed through Collab.  Each assignment has 3 dates: an open date (when you can start submitting the assignment), a due date (when it is due), and a close date (the last point that you can submit the assignment); the close date is 24 hours after the due date, due to the late policy (which is explained in lab 1).  Note that the assignment will be available much earlier (typically Wednesday or Thursday of the week before it's due).  The dates are listed for the week of the lab - the lab week starts on a Sunday and ends on a Saturday.
 
-The various dates: open dates, due dates, and close dates, are listed on the [Lab due dates page](labduedates.html).
+The various dates: open dates, due dates, and close dates, are listed on the [Lab due dates page](labduedates.html) ([md](labduedates.md)).
 
 Please note, however, that there are a number of rules that we will strictly follow:
 

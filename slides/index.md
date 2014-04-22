@@ -1,7 +1,7 @@
 Program and Data Representation: Slides
 =======================================
 
-[Go up to the main README file](../README.html)
+[Go up to the main README file](../README.html) ([md](../README.md))
 
 [Slide set 1: Course Introduction](01-intro.html)
 
@@ -53,7 +53,7 @@ Program and Data Representation: Slides
   - Fibonacci example: [test_fib.cpp](code/09-x86/test_fib.cpp.html) ([src](code/09-x86/test_fib.cpp)), [test_fib.s](code/09-x86/test_fib.s.html) ([src](code/09-x86/test_fib.s))
   - Max example: [test_max.cpp](code/09-x86/test_max.cpp.html) ([src](code/09-x86/test_max.cpp)), [test_max.s](code/09-x86/test_max.s.html) ([src](code/09-x86/test_max.s)), [test_max-O2.s](code/09-x86/test_max-O2.s.html) ([src](code/09-x86/test_max-O2.s)), [test_max-noextern.s](code/09-x86/test_max-noextern.s.html) ([src](code/09-x86/test_max-noextern.s))
   - String compare example: [test_string_compare.cpp](code/09-x86/test_string_compare.cpp.html) ([src](code/09-x86/test_string_compare.cpp)), [test_string_compare.s](code/09-x86/test_string_compare.s.html) ([src](code/09-x86/test_string_compare.s))
-- The tutorial for [lab 8](../labs/lab08/index.html) is the online [nasm tutorial](http://cs.lmu.edu/~ray/notes/nasmexamples/), which has more examples of assembly code
+- The tutorial for [lab 8](../labs/lab08/index.html) ([md](../labs/lab08/index.md)) is the online [nasm tutorial](http://cs.lmu.edu/~ray/notes/nasmexamples/), which has more examples of assembly code
   - You can skip a few of the sections (feel free to look at them if interested, but they are not needed): Floating Point Instructions, SIMD Parallelism, Saturated Arithmetic, and Graphics.
 
 
