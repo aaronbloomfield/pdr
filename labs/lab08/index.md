@@ -140,7 +140,7 @@ Finally, we have to link the two files into the final executable.  We do this as
 clang++ -m32 -Wall -g -o vecsum vecsum.o main.o
 ```
 
-This tells clang++ to link both of the .o files created above into a executable called vecsum.  Note that there isn't any compiling done at this stage (the compilation was done before) -- this just links the two object files into the final executable.  Also note that for our submitted Makefiles, we will NOT have the `-o` flag present.
+This tells clang++ to link both of the .o files created above into an executable called vecsum.  Note that there isn't any compiling done at this stage (the compilation was done before) -- this just links the two object files into the final executable.  Also note that for our submitted Makefiles, we will NOT have the `-o` flag present.
 
 ### Tutorial ###
 
