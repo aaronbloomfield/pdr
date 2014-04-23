@@ -101,7 +101,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 37 | Apr&nbsp;16 | Wednesday | | [12: Graphs](../slides/12-graphs.html) | [12-graphs, slides 4-6 to 5-10](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/12-graphs-2b/12-graphs-2b.htm) |
 | 38 | Apr&nbsp;18 | Friday | | [12: Graphs](../slides/12-graphs.html) | [12-graphs, slides 5-10 to 7-8](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/12-graphs-3b/12-graphs-3b.htm) |
 | 39 | Apr&nbsp;21 | Monday | [Lab 11: Graphs](../labs/lab11/index.html) ([md](../labs/lab11/index.md)) / [Tutorial 11: doxygen](../tutorials/11-doxygen/index.html) ([md](../tutorials/11-doxygen/index.md)) | [12: Graphs](../slides/12-graphs.html) | [12-graphs, slides 8-1 to 8-14 (end); 13-memory, slides 1 to 3-3](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/13-memory-1b/13-memory-1b.htm) |
-| 40 | Apr&nbsp;23 | Wednesday | | [12: Graphs](../slides/12-graphs.html), [13: Memory](../slides/14-memory.html) | |
+| 40 | Apr&nbsp;23 | Wednesday | | [12: Graphs](../slides/12-graphs.html), [13: Memory](../slides/13-memory.html) | |
 | 41 | Apr&nbsp;25 | Friday | | [13: Memory](../slides/13-memory.html) | |
 | 42 | Apr&nbsp;28 | Monday | [Lab 12: Conclusion](../labs/lab12/index.html) ([md](../labs/lab12/index.md)) / (no tutorial for this lab) | [14: AOP](../slides/14-aop.html), [15: Course conclusion](../slides/15-conclusion.html) | |
 

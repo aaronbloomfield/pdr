@@ -69,4 +69,4 @@ Program and Data Representation: Slides
 
 [Slide set 13: Memory](13-memory.html)
 
-- Source code: [cache.cpp](code/13-memory/cache.cpp.html) ([src](code/13-memory/cache.cpp))
+- Source code: [cache.cpp](code/13-memory/cache.cpp.html) ([src](code/13-memory/cache.cpp)), [strings.c](code/13-memory/strings.c.html) ([src](code/13-memory/strings.c))

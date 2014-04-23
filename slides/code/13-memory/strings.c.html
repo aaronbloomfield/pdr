@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>strings.c</title>
+</head>
+<body bgcolor="white">
+<pre><tt><b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdlib.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;string.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdio.h&gt;</font>
+
+<font color="#009900">int</font> <b><font color="#000000">main</font></b> <font color="#990000">(</font><font color="#009900">int</font> argc<font color="#990000">,</font> <font color="#009900">char</font> <font color="#990000">**</font>argv<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+    <i><font color="#9A1900">// allocate a space in memory for result</font></i>
+    <font color="#009900">char</font> <font color="#990000">*</font>result <font color="#990000">=</font> <font color="#990000">(</font><font color="#009900">char</font> <font color="#990000">*)</font> <b><font color="#000000">malloc</font></b> <font color="#990000">(</font><b><font color="#0000FF">sizeof</font></b> <font color="#990000">(*</font>result<font color="#990000">));</font>
+    <font color="#990000">*</font>result <font color="#990000">=</font> <font color="#FF0000">'</font><font color="#CC33CC">\0</font><font color="#FF0000">'</font><font color="#990000">;</font>
+    <b><font color="#0000FF">while</font></b> <font color="#990000">(</font>i <font color="#990000">&lt;</font> argc<font color="#990000">)</font> <font color="#FF0000">{</font>  <i><font color="#9A1900">// while there are still arguments</font></i>
+        <font color="#009900">char</font> <font color="#990000">*</font>s <font color="#990000">=</font> <font color="#990000">(</font><font color="#009900">char</font> <font color="#990000">*)</font> <b><font color="#000000">malloc</font></b> <font color="#990000">(</font><b><font color="#0000FF">sizeof</font></b> <font color="#990000">(*</font>s<font color="#990000">)</font> <font color="#990000">*</font>
+                                   <font color="#990000">(</font><b><font color="#000000">strlen</font></b> <font color="#990000">(</font>result<font color="#990000">)</font> <font color="#990000">+</font> <b><font color="#000000">strlen</font></b> <font color="#990000">(</font>argv<font color="#990000">[</font>i<font color="#990000">])</font> <font color="#990000">+</font> <font color="#993399">1</font><font color="#990000">));</font>
+        <b><font color="#000000">strcpy</font></b> <font color="#990000">(</font>s<font color="#990000">,</font> result<font color="#990000">);</font>
+        <i><font color="#9A1900">// add "free(result); here...</font></i>
+        <b><font color="#000000">strcat</font></b> <font color="#990000">(</font>s<font color="#990000">,</font> argv<font color="#990000">[</font>i<font color="#990000">]);</font>
+        <i><font color="#9A1900">// ... or here</font></i>
+        result <font color="#990000">=</font> s<font color="#990000">;</font>
+        i<font color="#990000">++;</font>
+    <font color="#FF0000">}</font>
+    <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"Concatenation: %s</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> result<font color="#990000">);</font>
+    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

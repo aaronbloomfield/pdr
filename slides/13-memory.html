@@ -73,7 +73,7 @@
 # Contents
 &nbsp;  
 [Memory Hierarchy](#memory)  
-[String Funtions](#strings)  
+[String Functions](#strings)  
 	</script></section>
 
 
@@ -409,100 +409,219 @@ See any implications?
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-Back to string functions
-string functions
-int strlen(char *s) -- returns number of chars in s
+## C-strings
+- A C-style string is just a pointer to a `char`
+- Consider:
+```
+char *str = "hello world";
+```
+- This produces:
+![c string](graphs/c-string-1.svg)
+- Each byte is the ASCII encoding of the character
+- The last byte is binary zero
+	  </script></section>
 
-char *strcpy(char *s1, const char *s2) -- Copies s2 to s1
+	  <section data-markdown><script type="text/template">
+## C-string functions
 
-char *strcat(char *s1, const char * s2) - Appends s2 to s1
+- `int strlen(char *s)`: returns number of chars in `s`
+- `char *strcpy(char *s1, const char *s2)`: copies `s2` to `s1`
+- `char *strcat(char *s1, const char * s2)`: appends `s2` to `s1`
+	  </script></section>
 
-String Concatenation
-Concatenating Strings
-Memory Lifetimes
-Reclaiming Storage
-Storage allocated by malloc is reserved forever
-Give it back by passing it to free
-Memory Leaks
-Program fails to release memory when no longer needed
+	  <section data-markdown><script type="text/template">
+## String Concatenation
+Source code: [strings.c](code/13-memory/strings.c.html) ([src](code/13-memory/strings.c))
+```
+int main (int argc, char **argv) {
+    int i = 0;
+    // allocate a space in memory for result
+    char *result = (char *) malloc (sizeof (*result));
+    *result = '\0';
+    while (i < argc) {  // while there are still arguments
+        char *s = (char *) malloc (sizeof (*s) *
+                (strlen(result) + strlen(argv[i]) + 1));
+        strcpy (s, result);
+        strcat (s, argv[i]);
+        result = s;
+        i++;
+    }
+    printf ("Concatenation: %s\n", result);
+    return 0;
+}
+```
+Do you see any memroy leak problems?
+	  </script></section>
 
-Consequences/symptoms
-Reduces amount of available memory, run out of memory available for allocation
-When all memory is in RAM, there will be an immediate failure 
-Virtual memory. Effect: once RAM has run out,   increasing use of hard disk
-Usually, the performance of the application and/or system will have become so slow that they will be considered to have failed
-Plugging Memory Leaks
-Memory Leak
-There is no reference to allocated storage 
-It can never be reached
-It can never be reclaimed
-Losing references
-Variable goes out of scope
-Variable reassigned
-References
-References
-realloc
+	  <section data-markdown><script type="text/template">
+## Concatenating Strings
+- Allocate space for result and next argument:
+```
+char *s = (char *) 
+   malloc (sizeof (*s) *
+          (strlen(result) + strlen(argv[i]) + 1));
+```
+  - Why +1?
+- Copy result to s:
+```
+strcpy (s, result); 
+```
+- Concatenate next argument:
+```
+strcat (s, argv[i]); 
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Reclaiming Storage
+- Storage allocated by malloc is reserved forever
+- Give it back by passing it to free
+
+&nbsp;  
+```
+void free(void *ptr); 
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Memory Leaks
+- Program fails to release memory when no longer needed
+- Consequences/symptoms
+  - Reduces amount of available memory, run out of memory available for allocation
+  - When all memory is in RAM, there will be an immediate failure 
+  - Virtual memory. Effect: once RAM has run out,   increasing use of hard disk
+    - Usually, the performance of the application and/or system will have become so slow that they will be considered to have failed
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Plugging Memory Leaks
+```
+while (i < argc) {  // while there are still arguments
+    char *s = (char *) malloc (sizeof (*s) *
+            (strlen(result) + strlen(argv[i]) + 1));
+    strcpy (s, result);
+    // add "free(result);" here...
+    strcat (s, argv[i]);
+    // ... or here
+    result = s;
+    i++;
+}
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Memory Leak
+- There is no reference to allocated storage 
+  - It can never be reached
+  - It can never be reclaimed
+- Losing references
+  - Variable goes out of scope
+  - Variable reassigned
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## When not to free...
+```
+  while (i < argc) {  // while there are still arguments
+      char *s = (char *) malloc (sizeof (*s) *
+             (strlen(result) + strlen(argv[i]) + 1));
+      strcpy (s, result);
+      // add "free(result)" here ...
+      strcat (s, argv[i]);
+      // or here
+      result = s;
+      i++;
+  }
+```
+- Upon close fo the `while` block, the scope of `s` is closed; should we
+`free(s)` first?
+  - No! `result` now references same storage
+- After the `result = s` line, there is no way to reach storage `result` previously pointed to
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## realloc
+```
 void *realloc(void *ptr, size_t size); 
-The realloc() function changes the size of the memory object pointed to by ptr to the size specified by size. 
-But it's risky...
-It changes the address of the pointer
-So other pointers pointing there are now pointing to invalid memory
-Running time of realloc
-Time to reserve new space: O(1)
-Time to copy old data into new space: 
-O(n) where n is the size of the old data
-Efficiency and Order Classes
-Recall Big-Oh, Big-Theta, ...
-When are the differences meaningful?
-Inputs get large
-Difference in order class
+```
+- The `realloc()` function changes the size of the memory object pointed to by `ptr` to the size specified by `size` 
+- But it's risky...
+  - It changes the address of the pointer
+  - So other pointers pointing there are now pointing to invalid memory
+	  </script></section>
 
-High-level comparison tool
-Not as useful when
-2 solutions are in the same order class
-Fine-tuning of an algorithm is important
-Efficiency and Order Classes (2) 
-Order classes based on counting statements
-Is this useful for fine-grained algorithm analysis?
+	  <section data-markdown><script type="text/template">
+## Running time of realloc
+- Time to reserve new space: &Theta;(1)
+- Time to copy old data into new space: 
+  - &Theta;(*n*) where *n* is the size of the old data
+	  </script></section>
 
-One assumption
-All operations take the same amount of time
-Is this really true?
-Factorial - Recursive
-int factorial_recursive(int x)
-{
-	if(x <= 1)
-		return 1;
-	else
-		return x * factorial_recursive(x-1);
+	  <section data-markdown><script type="text/template">
+## Efficiency and Order Classes
+- Recall Big-Oh, Big-Theta, ...
+  - When are the differences meaningful?
+    - Inputs get large
+    - Difference in order class
+- High-level comparison tool
+  - Not as useful when:
+    - 2 solutions are in the same order class
+    - Fine-tuning of an algorithm is important
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Efficiency and Order Classes
+- Order classes based on counting statements
+  - Is this useful for fine-grained algorithm analysis?
+- One assumption
+  - All operations take the same amount of time
+  - Is this really true?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Factorial - Recursive
+```
+int factorial_recursive(int x) {
+    if (x <= 1)
+        return 1;
+    else
+        return x * factorial_recursive(x-1);
 }
+```
+- Note that we have to find the recursive value, and make a modification to it (multiply it by x) before we return it
+	  </script></section>
 
-Note that we have to find the recursive value, and make a modification to it (multiply it by x) before we return it
-
-Factorial - Tail Recursion
-int factorial_tail_recursive(int x, int y)
-{
-	if(x <= 1)
-		return y;
-	else
-		return factorial_tail_recursive(x-1, x*y);
+	  <section data-markdown><script type="text/template">
+## Factorial - Tail Recursion
+```
+int factorial_tail_recursive(int x, int y) {
+    if (x <= 1)
+        return y;
+    else
+        return factorial_tail_recursive(x-1, x*y);
 }
+```
+- Note that the answer to a given invocation is exactly the answer to the recursive call
+- How could we modify the calling convention for this? 
+	  </script></section>
 
-Note that the answer to a given invocation is exactly the answer to the recursive call
-How could we modify the calling convention for this? 
+	  <section data-markdown><script type="text/template">
+## Activation Records
+![activation record](images/09-x86/x86-activation-record.svg)
+	  </script></section>
 
-Activation 
-Records
-Factorial -- Loop Implementation
-int factorial_loop(int x)
-{
-	int y = 1;
-	while( x > 1) {
-		y *= x;
-		x--;
-	}
-	return y;
+	  <section data-markdown><script type="text/template">
+## Factorial -- Loop Implementation
+```
+int factorial_loop(int x) {
+    int y = 1;
+    while (x > 1) {
+        y *= x;
+        x--;
+    }
+    return y;
 }
+```
 	  </script></section>
 
 	</section>
