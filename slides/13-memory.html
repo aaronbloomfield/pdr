@@ -265,12 +265,12 @@ How expensive would this be?
 	  <section data-markdown><script type="text/template">
 ## Some (older) numbers
 - Typical numbers for 1 GHz processor
-  - Cycle time 1 ns (10-9)
+  - Cycle time 1 ns (10<sup>-9</sup>)
   - L1 cache: accessed in 2-3 ns
   - L2 cache: 20-50 ns
   - Main memory: 60-100 ns
-  - Disk: 5-12 ms  (5 x 106 ns to 12 x 106 ns)
-1 ns = 10-9 s; 1 ms = 10-3 s
+  - Disk: 5-12 ms  (5 x 10<sup>6</sup> ns to 12 x 10<sup>6</sup> ns)
+1 ns = 10<sup>-9</sup> s; 1 ms = 10<sup>-3</sup> s
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -278,7 +278,7 @@ How expensive would this be?
 - Page size: 1 Kb
 - L1 cache: 64 Kb
 - L2 cache: 0.5 Mb
-- L3 cache: 6 Kb
+- L3 cache: 6 Mb
 - Main memory: 4 Gb
 - Disk: 1 Tb
 	  </script></section>
@@ -419,6 +419,15 @@ char *str = "hello world";
 ![c string](graphs/c-string-1.svg)
 - Each byte is the ASCII encoding of the character
 - The last byte is binary zero
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## C-strings
+How we view it:
+![c string](graphs/c-string-1.svg)
+&nbsp;  
+How the computer views it:
+![c string](graphs/c-string-2.svg)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
