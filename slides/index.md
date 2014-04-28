@@ -70,3 +70,7 @@ Program and Data Representation: Slides
 [Slide set 13: Memory](13-memory.html)
 
 - Source code: [cache.cpp](code/13-memory/cache.cpp.html) ([src](code/13-memory/cache.cpp)), [strings.c](code/13-memory/strings.c.html) ([src](code/13-memory/strings.c))
+
+[Slide set 14: Esoteric Programming Languages](14-esoteric-pls.html)
+
+[Slide set 15: Course Conclusion](15-conclusion.html)

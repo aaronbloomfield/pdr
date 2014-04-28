@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 2150: 14-esoteric-pls slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="css/pdr.css">
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
+	if( window.location.search.match( /print-pdf/gi ) ) {
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = 'reveal.js/css/print/pdf.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	}
+    </script>
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/dhtmlwindow.js"></script>
+    <script type="text/javascript" src="js/canvas.js"></script>
+    <link rel="stylesheet" href="css/dhtmlwindow.css" type="text/css">
+  </head>
+
+  <body onload="canvasinit()">
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	<section data-markdown id="cover"><script type="text/template">
+# CS 2150
+&nbsp;
+### Program and Data Representation
+### Spring 2014
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="14-esoteric-pls.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
+<center><small>Themes: [default](?#/cover), [sky](?theme=sky#/cover), [beige](?theme=beige#/cover), [simple](?theme=simple#/cover), [serif](?theme=serif#/cover), [night](?theme=night#/cover), [moon](?theme=moon#/cover), [solarized](?theme=solarized#/cover)</small></center>
+&nbsp;  
+&nbsp;  
+## Esoteric Programming Languages
+	</script></section>
+
+	  <section>
+<h2>CS 2150 Roadmap</h2>
+<table class="wide">
+  <tr><td colspan="3"><p class="center">Data Representation</p></td><td></td><td colspan="3"><p class="center">Program Representation</p></td></tr>
+  <tr>
+    <td class="top"><small>&nbsp;<br>&nbsp;<br>string<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>int x[3]<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>char x<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>0x9cd0f0ad<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>01101011</small></td>
+    <!-- image adapted from http://openclipart.org/detail/3677/arrow-left-right-by-torfnase -->
+    <td><img class="noborder" src="images/red-double-arrow.png" height="500" alt="vertical red double arrow"></td>
+    <td class="top">&nbsp;<br>Objects<br>&nbsp;<br>Arrays<br>&nbsp;<br>Primitive types<br>&nbsp;<br>Addresses<br>&nbsp;<br>bits</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="top"><small>&nbsp;<br>&nbsp;<br>Java code<br>&nbsp;<br>&nbsp;<br>C++ code<br>&nbsp;<br>&nbsp;<br>C code<br>&nbsp;<br>&nbsp;<br>x86 code<br>&nbsp;<br>&nbsp;<br>IBCM<br>&nbsp;<br>&nbsp;<br>hexadecimal</small></td>
+    <!-- image adapted from http://openclipart.org/detail/3677/arrow-left-right-by-torfnase -->
+    <td><img class="noborder" src="images/green-double-arrow.png" height="500" alt="vertical green double arrow"></td>
+    <td class="top">&nbsp;<br>High-level language<br>&nbsp;<br>Low-level language<br>&nbsp;<br>Assembly language<br>&nbsp;<br>Machine code</td>
+  </tr>
+</table>
+	  </section>
+
+	<section data-markdown><script type="text/template">
+# Contents
+&nbsp;  
+[Intercal](#intercal)  
+[Whitespace](#whitespace)  
+[Brainf\*\*\*](#brainf)  
+	</script></section>
+
+
+
+	<section>
+
+	  <section id="intercal" data-markdown><script type="text/template">
+# Intercal
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## A note about the sources
+- The main sources for this lecture set are:
+  - The [INTERCAL page in Wikipedia](http://en.wikipedia.org/wiki/Intercal)
+  - The INTERCAL Programming Language Revised Reference Manual
+    - On the [INTERCAL resources page](http://www.catb.org/~esr/intercal/)
+  - Both sources are available under free licenses (of one form or another)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## History
+- Originally designed in 1972
+- Main goal: "to have a compiler language which has nothing at all in common with any other major language"
+- Only similarities are "basic" things such as: variables, arrays, I/O, assignment
+- And nothing else!
+  - Including all the arithmetic operators you are familiar with...
+- INTERCAL stands for "Programming language without a pronounceable acronym"
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Politeness
+- INTERCAL makes sure the programmer is polite
+- Statements may be prefixed by `PLEASE`
+- If not enough PLEASEes are there, the compiler complains:
+```
+PROGRAMMER IS INSUFFICIENTLY POLITE
+```
+- If too many are there, the compiler also complains:
+```
+PROGRAMMER IS OVERLY POLITE
+```
+- Between 1/4 and 1/3 of the statements must have `PLEASE`
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Constants
+- Constants are prefixed by a mesh (#)
+- Can not be negative, and range from 0 to 65535
+- Examples:
+```
+#0 #32 #65535
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Variables
+- Two types of variables:
+  - 16-bit integer
+    - Represented by the spot (.) followed by a number between 0 and 65535
+    - Examples:
+```
+.1 .32 .65535
+```
+  - 32-bit integer
+    - Represented by the two-spot (:)
+    - Examples:
+```
+:0 :32 :4294967295
+```
+  - Note that you can't have negative numbers
+    - You have to keep track of the sign separately
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## More on variables
+- Further notes
+  - .123 and :123 are distinct variables
+  - But .1 and .0001 are identical
+  - But .001 is not 1E-3
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Arrays
+- Array (of numbers) are represented by a tail (,) or a hybrid (;) for 16-bit and 32-bit values, respectively
+- Array elements are suffixed by the word SUB, followed by the subscripts
+- In summary:
+  - .123 :123 ,123 ;123 and #123 are all distinct
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Operators
+- INTERCAL recognized 5 operators: 2 binary, 3 unary
+- "Please be kind to our operators: they may not be very intelligent, but they're all we've got"
+- The design intent was to be different than any other operators that existed
+- Binary operators
+  - Interleave (aka mingle): represented by a change (&cent;)
+    - In an ASCII environment, you can use big money (\$) instead
+    - Takes two 16-bit values and interleaves their bits, producing a 32-bit value
+    - So #65535\$#0 has 32-bit form 101010...10 (or 2,863,311,530 decimal)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Binary operators
+- Interleave (aka mingle): from the previous slide
+- Select: represented by a sqiggle [sic] (~)
+  - Finds which bits are 1 in the second operand
+  - Selects those bits from the first operand
+  - Consider #179~#201 (binary 10110011~11001001)
+    - From the second operand, selects bits 1, 2, 5, and 8
+    - Those bits in the first operand are 1, 0, 0, and 1, resepectively
+    - Thus, the result is value #9
+  - Consider #201~#179 (binary 11001001~10110011)
+    - From the second operand, selects bits 1, 3, 4, 7, 8
+    - Those bits in the first operand are 1, 0, 0, 0, 1
+    - Thus, the result is #17
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Unary operators
+- Three types:
+  - Logical AND (&)
+  - Logical OR (V)
+  - Logical XOR (&forall;)
+    - In ASCII, written as a what (?)
+- These characters are inserted between the spot, two-spot, mesh, etc., and the number:
+  - Examples:
+```
+.&123 #?123
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Unary operators
+- Cannot use multiple unary operators
+- These operators perform their respective operations on pairs of adjacent bits, with the result going into the position of where the first bit (of the pair) was in the original number
+  - The result of the first and last bits goes into the first bit of the result
+- Examples (77 is binary 1001101):
+  - \#&77 is 0000000000000100 = 4
+  - \#V77 is 1000000001101111 = 32879
+  - \#?77 is 1000000001101011 = 32875
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Precedence
+- As INTERCAL was intended "to have no precedents", the compiler does not define what the operator precedence is
+- "The precedence (or lack thereof) may be overruled by grouping expressions between pairs of sparks (') or rabbit-ears (")".
+  - Thus, '#165\$#203'~#358 ...
+  - ... has binary value '10100101\$11001011'~101100110)
+  - ... and decimal value 15
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Statements
+- Line labels are enclosed in wax-wane pairs (())
+  - Labels are (unique) integers from 1 to 65535
+  - Labels between 1000 and 1999 are used by the INTERCAL System Library functions
+- After the line label (if present), one of the following must occur:
+  - DO
+  - PLEASE
+  - PLEASE DO
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Statements, continued
+- Following that, "either, neither, or both" of the following occur:
+  - NOT or N'T, which causes INTERCAL to abstain from that line
+  - A number from 0 to 100, preceded by a double-oh-seven (%)
+    - This causes the statement to have that percentage of being executed
+- Following all of this are one of the 14 valid operations
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Statements
+- Calculate
+  - The assignment: instead of =, INTERCAL uses a angle (<) followed by a worm (-)
+  - 32-bit values can get 16-bit values, and vise-versa if the value is less than 65535
+- NEXT
+  - Of the form:
+    - DO (label) NEXT
+    - PLEASE DO (label) NEXT
+  - Used for subroutine calls and unconditional transfers
+  - Transfers control to that label AND stores it in a stack
+- FORGET
+  - Followed by an expression
+  - Causes that many entries to be removed from the stack
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Statements
+- RESUME
+  - Like a FORGET
+  - But jumps to the line label that is the last to be popped
+  - Used with NEXT (and FORGET) to do "subroutines"
+- STASH
+  - Stores variables and arrays so that subroutines can use the same variable names
+  - Variables and arrays to stash are separated by intersections (+)
+- RETRIEVE
+  - Restores the previously STASHed values of the variables and arrays
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Statements
+- IGNORE
+  - Followed by a variable (or array)
+  - Causes the variable to be unable to be modified
+- REMEMBER
+  - Allows one to modify a variable that has been IGNOREd
+- ABSTAIN
+  - Two forms
+    - First form: causes INTERCAL to abstain from executing a provided line label
+    - Second form: causes INTERCAL to abstain from certain functions (i.e. PLEASE ABSTAIN FROM IGNORING + FORGETTING)
+  - This is how you do an if statement in INTERCAL
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Statements
+- REINSTATE
+  - Nullifies an ABSTAIN
+- GIVE UP
+  - Exits the program
+- Input
+  - Of the form DO WRITE IN list, where list represents a string of variables and/or elements of arrays, separated by intersections (+)
+- Output
+  - Of the from DO READ OUT list
+- COME FROM
+  - The opposite of GOTO!
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## COME FROM
+- The following statements:
+```
+(1)  DO <...>
+	...
+(2)  DO COME FROM (1)
+```
+- Is equivalent to:
+```
+(1)  DO <...>
+(2)  DO GOTO (3)
+	...
+(3)  DO NOTHING
+```
+- If INTERCAL had a GOTO (or NOTHING) commands
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Comments
+- Unrecognized statements are flagged with a splat (\*) during compilation
+  - And the compiler will happily continue
+- But you can put a splat in there yourself
+- So this acts as a comment of sorts...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Hello World Example
+```
+DO ,1 <- #13
+PLEASE DO ,1 SUB #1 <- #234
+DO ,1 SUB #2 <- #112
+DO ,1 SUB #3 <- #112
+DO ,1 SUB #4 <- #0
+DO ,1 SUB #5 <- #64
+DO ,1 SUB #6 <- #194
+DO ,1 SUB #7 <- #48
+PLEASE DO ,1 SUB #8 <- #22
+DO ,1 SUB #9 <- #248
+DO ,1 SUB #10 <- #168
+DO ,1 SUB #11 <- #24
+DO ,1 SUB #12 <- #16
+DO ,1 SUB #13 <- #214
+PLEASE READ OUT ,1
+PLEASE GIVE UP
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Another Example
+- The next program will:
+  - Read in 2 32-bit ints
+  - Treat them as signed, 2’s complement numbers
+  - Print out their absolute values
+- In C++:
+```
+int x, y;
+cin >> x >> y;
+cout << fabs(x) << " " << fabs(y) << endl;
+```
+- I couldn’t get the INTERCAL version to work...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Another Example
+```
+	DO (5) NEXT
+ (5) DO FORGET #1
+	PLEASE WRITE IN :1
+	DO .1 <- '?":1~'#32768$#0'"$#1'~#3
+	DO (1) NEXT
+	DO :1 <- "'?":1~'#65535$#0'"$#65535'
+		~'#0$#65535'"$"'?":1~'#0$#65535'"
+		$#65535'~'#0$#65535'"
+	DO :2 <- #1
+	PLEASE DO (4) NEXT
+ (4) DO FORGET #1
+	DO .1 <- "?':1~:2'$#1"~#3
+	DO :1 <- "'?":1~'#65535$#0'"$":2~'#65535
+		$#0'"'~'#0$#65535'"$"'?":1~'#0
+		$#65535'"$":2~'#0$#65535'"'~'#0$#65535'"
+	DO (1) NEXT
+	DO :2 <- ":2~'#0$#65535'"
+		$"'":2~'#65535$#0'"$#0'~'#32767$#1'"
+	DO (4) NEXT
+ (2) DO RESUME .1
+ (1) PLEASE DO (2) NEXT
+	PLEASE FORGET #1
+	DO READ OUT :1
+	PLEASE DO .1 <- '?"':1~:1'~#1"$#1'~#3
+	DO (3) NEXT
+	PLEASE DO (5) NEXT
+ (3) DO (2) NEXT
+	PLEASE GIVE UP
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## That last program in comparison
+- That last program in SNOBOL (a serious programming language), which took about 60 seconds to write:
+
+```
+PLEASE INPUT POS(0) ('-' ! '')
++ (SPAN('0123456789') $ OUTPUT)
++ *NE(OUTPUT) :S(PLEASE)F(END)
+```
+
+
+- That last program in APL:
+  - [1]&rarr;0&ne;□&larr;|□
+  - Yes, that displayed correctly
+  - Took about 15 seconds to write
+- The INTERCAL version took about 30 minutes to write
+  - (I didn't write any of these versions, by the way)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Beyond INTERCAL
+- TriINTERCAL
+  - Which uses a trinary number system, not a binary number system
+  - Instead of a bit, you use a trit
+  - Instead of a .i suffix, uses a .3i suffix
+- But why stop there?
+- The INTERCAL compiler can recognize any extension of the form .Ni
+  - Where N is from 2 to 7
+	  </script></section>
+
+	</section>
+
+
+
+	<section>
+
+	  <section id="whitespace" data-markdown><script type="text/template">
+# Whitespace
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Whitespace
+- Only uses 3 characters:
+  - Space (ASCII 32)
+  - Tab (ASCII 9)
+  - Newline (ASCII 10)
+- You can create a polyglot with whitespace
+- Proven to be Turing-complete 
+- This material is from [here](http://compsoc.dur.ac.uk/whitespace/tutorial.php)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Instruction type
+- The IMP specifies the instruction type
+  - IMP stands for Instruction Modification Parameter
+- [Space]: Stack Manipulation 
+- [Tab][Space]: Arithmetic
+- [Tab][Tab]: Heap access
+- [LF]: Flow Control
+- [Tab][LF]: I/O
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Stack manipulation
+IMP: [Space]
+
+- [Space]&lt;num&gt;: Push the number onto the stack 
+- [LF][Space]: Duplicate the top item on the stack 
+- [Tab][Space]&lt;num&gt;: Copy the nth item on the stack (given by the argument) onto the top of the stack 
+- [LF][Tab]: Swap the top two items on the stack 
+- [LF][LF]: Discard the top item on the stack 
+- [Tab][LF]&lt;num&gt;: Slide n items off the stack, keeping the top item
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Arithmetic
+IMP: [Tab][Space]
+
+- [Space][Space]: Addition
+- [Space][Tab]: Subtraction 
+- [Space][LF]: Multiplication 
+- [Tab][Space]: Integer Division 
+- [Tab][Tab]: Modulo
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Heap Access
+IMP: [Tab][Tab]
+
+- [Space]: Store
+- [Tab]: Retrieve
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Flow Control
+IMP: [LF]
+
+- [Space][Space]&lt;label&gt;: Mark a location in the program 
+- [Space][Tab]&lt;label&gt;: Call a subroutine 
+- [Space][LF]&lt;label&gt;: Jump unconditionally to a label 
+- [Tab][Space]&lt;label&gt;: Jump to a label if the top of the stack is zero 
+- [Tab][Tab]&lt;label&gt;: Jump to a label if the top of the stack is negative 
+- [Tab][LF]: End a subroutine and transfer  control back to the caller 
+- [LF][LF]: End the program
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## I/O
+IMP: [Tab][LF]
+
+- [Space][Space]: Output the character at the top of the stack 
+- [Space][Tab]: Output the number at the top of the stack 
+- [Tab][Space]: Read a character and place it in the location given by the top of the stack 
+- [Tab][Tab]: Read a number and place it in the location given by the top of the stack
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Annotated example, page 1
+- [Space][Space][Space][Tab][LF]
+  - Put a 1 on the stack 
+- [LF][Space][Space][Space][Tab][Space][Space] [Space][Space][Tab][Tab][LF]
+  - Set a Label at this point
+- [Space][LF][Space]
+  - Duplicate the top stack item 
+- [Tab][LF][Space][Tab]
+  - Output the current value 
+- [Space][Space][Space][Tab][Space][Tab][Space][LF]
+  - Put 10 (newline) on the stack... 
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Annotated example, page 2
+- [Tab][LF][Space][Space]
+  - ... and output the newline 
+- [Space][Space][Space][Tab][LF]
+  - Put a 1 on the stack 
+- [Tab][Space][Space][Space]
+  - Addition. This increments our current value. 
+- [Space][LF][Space]
+  - Duplicate that value so we can test it 
+- [Space][Space][Space][Tab][Space][Tab][Tab][LF] 
+  - Push 11 onto the stack 
+- [Tab][Space][Space][Tab]
+  - Subtraction. So if we've reached the end, we have a zero on the stack. 
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Annotated example, page 3
+- [LF][Tab][Space][Space][Tab][Space][Space] [Space][Tab][Space][Tab][LF]
+  - If we have a zero, jump to the end 
+- [LF][Space][LF][Space][Tab][Space][Space][Space][Space][Tab][Tab][LF]
+  - Jump to the start 
+- [LF][Space][Space][Space][Tab][Space][Space][Space][Tab][Space][Tab][LF] 
+  - Set the end label 
+- [Space][LF][LF]
+  - Discard our accumulator, to be tidy 
+- [LF][LF][LF]
+  - Finish
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Hello world (emacs highlighting)
+![whitespace](images/14-esoteric-pls/whitespace.png)
+	  </script></section>
+
+	</section>
+
+
+
+	<section>
+
+	  <section id="branf" data-markdown><script type="text/template">
+# Brainf\*\*\*
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Brainf***
+- Designed to be a minimal language
+  - Existing compilers are less than 200 kbytes
+- The model consists of:
+  - A pointer
+  - An array of 30,000 1-byte cells initialized to zero
+- These notes from wikipedia
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## All 8 commands
+
+Character | Description
+-|-
+\> | Increment the pointer (move to the right)
+< | Decrement the pointer (move to the left)
+\+ | Increment the byte at the pointer
+\- | Decrement the byte at the pointer
+. | Output the byte at the pointer
+, | Input one byte to the byte at the pointer
+[ | Jump to the corresponding ] if the ptr byte is 0
+] | Jump back to the open [ if the pointer byte is 0
+
+Is this Turing complete?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## All 8 commands in C/C++
+ Assume ptr is a `char*` to an array of zeroed bytes
+
+Character | C/C++ Equivalent
+-|-
+> | ++ptr;
+< | --ptr;
++ | ++(*ptr);
+- | --(*ptr);
+. | putchar(*ptr);
+, | *ptr=getchar();
+[ | while (*ptr) {
+] | }
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Hello world, page 1
+- `++++++++++`
+  - Sets a[0] to 10
+- `[>+++++++>++++++++++>+++>+<<<<-]`
+  - The initial loop to set up useful values in the array
+  - A[1] = 70, a[2] = 100, a[3] = 30
+- `>++. >+. +++++++. . +++.`
+  - Print, respectively, 'H', 'e', 'l', 'l', and 'o'
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Hello world, page 2
+- `>++.`
+  - Print ' ' 
+- `<<+++++++++++++++.`
+  - Print 'W' 
+- `>. +++. ------. --------.`
+  - Print, respectively, 'o', 'r', 'l', 'd'
+- `>+.`
+  - Print '!' 
+- `>.`
+  - Print newline
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## That hello world example
+```
+++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..
++++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Code snippets
+- Cell-clear
+  - `[-]`
+- Simple loop
+  - `,[.,]`
+- Moving the pointer
+  - `>,[.>,]`
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## More code snippets
+- Add
+  - `[->+<]`
+  - `[->+>+<<]>>[-<<+>>]`
+- Conditional loop statements
+  - `,----------[----------------------.,----------]`
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Even more code snippets
+- Copying a byte
+  - `>[-]<[->+<]`
+  - `>[-]>[-]<<[->+>+<<]`
+  - `>[-]>[-]<<[->+>+<<]>>[-<<+>>]<<`
+- Addition
+  - `,>++++++[<-------->-],[<+>-]<.`
+- Multiplication
+  - `,>,>++++++++[<------<------>>-] <<[>[>+>+<<-]>>[<<+>>-]<<<-] >>>++++++[<++++++++>-],<.>.`
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Division, page 1
+- `,>,>++++++[-<--------<-------->>]`
+  - Store 2 numbers from keyboard in (0) and (1); and subtract 48 from each 
+- `<<[`
+  - This is the main loop which continues until the dividend in (0) is zero 
+- `>[->+>+<<]`
+  - Destructively copy the divisor from (1) to (2) and (3); setting (1) to zero 
+- `>[-<<-`
+  - Subtract the divisor in (2) from the dividend in (0); the difference is stored in (0) and (2) is cleared 
+- `[>]>>>[<[>>>-<<<[-]]>>]<<]`
+  - If the dividend in (0) is zero; exit the loop 
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Division, page 2
+- `>>>+`
+  - Add one to the quotient in (5) 
+- `<<[-<<+>>]`
+  - Destructively copy the divisor in (3) to (1) 
+- `<<<]`
+  - Move the stack pointer to (0) and go back to the start of the main loop 
+- `>[-]>>>>[-<<<<<+>>>>>]`
+  - Destructively copy the quotient in (5) to (0) (not necessary; but cleaner) 
+- `<<<<++++++[-<++++++++>]<.`
+  - Add 48 and print result
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Polyglots
+- A polyglot is a file that is a valid program in multiple languages
+  - Brainf*** will only recognize the 8 characters it cares about
+  - Whitespace only pays attention to, well, whitespace
+  - And C cares about everything else
+- The result can be found [here](http://geeksbynature.dk/2009/10/23/hello-world-polyglot-edition/)
+	  </script></section>
+
+	</section>
+
+
+
+      </div>
+
+    </div>
+
+    <div id="calibratediv" style="display:none">
+      <div id="calibratecanvasdiv">
+        <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
+      </div>
+      <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
+    </div>
+
+    <script src="reveal.js/lib/js/head.min.js"></script>
+    <script src="reveal.js/js/reveal.min.js"></script>
+    <script src="js/settings.js"></script>
+
+  </body>
+</html>
