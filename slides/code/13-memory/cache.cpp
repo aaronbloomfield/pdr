@@ -17,6 +17,7 @@ int main (void) {
         for ( int j = 0; j < 1024; j++ )
             sum += array[i][j];
     cout << sum << endl;
+    return 0;
 }
 
 // average time for i as outer, j as inner: 2.696  sec

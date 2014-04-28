@@ -303,10 +303,10 @@ How expensive would this be?
 ## Locality
 - Temporal Locality
   - Locality in time
-  - If an item is referenced, it will tend to be referenced again soon.
+  - If an item is referenced, it will tend to be referenced again soon
 - Spatial Locality
   - Locality in space
-  - If an item is referenced, items whose addresses are close by will tend to be referenced soon.
+  - If an item is referenced, items whose addresses are close by will tend to be referenced soon
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -323,40 +323,36 @@ for ( int i = 0; i < n; i++ ) {
 ## Example code
 Source code: [cache.cpp](code/13-memory/cache.cpp.html) ([src](code/13-memory/cache.cpp))
 ```
-int main (void) {
-    cout << "page size: " << getpagesize() << endl;
-    int array[1024][1024];
+cout << "page size: " << getpagesize() << endl;
+int array[1024][1024];
+for ( int i = 0; i < 1024; i++ )
+    for ( int j = 0; j < 1024; j++ )
+        array[i][j] = 0;
+for ( int c = 0; c < 1024; c++ )
     for ( int i = 0; i < 1024; i++ )
         for ( int j = 0; j < 1024; j++ )
-            array[i][j] = 0;
-    for ( int c = 0; c < 1024; c++ )
-        for ( int i = 0; i < 1024; i++ )
-            for ( int j = 0; j < 1024; j++ )
-                array[i][j]++;
-    int sum = 0;
-    for ( int i = 0; i < 1024; i++ )
-        for ( int j = 0; j < 1024; j++ )
-            sum += array[i][j];
-    cout << sum << endl;
-}
+            array[i][j]++;
+int sum = 0;
+for ( int i = 0; i < 1024; i++ )
+    for ( int j = 0; j < 1024; j++ )
+        sum += array[i][j];
+cout << sum << endl;
 ```
 What if we swap each of the three `i` and `j` loops?
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Execution of cache.cpp
-- On an (older) Linux Pentium machine
+- On an older Linux machine (3 Ghz Intel)
   - Page size is 4Kb (4096 bytes)
-- Execution times:
   - With `i` as the outer and `j` as the inner: 2.7 seconds
   - With `j` as the outer and `i` as the inner: 124.9 seconds
   - A factor of almost 50!
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
-## What Can Be Done?
-- Goal: Attempt to reduce the number of access to slower levels
-- How?
+- On a more modern Linux machine (3.4 Ghz AMD)
+  - Page size is also 4Kb (4096 bytes)
+  - With `i` as the outer and `j` as the inner: 0.696 seconds
+  - With `j` as the outer and `i` as the inner: 31.4 seconds
+  - Also a factor of almost 50!
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -588,7 +584,7 @@ void *realloc(void *ptr, size_t size);
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Factorial - Recursive
+## Factorial: Recursive
 ```
 int factorial_recursive(int x) {
     if (x <= 1)
@@ -601,7 +597,7 @@ int factorial_recursive(int x) {
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Factorial - Tail Recursion
+## Factorial: Tail Recursion
 ```
 int factorial_tail_recursive(int x, int y) {
     if (x <= 1)
@@ -620,7 +616,7 @@ int factorial_tail_recursive(int x, int y) {
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Factorial -- Loop Implementation
+## Factorial: Loop Implementation
 ```
 int factorial_loop(int x) {
     int y = 1;
