@@ -72,3 +72,4 @@ The labs for this course:
   - Data files: [prelab-test-small.txt](lab11/prelab-test-small.txt), [prelab-test-full.txt](lab11/prelab-test-full.txt)
   - The [Doxygen tutorial](../tutorials/11-doxygen/index.html) and the necessary files for that: [average.cpp](../tutorials/11-doxygen/average.cpp.html) ([src](../tutorials/11-doxygen/average.cpp))
   
+- [Lab 12: Conclusion](lab12/index.html)
