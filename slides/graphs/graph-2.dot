@@ -1,0 +1,15 @@
+digraph G {
+	graph [fontname = "Helvetica"];
+	node [fontname = "Helvetica",shape=circle,width=0.6];
+	edge [fontname = "Helvetica"];
+
+	A -> B;
+	A -> C;
+	A -> D;
+	B -> G;
+	C -> E;
+	D -> E;
+	D -> F;
+	E -> A; # in the pptx slide, E -> B, but going to A is better for the layout
+	F -> G;
+}

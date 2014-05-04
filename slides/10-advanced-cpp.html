@@ -181,7 +181,7 @@ cout << &x << endl;
 	  <section data-markdown><script type="text/template">
 ## Pointer and Memory Allocation Pitfalls
 - Uninitialized pointers
-- Dereferencing NULL pointers
+- Dereferencing `NULL` pointers
 - Dangling pointer
 - Losing address of dynamically allocated memory
 	  </script></section>
@@ -205,9 +205,9 @@ What types are `cow`, `cowPtr1`, `cowPtr2`, and `cowPtr3`?
 | Variable name | Type of variable | Example emory address | Value stored |
 |-|-|-|-|
 | `cow` | `Animal` | 108 | 500 |
-| `cowPtr1` | `Animal *` | 112 | 112 |
-| `cowPtr2` | `Animal **` | 116 | 116 |
-| `cowPtr3` | `Animal ***` | 120 | 120 |
+| `cowPtr1` | `Animal *` | 112 | 108 |
+| `cowPtr2` | `Animal **` | 116 | 112 |
+| `cowPtr3` | `Animal ***` | 120 | 116 |
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -429,7 +429,7 @@ private:
 
 	  <section data-markdown><script type="text/template">
 ## Terminology
-- derived class
+- Sub class (or derived class, or child class)
   - Contact is the "child" class of Name
   - Inherits:
     - Data members defined in the parent class
@@ -437,7 +437,7 @@ private:
     - Same initial data layout as the base class
   - Can add:
     - New data members, member functions, constructors, destructors
-- parent class
+- Super class (or base class, or parent class)
   - Name is the "parent" class of Contact
 	  </script></section>
 
@@ -518,16 +518,16 @@ public class Sphere extends Shape implements Comparable,
 ```
 class Person {
     public:
-    // ...
-    void print(ostream &out = cout );
-    // ...
+      // ...
+      void print(ostream &out = cout);
+      // ...
 };
 
 class Student : public Person {
     public:
-    // ...
-    void print(ostream &out = cout);
-    // ...
+      // ...
+      void print(ostream &out = cout);
+      // ...
 };
 ```
 	  </script></section>
@@ -540,13 +540,13 @@ if ( user_input )
     p = new Student();
 else
     p = new Person();
-p->print(...);
+p->print();
 ```
 &nbsp;  
 &nbsp;  
 ```
 Student s(123456789, "Jane", 4.0);
-const Person &p = s;
+Person &p = s;
 s.print();    // Student::print()
 p.print();    // Person::print()
 ```
@@ -568,9 +568,9 @@ p.print();    // Person::print()
 ```
 class Person {
     public:
-    ...
-    virtual void print(ostream &out = cout);
-    ...
+      // ...
+      virtual void print(ostream &out = cout);
+      // ...
 };
 ```
 Should also be used for the base class destructor
@@ -648,7 +648,7 @@ Consider:
 ```
 class foo {
     public:
-        virtual void bar() = 0;
+      virtual void bar() = 0;
 };
 ```
 - Must be virtual!
@@ -686,7 +686,7 @@ class A {
 }
 
 class B {
-      private: int bar;
+    private: int bar;
     public: void foo() { bar = 1; }
 }
 
@@ -710,7 +710,7 @@ What if the relationship below occurs?
   - Shared can be done by specifying that a base class is virtual:
 ```
 class student: public virtual person, public gp_list_node {
-class professor: public virtual person, public gp_list_node{
+class professor: public virtual person, public gp_list_node {
 ```
 	  </script></section>
 

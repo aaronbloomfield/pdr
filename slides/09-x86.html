@@ -926,7 +926,7 @@ ret             ; pop top value from stack, jump there
 
 	  <section>
 <h2>Stack Memory Visualization for myFunc</h2>
-<p>This is just as the subroutine is called (i.e., just after the <code>call</code> opcode executes).</p>
+<p>This is just <i>after</i> the caller invokes the <code>call</code> opcode.</p>
 <hr>
 <table class="transparent">
 <tr><td>&uarr;</td><td style="width:50px"></td><td class="border" style="width:300px">value of edx</td><td style="width:25px"></td><td>&#8598; ebp</td></tr>
@@ -943,6 +943,23 @@ ret             ; pop top value from stack, jump there
 
 	  <section data-transition="fade" data-transition-speed="fast">
 <h2>Stack Memory Visualization for myFunc</h2>
+<p>This is just after the callee invokes the <code>push ebp</code> opcode.</p>
+<hr>
+<table class="transparent">
+<tr><td>&uarr;</td><td style="width:50px"></td><td class="border" style="width:300px">value of edx</td><td style="width:25px"></td><td>&#8598; ebp</td></tr>
+<tr><td>To higher addresses</td><td style="width:50px"></td><td class="border" style="width:300px">copy of var z</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td>(to 0xffffffff)</td><td style="width:50px"></td><td class="border" style="width:300px">123</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">value of eax (var x)</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">return address</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">ebp backup</td><td style="width:25px"></td><td>&larr; esp</td></tr>
+<tr><td>To lower addresses</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td>(to 0x00000000)</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td>&darr;</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+</table>
+	  </section>
+
+	  <section data-transition="fade" data-transition-speed="fast">
+<h2>Stack Memory Visualization for myFunc</h2>
 <p>This is after the <code>myFunc()</code> prologue is completed.</p>
 <hr>
 <table class="transparent">
@@ -950,7 +967,7 @@ ret             ; pop top value from stack, jump there
 <tr><td>To higher addresses</td><td style="width:50px"></td><td class="border" style="width:300px">copy of var z</td><td style="width:25px"></td><td>[ebp+16]</td></tr>
 <tr><td>(to 0xffffffff)</td><td style="width:50px"></td><td class="border" style="width:300px">123</td><td style="width:25px"></td><td>[ebp+12]</td></tr>
 <tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">value of eax (var x)</td><td style="width:25px"></td><td>[ebp+8]</td></tr>
-<tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">return address</td><td style="width:25px"></td><td>[ebp+4]</td></tr>
+<tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">return address</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">ebp backup</td><td style="width:25px"></td><td>&larr; ebp</td></tr>
 <tr><td>To lower addresses</td><td style="width:50px"></td><td class="border" style="width:300px">local variable</td><td style="width:25px"></td><td>[ebp-4]</td></tr>
 <tr><td>(to 0x00000000)</td><td style="width:50px"></td><td class="border" style="width:300px">saved value of ebx</td><td style="width:25px"></td><td>&nbsp;</td></tr>
@@ -970,7 +987,7 @@ ret             ; pop top value from stack, jump there
 	  <section>
 <h2>Activation Records</h2>
 <table class="transparent"><tr>
-<td class="top">
+<td class="top" style="width:50%">
 <ul>
 <li>Every time a sub-routine is called, a number of things are pushed onto the stack:<ul>
     <li>Registers</li>
@@ -983,7 +1000,7 @@ ret             ; pop top value from stack, jump there
     <li>(note that caller-saved regsiters are not shown in this diagram)</li>
 </ul></li>
 </ul>
-</td><td>
+</td><td style="width:50%">
 <img alt="x86 activation record" src="images/09-x86/x86-activation-record.svg">
 </td></tr></table>
 	  </section>
@@ -1013,23 +1030,24 @@ ret             ; pop top value from stack, jump there
 	  <section>
 <h2>Consider this subroutine</h2>
 <pre><code>void security_hole() {
-    char buffer[10];
-    scanf ("%s", buffer); // and older C input routine
+    char buffer[12];
+    scanf ("%s", buffer); // how C handles input
 }</code></pre>
 <p>The stack looks like (with sizes in parenthesis):</p>
 <p>&nbsp;</p>
 <table class="transparent"><tr>
-  <td class="border">esi (4)</td>
-  <td class="border">edi (4)</td>
-  <td class="border">buffer (10)</td>
-  <td class="border">ebp (4)</td>
-  <td class="border">ret addr (4)</td>
+  <td class="border">&nbsp;esi (4)&nbsp;</td>
+  <td class="border">&nbsp;edi (4)&nbsp;</td>
+  <td class="border">&nbsp;buffer (12)&nbsp;</td>
+  <td class="border">&nbsp;ebp (4)&nbsp;</td>
+  <td class="border">&nbsp;ret addr (4)&nbsp;</td>
 </tr></table>
 <p>&nbsp;</p>
 <ul>
 <li>Addresses increase to the right (the stack grows to the left)</li>
-<li class="fragment">What happens if the value stored into buffer is 11 bytes long?</li>
-<li class="fragment">What if it is exactly 18 bytes long?<ul>
+<li class="fragment">What happens if the value stored into buffer is 13 bytes long?</li>
+<li class="fragment">What happens if the value stored into buffer is 16 bytes long?</li>
+<li class="fragment">What if it is exactly 20 bytes long?<ul>
     <li class="fragment">We overwrite the return address!</li>
 </ul></li>
 </ul>
@@ -1060,8 +1078,8 @@ ret             ; pop top value from stack, jump there
 - The x86 code samples in this slide set are either:
   - "Generic" x86 examples that could work in nasm if put into a proper program
     - In the same way that you have seen C++ code snippets
-  - Or the output from "clang++ -S" (and probably some other flags)
-    - This code will *NOT* work with nasm, but will work with clang++ (which we aren't really using anyway for our assembly)
+  - Or the output from "clang++ -S" or "g++ -S" (and probably some other flags)
+    - This code will *NOT* work with nasm, but will work with clang++/g++ (which we aren't really using to compile our assembly anyway)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -1073,7 +1091,20 @@ Code we'll see:
 - int absolute_value(int x)
 - int max(int x, int y)
 - bool compare_string(const char \*theStr1, const char \*theStr2)
-- int fib(int n)
+- int fib(unsigned int n)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## clang++ creates some odd assembly...
+- We'll see why later, but clang++ creates some odd-looking assembly
+  - Whcih does not appear to follow the calling convention
+- So you can use g++ to view the assembly
+  - The flags are different:
+```
+g++ -S -m32 -masm=intel
+```
+  - g++ was installed on your VirtualBox image specifically for this reason
+- The assembly shown in this slide set was generated using g++, not clang++
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -1081,7 +1112,7 @@ Code we'll see:
 (see next slide for the source code link)
 ```
 int absolute_value(int x) {
-    if(x<0)        // if x is negative
+    if ( x < 0 )        // if x is negative
         x = -x;    // negate x
     return x;      // return x
 }
@@ -1092,15 +1123,17 @@ int absolute_value(int x) {
 ## test_abs.cpp
 Source code: [test_abs.cpp](code/09-x86/test_abs.cpp.html) ([src](code/09-x86/test_abs.cpp))
 ```
+#include <iostream>
+using namespace std;
 extern "C" int absolute_value(int x);
 
 int absolute_value(int x) {
-    if( x < 0 )    // if x is negative
-        x = -x;    // negate x
-    return x;      // return x
+    if (x<0)	// if x is negative
+        x = -x;	// negate x
+    return x;	// return x
 }
 
-int main(){
+int main() {
     int theValue=0;
     cout << "Enter a value: " << endl;
     cin >> theValue;
@@ -1113,7 +1146,7 @@ int main(){
 
 	  <section data-markdown><script type="text/template">
 ## x86 Assembly for absolute_value
-No external source code; this is how we would write it ourselves.
+No external source code; this is how we might write it ourselves.
 ```
 ; Standard prologue
 push ebp
@@ -1134,7 +1167,7 @@ ret
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Generating assembly with clang++
+## Generating assembly with clang++ or g++
 - Using the -S flag, we can generate assembly from C/C++ code
 - Note that the format is a bit different
   - Register specification, dest/source order, etc.
@@ -1143,34 +1176,38 @@ ret
 clang++ -m32 -S test_abs.cpp -o test_abs-non-intel.s
 ```
   - You'll see why it has 'non-intel' in the name shortly...
-- The formatting is still different, but the idea is the same
+- If you want to use g++ (which we do), you use:
+```
+g++ -m32 -S test_abs.cpp -o test_abs-non-intel.s
+```
+- The formatting is still slightly different from nasm, but the idea is the same
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## clang++'s assembly for absolute_value
+## g++'s assembly for absolute_value
 Note the source / destination order is reversed!  And lots of other differences...
 
 Source code: [test_abs-non-intel.s](code/09-x86/test_abs-non-intel.s.html) ([src](code/09-x86/test_abs-non-intel.s))
 ```
-absolute_value:                         # @absolute_value
-        pushl   %eax
-        movl    8(%esp), %eax
-        movl    %eax, (%esp)
-        cmpl    $0, (%esp)
-        jge     .LBB1_2
-        movl    $0, %eax
-        subl    (%esp), %eax
-        movl    %eax, (%esp)
+absolute_value:
+	pushl   %eax
+	movl    8(%esp), %eax
+	movl    %eax, (%esp)
+	cmpl    $0, (%esp)
+	jge     .LBB1_2
+	movl    $0, %eax
+	subl    (%esp), %eax
+	movl    %eax, (%esp)
 .LBB1_2:
-        movl    (%esp), %eax
-        popl    %edx
-        ret
+	movl    (%esp), %eax
+	popl    %edx
+	ret
 ```
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Assembly differences
-- There are a lot of differences between the assembly we've seen and what `clang++ -S` produces
+- There are a lot of differences between the assembly we've seen and what `g++ -S` produces
   - `movl`, `pushl`, `compl`, `negl`, `popl`
     - the 'l' part means 'long' (i.e. 32 bits, so the assembler doesn’t have to assume)
   - `jns` means jump if not signed (i.e. if positive)
@@ -1187,40 +1224,41 @@ absolute_value:                         # @absolute_value
   - You can see more details about the differences [here](https://en.wikipedia.org/wiki/X86_assembly_language#Syntax)
 - Flavors:
   - Intel syntax: what we will use, and what nasm uses
-  - AT&T syntax: what `clang++ -S` uses by default
+  - AT&T syntax: what `g++ -S` uses by default
 
-- To make clang++ use the Intel syntax, you need to add the `-mllvm --x86-asm-syntax=intel` flags
+- To make clang++ use the Intel syntax, you need to add the <br>`-mllvm --x86-asm-syntax=intel` flags
 ```
 clang++ -m32 -mllvm --x86-asm-syntax=intel -S \
           test_abs.cpp -o test_abs.s
 ```
+- For g++, use the `-masm=intel` flags:
+```
+g++ -m32 -masm=intel -S test_abs.cpp -o test_abs.s
+```
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## clang++'s assembly for absolute_value
-This is with the `-mllvm --x86-asm-syntax=intel` flags
+## g++'s assembly for absolute_value
+This is with the `-masm=intel` flags
 
 Source code: [test_abs.s](code/09-x86/test_abs.s.html) ([src](code/09-x86/test_abs.s))
 ```
-absolute_value:                         # @absolute_value
-	push   EAX
-	mov	EAX, DWORD PTR [ESP + 8]
-	mov	DWORD PTR [ESP], EAX
-	cmp	DWORD PTR [ESP], 0
-	jge	.LBB1_2
-	mov	EAX, 0
-	sub	EAX, DWORD PTR [ESP]
-	mov	DWORD PTR [ESP], EAX
-.LBB1_2:
-	mov	EAX, DWORD PTR [ESP]
-	pop	EDX
+absolute_value:
+	push    ebp
+	mov     ebp, esp
+	cmp     DWORD PTR [ebp+8], 0
+	jns     .L2
+	neg     DWORD PTR [ebp+8]
+.L2:
+	mov     eax, DWORD PTR [ebp+8]
+	pop     ebp
 	ret
 ```
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## clang++'s assembly output on Macs
-- With g++ (what we used last year), Darwin (i.e., Mac OS X) did not support the `--masm=intel` flag
+- With g++ (what we used last year), Darwin (i.e., Mac OS X) did not support the `-masm=intel` flag
   - And clang++ may not support the `-mllvm --x86-asm-syntax=intel` flags
 - But I don't know what clang++ will do...
   - Can anybody test this?
@@ -1237,7 +1275,7 @@ Source code: [test_abs_c.c](code/09-x86/test_abs_c.c.html) ([src](code/09-x86/te
 #include <stdio.h>
 
 int absolute_value(int x) {
-    if (x<0)      // if x is negative
+    if ( x < 0 )      // if x is negative
         x = -x;   // negate x
     return x;     // return x
 }
@@ -1301,72 +1339,68 @@ int main(){
 
 	  <section data-markdown><script type="text/template">
 ## x86 code for max()
-Using `-mllvm --x86-asm-syntax=intel`
+Using `g++ -masm=intel`
 
 Source code: [test_max.s](code/09-x86/test_max.s.html) ([src](code/09-x86/test_max.s))
 ```
-max:                                    # @max
-	sub	ESP, 12
-	mov	EAX, DWORD PTR [ESP + 20]
-	mov	ECX, DWORD PTR [ESP + 16]
-	mov	DWORD PTR [ESP + 8], ECX
-	mov	DWORD PTR [ESP + 4], EAX
-	mov	EAX, DWORD PTR [ESP + 8]
-	cmp	EAX, DWORD PTR [ESP + 4]
-	jle	.LBB1_2
-	mov	EAX, DWORD PTR [ESP + 8]
-	mov	DWORD PTR [ESP], EAX
-	jmp	.LBB1_3
-.LBB1_2:
-	mov	EAX, DWORD PTR [ESP + 4]
-	mov	DWORD PTR [ESP], EAX
-.LBB1_3:
-	mov	EAX, DWORD PTR [ESP]
-	add	ESP, 12
+max:
+	push    ebp
+	mov     ebp, esp
+	sub     esp, 16
+	mov     eax, DWORD PTR [ebp+8]
+	cmp     eax, DWORD PTR [ebp+12]
+	jle     .L2
+	mov     eax, DWORD PTR [ebp+8]
+	mov     DWORD PTR [ebp-4], eax
+	jmp     .L3
+.L2:
+	mov     eax, DWORD PTR [ebp+12]
+	mov     DWORD PTR [ebp-4], eax
+.L3:
+	mov     eax, DWORD PTR [ebp-4]
+	leave
 	ret
 ```
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## x86 code for max() using --O2
-Using `-mllvm --x86-asm-syntax=intel` and `-O2`
+## x86 code for max() using -O2
+Using `g++ -masm=intel` and `-O2`
 
 Source code: [test_max-O2.s](code/09-x86/test_max-O2.s.html) ([src](code/09-x86/test_max-O2.s))
 ```
-max:                                    # @max
-	mov	  EAX, DWORD PTR [ESP + 8]
-	mov	  ECX, DWORD PTR [ESP + 4]
-	cmp	  ECX, EAX
-	cmovg	EAX, ECX
+max:
+	mov     eax, DWORD PTR [esp+4]
+	mov     edx, DWORD PTR [esp+8]
+	cmp     edx, eax
+	cmovge  eax, edx
 	ret
 ```
-The [cmovg](http://www.asmpedia.org/index.php?title=CMOVG) opcode will move the greater value into the first parameter
+The [cmovg](http://www.asmpedia.org/index.php?title=CMOVG) opcode will move the greater value into the first parameter; [cmovg](http://www.asmpedia.org/index.php?title=CMOVG) does the move greater than *or equal to* value
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## x86 code for max() without 'extern "C"'
-Using `-mllvm --x86-asm-syntax=intel`
+Using `g++ -masm=intel`
 
 Source code: [test_max-noextern.s](code/09-x86/test_max-noextern.s.html) ([src](code/09-x86/test_max-noextern.s))
 ```
-_Z3maxii:                               # @_Z3maxii
-	sub	ESP, 12
-	mov	EAX, DWORD PTR [ESP + 20]
-	mov	ECX, DWORD PTR [ESP + 16]
-	mov	DWORD PTR [ESP + 8], ECX
-	mov	DWORD PTR [ESP + 4], EAX
-	mov	EAX, DWORD PTR [ESP + 8]
-	cmp	EAX, DWORD PTR [ESP + 4]
-	jle	.LBB1_2
-	mov	EAX, DWORD PTR [ESP + 8]
-	mov	DWORD PTR [ESP], EAX
-	jmp	.LBB1_3
-.LBB1_2:
-	mov	EAX, DWORD PTR [ESP + 4]
-	mov	DWORD PTR [ESP], EAX
-.LBB1_3:
-	mov	EAX, DWORD PTR [ESP]
-	add	ESP, 12
+_Z3maxii:
+	push   ebp
+	mov    ebp, esp
+	sub    esp, 16
+	mov    eax, DWORD PTR [ebp+8]
+	cmp    eax, DWORD PTR [ebp+12]
+	jle    .L2
+	mov    eax, DWORD PTR [ebp+8]
+	mov    DWORD PTR [ebp-4], eax
+	jmp    .L3
+.L2:
+	mov    eax, DWORD PTR [ebp+12]
+	mov    DWORD PTR [ebp-4], eax
+.L3:
+	mov    eax, DWORD PTR [ebp-4]
+	leave
 	ret
 ```
 	  </script></section>
@@ -1418,68 +1452,61 @@ int main(){
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for compare_string(), 1/3
-Using `-mllvm --x86-asm-syntax=intel`
+Using `g++ -masm=intel`
 
 Source code: [test_string_compare.s](code/09-x86/test_string_compare.s.html) ([src](code/09-x86/test_string_compare.s))
 ```
-compare_string:                         # @compare_string
-      sub    ESP, 12
-      mov    EAX, DWORD PTR [ESP + 20]
-      mov    ECX, DWORD PTR [ESP + 16]
-      mov    DWORD PTR [ESP + 8], ECX
-      mov    DWORD PTR [ESP + 4], EAX
-.LBB1_1:
-      mov    AL, 0
-      mov    ECX, DWORD PTR [ESP + 8]
-      movsx  ECX, BYTE PTR [ECX]
-      cmp    ECX, 0
-      mov    BYTE PTR [ESP + 3], AL
-      je     .LBB1_3
-      mov    EAX, DWORD PTR [ESP + 8]
-      movsx  EAX, BYTE PTR [EAX]
-      mov    ECX, DWORD PTR [ESP + 4]
-      movsx  ECX, BYTE PTR [ECX]
-      cmp    EAX, ECX
-      sete   DL
-      mov    BYTE PTR [ESP + 3], DL
+compare_string:
+	push    ebp
+	mov     ebp, esp
+	jmp     .L2
+.L5:
+	add     DWORD PTR [ebp+8], 1
+	add     DWORD PTR [ebp+12], 1
 ```
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for compare_string(), 2/3
+Using `g++ -masm=intel`
+
 Source code: [test_string_compare.s](code/09-x86/test_string_compare.s.html) ([src](code/09-x86/test_string_compare.s))
 ```
-.LBB1_3:
-      mov    AL, BYTE PTR [ESP + 3]
-      test   AL, 1
-      jne    .LBB1_4
-      jmp    .LBB1_5
-.LBB1_4:
-      mov    EAX, DWORD PTR [ESP + 8]
-      add    EAX, 1
-      mov    DWORD PTR [ESP + 8], EAX
-      mov    EAX, DWORD PTR [ESP + 4]
-      add    EAX, 1
-      mov    DWORD PTR [ESP + 4], EAX
-      jmp    .LBB1_1
+.L2:
+	mov     eax, DWORD PTR [ebp+8]
+	movzx   eax, BYTE PTR [eax]
+	test    al, al
+	je      .L3
+	mov     eax, DWORD PTR [ebp+8]
+	movzx   edx, BYTE PTR [eax]
+	mov     eax, DWORD PTR [ebp+12]
+	movzx   eax, BYTE PTR [eax]
+	cmp     dl, al
+	jne     .L3
+	mov     eax, 1
+	jmp     .L4
 ```
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for compare_string(), 3/3
+Using `g++ -masm=intel`
+
 Source code: [test_string_compare.s](code/09-x86/test_string_compare.s.html) ([src](code/09-x86/test_string_compare.s))
 ```
-.LBB1_5:
-      mov    EAX, DWORD PTR [ESP + 8]
-      movsx  EAX, BYTE PTR [EAX]
-      mov    ECX, DWORD PTR [ESP + 4]
-      movsx  ECX, BYTE PTR [ECX]
-      cmp    EAX, ECX
-      sete   DL
-      and    DL, 1
-      movzx  EAX, DL
-      add    ESP, 12
-      ret
+.L3:
+	mov     eax, 0
+.L4:
+	test    al, al
+	jne     .L5
+	mov     eax, DWORD PTR [ebp+8]
+	movzx   edx, BYTE PTR [eax]
+	mov     eax, DWORD PTR [ebp+12]
+	movzx   eax, BYTE PTR [eax]
+	cmp     dl, al
+	sete    al
+	pop     ebp
+	ret
 ```
 	  </script></section>
 
@@ -1487,8 +1514,8 @@ Source code: [test_string_compare.s](code/09-x86/test_string_compare.s.html) ([s
 ## int fib
 (see next slide for the source code link)
 ```
-int fib(int n) {
-    if((n==0) || (n==1))
+int fib(unsigned int n) {
+    if ((n==0) || (n==1))
         return 1;
     return fib(n-1) + fib(n-2);
 }
@@ -1501,10 +1528,10 @@ Source code: [test_fib.cpp](code/09-x86/test_fib.cpp.html) ([src](code/09-x86/te
 ```
 #include <iostream>
 using namespace std;
-extern "C" int fib(int n);
+extern "C" int fib(unsigned int n);
 
-int fib(int n) {
-    if((n==0) || (n==1))
+int fib(unsigned int n) {
+    if ((n==0) || (n==1))
         return 1;
     return fib(n-1) + fib(n-2);
 }
@@ -1522,50 +1549,46 @@ int main(){
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for fib(), 1/2
-Using `-mllvm --x86-asm-syntax=intel`
+Using `g++ -masm=intel`
 
 Source code: [test_fib.s](code/09-x86/test_fib.s.html) ([src](code/09-x86/test_fib.s))
 ```
-fib:                                    # @fib
-.Ltmp10:
-	push   EBP
-	mov	EBP, ESP
-.Ltmp13:
-	sub	ESP, 24
-	mov	EAX, DWORD PTR [EBP + 8]
-	mov	DWORD PTR [EBP - 8], EAX
-	cmp	DWORD PTR [EBP - 8], 0
-	je	.LBB1_2
-	cmp	DWORD PTR [EBP - 8], 1
-	jne	.LBB1_3
-.LBB1_2:
-	mov	DWORD PTR [EBP - 4], 1
-	jmp	.LBB1_4
+fib:
+	push    ebp
+	mov     ebp, esp
+	push    ebx
+	sub     esp, 20
+	cmp     DWORD PTR [ebp+8], 0
+	je      .L2
+	cmp     DWORD PTR [ebp+8], 1
+	jne     .L3
+.L2:
+	mov     eax, 1
+	jmp     .L4
 ```
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for fib(), 2/2
+Using `g++ -masm=intel`
 
 Source code: [test_fib.s](code/09-x86/test_fib.s.html) ([src](code/09-x86/test_fib.s))
 ```
-.LBB1_3:
-	mov	EAX, DWORD PTR [EBP - 8]
-	sub	EAX, 1
-	mov	DWORD PTR [ESP], EAX
-	call   fib
-	mov	ECX, DWORD PTR [EBP - 8]
-	sub	ECX, 2
-	mov	DWORD PTR [ESP], ECX
-	mov	DWORD PTR [EBP - 12], EAX
-	call   fib
-	mov	ECX, DWORD PTR [EBP - 12]
-	add	EAX, ECX
-	mov	DWORD PTR [EBP - 4], EAX
-.LBB1_4:
-	mov	EAX, DWORD PTR [EBP - 4]
-	add	ESP, 24
-	pop	EBP
+.L3:
+	mov     eax, DWORD PTR [ebp+8]
+	sub     eax, 1
+	mov     DWORD PTR [esp], eax
+	call    fib
+	mov     ebx, eax
+	mov     eax, DWORD PTR [ebp+8]
+	sub     eax, 2
+	mov     DWORD PTR [esp], eax
+	call    fib
+	add     eax, ebx
+.L4:
+	add     esp, 20
+	pop     ebx
+	pop     ebp
 	ret
 ```
 	  </script></section>
@@ -1578,6 +1601,21 @@ Source code: [test_fib.s](code/09-x86/test_fib.s.html) ([src](code/09-x86/test_f
 - So as the stack was set up correctly, the convention was follows
 	  </script></section>
 
+	  <section>
+<h2>Do we need to even use ebp?</h2>
+<table class="transparent">
+<tr><td class="top" style="width:50%">
+<ul>
+<li>If we know that the number of local variables will be fixed...<ul>
+    <li>... then we can offset everything from esp instead</li>
+</ul></li>
+<li>This saves the push/pop ebp operations</li>
+<li>clang++ really likes to do this...</li>
+<li>But this is not always possible if a program uses dynamic memory on the <i>stack</i></li>
+</ul>
+</td><td class="top" style="width:50%"><img alt="x86 activation record" src="images/09-x86/x86-activation-record.svg"></td></tr></table>
+	  </section>
+
 	  <section data-markdown id="clangconventionbreak"><script type="text/template">
 ## But clang breaks the calling convention!
 - Again, not really
@@ -1587,21 +1625,6 @@ Source code: [test_fib.s](code/09-x86/test_fib.s.html) ([src](code/09-x86/test_f
     - ... meaning that there is no call to an external library, or this is not code that will go *into* a library...
     - ... then parameters may be passed in the registers
 	  </script></section>
-
-	  <section>
-<h2>Do we need to even use ebp?</h2>
-<table class="transparent">
-<tr><td class="top">
-<ul>
-<li>If we know that the number of local variables will be fixed...<ul>
-    <li>... then we can offset everything from esp instead</li>
-</ul></li>
-<li>This saves the push/pop ebp operations</li>
-<li>clang++ likes to do this...</li>
-<li>But this is not always possible if a program uses dynamic memory on the <i>stack</i></li>
-</ul>
-</td><td><img alt="x86 activation record" src="images/09-x86/x86-activation-record.svg"></td></tr></table>
-	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## RISC versus CISC

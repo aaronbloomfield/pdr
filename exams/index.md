@@ -1,7 +1,7 @@
 PDR: Exams
 ==========
 
-[Go up to the main README file](../README.html)
+[Go up to the main README file](../README.html) ([md](../README.md))
 
 These are all the exams from the previous semesters of the course.  No solutions are provided, nor are the grading guidelines.  Currently they are all in PDF format, but that may change in the future.  The more recent ones were developed using LaTeX, the earlier ones using Word.
 
@@ -18,4 +18,4 @@ These are all the exams from the previous semesters of the course.  No solutions
 - Fall 2012: [midterm 1](exam1-f12.pdf), [midterm 2](exam2-f12.pdf), [final exam](final-f12.pdf)
 - Spring 2013: [midterm 1](exam1-s13.pdf), [midterm 2](exam2-s13.pdf), [final exam](final-s13.pdf)
 - Fall 2013: [midterm 1](exam1-f13.pdf), [midterm 2](exam2-f13.pdf), [final exam](final-f13.pdf)
-- Spring 2014: [midterm 1](exam1-s14.pdf)
+- Spring 2014: [midterm 1](exam1-s14.pdf), [midterm 2](exam2-s14.pdf)

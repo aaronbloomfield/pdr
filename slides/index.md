@@ -1,7 +1,7 @@
 Program and Data Representation: Slides
 =======================================
 
-[Go up to the main README file](../README.html)
+[Go up to the main README file](../README.html) ([md](../README.md))
 
 [Slide set 1: Course Introduction](01-intro.html)
 
@@ -47,12 +47,13 @@ Program and Data Representation: Slides
 
 - [x86 book chapter](../book/x86-chapter.pdf) as the reading
 - Source code
+  - The generated assembly was generated using `make asm`, which uses gcc/g++; to generate it using clang/clang++, use the 'asmclang' target
   - [Makefile](code/09-x86/Makefile.html) ([src](code/09-x86/Makefile))
   - Absolute value example: [test_abs.cpp](code/09-x86/test_abs.cpp.html) ([src](code/09-x86/test_abs.cpp)), [test_abs_c.c](code/09-x86/test_abs_c.c.html) ([src](code/09-x86/test_abs_c.c)), [test_abs.s](code/09-x86/test_abs.s.html) ([src](code/09-x86/test_abs.s)), [test_abs_c.s](code/09-x86/test_abs_c.s.html) ([src](code/09-x86/test_abs_c.s)), [test_abs-non-intel.s](code/09-x86/test_abs-non-intel.s.html) ([src](code/09-x86/test_abs-non-intel.s))
   - Fibonacci example: [test_fib.cpp](code/09-x86/test_fib.cpp.html) ([src](code/09-x86/test_fib.cpp)), [test_fib.s](code/09-x86/test_fib.s.html) ([src](code/09-x86/test_fib.s))
   - Max example: [test_max.cpp](code/09-x86/test_max.cpp.html) ([src](code/09-x86/test_max.cpp)), [test_max.s](code/09-x86/test_max.s.html) ([src](code/09-x86/test_max.s)), [test_max-O2.s](code/09-x86/test_max-O2.s.html) ([src](code/09-x86/test_max-O2.s)), [test_max-noextern.s](code/09-x86/test_max-noextern.s.html) ([src](code/09-x86/test_max-noextern.s))
   - String compare example: [test_string_compare.cpp](code/09-x86/test_string_compare.cpp.html) ([src](code/09-x86/test_string_compare.cpp)), [test_string_compare.s](code/09-x86/test_string_compare.s.html) ([src](code/09-x86/test_string_compare.s))
-- The tutorial for [lab 8](../labs/lab08/index.html) is the online [nasm tutorial](http://cs.lmu.edu/~ray/notes/nasmexamples/), which has more examples of assembly code
+- The tutorial for [lab 8](../labs/lab08/index.html) ([md](../labs/lab08/index.md)) is the online [nasm tutorial](http://cs.lmu.edu/~ray/notes/nasmexamples/), which has more examples of assembly code
   - You can skip a few of the sections (feel free to look at them if interested, but they are not needed): Floating Point Instructions, SIMD Parallelism, Saturated Arithmetic, and Graphics.
 
 
@@ -60,10 +61,16 @@ Program and Data Representation: Slides
 
 - Source code: [name-contact.cpp](code/10-advanced-cpp/name-contact.cpp.html) ([src](code/10-advanced-cpp/name-contact.cpp))
 
-Slide set 11: Heaps
+[Slide set 11: Heaps and Huffman coding](11-heaps-huffman.html)
 
-Slide set 12: Huffman coding
+- Source code: [priority_queue.cpp](code/11-heaps-huffman/priority_queue.cpp.html) ([src](code/11-heaps-huffman/priority_queue.cpp)), [priority_queue.h](code/11-heaps-huffman/priority_queue.h.html) ([src](code/11-heaps-huffman/priority_queue.h)), [pq-test.cpp](code/11-heaps-huffman/pq-test.cpp.html) ([src](code/11-heaps-huffman/pq-test.cpp)),
 
-Slide set 13: Graphs
+[Slide set 12: Graphs](12-graphs.html)
 
-Slide set 14: Memory
+[Slide set 13: Memory](13-memory.html)
+
+- Source code: [cache.cpp](code/13-memory/cache.cpp.html) ([src](code/13-memory/cache.cpp)), [strings.c](code/13-memory/strings.c.html) ([src](code/13-memory/strings.c))
+
+[Slide set 14: Esoteric Programming Languages](14-esoteric-pls.html)
+
+[Slide set 15: Course Conclusion](15-conclusion.html)

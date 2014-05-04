@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>fileio.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">// This program shows how C-based file I/O works.  It will print a</font></i>
+<i><font color="#9A1900">// file to the screen two times.</font></i>
+
+<i><font color="#9A1900">// included so we can use cout</font></i>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<i><font color="#9A1900">// stdlib.h is where exit() lives</font></i>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdlib.h&gt;</font>
+
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<i><font color="#9A1900">// include the standard I/O library</font></i>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdio.h&gt;</font>
+
+<i><font color="#9A1900">// we want to use parameters</font></i>
+<font color="#009900">int</font> <b><font color="#000000">main</font></b> <font color="#990000">(</font><font color="#009900">int</font> argc<font color="#990000">,</font> <font color="#009900">char</font> <font color="#990000">**</font>argv<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <i><font color="#9A1900">// verify the correct number of parameters</font></i>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> argc <font color="#990000">!=</font> <font color="#993399">2</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Must supply the input file name as the one and only parameter"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+        <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+    <i><font color="#9A1900">// attempt to open the supplied file.  FILE is a type desgined to</font></i>
+    <i><font color="#9A1900">// hold file pointers.  The first parameter to fopen() is the</font></i>
+    <i><font color="#9A1900">// filename.  The second parameter is the mode -- "r" means it</font></i>
+    <i><font color="#9A1900">// will read from the file.</font></i>
+    <font color="#008080">FILE</font> <font color="#990000">*</font>fp <font color="#990000">=</font> <b><font color="#000000">fopen</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">],</font> <font color="#FF0000">"r"</font><font color="#990000">);</font>
+    <i><font color="#9A1900">// if the file wasn't found, output and error message and exit</font></i>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> fp <font color="#990000">==</font> NULL <font color="#990000">)</font> <font color="#FF0000">{</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"File '"</font> <font color="#990000">&lt;&lt;</font> argv<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"' does not exist!"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+        <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">2</font><font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+    <i><font color="#9A1900">// read in each character, one by one.  Note that the fgetc() will</font></i>
+    <i><font color="#9A1900">// read in a single character from a file, and returns EOF when it</font></i>
+    <i><font color="#9A1900">// reaches the end of a file.</font></i>
+    <font color="#009900">char</font> g<font color="#990000">;</font>
+    <b><font color="#0000FF">while</font></b> <font color="#990000">(</font> <font color="#990000">(</font>g <font color="#990000">=</font> <b><font color="#000000">fgetc</font></b><font color="#990000">(</font>fp<font color="#990000">))</font> <font color="#990000">!=</font> EOF <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> g<font color="#990000">;</font>
+    <i><font color="#9A1900">// a nice pretty separator</font></i>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"----------------------------------------"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <i><font color="#9A1900">// rewinds the file pointer, so that it starts reading the file</font></i>
+    <i><font color="#9A1900">// again from the begnning</font></i>
+    <b><font color="#000000">rewind</font></b><font color="#990000">(</font>fp<font color="#990000">);</font>
+    <i><font color="#9A1900">// read the file again, and print to the screen</font></i>
+    <b><font color="#0000FF">while</font></b> <font color="#990000">(</font> <font color="#990000">(</font>g <font color="#990000">=</font> <b><font color="#000000">fgetc</font></b><font color="#990000">(</font>fp<font color="#990000">))</font> <font color="#990000">!=</font> EOF <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> g<font color="#990000">;</font>
+    <i><font color="#9A1900">// close the file</font></i>
+    <b><font color="#000000">fclose</font></b><font color="#990000">(</font>fp<font color="#990000">);</font>
+<font color="#FF0000">}</font>
+
+</tt></pre>
+</body>
+</html>

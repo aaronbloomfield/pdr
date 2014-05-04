@@ -1,7 +1,7 @@
 Program and Data Representation: Itty Bitty Computing Machine (IBCM)
 ====================================================================
 
-[Go up to the main README file](../README.html)
+[Go up to the main README file](../README.html) ([md](../README.md))
 
 The Itty Bitty Computing Machine (IBCM) is a machine language designed to be simple enough to teach the concepts of machine language, while being complicated enough to write any program.  The *IBCM computational model* (which is slighly different than the IBCM presented here) is [Turing complete](http://en.wikipedia.org/wiki/Turing_complete).  IBCM is meant to be taught in a week of lecture.
 

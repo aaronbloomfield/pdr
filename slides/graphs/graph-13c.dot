@@ -1,0 +1,17 @@
+digraph G {
+	graph [fontname = "Helvetica"];
+	node [fontname = "Helvetica",shape=circle,width=0.25];
+	edge [fontname = "Helvetica",dir=none];
+
+	A [label=""];
+	B [label=""];
+	C [label=""];
+	D [label=""];
+	E [label=""];
+	A -> D;
+	// the cycle:
+	B -> C;
+	C -> D [style=invis];
+	D -> E;
+	E -> B;
+}

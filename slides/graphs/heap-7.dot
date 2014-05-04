@@ -1,0 +1,15 @@
+digraph G {
+	graph [fontname = "Helvetica"];
+	node [fontname = "Helvetica",shape=circle,width=0.2];
+	edge [fontname = "Helvetica"];
+
+	5 [label=""];
+	11 [label=""];
+	21 [label=""];
+
+	11 -> 5;
+	m11 [label="", width=0.1, style=invis];
+	11 -> m11 [style=invis]
+	11 -> 21;
+	{rank=same 5 -> m11 -> 21 [style=invis]};
+}

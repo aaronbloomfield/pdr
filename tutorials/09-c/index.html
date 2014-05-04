@@ -1,0 +1,409 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>PDR: C Tutorial for C++ programmers</title>
+<link href="../../markdown.css" media="all" rel="stylesheet" type="text/css"></head>
+<body>
+<h1>PDR: C Tutorial for C++ programmers</h1>
+
+<p><a href="../index.html">Go up to the Tutorials table of contents page</a></p>
+
+<h3>Originally by Jeremy W. Sheaffer</h3>
+
+<p>This document assumes that you have a strong working knowledge of the most basic and important aspects of C++.  It is designed to introduce you to important concepts in C - most of them also available in C++, but rarely used there - with which you likely have little familiarity.</p>
+
+<hr />
+
+<h2>Hello World!</h2>
+
+<p>A basic C program looks like the following:</p>
+
+<pre><code>/* hello world */
+#include &lt;stdio.h&gt;
+int main() {
+    printf ("hello world!\n");
+    return 0;
+}
+</code></pre>
+
+<p>A few things to note about this program:
+- The <code>&lt;stdio.h&gt;</code> was #included (stdio stands for Standard I/O library), which is where <code>printf()</code> (and, later, <code>scanf()</code>) live.  These are the basic input and output routines in C, analogous to cout and cin in C++.  More on these functions are below
+- There are no namespaces in C
+- Comments are enclosed in <code>/*</code> and <code>*/</code>.  The <code>//</code> notation does not work in pure C, but most C compilers will allow it anyway</p>
+
+<p>To use <code>malloc()</code>, which is the C version of <code>new</code>, you will need to include the <code>&lt;stdlib.h&gt;</code> file (stdlib is the standard library) - more on <code>malloc()</code> is also below.</p>
+
+<hr />
+
+<h2>Input and Output</h2>
+
+<p>C does not have <em>iostreams</em> or <em>stream operators</em>, such as <code>&lt;&lt;</code> (for cout) and <code>&gt;&gt;</code> (for cin).  For most I/O, we use the <code>printf()</code> family of functions (for output) and the <code>scanf()</code> family (for input).</p>
+
+<h3>int printf(const char *format, &hellip;)</h3>
+
+<p><code>printf()</code> takes a <em>format string</em>, containing verbatim text that you want to display and <em>conversion specifiers</em> which describe to <code>printf()</code> how to interpret and display the remaining arguments.  The conversion specifiers may contain <em>flags</em>, which control such things as field width, precision, and format.  All conversion specifiers begin with a <code>%</code>.  To print a <code>%</code>, your format string must contain <code>%%</code>.  Other special characters will have to be escaped with a backslash (i.e., to do a return, we enter <code>\n</code>; for a backslash, we enter <code>\\</code>).</p>
+
+<p>For example, to print an integer, we would enter:</p>
+
+<pre><code>printf ("this is an int: %d\n", x);
+</code></pre>
+
+<p>The <code>%d</code> part tells printf to format the appropriate parameter (x, in this case) as an integer, and insert it at that spot in the string.</p>
+
+<p>Commonly used conversion specifiers are:</p>
+
+<table>
+<thead>
+<tr>
+<th> Specifier </th>
+<th> Meaning </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> d </td>
+<td> converts an int </td>
+</tr>
+<tr>
+<td> f </td>
+<td> converts a float </td>
+</tr>
+<tr>
+<td> c </td>
+<td> converts a char </td>
+</tr>
+<tr>
+<td> s </td>
+<td> converts a string </td>
+</tr>
+<tr>
+<td> p </td>
+<td> converts a pointer </td>
+</tr>
+</tbody>
+</table>
+
+
+<p>and flags:</p>
+
+<table>
+<thead>
+<tr>
+<th> Flag </th>
+<th> Meaning </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> l (a lower-case &lsquo;L&rsquo;) </td>
+<td> Instead of an int or float, convert a long int or double </td>
+</tr>
+<tr>
+<td> ll (two lower-case &lsquo;L&rsquo;s) </td>
+<td> &hellip;, convert a long long int or long double </td>
+</tr>
+<tr>
+<td> 0 (zero) </td>
+<td> Zero pad the conversion to fill the field width </td>
+</tr>
+<tr>
+<td> - </td>
+<td> Left justify the field </td>
+</tr>
+<tr>
+<td> &lsquo; &rsquo; (a space) </td>
+<td> Leave a blank space where an omitted &lsquo;+&rsquo; would go </td>
+</tr>
+<tr>
+<td> + </td>
+<td> Display a &lsquo;+&rsquo; for positive numbers </td>
+</tr>
+<tr>
+<td> Non-zero integer </td>
+<td> Minimum field width </td>
+</tr>
+<tr>
+<td> &lsquo;.&rsquo; followed by a non-zero integer </td>
+<td> Number of digits of precision </td>
+</tr>
+</tbody>
+</table>
+
+
+<p>Some examples:</p>
+
+<pre><code>printf("pi = %.0f\n", pi);         /* output: pi = 3    */
+printf("pi = '%+10.4f'\n", pi);    /* pi = '   +3.1416' */
+printf("Hello from %s, which begins at %p!\n",  __PRETTY_FUNCTION__, main);  /* Hello from main, which begins at 0x4004f4! */
+</code></pre>
+
+<p>This last one uses the <code>__PRETTY_FUNCTION__</code> macro, which is a string representation of the function name.  And the &lsquo;main&rsquo; in there is printing out the hexadecimal address of where the <code>main()</code> function begins in the x86 code section.</p>
+
+<h3>Variable argument lists</h3>
+
+<p>We&rsquo;ve seen variable argument lists in the context of the C calling convention (that&rsquo;s why the parameters are pushed onto the stack in reverse order).  The <code>...</code> portion of the <code>printf()</code> function signature signifies that it take a variable number of arguments.  I/O functions in C commonly combine this notation with a format string.  Any use of variable argument lists must include clues so that the callee can correctly identify the number and type of its arguments.  An interesting example of a function which uses variable argument lists in a less obvious way is open():</p>
+
+<pre><code>int open(const char *pathname, int flags);
+int open(const char *pathname, int flags, mode_t mode);
+</code></pre>
+
+<p>but C does not support function overloading!  While the <code>open()</code> manual page displays the two prototypes above, the actual signature of <code>open()</code> is:</p>
+
+<pre><code>int open(const char *pathname, int flags, ...);
+</code></pre>
+
+<p>The variable argument list (mode) is only used if flags includes the bit <code>O_CREAT</code>, giving <code>open()</code> the information it needs to decide whether or not to access arguments beyond flags.</p>
+
+<h3>int scanf(const char *format, &hellip;)</h3>
+
+<p><code>scanf()</code> converts input, rather than output.  Its format strings look very similar to those of <code>printf()</code>, with a few more complex conversions, which we will not cover in this tutorial as they are not often used.  The key point to remember to differentiate usage of <code>scanf()</code> and <code>printf()</code> is that while <code>printf()</code> converts values (as in <em>pass-by-value</em>), <code>scanf()</code> converts input and thus needs a place to store it (<em>pass-by-address</em>, which is really passing a pointer by value; C does not have <em>pass-by-reference</em>, only C++ does).</p>
+
+<p><code>scanf()</code> will precisely match all non-whitespace characters in the format string.  Whitespace is handled specially, in that each individual instance of whitespace in the format string is treated like a single space, and a single space in the format string matches one or more whitespace characters in the input.  Conversion usually stops at the first whitespace character.  All matched input is discarded, save that which is converted.</p>
+
+<p>Be careful of buffer overflow! <code>scanf()</code> doesn&rsquo;t know how large your buffer is.  If you don&rsquo;t know either, don&rsquo;t use <code>scanf()</code>.  We prefer to use <code>fgets()</code> followed by <code>sscanf()</code> for this reason.</p>
+
+<p>Some examples:</p>
+
+<pre><code>int age;
+char grade;
+char school[3];
+
+scanf("AGE: %d", &amp;age);       /* Reads and discards "AGE: ", then converts an integer */
+scanf("GRADE: %c", &amp;grade);   /* Discards "GRADE: ", converts a letter grade (probably 'A') */
+scanf("SCHOOL: %s", school);  /* Discards "SCHOOL: ", converts a string */
+</code></pre>
+
+<p>The third example above almost certainly overflows the buffer.  <code>scanf()</code> will copy input into <code>school</code> until it sees the next whitespace character.  If the input is &ldquo;The University of Virginia&rdquo;, it will save &ldquo;The&rdquo;, and overflow the buffer by one byte (due to the fact that all C-style strings have a zero byte that terminates the string).  If the input is &ldquo;UVA&rdquo;, it will save &ldquo;UVA&rdquo;, but still overflow the buffer.  Using the field width flag <code>%2s</code> can solve this buffer overflow problem, but then we will only save &ldquo;Th&rdquo; or &ldquo;UV&rdquo;.  In order to convert whitespace, you must use the more complex conversion.  It&rsquo;s more common to use <code>fgets()</code> for this type of input.</p>
+
+<hr />
+
+<h2>Pointers</h2>
+
+<p>Most data is passed by address in C, so you need to be comfortable with pointer syntax.</p>
+
+<h3>Pointer Syntax</h3>
+
+<p>As mentioned above, C does not have <em>pass-by-reference</em>; in fact, C has no reference types at all. The pointer syntax in C, including the <em>address</em> (<code>&amp;</code>), <em>dereference</em> (<code>*</code>), and <em>structure-</em> or <em>union-pointer</em> (<code>-&gt;</code>, an implicit dereference) operators, is exactly the same as in C++.</p>
+
+<p>References in C++ provide <em>syntactic sugar</em> abstracting away from the programmer the need to explicitly dereference pointers.  A C++ programmer transitioning to C must keep straight exactly what type a variable represents and access its data accordingly.  From the perspective of the compiler developer, there is little difference between references and pointers, and it would seem that Kernighan and Ritchie (the creators of the C programming language) made a conscious decision to require the more explicit syntax of C, probably because it forces programmers to understand their data.</p>
+
+<h3>malloc() and free()</h3>
+
+<p>In C++ you allocate storage from the heap with <code>new</code>, and you return it to the heap with <code>delete</code>.  <code>new</code> and <code>delete</code> are operators, which can even be overloaded, and which, by default, automatically call constructors or destructors for you.</p>
+
+<p>Heap control in C is a bit lower level.  Allocation from the heap is achieved through a call to <code>malloc()</code>, which returns a pointer to the newly allocated space on success or <code>NULL</code> on failure (i.e., if you are out of memory).  It is important to check the return value of <code>malloc()</code> before attempting to access the returned storage.  The storage allocated by <code>malloc()</code> is not initialized in any way, though the related functions <code>calloc()</code> and <code>realloc()</code> (which we will see a bit later in the course) do perform some specific initializations.  You will need to explicitly run initialization subroutines on data structures that you allocate in C.</p>
+
+<p><code>malloc()</code> has the prototype:</p>
+
+<pre><code>void* malloc(size_t size)
+</code></pre>
+
+<p>You must explicitly tell it how much storage you require.  The <code>sizeof</code> operator is useful here.</p>
+
+<p><code>free()</code> is used to deallocate storage originally allocated with <code>malloc()</code>, <code>calloc()</code>, or <code>realloc()</code>.  <code>free()</code> in C is analgous to <code>delete</code> in C++.  Its prototype is:</p>
+
+<pre><code>void free(void* ptr)
+</code></pre>
+
+<p>It is an error to call <code>free()</code> with any address that was not returned by one of the <code>malloc()</code> family functions above.  It is an error to call <code>free()</code> on a <code>NULL</code> pointer.  It is also an error to call <code>free()</code> twice on the same address.  Any one of these errors will corrupt your heap. This corruption will manifest in unusual ways which will be very difficult to debug and which will not have any obvious relationship with the root cause (if you are lucky, it will cause a segmentation fault).</p>
+
+<p>The easiest way to debug a memory error is not to make it in the first place. With care, this is easier than it sounds.  Firstly, know when you need dynamic allocation; don&rsquo;t use it if you don&rsquo;t have to.  Secondly, as you would do in C++, write constructors and destructors for all of your data structures, and be consistent about using them.  These functions should handle your heap control and error checking explicitly, so that they are implicit in the code that uses the storage.</p>
+
+<p>If you do manage to develop memory errors, the <code>MALLOC_CHECK_</code> environment variable may be helpful (see the <code>malloc()</code> manual page), as may the <a href="http://perens.com/FreeSoftware/ElectricFence/">Electric Fence library</a>.</p>
+
+<h3>Examples</h3>
+
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+/* A struct is like a class, but without methods */
+struct foo {
+  int x;
+  struct foo *next;
+};
+
+
+void main() {
+  int *p;
+  struct foo *list, *tmp;
+
+  /* dynamically allocate an array of ints */
+  p = (int *) malloc(sizeof (int) * 5);
+  p[1] = 10;
+  printf ("%d\n", p[1]);
+
+  /* free up that array */
+  free(p);
+
+  /* calling free(p) again is an error, and will crash the program */
+}
+</code></pre>
+
+<hr />
+
+<h2>Derived types</h2>
+
+<p>Like C++, C allows programmers to derive types from existing types.  There are several kinds of derived types, including <em>structures</em>, <em>unions</em>, and <em>enumerated types</em>.</p>
+
+<h3>struct</h3>
+
+<p>C++ does not have classes, but it does have structures.  Early versions of C++ were called <em>C with Classes</em>; the C++ &ldquo;compiler&rdquo; was little more than a preprocessor, and <em>class</em> syntactical constructs were converted to structures so that the output could be compiled by a C compiler.</p>
+
+<p>A structure definition has the following format:</p>
+
+<pre><code>struct name {
+  type1 member1;
+  type2 member2;
+  ...
+  typen membern;
+};
+</code></pre>
+
+<p>In the above, <em>name</em> is optional.  If omitted, the structure is said to be <em>anonymous</em>; in general, you probably don&rsquo;t want that.  Within the curly braces, <em>struct name</em> is an incomplete type or <em>forward reference</em> and can be used to build recursive structures.  <em>struct name</em> is fully defined after the closing curly brace, and instances can be declared at that point.</p>
+
+<p>The following might be a good definition for a list item data structure.  We&rsquo;ll look at more of the list class further on:</p>
+
+<pre><code>struct list_item {
+  struct list_item *prev, *next;
+  void *datum;
+} list_item_t;
+</code></pre>
+
+<p>Note that in pure C, you will have to declare such a variable either on the last line (this is how <code>list_item_t</code> was declared) or via a <code>struct list_item foo</code> command.  Note that we have to put <code>struct</code> in there (the requirement to list the <code>struct</code> (or <code>class</code> or <code>union</code>) was removed in C++, and some C compilers are lax on requiring it.</p>
+
+<h3>union</h3>
+
+<p>A union is a type for which the compiler allocates space sufficient only for the largest member, not for all members.  At any moment in a union instance&rsquo;s lifetime, only one member is valid.  It is the responsibility of the programmer to ensure that the data is accessed correctly.  The syntax of a union declaration is identical to that of a struct declaration, save the keyword.</p>
+
+<p>An anonymous union provides useful syntactic sugar as a structure member.  Take the following example:</p>
+
+<pre><code>struct {
+  int type;
+  union {
+    int i;
+    float f;
+    double d;
+  };
+} s;
+
+switch (s.type) {
+case 0:
+  printf("%d\n", s.i);
+  break;
+case 1:
+  printf("%+2.3f\n", s.f);
+  break;
+case 2:
+  scanf("%lf", &amp;s.d);
+  break;
+}
+</code></pre>
+
+<p>and compare with:</p>
+
+<pre><code>union ifd_t {
+  int i;
+  float f;
+  double d;
+};
+
+struct {
+  int type;
+  union ifd_t u;
+} s;
+
+switch (s.type) {
+case 0:
+  printf("%d\n", s.u.i);
+  break;
+case 1:
+  printf("%+2.3f\n", s.u.f);
+  break;
+case 2:
+  scanf("%lf", &amp;s.u.d);
+  break;
+}
+</code></pre>
+
+<p><em>C with Classes</em> used unions and function pointers to implement <a href="http://en.wikipedia.org/wiki/Polymorphism_%28computer_science%29">polymorphism</a>.</p>
+
+<h3>Function pointers</h3>
+
+<p>Function pointers are useful in many instances.  The most common of those include function tables (arrays of function pointers), implementation of code in which you may not statically know what function will be called (like <code>qsort()</code> and <code>bsearch()</code>; technically <em>all</em> instances in which you should use function pointers fall under this heading), and implementation of object oriented code in C.</p>
+
+<p>Syntactically, a function pointer looks like a function prototype, except that the &ldquo;function name&rdquo; (actually the name of the pointer) is wrapped in parenthesis with a pointer star at the beginning.  For example:</p>
+
+<pre><code>int (*pprintf)(const char *format, ...)
+</code></pre>
+
+<p>defines a pointer that can point to <code>printf()</code> (not particularly useful).  A function&rsquo;s name, without parenthesis, evaluates to its address, thus we can assign the address of <code>printf()</code> to <code>pprintf</code> with the statement:</p>
+
+<pre><code>pprintf = printf;
+</code></pre>
+
+<p>and you can call <code>printf()</code> through the <code>pprintf</code> pointer with:</p>
+
+<pre><code>pprintf("Hello, World!\n");
+</code></pre>
+
+<h3>qsort()</h3>
+
+<p><code>qsort()</code>, short for quick sort, can sort arrays of data of arbitrary type.  In implementing <code>qsort()</code>, the subroutine has no knowledge of how to compare the arbitrary elements being sorted, thus <code>qsort()</code> takes a pointer to a comparison function.  Its full prototype looks like this:</p>
+
+<pre><code>void qsort(void *base, size_t nmemb, size_t size, int (*compar)(const void *, const void *));
+</code></pre>
+
+<p>The comparison function takes pointers to two elements of the array starting at base and returns negative, zero, or positive if the first is smaller than, equal to, or larger than the second, respectively.  The array starting at base has nmemb elements of size size.</p>
+
+<h3>Object-Oriented C</h3>
+
+<p>With <code>list_item_t</code> defined as above, consider the following:</p>
+
+<pre><code>struct list {
+  list_item_t *head, *tail;
+  unsigned length;
+  int (*compare)(const void *key, const void *with);
+  void (*datum_delete)(void *);
+};
+</code></pre>
+
+<p>This is a type definition for an object-oriented doubly-linked list class in C.  <code>list_item_t</code> contains a pointer to a <code>void</code> type.  In other words, it can point to anything, so if we want to do sorted insert, we need a comparison function, just as in <code>qsort()</code>.  Furthermore, if we destroy the list, we probably want the data contained in it to be returned to the heap.  If that requires a only shallow delete, <code>free()</code> can be passed to the constructor, otherwise, a destructor for the stored type must be passed.  If the list is not to be sorted, or if the data is not to be destroyed with the list, one or both of compare and delete_datum can be <code>NULL</code>.</p>
+
+<p>Note that, for the exercise below, you need not implement object-oriented C code; your code can be pure C.</p>
+
+<hr />
+
+<h2>Exercise</h2>
+
+<p>This exercise is to be developed in C, and compiled using clang (NOT clang++!).  The exercise is to implement a <strong><em>very simple</em></strong> linked list.  Your program should do the following:</p>
+
+<ol>
+<li>Read in an integer, which we&rsquo;ll call <em>n</em></li>
+<li>Read in <em>n</em> more ints, and put those into a linked list
+
+<ul>
+<li>The linked list must be dynamically allocated</li>
+</ul>
+</li>
+<li>Print out that linked list (we don&rsquo;t care the order)</li>
+<li>Properly deallocate the linked list</li>
+</ol>
+
+
+<p>That&rsquo;s it - the point is to have you use many of the features of C discussed here (<code>printf()</code>, <code>scanf()</code>, structs, <code>malloc()</code>, and <code>free()</code>).  We aren&rsquo;t looking for multiple subroutines, a full list class, etc. - a long <code>main()</code> function is just fine.  Don&rsquo;t make this more complicated than necessary!</p>
+
+<p>The program should be in a file called linkedlist.c.  A sample execution run might look like the following:</p>
+
+<pre><code>Enter how many values to input: 4
+Enter value 1: 2
+Enter value 2: 4
+Enter value 3: 6
+Enter value 4: 8
+8
+6
+4
+2
+</code></pre>
+</body>
+</html>

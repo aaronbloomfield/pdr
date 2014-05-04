@@ -1,0 +1,18 @@
+digraph G {
+	graph [fontname = "Helvetica"];
+	node [fontname = "Helvetica",shape=circle];
+	edge [fontname = "Helvetica",dir=none];
+
+	v1 -> v2;
+	v1 -> v3 [style=invis];
+	v1 -> v4;
+	v2 -> v4 [style=invis];
+	v2 -> v5 [style=invis];
+	v3 -> v4;
+	v3 -> v6 [style=invis];
+	v4 -> v5 [style=invis];
+	v4 -> v6 [style=invis];
+	v4 -> v7;
+	v5 -> v7;
+	v6 -> v7;
+}

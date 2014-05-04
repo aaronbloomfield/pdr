@@ -1,0 +1,1070 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 2150: 11-heaps-huffman slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="css/pdr.css">
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
+	if( window.location.search.match( /print-pdf/gi ) ) {
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = 'reveal.js/css/print/pdf.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	}
+    </script>
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/dhtmlwindow.js"></script>
+    <script type="text/javascript" src="js/canvas.js"></script>
+    <link rel="stylesheet" href="css/dhtmlwindow.css" type="text/css">
+  </head>
+
+  <body onload="canvasinit()">
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	<section data-markdown id="cover"><script type="text/template">
+# CS 2150
+&nbsp;
+### Program and Data Representation
+### Spring 2014
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="11-heaps-huffman.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
+<center><small>Themes: [default](?#/cover), [sky](?theme=sky#/cover), [beige](?theme=beige#/cover), [simple](?theme=simple#/cover), [serif](?theme=serif#/cover), [night](?theme=night#/cover), [moon](?theme=moon#/cover), [solarized](?theme=solarized#/cover)</small></center>
+&nbsp;  
+&nbsp;  
+## Heaps (Priority Queues) & Huffman Coding
+	</script></section>
+
+	  <section>
+<h2>CS 2150 Roadmap</h2>
+<table class="wide">
+  <tr><td colspan="3"><p class="center">Data Representation</p></td><td></td><td colspan="3"><p class="center">Program Representation</p></td></tr>
+  <tr>
+    <td class="top"><small>&nbsp;<br>&nbsp;<br>string<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>int x[3]<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>char x<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>0x9cd0f0ad<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>01101011</small></td>
+    <!-- image adapted from http://openclipart.org/detail/3677/arrow-left-right-by-torfnase -->
+    <td><img class="noborder" src="images/red-double-arrow.png" height="500" alt="vertical red double arrow"></td>
+    <td class="top">&nbsp;<br>Objects<br>&nbsp;<br>Arrays<br>&nbsp;<br>Primitive types<br>&nbsp;<br>Addresses<br>&nbsp;<br>bits</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="top"><small>&nbsp;<br>&nbsp;<br>Java code<br>&nbsp;<br>&nbsp;<br>C++ code<br>&nbsp;<br>&nbsp;<br>C code<br>&nbsp;<br>&nbsp;<br>x86 code<br>&nbsp;<br>&nbsp;<br>IBCM<br>&nbsp;<br>&nbsp;<br>hexadecimal</small></td>
+    <!-- image adapted from http://openclipart.org/detail/3677/arrow-left-right-by-torfnase -->
+    <td><img class="noborder" src="images/green-double-arrow.png" height="500" alt="vertical green double arrow"></td>
+    <td class="top">&nbsp;<br>High-level language<br>&nbsp;<br>Low-level language<br>&nbsp;<br>Assembly language<br>&nbsp;<br>Machine code</td>
+  </tr>
+</table>
+	  </section>
+
+	<section data-markdown><script type="text/template">
+# Contents
+&nbsp;  
+[Priority Queues](#priorityqueues)  
+[Binary Heaps](#heaps)  
+[Heap Operations](#heapops)  
+[File Compression](#filecomp)  
+[Huffman Coding](#huffman)  
+[Priority Queue Example](#priorityqueueex)  
+	</script></section>
+
+	<section>
+
+	  <section id="priorityqueues" data-markdown><script type="text/template">
+# Priority Queues
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Motivation
+- Multiuser environment
+  - Operating system must choose which process to run on CPU 
+- Management of limited resources
+  - Bandwidth on network router
+    - Limited bandwidth, but want to give best possible performance
+    - Send traffic from highest priority queue first
+      - Example: VoIP
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Priority Queue ADT - Model
+- operations: 
+  - insert
+    - inserts with a *priority*
+  - findMin
+    - finds the minimum element
+  - deleteMin 
+    - finds, returns, and removes minimum element
+
+![heap cloud](images/11-heaps-huffman/heap-diagram.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Implementations of Priority Queue ADT
+
+| Data structure | insert | findMin | deleteMin |
+|-|-|-|-|
+| Unsorted array | &Theta;(1) ammortized | &Theta;(*n*) | &Theta;(*n*) |
+| Unsorted linked list | &Theta;(1) | &Theta;(*n*) | &Theta;(*n*) |
+| Sorted array | &Theta;(*n*) | &Theta;(1) | &Theta;(1) or &Theta;(*n*) |
+| Sorted linked list | &Theta;(*n*) | &Theta;(1) | &Theta;(1) |
+| Binary search tree | &Theta;(*n*) | &Theta;(*n*) | &Theta;(*n*) |
+| AVL or red-black tree | &Theta;(log *n*) | &Theta;(log *n*) | &Theta;(log *n*) |
+| Hash table | ideally constant | &Theta;(*n*) | &Theta;(*n*) |
+
+- We would like:
+  - findMin: constant
+  - insert: worst case &Theta;(log *n*), typical case constant
+  - deleteMin: worst and average case &Theta;(log *n*)
+	  </script></section>
+
+	</section>
+
+	<section>
+
+	  <section id="heaps" data-markdown><script type="text/template">
+# Binary Heaps
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Binary Heap
+- A binary heap is a data structure that is one possible implementation of a priority queue
+- It's a binary tree (*not* a BST), with a different:
+  - structure property
+  - ordering property
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Definitions
+A *perfect* (or *complete*) binary tree is a binary tree with all leaf nodes at the same depth; all internal nodes have 2 children.
+![heap 1](graphs/heap-1.svg)
+
+- This has height *h*, 2<sup>*h*+1</sup>-1 nodes, 2<sup>*h*</sup>-1 non-leaves, and 2<sup>*h*</sup> leaves
+  - Note that about half of the nodes are leaves
+- Note that this example is a complete binary tree, not a heap
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Full Binary Tree
+- A binary tree in which each node has exactly zero or two children. 
+  - Also known as a proper binary tree
+  - We will use this later for Huffman trees
+![heap 2](graphs/heap-2.svg)
+	  </script></section>
+
+	  <section>
+<h2>Heap Structure Property</h2>
+<p>A binary heap is an <i>almost complete</i> binary tree, which is a binary tree that is completely filled, with the possible exception of the bottom level, which is filled left to right.</p>
+<p>&nbsp;</p>
+<p>Examples:</p>
+<table class="transparent"><tr><td><img alt="heap 3" src="graphs/heap-3.svg"></td><td style="width:50px"></td><td><img alt="heap 4" src="graphs/heap-4.svg"></td></tr></table>
+	  </section>
+
+	  <section>
+<h2>Almost complete binary tree of height <i>h</i></h2>
+<table class="transparent">
+<tr><td class="middle" style="text-align:left"><ul><li>For <i>h</i> = 0, just a single node</li></ul></td><td><img alt="heap 5" src="graphs/heap-5.svg"></td><td></td></tr>
+<tr><td class="middle" style="text-align:left"><ul><li>For <i>h</i> = 1, left child or two children</li></ul></td><td><img alt="heap 6" src="graphs/heap-6.svg"></td><td><img alt="heap 7" src="graphs/heap-7.svg"></td></tr>
+<tr><td colspan="3">
+<ul>
+<li>For <i>h</i> &ge; 2, either:<ul>
+    <li>the left subtree of the root is <i>complete</i> with height <i>h</i>-1 and the right is <i>almost complete</i> with height <i>h</i>-1, OR</li>
+    <li>the left is <i>almost complete</i> with height <i>h</i>-1 and the right is <i>complete</i> with height <i>h</i>-2</li></ul></li>
+</ul>
+</td></tr></table>
+	  </section>
+
+	  <section>
+<h2>Representing Complete Binary Trees in Arrays</h2>
+<table class="transparent">
+<tr><td class="top"><img alt="heap 8" src="graphs/heap-8.svg"></td>
+<td>
+<p>&nbsp;</p>
+<p>From node <i>i</i>:</p>
+<p>&nbsp;</p>
+<p>left child: 2*<i>i</i></p>
+<p>right child: (2*<i>i</i>)+1</p>
+<p>parent: floor(<i>i</i>/2)</p>
+</td></tr></table>
+<p>Implicit (array) representation:</p>
+
+<table class="transparent" style="border-collapse:collapse"><tr class="bordercfifty"><td>&nbsp;</td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td>I</td><td>J</td><td>K</td><td>L</td><td>&nbsp;</td></tr>
+<tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td></tr>
+</table>
+
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Why better than pointers?
+- Saves space
+  - No need to store parent/child pointers
+  - Arrays are more compact than dynamic memory
+- Saves time
+  - Arrays work better with cache (we'll see why later this semester)
+  - \*2, /2, + operations are faster than dereferencing pointer
+  - Dynamic memory allocation is slow
+- Parent easy to locate
+	  </script></section>
+
+	  <section>
+<h2>Heap Order Property</h2>
+<p>Heap order property: For every non-root node <i>X</i>, the key in the parent of <i>X</i> is less than (or equal to) the key in <i>X</i>.  Thus, the tree is <i>partially</i> ordered.</p>
+<table class="transparent"><tr>
+<td class="top"><img alt="heap 9" src="graphs/heap-9.svg"> not a heap</td><td style="width:50px"></td><td><img alt="heap 10" src="graphs/heap-10.svg"> min-heap</td></tr>
+</table>
+	  </section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="heapops" data-markdown><script type="text/template">
+# Heap Operations
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Heap Operations
+- findMin: just look at the root node
+- insert(val): percolate up
+- deleteMin: percolate down  
+&nbsp;  
+See [here](http://people.ksp.sk/~kuko/bak/index.html) for a good heap animation site
+![heap 11](graphs/heap-11.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Heap – Insert(val)
+Basic Idea: 
+
+1. Put val at "next" leaf position
+2. Repeatedly exchange node with its parent if needed
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## insert(int x)
+Note that `heap` is an int vector, and `heap_size` is the number of *heap elements* inserted into that vector
+
+Source code: [priority_queue.cpp](code/11-heaps-huffman/priority_queue.cpp.html) ([src](code/11-heaps-huffman/priority_queue.cpp))
+```
+void priority_queue::insert(int x) {
+    // a vector push_back will resize as necessary
+    heap.push_back(x);
+    // move it up into the right position
+    percolateUp(++heap_size);
+}
+
+void priority_queue::percolateUp(int hole) {
+    // get the value just inserted
+    int x = heap[hole];
+    // while we haven't run off the top and while the 
+    // value is less than the parent...
+    for ( ; (hole > 1) && (x < heap[hole/2]); hole /= 2 )
+        heap[hole] = heap[hole/2]; // move the parent down
+    // correct position found!  insert at that spot
+    heap[hole] = x;
+}
+```
+	  </script></section>
+
+	  <section>
+<h2>Insert: percolate up</h2>
+<table class="transparent"><tr><td><img alt="heap 12" src="graphs/heap-12.svg"></td><td class="middle">&rarr;</td><td><img alt="heap 13" src="graphs/heap-13.svg"></td></tr></table>
+	  </section>
+
+	  <section>
+<h2>Insert expected running time</h2>
+<ul>
+<li>How far to move up?<ul>
+  <li>Half of the nodes are leaves, so half of the inserts will only move up one level</li>
+  <li>A quarter of the nodes are one level above the leaves, so one quarter of the inserts will move up two levels</li>
+  <li>One eighth will require moving up 3 levels</li>
+  <li>One sixteenth will require moving up 4 levels</li>
+  <li>Etc.</li></ul></li>
+<li>Expected running time:<br>&nbsp;</li>
+<ul>
+\( \frac{1}{2}*1 + \frac{1}{4}*2 + \frac{1}{8}*3 + \ldots = \sum_{i=1}^{n} \frac{1}{2^n}*n = 2 \)
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Heap – DeleteMin
+Basic Idea: 
+
+1. Remove root (that is always the min!)
+2. Put "last" leaf node at root
+3. Find smallest child (why?)
+4. Swap node with smallest child if needed.
+5. Repeat steps 3 & 4 until no swaps needed.
+	  </script></section>
+
+	  <section>
+<h2>Which child to swap with</h2>
+<table class="transparent">
+<tr><td class="middle" style="text-align:left"><ul><li>Consider this min-heap:<ul>
+	  <li>25 needs percolating!</li>
+	  <li>But which way?</li></ul></li>
+  </ul></td><td><img alt="heap 14" src="graphs/heap-14.svg"></td></tr>
+<tr><td class="middle" style="text-align:left"><ul><li>If we swap 25 with the smallest child:<ul>
+	  <li>All's good!</li></ul></li>
+  </ul></td><td><img alt="heap 15" src="graphs/heap-15.svg"></td></tr>
+<tr><td class="middle" style="text-align:left"><ul><li>If we swap 25 with the largest child:<ul>
+	  <li>No longer a min-heap!</li></ul></li>
+  </ul></td><td><img alt="heap 16" src="graphs/heap-16.svg"></td></tr>
+</table>
+	  </section>
+
+	  <section>
+<h2>DeleteMin: percolate down</h2>
+<table class="transparent"><tr><td><img alt="heap 17" src="graphs/heap-17.svg"></td><td class="middle">&rarr;</td><td><img alt="heap 18" src="graphs/heap-18.svg"></td></tr></table>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## deleteMin()
+Note that `heap` is an int vector, and `heap_size` is the number of *heap elements* inserted into that vector
+
+Source code: [priority_queue.cpp](code/11-heaps-huffman/priority_queue.cpp.html) ([src](code/11-heaps-huffman/priority_queue.cpp))
+```
+int priority_queue::deleteMin() {
+    // make sure the heap is not empty
+    if ( heap_size == 0 )
+        throw "deleteMin() called on empty heap";
+    // save the value to be returned
+    int ret = heap[1];
+    // move the last inserted position into the root
+    heap[1] = heap[heap_size--];
+    // make sure the vector knows that there is one less element
+    heap.pop_back();
+    // percolate the root down to the proper position
+    percolateDown(1);
+    // return the old root node
+    return ret;
+}
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## percolateDown()
+Source code: [priority_queue.cpp](code/11-heaps-huffman/priority_queue.cpp.html) ([src](code/11-heaps-huffman/priority_queue.cpp))
+```
+void priority_queue::percolateDown(int hole) {
+    // get the value to percolate down
+    int x = heap[hole];
+    // while there is a left child...
+    while ( hole*2 <= heap_size ) {
+        int child = hole*2; // the left child
+        // is there a right child?  if so, is it lesser?
+        if ( (child+1 <= heap_size) && 
+             (heap[child+1] < heap[child]) )
+            child++;
+        // if the child is greater than the node...
+        if ( x > heap[child] ) {
+            heap[hole] = heap[child]; // move child up
+            hole = child;             // move hole down
+        } else
+            break;
+    }
+    // correct position found!  insert at that spot
+    heap[hole] = x;
+}
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Other Possible Heap Operations
+- `decreaseKey(process, amount)`: "raise" the priority of a process, percolate up
+- `increaseKey(processID, amount)`: "lower" the priority of a process, percolate down
+- `remove(processID)`: remove a process, move to top, then delete.   
+  1. `decreaseKey(processID, -infinity)`
+  2. `deleteMin()`  
+&nbsp;  
+- Worst case running time for all of these: &Theta;(*n*), because of the find() required; without the find(), it’s &Theta;(log *n*)
+- What about FindMax?
+- ExpandHeap: when heap fills, copy into new space.
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Heaps (Summary)
+- insert: percolate up; &Theta;(log *n*) time worst case, but &Theta;(1) expected time
+- deleteMin: percolate down; &Theta;(log *n*) time (both worst case and expected time)
+- findMin: &Theta;(1) time
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Heapsort
+- Insert *n* elements, then remove n elements
+- Each one has an insertion time of log *n*
+- And then a removal time of log *n*
+- Hence &Theta;(*n* log *n*)
+- But it's not a *stable* sort, so it's not used as often as mergesort
+	  </script></section>
+
+	  <section>
+<h2>An xkcd about heaps...</h2>
+<img class="stretch" src="images/11-heaps-huffman/tree.png" title="Not only is that terrible in general, but you just KNOW Billy&#39;s going to open the root present first, and then everyone will have to wait while the heap is rebuilt." alt="Tree" />
+<p class="center"><a href="http://xkcd.com/835/">xkcd # 835</a></p>
+	  </section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="filecomp" data-markdown><script type="text/template">
+# File Compression
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Why compress files?
+- Disk space is limited
+- File transfer
+  - Bigger files take longer to transfer
+- Smaller file might fit in memory more easily
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What is a file?
+- Named collection of information
+  - C++ program
+  - Application executables
+  - Word documents
+  - Email
+  - Web pages
+  - Pictures, audio, video
+- Which of these needs to be exactly the same when we use them again?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Data Compression
+![compression diagram](images/11-heaps-huffman/compression-diagram.svg)
+
+- Lossless compression: X = X’
+- Lossy compression: X != X’
+  - Information is lost (irreversible)
+- Compression ratio: |X|/|Y|
+  - Where |X| is the number of bits (i.e., file size) of X
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Lossy Compression
+- Some data is lost, but not "noticable" data
+- Standards:
+  - JPEG (Joint Photographic Experts Group)
+    - Still images (pictures)
+  - MP3 (MPEG-1, Layer 3), Ogg vorbis, AAC
+    - Audio
+  - MPEG (Motion Picture Experts Group), as well as most video codecs (standards)
+    - Audio and video
+- Compression ratios of 10:1 are possible
+	  </script></section>
+
+	  <section>
+<table class="transparent">
+<tr><td colspan="2" class="top"><h2>&nbsp;<br>JPEG image quality<br>comparison</h2></td><td style="width:30%"><a href="http://en.wikipedia.org/wiki/Jpg#Sample_photographs"><img class="fragment" data-fragment-index="1" alt="jpeg @ 25%" src="images/11-heaps-huffman/jpeg-025.jpg"></a></td></tr>
+<tr>
+<td class="top">
+<ul>
+<li style="text-align:left" class="fragment" data-fragment-index="1">Quality = 100; image size: 83,261 (100%)</li>
+<li style="text-align:left" class="fragment" data-fragment-index="2">Quality = 50; image size: 15,138 (18%)</li>
+<li style="text-align:left" class="fragment" data-fragment-index="3">Quality = 25; image size: 9,553 (11%)</li>
+<li style="text-align:left" class="fragment" data-fragment-index="4">Quality = 10; image size: 4,787 (6%)</li>
+<li style="text-align:left" class="fragment" data-fragment-index="5">Quality = 1; image size: 1,523 (2%)</li>
+</ul>
+</td><td style="width:30%"><a href="http://en.wikipedia.org/wiki/Jpg#Sample_photographs"><img class="fragment" data-fragment-index="2" alt="jpeg @ 100%" src="images/11-heaps-huffman/jpeg-100.jpg"></a> <a href="http://en.wikipedia.org/wiki/Jpg#Sample_photographs"><img class="fragment" data-fragment-index="3" alt="jpeg @ 50%" src="images/11-heaps-huffman/jpeg-050.jpg"></a></td><td><a href="http://en.wikipedia.org/wiki/Jpg#Sample_photographs"><img class="fragment" data-fragment-index="4" alt="jpeg @ 10%" src="images/11-heaps-huffman/jpeg-010.jpg"></a> <a href="http://en.wikipedia.org/wiki/Jpg#Sample_photographs"><img class="fragment" data-fragment-index="5" alt="jpeg @ 1%" src="images/11-heaps-huffman/jpeg-001.jpg"></a></td></tr>
+
+</table>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lossless Compression
+- No data is lost.
+- Standards:
+  - Gzip, Unix compress, zip, Morse code 
+  - PNG image file formats
+  - Run-length encoding (RLE)
+- Can get compression ratios of 4:1
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Lossless Compression of Text
+- ASCII = fixed 8 bits per character
+- Example: "hello there"
+  - 11 characters * 8 bits = 88 bits
+- Can we encode this message using fewer bits?
+	  </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="huffman" data-markdown><script type="text/template">
+# Huffman Coding
+	  </script></section>
+
+	  <section>
+<h2>Huffman Coding</h2>
+<table>
+<tr style="background-color: transparent"><td style="width:60%">
+<ul><li>Uses <i>frequencies</i> of symbols in a string to build a <i>prefix code</i></li>
+<li>The more frequent a character is, the fewer bits we’ll use to represent it</li>
+<li>Prefix code: no code in our encoding is a prefix of another code</li>
+</ul></td><td class="top">
+<table>
+<tr><th>Letter</th><th>Code</th></tr>
+<tr><td>a</td><td>0</td></tr>
+<tr><td>b</td><td>100</td></tr>
+<tr><td>c</td><td>101</td></tr>
+<tr><td>d</td><td>11</td></tr>
+</table>
+</td></tr></table>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Decoding a Prefix Code
+- Create the Huffman coding tree
+- Loop
+  - start at root of tree
+    - loop
+      - if bit read = 1 then go right
+      - else, go left
+    - until node is a leaf 
+    - Report character found!
+- Until end of the message
+	  </script></section>
+
+	  <section>
+<h2>Decode: 1110001010011</h2>
+
+<table>
+<tr style="background-color: transparent"><td class="top">
+<table>
+<tr><th>Letter</th><th>Code</th></tr>
+<tr><td>a</td><td>0</td></tr>
+<tr><td>b</td><td>100</td></tr>
+<tr><td>c</td><td>101</td></tr>
+<tr><td>d</td><td>11</td></tr>
+</table>
+</td><td style="width:50px"></td><td class="top"><img alt="huffman 13" src="graphs/huffman-13.svg"></td><td style="width:50px"></td><td class="middle">This is a full<br>binary tree!</td></tr></table>
+<p>&nbsp;</p>
+<p class="center">11 100 0 101 0 0 11 = dbacaad</p>
+	  </section>
+
+	  <section>
+<h2>Huffman Trees</h2>
+<p>Cost of a file encoded via a Huffman Tree containing <i>n</i> symbols:</p>
+<p>&nbsp;</p>
+\( C(T) = p_1 * r_1 + p_2 * r_2 + p_3 * r_3 + \ldots + p_n * r_n \)
+<p>&nbsp;</p>
+<p>Where:</p>
+<ul>
+<li><i>p<sub>i</sub></i> = the frequency (or probability) that a symbol occurs</li>
+<li><i>r<sub>i</sub></i> = the length of the path from the root to the node</li>
+</ul>
+	  </section>
+
+	  <section>
+<h2>Huffman encoding costs</h2>
+<table>
+<tr style="background-color: transparent"><td class="top">
+
+<table><tr style="background-color: transparent"><td>This is the example<br> from 2 slides ago</td></tr>
+<tr style="background-color: transparent"><td>&nbsp;</td></tr>
+<tr style="background-color: transparent"><td>&nbsp;</td></tr>
+<tr style="background-color: transparent"><td>
+<table>
+<tr><th>Letter</th><th>Frequency</th><th>Code</th></tr>
+<tr><td>a</td><td>3/7</td><td>0</td></tr>
+<tr><td>b</td><td>1/7</td><td>100</td></tr>
+<tr><td>c</td><td>1/7</td><td>101</td></tr>
+<tr><td>d</td><td>2/7</td><td>11</td></tr>
+</table>
+</td></tr></table>
+
+</td><td style="width:50px"></td><td style="text-align:left">
+<ul>
+<li>a: 3/7 * 1 = 3/7</li>
+<li>b: 1/7 * 3 = 3/7</li>
+<li>c: 1/7 * 3 = 3/7</li>
+<li>d: 2/7 * 2 = 4/7</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Cost is 3/7 + 3/7 + 3/7 + 4/7 = 13/7 = 1.85 bits per character</li>
+<li>Ascii is 8 bits per char</li>
+<li>&quot;Straight&quot; encoding is 2 bits per char</li>
+</ul></td></tr></table>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Compression Phase
+1. Determine the frequencies of the characters stored in the source file
+   - Read the source file
+   - Then store the character frequencies in a *min-heap*
+2. Build a *tree* of prefix codes (a Huffman code) that determines the unique bit codes for each character
+3. Write the prefix codes or code tree to the output file
+4. Re-read the source file and for each character read, write its prefix code into the output file
+   - You must WRITE the prefix code/tree and the encoded file to the SAME output file
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Huffman coding example
+- For the quote "if it is to be, it is up to me"
+  - Total of 12 different characters; string length is 30
+- Normal ASCII encoding is 8 bits per character
+  - 30\*8 = 240 bits
+  - Which is 30 bytes, obviously
+- "Straight" encoding is 4 bits per character
+  - 30\*4 = 120 bits
+  - Which is 15 bytes
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Compression step 1 (a)
+Determine frequencies of letters
+
+| Character | Frequency |
+|-|-|
+| b | 1 |
+| e | 2 |
+| f | 1 |
+| i | 5 |
+| m | 1 |
+| o | 2 |
+| p | 1 |
+| s | 2 |
+| t | 4 |
+| u | 1 |
+| , (comma) | 1 |
+| (space) | 9 |
+	  </script></section>
+
+	  <section>
+<h2>Compression step 1 (b)</h2>
+<table><tr style="background-color: transparent"><td class="top"><p>Build a min-heap, sorted by frequency</p><img alt="huffman-14" src="graphs/huffman-14.svg"></td><td class="top">
+<table>
+<tr><th>Character</th><th>Frequency</th></tr>
+<tr><td>b</td><td>1</td></tr>
+<tr><td>e</td><td>2</td></tr>
+<tr><td>f</td><td>1</td></tr>
+<tr><td>i</td><td>5</td></tr>
+<tr><td>m</td><td>1</td></tr>
+<tr><td>o</td><td>2</td></tr>
+<tr><td>p</td><td>1</td></tr>
+<tr><td>s</td><td>2</td></tr>
+<tr><td>t</td><td>4</td></tr>
+<tr><td>u</td><td>1</td></tr>
+<tr><td>, (comma)</td><td>1</td></tr>
+<tr><td>(space)</td><td>9</td></tr>
+</table>
+
+</td></table>
+
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Compression step 2
+- Build the tree, starting with a "forest" of trees:
+
+![huffman 1](graphs/huffman-1.svg)
+
+- Repeat
+  - Take the two trees that have the lowest frequency
+    - The next two removals from the heap
+  - Make them children of a new node
+  - Keep track of the total frequency of that node
+    - And stick that tree back into the heap
+
+![huffman 2](graphs/huffman-2.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Building the Huffman Tree
+![huffman 1](graphs/huffman-1.svg)
+![huffman 2](graphs/huffman-2.svg)
+![huffman 3](graphs/huffman-3.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Building the Huffman Tree
+![huffman 4](graphs/huffman-4.svg)
+![huffman 5](graphs/huffman-5.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Building the Huffman Tree
+![huffman 6](graphs/huffman-6.svg)
+![huffman 7](graphs/huffman-7.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Building the Huffman Tree
+![huffman 8](graphs/huffman-8.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Building the Huffman Tree
+![huffman 9](graphs/huffman-9.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Building the Huffman Tree
+![huffman 10](graphs/huffman-10.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Building the Huffman Tree
+![huffman 11](graphs/huffman-11.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## The final Huffman coding tree
+![huffman 12](graphs/huffman-12.svg)
+	  </script></section>
+
+	  <section>
+<h2>The Prefix codes</h2>
+<table><tr style="background-color: transparent"><td class="top"><img alt="huffman-12" src="graphs/huffman-12.svg"></td><td class="top">
+<table>
+<tr><th>Character</th><th>Prefix&nbsp;code</th></tr>
+<tr><td>b</td><td>00000</td></tr>
+<tr><td>e</td><td>0011</td></tr>
+<tr><td>f</td><td>00001</td></tr>
+<tr><td>i</td><td>11</td></tr>
+<tr><td>m</td><td>00010</td></tr>
+<tr><td>o</td><td>1000</td></tr>
+<tr><td>p</td><td>00011</td></tr>
+<tr><td>s</td><td>1001</td></tr>
+<tr><td>t</td><td>101</td></tr>
+<tr><td>u</td><td>00100</td></tr>
+<tr><td>, (comma)</td><td>00101</td></tr>
+<tr><td>(space)</td><td>01</td></tr>
+</table>
+</td></table>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Resulting Encoding Table
+
+
+| Character | Frequency | Prefix code | Total bits
+|-|-|-|-|
+| b | 1 | 00000 | 5 | 
+| e | 2 | 0011 | 8 | 
+| f | 1 | 00001 | 5 | 
+| i | 5 | 11 | 10 | 
+| m | 1 | 00010 | 5 | 
+| o | 2 | 1000 | 8 | 
+| p | 1 | 00011 | 5 |
+| s | 2 | 1001 | 8 | 
+| t | 4 | 101 | 12 |
+| u | 1 | 00100 | 5 | 
+| , (comma) | 1 | 00101 | 5 | 
+| (space) | 9 | 01 | 18 |
+
+Total is 94 bits
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Huffman Encoding Statistics
+- Total encoding is 94 bits for 30 characeters
+  - Or an average of 3.13 bits per character
+  - ASCII was 240 bits: compression ratio of 2.6
+  - "Straight" encoding was 120 bits: compression ratio of 1.3
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Compression step 3
+- Write the prefix codes to a file
+  - We’ll use regular ASCII characters
+  - Does this actually do any compression, then?
+
+```
+b 00000
+e 0011
+f 00001
+i 11
+m 00010
+o 1000
+p 00011
+s 1001
+t 101
+u 00100
+, 00101
+  01
+```
+(note the double-space to indicate a space!)
+	  </script></section>
+
+	  <section>
+<h2>The Prefix codes</h2>
+<table><tr style="background-color: transparent">
+<td class="top">
+<ul>
+<li>Write the text to the file using the Huffman encoding<br>&nbsp;</li>
+<li>&quot;be&quot; becomes 00000 0011</li>
+<li>&quot;set&quot; becomes 1001 0011 101</li>
+<li>&quot;stumps&quot; becomes 1001 101 00100 00010 00011 101</li>
+</ul>
+</td><td style="width:50px"></td><td class="top">
+<table>
+<tr><th>Character</th><th>Prefix&nbsp;code</th></tr>
+<tr><td>b</td><td>00000</td></tr>
+<tr><td>e</td><td>0011</td></tr>
+<tr><td>f</td><td>00001</td></tr>
+<tr><td>i</td><td>11</td></tr>
+<tr><td>m</td><td>00010</td></tr>
+<tr><td>o</td><td>1000</td></tr>
+<tr><td>p</td><td>00011</td></tr>
+<tr><td>s</td><td>1001</td></tr>
+<tr><td>t</td><td>101</td></tr>
+<tr><td>u</td><td>00100</td></tr>
+<tr><td>, (comma)</td><td>00101</td></tr>
+<tr><td>(space)</td><td>01</td></tr>
+</table>
+</td></table>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Compression Phase Review
+1. Determine the frequencies of the characters stored in the source file
+   - Read the source file
+   - Then store the character frequencies in a *min-heap*
+2. Build a *tree* of prefix codes (a Huffman code) that determines the unique bit codes for each character
+3. Write the prefix codes or code tree to the output file
+4. Re-read the source file and for each character read, write its prefix code into the output file
+   - You must WRITE the prefix code/tree and the encoded file to the SAME output file
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Decompression Phase Review
+1. Read in the prefix code structure (tree or array) from the compressed file. 
+  - Build a new Huffman tree for performing decompression
+2. Read in one bit at a time from the compressed file and move through the prefix code tree until a leaf node is reached
+3. Write the character stored at the leaf node into the decompressed file
+4. While there is still input, repeat
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Huffman Coding Lab
+- Compression (pre-lab)
+- Decompression (in-lab)
+- Report (post-lab)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Huffman Encoding Prelab
+- Write a program that reads input from a file (see class website for test files)
+  - Build a binary heap (priority queue) that calculates the letter frequencies
+  - Build the huffman tree
+  - Print the letter-encoding mapping to the file
+    - There is a specific format, as specified in the lab
+  - Encode the message, printing this also to the file
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Tips/Hints
+- You may use the heap code included here, or create your own heap code, but you may not use it from other sources (including the STL)
+- File input/output reference material:
+  - The [fileio.cpp](../labs/lab10/fileio.cpp.html) ([src](../labs/lab10/fileio.cpp)) file from [lab 10 (Huffman)](../labs/lab10/index.html)
+  - The [Input/output with files article](http://www.cplusplus.com/doc/tutorial/files/) on [cplusplus.com](http://www.cplusplus.com/)
+  - The [getWordInTable.cpp](../labs/lab06/code/getWordInTable.cpp.html) ([src](../labs/lab06/code/getWordInTable.cpp)) file from [lab 6 (hashes)](../labs/lab06/index.html)
+
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## ASCII
+- American Standard Code for Information Interchange (ASCII)
+  - Character encoding standard
+  - Specifies  correspondence between digital bit patterns and English alphabet
+  - 7-bit encoding with 1 bit for parity (error correction)
+  - 128 characters
+    - 95 printable characters
+    - 33 non-printable characters
+- More details in the [Wikipedia ASCII article](http://en.wikipedia.org/wiki/ASCII)
+	  </script></section>
+
+	  <section id="ascii">
+<h2>ASCII Character Codes in Hexadecimal</h2>
+<table class="transparent">
+  <tr>
+    <td class="width:45%"><img alt="ascii" src="images/11-heaps-huffman/ascii.png"></td>
+    <td style="width:10%"></td>
+    <td class="top" style="width:45%"><p>For the lab, you only need to account for the printable characters (0x20 to 0x7e)</p><p>&nbsp;</p>
+<p>Character codes:</p>
+<ul>
+<li>32<sub>10</sub> (0x20) = space</li>
+<li>33<sub>10</sub> (0x21) = !</li>
+<li>126<sub>10</sub>(0x7e) = ~</li>
+</ul></td></tr></table>
+	  </section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="priorityqueueex" data-markdown><script type="text/template">
+# Priority Queue<br>Example
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Priority Queue Operations
+- insert (x) 
+- deleteMin()
+- findMin()
+- isEmpty() 
+- makeEmpty()
+- size()
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Priority Queue Class
+Source code: [priority_queue.h](code/11-heaps-huffman/priority_queue.h.html) ([src](code/11-heaps-huffman/priority_queue.h))
+```
+class priority_queue {
+  public:
+    priority_queue();
+    priority_queue(vector<int> vec);
+    ~priority_queue();
+
+    void insert(int x);
+    int findMin();
+    int deleteMin();
+    unsigned int size();
+    void makeEmpty();
+    bool isEmpty();
+    void print();
+
+  private:
+    vector<int> heap;
+    unsigned int heap_size;
+
+    void percolateUp(int hole);
+    void percolateDown(int hole);
+};
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Heap Data Members
+- `int heap_size`
+  - Size of the heap
+  - This holds the number of *heap elements*, which is always one less than the number of elements in the vector
+- `vector<int> heap`
+  - The heap implemented as an array (vector)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Methods seen already
+- `insert(int x)`
+- `deleteMin()`
+- `percolateUp(int hole)`
+- `percolateDown(int hole)`
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Constructors & Destructors
+Source code: [priority_queue.cpp](code/11-heaps-huffman/priority_queue.cpp.html) ([src](code/11-heaps-huffman/priority_queue.cpp))
+```
+// default constructor
+priority_queue::priority_queue() : heap_size(0) {
+    heap.push_back(0);
+}
+
+// builds a heap from an unsorted vector
+priority_queue::priority_queue(vector<int> vec) : 
+		heap_size(vec.size()) {
+    heap = vec;
+    heap.push_back(heap[0]);
+    heap[0] = 0;
+    for ( int i = heap_size/2; i > 0; i-- )
+        percolateDown(i);
+}
+
+// the destructor doesn't need to do much
+priority_queue::~priority_queue() {
+}
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## findMin()
+Source code: [priority_queue.cpp](code/11-heaps-huffman/priority_queue.cpp.html) ([src](code/11-heaps-huffman/priority_queue.cpp))
+```
+int priority_queue::findMin() {
+    if ( heap_size == 0 )
+        throw "findMin() called on empty heap";
+    return heap[1];
+}
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## size(), makeEmpty(), isEmpty()
+Source code: [priority_queue.cpp](code/11-heaps-huffman/priority_queue.cpp.html) ([src](code/11-heaps-huffman/priority_queue.cpp))
+```
+unsigned int priority_queue::size() {
+    return heap_size;
+}
+
+void priority_queue::makeEmpty() {
+    heap_size = 0;
+}
+
+bool priority_queue::isEmpty() {
+    return heap_size == 0;
+}
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## print()
+Source code: [priority_queue.cpp](code/11-heaps-huffman/priority_queue.cpp.html) ([src](code/11-heaps-huffman/priority_queue.cpp))
+```
+void priority_queue::print() {
+    cout << "(" << heap[0] << ") ";
+    for ( int i = 1; i <= heap_size; i++ ) {
+        cout << heap[i] << " ";
+        // next line from from http://tinyurl.com/mf9tbgm
+        bool isPow2 = (((i+1) & ~(i))==(i+1))? i+1 : 0; 
+        if ( isPow2 )
+            cout << endl << "\t";
+    }
+    cout << endl;
+}
+
+```
+	  </script></section>
+
+	</section>
+
+
+
+      </div>
+
+    </div>
+
+    <div id="calibratediv" style="display:none">
+      <div id="calibratecanvasdiv">
+        <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
+      </div>
+      <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
+    </div>
+
+    <script src="reveal.js/lib/js/head.min.js"></script>
+    <script src="reveal.js/js/reveal.min.js"></script>
+    <script src="js/settings.js"></script>
+
+  </body>
+</html>

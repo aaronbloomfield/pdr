@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>inlab-skeleton.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">// This program is the skeleton code for the lab 10 in-lab.  It uses</font></i>
+<i><font color="#9A1900">// C++ streams for the file input, and just prints out the data when</font></i>
+<i><font color="#9A1900">// read in from the file.</font></i>
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;fstream&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdlib.h&gt;</font>
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<i><font color="#9A1900">// main(): we want to use parameters</font></i>
+<font color="#009900">int</font> <b><font color="#000000">main</font></b> <font color="#990000">(</font><font color="#009900">int</font> argc<font color="#990000">,</font> <font color="#009900">char</font> <font color="#990000">**</font>argv<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <i><font color="#9A1900">// verify the correct number of parameters</font></i>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> argc <font color="#990000">!=</font> <font color="#993399">2</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Must supply the input file name as the only parameter"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+        <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+    <i><font color="#9A1900">// attempt to open the supplied file; must be opened in binary</font></i>
+    <i><font color="#9A1900">// mode, as otherwise whitespace is discarded</font></i>
+    <font color="#008080">ifstream</font> <b><font color="#000000">file</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">],</font> ifstream<font color="#990000">::</font>binary<font color="#990000">);</font>
+    <i><font color="#9A1900">// report any problems opening the file and then exit</font></i>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">!</font>file<font color="#990000">.</font><b><font color="#000000">is_open</font></b><font color="#990000">()</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Unable to open file '"</font> <font color="#990000">&lt;&lt;</font> argv<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"'."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+        <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">2</font><font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+    <i><font color="#9A1900">// read in the first section of the file: the prefix codes</font></i>
+    <font color="#009900">char</font> buffer<font color="#990000">[</font><font color="#993399">256</font><font color="#990000">];</font>
+    <b><font color="#0000FF">while</font></b> <font color="#990000">(</font> <b><font color="#0000FF">true</font></b> <font color="#990000">)</font> <font color="#FF0000">{</font>
+        <i><font color="#9A1900">// read in first character on line</font></i>
+        <font color="#009900">char</font> first <font color="#990000">=</font> file<font color="#990000">.</font><b><font color="#000000">get</font></b><font color="#990000">();</font>
+        <i><font color="#9A1900">// catch DOS and UNIX newlines</font></i>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>first <font color="#990000">==</font> <font color="#FF0000">'</font><font color="#CC33CC">\n</font><font color="#FF0000">'</font><font color="#990000">)</font> <font color="#990000">||</font> <font color="#990000">(</font>first <font color="#990000">==</font> <font color="#FF0000">'</font><font color="#CC33CC">\r</font><font color="#FF0000">'</font><font color="#990000">)</font> <font color="#990000">)</font>
+            <b><font color="#0000FF">continue</font></b><font color="#990000">;</font>
+        <i><font color="#9A1900">// read in second character on line</font></i>
+        <font color="#009900">char</font> second <font color="#990000">=</font> file<font color="#990000">.</font><b><font color="#000000">get</font></b><font color="#990000">();</font>
+        <i><font color="#9A1900">// did we encounter the separator?</font></i>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>first <font color="#990000">==</font> <font color="#FF0000">'-'</font><font color="#990000">)</font> <font color="#990000">&amp;&amp;</font> <font color="#990000">(</font>second <font color="#990000">==</font> <font color="#FF0000">'-'</font><font color="#990000">)</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+            <i><font color="#9A1900">// read in the rest of the line</font></i>
+            file<font color="#990000">.</font><b><font color="#000000">getline</font></b><font color="#990000">(</font>buffer<font color="#990000">,</font> <font color="#993399">255</font><font color="#990000">,</font> <font color="#FF0000">'</font><font color="#CC33CC">\n</font><font color="#FF0000">'</font><font color="#990000">);</font>
+            <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
+        <font color="#FF0000">}</font>
+        <i><font color="#9A1900">// read in the prefix code</font></i>
+        file<font color="#990000">.</font><b><font color="#000000">getline</font></b><font color="#990000">(</font>buffer<font color="#990000">,</font> <font color="#993399">255</font><font color="#990000">,</font> <font color="#FF0000">'</font><font color="#CC33CC">\n</font><font color="#FF0000">'</font><font color="#990000">);</font>
+        <i><font color="#9A1900">// do something with the prefix code</font></i>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"character '"</font> <font color="#990000">&lt;&lt;</font> first <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"' has prefix code '"</font>
+             <font color="#990000">&lt;&lt;</font> buffer <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"'"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+    <i><font color="#9A1900">// read in the second section of the file: the encoded message</font></i>
+    <font color="#009900">char</font> bit<font color="#990000">;</font>
+    <b><font color="#0000FF">while</font></b> <font color="#990000">(</font> <font color="#990000">(</font>bit <font color="#990000">=</font> file<font color="#990000">.</font><b><font color="#000000">get</font></b><font color="#990000">())</font> <font color="#990000">!=</font> <font color="#FF0000">'-'</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>bit <font color="#990000">!=</font> <font color="#FF0000">'0'</font><font color="#990000">)</font> <font color="#990000">&amp;&amp;</font> <font color="#990000">(</font>bit <font color="#990000">!=</font> <font color="#FF0000">'1'</font><font color="#990000">)</font> <font color="#990000">)</font>
+            <b><font color="#0000FF">continue</font></b><font color="#990000">;</font>
+        <i><font color="#9A1900">// do something with the bit read in</font></i>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"read in bit '"</font> <font color="#990000">&lt;&lt;</font> bit <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"'"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+    <i><font color="#9A1900">// close the file before exiting</font></i>
+    file<font color="#990000">.</font><b><font color="#000000">close</font></b><font color="#990000">();</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

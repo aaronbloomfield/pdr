@@ -1,0 +1,799 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 2150: 12-graphs slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="css/pdr.css">
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
+	if( window.location.search.match( /print-pdf/gi ) ) {
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = 'reveal.js/css/print/pdf.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	}
+    </script>
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/dhtmlwindow.js"></script>
+    <script type="text/javascript" src="js/canvas.js"></script>
+    <link rel="stylesheet" href="css/dhtmlwindow.css" type="text/css">
+  </head>
+
+  <body onload="canvasinit()">
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	<section data-markdown id="cover"><script type="text/template">
+# CS 2150
+&nbsp;
+### Program and Data Representation
+### Spring 2014
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="12-graphs.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
+<center><small>Themes: [default](?#/cover), [sky](?theme=sky#/cover), [beige](?theme=beige#/cover), [simple](?theme=simple#/cover), [serif](?theme=serif#/cover), [night](?theme=night#/cover), [moon](?theme=moon#/cover), [solarized](?theme=solarized#/cover)</small></center>
+&nbsp;  
+&nbsp;  
+## Graphs
+	</script></section>
+
+	  <section>
+<h2>CS 2150 Roadmap</h2>
+<table class="wide">
+  <tr><td colspan="3"><p class="center">Data Representation</p></td><td></td><td colspan="3"><p class="center">Program Representation</p></td></tr>
+  <tr>
+    <td class="top"><small>&nbsp;<br>&nbsp;<br>string<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>int x[3]<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>char x<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>0x9cd0f0ad<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>01101011</small></td>
+    <!-- image adapted from http://openclipart.org/detail/3677/arrow-left-right-by-torfnase -->
+    <td><img class="noborder" src="images/red-double-arrow.png" height="500" alt="vertical red double arrow"></td>
+    <td class="top">&nbsp;<br>Objects<br>&nbsp;<br>Arrays<br>&nbsp;<br>Primitive types<br>&nbsp;<br>Addresses<br>&nbsp;<br>bits</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="top"><small>&nbsp;<br>&nbsp;<br>Java code<br>&nbsp;<br>&nbsp;<br>C++ code<br>&nbsp;<br>&nbsp;<br>C code<br>&nbsp;<br>&nbsp;<br>x86 code<br>&nbsp;<br>&nbsp;<br>IBCM<br>&nbsp;<br>&nbsp;<br>hexadecimal</small></td>
+    <!-- image adapted from http://openclipart.org/detail/3677/arrow-left-right-by-torfnase -->
+    <td><img class="noborder" src="images/green-double-arrow.png" height="500" alt="vertical green double arrow"></td>
+    <td class="top">&nbsp;<br>High-level language<br>&nbsp;<br>Low-level language<br>&nbsp;<br>Assembly language<br>&nbsp;<br>Machine code</td>
+  </tr>
+</table>
+	  </section>
+
+	<section data-markdown><script type="text/template">
+# Contents
+&nbsp;  
+[Introduction](#introduction)  
+[Topological Sort](#topological)  
+[Shortest Path Algorithms](#shortestpath)  
+[Map Routing](#maproutes)  
+[Travelling Salesperson (TSP)](#tsp)  
+[Minimum Spanning Tree (MST)](#mst)  
+	</script></section>
+
+
+
+	<section>
+
+	  <section id="introduction" data-markdown><script type="text/template">
+# Introduction
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Graph examples
+- Google Maps, of course
+  - Which actually started off using MapQuest data
+  - But we'll call it Google Maps data
+- Others?
+	  </script></section>
+
+	  <section>
+<h2>Airline Routes</h2>
+<img class="stretch" src="images/12-graphs/airline-routes-from-openflights.jpg" alt="airline routes">
+	  </section>
+
+	  <section>
+<h2>Flowcharts</h2>
+<img class="stretch" src="images/12-graphs/geek-gift-flowchart.gif" alt="geek gift flowchart">
+	  </section>
+
+	  <section>
+<h2>Pre-requisite Diagrams</h2>
+<img class="stretch" src="images/12-graphs/bs-cs-chart.svg" alt="bs cs pre-req chart">
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Graphs
+- *G* = (*V*, *E*)
+- *V* are the vertices; *E* are the edges
+- Edges are of the form (*v*, *w*), where *v*, *w* &in; *V*
+  - ordered pair: directed graph or digraph
+  - unordered pair: undirected graph
+![graph](graphs/graph-1.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## How big are these graphs?
+
+- Airline routes: [Openflights](http://openflights.org), as of January 2012, has 59,036 routes between 3,209 airports ([source](http://openflights.org/data.html))
+- Google maps: information is hard to find
+  - So this is a not-so-educated guess
+  - There are probably 50 million intersections (vertices) in the US
+  - Assume each one connects to four others
+  - That's 4 * 50 million = 200 million edges
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Terminology
+- A **weight** or **cost** can be associated with each edge
+- *w* is **adjacent** to *v* iff (*v*, *w*) &in; *E*
+- **path**: sequence of vertices *w*<sub>1</sub>, *w*<sub>2</sub>, *w*<sub>3</sub>, ..., *w*<sub>n</sub> such that (*w*<sub>*i*</sub>, *w*<sub>*i*+1</sub>) &in; *E* for 1 &le; *i* < *n*
+- **length** of a path: number of edges in the path
+- **simple path**: all vertices are distinct
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## How to weight a graph?
+- For Google maps?
+- For airline routes?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## More terminology
+- **cycle**:
+  - **directed graph**: path of length &ge; 1 such that *w*<sub>1</sub> = *w*<sub>n</sub>
+  - **undirected graph**: same, except all edges are distinct
+- **connected**: there is a path from every vertex to every other vertex
+- **loop**: (*v*, *v*) &in; *E*
+- **complete graph**: there is an edge between every pair of vertices
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Digraph terminology
+- **directed acyclic graph**: no cycles; often called a "DAG"
+- **strongly connected**: there is a path from every vertex to every other vertex
+- **weakly connected**: the underlying undirected graph is connected
+![graph](graphs/graph-2.svg)
+	  </script></section>
+
+	  <section>
+<h2>Representation: Adjacency Matrix</h2>
+<p>\( A[u][v] = \left\{
+  \begin{array}{l l}
+    weight & \quad \text{if ($u$,$v$) $\in$ $E$}\\
+    0 & \quad \text{if ($u$,$v$) $\notin$ $E$}\\
+  \end{array} \right.
+\) </p>
+<p>&nbsp;</p>
+<table><tr style="background-color:transparent"><td class="top">
+<table>
+<tr><th style="width:50px"></th><th style="width:50px">1</th><th style="width:50px">2</th><th style="width:50px">3</th><th style="width:50px">4</th></tr>
+<tr><th>1</th><td></td><td></td><td></td><td></td></tr>
+<tr><th>2</th><td></td><td></td><td></td><td></td></tr>
+<tr><th>3</th><td></td><td></td><td></td><td></td></tr>
+<tr><th>4</th><td></td><td></td><td></td><td></td></tr>
+</table>
+</td><td style="width:100px"></td><td class="top"><img src="graphs/graph-3.svg" alt="graph"></td></tr></table>
+<script type="text/javascript">insertCanvas();</script>
+	  </section>
+
+	  <section>
+<h2>Representation: Adjacency List</h2>
+<table><tr style="background-color:transparent"><td class="top">
+<td class="middle"><img src="images/12-graphs/adjacency-list.svg" alt="linked list"></td>
+<td style="width:50px"></td>
+<td class="top"><img src="graphs/graph-3.svg" alt="graph"></td>
+</tr></table>
+	  </section>
+
+
+	  <section data-markdown><script type="text/template">
+## Representation in the real world
+- Two types of representation
+  - Adjacency matrix
+  - Adjacency list
+- How does Google maps probably store it?
+- How do airline routes probably store it?
+	  </script></section>
+
+	</section>
+
+
+
+	<section>
+
+	  <section id="topological" data-markdown><script type="text/template">
+# Topological Sort
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Topological Sort
+- Given a *directed acyclic graph*, construct an **ordering** of the vertices such that if there is a path from *v<sub>i</sub>* to *v<sub>j</sub>*, then *v<sub>j</sub>* appears after *v<sub>i</sub>* in the ordering
+  - The result is a linear list of vertices
+- **indegree** of *v*: number of edges (*u*, *v*) -- meaning the number of *incoming* edges
+![graph](graphs/graph-4.svg)
+	  </script></section>
+
+	  <section>
+<h2>Topological Sort</h2>
+<img src="graphs/graph-4.svg" alt="graph">
+<p class="fragment" style="text-align:center">One valid topological sort is: v1, v6, v8, v3, v2, v7, v4, v5</p>
+<script type="text/javascript">insertCanvas();</script>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## What is the topological sort?
+![graph](graphs/graph-5.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What is the topological sort?
+![graph](graphs/graph-6.svg)
+	  </script></section>
+
+	  <section>
+<h2>This is already topologically sorted!</h2>
+<img class="stretch" src="images/12-graphs/bs-cs-chart.svg" alt="bs cs pre-req chart">
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Topological sort
+```
+void Graph::topsort() {
+  Vertex v, w;
+  for (int counter=0; counter < NUM_VERTICES; counter++) {
+    v = findNewVertexOfInDegreeZero();
+    if (v == NOT_A_VERTEX)
+      throw CycleFound();
+    v.topologicalNum = counter;
+    for each w adjacent to v
+      w.indegree--;
+  }
+}
+```
+- What's the big-Theta running time?
+- Observation: The only new (eligible) vertices with indegree 0 are the ones adjacent to the vertex just processed
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Topological sort
+```
+void Graph::topsort() {
+  Queue q(NUM_VERTICES);
+  int counter = 0;
+  Vertex v, w;
+
+  q.makeEmpty(); // initialize the queue
+  for each vertex v
+    if (v.indegree == 0)
+      q.enqueue(v);
+  while (!q.isEmpty()) {
+    v = q.dequeue(); // get vertex of indegree 0
+    v.topologicalNum = ++counter;
+    for each w adjacent to v: // insert eligible vertices
+      if (--w.indegree == 0)
+        q.enqueue(w);
+  }
+  if (counter != NUM_VERTICES)
+    throw CycleFound();
+}
+```
+	  </script></section>
+
+	  <section>
+<h2>Another Topological Sort Example</h2>
+<img src="graphs/graph-7.svg" alt="graph">
+<script type="text/javascript">insertCanvas();</script>
+	  </section>
+
+	</section>
+
+
+
+	<section>
+
+	  <section id="shortestpath" data-markdown><script type="text/template">
+# Shortest Path<br>Algorithms
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Why do we care about shortest paths?
+- The obvious answers:
+  - Map routing (car navigation systems, Google Maps, flights)
+  - 6 degrees of separation
+- But what else?
+  - Internet routing
+  - Puzzle answers (Rubik's cube)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Three types of algorithms
+- Single pair
+- Single source
+- All pairs
+  - We won't see this in this course
+- And a variant that we'll see later:
+  - Travelling salesperson
+	  </script></section>
+
+	  <section>
+<h2>Shortest Path Algorithms</h2>
+<ul>
+<li>This version is called the &quot;single-source&quot; shortest path</li>
+<li>Given a graph \( G = (V, E) \) and a single distinguished vertex <i>s</i>, find the shortest weighted path from <i>s</i> to every other vertex in <i>G</i></li>
+</ul>
+<p>&nbsp;</p>
+<p class="center">The <b>weighted path length</b> of \( v_1, v_2, \ldots , v_n \):</p>
+<p>&nbsp;</p>
+<p class="center">\( \sum_{i=1}^{n-1}c_{i,i+1} \) where \( c_{i,i+1} \) is the cost of edge \( (v_i,v_{i+1}) \)</p>
+	  </section>
+
+	  <section>
+<h2>Unweighted Shortest Path</h2>
+<ul>
+<li>Special case of the weighted problem: all weights are 1</li>
+<li>Solution: breadth-first search; similar to level-order traversal for trees</li>
+</ul>
+<img src="graphs/graph-8.svg" alt="graph">
+<script type="text/javascript">insertCanvas();</script>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Unweighted Shortest Path
+```
+void Graph::unweighted (Vertex s) {
+  Queue q(NUM_VERTICES);
+  Vertex v, w;
+  q.enqueue(s);
+  s.dist = 0;
+
+  while (!q.isEmpty()) {
+    v = q.dequeue();
+    for each w adjacent to v
+      // each edge examined at most once,
+      // if adjacency lists are used
+      if (w.dist == INFINITY) {
+        w.dist = v.dist + 1;
+        w.path = v;
+        q.enqueue(w); // each vertex enqueued at most once
+      }
+    }
+  }
+```
+What is the big-Theta running time?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Weighted Shortest Path
+- We assume no negative weight edges
+- Dijkstra's algorithm: uses similar ideas as the unweighted case
+- Greedy algorithms: do what seems to be best at every decision point
+![known-unknown graphs](images/12-graphs/known-unknown-graphs.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Dijkstra's algorithm
+- Initialize each vertex's distance as infinity
+- Start at a given vertex *s*
+  - Update *s*'s distance to be 0
+- Repeat
+  - Pick the next unknown vertex with the shortest distance to be the next *v*
+    - If no more vertices are unknown, terminate loop
+  - Mark *v* as known
+  - For each edge from *v* to adjacent unknown vertices *w*
+    - If the total distance to *w* is less than the current distance to *w*
+      - Update *w*'s distance and the path to *w*
+	  </script></section>
+
+	  <section>
+<h2>Dijstra's Algorithm</h2>
+<table>
+<tr style="background-color:transparent"><td class="top">
+<table>
+<tr><th>V</th><th>Known?</th><th style="width:150px">Dist</th><th style="width:150px">Path</th></tr>
+<tr><th><i>v</i>0</th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i>1</th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i>2</th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i>3</th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i>4</th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i>5</th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i>6</th><td></td><td></td><td></td></tr>
+</table>
+</td><td style="width:50px"></td><td class="top"><img alt="graph" style="width:400px" src="graphs/graph-9.svg"></td></tr>
+</table>
+<script type="text/javascript">insertCanvas();</script>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Dijkstra's algorithm
+```
+void Graph::dijkstra(Vertex s) {
+  Vertex v,w;
+  s.dist = 0;
+
+  while (there exist unknown vertices, find the 
+	    unknown v with the smallest distance) {
+    v.known = true;
+
+    for each w adjacent to v
+      if (!w.known)
+        if (v.dist + Cost_VW < w.dist) {
+          w.dist = v.dist + Cost_VW;
+          w.path = v;
+        }
+  }
+}
+```
+	  </script></section>
+
+	  <section>
+<h2>Another Dijkstra's Algorithm Example</h2>
+<table>
+<tr style="background-color:transparent"><td class="top">
+<table>
+<tr><th>V</th><th>Known?</th><th style="width:150px">Dist</th><th style="width:150px">Path</th></tr>
+<tr><th><i>v</i>1</th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i>2</th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i>3</th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i>4</th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i>5</th><td></td><td></td><td></td></tr>
+<tr><th><i>v</i>6</th><td></td><td></td><td></td></tr>
+</table>
+</td><td style="width:50px"></td><td class="top"><img alt="graph" style="width:400px" src="graphs/graph-10.svg"></td></tr>
+</table>
+<p>&nbsp;</p>
+<p style="font-size:90%">This is the same graph as in the <a href="http://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Wikipedia article on Dijkstra's algorithm</a></p>
+<script type="text/javascript">insertCanvas();</script>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Analysis
+- How long does it take to find the smallest unknown distance?
+  - Simple scan using an array: &Theta;(*v*)
+- Total running time:
+  - Using a simple scan: &Theta;(*v*<sup>2</sup>+*e*) = &Theta;(*v*<sup>2</sup>)
+- Optimizations?
+  - Use adjacency lists and heaps
+  - Assuming that the graph is connected (i.e. *e* > *v*-1), then the running time decreases to &Theta;(*e*+*v* log *v*)
+  - This can be further simplified to &Theta;(*e* log *v*)
+    - Although we won't see how to do that in this course
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Negative Cost Edges?
+- Perhaps the graph weights are the amount of fuel expended
+  - Positive means fuel was used
+  - And passing by a fuel station is a refueling, which is a negative cost edge
+- Dijkstra's algorithm does not work for negative cost edges
+  - Others do (such as the [Bellman-Ford algorithm](http://en.wikipedia.org/wiki/Bellman-ford)), but are much less efficient
+- What about negative cost cycles?
+	  </script></section>
+
+	  <section>
+<h2>Shortest Path Example Problem</h2>
+<p class="center">From the ICPC Mid-Atlantic Regionals, 2009</p>
+<img src="images/12-graphs/icpc-midatl-2009-shortest-path.png" alt="icpc 2009 problem" class="stretch">
+	  </section>
+
+	</section>
+
+
+
+	<section>
+
+	  <section id="maproutes" data-markdown><script type="text/template">
+# Map Routing
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## More on shortest path
+- We studied finding the shortest path from a single vertex to *every* vertex
+- But what about just 1 destination?
+- Solution: do the same algorithm, but stop when the destination enters the set *S*
+- Thus, the running time is the same!
+	  </script></section>
+
+	  <section>
+<h2>How would you drive to Seattle?</h2>
+<p class="fragment">And what constitutes a &quot;highway&quot;?</p>
+	  </section>
+
+	  <section>
+<h2>The Eisenhower Interstate System
+<a href="http://en.wikipedia.org/wiki/File:Map_of_current_Interstates.svg"><img class="stretch" alt="interstates" src="images/12-graphs/interstates.svg"></a>
+	  </section>
+
+	  <section>
+<h2>A Google Maps Screenshot</h2>
+<img class="stretch" alt="google maps" src="images/12-graphs/google-maps.png">
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## GPS shortest path algorithm
+(Google Maps likely uses something much more complicated)
+
+- Assume you are starting on a "side road"
+- Transition to a "main road"
+- Transition to a "highway"
+- Get as close as you can to your destination via the highway system
+- Transition to a "main road", and get as close as you can to your destination
+- Transition to a "side road", and go to your destination
+	  </script></section>
+
+	</section>
+
+
+
+	<section>
+
+	  <section id="tsp" data-markdown><script type="text/template">
+# Travelling<br>Salesperson<br>(TSP)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Travelling Salesperson Problem (TSP)
+- Given a number of cities and the costs of traveling from any city to any other city, what is the least-cost round-trip route that visits each city exactly once and then returns to the starting city?
+- Really important problem for:
+  - UPS, Federal Express, USPS
+  - Any transport delivery system
+  - Cost = distance because more fuel is used
+- We'll assume the graph is fully connected
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Easy
+![graph](graphs/graph-11.svg)
+	  </script></section>
+
+	  <section>
+<h2>Hard</h2>
+<img class="stretch" alt="graph" src="graphs/graph-12.svg">
+	  </section>
+
+	  <section>
+<h2>Really Hard</h2>
+<a href="http://commons.wikimedia.org/wiki/File:US_map_-_geographic.png"><img class="stretch" src="images/12-graphs/us-city-map.jpg" alt="graph"></a>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Analysis
+- *Hamiltonian path*: a path in a connected graph that visits each vertex exactly once
+  - *Hamiltonian cycle*: a Hamiltonian path that ends where it started
+- The traveling salesperson problem is thus to find the least weight Hamiltonian path (cycle) in a connected, weighted graph
+- The size of the solution space is 1/2 (*n*-1)!
+  - Which means it's a &Theta;(*n*!) algorithm
+  - That's exponential (specifically, 2<sup>*n*</sup> < *n*! < *n*<sup>*n*</sup> for large *n*)
+  - For 10 cities: 181,440 possible cycles
+  - For 20 cities: 6 * 10<sup>16</sup> possible cycles
+  - For 21 cities, there are more possibilities than can be stored in a 64-bit `unsigned long`
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## More Analysis
+- This problem is ***NP-complete***
+  - Meaning there is no known efficient solution
+  - Just to try every possible path
+- But there are ways to get a somewhat efficient solution (a *heuristic*)
+  - It just might not be the most efficient path
+- What's the (usually) least expensive way to get between two US cities?
+  - And is that significantly slower than the "best" algorithm?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## The Record
+- In April 2006, a computer cluster computed a path of 85,900 cities visited in 136 CPU years ([source](http://en.wikipedia.org/wiki/Travelling_salesman_problem#Exact_algorithms))
+  - About 3-6 months of "wall time"
+- 85,900! = 9.61 * 10<sup>386,526</sup>
+- Assume you can compute 1 million paths each second
+  - That would take only 3.04 * 10<sup>386,516</sup> years!
+    - (the exponent lowered by 10)
+  - They used acceleration techniques, obviously...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Lab 11
+- The parts of [lab 11](../labs/lab11/index.html):
+  - Pre-lab: implement a topological sort
+  - In-lab: implement a brute-force traveling salesperson problem
+    - Using locations in Tolkien's Middle Earth
+  - Post-lab: do a report containing analysis and a study of acceleration techniques
+	  </script></section>
+
+	</section>
+
+
+
+	<section>
+
+	  <section id="mst" data-markdown><script type="text/template">
+# Minimum Spanning Tree (MST)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Spanning Tree
+- Suppose you are going to build a transport system:
+  - Set of cities
+  - Roads, rail lines, air corridors connecting cities
+- Trains, buses or aircraft between cities
+- Which links do you actually use?
+  - Cannot use a complete graph
+  - Passengers can change at connection points
+- Want to minimize number of links used
+- Any solution is a *tree*
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Spanning Tree (almost...)
+[![london underground](images/12-graphs/london-underground.svg)](http://commons.wikimedia.org/wiki/File:London_Underground_Zone_2.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Spanning Tree
+- A *spanning tree* of a graph *G* is a subgraph of *G* that contains every vertex of *G* and is a tree
+- Any connected graph has a spanning tree
+- Any two spanning trees of a graph have the same number of nodes
+- Construct a spanning tree:
+  - Start with the graph
+  - Remove an edge from each cycle
+  - What remains has the same set of vertices but is a tree
+	  </script></section>
+
+	  <section>
+<h2>Spanning Trees</h2>
+<p>Original graph:</p>
+<img alt="graph" src="graphs/graph-13a.svg">
+<p>Possible spanning trees:</p>
+<table class="transparent"><tr>
+<td><img alt="graph" src="graphs/graph-13b.svg"></td>
+<td><img alt="graph" src="graphs/graph-13c.svg"></td>
+<td><img alt="graph" src="graphs/graph-13d.svg"></td>
+<td><img alt="graph" src="graphs/graph-13e.svg"></td>
+</tr></table>
+
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Minimal Spanning Tree
+- Spanning trees are simple
+- But suppose edges have weights!
+  - "Cost" associated with the edge
+  - Miles for a transport link, for example
+- Spanning trees each have a different total weight
+- Minimal-weigh spanning tree: *spanning tree with the minimal total weight*
+	  </script></section>
+
+	  <section>
+<h2>Minimum Spanning Trees</h2>
+<ul>
+<li>Given a connected and undirected graph <i>G</i> = (<i>V</i>,<i>E</i>), find a graph <i>G'</i> = (<i>V</i>,<i>E'</i>) such that:<ul>
+    <li><i>E'</i> is a subset of <i>E</i></li>
+    <li>|<i>E'</i>| = |<i>V</i>| - 1</li>
+    <li><i>G'</i> is connected</li>
+    <li>\( \sum_{(u,v) \in E'} c_{uv} \) is minimal</li></ul></li>
+<li><i>G'</i> is then a <i>minimal spanning tree</i></li>
+<li>Applications: wiring a house, cable TV lines, power grids, Internet connections</li>
+</ul>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Generic Minimum Spanning Tree Algorithm
+- KnownVertices <- {}
+- while KnownVertices does not form a spanning tree, loop:
+  - find edge (u,v) that is "safe" for KnownVertices
+  - KnownVertices <- KnownVertices U {(u,v)}
+- end loop
+
+&nbsp;  
+But how to find a "safe" edge?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Prim's algorithm
+Idea: Grow a tree by adding an edge to the "known" vertices from the "unknown" vertices.  Pick the edge with the smallest weight.
+
+&nbsp;  
+![prim's diagram](images/12-graphs/prims-diagram.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Prim's Algorithm for MST
+- Pick one node as the root,
+- Incrementally add edges that connect a "new" vertex to the tree.
+- Pick the edge (*u*,*v*) where:
+  - *u* is in the tree, *v* is not, AND 
+  - where the edge weight is the smallest of all edges (where *u* is in the tree and *v* is not)
+	  </script></section>
+
+	  <section>
+<h2>Prim's MST Algorithm</h2>
+<table class="transparent">
+<tr><td><img alt="graph" src="graphs/graph-14.svg"></td><td style="width:50px"></td><td><img class="fragment" data-fragment-index="1" alt="graph" src="graphs/graph-15.svg"></td></tr>
+</table>
+<p>&nbsp;</p>
+<p class="fragment" data-fragment-index="1" style="text-align:center">Edges: (v1,v2), (v1,v4), (v3,v4), (v4,v7), (v5,v7), (v6,v7)</p>
+<script type="text/javascript">insertCanvas();</script>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Analysis
+- Running time: Same as Dijkstra's: &Theta;(*e* log *v*)
+- Correctness:
+  - Suppose we have a partially built tree that we know is contained in some minimum spanning tree *T*
+  - Let (*u*,*v*) &isin; *E*, where *u* is "known" and *v* is "unknown" and has minimal cost
+  - Then there is a MST *T'* that contains the partially built tree and (*u*,*v*) that has as low a cost as *T*
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Kruskal's MST Algorithm
+Idea: Grow a forest out of edges that do not create a cycle.  Pick an edge with the smallest weight.
+
+&nbsp;  
+![kruskal's diagram](images/12-graphs/kruskals-diagram.svg)
+	  </script></section>
+
+	  <section>
+<h2>Kruskal's MST Algorithm</h2>
+<table class="transparent">
+<tr><td><img alt="graph" src="graphs/graph-14.svg"></td><td style="width:50px"></td><td><img class="fragment" data-fragment-index="1" alt="graph" src="graphs/graph-15.svg"></td></tr>
+</table>
+<p>&nbsp;</p>
+<p class="fragment" data-fragment-index="1" style="text-align:center">Edges: (v1,v2), (v1,v4), (v3,v4), (v4,v7), (v5,v7), (v6,v7)</p>
+<script type="text/javascript">insertCanvas();</script>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Kruskal code
+```
+void Graph::kruskal() {
+  int edgesAccepted = 0;
+  DisjSet s(NUM_VERTICES);
+
+  while (edgesAccepted < NUM_VERTICES - 1) {
+    // The next line has |E| heap ops
+    e = smallest weight edge not deleted yet;
+    // edge e = (u, v)
+    uset = s.find(u);    // |E| finds
+    vset = s.find(v);    // |E| finds
+    if (uset != vset) {
+      edgesAccepted++;
+      s.unionSets(uset, vset);    // |V| unions
+    }
+  }
+}
+```
+When optimized, it has the same running time as Prim's and Dijkstra's: &Theta;(*e* log *v*)
+	  </script></section>
+
+	</section>
+
+
+
+
+
+
+      </div>
+
+    </div>
+
+    <div id="calibratediv" style="display:none">
+      <div id="calibratecanvasdiv">
+        <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
+      </div>
+      <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
+    </div>
+
+    <script src="reveal.js/lib/js/head.min.js"></script>
+    <script src="reveal.js/js/reveal.min.js"></script>
+    <script src="js/settings.js"></script>
+
+  </body>
+</html>

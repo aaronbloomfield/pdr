@@ -1,194 +1,178 @@
 	.file	"test_fib.cpp"
-	.text
-	.align	16, 0x90
-	.type	__cxx_global_var_init,@function
-__cxx_global_var_init:                  # @__cxx_global_var_init
-.Ltmp2:
-	.cfi_startproc
-# BB#0:
-	push	EBP
-.Ltmp3:
-	.cfi_def_cfa_offset 8
-.Ltmp4:
-	.cfi_offset ebp, -8
-	mov	EBP, ESP
-.Ltmp5:
-	.cfi_def_cfa_register ebp
-	sub	ESP, 24
-	lea	EAX, DWORD PTR [_ZStL8__ioinit]
-	mov	DWORD PTR [ESP], EAX
-	call	_ZNSt8ios_base4InitC1Ev
-	lea	EAX, DWORD PTR [_ZNSt8ios_base4InitD1Ev]
-	lea	ECX, DWORD PTR [_ZStL8__ioinit]
-	lea	EDX, DWORD PTR [__dso_handle]
-	mov	DWORD PTR [ESP], EAX
-	mov	DWORD PTR [ESP + 4], ECX
-	mov	DWORD PTR [ESP + 8], EDX
-	call	__cxa_atexit
-	mov	DWORD PTR [EBP - 4], EAX # 4-byte Spill
-	add	ESP, 24
-	pop	EBP
-	ret
-.Ltmp6:
-	.size	__cxx_global_var_init, .Ltmp6-__cxx_global_var_init
-.Ltmp7:
-	.cfi_endproc
-.Leh_func_end0:
-
-	.globl	fib
-	.align	16, 0x90
-	.type	fib,@function
-fib:                                    # @fib
-.Ltmp10:
-	.cfi_startproc
-# BB#0:
-	push	EBP
-.Ltmp11:
-	.cfi_def_cfa_offset 8
-.Ltmp12:
-	.cfi_offset ebp, -8
-	mov	EBP, ESP
-.Ltmp13:
-	.cfi_def_cfa_register ebp
-	sub	ESP, 24
-	mov	EAX, DWORD PTR [EBP + 8]
-	mov	DWORD PTR [EBP - 8], EAX
-	cmp	DWORD PTR [EBP - 8], 0
-	je	.LBB1_2
-# BB#1:
-	cmp	DWORD PTR [EBP - 8], 1
-	jne	.LBB1_3
-.LBB1_2:
-	mov	DWORD PTR [EBP - 4], 1
-	jmp	.LBB1_4
-.LBB1_3:
-	mov	EAX, DWORD PTR [EBP - 8]
-	sub	EAX, 1
-	mov	DWORD PTR [ESP], EAX
-	call	fib
-	mov	ECX, DWORD PTR [EBP - 8]
-	sub	ECX, 2
-	mov	DWORD PTR [ESP], ECX
-	mov	DWORD PTR [EBP - 12], EAX # 4-byte Spill
-	call	fib
-	mov	ECX, DWORD PTR [EBP - 12] # 4-byte Reload
-	add	EAX, ECX
-	mov	DWORD PTR [EBP - 4], EAX
-.LBB1_4:
-	mov	EAX, DWORD PTR [EBP - 4]
-	add	ESP, 24
-	pop	EBP
-	ret
-.Ltmp14:
-	.size	fib, .Ltmp14-fib
-.Ltmp15:
-	.cfi_endproc
-.Leh_func_end1:
-
-	.globl	main
-	.align	16, 0x90
-	.type	main,@function
-main:                                   # @main
-.Ltmp18:
-	.cfi_startproc
-# BB#0:
-	push	EBP
-.Ltmp19:
-	.cfi_def_cfa_offset 8
-.Ltmp20:
-	.cfi_offset ebp, -8
-	mov	EBP, ESP
-.Ltmp21:
-	.cfi_def_cfa_register ebp
-	sub	ESP, 40
-	lea	EAX, DWORD PTR [_ZSt4cout]
-	lea	ECX, DWORD PTR [.L.str]
-	mov	DWORD PTR [EBP - 4], 0
-	mov	DWORD PTR [EBP - 8], 0
-	mov	DWORD PTR [ESP], EAX
-	mov	DWORD PTR [ESP + 4], ECX
-	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
-	lea	ECX, DWORD PTR [_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_]
-	mov	DWORD PTR [ESP], EAX
-	mov	DWORD PTR [ESP + 4], ECX
-	call	_ZNSolsEPFRSoS_E
-	lea	ECX, DWORD PTR [_ZSt3cin]
-	lea	EDX, DWORD PTR [EBP - 8]
-	mov	DWORD PTR [ESP], ECX
-	mov	DWORD PTR [ESP + 4], EDX
-	mov	DWORD PTR [EBP - 16], EAX # 4-byte Spill
-	call	_ZNSirsERi
-	mov	ECX, DWORD PTR [EBP - 8]
-	mov	DWORD PTR [ESP], ECX
-	mov	DWORD PTR [EBP - 20], EAX # 4-byte Spill
-	call	fib
-	lea	ECX, DWORD PTR [_ZSt4cout]
-	lea	EDX, DWORD PTR [.L.str1]
-	mov	DWORD PTR [EBP - 12], EAX
-	mov	DWORD PTR [ESP], ECX
-	mov	DWORD PTR [ESP + 4], EDX
-	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
-	mov	ECX, DWORD PTR [EBP - 12]
-	mov	DWORD PTR [ESP], EAX
-	mov	DWORD PTR [ESP + 4], ECX
-	call	_ZNSolsEi
-	lea	ECX, DWORD PTR [_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_]
-	mov	DWORD PTR [ESP], EAX
-	mov	DWORD PTR [ESP + 4], ECX
-	call	_ZNSolsEPFRSoS_E
-	mov	ECX, 0
-	mov	DWORD PTR [EBP - 24], EAX # 4-byte Spill
-	mov	EAX, ECX
-	add	ESP, 40
-	pop	EBP
-	ret
-.Ltmp22:
-	.size	main, .Ltmp22-main
-.Ltmp23:
-	.cfi_endproc
-.Leh_func_end2:
-
-	.align	16, 0x90
-	.type	_GLOBAL__I_a,@function
-_GLOBAL__I_a:                           # @_GLOBAL__I_a
-.Ltmp26:
-	.cfi_startproc
-# BB#0:
-	push	EBP
-.Ltmp27:
-	.cfi_def_cfa_offset 8
-.Ltmp28:
-	.cfi_offset ebp, -8
-	mov	EBP, ESP
-.Ltmp29:
-	.cfi_def_cfa_register ebp
-	sub	ESP, 8
-	call	__cxx_global_var_init
-	add	ESP, 8
-	pop	EBP
-	ret
-.Ltmp30:
-	.size	_GLOBAL__I_a, .Ltmp30-_GLOBAL__I_a
-.Ltmp31:
-	.cfi_endproc
-.Leh_func_end3:
-
-	.type	_ZStL8__ioinit,@object  # @_ZStL8__ioinit
+	.intel_syntax noprefix
 	.local	_ZStL8__ioinit
 	.comm	_ZStL8__ioinit,1,1
-	.type	.L.str,@object          # @.str
-	.section	.rodata.str1.1,"aMS",@progbits,1
-.L.str:
-	.asciz	 "Enter value for fib(): "
-	.size	.L.str, 24
-
-	.type	.L.str1,@object         # @.str1
-.L.str1:
-	.asciz	 "The result is: "
-	.size	.L.str1, 16
-
+	.text
+	.globl	fib
+	.type	fib, @function
+fib:
+.LFB966:
+	.cfi_startproc
+	push	ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	mov	ebp, esp
+	.cfi_def_cfa_register 5
+	push	ebx
+	sub	esp, 20
+	cmp	DWORD PTR [ebp+8], 0
+	je	.L2
+	.cfi_offset 3, -12
+	cmp	DWORD PTR [ebp+8], 1
+	jne	.L3
+.L2:
+	mov	eax, 1
+	jmp	.L4
+.L3:
+	mov	eax, DWORD PTR [ebp+8]
+	sub	eax, 1
+	mov	DWORD PTR [esp], eax
+	call	fib
+	mov	ebx, eax
+	mov	eax, DWORD PTR [ebp+8]
+	sub	eax, 2
+	mov	DWORD PTR [esp], eax
+	call	fib
+	add	eax, ebx
+.L4:
+	add	esp, 20
+	pop	ebx
+	.cfi_restore 3
+	pop	ebp
+	.cfi_def_cfa 4, 4
+	.cfi_restore 5
+	ret
+	.cfi_endproc
+.LFE966:
+	.size	fib, .-fib
+	.section	.rodata
+.LC0:
+	.string	"Enter value for fib(): "
+.LC1:
+	.string	"The result is: "
+	.text
+	.globl	main
+	.type	main, @function
+main:
+.LFB967:
+	.cfi_startproc
+	push	ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	mov	ebp, esp
+	.cfi_def_cfa_register 5
+	and	esp, -16
+	sub	esp, 32
+	mov	DWORD PTR [esp+24], 0
+	mov	DWORD PTR [esp+4], OFFSET FLAT:.LC0
+	mov	DWORD PTR [esp], OFFSET FLAT:_ZSt4cout
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	mov	DWORD PTR [esp+4], OFFSET FLAT:_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+	mov	DWORD PTR [esp], eax
+	call	_ZNSolsEPFRSoS_E
+	lea	eax, [esp+24]
+	mov	DWORD PTR [esp+4], eax
+	mov	DWORD PTR [esp], OFFSET FLAT:_ZSt3cin
+	call	_ZNSirsERi
+	mov	eax, DWORD PTR [esp+24]
+	mov	DWORD PTR [esp], eax
+	call	fib
+	mov	DWORD PTR [esp+28], eax
+	mov	DWORD PTR [esp+4], OFFSET FLAT:.LC1
+	mov	DWORD PTR [esp], OFFSET FLAT:_ZSt4cout
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	mov	edx, DWORD PTR [esp+28]
+	mov	DWORD PTR [esp+4], edx
+	mov	DWORD PTR [esp], eax
+	call	_ZNSolsEi
+	mov	DWORD PTR [esp+4], OFFSET FLAT:_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+	mov	DWORD PTR [esp], eax
+	call	_ZNSolsEPFRSoS_E
+	mov	eax, 0
+	leave
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret
+	.cfi_endproc
+.LFE967:
+	.size	main, .-main
+	.type	_Z41__static_initialization_and_destruction_0ii, @function
+_Z41__static_initialization_and_destruction_0ii:
+.LFB976:
+	.cfi_startproc
+	push	ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	mov	ebp, esp
+	.cfi_def_cfa_register 5
+	sub	esp, 24
+	cmp	DWORD PTR [ebp+8], 1
+	jne	.L6
+	cmp	DWORD PTR [ebp+12], 65535
+	jne	.L6
+	mov	DWORD PTR [esp], OFFSET FLAT:_ZStL8__ioinit
+	call	_ZNSt8ios_base4InitC1Ev
+	mov	eax, OFFSET FLAT:_ZNSt8ios_base4InitD1Ev
+	mov	DWORD PTR [esp+8], OFFSET FLAT:__dso_handle
+	mov	DWORD PTR [esp+4], OFFSET FLAT:_ZStL8__ioinit
+	mov	DWORD PTR [esp], eax
+	call	__cxa_atexit
+.L6:
+	leave
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret
+	.cfi_endproc
+.LFE976:
+	.size	_Z41__static_initialization_and_destruction_0ii, .-_Z41__static_initialization_and_destruction_0ii
+	.type	_GLOBAL__sub_I_fib, @function
+_GLOBAL__sub_I_fib:
+.LFB977:
+	.cfi_startproc
+	push	ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	mov	ebp, esp
+	.cfi_def_cfa_register 5
+	sub	esp, 24
+	mov	DWORD PTR [esp+4], 65535
+	mov	DWORD PTR [esp], 1
+	call	_Z41__static_initialization_and_destruction_0ii
+	leave
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret
+	.cfi_endproc
+.LFE977:
+	.size	_GLOBAL__sub_I_fib, .-_GLOBAL__sub_I_fib
 	.section	.ctors,"aw",@progbits
-	.align	4
-	.long	_GLOBAL__I_a
-
-	.section	".note.GNU-stack","",@progbits
+	.align 4
+	.long	_GLOBAL__sub_I_fib
+	.weakref	_ZL20__gthrw_pthread_oncePiPFvvE,pthread_once
+	.weakref	_ZL27__gthrw_pthread_getspecificj,pthread_getspecific
+	.weakref	_ZL27__gthrw_pthread_setspecificjPKv,pthread_setspecific
+	.weakref	_ZL22__gthrw_pthread_createPmPK14pthread_attr_tPFPvS3_ES3_,pthread_create
+	.weakref	_ZL20__gthrw_pthread_joinmPPv,pthread_join
+	.weakref	_ZL21__gthrw_pthread_equalmm,pthread_equal
+	.weakref	_ZL20__gthrw_pthread_selfv,pthread_self
+	.weakref	_ZL22__gthrw_pthread_detachm,pthread_detach
+	.weakref	_ZL22__gthrw_pthread_cancelm,pthread_cancel
+	.weakref	_ZL19__gthrw_sched_yieldv,sched_yield
+	.weakref	_ZL26__gthrw_pthread_mutex_lockP15pthread_mutex_t,pthread_mutex_lock
+	.weakref	_ZL29__gthrw_pthread_mutex_trylockP15pthread_mutex_t,pthread_mutex_trylock
+	.weakref	_ZL31__gthrw_pthread_mutex_timedlockP15pthread_mutex_tPK8timespec,pthread_mutex_timedlock
+	.weakref	_ZL28__gthrw_pthread_mutex_unlockP15pthread_mutex_t,pthread_mutex_unlock
+	.weakref	_ZL26__gthrw_pthread_mutex_initP15pthread_mutex_tPK19pthread_mutexattr_t,pthread_mutex_init
+	.weakref	_ZL29__gthrw_pthread_mutex_destroyP15pthread_mutex_t,pthread_mutex_destroy
+	.weakref	_ZL30__gthrw_pthread_cond_broadcastP14pthread_cond_t,pthread_cond_broadcast
+	.weakref	_ZL27__gthrw_pthread_cond_signalP14pthread_cond_t,pthread_cond_signal
+	.weakref	_ZL25__gthrw_pthread_cond_waitP14pthread_cond_tP15pthread_mutex_t,pthread_cond_wait
+	.weakref	_ZL30__gthrw_pthread_cond_timedwaitP14pthread_cond_tP15pthread_mutex_tPK8timespec,pthread_cond_timedwait
+	.weakref	_ZL28__gthrw_pthread_cond_destroyP14pthread_cond_t,pthread_cond_destroy
+	.weakref	_ZL26__gthrw_pthread_key_createPjPFvPvE,pthread_key_create
+	.weakref	_ZL26__gthrw_pthread_key_deletej,pthread_key_delete
+	.weakref	_ZL30__gthrw_pthread_mutexattr_initP19pthread_mutexattr_t,pthread_mutexattr_init
+	.weakref	_ZL33__gthrw_pthread_mutexattr_settypeP19pthread_mutexattr_ti,pthread_mutexattr_settype
+	.weakref	_ZL33__gthrw_pthread_mutexattr_destroyP19pthread_mutexattr_t,pthread_mutexattr_destroy
+	.ident	"GCC: (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3"
+	.section	.note.GNU-stack,"",@progbits
