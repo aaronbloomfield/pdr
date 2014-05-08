@@ -37,7 +37,7 @@ string all_city_names[] = {
     "Fangorn Forest",   // the forest where Treebeard (and the other Ents) live
     "Dagorlad",         // great plain/swamp between Emyn Muil & Mordor where a great battle was fought long ago
     "Weathertop",       // the tower between Bree and Rivendell where Aragorn and the Hobbits take refuge
-    "Erebor",           // the Lonely Mountain that Bilbo adventured to in 'The Hobbit'
+    "Gladden Fields",   // this is where the Ring is lost in the River Anduin, after Isildur is ambushed and killed by Orcs
     "Entwash River",    // a river through Rohan, which flows through Fangorn Forest
     "River Isen",       // river through the Gap of Rohan; Theoden's son was slain in a battle here.
     "The Black Gate",   // huge gate to Mordor that Aragorn and company attack as the ring is destroyed
