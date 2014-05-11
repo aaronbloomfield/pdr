@@ -58,20 +58,20 @@ Grade breakdown
 
 As stated at the beginning of the semester, each 10-point "decade" is a separate letter grade range (60-70 is a D, 70-80 is a C, etc.).  The exact ranges, taking into account the course curve mentioned above, are below.  Note: **the following table *ALREADY* includes the course curve!**  So you take your exact average from the gradebook and see where it lies on this table.  And rounding has already been taken into account (see above), so you don't get to round a second time.
 
-Minimum course average | Letter grade
--|-
-50.0 | D-
-55.0 | D
-59.0 | D+
-62.0 | C-
-65.0 | C
-69.0 | C+
-72.0 | B-
-75.0 | B
-79.0 | B+
-82.0 | A-
-85.0 | A
-93.0 | A+
+| Minimum course average | Letter grade |
+|------------------------|--------------|
+| 50.0 | D- |
+| 55.0 | D |
+| 59.0 | D+ |
+| 62.0 | C- |
+| 65.0 | C |
+| 69.0 | C+ |
+| 72.0 | B- |
+| 75.0 | B |
+| 79.0 | B+ |
+| 82.0 | A- |
+| 85.0 | A |
+| 93.0 | A+ |
 
 
 Note that the A+ range and the D- range follow a slightly different pattern.  The A+ range is a percentage of the class (in this case, the top 6 students), and thus ended up being 93.0.  The D- range extends down a bit more.
