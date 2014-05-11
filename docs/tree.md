@@ -10,6 +10,7 @@
   - [Snow day impacts, spring 2014](../cs2150/snowdays.html) ([md](../cs2150/snowdays.md))
   - [Course syllabus](../cs2150/syllabus.html) ([md](../cs2150/syllabus.md))
   - [Frivolous regrade policy](../cs2150/frivolous-regrades.html) ([md](../cs2150/frivolous-regrades.md))
+  - [Course grade explanations](../cs2150/grades.html) ([md](../cs2150/grades.md))
 - [Documents](../docs/index.html) ([md](../docs/index.md))
   - [Tree document index](../docs/tree.html) ([md](../docs/tree.md))
   - [How to convert a file to PDF](../docs/convert_to_pdf.html) ([md](../docs/convert_to_pdf.md))

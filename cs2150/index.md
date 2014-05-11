@@ -29,6 +29,7 @@ The parts of this course that are in this repo are:
 - [Review session slide set](exam-review.html), which is really just a blank set of slides
 - [Frivolous regrade policy](frivolous-regrades.html) ([md](frivolous-regrades.html)) for exams
 - [Snow Day Impacts](snowdays.html) ([md](snowdays.md)), which contains the information sent in an class-wide e-mail on March 17th about how the schedule is being adapated to three M/W/F snow days
+- [Course grade explanations](grades.html) ([md](grades.md))
 
 ------------------------------------------------------------
 
@@ -116,5 +117,6 @@ Promised curves:
 - There was a problem with the in-lab 1 grading -- a one-point deduction was in the [grading guidelines](https://collab.itc.virginia.edu/portal/tool/58e790ee-ac9e-4001-9947-ebf5df8a8df5?pageName=%2Fsite%2F7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c%2Flab+1+grading+guidelines&action=printview&panel=Main&breadcrumb=0&realm=%2Fsite%2F7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c) that should not have been there (that deduction currently is currently in the grading guidelines, but struck out).  Rather than regrading everything, everybody will get a 1 on their lab.
 - For [exam 1](../exams/exam1-s14.pdf), the curve is 15 percentage points.
 - For [exam 2](../exams/exam2-s14.pdf), the curve is 20 percentage points.
+- For the [final exam](../exams/final-s14.pdf), the curve is 5 percentage points.
 
 The way this is handled is that at the end of the semester, the curves describe above will affect the final grade cut-offs.  Take the example of 1 point on a single lab.  If there are 35 lab parts, each worth 10 points, then one point on one lab is worth 1/350th of the overall lab grade (which is 40% of the final grade).  The final grade curve will be modified by this amount.  A similar method will be applied for the other promised curves.  It's the same, mathematically, as increasing everybody's grade by one point, but far easier to effect.
