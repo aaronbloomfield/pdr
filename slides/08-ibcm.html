@@ -223,13 +223,13 @@ store 300
 <table class="transparent" style="border-collapse:collapse">
 
 <tr>
-  <td>&nbsp;0</td>
-  <td>1</td>
-  <td>2</td>
-  <td>3</td>
-  <td>4&nbsp;&nbsp;5</td>
+  <td>&nbsp;15</td>
+  <td>14</td>
+  <td>13</td>
+  <td>12</td>
+  <td>11&nbsp;&nbsp;10</td>
   <td style="width:300px">...</td>
-  <td style="text-align:right">15</td>
+  <td style="text-align:right">0</td>
   <td></td>
 </tr>
 
@@ -293,7 +293,7 @@ store 300
 
 	  <section data-markdown><script type="text/template">
 ## Halt
-- The opcode (first 4 bits) is zero
+- The opcode (bits 15 down to 12) is zero
 - It doesn't matter what the next 12 bits are<br>&nbsp;
 - Not much else to say here...<br>&nbsp;
 - It halts the IBCM!
@@ -301,23 +301,23 @@ store 300
 
 	  <section data-markdown><script type="text/template">
 ## Input and output
-- The opcode (first 4 bits) is 1
+- The opcode (bits 15 down to 12) is 1
 - Next two bits specify I/O type:
-  - First bit specifies input (0) or output (1)
-  - Second bit specifies hex word (0) or ascii (1)
+  - Bit 11 specifies input (0) or output (1)
+  - Bit 10 specifies hex word (0) or ascii (1)
   - Combinations:
     - 00: read hex word from keyboard
-    - 01: read ascii character (into acc bits 8-15)
+    - 01: read ascii character (into acc bits 7-0)
     - 10: write hex word to screen
-    - 11: write ascii character (from acc bits 8-15)
+    - 11: write ascii character (from acc bits 7-0)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Shifts
-- The opcode (first 4 bits) is 2
+- The opcode (bits 15 down to 12) is 2
 - Next two bits specify shift type:
-  - First bit specifies shift (0) or rotate (1)
-  - Second bit specifies direction: left (0) or right (1)
+  - Bit 11 specifies shift (0) or rotate (1)
+  - Bit 10 specifies direction: left (0) or right (1)
 - Consider the bits <span class="skyblue">0000</span> <span class="yellow">1111</span> <span class="pink">0000</span> <span class="lightgreen">1111</span> and a 3-bit shift/rotation:
   - 00: shift left: <span class="skyblue">0</span><span class="yellow">111 1</span><span class="pink">000 0</span><span class="lightgreen">111 1</span><span class="red">000</span>
   - 01: shift right: <span class="red">000</span><span class="skyblue">0 000</span><span class="yellow">1 111</span><span class="pink">0 000</span><span class="lightgreen">1</span>
@@ -327,7 +327,7 @@ store 300
 
 	  <section data-markdown><script type="text/template">
 ## Other instructions
-- Opcode (first 4 bits) varies from 3 to F (15)
+- Opcode (bits 15 down to 12) varies from 3 to F (15)
 - Next 12 bits specifies the address
 - See next slide for a list...
 	  </script></section>
