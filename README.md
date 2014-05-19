@@ -18,11 +18,11 @@ Contents
 
 This repository contains the materials for the course entitled "CS 2150: Program and Data Representation" in the [Computer Science Department](http://www.cs.virginia.edu) at the [University of Virginia](http://www.virginia.edu).  It will contain all of the slides, labs, exams, etc. used throughout the course.  The course description is [below](#description).  The github repository for this course is at [https://github.com/aaronbloomfield/pdr](https://github.com/aaronbloomfield/pdr).
 
-Students in the course should view the [cs2150/index.html](cs2150/index.html) ([md](cs2150/index.md)) file in the **cloned** repository (i.e., don't try to view it on github.com).
+Students *currently* in the course should view the [cs2150/index.html](cs2150/index.html) ([md](cs2150/index.md)) file in the **cloned** repository (i.e., don't try to view it on github.com).  Note that many of the course materials are modified right before they are needed -- for example, this repository will be updated right before the semester starts.
 
-The contents of this repository will be filled in throughout the spring 2014 semester as the materials are developed (or, more accurately, as they are converted into a git-friendly form and added to this repository).  It is likely that this repository will be largely incomplete until the spring 2014 semester is completed; the expected completion date is May, 2014.
+Students who were previously in the course may want to view the current version, or you can view the version from your semester.  All semester versions are tagged with an end-of-semester tag of the form "year-semester".  For example, the spring 2014 semester was tagged as `2014-spring`.  To obtain a specific tag, you can enter `git checkout tags/2014-spring` in an already cloned repository.
 
-The primary author is [Aaron Bloomfield](http://www.cs.virginia.edu/~asb) ([aaron@virginia.edu](<mailto:aaron@virginia.edu>), [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)).  The spring 2014 semester will be the 14th consecutive semester I have taught the course.
+The primary author is [Aaron Bloomfield](http://www.cs.virginia.edu/~asb) ([aaron@virginia.edu](<mailto:aaron@virginia.edu>), [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)).  The fall 2014 semester will be the 15th consecutive semester I have taught the course.
 
 
 <a name="contributing"></a>Contributing to this Repository
@@ -49,13 +49,13 @@ this online at github.com -- you will need to clone (download) the
 repository first**
 
 - [book](book/index.html) ([md](book/index.md)): the beginnings of a textbook to be used for this course.  It is written using LaTeX.
-- [docs](docs/index.html) ([md](docs/index.md)): a series of useful documents that are not labs or tutorials.  To view these files, see the [docs/index.html](docs/index.html) ([md](docs/index.md)) file.
-- [cs2150](cs2150/index.html) ([md](cs2150/index.md)): the materials that are specific to CS 2150 as taught at the University of Virginia, such as daily announcements, due dates, etc.  To view these files, see the [cs2150/index.html](cs2150/index.html) ([md](cs2150/index.md)) file.
+- [docs](docs/index.html) ([md](docs/index.md)): a series of useful documents that are not labs or tutorials.
+- [cs2150](cs2150/index.html) ([md](cs2150/index.md)): the materials that are specific to CS 2150 as taught at the University of Virginia, such as daily announcements, due dates, etc.
 - [exams](exams/index.html) ([md](exams/index.md)): past exams for the course; there are two midterms and a final for each semester.
 - [ibcm](ibcm/ibcm.html) ([md](ibcm/index.md)): the files necessary for the IBCM module on machine language, which is taught about two thirds of the way into the course.
-- [labs](labs/index.html) ([md](labs/index.md)): the labs are the main assignments in the course, and each lab is split into pre-lab, in-lab, and post-lab parts. To view the labs, see the [labs/index.html](labs/index.html) ([md](labs/index.md)) file.  There are 11 full labs, with a partial 12th lab that is an optional component of the course.  The labs are written using [markdown](http://daringfireball.net/projects/markdown/), and the rendered HTML version of each lab is also committed to this repository.
-- [slides](slides/index.html) ([md](slides/index.md)): Contains the slides used in the course; view [slides/index.html](slides/index.html) ([md](slides/index.md)) for the table of contents. The slides use [reveal.js](https://github.com/hakimel/reveal.js/), an HTML presentation framework.
-- [tutorials](tutorials/index.html) ([md](tutorials/index.md)): the tutorials that are used as part of the lab assignments, these are primarily Linux tutorials.  To view the tutorials, see the [tutorials/index.html](tutorials/index.html) ([md](tutorials/index.md)) page.
+- [labs](labs/index.html) ([md](labs/index.md)): the labs are the main assignments in the course, and each lab is split into pre-lab, in-lab, and post-lab parts.  There are 11 full labs, with a partial 12th lab that is an optional component of the course.  The labs are written using [markdown](http://daringfireball.net/projects/markdown/), and the rendered HTML version of each lab is also committed to this repository.
+- [slides](slides/index.html) ([md](slides/index.md)): Contains the slides used in the course.  The slides use [reveal.js](https://github.com/hakimel/reveal.js/), an HTML presentation framework.
+- [tutorials](tutorials/index.html) ([md](tutorials/index.md)): the tutorials that are used as part of the lab assignments, these are primarily Linux tutorials.
 - [utils](utils/index.html) ([md](tutorials/index.md)): various utilities for this repository
 
 <a name="description"></a>Course Description
