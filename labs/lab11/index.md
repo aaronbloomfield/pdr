@@ -264,7 +264,7 @@ The deliverable for the post-lab is a PDF document named postlab11.pdf.  It must
 
 ### Complexity analysis ###
 
-For this part of the post-lab, we want you to do a time and space complexity analysis of both of your pre-lab code and your in-lab code.  How long is your algorithm?  In addition to a big-Theta notation, give an explanation as to why.  And a big-Oh and big-Omega, if you can compute those as well.
+For this part of the post-lab, we want you to do a time and space complexity analysis of both of your pre-lab code and your in-lab code.  How long is your algorithm?  In addition to a big-Theta notation, give an explanation as to why.
 
 ### Acceleration techniques ###
 
