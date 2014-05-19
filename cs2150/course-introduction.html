@@ -2,27 +2,27 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>CS 2150: 01-intro slide set</title>
+    <title>CS 2150: course-introduction slide set</title>
     <meta name="description" content="A set of slides for a course on Program and Data Representation">
     <meta name="author" content="Aaron Bloomfield">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
-    <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
-    <link rel="stylesheet" href="css/pdr.css">
-    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="../slides/reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="../slides/css/pdr.css">
+    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
     <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
 	if( window.location.search.match( /print-pdf/gi ) ) {
 		var link = document.createElement( 'link' );
 		link.rel = 'stylesheet';
 		link.type = 'text/css';
-		link.href = 'reveal.js/css/print/pdf.css';
+		link.href = '../slides/reveal.js/css/print/pdf.css';
 		document.getElementsByTagName( 'head' )[0].appendChild( link );
 	}
     </script>
     <!--[if lt IE 9]>
-    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
     <![endif]-->
   </head>
 
@@ -41,7 +41,7 @@
 ### Spring 2014
 &nbsp;
 <center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
-<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="01-intro.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
+<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="course-introduction.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png"></a></small></center>
 &nbsp;  
 &nbsp;
 ## Course Introduction
@@ -65,7 +65,7 @@
 
 	  <section data-markdown><script type="text/template">
 ## Instructional Staff
-![Aaron Bloomfield](images/01-intro/aaronbloomfield.jpg)
+![Aaron Bloomfield](images/introduction/aaronbloomfield.jpg)
 &nbsp;  
 <center>
 **Aaron Bloomfield**  
@@ -112,7 +112,7 @@ One graduate grader
 
 	  <section data-markdown><script type="text/template">
 ## Contacting Us
-![Who to contact](images/01-intro/contacting-flowchart-small.png)
+![Who to contact](images/introduction/contacting-flowchart-small.png)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -204,13 +204,13 @@ One graduate grader
 
 	  <section data-markdown><script type="text/template">
 ## Spring break!
-![UVa's spring break](images/01-intro/spring-break-2014-uva.png)
+![UVa's spring break](images/introduction/spring-break-2014-uva.png)
 What UVa defines as "Spring break"
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Spring break!
-![UVa student's spring break](images/01-intro/spring-break-2014-student.png)
+![UVa student's spring break](images/introduction/spring-break-2014-student.png)
 What UVa *students* define as "Spring break"
 	  </script></section>
 
@@ -457,7 +457,7 @@ Do these count as honor violations?
 	  <section data-markdown><script type="text/template">
 ## Course Goal 1
 Understand program representation from high-level programming language to machine level representation
-![Levels of abstraction](images/01-intro/levels-of-abstraction.png)
+![Levels of abstraction](images/introduction/levels-of-abstraction.png)
 	  </script></section>
 
 	<section data-markdown><script type="text/template">
@@ -483,7 +483,7 @@ Be able to implement basic and advanced data structures in C++
   - Searches for 25,000 elements (integers from 0-25,000)
   - Deletes 10,000 elements (integers from 0-10,000)
 - And records the time each data structure takes for these operations
-  - See [DataStructureComparison.java](code/01-intro/DataStructureComparison.java.html) ([src](code/01-intro/DataStructureComparison.java))
+  - See [DataStructureComparison.java](code/introduction/DataStructureComparison.java.html) ([src](code/introduction/DataStructureComparison.java))
 - What are the results?
 	  </script></section>
 
@@ -555,12 +555,12 @@ Be able to implement basic control and data structures in assembly language (x86
   <tr>
     <td class="top"><small>&nbsp;<br>&nbsp;<br>string<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>int x[3]<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>char x<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>0x9cd0f0ad<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>01101011</small></td>
     <!-- image adapted from http://openclipart.org/detail/3677/arrow-left-right-by-torfnase -->
-    <td><img class="noborder" src="images/red-double-arrow.png" height="500" alt="vertical red double arrow"></td>
+    <td><img class="noborder" src="../slides/images/red-double-arrow.png" height="500" alt="vertical red double arrow"></td>
     <td class="top">&nbsp;<br>Objects<br>&nbsp;<br>Arrays<br>&nbsp;<br>Primitive types<br>&nbsp;<br>Addresses<br>&nbsp;<br>bits</td>
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
     <td class="top"><small>&nbsp;<br>&nbsp;<br>Java code<br>&nbsp;<br>&nbsp;<br>C++ code<br>&nbsp;<br>&nbsp;<br>C code<br>&nbsp;<br>&nbsp;<br>x86 code<br>&nbsp;<br>&nbsp;<br>IBCM<br>&nbsp;<br>&nbsp;<br>hexadecimal</small></td>
     <!-- image adapted from http://openclipart.org/detail/3677/arrow-left-right-by-torfnase -->
-    <td><img class="noborder" src="images/green-double-arrow.png" height="500" alt="vertical green double arrow"></td>
+    <td><img class="noborder" src="../slides/images/green-double-arrow.png" height="500" alt="vertical green double arrow"></td>
     <td class="top">&nbsp;<br>High-level language<br>&nbsp;<br>Low-level language<br>&nbsp;<br>Assembly language<br>&nbsp;<br>Machine code</td>
   </tr>
 </table>
@@ -590,9 +590,37 @@ You can view my entire course evals on [my personal website](http://www.cs.virgi
 
     </div>
 
-    <script src="reveal.js/lib/js/head.min.js"></script>
-    <script src="reveal.js/js/reveal.min.js"></script>
-    <script src="js/settings.js"></script>
+    <script src="../slides/reveal.js/lib/js/head.min.js"></script>
+    <script src="../slides/reveal.js/js/reveal.min.js"></script>
+    <!-- You cannot, apparently, include this from another directory, hence why settings.js is reproduced here in full -->
+    <script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+  controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      slideNumber: true,
+      
+      theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+      transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+      
+      // Parallax scrolling
+      // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+      // parallaxBackgroundSize: '2100px 900px',
+      
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+		     { src: '../slides/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+		     { src: '../slides/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		     { src: '../slides/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		     { src: '../slides/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		     { src: '../slides/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+		     { src: '../slides/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+		     ]
+      });
+</script>
 
   </body>
 </html>

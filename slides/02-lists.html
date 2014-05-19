@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>CS 2150: 03-lists slide set</title>
+    <title>CS 2150: 02-lists slide set</title>
     <meta name="description" content="A set of slides for a course on Program and Data Representation">
     <meta name="author" content="Aaron Bloomfield">
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -44,7 +44,7 @@
 ### Spring 2014
 &nbsp;
 <center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
-<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="03-lists.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
+<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="02-lists.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
 <center><small>Themes: [default](?#/cover), [sky](?theme=sky#/cover), [beige](?theme=beige#/cover), [simple](?theme=simple#/cover), [serif](?theme=serif#/cover), [night](?theme=night#/cover), [moon](?theme=moon#/cover), [solarized](?theme=solarized#/cover)</small></center>
 &nbsp;  
 &nbsp;
@@ -163,7 +163,7 @@
 ## Function Templates
 - Not an actual function
 - A pattern for a function; expanded by compiler as needed
-- Example (source code: [findMax.cpp](code/03-lists/findMax.cpp.html) ([src](code/03-lists/findMax.cpp)))
+- Example (source code: [findMax.cpp](code/02-lists/findMax.cpp.html) ([src](code/02-lists/findMax.cpp)))
 ```
 // Return the maximum item in array a. 
 // Comparable objects must provide operator<
@@ -180,7 +180,7 @@ const Comparable & findMax (const vector<Comparable> & a) {
 
 	<section data-markdown><script type="text/template">
 ## Example, continued
-Source code: [findMax.cpp](code/03-lists/findMax.cpp.html) ([src](code/03-lists/findMax.cpp))
+Source code: [findMax.cpp](code/02-lists/findMax.cpp.html) ([src](code/02-lists/findMax.cpp))
 ```
 #include <iostream>
 #include <vector>
@@ -237,7 +237,7 @@ const IntCell & findMax(const vector<IntCell> &a) {
 
 	<section data-markdown><script type="text/template">
 ## ObjectCell Template Class
-Source code: [objectCell.h](code/03-lists/objectCell.h.html) ([src](code/03-lists/objectCell.h))
+Source code: [objectCell.h](code/02-lists/objectCell.h.html) ([src](code/02-lists/objectCell.h))
 ```
 #ifndef OBJECTCELL_H
 #define OBJECTCELL_H
@@ -259,7 +259,7 @@ class ObjectCell {
 
 	<section data-markdown><script type="text/template">
 ## Using ObjectCell class template
-Source code: [objectCellMain.cpp](code/03-lists/objectCellMain.cpp.html) ([src](code/03-lists/objectCellMain.cpp))
+Source code: [objectCellMain.cpp](code/02-lists/objectCellMain.cpp.html) ([src](code/02-lists/objectCellMain.cpp))
 ```
 #include <iostream>
 #include "objectCell.h"
@@ -361,7 +361,7 @@ A0, A1, A2, A3, A4
 
 	<section data-markdown><script type="text/template">
 ## Implementation of Lists: Arrays
-![Lists ADT as an array](images/03-lists/lists-adt-arrays.png)
+![Lists ADT as an array](images/02-lists/lists-adt-arrays.png)
 
 - Fixed capacity
 - Operations
@@ -372,7 +372,7 @@ A0, A1, A2, A3, A4
 
 	<section data-markdown><script type="text/template">
 ## List Implementation: Linked List
-![Lists ADT as an array](images/03-lists/lists-adt-linked.png)
+![Lists ADT as an array](images/02-lists/lists-adt-linked.png)
 
 - Nodes
   - element
@@ -472,7 +472,7 @@ A0, A1, A2, A3, A4
 
 	<section data-markdown><script type="text/template">
 ## Stack Applications: Activation Records
-![Activation record image](images/03-lists/stack-activation-record.png)
+![Activation record image](images/02-lists/stack-activation-record.png)
 	</script></section>
 
 	<section data-markdown><script type="text/template">
@@ -507,7 +507,7 @@ class Stack {
 
 	<section data-markdown><script type="text/template">
 ## Stack: Linked List Implementation Diagram
-![Stack (linked list) UML diagram](images/03-lists/stack-linked-uml-diagram.png)
+![Stack (linked list) UML diagram](images/02-lists/stack-linked-uml-diagram.png)
 	</script></section>
 
 	<section data-markdown><script type="text/template">

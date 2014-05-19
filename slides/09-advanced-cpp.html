@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>CS 2150: 10-advanced-cpp slide set</title>
+    <title>CS 2150: 09-advanced-cpp slide set</title>
     <meta name="description" content="A set of slides for a course on Program and Data Representation">
     <meta name="author" content="Aaron Bloomfield">
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -44,7 +44,7 @@
 ### Spring 2014
 &nbsp;
 <center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
-<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="10-advanced-cpp.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
+<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="09-advanced-cpp.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
 <center><small>Themes: [default](?#/cover), [sky](?theme=sky#/cover), [beige](?theme=beige#/cover), [simple](?theme=simple#/cover), [serif](?theme=serif#/cover), [night](?theme=night#/cover), [moon](?theme=moon#/cover), [solarized](?theme=solarized#/cover)</small></center>
 &nbsp;  
 &nbsp;  
@@ -385,7 +385,7 @@ int main() {
 
 	  <section data-markdown><script type="text/template">
 ## Inheritance Example (Name)
-Source code: [name-contact.cpp](code/10-advanced-cpp/name-contact.cpp.html) ([src](code/10-advanced-cpp/name-contact.cpp))
+Source code: [name-contact.cpp](code/09-advanced-cpp/name-contact.cpp.html) ([src](code/09-advanced-cpp/name-contact.cpp))
 ```
 class Name {
 public:
@@ -406,7 +406,7 @@ private:
 
 	  <section data-markdown><script type="text/template">
 ## Inheritance Example (Contact)
-Source code: [name-contact.cpp](code/10-advanced-cpp/name-contact.cpp.html) ([src](code/10-advanced-cpp/name-contact.cpp))
+Source code: [name-contact.cpp](code/09-advanced-cpp/name-contact.cpp.html) ([src](code/09-advanced-cpp/name-contact.cpp))
 ```
 class Contact: public Name {
 public:
@@ -443,7 +443,7 @@ private:
 
 	  <section data-markdown><script type="text/template">
 ## Using this code
-Source code: [name-contact.cpp](code/10-advanced-cpp/name-contact.cpp.html) ([src](code/10-advanced-cpp/name-contact.cpp))
+Source code: [name-contact.cpp](code/09-advanced-cpp/name-contact.cpp.html) ([src](code/09-advanced-cpp/name-contact.cpp))
 ```
 int main(void) { 
     Contact c; 
@@ -628,10 +628,10 @@ class B : public A {
 </ul>
 </td><td style="width:20px"></td><td class="top">
 <img src="images/spacer.gif" width="388" height="1" alt="spacer" class="plain">
-<img class="fragment" src="images/10-advanced-cpp/vmt-1.svg" alt="virtual method table image 1" style="position:absolute" data-fragment-index="3">
-<img class="fragment" src="images/10-advanced-cpp/vmt-2.svg" alt="virtual method table image 2" style="position:absolute" data-fragment-index="5">
-<img class="fragment" src="images/10-advanced-cpp/vmt-3.svg" alt="virtual method table image 3" style="position:absolute" data-fragment-index="8">
-<img class="fragment" src="images/10-advanced-cpp/vmt-4.svg" alt="virtual method table image 4" style="position:absolute" data-fragment-index="10">
+<img class="fragment" src="images/09-advanced-cpp/vmt-1.svg" alt="virtual method table image 1" style="position:absolute" data-fragment-index="3">
+<img class="fragment" src="images/09-advanced-cpp/vmt-2.svg" alt="virtual method table image 2" style="position:absolute" data-fragment-index="5">
+<img class="fragment" src="images/09-advanced-cpp/vmt-3.svg" alt="virtual method table image 3" style="position:absolute" data-fragment-index="8">
+<img class="fragment" src="images/09-advanced-cpp/vmt-4.svg" alt="virtual method table image 4" style="position:absolute" data-fragment-index="10">
 </td></tr></table>
 	  </section>
 
@@ -702,7 +702,7 @@ class C: public A, public B {
 	  <section data-markdown><script type="text/template">
 ## Semantic Ambiguities
 What if the relationship below occurs?
-![multiple inheritance diagram](images/10-advanced-cpp/multiple-inheritance.svg)
+![multiple inheritance diagram](images/09-advanced-cpp/multiple-inheritance.svg)
 
 - This shows both *replicated* and *shared* multiple inheritance
   - As one of the ancestors (gp_list_node) is replicated and one is shared (person) in the parent classes of student_prof

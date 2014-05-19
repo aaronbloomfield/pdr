@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>CS 2150: 11-heaps-huffman slide set</title>
+    <title>CS 2150: 10-heaps-huffman slide set</title>
     <meta name="description" content="A set of slides for a course on Program and Data Representation">
     <meta name="author" content="Aaron Bloomfield">
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -44,7 +44,7 @@
 ### Spring 2014
 &nbsp;
 <center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
-<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="11-heaps-huffman.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
+<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="10-heaps-huffman.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
 <center><small>Themes: [default](?#/cover), [sky](?theme=sky#/cover), [beige](?theme=beige#/cover), [simple](?theme=simple#/cover), [serif](?theme=serif#/cover), [night](?theme=night#/cover), [moon](?theme=moon#/cover), [solarized](?theme=solarized#/cover)</small></center>
 &nbsp;  
 &nbsp;  
@@ -107,7 +107,7 @@
   - deleteMin 
     - finds, returns, and removes minimum element
 
-![heap cloud](images/11-heaps-huffman/heap-diagram.svg)
+![heap cloud](images/10-heaps-huffman/heap-diagram.svg)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -256,7 +256,7 @@ Basic Idea:
 ## insert(int x)
 Note that `heap` is an int vector, and `heap_size` is the number of *heap elements* inserted into that vector
 
-Source code: [priority_queue.cpp](code/11-heaps-huffman/priority_queue.cpp.html) ([src](code/11-heaps-huffman/priority_queue.cpp))
+Source code: [priority_queue.cpp](code/10-heaps-huffman/priority_queue.cpp.html) ([src](code/10-heaps-huffman/priority_queue.cpp))
 ```
 void priority_queue::insert(int x) {
     // a vector push_back will resize as necessary
@@ -333,7 +333,7 @@ Basic Idea:
 ## deleteMin()
 Note that `heap` is an int vector, and `heap_size` is the number of *heap elements* inserted into that vector
 
-Source code: [priority_queue.cpp](code/11-heaps-huffman/priority_queue.cpp.html) ([src](code/11-heaps-huffman/priority_queue.cpp))
+Source code: [priority_queue.cpp](code/10-heaps-huffman/priority_queue.cpp.html) ([src](code/10-heaps-huffman/priority_queue.cpp))
 ```
 int priority_queue::deleteMin() {
     // make sure the heap is not empty
@@ -355,7 +355,7 @@ int priority_queue::deleteMin() {
 
 	  <section data-markdown><script type="text/template">
 ## percolateDown()
-Source code: [priority_queue.cpp](code/11-heaps-huffman/priority_queue.cpp.html) ([src](code/11-heaps-huffman/priority_queue.cpp))
+Source code: [priority_queue.cpp](code/10-heaps-huffman/priority_queue.cpp.html) ([src](code/10-heaps-huffman/priority_queue.cpp))
 ```
 void priority_queue::percolateDown(int hole) {
     // get the value to percolate down
@@ -411,7 +411,7 @@ void priority_queue::percolateDown(int hole) {
 
 	  <section>
 <h2>An xkcd about heaps...</h2>
-<img class="stretch" src="images/11-heaps-huffman/tree.png" title="Not only is that terrible in general, but you just KNOW Billy&#39;s going to open the root present first, and then everyone will have to wait while the heap is rebuilt." alt="Tree" />
+<img class="stretch" src="images/10-heaps-huffman/tree.png" title="Not only is that terrible in general, but you just KNOW Billy&#39;s going to open the root present first, and then everyone will have to wait while the heap is rebuilt." alt="Tree" />
 <p class="center"><a href="http://xkcd.com/835/">xkcd # 835</a></p>
 	  </section>
 
@@ -446,7 +446,7 @@ void priority_queue::percolateDown(int hole) {
 
 	  <section data-markdown><script type="text/template">
 ## Data Compression
-![compression diagram](images/11-heaps-huffman/compression-diagram.svg)
+![compression diagram](images/10-heaps-huffman/compression-diagram.svg)
 
 - Lossless compression: X = X’
 - Lossy compression: X != X’
@@ -470,7 +470,7 @@ void priority_queue::percolateDown(int hole) {
 
 	  <section>
 <table class="transparent">
-<tr><td colspan="2" class="top"><h2>&nbsp;<br>JPEG image quality<br>comparison</h2></td><td style="width:30%"><a href="http://en.wikipedia.org/wiki/Jpg#Sample_photographs"><img class="fragment" data-fragment-index="1" alt="jpeg @ 25%" src="images/11-heaps-huffman/jpeg-025.jpg"></a></td></tr>
+<tr><td colspan="2" class="top"><h2>&nbsp;<br>JPEG image quality<br>comparison</h2></td><td style="width:30%"><a href="http://en.wikipedia.org/wiki/Jpg#Sample_photographs"><img class="fragment" data-fragment-index="1" alt="jpeg @ 25%" src="images/10-heaps-huffman/jpeg-025.jpg"></a></td></tr>
 <tr>
 <td class="top">
 <ul>
@@ -480,7 +480,7 @@ void priority_queue::percolateDown(int hole) {
 <li style="text-align:left" class="fragment" data-fragment-index="4">Quality = 10; image size: 4,787 (6%)</li>
 <li style="text-align:left" class="fragment" data-fragment-index="5">Quality = 1; image size: 1,523 (2%)</li>
 </ul>
-</td><td style="width:30%"><a href="http://en.wikipedia.org/wiki/Jpg#Sample_photographs"><img class="fragment" data-fragment-index="2" alt="jpeg @ 100%" src="images/11-heaps-huffman/jpeg-100.jpg"></a> <a href="http://en.wikipedia.org/wiki/Jpg#Sample_photographs"><img class="fragment" data-fragment-index="3" alt="jpeg @ 50%" src="images/11-heaps-huffman/jpeg-050.jpg"></a></td><td><a href="http://en.wikipedia.org/wiki/Jpg#Sample_photographs"><img class="fragment" data-fragment-index="4" alt="jpeg @ 10%" src="images/11-heaps-huffman/jpeg-010.jpg"></a> <a href="http://en.wikipedia.org/wiki/Jpg#Sample_photographs"><img class="fragment" data-fragment-index="5" alt="jpeg @ 1%" src="images/11-heaps-huffman/jpeg-001.jpg"></a></td></tr>
+</td><td style="width:30%"><a href="http://en.wikipedia.org/wiki/Jpg#Sample_photographs"><img class="fragment" data-fragment-index="2" alt="jpeg @ 100%" src="images/10-heaps-huffman/jpeg-100.jpg"></a> <a href="http://en.wikipedia.org/wiki/Jpg#Sample_photographs"><img class="fragment" data-fragment-index="3" alt="jpeg @ 50%" src="images/10-heaps-huffman/jpeg-050.jpg"></a></td><td><a href="http://en.wikipedia.org/wiki/Jpg#Sample_photographs"><img class="fragment" data-fragment-index="4" alt="jpeg @ 10%" src="images/10-heaps-huffman/jpeg-010.jpg"></a> <a href="http://en.wikipedia.org/wiki/Jpg#Sample_photographs"><img class="fragment" data-fragment-index="5" alt="jpeg @ 1%" src="images/10-heaps-huffman/jpeg-001.jpg"></a></td></tr>
 
 </table>
 	  </section>
@@ -898,7 +898,7 @@ u 00100
 <h2>ASCII Character Codes in Hexadecimal</h2>
 <table class="transparent">
   <tr>
-    <td class="width:45%"><img alt="ascii" src="images/11-heaps-huffman/ascii.png"></td>
+    <td class="width:45%"><img alt="ascii" src="images/10-heaps-huffman/ascii.png"></td>
     <td style="width:10%"></td>
     <td class="top" style="width:45%"><p>For the lab, you only need to account for the printable characters (0x20 to 0x7e)</p><p>&nbsp;</p>
 <p>Character codes:</p>
@@ -930,7 +930,7 @@ u 00100
 
 	  <section data-markdown><script type="text/template">
 ## Priority Queue Class
-Source code: [priority_queue.h](code/11-heaps-huffman/priority_queue.h.html) ([src](code/11-heaps-huffman/priority_queue.h))
+Source code: [priority_queue.h](code/10-heaps-huffman/priority_queue.h.html) ([src](code/10-heaps-huffman/priority_queue.h))
 ```
 class priority_queue {
   public:
@@ -975,7 +975,7 @@ class priority_queue {
 
 	  <section data-markdown><script type="text/template">
 ## Constructors & Destructors
-Source code: [priority_queue.cpp](code/11-heaps-huffman/priority_queue.cpp.html) ([src](code/11-heaps-huffman/priority_queue.cpp))
+Source code: [priority_queue.cpp](code/10-heaps-huffman/priority_queue.cpp.html) ([src](code/10-heaps-huffman/priority_queue.cpp))
 ```
 // default constructor
 priority_queue::priority_queue() : heap_size(0) {
@@ -1000,7 +1000,7 @@ priority_queue::~priority_queue() {
 
 	  <section data-markdown><script type="text/template">
 ## findMin()
-Source code: [priority_queue.cpp](code/11-heaps-huffman/priority_queue.cpp.html) ([src](code/11-heaps-huffman/priority_queue.cpp))
+Source code: [priority_queue.cpp](code/10-heaps-huffman/priority_queue.cpp.html) ([src](code/10-heaps-huffman/priority_queue.cpp))
 ```
 int priority_queue::findMin() {
     if ( heap_size == 0 )
@@ -1012,7 +1012,7 @@ int priority_queue::findMin() {
 
 	  <section data-markdown><script type="text/template">
 ## size(), makeEmpty(), isEmpty()
-Source code: [priority_queue.cpp](code/11-heaps-huffman/priority_queue.cpp.html) ([src](code/11-heaps-huffman/priority_queue.cpp))
+Source code: [priority_queue.cpp](code/10-heaps-huffman/priority_queue.cpp.html) ([src](code/10-heaps-huffman/priority_queue.cpp))
 ```
 unsigned int priority_queue::size() {
     return heap_size;
@@ -1030,7 +1030,7 @@ bool priority_queue::isEmpty() {
 
 	  <section data-markdown><script type="text/template">
 ## print()
-Source code: [priority_queue.cpp](code/11-heaps-huffman/priority_queue.cpp.html) ([src](code/11-heaps-huffman/priority_queue.cpp))
+Source code: [priority_queue.cpp](code/10-heaps-huffman/priority_queue.cpp.html) ([src](code/10-heaps-huffman/priority_queue.cpp))
 ```
 void priority_queue::print() {
     cout << "(" << heap[0] << ") ";

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>CS 2150: 09-x86 slide set</title>
+    <title>CS 2150: 08-x86 slide set</title>
     <meta name="description" content="A set of slides for a course on Program and Data Representation">
     <meta name="author" content="Aaron Bloomfield">
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -44,7 +44,7 @@
 ### Spring 2014
 &nbsp;
 <center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
-<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="09-x86.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
+<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="08-x86.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
 <center><small>Themes: [default](?#/cover), [sky](?theme=sky#/cover), [beige](?theme=beige#/cover), [simple](?theme=simple#/cover), [serif](?theme=serif#/cover), [night](?theme=night#/cover), [moon](?theme=moon#/cover), [solarized](?theme=solarized#/cover)</small></center>
 &nbsp;  
 &nbsp;  
@@ -90,7 +90,7 @@
 
 	  <section>
 <h2>History of x86</h2>
-<p><a href="https://en.wikipedia.org/wiki/File:C4004_%28Intel%29.jpg"><img alt="Intel 4004" src="images/09-x86/C4004.jpg"></a></p>
+<p><a href="https://en.wikipedia.org/wiki/File:C4004_%28Intel%29.jpg"><img alt="Intel 4004" src="images/08-x86/C4004.jpg"></a></p>
 <table class="transparent"><tr><td>
 <ul>
 <li>1971: 4004, 4-bit words</li>
@@ -116,7 +116,7 @@
 
 	  <section data-markdown><script type="text/template">
 ## IBCM vs. x86: Registers
-![x86 registers](images/09-x86/x86-register-diagram.svg)
+![x86 registers](images/08-x86/x86-register-diagram.svg)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -1001,7 +1001,7 @@ ret             ; pop top value from stack, jump there
 </ul></li>
 </ul>
 </td><td style="width:50%">
-<img alt="x86 activation record" src="images/09-x86/x86-activation-record.svg">
+<img alt="x86 activation record" src="images/08-x86/x86-activation-record.svg">
 </td></tr></table>
 	  </section>
 
@@ -1084,7 +1084,7 @@ ret             ; pop top value from stack, jump there
 
 	  <section data-markdown><script type="text/template">
 ## x86 Examples
-All examples are in the [slides/code/09-x86/](code/09-x86/) directory in the github repo  
+All examples are in the [slides/code/08-x86/](code/08-x86/) directory in the github repo  
 &nbsp;  
 Code we'll see:
 
@@ -1121,7 +1121,7 @@ int absolute_value(int x) {
 
 	  <section data-markdown><script type="text/template">
 ## test_abs.cpp
-Source code: [test_abs.cpp](code/09-x86/test_abs.cpp.html) ([src](code/09-x86/test_abs.cpp))
+Source code: [test_abs.cpp](code/08-x86/test_abs.cpp.html) ([src](code/08-x86/test_abs.cpp))
 ```
 #include <iostream>
 using namespace std;
@@ -1187,7 +1187,7 @@ g++ -m32 -S test_abs.cpp -o test_abs-non-intel.s
 ## g++'s assembly for absolute_value
 Note the source / destination order is reversed!  And lots of other differences...
 
-Source code: [test_abs-non-intel.s](code/09-x86/test_abs-non-intel.s.html) ([src](code/09-x86/test_abs-non-intel.s))
+Source code: [test_abs-non-intel.s](code/08-x86/test_abs-non-intel.s.html) ([src](code/08-x86/test_abs-non-intel.s))
 ```
 absolute_value:
 	pushl   %eax
@@ -1241,7 +1241,7 @@ g++ -m32 -masm=intel -S test_abs.cpp -o test_abs.s
 ## g++'s assembly for absolute_value
 This is with the `-masm=intel` flags
 
-Source code: [test_abs.s](code/09-x86/test_abs.s.html) ([src](code/09-x86/test_abs.s))
+Source code: [test_abs.s](code/08-x86/test_abs.s.html) ([src](code/08-x86/test_abs.s))
 ```
 absolute_value:
 	push    ebp
@@ -1270,7 +1270,7 @@ absolute_value:
 
 	  <section data-markdown><script type="text/template">
 ## test_abs_c.c
-Source code: [test_abs_c.c](code/09-x86/test_abs_c.c.html) ([src](code/09-x86/test_abs_c.c))
+Source code: [test_abs_c.c](code/08-x86/test_abs_c.c.html) ([src](code/08-x86/test_abs_c.c))
 ```
 #include <stdio.h>
 
@@ -1295,8 +1295,8 @@ int main(){
 ## C++ assembly vs. C assembly
 - Notice how much cleaner C translates into assembly versus C++
 - Compare the absolute value code in both C and C++:
-  - C++: [test_abs.s](code/09-x86/test_abs.s.html) ([src](code/09-x86/test_abs.s))
-  - C: [test_abs_c.s](code/09-x86/test_abs_c.s.html) ([src](code/09-x86/test_abs_c.s))
+  - C++: [test_abs.s](code/08-x86/test_abs.s.html) ([src](code/08-x86/test_abs.s))
+  - C: [test_abs_c.s](code/08-x86/test_abs_c.s.html) ([src](code/08-x86/test_abs_c.s))
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -1316,7 +1316,7 @@ int max(int x, int y) {
 
 	  <section data-markdown><script type="text/template">
 ## test_max.cpp
-Source code: [test_max.cpp](code/09-x86/test_max.cpp.html) ([src](code/09-x86/test_max.cpp))
+Source code: [test_max.cpp](code/08-x86/test_max.cpp.html) ([src](code/08-x86/test_max.cpp))
 ```
 #include <iostream>
 using namespace std;
@@ -1341,7 +1341,7 @@ int main(){
 ## x86 code for max()
 Using `g++ -masm=intel`
 
-Source code: [test_max.s](code/09-x86/test_max.s.html) ([src](code/09-x86/test_max.s))
+Source code: [test_max.s](code/08-x86/test_max.s.html) ([src](code/08-x86/test_max.s))
 ```
 max:
 	push    ebp
@@ -1367,7 +1367,7 @@ max:
 ## x86 code for max() using -O2
 Using `g++ -masm=intel` and `-O2`
 
-Source code: [test_max-O2.s](code/09-x86/test_max-O2.s.html) ([src](code/09-x86/test_max-O2.s))
+Source code: [test_max-O2.s](code/08-x86/test_max-O2.s.html) ([src](code/08-x86/test_max-O2.s))
 ```
 max:
 	mov     eax, DWORD PTR [esp+4]
@@ -1383,7 +1383,7 @@ The [cmovg](http://www.asmpedia.org/index.php?title=CMOVG) opcode will move the 
 ## x86 code for max() without 'extern "C"'
 Using `g++ -masm=intel`
 
-Source code: [test_max-noextern.s](code/09-x86/test_max-noextern.s.html) ([src](code/09-x86/test_max-noextern.s))
+Source code: [test_max-noextern.s](code/08-x86/test_max-noextern.s.html) ([src](code/08-x86/test_max-noextern.s))
 ```
 _Z3maxii:
 	push   ebp
@@ -1425,7 +1425,7 @@ bool compare_string (const char *theStr1,
 
 	  <section data-markdown><script type="text/template">
 ## test_string_compare.cpp
-Source code: [test_string_compare.cpp](code/09-x86/test_string_compare.cpp.html) ([src](code/09-x86/test_string_compare.cpp))
+Source code: [test_string_compare.cpp](code/08-x86/test_string_compare.cpp.html) ([src](code/08-x86/test_string_compare.cpp))
 ```
 #include <iostream>
 #include <string>
@@ -1454,7 +1454,7 @@ int main(){
 ## x86 assembly for compare_string(), 1/3
 Using `g++ -masm=intel`
 
-Source code: [test_string_compare.s](code/09-x86/test_string_compare.s.html) ([src](code/09-x86/test_string_compare.s))
+Source code: [test_string_compare.s](code/08-x86/test_string_compare.s.html) ([src](code/08-x86/test_string_compare.s))
 ```
 compare_string:
 	push    ebp
@@ -1470,7 +1470,7 @@ compare_string:
 ## x86 assembly for compare_string(), 2/3
 Using `g++ -masm=intel`
 
-Source code: [test_string_compare.s](code/09-x86/test_string_compare.s.html) ([src](code/09-x86/test_string_compare.s))
+Source code: [test_string_compare.s](code/08-x86/test_string_compare.s.html) ([src](code/08-x86/test_string_compare.s))
 ```
 .L2:
 	mov     eax, DWORD PTR [ebp+8]
@@ -1492,7 +1492,7 @@ Source code: [test_string_compare.s](code/09-x86/test_string_compare.s.html) ([s
 ## x86 assembly for compare_string(), 3/3
 Using `g++ -masm=intel`
 
-Source code: [test_string_compare.s](code/09-x86/test_string_compare.s.html) ([src](code/09-x86/test_string_compare.s))
+Source code: [test_string_compare.s](code/08-x86/test_string_compare.s.html) ([src](code/08-x86/test_string_compare.s))
 ```
 .L3:
 	mov     eax, 0
@@ -1524,7 +1524,7 @@ int fib(unsigned int n) {
 
 	  <section data-markdown><script type="text/template">
 ## test_fib.cpp
-Source code: [test_fib.cpp](code/09-x86/test_fib.cpp.html) ([src](code/09-x86/test_fib.cpp))
+Source code: [test_fib.cpp](code/08-x86/test_fib.cpp.html) ([src](code/08-x86/test_fib.cpp))
 ```
 #include <iostream>
 using namespace std;
@@ -1551,7 +1551,7 @@ int main(){
 ## x86 assembly for fib(), 1/2
 Using `g++ -masm=intel`
 
-Source code: [test_fib.s](code/09-x86/test_fib.s.html) ([src](code/09-x86/test_fib.s))
+Source code: [test_fib.s](code/08-x86/test_fib.s.html) ([src](code/08-x86/test_fib.s))
 ```
 fib:
 	push    ebp
@@ -1572,7 +1572,7 @@ fib:
 ## x86 assembly for fib(), 2/2
 Using `g++ -masm=intel`
 
-Source code: [test_fib.s](code/09-x86/test_fib.s.html) ([src](code/09-x86/test_fib.s))
+Source code: [test_fib.s](code/08-x86/test_fib.s.html) ([src](code/08-x86/test_fib.s))
 ```
 .L3:
 	mov     eax, DWORD PTR [ebp+8]
@@ -1613,7 +1613,7 @@ Source code: [test_fib.s](code/09-x86/test_fib.s.html) ([src](code/09-x86/test_f
 <li>clang++ really likes to do this...</li>
 <li>But this is not always possible if a program uses dynamic memory on the <i>stack</i></li>
 </ul>
-</td><td class="top" style="width:50%"><img alt="x86 activation record" src="images/09-x86/x86-activation-record.svg"></td></tr></table>
+</td><td class="top" style="width:50%"><img alt="x86 activation record" src="images/08-x86/x86-activation-record.svg"></td></tr></table>
 	  </section>
 
 	  <section data-markdown id="clangconventionbreak"><script type="text/template">

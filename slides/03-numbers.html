@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>CS 2150: 04-numbers slide set</title>
+    <title>CS 2150: 03-numbers slide set</title>
     <meta name="description" content="A set of slides for a course on Program and Data Representation">
     <meta name="author" content="Aaron Bloomfield">
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -44,7 +44,7 @@
 ### Spring 2014
 &nbsp;
 <center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
-<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="04-numbers.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
+<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="03-numbers.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
 <center><small>Themes: [default](?#/cover), [sky](?theme=sky#/cover), [beige](?theme=beige#/cover), [simple](?theme=simple#/cover), [serif](?theme=serif#/cover), [night](?theme=night#/cover), [moon](?theme=moon#/cover), [solarized](?theme=solarized#/cover)</small></center>
 &nbsp;  
 &nbsp;  
@@ -198,7 +198,7 @@
 - 17,468 vacuum tubes and used 150 kW of power 
 - Earlier Computers: Z3 (Conrad Zuse) in 1941; Colossus in 1943
 
-![ENIAC](images/04-numbers/eniac.png)
+![ENIAC](images/03-numbers/eniac.png)
 	    </script></section>
 
 	    <section data-markdown><script type="text/template">
@@ -383,7 +383,7 @@ void Image::WriteInt (int value, FILE * fp) {
 ## More on Endianness
 - Little vs. big-endian deals with the *byte* order, not the *bit* order
 
-![Endian-ness](images/04-numbers/endian-ness.png)
+![Endian-ness](images/03-numbers/endian-ness.png)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -406,7 +406,7 @@ void Image::WriteInt (int value, FILE * fp) {
 	  <section data-markdown><script type="text/template">
 ## Sign-and-magnitude
 - Sign Bit, sign-and-magnitude
-![sign and magnitude](images/04-numbers/sign-and-magnitude.png)
+![sign and magnitude](images/03-numbers/sign-and-magnitude.png)
 - Algorithm to encode:
   - Encode number using *n*-1 bits
   - First bit is 1 if the number is < 0
@@ -417,7 +417,7 @@ void Image::WriteInt (int value, FILE * fp) {
 	  <section data-markdown><script type="text/template">
 ## One's complement
 - Sign Bit, One's Complement
-![one's complement](images/04-numbers/ones-complement.png)
+![one's complement](images/03-numbers/ones-complement.png)
 - Algorithm to encode:
   - Encode number using *n*-1 bits
   - If negative, flip all the bits
@@ -428,7 +428,7 @@ void Image::WriteInt (int value, FILE * fp) {
 	  <section data-markdown><script type="text/template">
 ## Two's complement
 - Avoids two representations for zero
-![two's complement](images/04-numbers/twos-complement.png)
+![two's complement](images/03-numbers/twos-complement.png)
 - A negative number has it's bits fipped, and then you add 1
   - This shifts all the numbers by one, avoiding two representations for zero
 - Most common means of representing integers in computers
@@ -503,7 +503,7 @@ void Image::WriteInt (int value, FILE * fp) {
 	  <section data-markdown><script type="text/template">
 ## Fixed Point
 - Radix point is fixed at some position
-![fixed point](images/04-numbers/fixed-point.png)
+![fixed point](images/03-numbers/fixed-point.png)
 - Pros:
   - Less computationally demanding
   - Good for CPUs that don't have an FPU
@@ -664,7 +664,7 @@ void Image::WriteInt (int value, FILE * fp) {
 
 	  <section data-markdown><script type="text/template">
 ## Converting a float
-Source code: [float_to_hex.cpp](code/04-numbers/float_to_hex.cpp.html) ([src](code/04-numbers/float_to_hex.cpp))
+Source code: [float_to_hex.cpp](code/03-numbers/float_to_hex.cpp.html) ([src](code/03-numbers/float_to_hex.cpp))
 ```
 #include <iostream>
 using namespace std;
@@ -684,7 +684,7 @@ Output: 0x42288000
 
 	  <section data-markdown><script type="text/template">
 ## Converting a float<br>from decimal to binary
-- Take 42.125 (see [float_to_hex.cpp](code/04-numbers/float_to_hex.cpp.html) ([src](code/04-numbers/float_to_hex.cpp)))
+- Take 42.125 (see [float_to_hex.cpp](code/03-numbers/float_to_hex.cpp.html) ([src](code/03-numbers/float_to_hex.cpp)))
   - Sign is 0 (it's positive)
   - Exponent: 42.125/2<sup>5</sup> = 42.125/32 = 1.31640625 (exactly)
     - Exponent is 5+127 = 132 (1000 0100<sub>b</sub>)
@@ -750,13 +750,13 @@ Output: 0x42288000
 
 	  <section data-markdown><script type="text/template">
 ## Dividing one by ten in binary
-![long division](images/04-numbers/long-division.png)
+![long division](images/03-numbers/long-division.png)
 Even common decimals like 0.1 cannot be represented exactly!
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Floating point precision in Java
-What gets printed? (source: [FloatTest.java](code/04-numbers/FloatTest.java.html) ([src](code/04-numbers/FloatTest.java)))
+What gets printed? (source: [FloatTest.java](code/03-numbers/FloatTest.java.html) ([src](code/03-numbers/FloatTest.java)))
 ```
 class FloatTest {
     public static void main (String args[]) {
@@ -852,7 +852,7 @@ bool foo = fabs (a-b) < EPSILON;
 - Failed to intercept incoming Iraqi scud missile (Feb 25, 1991)
   - Both travel at about Mach 5
 - 28 American soldiers killed
-![patriot missile launch](images/04-numbers/patriot-missile.jpg)
+![patriot missile launch](images/03-numbers/patriot-missile.jpg)
 - GAO report: [GAO/IMTEC-92-26 Patriot Missile Software Problem](http://www.fas.org/spp/starwars/gao/im92026.htm); image from [Wikipedia](http://en.wikipedia.org/wiki/File:Patriot_missile_launch_b.jpg)
 	  </script></section>
 
@@ -930,7 +930,7 @@ bool foo = fabs (a-b) < EPSILON;
   - Range from 2.98 \* 10<sup>-8</sup> to 65504 
   - Your graphics card uses this (if you have a good one)
   - 40 billion floating point operations per second (3 Ghz Pentium = 12 billion)
-![nvidia logo](images/04-numbers/nvidia.png)
+![nvidia logo](images/03-numbers/nvidia.png)
 	  </script></section>
 
 
