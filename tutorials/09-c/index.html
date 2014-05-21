@@ -15,14 +15,17 @@
 
 <hr />
 
-<h2>Hello World!</h2>
+<h2>Hello World, Hello World, Hello World!</h2>
 
 <p>A basic C program looks like the following:</p>
 
-<pre><code>/* hello world */
+<pre><code>/* hello world x3 */
 #include &lt;stdio.h&gt;
 int main() {
-    printf ("hello world!\n");
+    int i;
+    for (i = 0; i < 3; i++>) {
+        printf ("hello world!\n");
+    }
     return 0;
 }
 </code></pre>
@@ -31,7 +34,7 @@ int main() {
 - The <code>&lt;stdio.h&gt;</code> was #included (stdio stands for Standard I/O library), which is where <code>printf()</code> (and, later, <code>scanf()</code>) live.  These are the basic input and output routines in C, analogous to cout and cin in C++.  More on these functions are below
 - There are no namespaces in C
 - Comments are enclosed in <code>/*</code> and <code>*/</code>.  The <code>//</code> notation does not work in pure C, but most C compilers will allow it anyway</p>
-
+- The iterating variable <code>i</code> is not declared within the <code>for</code> statement in pure C, but most C compilers will allow it anyway.
 <p>To use <code>malloc()</code>, which is the C version of <code>new</code>, you will need to include the <code>&lt;stdlib.h&gt;</code> file (stdlib is the standard library) - more on <code>malloc()</code> is also below.</p>
 
 <hr />

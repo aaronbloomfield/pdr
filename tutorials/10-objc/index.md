@@ -30,7 +30,7 @@ int main (void) {
 }
 ```
 
-The only difference between that program and a normal C program is the use of `#import` instead of `#include`.  The compilation command is `clang helloworld.m -lobjc`.
+The only difference between that program and a normal C program is the use of `#import` instead of `#include`.  The compilation command is `clang helloworld.m -lobjc`. Also, just like pure C `for`-loops, in pure Objective-C the iterating variable should be declared before the `for`-statement.
 
 Note that for the first program in the tutorial below, you may have to link it to the math library: put `-lm` at the end of the compilation command, otherwise it will tell you that it cannot find the `sqrt()` implementation.
 
