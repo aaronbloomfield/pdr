@@ -9,16 +9,19 @@ This document assumes that you have a strong working knowledge of the most basic
 
 ------------------------------------------------------------
 
-Hello World!
+Hello World, Hello World, Hello World!
 ------------
 
 A basic C program looks like the following:
 
 ```
-/* hello world */
+/* hello world x3 */
 #include <stdio.h>
 int main() {
-    printf ("hello world!\n");
+    int i;
+    for (i = 0; i < 3; i++) {
+        printf ("hello world!\n");
+    }
     return 0;
 }
 ```
@@ -27,6 +30,7 @@ A few things to note about this program:
 - The `<stdio.h>` was #included (stdio stands for Standard I/O library), which is where `printf()` (and, later, `scanf()`) live.  These are the basic input and output routines in C, analogous to cout and cin in C++.  More on these functions are below
 - There are no namespaces in C
 - Comments are enclosed in `/*` and `*/`.  The `//` notation does not work in pure C, but most C compilers will allow it anyway
+- The iterating variable `i` is not declared within the `for` statement in pure C, but most C compilers will allow it anyway.
 
 To use `malloc()`, which is the C version of `new`, you will need to include the `<stdlib.h>` file (stdlib is the standard library) - more on `malloc()` is also below.
 
