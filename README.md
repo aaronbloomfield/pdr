@@ -16,7 +16,7 @@ Contents
 <a name="introduction"></a>Introduction
 ---------------------------------------
 
-This repository contains the materials for the course entitled "CS 2150: Program and Data Representation" in the [Computer Science Department](http://www.cs.virginia.edu) at the [University of Virginia](http://www.virginia.edu).  It will contain all of the slides, labs, exams, etc. used throughout the course.  The course description is [below](#description).  The github repository for this course is at [https://github.com/aaronbloomfield/pdr](https://github.com/aaronbloomfield/pdr).
+This repository contains the materials for the course entitled "CS 2150: Program and Data Representation" in the [Computer Science Department](http://www.cs.virginia.edu) at the [University of Virginia](http://www.virginia.edu).  It contains all of the slides, labs, exams, etc., used throughout the course.  The course description is [below](#description).  The github repository for this course is at [https://github.com/aaronbloomfield/pdr](https://github.com/aaronbloomfield/pdr).
 
 Students *currently* in the course should view the [cs2150/index.html](cs2150/index.html) ([md](cs2150/index.md)) file in the **cloned** repository (i.e., don't try to view it on github.com).  Note that many of the course materials are modified right before they are needed -- for example, this repository will be updated right before the semester starts.
 
@@ -38,7 +38,7 @@ Updates to the repository are restricted to approved individuals only, to preven
 
 At that point, I will receive a notice that a change has been submitted, and I'll look at it and hopefully accept it into the main repository.
 
-When you want to bring in the updates from the main pdr github repository into your cloned repository, you will need to follow the instructions [here](https://help.github.com/articles/syncing-a-fork).
+When you want to bring in the updates from the main pdr github repository into your forked repository, you will need to follow the instructions [here](https://help.github.com/articles/syncing-a-fork).
 
 
 <a name="contents"></a>Repository Contents
