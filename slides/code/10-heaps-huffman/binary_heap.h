@@ -2,17 +2,17 @@
 // Released under a CC BY-SA license
 // This code is part of the https://github.com/aaronbloomfield/pdr repository
 
-#ifndef PRIORITY_QUEUE_H
-#define PRIORITY_QUEUE_H
+#ifndef BINARY_HEAP_H
+#define BINARY_HEAP_H
 
 #include <vector>
 using namespace std;
 
-class priority_queue {
+class binary_heap {
 public:
-    priority_queue();
-    priority_queue(vector<int> vec);
-    ~priority_queue();
+    binary_heap();
+    binary_heap(vector<int> vec);
+    ~binary_heap();
 
     void insert(int x);
     int findMin();

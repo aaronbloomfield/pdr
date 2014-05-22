@@ -3,16 +3,16 @@
 // This code is part of the https://github.com/aaronbloomfield/pdr repository
 
 #include <iostream>
-#include "priority_queue.h"
+#include "binary_heap.h"
 using namespace std;
 
 // default constructor
-priority_queue::priority_queue() : heap_size(0) {
+binary_heap::binary_heap() : heap_size(0) {
     heap.push_back(0);
 }
 
 // builds a heap from an unsorted vector
-priority_queue::priority_queue(vector<int> vec) : heap_size(vec.size()) {
+binary_heap::binary_heap(vector<int> vec) : heap_size(vec.size()) {
     heap = vec;
     heap.push_back(heap[0]);
     heap[0] = 0;
@@ -21,17 +21,17 @@ priority_queue::priority_queue(vector<int> vec) : heap_size(vec.size()) {
 }
 
 // the destructor doesn't need to do much
-priority_queue::~priority_queue() {
+binary_heap::~binary_heap() {
 }
 
-void priority_queue::insert(int x) {
+void binary_heap::insert(int x) {
     // a vector push_back will resize as necessary
     heap.push_back(x);
     // move it up into the right position
     percolateUp(++heap_size);
 }
 
-void priority_queue::percolateUp(int hole) {
+void binary_heap::percolateUp(int hole) {
     // get the value just inserted
     int x = heap[hole];
     // while we haven't run off the top and while the
@@ -42,7 +42,7 @@ void priority_queue::percolateUp(int hole) {
     heap[hole] = x;
 }
 
-int priority_queue::deleteMin() {
+int binary_heap::deleteMin() {
     // make sure the heap is not empty
     if ( heap_size == 0 )
         throw "deleteMin() called on empty heap";
@@ -58,7 +58,7 @@ int priority_queue::deleteMin() {
     return ret;
 }
 
-void priority_queue::percolateDown(int hole) {
+void binary_heap::percolateDown(int hole) {
     // get the value to percolate down
     int x = heap[hole];
     // while there is a left child...
@@ -78,25 +78,25 @@ void priority_queue::percolateDown(int hole) {
     heap[hole] = x;
 }
 
-int priority_queue::findMin() {
+int binary_heap::findMin() {
     if ( heap_size == 0 )
         throw "findMin() called on empty heap";
     return heap[1];
 }
 
-unsigned int priority_queue::size() {
+unsigned int binary_heap::size() {
     return heap_size;
 }
 
-void priority_queue::makeEmpty() {
+void binary_heap::makeEmpty() {
     heap_size = 0;
 }
 
-bool priority_queue::isEmpty() {
+bool binary_heap::isEmpty() {
     return heap_size == 0;
 }
 
-void priority_queue::print() {
+void binary_heap::print() {
     cout << "(" << heap[0] << ") ";
     for ( int i = 1; i <= heap_size; i++ ) {
         cout << heap[i] << " ";

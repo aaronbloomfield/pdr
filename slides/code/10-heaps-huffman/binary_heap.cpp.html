@@ -6,7 +6,7 @@
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
-<title>priority_queue.cpp</title>
+<title>binary_heap.cpp</title>
 </head>
 <body bgcolor="white">
 <pre><tt><i><font color="#9A1900">// Code written by Aaron Bloomfield, 2014</font></i>
@@ -14,16 +14,16 @@ http://www.gnu.org/software/src-highlite">
 <i><font color="#9A1900">// This code is part of the https://github.com/aaronbloomfield/pdr repository</font></i>
 
 <b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
-<b><font color="#000080">#include</font></b> <font color="#FF0000">"priority_queue.h"</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">"binary_heap.h"</font>
 <b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
 
 <i><font color="#9A1900">// default constructor</font></i>
-priority_queue<font color="#990000">::</font><b><font color="#000000">priority_queue</font></b><font color="#990000">()</font> <font color="#990000">:</font> <b><font color="#000000">heap_size</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">)</font> <font color="#FF0000">{</font>
+binary_heap<font color="#990000">::</font><b><font color="#000000">binary_heap</font></b><font color="#990000">()</font> <font color="#990000">:</font> <b><font color="#000000">heap_size</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">)</font> <font color="#FF0000">{</font>
     heap<font color="#990000">.</font><b><font color="#000000">push_back</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font>
 <font color="#FF0000">}</font>
 
 <i><font color="#9A1900">// builds a heap from an unsorted vector</font></i>
-priority_queue<font color="#990000">::</font><b><font color="#000000">priority_queue</font></b><font color="#990000">(</font><font color="#008080">vector&lt;int&gt;</font> vec<font color="#990000">)</font> <font color="#990000">:</font> <b><font color="#000000">heap_size</font></b><font color="#990000">(</font>vec<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">())</font> <font color="#FF0000">{</font>
+binary_heap<font color="#990000">::</font><b><font color="#000000">binary_heap</font></b><font color="#990000">(</font><font color="#008080">vector&lt;int&gt;</font> vec<font color="#990000">)</font> <font color="#990000">:</font> <b><font color="#000000">heap_size</font></b><font color="#990000">(</font>vec<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">())</font> <font color="#FF0000">{</font>
     heap <font color="#990000">=</font> vec<font color="#990000">;</font>
     heap<font color="#990000">.</font><b><font color="#000000">push_back</font></b><font color="#990000">(</font>heap<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]);</font>
     heap<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
@@ -32,17 +32,17 @@ priority_queue<font color="#990000">::</font><b><font color="#000000">priority_q
 <font color="#FF0000">}</font>
 
 <i><font color="#9A1900">// the destructor doesn't need to do much</font></i>
-priority_queue<font color="#990000">::~</font><b><font color="#000000">priority_queue</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+binary_heap<font color="#990000">::~</font><b><font color="#000000">binary_heap</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
 <font color="#FF0000">}</font>
 
-<font color="#009900">void</font> priority_queue<font color="#990000">::</font><b><font color="#000000">insert</font></b><font color="#990000">(</font><font color="#009900">int</font> x<font color="#990000">)</font> <font color="#FF0000">{</font>
+<font color="#009900">void</font> binary_heap<font color="#990000">::</font><b><font color="#000000">insert</font></b><font color="#990000">(</font><font color="#009900">int</font> x<font color="#990000">)</font> <font color="#FF0000">{</font>
     <i><font color="#9A1900">// a vector push_back will resize as necessary</font></i>
     heap<font color="#990000">.</font><b><font color="#000000">push_back</font></b><font color="#990000">(</font>x<font color="#990000">);</font>
     <i><font color="#9A1900">// move it up into the right position</font></i>
     <b><font color="#000000">percolateUp</font></b><font color="#990000">(++</font>heap_size<font color="#990000">);</font>
 <font color="#FF0000">}</font>
 
-<font color="#009900">void</font> priority_queue<font color="#990000">::</font><b><font color="#000000">percolateUp</font></b><font color="#990000">(</font><font color="#009900">int</font> hole<font color="#990000">)</font> <font color="#FF0000">{</font>
+<font color="#009900">void</font> binary_heap<font color="#990000">::</font><b><font color="#000000">percolateUp</font></b><font color="#990000">(</font><font color="#009900">int</font> hole<font color="#990000">)</font> <font color="#FF0000">{</font>
     <i><font color="#9A1900">// get the value just inserted</font></i>
     <font color="#009900">int</font> x <font color="#990000">=</font> heap<font color="#990000">[</font>hole<font color="#990000">];</font>
     <i><font color="#9A1900">// while we haven't run off the top and while the</font></i>
@@ -53,7 +53,7 @@ priority_queue<font color="#990000">::~</font><b><font color="#000000">priority_
     heap<font color="#990000">[</font>hole<font color="#990000">]</font> <font color="#990000">=</font> x<font color="#990000">;</font>
 <font color="#FF0000">}</font>
 
-<font color="#009900">int</font> priority_queue<font color="#990000">::</font><b><font color="#000000">deleteMin</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+<font color="#009900">int</font> binary_heap<font color="#990000">::</font><b><font color="#000000">deleteMin</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
     <i><font color="#9A1900">// make sure the heap is not empty</font></i>
     <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> heap_size <font color="#990000">==</font> <font color="#993399">0</font> <font color="#990000">)</font>
         <b><font color="#0000FF">throw</font></b> <font color="#FF0000">"deleteMin() called on empty heap"</font><font color="#990000">;</font>
@@ -69,7 +69,7 @@ priority_queue<font color="#990000">::~</font><b><font color="#000000">priority_
     <b><font color="#0000FF">return</font></b> ret<font color="#990000">;</font>
 <font color="#FF0000">}</font>
 
-<font color="#009900">void</font> priority_queue<font color="#990000">::</font><b><font color="#000000">percolateDown</font></b><font color="#990000">(</font><font color="#009900">int</font> hole<font color="#990000">)</font> <font color="#FF0000">{</font>
+<font color="#009900">void</font> binary_heap<font color="#990000">::</font><b><font color="#000000">percolateDown</font></b><font color="#990000">(</font><font color="#009900">int</font> hole<font color="#990000">)</font> <font color="#FF0000">{</font>
     <i><font color="#9A1900">// get the value to percolate down</font></i>
     <font color="#009900">int</font> x <font color="#990000">=</font> heap<font color="#990000">[</font>hole<font color="#990000">];</font>
     <i><font color="#9A1900">// while there is a left child...</font></i>
@@ -89,25 +89,25 @@ priority_queue<font color="#990000">::~</font><b><font color="#000000">priority_
     heap<font color="#990000">[</font>hole<font color="#990000">]</font> <font color="#990000">=</font> x<font color="#990000">;</font>
 <font color="#FF0000">}</font>
 
-<font color="#009900">int</font> priority_queue<font color="#990000">::</font><b><font color="#000000">findMin</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+<font color="#009900">int</font> binary_heap<font color="#990000">::</font><b><font color="#000000">findMin</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
     <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> heap_size <font color="#990000">==</font> <font color="#993399">0</font> <font color="#990000">)</font>
         <b><font color="#0000FF">throw</font></b> <font color="#FF0000">"findMin() called on empty heap"</font><font color="#990000">;</font>
     <b><font color="#0000FF">return</font></b> heap<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">];</font>
 <font color="#FF0000">}</font>
 
-<font color="#009900">unsigned</font> <font color="#009900">int</font> priority_queue<font color="#990000">::</font><b><font color="#000000">size</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+<font color="#009900">unsigned</font> <font color="#009900">int</font> binary_heap<font color="#990000">::</font><b><font color="#000000">size</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
     <b><font color="#0000FF">return</font></b> heap_size<font color="#990000">;</font>
 <font color="#FF0000">}</font>
 
-<font color="#009900">void</font> priority_queue<font color="#990000">::</font><b><font color="#000000">makeEmpty</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+<font color="#009900">void</font> binary_heap<font color="#990000">::</font><b><font color="#000000">makeEmpty</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
     heap_size <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
 <font color="#FF0000">}</font>
 
-<font color="#009900">bool</font> priority_queue<font color="#990000">::</font><b><font color="#000000">isEmpty</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+<font color="#009900">bool</font> binary_heap<font color="#990000">::</font><b><font color="#000000">isEmpty</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
     <b><font color="#0000FF">return</font></b> heap_size <font color="#990000">==</font> <font color="#993399">0</font><font color="#990000">;</font>
 <font color="#FF0000">}</font>
 
-<font color="#009900">void</font> priority_queue<font color="#990000">::</font><b><font color="#000000">print</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+<font color="#009900">void</font> binary_heap<font color="#990000">::</font><b><font color="#000000">print</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
     cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"("</font> <font color="#990000">&lt;&lt;</font> heap<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">") "</font><font color="#990000">;</font>
     <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font> i <font color="#990000">&lt;=</font> heap_size<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
         cout <font color="#990000">&lt;&lt;</font> heap<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" "</font><font color="#990000">;</font>

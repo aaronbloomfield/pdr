@@ -7,44 +7,44 @@
 #include <stdlib.h>
 using namespace std;
 
-#include "priority_queue.h"
+#include "binary_heap.h"
 
-priority_queue pq;
+binary_heap bh;
 
 int main() {
     srand(time(NULL));
-    cout << "isEmpty(): " << pq.isEmpty() << endl;
+    cout << "isEmpty(): " << bh.isEmpty() << endl;
     try {
-        cout << pq.findMin() << endl;
+        cout << bh.findMin() << endl;
     } catch (const char *e) {
         cout << "Exception thrown: " << e << endl;
     }
     try {
-        cout << pq.deleteMin() << endl;
+        cout << bh.deleteMin() << endl;
     } catch (const char *e) {
         cout << "Exception thrown: " << e << endl;
     }
     cout << "inserting a value into the heap..." << endl;
-    pq.insert(rand() % 1000);
-    cout << "isEmpty(): " << pq.isEmpty() << endl;
+    bh.insert(rand() % 1000);
+    cout << "isEmpty(): " << bh.isEmpty() << endl;
     try {
-        cout << pq.findMin() << endl;
+        cout << bh.findMin() << endl;
     } catch (const char *e) {
         cout << "Exception thrown: " << e << endl;
     }
     for ( int i = 0; i < 40; i++ )
-        pq.insert(rand() % 1000);
-    cout << pq.findMin() << endl;
-    cout << "size: " << pq.size() << endl;
-    pq.print();
+        bh.insert(rand() % 1000);
+    cout << bh.findMin() << endl;
+    cout << "size: " << bh.size() << endl;
+    bh.print();
     cout << "deleting min..." << endl;
-    int min = pq.deleteMin();
+    int min = bh.deleteMin();
     cout << "\t" << min << endl;
-    cout << "size: " << pq.size() << endl;
-    pq.print();
-    cout << "isEmpty(): " << pq.isEmpty() << endl;
+    cout << "size: " << bh.size() << endl;
+    bh.print();
+    cout << "isEmpty(): " << bh.isEmpty() << endl;
     cout << "calling makeEmpty()" << endl;
-    pq.makeEmpty();
-    cout << "isEmpty(): " << pq.isEmpty() << endl;
+    bh.makeEmpty();
+    cout << "isEmpty(): " << bh.isEmpty() << endl;
     return 0;
 }
