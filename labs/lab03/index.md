@@ -180,20 +180,73 @@ We provide you with a number of input files that match the input shown at the en
 A token is a single 'thing' passed to the postfix calculator.  It can be an operator or a number, but is always separated by spaces.  Thus, it is an entire number that is passed to the calculator, and not part of a number.  The following code will read in the tokens for this program.
 
 ```
-while(true) {
-    string s;
-    cin >> s;
-    if(s == "")
-        break;
-    cout << s << endl;
+#include <iostream>
+using namespace std;
+
+int main() {
+	while(true) {
+    	string s;
+	    cin >> s;
+    	if(s == "") {
+        	break;
+        }
+	    cout << s << endl;
+	}
+    return 0;
 }
 ```
-
-Each string `s` that is read in must then be processed to determine if it's a number or an operator.  The difficult part is if a minus sign is the first character of the token -- it could be a subtraction sign or the beginning of a negative number (recall that the unary negation operator is the tilde).
+For the postfix calculator, each string `s` that is read in must then be processed to determine if it's a number or an operator.  The difficult part is if a minus sign is the first character of the token -- it could be a subtraction sign or the beginning of a negative number (recall that the unary negation operator is the tilde).
 
 You may find it useful to use the `isdigit()` or `atoi()` functions provided in `<cstdlib>` in this lab.  Try searching on the web for info on these routines.  The `atoi()` function operates on a C-style string, which is an array of characters. You can convert a C++ string to one of these by calling the `c_str()` method of the C++ string object.  More string functions can be found at [http//www.sgi.com/tech/stl/](http://www.sgi.com/tech/stl/).
 
-Also, to check if there is any more input, you can use the `good()` method in cin (i.e., `cin.good()`).
+The following illustrates the execution of the previous code:
+
+Let's assume we have a file `random-tokens.txt`, which contains:
+
+```
++ 2 3 isn't 2150 great??
+```
+
+```
+$ ./a.out < random-words.txt
++
+2
+3
+isn't
+2150
+great??
+```
+Note, as stated above, that this code reads in each space-delimited *token*. Another way this code can be run is by directly typing into `stdin`:
+
+```
+$ ./a.out
++ 2 3 isn't 2150 great??
++
+2
+3
+isn't
+2150
+great??
+^D
+```
+In the above execution, I typed in `+ 2 3 isn't 2150 great??`. After I hit enter, I had no more input that I wanted to provide, so I typed `control-d` (denoted by the `^D`). Control-d closes the stdin pipe by providing the EOF flag.
+
+Another way of accomplishing the above code to check if there is any more input is to use the `good()` method in cin (i.e., `cin.good()`):
+
+```
+#include <iostream>
+using namespace std;
+
+int main() {
+	while (cin.good()) {
+		string s;
+		cin >> s;
+		cout << s << endl;
+	}
+	return 0;
+}
+```
+They are two different ways of reading from stdin. In the former case, you use control-d to close stdin, whereas in the latter case, `cin.good()` takes care of that.
 
 ### Assumptions: ###
 
