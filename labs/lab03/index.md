@@ -199,13 +199,13 @@ For the postfix calculator, each string `s` that is read in must then be process
 
 You may find it useful to use the `isdigit()` or `atoi()` functions provided in `<cstdlib>` in this lab.  Try searching on the web for info on these routines.  The `atoi()` function operates on a C-style string, which is an array of characters. You can convert a C++ string to one of these by calling the `c_str()` method of the C++ string object.  More string functions can be found at [http//www.sgi.com/tech/stl/](http://www.sgi.com/tech/stl/).
 
-The following illustrates the execution of the previous code:
-
-Let's assume we have a file `random-tokens.txt`, which contains:
+The following illustrates the execution of the previous code.  Recall that this program reads in strings from the keyboard and prints them back out to the screen.  Let's assume we have a file `random-tokens.txt`, which contains:
 
 ```
 + 2 3 isn't 2150 great??
 ```
+
+When run, it looks like the following:
 
 ```
 $ ./a.out < random-words.txt
@@ -229,7 +229,7 @@ isn't
 great??
 ^D
 ```
-In the above execution, I typed in `+ 2 3 isn't 2150 great??`. After I hit enter, I had no more input that I wanted to provide, so I typed `control-d` (denoted by the `^D`). Control-d closes the stdin pipe by providing the EOF flag.
+In the above execution, what was typed in was `+ 2 3 isn't 2150 great??` (the second line). After the end of the line (i.e., after the Enter key was pressed), the program reads in that, and prints each token on a separate line.  Since there was no more into to provide, Control-D (shown as `^D`) was then pressed (the last line in that execution run).  Control-D closes the stdin pipe by providing the EOF flag.
 
 Another way of accomplishing the above code to check if there is any more input is to use the `good()` method in cin (i.e., `cin.good()`):
 
