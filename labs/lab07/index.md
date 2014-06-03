@@ -13,7 +13,7 @@ IBCM (Itty Bitty Computing Machine) is a simulated computer with a minimal instr
 
 ### Reading(s): ###
 
-1. Read the [slides on IBCM](../../slides/08-ibcm.html)
+1. Read the [slides on IBCM](../../slides/07-ibcm.html)
 2. Read [IBCM book chapter](../../book/ibcm-chapter.pdf) (PDF)
 3. Run IBCM code online [here](http://www.cs.virginia.edu/~cs216/ibcm/).  The sample code in the book chapter is also in the repo: [summation.ibcm](../../ibcm/summation.ibcm) and [array-summation.ibcm](../../ibcm/array-summation.ibcm)
 
@@ -109,6 +109,8 @@ Write a second IBCM program that finds the maximum value in an array of values.
 - The array base address is hard-coded into memory, meaning it's a pre-set value, and this is not obtained by user input.  You can have the array be all or part of the IBCM program, or a section of memory after the program with values that you have selected.
 - You may also hard code other values, such as the number of elements in the array, into your program
 - Before your program halts, it prints out the maximum value of the array
+
+You ***MUST*** iterate through the array by creating the array load instruction, similarly as was done in lecture in the [array-simulation.ibcm](../../ibcm/array-summation.ibcm) program.  You may ***NOT*** have a series of separate instructions to each load a separate value from the array -- such a program will receive zero credit.
 
 ### Submitting your code ###
 
