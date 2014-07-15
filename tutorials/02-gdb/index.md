@@ -284,7 +284,7 @@ Examining data
 
 - `print (var)` (or '`p`'): print the value in the given variable
 - `print *`: print the destination of a pointer
-- `x/(format) (var/address)`: format controls how the memory should be displayed, and consists of (up to) 3 components: a numeric count of how many elements to display; a single-character format, indicating how to interpret and display each element -- e.g. a few of the flags are `x/x` displays in hex, `x/d` displays in signed decimals, `x/c` displays in characters, `x/i` displays in instructions, and `x/s` displays in C strings; and a single-character size, indicating the size of each element to display -- e.g. b, h, w, and g, for one-, two-, four-, and eight-byte blocks, respectively.
+- `x/(format) (var/address)`: format controls how the memory should be displayed, and consists of (up to) 3 components: a numeric count of how many elements to display; a single-character format, indicating how to interpret and display each element -- e.g. a few of the flags are `x/x` displays in hex, `x/d` displays in signed decimals, `x/c` displays in characters, `x/i` displays in instructions, and `x/s` displays in C strings; and a single-character size, indicating the size of each element to display -- e.g. b, h, w, and g, for one-, two-, four-, and eight-byte blocks, respectively. You can have multiple at a time, e.g. `x/30x (var/address)` will display 30 elements in hexidecimal from the provided `var/address` OR if no `var/address` is provided, from the top of the stack.
 - `info locals`: display all the local variables and their values
 - `display (var)`: always display the value in (var) whenever the program pauses
 - `display`: show the variables that have been entered with 'display' and their numeric IDs
