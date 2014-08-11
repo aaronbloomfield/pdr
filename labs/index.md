@@ -45,9 +45,9 @@ The labs for this course:
 
 - [Lab 7: IBCM](lab07/index.html) (machine language)
   - C++ Source code: [bubblesort.cpp](lab07/bubblesort.cpp.html) ([src](lab07/bubblesort.cpp)), [counter.cpp](lab07/counter.cpp.html) ([src](lab07/counter.cpp))
-  - IBCM source code: [summation.ibcm](../../ibcm/summation.ibcm) and [array-summation.ibcm](../../ibcm/array-summation.ibcm)
+  - IBCM source code: [summation.ibcm](../ibcm/summation.ibcm) and [array-summation.ibcm](../ibcm/array-summation.ibcm)
   - The online emulator is [here](http://www.cs.virginia.edu/~cs216/ibcm), with mirrors [1](http://libra.cs.virginia.edu/~aaron/ibcm/) and [2](http://people.virginia.edu/~asb2t/ibcm/)
-  - The [IBCM book chapter](../../book/ibcm-chapter.pdf) (PDF)
+  - The [IBCM book chapter](../book/ibcm-chapter.pdf) (PDF)
 
 - [Lab 8: x86, part 1](lab08/index.html) (assembly language)
 
@@ -57,7 +57,7 @@ The labs for this course:
 - [Lab 9: x86, part 2](lab09/index.html) (assembly language)
   - Source code: [timer.cpp](lab06/code/timer.cpp.html) ([src](lab06/code/timer.cpp)) and  [timer.h](lab06/code/timer.h.html) ([src](lab06/code/timer.h)), both of which are from lab 6
   - Readings: the two x86 book chapters: [x86 Assembly](../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../book/x86-ccc-chapter.pdf)
-  - The tutorial, for the post-lab, is the [C tutorial](../../tutorials/09-c/index.html); you will need to implement the linkedlist.c program.
+  - The tutorial, for the post-lab, is the [C tutorial](../tutorials/09-c/index.html); you will need to implement the linkedlist.c program.
 
 - [Lab 10: Huffman coding](lab10/index.html)
   - Source code

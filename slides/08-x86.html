@@ -143,17 +143,17 @@ while(power is on) {
 <li>quadword = 8 bytes (DQ)</li>
 </ul>
 <p>&nbsp;</p>
-<p><code>x DUP (y)</code> directive means "repeat y, x times"</p>
+<p><code>TIMES x DB 0</code> directive means create x bytes of value zero</p>
 </td><td>
 <pre><code>section .data
-a	DB	23
-b	DW	?
-c	DD	3000
-d	DQ	-800
-x	DD	1, 2, 3
-y	DB	8 DUP(0)
-str	DB	`hello’, 0
-z	DD	50 DUP(?)</code></pre>
+a	DB	 	23
+b	DW	 	?
+c	DD	 	3000
+d	DQ	 	-800
+x	DD	 	1, 2, 3
+y	TIMES 8 DB	0
+str	DB	 	`hello’, 0
+z	TIMES 50 DD	?</code></pre>
 </td></tr></table>
 	  </section>
 
