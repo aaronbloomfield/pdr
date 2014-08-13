@@ -1,7 +1,7 @@
 PDR: Docs: How to convert a file to PDF
 =======================================
 
-[Go up to the main documents page](index.html)
+[Go up to the main documents page](index.html) ([md](index.md))
 
 For some of the lab deliverables, you will need to submit a PDF file.  You can edit this in any editor of your choice, as long as the file that you submit is a PDF.  There are a number of free ways to convert your file.
 

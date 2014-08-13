@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 2150: course-conclusion slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="../slides/reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="../slides/css/pdr.css">
+    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
+	if( window.location.search.match( /print-pdf/gi ) ) {
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = '../slides/reveal.js/css/print/pdf.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	}
+    </script>
+    <!--[if lt IE 9]>
+    <script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/dhtmlwindow.js"></script>
+    <script type="text/javascript" src="js/canvas.js"></script>
+    <link rel="stylesheet" href="../slides/css/dhtmlwindow.css" type="text/css">
+  </head>
+
+  <body onload="canvasinit()">
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	<section data-markdown id="cover"><script type="text/template">
+# CS 2150
+&nbsp;
+### Program and Data Representation
+### Spring 2014
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="course-conclusion.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png"></a></small></center>
+<center><small>Themes: [default](?#/cover), [sky](?theme=sky#/cover), [beige](?theme=beige#/cover), [simple](?theme=simple#/cover), [serif](?theme=serif#/cover), [night](?theme=night#/cover), [moon](?theme=moon#/cover), [solarized](?theme=solarized#/cover)</small></center>
+&nbsp;  
+&nbsp;  
+## Course Conclusion
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Course Objectives
+<small>
+
+- Understand program representation from the high-level programming language perspective down to the underlying machine level representation, including: number representation, operations, conditionals, and control structures
+- Be able to implement basic and advanced abstract data types in C++ including: linked lists, stacks, queues, hash tables, trees, and graphs
+- Be able to evaluate asymptotic time and space complexity analysis of programs and data structure implementations using Big-O, Big-Omega, and Big-Theta notation and assess the suitability of a data structure for a particular problem
+- Understand the basic program execution model and the underlying computer hardware and software (fetch-execute cycle, memory hierarchy, operating system, compiler)
+- Be able to implement basic program control and data structures in an assembly language (loops, conditionals, subroutines and parameter passing modes, arrays)
+
+</small>
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## What was new this spring
+- The [github repo](https://github.com/aaronbloomfield/pdr)!
+  - This necessitated re-transcribing *all* of the slides and labs, as well as generating a lot of new content
+  - As well as lots of last minute fixes for transcription errors
+- More students than ever; fewer TA resources than before
+- Streamlined grading, and (more or less) keeping up
+	</script></section>
+
+	<section>
+<h2>Lab comments</h2>
+<table class="transparent">
+<tr><td><ul>
+<li>Lab 1: Intro to C++</li>
+<li>Lab 2: Lists</li>
+<li>Lab 3: Stacks</li>
+<li>Lab 4: Data representation</li>
+<li>Lab 5: Trees</li>
+<li>Lab 6: Hashes</li>
+</ul></td><td style="width:50px"></td><td class="top"><ul>
+<li>Lab 7: IBCM</li>
+<li>Lab 8: x86 part 1</li>
+<li>Lab 9: x86 part 2</li>
+<li>Lab 10: Huffman</li>
+<li>Lab 11: Graphs</li>
+</td></tr></table>
+	</section>
+
+	<section data-markdown><script type="text/template">
+## What didn’t work well
+- A ridiculous number of snow days, which threw the lecture progress off quite a bit
+- Getting the regrades returned in a timely manner 
+- Falling behind a bit with the grading
+- Small course staff due to lack of departmental $$$
+- Not having as many readings available as I would have liked
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## What did work well
+- Submission and gradebook scripts!  This saved a HUGE amount of TA time, and streamlined submission and grading
+  - Especially the support ticket system
+- None of the labs had any major issues!  W00t!  (labs 6 & 10 do not count as “major issues”)
+- Use of the [github repo](https://github.com/aaronbloomfield/pdr), and almost no use of Collab
+- Behind-the-scenes stuff: TA management, organization, etc.
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Did I push too hard?
+- I got as many “things are going great” comments as “things are going terrible”
+- Part of the issues were the hard labs
+- This course is meant to be a lot of work: a gateway into the CS electives
+- The goal is to make you work efficiently, not necessarily more
+- In hindsight, considering how much you accomplished this semester, was it still too much work?
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Changes for next fall
+- Fewer students, apparently
+- Updates to the content in the [github repo](https://github.com/aaronbloomfield/pdr)
+- A new tool to handle the office hours queue
+- More book chapters; we only had a few this semester; I’d like to expand on the x86 one for next semester, and add a heap/Huffman chapter
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Let me know your comments!
+- Please send me your feedback!
+- Either by e-mail or anonymously or on the course surveys
+- Please fill out the course surveys!
+	</script></section>
+
+	<section>
+<h2>Have a great summer break!</h2>
+<img class="stretch" src="http://www.adamfishercox.com/calvinandhobbes/pageimages/laststrip.png" alt="calvin and hobbes">
+	</section>
+
+
+
+
+      </div>
+
+    </div>
+
+    <div id="calibratediv" style="display:none">
+      <div id="calibratecanvasdiv">
+        <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
+      </div>
+      <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
+    </div>
+
+    <script src="../slides/reveal.js/lib/js/head.min.js"></script>
+    <script src="../slides/reveal.js/js/reveal.min.js"></script>
+    <!-- You cannot, apparently, include this from another directory, hence why settings.js is reproduced here in full -->
+    <script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+  controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      slideNumber: true,
+      
+      theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+      transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+      
+      // Parallax scrolling
+      // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+      // parallaxBackgroundSize: '2100px 900px',
+      
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+		     { src: '../slides/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+		     { src: '../slides/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		     { src: '../slides/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		     { src: '../slides/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		     { src: '../slides/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+		     { src: '../slides/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+		     ]
+      });
+</script>
+
+  </body>
+</html>

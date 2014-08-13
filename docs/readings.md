@@ -1,7 +1,7 @@
 PDR: Docs: Readings
 ===================
 
-[Go up to the CS 2150 documents page](index.html)
+[Go up to the CS 2150 documents page](index.html) ([md](index.md))
 
 The readings are organized by topic, and listed with the appropriate slide sets and labs that go with that topic.  Note that for each topic, each bullet point is a SEPARATE alternative that (more or less) covers the same material - the intent is not for you to read all of bullet points for a single topic.
 

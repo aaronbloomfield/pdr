@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 2150: 12-memory slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="css/pdr.css">
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
+	if( window.location.search.match( /print-pdf/gi ) ) {
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = 'reveal.js/css/print/pdf.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	}
+    </script>
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/dhtmlwindow.js"></script>
+    <script type="text/javascript" src="js/canvas.js"></script>
+    <link rel="stylesheet" href="css/dhtmlwindow.css" type="text/css">
+  </head>
+
+  <body onload="canvasinit()">
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	<section data-markdown id="cover"><script type="text/template">
+# CS 2150
+&nbsp;
+### Program and Data Representation
+### Spring 2014
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="12-memory.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
+<center><small>Themes: [default](?#/cover), [sky](?theme=sky#/cover), [beige](?theme=beige#/cover), [simple](?theme=simple#/cover), [serif](?theme=serif#/cover), [night](?theme=night#/cover), [moon](?theme=moon#/cover), [solarized](?theme=solarized#/cover)</small></center>
+&nbsp;  
+&nbsp;  
+## Memory
+	</script></section>
+
+	  <section>
+<h2>CS 2150 Roadmap</h2>
+<table class="wide">
+  <tr><td colspan="3"><p class="center">Data Representation</p></td><td></td><td colspan="3"><p class="center">Program Representation</p></td></tr>
+  <tr>
+    <td class="top"><small>&nbsp;<br>&nbsp;<br>string<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>int x[3]<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>char x<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>0x9cd0f0ad<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>01101011</small></td>
+    <!-- image adapted from http://openclipart.org/detail/3677/arrow-left-right-by-torfnase -->
+    <td><img class="noborder" src="images/red-double-arrow.png" height="500" alt="vertical red double arrow"></td>
+    <td class="top">&nbsp;<br>Objects<br>&nbsp;<br>Arrays<br>&nbsp;<br>Primitive types<br>&nbsp;<br>Addresses<br>&nbsp;<br>bits</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="top"><small>&nbsp;<br>&nbsp;<br>Java code<br>&nbsp;<br>&nbsp;<br>C++ code<br>&nbsp;<br>&nbsp;<br>C code<br>&nbsp;<br>&nbsp;<br>x86 code<br>&nbsp;<br>&nbsp;<br>IBCM<br>&nbsp;<br>&nbsp;<br>hexadecimal</small></td>
+    <!-- image adapted from http://openclipart.org/detail/3677/arrow-left-right-by-torfnase -->
+    <td><img class="noborder" src="images/green-double-arrow.png" height="500" alt="vertical green double arrow"></td>
+    <td class="top">&nbsp;<br>High-level language<br>&nbsp;<br>Low-level language<br>&nbsp;<br>Assembly language<br>&nbsp;<br>Machine code</td>
+  </tr>
+</table>
+	  </section>
+
+	<section data-markdown><script type="text/template">
+# Contents
+&nbsp;  
+[Memory Hierarchy](#memory)  
+[String Functions](#strings)  
+	</script></section>
+
+
+
+	<section>
+
+	  <section id="memory" data-markdown><script type="text/template">
+# Memory Hierarchy
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Static/Dynamic Allocation
+- Static: space required is *known* before program starts (at "compile time")
+- Dynamic: space required is *not known* before the program starts
+  - Can be placed on either the stack or the heap
+  - But most often on the heap
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Memory in C
+- Stack
+  - Managed by compiler automatically
+  - Lifetime is determined by program scope
+  - Cannot outlive procedure return
+  - Address space grows "down" from the top
+- Heap
+  - Managed by programmer explicitly
+  - Lifetime is controlled by programmer
+  - Lives until freed by program
+  - Address space grows "up" from the bottom
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Memory Layout
+![memory diagram](images/12-memory/memory-diagram.svg)
+	  </script></section>
+
+	  <section>
+<h2>Memory Allocators</h2>
+
+<table>
+<tr style="background-color:transparent"><td colspan="2"></td><th colspan="2">Lifetime</th></tr>
+<tr style="background-color:transparent"><td colspan="2"></td><th>Scoped</th><th>Unlimited</th></tr>
+<tr><th>&nbsp;<br>Size</th><th>Known</th><td>local variable declarations</td><td>global, static variable declarations</td></tr>
+<tr><th></th><th>Unknown</th><td><code>alloca()</code></td><td><code>new</code> &amp; <code>malloc()</code></td></tr>
+</table>
+<p>&nbsp;</p>
+<p><code>alloca()</code>: like <code>malloc()</code>, but on the stack, not the heap (rarely used)</p>
+	  </section>
+
+	  <section>
+<h2>x86 callee epilogue</h2>
+<table class="transparent">
+<tr><td class="top"><pre><code>; subroutine epilogue
+
+; recover saved registers,
+; reverse of push order
+pop esi
+pop edi
+
+; deallocate local var(s)
+mov esp, ebp
+
+; restore base pointer
+pop ebp
+
+; return
+ret		</code></pre></td><td style="width:50px"></td>
+<td><img src="images/09-x86/x86-activation-record.svg" alt="activation record"></td></tr></table>
+<p>&nbsp;</p>
+<p>How would this change with <code>alloca()</code>?</p>
+
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## malloc
+
+```
+void *malloc (size_t size)
+```
+&nbsp;  
+
+- Returns an untyped pointer (can point to anything)
+  - Returns an address that is the location of at least size bytes of previously unused memory, and reserves that space.
+  - Returns `NULL` if there isn't enough space.
+- Parameter is the size in bytes
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## malloc Example
+```
+char *s = (char *) malloc (sizeof(*s) * n)
+```
+&nbsp;  
+
+- `(char *s)`
+  - Type cast: malloc only returns `void *`
+  - Cast tells compiler that program will use it as a `char *`
+- `sizeof(*s)`
+  - sizeof operator: Takes a type or expression, evaluates to the number of bytes to store it
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## How is the heap managed?
+- Compiled into the program's code is a heap directory management routine
+  - (it's in the libc library, really)
+  - This adds extra time to a new or `malloc()`
+- It allocates memory in two ways:
+  - Fixed-size-blocks allocation
+    - A free list of available blocks is kept, and the appropriate number are allocated
+  - Buddy blocks
+    - Blocks are divided into powers of 2, so the memory takes up the next highest power of 2 bytes
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What happens on dynamic memory allocation
+- A subroutine is invoked (for either `new` or `malloc()`)
+- The OS is consulted, if necessary, to allocate a *page* of memory
+  - This requires switching context back to the OS
+- The heap directory is examined
+  - And new space is determined somehow
+- The subroutine returns
+&nbsp;  
+
+How expensive would this be?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Why Do We Care About Memory?
+- Memory hierarchy, locality
+  - Computer architecture
+- What does this have to do with this course?
+  - Course: Program and data representation
+    - Does the memory hierarchy affect how we think about efficiency?
+    - What about data in memory?
+	  </script></section>
+
+	  <section>
+<h2>Memory Hierarchy, part 1</h2>
+<table class="transparent"><tr><td class="top">
+<img src="images/08-ibcm/memory-hierarchy.png" alt="memory hierarchy">
+</td><td>
+<ul>
+<li>CPU registers<ul>
+  <li>1 access per CPU cycle</li>
+  <li>3*10<sup>9</sup> accesses per sec</li>
+  <li>1 Kb total storage</li></ul></li>
+<li>Cache<ul>
+  <li>SDRAM: 10 ns</li>
+  <li>10<sup>8</sup> accesses per sec</li>
+  <li>Multiple levels possible</li>
+  <li>Higher levels are bigger and slower</li>
+  <li>1 Mb total storage</li></ul></li>
+</ul>
+</td>
+</tr></table>
+	  </section>
+
+	  <section>
+<h2>Memory Hierarchy, part 2</h2>
+<table class="transparent"><tr><td class="top">
+<img src="images/08-ibcm/memory-hierarchy.png" alt="memory hierarchy">
+</td><td class="top">
+<ul>
+<li>Main memory<ul>
+  <li>DRAM: 60 ns</li>
+  <li>2*10<sup>7</sup> accesses per sec</li>
+  <li>Limited by bus speeds</li>
+  <li>1 Gb total storage</li></ul></li>
+<li>Disk<ul>
+  <li>HDD speeds: 5 ms</li>
+  <li>200 accesses per sec</li>
+  <li>1 Tb total storage</li></ul></li>
+</ul>
+</td></tr></table>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Definitions
+- Processor Cycle
+  - (for our purposes) the time it takes to execute a "simple" instruction
+  - E.g., add eax, ebx
+- Memory access time (Latency)
+  - Time it takes to access memory
+- Memory cycle time
+  - Time to write to memory
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Some (older) numbers
+- Typical numbers for 1 GHz processor
+  - Cycle time 1 ns (10<sup>-9</sup>)
+  - L1 cache: accessed in 2-3 ns
+  - L2 cache: 20-50 ns
+  - Main memory: 60-100 ns
+  - Disk: 5-12 ms  (5 x 10<sup>6</sup> ns to 12 x 10<sup>6</sup> ns)
+1 ns = 10<sup>-9</sup> s; 1 ms = 10<sup>-3</sup> s
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## More Example Numbers: Memory Capacities
+- Page size: 1 Kb
+- L1 cache: 64 Kb
+- L2 cache: 0.5 Mb
+- L3 cache: 6 Mb
+- Main memory: 4 Gb
+- Disk: 1 Tb
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Caches
+- Content at each level is a *subset* of the level below
+- Cache Hit: address requested is in cache
+- Cache Miss: address requested is NOT in cache
+- Cache page size (chunk size, line size): the number of contiguous bytes that are moved into the cache at one time
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## So What?
+- Program speed is affected by where the data is
+- Data in main memory much slower to access than data in cache
+- Goal: attempt to reduce the number of access to slower levels
+- How?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Locality
+- Temporal Locality
+  - Locality in time
+  - If an item is referenced, it will tend to be referenced again soon
+- Spatial Locality
+  - Locality in space
+  - If an item is referenced, items whose addresses are close by will tend to be referenced soon
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## An Locality Example
+```
+int sum = 0;
+for ( int i = 0; i < n; i++ ) {
+    sum += a[i];
+}
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Example code
+Source code: [cache.cpp](code/12-memory/cache.cpp.html) ([src](code/12-memory/cache.cpp))
+```
+cout << "page size: " << getpagesize() << endl;
+int array[1024][1024];
+for ( int i = 0; i < 1024; i++ )
+    for ( int j = 0; j < 1024; j++ )
+        array[i][j] = 0;
+for ( int c = 0; c < 1024; c++ )
+    for ( int i = 0; i < 1024; i++ )
+        for ( int j = 0; j < 1024; j++ )
+            array[i][j]++;
+int sum = 0;
+for ( int i = 0; i < 1024; i++ )
+    for ( int j = 0; j < 1024; j++ )
+        sum += array[i][j];
+cout << sum << endl;
+```
+What if we swap each of the three `i` and `j` loops?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Execution of cache.cpp
+- On an older Linux machine (3 Ghz Intel)
+  - Page size is 4Kb (4096 bytes)
+  - With `i` as the outer and `j` as the inner: 2.7 seconds
+  - With `j` as the outer and `i` as the inner: 124.9 seconds
+  - A factor of almost 50!
+- On a more modern Linux machine (3.4 Ghz AMD)
+  - Page size is also 4Kb (4096 bytes)
+  - With `i` as the outer and `j` as the inner: 0.696 seconds
+  - With `j` as the outer and `i` as the inner: 31.4 seconds
+  - Also a factor of almost 50!
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Trends (Example)
+Over a 20 year period:
+
+- CPU speed:
+  - 600x speed
+- SRAM (cache memory):
+  - 200x capacity
+  - 100x latency
+- DRAM (main memory):
+  - 8,000x capacity
+  - 6x latency
+- Disk:
+  - 50,000x capacity
+  - 10x latency
+
+See any implications?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Who is Working on This Problem?
+- Architects
+- Compiler writers
+- Programmers
+- Operating system
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Locality and Data Structures
+- Which has better spatial locality?
+  - Between arrays or linked lists?
+- How does this change the big-theta analysis of the data structures?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Some actual numbers
+![memtest shot](images/12-memory/amd-bios-memtest.png)
+	  </script></section>
+
+	</section>
+
+
+
+	<section>
+
+	  <section id="strings" data-markdown><script type="text/template">
+# String Functions
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## C-strings
+- A C-style string is just a pointer to a `char`
+- Consider:
+```
+char *str = "hello world";
+```
+- This produces:
+![c string](graphs/c-string-1.svg)
+- Each byte is the ASCII encoding of the character
+- The last byte is binary zero
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## C-strings
+How we view it:
+![c string](graphs/c-string-1.svg)
+&nbsp;  
+How the computer views it:
+![c string](graphs/c-string-2.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## C-string functions
+
+- `int strlen(char *s)`: returns number of chars in `s`
+- `char *strcpy(char *s1, const char *s2)`: copies `s2` to `s1`
+- `char *strcat(char *s1, const char * s2)`: appends `s2` to `s1`
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## String Concatenation
+Source code: [strings.c](code/12-memory/strings.c.html) ([src](code/12-memory/strings.c))
+```
+int main (int argc, char **argv) {
+    int i = 0;
+    // allocate a space in memory for result
+    char *result = (char *) malloc (sizeof (*result));
+    *result = '\0';
+    while (i < argc) {  // while there are still arguments
+        char *s = (char *) malloc (sizeof (*s) *
+                (strlen(result) + strlen(argv[i]) + 1));
+        strcpy (s, result);
+        strcat (s, argv[i]);
+        result = s;
+        i++;
+    }
+    printf ("Concatenation: %s\n", result);
+    return 0;
+}
+```
+Do you see any memroy leak problems?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Concatenating Strings
+- Allocate space for result and next argument:
+```
+char *s = (char *) 
+   malloc (sizeof (*s) *
+          (strlen(result) + strlen(argv[i]) + 1));
+```
+  - Why +1?
+- Copy result to s:
+```
+strcpy (s, result); 
+```
+- Concatenate next argument:
+```
+strcat (s, argv[i]); 
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Reclaiming Storage
+- Storage allocated by malloc is reserved forever
+- Give it back by passing it to free
+
+&nbsp;  
+```
+void free(void *ptr); 
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Memory Leaks
+- Program fails to release memory when no longer needed
+- Consequences/symptoms
+  - Reduces amount of available memory, run out of memory available for allocation
+  - When all memory is in RAM, there will be an immediate failure 
+  - Virtual memory. Effect: once RAM has run out,   increasing use of hard disk
+    - Usually, the performance of the application and/or system will have become so slow that they will be considered to have failed
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Plugging Memory Leaks
+```
+while (i < argc) {  // while there are still arguments
+    char *s = (char *) malloc (sizeof (*s) *
+            (strlen(result) + strlen(argv[i]) + 1));
+    strcpy (s, result);
+    // add "free(result);" here...
+    strcat (s, argv[i]);
+    // ... or here
+    result = s;
+    i++;
+}
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Memory Leak
+- There is no reference to allocated storage 
+  - It can never be reached
+  - It can never be reclaimed
+- Losing references
+  - Variable goes out of scope
+  - Variable reassigned
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## When not to free...
+```
+  while (i < argc) {  // while there are still arguments
+      char *s = (char *) malloc (sizeof (*s) *
+             (strlen(result) + strlen(argv[i]) + 1));
+      strcpy (s, result);
+      // add "free(result)" here ...
+      strcat (s, argv[i]);
+      // or here
+      result = s;
+      i++;
+  }
+```
+- Upon close fo the `while` block, the scope of `s` is closed; should we
+`free(s)` first?
+  - No! `result` now references same storage
+- After the `result = s` line, there is no way to reach storage `result` previously pointed to
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## realloc
+```
+void *realloc(void *ptr, size_t size); 
+```
+- The `realloc()` function changes the size of the memory object pointed to by `ptr` to the size specified by `size` 
+- But it's risky...
+  - It changes the address of the pointer
+  - So other pointers pointing there are now pointing to invalid memory
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Running time of realloc
+- Time to reserve new space: &Theta;(1)
+- Time to copy old data into new space: 
+  - &Theta;(*n*) where *n* is the size of the old data
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Efficiency and Order Classes
+- Recall Big-Oh, Big-Theta, ...
+  - When are the differences meaningful?
+    - Inputs get large
+    - Difference in order class
+- High-level comparison tool
+  - Not as useful when:
+    - 2 solutions are in the same order class
+    - Fine-tuning of an algorithm is important
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Efficiency and Order Classes
+- Order classes based on counting statements
+  - Is this useful for fine-grained algorithm analysis?
+- One assumption
+  - All operations take the same amount of time
+  - Is this really true?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Factorial: Recursive
+```
+int factorial_recursive(int x) {
+    if (x <= 1)
+        return 1;
+    else
+        return x * factorial_recursive(x-1);
+}
+```
+- Note that we have to find the recursive value, and make a modification to it (multiply it by x) before we return it
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Factorial: Tail Recursion
+```
+int factorial_tail_recursive(int x, int y) {
+    if (x <= 1)
+        return y;
+    else
+        return factorial_tail_recursive(x-1, x*y);
+}
+```
+- Note that the answer to a given invocation is exactly the answer to the recursive call
+- How could we modify the calling convention for this? 
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Activation Records
+![activation record](images/09-x86/x86-activation-record.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Factorial: Loop Implementation
+```
+int factorial_loop(int x) {
+    int y = 1;
+    while (x > 1) {
+        y *= x;
+        x--;
+    }
+    return y;
+}
+```
+	  </script></section>
+
+	</section>
+
+
+
+      </div>
+
+    </div>
+
+    <div id="calibratediv" style="display:none">
+      <div id="calibratecanvasdiv">
+        <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
+      </div>
+      <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
+    </div>
+
+    <script src="reveal.js/lib/js/head.min.js"></script>
+    <script src="reveal.js/js/reveal.min.js"></script>
+    <script src="js/settings.js"></script>
+
+  </body>
+</html>

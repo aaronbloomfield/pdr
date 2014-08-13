@@ -30,3 +30,5 @@ Policy
 The goal is for the number of good regrades to *exceed* the number of frivolous regrades.  Any difference where there are more frivolous regrades than good regrades will result in a penalty of 1 point (NOT percentage point!) per extra frivolous regrades.  However, all students will have a grace of one frivolous regrade.  So the total penalty will be *f*-*g*-1 (if that number is zero or negative, then there is no penalty).
 
 For example, if you requested points back on 6 questions, 2 of which yielded points back and 4 of which didn't, then *q*=6, *g*=2, and *f*=4; the penalty would be one point (*f*-*g*-1 = 4-2-1 = 1).
+
+However, the 1 "grace point" will not count if the regrade is particularly obnoxious.  This is really meant for the case when the regrade asks for more points but does not specify the question -- meaning that they are just whining for more points without a (stated) valid reason.

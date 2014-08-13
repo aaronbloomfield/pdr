@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>test_fib.s</title>
+</head>
+<body bgcolor="white">
+<pre><tt><b><font color="#000080">	.file</font></b>	<font color="#FF0000">"test_fib.cpp"</font>
+<b><font color="#000080">	.intel</font></b>_syntax noprefix
+<b><font color="#000080">	.local</font></b>	_ZStL<font color="#993399">8</font>__ioinit
+<b><font color="#000080">	.comm</font></b>	_ZStL<font color="#993399">8</font>__ioinit<font color="#990000">,</font><font color="#993399">1</font><font color="#990000">,</font><font color="#993399">1</font>
+<b><font color="#000080">	.text</font></b>
+<b><font color="#000080">	.globl</font></b>	fib
+<b><font color="#000080">	.type</font></b>	fib<font color="#990000">,</font> @function
+<b><font color="#000080">fib:</font></b>
+<b><font color="#000080">.LFB966</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_startproc
+	<b><font color="#0000FF">push</font></b>	<font color="#009900">ebp</font>
+<b><font color="#000080">	.cfi</font></b>_def_cfa_offset <font color="#993399">8</font>
+<b><font color="#000080">	.cfi</font></b>_offset <font color="#993399">5</font><font color="#990000">,</font> <font color="#990000">-</font><font color="#993399">8</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">ebp</font><font color="#990000">,</font> <font color="#009900">esp</font>
+<b><font color="#000080">	.cfi</font></b>_def_cfa_register <font color="#993399">5</font>
+	<b><font color="#0000FF">push</font></b>	<font color="#009900">ebx</font>
+	<b><font color="#0000FF">sub</font></b>	<font color="#009900">esp</font><font color="#990000">,</font> <font color="#993399">20</font>
+	<b><font color="#0000FF">cmp</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">8</font><font color="#990000">],</font> <font color="#993399">0</font>
+	<b><font color="#0000FF">je</font></b>	<font color="#990000">.</font>L<font color="#993399">2</font>
+<b><font color="#000080">	.cfi</font></b>_offset <font color="#993399">3</font><font color="#990000">,</font> <font color="#990000">-</font><font color="#993399">12</font>
+	<b><font color="#0000FF">cmp</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">8</font><font color="#990000">],</font> <font color="#993399">1</font>
+	<b><font color="#0000FF">jne</font></b>	<font color="#990000">.</font>L<font color="#993399">3</font>
+<b><font color="#000080">.L2</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#993399">1</font>
+	<b><font color="#0000FF">jmp</font></b>	<font color="#990000">.</font>L<font color="#993399">4</font>
+<b><font color="#000080">.L3</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">8</font><font color="#990000">]</font>
+	<b><font color="#0000FF">sub</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#993399">1</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#009900">eax</font>
+	<b><font color="#0000FF">call</font></b>	fib
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">ebx</font><font color="#990000">,</font> <font color="#009900">eax</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">8</font><font color="#990000">]</font>
+	<b><font color="#0000FF">sub</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#993399">2</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#009900">eax</font>
+	<b><font color="#0000FF">call</font></b>	fib
+	<b><font color="#0000FF">add</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#009900">ebx</font>
+<b><font color="#000080">.L4</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">add</font></b>	<font color="#009900">esp</font><font color="#990000">,</font> <font color="#993399">20</font>
+	<b><font color="#0000FF">pop</font></b>	<font color="#009900">ebx</font>
+<b><font color="#000080">	.cfi</font></b>_restore <font color="#993399">3</font>
+	<b><font color="#0000FF">pop</font></b>	<font color="#009900">ebp</font>
+<b><font color="#000080">	.cfi</font></b>_def_cfa <font color="#993399">4</font><font color="#990000">,</font> <font color="#993399">4</font>
+<b><font color="#000080">	.cfi</font></b>_restore <font color="#993399">5</font>
+	<b><font color="#0000FF">ret</font></b>
+<b><font color="#000080">	.cfi</font></b>_endproc
+<b><font color="#000080">.LFE966</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.size</font></b>	fib<font color="#990000">,</font> <font color="#990000">.-</font>fib
+<b><font color="#000080">	.section</font></b>	<font color="#990000">.</font>rodata
+<b><font color="#000080">.LC0</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.string</font></b>	<font color="#FF0000">"Enter value for fib(): "</font>
+<b><font color="#000080">.LC1</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.string</font></b>	<font color="#FF0000">"The result is: "</font>
+<b><font color="#000080">	.text</font></b>
+<b><font color="#000080">	.globl</font></b>	main
+<b><font color="#000080">	.type</font></b>	main<font color="#990000">,</font> @function
+<b><font color="#000080">main:</font></b>
+<b><font color="#000080">.LFB967</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_startproc
+	<b><font color="#0000FF">push</font></b>	<font color="#009900">ebp</font>
+<b><font color="#000080">	.cfi</font></b>_def_cfa_offset <font color="#993399">8</font>
+<b><font color="#000080">	.cfi</font></b>_offset <font color="#993399">5</font><font color="#990000">,</font> <font color="#990000">-</font><font color="#993399">8</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">ebp</font><font color="#990000">,</font> <font color="#009900">esp</font>
+<b><font color="#000080">	.cfi</font></b>_def_cfa_register <font color="#993399">5</font>
+	<b><font color="#0000FF">and</font></b>	<font color="#009900">esp</font><font color="#990000">,</font> <font color="#990000">-</font><font color="#993399">16</font>
+	<b><font color="#0000FF">sub</font></b>	<font color="#009900">esp</font><font color="#990000">,</font> <font color="#993399">32</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">24</font><font color="#990000">],</font> <font color="#993399">0</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">4</font><font color="#990000">],</font> <b><font color="#0000FF">OFFSET</font></b> FLAT<font color="#990000">:.</font>LC<font color="#993399">0</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <b><font color="#0000FF">OFFSET</font></b> FLAT<font color="#990000">:</font>_ZSt<font color="#993399">4</font>cout
+	<b><font color="#0000FF">call</font></b>	_ZStlsISt<font color="#993399">11</font>char_traitsIcEERSt<font color="#993399">13</font>basic_ostreamIcT_ES<font color="#993399">5</font>_PKc
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">4</font><font color="#990000">],</font> <b><font color="#0000FF">OFFSET</font></b> FLAT<font color="#990000">:</font>_ZSt<font color="#993399">4</font>endlIcSt<font color="#993399">11</font>char_traitsIcEERSt<font color="#993399">13</font>basic_ostreamIT_T<font color="#993399">0</font>_ES<font color="#993399">6</font>_
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#009900">eax</font>
+	<b><font color="#0000FF">call</font></b>	_ZNSolsEPFRSoS_E
+	<b><font color="#0000FF">lea</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">24</font><font color="#990000">]</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">4</font><font color="#990000">],</font> <font color="#009900">eax</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <b><font color="#0000FF">OFFSET</font></b> FLAT<font color="#990000">:</font>_ZSt<font color="#993399">3</font>cin
+	<b><font color="#0000FF">call</font></b>	_ZNSirsERi
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">24</font><font color="#990000">]</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#009900">eax</font>
+	<b><font color="#0000FF">call</font></b>	fib
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">28</font><font color="#990000">],</font> <font color="#009900">eax</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">4</font><font color="#990000">],</font> <b><font color="#0000FF">OFFSET</font></b> FLAT<font color="#990000">:.</font>LC<font color="#993399">1</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <b><font color="#0000FF">OFFSET</font></b> FLAT<font color="#990000">:</font>_ZSt<font color="#993399">4</font>cout
+	<b><font color="#0000FF">call</font></b>	_ZStlsISt<font color="#993399">11</font>char_traitsIcEERSt<font color="#993399">13</font>basic_ostreamIcT_ES<font color="#993399">5</font>_PKc
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">edx</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">28</font><font color="#990000">]</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">4</font><font color="#990000">],</font> <font color="#009900">edx</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#009900">eax</font>
+	<b><font color="#0000FF">call</font></b>	_ZNSolsEi
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">4</font><font color="#990000">],</font> <b><font color="#0000FF">OFFSET</font></b> FLAT<font color="#990000">:</font>_ZSt<font color="#993399">4</font>endlIcSt<font color="#993399">11</font>char_traitsIcEERSt<font color="#993399">13</font>basic_ostreamIT_T<font color="#993399">0</font>_ES<font color="#993399">6</font>_
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#009900">eax</font>
+	<b><font color="#0000FF">call</font></b>	_ZNSolsEPFRSoS_E
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#993399">0</font>
+	<b><font color="#0000FF">leave</font></b>
+<b><font color="#000080">	.cfi</font></b>_restore <font color="#993399">5</font>
+<b><font color="#000080">	.cfi</font></b>_def_cfa <font color="#993399">4</font><font color="#990000">,</font> <font color="#993399">4</font>
+	<b><font color="#0000FF">ret</font></b>
+<b><font color="#000080">	.cfi</font></b>_endproc
+<b><font color="#000080">.LFE967</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.size</font></b>	main<font color="#990000">,</font> <font color="#990000">.-</font>main
+<b><font color="#000080">	.type</font></b>	_Z<font color="#993399">41</font>__static_initialization_and_destruction<font color="#993399">_0</font>ii<font color="#990000">,</font> @function
+_Z<font color="#993399">41</font>__static_initialization_and_destruction<font color="#993399">_0</font>ii<font color="#990000">:</font>
+<b><font color="#000080">.LFB976</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_startproc
+	<b><font color="#0000FF">push</font></b>	<font color="#009900">ebp</font>
+<b><font color="#000080">	.cfi</font></b>_def_cfa_offset <font color="#993399">8</font>
+<b><font color="#000080">	.cfi</font></b>_offset <font color="#993399">5</font><font color="#990000">,</font> <font color="#990000">-</font><font color="#993399">8</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">ebp</font><font color="#990000">,</font> <font color="#009900">esp</font>
+<b><font color="#000080">	.cfi</font></b>_def_cfa_register <font color="#993399">5</font>
+	<b><font color="#0000FF">sub</font></b>	<font color="#009900">esp</font><font color="#990000">,</font> <font color="#993399">24</font>
+	<b><font color="#0000FF">cmp</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">8</font><font color="#990000">],</font> <font color="#993399">1</font>
+	<b><font color="#0000FF">jne</font></b>	<font color="#990000">.</font>L<font color="#993399">6</font>
+	<b><font color="#0000FF">cmp</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">12</font><font color="#990000">],</font> <font color="#993399">65535</font>
+	<b><font color="#0000FF">jne</font></b>	<font color="#990000">.</font>L<font color="#993399">6</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <b><font color="#0000FF">OFFSET</font></b> FLAT<font color="#990000">:</font>_ZStL<font color="#993399">8</font>__ioinit
+	<b><font color="#0000FF">call</font></b>	_ZNSt<font color="#993399">8</font>ios_base<font color="#993399">4</font>InitC<font color="#993399">1</font>Ev
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <b><font color="#0000FF">OFFSET</font></b> FLAT<font color="#990000">:</font>_ZNSt<font color="#993399">8</font>ios_base<font color="#993399">4</font>InitD<font color="#993399">1</font>Ev
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">8</font><font color="#990000">],</font> <b><font color="#0000FF">OFFSET</font></b> FLAT<font color="#990000">:</font>__dso_handle
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">4</font><font color="#990000">],</font> <b><font color="#0000FF">OFFSET</font></b> FLAT<font color="#990000">:</font>_ZStL<font color="#993399">8</font>__ioinit
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#009900">eax</font>
+	<b><font color="#0000FF">call</font></b>	__cxa_atexit
+<b><font color="#000080">.L6</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">leave</font></b>
+<b><font color="#000080">	.cfi</font></b>_restore <font color="#993399">5</font>
+<b><font color="#000080">	.cfi</font></b>_def_cfa <font color="#993399">4</font><font color="#990000">,</font> <font color="#993399">4</font>
+	<b><font color="#0000FF">ret</font></b>
+<b><font color="#000080">	.cfi</font></b>_endproc
+<b><font color="#000080">.LFE976</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.size</font></b>	_Z<font color="#993399">41</font>__static_initialization_and_destruction<font color="#993399">_0</font>ii<font color="#990000">,</font> <font color="#990000">.-</font>_Z<font color="#993399">41</font>__static_initialization_and_destruction<font color="#993399">_0</font>ii
+<b><font color="#000080">	.type</font></b>	_GLOBAL__sub_I_fib<font color="#990000">,</font> @function
+_GLOBAL__sub_I_fib<font color="#990000">:</font>
+<b><font color="#000080">.LFB977</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_startproc
+	<b><font color="#0000FF">push</font></b>	<font color="#009900">ebp</font>
+<b><font color="#000080">	.cfi</font></b>_def_cfa_offset <font color="#993399">8</font>
+<b><font color="#000080">	.cfi</font></b>_offset <font color="#993399">5</font><font color="#990000">,</font> <font color="#990000">-</font><font color="#993399">8</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">ebp</font><font color="#990000">,</font> <font color="#009900">esp</font>
+<b><font color="#000080">	.cfi</font></b>_def_cfa_register <font color="#993399">5</font>
+	<b><font color="#0000FF">sub</font></b>	<font color="#009900">esp</font><font color="#990000">,</font> <font color="#993399">24</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">4</font><font color="#990000">],</font> <font color="#993399">65535</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#993399">1</font>
+	<b><font color="#0000FF">call</font></b>	_Z<font color="#993399">41</font>__static_initialization_and_destruction<font color="#993399">_0</font>ii
+	<b><font color="#0000FF">leave</font></b>
+<b><font color="#000080">	.cfi</font></b>_restore <font color="#993399">5</font>
+<b><font color="#000080">	.cfi</font></b>_def_cfa <font color="#993399">4</font><font color="#990000">,</font> <font color="#993399">4</font>
+	<b><font color="#0000FF">ret</font></b>
+<b><font color="#000080">	.cfi</font></b>_endproc
+<b><font color="#000080">.LFE977</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.size</font></b>	_GLOBAL__sub_I_fib<font color="#990000">,</font> <font color="#990000">.-</font>_GLOBAL__sub_I_fib
+<b><font color="#000080">	.section</font></b>	<font color="#990000">.</font>ctors<font color="#990000">,</font><font color="#FF0000">"aw"</font><font color="#990000">,</font>@progbits
+<b><font color="#000080">	.align</font></b> <font color="#993399">4</font>
+<b><font color="#000080">	.long</font></b>	_GLOBAL__sub_I_fib
+<b><font color="#000080">	.weakref</font></b>	_ZL<font color="#993399">20</font>__gthrw_pthread_oncePiPFvvE<font color="#990000">,</font>pthread_once
+<b><font color="#000080">	.weakref</font></b>	_ZL<font color="#993399">27</font>__gthrw_pthread_getspecificj<font color="#990000">,</font>pthread_getspecific
+<b><font color="#000080">	.weakref</font></b>	_ZL<font color="#993399">27</font>__gthrw_pthread_setspecificjPKv<font color="#990000">,</font>pthread_setspecific
+<b><font color="#000080">	.weakref</font></b>	_ZL<font color="#993399">22</font>__gthrw_pthread_createPmPK<font color="#993399">14</font>pthread_attr_tPFPvS<font color="#993399">3</font>_ES<font color="#993399">3</font>_<font color="#990000">,</font>pthread_create
+<b><font color="#000080">	.weakref</font></b>	_ZL<font color="#993399">20</font>__gthrw_pthread_joinmPPv<font color="#990000">,</font>pthread_join
+<b><font color="#000080">	.weakref</font></b>	_ZL<font color="#993399">21</font>__gthrw_pthread_equalmm<font color="#990000">,</font>pthread_equal
+<b><font color="#000080">	.weakref</font></b>	_ZL<font color="#993399">20</font>__gthrw_pthread_selfv<font color="#990000">,</font>pthread_self
+<b><font color="#000080">	.weakref</font></b>	_ZL<font color="#993399">22</font>__gthrw_pthread_detachm<font color="#990000">,</font>pthread_detach
+<b><font color="#000080">	.weakref</font></b>	_ZL<font color="#993399">22</font>__gthrw_pthread_cancelm<font color="#990000">,</font>pthread_cancel
+<b><font color="#000080">	.weakref</font></b>	_ZL<font color="#993399">19</font>__gthrw_sched_yieldv<font color="#990000">,</font>sched_yield
+<b><font color="#000080">	.weakref</font></b>	_ZL<font color="#993399">26</font>__gthrw_pthread_mutex_lockP<font color="#993399">15</font>pthread_mutex_t<font color="#990000">,</font>pthread_mutex_lock
+<b><font color="#000080">	.weakref</font></b>	_ZL<font color="#993399">29</font>__gthrw_pthread_mutex_trylockP<font color="#993399">15</font>pthread_mutex_t<font color="#990000">,</font>pthread_mutex_trylock
+<b><font color="#000080">	.weakref</font></b>	_ZL<font color="#993399">31</font>__gthrw_pthread_mutex_timedlockP<font color="#993399">15</font>pthread_mutex_tPK<font color="#993399">8</font>timespec<font color="#990000">,</font>pthread_mutex_timedlock
+<b><font color="#000080">	.weakref</font></b>	_ZL<font color="#993399">28</font>__gthrw_pthread_mutex_unlockP<font color="#993399">15</font>pthread_mutex_t<font color="#990000">,</font>pthread_mutex_unlock
+<b><font color="#000080">	.weakref</font></b>	_ZL<font color="#993399">26</font>__gthrw_pthread_mutex_initP<font color="#993399">15</font>pthread_mutex_tPK<font color="#993399">19</font>pthread_mutexattr_t<font color="#990000">,</font>pthread_mutex_init
+<b><font color="#000080">	.weakref</font></b>	_ZL<font color="#993399">29</font>__gthrw_pthread_mutex_destroyP<font color="#993399">15</font>pthread_mutex_t<font color="#990000">,</font>pthread_mutex_destroy
+<b><font color="#000080">	.weakref</font></b>	_ZL<font color="#993399">30</font>__gthrw_pthread_cond_broadcastP<font color="#993399">14</font>pthread_cond_t<font color="#990000">,</font>pthread_cond_broadcast
+<b><font color="#000080">	.weakref</font></b>	_ZL<font color="#993399">27</font>__gthrw_pthread_cond_signalP<font color="#993399">14</font>pthread_cond_t<font color="#990000">,</font>pthread_cond_signal
+<b><font color="#000080">	.weakref</font></b>	_ZL<font color="#993399">25</font>__gthrw_pthread_cond_waitP<font color="#993399">14</font>pthread_cond_tP<font color="#993399">15</font>pthread_mutex_t<font color="#990000">,</font>pthread_cond_wait
+<b><font color="#000080">	.weakref</font></b>	_ZL<font color="#993399">30</font>__gthrw_pthread_cond_timedwaitP<font color="#993399">14</font>pthread_cond_tP<font color="#993399">15</font>pthread_mutex_tPK<font color="#993399">8</font>timespec<font color="#990000">,</font>pthread_cond_timedwait
+<b><font color="#000080">	.weakref</font></b>	_ZL<font color="#993399">28</font>__gthrw_pthread_cond_destroyP<font color="#993399">14</font>pthread_cond_t<font color="#990000">,</font>pthread_cond_destroy
+<b><font color="#000080">	.weakref</font></b>	_ZL<font color="#993399">26</font>__gthrw_pthread_key_createPjPFvPvE<font color="#990000">,</font>pthread_key_create
+<b><font color="#000080">	.weakref</font></b>	_ZL<font color="#993399">26</font>__gthrw_pthread_key_deletej<font color="#990000">,</font>pthread_key_delete
+<b><font color="#000080">	.weakref</font></b>	_ZL<font color="#993399">30</font>__gthrw_pthread_mutexattr_initP<font color="#993399">19</font>pthread_mutexattr_t<font color="#990000">,</font>pthread_mutexattr_init
+<b><font color="#000080">	.weakref</font></b>	_ZL<font color="#993399">33</font>__gthrw_pthread_mutexattr_settypeP<font color="#993399">19</font>pthread_mutexattr_ti<font color="#990000">,</font>pthread_mutexattr_settype
+<b><font color="#000080">	.weakref</font></b>	_ZL<font color="#993399">33</font>__gthrw_pthread_mutexattr_destroyP<font color="#993399">19</font>pthread_mutexattr_t<font color="#990000">,</font>pthread_mutexattr_destroy
+<b><font color="#000080">	.ident</font></b>	<font color="#FF0000">"GCC: (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3"</font>
+<b><font color="#000080">	.section</font></b>	<font color="#990000">.</font>note<font color="#990000">.</font>GNU<font color="#990000">-</font>stack<font color="#990000">,</font><font color="#FF0000">""</font><font color="#990000">,</font>@progbits
+</tt></pre>
+</body>
+</html>

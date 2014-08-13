@@ -1,0 +1,36 @@
+digraph G {
+	graph [fontname = "Helvetica"];
+	node [fontname = "Helvetica",shape=circle,width=0.6];
+	edge [fontname = "Helvetica"];
+
+	10 -> 20;
+	m10 [label="", width=0.1, style=invis];
+	10 -> m10 [style=invis]
+	10 -> 80;
+	{rank=same 20 -> m10 -> 80 [style=invis]};
+
+	20 -> 40;
+	m20 [label="", width=0.1, style=invis];
+	20 -> m20 [style=invis]
+	20 -> 60;
+	{rank=same 40 -> m20 -> 60 [style=invis]};
+
+	40 -> 50;
+	m40 [label="", width=0.1, style=invis];
+	40 -> m40 [style=invis]
+	40 -> 700;
+	{rank=same 50 -> m40 -> 700 [style=invis]};
+
+	80 -> 99;
+	m80 [label="", width=0.1, style=invis];
+	80 -> m80 [style=invis]
+	80 -> 85;
+	{rank=same 99 -> m80 -> 85 [style=invis]};
+
+	60 -> 65;
+	m60 [label="", width=0.1, style=invis];
+	60 -> m60 [style=invis]
+	r60 [label="", width=0.1, style=invis];
+	60 -> r60 [style=invis]
+	{rank=same 65 -> m60 -> r60 [style=invis]};
+}

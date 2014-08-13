@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>binary_heap.h</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">// Code written by Aaron Bloomfield, 2014</font></i>
+<i><font color="#9A1900">// Released under a CC BY-SA license</font></i>
+<i><font color="#9A1900">// This code is part of the https://github.com/aaronbloomfield/pdr repository</font></i>
+
+<b><font color="#000080">#ifndef</font></b> BINARY_HEAP_H
+<b><font color="#000080">#define</font></b> BINARY_HEAP_H
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;vector&gt;</font>
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<b><font color="#0000FF">class</font></b> <font color="#008080">binary_heap</font> <font color="#FF0000">{</font>
+<b><font color="#0000FF">public</font></b><font color="#990000">:</font>
+    <b><font color="#000000">binary_heap</font></b><font color="#990000">();</font>
+    <b><font color="#000000">binary_heap</font></b><font color="#990000">(</font><font color="#008080">vector&lt;int&gt;</font> vec<font color="#990000">);</font>
+    <font color="#990000">~</font><b><font color="#000000">binary_heap</font></b><font color="#990000">();</font>
+
+    <font color="#009900">void</font> <b><font color="#000000">insert</font></b><font color="#990000">(</font><font color="#009900">int</font> x<font color="#990000">);</font>
+    <font color="#009900">int</font> <b><font color="#000000">findMin</font></b><font color="#990000">();</font>
+    <font color="#009900">int</font> <b><font color="#000000">deleteMin</font></b><font color="#990000">();</font>
+    <font color="#009900">unsigned</font> <font color="#009900">int</font> <b><font color="#000000">size</font></b><font color="#990000">();</font>
+    <font color="#009900">void</font> <b><font color="#000000">makeEmpty</font></b><font color="#990000">();</font>
+    <font color="#009900">bool</font> <b><font color="#000000">isEmpty</font></b><font color="#990000">();</font>
+    <font color="#009900">void</font> <b><font color="#000000">print</font></b><font color="#990000">();</font>
+
+<b><font color="#0000FF">private</font></b><font color="#990000">:</font>
+    <font color="#008080">vector&lt;int&gt;</font> heap<font color="#990000">;</font>
+    <font color="#009900">unsigned</font> <font color="#009900">int</font> heap_size<font color="#990000">;</font>
+
+    <font color="#009900">void</font> <b><font color="#000000">percolateUp</font></b><font color="#990000">(</font><font color="#009900">int</font> hole<font color="#990000">);</font>
+    <font color="#009900">void</font> <b><font color="#000000">percolateDown</font></b><font color="#990000">(</font><font color="#009900">int</font> hole<font color="#990000">);</font>
+<font color="#FF0000">}</font><font color="#990000">;</font>
+
+<b><font color="#000080">#endif</font></b>
+</tt></pre>
+</body>
+</html>

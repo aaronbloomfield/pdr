@@ -1,0 +1,64 @@
+digraph G {
+	graph [fontname = "Helvetica"];
+	node [fontname = "Helvetica",shape=circle,width=0.6];
+	edge [fontname = "Helvetica"];
+
+	A [xlabel="1"];
+	B [xlabel="2"];
+	C [xlabel="3"];
+	D [xlabel="4"];
+	E [xlabel="5"];
+	F [xlabel="6"];
+	G [xlabel="7"];
+	H [xlabel="8"];
+	I [xlabel="9"];
+	J [xlabel="10"];
+	K [xlabel="11"];
+	L [xlabel="12"];
+	
+	
+	A -> B;
+	mA [label="", width=0.1, style=invis];
+	A -> mA [style=invis]
+	A -> C;
+	{rank=same B -> mA -> C [style=invis]};
+
+	B -> D;
+	mB [label="", width=0.1, style=invis];
+	B -> mB [style=invis]
+	B -> E;
+	{rank=same D -> mB -> E [style=invis]};
+
+	D -> H;
+	mD [label="", width=0.1, style=invis];
+	D -> mD [style=invis]
+	D -> I;
+	{rank=same H -> mD -> I [style=invis]};
+
+	E -> J;
+	mE [label="", width=0.1, style=invis];
+	E -> mE [style=invis]
+	E -> K;
+	{rank=same J -> mE -> K [style=invis]};
+
+	C -> F;
+	mC [label="", width=0.1, style=invis];
+	C -> mC [style=invis]
+	C -> G;
+	{rank=same F -> mC -> G [style=invis]};
+
+	F -> L;
+	mF [label="", width=0.1, style=invis];
+	F -> mF [style=invis]
+	rF [label="", width=0.1, style=invis];
+	F -> rF [style=invis]
+	{rank=same L -> mF -> rF [style=invis]};
+
+	lG [label="", width=0.1, style=invis];
+	G -> lG [style=invis]
+	mG [label="", width=0.1, style=invis];
+	G -> mG [style=invis]
+	rG [label="", width=0.1, style=invis];
+	G -> rG [style=invis]
+	{rank=same lG -> mG -> rG [style=invis]};
+}

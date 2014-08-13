@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>test_abs_c.s</title>
+</head>
+<body bgcolor="white">
+<pre><tt><b><font color="#000080">	.file</font></b>	<font color="#FF0000">"test_abs_c.c"</font>
+<b><font color="#000080">	.intel</font></b>_syntax noprefix
+<b><font color="#000080">	.text</font></b>
+<b><font color="#000080">	.globl</font></b>	_Z<font color="#993399">14</font>absolute_valuei
+<b><font color="#000080">	.type</font></b>	_Z<font color="#993399">14</font>absolute_valuei<font color="#990000">,</font> @function
+_Z<font color="#993399">14</font>absolute_valuei<font color="#990000">:</font>
+<b><font color="#000080">.LFB0</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_startproc
+	<b><font color="#0000FF">push</font></b>	<font color="#009900">ebp</font>
+<b><font color="#000080">	.cfi</font></b>_def_cfa_offset <font color="#993399">8</font>
+<b><font color="#000080">	.cfi</font></b>_offset <font color="#993399">5</font><font color="#990000">,</font> <font color="#990000">-</font><font color="#993399">8</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">ebp</font><font color="#990000">,</font> <font color="#009900">esp</font>
+<b><font color="#000080">	.cfi</font></b>_def_cfa_register <font color="#993399">5</font>
+	<b><font color="#0000FF">cmp</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">8</font><font color="#990000">],</font> <font color="#993399">0</font>
+	<b><font color="#0000FF">jns</font></b>	<font color="#990000">.</font>L<font color="#993399">2</font>
+	<b><font color="#0000FF">neg</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">8</font><font color="#990000">]</font>
+<b><font color="#000080">.L2</font></b><font color="#990000">:</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">ebp</font><font color="#990000">+</font><font color="#993399">8</font><font color="#990000">]</font>
+	<b><font color="#0000FF">pop</font></b>	<font color="#009900">ebp</font>
+<b><font color="#000080">	.cfi</font></b>_def_cfa <font color="#993399">4</font><font color="#990000">,</font> <font color="#993399">4</font>
+<b><font color="#000080">	.cfi</font></b>_restore <font color="#993399">5</font>
+	<b><font color="#0000FF">ret</font></b>
+<b><font color="#000080">	.cfi</font></b>_endproc
+<b><font color="#000080">.LFE0</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.size</font></b>	_Z<font color="#993399">14</font>absolute_valuei<font color="#990000">,</font> <font color="#990000">.-</font>_Z<font color="#993399">14</font>absolute_valuei
+<b><font color="#000080">	.section</font></b>	<font color="#990000">.</font>rodata
+<b><font color="#000080">.LC0</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.string</font></b>	<font color="#FF0000">"Enter a value: "</font>
+<b><font color="#000080">.LC1</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.string</font></b>	<font color="#FF0000">"%d"</font>
+<b><font color="#000080">.LC2</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.string</font></b>	<font color="#FF0000">"The result is: %d</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
+<b><font color="#000080">	.text</font></b>
+<b><font color="#000080">	.globl</font></b>	main
+<b><font color="#000080">	.type</font></b>	main<font color="#990000">,</font> @function
+<b><font color="#000080">main:</font></b>
+<b><font color="#000080">.LFB1</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.cfi</font></b>_startproc
+	<b><font color="#0000FF">push</font></b>	<font color="#009900">ebp</font>
+<b><font color="#000080">	.cfi</font></b>_def_cfa_offset <font color="#993399">8</font>
+<b><font color="#000080">	.cfi</font></b>_offset <font color="#993399">5</font><font color="#990000">,</font> <font color="#990000">-</font><font color="#993399">8</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">ebp</font><font color="#990000">,</font> <font color="#009900">esp</font>
+<b><font color="#000080">	.cfi</font></b>_def_cfa_register <font color="#993399">5</font>
+	<b><font color="#0000FF">and</font></b>	<font color="#009900">esp</font><font color="#990000">,</font> <font color="#990000">-</font><font color="#993399">16</font>
+	<b><font color="#0000FF">sub</font></b>	<font color="#009900">esp</font><font color="#990000">,</font> <font color="#993399">32</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">24</font><font color="#990000">],</font> <font color="#993399">0</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <b><font color="#0000FF">OFFSET</font></b> FLAT<font color="#990000">:.</font>LC<font color="#993399">0</font>
+	<b><font color="#0000FF">call</font></b>	puts
+	<b><font color="#0000FF">lea</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">24</font><font color="#990000">]</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">4</font><font color="#990000">],</font> <font color="#009900">eax</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <b><font color="#0000FF">OFFSET</font></b> FLAT<font color="#990000">:.</font>LC<font color="#993399">1</font>
+	<b><font color="#0000FF">call</font></b>	scanf
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">24</font><font color="#990000">]</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <font color="#009900">eax</font>
+	<b><font color="#0000FF">call</font></b>	_Z<font color="#993399">14</font>absolute_valuei
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">28</font><font color="#990000">],</font> <font color="#009900">eax</font>
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">28</font><font color="#990000">]</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">+</font><font color="#993399">4</font><font color="#990000">],</font> <font color="#009900">eax</font>
+	<b><font color="#0000FF">mov</font></b>	DWORD <b><font color="#0000FF">PTR</font></b> <font color="#990000">[</font><font color="#009900">esp</font><font color="#990000">],</font> <b><font color="#0000FF">OFFSET</font></b> FLAT<font color="#990000">:.</font>LC<font color="#993399">2</font>
+	<b><font color="#0000FF">call</font></b>	printf
+	<b><font color="#0000FF">mov</font></b>	<font color="#009900">eax</font><font color="#990000">,</font> <font color="#993399">0</font>
+	<b><font color="#0000FF">leave</font></b>
+<b><font color="#000080">	.cfi</font></b>_restore <font color="#993399">5</font>
+<b><font color="#000080">	.cfi</font></b>_def_cfa <font color="#993399">4</font><font color="#990000">,</font> <font color="#993399">4</font>
+	<b><font color="#0000FF">ret</font></b>
+<b><font color="#000080">	.cfi</font></b>_endproc
+<b><font color="#000080">.LFE1</font></b><font color="#990000">:</font>
+<b><font color="#000080">	.size</font></b>	main<font color="#990000">,</font> <font color="#990000">.-</font>main
+<b><font color="#000080">	.ident</font></b>	<font color="#FF0000">"GCC: (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3"</font>
+<b><font color="#000080">	.section</font></b>	<font color="#990000">.</font>note<font color="#990000">.</font>GNU<font color="#990000">-</font>stack<font color="#990000">,</font><font color="#FF0000">""</font><font color="#990000">,</font>@progbits
+</tt></pre>
+</body>
+</html>

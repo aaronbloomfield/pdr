@@ -1,0 +1,755 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 2150: 02-lists slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="css/pdr.css">
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
+	if( window.location.search.match( /print-pdf/gi ) ) {
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = 'reveal.js/css/print/pdf.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	}
+    </script>
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/dhtmlwindow.js"></script>
+    <script type="text/javascript" src="js/canvas.js"></script>
+    <link rel="stylesheet" href="css/dhtmlwindow.css" type="text/css">
+  </head>
+
+  <body onload="canvasinit()">
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	<section data-markdown><script type="text/template">
+# CS 2150
+&nbsp;
+### Program and Data Representation
+### Spring 2014
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="02-lists.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
+<center><small>Themes: [default](?#/cover), [sky](?theme=sky#/cover), [beige](?theme=beige#/cover), [simple](?theme=simple#/cover), [serif](?theme=serif#/cover), [night](?theme=night#/cover), [moon](?theme=moon#/cover), [solarized](?theme=solarized#/cover)</small></center>
+&nbsp;  
+&nbsp;
+## Lists (and a bit more C++)
+	</script></section>
+
+	  <section>
+<h2>CS 2150 Roadmap</h2>
+<table class="wide">
+  <tr><td colspan="3"><p class="center">Data Representation</p></td><td></td><td colspan="3"><p class="center">Program Representation</p></td></tr>
+  <tr>
+    <td class="top"><small>&nbsp;<br>&nbsp;<br>string<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>int x[3]<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>char x<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>0x9cd0f0ad<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>01101011</small></td>
+    <!-- image adapted from http://openclipart.org/detail/3677/arrow-left-right-by-torfnase -->
+    <td><img class="noborder" src="images/red-double-arrow.png" height="500" alt="vertical red double arrow"></td>
+    <td class="top">&nbsp;<br>Objects<br>&nbsp;<br>Arrays<br>&nbsp;<br>Primitive types<br>&nbsp;<br>Addresses<br>&nbsp;<br>bits</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="top"><small>&nbsp;<br>&nbsp;<br>Java code<br>&nbsp;<br>&nbsp;<br>C++ code<br>&nbsp;<br>&nbsp;<br>C code<br>&nbsp;<br>&nbsp;<br>x86 code<br>&nbsp;<br>&nbsp;<br>IBCM<br>&nbsp;<br>&nbsp;<br>hexadecimal</small></td>
+    <!-- image adapted from http://openclipart.org/detail/3677/arrow-left-right-by-torfnase -->
+    <td><img class="noborder" src="images/green-double-arrow.png" height="500" alt="vertical green double arrow"></td>
+    <td class="top">&nbsp;<br>High-level language<br>&nbsp;<br>Low-level language<br>&nbsp;<br>Assembly language<br>&nbsp;<br>Machine code</td>
+  </tr>
+</table>
+	  </section>
+
+	<section data-markdown><script type="text/template">
+# Contents
+&nbsp;  
+[Standard Template Library: vector](#/vector)  
+[C++ Templates](#/templates)  
+[Abstract Data Types: Lists](#/adts)  
+[Stacks](#/stacks)  
+[Queues](#/queues)  
+[Standard Template Library: string](#/string)  
+	</script></section>
+
+	<section>
+
+<section data-markdown id="vector"><script type="text/template">
+# Standard Template Library: vector
+</script></section>
+
+	<section data-markdown><script type="text/template">
+## Standard Template Library (STL)
+- C++ package that implements standard data structures
+  - `vector `
+    - Replacement for C++ built-in array
+    - Array problems:
+      - Can't be copied with =
+      - Does not have a notion of capacity
+      - No index validity checking
+  - `string`
+    - Replacement for C-style strings (array of characters)
+    - C strings (char array or char*) cannot compare correctly with ==
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Vector
+- Growable (can change size)
+- `#include <vector>`
+- Operations:
+  - Object & operator[](int idx): no bounds checking
+  - Object & at(int idx): does do bounds checking
+  - int capacity() const
+  - void reserve(int newCapacity)
+  - int size() const
+  - void clear()
+  - bool empty()
+  - void push_back()
+  - void pop_back()
+  - const Object & back() const
+  - const Object & front() const
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Iterators
+- iterator
+  - Nested type that represents *position*
+  - STL's `vector` provides:
+    - iterator begin()
+    - iterator end()
+  - iterator methods
+    - itr++, ++itr 	// advances itr
+    - *itr	//returns ref to obj at itr loc.
+    - itr1==itr2	// true if same location
+    - itr1!=itr2	//true if different location
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Iterators (cont'd)
+- Vector operations that require iterators
+  - iterator insert(iterator pos, const Object &x)
+  - iterator erase(iterator pos)
+  - iterator erase(iterator start, iterator end)
+	</script></section>
+
+	</section>
+
+	<section>
+
+<section data-markdown id="templates"><script type="text/template">
+# C++ Templates
+</script></section>
+
+	<section data-markdown><script type="text/template">
+## Templates
+- Java
+  - Uses inheritance to write type-independent code
+  - Or generics
+- C++ 
+  - Uses templates (which is what generics were based on)
+    - function templates
+    - class templates
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Function Templates
+- Not an actual function
+- A pattern for a function; expanded by compiler as needed
+- Example (source code: [findMax.cpp](code/02-lists/findMax.cpp.html) ([src](code/02-lists/findMax.cpp)))
+```
+// Return the maximum item in array a. 
+// Comparable objects must provide operator<
+template <typename Comparable> 
+const Comparable & findMax (const vector<Comparable> & a) {
+    int maxIndex = 0; 
+    for( int i = 1; i < a.size(); i++ ) 
+        if( a[ maxIndex ] < a[ i ] ) // note the use of '<'
+            maxIndex = i; 
+    return a[ maxIndex ]; 
+}
+```
+&#14;	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Example, continued
+Source code: [findMax.cpp](code/02-lists/findMax.cpp.html) ([src](code/02-lists/findMax.cpp))
+```
+#include <iostream>
+#include <vector>
+#include <string>
+#include "IntCell.h"
+using namespace std;
+
+// findMax() defined here
+
+int main() {
+  vector<int> v1(37);
+  vector<double> v2(40);
+  vector<string> v3(80);
+  vector<IntCell> v4(75);
+  // intervening code omitted for space reasons...
+  cout << findMax(v1) << endl;  // ok: Comparable = int
+  cout << findMax(v2) << endl;  // ok: Comparable = double
+  cout << findMax(v3) << endl;  // ok: Comparable = string
+  cout << findMax(v4) << endl;  // Illegal: no operator<
+}
+```
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## findMax() Expanded
+What the compiler is doing with the findMax() function template...
+
+(no external source code)
+```
+const int & findMax(const vector<int> &a) {
+    /* body of function template */
+}
+const double & findMax(const vector<double> &a) {
+    /* body of function template */
+}
+const string & findMax(const vector<string> &a) {
+    /* body of function template */
+}
+const IntCell & findMax(const vector<IntCell> &a) {
+    /* body of function template */
+    /* this is where the error is, but it is not in your 
+       code, exactly -- it's in the code the compiler 
+       expanded from your code */
+}
+```
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Class Templates
+- Similar to function templates, but for classes
+  - Not an actual class
+  - But instead a pattern for a class
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## ObjectCell Template Class
+Source code: [objectCell.h](code/02-lists/objectCell.h.html) ([src](code/02-lists/objectCell.h))
+```
+#ifndef OBJECTCELL_H
+#define OBJECTCELL_H
+
+template <typename Object>
+class ObjectCell {
+  public:
+    ObjectCell(const Object & initValue = Object()) 
+				: storedValue(initValue) {}
+    const Object & getValue() const {return storedValue;}
+    void setValue(const Object & val) {storedValue = val;}
+  private:
+    Object storedValue;
+};
+
+#endif
+```
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Using ObjectCell class template
+Source code: [objectCellMain.cpp](code/02-lists/objectCellMain.cpp.html) ([src](code/02-lists/objectCellMain.cpp))
+```
+#include <iostream>
+#include "objectCell.h"
+using namespace std;
+
+int main() {
+    ObjectCell<int> m1;
+    ObjectCell<double> m2(3.14);
+    m1.setValue(37);
+    m2.setValue(m2.getValue() * 2);
+    // ...
+    return 0;
+}
+```
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Templates Miscellaneous
+- Templates can have more than one parameter
+```
+template <typename Keytype, typename ValueType>
+Map<string,Date> birthdays;
+```
+- Can have non-type parameters
+```
+template <typename Object, int size>
+class Buffer{};
+```
+- Can have default values for the template parameters
+```
+template <typename Object=char, int size=4096>
+class Buffer{};
+```
+
+- But non-type parameters must be compile-time constants
+```
+Buffer<> buf1;             // Buffer<char,4096>
+Buffer<int> buf2;          // Buffer<int,4096>
+Buffer<string,2048> buf2;  // Buffer<string,2048>
+```
+	</script></section>
+
+	</section>
+
+	<section>
+
+<section data-markdown id="adts"><script type="text/template">
+# Abstract Data Types: Lists
+</script></section>
+
+	<section data-markdown><script type="text/template">
+## Abstract Data Types (ADT)
+- Set of objects with a set of operations that can be performed on the object
+  - Definition of a type
+- A C++ class is a way to implement an ADT, as is a Java class, or C code (which is not object oriented)
+- An ADT hides implementation details from the programs that use them
+  - Why?
+- We are using lists as an example to show *what* an ADT is
+  - You all should be familiar with lists from your previous courses...
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Lists ADT
+- A<sub>0</sub>, A<sub>1</sub>, A<sub>2</sub>, A<sub>3</sub>, ...
+  - size N
+  - empty list – list of size 0
+  - A<sub>0</sub> is the first element
+  - A<sub>i</sub> follows A<sub>i-1</sub>
+  - position of element A<sub>i</sub> is i
+- Extended the language by adding a new type
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## List ADT Operations
+- printList: print the list
+- makeEmpty: make the list empty
+- find: find the position of an item in the list
+- insert: insert an item to the list
+- remove: remove an item from the list
+- findKth: find the element at position K
+- next: return the position of the successor
+- previous: return the position of the predecessor
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Example
+- Given the list:
+```
+34, 12, 52, 16, 12
+A0, A1, A2, A3, A4
+```
+- find(52)
+  - returns 2 (position of 52)
+- insert(x,2)
+  - 34, 12, x, 52, 16, 12
+- remove(52)
+- find(1)
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Implementation of Lists: Arrays
+![Lists ADT as an array](images/02-lists/lists-adt-arrays.png)
+
+- Fixed capacity
+- Operations
+  - printList, find: linear time
+  - findKth: constant time
+  - insert and delete: varies (can be constant, but worst case linear)
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## List Implementation: Linked List
+![Lists ADT as an array](images/02-lists/lists-adt-linked.png)
+
+- Nodes
+  - element
+  - link (pointer!) to node containing successor
+- Operations
+  - printList, find, findKth: linear time
+  - remove: change one pointer and call `delete`, so constant time
+  - insert: get a new node (`new`) and adjust 2 pointers, so constant time
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Linked List insert()
+- Special cases
+  - inserting at the front (head)
+  - inserting at the end (tail)
+  - removing last node
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## List Iterators
+- Why are they needed?
+  - position is needed for some list operations
+    - find()
+    - insert()
+    - remove()
+  - ListItr
+    - maintains notion of position by maintaining a pointer to a particular ListNode
+	</script></section>
+
+	</section>
+
+	<section>
+
+<section data-markdown id="stacks"><script type="text/template">
+# Stacks
+</script></section>
+
+	<section data-markdown><script type="text/template">
+## Stacks
+- List with restrictions
+  - Insert, delete, and find can only be performed at one end (the 'top') of the list
+  - LIFO: Last In, First Out
+- Attributes
+  - top of stack
+- Fundamental operations (all constant time)
+  - Push: insert at the top
+  - Pop: delete from the top
+    - on empty stack causes exception
+  - Top: examine top of the stack
+    - on empty stack causes exception
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Stack Applications
+- Undo operation in programs
+- Operator precedence
+- Symbol balancing (i.e., parenthesis matching)
+- Postfix calculators
+- Activation records: list of active procedures and associated information
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Stack Applications: Symbol Balancing
+- Read characters to end of file
+  - If opening symbol, push onto stack
+  - If closing symbol
+    - If stack empty, then error
+    - Else pop stack
+    - If popped symbol is not corresponding opening symbol, then error
+  - If at EOF and stack not empty, then error
+	</script></section>
+
+	<section>
+<h2>Stack Applications: Symbol Balancing</h2>
+<p>&nbsp;</p>
+<code>{ ( [ ] ) }</code>
+<p>&nbsp;</p>
+<code class="fragment">{ [ ( } ) ]</code>
+<script type="text/javascript">insertCanvas();</script>
+</section>
+
+	<section data-markdown><script type="text/template">
+## Stack Applications: Postfix Calculator
+- For each input token (number or operator)...
+  - If number
+    - Push number onto stack
+  - If operator
+    - Apply operator to 2 numbers popped from stack, then place result on stack
+	</script></section>
+
+	<section>
+<h2>Stack Applications: Postfix Calculator</h2>
+<p>&nbsp;</p>
+<code>6 5 2 3 + 8 * + 3 + *</code>
+<script type="text/javascript">insertCanvas();</script>
+	</section>
+
+	<section data-markdown><script type="text/template">
+## Stack Applications: Activation Records
+![Activation record image](images/02-lists/stack-activation-record.png)
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Stack: Linked List Implementation
+- Singly linked list
+  - Push: insert at front of list
+  - Pop: remove element at front of list
+  - Top: examine element at front of list
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Stack: Linked List Implementation
+(no external source code)
+```
+#include "StackNode.h"
+
+// assumes a stack of ints stored in StackNodes
+class Stack {
+  public:
+    Stack();                // constructor    
+    ~Stack();               // destructor
+    bool isEmpty() const;   // checks for empty
+    void push(int value);   // push value onto stack
+    void pop();             // pop top of stack
+    int top() const;        // returns topOfStack
+
+  private:
+    StackNode *head;        // like a ListNode...
+};
+```
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Stack: Linked List Implementation Diagram
+![Stack (linked list) UML diagram](images/02-lists/stack-linked-uml-diagram.png)
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Stack: Array Implementation
+- Avoids links, *most* operations are very fast (constant) time
+- Stack consists of
+  - theArray     // the stack
+ - topOfStack    // current index of the top
+- Push
+  - Increment topOfStack
+  - Set theArray[topOfStack] to value
+- Pop
+  - Set return value = theArray[topOfStack]
+  - Decrement topOfStack
+- Top
+  - Return theArray[topOfStack]
+- But what if the array is full?
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Stack: Vector Implementation
+(no external source code)
+```
+#include <vector>
+using namespace std;
+
+class Stack {
+  public:
+    Stack();                // constructor    
+    ~Stack();               // destructor
+    bool isEmpty() const;   // checks for empty
+    void push(int value);   // push value onto stack
+    void pop();             // pop top of stack
+    int top() const;        // returns topOfStack
+    
+  private:
+    vector<int> theStack;    
+};
+```
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Stack: Vector Implementation
+- isEmpty(): return true if stack is size 0
+```
+bool Stack::isEmpty() const {
+    return (theStack.size()==0);
+}
+```
+- push() implementation
+```
+void Stack::push(int value){
+    theStack.push_back(value);
+}
+```
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## How Would You Implement these?
+- pop()
+      void Stack::pop(){
+      
+      }
+- top()
+      int Stack::top(){
+      
+      }
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Stacks
+- List with restrictions
+  - Insert and delete can only be performed at the top of the list
+  - LIFO: Last In, First Out
+- Attributes
+  - top of stack
+- Fundamental operations (constant time)
+  - Push
+  - Pop
+  - Top
+- Implementations
+  - Linked List
+  - Array
+  - Vector (variable size "array")
+	</script></section>
+
+	</section>
+
+	<section>
+
+<section data-markdown id="queues"><script type="text/template">
+# Queues
+</script></section>
+
+	<section data-markdown><script type="text/template">
+## Queues
+- Also a list, but inserts happen at one end (the "back") and removals happen at the other end (the "front")
+- Operations
+  - Enqueue: insert at one end (back)
+  - Dequeue: delete at other end (front)
+  - FIFO: First In, First Out
+- Linked list and array implementations are constant time for all operations
+  - (minor disclaimer about a full vector queue...)
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Implementations
+- Array or vector
+  - theArray
+  - front position/index
+  - back position/index
+  - current size
+- Linked list
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Queue: Array Implementation
+- Operations
+  - enqueue
+    - increment current size
+    - increment back
+    - set `theArray[back] = element`
+  - dequeue
+    - set return value to `theArray[front]`
+    - decrement current size
+    - increment front
+- Again, have to handle the situation when the array is full
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Queue: Linked List Implementation
+(no external source code)
+```
+#include "QueueNode.h"
+
+// assumes a queue of ints stored in QueueNodes
+class Queue{
+  public:
+    Queue();     // constructor
+    ~Queue();    // destructor
+
+    // enqueue item to back of list
+    void enqueue(int value);
+    
+    // remove item from front of list
+    int dequeue();    
+
+    // other supporting methods...
+
+  private:
+    // pointers to front and back of list
+    QueueNode *front, *back;
+};
+```
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Queue: Linked List Implementation
+- enqueue()
+      void Queue::enqueue(int value) {
+      
+      }
+- dequeue()
+      int Queue::dequeue() {
+      
+      }
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Queue Applications
+- Print queues
+- Lines in general
+- File serving
+- Call queues
+	</script></section>
+
+	</section>
+
+	<section>
+
+<section data-markdown id="string"><script type="text/template">
+# Standard Template Library: string
+</script></section>
+
+	<section data-markdown><script type="text/template">
+## C++ string
+- C++ <string> library
+  - provides string class and member functions
+- Operations
+  - size()
+  - length()
+  - at()
+  - operator[]
+  - operator+=
+  - c_str()
+  - substr()
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Selected Method Descriptions
+- at(int pos)
+  - access character within string at index position, pos
+  - someString.at(3);
+- operator[]
+  - access character within string using array-style notation
+  - someString[3];
+- c_str()
+  - converts C++ string to C-style string
+    - used to convert c++ string to C-style which is char *
+- substr()
+  - returns substring of a string given some parameters
+  - See source code
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Closing thoughts on strings
+- You have to enter Control-D for input
+  - This will return an empty string (length 0)
+- Like Java, to compare strings, you need to compare the characters that they point to
+  - .equals() in Java
+- But in the STL string class, the == operator is overloaded to do this!
+- So you can compare STL strings with ==
+  - But not standard C strings (i.e. `char*`)
+  - And this doesn't work if you have *pointers* to the strings
+	</script></section>
+
+	</section>
+
+      </div>
+
+    </div>
+
+    <div id="calibratediv" style="display:none">
+      <div id="calibratecanvasdiv">
+        <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
+      </div>
+      <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
+    </div>
+
+    <script src="reveal.js/lib/js/head.min.js"></script>
+    <script src="reveal.js/js/reveal.min.js"></script>
+    <script src="js/settings.js"></script>
+
+  </body>
+</html>

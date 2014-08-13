@@ -198,7 +198,7 @@
 <pre><code>clang++ -m32 -Wall -g -o vecsum vecsum.o main.o
 </code></pre>
 
-<p>This tells clang++ to link both of the .o files created above into a executable called vecsum.  Note that there isn&rsquo;t any compiling done at this stage (the compilation was done before) &ndash; this just links the two object files into the final executable.  Also note that for our submitted Makefiles, we will NOT have the <code>-o</code> flag present.</p>
+<p>This tells clang++ to link both of the .o files created above into an executable called vecsum.  Note that there isn&rsquo;t any compiling done at this stage (the compilation was done before) &ndash; this just links the two object files into the final executable.  Also note that for our submitted Makefiles, we will NOT have the <code>-o</code> flag present.</p>
 
 <h3>Tutorial</h3>
 
@@ -260,7 +260,7 @@
 
 <h3>clang++ and the Calling Convention</h3>
 
-<p>As discussed in class (specifically, <a href="../../slides/09-x86.html#clangconventionbreak">here</a>), clang will often optimize away many parts of the calling convention, and has even been known to pass parameters in registers.  So if you see code that is unexpected, trace it by hand to determine what is really happening.  Likely, it is an optimization of the calling convention.</p>
+<p>As discussed in class (specifically, <a href="../../slides/09-x86.html#clangconventionbreak">here</a>), clang will often optimize away many parts of the calling convention, and has even been known to pass parameters in registers.  So if you see code that is unexpected, trace it by hand to determine what is really happening.  Likely, it is an optimization of the calling convention. To avoid this in the in-lab, use g++ rather than clang++ to compile. The correct g++ flags are <code>-S -m32 -masm=intel</code>.</p>
 
 <h3>In-lab 8 topics: you must do ALL of these for the post-lab, but only ONE of these for the in-lab</h3>
 

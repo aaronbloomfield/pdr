@@ -1,0 +1,13 @@
+digraph G {
+	graph [fontname = "Helvetica"];
+	node [fontname = "Helvetica"];
+	edge [fontname = "Helvetica"];
+
+	cs3330;
+	cs1110 -> cs2102;
+	cs2102 -> cs2150;
+	cs2110 -> cs3330;
+	cs3330 -> cs4414;
+
+	{rank=same cs1110 -> cs2110 -> cs2150 -> cs4414};
+}

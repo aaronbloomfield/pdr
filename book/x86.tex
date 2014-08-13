@@ -94,11 +94,11 @@ The last example in Listing~\ref{x86-declaring-memory-regions.lst}
 illustrates the declaration of an array.  Unlike in high level lan-
 guages where arrays can have many dimensions and are accessed by
 indices, arrays in assembly language are simply a number of cells
-located contiguously in memory. Two other common meth- ods used for
-declaring arrays of data are the DUP directive and the use of string
-literals. The DUP directive tells the assembler to duplicate an
-expression a given number of times. For example, the statement ``4
-DUP(2)'' is equivalent to ``2, 2, 2, 2''. Some examples of declaring
+located contiguously in memory. Two other common methods used for
+declaring arrays of data are the TIMES directive and the use of string
+literals. The TIMES directive tells the assembler to duplicate an
+expression a given number of times. For example, the statement ``TIMES
+4 DB 2'' is equivalent to ``2, 2, 2, 2''. Some examples of declaring
 arrays are depicted in Listing~\ref{x86-declaring-arrays.lst}.
 
 \begin{figure}[h]

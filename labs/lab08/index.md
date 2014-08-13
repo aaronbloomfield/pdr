@@ -140,7 +140,7 @@ Finally, we have to link the two files into the final executable.  We do this as
 clang++ -m32 -Wall -g -o vecsum vecsum.o main.o
 ```
 
-This tells clang++ to link both of the .o files created above into a executable called vecsum.  Note that there isn't any compiling done at this stage (the compilation was done before) -- this just links the two object files into the final executable.  Also note that for our submitted Makefiles, we will NOT have the `-o` flag present.
+This tells clang++ to link both of the .o files created above into an executable called vecsum.  Note that there isn't any compiling done at this stage (the compilation was done before) -- this just links the two object files into the final executable.  Also note that for our submitted Makefiles, we will NOT have the `-o` flag present.
 
 ### Tutorial ###
 
@@ -200,7 +200,7 @@ Recall that using the `-S` flag with clang++ will generate the assembly code.  Y
 
 ### clang++ and the Calling Convention ###
 
-As discussed in class (specifically, [here](../../slides/09-x86.html#clangconventionbreak)), clang will often optimize away many parts of the calling convention, and has even been known to pass parameters in registers.  So if you see code that is unexpected, trace it by hand to determine what is really happening.  Likely, it is an optimization of the calling convention.
+As discussed in class (specifically, [here](../../slides/09-x86.html#clangconventionbreak)), clang will often optimize away many parts of the calling convention, and has even been known to pass parameters in registers.  So if you see code that is unexpected, trace it by hand to determine what is really happening.  Likely, it is an optimization of the calling convention. To avoid this in the in-lab, use g++ rather than clang++ to compile. The correct g++ flags are `-S -m32 -masm=intel`.
 
 ### In-lab 8 topics: you must do ALL of these for the post-lab, but only ONE of these for the in-lab ###
 
