@@ -7,6 +7,7 @@ The tutorials for this course are listed below. Note that as this repository is 
 
 - [Tutorial 1: Introduction to Unix](01-intro-unix/index.html)
   - And [Tutorial 1: Introduction to Unix: VirtualBox use](01-intro-unix/virtual-box.html)
+  - And [Tutorial 1: Introduction to Unix: VirtualBox image creation details](01-intro-unix/vb-image-details.html)
 - [Tutorial 2: GDB](02-gdb/index.html)
   - Source code: [debug.cpp](02-gdb/debug.cpp.html) ([src](02-gdb/debug.cpp))
 - [Tutorial 3: More Unix, part 1](03-04-more-unix/index.html), which is sections 1-4; this tutorial is originally from [here](http://www.ee.surrey.ac.uk/Teaching/Unix/)

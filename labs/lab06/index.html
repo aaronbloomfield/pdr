@@ -302,7 +302,7 @@ diff output.txt words2.sorted.out.txt
 
 <p>As you are going through the tutorial, if there is a Unix command that you do not know (or you once knew and have since forgotten), you can find out more information about that command by entering <code>man command</code> at the Unix prompt.  This brings up the manual for that command, including all of the command-line parameters.</p>
 
-<p>A few thoughts to help you with your shell script.  If you are unsure if something is working, you can always print out the value of the variable through the <code>echo</code> command.  And you need not worry about the decimal precision of the average &ndash; the result of using &lsquo;expr&rsquo; with the sum over the number of runs is fine &ndash; recall that the script has been modified to only print out an integer value (using &lsquo;expr&rsquo; with floating point values will have issues).</p>
+<p>A few thoughts to help you with your shell script.  If you are unsure if something is working, you can always print out the value of the variable through the <code>echo</code> command.  And you need not worry about the decimal precision of the average &ndash; the result of using &lsquo;expr&rsquo; or arithmetic expansion <code>$(( ... ))</code> with the sum over the number of runs is fine &ndash; recall that the script has been modified to only print out an integer value (using &lsquo;expr&rsquo; or arithmetic expansion <code>$(( ... ))</code> with floating point values will have issues).</p>
 
 <p>Your script should have comments (anything on a line after a &lsquo;#&rsquo; is a comment).  Our solution was 10-15 lines, not counting comments.</p>
 

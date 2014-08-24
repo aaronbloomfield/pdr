@@ -74,42 +74,4 @@ VirtualBox also provides an Automounter, which sort of works.  This will mount t
 
 ### Image creation details ###
 
-For those who are interested, here is what I did to set up the image:
-
-- Create a new VirtualBox image
-  - which I named "Ubuntu 12.04.3"
-  - I set the disk to resize dynamically, and everything else was set at the default
-- I installed Ubuntu 12.04.3 LTS (32 bit), desktop edition, from the CD image downloaded from http://www.ubuntu.com (the specific image file is [here](http://releases.ubuntu.com/precise/ubuntu-12.04.3-desktop-i386.iso)
-  - when prompted, I clicked on 'download updates' and 'install 3rd party software' when the options were given
-  - The computer name is cassiopeia, the login name is 'student', full name is 'L33t Hax0r', and the password is 'password'
-  - this account can run root (system) commands via 'sudo' - if you don't know what this means, you can safely ignore it
-- Once it was finished, I rebooted, and logged in
-- I ran 'sudo apt-get update' and then 'sudo apt-get dist-upgrade'.
-- installed the other packages: `sudo apt-get install clang emacs nasm astyle tofrodos source-highlight doxygen doxygen-doc ddd git g++ python-gpgme`
-  - python-gpgme is a supporting package for Dropbox, in case students want to install that
-- Reboot after all these apt-gets, and then ran 'apt-get autoremove' and 'apt-get clean'.
-- Ran the following two commands:
-  - `sudo update-alternatives --set cc /usr/bin/clang`
-  - `sudo update-alternatives --set c++ /usr/bin/clang++`
-- Downloaded Google Chrome from [here](https://www.google.com/intl/en/chrome/browser/), and installed it via 'sudo dpkg -i google-chrome-stable_current_i386.deb'
-  - That installation did not work perfectly (which was expected), and to fix an installation such as this you run 'sudo apt-get -f install'
-  - Then ran 'apt-get autoremove' and 'apt-get clean' again
-- Added terminal, emacs, and google chrome icons to the launch bar
-- Browser customization
-  - Set both firefox and chrome's home page to Collab
-  - Cleared both histories
-  - Chrome is set as the default browser
-- The VirtualBox "Guest Additions" are what allow for proper mouse integration and, more importantly, proper full-screening.  The ones that the system wanted to install (via System Settings -> Hardware -> Additional Drivers) appear to have a [bug](https://www.virtualbox.org/ticket/11709) that has since been fixed.  So I installed the latest version of the guest additions (4.3.6, which matches the latest version of VirtualBox) via the VirtualBox menu item Devices->Insert Guest Additions CD Image, and then rebooted.  At that point, the system would full screen properly.
-- I loaded up emacs, and then told it to disable showing the startup messages (this could also be accomplished by following the guidelines [here](http://xenon.stanford.edu/~manku/dotemacs.html)).
-- Added a few aliases were added (the last 4 lines of .bashrc) to help prevent people from accidentally removing files (adding -i for rm, mv, and cp; and aliasing xemacs to emacs)
-- Cloned the github repo via `git clone https://github.com/aaronbloomfield/pdr`
-  - Note that a `git pull` will still have to be executed each time to update it
-  - I added the pdr/cs2150/index.html page as the second tab loaded up by both Firefox and Chrome
-- Ran `history -c` to remove the history of the command entered
-- To reduce the size of the hard disk (since I have to host it for people to download), I ran "cat /dev/zero > zero" until it ran out of space, then removed that file (this writes all 0's to the hard drive).  I shut down the guest, and ran: 'VBoxManage modifyhd ubuntu-12.04.3.vdi --compact'.  A better way would be to load up into recovery mode and run zerofill, but the grub menu does not seem to be easily available to load into recovery mode, so I didn't pursue it any further.
-  - Note that in the image creation process, you may run into a problem with VirtualBox where it cannot register a new (or different) disk because it has the same UUID as a previous disk that you are replacing.  If so, then the command "VBoxManage internalcommands sethduuid disk.vdi" will change the UUID, and allow you to proceed
-- A few quick notes
-  - The guest hard drive reported 3.8 Gb of space used prior to distribution of the image
-  - the guest additions (the drivers that make Ubuntu in a VirtualBox image work nicely with the host system) were installed by the additional drivers step done before
-  - Firefox was a recent version, and flash worked right out of the box
-  - the VM may capture the mouse - to uncapture it, you press the "host key", which is the right Control key on Linux.  To have it warn you about what this is, you can reset all warnings via the VirtualBox help menu, and it will warn you about this at boot-up
+[Here](vb-image-details.html) ([md](vb-image-details.md)) are the details of how the image was created.
