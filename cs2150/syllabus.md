@@ -5,8 +5,7 @@ CS 2150: Program and Data Representation: Course Syllabus
 
 ### Spring 2014 ###
 
-- M/W/F 9:00-9:50 (section 001, Rice 130)
-- M/W/F 12:00-12:50 (section 002, MEC 205)
+- M/W/F 11:00-12:00, Gilmer Hall 130
 
 ### Instructor ###
 
@@ -14,15 +13,15 @@ CS 2150: Program and Data Representation: Course Syllabus
 
 ### Course Info ###
 
-- Email: none; fill out a support request instead
+- Email: none; fill out a [support request](https://libra.cs.virginia.edu/~pedagogy/support.php) instead
 - Announcement feed: [@UVaCS2150](http://twitter.com/UVaCS2150)
 - TAs and their office hours will be posted on the [CS 2150 Google Calendar](https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York) (which is linked to via Collab); all office hours start the Sunday after classes start
 - Laboratory Meetings (all in Olsson 001):
-    - Section 101: Tuesday, 9:00 p.m. - 10:35 a.m.
-    - Section 102: Tuesday, 12:15 p.m. - 1:50 p.m.
-    - Section 103: Tuesday, 3:50 p.m. - 5:25 p.m.
-    - Section 104: Tuesday, 5:30 a.m. - 7:05 p.m.
-    - Section 105: Tuesday, 7:30 a.m. - 9:05 p.m.
+    - Section 102: Tuesday, 12:15 pm -- 1:50 pm
+    - Section 103: Tuesday, 3:50 pm -- 5:25 pm
+    - Section 104: Tuesday, 5:30 pm -- 7:05 pm
+    - Section 105: Tuesday, 7:30 pm -- 9:05 pm
+	- Lab sections 101 and 106 will remain closed
 
 **Course Description:** This course will introduce you to program and data representation from high level concepts to machine level implementation. Data structuring techniques and the representation of data structures during program execution are discussed, as are operations and control structures and their representation during program execution. Representations of numbers, arithmetic operations, arrays, records, recursion, hashing, stacks, queues, trees, graphs, and related concepts are also covered.
 
@@ -55,13 +54,11 @@ We expect that grades will follow the standard decade curve: 90 and above is an 
 
 **Exams:** There will be two midterm exams held during laboratory sessions (combined worth 30% of the final grade) and one final exam (worth 25% of the final grade). Note that we hope (but do not guarantee!) to have the first exam returned before the SEAS drop date of Monday, March 3rd, 2014.
 
-- Midterm Exam 1: Tuesday, February 18th during lab session in Olsson 001
-- Midterm Exam 2: Tuesday, April 1st, during lab session in Olsson 001
-- Final Exam: Saturday, May 3rd, 2014, from 7 p.m. to 10 p.m.
-    - The final exam is a common exam time, and conflicts with a few other courses: APMA 3110 and ECON 2020 (sections 100 and 200 only)
-    - If you have a conflict, you must let one of us know by the end of January!
+- Midterm Exam 1: Tuesday, September 30th during lab session in Olsson 001
+- Midterm Exam 2: Tuesday, November 11th, during lab session in Olsson 001
+- Final Exam: Friday, December 12th from 9:00 am to 12:00 noon
 
-Under **NO** circumstances will anybody be allowed to take the final exam early.  You may **ONLY** request to take the final exam at a different time if you have a final exam **CONFLICT**, not a busy final exam schedule.
+Under **NO** circumstances will anybody be allowed to take the final exam early.  You may **ONLY** request to take the final exam at a different time if you have a final exam **CONFLICT**, not a busy final exam schedule.  But since it is not a common exam time (as has been in the past), there are not likely to be any conflicts.
 
 **Laboratories:** There will be 11 programming labs this semester, and they constitute 40% of your grade (roughly 4% per lab, although some labs may be weighted more than others).  Note that if the number of labs changes, the respective weights for each lab will also be adjusted and announced in class.  The total weight of the labs for the final grade will remain 40%, unless a change in the course grading criteria (as above) is announced in class.  The majority of the work in this class is through the labs -- there are no separate homework assignments.  The labs have different late policies, which will be specified in more detail in the first lab.  **Your lab submission must compile for you to receive *any* credit** -- this is an advanced programming class, and under no circumstances should you be submitting code that does not compile - the Collab wiki has a page on [compilation issues] to help you if you cannot get your code to compile.
 

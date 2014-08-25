@@ -14,7 +14,7 @@ Below are the dates when the various assignments for the lab parts open, due, an
 
 | Lab part || Open date          || Due date               || Close date                 |
 |----------||:-------------------||:-----------------------||:---------------------------|
-| Pre-lab  || Sunday at noon     || Tuesday at 11 a.m.     || Wednesday at 11 a.m.       |
-| In-lab   || Tuesday at 11 a.m. || At the end of your lab || Wednesday at 11:59:59 p.m. |
-| Post-lab || Tuesday at 11 a.m. || Friday at 9 a.m.       || Saturday at 9 a.m.         |
+| Pre-lab  || Sunday at noon     || Tuesday at 12 noon     || Wednesday at noon          |
+| In-lab   || Tuesday at 12 noon || At the end of your lab || Wednesday at 11:59:59 p.m. |
+| Post-lab || Tuesday at 12 noon || Friday at 11 a.m.      || Saturday at 11 a.m.        |
 

@@ -1,6 +1,8 @@
 PDR: Tutorial 1: Introduction to UNIX: VirtualBox image creation details
 ========================================================================
 
+[Go up to the main tutorial 1 page](index.html)
+
 For those who are interested, this is how the image was set up.  Note that a few of the sections here are for classes beyond PDR (in particular, the LAMP configuration section and the Ruby on Rails configuration section).  If you were to reproduce those on another computer, those two sections can be (and should be) skipped.
 
 **Basic installation**
@@ -50,7 +52,7 @@ alias xmeacs='emacs'
 
 **LAMP configuration**
 
-- Installed more packages: `sudo apt-get install apache2 php5 php5-cli netbeans phpmyadmin phpunit libmysqlclient-dev mysql-server mysql-client php5-mysql default-jdk openssh-server python-django`
+- Installed more packages: `sudo apt-get install apache2 php5 php5-cli netbeans phpmyadmin phpunit libmysqlclient-dev mysql-server mysql-client php5-mysql default-jdk openssh-server python-django tk-dev python-mysqldb`
     - any prompted passwords (such as mysql) are 'password'
     - phpmyadmin is only configured with the apache2 server; the default option to the prompted yes/no question was used
 - apache2 configuration

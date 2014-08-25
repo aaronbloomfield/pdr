@@ -1,0 +1,1422 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 2150: daily announcements slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../../slides/reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="../../slides/reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="../../slides/css/pdr.css">
+    <link rel="stylesheet" href="../../slides/reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
+	if( window.location.search.match( /print-pdf/gi ) ) {
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = 'reveal.js/css/print/pdf.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	}
+    </script>
+    <!--[if lt IE 9]>
+    <script src="../../slides/reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <style>
+.reveal li {
+font-size:80%;
+line-height:120%;
+}
+    </style>
+<script type="text/javascript" src="../../slides/js/dhtmlwindow.js"></script>
+<script type="text/javascript" src="../../slides/js/canvas.js"></script>
+<link rel="stylesheet" href="../../slides/css/dhtmlwindow.css" type="text/css">
+  </head>
+
+  <body onload="canvasinit()">
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+
+    <div class="reveal">
+
+      <div class="slides">
+
+	  <section data-markdown><script type="text/template">
+# CS 2150
+&nbsp;
+### Program and Data Representation
+### Spring 2014
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](../index.html) / <a href="daily-announcements.html?print-pdf"><img class="print" width="20" src="../../slides/images/print-icon.png"></a></small></center>
+&nbsp;  
+&nbsp;
+## Daily Announcements
+	</script></section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>The End</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/merlin.png" title="I mean, the black-and-white stuff was running backward, but it hardly mattered to the story." alt="Merlin">
+<p class="center"><a href="http://xkcd.com/270/">xkcd # 270</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 42: The End
+
+- The final exam will be held in Gilmer 130 from 7 p.m. to 10 p.m. on Saturday, May 3rd
+  - It's length will be the same as the midterms, but it will be a 3 hour exam
+  - Review session will likely be Thursday (May 1st) evening; more details to follow
+- Lab 12 has no pre-lab, but there will be a (relatively quick) in-lab
+- Note that having your CS 2150 work in a public github repo is an honor violation, so please remove them or make them private
+- Office hours will end with the end of classes
+- We talked about the persistence of the course github repo a few lectures ago
+- As the semester draws to a close, the regrade period will shorten
+- We are now caught up with the grading (lab 11 still to be graded, of course)
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- Please, please, PLEASE fill out the course evaluations!!!
+- Today we will talk about [Esoteric Programming Languages](../../slides/14-esoteric-pls.html) and the [Course Conclusion](../../slides/15-conclusion.html)
+- After today, there are no lectures left!
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Friday, April 25th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/security.png" title="Actual actual reality: nobody cares about his secrets.  (Also, I would be hard-pressed to find that wrench for $5.)" alt="Security">
+<p class="center"><a href="http://xkcd.com/538/">xkcd # 538</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 41: Friday, April 25th, 2014
+
+- The final exam will be held in Gilmer 130 from 7 p.m. to 10 p.m. on Saturday, May 3rd
+  - It's length will be the same as the midterms, but it will be a 3 hour exam
+  - Review session will likely be Thursday (May 1st) evening; more details to follow
+  - We may have a mini-review session in lecture today as well
+- [Lab 11 (graphs)](../../labs/lab11/index.html) and the [Doxygen tutorial](../../tutorials/11-doxygen/index.html) are out -- how did it go?
+- Lab 12 (out this week) will be out later today (sorry it's coming out late!)
+- Note that having your CS 2150 work in a public github repo is an honor violation, so please remove them or make them private
+- We talked about the persistence of the course github repo last time
+- As the semester draws to a close, the regrade period will shorten
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- Please, please, PLEASE fill out the course evaluations!!!
+- Today we will likely finish [Memory](../../slides/13-memory.html)
+- After today, there is only 1 lecture left!
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Wednesday, April 23rd, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/travelling_salesman_problem.png" title="What&#39;s the complexity class of the best linear programming cutting-plane techniques?  I couldn&#39;t find it anywhere.  Man, the Garfield guy doesn&#39;t have these problems ..." alt="Travelling Salesman Problem">
+<p class="center"><a href="http://xkcd.com/399/">xkcd # 399</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 40: Wednesday, April 23rd, 2014
+
+- The final exam will be held in Gilmer 130 from 7 p.m. to 10 p.m. on Saturday, May 3rd
+  - It's length will be the same as the midterms, but it will be a 3 hour exam
+  - Review session will likely be Thursday (May 1st) evening
+  - I may have a mini-review session in lecture on Friday as well
+- [Lab 11 (graphs)](../../labs/lab11/index.html) and the [Doxygen tutorial](../../tutorials/11-doxygen/index.html) are out -- how are they going?
+- Lab 12 (out this week) will have a pre-lab (which *might* end up being the the IBCM post-lab), and a relatively quick in-lab, but no post-lab
+- Note that having your CS 2150 work in a public github repo is an honor violation!
+  - So please remove them or make them private
+- We are all caught up with the support requests (as of the other day); grading is coming along...
+- As the semester draws to a close, the regrade period will, by necessity, be shortened; this will be clearly stated when an assignment is returned
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- Today we will continue (and possibly finish with) [Memory](../../slides/13-memory.html)
+- After today, there are only 2 lectures left!
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## github repo
+- The [github repo](https://github.com/aaronbloomfield/pdr) for this course will continue to remain a public repository
+  - The license that the repository is released under ([CC BY-SA](http://creativecommons.org/licenses/by-sa/4.0/)) means it is permanently released into the public domain (albeit with a few restrictions)
+- However, this semester's materials will be archived into a *branch* named "spring-2014" (or similar)
+- So if you look at it in the future, things may look different
+  - You can either use the then-current version, or change back to the spring-2014 branch
+  - There are no expected significant changes to the course content planned for next year
+  - But I am going to move a bunch of things around
+- Note that your currently cloned (checked out) version of the github repo is the "master" branch, which is the branch that will change with future semesters
+  - Some things specific to this semester will only live on in the spring-2014 branch, and will be removed from the master branch
+- You can clone a specific branch via:
+```
+git clone -b spring-2014 https://github.com/aaronbloomfield/pdr.git
+```
+- You can look at the [github repo web site](https://github.com/aaronbloomfield/pdr) for the exact branch name
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Monday, April 21st, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/np_complete.png" title="General solutions get you a 50% tip." alt="NP-Complete">
+<p class="center"><a href="http://xkcd.com/287/">xkcd # 287</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 39: Monday, April 21st, 2014
+
+- The final exam will be held in Gilmer 130 from 7 p.m. to 10 p.m. on Saturday, May 3rd
+  - It may be a 2 hour final exam, though; length is expected to be similar to that of the midterms
+  - Review session will likely be Thursday (May 1st) evening
+- [Lab 11 (graphs)](../../labs/lab11/index.html) and the [Doxygen tutorial](../../tutorials/11-doxygen/index.html) are out -- how are they going?
+- Lab 12 (out this week) will have a pre-lab (which *might* end up being the the IBCM post-lab), and a relatively quick in-lab, but no post-lab
+- Note that having your CS 2150 work in a public github repo is an honor violation!
+  - So please remove them or make them private
+- We are all caught up with the support requests (as of late last week); grading is coming along...
+- As the semester draws to a close, the regrade period will, by necessity, be shortened; this will be clearly stated when an assignment is returned
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are listed in the [github repo](https://github.com/aaronbloomfield/pdr)
+- Today we will continue (and possibly finish with) [Graphs](../../slides/12-graphs.html)
+  - Up next: [Memory](../../slides/13-memory.html)
+- After today, there are only 3 lectures left!
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Friday, April 18th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/pillow_talk.jpg" title="Maybe I should&#39;ve tried Wexler?" alt="Pillow Talk">
+<p class="center"><a href="http://xkcd.com/69/">xkcd # 69</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 38: Friday, April 18th, 2014
+
+- Today starts [Fridays after Five](http://www.thenteloswirelesspavilion.com/events-tickets/fridays-after-five-line-up), a free concert on the Downtown Mall starting at 5:30 p.m.  Highly recommended!
+- The final exam will be held in Gilmer 130 from 7 p.m. to 10 p.m. on Saturday, May 3rd
+  - It may be a 2 hour final exam, though; length is expected to be similar to that of the midterms
+- How did [Lab 10 (Huffman coding)](../../labs/lab10/index.html) and the associated [Objective C tutorial](../../tutorials/10-objc/index.html) go?
+  - Are we still on speaking terms???
+- [Lab 11 (graphs)](../../labs/lab11/index.html) and the [Doxygen tutorial](../../tutorials/11-doxygen/index.html) are out
+- Note that having your CS 2150 work in a public github repo is an honor violation!
+  - So please remove them or make them private
+- We are all caught up with the support requests (as of yesterday); grading is coming along...
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are listed in the [github repo](https://github.com/aaronbloomfield/pdr)
+- Today we will continue with [Graphs](../../slides/12-graphs.html), which will take us into next week
+- After today, there are only 4 lectures left!
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Wednesday, April 16th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/dependencies.png" title="The prereqs for CPSC 357, the class on package management, are CPSC 432, CPSC 357, and glibc2.5 or later." alt="Dependencies">
+<p class="center"><a href="http://xkcd.com/754/">xkcd # 754</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 37: Wednesday, April 16th, 2014
+
+- Did you all get your taxes in?
+- The final exam will be held in Gilmer 130 from 7 p.m. to 10 p.m. on Saturday, May 3rd
+  - It may be a 2 hour final exam, though; length is expected to be similar to that of the midterms
+- [Lab 10 (Huffman coding)](../../labs/lab10/index.html) and the associated [Objective C tutorial](../../tutorials/10-objc/index.html) are out -- how are they going?
+- [Lab 11 (graphs)](../../labs/lab11/index.html) and the tutorial (doxygen) will be out later today or tomorrow
+- Note that having your CS 2150 work in a public github repo is an honor violation!
+  - So please remove them or make them private
+- We are catching up with the support requests and the grading...
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are listed in the [github repo](https://github.com/aaronbloomfield/pdr)
+- Today we will continue with [Graphs](../../slides/12-graphs.html), which will take us into next week
+- After today, there are only 5 lectures left!
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Monday, April 14th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/golden_hammer.png" title="Took me five tries to find the right one, but I managed to salvage our night out--if not the boat--in the end." alt="Golden Hammer">
+<p class="center"><a href="http://xkcd.com/801/">xkcd # 801</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 36: Monday, April 14th, 2014
+
+- Your taxes are due tomorrow!  Yay!
+- [Exam 2](../../exams/exam2-s14.pdf) returned last week
+  - Average was 42.7/72 (59.3%), standard deviation was 10.8/72 (15.0/100)
+  - [Regrades](https://libra.cs.virginia.edu/~pedagogy/regrades.php) are open until the end of today, but be aware of the [frivolous regrade policy](frivolous-regrades.html)
+  - Curve will be 20 *percentage* points; this is listed at the bottom of the [CS 2150](../../cs2150/index.html) page in the repo
+- The final exam will be held in Gilmer 130 from 7 p.m. to 10 p.m. on Saturday, May 3rd
+  - It may be a 2 hour final exam, though; length is expected to be similar to that of the midterms
+- [Lab 10 (Huffman coding)](../../labs/lab10/index.html) and the associated [Objective C tutorial](../../tutorials/10-objc/index.html) are out -- how are they going?
+- We are catching up with the support requests and the grading...
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are listed in the [github repo](https://github.com/aaronbloomfield/pdr)
+- Today we will start on [Graphs](../../slides/12-graphs.html), which will take us into next week
+- After today, there are only 6 lectures left!
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Friday, April 11th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/success.png" title="40% of OpenBSD installs lead to shark attacks.  It&#39;s their only standing security issue." alt="Success">
+<p class="center"><a href="http://xkcd.com/349/">xkcd # 349</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 35: Friday, April 11th, 2014
+
+- [Exam 2](../../exams/exam2-s14.pdf) returned last week
+  - Average was 42.7/72 (59.3%), standard deviation was 10.8/72 (15.0/100)
+  - [Regrades](https://libra.cs.virginia.edu/~pedagogy/regrades.php) are open for 10 days (until the beginning of next week), but be aware of the [frivolous regrade policy](frivolous-regrades.html)
+  - Curve will be 20 *percentage* points; this is listed at the bottom of the [CS 2150](../../cs2150/index.html) page in the repo
+- The final exam will be held in Gilmer 130 (we just got our room assignment) from 7 p.m. to 10 p.m. on Saturday, May 3rd
+  - It may be a 2 hour final exam, though; length is expected to be similar to that of the midterms
+- [Lab 9 (x86 part 2)](../../labs/lab09/index.html): how did it go?
+- [Lab 10 (Huffman coding)](../../labs/lab10/index.html) and the associated [Objective C tutorial](../../tutorials/10-objc/index.html) are out
+- Submission server downtime on Tuesday; I have entered 24-hour extensions for everybody who was late
+- We are catching up with the support requests and the grading...
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are listed in the [github repo](https://github.com/aaronbloomfield/pdr)
+- Today we will hopefully finish with [Heaps & Huffman coding](../../slides/11-heaps-huffman.html); up next: [Graphs](../../slides/12-graphs.html)
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Wednesday, April 9th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/outbreak.png" title="Let&#39;s get dinner after we promptly destroy all the X-7 we&#39;ve manufactured." alt="Outbreak">
+<p class="center"><a href="http://xkcd.com/734/">xkcd # 734</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 34: Wednesday, April 9th, 2014
+
+- [Exam 2](../../exams/exam2-s14.pdf) returned last week
+  - Average was 42.7/72 (59.3%), standard deviation was 10.8/72 (15.0/100)
+  - Gradebook tool is back up (but if you all try to check now, it'll go down again)
+  - [Regrades](https://libra.cs.virginia.edu/~pedagogy/regrades.php) are open for 10 days (until the beginning of next week), but be aware of the [frivolous regrade policy](frivolous-regrades.html)
+  - Curve will be 20 *percentage* points
+- [Lab 9 (x86 part 2)](../../labs/lab09/index.html) and the associated [C tutorial](../../tutorials/09-c/index.html) are out -- how are they going?
+  - It's usually not viewed as hard a lab as [lab 8](../../labs/lab08/index.html)
+- Submission server going down yesterday (hard drive was full)
+  - I will add, after the fact, 24 hour lab extensions to all who need it; but this will not occur until late this week, which means the submissions will initially appear as late
+- [Lab 10 (Huffman coding)](../../labs/lab10/index.html) will be out later today or (more likely) tomorrow
+- Note that the code for `insert()` in the [Heaps & Huffman coding](../../slides/11-heaps-huffman.html) slide set has been changed; it's now two methods, but still the same idea
+- We are catching up with the support requests and the grading...
+- Heard about the [Heartbleed bug](http://en.wikipedia.org/wiki/Heartbleed_bug)?  It's a buffer overflow!
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are listed in the [github repo](https://github.com/aaronbloomfield/pdr) (although x86 has separate readings, listed above)
+- Today we will continue (and hopefully finish) with [Heaps & Huffman coding](../../slides/11-heaps-huffman.html)
+  - Up next: [Graphs](../../slides/12-graphs.html)
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Monday, April 7th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/collatz_conjecture.png" title="The Strong Collatz Conjecture states that this holds for any set of obsessively-hand-applied rules." alt="Collatz Conjecture" />
+<p class="center"><a href="http://xkcd.com/710/">xkcd # 710</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 33: Monday, April 7th, 2014
+
+- [Exam 2](../../exams/exam2-s14.pdf) returned last week
+  - Average was 42.7/72 (59.3%), standard deviation was 10.8/72 (15.0/100)
+  - Gradebook tool is back up (but if you all try to check now, it'll go down again)
+  - [Regrades](https://libra.cs.virginia.edu/~pedagogy/regrades.php) are open for 10 days (until the beginning of next week), but be aware of the [frivolous regrade policy](frivolous-regrades.html)
+  - Let's talk about the curve info...
+- [Lab 9 (x86 part 2)](../../labs/lab09/index.html) and the associated [C tutorial](../../tutorials/09-c/index.html) are out -- how are they going?
+  - It's usually not viewed as hard a lab as [lab 8](../../labs/lab08/index.html)
+- We are catching up with the support requests and the grading...
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are listed in the [github repo](https://github.com/aaronbloomfield/pdr) (although x86 has separate readings, listed above)
+- Today we will continue with [Heaps & Huffman coding](../../slides/11-heaps-huffman.html), which will take us through most of this week
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Friday, April 4th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/westleys_a_dick.png" title="Inigo/Buttercup 4eva &lt;3" alt="Westley&#39;s a Dick">
+<p class="center"><a href="http://xkcd.com/549/">xkcd # 549</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 32: Friday, April 4th, 2014
+
+- [Exam 2](../../exams/exam2-s14.pdf) returned!
+  - Average was 42.7/72 (59.3%), standard deviation was 10.8/72 (15.0/100)
+  - My email was down (again), so I was unable to send an e-mail announcement
+  - You will have to view in the 'Exams' tool, as everybody descending on the 'Gradebook' tool puts too much strain on the server
+  - We'll go over it today
+  - [Regrades](https://libra.cs.virginia.edu/~pedagogy/regrades.php) are open for 10 days, but be aware of the [frivolous regrade policy](frivolous-regrades.html)
+  - I do not yet have any information regarding a curve
+- [Lab 9 (x86 part 2)](../../labs/lab09/index.html) and the associated [C tutorial](../../tutorials/09-c/index.html) are out
+  - It's usually not viewed as hard a lab as [lab 8](../../labs/lab08/index.html)
+- We are catching up with the support requests and the grading...
+  - All UVa CMS (faculty) email was down last night...
+  - Which is making it hard to get anything done...
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are listed in the [github repo](https://github.com/aaronbloomfield/pdr) (although x86 has separate readings, listed above)
+- Today we will finish [advanced C++](../../slides/10-advanced-cpp.html) and start on [Heaps & Huffman coding](../../slides/11-heaps-huffman.html)
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Wednesday, April 2nd, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/ballmer_peak.png" title="Apple uses automated schnapps IVs." alt="Ballmer Peak">
+<p class="center"><a href="http://xkcd.com/323/">xkcd # 323</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 31: Wednesday, April 2nd, 2014
+
+- Midterm yesterday
+  - Great midterm, or *the greatest* midterm?
+  - We plan to get it graded Thursday evening
+  - And thus we'll go over it on Friday
+  - I was really tempted to play an April fools day joke in there...
+  - I didn't get any negative anonymous feedback about it!  Although that might have been because my mail was down...
+- Lab 9 (x86 part 2) will be out today or tomorrow
+- We are catching up with the support requests and the grading...
+  - All UVa CMS (faculty) email was down last night...
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are listed in the [github repo](https://github.com/aaronbloomfield/pdr) (although x86 has separate readings, listed above)
+- Today we will continue with (and possibly finish) [advanced C++](../../slides/10-advanced-cpp.html)
+  - Up next: [Heaps & Huffman coding](../../slides/11-heaps-huffman.html)
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Monday, March 31st, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/devotion_to_duty.png" title="The weird sense of duty really good sysadmins have can border on the sociopathic, but it&#39;s nice to know that it stands between the forces of darkness and your cat blog&#39;s servers." alt="Devotion to Duty">
+<p class="center"><a href="http://xkcd.com/705/">xkcd # 705</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 30: Monday, March 31st, 2014
+
+- There is a midterm tomorrow (yay!)
+  - Review was recorded, and is (or will be) posted online
+  - The exam will cover up to the end of the x86 slide set
+  - It's cumulative, but will focus on the more recent material more
+  - We hope to have it graded Thursday evening
+- Lab 9 (x86 part 2) will be later this week
+- We are catching up with the support requests and the grading...
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are listed in the [github repo](https://github.com/aaronbloomfield/pdr) (although x86 has separate readings, listed above)
+- Today we will continue with [advanced C++](../../slides/10-advanced-cpp.html), which will take us into Wednesday; next up: [heaps & Huffman coding](../../slides/11-heaps-huffman.html)
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Friday, March 28th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/black_hat_support.png" title="So as not to leave you hanging -- it was a problem with select() calls." alt="Black Hat Support" />
+<p class="center"><a href="http://xkcd.com/278/">xkcd # 278</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 29: Friday, March 28th, 2014
+
+- [Lab 8: x86](../../labs/lab08/index.html): how did it go?
+  - There are two readings, which are two x86 chapters: [x86 Assembly](../../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../../book/x86-ccc-chapter.pdf)
+  - See the updated note about using g++ for generating assembly rather than clang++
+- Lab 9 (x86 part 2) will be out next week
+- We hope to be caught up with the support requests and the grading soon...
+- There is a midterm next week (yay!), so no lab released this week
+  - Review session on Sunday; details still to be worked out
+  - The exam will cover up to the end of the x86 slide set
+  - It's cumulative, but will focus on the more recent material more
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are listed in the [github repo](https://github.com/aaronbloomfield/pdr) (although x86 has separate readings, listed above)
+- Today we will finish with [x86](../../slides/09-x86.html), and start on [advanced C++](../../slides/10-advanced-cpp.html)
+- Shakespeare on the Lawn is putting on [Titus Andronicus](http://www.facebook.com/events/1479514425601370/) FOR FREE this weekend. 8PM, Thursday through Sunday, in the Student Activities Building. (Your TA [Charles](https://github.com/cceckman/) is the director.)
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Wednesday, March 26th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/the_economic_argument.png" title="Not to be confused with &#39;making money selling this stuff to OTHER people who think it works&#39;, which corporate accountants and actuaries have zero problems with." alt="The Economic Argument" />
+<p class="center"><a href="http://xkcd.com/808/">xkcd # 808</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 28: Wednesday, March 26th, 2014
+
+- We have now had *four* consecutive lecture days without a snow break!
+  - Although the latest snow storm was a close call...
+- Lecture status
+  - See the [snow day impacts](../../cs2150/snowdays.html) page for details about how this will be affecting the schedule (the contents of that page are the same as in the email); you will need to watch both the [first recorded IBCM lecture](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/08-ibcm-1/08-ibcm-1.htm) and the [second recorded IBCM lecture](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/08-ibcm-2/08-ibcm-2.htm); we will not be going over IBCM in lecture
+- [Lab 8: x86](../../labs/lab08/index.html): how is it going?
+  - There are two readings, which are two x86 chapters: [x86 Assembly](../../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../../book/x86-ccc-chapter.pdf)
+  - See the updated note about using g++ for generating assembly rather than clang++
+- We hope to be caught up with the support requests and the grading soon...
+- There is a midterm next week (yay!), so no lab released this week
+  - Review session on Sunday...
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are listed in the [github repo](https://github.com/aaronbloomfield/pdr) (although x86 has separate readings, listed above)
+- Today we will continue with [x86](../../slides/09-x86.html), which will take us into Friday; up next: [advanced C++](../../slides/10-advanced-cpp.html)
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Monday, March 24th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/tar.png" title="I don&#39;t know what&#39;s worse--the fact that after 15 years of using tar I still can&#39;t keep the flags straight, or that after 15 years of technological advancement I&#39;m still mucking with tar flags that were 15 years old when I started." alt="tar">
+<p class="center"><a href="http://xkcd.com/1168/">xkcd # 1168</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 27: Monday, March 24th, 2014
+
+- We have now had *three* consecutive lecture days without a snow break!
+- Lecture status
+  - See the [snow day impacts](../../cs2150/snowdays.html) page for details about how this will be affecting the schedule (the contents of that page are the same as in the email)
+  - You will need to watch both the [first recorded IBCM lecture](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/08-ibcm-1/08-ibcm-1.htm) and the [second recorded IBCM lecture](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/08-ibcm-2/08-ibcm-2.htm); we will not be going over IBCM in lecture
+  - And we are a bit behind in x86 as a result...
+- [Lab 8: x86](../../labs/lab08/index.html) is out
+  - Along with the readings, which are two x86 chapters: [x86 Assembly](../../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../../book/x86-ccc-chapter.pdf)
+- We hope to be caught up with the support requests and the grading soon...
+- There is a midterm next week (yay!), so no lab released this week
+- I promised to post a link in the second lecture on Friday... but what was the link I promised to post?  I'm senile...
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are listed in the [github repo](https://github.com/aaronbloomfield/pdr) (although x86 has separate readings, listed above)
+- Today we will continue with [x86](../../slides/09-x86.html), which will take us into Friday; up next: [advanced C++](../../slides/10-advanced-cpp.html)
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Friday, March 21st, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/electric_skateboard_double_comic.png" title="Unsafe vehicles, hills, and philosophy go hand in hand." alt="Electric Skateboard (Double Comic)">
+<p class="center"><a href="http://xkcd.com/409/">xkcd # 409</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 26: Friday, March 21st, 2014
+
+- We have now had two consecutive lecture days without a snow break!
+- Lecture status
+  - See the [snow day impacts](../../cs2150/snowdays.html) page for details about how this will be affecting the schedule (the contents of that page are the same as in the email)
+  - You will need to watch both the [first recorded IBCM lecture](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/08-ibcm-1/08-ibcm-1.htm) and the [second recorded IBCM lecture](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/08-ibcm-2/08-ibcm-2.htm).
+    - Sorry to have to make you do that outside of lecture; that was only because of the snow days
+    - If it makes you feel any better, I know of some faculty who are holding weekend lectures (yes, really!)
+  - We will not go over IBCM in lecture
+- [Lab 7: IBCM](../../labs/lab07/index.html): pre-lab was due today at 9 a.m.; no in-lab or post-lab due
+- [Lab 8: x86](../../labs/lab08/index.html) is out
+  - Along with the readings, which are two x86 chapters: [x86 Assembly](../../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../../book/x86-ccc-chapter.pdf)
+- We caught up with the support requests over spring break
+- And grading should be caught up "soon"...
+- Did anybody go to the CS dept "town hall"?  How was it?
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are listed in the [github repo](https://github.com/aaronbloomfield/pdr) (although x86 has separate readings, listed above)
+- Today we will continue with [x86](../../slides/09-x86.html)
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Wednesday, March 19th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/the_important_field.png" title="I hear in some places, you need one form of ID to buy a gun, but two to pay for it by check. It&#39;s interesting who has what incentives to care about what mistakes." alt="The Important Field">
+<p class="center"><a href="http://xkcd.com/970/">xkcd # 970</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 25: Wednesday, March 19th, 2014
+
+- Lecture status
+  - See the [snow day impacts](../../cs2150/snowdays.html) page for details about how this will be affecting the schedule (the contents of that page are the same as in the email)
+    - TL;DR: in-lab 7 and post-lab 7 canceled; pre-lab 7 due Fri @ 9
+    - Why the other lab 7 parts can't be counted for extra credit...
+  - You will need to watch both the [first recorded IBCM lecture](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/08-ibcm-1/08-ibcm-1.htm) and the [second recorded IBCM lecture](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/08-ibcm-2/08-ibcm-2.htm).
+    - Sorry to have to make you do that outside of lecture; that was only because of the snow days
+    - If it makes you feel any better, I know of some faculty who are holding weekend lectures (yes, really!)
+  - We will not go over IBCM in lecture
+- [Lab 7: IBCM](../../labs/lab07/index.html): pre-lab is due Fri @ 9
+- We caught up with the support requests over spring break
+- And grading should be caught up "soon"...
+- There is a CS dept "town hall" this Thursday @ 5 in Olsson 120 from 5-6
+  - Free pizza!
+  - This will be your best chance to have your opinions heard by the department chair!
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are listed in the [github repo](https://github.com/aaronbloomfield/pdr)
+  - IBCM has a separate [book chapter](../../book/ibcm-chapter.pdf) as the reading
+  - x86 (the topic up next) will also have a separate book chapter or two...
+- Today we will start [x86](../../slides/09-x86.html)
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section data-markdown><script type="text/template">
+## Monday, March 17th, 2014
+
+Yet another snow day today.  This is getting old...
+
+See the [snow day impacts](../../cs2150/snowdays.html) page for details about how this will be affecting the schedule.
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section data-markdown><script type="text/template">
+## Friday, March 7th, 2014
+
+There was no lecture today, due to Professor Bloomfield being out of town.  However, a [recorded lecture on IBCM](https://collab.itc.virginia.edu/access/content/group/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/lectures/08-ibcm-1/08-ibcm-1.htm) was to be watched instead.  Making everybody watch this lecture during spring break was necessary because of the 2 snow days that UVa has had...
+	  </script></section>
+
+	  </section>
+
+
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Wednesday, March 5th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/academia_vs_business.png" title="Some engineer out there has solved P=NP and it&#39;s locked up in an electric eggbeater calibration routine.  For every 0x5f375a86 we learn about, there are thousands we never see." alt="Academia vs. Business">
+<p class="center"><a href="http://xkcd.com/664/">xkcd # 664</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Pop Quiz!
+
+I have worked on [Lab 6](../../labs/lab06/index.html) (hashes), and I think:
+
+1. It's easy!
+2. It's hard, but doable
+3. It's insane!  Where do you get off assigning this much work?
+4. I'm not talking to you.  Ever.  Again.
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 22: Wednesday, March 5th, 2014
+
+- Really?  Two snow days in one semester?
+- [Lab 6](../../labs/lab06/index.html) is out, and why I didn't extend the pre-lab deadline...
+- There will <span class='red'>*not*</span> be lecture this Friday, March 7th (the day before spring break)
+  - I'll be out of town (Atlanta), along with *all* the teaching faculty
+  - I'll dock myself an attendance point for this...
+- There <span class='red'>WILL</span> be a recording for Friday's lecture that you will need to watch on your own
+  - Either Friday during your lecture time, or on your own during spring break
+  - We will pick up where that recording leaves off, so the following lecture <span class='red'>WILL NOT MAKE SENSE</span> if you do not watch the recording
+  - I wasn't planning on doing this, but the second snow day forced my hand on this one... sorry!
+- We realize we are a bit behind on the support requests; I'll be catching up during spring break
+- [Exam 1](../../exams/exam1-s14.pdf) was returned last week
+  -  The average was 38.9/60 (64.8%), and the standard deviation was
+8.95 (14.9 if the grade is scaled out of 100); curve is 15 *percentage* points
+  - [Regrades](https://libra.cs.virginia.edu/~pedagogy/regrades.php) are open until the end of this week, but be aware of the [frivolous regrade policy](frivolous-regrades.html)
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are listed in the [github repo](https://github.com/aaronbloomfield/pdr)
+- Today we will finsih with [Hashes](../../slides/07-hashes.html), and start on [IBCM](../../slides/08-ibcm.html)
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 21: Monday, March 3rd, 2014
+
+All classes canceled today by UVa due to the snow storm.
+
+This is *really* going to mess with my meticulously planned lecture schedule.
+
+Meanwhile, a [relevant xkcd](https://xkcd.com/1322/) for yet another snow day...
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Friday, February 28th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/single_ladies.png" title="Using a ring to bind someone you covet into your dark and twisted world? Wow, just got the subtext there. Also, the apparently eager Beyoncé would&#39;ve made one badass Nazgȗl." alt="Single Ladies">
+<p class="center"><a href="http://xkcd.com/712/">xkcd # 712</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 20: Friday, February 28th, 2014
+
+- Office hours are in full swing, see the [Google calendar](https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York) for details
+- Snow day last week!  That will cause some slight rushing of future lectures...
+  - In particular, we may not get to enough of the hash lab to start it until after today's lecture
+  - And the IBCM material may not be out in time for an early start on the IBCM lab...
+- [Exam 1](../../exams/exam1-s14.pdf) was returned last week
+  -  The average was 38.9/60 (64.8%), and the standard deviation was
+8.95 (14.9 if the grade is scaled out of 100); curve is 15 *percentage* points
+  - [Regrades](https://libra.cs.virginia.edu/~pedagogy/regrades.php) are open for 10 days, but be aware of the [frivolous regrade policy](frivolous-regrades.html)
+- [Lab 5](../../labs/lab05/index.html) (trees): how did it go?
+- [Lab 6](../../labs/lab06/index.html) is out
+  - This is a *hard* lab!  Don't wait until the last minute to start it!!!
+- There will not be lecture next Friday, March 7th (the day before spring break)
+  - I'll dock myself an attendance point for this...
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are listed in the [github repo](https://github.com/aaronbloomfield/pdr)
+- Today we will continue with [Hashes](../../slides/07-hashes.html), which will take us into next Monday
+  - Up next: [IBCM](../../slides/08-ibcm.html)
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Wednesday, February 26th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/real_programmers.png" title="Real programmers set the universal constants at the start such that the universe evolves to contain the disk with the data they want." alt="Real Programmers">
+<p class="center"><a href="http://xkcd.com/378/">xkcd # 378</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 19: Wednesday, February 26th, 2014
+
+- Office hours are in full swing, see the [Google calendar](https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York) for details
+- Snow day last week!  That will cause some slight rushing of future lectures...
+  - In particular, we may not get to enough of the hash lab to start it until after this Friday's lecture
+- [Exam 1](../../exams/exam1-s14.pdf) was returned last week
+  -  The average was 38.9/60 (64.8%), and the standard deviation was
+8.95 (14.9 if the grade is scaled out of 100)
+  - Curve is 15 *percentage* points
+  - [Regrades](https://libra.cs.virginia.edu/~pedagogy/regrades.php) are open for 10 days, but be aware of the [frivolous regrade policy](frivolous-regrades.html)
+- [Lab 4](../../labs/lab04/index.html) (numbers) grades were returned last night, regrades open for 10 days
+- [Lab 5](../../labs/lab05/index.html) (trees): how is it going?
+  - There was some confusion in the lab document about how input is being provided: we will follow the source code (meaning an input file name is provided to the program via `cin` input)
+- [Lab 6](../../labs/lab06/index.html) will be available in a day or so
+  - This is a *hard* lab!  Don't wait until the last minute to start it!!!
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are listed in the github repo
+- Today we will finish with [Trees](../../slides/06-trees.html), and start on [Hashes](../../slides/07-hashes.html)
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Monday, February 24th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/surgery.png" title="Damn. Not only did he not install it, he sutured a &#39;Vista-Ready&#39; sticker onto my arm." alt="Surgery">
+<p class="center"><a href="http://xkcd.com/644/">xkcd # 644</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 18: Monday, February 24th, 2014
+
+- Office hours are in full swing, see the [Google calendar](https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York) for details
+- Snow day last week!  That will cause some slight rushing of future lectures...
+  - In particular, we may not get to enough of the hash lab to start it until after this Friday's lecture
+- [Exam 1](../../exams/exam1-s14.pdf) was returned last week
+  -  The average was 38.9/60 (64.8%), and the standard deviation was
+8.95 (14.9 if the grade is scaled out of 100)
+  - Curve is 15 *percentage* points
+  - [Regrades](https://libra.cs.virginia.edu/~pedagogy/regrades.php) are open for 10 days, but be aware of the [frivolous regrade policy](frivolous-regrades.html)
+- [Lab 4](../../labs/lab04/index.html) (numbers) is out to be graded
+  - Those grades may be delayed a week due to the midterm grading last week
+- [Lab 5](../../labs/lab05/index.html) (trees): how is it going?
+- Due to too many such questions, the TAs (and myself) will no longer respond to questions on Piazza that ask for exam answers
+- Lecture recordings: I think I have fixed the annoying zoom-to-upper-left-corner-and-stay-there "feature" of the recordings -- let me know if any of the recordings still cause issues
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are listed in the github repo
+- Today we will continue with [Trees](../../slides/06-trees.html), which will take us into Wednesday; [Hashes](../../slides/07-hashes.html) is up next
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Friday, February 21st, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/sandwich.png" title="Proper User Policy apparently means Simon Says." alt="Sandwich">
+<p class="center"><a href="http://xkcd.com/149/">xkcd # 149</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 17: Friday, February 21st, 2014
+
+- Office hours are in full swing, see the [Google calendar](https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York) for details
+- Snow day last week!  That will cause some slight rushing of future lectures...
+- [Exam 1](../../exams/exam1-s14.pdf) was returned last night
+  -  The average was 38.9/60 (64.8%), and the standard deviation was
+8.95 (14.9 if the grade is scaled out of 100)
+  - I have no information about a potential curve at this time
+  - We'll go over it today
+  - [Regrades](https://libra.cs.virginia.edu/~pedagogy/regrades.php) are open for 10 days, but be aware of the [frivolous regrade policy](frivolous-regrades.html)
+- [Lab 4](../../labs/lab04/index.html) (numbers) is out to be graded
+  - Those grades may be delayed a week due to the midterm grading this week
+- [Lab 5](../../labs/lab05/index.html) (trees) has been released
+- Due to too many such questions, the TAs (and myself) will no longer respond to questions on Piazza that ask for exam answers
+- Lecture recordings: I think I have fixed the annoying zoom-to-upper-left-corner-and-stay-there "feature" of the recordings -- let me know if any of the recordings still cause issues
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are listed in the github repo
+- Today we will continue with [Trees](../../slides/06-trees.html), which will take us well into next week
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Wednesday, February 19th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/bug.png" title="The universe started in 1970.  Anyone claiming to be over 38 is lying about their age." alt="Bug">
+<p class="center"><a href="http://xkcd.com/376/">xkcd # 376</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 16: Wednesday, February 19th, 2014
+
+- Office hours are in full swing, see the [Google calendar](https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York) for details
+  - But they will be cancelled on Wednesday and Thursday of this week due to the midterm
+- Snow day last week!  That will cause some slight rushing of future lectures...
+- [Lab 4](../../labs/lab04/index.html) is out to be graded
+  - Those grades may be delayed a week due to the midterm grading this week
+- Midterm
+  - How did it go?
+  - We *hope* to have it graded Thursday evening
+  - We'll go over it in lecture on Friday
+- Due to too many such questions, the TAs (and myself) will no longer respond to questions on Piazza that ask for exam answers
+- Lecture recordings: I think I have fixed the annoying zoom-to-upper-left-corner-and-stay-there "feature" of the recordings -- let me know if any of the recordings still cause issues
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are listed in the github repo
+- Today we will continue with [Trees](../../slides/06-trees.html), which will take us well into next week
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Monday, February 17th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/science_valentine.png" title="You don&#39;t use science to show that you&#39;re right, you use science to become right." alt="Science Valentine">
+<p class="center"><a href="http://xkcd.com/701/">xkcd # 701</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 15: Monday, February 17th, 2014
+
+- Office hours are in full swing, see the [Google calendar](https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York) for details
+  - But they will be cancelled on Wednesday and Thursday of this week due to the midterm
+- Snow day last week!  That will cause some slight rushing of future lectures...
+- [Lab 3](../../labs/lab03/index.html) grades were returned last night, grading guidelines are on Collab, and the regrades are enabled for 10 days
+- [Lab 4](../../labs/lab04/index.html) is out to be graded
+  - Those grades may be delayed a week due to the midterm grading this week
+- This week is the first midterm (yay!)
+  - The review session will be recorded, and put on Collab (although you may have to look there directly: in Resources/lectures)
+  - There are old exams in the github repo!
+  - It's during your regular lab section time in your regular lab room
+  - It is closed calculator, closed notes, closed Internet, closed cell phone, closed neighbor, etc.
+  - We'll talk about the topic coverage today
+  - We *hope* to have it graded Thursday evening
+- Lecture recordings: I think I have fixed the annoying zoom-to-upper-left-corner-and-stay-there "feature" of the recordings -- let me know if any of the recordings still cause issues
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are listed in the github repo
+- Today we will finish the [Arrays & Big-Oh](../../slides/05-arrays-bigoh.html) slide set and start on [Trees](../../slides/06-trees.html)
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 14: Friday, February 14th, 2014
+
+All classes canceled today by UVa due to the [snow storm](https://en.wikipedia.org/wiki/February_11–17,_2014_North_American_winter_storm).
+
+This is really going to mess with my meticulously planned lecture schedule.
+
+Meanwhile, a [relevant xkcd](https://xkcd.com/702/) for a snow day...
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Wednesday, February 12th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/compiling.png" title="&#39;Are you stealing those LCDs?&#39; &#39;Yeah, but I&#39;m doing it while my code compiles.&#39;" alt="Compiling">
+<p class="center"><a href="http://xkcd.com/303/">xkcd # 303</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 13: Wednesday, February 12th, 2014
+
+- Office hours are in full swing, see the [Google calendar](https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York) for details
+  - They will be cancelled on Wednesday and Thursday of next week due to the midterm
+- [Lab 3](../../labs/lab03/index.html) is out to be graded
+- [Lab 4](../../labs/lab04/index.html) is out -- how is it going?
+- Next week is the first midterm (yay?)
+  - There will be a review session (likely Sunday at 8 p.m.)
+  - Thus, there will not be a lab released this week
+- UNIX honor pledge
+  - If you haven't signed one, you can print it out (it's in the repo on the [cs2150/index.html](index.html) page; the direct link is [here](unix-honor-pledge-s14.pdf)), sign it, and bring it to me in lecture
+  - You can't use [Geany](http://www.geany.org), which is an IDE, and the default file load action on the lab computers
+- Lectures are posted online in a Flash movie format; from [cs2150/index.html](index.html), click on the right-most link in the 'Semester Schedule' table
+  - I think I have fixed the annoying zoom-to-upper-left-corner-and-stay-there "feature" of the recordings
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are listed in the github repo
+- Today we will be working through the [Arrays & Big-Oh](../../slides/05-arrays-bigoh.html) slide set
+  - Some of the content in [Arrays & Big-Oh](../../slides/05-arrays-bigoh.html) is fair game for the test; full details on Friday
+  - Up next: [Trees](../../slides/06-trees.html)
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Monday, February 10th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/e_to_the_pi_minus_pi.png" title="Also, I hear the 4th root of (9^2 + 19^2/22) is pi." alt="e to the pi Minus pi">
+<p class="center"><a href="http://xkcd.com/217/">xkcd # 217</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 12: Monday, February 10th, 2014
+
+- Office hours are in full swing, see the [Google calendar](https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York) for details
+- [Lab 2](../../labs/lab02/index.html) grades have been returned, grading guidelines on Collab, and regrades enabled for 10 days
+- [Lab 3](../../labs/lab03/index.html) is out to be gradedgo?
+- [Lab 4](../../labs/lab04/index.html) is out -- how is it going?
+- Next week is the first midterm (yay?)
+  - There will be a review session (likely Sunday at 8 p.m.)
+- UNIX honor pledge
+  - If you haven't signed one, you can print it out (it's in the repo on the [cs2150/index.html](index.html) page; the direct link is [here](unix-honor-pledge-s14.pdf)), sign it, and bring it to me in lecture
+  - You can't use [Geany](http://www.geany.org), which is an IDE, and the default file load action on the lab computers
+- Lectures are posted online in a Flash movie format; from [cs2150/index.html](index.html), click on the right-most link in the 'Semester Schedule' table
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are listed in the github repo
+- Today we will finish with [Numbers](../../slides/04-numbers.html) and start on [Arrays & Big-Oh](../../slides/05-arrays-bigoh.html), which will take us into Friday
+  - Some of the content in [Arrays & Big-Oh](../../slides/05-arrays-bigoh.html) is fair game for the test; full details on Friday
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Friday, February 7th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/cant_sleep.png" title="If androids someday DO dream of electric sheep, don&#39;t forget to declare sheepCount as a long int." alt="Can&#39;t Sleep">
+<p class="center"><a href="http://xkcd.com/571/">xkcd # 571</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 11: Friday, February 7th, 2014
+
+- Office hours are in full swing, see the [Google calendar](https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York) for details
+- [Lab 1](../../labs/lab01/index.html) has been returned, grading guidelines on Collab, and regrades enabled for 10 days
+  - Note that there is a 1 point grade curve (specified at the bottom of the [cs2150/index.html](index.html) page) due to an error in the grading guidelines
+- [Lab 2](../../labs/lab02/index.html) is out to be graded
+- [Lab 3](../../labs/lab03/index.html) is all done -- how did it go?
+- [Lab 4](../../labs/lab04/index.html) is out
+- The following week is the first midterm (yay?)
+  - There will be a review session (likely next Sunday at 8 p.m.)
+- UNIX honor pledge
+  - If you haven't signed one, you can print it out (it's in the repo on the [cs2150/index.html](index.html) page; the direct link is [here](unix-honor-pledge-s14.pdf)), sign it, and bring it to me in lecture
+  - You can't use [Geany](http://www.geany.org), which is an IDE, and the default file load action on the lab computers
+- Lectures are posted online in a Flash movie format; from [cs2150/index.html](index.html), click on the right-most link in the 'Semester Schedule' table
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are listed in the github repo
+- Today we will continue with [Numbers](../../slides/04-numbers.html), which will take us into this Friday or next Monday; next up: [Arrays & Big-Oh](../../slides/05-arrays-bigoh.html)
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Wednesday, February 5th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/code_talkers.png" title="As far as I can tell, Navajo doesn&#39;t have a common word for &#39;zero&#39;.  do-neh-lini means &#39;neutral&#39;." alt="Code Talkers">
+<p class="center"><a href="http://xkcd.com/257/">xkcd # 257</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 10: Wednesday, February 5th, 2014
+
+- Office hours are in full swing, see the [Google calendar](https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York) for details
+  - Mine are Mondays 2-3:30 and Thursdays 10:30-noon
+- [Lab 1](../../labs/lab01/index.html) has been returned
+  - Grading guidelines are on the wiki ([here](https://collab.itc.virginia.edu/portal/tool/58e790ee-ac9e-4001-9947-ebf5df8a8df5?pageName=%2Fsite%2F7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c%2Flab+1+grading+guidelines&action=printview&panel=Main&breadcrumb=0&realm=%2Fsite%2F7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c))
+  - Note that there is a 1 point grade curve (specified at the bottom of the [cs2150/index.html](index.html) page) due to an error in the grading guidelines
+  - We'll talk about the [regrade](https://libra.cs.virginia.edu/~pedagogy/regrades.php) procedure today
+- [Lab 2](../../labs/lab02/index.html) is out to be graded
+- [Lab 3](../../labs/lab03/index.html) is out -- how is it going?
+- Upcoming schedule
+  - Next week is [Lab 4: Numbers](../../labs/lab04/index.html)
+  - The following week is the first midterm (gasp!)
+- UNIX honor pledge
+  - If you haven't signed one, you can print it out (it's in the repo on the [cs2150/index.html](index.html) page; the direct link is [here](unix-honor-pledge-s14.pdf)), sign it, and bring it to me in lecture
+  - You can't use [Geany](http://www.geany.org), which is an IDE, and the default file load action on the lab computers
+- Lectures are posted online in a Flash movie format; from [cs2150/index.html](index.html), click on the right-most link in the 'Semester Schedule' table
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are listed in the github repo
+- Today we will continue with [Numbers](../../slides/04-numbers.html), which will take us into this Friday or next Monday; next up: [Arrays & Big-Oh](../../slides/05-arrays-bigoh.html)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## CS major and minor application deadlines
+- If currently a BS CpE or BS CS, you can switch any time between the two majors (or declare one as a second major)
+- Feb 17: application deadline for existing non-CS/CpE SEAS majors trying to transfer into CS/CpE, including those wanting a double major
+- Mar 1: application deadline for the CS minor; this is restricted to SEAS majors only; CLAS students cannot apply for the minor
+- Mar 17: application deadline for the BA CS(no SEAS majors can apply for this), including CLAS students wanting to double major in BA CS
+- If you are in CLAS, and you want to transfer into SEAS into CS/CpE, then you follow the SEAS dean's office transfer deadline and procedure; contact them for details
+- SEAS first-years apply with everybody else (due Mar 24)
+- The application process, including what is due when, is available online at http://www.cs.virginia.edu/acad/declaring.html (this is for all use cases except SEAS first-years)
+	  </script></section>
+
+	  <section id="themes">
+<h2>Favorite color scheme?</h2>
+<p class="center">Reveal.js comes with a few themes built in: <br>
+  <a href="?#/themes">Default</a> -
+  <a href="?theme=sky#/themes">Sky</a> -
+  <a href="?theme=beige#/themes">Beige</a> -
+  <a href="?theme=simple#/themes">Simple</a> -
+  <a href="?theme=serif#/themes">Serif</a> -
+  <a href="?theme=night#/themes">Night</a> <br>
+  <a href="?theme=moon#/themes">Moon</a> -
+  <a href="?theme=solarized#/themes">Solarized</a>
+</p>
+	  </section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Monday, February 3rd, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/rps.png" title="It looks good, but it needs more postfixins." alt="RPS">
+<p class="center"><a href="http://xkcd.com/645/">xkcd # 645</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 9: Monday, Feburary 3rd, 2014
+
+- Office hours are in full swing, see the [Google calendar](https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York) for details
+  - Mine are Mondays 2-3:30 and Thursdays 10:30-noon, but only 2-3 today
+- [Lab 1](../../labs/lab01/index.html): I hope to have it back later today
+  - We'll talk about the regrade procedure once it is returned
+- [Lab 2](../../labs/lab02/index.html): is going out to be graded today
+- [Lab 3](../../labs/lab03/index.html) is out -- how is it going?
+- Upcoming schedule
+  - Next week is [Lab 4: Numbers](../../labs/lab04/index.html)
+  - The following week is the first midterm (gasp!)
+- UNIX honor pledge
+  - It was in lab yesterday to be signed; I have them with me
+  - If you aren't here today, you can print it out (it's in the repo on the [cs2150/index.html](index.html) page; the direct link is [here](unix-honor-pledge-s14.pdf)), sign it, and bring it to me in lecture
+  - You can't use [Geany](http://www.geany.org), which is an IDE, and the default file load action on the lab computers
+- Lectures are posted online in a Flash movie format; from [cs2150/index.html](index.html), click on the right-most link in the 'Semester Schedule' table
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are listed in the github repo
+- Today we will continue with [Numbers](../../slides/04-numbers.html), which will take us into this Friday or next Monday; next up: [Arrays & Big-Oh](../../slides/05-arrays-bigoh.html)
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Friday, January 31st, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/cautionary.png" title="This really is a true story, and she doesn&#39;t know I put it in my comic because her wifi hasn&#39;t worked for weeks." alt="Cautionary">
+<p class="center"><a href="http://xkcd.com/456/">xkcd # 456</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 8: Friday, January 31st, 2014
+
+- Office hours are in full swing, see the [Google calendar](https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York) for details
+  - Mine are Mondays 2-3:30 and Thursdays 10:30-noon
+- [Lab 1](../../labs/lab01/index.html): we hope to have it graded in "one week", which means by next Monday
+- [Lab 2](../../labs/lab02/index.html) how did it go?
+- [Lab 3](../../labs/lab03/index.html) is out
+  - We will cover stacks (and postfix calculation) today in lecture
+- UNIX honor pledge
+  - It was in lab yesterday to be signed; I have them with me
+  - If you aren't here today, you can print it out (it's in the repo on the [cs2150/index.html](index.html) page; the direct link is [here](unix-honor-pledge-s14.pdf)), sign it, and bring it to me in lecture
+  - Apparently the default action in the lab computers when double clicking on a .cpp file is loading up [Geany](http://www.geany.org), which is an IDE, so you can't use that...
+- Lectures are posted online in a Flash movie format
+  - From [cs2150/index.html](index.html), click on the right-most link in the 'Semester Schedule' table
+  - I can't fix the issue with the first lecture's recording...  :-(
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are listed in the github repo
+- Today we will continue (and likely finish) with [Lists](../../slides/03-lists.html); next up: [Numbers](../../slides/04-numbers.html)
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Wednesday, January 29th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/forgetting.png" title="Of course, the assert doesn&#39;t work." alt="Forgetting">
+<p class="center"><a href="http://xkcd.com/379/">xkcd # 379</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 7: Wednesday, January 29th, 2014
+
+- Office hours are in full swing, see the [Google calendar](https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York) for details
+  - Mine are now Mondays 2-3:30 and Thursdays 10:30-noon
+  - We are going to have a few extra TAs this week at the office hours on Wednesday and Thursday
+- [Lab 1](../../labs/lab01/index.html): we hope to have it graded in "one week"
+- [Lab 2](../../labs/lab02/index.html) is out -- how is it going?
+  - Lab accounts: if your password does not work, please email [root@cs.virginia.edu](mailto:root@cs.virginia.edu) to request it be changed; those who registered late should have gotten one last Friday
+- UNIX honor pledge
+  - It was in lab yesterday to be signed; if you didn't sign it, please print it out (it's in the repo on the [cs2150/index.html](index.html) page; the direct link is [here](unix-honor-pledge-s14.pdf)), sign it, and bring it to me in lecture
+  - Apparently the default action in the lab computers when double clicking on a .cpp file is loading up [Geany](http://www.geany.org), which is an IDE, so you can't use that...
+- Lectures are posted online in a Flash movie format
+  - From [cs2150/index.html](index.html), click on the right-most link in the 'Semester Schedule' table
+  - I can't fix the issue with the first lecture's recording...  :-(
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are listed in the github repo
+- Today we will start on [Lists](../../slides/03-lists.html), which will take us through the end of this week
+  - Next up: [Numbers](../../slides/04-numbers.html)
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Monday, January 27th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/compiler_complaint.png" title="Checking whether build environment is sane ... build environment is grinning and holding a spatula.  Guess not." alt="Compiler Complaint">
+<p class="center"><a href="http://xkcd.com/138/">xkcd # 138</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 6: Monday, January 27th, 2014
+
+- Office hours are in full swing, see the [Google calendar](https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York) for details
+  - Mine are now Mondays 2-3:30 and Thursdays 10:30-noon
+- Registration issues should be all taken care of by now
+- [Lab 1](../../labs/lab01/index.html)
+  - We hope to have it graded in "one week"
+  - Lab accounts: if your password does not work, please email [root@cs.virginia.edu](mailto:root@cs.virginia.edu) to request it be changed; those who registered late should have gotten one last Friday
+- [Lab 2](../../labs/lab02/index.html) is out -- how is it going?
+  - We have a finite number of TAs, so please don't wait until the last minute...
+  - Remember that for the pre-lab, you have to have a lot of it devleoped, not fully working
+  - But it still must compile, else no credit!
+- UNIX honor pledge
+  - I am aiming to have that signed in lab this week -- recall that you can't use IDEs
+  - Apparently the default action in the lab computers when double clicking on a .cpp file is loading up [Geany](http://www.geany.org), which is an IDE, so you can't use that...
+- Lectures are posted online in a Flash movie format
+  - From [cs2150/index.html](index.html), click on the right-most link in the 'Semester Schedule' table
+  - I can't fix the issue with the first lecture's recording...  :-(
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are listed in the github repo
+- Today we should finish with [C++](../../slides/02-cpp.html), and then onto [Lists](../../slides/03-lists.html)
+	  </script></section>
+
+	  <section>
+<img alt="lab 2 linked list UML diagram" src="../../labs/lab02/uml-diagram.png">
+<script type="text/javascript">insertCanvas();</script>
+	  </section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Friday, January 24th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/pointers.png" title="Every computer, at the unreachable memory address 0x-1, stores a secret.  I found it, and it is that all humans ar-- SEGMENTATION FAULT." alt="Pointers">
+<p class="center"><a href="http://xkcd.com/371/">xkcd # 371</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 5: Friday, January 24th, 2014
+
+- Office hours are in full swing, see the [Google calendar](https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York) for details
+  - Mine are going to change starting next week; more details to follow...
+- Registration issues should be largely taken care of by now
+- [Lab 1](../../labs/lab01/index.html): how did it go?
+  - We hope to have it graded in "one week"
+  - Lab accounts: if your password does not work, please email [root@cs.virginia.edu](mailto:root@cs.virginia.edu) to request it be changed; those who are still in the process of registration should get one later today
+- [Lab 2](../../labs/lab02/index.html) is out -- it's a ***BIG*** lab, so please don't wait until the last minute to start!
+  - We have great TAs, but they are still a finite resource during office hours
+  - Remember that for the pre-lab, you have to have a lot of it devleoped, not fully working
+  - But it still must compile, else no credit!
+- UNIX honor pledge
+  - I am aiming to have that signed in lab next week -- recall that you can't use IDEs
+  - Apparently the default action in the lab computers when double clicking on a .cpp file is loading up [Geany](http://www.geany.org), which is an IDE, so you can't use that...
+- Lectures are posted online in a Flash movie format
+  - From [cs2150/index.html](index.html), click on the right-most link in the 'Semester Schedule' table
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the github repo
+- Today we will continue with [C++](../../slides/02-cpp.html), which will take us into next week
+  - Next up: [Lists](../../slides/03-lists.html)
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Wednesday, January 22nd, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/goto.png" title="Neal Stephenson thinks it&#39;s cute to name his labels &#39;dengo&#39;" alt="goto">
+<p class="center"><a href="http://xkcd.com/292/">xkcd # 292</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 4: Wednesday, January 22nd, 2014
+
+- Office have started, see the [Google calendar](https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York) for details
+- Registration issues: a new lab opened up, AND registraion restrictions removed AND the lab registration cap was (finally) raised
+  - I am going to raise the lecture caps to 130 each
+  - Those who register late for the course should submit a support request, once you are able to, to request an extnesion for lab 1
+  - A max of 45 can be registered for the Olsson 001 labs (and a max of 14 for the Rice 340 lab)
+  - Which means if you are still on the waitlist, you will have to switch to a different section or take the class next semester
+- Yesterday's "snow day" (or "snow evening", more accurately)
+  - If you need an in-lab extension due to not being able to make lab due to the snow, please submit a support request
+- Lab 1: how is it going?
+  - Lab accounts: if your password does not work, please email [root@cs.virginia.edu](mailto:root@cs.virginia.edu) to request it be changed
+  - Those who are still in the process of registration should get one by the end of this week
+- Lectures are posted online in a Flash movie format
+  - From [cs2150/index.html](index.html), click on the right-most link in the 'Semester Schedule' table
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the github repo
+- Today we will continue with [C++](../../slides/02-cpp.html), which will take us into next week
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section data-markdown><script type="text/template">
+## Monday, January 20th, 2014
+No class today, as it was Martin Luther King Jr. day
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Friday, January 17th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/donald_knuth.png" title="His books were kinda intimidating; rappelling down through his skylight seemed like the best option." alt="Donald Knuth">
+<p class="center"><a href="http://xkcd.com/163/">xkcd # 163</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 3: Friday, January 17th, 2014
+
+- Office hours will start on Sunday, schedule still to be determined
+- No class on Monday!  But we will have *SOME* of the office hours
+ - See the [Google calendar](https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York) for details, when they are posted
+- Registration issues: a new lab opened up, AND registraion restrictions removed
+  - I will be increasing the caps of the existing labs, but that still won't be enough space in lab section 101 for all 10 people on the wait list...
+- Lab 1 is out
+  - There is a wiki page [here](https://collab.itc.virginia.edu/portal/tool/58e790ee-ac9e-4001-9947-ebf5df8a8df5?pageName=%2Fsite%2F7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c%2Fgetting+the+git+repo+for+the+first+time&action=printview&panel=Main&breadcrumb=0&realm=%2Fsite%2F7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c) on how to get started with the github repo prior to getting the VirtualBox image installed; you'll need this to see *how* to install and configure VirtualBox
+  - The VirtualBox image will need [7-zip](http://www.7-zip.org/) to unzip it
+  - The assignment submission will automatically open Sunday at noon
+- Your lab accounts and passwords will be e-mailed to you today or Monday; bring your Linux password with you to lab on Tuesday!
+- Lectures are posted online in a Flash movie format
+  - From [cs2150/index.html](index.html), click on the right-most link in the 'Semester Schedule' table
+  - Apparently Monday's lecture is stuck in a zoom-into-upper-right-corner mode (sorry!)
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/site/7d8b39e0-ac9d-48c1-ab42-c3ca20dfb23c/page/a2056666-5b8f-40b6-8591-f73174a47bbf)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the github repo
+- Today we will continue with [C++](../../slides/02-cpp.html), which will take us through next week
+	  </script></section>
+
+	</section>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Wednesday, January 15th, 2014</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/good_code.png" title="You can either hang out in the Android Loop or the HURD loop." alt="Good Code">
+<p class="center"><a href="http://xkcd.com/844/">xkcd # 844</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 2: Wednesday, January 15th, 2014
+
+- Office hours will start on Sunday, schedule still to be determined
+- Registration issues: a new lab opened up, which helps somewhat
+  - I will be increasing the caps of the existing labs (and removing the registration restriction)
+  - This will hopefully solve most (if not all) of the registration issues
+- Lab 1 will be out today or tomorrow
+  - When it's ready, it will be posted on the twitter feed: [@UVaCS2150](https://twitter.com/@UVaCS2150)
+  - The VirtualBox image is already uploaded, but will need [7-zip](http://www.7-zip.org/) to unzip it
+  - The assignment submission will automatically open Sunday at noon
+- Your lab accounts and passwords will be e-mailed to you late this week or (more likely) Monday; bring your Linux password with you to lab on Tuesday!
+- Monday's lecture is posted online in a Flash movie format
+  - From the [cs2150/index.html](index.html) file in the git archive, click on the right-most link in the 'Semester Schedule' table
+- Anonymous feedback!  It's through Collab
+- We will see a brief tour of the Collab workspace and the git repo today
+- Interested in installing Linux on your machine?
+  - The dept uses Ubuntu, which is what is on the VirtualBox image
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- Today we will finish with the [course introduction](../../slides/01-intro.html), and start on [C++](../../slides/02-cpp.html), which will continue through all of next week
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	
+      </div>
+
+    </div>
+
+<div id="calibratediv" style="display:none">
+  <div id="calibratecanvasdiv">
+    <canvas id="calibratecanvas" width="300" height="300">Your
+                  browser does not support the canvas tag</canvas>
+  </div>
+  <p style="text-align:center">Click the center of the target<br><a href="#" 
+           onClick="calibratewin.close(); return false">Close window</a></p>
+</div>
+
+    <script src="../../slides/reveal.js/lib/js/head.min.js"></script>
+    <script src="../../slides/reveal.js/js/reveal.min.js"></script>
+    <!-- You cannot, apparently, include this from another directory, hence why settings.js is reproduced here in full -->
+    <script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+  controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      slideNumber: true,
+      
+      theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+      transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+      
+      // Parallax scrolling
+      // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+      // parallaxBackgroundSize: '2100px 900px',
+      
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+		     { src: '../../slides/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+		     { src: '../../slides/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		     { src: '../../slides/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		     { src: '../../slides/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		     { src: '../../slides/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+		     { src: '../../slides/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+		     ]
+      });
+</script>
+
+  </body>
+</html>
