@@ -1,45 +1,37 @@
-<!doctype html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta charset="utf-8">
-<title>PDR: Docs: Compilation Issues</title>
-<link href="../markdown.css" media="all" rel="stylesheet" type="text/css"></head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../markdown.css" type="text/css" />
+</head>
 <body>
-<h1>PDR: Docs: Compilation Issues</h1>
-
+<h1 id="pdr-docs-compilation-issues">PDR: Docs: Compilation Issues</h1>
 <p><a href="index.html">Go up to the main documents page</a> (<a href="index.md">md</a>)</p>
-
 <p>This page is intended to help when your code does not compile.</p>
-
-<h2>Help!  My code doesn&rsquo;t compile!</h2>
-
+<h2 id="help-my-code-doesnt-compile">Help! My code doesn't compile!</h2>
 <p>There are a number of things you can try:</p>
-
 <ul>
-<li>Fix the top-most error shown by the compiler, then re-compile.  Sometimes errors will have a cascading effect, hence why we fix the first one and re-compile.</li>
+<li>Fix the top-most error shown by the compiler, then re-compile. Sometimes errors will have a cascading effect, hence why we fix the first one and re-compile.</li>
 <li>Check the section, below, on common compiler errors and how to solve them, as the error that you are looking for may be listed there</li>
-<li>Did you submit all the required files?  In particular, if some of the files that you <code>#include</code> are not present, then it won&rsquo;t compile.</li>
-<li>Filename case: Linux (what the compilation is done on) does care about the capitalization of file names.  So if your code has an <code>#include "FileName.cpp"</code> and your file is named filename.cpp, this will NOT compile under Linux.  Change your file name cases, or your <code>#include</code> line.</li>
-<li>Did you include the appropriate system <code>#include</code> lines?  If it is complaining that it can&rsquo;t find <code>exit()</code>, for example, be sure to <code>#include &lt;stdlib.h&gt;</code>.  Many compilers automatically include <code>&lt;stdlib.h&gt;</code> and <code>&lt;stdio.h&gt;</code>, which means you can directly call functions such as <code>printf()</code> and <code>exit()</code> without the appropriate <code>#include</code> line.  The compiler used by the submission system does not include, by default, any <code>#include</code> files.</li>
+<li>Did you submit all the required files? In particular, if some of the files that you <code>#include</code> are not present, then it won't compile.</li>
+<li>Filename case: Linux (what the compilation is done on) does care about the capitalization of file names. So if your code has an <code>#include &quot;FileName.cpp&quot;</code> and your file is named filename.cpp, this will NOT compile under Linux. Change your file name cases, or your <code>#include</code> line.</li>
+<li>Did you include the appropriate system <code>#include</code> lines? If it is complaining that it can't find <code>exit()</code>, for example, be sure to <code>#include &lt;stdlib.h&gt;</code>. Many compilers automatically include <code>&lt;stdlib.h&gt;</code> and <code>&lt;stdio.h&gt;</code>, which means you can directly call functions such as <code>printf()</code> and <code>exit()</code> without the appropriate <code>#include</code> line. The compiler used by the submission system does not include, by default, any <code>#include</code> files.</li>
 <li>Did you enter <code>using namespace std;</code> at the top of each file?</li>
-<li>The submission system provides the compilation command - try running it on your machine.  In particular, try creating a NEW directory, copying into that directory the files that you are submitting (and ONLY those files), and then executing the compile command.</li>
+<li>The submission system provides the compilation command - try running it on your machine. In particular, try creating a NEW directory, copying into that directory the files that you are submitting (and ONLY those files), and then executing the compile command.</li>
 <li>If the compile command is <code>make</code> (you learn about make and Makefiles about 1/3 of the way through the course), then your Makefile needs to be configured to properly compile the code</li>
-<li>The output binary should NOT be specified by the <code>-o</code> compiler option.  This means it will produce a.out (on Linux and Mac OS X).  The system checks to see that the binary file was produced before it claims compilation success (and since the system is running on a Linux machine, it looks for a.out).</li>
+<li>The output binary should NOT be specified by the <code>-o</code> compiler option. This means it will produce a.out (on Linux and Mac OS X). The system checks to see that the binary file was produced before it claims compilation success (and since the system is running on a Linux machine, it looks for a.out).</li>
 </ul>
-
-
-<h2>My code still doesn&rsquo;t compile!  What do I do now?</h2>
-
+<h2 id="my-code-still-doesnt-compile-what-do-i-do-now">My code still doesn't compile! What do I do now?</h2>
 <p>Here are a few additional things to try:</p>
-
 <ul>
-<li>See one of the course staff during office hours.  Please don&rsquo;t e-mail the code to us - we are not e-mail debuggers.</li>
-<li>Comment out the code until it compiles.  It is better to have it all commented out and compiling, as you may receive some partial credit when the graders look at the code.</li>
+<li>See one of the course staff during office hours. Please don't e-mail the code to us - we are not e-mail debuggers.</li>
+<li>Comment out the code until it compiles. It is better to have it all commented out and compiling, as you may receive some partial credit when the graders look at the code.</li>
 </ul>
-
-
-<h2>Common compiler errors and how to solve them</h2>
-
-<p>In the fall of 2013, we switched over to clang from g++.  Thus, the error messages that we had in this section are going to be different with clang.  If you run into something that you don&rsquo;t understand, please let us know!</p>
+<h2 id="common-compiler-errors-and-how-to-solve-them">Common compiler errors and how to solve them</h2>
+<p>In the fall of 2013, we switched over to clang from g++. Thus, the error messages that we had in this section are going to be different with clang. If you run into something that you don't understand, please let us know!</p>
 </body>
 </html>

@@ -16,13 +16,13 @@ Grade curves
 The stated curve on the exams (and one of the labs) is listed at the bottom of the [CS 2150](index.html) page.
 
 - In-lab 1 had a 1 point (25 percentage point) curve
-  - This is 1 point out of 344 lab points, and labs are 40% of the final grade, which means this is 1/344\*40 = 0.12 points on the final grade
+    - This is 1 point out of 344 lab points, and labs are 40% of the final grade, which means this is 1/344\*40 = 0.12 points on the final grade
 - The first midterm had a 15 percentage point curve
-  - Each midterm is worth 15% of the final grade, so this is 15/100\*15 = 2.25 points on the final grade
+    - Each midterm is worth 15% of the final grade, so this is 15/100\*15 = 2.25 points on the final grade
 - The second midterm had a 20 percentage point curve
-  - Each midterm is worth 15% of the final grade, so this is 15/100\*20 = 3 points on the final grade
+    - Each midterm is worth 15% of the final grade, so this is 15/100\*20 = 3 points on the final grade
 - The final had a 5 percentage point curve
-  - The final is worth 25% of the final grade, so this is 5/100\*25 = 1.25 points on the final grade
+    - The final is worth 25% of the final grade, so this is 5/100\*25 = 1.25 points on the final grade
 
 The total curve, so far, is the sum of these values: 0.12 + 2.25 + 3 + 1.25 = 6.62 points.
 

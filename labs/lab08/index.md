@@ -23,15 +23,15 @@ Procedure
 
 1. You should be familiar with the readings described above.  They detail the x86 material that this lab requires.
 2. Complete the [C++/assembly tutorial](http://cs.lmu.edu/~ray/notes/nasmexamples/); there are some sections you can skip, as described in the pre-lab section below.  Note that this tutorial is in C, not C++, so you will notice a few minor differences:
-   1. Using `clang` to compile versus `clang++`
-   2. Using `printf()` for the output, not `cout`
-   3. You cannot use `//` for comments; instead you must use `/* ... */`
+    1. Using `clang` to compile versus `clang++`
+    2. Using `printf()` for the output, not `cout`
+    3. You cannot use `//` for comments; instead you must use `/* ... */`
 3. Read through the section pages on compiling C++ with assembly, as well as the vecsum program.
 4. There are different program formats for different architectures, and this pre-lab **must** be submitted in the submission format for this lab (see the next section, below).  If you do not submit it in the required format (64-bit Linux), you will not receive credit for the lab, as it will not compile.
 5. Follow the pre-lab instructions in this document.  They require you to write a program in x86 assembly called mathlib.s.  To see other examples of nasm code, you should look at the vecsum.s program, as well as the code in the nasm tutorial.
 6. Make sure your mathfun.cpp takes in only the input described in the pre-lab section!  Input is to be provided via standard input (i.e., `cin`), not through command-line parameters.
 7. Your code must compile with `make`!
-   - And does your code work on a 64-bit Linux machine?  It will need to in order to receive credit.
+     - And does your code work on a 64-bit Linux machine?  It will need to in order to receive credit.
 8. Files to download [vecsum.s](vecsum.s.html) ([src](vecsum.s)), [main.cpp](main.cpp.html) ([src](main.cpp)), [Makefile](Makefile.html) ([src](Makefile))
 9. Files to submit mathlib.s, mathfun.cpp, Makefile
 

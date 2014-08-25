@@ -11,9 +11,9 @@ Program and Data Representation: Slides
 [Slide set 1: C++](01-cpp.html)
 
 - Source code:
-  - General source code: [evenodd.cpp](code/01-cpp/evenodd.cpp.html) ([src](code/01-cpp/evenodd.cpp)), [pointers.cpp](code/01-cpp/pointers.cpp.html) ([src](code/01-cpp/pointers.cpp)), [swap.cpp](code/01-cpp/swap.cpp.html) ([src](code/01-cpp/swap.cpp)), [dynamic_allocation.cpp](code/01-cpp/dynamic_allocation.cpp.html) ([src](code/01-cpp/dynamic_allocation.cpp)), [delete.cpp](code/01-cpp/delete.cpp.html) ([src](code/01-cpp/delete.cpp)), [memory.cpp](code/01-cpp/memory.cpp.html) ([src](code/01-cpp/memory.cpp)), [swapref.cpp](code/01-cpp/swapref.cpp.html) ([src](code/01-cpp/swapref.cpp)), [cpptest.cpp](code/01-cpp/cpptest.cpp.html) ([src](code/01-cpp/cpptest.cpp))
-  - IntCell code: [IntCell.java](code/01-cpp/IntCell.java.html) ([src](code/01-cpp/IntCell.java)), [TestIntCell.cpp](code/01-cpp/TestIntCell.cpp.html) ([src](code/01-cpp/TestIntCell.cpp)), [IntCell.h](code/01-cpp/IntCell.h.html) ([src](code/01-cpp/IntCell.h)), [IntCell.cpp](code/01-cpp/IntCell.cpp.html) ([src](code/01-cpp/IntCell.cpp))
-  - Rational code: [Rational.java](code/01-cpp/Rational.java.html) ([src](code/01-cpp/Rational.java)), [Rational.h](code/01-cpp/Rational.h.html) ([src](code/01-cpp/Rational.h)), [Rational.cpp](code/01-cpp/Rational.cpp.html) ([src](code/01-cpp/Rational.cpp)), [TestRational.cpp](code/01-cpp/TestRational.cpp.html) ([src](code/01-cpp/TestRational.cpp))
+    - General source code: [evenodd.cpp](code/01-cpp/evenodd.cpp.html) ([src](code/01-cpp/evenodd.cpp)), [pointers.cpp](code/01-cpp/pointers.cpp.html) ([src](code/01-cpp/pointers.cpp)), [swap.cpp](code/01-cpp/swap.cpp.html) ([src](code/01-cpp/swap.cpp)), [dynamic_allocation.cpp](code/01-cpp/dynamic_allocation.cpp.html) ([src](code/01-cpp/dynamic_allocation.cpp)), [delete.cpp](code/01-cpp/delete.cpp.html) ([src](code/01-cpp/delete.cpp)), [memory.cpp](code/01-cpp/memory.cpp.html) ([src](code/01-cpp/memory.cpp)), [swapref.cpp](code/01-cpp/swapref.cpp.html) ([src](code/01-cpp/swapref.cpp)), [cpptest.cpp](code/01-cpp/cpptest.cpp.html) ([src](code/01-cpp/cpptest.cpp))
+    - IntCell code: [IntCell.java](code/01-cpp/IntCell.java.html) ([src](code/01-cpp/IntCell.java)), [TestIntCell.cpp](code/01-cpp/TestIntCell.cpp.html) ([src](code/01-cpp/TestIntCell.cpp)), [IntCell.h](code/01-cpp/IntCell.h.html) ([src](code/01-cpp/IntCell.h)), [IntCell.cpp](code/01-cpp/IntCell.cpp.html) ([src](code/01-cpp/IntCell.cpp))
+    - Rational code: [Rational.java](code/01-cpp/Rational.java.html) ([src](code/01-cpp/Rational.java)), [Rational.h](code/01-cpp/Rational.h.html) ([src](code/01-cpp/Rational.h)), [Rational.cpp](code/01-cpp/Rational.cpp.html) ([src](code/01-cpp/Rational.cpp)), [TestRational.cpp](code/01-cpp/TestRational.cpp.html) ([src](code/01-cpp/TestRational.cpp))
 
 [Slide set 2: Lists](02-lists.html)
 
@@ -47,14 +47,14 @@ Program and Data Representation: Slides
 
 - [x86 book chapter](../book/x86-chapter.pdf) as the reading
 - Source code
-  - The generated assembly was generated using `make asm`, which uses gcc/g++; to generate it using clang/clang++, use the 'asmclang' target
-  - [Makefile](code/08-x86/Makefile.html) ([src](code/08-x86/Makefile))
-  - Absolute value example: [test_abs.cpp](code/08-x86/test_abs.cpp.html) ([src](code/08-x86/test_abs.cpp)), [test_abs_c.c](code/08-x86/test_abs_c.c.html) ([src](code/08-x86/test_abs_c.c)), [test_abs.s](code/08-x86/test_abs.s.html) ([src](code/08-x86/test_abs.s)), [test_abs_c.s](code/08-x86/test_abs_c.s.html) ([src](code/08-x86/test_abs_c.s)), [test_abs-non-intel.s](code/08-x86/test_abs-non-intel.s.html) ([src](code/08-x86/test_abs-non-intel.s))
-  - Fibonacci example: [test_fib.cpp](code/08-x86/test_fib.cpp.html) ([src](code/08-x86/test_fib.cpp)), [test_fib.s](code/08-x86/test_fib.s.html) ([src](code/08-x86/test_fib.s))
-  - Max example: [test_max.cpp](code/08-x86/test_max.cpp.html) ([src](code/08-x86/test_max.cpp)), [test_max.s](code/08-x86/test_max.s.html) ([src](code/08-x86/test_max.s)), [test_max-O2.s](code/08-x86/test_max-O2.s.html) ([src](code/08-x86/test_max-O2.s)), [test_max-noextern.s](code/08-x86/test_max-noextern.s.html) ([src](code/08-x86/test_max-noextern.s))
-  - String compare example: [test_string_compare.cpp](code/08-x86/test_string_compare.cpp.html) ([src](code/08-x86/test_string_compare.cpp)), [test_string_compare.s](code/08-x86/test_string_compare.s.html) ([src](code/08-x86/test_string_compare.s))
+    - The generated assembly was generated using `make asm`, which uses gcc/g++; to generate it using clang/clang++, use the 'asmclang' target
+    - [Makefile](code/08-x86/Makefile.html) ([src](code/08-x86/Makefile))
+    - Absolute value example: [test_abs.cpp](code/08-x86/test_abs.cpp.html) ([src](code/08-x86/test_abs.cpp)), [test_abs_c.c](code/08-x86/test_abs_c.c.html) ([src](code/08-x86/test_abs_c.c)), [test_abs.s](code/08-x86/test_abs.s.html) ([src](code/08-x86/test_abs.s)), [test_abs_c.s](code/08-x86/test_abs_c.s.html) ([src](code/08-x86/test_abs_c.s)), [test_abs-non-intel.s](code/08-x86/test_abs-non-intel.s.html) ([src](code/08-x86/test_abs-non-intel.s))
+    - Fibonacci example: [test_fib.cpp](code/08-x86/test_fib.cpp.html) ([src](code/08-x86/test_fib.cpp)), [test_fib.s](code/08-x86/test_fib.s.html) ([src](code/08-x86/test_fib.s))
+    - Max example: [test_max.cpp](code/08-x86/test_max.cpp.html) ([src](code/08-x86/test_max.cpp)), [test_max.s](code/08-x86/test_max.s.html) ([src](code/08-x86/test_max.s)), [test_max-O2.s](code/08-x86/test_max-O2.s.html) ([src](code/08-x86/test_max-O2.s)), [test_max-noextern.s](code/08-x86/test_max-noextern.s.html) ([src](code/08-x86/test_max-noextern.s))
+    - String compare example: [test_string_compare.cpp](code/08-x86/test_string_compare.cpp.html) ([src](code/08-x86/test_string_compare.cpp)), [test_string_compare.s](code/08-x86/test_string_compare.s.html) ([src](code/08-x86/test_string_compare.s))
 - The tutorial for [lab 8](../labs/lab08/index.html) ([md](../labs/lab08/index.md)) is the online [nasm tutorial](http://cs.lmu.edu/~ray/notes/nasmexamples/), which has more examples of assembly code
-  - You can skip a few of the sections (feel free to look at them if interested, but they are not needed): Floating Point Instructions, SIMD Parallelism, Saturated Arithmetic, and Graphics.
+    - You can skip a few of the sections (feel free to look at them if interested, but they are not needed): Floating Point Instructions, SIMD Parallelism, Saturated Arithmetic, and Graphics.
 
 
 [Slide set 9: Advanced C++](09-advanced-cpp.html)

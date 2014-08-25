@@ -34,11 +34,11 @@ Stacks and Queues
 Numbers
 
 - Radix conversion and number bases
-  - [Number base](http://mathworld.wolfram.com/Base.html) on [Mathworld](http://mathworld.wolfram.com/)
+    - [Number base](http://mathworld.wolfram.com/Base.html) on [Mathworld](http://mathworld.wolfram.com/)
 - Integer numbers
-  - [Two's complement](http://en.wikipedia.org/wiki/Two%27s_complement) on [Wikipedia](http://en.wikipedia.org)
+    - [Two's complement](http://en.wikipedia.org/wiki/Two%27s_complement) on [Wikipedia](http://en.wikipedia.org)
 - Floating point numbers
-  - [IEEE 754](http://en.wikipedia.org/wiki/IEEE_754) on [Wikipedia](http://en.wikipedia.org)
+    - [IEEE 754](http://en.wikipedia.org/wiki/IEEE_754) on [Wikipedia](http://en.wikipedia.org)
 
 <a name="structsunions">Struct and Unions</a>
 
@@ -58,5 +58,5 @@ AVL Trees
 
 - There are a number of articles on [Wikipedia](http://en.wikipedia.org/wiki/Main_Page) that are relevant: [Binary tree](http://en.wikipedia.org/wiki/Binary_tree), [Binary search tree](http://en.wikipedia.org/wiki/Binary_search_tree), [Tree rotation](http://en.wikipedia.org/wiki/Tree_rotation), [AVL tree](http://en.wikipedia.org/wiki/AVL_tree), [Splay tree](http://en.wikipedia.org/wiki/Splay_tree), and [Red-black tree](http://en.wikipedia.org/wiki/Red-black_tree)
 - [AVL trees](http://en.wikibooks.org/wiki/F_Sharp_Programming/Advanced_Data_Structures#AVL_Trees) on [Wikibooks](http://en.wikibooks.org/wiki/Main_Page)
-  - Note that this section is on the F# page, so the program code will be different, but the theory will be the same
+    - Note that this section is on the F# page, so the program code will be different, but the theory will be the same
 - [Binary search trees](http://cnx.org/content/m29296/latest/|text=Binary search trees} on [Connexions](http://cnx.org)

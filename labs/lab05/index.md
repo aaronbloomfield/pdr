@@ -62,11 +62,11 @@ You must use the skeleton source files provided here as a basis for your prelab.
 
 - Do NOT alter [TreeCalcTest.cpp](code/prelab/TreeCalcTest.cpp.html) ([src](code/prelab/TreeCalcTest.cpp)).  This is the testing program that we will use to run automated tests on your implementations.  Do not change it.
 - In [TreeCalc.h](code/prelab/TreeCalc.h.html) ([src](code/prelab/TreeCalc.h)) and [TreeCalc.cpp](code/prelab/TreeCalc.cpp.html) ([src](code/prelab/TreeCalc.cpp)):
-  - Do NOT alter the `readInput()` method.  Points will be deducted if you do so.
-  - The only modification allowed in the `printOutput()` method is to add calls to your implemented `printPrefix()`, `printPostfix()`, and `printInorder()` methods 
+    - Do NOT alter the `readInput()` method.  Points will be deducted if you do so.
+    - The only modification allowed in the `printOutput()` method is to add calls to your implemented `printPrefix()`, `printPostfix()`, and `printInorder()` methods 
 - You should implement all the methods as listed in the class definitions for TreeCalc
 - You may add additional supporting methods and data members to TreeCalc to complete your implementation.
-  - Don't modify TreeNode -- note that TreeCalc is a friend of TreeNode, so you can put all your code in TreeCalc.
+    - Don't modify TreeNode -- note that TreeCalc is a friend of TreeNode, so you can put all your code in TreeCalc.
 
 Note that the code will not compile out of the box -- you need to add code so that the `printOutput()` method in TreeCalc works.
 
@@ -143,15 +143,15 @@ You will need to download the following files: [Makefile](code/inlab/Makefile.ht
 To complete this lab you will have to make the following code modifications:
 
 1. Edit the AVL and binary search tree code to adjust the counter variables appropriately.  These variables are: `num_nodes`, `LeftLinksFollowed`, `RightLinksFollowed`, `SingleRotations`, and `DoubleRotations`
-   - **NOTE:**  The `mutable` keyword before these variable declarations allows the member functions that are declared as const to modify them (the variables).  Basically, it overrides the const modifier.  See [here](https://en.wikipedia.org/wiki/Mutable#C.2B.2B) for more details, if you are interested.
-   - You **should not** reset the `LeftLinksFollowed` or `RightLinksFollowed` variables.
-   - Those two variables (`LeftLinksFollowed` and `RightLinksFollowed`) should only be incremented in the `find()` method, not for the `insert()` or `remove()` methods.
-   - A double rotation is really two single rotations, but for the purposes of this in-lab we'll only count it as one double rotation.
+     - **NOTE:**  The `mutable` keyword before these variable declarations allows the member functions that are declared as const to modify them (the variables).  Basically, it overrides the const modifier.  See [here](https://en.wikipedia.org/wiki/Mutable#C.2B.2B) for more details, if you are interested.
+     - You **should not** reset the `LeftLinksFollowed` or `RightLinksFollowed` variables.
+     - Those two variables (`LeftLinksFollowed` and `RightLinksFollowed`) should only be incremented in the `find()` method, not for the `insert()` or `remove()` methods.
+     - A double rotation is really two single rotations, but for the purposes of this in-lab we'll only count it as one double rotation.
 2. Implement the following methods in the AVL and binary search tree code.  See below for details as to how these methods work.
-   - `double AvlTree::exp_path_length();`
-   - `double BinarySearchTree::exp_path_length();`
-   - `int AvlTree::int_path_length(AvlNode *t, int depth);`
-   - `int BinarySearchTree::int_path_length(BinaryNode *t, int depth);`
+     - `double AvlTree::exp_path_length();`
+     - `double BinarySearchTree::exp_path_length();`
+     - `int AvlTree::int_path_length(AvlNode *t, int depth);`
+     - `int BinarySearchTree::int_path_length(BinaryNode *t, int depth);`
 
 ### Explanation ###
 

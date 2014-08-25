@@ -348,7 +348,7 @@ This exercise is to be developed in C, and compiled using clang (NOT clang++!). 
 
 1. Read in an integer, which we'll call *n*
 2. Read in *n* more ints, and put those into a linked list
-   - The linked list must be dynamically allocated
+     - The linked list must be dynamically allocated
 3. Print out that linked list (we don't care the order)
 4. Properly deallocate the linked list
 

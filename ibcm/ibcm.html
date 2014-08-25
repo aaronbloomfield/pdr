@@ -1,55 +1,42 @@
-<!doctype html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta charset="utf-8">
-<title>Program and Data Representation: Itty Bitty Computing Machine (IBCM)</title>
-<link href="../markdown.css" media="all" rel="stylesheet" type="text/css"></head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../markdown.css" type="text/css" />
+</head>
 <body>
-<h1>Program and Data Representation: Itty Bitty Computing Machine (IBCM)</h1>
-
+<h1 id="program-and-data-representation-itty-bitty-computing-machine-ibcm">Program and Data Representation: Itty Bitty Computing Machine (IBCM)</h1>
 <p><a href="../README.html">Go up to the main README file</a> (<a href="../README.md">md</a>)</p>
-
-<p>The Itty Bitty Computing Machine (IBCM) is a machine language designed to be simple enough to teach the concepts of machine language, while being complicated enough to write any program.  The <em>IBCM computational model</em> (which is slighly different than the IBCM presented here) is <a href="http://en.wikipedia.org/wiki/Turing_complete">Turing complete</a>.  IBCM is meant to be taught in a week of lecture.</p>
-
-<p>IBCM was described in a SIGCSE 2011 article: &ldquo;<a href="http://dl.acm.org/citation.cfm?id=1953273">IBCM: The Itty Bitty Computing Machine</a>&rdquo; by Aaron Bloomfield and William Wulf (Proceedings of the 42nd ACM Technical Symposium on Computer Science Education (SIGCSE), March 2011, Dallas, TX); that article describes the Turing completeness of IBCM.  Due to copyright restrictions, that article cannot be included in this repository.  However, much of that material is similar to the material found in the <a href="../book/index.html">book chapter</a> on IBCM.</p>
-
-<p>The primary mechanism for learning IBCM is through the <a href="../slides/08-ibcm.html">IBCM slide set</a> and the <a href="../book/ibcm-chapter.pdf">IBCM book chapter</a>.  The material in both of those largely duplicates itself, but in different formats.  IBCM is utilized through an online set of web pages, described next.  A few C++ utilities are described at the bottom of this page.</p>
-
-<h2>Website</h2>
-
-<p>The IBCM is utilized through an online series of webpages.  The IBCM simulator needs PHP in order to run, and thus must be run from a web server (i.e., not as a local file).  Most of the computational load is on the client side (via Javascript), and little is on the server side.  There are a few mirros of this website available, which are listed below.  All the necessary code to run a separate copy are included in this repository.</p>
-
-<p>The primary file for the website is <a href="index.html">index.html</a>, and the directions are on the <a href="directions.html">directions.html</a> page.  The simulator itself is on the <a href="simulator.php">simulator.php</a> page &ndash; but as described above, this must be run on an actual web server.  Two supporting files (<a href="simulator.js">simulator.js</a> and <a href="ibcm.css">ibcm.css</a>) and the entire img/ directory are needed as well.  Note that two of the programs listed below (<a href="summation.ibcm">summation.ibcm</a> and <a href="array-summation.ibcm">array-summation.ibcm</a>) are linked to from the various website pages.</p>
-
+<p>The Itty Bitty Computing Machine (IBCM) is a machine language designed to be simple enough to teach the concepts of machine language, while being complicated enough to write any program. The <em>IBCM computational model</em> (which is slighly different than the IBCM presented here) is <a href="http://en.wikipedia.org/wiki/Turing_complete">Turing complete</a>. IBCM is meant to be taught in a week of lecture.</p>
+<p>IBCM was described in a SIGCSE 2011 article: &quot;<a href="http://dl.acm.org/citation.cfm?id=1953273">IBCM: The Itty Bitty Computing Machine</a>&quot; by Aaron Bloomfield and William Wulf (Proceedings of the 42nd ACM Technical Symposium on Computer Science Education (SIGCSE), March 2011, Dallas, TX); that article describes the Turing completeness of IBCM. Due to copyright restrictions, that article cannot be included in this repository. However, much of that material is similar to the material found in the <a href="../book/index.html">book chapter</a> on IBCM.</p>
+<p>The primary mechanism for learning IBCM is through the <a href="../slides/08-ibcm.html">IBCM slide set</a> and the <a href="../book/ibcm-chapter.pdf">IBCM book chapter</a>. The material in both of those largely duplicates itself, but in different formats. IBCM is utilized through an online set of web pages, described next. A few C++ utilities are described at the bottom of this page.</p>
+<h2 id="website">Website</h2>
+<p>The IBCM is utilized through an online series of webpages. The IBCM simulator needs PHP in order to run, and thus must be run from a web server (i.e., not as a local file). Most of the computational load is on the client side (via Javascript), and little is on the server side. There are a few mirros of this website available, which are listed below. All the necessary code to run a separate copy are included in this repository.</p>
+<p>The primary file for the website is <a href="index.html">index.html</a>, and the directions are on the <a href="directions.html">directions.html</a> page. The simulator itself is on the <a href="simulator.php">simulator.php</a> page -- but as described above, this must be run on an actual web server. Two supporting files (<a href="simulator.js">simulator.js</a> and <a href="ibcm.css">ibcm.css</a>) and the entire img/ directory are needed as well. Note that two of the programs listed below (<a href="summation.ibcm">summation.ibcm</a> and <a href="array-summation.ibcm">array-summation.ibcm</a>) are linked to from the various website pages.</p>
 <p>The mirrors are:</p>
-
 <ul>
 <li><a href="http://www.cs.virginia.edu/~cs216/ibcm/">http://www.cs.virginia.edu/~cs216/ibcm/</a></li>
 <li><a href="http://libra.cs.virginia.edu/ibcm/">http://libra.cs.virginia.edu/ibcm/</a></li>
 <li><a href="http://people.virginia.edu/~asb2t/ibcm/">http://people.virginia.edu/~asb2t/ibcm/</a></li>
 </ul>
-
-
-<h2>Sample IBCM code</h2>
-
+<h2 id="sample-ibcm-code">Sample IBCM code</h2>
 <p>The sample IBCM code included in this repository:</p>
-
 <ul>
 <li><a href="summation.ibcm">summation.ibcm</a>: a program that reads in a single integer value <em>n</em>, and computes the sum from 1 to <em>n</em>. This is the first program that is discussed in the <a href="../slides/08-ibcm.html">IBCM slide set</a>.</li>
-<li><a href="array-summation.ibcm">array-summation.ibcm</a>: a program that will compute the sum of a number of elements in an array.  Due to the fact that IBCM is intentionally a simplistic language, array indexing instrcutions must be created during run-time.  This is the second program that is discussed in the <a href="../slides/08-ibcm.html">IBCM slide set</a>.</li>
-<li><a href="multiply.ibcm">multiply.ibcm</a>: a program that creates an activation to allow for recursive calls.  It can call itself recursively about 1,300 times before it runs out of memory.  The &lsquo;stack&rsquo;, which contains the activation records, starts at the end of memory, and contains only the two parameters to the subroutine and the reutrn address.</li>
-<li><a href="turing.ibcm">turing.ibcm</a>: a Turing machine simulator.  The automaton simulated is a four state <a href="http://en.wikipedia.org/wiki/Busy_beaver">Busy Beaver</a> automaton, shown below.  Details about the Turing completeness can be found in the <a href="dl.acm.org/citation.cfm?id=1953273">IBCM article</a>.</li>
+<li><a href="array-summation.ibcm">array-summation.ibcm</a>: a program that will compute the sum of a number of elements in an array. Due to the fact that IBCM is intentionally a simplistic language, array indexing instrcutions must be created during run-time. This is the second program that is discussed in the <a href="../slides/08-ibcm.html">IBCM slide set</a>.</li>
+<li><a href="multiply.ibcm">multiply.ibcm</a>: a program that creates an activation to allow for recursive calls. It can call itself recursively about 1,300 times before it runs out of memory. The 'stack', which contains the activation records, starts at the end of memory, and contains only the two parameters to the subroutine and the reutrn address.</li>
+<li><a href="turing.ibcm">turing.ibcm</a>: a Turing machine simulator. The automaton simulated is a four state <a href="http://en.wikipedia.org/wiki/Busy_beaver">Busy Beaver</a> automaton, shown below. Details about the Turing completeness can be found in the <a href="dl.acm.org/citation.cfm?id=1953273">IBCM article</a>.</li>
 </ul>
-
-
-<p><img src="busy-beaver.png" alt="Busy Beaver automaton" /></p>
-
-<h2>C++ Utilities</h2>
-
-<p>There are two C++ utility programs included, which are primarly useful for grading.  In particular, they allow the programs to be run through a series of scripts (or other automated grading system).</p>
-
-<p><a href="ibcm-parse.cpp.html">ibcm-parse.cpp</a> (<a href="ibcm-parse.cpp">src</a>) is a program that will quickly check if the file names passed in via command line arguments look like IBCM files.  In particular, it checks if the first four digits on each line are all hexadecimal digits.  It does not program validity checking beyond this.  It is useful to tell the students if, on submission, their programs will parse correctly in an IBCM simulator.</p>
-
-<p><a href="ibcm-simulator.cpp.html">ibcm-simulator.cpp</a> (<a href="ibcm-simulator.cpp">src</a>) will simulate an IBCM program, and it has a number of command line switches that control its execution.  This program is useful for automating the execution of a number of IBCM programs without having to load each one into the web interface.  It will also print out traces of the entire program execution, if desired.  Run with the <code>-help</code> flag to see the full list of options.</p>
+<div class="figure">
+<img src="busy-beaver.png" alt="Busy Beaver automaton" /><p class="caption">Busy Beaver automaton</p>
+</div>
+<h2 id="c-utilities">C++ Utilities</h2>
+<p>There are two C++ utility programs included, which are primarly useful for grading. In particular, they allow the programs to be run through a series of scripts (or other automated grading system).</p>
+<p><a href="ibcm-parse.cpp.html">ibcm-parse.cpp</a> (<a href="ibcm-parse.cpp">src</a>) is a program that will quickly check if the file names passed in via command line arguments look like IBCM files. In particular, it checks if the first four digits on each line are all hexadecimal digits. It does not program validity checking beyond this. It is useful to tell the students if, on submission, their programs will parse correctly in an IBCM simulator.</p>
+<p><a href="ibcm-simulator.cpp.html">ibcm-simulator.cpp</a> (<a href="ibcm-simulator.cpp">src</a>) will simulate an IBCM program, and it has a number of command line switches that control its execution. This program is useful for automating the execution of a number of IBCM programs without having to load each one into the web interface. It will also print out traces of the entire program execution, if desired. Run with the <code>-help</code> flag to see the full list of options.</p>
 </body>
 </html>

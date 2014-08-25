@@ -1,22 +1,20 @@
-<!doctype html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta charset="utf-8">
-<title>PDR: Doxygen Tutorial</title>
-<link href="../../markdown.css" media="all" rel="stylesheet" type="text/css"></head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../../markdown.css" type="text/css" />
+</head>
 <body>
-<h1>PDR: Doxygen Tutorial</h1>
-
+<h1 id="pdr-doxygen-tutorial">PDR: Doxygen Tutorial</h1>
 <p><a href="../index.html">Go up to the Tutorials table of contents page</a></p>
-
-<p>A Mac OS X note: doxygen on a Mac is very hard to install and configure.  It will likely be easier to run doxygen through VirtualBox.  But see the very last paragraph of this lab for Mac-specific details.</p>
-
-<p>When writing large amounts of code, it is important to document it, both for your understanding later, as well as for other people&rsquo;s understanding (such as the graders).  So far, all of our documentation has been via regular comments.  However, there exist a number of documentation tools that allow us to do a lot more with our comments.  Consider the Java SDK source code.  If you look at the code itself, there are a lot of comments with special &ldquo;tags&rdquo; in the source code.  A tag is a special command that denotes the comment is about some specific aspect, such as the parameter type or return value.  The source code is then run through a program called javadoc (which comes with the Java SDK), and the full online HTML documentation pages that we are familiar with are then created.</p>
-
-<p>Note that the current version of doxygen, as of the writing of this lab, is 1.8.6.  The version currently installing on Ubuntu Linux (both in the lab and on Virtual Box) may be an earlier version.  These differences should not make any difference for the tags we are using.</p>
-
-<p>Javadoc is great for Java code, but does not work for C++ code.  Thus, we are going to use a program called doxygen, which works on a dozen different languages, including C++.  The homepage for doxygen is <a href="http://www.doxygen.org">here</a>.  A function might be commented as follows.  Note that the doxygen comments come <em>before</em> the code block to be documented.</p>
-
+<p>A Mac OS X note: doxygen on a Mac is very hard to install and configure. It will likely be easier to run doxygen through VirtualBox. But see the very last paragraph of this lab for Mac-specific details.</p>
+<p>When writing large amounts of code, it is important to document it, both for your understanding later, as well as for other people's understanding (such as the graders). So far, all of our documentation has been via regular comments. However, there exist a number of documentation tools that allow us to do a lot more with our comments. Consider the Java SDK source code. If you look at the code itself, there are a lot of comments with special &quot;tags&quot; in the source code. A tag is a special command that denotes the comment is about some specific aspect, such as the parameter type or return value. The source code is then run through a program called javadoc (which comes with the Java SDK), and the full online HTML documentation pages that we are familiar with are then created.</p>
+<p>Note that the current version of doxygen, as of the writing of this lab, is 1.8.6. The version currently installing on Ubuntu Linux (both in the lab and on Virtual Box) may be an earlier version. These differences should not make any difference for the tags we are using.</p>
+<p>Javadoc is great for Java code, but does not work for C++ code. Thus, we are going to use a program called doxygen, which works on a dozen different languages, including C++. The homepage for doxygen is <a href="http://www.doxygen.org">here</a>. A function might be commented as follows. Note that the doxygen comments come <em>before</em> the code block to be documented.</p>
 <pre><code>/** @brief Computes the average of the two passed values.
  *
  * This function computes the average using the standard accepted
@@ -29,29 +27,19 @@
 
 double average (double x, double y) {
   return (x+y)/2.0;
-}
-</code></pre>
-
-<p>This is much more documentation than is probably necessary for the <code>average()</code> function, but the point is to show the functionality of doxygen.  Note that five of the lines have tags, such as <code>@return</code>, which means that the following comment is specifically about the return value.  Some tags, such as the <code>@param</code> tag, require a parameter.</p>
-
-<p>Save the above code as a file called <a href="average.cpp.html">average.cpp</a> (<a href="average.cpp">src</a>), put the <a href="Doxyfile">Doxyfile</a> in the same directory, and run doxygen via the <code>doxygen</code> command &ndash; no command line parameters are needed (assuming the <code>Doxyfile</code> file is in the same directory, which it is in this case).  The provided configuration file produces documentation in two forms &ndash; HTML and RTF.  With a modification to the configuration file (which we won&rsquo;t see here), it can produce documentation in other formats as well (LaTeX, man pages, XML, etc.).</p>
-
-<p>RTF (rich text format) is a file type that can be loaded up into your favorite word processing program.  One you have run doxygen, the comments are formatted into a file called doc/rtf/refman.rtf &ndash; try loading up that file.  Note that a number of the fields in the file (such as &ldquo;Title&rdquo; and &ldquo;Author&rdquo;) are not yet filled in &ndash; this is addressed below.</p>
-
-<p>The other version, and the one we are going to look at, is the HTML documentation.  After you run doxygen, these files are in the doc/html directory &ndash; view the index.html file.  If you look at the documentation for this function (from the main page, follow the &ldquo;Files"link and then the "average.cpp&rdquo; link), the web page looks like the following:</p>
-
-<p><img src="screenshot.png" alt="screenshot.png" /></p>
-
-<p>Do you see how the tags are separated into the different parts of this comment block?  To create the documentation for your code, you will need to create the <code>Doxyfile</code> file.  Start with the one provided with this tutorial.  Note that it&rsquo;s a text file, even though it does not have a .txt extension &ndash; thus, Emacs is a good editor to use to edit the file.  We won&rsquo;t get into most of the details of the file.  However, on line 577, you have to edit the INPUT parameter, which specifies which file(s) to read and produce documentation for.  Other fields will allow you to specify such things as the title, author, etc. (these are the things that were missing in the RTF file).</p>
-
-<p>Next, look at the doxygen manual.  You can view it in PDF form, but you will first have to download that file (start <a href="http://www.stack.nl/~dimitri/doxygen/download.html#dlmanual">here</a>).  Otherwise, you can view the <a href="http://www.stack.nl/~dimitri/doxygen/manual/index.html">online HTML manual</a>.  Start with the <a href="http://www.stack.nl/~dimitri/doxygen/manual/docblocks.html">&ldquo;Documenting the code&rdquo; chapter</a>, as the previous chapters were covered by the description above.</p>
-
-<h3>Important Notes</h3>
-
-<p>Private members are not documented in Doxygen by default.  To change this (i.e. to document private members), you will want to change the <code>EXTRACT_PRIVATE</code> flag in Doxyfile to <code>YES</code>.</p>
-
-<p>You may have to include all of your comments in your .h file.  This depends less on the doxygen version, and more on how you structure your code comments, but if you are making changes to your doxygen comments and are not seeing the results, try moving them to the .h file.  As long as the documentation is created when <code>doxygen</code> is run, we don&rsquo;t really care where your doxygen comments are in your source code.</p>
-
+}</code></pre>
+<p>This is much more documentation than is probably necessary for the <code>average()</code> function, but the point is to show the functionality of doxygen. Note that five of the lines have tags, such as <code>@return</code>, which means that the following comment is specifically about the return value. Some tags, such as the <code>@param</code> tag, require a parameter.</p>
+<p>Save the above code as a file called <a href="average.cpp.html">average.cpp</a> (<a href="average.cpp">src</a>), put the <a href="Doxyfile">Doxyfile</a> in the same directory, and run doxygen via the <code>doxygen</code> command -- no command line parameters are needed (assuming the <code>Doxyfile</code> file is in the same directory, which it is in this case). The provided configuration file produces documentation in two forms -- HTML and RTF. With a modification to the configuration file (which we won't see here), it can produce documentation in other formats as well (LaTeX, man pages, XML, etc.).</p>
+<p>RTF (rich text format) is a file type that can be loaded up into your favorite word processing program. One you have run doxygen, the comments are formatted into a file called doc/rtf/refman.rtf -- try loading up that file. Note that a number of the fields in the file (such as &quot;Title&quot; and &quot;Author&quot;) are not yet filled in -- this is addressed below.</p>
+<p>The other version, and the one we are going to look at, is the HTML documentation. After you run doxygen, these files are in the doc/html directory -- view the index.html file. If you look at the documentation for this function (from the main page, follow the &quot;Files&quot;link and then the &quot;average.cpp&quot; link), the web page looks like the following:</p>
+<div class="figure">
+<img src="screenshot.png" alt="screenshot.png" /><p class="caption">screenshot.png</p>
+</div>
+<p>Do you see how the tags are separated into the different parts of this comment block? To create the documentation for your code, you will need to create the <code>Doxyfile</code> file. Start with the one provided with this tutorial. Note that it's a text file, even though it does not have a .txt extension -- thus, Emacs is a good editor to use to edit the file. We won't get into most of the details of the file. However, on line 577, you have to edit the INPUT parameter, which specifies which file(s) to read and produce documentation for. Other fields will allow you to specify such things as the title, author, etc. (these are the things that were missing in the RTF file).</p>
+<p>Next, look at the doxygen manual. You can view it in PDF form, but you will first have to download that file (start <a href="http://www.stack.nl/~dimitri/doxygen/download.html#dlmanual">here</a>). Otherwise, you can view the <a href="http://www.stack.nl/~dimitri/doxygen/manual/index.html">online HTML manual</a>. Start with the <a href="http://www.stack.nl/~dimitri/doxygen/manual/docblocks.html">&quot;Documenting the code&quot; chapter</a>, as the previous chapters were covered by the description above.</p>
+<h3 id="important-notes">Important Notes</h3>
+<p>Private members are not documented in Doxygen by default. To change this (i.e. to document private members), you will want to change the <code>EXTRACT_PRIVATE</code> flag in Doxyfile to <code>YES</code>.</p>
+<p>You may have to include all of your comments in your .h file. This depends less on the doxygen version, and more on how you structure your code comments, but if you are making changes to your doxygen comments and are not seeing the results, try moving them to the .h file. As long as the documentation is created when <code>doxygen</code> is run, we don't really care where your doxygen comments are in your source code.</p>
 <p>To get doxygen working on the Mac, you will have to copy two binaries in /Applications/Doxgyen.app/Contents/Resources/ (or similar) to /usr/bin if you want to run it via the Makefile.</p>
 </body>
 </html>

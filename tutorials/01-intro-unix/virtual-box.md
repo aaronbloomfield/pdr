@@ -8,20 +8,20 @@ VirtualBox is a free program that allows you to run another operating system on 
 ### Quick start ###
 
 - A bit of terminology: the 'host' machine is the physical computer (laptop, desktop, etc.) that you are using.  The 'guest' machine is the virtual machine that is running in VirtualBox, and is often just called the 'guest operating system'.
-  - You are welcome to try this on a netbook host machine, but the computing power of a netbook may not be enough
-  - Your unzip program complains about needing some insane amount of space (like 700 petabytes, where a petabyte is 1,000 terabytes); this is a bug in many unzip programs.  Try [7-zip](http://www.7-zip.org/), which has had more success.
+    - You are welcome to try this on a netbook host machine, but the computing power of a netbook may not be enough
+    - Your unzip program complains about needing some insane amount of space (like 700 petabytes, where a petabyte is 1,000 terabytes); this is a bug in many unzip programs.  Try [7-zip](http://www.7-zip.org/), which has had more success.
 - You will need to install the Virtual Box client.  It can be downloaded for free from [here](http://www.virtualbox.org/) and runs on most operating systems.
-   - Under Linux, I installed the 'virtualbox-ose-qt' package (the name of yours might be different), but if you are running Linux already, you won't need to install a virtual machine running Linux...
+     - Under Linux, I installed the 'virtualbox-ose-qt' package (the name of yours might be different), but if you are running Linux already, you won't need to install a virtual machine running Linux...
 - Download the provided VirtualBox image (from Collab, in the misc/ folder of the Resources tool).  You will need to unzip this file before using it.
-  - This file is rather large (over 2 Gb), so you may want to try downloading it during off hours, such as late at night.  If you have problems downloading it, let us know.  If you do not have sufficient bandwidth to download it, please see us after lecture, and we will provide it on a different media for you.
+    - This file is rather large (over 2 Gb), so you may want to try downloading it during off hours, such as late at night.  If you have problems downloading it, let us know.  If you do not have sufficient bandwidth to download it, please see us after lecture, and we will provide it on a different media for you.
 - Run VirtualBox, and import the image:
-  - To do that, click on 'New', and choose the right OS/version (Linux/Ubuntu - don't choose "Ubuntu (64 bit)").  Give it a name to help differentiate it from other virtual machines that you may end up using in later classes.
-  - Stay with the default memory amount (you can change it later)
-  - At the 'Virtual Hard Disk' screen select 'use existing hard disk', and click the folder icon to the right of the drop-down list.  You want to use the file you unzipped above.
-  - That should be it for the Wizard
+    - To do that, click on 'New', and choose the right OS/version (Linux/Ubuntu - don't choose "Ubuntu (64 bit)").  Give it a name to help differentiate it from other virtual machines that you may end up using in later classes.
+    - Stay with the default memory amount (you can change it later)
+    - At the 'Virtual Hard Disk' screen select 'use existing hard disk', and click the folder icon to the right of the drop-down list.  You want to use the file you unzipped above.
+    - That should be it for the Wizard
 - Boot the machine (click the Start icon at the top - it's a green rightward pointing arrow).  You may notice some display artifacts during boot-up as the virtual machine changes video modes, but that will stabilize once booting has completed.
 - The login is 'student' (although you'll probably click on the 'L33t Hax0r' button on the login screen), and the password is 'password'.  You can click on the command-prompt icon on the top toolbar to get a terminal window.
-  - The documentation is available online in either [HTML format](http://www.virtualbox.org/manual/UserManual.html) or [PDF format](http://download.virtualbox.org/virtualbox/UserManual.pdf), although most of the salient details are listed on this page.
+    - The documentation is available online in either [HTML format](http://www.virtualbox.org/manual/UserManual.html) or [PDF format](http://download.virtualbox.org/virtualbox/UserManual.pdf), although most of the salient details are listed on this page.
 
 ### Notes ###
 
@@ -54,7 +54,7 @@ You can also set up 'shared folders' to directly read and write files back and f
 - This makes the folder available to the guest operating system, but does not automatically mount it.
 - To do that, first create a directory that where you want to mount the shared folder, such as 'foo'.
 - Enter the following command: 'sudo mount.vboxsf home foo' (this may require your password).
-  - Many people choose to mount the shared folders in /mnt/.
+    - Many people choose to mount the shared folders in /mnt/.
 - At this point, you can transfer files back and forth.
 - Be careful not to accidentally delete all your files through the mount point!.
 
@@ -66,7 +66,7 @@ VirtualBox also provides an Automounter, which sort of works.  This will mount t
 
 - download the 32-bit Ubuntu version downloaded from [here](https://www.dropbox.com/install?os=lnx) - be sure to save the file, not open it, from Firefox
 - install it from the command-line via 'sudo dpkg -i dropbox_1.4.0_i386.deb' but note that the file name may change as a new version is released
-  - note: dropbox requires a supporting package (python-gpgme), but I already installed that on the image
+    - note: dropbox requires a supporting package (python-gpgme), but I already installed that on the image
 - once installed, a vibrating icon will appear in the left-hand launcher; click on that, then click on "Start Dropbox"
 - this will download the proprietary daemon (a daemon is a background process) and install it
 - at that point, the standard dropbox registration wizard will appear

@@ -231,8 +231,8 @@ A written post-lab report (a page is fine) that includes the following.  You can
 
 1. A description of your implementation.  Describe the data structures used in your implementation and *why* you selected them.
 2. An efficiency analysis of *all steps* in Huffman encoding/decoding. 
-   - For each of the steps of compression and decompression (see "Huffman Encoding and Decoding"), give the worst case running time of your implementation.  
-   - In addition, give the worst case *space complexity* (i.e. how many bytes of memory are used in each data structure) of your implementation.
+     - For each of the steps of compression and decompression (see "Huffman Encoding and Decoding"), give the worst case running time of your implementation.  
+     - In addition, give the worst case *space complexity* (i.e. how many bytes of memory are used in each data structure) of your implementation.
 
 Worst case running time -- for this be sure to include all steps of the compression and decompression.  You can leave off the cost of calculating the compression ratio, printing the cost of the tree, and printing a listing of the bit code for each character that was asked for in the pre-lab.  Refer to the list of steps given earlier in the lab.
 

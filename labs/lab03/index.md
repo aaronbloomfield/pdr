@@ -25,14 +25,14 @@ Procedure
 2. Go through [Tutorial 3: Unix, part 1](../../tutorials/03-04-more-unix/index.html), which is sections 1-4.  This tutorial is originally from the department of Electrical Engineering at the University of Surrey, and is available online [here](http://www.ee.surrey.ac.uk/Teaching/Unix/).  You should complete the introductory part and sections 1-4.  You should already be somewhat familiar with some of the materials in the first few of these tutorials, as it was in the Unix tutorial from the first lab.  The rest of the tutorial (sections 5-8) are for next week's lab, but feel free to go through it this week, if you are interested.
 3. Write up at least one question that you still have on Unix (or things you are still confused about) into unix.questions.txt.
 4. Your code for the pre-lab will use the pre-existing STL `stack` class.  The STL is the [Standard Template Library](http://en.wikipedia.org/wiki/Standard_template_library), and is a collection of useful routines analogous to the routines in Java's SDK, albeit much smaller (it contains a vector class, for example).
-   - To use the stack STL class, just put `#include <stack>` at the top of your C++ file.  A standard clang++ installation should automatically find the STL stack class (this works in Linux).
-   - Documentation on the STL routines can be found at [http://www.sgi.com/tech/stl/](http://www.sgi.com/tech/stl/); the stack documentation is [here](http://www.sgi.com/tech/stl/stack.html).
+    - To use the stack STL class, just put `#include <stack>` at the top of your C++ file.  A standard clang++ installation should automatically find the STL stack class (this works in Linux).
+    - Documentation on the STL routines can be found at [http://www.sgi.com/tech/stl/](http://www.sgi.com/tech/stl/); the stack documentation is [here](http://www.sgi.com/tech/stl/stack.html).
 5. Implement a simple postfix stack calculator for integers using your stack.
-   - **You should use the STL stack class**, rather than implement your own.
-   - An online description of postfix calculators can be found [on Wikipedia](http://en.wikipedia.org/wiki/Reverse_Polish_notation) -- you will need to implement this into postfixCalculator.h and postfixCalculator.cpp
-   - Create a simple test driver, testPostfixCalc.cpp, which will be used to demonstrate your calculator (i.e., it will have the `main()` function).  This file should have hard-coded values for input; handling keyboard input is the in-lab.
-   - The last page of this document has some sample test cases you can use.
-6. Your code must compile!  
+    - **You should use the STL stack class**, rather than implement your own.
+    - An online description of postfix calculators can be found [on Wikipedia](http://en.wikipedia.org/wiki/Reverse_Polish_notation) -- you will need to implement this into postfixCalculator.h and postfixCalculator.cpp
+    - Create a simple test driver, testPostfixCalc.cpp, which will be used to demonstrate your calculator (i.e., it will have the `main()` function).  This file should have hard-coded values for input; handling keyboard input is the in-lab.
+    - The last page of this document has some sample test cases you can use.
+6. Your code must compile!
 7. Be sure to include: your name, the date, and the name of the file in a banner comment at the beginning of each file you submit.
 7. Files to download: none
 8. Files to submit: postfixCalculator.h, postfixCalculator.cpp,
@@ -43,7 +43,7 @@ Procedure
 
 1. Come to class with a *working prelab*.
 2. Run your postfix calculator on the test sequences posted on the board by the TAs.  Since your code only can handle hard-coded values, this will require a code modification and a recompilation to test each case.  If your program does not calculate the correct result, use the debugger to find the errors and correct them.  These modifications will be submitted to the in-lab.
-   - Be sure you are able to explain how all parts your code work. You will be responsible for this material for the midterms and final exam.
+    - Be sure you are able to explain how all parts your code work. You will be responsible for this material for the midterms and final exam.
 3. You need to expand your pre-lab code to handle keyboard input.  See the specifications in the in-lab section for how to handle the input.
 4. The files you submit should be a FULLY WORKING postfix calculator, which still uses the STL stack class.
 5. Start working on the post-lab (implementing your own stack class) if you get your calculator fully working before lab ends.
@@ -56,9 +56,9 @@ Procedure
 1. Implement a stack class (into files stack.h and stack.cpp).  **You can NOT use an STL container class for this** (list, vector, stack, etc.) for this, but you can use the STL string class.  You should use either your List class from the last lab (if it works), or write up new stack class based on either the lecture notes or the textbook pages on stacks.  Note that your stack class can contain a LinkedList object, and a stack class method can just pass the value onto the appropriate method in the LinkedList class.  You don't need to implement all possible stack methods (in particular, you can ignore the copy constructor, `operator=()`, etc.) -- just the four mentioned in the pre-lab (push(), top(), pop(), and empty()).  After this lab, it is expected that you will be able to implement a stack class in C++.
 2. Modify your postfix calculator to use the stack class that you have implemented.
 3. Be sure to include: your name, the date, and the name of the file in a banner comment at the beginning of each file you submit.  Your submission must contain the following code:
-   1. Your stack code.  This will likely be stack.h/cpp, and may (or may not; your choice) include all of the List.h/cpp, ListItr.h/cpp, ListNode.h/cpp files from lab 2
-      - For your stack code, you are welcome to submit it in many files, as long as it will compile with `clang++ *.cpp`, and as long as the total number of files submitted does not exceed 11 files (you can submit 12 files total, but you need to submit a text file, described below, as well)
-   2. A listing of your in-lab calculator code and your calculator test code: postfixCalculator.h/cpp, testPostfixCalc.cpp
+    1. Your stack code.  This will likely be stack.h/cpp, and may (or may not; your choice) include all of the List.h/cpp, ListItr.h/cpp, ListNode.h/cpp files from lab 2
+        - For your stack code, you are welcome to submit it in many files, as long as it will compile with `clang++ *.cpp`, and as long as the total number of files submitted does not exceed 11 files (you can submit 12 files total, but you need to submit a text file, described below, as well)
+    2. A listing of your in-lab calculator code and your calculator test code: postfixCalculator.h/cpp, testPostfixCalc.cpp
 4. Submit, in addition to your code, a paragraph (in a file called difficulties.txt) describing what difficulties you encountered getting your code working and what you did to solve them.
 5. The files you submit should be a FULLY WORKING postfix calculator.  Your code must compile!  Even if it doesn't work perfectly, make sure it compiles.  In particular, make sure that the capitalization case of the #includes (i.e. `#include "Stack.h"` versus `#include "stack.h"`) is correct.
 6. Files to download: none (just your in-lab source code)
@@ -74,11 +74,11 @@ Pre-lab
 In this lab, you will:
 
 - Implement a stack class that handles a stack of integer numbers.  This stack implementation is done for the post-lab; for the pre-lab and the in-lab, you will be using a pre-existing stack class from C++'s standard template library (STL).
-  - Documentation on the STL routines can be found at [http://www.sgi.com/tech/stl/](http://www.sgi.com/tech/stl/); the stack documentation is [here](http://www.sgi.com/tech/stl/stack.html).
+    - Documentation on the STL routines can be found at [http://www.sgi.com/tech/stl/](http://www.sgi.com/tech/stl/); the stack documentation is [here](http://www.sgi.com/tech/stl/stack.html).
 - Write a program that uses this class to implement a postfix calculator. This will include the following files:
-  - postfixCalculator.h, which is the class declaration of the postfix calculator
-  - postfixCalculator.cpp, which is the implementation of the postfix calculator
-  - testPostfixCalc.cpp that has a hard-coded expression (see below) and evaluates that expression.
+    - postfixCalculator.h, which is the class declaration of the postfix calculator
+    - postfixCalculator.cpp, which is the implementation of the postfix calculator
+    - testPostfixCalc.cpp that has a hard-coded expression (see below) and evaluates that expression.
 
 The various parts of this lab develop the entire program:
 

@@ -22,7 +22,7 @@ Students *currently* in the course should view the [cs2150/index.html](cs2150/in
 
 Students who were previously in the course may want to view the current version, or you can view the version from your semester.  All semester versions are tagged with an end-of-semester tag of the form "year-semester".  For example, the spring 2014 semester was tagged as `2014-spring`.  To obtain a specific tag, you can enter `git checkout tags/2014-spring` in an already cloned repository.
 
-The primary author is [Aaron Bloomfield](http://www.cs.virginia.edu/~asb) ([aaron@virginia.edu](<mailto:aaron@virginia.edu>), [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)).  The fall 2014 semester will be the 15th consecutive semester I have taught the course.
+The primary author is [Aaron Bloomfield](http://www.cs.virginia.edu/~asb) ([aaron@virginia.edu](<mailto:aaron@virginia.edu>), [\@bloomfieldaaron](http://twitter.com/bloomfieldaaron)).  The fall 2014 semester will be the 15th consecutive semester I have taught the course.
 
 
 <a name="contributing"></a>Contributing to this Repository
@@ -90,7 +90,7 @@ Note that Github supports an enhanced version of Markdown, called [Github Flavor
 All source code is formatted via [astyle](http://astyle.sourceforge.net/) and then highlighted via [source-highlight](http://www.gnu.org/software/src-highlite/source-highlight.html).  Both the original file (foo.cpp) and the highlighted version (foo.cpp.html) are included in the repository.  All links to source code will like to the .html, with a "([src](...))" after it to link to the original source code.
 
 - astyle options: `-A2 -s4 -S -xG`
-  - note that the current version of astyle on Ubuntu 12.04 seems to ignore the -xG flag...
+    - note that the current version of astyle on Ubuntu 12.04 seems to ignore the -xG flag...
 - source-highlight options: `-d`
 
 

@@ -18,11 +18,11 @@ CS 2150: Program and Data Representation: Course Syllabus
 - Announcement feed: [@UVaCS2150](http://twitter.com/UVaCS2150)
 - TAs and their office hours will be posted on the [CS 2150 Google Calendar](https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York) (which is linked to via Collab); all office hours start the Sunday after classes start
 - Laboratory Meetings (all in Olsson 001):
-  - Section 101: Tuesday, 9:00 p.m. - 10:35 a.m.
-  - Section 102: Tuesday, 12:15 p.m. - 1:50 p.m.
-  - Section 103: Tuesday, 3:50 p.m. - 5:25 p.m.
-  - Section 104: Tuesday, 5:30 a.m. - 7:05 p.m.
-  - Section 105: Tuesday, 7:30 a.m. - 9:05 p.m.
+    - Section 101: Tuesday, 9:00 p.m. - 10:35 a.m.
+    - Section 102: Tuesday, 12:15 p.m. - 1:50 p.m.
+    - Section 103: Tuesday, 3:50 p.m. - 5:25 p.m.
+    - Section 104: Tuesday, 5:30 a.m. - 7:05 p.m.
+    - Section 105: Tuesday, 7:30 a.m. - 9:05 p.m.
 
 **Course Description:** This course will introduce you to program and data representation from high level concepts to machine level implementation. Data structuring techniques and the representation of data structures during program execution are discussed, as are operations and control structures and their representation during program execution. Representations of numbers, arithmetic operations, arrays, records, recursion, hashing, stacks, queues, trees, graphs, and related concepts are also covered.
 
@@ -58,8 +58,8 @@ We expect that grades will follow the standard decade curve: 90 and above is an 
 - Midterm Exam 1: Tuesday, February 18th during lab session in Olsson 001
 - Midterm Exam 2: Tuesday, April 1st, during lab session in Olsson 001
 - Final Exam: Saturday, May 3rd, 2014, from 7 p.m. to 10 p.m.
-  - The final exam is a common exam time, and conflicts with a few other courses: APMA 3110 and ECON 2020 (sections 100 and 200 only)
-  - If you have a conflict, you must let one of us know by the end of January!
+    - The final exam is a common exam time, and conflicts with a few other courses: APMA 3110 and ECON 2020 (sections 100 and 200 only)
+    - If you have a conflict, you must let one of us know by the end of January!
 
 Under **NO** circumstances will anybody be allowed to take the final exam early.  You may **ONLY** request to take the final exam at a different time if you have a final exam **CONFLICT**, not a busy final exam schedule.
 

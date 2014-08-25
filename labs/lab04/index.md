@@ -34,9 +34,9 @@ Procedure
 
 1. Work through the steps in the in-lab one a time.  Be sure that you understand what is happening at each step.
 2. The three parts of the in-lab, described below, have you editing both [inlab4.doc](inlab4.doc) and inlab4.cpp.
-   1. Size of C++ data types
-   2. Representations in memory
-   3. Primitive arrays in C++
+    1. Size of C++ data types
+    2. Representations in memory
+    3. Primitive arrays in C++
 3. Files to download: [inlab4.doc](inlab4.doc)
 4. Convert inlab4.doc to a PDF via the directions on the [How to convert a file to PDF](../../docs/convert_to_pdf.html) page
 5. Files to submit: inlab4.pdf (the PDF version of inlab4.doc), inlab4.cpp

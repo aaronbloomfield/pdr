@@ -25,10 +25,10 @@ Procedure
 2. Implement the three classes as described below: ListNode, TestListNode, and ListItr.  You should have most, if not all, of the code working ***before*** coming to lab.  TAs will be available to help in lab if you still have questions.  Note that it is okay to not have the code perfectly working prior to lab -- for the pre-lab grade, we are going to be looking to see if you have made significant progress, not that it is fully working (that's the post-lab).
 3. If there is a particular method that is causing you a lot of trouble (i.e. you can't get it working), don't spend inordinate amounts of time on it -- move on, and come back to that one during the in-lab.
 4. **Making the implementation phase less frustrating:** develop in small chunks, then **test/debug incrementally.  It is much easier to debug this way!** (And also less frustrating and confusing.) Here is a sample process for implementing ListNode.cpp:
-   1. Implement the ListNode constructor in ListNode.cpp
-   2. Write a short test harness, TestListNode.cpp, which has a main().  The body of main should test the ListNode constructor. In other words, create some ListNodes in main() using the constructor.
-   3. Build and run the test program you just wrote to see if it produces the results you expect.  Some items you will want to check are the initialization of the next and previous pointers and the initial value of value
-   4. Use this same general process for List and for ListItr.  For List and ListItr, implement the member functions one at a time and test.  To do this, you will still need to provide "dummy" versions of the other member functions in your .cpp file as placeholders so that the code will build.  **You will need to create a list of test cases to use to test your classes.** The TAs may ask you to test more cases during lab.
+    1. Implement the ListNode constructor in ListNode.cpp
+    2. Write a short test harness, TestListNode.cpp, which has a main().  The body of main should test the ListNode constructor. In other words, create some ListNodes in main() using the constructor.
+    3. Build and run the test program you just wrote to see if it produces the results you expect.  Some items you will want to check are the initialization of the next and previous pointers and the initial value of value
+    4. Use this same general process for List and for ListItr.  For List and ListItr, implement the member functions one at a time and test.  To do this, you will still need to provide "dummy" versions of the other member functions in your .cpp file as placeholders so that the code will build.  **You will need to create a list of test cases to use to test your classes.** The TAs may ask you to test more cases during lab.
 5. Read through the remainder of this document before coming to lab.  Also read the tutorial on Unix debugging (called gdb-tutorial), as we will be using that during the in-lab.
 6. Make sure you submit all 7 files listed below!  Your code will not compile unless all 7 files are submitted.  Also, if your code does not compile, and you cannot figure out why, comment out the erroneous code until it does compile.  And make sure you have the right filename capitalization!
 7. Files to download: [List.h](List.h.html) ([src](List.h)), [ListNode.h](ListNode.h.html) ([src](ListNode.h)), [ListItr.h](ListItr.h.html) ([src](ListItr.h)), [ListTest.cpp](ListTest.cpp.html) ([src](ListTest.cpp))
@@ -46,10 +46,10 @@ Procedure
 ### Post-lab ###
 
 1. For this lab you will be submitting your code electronically via online grading system to postlab2.  Your fully functional code must contain the following 7 files:
-   1. List.h and List.cpp
-   2. ListNode.h and ListNode.cpp
-   3. ListItr.h and ListItr.cpp
-   4. and the test harness, ListTest.cpp
+    1. List.h and List.cpp
+    2. ListNode.h and ListNode.cpp
+    3. ListItr.h and ListItr.cpp
+    4. and the test harness, ListTest.cpp
 2. *Be sure you submit all 7 files!* If you don't, then your code will not compile properly, and you will lose points!
 3. It is due on the Friday of the week of the lab, at the time listed on the [Lab due dates page](../../cs2150/labduedates.html).  Be sure to include: your name, the date, and the name of the file in a banner comment at the beginning of each file you submit.
 4. Files to download: no additional files beyond the pre-lab and in-lab
@@ -202,10 +202,10 @@ Post-lab
 These are the same steps from the lab procedure section, above.
 
 1. For this lab you will be submitting your code electronically via online grading system to postlab2.  Your fully functional code must contain the following 7 files:
-   1. List.h and List.cpp
-   2. ListNode.h and ListNode.cpp
-   3. ListItr.h and ListItr.cpp
-   4. and the test harness, ListTest.cpp
+    1. List.h and List.cpp
+    2. ListNode.h and ListNode.cpp
+    3. ListItr.h and ListItr.cpp
+    4. and the test harness, ListTest.cpp
 2. *Be sure you submit all 7 files!* If you don't, then your code will not compile properly, and you will lose points!
 3. It is due on the Friday of the week of the lab, at the time listed on the [Lab due dates page].  Be sure to include: your name, the date, and the name of the file in a banner comment at the beginning of each file you submit.
 4. Files to download: no additional files beyond the pre-lab and in-lab
