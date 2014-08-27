@@ -11,10 +11,9 @@ A lab extension for an in-lab will extend the due date until the end of the day 
 
 Below are the dates when the various assignments for the lab parts open, due, and close.
 
-
-| Lab part || Open date          || Due date               || Close date                 |
-|----------||:-------------------||:-----------------------||:---------------------------|
-| Pre-lab  || Sunday at noon     || Tuesday at 12 noon     || Wednesday at noon          |
-| In-lab   || Tuesday at 12 noon || At the end of your lab || Wednesday at 11:59:59 p.m. |
-| Post-lab || Tuesday at 12 noon || Friday at 11 a.m.      || Saturday at 11 a.m.        |
+| Lab part |&nbsp;| Open date          |&nbsp;| Due date               |&nbsp;| Close date                 |
+|----------|------|--------------------|------|------------------------|------|----------------------------|
+| Pre-lab  |&nbsp;| Sunday at 12 noon  |&nbsp;| Tuesday at 12 noon     |&nbsp;| Wednesday at noon          |
+| In-lab   |&nbsp;| Tuesday at 12 noon |&nbsp;| At the end of your lab |&nbsp;| Wednesday at 11:59:59 p.m. |
+| Post-lab |&nbsp;| Tuesday at 12 noon |&nbsp;| Friday at 11 a.m.      |&nbsp;| Saturday at 11 a.m.        |
 

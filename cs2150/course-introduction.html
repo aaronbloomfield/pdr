@@ -71,14 +71,14 @@
 **Aaron Bloomfield**  
 Rice Hall, room 403  
 [aaron@virginia.edu](mailto:aaron@virginia.edu)  
-Office hours TBA
+Office hours 1:30-3:00 M/W
 </center>
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Instructional Staff
-About a dozen (or more!) undergraduate TAs  
-One graduate grader
+About a dozen undergraduate TAs  
+Two graduate graders / TAs
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -120,22 +120,23 @@ One graduate grader
 - Announcements are posted to the course twitter feed: [@UVaCS2150](https://twitter.com/@UVaCS2150)
   - In an effort to keep it uncluttered (so that people can find what they are looking for), I will generally not respond to individual tweets from that account.
 - Class Email
-  - I use this sparingly -- I expect to send 4 (four!) emails this entire semester, unless something goes very wrong
+  - I use this sparingly -- I expect to send 5 (five!) emails this entire semester, unless something goes very wrong
+  - And I've already sent one of them
 - Things in this course happen on a very structured schedule, so there will be no surprises as to when things happen
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Meetings
-- Lectures: MWF 9:00-9:50 in Rice 130 or 12-12:50 in MEC 205
+- Lectures: MWF 11:00-11:50 in Gilmer 130
 - Lectures will be recorded, and posted on Collab
 - Lab meetings: 1 per week
-  - Tues 11:00-12:45, 1:30-3:15, 3:30-5:15, 5:30-7:15, or 7:30-9:15
+  - Tues 12:15-1:50, 3:50-5:25, 5:30-7:05, 7:30-9:05
   - You cannot attend another lab section without prior permission
-  - We'll talk about registration issues next
+    - And due to lab size, that generally cannot be granted
 - Office hours, if you choose to attend them
-
 	  </script></section>
 
+<!--
 	  <section data-markdown><script type="text/template">
 ## Spring 2014 Registration Issues
 - We are aware that there are about 40 people on the waitlist
@@ -148,6 +149,7 @@ One graduate grader
   - Once I do know more, it will be posted on the Twitter feed
   - And announced in class on Wednesday
 	  </script></section>
+-->
 
 	  <section data-markdown><script type="text/template">
 ## Expectations
@@ -191,7 +193,7 @@ One graduate grader
 
 	  <section data-markdown><script type="text/template">
 ## Lab due times
-- All the labs have a specified due time, as described in lab 1, and mentioned previously
+- All the labs have a [specified due time](labduedates.html), as described in lab 1, and mentioned previously
   - The submission server has it's clock set to the US Navy atomic clock
 - If the lab is late for ANY reason, then you will receive the late penalty.  Thus, you should take this into account and not wait until the last minute to try to submit.  These reasons include:
   - Your Internet being down
@@ -203,21 +205,21 @@ One graduate grader
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Spring break!
-![UVa's spring break](images/introduction/spring-break-2014-uva.png)
-What UVa defines as "Spring break"
+## Thanksgiving!
+![UVa's spring break](images/introduction/thanksgiving-2014-uva.png)
+What UVa defines as "Thanksgiving break"
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Spring break!
-![UVa student's spring break](images/introduction/spring-break-2014-student.png)
-What UVa *students* define as "Spring break"
+## Thanksgiving!
+![UVa student's spring break](images/introduction/thanksgiving-2014-student.png)
+What UVa *students* define as "Thanksgiving break"
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Spring break and labs
-- There are obviously no labs during spring break
-- But since most labs are done over the weekends, if you decide to take both spring break weekends off, you are going to be in trouble when you return
+## Thanksgiving and labs
+- As there are UVa classes both Monday and Tuesday of Thanksgiving week, there will thus be lecture (on Monday) and labs (on Tuesday) of Thanksgiving
+- I will investigate ways to allow your schedule to be more flexible that day in regards to which lab you attend
 	  </script></section>
 	  
 	  <section data-markdown><script type="text/template">
@@ -234,9 +236,10 @@ What UVa *students* define as "Spring break"
 - Lab Accounts (for Olsson 001 or Rice 340)
   - There are two of these: one for Linux, one for Windows; we do not expect to use the Windows account
   - You will receive two email about this, one for each account
-- Your [Collab](http://collab.itc.virginia.edu/portal), which you should already have
+- Your [Collab](http://collab.itc.virginia.edu/portal) account, which you should already have
 - Your [Piazza](https://piazza.com) account, which will be created shortly
 - You do *NOT* need a github account for this course (more on this shortly)
+  - But feel free to create one!  It will be used in successive courses.
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -271,7 +274,7 @@ Furthermore, you cannot use any IDE (Xcode, Eclipse, Netbeans, etc. Visual Studi
 - Instead we are using clang++ (from LLVM)
   - If you don't know what this means, you can safely ignore it
   - But if you are familiar with gcc/g++, please don't use it, as clang has MUCH better error messages
-- (Note that we may use gcc/g++ for the two x86 labs, but more on that later)
+- (Note that we will likely use gcc/g++ for the two x86 labs, but more on that later)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -291,11 +294,12 @@ Furthermore, you cannot use any IDE (Xcode, Eclipse, Netbeans, etc. Visual Studi
 
 	  <section data-markdown><script type="text/template">
 ## Printing the slides
-- To export to a PDF (and thus to print), you must use Google Chrome; see [here](https://github.com/hakimel/reveal.js/#pdf-export) for deatils
+- To export to a PDF (and thus to print), you must use Google Chrome; see [here](https://github.com/hakimel/reveal.js/#pdf-export) for details on how to print
   - Don't worry about step 1 -- just add "?print-pdf" to the end of the URL: [01-intro.html?print-pdf](01-intro.html?print-pdf)
-    - Or click on the printer icon icon on the title slide
+    - Or click on the printer icon (<a href="course-introduction.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png" style="vertical-align:middle"></a> ) on the title slide
   - This prints one slide per page
-- Use a program (I use [evince](https://wiki.gnome.org/Apps/Evince/Downloads), but Acrobat can likely do this as well) to print 6 slides per page
+- Use a program to print 6 slides per page
+  - I use [evince](https://wiki.gnome.org/Apps/Evince/Downloads), but Acrobat can likely do this as well
   - In evince, set pages per side to 6, and scaling to 90%
 - Note that the slides are not in a linear format, so printing may cause issues; you can always view the slides online
 	  </script></section>
@@ -313,7 +317,7 @@ Furthermore, you cannot use any IDE (Xcode, Eclipse, Netbeans, etc. Visual Studi
 	  <section data-markdown><script type="text/template">
 ## Not using git
 - If you choose not to use git, then every time you want to download any updates to the course materials, you will have to go to http://github.com/aaronbloomfield/pdr, re-download the *entire* .zip file, delete the old directory, and uncompress the newly downloaded file
-  - As I am going to be adding all the content to the repository throughout the semester, this will very quickly become a real pain to deal with
+  - As I am going to be updating the content in the repository throughout the semester, this will very quickly become a real pain to deal with
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -324,7 +328,7 @@ Furthermore, you cannot use any IDE (Xcode, Eclipse, Netbeans, etc. Visual Studi
 git clone https://github.com/aaronbloomfield/pdr.git
 ```
   - This will create a 'pdr' directory that contains everything from the repo: the slides, the labs, the tutorials, etc.
-  - Note that much of the content of this repository will be added throughout the semester
+  - Note that much of the content of this repository will be updated throughout the semester
   - This was already done on the provided VirtualBox image
 - To get the latest version, just change into that directory via the command line, and enter:
 ```
@@ -405,17 +409,18 @@ Do these count as honor violations?
 
 	  <section data-markdown><script type="text/template">
 ## Grading Criteria
-- 40% Labs (there will be 11&frac12; labs)
+- 40% Labs (there will be 11 labs)
 - 30% Midterms, during lab and in lab classroom
-  - Midterm 1: February 18th; midterm 2: April 1st
-- 25% Final Exam, room TBA
-  - Common exam time is Saturday, May 3rd, from 7 p.m. to 10 p.m.
+  - Midterm 1: Tuesday, September 30th; midterm 2: Tuesday, November 11th
+- 25% Final Exam
+  - Friday, December 12th from 9 am to 12 noon in Gilmer 130 (the lecture classroom)
   - It can NOT be taken early, so don't even ask
 - 5% Class participation
   - Some examples: random attendance quizzes or in-class quizzes on readings or previously covered topics, using Piazza, useful contributions to the github repo, or otherwise contributing to the course
 - I reserve the right to change this!  See the course syllabus for details...
 	</script></section>
 
+<!--
 	<section data-markdown><script type="text/template">
 ## Final exam
 - Because there are two lecture periods, this class has a common exam time: Saturday, May 3rd, from 7 p.m. to 10 p.m.
@@ -427,7 +432,7 @@ Do these count as honor violations?
 - You must let me know by the end of January if you have a conflict (submit a [support request](https://libra.cs.virginia.edu/~pedagogy/index.php?redirect=support.php))
   - If you don't let us know by then, then you will have to take it at the common time
 	  </script></section>
-
+-->
 	  <section data-markdown><script type="text/template">
 ## Compilation
 - You will receive <strong class="red">zero credit</strong> for code that does not compile
@@ -576,7 +581,7 @@ Be able to implement basic control and data structures in assembly language (x86
 
 	  <section data-markdown><script type="text/template">
 ## Feedback from previous semesters
-You can view my entire course evals on [my personal website](http://www.cs.virginia.edu/~asb/) (including from last semester); some examples:
+You can view my entire course evals on [my personal website](http://www.cs.virginia.edu/~asb/) (including from last year); some examples:
 
 - "This has been the most informative / difficult CS course I've taken so far, but definitely worth it"
 - "This course was incredibly challenging, especially for me having not programmed in over a year -- This class changed my entire perspective on computer science, and is giving me an awesome foundation for the rest of my computer science education."
