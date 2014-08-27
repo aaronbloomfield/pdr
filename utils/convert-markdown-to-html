@@ -1,0 +1,19 @@
+#!/bin/bash
+
+for infile in `ls *.md`; do
+    lineone=`head -1 $infile`
+    outfile=`echo $infile | sed 's/md$/html/g'`
+    pandoc -V "pagetitle:$lineone" -f markdown -c markdown.css -t html -o $outfile $infile
+done
+
+for infile in `ls */*.md`; do
+    lineone=`head -1 $infile`
+    outfile=`echo $infile | sed 's/md$/html/g'`
+    pandoc -V "pagetitle:$lineone" -f markdown -c ../markdown.css -t html -o $outfile $infile
+done
+
+for infile in `ls */*/*.md | grep -v reveal.js`; do
+    lineone=`head -1 $infile`
+    outfile=`echo $infile | sed 's/md$/html/g'`
+    pandoc -V "pagetitle:$lineone" -f markdown -c ../../markdown.css -t html -o $outfile $infile
+done
