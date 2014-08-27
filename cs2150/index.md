@@ -3,7 +3,7 @@ Program and Data Representation: CS 2150 Specific Content
 
 [Go up to the main README file](../README.html) ([md](../README.md))
 
-Much of the rest of this git repo is meant to be generic to anybody who has a class such as this one.  But this page contains details specific to the spring 2014 version of CS 2150 at the University of Virginia.
+Much of the rest of this git repo is meant to be generic to anybody who has a class such as this one.  But this page contains details specific to the CS 2150 version of the course at the University of Virginia.
 
 ------------------------------------------------------------
 
@@ -57,8 +57,8 @@ The links in the right-most column link directly to the lecture recording on Col
 
 | Num | Date | Day of week | Lab & Tutorial | Planned topic | Actual lecture progress (and recording) |
 |-----|--------|-------------|----------------------------------------------------------|--------------------------|--------------------------|
-| 1 | Aug&nbsp;27 | Wednesday | no lab this week | [Course introduction](course-introduction.html) |  |
-| 2 | Aug&nbsp;29 | Friday | | [Course introduction](course-introduction.html), [01: C++](../slides/01-cpp.html) |  |
+| 1 | Aug&nbsp;27 | Wednesday | no lab this week | [Course introduction][1] | [course-introduction][1], slides 0 to 5-9 ([recording][2]) |
+| 2 | Aug&nbsp;29 | Friday | | [Course introduction][1], [01: C++](../slides/01-cpp.html) |  |
 | 3 | Sep&nbsp;1 | Monday | | [01: C++](../slides/01-cpp.html) |  |
 | 4 | Sep&nbsp;3 | Wednesday | [Lab 1: Intro to C++](../labs/lab01/index.html) ([md](../labs/lab01/index.md)) / [Tutorial 1: Intro to UNIX](../tutorials/01-intro-unix/index.html) ([md](../tutorials/01-intro-unix/index.md)) | (no class: MLK day) |  |
 | 5 | Sep&nbsp;5 | Friday | | [01: C++](../slides/01-cpp.html) |  |
@@ -111,3 +111,7 @@ Grading Concerns
 ----------------
 
 None yet!
+
+
+[1]: course-introduction.html
+[2]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/course-introduction-1/course-introduction-1.htm
