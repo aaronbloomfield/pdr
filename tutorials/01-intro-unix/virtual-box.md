@@ -9,24 +9,25 @@ VirtualBox is a free program that allows you to run another operating system on 
 
 - A bit of terminology: the 'host' machine is the physical computer (laptop, desktop, etc.) that you are using.  The 'guest' machine is the virtual machine that is running in VirtualBox, and is often just called the 'guest operating system'.
     - You are welcome to try this on a netbook host machine, but the computing power of a netbook may not be enough
-    - Your unzip program complains about needing some insane amount of space (like 700 petabytes, where a petabyte is 1,000 terabytes); this is a bug in many unzip programs.  Try [7-zip](http://www.7-zip.org/), which has had more success.
 - You will need to install the Virtual Box client.  It can be downloaded for free from [here](http://www.virtualbox.org/) and runs on most operating systems.
      - Under Linux, I installed the 'virtualbox-ose-qt' package (the name of yours might be different), but if you are running Linux already, you won't need to install a virtual machine running Linux...
 - Download the provided VirtualBox image (from Collab, in the misc/ folder of the Resources tool).  You will need to unzip this file before using it.
-    - This file is rather large (over 2 Gb), so you may want to try downloading it during off hours, such as late at night.  If you have problems downloading it, let us know.  If you do not have sufficient bandwidth to download it, please see us after lecture, and we will provide it on a different media for you.
+    - This file is rather large (about 2 Gb), so you may want to try downloading it during off hours, such as late at night.  If you have problems downloading it, let us know.  If you do not have sufficient bandwidth to download it, please see us after lecture, and we will provide it on a different media for you.
+	- Unzip this file; it will take up about 6.4 Gb on your machine.  Once uncompressed, you can download the .zip file that you downloaded.
+        - Your unzip program may complain about needing some insane amount of space (like 700 petabytes, where a petabyte is 1,000 terabytes); this is a bug in many unzip programs.  Try [7-zip](http://www.7-zip.org/), which has had more success.
 - Run VirtualBox, and import the image:
-    - To do that, click on 'New', and choose the right OS/version (Linux/Ubuntu - don't choose "Ubuntu (64 bit)").  Give it a name to help differentiate it from other virtual machines that you may end up using in later classes.
+    - To do that, click on 'New', and choose the right OS/version ("Ubuntu (32 bit)" -- don't choose the 64 bit version!).  Give it a name to help differentiate it from other virtual machines that you may end up using in later classes.
     - Stay with the default memory amount (you can change it later)
-    - At the 'Virtual Hard Disk' screen select 'use existing hard disk', and click the folder icon to the right of the drop-down list.  You want to use the file you unzipped above.
+    - At the 'Hard drive' screen select 'use an existing virtual hard drive file', and click the folder icon to the right of the drop-down list.  You want to use the file you unzipped above.
     - That should be it for the Wizard
 - Boot the machine (click the Start icon at the top - it's a green rightward pointing arrow).  You may notice some display artifacts during boot-up as the virtual machine changes video modes, but that will stabilize once booting has completed.
-- The login is 'student' (although you'll probably click on the 'L33t Hax0r' button on the login screen), and the password is 'password'.  You can click on the command-prompt icon on the top toolbar to get a terminal window.
+- The login is 'student' (although you'll probably click on the 'L33t Hax0r' button on the login screen), and the password is 'password'.  You can click on the command-prompt icon on the bottom toolbar to get a terminal window.
     - The documentation is available online in either [HTML format](http://www.virtualbox.org/manual/UserManual.html) or [PDF format](http://download.virtualbox.org/virtualbox/UserManual.pdf), although most of the salient details are listed on this page.
 
 ### Notes ###
 
-- No root password is set (you can use 'sudo' instead); to change the root password, run 'sudo passwd'.
-- The 'host key' is defined by your host machine's operating system (it's the right control button under Linux, for example).  This key is used for a number of contexts, including un-capturing the mouse.  To have VirtualBox warn you about what the host key is, you can reset all warnings via the VirtualBox help menu, and it will warn you about this at boot-up.
+- No root password is set (you can use `sudo` instead); to change the root password, run `sudo passwd`.
+- The 'host key' is defined by your host machine's operating system (it's the right control button under Linux, for example).  This key is used for a number of contexts, including un-capturing the mouse.  To have VirtualBox warn you about what the host key is, you can reset all warnings via the VirtualBox help menu, and it will warn you about this at boot-up.  It may also be listed in the lower-right of the VirtualBox window.
 - We did not install the latest version of Ubuntu, but instead installed the Long-Term Support (LTS) version, which is 12.04.  The difference is that the LTS versions are supported for far longer (3 years or so) than the non-LTS versions (which are only supported for a year or so).  For this class, there won't be a noticable difference between 12.04 and more recent versions.
 - Sound and network should work automatically, as the VirtualBox program will connect those to your host machine's sound and network device drivers.
 
@@ -47,20 +48,7 @@ The easiest solution may be the last one listed here, so read through these befo
 
 One option is to set up an e-mail client (or use a web browser - firefox is installed, and the icon is on the top menu bar) and e-mail your files back and forth.  Or use an online file server.
 
-You can also set up 'shared folders' to directly read and write files back and forth.  **HOWEVER** note that students who have tried this have had lots of difficulties doing so.  To do this:
-
-- Find the VirtualBox toolbar at the bottom (this is not the Gnome toolbar at the bottom, but the toolbar that appears when you are **not** in full-screen mode).  Right-click on the icon that looks like a blue folder, and select 'shared folders'.
-- Configure one (or more) shared folders.  You will need to select a name for the shared folder (I'll assume it's called 'home' for the commands below), and the directory that it reads from and writes to.
-- This makes the folder available to the guest operating system, but does not automatically mount it.
-- To do that, first create a directory that where you want to mount the shared folder, such as 'foo'.
-- Enter the following command: 'sudo mount.vboxsf home foo' (this may require your password).
-    - Many people choose to mount the shared folders in /mnt/.
-- At this point, you can transfer files back and forth.
-- Be careful not to accidentally delete all your files through the mount point!.
-
-We have had various reports that this has not worked out so well (we have not had a chance to verify this yet), so proceed with caution!
-
-VirtualBox also provides an Automounter, which sort of works.  This will mount the files into /media/ and appends a suffix of 'sf_' to your folder name. But then there will be permissioning issues; to fix those issues, you need to run: `sudo adduser student vboxsf`, followed by a logout and then a login.
+You can also set up 'shared folders' to directly read and write files back and forth.  To do so, see [here](http://www.ubuntugeek.com/how-to-access-windows-host-shared-folders-from-ubuntu-guest-in-virtualbox.html).
 
 [Dropbox](http://dropbox.com) may be the easiest way to sync files between your virtual machine and your host machine.  To install:
 

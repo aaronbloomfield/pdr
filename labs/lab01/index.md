@@ -73,7 +73,7 @@ int main( ) {
 }
 ```
 
-For the pre-lab, you will need to write a **recursive** function called xton() to compute *x^n* for nonnegative integers *n*.  Assume that *x^0=1*.  Put this function in a program with a `main()` function.  Your program should prompt the user for two integer values, and raise the first to the power of the second by calling your xton() function.
+For the pre-lab, you will need to write a **recursive** function called `xton()` to compute *x^n* for nonnegative integers *n*.  Assume that *x^0=1*.  Put this function in a program with a `main()` function.  Your program should prompt the user for two integer values, and raise the first to the power of the second by calling your `xton()` function.
 
 The file should be called xToN.cpp, and should be submitted to the pre-lab 1 assignment in the submission system.
 
@@ -87,9 +87,7 @@ This section describes how to log into Linux in the lab room (either Olsson 001 
 
 The machines in the lab room have two operating systems installed -- Windows and Linux (the Ubuntu distribution).  You have accounts on each, although the passwords will be separate.  You will need to reboot the computer into Linux -- to do this, do a regular reboot from Windows.  Upon the reboot, after the Dell logo screen is shown, a boot loader screen will appear, allowing you to choose which operating system to load.  There are a number of choices, but the one we are interested in is the Ubuntu choice (there are two -- ignore the 'safe mode' version).  You will note that the default selection is Windows -- you will have to use the arrow keys to select the Ubuntu line, and then hit Enter.
 
-Once the login screen appears, you can log in.  Be aware that it may take a full minute to log you into the machine.  Linux has a number of *desktop environments* that one can choose from -- each of these has a different look-and-feel, in the same way that Windows is different from Mac OS X.  We are currently using Gnome (pronounced 'ga-nome', not 'nome').  We may later see another one called KDE, and you will be able to choose whichever one you prefer more.
-
-In Gnome, you will notice that the task bar is at the top.  There is a Firefox icon there that you can use to launch a web browser to log into Collab (https://collab.virginia.edu) and complete the lab.  You will also need to load up a terminal window -- to do this, click on 'Applications' at the top, and select Accessories ->Terminal.
+Once the login screen appears, you can log in.  Be aware that it may take a full minute to log you into the machine.  Linux has a number of *desktop environments* that one can choose from -- each of these has a different look-and-feel, in the same way that Windows is different from Mac OS X.  We are currently using KDE.  To load up a terminal window, click on the button that looks like the Windows start button, and type in "konsole" into the search box.
 
 When you are finished, you should log out (from the menu at the top, or you can hit Ctrl-Alt-Backspace), and reboot the computer (through the options menu at the bottom of the login screen).
 
@@ -134,15 +132,15 @@ We realize that you cannot view these directions until after you have the github
 1. Ask the TAs if you have questions about your *x^n* function.
 2. Ask the TAs if you have questions about using Unix.
 3. Object Lifecycle Program
-     - Download the ([lifecycle.cpp](lifecycle.cpp.html) ([src](lifecycle.cpp)) file
-     - Compile with clang++ (i.e., 'clang++ lifecycle.cpp') and execute the program.
-     - Break lifecycle.cpp into multiple files.  It may be helpful to look at class slides on the Collab site.  Compile and run this program.  Note that to compile a C++ program with multiple files, just put them on the same line: 'clang++ LifeCycle.cpp TestLifeCycle.cpp' (you usually leave out the .h files when compiling).  Add the descriptive header at the top of the file containing your identifying information, and name them as follows:
+     - Download the [lifecycle.cpp](lifecycle.cpp.html) ([src](lifecycle.cpp)) file
+     - Compile with clang++ (i.e., `clang++ lifecycle.cpp`) and execute the program.
+     - Break lifecycle.cpp into multiple files.  It may be helpful to look at class slides on the Collab site.  Compile and run this program.  Note that to compile a C++ program with multiple files, just put them on the same line: `clang++ LifeCycle.cpp TestLifeCycle.cpp` (you usually leave out the .h files when compiling).  Add the descriptive header at the top of the file containing your identifying information, and name them as follows:
          - LifeCycle.h
          - LifeCycle.cpp
          - TestLifeCycle.cpp
      - Comment out the prototype for `getMaxMyObj()`.  Recompile.  What happens and why?  Talk to TA if you are unsure.  Now un-comment the prototype.
      - Look at the output of lifecycle.cpp.  Write at least one question about something in this program. Write your questions in a text file named lifecycle.questions.txt.  Remember to include the header comment at the top of the file.  4. Using C++ vector container class with strings
-     - There are 3 files on the Collab site that demonstrate the use of multi-file programs and the use of the vector collection class in C++: [svtest.cpp](svtest.cpp.html) ([src](svtest.cpp)), [svutil.cpp](svutil.cpp.html) ([src](svutil.cpp)), and [svutil.h](svutil.h.html) ([src](svutil.h)).  The class in those files is similar to the ArrayList class in the Java standard library (or Java's own Vector class).  Compile the program in Unix and run it.  The command 'clang++ svutil.cpp svtest.cpp' will compile the program.
+     - There are 3 files on the Collab site that demonstrate the use of multi-file programs and the use of the vector collection class in C++: [svtest.cpp](svtest.cpp.html) ([src](svtest.cpp)), [svutil.cpp](svutil.cpp.html) ([src](svutil.cpp)), and [svutil.h](svutil.h.html) ([src](svutil.h)).  The class in those files is similar to the ArrayList class in the Java standard library (or Java's own Vector class).  Compile the program in Unix and run it.  The command `clang++ svutil.cpp svtest.cpp` will compile the program.
      - Comment out the `#include <iostream>` preprocessor directive in the file svtest.cpp, and then rebuild the program.  Was there an error?
      - Now undo what you did in the previous step, but now comment out the using `namespace std;` in svutil.h, and rebuild the program. Was there an error?  What objects are now undeclared and why?
      - Write at least one question about something in this program.  This question might be about something that you don't understand completely. Write your questions in a file named vector.questions.txt
