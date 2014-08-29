@@ -57,11 +57,11 @@ The links in the right-most column link directly to the lecture recording on Col
 | Num | Date | Day of week | Lab & Tutorial | Planned topic | Actual lecture progress (and recording) |
 |-----|--------|-------------|----------------------------------------------------------|--------------------------|--------------------------|
 | 1 | Aug&nbsp;27 | Wednesday | no lab this week | [Course introduction][1] | [course-introduction][1], slides 0 to 5-9 ([recording][2]) |
-| 2 | Aug&nbsp;29 | Friday | | [Course introduction][1], [01: C++](../slides/01-cpp.html) |  |
-| 3 | Sep&nbsp;1 | Monday | | [01: C++](../slides/01-cpp.html) |  |
+| 2 | Aug&nbsp;29 | Friday | | [Course introduction][1], [01: C++][3] |  [course-introduction][1], slides 5-9 to 6-1 (end); [01-cpp][3], slides 0 to 3-14 ([recording][4]) |
+| 3 | Sep&nbsp;1 | Monday | | [01: C++][3] |  |
 | 4 | Sep&nbsp;3 | Wednesday | [Lab 1: Intro to C++](../labs/lab01/index.html) ([md](../labs/lab01/index.md)) / [Tutorial 1: Intro to UNIX](../tutorials/01-intro-unix/index.html) ([md](../tutorials/01-intro-unix/index.md)) | (no class: MLK day) |  |
-| 5 | Sep&nbsp;5 | Friday | | [01: C++](../slides/01-cpp.html) |  |
-| 6 | Sep&nbsp;8 | Monday | | [01: C++](../slides/01-cpp.html) |  |
+| 5 | Sep&nbsp;5 | Friday | | [01: C++][3] |  |
+| 6 | Sep&nbsp;8 | Monday | | [01: C++][3] |  |
 | 7 | Sep&nbsp;10 | Wednesday | [Lab 2: Linked lists](../labs/lab02/index.html) ([md](../labs/lab02/index.md)) / [Tutorial 2: GDB](../tutorials/02-gdb/index.html) ([md](../tutorials/02-gdb/index.md)) | [02: Lists](../slides/02-lists.html) |  |
 | 8 | Sep&nbsp;12 | Friday | | [02: Lists](../slides/02-lists.html) |  |
 | 9 | Sep&nbsp;15 | Monday | | [02: Lists](../slides/02-lists.html), [03: Numbers](../slides/03-numbers.html) |  |
@@ -114,3 +114,5 @@ None yet!
 
 [1]: course-introduction.html
 [2]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/course-introduction-1/course-introduction-1.htm
+[3]: ../slides/01-cpp.html
+[4]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/01-cpp-1/01-cpp-1.htm
