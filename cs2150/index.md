@@ -14,7 +14,6 @@ There are a number of links and other parts of this course that are **NOT** incl
 
 - The set of online tools, which can be accessed through Collab or [here](https://libra.cs.virginia.edu/~pedagogy/).
     - These tools are: [support requests](https://libra.cs.virginia.edu/~pedagogy/support.php), [lab submission](https://libra.cs.virginia.edu/~pedagogy/submit.php), [regrades](https://libra.cs.virginia.edu/~pedagogy/regrades.php), [gradebook](https://libra.cs.virginia.edu/~pedagogy/gradebook.php), and [lab extensions](https://libra.cs.virginia.edu/~pedagogy/labextension.php)
-    - Note that Netbadge login is not yet working on these yet -- you will have to authenticate through Collab
 - The announcements, which are posted to the CS 2150 twitter feed: [\@UVaCS2150](http://twitter.com/UVaCS2150)
 - The [CS 2150 Google calendar](https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York)
 - Grading explanations, including the grading guidelines; this is available in the Collab wiki ([here](https://collab.itc.virginia.edu/portal/site/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/page/25e168d5-b7fc-4d8d-a021-4d39eda4e0aa) is the direct link, although Collab login is required)
