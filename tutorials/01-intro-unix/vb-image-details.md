@@ -42,7 +42,7 @@ sudo update-alternatives --set c++ /usr/bin/clang++
 alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
-alias xmeacs='emacs'
+alias xemacs='emacs'
 ```
 - Cloned the github repo via `git clone https://github.com/aaronbloomfield/pdr`
     - Note that a `git pull` will still have to be executed each time to update it
