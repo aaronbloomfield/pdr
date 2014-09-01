@@ -3,7 +3,7 @@ Program and Data Representation: Tutorials
 
 [Go up to the main README file](../README.html)
 
-The tutorials for this course are listed below. Note that as this repository is being filled out throughout the spring 2014 semester, many of these links will not work until later in the semester.
+The tutorials for this course are listed below.
 
 - [Tutorial 1: Introduction to Unix](01-intro-unix/index.html)
     - And [Tutorial 1: Introduction to Unix: VirtualBox use](01-intro-unix/virtual-box.html)

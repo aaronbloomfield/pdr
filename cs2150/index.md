@@ -44,8 +44,6 @@ This is a series of links to the labs and tutorials that are elsewhere in this r
     - While a version of the lab will be in this github repo for some time prior, there **WILL** be modifications to that lab up until the "official" release, which is when it is announced as released on the twitter feed: [\@UVaCS2150](http://twitter.com/UVaCS2150)
 - All the labs and tutorials can be found on the [labs page][107] ([md][108]) and the [tutorials page][100] ([md][101]).
     - In particular, these pages have additional details and links not described here
-- Note that as this repository is being filled out throughout the spring 2014 semester, many of these links will not work until later in the semester
-    - And many of the links that do work may be incomplete or only partially formed
 
 ------------------------------------------------------------
 
