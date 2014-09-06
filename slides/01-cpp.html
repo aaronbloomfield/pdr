@@ -1141,59 +1141,6 @@ r->num = 4;
 </script></section>
 
 <section data-markdown><script type="text/template">
-## C++ and memory allocation
-- Assume `int *x` has been declared
-  - And `int y` is from user input
-- Consider these separate C++ lines of code:
-  - `x = new int[10]; // 40 bytes`
-  - `x = new int;     // 4 bytes`
-  - `x = new int[y];  // y*4 bytes`
-- When they are deleted, how does C++ know how much memory to free up?
-</script></section>
-
-<section data-markdown><script type="text/template">
-## C++ and memory allocation
-Source code: [memory.cpp](code/01-cpp/memory.cpp.html) ([src](code/01-cpp/memory.cpp))  
-```
-#include <iostream>
-using namespace std;
-
-class Foo {
-  int x, y;
-};
-
-int main() {
-    cout << "sizeof(int): " << sizeof(int) << endl;
-    cout << "sizeof(Foo): " << sizeof(Foo) << endl;
-    Foo *qux = new Foo(), *bar = new Foo();
-    cout << "1st Foo: " << qux << endl;
-    cout << "2nd Foo: " << bar << endl;
-    int diff = ((int)bar)-((int)qux);
-    cout << "Difference: " << diff << endl;
-    delete qux;
-    delete bar;
-    return 0;
-}
-```
-</script></section>
-
-<section data-markdown><script type="text/template">
-## C++ and memory allocation
-Source code: [memory.cpp](code/01-cpp/memory.cpp.html) ([src](code/01-cpp/memory.cpp))  
-&nbsp;  
-Result:
-```
-    sizeof(int): 4
-    sizeof(Foo): 8
-    1st Foo: 0x6a0670
-    2nd Foo: 0x6a0680
-    Difference: 16
-```
-  
-Why the extra space?  If only 8 bytes are needed for each `Foo`, then why is the second `Foo` 16 bytes beyond the first one?
-</script></section>
-
-<section data-markdown><script type="text/template">
 ## Associativity of *
 - Consider:
   - `char*  x, y;`
@@ -1250,6 +1197,59 @@ Foo() {
 }
 ```
 <span class="fragment">You are making the pointer point to a local variable, which is then promptly deallocated</span>
+</script></section>
+
+<section data-markdown><script type="text/template">
+## C++ and memory allocation
+- Assume `int *x` has been declared
+  - And `int y` is from user input
+- Consider these separate C++ lines of code:
+  - `x = new int[10]; // 40 bytes`
+  - `x = new int;     // 4 bytes`
+  - `x = new int[y];  // y*4 bytes`
+- When they are deleted, how does C++ know how much memory to free up?
+</script></section>
+
+<section data-markdown><script type="text/template">
+## C++ and memory allocation
+Source code: [memory.cpp](code/01-cpp/memory.cpp.html) ([src](code/01-cpp/memory.cpp))  
+```
+#include <iostream>
+using namespace std;
+
+class Foo {
+  int x, y;
+};
+
+int main() {
+    cout << "sizeof(int): " << sizeof(int) << endl;
+    cout << "sizeof(Foo): " << sizeof(Foo) << endl;
+    Foo *qux = new Foo(), *bar = new Foo();
+    cout << "1st Foo: " << qux << endl;
+    cout << "2nd Foo: " << bar << endl;
+    int diff = ((int)bar)-((int)qux);
+    cout << "Difference: " << diff << endl;
+    delete qux;
+    delete bar;
+    return 0;
+}
+```
+</script></section>
+
+<section data-markdown><script type="text/template">
+## C++ and memory allocation
+Source code: [memory.cpp](code/01-cpp/memory.cpp.html) ([src](code/01-cpp/memory.cpp))  
+&nbsp;  
+Result:
+```
+    sizeof(int): 4
+    sizeof(Foo): 8
+    1st Foo: 0x6a0670
+    2nd Foo: 0x6a0680
+    Difference: 16
+```
+  
+Why the extra space?  If only 8 bytes are needed for each `Foo`, then why is the second `Foo` 16 bytes beyond the first one?
 </script></section>
 
 	</section>
