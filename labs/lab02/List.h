@@ -39,8 +39,7 @@ public:
     void insertAtTail(int x);	//Insert x at tail of list
     void remove(int x);		//Removes the first occurrence of x
     ListItr find(int x);		//Returns an iterator that points to
-    // the first occurrence of x, else
-    // return a blank iterator
+    // the first occurrence of x, else return a iterator to the dummy tail node
 
     int size() const; //Returns the number of elements in the list
 
