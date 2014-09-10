@@ -60,7 +60,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 4 | Sep&nbsp;3 | Wednesday | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | [01: C++][81] | [01-cpp][81], slides 6-8 to 8-13 ([recording][204]) |
 | 5 | Sep&nbsp;5 | Friday | | [01: C++][81] | [01-cpp][81], slides 8-14 to 9-13 ([recording][205]) |
 | 6 | Sep&nbsp;8 | Monday | | [01: C++][81] | [01-cpp][81], slides 9-14 to 11-2 ([recording][206]) |
-| 7 | Sep&nbsp;10 | Wednesday | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: GDB][42] ([md][62]) | [02: Lists][82] |  |
+| 7 | Sep&nbsp;10 | Wednesday | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: GDB][42] ([md][62]) | [02: Lists][82] | [01: C++][81], slides 8-13 to 11-11; [02: Lists][82], slides 0 to 4-3 ([recording][207]) |
 | 8 | Sep&nbsp;12 | Friday | | [02: Lists][82] |  |
 | 9 | Sep&nbsp;15 | Monday | | [02: Lists][82], [03: Numbers][83] |  |
 | 10 | Sep&nbsp;17 | Wednesday | [Lab 3: Stacks][3] ([md][23]) / [Tutorial 3: More UNIX, part 1][63], sections 1-4 | [03: Numbers][83] |  |
@@ -207,3 +207,5 @@ None yet!
 [204]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/01-cpp-3/01-cpp-3.htm
 [205]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/01-cpp-4/01-cpp-4.htm
 [206]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/01-cpp-5/01-cpp-5.htm
+[207]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/02-lists-1/02-lists-1.htm
+[208]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/02-lists-2/02-lists-2.htm
