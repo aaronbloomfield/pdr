@@ -21,16 +21,16 @@
  * List()                 Constructor, initilized an empty list
  * ~List()                Destructor, deletes the entire list
  * void push(T item);     Adds an item to the tail of the list
- * T* pop();              Removes an item from the head of the list
+ * T* pop();              Removes an item from the tail of the list
  * int size();            Returns the size (length) of the list
  * void display();        Displays the list
  * int empty();           Returns 1 if the list is empty, 0 otherwise
  * void clear();          Clears (removes all elements from) the list
- * T* push_head();        Removes an item from the tail of the list
+ * T* push_head();        Adds an item to the head of the list
  * T* tail();             Returns the tail data
  * T* head();             Returns the head data
  * int element (T item);  Returns 1 if T is in the list, 0 otherwise
- * pop_head (T item);     Adds an item to the head of the list
+ * pop_head (T item);     Removes an item from the head of the list
  * int remove (T item)    Removes item, returns 1 if sucessful, else 0
  * T* getptr (T item)     Returns the pointer to the parameter or NULL
  * void save(FILE *fp)    Saves the list- calls the objects methods
