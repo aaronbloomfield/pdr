@@ -133,7 +133,7 @@ List&amp; List::operator=(const List&amp; source) { //Equals operator
     }
     return *this;
 }</code></pre>
-<p>Note that these two methods are correctly implemented. If they are causing a crash in your program, then it is likely being caused by one of the methods that they invoke.</p>
+<p>Note that these two methods are correctly implemented. However, they depend on the other methods working properly. If you are seeing crashes in these methods, it is likely because some of the other supporting methods are not working properly. One common issue is to ensure that <code>makeEmpty()</code> has <code>head-&gt;next</code> pointing to tail, and <code>tail-&gt;previous</code> pointing to head. If they are causing a crash in your program, then it is likely being caused by one of the methods that they invoke.</p>
 <h3 id="listitr">ListItr</h3>
 <p>Your ListItr should maintain a pointer to a current position in a List. Your iterator class should look like the class definition in the source code. See the <a href="ListItr.h.html">ListItr.h</a> (<a href="ListItr.h]">src</a>) code for details.</p>
 <p>Your ListItr class should implement at least the following public methods:</p>

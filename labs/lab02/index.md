@@ -150,7 +150,7 @@ List& List::operator=(const List& source) { //Equals operator
 }
 ```
 
-Note that these two methods are correctly implemented.  If they are causing a crash in your program, then it is likely being caused by one of the methods that they invoke.
+Note that these two methods are correctly implemented.  However, they depend on the other methods working properly.  If you are seeing crashes in these methods, it is likely because some of the other supporting methods are not working properly.  One common issue is to ensure that `makeEmpty()` has `head->next` pointing to tail, and `tail->previous` pointing to head.  If they are causing a crash in your program, then it is likely being caused by one of the methods that they invoke.
 
 ### ListItr ###
 
