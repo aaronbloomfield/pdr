@@ -231,6 +231,8 @@ great??
 ```
 In the above execution, what was typed in was `+ 2 3 isn't 2150 great??` (the second line). After the end of the line (i.e., after the Enter key was pressed), the program reads in that, and prints each token on a separate line.  Since there was no more into to provide, Control-D (shown as `^D`) was then pressed (the last line in that execution run).  Control-D closes the stdin pipe by providing the EOF flag.
 
+***NOTE:*** When hitting Control-D, you have to enter it *on it's own line*.  This means that you first have to hit Enter, then Control-D.
+
 Another way of accomplishing the above code to check if there is any more input is to use the `good()` method in cin (i.e., `cin.good()`):
 
 ```
@@ -260,7 +262,7 @@ How should the program know when you are finished providing input?  There are a 
 - Only read in one line, and not accept any more input -- if you handle it this way, you will have to use the `getline()` method, but this is likely the harder way to deal with it.
 - Read in input until `cin.good()` method returns `false`; **this will require entering a Control-D at the end of the provided input** (i.e., enter a line of the postfix expression, hit Enter, and then hit Control-D).  The input we provide during the execution will provide the Control-D at the end of said input.
 
-Either way is fine.  Our test scripts will send in all the input on a single line, and will provide a Control-D if necessary.  So whichever means you use to determine the end of your input is fine.
+Either way is fine.  Our test scripts will send in all the input *on a single line*, followed by the Enter key; we will also provide a Control-D if necessary.  So whichever means you use to determine the end of your input is fine.
 
 
 ------------------------------------------------------------
