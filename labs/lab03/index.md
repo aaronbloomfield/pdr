@@ -99,7 +99,7 @@ A stack is a container that implements the LIFO (last in, first out) property.  
 
 Often, the `top()` and `pop()` functionality are joined as an `int pop()` function, but in this lab, it is beneficial to separate them.
 
-For this lab, you must implement the stack so there is no maximum capacity!  For now if `pop()` or `top()` are called on an empty stack, terminate the program with the function call `exit(-1)`, which is from the `<cstdlib>` library.
+For this lab, you must implement the stack so there is no maximum capacity (reminder: that implementation is in the post-lab)!  For now if `pop()` or `top()` are called on an empty stack, terminate the program with the function call `exit(-1)`, which is from the `<cstdlib>` library.
 
 For this lab, you will use a stack of `int` values.
 
