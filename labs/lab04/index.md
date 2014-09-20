@@ -26,7 +26,7 @@ Procedure
 4. Write the `outputBinary()` function, as described in the pre-lab section.
 5. Write the `overflow()` function, as described in the pre-lab section.
 6. Combine these functions into a prelab4.cpp file, as described in the pre-lab section.  This program should only take in a *single* `int` value as input!
-7. Get your floating point number [here](http://libra.cs.virginia.edu/getfloat), and then complete your floating point conversion, as described in the pre-lab section, into a file called floatingpoint.pdf; you can convert a file into a PDF via the directions on the [How to convert a file to PDF](../../docs/convert_to_pdf.html) page.
+7. Get your floating point number [here](http://libra.cs.virginia.edu/getfloat.php), and then complete your floating point conversion, as described in the pre-lab section, into a file called floatingpoint.pdf; you can convert a file into a PDF via the directions on the [How to convert a file to PDF](../../docs/convert_to_pdf.html) page.
 7. Files to download: none
 8. Files to submit: prelab4.cpp, floatingpoint.pdf
 
@@ -100,7 +100,7 @@ Your three functions, `sizeOfTest()`, `outputBinary()`, and `overflow()` should 
 
 For the last part of the pre-lab, you will need to convert a floating point number to binary representation, and another number from binary representation to a floating point number.  You should do this by hand (i.e. not in a computer program), and have the worked-out solution (similar to the lecture notes) be in a floatingpoint.pdf file -- you can use any editor you would like to generate the file, as long as what you submit is a PDF file.
 
-First, you will need to determine what your floating point numbers are going to be -- these numbers will be different for each student.  To do so, visit [http://libra.cs.virginia.edu/getfloat](http://libra.cs.virginia.edu/getfloat) and enter your UVa userid.  Each floating point number is unique to the userid entered.  Note that the hexadecimal number printed is in **little Endian** format.
+First, you will need to determine what your floating point numbers are going to be -- these numbers will be different for each student.  To do so, visit [http://libra.cs.virginia.edu/getfloat.php](http://libra.cs.virginia.edu/getfloat.php) and enter your UVa userid.  Each floating point number is unique to the userid entered.  Note that the hexadecimal number printed is in **little Endian** format.
 
 The first number must be converted into (little-Endian) format -- you should leave your answer in hexadecimal, as that will be an easier way (versus binary) to represent the number.  The second number (the one in hexadecimal) needs to be converted to a base 10 real number as per the algorithm for converting IEEE 754 single-precision (i.e. 32-bit) floating point numbers.
 
