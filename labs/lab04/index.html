@@ -206,7 +206,7 @@ Note that the hexadecimal printed above is in little-endian format!</code></pre>
 </tr>
 </tbody>
 </table>
-<p>The results in the hex columns should be in <strong>big endian</strong> format, which is the same format that GDB displays, as well as the format that your <code>outputBinary()</code> program should display. To convert binary into hex, see the <a href="../../slides/04-numbers.html">04-numbers slide set</a>.</p>
+<p>The results in the hex columns should be in <strong>big endian</strong> format, which is the same format that GDB displays, as well as the format that your <code>outputBinary()</code> program should display. To convert binary into hex, see the <a href="../../slides/03-numbers.html">03-numbers slide set</a>.</p>
 <h3 id="representation-in-memory"><a name="memory">Representation in memory</a></h3>
 <p>This exercise will show you how to read the contents of a particular memory address. This will be useful for debugging code and for understanding the underlying data representation of abstract data types.</p>
 <p>Recall that all Intel 80x86 machines (i.e. all Pentium-class machines) are little-Endian. Thus, 0xd97c34a2 is stored as: a2 34 7c d9, with the least significant byte listed first. However, when you examine the value in gdb (using the <code>x/x</code> command), it will display it in big-endian format, as that is how humans typically think of numbers.</p>
@@ -220,7 +220,7 @@ Note that the hexadecimal printed above is in little-endian format!</code></pre>
 <li>Observe interesting/different features in memory (e.g. skipped memory) and be able to explain it.</li>
 </ul>
 <h3 id="primitive-arrays-in-c"><a name="arrays">Primitive Arrays in C++</a></h3>
-<p>For the pre-lab, you should have read the <a href="../../docs/readings.html">Readings</a> on arrays, if you feel you need a bit more background. Note how two (or higher) dimensional arrays are stored in row-major order (as described in the <a href="../../slides/05-arrays-bigoh.html">05-arrays-bigoh slide set</a>) in C++, as opposed to being stored as arrays of arrays in Java.</p>
+<p>For the pre-lab, you should have read the <a href="../../docs/readings.html">Readings</a> on arrays, if you feel you need a bit more background. Note how two (or higher) dimensional arrays are stored in row-major order (as described in the <a href="../../slides/04-arrays-bigoh.html">04-arrays-bigoh slide set</a>) in C++, as opposed to being stored as arrays of arrays in Java.</p>
 <p>For this part, you will need to add a bit of code to your inlab4.cpp file. You program should show a clear separator where the previous section's part of inlab4.cpp ends and where this section's part of inlab4.cpp begins. The additional code should declare a one dimensional array of chars and a one dimensional array of ints:</p>
 <pre><code>int IntArray[10];
 char CharArray[10];</code></pre>
@@ -238,7 +238,7 @@ char CharArray2D[6][5];</code></pre>
 <h3 id="binary-bit-counter">Binary bit counter</h3>
 <p>Write a <strong><em>recursive</em></strong> function that returns the number of 1's in the binary representation of <em>n</em>. Use the fact that this is equal to the number of 1's in the representation of <em>n/2</em>, plus 1, if <em>n</em> is odd. You may assume that <em>n</em> is a non-negative integer stored in two's complement. However, <em>n</em> will be passed in the standard decimal (i.e. base-10) format. This should be a rather simple function that uses what you've learned about integer representation. If you find you need things like global variables or the <code>pow()</code> function to implement this then you are going too far.</p>
 <p>This program, called bitCounter.cpp should take in a value as a command-line parameter (no input!). See below for how to handle command-line parameters. Note that if the program is run without any command-line parameters, your program should gracefully exit with an appropriate error message. Your program need not handle an invalid number for the command-line parameter. And any additional command-line parameters beyond the first can be (and should be) ignored.</p>
-<p><strong>This program should take in no input, only one command-line parameter.</strong> Command line parameters are discussed in more detail in the <a href="../../slides/05-arrays-bigoh.html">05-arrays-bigoh slide set</a>, along with a source code example showing how to use them.</p>
+<p><strong>This program should take in no input, only one command-line parameter.</strong> Command line parameters are discussed in more detail in the <a href="../../slides/04-arrays-bigoh.html">04-arrays-bigoh slide set</a>, along with a source code example showing how to use them.</p>
 <p>So far, our <code>main()</code> method has had the following prototype:</p>
 <pre><code>int main()</code></pre>
 <p>We will now change that prototype to the following:</p>

@@ -185,7 +185,7 @@ And, for pointers:
 | double* | | | |
 
 
-The results in the hex columns should be in **big endian** format, which is the same format that GDB displays, as well as the format that your `outputBinary()` program should display.  To convert binary into hex, see the [04-numbers slide set](../../slides/04-numbers.html).
+The results in the hex columns should be in **big endian** format, which is the same format that GDB displays, as well as the format that your `outputBinary()` program should display.  To convert binary into hex, see the [03-numbers slide set](../../slides/03-numbers.html).
 
 ### <a name="memory">Representation in memory</a> ###
 
@@ -207,7 +207,7 @@ After completing this section of the lab, you will be expected to understand how
 
 ### <a name="arrays">Primitive Arrays in C++</a> ###
 
-For the pre-lab, you should have read the [Readings](../../docs/readings.html) on arrays, if you feel you need a bit more background.  Note how two (or higher) dimensional arrays are stored in row-major order (as described in the [05-arrays-bigoh slide set](../../slides/05-arrays-bigoh.html)) in C++, as opposed to being stored as arrays of arrays in Java.
+For the pre-lab, you should have read the [Readings](../../docs/readings.html) on arrays, if you feel you need a bit more background.  Note how two (or higher) dimensional arrays are stored in row-major order (as described in the [04-arrays-bigoh slide set](../../slides/04-arrays-bigoh.html)) in C++, as opposed to being stored as arrays of arrays in Java.
 
 For this part, you will need to add a bit of code to your inlab4.cpp file.  You program should show a clear separator where the previous section's part of inlab4.cpp ends and where this section's part of inlab4.cpp begins.  The additional code should declare a one dimensional array of chars and a one dimensional array of ints:
 
@@ -248,7 +248,7 @@ Write a ***recursive*** function that returns the number of 1's in the binary re
 
 This program, called bitCounter.cpp should take in a value as a command-line parameter (no input!).  See below for how to handle command-line parameters.  Note that if the program is run without any command-line parameters, your program should gracefully exit with an appropriate error message.  Your program need not handle an invalid number for the command-line parameter.  And any additional command-line parameters beyond the first can be (and should be) ignored.
 
-**This program should take in no input, only one command-line parameter.** Command line parameters are discussed in more detail in the [05-arrays-bigoh slide set](../../slides/05-arrays-bigoh.html), along with a source code example showing how to use them.
+**This program should take in no input, only one command-line parameter.** Command line parameters are discussed in more detail in the [04-arrays-bigoh slide set](../../slides/04-arrays-bigoh.html), along with a source code example showing how to use them.
 
 So far, our `main()` method has had the following prototype:
 
