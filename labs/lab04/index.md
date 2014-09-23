@@ -24,9 +24,12 @@ Procedure
 2. Go through [Tutorial 4: Unix, part 2](../../tutorials/03-04-more-unix/index.html), which is sections 5-8.  This tutorial is originally from the department of Electrical Engineering at the University of Surrey, and is available online [here](http://www.ee.surrey.ac.uk/Teaching/Unix/).  You went through sections 1-4 in the last tutorial; this lab has you completing sections 5-8.
 3. Write the `sizeOfTest()` function (note the capitalization!), as described in the pre-lab section.
 4. Write the `outputBinary()` function, as described in the pre-lab section.
+    - You cannot use the `bitset` class (or anything similar) for this!
 5. Write the `overflow()` function, as described in the pre-lab section.
 6. Combine these functions into a prelab4.cpp file, as described in the pre-lab section.  This program should only take in a *single* `int` value as input!
 7. Get your floating point number [here](http://libra.cs.virginia.edu/getfloat.php), and then complete your floating point conversion, as described in the pre-lab section, into a file called floatingpoint.pdf; you can convert a file into a PDF via the directions on the [How to convert a file to PDF](../../docs/convert_to_pdf.html) page.
+    - Note that this must be typed up in a document; you cannot do this by hand and scan it in (or take a photo of it)
+    - Make sure you read the part, in the pre-lab section below, about the maximum file size!  Otherwise your submission will not be accepted.
 7. Files to download: none
 8. Files to submit: prelab4.cpp, floatingpoint.pdf
 
@@ -78,6 +81,7 @@ outputBinary(1000000) //=> 0000 0000 0000 1111 0100 0010 0100 0000
 - If you do use for loops to do this, become familiar with the left shift operator (<<) and what it does to (unsigned) ints, and the binary and/or operators (& and |).
 - You can also use a calculator program (including one in Windows) to convert numbers to binary (select View->Scientific), as that is not the coding part of this lab.
 
+You can ***NOT*** use the `bitset` class for this, or any other class that does the work for you.  You have to program this yourself.
 
 ### The Limits of Representation ###
 
@@ -123,6 +127,9 @@ Note: during the conversion, the numbers provided do not have any 1 bits in the 
 
 Your conversion should be in a PDF file called floatingpoint.pdf, which will be submitted with the pre-lab.  The idea is to show the math behind the conversion (similar to how was done in class), not to write a program to do it.
 
+You must actually type up your work in a word editor (Word is fine, as is Mac Pages; [LibreOffice](http://www.libreoffice.org/) is a free alternative).  You can ***NOT*** do the assignment by hand, then scan it in (or take a photo of it).  It must actually be typeset in your favorite editor of choice.  Note that the Unix honor pledge only applies to development, so you are free to use anything to type up the file.
+
+**File size:** the submission server will only accept files of up to a certain size, and your file must be less than this size.  If you properly type set your document, then this will not be a problem.  But if you write out your assignment by hand, then scan (or take a picture of) it, then it will be too big to submit.  And note that you have to actually type set it, as mentioned above, so you should be doing this anyway.
 
 ------------------------------------------------------------
 
