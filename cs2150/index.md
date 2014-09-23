@@ -55,17 +55,17 @@ The links in the right-most column link directly to the lecture recording on Col
 | Num | Date | Day of week | Lab & Tutorial | Planned topic | Actual lecture progress (and recording) |
 |-----|--------|-------------|----------------------------------------------------------|--------------------------|--------------------------|
 | 1 | Aug&nbsp;27 | Wednesday | no lab this week | [Course introduction][80] | [course-introduction][80], slides 0 to 5-9 ([recording][201]) |
-| 2 | Aug&nbsp;29 | Friday | | [Course introduction][80], [01: C++][81] |  [course-introduction][80], slides 5-9 to 6-1 (end); [01-cpp][81], slides 0 to 3-14 ([recording][202]) |
-| 3 | Sep&nbsp;1 | Monday | | [01: C++][81] | [01-cpp][81], slides 4 to 6-7 ([recording][203]) |
-| 4 | Sep&nbsp;3 | Wednesday | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | [01: C++][81] | [01-cpp][81], slides 6-8 to 8-13 ([recording][204]) |
-| 5 | Sep&nbsp;5 | Friday | | [01: C++][81] | [01-cpp][81], slides 8-14 to 9-13 ([recording][205]) |
-| 6 | Sep&nbsp;8 | Monday | | [01: C++][81] | [01-cpp][81], slides 9-14 to 11-2 ([recording][206]) |
+| 2 | Aug&nbsp;29 | Friday | | [Course introduction][80], [01: C++][81] |  [course-introduction][80], slides 5-9 to 6-1 (end); [01: C++][81], slides 0 to 3-14 ([recording][202]) |
+| 3 | Sep&nbsp;1 | Monday | | [01: C++][81] | [01: C++][81], slides 4 to 6-7 ([recording][203]) |
+| 4 | Sep&nbsp;3 | Wednesday | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | [01: C++][81] | [01: C++][81], slides 6-8 to 8-13 ([recording][204]) |
+| 5 | Sep&nbsp;5 | Friday | | [01: C++][81] | [01: C++][81], slides 8-14 to 9-13 ([recording][205]) |
+| 6 | Sep&nbsp;8 | Monday | | [01: C++][81] | [01: C++][81], slides 9-14 to 11-2 ([recording][206]) |
 | 7 | Sep&nbsp;10 | Wednesday | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: GDB][42] ([md][62]) | [02: Lists][82] | [01: C++][81], slides 8-13 to 11-11; [02: Lists][82], slides 0 to 4-3 ([recording][207]) |
 | 8 | Sep&nbsp;12 | Friday | | [02: Lists][82] |  [02: Lists][82], slides 4-2 to 6-7 ([recording][208]) |
 | 9 | Sep&nbsp;15 | Monday | | [02: Lists][82], [03: Numbers][83] | [02: Lists][82], slides 6-8 to 8-3 (end); [03: Numbers][83], slides 0 to 4-2 ([recording][209]) |
 | 10 | Sep&nbsp;17 | Wednesday | [Lab 3: Stacks][3] ([md][23]) / [Tutorial 3: More UNIX, part 1][63], sections 1-4 | [03: Numbers][83] | [03: Numbers][83], slides 4-3 to 7-6 ([recording][210]) |
-| 11 | Sep&nbsp;19 | Friday | | [03: Numbers][83] |  |
-| 12 | Sep&nbsp;22 | Monday | | [03: Numbers][83] |  |
+| 11 | Sep&nbsp;19 | Friday | | [03: Numbers][83] | [03: Numbers][83], slides 8 to 8-15 ([recording][211]) |
+| 12 | Sep&nbsp;22 | Monday | | [03: Numbers][83] | [03: Numbers][83], slides 8-15 to 8-32 ([recording][212]) |
 | 13 | Sep&nbsp;24 | Wednesday | [Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8 | [04: Arrays & big-Oh][84] |  |
 | 14 | Sep&nbsp;26 | Friday | | [04: Arrays & big-Oh][84] |  |
 |    | Sep&nbsp;28 | Sunday | Exam 1 review session | Exam 1 review session |  |
