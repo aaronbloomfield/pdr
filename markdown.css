@@ -42,7 +42,7 @@ pre {
 }
 
 /* table formatting */
-
+/*
 th {
   background-color: #cccccc;
   text-align:center;
@@ -55,4 +55,31 @@ tr:hover {
 
 td {
     padding: 2px;
+}
+*/
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    word-break: keep-all;
+}
+
+table tr {
+    background-color: #FFF;
+    border-top: 1px solid #CCC;
+}
+
+table th {
+    padding: 6px 13px;
+    border: 1px solid #DDD;
+    background-color:#cccccc;
+}
+
+table td {
+    padding: 6px 13px;
+    border: 1px solid #DDD;
+}
+
+table tr:nth-child(2n){
+    background-color:#f8f8f8;
 }
