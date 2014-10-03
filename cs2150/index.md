@@ -71,7 +71,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |    | Sep&nbsp;28 | Sunday | Exam 1 review session | Exam 1 review session | ([recording][215]) |
 | 15 | Sep&nbsp;29 | Monday | | [05: Trees][85] | [04: Arrays & big-Oh][84], slides 4-20 to 5-7 (end); [05: Trees][85], slides 0 to 3-11 ([recording][216]) |
 | 16 | Oct&nbsp;1 | Wednesday | Exam 1 instead during Tuesday's lab | [05: Trees][85] | [05: Trees][85], slides 3-11 to 4-17 ([recording][217]) |
-| 17 | Oct&nbsp;3 | Friday | | [05: Trees][85] |  |
+| 17 | Oct&nbsp;3 | Friday | | [05: Trees][85] | [05: Trees][85], slides 4-16 to 6-17 ([recording][218]) |
 | 18 | Oct&nbsp;6 | Monday | | [05: Trees][85] |  |
 | 19 | Oct&nbsp;8 | Wednesday | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [06: Hashes][86] |  |
 | 20 | Oct&nbsp;10 | Friday | | [06: Hashes][86] |  |
