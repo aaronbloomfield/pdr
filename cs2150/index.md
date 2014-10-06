@@ -69,10 +69,10 @@ The links in the right-most column link directly to the lecture recording on Col
 | 13 | Sep&nbsp;24 | Wednesday | [Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8 | [04: Arrays & big-Oh][84] | [04: Arrays & big-Oh][84], slides 0 to 4-5 ([recording][213]) |
 | 14 | Sep&nbsp;26 | Friday | | [04: Arrays & big-Oh][84] | [04: Arrays & big-Oh][84], slides 4-5 to 4-19 ([recording][214]) |
 |    | Sep&nbsp;28 | Sunday | Exam 1 review session | Exam 1 review session | ([recording][215]) |
-| 15 | Sep&nbsp;29 | Monday | | [05: Trees][85] | [04: Arrays & big-Oh][84], slides 4-20 to 5-7 (end); [05: Trees][85], slides 0 to 3-11 ([recording][216]) |
-| 16 | Oct&nbsp;1 | Wednesday | Exam 1 instead during Tuesday's lab | [05: Trees][85] | [05: Trees][85], slides 3-11 to 4-17 ([recording][217]) |
-| 17 | Oct&nbsp;3 | Friday | | [05: Trees][85] | [05: Trees][85], slides 4-16 to 6-17 ([recording][218]) |
-| 18 | Oct&nbsp;6 | Monday | | [05: Trees][85] |  |
+| 15 | Sep&nbsp;29 | Monday | | [05: Trees][85] | [04: Arrays & big-Oh][84], slides 4-20 to 5-7 (end); [05: Trees][85], slides [0][85] to [3-11][1050311] ([recording][216]) |
+| 16 | Oct&nbsp;1 | Wednesday | Exam 1 instead during Tuesday's lab | [05: Trees][85] | [05: Trees][85], slides [3-11][1050311] to [4-17][1050417] ([recording][217]) |
+| 17 | Oct&nbsp;3 | Friday | | [05: Trees][85] | [05: Trees][85], slides [4-16][1050416] to [6-17][1050617] ([recording][218]) |
+| 18 | Oct&nbsp;6 | Monday | | [05: Trees][85] | [05: Trees][85], slides [6-17][1050617] to [7-9][1050709] ([recording][219]) |
 | 19 | Oct&nbsp;8 | Wednesday | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [06: Hashes][86] |  |
 | 20 | Oct&nbsp;10 | Friday | | [06: Hashes][86] |  |
 |    | Oct&nbsp;13 | Monday | | no class (reading day) |  |
@@ -219,3 +219,10 @@ None yet!
 [216]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/05-trees-1/05-trees-1.htm
 [217]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/05-trees-2/05-trees-2.htm
 [218]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/05-trees-3/05-trees-3.htm
+[219]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/05-trees-4/05-trees-4.htm
+
+[1050311]: ../slides/05-trees.html#/3/11
+[1050416]: ../slides/05-trees.html#/4/16
+[1050417]: ../slides/05-trees.html#/4/17
+[1050617]: ../slides/05-trees.html#/6/17
+[1050709]: ../slides/05-trees.html#/7/9
