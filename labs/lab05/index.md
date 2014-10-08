@@ -34,7 +34,7 @@ Procedure
 ### In-lab ###
 
 1. Turn in the AVL worksheet at the *beginning* of lab.
-2. You should modify the code provided here as described in the in-lab description (avltree.cpp and binarytree.cpp).
+2. You should modify the code provided here as described in the in-lab description (avltree.cpp and binarysearchtree.cpp).
 3. Devise a reasonably convincing experiment to show that AVL trees are markedly superior to randomly grown trees. We have provided testfile1.txt, testfile2.txt and testfile3.txt for you to experiment with.  Your new experiment should be in a testfile4.txt file, which you will need to submit.
 4. Examine the [Makefile](code/inlab/Makefile.html) ([src](code/inlab/Makefile)) for this project.  You should understand everything in the Makefile!  The grading compile command for the inlab will be performed using 'make'.
 5. Files to download: [Makefile](code/inlab/Makefile.html) ([src](code/inlab/Makefile)), [avlnode.h](code/inlab/avlnode.h.html) ([src](code/inlab/avlnode.h)), [binarynode.h](code/inlab/binarynode.h.html) ([src](code/inlab/binarynode.h)), [avltree.h](code/inlab/avltree.h.html) ([src](code/inlab/avltree.h)), [avltree.cpp](code/inlab/avltree.cpp.html) ([src](code/inlab/avltree.cpp)), [binarysearchtree.h](code/inlab/binarysearchtree.h.html) ([src](code/inlab/binarysearchtree.h)), [binarysearchtree.cpp](code/inlab/binarysearchtree.cpp.html) ([src](code/inlab/binarysearchtree.cpp)), [tree_test.cpp](code/inlab/tree_test.cpp.html) ([src](code/inlab/tree_test.cpp)), [testfile1.txt](code/inlab/testfile1.txt), [testfile2.txt](code/inlab/testfile2.txt), [testfile3.txt](code/inlab/testfile3.txt).  These files are contained in the inlab/ directory of the [code.zip](/labs/lab05/code.zip) file.
