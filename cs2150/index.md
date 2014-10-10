@@ -79,10 +79,10 @@ The links in the right-most column link directly to the lecture recording on Col
 | 21 | Oct&nbsp;15 | Wednesday | no labs (reading day) | [06: Hashes][86] |  |
 | 22 | Oct&nbsp;17 | Friday | | [07: IBCM][87] (machine language) |  |
 | 23 | Oct&nbsp;20 | Monday | | [07: IBCM][87] (machine language) |  |
-| 24 | Oct&nbsp;22 | Wednesday | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (first half of [here][46], through 'exit status') | [07: IBCM][87] (machine language) |  |
+| 24 | Oct&nbsp;22 | Wednesday | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [07: IBCM][87] (machine language) |  |
 | 25 | Oct&nbsp;24 | Friday | | [08: x86][88] (assembly language) |  |
 | 26 | Oct&nbsp;27 | Monday | | [08: x86][88] (assembly language) |  |
-| 27 | Oct&nbsp;29 | Wednesday | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47]) | [08: x86][88] (assembly language) |  |
+| 27 | Oct&nbsp;29 | Wednesday | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [08: x86][88] (assembly language) |  |
 | 28 | Oct&nbsp;31 | Friday | | [08: x86][88] (assembly language) |  |
 |    | Nov&nbsp;2 | Sunday | Exam 2 review session | Exam 2 review session |  |
 | 29 | Nov&nbsp;3 | Monday | | [08: x86][88] (assembly language) |  |
@@ -136,6 +136,7 @@ None yet!
 [31]: ../labs/lab11/index.md
 [32]: ../labs/lab12/index.md
 
+[40]: ../tutorials/index.html
 [41]: ../tutorials/01-intro-unix/index.html
 [42]: ../tutorials/02-gdb/index.html
 [43]: ../tutorials/03-04-more-unix/index.html
