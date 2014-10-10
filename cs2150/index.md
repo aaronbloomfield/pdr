@@ -74,7 +74,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 17 | Oct&nbsp;3 | Friday | | [05: Trees][85] | [05: Trees][85], slides [4-16][1050416] to [6-17][1050617] ([recording][218]) |
 | 18 | Oct&nbsp;6 | Monday | | [05: Trees][85] | [05: Trees][85], slides [6-17][1050617] to [7-9][1050709] ([recording][219]) |
 | 19 | Oct&nbsp;8 | Wednesday | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [06: Hashes][86] | [05: Trees][85], slides [7-3][1050703] to [9-9][1050909] (end) ([recording][220]) |
-| 20 | Oct&nbsp;10 | Friday | | [06: Hashes][86] |  |
+| 20 | Oct&nbsp;10 | Friday | | [06: Hashes][86] | [06: Hashes][86], slides [0][86] to [4-13][1060413] ([recording][221]) |
 |    | Oct&nbsp;13 | Monday | | no class (reading day) |  |
 | 21 | Oct&nbsp;15 | Wednesday | no labs (reading day) | [06: Hashes][86] |  |
 | 22 | Oct&nbsp;17 | Friday | | [07: IBCM][87] (machine language) |  |
@@ -222,6 +222,7 @@ None yet!
 [218]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/05-trees-3/05-trees-3.htm
 [219]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/05-trees-4/05-trees-4.htm
 [220]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/05-trees-5/05-trees-5.htm
+[221]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/06-hashes-1/06-hashes-1.htm
 
 [1050311]: ../slides/05-trees.html#/3/11
 [1050416]: ../slides/05-trees.html#/4/16
@@ -230,4 +231,4 @@ None yet!
 [1050703]: ../slides/05-trees.html#/7/3
 [1050709]: ../slides/05-trees.html#/7/9
 [1050909]: ../slides/05-trees.html#/9/9
-
+[1060413]: ../slides/06-hashes.html#/4/13
