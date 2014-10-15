@@ -42,7 +42,7 @@ Procedure
 
 ### Post-lab ###
 
-1. For this lab you will be a brief lab report electronically via the submission system.  
+1. For this lab you will submit a brief lab report electronically via the submission system.
 2. Your report must be in PDF format!  See the [How to convert a file to PDF](../../docs/convert_to_pdf.html) page for details.
 3. Files to download: (none, beyond what was done during the in-lab)
 4. Files to submit: analysis.pdf (see the post-lab section for formatting details)
