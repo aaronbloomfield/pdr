@@ -75,8 +75,8 @@ The links in the right-most column link directly to the lecture recording on Col
 | 18 | Oct&nbsp;6 | Monday | | [05: Trees][85] | [05: Trees][85], slides [6-17][1050617] to [7-9][1050709] ([recording][219]) |
 | 19 | Oct&nbsp;8 | Wednesday | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [06: Hashes][86] | [05: Trees][85], slides [7-3][1050703] to [9-9][1050909] (end) ([recording][220]) |
 | 20 | Oct&nbsp;10 | Friday | | [06: Hashes][86] | [06: Hashes][86], slides [0][86] to [4-13][1060413] ([recording][221]) |
-|    | Oct&nbsp;13 | Monday | | no class (reading day) |  |
-| 21 | Oct&nbsp;15 | Wednesday | no labs (reading day) | [06: Hashes][86] |  |
+|    | Oct&nbsp;13 | Monday | | no class (reading day) | |
+| 21 | Oct&nbsp;15 | Wednesday | no labs (reading day) | [06: Hashes][86] | [06: Hashes][86], slides [5][10605] to [6-9][1060609] ([recording][222]) |
 | 22 | Oct&nbsp;17 | Friday | | [07: IBCM][87] (machine language) |  |
 | 23 | Oct&nbsp;20 | Monday | | [07: IBCM][87] (machine language) |  |
 | 24 | Oct&nbsp;22 | Wednesday | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [07: IBCM][87] (machine language) |  |
@@ -223,6 +223,7 @@ None yet!
 [219]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/05-trees-4/05-trees-4.htm
 [220]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/05-trees-5/05-trees-5.htm
 [221]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/06-hashes-1/06-hashes-1.htm
+[222]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/06-hashes-2/06-hashes-2.htm
 
 [1050311]: ../slides/05-trees.html#/3/11
 [1050416]: ../slides/05-trees.html#/4/16
@@ -232,3 +233,6 @@ None yet!
 [1050709]: ../slides/05-trees.html#/7/9
 [1050909]: ../slides/05-trees.html#/9/9
 [1060413]: ../slides/06-hashes.html#/4/13
+[10605]: ../slides/06-hashes.html#/5
+[1060609]: ../slides/06-hashes.html#/6/9
+
