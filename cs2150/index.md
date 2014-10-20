@@ -78,7 +78,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |    | Oct&nbsp;13 | Monday | | no class (reading day) | |
 | 21 | Oct&nbsp;15 | Wednesday | no labs (reading day) | [06: Hashes][86] | [06: Hashes][86], slides [5][10605] to [6-9][1060609] ([recording][222]) |
 | 22 | Oct&nbsp;17 | Friday | | [07: IBCM][87] (machine language) | [06: Hashes][86], slides [6-8][1060608] to [7-6][1060706] (end); [07: IBCM][87], slides [0][87] to [3-2][1070302] ([recording][223]) |
-| 23 | Oct&nbsp;20 | Monday | | [07: IBCM][87] (machine language) |  |
+| 23 | Oct&nbsp;20 | Monday | | [07: IBCM][87] (machine language) | [07: IBCM][87], slides [3-3][1070303] to [4-15][1070415] ([recording][224]) |
 | 24 | Oct&nbsp;22 | Wednesday | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [07: IBCM][87] (machine language) |  |
 | 25 | Oct&nbsp;24 | Friday | | [08: x86][88] (assembly language) |  |
 | 26 | Oct&nbsp;27 | Monday | | [08: x86][88] (assembly language) |  |
@@ -241,3 +241,5 @@ None yet!
 [1060609]: ../slides/06-hashes.html#/6/9
 [1060706]: ../slides/06-hashes.html#/7/6
 [1070302]: ../slides/07-ibcm.html#/3/2
+[1070303]: ../slides/07-ibcm.html#/3/3
+[1070415]: ../slides/07-ibcm.html#/4/15
