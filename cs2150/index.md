@@ -151,6 +151,8 @@ None yet!
 
 [61]: ../tutorials/01-intro-unix/index.md
 [62]: ../tutorials/02-gdb/index.md
+[63]: ../tutorials/03-04-more-unix/index.html
+[64]: ../tutorials/03-04-more-unix/index.html
 [65]: ../tutorials/05-make/index.md
 [69]: ../tutorials/09-c/index.md
 [70]: ../tutorials/10-objc/index.md

@@ -13,7 +13,7 @@ A [hash table](https://en.wikipedia.org/wiki/Hash_table) is a dictionary in whic
 
 ### Reading(s): ###
 
-1. Learn how to use C++ file streams to read from data files. See the [Input/output with files article](http://www.cplusplus.com/doc/tutorial/files/) on [cplusplus.com](http://www.cplusplus.com/).  You can also see the code in the provided [getWordInTable.cpp](code/getWordInTable.cpp.html) ([src](code/getWordInTable.cpp)) file which uses streams as well.
+1. Learn how to use C++ file streams to read from data files. See the [Input/output with files article](http://www.cplusplus.com/doc/tutorial/files/) on [cplusplus.com](http://www.cplusplus.com/).  You can also see the code in the provided [getWordInTable.cpp](code/getWordInTable.cpp.html) ([src](code/getWordInTable.cpp)) file which uses streams as well.  You may want to use the [good()](http://www.cplusplus.com/reference/fstream/ifstream/) method in the ifstream class -- you can put it in a `while` loop: `while (foo.good())`.
 
 Procedure
 ---------
