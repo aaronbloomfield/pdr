@@ -407,6 +407,15 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 	  </section>
 
 	  <section data-markdown><script type="text/template">
+## Hash function notes
+- They should always return an *unsigned* int
+  - Otherwise your program will be trying to find a negative array index
+- Integer overflow is fine, as long as it overflows *deterministically*
+  - Meaning the same way each time
+  - This will especially be true with the last of the string hash functions presented on the previous slide
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
 ## Collision Resolution
 - Collision: when two keys map to the same location in the hash table
 - Two primary ways to resolve collisions:
