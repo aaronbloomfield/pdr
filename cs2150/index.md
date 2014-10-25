@@ -80,7 +80,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 22 | Oct&nbsp;17 | Friday | | [07: IBCM][87] (machine language) | [06: Hashes][86], slides [6-8][1060608] to [7-6][1060706] (end); [07: IBCM][87], slides [0][87] to [3-2][1070302] ([recording][223]) |
 | 23 | Oct&nbsp;20 | Monday | | [07: IBCM][87] (machine language) | [07: IBCM][87], slides [3-3][1070303] to [4-15][1070415] ([recording][224]) |
 | 24 | Oct&nbsp;22 | Wednesday | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [07: IBCM][87] (machine language) | [07: IBCM][87], slides [5][10705] to [5-11][1070511] ([recording][225]) |
-| 25 | Oct&nbsp;24 | Friday | | [08: x86][88] (assembly language) |  |
+| 25 | Oct&nbsp;24 | Friday | | [08: x86][88] (assembly language) | [07: IBCM][87], slides [5-11][1070511] to [6-4][1070604] ([recording][226]); we aren't going over the remaining slides in lecture |
 | 26 | Oct&nbsp;27 | Monday | | [08: x86][88] (assembly language) |  |
 | 27 | Oct&nbsp;29 | Wednesday | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [08: x86][88] (assembly language) |  |
 | 28 | Oct&nbsp;31 | Friday | | [08: x86][88] (assembly language) |  |
@@ -229,6 +229,11 @@ None yet!
 [223]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/07-ibcm-1/07-ibcm-1.htm
 [224]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/07-ibcm-2/07-ibcm-2.htm
 [225]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/07-ibcm-3/07-ibcm-3.htm
+[226]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/07-ibcm-4/07-ibcm-4.htm
+[227]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/08-x86-1/08-x86-1.htm
+[228]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/08-x86-2/08-x86-2.htm
+[229]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/08-x86-3/08-x86-3.htm
+[230]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/08-x86-4/08-x86-4.htm
 
 [1050311]: ../slides/05-trees.html#/3/11
 [1050416]: ../slides/05-trees.html#/4/16
@@ -247,3 +252,4 @@ None yet!
 [1070415]: ../slides/07-ibcm.html#/4/15
 [10705]: ../slides/07-ibcm.html#/5
 [1070511]: ../slides/07-ibcm.html#/5/11
+[1070604]: ../slides/07-ibcm.html#/6/4
