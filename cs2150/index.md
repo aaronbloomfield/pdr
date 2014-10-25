@@ -65,24 +65,24 @@ The links in the right-most column link directly to the lecture recording on Col
 | 9 | Sep&nbsp;15 | Monday | | [02: Lists][82], [03: Numbers][83] | [02: Lists][82], slides 6-8 to 8-3 (end); [03: Numbers][83], slides 0 to 4-2 ([recording][209]) |
 | 10 | Sep&nbsp;17 | Wednesday | [Lab 3: Stacks][3] ([md][23]) / [Tutorial 3: More UNIX, part 1][63], sections 1-4 | [03: Numbers][83] | [03: Numbers][83], slides 4-3 to 7-6 ([recording][210]) |
 | 11 | Sep&nbsp;19 | Friday | | [03: Numbers][83] | [03: Numbers][83], slides 8 to 8-15 ([recording][211]) |
-| 12 | Sep&nbsp;22 | Monday | | [03: Numbers][83] | [03: Numbers][83], slides 8-15 to 8-32 ([recording][212]) |
-| 13 | Sep&nbsp;24 | Wednesday | [Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8 | [04: Arrays & big-Oh][84] |  |
-| 14 | Sep&nbsp;26 | Friday | | [04: Arrays & big-Oh][84] |  |
-|    | Sep&nbsp;28 | Sunday | Exam 1 review session | Exam 1 review session |  |
-| 15 | Sep&nbsp;29 | Monday | | [05: Trees][85] |  |
-| 16 | Oct&nbsp;1 | Wednesday | Exam 1 instead during Tuesday's lab | [05: Trees][85] |  |
-| 17 | Oct&nbsp;3 | Friday | | [05: Trees][85] |  |
-| 18 | Oct&nbsp;6 | Monday | | [05: Trees][85] |  |
-| 19 | Oct&nbsp;8 | Wednesday | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [06: Hashes][86] |  |
-| 20 | Oct&nbsp;10 | Friday | | [06: Hashes][86] |  |
-|    | Oct&nbsp;13 | Monday | | no class (reading day) |  |
-| 21 | Oct&nbsp;15 | Wednesday | no labs (reading day) | [06: Hashes][86] |  |
-| 22 | Oct&nbsp;17 | Friday | | [07: IBCM][87] (machine language) |  |
-| 23 | Oct&nbsp;20 | Monday | | [07: IBCM][87] (machine language) |  |
-| 24 | Oct&nbsp;22 | Wednesday | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (first half of [here][46], through 'exit status') | [07: IBCM][87] (machine language) |  |
-| 25 | Oct&nbsp;24 | Friday | | [08: x86][88] (assembly language) |  |
+| 12 | Sep&nbsp;22 | Monday | | [03: Numbers][83] | [03: Numbers][83], slides 8-15 to 8-32 (end) ([recording][212]) |
+| 13 | Sep&nbsp;24 | Wednesday | [Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8 | [04: Arrays & big-Oh][84] | [04: Arrays & big-Oh][84], slides 0 to 4-5 ([recording][213]) |
+| 14 | Sep&nbsp;26 | Friday | | [04: Arrays & big-Oh][84] | [04: Arrays & big-Oh][84], slides 4-5 to 4-19 ([recording][214]) |
+|    | Sep&nbsp;28 | Sunday | Exam 1 review session | Exam 1 review session | ([recording][215]) |
+| 15 | Sep&nbsp;29 | Monday | | [05: Trees][85] | [04: Arrays & big-Oh][84], slides 4-20 to 5-7 (end); [05: Trees][85], slides [0][85] to [3-11][1050311] ([recording][216]) |
+| 16 | Oct&nbsp;1 | Wednesday | Exam 1 instead during Tuesday's lab | [05: Trees][85] | [05: Trees][85], slides [3-11][1050311] to [4-17][1050417] ([recording][217]) |
+| 17 | Oct&nbsp;3 | Friday | | [05: Trees][85] | [05: Trees][85], slides [4-16][1050416] to [6-17][1050617] ([recording][218]) |
+| 18 | Oct&nbsp;6 | Monday | | [05: Trees][85] | [05: Trees][85], slides [6-17][1050617] to [7-9][1050709] ([recording][219]) |
+| 19 | Oct&nbsp;8 | Wednesday | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [06: Hashes][86] | [05: Trees][85], slides [7-3][1050703] to [9-9][1050909] (end) ([recording][220]) |
+| 20 | Oct&nbsp;10 | Friday | | [06: Hashes][86] | [06: Hashes][86], slides [0][86] to [4-13][1060413] ([recording][221]) |
+|    | Oct&nbsp;13 | Monday | | no class (reading day) | |
+| 21 | Oct&nbsp;15 | Wednesday | no labs (reading day) | [06: Hashes][86] | [06: Hashes][86], slides [5][10605] to [6-9][1060609] ([recording][222]) |
+| 22 | Oct&nbsp;17 | Friday | | [07: IBCM][87] (machine language) | [06: Hashes][86], slides [6-8][1060608] to [7-6][1060706] (end); [07: IBCM][87], slides [0][87] to [3-2][1070302] ([recording][223]) |
+| 23 | Oct&nbsp;20 | Monday | | [07: IBCM][87] (machine language) | [07: IBCM][87], slides [3-3][1070303] to [4-15][1070415] ([recording][224]) |
+| 24 | Oct&nbsp;22 | Wednesday | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [07: IBCM][87] (machine language) | [07: IBCM][87], slides [5][10705] to [5-11][1070511] ([recording][225]) |
+| 25 | Oct&nbsp;24 | Friday | | [08: x86][88] (assembly language) | [07: IBCM][87], slides [5-11][1070511] to [6-4][1070604] ([recording][226]); we aren't going over the remaining slides in lecture |
 | 26 | Oct&nbsp;27 | Monday | | [08: x86][88] (assembly language) |  |
-| 27 | Oct&nbsp;29 | Wednesday | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47]) | [08: x86][88] (assembly language) |  |
+| 27 | Oct&nbsp;29 | Wednesday | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [08: x86][88] (assembly language) |  |
 | 28 | Oct&nbsp;31 | Friday | | [08: x86][88] (assembly language) |  |
 |    | Nov&nbsp;2 | Sunday | Exam 2 review session | Exam 2 review session |  |
 | 29 | Nov&nbsp;3 | Monday | | [08: x86][88] (assembly language) |  |
@@ -136,6 +136,7 @@ None yet!
 [31]: ../labs/lab11/index.md
 [32]: ../labs/lab12/index.md
 
+[40]: ../tutorials/index.html
 [41]: ../tutorials/01-intro-unix/index.html
 [42]: ../tutorials/02-gdb/index.html
 [43]: ../tutorials/03-04-more-unix/index.html
@@ -150,6 +151,8 @@ None yet!
 
 [61]: ../tutorials/01-intro-unix/index.md
 [62]: ../tutorials/02-gdb/index.md
+[63]: ../tutorials/03-04-more-unix/index.html
+[64]: ../tutorials/03-04-more-unix/index.html
 [65]: ../tutorials/05-make/index.md
 [69]: ../tutorials/09-c/index.md
 [70]: ../tutorials/10-objc/index.md
@@ -213,3 +216,40 @@ None yet!
 [210]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/03-numbers-2/03-numbers-2.htm
 [211]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/03-numbers-3/03-numbers-3.htm
 [212]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/03-numbers-4/03-numbers-4.htm
+[213]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/04-arrays-bigoh-1/04-arrays-bigoh-1.htm
+[214]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/04-arrays-bigoh-2/04-arrays-bigoh-2.htm
+[215]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/exam1-review/exam1-review.htm
+[216]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/05-trees-1/05-trees-1.htm
+[217]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/05-trees-2/05-trees-2.htm
+[218]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/05-trees-3/05-trees-3.htm
+[219]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/05-trees-4/05-trees-4.htm
+[220]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/05-trees-5/05-trees-5.htm
+[221]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/06-hashes-1/06-hashes-1.htm
+[222]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/06-hashes-2/06-hashes-2.htm
+[223]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/07-ibcm-1/07-ibcm-1.htm
+[224]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/07-ibcm-2/07-ibcm-2.htm
+[225]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/07-ibcm-3/07-ibcm-3.htm
+[226]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/07-ibcm-4/07-ibcm-4.htm
+[227]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/08-x86-1/08-x86-1.htm
+[228]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/08-x86-2/08-x86-2.htm
+[229]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/08-x86-3/08-x86-3.htm
+[230]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/08-x86-4/08-x86-4.htm
+
+[1050311]: ../slides/05-trees.html#/3/11
+[1050416]: ../slides/05-trees.html#/4/16
+[1050417]: ../slides/05-trees.html#/4/17
+[1050617]: ../slides/05-trees.html#/6/17
+[1050703]: ../slides/05-trees.html#/7/3
+[1050709]: ../slides/05-trees.html#/7/9
+[1050909]: ../slides/05-trees.html#/9/9
+[1060413]: ../slides/06-hashes.html#/4/13
+[10605]: ../slides/06-hashes.html#/5
+[1060608]: ../slides/06-hashes.html#/6/8
+[1060609]: ../slides/06-hashes.html#/6/9
+[1060706]: ../slides/06-hashes.html#/7/6
+[1070302]: ../slides/07-ibcm.html#/3/2
+[1070303]: ../slides/07-ibcm.html#/3/3
+[1070415]: ../slides/07-ibcm.html#/4/15
+[10705]: ../slides/07-ibcm.html#/5
+[1070511]: ../slides/07-ibcm.html#/5/11
+[1070604]: ../slides/07-ibcm.html#/6/4

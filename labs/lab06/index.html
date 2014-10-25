@@ -17,7 +17,7 @@
 <p>A <a href="https://en.wikipedia.org/wiki/Hash_table">hash table</a> is a dictionary in which keys are mapped to array positions by a <em>hash function</em>. Having more than one key map to the same position is called a <em>collision</em>. There are many ways to resolve collisions, but they may be divided into two primary strategies: separate chaining and open addressing.</p>
 <h3 id="readings">Reading(s):</h3>
 <ol style="list-style-type: decimal">
-<li>Learn how to use C++ file streams to read from data files. See the <a href="http://www.cplusplus.com/doc/tutorial/files/">Input/output with files article</a> on <a href="http://www.cplusplus.com/">cplusplus.com</a>. You can also see the code in the provided <a href="code/getWordInTable.cpp.html">getWordInTable.cpp</a> (<a href="code/getWordInTable.cpp">src</a>) file which uses streams as well.</li>
+<li>Learn how to use C++ file streams to read from data files. See the <a href="http://www.cplusplus.com/doc/tutorial/files/">Input/output with files article</a> on <a href="http://www.cplusplus.com/">cplusplus.com</a>. You can also see the code in the provided <a href="code/getWordInTable.cpp.html">getWordInTable.cpp</a> (<a href="code/getWordInTable.cpp">src</a>) file which uses streams as well. You may want to use the <a href="http://www.cplusplus.com/reference/fstream/ifstream/">good()</a> method in the ifstream class -- you can put it in a <code>while</code> loop: <code>while (foo.good())</code>.</li>
 </ol>
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
@@ -44,7 +44,7 @@
 <li>Read through the in-lab section below. Make sure you understand what the new clang++ flag (-O2) does, and how to handle input and output.</li>
 <li>Verify with the TA the correct placement of the timer calls.</li>
 <li>Verify that your program gets the correct solution for the 250x250 grid using words.txt as the dictionary, and the 300x300 grid using words2.txt as the dictionary. The output files for these runs are in the <a href="data/">labs/lab06/data/ directory</a>.</li>
-<li>Read the shell script tutorial for this lab, which is the first 6 sections (through and including 'exit status') of the <a href="http://en.wikibooks.org/wiki/Bash_Shell_Scripting">Wikibooks article on Bash Shell Scripting</a></li>
+<li>Read the shell script tutorial for this lab, which part of the <a href="http://en.wikibooks.org/wiki/Bash_Shell_Scripting">Wikibooks article on Bash Shell Scripting</a>; the specific sections are mentioned on the <a href="../../tutorials/index.html">tutorials page</a> (<a href="../../tutorials/index.md">md</a>)</li>
 <li>Write the shell script described in the post-lab section (averagetime.sh).</li>
 <li>Your shell script <em>must</em> call a.out! Otherwise it will not work, and will receive points off.</li>
 <li>Create inlab6.pdf (see the in-lab section for formatting details), containing the complexity evaluation and the results of your program executions. See the in-lab section for details about what to include therein.</li>

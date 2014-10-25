@@ -14,7 +14,8 @@ The tutorials for this course are listed below.
 - [Tutorial 4: More Unix, part 2](03-04-more-unix/index.html), which is sections 5-8; this tutorial is originally from [here](http://www.ee.surrey.ac.uk/Teaching/Unix/)
 - [Tutorial 5: make](05-make/index.html), and the necessary [pizza.zip](05-make/pizza.zip)
 - Tutorial 6: Shell scripting, part 1
-    - This is the first 6 sections (through and including 'exit status') of the [Wikibooks article on Bash Shell Scripting](http://en.wikibooks.org/wiki/Bash_Shell_Scripting)
+    - This part of the [Wikibooks article on Bash Shell Scripting](http://en.wikibooks.org/wiki/Bash_Shell_Scripting)
+    - In particular, it is [section 1 (introduction)](http://en.wikibooks.org/w/index.php?title=Bash_Shell_Scripting#Introduction) through [section 4 (variables)](http://en.wikibooks.org/w/index.php?title=Bash_Shell_Scripting#Variables), as well as [section 12 (shell arithmetic)](http://en.wikibooks.org/w/index.php?title=Bash_Shell_Scripting#Shell_arithmetic) and [section 14 (input/output)](http://en.wikibooks.org/w/index.php?title=Bash_Shell_Scripting#Input.2FOutput)
 - Tutorial 7: Shell scripting, part 2
     - This is the remainder of the [Wikibooks article on Bash Shell Scripting](http://en.wikibooks.org/wiki/Bash_Shell_Scripting)
 - Tutorial 8: nasm

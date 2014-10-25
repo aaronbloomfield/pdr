@@ -13,7 +13,7 @@ A [hash table](https://en.wikipedia.org/wiki/Hash_table) is a dictionary in whic
 
 ### Reading(s): ###
 
-1. Learn how to use C++ file streams to read from data files. See the [Input/output with files article](http://www.cplusplus.com/doc/tutorial/files/) on [cplusplus.com](http://www.cplusplus.com/).  You can also see the code in the provided [getWordInTable.cpp](code/getWordInTable.cpp.html) ([src](code/getWordInTable.cpp)) file which uses streams as well.
+1. Learn how to use C++ file streams to read from data files. See the [Input/output with files article](http://www.cplusplus.com/doc/tutorial/files/) on [cplusplus.com](http://www.cplusplus.com/).  You can also see the code in the provided [getWordInTable.cpp](code/getWordInTable.cpp.html) ([src](code/getWordInTable.cpp)) file which uses streams as well.  You may want to use the [good()](http://www.cplusplus.com/reference/fstream/ifstream/) method in the ifstream class -- you can put it in a `while` loop: `while (foo.good())`.
 
 Procedure
 ---------
@@ -40,7 +40,7 @@ Procedure
 1. Read through the in-lab section below.  Make sure you understand what the new clang++ flag (-O2) does, and how to handle input and output.
 2. Verify with the TA the correct placement of the timer calls.
 3. Verify that your program gets the correct solution for the 250x250 grid using words.txt as the dictionary, and the 300x300 grid using words2.txt as the dictionary.  The output files for these runs are in the [labs/lab06/data/ directory](data/).
-4. Read the shell script tutorial for this lab, which is the first 6 sections (through and including 'exit status') of the [Wikibooks article on Bash Shell Scripting](http://en.wikibooks.org/wiki/Bash_Shell_Scripting)
+4. Read the shell script tutorial for this lab, which part of the [Wikibooks article on Bash Shell Scripting](http://en.wikibooks.org/wiki/Bash_Shell_Scripting); the specific sections are mentioned on the [tutorials page](../../tutorials/index.html) ([md](../../tutorials/index.md))
 5. Write the shell script described in the post-lab section (averagetime.sh).
 6. Your shell script *must* call a.out!  Otherwise it will not work, and will receive points off.
 7. Create inlab6.pdf (see the in-lab section for formatting details), containing the complexity evaluation and the results of your program executions.  See the in-lab section for details about what to include therein.
