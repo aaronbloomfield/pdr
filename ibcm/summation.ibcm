@@ -1,29 +1,29 @@
-C00A 000 		jmp 	start 	skip around the variables
-0000 001 	 i 	dw 	0 	int i
-0000 002 	 s 	dw 	0 	int s
-0000 003 	 N 	dw 	0 	int N
-0001 004 	 one 	dw 	1
-0000 005 	 zero 	dw 	0
-0000 006 				leave space for changes
+C00A 000	jmp 	start 	skip around the variables
+0000 001 i 	dw 	0 	int i
+0000 002 s 	dw 	0 	int s
+0000 003 N 	dw 	0 	int N
+0001 004 one 	dw 	1
+0000 005 zero 	dw 	0
+0000 006			leave space for changes
 0000 007
 0000 008
 0000 009
-1000 00A 	 start 	readH 		read N
-4003 00B 		store	N
-3004 00C 		load 	one 	i = 1
-4001 00D 		store 	i
-3005 00E 		load 	zero 	s = 0
-4002 00F 		store 	s
-3003 010 	 loop 	load 	N 	if (i > N) goto xit
-6001 011 		sub 	i
-E01A 012 		jmpl 	xit
-3002 013 		load 	s 	s += i
-5001 014 		add 	i
-4002 015 		store 	s
-3001 016 		load 	i 	i += 1
-5004 017 		add 	one
-4001 018 		store 	i
-C010 019 		jmp 	loop 	goto loop
-3002 01A 	 xit 	load 	s 	print s
-1800 01B 		printH
-0000 01C 		halt 		halt
+1000 00A start 	readH 		read N
+4003 00B 	store	N
+3004 00C 	load 	one 	i = 1
+4001 00D 	store 	i
+3005 00E 	load 	zero 	s = 0
+4002 00F 	store 	s
+3003 010  loop 	load 	N 	if (i > N) goto xit
+6001 011 	sub 	i
+E01A 012 	jmpl 	xit
+3002 013 	load 	s 	s += i
+5001 014 	add 	i
+4002 015 	store 	s
+3001 016 	load 	i 	i += 1
+5004 017 	add 	one
+4001 018 	store 	i
+C010 019 	jmp 	loop 	goto loop
+3002 01A  xit 	load 	s 	print s
+1800 01B 	printH
+0000 01C 	halt 		halt
