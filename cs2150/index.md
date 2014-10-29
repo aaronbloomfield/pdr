@@ -81,26 +81,27 @@ The links in the right-most column link directly to the lecture recording on Col
 | 23 | Oct&nbsp;20 | Monday | | [07: IBCM][87] (machine language) | [07: IBCM][87], slides [3-3][1070303] to [4-15][1070415] ([recording][224]) |
 | 24 | Oct&nbsp;22 | Wednesday | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [07: IBCM][87] (machine language) | [07: IBCM][87], slides [5][10705] to [5-11][1070511] ([recording][225]) |
 | 25 | Oct&nbsp;24 | Friday | | [08: x86][88] (assembly language) | [07: IBCM][87], slides [5-11][1070511] to [6-4][1070604] ([recording][226]); we aren't going over the remaining slides in lecture |
-| 26 | Oct&nbsp;27 | Monday | | [08: x86][88] (assembly language) |  |
+| 26 | Oct&nbsp;27 | Monday | | [08: x86][88] (assembly language) | [08: x86][88], slides [0][88] to [4-10][1080410] ([recording][227]) |
 | 27 | Oct&nbsp;29 | Wednesday | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [08: x86][88] (assembly language) |  |
 | 28 | Oct&nbsp;31 | Friday | | [08: x86][88] (assembly language) |  |
-|    | Nov&nbsp;2 | Sunday | Exam 2 review session | Exam 2 review session |  |
 | 29 | Nov&nbsp;3 | Monday | | [08: x86][88] (assembly language) |  |
 | 30 | Nov&nbsp;5 | Wednesday | [Lab 8: x86, part 1][8] ([md][28]) / [Tutorial 8: nasm][48], but you can skip some parts; see [here][100]) ([md][101]) for details | [08: x86][88], [09: Advanced C++][89] |  |
 | 31 | Nov&nbsp;7 | Friday | | [09: Advanced C++][89] |  |
+|    | Nov&nbsp;9 | Sunday | Exam 2 review session | Exam 2 review session |  |
 | 32 | Nov&nbsp;10 | Monday | | [10: Heaps and Huffman coding][90]|  |
-| 33 | Nov&nbsp;12 | Wednesday | [Lab 9: x86, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [10: Heaps and Huffman coding][90] |  |
+| 33 | Nov&nbsp;12 | Wednesday | Exam 2 instead during Tuesday's lab | [10: Heaps and Huffman coding][90] |  |
 | 34 | Nov&nbsp;14 | Friday | | [10: Heaps and Huffman coding][90] |  |
 | 35 | Nov&nbsp;17 | Monday | | [10: Heaps and Huffman coding][90] |  |
-| 36 | Nov&nbsp;19 | Wednesday | [Lab 10: Huffman coding][10] ([md][30]) / [Tutorial 10: Objective C][50] ([md][70]) | [11: Graphs][91] |  |
+| 36 | Nov&nbsp;19 | Wednesday | [Lab 9: x86, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [11: Graphs][91] |  |
 | 37 | Nov&nbsp;21 | Friday | | [11: Graphs][91] |  |
 | 38 | Nov&nbsp;24 | Monday | | [11: Graphs][91] |  |
-|    | Nov&nbsp;26 | Wednesday | | no class (Thanksgiving) |  |
+|    | Nov&nbsp;26 | Wednesday | [Lab 10: Huffman coding][10] ([md][30]) / [Tutorial 10: Objective C][50] ([md][70]) | no class (Thanksgiving) |  |
 |    | Nov&nbsp;28 | Friday | | no class (Thanksgiving) |  |
 | 39 | Dec&nbsp;1 | Monday | [Lab 11: Graphs][11] ([md][31]) / [Tutorial 11: doxygen][51] ([md][71]) | [11: Graphs][91] |  |
 | 40 | Dec&nbsp;3 | Wednesday | | [12: Memory][92] |  |
 | 41 | Dec&nbsp;5 | Friday |  | [12: Memory][92], [Course conclusion][93] |  |
-|    | ??? | ??? | Final exam review session | Final exam review session |  |
+|    | Dec&nbsp;10 | Wednesday | Final exam review session | Final exam review session |  |
+|    | Dec&nbsp;12 | Friday | Final exam from 9:00-noon in Gilmer 130 | Final exam from 9:00-noon in Gilmer 130 | |
 
 ------------------------------------------------------------
 
@@ -253,3 +254,4 @@ None yet!
 [10705]: ../slides/07-ibcm.html#/5
 [1070511]: ../slides/07-ibcm.html#/5/11
 [1070604]: ../slides/07-ibcm.html#/6/4
+[1080410]: ../slides/08-x86.html#/4/10
