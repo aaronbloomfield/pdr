@@ -84,7 +84,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 26 | Oct&nbsp;27 | Monday | | [08: x86][88] (assembly language) | [08: x86][88], slides [0][88] to [4-10][1080410] ([recording][227]) |
 | 27 | Oct&nbsp;29 | Wednesday | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [08: x86][88] (assembly language) | [08: x86][88], slides [5][10805] to [6-8][1080608] ([recording][228]) |
 | 28 | Oct&nbsp;31 | Friday | | [08: x86][88] (assembly language) | [08: x86][88], slides [6-7][1080607] to [8-4][1080804] ([recording][229]) |
-| 29 | Nov&nbsp;3 | Monday | | [08: x86][88] (assembly language) |  |
+| 29 | Nov&nbsp;3 | Monday | | [08: x86][88] (assembly language) | [08: x86][88], slides [8-4][1080804] to [9-14][1080914] ([recording][230]) |
 | 30 | Nov&nbsp;5 | Wednesday | [Lab 8: x86, part 1][8] ([md][28]) / [Tutorial 8: nasm][48], but you can skip some parts; see [here][100]) ([md][101]) for details | [08: x86][88], [09: Advanced C++][89] |  |
 | 31 | Nov&nbsp;7 | Friday | | [09: Advanced C++][89] |  |
 |    | Nov&nbsp;9 | Sunday | Exam 2 review session | Exam 2 review session |  |
@@ -259,3 +259,4 @@ None yet!
 [1080607]: ../slides/08-x86.html#/6/7
 [1080608]: ../slides/08-x86.html#/6/8
 [1080804]: ../slides/08-x86.html#/8/4
+[1080914]: ../slides/08-x86.html#/9/14
