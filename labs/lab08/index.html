@@ -17,7 +17,7 @@
 <p>The Intel x86 assembly language is currently one of the most popular assembly languages and runs on many architectures from the x86 line through the Pentium 4. It is a <a href="http://en.wikipedia.org/wiki/Complex_instruction_set_computing">CISC</a> instruction set that has been extended multiple times (e.g. <a href="http://en.wikipedia.org/wiki/MMX_%28instruction_set%29">MMX</a>) into a larger instruction set.</p>
 <h3 id="readings">Reading(s)</h3>
 <ol style="list-style-type: decimal">
-<li>Read the <a href="../../slides/09-x86.html">slides on x86</a></li>
+<li>Read the <a href="../../slides/08-x86.html">slides on x86</a></li>
 <li>The two book chapters on x86: <a href="../../book/x86-asm-chapter.pdf">x86 Assembly</a> and <a href="../../book/x86-ccc-chapter.pdf">The x86 C Calling Convention</a>.</li>
 </ol>
 <h2 id="procedure">Procedure</h2>
@@ -168,7 +168,7 @@
 <p>In the report, you should explain all the items in <em>one</em> of the categories below (either objects or parameter passing). For the post-lab, you will need to have all items from both categories explained. We are looking for significant evidence that you were able to complete some work during the in-lab, and thus are not setting page length requirements.</p>
 <p>Recall that using the <code>-S</code> flag with clang++ will generate the assembly code. You will also want to use the '-mllvm --x86-asm-syntax=intel` flags.</p>
 <h3 id="clang-and-the-calling-convention">clang++ and the Calling Convention</h3>
-<p>As discussed in class (specifically, <a href="../../slides/09-x86.html#clangconventionbreak">here</a>), clang will often optimize away many parts of the calling convention, and has even been known to pass parameters in registers. So if you see code that is unexpected, trace it by hand to determine what is really happening. Likely, it is an optimization of the calling convention. To avoid this in the in-lab, use g++ rather than clang++ to compile. The correct g++ flags are <code>-S -m32 -masm=intel</code>.</p>
+<p>As discussed in class (specifically, <a href="../../slides/08-x86.html#clangconventionbreak">here</a>), clang will often optimize away many parts of the calling convention, and has even been known to pass parameters in registers. So if you see code that is unexpected, trace it by hand to determine what is really happening. Likely, it is an optimization of the calling convention. To avoid this in the in-lab, use g++ rather than clang++ to compile. The correct g++ flags are <code>-S -m32 -masm=intel</code>.</p>
 <h3 id="in-lab-8-topics-you-must-do-all-of-these-for-the-post-lab-but-only-one-of-these-for-the-in-lab">In-lab 8 topics: you must do ALL of these for the post-lab, but only ONE of these for the in-lab</h3>
 <p>The questions posed below are example questions to answer. Some of them may overlap. Others may not be necessary. And there may be questions not listed that are worth answering. The purpose of posing those questions is to help you think about what topics and ideas you should address in your response - it's not meant to be a rigid structure that you absolutely must follow. We are going to look at whether you have addressed the general idea of each of the list topics.</p>
 <h3 id="parameter-passing">Parameter passing</h3>

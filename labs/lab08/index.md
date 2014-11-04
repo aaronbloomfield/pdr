@@ -13,7 +13,7 @@ The Intel x86 assembly language is currently one of the most popular assembly la
 
 ### Reading(s) ###
 
-1. Read the [slides on x86](../../slides/09-x86.html)
+1. Read the [slides on x86](../../slides/08-x86.html)
 2. The two book chapters on x86: [x86 Assembly](../../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../../book/x86-ccc-chapter.pdf).
 
 Procedure
@@ -200,7 +200,7 @@ Recall that using the `-S` flag with clang++ will generate the assembly code.  Y
 
 ### clang++ and the Calling Convention ###
 
-As discussed in class (specifically, [here](../../slides/09-x86.html#clangconventionbreak)), clang will often optimize away many parts of the calling convention, and has even been known to pass parameters in registers.  So if you see code that is unexpected, trace it by hand to determine what is really happening.  Likely, it is an optimization of the calling convention. To avoid this in the in-lab, use g++ rather than clang++ to compile. The correct g++ flags are `-S -m32 -masm=intel`.
+As discussed in class (specifically, [here](../../slides/08-x86.html#clangconventionbreak)), clang will often optimize away many parts of the calling convention, and has even been known to pass parameters in registers.  So if you see code that is unexpected, trace it by hand to determine what is really happening.  Likely, it is an optimization of the calling convention. To avoid this in the in-lab, use g++ rather than clang++ to compile. The correct g++ flags are `-S -m32 -masm=intel`.
 
 ### In-lab 8 topics: you must do ALL of these for the post-lab, but only ONE of these for the in-lab ###
 
