@@ -87,8 +87,8 @@ The links in the right-most column link directly to the lecture recording on Col
 | 29 | Nov&nbsp;3 | Monday | | [08: x86][88] (assembly language) | [08: x86][88], slides [8-4][1080804] to [9-14][1080914] ([recording][230]) |
 | 30 | Nov&nbsp;5 | Wednesday | [Lab 8: x86, part 1][8] ([md][28]) / [Tutorial 8: nasm][48], but you can skip some parts; see [here][100]) ([md][101]) for details | [08: x86][88], [09: Advanced C++][89] | [08: x86][88], slides [9-15][1080915] to [9-32][1080932] (end); [09: Advanced C++][89], slides [0][89] to [3-8][1090308] ([recording][231]) |
 | 31 | Nov&nbsp;7 | Friday | | [09: Advanced C++][89] | [09: Advanced C++][89], slides [3-8][1090308] to [5-18][1090518] ([recording][232]) |
-|    | Nov&nbsp;9 | Sunday | Exam 2 review session | Exam 2 review session |  |
-| 32 | Nov&nbsp;10 | Monday | | [10: Heaps and Huffman coding][90]|  |
+|    | Nov&nbsp;9 | Sunday | Exam 2 review session | Exam 2 review session | ([recording][233]) |
+| 32 | Nov&nbsp;10 | Monday | | [10: Heaps and Huffman coding][90]| [09: Advanced C++][89], slides [5-18][1090518] to [7-8][1090708] ([recording][234]) |
 | 33 | Nov&nbsp;12 | Wednesday | Exam 2 instead during Tuesday's lab | [10: Heaps and Huffman coding][90] |  |
 | 34 | Nov&nbsp;14 | Friday | | [10: Heaps and Huffman coding][90] |  |
 | 35 | Nov&nbsp;17 | Monday | | [10: Heaps and Huffman coding][90] |  |
@@ -237,6 +237,8 @@ None yet!
 [230]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/08-x86-4/08-x86-4.htm
 [231]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/09-advanced-cpp-1/09-advanced-cpp-1.htm
 [232]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/09-advanced-cpp-2/09-advanced-cpp-2.htm
+[233]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/exam2-review/exam2-review.htm
+[234]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/09-advanced-cpp-3/09-advanced-cpp-3.htm
 
 [1050311]: ../slides/05-trees.html#/3/11
 [1050416]: ../slides/05-trees.html#/4/16
@@ -266,3 +268,4 @@ None yet!
 [1080932]: ../slides/08-x86.html#/9/32
 [1090308]: ../slides/09-advanced-cpp.html#/3/8
 [1090518]: ../slides/09-advanced-cpp.html#/5/18
+[1090708]: ../slides/09-advanced-cpp.html#/7/8
