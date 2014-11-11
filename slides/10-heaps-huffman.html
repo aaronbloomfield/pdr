@@ -244,7 +244,7 @@ See [here](http://people.ksp.sk/~kuko/bak/index.html) for a good heap animation 
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Heap – Insert(val)
+## Heap: Insert(val)
 Basic Idea: 
 
 1. Put val at "next" leaf position
@@ -297,7 +297,7 @@ void binary_heap::percolateUp(int hole) {
 	  </section>
 
 	  <section data-markdown><script type="text/template">
-## Heap – DeleteMin
+## Heap: DeleteMin
 Basic Idea: 
 
 1. Remove root (that is always the min!)
@@ -388,7 +388,7 @@ void binary_heap::percolateDown(int hole) {
   1. `decreaseKey(processID, -infinity)`
   2. `deleteMin()`  
 &nbsp;  
-- Worst case running time for all of these: &Theta;(*n*), because of the find() required; without the find(), it’s &Theta;(log *n*)
+- Worst case running time for all of these: &Theta;(*n*), because of the find() required; without the find(), it's &Theta;(log *n*)
 - What about FindMax?
 - ExpandHeap: when heap fills, copy into new space.
 	  </script></section>
@@ -448,8 +448,8 @@ void binary_heap::percolateDown(int hole) {
 ## Data Compression
 ![compression diagram](images/10-heaps-huffman/compression-diagram.svg)
 
-- Lossless compression: X = X’
-- Lossy compression: X != X’
+- Lossless compression: X = X'
+- Lossy compression: X != X'
   - Information is lost (irreversible)
 - Compression ratio: |X|/|Y|
   - Where |X| is the number of bits (i.e., file size) of X
@@ -480,7 +480,11 @@ void binary_heap::percolateDown(int hole) {
 <li style="text-align:left" class="fragment" data-fragment-index="4">Quality = 10; image size: 4,787 (6%)</li>
 <li style="text-align:left" class="fragment" data-fragment-index="5">Quality = 1; image size: 1,523 (2%)</li>
 </ul>
-</td><td style="width:30%"><a href="http://en.wikipedia.org/wiki/Jpg#Sample_photographs"><img class="fragment" data-fragment-index="2" alt="jpeg @ 100%" src="images/10-heaps-huffman/jpeg-100.jpg"></a> <a href="http://en.wikipedia.org/wiki/Jpg#Sample_photographs"><img class="fragment" data-fragment-index="3" alt="jpeg @ 50%" src="images/10-heaps-huffman/jpeg-050.jpg"></a></td><td><a href="http://en.wikipedia.org/wiki/Jpg#Sample_photographs"><img class="fragment" data-fragment-index="4" alt="jpeg @ 10%" src="images/10-heaps-huffman/jpeg-010.jpg"></a> <a href="http://en.wikipedia.org/wiki/Jpg#Sample_photographs"><img class="fragment" data-fragment-index="5" alt="jpeg @ 1%" src="images/10-heaps-huffman/jpeg-001.jpg"></a></td></tr>
+</td>
+<td style="width:30%"><a href="http://en.wikipedia.org/wiki/Jpg#Sample_photographs"><img class="fragment" data-fragment-index="2" alt="jpeg @ 100%" src="images/10-heaps-huffman/jpeg-100.jpg"></a> 
+<a href="http://en.wikipedia.org/wiki/Jpg#Sample_photographs"><img class="fragment" data-fragment-index="3" alt="jpeg @ 50%" src="images/10-heaps-huffman/jpeg-050.jpg"></a></td>
+<td><a href="http://en.wikipedia.org/wiki/Jpg#Sample_photographs"><img class="fragment" data-fragment-index="4" alt="jpeg @ 10%" src="images/10-heaps-huffman/jpeg-010.jpg"></a> 
+<a href="http://en.wikipedia.org/wiki/Jpg#Sample_photographs"><img class="fragment" data-fragment-index="5" alt="jpeg @ 1%" src="images/10-heaps-huffman/jpeg-001.jpg"></a></td></tr>
 
 </table>
 	  </section>
@@ -517,7 +521,7 @@ void binary_heap::percolateDown(int hole) {
 <table>
 <tr style="background-color: transparent"><td style="width:60%">
 <ul><li>Uses <i>frequencies</i> of symbols in a string to build a <i>prefix code</i></li>
-<li>The more frequent a character is, the fewer bits we’ll use to represent it</li>
+<li>The more frequent a character is, the fewer bits we'll use to represent it</li>
 <li>Prefix code: no code in our encoding is a prefix of another code</li>
 </ul></td><td class="top">
 <table>
@@ -786,7 +790,7 @@ Total is 94 bits
 	  <section data-markdown><script type="text/template">
 ## Compression step 3
 - Write the prefix codes to a file
-  - We’ll use regular ASCII characters
+  - We'll use regular ASCII characters
   - Does this actually do any compression, then?
 
 ```

@@ -151,7 +151,7 @@ c	DD	 	3000
 d	DQ	 	-800
 x	DD	 	1, 2, 3
 y	TIMES 8 DB	0
-str	DB	 	`hello’, 0
+str	DB	 	'hello', 0
 z	TIMES 50 DD	?</code></pre>
 </td></tr></table>
 	  </section>
@@ -1208,12 +1208,12 @@ absolute_value:
 ## Assembly differences
 - There are a lot of differences between the assembly we've seen and what `g++ -S` produces
   - `movl`, `pushl`, `compl`, `negl`, `popl`
-    - the 'l' part means 'long' (i.e. 32 bits, so the assembler doesn’t have to assume)
+    - the 'l' part means 'long' (i.e. 32 bits, so the assembler doesn't have to assume)
   - `jns` means jump if not signed (i.e. if positive)
   - `$0` is the constant 0
   - Register names begin with a percent sign
   - `8(%ebp)` is [ebp+8]
-    – i.e. where the parameters are
+    - i.e. where the parameters are
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
