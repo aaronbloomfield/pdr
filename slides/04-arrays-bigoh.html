@@ -348,7 +348,7 @@ int main (int argc, char* argv[]) {
 
 	  <section>
 <h2>Big-Oh Examples</h2>
-<p><i>f</i>(<i>n</i>) &isin; O(<i>g</i>(<i>n</i>) means that there are positive constants <i>c</i> and <i>n</i><sub>0</sub> such that <i>f</i>(<i>n</i>) &le; <i>c</i>*<i>g</i>(<i>n</i>) for all values <i>n</i> &ge; <i>n</i><sub>0</sub></p>
+<p><i>f</i>(<i>n</i>) &isin; O(<i>g</i>(<i>n</i>)) means that there are positive constants <i>c</i> and <i>n</i><sub>0</sub> such that <i>f</i>(<i>n</i>) &le; <i>c</i>*<i>g</i>(<i>n</i>) for all values <i>n</i> &ge; <i>n</i><sub>0</sub></p>
 &nbsp;
 <ul>
 <li>Is <i>n</i> &isin; O(<i>n</i><sup>2</sup>)?
@@ -356,7 +356,7 @@ int main (int argc, char* argv[]) {
 <li>Is 10<i>n</i> &isin; O(<i>n</i>)?
   <ul><li class="fragment">Yes, <i>c</i> = 11, <i>n</i><sub>0</sub> = 2 works fine</li></ul></li>
 <li>Is <i>n</i><sup>2</sup> &isin; O(<i>n</i>)?
-  <ul><li class="fragment">No; no matter what values for <i>c</i> and <i>n</i><sub>0</sub> we pick, <i>c</i>*<i>n</i><sup>2</sup> &gt; <i>n</i> for big enough <i>n</i></li></ul></li>
+  <ul><li class="fragment">No; no matter what values for <i>c</i> and <i>n</i><sub>0</sub> we pick, <i>n</i><sup>2</sup> &gt; <i>c</i>*<i>n</i> for big enough <i>n</i></li></ul></li>
 </ul>
 <script type="text/javascript">insertCanvas();</script>
 	  </section>
