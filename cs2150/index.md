@@ -89,7 +89,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 31 | Nov 7 | Friday | | [09: Advanced C++][89] | [09: Advanced C++][89], slides [3-8][1090308] to [5-18][1090518] ([recording][232]) |
 |    | Nov 9 | Sunday | Exam 2 review session | Exam 2 review session | ([recording][233]) |
 | 32 | Nov 10 | Monday | | [10: Heaps and Huffman coding][90]| [09: Advanced C++][89], slides [5-18][1090518] to [7-8][1090708] ([recording][234]) |
-| 33 | Nov 12 | Wednesday | Exam 2 instead during Tuesday's lab | [10: Heaps and Huffman coding][90] |  |
+| 33 | Nov 12 | Wednesday | Exam 2 instead during Tuesday's lab | [10: Heaps and Huffman coding][90] | [09: Advanced C++][89], slides [7-8][1090708] to [7-10][1090710] (end); [10: Heaps & Huffman][90], slides [0][90] to [4-8][1100408] ([recording][235]) |
 | 34 | Nov 14 | Friday | | [10: Heaps and Huffman coding][90] |  |
 | 35 | Nov 17 | Monday | | [10: Heaps and Huffman coding][90] |  |
 | 36 | Nov 19 | Wednesday | [Lab 9: x86, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [11: Graphs][91] |  |
@@ -239,6 +239,7 @@ None yet!
 [232]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/09-advanced-cpp-2/09-advanced-cpp-2.htm
 [233]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/exam2-review/exam2-review.htm
 [234]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/09-advanced-cpp-3/09-advanced-cpp-3.htm
+[235]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/10-heaps-huffman-1/10-heaps-huffman-1.htm
 
 [1050311]: ../slides/05-trees.html#/3/11
 [1050416]: ../slides/05-trees.html#/4/16
@@ -269,3 +270,5 @@ None yet!
 [1090308]: ../slides/09-advanced-cpp.html#/3/8
 [1090518]: ../slides/09-advanced-cpp.html#/5/18
 [1090708]: ../slides/09-advanced-cpp.html#/7/8
+[1090710]: ../slides/09-advanced-cpp.html#/7/10
+[1100408]: ../slides/10-heaps-huffman.html#/4/8
