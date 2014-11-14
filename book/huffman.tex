@@ -1,4 +1,4 @@
-\lstset{framerount=fttt,captionpos=b}
+\lstset{frameround=fttt,captionpos=b}
 
 % Chapter by Charles Eckman, cceckman@gmail.com
 
@@ -36,15 +36,15 @@ The image \where{dw-screencap} is one frame of a video (specifically, an episode
 
 We can estimate by figuring out the information content of the video. Every frame is 1920 by 1080 pixels; each pixel is at least three bytes (eight bits of red, eight bits of blue, and eight bits of green.) For video to appear smooth to the human eye, it have a minimum framerate of about 30 frames per second (fps); however, some television is shot at 24 fps. The video is 2882 seconds long.
 
-$$
-& \frac{8 \text{ bits}}{1 \text{ byte}} \times 
-\frac{3 \text{ bytes}}{1 \text{ pixel}} \times
-\frac{1920 \times 1080 \text{ pixels}}{1 \text{frame} \times
-\frac{24 \text{ frames}}{1 \text{ second}} \times
-2882 \text{ seconds} \\
-= & 3442242355200 \text{ bits} \\
-\approx & 400 \text{ gigabytes}
-$$
+%$$
+%& \frac{8 \text{ bits}}{1 \text{ byte}} \times 
+%\frac{3 \text{ bytes}}{1 \text{ pixel}} \times
+%\frac{1920 \times 1080 \text{ pixels}}{1 \text{frame} \times
+%\frac{24 \text{ frames}}{1 \text{ second}} \times
+%2882 \text{ seconds} \\
+%= & 3442242355200 \text{ bits} \\
+%\approx & 400 \text{ gigabytes}
+%$$
 
 By this calculation, a 50-minute, high-definition, television episode should amount to 400 gigabytes of data. And yet, the actual file is only about 1.5 gigabytes. Where did all the information go?
 
@@ -73,7 +73,7 @@ Let’s imagine a language which has only two valid sentences, and every tweet m
 \end{quotation}
 
 Twitter would look like this:
-\image{xkcd-what-if-34-twitter_screenshot.png}
+%\image{xkcd-what-if-34-twitter_screenshot.png}
 
 The messages are relatively long, but there’s not a lot of information in each one—all they tell you is whether the person decided to send the trap message or the horse message. It’s a 1 or a 0. Although there are a lot of letters, for a reader who knows the pattern the language carries only one bit of information per sentence.
 
@@ -92,7 +92,7 @@ How do we expand the language of discourse- say, to all of English? Instead of m
 
 This dictionary cypher is an encoding; however, is it necessarily a compression? To determine this, we have to look at the information transmitted versus the information content of the (uncompressed) message. We must include the transmission of the dictionary (to ensure that both the sender and recevier has a copy), as well as the individual message.
 
-An efficient book to use would be the \textit{Scrabble Players Dictionary}, which includes "More than 100,000\ldotswords" on 720 pages; since the book does not contain definitions few, if any, words are repeated. 
+An efficient book to use would be the \textit{Scrabble Players Dictionary}, which includes "More than 100,000\ldots words" on 720 pages; since the book does not contain definitions few, if any, words are repeated. 
 % http://www.merriam-webster.com/cgi-bin/book.pl?scrabdic.htm&3
 720 pages can be indexed by 10 bits ($2^{10}=1024$), and each page can be indexed by an 8-bit number ($\frac{100000}{720}=139$, $2^7 < 139 < 2^8$). Thus, any word can be compressed into 18 bits using this dictionary cypher.
 
@@ -106,7 +106,7 @@ The Huffman algorithm generates this dictionary using a data structure called a 
 \begin{quotation}
 \textbf{Prefix tree property:} Every node has either two children or none.
 \end{quotation}
-Phrased slightly differently, \textem{every non-leaf node has two children}.
+Phrased slightly differently, {\em every non-leaf node has two children}.
 
 \begin{figure}[prefix-tree]
 \end{figure}
