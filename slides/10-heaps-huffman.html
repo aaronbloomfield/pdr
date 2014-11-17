@@ -382,7 +382,7 @@ void binary_heap::percolateDown(int hole) {
 
 	  <section data-markdown><script type="text/template">
 ## Other Possible Heap Operations
-- `decreaseKey(process, amount)`: "raise" the priority of a process, percolate up
+- `decreaseKey(processID, amount)`: "raise" the priority of a process, percolate up
 - `increaseKey(processID, amount)`: "lower" the priority of a process, percolate down
 - `remove(processID)`: remove a process, move to top, then delete.   
   1. `decreaseKey(processID, -infinity)`
