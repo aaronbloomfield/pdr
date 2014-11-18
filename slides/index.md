@@ -63,7 +63,7 @@ Program and Data Representation: Slides
 
 [Slide set 10: Heaps and Huffman coding](10-heaps-huffman.html)
 
-- Source code: [binary_heap.cpp](code/10-heaps-huffman/binary_heap.cpp.html) ([src](code/10-heaps-huffman/binary_heap.cpp)), [binary_heap.h](code/10-heaps-huffman/binary_heap.h.html) ([src](code/10-heaps-huffman/binary_heap.h)), [heap-test.cpp](code/10-heaps-huffman/heap-test.cpp.html) ([src](code/10-heaps-huffman/heap-test.cpp)),
+- Source code: [binary_heap.cpp](code/10-heaps-huffman/binary_heap.cpp.html) ([src](code/10-heaps-huffman/binary_heap.cpp)), [binary_heap.h](code/10-heaps-huffman/binary_heap.h.html) ([src](code/10-heaps-huffman/binary_heap.h)), [heap-test.cpp](code/10-heaps-huffman/heap-test.cpp.html) ([src](code/10-heaps-huffman/heap-test.cpp))
 
 [Slide set 11: Graphs](11-graphs.html)
 
