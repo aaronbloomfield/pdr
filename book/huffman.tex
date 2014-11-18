@@ -64,15 +64,23 @@ Compression embodies a longstanding tradeoff in computing, between space and tim
 
 Music, video, and image media have numerous attributes related to representation and perception that encourage specialized compression algorithms- so let's make it easy, and look at plain text.
 
-\begin{quotation}\em{
+\begin{quotation}
 Let’s imagine a language which has only two valid sentences, and every tweet must be one of the two sentences. They are:
 
-\begin{quotation}
+{\em
 “There’s a horse in aisle five.”\\
 “My house is full of traps.”
-\end{quotation}
+}
 
 Twitter would look like this:
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=4in]{huffman/twitter-screenshot.png}
+\end{center}
+\caption{caption} %xkcd what-if \# 34: http://what-if.xkcd.com/34/ (released under a CC BY-NC license)}
+\end{figure}
+
 %\image{xkcd-what-if-34-twitter_screenshot.png}
 
 The messages are relatively long, but there’s not a lot of information in each one—all they tell you is whether the person decided to send the trap message or the horse message. It’s a 1 or a 0. Although there are a lot of letters, for a reader who knows the pattern the language carries only one bit of information per sentence.
@@ -82,7 +90,7 @@ This example hints at a very deep idea, which is that information is fundamental
 Claude Shannon—who almost singlehandedly invented modern information theory—had a clever method for measuring the information content of a language. He showed groups of people samples of typical written English which were cut off at a random point, then asked them to guess which letter came next.
 
 Based on the rates of correct guesses—and rigorous mathematical analysis—Shannon determined that the information content of typical written English was around 1.0 to 1.2 bits per letter. This means that a good compression algorithm should be able to compress ASCII English text—which is eight bits per letter—to about 1/8th of its original size. Indeed, if you use a good file compressor on a .txt ebook, that’s about what you’ll find.
-}
+
 -- Randall Munroe, in 'what if?'\cite{xkcd-what-if-34}
 \end{quotation}
 
