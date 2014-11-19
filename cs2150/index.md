@@ -92,7 +92,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 33 | Nov 12 | Wednesday | Exam 2 instead during Tuesday's lab | [10: Heaps and Huffman coding][90] | [09: Advanced C++][89], slides [7-8][1090708] to [7-10][1090710] (end); [10: Heaps & Huffman][90], slides [0][90] to [4-8][1100408] ([recording][235]) |
 | 34 | Nov 14 | Friday | | [10: Heaps and Huffman coding][90] | [10: Heaps & Huffman][90], slides [5][11005] to [5-8][1100508] ([recording][236]) |
 | 35 | Nov 17 | Monday | | [10: Heaps and Huffman coding][90] | [10: Heaps & Huffman][90], slides [5-8][1100508] to [7-5][1100705] ([recording][237]) |
-| 36 | Nov 19 | Wednesday | [Lab 9: x86, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [11: Graphs][91] |  |
+| 36 | Nov 19 | Wednesday | [Lab 9: x86, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [11: Graphs][91] | [10: Heaps & Huffman][90], slides [7-5][1100705] to [8-8][1100808] (end); [11: Graphs][91], slides [0][91] to [3-4][1110304] ([recording][238]) |
 | 37 | Nov 21 | Friday | | [11: Graphs][91] |  |
 | 38 | Nov 24 | Monday | | [11: Graphs][91] |  |
 |    | Nov 26 | Wednesday | [Lab 10: Huffman coding][10] ([md][30]) / [Tutorial 10: Objective C][50] ([md][70]) | no class (Thanksgiving) |  |
@@ -242,6 +242,10 @@ None yet!
 [235]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/10-heaps-huffman-1/10-heaps-huffman-1.htm
 [236]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/10-heaps-huffman-2/10-heaps-huffman-2.htm
 [237]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/10-heaps-huffman-3/10-heaps-huffman-3.htm
+[238]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/11-graphs-1/11-graphs-1.htm
+[239]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/11-graphs-2/11-graphs-2.htm
+[240]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/11-graphs-3/11-graphs-3.htm
+[241]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/11-graphs-4/11-graphs-4.htm
 
 [1050311]: ../slides/05-trees.html#/3/11
 [1050416]: ../slides/05-trees.html#/4/16
@@ -277,3 +281,5 @@ None yet!
 [11005]: ../slides/10-heaps-huffman.html#/5
 [1100508]: ../slides/10-heaps-huffman.html#/5/8
 [1100705]: ../slides/10-heaps-huffman.html#/7/5
+[1100808]: ../slides/10-heaps-huffman.html#/8/8
+[1110304]: ../slides/11-graphs.html#/3/4
