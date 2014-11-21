@@ -93,7 +93,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 34 | Nov 14 | Friday | | [10: Heaps and Huffman coding][90] | [10: Heaps & Huffman][90], slides [5][11005] to [5-8][1100508] ([recording][236]) |
 | 35 | Nov 17 | Monday | | [10: Heaps and Huffman coding][90] | [10: Heaps & Huffman][90], slides [5-8][1100508] to [7-5][1100705] ([recording][237]) |
 | 36 | Nov 19 | Wednesday | [Lab 9: x86, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [11: Graphs][91] | [10: Heaps & Huffman][90], slides [7-5][1100705] to [8-8][1100808] (end); [11: Graphs][91], slides [0][91] to [3-4][1110304] ([recording][238]) |
-| 37 | Nov 21 | Friday | | [11: Graphs][91] |  |
+| 37 | Nov 21 | Friday | | [11: Graphs][91] | [11: Graphs][91], slides [3-5][1110305] to [4-8][1110408] ([recording][239]) |
 | 38 | Nov 24 | Monday | | [11: Graphs][91] |  |
 |    | Nov 26 | Wednesday | [Lab 10: Huffman coding][10] ([md][30]) / [Tutorial 10: Objective C][50] ([md][70]) | no class (Thanksgiving) |  |
 |    | Nov 28 | Friday | | no class (Thanksgiving) |  |
@@ -283,3 +283,5 @@ None yet!
 [1100705]: ../slides/10-heaps-huffman.html#/7/5
 [1100808]: ../slides/10-heaps-huffman.html#/8/8
 [1110304]: ../slides/11-graphs.html#/3/4
+[1110305]: ../slides/11-graphs.html#/3/5
+[1110408]: ../slides/11-graphs.html#/4/8
