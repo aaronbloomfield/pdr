@@ -43,10 +43,10 @@ Lab Procedure
 ### Post-lab ###
 
 1. Complete the post-lab report, as described in the post-lab section.
-2. Read the [Objective C tutorial](../../tutorials/10-objc/index.html), as described in the post-lab section.
-3. Write the Objective C program described in the post-lab section, which implements a singly-linked list.
-4. Files to download: [helloworld.m](../..//tutorials/10-objc/helloworld.m).
-5. Files to submit: postlab10.pdf, linkedlist.m (no Makefile for this lab!); if your program uses multiple .m or .h files, that's fine.
+2. ~~Read the [Objective C tutorial](../../tutorials/10-objc/index.html), as described in the post-lab section.~~
+3. ~~Write the Objective C program described in the post-lab section, which implements a singly-linked list.~~
+4. Files to download: none ~~[helloworld.m](../..//tutorials/10-objc/helloworld.m).~~
+5. Files to submit: postlab10.pdf ~~, linkedlist.m (no Makefile for this lab!); if your program uses multiple .m or .h files, that's fine.~~
 
 ------------------------------------------------------------
 
@@ -238,6 +238,6 @@ Worst case running time -- for this be sure to include all steps of the compress
 
 Space complexity -- for this, you should calculate the number of bytes that are used by each data structure in your implementation.  The easiest way to do this is to step through your code, just as you have done for the worst case running time, and make a note each time you use a new data structure.  You do not need to take into account scalar variables (loop counters, other singleton variables), focus on the data structures whose size depends on values such as the total number of characters and the total number of unique characters, and use those values in your answer.
 
-### Objective C ###
+### ~~Objective C~~ ###
 
-Read though, and complete, the [Objective C tutorial](../../tutorials/10-objc/index.html); you will need to download the [helloworld.m](../../tutorials/10-objc/helloworld.m) file, and submit a linkedlist.m file.
+~~Read though, and complete, the [Objective C tutorial](../../tutorials/10-objc/index.html); you will need to download the [helloworld.m](../../tutorials/10-objc/helloworld.m) file, and submit a linkedlist.m file.~~
