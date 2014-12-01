@@ -48,3 +48,5 @@ Private members are not documented in Doxygen by default.  To change this (i.e. 
 You may have to include all of your comments in your .h file.  This depends less on the doxygen version, and more on how you structure your code comments, but if you are making changes to your doxygen comments and are not seeing the results, try moving them to the .h file.  As long as the documentation is created when `doxygen` is run, we don't really care where your doxygen comments are in your source code.
 
 To get doxygen working on the Mac, you will have to copy two binaries in /Applications/Doxgyen.app/Contents/Resources/ (or similar) to /usr/bin if you want to run it via the Makefile.
+
+Alternatively, if you have [homebrew](http://brew.sh/) installed on your Mac, you can brew install doxygen from the command line with the command found [here](http://brewformulas.org/Doxygen).
