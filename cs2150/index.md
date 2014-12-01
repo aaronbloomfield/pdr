@@ -96,8 +96,8 @@ The links in the right-most column link directly to the lecture recording on Col
 | 37 | Nov 21 | Friday | | [11: Graphs][91] | [11: Graphs][91], slides [3-5][1110305] to [4-8][1110408] ([recording][239]) |
 | 38 | Nov 24 | Monday | | [11: Graphs][91] | [11: Graphs][91], slides [5][11105] to [5-13][1110513] ([recording][240]) |
 |    | Nov 26 | Wednesday | [Lab 10: Huffman coding][10] ([md][30]) / [Tutorial 10: Objective C][50] ([md][70]) | no class (Thanksgiving) |  |
-|    | Nov 28 | Friday | | no class (Thanksgiving) |  |
-| 39 | Dec 1 | Monday | [Lab 11: Graphs][11] ([md][31]) / [Tutorial 11: doxygen][51] ([md][71]) | [11: Graphs][91] |  |
+|    | Nov 28 | Friday | | no class (Thanksgiving) | |
+| 39 | Dec 1 | Monday | [Lab 11: Graphs][11] ([md][31]) / [Tutorial 11: doxygen][51] ([md][71]) | [11: Graphs][91] | [11: Graphs][91], slides [6][11106] to [8-6][1110806] ([recording][241]) |
 | 40 | Dec 3 | Wednesday | | [12: Memory][92] |  |
 | 41 | Dec 5 | Friday |  | [12: Memory][92], [Course conclusion][93] |  |
 |    | Dec 10 | Wednesday | Final exam review session | Final exam review session |  |
@@ -287,3 +287,5 @@ None yet!
 [1110408]: ../slides/11-graphs.html#/4/8
 [11105]: ../slides/11-graphs.html#/5
 [1110513]: ../slides/11-graphs.html#/5/13
+[11106]: ../slides/11-graphs.html#/6
+[1110806]: ../slides/11-graphs.html#/8/6
