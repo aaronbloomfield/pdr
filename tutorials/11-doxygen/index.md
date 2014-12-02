@@ -31,7 +31,7 @@ This is much more documentation than is probably necessary for the `average()` f
 
 Save the above code as a file called [average.cpp](average.cpp.html) ([src](average.cpp)), put the [Doxyfile](Doxyfile) in the same directory, and run doxygen via the `doxygen` command -- no command line parameters are needed (assuming the `Doxyfile` file is in the same directory, which it is in this case).  The provided configuration file produces documentation in two forms -- HTML and RTF.  With a modification to the configuration file (which we won't see here), it can produce documentation in other formats as well (LaTeX, man pages, XML, etc.).  
 
-RTF (rich text format) is a file type that can be loaded up into your favorite word processing program.  One you have run doxygen, the comments are formatted into a file called doc/rtf/refman.rtf -- try loading up that file.  Note that a number of the fields in the file (such as "Title" and "Author") are not yet filled in -- this is addressed below.
+RTF (rich text format) is a file type that can be loaded up into your favorite word processing program.  Once you have run doxygen, the comments are formatted into a file called doc/rtf/refman.rtf -- try loading up that file.  Note that a number of the fields in the file (such as "Title" and "Author") are not yet filled in -- this is addressed below.
 
 The other version, and the one we are going to look at, is the HTML documentation.  After you run doxygen, these files are in the doc/html directory -- view the index.html file.  If you look at the documentation for this function (from the main page, follow the "Files"link and then the "average.cpp" link), the web page looks like the following:
 
