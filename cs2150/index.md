@@ -108,8 +108,8 @@ The links in the right-most column link directly to the lecture recording on Col
 Grading Concerns
 ----------------
 
-None yet!
-
+- The curve on [Exam 1](../exams/exam1-f14.pdf) is 15 *percentage* points (or 7.2 points on the exam score out of 48)
+- The curve on [Exam 2](../exams/exam1-f14.pdf) is 15 *percentage* points (or 9.0 points on the exam score out of 60)
 
 [1]: ../labs/lab01/index.html
 [2]: ../labs/lab02/index.html
