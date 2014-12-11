@@ -100,7 +100,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 39 | Dec 1 | Monday | [Lab 11: Graphs][11] ([md][31]) / [Tutorial 11: doxygen][51] ([md][71]) | [11: Graphs][91] | [11: Graphs][91], slides [6][11106] to [8-6][1110806] ([recording][241]) |
 | 40 | Dec 3 | Wednesday | | [12: Memory][92] | [11: Graphs][91], slides [8-6][1110806] to [8-14][1110814] (end); [12: Memory][92], slides [1][92] to [3-8][1120308] ([recording][242]) |
 | 41 | Dec 5 | Friday |  | [12: Memory][92], [13: Esoteric PLs][93], [Course conclusion][94] | [12: Memory][92], slides [3-8][1120308] to [3-25][1120325]; [13: Esoteric PLs][93], slides [0][93] to [3-25][1130325]; [Course conclusion][94], slides [0][94] to [9][12009] ([recording][243]) |
-|    | Dec 10 | Wednesday | Final exam review session | Final exam review session |  |
+|    | Dec 10 | Wednesday | Final exam review session | Final exam review session | ([recording][244]) |
 |    | Dec 12 | Friday | Final exam from 9:00-noon in Gilmer 130 | Final exam from 9:00-noon in Gilmer 130 | |
 
 ------------------------------------------------------------
@@ -249,6 +249,7 @@ Grading Concerns
 [241]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/11-graphs-4/11-graphs-4.htm
 [242]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/12-memory-1/12-memory-1.htm
 [243]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/course-conclusion/course-conclusion.htm
+[244]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/final-review/final-review.htm
 
 [1050311]: ../slides/05-trees.html#/3/11
 [1050416]: ../slides/05-trees.html#/4/16
