@@ -8,10 +8,10 @@ This page is meant to be a set of notes to the instructor(s) of the course.  It 
 Lecture progress
 ----------------
 
-- [Lab 1](../labs/lab01/index.html) ([md](../labs/lab01/index.md)) (introduction): the in-lab requires getting through The 'Rational Example' section of the [C++ slide set](../slides/02-cpp.html), and ideally the 'Pre-Processor' section as well.
-- [Lab 4](../labs/lab04/index.html) ([md](../labs/lab04/index.md)) (numbers): requires the use of command-line parameters for the post-lab, and those are discussed in the [Arrays & Big-Oh slide set](../slides/05-arrays-bigoh.html)
-- [Lab 5](../labs/lab05/index.html) ([md](../labs/lab05/index.md)) (trees): requires getting through the sections in the [Trees slide set](../slides/06-trees.html) on expression trees and AVL trees (this information is needed for all three parts of the lab)
-- The [06: trees](../slides/06-trees.html) slide set will likey require that the two animation sites be allowed to run in your browser, as they are both Java applets.  Those sites are [here](http://www.qmatica.com/DataStructures/Trees/BST.html) and [here](http://webdiis.unizar.es/asignaturas/EDA/AVLTree/avltree.html) (only one is needed, as the second is a mirror of the first).
+- [Lab 1](../labs/lab01/index.html) ([md](../labs/lab01/index.md)) (introduction): the in-lab requires getting through The 'Rational Example' section of the [C++ slide set](../slides/01-cpp.html), and ideally the 'Pre-Processor' section as well.
+- [Lab 4](../labs/lab04/index.html) ([md](../labs/lab04/index.md)) (numbers): requires the use of command-line parameters for the post-lab, and those are discussed in the [Arrays & Big-Oh slide set](../slides/04-arrays-bigoh.html)
+- [Lab 5](../labs/lab05/index.html) ([md](../labs/lab05/index.md)) (trees): requires getting through the sections in the [Trees slide set](../slides/05-trees.html) on expression trees and AVL trees (this information is needed for all three parts of the lab)
+- The [06: trees](../slides/05-trees.html) slide set will likey require that the two animation sites be allowed to run in your browser, as they are both Java applets.  Those sites are [here](http://www.qmatica.com/DataStructures/Trees/BST.html) and [here](http://webdiis.unizar.es/asignaturas/EDA/AVLTree/avltree.html) (only one is needed, as the second is a mirror of the first).
 
 Piazza Setup
 ------------

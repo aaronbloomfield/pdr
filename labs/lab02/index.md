@@ -92,11 +92,11 @@ Thus, our doubly linked list will have only one List object and many ListNode ob
 
 ### ListNode ###
 
-A ListNode contains an integer value, as well as next and previous pointers to other ListNodes.  View the [ListNode.h](ListNode.h.html) ([src](ListNode.h])) code for details.
+A ListNode contains an integer value, as well as next and previous pointers to other ListNodes.  View the [ListNode.h](ListNode.h.html) ([src](ListNode.h)) code for details.
 
 ### List ###
 
-This class represents the list data structure containing ListNodes.  It has a pointer to the first (head) and last (tail) ListNodes of the list, as well as a count of the number of ListNodes in the List.  View the [List.h](List.h.html) ([src](List.h])) code for details.
+This class represents the list data structure containing ListNodes.  It has a pointer to the first (head) and last (tail) ListNodes of the list, as well as a count of the number of ListNodes in the List.  View the [List.h](List.h.html) ([src](List.h)) code for details.
 
 ### Explanations: ###
 
@@ -154,7 +154,7 @@ Note that these two methods are correctly implemented.  However, they depend on 
 
 ### ListItr ###
 
-Your ListItr should maintain a pointer to a current position in a List.  Your iterator class should look like the class definition in the source code.  See the [ListItr.h](ListItr.h.html) ([src](ListItr.h])) code for details.
+Your ListItr should maintain a pointer to a current position in a List.  Your iterator class should look like the class definition in the source code.  See the [ListItr.h](ListItr.h.html) ([src](ListItr.h)) code for details.
 
 Your ListItr class should implement at least the following public methods:
 

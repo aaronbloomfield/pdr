@@ -52,7 +52,7 @@ repository first**
 - [docs](docs/index.html) ([md](docs/index.md)): a series of useful documents that are not labs or tutorials.
 - [cs2150](cs2150/index.html) ([md](cs2150/index.md)): the materials that are specific to CS 2150 as taught at the University of Virginia, such as daily announcements, due dates, etc.
 - [exams](exams/index.html) ([md](exams/index.md)): past exams for the course; there are two midterms and a final for each semester.
-- [ibcm](ibcm/ibcm.html) ([md](ibcm/index.md)): the files necessary for the IBCM module on machine language, which is taught about two thirds of the way into the course.
+- [ibcm](ibcm/ibcm.html) ([md](ibcm/ibcm.md)): the files necessary for the IBCM module on machine language, which is taught about two thirds of the way into the course.
 - [labs](labs/index.html) ([md](labs/index.md)): the labs are the main assignments in the course, and each lab is split into pre-lab, in-lab, and post-lab parts.  There are 11 full labs, with a partial 12th lab that is an optional component of the course.  The labs are written using [markdown](http://daringfireball.net/projects/markdown/), and the rendered HTML version of each lab is also committed to this repository.
 - [slides](slides/index.html) ([md](slides/index.md)): Contains the slides used in the course.  The slides use [reveal.js](https://github.com/hakimel/reveal.js/), an HTML presentation framework.
 - [tutorials](tutorials/index.html) ([md](tutorials/index.md)): the tutorials that are used as part of the lab assignments, these are primarily Linux tutorials.
@@ -85,7 +85,7 @@ Note that Github supports an enhanced version of Markdown, called [Github Flavor
 <a name="sourcecode"></a>Source code
 ------------------------------------
 
-All source code is formatted via [astyle](http://astyle.sourceforge.net/) and then highlighted via [source-highlight](http://www.gnu.org/software/src-highlite/source-highlight.html).  Both the original file (foo.cpp) and the highlighted version (foo.cpp.html) are included in the repository.  All links to source code will like to the .html, with a "([src](...))" after it to link to the original source code.
+All source code is formatted via [astyle](http://astyle.sourceforge.net/) and then highlighted via [source-highlight](http://www.gnu.org/software/src-highlite/source-highlight.html).  Both the original file (foo.cpp) and the highlighted version (foo.cpp.html) are included in the repository.  All links to source code will like to the .html, with a "([src](README.md))" after it to link to the original source code.
 
 - astyle options: `-A2 -s4 -S -xG`
     - note that the current version of astyle on Ubuntu 12.04 seems to ignore the -xG flag...

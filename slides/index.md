@@ -38,14 +38,14 @@ Program and Data Representation: Slides
 
 [Slide set 7: IBCM (machine language)](07-ibcm.html)
 
-- The online simulator is [here](http://www.cs.virginia.edu/~cs216/ibcm/) (with mirrors [1](http://libra.cs.virginia.edu/ibcm/) and [2](http://people.virginia.edu/~asb2t/ibcm/))
+- The online simulator is [here](http://www.cs.virginia.edu/~cs216/ibcm/) (with mirrors [1](http://pegasus.cs.virginia.edu/ibcm/) and [2](http://people.virginia.edu/~asb2t/ibcm/))
 - Source code: [summation.ibcm](../ibcm/summation.ibcm), [array-summation.ibcm](../ibcm/array-summation.ibcm)
 - [IBCM book chapter](../book/ibcm-chapter.pdf) as the reading
 - There is a separate [IBCM section](../ibcm/index.html) of this repository with more IBCM information, although that additional information will not be needed in this course
 
 [Slide set 8: x86 (assembly language)](08-x86.html)
 
-- [x86 book chapter](../book/x86-chapter.pdf) as the reading
+- The x86 book chapters on [x86](../book/x86-asm-chapter.pdf) and the [C calling convention](../book/x86-ccc-chapter.pdf) as the reading
 - Source code
     - The generated assembly was generated using `make asm`, which uses gcc/g++; to generate it using clang/clang++, use the 'asmclang' target
     - [Makefile](code/08-x86/Makefile.html) ([src](code/08-x86/Makefile))

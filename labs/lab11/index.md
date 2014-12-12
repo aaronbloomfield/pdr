@@ -15,7 +15,7 @@ A graph is a set of vertices connected by edges.  In a directed graph, an edge i
 
 1. The [Wikipedia page on Topological sort](http://en.wikipedia.org/wiki/Topological_sort)
 2. The [Wikipedia page on the Traveling Salesperson problem](http://en.wikipedia.org/wiki/Travelling_salesman_problem)
-3. [The slides on graphs](../../slides/12-graphs.html)
+3. [The slides on graphs](../../slides/11-graphs.html)
 
 Procedure
 ---------

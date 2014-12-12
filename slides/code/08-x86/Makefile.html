@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.6
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>Makefile</title>
+</head>
+<body bgcolor="white">
+<pre><tt><font color="#990000">main:</font>
+	@echo You should <b><font color="#0000FF">read</font></b> the readme.txt file<font color="#990000">!</font>
+
+<font color="#990000">compile:</font>
+	gcc -o test_abs_c test_abs_c.c
+	g<font color="#990000">++</font> -o test_abs test_abs.cpp
+	g<font color="#990000">++</font> -o test_fib test_fib.cpp
+	g<font color="#990000">++</font> -o test_max test_max.cpp
+	g<font color="#990000">++</font> -o test_string_compare test_string_compare.cpp
+
+<font color="#990000">asm:</font>
+	g<font color="#990000">++</font> -m<font color="#993399">32</font> -masm<font color="#990000">=</font>intel -S test_abs_c.c -o test_abs_c.s
+	g<font color="#990000">++</font> -m<font color="#993399">32</font> -masm<font color="#990000">=</font>intel -S test_abs.cpp -o test_abs.s
+	g<font color="#990000">++</font> -m<font color="#993399">32</font> -masm<font color="#990000">=</font>intel -S test_fib.cpp -o test_fib.s
+	g<font color="#990000">++</font> -m<font color="#993399">32</font> -masm<font color="#990000">=</font>intel -S test_string_compare.cpp -o test_string_compare.s
+	g<font color="#990000">++</font> -m<font color="#993399">32</font> -masm<font color="#990000">=</font>intel -S test_max.cpp -o test_max.s
+	g<font color="#990000">++</font> -O<font color="#993399">2</font> -m<font color="#993399">32</font> -masm<font color="#990000">=</font>intel -S test_max.cpp -o test_max-O2.s
+	grep -v extern test_max.cpp <font color="#990000">&gt;</font> foo.cpp
+	g<font color="#990000">++</font> -m<font color="#993399">32</font> -masm<font color="#990000">=</font>intel -S foo.cpp -o test_max-noextern.s
+	/bin/rm -rf foo.cpp
+
+<font color="#990000">asmclang:</font>
+	clang -m<font color="#993399">32</font> -mllvm --x<font color="#993399">86</font>-asm-syntax<font color="#990000">=</font>intel -S test_abs_c.c -o test_abs_c.s
+	clang<font color="#990000">++</font> -m<font color="#993399">32</font> -S test_abs.cpp -o test_abs-non-intel.s
+	clang<font color="#990000">++</font> -m<font color="#993399">32</font> -mllvm --x<font color="#993399">86</font>-asm-syntax<font color="#990000">=</font>intel -S test_abs.cpp -o test_abs.s
+	clang<font color="#990000">++</font> -m<font color="#993399">32</font> -mllvm --x<font color="#993399">86</font>-asm-syntax<font color="#990000">=</font>intel -S test_fib.cpp -o test_fib.s
+	clang<font color="#990000">++</font> -m<font color="#993399">32</font> -mllvm --x<font color="#993399">86</font>-asm-syntax<font color="#990000">=</font>intel -S test_string_compare.cpp -o test_string_compare.s
+	clang<font color="#990000">++</font> -m<font color="#993399">32</font> -mllvm --x<font color="#993399">86</font>-asm-syntax<font color="#990000">=</font>intel -S test_max.cpp -o test_max.s
+	clang<font color="#990000">++</font> -O<font color="#993399">2</font> -m<font color="#993399">32</font> -mllvm --x<font color="#993399">86</font>-asm-syntax<font color="#990000">=</font>intel -S test_max.cpp -o test_max-O2.s
+	grep -v extern test_max.cpp <font color="#990000">&gt;</font> foo.cpp
+	clang<font color="#990000">++</font> -m<font color="#993399">32</font> -mllvm --x<font color="#993399">86</font>-asm-syntax<font color="#990000">=</font>intel -S foo.cpp -o test_max-noextern.s
+	/bin/rm -rf foo.cpp
+
+<font color="#990000">clean:</font>
+	/bin/rm -f test_abs_c test_abs_c.exe test_fib test_fib.exe test_max <font color="#990000">\</font>
+		test_max.exe test_string_compare test_string_compare.exe <font color="#990000">\</font>
+		test_abs test_abs.exe
+
+<font color="#990000">asmclean:</font>
+	/bin/rm -f <font color="#990000">*</font>.s
+</tt></pre>
+</body>
+</html>

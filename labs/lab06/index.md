@@ -106,7 +106,7 @@ You **must** write your own hash table for this lab.  You will be expected to be
 
 We are not as interested in how fast this runs for the pre-lab; the fast implementation is for the post-lab.  
 
-Your program **MUST** take in the file names as command-line parameters, not as inputs to the program.  The first is the dictionary file, the second is the grid file.  Indeed, the program will ask for NO input, as the two inputs necessary (the two file names) are passed in as command-line parameters.  See the [slide set on arrays](../../slides/05-arrays-bigoh.html) if you need a refresher on command-line parameters; you can also see the [cmdlineparams.cpp](../../slides/code/05-arrays-bigoh/cmdlineparams.cpp.html) ([src](../../slides/code/05-arrays-bigoh/cmdlineparams.cpp)) file.
+Your program **MUST** take in the file names as command-line parameters, not as inputs to the program.  The first is the dictionary file, the second is the grid file.  Indeed, the program will ask for NO input, as the two inputs necessary (the two file names) are passed in as command-line parameters.  See the [slide set on arrays](../../slides/04-arrays-bigoh.html) if you need a refresher on command-line parameters; you can also see the [cmdlineparams.cpp](../../slides/code/04-arrays-bigoh/cmdlineparams.cpp.html) ([src](../../slides/code/04-arrays-bigoh/cmdlineparams.cpp)) file.
 
 The task for the pre-lab is to get the code working.  Optimization (reducing memory use, choosing the right collision resolution method, the right secondary data structure, different hash functions, etc.) is left to the post-lab.  You should have a fully function program when you come to lab on Tuesday.
 

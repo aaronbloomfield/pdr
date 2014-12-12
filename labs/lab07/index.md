@@ -60,7 +60,7 @@ Pre-lab
 The easiest way to use the simulator is via the online version, available at [http://www.cs.virginia.edu/~cs216/ibcm](http://www.cs.virginia.edu/~cs216/ibcm).  There are a number of mirrors of this website available (all are identical):
 
 - [http://www.cs.virginia.edu/~cs216/ibcm](http://www.cs.virginia.edu/~cs216/ibcm)
-- [http://libra.cs.virginia.edu/~aaron/ibcm/](http://libra.cs.virginia.edu/~aaron/ibcm/)
+- [http://pegasus.cs.virginia.edu/ibcm/](http://pegasus.cs.virginia.edu/ibcm/)
 - [http://people.virginia.edu/~asb2t/ibcm/](http://people.virginia.edu/~asb2t/ibcm/)
 
 We request that you use the first URL ([http://www.cs.virginia.edu/~cs216/ibcm](http://www.cs.virginia.edu/~cs216/ibcm)), and use the others if that one is not available.

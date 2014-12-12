@@ -15,7 +15,7 @@ A binary tree is a tree with a maximum of two children per node.  Three traversa
 
 ### Reading(s): ###
 
-The [Wikipedia article on Expression trees](http://en.wikipedia.org/wiki/Expression_tree), expecially the [section on construction of expression trees](http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_Expression_Tree).  Also the [06: Trees](../../slides/06-trees.html) slide set.
+The [Wikipedia article on Expression trees](http://en.wikipedia.org/wiki/Expression_tree), expecially the [section on construction of expression trees](http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_Expression_Tree).  Also the [05: Trees](../../slides/05-trees.html) slide set.
 
 
 Procedure
@@ -37,7 +37,7 @@ Procedure
 2. You should modify the code provided here as described in the in-lab description (avltree.cpp and binarysearchtree.cpp).
 3. Devise a reasonably convincing experiment to show that AVL trees are markedly superior to randomly grown trees. We have provided testfile1.txt, testfile2.txt and testfile3.txt for you to experiment with.  Your new experiment should be in a testfile4.txt file, which you will need to submit.
 4. Examine the [Makefile](code/inlab/Makefile.html) ([src](code/inlab/Makefile)) for this project.  You should understand everything in the Makefile!  The grading compile command for the inlab will be performed using 'make'.
-5. Files to download: [Makefile](code/inlab/Makefile.html) ([src](code/inlab/Makefile)), [avlnode.h](code/inlab/avlnode.h.html) ([src](code/inlab/avlnode.h)), [binarynode.h](code/inlab/binarynode.h.html) ([src](code/inlab/binarynode.h)), [avltree.h](code/inlab/avltree.h.html) ([src](code/inlab/avltree.h)), [avltree.cpp](code/inlab/avltree.cpp.html) ([src](code/inlab/avltree.cpp)), [binarysearchtree.h](code/inlab/binarysearchtree.h.html) ([src](code/inlab/binarysearchtree.h)), [binarysearchtree.cpp](code/inlab/binarysearchtree.cpp.html) ([src](code/inlab/binarysearchtree.cpp)), [tree_test.cpp](code/inlab/tree_test.cpp.html) ([src](code/inlab/tree_test.cpp)), [testfile1.txt](code/inlab/testfile1.txt), [testfile2.txt](code/inlab/testfile2.txt), [testfile3.txt](code/inlab/testfile3.txt).  These files are contained in the inlab/ directory of the [code.zip](/labs/lab05/code.zip) file.
+5. Files to download: [Makefile](code/inlab/Makefile.html) ([src](code/inlab/Makefile)), [avlnode.h](code/inlab/avlnode.h.html) ([src](code/inlab/avlnode.h)), [binarynode.h](code/inlab/binarynode.h.html) ([src](code/inlab/binarynode.h)), [avltree.h](code/inlab/avltree.h.html) ([src](code/inlab/avltree.h)), [avltree.cpp](code/inlab/avltree.cpp.html) ([src](code/inlab/avltree.cpp)), [binarysearchtree.h](code/inlab/binarysearchtree.h.html) ([src](code/inlab/binarysearchtree.h)), [binarysearchtree.cpp](code/inlab/binarysearchtree.cpp.html) ([src](code/inlab/binarysearchtree.cpp)), [tree_test.cpp](code/inlab/tree_test.cpp.html) ([src](code/inlab/tree_test.cpp)), [testfile1.txt](code/inlab/testfile1.txt), [testfile2.txt](code/inlab/testfile2.txt), [testfile3.txt](code/inlab/testfile3.txt).  These files are contained in the inlab/ directory of the [code.zip](code.zip) file.
 6. Files to submit: avlnode.h, binarynode.h, avltree.h/cpp, binarysearchtree.h/cpp, tree_test.cpp, testfile4.txt, Makefile
 
 ### Post-lab ###
@@ -138,7 +138,7 @@ Since a goal of the lab is to compare binary and AVL trees, we need to establish
 
 ### Summary ###
 
-You will need to download the following files: [Makefile](code/inlab/Makefile.html) ([src](code/inlab/Makefile)), [avlnode.h](code/inlab/avlnode.h.html) ([src](code/inlab/avlnode.h)), [binarynode.h](code/inlab/binarynode.h.html) ([src](code/inlab/binarynode.h)), [avltree.h](code/inlab/avltree.h.html) ([src](code/inlab/avltree.h)), [avltree.cpp](code/inlab/avltree.cpp.html) ([src](code/inlab/avltree.cpp)), [binarysearchtree.h](code/inlab/binarysearchtree.h.html) ([src](code/inlab/binarysearchtree.h)), [binarysearchtree.cpp](code/inlab/binarysearchtree.cpp.html) ([src](code/inlab/binarysearchtree.cpp)), [tree_test.cpp](code/inlab/tree_test.cpp.html) ([src](code/inlab/tree_test.cpp)), [testfile1.txt](code/inlab/testfile1.txt), [testfile2.txt](code/inlab/testfile2.txt), [testfile3.txt](code/inlab/testfile3.txt).  These files are contained in the inlab/ directory of the [code.zip](/labs/lab05/code.zip) file.
+You will need to download the following files: [Makefile](code/inlab/Makefile.html) ([src](code/inlab/Makefile)), [avlnode.h](code/inlab/avlnode.h.html) ([src](code/inlab/avlnode.h)), [binarynode.h](code/inlab/binarynode.h.html) ([src](code/inlab/binarynode.h)), [avltree.h](code/inlab/avltree.h.html) ([src](code/inlab/avltree.h)), [avltree.cpp](code/inlab/avltree.cpp.html) ([src](code/inlab/avltree.cpp)), [binarysearchtree.h](code/inlab/binarysearchtree.h.html) ([src](code/inlab/binarysearchtree.h)), [binarysearchtree.cpp](code/inlab/binarysearchtree.cpp.html) ([src](code/inlab/binarysearchtree.cpp)), [tree_test.cpp](code/inlab/tree_test.cpp.html) ([src](code/inlab/tree_test.cpp)), [testfile1.txt](code/inlab/testfile1.txt), [testfile2.txt](code/inlab/testfile2.txt), [testfile3.txt](code/inlab/testfile3.txt).  These files are contained in the inlab/ directory of the [code.zip](code.zip) file.
 
 To complete this lab you will have to make the following code modifications:
 

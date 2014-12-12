@@ -166,7 +166,7 @@ It is an error to call `free()` with any address that was not returned by one of
 
 The easiest way to debug a memory error is not to make it in the first place. With care, this is easier than it sounds.  Firstly, know when you need dynamic allocation; don't use it if you don't have to.  Secondly, as you would do in C++, write constructors and destructors for all of your data structures, and be consistent about using them.  These functions should handle your heap control and error checking explicitly, so that they are implicit in the code that uses the storage.
 
-If you do manage to develop memory errors, the `MALLOC_CHECK_` environment variable may be helpful (see the `malloc()` manual page), as may the [Electric Fence library](http://perens.com/FreeSoftware/ElectricFence/).
+If you do manage to develop memory errors, the `MALLOC_CHECK_` environment variable may be helpful (see the `malloc()` manual page), as may the [Electric Fence library](http://en.wikipedia.org/wiki/Electric_Fence).
 
 ### Examples ###
 

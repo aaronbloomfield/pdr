@@ -84,9 +84,9 @@
 <p>This diagram shows a list containing two elements, the integers 3 and 7. Note that there are more methods in the List and ListItr classes than what is shown above. The head and tail pointers in the List class point to dummy nodes -- they are put there to make inserting elements into the list easier. It doesn't matter what the value of the dummy notes is set to, as it won't be used. Each ListNode points to the nodes before and after it (although the dummy nodes each have one pointer pointing to NULL).</p>
 <p>Thus, our doubly linked list will have only one List object and many ListNode objects (2 more than the number of elements in the list). A ListItr is a separate object, which points to one element in the list (possibly a dummy node). As you call the various methods in ListItr to move the iterator forward and backward, the node that it points to will change.</p>
 <h3 id="listnode">ListNode</h3>
-<p>A ListNode contains an integer value, as well as next and previous pointers to other ListNodes. View the <a href="ListNode.h.html">ListNode.h</a> (<a href="ListNode.h]">src</a>) code for details.</p>
+<p>A ListNode contains an integer value, as well as next and previous pointers to other ListNodes. View the <a href="ListNode.h.html">ListNode.h</a> (<a href="ListNode.h">src</a>) code for details.</p>
 <h3 id="list">List</h3>
-<p>This class represents the list data structure containing ListNodes. It has a pointer to the first (head) and last (tail) ListNodes of the list, as well as a count of the number of ListNodes in the List. View the <a href="List.h.html">List.h</a> (<a href="List.h]">src</a>) code for details.</p>
+<p>This class represents the list data structure containing ListNodes. It has a pointer to the first (head) and last (tail) ListNodes of the list, as well as a count of the number of ListNodes in the List. View the <a href="List.h.html">List.h</a> (<a href="List.h">src</a>) code for details.</p>
 <h3 id="explanations">Explanations:</h3>
 <ol style="list-style-type: decimal">
 <li><code>List()</code> is the default constructor. It should initialize all private data members. Pointers are often initialized to NULL.</li>
@@ -135,7 +135,7 @@ List&amp; List::operator=(const List&amp; source) { //Equals operator
 }</code></pre>
 <p>Note that these two methods are correctly implemented. However, they depend on the other methods working properly. If you are seeing crashes in these methods, it is likely because some of the other supporting methods are not working properly. One common issue is to ensure that <code>makeEmpty()</code> has <code>head-&gt;next</code> pointing to tail, and <code>tail-&gt;previous</code> pointing to head. If they are causing a crash in your program, then it is likely being caused by one of the methods that they invoke.</p>
 <h3 id="listitr">ListItr</h3>
-<p>Your ListItr should maintain a pointer to a current position in a List. Your iterator class should look like the class definition in the source code. See the <a href="ListItr.h.html">ListItr.h</a> (<a href="ListItr.h]">src</a>) code for details.</p>
+<p>Your ListItr should maintain a pointer to a current position in a List. Your iterator class should look like the class definition in the source code. See the <a href="ListItr.h.html">ListItr.h</a> (<a href="ListItr.h">src</a>) code for details.</p>
 <p>Your ListItr class should implement at least the following public methods:</p>
 <ul>
 <li><code>bool isPastEnd()</code>: Returns true if the iterator is currently pointing past the end position in the list (i.e., it's pointing to the dummy tail)</li>
