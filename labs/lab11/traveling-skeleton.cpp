@@ -32,7 +32,7 @@ int main (int argc, char **argv) {
 }
 
 // This method will compute the full distance of the cycle that starts
-// at the 'start' parmater, goes to each of the cities in the dests
+// at the 'start' parameter, goes to each of the cities in the dests
 // vector IN ORDER, and ends back at the 'start' parameter.
 float computeDistance (MiddleEarth &me, string start, vector<string> dests) {
     // YOUR CODE HERE

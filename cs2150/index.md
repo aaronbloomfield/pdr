@@ -96,11 +96,11 @@ The links in the right-most column link directly to the lecture recording on Col
 | 37 | Nov 21 | Friday | | [11: Graphs][91] | [11: Graphs][91], slides [3-5][1110305] to [4-8][1110408] ([recording][239]) |
 | 38 | Nov 24 | Monday | | [11: Graphs][91] | [11: Graphs][91], slides [5][11105] to [5-13][1110513] ([recording][240]) |
 |    | Nov 26 | Wednesday | [Lab 10: Huffman coding][10] ([md][30]) / [Tutorial 10: Objective C][50] ([md][70]) | no class (Thanksgiving) |  |
-|    | Nov 28 | Friday | | no class (Thanksgiving) |  |
-| 39 | Dec 1 | Monday | [Lab 11: Graphs][11] ([md][31]) / [Tutorial 11: doxygen][51] ([md][71]) | [11: Graphs][91] |  |
-| 40 | Dec 3 | Wednesday | | [12: Memory][92] |  |
-| 41 | Dec 5 | Friday |  | [12: Memory][92], [Course conclusion][93] |  |
-|    | Dec 10 | Wednesday | Final exam review session | Final exam review session |  |
+|    | Nov 28 | Friday | | no class (Thanksgiving) | |
+| 39 | Dec 1 | Monday | [Lab 11: Graphs][11] ([md][31]) / [Tutorial 11: doxygen][51] ([md][71]) | [11: Graphs][91] | [11: Graphs][91], slides [6][11106] to [8-6][1110806] ([recording][241]) |
+| 40 | Dec 3 | Wednesday | | [12: Memory][92] | [11: Graphs][91], slides [8-6][1110806] to [8-14][1110814] (end); [12: Memory][92], slides [1][92] to [3-8][1120308] ([recording][242]) |
+| 41 | Dec 5 | Friday |  | [12: Memory][92], [13: Esoteric PLs][93], [Course conclusion][94] | [12: Memory][92], slides [3-8][1120308] to [3-25][1120325]; [13: Esoteric PLs][93], slides [0][93] to [3-25][1130325]; [Course conclusion][94], slides [0][94] to [9][12009] ([recording][243]) |
+|    | Dec 10 | Wednesday | Final exam review session | Final exam review session | ([recording][244]) |
 |    | Dec 12 | Friday | Final exam from 9:00-noon in Gilmer 130 | Final exam from 9:00-noon in Gilmer 130 | |
 
 ------------------------------------------------------------
@@ -108,8 +108,8 @@ The links in the right-most column link directly to the lecture recording on Col
 Grading Concerns
 ----------------
 
-None yet!
-
+- The curve on [Exam 1](../exams/exam1-f14.pdf) is 15 *percentage* points (or 7.2 points on the exam score out of 48)
+- The curve on [Exam 2](../exams/exam1-f14.pdf) is 15 *percentage* points (or 9.0 points on the exam score out of 60)
 
 [1]: ../labs/lab01/index.html
 [2]: ../labs/lab02/index.html
@@ -172,7 +172,8 @@ None yet!
 [90]: ../slides/10-heaps-huffman.html
 [91]: ../slides/11-graphs.html
 [92]: ../slides/12-memory.html
-[93]: course-conclusion.html
+[93]: ../slides/13-esoteric-pls.html
+[94]: course-conclusion.html
 
 [100]: ../tutorials/index.html
 [101]: ../tutorials/index.md
@@ -246,6 +247,9 @@ None yet!
 [239]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/11-graphs-2/11-graphs-2.htm
 [240]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/11-graphs-3/11-graphs-3.htm
 [241]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/11-graphs-4/11-graphs-4.htm
+[242]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/12-memory-1/12-memory-1.htm
+[243]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/course-conclusion/course-conclusion.htm
+[244]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/final-review/final-review.htm
 
 [1050311]: ../slides/05-trees.html#/3/11
 [1050416]: ../slides/05-trees.html#/4/16
@@ -287,3 +291,10 @@ None yet!
 [1110408]: ../slides/11-graphs.html#/4/8
 [11105]: ../slides/11-graphs.html#/5
 [1110513]: ../slides/11-graphs.html#/5/13
+[11106]: ../slides/11-graphs.html#/6
+[1110806]: ../slides/11-graphs.html#/8/6
+[1110814]: ../slides/11-graphs.html#/8/14
+[1120308]: ../slides/12-memory.html#/3/8
+[1120325]: ../slides/12-memory.html#/3/25
+[1130325]: ../slides/13-esoteric-pls.html#/3/25
+[12009]: course-conclusion.html#/9

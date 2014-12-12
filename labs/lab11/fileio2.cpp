@@ -1,5 +1,5 @@
-// This program shows how C-based file I/O works.  It will print a
-// file to the screen two times.
+// This program shows how C-based file I/O works.  It will open a
+// file, read in the first two strings, and print them to the screen.
 
 // included so we can use cout
 #include <iostream>

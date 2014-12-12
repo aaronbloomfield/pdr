@@ -103,7 +103,7 @@ MiddleEarth::~MiddleEarth () {
     delete[] distances;
 }
 
-// The Mouth of Sauroun!  (prints out info on the created 'world')
+// The Mouth of Sauron!  (prints out info on the created 'world')
 void MiddleEarth::print() {
     cout << "there are " << num_city_names
          << " locations to choose from; we are using " << cities.size() << endl;

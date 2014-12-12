@@ -15,8 +15,8 @@ In lecture we discussed Huffman coding and the construction of prefix code trees
 
 ### Reading(s): ###
 
-- The [Heaps and Huffman slide set](../../slides/11-heaps-huffman.html) are available in the repository, and that covers Huffman compression and decompression.
-- Code for binary heaps is also available from that slide set: [priority_queue.cpp](../../slides/code/11-heaps-huffman/priority_queue.cpp.html) ([src](../../slides/code/11-heaps-huffman/priority_queue.cpp)), [priority_queue.h](../../slides/code/11-heaps-huffman/priority_queue.h.html) ([src](../../slides/code/11-heaps-huffman/priority_queue.h)), [pq-test.cpp](../../slides/code/11-heaps-huffman/pq-test.cpp.html) ([src](../../slides/code/11-heaps-huffman/pq-test.cpp)).  You may use/modify this code if you wish, or implement your own heaps, but you may NOT use the STL priority_queue class (you can use other STL classes -- i.e. non-heap related classes).  IF YOU ARE GOING TO USE THIS CODE, you should really remove the templates.  It will save you a heck of a lot of time.
+- The [Heaps and Huffman slide set](../../slides/10-heaps-huffman.html) are available in the repository, and that covers Huffman compression and decompression.
+- Code for binary heaps is also available from that slide set: [binary_heap.cpp](../../slides/code/10-heaps-huffman/binary_heap.cpp.html) ([src](../../slides/code/10-heaps-huffman/binary_heap.cpp)), [binary_heap.h](../../slides/code/10-heaps-huffman/binary_heap.h.html) ([src](../../slides/code/10-heaps-huffman/binary_heap.h)), [heap-test.cpp](../../slides/code/10-heaps-huffman/heap-test.cpp.html) ([src](../../slides/code/10-heaps-huffman/heap-test.cpp)).  You may use/modify this code if you wish, or implement your own heaps, but you may NOT use the STL priority_queue class (you can use other STL classes -- i.e. non-heap related classes).  IF YOU ARE GOING TO USE THIS CODE, you should really remove the templates.  It will save you a heck of a lot of time.
 
 Lab Procedure
 -------------
@@ -71,11 +71,11 @@ The basic steps in decompression (for the in-lab) are:
 4. Output the character stored at the leaf node.
 5. Repeat the last two steps until the encoded file is finished.
 
-Huffman compression and decompression are both covered in the [Heaps and Huffman slide set](../../slides/11-heaps-huffman.html).
+Huffman compression and decompression are both covered in the [Heaps and Huffman slide set](../../slides/10-heaps-huffman.html).
 
 ### Requirements ###
 
-Assume that only printable ASCII characters will occur in the source (original, uncompressed) text file.  That is, your program should ignore newlines and tabs, but should not ignore spaces -- thus, spaces need to be encoded, just like with other (printable) characters.  Your program should be case-sensitive (count upper-case and lower-case versions of the same letter as different characters).  The lecture notes describe [which characters are to be encoded](../../slides/11-heaps-huffman.html#ascii).
+Assume that only printable ASCII characters will occur in the source (original, uncompressed) text file.  That is, your program should ignore newlines and tabs, but should not ignore spaces -- thus, spaces need to be encoded, just like with other (printable) characters.  Your program should be case-sensitive (count upper-case and lower-case versions of the same letter as different characters).  The lecture notes describe [which characters are to be encoded](../../slides/10-heaps-huffman.html#ascii).
 
 You ***must*** use a heap (priority queue) data structure to receive full credit on this pre-lab.  You may use heap code from the slides (give said credit if you do so), or you may implement your own.  You may NOT use the priority_queue class from the STL, but you may use other classes from the STL (i.e. non-heap related classes).
 

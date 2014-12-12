@@ -26,7 +26,7 @@ Procedure
 2. Study the topological sort algorithm described in the readings
 3. Look at the [middleearth.h](middleearth.h.html) ([src](middleearth.h)) and [middleearth.cpp](middleearth.cpp.html) ([src](middleearth.cpp)) files.  You should understand **AND DOCUMENT** both of these two files.  See the comments in the middleearth.cpp file, as well as the in-lab section, for details as to what these methods do.  You should not modify any of the code in this file; only the comments.
 4. Write a program to compute a topological sort of a graph, as described in the pre-lab section; name it topological.cpp.
-5. Document your topological.cpp with doxygen commands.  You will need to change the INPUT tag (line 577 of Doxyfile) to be your specific file names.
+5. Document your topological.cpp with doxygen commands.  You will need to change the INPUT tag (line 760 of Doxyfile) to be your specific file names.
 6. Your code should compile with `make`!  It should do ***TWO*** tasks: compile your code, and call `doxygen`.  See the pre-lab section for more information about required make target.
 7. Files to download: [Doxyfile](Doxyfile), [prelab-test-full.txt](prelab-test-full.txt), [prelab-test-small.txt](prelab-test-small.txt), [middleearth.h](middleearth.h.html) ([src](middleearth.h)), [middleearth.cpp](middleearth.cpp.html) ([src](middleearth.cpp)), [fileio2.cpp](fileio2.cpp.html) ([src](fileio2.cpp))
 8. Files to submit: topological.cpp, middleearth.h/cpp, Makefile, Doxyfile
@@ -75,7 +75,7 @@ To test your code with a larger input, see the prelab-test-full.txt file; the pr
 
 ### Makefile ###
 
-Your Makefile should have **only one** target, which you can name anything you want.  This target should do **two** things: compile your code, and run doxygen.  You can have two tabbed lines after the target specifier, which is the easiest way to accomplish this.  In other words, we are just going to call `make`, and we want it to both compile your code and create your doxygen documentation.  The in-lab Makefile should have the same dual-purpose target.
+The first target in your Makefile can be named anything you want, but should do **two** things: compile your code, and run doxygen.  You can have two tabbed lines after the target specifier, which is the easiest way to accomplish this.  In other words, we are just going to call `make`, and we want it to both compile your code and create your doxygen documentation.  You are welcome to have additional targets, such as `clean`, if you would like.  The in-lab Makefile should have the same dual-purpose target.
 
 ------------------------------------------------------------
 
