@@ -14,7 +14,7 @@ CS 2150: Program and Data Representation: Course Syllabus
 ### Course Info ###
 
 - Email: none; fill out a [support request](https://libra.cs.virginia.edu/~pedagogy/support.php) instead
-- Announcement feed: [@UVaCS2150](http://twitter.com/UVaCS2150)
+- Announcement feed: [\@UVaCS2150](http://twitter.com/UVaCS2150)
 - TAs and their office hours will be posted on the [CS 2150 Google Calendar](https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York) (which is linked to via Collab); all office hours start the Sunday after classes start
 - Laboratory Meetings (all in Olsson 001):
     - Section 102: Tuesday, 12:15 pm -- 1:50 pm
