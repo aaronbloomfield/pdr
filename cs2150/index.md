@@ -22,6 +22,7 @@ There are a number of links and other parts of this course that are **NOT** incl
 
 The parts of this course that are in this repo are:
 
+- [Grading explanations, fall 2014](grades.html) ([md](grades.md))
 - [Daily announcements slide set][102]
 - [Course introduction slide set][80]
 - [Course syllabus][103] ([md][104]): the course syllabus
@@ -109,7 +110,8 @@ Grading Concerns
 ----------------
 
 - The curve on [Exam 1](../exams/exam1-f14.pdf) is 15 *percentage* points (or 7.2 points on the exam score out of 48)
-- The curve on [Exam 2](../exams/exam1-f14.pdf) is 15 *percentage* points (or 9.0 points on the exam score out of 60)
+- The curve on [Exam 2](../exams/exam2-f14.pdf) is 15 *percentage* points (or 9.0 points on the exam score out of 60)
+- The curve on the [Final exam](../exams/final-f14.pdf) is 5 *percentage* points (or 4.2 points on the exam score out of 84)
 
 [1]: ../labs/lab01/index.html
 [2]: ../labs/lab02/index.html
