@@ -152,6 +152,10 @@ This gives a compression ratio of 4.30769.
 The cost of the Huffman tree is 1.85714 bits per character.
 ```
 
+The Huffman tree that this forms is the same as the one shown in the slide set (specifically, [here](../../slides/10-heaps-huffman.html#/lab10tree)), and is dupliated below.
+
+![](prelab-tree.png)
+
 Below is an equivalent version of the same file.  Note that the characters are not in the same order in the previous example, the whitespace for the middle part is quite different, the English explanation in the third part says the same thing but in a different format, and the particular prefix codes are different (but note that the lengths are the same).  Your in-lab code will need to be able to read in both of these files (as well as others in the [labs/lab10/examples/ directory(examples/)).  For writing your pre-lab, you should consider having a space or a newline between the Huffman encoded characters, as that will make your code easier to check and debug.
 
 ```
@@ -192,11 +196,11 @@ There are additional examples of encodings in the [labs/lab10/examples/ director
 
 We provide a number of sample files for you to test your code with.  A brief description of each is described here.  The "normal" files are the English input.  The "encoded" files are the Huffman encoded files, following the file format described above.  Except where indicated, the middle part of each encoded file (the digits `0` and `1`) has a space is inserted between each letter from the original file, so that you can see which letter is encoded as which bitcode.
 
-- [normal1.txt](examples/normal1.txt) / [encoded1.txt](examples/encoded1.txt): This is the first example from the lecture slides (`dbacaad`)
-- [normal2.txt](examples/normal2.txt) / [encoded2.txt](examples/encoded2.txt): This is the second example from the lecture slides, in the "Huffman Encoding" section.  This is the example that we built up the Huffman tree from.
+- [normal1.txt](examples/normal1.txt) / [encoded1.txt](examples/encoded1.txt): This is the first example from the lecture slides (`dbacaad`).  The Huffman tree can be viewed [here](prelab-tree.png).
+- [normal2.txt](examples/normal2.txt) / [encoded2.txt](examples/encoded2.txt): This is the second example from the lecture slides, in the "Huffman Encoding" section.  This is the example that we built up the Huffman tree from.  The Huffman tree can be viewed [here](inlab-tree-2.png).
 - [normal3.txt](examples/normal3.txt) / [encoded3.txt](examples/encoded3.txt): This is a paragraph from [Gadsby](http://en.wikipedia.org/wiki/ Gadsby_%28novel%29), which is a novel that does not ever use the letter 'e'.
 - [normal4.txt](examples/normal4.txt) / [encoded4.txt](examples/encoded4.txt): The first paragraph from a [front page story in the 27 November 2007 edition of the Cavalier Daily](http://www.cavalierdaily.com/CVArticle.asp?ID=31789&pid=1656).
--- [encoded4a.txt](examples/encoded4a.txt): This is the same encoding as the previous file ([encoded4.txt](examples/encoded4.txt)), but with all spaces in the middle section of the file removed, so that it's just a very long string of `0`s and `1`s.
+    - [encoded4a.txt](examples/encoded4a.txt): This is the same encoding as the previous file ([encoded4.txt](examples/encoded4.txt)), but with all spaces in the middle section of the file removed, so that it's just a very long string of `0`s and `1`s.
 
 During in-lab, you will implement the decompression steps for the Huffman encoding.  These steps are listed at the beginning of this lab document.
 

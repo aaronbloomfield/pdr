@@ -121,6 +121,10 @@ There were 56 bits in the original file.
 There were 13 bits in the compressed file.
 This gives a compression ratio of 4.30769.
 The cost of the Huffman tree is 1.85714 bits per character.</code></pre>
+<p>The Huffman tree that this forms is the same as the one shown in the slide set (specifically, <a href="../../slides/10-heaps-huffman.html#/lab10tree">here</a>), and is dupliated below.</p>
+<div class="figure">
+<img src="prelab-tree.png" />
+</div>
 <p>Below is an equivalent version of the same file. Note that the characters are not in the same order in the previous example, the whitespace for the middle part is quite different, the English explanation in the third part says the same thing but in a different format, and the particular prefix codes are different (but note that the lengths are the same). Your in-lab code will need to be able to read in both of these files (as well as others in the [labs/lab10/examples/ directory(examples/)). For writing your pre-lab, you should consider having a space or a newline between the Huffman encoded characters, as that will make your code easier to check and debug.</p>
 <pre><code>d 11
 c 101
@@ -148,10 +152,13 @@ The Huffman tree cost: 1.85 bits per character</code></pre>
 <p>There are additional examples of encodings in the <a href="examples/">labs/lab10/examples/ directory</a>. Keep in mind that the bits that your code generates for a given character do not have to match the bits that are shown in the examples (as this will depend on the implementation of your heap), but the number of bits per character DOES have to match.</p>
 <p>We provide a number of sample files for you to test your code with. A brief description of each is described here. The &quot;normal&quot; files are the English input. The &quot;encoded&quot; files are the Huffman encoded files, following the file format described above. Except where indicated, the middle part of each encoded file (the digits <code>0</code> and <code>1</code>) has a space is inserted between each letter from the original file, so that you can see which letter is encoded as which bitcode.</p>
 <ul>
-<li><a href="examples/normal1.txt">normal1.txt</a> / <a href="examples/encoded1.txt">encoded1.txt</a>: This is the first example from the lecture slides (<code>dbacaad</code>)</li>
-<li><a href="examples/normal2.txt">normal2.txt</a> / <a href="examples/encoded2.txt">encoded2.txt</a>: This is the second example from the lecture slides, in the &quot;Huffman Encoding&quot; section. This is the example that we built up the Huffman tree from.</li>
+<li><a href="examples/normal1.txt">normal1.txt</a> / <a href="examples/encoded1.txt">encoded1.txt</a>: This is the first example from the lecture slides (<code>dbacaad</code>). The Huffman tree can be viewed <a href="prelab-tree.png">here</a>.</li>
+<li><a href="examples/normal2.txt">normal2.txt</a> / <a href="examples/encoded2.txt">encoded2.txt</a>: This is the second example from the lecture slides, in the &quot;Huffman Encoding&quot; section. This is the example that we built up the Huffman tree from. The Huffman tree can be viewed <a href="inlab-tree-2.png">here</a>.</li>
 <li><a href="examples/normal3.txt">normal3.txt</a> / <a href="examples/encoded3.txt">encoded3.txt</a>: This is a paragraph from <a href="http://en.wikipedia.org/wiki/%20Gadsby_%28novel%29">Gadsby</a>, which is a novel that does not ever use the letter 'e'.</li>
-<li><a href="examples/normal4.txt">normal4.txt</a> / <a href="examples/encoded4.txt">encoded4.txt</a>: The first paragraph from a <a href="http://www.cavalierdaily.com/CVArticle.asp?ID=31789&amp;pid=1656">front page story in the 27 November 2007 edition of the Cavalier Daily</a>. -- <a href="examples/encoded4a.txt">encoded4a.txt</a>: This is the same encoding as the previous file (<a href="examples/encoded4.txt">encoded4.txt</a>), but with all spaces in the middle section of the file removed, so that it's just a very long string of <code>0</code>s and <code>1</code>s.</li>
+<li><a href="examples/normal4.txt">normal4.txt</a> / <a href="examples/encoded4.txt">encoded4.txt</a>: The first paragraph from a <a href="http://www.cavalierdaily.com/CVArticle.asp?ID=31789&amp;pid=1656">front page story in the 27 November 2007 edition of the Cavalier Daily</a>.
+<ul>
+<li><a href="examples/encoded4a.txt">encoded4a.txt</a>: This is the same encoding as the previous file (<a href="examples/encoded4.txt">encoded4.txt</a>), but with all spaces in the middle section of the file removed, so that it's just a very long string of <code>0</code>s and <code>1</code>s.</li>
+</ul></li>
 </ul>
 <p>During in-lab, you will implement the decompression steps for the Huffman encoding. These steps are listed at the beginning of this lab document.</p>
 <p>First, make sure that your code can read in the file -- you can download the <a href="inlab-skeleton.cpp">inlab-skeleton.cpp</a> file, which can properly read in the encoded input files.</p>
