@@ -16,13 +16,12 @@ There are a number of links and other parts of this course that are **NOT** incl
     - These tools are: [support requests][161], [lab submission][162], [regrades][163], [gradebook][164], and [lab extensions][165]
 - The announcements, which are posted to the CS 2150 twitter feed: [\@UVaCS2150][151]
 - The [CS 2150 Google calendar][150]
-- Grading explanations, including the grading guidelines; this is available in the Collab wiki ([here][171] is the direct link, although Collab login is required)
+- Grading guidelines, which are available in the Collab wiki ([here][171] is the direct link, although Collab login is required)
 - Email list archive, which is a Collab tool ([here][170] is the direct link, although Collab login is required)
 - [Piazza][152]; Collab can log you in directly.
 
 The parts of this course that are in this repo are:
 
-- [Grading explanations, fall 2014](grades.html) ([md](grades.md))
 - [Daily announcements slide set][102]
 - [Course introduction slide set][80]
 - [Course syllabus][103] ([md][104]): the course syllabus
@@ -53,65 +52,66 @@ Semester Schedule
 
 The links in the right-most column link directly to the lecture recording on Collab, and you have to be logged into Collab first before the link will work. Some plugins (such as NoScript) will block that link from working.  Unless otherwise indicated, both lectures stopped at the same point.
 
-| Num | Date | Day of week | Lab & Tutorial | Planned topic | Actual lecture progress (and recording) |
-|-----|--------|-------------|----------------------------------------------------------|--------------------------|--------------------------|
-| 1 | Aug 27 | Wednesday | no lab this week | [Course introduction][80] | [course-introduction][80], slides 0 to 5-9 ([recording][201]) |
-| 2 | Aug 29 | Friday | | [Course introduction][80], [01: C++][81] |  [course-introduction][80], slides 5-9 to 6-1 (end); [01: C++][81], slides 0 to 3-14 ([recording][202]) |
-| 3 | Sep 1 | Monday | | [01: C++][81] | [01: C++][81], slides 4 to 6-7 ([recording][203]) |
-| 4 | Sep 3 | Wednesday | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | [01: C++][81] | [01: C++][81], slides 6-8 to 8-13 ([recording][204]) |
-| 5 | Sep 5 | Friday | | [01: C++][81] | [01: C++][81], slides 8-14 to 9-13 ([recording][205]) |
-| 6 | Sep 8 | Monday | | [01: C++][81] | [01: C++][81], slides 9-14 to 11-2 ([recording][206]) |
-| 7 | Sep 10 | Wednesday | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: GDB][42] ([md][62]) | [02: Lists][82] | [01: C++][81], slides 8-13 to 11-11; [02: Lists][82], slides 0 to 4-3 ([recording][207]) |
-| 8 | Sep 12 | Friday | | [02: Lists][82] |  [02: Lists][82], slides 4-2 to 6-7 ([recording][208]) |
-| 9 | Sep 15 | Monday | | [02: Lists][82], [03: Numbers][83] | [02: Lists][82], slides 6-8 to 8-3 (end); [03: Numbers][83], slides 0 to 4-2 ([recording][209]) |
-| 10 | Sep 17 | Wednesday | [Lab 3: Stacks][3] ([md][23]) / [Tutorial 3: More UNIX, part 1][63], sections 1-4 | [03: Numbers][83] | [03: Numbers][83], slides 4-3 to 7-6 ([recording][210]) |
-| 11 | Sep 19 | Friday | | [03: Numbers][83] | [03: Numbers][83], slides 8 to 8-15 ([recording][211]) |
-| 12 | Sep 22 | Monday | | [03: Numbers][83] | [03: Numbers][83], slides 8-15 to 8-32 (end) ([recording][212]) |
-| 13 | Sep 24 | Wednesday | [Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8 | [04: Arrays & big-Oh][84] | [04: Arrays & big-Oh][84], slides 0 to 4-5 ([recording][213]) |
-| 14 | Sep 26 | Friday | | [04: Arrays & big-Oh][84] | [04: Arrays & big-Oh][84], slides 4-5 to 4-19 ([recording][214]) |
-|    | Sep 28 | Sunday | Exam 1 review session | Exam 1 review session | ([recording][215]) |
-| 15 | Sep 29 | Monday | | [05: Trees][85] | [04: Arrays & big-Oh][84], slides 4-20 to 5-7 (end); [05: Trees][85], slides [0][85] to [3-11][1050311] ([recording][216]) |
-| 16 | Oct 1 | Wednesday | Exam 1 instead during Tuesday's lab | [05: Trees][85] | [05: Trees][85], slides [3-11][1050311] to [4-17][1050417] ([recording][217]) |
-| 17 | Oct 3 | Friday | | [05: Trees][85] | [05: Trees][85], slides [4-16][1050416] to [6-17][1050617] ([recording][218]) |
-| 18 | Oct 6 | Monday | | [05: Trees][85] | [05: Trees][85], slides [6-17][1050617] to [7-9][1050709] ([recording][219]) |
-| 19 | Oct 8 | Wednesday | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [06: Hashes][86] | [05: Trees][85], slides [7-3][1050703] to [9-9][1050909] (end) ([recording][220]) |
-| 20 | Oct 10 | Friday | | [06: Hashes][86] | [06: Hashes][86], slides [0][86] to [4-13][1060413] ([recording][221]) |
-|    | Oct 13 | Monday | | no class (reading day) | |
-| 21 | Oct 15 | Wednesday | no labs (reading day) | [06: Hashes][86] | [06: Hashes][86], slides [5][10605] to [6-9][1060609] ([recording][222]) |
-| 22 | Oct 17 | Friday | | [07: IBCM][87] (machine language) | [06: Hashes][86], slides [6-8][1060608] to [7-6][1060706] (end); [07: IBCM][87], slides [0][87] to [3-2][1070302] ([recording][223]) |
-| 23 | Oct 20 | Monday | | [07: IBCM][87] (machine language) | [07: IBCM][87], slides [3-3][1070303] to [4-15][1070415] ([recording][224]) |
-| 24 | Oct 22 | Wednesday | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [07: IBCM][87] (machine language) | [07: IBCM][87], slides [5][10705] to [5-11][1070511] ([recording][225]) |
-| 25 | Oct 24 | Friday | | [08: x86][88] (assembly language) | [07: IBCM][87], slides [5-11][1070511] to [6-4][1070604] ([recording][226]); we aren't going over the remaining slides in lecture |
-| 26 | Oct 27 | Monday | | [08: x86][88] (assembly language) | [08: x86][88], slides [0][88] to [4-10][1080410] ([recording][227]) |
-| 27 | Oct 29 | Wednesday | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [08: x86][88] (assembly language) | [08: x86][88], slides [5][10805] to [6-8][1080608] ([recording][228]) |
-| 28 | Oct 31 | Friday | | [08: x86][88] (assembly language) | [08: x86][88], slides [6-7][1080607] to [8-4][1080804] ([recording][229]) |
-| 29 | Nov 3 | Monday | | [08: x86][88] (assembly language) | [08: x86][88], slides [8-4][1080804] to [9-14][1080914] ([recording][230]) |
-| 30 | Nov 5 | Wednesday | [Lab 8: x86, part 1][8] ([md][28]) / [Tutorial 8: nasm][48], but you can skip some parts; see [here][100]) ([md][101]) for details | [08: x86][88], [09: Advanced C++][89] | [08: x86][88], slides [9-15][1080915] to [9-32][1080932] (end); [09: Advanced C++][89], slides [0][89] to [3-8][1090308] ([recording][231]) |
-| 31 | Nov 7 | Friday | | [09: Advanced C++][89] | [09: Advanced C++][89], slides [3-8][1090308] to [5-18][1090518] ([recording][232]) |
-|    | Nov 9 | Sunday | Exam 2 review session | Exam 2 review session | ([recording][233]) |
-| 32 | Nov 10 | Monday | | [10: Heaps and Huffman coding][90]| [09: Advanced C++][89], slides [5-18][1090518] to [7-8][1090708] ([recording][234]) |
-| 33 | Nov 12 | Wednesday | Exam 2 instead during Tuesday's lab | [10: Heaps and Huffman coding][90] | [09: Advanced C++][89], slides [7-8][1090708] to [7-10][1090710] (end); [10: Heaps & Huffman][90], slides [0][90] to [4-8][1100408] ([recording][235]) |
-| 34 | Nov 14 | Friday | | [10: Heaps and Huffman coding][90] | [10: Heaps & Huffman][90], slides [5][11005] to [5-8][1100508] ([recording][236]) |
-| 35 | Nov 17 | Monday | | [10: Heaps and Huffman coding][90] | [10: Heaps & Huffman][90], slides [5-8][1100508] to [7-5][1100705] ([recording][237]) |
-| 36 | Nov 19 | Wednesday | [Lab 9: x86, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [11: Graphs][91] | [10: Heaps & Huffman][90], slides [7-5][1100705] to [8-8][1100808] (end); [11: Graphs][91], slides [0][91] to [3-4][1110304] ([recording][238]) |
-| 37 | Nov 21 | Friday | | [11: Graphs][91] | [11: Graphs][91], slides [3-5][1110305] to [4-8][1110408] ([recording][239]) |
-| 38 | Nov 24 | Monday | | [11: Graphs][91] | [11: Graphs][91], slides [5][11105] to [5-13][1110513] ([recording][240]) |
-|    | Nov 26 | Wednesday | [Lab 10: Huffman coding][10] ([md][30]) / [Tutorial 10: Objective C][50] ([md][70]) | no class (Thanksgiving) |  |
-|    | Nov 28 | Friday | | no class (Thanksgiving) | |
-| 39 | Dec 1 | Monday | [Lab 11: Graphs][11] ([md][31]) / [Tutorial 11: doxygen][51] ([md][71]) | [11: Graphs][91] | [11: Graphs][91], slides [6][11106] to [8-6][1110806] ([recording][241]) |
-| 40 | Dec 3 | Wednesday | | [12: Memory][92] | [11: Graphs][91], slides [8-6][1110806] to [8-14][1110814] (end); [12: Memory][92], slides [1][92] to [3-8][1120308] ([recording][242]) |
-| 41 | Dec 5 | Friday |  | [12: Memory][92], [13: Esoteric PLs][93], [Course conclusion][94] | [12: Memory][92], slides [3-8][1120308] to [3-25][1120325]; [13: Esoteric PLs][93], slides [0][93] to [3-25][1130325]; [Course conclusion][94], slides [0][94] to [9][12009] ([recording][243]) |
-|    | Dec 10 | Wednesday | Final exam review session | Final exam review session | ([recording][244]) |
-|    | Dec 12 | Friday | Final exam from 9:00-noon in Gilmer 130 | Final exam from 9:00-noon in Gilmer 130 | |
+| Num | Date | Day of week | Lab & Tutorial (on Tue) | Planned topic | Actual lecture progress (and recording) | 
+|-----|--------|-------------|----------------------------------------------------------|--------------------------|--------------------------| 
+|1| Jan&nbsp;12 | Monday    | no lab this week | [Course introduction][80] || 
+|2| Jan&nbsp;14 | Wednesday | | [Course introduction][80], [01: C++][81] || 
+|3| Jan&nbsp;16 | Friday    | | [01: C++][81] || 
+|     | Jan&nbsp;19 | Monday    | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | no class (MLK day) || 
+|4| Jan&nbsp;21 | Wednesday | | [01: C++][81] || 
+|5| Jan&nbsp;23 | Friday    | | [01: C++][81] || 
+|6| Jan&nbsp;26 | Monday    | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: GDB][42] ([md][62]) | [01: C++][81] || 
+|7| Jan&nbsp;28 | Wednesday | | [01: C++][81], [02: Lists][82] || 
+|8| Jan&nbsp;30 | Friday    | | [02: Lists][82] || 
+|9| Feb&nbsp;2  | Monday    | [Lab 3: Stacks][3] ([md][23]) / [Tutorial 3: More UNIX, part 1][63], sections 1-4 | [02: Lists][82], [03: Numbers][83] || 
+|10| Feb&nbsp;4  | Wednesday | | [03: Numbers][83] || 
+|11| Feb&nbsp;6  | Friday    | | [03: Numbers][83] || 
+|12| Feb&nbsp;9  | Monday    | [Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8 | [03: Numbers][83] || 
+|13| Feb&nbsp;11 | Wednesday | | [04: Arrays & big-Oh][84] || 
+|14| Feb&nbsp;13 | Friday    | | [04: Arrays & big-Oh][84] || 
+|     | Feb&nbsp;15 | Sunday    | Exam 1 review session | Exam 1 review session || 
+|15| Feb&nbsp;16 | Monday    | Exam 1 instead during Tuesday's lab | [04: Arrays & big-Oh][84], [05: Trees][85] || 
+|16| Feb&nbsp;18 | Wednesday | | [05: Trees][85] || 
+|17| Feb&nbsp;20 | Friday    | | [05: Trees][85] || 
+|18| Feb&nbsp;23 | Monday    | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [05: Trees][85] || 
+|19| Feb&nbsp;25 | Wednesday | | [05: Trees][85] || 
+|20| Feb&nbsp;28 | Friday    | | [06: Hashes][86] || 
+|21| Mar&nbsp;2  | Monday    | | [06: Hashes][86] || 
+|22| Mar&nbsp;4  | Wednesday | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [06: Hashes][86], [07: IBCM][87] (machine language) || 
+|23| Mar&nbsp;6  | Friday    | | [07: IBCM][87] (machine language) || 
+|     | Mar&nbsp;9  | Monday    | | no class (spring break) || 
+|     | Mar&nbsp;11 | Wednesday | | no class (spring break) || 
+|     | Mar&nbsp;13 | Friday    | | no class (spring break) || 
+|24| Mar&nbsp;16 | Monday    | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [07: IBCM][87] (machine language) || 
+|25| Mar&nbsp;18 | Wednesday || [07: IBCM][87] (machine language) || 
+|26| Mar&nbsp;20 | Friday    | | [08: x86][88] (assembly language) || 
+|27| Mar&nbsp;23 | Monday    | | [08: x86][88] (assembly language) || 
+|28| Mar&nbsp;25 | Wednesday | [Lab 8: x86, part 1][8] ([md][28]) / [Tutorial 8: nasm][48], but you can skip some parts; see [here][100]) ([md][101]) for details | [08: x86][88] (assembly language) || 
+|29| Mar&nbsp;27 | Friday    | | [08: x86][88] (assembly language) || 
+|     | Mar&nbsp;29 | Sunday    | Exam 2 review session | Exam 2 review session || 
+|30| Mar&nbsp;30 | Monday    | Exam 2 instead during Tuesday's lab | [08: x86][88], [09: Advanced C++][89] || 
+|31| Apr&nbsp;1  | Wednesday || [09: Advanced C++][89] || 
+|32| Apr&nbsp;3  | Friday    || [09: Advanced C++][89] || 
+|33| Apr&nbsp;6  | Monday    | [Lab 9: x86, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [09: Advanced C++][89], [10: Heaps and Huffman coding][90]|| 
+|34| Apr&nbsp;8  | Wednesday | | [10: Heaps and Huffman coding][90] || 
+|35| Apr&nbsp;10 | Friday    | | [10: Heaps and Huffman coding][90] || 
+|36| Apr&nbsp;13 | Monday    | [Lab 10: Huffman coding][10] ([md][30]) / [Tutorial 10: Objective C][50] ([md][70]) | [10: Heaps and Huffman coding][90], [11: Graphs][91] || 
+|37| Apr&nbsp;15 | Wednesday | | [11: Graphs][91] || 
+|38| Apr&nbsp;17 | Friday    | | [11: Graphs][91] || 
+|39| Apr&nbsp;20 | Monday    | [Lab 11: Graphs][11] ([md][31]) / [Tutorial 11: doxygen][51] ([md][71]) | [11: Graphs][91] || 
+|40| Apr&nbsp;22 | Wednesday || [11: Graphs][91], [12: Memory][92] || 
+|41| Apr&nbsp;24 | Friday    | | [12: Memory][92] || 
+|42| Apr&nbsp;27 | Monday    | [Lab 12: Objective C][12] ([md][32])| [12: Memory][92], [13: Esoteric PLs][93], [Course conclusion][94] || 
+|     |Apr&nbsp;29| Wednesday | Final exam review session | Final exam review session || 
+|     |May&nbsp;1| Friday    |Final exam from 2:00-5:00 in Gilmer 130| Final exam from 2:00-5:00 in Gilmer 130 || 
 
 ------------------------------------------------------------
 
 Grading Concerns
 ----------------
 
-- The curve on [Exam 1](../exams/exam1-f14.pdf) is 15 *percentage* points (or 7.2 points on the exam score out of 48)
-- The curve on [Exam 2](../exams/exam2-f14.pdf) is 15 *percentage* points (or 9.0 points on the exam score out of 60)
-- The curve on the [Final exam](../exams/final-f14.pdf) is 5 *percentage* points (or 4.2 points on the exam score out of 84)
+None yet!
+
 
 [1]: ../labs/lab01/index.html
 [2]: ../labs/lab02/index.html
@@ -204,9 +204,9 @@ Grading Concerns
 [164]: https://libra.cs.virginia.edu/~pedagogy/gradebook.php
 [165]: https://libra.cs.virginia.edu/~pedagogy/labextension.php
 
-[170]: https://collab.itc.virginia.edu/portal/site/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/page/25c10fb2-1f3c-451a-a614-931012320919
-[171]: https://collab.itc.virginia.edu/portal/site/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/page/25e168d5-b7fc-4d8d-a021-4d39eda4e0aa
-[172]: unix-honor-pledge-f14.pdf
+[170]: https://collab.itc.virginia.edu/portal/site/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/page/d7063d9b-9eac-4ace-81ec-ad9bc490773a
+[171]: https://collab.itc.virginia.edu/portal/site/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/page/a2db052c-c714-443e-b1fb-f1706a74f9a3
+[172]: unix-honor-pledge-s15.pdf
 
 [201]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/course-introduction-1/course-introduction-1.htm
 [202]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/01-cpp-1/01-cpp-1.htm

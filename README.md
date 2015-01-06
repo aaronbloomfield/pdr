@@ -1,17 +1,7 @@
 Program and Data Representation
 ===============================
 
-Contents
---------
-
-- [Introduction](#introduction)
-- [Contributing to this repository](#contributing)
-- [Repository contents](#contents)
-- [Course description](#description)
-- [Markdown](#markdown)
-- [Source code](#sourcecode)
-- [Canvas notes](#canvasnotes)
-- [License](#license)
+[Introduction](#introduction) | [Repository contents](#contents) | [Contributing to this repository](#contributing) | [Course description](#description) | [Markdown](#markdown) | [Source code](#sourcecode) | [Canvas notes](#canvasnotes) | [License](#license)
 
 <a name="introduction"></a>Introduction
 ---------------------------------------
@@ -22,23 +12,7 @@ Students *currently* in the course should view the [cs2150/index.html](cs2150/in
 
 Students who were previously in the course may want to view the current version, or you can view the version from your semester.  All semester versions are tagged with an end-of-semester tag of the form "year-semester".  For example, the spring 2014 semester was tagged as `2014-spring`.  To obtain a specific tag, you can enter `git checkout tags/2014-spring` in an already cloned repository.
 
-The primary author is [Aaron Bloomfield](http://www.cs.virginia.edu/~asb) ([aaron@virginia.edu](<mailto:aaron@virginia.edu>), [\@bloomfieldaaron](http://twitter.com/bloomfieldaaron)).  The fall 2014 semester will be the 15th consecutive semester I have taught the course.
-
-
-<a name="contributing"></a>Contributing to this Repository
-----------------------------------------------------------
-
-Updates to the repository are restricted to approved individuals only, to prevent anybody from messing with the slides right before a lecture.  However, others can still contribute to this repository -- to do so, take the following steps:
-
-1. Create a github account, if you do not have one
-2. Fork this repository: you can click on the "Fork" link in the upper right, or just click [here](https://github.com/aaronbloomfield/pdr/fork)
-3. Clone your forked repository on to your local machine
-4. Make any changes you want to your forked version, then commit and push your changes back to your forked repository
-5. Create a pull request, following the instructions [here](https://help.github.com/articles/creating-a-pull-request)
-
-At that point, I will receive a notice that a change has been submitted, and I'll look at it and hopefully accept it into the main repository.
-
-When you want to bring in the updates from the main pdr github repository into your forked repository, you will need to follow the instructions [here](https://help.github.com/articles/syncing-a-fork).
+The primary author is [Aaron Bloomfield](http://www.cs.virginia.edu/~asb) ([aaron@virginia.edu](<mailto:aaron@virginia.edu>), [\@bloomfieldaaron](http://twitter.com/bloomfieldaaron)).  The spring 2015 semester will be the 16th consecutive semester I have taught the course.
 
 
 <a name="contents"></a>Repository Contents
@@ -57,6 +31,22 @@ repository first**
 - [slides](slides/index.html) ([md](slides/index.md)): Contains the slides used in the course.  The slides use [reveal.js](https://github.com/hakimel/reveal.js/), an HTML presentation framework.
 - [tutorials](tutorials/index.html) ([md](tutorials/index.md)): the tutorials that are used as part of the lab assignments, these are primarily Linux tutorials.
 - [utils](utils/index.html) ([md](tutorials/index.md)): various utilities for this repository
+
+<a name="contributing"></a>Contributing to this Repository
+----------------------------------------------------------
+
+Updates to the repository are restricted to approved individuals only, to prevent anybody from messing with the slides right before a lecture.  However, others can still contribute to this repository -- to do so, take the following steps:
+
+1. Create a github account, if you do not have one
+2. Fork this repository: you can click on the "Fork" link in the upper right, or just click [here](https://github.com/aaronbloomfield/pdr/fork)
+3. Clone your forked repository on to your local machine
+4. Make any changes you want to your forked version, then commit and push your changes back to your forked repository
+5. Create a pull request, following the instructions [here](https://help.github.com/articles/creating-a-pull-request)
+
+At that point, I will receive a notice that a change has been submitted, and I'll look at it and hopefully accept it into the main repository.
+
+When you want to bring in the updates from the main pdr github repository into your forked repository, you will need to follow the instructions [here](https://help.github.com/articles/syncing-a-fork).
+
 
 <a name="description"></a>Course Description
 --------------------------------------------
@@ -87,15 +77,14 @@ Note that Github supports an enhanced version of Markdown, called [Github Flavor
 
 All source code is formatted via [astyle](http://astyle.sourceforge.net/) and then highlighted via [source-highlight](http://www.gnu.org/software/src-highlite/source-highlight.html).  Both the original file (foo.cpp) and the highlighted version (foo.cpp.html) are included in the repository.  All links to source code will like to the .html, with a "([src](README.md))" after it to link to the original source code.
 
-- astyle options: `-A2 -s4 -S -xG`
-    - note that the current version of astyle on Ubuntu 12.04 seems to ignore the -xG flag...
+- astyle options: `-A2 -s4 -S`
 - source-highlight options: `-d`
 
 
 <a name="canvasnotes"></a>Canvas notes
 --------------------------------------
 
-To add a canvas to a slide (to allow drawing with a mouse or a stylus), you must do a few things:
+Some of the slides allow pen-based markup of the slides.  To add a canvas to a slide (to allow drawing with a mouse or a stylus), you must do a few things:
 
 1) The slide can NOT be Markdown, it must be all pure HTML
 
@@ -145,6 +134,6 @@ A few other notes:
 
 The material in this repository is released under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/) (CC BY-SA).
 
-Copyright (c) 2013-2014 by Aaron Bloomfield.
+Copyright (c) 2013-2015 by Aaron Bloomfield.
 
 Some parts of this repository are taken, with permission, from other sources.  The full details are in the [License](LICENSE.html) ([md](LICENSE.md)) file.  In particular, some parts of this repository that were obtained elsewhere can not be used for commercial purposes.

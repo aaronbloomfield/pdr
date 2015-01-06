@@ -3,9 +3,9 @@ CS 2150: Program and Data Representation: Course Syllabus
 
 [Go up to the CS 2150 documents page](index.html) ([md](index.md))
 
-### Spring 2014 ###
+### Fall 2014 ###
 
-- M/W/F 11:00-12:00, Gilmer Hall 130
+- M/W/F 12:00-12:50, Gilmer Hall 130
 
 ### Instructor ###
 
@@ -17,11 +17,11 @@ CS 2150: Program and Data Representation: Course Syllabus
 - Announcement feed: [\@UVaCS2150](http://twitter.com/UVaCS2150)
 - TAs and their office hours will be posted on the [CS 2150 Google Calendar](https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York) (which is linked to via Collab); all office hours start the Sunday after classes start
 - Laboratory Meetings (all in Olsson 001):
-    - Section 102: Tuesday, 12:15 pm -- 1:50 pm
-    - Section 103: Tuesday, 3:50 pm -- 5:25 pm
-    - Section 104: Tuesday, 5:30 pm -- 7:05 pm
-    - Section 105: Tuesday, 7:30 pm -- 9:05 pm
-	- Lab sections 101 and 106 will remain closed
+    - Section 101: Tuesday, 3:30 pm -- 5:15 pm
+    - Section 102: Tuesday, 5:30 pm -- 7:15 pm
+    - Section 103: Tuesday, 7:30 pm -- 9:15 pm
+    - Section 104: Tuesday, 11:00 am -- 12:45 pm
+    - Section 105: Tuesday, 1:30 pm -- 3:15 pm
 
 **Course Description:** This course will introduce you to program and data representation from high level concepts to machine level implementation. Data structuring techniques and the representation of data structures during program execution are discussed, as are operations and control structures and their representation during program execution. Representations of numbers, arithmetic operations, arrays, records, recursion, hashing, stacks, queues, trees, graphs, and related concepts are also covered.
 
@@ -54,9 +54,9 @@ We expect that grades will follow the standard decade curve: 90 and above is an 
 
 **Exams:** There will be two midterm exams held during laboratory sessions (combined worth 30% of the final grade) and one final exam (worth 25% of the final grade). Note that we hope (but do not guarantee!) to have the first exam returned before the SEAS drop date of Monday, March 3rd, 2014.
 
-- Midterm Exam 1: Tuesday, September 30th during lab session in Olsson 001
-- Midterm Exam 2: Tuesday, November 11th, during lab session in Olsson 001
-- Final Exam: Friday, December 12th from 9:00 am to 12:00 noon
+- Midterm Exam 1: Tuesday, February 17th, during lab session in Olsson 001
+- Midterm Exam 2: Tuesday, March 31st, during lab session in Olsson 001
+- Final Exam: Friday, May 1st from 2:00 pm to 5:00 pm in Gilmer 130
 
 Under **NO** circumstances will anybody be allowed to take the final exam early.  You may **ONLY** request to take the final exam at a different time if you have a final exam **CONFLICT**, not a busy final exam schedule.  But since it is not a common exam time (as has been in the past), there are not likely to be any conflicts.
 

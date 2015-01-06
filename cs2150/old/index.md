@@ -5,6 +5,12 @@ Program and Data Representation: Old CS 2150 Specific Content
 
 This page contains the CS 2150 specific content from previous semesters.  This information can also be found by viewing the appropriate tag in the git repository.
 
+- Fall 2014
+    - The git tag is `2014-fall`; the direct link to the github repo is [here](https://github.com/aaronbloomfield/pdr/tree/2014-fall)
+    - [Daily announcements](daily-announcements-fall-2014.html)
+    - [Course grade explanations](grades-fall-2014.html) ([md](grades-fall-2014.md))
+
+
 - Spring 2014
     - The git tag is `2014-spring`; the direct link to the github repo is [here](https://github.com/aaronbloomfield/pdr/tree/2014-spring)
     - [Daily announcements](daily-announcements-spring-2014.html)
