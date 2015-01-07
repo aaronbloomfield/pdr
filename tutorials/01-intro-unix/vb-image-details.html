@@ -127,7 +127,7 @@ sudo update-alternatives --set c++ /usr/bin/clang++</code></pre></li>
 </ul>
 <p><strong>Notes</strong></p>
 <ul>
-<li>The guest hard drive reported 5.6 Gb of space used, and 1.4 Gb of space available, prior to distribution of the image. The disk image itself was, after compaction, 6.3 Gb. When compressed via zip, it was 1.9 Gb in size.</li>
+<li>The guest hard drive reported 5.7 Gb of space used, and 8.7 Gb of space available, prior to distribution of the image. The disk image itself was, after compaction, 6.4 Gb. When compressed via zip, it was 2.1 Gb in size.</li>
 <li>The guest additions (the drivers that make Ubuntu in a VirtualBox image work nicely with the host system) were installed by the additional drivers step done before</li>
 <li>Firefox was a recent version, and flash worked right out of the box, along with sound</li>
 <li>The VM may capture the mouse - to uncapture it, you press the &quot;host key&quot;, which is the right Control key on Linux. To have it warn you about what this is, you can reset all warnings via the VirtualBox help menu, and it will warn you about this at boot-up</li>
@@ -147,7 +147,7 @@ sudo update-alternatives --set c++ /usr/bin/clang++</code></pre></li>
 <li><strong>WARNING:</strong> Many people have a <strong><em>lot</em></strong> of files in their Dropbox folder. And if you have 8 Gb of files there, and you install Dropbox on your virtual box image, then it will need to download 8 Gb of files. In addition to taking quite some time, this will also cause the virtual box image to take up an additional 8 Gb of space. And note that the VirtualBox image is set to only 16 Gb, and nearly 8 is taken up by the OS itself.</li>
 </ul>
 <p><strong>Increasing the disk size</strong></p>
-<p>The hard drive is set at 16 Gb, and only XXX is used by the operating system. If you need more space than this, you will have to expand the hard drive. Be careful -- it is easy to accidentally erase the entire hard drive.</p>
+<p>The hard drive size was set at 16 Gb, and about 8.7 Gb is available; the rest is used by the operating system (and the swap partition). If you need more space than this, you will have to expand the hard drive. Be careful -- it is easy to accidentally erase the entire hard drive while doing this!</p>
 <ul>
 <li>The process has two steps: increase the VirtualBox disk image itself, then increase the partition of the guest OS.</li>
 <li>To increase the VirtualBox disk image, power it down, and then run the following command. The size listed is the size in Mb, so 20480 Mb is 20 Gb. The command is: <code>VBoxManage modifyhd &lt;imagefile&gt; --resize 20480</code></li>

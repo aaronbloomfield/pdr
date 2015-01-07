@@ -108,7 +108,7 @@ sudo update-alternatives --set c++ /usr/bin/clang++
 
 **Notes**
 
-- The guest hard drive reported 5.6 Gb of space used, and 1.4 Gb of space available, prior to distribution of the image.  The disk image itself was, after compaction, 6.3 Gb.  When compressed via zip, it was 1.9 Gb in size.
+- The guest hard drive reported 5.7 Gb of space used, and 8.7 Gb of space available, prior to distribution of the image.  The disk image itself was, after compaction, 6.4 Gb.  When compressed via zip, it was 2.1 Gb in size.
 - The guest additions (the drivers that make Ubuntu in a VirtualBox image work nicely with the host system) were installed by the additional drivers step done before
 - Firefox was a recent version, and flash worked right out of the box, along with sound
 - The VM may capture the mouse - to uncapture it, you press the "host key", which is the right Control key on Linux.  To have it warn you about what this is, you can reset all warnings via the VirtualBox help menu, and it will warn you about this at boot-up
@@ -128,7 +128,7 @@ sudo update-alternatives --set c++ /usr/bin/clang++
 
 **Increasing the disk size**
 
-The hard drive is set at 16 Gb, and only XXX is used by the operating system.  If you need more space than this, you will have to expand the hard drive.  Be careful -- it is easy to accidentally erase the entire hard drive.
+The hard drive size was set at 16 Gb, and about 8.7 Gb is available; the rest is used by the operating system (and the swap partition).  If you need more space than this, you will have to expand the hard drive.  Be careful -- it is easy to accidentally erase the entire hard drive while doing this!
 
 - The process has two steps: increase the VirtualBox disk image itself, then increase the partition of the guest OS.
 - To increase the VirtualBox disk image, power it down, and then run the following command.  The size listed is the size in Mb, so 20480 Mb is 20 Gb.  The command is: `VBoxManage modifyhd <imagefile> --resize 20480`
