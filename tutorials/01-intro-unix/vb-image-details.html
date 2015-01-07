@@ -16,8 +16,8 @@
 <ul>
 <li>Create a new VirtualBox image
 <ul>
-<li>which I named &quot;Kubuntu 14.04.1&quot;</li>
-<li>I ensured that the disk size was &quot;dynamically allocated&quot;, and everything else was set at the default</li>
+<li>which I named &quot;Kubuntu 14.04&quot;</li>
+<li>I ensured that the disk size was &quot;dynamically allocated&quot; and was set to 16 Gb (instead of the default 8 Gb); everything else was set at the default</li>
 </ul></li>
 <li>I installed Ubuntu 14.04.1 LTS (32 bit), desktop edition, from the CD image downloaded from http://www.ubuntu.com (the specific image file is <a href="http://releases.ubuntu.com/14.04.1/ubuntu-14.04.1-desktop-i386.iso">here</a>)
 <ul>
@@ -33,9 +33,10 @@
 </ul>
 <p><strong>Program and Data Representation configuration</strong></p>
 <ul>
-<li>installed the other packages: <code>sudo apt-get install clang emacs24 nasm astyle tofrodos source-highlight doxygen doxygen-doc ddd git g++ python-gpgme lldb-3.4</code>
+<li>installed the other packages: <code>sudo apt-get install clang emacs24 nasm astyle tofrodos source-highlight doxygen doxygen-doc ddd git g++ python-gpgme lldb-3.4 gobjc gnustep gnustep-make gnustep-common libgnustep-base-dev</code>
 <ul>
 <li>python-gpgme is a supporting package for Dropbox, in case students want to install that</li>
+<li>the last 5 packages are for Objective C, based on the instructions <a href="http://www.fatvat.co.uk/2010/04/getting-started-with-objective-c-on.html">here</a></li>
 </ul></li>
 <li><p>Ran the following two commands:</p>
 <pre><code>sudo update-alternatives --set cc /usr/bin/clang
@@ -67,7 +68,7 @@ alias xemacs=&#39;emacs&#39;</code></pre></li>
 </ul>
 <p><strong>LAMP configuration</strong></p>
 <ul>
-<li>Installed more packages: <code>sudo apt-get install apache2 php5 php5-cli netbeans phpmyadmin phpunit libmysqlclient-dev mysql-server mysql-client php5-mysql default-jdk openssh-server python-django tk-dev python-mysqldb</code>
+<li>Installed more packages: <code>sudo apt-get install apache2 php5 php5-cli netbeans phpmyadmin phpunit libmysqlclient-dev mysql-server mysql-client php5-mysql default-jdk openssh-server python-django tk-dev python-mysqldb php5-mcrypt php5-intl</code>
 <ul>
 <li>any prompted passwords (such as mysql) are 'password'</li>
 <li>phpmyadmin is only configured with the apache2 server; the default option to the prompted yes/no question was used</li>
@@ -78,6 +79,7 @@ alias xemacs=&#39;emacs&#39;</code></pre></li>
 <li>enabled the URL rewriting apache2 module: <code>sudo a2enmod rewrite</code></li>
 <li>changed the default html directory to &quot;~/html&quot;: edited two files in /etc/apache2/mods-available/: userdir.conf and php5.conf, and changed all instances of 'public_html' to 'html'</li>
 <li>enabled PHP in user directories: comment out the 'php_admin_value engine Off' line in /etc/apache2/mods-available/php5.conf</li>
+<li>enabled two PHP modules needed for CakePHP: <code>sudo php5enmod intl</code> and <code>sudo php5enmod mcrypt</code></li>
 <li>restart apache: <code>sudo service apache2 restart</code></li>
 <li>the 'student' user can already view the apache2 error logs (in /var/log/apache2), but if they couldn't, then they would have to have been added to the 'adm' group (i.e., <code>usermod -a -G adm student</code>, but this requires logging out and logging in for the group change to take effect)</li>
 <li>made a 'html' directory both in ~/student and /etc/skel</li>
@@ -142,7 +144,21 @@ sudo update-alternatives --set c++ /usr/bin/clang++</code></pre></li>
 </ul></li>
 <li>To finish installing dropbox, run <code>dropbox start -i</code>. This will download and install the rest of the dropbox files needed</li>
 <li>To start dropbox, run <code>dropbox start</code>. This first time it will provide a link -- once you go to that link, and log in, it will know which account to link the computer to, and it will start downloading your files.</li>
-<li><strong>WARNING:</strong> Many people have a <strong><em>lot</em></strong> of files in their Dropbox folder. And if you have 8 Gb of files there, and you install Dropbox on your virtual box image, then it will need to download 8 Gb of files. In addition to taking quite some time, this will also cause the virtual box image to take up an additional 8 Gb of space.</li>
+<li><strong>WARNING:</strong> Many people have a <strong><em>lot</em></strong> of files in their Dropbox folder. And if you have 8 Gb of files there, and you install Dropbox on your virtual box image, then it will need to download 8 Gb of files. In addition to taking quite some time, this will also cause the virtual box image to take up an additional 8 Gb of space. And note that the VirtualBox image is set to only 16 Gb, and nearly 8 is taken up by the OS itself.</li>
+</ul>
+<p><strong>Increasing the disk size</strong></p>
+<p>The hard drive is set at 16 Gb, and only XXX is used by the operating system. If you need more space than this, you will have to expand the hard drive. Be careful -- it is easy to accidentally erase the entire hard drive.</p>
+<ul>
+<li>The process has two steps: increase the VirtualBox disk image itself, then increase the partition of the guest OS.</li>
+<li>To increase the VirtualBox disk image, power it down, and then run the following command. The size listed is the size in Mb, so 20480 Mb is 20 Gb. The command is: <code>VBoxManage modifyhd &lt;imagefile&gt; --resize 20480</code></li>
+<li>Note that <code>&lt;imagefile&gt;</code> is the .vdi disk image, and should be the absolute path including the name and extension</li>
+<li>The second step is to resize the guest OS partition. The easiest way to do this is to download a bootable disk image for this purpose. You can use <a href="http://sourceforge.net/projects/gparted/files/gparted-live-stable/">Gparted</a>, which is free. Keep in mind that your guest OS is 32-bit, so you will want the 386 (or 486) version.</li>
+<li>To boot up via the Gparted image, Go to Setings -&gt; Storage. In the &quot;Storage Tree&quot; box, there will be a &quot;Controller: IDE&quot; entry, with an &quot;Empty&quot; line below that; click on the &quot;Empty&quot; line, and select the Gparted disk image (using the blue DVD icon on the right). Click Okay, then start the image. It should start the Gparted disk.</li>
+<li>When Gparted boots, selected the default boot option. In the text-based menus, hit Enter to select the defaults.</li>
+<li>From the GUI, resize your partition. Keep in mind that you will need a 500 Mb swap partition. Hit &quot;Apply&quot; when done.</li>
+<li>Double click on the red &quot;Exit&quot; icon, and select shutdown.</li>
+<li>Back in Settings -&gt; Storage -&gt; Controller: IDE -&gt; Empty, remove that disk from the virtual CD/DVD drive (under the blue DVD icon, select the last option to remove the image). Click OK.</li>
+<li>Boot into Kubuntu normally.</li>
 </ul>
 </body>
 </html>
