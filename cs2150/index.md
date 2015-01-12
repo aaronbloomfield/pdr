@@ -13,7 +13,7 @@ Links
 There are a number of links and other parts of this course that are **NOT** included in this repository.  They are:
 
 - The set of online tools, which can be accessed through Collab or [here][160].
-    - These tools are: [support requests][161], [lab submission][162], [regrades][163], [gradebook][164], and [lab extensions][165]
+    - These tools are: [support requests][161], [lab submission][162], [regrades][163], [gradebook][164], [lab extensions][165], and the [office hours queue][166]
 - The announcements, which are posted to the CS 2150 twitter feed: [\@UVaCS2150][151]
 - The [CS 2150 Google calendar][150]
 - Grading guidelines, which are available in the Collab wiki ([here][171] is the direct link, although Collab login is required)
@@ -203,55 +203,56 @@ None yet!
 [163]: https://libra.cs.virginia.edu/~pedagogy/regrades.php
 [164]: https://libra.cs.virginia.edu/~pedagogy/gradebook.php
 [165]: https://libra.cs.virginia.edu/~pedagogy/labextension.php
+[166]: https://libra.cs.virginia.edu/~pedagogy/queue.php
 
 [170]: https://collab.itc.virginia.edu/portal/site/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/page/d7063d9b-9eac-4ace-81ec-ad9bc490773a
 [171]: https://collab.itc.virginia.edu/portal/site/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/page/a2db052c-c714-443e-b1fb-f1706a74f9a3
 [172]: unix-honor-pledge-s15.pdf
 
-[201]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/course-introduction-1/course-introduction-1.htm
-[202]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/01-cpp-1/01-cpp-1.htm
-[203]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/01-cpp-2/01-cpp-2.htm
-[204]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/01-cpp-3/01-cpp-3.htm
-[205]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/01-cpp-4/01-cpp-4.htm
-[206]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/01-cpp-5/01-cpp-5.htm
-[207]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/02-lists-1/02-lists-1.htm
-[208]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/02-lists-2/02-lists-2.htm
-[209]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/03-numbers-1/03-numbers-1.htm
-[210]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/03-numbers-2/03-numbers-2.htm
-[211]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/03-numbers-3/03-numbers-3.htm
-[212]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/03-numbers-4/03-numbers-4.htm
-[213]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/04-arrays-bigoh-1/04-arrays-bigoh-1.htm
-[214]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/04-arrays-bigoh-2/04-arrays-bigoh-2.htm
-[215]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/exam1-review/exam1-review.htm
-[216]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/05-trees-1/05-trees-1.htm
-[217]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/05-trees-2/05-trees-2.htm
-[218]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/05-trees-3/05-trees-3.htm
-[219]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/05-trees-4/05-trees-4.htm
-[220]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/05-trees-5/05-trees-5.htm
-[221]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/06-hashes-1/06-hashes-1.htm
-[222]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/06-hashes-2/06-hashes-2.htm
-[223]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/07-ibcm-1/07-ibcm-1.htm
-[224]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/07-ibcm-2/07-ibcm-2.htm
-[225]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/07-ibcm-3/07-ibcm-3.htm
-[226]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/07-ibcm-4/07-ibcm-4.htm
-[227]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/08-x86-1/08-x86-1.htm
-[228]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/08-x86-2/08-x86-2.htm
-[229]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/08-x86-3/08-x86-3.htm
-[230]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/08-x86-4/08-x86-4.htm
-[231]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/09-advanced-cpp-1/09-advanced-cpp-1.htm
-[232]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/09-advanced-cpp-2/09-advanced-cpp-2.htm
-[233]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/exam2-review/exam2-review.htm
-[234]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/09-advanced-cpp-3/09-advanced-cpp-3.htm
-[235]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/10-heaps-huffman-1/10-heaps-huffman-1.htm
-[236]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/10-heaps-huffman-2/10-heaps-huffman-2.htm
-[237]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/10-heaps-huffman-3/10-heaps-huffman-3.htm
-[238]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/11-graphs-1/11-graphs-1.htm
-[239]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/11-graphs-2/11-graphs-2.htm
-[240]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/11-graphs-3/11-graphs-3.htm
-[241]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/11-graphs-4/11-graphs-4.htm
-[242]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/12-memory-1/12-memory-1.htm
-[243]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/course-conclusion/course-conclusion.htm
-[244]: https://collab.itc.virginia.edu/access/content/group/e41b1a2b-7c8d-4efc-b0eb-7875133f9d3a/lectures/final-review/final-review.htm
+[201]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/course-introduction-1/course-introduction-1.htm
+[202]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/01-cpp-1/01-cpp-1.htm
+[203]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/01-cpp-2/01-cpp-2.htm
+[204]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/01-cpp-3/01-cpp-3.htm
+[205]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/01-cpp-4/01-cpp-4.htm
+[206]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/01-cpp-5/01-cpp-5.htm
+[207]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/02-lists-1/02-lists-1.htm
+[208]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/02-lists-2/02-lists-2.htm
+[209]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/03-numbers-1/03-numbers-1.htm
+[210]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/03-numbers-2/03-numbers-2.htm
+[211]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/03-numbers-3/03-numbers-3.htm
+[212]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/03-numbers-4/03-numbers-4.htm
+[213]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/04-arrays-bigoh-1/04-arrays-bigoh-1.htm
+[214]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/04-arrays-bigoh-2/04-arrays-bigoh-2.htm
+[215]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/exam1-review/exam1-review.htm
+[216]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/05-trees-1/05-trees-1.htm
+[217]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/05-trees-2/05-trees-2.htm
+[218]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/05-trees-3/05-trees-3.htm
+[219]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/05-trees-4/05-trees-4.htm
+[220]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/05-trees-5/05-trees-5.htm
+[221]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/06-hashes-1/06-hashes-1.htm
+[222]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/06-hashes-2/06-hashes-2.htm
+[223]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/07-ibcm-1/07-ibcm-1.htm
+[224]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/07-ibcm-2/07-ibcm-2.htm
+[225]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/07-ibcm-3/07-ibcm-3.htm
+[226]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/07-ibcm-4/07-ibcm-4.htm
+[227]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/08-x86-1/08-x86-1.htm
+[228]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/08-x86-2/08-x86-2.htm
+[229]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/08-x86-3/08-x86-3.htm
+[230]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/08-x86-4/08-x86-4.htm
+[231]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/09-advanced-cpp-1/09-advanced-cpp-1.htm
+[232]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/09-advanced-cpp-2/09-advanced-cpp-2.htm
+[233]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/exam2-review/exam2-review.htm
+[234]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/09-advanced-cpp-3/09-advanced-cpp-3.htm
+[235]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/10-heaps-huffman-1/10-heaps-huffman-1.htm
+[236]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/10-heaps-huffman-2/10-heaps-huffman-2.htm
+[237]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/10-heaps-huffman-3/10-heaps-huffman-3.htm
+[238]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/11-graphs-1/11-graphs-1.htm
+[239]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/11-graphs-2/11-graphs-2.htm
+[240]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/11-graphs-3/11-graphs-3.htm
+[241]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/11-graphs-4/11-graphs-4.htm
+[242]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/12-memory-1/12-memory-1.htm
+[243]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/course-conclusion/course-conclusion.htm
+[244]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/final-review/final-review.htm
 
 [1050311]: ../slides/05-trees.html#/3/11
 [1050416]: ../slides/05-trees.html#/4/16

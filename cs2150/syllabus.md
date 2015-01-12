@@ -9,7 +9,7 @@ CS 2150: Program and Data Representation: Course Syllabus
 
 ### Instructor ###
 
-[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron) Office: Rice Hall, room 403 Office hours are M/W 2:00-3:30
+[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron) Office: Rice Hall, room 403 Office hours are M/W 1:30-3:00
 
 ### Course Info ###
 
@@ -71,7 +71,7 @@ Please note, however, that there are a number of rules that we will strictly fol
 - Pre-labs are due at the same time for everybody, regardless of your lab section; that time is the beginning of the FIRST Tuesday lab.
 - In-labs are due at the end of your scheduled lab session, regardless of what Collab states.  But see the part about in-lab extensions, next.
 - An in-lab extension (see lab 1 for details about getting one on a given lab) will postpone the in-lab due date until 11:59:59 p.m. on Wednesday evening, regardless of your lab section, as this allows you to attend Wednesday office hours
-- In-labs MUST be done from the lab in Olsson 001, or no credit will be given for the ENTIRE lab.
+- In-labs MUST be done from the lab in Olsson 001, or no credit will be given for the ENTIRE lab (this means you must either submit the lab from that computer, or submit a lab extension from that computer)
 - Any late lab part will receive 25% off (for just that part) for the first 24 hours (or part thereof) that it is late, after which no credit will be given.  Note that a computer program does this deduction -- so if your lab is 1 second late, it still receives 25% off.
 
 The assignments tool does not handle due dates such as "at the end of your lab session" very well -- indeed, the due date is listed as 10 p.m. on Tuesdays.  Note that we have a script that will test the assignment's due date against your lab date, so please be sure to follow the above due dates.
@@ -81,7 +81,7 @@ The assignments tool does not handle due dates such as "at the end of your lab s
 - You need to have a working computer that can run a recent build of [VirtualBox](https://www.virtualbox.org/), with enough hard drive space (and memory) to use a course VirtualBox image (about 10 Gb will be needed for the install, and then 6 Gb  will be used once the installation files are deleted).  Any computer made in the last 3 years will suffice for these requirements (and many older ones will as well).  It doesn't matter if it's a desktop or notebook; nor does the speed matter.
 - There are a few documents that you will have to print (a worksheet with lab 5, the UNIX honor pledge, etc.).  The total printing load will be under 5 pages for the entire semester.  You will need to obtain access to a printer for those pages.
 
-**Attendance:** Attendance in labs is mandatory; attendance in lecture is not (although not attending lecture may affect your participation grade).  Not attending lab will result in a zero for the in-lab.  You cannot change labs without prior permission -- we don't have enough computers to accommodate this.  Please see the first set of lecture slides about lab attendance, in particular with regards to the fact that there is a lab both the week of Thanksgiving break.
+**Attendance:** Attendance in labs is mandatory; attendance in lecture is not (although not attending lecture may affect your participation grade).  Not attending lab will result in a zero for the in-lab.  You cannot change labs without prior permission -- we don't have enough computers to accommodate this.  Please see the first set of lecture slides about lab attendance, in particular with regards to the fact that there is a lab both the week before and after spring break.
 
 **Honor Policy:** There have been a large number of honor violations in this class and other low-level CS courses recently.  Outside the normal UVa honor policy rules, we have these additional rules:
 
