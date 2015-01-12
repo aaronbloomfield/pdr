@@ -54,7 +54,7 @@ The links in the right-most column link directly to the lecture recording on Col
 
 | Num | Date | Day of week | Lab & Tutorial (on Tue) | Planned topic | Actual lecture progress (and recording) | 
 |-----|--------|-------------|----------------------------------------------------------|--------------------------|--------------------------| 
-|1| Jan&nbsp;12 | Monday    | no lab this week | [Course introduction][80] || 
+|1| Jan&nbsp;12 | Monday    | no lab this week | [Course introduction][80] | [course-introduction][80], slides [0][80] to [4-2][1000402] ([recording][201]) | 
 |2| Jan&nbsp;14 | Wednesday | | [Course introduction][80], [01: C++][81] || 
 |3| Jan&nbsp;16 | Friday    | | [01: C++][81] || 
 |     | Jan&nbsp;19 | Monday    | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | no class (MLK day) || 
@@ -254,6 +254,7 @@ None yet!
 [243]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/course-conclusion/course-conclusion.htm
 [244]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/final-review/final-review.htm
 
+[1000402]: ../cs2150/course-introduction.html#/4/2
 [1050311]: ../slides/05-trees.html#/3/11
 [1050416]: ../slides/05-trees.html#/4/16
 [1050417]: ../slides/05-trees.html#/4/17
