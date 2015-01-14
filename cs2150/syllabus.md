@@ -3,7 +3,7 @@ CS 2150: Program and Data Representation: Course Syllabus
 
 [Go up to the CS 2150 documents page](index.html) ([md](index.md))
 
-### Fall 2014 ###
+### Sping 2015 ###
 
 - M/W/F 12:00-12:50, Gilmer Hall 130
 
