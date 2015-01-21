@@ -11,7 +11,8 @@
 <body>
 <h1 id="pdr-lldb-tutorial">PDR: LLDB Tutorial</h1>
 <p><a href="../index.html">Go up to the Tutorials table of contents page</a></p>
-<p>This tutorial is meant to get you used to using the LLVM debugger, lldb. As you read through the first part of the tutorial, you are not expected to remember everything -- there is a reference list at the end of this tutorial, and is also contained on the <a href="../../docs/lldb_summary.html">LLDB command summary</a> page. This tutorial will guide you through the process of using those commands. Lldb is a command-line debugger -- we may see graphical debuggers later in the semester.</p>
+<p>This tutorial is meant to get you used to using the LLVM debugger, lldb. As you read through the first part of the tutorial, you are not expected to remember everything -- there is a reference list at the end of this tutorial, and is also contained on the <a href="../../docs/lldb_summary.html">LLDB command summary</a> page. This tutorial will guide you through the process of using those commands.</p>
+<p>Some terminology: - <code>lldb</code> is a command-line debugger (we may see graphical debuggers later in the semester.) - &quot;LLVM&quot; is the compiler framework that includes many things, including the <code>clang</code> compiler that we are using, as well as <code>lldb</code> - <code>gdb</code> is the debugger that was used in the past, and is often used elsewhere -- it is analgous to <code>lldb</code> in how it works</p>
 <hr />
 <h2 id="part-i-lldb-tutorial">Part I: LLDB Tutorial</h2>
 <h3 id="what-is-a-debugger">What is a Debugger?</h3>
@@ -20,11 +21,13 @@
 <h3 id="compiling-for-debugging">Compiling for Debugging</h3>
 <p>Programs normally have to be compiled with a special option to allow debugging to take place. On UNIX, the option for clang++ is the <code>-g</code> option. For example:</p>
 <pre><code>clang++ -Wall -g -o prog1 prog1.cpp </code></pre>
-<p>We also include the <code>--Wall</code> option, which lists warnings (the 'all' is to list all warnings). Note that this option leads to executable files that are larger and slower, so you may not want to use it for final distributions or time-critical programs. But you can always remove the debugging information from an executable without recompiling it with the <code>strip</code> command. See the man page for <code>strip</code>.</p>
-<p>The -g option causes the compiler to include information about the source file (the .cpp file) that is needed for debugging as part of the executable file. So when you run the debugger, you specify the executable file (not the source file) as the input to the debugger.</p>
+<p>We also include the <code>-Wall</code> option, which lists warnings (the 'all' is to list all warnings). Note that this option leads to executable files that are larger and slower, so you may not want to use it for final distributions or time-critical programs. But you can always remove the debugging information from an executable without recompiling it with the <code>strip</code> command. For more information on that, see the man page for <code>strip</code> (i.e., run <code>man strip</code> from the command line).</p>
+<p>The <code>-g</code> option causes the compiler to include information about the source file (the .cpp file) that is needed for debugging as part of the executable file. This causes the executable to be larger in size, and slightly slower, but allows for debugging. So when you run the debugger, you specify the executable file (not the source file) as the input to the debugger.</p>
 <h3 id="how-to-start-using-lldb-on-our-unix-systems">How to Start Using lldb on our UNIX Systems</h3>
-<p>The LLVM C++ compiler, clang++, has an accompanying debugger: lldb. To run the command-line version, compile your program as described above, and then type:</p>
+<p>The LLVM C++ compiler, clang, has an accompanying debugger: lldb. To run the command-line version, compile your program as described above, and then type:</p>
 <pre><code>lldb prog1</code></pre>
+<p>Note that some systems may have the debugger have a slightly different name:</p>
+<pre><code>lldb-3.4 prog1</code></pre>
 <p>Assuming your executable (created with clang's <code>-o</code> option) was &quot;prog1&quot;. If you didn't use the -o option, then you'll type:</p>
 <pre><code>lldb a.out</code></pre>
 <p>The following sections describe the important types of things you can do with lldb, organized by &quot;category&quot; of activity. These activities and operations will have been implemented in other debuggers you may have used, such as the debuggers that come with various IDEs.</p>

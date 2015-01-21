@@ -3,7 +3,12 @@ PDR: LLDB Tutorial
 
 [Go up to the Tutorials table of contents page](../index.html)
 
-This tutorial is meant to get you used to using the LLVM debugger, lldb.  As you read through the first part of the tutorial, you are not expected to remember everything -- there is a reference list at the end of this tutorial, and is also contained on the [LLDB command summary](../../docs/lldb_summary.html) page.  This tutorial will guide you through the process of using those commands.  Lldb is a command-line debugger -- we may see graphical debuggers later in the semester.
+This tutorial is meant to get you used to using the LLVM debugger, lldb.  As you read through the first part of the tutorial, you are not expected to remember everything -- there is a reference list at the end of this tutorial, and is also contained on the [LLDB command summary](../../docs/lldb_summary.html) page.  This tutorial will guide you through the process of using those commands.
+
+Some terminology:
+- `lldb` is a command-line debugger (we may see graphical debuggers later in the semester.)
+- "LLVM" is the compiler framework that includes many things, including the `clang` compiler that we are using, as well as `lldb`
+- `gdb` is the debugger that was used in the past, and is often used elsewhere -- it is analgous to `lldb` in how it works
 
 ------------------------------------------------------------
 
@@ -24,16 +29,22 @@ Programs normally have to be compiled with a special option to allow debugging t
 clang++ -Wall -g -o prog1 prog1.cpp 
 ```
 
-We also include the `--Wall` option, which lists warnings (the 'all' is to list all warnings).  Note that this option leads to executable files that are larger and slower, so you may not want to use it for final distributions or time-critical programs.  But you can always remove the debugging information from an executable without recompiling it with the `strip` command.  See the man page for `strip`.
+We also include the `-Wall` option, which lists warnings (the 'all' is to list all warnings).  Note that this option leads to executable files that are larger and slower, so you may not want to use it for final distributions or time-critical programs.  But you can always remove the debugging information from an executable without recompiling it with the `strip` command.  For more information on that, see the man page for `strip` (i.e., run `man strip` from the command line).
 
-The -g option causes the compiler to include information about the source file (the .cpp file) that is needed for debugging as part of the executable file.  So when you run the debugger, you specify the executable file (not the source file) as the input to the debugger.
+The `-g` option causes the compiler to include information about the source file (the .cpp file) that is needed for debugging as part of the executable file.  This causes the executable to be larger in size, and slightly slower, but allows for debugging.  So when you run the debugger, you specify the executable file (not the source file) as the input to the debugger.
 
 ### How to Start Using lldb on our UNIX Systems ###
 
-The LLVM C++ compiler, clang++, has an accompanying debugger: lldb.  To run the command-line version, compile your program as described above, and then type:
+The LLVM C++ compiler, clang, has an accompanying debugger: lldb.  To run the command-line version, compile your program as described above, and then type:
 
 ```
 lldb prog1
+```
+
+Note that some systems may have the debugger have a slightly different name:
+
+```
+lldb-3.4 prog1
 ```
 
 Assuming your executable (created with clang's `-o` option) was "prog1".  If you didn't use the -o option, then you'll type:
