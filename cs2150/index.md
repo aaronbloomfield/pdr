@@ -58,7 +58,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |2| Jan&nbsp;14 | Wednesday | | [Course introduction][80], [01: C++][81] | [course-introduction][80], slides [5][10005] to [6-1][1000601] (end); [C++][81], slides [0][81] to [4-4][1010404] ([recording][202]) | 
 |3| Jan&nbsp;16 | Friday    | | [01: C++][81] | [C++][81], slides [5][10105] to [6-8][1010608] ([recording][203]) | 
 |     | Jan&nbsp;19 | Monday    | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | no class (MLK day) || 
-|4| Jan&nbsp;21 | Wednesday | | [01: C++][81] || 
+|4| Jan&nbsp;21 | Wednesday | | [01: C++][81] | [C++][81], slides [7][10107] to [8-16][1010816] ([recording][204]) | 
 |5| Jan&nbsp;23 | Friday    | | [01: C++][81] || 
 |6| Jan&nbsp;26 | Monday    | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: GDB][42] ([md][62]) | [01: C++][81] || 
 |7| Jan&nbsp;28 | Wednesday | | [01: C++][81], [02: Lists][82] || 
@@ -260,6 +260,8 @@ None yet!
 [1010404]: ../slides/01-cpp.html#/4/4
 [10105]: ../slides/01-cpp.html#/5
 [1010608]: ../slides/01-cpp.html#/6/8
+[10107]: ../slides/01-cpp.html#/7
+[1010816]: ../slides/01-cpp.html#/8/16
 [1050311]: ../slides/05-trees.html#/3/11
 [1050416]: ../slides/05-trees.html#/4/16
 [1050417]: ../slides/05-trees.html#/4/17
