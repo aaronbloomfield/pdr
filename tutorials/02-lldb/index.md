@@ -6,6 +6,7 @@ PDR: LLDB Tutorial
 This tutorial is meant to get you used to using the LLVM debugger, lldb.  As you read through the first part of the tutorial, you are not expected to remember everything -- there is a reference list at the end of this tutorial, and is also contained on the [LLDB command summary](../../docs/lldb_summary.html) page.  This tutorial will guide you through the process of using those commands.
 
 Some terminology:
+
 - `lldb` is a command-line debugger (we may see graphical debuggers later in the semester.)
 - "LLVM" is the compiler framework that includes many things, including the `clang` compiler that we are using, as well as `lldb`
 - `gdb` is the debugger that was used in the past, and is often used elsewhere -- it is analgous to `lldb` in how it works
@@ -20,6 +21,30 @@ Part I: LLDB Tutorial
 A debugger is a utility program that allows you to run a program under development while controlling its execution and examining the internal values of variables.  We think of a program running "inside" a debugger.  The debugger allows us to control the execution of the program by pausing its execution and then resuming it.  While paused, we can find out where we are in the program, what values variables have, reset the values of variables, etc.  If a program crashes, the debugger can tell you exactly *where* the program crashsed (something that Java does naturally, but C++ does not).  The principles and commands described in this document are specific to the lldb debuggers for clang++ under UNIX, but every debugger has similar commands.
 
 All computer scientists should learn the basics of debugging and how to use a debugger.  It will save you literally hours of time when finding and fixing problems in your programs.  The few minutes of investment you put into learning how to use a debugger will pay off tremendously in a matter of weeks.  Work smart!
+
+### Sample Program ###
+
+Consider the following buggy program into [prog1.cpp](prog1.cpp.html) ([src](prog1.cpp)):
+
+```
+#include <iostream>
+using namespace std;
+
+void my_subroutine() {
+    cout << "Hello world" << endl;
+}
+
+int main() {
+    int x = 4;
+    int *p = NULL;
+    my_subroutine();
+    *p = 3;
+    cout << x << ", " << *p << endl;
+    return 0;
+}
+```
+
+This program will throw a segmentation fault every time (as we are trying to dereference a `NULL` pointer), but that's fine for what we want to do here.
 
 ### Compiling for Debugging ###
 
@@ -47,7 +72,7 @@ Note that some systems may have the debugger have a slightly different name:
 lldb-3.4 prog1
 ```
 
-Assuming your executable (created with clang's `-o` option) was "prog1".  If you didn't use the -o option, then you'll type:
+This was assuming your executable (created with clang's `-o` option) was "prog1".  If you didn't use the -o option, then you'll type:
 
 ```
 lldb a.out
@@ -71,13 +96,15 @@ In the debugger, you would enter:
 run 100 test1.dat
 ```
 
+Note, however, that the prog1 that we are editing here does not need any comand line parameters.
+
 ### Where Am I? Where Did It Crash? ###
 
 Under UNIX, one of the most frustrating things about running C or C++ programs is that they normally give little useful information when they crash -- usually they just say, 'segmentation fault'.  Part of the reason is that by default the executable file doesn't include information about the source code that is needed to print an error message (like the line number).
 
-But when you run a program inside a debugger, you can easily see what the current line is when a program crashes.  Type `f` or `list` to see the current and surrounding lines.
+But when you run a program inside a debugger, you can easily see what the current line is when a program crashes.  Type `f` to see the current and surrounding lines.
 
-More usefully, you can see a list of the function calls that led you to this point in your program.  Your program may have died deep inside a function that is called many times in your program, and you need to know which sequence of nested functions calls led to the failure.  In the command-line mode, type `backtrace` or `bt` to show this list.  IMPORTANT: this command is one of the most important and useful debugging commands you'll see in this lesson.
+More usefully, you can see a list of the function calls that led you to this point in your program.  Your program may have died deep inside a function that is called many times in your program, and you need to know which sequence of nested functions calls led to the failure.  In the command-line mode, type `backtrace` or `bt` to show this list.  IMPORTANT: this command is one of the most important and useful debugging commands you'll see in this lesson!
 
 While we're talking about reaching a point in a sequence of nested function calls, sometimes in lldb you will need to understand the concept of frames.  When a program stops, you can examine local variables, view lines of code, etc.  that are local to that function.  If you need to move up to the function that called this one, you need to move up to the higher frame using the `up` command to debug there.  The `down` command moves you back down a frame towards where you started.  The up and down commands let you move up and down the calling stack (of nested function calls) so you can issue debug commands about the function that's "active" at each level.
 
@@ -87,15 +114,17 @@ One of the most fundamental things you want to do while debugging is make the pr
 
 In lldb you can set breakpoints by typing either `break` or `b` followed by information on where you want the program to pause.  After the `b` command, you can put either:
 
-- a function name (e.g., `b GetAverage`)
-- a line number (e.g., `b 23`)
-- either of the above preceded by a file name (e.g., `b debug.cpp:23` or `b debug.cpp:GetAverage`)
+- a function name (e.g., `b my_subroutine`)
+- a line number (e.g., `b 12`)
+- either of the above preceded by a file name (e.g., `b prog1.cpp:12` or `b prog1.cpp:my_subroutine`)
 
-Here, the GetAverage() function doesn't start on line 23 (it starts on line 44) -- the breakpoint on line 23 is for the cout statement in the main() function.  We could have also set a breakpoint at the beginning on the GetAverage() function by calling `b 44`.
+Here, the `my_subroutine()` function doesn't start on line 12 (it starts on line 4) -- the breakpoint on line 12 is for the `NULL` pointer dereference in the `main()` function.  We could have also set a breakpoint at the beginning on the my_subroutine() function by calling `b 4`.
 
-At any time you can see information about all the breakpoints that have been defined by entering `breakpoint list`.  You can remove a breakpoint using the `breakpoint delete` command (or just `br del`).  You can delete all breakpoints (`br del`) or a specific one (`br del 1` or `br del GetAverage`).
+At any time you can see information about all the breakpoints that have been defined by entering `breakpoint list` (or `br list`).  You can remove a breakpoint using the `breakpoint delete` command (or just `br del`).  You can delete all breakpoints (`br del`) or a specific one (`br del 1` or `br del my_subroutine`).
 
 Breakpoints stick around until you delete them.  This is handy if you put a breakpoint inside a function that is called more than once or if you put one inside a loop.  You can set a temporary breakpoint with the `tbreak` command; the program pauses the first time, but after it pauses there, that breakpoint is cleared.
+
+An important thing to keep in mind with breakpoints is that if you set a breakpoint for line 12, then the program will pause BEFORE executing that line.
 
 ### Controlling Execution After a Breakpoint ###
 
@@ -120,16 +149,16 @@ To see info on all variables chosen for display, just enter `display`.  To remov
 If you see that a variable has the wrong value, and you'd like to change that value in mid-stream before continuing execution, you can do this easily.  Enter `expr` followed by the type, then the variable, an equals symbol (`=`), and the value or expression.  It's just like a C++ assignment statement but without the semi-colon at the end.  For example:
 
 ```
-expr unsigned int $x=5
+expr x = 5
 ```
 
 The expression can be any C++ expression, including a function call.  So a statement like this is legal:
 
 ```
-expr int $y=countNegValues(list, num)
+expr int y = countNegValues(list, num)
 ```
 
-Assuming you have a countNegValues() method defined, of course.  This would execute your function and then set the variable y to be whatever your function returns.
+Assuming you have a `countNegValues()` method defined, of course.  This would execute your function and then set the variable y to be whatever your function returns.
 
 Sometimes you want to actually execute a function "by hand" while the program is stopped, even if this function isn't what would normally be called at this point in the code.  You can do this using the `set` command as shown above, or by making the function call the argument to the print command.  For example, you could type:
 
@@ -139,13 +168,27 @@ print initQueue(&myQueue)
 
 And the function would be called right now while the program is paused.  This works even if the function returns void.
 
+### Trying these commands out ###
+
+Compile and run the prog1.cpp file shown above; this should segfault.  The problem is on line 12, when it tries to dereference the NULL pointer.
+
+Run it in LLDB with the program (`lldb prog`), and try the following:
+
+- type `run`, and let it run to completion (really until it crashes)
+- try the `bt` and `f` commands
+- set up a break point at line 12, which is the line that is causing the crash
+- type `run`, and confirm that you want to restart the program
+- at the breakpoint, try printing out the value in p (`p p`); note that it is `NULL`
+- set the `p` pointer, which is currently `NULL`, to point to a valud value (the `int` variable `x`): `expr p = &x`
+- enter `c` to let it continue running, and it should finish without crashing this time
+
 ### A few final commands ###
 
 If you find the problem while using the debugger, you may want to exit lldb (by entering `quit`), recompile your source code, and restart lldb.  Be sure to use the `--g` option when recompiling!
 
 ### Final Remarks ###
 
-The best way to learn these commands is to try them out.  Even if you don't use a debugger often, you should make sure you know the basics of breakpoints, single-line execution, and printing a variable's value.  These commands, along with the 'backtrace' command, will be enough for you to solve most of your problems.
+The best way to learn these commands is to try them out.  Even if you don't use a debugger often, you should make sure you know the basics of breakpoints, single-line execution, and printing a variable's value.  These commands, along with the `backtrace` command, will be enough for you to solve most of your problems.
 
 Again, a programmer must know how to use a debugger just like an accountant must know how to use a spreadsheet program or a calculator.  Your professors and your boss will expect it of you.  Remember this before you go see your instructor about a run-time bug next time!  The time you spend now to learn how to use a debugger will save you hours in the future.
 
@@ -160,7 +203,7 @@ We will be using the [debug.cpp](debug.cpp.html) ([src](debug.cpp)) source code.
  
 ### Running the Debugger ###
 
-After you enter the code (remember: if you spot the errors do not correct them -- we will use the debugger to find them!), compile the code.  If you plan on using the debugger, you have to specifically tell clang++ to include debugging information.  To do that, enter the --g flag.  For example, enter:
+After you enter the code (remember: if you spot the errors do not correct them -- we will use the debugger to find them!), compile the code.  If you plan on using the debugger, you have to specifically tell clang++ to include debugging information.  To do that, enter the `-g` flag.  For example, enter:
 
 ```
 clang++ -Wall -g -o lab2 debug.cpp

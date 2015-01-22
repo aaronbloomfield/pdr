@@ -16,7 +16,7 @@ The labs for this course:
 
 - [Lab 2: Linked Lists](lab02/index.html)
     - Source code: [ListNode.h](lab02/ListNode.h.html) ([src](lab02/ListNode.h)), [List.h](lab02/List.h.html) ([src](lab02/List.h)), [ListItr.h](lab02/ListItr.h.html) ([src](lab02/ListItr.h)), [ListTest.cpp](lab02/ListTest.cpp.html) ([src](lab02/ListTest.cpp)),
-    - [Tutorial 2: GDB](../tutorials/02-gdb/index.html) and the necessary [debug.cpp](../tutorials/02-gdb/debug.cpp.html) ([src](../tutorials/02-gdb/debug.cpp))
+    - [Tutorial 2: LLDB](../tutorials/02-lldb/index.html) and the necessary [prog1.cpp](../tutorials/02-lldb/prog1.cpp.html) ([src](../tutorials/02-lldb/prog1.cpp)) and [debug.cpp](../tutorials/02-lldb/debug.cpp.html) ([src](../tutorials/02-lldb/debug.cpp))
 
 &nbsp;
 

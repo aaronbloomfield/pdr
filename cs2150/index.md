@@ -60,7 +60,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |     | Jan&nbsp;19 | Monday    | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | no class (MLK day) || 
 |4| Jan&nbsp;21 | Wednesday | | [01: C++][81] | [C++][81], slides [7][10107] to [8-16][1010816] ([recording][204]) | 
 |5| Jan&nbsp;23 | Friday    | | [01: C++][81] || 
-|6| Jan&nbsp;26 | Monday    | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: GDB][42] ([md][62]) | [01: C++][81] || 
+|6| Jan&nbsp;26 | Monday    | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: LLDB][42] ([md][62]) | [01: C++][81] || 
 |7| Jan&nbsp;28 | Wednesday | | [01: C++][81], [02: Lists][82] || 
 |8| Jan&nbsp;30 | Friday    | | [02: Lists][82] || 
 |9| Feb&nbsp;2  | Monday    | [Lab 3: Stacks][3] ([md][23]) / [Tutorial 3: More UNIX, part 1][63], sections 1-4 | [02: Lists][82], [03: Numbers][83] || 
@@ -141,7 +141,7 @@ None yet!
 
 [40]: ../tutorials/index.html
 [41]: ../tutorials/01-intro-unix/index.html
-[42]: ../tutorials/02-gdb/index.html
+[42]: ../tutorials/02-lldb/index.html
 [43]: ../tutorials/03-04-more-unix/index.html
 [44]: ../tutorials/03-04-more-unix/index.html
 [45]: ../tutorials/05-make/index.html
@@ -153,7 +153,7 @@ None yet!
 [51]: ../tutorials/11-doxygen/index.html
 
 [61]: ../tutorials/01-intro-unix/index.md
-[62]: ../tutorials/02-gdb/index.md
+[62]: ../tutorials/02-lldb/index.md
 [63]: ../tutorials/03-04-more-unix/index.html
 [64]: ../tutorials/03-04-more-unix/index.html
 [65]: ../tutorials/05-make/index.md

@@ -14,7 +14,7 @@ The linked list is a basic data structure from which one can implement stacks, q
 ### Reading(s): ###
 
 1. Readings on [Readings](../../docs/readings.html) page.
-2. [Tutorial 2: GDB](../../tutorials/02-gdb/index.html)
+2. [Tutorial 2: LLDB](../../tutorials/02-lldb/index.html)
 
 Procedure
 ---------
@@ -29,18 +29,18 @@ Procedure
     2. Write a short test harness, TestListNode.cpp, which has a main().  The body of main should test the ListNode constructor. In other words, create some ListNodes in main() using the constructor.
     3. Build and run the test program you just wrote to see if it produces the results you expect.  Some items you will want to check are the initialization of the next and previous pointers and the initial value of value
     4. Use this same general process for List and for ListItr.  For List and ListItr, implement the member functions one at a time and test.  To do this, you will still need to provide "dummy" versions of the other member functions in your .cpp file as placeholders so that the code will build.  **You will need to create a list of test cases to use to test your classes.** The TAs may ask you to test more cases during lab.
-5. Read through the remainder of this document before coming to lab.  Also read the tutorial on Unix debugging (called gdb-tutorial), as we will be using that during the in-lab.
+5. Read through the remainder of this document before coming to lab.  Also read the tutorial on Unix debugging (called lldb-tutorial), as we will be using that during the in-lab.
 6. Make sure you submit all 7 files listed below!  Your code will not compile unless all 7 files are submitted.  Also, if your code does not compile, and you cannot figure out why, comment out the erroneous code until it does compile.  And make sure you have the right filename capitalization!
 7. Files to download: [List.h](List.h.html) ([src](List.h)), [ListNode.h](ListNode.h.html) ([src](ListNode.h)), [ListItr.h](ListItr.h.html) ([src](ListItr.h)), [ListTest.cpp](ListTest.cpp.html) ([src](ListTest.cpp))
 8. Files to submit: ListNode.h/cpp, ListItr.h/cpp, List.h/cpp, ListTest.cpp
 
 ### In-lab ###
 
-1. Carry out [Tutorial 2: GDB](../../tutorials/02-gdb/index.html) on how to use Unix debuggers.  The debugger is an important tool that you will use extensively throughout the semester to debug your code.  You will need to download the debug.cpp file for the tutorial.
+1. Carry out [Tutorial 2: LLDB](../../tutorials/02-lldb/index.html) on how to use Unix debuggers.  The debugger is an important tool that you will use extensively throughout the semester to debug your code.  You will need to download the prog1.cpp and debug.cpp files for the tutorial.
 2. In the future, if you have a post-compilation problem with your program (crash, etc.), the TAs will not help you until you have run it through the debugger and learned all that can be learned from this.  So make sure you understand the tutorial!
-3. Submit your debugged version of debug.cpp to inlab2.  Remember the standard identifying header information.
+3. Submit your debugged version of debug.cpp to inlab2; we are not submitting prog1.cpp.  Remember the standard identifying header information.
 4. Verify to yourself that your methods are working properly with your linked list code using the debugger that you just learned about.  If you have not yet completed your linked list implementation, use the debugger to help you identify the issues/problems with parts of your current implementation.  You should do this by using the simple test cases that you used in the pre-lab.  Consult with a TA if you have questions.
-5. Files to download: [debug.cpp](../../tutorials/02-gdb/debug.cpp.html) ([src](../../tutorials/02-gdb/debug.cpp))
+5. Files to download: [prog1.cpp](../../tutorials/02-lldb/prog1.cpp.html) ([src](../../tutorials/02-lldb/prog1.cpp)), [debug.cpp](../../tutorials/02-lldb/debug.cpp.html) ([src](../../tutorials/02-lldb/debug.cpp))
 6. Files to submit: debug.cpp
 
 ### Post-lab ###
@@ -191,7 +191,7 @@ These are the same steps from the lab procedure section, above.
 2. In the future, if you have a post-compilation problem with your program (crash, etc.), the **TAs will not help you until you have run it through the debugger** and learned all that can be learned from this.  So make sure you understand the tutorial!
 3. Submit your debugged version of debug.cpp to inlab2.  Remember the standard identifying header information.
 4. Verify to yourself that your methods are working properly with your linked list code using the debugger that you just learned about.  If you have not yet completed your linked list implementation, use the debugger to help you identify the issues/problems with parts of your current implementation.  You should do this by using the simple test cases that you used in the pre-lab.  Consult with a TA if you have questions.
-5. Files to download: [debug.cpp](../../tutorials/02-gdb/debug.cpp.html) ([src](../../tutorials/02-gdb/debug.cpp))
+5. Files to download: [prog1.cpp](../../tutorials/02-lldb/prog1.cpp.html) ([src](../../tutorials/02-lldb/prog1.cpp)), [debug.cpp](../../tutorials/02-lldb/debug.cpp.html) ([src](../../tutorials/02-lldb/debug.cpp))
 6. Files to submit: debug.cpp
 
 ------------------------------------------------------------
