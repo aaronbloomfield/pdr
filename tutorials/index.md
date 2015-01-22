@@ -19,7 +19,7 @@ The tutorials for this course are listed below.
 - Tutorial 7: Shell scripting, part 2
     - This is the remainder of the [Wikibooks article on Bash Shell Scripting](http://en.wikibooks.org/wiki/Bash_Shell_Scripting)
 - Tutorial 8: nasm
-    - This is online [here](http://cs.lmu.edu/~ray/notes/nasmexamples/).  You can skip a few of the sections (feel free to look at them if interested, but they are not needed): Floating Point Instructions, SIMD Parallelism, Saturated Arithmetic, and Graphics.
+    - This is online [here](https://web.archive.org/web/20120414223112/http://www.cs.lmu.edu/~ray/notes/nasmexamples).  You can skip a few of the sections (feel free to look at them if interested, but they are not needed): Floating Point Instructions, SIMD Parallelism, Saturated Arithmetic, and Graphics.
 - [Tutorial 9: C](09-c/index.html)
 - [Tutorial 10: Objective C](10-objc/index.html)
     - Source code: [helloworld.m](10-objc/helloworld.m.html) ([src](10-objc/helloworld.m))
