@@ -974,6 +974,37 @@ ret             ; pop top value from stack, jump there
 </table>
 	  </section>
 
+	  <section>
+	    <h2>Animation</h2>
+
+<table class="transparent">
+<tr><th>Code</th><th>...</th><th>Anim</th></tr>
+<tr><td><pre><code>push ebp
+mov ebp, esp
+sub esp, 4
+push ebx
+push esi
+mov eax, [ebp+8]
+mov esi, [ebp+12]
+mov ebx, [ebp+16]
+mov [ebp-4], ebx
+add [ebp-4], esi
+mov eax, [ebp-4]
+pop esi
+pop ebx
+mov esp, ebp
+pop ebp
+ret
+</code></pre>
+</td><td>&nbsp;</td><td>...</td></tr>
+</table>
+	  </script></section>
+
+
+
+	  </section>
+
+
 	</section>
 
 
