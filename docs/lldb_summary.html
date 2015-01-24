@@ -48,12 +48,11 @@
 <li><code>print *(ptr)</code>: print the destination of a pointer</li>
 <li><code>x/(format) (var/address)</code>: format controls how the memory should be displayed, and consists of (up to) 3 components: a numeric count of how many elements to display; a single-character format, indicating how to interpret and display each element -- e.g. a few of the flags are <code>x/x</code> displays in hex, <code>x/d</code> displays in signed decimals, <code>x/c</code> displays in characters, <code>x/i</code> displays in instructions, and <code>x/s</code> displays in C strings; and a single-character size, indicating the size of each element to display -- e.g. b, h, w, and g, for one-, two-, four-, and eight-byte blocks, respectively. You can have multiple at a time, e.g. <code>x/30x (var/address)</code> will display 30 elements in hexidecimal from the provided <code>var/address</code> OR if no <code>var/address</code> is provided, from the top of the stack.</li>
 <li><code>frame variable</code>: display all the args and the local variables and their values for their current frame</li>
-<li><code>frame variable --no-args</code>: display all the local variables and their values for the current frame</li>
 <li><code>display (var)</code>: always display the value in (var) whenever the program pauses</li>
 <li><code>display</code>: show the variables that have been entered with <code>display</code> and their numeric IDs</li>
 <li><code>undisplay (num)</code>: stop displaying the variable with numeric ID num</li>
 <li><code>print function_call(params)</code>: execute the function, and print the result</li>
-<li><code>expr (type) $(var) = (value)</code>: set the variable (var) of type (type) to the value (value) -- e.g. <code>expr unsigned int $foo = 5</code></li>
+<li><code>expr (var) = (value)</code>: set the variable (var) to the value (value) -- e.g. <code>expr foo = 5</code></li>
 </ul>
 </body>
 </html>

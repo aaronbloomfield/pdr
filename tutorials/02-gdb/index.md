@@ -23,8 +23,9 @@ Some terminology:
 
 Note that the gdb debugger is desgined to work with a different
 compiler (g++).  However, the lldb debugger, which is designed to work
-with clang++, does not work on an Ubuntu VirtualBox installation.
-Thus, we are going to use gdb instead of lldb.
+with clang++, does not work on an Ubuntu VirtualBox installation (see
+[here](http://llvm.org/bugs/show_bug.cgi?id=20446) for the bug tracker
+about this issue).  Thus, we are going to use gdb instead of lldb.
 
 ------------------------------------------------------------
 
@@ -198,7 +199,8 @@ the `b` command, you can put either:
 
 - a function name (e.g., `b my_subroutine`)
 - a line number (e.g., `b 12`)
-- either of the above preceded by a file name (e.g., `b prog1.cpp:12` or `b prog1.cpp:my_subroutine`)
+- either of the above preceded by a file name (e.g., `b prog1.cpp:12`
+  or `b prog1.cpp:my_subroutine`)
 
 Here, the `my_subroutine()` function doesn't start on line 12 (it
 starts on line 4) -- the breakpoint on line 12 is for the `NULL`
@@ -540,7 +542,11 @@ you have only one breakpoint set up at line that GetAverage() is
 called, run your code (`run`).  It will run normally (we'll enter the
 same values: 2, 4, 6, 8, 10) until it hits the breakpoint.
 
-Press the Step Into button (`s`).  Execution of the program now passes to the first line of the function GetAverage().  Entering `bt` will show the series of function calls that got us to this point.  We can now use the step over command (`n`) to step through the function and identify the errors.
+Press the Step Into button (`s`).  Execution of the program now passes
+to the first line of the function GetAverage().  Entering `bt` will
+show the series of function calls that got us to this point.  We can
+now use the step over command (`n`) to step through the function and
+identify the errors.
 
 A word of caution: using the step into command at the wrong time may
 cause the debugger to load and display either assembly language or
@@ -575,3 +581,6 @@ Part III: Summary of gdb commands
 
 These commands are listed on the
 [GDB command summary](../../docs/gdb_summary.html) page.
+
+You can see a difference between the comamnds of lldb and gdb on the
+[GDB vs LLDB commands](../../docs/gdb_vs_lldb.html) page.

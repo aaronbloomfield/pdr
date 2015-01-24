@@ -18,8 +18,13 @@
 <h3 id="readings">Reading(s):</h3>
 <ol style="list-style-type: decimal">
 <li>Readings on <a href="../../docs/readings.html">Readings</a> page.</li>
-<li><a href="../../tutorials/02-lldb/index.html">Tutorial 2: LLDB</a></li>
+<li><a href="../../tutorials/02-lldb/index.html">Tutorial 2: LLDB</a> <strong><em>OR</em></strong> <a href="../../tutorials/02-gdb/index.html">Tutorial 2: GDB</a>; see below as to which one to choose.</li>
 </ol>
+<h3 id="debugger-choice">Debugger Choice</h3>
+<p>In this lab, you will have to make a choice as to which debugger to use; this will affect which tutorial you carry out. You can choose the gdb debugger (you would then complete <a href="../../tutorials/02-gdb/index.html">Tutorial 2: GDB</a>) or the lldb debugger (you would then complete <a href="../../tutorials/02-lldb/index.html">Tutorial 2: LLDB</a>). The source code provided for each tutorial is exaclty the same, and the deliverable (i.e., what you turn in) is likewise the exact same.</p>
+<p>The lldb debugger is preferred, as it was built with the <code>clang++</code> compiler that we are using. <strong><em>HOWEVER</em></strong>, it does not work with the Ubuntu VirtualBox image. You can see <a href="http://llvm.org/bugs/show_bug.cgi?id=20446">here</a> for the bug tracker about this issue. So if you are using the provided Ubuntu VirtualBox image, then you <strong><em>MUST</em></strong> choose gdb.</p>
+<p>Utlimately, either one is fine to choose; they were designed to be very similar and have essentially identical functionality. If you have only one installed on your machine (which may be the case for those using Mac OS X), then choose that one. Both are installed on the lab computers. So it's not all that critical a decision. Just remember which one you choose, as you will end up using that debugger throughout this course. And if you ever have to swtich between them, you can use our <a href="../../docs/gdb_vs_lldb.html">GDB vs LLDB</a> page to see the (relatively few) commands that are different between the two.</p>
+<p>So this is a low stress choice. Pick one and don't worry about making the &quot;right&quot; or &quot;wrong&quot; decision.</p>
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
 <ol style="list-style-type: decimal">
@@ -33,14 +38,14 @@
 <li>Build and run the test program you just wrote to see if it produces the results you expect. Some items you will want to check are the initialization of the next and previous pointers and the initial value of value</li>
 <li>Use this same general process for List and for ListItr. For List and ListItr, implement the member functions one at a time and test. To do this, you will still need to provide &quot;dummy&quot; versions of the other member functions in your .cpp file as placeholders so that the code will build. <strong>You will need to create a list of test cases to use to test your classes.</strong> The TAs may ask you to test more cases during lab.</li>
 </ol></li>
-<li>Read through the remainder of this document before coming to lab. Also read the tutorial on Unix debugging (called lldb-tutorial), as we will be using that during the in-lab.</li>
+<li>Read through the remainder of this document before coming to lab. Also read the tutorial on Unix debugging, as we will be using that during the in-lab.</li>
 <li>Make sure you submit all 7 files listed below! Your code will not compile unless all 7 files are submitted. Also, if your code does not compile, and you cannot figure out why, comment out the erroneous code until it does compile. And make sure you have the right filename capitalization!</li>
 <li>Files to download: <a href="List.h.html">List.h</a> (<a href="List.h">src</a>), <a href="ListNode.h.html">ListNode.h</a> (<a href="ListNode.h">src</a>), <a href="ListItr.h.html">ListItr.h</a> (<a href="ListItr.h">src</a>), <a href="ListTest.cpp.html">ListTest.cpp</a> (<a href="ListTest.cpp">src</a>)</li>
 <li>Files to submit: ListNode.h/cpp, ListItr.h/cpp, List.h/cpp, ListTest.cpp</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
 <ol style="list-style-type: decimal">
-<li>Carry out <a href="../../tutorials/02-lldb/index.html">Tutorial 2: LLDB</a> on how to use Unix debuggers. The debugger is an important tool that you will use extensively throughout the semester to debug your code. You will need to download the prog1.cpp and debug.cpp files for the tutorial.</li>
+<li>Carry out <a href="../../tutorials/02-lldb/index.html">Tutorial 2: LLDB</a> OR <a href="../../tutorials/02-gdb/index.html">Tutorial 2: GDB</a> on how to use Unix debuggers. The debugger is an important tool that you will use extensively throughout the semester to debug your code. You will need to download the prog1.cpp and debug.cpp files for the tutorial.</li>
 <li>In the future, if you have a post-compilation problem with your program (crash, etc.), the TAs will not help you until you have run it through the debugger and learned all that can be learned from this. So make sure you understand the tutorial!</li>
 <li>Submit your debugged version of debug.cpp to inlab2; we are not submitting prog1.cpp. Remember the standard identifying header information.</li>
 <li>Verify to yourself that your methods are working properly with your linked list code using the debugger that you just learned about. If you have not yet completed your linked list implementation, use the debugger to help you identify the issues/problems with parts of your current implementation. You should do this by using the simple test cases that you used in the pre-lab. Consult with a TA if you have questions.</li>
@@ -155,9 +160,9 @@ List&amp; List::operator=(const List&amp; source) { //Equals operator
 <h2 id="in-lab-1">In-lab</h2>
 <p>These are the same steps from the lab procedure section, above.</p>
 <ol style="list-style-type: decimal">
-<li>Carry out the tutorial on how to use Unix debuggers. The debugger is an important tool that you will use extensively throughout the semester to debug your code. You will need to download the debug.cpp file for the tutorial.</li>
-<li>In the future, if you have a post-compilation problem with your program (crash, etc.), the <strong>TAs will not help you until you have run it through the debugger</strong> and learned all that can be learned from this. So make sure you understand the tutorial!</li>
-<li>Submit your debugged version of debug.cpp to inlab2. Remember the standard identifying header information.</li>
+<li>Carry out <a href="../../tutorials/02-lldb/index.html">Tutorial 2: LLDB</a> OR <a href="../../tutorials/02-gdb/index.html">Tutorial 2: GDB</a> on how to use Unix debuggers. The debugger is an important tool that you will use extensively throughout the semester to debug your code. You will need to download the prog1.cpp and debug.cpp files for the tutorial.</li>
+<li>In the future, if you have a post-compilation problem with your program (crash, etc.), the TAs will not help you until you have run it through the debugger and learned all that can be learned from this. So make sure you understand the tutorial!</li>
+<li>Submit your debugged version of debug.cpp to inlab2; we are not submitting prog1.cpp. Remember the standard identifying header information.</li>
 <li>Verify to yourself that your methods are working properly with your linked list code using the debugger that you just learned about. If you have not yet completed your linked list implementation, use the debugger to help you identify the issues/problems with parts of your current implementation. You should do this by using the simple test cases that you used in the pre-lab. Consult with a TA if you have questions.</li>
 <li>Files to download: <a href="../../tutorials/02-lldb/prog1.cpp.html">prog1.cpp</a> (<a href="../../tutorials/02-lldb/prog1.cpp">src</a>), <a href="../../tutorials/02-lldb/debug.cpp.html">debug.cpp</a> (<a href="../../tutorials/02-lldb/debug.cpp">src</a>)</li>
 <li>Files to submit: debug.cpp</li>

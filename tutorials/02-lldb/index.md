@@ -1,5 +1,5 @@
 PDR: LLDB Tutorial
-=================
+==================
 
 [Go up to the Tutorials table of contents page](../index.html)
 
@@ -254,8 +254,7 @@ variable or expression is a pointer or an address, you can print the
 value that this address references using the `print *` command (i.e.
 `print *foo`).  In addition, you can enter `frame variable` to see all
 the arguments and local variables (and their values)
-displayed. Entering `frame variable --no-args` will *only* display the
-local variables and their values.
+displayed.
 
 It is often handy to have the debugger automatically display one or
 more variable values at all times so you could watch how they
@@ -454,16 +453,15 @@ the programmer can see if the variables are changing the way that they
 are intended to change, and to see if the program is doing the things
 that were intended.
 
-The `frame variable --no-args` command will show all the local
-variables of the current scope of execution.  Which variables are
-displayed will change as the program executes, always showing the most
-recently defined variables, values returned from functions, and
-changed or referenced variables.  When our test program hits the
-breakpoint, two variables are shown: nCount and nValues.  nCount will
-be some random integer which reflects the contents of that memory
-location at the beginning of the program.  The nValues variable looks
-different -- it's an array, so the entire contents of the array are
-shown.
+The `frame variable` command will show all the local variables of the
+current scope of execution.  Which variables are displayed will change
+as the program executes, always showing the most recently defined
+variables, values returned from functions, and changed or referenced
+variables.  When our test program hits the breakpoint, two variables
+are shown: nCount and nValues.  nCount will be some random integer
+which reflects the contents of that memory location at the beginning
+of the program.  The nValues variable looks different -- it's an
+array, so the entire contents of the array are shown.
 
 ### Stepping through the Code ###
 
@@ -578,3 +576,6 @@ Part III: Summary of lldb commands
 
 These commands are listed on the
 [LLDB command summary](../../docs/lldb_summary.html) page.
+
+You can see a difference between the comamnds of lldb and gdb on the
+[GDB vs LLDB commands](../../docs/gdb_vs_lldb.html) page.

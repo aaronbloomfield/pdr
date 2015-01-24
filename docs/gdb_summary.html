@@ -25,6 +25,7 @@
 <li><code>start</code>: starts a program execution, and breaks when it enters the main() function</li>
 <li><code>bt</code>: prints a back trace, which is the list of function calls that got to the current point</li>
 <li><code>list</code>: shows the lines of source code before and after the point at which the program paused</li>
+<li><code>list (function)</code>: prints the lines of code around (function) or the current breakpoint otherwise if no (function) is provided.</li>
 <li><code>up</code>: move up the back trace function stack list</li>
 <li><code>down</code>: move down the back trace function stack list</li>
 <li><code>step</code> (or just <code>s</code>): step INTO the next line of code to execute</li>
@@ -40,7 +41,6 @@
 <li><code>info break</code>: show breakpoints</li>
 <li><code>delete</code> (or just <code>d</code>): deletes all breakpoints</li>
 <li><code>delete (num)</code>: delete the breakpoint indicated by (num)</li>
-<li><code>clear (pos)</code>: clear a breakpoint, where (pos) is either a function name or line number</li>
 </ul>
 <p>Examining data</p>
 <ul>
@@ -53,7 +53,7 @@
 <li><code>display</code>: show the variables that have been entered with <code>display</code> and their numeric IDs</li>
 <li><code>undisplay (num)</code>: stop displaying the variable with numeric ID num</li>
 <li><code>print function_call(params)</code>: execute the function, and print the result</li>
-<li><code>set variable (var) = (value)</code>: set the variable (var) to the value (value)</li>
+<li><code>set variable (var) = (value)</code>: set the variable (var) to the value (value) -- e.g. <code>set variable foo = 5</code></li>
 </ul>
 </body>
 </html>

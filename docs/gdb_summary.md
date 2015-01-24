@@ -17,6 +17,7 @@ Program execution
 - `start`: starts a program execution, and breaks when it enters the main() function
 - `bt`: prints a back trace, which is the list of function calls that got to the current point
 - `list`: shows the lines of source code before and after the point at which the program paused
+- `list (function)`: prints the lines of code around (function) or the current breakpoint otherwise if no (function) is provided.
 - `up`: move up the back trace function stack list
 - `down`: move down the back trace function stack list
 - `step` (or just `s`): step INTO the next line of code to execute
@@ -32,7 +33,6 @@ Breakpoints
 - `info break`: show breakpoints
 - `delete` (or just `d`): deletes all breakpoints
 - `delete (num)`: delete the breakpoint indicated by (num)
-- `clear (pos)`: clear a breakpoint, where (pos) is either a function name or line number
 
 Examining data
 
@@ -45,4 +45,4 @@ Examining data
 - `display`: show the variables that have been entered with `display` and their numeric IDs
 - `undisplay (num)`: stop displaying the variable with numeric ID num
 - `print function_call(params)`: execute the function, and print the result
-- `set variable (var) = (value)`: set the variable (var) to the value (value)
+- `set variable (var) = (value)`: set the variable (var) to the value (value) -- e.g. `set variable foo = 5`

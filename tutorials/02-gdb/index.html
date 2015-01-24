@@ -19,7 +19,7 @@
 <li>&quot;LLVM&quot; is the compiler framework that includes many things, including a compiler (<code>clang++</code>) as well as the debugger <code>lldb</code></li>
 <li><code>lldb</code> is the debugger that is often used elsewhere -- it is analgous to <code>gdb</code> in how it works</li>
 </ul>
-<p>Note that the gdb debugger is desgined to work with a different compiler (g++). However, the lldb debugger, which is designed to work with clang++, does not work on an Ubuntu VirtualBox installation. Thus, we are going to use gdb instead of lldb.</p>
+<p>Note that the gdb debugger is desgined to work with a different compiler (g++). However, the lldb debugger, which is designed to work with clang++, does not work on an Ubuntu VirtualBox installation (see <a href="http://llvm.org/bugs/show_bug.cgi?id=20446">here</a> for the bug tracker about this issue). Thus, we are going to use gdb instead of lldb.</p>
 <hr />
 <h2 id="part-i-gdb-tutorial">Part I: GDB Tutorial</h2>
 <h3 id="what-is-a-debugger">What is a Debugger?</h3>
@@ -191,5 +191,6 @@ Breakpoint 1, main () at debug.cpp:23
 <hr />
 <h2 id="part-iii-summary-of-gdb-commands">Part III: Summary of gdb commands</h2>
 <p>These commands are listed on the <a href="../../docs/gdb_summary.html">GDB command summary</a> page.</p>
+<p>You can see a difference between the comamnds of lldb and gdb on the <a href="../../docs/gdb_vs_lldb.html">GDB vs LLDB commands</a> page.</p>
 </body>
 </html>

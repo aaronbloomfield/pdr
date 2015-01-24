@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>GDB vs LLDB</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../markdown.css" type="text/css" />
+</head>
+<body>
+<h1 id="gdb-vs-lldb">GDB vs LLDB</h1>
+<p><a href="index.html">Go up to the main documents page</a> (<a href="index.md">md</a>)</p>
+<p>Both gdb and lldb are excellent debuggers. GDB is part of the GNU framework, and was created to work alongside of <code>g++</code>, which is the GNU C++ compiler. LLDB is part of the LLVM framework, and was created to work alongside of <code>clang++</code>, which is the LLVM C++ compiler.</p>
+<p>Ideally, you would use the debugger of the same framework that the compiler is part of. However, a bug with LLVM prevents it from working inside a Ubuntu VirtualBox image (see <a href="http://llvm.org/bugs/show_bug.cgi?id=20446">here</a> for the bug tracker about this issue). Thus, we are going to use gdb instead of lldb, even though we will continue to use the clang++ compiler.</p>
+<p>Both debuggers can debug code compiled by either compiler. The only real differences, as far as this class is concerned, have to do with some of the commands. There are other differences between the debuggers, but those differences are not commands that we will see in this course. The full list of commands can be found on the <a href="gdb_summary.html">GDB command summary</a> page and the <a href="lldb_summary.html">LLDB command summary</a> page.</p>
+<p>The majority of the commands are the same; this document only highlights the commands that are different between the two debuggers. The categories listed below match those on the two specific debugger pages (<a href="gdb_summary.html">GDB command summary</a> and <a href="lldb_summary.html">LLDB command summary</a>).</p>
+<hr />
+<p>Assembly-specific commands</p>
+<ul>
+<li>displaying the values in the registers: <code>info registers</code> for gdb, <code>registers read</code> for lldb</li>
+<li>set the assembly output format to what we are used to in class (and what we are programming in): <code>set disassembly-flavor intel</code> for gdb, <code>settings set target.x86-disassembly-flavor intel</code> for lldb</li>
+<li>prints the assembly code for the supplied function (up until the next label): <code>disassemble (function)</code> for gdb, <code>disassemble --name (function)</code> for lldb</li>
+</ul>
+<p>Program execution</p>
+<ul>
+<li>starts a program execution, and breaks when it enters the main() function: <code>start</code> in gdb; there is no direct equivalent in lldb (but you can do it via two commands: <code>b main</code> and <code>run</code>)</li>
+<li>shows the lines of source code before and after the point at which the program paused: <code>list</code> in gdb, <code>f</code> in lldb</li>
+</ul>
+<p>Breakpoints</p>
+<ul>
+<li>show breakpoints: <code>info break</code> in gdb, <code>breakpoint list</code> in lldb</li>
+<li>delete all breakpoints: <code>delete</code> (or just <code>d</code>) in gdb, <code>breakpoint delete</code> in lldb</li>
+<li>delete the breakpoint indicated by (num): <code>delete (num)</code> in gdb, <code>breakpoint delete (num)</code> in lldb</li>
+</ul>
+<p>Examining data</p>
+<ul>
+<li>display all the local variables and their values: <code>info locals</code> in gdb, <code>frame variable</code> in lldb</li>
+<li>set the variable (var) to the value (value): <code>set variable (var) = (value)</code> in gdb, <code>expr (var) = (value)</code> in lldb</li>
+</ul>
+</body>
+</html>
