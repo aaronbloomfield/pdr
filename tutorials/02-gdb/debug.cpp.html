@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.6
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>debug.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">//----------------------------------------------------------------------</font></i>
+<i><font color="#9A1900">// This program reads five numbers from the keyboard, and prints out the</font></i>
+<i><font color="#9A1900">// average and the maximum value</font></i>
+<i><font color="#9A1900">//----------------------------------------------------------------------</font></i>
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<i><font color="#9A1900">// Global Constants</font></i>
+<b><font color="#0000FF">const</font></b> <font color="#009900">int</font> MAX <font color="#990000">=</font> <font color="#993399">5</font><font color="#990000">;</font>
+
+<i><font color="#9A1900">// Function Prototypes</font></i>
+<font color="#009900">double</font> <b><font color="#000000">GetAverage</font></b><font color="#990000">(</font> <font color="#009900">int</font> nIn<font color="#990000">[],</font> <font color="#009900">int</font> nMax<font color="#990000">);</font>
+<font color="#009900">int</font> <b><font color="#000000">GetMax</font></b><font color="#990000">(</font> <font color="#009900">int</font> nIn<font color="#990000">[],</font> <font color="#009900">int</font> nMax <font color="#990000">);</font>
+
+
+<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+
+    <font color="#009900">int</font> nValues<font color="#990000">[</font>MAX<font color="#990000">];</font>
+    <font color="#009900">int</font> nCount<font color="#990000">;</font>
+
+    <i><font color="#9A1900">// Display a prompt:</font></i>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Enter five numbers: "</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+
+    <i><font color="#9A1900">// First we read in the numbers.</font></i>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> nCount <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> nCount <font color="#990000">&lt;</font> MAX<font color="#990000">;</font> nCount<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Enter the next number : "</font><font color="#990000">;</font>
+        cin <font color="#990000">&gt;&gt;</font> nValues<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">];</font>
+    <font color="#FF0000">}</font>
+
+    <i><font color="#9A1900">// Now we echo the input back to the user</font></i>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> nCount <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font> nCount <font color="#990000">&lt;</font> MAX<font color="#990000">;</font> nCount<font color="#990000">++)</font> <font color="#FF0000">{</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Value [ "</font> <font color="#990000">&lt;&lt;</font> nCount <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"] is : "</font> <font color="#990000">&lt;&lt;</font> nValues<font color="#990000">[</font>nCount<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
+    <i><font color="#9A1900">// Now lets call a function to get the average:</font></i>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The average is "</font> <font color="#990000">&lt;&lt;</font> <b><font color="#000000">GetAverage</font></b><font color="#990000">(</font>nValues<font color="#990000">,</font> MAX <font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+
+    <i><font color="#9A1900">// Now lets call a function to get the max:</font></i>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The max is "</font> <font color="#990000">&lt;&lt;</font> <b><font color="#000000">GetMax</font></b><font color="#990000">(</font>nValues<font color="#990000">,</font> MAX <font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+
+    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+
+<font color="#FF0000">}</font> <i><font color="#9A1900">// End of main</font></i>
+
+
+<font color="#009900">double</font> <b><font color="#000000">GetAverage</font></b><font color="#990000">(</font><font color="#009900">int</font> nIn<font color="#990000">[],</font> <font color="#009900">int</font> nMax<font color="#990000">)</font> <font color="#FF0000">{</font>
+
+    <font color="#009900">double</font> temp <font color="#990000">=</font> <font color="#993399">0.0</font><font color="#990000">;</font>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&gt;</font> nMax<font color="#990000">;</font> i<font color="#990000">++)</font>
+        temp <font color="#990000">+=</font> nIn<font color="#990000">[</font>i<font color="#990000">];</font>
+    temp <font color="#990000">/=</font> nMax<font color="#990000">;</font>
+
+    <b><font color="#0000FF">return</font></b> temp<font color="#990000">;</font>
+<font color="#FF0000">}</font> <i><font color="#9A1900">// End of GetAverage()</font></i>
+
+
+<font color="#009900">int</font> <b><font color="#000000">GetMax</font></b><font color="#990000">(</font> <font color="#009900">int</font> nIn<font color="#990000">[],</font> <font color="#009900">int</font> nMax<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <font color="#009900">int</font> nBiggest <font color="#990000">=</font> nIn<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">];</font>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> nMax<font color="#990000">;</font> i<font color="#990000">++)</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>nBiggest <font color="#990000">&gt;</font> nIn<font color="#990000">[</font>i<font color="#990000">])</font>
+            nBiggest <font color="#990000">=</font> nIn<font color="#990000">[</font>i<font color="#990000">];</font>
+    <b><font color="#0000FF">return</font></b> nBiggest<font color="#990000">;</font>
+<font color="#FF0000">}</font> <i><font color="#9A1900">// End of GetMax()</font></i>
+
+<i><font color="#9A1900">//----------------------------------------------------------------------</font></i>
+<i><font color="#9A1900">// END OF LISTING</font></i>
+<i><font color="#9A1900">//----------------------------------------------------------------------</font></i>
+</tt></pre>
+</body>
+</html>
