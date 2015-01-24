@@ -155,7 +155,7 @@ expr x = 5
 The expression can be any C++ expression, including a function call.  So a statement like this is legal:
 
 ```
-expr int y = countNegValues(list, num)
+expr y = countNegValues(list, num)
 ```
 
 Assuming you have a `countNegValues()` method defined, of course.  This would execute your function and then set the variable y to be whatever your function returns.
@@ -184,7 +184,7 @@ Run it in LLDB with the program (`lldb prog`), and try the following:
 
 ### A few final commands ###
 
-If you find the problem while using the debugger, you may want to exit lldb (by entering `quit`), recompile your source code, and restart lldb.  Be sure to use the `--g` option when recompiling!
+If you find the problem while using the debugger, you may want to exit lldb (by entering `quit`), recompile your source code, and restart lldb.  Be sure to use the `-g` option when recompiling!
 
 ### Final Remarks ###
 
@@ -230,18 +230,20 @@ To set up a breakpoint, you enter the 'break' command, and where you want the br
 If we knew where the problems were, we could skip over some lines, but since we don't, put a breakpoint on the first line of the code, the cout statement.  You probably want to set the breakpoint based on the line number in the code -- you can use the Emacs command `M-x line-number-mode` to have Emacs display line numbers.  Enter `break x`, where x is the line of the first cout statement in the main() method.  Now we need to run the program -- to do this, enter `run`.  Lldb should start running, then should pause and display approximately the following:
 
 ```
-(lldb) b main
-Breakpoint 1: where = a.out`main + 46 at debug.cpp:23, address = ...
+(lldb) b 23
+Breakpoint 1: where = a.out`main + 31 at debug.cpp:23, address = 0x0000000000400a0f
 (lldb) run
-...
-    frame #0: 0x0000000100000cee a.out`main + 46 at debug.cpp:23
-   20  	    int nCount;
-   21
-   22  	    // Display a prompt:
--> 23  	    cout << "Enter five numbers: " << endl;
-   24
-   25  	    // First we read in the numbers.
-   26  	    for ( nCount = 0; nCount < MAX; nCount++ ) {
+Process 10943 launched: '/home/aaron/Dropbox/git/pdr/tutorials/02-gdb/a.out' (x86_64)
+Process 10943 stopped
+* thread #1: tid = 10943, 0x0000000000400a0f a.out`main + 31 at debug.cpp:23, name = 'a.out', stop reason = breakpoint 1.1
+    frame #0: 0x0000000000400a0f a.out`main + 31 at debug.cpp:23
+   20       int nCount;
+   21  
+   22       // Display a prompt:
+-> 23       cout << "Enter five numbers: " << endl;
+   24  
+   25       // First we read in the numbers.
+   26       for ( nCount = 0; nCount < MAX; nCount++ ) {
 (lldb)
 ```
 
@@ -278,7 +280,7 @@ The code is now stopped on the `cin` statement.  You will need to enter a value 
 You should see these changes:
 
 - The number you typed shows after the prompt.
-- 'info locals' shows that the 2 was entered into the array at index 1 (not 0!)
+- `frame variable` shows that the 2 was entered into the array at index 1 (not 0!)
 
 Pressing `n` again will take us to the beginning of the loop; pressing it again will increment the value of nCount in the watch windows.  Let's single step through another pass through the loop.  Step over button twice more, entering successive values when prompted (2, 4, 6, 8, 10).  See what happens to the variables.
 
@@ -309,49 +311,4 @@ When you are finished debugging the code with lldb -- and it works correctly -- 
 Part III: Summary of lldb commands
 ---------------------------------
 
-These commands are also listed on the [LLDB command summary](../../docs/lldb_summary.html) page.
-
-Assembly-specific commands
-
-- `stepi` (or `si`): step one MACHINE instruction (i.e. assembly instruction), instead of one C++ instruction (which is what 'step' does)
-- `register read`: display the values in the registers
-- `settings set target.x86-disassembly-flavor intel`: set the assembly output format to what we are used to in class (and what we are programming in)
-- `disassemble`: like list, but displays the lines of assembly code currently being executed.
-- `disassemble --name (function)`: prints the assembly code for the supplied function (up until the next label)
-
-Program execution
-
-- `run`: starts a program execution, and continues until it exits, crashes, or hits a breakpoint
-- `bt`: prints a back trace, which is the list of function calls that got to the current point
-- `f`: shows the lines of source code before and after the point at which the program paused
-- `list (function)`: prints the lines of code around (function) or the current breakpoint otherwise if no (function) is provided.
-- `up`: move up the back trace function stack list
-- `down`: move down the back trace function stack list
-- `step` (or just '`s`'): step INTO the next line of code to execute
-- `next` (or just '`n`'): step OVER the next line of code to execute
-- `continue` (or just '`c`'): continue execution
-- `finish`: finishes executing the current function and then pauses
-- `quit`: exits lldb
-
-Breakpoints
-
-- `b (pos)` (or `break (pos)`): set a breakpoint at (pos).  A breakpoint can be a function name (e.g., `b GetMax`), a line number (e.g., `b 22`), or either of the above preceded by a file name (e.g., `b lab2.cpp:22` or `b lab2.cpp:GetMax`)
-- `tbreak (pos)`: set a temporary breakpoint (only breaks the first time)
-- `breakpoint list`: show breakpoints
-- `breakpoint delete` (or just '`br del`'): deletes all breakpoints
-- `breakpoint delete (num)`: delete the breakpoint indicated by (num). Note that num can also be a function name -- e.g. `breakpoint delete main`
-
-Examining data
-
-- `print (var)` (or '`p`'): print the value in the given variable
-- `print &(var)`: print the address that the given variable is located
-- `print *(ptr)`: print the destination of a pointer
-- `x/(format) (var/address)`: format controls how the memory should be displayed, and consists of (up to) 3 components: a numeric count of how many elements to display; a single-character format, indicating how to interpret and display each element -- e.g. a few of the flags are `x/x` displays in hex, `x/d` displays in signed decimals, `x/c` displays in characters, `x/i` displays in instructions, and `x/s` displays in C strings; and a single-character size, indicating the size of each element to display -- e.g. b, h, w, and g, for one-, two-, four-, and eight-byte blocks, respectively. You can have multiple at a time, e.g. `x/30x (var/address)` will display 30 elements in hexidecimal from the provided `var/address` OR if no `var/address` is provided, from the top of the stack.
-- `frame variable`: display all the local variables and their values
-- `display (var)`: always display the value in (var) whenever the program pauses
-- `display`: show the variables that have been entered with 'display' and their numeric IDs
-- `undisplay (num)`: stop displaying the variable with numeric ID num
-- `print function_call(params)`: execute the function, and print the result
-- `expr (type) $(var) = (value)`: set the variable (var) of type (type) to the value (value) -- e.g. `expr unsigned int $foo = 5`
-
-Note: if you have any question about any of the above commands, simply type `help (command)` and it will describe the command and provide the full list of flags.
+These commands are listed on the [LLDB command summary](../../docs/lldb_summary.html) page.

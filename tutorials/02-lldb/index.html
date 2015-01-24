@@ -91,7 +91,7 @@ int main() {
 <p>If you see that a variable has the wrong value, and you'd like to change that value in mid-stream before continuing execution, you can do this easily. Enter <code>expr</code> followed by the type, then the variable, an equals symbol (<code>=</code>), and the value or expression. It's just like a C++ assignment statement but without the semi-colon at the end. For example:</p>
 <pre><code>expr x = 5</code></pre>
 <p>The expression can be any C++ expression, including a function call. So a statement like this is legal:</p>
-<pre><code>expr int y = countNegValues(list, num)</code></pre>
+<pre><code>expr y = countNegValues(list, num)</code></pre>
 <p>Assuming you have a <code>countNegValues()</code> method defined, of course. This would execute your function and then set the variable y to be whatever your function returns.</p>
 <p>Sometimes you want to actually execute a function &quot;by hand&quot; while the program is stopped, even if this function isn't what would normally be called at this point in the code. You can do this using the <code>set</code> command as shown above, or by making the function call the argument to the print command. For example, you could type:</p>
 <pre><code>print initQueue(&amp;myQueue)</code></pre>
@@ -109,7 +109,7 @@ int main() {
 <li>enter <code>c</code> to let it continue running, and it should finish without crashing this time</li>
 </ul>
 <h3 id="a-few-final-commands">A few final commands</h3>
-<p>If you find the problem while using the debugger, you may want to exit lldb (by entering <code>quit</code>), recompile your source code, and restart lldb. Be sure to use the <code>--g</code> option when recompiling!</p>
+<p>If you find the problem while using the debugger, you may want to exit lldb (by entering <code>quit</code>), recompile your source code, and restart lldb. Be sure to use the <code>-g</code> option when recompiling!</p>
 <h3 id="final-remarks">Final Remarks</h3>
 <p>The best way to learn these commands is to try them out. Even if you don't use a debugger often, you should make sure you know the basics of breakpoints, single-line execution, and printing a variable's value. These commands, along with the <code>backtrace</code> command, will be enough for you to solve most of your problems.</p>
 <p>Again, a programmer must know how to use a debugger just like an accountant must know how to use a spreadsheet program or a calculator. Your professors and your boss will expect it of you. Remember this before you go see your instructor about a run-time bug next time! The time you spend now to learn how to use a debugger will save you hours in the future.</p>
@@ -133,16 +133,18 @@ int main() {
 <li>either of the above preceded by a file name (e.g., <code>b debug.cpp:23</code> or <code>b debug.cpp:GetAverage</code>)</li>
 </ul>
 <p>If we knew where the problems were, we could skip over some lines, but since we don't, put a breakpoint on the first line of the code, the cout statement. You probably want to set the breakpoint based on the line number in the code -- you can use the Emacs command <code>M-x line-number-mode</code> to have Emacs display line numbers. Enter <code>break x</code>, where x is the line of the first cout statement in the main() method. Now we need to run the program -- to do this, enter <code>run</code>. Lldb should start running, then should pause and display approximately the following:</p>
-<pre><code>(lldb) b main
-Breakpoint 1: where = a.out`main + 46 at debug.cpp:23, address = ...
+<pre><code>(lldb) b 23
+Breakpoint 1: where = a.out`main + 31 at debug.cpp:23, address = 0x0000000000400a0f
 (lldb) run
-...
-    frame #0: 0x0000000100000cee a.out`main + 46 at debug.cpp:23
+Process 10943 launched: &#39;/home/aaron/Dropbox/git/pdr/tutorials/02-gdb/a.out&#39; (x86_64)
+Process 10943 stopped
+* thread #1: tid = 10943, 0x0000000000400a0f a.out`main + 31 at debug.cpp:23, name = &#39;a.out&#39;, stop reason = breakpoint 1.1
+    frame #0: 0x0000000000400a0f a.out`main + 31 at debug.cpp:23
    20       int nCount;
-   21
+   21  
    22       // Display a prompt:
 -&gt; 23       cout &lt;&lt; &quot;Enter five numbers: &quot; &lt;&lt; endl;
-   24
+   24  
    25       // First we read in the numbers.
    26       for ( nCount = 0; nCount &lt; MAX; nCount++ ) {
 (lldb)</code></pre>
@@ -168,7 +170,7 @@ Breakpoint 1: where = a.out`main + 46 at debug.cpp:23, address = ...
 <p>You should see these changes:</p>
 <ul>
 <li>The number you typed shows after the prompt.</li>
-<li>'info locals' shows that the 2 was entered into the array at index 1 (not 0!)</li>
+<li><code>frame variable</code> shows that the 2 was entered into the array at index 1 (not 0!)</li>
 </ul>
 <p>Pressing <code>n</code> again will take us to the beginning of the loop; pressing it again will increment the value of nCount in the watch windows. Let's single step through another pass through the loop. Step over button twice more, entering successive values when prompted (2, 4, 6, 8, 10). See what happens to the variables.</p>
 <p>This shows you one of the errors - the data is all going into nValues[1]. Go to the source window, and correct the line. Exit lldb (<code>quit</code>), recompile the program, and start up lldb again (<code>lldb lab2</code>). Set your breakpoint, run the code, and make sure that it is getting the input correctly. Try entering <code>display nValues</code> after the first breakpoint -- it will always display the contents of the nValues array each time the program pauses.</p>
@@ -184,50 +186,6 @@ Breakpoint 1: where = a.out`main + 46 at debug.cpp:23, address = ...
 <p>When you are finished debugging the code with lldb -- and it works correctly -- you should submit the debug.cpp file to inlab2. Remember to put your identifying information at the top.</p>
 <hr />
 <h2 id="part-iii-summary-of-lldb-commands">Part III: Summary of lldb commands</h2>
-<p>These commands are also listed on the <a href="../../docs/lldb_summary.html">LLDB command summary</a> page.</p>
-<p>Assembly-specific commands</p>
-<ul>
-<li><code>stepi</code> (or <code>si</code>): step one MACHINE instruction (i.e. assembly instruction), instead of one C++ instruction (which is what 'step' does)</li>
-<li><code>register read</code>: display the values in the registers</li>
-<li><code>settings set target.x86-disassembly-flavor intel</code>: set the assembly output format to what we are used to in class (and what we are programming in)</li>
-<li><code>disassemble</code>: like list, but displays the lines of assembly code currently being executed.</li>
-<li><code>disassemble --name (function)</code>: prints the assembly code for the supplied function (up until the next label)</li>
-</ul>
-<p>Program execution</p>
-<ul>
-<li><code>run</code>: starts a program execution, and continues until it exits, crashes, or hits a breakpoint</li>
-<li><code>bt</code>: prints a back trace, which is the list of function calls that got to the current point</li>
-<li><code>f</code>: shows the lines of source code before and after the point at which the program paused</li>
-<li><code>list (function)</code>: prints the lines of code around (function) or the current breakpoint otherwise if no (function) is provided.</li>
-<li><code>up</code>: move up the back trace function stack list</li>
-<li><code>down</code>: move down the back trace function stack list</li>
-<li><code>step</code> (or just '<code>s</code>'): step INTO the next line of code to execute</li>
-<li><code>next</code> (or just '<code>n</code>'): step OVER the next line of code to execute</li>
-<li><code>continue</code> (or just '<code>c</code>'): continue execution</li>
-<li><code>finish</code>: finishes executing the current function and then pauses</li>
-<li><code>quit</code>: exits lldb</li>
-</ul>
-<p>Breakpoints</p>
-<ul>
-<li><code>b (pos)</code> (or <code>break (pos)</code>): set a breakpoint at (pos). A breakpoint can be a function name (e.g., <code>b GetMax</code>), a line number (e.g., <code>b 22</code>), or either of the above preceded by a file name (e.g., <code>b lab2.cpp:22</code> or <code>b lab2.cpp:GetMax</code>)</li>
-<li><code>tbreak (pos)</code>: set a temporary breakpoint (only breaks the first time)</li>
-<li><code>breakpoint list</code>: show breakpoints</li>
-<li><code>breakpoint delete</code> (or just '<code>br del</code>'): deletes all breakpoints</li>
-<li><code>breakpoint delete (num)</code>: delete the breakpoint indicated by (num). Note that num can also be a function name -- e.g. <code>breakpoint delete main</code></li>
-</ul>
-<p>Examining data</p>
-<ul>
-<li><code>print (var)</code> (or '<code>p</code>'): print the value in the given variable</li>
-<li><code>print &amp;(var)</code>: print the address that the given variable is located</li>
-<li><code>print *(ptr)</code>: print the destination of a pointer</li>
-<li><code>x/(format) (var/address)</code>: format controls how the memory should be displayed, and consists of (up to) 3 components: a numeric count of how many elements to display; a single-character format, indicating how to interpret and display each element -- e.g. a few of the flags are <code>x/x</code> displays in hex, <code>x/d</code> displays in signed decimals, <code>x/c</code> displays in characters, <code>x/i</code> displays in instructions, and <code>x/s</code> displays in C strings; and a single-character size, indicating the size of each element to display -- e.g. b, h, w, and g, for one-, two-, four-, and eight-byte blocks, respectively. You can have multiple at a time, e.g. <code>x/30x (var/address)</code> will display 30 elements in hexidecimal from the provided <code>var/address</code> OR if no <code>var/address</code> is provided, from the top of the stack.</li>
-<li><code>frame variable</code>: display all the local variables and their values</li>
-<li><code>display (var)</code>: always display the value in (var) whenever the program pauses</li>
-<li><code>display</code>: show the variables that have been entered with 'display' and their numeric IDs</li>
-<li><code>undisplay (num)</code>: stop displaying the variable with numeric ID num</li>
-<li><code>print function_call(params)</code>: execute the function, and print the result</li>
-<li><code>expr (type) $(var) = (value)</code>: set the variable (var) of type (type) to the value (value) -- e.g. <code>expr unsigned int $foo = 5</code></li>
-</ul>
-<p>Note: if you have any question about any of the above commands, simply type <code>help (command)</code> and it will describe the command and provide the full list of flags.</p>
+<p>These commands are listed on the <a href="../../docs/lldb_summary.html">LLDB command summary</a> page.</p>
 </body>
 </html>

@@ -23,7 +23,7 @@ Program execution
 - `next` (or just `n`): step OVER the next line of code to execute
 - `continue` (or just `c`): continue execution
 - `finish`: finishes executing the current function and then pauses
-- `quit`: exits lldb
+- `quit`: exits the debugger
 
 Breakpoints
 
