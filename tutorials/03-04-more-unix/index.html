@@ -2,117 +2,138 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title> UNIX Tutorial for Beginners</title>
-<link href="unixtut1.css" rel="stylesheet" type="text/css" />
+<title> UNIX / Linux Tutorial for Beginners</title>
+<link href="unixtut2.css" rel="stylesheet" type="text/css" />
+<link href="unixtut2-print.css" rel="stylesheet" type="text/css" media="print" />
+
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta name="Keywords" content="Unix Tutorial, Unix Guide, Beginners guide to Unix, Linux Tutorial, Linux Commands" />
-<meta name="Description" content="Introduction to the UNIX operating system.  Eight simple tutorials which cover the basics of UNIX." />
-<meta name="Copyright" content="Michael Stonebank, 1995" />
+<meta name="Description" content="Beginners guide to the UNIX / Linux operating system.  Eight simple tutorials which cover the basics of UNIX." />
+<meta name="Copyright" content="Michael Stonebank, 1995-2003" />
 </head>
 <body>
-<h1>UNIX Tutorial for Beginners</h1>
-<p> </p>
-<h3><a href="unix0.html"> Typographical Conventions </a> </h3>
-<h3><a href="unixintro.html">Introduction to The UNIX operating system </a> </h3>
-<h3><a href="unix1.html">Tutorial One</a> </h3>
-<ul>
-  <li> Listing files and directories </li>
-  <li> Making Directories </li>
-  <li> Changing to a different Directory </li>
-  <li> The directories . and .. </li>
-  <li> Pathnames </li>
-  <li> More about home directories and pathnames </li>
-</ul>
-<h3><a href="unix2.html">Tutorial Two </a> </h3>
-<ul>
-  <li> Copying Files </li>
-  <li> Moving Files </li>
-  <li> Removing Files and directories </li>
-  <li> Displaying the contents of a file on the screen </li>
-  <li> Searching the contents of a file </li>
-</ul>
-<h3><a href="unix3.html">Tutorial Three </a> </h3>
-<ul>
-  <li> Redirection </li>
-  <li> Redirecting the Output </li>
-  <li> Redirecting the Input </li>
-  <li> Pipes</li>
-</ul>
-<h3><a href="unix4.html">Tutorial Four </a> </h3>
-<ul>
-  <li> Wildcards </li>
-  <li> Filename Conventions </li>
-  <li> Getting Help </li>
-</ul>
-<h3><a href="unix5.html">Tutorial Five </a> </h3>
-<ul>
-  <li> File system security (access rights) </li>
-  <li> Changing access rights </li>
-  <li> Processes and Jobs </li>
-  <li> Listing suspended and background processes </li>
-  <li> Killing a process </li>
-</ul>
-<h3> <a href="unix6.html">Tutorial Six </a> </h3>
-<ul>
-  <li> Other Useful UNIX commands </li>
-</ul>
-<h3> <a href="unix7.html">Tutorial Seven </a> 
-</h3>
-<ul>
-  <li> Compiling UNIX software packages </li>
-  <li> Download source code </li>
-  <li> Extracting source code </li>
-  <li>Configuring and creating the Makefile </li>
-  <li>Building the package </li>
-  <li>Running the software </li>
-  <li>Stripping unnecessary code </li>
-</ul>
-<h3>  <a href="unix8.html">Tutorial Eight </a> </h3>
-<ul>
-  <li>UNIX variables </li>
-  <li> Environment variables </li>
-  <li> Shell variables </li>
-  <li> Using and setting variables </li>
-</ul>
-<h3>Downloads</h3>
-<p>This tutorial is available for download in the following formats - </p>
-<ul>
-  <li> <a href="http://www.ee.surrey.ac.uk/Teaching/Unix/arc/unixtut.tar.gz">Unix tar.gz file</a> </li>
-  <li> <a href="http://www.ee.surrey.ac.uk/Teaching/Unix/arc/unixtut.zip">Windows zip file </a></li>
-</ul>
+<div id="container">
+
+<h1>UNIX  Tutorial for Beginners</h1>
+<p class="hint">A beginners guide to the <b>Unix</b> and <b>Linux</b> operating system. Eight simple tutorials which cover the basics of UNIX / Linux commands.</p>
 <hr />
-<h3> <a href="/Docs/Unixhelp/TOP_.html">UNIX Help for Users</a> </h3>
-<ul>
-  <li> For more help with UNIX, try this guide from the University of Edinburgh 
-  </li>
-</ul>
-<h3> <a href="http://www.faqs.org/faqs/unix-faq/faq/part1/preamble.html">UNIX 
-  Frequently Asked Questions (FAQs)</a> </h3>
-<ul>
-  <li> These seven articles contain the answers to some Frequently Asked Questions 
-    often seen in comp.unix.questions and comp.unix.shell. </li>
-</ul>
-<h3> <a href="http://www.bell-labs.com/history/unix/">History of UNIX</a> </h3>
-<ul>
-  <li>UNIX was originally developed at Bell Laboratories as a private research 
-    project by a small group of people. Read all about the history of its creation. 
-  </li>
-</ul>
-<!--p class="hint">This tutorial is now available as a complete download for you 
-  to install on your own system as <a href="arc/unixtut.tar.gz"><strong>unixtut.tar.gz 
-  - (28K)</strong></a> or <a href="arc/unixtut.zip"> <strong> unixtut.zip - (32K)</strong></a> <img 
-src="/logos/new.gif" /> 
-</p-->
-<p class="date"> <a href="http://www.ee.surrey.ac.uk/Personal/M.Stonebank/"><font color="#FFFFCC">M.Stonebank@surrey.ac.uk</font></a>,  19 October 2001 </p>
+
+<div id="amazon">
+<dl id="red">
+  <dt><a href="reading.html">UNIX and Linux books</a></dt>
+  <dd>If you wish to continue learning Unix, here is a <a href="reading.html">list of good Unix and Linux books</a>, ranging from beginners to advanced. </dd>
+</dl>
+<iframe src="http://rcm.amazon.com/e/cm?t=unixtutorialf-20&o=1&p=8&l=as1&asins=0131478230&nou=1&fc1=000000&IS2=1&lt1=_blank&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&f=ifr" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+<iframe src="http://rcm.amazon.com/e/cm?t=unixtutorialf-20&o=1&p=8&l=as1&asins=0131480049&fc1=000000&IS2=1&lt1=_blank&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&f=ifr&nou=1" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+<br />
+<iframe src="http://rcm.amazon.com/e/cm?t=unixtutorialf-20&o=1&p=8&l=as1&asins=0596003307&fc1=000000&IS2=1&lt1=_blank&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&f=ifr&npa=1" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe><iframe src="http://rcm.amazon.com/e/cm?t=unixtutorialf-20&o=1&p=8&l=as1&asins=0596100299&fc1=000000&IS2=1&lt1=_blank&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&f=ifr&npa=1" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+<br />
+<iframe src="http://rcm.amazon.com/e/cm?t=unixtutorialf-20&o=1&p=8&l=as1&asins=1593271182&fc1=000000&IS2=1&lt1=_blank&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&f=ifr&npa=1" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+<iframe src="http://rcm.amazon.com/e/cm?t=unixtutorialf-20&o=1&p=8&l=as1&asins=047008278X&fc1=000000&IS2=1&lt1=_blank&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&f=ifr&npa=1" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+<br />
+<iframe src="http://rcm.amazon.com/e/cm?t=unixtutorialf-20&o=1&p=8&l=as1&asins=0545029376&fc1=000000&IS2=1&lt1=_blank&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&f=ifr&nou=1" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+<iframe src="http://rcm.amazon.com/e/cm?t=unixtutorialf-20&o=1&p=8&l=as1&asins=1416535071&fc1=000000&IS2=1&lt1=_blank&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&f=ifr&nou=1" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+  <p>&nbsp;</p>
+
+</div>
 
 
+<blockquote>
+  <h3><a href="unixintro.html">Introduction to  the UNIX Operating System </a> </h3>
+  <ul>
+    <li> What is UNIX?</li>
+    <li>Files and processes</li>
+    <li> The Directory Structure</li>
+    <li> Starting an UNIX terminal</li>
+  </ul>
+  <h3><a href="unix1.html">Tutorial One</a> </h3>
+  <ul>
+    <li> Listing files and directories </li>
+    <li> Making Directories </li>
+    <li> Changing to a different Directory </li>
+    <li> The directories . and .. </li>
+    <li> Pathnames </li>
+    <li> More about home directories and pathnames </li>
+  </ul>
+  <h3><a href="unix2.html">Tutorial Two </a> </h3>
+  <ul>
+    <li> Copying Files </li>
+    <li> Moving Files </li>
+    <li> Removing Files and directories </li>
+    <li> Displaying the contents of a file on the screen </li>
+    <li> Searching the contents of a file </li>
+  </ul>
+  <h3><a href="unix3.html">Tutorial Three </a> </h3>
+  <ul>
+    <li> Redirection </li>
+    <li> Redirecting the Output </li>
+    <li> Redirecting the Input </li>
+    <li> Pipes</li>
+  </ul>
+  <h3><a href="unix4.html">Tutorial Four </a> </h3>
+  <ul>
+    <li> Wildcards </li>
+    <li> Filename Conventions </li>
+    <li> Getting Help </li>
+  </ul>
+  <h3><a href="unix5.html">Tutorial Five </a> </h3>
+  <ul>
+    <li> File system security (access rights) </li>
+    <li> Changing access rights </li>
+    <li> Processes and Jobs </li>
+    <li> Listing suspended and background processes </li>
+    <li> Killing a process </li>
+  </ul>
+  <h3> <a href="unix6.html">Tutorial Six </a> </h3>
+  <ul>
+    <li> Other Useful UNIX commands </li>
+  </ul>
+  <h3> <a href="unix7.html">Tutorial Seven </a> </h3>
+  <ul>
+    <li> Compiling UNIX software packages </li>
+    <li> Download source code </li>
+    <li> Extracting source code </li>
+    <li>Configuring and creating the Makefile </li>
+    <li>Building the package </li>
+    <li>Running the software </li>
+    <li>Stripping unnecessary code </li>
+  </ul>
+  <h3> <a href="unix8.html">Tutorial Eight </a> </h3>
+  <ul>
+    <li>UNIX variables </li>
+    <li> Environment variables </li>
+    <li> Shell variables </li>
+    <li> Using and setting variables</li>
+  </ul>
+</blockquote>
+<hr />
+<blockquote>
+  <h3><a href="reading.html">Recommended UNIX and Linux books</a></h3>
+  <ul>
+  <li>If you wish to continue learning Unix, here is a <a href="reading.html">list of good Unix and Linux books</a>, ranging from beginners to advanced. 
+    
+  </li>
+</ul>
+  <h3><a href="download.html">Download</a></h3>
+  <ul>
+    <li>This tutorial is available for download so you can work offline. 
+      You can also copy and modify it for your own site. Please read the terms and conditions. </li>
+      </ul>
+  <h3><a href="links.html">Useful Links   </a></h3>
+  <ul>
+    <li>Links to other UNIX resources.</li>
+    </ul>
+
+</blockquote>
 <!-- Creative Commons License -->
-<div align="center"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.0/"><img alt="Creative Commons License" border="0" src="http://creativecommons.org/images/public/somerights20.gif" /></a><br />
-  This tutorial is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.0/">Creative Commons License</a>.
-  <!-- /Creative Commons License -->
-  
-
-  <!--
+  <div align="center">
+    <p class="hint"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.0/"><img alt="Creative Commons License" border="0" src="http://creativecommons.org/images/public/somerights20.gif" /></a><br />
+      This tutorial is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.0/">Creative Commons License</a>.
+      
+      <!-- /Creative Commons License -->
+      
+      
+      <!--
 
 <rdf:RDF xmlns="http://web.resource.org/cc/"
     xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -141,11 +162,9 @@ src="/logos/new.gif" />
 </rdf:RDF>
 
 -->
-  
-  
+    </p>
   </div>
+<p class="date"><b><img src="/cgi-bin/Count.cgi?negate=N&amp;ft=0&amp;dd=C&amp;md=7&amp;comma=T&amp;df=unixtut.dat" alt="Page access counter" border="0" align="right" /> <a href="http://www.ee.surrey.ac.uk/Personal/M.Stonebank/">M.Stonebank@surrey.ac.uk</a>,  19 October 2001</b></p>
 </div>
-<p>&nbsp; 
-</p>
 </body>
 </html>
