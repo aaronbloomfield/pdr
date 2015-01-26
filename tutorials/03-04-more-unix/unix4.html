@@ -3,28 +3,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title> UNIX Tutorial Four </title>
-<link href="unixtut1.css" rel="stylesheet" type="text/css" />
+<link href="unixtut2.css" rel="stylesheet" type="text/css" />
+<link href="unixtut2-print.css" rel="stylesheet" type="text/css" media="print" />
+
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<meta name="Copyright" content="Michael Stonebank, 1995" />
+<meta name="Copyright" content="Michael Stonebank, 1995-2003" />
 </head>
 <body>
+<div id="container">
 <h1>UNIX Tutorial Four </h1>
 <h2>4.1 Wildcards</h2>
-<h3>The characters * and ?</h3>
-<p>The character * is called a wildcard, and will match against none or more character(s) 
+<h3>The  * wildcard </h3>
+<p>The character <b class="command">*</b> is called a wildcard, and will match against none or more character(s) 
   in a file (or directory) name. For example, in your <strong>unixstuff</strong> 
   directory, type </p>
-<p class="command"> % ls list*</p>
+<p class="cli"> % ls list*</p>
 <p>This will list all files in the current directory starting with <strong>list....</strong> 
 </p>
 <p> Try typing </p>
-<p class="command"> % ls *list</p>
+<p class="cli"> % ls *list</p>
 <p>This will list all files in the current directory ending with <strong>....list</strong></p>
-<p>The character ? will match exactly one character.<br />
-  So<samp> ls ?ouse </samp>will match files like <strong>house</strong> and <strong>mouse</strong>, 
+<h3>The  ? wildcard </h3>
+<p>The character <span class="command">?</span> will match exactly one character.<br />
+  So <b>?ouse</b> will match files like <strong>house</strong> and <strong>mouse</strong>, 
   but not <strong>grouse</strong>. <br />
   Try typing </p>
-<p class="command"> % ls ?list</p>
+<p class="cli"> % ls ?list</p>
+<p>&nbsp;</p>
 <h2>4.2 Filename conventions </h2>
 <p>We should note here that a directory is merely a special type of file. So the 
   rules and conventions for naming files apply also to directories. </p>
@@ -32,68 +37,81 @@
   %</strong> , should be avoided. Also, avoid using spaces within names. The safest 
   way to name a file is to use only alphanumeric characters, that is, letters 
   and numbers, together with _ (underscore) and . (dot). </p>
-<p> File names conventionally start with a lower-case letter, and may end with 
+<table border="1" align="center" cellpadding="4" cellspacing="0" bordercolor="#999999">
+  <tr>
+    <th scope="col">Good filenames</th>
+    <th scope="col">Bad filenames </th>
+  </tr>
+  <tr>
+    <td>project.txt</td>
+    <td>project</td>
+  </tr>
+  <tr>
+    <td>my_big_program.c</td>
+    <td>my big program.c </td>
+  </tr>
+  <tr>
+    <td>fred_dave.doc</td>
+    <td>fred &amp; dave.doc </td>
+  </tr>
+</table>
+<p>File names conventionally start with a lower-case letter, and may end with 
   a dot followed by a group of letters indicating the contents of the file. For 
-  example, all files consisting of C code may be named with the ending .c, for 
-  example, prog1.c . Then in order to list all files containing C code in your 
-  home directory, you need only type <samp>ls *.c</samp> in that directory. </p>
-<p class="hint"> <strong>Beware</strong>: some applications give the same name 
-  to all the output files they generate. <br />
-  <br />
-  For example, some compilers, unless given the appropriate option, produce compiled 
-  files named <strong>a.out</strong>. Should you forget to use that option, you 
-  are advised to rename the compiled file immediately, otherwise the next such 
-  file will overwrite it and it will be lost. </p>
+  example, all files consisting of C code may be named with the ending <b>.c</b>, for 
+  example, <b>prog1.c</b> . Then in order to list all files containing C code in your 
+  home directory, you need only type <span class="command">ls&nbsp;*.c</span> in that directory. </p>
 <h2>4.3 Getting Help</h2>
 <h3>On-line Manuals</h3>
 <p>There are on-line manuals which gives information about most commands. The 
   manual pages tell you which options a particular command can take, and how each 
-  option modifies the behaviour of the command. Type man command to read the manual 
+  option modifies the behaviour of the command. Type <span class="command">man&nbsp;<i>command</i></span> to read the manual 
   page for a particular command. </p>
-<p> For example, to find out more about the <samp>wc</samp> (word count) command, 
+<p> For example, to find out more about the <b class="command">wc</b> (word count) command, 
   type </p>
-<p class="command"> % man wc </p>
+<p class="cli"> % man wc </p>
 <p> Alternatively </p>
-<p class="command"> % whatis wc </p>
+<p class="cli"> % whatis wc </p>
 <p> gives a one-line description of the command, but omits any information about 
   options etc. </p>
 <h3>Apropos</h3>
 <p>When you are not sure of the exact name of a command, </p>
-<p class="command"> % apropos keyword </p>
+<p class="cli"> % apropos keyword </p>
 <p> will give you the commands with keyword in their manual page header. For example, 
   try typing </p>
-<p class="command"> % apropos copy </p>
+<p class="cli"> % apropos copy </p>
 <h2>Summary </h2>
-<table border="1" align="center" cellpadding="3" cellspacing="0">
+<table border="1" align="center" cellpadding="4" cellspacing="0" bordercolor="#999999">
+  <tr>
+    <th>Command</th>
+    <th>Meaning</th>
+  </tr>
   <tr> 
-    <td><code>*</code></td>
+    <td class="command">*</td>
     <td>match any number of characters</td>
   </tr>
   <tr> 
-    <td><code>?</code></td>
+    <td class="command">?</td>
     <td>match one character</td>
   </tr>
   <tr> 
-    <td><code>man <var>command</var></code></td>
+    <td class="command">man <var>command</var></td>
     <td>read the online manual page for a command</td>
   </tr>
   <tr> 
-    <td><code>whatis <var>command</var></code></td>
+    <td class="command">whatis <var>command</var></td>
     <td>brief description of a command</td>
   </tr>
   <tr> 
-    <td><code>apropos <var>keyword </var> </code></td>
+    <td class="command">apropos <var>keyword </var> </td>
     <td>match commands with keyword in their man pages</td>
   </tr>
 </table>
-<p>&nbsp;</p>
-<p class="navbar"><a href="unix3.html"><img src="media/left.gif" alt="Previous" width="37" height="39" border="0" /></a> 
-  <a href="index.html"><img src="media/home.gif" alt="Home" width="81" height="39" border="0" /></a><a href="unix5.html"><img src="media/right.gif" alt="Next" width="37" height="39" border="0" /></a> 
-</p>
-
-
-
+<p align="center"><a href="unix3.html"><img src="media/left.gif" alt="Previous" width="37" height="39" border="0" /></a> 
+  <a href="index.html"><img src="media/home.gif" alt="Home" width="81" height="39" border="0" /></a><a href="unix5.html"><img src="media/right.gif" alt="Next" width="37" height="39" border="0" /></a></p>
+<p align="center"><script type="text/javascript"><!--
+  amazon_ad_tag = "unixtutorialf-20";  amazon_ad_width = "728";  amazon_ad_height = "90";  amazon_ad_logo = "hide";  amazon_ad_link_target = "new";  amazon_ad_price = "retail";  amazon_color_border = "E9ECF5";  amazon_color_link = "0000FF";  amazon_color_logo = "093697";  amazon_ad_categories = "abcdefg";//--></script>
+<script type="text/javascript" src="http://www.assoc-amazon.com/s/ads.js"></script></p>
 <p class="date"> M.Stonebank@surrey.ac.uk, &copy; 9th October 2000 </p>
-
+</div>
 </body>
 </html>

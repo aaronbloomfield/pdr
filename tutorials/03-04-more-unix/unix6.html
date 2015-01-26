@@ -3,89 +3,97 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head> 
 <title> UNIX Tutorial Six</title> 
-<link href="unixtut1.css" rel="stylesheet" type="text/css" />
+<link href="unixtut2.css" rel="stylesheet" type="text/css" />
+<link href="unixtut2-print.css" rel="stylesheet" type="text/css" media="print" />
+
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<meta name="Copyright" content="Michael Stonebank, 1995" />
+<meta name="Copyright" content="Michael Stonebank, 1995-2003" />
 </head> 
  
 <body>
+<div id="container">
 <h1>UNIX Tutorial Six </h1>
 <h2>Other useful UNIX commands &nbsp; </h2>
 <h3>quota</h3>
 <p>All students are allocated a certain amount of disk space on the file system 
-  for their personal files, usually about 100Mb. If you go over your quota, you are given 7 days to remove excess files. 
-</p>
+  for their personal files, usually about 100Mb. If you go over your quota, you are given 7 days to remove excess files.</p>
 <p> To check your current quota and how much of it you have used, type </p>
 
-<p class="command"> % quota -v </p>
+<p class="cli"> % quota -v </p>
 
 <h3>df</h3>
-<p>The df command reports on the space left on the file system. For example, to 
+<p>The <span class="command">df</span> command reports on the space left on the file system. For example, to 
   find out how much space is left on the fileserver, type </p>
 
-<p class="command"> % df . </p>
+<p class="cli"> % df . </p>
 
 <h3>du</h3>
-<p>The du command outputs the number of kilobyes used by each subdirectory. Useful 
+<p>The <span class="command">du</span> command outputs the number of kilobyes used by each subdirectory. Useful 
   if you have gone over quota and you want to find out which directory has the 
   most files. In your home-directory, type </p>
 
-<p class="command"> % du </p>
-
-<h3>compress</h3>
+<p class="cli"> % du -s *</p>
+<p>The <b>-s</b> flag will display only a summary (total size) and the * means all files and directories.  </p>
+<h3>gzip</h3>
 <p>This reduces the size of a file, thus freeing valuable disk space. For example, 
   type </p>
 
-<p class="command"> % ls -l science.txt </p>
-<p>and note the size of the file. Then to compress science.txt, type </p>
+<p class="cli"> % ls -l science.txt </p>
+<p>and note the size of the file using  <span class="command">ls -l</span> . Then to compress science.txt, type </p>
 
-<p class="command"> % compress science.txt </p>
-<p>This will compress the file and place it in a file called science.txt.Z </p>
-<p> To see the change in size, type ls -l again. </p>
-<p> To uncomress the file, use the uncompress command. </p>
+<p class="cli"> % gzip science.txt </p>
+<p>This will compress the file and place it in a file called <b>science.txt.gz</b> </p>
+<p> To see the change in size, type <span class="command">ls -l</span> again. </p>
+<p> To expand the file, use the <span class="command">gunzip</span> command. </p>
 
-<p class="command"> % uncompress science.txt.Z </p>
-
-<h3>gzip</h3>
-<p>This also compresses a file, and is more efficient than compress. For example, 
-  to zip science.txt, type </p>
-
-<p class="command"> % gzip science.txt </p>
-<p>This will zip the file and place it in a file called science.txt.gz </p>
-<p> To unzip the file, use the gunzip command. </p>
-
-<p class="command"> % gunzip science.txt.gz </p>
-
+<p class="cli"> % gunzip science.txt.gz </p>
+<h3>zcat</h3>
+<p><span class="command">zcat</span> will read gzipped files without needing to uncompress them first.</p>
+<p class="cli">% zcat  science.txt.gz</p>
+<p>If the text scrolls too fast for you, pipe the output though <span class="command">less</span> . </p>
+<p class="cli">% zcat  science.txt.gz | less </p>
 <h3>file</h3>
-<p>file classifies the named files according to the type of data they contain, 
+<p><span class="command">file</span> classifies the named files according to the type of data they contain, 
   for example ascii (text), pictures, compressed data, etc.. To report on all 
   files in your home directory, type </p>
 
-<p class="command"> % file * </p>
+<p class="cli"> % file * </p>
 
+<h3>diff</h3>
+<p>This command compares the contents of two files and displays the differences. Suppose you have a file called <b>file1 </b>and you edit some part of it and save it as <b>file2</b>.  To see the differences type</p>
+<p class="cli">% diff file1 file2 </p>
+<p>Lines beginning with a <b>&lt;</b> denotes file1, while lines beginning with a <b>&gt;</b> denotes file2. </p>
+<h3>find</h3>
+<p>This searches through the directories for files and directories with a given name, date, size, or any other attribute you care to specify. It is a simple command but with many options - you can read the manual by typing <span class="command">man&nbsp;find</span>. </p>
+<p>To search for all fies with the extention <b>.txt</b>, starting at the current directory (.) and working through all sub-directories, then printing the name of the file to the screen, type</p>
+<p class="cli">% find .  -name &quot;*.txt&quot; -print </p>
+<p>To find files over 1Mb in size, and display the result as a long listing, type</p>
+<p class="cli">% find . -size +1M -ls  </p>
 <h3>history</h3>
 <p>The C shell keeps an ordered list of all the commands that you have entered. 
   Each command is given a number according to the order it was entered.</p>
 
-<p class="command"> % history (show command history list)</p>
-<p>If you are using the C shell, you can use the exclamation character (!) to 
+<p class="cli"> % history (show command history list)</p>
+<p>If you are using the C shell, you can use the exclamation character (<b>!</b>) to 
   recall commands easily.</p>
 
-<p class="command">% !! (recall last command)</p>
-<p class="command">% !-3 (recall third most recent command) </p>
-<p class="command">% !5 (recall 5th command in list) </p>
-<p class="command">% !grep (recall last command starting with grep) </p>
+<p class="cli">% !! (recall last command)</p>
+<p class="cli">% !-3 (recall third most recent command) </p>
+<p class="cli">% !5 (recall 5th command in list) </p>
+<p class="cli">% !grep (recall last command starting with grep) </p>
 <p>You can increase the size of the history buffer by typing</p>
 
-<p class="command">% set history=100 </p>
+<p class="cli">% set history=100 </p>
     <p> </p>
-<p class="navbar"><a href="unix5.html"><img src="media/left.gif" alt="Previous" width="37" height="39" border="0" /></a> 
+<p align="center" class="navbar"><a href="unix5.html"><img src="media/left.gif" alt="Previous" width="37" height="39" border="0" /></a> 
   <a href="index.html"><img src="media/home.gif" alt="Home" width="81" height="39" border="0" /></a> 
-  <a href="unix7.html"><img src="media/right.gif" alt="Next" width="37" height="39" border="0" /></a> 
-</p>
+  <a href="unix7.html"><img src="media/right.gif" alt="Next" width="37" height="39" border="0" /></a></p>
 
+<p align="center"><script type="text/javascript"><!--
+  amazon_ad_tag = "unixtutorialf-20";  amazon_ad_width = "728";  amazon_ad_height = "90";  amazon_ad_logo = "hide";  amazon_ad_link_target = "new";  amazon_ad_price = "retail";  amazon_color_border = "E9ECF5";  amazon_color_link = "0000FF";  amazon_color_logo = "093697";  amazon_ad_categories = "abcdefg";//--></script>
+<script type="text/javascript" src="http://www.assoc-amazon.com/s/ads.js"></script></p>
 <p class="date"> M.Stonebank@surrey.ac.uk, &copy; 24th August 2001 </p>
-
+</div>
 
 </body>
 </html>

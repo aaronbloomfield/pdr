@@ -4,24 +4,26 @@
 <head>
 <title> UNIX Tutorial - Introduction</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<meta name="Copyright" content="Michael Stonebank, 1995" />
-<link href="unixtut1.css" rel="stylesheet" type="text/css" />
+<meta name="Copyright" content="Michael Stonebank, 1995-2003" />
+<link href="unixtut2.css" rel="stylesheet" type="text/css" />
+<link href="unixtut2-print.css" rel="stylesheet" type="text/css" media="print" />
 </head>
 
 
 <body>
-<div>
+<div id="container">
+
   <h1>UNIX Introduction </h1>
-</div>
-<p>This session concerns UNIX, which is a common operating system. By operating 
-  system, we mean the suite of programs which make the computer work. UNIX is 
-  used by the workstations and multi-user servers within the school.</p>
-<p> On X terminals and the workstations, X Windows provide a graphical interface 
-  between the user and UNIX. However, knowledge of UNIX is required for operations 
-  which aren't covered by a graphical program, or for when there is no X windows 
-  system, for example, in a telnet session. </p>
-  
-<h2>The UNIX operating system </h2>
+  <h2>What is UNIX? </h2>
+  <p><img src="media/unix-plate2.jpg" alt="UNIX&reg; License Plate" width="189" height="114" border="0" align="right" />UNIX is an  operating system which was first developed in the 1960s, and has been under constant development ever since. By operating 
+  system, we mean the suite of programs which make the computer work. It is a stable, multi-user, multi-tasking system for servers, desktops and laptops. </p>
+  <p> UNIX systems also have a graphical user interface (GUI) similar to Microsoft Windows which provides an easy to use environment. However, knowledge of UNIX is required for operations 
+  which aren't covered by a graphical program, or for when there is no  windows 
+  interface available, for example, in a telnet session.</p>
+  <h2>Types of UNIX</h2>
+  <p><img src="media/linux-penguin-small.png" alt="The Linux Penguin" width="80" height="96" hspace="8" align="right" />There are many different versions of UNIX, although they share common similarities. The  most popular varieties of UNIX are  Sun Solaris,  GNU/Linux, and MacOS X. </p>
+  <p>Here in the School, we use  Solaris on our servers and workstations, and Fedora  Linux on the servers and desktop PCs.</p>
+  <h2>The UNIX operating system </h2>
 <p>The UNIX operating system is made up of three parts; the kernel, the shell 
   and the programs. </p>
 <h3>The kernel </h3>
@@ -29,11 +31,11 @@
   memory to programs and handles the filestore and communications in response 
   to system calls. </p>
 <p> As an illustration of the way that the shell and the kernel work together, 
-  suppose a user types <samp>rm myfile</samp> (which has the effect of removing 
+  suppose a user types <span class="command">rm myfile</span> (which has the effect of removing 
   the file <strong>myfile</strong>). The shell searches the filestore for the 
-  file containing the program <samp>rm</samp>, and then requests the kernel, through 
-  system calls, to execute the program <samp>rm</samp> on myfile. When the process 
-  <samp>rm myfile</samp> has finished running, the shell then returns the UNIX 
+  file containing the program <span class="command">rm</span>, and then requests the kernel, through 
+  system calls, to execute the program <span class="command">rm</span> on <b>myfile</b>. When the process 
+  <span class="command">rm myfile</span> has finished running, the shell then returns the UNIX 
   prompt % to the user, indicating that it is waiting for further commands. </p>
 <h3>The shell</h3>
 <p>The shell acts as an interface between the user and the kernel. When a user 
@@ -43,11 +45,10 @@
   out. The commands are themselves programs: when they terminate, the shell gives 
   the user another prompt (% on our systems). </p>
 <p> The adept user can customise his/her own shell, and users can use different 
-  shells on the same machine. Staff and students in the school have the tcsh shell 
-  by default. </p>
+  shells on the same machine. Staff and students in the school have the <b>tcsh shell</b>  by default. </p>
 <p> The tcsh shell has certain features to help the user inputting commands.</p>
 <p> Filename Completion - By typing part of the name of a command, filename or 
-  directory and pressing the [Tab] key, the tcsh shell will complete the rest 
+  directory and pressing the [<b>Tab</b>] key, the tcsh shell will complete the rest 
   of the name automatically. If the shell finds more than one name beginning with 
   those letters you have typed, it will beep, prompting you to type a few more 
   letters before pressing the tab key again. </p>
@@ -77,27 +78,25 @@
 <h2>The Directory Structure </h2>
 <p>All the files are grouped together in the directory structure. The file-system 
   is arranged in a hierarchical structure, like an inverted tree. The top of the 
-  hierarchy is traditionally called <strong>root</strong>. </p>
-<p align="center"> <img src="tree.gif" alt="The Unix file structure" width="397" height="224" /> 
-</p>
-<p> In the diagram above, we see that the directory ee51ab contains the subdirectory 
-  unixstuff and a file proj.txt</p>
-  
-<h2>Starting an Xterminal session </h2>
-<p>To start an Xterm session, click on the Unix Terminal icon on your desktop, or from the drop-down menus</p>
-<p align="center"> <img src="unixterminal.jpg" alt="The  Unix Terminal icon" /> 
-</p>
+  hierarchy is traditionally called <strong>root</strong> (written as a slash / ) </p>
+<p align="center"><img src="media/unix-tree.png" alt="Unix File Structure" width="560" height="316" /></p>
+<p> In the diagram above, we see that the home directory of the undergraduate student <b>&quot;ee51vn&quot;</b> contains two sub-directories (<b>docs</b> and <b>pics</b>) and a file called <b>report.doc</b>. </p>
+<p>The full path to the file <b>report.doc</b> is <b>&quot;/home/its/ug1/ee51vn/report.doc&quot; </b></p>
+<h2>Starting an UNIX terminal </h2>
+<p>To open an UNIX terminal window, click on the &quot;Terminal&quot; icon from Applications/Accessories menus.</p>
+<p align="center"><img src="media/gnome-window.gif" alt="Gnome Menus" width="518" height="396" /></p>
 <p>&nbsp;</p>
-<p> An Xterminal window will appear with a Unix prompt, waiting for 
+<p> An UNIX Terminal window will then appear with a  % prompt, waiting for 
   you to start entering commands.</p>
-<p align="center"><img src="gterm.gif" alt="An X terminal window at the Unix prompt" width="479" height="316" /></p>
+<p align="center"><img src="media/unix-xterm0.gif" alt="Unix Terminal window" width="491" height="269" /></p>
 <p>&nbsp;</p>
-<p class="navbar"><a href="unix0.html"><img src="media/left.gif" alt="Previous" width="37" height="39" border="0" /></a> 
-  <a href="index.html"><img src="media/home.gif" alt="Home" width="81" height="39" border="0" /></a><a href="unix1.html"><img src="media/right.gif" alt="Next" width="37" height="39" border="0" /></a> 
-</p>
-
-  
+<p align="center" class="navbar"><a href="unix0.html"><img src="media/left.gif" alt="Previous" width="37" height="39" border="0" /></a> 
+  <a href="index.html"><img src="media/home.gif" alt="Home" width="81" height="39" border="0" /></a><a href="unix1.html"><img src="media/right.gif" alt="Next" width="37" height="39" border="0" /></a></p>
+<p align="center"><script type="text/javascript"><!--
+  amazon_ad_tag = "unixtutorialf-20";  amazon_ad_width = "728";  amazon_ad_height = "90";  amazon_ad_logo = "hide";  amazon_ad_link_target = "new";  amazon_ad_price = "retail";  amazon_color_border = "E9ECF5";  amazon_color_link = "0000FF";  amazon_color_logo = "093697";  amazon_ad_categories = "abcdefg";//--></script>
+<script type="text/javascript" src="http://www.assoc-amazon.com/s/ads.js"></script></p>
 <p class="date">M.Stonebank@surrey.ac.uk, &copy; 9th October 2000 
 </p>
+</div>
 </body>
 </html>
