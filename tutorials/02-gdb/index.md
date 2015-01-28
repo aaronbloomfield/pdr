@@ -209,10 +209,10 @@ a breakpoint at the beginning on the my_subroutine() function by
 calling `b 4`.
 
 At any time you can see information about all the breakpoints that
-have been defined by entering `breakpoint list` (or `br list`).  You
-can remove a breakpoint using the `breakpoint delete` command (or just
-`br del`).  You can delete all breakpoints (`br del`) or a specific
-one (`br del 1` or `br del my_subroutine`).
+have been defined by entering `info breakpoints` (or `info break`).  You
+can remove a breakpoint using the `delete` command (or just
+`d`).  You can delete all breakpoints (`d`) or a specific
+one (`d 1` or `d my_subroutine`).
 
 Breakpoints stick around until you delete them.  This is handy if you
 put a breakpoint inside a function that is called more than once or if
