@@ -22,7 +22,7 @@ The labs for this course:
 
 - [Lab 3: Stacks](lab03/index.html)
     - No source code for this lab!
-    - [Tutorial 3: More Unix, part 1](../tutorials/03-04-more-unix/index.html), which is sections 1-4; this tutorial is originally from [here](http://www.ee.surrey.ac.uk/Teaching/Unix/)
+    - [Tutorial 3: More Unix, part 1](../tutorials/03-04-more-unix/index.html), which is the introduction and sections 1-4; this tutorial is originally from [here](http://www.ee.surrey.ac.uk/Teaching/Unix/)
 
 &nbsp;
 

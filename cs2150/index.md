@@ -63,7 +63,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |6| Jan&nbsp;26 | Monday    | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: LLDB][42] ([md][62]) *OR* [Tutorial 2: GDB][52] ([md][72]) (see [lab 2][2] for which one to pick) | [01: C++][81] | [C++][81], slides [9-15][1010915] to [11-5][1011105] ([recording][206]) | 
 |7| Jan&nbsp;28 | Wednesday | | [01: C++][81], [02: Lists][82] | [C++][81], slides [11-6][1011106] to [12-13][1011213] (end); [lists][82], slides [0][82] to [3-4][1020304] ([recording][207]) | 
 |8| Jan&nbsp;30 | Friday    | | [02: Lists][82] || 
-|9| Feb&nbsp;2  | Monday    | [Lab 3: Stacks][3] ([md][23]) / [Tutorial 3: More UNIX, part 1][63], sections 1-4 | [02: Lists][82], [03: Numbers][83] || 
+|9| Feb&nbsp;2  | Monday    | [Lab 3: Stacks][3] ([md][23]) / [Tutorial 3: More UNIX, part 1][63], introduction and sections 1-4 | [02: Lists][82], [03: Numbers][83] || 
 |10| Feb&nbsp;4  | Wednesday | | [03: Numbers][83] || 
 |11| Feb&nbsp;6  | Friday    | | [03: Numbers][83] || 
 |12| Feb&nbsp;9  | Monday    | [Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8 | [03: Numbers][83] || 

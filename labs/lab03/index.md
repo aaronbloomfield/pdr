@@ -22,7 +22,7 @@ Procedure
 ### Pre-lab ###
 
 1. Read this entire lab document before coming to lab.
-2. Go through [Tutorial 3: Unix, part 1](../../tutorials/03-04-more-unix/index.html), which is sections 1-4.  This tutorial is originally from the department of Electrical Engineering at the University of Surrey, and is available online [here](http://www.ee.surrey.ac.uk/Teaching/Unix/).  You should complete the introductory part and sections 1-4.  You should already be somewhat familiar with some of the materials in the first few of these tutorials, as it was in the Unix tutorial from the first lab.  The rest of the tutorial (sections 5-8) are for next week's lab, but feel free to go through it this week, if you are interested.
+2. Go through [Tutorial 3: Unix, part 1](../../tutorials/03-04-more-unix/index.html), which is the introduction and sections 1-4.  This tutorial is originally from the department of Electrical Engineering at the University of Surrey, and is available online [here](http://www.ee.surrey.ac.uk/Teaching/Unix/).  You should complete the introductory part and sections 1-4.  You should already be somewhat familiar with some of the materials in the first few of these tutorials, as it was in the [Unix tutorial from the first lab](../../tutorials/01-intro-unix/index.html).  The rest of the tutorial (sections 5-8) are for next week's lab, but feel free to go through it this week, if you are interested.
 3. Write up at least one question that you still have on Unix (or things you are still confused about) into unix.questions.txt.
 4. Your code for the pre-lab will use the pre-existing STL `stack` class.  The STL is the [Standard Template Library](http://en.wikipedia.org/wiki/Standard_template_library), and is a collection of useful routines analogous to the routines in Java's SDK, albeit much smaller (it contains a vector class, for example).
     - To use the stack STL class, just put `#include <stack>` at the top of your C++ file.  A standard clang++ installation should automatically find the STL stack class (this works in Linux).
@@ -53,7 +53,7 @@ Procedure
 
 ### Post-lab ###
 
-1. Implement a stack class (into files stack.h and stack.cpp).  **You can NOT use an STL container class for this** (list, vector, stack, etc.) for this, but you can use the STL string class.  You should use either your List class from the last lab (if it works), or write up new stack class based on either the lecture notes or the textbook pages on stacks.  Note that your stack class can contain a LinkedList object, and a stack class method can just pass the value onto the appropriate method in the LinkedList class.  You don't need to implement all possible stack methods (in particular, you can ignore the copy constructor, `operator=()`, etc.) -- just the four mentioned in the pre-lab (push(), top(), pop(), and empty()).  After this lab, it is expected that you will be able to implement a stack class in C++.
+1. Implement a stack class (into files stack.h and stack.cpp).  **You can NOT use an STL container class for this** (`list`, `vector`, `stack`, etc.) for this, but you can use the STL `string` class.  You should use either your List class from the last lab (if it works), or write up new stack class based on either the lecture notes or the textbook pages on stacks.  Note that your stack class can contain a LinkedList object, and a stack class method can just pass the value onto the appropriate method in the LinkedList class.  You don't need to implement all possible stack methods (in particular, you can ignore the copy constructor, `operator=()`, etc.) -- just the four mentioned in the pre-lab (push(), top(), pop(), and empty()).  After this lab, it is expected that you will be able to implement a stack class in C++.
 2. Modify your postfix calculator to use the stack class that you have implemented.
 3. Be sure to include: your name, the date, and the name of the file in a banner comment at the beginning of each file you submit.  Your submission must contain the following code:
     1. Your stack code.  This will likely be stack.h/cpp, and may (or may not; your choice) include all of the List.h/cpp, ListItr.h/cpp, ListNode.h/cpp files from lab 2
@@ -107,7 +107,7 @@ For this lab, you will use a stack of `int` values.
 
 For this part of the lab, you will not deal with keyboard input (that's in the in-lab) -- thus, your submitted program will always compute the exact same value each time it is run.  You will need to hard-code, into the `main()` method, the values to be operated on by your calculator. Make sure the test(s) in main demonstrates the functionality of all operators!
 
-A sample `main()` method that might work is as follows -- this should be modified for your particular situation (i.e. how you declare your class, your method names, etc.).  This main() method uses the first sample input given at the very end of this document.
+A sample `main()` function that might work is as follows -- this should be modified for your particular situation (i.e. how you declare your class, your method names, etc.).  This `main()` function uses the first sample input given at the very end of this document.
 
 ```
 int main() {
@@ -148,7 +148,8 @@ If you want to see some quick code for converting a string to an int, see the `S
 ### Hints ###
 
 In the past, students have run into a few problems with this lab.  We list them here in an effort to prevent these particular problems from being encountered again.
-- When compiling your code, remember to compile ALL of your cpp files in the compile command: `clang++ postfixCalculator.cpp, testPostfixCalc.cpp`
+
+- When compiling your code, remember to compile ALL of your cpp files in the compile command: `clang++ postfixCalculator.cpp, testPostfixCalc.cpp`.  Or you can use `clang++ *.cpp`
 - Remember to put `using namespace std;` at the top of EACH file you write.  Even if you don't use anything from the standard namespace, putting that at the top of the file will not hurt.
 
 
