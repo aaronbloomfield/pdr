@@ -301,6 +301,17 @@ Buffer<string,2048> buf2;  // Buffer<string,2048>
 ```
 	</script></section>
 
+	<section data-markdown><script type="text/template">
+## STL usage
+- You may use any STL class during this course, with the following restriction:
+  - Unless otherwise specified, you can ***NOT*** use an STL data structure which is the purpose of the lab
+    - So you can't use `hash_map` for the hash lab, for example
+- Typically, people use:
+  - `vector` throughout the course
+  - `string` throughout the course
+  - `stack` in pre-lab 3 and in-lab 3 (but *NOT* post-lab 3)
+	</script></section>
+
 	</section>
 
 	<section>
@@ -311,7 +322,7 @@ Buffer<string,2048> buf2;  // Buffer<string,2048>
 
 	<section data-markdown><script type="text/template">
 ## Abstract Data Types (ADT)
-- Set of objects with a set of operations that can be performed on the object
+- Collection of "things" with a set of operations that can be performed on the data structure
   - Definition of a type
 - A C++ class is a way to implement an ADT, as is a Java class, or C code (which is not object oriented)
 - An ADT hides implementation details from the programs that use them
@@ -352,8 +363,8 @@ A0, A1, A2, A3, A4
 ```
 - find(52)
   - returns 2 (position of 52)
-- insert(x,2)
-  - 34, 12, x, 52, 16, 12
+- insert('x',2)
+  - 34, 12, 'x', 52, 16, 12
 - remove(52)
 - find(1)
 	</script></section>
@@ -455,7 +466,7 @@ A0, A1, A2, A3, A4
 
 	<section data-markdown><script type="text/template">
 ## Stack Applications: Postfix Calculator
-- For each input token (number or operator)...
+- For each input token (number or operator):
   - If number
     - Push number onto stack
   - If operator
