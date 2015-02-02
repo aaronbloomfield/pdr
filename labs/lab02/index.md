@@ -94,7 +94,7 @@ We have provided a test harness for testing your whole implementation: [ListTest
 
 Below is a UML diagram showing how these classes interact with each other.
 
-![UML diagram](uml-diagram.png)
+![UML diagram](list-diagram.png)
 
 This diagram shows a list containing two elements, the integers 3 and 7.  Note that there are more methods in the List and ListItr classes than what is shown above.  The head and tail pointers in the List class point to dummy nodes -- they are put there to make inserting elements into the list easier.  It doesn't matter what the value of the dummy notes is set to, as it won't be used.  Each ListNode points to the nodes before and after it (although the dummy nodes each have one pointer pointing to NULL).
 
