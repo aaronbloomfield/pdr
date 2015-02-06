@@ -65,7 +65,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |8| Jan&nbsp;30 | Friday    | | [02: Lists][82] | [lists][82], slides [4][10204] to [6-6][1020606] ([recording][208]) | 
 |9| Feb&nbsp;2  | Monday    | [Lab 3: Stacks][3] ([md][23]) / [Tutorial 3: More UNIX, part 1][63], introduction and sections 1-4 | [02: Lists][82], [03: Numbers][83] |  [lists][82], slides [6-7][1020607] to [8-3][1020803] (end); [numbers][83], slides [0][83] to [4-3][1030403] ([recording][209]) | 
 |10| Feb&nbsp;4  | Wednesday | | [03: Numbers][83] | [numbers][83], slides [4-4][1030404] to [8-1][1030801] ([recording][210]) | 
-|11| Feb&nbsp;6  | Friday    | | [03: Numbers][83] || 
+|11| Feb&nbsp;6  | Friday    | | [03: Numbers][83] | [numbers][83], slides [8-1][1030801] to [8-16][1030816] ([recording][211]) | 
 |12| Feb&nbsp;9  | Monday    | [Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8 | [03: Numbers][83] || 
 |13| Feb&nbsp;11 | Wednesday | | [04: Arrays & big-Oh][84] || 
 |14| Feb&nbsp;13 | Friday    | | [04: Arrays & big-Oh][84] || 
@@ -276,6 +276,7 @@ None yet!
 [1020803]: ../slides/02-lists.html#/8/3
 [1030404]: ../slides/03-numbers.html#/4/4
 [1030801]: ../slides/03-numbers.html#/8/1
+[1030816]: ../slides/03-numbers.html#/8/16
 [1050311]: ../slides/05-trees.html#/3/11
 [1050416]: ../slides/05-trees.html#/4/16
 [1050417]: ../slides/05-trees.html#/4/17
