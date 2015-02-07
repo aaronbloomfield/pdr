@@ -274,6 +274,7 @@ None yet!
 [1020606]: ../slides/02-lists.html#/6/6
 [1020607]: ../slides/02-lists.html#/6/7
 [1020803]: ../slides/02-lists.html#/8/3
+[1030403]: ../slides/03-numbers.html#/4/3
 [1030404]: ../slides/03-numbers.html#/4/4
 [1030801]: ../slides/03-numbers.html#/8/1
 [1030816]: ../slides/03-numbers.html#/8/16
