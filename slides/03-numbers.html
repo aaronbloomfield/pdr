@@ -953,16 +953,20 @@ bool foo = fabs (a-b) < EPSILON;
     - 3 decimal digits (0-999) into 10 binary digits (0-1023) (24 wasted out of 1024)
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
-## Smaller Floating Point
-- 16-bit floating point representations
-  - Minifloat: 1 sign, 5-bit exponent, 10-bit mantissa
-  - Range from 2.98 \* 10<sup>-8</sup> to 65504 
-  - Your graphics card uses this (if you have a good one)
-  - 40 billion floating point operations per second (3 Ghz Pentium = 12 billion)
-![nvidia logo](images/03-numbers/nvidia.png)
-	  </script></section>
-
+	  <section>
+<h2>Smaller Floating Point</h2>
+<ul>
+  <li>16-bit floating point representations
+    <ul>
+      <li>Minifloat: 1 sign, 5-bit exponent, 10-bit mantissa</li>
+      <li>Range from 2.98 * 10<sup>-8</sup> to 65504</li>
+      <li>Your graphics card uses this (if you have a good one)</li>
+      <li>40 billion floating point operations per second (3 Ghz Pentium = 12 billion)</li>
+    </ul>
+  </li>
+</ul>
+<img src='images/03-numbers/nvidia.png' alt='nvidia logo' style="background-color:white">
+	  </section>
 
 	</section>
 
