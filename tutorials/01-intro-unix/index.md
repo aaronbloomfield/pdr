@@ -78,13 +78,13 @@ All of the mouse commands in Emacs have keyboard shortcuts.  Eventually, you wil
 
 The first commands in Emacs that we will learn will use the control key.  For example, the exit command (to leave emacs) is listed as `C-x C-c`.  This means hit Control-x then Control-c.  We will be going over Emacs command in more detail later.  For now, remember that if you get stuck, hit `C-g` (Control-g) a few times, and that should un-stick it.
 
-We recommend you create a new directory in your desktop for the rest of this tutorial (`mkdir tutorial`).  Either way, cd into that directory.
+We recommend you create a new directory in your desktop for the rest of this tutorial (`mkdir tutorial`).  Either way, `cd` into that directory.
 
 Next, let's open up a new file.  Do do that, go to File->Open (`C-x C-f`).  Enter the name of the file (`helloworld.cpp`).  Note that if the file does not exist, then it is created (thus, it is like File->New in other programs).  If the file does exist, it is opened (like File->Open in other programs).  Also note that in the lower part of the Emacs screen, it should now say "C++ Abbrev" -- this is the mode that Emacs is in.  The "C++ Abbrev" means that it is in C++ mode, which is what we want.
 
 Enter the following program -- feel free to cut-and-paste (there is a 'Edit->Paste' menu entry).  This is the same program found in the first set of slides.  What all this C++ code means, we'll get to later -- this tutorial is just for entering, compiling, and running the programs.
 
-```
+```C++
 // C++
 #include <iostream>
 using namespace std;
@@ -102,11 +102,17 @@ After a successful compilation, do an `ls` -- you will see a second file, called
 
 Another useful command is the undo command: `C-_`.  This means hold down the control and shift keys, and hit the dash/underscore key.
 
+Right now your Emacs should look approximately like this (with the helloworld.cpp file loaded):
+
+![Emacs screenshot](emacs-screenshot-new.png)
+
+The following is useful for older versions of Emacs. Read over it and familiarize yourself with it, specifically the meta-commands, but note that if you see text coloring and line-numbers, you are good to go.
+
 There are two more Emacs commands that will be very useful as we continue in the course.  The Emacs editor is very powerful, but you would never know it by looking at the code that you just entered.  It really just looks like Notepad right now:
 
-![Emacs screenshot](screenshot-2.png)
- 
-Let's color the text and turn on linqe numbers -- both very useful things to have when you are editing code.  We've seen control commands (such as `C-x C-s` for saving a file).  Next up are commands called meta-commands, because they use the meta (or escape) key.  A meta-command looks like `M-x line-number-mode`.  Thus, to enter the command, hit the escape key, RELEASE THE ESCAPE KEY, and hit `x`.  Note that with the control commands, you hold down the control key while pressing the other key -- with meta commands, you press and then release the escape key, and then hit `x`.  At that point, the bottom of your Emacs screen will look like the following:
+![Emacs screenshot](new-screenshot-2.png)
+
+Let's color the text and turn on line numbers -- both very useful things to have when you are editing code.  We've seen control commands (such as `C-x C-s` for saving a file).  Next up are commands called meta-commands, because they use the meta (or escape) key.  A meta-command looks like `M-x line-number-mode`.  Thus, to enter the command, hit the escape key, RELEASE THE ESCAPE KEY, and hit `x`.  Note that with the control commands, you hold down the control key while pressing the other key -- with meta commands, you press and then release the escape key, and then hit `x`.  At that point, the bottom of your Emacs screen will look like the following:
 
 ![Emacs screenshot](screenshot-3.png)
  
@@ -118,6 +124,8 @@ The other command that is useful is to color the program text.  Use the command 
 
 In addition to the font coloring of the C++ program code, note that the word 'Font' is between 'C++' and 'Abbrev' on the status bar (as we are now using font colors), and the line number is shown to the right of that (the cursor is on line 1 in the image).
 
+##Summary
+
 In summary, you should be familiar with the following Emacs commands:
 
 - `C-x C-f`: Open a file, or create a new file if the file name is not found
@@ -127,8 +135,8 @@ In summary, you should be familiar with the following Emacs commands:
 - `M-x line-number-mode`: Turn on line numbers
 - `M-x font-lock-mode`: Turn on font coloring
 
-A good Emacs reference sheet can be found [here](http://refcards.com/docs/wingb/xemacs/xemacs-refcard-a4.pdf).  This file is also in the Collab Resources section, under the misc folder.  Note that this page is formatted for A4 paper -- it should print out fine on our letter-sized paper, but you may have to scale the image in Acrobat Reader when you print it out.
+A good Emacs reference sheet can be found [here](http://www.gnu.org/software/emacs/refcard/pdf/refcard.pdf).  This file is also in the Collab Resources section, under the misc folder.  Note that this page is formatted for A4 paper -- it should print out fine on our letter-sized paper, but you may have to scale the image in Acrobat Reader when you print it out.
 
-When you are all finished, you should exit Emacs (C-x C-c), and logout (by typing `logout`).
+When you are all finished, you should exit Emacs (`C-x C-c`), and logout (by typing `logout`).
 
 That's it!  You can now edit, compile, and run C++ programs.  You are ready to proceed to the pre-lab for lab 1.
