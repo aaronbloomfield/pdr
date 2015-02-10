@@ -67,7 +67,7 @@ For this course, you will need to be familiar with Emacs.  You are welcome to us
 
 To load up the editor:
 
-- In Linux (via VirtualBox, or in FreeBSD, Solaris, etc.): Log in (presumably to the X-Windows interface), and load up `emacs`.  How you load that up is dependent on your version of Linux -- the easy way is to load up a command shell, or terminal, (which you will need anyway), and enter `emacs &` (note the ampersand ('&') at the end, this tells the command shell to start the `emacs` process in the background, which means you can continue to use the command shell and do not have to wait until emacs is closed).
+- In Linux (via VirtualBox, or in FreeBSD, Solaris, etc.): Log in (presumably to the X-Windows interface), and load up `emacs`.  How you load that up is dependent on your version of Linux -- the easy way is to load up a command shell, or *terminal*, (which you will need anyway), and enter `emacs &` (note the ampersand ('&') at the end, this tells the command shell to start the `emacs` process in the background, which means you can continue to use the command shell and do not have to wait until emacs is closed). To use emacs within your command shell, enter `emacs -nw` (note the `-nw` means no-window, and also note we don't put an `&` here).
 - Through SecureCRT to the departmental machines: log in as above.  A few notes: when you load up the editor, enter `emacs helloworld.cpp` -- note that you are not loading the GUI (as this is a text-based terminal you are using), and you are not using an ampersand (`&`).  When you have to switch back to using the shell, you will need to exit Emacs (`C-x C-c` -- see below), run the command, and then re-start Emacs.
 
 You should now have emacs loaded and running -- if not, then something is wrong.  If you are using the VirtualBox image, it will look like the following.  Other systems will look similar.
@@ -135,7 +135,7 @@ In summary, you should be familiar with the following Emacs commands:
 - `M-x line-number-mode`: Turn on line numbers
 - `M-x font-lock-mode`: Turn on font coloring
 
-A good Emacs reference sheet can be found [here](http://www.gnu.org/software/emacs/refcard/pdf/refcard.pdf).  This file is also in the Collab Resources section, under the misc folder.  Note that this page is formatted for A4 paper -- it should print out fine on our letter-sized paper, but you may have to scale the image in Acrobat Reader when you print it out.
+A good Emacs reference sheet can be found [here](http://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf).  This file is also in the Collab Resources section, under the misc folder.  Note that this page is formatted for A4 paper -- it should print out fine on our letter-sized paper, but you may have to scale the image in Acrobat Reader when you print it out.
 
 When you are all finished, you should exit Emacs (`C-x C-c`), and logout (by typing `logout`).
 
