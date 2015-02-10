@@ -110,7 +110,7 @@ The following is useful for older versions of Emacs. Read over it and familiariz
 
 There are two more Emacs commands that will be very useful as we continue in the course.  The Emacs editor is very powerful, but you would never know it by looking at the code that you just entered.  It really just looks like Notepad right now:
 
-![Emacs screenshot](new-screenshot-2.png)
+![Emacs screenshot](screenshot-2.png)
 
 Let's color the text and turn on line numbers -- both very useful things to have when you are editing code.  We've seen control commands (such as `C-x C-s` for saving a file).  Next up are commands called meta-commands, because they use the meta (or escape) key.  A meta-command looks like `M-x line-number-mode`.  Thus, to enter the command, hit the escape key, RELEASE THE ESCAPE KEY, and hit `x`.  Note that with the control commands, you hold down the control key while pressing the other key -- with meta commands, you press and then release the escape key, and then hit `x`.  At that point, the bottom of your Emacs screen will look like the following:
 
