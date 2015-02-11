@@ -200,7 +200,7 @@ Multi-dimensional arrays in C++ are stored in ***row major*** order
 
 	  <section data-markdown><script type="text/template">
 ## Command-line parameters
-- You can define the `main()` method as either:
+- You can define the `main()` function as either:
   - `int main()`
   - `int main (int argc, char **argv)`
     - Or: `int main (int argc, char* argv[])`
@@ -251,7 +251,7 @@ int main (int argc, char* argv[]) {
 ## Classifying functions by their<br>Asymptotic Growth Rates
 - Asymptotic growth rate, asymptotic order, or order of functions 
   - Comparing and classifying functions that ignores constant factors and small inputs. 
-- The sets are big-oh, <span class='red'>big-theta</span>, and <span class='skyblue'>big-omega</span>:
+- The sets are <span class='red'>big-omega</span>, big-theta, and <span class='skyblue'>big-oh</span>:
   - <span class='red'>&Omega;</span>(*g*): functions that grow ***at least as fast*** as g
   - &Theta;(*g*): functions that grow ***at the same rate*** as g
   - <span class='skyblue'>O</span>(*g*): functions that grow ***no faster than*** g
