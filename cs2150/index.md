@@ -71,7 +71,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |14| Feb&nbsp;13 | Friday    | | [04: Arrays & big-Oh][84] | [arrays & big-oh][84], slides [4-3][1040403] to [4-19][1040419] ([recording][214]) | 
 |     | Feb&nbsp;15 | Sunday    | Exam 1 review session | Exam 1 review session | ([recording][215]) |
 |15| Feb&nbsp;16 | Monday    | Exam 1 instead during Tuesday's lab | [04: Arrays & big-Oh][84], [05: Trees][85] | [arrays & big-oh][84], slides [4-20][1040420] to [5-7][1040507] (end); [trees][85], slides [0][85] to [3-5][1050305] ([recording][216]) | 
-|16| Feb&nbsp;18 | Wednesday | | [05: Trees][85] || 
+|16| Feb&nbsp;18 | Wednesday | | [05: Trees][85] | [trees][85], slides [3-6][1050306] to [4-15][1050415] ([recording][217]) | 
 |17| Feb&nbsp;20 | Friday    | | [05: Trees][85] || 
 |18| Feb&nbsp;23 | Monday    | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [05: Trees][85] || 
 |19| Feb&nbsp;25 | Wednesday | | [05: Trees][85] || 
@@ -285,8 +285,10 @@ None yet!
 [1040420]: ../slides/04-arrays-bigoh.html#/4/20
 [1040507]: ../slides/04-arrays-bigoh.html#/5/7
 [1050305]: ../slides/05-trees.html#/3/5
+[1050306]: ../slides/05-trees.html#/3/6
 [1050311]: ../slides/05-trees.html#/3/11
 [1050416]: ../slides/05-trees.html#/4/16
+[1050415]: ../slides/05-trees.html#/4/15
 [1050417]: ../slides/05-trees.html#/4/17
 [1050617]: ../slides/05-trees.html#/6/17
 [1050703]: ../slides/05-trees.html#/7/3
