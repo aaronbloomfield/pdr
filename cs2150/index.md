@@ -110,7 +110,7 @@ The links in the right-most column link directly to the lecture recording on Col
 Grading Concerns
 ----------------
 
-None yet!
+- The curve on [midterm 1](../exams/exam1-s15.pdf) will be 10 *percentage* points
 
 
 [1]: ../labs/lab01/index.html
