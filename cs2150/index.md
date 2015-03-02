@@ -76,7 +76,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |18| Feb&nbsp;23 | Monday    | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [05: Trees][85] | [trees][85], slides [6-12][1050612] to [7-11][1050711] ([recording][219]) | 
 |19| Feb&nbsp;25 | Wednesday | | [05: Trees][85] | [trees][85], slides [8][10508] to [9-9][1050909] (end); [hashes][86], slides [0][86] to [4-1][1060401] ([recording][221]) | 
 |20| Feb&nbsp;28 | Friday    | | [06: Hashes][86] | [hashes][86], slides [4-1][1060401] to [5-2][1060502] ([recording][222]) | 
-|21| Mar&nbsp;2  | Monday    | | [06: Hashes][86] || 
+|21| Mar&nbsp;2  | Monday    | | [06: Hashes][86] | [hashes][86], slides [5-2][1060502] to [7-2][1060702] ([recording][223]) | 
 |22| Mar&nbsp;4  | Wednesday | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [06: Hashes][86], [07: IBCM][87] (machine language) || 
 |23| Mar&nbsp;6  | Friday    | | [07: IBCM][87] (machine language) || 
 |     | Mar&nbsp;9  | Monday    | | no class (spring break) || 
@@ -303,6 +303,7 @@ Grading Concerns
 [1060502]: ../slides/06-hashes.html#/5/2
 [1060608]: ../slides/06-hashes.html#/6/8
 [1060609]: ../slides/06-hashes.html#/6/9
+[1060702]: ../slides/06-hashes.html#/7/2
 [1060706]: ../slides/06-hashes.html#/7/6
 [1070302]: ../slides/07-ibcm.html#/3/2
 [1070303]: ../slides/07-ibcm.html#/3/3
