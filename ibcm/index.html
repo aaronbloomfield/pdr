@@ -7,22 +7,6 @@
   <meta name="keywords" content="IBCM, Itty Bitty Computing Machine" />
   <title>IBCM Interface: Home</title>
   <link rel="stylesheet" type="text/css" href="ibcm.css" media="screen" />
-<style type="text/css"><!--
-.scripthide { display:none; }
-.noscripthide { display:inline; }
---></style>
-  <script type="text/javascript">
-<!--
-function showText(whattoshow) {
-   document.getElementById("home").style.display = "none";
-   document.getElementById("docs").style.display = "none";
-   document.getElementById("vbsim").style.display = "none";
-   document.getElementById("cmdline").style.display = "none";
-   document.getElementById("about").style.display = "none";
-   document.getElementById(whattoshow).style.display = "block";
-}
--->
-</script>
  </head>
 
  <body>
@@ -46,120 +30,36 @@ function showText(whattoshow) {
     <div id="left">
 
    <div id="home" class="noscripthide">
-<h2>Welcome to the IBCM Interface</h2>
-<p>The Itty Bitty Computing Machine (IBCM) interface is designed to help emulate IBCM programs.  It is used at the University of Virginia in CS 216, Program and Data Representation, to teach machine language.</p>
-<p>Use the links to the right to learn more about IBCM.  <a href="directions.html">Directions about how to use the online simulator</a> are available, as well as the <a href="simulator.php">simulator itself</a>.</p>
-<p>This simulator is in beta, which means that it <i>should</i> work properly, but there still may be bugs.  Be sure to look at the browser compatability section at the bottom of the <a href="directions.html">directions page</a>.  And please report any bugs you found to the course instructor.</p>
+<h2>The Itty Bitty Computing Machine</h2>
+<p>The Itty Bitty Computing Machine (IBCM) is a machine language meant to provide a one-week introduction to machine language in a CS2 or CS3 course; this web site is an interface to emulate IBCM programs.  IBCM was developed at, and is still used by, the University of Virginia in CS 2150, Program and Data Representation, to teach machine language.</p>
+<p>The IBCM simulator, along with all the documentation and source code, is availabe on github at <a href="http://github.com/aaronbloomfield/pdr">http://github.com/aaronbloomfield/pdr</a>.  All the materials are released under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> License.</p>
+<p>There are a number of documentation sources:</p>
+<ul>
+<li>A book chapter on IBCM.  This is available in the <a href="https://github.com/aaronbloomfield/pdr">github repo</a>, specifically <a href="https://github.com/aaronbloomfield/pdr/raw/master/book/ibcm-chapter.pdf">here</a>.</li>
+<li>The <a href="directions.html">directions page</a> for the online simulator.</li>
+<li>An article on IBCM: <a href="http://dl.acm.org/citation.cfm?id=1953273">IBCM: The Itty Bitty Computing Machine: A One-Week Module To Teach Machine Language In Computing Courses</a>, published in SIGCSE 2011.</li>
+</ul>
+<p>Be sure to look at the browser compatability section at the bottom of the <a href="directions.html">directions page</a>.  And please report any bugs you found via the <a href="https://github.com/aaronbloomfield/pdr">github repo</a> (just fill out an issue).</p>
 <p>The <a href="simulator.php">simulator page</a> is a PHP script, which means that it will not work if you are viewing it as a local file (i.e., if the beginning of your URL is &quot;file://&quot; instead of &quot;http://&quot;), or if the web server hosting this page does not have PHP installed (this includes UVa's Collab web server).</p>
+
+<h2>Mirrors</h2>
 <p>The IBCM interface is hosted at the following locations, which all allow the simulator's PHP script to work properly.</p><ul>
 <li><a href="http://libra.cs.virginia.edu/ibcm/">http://libra.cs.virginia.edu/ibcm/</a></li>
 <li><a href="http://www.cs.virginia.edu/~cs216/ibcm/">http://www.cs.virginia.edu/~cs216/ibcm/</a></li>
 <li><a href="http://people.virginia.edu/~asb2t/ibcm/">http://people.virginia.edu/~asb2t/ibcm/</a></li>
 </ul>
-</div>
 
-<div id="docs" class="scripthide">
-  <h2>IBCM Documentation</h2>
-  <p>This page provides a brief set of instructions explaining how to use the <a href="./simulator.php">IBCM simulator</a>.</p>
-  <ul>
-  <li>The <a href="ibcm-poo.pdf">IBCM Principles of Operation</a> describes the IBCM language and all of the 16 available instructions.</li>
-  <li>The <a href="ibcm-code-eg.pdf">IBCM code examples</a> lists, and explains, two programs that have been written in IBCM.  Those programs can be downloaded directly <a href="summation.ibcm">here</a> and <a href="array-summation.ibcm">here</a>.</li>
-  </ul>
-</div>
-
-<div id="about" class="scripthide">
-<h2>About IBCM</h2>
-<p>The Itty Bitty Computing Machine (IBCM) was developed at the University of Virginia as an aid to teach how programs would work on a machine language level.</p>
-<p>This simulator was last updated on November 1, 2009</p>
-  <p>All pages are valid HTML as per W3C.  <a href="http://validator.w3.org/check?uri=referer"><img
-        src="img/valid-xhtml10.png"
-        alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a></p>
-<h2>Credits</h2>
-<p>This online IBCM simulator was developed by Nick Williams and Aaron
-  Bloomfield in 2008.  The HTML template for this website was taken
-  from <a href = "http://www.oswd.org">oswd.org</a>.</p>
-</div>
-
-
-<div id="cmdline" class="scripthide">
 <h2>Command-line version</h2>
-<p>A command-line version was written that will both compile and
-  execute IBCM programs.  This was done to allow for automated grading
-  of IBCM assignments.  It is not particularly easy to use, and thus
-  students will probably want to use
-  the <a href="simulator.php">online simulator</a> instead.</p>
-<p>We eventually will release the souce code to this command-line version.  As of now, however, that source code is not ready (we have to comment it, clean it up, apply the proper licence, etc.).  Until then, you can download a pre-compiled binary in any of the following formats:</p>
-<ul>
-<li><a href="ibcm-macosx">Mac OS X</a>, compiled using g++ 4.0.1 under OS X version 10.5.4</li>
-<li><a href="ibcm-linux">Linux</a>, compiled using g++ 4.2.3 under Ubuntu 8.04</li>
-<li><a href="ibcm-cygwin.exe">Cygwin for Windows</a>, compiled using g++ 3.4.4</li>
-</ul>
-<p>To use the command-line version, use the '-help' option.  A description of the command-line options appears below.  Note that the program MUST be compiled before it is run.</p>
-<ul>
-<li>-help: Prints a summary of the command-line options</li>
-<li>-comp &lt;inputfile&gt;: Will compile the ascii-based IBCM program into a binary format needed for execution.</li>
-<li>-o &lt;outfile&gt;: Specifies the output file for compilation; default is 'ibcm.bin'</li>
-<li>-sim &lt;inputfile&gt;: Runs the IBCM simulator on the already-compiled input file</li>
-<li>-verbose:  Prints useful debugging information while compiling and emulating the specified IBCM program.  Specify twice for more output.</li>
-<li>-dump <inputfile>: Dump a binary IBCM file in text format. Also specify -verbose for decompilation.</li>
-</ul>
+<p>Two command-line versions were written that will check, compile, and execute IBCM programs.  They are available in the <a href="https://github.com/aaronbloomfield/pdr">github repo</a>, in the &quot;ibcm/&quot; sub-directory.  One of them (ibcm-parse.cpp) just parses an IBCM program to ensure it matches the desired format; this is used to, in effect, &quot;compile&quot; a program to ensure the syntax is correct.  The second, ibcm-simulate.cpp, is used to actually compile and run IBCM programs.  Run the compiled version of ibcm-simulate.cpp with a &quot;-help&quot; flag to see the available options.</p>
 
-</div>
-
-<div id="vbsim" class="scripthide">
-<h2>Old Simulator</h2>
-<p>Prior to the fall 2008 semester, IBCM programming was done via a
-installable simulator that was written in Visual Basic.  The simulator
-only runs on Windows systems -- it works with XP, and has not been
-formally tested with Vista (although anecdotal reports indicate that
-it works).  This page contains the links and documentation for the old
-simulator.</p>
-<p>If you are new to IBCM, you probably want to use
-the <a href="simulator.php">online version of the simulator</a>.</p>
-<p>If you have Visual Basic or Visual Studio installed, try running
-the <a href="vb-ibcm.exe">vb-ibcm.exe</a> executable.  If that does
-not run properly, you will have to install the simulator through
-the <a href="vb-ibcm-setup.exe">vb-ibcm-setup.exe</a> installation
-package.</p>
-<p>The original <a href="ibcm-poo-vb.pdf">IBCM Principles of
-Operation</a> document contains, on the last page, information on how
-to use the old simulator.  The <a href="ibcm-poo.pdf">current
-version</a> contains the same information about the IBCM language,
-just without the information about how to use the old simulator.</p>
-<p>If you are working in the ITC lab or in Olsson 001, then the
-simulator may already be installed. Run it from the menu:
-Start->S.E.A.S.->IBCM Simulator.</p>
-<p>If you are working at home or on a machine that does not have it
-installed, try the following steps (in order!).</p>
-<p>If you are working on a machine that has Visual Basic installed
-(including the Olsson 001 lab or in a public PC lab), then download
-the smaller (44KB) file called <a href="vb-ibcm.exe">vb-ibcm.exe</a>
-to a suitable directory (on a public machine this might be
-C:\LOCALDATA) and start Windows Explorer. Double-click on the
-vb-ibcm.exe file and it will run the simulator.</p>
-<p>If the previous step fails, then download larger (1.8 MB) file
-called <a href="vb-ibcm-setup.exe">vb-ibcm-setup.exe</a>. Create an
-empty directory and put this file in that, then double-click on it in
-Windows Explorer. The file is a self-extracting archive that will now
-extract its component files. One of these files is called setup.exe;
-double-click on it and IBCM will be installed on your computer. Then
-you can execute the simulator by double-clicking on vb-ibcm.exe (which
-was part of the archive and is now on your disk), or you can find the
-IBCM program group that has (hopefully) now been installed off your
-"Start->Programs" key on the lower left of your screen.</p>
+<h2>Credits</h2>
+<p>This online IBCM simulator was developed by Nick Williams and Aaron Bloomfield in 2008.  IBCM itself was designed by William Wulf.  The HTML template for this website was taken from <a href="http://www.oswd.org">oswd.org</a>.</p>
 </div>
 
     </div>
      
      <!-- Right Nav Container -->
      <div id="right">
-      <ul id="nav">
-	   <li><a href="./index.html#" onclick="showText('home')">Home</a></li>
-	   <li><a href="./index.html#" onclick="showText('docs')">Documentation</a></li>
-	   <li><a href="./index.html#" onclick="showText('vbsim')">Old simulator</a></li>
-	   <li><a href="./index.html#" onclick="showText('cmdline')">Command-line version</a></li>
-	   <li><a href="./index.html#" onclick="showText('about')">About</a></li>
-      </ul>
      </div>
      
      <!-- Separation Divider -->
