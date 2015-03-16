@@ -82,7 +82,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |     | Mar&nbsp;9  | Monday    | | no class (spring break) || 
 |     | Mar&nbsp;11 | Wednesday | | no class (spring break) || 
 |     | Mar&nbsp;13 | Friday    | | no class (spring break) || 
-|24| Mar&nbsp;16 | Monday    | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [07: IBCM][87] (machine language) || 
+|24| Mar&nbsp;16 | Monday    | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [07: IBCM][87] (machine language) | [IBCM][87], slides [4-2][1070402] to [5-5][1070505] ([recording][224]) | 
 |25| Mar&nbsp;18 | Wednesday || [07: IBCM][87] (machine language) || 
 |26| Mar&nbsp;20 | Friday    | | [08: x86][88] (assembly language) || 
 |27| Mar&nbsp;23 | Monday    | | [08: x86][88] (assembly language) || 
@@ -309,8 +309,10 @@ Grading Concerns
 [1070302]: ../slides/07-ibcm.html#/3/2
 [1070303]: ../slides/07-ibcm.html#/3/3
 [1070401]: ../slides/07-ibcm.html#/4/1
+[1070402]: ../slides/07-ibcm.html#/4/2
 [1070415]: ../slides/07-ibcm.html#/4/15
 [10705]: ../slides/07-ibcm.html#/5
+[1070505]: ../slides/07-ibcm.html#/5/5
 [1070511]: ../slides/07-ibcm.html#/5/11
 [1070604]: ../slides/07-ibcm.html#/6/4
 [1080410]: ../slides/08-x86.html#/4/10
