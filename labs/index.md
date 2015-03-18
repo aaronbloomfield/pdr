@@ -63,7 +63,7 @@ The labs for this course:
 
 - [Lab 8: x86, part 1](lab08/index.html) (assembly language)
     - Source code: [vecsum.s](lab08/vecsum.s.html) ([src](lab08/vecsum.s)), [main.cpp](lab08/main.cpp.html) ([src](lab08/main.cpp)), [Makefile](lab08/Makefile.html) ([src](lab08/Makefile))
-    - Readings: the two x86 book chapters: [x86 Assembly](../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../book/x86-ccc-chapter.pdf)
+    - Readings (which is also the tutorial): the two x86 book chapters: [x86 Assembly](../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../book/x86-ccc-chapter.pdf)
 
 &nbsp;
 
@@ -80,7 +80,7 @@ The labs for this course:
       - File I/O example: [fileio.cpp](lab10/fileio.cpp.html) ([src](lab10/fileio.cpp))
       - In-lab skeleton code: [inlab-skeleton.cpp](lab10/inlab-skeleton.cpp.html) ([src](lab10/inlab-skeleton.cpp))
       - Example encoded and decoded files are in the [labs/lab10/examples/ directory](lab10/examples/), or as one [examples.zip](lab10/examples.zip) file)
-      - ~~The tutorial, for the post-lab, is the [Objective C tutorial](../tutorials/10-objc/index.html), for which you will need the [helloworld.m](../tutorials/10-objc/helloworld.m.html) ([src](../tutorials/10-objc/helloworld.m)) file, and you will need to implement the linkedlist.c program.~~
+      - The tutorial, for the post-lab, is the [Objective C tutorial](../tutorials/10-objc/index.html), for which you will need the [helloworld.m](../tutorials/10-objc/helloworld.m.html) ([src](../tutorials/10-objc/helloworld.m)) file, and you will need to implement the linkedlist.c program.
 
 &nbsp;
 

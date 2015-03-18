@@ -86,7 +86,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |25| Mar&nbsp;18 | Wednesday || [07: IBCM][87] (machine language) || 
 |26| Mar&nbsp;20 | Friday    | | [08: x86][88] (assembly language) || 
 |27| Mar&nbsp;23 | Monday    | | [08: x86][88] (assembly language) || 
-|28| Mar&nbsp;25 | Wednesday | [Lab 8: x86, part 1][8] ([md][28]) / [Tutorial 8: nasm][48], but you can skip some parts; see [here][100]) ([md][101]) for details | [08: x86][88] (assembly language) || 
+|28| Mar&nbsp;25 | Wednesday | [Lab 8: x86, part 1][8] ([md][28]) / Tutorial 8: nasm, which is two book chapters: [1][53] and [2][54] | [08: x86][88] (assembly language) || 
 |29| Mar&nbsp;27 | Friday    | | [08: x86][88] (assembly language) || 
 |     | Mar&nbsp;29 | Sunday    | Exam 2 review session | Exam 2 review session || 
 |30| Mar&nbsp;30 | Monday    | Exam 2 instead during Tuesday's lab | [08: x86][88], [09: Advanced C++][89] || 
@@ -152,6 +152,8 @@ Grading Concerns
 [50]: ../tutorials/10-objc/index.html
 [51]: ../tutorials/11-doxygen/index.html
 [52]: ../tutorials/02-gdb/index.html
+[53]: ../book/x86-asm-chapter.pdf
+[54]: ../book/x86-ccc-chapter.pdf
 
 [61]: ../tutorials/01-intro-unix/index.md
 [62]: ../tutorials/02-lldb/index.md
