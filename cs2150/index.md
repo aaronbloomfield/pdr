@@ -82,8 +82,8 @@ The links in the right-most column link directly to the lecture recording on Col
 |     | Mar&nbsp;9  | Monday    | | no class (spring break) || 
 |     | Mar&nbsp;11 | Wednesday | | no class (spring break) || 
 |     | Mar&nbsp;13 | Friday    | | no class (spring break) || 
-|24| Mar&nbsp;16 | Monday    | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [07: IBCM][87] (machine language) | [IBCM][87], slides [4-2][1070402] to [5-5][1070505] ([recording][224]) | 
-|25| Mar&nbsp;18 | Wednesday || [07: IBCM][87] (machine language) || 
+|24| Mar&nbsp;16 | Monday    | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [07: IBCM][87] (machine language) | [IBCM][87], slides [4-2][1070402] to [5-5][1070505] ([recording][225]) | 
+|25| Mar&nbsp;18 | Wednesday || [07: IBCM][87] (machine language) | [IBCM][87], slides [5-6][1070506] to [6-4][1070604]; [x86][88], slides [0][88] to [3-4][1080304] ([recording][228]) | 
 |26| Mar&nbsp;20 | Friday    | | [08: x86][88] (assembly language) || 
 |27| Mar&nbsp;23 | Monday    | | [08: x86][88] (assembly language) || 
 |28| Mar&nbsp;25 | Wednesday | [Lab 8: x86, part 1][8] ([md][28]) / Tutorial 8: nasm, which is two book chapters: [1][53] and [2][54] | [08: x86][88] (assembly language) || 
@@ -315,12 +315,16 @@ Grading Concerns
 [1070415]: ../slides/07-ibcm.html#/4/15
 [10705]: ../slides/07-ibcm.html#/5
 [1070505]: ../slides/07-ibcm.html#/5/5
+[1070506]: ../slides/07-ibcm.html#/5/6
 [1070511]: ../slides/07-ibcm.html#/5/11
 [1070604]: ../slides/07-ibcm.html#/6/4
+[1070609]: ../slides/07-ibcm.html#/6/9
 [1080410]: ../slides/08-x86.html#/4/10
+[1080304]: ../slides/08-x86.html#/3/4
 [10805]: ../slides/08-x86.html#/5
 [1080607]: ../slides/08-x86.html#/6/7
 [1080608]: ../slides/08-x86.html#/6/8
+[1080609]: ../slides/08-x86.html#/6/9
 [1080804]: ../slides/08-x86.html#/8/4
 [1080914]: ../slides/08-x86.html#/9/14
 [1080915]: ../slides/08-x86.html#/9/15
