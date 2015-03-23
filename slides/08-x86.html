@@ -709,8 +709,8 @@ A float with 2 decimal digits: 3.14
 ## Caller Rules Example
 We'll see this code in the following slides:
 ```
-int myFunc(int a, int b, int c){
-    int x
+int myFunc(int a, int b, int c) {
+    int x;
     // some code
     return result;
 }
@@ -975,28 +975,75 @@ ret             ; pop top value from stack, jump there
 	  </section>
 
 	  <section>
-	    <h2>Animation</h2>
-
+	    <h2>Callee Animation</h2>
 <table class="transparent">
-<tr><th>Code</th><th>...</th><th>Anim</th></tr>
-<tr><td><pre><code>push ebp
-mov ebp, esp
-sub esp, 4
-push ebx
-push esi
-mov eax, [ebp+8]
-mov esi, [ebp+12]
-mov ebx, [ebp+16]
-mov [ebp-4], ebx
-add [ebp-4], esi
-mov eax, [ebp-4]
-pop esi
-pop ebx
-mov esp, ebp
-pop ebp
-ret
-</code></pre>
-</td><td>&nbsp;</td><td>...</td></tr>
+<tr><td>Code</td><td>Stack</td></td><td colspan="2">Registers</td></tr>
+<tr><td style="vertical-align:top">
+<table class="transparent" style="padding:0;spacing:0;border-spacing:0;border-collapse:collapse">
+<tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>push ebp</code></pre></td>         <td><span class="fragment" data-fragment-index="1"><span class="fragment fade-out" data-fragment-index="3">&larr;</span></span></td></tr>
+<tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov ebp, esp</code></pre></td>     <td><span class="fragment" data-fragment-index="3"><span class="fragment fade-out" data-fragment-index="6">&larr;</span></span></td></tr>
+<tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>sub esp, 4</code></pre></td>       <td><span class="fragment" data-fragment-index="6"><span class="fragment fade-out" data-fragment-index="8">&larr;</span></span></td></tr>
+<tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>push ebx</code></pre></td>         <td><span class="fragment" data-fragment-index="8"><span class="fragment fade-out" data-fragment-index="10">&larr;</span></span></td></tr>
+<tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>push esi</code></pre></td>         <td><span class="fragment" data-fragment-index="10"><span class="fragment fade-out" data-fragment-index="12">&larr;</span></span></td></tr>
+<tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov eax, [ebp+8]</code></pre></td> <td><span class="fragment" data-fragment-index="12"><span class="fragment fade-out" data-fragment-index="14">&larr;</span></span></td></tr>
+<tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov esi, [ebp+12]</code></pre></td><td><span class="fragment" data-fragment-index="14"><span class="fragment fade-out" data-fragment-index="16">&larr;</span></span></td></tr>
+<tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov ebx, [ebp+16]</code></pre></td><td><span class="fragment" data-fragment-index="16"><span class="fragment fade-out" data-fragment-index="18">&larr;</span></span></td></tr>
+<tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov [ebp-4], ebx</code></pre></td> <td><span class="fragment" data-fragment-index="18"><span class="fragment fade-out" data-fragment-index="20">&larr;</span></span></td></tr>
+<tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>add [ebp-4], esi</code></pre></td> <td><span class="fragment" data-fragment-index="20"><span class="fragment fade-out" data-fragment-index="22">&larr;</span></span></td></tr>
+<tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov eax, [ebp-4]</code></pre></td> <td><span class="fragment" data-fragment-index="22"><span class="fragment fade-out" data-fragment-index="24">&larr;</span></span></td></tr>
+<tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>pop esi</code></pre></td>          <td><span class="fragment" data-fragment-index="24"><span class="fragment fade-out" data-fragment-index="26">&larr;</span></span></td></tr>
+<tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>pop ebx</code></pre></td>          <td><span class="fragment" data-fragment-index="26"><span class="fragment fade-out" data-fragment-index="28">&larr;</span></span></td></tr>
+<tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov esp, ebp</code></pre></td>     <td><span class="fragment" data-fragment-index="28"><span class="fragment fade-out" data-fragment-index="30">&larr;</span></span></td></tr>
+<tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>pop ebp</code></pre></td>          <td><span class="fragment" data-fragment-index="30"><span class="fragment fade-out" data-fragment-index="32">&larr;</span></span></td></tr>
+<tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>ret</code></pre></td>              <td><span class="fragment" data-fragment-index="32"><span class="fragment fade-out" data-fragment-index="100">&larr;</span></span></td></tr>
+</table>
+</td>
+
+<td style="vertical-align:top">
+<div style="position:relative;left:0;top:0">
+<img class="fragment fade-out" data-fragment-index="2" src="x86/x86-cc-stack.dot.6.svg" style="position:relative;left:0px;top:0px">
+<span class="fragment fade-out" data-fragment-index="7"><img class="fragment" data-fragment-index="2" src="x86/x86-cc-stack.dot.7.svg" style="position:absolute;left:0;top:0px"></span>
+<span class="fragment fade-out" data-fragment-index="9"><img class="fragment" data-fragment-index="7" src="x86/x86-cc-stack.dot.8.svg" style="position:absolute;left:0;top:0"></span>
+<span class="fragment fade-out" data-fragment-index="11"><img class="fragment" data-fragment-index="9" src="x86/x86-cc-stack.dot.9.svg" style="position:absolute;left:0;top:0"></span>
+<span class="fragment fade-out" data-fragment-index="19"><img class="fragment" data-fragment-index="11" src="x86/x86-cc-stack.dot.10.svg" style="position:absolute;left:0;top:0"></span>
+<span class="fragment fade-out" data-fragment-index="21"><img class="fragment" data-fragment-index="19" src="x86/x86-cc-stack.dot.11.svg" style="position:absolute;left:0;top:0"></span>
+<span class="fragment fade-out" data-fragment-index="25"><img class="fragment" data-fragment-index="21" src="x86/x86-cc-stack.dot.12.svg" style="position:absolute;left:0;top:0"></span>
+<span class="fragment fade-out" data-fragment-index="27"><img class="fragment" data-fragment-index="25" src="x86/x86-cc-stack.dot.13.svg" style="position:absolute;left:0;top:0"></span>
+<span class="fragment fade-out" data-fragment-index="29"><img class="fragment" data-fragment-index="27" src="x86/x86-cc-stack.dot.14.svg" style="position:absolute;left:0;top:0"></span>
+<span class="fragment fade-out" data-fragment-index="31"><img class="fragment" data-fragment-index="29" src="x86/x86-cc-stack.dot.7.svg" style="position:absolute;left:0;top:0"></span>
+<span class="fragment fade-out" data-fragment-index="33"><img class="fragment" data-fragment-index="31" src="x86/x86-cc-stack.dot.6.svg" style="position:absolute;left:0;top:0"></span>
+<img class="fragment" data-fragment-index="33" src="x86/x86-cc-stack.dot.5.svg" style="position:absolute;left:0;top:0">
+</div>
+</td>
+
+<td style="vertical-align:top">
+<div style="position:relative;left:0;top:0">
+<img class="fragment fade-out" data-fragment-index="2" src="x86/x86-cc-esp.dot.6.svg" style="position:relative;left:0;top:0">
+<span class="fragment fade-out" data-fragment-index="4"><img class="fragment" data-fragment-index="2" src="x86/x86-cc-esp.dot.7.svg" style="position:absolute;left:0;top:0"></span>
+<span class="fragment fade-out" data-fragment-index="5"><img class="fragment" data-fragment-index="4" src="x86/x86-cc-esp.dot.8.svg" style="position:absolute;left:0;top:0"></span>
+<span class="fragment fade-out" data-fragment-index="7"><img class="fragment" data-fragment-index="5" src="x86/x86-cc-esp.dot.9.svg" style="position:absolute;left:0;top:0"></span>
+<span class="fragment fade-out" data-fragment-index="9"><img class="fragment" data-fragment-index="7" src="x86/x86-cc-esp.dot.10.svg" style="position:absolute;left:0;top:0"></span>
+<span class="fragment fade-out" data-fragment-index="11"><img class="fragment" data-fragment-index="9" src="x86/x86-cc-esp.dot.11.svg" style="position:absolute;left:0;top:0"></span>
+<span class="fragment fade-out" data-fragment-index="25"><img class="fragment" data-fragment-index="11" src="x86/x86-cc-esp.dot.12.svg" style="position:absolute;left:0;top:0"></span>
+<span class="fragment fade-out" data-fragment-index="27"><img class="fragment" data-fragment-index="25" src="x86/x86-cc-esp.dot.11.svg" style="position:absolute;left:0;top:0"></span>
+<span class="fragment fade-out" data-fragment-index="29"><img class="fragment" data-fragment-index="27" src="x86/x86-cc-esp.dot.10.svg" style="position:absolute;left:0;top:0"></span>
+<span class="fragment fade-out" data-fragment-index="31"><img class="fragment" data-fragment-index="29" src="x86/x86-cc-esp.dot.9.svg" style="position:absolute;left:0;top:0"></span>
+<span class="fragment fade-out" data-fragment-index="33"><img class="fragment" data-fragment-index="31" src="x86/x86-cc-esp.dot.6.svg" style="position:absolute;left:0;top:0"></span>
+<img class="fragment" data-fragment-index="33" src="x86/x86-cc-esp.dot.5.svg" style="position:absolute;left:0;top:0">
+</div>
+</td>
+
+<td style="vertical-align:top">
+<div style="position:relative;left:0;top:0">
+<img class="fragment fade-out" data-fragment-index="13" src="x86/x86-cc-regs.dot.svg" style="position:relative;left:0;top:0">
+<span class="fragment fade-out" data-fragment-index="15"><img class="fragment" data-fragment-index="13" src="x86/x86-cc-regs.dot.2.svg" style="position:absolute;left:0;top:0"></span>
+<span class="fragment fade-out" data-fragment-index="17"><img class="fragment" data-fragment-index="15" src="x86/x86-cc-regs.dot.3.svg" style="position:absolute;left:0;top:0"></span>
+<span class="fragment fade-out" data-fragment-index="23"><img class="fragment" data-fragment-index="17" src="x86/x86-cc-regs.dot.4.svg" style="position:absolute;left:0;top:0"></span>
+<span class="fragment fade-out" data-fragment-index="25"><img class="fragment" data-fragment-index="23" src="x86/x86-cc-regs.dot.5.svg" style="position:absolute;left:0;top:0"></span>
+<span class="fragment fade-out" data-fragment-index="27"><img class="fragment" data-fragment-index="25" src="x86/x86-cc-regs.dot.6.svg" style="position:absolute;left:0;top:0"></span>
+<img class="fragment" data-fragment-index="27" src="x86/x86-cc-regs.dot.7.svg" style="position:absolute;left:0;top:0">
+</div>
+</td>
 </table>
 	  </script></section>
 
@@ -1654,6 +1701,29 @@ Source code: [test_fib.s](code/08-x86/test_fib.s.html) ([src](code/08-x86/test_f
   - And if the subroutine invocation is solely within clang's code...
     - ... meaning that there is no call to an external library, or this is not code that will go *into* a library...
     - ... then parameters may be passed in the registers
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## An aside: An advantage of little-Endian
+- Consider the 32-bit bit-Endian word 0x680abcde in memory starting address 1000:
+  - In big-Endian:
+    - Byte '68' is the most significant and is at address 1000
+    - Byte 'de' is the least significant and is at address 1003
+  - In little-Endian:
+    - Byte 'de' is the most significant and is at address 1000
+    - Byte '68' is the least significant and is at address 1003
+- Note that, in little-Endian, the entire 32-bit word *and* the 8-bit least significant byte have the same address!
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## More on little-Endian
+- In little-Endian, the entire 32-bit word *and* the 8-bit least significant byte have the same address
+- Consider a `movb`, `movw`, or `movl`
+  - Moving a 8, 16, and 32 bit quantity, respecitively)
+  - If you called `movb`, that instruction moves the *least* significant 8 bits of the 32-bit quantity
+- Thus, if you are doing one of those moves, the address is the same, which makes the CPU addressing routines simpler
+- This means integer *casts* are a essentially a no-op
+  - To cast an `int` to a `short`, you just tke lowest 16 bits, which means you use a `movw` instead of a `movl`
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">

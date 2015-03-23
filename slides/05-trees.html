@@ -312,6 +312,7 @@ int TreeNode::numNodes(TreeNode tnode) {
 - Both binary trees and binary search trees have zero, one, or two children per node
 - But a binary search tree is *sorted*
 - However, most people, when they say "binary tree", really mean a "binary search tree"
+- Note: we assume that we can *NOT* have duplicate elements in a BST
       </script></section>
 
       <section data-markdown><script type="text/template">
@@ -784,7 +785,7 @@ Note that the trees shown are not necessarily AVL trees, but the rotations are c
 </tr></table>
 <p class="center">\( X &lt; b &lt; Y &lt; a &lt; Z \)</p>
 <p class="center">The insert happens into sub-tree Y, increasing it's height to <i>h</i>+1</p>
-<p class="center">Single rotation fails!  New height of X is <i>h</i>+1, height of Y is <i>h</i>+3</p>
+<p class="center">Single rotation fails!  New height of b's left subtree is <i>h</i>+1, and the right subtree has height <i>h</i>+3</p>
 	  </section>
 
 	  <section>

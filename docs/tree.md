@@ -52,7 +52,7 @@
 	- Tutorials 3 and 4 are the [UNIX tutorial](../tutorials/03-04-more-unix/index.html) ([md](../tutorials/03-04-more-unix/index.md))
     - [Tutorial 5: make](../tutorials/05-make/index.html) ([md](../tutorials/05-make/index.md))
 	- Tutorials 6 and 7 are from the [Wikibooks article on Bash Shell Scripting](http://en.wikibooks.org/wiki/Bash_Shell_Scripting)
-	- Tutorial 8 is nasm, found online [here](https://web.archive.org/web/20120414223112/http://www.cs.lmu.edu/~ray/notes/nasmexamples)
+    - Tutorial 8 is nasm, which consists of two PDF book chapters that are contained in this repository: [x86 Assembly](../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../book/x86-ccc-chapter.pdf)
     - [Tutorial 9: C](../tutorials/09-c/index.html) ([md](../tutorials/09-c/index.md))
     - [Tutorial 10: Objective C](../tutorials/10-objc/index.html) ([md](../tutorials/10-objc/index.md))
 	- [Tutorial 11: Doxygen](../tutorials/11-doxygen/index.html) ([md](../tutorials/11-doxygen/index.md))
