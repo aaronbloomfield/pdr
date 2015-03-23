@@ -5,7 +5,6 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <title>PDR: Laboratory 5: Trees</title>
-  <style type="text/css">code{white-space: pre;}</style>
   <link rel="stylesheet" href="../../markdown.css" type="text/css" />
 </head>
 <body>
@@ -90,6 +89,7 @@
 <ul>
 <li>We are not dealing with the negation operator (~) that we used in lab 3</li>
 <li>Your code will need to be able to handle the input of negative numbers, as shown in the example below</li>
+<li>To convert a C-string to an int, you will want to use <code>atoi</code>. To use <code>atoi</code>, you <em>must</em> include <code>#include &lt;cstdlib&gt;</code>. Without that <code>#include</code>, it may work on your machine, but it will <em>not</em> work on the grading server.</li>
 <li>Your stack in TreeCalc.h/cpp should be called mystack (or else you will have to change the name in <code>printOutput()</code> -- this is the one change you can make to this method)</li>
 </ul>
 <h3 id="print-output-format">Print Output Format</h3>
@@ -147,42 +147,7 @@ The result of the expression tree is 42 </code></pre>
 </div>
 <p>While measuring path length provides a good indication of the retrieval time of individual elements, we are also interested in the average retrieval time or expected path length for the elements within the tree. To calculate this, we must first calculate the internal path length. The internal path length is defined as the sum of the depths of all nodes in a tree.</p>
 <p>To compute the internal path length we sum up the depth of <em>every</em> node in the tree (where the root node has depth 0). Alternatively, we can multiply the number of nodes at a certain &quot;level&quot; by the depth of that level. Here is the computation for the tree shown above:</p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Depth</th>
-<th align="left">Nodes at that depth</th>
-<th align="left">Number of nodes</th>
-<th align="left">Frequency</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">0</td>
-<td align="left">M</td>
-<td align="left">1</td>
-<td align="left">0</td>
-</tr>
-<tr class="even">
-<td align="left">1</td>
-<td align="left">E, P</td>
-<td align="left">2</td>
-<td align="left">2</td>
-</tr>
-<tr class="odd">
-<td align="left">2</td>
-<td align="left">A, H, O, Z</td>
-<td align="left">4</td>
-<td align="left">8</td>
-</tr>
-<tr class="even">
-<td align="left">3</td>
-<td align="left">B, W</td>
-<td align="left">2</td>
-<td align="left">6</td>
-</tr>
-</tbody>
-</table>
+<p>| Depth | Nodes at that depth | Number of nodes | Frequency | |-------|---------------------|-----------------|-----------| | 0 | M | 1 | 0 | | 1 | E, P | 2 | 2 | | 2 | A, H, O, Z | 4 | 8 | | 3 | B, W | 2 | 6 |</p>
 <p>The &quot;Frequency&quot; column is just the product of the number of nodes times the depth. The tree shown above (in both the image and described in the table) has 9 nodes. The sum of the Frequency column, which is the internal path length, is 16.</p>
 <p>The expected path length to a given node is equivalent to the average number of links between any node and the root node -- or, in other words, the internal path length divided by the total number of nodes. If there are 9 nodes in a tree with total internal path length of 16, then the <em>average</em> depth of a node is 16/9 = 1.78; this is the expected path length.</p>
 <p>You will need to modify avltree.cpp and binarysearchtree.cpp to determine and display the expected path length for each type of tree.</p>
