@@ -94,6 +94,7 @@ A few notes:
 
 - We are not dealing with the negation operator (~) that we used in lab 3
 - Your code will need to be able to handle the input of negative numbers, as shown in the example below
+- To convert a C-string to an int, you will want to use `atoi`. To use `atoi`, you *must* include `#include <cstdlib>`. Without that `#include`, it may work on your machine, but it will *not* work on the grading server.
 - Your stack in TreeCalc.h/cpp should be called mystack (or else you will have to change the name in `printOutput()` -- this is the one change you can make to this method)
 
 ### Print Output Format  ###
