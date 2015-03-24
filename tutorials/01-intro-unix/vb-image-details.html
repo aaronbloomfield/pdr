@@ -5,7 +5,6 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <title>PDR: Tutorial 1: Introduction to UNIX: VirtualBox image creation details</title>
-  <style type="text/css">code{white-space: pre;}</style>
   <link rel="stylesheet" href="../../markdown.css" type="text/css" />
 </head>
 <body>
@@ -38,9 +37,7 @@
 <li>python-gpgme is a supporting package for Dropbox, in case students want to install that</li>
 <li>the last 5 packages are for Objective C, based on the instructions <a href="http://www.fatvat.co.uk/2010/04/getting-started-with-objective-c-on.html">here</a></li>
 </ul></li>
-<li><p>Ran the following two commands:</p>
-<pre><code>sudo update-alternatives --set cc /usr/bin/clang
-sudo update-alternatives --set c++ /usr/bin/clang++</code></pre></li>
+<li>Ran the following two commands: <code>sudo update-alternatives --set cc /usr/bin/clang sudo update-alternatives --set c++ /usr/bin/clang++</code></li>
 <li>Downloaded Google Chrome from <a href="https://www.google.com/intl/en/chrome/browser/">here</a>, and installed it via <code>sudo dpkg -i google-chrome-stable_current_i386.deb</code>
 <ul>
 <li>That installation did not work perfectly (which was expected), and to fix an installation such as this you run <code>sudo apt-get -f install</code></li>
@@ -53,18 +50,14 @@ sudo update-alternatives --set c++ /usr/bin/clang++</code></pre></li>
 <li>Chrome is set as the default browser</li>
 </ul></li>
 <li>I loaded up emacs from the command line, and then told it to disable showing the startup messages (this could also be accomplished by following the guidelines <a href="http://xenon.stanford.edu/~manku/dotemacs.html">here</a>).</li>
-<li><p>Added a few aliases were added (the last 4 lines of .bashrc) to help prevent people from accidentally removing files (adding -i for rm, mv, and cp; and aliasing xemacs to emacs)</p>
-<pre><code>alias mv=&#39;mv -i&#39;
-alias rm=&#39;rm -i&#39;
-alias cp=&#39;cp -i&#39;
-alias xemacs=&#39;emacs&#39;</code></pre></li>
+<li>Added a few aliases were added (the last 4 lines of .bashrc) to help prevent people from accidentally removing files (adding -i for rm, mv, and cp; and aliasing xemacs to emacs) <code>alias mv='mv -i' alias rm='rm -i' alias cp='cp -i' alias xemacs='emacs'</code></li>
 <li>Cloned the github repo via <code>git clone https://github.com/aaronbloomfield/pdr</code>
 <ul>
 <li>Note that a <code>git pull</code> will still have to be executed each time to update it</li>
 <li>I added the pdr/cs2150/index.html page as the second tab loaded up by both Firefox and Chrome</li>
 </ul></li>
 <li>Removed all the emtpy default directories in ~/student other than Desktop</li>
-<li><p>Disabled the KDE Wallet, as it was annoying and kept popping up all the time (System Settings -&gt; Account Details -&gt; KDE Wallet)</p></li>
+<li>Disabled the KDE Wallet, as it was annoying and kept popping up all the time (System Settings -&gt; Account Details -&gt; KDE Wallet)</li>
 </ul>
 <p><strong>LAMP configuration</strong></p>
 <ul>
@@ -91,27 +84,17 @@ alias xemacs=&#39;emacs&#39;</code></pre></li>
 <li>This method will take up about 400 Mb in your home directory</li>
 <li>I followed the directions at https://gorails.com/setup/ubuntu/14.04 -- this installs Ruby version 2.1.2 and Rails version 4.1.5 (as of the time of this writing; more recent versions may have since been produced)
 <ul>
-<li><p>You need to switch the C/C++ compiler back to gcc/g++:</p>
-<pre><code>sudo update-alternatives --set cc /usr/bin/gcc
-sudo update-alternatives --set c++ /usr/bin/g++</code></pre></li>
+<li>You need to switch the C/C++ compiler back to gcc/g++: <code>sudo update-alternatives --set cc /usr/bin/gcc sudo update-alternatives --set c++ /usr/bin/g++</code></li>
 <li>The git/github configuration step was skipped, as that requires the final user of the image</li>
 <li>MySQL was already set up in the LAMP configuration section</li>
 <li>PostgreSQL is another SQL DB, but we are not using that on the image</li>
 </ul></li>
-<li><p>To start rails application, execute the following commands (the edit to be done in emacs is listed below):</p>
-<pre><code>cd
-rails new myapp -d mysql
-cd myapp
-emacs config/database.yml
-rake db:create
-rails server</code></pre>
+<li>To start rails application, execute the following commands (the edit to be done in emacs is listed below): <code>cd rails new myapp -d mysql cd myapp emacs config/database.yml rake db:create rails server</code>
 <ul>
 <li>When you edit config/database.yml, you should change the mysql password (line 17 or so) to the root mysql user's password (likely just 'password')</li>
 <li>You can now view the rails app at http://localhost:3000 in your web browser</li>
 </ul></li>
-<li><p>Changed the C/C++ compiler back over to clang/clang++:</p>
-<pre><code>sudo update-alternatives --set cc /usr/bin/clang
-sudo update-alternatives --set c++ /usr/bin/clang++</code></pre></li>
+<li>Changed the C/C++ compiler back over to clang/clang++: <code>sudo update-alternatives --set cc /usr/bin/clang sudo update-alternatives --set c++ /usr/bin/clang++</code></li>
 </ul>
 <p><strong>Image finalization</strong></p>
 <ul>

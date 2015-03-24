@@ -5,7 +5,6 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <title>PDR: Doxygen Tutorial</title>
-  <style type="text/css">code{white-space: pre;}</style>
   <link rel="stylesheet" href="../../markdown.css" type="text/css" />
 </head>
 <body>
@@ -33,7 +32,7 @@ double average (double x, double y) {
 <p>RTF (rich text format) is a file type that can be loaded up into your favorite word processing program. Once you have run doxygen, the comments are formatted into a file called doc/rtf/refman.rtf -- try loading up that file. Note that a number of the fields in the file (such as &quot;Title&quot; and &quot;Author&quot;) are not yet filled in -- this is addressed below.</p>
 <p>The other version, and the one we are going to look at, is the HTML documentation. After you run doxygen, these files are in the doc/html directory -- view the index.html file. If you look at the documentation for this function (from the main page, follow the &quot;Files&quot;link and then the &quot;average.cpp&quot; link), the web page looks like the following:</p>
 <div class="figure">
-<img src="screenshot.png" />
+<img src="screenshot.png" /><p class="caption"></p>
 </div>
 <p>Do you see how the tags are separated into the different parts of this comment block? To create the documentation for your code, you will need to create the <code>Doxyfile</code> file. Start with the one provided with this tutorial. Note that it's a text file, even though it does not have a .txt extension -- thus, Emacs is a good editor to use to edit the file. We won't get into most of the details of the file. However, on line 760, you have to edit the INPUT parameter, which specifies which file(s) to read and produce documentation for. Other fields will allow you to specify such things as the title, author, etc. (these are the things that were missing in the RTF file).</p>
 <p>Next, look at the doxygen manual. You can view it in PDF form, but you will first have to download that file (start <a href="http://www.stack.nl/~dimitri/doxygen/download.html#dlmanual">here</a>). Otherwise, you can view the <a href="http://www.stack.nl/~dimitri/doxygen/manual/index.html">online HTML manual</a>. Start with the <a href="http://www.stack.nl/~dimitri/doxygen/manual/docblocks.html">&quot;Documenting the code&quot; chapter</a>, as the previous chapters were covered by the description above.</p>
