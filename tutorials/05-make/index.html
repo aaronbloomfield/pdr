@@ -5,6 +5,7 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <title>PDR: Makefile Tutorial</title>
+  <style type="text/css">code{white-space: pre;}</style>
   <link rel="stylesheet" href="../../markdown.css" type="text/css" />
 </head>
 <body>
@@ -50,7 +51,44 @@ clang++ -c testPostfixCalc.cpp</code></pre>
 <p>Comments in a Makefile must begin with '#', and should generally start in the left-most column of a given line. Edit the pizza Makefile, and put your name and lab section at the top of the Makefile.</p>
 <p>Macros allow a programmer to easily specify the compiler used, compiler arguments, file paths, targets, and pretty much anything else that one may need to specify when compiling a file. For example, you can specify that you will always compile with the '-Wall' option (which will list all warnings while compiling). make already comes with a default list of predefined macros, but it is good practice to define them even if they are the same as the default definition. You can also define your own macros, as we'll see in a moment. Note that if you define a predefined macro, your definition will override the default definition.</p>
 <p>The following is a list of some predefined macros in make (taken from the <a href="http://www.gnu.org/software/make/manual/">GNU Make Manual</a>, specifically <a href="http://www.gnu.org/software/make/manual/html_node/Implicit-Variables.html#Implicit-Variables">section 10.3</a>):</p>
-<p>| Macro name | Meaning | |------------|---------| | AS | Program for compiling assembly code; default 'as'; this will be needed in lab 8 | | CC | Program for compiling C programs; default 'clang' | | CXX | Program for compiling C++ programs; default 'clang++' | | CFLAGS | Options provided to the C compiler | | CXXFLAGS | Options provided to the C++ compiler | | PC | Program for compiling Pascal programs; default 'pc' | | RM | Command to remove a file; default 'rm -f' |</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Macro name</th>
+<th align="left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">AS</td>
+<td align="left">Program for compiling assembly code; default 'as'; this will be needed in lab 8</td>
+</tr>
+<tr class="even">
+<td align="left">CC</td>
+<td align="left">Program for compiling C programs; default 'clang'</td>
+</tr>
+<tr class="odd">
+<td align="left">CXX</td>
+<td align="left">Program for compiling C++ programs; default 'clang++'</td>
+</tr>
+<tr class="even">
+<td align="left">CFLAGS</td>
+<td align="left">Options provided to the C compiler</td>
+</tr>
+<tr class="odd">
+<td align="left">CXXFLAGS</td>
+<td align="left">Options provided to the C++ compiler</td>
+</tr>
+<tr class="even">
+<td align="left">PC</td>
+<td align="left">Program for compiling Pascal programs; default 'pc'</td>
+</tr>
+<tr class="odd">
+<td align="left">RM</td>
+<td align="left">Command to remove a file; default 'rm -f'</td>
+</tr>
+</tbody>
+</table>
 <p>Note that in the pizza Makefile, the CXX macro is defined as clang++. Whenever a macro is <em>used</em>, it appears surrounded by $ and parentheses. For example, <code>clang++ project.cpp</code> would be entered as <code>$(CXX) project.cpp</code>. However, whenever a macro is <em>defined</em>, the $ and parentheses are not needed as in <code>CXX=clang++</code>.</p>
 <p>In the pizza Makefile, the first macro in the file is:</p>
 <pre><code>CXX=clang++ $(CXXFLAGS)</code></pre>
@@ -136,7 +174,7 @@ cd folder1
 mkdir folder2
     cd folder2 
 @echo I am in folder 2</code></pre>
-<p>When make is invoked, after performing an action, make will output the action to the screen. If you do not want an action to be displayed after invoking make, you can use '@' before the command. This is useful if you want to echo something but not have echo appear; however, the @echo statement must be on a separate line.</p>
+<p>When make is invoked, after performing an action, make will output the action to the screen. If you do not want an action to be displayed after invoking make, you can use '@' before the command. This is useful if you want to echo something but not have echo appear; however, the <span class="citation">@echo</span> statement must be on a separate line.</p>
 <p>In the pizza directory, pizza.cpp contains <code>main()</code> which uses the PizzaToppings, PizzaDough, and TomatoSauce classes. PizzaToppings is a class which makes use of the Cheese, Pepperoni, Peppers, and Mushrooms classes.</p>
 <p>Note the following rules in the provided Makefile:</p>
 <pre><code>pizza: pizza.o pizzadough.o tomatosauce.o toppings.o \
@@ -151,7 +189,7 @@ toppings.o: pepperoni.cpp peppers.cpp mushrooms.cpp cheese.cpp \
     $(CXX) -c toppings.cpp</code></pre>
 <p>The first rule above should create a pizza executable file. Notice that in the second rule, the action performed is on only one of the files that toppings.o depends on. One way to think about it is that if any of the files that toppings.o depends on changes, then toppings.o will have to be regenerated. Rules to produce the rest of the .o files have not been defined yet.</p>
 <h3 id="automatic-variables">Automatic variables</h3>
-<p>A Makefile may also have a feature called automatic variables which have a value depending on where and when it is used. There two useful automatic variables that we'll study here: $@, which is the file name of the target, and $?, which is the names of all the changed dependents. Examples of their use are below.</p>
+<p>A Makefile may also have a feature called automatic variables which have a value depending on where and when it is used. There two useful automatic variables that we'll study here: <span class="math">$@, which is the file name of the target, and $</span>?, which is the names of all the changed dependents. Examples of their use are below.</p>
 <pre><code>project.o: project.cpp
     clang++ -c $@.cpp -o $@
 

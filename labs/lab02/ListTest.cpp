@@ -35,7 +35,7 @@ string   option[] =   { "Quit",
                         "Show List elements",
                         "Set ListItr with first()",
                         "Set ListItr with find()",
-			"Set ListItr with last()",
+                        "Set ListItr with last()",
                         "Move ListItr forward",
                         "Move ListItr backward",
                         "Retrieve element at ListItr",
@@ -46,7 +46,7 @@ string   option[] =   { "Quit",
                         "Cardinality (size)",
                         "Copy list w/copy constructor",
                         "Copy list with operator=",
-			"Make list empty",
+                        "Make list empty",
                       };
 int      const n_choice = 17 ;
 

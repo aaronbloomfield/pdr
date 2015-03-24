@@ -5,6 +5,7 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <title>PDR: Laboratory 4: Number Representation</title>
+  <style type="text/css">code{white-space: pre;}</style>
   <link rel="stylesheet" href="../../markdown.css" type="text/css" />
 </head>
 <body>
@@ -129,9 +130,92 @@ Note that the hexadecimal printed above is in little-endian format!</code></pre>
 <p>The 'max value' column can be determined by understanding how the type stores the values (see the lecture notes for details). Note that you can assign hex constants directly to integer variables in your C++ program: rather than saying <code>x=17</code>, you can say <code>x=0x11</code>. You can also assign them directly in the debugger. In C++, a number beginning with 0 is in octal, e.g. 011 is 9 decimal. For chars, we are looking for the maximum integer value that can be stored therein (a char is just a byte-sized int); bools have only two possible values (<code>true</code> and <code>false</code>), so pick your max and min from those. For pointers, it's the highest memory address that can be addressed.</p>
 <p>The following tables do not render very in this document, but the tables in <a href="inlab4.doc">inlab4.doc</a> render much better. Note that 'zero' and 'one' should be interpreted appropriately for the given data type. So 'zero' would be 0 for an <code>int</code>, 0.0 for a <code>float</code>, <code>false</code> for a <code>bool</code>, etc. Similarly for 'one'.</p>
 <p>As was mentioned in lecture, the #define'd value <code>UNIT_MAX</code> contains the maximum integer value, and you must <code>#include &lt;climits&gt;</code> in order to access it.</p>
-<p>| C++ Type | Size in bytes? | Max value? (base 10) | Zero is stored as (in hex)? | One is stored as (in hex)? | |----------|----------------|----------------------|-----------------------------|----------------------------| | int | | | | | | unsigned int | | | | | | float | | | | | | double | | | | | | char | | | | | | bool | | | | |</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">C++ Type</th>
+<th align="left">Size in bytes?</th>
+<th align="left">Max value? (base 10)</th>
+<th align="left">Zero is stored as (in hex)?</th>
+<th align="left">One is stored as (in hex)?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">int</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">unsigned int</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">float</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">double</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">char</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">bool</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
 <p>And, for pointers:</p>
-<p>| C++ Type | Size in bytes? | Max value? (base 10) | NULL is stored as (in hex)? | |----------|----------------|----------------------|-----------------------------| | int* | | | | | char* | | | | | double* | | | |</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">C++ Type</th>
+<th align="left">Size in bytes?</th>
+<th align="left">Max value? (base 10)</th>
+<th align="left">NULL is stored as (in hex)?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">int*</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">char*</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">double*</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
 <p>The results in the hex columns should be in <strong>big endian</strong> format, which is the same format that GDB displays, as well as the format that your <code>outputBinary()</code> program should display. To convert binary into hex, see the <a href="../../slides/03-numbers.html">03-numbers slide set</a>.</p>
 <h3 id="representation-in-memory"><a name="memory">Representation in memory</a></h3>
 <p>This exercise will show you how to read the contents of a particular memory address. This will be useful for debugging code and for understanding the underlying data representation of abstract data types.</p>

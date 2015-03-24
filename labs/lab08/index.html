@@ -5,6 +5,7 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <title>PDR: Laboratory 8: x86 Assembly Language, part 1</title>
+  <style type="text/css">code{white-space: pre;}</style>
   <link rel="stylesheet" href="../../markdown.css" type="text/css" />
 </head>
 <body>
@@ -77,7 +78,47 @@
 <p><strong>32-bit Mac OS X:</strong> to run the code, will need to rename all the assembly function names with a leading underscore (i.e. <code>_vecsum</code> not <code>vecsum</code>). You will also have to use the <code>-f macho</code> format for nasm, and tell clang++ to generate the correct architecture code. In the past, to generate the correct architecture code <strong>WAS</strong> done by providing the <code>-arch i386</code> parameter to the compiler we used previously; we are not sure if this is necessary with clang++ (please let us know how this works for you; we do not have access to a 32-bit Mac machine with clang/clang++ to test this out). In the provided Makefile, try the <code>CXX</code> macro line to be <code>clang++ -arch i386</code> (instead of the default <code>clang++</code>), and change the <code>ASFLAGS</code> macro line to <code>-f macho</code> (instead of the default <code>-f elf</code>). You will probably want to remove the <code>-m32</code> flag on the <code>CXX</code> macro line, but be sure to put that back in before you resubmit. Note that you <strong>MUST</strong> change all of this back in order for it to compile via the submission system! Also note that Mac OS X does not support the format of assembly that we use in this course, which means that you will be stuck reading the assembly in the other format we discussed in class.</p>
 <p><strong>64-bit Mac OS X:</strong> As far as we are aware, this is the same as the 32-bit Mac OS X. If you run into problems with this, please let us know. Note that Mac OS X does not support the format of assembly that we use in this course, which means that you will be stuck reading the assembly in the other format we discussed in class.</p>
 <p>Below is a table summarizing the changes</p>
-<p>| Platform | nasm flag | x86 subroutine name | clang++ flags | Notes | |-|-|-|-|-| | 32-bit Linux | -f elf | vecsum | -m32 | This is the platform on the 001 machines and in the VirtualBox image; -m32 is optional, but keep it in there for compatibility with 64-bit Linux | | 64-bit Linux | -f elf | vecsum | -m32 | This is what our submission server is running, <strong>and what your code must work on.</strong> If you have it on your computer, you must install a few packages as well - see above | | 32 bit Mac OS X | -f macho | _vecsum | -arch i386 | We are unsure about the -arch i386 flag's necessity. May not be able to print the assembly in the format discussed in class. | | 64 bit Mac OS X | -f macho | _vecsum | -arch i386 | We think this is the same as 32-bit Mac OS X platform. We are unsure about the -arch i386 flag's necessity. May not be able to print the assembly in the format discussed in class. |</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Platform</th>
+<th align="left">nasm flag</th>
+<th align="left">x86 subroutine name</th>
+<th align="left">clang++ flags</th>
+<th align="left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">32-bit Linux</td>
+<td align="left">-f elf</td>
+<td align="left">vecsum</td>
+<td align="left">-m32</td>
+<td align="left">This is the platform on the 001 machines and in the VirtualBox image; -m32 is optional, but keep it in there for compatibility with 64-bit Linux</td>
+</tr>
+<tr class="even">
+<td align="left">64-bit Linux</td>
+<td align="left">-f elf</td>
+<td align="left">vecsum</td>
+<td align="left">-m32</td>
+<td align="left">This is what our submission server is running, <strong>and what your code must work on.</strong> If you have it on your computer, you must install a few packages as well - see above</td>
+</tr>
+<tr class="odd">
+<td align="left">32 bit Mac OS X</td>
+<td align="left">-f macho</td>
+<td align="left">_vecsum</td>
+<td align="left">-arch i386</td>
+<td align="left">We are unsure about the -arch i386 flag's necessity. May not be able to print the assembly in the format discussed in class.</td>
+</tr>
+<tr class="even">
+<td align="left">64 bit Mac OS X</td>
+<td align="left">-f macho</td>
+<td align="left">_vecsum</td>
+<td align="left">-arch i386</td>
+<td align="left">We think this is the same as 32-bit Mac OS X platform. We are unsure about the -arch i386 flag's necessity. May not be able to print the assembly in the format discussed in class.</td>
+</tr>
+</tbody>
+</table>
 <p><strong>IMPORANT:</strong> Just to repeat, when you submit your code, it <strong>MUST</strong> be in 64-bit Linux format.</p>
 <hr />
 <h2 id="pre-lab-1">Pre-lab</h2>
