@@ -24,7 +24,7 @@
 <h3 id="pre-lab">Pre-lab</h3>
 <ol style="list-style-type: decimal">
 <li>You should be familiar with the readings described above. They detail the x86 material that this lab requires.</li>
-<li>Complete the tutorial, which consits of reading two book chapters that are contained in this repository: <a href="../book/x86-asm-chapter.pdf">x86 Assembly</a> and <a href="../book/x86-ccc-chapter.pdf">The x86 C Calling Convention</a>.</li>
+<li>Complete the tutorial, which consists of reading two book chapters that are contained in this repository: <a href="../../book/x86-asm-chapter.pdf">x86 Assembly</a> and <a href="../../book/x86-ccc-chapter.pdf">The x86 C Calling Convention</a>.</li>
 <li>Read through the section, below, on compiling C++ with assembly on different architectures, as well as the vecsum program.</li>
 <li>There are different program formats for different architectures, and this pre-lab <strong>must</strong> be submitted in the submission format for this lab (see the next section, below). If you do not submit it in the required format (64-bit Linux), you will not receive credit for the lab, as it will not compile.</li>
 <li>Follow the pre-lab instructions in this document. They require you to write a program in x86 assembly called mathlib.s. To see other examples of nasm code, you should look at the vecsum.s program, as well as the code in the nasm tutorial.</li>
@@ -136,7 +136,7 @@
 <pre><code>clang++ -m32 -Wall -g -o vecsum vecsum.o main.o</code></pre>
 <p>This tells clang++ to link both of the .o files created above into an executable called vecsum. Note that there isn't any compiling done at this stage (the compilation was done before) -- this just links the two object files into the final executable. Also note that for our submitted Makefiles, we will NOT have the <code>-o</code> flag present.</p>
 <h3 id="tutorial">Tutorial</h3>
-<p>Complete the C++/assembly tutorial, which consits of reading two book chapters that are contained in this repository: <a href="../book/x86-asm-chapter.pdf">x86 Assembly</a> and <a href="../book/x86-ccc-chapter.pdf">The x86 C Calling Convention</a>.</p>
+<p>Complete the C++/assembly tutorial, which consists of reading two book chapters that are contained in this repository: <a href="../../book/x86-asm-chapter.pdf">x86 Assembly</a> and <a href="../../book/x86-ccc-chapter.pdf">The x86 C Calling Convention</a>.</p>
 <h3 id="vecsum">Vecsum</h3>
 <p>Examine the vecsum subroutine in <a href="vecsum.s.html">vecsum.s</a> (<a href="vecsum.s">src</a>). Use the slides and readings to help understand what is happening in vecsum.s. Make sure you understand the prologue and epilogue implementation, as well as the instructions used in the subroutine.</p>
 <p>Compile and run the vecsum program:</p>
@@ -168,7 +168,7 @@
 <p>For the in-lab, you will need to work on the two topics shown below -- note that there will be a different topics to work through on the next lab.</p>
 <p>The deliverable for this in-lab is a document named inlab8.pdf. It must be in PDF format! See the <a href="../../docs/convert_to_pdf.html">How to convert a file to PDF</a> page for details about creating a PDF file.</p>
 <p>In the report, you should explain all the items in <em>one</em> of the categories below (either objects or parameter passing). For the post-lab, you will need to have all items from both categories explained. We are looking for significant evidence that you were able to complete some work during the in-lab, and thus are not setting page length requirements.</p>
-<p>Recall that using the <code>-S</code> flag with clang++ will generate the assembly code. You will also want to use the '-mllvm --x86-asm-syntax=intel` flags.</p>
+<p>Recall that using the <code>-S</code> flag with clang++ will generate the assembly code. You will also want to use the <code>-mllvm --x86-asm-syntax=intel</code> flags.</p>
 <h3 id="clang-and-the-calling-convention">clang++ and the Calling Convention</h3>
 <p>As discussed in class (specifically, <a href="../../slides/08-x86.html#clangconventionbreak">here</a>), clang will often optimize away many parts of the calling convention, and has even been known to pass parameters in registers. So if you see code that is unexpected, trace it by hand to determine what is really happening. Likely, it is an optimization of the calling convention. To avoid this in the in-lab, use g++ rather than clang++ to compile. The correct g++ flags are <code>-S -m32 -masm=intel</code>.</p>
 <h3 id="in-lab-8-topics-you-must-do-all-of-these-for-the-post-lab-but-only-one-of-these-for-the-in-lab">In-lab 8 topics: you must do ALL of these for the post-lab, but only ONE of these for the in-lab</h3>
