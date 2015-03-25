@@ -86,7 +86,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |25| Mar&nbsp;18 | Wednesday || [07: IBCM][87] (machine language) | [IBCM][87], slides [5-6][1070506] to [6-4][1070604]; [x86][88], slides [0][88] to [3-4][1080304] ([recording][228]) | 
 |26| Mar&nbsp;20 | Friday    | | [08: x86][88] (assembly language) | [x86][88], slides [3-5][1080305] to [5-4][1080504] ([recording][229]) | 
 |27| Mar&nbsp;23 | Monday    | | [08: x86][88] (assembly language) | [x86][88], slides [5-5][1080505] to [7-13][1080713] ([recording][230]) | 
-|28| Mar&nbsp;25 | Wednesday | [Lab 8: x86, part 1][8] ([md][28]) / Tutorial 8: nasm, which is two book chapters: [1][53] and [2][54] | [08: x86][88] (assembly language) || 
+|28| Mar&nbsp;25 | Wednesday | [Lab 8: x86, part 1][8] ([md][28]) / Tutorial 8: nasm, which is two book chapters: [1][53] and [2][54] | [08: x86][88] (assembly language) | [x86][88], slides [7-13][1080713] to [8-5][1080805] ([recording][231]) | 
 |29| Mar&nbsp;27 | Friday    | | [08: x86][88] (assembly language) || 
 |     | Mar&nbsp;29 | Sunday    | Exam 2 review session | Exam 2 review session || 
 |30| Mar&nbsp;30 | Monday    | Exam 2 instead during Tuesday's lab | [08: x86][88], [09: Advanced C++][89] || 
@@ -330,6 +330,7 @@ Grading Concerns
 [1080609]: ../slides/08-x86.html#/6/9
 [1080713]: ../slides/08-x86.html#/7/13
 [1080804]: ../slides/08-x86.html#/8/4
+[1080805]: ../slides/08-x86.html#/8/5
 [1080914]: ../slides/08-x86.html#/9/14
 [1080915]: ../slides/08-x86.html#/9/15
 [1080932]: ../slides/08-x86.html#/9/32
