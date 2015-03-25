@@ -235,7 +235,7 @@ Your report should be in PDF file called postlab8.pdf.  It must be in PDF format
 
 Think about how best to investigate the issues you choose.  A good starting point is to write a small C++ program that illustrates one of the issues.  This program should be as simple as possible.
 
-Look at the assembly code associated with your C++ code. To examine the disassembled code you have two main options: you can step through the code in the debugger using the disassembly view, or you can have the C++ code output to an assembly file (using the '-S' and '-masm=intel' flags), which you can then browse or edit.
+Look at the assembly code associated with your C++ code. To examine the disassembled code you have two main options: you can step through the code in the debugger using the disassembly view, or you can have the C++ code output to an assembly file (using the `-S` and `-masm=intel` flags), which you can then browse or edit.
 
 Generating assembly listings: to generate an assembly listing in clang++, use the flags described above, and see the wiki page for details.  Probably the most useful listing will include source, and assembly code.  For some issues it will be of interest to see the machine code as well.
 
