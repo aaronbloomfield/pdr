@@ -22,7 +22,7 @@ Procedure
 ### Pre-lab ###
 
 1. You should be familiar with the readings described above.  They detail the x86 material that this lab requires.
-2. Complete the tutorial, which consits of reading two book chapters that are contained in this repository: [x86 Assembly](../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../book/x86-ccc-chapter.pdf).
+2. Complete the tutorial, which consists of reading two book chapters that are contained in this repository: [x86 Assembly](../../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../../book/x86-ccc-chapter.pdf).
 3. Read through the section, below, on compiling C++ with assembly on different architectures, as well as the vecsum program.
 4. There are different program formats for different architectures, and this pre-lab **must** be submitted in the submission format for this lab (see the next section, below).  If you do not submit it in the required format (64-bit Linux), you will not receive credit for the lab, as it will not compile.
 5. Follow the pre-lab instructions in this document.  They require you to write a program in x86 assembly called mathlib.s.  To see other examples of nasm code, you should look at the vecsum.s program, as well as the code in the nasm tutorial.
@@ -141,7 +141,7 @@ This tells clang++ to link both of the .o files created above into an executable
 
 ### Tutorial ###
 
-Complete the C++/assembly tutorial, which consits of reading two book chapters that are contained in this repository: [x86 Assembly](../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../book/x86-ccc-chapter.pdf).
+Complete the C++/assembly tutorial, which consists of reading two book chapters that are contained in this repository: [x86 Assembly](../../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../../book/x86-ccc-chapter.pdf).
 
 ### Vecsum ###
 
@@ -193,7 +193,7 @@ The deliverable for this in-lab is a document named inlab8.pdf.  It must be in P
 
 In the report, you should explain all the items in *one* of the categories below (either objects or parameter passing).  For the post-lab, you will need to have all items from both categories explained.  We are looking for significant evidence that you were able to complete some work during the in-lab, and thus are not setting page length requirements.
 
-Recall that using the `-S` flag with clang++ will generate the assembly code.  You will also want to use the '-mllvm --x86-asm-syntax=intel` flags.
+Recall that using the `-S` flag with clang++ will generate the assembly code.  You will also want to use the `-mllvm --x86-asm-syntax=intel` flags.
 
 ### clang++ and the Calling Convention ###
 
