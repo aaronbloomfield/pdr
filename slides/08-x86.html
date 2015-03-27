@@ -1301,9 +1301,8 @@ absolute_value:
 	  <section data-markdown><script type="text/template">
 ## Assembly differences
 - There are a lot of differences between the assembly we've seen and what `g++ -S` produces
-  - `movl`, `pushl`, `compl`, `negl`, `popl`
-    - the 'l' part means 'long' (i.e. 32 bits, so the assembler doesn't have to assume)
-  - `jns` means jump if not signed (i.e. if positive)
+  - `movl`, `pushl`, `cmpl`, `subl`, `popl`, etc.
+    - the 'l' part means 'long' (i.e. 32 bits, so the assembler doesn't have to guess)
   - `$0` is the constant 0
   - Register names begin with a percent sign
   - `8(%ebp)` is [ebp+8]
@@ -1347,6 +1346,8 @@ absolute_value:
 	pop     ebp
 	ret
 ```
+`jns` means jump if not signed (i.e. if positive)
+
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -1469,7 +1470,7 @@ max:
 	cmovge  eax, edx
 	ret
 ```
-The [cmovg](http://www.asmpedia.org/index.php?title=CMOVG) opcode will move the greater value into the first parameter; [cmovg](http://www.asmpedia.org/index.php?title=CMOVG) does the move greater than *or equal to* value
+The [cmovg](http://www.asmpedia.org/index.php?title=CMOVG) opcode (conditional move if greater than) will move the greater value into the first parameter; [cmovge](http://www.asmpedia.org/index.php?title=CMOVGE) does the move greater than *or equal to* value
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
