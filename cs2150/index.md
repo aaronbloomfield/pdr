@@ -88,8 +88,8 @@ The links in the right-most column link directly to the lecture recording on Col
 |27| Mar&nbsp;23 | Monday    | | [08: x86][88] (assembly language) | [x86][88], slides [5-5][1080505] to [7-13][1080713] ([recording][230]) | 
 |28| Mar&nbsp;25 | Wednesday | [Lab 8: x86, part 1][8] ([md][28]) / Tutorial 8: nasm, which is two book chapters: [1][53] and [2][54] | [08: x86][88] (assembly language) | [x86][88], slides [7-13][1080713] to [8-5][1080805] ([recording][231]) | 
 |29| Mar&nbsp;27 | Friday    | | [08: x86][88] (assembly language) | [x86][88], slides [9][10809] to [9-29][1080929] ([recording][232]) | 
-|     | Mar&nbsp;29 | Sunday    | Exam 2 review session | Exam 2 review session || 
-|30| Mar&nbsp;30 | Monday    | Exam 2 instead during Tuesday's lab | [08: x86][88], [09: Advanced C++][89] || 
+|     | Mar&nbsp;29 | Sunday    | Exam 2 review session | Exam 2 review session | ([recording][235]) | 
+|30| Mar&nbsp;30 | Monday    | Exam 2 instead during Tuesday's lab | [08: x86][88], [09: Advanced C++][89] | [x86][88], slides [9-30][1080930] to [9-34][1080934] (end); [advanced C++][89], slides [0][89] to [5-9][1090509] ([recording][233]) | 
 |31| Apr&nbsp;1  | Wednesday || [09: Advanced C++][89] || 
 |32| Apr&nbsp;3  | Friday    || [09: Advanced C++][89] || 
 |33| Apr&nbsp;6  | Monday    | [Lab 9: x86, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [09: Advanced C++][89], [10: Heaps and Huffman coding][90]|| 
@@ -336,8 +336,11 @@ Grading Concerns
 [1080914]: ../slides/08-x86.html#/9/14
 [1080915]: ../slides/08-x86.html#/9/15
 [1080929]: ../slides/08-x86.html#/9/29
+[1080930]: ../slides/08-x86.html#/9/30
 [1080932]: ../slides/08-x86.html#/9/32
+[1080934]: ../slides/08-x86.html#/9/34
 [1090308]: ../slides/09-advanced-cpp.html#/3/8
+[1090509]: ../slides/09-advanced-cpp.html#/5/9
 [1090518]: ../slides/09-advanced-cpp.html#/5/18
 [1090708]: ../slides/09-advanced-cpp.html#/7/8
 [1090710]: ../slides/09-advanced-cpp.html#/7/10

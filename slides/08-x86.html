@@ -800,7 +800,7 @@ pop edx          ; restore saved edx value
 ## Caller Rules Example
 We'll see this code in the following slides:
 ```
-int myFunc(int a, int b, int c){
+int myFunc(int a, int b, int c) {
     int x
     // some code
     return result;
@@ -874,7 +874,7 @@ int myFunc(int a, int b, int c) {
     return result;
 }
 
-int main(){
+int main() {
     int x = 1, z = 3;
     int retVal = myFunc(x, 123, z);
     //...
@@ -1374,7 +1374,7 @@ int absolute_value(int x) {
     return x;     // return x
 }
 
-int main(){
+int main() {
     int theValue=0;
     printf ("Enter a value: \n");
     scanf ("%d", &theValue);
@@ -1418,7 +1418,7 @@ extern "C" int max(int x, int y);
 
 // the max function from the previous slide
 
-int main(){
+int main() {
     int theValue1=0, theValue2=0;
     cout << "Enter value 1: " << endl;
     cin >> theValue1;
@@ -1530,7 +1530,7 @@ extern "C" bool compare_string(const char* theStr1,
 
 // code for compare_string here
 
-int main(){
+int main() {
     string theValue1, theValue2;
     cout << "Enter string 1: " << endl;
     cin >> theValue1;
@@ -1630,7 +1630,7 @@ int fib(unsigned int n) {
     return fib(n-1) + fib(n-2);
 }
 
-int main(){
+int main() {
     int theValue = 0;
     cout << "Enter value for fib(): " << endl;    
     cin >> theValue;
@@ -1722,7 +1722,7 @@ Source code: [test_fib.s](code/08-x86/test_fib.s.html) ([src](code/08-x86/test_f
 
 	  <section data-markdown><script type="text/template">
 ## An aside: An advantage of little-Endian
-- Consider the 32-bit bit-Endian word 0x680abcde in memory starting address 1000:
+- Consider the 32-bit big-Endian word 0x680abcde in memory starting address 1000:
   - In big-Endian:
     - Byte '68' is the most significant and is at address 1000
     - Byte 'de' is the least significant and is at address 1003
@@ -1736,7 +1736,7 @@ Source code: [test_fib.s](code/08-x86/test_fib.s.html) ([src](code/08-x86/test_f
 ## More on little-Endian
 - In little-Endian, the entire 32-bit word *and* the 8-bit least significant byte have the same address
 - Consider a `movb`, `movw`, or `movl`
-  - Moving a 8, 16, and 32 bit quantity, respecitively)
+  - Moving a 8, 16, and 32 bit quantity, respecitively
   - If you called `movb`, that instruction moves the *least* significant 8 bits of the 32-bit quantity
 - Thus, if you are doing one of those moves, the address is the same, which makes the CPU addressing routines simpler
 - This means integer *casts* are a essentially a no-op
