@@ -111,6 +111,7 @@ Grading Concerns
 ----------------
 
 - The curve on [midterm 1](../exams/exam1-s15.pdf) will be 10 *percentage* points
+- The curve on [midterm 2](../exams/exam2-s15.pdf) will be 10 *percentage* points
 
 
 [1]: ../labs/lab01/index.html
