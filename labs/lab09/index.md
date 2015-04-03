@@ -87,7 +87,15 @@ The routine MUST take only ONE parameter -- the number that you are inputting in
 
 Once the subroutine is done, you will need to optimize it as much as possible.  With the exceptions listed below, any optimization is valid, as long as it computes the correct result.  The grade on this pre-lab will be based both on the correctness of the subroutine and the optimizations included.  The only exceptions to the optimizations are that it must still be a recursive subroutine, and must still follow the proper C style calling conventions.
 
-What optimizations do you use?  First, try to figure out how you can write the same routine using fewer x86 instructions.  Some optimizations, such as using the `lea` instruction (which can do addition and multiplication in one instruction) to quickly add or multiply numbers, are specific to the x86 architecture.  Also, take a look [here](http://en.wikipedia.org/wiki/Category:Compiler_optimizations) for various optimizations. Specifically, take a look at [Loop Unrolling](http://en.wikipedia.org/wiki/Loop_unrolling), [Dead Code Elimination](http://en.wikipedia.org/wiki/Dead_code_elimination), [Instruction Scheduling](http://en.wikipedia.org/wiki/Instruction_scheduling), [Peephole Optimization](http://en.wikipedia.org/wiki/Peephole_optimization), and [Redundant Code](http://en.wikipedia.org/wiki/Redundant_code). Furthermore, consider [Branch Mispredictions](http://en.wikipedia.org/wiki/Branch_misprediction) and how to avoid them. Lastly, consider the [Memory Hierarchy](http://en.wikipedia.org/wiki/Memory_hierarchy) with regard to speed and memory accesses (i.e. which is faster: accessing a register or memory?).
+What optimizations do you use?
+
+- First, try to figure out how you can write the same routine using fewer x86 instructions.
+- Some optimizations, such as using the `lea` instruction (which can do addition and multiplication in one instruction) to quickly add or multiply numbers, are specific to the x86 architecture.
+- Consider the [memory Hierarchy](http://en.wikipedia.org/wiki/Memory_hierarchy) and try to reduce memory accesses (this includes `push` and `pop`).
+- Reduce the number of instructions used to create (and remove) the activation record; this was done in a few x86 examples we studied: [max](../../slides/08-x86.html#/max) and [fib](../../slides/08-x86.html#/fib)
+- Reduce the registers that are backed up to the stack in the calling convention
+- Can you offset things from `esp` instead of `ebp`?
+- Many optimizations are listed [here](http://en.wikipedia.org/wiki/Category:Compiler_optimizations), but most would not apply to this one program.
 
 You will need to include at least one optimization beyond just figuring out how to write your subroutine with fewer instructions.  You should put the optimizations used as a comment in the beginning of your assembly file.  
 
