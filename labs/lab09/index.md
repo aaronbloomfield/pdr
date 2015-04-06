@@ -89,12 +89,14 @@ Once the subroutine is done, you will need to optimize it as much as possible.  
 
 What optimizations do you use?
 
-- First, try to figure out how you can write the same routine using fewer x86 instructions.
+- First, try to figure out how you can write the same routine using fewer x86 instructions.  x86 has lots of complex instructions that can be used for this purpose -- Google is your friend, here.
 - Some optimizations, such as using the `lea` instruction (which can do addition and multiplication in one instruction) to quickly add or multiply numbers, are specific to the x86 architecture.
+- In some cases, you can use bit shifts instead of multiplication and divide.  Computing `5*x` might be more quickly done as `4*x+x`, as the latter can use a shift.  But you can use the `lea` instruction for that one anyway.
+- Branching is bad, in that it slows down the execution speed of a program.  As much as possible, eliminate branching (if/else statements, loops, etc.).  For loops, consider [loop unrolling](http://en.wikipedia.org/wiki/Loop_unrolling).
 - Consider the [memory Hierarchy](http://en.wikipedia.org/wiki/Memory_hierarchy) and try to reduce memory accesses (this includes `push` and `pop`).
 - Reduce the number of instructions used to create (and remove) the activation record; this was done in a few x86 examples we studied: [max](../../slides/08-x86.html#/max) and [fib](../../slides/08-x86.html#/fib)
 - Reduce the registers that are backed up to the stack in the calling convention
-- Can you offset things from `esp` instead of `ebp`?
+- Can you offset things from `esp` instead of `ebp`?  If so, then you don't have to set up the base pointer.
 - Many optimizations are listed [here](http://en.wikipedia.org/wiki/Category:Compiler_optimizations), but most would not apply to this one program.
 
 You will need to include at least one optimization beyond just figuring out how to write your subroutine with fewer instructions.  You should put the optimizations used as a comment in the beginning of your assembly file.  

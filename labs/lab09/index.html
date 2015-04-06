@@ -79,12 +79,14 @@
 <p>Once the subroutine is done, you will need to optimize it as much as possible. With the exceptions listed below, any optimization is valid, as long as it computes the correct result. The grade on this pre-lab will be based both on the correctness of the subroutine and the optimizations included. The only exceptions to the optimizations are that it must still be a recursive subroutine, and must still follow the proper C style calling conventions.</p>
 <p>What optimizations do you use?</p>
 <ul>
-<li>First, try to figure out how you can write the same routine using fewer x86 instructions.</li>
+<li>First, try to figure out how you can write the same routine using fewer x86 instructions. x86 has lots of complex instructions that can be used for this purpose -- Google is your friend, here.</li>
 <li>Some optimizations, such as using the <code>lea</code> instruction (which can do addition and multiplication in one instruction) to quickly add or multiply numbers, are specific to the x86 architecture.</li>
+<li>In some cases, you can use bit shifts instead of multiplication and divide. Computing <code>5*x</code> might be more quickly done as <code>4*x+x</code>, as the latter can use a shift. But you can use the <code>lea</code> instruction for that one anyway.</li>
+<li>Branching is bad, in that it slows down the execution speed of a program. As much as possible, eliminate branching (if/else statements, loops, etc.). For loops, consider <a href="http://en.wikipedia.org/wiki/Loop_unrolling">loop unrolling</a>.</li>
 <li>Consider the <a href="http://en.wikipedia.org/wiki/Memory_hierarchy">memory Hierarchy</a> and try to reduce memory accesses (this includes <code>push</code> and <code>pop</code>).</li>
 <li>Reduce the number of instructions used to create (and remove) the activation record; this was done in a few x86 examples we studied: <a href="../../slides/08-x86.html#/max">max</a> and <a href="../../slides/08-x86.html#/fib">fib</a></li>
 <li>Reduce the registers that are backed up to the stack in the calling convention</li>
-<li>Can you offset things from <code>esp</code> instead of <code>ebp</code>?</li>
+<li>Can you offset things from <code>esp</code> instead of <code>ebp</code>? If so, then you don't have to set up the base pointer.</li>
 <li>Many optimizations are listed <a href="http://en.wikipedia.org/wiki/Category:Compiler_optimizations">here</a>, but most would not apply to this one program.</li>
 </ul>
 <p>You will need to include at least one optimization beyond just figuring out how to write your subroutine with fewer instructions. You should put the optimizations used as a comment in the beginning of your assembly file.</p>
