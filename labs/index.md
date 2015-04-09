@@ -79,8 +79,7 @@ The labs for this course:
         - Binary heap code from the [Heaps and Huffman slide set](../slides/10-heaps-huffman.html): [binary_heap.cpp](../slides/code/10-heaps-huffman/binary_heap.cpp.html) ([src](../slides/code/10-heaps-huffman/binary_heap.cpp)), [binary_heap.h](../slides/code/10-heaps-huffman/binary_heap.h.html) ([src](../slides/code/10-heaps-huffman/binary_heap.h)), [heap-test.cpp](../slides/code/10-heaps-huffman/heap-test.cpp.html) ([src](../slides/code/10-heaps-huffman/heap-test.cpp))
       - File I/O example: [fileio.cpp](lab10/fileio.cpp.html) ([src](lab10/fileio.cpp))
       - In-lab skeleton code: [inlab-skeleton.cpp](lab10/inlab-skeleton.cpp.html) ([src](lab10/inlab-skeleton.cpp))
-      - Example encoded and decoded files are in the [labs/lab10/examples/ directory](lab10/examples/), or as one [examples.zip](lab10/examples.zip) file)
-      - The tutorial, for the post-lab, is the [Objective C tutorial](../tutorials/10-objc/index.html), for which you will need the [helloworld.m](../tutorials/10-objc/helloworld.m.html) ([src](../tutorials/10-objc/helloworld.m)) file, and you will need to implement the linkedlist.c program.
+      - Example encoded and decoded files are in the [labs/lab10/examples/ directory](lab10/examples/), or as one [examples.zip](lab10/examples.zip) file
 
 &nbsp;
 
@@ -92,3 +91,4 @@ The labs for this course:
 &nbsp;
 
 - [Lab 12: Conclusion](lab12/index.html)
+    - The tutorial, for the pre-lab, is the [Objective C tutorial](../tutorials/10-objc/index.html), for which you will need the [helloworld.m](../tutorials/10-objc/helloworld.m.html) ([src](../tutorials/10-objc/helloworld.m)) file, and you will need to implement the linkedlist.c program.

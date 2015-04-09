@@ -29,7 +29,7 @@ Lab Procedure
 4. Your program must compile with make!
 5. Your program should only take in one command-line parameter!
 6. Files to download: [fileio.cpp](fileio.cpp.html) ([src](fileio.cpp)), and the example files (in the [labs/lab10/examples/ directory](examples/), or as one [examples.zip](examples.zip) file)
-7. Files to submit: heap.cpp, heap.h, huffmanenc.cpp, Makefile (you can submit additional .cpp/.h files, if needed, as long as it compiles with 'make')
+7. Files to submit: heap.cpp, heap.h, huffmanenc.cpp, Makefile (you can submit additional .cpp/.h files, if needed, as long as it compiles with `make`)
 
 ### In-lab ###
 
@@ -38,15 +38,15 @@ Lab Procedure
 3. Your program must compile with make!
 4. Your program should only take in one command-line parameter!
 5. Files to download: [inlab-skeleton.cpp](inlab-skeleton.cpp.html) ([src](inlab-skeleton.cpp)), and your pre-lab files
-6. Files to submit: huffmandec.cpp, Makefile (you can submit additional .cpp/.h files, if needed, as long as it compiles with 'make')
+6. Files to submit: huffmandec.cpp, Makefile (you can submit additional .cpp/.h files, if needed, as long as it compiles with `make`)
 
 ### Post-lab ###
 
 1. Complete the post-lab report, as described in the post-lab section.
-2. ~~Read the [Objective C tutorial](../../tutorials/10-objc/index.html), as described in the post-lab section.~~
-3. ~~Write the Objective C program described in the post-lab section, which implements a singly-linked list.~~
-4. Files to download: none ~~[helloworld.m](../..//tutorials/10-objc/helloworld.m).~~
-5. Files to submit: postlab10.pdf ~~, linkedlist.m (no Makefile for this lab!); if your program uses multiple .m or .h files, that's fine.~~
+2. Ensure that the pre-lab code (compression) and post-lab code (decompression) work properly, as they will be submitted again
+3. Create a new Makefile, as specified below
+4. Files to submit: postlab10.pdf, Makefile, all necessary source code files
+
 
 ------------------------------------------------------------
 
@@ -221,9 +221,7 @@ As with the pre-lab, you should ensure that those files compile successfully wit
 Post-lab
 --------
 
-There are two parts to this post-lab: the time and space complexity analysis, and the [Objective C tutorial](../../tutorials/10-objc/index.html).
-
-The Huffman decoding code was submitted for the in-lab, and won't be submitted for the post-lab.  The Huffman encoding code was be submitted for the pre-lab, and also won't be submitted for the post-lab either.
+There are two parts to this post-lab: the time and space complexity analysis, and submitting all your (working) code again.
 
 ### Time and Space Complexity ###
 
@@ -242,6 +240,16 @@ Worst case running time -- for this be sure to include all steps of the compress
 
 Space complexity -- for this, you should calculate the number of bytes that are used by each data structure in your implementation.  The easiest way to do this is to step through your code, just as you have done for the worst case running time, and make a note each time you use a new data structure.  You do not need to take into account scalar variables (loop counters, other singleton variables), focus on the data structures whose size depends on values such as the total number of characters and the total number of unique characters, and use those values in your answer.
 
-### ~~Objective C~~ ###
+### Huffman Encoding and Decoding ###
 
-~~Read though, and complete, the [Objective C tutorial](../../tutorials/10-objc/index.html); you will need to download the [helloworld.m](../../tutorials/10-objc/helloworld.m) file, and submit a linkedlist.m file.~~
+For the post-lab, the purpose is to clean up your code from the pre-lab and in-lab, and submit all of it together.  If your pre-lab and in-lab code work properly, then there is no futher clean-up to do; however, you must still submit the files along with a *new* Makefile.
+
+When we run `make`, the code should be compiled into two executables: `encoder` and `decoder`, which are the pre-lab and in-lab code bases, respectively.  Unlike the pre-lab and in-lab, you should ***NOT*** name your executables `a.out`!  After compiling your code with `make`, we will test it as such:
+
+```
+./encoder testfile.txt > encoded.txt
+./decoder encoded.txt > output.txt
+diff testfile.txt output.txt
+```
+
+This encodes a sample text file, then decodes it.  Both the original file (`testfile.txt`) and the final file (`output.txt`) should be the same, which is what the `diff` command does.  Note that, if there are no differences between the two files, then `diff` does not print any output.

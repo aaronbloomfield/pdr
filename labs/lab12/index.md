@@ -24,7 +24,10 @@ Procedure
 
 ### Pre-lab ###
 
-There is no pre-lab for this lab
+1. Read the [Objective C tutorial](../../tutorials/10-objc/index.html); you will need to download the [helloworld.m](../../tutorials/10-objc/helloworld.m) file, and submit a linkedlist.m file.
+2. Write the Objective C program described in the post-lab section, which implements a singly-linked list.
+3. Files to download: none [helloworld.m](../..//tutorials/10-objc/helloworld.m).
+4. Files to submit: linkedlist.m, Makefile; if your program uses multiple .m or .h files, that's fine.
 
 ### In-lab ###
 
