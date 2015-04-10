@@ -94,7 +94,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |32| Apr&nbsp;3  | Friday    || [09: Advanced C++][89] | [advanced C++][89], slides [5-20][1090520] to [7-10][1090710] (end) ([recording][236]) | 
 |33| Apr&nbsp;6  | Monday    | [Lab 9: x86, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [09: Advanced C++][89], [10: Heaps and Huffman coding][90]| [heaps and Huffman coding][90], slides [0][90] to [5-3][1100503] ([recording][237]) |
 |34| Apr&nbsp;8  | Wednesday | | [10: Heaps and Huffman coding][90] | [heaps and Huffman coding][90], slides [5][11005] to [6-5][1100605] ([recording][238]) |
-|35| Apr&nbsp;10 | Friday    | | [10: Heaps and Huffman coding][90] || 
+|35| Apr&nbsp;10 | Friday    | | [10: Heaps and Huffman coding][90] | [heaps and Huffman coding][90], slides [6-6][1100606] to [7-30][1100730] ([recording][239]) |
 |36| Apr&nbsp;13 | Monday    | [Lab 10: Huffman coding][10] ([md][30]) / [Tutorial 10: Objective C][50] ([md][70]) | [10: Heaps and Huffman coding][90], [11: Graphs][91] || 
 |37| Apr&nbsp;15 | Wednesday | | [11: Graphs][91] || 
 |38| Apr&nbsp;17 | Friday    | | [11: Graphs][91] || 
@@ -353,7 +353,9 @@ Grading Concerns
 [1100503]: ../slides/10-heaps-huffman.html#/5/3
 [1100508]: ../slides/10-heaps-huffman.html#/5/8
 [1100605]: ../slides/10-heaps-huffman.html#/6/5
+[1100606]: ../slides/10-heaps-huffman.html#/6/6
 [1100705]: ../slides/10-heaps-huffman.html#/7/5
+[1100730]: ../slides/10-heaps-huffman.html#/7/30
 [1100808]: ../slides/10-heaps-huffman.html#/8/8
 [1110304]: ../slides/11-graphs.html#/3/4
 [1110305]: ../slides/11-graphs.html#/3/5
