@@ -95,7 +95,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |33| Apr&nbsp;6  | Monday    | [Lab 9: x86, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [09: Advanced C++][89], [10: Heaps and Huffman coding][90]| [heaps and Huffman coding][90], slides [0][90] to [5-3][1100503] ([recording][237]) |
 |34| Apr&nbsp;8  | Wednesday | | [10: Heaps and Huffman coding][90] | [heaps and Huffman coding][90], slides [5][11005] to [6-5][1100605] ([recording][238]) |
 |35| Apr&nbsp;10 | Friday    | | [10: Heaps and Huffman coding][90] | [heaps and Huffman coding][90], slides [6-6][1100606] to [7-30][1100730] ([recording][239]) |
-|36| Apr&nbsp;13 | Monday    | [Lab 10: Huffman coding][10] ([md][30]) / [Tutorial 10: Objective C][50] ([md][70]) | [10: Heaps and Huffman coding][90], [11: Graphs][91] || 
+|36| Apr&nbsp;13 | Monday    | [Lab 10: Huffman coding][10] ([md][30]) / (no tutorial) ([md][70]) | [10: Heaps and Huffman coding][90], [11: Graphs][91] || 
 |37| Apr&nbsp;15 | Wednesday | | [11: Graphs][91] || 
 |38| Apr&nbsp;17 | Friday    | | [11: Graphs][91] || 
 |39| Apr&nbsp;20 | Monday    | [Lab 11: Graphs][11] ([md][31]) / [Tutorial 11: doxygen][51] ([md][71]) | [11: Graphs][91] || 
