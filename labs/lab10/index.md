@@ -16,7 +16,7 @@ In lecture we discussed Huffman coding and the construction of prefix code trees
 ### Reading(s): ###
 
 - The [Heaps and Huffman slide set](../../slides/10-heaps-huffman.html) are available in the repository, and that covers Huffman compression and decompression.
-- Code for binary heaps is also available from that slide set: [binary_heap.cpp](../../slides/code/10-heaps-huffman/binary_heap.cpp.html) ([src](../../slides/code/10-heaps-huffman/binary_heap.cpp)), [binary_heap.h](../../slides/code/10-heaps-huffman/binary_heap.h.html) ([src](../../slides/code/10-heaps-huffman/binary_heap.h)), [heap-test.cpp](../../slides/code/10-heaps-huffman/heap-test.cpp.html) ([src](../../slides/code/10-heaps-huffman/heap-test.cpp)).  You may use/modify this code if you wish, or implement your own heaps, but you may NOT use the STL priority_queue class (you can use other STL classes -- i.e. non-heap related classes).  IF YOU ARE GOING TO USE THIS CODE, you should really remove the templates.  It will save you a heck of a lot of time.
+- Code for binary heaps is also available from that slide set: [binary_heap.cpp](../../slides/code/10-heaps-huffman/binary_heap.cpp.html) ([src](../../slides/code/10-heaps-huffman/binary_heap.cpp)), [binary_heap.h](../../slides/code/10-heaps-huffman/binary_heap.h.html) ([src](../../slides/code/10-heaps-huffman/binary_heap.h)), [heap-test.cpp](../../slides/code/10-heaps-huffman/heap-test.cpp.html) ([src](../../slides/code/10-heaps-huffman/heap-test.cpp)).  You may use/modify this code if you wish, or implement your own heaps, but you may NOT use the STL priority_queue class (you can use other STL classes -- i.e. non-heap related classes).
 
 Lab Procedure
 -------------
