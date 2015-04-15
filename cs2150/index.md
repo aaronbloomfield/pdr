@@ -96,7 +96,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |34| Apr&nbsp;8  | Wednesday | | [10: Heaps and Huffman coding][90] | [heaps and Huffman coding][90], slides [5][11005] to [6-5][1100605] ([recording][238]) |
 |35| Apr&nbsp;10 | Friday    | | [10: Heaps and Huffman coding][90] | [heaps and Huffman coding][90], slides [6-6][1100606] to [7-30][1100730] ([recording][239]) |
 |36| Apr&nbsp;13 | Monday    | [Lab 10: Huffman coding][10] ([md][30]) / (no tutorial) ([md][70]) | [10: Heaps and Huffman coding][90], [11: Graphs][91] | [heaps and Huffman coding][90], slides [8][11008] to [8-8][1100808] (end); [graphs][91], slides [0][91] to [4-2][1110402] ([recording][240]) |
-|37| Apr&nbsp;15 | Wednesday | | [11: Graphs][91] || 
+|37| Apr&nbsp;15 | Wednesday | | [11: Graphs][91] | [graphs][91], slides [4][11104] to [5-8][1110508] ([recording][241]) |
 |38| Apr&nbsp;17 | Friday    | | [11: Graphs][91] || 
 |39| Apr&nbsp;20 | Monday    | [Lab 11: Graphs][11] ([md][31]) / [Tutorial 11: doxygen][51] ([md][71]) | [11: Graphs][91] || 
 |40| Apr&nbsp;22 | Wednesday || [11: Graphs][91], [12: Memory][92] || 
@@ -361,8 +361,10 @@ Grading Concerns
 [1110304]: ../slides/11-graphs.html#/3/4
 [1110305]: ../slides/11-graphs.html#/3/5
 [1110402]: ../slides/11-graphs.html#/4/2
+[11104]: ../slides/11-graphs.html#/4
 [1110408]: ../slides/11-graphs.html#/4/8
 [11105]: ../slides/11-graphs.html#/5
+[1110508]: ../slides/11-graphs.html#/5/8
 [1110513]: ../slides/11-graphs.html#/5/13
 [11106]: ../slides/11-graphs.html#/6
 [1110806]: ../slides/11-graphs.html#/8/6
