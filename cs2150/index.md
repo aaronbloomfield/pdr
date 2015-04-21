@@ -98,7 +98,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |36| Apr&nbsp;13 | Monday    | [Lab 10: Huffman coding][10] ([md][30]) / (no tutorial) ([md][70]) | [10: Heaps and Huffman coding][90], [11: Graphs][91] | [heaps and Huffman coding][90], slides [8][11008] to [8-8][1100808] (end); [graphs][91], slides [0][91] to [4-2][1110402] ([recording][240]) |
 |37| Apr&nbsp;15 | Wednesday | | [11: Graphs][91] | [graphs][91], slides [4][11104] to [5-8][1110508] ([recording][241]) |
 |38| Apr&nbsp;17 | Friday    | | [11: Graphs][91] | [graphs][91], slides [5-9][1110509] to [7-8][1110708] ([recording][242]) |
-|39| Apr&nbsp;20 | Monday    | [Lab 11: Graphs][11] ([md][31]) / [Tutorial 11: doxygen][51] ([md][71]) | [11: Graphs][91] || 
+|39| Apr&nbsp;20 | Monday    | [Lab 11: Graphs][11] ([md][31]) / [Tutorial 11: doxygen][51] ([md][71]) | [11: Graphs][91] | [graphs][91], slides [8][11108] to [8-14][1110814] (end); [memory][92], slides [0][92] to [3-3][1120303] ([recording][244]) |
 |40| Apr&nbsp;22 | Wednesday || [11: Graphs][91], [12: Memory][92] || 
 |41| Apr&nbsp;24 | Friday    | | [12: Memory][92] || 
 |42| Apr&nbsp;27 | Monday    | [Lab 12: Objective C][12] ([md][32])| [12: Memory][92], [13: Esoteric PLs][93], [Course conclusion][94] || 
@@ -369,8 +369,10 @@ Grading Concerns
 [1110513]: ../slides/11-graphs.html#/5/13
 [11106]: ../slides/11-graphs.html#/6
 [1110708]: ../slides/11-graphs.html#/7/8
+[11108]: ../slides/11-graphs.html#/8
 [1110806]: ../slides/11-graphs.html#/8/6
 [1110814]: ../slides/11-graphs.html#/8/14
+[1120303]: ../slides/12-memory.html#/3/3
 [1120308]: ../slides/12-memory.html#/3/8
 [1120325]: ../slides/12-memory.html#/3/25
 [1130325]: ../slides/13-esoteric-pls.html#/3/25
