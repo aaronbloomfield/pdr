@@ -99,7 +99,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |37| Apr&nbsp;15 | Wednesday | | [11: Graphs][91] | [graphs][91], slides [4][11104] to [5-8][1110508] ([recording][241]) |
 |38| Apr&nbsp;17 | Friday    | | [11: Graphs][91] | [graphs][91], slides [5-9][1110509] to [7-8][1110708] ([recording][242]) |
 |39| Apr&nbsp;20 | Monday    | [Lab 11: Graphs][11] ([md][31]) / [Tutorial 11: doxygen][51] ([md][71]) | [11: Graphs][91] | [graphs][91], slides [8][11108] to [8-14][1110814] (end); [memory][92], slides [0][92] to [3-3][1120303] ([recording][244]) |
-|40| Apr&nbsp;22 | Wednesday || [11: Graphs][91], [12: Memory][92] || 
+|40| Apr&nbsp;22 | Wednesday || [11: Graphs][91], [12: Memory][92] | [memory][92], slides [3-3][1120303] to [3-11][1120311] ([recording][245]) |
 |41| Apr&nbsp;24 | Friday    | | [12: Memory][92] || 
 |42| Apr&nbsp;27 | Monday    | [Lab 12: Objective C][12] ([md][32])| [12: Memory][92], [13: Esoteric PLs][93], [Course conclusion][94] || 
 |     |Apr&nbsp;29| Wednesday | Final exam review session | Final exam review session || 
@@ -258,8 +258,10 @@ Grading Concerns
 [242]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/11-graphs-3/11-graphs-3.htm
 [243]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/11-graphs-4/11-graphs-4.htm
 [244]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/12-memory-1/12-memory-1.htm
-[245]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/course-conclusion/course-conclusion.htm
-[246]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/final-review/final-review.htm
+[245]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/12-memory-2/12-memory-2.htm
+[246]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/12-memory-3/12-memory-3.htm
+[247]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/course-conclusion/course-conclusion.htm
+[248]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/final-review/final-review.htm
 
 [1000402]: ../cs2150/course-introduction.html#/4/2
 [10005]: ../cs2150/course-introduction.html#/5
@@ -374,6 +376,7 @@ Grading Concerns
 [1110814]: ../slides/11-graphs.html#/8/14
 [1120303]: ../slides/12-memory.html#/3/3
 [1120308]: ../slides/12-memory.html#/3/8
+[1120311]: ../slides/12-memory.html#/3/11
 [1120325]: ../slides/12-memory.html#/3/25
 [1130325]: ../slides/13-esoteric-pls.html#/3/25
 [12009]: course-conclusion.html#/9
