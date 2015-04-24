@@ -148,3 +148,4 @@ For future installs (fall of 2015 and beyond), the following changes will be mad
 - Install additional packages: `sudo apt-get install graphviz php5-mcrypt php5-intl phpunit`.  Graphviz is needed for doxygen to create call graphs; the two PHP packages are needed for CakePHP installations to work properly; phpunit is for PHP unit tests.
 - Enable the two PHP modules just installed: `sudo php5enmod intl` and `sudo php5enmod mcrypt`; then restart apache2: `sudo service apache2 restart`
 - Which packages need to be installed for Objective C?  Definitely `libgnustep-base-dev`, but likely not all of the ones listed above...
+- Indicate, on this document, how to switch over to Unity/Gnome (which packages to install, etc.)

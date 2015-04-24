@@ -100,7 +100,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |38| Apr&nbsp;17 | Friday    | | [11: Graphs][91] | [graphs][91], slides [5-9][1110509] to [7-8][1110708] ([recording][242]) |
 |39| Apr&nbsp;20 | Monday    | [Lab 11: Graphs][11] ([md][31]) / [Tutorial 11: doxygen][51] ([md][71]) | [11: Graphs][91] | [graphs][91], slides [8][11108] to [8-14][1110814] (end); [memory][92], slides [0][92] to [3-3][1120303] ([recording][244]) |
 |40| Apr&nbsp;22 | Wednesday || [11: Graphs][91], [12: Memory][92] | [memory][92], slides [3-3][1120303] to [3-11][1120311] ([recording][245]) |
-|41| Apr&nbsp;24 | Friday    | | [12: Memory][92] || 
+|41| Apr&nbsp;24 | Friday    | | [12: Memory][92] | [memory][92], slides [3-11][1120311] to [4-7][1120407] ([recording][246]) |
 |42| Apr&nbsp;27 | Monday    | [Lab 12: Objective C][12] ([md][32])| [12: Memory][92], [13: Esoteric PLs][93], [Course conclusion][94] || 
 |     |Apr&nbsp;29| Wednesday | Final exam review session | Final exam review session || 
 |     |May&nbsp;1| Friday    |Final exam from 2:00-5:00 in Gilmer 130| Final exam from 2:00-5:00 in Gilmer 130 || 
@@ -378,5 +378,6 @@ Grading Concerns
 [1120308]: ../slides/12-memory.html#/3/8
 [1120311]: ../slides/12-memory.html#/3/11
 [1120325]: ../slides/12-memory.html#/3/25
+[1120407]: ../slides/12-memory.html#/4/7
 [1130325]: ../slides/13-esoteric-pls.html#/3/25
 [12009]: course-conclusion.html#/9
