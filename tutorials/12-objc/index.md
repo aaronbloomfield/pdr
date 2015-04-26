@@ -71,7 +71,7 @@ We have included (well, imported) a different file, and thus can no longer subcl
 As our programs are now more complicated than just a "hello world", the compilation line is longer as well.  The compilation command for Linux machines (such as the VirtualBox image) is:
 
 ```
-clang -I /usr/include/GNUstep/ -o *.m -lobjc -lgnustep-base
+clang -I /usr/include/GNUstep/ *.m -lobjc -lgnustep-base
 ```
 
 On Mac OS X, the compilation command is much simpler, and is what was shown above:
@@ -112,7 +112,7 @@ Enter value 4: 8
 
 You will need to implement **ONE** class, ListNode (or whatever you would like to call it).  And a `main()` method, of course.  You can put all of your code in one file (put the interface first, then the implementation, then the `main()`), or you can separate it out into separate files (such as listnode.m, listnode.h, and main.m).
 
-The linked list program will need to be submitted as part of the lab; no Makefile is being submitted.  As long as it compiles with the following compilation command, we really don't care what the files are named (within reason).  The compile command that we will use to compile your code on Linux is `clang -I /usr/include/GNUstep/ -o *.m -lobjc -lgnustep-base`; this is equivalent to `clang *.m -lobjc` on Mac OS X.
+The linked list program will need to be submitted as part of the lab; no Makefile is being submitted.  As long as it compiles with the following compilation command, we really don't care what the files are named (within reason).  The compile command that we will use to compile your code on Linux is `clang -I /usr/include/GNUstep/ *.m -lobjc -lgnustep-base`; this is equivalent to `clang *.m -lobjc` on Mac OS X.
 
 This is not meant to be a complicated program!  We don't care about the order that the list is printed (forward or reverse is fine); you don't need to implement iterators, or anything too complicated.  Our code had just `main()` method, and a ListNode class with a handful of methods.  Your `insert()` code should be in `main()`, not in your class.  Likewise your code to remove the elements, and to print the list should be in `main()`.
 
