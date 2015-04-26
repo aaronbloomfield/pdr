@@ -43,7 +43,7 @@ int main (void) {
 <p>We have included (well, imported) a different file, and thus can no longer subclass from <code>Object</code>. THus, we must change the super class name from <code>Object</code> to <code>NSObject</code>. This is line 3 of hte Point.h class in the <a href="http://en.wikibooks.org/wiki/Objective-C_Programming/syntax">Objective C Syntax</a> tutorial on Wikibooks.</p>
 <p><strong>Difference 3: compilation command</strong></p>
 <p>As our programs are now more complicated than just a &quot;hello world&quot;, the compilation line is longer as well. The compilation command for Linux machines (such as the VirtualBox image) is:</p>
-<pre><code>clang -I /usr/include/GNUstep/ -o *.m -lobjc -lgnustep-base</code></pre>
+<pre><code>clang -I /usr/include/GNUstep/ *.m -lobjc -lgnustep-base</code></pre>
 <p>On Mac OS X, the compilation command is much simpler, and is what was shown above:</p>
 <pre><code>clang *.m -lobjc</code></pre>
 <p><strong>Difference 4: other libraries to use</strong></p>
@@ -71,7 +71,7 @@ Enter value 4: 8
 4
 2</code></pre>
 <p>You will need to implement <strong>ONE</strong> class, ListNode (or whatever you would like to call it). And a <code>main()</code> method, of course. You can put all of your code in one file (put the interface first, then the implementation, then the <code>main()</code>), or you can separate it out into separate files (such as listnode.m, listnode.h, and main.m).</p>
-<p>The linked list program will need to be submitted as part of the lab; no Makefile is being submitted. As long as it compiles with the following compilation command, we really don't care what the files are named (within reason). The compile command that we will use to compile your code on Linux is <code>clang -I /usr/include/GNUstep/ -o *.m -lobjc -lgnustep-base</code>; this is equivalent to <code>clang *.m -lobjc</code> on Mac OS X.</p>
+<p>The linked list program will need to be submitted as part of the lab; no Makefile is being submitted. As long as it compiles with the following compilation command, we really don't care what the files are named (within reason). The compile command that we will use to compile your code on Linux is <code>clang -I /usr/include/GNUstep/ *.m -lobjc -lgnustep-base</code>; this is equivalent to <code>clang *.m -lobjc</code> on Mac OS X.</p>
 <p>This is not meant to be a complicated program! We don't care about the order that the list is printed (forward or reverse is fine); you don't need to implement iterators, or anything too complicated. Our code had just <code>main()</code> method, and a ListNode class with a handful of methods. Your <code>insert()</code> code should be in <code>main()</code>, not in your class. Likewise your code to remove the elements, and to print the list should be in <code>main()</code>.</p>
 <p>A few requirements for the program:</p>
 <ol style="list-style-type: decimal">
