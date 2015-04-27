@@ -54,6 +54,6 @@
 	- Tutorials 6 and 7 are from the [Wikibooks article on Bash Shell Scripting](http://en.wikibooks.org/wiki/Bash_Shell_Scripting)
     - Tutorial 8 is nasm, which consists of two PDF book chapters that are contained in this repository: [x86 Assembly](../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../book/x86-ccc-chapter.pdf)
     - [Tutorial 9: C](../tutorials/09-c/index.html) ([md](../tutorials/09-c/index.md))
-    - [Tutorial 10: Objective C](../tutorials/10-objc/index.html) ([md](../tutorials/10-objc/index.md))
 	- [Tutorial 11: Doxygen](../tutorials/11-doxygen/index.html) ([md](../tutorials/11-doxygen/index.md))
 - [Utilities](../utils/index.html) ([md](../utils/index.md))
+    - [Tutorial 12: Objective C](../tutorials/12-objc/index.html) ([md](../tutorials/12-objc/index.md))
