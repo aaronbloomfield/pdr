@@ -29,6 +29,7 @@ The parts of this course that are in this repo are:
 - [UNIX honor pledge][172], which needs to be signed by all the students in the course; it is created from a [.tex][114] file
 - [Generic review session slide set][113], which is really just a blank set of slides
 - [Frivolous regrade policy][109] ([md][110]) for exams
+- [Course conclusion slide set][94]
 
 ------------------------------------------------------------
 
