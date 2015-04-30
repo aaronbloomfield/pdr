@@ -103,7 +103,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |40| Apr&nbsp;22 | Wednesday || [11: Graphs][91], [12: Memory][92] | [memory][92], slides [3-3][1120303] to [3-11][1120311] ([recording][245]) |
 |41| Apr&nbsp;24 | Friday    | | [12: Memory][92] | [memory][92], slides [3-11][1120311] to [4-7][1120407] ([recording][246]) |
 |42| Apr&nbsp;27 | Monday    | [Lab 12: Objective C][12] ([md][32])| [12: Memory][92], [13: Esoteric PLs][93], [Course conclusion][94] | [memory][92], slides [4-7][1120407] to [4-18][1120418] (end); [esoteric PLs][93], slides [0][93] to [5-12][1130512] (end); [course conclusions][94], slides [0][94] to [10][12010] (end) ([recording][247]) |
-|     |Apr&nbsp;29| Wednesday | Final exam review session | Final exam review session || 
+|     |Apr&nbsp;29| Wednesday | Final exam review session | Final exam review session | ([recording][248]) | 
 |     |May&nbsp;1| Friday    |Final exam from 2:00-5:00 in Gilmer 130| Final exam from 2:00-5:00 in Gilmer 130 || 
 
 ------------------------------------------------------------
