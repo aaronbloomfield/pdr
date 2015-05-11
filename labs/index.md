@@ -79,16 +79,16 @@ The labs for this course:
         - Binary heap code from the [Heaps and Huffman slide set](../slides/10-heaps-huffman.html): [binary_heap.cpp](../slides/code/10-heaps-huffman/binary_heap.cpp.html) ([src](../slides/code/10-heaps-huffman/binary_heap.cpp)), [binary_heap.h](../slides/code/10-heaps-huffman/binary_heap.h.html) ([src](../slides/code/10-heaps-huffman/binary_heap.h)), [heap-test.cpp](../slides/code/10-heaps-huffman/heap-test.cpp.html) ([src](../slides/code/10-heaps-huffman/heap-test.cpp))
       - File I/O example: [fileio.cpp](lab10/fileio.cpp.html) ([src](lab10/fileio.cpp))
       - In-lab skeleton code: [inlab-skeleton.cpp](lab10/inlab-skeleton.cpp.html) ([src](lab10/inlab-skeleton.cpp))
-      - Example encoded and decoded files are in the [labs/lab10/examples/ directory](lab10/examples/), or as one [examples.zip](lab10/examples.zip) file)
-      - The tutorial, for the post-lab, is the [Objective C tutorial](../tutorials/10-objc/index.html), for which you will need the [helloworld.m](../tutorials/10-objc/helloworld.m.html) ([src](../tutorials/10-objc/helloworld.m)) file, and you will need to implement the linkedlist.c program.
+      - Example encoded and decoded files are in the [labs/lab10/examples/ directory](lab10/examples/), or as one [examples.zip](lab10/examples.zip) file
 
 &nbsp;
 
 - [Lab 11: Graphs](lab11/index.html)
-    - Source code: [middleearth.h](lab11/middleearth.h.html) ([src](lab11/middleearth.h)), [middleearth.cpp](lab11/middleearth.cpp.html) ([src](lab11/middleearth.cpp)), [fileio2.cpp](lab11/fileio2.cpp.html) ([src](lab11/fileio2.cpp)), [traveling-skeleton.cpp](lab11/traveling-skeleton.cpp.html) ([src](lab11/traveling-skeleton.cpp)), [Doxyfile](lab11/Doxyfile)
+    - Source code: [middleearth.h](lab11/middleearth.h.html) ([src](lab11/middleearth.h)), [middleearth.cpp](lab11/middleearth.cpp.html) ([src](lab11/middleearth.cpp)), [fileio2.cpp](lab11/fileio2.cpp.html) ([src](lab11/fileio2.cpp)), [traveling-skeleton.cpp](lab11/traveling-skeleton.cpp.html) ([src](lab11/traveling-skeleton.cpp))
     - Data files: [prelab-test-small.txt](lab11/prelab-test-small.txt), [prelab-test-full.txt](lab11/prelab-test-full.txt)
     - The [Doxygen tutorial](../tutorials/11-doxygen/index.html) and the necessary files for that: [average.cpp](../tutorials/11-doxygen/average.cpp.html) ([src](../tutorials/11-doxygen/average.cpp))
   
 &nbsp;
 
 - [Lab 12: Conclusion](lab12/index.html)
+    - The tutorial, for the pre-lab, is the [Objective C tutorial](../tutorials/12-objc/index.html), for which you will need the [helloworld.m](../tutorials/12-objc/helloworld.m.html) ([src](../tutorials/12-objc/helloworld.m)) file, and you will need to implement the linkedlist.c program.

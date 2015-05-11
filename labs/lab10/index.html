@@ -22,7 +22,7 @@
 <h3 id="readings">Reading(s):</h3>
 <ul>
 <li>The <a href="../../slides/10-heaps-huffman.html">Heaps and Huffman slide set</a> are available in the repository, and that covers Huffman compression and decompression.</li>
-<li>Code for binary heaps is also available from that slide set: <a href="../../slides/code/10-heaps-huffman/binary_heap.cpp.html">binary_heap.cpp</a> (<a href="../../slides/code/10-heaps-huffman/binary_heap.cpp">src</a>), <a href="../../slides/code/10-heaps-huffman/binary_heap.h.html">binary_heap.h</a> (<a href="../../slides/code/10-heaps-huffman/binary_heap.h">src</a>), <a href="../../slides/code/10-heaps-huffman/heap-test.cpp.html">heap-test.cpp</a> (<a href="../../slides/code/10-heaps-huffman/heap-test.cpp">src</a>). You may use/modify this code if you wish, or implement your own heaps, but you may NOT use the STL priority_queue class (you can use other STL classes -- i.e. non-heap related classes). IF YOU ARE GOING TO USE THIS CODE, you should really remove the templates. It will save you a heck of a lot of time.</li>
+<li>Code for binary heaps is also available from that slide set: <a href="../../slides/code/10-heaps-huffman/binary_heap.cpp.html">binary_heap.cpp</a> (<a href="../../slides/code/10-heaps-huffman/binary_heap.cpp">src</a>), <a href="../../slides/code/10-heaps-huffman/binary_heap.h.html">binary_heap.h</a> (<a href="../../slides/code/10-heaps-huffman/binary_heap.h">src</a>), <a href="../../slides/code/10-heaps-huffman/heap-test.cpp.html">heap-test.cpp</a> (<a href="../../slides/code/10-heaps-huffman/heap-test.cpp">src</a>). You may use/modify this code if you wish, or implement your own heaps, but you may NOT use the STL priority_queue class (you can use other STL classes -- i.e. non-heap related classes).</li>
 </ul>
 <h2 id="lab-procedure">Lab Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
@@ -33,7 +33,7 @@
 <li>Your program must compile with make!</li>
 <li>Your program should only take in one command-line parameter!</li>
 <li>Files to download: <a href="fileio.cpp.html">fileio.cpp</a> (<a href="fileio.cpp">src</a>), and the example files (in the <a href="examples/">labs/lab10/examples/ directory</a>, or as one <a href="examples.zip">examples.zip</a> file)</li>
-<li>Files to submit: heap.cpp, heap.h, huffmanenc.cpp, Makefile (you can submit additional .cpp/.h files, if needed, as long as it compiles with 'make')</li>
+<li>Files to submit: heap.cpp, heap.h, huffmanenc.cpp, Makefile (you can submit additional .cpp/.h files, if needed, as long as it compiles with <code>make</code>)</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
 <ol style="list-style-type: decimal">
@@ -42,15 +42,14 @@
 <li>Your program must compile with make!</li>
 <li>Your program should only take in one command-line parameter!</li>
 <li>Files to download: <a href="inlab-skeleton.cpp.html">inlab-skeleton.cpp</a> (<a href="inlab-skeleton.cpp">src</a>), and your pre-lab files</li>
-<li>Files to submit: huffmandec.cpp, Makefile (you can submit additional .cpp/.h files, if needed, as long as it compiles with 'make')</li>
+<li>Files to submit: huffmandec.cpp, Makefile (you can submit additional .cpp/.h files, if needed, as long as it compiles with <code>make</code>)</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
 <ol style="list-style-type: decimal">
 <li>Complete the post-lab report, as described in the post-lab section.</li>
-<li><del>Read the <a href="../../tutorials/10-objc/index.html">Objective C tutorial</a>, as described in the post-lab section.</del></li>
-<li><del>Write the Objective C program described in the post-lab section, which implements a singly-linked list.</del></li>
-<li>Files to download: none <del><a href="../..//tutorials/10-objc/helloworld.m">helloworld.m</a>.</del></li>
-<li>Files to submit: postlab10.pdf <del>, linkedlist.m (no Makefile for this lab!); if your program uses multiple .m or .h files, that's fine.</del></li>
+<li>Ensure that the pre-lab code (compression) and post-lab code (decompression) work properly, as they will be submitted again</li>
+<li>Create a new Makefile, as specified below</li>
+<li>Files to submit: postlab10.pdf, Makefile, all necessary source code files</li>
 </ol>
 <hr />
 <h2 id="huffman-encoding-and-decoding">Huffman Encoding and Decoding</h2>
@@ -165,12 +164,11 @@ The Huffman tree cost: 1.85 bits per character</code></pre>
 <p>Next, focus on creating the Huffman coding tree. There are a number of ways to go about doing this -- we present one such algorithm here. As you are (recursively) creating each node in the tree, you know the bitcode code so far to get to that node (remember that following a left child pointer generates a <code>0</code>, and following a right child pointer generates a <code>1</code>). We'll call this bitcode-so-far the &quot;prefix&quot; (as it is the prefix for all bitcodes below this node). If that prefix is one of the listed bitcodes in the first part of the file, then we are at a leaf (remember that all characters in a Huffman tree are leaves), and the node will not have any children. Otherwise, we are dealing with an internal node -- and you will have to create left and right child nodes, calling yourself recursively on each one. Keep in mind that when you call yourself recursively on the left child, you have to add <code>0</code> to the end of the prefix; likewise, you have to add <code>1</code> to the prefix for the right child. This algorithm will require you to search through the bit codes that were read in from the first part of the file. Also keep in mind that the size of the input here (the number of characters) is very small (only 80 or so) -- which means that if you choose a linear time complexity data structure (vector, for example), your code will run just fine.</p>
 <p>Not creating a Huffman tree from the file will result in zero credit for the in-lab. The whole point of this part is to create the tree!</p>
 <p>Lastly, read in the second part of the file, transverse your Huffman tree, and output a character when you reach a leaf node. You can output as much text as you would like, such as status updates as to how the program is progressing. The only caveat is that the decoded file must be the last thing printed, and it must be clear where the other text ends and the decoded message that you are decoding begins (a separator of dashes would be fine for this). Of course, you are more than welcome to just print out the decoded message and nothing else.</p>
-<p>You will need to get the Huffman decoder working when you submit the in-lab, as you will not be submitting it again for the post-lab. If you cannot get it working during the in-lab time, then you should request a lab extension, and submit what you have done so far.</p>
+<p>If you cannot get the Huffman decoder working during the in-lab time, then you should request a lab extension, and submit what you have done so far.</p>
 <p>As with the pre-lab, you should ensure that those files compile successfully with <code>make</code>.</p>
 <hr />
 <h2 id="post-lab-1">Post-lab</h2>
-<p>There are two parts to this post-lab: the time and space complexity analysis, and the <a href="../../tutorials/10-objc/index.html">Objective C tutorial</a>.</p>
-<p>The Huffman decoding code was submitted for the in-lab, and won't be submitted for the post-lab. The Huffman encoding code was be submitted for the pre-lab, and also won't be submitted for the post-lab either.</p>
+<p>There are two parts to this post-lab: the time and space complexity analysis, and submitting all your (working) code again.</p>
 <h3 id="time-and-space-complexity">Time and Space Complexity</h3>
 <p>For the post-lab, we want you to do a time and space complexity analysis of your compression and decompression code. You'll submit a written report that describes your implementation choices, and also documents your analysis of time and space complexity. See below for a discussion about the space/time complexity.</p>
 <p>The deliverable for the post-lab is a PDF document named postlab10.pdf. It must be in PDF format! See <a href="../../docs/convert_to_pdf.html">How to convert a file to PDF</a> for details.</p>
@@ -185,7 +183,12 @@ The Huffman tree cost: 1.85 bits per character</code></pre>
 </ol>
 <p>Worst case running time -- for this be sure to include all steps of the compression and decompression. You can leave off the cost of calculating the compression ratio, printing the cost of the tree, and printing a listing of the bit code for each character that was asked for in the pre-lab. Refer to the list of steps given earlier in the lab.</p>
 <p>Space complexity -- for this, you should calculate the number of bytes that are used by each data structure in your implementation. The easiest way to do this is to step through your code, just as you have done for the worst case running time, and make a note each time you use a new data structure. You do not need to take into account scalar variables (loop counters, other singleton variables), focus on the data structures whose size depends on values such as the total number of characters and the total number of unique characters, and use those values in your answer.</p>
-<h3 id="objective-c"><del>Objective C</del></h3>
-<p><del>Read though, and complete, the <a href="../../tutorials/10-objc/index.html">Objective C tutorial</a>; you will need to download the <a href="../../tutorials/10-objc/helloworld.m">helloworld.m</a> file, and submit a linkedlist.m file.</del></p>
+<h3 id="huffman-encoding-and-decoding-1">Huffman Encoding and Decoding</h3>
+<p>For the post-lab, the purpose is to clean up your code from the pre-lab and in-lab, and submit all of it together. If your pre-lab and in-lab code work properly, then there is no futher clean-up to do; however, you must still submit the files along with a <em>new</em> Makefile.</p>
+<p>When we run <code>make</code>, the code should be compiled into two executables: <code>encoder</code> and <code>decoder</code>, which are the pre-lab and in-lab code bases, respectively. Unlike the pre-lab and in-lab, you should <strong><em>NOT</em></strong> name your executables <code>a.out</code>! After compiling your code with <code>make</code>, we will test it as such:</p>
+<pre><code>./encoder testfile.txt &gt; encoded.txt
+./decoder encoded.txt &gt; output.txt
+diff testfile.txt output.txt</code></pre>
+<p>This encodes a sample text file, then decodes it. Both the original file (<code>testfile.txt</code>) and the final file (<code>output.txt</code>) should be the same, which is what the <code>diff</code> command does. Note that, if there are no differences between the two files, then <code>diff</code> does not print any output.</p>
 </body>
 </html>

@@ -118,7 +118,7 @@
 | Unsorted linked list | &Theta;(1) | &Theta;(*n*) | &Theta;(*n*) |
 | Sorted array | &Theta;(*n*) | &Theta;(1) | &Theta;(1) |
 | Sorted linked list | &Theta;(*n*) | &Theta;(1) | &Theta;(1) |
-| Binary search tree | &Theta;(*n*) | &Theta;(*n*) | &Theta;(*n*) |
+| Binary search tree | &Theta;(*n*) or &Theta;(1) | &Theta;(*n*) | &Theta;(*n*) |
 | AVL or red-black tree | &Theta;(log *n*) | &Theta;(log *n*) | &Theta;(log *n*) |
 | Hash table | ideally constant | &Theta;(*n*) | &Theta;(*n*) |
 
@@ -293,7 +293,7 @@ void binary_heap::percolateUp(int hole) {
   <li>Etc.</li></ul></li>
 <li>Expected running time:<br>&nbsp;</li>
 <ul>
-\( \frac{1}{2}*1 + \frac{1}{4}*2 + \frac{1}{8}*3 + \ldots = \sum_{i=1}^{n} \frac{1}{2^n}*n = 2 \)
+\( \frac{1}{2}*1 + \frac{1}{4}*2 + \frac{1}{8}*3 + \ldots = \sum_{i=1}^{n} \frac{1}{2^i}*i = 2 \)
 	  </section>
 
 	  <section data-markdown><script type="text/template">
@@ -395,8 +395,8 @@ void binary_heap::percolateDown(int hole) {
 
 	  <section data-markdown><script type="text/template">
 ## Heaps (Summary)
-- insert: percolate up; &Theta;(log *n*) time worst case, but &Theta;(1) expected time
-- deleteMin: percolate down; &Theta;(log *n*) time (both worst case and expected time)
+- insert: percolate up; &Theta;(log *n*) time worst case, but constant expected time
+- deleteMin: percolate down; &Theta;(log *n*) time worst case; also logarithmic expected time
 - findMin: &Theta;(1) time
 	  </script></section>
 

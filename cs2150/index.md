@@ -29,6 +29,7 @@ The parts of this course that are in this repo are:
 - [UNIX honor pledge][172], which needs to be signed by all the students in the course; it is created from a [.tex][114] file
 - [Generic review session slide set][113], which is really just a blank set of slides
 - [Frivolous regrade policy][109] ([md][110]) for exams
+- [Course conclusion slide set][94]
 
 ------------------------------------------------------------
 
@@ -86,23 +87,23 @@ The links in the right-most column link directly to the lecture recording on Col
 |25| Mar&nbsp;18 | Wednesday || [07: IBCM][87] (machine language) | [IBCM][87], slides [5-6][1070506] to [6-4][1070604]; [x86][88], slides [0][88] to [3-4][1080304] ([recording][228]) | 
 |26| Mar&nbsp;20 | Friday    | | [08: x86][88] (assembly language) | [x86][88], slides [3-5][1080305] to [5-4][1080504] ([recording][229]) | 
 |27| Mar&nbsp;23 | Monday    | | [08: x86][88] (assembly language) | [x86][88], slides [5-5][1080505] to [7-13][1080713] ([recording][230]) | 
-|28| Mar&nbsp;25 | Wednesday | [Lab 8: x86, part 1][8] ([md][28]) / Tutorial 8: nasm, which is two book chapters: [1][53] and [2][54] | [08: x86][88] (assembly language) || 
-|29| Mar&nbsp;27 | Friday    | | [08: x86][88] (assembly language) || 
-|     | Mar&nbsp;29 | Sunday    | Exam 2 review session | Exam 2 review session || 
-|30| Mar&nbsp;30 | Monday    | Exam 2 instead during Tuesday's lab | [08: x86][88], [09: Advanced C++][89] || 
-|31| Apr&nbsp;1  | Wednesday || [09: Advanced C++][89] || 
-|32| Apr&nbsp;3  | Friday    || [09: Advanced C++][89] || 
-|33| Apr&nbsp;6  | Monday    | [Lab 9: x86, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [09: Advanced C++][89], [10: Heaps and Huffman coding][90]|| 
-|34| Apr&nbsp;8  | Wednesday | | [10: Heaps and Huffman coding][90] || 
-|35| Apr&nbsp;10 | Friday    | | [10: Heaps and Huffman coding][90] || 
-|36| Apr&nbsp;13 | Monday    | [Lab 10: Huffman coding][10] ([md][30]) / [Tutorial 10: Objective C][50] ([md][70]) | [10: Heaps and Huffman coding][90], [11: Graphs][91] || 
-|37| Apr&nbsp;15 | Wednesday | | [11: Graphs][91] || 
-|38| Apr&nbsp;17 | Friday    | | [11: Graphs][91] || 
-|39| Apr&nbsp;20 | Monday    | [Lab 11: Graphs][11] ([md][31]) / [Tutorial 11: doxygen][51] ([md][71]) | [11: Graphs][91] || 
-|40| Apr&nbsp;22 | Wednesday || [11: Graphs][91], [12: Memory][92] || 
-|41| Apr&nbsp;24 | Friday    | | [12: Memory][92] || 
-|42| Apr&nbsp;27 | Monday    | [Lab 12: Objective C][12] ([md][32])| [12: Memory][92], [13: Esoteric PLs][93], [Course conclusion][94] || 
-|     |Apr&nbsp;29| Wednesday | Final exam review session | Final exam review session || 
+|28| Mar&nbsp;25 | Wednesday | [Lab 8: x86, part 1][8] ([md][28]) / Tutorial 8: nasm, which is two book chapters: [1][53] and [2][54] | [08: x86][88] (assembly language) | [x86][88], slides [7-13][1080713] to [8-5][1080805] ([recording][231]) | 
+|29| Mar&nbsp;27 | Friday    | | [08: x86][88] (assembly language) | [x86][88], slides [9][10809] to [9-29][1080929] ([recording][232]) | 
+|     | Mar&nbsp;29 | Sunday    | Exam 2 review session | Exam 2 review session | ([recording][235]) | 
+|30| Mar&nbsp;30 | Monday    | Exam 2 instead during Tuesday's lab | [08: x86][88], [09: Advanced C++][89] | [x86][88], slides [9-30][1080930] to [9-34][1080934] (end); [advanced C++][89], slides [0][89] to [5-9][1090509] ([recording][233]) | 
+|31| Apr&nbsp;1  | Wednesday || [09: Advanced C++][89] | [advanced C++][89], slides [5-8][1090508] to [5-19][1090519] ([recording][234]) | 
+|32| Apr&nbsp;3  | Friday    || [09: Advanced C++][89] | [advanced C++][89], slides [5-20][1090520] to [7-10][1090710] (end) ([recording][236]) | 
+|33| Apr&nbsp;6  | Monday    | [Lab 9: x86, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [09: Advanced C++][89], [10: Heaps and Huffman coding][90]| [heaps and Huffman coding][90], slides [0][90] to [5-3][1100503] ([recording][237]) |
+|34| Apr&nbsp;8  | Wednesday | | [10: Heaps and Huffman coding][90] | [heaps and Huffman coding][90], slides [5][11005] to [6-5][1100605] ([recording][238]) |
+|35| Apr&nbsp;10 | Friday    | | [10: Heaps and Huffman coding][90] | [heaps and Huffman coding][90], slides [6-6][1100606] to [7-30][1100730] ([recording][239]) |
+|36| Apr&nbsp;13 | Monday    | [Lab 10: Huffman coding][10] ([md][30]) / (no tutorial) | [10: Heaps and Huffman coding][90], [11: Graphs][91] | [heaps and Huffman coding][90], slides [8][11008] to [8-8][1100808] (end); [graphs][91], slides [0][91] to [4-2][1110402] ([recording][240]) |
+|37| Apr&nbsp;15 | Wednesday | | [11: Graphs][91] | [graphs][91], slides [4][11104] to [5-8][1110508] ([recording][241]) |
+|38| Apr&nbsp;17 | Friday    | | [11: Graphs][91] | [graphs][91], slides [5-9][1110509] to [7-8][1110708] ([recording][242]) |
+|39| Apr&nbsp;20 | Monday    | [Lab 11: Graphs][11] ([md][31]) / [Tutorial 11: doxygen][51] ([md][71]) | [11: Graphs][91] | [graphs][91], slides [8][11108] to [8-14][1110814] (end); [memory][92], slides [0][92] to [3-3][1120303] ([recording][244]) |
+|40| Apr&nbsp;22 | Wednesday || [11: Graphs][91], [12: Memory][92] | [memory][92], slides [3-3][1120303] to [3-11][1120311] ([recording][245]) |
+|41| Apr&nbsp;24 | Friday    | | [12: Memory][92] | [memory][92], slides [3-11][1120311] to [4-7][1120407] ([recording][246]) |
+|42| Apr&nbsp;27 | Monday    | [Lab 12: Objective C][12] ([md][32])| [12: Memory][92], [13: Esoteric PLs][93], [Course conclusion][94] | [memory][92], slides [4-7][1120407] to [4-18][1120418] (end); [esoteric PLs][93], slides [0][93] to [5-12][1130512] (end); [course conclusions][94], slides [0][94] to [10][12010] (end) ([recording][247]) |
+|     |Apr&nbsp;29| Wednesday | Final exam review session | Final exam review session | ([recording][248]) | 
 |     |May&nbsp;1| Friday    |Final exam from 2:00-5:00 in Gilmer 130| Final exam from 2:00-5:00 in Gilmer 130 || 
 
 ------------------------------------------------------------
@@ -111,6 +112,7 @@ Grading Concerns
 ----------------
 
 - The curve on [midterm 1](../exams/exam1-s15.pdf) will be 10 *percentage* points
+- The curve on [midterm 2](../exams/exam2-s15.pdf) will be 10 *percentage* points
 
 
 [1]: ../labs/lab01/index.html
@@ -244,20 +246,23 @@ Grading Concerns
 [229]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/08-x86-2/08-x86-2.htm
 [230]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/08-x86-3/08-x86-3.htm
 [231]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/08-x86-4/08-x86-4.htm
-[232]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/09-advanced-cpp-1/09-advanced-cpp-1.htm
-[233]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/09-advanced-cpp-2/09-advanced-cpp-2.htm
-[234]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/exam2-review/exam2-review.htm
-[235]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/09-advanced-cpp-3/09-advanced-cpp-3.htm
-[236]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/10-heaps-huffman-1/10-heaps-huffman-1.htm
-[237]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/10-heaps-huffman-2/10-heaps-huffman-2.htm
-[238]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/10-heaps-huffman-3/10-heaps-huffman-3.htm
-[239]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/11-graphs-1/11-graphs-1.htm
-[240]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/11-graphs-2/11-graphs-2.htm
-[241]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/11-graphs-3/11-graphs-3.htm
-[242]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/11-graphs-4/11-graphs-4.htm
-[243]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/12-memory-1/12-memory-1.htm
-[244]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/course-conclusion/course-conclusion.htm
-[245]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/final-review/final-review.htm
+[232]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/08-x86-5/08-x86-5.htm
+[233]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/09-advanced-cpp-1/09-advanced-cpp-1.htm
+[234]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/09-advanced-cpp-2/09-advanced-cpp-2.htm
+[235]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/exam2-review/exam2-review.htm
+[236]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/09-advanced-cpp-3/09-advanced-cpp-3.htm
+[237]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/10-heaps-huffman-1/10-heaps-huffman-1.htm
+[238]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/10-heaps-huffman-2/10-heaps-huffman-2.htm
+[239]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/10-heaps-huffman-3/10-heaps-huffman-3.htm
+[240]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/11-graphs-1/11-graphs-1.htm
+[241]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/11-graphs-2/11-graphs-2.htm
+[242]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/11-graphs-3/11-graphs-3.htm
+[243]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/11-graphs-4/11-graphs-4.htm
+[244]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/12-memory-1/12-memory-1.htm
+[245]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/12-memory-2/12-memory-2.htm
+[246]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/12-memory-3/12-memory-3.htm
+[247]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/course-conclusion/course-conclusion.htm
+[248]: https://collab.itc.virginia.edu/access/content/group/1b09d7e7-bd84-4b3e-9ef4-8e020dbef1f0/lectures/final-review/final-review.htm
 
 [1000402]: ../cs2150/course-introduction.html#/4/2
 [10005]: ../cs2150/course-introduction.html#/5
@@ -330,27 +335,53 @@ Grading Concerns
 [1080609]: ../slides/08-x86.html#/6/9
 [1080713]: ../slides/08-x86.html#/7/13
 [1080804]: ../slides/08-x86.html#/8/4
+[1080805]: ../slides/08-x86.html#/8/5
+[10809]: ../slides/08-x86.html#/9
 [1080914]: ../slides/08-x86.html#/9/14
 [1080915]: ../slides/08-x86.html#/9/15
+[1080929]: ../slides/08-x86.html#/9/29
+[1080930]: ../slides/08-x86.html#/9/30
 [1080932]: ../slides/08-x86.html#/9/32
+[1080934]: ../slides/08-x86.html#/9/34
 [1090308]: ../slides/09-advanced-cpp.html#/3/8
+[1090508]: ../slides/09-advanced-cpp.html#/5/8
+[1090509]: ../slides/09-advanced-cpp.html#/5/9
 [1090518]: ../slides/09-advanced-cpp.html#/5/18
+[1090519]: ../slides/09-advanced-cpp.html#/5/19
+[1090520]: ../slides/09-advanced-cpp.html#/5/20
 [1090708]: ../slides/09-advanced-cpp.html#/7/8
 [1090710]: ../slides/09-advanced-cpp.html#/7/10
 [1100408]: ../slides/10-heaps-huffman.html#/4/8
 [11005]: ../slides/10-heaps-huffman.html#/5
+[1100503]: ../slides/10-heaps-huffman.html#/5/3
 [1100508]: ../slides/10-heaps-huffman.html#/5/8
+[1100605]: ../slides/10-heaps-huffman.html#/6/5
+[1100606]: ../slides/10-heaps-huffman.html#/6/6
 [1100705]: ../slides/10-heaps-huffman.html#/7/5
+[1100730]: ../slides/10-heaps-huffman.html#/7/30
+[11008]: ../slides/10-heaps-huffman.html#/8
 [1100808]: ../slides/10-heaps-huffman.html#/8/8
 [1110304]: ../slides/11-graphs.html#/3/4
 [1110305]: ../slides/11-graphs.html#/3/5
+[1110402]: ../slides/11-graphs.html#/4/2
+[11104]: ../slides/11-graphs.html#/4
 [1110408]: ../slides/11-graphs.html#/4/8
 [11105]: ../slides/11-graphs.html#/5
+[1110508]: ../slides/11-graphs.html#/5/8
+[1110509]: ../slides/11-graphs.html#/5/9
 [1110513]: ../slides/11-graphs.html#/5/13
 [11106]: ../slides/11-graphs.html#/6
+[1110708]: ../slides/11-graphs.html#/7/8
+[11108]: ../slides/11-graphs.html#/8
 [1110806]: ../slides/11-graphs.html#/8/6
 [1110814]: ../slides/11-graphs.html#/8/14
+[1120303]: ../slides/12-memory.html#/3/3
 [1120308]: ../slides/12-memory.html#/3/8
+[1120311]: ../slides/12-memory.html#/3/11
 [1120325]: ../slides/12-memory.html#/3/25
+[1120407]: ../slides/12-memory.html#/4/7
+[1120418]: ../slides/12-memory.html#/4/18
 [1130325]: ../slides/13-esoteric-pls.html#/3/25
+[1130512]: ../slides/13-esoteric-pls.html#/5/12
 [12009]: course-conclusion.html#/9
+[12010]: course-conclusion.html#/10

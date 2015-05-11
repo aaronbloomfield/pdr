@@ -140,3 +140,12 @@ The hard drive size was set at 16 Gb, and about 8.7 Gb is available; the rest is
 - Double click on the red "Exit" icon, and select shutdown.
 - Back in Settings -> Storage -> Controller: IDE -> Empty, remove that disk from the virtual CD/DVD drive (under the blue DVD icon, select the last option to remove the image).  Click OK.
 - Boot into Kubuntu normally.
+
+**Changes for the future**
+
+For future installs (fall of 2015 and beyond), the following changes will be made to this document:
+
+- Install additional packages: `sudo apt-get install graphviz php5-mcrypt php5-intl phpunit`.  Graphviz is needed for doxygen to create call graphs; the two PHP packages are needed for CakePHP installations to work properly; phpunit is for PHP unit tests.
+- Enable the two PHP modules just installed: `sudo php5enmod intl` and `sudo php5enmod mcrypt`; then restart apache2: `sudo service apache2 restart`
+- Which packages need to be installed for Objective C?  Definitely `libgnustep-base-dev`, but likely not all of the ones listed above...
+- Indicate, on this document, how to switch over to Unity/Gnome (which packages to install, etc.)
