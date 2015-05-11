@@ -141,7 +141,7 @@ The hard drive size was set at 16 Gb, and about 8.7 Gb is available; the rest is
 - Back in Settings -> Storage -> Controller: IDE -> Empty, remove that disk from the virtual CD/DVD drive (under the blue DVD icon, select the last option to remove the image).  Click OK.
 - Boot into Kubuntu normally.
 
-** Changes for the future **
+**Changes for the future**
 
 For future installs (fall of 2015 and beyond), the following changes will be made to this document:
 
