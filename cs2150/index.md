@@ -30,6 +30,7 @@ The parts of this course that are in this repo are:
 - [Generic review session slide set][113], which is really just a blank set of slides
 - [Frivolous regrade policy][109] ([md][110]) for exams
 - [Course conclusion slide set][94]
+- [Course grading explanations][116] ([md][115])
 
 ------------------------------------------------------------
 
@@ -198,6 +199,8 @@ Grading Concerns
 [112]: ../README.md
 [113]: exam-review.html
 [114]: unix-honor-pledge.tex
+[115]: grades.md
+[116]: grades.html
 
 [150]: https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York
 [151]: http://twitter.com/UVaCS2150
