@@ -66,7 +66,7 @@ As stated at the beginning of the semester, each 10-point "decade" is a separate
 | 98.0 | A+ |
 
 
-Note that the A+ range and the D- range follow a slightly different pattern.  The A+ range is a percentage of the class (in this case, the top 6 course averages), and thus ended up being 93.0.  The D- range extends down a bit more.
+Note that the A+ range and the D- range follow a slightly different pattern.  The A+ range is a percentage of the class (in this case, the top 6 course averages), and thus ended up being 98.0.  The D- range extends down a bit more.
 
 Permanent record
 ----------------
