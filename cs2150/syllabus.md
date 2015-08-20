@@ -1,7 +1,7 @@
 CS 2150: Program and Data Representation: Course Syllabus
 =========================================================
 
-[Go up to the CS 2150 documents page](index.html) ([md](index.md))
+[Go up to the CS 2150 page](index.html) ([md](index.md))
 
 ### Sping 2015 ###
 

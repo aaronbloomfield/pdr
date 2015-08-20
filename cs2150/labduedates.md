@@ -1,7 +1,7 @@
 PDR: CS2150: Lab Due Dates Page
 ===============================
 
-[Go up to the CS 2150 documents page](index.html) ([md](index.md))
+[Go up to the CS 2150 page](index.html) ([md](index.md))
 
 All assignments will be submitted through our custom assignments tool, which can be accessed through Collab. Each assignment has 3 dates: an open date (when you can start submitting the assignment), a due date (when it is due), and a close date (the last point that you can submit the assignment). The dates are listed for the week of the lab; the lab week starts on a Sunday and ends on a Saturday. In particular, the due date for the pre-labs, as well as the open date for both the in-labs and post-labs, is when the first Tuesday lab section starts. The close date for the post-labs is the start of Friday's lecture (the first lecture, if there are multiple lecture periods).
 
