@@ -9,10 +9,10 @@ Any late lab part will receive 25% off (for that lab part) for the first 24 hour
 
 A lab extension for an in-lab will extend the due date until the end of the day on Wednesday; lab extensions are discussed in [Lab 1](../labs/lab01/index.html).  For the pre-labs and post-labs, the close date is exactly 24 hours after the due date, due to the above mentioned late policy.
 
-Below are the dates when the various assignments for the lab parts open, due, and close.
+Below are the dates when the various assignment *submissions* for the lab parts open, are due, and close.
 
 | Lab part | | Open date          | | Due date               | | Close date                 |
 |----------|-|--------------------|-|------------------------|-|----------------------------|
-| Pre-lab  | | Sunday at 12 noon  | | Tuesday at 11 am       | | Wednesday at 11 am         |
-| In-lab   | | Tuesday at 11 am   | | At the end of your lab | | Wednesday at 11:59:59 p.m. |
-| Post-lab | | Tuesday at 11 am   | | Friday at 12 noon      | | Saturday at 12 noon        |
+| Pre-lab  | | Sunday at 12 noon  | | Tuesday at 9 am        | | Wednesday at 9 am          |
+| In-lab   | | Tuesday at 9 am    | | At the end of your lab | | Wednesday at 11:59:59 p.m. |
+| Post-lab | | Tuesday at 9 am    | | Friday at 11 am        | | Saturday at 11 am          |

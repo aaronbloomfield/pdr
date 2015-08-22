@@ -1,15 +1,15 @@
 CS 2150: Program and Data Representation: Course Syllabus
 =========================================================
 
-[Go up to the CS 2150 page](index.html) ([md](index.md))
+[Go up to the CS 2150 documents page](index.html) ([md](index.md))
 
-### Sping 2015 ###
+### Fall 2014 ###
 
-- M/W/F 11:00-11:50, Gilmer Hall 130
+- M/W/F 11:00-12:00, Gilmer Hall 130
 
 ### Instructor ###
 
-[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [\@bloomfieldaaron](http://twitter.com/bloomfieldaaron) Office: Rice Hall, room 403 Office hours are TBA
+[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron) Office: Rice Hall, room 403 Office hours are M/W 2:00-3:30
 
 ### Course Info ###
 
@@ -21,8 +21,7 @@ CS 2150: Program and Data Representation: Course Syllabus
     - Section 103: Tuesday, 3:50 pm -- 5:25 pm
     - Section 104: Tuesday, 5:30 pm -- 7:05 pm
     - Section 105: Tuesday, 7:30 pm -- 9:05 pm
-    - Section 106: Tuesday, 2:00 pm -- 3:35 pm
-    - Section 107: Tuesday, 9:15 am -- 10:50 am
+	- Lab sections 101 and 106 will remain closed
 
 **Course Description:** This course will introduce you to program and data representation from high level concepts to machine level implementation. Data structuring techniques and the representation of data structures during program execution are discussed, as are operations and control structures and their representation during program execution. Representations of numbers, arithmetic operations, arrays, records, recursion, hashing, stacks, queues, trees, graphs, and related concepts are also covered.
 
@@ -47,17 +46,17 @@ CS 2150: Program and Data Representation: Course Syllabus
 
 We expect that grades will follow the standard decade curve: 90 and above is an A of some sort (A-, A, or A+), 80 and above is some sort of a B, etc.  **Note:** I reserve the right to modify the weighting (changing the curve, adding pop quizzes, etc.), especially if attendance drops off significantly.  If this does happen, it will be clearly announced in lecture. Class participation includes such things as random attendance quizzes or in-class quizzes on readings or previously covered topics, using Piazza, useful contributions to the github repo, or otherwise contributing to the course.
 
-**Development Environment:** In this class, you may NOT use Microsoft Visual Studio, any other Microsoft Windows-based development environment, or any IDE (Integrated Development Environment), for any reason.  This includes, among others, Eclipse, Netbeans, Xcode, Geany, Visual Studio, and Atom.  This applies to program development -- obviously, you can use MS Office to edit text documents.  The purpose behind this rule is to introduce you to the Unix environment -- thus, all course work in this class is to be done in a Unix environment (Solaris, Linux, FreeBSD, Cygwin, etc.).  We will discuss how to access and/or install these environments in the beginning of the course.  **In order to take this course, you agree to sign an honor pledge that states that you will NOT use a Microsoft Windows-based development environment or IDE for any course work.**
+**Development Environment:** In this class, you may NOT use Microsoft Visual Studio, any other Microsoft Windows-based development environment, or any IDE (Integrated Development Environment), such as Eclipse, for any reason.  This applies to program development -- obviously, you can use MS Office to edit text documents.  The purpose behind this rule is to introduce you to the Unix environment -- thus, all course work in this class is to be done in a Unix environment (Solaris, Linux, FreeBSD, Cygwin, etc.).  We will discuss how to access and/or install these environments in the beginning of the course.  **In order to take this course, you agree to sign an honor pledge that states that you will NOT use a Microsoft Windows-based development environment or IDE for any course work.**
 
 **Special Circumstances:** Students with special circumstances (athletics, extra time required on exams, final exam conflicts, LNEC considerations, etc.) need to let one of us know during the **first week of class**.
 
 **Textbooks: ** Due to the high cost of textbooks, and their relative low quality, there will be no recommended nor required textbooks this semester.  Instead, there will be selected [Readings](../docs/readings.html) ([md](../docs/readings.md)) that can be used in lieu of a recommended textbook.
 
-**Exams:** There will be two midterm exams held during laboratory sessions (combined worth 30% of the final grade) and one final exam (worth 25% of the final grade). Note that we hope (but do not guarantee!) to have the first exam returned before the SEAS drop date of Tuesday, October 13th.
+**Exams:** There will be two midterm exams held during laboratory sessions (combined worth 30% of the final grade) and one final exam (worth 25% of the final grade). Note that we hope (but do not guarantee!) to have the first exam returned before the SEAS drop date of Monday, March 3rd, 2014.
 
-- Midterm Exam 1: Tuesday, September 29th, during lab session in Olsson 001
-- Midterm Exam 2: Tuesday, November 10th, during lab session in Olsson 001
-- Final Exam: Friday, December 11th from 9:00 am to noon in Gilmer 130
+- Midterm Exam 1: Tuesday, September 30th during lab session in Olsson 001
+- Midterm Exam 2: Tuesday, November 11th, during lab session in Olsson 001
+- Final Exam: Friday, December 12th from 9:00 am to 12:00 noon
 
 Under **NO** circumstances will anybody be allowed to take the final exam early.  You may **ONLY** request to take the final exam at a different time if you have a final exam **CONFLICT**, not a busy final exam schedule.  But since it is not a common exam time (as has been in the past), there are not likely to be any conflicts.
 
@@ -72,24 +71,17 @@ Please note, however, that there are a number of rules that we will strictly fol
 - Pre-labs are due at the same time for everybody, regardless of your lab section; that time is the beginning of the FIRST Tuesday lab.
 - In-labs are due at the end of your scheduled lab session, regardless of what Collab states.  But see the part about in-lab extensions, next.
 - An in-lab extension (see lab 1 for details about getting one on a given lab) will postpone the in-lab due date until 11:59:59 p.m. on Wednesday evening, regardless of your lab section, as this allows you to attend Wednesday office hours
-- In-labs MUST be done from the lab in Olsson 001, or no credit will be given for the ENTIRE lab (this means you must either submit the lab from that computer, or submit a lab extension from that computer)
+- In-labs MUST be done from the lab in Olsson 001, or no credit will be given for the ENTIRE lab.
 - Any late lab part will receive 25% off (for just that part) for the first 24 hours (or part thereof) that it is late, after which no credit will be given.  Note that a computer program does this deduction -- so if your lab is 1 second late, it still receives 25% off.
 
 The assignments tool does not handle due dates such as "at the end of your lab session" very well -- indeed, the due date is listed as 10 p.m. on Tuesdays.  Note that we have a script that will test the assignment's due date against your lab date, so please be sure to follow the above due dates.
 
-**Computing resources:** There are two specific computer resources needed for this course:
-
-- You need to have a working computer that can run a recent build of [VirtualBox](https://www.virtualbox.org/), with enough hard drive space (and memory) to use a course VirtualBox image (about 10 Gb will be needed for the install, and then 6 Gb  will be used once the installation files are deleted).  Any computer made in the last 3 years will suffice for these requirements (and many older ones will as well).  It doesn't matter if it's a desktop or notebook; nor does the speed matter.
-- There are a few documents that you will have to print (a worksheet with lab 5, the UNIX honor pledge, etc.).  The total printing load will be under 5 pages for the entire semester.  You will need to obtain access to a printer for those pages.
-
-**Attendance:** Attendance in labs is mandatory; attendance in lecture is not (although not attending lecture may affect your participation grade).  Not attending lab will result in a zero for the in-lab.  You cannot change labs without prior permission -- we don't have enough computers to accommodate this.  Please see the first set of lecture slides about lab attendance, in particular with regards to the fact that there is a lab both the week before and after spring break.
+**Attendance:** Attendance in labs is mandatory; attendance in lecture is not (although not attending lecture may affect your participation grade).  Not attending lab will result in a zero for the in-lab.  You cannot change labs without prior permission -- we don't have enough computers to accommodate this.  Please see the first set of lecture slides about lab attendance, in particular with regards to the fact that there is a lab both the week of Thanksgiving break.
 
 **Honor Policy:** There have been a large number of honor violations in this class and other low-level CS courses recently.  Outside the normal UVa honor policy rules, we have these additional rules:
 
-1. If you are looking at another student's source code for ANY reason (including code from a student from a previous semester), you are in violation of the honor policy.  You may look at another student's source code after the program has been submitted by BOTH parties.
-2. If you try to hack my submission system, you will be brought up on honor charges, failed for the course, and I will personally call the police. This includes any sort of hacking such as: fork bombs to crash the system, opening up network sockets, looking around the file system, etc. The system has capabilities to detect and/or prevent these from happening, and a file cannot be removed once it's submitted (you can re-submit a file, but the old one is still saved). An honest mistake on a program, or a program crash, is not what we are talking about here - instead, an intentional and malicious hacking attempt is what will bring down the wrath.
-3. There are multiple midterm periods where students take exams, with a break between the the individual section times.  Discussing the exam with a student who has not taken it is a violation of the honor policy.
-4. Releasing your homework online, including a public github repository, is an honor violation
-5. Using a computer to generate your code, instead of writing yourself, is an honor violation (this includes using the compiler to generate assembly code for submission, although not for including in a report)
+- If you are looking at another student's source code for ANY reason (including code from a student from a previous semester), you are in violation of the honor policy.  You may look at another student's source code after the program has been submitted by BOTH parties.
+- If you try to hack my submission system, you will be brought up on honor charges, failed for the course, and I will personally call the police. This includes any sort of hacking such as: fork bombs to crash the system, opening up network sockets, looking around the file system, etc. The system has capabilities to detect and/or prevent these from happening, and a file cannot be removed once it's submitted (you can re-submit a file, but the old one is still saved). An honest mistake on a program, or a program crash, is not what we are talking about here - instead, an intentional and malicious hacking attempt is what will bring down the wrath.
+- There are two midterm periods where students take exams, with a break between the the individual section times.  Discussing the exam with a student who has not taken it is a violation of the honor policy.
 
 Any honor violation or cheating will be referred to the honor committee, **and will result in an immediate failure for the course**, regardless of the outcome of the honor trial or your other grades.  No exceptions!  I am very strict on this, and one have successfully raised honor charges against students in the past due to violations of this policy.

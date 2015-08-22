@@ -86,10 +86,9 @@ Office hours TBA
 
 	  <section data-markdown><script type="text/template">
 ## Collab
-- UVa's fancy course management system.  It's annoying.  I try to avoid it at all costs.  But I'll use it for:
+- I try to avoid it at all costs.  But I'll use it for:
   - Large file downloads (VirtualBox image, lecture recordings)
-  - The email list
-  - Anonymous feedback
+  - The email list and anonymous feedback
   - The wiki, but only for very few things
 - Most everything else is external to Collab
   - Course tools: [support requests](https://libra.cs.virginia.edu/~pedagogy/index.php?redirect=support.php), 
@@ -307,10 +306,8 @@ This class will program exclusively in a Unix environment.  There are a number o
 
 - Run VirtualBox (it's free) and use the course Linux image
   - This is recommended; there will be extensive directions
-- Program in Linux in Olsson 001 (when a lab is not in session)
-  - You can get a key for a $5 deposit (see me for this)
-- Mac users can use a terminal window, as Mac OS X is based on Unix
-  - But you can't use an IDE!
+- Program in Linux in Olsson 001 (when a lab is not in session); you can get a key for a $5 deposit
+- Mac users can use a terminal window, as Mac OS X is based on Unix -- but you can't use an IDE!
   - Note that some things (such as doxygen and some x86 features) are not compatible!
 - Install a Unix OS (Linux, etc.) on your home machine
   - Backup everything first!!!
@@ -333,7 +330,7 @@ Furthermore, you cannot use any IDE (Xcode, Eclipse, Netbeans, etc. Visual Studi
 - Instead we are using clang++ (from LLVM)
   - If you don't know what this means, you can safely ignore it
   - But if you are familiar with gcc/g++, please don't use it, as clang has MUCH better error messages
-- (Note that we will likely use gcc/g++ for the two x86 labs, but more on that later)
+- (Note that we will use gcc/g++ for the two x86 labs, but more on that later)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -354,12 +351,12 @@ Furthermore, you cannot use any IDE (Xcode, Eclipse, Netbeans, etc. Visual Studi
 	  <section data-markdown><script type="text/template">
 ## Printing the slides
 - To export to a PDF (and thus to print), you must use Google Chrome; see [here](https://github.com/hakimel/reveal.js/#pdf-export) for details on how to print
-  - Don't worry about step 1 -- just add "?print-pdf" to the end of the URL: [01-intro.html?print-pdf](01-intro.html?print-pdf)
+  - Don't worry about step 1 -- just add "?print-pdf" to the end of the URL: [course-introduction.html?print-pdf](course-introduction.html?print-pdf)
     - Or click on the printer icon (<a href="course-introduction.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png" style="vertical-align:middle"></a> ) on the title slide
   - This prints one slide per page
 - Use a program to print 6 slides per page
   - I use [evince](https://wiki.gnome.org/Apps/Evince/Downloads), but Acrobat can likely do this as well
-  - In evince, set pages per side to 6, and scaling to 95%
+  - In evince, set pages per side to 6, and scaling to 97%
 - Note that the slides are not in a linear format, so printing may cause issues; you can always view the slides online
 	  </script></section>
 
@@ -380,7 +377,7 @@ Furthermore, you cannot use any IDE (Xcode, Eclipse, Netbeans, etc. Visual Studi
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Using git
+## Using git, part 1
 - git is installed on the VirtualBox image (more on VirtualBox shortly)
 - To use git, enter the following command only once (no github account needed!):
 ```
@@ -389,10 +386,15 @@ git clone https://github.com/aaronbloomfield/pdr.git
   - This will create a 'pdr' directory that contains everything from the repo: the slides, the labs, the tutorials, etc.
   - Note that much of the content of this repository will be updated throughout the semester
   - This was already done on the provided VirtualBox image
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Using git, part 2
 - To get the latest version, just change into that directory via the command line, and enter:
 ```
 git pull
 ```
+- That's it!
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -448,17 +450,12 @@ We will see the cheat-checking program later this semester, as we will have lear
 	  </script></section>
 
 	<section data-markdown><script type="text/template">
-## Honor pledge quiz!
-Do these count as honor violations?  
-&nbsp;  
-
+## Do these count as honor violations?
 - Copying somebody's code completely, even if they've taken the course a year ago
 - http://www.cplusplus.com/forum/beginner/35616/
 - A student who, upon taking the class a second time, claimed s/he had already submitted the assignment before (being in the class previously), and thus was allowed to copy the assignment from somebody else
 - Taking a 45 minute bathroom break during the final exam to look up the answews
 - Looking up the answers on your cell phone during an exam
-
-&nbsp;  
 <p class="fragment">The answer to all of these is yes, by the way.</p>
 	</script></section>
 
