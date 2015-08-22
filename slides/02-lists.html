@@ -7,26 +7,26 @@
     <meta name="author" content="Aaron Bloomfield">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
-    <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
-    <link rel="stylesheet" href="css/pdr.css">
-    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
-    <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
-	if( window.location.search.match( /print-pdf/gi ) ) {
-		var link = document.createElement( 'link' );
-		link.rel = 'stylesheet';
-		link.type = 'text/css';
-		link.href = 'reveal.js/css/print/pdf.css';
-		document.getElementsByTagName( 'head' )[0].appendChild( link );
-	}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/css/pdr.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
     <!--[if lt IE 9]>
-    <script src="reveal.js/lib/js/html5shiv.js"></script>
-    <![endif]-->
-    <script type="text/javascript" src="js/dhtmlwindow.js"></script>
-    <script type="text/javascript" src="js/canvas.js"></script>
-    <link rel="stylesheet" href="css/dhtmlwindow.css" type="text/css">
+	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
+	<![endif]-->
+    <script type="text/javascript" src="../slides/js/dhtmlwindow.js"></script>
+    <script type="text/javascript" src="../slides/js/canvas.js"></script>
+    <link rel="stylesheet" href="../slides/css/dhtmlwindow.css" type="text/css">
   </head>
 
   <body onload="canvasinit()">
@@ -763,7 +763,7 @@ class Queue{
     </div>
 
     <script src="reveal.js/lib/js/head.min.js"></script>
-    <script src="reveal.js/js/reveal.min.js"></script>
+    <script src="reveal.js/js/reveal.js"></script>
     <script src="js/settings.js"></script>
 
   </body>
