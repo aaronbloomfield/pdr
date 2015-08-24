@@ -12,33 +12,52 @@
 <h1 id="pdr-tutorial-1-introduction-to-unix-virtualbox-image-creation-details">PDR: Tutorial 1: Introduction to UNIX: VirtualBox image creation details</h1>
 <p><a href="index.html">Go up to the main tutorial 1 page</a></p>
 <p>For those who are interested, this is how the image was set up. Note that a few of the sections here are for classes beyond PDR (in particular, the LAMP configuration section and the Ruby on Rails configuration section). If you were to reproduce those on another computer, those two sections can be (and should be) skipped.</p>
+<p>These directions are identical to the ones in the <a href="https://github.com/aaronbloomfield/slp">SLP repository</a> (specifically the ones found <a href="http://aaronbloomfield.github.io/slp/docs/virtualbox-image-details.html">here</a>).</p>
+<p><strong>Versions</strong></p>
+<p>This installation document installs the following versions:</p>
+<ul>
+<li>Kubuntu 14.04</li>
+<li>Apache 2.4.7</li>
+<li>PHP 5.5.9</li>
+<li>Python 2.7.6 and 3.4.0; Django 1.8.4</li>
+<li>Ruby 2.2.3; Rails 4.2.3</li>
+</ul>
+<p>Newer versions of the above may have since come out, but at the time of the writing of this document (August 2015), they were either the versions installed via apt-get (Apache, PHP, and Python), or the latest versions installed manually (Django, Ruby, and Rails).</p>
 <p><strong>Basic installation</strong></p>
 <ul>
-<li>Create a new VirtualBox image
+<li>Created a new VirtualBox image
 <ul>
-<li>which I named &quot;Kubuntu 14.04&quot;</li>
-<li>I ensured that the disk size was &quot;dynamically allocated&quot; and was set to 16 Gb (instead of the default 8 Gb); everything else was set at the default</li>
+<li>I named it &quot;Kubuntu 14.04&quot; or similar; this automatically selected Linux as the OS type; I manually selected &quot;Ubuntu (32 bit)&quot; as the version</li>
+<li>I set the memory at 1024 Mb (instead of the default of 512 Mb), ensured that the disk size was &quot;dynamically allocated&quot; and was set to 20 Gb (instead of the default 8 Gb); everything else was set at the default</li>
 </ul></li>
-<li>I installed Ubuntu 14.04.1 LTS (32 bit), desktop edition, from the CD image downloaded from http://www.ubuntu.com (the specific image file is <a href="http://releases.ubuntu.com/14.04.1/ubuntu-14.04.1-desktop-i386.iso">here</a>)
+<li>I installed Kubuntu 14.04.2 LTS (32 bit), desktop edition, from the DVD image downloaded from <a href="http://www.kubuntu.org/getkubuntu">http://www.kubuntu.org/getkubuntu</a> (the specific image file is <a href="http://cdimage.ubuntu.com/kubuntu/releases/trusty/release/kubuntu-14.04.2-desktop-i386.iso">here</a>)
 <ul>
-<li>when prompted, I clicked on 'download updates' and 'install 3rd party software' when the options were given</li>
-<li>for hard drive, I used the default: &quot;Guided -- use entire disk&quot;</li>
+<li>When prompted, I clicked on 'download updates' and 'install 3rd party software' when the options were given</li>
+<li>For hard drive, I used the default: &quot;Guided -- use entire disk&quot;</li>
 <li>The computer name is cassiopeia, the login name is 'student', full name is 'L33t Hax0r', and the password is 'password'</li>
-<li>this account can run root (system) commands via 'sudo' - if you don't know what this means, you can safely ignore it</li>
+<li>This account can run root (system) commands via 'sudo' - if you don't know what this means, you can safely ignore it</li>
 </ul></li>
 <li>Once it was finished, I rebooted, and logged in</li>
-<li>I ran <code>sudo apt-get update</code> and then <code>sudo apt-get dist-upgrade</code>.</li>
-<li>Clicking on the toolbar image of a hardware card brought up the KDE Driver Manager, and the presented non-free drivers (the VirtualBox drivers) were installed</li>
+<li>Ran <code>sudo apt-get update</code></li>
+<li>Installed the guest addition drivers. There are many ways to do this, but few seemed to work. I got it working via modifying the directions <a href="http://askubuntu.com/questions/451805/screen-resolution-problem-with-ubuntu-14-04-and-virtualbox">here</a> (one of the comments of the top rated answer):
+<ul>
+<li>Ran <code>sudo apt-get install xserver-xorg-core</code> (the package manager had a lot of complaints with this, but it all seemed to work...)</li>
+<li>Ran <code>sudo apt-get install -f virtualbox-guest-dkms virtualbox-guest-x11</code></li>
+<li>Reboot; the X11 screen started resizing with the VirtualBox window</li>
+</ul></li>
+<li>Ran <code>sudo apt-get dist-upgrade</code>.</li>
 <li>Reboot!</li>
+<li>Ran <code>apt-get autoremove</code></li>
 </ul>
 <p><strong>Program and Data Representation configuration</strong></p>
 <ul>
-<li>installed the other packages: <code>sudo apt-get install clang emacs24 nasm astyle tofrodos source-highlight doxygen doxygen-doc ddd git g++ python-gpgme lldb-3.4 gobjc gnustep gnustep-make gnustep-common libgnustep-base-dev</code>
+<li>Installed the other packages: <code>sudo apt-get install clang emacs24 nasm astyle tofrodos source-highlight doxygen doxygen-doc graphviz ddd git g++ python-gpgme lldb-3.5 gobjc gnustep gnustep-make gnustep-common libgnustep-base-dev</code>
 <ul>
-<li>python-gpgme is a supporting package for Dropbox, in case students want to install that</li>
-<li>the last 5 packages are for Objective C, based on the instructions <a href="http://www.fatvat.co.uk/2010/04/getting-started-with-objective-c-on.html">here</a></li>
+<li>Note that there are two other <code>apt-get install</code> lines to be run, below: when installing LAMP and when following the <a href="https://gorails.com/setup/ubuntu/14.04">Ruby on Rails installation instructions</a>, both of which are described below</li>
+<li>The python-gpgme package is a supporting package for Dropbox, in case students want to install that</li>
+<li>The last 5 packages are for Objective C, based on the instructions <a href="http://www.fatvat.co.uk/2010/04/getting-started-with-objective-c-on.html">here</a> (it may be that only a subset of those packages are actually necessary)</li>
 </ul></li>
-<li><p>Ran the following two commands:</p>
+<li><p>Ran the following two commands to change the default C/C++ compiler to clang:</p>
 <pre><code>sudo update-alternatives --set cc /usr/bin/clang
 sudo update-alternatives --set c++ /usr/bin/clang++</code></pre></li>
 <li>Downloaded Google Chrome from <a href="https://www.google.com/intl/en/chrome/browser/">here</a>, and installed it via <code>sudo dpkg -i google-chrome-stable_current_i386.deb</code>
@@ -46,57 +65,54 @@ sudo update-alternatives --set c++ /usr/bin/clang++</code></pre></li>
 <li>That installation did not work perfectly (which was expected), and to fix an installation such as this you run <code>sudo apt-get -f install</code></li>
 <li>Then the .deb file was removed</li>
 </ul></li>
-<li>Added terminal, emacs, and google chrome icons to the launch bar</li>
+<li>Added konsole, emacs, and google chrome icons to the launch bar</li>
 <li>Browser customization
 <ul>
-<li>Set both firefox and chrome's home page to Collab</li>
+<li>Set both Firefox and Chrome's home page to Collab</li>
+<li>Added the pdr/cs2150/index.html page as the second tab loaded up by both Firefox and Chrome</li>
 <li>Chrome is set as the default browser</li>
 </ul></li>
 <li>I loaded up emacs from the command line, and then told it to disable showing the startup messages (this could also be accomplished by following the guidelines <a href="http://xenon.stanford.edu/~manku/dotemacs.html">here</a>).</li>
-<li><p>Added a few aliases were added (the last 4 lines of .bashrc) to help prevent people from accidentally removing files (adding -i for rm, mv, and cp; and aliasing xemacs to emacs)</p>
+<li><p>Added a few aliases were added (the last 4 lines of .bashrc) to help prevent people from accidentally removing files (adding -i for rm, mv, and cp; and aliasing xemacs to emacs). This was done both in /home/student/.bashrc and /etc/skel/.bashrc.</p>
 <pre><code>alias mv=&#39;mv -i&#39;
 alias rm=&#39;rm -i&#39;
 alias cp=&#39;cp -i&#39;
 alias xemacs=&#39;emacs&#39;</code></pre></li>
-<li>Cloned the github repo via <code>git clone https://github.com/aaronbloomfield/pdr</code>
-<ul>
-<li>Note that a <code>git pull</code> will still have to be executed each time to update it</li>
-<li>I added the pdr/cs2150/index.html page as the second tab loaded up by both Firefox and Chrome</li>
-</ul></li>
-<li>Removed all the emtpy default directories in ~/student other than Desktop</li>
-<li><p>Disabled the KDE Wallet, as it was annoying and kept popping up all the time (System Settings -&gt; Account Details -&gt; KDE Wallet)</p></li>
+<li>Cloned the github repo via <code>git clone https://github.com/aaronbloomfield/pdr</code>; note that a <code>git pull</code> will still have to be executed each time to update it</li>
+<li>Removed all the empty default directories in ~/student other than Desktop and Downloads</li>
+<li><p>Disabled the KDE Wallet, as it was annoying and kept popping up all the time (KMenu -&gt; Computer -&gt; System Settings -&gt; Account Details -&gt; KDE Wallet)</p></li>
 </ul>
-<p><strong>LAMP configuration</strong></p>
+<p><strong>LAMP configuration (with both PHP and Python)</strong></p>
 <ul>
-<li>Installed more packages: <code>sudo apt-get install apache2 php5 php5-cli netbeans phpmyadmin phpunit libmysqlclient-dev mysql-server mysql-client php5-mysql default-jdk openssh-server python-django tk-dev python-mysqldb php5-mcrypt php5-intl</code>
+<li>Installed more packages: <code>sudo apt-get install apache2 php5 php5-cli netbeans phpmyadmin phpunit libmysqlclient-dev mysql-server mysql-client php5-mysql default-jdk openssh-server tk-dev python-mysqldb php5-mcrypt php5-intl python-pip</code></li>
+<li>any prompted passwords (such as mysql) are 'password'
 <ul>
-<li>any prompted passwords (such as mysql) are 'password'</li>
 <li>phpmyadmin is only configured with the apache2 server; the default option to the prompted yes/no question was used</li>
 </ul></li>
 <li>apache2 configuration
 <ul>
 <li>enabled the userdir apache2 module (i.e., using ~userid/ for each userid): <code>sudo a2enmod userdir</code></li>
 <li>enabled the URL rewriting apache2 module: <code>sudo a2enmod rewrite</code></li>
-<li>changed the default html directory to &quot;~/html&quot;: edited two files in /etc/apache2/mods-available/: userdir.conf and php5.conf, and changed all instances of 'public_html' to 'html'</li>
+<li>enabled the two PHP modules needed for the CakePHP framework: <code>sudo php5enmod intl</code> and <code>sudo php5enmod mcrypt</code></li>
 <li>enabled PHP in user directories: comment out the 'php_admin_value engine Off' line in /etc/apache2/mods-available/php5.conf</li>
-<li>enabled two PHP modules needed for CakePHP: <code>sudo php5enmod intl</code> and <code>sudo php5enmod mcrypt</code></li>
 <li>restart apache: <code>sudo service apache2 restart</code></li>
 <li>the 'student' user can already view the apache2 error logs (in /var/log/apache2), but if they couldn't, then they would have to have been added to the 'adm' group (i.e., <code>usermod -a -G adm student</code>, but this requires logging out and logging in for the group change to take effect)</li>
-<li>made a 'html' directory both in ~/student and /etc/skel</li>
+<li>made a 'public_html' directory both in ~student and /etc/skel</li>
 </ul></li>
 <li>ssh'ed to localhost to accept the ssh key</li>
+<li>Installed Django: the version of Django installed via apt-get is 1.6 (via the <a href="http://packages.ubuntu.com/trusty/python-django">python-django</a> package); this version is <a href="https://en.wikipedia.org/wiki/Django_%28web_framework%29#Versions">no longer supported</a>, and thus 1.8 was installed instead. Django 1.8 is a long-term support release, and will be supported until at least April 2018 (<a href="https://en.wikipedia.org/wiki/Django_%28web_framework%29#Versions">reference</a></li>
 </ul>
 <p><strong>Ruby on Rails configuration</strong></p>
 <ul>
-<li>This method will take up about 400 Mb in your home directory</li>
-<li>I followed the directions at https://gorails.com/setup/ubuntu/14.04 -- this installs Ruby version 2.1.2 and Rails version 4.1.5 (as of the time of this writing; more recent versions may have since been produced)
-<ul>
-<li><p>You need to switch the C/C++ compiler back to gcc/g++:</p>
+<li>This method will take up about 200 Mb in your home directory; it installs the files locally, not system-wide.</li>
+<li><p>First, switch the C/C++ compiler back to gcc/g++:</p>
 <pre><code>sudo update-alternatives --set cc /usr/bin/gcc
 sudo update-alternatives --set c++ /usr/bin/g++</code></pre></li>
+<li>I then followed the directions at <a href="https://gorails.com/setup/ubuntu/14.04">https://gorails.com/setup/ubuntu/14.04</a>. <strong>HOWEVER</strong>, there were different versions used: since that document was created, Ruby is up to 2.2.3, and Rails is up to 4.2.3 (at the time of this document's writing). The newer version numbers were used with those instructions.
+<ul>
 <li>The git/github configuration step was skipped, as that requires the final user of the image</li>
 <li>MySQL was already set up in the LAMP configuration section</li>
-<li>PostgreSQL is another SQL DB, but we are not using that on the image</li>
+<li>PostgreSQL is another SQL database, but we are not using that on the image</li>
 </ul></li>
 <li><p>To start rails application, execute the following commands (the edit to be done in emacs is listed below):</p>
 <pre><code>cd
@@ -115,20 +131,19 @@ sudo update-alternatives --set c++ /usr/bin/clang++</code></pre></li>
 </ul>
 <p><strong>Image finalization</strong></p>
 <ul>
-<li>Reboot</li>
+<li>Reboot (rebooting also clears out /tmp)</li>
 <li>Run <code>apt-get autoremove</code> and <code>apt-get clean</code></li>
 <li>Ran <code>history -c</code> to remove the history of the commands entered on the command line</li>
 <li>Cleared both browser histories</li>
 <li>To reduce the size of the hard disk (since I have to host it for people to download), I ran <code>cat /dev/zero &gt; zero</code> until it ran out of space, then removed that file (this writes all 0's to the hard drive). I shut down the guest, and ran: <code>VBoxManage modifyhd kubuntu-14.04.1.vdi --compact</code>
 <ul>
 <li>A better way would be to load up into recovery mode and run zerofill, but the grub menu does not seem to be easily available to load into recovery mode, so I didn't pursue it any further.</li>
-<li>Note that in the image creation process, you may run into a problem with VirtualBox where it cannot register a new (or different) disk because it has the same UUID as a previous disk that you are replacing. If so, then the command <code>VBoxManage internalcommands sethduuid disk.vdi</code> will change the UUID, and allow you to proceed</li>
+<li>Note that in the image creation process, you may run into a problem with VirtualBox where it cannot register a new (or different) disk because it has the same UUID as a previous disk that you are replacing. If so, then the command <code>VBoxManage internalcommands sethduuid disk.vdi</code> (changing <code>disk.vdi</code> appropriately) will change the UUID, and allow you to proceed</li>
 </ul></li>
 </ul>
 <p><strong>Notes</strong></p>
 <ul>
-<li>The guest hard drive reported 5.7 Gb of space used, and 8.7 Gb of space available, prior to distribution of the image. The disk image itself was, after compaction, 6.4 Gb. When compressed via zip, it was 2.1 Gb in size.</li>
-<li>The guest additions (the drivers that make Ubuntu in a VirtualBox image work nicely with the host system) were installed by the additional drivers step done before</li>
+<li>The guest hard drive reported 5.7 Gb of space used, and 12 Gb of space available, prior to distribution of the image. The disk image itself was, after compaction, 6.4 Gb. When compressed via zip, it was 2.1 Gb in size.</li>
 <li>Firefox was a recent version, and flash worked right out of the box, along with sound</li>
 <li>The VM may capture the mouse - to uncapture it, you press the &quot;host key&quot;, which is the right Control key on Linux. To have it warn you about what this is, you can reset all warnings via the VirtualBox help menu, and it will warn you about this at boot-up</li>
 </ul>
@@ -142,31 +157,38 @@ sudo update-alternatives --set c++ /usr/bin/clang++</code></pre></li>
 <li>Note that if you were installing this on your own computer, you would need the python-gpgme package (<code>sudo apt-get install python-gpgme</code>), but that was installed already on the virtual box image</li>
 <li>Run <code>sudo apt-get -f install</code> -- the <code>-f</code> part tells apt-get to install the packages needed to fix an installation</li>
 </ul></li>
-<li>To finish installing dropbox, run <code>dropbox start -i</code>. This will download and install the rest of the dropbox files needed</li>
+<li>To finish installing Dropbox, run <code>dropbox start -i</code>. This will download and install the rest of the dropbox files needed</li>
 <li>To start dropbox, run <code>dropbox start</code>. This first time it will provide a link -- once you go to that link, and log in, it will know which account to link the computer to, and it will start downloading your files.</li>
-<li><strong>WARNING:</strong> Many people have a <strong><em>lot</em></strong> of files in their Dropbox folder. And if you have 8 Gb of files there, and you install Dropbox on your virtual box image, then it will need to download 8 Gb of files. In addition to taking quite some time, this will also cause the virtual box image to take up an additional 8 Gb of space. And note that the VirtualBox image is set to only 16 Gb, and nearly 8 is taken up by the OS itself.</li>
+<li><strong>WARNING:</strong> Many people have a <strong><em>lot</em></strong> of files in their Dropbox folder. And if you have 8 Gb of files there, and you install Dropbox on your virtual box image, then it will need to download 8 Gb of files. In addition to taking quite some time, this will also cause the virtual box image to take up an additional 8 Gb of space. And note that the VirtualBox image is set to 20 Gb, and nearly 8 is taken up by the OS itself. So you may want to increase the disk size, which brings us to...</li>
 </ul>
 <p><strong>Increasing the disk size</strong></p>
-<p>The hard drive size was set at 16 Gb, and about 8.7 Gb is available; the rest is used by the operating system (and the swap partition). If you need more space than this, you will have to expand the hard drive. Be careful -- it is easy to accidentally erase the entire hard drive while doing this!</p>
+<p>The hard drive size was set at 20 Gb, and about 8.7 Gb is available; the rest is used by the operating system (and the swap partition). If you need more space than this, you will have to expand the hard drive. Be careful -- it is easy to accidentally erase the entire hard drive while doing this!</p>
 <ul>
 <li>The process has two steps: increase the VirtualBox disk image itself, then increase the partition of the guest OS.</li>
 <li>To increase the VirtualBox disk image, power it down, and then run the following command. The size listed is the size in Mb, so 20480 Mb is 20 Gb. The command is: <code>VBoxManage modifyhd &lt;imagefile&gt; --resize 20480</code></li>
 <li>Note that <code>&lt;imagefile&gt;</code> is the .vdi disk image, and should be the absolute path including the name and extension</li>
-<li>The second step is to resize the guest OS partition. The easiest way to do this is to download a bootable disk image for this purpose. You can use <a href="http://sourceforge.net/projects/gparted/files/gparted-live-stable/">Gparted</a>, which is free. Keep in mind that your guest OS is 32-bit, so you will want the 386 (or 486) version.</li>
-<li>To boot up via the Gparted image, Go to Setings -&gt; Storage. In the &quot;Storage Tree&quot; box, there will be a &quot;Controller: IDE&quot; entry, with an &quot;Empty&quot; line below that; click on the &quot;Empty&quot; line, and select the Gparted disk image (using the blue DVD icon on the right). Click Okay, then start the image. It should start the Gparted disk.</li>
+<li>The second step is to resize the guest OS partition. The easiest way to do this is to download a bootable disk image for this purpose. You can use <a href="http://sourceforge.net/projects/gparted/files/gparted-live-stable/">Gparted</a>, which is free. Keep in mind that your guest OS is 32-bit, so you will want the 386 (or 486 or 586) version.</li>
+<li>To boot up via the Gparted image, Go to Settings -&gt; Storage. In the &quot;Storage Tree&quot; box, there will be a &quot;Controller: IDE&quot; entry, with an &quot;Empty&quot; line below that; click on the &quot;Empty&quot; line, and select the Gparted disk image (using the blue DVD icon on the right). Click Okay, then start the image. It should start the Gparted disk.</li>
 <li>When Gparted boots, selected the default boot option. In the text-based menus, hit Enter to select the defaults.</li>
 <li>From the GUI, resize your partition. Keep in mind that you will need a 500 Mb swap partition. Hit &quot;Apply&quot; when done.</li>
 <li>Double click on the red &quot;Exit&quot; icon, and select shutdown.</li>
 <li>Back in Settings -&gt; Storage -&gt; Controller: IDE -&gt; Empty, remove that disk from the virtual CD/DVD drive (under the blue DVD icon, select the last option to remove the image). Click OK.</li>
 <li>Boot into Kubuntu normally.</li>
 </ul>
-<p><strong>Changes for the future</strong></p>
-<p>For future installs (fall of 2015 and beyond), the following changes will be made to this document:</p>
+<p><strong>Upgrading from a previous version</strong></p>
+<p>For those who had a previous version of this image, these are the presumed steps to upgrade. As the fall images are created from scratch, these steps have not been tested. Depending on which previous version of the image you have, some of these steps may have already been done.</p>
 <ul>
-<li>Install additional packages: <code>sudo apt-get install graphviz php5-mcrypt php5-intl phpunit</code>. Graphviz is needed for doxygen to create call graphs; the two PHP packages are needed for CakePHP installations to work properly; phpunit is for PHP unit tests.</li>
-<li>Enable the two PHP modules just installed: <code>sudo php5enmod intl</code> and <code>sudo php5enmod mcrypt</code>; then restart apache2: <code>sudo service apache2 restart</code></li>
-<li>Which packages need to be installed for Objective C? Definitely <code>libgnustep-base-dev</code>, but likely not all of the ones listed above...</li>
-<li>Indicate, on this document, how to switch over to Unity/Gnome (which packages to install, etc.)</li>
+<li>Increase the disk size, if necessary -- it should be about 16-20 Gb, whereas some previous versions were 8 Gb. See above for how to do this.</li>
+<li>Run <code>sudo apt-get update</code> and then <code>sudo apt-get dist-upgrade</code></li>
+<li>Install some new packages: <code>sudo apt-get install php5-mcrypt php5-intl phpunit graphviz</code>
+<ul>
+<li>What about lldb-3.5 versus lldb-3.4?</li>
+</ul></li>
+<li>Uninstall the default Django version: <code>sudo apt-get remove python-django</code></li>
+<li>Install the new Django version: <code>pip install Django==1.8.4</code></li>
+<li>Upgrade the Ruby on Rails version. This is most easily done by reinstalling it from scratch, following the directions above all over again. In particular, you should remove the <code>~/.gemrc</code> file and the <code>~/.rbenv</code> and <code>~/.gem</code> directories. Also, the changes made previously to <code>~/.bashrc</code> may need to be removed, as they are re-done by following the above directions.</li>
 </ul>
+<p><strong>Changes for the future</strong></p>
+<p>None known yet!</p>
 </body>
 </html>
