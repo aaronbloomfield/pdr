@@ -41,10 +41,11 @@ Newer versions of the above may have since come out, but at the time of the writ
 
 **Program and Data Representation configuration**
 
-- Installed the other packages: `sudo apt-get install clang emacs24 nasm astyle tofrodos source-highlight doxygen doxygen-doc graphviz ddd git g++ python-gpgme lldb-3.5 gobjc gnustep gnustep-make gnustep-common libgnustep-base-dev`
+- Installed the other packages: `sudo apt-get install clang emacs24 nasm astyle tofrodos source-highlight gdb doxygen doxygen-doc graphviz ddd git g++ python-gpgme gobjc gnustep gnustep-make gnustep-common libgnustep-base-dev`
     - Note that there are two other `apt-get install` lines to be run, below: when installing LAMP and when following the [Ruby on Rails installation instructions](https://gorails.com/setup/ubuntu/14.04), both of which are described below
     - The python-gpgme package is a supporting package for Dropbox, in case students want to install that
 	- The last 5 packages are for Objective C, based on the instructions [here](http://www.fatvat.co.uk/2010/04/getting-started-with-objective-c-on.html) (it may be that only a subset of those packages are actually necessary)
+	- If this were a native machine, then the "lldb-3.5" package should also be installed; however, lldb does not work in Ubuntu 14.04 when running through VirtualBox (but gdb does) ([reference](http://lists.cs.uiuc.edu/pipermail/lldb-dev/2014-April/003879.html))
 - Ran the following two commands to change the default C/C++ compiler to clang:
 ```
 sudo update-alternatives --set cc /usr/bin/clang
@@ -84,7 +85,8 @@ alias xemacs='emacs'
     - the 'student' user can already view the apache2 error logs (in /var/log/apache2), but if they couldn't, then they would have to have been added to the 'adm' group (i.e., `usermod -a -G adm student`, but this requires logging out and logging in for the group change to take effect)
     - made a 'public_html' directory both in ~student and /etc/skel
 - ssh'ed to localhost to accept the ssh key
-- Installed Django: the version of Django installed via apt-get is 1.6 (via the [python-django](http://packages.ubuntu.com/trusty/python-django) package); this version is [no longer supported](https://en.wikipedia.org/wiki/Django_%28web_framework%29#Versions), and thus 1.8 was installed instead. Django 1.8 is a long-term support release, and will be supported until at least April 2018 ([reference](https://en.wikipedia.org/wiki/Django_%28web_framework%29#Versions)
+- Installed Django: the version of Django installed via apt-get is 1.6 (via the [python-django](http://packages.ubuntu.com/trusty/python-django) package); this version is [no longer supported](https://en.wikipedia.org/wiki/Django_%28web_framework%29#Versions), and thus 1.8 was installed instead. Django 1.8 is a long-term support release, and will be supported until at least April 2018 ([reference](https://en.wikipedia.org/wiki/Django_%28web_framework%29#Versions)).  To install: `sudo pip install Django==1.8.4`
+- Installed Composer (the package manager for PHP) globally following the directions [here](https://getcomposer.org/doc/00-intro.md): ran `curl -sS https://getcomposer.org/installer | php` followed by `mv composer.phar /usr/local/bin/composer`.
 
 **Ruby on Rails configuration**
 
@@ -119,24 +121,24 @@ sudo update-alternatives --set c++ /usr/bin/clang++
 
 - Reboot (rebooting also clears out /tmp)
 - Run `apt-get autoremove` and `apt-get clean`
-- Ran `history -c` to remove the history of the commands entered on the command line
 - Cleared both browser histories
-- To reduce the size of the hard disk (since I have to host it for people to download), I ran `cat /dev/zero > zero` until it ran out of space, then removed that file (this writes all 0's to the hard drive).  I shut down the guest, and ran: `VBoxManage modifyhd kubuntu-14.04.1.vdi --compact`
-    - A better way would be to load up into recovery mode and run zerofill, but the grub menu does not seem to be easily available to load into recovery mode, so I didn't pursue it any further.
-    - Note that in the image creation process, you may run into a problem with VirtualBox where it cannot register a new (or different) disk because it has the same UUID as a previous disk that you are replacing.  If so, then the command `VBoxManage internalcommands sethduuid disk.vdi` (changing `disk.vdi` appropriately) will change the UUID, and allow you to proceed
+- To reduce the size of the hard disk (since I have to host it for people to download), I ran `sudo cat /dev/zero > zero; sudo /bin/rm -f zero`.  This creates a large file of all 0's until it runs out of space, then removes that file.
+- Ran `history -c` to remove the history of the commands entered on the command line
+- Logged out then shut down the guest, and ran: `VBoxManage modifyhd student-kubuntu-14.04-fall-2015.vdi --compact` (the disk file name was "student-kubuntu-14.04-fall-2015.vdi").  A better way would be to load up into recovery mode and run zerofill, but the grub menu does not seem to be easily available to load into recovery mode, so I didn't pursue it any further.
 
 **Notes**
 
-- The guest hard drive reported 5.7 Gb of space used, and 12 Gb of space available, prior to distribution of the image.  The disk image itself was, after compaction, 6.4 Gb.  When compressed via zip, it was 2.0 Gb in size.
-- Firefox was a recent version, and flash worked right out of the box, along with sound
-- The VM may capture the mouse - to uncapture it, you press the "host key", which is the right Control key on Linux.  To have it warn you about what this is, you can reset all warnings via the VirtualBox help menu, and it will warn you about this at boot-up
+- The guest hard drive reported 5.7 Gb of space used, and 12 Gb of space available, prior to distribution of the image.  The disk image itself was, after compaction, 6.4 Gb.  When compressed via zip, it was 1.9 Gb in size.
+- Firefox was a recent version, and video (via youtube) worked right out of the box, along with sound; video and sound (also via youtube) worked fine with Chrome
+- The VM may capture the mouse - to uncapture it, you press the "host key", (which is the right Control key on Linux and Windows hosts, and the left Command key on Mac hosts).  To have it warn you about what this is, you can reset all warnings via the VirtualBox help menu, and it will warn you about this at boot-up
+- In the image creation process, you may run into a problem with VirtualBox where it cannot register a new (or different) disk because it has the same UUID as a previous disk that you are replacing.  If so, then the command `VBoxManage internalcommands sethduuid disk.vdi` (changing `disk.vdi` appropriately) will change the UUID, and allow you to proceed
 
 
 **Installing Dropbox**
 
 - If you want to install Dropbox, you can download the package from https://www.dropbox.com/install
-- You want the 32-bit Ubuntu file which is [here](https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_1.6.2_i386.deb) (although if they come out with a version newer than 1.6.2, that link will no longer work); the file name is "dropbox_1.6.2_i386.deb"
-- Install it via `sudo dpkg -i dropbox_1.6.2_i386.deb`
+- You want the 32-bit Ubuntu version from [this page](https://www.dropbox.com/install?os=lnx)
+- Install it via `sudo dpkg -i dropbox_2015.02.12_i386.deb` (adjust the package name to match what you just downloaded)
 - The installation will likely fail -- that's fine (there were likely supporting packages needed).  Two things to try:
     - Note that if you were installing this on your own computer, you would need the python-gpgme package (`sudo apt-get install python-gpgme`), but that was installed already on the virtual box image
     - Run `sudo apt-get -f install` -- the `-f` part tells apt-get to install the packages needed to fix an installation
@@ -161,15 +163,17 @@ The hard drive size was set at 20 Gb, and about 8.7 Gb is available; the rest is
 
 **Upgrading from a previous version**
 
-For those who had a previous version of this image, these are the presumed steps to upgrade.  As the fall images are created from scratch, these steps have not been tested.  Depending on which previous version of the image you have, some of these steps may have already been done.
+For those who had a previous version of this image, these are the presumed steps to upgrade.  It should be the case that the new image can do everything that the old images can do (and more).  As the fall images are created from scratch, these steps have not been tested.  Depending on which previous version of the image you have, some of these steps may have already been done.
 
 - Increase the disk size, if necessary -- it should be about 16-20 Gb, whereas some previous versions were 8 Gb.  See above for how to do this.
 - Run `sudo apt-get update` and then `sudo apt-get dist-upgrade`
 - Install some new packages: `sudo apt-get install php5-mcrypt php5-intl phpunit graphviz`
-    - What about lldb-3.5 versus lldb-3.4?
+    - That being said, re-running the apt-get installation commands listed above can't hurt, just to be sure that all the packages have been installed
+- Enable the two PHP modules needed for the CakePHP framework: `sudo php5enmod intl` and `sudo php5enmod mcrypt`
 - Uninstall the default Django version: `sudo apt-get remove python-django`
-- Install the new Django version: `pip install Django==1.8.4`
+- Install the new Django version: `sudo pip install Django==1.8.4`
 - Upgrade the Ruby on Rails version.  This is most easily done by reinstalling it from scratch, following the directions above all over again.  In particular, you should remove the `~/.gemrc` file and the `~/.rbenv` and `~/.gem` directories.  Also, the changes made previously to `~/.bashrc` may need to be removed, as they are re-done by following the above directions.
+- Install composer, following the directions in the last bullet point in the "Lamp configuration" section.
 
 **Changes for the future**
 
