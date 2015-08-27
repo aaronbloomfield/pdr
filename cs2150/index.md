@@ -56,7 +56,7 @@ The links in the right-most column link directly to the lecture recording on Col
 
 | Num | Date | Day of week | Lab & Tutorial (on Tue) | Planned topic | Actual lecture progress (and recording) | 
 |-----|--------|-------------|----------------------------------------------------------|--------------------------|--------------------------| 
-|1 | Aug&nbsp;26 | Wednesday | no lab this week | [Course introduction][80] | |
+|1 | Aug&nbsp;26 | Wednesday | no lab this week | [Course introduction][80] | [Course introduction][80], slides [0][80] to [42][1000303] |
 |2 | Aug&nbsp;28 | Friday    | | [Course introduction][80], [01: C++][81] | |
 |3 | Aug&nbsp;31 | Monday    | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | [01: C++][81] | |
 |4 | Sep&nbsp;2  | Wednesday | | [01: C++][81] | |
@@ -266,6 +266,7 @@ None yet!
 [247]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/course-conclusion/course-conclusion.htm
 [248]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/final-review/final-review.htm
 
+[1000303]: ../cs2150/course-introduction.html#/3/3
 [1000402]: ../cs2150/course-introduction.html#/4/2
 [10005]: ../cs2150/course-introduction.html#/5
 [1000601]: ../cs2150/course-introduction.html#/6/1

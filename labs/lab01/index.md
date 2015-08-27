@@ -124,7 +124,7 @@ file:///home/mst3k/pdr/README.html
 
 Note that there are three forward slashes there!
 
-We realize that you cannot view these directions until after you have the github repo cloned locally.  So hopefully you read these ahead of time.  Otherwise, the TAs will be able to help you with this part.
+We realize that you cannot view these directions until after you have the github repo cloned locally.  So hopefully you read these ahead of time.  Otherwise, the TAs will be able to help you with this part.  The lab can also be viewed online at [http://aaronbloomfield.github.io/pdr/labs/lab01/index.html](http://aaronbloomfield.github.io/pdr/labs/lab01/index.html).
 
 
 ### Understanding C++ ###
