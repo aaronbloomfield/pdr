@@ -7,7 +7,7 @@ CS 2150: Program and Data Representation: Course Syllabus
 
 ### Instructor ###
 
-[Aaron Bloomfield][31] / [aaron@virginia.edu][32] / [\@bloomfieldaaron][33] Office: Rice Hall, room 403. Office hours are TBA
+[Aaron Bloomfield][31] / [aaron@virginia.edu][32] / [\@bloomfieldaaron][33] Office: Rice Hall, room 403. Office hours are M/W 1:30-3:00
 
 ### Course Info ###
 
