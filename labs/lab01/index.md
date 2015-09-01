@@ -44,6 +44,9 @@ Procedure
 3. Files to download: [list.h](list.h.html) ([src](list.h)), [list.cpp](list.cpp.html) ([src](list.cpp))
 4. Files to submit: postlab1.question.txt
 
+### Course Tools ###
+Lab submission and in-lab extensions can be found through the Course Tools tab on Collab or directly at this link: [https://libra.cs.virginia.edu/~pedagogy](https://libra.cs.virginia.edu/~pedagogy)
+
 ------------------------------------------------------------
 
 Pre-lab
