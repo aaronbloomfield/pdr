@@ -35,6 +35,7 @@ string   option[] =   { "Quit",
                         "Show List elements",
                         "Set ListItr with first()",
                         "Set ListItr with find()",
+                        "Set ListItr with last()",
                         "Move ListItr forward",
                         "Move ListItr backward",
                         "Retrieve element at ListItr",
@@ -45,8 +46,9 @@ string   option[] =   { "Quit",
                         "Cardinality (size)",
                         "Copy list w/copy constructor",
                         "Copy list with operator=",
+                        "Make list empty",
                       };
-int      const n_choice = 15 ;
+int      const n_choice = 17 ;
 
 int   main ()
 /*
@@ -158,7 +160,15 @@ int   main ()
                 }
                 break;
 
-            case 6:                      // test moveForwards()
+            case 6:                      // test last()
+                if (list == NULL) {
+                    cout << endl << "\tCreate a List first." << endl;
+                }
+                cout << "\tSetting the ListItr to the last element..." << endl;
+                itr = new ListItr((list->last()));
+                break;
+
+            case 7:                      // test moveForwards()
                 if (itr == NULL) {
                     cout << endl << "\tCreate a ListItr first." << endl;
                     break;
@@ -167,7 +177,7 @@ int   main ()
                 itr->moveForward();
                 break;
 
-            case 7:                      // test move_backwards()
+            case 8:                      // test move_backwards()
                 if (itr == NULL) {
                     cout << endl << "\tCreate a ListItr first." << endl;
                     break;
@@ -176,7 +186,7 @@ int   main ()
                 itr->moveBackward();
                 break;
 
-            case 8:                      // test retrieve()
+            case 9:                      // test retrieve()
                 if (itr == NULL) {
                     cout << endl << "\tCreate a ListItr first." << endl;
                     break;
@@ -190,7 +200,7 @@ int   main ()
                     cout << "\tElement retrieved: " << itr->retrieve() << endl;
                 break;
 
-            case 9:                        // Insert element before
+            case 10:                        // Insert element before
                 if (list == NULL || itr == NULL) {
                     cout << endl << "\tCreate a List and ListItr first." << endl;
                     break;
@@ -213,7 +223,7 @@ int   main ()
                 printList(*list, true);
                 break;
 
-            case 10:                        // Insert element after
+            case 11:                        // Insert element after
                 if (list == NULL || itr == NULL) {
                     cout << endl << "\tCreate a List and ListItr first." << endl;
                     break;
@@ -236,7 +246,7 @@ int   main ()
                 printList(*list, true);
                 break;
 
-            case 11:                        // Insert element at tail
+            case 12:                        // Insert element at tail
                 if (list == NULL) {
                     cout << endl << "\tCreate a List first." << endl;
                     break;
@@ -259,7 +269,7 @@ int   main ()
                 printList(*list, true);
                 break;
 
-            case 12:                        // Remove element
+            case 13:                        // Remove element
                 if (list == NULL) {
                     cout << endl << "\tCreate a List first." << endl;
                     break;
@@ -282,7 +292,7 @@ int   main ()
                 printList(*list, true);
                 break;
 
-            case 13:                      // test size()
+            case 14:                      // test size()
                 if (list == NULL) {
                     cout << endl << "\tCreate a List first." << endl;
                     break;
@@ -291,7 +301,7 @@ int   main ()
                 cout << "\tSize of list: " << list->size() << endl;
                 break;
 
-            case 14: {
+            case 15: {                    // test copy constructor
                 List* old_list=list;
                 list=new List(*old_list);
                 old_list->makeEmpty();
@@ -308,7 +318,7 @@ int   main ()
                 delete old_list;
                 break;
             }
-            case 15: {
+            case 16: {                    // test equals operator
                 List* old_list=list;
                 list=new List();
                 *list=*old_list;
@@ -328,8 +338,21 @@ int   main ()
                 break;
             }
 
+            case 17:                      // test makeEmpty()
+                if (list == NULL) {
+                    cout << endl << "\tCreate a List first." << endl;
+                    break;
+                }
 
-
+                cout << "The list is (forward ): " ;
+                printList(*list,true);
+                cout << "The list is (backward): " ;
+                printList(*list,false);
+                list->makeEmpty();
+                cout << "The list was made empty (forward ): " ;
+                printList(*list,true);
+                cout << "The list was made empty (backward): " ;
+                printList(*list,false);
         }               // end of switch (command)
     }            // end of while (1)
 }     // end of main()
