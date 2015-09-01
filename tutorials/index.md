@@ -25,7 +25,8 @@ The tutorials for this course are listed below.
 - Tutorial 8: nasm
     - This two PDF book chapters that are contained in this repository: [x86 Assembly](../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../book/x86-ccc-chapter.pdf)
 - [Tutorial 9: C](09-c/index.html)
-- [Tutorial 10: Objective C](10-objc/index.html)
-    - Source code: [helloworld.m](10-objc/helloworld.m.html) ([src](10-objc/helloworld.m))
+- (no tutorial 10)
 - [Tutorial 11: Doxygen](11-doxygen/index.html)
     - Source code: [average.cpp](11-doxygen/average.cpp.html) ([src](11-doxygen/average.cpp))
+- [Tutorial 12: Objective C](12-objc/index.html)
+    - Source code: [helloworld.m](12-objc/helloworld.m.html) ([src](12-objc/helloworld.m))

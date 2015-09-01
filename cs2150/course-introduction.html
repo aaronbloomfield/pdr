@@ -7,38 +7,47 @@
     <meta name="author" content="Aaron Bloomfield">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.min.css">
-    <link rel="stylesheet" href="../slides/reveal.js/css/theme/default.css" id="theme">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
     <link rel="stylesheet" href="../slides/css/pdr.css">
-    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
-    <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
-	if( window.location.search.match( /print-pdf/gi ) ) {
-		var link = document.createElement( 'link' );
-		link.rel = 'stylesheet';
-		link.type = 'text/css';
-		link.href = '../slides/reveal.js/css/print/pdf.css';
-		document.getElementsByTagName( 'head' )[0].appendChild( link );
-	}
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
     <!--[if lt IE 9]>
-    <script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
-    <![endif]-->
+	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
+	<![endif]-->
+    <script type="text/javascript" src="../slides/js/dhtmlwindow.js"></script>
+    <script type="text/javascript" src="../slides/js/canvas.js"></script>
+    <link rel="stylesheet" href="../slides/css/dhtmlwindow.css" type="text/css">
+    <style>
+.reveal li {
+font-size:80%;
+line-height:120%;
+}
+    </style>
   </head>
 
-  <body>
+  <body onload="canvasinit()">
     <div id="dhtmlwindowholder"><span style="display:none"></span></div>
 
-    <div class="reveal">
+		<div class="reveal">
 
-      <!-- Any section element inside of this container is displayed as a slide -->
-      <div class="slides">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
 
-	  <section data-markdown><script type="text/template">
+	<section data-markdown><script type="text/template">
 # CS 2150
 &nbsp;
 ### Program and Data Representation
-### Spring 2015
+### Fall 2015
 &nbsp;
 <center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
 <center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="course-introduction.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png"></a></small></center>
@@ -66,36 +75,33 @@
 	  <section data-markdown><script type="text/template">
 ## Instructional Staff
 ![Aaron Bloomfield](images/introduction/aaronbloomfield.jpg)
-&nbsp;  
 <center>
 **Aaron Bloomfield**  
 Rice Hall, room 403  
 [aaron@virginia.edu](mailto:aaron@virginia.edu)  
-Office hours 1:30-3:00 M/W
+Office hours: TBA
 </center>
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Instructional Staff
-- 12-15 undergraduate TAs
-- One graduate TA
-- One graduate grader
+- 15-20 undergraduate TAs
+- 2-3 graduate graders
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Collab
-- UVa's fancy course management system.  It's annoying.  I try to avoid it at all costs.  But I'll use it for:
+- I try to avoid it at all costs.  But I'll use it for:
   - Large file downloads (VirtualBox image, lecture recordings)
-  - The email list
-  - Anonymous feedback
+  - The email list and anonymous feedback
   - The wiki, but only for very few things
 - Most everything else is external to Collab
-  - [support requests](https://libra.cs.virginia.edu/~pedagogy/index.php?redirect=support.php), 
+  - Course tools: [support requests](https://libra.cs.virginia.edu/~pedagogy/index.php?redirect=support.php), 
     [lab submission](https://libra.cs.virginia.edu/~pedagogy/index.php?redirect=submit.php), 
     [regrades](https://libra.cs.virginia.edu/~pedagogy/index.php?redirect=regrades.php), 
     [gradebook](https://libra.cs.virginia.edu/~pedagogy/index.php?redirect=gradebook.php), 
     [lab extensions](https://libra.cs.virginia.edu/~pedagogy/index.php?redirect=labextension.php), and the [office hours queue](https://libra.cs.virginia.edu/~pedagogy/index.php?redirect=queue.php)
-  - Slides, labs, and tutorials are in the github repo (more on this in a bit)
+  - Slides, labs, and tutorials are in the [github repo](https://github.com/aaronbloomfield/pdr) (more on this in a bit)
 - We'll see a tour of the Collab tools, and the github repo, in the next lecture
 	  </script></section>
 
@@ -128,7 +134,9 @@ Office hours 1:30-3:00 M/W
 	  <section data-markdown><script type="text/template">
 ## How to get in contact with me
 - Swing by my office hours
-- See me right after class to either discuss the issue (if it's quick) or arrange a time to meet (if it's not)
+- ~~See me right after class to either discuss the issue (if it's quick) or arrange a time to meet (if it's not)~~
+  - I teach another class 10 minutes after this, and very far away, so I have to leave *right* when class ends
+  - That course will (shortly) become M/W only, so Fridays will start working for this
 - Swing by my office when I'm in to likewise either discuss the issue (if it's quick) or arrange a time to meet
 - Submit a support request to arrange a time to meet (include your availability)
 	  </script></section>
@@ -137,10 +145,10 @@ Office hours 1:30-3:00 M/W
 ## Swinging by my office
 - If you have a concern, feel free to swing by my office (Rice 403); some caveats:
   - If it is something that can be handled by a support request, I'll ask you to do that
-  - Likewise if the TA office hours can handle it, I may direct you there
+  - Likewise if the TA office hours can handle it, I may direct you to them
   - If I'm busy, I'll try to find a time that we can meet later
-- This needs to be used only when necessary -- as there are well over 220 students in this course, I cannot handle everybody swinging by my office whenever they want...
-- Tuesdays and Thursdays are generally not good days to find me there, as I often work remotely
+- This needs to be used only when necessary -- as there are about 250 students in this course, I cannot handle everybody swinging by my office whenever they want...
+- Mondays and Wednesdays will be the best days to find me there
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -148,16 +156,17 @@ Office hours 1:30-3:00 M/W
 - Announcements are posted to the course twitter feed: [@UVaCS2150](https://twitter.com/@UVaCS2150)
   - In an effort to keep it uncluttered (so that people can find what they are looking for), I will generally not respond to individual tweets from that account
 - Class Email
-  - I use this sparingly -- I expect to send 4 (four!) emails this entire semester, unless something goes very wrong
+  - I use this sparingly -- I expect to send 5 (five!) emails this entire semester, unless something goes very wrong
+    - And one of those five has already been sent...
 - Things in this course happen on a very structured schedule, so there will be no surprises as to when things happen
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Meetings
-- Lectures: MWF 12:00-12:50 in Gilmer 130
+- Lectures: MWF 11:00-11:50 in Gilmer 130
   - Lectures will be recorded, and posted on Collab
 - Lab meetings: 1 per week
-  - Tues 11-12:45, 1:30-3:15, 3:30-5:15, 5:30-7:15, 7:30-9:15
+  - Tues 9:15 am - 10:50 am, 12:15 pm - 1:50 pm, 2:00 pm - 3:35 pm, 3:50 pm - 5:25 pm, 5:30 pm - 7:05 pm, or 7:30 pm - 9:05 pm
   - You cannot attend another lab section without prior permission
     - And due to lab size, that generally cannot be granted
 - Office hours, if you choose to attend them
@@ -196,7 +205,7 @@ Office hours 1:30-3:00 M/W
 - If you have not already taken CS 2102 previously, you may take it this semester
 - However, by doing so, you understand and agree that any 2102 material that ends up on the exam is your bad luck
 - That's why it's listed as a pre-req!
-- For the spring 2015 semester, there may still be some spots available in CS 2102
+- For the current semester, there may still be some spots available in CS 2102
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -218,14 +227,31 @@ Office hours 1:30-3:00 M/W
   - And you can't change sections without prior permission, as we don't have the computers or TAs to support this
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
-## Spring 2015 registration issues
+	  <section id="registration" data-markdown><script type="text/template">
+## Fall 2015 registration issues
 - We cannot have more than 45 people registered for a given lab due to fire marshal limits
   - And those limits can't be changed (I've asked)
-- Five labs times 45 students per lab means no more than 225 students can be registered for this course
-  - There are currently 242 either registered or waiting
-- I'm sorry about this -- it is not in my power to change
-- (also, there are no labs tomorrow)
+- Six labs exist, although one of them may not be allowed to be filled to capacity (departmental decision, not mine)
+- If you are *not* currently enrolled in the course (this includes those on the wait list):
+  - Please fill out the survey at http://tinyurl.com/pqyckwd
+  - You must do this EVEN IF you did it before (all responses were intentionally cleared out on August 19th)
+  - Note the chances of you getting into a lab that is not the 9:15 lab are essentially zero
+  - I will handle this over the weekend of August 29/30; lab extensions will be granted if you miss the first lab due dates due to a late registration
+- I do not yet know if I can offer any more people spots in the course (departmental policy), but I will do my best...
+	  </script></section>
+
+	  <section id="labswaps" data-markdown><script type="text/template">
+## Lab Swaps
+- You are welcome to swap labs with somebody else, or switch into a lab that has free spots
+  - Exception: I may not be allowed to fill up the 9:15 lab (departmental policy)
+- To switch to an open lab, do a lab section swap in SIS
+  - If you attempt to drop and then re-add the course, you will go to the END of the waitlist, and then you will not be allowed back into the course!
+  - And make sure there is room in the destination lab before you try this!!!
+- To swap with somebody:
+  - Post on [Piazza](https://piazza.com/class) to find somebody to switch with
+    - If you are reading this before the semester starts, then wait until the first day of class to post...
+  - Once you have found somebody, ask Mary Lane (in Thorton A122) to swap the two of you
+- Please understand that I do not have the ability to do any of these actions myself
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -238,7 +264,8 @@ Office hours 1:30-3:00 M/W
   - UVa's Internet being down
   - Your younger sibling messing up your submission
   - Your dog eating your homework
-- The ONLY exception is if any of the following are down: the submission server itself, Collab, or the CS department's network (that allows the server to be accessed)
+  - You missing the deadline by 1 minute, but pleeeaaaassseeeee!!!!!111oneoneONEONE
+- The ONLY exception is if any of the following are down: the submission server itself or the CS department's network (that allows the server to be accessed)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -250,24 +277,25 @@ Office hours 1:30-3:00 M/W
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Spring break!
-![UVa's spring break](images/introduction/spring-break-2015-uva.png)
-What UVa defines as "Spring break"
+## Thanksgiving break!
+![UVa's Thanksgiving break](images/introduction/thanksgiving-2015-uva.png)
+What UVa defines as "Thanksgiving break"
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Spring break!
-![UVa students' Spring break](images/introduction/spring-break-2015-student.png)
-What UVa *students* define as "Spring break"
+## Thanksgiving break!
+![UVa students' Thanksgiving break](images/introduction/thanksgiving-2015-student.png)
+What UVa *students* define as "Thanksgiving break"
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Piazza
 - [Piazza](https://piazza.com) is a useful newsgroup-like tool for collegiate courses
   - Students post questions, and other students or instructors can post answers
-- I will be creating accounts for you
+- When you log in (via Collab) for the first time, an account is created for you
   - If the e-mail settings default to "send annoying emails all the time", you can easily change this
-  - In Piazza, in the upper-right, click on the down arrow, select "Account/Email Settings", and change it there
+    - In Piazza, in the upper-right, click on the gear/settings icon, select "Account/Email Settings", and then select "Edit Email Notifications" under "Class & Email Settings"
+- Piazza posts are generally answered by the TAs and other students
 	  </script></section>
 	  
 	  <section data-markdown><script type="text/template">
@@ -276,21 +304,21 @@ What UVa *students* define as "Spring break"
   - There are two of these: one for Linux, one for Windows; we do not expect to use the Windows account
   - You will receive two email about this, one for each account
 - Your [Collab](http://collab.itc.virginia.edu/portal) account, which you should already have
-- Your [Piazza](https://piazza.com) account, which will be created shortly
+- Your [Piazza](https://piazza.com) account, which will be created when you log into Piazza via Collab
 - You do *NOT* need a github account for this course (more on this shortly)
   - But feel free to create one!  It will be used heavily in successive courses.
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Unix
-This class will program exclusively in a Unix environment.  There are a number of options (listed from easy to hard):
+This class will program exclusively in a Unix environment.  There are a number of options to do so (listed from easy to hard):
 
 - Run VirtualBox (it's free) and use the course Linux image
   - This is recommended; there will be extensive directions
-- Program in Linux in Olsson 001 (when a lab is not in session)
-  - You can get a key for a $5 deposit (see me for this)
-- Mac users can use a terminal window, as Mac OS X is based on Unix
-  - But you can't use an IDE!
+  - You <font color='#ff0000'>MUST USE VIRTUALBOX VERSION 4.3</font>
+    - Version 5.0 and above do NOT work properly!
+- Program in Linux in Olsson 001 (when a lab is not in session); you can get a key for a $5 deposit
+- Mac users can use a terminal window, as Mac OS X is based on Unix -- but you can't use an IDE!
   - Note that some things (such as doxygen and some x86 features) are not compatible!
 - Install a Unix OS (Linux, etc.) on your home machine
   - Backup everything first!!!
@@ -313,7 +341,7 @@ Furthermore, you cannot use any IDE (Xcode, Eclipse, Netbeans, etc. Visual Studi
 - Instead we are using clang++ (from LLVM)
   - If you don't know what this means, you can safely ignore it
   - But if you are familiar with gcc/g++, please don't use it, as clang has MUCH better error messages
-- (Note that we will likely use gcc/g++ for the two x86 labs, but more on that later)
+- (Note that we will use gcc/g++ for the two x86 labs, but more on that later)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -334,13 +362,14 @@ Furthermore, you cannot use any IDE (Xcode, Eclipse, Netbeans, etc. Visual Studi
 	  <section data-markdown><script type="text/template">
 ## Printing the slides
 - To export to a PDF (and thus to print), you must use Google Chrome; see [here](https://github.com/hakimel/reveal.js/#pdf-export) for details on how to print
-  - Don't worry about step 1 -- just add "?print-pdf" to the end of the URL: [01-intro.html?print-pdf](01-intro.html?print-pdf)
+  - Don't worry about step 1 -- just add "?print-pdf" to the end of the URL: [course-introduction.html?print-pdf](course-introduction.html?print-pdf)
     - Or click on the printer icon (<a href="course-introduction.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png" style="vertical-align:middle"></a> ) on the title slide
   - This prints one slide per page
 - Use a program to print 6 slides per page
   - I use [evince](https://wiki.gnome.org/Apps/Evince/Downloads), but Acrobat can likely do this as well
-  - In evince, set pages per side to 6, and scaling to 95%
+  - In evince, set pages per side to 6, and scaling to 97%
 - Note that the slides are not in a linear format, so printing may cause issues; you can always view the slides online
+  - Click 'o' to see the non-linear layout of the slides; click 'o' or Escape to return
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -349,8 +378,9 @@ Furthermore, you cannot use any IDE (Xcode, Eclipse, Netbeans, etc. Visual Studi
   - It keeps them in "repositories" or "repos"
   - It also easily allows group work on a single code base, although we won't see that in this course
 - Most of the course materials can be found online at http://github.com/aaronbloomfield/pdr
+  - The contents of that repo can be viewed online at http://aaronbloomfield.github.io/pdr
   - As mentioned previously, a few things are still in Collab
-  - And the stuff specific to you (grades, submissions) are through the [set of online tools](https://libra.cs.virginia.edu/~pedagogy/index.php)
+  - And the stuff specific to you (grades, submissions, etc.) are through the [set of online tools](https://libra.cs.virginia.edu/~pedagogy/index.php)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -360,7 +390,7 @@ Furthermore, you cannot use any IDE (Xcode, Eclipse, Netbeans, etc. Visual Studi
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Using git
+## Using git, part 1
 - git is installed on the VirtualBox image (more on VirtualBox shortly)
 - To use git, enter the following command only once (no github account needed!):
 ```
@@ -369,17 +399,23 @@ git clone https://github.com/aaronbloomfield/pdr.git
   - This will create a 'pdr' directory that contains everything from the repo: the slides, the labs, the tutorials, etc.
   - Note that much of the content of this repository will be updated throughout the semester
   - This was already done on the provided VirtualBox image
-- To get the latest version, just change into that directory via the command line, and enter:
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Using git, part 2
+- To get the latest version, just change into that directory via the command line ("`cd pdr`"), and enter:
 ```
 git pull
 ```
+- That's it!
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## A warning about the git repo
 - You will see future assignments (labs, mostly) in the git repo
+- Feel free to look at these, but...
 - I will be making many changes up until the time I officially "release" them to the class
-  - This "official release" is as of the date of posting of the lab availability on the twitter feed: [@UVaCS2150](https://twitter.com/@UVaCS2150)
+  - This "official release" is as of the date of posting of the lab availability on the Twitter feed: [@UVaCS2150](https://twitter.com/@UVaCS2150)
   - This will be the Wednesday or Thursday the week before they are due
 - If you start them early, then it is **YOUR** responsibility to figure out what changes have been made to the assignment between when you started it and when I finalized it
 	  </script></section>
@@ -387,7 +423,7 @@ git pull
 	  <section data-markdown><script type="text/template">
 ## Course syllabus
 - It is availabe in the github repo; you can click [here](../cs2150/syllabus.html) to view it
-- It contains all the information covered so far, plus some more stuff
+- It contains all the information covered so far, plus some more stuffs
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -396,7 +432,7 @@ I am determined to learn each of your (first) names
 &nbsp;  
 So if you raise your hand in lecture, and I don't call on you by name, you have to say your first name before your question  
 &nbsp;  
-Don't be offended if it takes me a while -- there are about 250 of yous...
+Don't be offended if it takes me a while -- there are about 250 of you...
 	  </script></section>
 
 	</section>
@@ -414,8 +450,8 @@ The University of Virginia Honor Policy in effect.  In addition to the normal ru
 1. You may not look at the code of another student (past or present) for ANY reason
 2. You may not try to hack my submission system
 3. You may not discuss the midterm details to someone who has not already taken it
-4. You may not release your source code online (including a public github repo)
-5. You may not use a computer to generate your submitted code unless otherwise allowed
+4. You may not release your source code online (including in a public github repo)
+5. You may not use a computer to generate your submitted *assembly* code unless otherwise allowed
 	</script></section>
 
 	<section data-markdown><script type="text/template">
@@ -428,18 +464,13 @@ We will see the cheat-checking program later this semester, as we will have lear
 	  </script></section>
 
 	<section data-markdown><script type="text/template">
-## Honor pledge quiz!
-Do these count as honor violations?  
-&nbsp;  
-
+## Do these count as honor violations?
 - Copying somebody's code completely, even if they've taken the course a year ago
 - http://www.cplusplus.com/forum/beginner/35616/
 - A student who, upon taking the class a second time, claimed s/he had already submitted the assignment before (being in the class previously), and thus was allowed to copy the assignment from somebody else
 - Taking a 45 minute bathroom break during the final exam to look up the answews
-- Looking up the answers on your cell phone during an exam
-
-&nbsp;  
-<p class="fragment">The answer to all of these is yes, by the way.</p>
+- Looking up the answers on your cell phone during an exam.
+<p class="fragment">The answer to all of these is yes, by the way.  And they have all happened in my courses.</p>
 	</script></section>
 
 	</section>
@@ -454,12 +485,13 @@ Do these count as honor violations?
 ## Grading Criteria
 - 40% Labs (there will be 11 labs)
 - 30% Midterms, during lab and in lab classroom
-  - Midterm 1: Tuesday, February 17th; midterm 2: Tuesday, March 31st
+  - Midterm 1: Tuesday, September 29th; midterm 2: Tuesday, November 10th
 - 25% Final Exam
-  - Friday, May 1st from 2 p.m. to 5 p.m. in Gilmer 130 (the lecture classroom)
+  - Friday, December 11th from 9:00 am to noon in Gilmer 130 (the lecture classroom)
   - It can NOT be taken early, so don't even ask
 - 5% Class participation
   - Some examples: random attendance quizzes or in-class quizzes on readings or previously covered topics, using Piazza, useful contributions to the github repo, or otherwise contributing to the course
+  - This will default to the average of the rest of the course, and then be modified by participation in the course
 - I reserve the right to change this!  See the course syllabus for details...
 	</script></section>
 
@@ -476,12 +508,13 @@ Do these count as honor violations?
   - If you don't let us know by then, then you will have to take it at the common time
 	  </script></section>
 -->
-	  <section data-markdown><script type="text/template">
+	  <section data-markdown id="compilation"><script type="text/template">
 ## Compilation
 - You will receive <strong class="red">zero credit</strong> for code that does not compile
   - Unless my compiler breaks, there will be absolutely NO exceptions to this rule, so please don't even ask
   - This is an advanced programming class, and under no circumstances should you submit code that does not compile
 - The submission system will compile the code when you submit it
+  - But that means you have to actually watch the result of your submission (it takes all of 5 seconds)
   - We have a [guide](../docs/compilation.html) as to how to work through compilation errors, and what to do if you can't get it to compile
 	  </script></section>
 
@@ -537,20 +570,19 @@ Be able to implement basic and advanced data structures in C++
 
 	  <section data-markdown><script type="text/template">
 ## The results
-From a Pentium 3.0 Ghz PC with more than sufficient memory  
-&nbsp;  
+From a Pentium 3.0 Ghz PC with enough memory
 
-| Data structure | Running time |
-|----------------|--------------|
-| Vector         | 17.311 sec   |
-| ArrayList      | 17.281 sec   |
-| LinkedList     | 24.255 sec   |
-| HashSet        | 0.122 sec    |
-| TreeSet        | 0.119 sec    |
+| Data structure | Running time | Notes |
+|----------------|--------------|-------|
+| Vector         | 17.311 sec   | Rarely used |
+| ArrayList      | 17.281 sec   | Likely most common |
+| LinkedList     | 24.255 sec   | Slowest |
+| HashSet        | 0.122 sec    | Very fast |
+| TreeSet        | 0.119 sec    | Fastest |
 
 &nbsp;  
-<p class="fragment">Difference between a ArrayList (most common) and TreeSet: a factor of about 150</p>
-<p class="fragment">Difference between a LinkedList (slowest) and TreeSet: a factor of about 200</p>
+<p class="fragment">Difference between a ArrayList and TreeSet: a factor of ~150</p>
+<p class="fragment">Difference between a LinkedList and TreeSet: a factor of ~200</p>
 
 	  </script></section>
 
@@ -638,37 +670,36 @@ You can view my entire course evals on [my personal website](http://www.cs.virgi
 
     </div>
 
+    <div id="calibratediv" style="display:none">
+      <div id="calibratecanvasdiv">
+        <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
+      </div>
+      <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
+    </div>
     <script src="../slides/reveal.js/lib/js/head.min.js"></script>
-    <script src="../slides/reveal.js/js/reveal.min.js"></script>
+    <script src="../slides/reveal.js/js/reveal.js"></script>
     <!-- You cannot, apparently, include this from another directory, hence why settings.js is reproduced here in full -->
     <script>
-// Full list of configuration options available here:
-// https://github.com/hakimel/reveal.js#configuration
-Reveal.initialize({
-  controls: true,
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
       progress: true,
       history: true,
       center: true,
       slideNumber: true,
-      
-      theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-      transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
-      
-      // Parallax scrolling
-      // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
-      // parallaxBackgroundSize: '2100px 900px',
-      
-      // Optional libraries used to extend on reveal.js
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
       dependencies: [
-		     { src: '../slides/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-		     { src: '../slides/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-		     { src: '../slides/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-		     { src: '../slides/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-		     { src: '../slides/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-		     { src: '../slides/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-		     ]
+      { src: '../slides/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: '../slides/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: '../slides/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: '../slides/reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: '../slides/reveal.js/plugin/zoom-js/zoom.js', async: true },
+      { src: '../slides/reveal.js/plugin/notes/notes.js', async: true }
+      ]
       });
-</script>
+    </script>
 
   </body>
 </html>

@@ -124,7 +124,7 @@ file:///home/mst3k/pdr/README.html
 
 Note that there are three forward slashes there!
 
-We realize that you cannot view these directions until after you have the github repo cloned locally.  So hopefully you read these ahead of time.  Otherwise, the TAs will be able to help you with this part.
+We realize that you cannot view these directions until after you have the github repo cloned locally.  So hopefully you read these ahead of time.  Otherwise, the TAs will be able to help you with this part.  The lab can also be viewed online at [http://aaronbloomfield.github.io/pdr/labs/lab01/index.html](http://aaronbloomfield.github.io/pdr/labs/lab01/index.html).
 
 
 ### Understanding C++ ###
@@ -185,7 +185,7 @@ You can automatically request a lab extension if you are unable to complete your
 
 ### Submitting your files ###
 
-All assignments for this course will be submitted through the lab submission tool, which is accessible either via Collab or through the link in the Procesure sectionk above.  There is no check to make sure you have submitted all of the correct files -- on the 'Procedure' page (always at the top of the lab document), we clearly state which files should be submitted for each lab part.  For example, for this in-lab, you should submit the following files for in-lab 1: lifecycle.questions.txt, vector.questions.txt, LifeCycle.h, LifeCycle.cpp, and TestLifeCycle.cpp.
+All assignments for this course will be submitted through the lab submission tool, which is accessible either via Collab or through the link in the Procedure section above.  There is no check to make sure you have submitted all of the correct files -- on the 'Procedure' page (always at the top of the lab document), we clearly state which files should be submitted for each lab part.  For example, for this in-lab, you should submit the following files for in-lab 1: lifecycle.questions.txt, vector.questions.txt, LifeCycle.h, LifeCycle.cpp, and TestLifeCycle.cpp.
 
 Lastly, you should ensure that your program compiles before you submit it.  This is an advanced programming class, and there is no reason why you should submit a program that does not compile.  If you are having problems with your code, you should comment out parts so that it does compile -- you will receive some credit for a program that has part of the code commented out than a program that does not compile.  See the [compilation](../../docs/compilation.html) for hints as to how to get your code to compile.
 

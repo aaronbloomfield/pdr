@@ -1,7 +1,7 @@
 Frivolous Regrade Policy
 ========================
 
-[Go up to the CS 2150 documents page](index.html)
+[Go up to the CS 2150 page](index.html)
 
 Background
 ----------
