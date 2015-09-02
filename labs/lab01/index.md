@@ -44,14 +44,17 @@ Procedure
 3. Files to download: [list.h](list.h.html) ([src](list.h)), [list.cpp](list.cpp.html) ([src](list.cpp))
 4. Files to submit: postlab1.question.txt
 
+### Course Tools ###
+Lab submission and in-lab extensions can be found through the Course Tools tab on Collab or directly at this link: [https://libra.cs.virginia.edu/~pedagogy](https://libra.cs.virginia.edu/~pedagogy)
+
 ------------------------------------------------------------
 
 Pre-lab
 -------
 
-Complete [Tutorial 1: Introduction to UNIX](../../tutorials/01-intro-unix/index.html) For this course, you will need to be familiar with Emacs.  You are welcome to use any editor that is not an IDE (Integrated Development Environment), such as emacs, nano, or vim; you may be tested on the key bindings of your preferred editor. (Notepad doesn't count.)
+Complete [Tutorial 1: Introduction to UNIX](../../tutorials/01-intro-unix/index.html). For this course, you will need to be familiar with Emacs.  You are welcome to use any editor that is not an IDE (Integrated Development Environment), such as emacs, nano, or vim; you may be tested on the key bindings of your preferred editor. (Notepad doesn't count.)
 
-Below is a sample function with a `main()` function that calls it.  The source code for this and other examples from the book is on the Collab site (in the Resources section under misc/textbooks).  You may find this and other examples helpful in writing your function to compute *x^n* and the `main()` function to call it.
+Below is a sample function with a `main()` function that calls it.  You may find this example helpful in writing your function to compute *x^n* and the `main()` function to call it.
 
 ```
 #include <iostream>
@@ -134,17 +137,17 @@ We realize that you cannot view these directions until after you have the github
 3. Object Lifecycle Program
      - Download the [lifecycle.cpp](lifecycle.cpp.html) ([src](lifecycle.cpp)) file
      - Compile with clang++ (i.e., `clang++ lifecycle.cpp`) and execute the program.
-     - Break lifecycle.cpp into multiple files.  It may be helpful to look at class slides on the Collab site.  Compile and run this program.  Note that to compile a C++ program with multiple files, just put them on the same line: `clang++ LifeCycle.cpp TestLifeCycle.cpp` (you usually leave out the .h files when compiling).  Add the descriptive header at the top of the file containing your identifying information, and name them as follows:
+     - Break lifecycle.cpp into multiple files.  It may be helpful to look at [class slides from this repo](../../slides/01-cpp.html).  Compile and run this program.  Note that to compile a C++ program with multiple files, just put them on the same line: `clang++ LifeCycle.cpp TestLifeCycle.cpp` (you usually leave out the .h files when compiling).  Add the descriptive header at the top of the file containing your identifying information, and name them as follows:
          - LifeCycle.h
          - LifeCycle.cpp
          - TestLifeCycle.cpp
      - Comment out the prototype for `getMaxMyObj()`.  Recompile.  What happens and why?  Talk to TA if you are unsure.  Now un-comment the prototype.
      - Look at the output of lifecycle.cpp.  Write at least one question about something in this program. Write your questions in a text file named lifecycle.questions.txt.  Remember to include the header comment at the top of the file.
 4. Using C++ vector container class with strings
-     - There are 3 files on the Collab site that demonstrate the use of multi-file programs and the use of the vector collection class in C++: [svtest.cpp](svtest.cpp.html) ([src](svtest.cpp)), [svutil.cpp](svutil.cpp.html) ([src](svutil.cpp)), and [svutil.h](svutil.h.html) ([src](svutil.h)).  The class in those files is similar to the ArrayList class in the Java standard library (or Java's own Vector class).  Compile the program in Unix and run it.  The command `clang++ svutil.cpp svtest.cpp` will compile the program.
+     - There are 3 files on this repo that demonstrate the use of multi-file programs and the use of the vector collection class in C++: [svtest.cpp](svtest.cpp.html) ([src](svtest.cpp)), [svutil.cpp](svutil.cpp.html) ([src](svutil.cpp)), and [svutil.h](svutil.h.html) ([src](svutil.h)).  The class in those files is similar to the ArrayList class in the Java standard library (or Java's own Vector class).  Compile the program in Unix and run it.  The command `clang++ svutil.cpp svtest.cpp` will compile the program.
      - Comment out the `#include <iostream>` preprocessor directive in the file svtest.cpp, and then rebuild the program.  Was there an error?
-     - Now undo what you did in the previous step, but now comment out the using `namespace std;` in svutil.h, and rebuild the program. Was there an error?  What objects are now undeclared and why?
-     - Write at least one question about something in this program.  This question might be about something that you don't understand completely. Write your questions in a file named vector.questions.txt
+     - Now undo what you did in the previous step, but now comment out the `using namespace std;` in svutil.h, and rebuild the program. Was there an error?  What objects are now undeclared and why?
+     - Write at least one question about something in this program.  This question might be about something that you don't understand completely. Write your questions in a file named vector.questions.txt.
 
 ### Troubleshooting ###
 
@@ -162,7 +165,7 @@ Under Windows, the case of a file name is ignored -- thus, lifecycle.cpp, LifeCy
 
 ### Assignment submission ###
 
-All assignments will be submitted through our custom submission tool.  These can be accesed through Collab, or directly at the link in the Procedure section of this lab.
+All assignments will be submitted through our custom submission tool.  These can be accessed through Collab, or directly at the link in the Procedure section of this lab.
 
 Each assignment has 3 dates: an open date (when you can start submitting the assignment), a due date (when it's due), and a close date (the last point that you can submit the assignment).  The dates are listed for the week of the lab (the lab week starts on a Sunday and ends on a Saturday).  In particular, the due date for the pre-labs, as well as the open date for the in-labs and post-labs is when the first lab section starts.  The close date for the post-labs is the start of Friday's lecture (the first lecture, if there are multiple lecture periods).
 
@@ -187,7 +190,7 @@ You can automatically request a lab extension if you are unable to complete your
 
 All assignments for this course will be submitted through the lab submission tool, which is accessible either via Collab or through the link in the Procedure section above.  There is no check to make sure you have submitted all of the correct files -- on the 'Procedure' page (always at the top of the lab document), we clearly state which files should be submitted for each lab part.  For example, for this in-lab, you should submit the following files for in-lab 1: lifecycle.questions.txt, vector.questions.txt, LifeCycle.h, LifeCycle.cpp, and TestLifeCycle.cpp.
 
-Lastly, you should ensure that your program compiles before you submit it.  This is an advanced programming class, and there is no reason why you should submit a program that does not compile.  If you are having problems with your code, you should comment out parts so that it does compile -- you will receive some credit for a program that has part of the code commented out than a program that does not compile.  See the [compilation](../../docs/compilation.html) for hints as to how to get your code to compile.
+Lastly, you should ensure that your program compiles before you submit it.  This is an advanced programming class, and there is no reason why you should submit a program that does not compile.  If you are having problems with your code, you should comment out parts so that it does compile -- you will receive more credit for a compilable program that has part of the code commented out than you would for a program that does not compile.  See the [compilation](../../docs/compilation.html) for hints as to how to get your code to compile.
 
 Just to be clear: **you will receive zero credit for a lab component which does not compile.**
 
@@ -202,7 +205,7 @@ Post-lab
 
 Complete the exercise below, and submit the text file described there to the submission system.
 
-For this lab you will be submitting your assignment electronically.  Your submission is on the Friday of the week of the lab; the exact time is listed on the [lab due dates](../../cs2150/labduedates.html) page.  Be sure to include: your name, the date, and the name of the file in a banner comment at the beginning of each file you submit.
+For this lab you will be submitting your assignment electronically.  Your submission is on the Friday of the week of the lab; the exact time is listed on the [lab due dates](../../cs2150/labduedates.html) page.  Be sure to include your name, email ID, the date, and the name of the file in a banner comment at the beginning of each file you submit.
 
 ### Linked List Template code ###
 
@@ -216,7 +219,7 @@ Look more closely at list.cpp. The line:
 List<int> *l = new List<int>();
 ```
 
-declares a (pointer to) a List of integers, called l. A similar line, but with a different type, would create a list of something else.  For example, consider the following line:
+declares (a pointer to) a List of integers, called `l`. A similar line, but with a different type, would create a list of something else.  For example, consider the following line:
 
 ```
 List<char> list2;

@@ -49,10 +49,12 @@
 <li>Files to download: <a href="list.h.html">list.h</a> (<a href="list.h">src</a>), <a href="list.cpp.html">list.cpp</a> (<a href="list.cpp">src</a>)</li>
 <li>Files to submit: postlab1.question.txt</li>
 </ol>
+<h3 id="course-tools">Course Tools</h3>
+<p>Lab submission and in-lab extensions can be found through the Course Tools tab on Collab or directly at this link: <a href="https://libra.cs.virginia.edu/~pedagogy" class="uri">https://libra.cs.virginia.edu/~pedagogy</a></p>
 <hr />
 <h2 id="pre-lab-1">Pre-lab</h2>
-<p>Complete <a href="../../tutorials/01-intro-unix/index.html">Tutorial 1: Introduction to UNIX</a> For this course, you will need to be familiar with Emacs. You are welcome to use any editor that is not an IDE (Integrated Development Environment), such as emacs, nano, or vim; you may be tested on the key bindings of your preferred editor. (Notepad doesn't count.)</p>
-<p>Below is a sample function with a <code>main()</code> function that calls it. The source code for this and other examples from the book is on the Collab site (in the Resources section under misc/textbooks). You may find this and other examples helpful in writing your function to compute <em>x^n</em> and the <code>main()</code> function to call it.</p>
+<p>Complete <a href="../../tutorials/01-intro-unix/index.html">Tutorial 1: Introduction to UNIX</a>. For this course, you will need to be familiar with Emacs. You are welcome to use any editor that is not an IDE (Integrated Development Environment), such as emacs, nano, or vim; you may be tested on the key bindings of your preferred editor. (Notepad doesn't count.)</p>
+<p>Below is a sample function with a <code>main()</code> function that calls it. You may find this example helpful in writing your function to compute <em>x^n</em> and the <code>main()</code> function to call it.</p>
 <pre><code>#include &lt;iostream&gt;
 using namespace std;
 
@@ -92,7 +94,7 @@ int main( ) {
 <p>To view the contents in a web browser, you should enter the following as the URL (replacing 'mst3k' with your userid):</p>
 <pre><code>file:///home/mst3k/pdr/README.html</code></pre>
 <p>Note that there are three forward slashes there!</p>
-<p>We realize that you cannot view these directions until after you have the github repo cloned locally. So hopefully you read these ahead of time. Otherwise, the TAs will be able to help you with this part. The lab can also be viewed online at <a href="http://aaronbloomfield.github.io/pdr/labs/lab01/index.html">http://aaronbloomfield.github.io/pdr/labs/lab01/index.html</a>.</p>
+<p>We realize that you cannot view these directions until after you have the github repo cloned locally. So hopefully you read these ahead of time. Otherwise, the TAs will be able to help you with this part. The lab can also be viewed online at <a href="http://aaronbloomfield.github.io/pdr/labs/lab01/index.html" class="uri">http://aaronbloomfield.github.io/pdr/labs/lab01/index.html</a>.</p>
 <h3 id="understanding-c">Understanding C++</h3>
 <ol style="list-style-type: decimal">
 <li>Ask the TAs if you have questions about your <em>x^n</em> function.</li>
@@ -101,7 +103,7 @@ int main( ) {
 <ul>
 <li>Download the <a href="lifecycle.cpp.html">lifecycle.cpp</a> (<a href="lifecycle.cpp">src</a>) file</li>
 <li>Compile with clang++ (i.e., <code>clang++ lifecycle.cpp</code>) and execute the program.</li>
-<li>Break lifecycle.cpp into multiple files. It may be helpful to look at class slides on the Collab site. Compile and run this program. Note that to compile a C++ program with multiple files, just put them on the same line: <code>clang++ LifeCycle.cpp TestLifeCycle.cpp</code> (you usually leave out the .h files when compiling). Add the descriptive header at the top of the file containing your identifying information, and name them as follows:
+<li>Break lifecycle.cpp into multiple files. It may be helpful to look at <a href="../../slides/01-cpp.html">class slides from this repo</a>. Compile and run this program. Note that to compile a C++ program with multiple files, just put them on the same line: <code>clang++ LifeCycle.cpp TestLifeCycle.cpp</code> (you usually leave out the .h files when compiling). Add the descriptive header at the top of the file containing your identifying information, and name them as follows:
 <ul>
 <li>LifeCycle.h</li>
 <li>LifeCycle.cpp</li>
@@ -112,10 +114,10 @@ int main( ) {
 </ul></li>
 <li>Using C++ vector container class with strings
 <ul>
-<li>There are 3 files on the Collab site that demonstrate the use of multi-file programs and the use of the vector collection class in C++: <a href="svtest.cpp.html">svtest.cpp</a> (<a href="svtest.cpp">src</a>), <a href="svutil.cpp.html">svutil.cpp</a> (<a href="svutil.cpp">src</a>), and <a href="svutil.h.html">svutil.h</a> (<a href="svutil.h">src</a>). The class in those files is similar to the ArrayList class in the Java standard library (or Java's own Vector class). Compile the program in Unix and run it. The command <code>clang++ svutil.cpp svtest.cpp</code> will compile the program.</li>
+<li>There are 3 files on this repo that demonstrate the use of multi-file programs and the use of the vector collection class in C++: <a href="svtest.cpp.html">svtest.cpp</a> (<a href="svtest.cpp">src</a>), <a href="svutil.cpp.html">svutil.cpp</a> (<a href="svutil.cpp">src</a>), and <a href="svutil.h.html">svutil.h</a> (<a href="svutil.h">src</a>). The class in those files is similar to the ArrayList class in the Java standard library (or Java's own Vector class). Compile the program in Unix and run it. The command <code>clang++ svutil.cpp svtest.cpp</code> will compile the program.</li>
 <li>Comment out the <code>#include &lt;iostream&gt;</code> preprocessor directive in the file svtest.cpp, and then rebuild the program. Was there an error?</li>
-<li>Now undo what you did in the previous step, but now comment out the using <code>namespace std;</code> in svutil.h, and rebuild the program. Was there an error? What objects are now undeclared and why?</li>
-<li>Write at least one question about something in this program. This question might be about something that you don't understand completely. Write your questions in a file named vector.questions.txt</li>
+<li>Now undo what you did in the previous step, but now comment out the <code>using namespace std;</code> in svutil.h, and rebuild the program. Was there an error? What objects are now undeclared and why?</li>
+<li>Write at least one question about something in this program. This question might be about something that you don't understand completely. Write your questions in a file named vector.questions.txt.</li>
 </ul></li>
 </ol>
 <h3 id="troubleshooting">Troubleshooting</h3>
@@ -130,7 +132,7 @@ int main( ) {
 <h3 id="capitalization">Capitalization</h3>
 <p>Under Windows, the case of a file name is ignored -- thus, lifecycle.cpp, LifeCycle.cpp, and LIFECYCLE.CPP all refer to the same file. However, it is <strong>NOT</strong> true for Linux, which is what we will use to test and grade your code. Thus, if your file is called 'LifeCycle.h', and you have (in your TestLifeCycle.cpp file) a line that states: <code>#include &quot;lifecycle.h&quot;</code>, then your program will NOT work under Linux (since case DOES matter with file names). Since your code does not compile, you will get zero credit. So make sure your file names match!</p>
 <h3 id="assignment-submission">Assignment submission</h3>
-<p>All assignments will be submitted through our custom submission tool. These can be accesed through Collab, or directly at the link in the Procedure section of this lab.</p>
+<p>All assignments will be submitted through our custom submission tool. These can be accessed through Collab, or directly at the link in the Procedure section of this lab.</p>
 <p>Each assignment has 3 dates: an open date (when you can start submitting the assignment), a due date (when it's due), and a close date (the last point that you can submit the assignment). The dates are listed for the week of the lab (the lab week starts on a Sunday and ends on a Saturday). In particular, the due date for the pre-labs, as well as the open date for the in-labs and post-labs is when the first lab section starts. The close date for the post-labs is the start of Friday's lecture (the first lecture, if there are multiple lecture periods).</p>
 <p>The various dates: open dates, due dates, and close dates, are listed on the <a href="../../cs2150/labduedates.html">lab due dates</a> page.</p>
 <p>Please note, however, that there are a number of rules that we will strictly follow:</p>
@@ -147,20 +149,20 @@ int main( ) {
 <p>You can automatically request a lab extension if you are unable to complete your in-lab during the allotted time. This is done through the lab extension tool, which is accessible either via Collab or through the link in the Procedure section, above. Note that this only applies to the in-lab. The due date with the extension is the end of the day on Wednesday (i.e. 11:59 p.m.), regardless of your lab section, as this gives you a chance to go to the Wednesday evening office hours.</p>
 <h3 id="submitting-your-files">Submitting your files</h3>
 <p>All assignments for this course will be submitted through the lab submission tool, which is accessible either via Collab or through the link in the Procedure section above. There is no check to make sure you have submitted all of the correct files -- on the 'Procedure' page (always at the top of the lab document), we clearly state which files should be submitted for each lab part. For example, for this in-lab, you should submit the following files for in-lab 1: lifecycle.questions.txt, vector.questions.txt, LifeCycle.h, LifeCycle.cpp, and TestLifeCycle.cpp.</p>
-<p>Lastly, you should ensure that your program compiles before you submit it. This is an advanced programming class, and there is no reason why you should submit a program that does not compile. If you are having problems with your code, you should comment out parts so that it does compile -- you will receive some credit for a program that has part of the code commented out than a program that does not compile. See the <a href="../../docs/compilation.html">compilation</a> for hints as to how to get your code to compile.</p>
+<p>Lastly, you should ensure that your program compiles before you submit it. This is an advanced programming class, and there is no reason why you should submit a program that does not compile. If you are having problems with your code, you should comment out parts so that it does compile -- you will receive more credit for a compilable program that has part of the code commented out than you would for a program that does not compile. See the <a href="../../docs/compilation.html">compilation</a> for hints as to how to get your code to compile.</p>
 <p>Just to be clear: <strong>you will receive zero credit for a lab component which does not compile.</strong></p>
 <h3 id="resubmitting-your-assignment">Resubmitting your assignment</h3>
 <p>If you submit your assignment, and you realize you made a mistake (didn't submit all the files, etc.), you can resubmit your assignment. The date of submission is the date you re-submitted your assignment -- so if you resubmit your assignment after the due date to add one more file, the <strong>ENTIRE</strong> assignment will have the late submission date. We only look at the most recent submission. There is no penalty for a reasonable number of submissions (i.e., if you hit 100 or so, we will think you are hacking our servers).</p>
 <hr />
 <h2 id="post-lab-1">Post-lab</h2>
 <p>Complete the exercise below, and submit the text file described there to the submission system.</p>
-<p>For this lab you will be submitting your assignment electronically. Your submission is on the Friday of the week of the lab; the exact time is listed on the <a href="../../cs2150/labduedates.html">lab due dates</a> page. Be sure to include: your name, the date, and the name of the file in a banner comment at the beginning of each file you submit.</p>
+<p>For this lab you will be submitting your assignment electronically. Your submission is on the Friday of the week of the lab; the exact time is listed on the <a href="../../cs2150/labduedates.html">lab due dates</a> page. Be sure to include your name, email ID, the date, and the name of the file in a banner comment at the beginning of each file you submit.</p>
 <h3 id="linked-list-template-code">Linked List Template code</h3>
 <p>Download the two linked list files (<a href="list.h.html">list.h</a> (<a href="list.h">src</a>) and <a href="list.cpp.html">list.cpp</a> (<a href="list.cpp">src</a>)). Compile and run the program. The compile command is <code>clang++ list.cpp</code>. If you try to compile the list.h file, it won't work correctly.</p>
 <p>Look at list.h, which is #include'd from list.cpp -- it contains the <strong>bodies</strong> of the methods, which is not the way that it is usually done (the bodies are typically in the .cpp file only). We normally only include in .h files just the declarations (i.e., prototypes) of classes, constants, function, etc., but not definitions of C++ methods (i.e. the bodies of the methods). However, when implementing template classes, this is something that is necessary to make the class compile successfully.</p>
 <p>Look more closely at list.cpp. The line:</p>
 <pre><code>List&lt;int&gt; *l = new List&lt;int&gt;();</code></pre>
-<p>declares a (pointer to) a List of integers, called l. A similar line, but with a different type, would create a list of something else. For example, consider the following line:</p>
+<p>declares (a pointer to) a List of integers, called <code>l</code>. A similar line, but with a different type, would create a list of something else. For example, consider the following line:</p>
 <pre><code>List&lt;char&gt; list2;</code></pre>
 <p>This declares a (non-pointer) list of characters (this is not in the list.cpp file, by the way). Now all the methods in the List class will be available to both <code>l</code> and <code>list2</code>.</p>
 <p>Write at least one question about something in this program. Put your question(s) in a text file called &quot;postlab1.question.txt&quot; and submit this to the submission system to the post-lab 1 assignment.</p>
