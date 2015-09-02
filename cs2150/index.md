@@ -59,7 +59,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |1 | Aug&nbsp;26 | Wednesday | no lab this week | [Course introduction][80] | [Course introduction][80], slides [1][80] to [42][1000303] ([recording][201]) |
 |2 | Aug&nbsp;28 | Friday    | | [Course introduction][80], [01: C++][81] | [Course introduction][80], slides [43][10004] to [58][1000601] (end); [01-cpp][81], slides [1][81] to [14][1010310] ([recording][202]) |
 |3 | Aug&nbsp;31 | Monday    | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | [01: C++][81] | [01-cpp][81], slides [15][1010311] to [42][1010608] ([recording][203]) |
-|4 | Sep&nbsp;2  | Wednesday | | [01: C++][81] | |
+|4 | Sep&nbsp;2  | Wednesday | | [01: C++][81] | [01-cpp][81], slides [43][10107] to [63][1010815] ([recording][204]) |
 |5 | Sep&nbsp;4  | Friday    | | [01: C++][81] | |
 |6 | Sep&nbsp;7  | Monday    | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: LLDB][42] ([md][62]) *OR* [Tutorial 2: GDB][52] ([md][72]) (see [lab 2][2] for which one to pick) | [01: C++][81] | |
 |7 | Sep&nbsp;9  | Wednesday | | [01: C++][81], [02: Lists][82] | |
@@ -277,6 +277,7 @@ None yet!
 [10105]: ../slides/01-cpp.html#/5
 [1010608]: ../slides/01-cpp.html#/6/8
 [10107]: ../slides/01-cpp.html#/7
+[1010815]: ../slides/01-cpp.html#/8/15
 [1010816]: ../slides/01-cpp.html#/8/16
 [1010914]: ../slides/01-cpp.html#/9/14
 [1010915]: ../slides/01-cpp.html#/9/15
