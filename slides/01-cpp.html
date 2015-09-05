@@ -1142,19 +1142,6 @@ r->num = 4;
 </script></section>
 
 <section data-markdown><script type="text/template">
-## Associativity of *
-- Consider:
-  - `char*  x, y;`
-- We can all agree that x is a character pointer (32 bits)
-- But what type is y?
-  - It's a regular char (8 bits)
-- The * is right associative, meaning that the spacing should be:
-  - `char  *x, y;`
-  - C++ doesn't care about your whitespace...
-- This may not be consistent in this course
-</script></section>
-
-<section data-markdown><script type="text/template">
 ## Doubly linked lists (lab 2)
 - This is the UML diagram from [Lab 2](../labs/lab02/index.html)
 ![Lab 2 UML diagram](../labs/lab02/list-diagram.png)
@@ -1198,6 +1185,19 @@ Foo() {
 }
 ```
 <span class="fragment">You are making the pointer point to a local variable, which is then promptly deallocated</span>
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Associativity of *
+- Consider:
+  - `char*  x, y;`
+- We can all agree that x is a character pointer (32 bits)
+- But what type is y?
+  - It's a regular char (8 bits)
+- The * is right associative, meaning that the spacing should be:
+  - `char  *x, y;`
+  - C++ doesn't care about your whitespace...
+- This may not be consistent in this course
 </script></section>
 
 <section data-markdown><script type="text/template">
