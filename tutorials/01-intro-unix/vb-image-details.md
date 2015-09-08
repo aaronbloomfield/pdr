@@ -3,9 +3,16 @@ PDR: Tutorial 1: Introduction to UNIX: VirtualBox image creation details
 
 [Go up to the main tutorial 1 page](index.html)
 
-For those who are interested, this is how the image was set up.  Note that a few of the sections here are for classes beyond PDR (in particular, the LAMP configuration section and the Ruby on Rails configuration section).  If you were to reproduce those on another computer, those two sections can be (and should be) skipped.
+For those who are interested, this is how the image was set up.  Note that a few of the sections here are for classes beyond PDR (in particular, the LAMP configuration, Ruby on Rails configuration, and the Programming Contest configuration sections).  If you were to reproduce those on another computer, those sections can be (and should be) skipped.
 
 These directions are identical to the ones in the [SLP repository](https://github.com/aaronbloomfield/slp) (specifically the ones found [here](http://aaronbloomfield.github.io/slp/docs/virtualbox-image-details.html)).
+
+
+# Introduction
+
+This page has a number of different sections, and the sections you need to install will vary depending on what you are using this image for.  The image provided with the class has only two sections not installed: Dropbox configuration (in "Image completion") and Turning of the Internet access (in "Programming Contest configuration").
+
+The top of each section describes which of the sub-sections need to be installed for what.
 
 **Versions**
 
@@ -18,6 +25,17 @@ This installation document installs the following versions:
 - Ruby 2.2.3; Rails 4.2.3
 
 Newer versions of the above may have since come out, but at the time of the writing of this document (August 2015), they were either the versions installed via apt-get (Apache, PHP, and Python), or the latest versions installed manually (Django, Ruby, and Rails).
+
+**Notes**
+
+- The guest hard drive reported 5.4 Gb of space used, and 13 Gb of space available, prior to distribution of the image.  The disk image itself was, after compaction, 6.2 Gb.  When compressed via zip, it was 1.9 Gb in size.
+- Firefox was a recent version, and video (via youtube) worked right out of the box, along with sound; video and sound (also via youtube) worked fine with Chrome
+- The VM may capture the mouse - to uncapture it, you press the "host key", (which is the right Control key on Linux and Windows hosts, and the left Command key on Mac hosts).  To have it warn you about what this is, you can reset all warnings via the VirtualBox help menu, and it will warn you about this at boot-up
+- In the image creation process, you may run into a problem with VirtualBox where it cannot register a new (or different) disk because it has the same UUID as a previous disk that you are replacing.  If so, then the command `VBoxManage internalcommands sethduuid disk.vdi` (changing `disk.vdi` appropriately) will change the UUID, and allow you to proceed
+
+# Basic installation
+
+All installations need to run through this, as it sets up the default Kubuntu installation.
 
 **Basic installation**
 
@@ -33,11 +51,17 @@ Newer versions of the above may have since come out, but at the time of the writ
 - Ran `sudo apt-get update`
 - Installed the guest addition drivers.  There are many ways to do this, but few seemed to work.  I got it working via modifying the directions [here](http://askubuntu.com/questions/451805/screen-resolution-problem-with-ubuntu-14-04-and-virtualbox) (one of the comments of the top rated answer):
 	- Ran `sudo apt-get install xserver-xorg-core` (the package manager had a lot of complaints with this, but it all seemed to work...)
+	    - Another source indicated that xserver-xorg-core and xorg-video-abi-15 are the two packages to be installed, but the images as created here didn't test this out
 	- Ran `sudo apt-get install -f virtualbox-guest-dkms virtualbox-guest-x11`
 	- Reboot; the X11 screen started resizing with the VirtualBox window
 - Ran `sudo apt-get dist-upgrade`.
 - Reboot!
 - Ran `apt-get autoremove`
+
+# Development installation
+
+The "Program and Data Representation configuration" section
+is for the [Program and Data Representation](http://aaronbloomfield.github.io/pdr) course, and it includes all of the compilers and editors needed.  The "LAMP configuration (with both PHP and Python)" section installs a full [LAMP stack](https://en.wikipedia.org/wiki/LAMP_%28software_bundle%29) for use with web development; both PHP and Python are installed.  The "Ruby on Rails configuration" section is for developing Ruby on Rails software.
 
 **Program and Data Representation configuration**
 
@@ -96,7 +120,7 @@ alias xemacs='emacs'
 sudo update-alternatives --set cc /usr/bin/gcc
 sudo update-alternatives --set c++ /usr/bin/g++
 ```
-- I then followed the directions at [https://gorails.com/setup/ubuntu/14.04](https://gorails.com/setup/ubuntu/14.04).  **HOWEVER**, there were different versions used: since that document was created, Ruby is up to 2.2.3, and Rails is up to 4.2.3 (at the time of this document's writing).  The newer version numbers were used with those instructions.
+- I then followed the directions at [https://gorails.com/setup/ubuntu/14.04](https://gorails.com/setup/ubuntu/14.04).  The versions I used were Ruby 2.2.3, and Rails 4.2.3 (at the time of this document's writing); newer versions may have since appeared.
     - The git/github configuration step was skipped, as that requires the final user of the image
     - MySQL was already set up in the LAMP configuration section
     - PostgreSQL is another SQL database, but we are not using that on the image
@@ -117,6 +141,89 @@ sudo update-alternatives --set cc /usr/bin/clang
 sudo update-alternatives --set c++ /usr/bin/clang++
 ```
 
+# Programming Contest configuration sections
+
+These sections are for configuring the image to run a programming contest using [PC^2](http://www.ecs.csus.edu/pc2/), and are not needed if you are *not* running (or participating in) such a contest.  One of the sections below will detail how to turn off the Internet for use in the actual contest, and that should only be completed for the final contest image.
+
+**Programming Contest configuration**
+
+- Install the packages: `sudo apt-get install emacs24 vim eclipse g++ git gdb openjdk-7-jdk gedit`
+    - If the Basic Installation section, above, was installed, then some of these packages have already been installed
+	- The openjdk-7-doc package is not installed here to keep the image size down, but the packages above install it anyway
+	- For various reasons, the eclipse package is typically not installed on the image released to the students, but should be installed on the final contest image
+- Download the latest [PC^2](http://www.ecs.csus.edu/pc2/) software and unzip it in /usr/local/
+	- At the time of this writing, the latest version is 9.2.4-2837, and the direct download link is [here](http://www.ecs.csus.edu/pc2/code/v9/pc2-9.2.4-2837/pc2-9.2.4-2837.zip); thus, the directory it is unzipped into would be `/usr/local/pc2-9.2.4`
+	- After unzipping, create a symlink: from /usr/local/ run (changing the version as necessary): `sudo ln -s pc2-9.2.4 pc2`
+	- Edit /usr/local/pc2/pc2v9.ini and replace `localhost` on the `server` line (likely line 12) with the full server name of the primary submission server
+- Create a script to restore the Internet access after the contest (this does not hurt anything to have it ready, as it won't do anything if the Internet is not turned off).  This can be `/usr/local/bin/restore-internet` -- the commands therein need sudo, so only the `student` user can run them. This is typically executed at the end of the contest if the contestants want to save their work.  All that has to be done is to modify the default policy for the chains. Be sure to also run `chmod 755 /usr/local/bin/restore-internet`.
+```
+#!/bin/bash
+sudo iptables -P INPUT ACCEPT
+sudo iptables -P OUTPUT ACCEPT
+sudo iptables -P FORWARD ACCEPT
+```
+- Create a `/usr/local/bin/pc2team` shell script, and chmod that to 755 (`chmod 755 /usr/local/bin/pc2team`):
+```
+#!/bin/bash
+cd
+/bin/cp -f /usr/local/pc2/pc2v9.ini .
+/usr/local/pc2/bin/pc2team &
+```
+
+**User account configuration**
+
+- Add in the four aliases to .bashrc, as described above in the "Basic installation" section
+- Put the often used icons in the tool bar: Chrome or Firefox, Emacs, Konsole (and Eclipse, if it is installed)
+- Load up Chrome and/or Firefox, and set the contest site as the default home page
+- Load up emacs, click on "never show this again", and then "dismiss startup screen"; exit emacs
+- Remove all directories in the account other than Downloads and Desktop
+- If there is a second user, then run `chmod 700 /home/*` to prevent the second user from accessing any other user accounts (if there is only one user account on the system, then this is not necessary)
+- Create an icon in the task bar for pc2team (it may be easiest to use an icon adapted from another application); use an [appropriate logo](https://www.google.com/search?q=icpc+logo) for that
+
+
+**Turning off Internet access (and other things)**
+
+- Prior to the contest itself, a bunch of things need to occur to the image for it to work: Internet needs to be turned off, etc.  These modifications are ***NOT*** made to the image as released, and should be made only right before the final image is prepared for the contest.
+- If eclipse is not installed, then do so now (`sudo apt-get install eclipse`); put that icon in the tool bar
+- Edit /etc/hosts to allow that to resolve domain names to IP addresses. Put in the course
+servers, their aliases, and their IP addresses:
+```
+1.2.3.4 server1.university.edu server1
+5.6.7.8 server2.university.edu server2
+9.10.11.12 server3.university.edu server3
+```
+- Configure iptables: this details how to turn *off* network access.  **It is ONLY to be used on the final image for a programming contest!!!**
+    - These directions based on the ones [here](https://help.ubuntu.com/community/IptablesHowTo) and [here](http://stackoverflow.com/questions/21870386/iptables-block-access-to-all-ports-except-from-a-partial-ip-address). We want to allow access to the submission servers, but deny everything else. We set the policy to all
+three chains to DROP, and add ACCEPT lines for localhost and the course servers for the INPUT and
+OUTPUT chains (we don’t do anything, other than changing the default policy, to the FORWARD chain).  For example, the following commands will work (assuming the servers are server1.cs.univeristy.edu through server3.cs.university.edu):
+```
+iptables -A INPUT -i lo -j ACCEPT
+iptables -A OUTPUT -o lo -j ACCEPT
+iptables -A INPUT -j ACCEPT -s server1.cs.university.edu
+iptables -A INPUT -j ACCEPT -s server2.cs.university.edu
+iptables -A INPUT -j ACCEPT -s server3.cs.university.edu
+iptables -A OUTPUT -j ACCEPT -d server1.cs.university.edu
+iptables -A OUTPUT -j ACCEPT -d server2.cs.university.edu
+iptables -A OUTPUT -j ACCEPT -d server3.cs.university.edu
+iptables -P INPUT DROP
+iptables -P OUTPUT DROP
+iptables -P FORWARD DROP
+```
+    - Once those commands are entered via the command line, we save the rules: `iptables-save > /etc/iptables.rules`
+    - After saving the rules, we configure the system to apply those rules on boot (specifically, when bringing the network interface up). Edit /etc/network/interfaces.  There will only be a clause for lo (the loopback interface) present.  Under the `iface lo inet loopback` line, put in the following line (indented): `pre-up iptables-restore < /etc/iptables.rules`
+- **IMPORTANT**: having the contestants log in as `student` is problematic, as that is the user that can restore the Internet access (with the password and via `sudo`).  So either create another user, or change the password to something else and have the contest staff log the students in.
+    - If you are creating a second user, be sure to run through the "user account configuration" section, above
+    - Let's assume that the second user is `hspcteam`; once this account is all set up, create an hspcteam backup to allow resetting: from /home/student, run `sudo /bin/cp -a /home/hspcteam .`; then enter the following script (and make it executable) as `/usr/local/bin/reset-hspcteam`:
+```
+#!/bin/bash
+cd
+sudo rsync -a --del hspcteam/ /home/hspcteam/
+```
+
+# Image completion
+
+The "Installing Dropbox" section is not installed by default.  The "Image finalization" section should be run on every image.  The other sections largely deal with maintenance.
+
 **Image finalization**
 
 - Reboot (rebooting also clears out /tmp)
@@ -124,17 +231,9 @@ sudo update-alternatives --set c++ /usr/bin/clang++
 - Cleared both browser histories
 - To reduce the size of the hard disk (since I have to host it for people to download), I ran `sudo cat /dev/zero > zero; sudo /bin/rm -f zero`.  This creates a large file of all 0's until it runs out of space, then removes that file.
 - Ran `history -c` to remove the history of the commands entered on the command line
-- Logged out then shut down the guest, and ran: `VBoxManage modifyhd student-kubuntu-14.04-fall-2015.vdi --compact` (the disk file name was "student-kubuntu-14.04-fall-2015.vdi").  A better way would be to load up into recovery mode and run zerofill, but the grub menu does not seem to be easily available to load into recovery mode, so I didn't pursue it any further.
+- Logged out then shut down the guest, and ran: `VBoxManage modifyhd disk.vdi --compact` (using the real image file name instead of "disk.vdi").  A better way would be to load up into recovery mode and run zerofill, but the grub menu does not seem to be easily available to load into recovery mode, so I didn't pursue it any further.
 
-**Notes**
-
-- The guest hard drive reported 5.7 Gb of space used, and 12 Gb of space available, prior to distribution of the image.  The disk image itself was, after compaction, 6.4 Gb.  When compressed via zip, it was 1.9 Gb in size.
-- Firefox was a recent version, and video (via youtube) worked right out of the box, along with sound; video and sound (also via youtube) worked fine with Chrome
-- The VM may capture the mouse - to uncapture it, you press the "host key", (which is the right Control key on Linux and Windows hosts, and the left Command key on Mac hosts).  To have it warn you about what this is, you can reset all warnings via the VirtualBox help menu, and it will warn you about this at boot-up
-- In the image creation process, you may run into a problem with VirtualBox where it cannot register a new (or different) disk because it has the same UUID as a previous disk that you are replacing.  If so, then the command `VBoxManage internalcommands sethduuid disk.vdi` (changing `disk.vdi` appropriately) will change the UUID, and allow you to proceed
-
-
-**Installing Dropbox**
+**Installing Dropbox (optional)**
 
 - If you want to install Dropbox, you can download the package from https://www.dropbox.com/install
 - You want the 32-bit Ubuntu version from [this page](https://www.dropbox.com/install?os=lnx)
