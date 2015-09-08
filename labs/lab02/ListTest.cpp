@@ -81,6 +81,8 @@ int   main ()
                 cin  >> response;
 
                 if (response[0] == 'y' || response[0] == 'Y') {                 // Normal Exit
+                    if (list != NULL) delete list;
+                    if (itr != NULL) delete itr;
                     return 0;
                 }
 
