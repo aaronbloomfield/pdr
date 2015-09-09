@@ -1168,7 +1168,7 @@ private:
 </script></section>
 
 <section data-markdown><script type="text/template">
-## Common mistakes
+## Common mistake 1
 - Consider a class Foo with an uninitialized `ListNode*` field `head` that needs to be initialized in the constructor.
 - What is wrong with this constructor?  It compiles fine!
 ```
@@ -1177,7 +1177,12 @@ Foo() {
 }
 ```
 <span class="fragment"> You are creating a local variable 'head' and not accessing the field named 'head'</span>
-- What is wrong with this constructor?  It also compiles fine!
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Common mistake 2
+- Consider a class Foo with an uninitialized `ListNode*` field `head` that needs to be initialized in the constructor.
+- What is wrong with this constructor?  It compiles fine!
 ```
 Foo() {
     ListNode temp;
@@ -1525,7 +1530,7 @@ copy = original;    // operator= called
 <section data-markdown><script type="text/template">
 ## Operator overrides
 - In C++, you can override any operators for a given class
-- We've seen this already, although we haven't specified what was happening
+- We've seen this already:
   - `cout << i;`
     - `cout` is an object (of the `ostream` class), and defines an `operator<<()` method
   - `cin >> i;` similarly
@@ -1534,7 +1539,6 @@ copy = original;    // operator= called
 complex c = 3, d(5,4), e;
 e = c + d * 3;
 cout << e << endl;
-// etc.
 ```
 - This is done for the `string` class, for example
 </script></section>
