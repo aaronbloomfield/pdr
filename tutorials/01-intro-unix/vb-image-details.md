@@ -147,6 +147,7 @@ These sections are for configuring the image to run a programming contest using 
 
 **Programming Contest configuration**
 
+- If you are upgrading from a previous image version, run `sudo apt-get update` and then `sudo apt-get dist-upgrade`
 - Install the packages: `sudo apt-get install emacs24 vim eclipse g++ git gdb openjdk-7-jdk gedit`
     - If the Basic Installation section, above, was installed, then some of these packages have already been installed
 	- The openjdk-7-doc package is not installed here to keep the image size down, but the packages above install it anyway

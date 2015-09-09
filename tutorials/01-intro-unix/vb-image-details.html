@@ -152,6 +152,7 @@ sudo update-alternatives --set c++ /usr/bin/clang++</code></pre></li>
 <p>These sections are for configuring the image to run a programming contest using <a href="http://www.ecs.csus.edu/pc2/">PC^2</a>, and are not needed if you are <em>not</em> running (or participating in) such a contest. One of the sections below will detail how to turn off the Internet for use in the actual contest, and that should only be completed for the final contest image.</p>
 <p><strong>Programming Contest configuration</strong></p>
 <ul>
+<li>If you are upgrading from a previous image version, run <code>sudo apt-get update</code> and then <code>sudo apt-get dist-upgrade</code></li>
 <li>Install the packages: <code>sudo apt-get install emacs24 vim eclipse g++ git gdb openjdk-7-jdk gedit</code>
 <ul>
 <li>If the Basic Installation section, above, was installed, then some of these packages have already been installed</li>
