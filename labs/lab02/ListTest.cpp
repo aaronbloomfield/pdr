@@ -48,7 +48,7 @@ string   option[] =   { "Quit",
                         "Copy list with operator=",
                         "Make list empty",
                       };
-int      const n_choice = 17 ;
+int      const n_choice = 17;
 
 int   main ()
 /*
@@ -309,9 +309,9 @@ int   main ()
                 list=new List(*old_list);
                 old_list->makeEmpty();
 
-                cout << "The new list is (forward ): " ;
+                cout << "The new list is (forward ): ";
                 printList(*list, true);
-                cout << "The new list is (backward): " ;
+                cout << "The new list is (backward): ";
                 printList(*list, false);
                 cout << "The old list was made empty (forward ): ";
                 printList(*old_list, true);
@@ -327,13 +327,13 @@ int   main ()
                 *list=*old_list;
                 old_list->makeEmpty();
 
-                cout << "The new list is (forward ): " ;
+                cout << "The new list is (forward ): ";
                 printList(*list,true);
-                cout << "The new list is (backward): " ;
+                cout << "The new list is (backward): ";
                 printList(*list,false);
-                cout << "The old list was made empty (forward ): " ;
+                cout << "The old list was made empty (forward ): ";
                 printList(*old_list,true);
-                cout << "The old list was made empty (backward): " ;
+                cout << "The old list was made empty (backward): ";
                 printList(*old_list,false);
                 cout << "The old list should be destroyed now." << endl;
 
@@ -347,14 +347,14 @@ int   main ()
                     break;
                 }
 
-                cout << "The list is (forward ): " ;
+                cout << "The list is (forward ): ";
                 printList(*list,true);
-                cout << "The list is (backward): " ;
+                cout << "The list is (backward): ";
                 printList(*list,false);
                 list->makeEmpty();
-                cout << "The list was made empty (forward ): " ;
+                cout << "The list was made empty (forward ): ";
                 printList(*list,true);
-                cout << "The list was made empty (backward): " ;
+                cout << "The list was made empty (backward): ";
                 printList(*list,false);
         }               // end of switch (command)
     }            // end of while (1)
@@ -391,7 +391,7 @@ int   menu (string option[], int n_opt)
             choice = atoi(input.c_str());
 
             if (choice <= n_opt && choice > 0) {
-                return choice ;
+                return choice;
             } else {          /* choice out of range */
                 cout << "\tYour response MUST be between 1 and "
                      << n_opt << endl;
