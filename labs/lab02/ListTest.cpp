@@ -163,6 +163,7 @@ int   main ()
             case 6:                      // test last()
                 if (list == NULL) {
                     cout << endl << "\tCreate a List first." << endl;
+                    break;
                 }
                 cout << "\tSetting the ListItr to the last element..." << endl;
                 itr = new ListItr((list->last()));
