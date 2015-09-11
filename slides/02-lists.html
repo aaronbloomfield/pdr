@@ -73,9 +73,9 @@
 &nbsp;  
 [Standard Template Library: vector](#/vector)  
 [C++ Templates](#/templates)  
-[Abstract Data Types: Lists](#/adts)  
 [Stacks](#/stacks)  
 [Queues](#/queues)  
+[Abstract Data Types: Lists](#/adts)  
 [Standard Template Library: string](#/string)  
 	</script></section>
 
@@ -309,106 +309,6 @@ Buffer<string,2048> buf2;  // Buffer<string,2048>
   - `vector` throughout the course
   - `string` throughout the course
   - `stack` in pre-lab 3 and in-lab 3 (but *NOT* post-lab 3)
-	</script></section>
-
-	</section>
-
-	<section>
-
-<section data-markdown id="adts"><script type="text/template">
-# Abstract Data Types: Lists
-</script></section>
-
-	<section data-markdown><script type="text/template">
-## Abstract Data Types (ADT)
-- Collection of "things" with a set of operations that can be performed on the data structure
-  - Definition of a type
-- A C++ class is a way to implement an ADT, as is a Java class, or C code (which is not object oriented)
-- An ADT hides implementation details from the programs that use them
-  - Why?
-- We are using lists as an example to show *what* an ADT is
-  - You all should be familiar with lists from your previous courses...
-	</script></section>
-
-	<section data-markdown><script type="text/template">
-## Lists ADT
-- A<sub>0</sub>, A<sub>1</sub>, A<sub>2</sub>, A<sub>3</sub>, ...
-  - size N
-  - empty list -- list of size 0
-  - A<sub>0</sub> is the first element
-  - A<sub>i</sub> follows A<sub>i-1</sub>
-  - position of element A<sub>i</sub> is i
-- Extended the language by adding a new type
-	</script></section>
-
-	<section data-markdown><script type="text/template">
-## List ADT Operations
-- printList: print the list
-- makeEmpty: make the list empty
-- find: find the position of an item in the list
-- insert: insert an item to the list
-- remove: remove an item from the list
-- findKth: find the element at position K
-- next: return the position of the successor
-- previous: return the position of the predecessor
-	</script></section>
-
-	<section data-markdown><script type="text/template">
-## Example
-- Given the list:
-```
-34, 12, 52, 16, 12
-A0, A1, A2, A3, A4
-```
-- find(52)
-  - returns 2 (position of 52)
-- insert('x',2)
-  - 34, 12, 'x', 52, 16, 12
-- remove(52)
-- find(1)
-	</script></section>
-
-	<section data-markdown><script type="text/template">
-## Implementation of Lists: Arrays
-![Lists ADT as an array](images/02-lists/lists-adt-arrays.png)
-
-- Fixed capacity
-- Operations
-  - printList, find: linear time
-  - findKth: constant time
-  - insert and delete: varies (can be constant, but worst case linear)
-	</script></section>
-
-	<section data-markdown><script type="text/template">
-## List Implementation: Linked List
-![Lists ADT as an array](images/02-lists/lists-adt-linked.png)
-
-- Nodes
-  - element
-  - link (pointer!) to node containing successor
-- Operations
-  - printList, find, findKth: linear time
-  - remove: change one pointer and call `delete`, so constant time
-  - insert: get a new node (`new`) and adjust 2 pointers, so constant time
-	</script></section>
-
-	<section data-markdown><script type="text/template">
-## Linked List insert()
-- Special cases
-  - inserting at the front (head)
-  - inserting at the end (tail)
-  - removing last node
-	</script></section>
-
-	<section data-markdown><script type="text/template">
-## List Iterators
-- Why are they needed?
-  - position is needed for some list operations
-    - find()
-    - insert()
-    - remove()
-  - ListItr
-    - maintains notion of position by maintaining a pointer to a particular ListNode
 	</script></section>
 
 	</section>
@@ -696,6 +596,106 @@ class Queue{
       int Queue::dequeue() {
       
       }
+	</script></section>
+
+	</section>
+
+	<section>
+
+<section data-markdown id="adts"><script type="text/template">
+# Abstract Data Types: Lists
+</script></section>
+
+	<section data-markdown><script type="text/template">
+## Abstract Data Types (ADT)
+- Collection of "things" with a set of operations that can be performed on the data structure
+  - Definition of a type
+- A C++ class is a way to implement an ADT, as is a Java class, or C code (which is not object oriented)
+- An ADT hides implementation details from the programs that use them
+  - Why?
+- We are using lists as an example to show *what* an ADT is
+  - You all should be familiar with lists from your previous courses...
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Lists ADT
+- A<sub>0</sub>, A<sub>1</sub>, A<sub>2</sub>, A<sub>3</sub>, ...
+  - size N
+  - empty list -- list of size 0
+  - A<sub>0</sub> is the first element
+  - A<sub>i</sub> follows A<sub>i-1</sub>
+  - position of element A<sub>i</sub> is i
+- Extended the language by adding a new type
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## List ADT Operations
+- printList: print the list
+- makeEmpty: make the list empty
+- find: find the position of an item in the list
+- insert: insert an item to the list
+- remove: remove an item from the list
+- findKth: find the element at position K
+- next: return the position of the successor
+- previous: return the position of the predecessor
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Example
+- Given the list:
+```
+34, 12, 52, 16, 12
+A0, A1, A2, A3, A4
+```
+- find(52)
+  - returns 2 (position of 52)
+- insert('x',2)
+  - 34, 12, 'x', 52, 16, 12
+- remove(52)
+- find(1)
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Implementation of Lists: Arrays
+![Lists ADT as an array](images/02-lists/lists-adt-arrays.png)
+
+- Fixed capacity
+- Operations
+  - printList, find: linear time
+  - findKth: constant time
+  - insert and delete: varies (can be constant, but worst case linear)
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## List Implementation: Linked List
+![Lists ADT as an array](images/02-lists/lists-adt-linked.png)
+
+- Nodes
+  - element
+  - link (pointer!) to node containing successor
+- Operations
+  - printList, find, findKth: linear time
+  - remove: change one pointer and call `delete`, so constant time
+  - insert: get a new node (`new`) and adjust 2 pointers, so constant time
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Linked List insert()
+- Special cases
+  - inserting at the front (head)
+  - inserting at the end (tail)
+  - removing last node
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## List Iterators
+- Why are they needed?
+  - position is needed for some list operations
+    - find()
+    - insert()
+    - remove()
+  - ListItr
+    - maintains notion of position by maintaining a pointer to a particular ListNode
 	</script></section>
 
 	</section>
