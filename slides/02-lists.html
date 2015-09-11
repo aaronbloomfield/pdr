@@ -109,7 +109,7 @@
   - void reserve(int newCapacity)
   - int size() const
   - void clear()
-  - bool empty()
+  - bool empty() const
   - void push_back()
   - void pop_back()
   - const Object & back() const
@@ -128,6 +128,16 @@
     - *itr	//returns ref to obj at itr loc.
     - itr1==itr2	// true if same location
     - itr1!=itr2	//true if different location
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Vector iterator usage
+```
+for ( vector<int>::iterator it = v.begin(); 
+      it != v.end(); it++ )
+    cout << *it << endl;
+```
+It looks much like `int` code with the various operators overrides!
 	</script></section>
 
 	<section data-markdown><script type="text/template">
