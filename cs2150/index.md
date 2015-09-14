@@ -64,7 +64,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |6 | Sep&nbsp;7  | Monday    | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: LLDB][42] ([md][62]) *OR* [Tutorial 2: GDB][52] ([md][72]) (see [lab 2][2] for which one to pick) | [01: C++][81] | [01-cpp][81], slides [80][1010913] to [87][10110] ([recording][206]) |
 |7 | Sep&nbsp;9  | Wednesday | | [01: C++][81], [02: Lists][82] | [01-cpp][81], slides [87][10110] to [121][1011213] (end) ([recording][207]) |
 |8 | Sep&nbsp;11 | Friday    | | [02: Lists][82] | [02-lists][82], slides [1][82] to [27][1020507] ([recording][208]) |
-|9 | Sep&nbsp;14 | Monday    | [Lab 3: Stacks][3] ([md][23]) / [Tutorial 3: More UNIX, part 1][63], introduction and sections 1-4 | [02: Lists][82], [03: Numbers][83] | |
+|9 | Sep&nbsp;14 | Monday    | [Lab 3: Stacks][3] ([md][23]) / [Tutorial 3: More UNIX, part 1][63], introduction and sections 1-4 | [02: Lists][82], [03: Numbers][83] | [02-lists][82], slides [28][1020508] to [56][1020803] ([recording][209]) |
 |10| Sep&nbsp;16 | Wednesday | | [03: Numbers][83] | |
 |11| Sep&nbsp;18 | Friday    | | [03: Numbers][83] | |
 |12| Sep&nbsp;21 | Monday    | [Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8 | [03: Numbers][83] | |
@@ -292,6 +292,7 @@ None yet!
 [1020304]: ../slides/02-lists.html#/3/4
 [10204]: ../slides/02-lists.html#/4
 [1020507]: ../slides/02-lists.html#/5/7
+[1020508]: ../slides/02-lists.html#/5/8
 [1020606]: ../slides/02-lists.html#/6/6
 [1020607]: ../slides/02-lists.html#/6/7
 [1020803]: ../slides/02-lists.html#/8/3
