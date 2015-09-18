@@ -558,12 +558,17 @@ void Image::WriteInt (int value, FILE * fp) {
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Floating Point
+## Floating Point, part 1
 - Each number in scientific notation has four parts: -3.24 \* 10<sup>6</sup>
   - Sign bit (1 is negative)
   - Mantissa (the "value" of the number): 3.24 in the example above
     - Always in the range 1.0 &le; *m* < 10.0 for decimal numbers in scientific notation
     - Always in the range 1.0 &le; *m* < 2.0 in the binary representation
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Floating Point, part 2
+- Each number in scientific notation has four parts: -3.24 \* 10<sup>6</sup>
   - Base
     - This is 10 for tyipcaly scientific notation, but 2 for computers
     - As this is always known for floats and doubles, it is omitted
