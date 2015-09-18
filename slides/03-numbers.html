@@ -500,6 +500,20 @@ void Image::WriteInt (int value, FILE * fp) {
 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | = | -128 |
 	  </script></section>
 
+	  <section data-markdown><script type="text/template">
+## Integer overflow
+- Given a signed 8-bit integer: 127 = 0111 1111
+  - The maximum value for that data type
+- If you add 1 to that, you get 1000 000
+  - Which is -128
+- This is called *overflow* (or *integer overflow*)
+- Other common overflows:
+  - 16-bits: 32,767 + 1 = -32,768
+  - 32-bits: 2,147,483,647 + 1 = -2,147,483,648
+- This has real-word applications: [*Gangnam Style* overflows INT_MAX, forces YouTube to go 64-bit](http://arstechnica.com/business/2014/12/gangnam-style-overflows-int_max-forces-youtube-to-go-64-bit/) (Dec 3, 2014)
+  - If you care, it's now at 2.4 billion views (as of Sep 2015)
+	  </script></section>
+
 	  <section>
 <h2>A bit of an aside...</h2>
 <p>This is an <i>actual</i> comment left by a graduating SEAS computer science major:</p>
@@ -508,7 +522,7 @@ void Image::WriteInt (int value, FILE * fp) {
   <p>I can't count the number of times I was taught how to count in binary</p>
 </blockquote>
 <p>&nbsp;</p>
-<p class="fragment">So this material may appear again...</p>
+<p class="fragment">So this material may appear again in the CS curriculum.  Hopefully everybody will (eventually) learn it...</p>
 	  </section>
 
 	</section>
