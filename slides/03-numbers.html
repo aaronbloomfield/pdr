@@ -673,11 +673,11 @@ void Image::WriteInt (int value, FILE * fp) {
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Floating point numbers are<br>not spatially uniform
+## Not spatially uniform!
 - Consider a numerical type that holds only 3 decimal digits
   - Examples: 1.23, 12.3, 123, 1,230
     - In scientific notation, respectively: 1.23\*10<sup>0</sup>, 1.23\*10<sup>1</sup>, 1.23\*10<sup>2</sup>, 1.23\*10<sup>3</sup>
-- Consider the next highest number for each of those examples
+- Consider the next highest number for each of them:
   - Next highest in this numerical type, not of all real numbers
   - 1.23 => 1.24; difference is 0.01
   - 12.3 => 12.4; difference is 0.1
@@ -697,17 +697,16 @@ void Image::WriteInt (int value, FILE * fp) {
 
 	  <section data-markdown><script type="text/template">
 ## Converting a float<br>from decimal to binary
-- Algorithm to covert *f* into binary:
-  - Sign: 1 if negative, 0 if positive
-  - Exponent (*e*): find what power of 2 is required to bring the number to 1.0 <= *x* < 2.0
-    - If you have to multiply, then it's negative
-    - If you have to divide, then it's positive
-    - Add 127 to that value
-  - The mantissa is *f/2<sup>e</sup>*
-    - Note that *e* is the exponent before adding 127 to it
-    - Subtract 1 from the mantissa (so that 0.0 &le; *m* < 1.0)
-    - Convert to it's closest representation using powers of &frac12;
-    - Similar to converting a base *n* number to base 10
+- Sign: 1 if negative, 0 if positive
+- Exponent (*e*): find what power of 2 is required to bring the number to 1.0 <= *x* < 2.0
+  - If you have to multiply, then it's negative
+  - If you have to divide, then it's positive
+  - Add 127 to that value
+- The mantissa is *f/2<sup>e</sup>*
+  - Note that *e* is the exponent before adding 127 to it
+  - Subtract 1 from the mantissa (so that 0.0 &le; *m* < 1.0)
+  - Convert to closest representation using powers of &frac12;
+  - Similar to converting a base *n* number to base 10
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -753,7 +752,7 @@ Output: 0x42288000
 </ul></li>
 <li>Sign is 0 (it's positive)</li>
 <li>Exponent: <ul>
-  <li>Divide by the highest power of 2 that is <i>less</i> than the number</li>
+  <li>Divide by the highest power of 2 that's <i>less</i> than num</li>
   <li>In this case, that is 2<sup>5</sup> = 32</li>
   <li>\( \frac{\frac{337}{8}}{2^5} = \frac{337}{8*2^5} = \frac{337}{256} \)</li>
   <li>Exponent is 5+127 = 132 (1000 0100<sub>b</sub>)</li>
@@ -834,7 +833,7 @@ double c = .9999999999999999;
 - Two false expressions!
   - `a == b`
   - `b != c`
-- Problem lies with the finite precision of the floating-point types
+- Problem is with the finite precision of floating-point types
   - Instead with the ordering operators for closeness
 	  </script></section>
 
@@ -861,10 +860,10 @@ bool foo = fabs (a-b) < EPSILON;
 	  <section data-markdown><script type="text/template">
 ## Floating point rounding errors
 - Add 0.333333333333333333 a total of 3 times, and you don't get 1.0
-  - As 1/3 cannot be represented properly with a (finite) decimal number
+  - As 1/3 cannot be represented via a (finite) decimal num
     - Any denominator that has factors that are not factors of the radix
     - Decimal radix factors: 2 an 5
-    - Good: 25 (factors are 5 and 5), 10 (factors are 2 2 5 5), etc.
+    - Good: 25 (factors: 5, 5), 10 (factors: 2, 2, 5, 5), etc.
     - Bad: 1/3, 1/7, 1/11, 1/12
   - Same thing with 0.1 (and many others!) in binary
     - Any denominator that has factors that are not factors of the radix (which is just 2!)
@@ -880,7 +879,7 @@ bool foo = fabs (a-b) < EPSILON;
 <li>Which is exactly equal to:
 <ul><li> 0.100000001490116119384765625</li>
 <li>But only the first 7 digits, .1000000, are printed</li></ul></li>
-<li>It's a finite number in decimal, but repeating in binary</li>
+<li>0.1 (exactly) is a finite number in decimal, but repeating in binary</li>
 </ul>
 	  </section>
 
@@ -897,18 +896,17 @@ bool foo = fabs (a-b) < EPSILON;
 	  <section data-markdown><script type="text/template">
 ## Real world example: Patriot Missile
 - Gulf War I (1990-1991)
-- Failed to intercept incoming Iraqi scud missile (Feb 25, 1991)
-  - Both travel at about Mach 5
+- Failed to intercept incoming Iraqi scud missile (Feb 25, 1991); both travel at about Mach 5
 - 28 American soldiers killed
 ![patriot missile launch](images/03-numbers/patriot-missile.jpg)
-- GAO report: [GAO/IMTEC-92-26 Patriot Missile Software Problem](http://www.fas.org/spp/starwars/gao/im92026.htm); image from [Wikipedia](http://en.wikipedia.org/wiki/File:Patriot_missile_launch_b.jpg)
+- GAO report [here](http://www.fas.org/spp/starwars/gao/im92026.htm); image from [Wikipedia](http://en.wikipedia.org/wiki/File:Patriot_missile_launch_b.jpg)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Patriot Design
 - Intended to operate only for a few hours at a time
-  - But was left running for about 100 hours prior to the incident
-  - Designed to defend Europe from Soviet aircraft & missiles
+  - But was left running for ~100 hours prior to incident
+  - Designed to defend Europe from Soviet weapons
 - Four 24 bit fixed-point registers (1970s design)
   - Meaning there were only 24 bits of precision after the decimal place
   - Although a `float` has somewhat similar precision
@@ -930,7 +928,7 @@ bool foo = fabs (a-b) < EPSILON;
     <li>At 1/10485760 time error per tenth of a second, that yields 0.0034 seconds of time error per hour</li>
     <li>100 hours: 0.34s</li></ul></li>
 <li>The Scud missile was traveling at 1,676 m/s (Mach 4.93)<ul>
-    <li>1,676 meters per second * 0.34 seconds = 570 meters (1,870 feet)</li>
+    <li>1,676 m/s * 0.34 seconds = 570 meters (1,870 feet)</li>
     <li>The Patriot thus missed the target by over a half a km</li></ul></li>
 </ul>
 	  </section>
@@ -955,7 +953,8 @@ bool foo = fabs (a-b) < EPSILON;
   - Exponent offset is 2<sup>*e*-1</sup>-1 = 1023
 - Single precision: 0.1 = 209715 / 2097152
   - Error = 9.5 \* 10<sup>-8</sup>  (at least 20 hours to miss target)
-- Double precision: 0.1 = 56294995342131 / 562949953421312
+- Double precision: 
+  - 0.1 = 56294995342131 / 562949953421312
   - Error = 3.608 \* 10<sup>-16</sup> (2,172,375,450 ***years*** to miss)
 	  </script></section>
 
