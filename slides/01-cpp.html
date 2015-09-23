@@ -1480,13 +1480,21 @@ delete ptrToAnotherSquare;
 </script></section>
 
 <section data-markdown><script type="text/template">
-## The Big Three
+## The Big Four
 - C++ provides these by default
-  - Destructor
+  - Default constructor
   - Copy Constructor
+  - Destructor
   - `operator=()`
-  - (and a default constructor, if you don't supply one)
 - There are some issues with the defaults...
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Default constructor
+- Takes in no parameters
+- Doesn't do anything by default
+- It's just put in there so you can call it without a compiler error:
+  - `foo *x = new foo();`
 </script></section>
 
 <section data-markdown><script type="text/template">
