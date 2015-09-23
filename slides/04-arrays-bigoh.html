@@ -137,7 +137,7 @@ someInts[0], someInts[1], someInts[2]
 <tr><td><code>&amp;someInts[2]</code></td><td>1008</td><td class="border">6</td></tr>
 <tr><td></td><td></td><td class="border">...</td></tr>
 <tr><td><code>someInts</code></td><td>???</td><td class="border">1000</td></tr>
-<tr><td></td><td></td><td class="border">...</td></tr>
+<tr><td></td><td></td><td class="border" style="border-bottom:medium solid;">...</td></tr>
 </table>
 <p>This assumes that ints are 4 bytes in size</p>
 	  </section>
@@ -217,10 +217,9 @@ Source code: [cmdlineparams.cpp](code/04-arrays-bigoh/cmdlineparams.cpp.html) ([
 int main (int argc, char* argv[]) {
     // the command-line parameters are stored as C-style 
     // strings in the argv[] array. argc contains 1 more 
-    // than the number of command line parmaeters specified.
-    // the 0th command line parameter is always the program 
-    // name. We can print a C-style string directly through 
-    // cout:
+    // than the number of command line parms specified.
+    // The 0th command line parameter is the program 
+    // name. We can print a C-style string via cout:
     cout << "This program is called '" << argv[0] 
          << "'" << endl;
     cout << "The following are the command " 
@@ -229,9 +228,8 @@ int main (int argc, char* argv[]) {
     // name of the program
     for ( int i = 1; i < argc; i++ ) {
         // we can convert the C-style strings into 
-        // C++-style strings:
+        // C++-style strings, and then print them:
         string s(argv[i]);
-        // and then print them out:
         cout << "\t" << s << endl;
     }
 }
@@ -249,7 +247,7 @@ int main (int argc, char* argv[]) {
 
 	  <section data-markdown><script type="text/template">
 ## Classifying functions by their<br>Asymptotic Growth Rates
-- Asymptotic growth rate, asymptotic order, or order of functions 
+- Asymptotic growth rate or asymptotic order
   - Comparing and classifying functions that ignores constant factors and small inputs. 
 - The sets are <span class='red'>big-omega</span>, big-theta, and <span class='skyblue'>big-oh</span>:
   - <span class='red'>&Omega;</span>(*g*): functions that grow ***at least as fast*** as g
@@ -275,16 +273,17 @@ int main (int argc, char* argv[]) {
   - A [bogosort](http://en.wikipedia.org/wiki/Bogosort) will work just fine
 - Consider big input sizes:
   - UVa's e-mail probably has about 100,000 e-mail addresses
-  - [OpenStreetMap](http://www.openstreetmap.org), for driving routes, has 2.2 billion nodes ([ref](http://www.openstreetmap.org/stats/data_stats.html)) (as of Feb 2014)
+  - [OpenStreetMap](http://www.openstreetmap.org), for driving routes, has over 3 billion nodes ([ref](http://www.openstreetmap.org/stats/data_stats.html)) (as of Sep 2015)
     - A 'node' is a point on the Earth's surface, and not necessarily an intersection
-  - Google's index is 15 billion items ([ref](http://www.worldwidewebsize.com/)) (as of Feb 2014)
+  - Google's index has over 46 billion items ([ref](http://www.worldwidewebsize.com/)) (as of Sep 2015)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Even for smaller input sizes...
 - This is from the first lecture set
 - All times are in ms (1/1000<sup>th</sup> of a second)
-- Source code: [DataStructureComparison.java](code/01-intro/DataStructureComparison.java.html) ([src](code/01-intro/DataStructureComparison.java))
+- Source code: [DataStructureComparison.java](../cs2150/code/introduction//DataStructureComparison.java.html) ([src](../cs2150/code/introduction//DataStructureComparison.java))
+&nbsp;  
 &nbsp;  
 
 | Data Structure | Total time | Insert time | Search time | Delete time |
@@ -310,7 +309,6 @@ int main (int argc, char* argv[]) {
     - We could shorten this: *f* &isin; O(*g*)
   - *f*(*n*) &notin; &Omega;(*g*(*n*))
     - We could shorten this: *f* &notin; &Omega;(*g*)
-  - Etc.
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">

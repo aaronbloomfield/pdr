@@ -108,6 +108,7 @@ span.tt {
 td.border {
   border-width:medium;
   border-style:solid;
+  border-bottom:medium solid;
 }
 
 /* for horizontal table memory cells, which need a border */
@@ -122,9 +123,14 @@ tr.bordercfifty td {
 .reveal table.transparent tr { 
   background-color: transparent;
 }
+.reveal table.transparent td { 
+  border-bottom: 0px;
+  background-color: transparent;
+}
 .reveal table.transparent th { 
   text-decoration:underline;
   background-color: transparent;
+  border-bottom: 0px;
 }
 
 /* for an image without a border */
