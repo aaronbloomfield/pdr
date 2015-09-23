@@ -68,7 +68,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |10| Sep&nbsp;16 | Wednesday | | [03: Numbers][83] | [03: Numbers][83], slides [1][83] to [30][1030608] ([recording][210]) |
 |11| Sep&nbsp;18 | Friday    | | [03: Numbers][83] | [03: Numbers][83], slides [31][10307] to [49][1030809] ([recording][211]) |
 |12| Sep&nbsp;21 | Monday    | [Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8 | [03: Numbers][83] | [03: Numbers][83], slides [50][1030810] to [65][1030825] ([recording][212]) |
-|13| Sep&nbsp;23 | Wednesday | | [04: Arrays & big-Oh][84] | |
+|13| Sep&nbsp;23 | Wednesday | | [04: Arrays & big-Oh][84] | [03: Numbers][83], slides [65][1030825] to [73][1030833] (end); [04: Arrays & Big-Oh][84], slides [1][84] to [15][1040311] ([recording][214]) |
 |14| Sep&nbsp;25 | Friday    | | [04: Arrays & big-Oh][84] | |
 |  | Sep&nbsp;27 | Sunday    | | Exam 1 review session | |
 |15| Sep&nbsp;28 | Monday    | Exam 1 instead during Tuesday's lab | [04: Arrays & big-Oh][84], [05: Trees][85] | |
@@ -307,6 +307,8 @@ None yet!
 [1030816]: ../slides/03-numbers.html#/8/16
 [1030825]: ../slides/03-numbers.html#/8/25
 [1030832]: ../slides/03-numbers.html#/8/32
+[1030833]: ../slides/03-numbers.html#/8/33
+[1040311]: ../slides/04-arrays-bigoh.html#/3/11
 [1040402]: ../slides/04-arrays-bigoh.html#/4/2
 [1040403]: ../slides/04-arrays-bigoh.html#/4/3
 [1040419]: ../slides/04-arrays-bigoh.html#/4/19
