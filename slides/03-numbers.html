@@ -947,9 +947,9 @@ bool foo = fabs (a-b) < EPSILON;
 - IEEE 754 Double Precision (64 bits)
   - A `float` has about 7 decimal places of accuracy, and a `double` has about 15
 - 64 bits are split as follows:
-  - bit 0: sign bit, 1 means negative (1 bit)
-  - bits 1-11: exponent (11 bits)
-  - bits 12-63: mantissa (52 bits)
+  - bit 1: sign bit, 1 means negative (1 bit)
+  - bits 2-12: exponent (11 bits)
+  - bits 13-64: mantissa (52 bits)
   - Exponent offset is 2<sup>*e*-1</sup>-1 = 1023
 - Single precision: 0.1 = 209715 / 2097152
   - Error = 9.5 \* 10<sup>-8</sup>  (at least 20 hours to miss target)
