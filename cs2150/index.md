@@ -72,7 +72,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |14| Sep&nbsp;25 | Friday    | | [04: Arrays & big-Oh][84] | [04: Arrays & Big-Oh][84], slides [16][10404] to [25][1040409] ([recording][215]) |
 |  | Sep&nbsp;27 | Sunday    | | Exam 1 review session | ([recording][217]) |
 |15| Sep&nbsp;28 | Monday    | Exam 1 instead during Tuesday's lab | [04: Arrays & big-Oh][84], [05: Trees][85] | [04: Arrays & Big-Oh][84], slides [26][1040410] to [58][1040507] ([recording][216]) |
-|16| Sep&nbsp;30 | Wednesday | | [05: Trees][85] | |
+|16| Sep&nbsp;30 | Wednesday | | [05: Trees][85] | [05: Trees][85], slides [1][85] to [30][1050410] ([recording][218]) |
 |17| Oct&nbsp;2  | Friday    | | [05: Trees][85] | |
 |  | Oct&nbsp;5  | Monday    | no lab this week due to fall break | no class (fall break) | No lecture today (fall break) |
 |18| Oct&nbsp;7  | Wednesday | | [05: Trees][85] | |
@@ -321,6 +321,7 @@ None yet!
 [1050305]: ../slides/05-trees.html#/3/5
 [1050306]: ../slides/05-trees.html#/3/6
 [1050311]: ../slides/05-trees.html#/3/11
+[1050410]: ../slides/05-trees.html#/4/10
 [1050415]: ../slides/05-trees.html#/4/15
 [1050416]: ../slides/05-trees.html#/4/16
 [1050417]: ../slides/05-trees.html#/4/17
