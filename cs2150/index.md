@@ -75,8 +75,8 @@ The links in the right-most column link directly to the lecture recording on Col
 |16| Sep&nbsp;30 | Wednesday | | [05: Trees][85] | [05: Trees][85], slides [1][85] to [30][1050410] ([recording][218]) |
 |17| Oct&nbsp;2  | Friday    | | [05: Trees][85] | [05: Trees][85], slides [30][1050410] to [64][1050609] ([recording][219]) |
 |  | Oct&nbsp;5  | Monday    | no lab this week due to fall break | no class (fall break) | No lecture today (fall break) |
-|18| Oct&nbsp;7  | Wednesday | | [05: Trees][85] | |
-|19| Oct&nbsp;9  | Friday    | | [05: Trees][85] | |
+|18| Oct&nbsp;7  | Wednesday | | [05: Trees][85] | [05: Trees][85], slides [65][1050610] to [85][1050630] (recording to be posted soon...) |
+|19| Oct&nbsp;9  | Friday    | | [05: Trees][85] | [05: Trees][85], slides [86][10507] to ... |
 |20| Oct&nbsp;12 | Monday    | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [06: Hashes][86] | |
 |21| Oct&nbsp;14 | Wednesday | | [06: Hashes][86] | |
 |22| Oct&nbsp;16 | Friday    | | [06: Hashes][86], [07: IBCM][87] (machine language) | |
@@ -326,8 +326,11 @@ None yet!
 [1050416]: ../slides/05-trees.html#/4/16
 [1050417]: ../slides/05-trees.html#/4/17
 [1050609]: ../slides/05-trees.html#/6/9
+[1050610]: ../slides/05-trees.html#/6/10
 [1050612]: ../slides/05-trees.html#/6/12
 [1050617]: ../slides/05-trees.html#/6/17
+[1050630]: ../slides/05-trees.html#/6/30
+[10507]: ../slides/05-trees.html#/7
 [1050703]: ../slides/05-trees.html#/7/3
 [1050709]: ../slides/05-trees.html#/7/9
 [1050711]: ../slides/05-trees.html#/7/11
