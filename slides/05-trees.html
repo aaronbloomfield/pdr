@@ -37,7 +37,7 @@
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
 
-	<section data-markdown id="cover"><script type="text/template">
+	<section data-markdown><script type="text/template">
 # CS 2150
 &nbsp;
 ### Program and Data Representation
@@ -199,11 +199,11 @@
 
 	  <section data-markdown><script type="text/template">
 ## Pre-order Traversal
-- Pre-order: node first, then children:
+- Pre-order: node first, then children (this is pseudo-code):
 ```
-TreeNode::printTree(TreeNode tnode) {
-    tnode.print();
-    for each child c of tnode
+TreeNode::printTree() {
+    this.print();
+    for each child c of this:
         c.printTree();
 }
 ```
@@ -211,12 +211,12 @@ TreeNode::printTree(TreeNode tnode) {
 
 	  <section data-markdown><script type="text/template">
 ## In-order Traversal
-- In-order: left node first, then self, then right node:
+- In-order: left node first, then self, then right node (C++):
 ```
 void BST::print(BinaryNode *curNode) {
     if (curNode != NULL) {
         print(curNode->left);
-        cout << curNode->element;
+        cout << curNode->element << endl;
         print(curNode->right);
     }
 }
@@ -225,9 +225,9 @@ void BST::print(BinaryNode *curNode) {
 
 	  <section data-markdown><script type="text/template">
 ## Post-order Traversal
-- Post-order: children first, then node:
+- Post-order: children first, then node (partly C++, partly pseudo-code):
 ```
-int TreeNode::numNodes(TreeNode tnode) {
+int TreeNode::numNodes(TreeNode *tnode) {
     if ( tnode == NULL )
         return 0;
     else {
@@ -382,7 +382,6 @@ Similarly down the left subttree links for `findMin()`
 - Disrupts the tree structure
 - Basic idea: 
   - Find node to be removed.
-  - "Fix" tree so that binary search tree property still holds true
   - Three cases:
     - Node has no children
     - Node has one child
