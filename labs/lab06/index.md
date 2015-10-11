@@ -282,7 +282,7 @@ Armed with this, the rest of the required concepts for the shell script are in f
 
 As you are going through the tutorial, if there is a Unix command that you do not know (or you once knew and have since forgotten), you can find out more information about that command by entering `man command` at the Unix prompt.  This brings up the manual for that command, including all of the command-line parameters.
 
-A few thoughts to help you with your shell script.  If you are unsure if something is working, you can always print out the value of the variable through the `echo` command.  And you need not worry about the decimal precision of the average -- the result of using 'expr' or arithmetic expansion `$(( ... ))` with the sum over the number of runs is fine -- recall that the script has been modified to only print out an integer value (using 'expr' or arithmetic expansion `$(( ... ))` with floating point values will have issues).
+A few thoughts to help you with your shell script.  If you are unsure if something is working, you can always print out the value of the variable through the `echo` command.  And you need not worry about the decimal precision of the average -- the result of using arithmetic expansion `$(( ... ))` with the sum over the number of runs is fine -- recall that the script has been modified to only print out an integer value (using arithmetic expansion `$(( ... ))` with floating point values will have issues).
 
 Your script should have comments (anything on a line after a '#' is a comment).  Our solution was 10-15 lines, not counting comments.
 
@@ -291,7 +291,7 @@ Below are a few notes to keep in mind when writing your shell script.  Bash is a
 - The shell script takes two inputs (dictionary file and grid file), in that order; no command-line parameters.
 - Your program should be called `averagetime.sh`, and should have `#!/bin/bash` as the very first line of the script
 - When setting variables, do not have spaces around the equals sign
-- Keep in mind that to grab program output (such as the output of the binary program, or the result of a mathematical calculation using 'expr'), you use back quotes (i.e. \`)
+- Keep in mind that to grab program output (such as the output of the binary program), you use back quotes (i.e. \`)
 - To execute your script, you can just enter, `./averagetime.sh`.  If you get a complaint about that ('permission denied', for example), enter this command: `chmod 755 averagetime.sh`.  This tells your Unix system that averagetime.sh is a program that can be executed (remember chmod?).
 
 ### In-lab Report ###
