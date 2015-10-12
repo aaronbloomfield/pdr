@@ -164,12 +164,13 @@
 | find | &Theta;(*h*), where<br>log *n* < *h* &le; *n*-1;<br>worst case is &Theta;(*n*) | &Theta;(log *n*) | &Theta;(log *n*) | &Theta;(log *n*)<br>amortized |
 | insert | &Theta;(*h*), where<br>log *n* < *h* &le; *n*-1;<br>worst case is &Theta;(*n*) | &Theta;(log *n*) | &Theta;(log *n*) | &Theta;(log *n*)<br>amortized |
 | remove | &Theta;(*h*), where<br>log *n* < *h* &le; *n*-1;<br>worst case is &Theta;(*n*) | &Theta;(log *n*) | &Theta;(log *n*) | &Theta;(log *n*)<br>amortized |
+<center>Balanced trees are *generally* logarithmic-time operations</center>
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Is There Anything Faster?
 - Fastest possible search using binary comparison: &Theta;(log *n*)
-- Yes: (almost) constant (&Theta;(1)) is possible with *hash tables*
+- We can do better: (almost) constant (&Theta;(1)) is possible with *hash tables*
 - Hash tables (lookup table)
   - Standard set of operations: find, insert, delete
   - No ordering property!
@@ -202,23 +203,25 @@
 <h2>Hash Tables</h2>
 <table class="transparent"><tr><td>
 <table class="transparent"><tr><td>
+<div style="font-size:130%;line-height:110%">
 <ul>
 <li>Hash table<ul>
     <li>fixed size <i>array</i> of some size, usually a prime number<ul>
 	<li>Should be larger than the number of elements</li></ul></li></ul></li>
 <li>Given a key space:</li>
 </ul>
+</div>
 </td></tr>
 <tr><td>
     <table class="transparent"><tr><td><img alt="blob" src="images/06-hashes/blob.png"></td><td class="middle">
-	  <table class="transparent"><tr><td>hash function</td></tr><tr><td><i>hash</i>(<i>k</i>)</td></tr><tr><td>&rarr;</td></tr></table>
+	  <table class="transparent"><tr><td><div style="font-size:130%;line-height:110%">hash function</div></td></tr><tr><td><div style="font-size:130%;line-height:110%"><i>hash</i>(<i>k</i>)</div></td></tr><tr><td><div style="font-size:200%">&rarr;</div></td></tr></table>
     </td></tr></table>
 </td></tr></table>
 </td><td class="middle">
 <table class="transparent">
 <tr><td>&nbsp;</td><td></td></tr>
 <tr><td>&nbsp;</td><td></td></tr>
-<tr><td style="text-align:right;">hash</td><td>table</td></tr>
+<tr><td style="text-align:right;">hash</td><td style="text-align:left;">table</td></tr>
 <tr><td>&nbsp;</td><td></td></tr>
 <tr><td>0</td><td class="border" style="width:100px"></td></tr>
 <tr><td>1</td><td class="border" style="width:100px"></td></tr>
@@ -226,7 +229,7 @@
 <tr><td>&nbsp;</td><td class="border" style="width:100px"></td></tr>
 <tr><td>...</td><td class="border" style="width:100px"></td></tr>
 <tr><td>&nbsp;</td><td class="border" style="width:100px"></td></tr>
-<tr><td>tablesize-1</td><td class="border" style="width:100px"></td></tr>
+<tr><td>tablesize&#8209;1</td><td class="border" style="border-bottom:medium solid;"></td></tr>
 </table>
 </td></tr></table>
 	  </section>
@@ -249,7 +252,7 @@
 <h2>Hash functions KLA</h2>
 <ul>
 <li>I'm going hash all of you into 10 buckets (0-9) by your birthday<ul>
-    <li>(you are welcome to make up another birthday, as long as you are consistent)</li></ul><br>&nbsp;</li>
+    <li>(you are welcome to make up another birthday, as long as you are consistent)</li></ul></li>
 <li>The hash functions:<ul>
 <li class="fragment" data-fragment-index="1">By the decade of your birth year<ul>
 <li class="fragment" data-fragment-index="1"><i>hash</i>(<i>birthday</i>) = (<i>year</i>/10) % 10</li></ul></li>
@@ -267,12 +270,13 @@
 <table class="wide">
   <tr>
     <td class="top">
+<div style="font-size:130%;line-height:110%">
 <ul>
 <li>How can we hash the keys if the keys can be anything?</li>
 <li>Best one binary comparison can do is eliminate one half of the elements &Theta;(log <i>n</i>)</li>
 <li>We want &Theta;(1)</li>
 <li>The keys must be bits, so we can do better!</li>
-</ul>
+</ul></div>
 </td>
 <td style="width:75px"></td>
 <td class="top">
@@ -303,6 +307,7 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 	  <section>
 <h2>Example</h2>
 <table class="transparent"><tr><td>
+<div style="font-size:120%">
 <ul>
 <li>Key space: integers<br>&nbsp;</li>
 <li>Table size: 10<br>&nbsp;</li>
@@ -311,7 +316,7 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 </ul></li>
 <li>Insert: 7, 18, 41, 34<br>&nbsp;</li>
 <li>How do we find them?</li>
-</ul>
+</ul></div>
 </td><td style="width:100px"></td><td class="top">
 <table class="transparent">
 <tr><td>0</td><td class="border" style="width:100px"></td></tr>
@@ -323,7 +328,7 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 <tr><td>6</td><td class="border" style="width:100px"></td></tr>
 <tr><td>7</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="1">7</span></td></tr>
 <tr><td>8</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="2">18</span></td></tr>
-<tr><td>9</td><td class="border" style="width:100px"></td></tr>
+<tr><td>9</td><td class="border" style="border-bottom:medium solid;"></td></tr>
 </table>
 </td></tr></table>
 	  </section>
@@ -342,13 +347,14 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 	  <section>
 <h2>Another Example</h2>
 <table class="transparent"><tr><td>
+<div style="font-size:120%">
 <ul>
 <li>Key space: integers<br>&nbsp;</li>
 <li>Table size: 6<br>&nbsp;</li>
 <li><i>hash</i>(<i>k</i>) = <i>k</i> mod 6<br>&nbsp;</li>
 <li>Insert: 7, 18, 41, 34, <span class='red'>12</span><br>&nbsp;</li>
 <li>How do we find them?</li>
-</ul>
+</ul></div>
 </td><td style="width:100px"></td><td class="top">
 <table class="transparent">
 <tr><td>0</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="2">18</span><span class="fragment" data-fragment-index="5"><span class="red"> 12</span></span></td></tr>
@@ -356,7 +362,7 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 <tr><td>2</td><td class="border" style="width:100px"></td></tr>
 <tr><td>3</td><td class="border" style="width:100px"></td></tr>
 <tr><td>4</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="4">34</span></td></tr>
-<tr><td>5</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="3">41</span></td></tr>
+<tr><td>5</td><td class="border" style="border-bottom:medium solid;"><span class="fragment" data-fragment-index="3">41</span></td></tr>
 </table>
 </td></tr></table>
 	  </section>
@@ -374,7 +380,6 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 | 2 | "Colleen" | "blue" |
 | 3 | `null` | `null` |
 | 4 | "Eve" | "green" |
-| 5 | "Fred" | "yellow" |
 | ... | ... | ... |
 | *m*-1 | "Zeus" | "purple" |
 	  </script></section>
@@ -448,15 +453,16 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 <tr><td>6</td><td class="border" style="width:100px"></td></tr>
 <tr><td>7</td><td class="border" style="width:100px"></td></tr>
 <tr><td>8</td><td class="border" style="width:100px"></td></tr>
-<tr><td>9</td><td class="border" style="width:100px"></td></tr>
+<tr><td>9</td><td class="border" style="border-bottom:medium solid;width:100px"></td></tr>
 </table>
 </td><td style="width:200px"></td><td class="top">
+<div style="font-size:120%;line-height:110%">
 <ul>
 <li>All keys that map to the same hash value are kept in a &quot;bucket&quot;<ul>
   <li>This &quot;bucket&quot; is another data structure, typically a linked list</li></ul><br>&nbsp;</li>
 <li><i>hash</i>(<i>k</i>) = <i>k</i> mod 10<br>&nbsp;</li>
 <li>Insert: 10, 22, 107, 12, 42</li>
-</ul>
+</ul></div>
 </td></tr></table>
 <script type="text/javascript">insertCanvas();</script>
 	  </section>
@@ -477,14 +483,13 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
   - Well, we want "constant" time for find and insert...
 - Possible sizes for hash table with separate chaining
   - &lambda; = 1
-    - Make hash table be the number of elements expected
-    - So average bucket size is 1
+    - Make hash table be the number of elements expected; average bucket size is 1
     - Also make it a prime number
   - &lambda; = 0.75
     - Java's [Hashtable](http://docs.oracle.com/javase/7/docs/api/java/util/Hashtable.html) but can be set to another value
-    - Table will always be bigger than the number of elements
+    - Table will always be bigger than number of elements
       - This reduces the chance of a collision!
-    - Good trade-off between memory use and running time
+    - Good trade-off between memory use and time
   - &lambda; = 0.5
     - Uses more memory, but fewer collisions
 	  </script></section>
@@ -561,7 +566,7 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 <tr><td>6</td><td class="border" style="width:100px"></td></tr>
 <tr><td>7</td><td class="border" style="width:100px"></td></tr>
 <tr><td>8</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="1">38</span></td></tr>
-<tr><td>9</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="2">19</span></td></tr>
+<tr><td>9</td><td class="border" style="border-bottom:medium solid;width:100px"><span class="fragment" data-fragment-index="2">19</span></td></tr>
 </table>
 </td><td style="width:200px"></td><td class="top">
 <ul>
@@ -628,7 +633,7 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 <tr><td>6</td><td class="border" style="width:100px"></td></tr>
 <tr><td>7</td><td class="border" style="width:100px"></td></tr>
 <tr><td>8</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="2">18</span></td></tr>
-<tr><td>9</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="1">89</span></td></tr>
+<tr><td>9</td><td class="border" style="border-bottom:medium solid;width:100px"><span class="fragment" data-fragment-index="1">89</span></td></tr>
 </table>
 </td><td style="width:200px"></td><td class="top">
 <ul>
@@ -672,7 +677,7 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 <tr><td>6</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="4">49</span></td></tr>
 <tr><td>7</td><td class="border" style="width:100px"></td></tr>
 <tr><td>8</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="2">18</span></td></tr>
-<tr><td>9</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="1">89</span></td></tr>
+<tr><td>9</td><td class="border" style="border-bottom:medium solid;width:100px"><span class="fragment" data-fragment-index="1">89</span></td></tr>
 </table>
 </td><td style="width:200px"></td><td class="top">
 <ul>
@@ -703,7 +708,7 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 <tr><td>6</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="4">16</span></td></tr>
 <tr><td>7</td><td class="border" style="width:100px"></td></tr>
 <tr><td>8</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="5">18</span></td></tr>
-<tr><td>9</td><td class="border" style="width:100px"></td></tr>
+<tr><td>9</td><td class="border" style="border-bottom:medium solid;width:100px"></td></tr>
 </table>
 </td><td style="width:200px"></td><td class="top">
 <ul>
@@ -774,8 +779,8 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 ## Hashing: MD5
 - [MD5: Message Digest 5](http://en.wikipedia.org/wiki/Md5)
 - Given a string (or file contents, etc.) generate a 128-bit hash
-  - 2<sup>128</sup> = 3.4*10<sup>38</sup> (coincidentally, this is is also the [maximum finite value](04-numbers.html#maxfloatvalue) of a `float`)
-  - Typically an MD5 is written in hex: 16e28b7986fd74f65b061de89dc8b78e
+  - 2<sup>128</sup> = 3.4*10<sup>38</sup> (coincidentally, this is is also the [maximum finite value](03-numbers.html#/maxfloatvalue) of a `float`)
+  - Typically an MD5 is always written in hex: 16e28b7986fd74f65b061de89dc8b78e
 - This could then be used as they key
   - Obviously having to mod it by the table size
 - (Was) good for checking if a download completed successfully
