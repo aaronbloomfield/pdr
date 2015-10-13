@@ -75,9 +75,9 @@ The links in the right-most column link directly to the lecture recording on Col
 |16| Sep&nbsp;30 | Wednesday | | [05: Trees][85] | [05: Trees][85], slides [1][85] to [30][1050410] ([recording][218]) |
 |17| Oct&nbsp;2  | Friday    | | [05: Trees][85] | [05: Trees][85], slides [30][1050410] to [64][1050609] ([recording][219]) |
 |  | Oct&nbsp;5  | Monday    | no lab this week due to fall break | no class (fall break) | No lecture today (fall break) |
-|18| Oct&nbsp;7  | Wednesday | | [05: Trees][85] | [05: Trees][85], slides [65][1050610] to [85][1050630] (recording to be posted soon...) |
-|19| Oct&nbsp;9  | Friday    | | [05: Trees][85] | [05: Trees][85], slides [86][10507] to ... |
-|20| Oct&nbsp;12 | Monday    | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [06: Hashes][86] | |
+|18| Oct&nbsp;7  | Wednesday | | [05: Trees][85] | [05: Trees][85], slides [65][1050610] to [85][1050630] (see below this table for details about the recording) |
+|19| Oct&nbsp;9  | Friday    | | [05: Trees][85] | [05: Trees][85], slides [86][10507] to [99][1050801] ([recording][221]) |
+|20| Oct&nbsp;12 | Monday    | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [06: Hashes][86] | [05: Trees][85], slides [100][1050802] to [116][1050909] (end); [06: Hashes][86], slides [1][86] to [18][1060404] ([recording][223]) |
 |21| Oct&nbsp;14 | Wednesday | | [06: Hashes][86] | |
 |22| Oct&nbsp;16 | Friday    | | [06: Hashes][86], [07: IBCM][87] (machine language) | |
 |23| Oct&nbsp;19 | Monday    | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [07: IBCM][87] (machine language) | |
@@ -105,6 +105,8 @@ The links in the right-most column link directly to the lecture recording on Col
 |42| Dec&nbsp;7  | Monday    | [Lab 12: Objective C][12] ([md][32])| [12: Memory][92], [13: Esoteric PLs][93], [Course conclusion][94] | |
 |  | Dec&nbsp;9  | Wednesday | | Final exam review session | |
 |  | Dec&nbsp;11 | Friday    | Final exam from 9:00-noon in Gilmer 130| Final exam from 9:00-noon in Gilmer 130 | |
+
+On Wednesday, Ocrober 7th, Mark Floryan covered class, and the lecture was not recorded.  What is posted instead are the lectures from last semester (spring 2015) that covered the same material.  Because the two semesters were slightly out of sync with each other, the material was covered across two lectures: [05-trees-3-spring-2015](https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/05-trees-3-spring-2015/05-trees-3.htm), starting at 33:37, and [05-trees-4-spring-2015](https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/05-trees-4-spring-2015/05-trees-4.htm), ending at 30:57.  Because of a difference in the verions of the slide software, the slide numbers won't match up.
 
 ------------------------------------------------------------
 
@@ -335,9 +337,12 @@ None yet!
 [1050709]: ../slides/05-trees.html#/7/9
 [1050711]: ../slides/05-trees.html#/7/11
 [10508]: ../slides/05-trees.html#/8
+[1050801]: ../slides/05-trees.html#/8/1
+[1050802]: ../slides/05-trees.html#/8/2
 [1050909]: ../slides/05-trees.html#/9/9
 [1060413]: ../slides/06-hashes.html#/4/13
 [1060401]: ../slides/06-hashes.html#/4/1
+[1060404]: ../slides/06-hashes.html#/4/4
 [10605]: ../slides/06-hashes.html#/5
 [1060502]: ../slides/06-hashes.html#/5/2
 [1060608]: ../slides/06-hashes.html#/6/8
