@@ -527,6 +527,14 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 - Finding a good hash function can be tough
 	  </script></section>
 
+	  <section data-markdown><script type="text/template">
+## Separate chaining insert is &Theta;(1)
+- In an unsorted linked list, you can just put it on the front
+- So all inserts into a seprate chained hash table, that uses linked lists, are actually in constant time
+  - If you were to *sort* the linked list, that would be linear time
+  - And finds (and thus deletes) are still linear time
+	  </script></section>
+
 	</section>
 
 
@@ -557,16 +565,16 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 <h2>Linear Probing</h2>
 <table class="transparent"><tr><td class="top">
 <table class="transparent">
-<tr><td>0</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="3">8</span></td></tr>
-<tr><td>1</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="4">109</span></td></tr>
-<tr><td>2</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="5">10</span></td></tr>
+<tr><td>0</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="3">37</span></td></tr>
+<tr><td>1</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="4">14</span></td></tr>
+<tr><td>2</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="5">21</span></td></tr>
 <tr><td>3</td><td class="border" style="width:100px"></td></tr>
 <tr><td>4</td><td class="border" style="width:100px"></td></tr>
 <tr><td>5</td><td class="border" style="width:100px"></td></tr>
 <tr><td>6</td><td class="border" style="width:100px"></td></tr>
 <tr><td>7</td><td class="border" style="width:100px"></td></tr>
-<tr><td>8</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="1">38</span></td></tr>
-<tr><td>9</td><td class="border" style="border-bottom:medium solid;width:100px"><span class="fragment" data-fragment-index="2">19</span></td></tr>
+<tr><td>8</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="2">27</span></td></tr>
+<tr><td>9</td><td class="border" style="border-bottom:medium solid;width:100px"><span class="fragment" data-fragment-index="1">4</span></td></tr>
 </table>
 </td><td style="width:200px"></td><td class="top">
 <ul>
@@ -576,9 +584,11 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
     <li><i>hash</i>(<i>k</i>)+2</li>
     <li><i>hash</i>(<i>k</i>)+3</li>
     <li>etc.</li>
-</ul><br>&nbsp;</li>
-<li><i>hash</i>(<i>k</i>) = <i>k</i> mod 10<br>&nbsp;</li>
-<li>Insert: 38, 19, 8, 109, 10</li>
+</ul>&nbsp;</li>
+<li><i>hash</i>(<i>k</i>) = 3<i>k</i>+7<ul><li>Which is then mod'ed by the table size (10)</li><li>Result: <i>hash</i>(<i>k</i>) = (3<i>k</i>+7) mod 10</li></ul>&nbsp;</li>
+<li>Insert: 4, 27, 37, 14, 21<ul>
+    <li><i>hash</i>(<i>k</i>) values: 19, 88, 118, 49, 70, respectively</li>
+</ul></li>
 </ul>
 </td></tr></table>
 	  </section>
@@ -624,16 +634,16 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 <h2>Quadratic Probing</h2>
 <table class="transparent"><tr><td class="top">
 <table class="transparent">
-<tr><td>0</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="3">49</span></td></tr>
+<tr><td>0</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="3">14 </span></td></tr>
 <tr><td>1</td><td class="border" style="width:100px"></td></tr>
-<tr><td>2</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="4">58</span></td></tr>
-<tr><td>3</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="5">69</span></td></tr>
+<tr><td>2</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="4">37</span></td></tr>
+<tr><td>3</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="5">22</span></td></tr>
 <tr><td>4</td><td class="border" style="width:100px"></td></tr>
-<tr><td>5</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="6">29</span></td></tr>
+<tr><td>5</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="6">34</span></td></tr>
 <tr><td>6</td><td class="border" style="width:100px"></td></tr>
 <tr><td>7</td><td class="border" style="width:100px"></td></tr>
-<tr><td>8</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="2">18</span></td></tr>
-<tr><td>9</td><td class="border" style="border-bottom:medium solid;width:100px"><span class="fragment" data-fragment-index="1">89</span></td></tr>
+<tr><td>8</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="2">27</span></td></tr>
+<tr><td>9</td><td class="border" style="border-bottom:medium solid;width:100px"><span class="fragment" data-fragment-index="1">4</span></td></tr>
 </table>
 </td><td style="width:200px"></td><td class="top">
 <ul>
@@ -643,9 +653,11 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
     <li><i>hash</i>(<i>k</i>)+2<sup>2</sup> = <i>hash</i>(<i>k</i>)+4</li>
     <li><i>hash</i>(<i>k</i>)+3<sup>2</sup> = <i>hash</i>(<i>k</i>)+9</li>
     <li>etc.</li>
-</ul><br>&nbsp;</li>
-<li><i>hash</i>(<i>k</i>) = <i>k</i> mod 10<br>&nbsp;</li>
-<li>Insert: 89, 18, 49, 58, 69, 29</li>
+</ul>&nbsp;</li>
+<li><i>hash</i>(<i>k</i>) = 3<i>k</i>+7<ul><li>Which is then mod'ed by the table size (10)</li><li>Result: <i>hash</i>(<i>k</i>) = (3<i>k</i>+7) mod 10</li></ul>&nbsp;</li>
+<li>Insert: 4, 27, 14, 37, 22, 34<ul>
+    <li><i>hash</i>(<i>k</i>) values: 19, 88, 49, 118, 73, 109, respectively</li>
+</ul></li>
 </ul>
 </td></tr></table>
 	  </section>
@@ -687,8 +699,11 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
     <li><i>hash</i>(<i>k</i>) + 2 * <i>hash</i><sub>2</sub>(<i>k</i>)</li>
     <li><i>hash</i>(<i>k</i>) + 3 * <i>hash</i><sub>2</sub>(<i>k</i>)</li>
     <li>etc.</li>
-</ul><br>&nbsp;</li>
-<li><i>hash</i>(<i>k</i>) = <i>k</i> mod 10</li>
+</ul>&nbsp;</li>
+<li><i>hash</i>(<i>k</i>) = <i>k</i><ul>
+<li>The hash function was made simpler for this example...</li>
+<li>Which is then mod'ed by the table size (10)</li>
+<li>Result: <i>hash</i>(<i>k</i>) = <i>k</i> mod 10</li></ul></li>
 <li><i>hash</i><sub>2</sub>(<i>k</i>) = 7 - (<i>k</i> mod 7)<br>&nbsp;</li>
 <li>Insert: 89, 18, 58, 49, 69, 60</li>
 </ul>
@@ -712,7 +727,9 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 </table>
 </td><td style="width:200px"></td><td class="top">
 <ul>
-<li><i>hash</i>(<i>k</i>) = <i>k</i> mod 10<br>&nbsp;</li>
+<li><i>hash</i>(<i>k</i>) = <i>k</i> mod 10&nbsp;<ul>
+<li>Same as the previous slide</li>
+<li>Result: <i>hash</i>(<i>k</i>) = <i>k</i> mod 10</li></ul>&nbsp;</li>
 <li><i>hash</i><sub>2</sub>(<i>k</i>) = (<i>k</i> mod 5) +1<br>&nbsp;</li>
 <li>Insert: 10, 12, 14, 16, 18, <span class='red'>36</span></li>
 </ul>
