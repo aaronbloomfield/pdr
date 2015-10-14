@@ -78,7 +78,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |18| Oct&nbsp;7  | Wednesday | | [05: Trees][85] | [05: Trees][85], slides [65][1050610] to [85][1050630] (see below this table for details about the recording) |
 |19| Oct&nbsp;9  | Friday    | | [05: Trees][85] | [05: Trees][85], slides [86][10507] to [99][1050801] ([recording][221]) |
 |20| Oct&nbsp;12 | Monday    | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [06: Hashes][86] | [05: Trees][85], slides [100][1050802] to [116][1050909] (end); [06: Hashes][86], slides [1][86] to [18][1060404] ([recording][223]) |
-|21| Oct&nbsp;14 | Wednesday | | [06: Hashes][86] | |
+|21| Oct&nbsp;14 | Wednesday | | [06: Hashes][86] | [06: Hashes][86], slides [19][1060405] to [36][1060507] ([recording][224]) |
 |22| Oct&nbsp;16 | Friday    | | [06: Hashes][86], [07: IBCM][87] (machine language) | |
 |23| Oct&nbsp;19 | Monday    | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [07: IBCM][87] (machine language) | |
 |24| Oct&nbsp;21 | Wednesday | | [07: IBCM][87] (machine language) | |
@@ -343,8 +343,10 @@ None yet!
 [1060413]: ../slides/06-hashes.html#/4/13
 [1060401]: ../slides/06-hashes.html#/4/1
 [1060404]: ../slides/06-hashes.html#/4/4
+[1060405]: ../slides/06-hashes.html#/4/5
 [10605]: ../slides/06-hashes.html#/5
 [1060502]: ../slides/06-hashes.html#/5/2
+[1060507]: ../slides/06-hashes.html#/5/7
 [1060608]: ../slides/06-hashes.html#/6/8
 [1060609]: ../slides/06-hashes.html#/6/9
 [1060702]: ../slides/06-hashes.html#/7/2
