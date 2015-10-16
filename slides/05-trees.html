@@ -749,7 +749,7 @@ Not balanced: height difference greater than 1
 <ul>
 <li>Node 1 (red) is what is being inserted</li>
 <li>The <i><b>lowest</b></i> node with an imbalance is node 5 (balance: -2)</li>
-<li>Because the insert was in 5's "left subtree of the left child", we perform a single right rotation on 5 (and it's left child, 3)</li>
+<li>Because the insert was in 5's "left subtree of the left child", we perform a single right rotation on 5 (and its left child, 3)</li>
 </ul>
 	  </section>
 
@@ -761,7 +761,7 @@ Not balanced: height difference greater than 1
 <td class="top"><img alt="avl tree 5" src="graphs/avl-tree-5.svg" width="350"></td>
 </tr></table>
 <ul>
-<li>From the previous slide, we know we perform a single right rotation on 5 (and it's left child, 3)</li>
+<li>From the previous slide, we know we perform a single right rotation on 5 (and its left child, 3)</li>
 <li>Thus, the two blue nodes are the 'pivots' of the rotation</li>
 <li>Note that node 4 changes parents (from 3's right to 5's left)</li>
 </ul>
@@ -775,7 +775,7 @@ Not balanced: height difference greater than 1
 <td><img alt="avl tree 7" src="graphs/avl-tree-7.svg"></td>
 </tr></table>
 <p class="center">\( X &lt; b &lt; Y &lt; a &lt; Z \)</p>
-<p class="center">The insert is into sub-tree X, increasing it's height to <i>h</i>+1</p>
+<p class="center">The insert is into sub-tree X, increasing its height to <i>h</i>+1</p>
 <p class="center">Notice how sub-tree Y changes parent</p>
 	  </section>
 
@@ -793,7 +793,7 @@ Note that the trees shown are not necessarily AVL trees, but the rotations are c
 <td><img alt="avl tree 9" src="graphs/avl-tree-9.svg"></td>
 </tr></table>
 <p class="center">\( X &lt; b &lt; Y &lt; a &lt; Z \)</p>
-<p class="center">The insert is into sub-tree Y, increasing it's height to <i>h</i>+1</p>
+<p class="center">The insert is into sub-tree Y, increasing its height to <i>h</i>+1</p>
 <p class="center">Failure!  b's left subtree has height <i>h</i>+1; right is <i>h</i>+3</p>
 	  </section>
 
@@ -961,7 +961,7 @@ All of these properties must hold for a red-black tree
 ## Case 2: new node's parent is black
 - Case 2 is when the new node's parent is a black node
   - Property 4 (children of a red node are black) is not invalidated
-  - Property 5 (all paths from a given node to it's leaf nodes have the same number of black nodes) is not threatened
+  - Property 5 (all paths from a given node to its leaf nodes have the same number of black nodes) is not threatened
     - The new node's children are black, but that's the same number of black nodes as the node it replaced
 	  </script></section>
 
@@ -994,10 +994,10 @@ All of these properties must hold for a red-black tree
 	  <section data-markdown><script type="text/template">
 ## Removal
 - Do a normal BST remove
-  - Find next highest/lowest value, put it's value in the node to be deleted, remove that highest/lowest node
+  - Find next highest/lowest value, put its value in the node to be deleted, remove that highest/lowest node
     - Note that that node won't have 2 children!
-  - We replace the node to be deleted with it's left child
-    - This child is N, it's sibling is S, it's parent is P
+  - We replace the node to be deleted with its left child
+    - This child is N, its sibling is S, its parent is P
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -1007,7 +1007,7 @@ All of these properties must hold for a red-black tree
   2. S is red
   3. P, S, and S's children are black
   4. S and S's children are black, but P is red
-  5. S is black, S's left child is red, S's right child is black, and N is the left child of it's parent
+  5. S is black, S's left child is red, S's right child is black, and N is the left child of its parent
   6. S is black, S's right child is red, and N is the left child of parent P
 - We won't see them in detail, though, but you can find details [here](http://en.wikipedia.org/wiki/Red_black_trees)
 	  </script></section>
@@ -1019,7 +1019,7 @@ All of these properties must hold for a red-black tree
 - Time-critical applications will see a performance boost
 - Functional programming languages used red-black trees for associative arrays (hashes)
   - The tree can be a persistent data structure
-    - A data structure that retains a "memory" of it's mutations
+    - A data structure that retains a "memory" of its mutations
 	  </script></section>
 
 	</section>
