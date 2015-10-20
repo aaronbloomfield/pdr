@@ -171,7 +171,7 @@ First, download the [counter.cpp](counter.cpp.html) ([src](counter.cpp)) file fr
 
 Your shell script should take in a single input value (as regular input, not as a command line parameter), which will be the number of iterations (i.e. the command-line parameter to pass to the binary program).  If that input is `quit`, then the script should exit.  Otherwise, you execute the program a total of 5 times, printing and keeping track of the execution time taken for each one.  Your script should then print the average time taken for each execution.  **You MUST call your executable program `a.out` in your shell script.**
 
-Your shell script **MUST** have an `if` statement (to see if it should exit), and **MUST** have a for or while loop.  The number of times to iterate through the `for` or `while` loop (initially set to 5) should be a variable set previously in the script.  Math in bash can be done with the `expr` command, as discussed in the tutorial from the last lab.  Integer division is fine when computing the average.
+Your shell script **MUST** have an `if` statement (to see if it should exit), and **MUST** have a for or while loop.  The number of times to iterate through the `for` or `while` loop (initially set to 5) should be a variable set previously in the script.  Math in bash can be done with arithmetic expansion `$(( ... ))`, as discussed in the tutorial from the last lab.  Integer division is fine when computing the average.
 
 Recall that the back quote (on the same key as the tilde (~), which is usually to the left of the digit 1) tells a shell script to run the program, and use the output for something else (as opposed to displaying the output to the screen).  For example, the following line would run the program (called a.out), only keep the last line, and save that output to a variable called `RUNNING_TIME`.
 
@@ -187,9 +187,9 @@ Below are a few notes to keep in mind when writing your shell script.  Bash is a
 - Your program should be called `averagetime.sh`, and should have `#!/bin/bash` as the very first line of the script
 - Bash is a bit finicky with having Boolean operators within an `if` clause, so try to avoid that (it can do it, but the syntax is very particular)
 - When setting variables, do NOT have spaces around the equals sign
-- When adding up values (using the back-quote and the `expr` command), there SHOULD be spaces around the arithmetic operators 
+- When adding up values (using arithmetic expansion `$(( ... ))`), there SHOULD be spaces around the arithmetic operators as well as equals sign within the parentheses. 
 - A for loop requires a `do` keyword before the for loop body; likewise, an `if` statement has a `then` before the body.  Either these words must be on the next line, or a semi-colon must be there before the `do` or `then`
-- Keep in mind that to grab program output (such as the output of the binary program, or the result of a mathematical calculation using `expr`), you use back quotes (i.e. \`)
+- Keep in mind that to grab program output (such as the output of the binary program), you use back quotes (i.e. \`)
 - To execute your script, you can just enter, `./averagetime.sh`.  If you get a complaint about that ("permission denied", for example), enter this command: `chmod 755 averagetime.sh`.  This tells your Unix system that averagetime.sh is a program that can be executed (remember chmod?).
 
 Below is the output when we wrote this shell script.  Obviously, your times may vary.

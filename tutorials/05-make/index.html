@@ -11,7 +11,7 @@
 <body>
 <h1 id="pdr-makefile-tutorial">PDR: Makefile Tutorial</h1>
 <p><a href="../index.html">Go up to the Tutorials table of contents page</a></p>
-<p>This tutorial is written to introduce the beginning C++ programmer to Unix Makefiles. You will need the accompanying <a href="pizza.zip">pizza.zip</a> file, which contains code that we will use during this tutorial. The original version of this tutorial was written by Paul Lee.</p>
+<p>This tutorial is written to introduce the beginning C++ programmer to Unix Makefiles. You will need the accompanying <a href="pizza.zip" class="uri">pizza.zip</a> file, which contains code that we will use during this tutorial. The original version of this tutorial was written by Paul Lee.</p>
 <p>That code consists of: <a href="pizza/Makefile.html">Makefile</a> (<a href="pizza/Makefile">src</a>), <a href="pizza/cheese.cpp.html">cheese.cpp</a> (<a href="pizza/cheese.cpp">src</a>), <a href="pizza/cheese.h.html">cheese.h</a> (<a href="pizza/cheese.h">src</a>), <a href="pizza/mushrooms.cpp.html">mushrooms.cpp</a> (<a href="pizza/mushrooms.cpp">src</a>), <a href="pizza/mushrooms.h.html">mushrooms.h</a> (<a href="pizza/mushrooms.h">src</a>), <a href="pizza/pepperoni.cpp.html">pepperoni.cpp</a> (<a href="pizza/pepperoni.cpp">src</a>), <a href="pizza/pepperoni.h.html">pepperoni.h</a> (<a href="pizza/pepperoni.h">src</a>), <a href="pizza/peppers.cpp.html">peppers.cpp</a> (<a href="pizza/peppers.cpp">src</a>), <a href="pizza/peppers.h.html">peppers.h</a> (<a href="pizza/peppers.h">src</a>), <a href="pizza/pizza.cpp.html">pizza.cpp</a> (<a href="pizza/pizza.cpp">src</a>), <a href="pizza/pizzadough.cpp.html">pizzadough.cpp</a> (<a href="pizza/pizzadough.cpp">src</a>), <a href="pizza/pizzadough.h.html">pizzadough.h</a> (<a href="pizza/pizzadough.h">src</a>), <a href="pizza/tomatosauce.cpp.html">tomatosauce.cpp</a> (<a href="pizza/tomatosauce.cpp">src</a>), <a href="pizza/tomatosauce.h.html">tomatosauce.h</a> (<a href="pizza/tomatosauce.h">src</a>), <a href="pizza/toppings.cpp.html">toppings.cpp</a> (<a href="pizza/toppings.cpp">src</a>), <a href="pizza/toppings.h.html">toppings.h</a> (<a href="pizza/toppings.h">src</a>).</p>
 <h3 id="the--c-flag-to-clang">The -c flag to clang++</h3>
 <p>When compiling a C++, so far we have compiled all of the .cpp files at one time:</p>
@@ -39,7 +39,7 @@ clang++ -c testPostfixCalc.cpp</code></pre>
 <h3 id="whats-inside-a-makefile">What's inside a Makefile?</h3>
 <p>A typical Makefile consists of comments, macro (variable) definitions, rules, and dependencies. We'll get to each of these in turn. First, though, we need to obtain the code used in this tutorial.</p>
 <ul>
-<li>Download the zip file for this tutorial called <a href="pizza.zip">pizza.zip</a></li>
+<li>Download the zip file for this tutorial called <a href="pizza.zip" class="uri">pizza.zip</a></li>
 <li>Unzip the files with the command: 'unzip pizza.zip'</li>
 </ul>
 <p>To compile your program, just type 'make' from the pizza/ directory. Notice that it will go through each of the individual .cpp files, and compile each one (with the -c option). Once that is done, it will link all of the .o files to create the 'pizza' executable.</p>
@@ -189,7 +189,7 @@ toppings.o: pepperoni.cpp peppers.cpp mushrooms.cpp cheese.cpp \
     $(CXX) -c toppings.cpp</code></pre>
 <p>The first rule above should create a pizza executable file. Notice that in the second rule, the action performed is on only one of the files that toppings.o depends on. One way to think about it is that if any of the files that toppings.o depends on changes, then toppings.o will have to be regenerated. Rules to produce the rest of the .o files have not been defined yet.</p>
 <h3 id="automatic-variables">Automatic variables</h3>
-<p>A Makefile may also have a feature called automatic variables which have a value depending on where and when it is used. There two useful automatic variables that we'll study here: <span class="math">$@, which is the file name of the target, and $</span>?, which is the names of all the changed dependents. Examples of their use are below.</p>
+<p>A Makefile may also have a feature called automatic variables which have a value depending on where and when it is used. There two useful automatic variables that we'll study here: $@, which is the file name of the target, and $?, which is the names of all the changed dependents. Examples of their use are below.</p>
 <pre><code>project.o: project.cpp
     clang++ -c $@.cpp -o $@
 
