@@ -32,7 +32,7 @@
 <li>Implement the Huffman encoding routine discussed in the pre-lab section.</li>
 <li>Your program must compile with make!</li>
 <li>Your program should only take in one command-line parameter!</li>
-<li>Files to download: <a href="fileio.cpp.html">fileio.cpp</a> (<a href="fileio.cpp">src</a>), and the example files (in the <a href="examples/">labs/lab10/examples/ directory</a>, or as one <a href="examples.zip" class="uri">examples.zip</a> file)</li>
+<li>Files to download: <a href="fileio.cpp.html">fileio.cpp</a> (<a href="fileio.cpp">src</a>), and the example files (in the <a href="examples/">labs/lab10/examples/ directory</a>, or as one <a href="examples.zip">examples.zip</a> file)</li>
 <li>Files to submit: heap.cpp, heap.h, huffmanenc.cpp, Makefile (you can submit additional .cpp/.h files, if needed, as long as it compiles with <code>make</code>)</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
@@ -78,14 +78,12 @@
 <h3 id="hints-and-common-mistakes">Hints and Common Mistakes</h3>
 <p><strong>Implementation.</strong> You will need to select several different data structures to implement Huffman compression and decompression. Don't get more complicated than is necessary, but do keep efficiency in mind. Consider the following questions:</p>
 <ul>
-<li>What will be the most common operations required on each data structure?<br />
-</li>
+<li>What will be the most common operations required on each data structure?<br /></li>
 <li>How much time and space will be required?</li>
 </ul>
 <p>Use the answers to these questions to guide your selection. Your solution will be judged slightly on how efficient it is (both in terms of time and space). Very inefficient solutions will lose a few points. Be sure you have a good explanation for your implementation choices:</p>
 <ul>
-<li>Do you predict better data locality?<br />
-</li>
+<li>Do you predict better data locality?<br /></li>
 <li>Does a purely Big-Theta analysis not tell the whole story?</li>
 </ul>
 <p>Whatever your implementation, you should be able to accurately describe its worst case Big-Theta performance both in running time and space (memory) usage.</p>
@@ -124,8 +122,7 @@ This gives a compression ratio of 4.30769.
 The cost of the Huffman tree is 1.85714 bits per character.</code></pre>
 <p>The Huffman tree that this forms is the same as the one shown in the slide set (specifically, <a href="../../slides/10-heaps-huffman.html#/lab10tree">here</a>), and is dupliated below.</p>
 <div class="figure">
-<img src="prelab-tree.png" alt="" />
-
+<img src="prelab-tree.png" />
 </div>
 <p>Below is an equivalent version of the same file. Note that the characters are not in the same order in the previous example, the whitespace for the middle part is quite different, the English explanation in the third part says the same thing but in a different format, and the particular prefix codes are different (but note that the lengths are the same). Your in-lab code will need to be able to read in both of these files (as well as others in the [labs/lab10/examples/ directory(examples/)). For writing your pre-lab, you should consider having a space or a newline between the Huffman encoded characters, as that will make your code easier to check and debug.</p>
 <pre><code>d 11
@@ -163,7 +160,7 @@ The Huffman tree cost: 1.85 bits per character</code></pre>
 </ul></li>
 </ul>
 <p>During in-lab, you will implement the decompression steps for the Huffman encoding. These steps are listed at the beginning of this lab document.</p>
-<p>First, make sure that your code can read in the file -- you can download the <a href="inlab-skeleton.cpp" class="uri">inlab-skeleton.cpp</a> file, which can properly read in the encoded input files.</p>
+<p>First, make sure that your code can read in the file -- you can download the <a href="inlab-skeleton.cpp">inlab-skeleton.cpp</a> file, which can properly read in the encoded input files.</p>
 <p>Next, focus on creating the Huffman coding tree. There are a number of ways to go about doing this -- we present one such algorithm here. As you are (recursively) creating each node in the tree, you know the bitcode code so far to get to that node (remember that following a left child pointer generates a <code>0</code>, and following a right child pointer generates a <code>1</code>). We'll call this bitcode-so-far the &quot;prefix&quot; (as it is the prefix for all bitcodes below this node). If that prefix is one of the listed bitcodes in the first part of the file, then we are at a leaf (remember that all characters in a Huffman tree are leaves), and the node will not have any children. Otherwise, we are dealing with an internal node -- and you will have to create left and right child nodes, calling yourself recursively on each one. Keep in mind that when you call yourself recursively on the left child, you have to add <code>0</code> to the end of the prefix; likewise, you have to add <code>1</code> to the prefix for the right child. This algorithm will require you to search through the bit codes that were read in from the first part of the file. Also keep in mind that the size of the input here (the number of characters) is very small (only 80 or so) -- which means that if you choose a linear time complexity data structure (vector, for example), your code will run just fine.</p>
 <p>Not creating a Huffman tree from the file will result in zero credit for the in-lab. The whole point of this part is to create the tree!</p>
 <p>Lastly, read in the second part of the file, transverse your Huffman tree, and output a character when you reach a leaf node. You can output as much text as you would like, such as status updates as to how the program is progressing. The only caveat is that the decoded file must be the last thing printed, and it must be clear where the other text ends and the decoded message that you are decoding begins (a separator of dashes would be fine for this). Of course, you are more than welcome to just print out the decoded message and nothing else.</p>
@@ -180,8 +177,7 @@ The Huffman tree cost: 1.85 bits per character</code></pre>
 <li>A description of your implementation. Describe the data structures used in your implementation and <em>why</em> you selected them.</li>
 <li>An efficiency analysis of <em>all steps</em> in Huffman encoding/decoding.
 <ul>
-<li>For each of the steps of compression and decompression (see &quot;Huffman Encoding and Decoding&quot;), give the worst case running time of your implementation.<br />
-</li>
+<li>For each of the steps of compression and decompression (see &quot;Huffman Encoding and Decoding&quot;), give the worst case running time of your implementation.<br /></li>
 <li>In addition, give the worst case <em>space complexity</em> (i.e. how many bytes of memory are used in each data structure) of your implementation.</li>
 </ul></li>
 </ol>
