@@ -41,7 +41,7 @@ Procedure
 2. Verify with the TA the correct placement of the timer calls.
 3. Verify that your program gets the correct solution for the 250x250 grid using words.txt as the dictionary, and the 300x300 grid using words2.txt as the dictionary.  The output files for these runs are in the [labs/lab06/data/ directory](data/).
 4. Read the shell script tutorial for this lab, which part of the [Wikibooks article on Bash Shell Scripting](http://en.wikibooks.org/wiki/Bash_Shell_Scripting); the specific sections are mentioned on the [tutorials page](../../tutorials/index.html) ([md](../../tutorials/index.md))
-5. Write the shell script described in the post-lab section (averagetime.sh).
+5. Write the shell script described in the in-lab section (averagetime.sh).
 6. Your shell script *must* call a.out!  Otherwise it will not work, and will receive points off.
 7. Create inlab6.pdf (see the in-lab section for formatting details), containing the complexity evaluation and the results of your program executions.  See the in-lab section for details about what to include therein.
 8. If you finish the in-lab early, you should start on the post-lab optimizations.
