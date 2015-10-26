@@ -83,7 +83,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |23| Oct&nbsp;19 | Monday    | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [07: IBCM][87] (machine language) | [06: Hashes][86], slides [49][10607] to [55][1060706] (end); [07: IBCM][87], slides [1][87] to [18][1070407] ([recording][226]) |
 |24| Oct&nbsp;21 | Wednesday | | [07: IBCM][87] (machine language) | [07: IBCM][87], slides [15][1070404] to [30][1070503] ([recording][227]) |
 |25| Oct&nbsp;23 | Friday    | | [07: IBCM][87] (machine language) | [07: IBCM][87], slides [30][1070503] to [40][1070601] ([recording][228]) |
-|26| Oct&nbsp;26 | Monday    | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [08: x86][88] (assembly language) | |
+|26| Oct&nbsp;26 | Monday    | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [08: x86][88] (assembly language) | [07: IBCM][87], slides [40][1070601] to [48][1070609] (end); [08: x86][88], slides [1][88] to [10][1080306] ([recording][230]) |
 |27| Oct&nbsp;28 | Wednesday | | [08: x86][88] (assembly language) | |
 |28| Oct&nbsp;30 | Friday    | | [08: x86][88] (assembly language) | |
 |29| Nov&nbsp;2  | Monday    | [Lab 8: x86, part 1][8] ([md][28]) / Tutorial 8: nasm, which is two book chapters: [1][53] and [2][54] | [08: x86][88] (assembly language) | |
@@ -369,6 +369,7 @@ None yet!
 [1070601]: ../slides/07-ibcm.html#/6/1
 [1070604]: ../slides/07-ibcm.html#/6/4
 [1070609]: ../slides/07-ibcm.html#/6/9
+[1080306]: ../slides/08-x86.html#/3/6
 [1080410]: ../slides/08-x86.html#/4/10
 [1080304]: ../slides/08-x86.html#/3/4
 [1080305]: ../slides/08-x86.html#/3/5
