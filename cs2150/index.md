@@ -81,8 +81,8 @@ The links in the right-most column link directly to the lecture recording on Col
 |21| Oct&nbsp;14 | Wednesday | | [06: Hashes][86] | [06: Hashes][86], slides [19][1060405] to [36][1060507] ([recording][224]) |
 |22| Oct&nbsp;16 | Friday    | | [06: Hashes][86], [07: IBCM][87] (machine language) | [06: Hashes][86], slides [37][10606] to [48][1060611] ([recording][225]) |
 |23| Oct&nbsp;19 | Monday    | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [07: IBCM][87] (machine language) | [06: Hashes][86], slides [49][10607] to [55][1060706] (end); [07: IBCM][87], slides [1][87] to [18][1070407] ([recording][226]) |
-|24| Oct&nbsp;21 | Wednesday | | [07: IBCM][87] (machine language) | |
-|25| Oct&nbsp;23 | Friday    | | [07: IBCM][87] (machine language) | |
+|24| Oct&nbsp;21 | Wednesday | | [07: IBCM][87] (machine language) | [07: IBCM][87], slides [15][1070404] to [30][1070503] ([recording][227]) |
+|25| Oct&nbsp;23 | Friday    | | [07: IBCM][87] (machine language) | [07: IBCM][87], slides [30][1070503] to [40][1070601] ([recording][228]) |
 |26| Oct&nbsp;26 | Monday    | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [08: x86][88] (assembly language) | |
 |27| Oct&nbsp;28 | Wednesday | | [08: x86][88] (assembly language) | |
 |28| Oct&nbsp;30 | Friday    | | [08: x86][88] (assembly language) | |
@@ -358,12 +358,15 @@ None yet!
 [1070303]: ../slides/07-ibcm.html#/3/3
 [1070401]: ../slides/07-ibcm.html#/4/1
 [1070402]: ../slides/07-ibcm.html#/4/2
+[1070404]: ../slides/07-ibcm.html#/4/4
 [1070407]: ../slides/07-ibcm.html#/4/7
 [1070415]: ../slides/07-ibcm.html#/4/15
 [10705]: ../slides/07-ibcm.html#/5
+[1070503]: ../slides/07-ibcm.html#/5/3
 [1070505]: ../slides/07-ibcm.html#/5/5
 [1070506]: ../slides/07-ibcm.html#/5/6
 [1070511]: ../slides/07-ibcm.html#/5/11
+[1070601]: ../slides/07-ibcm.html#/6/1
 [1070604]: ../slides/07-ibcm.html#/6/4
 [1070609]: ../slides/07-ibcm.html#/6/9
 [1080410]: ../slides/08-x86.html#/4/10

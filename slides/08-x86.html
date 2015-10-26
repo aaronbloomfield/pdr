@@ -136,10 +136,10 @@ while(power is on) {
 <table class="transparent"><tr><td>
 <p>Directives</p>
 <ul>
-<li>byte = 1 byte (DB) declare byte</li>
-<li>word = 2 bytes (DW)</li>
-<li>double = 4 bytes (DD)</li>
-<li>quadword = 8 bytes (DQ)</li>
+<li>byte: 1 byte (DB) declare byte</li>
+<li>word: 2 bytes (DW)</li>
+<li>double: 4 bytes (DD)</li>
+<li>quadword: 8 bytes (DQ)</li>
 </ul>
 <p>&nbsp;</p>
 <p><code>TIMES x DB 0</code> directive means create x bytes of value zero</p>
@@ -212,7 +212,7 @@ lea edi, [a]</code></pre></td>
 <tr><td>ecx</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="1">100</span></td></tr>
 <tr><td>edx</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="2">8</span></td></tr>
 <tr><td>esi</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="3">200</span></td></tr>
-<tr><td>edi</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="6">300</span></td></tr>
+<tr><td>edi</td><td class="border" style="width:100px;border-bottom:medium solid;"><span class="fragment" data-fragment-index="6">300</span></td></tr>
 </table>
 </td></tr></table>
 
@@ -230,7 +230,7 @@ lea edi, [a]</code></pre></td>
 <tr><td>...</td><td class="border" style="width:100px"></td></tr>
 <tr><td>a:&nbsp;300</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="5">15</span></td></tr>
 <tr><td>304</td><td class="border" style="width:100px"></td></tr>
-<tr><td>...</td><td class="border" style="width:100px"></td></tr>
+<tr><td>...</td><td class="border" style="width:100px;border-bottom:medium solid;"></td></tr>
 </table>
 </td></tr></table>
 	  </section>
@@ -757,7 +757,7 @@ pop edx          ; restore saved edx value
 <tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td>To lower addresses</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td>(to 0x00000000)</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
-<tr><td>&darr;</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td>&darr;</td><td style="width:50px"></td><td class="border" style="width:300px;border-bottom:medium solid;">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 </table>
 	  </section>
 
@@ -774,7 +774,7 @@ pop edx          ; restore saved edx value
 <tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td>To lower addresses</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td>(to 0x00000000)</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
-<tr><td>&darr;</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td>&darr;</td><td style="width:50px"></td><td class="border" style="width:300px;border-bottom:medium solid;">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 </table>
 	  </section>
 
@@ -936,7 +936,7 @@ ret             ; pop top value from stack, jump there
 <tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td>To lower addresses</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td>(to 0x00000000)</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
-<tr><td>&darr;</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td>&darr;</td><td style="width:50px"></td><td class="border" style="width:300px;border-bottom:medium solid;">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 </table>
 	  </section>
 
@@ -953,7 +953,7 @@ ret             ; pop top value from stack, jump there
 <tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">ebp backup</td><td style="width:25px"></td><td>&larr; esp</td></tr>
 <tr><td>To lower addresses</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td>(to 0x00000000)</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
-<tr><td>&darr;</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td>&darr;</td><td style="width:50px"></td><td class="border" style="width:300px;border-bottom:medium solid;">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 </table>
 	  </section>
 
@@ -970,7 +970,7 @@ ret             ; pop top value from stack, jump there
 <tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">ebp backup</td><td style="width:25px"></td><td>&larr; ebp</td></tr>
 <tr><td>To lower addresses</td><td style="width:50px"></td><td class="border" style="width:300px">local variable</td><td style="width:25px"></td><td>[ebp-4]</td></tr>
 <tr><td>(to 0x00000000)</td><td style="width:50px"></td><td class="border" style="width:300px">saved value of ebx</td><td style="width:25px"></td><td>&nbsp;</td></tr>
-<tr><td>&darr;</td><td style="width:50px"></td><td class="border" style="width:300px">saved value of esi</td><td style="width:25px"></td><td>&larr; esp</td></tr>
+<tr><td>&darr;</td><td style="width:50px"></td><td class="border" style="width:300px;border-bottom:medium solid;">saved value of esi</td><td style="width:25px"></td><td>&larr; esp</td></tr>
 </table>
 	  </section>
 
@@ -1127,15 +1127,13 @@ ret             ; pop top value from stack, jump there
     scanf ("%s", buffer); // how C handles input
 }</code></pre>
 <p>The stack looks like (with sizes in parenthesis):</p>
-<p>&nbsp;</p>
-<table class="transparent"><tr>
+<table class="transparent" style="border-bottom:medium solid;"><tr>
   <td class="border">&nbsp;esi (4)&nbsp;</td>
   <td class="border">&nbsp;edi (4)&nbsp;</td>
   <td class="border">&nbsp;buffer (12)&nbsp;</td>
   <td class="border">&nbsp;ebp (4)&nbsp;</td>
   <td class="border">&nbsp;ret addr (4)&nbsp;</td>
 </tr></table>
-<p>&nbsp;</p>
 <ul>
 <li>Addresses increase to the right (the stack grows to the left)</li>
 <li class="fragment">What happens if the value stored into buffer is 13 bytes long?</li>
@@ -1317,7 +1315,6 @@ absolute_value:
 - Flavors:
   - Intel syntax: what we will use, and what nasm uses
   - AT&T syntax: what `g++ -S` uses by default
-
 - To make clang++ use the Intel syntax, you need to add the <br>`-mllvm --x86-asm-syntax=intel` flags
 ```
 clang++ -m32 -mllvm --x86-asm-syntax=intel -S \
@@ -1724,11 +1721,11 @@ Source code: [test_fib.s](code/08-x86/test_fib.s.html) ([src](code/08-x86/test_f
 ## An aside: An advantage of little-Endian
 - Consider the 32-bit big-Endian word 0x680abcde in memory starting address 1000:
   - In big-Endian:
-    - Byte '68' is the most significant and is at address 1000
-    - Byte 'de' is the least significant and is at address 1003
+    - Byte '68' is the most significant; is at address 1000
+    - Byte 'de' is the least significant; is at address 1003
   - In little-Endian:
-    - Byte 'de' is the most significant and is at address 1000
-    - Byte '68' is the least significant and is at address 1003
+    - Byte 'de' is the most significant; is at address 1000
+    - Byte '68' is the least significant; is at address 1003
 - Note that, in little-Endian, the entire 32-bit word *and* the 8-bit least significant byte have the same address!
 	  </script></section>
 
