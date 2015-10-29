@@ -162,8 +162,8 @@ current instruction being executed, and the program counter (PC),
 which contains the address of the next instruction to be executed.
 However, we will not directly use those two registers.
 
-The IBCM has 4,096 addressable memory locations, each one which
-location holds a 2 byte (16 bit).  Thus, the IBCM technically has
+The IBCM has 4,096 addressable memory locations and each of these
+locations holds 2 bytes (16 bits).  Thus, the IBCM technically has
 8,192 bytes (8 Kb) of memory.
 
 The IBCM handles input by reading in single values (either a
@@ -392,19 +392,19 @@ does nothing.
 Table~\ref{IBCMopcodes.tbl} describes the function of each of these 13
 IBCM instructions; both English and programming language-like
 explanations are given for each instruction. In the latter, ``a'' is
-the accumulator, ``addr'' is the values of the address portion of the
+the accumulator, ``addr'' is the value of the address portion of the
 instruction, and ``mem[]'' is memory.
 
 \begin{table}[h]
 \centering
 \begin{tabular}{llll}
 \und{op} & \und{name} & \und{HLL-like meaning} & \und{English explanation} \\
-3$_{16}$ & load  & a:= mem[addr]        & load accumulator from memory \\
+3$_{16}$ & load  & a := mem[addr]       & load accumulator from memory \\
 4$_{16}$ & store & mem[addr] := a       & store accumulator into memory \\
 5$_{16}$ & add   & a := a + mem[addr]   & add memory to accumulator \\
 6$_{16}$ & sub   & a := a - mem[addr]   & subtract memory from accumulator \\
 7$_{16}$ & and   & a := a \& mem[addr]  & logical 'and' memory into accumulator \\
-8$_{16}$ & or    & a := a | mem[addr]   & logical 'or' memory into accumulator \\
+8$_{16}$ & or    & a := a $|$ mem[addr] & logical 'or' memory into accumulator \\
 9$_{16}$ & xor   & a := a $\oplus$ mem[addr] & logical 'xor' memory into accumulator \\
 A$_{16}$ & not  & a := ~ a             & logical complement of accumulator \\
 B$_{16}$ & nop   &                      & do nothing (no operation) \\
@@ -671,7 +671,7 @@ displayed next to the halt instruction that was executed.
 
 On the right side, the values of the accumulator and program counter
 are listed, both in hexadecimal notation. As mentioned above, the PC
-field will also display, one the left side next to the hexadecimal
+field will also display, on the left side next to the hexadecimal
 address, if the simulator is awaiting input or is halted. The Input
 box is used to read in user input when a program requests it. When the
 simulator is waiting for input, it will flash the 'Input' text. In
@@ -743,7 +743,7 @@ A few notes:
 
 \item Browser compatibility: It has been tested in Internet Explorer
   under Windows, Safari under Mac OS X, and Firefox under Windows, Mac
-  OS X, and Ubuntu Linux. Note that the dispaly of the changing of the
+  OS X, and Ubuntu Linux. Note that the display of the changing of the
   values as the simulation is run (the PC, memory values, etc.) will
   only work on some browser / operating system combinations (Firefox,
   in particular, works well for this). The other browsers will have
@@ -985,10 +985,11 @@ instruction.  This is done in instruction 15, which is a load of the
 {\tt adit} variable (address 007), which has value 5000.  To this
 value of 5000 we add the array base (instruction 16) and then the
 index (instruction 17).  Instruction 18 then stores that instruction
-at the appropriate address (address 1a), overwriting the nop that is
-there with our updated instruction.  Once the current sum is loaded
-(instruction 19), our custom instruction is executed (instruction 1a),
-followed by the sum being stored back into memory (instruction 1b).
+at the appropriate address (address 1a), overwriting the {\tt nop}
+that is there with our updated instruction.  Once the current sum is
+loaded (instruction 19), our custom instruction is executed
+(instruction 1a), followed by the sum being stored back into memory
+(instruction 1b).
 
 
 \subsection{Recursive multiplication}

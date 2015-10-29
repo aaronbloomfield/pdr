@@ -37,7 +37,7 @@
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
 
-	<section data-markdown id="cover"><script type="text/template">
+	<section data-markdown><script type="text/template">
 # CS 2150
 &nbsp;
 ### Program and Data Representation
@@ -103,14 +103,14 @@
 - Goal: &Theta;(log *n*)
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
-## Complex Relationships: Phylogenetic Tree
-[![tree of life](images/05-trees/768px-Tree_of_life_SVG.svg.png)](http://en.wikipedia.org/wiki/File:Tree_of_life_SVG.svg)
-	  </script></section>
+	  <section>
+<h2><a href="http://en.wikipedia.org/wiki/File:Tree_of_life_SVG.svg">Complex Relationships: Phylogenetic Tree</a></h2>
+<img alt="phylogenetic tree" class="stretch" src="images/05-trees/768px-Tree_of_life_SVG.svg.png" style="background-color:white">
+	  </section>
 
 	  <section>
-<h2>Complex Relationships: Language Tree</h2>
-<a href="http://commons.wikimedia.org/wiki/File:IndoEuropeanTree.svg"><img alt="language tree" src="images/05-trees/IndoEuropeanTree.svg" style="background-color:white"></a>
+<h2><a href="http://commons.wikimedia.org/wiki/File:IndoEuropeanTree.svg">Complex Relationships: Language Tree</a></h2>
+<img alt="language tree" class="stretch" src="images/05-trees/IndoEuropeanTree.svg" style="background-color:white">
 	  </section>
 
 	  <section data-markdown><script type="text/template">
@@ -154,7 +154,7 @@
 
 	  <section data-markdown><script type="text/template">
 ## More Tree Terms
-- *Path*:  sequence of nodes n<sub>1</sub>, n<sub>2</sub>, ..., n<sub>k</sub> such that n<sub>i</sub> is parent of n<sub>i+1</sub> for 1 &le; i &le; k
+- *Path*:  sequence of nodes *n*<sub>1</sub>, *n*<sub>2</sub>, ..., *n*<sub>*k*</sub> such that *n*<sub>*i*</sub> is parent of *n*<sub>*i*+1</sub> for 1 &le; *i* &le; *k*
 - *Length*: number of edges in the path
 - *Internal path length*: sum of the depths of all the nodes
 	  </script></section>
@@ -199,11 +199,11 @@
 
 	  <section data-markdown><script type="text/template">
 ## Pre-order Traversal
-- Pre-order: node first, then children:
+- Pre-order: node first, then children (this is pseudo-code):
 ```
-TreeNode::printTree(TreeNode tnode) {
-    tnode.print();
-    for each child c of tnode
+TreeNode::printTree() {
+    this.print();
+    for each child c of this:
         c.printTree();
 }
 ```
@@ -211,12 +211,12 @@ TreeNode::printTree(TreeNode tnode) {
 
 	  <section data-markdown><script type="text/template">
 ## In-order Traversal
-- In-order: left node first, then self, then right node:
+- In-order: left node first, then self, then right node (C++):
 ```
 void BST::print(BinaryNode *curNode) {
     if (curNode != NULL) {
         print(curNode->left);
-        cout << curNode->element;
+        cout << curNode->element << endl;
         print(curNode->right);
     }
 }
@@ -225,9 +225,9 @@ void BST::print(BinaryNode *curNode) {
 
 	  <section data-markdown><script type="text/template">
 ## Post-order Traversal
-- Post-order: children first, then node:
+- Post-order: children first, then node (partly C++, partly pseudo-code):
 ```
-int TreeNode::numNodes(TreeNode tnode) {
+int TreeNode::numNodes(TreeNode *tnode) {
     if ( tnode == NULL )
         return 0;
     else {
@@ -312,7 +312,7 @@ int TreeNode::numNodes(TreeNode tnode) {
 - Both binary trees and binary search trees have zero, one, or two children per node
 - But a binary search tree is *sorted*
 - However, most people, when they say "binary tree", really mean a "binary search tree"
-- Note: we assume that we can *NOT* have duplicate elements in a BST
+- Note that we assume that we can *NOT* have duplicate elements in a BST
       </script></section>
 
       <section data-markdown><script type="text/template">
@@ -328,8 +328,8 @@ int TreeNode::numNodes(TreeNode tnode) {
 ## BST: Find
 ![bst-5](graphs/bst-5.svg)
 
-- Attempting to find 3 will go, from the root, left &rarr; left &rarr; right
-- Attempting to find 6 will go, from the root, right &rarr; left &rarr; left
+- Trying to find 3 will go, from the root, left &rarr; left &rarr; right
+- Trying to find 6 will go, from the root, right &rarr; left &rarr; left
   - At that point, we have "run off" the bottom of the tree (via 7's left-child pointer, which is `NULL`), and thus the value is not in the tree
       </script></section>
 
@@ -382,7 +382,6 @@ Similarly down the left subttree links for `findMin()`
 - Disrupts the tree structure
 - Basic idea: 
   - Find node to be removed.
-  - "Fix" tree so that binary search tree property still holds true
   - Three cases:
     - Node has no children
     - Node has one child
@@ -467,11 +466,10 @@ Similarly down the left subttree links for `findMin()`
 ![bst-13](graphs/bst-13.svg)
 
 - All leaves have the same depth
-  - And all nodes have zero or two children, but not one child
+  - And all nodes have zero or two children, but not one
 - Number of leaves: 2<sup>*h*</sup>
 - Number of nodes: 1 + 2 + 2<sup>2</sup> + 2<sup>3</sup> + ... + 2<sup>*h*</sup> = 2<sup>*h*+1</sup>-1
-- Problem: a perfect binary tree can only hold *n* values where:
-  - *n* = 2<sup>*h*+1</sup>-1
+- Problem: a perfect binary tree can only hold *n* values where *n* = 2<sup>*h*+1</sup>-1
   - So you can't have, say, 5 values in a perfect binary tree!
       </script></section>
 
@@ -626,8 +624,7 @@ For every node in the tree, the *height* of the left and right sub-trees differs
 ## AVL balance factor
 - Each node of a BST holds:
   - The data
-  - Left child pointer
-  - Right child pointer
+  - Left and right child pointers
   - Possibly a parent node pointer
 - An AVL tree also holds a balance factor
   - The height of the *right* subtree minus the height of the *left* subtree
@@ -743,7 +740,7 @@ Not balanced: height difference greater than 1
 	  </section>
 
 	  <section>
-<h2>AVL single right rotation: before & after</h2>
+<h2>AVL single right rotation: before &amp; after</h2>
 <table class="transparent"><tr>
 <td><img alt="avl tree 4" src="graphs/avl-tree-4.svg" width="350"></td>
 <td class="middle">&rarr;</td>
@@ -752,7 +749,19 @@ Not balanced: height difference greater than 1
 <ul>
 <li>Node 1 (red) is what is being inserted</li>
 <li>The <i><b>lowest</b></i> node with an imbalance is node 5 (balance: -2)</li>
-<li>Because the insert was in 5's "left subtree of the left child", we perform a single right rotation on 5 (and it's left child, 3)</li>
+<li>Because the insert was in 5's "left subtree of the left child", we perform a single right rotation on 5 (and its left child, 3)</li>
+</ul>
+	  </section>
+
+	  <section>
+<h2>AVL single right rotation: before &amp; after</h2>
+<table class="transparent"><tr>
+<td><img alt="avl tree 4" src="graphs/avl-tree-4.svg" width="350"></td>
+<td class="middle">&rarr;</td>
+<td class="top"><img alt="avl tree 5" src="graphs/avl-tree-5.svg" width="350"></td>
+</tr></table>
+<ul>
+<li>From the previous slide, we know we perform a single right rotation on 5 (and its left child, 3)</li>
 <li>Thus, the two blue nodes are the 'pivots' of the rotation</li>
 <li>Note that node 4 changes parents (from 3's right to 5's left)</li>
 </ul>
@@ -766,7 +775,7 @@ Not balanced: height difference greater than 1
 <td><img alt="avl tree 7" src="graphs/avl-tree-7.svg"></td>
 </tr></table>
 <p class="center">\( X &lt; b &lt; Y &lt; a &lt; Z \)</p>
-<p class="center">The insert happens into sub-tree X, increasing it's height to <i>h</i>+1</p>
+<p class="center">The insert is into sub-tree X, increasing its height to <i>h</i>+1</p>
 <p class="center">Notice how sub-tree Y changes parent</p>
 	  </section>
 
@@ -777,15 +786,15 @@ Note that the trees shown are not necessarily AVL trees, but the rotations are c
 	  </script></section>
 
 	  <section>
-<h2>Cases 2 & 3: attempt a single rotation</h2>
+<h2>Cases 2 &amp; 3: attempt a single rotation</h2>
 <table class="transparent"><tr>
 <td><img alt="avl tree 8" src="graphs/avl-tree-8.svg"></td>
 <td class="middle">&rarr;</td>
 <td><img alt="avl tree 9" src="graphs/avl-tree-9.svg"></td>
 </tr></table>
 <p class="center">\( X &lt; b &lt; Y &lt; a &lt; Z \)</p>
-<p class="center">The insert happens into sub-tree Y, increasing it's height to <i>h</i>+1</p>
-<p class="center">Single rotation fails!  New height of b's left subtree is <i>h</i>+1, and the right subtree has height <i>h</i>+3</p>
+<p class="center">The insert is into sub-tree Y, increasing its height to <i>h</i>+1</p>
+<p class="center">Failure!  b's left subtree has height <i>h</i>+1; right is <i>h</i>+3</p>
 	  </section>
 
 	  <section>
@@ -868,7 +877,7 @@ Note that the trees shown are not necessarily AVL trees, but the rotations are c
 	  </script></section>
 
 	  <section>
-<h2>How an algorithm determines which way to rotate</h2>
+<h2>Algorithmic determination of rotation</h2>
 <table class="transparent">
 <tr>
   <td class="top"><img alt="avl tree 21" src="graphs/avl-tree-21.svg"></td>
@@ -886,8 +895,8 @@ Note that the trees shown are not necessarily AVL trees, but the rotations are c
 	  </section>
 
 	  <section>
-<h2>All the tree rotations</h2>
-<a href="http://en.wikipedia.org/wiki/File:Tree_Rebalancing.gif"><img alt="tree rotations" src="images/05-trees/1024px-Tree_Rebalancing.gif"></a>
+<h2><a href="http://en.wikipedia.org/wiki/File:Tree_Rebalancing.gif">All the tree rotations</a></h2>
+<img class="stretch" alt="tree rotations" src="images/05-trees/1024px-Tree_Rebalancing.gif">
 	  </section>
 
 	  <section data-markdown><script type="text/template">
@@ -952,7 +961,7 @@ All of these properties must hold for a red-black tree
 ## Case 2: new node's parent is black
 - Case 2 is when the new node's parent is a black node
   - Property 4 (children of a red node are black) is not invalidated
-  - Property 5 (all paths from a given node to it's leaf nodes have the same number of black nodes) is not threatened
+  - Property 5 (all paths from a given node to its leaf nodes have the same number of black nodes) is not threatened
     - The new node's children are black, but that's the same number of black nodes as the node it replaced
 	  </script></section>
 
@@ -985,10 +994,10 @@ All of these properties must hold for a red-black tree
 	  <section data-markdown><script type="text/template">
 ## Removal
 - Do a normal BST remove
-  - Find next highest/lowest value, put it's value in the node to be deleted, remove that highest/lowest node
+  - Find next highest/lowest value, put its value in the node to be deleted, remove that highest/lowest node
     - Note that that node won't have 2 children!
-  - We replace the node to be deleted with it's left child
-    - This child is N, it's sibling is S, it's parent is P
+  - We replace the node to be deleted with its left child
+    - This child is N, its sibling is S, its parent is P
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -998,7 +1007,7 @@ All of these properties must hold for a red-black tree
   2. S is red
   3. P, S, and S's children are black
   4. S and S's children are black, but P is red
-  5. S is black, S's left child is red, S's right child is black, and N is the left child of it's parent
+  5. S is black, S's left child is red, S's right child is black, and N is the left child of its parent
   6. S is black, S's right child is red, and N is the left child of parent P
 - We won't see them in detail, though, but you can find details [here](http://en.wikipedia.org/wiki/Red_black_trees)
 	  </script></section>
@@ -1010,7 +1019,7 @@ All of these properties must hold for a red-black tree
 - Time-critical applications will see a performance boost
 - Functional programming languages used red-black trees for associative arrays (hashes)
   - The tree can be a persistent data structure
-    - A data structure that retains a "memory" of it's mutations
+    - A data structure that retains a "memory" of its mutations
 	  </script></section>
 
 	</section>
@@ -1145,10 +1154,10 @@ int main() {
 - Note that there are two `int z` declarations; this will be relevant shortly
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
-## The program tree
-![program tree](graphs/program-tree-1.svg)
-	  </script></section>
+	  <section>
+<h2>The program tree</h2>
+<img class="stretch" src="graphs/program-tree-1.svg" alt="program tree">
+	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## Notes on the program tree

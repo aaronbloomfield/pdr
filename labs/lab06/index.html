@@ -45,7 +45,7 @@
 <li>Verify with the TA the correct placement of the timer calls.</li>
 <li>Verify that your program gets the correct solution for the 250x250 grid using words.txt as the dictionary, and the 300x300 grid using words2.txt as the dictionary. The output files for these runs are in the <a href="data/">labs/lab06/data/ directory</a>.</li>
 <li>Read the shell script tutorial for this lab, which part of the <a href="http://en.wikibooks.org/wiki/Bash_Shell_Scripting">Wikibooks article on Bash Shell Scripting</a>; the specific sections are mentioned on the <a href="../../tutorials/index.html">tutorials page</a> (<a href="../../tutorials/index.md">md</a>)</li>
-<li>Write the shell script described in the post-lab section (averagetime.sh).</li>
+<li>Write the shell script described in the in-lab section (averagetime.sh).</li>
 <li>Your shell script <em>must</em> call a.out! Otherwise it will not work, and will receive points off.</li>
 <li>Create inlab6.pdf (see the in-lab section for formatting details), containing the complexity evaluation and the results of your program executions. See the in-lab section for details about what to include therein.</li>
 <li>If you finish the in-lab early, you should start on the post-lab optimizations.</li>
@@ -183,14 +183,14 @@ diff output.txt words2.sorted.out.txt</code></pre>
 <p><strong>Important note:</strong> your shell script MUST call a.out, and not anything else. We are going to test it on a Linux box, and if it calls anything else, it won't work, and you won't get credit.</p>
 <p>Armed with this, the rest of the required concepts for the shell script are in first six sections of the article. This script should be named <code>averagetime.sh</code>.</p>
 <p>As you are going through the tutorial, if there is a Unix command that you do not know (or you once knew and have since forgotten), you can find out more information about that command by entering <code>man command</code> at the Unix prompt. This brings up the manual for that command, including all of the command-line parameters.</p>
-<p>A few thoughts to help you with your shell script. If you are unsure if something is working, you can always print out the value of the variable through the <code>echo</code> command. And you need not worry about the decimal precision of the average -- the result of using 'expr' or arithmetic expansion <code>$(( ... ))</code> with the sum over the number of runs is fine -- recall that the script has been modified to only print out an integer value (using 'expr' or arithmetic expansion <code>$(( ... ))</code> with floating point values will have issues).</p>
+<p>A few thoughts to help you with your shell script. If you are unsure if something is working, you can always print out the value of the variable through the <code>echo</code> command. And you need not worry about the decimal precision of the average -- the result of using arithmetic expansion <code>$(( ... ))</code> with the sum over the number of runs is fine -- recall that the script has been modified to only print out an integer value (using arithmetic expansion <code>$(( ... ))</code> with floating point values will have issues).</p>
 <p>Your script should have comments (anything on a line after a '#' is a comment). Our solution was 10-15 lines, not counting comments.</p>
 <p>Below are a few notes to keep in mind when writing your shell script. Bash is a very powerful language, but it can be rather finicky and unforgiving with syntax.</p>
 <ul>
 <li>The shell script takes two inputs (dictionary file and grid file), in that order; no command-line parameters.</li>
 <li>Your program should be called <code>averagetime.sh</code>, and should have <code>#!/bin/bash</code> as the very first line of the script</li>
 <li>When setting variables, do not have spaces around the equals sign</li>
-<li>Keep in mind that to grab program output (such as the output of the binary program, or the result of a mathematical calculation using 'expr'), you use back quotes (i.e. `)</li>
+<li>Keep in mind that to grab program output (such as the output of the binary program), you use back quotes (i.e. `)</li>
 <li>To execute your script, you can just enter, <code>./averagetime.sh</code>. If you get a complaint about that ('permission denied', for example), enter this command: <code>chmod 755 averagetime.sh</code>. This tells your Unix system that averagetime.sh is a program that can be executed (remember chmod?).</li>
 </ul>
 <h3 id="in-lab-report">In-lab Report</h3>

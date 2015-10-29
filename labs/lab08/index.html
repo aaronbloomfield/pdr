@@ -62,7 +62,7 @@
 <p><strong>Your code must compile and run on the submission server, which is a 64-bit Linux machine!</strong></p>
 <p>There are three changes that will have to be made to compile your program (and this to the Makefile) depending on your own development platform:</p>
 <ul>
-<li>You will have to determine whether to name your function <code>vecsum</code> instead of <code>_vecsum</code> (note the lack of underscore) in vecsum.s (this file is described more below). In the final linking step, if you get a message such as, <code>main.cpp:(.text+0x12): undefined reference to</code>vecsum'`, then you should change the name of the function.<br /></li>
+<li>You will have to determine whether to name your function <code>vecsum</code> instead of <code>_vecsum</code> (note the lack of underscore) in vecsum.s (this file is described more below). In the final linking step, if you get a message such as, <code>main.cpp:(.text+0x12): undefined reference to 'vecsum'</code>, then you should change the name of the function.<br /></li>
 <li>Some systems will have to supply a command-line parameter to clang++; this can be put on the <code>CXX</code> or <code>CXXFLAGS</code> macro(s) line in your Makefile</li>
 <li>All systems will have a specific nasm file format option (<code>-f</code>) that will need to be specified.</li>
 </ul>

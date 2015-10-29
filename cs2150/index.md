@@ -69,22 +69,22 @@ The links in the right-most column link directly to the lecture recording on Col
 |11| Sep&nbsp;18 | Friday    | | [03: Numbers][83] | [03: Numbers][83], slides [31][10307] to [49][1030809] ([recording][211]) |
 |12| Sep&nbsp;21 | Monday    | [Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8 | [03: Numbers][83] | [03: Numbers][83], slides [50][1030810] to [65][1030825] ([recording][212]) |
 |13| Sep&nbsp;23 | Wednesday | | [04: Arrays & big-Oh][84] | [03: Numbers][83], slides [65][1030825] to [73][1030833] (end); [04: Arrays & Big-Oh][84], slides [1][84] to [15][1040311] ([recording][214]) |
-|14| Sep&nbsp;25 | Friday    | | [04: Arrays & big-Oh][84] | |
-|  | Sep&nbsp;27 | Sunday    | | Exam 1 review session | |
-|15| Sep&nbsp;28 | Monday    | Exam 1 instead during Tuesday's lab | [04: Arrays & big-Oh][84], [05: Trees][85] | |
-|16| Sep&nbsp;30 | Wednesday | | [05: Trees][85] | |
-|17| Oct&nbsp;2  | Friday    | | [05: Trees][85] | |
+|14| Sep&nbsp;25 | Friday    | | [04: Arrays & big-Oh][84] | [04: Arrays & Big-Oh][84], slides [16][10404] to [25][1040409] ([recording][215]) |
+|  | Sep&nbsp;27 | Sunday    | | Exam 1 review session | ([recording][217]) |
+|15| Sep&nbsp;28 | Monday    | Exam 1 instead during Tuesday's lab | [04: Arrays & big-Oh][84], [05: Trees][85] | [04: Arrays & Big-Oh][84], slides [26][1040410] to [58][1040507] ([recording][216]) |
+|16| Sep&nbsp;30 | Wednesday | | [05: Trees][85] | [05: Trees][85], slides [1][85] to [30][1050410] ([recording][218]) |
+|17| Oct&nbsp;2  | Friday    | | [05: Trees][85] | [05: Trees][85], slides [30][1050410] to [64][1050609] ([recording][219]) |
 |  | Oct&nbsp;5  | Monday    | no lab this week due to fall break | no class (fall break) | No lecture today (fall break) |
-|18| Oct&nbsp;7  | Wednesday | | [05: Trees][85] | |
-|19| Oct&nbsp;9  | Friday    | | [05: Trees][85] | |
-|20| Oct&nbsp;12 | Monday    | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [06: Hashes][86] | |
-|21| Oct&nbsp;14 | Wednesday | | [06: Hashes][86] | |
-|22| Oct&nbsp;16 | Friday    | | [06: Hashes][86], [07: IBCM][87] (machine language) | |
-|23| Oct&nbsp;19 | Monday    | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [07: IBCM][87] (machine language) | |
-|24| Oct&nbsp;21 | Wednesday | | [07: IBCM][87] (machine language) | |
-|25| Oct&nbsp;23 | Friday    | | [07: IBCM][87] (machine language) | |
-|26| Oct&nbsp;26 | Monday    | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [08: x86][88] (assembly language) | |
-|27| Oct&nbsp;28 | Wednesday | | [08: x86][88] (assembly language) | |
+|18| Oct&nbsp;7  | Wednesday | | [05: Trees][85] | [05: Trees][85], slides [65][1050610] to [85][1050630] (see below this table for details about the recording) |
+|19| Oct&nbsp;9  | Friday    | | [05: Trees][85] | [05: Trees][85], slides [86][10507] to [99][1050801] ([recording][221]) |
+|20| Oct&nbsp;12 | Monday    | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [06: Hashes][86] | [05: Trees][85], slides [100][1050802] to [116][1050909] (end); [06: Hashes][86], slides [1][86] to [18][1060404] ([recording][223]) |
+|21| Oct&nbsp;14 | Wednesday | | [06: Hashes][86] | [06: Hashes][86], slides [19][1060405] to [36][1060507] ([recording][224]) |
+|22| Oct&nbsp;16 | Friday    | | [06: Hashes][86], [07: IBCM][87] (machine language) | [06: Hashes][86], slides [37][10606] to [48][1060611] ([recording][225]) |
+|23| Oct&nbsp;19 | Monday    | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [07: IBCM][87] (machine language) | [06: Hashes][86], slides [49][10607] to [55][1060706] (end); [07: IBCM][87], slides [1][87] to [18][1070407] ([recording][226]) |
+|24| Oct&nbsp;21 | Wednesday | | [07: IBCM][87] (machine language) | [07: IBCM][87], slides [15][1070404] to [30][1070503] ([recording][227]) |
+|25| Oct&nbsp;23 | Friday    | | [07: IBCM][87] (machine language) | [07: IBCM][87], slides [30][1070503] to [40][1070601] ([recording][228]) |
+|26| Oct&nbsp;26 | Monday    | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [08: x86][88] (assembly language) | [07: IBCM][87], slides [40][1070601] to [48][1070609] (end); [08: x86][88], slides [1][88] to [10][1080306] ([recording][230]) |
+|27| Oct&nbsp;28 | Wednesday | | [08: x86][88] (assembly language) | [08: x86][88], slides [10][1080306] to [31][1080502] ([recording][231]) |
 |28| Oct&nbsp;30 | Friday    | | [08: x86][88] (assembly language) | |
 |29| Nov&nbsp;2  | Monday    | [Lab 8: x86, part 1][8] ([md][28]) / Tutorial 8: nasm, which is two book chapters: [1][53] and [2][54] | [08: x86][88] (assembly language) | |
 |30| Nov&nbsp;4  | Wednesday | | [08: x86][88], [09: Advanced C++][89] | |
@@ -105,6 +105,8 @@ The links in the right-most column link directly to the lecture recording on Col
 |42| Dec&nbsp;7  | Monday    | [Lab 12: Objective C][12] ([md][32])| [12: Memory][92], [13: Esoteric PLs][93], [Course conclusion][94] | |
 |  | Dec&nbsp;9  | Wednesday | | Final exam review session | |
 |  | Dec&nbsp;11 | Friday    | Final exam from 9:00-noon in Gilmer 130| Final exam from 9:00-noon in Gilmer 130 | |
+
+On Wednesday, Ocrober 7th, Mark Floryan covered class, and the lecture was not recorded.  What is posted instead are the lectures from last semester (spring 2015) that covered the same material.  Because the two semesters were slightly out of sync with each other, the material was covered across two lectures: [05-trees-3-spring-2015](https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/05-trees-3-spring-2015/05-trees-3.htm), starting at 33:37, and [05-trees-4-spring-2015](https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/05-trees-4-spring-2015/05-trees-4.htm), ending at 30:57.  Because of a difference in the verions of the slide software, the slide numbers won't match up.
 
 ------------------------------------------------------------
 
@@ -232,40 +234,41 @@ None yet!
 [213]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/03-numbers-4/03-numbers-4.htm
 [214]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/04-arrays-bigoh-1/04-arrays-bigoh-1.htm
 [215]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/04-arrays-bigoh-2/04-arrays-bigoh-2.htm
-[216]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/exam1-review/exam1-review.htm
-[217]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/05-trees-1/05-trees-1.htm
-[218]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/05-trees-2/05-trees-2.htm
-[219]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/05-trees-3/05-trees-3.htm
-[220]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/05-trees-4/05-trees-4.htm
-[221]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/05-trees-5/05-trees-5.htm
-[222]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/06-hashes-1/06-hashes-1.htm
-[223]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/06-hashes-2/06-hashes-2.htm
-[224]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/06-hashes-3/06-hashes-3.htm
-[225]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/07-ibcm-1/07-ibcm-1.htm
-[226]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/07-ibcm-2/07-ibcm-2.htm
-[227]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/07-ibcm-3/07-ibcm-3.htm
-[228]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/07-ibcm-4/07-ibcm-4.htm
-[229]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/08-x86-1/08-x86-1.htm
-[230]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/08-x86-2/08-x86-2.htm
-[231]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/08-x86-3/08-x86-3.htm
-[232]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/08-x86-4/08-x86-4.htm
-[233]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/08-x86-5/08-x86-5.htm
-[234]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/09-advanced-cpp-1/09-advanced-cpp-1.htm
-[235]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/09-advanced-cpp-2/09-advanced-cpp-2.htm
-[236]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/exam2-review/exam2-review.htm
-[237]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/09-advanced-cpp-3/09-advanced-cpp-3.htm
-[238]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/10-heaps-huffman-1/10-heaps-huffman-1.htm
-[239]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/10-heaps-huffman-2/10-heaps-huffman-2.htm
-[240]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/10-heaps-huffman-3/10-heaps-huffman-3.htm
-[241]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/11-graphs-1/11-graphs-1.htm
-[242]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/11-graphs-2/11-graphs-2.htm
-[243]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/11-graphs-3/11-graphs-3.htm
-[244]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/11-graphs-4/11-graphs-4.htm
-[245]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/12-memory-1/12-memory-1.htm
-[246]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/12-memory-2/12-memory-2.htm
-[247]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/12-memory-3/12-memory-3.htm
-[248]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/course-conclusion/course-conclusion.htm
-[249]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/final-review/final-review.htm
+[216]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/04-arrays-bigoh-3/04-arrays-bigoh-3.htm
+[217]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/exam1-review/exam1-review.htm
+[218]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/05-trees-1/05-trees-1.htm
+[219]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/05-trees-2/05-trees-2.htm
+[220]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/05-trees-3/05-trees-3.htm
+[221]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/05-trees-4/05-trees-4.htm
+[222]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/05-trees-5/05-trees-5.htm
+[223]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/06-hashes-1/06-hashes-1.htm
+[224]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/06-hashes-2/06-hashes-2.htm
+[225]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/06-hashes-3/06-hashes-3.htm
+[226]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/07-ibcm-1/07-ibcm-1.htm
+[227]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/07-ibcm-2/07-ibcm-2.htm
+[228]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/07-ibcm-3/07-ibcm-3.htm
+[229]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/07-ibcm-4/07-ibcm-4.htm
+[230]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/08-x86-1/08-x86-1.htm
+[231]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/08-x86-2/08-x86-2.htm
+[232]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/08-x86-3/08-x86-3.htm
+[233]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/08-x86-4/08-x86-4.htm
+[234]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/08-x86-5/08-x86-5.htm
+[235]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/09-advanced-cpp-1/09-advanced-cpp-1.htm
+[236]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/09-advanced-cpp-2/09-advanced-cpp-2.htm
+[237]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/exam2-review/exam2-review.htm
+[238]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/09-advanced-cpp-3/09-advanced-cpp-3.htm
+[239]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/10-heaps-huffman-1/10-heaps-huffman-1.htm
+[240]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/10-heaps-huffman-2/10-heaps-huffman-2.htm
+[241]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/10-heaps-huffman-3/10-heaps-huffman-3.htm
+[242]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/11-graphs-1/11-graphs-1.htm
+[243]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/11-graphs-2/11-graphs-2.htm
+[244]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/11-graphs-3/11-graphs-3.htm
+[245]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/11-graphs-4/11-graphs-4.htm
+[246]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/12-memory-1/12-memory-1.htm
+[247]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/12-memory-2/12-memory-2.htm
+[248]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/12-memory-3/12-memory-3.htm
+[249]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/course-conclusion/course-conclusion.htm
+[250]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/final-review/final-review.htm
 
 [1000303]: ../cs2150/course-introduction.html#/3/3
 [10004]: ../cs2150/course-introduction.html#/4
@@ -309,47 +312,69 @@ None yet!
 [1030832]: ../slides/03-numbers.html#/8/32
 [1030833]: ../slides/03-numbers.html#/8/33
 [1040311]: ../slides/04-arrays-bigoh.html#/3/11
+[10404]: ../slides/04-arrays-bigoh.html#/4
 [1040402]: ../slides/04-arrays-bigoh.html#/4/2
 [1040403]: ../slides/04-arrays-bigoh.html#/4/3
+[1040409]: ../slides/04-arrays-bigoh.html#/4/9
+[1040410]: ../slides/04-arrays-bigoh.html#/4/10
 [1040419]: ../slides/04-arrays-bigoh.html#/4/19
 [1040420]: ../slides/04-arrays-bigoh.html#/4/20
 [1040507]: ../slides/04-arrays-bigoh.html#/5/7
 [1050305]: ../slides/05-trees.html#/3/5
 [1050306]: ../slides/05-trees.html#/3/6
 [1050311]: ../slides/05-trees.html#/3/11
+[1050410]: ../slides/05-trees.html#/4/10
 [1050415]: ../slides/05-trees.html#/4/15
 [1050416]: ../slides/05-trees.html#/4/16
 [1050417]: ../slides/05-trees.html#/4/17
-[1050617]: ../slides/05-trees.html#/6/17
+[1050609]: ../slides/05-trees.html#/6/9
+[1050610]: ../slides/05-trees.html#/6/10
 [1050612]: ../slides/05-trees.html#/6/12
+[1050617]: ../slides/05-trees.html#/6/17
+[1050630]: ../slides/05-trees.html#/6/30
+[10507]: ../slides/05-trees.html#/7
 [1050703]: ../slides/05-trees.html#/7/3
 [1050709]: ../slides/05-trees.html#/7/9
 [1050711]: ../slides/05-trees.html#/7/11
 [10508]: ../slides/05-trees.html#/8
+[1050801]: ../slides/05-trees.html#/8/1
+[1050802]: ../slides/05-trees.html#/8/2
 [1050909]: ../slides/05-trees.html#/9/9
 [1060413]: ../slides/06-hashes.html#/4/13
 [1060401]: ../slides/06-hashes.html#/4/1
+[1060404]: ../slides/06-hashes.html#/4/4
+[1060405]: ../slides/06-hashes.html#/4/5
 [10605]: ../slides/06-hashes.html#/5
 [1060502]: ../slides/06-hashes.html#/5/2
+[1060507]: ../slides/06-hashes.html#/5/7
+[10606]: ../slides/06-hashes.html#/6
 [1060608]: ../slides/06-hashes.html#/6/8
 [1060609]: ../slides/06-hashes.html#/6/9
+[1060611]: ../slides/06-hashes.html#/6/11
+[10607]: ../slides/06-hashes.html#/7
 [1060702]: ../slides/06-hashes.html#/7/2
 [1060706]: ../slides/06-hashes.html#/7/6
 [1070302]: ../slides/07-ibcm.html#/3/2
 [1070303]: ../slides/07-ibcm.html#/3/3
 [1070401]: ../slides/07-ibcm.html#/4/1
 [1070402]: ../slides/07-ibcm.html#/4/2
+[1070404]: ../slides/07-ibcm.html#/4/4
+[1070407]: ../slides/07-ibcm.html#/4/7
 [1070415]: ../slides/07-ibcm.html#/4/15
 [10705]: ../slides/07-ibcm.html#/5
+[1070503]: ../slides/07-ibcm.html#/5/3
 [1070505]: ../slides/07-ibcm.html#/5/5
 [1070506]: ../slides/07-ibcm.html#/5/6
 [1070511]: ../slides/07-ibcm.html#/5/11
+[1070601]: ../slides/07-ibcm.html#/6/1
 [1070604]: ../slides/07-ibcm.html#/6/4
 [1070609]: ../slides/07-ibcm.html#/6/9
+[1080306]: ../slides/08-x86.html#/3/6
 [1080410]: ../slides/08-x86.html#/4/10
 [1080304]: ../slides/08-x86.html#/3/4
 [1080305]: ../slides/08-x86.html#/3/5
 [10805]: ../slides/08-x86.html#/5
+[1080502]: ../slides/08-x86.html#/5/2
 [1080504]: ../slides/08-x86.html#/5/4
 [1080505]: ../slides/08-x86.html#/5/5
 [1080607]: ../slides/08-x86.html#/6/7

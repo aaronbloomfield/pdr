@@ -185,10 +185,11 @@ store 300
 	  <section data-markdown><script type="text/template">
 ## Running IBCM programs
 - Online IBCM simulator
-  - http://www.cs.virginia.edu/~cs216/ibcm/ 
-- Mirrors:
-  - http://pegasus.cs.virginia.edu/ibcm/ 
-  - http://people.virginia.edu/~asb2t/ibcm/ 
+  - http://www.cs.virginia.edu/~cs216/ibcm/
+- Mirrors (best to use in this order):
+  - http://people.virginia.edu/~asb2t/ibcm/
+  - http://pegasus.cs.virginia.edu/ibcm/
+  - http://libra.cs.virginia.edu/ibcm/
 - This program will hang your browser if it gets stuck in an infinite loop, due to how web browsers (don't) handle Javascript threads and polling of web pages
 	  </script></section>
 
@@ -340,7 +341,7 @@ store 300
 <tr><td>5</td><td>add</td><td><code>a := a + mem[addr]</code></td><td>add memory to accumulator</td></tr>
 <tr><td>6</td><td>sub</td><td><code>a := a - mem[addr]</code></td><td>add memory from accumulator</td></tr>
 <tr><td>7</td><td>and</td><td><code>a := a &and; mem[addr]</code></td><td>logical 'and' memory into accumulator</td></tr>
-<tr><td>8</td><td>or</td><td><code>a := a &or; mem[addr]</code></td><td>logical 'and' memory into accumulator</td></tr>
+<tr><td>8</td><td>or</td><td><code>a := a &or; mem[addr]</code></td><td>logical 'or' memory into accumulator</td></tr>
 <tr><td>9</td><td>xor</td><td><code>a := a &oplus; mem[addr]</code></td><td>logical 'xor' memory into accumulator</td></tr>
 <tr><td>A</td><td>not</td><td><code>a := !a</code></td><td>logical complement of accumulator</td></tr>
 <tr><td>B</td><td>nop</td><td><code>/* */</code></td><td>do nothing (no operation)</td></tr>
@@ -386,16 +387,16 @@ xit     load	s
       <tr><td>002</td><td class="border">0005</td><td>halt</td></tr>
       <tr><td>003</td><td class="border">3001</td><td>load mem[1]</td></tr>
       <tr><td>004</td><td class="border">5002</td><td>add mem[2]</td></tr>
-      <tr><td>005</td><td class="border">0000</td><td>halt</td></tr>
+      <tr><td>005</td><td class="border" style="border-bottom:medium solid;">0000</td><td>halt</td></tr>
     </table>
 </td><td style="width:100px"></td><td>
     <table class="transparent">
       <tr><td>&nbsp;</td><td></td></tr>
-      <tr><td>PC</td><td class="border" style="width:100px">&nbsp;</td></tr>
+      <tr><td>PC</td><td class="border" style="width:100px;border-bottom:medium solid;">&nbsp;</td></tr>
       <tr><td></td><td>&nbsp;</td></tr>
-      <tr><td>IR</td><td class="border"></td></tr>
+      <tr><td>IR</td><td class="border" style="border-bottom:medium solid;"></td></tr>
       <tr><td></td><td>&nbsp;</td></tr>
-      <tr><td>Accum</td><td class="border"></td></tr>
+      <tr><td>Accum</td><td class="border" style="border-bottom:medium solid;"></td></tr>
     </table>
 </td></tr></table>
 <script type="text/javascript">insertCanvas();</script>
@@ -413,17 +414,17 @@ xit     load	s
       <tr><td>003</td><td class="border">8003</td><td class="fragment">or mem[3]</td></tr>
       <tr><td>004</td><td class="border">a000</td><td class="fragment">not</td></tr>
       <tr><td>005</td><td class="border">4000</td><td class="fragment">store mem[0]</td></tr>
-      <tr><td>006</td><td class="border">f000</td><td class="fragment">brl mem[0]</td></tr>
+      <tr><td>006</td><td class="border" style="border-bottom:medium solid;">f000</td><td class="fragment">brl mem[0]</td></tr>
     </table>
 </td><td style="width:100px"></td><td>
     <table class="transparent">
       <tr><td>&nbsp;</td><td></td></tr>
       <tr><td>&nbsp;</td><td></td></tr>
-      <tr><td>PC</td><td class="border" style="width:100px">&nbsp;</td></tr>
+      <tr><td>PC</td><td class="border" style="width:100px;border-bottom:medium solid;">&nbsp;</td></tr>
       <tr><td></td><td>&nbsp;</td></tr>
-      <tr><td>IR</td><td class="border"></td></tr>
+      <tr><td>IR</td><td class="border" style="border-bottom:medium solid;"></td></tr>
       <tr><td></td><td>&nbsp;</td></tr>
-      <tr><td>Accum</td><td class="border"></td></tr>
+      <tr><td>Accum</td><td class="border" style="border-bottom:medium solid;"></td></tr>
     </table>
 </td></tr></table>
 <script type="text/javascript">insertCanvas();</script>
@@ -539,7 +540,7 @@ We'll look at this code in parts...
 ```
 mem  locn label op      addr      comments
 
-C00A 000         jmp     start     skip around the variables
+C00A 000         jmp     start     skip around the vars
 0000 001   i     dw      0         int i
 0000 002   s     dw      0         int s
 0000 003   n     dw      0         int n
@@ -660,7 +661,7 @@ We'll look at this code in parts...
 ## Array summation: initialization and halting
 ```
 mem  locn label op       addr   comments
-C00A 000         jmp      start  skip around the variables
+C00A 000         jmp      start  skip around the vars
 0000 001   i     dw       0      int i
 0000 002   s     dw       0      int s
 0000 003   a     dw       0      int a[]
@@ -692,10 +693,10 @@ mem  locn label op      addr    comments
 6001 012         sub      i
 E020 013         jmpl     xit
 D020 014         jmpe     xit
-3007 015         load     adit   form the inst to add a[i]
+3007 015         load     adit   form inst to add a[i]
 5003 016         add      a
 5001 017         add      i
-401A 018         store    doit   plant inst into the code
+401A 018         store    doit   plant inst into code
 3002 019         load     s      s += a[i]
 0000 01A   doit  dw       0
 4002 01B         store    s
