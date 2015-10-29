@@ -64,7 +64,7 @@ There are four different platforms that students are potentially developing thei
 
 There are three changes that will have to be made to compile your program (and this to the Makefile) depending on your own development platform:
 
-- You will have to determine whether to name your function `vecsum` instead of `_vecsum` (note the lack of underscore) in vecsum.s (this file is described more below).  In the final linking step, if you get a message such as, `main.cpp:(.text+0x12): undefined reference to `vecsum'`, then you should change the name of the function.  
+- You will have to determine whether to name your function `vecsum` instead of `_vecsum` (note the lack of underscore) in vecsum.s (this file is described more below).  In the final linking step, if you get a message such as, `main.cpp:(.text+0x12): undefined reference to 'vecsum'`, then you should change the name of the function.  
 - Some systems will have to supply a command-line parameter to clang++; this can be put on the `CXX` or `CXXFLAGS` macro(s) line in your Makefile
 - All systems will have a specific nasm file format option (`-f`) that will need to be specified.
 
