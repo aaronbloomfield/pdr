@@ -6,7 +6,7 @@ PDR: Docs: LLDB Command Summary
 Assembly-specific commands
 
 - `stepi`: step one MACHINE instruction (i.e. assembly instruction), instead of one C++ instruction (which is what `step` does)
-- `registers read`: display the values in the registers
+- `register read`: display the values in the registers
 - `settings set target.x86-disassembly-flavor intel`: set the assembly output format to what we are used to in class (and what we are programming in)
 - `disassemble`: like list, but displays the lines of assembly code currently being executed.
 - `disassemble --name (function)`: prints the assembly code for the supplied function (up until the next label)
