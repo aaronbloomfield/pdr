@@ -22,22 +22,22 @@ class lectures on assembly language programming, should provide enough
 information to do the assembly language labs for this class. In this
 guide, we describe the basics of 32-bit x86 assembly language
 programming, covering a small but useful subset of the available
-instructions and assembler directives. How- ever, real x86 programming
+instructions and assembler directives. However, real x86 programming
 is a large and extremely complex universe, much of which is beyond the
 useful scope of this class. For example, the vast majority of real
-(albeit older) x86 code run- ning in the world was written using the
+(albeit older) x86 code running in the world was written using the
 16-bit subset of the x86 instruction set. Using the 16-bit programming
 model can be quite complex~-- it has a segmented memory model, more
-restrictions on register usage, and so on. In this guide we\u2019ll
+restrictions on register usage, and so on. In this guide we'll
 restrict our attention to the more modern aspects of x86 programming,
 and delve into the instruction set only in enough detail to get a
 basic feel for programming x86 compatible chips at the hardware level.
 
 \section{Registers}
 
-Modern (i.e 386 and beyond) x86 processors have 8 32-bit general
+Modern (i.e., 386 and beyond) x86 processors have eight 32-bit general
 purpose registers, as depicted in
-Figure\ref{x86-register-diagram.fig}. The register names are mostly
+Figure~\ref{x86-register-diagram.fig}. The register names are mostly
 historical in nature. For example, EAX used to be called the
 ``accumulator'' since it was used by a number of arithmetic
 operations, and ECX was known as the ``counter'' since it was used to
@@ -65,7 +65,7 @@ placed into DX, the update affects the value of EDX (in particular,
 the least significant 16 bits of EDX). These ``sub-registers''
 are mainly hold-overs from older, 16-bit versions of the instruction
 set. However, they are sometimes convenient when dealing with data
-that are smaller than 32-bits (e.g. 1-byte ASCII characters).
+that are smaller than 32-bits (e.g., 1-byte ASCII characters).
 
 When referring to registers in assembly language, the names are not
 case-sensitive. For example, the names EAX and eax refer to the same
@@ -76,7 +76,7 @@ register.
 \subsection{Declaring Static Data Regions}
 
 You can declare static data regions (analogous to global variables) in
-x86 assembly using spe- cial assembler directives for this purpose.
+x86 assembly using special assembler directives for this purpose.
 Data declarations should be preceded by the .DATA directive. Following
 this directive, the directives DB, DW, and DD can be used to declare
 one, two, and four byte data locations, respectively. Declared
@@ -91,8 +91,8 @@ Listing~\ref{x86-declaring-memory-regions.lst}.
 \end{figure}
 
 The last example in Listing~\ref{x86-declaring-memory-regions.lst}
-illustrates the declaration of an array.  Unlike in high level lan-
-guages where arrays can have many dimensions and are accessed by
+illustrates the declaration of an array.  Unlike in high level
+languages where arrays can have many dimensions and are accessed by
 indices, arrays in assembly language are simply a number of cells
 located contiguously in memory. Two other common methods used for
 declaring arrays of data are the TIMES directive and the use of string
@@ -111,14 +111,14 @@ arrays are depicted in Listing~\ref{x86-declaring-arrays.lst}.
 Modern x86-compatible processors are capable of addressing up to
 $2^{32}$ bytes of memory; that is, memory addresses are 32-bits wide.
 For example, in Listings~\ref{x86-declaring-memory-regions.lst} and
-{x86-declaring-arrays.lst}, where we used labels to refer to memory
+\ref{x86-declaring-arrays.lst}, where we used labels to refer to memory
 regions, these labels are actually replaced by the assembler with
 32-bit quantities that specify addresses in memory. In addition to
 supporting referring to memory regions by labels (i.e. constant
 values), the x86 provides a flexible scheme for computing and
 referring to memory addresses:
 
-{\bf X86 Addressing Mode Rule}~-- Up to two of the 32-bit registers
+{\bf x86 Addressing Mode Rule}~-- Up to two of the 32-bit registers
 and a 32-bit signed constant can be added together to compute a memory
 address. One of the registers can be optionally pre-multiplied by 2,
 4, or 8.
@@ -262,7 +262,7 @@ add BYTE PTR [var], 10}
 {; add 10 to the contents of EAX. \newline
 ; subtract the contents of ESI from \newline
 ; the 32-bit integer stored at \newline
-; memorylocation ``var''.\newline
+; memory location ``var''.\newline
 ; add 10 to the single byte stored\newline
 ; at memory address ``var''.\newline}
 {2.2in}{3.5in}
@@ -286,7 +286,7 @@ imul $<$reg32$>$,$<$mem$>$,$<$con$>$}
 {The imul instruction has two basic formats: two-operand (first two
 syntax listings above) and three-operand (last two syntax listings
 above).  The two-operand form multiplies its two operands together and
-stores the result in the first operand. The result (i.e. first)
+stores the result in the first operand. The result (i.e., first)
 operand must be a register.  The three operand form multiplies its
 second and third operands together and stores the result in its first
 operand. Again, the result operand must be a register.  Furthermore,
@@ -336,14 +336,14 @@ placing the result in the first operand location.}
 
 \asminstructionsummary{not}
 {not $<$reg$>$ \newline not $<$mem$>$}
-{Performs the logical negation of the operand contents (i.e. flips all bit values).}
+{Performs the logical negation of the operand contents (i.e., flips all bit values).}
 {not BYTE PTR [var]}
 {; negate all bits in the byte at the \newline ; memory location ``var''.}
 {1.7in}{4in}
 
 \asminstructionsummary{neg}
 {neg $<$reg$>$ \newline neg $<$mem$>$}
-{Performs the arithmetic (i.e. two's complement) negation of the operand contents.}
+{Performs the arithmetic (i.e., two's complement) negation of the operand contents.}
 {neg eax \newline neg [var]}
 {; negate the contents of EAX. \newline ; negate the contests of ``var''}
 {1.4in}{4.3in}
@@ -499,7 +499,7 @@ older 80286 instruction set for wider compatibility, for example).
 Next, where in the C++ file we find the declaration of the global
 variable ``var'', in the assembly file we find the use of the .DATA
 and DD directives (described in Section 3.1) to reserve and initialize
-a 4-byte (i.e. integer-sized) memory region labeled ``var''.
+a 4-byte (i.e., integer-sized) memory region labeled ``var''.
 
 \begin{wrapfigure}{r}{0.37\textwidth}
 \lstinputlisting[backgroundcolor=\color{white},frame=trBL,linewidth=2.5in,xleftmargin=0.25in,label={x86-return2.cpp.lst},language=C++,caption={C++ code to return 2}]{x86/code/return2.cpp}
@@ -519,7 +519,7 @@ symbol \_returnTwo in the object code that the assembler generates.
 
 The function bodies are straight-forward. As we will see in more
 detail in Section 6, return values for functions are placed into EAX
-by convention, hence the instruction to move the con- tents of ``var''
+by convention, hence the instruction to move the contents of ``var''
 into EAX in the assembly code.
 
 \begin{wrapfigure}{r}{0.48\textwidth}
