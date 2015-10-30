@@ -65,7 +65,7 @@
 <p>There are pros and cons to the online version of the emulator. The online version does not require installation, allows for inline memory modification, but will hang your browser if it gets stuck in an infinite loop. Also, the online simulator gets rather unhappy if there are extra blank lines at the end of your input file.</p>
 <p>You will be developing a somewhat more complicated IBCM program in the in-lab. So, as preparation, study the IBCM documentation and lecture notes. Additionally, you will be expected to come to the in-lab with two working IBCM programs. You will not get much from the lab unless you are thoroughly familiar with the documentation and lecture notes, so make sure you are familiar with the material!</p>
 <h3 id="writing-ibcm-code">Writing IBCM Code</h3>
-<p>You <strong>must</strong> comment your IBCM code copiously. This means (practically) every line should have a comment describing what you are doing. Note that you cannot have a line that is only comments, as the emulator will have trouble reading that line! The examples provided in the handouts posted on the course website and discussed in class illustrate a good way of doing this, where there are columns for each of the following:</p>
+<p>You <strong>MUST</strong> comment your IBCM code copiously. This means (practically) every line should have a comment describing what you are doing. Note that you cannot have a line that is only comments, as the emulator will have trouble reading that line! The examples provided in the handouts posted on the course website and discussed in class illustrate a good way of doing this, where there are columns for each of the following:</p>
 <ol style="list-style-type: decimal">
 <li>the hexadecimal values that will go into that memory location</li>
 <li>the address of that memory location</li>
@@ -92,17 +92,17 @@
 <h3 id="array.ibcm">array.ibcm</h3>
 <p>Write a second IBCM program that finds the maximum value in an array of values.</p>
 <ul>
-<li>The array base address is hard-coded into memory, meaning it's a pre-set value, and this is not obtained by user input. You can have the array be all or part of the IBCM program, or a section of memory after the program with values that you have selected.</li>
-<li>You may also hard code other values, such as the number of elements in the array, into your program</li>
+<li>The array base address is hard-coded into memory, meaning it's a pre-set value that isn't obtained by user input. You can have the array be all or part of the IBCM program, or a section of memory after the program with values that you have selected.</li>
+<li>You should also hard-code other values, such as the number of elements in the array and the array elements themselves, into your program. The program should not need any user input.</li>
 <li>Before your program halts, it prints out the maximum value of the array</li>
 </ul>
 <p>You <strong><em>MUST</em></strong> iterate through the array by creating the array load instruction, similarly as was done in lecture in the <a href="../../ibcm/array-summation.ibcm">array-simulation.ibcm</a> program. You may <strong><em>NOT</em></strong> have a series of separate instructions to each load a separate value from the array -- such a program will receive zero credit.</p>
 <h3 id="submitting-your-code">Submitting your code</h3>
-<p>Your code MUST have comments in the file so that the TAs can grade it. No comments will earn a zero for the grade.</p>
+<p>Your code <strong><em>MUST</em></strong> have comments in the file so that the TAs can grade it. No comments will earn a zero for the grade.</p>
 <hr />
 <h2 id="in-lab-1">In-lab</h2>
 <h3 id="bubble-sort">Bubble sort</h3>
-<p>Download and look at the bubblesort.cpp algorithm from the Collab site. This algorithm is what needs to be implemented in IBCM, although you should NOT implement the output in the IBCM version.</p>
+<p>Download and look at the <a href="bubblesort.cpp.html">bubblesort.cpp</a> (<a href="bubblesort.cpp">src</a>) algorithm. This algorithm is what needs to be implemented in IBCM, although you should <strong>NOT</strong> implement the output in the IBCM version.</p>
 <p>To encode this program, follow these steps:</p>
 <ol style="list-style-type: decimal">
 <li>Write up high-level pseudo-code for your design on paper (make sure that it is absolutely correct, or you will probably regret it later)</li>
@@ -112,7 +112,7 @@
 <li>Encode into actual hex IBCM code and addresses, and test it using the simulator</li>
 <li>Identify and fix the errors that you did not pick up in the previous steps</li>
 </ol>
-<p>The file should be called bubblesort.ibcm. It MUST have comments in the file so that the TAs can grade it. No comments will earn a zero for the grade.</p>
+<p>The file should be called bubblesort.ibcm. It <strong>MUST</strong> have comments in the file so that the TAs can grade it. No comments will earn a zero for the grade.</p>
 <hr />
 <h2 id="post-lab-1">Post-lab</h2>
 <h3 id="post-lab-report">Post-lab report</h3>
@@ -130,9 +130,9 @@
 <h3 id="bash-shell-script">Bash shell script</h3>
 <p>The tutorial for this lab is the remainder of the <a href="http://en.wikibooks.org/wiki/Bash_Shell_Scripting">Wikibooks article on Bash Shell Scripting</a>.</p>
 <p>For this lab, you will need to work a bit more on the shell script that you wrote for the last lab. The shell script will also compute the average running time for 5 executions of a program. The difference is that you will be using control structures, such as conditionals (if-then-else) and loops (for or while) in this shell script.</p>
-<p>First, download the <a href="counter.cpp.html">counter.cpp</a> (<a href="counter.cpp">src</a>) file from Collab. This program contains the timer code from lab 6, although it has been modified to print out the time in milliseconds. Note that the program doesn't actually do anything useful it just takes in a numeric command line parameter, and runs through an idle loop many times. We'll call the command line parameter taken in <em>e</em>, and thus the program will run through the idle loop 10*<em>e</em> times. Thus, you should not enter a value for e greater than 9 (as 10<sup>9</sup> (1 billion) is the largest power of 10 that an <code>int</code> value can hold). On a modern computer, entering 9 as the parameter should take between 1 and 5 seconds to run, but keep in mind that the output is in milliseconds. Note that if you compile it with <code>-O2</code>, some compilers (including clang++ on Linux systems) will recognize that there is an idle loop (i.e. a loop that does nothing), and will remove that code from the final binary; thus, your time will report as zero. If this is the case, lower the optimization level so that you get a non-zero value when you run it with a high number of iterations.</p>
+<p>First, download the <a href="counter.cpp.html">counter.cpp</a> (<a href="counter.cpp">src</a>) file. This program contains the timer code from lab 6, although it has been modified to print out the time in milliseconds. Note that the program doesn't actually do anything useful; it just takes in a numeric command line parameter, and runs through an idle loop many times. We'll call the command line parameter taken in <em>e</em> -- given an input of <em>e</em>, the program will run through the idle loop 10<sup><em>e</em></sup> times. Thus, you should not enter a value for <em>e</em> greater than 9 (as 10<sup>9</sup> (1 billion) is the largest power of 10 that an <code>int</code> value can hold). On a modern computer, entering 9 as the parameter should take between 1 and 5 seconds to run, but keep in mind that the output is in milliseconds. Note that if you compile it with <code>-O2</code>, some compilers (including clang++ on Linux systems) will recognize that there is an idle loop (i.e. a loop that does nothing), and will remove that code from the final binary; thus, your time will report as zero. If this is the case, lower the optimization level so that you get a non-zero value when you run it with a high number of iterations.</p>
 <p>Your shell script should take in a single input value (as regular input, not as a command line parameter), which will be the number of iterations (i.e. the command-line parameter to pass to the binary program). If that input is <code>quit</code>, then the script should exit. Otherwise, you execute the program a total of 5 times, printing and keeping track of the execution time taken for each one. Your script should then print the average time taken for each execution. <strong>You MUST call your executable program <code>a.out</code> in your shell script.</strong></p>
-<p>Your shell script <strong>MUST</strong> have an <code>if</code> statement (to see if it should exit), and <strong>MUST</strong> have a for or while loop. The number of times to iterate through the <code>for</code> or <code>while</code> loop (initially set to 5) should be a variable set previously in the script. Math in bash can be done with arithmetic expansion <code>$(( ... ))</code>, as discussed in the tutorial from the last lab. Integer division is fine when computing the average.</p>
+<p>Your shell script <strong>MUST</strong> have an <code>if</code> statement (to see if it should exit), and <strong>MUST</strong> have a <code>for</code> or <code>while</code> loop. The number of times to iterate through the <code>for</code> or <code>while</code> loop (initially set to 5) should be a variable set previously in the script. Math in bash can be done with arithmetic expansion <code>$(( ... ))</code>, as discussed in the tutorial from the last lab. Integer division is fine when computing the average.</p>
 <p>Recall that the back quote (on the same key as the tilde (~), which is usually to the left of the digit 1) tells a shell script to run the program, and use the output for something else (as opposed to displaying the output to the screen). For example, the following line would run the program (called a.out), only keep the last line, and save that output to a variable called <code>RUNNING_TIME</code>.</p>
 <pre><code>RUNNING_TIME=`./a.out | tail -1`</code></pre>
 <p>If you want to compare values in a while expression (such as the bash equivalent of <code>while ( i &lt; s )</code>), you should see <a href="http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-7.html">here</a>. In particular, you need to use <code>-lt</code> for the less than operator, and square brackets instead of the parenthesis.</p>
@@ -140,9 +140,9 @@
 <ul>
 <li>Your program should be called <code>averagetime.sh</code>, and should have <code>#!/bin/bash</code> as the very first line of the script</li>
 <li>Bash is a bit finicky with having Boolean operators within an <code>if</code> clause, so try to avoid that (it can do it, but the syntax is very particular)</li>
-<li>When setting variables, do NOT have spaces around the equals sign</li>
-<li>When adding up values (using arithmetic expansion <code>$(( ... ))</code>), there SHOULD be spaces around the arithmetic operators as well as equals sign within the parentheses.</li>
-<li>A for loop requires a <code>do</code> keyword before the for loop body; likewise, an <code>if</code> statement has a <code>then</code> before the body. Either these words must be on the next line, or a semi-colon must be there before the <code>do</code> or <code>then</code></li>
+<li>When setting variables, do <strong>NOT</strong> have spaces around the equals sign</li>
+<li>When adding up values (using arithmetic expansion <code>$(( ... ))</code>), there <strong>SHOULD</strong> be spaces around the arithmetic operators as well as an equals sign within the parentheses.</li>
+<li>A <code>for</code> loop requires a <code>do</code> keyword before the for loop body; likewise, an <code>if</code> statement has a <code>then</code> before the body. Either these words must be on the next line, or a semi-colon must be there before the <code>do</code> or <code>then</code></li>
 <li>Keep in mind that to grab program output (such as the output of the binary program), you use back quotes (i.e. `)</li>
 <li>To execute your script, you can just enter, <code>./averagetime.sh</code>. If you get a complaint about that (&quot;permission denied&quot;, for example), enter this command: <code>chmod 755 averagetime.sh</code>. This tells your Unix system that averagetime.sh is a program that can be executed (remember chmod?).</li>
 </ul>
