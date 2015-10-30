@@ -45,8 +45,8 @@
 <center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
 <center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="08-x86.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
 <center><small>Themes: [default](?#/cover), [sky](?theme=sky#/cover), [beige](?theme=beige#/cover), [simple](?theme=simple#/cover), [serif](?theme=serif#/cover), [night](?theme=night#/cover), [moon](?theme=moon#/cover), [solarized](?theme=solarized#/cover)</small></center>
-&nbsp;  
-&nbsp;  
+&nbsp;
+&nbsp;
 ## x86 (assembly language)
 	</script></section>
 
@@ -70,14 +70,14 @@
 
 	<section data-markdown><script type="text/template">
 # Contents
-&nbsp;  
-[Introduction to x86](#/introduction)  
-[x86 Instruction Set](#/x86insts)  
-[Calling Conventions](#/callingconv)  
-[Callee Rules](#/callee)  
-[Caller Rules](#/caller)  
-[Activation Records](#/actrecs)  
-[x86 Examples](#/examples)  
+&nbsp;
+[Introduction to x86](#/introduction)
+[x86 Instruction Set](#/x86insts)
+[Calling Conventions](#/callingconv)
+[Callee Rules](#/callee)
+[Caller Rules](#/caller)
+[Activation Records](#/actrecs)
+[x86 Examples](#/examples)
 	</script></section>
 
 
@@ -483,7 +483,7 @@ int main() {
 - Why?
   - Separate programmers can:
     - Share code more easily
-    - Develop libraries 
+    - Develop libraries
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -624,11 +624,11 @@ return sum / num;
 ## Example: Output in C
 The C equivalent of cout is a function called `printf`
 ```
-printf ("A %s, a %s, a %s: %s!", "man", 
+printf ("A %s, a %s, a %s: %s!\n", "man",
 		"plan", "canal", "Panama");
-printf ("A percent sign: %%");
+printf ("A percent sign: %%\n");
 printf ("An int: %d\n", i);
-printf ("A float with 2 decimal digits: %.2f", 
+printf ("A float with 2 decimal digits: %.2f\n",
 		float_value);
 ```
 Output:
@@ -739,7 +739,7 @@ call myFunc      ; call the function
 add esp, 12      ; clean up stack
 pop edx          ; restore saved edx value
 
-; return value of myFunc is now available in eax 
+; return value of myFunc is now available in eax
 ; (if there is any return value)
 ```
 	  </script></section>
@@ -1030,7 +1030,7 @@ ret             ; pop top value from stack, jump there
 		  <img alt="cc animation" class="fragment" data-fragment-index="33" src="x86/x86-cc-stack.dot.5.svg" style="position:absolute;left:0;top:0">
 		</div>
 	      </td>
-	      
+
 	      <td style="vertical-align:top">
 		<div style="position:relative;left:0;top:0">
 		  <img alt="cc animation" class="fragment fade-out" data-fragment-index="2" src="x86/x86-cc-esp.dot.6.svg" style="position:relative;left:0;top:0">
@@ -1175,8 +1175,8 @@ ret             ; pop top value from stack, jump there
 
 	  <section data-markdown><script type="text/template">
 ## x86 Examples
-All examples are in the [slides/code/08-x86/](code/08-x86/) directory in the github repo  
-&nbsp;  
+All examples are in the [slides/code/08-x86/](code/08-x86/) directory in the github repo
+&nbsp;
 Code we'll see:
 
 - int absolute_value(int x)
@@ -1500,13 +1500,13 @@ _Z3maxii:
 ## C-string Comparison
 (see next slide for the source code link)
 ```
-bool compare_string (const char *theStr1, 
+bool compare_string (const char *theStr1,
                      const char *theStr2) {
     // while *theStr1 is not NULL terminator
     // and the current corresponding bytes are equal
-    while( (*theStr1 != NULL) 
+    while( (*theStr1 != NULL)
             && (*theStr1 == *theStr2) ) {
-        theStr1++;        // increment the pointers to 
+        theStr1++;        // increment the pointers to
         theStr2++;        // the next char / byte
     }
     return (*theStr1==*theStr2);
@@ -1522,7 +1522,7 @@ Source code: [test_string_compare.cpp](code/08-x86/test_string_compare.cpp.html)
 #include <string>
 using namespace std;
 
-extern "C" bool compare_string(const char* theStr1, 
+extern "C" bool compare_string(const char* theStr1,
                                const char* theStr2);
 
 // code for compare_string here
@@ -1629,7 +1629,7 @@ int fib(unsigned int n) {
 
 int main() {
     int theValue = 0;
-    cout << "Enter value for fib(): " << endl;    
+    cout << "Enter value for fib(): " << endl;
     cin >> theValue;
     int theResult = fib(theValue);
     cout << "The result is: " << theResult << endl;
