@@ -85,7 +85,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |25| Oct&nbsp;23 | Friday    | | [07: IBCM][87] (machine language) | [07: IBCM][87], slides [30][1070503] to [40][1070601] ([recording][228]) |
 |26| Oct&nbsp;26 | Monday    | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [08: x86][88] (assembly language) | [07: IBCM][87], slides [40][1070601] to [48][1070609] (end); [08: x86][88], slides [1][88] to [10][1080306] ([recording][230]) |
 |27| Oct&nbsp;28 | Wednesday | | [08: x86][88] (assembly language) | [08: x86][88], slides [10][1080306] to [31][1080502] ([recording][231]) |
-|28| Oct&nbsp;30 | Friday    | | [08: x86][88] (assembly language) | |
+|28| Oct&nbsp;30 | Friday    | | [08: x86][88] (assembly language) | [08: x86][88], slides [31][1080502] to [51][1080609] ([recording][232]) |
 |29| Nov&nbsp;2  | Monday    | [Lab 8: x86, part 1][8] ([md][28]) / Tutorial 8: nasm, which is two book chapters: [1][53] and [2][54] | [08: x86][88] (assembly language) | |
 |30| Nov&nbsp;4  | Wednesday | | [08: x86][88], [09: Advanced C++][89] | |
 |31| Nov&nbsp;6  | Friday    | | [09: Advanced C++][89] | |
