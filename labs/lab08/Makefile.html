@@ -39,7 +39,7 @@ http://www.gnu.org/software/src-highlite">
 <i><font color="#9A1900"># output executable name -- in order for this to work with the grading</font></i>
 <i><font color="#9A1900"># system, the file needs to be a.out (a.exe in Cygwin).</font></i>
 <font color="#990000">main:</font>	<font color="#009900">$(OFILES)</font>
-	<font color="#009900">$(CXX)</font> <font color="#009900">$(CXXFLAGS)</font> -o vecsum <font color="#009900">$(OFILES)</font>
+	<font color="#009900">$(CXX)</font> <font color="#009900">$(CXXFLAGS)</font> <font color="#009900">$(OFILES)</font>
 
 <i><font color="#9A1900"># This will clean up (remove) all our object files.  The -f option</font></i>
 <i><font color="#9A1900"># tells rm to forcily remove the files (i.e. don't ask if they should</font></i>
