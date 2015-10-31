@@ -11,7 +11,7 @@ CXXFLAGS	= -Wall -g
 AS	= nasm
 
 # Defines the flags for the assembler
-ASFLAGS	= -f elf
+ASFLAGS	= -f elf -g
 
 # All of the .o files for our program
 OFILES	= vecsum.o main.o
