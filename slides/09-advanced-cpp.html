@@ -378,7 +378,7 @@ int main() {
 	  <section data-markdown><script type="text/template">
 ## Inheritance
 - Specifies hierarchical relationship between types
-- You've seen this with Java; everything inherits (eventually) from `Object`
+- You've seen this with Java; everything inherits, eventually, from `Object`
   - (except `Object` itself, of course)
 	  </script></section>
 
@@ -387,7 +387,7 @@ int main() {
 Source code: [name-contact.cpp](code/09-advanced-cpp/name-contact.cpp.html) ([src](code/09-advanced-cpp/name-contact.cpp))
 ```
 class Name {
-public:
+  public:
     Name(void) : myName("") { }
     ~Name(void) {  }
     void SetName(string theName) {
@@ -397,7 +397,7 @@ public:
         cout << myName << endl;
     }
 
-private:
+  private:
     string myName;
 };
 ```
@@ -408,7 +408,7 @@ private:
 Source code: [name-contact.cpp](code/09-advanced-cpp/name-contact.cpp.html) ([src](code/09-advanced-cpp/name-contact.cpp))
 ```
 class Contact: public Name {
-public:
+  public:
     Contact(void) {
         myAddress = "";
     }
@@ -420,7 +420,8 @@ public:
         Name::print();
         cout << myAddress << endl;
     }
-private:
+
+  private:
     string myAddress;
 };
 ```
@@ -705,11 +706,22 @@ What if the relationship below occurs?
 
 - This shows both *replicated* and *shared* multiple inheritance
   - As one of the ancestors (gp_list_node) is replicated and one is shared (person) in the parent classes of student_prof
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Shared vs repliated multiple inheritance
 - In C++, replicated is the default
-  - Shared can be done by specifying that a base class is virtual:
+  - Shared inheritance can be specified by using the keyword `virtual`:
+
 ```
-class student: public virtual person, public gp_list_node {
-class professor: public virtual person, public gp_list_node {
+class student: public virtual person, 
+               public gp_list_node { ... };
+
+class professor: public virtual person, 
+                 public gp_list_node { ... };
+
+class student_prof: public virtual professor, 
+                    public virtual student { ... };
 ```
 	  </script></section>
 
@@ -731,27 +743,27 @@ There are four types:
 ## What will this Java code do?
 ```
 class Fruit {
-    static void addFruit (Fruit basket[]) 
+  static void addFruit (Fruit basket[]) 
         { basket[0] = new Apple(); }
-    public String toString() { return "I am a Fruit"; }
+  public String toString() { return "I am a Fruit"; }
 }
 
 class Apple extends Fruit {
-    public String toString() { return "I am an Apple"; }
+  public String toString() { return "I am an Apple"; }
 }
 
 class Orange extends Fruit {
-    public String toString() { return "I am an Orange"; }
+  public String toString() { return "I am an Orange"; }
 }
 
 public class Covariant {
-    public static void main (String[] args) {
-      Orange oranges[] = { new Orange(), new Orange(), 
-                           new Orange() };
-      Fruit.addFruit(oranges);
-      for ( int i = 0; i < 3; i++ )
-          System.out.println (oranges[i]);
-    }
+  public static void main (String[] args) {
+    Orange oranges[] = { new Orange(), new Orange(), 
+                         new Orange() };
+    Fruit.addFruit(oranges);
+    for ( int i = 0; i < 3; i++ )
+        System.out.println (oranges[i]);
+  }
 }
 ```
 	  </script></section>
@@ -856,7 +868,8 @@ int main() {
 <li>So we use the following:</li>
 </ul>
 <pre><code>TimeKeeper
-time_keeper{Timer()};
+  time_keeper
+  {Timer()};
 </code></pre>
 </td></tr></table>
 	  </section>
@@ -918,6 +931,14 @@ auto SomeStruct::func_name(int x, int y) -> int {
 ## What all this means
 - Modern C++ code is very complicated, and very difficult for us anybody to understand easily
 - And it makes a single C++ course insufficient to understand the level of C++ used in the industry...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## How to use these features
+- All modern compilers support C++11 features (well, mostly...)
+  - This includes the course submission server
+- To use these features, you have to pass the `-std=c++11` flag to the compiler
+  - Put it in the Makefile!
 	  </script></section>
 
 	</section>
