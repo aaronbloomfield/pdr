@@ -87,7 +87,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |27| Oct&nbsp;28 | Wednesday | | [08: x86][88] (assembly language) | [08: x86][88], slides [10][1080306] to [31][1080502] ([recording][231]) |
 |28| Oct&nbsp;30 | Friday    | | [08: x86][88] (assembly language) | [08: x86][88], slides [31][1080502] to [51][1080609] ([recording][232]) |
 |29| Nov&nbsp;2  | Monday    | [Lab 8: x86, part 1][8] ([md][28]) / Tutorial 8: nasm, which is two book chapters: [1][53] and [2][54] | [08: x86][88] (assembly language) | [08: x86][88], slides [52][10807] to [65][1080713] ([recording][233]) |
-|30| Nov&nbsp;4  | Wednesday | | [08: x86][88], [09: Advanced C++][89] | |
+|30| Nov&nbsp;4  | Wednesday | | [08: x86][88], [09: Advanced C++][89] | [08: x86][88], slides [66][10808] to [86][1080914] ([recording][234]) |
 |31| Nov&nbsp;6  | Friday    | | [09: Advanced C++][89] | |
 |  | Nov&nbsp;8  | Sunday    | | Exam 2 review session | |
 |32| Nov&nbsp;9  | Monday    | Exam 2 instead during Tuesday's lab | [09: Advanced C++][89] | |
@@ -382,6 +382,7 @@ None yet!
 [1080609]: ../slides/08-x86.html#/6/9
 [10807]: ../slides/08-x86.html#/7
 [1080713]: ../slides/08-x86.html#/7/13
+[10808]: ../slides/08-x86.html#/8
 [1080804]: ../slides/08-x86.html#/8/4
 [1080805]: ../slides/08-x86.html#/8/5
 [10809]: ../slides/08-x86.html#/9
