@@ -1735,7 +1735,7 @@ Source code: [test_fib.s](code/08-x86/test_fib.s.html) ([src](code/08-x86/test_f
 - Consider a `movb`, `movw`, or `movl`
   - Moving a 8, 16, and 32 bit quantity, respecitively
   - If you called `movb`, that instruction moves the *least* significant 8 bits of the 32-bit quantity
-- Thus, if you are doing one of those moves, the address is the same, which makes the CPU addressing routines simpler
+- Thus, if you are doing one of those moves, the address is the *same*, which makes the CPU addressing routines simpler
 - This means integer *casts* are a essentially a no-op
   - To cast an `int` to a `short`, you just tke lowest 16 bits, which means you use a `movw` instead of a `movl`
 	  </script></section>
