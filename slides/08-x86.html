@@ -1430,7 +1430,7 @@ int main() {
 
 	  <section data-markdown><script type="text/template">
 ## x86 code for max()
-Using `g++ -masm=intel`
+Using: `g++ -S -m32 -masm=intel`
 
 Source code: [test_max.s](code/08-x86/test_max.s.html) ([src](code/08-x86/test_max.s))
 ```
@@ -1456,7 +1456,7 @@ max:
 
 	  <section data-markdown><script type="text/template">
 ## x86 code for max() using -O2
-Using `g++ -masm=intel` and `-O2`
+Using: `g++ -S -m32 -masm=intel` and `-O2`
 
 Source code: [test_max-O2.s](code/08-x86/test_max-O2.s.html) ([src](code/08-x86/test_max-O2.s))
 ```
@@ -1472,7 +1472,7 @@ The [cmovg](http://www.asmpedia.org/index.php?title=CMOVG) opcode (conditional m
 
 	  <section data-markdown><script type="text/template">
 ## x86 code for max() without 'extern "C"'
-Using `g++ -masm=intel`
+Using: `g++ -S -m32 -masm=intel`
 
 Source code: [test_max-noextern.s](code/08-x86/test_max-noextern.s.html) ([src](code/08-x86/test_max-noextern.s))
 ```
@@ -1543,7 +1543,7 @@ int main() {
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for compare_string(), 1/3
-Using `g++ -masm=intel`
+Using: `g++ -S -m32 -masm=intel`
 
 Source code: [test_string_compare.s](code/08-x86/test_string_compare.s.html) ([src](code/08-x86/test_string_compare.s))
 ```
@@ -1559,7 +1559,7 @@ compare_string:
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for compare_string(), 2/3
-Using `g++ -masm=intel`
+Using: `g++ -S -m32 -masm=intel`
 
 Source code: [test_string_compare.s](code/08-x86/test_string_compare.s.html) ([src](code/08-x86/test_string_compare.s))
 ```
@@ -1581,7 +1581,7 @@ Source code: [test_string_compare.s](code/08-x86/test_string_compare.s.html) ([s
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for compare_string(), 3/3
-Using `g++ -masm=intel`
+Using: `g++ -S -m32 -masm=intel`
 
 Source code: [test_string_compare.s](code/08-x86/test_string_compare.s.html) ([src](code/08-x86/test_string_compare.s))
 ```
@@ -1640,7 +1640,7 @@ int main() {
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for fib(), 1/2
-Using `g++ -masm=intel`
+Using: `g++ -S -m32 -masm=intel`
 
 Source code: [test_fib.s](code/08-x86/test_fib.s.html) ([src](code/08-x86/test_fib.s))
 ```
@@ -1661,7 +1661,7 @@ fib:
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for fib(), 2/2
-Using `g++ -masm=intel`
+Using: `g++ -S -m32 -masm=intel`
 
 Source code: [test_fib.s](code/08-x86/test_fib.s.html) ([src](code/08-x86/test_fib.s))
 ```
