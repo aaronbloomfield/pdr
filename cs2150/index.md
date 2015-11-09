@@ -89,8 +89,8 @@ The links in the right-most column link directly to the lecture recording on Col
 |29| Nov&nbsp;2  | Monday    | [Lab 8: x86, part 1][8] ([md][28]) / Tutorial 8: nasm, which is two book chapters: [1][53] and [2][54] | [08: x86][88] (assembly language) | [08: x86][88], slides [52][10807] to [65][1080713] ([recording][233]) |
 |30| Nov&nbsp;4  | Wednesday | | [08: x86][88], [09: Advanced C++][89] | [08: x86][88], slides [66][10808] to [86][1080914] ([recording][234]) |
 |31| Nov&nbsp;6  | Friday    | | [09: Advanced C++][89] | [08: x86][88], slides [87][1080915] to [106][1080934] ([recording][235]) |
-|  | Nov&nbsp;8  | Sunday    | | Exam 2 review session | |
-|32| Nov&nbsp;9  | Monday    | Exam 2 instead during Tuesday's lab | [09: Advanced C++][89] | |
+|  | Nov&nbsp;8  | Sunday    | | Exam 2 review session | ([recording][238]) |
+|32| Nov&nbsp;9  | Monday    | Exam 2 instead during Tuesday's lab | [09: Advanced C++][89] | [09: Advanced C++][89], slides [25][10905] to [46][1090521] ([recording][236]) |
 |33| Nov&nbsp;11 | Wednesday | | [09: Advanced C++][89], [10: Heaps and Huffman coding][90]| |
 |34| Nov&nbsp;13 | Friday    | | [10: Heaps and Huffman coding][90] | |
 |35| Nov&nbsp;16 | Monday    | [Lab 9: x86, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [10: Heaps and Huffman coding][90] | |
@@ -394,11 +394,13 @@ None yet!
 [1080932]: ../slides/08-x86.html#/9/32
 [1080934]: ../slides/08-x86.html#/9/34
 [1090308]: ../slides/09-advanced-cpp.html#/3/8
+[10905]: ../slides/09-advanced-cpp.html#/5
 [1090508]: ../slides/09-advanced-cpp.html#/5/8
 [1090509]: ../slides/09-advanced-cpp.html#/5/9
 [1090518]: ../slides/09-advanced-cpp.html#/5/18
 [1090519]: ../slides/09-advanced-cpp.html#/5/19
 [1090520]: ../slides/09-advanced-cpp.html#/5/20
+[1090521]: ../slides/09-advanced-cpp.html#/5/21
 [1090708]: ../slides/09-advanced-cpp.html#/7/8
 [1090710]: ../slides/09-advanced-cpp.html#/7/10
 [1100408]: ../slides/10-heaps-huffman.html#/4/8
