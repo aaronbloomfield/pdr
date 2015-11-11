@@ -683,19 +683,19 @@ What sort of problems can this cause?
 class A {
     private: int bar;
     public: void foo() { bar = 7; }
-}
+};
 
 class B {
     private: int bar;
     public: void foo() { bar = 1; }
-}
+};
 
 class C: public A, public B {
     // which foo() is inherited?  Which bar?
     // if C sets bar to something, which one?
     // Does B's foo() and C's foo() use the same bar?
     // Difficulty in layout memory
-}
+};
 ```
 	  </script></section>
 
