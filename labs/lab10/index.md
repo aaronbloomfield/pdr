@@ -75,7 +75,7 @@ Huffman compression and decompression are both covered in the [Heaps and Huffman
 
 ### Requirements ###
 
-Assume that only printable ASCII characters will occur in the source (original, uncompressed) text file.  That is, your program should ignore newlines and tabs, but should not ignore spaces -- thus, spaces need to be encoded, just like with other (printable) characters.  Your program should be case-sensitive (count upper-case and lower-case versions of the same letter as different characters).  The lecture notes describe [which characters are to be encoded](../../slides/10-heaps-huffman.html#ascii).
+Assume that only printable ASCII characters will occur in the source (original, uncompressed) text file.  That is, your program should ignore newlines and tabs, but should not ignore spaces -- thus, spaces need to be encoded, just like with other (printable) characters.  Your program should be case-sensitive (count upper-case and lower-case versions of the same letter as different characters).  The lecture notes describe [which characters are to be encoded](../../slides/10-heaps-huffman.html#asciiset).
 
 You ***must*** use a heap (priority queue) data structure to receive full credit on this pre-lab.  You may use heap code from the slides (give said credit if you do so), or you may implement your own.  You may NOT use the priority_queue class from the STL, but you may use other classes from the STL (i.e. non-heap related classes).
 

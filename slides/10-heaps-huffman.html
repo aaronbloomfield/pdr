@@ -198,7 +198,7 @@ A *perfect* (or *complete*) binary tree is a binary tree with all leaf nodes at 
 </td></tr></table>
 <p>Implicit (array) representation:</p>
 
-<table class="transparent" style="border-collapse:collapse"><tr class="bordercfifty"><td>&nbsp;</td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td>I</td><td>J</td><td>K</td><td>L</td><td>&nbsp;</td></tr>
+<table class="transparent" style="border-collapse:collapse"><tr class="bordercfifty" style="border-bottom:medium solid;"><td>&nbsp;</td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td>I</td><td>J</td><td>K</td><td>L</td><td>&nbsp;</td></tr>
 <tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td></tr>
 </table>
 
@@ -633,26 +633,25 @@ void binary_heap::percolateDown(int hole) {
   - Which is 15 bytes
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
-## Compression step 1 (a)
-Determine frequencies of letters
-
-| Character | Frequency |
-|-|-|
-| b | 1 |
-| e | 2 |
-| f | 1 |
-| i | 5 |
-| m | 1 |
-| o | 2 |
-| p | 1 |
-| s | 2 |
-| t | 4 |
-| u | 1 |
-| , (comma) | 1 |
-| (space) | 9 |
-	  </script></section>
-
+	  <section>
+<h2>Compression step 1 (a)</h2>
+<p>Determine frequencies of letters</p>
+<table style="font-size:80%">
+<tr><th>Character</th><th>Frequency</th></tr>
+<tr><td>b</td><td>1</td></tr>
+<tr><td>e</td><td>2</td></tr>
+<tr><td>f</td><td>1</td></tr>
+<tr><td>i</td><td>5</td></tr>
+<tr><td>m</td><td>1</td></tr>
+<tr><td>o</td><td>2</td></tr>
+<tr><td>p</td><td>1</td></tr>
+<tr><td>s</td><td>2</td></tr>
+<tr><td>t</td><td>4</td></tr>
+<tr><td>u</td><td>1</td></tr>
+<tr><td>, (comma)</td><td>1</td></tr>
+<tr><td>(space)</td><td>9</td></tr>
+</table>
+	  </section>
 	  <section>
 <h2>Compression step 1 (b)</h2>
 <table><tr style="background-color: transparent"><td class="top"><p>Build a min-heap, sorted by frequency</p><img alt="huffman-14" src="graphs/huffman-14.svg"></td><td class="top">
@@ -671,9 +670,7 @@ Determine frequencies of letters
 <tr><td>, (comma)</td><td>1</td></tr>
 <tr><td>(space)</td><td>9</td></tr>
 </table>
-
 </td></table>
-
 	  </section>
 
 	  <section data-markdown><script type="text/template">
@@ -757,27 +754,25 @@ Determine frequencies of letters
 </td></table>
 	  </section>
 
-	  <section data-markdown><script type="text/template">
-## Resulting Encoding Table
-
-
-| Character | Frequency | Prefix code | Total bits
-|-|-|-|-|
-| b | 1 | 00000 | 5 | 
-| e | 2 | 0011 | 8 | 
-| f | 1 | 00001 | 5 | 
-| i | 5 | 11 | 10 | 
-| m | 1 | 00010 | 5 | 
-| o | 2 | 1000 | 8 | 
-| p | 1 | 00011 | 5 |
-| s | 2 | 1001 | 8 | 
-| t | 4 | 101 | 12 |
-| u | 1 | 00100 | 5 | 
-| , (comma) | 1 | 00101 | 5 | 
-| (space) | 9 | 01 | 18 |
-
-Total is 94 bits
-	  </script></section>
+	  <section>
+<h2>Resulting Encoding Table</h2>
+<table style="font-size:90%">
+<tr><th>Character</th><th>Frequency</th><th>Prefix code</th><th>Total bits</th></tr>
+<tr><td>b</td><td>1</td><td>00000</td><td>5</td></tr>
+<tr><td>e</td><td>2</td><td>0011</td><td>8</td></tr>
+<tr><td>f</td><td>1</td><td>00001</td><td>5</td></tr>
+<tr><td>i</td><td>5</td><td>11</td><td>10</td></tr>
+<tr><td>m</td><td>1</td><td>00010</td><td>5</td></tr>
+<tr><td>o</td><td>2</td><td>1000</td><td>8</td></tr>
+<tr><td>p</td><td>1</td><td>00011</td><td>5</td></tr>
+<tr><td>s</td><td>2</td><td>1001</td><td>8</td></tr>
+<tr><td>t</td><td>4</td><td>101</td><td>12</td></tr>
+<tr><td>u</td><td>1</td><td>00100</td><td>5</td></tr>
+<tr><td>, (comma)</td><td>1</td><td>00101</td><td>5</td></tr>
+<tr><td>(space)</td><td>9</td><td>01</td><td>18</td></tr>
+</table>
+<p>Total is 94 bits</p>
+	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## Huffman Encoding Statistics
@@ -898,7 +893,7 @@ u 00100
 - More details in the [Wikipedia ASCII article](http://en.wikipedia.org/wiki/ASCII)
 	  </script></section>
 
-	  <section id="ascii">
+	  <section id="asciiset">
 <h2>ASCII Character Codes in Hexadecimal</h2>
 <table class="transparent">
   <tr>
@@ -953,7 +948,6 @@ class binary_heap {
   private:
     vector<int> heap;
     unsigned int heap_size;
-
     void percolateUp(int hole);
     void percolateDown(int hole);
 };
@@ -1040,7 +1034,8 @@ void binary_heap::print() {
     cout << "(" << heap[0] << ") ";
     for ( int i = 1; i <= heap_size; i++ ) {
         cout << heap[i] << " ";
-        // next line from from http://tinyurl.com/mf9tbgm
+        // next line from from 
+        // http://tinyurl.com/mf9tbgm
         bool isPow2 = (((i+1) & ~(i))==(i+1))? i+1 : 0; 
         if ( isPow2 )
             cout << endl << "\t";
