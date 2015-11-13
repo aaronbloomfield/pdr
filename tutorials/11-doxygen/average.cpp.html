@@ -2,14 +2,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+<meta name="GENERATOR" content="GNU source-highlight 3.1.6
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
 <title>average.cpp</title>
 </head>
 <body bgcolor="white">
-<pre><tt><i><font color="#9A1900">/** </font></i><font color="#009900">@brief</font><i><font color="#9A1900"> Computes the average of the two passed values.</font></i>
+<pre><tt><b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<i><font color="#9A1900">/** </font></i><font color="#009900">@brief</font><i><font color="#9A1900"> Computes the average of the two passed values.</font></i>
 <i><font color="#9A1900"> *</font></i>
 <i><font color="#9A1900"> * This function computes the average using the standard accepted</font></i>
 <i><font color="#9A1900"> * formula for doing so.</font></i>
@@ -22,6 +26,17 @@ http://www.gnu.org/software/src-highlite">
 <font color="#009900">double</font> <b><font color="#000000">average</font></b> <font color="#990000">(</font><font color="#009900">double</font> x<font color="#990000">,</font> <font color="#009900">double</font> y<font color="#990000">)</font> <font color="#FF0000">{</font>
     <b><font color="#0000FF">return</font></b> <font color="#990000">(</font>x<font color="#990000">+</font>y<font color="#990000">)/</font><font color="#993399">2.0</font><font color="#990000">;</font>
 <font color="#FF0000">}</font>
+
+<font color="#009900">int</font> <b><font color="#000000">main</font></b> <font color="#990000">()</font> <font color="#FF0000">{</font>
+    <font color="#009900">double</font> a<font color="#990000">,</font> b<font color="#990000">,</font> c<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Enter two different floating point numbers: "</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cin <font color="#990000">&gt;&gt;</font> a <font color="#990000">&gt;&gt;</font> b<font color="#990000">;</font>
+    c <font color="#990000">=</font> <b><font color="#000000">average</font></b><font color="#990000">(</font>a<font color="#990000">,</font>b<font color="#990000">);</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The average of those numbers is "</font> <font color="#990000">&lt;&lt;</font> c <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+
 </tt></pre>
 </body>
 </html>

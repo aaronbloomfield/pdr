@@ -19,25 +19,32 @@
 <ol style="list-style-type: decimal">
 <li>The <a href="http://en.wikipedia.org/wiki/Topological_sort">Wikipedia page on Topological sort</a></li>
 <li>The <a href="http://en.wikipedia.org/wiki/Travelling_salesman_problem">Wikipedia page on the Traveling Salesperson problem</a></li>
-<li><a href="../../slides/12-graphs.html">The slides on graphs</a></li>
+<li><a href="../../slides/11-graphs.html">The slides on graphs</a></li>
 </ol>
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
 <ol style="list-style-type: decimal">
 <li>Go through the <a href="../../tutorials/11-doxygen/index.html">Doxygen tutorial</a>, as described in the pre-lab section.</li>
 <li>Study the topological sort algorithm described in the readings</li>
-<li>Look at the <a href="middleearth.h.html">middleearth.h</a> (<a href="middleearth.h">src</a>) and <a href="middleearth.cpp.html">middleearth.cpp</a> (<a href="middleearth.cpp">src</a>) files. You should understand <strong>AND DOCUMENT</strong> both of these two files. See the comments in the middleearth.cpp file, as well as the in-lab section, for details as to what these methods do. You should not modify any of the code in this file; only the comments.</li>
-<li>Write a program to compute a topological sort of a graph, as described in the pre-lab section; name it topological.cpp.</li>
-<li>Document your topological.cpp with doxygen commands. You will need to change the INPUT tag (line 577 of Doxyfile) to be your specific file names.</li>
+<li>Look at the <a href="middleearth.h.html">middleearth.h</a> (<a href="middleearth.h">src</a>) and <a href="middleearth.cpp.html">middleearth.cpp</a> (<a href="middleearth.cpp">src</a>) files. You should understand <strong>AND DOCUMENT</strong> both of these two files. See the comments in the middleearth.cpp file, as well as the in-lab section, for details as to what these methods do. You should not modify any of the code in this file; only the comments.
+<ul>
+<li>You will have to create a Doxyfile, as described in the <a href="../../tutorials/11-doxygen/index.html">Doxygen tutorial</a></li>
+<li>That Doxyfile should <em>only</em> generate HTML output (thus, set <code>GENERATE_LATEX</code> and <code>GENERATE_RTF</code> to &quot;NO&quot;)</li>
+<li>That Doxyfile <em>should</em> generate graphs (thus, set <code>HAVE_DOT</code>, <code>CALL_GRAPH</code>, and <code>CALLER_GRAPH</code> all to &quot;YES&quot;)</li>
+<li>Be sure to change the other options of the Doxyfile as described in the tutorial (don't forget <code>INPUT</code> and <code>EXTRACT_ALL</code>!)</li>
+<li>Your <code>INPUT</code> tag should include the two middleearth files, as well as the topological sort files</li>
+</ul></li>
+<li>Write a program to compute a topological sort of a graph, as described in the pre-lab section; name it <code>topological.cpp</code>.</li>
+<li>Document your topological.cpp with doxygen commands.</li>
 <li>Your code should compile with <code>make</code>! It should do <strong><em>TWO</em></strong> tasks: compile your code, and call <code>doxygen</code>. See the pre-lab section for more information about required make target.</li>
-<li>Files to download: <a href="Doxyfile">Doxyfile</a>, <a href="prelab-test-full.txt">prelab-test-full.txt</a>, <a href="prelab-test-small.txt">prelab-test-small.txt</a>, <a href="middleearth.h.html">middleearth.h</a> (<a href="middleearth.h">src</a>), <a href="middleearth.cpp.html">middleearth.cpp</a> (<a href="middleearth.cpp">src</a>), <a href="fileio2.cpp.html">fileio2.cpp</a> (<a href="fileio2.cpp">src</a>)</li>
+<li>Files to download: <a href="prelab-test-full.txt">prelab-test-full.txt</a>, <a href="prelab-test-small.txt">prelab-test-small.txt</a>, <a href="middleearth.h.html">middleearth.h</a> (<a href="middleearth.h">src</a>), <a href="middleearth.cpp.html">middleearth.cpp</a> (<a href="middleearth.cpp">src</a>), <a href="fileio2.cpp.html">fileio2.cpp</a> (<a href="fileio2.cpp">src</a>)</li>
 <li>Files to submit: topological.cpp, middleearth.h/cpp, Makefile, Doxyfile</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
 <ol style="list-style-type: decimal">
 <li>Implement a brute-force traveling salesman solution, as described in the in-lab section.</li>
-<li>Create a Makefile that will fully compile your code. You should not specify the resulting executable name (i.e., no <code>-o</code> output for the final link step). It will default to a.out, which is what is desired. The Makefile doxygen part should be the same as the pre-lab.</li>
-<li>Document your C++ files with doxygen commands. You must <strong>ALSO</strong> comment middleearth.h and middleearth.cpp (this should have been done in the pre-lab).</li>
+<li>Create a Makefile that will fully compile your code. You should not specify the resulting executable name (i.e., no <code>-o</code> output for the final link step). It will default to a.out, which is what is desired.</li>
+<li>Document your C++ files with doxygen commands. You must <strong>ALSO</strong> include commented middleearth.h and middleearth.cpp (this should have been done in the pre-lab).</li>
 <li>Your code should compile with <code>make</code>! It should do <strong><em>TWO</em></strong> tasks: compile your code, and call <code>doxygen</code>. See the pre-lab section for more information about required make target.</li>
 <li>Files to download: <a href="traveling-skeleton.cpp.html">traveling-skeleton.cpp</a> (<a href="traveling-skeleton.cpp">src</a>) (which you'll have to rename to traveling.cpp), and your commented middleearth.h / middleearth.cpp code from the pre-lab</li>
 <li>Files to submit: traveling.cpp, middleearth.h, middleearth.cpp, Makefile, Doxyfile</li>
@@ -52,7 +59,16 @@
 <h2 id="pre-lab-1">Pre-lab</h2>
 <h3 id="doxygen-tutorial">Doxygen tutorial</h3>
 <p>First, read through the <a href="../../tutorials/11-doxygen/index.html">Doxygen tutorial</a>. That tutorial then directs you to look though the doxygen manual, which you can <a href="http://www.stack.nl/~dimitri/doxygen/download.html#dlmanual">download in PDF form</a> (you have to extract the PDF file) or <a href="http://www.stack.nl/~dimitri/doxygen/manual/index.html">browse it online</a> (which is easier to view). Start with the <a href="http://www.stack.nl/~dimitri/doxygen/manual/docblocks.html">&quot;Documenting the code&quot; chapter</a>, as the previous chapters are covered in the tutorial.</p>
-<p>For all the code deliverables in this lab, you will need to document all of your code <strong><em>as well as the code that we provide</em></strong> using doxygen. You will also need to submit a Doxyfile that properly generates the documentation (which really just means changing the <code>INPUT</code> line in the file). We are not expecting you to have read through the entire user manual. <strong>But we are expecting you to document your code beyond the example provided. Just putting in those tags is not what we are looking for.</strong> Thus, you should read some of the user manual to get an idea of what you can do with Doxygen, and you should do some of these things in your code.</p>
+<p>For all the code deliverables in this lab, you will need to document all of your code <strong><em>as well as the code that we provide</em></strong> using doxygen. You will also need to create and submit a Doxyfile that properly generates the documentation. We are not expecting you to have read through the entire user manual. <strong>But we are expecting you to document your code beyond the example provided. Just putting in those tags is not what we are looking for.</strong> Thus, you should read some of the user manual to get an idea of what you can do with Doxygen, and you should do some of these things in your code.</p>
+<p>As described above, the changes to the default Doxyfile that must be made include, <em>but are not limited to</em>:</p>
+<ul>
+<li>You will have to create a Doxyfile, as described in the <a href="../../tutorials/11-doxygen/index.html">Doxygen tutorial</a></li>
+<li>That Doxyfile should <em>only</em> generate HTML output (thus, set <code>GENERATE_LATEX</code> and <code>GENERATE_RTF</code> to &quot;NO&quot;)</li>
+<li>That Doxyfile <em>should</em> generate graphs (thus, set <code>HAVE_DOT</code>, <code>CALL_GRAPH</code>, and <code>CALLER_GRAPH</code> all to &quot;YES&quot;)</li>
+<li>Be sure to change the other options of the Doxyfile as described in the tutorial (don't forget <code>INPUT</code> and <code>EXTRACT_ALL</code>!)</li>
+<li>Your <code>INPUT</code> tag should include the two middleearth files, as well as the topological sort files</li>
+</ul>
+<p>See the full <a href="../../tutorials/11-doxygen/index.html">Doxygen tutorial</a> for the other options to set. You should not have to set any options in the Doxyfile that are not described in the tutorial.</p>
 <h3 id="topological-sort">Topological sort</h3>
 <p>Recall from lecture that given a graph <em>G</em> = (<em>V</em>,<em>E</em>), a topological sort of a directed acyclic graph is a linear listing of the vertices such that, for all pairs of vertices <em>v</em>,<em>w</em> ∈ <em>V</em>, <em>v</em> is listed before <em>w</em> in the topological sort if (<em>v</em>,<em>w</em>) ∈ <em>E</em> (i.e. if there is an edge from <em>v</em> to <em>w</em> in the graph, then <em>v</em> must be listed before <em>w</em> in the topological sort). This implies that if there is a <em>path</em> from <em>v</em> to <em>w</em> (not just an edge), then <em>v</em> must still list before <em>w</em> in the topological sort.</p>
 <p>For the programming part of this lab, you will need to write a program that can perform a topological sort. This problem is specified in the next section. The specification is similar to that found in the <a href="http://acmicpc.org">International Collegiate Programming Contests</a> -- a problem description, followed by a detailed explanation of the input and the output.</p>
@@ -62,7 +78,7 @@
 <p>To read in strings from a file in the C++ manner, see the <a href="fileio2.cpp.html">fileio2.cpp</a> (<a href="fileio2.cpp">src</a>) file.</p>
 <p>To test your code with a larger input, see the prelab-test-full.txt file; the prelab-test-small.txt is what is described in the problem below.</p>
 <h3 id="makefile">Makefile</h3>
-<p>Your Makefile should have <strong>only one</strong> target, which you can name anything you want. This target should do <strong>two</strong> things: compile your code, and run doxygen. You can have two tabbed lines after the target specifier, which is the easiest way to accomplish this. In other words, we are just going to call <code>make</code>, and we want it to both compile your code and create your doxygen documentation. The in-lab Makefile should have the same dual-purpose target.</p>
+<p>The first target in your Makefile can be named anything you want, but should do <strong>two</strong> things: compile your code, and run doxygen. You can have two tabbed lines after the target specifier, which is the easiest way to accomplish this. In other words, we are just going to call <code>make</code>, and we want it to both compile your code and create your doxygen documentation. You are welcome to have additional targets, such as <code>clean</code>, if you would like. The in-lab Makefile should have the same dual-purpose target.</p>
 <hr />
 <h2 id="pre-lab-problem-topological-sort">Pre-lab Problem: Topological Sort</h2>
 <p>It turns out that one of our teaching assistants did not take all of the pre-requisite computer science courses! That TA is all ready to graduate, but it turns that CS 1110 was never taken. The department came down hard, and decided to make that TA take all of the courses over again, to have the proper pre-requisite classes completed for each successive class. But the TA just got a job at Microsoft, and can only take one course a semester while working full time. In what order should the teaching assistant take the list of required courses to properly fulfill the pre-requisites this time around?</p>

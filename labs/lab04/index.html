@@ -25,10 +25,17 @@
 <li>Any of the optional readings on the <a href="../../docs/readings.html">Readings</a> page, in particular, those on arrays and unions, if you feel you need a bit more background.</li>
 <li>Go through <a href="../../tutorials/03-04-more-unix/index.html">Tutorial 4: Unix, part 2</a>, which is sections 5-8. This tutorial is originally from the department of Electrical Engineering at the University of Surrey, and is available online <a href="http://www.ee.surrey.ac.uk/Teaching/Unix/">here</a>. You went through sections 1-4 in the last tutorial; this lab has you completing sections 5-8.</li>
 <li>Write the <code>sizeOfTest()</code> function (note the capitalization!), as described in the pre-lab section.</li>
-<li>Write the <code>outputBinary()</code> function, as described in the pre-lab section.</li>
+<li>Write the <code>outputBinary()</code> function, as described in the pre-lab section.
+<ul>
+<li>You cannot use the <code>bitset</code> class (or anything similar) for this!</li>
+</ul></li>
 <li>Write the <code>overflow()</code> function, as described in the pre-lab section.</li>
 <li>Combine these functions into a prelab4.cpp file, as described in the pre-lab section. This program should only take in a <em>single</em> <code>int</code> value as input!</li>
-<li>Get your floating point number <a href="http://libra.cs.virginia.edu/getfloat.php">here</a>, and then complete your floating point conversion, as described in the pre-lab section, into a file called floatingpoint.pdf; you can convert a file into a PDF via the directions on the <a href="../../docs/convert_to_pdf.html">How to convert a file to PDF</a> page.</li>
+<li>Get your floating point number <a href="http://libra.cs.virginia.edu/getfloat.php">here</a>, and then complete your floating point conversion, as described in the pre-lab section, into a file called floatingpoint.pdf; you can convert a file into a PDF via the directions on the <a href="../../docs/convert_to_pdf.html">How to convert a file to PDF</a> page.
+<ul>
+<li>Note that this must be typed up in a document; you cannot do this by hand and scan it in (or take a photo of it)</li>
+<li>Make sure you read the part, in the pre-lab section below, about the maximum file size! Otherwise your submission will not be accepted.</li>
+</ul></li>
 <li>Files to download: none</li>
 <li>Files to submit: prelab4.cpp, floatingpoint.pdf</li>
 </ol>
@@ -69,6 +76,7 @@ outputBinary(1000000) //=&gt; 0000 0000 0000 1111 0100 0010 0100 0000</code></pr
 <li>If you do use for loops to do this, become familiar with the left shift operator (&lt;&lt;) and what it does to (unsigned) ints, and the binary and/or operators (&amp; and |).</li>
 <li>You can also use a calculator program (including one in Windows) to convert numbers to binary (select View-&gt;Scientific), as that is not the coding part of this lab.</li>
 </ul>
+<p>You can <strong><em>NOT</em></strong> use the <code>bitset</code> class for this, or any other class that does the work for you. You have to program this yourself.</p>
 <h3 id="the-limits-of-representation">The Limits of Representation</h3>
 <p>What do you think will happen when you add 1 to a variable containing the maximum value of a type? Write a function called <code>overflow()</code> to answer the following questions:</p>
 <ul>
@@ -96,6 +104,8 @@ Note that the hexadecimal printed above is in little-endian format!</code></pre>
 <p>In this example, you would convert -35.125 to 0x800cc2 (or 0x00800cc2 -- same thing with the leading zeros added), and 0x401f41 (or 0x00401f41 -- again, the same thing) to 9.95312.</p>
 <p>Note: during the conversion, the numbers provided do not have any 1 bits in the mantissa after the 10th bit. It could be that your floating point number needs the first 10 bits of the mantissa, or it could need less. But all bits after the first 10 are supposed to be zero. So if your conversion has any bits beyond that set to 1, then you are doing something wrong. You will be expected to be able to do this on a test -- although in an exam situation, because no calculators are allowed, the math involved with determining the mantissa won't be very hard.</p>
 <p>Your conversion should be in a PDF file called floatingpoint.pdf, which will be submitted with the pre-lab. The idea is to show the math behind the conversion (similar to how was done in class), not to write a program to do it.</p>
+<p>You must actually type up your work in a word editor (Word is fine, as is Mac Pages; <a href="http://www.libreoffice.org/">LibreOffice</a> is a free alternative). You can <strong><em>NOT</em></strong> do the assignment by hand, then scan it in (or take a photo of it). It must actually be typeset in your favorite editor of choice. Note that the Unix honor pledge only applies to development, so you are free to use anything to type up the file.</p>
+<p><strong>File size:</strong> the submission server will only accept files of up to a certain size, and your file must be less than this size. If you properly type set your document, then this will not be a problem. But if you write out your assignment by hand, then scan (or take a picture of) it, then it will be too big to submit. And note that you have to actually type set it, as mentioned above, so you should be doing this anyway.</p>
 <hr />
 <h2 id="in-lab-1">In-Lab</h2>
 <p>The purpose of this in-lab is to complete the <a href="inlab4.doc">inlab4.doc</a> worksheet, and turn that in (in PDF format - see <a href="../../docs/convert_to_pdf.html">How To Convert A File To PDF</a> for details). The in-lab description, below, discusses filling in this worksheet. As part of this in-lab, you will have to write a few small programs, which you will combine into an inlab4.cpp file - the output of this program will give you some of the values to fill into the inlab4.doc worksheet. The sections below named <a href="#memory">Representation in memory</a> and <a href="#arrays">Primitive Arrays in C++</a> describe what should be in this file. It should not take in any input, and should just print out the necessary values.</p>

@@ -15,7 +15,7 @@ A graph is a set of vertices connected by edges.  In a directed graph, an edge i
 
 1. The [Wikipedia page on Topological sort](http://en.wikipedia.org/wiki/Topological_sort)
 2. The [Wikipedia page on the Traveling Salesperson problem](http://en.wikipedia.org/wiki/Travelling_salesman_problem)
-3. [The slides on graphs](../../slides/12-graphs.html)
+3. [The slides on graphs](../../slides/11-graphs.html)
 
 Procedure
 ---------
@@ -25,17 +25,22 @@ Procedure
 1. Go through the [Doxygen tutorial](../../tutorials/11-doxygen/index.html), as described in the pre-lab section.
 2. Study the topological sort algorithm described in the readings
 3. Look at the [middleearth.h](middleearth.h.html) ([src](middleearth.h)) and [middleearth.cpp](middleearth.cpp.html) ([src](middleearth.cpp)) files.  You should understand **AND DOCUMENT** both of these two files.  See the comments in the middleearth.cpp file, as well as the in-lab section, for details as to what these methods do.  You should not modify any of the code in this file; only the comments.
-4. Write a program to compute a topological sort of a graph, as described in the pre-lab section; name it topological.cpp.
-5. Document your topological.cpp with doxygen commands.  You will need to change the INPUT tag (line 577 of Doxyfile) to be your specific file names.
+    - You will have to create a Doxyfile, as described in the [Doxygen tutorial](../../tutorials/11-doxygen/index.html)
+    - That Doxyfile should *only* generate HTML output (thus, set `GENERATE_LATEX` and `GENERATE_RTF` to "NO")
+    - That Doxyfile *should* generate graphs (thus, set `HAVE_DOT`, `CALL_GRAPH`, and `CALLER_GRAPH` all to "YES")
+	- Be sure to change the other options of the Doxyfile as described in the tutorial (don't forget `INPUT` and `EXTRACT_ALL`!)
+	- Your `INPUT` tag should include the two middleearth files, as well as the topological sort files
+4. Write a program to compute a topological sort of a graph, as described in the pre-lab section; name it `topological.cpp`.
+5. Document your topological.cpp with doxygen commands.
 6. Your code should compile with `make`!  It should do ***TWO*** tasks: compile your code, and call `doxygen`.  See the pre-lab section for more information about required make target.
-7. Files to download: [Doxyfile](Doxyfile), [prelab-test-full.txt](prelab-test-full.txt), [prelab-test-small.txt](prelab-test-small.txt), [middleearth.h](middleearth.h.html) ([src](middleearth.h)), [middleearth.cpp](middleearth.cpp.html) ([src](middleearth.cpp)), [fileio2.cpp](fileio2.cpp.html) ([src](fileio2.cpp))
+7. Files to download: [prelab-test-full.txt](prelab-test-full.txt), [prelab-test-small.txt](prelab-test-small.txt), [middleearth.h](middleearth.h.html) ([src](middleearth.h)), [middleearth.cpp](middleearth.cpp.html) ([src](middleearth.cpp)), [fileio2.cpp](fileio2.cpp.html) ([src](fileio2.cpp))
 8. Files to submit: topological.cpp, middleearth.h/cpp, Makefile, Doxyfile
 
 ### In-lab ###
 
 1. Implement a brute-force traveling salesman solution, as described in the in-lab section.
-2. Create a Makefile that will fully compile your code.  You should not specify the resulting executable name (i.e., no `-o` output for the final link step).  It will default to a.out, which is what is desired.  The Makefile doxygen part should be the same as the pre-lab.
-3. Document your C++ files with doxygen commands.  You must **ALSO** comment middleearth.h and middleearth.cpp (this should have been done in the pre-lab).
+2. Create a Makefile that will fully compile your code.  You should not specify the resulting executable name (i.e., no `-o` output for the final link step).  It will default to a.out, which is what is desired.
+3. Document your C++ files with doxygen commands.  You must **ALSO** include commented middleearth.h and middleearth.cpp (this should have been done in the pre-lab).
 4. Your code should compile with `make`!  It should do ***TWO*** tasks: compile your code, and call `doxygen`.  See the pre-lab section for more information about required make target.
 5. Files to download: [traveling-skeleton.cpp](traveling-skeleton.cpp.html) ([src](traveling-skeleton.cpp)) (which you'll have to rename to traveling.cpp), and your commented middleearth.h / middleearth.cpp code from the pre-lab
 6. Files to submit: traveling.cpp, middleearth.h, middleearth.cpp, Makefile, Doxyfile
@@ -55,7 +60,17 @@ Pre-lab
 
 First, read through the [Doxygen tutorial](../../tutorials/11-doxygen/index.html).  That tutorial then directs you to look though the doxygen manual, which you can [download in PDF form](http://www.stack.nl/~dimitri/doxygen/download.html#dlmanual) (you have to extract the PDF file) or [browse it online](http://www.stack.nl/~dimitri/doxygen/manual/index.html) (which is easier to view).  Start with the ["Documenting the code" chapter](http://www.stack.nl/~dimitri/doxygen/manual/docblocks.html), as the previous chapters are covered in the tutorial.
 
-For all the code deliverables in this lab, you will need to document all of your code ***as well as the code that we provide*** using doxygen.  You will also need to submit a Doxyfile that properly generates the documentation (which really just means changing the `INPUT` line in the file).  We are not expecting you to have read through the entire user manual.  **But we are expecting you to document your code beyond the example provided.  Just putting in those tags is not what we are looking for.**  Thus, you should read some of the user manual to get an idea of what you can do with Doxygen, and you should do some of these things in your code.
+For all the code deliverables in this lab, you will need to document all of your code ***as well as the code that we provide*** using doxygen.  You will also need to create and submit a Doxyfile that properly generates the documentation.  We are not expecting you to have read through the entire user manual.  **But we are expecting you to document your code beyond the example provided.  Just putting in those tags is not what we are looking for.**  Thus, you should read some of the user manual to get an idea of what you can do with Doxygen, and you should do some of these things in your code.
+
+As described above, the changes to the default Doxyfile that must be made include, *but are not limited to*:
+
+- You will have to create a Doxyfile, as described in the [Doxygen tutorial](../../tutorials/11-doxygen/index.html)
+- That Doxyfile should *only* generate HTML output (thus, set `GENERATE_LATEX` and `GENERATE_RTF` to "NO")
+- That Doxyfile *should* generate graphs (thus, set `HAVE_DOT`, `CALL_GRAPH`, and `CALLER_GRAPH` all to "YES")
+- Be sure to change the other options of the Doxyfile as described in the tutorial (don't forget `INPUT` and `EXTRACT_ALL`!)
+- Your `INPUT` tag should include the two middleearth files, as well as the topological sort files
+
+See the full [Doxygen tutorial](../../tutorials/11-doxygen/index.html) for the other options to set.  You should not have to set any options in the Doxyfile that are not described in the tutorial.
 
 ### Topological sort ###
 
@@ -75,7 +90,7 @@ To test your code with a larger input, see the prelab-test-full.txt file; the pr
 
 ### Makefile ###
 
-Your Makefile should have **only one** target, which you can name anything you want.  This target should do **two** things: compile your code, and run doxygen.  You can have two tabbed lines after the target specifier, which is the easiest way to accomplish this.  In other words, we are just going to call `make`, and we want it to both compile your code and create your doxygen documentation.  The in-lab Makefile should have the same dual-purpose target.
+The first target in your Makefile can be named anything you want, but should do **two** things: compile your code, and run doxygen.  You can have two tabbed lines after the target specifier, which is the easiest way to accomplish this.  In other words, we are just going to call `make`, and we want it to both compile your code and create your doxygen documentation.  You are welcome to have additional targets, such as `clean`, if you would like.  The in-lab Makefile should have the same dual-purpose target.
 
 ------------------------------------------------------------
 

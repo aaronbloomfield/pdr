@@ -43,7 +43,7 @@ Numbers
 <a name="structsunions">Struct and Unions</a>
 
 - Recall that a struct is like a class that doesn't allow methods (that's not an exact definition, but close enough for now).  You can read about structs at http://www.tutorialspoint.com/cprogramming/c_structures.htm
-- Unions are described [here](http://www.tutorialspoint.com/cprogramming/c_unions.htm) although that page does not give a motivating use for them.  See the [float_to_hex.cpp](../slides/code/04-numbers/float_to_hex.cpp.html) ([src](../slides/code/04-numbers/float_to_hex.cpp)) file, and the associated lecture slides (somewhere around slide 48 of [04-numbers](../slides/04-numbers/04-numbers.html) a better example.
+- Unions are described [here](http://www.tutorialspoint.com/cprogramming/c_unions.htm) although that page does not give a motivating use for them.  See the [float_to_hex.cpp](../slides/code/03-numbers/float_to_hex.cpp.html) ([src](../slides/code/03-numbers/float_to_hex.cpp)) file, and the associated lecture slides (somewhere around slide 48 of [03-numbers](../slides/03-numbers/03-numbers.html) a better example.
 
 <a name="arrays">Arrays</a>
 

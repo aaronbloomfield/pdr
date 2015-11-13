@@ -7,26 +7,26 @@
     <meta name="author" content="Aaron Bloomfield">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
-    <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
-    <link rel="stylesheet" href="css/pdr.css">
-    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
-    <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
-	if( window.location.search.match( /print-pdf/gi ) ) {
-		var link = document.createElement( 'link' );
-		link.rel = 'stylesheet';
-		link.type = 'text/css';
-		link.href = 'reveal.js/css/print/pdf.css';
-		document.getElementsByTagName( 'head' )[0].appendChild( link );
-	}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/css/pdr.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
     <!--[if lt IE 9]>
-    <script src="reveal.js/lib/js/html5shiv.js"></script>
-    <![endif]-->
-    <script type="text/javascript" src="js/dhtmlwindow.js"></script>
-    <script type="text/javascript" src="js/canvas.js"></script>
-    <link rel="stylesheet" href="css/dhtmlwindow.css" type="text/css">
+	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
+	<![endif]-->
+    <script type="text/javascript" src="../slides/js/dhtmlwindow.js"></script>
+    <script type="text/javascript" src="../slides/js/canvas.js"></script>
+    <link rel="stylesheet" href="../slides/css/dhtmlwindow.css" type="text/css">
   </head>
 
   <body onload="canvasinit()">
@@ -73,7 +73,7 @@
 [Functions](#/functions)  
 [Classes](#/classes)  
 [Rational Example](#/rational)  
-[Pre-Processor](#/preprocessor)  
+[Pre-Processor](#/preproc)  
 [Pointers](#/pointers)  
 [Dynamic Memory Allocation](#/dynamic)  
 [References](#/references)  
@@ -588,6 +588,7 @@ int main( ) {
 - Printing
   - instead of '+' use '<<' to concatenate items to print
 - Remove `this` and `new` from conversion
+- Using `#ifndef`, `#define`, and `#endif` in the .h files
 </script></section>
 
 <section data-markdown><script type="text/template">
@@ -692,7 +693,7 @@ int main() {
 
 	<section>
 
-<section id="preprocessor" data-markdown><script type="text/template">
+<section id="preproc" data-markdown><script type="text/template">
 # Pre-processor
 </script></section>
 
@@ -703,7 +704,9 @@ int main() {
   - In general, only #include .h files.
 - \#ifndef
   - "if not defined"
-  - other preprocessor directives: #ifdef, #if
+  - Other preprocessor directives: #ifdef, #if
+- \#endif
+  - Specifies the end of any #if
 - \#define
   - Defines a macro (direct text replacement)
 ```
@@ -711,8 +714,6 @@ int main() {
 if(TRUE == 0) {...}
 #define MY_OBJECT_H
 ```
-- \#endif
-  - specifies the end of any #if
 </script></section>
 
 <section data-markdown><script type="text/template">
@@ -834,7 +835,7 @@ bool even (int x);
 <tr><td><p class="center"><span class="fragment" data-fragment-index="2">y</span></p></td><td>1004</td><td class="border"><p class="center"><span class="fragment" data-fragment-index="5">5</span></p></td></tr>
 <tr><td><p class="center"><span class="fragment" data-fragment-index="3">x_pointer</span></p></td><td>1008</td><td class="border"><p class="center"><span class="fragment" data-fragment-index="6">1000</span></p></td></tr>
 <tr><td></td><td>1012</td><td class="border"><p>&nbsp;</p></td></tr>
-<tr><td></td><td>1016</td><td class="border"><p>&nbsp;</p></td></tr>
+<tr><td></td><td>1016</td><td class="border" style="border-bottom:medium solid;"><p>&nbsp;</p></td></tr>
 </table>
 </td><td></td><td>
 <pre><code data-trim>
@@ -865,7 +866,7 @@ Source code: [pointers.cpp](code/01-cpp/pointers.cpp.html) ([src](code/01-cpp/po
 <tr><td><p class="center">y</p></td><td>ffdf65d8</td><td class="border"><p class="center">5</p></td></tr>
 <tr><td></td><td>ffdf...</td><td class="border"><p>&nbsp;</p></td></tr>
 <tr><td></td><td>ffdf...</td><td class="border"><p>&nbsp;</p></td></tr>
-<tr><td><p class="center">x_pointer</p></td><td>ffdf...</td><td class="border"><p class="center">ffdf65d4</p></td></tr>
+<tr><td><p class="center">x_pointer</p></td><td>ffdf...</td><td class="border" style="border-bottom:medium solid;"><p class="center">ffdf65d4</p></td></tr>
 </table>
 </td><td></td><td>
 <pre><code data-trim>
@@ -893,7 +894,7 @@ Source code: [pointers.cpp](code/01-cpp/pointers.cpp.html) ([src](code/01-cpp/po
 <tr><td><p class="center">y</p></td><td>ffdf65d8</td><td class="border"><p class="center">5</p></td></tr>
 <tr><td></td><td>ffdf...</td><td class="border"><p>&nbsp;</p></td></tr>
 <tr><td></td><td>ffdf...</td><td class="border"><p>&nbsp;</p></td></tr>
-<tr><td><p class="center">x_pointer</p></td><td>ffdf...</td><td class="border"><p class="center">ffdf65d<span class="fragment fade-out" data-fragment-index="1">4</span><span class="fragment fade-in" data-fragment-index="1"><strong class="red">8</strong></span></p></td></tr>
+<tr><td><p class="center">x_pointer</p></td><td>ffdf...</td><td class="border" style="border-bottom:medium solid;"><p class="center">ffdf65d<span class="fragment fade-out" data-fragment-index="1">4</span><span class="fragment fade-in" data-fragment-index="1"><strong class="red">8</strong></span></p></td></tr>
 </table>
 </td><td></td><td>
 <pre><code data-trim>
@@ -921,7 +922,7 @@ Source code: [pointers.cpp](code/01-cpp/pointers.cpp.html) ([src](code/01-cpp/po
 <tr><td><p class="center">y</p></td><td>ffdf65d8</td><td class="border"><p class="center"><span class="fragment fade-out" data-fragment-index="1">5</span><span class="fragment fade-in" data-fragment-index="1"><strong class="red">3</strong></span></p></td></tr>
 <tr><td></td><td>ffdf...</td><td class="border"><p>&nbsp;</p></td></tr>
 <tr><td></td><td>ffdf...</td><td class="border"><p>&nbsp;</p></td></tr>
-<tr><td><p class="center">x_pointer</p></td><td>ffdf...</td><td class="border"><p class="center">ffdf65d8</p></td></tr>
+<tr><td><p class="center">x_pointer</p></td><td>ffdf...</td><td class="border" style="border-bottom:medium solid;"><p class="center">ffdf65d8</p></td></tr>
 </table>
 </td><td></td><td>
 <pre><code data-trim>
@@ -1014,8 +1015,8 @@ int main() {
       // declare array of 10 elements
       int someArray[10];
       
-      // declare a pointer to int
-      int *value1_address = &someArray[3];
+      // pull a value out of the array
+      int value1_address = someArray[3];
 </script></section>
 
 <section data-markdown><script type="text/template">
@@ -1141,22 +1142,9 @@ r->num = 4;
 </script></section>
 
 <section data-markdown><script type="text/template">
-## Associativity of *
-- Consider:
-  - `char*  x, y;`
-- We can all agree that x is a character pointer (32 bits)
-- But what type is y?
-  - It's a regular char (8 bits)
-- The * is right associative, meaning that the spacing should be:
-  - `char  *x, y;`
-  - C++ doesn't care about your whitespace...
-- This may not be consistent in this course
-</script></section>
-
-<section data-markdown><script type="text/template">
 ## Doubly linked lists (lab 2)
 - This is the UML diagram from [Lab 2](../labs/lab02/index.html)
-![Lab 2 UML diagram](../labs/lab02/uml-diagram.png)
+![Lab 2 UML diagram](../labs/lab02/list-diagram.png)
 </script></section>
 
 <section data-markdown><script type="text/template">
@@ -1180,7 +1168,7 @@ private:
 </script></section>
 
 <section data-markdown><script type="text/template">
-## Common mistakes
+## Common mistake 1
 - Consider a class Foo with an uninitialized `ListNode*` field `head` that needs to be initialized in the constructor.
 - What is wrong with this constructor?  It compiles fine!
 ```
@@ -1189,7 +1177,12 @@ Foo() {
 }
 ```
 <span class="fragment"> You are creating a local variable 'head' and not accessing the field named 'head'</span>
-- What is wrong with this constructor?  It also compiles fine!
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Common mistake 2
+- Consider a class Foo with an uninitialized `ListNode*` field `head` that needs to be initialized in the constructor.
+- What is wrong with this constructor?  It compiles fine!
 ```
 Foo() {
     ListNode temp;
@@ -1197,6 +1190,19 @@ Foo() {
 }
 ```
 <span class="fragment">You are making the pointer point to a local variable, which is then promptly deallocated</span>
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Associativity of *
+- Consider:
+  - `char*  x, y;`
+- We can all agree that x is a character pointer (32 bits)
+- But what type is y?
+  - It's a regular char (8 bits)
+- The * is right associative, meaning that the spacing should be:
+  - `char  *x, y;`
+  - C++ doesn't care about your whitespace...
+- This may not be consistent in this course
 </script></section>
 
 <section data-markdown><script type="text/template">
@@ -1250,6 +1256,9 @@ Result:
 ```
   
 Why the extra space?  If only 8 bytes are needed for each `Foo`, then why is the second `Foo` 16 bytes beyond the first one?
+
+- Keep track of how much space was allocated
+- Dynamic memory allocation is not so "efficient" at storing data
 </script></section>
 
 	</section>
@@ -1499,6 +1508,7 @@ delete ptrToAnotherSquare;
 - Called in the following situations:
   - declaration with initalization
 ```
+IntCell original;
 IntCell copy = original; // or IntCell copy(original);
 ```
   - if object is passed by value into a subroutine
@@ -1521,7 +1531,7 @@ copy = original;    // operator= called
 <section data-markdown><script type="text/template">
 ## Operator overrides
 - In C++, you can override any operators for a given class
-- We've seen this already, although we haven't specified what was happening
+- We've seen this already:
   - `cout << i;`
     - `cout` is an object (of the `ostream` class), and defines an `operator<<()` method
   - `cin >> i;` similarly
@@ -1530,7 +1540,6 @@ copy = original;    // operator= called
 complex c = 3, d(5,4), e;
 e = c + d * 3;
 cout << e << endl;
-// etc.
 ```
 - This is done for the `string` class, for example
 </script></section>
@@ -1820,7 +1829,7 @@ cout << "about to leave main..." << endl;
     </div>
 
     <script src="reveal.js/lib/js/head.min.js"></script>
-    <script src="reveal.js/js/reveal.min.js"></script>
+    <script src="reveal.js/js/reveal.js"></script>
     <script src="js/settings.js"></script>
 
   </body>

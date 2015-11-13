@@ -24,7 +24,11 @@ Procedure
 
 ### Pre-lab ###
 
-There is no pre-lab for this lab
+1. Read the [Objective C tutorial](../../tutorials/12-objc/index.html); you will need to download the [helloworld.m](../..//tutorials/12-objc/helloworld.m.html) ([src](../..//tutorials/12-objc/helloworld.m)) file, and submit a linkedlist.m file (the description of what to put in that file is in the tutorial).
+2. Write the Objective C program described in the post-lab section, which implements a singly-linked list.
+3. Files to download: [helloworld.m](../..//tutorials/12-objc/helloworld.m.html) ([src](../..//tutorials/12-objc/helloworld.m))
+.
+4. Files to submit: linkedlist.m; if your program uses multiple .m or .h files, that's fine.
 
 ### In-lab ###
 
@@ -33,8 +37,8 @@ There is no pre-lab for this lab
 3. How much wrath do you have to vent about the course? How much did it ruin your life? How much did you learn? Let us know -- fill out the course surveys! You can access them through Collab (or SIS? We aren't actually given any information about how students access the course evaluations). On a more serious note, we are very interested in your feedback about the course, and would greatly appreciate your filling out of the course evaluation.
 4. The one text file you must submit for this lab is called suggestion.txt, and it should contain one *constructive* suggestion as to how to improve this course. Here, constructive means that it could actually be accomplished (so you can't just say "ditch C++" without some sort of suggestion as to what to place in it's stead).
 5. Any other comments to pass on? There is always the Collab anonymous feedback for more comments as well.
-6. There will be a review session for the final; the review session is Thursday, May 1st at 8 p.m.; room to be announced
-7. The final exam is Saturday, May 3rd in Gilmer 130 from 7 p.m. to 10 p.m.
+6. There will be a review session for the final; details to be announced later.
+7. Make sure you know when the final exam is!!!
 8. File to submit: suggestion.txt
 	
 	

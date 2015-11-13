@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>PDR: Docs: LLDB Command Summary</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../markdown.css" type="text/css" />
+</head>
+<body>
+<h1 id="pdr-docs-lldb-command-summary">PDR: Docs: LLDB Command Summary</h1>
+<p><a href="index.html">Go up to the main documents page</a> (<a href="index.md">md</a>)</p>
+<p>Assembly-specific commands</p>
+<ul>
+<li><code>stepi</code>: step one MACHINE instruction (i.e. assembly instruction), instead of one C++ instruction (which is what <code>step</code> does)</li>
+<li><code>registers read</code>: display the values in the registers</li>
+<li><code>settings set target.x86-disassembly-flavor intel</code>: set the assembly output format to what we are used to in class (and what we are programming in)</li>
+<li><code>disassemble</code>: like list, but displays the lines of assembly code currently being executed.</li>
+<li><code>disassemble --name (function)</code>: prints the assembly code for the supplied function (up until the next label)</li>
+</ul>
+<p>Program execution</p>
+<ul>
+<li><code>run</code>: starts a program execution, and continues until it exits, crashes, or hits a breakpoint</li>
+<li><code>bt</code>: prints a back trace, which is the list of function calls that got to the current point</li>
+<li><code>f</code>: shows the lines of source code before and after the point at which the program paused</li>
+<li><code>list (function)</code>: prints the lines of code around (function) or the current breakpoint otherwise if no (function) is provided.</li>
+<li><code>up</code>: move up the back trace function stack list</li>
+<li><code>down</code>: move down the back trace function stack list</li>
+<li><code>step</code> (or just <code>s</code>): step INTO the next line of code to execute</li>
+<li><code>next</code> (or just <code>n</code>): step OVER the next line of code to execute</li>
+<li><code>continue</code> (or just <code>c</code>): continue execution</li>
+<li><code>finish</code>: finishes executing the current function and then pauses</li>
+<li><code>quit</code>: exits the debugger</li>
+</ul>
+<p>Breakpoints</p>
+<ul>
+<li><code>b (pos)</code> (or <code>break (pos)</code>): set a breakpoint at (pos). A breakpoint can be a function name (e.g., <code>b GetMax</code>), a line number (e.g., <code>b 22</code>), or either of the above preceded by a file name (e.g., <code>b lab2.cpp:22</code> or <code>b lab2.cpp:GetMax</code>)</li>
+<li><code>tbreak (pos)</code>: set a temporary breakpoint (only breaks the first time)</li>
+<li><code>breakpoint list</code>: show breakpoints</li>
+<li><code>breakpoint delete</code> (or just <code>br del</code>): deletes all breakpoints</li>
+<li><code>breakpoint delete (num)</code>: delete the breakpoint indicated by (num)</li>
+</ul>
+<p>Examining data</p>
+<ul>
+<li><code>print (var)</code> (or <code>p</code>): print the value in the given variable</li>
+<li><code>print &amp;(var)</code>: print the address that the given variable is located</li>
+<li><code>print *(ptr)</code>: print the destination of a pointer</li>
+<li><code>x/(format) (var/address)</code>: format controls how the memory should be displayed, and consists of (up to) 3 components: a numeric count of how many elements to display; a single-character format, indicating how to interpret and display each element -- e.g. a few of the flags are <code>x/x</code> displays in hex, <code>x/d</code> displays in signed decimals, <code>x/c</code> displays in characters, <code>x/i</code> displays in instructions, and <code>x/s</code> displays in C strings; and a single-character size, indicating the size of each element to display -- e.g. b, h, w, and g, for one-, two-, four-, and eight-byte blocks, respectively. You can have multiple at a time, e.g. <code>x/30x (var/address)</code> will display 30 elements in hexidecimal from the provided <code>var/address</code> OR if no <code>var/address</code> is provided, from the top of the stack.</li>
+<li><code>frame variable</code>: display all the args and the local variables and their values for their current frame</li>
+<li><code>display (var)</code>: always display the value in (var) whenever the program pauses</li>
+<li><code>display</code>: show the variables that have been entered with <code>display</code> and their numeric IDs</li>
+<li><code>undisplay (num)</code>: stop displaying the variable with numeric ID num</li>
+<li><code>print function_call(params)</code>: execute the function, and print the result</li>
+<li><code>expr (var) = (value)</code>: set the variable (var) to the value (value) -- e.g. <code>expr foo = 5</code></li>
+</ul>
+</body>
+</html>

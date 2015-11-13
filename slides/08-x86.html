@@ -7,26 +7,26 @@
     <meta name="author" content="Aaron Bloomfield">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
-    <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
-    <link rel="stylesheet" href="css/pdr.css">
-    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
-    <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
-	if( window.location.search.match( /print-pdf/gi ) ) {
-		var link = document.createElement( 'link' );
-		link.rel = 'stylesheet';
-		link.type = 'text/css';
-		link.href = 'reveal.js/css/print/pdf.css';
-		document.getElementsByTagName( 'head' )[0].appendChild( link );
-	}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/css/pdr.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
     <!--[if lt IE 9]>
-    <script src="reveal.js/lib/js/html5shiv.js"></script>
-    <![endif]-->
-    <script type="text/javascript" src="js/dhtmlwindow.js"></script>
-    <script type="text/javascript" src="js/canvas.js"></script>
-    <link rel="stylesheet" href="css/dhtmlwindow.css" type="text/css">
+	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
+	<![endif]-->
+    <script type="text/javascript" src="../slides/js/dhtmlwindow.js"></script>
+    <script type="text/javascript" src="../slides/js/canvas.js"></script>
+    <link rel="stylesheet" href="../slides/css/dhtmlwindow.css" type="text/css">
   </head>
 
   <body onload="canvasinit()">
@@ -136,10 +136,10 @@ while(power is on) {
 <table class="transparent"><tr><td>
 <p>Directives</p>
 <ul>
-<li>byte = 1 byte (DB) declare byte</li>
-<li>word = 2 bytes (DW)</li>
-<li>double = 4 bytes (DD)</li>
-<li>quadword = 8 bytes (DQ)</li>
+<li>byte: 1 byte (DB) declare byte</li>
+<li>word: 2 bytes (DW)</li>
+<li>double: 4 bytes (DD)</li>
+<li>quadword: 8 bytes (DQ)</li>
 </ul>
 <p>&nbsp;</p>
 <p><code>TIMES x DB 0</code> directive means create x bytes of value zero</p>
@@ -212,7 +212,7 @@ lea edi, [a]</code></pre></td>
 <tr><td>ecx</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="1">100</span></td></tr>
 <tr><td>edx</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="2">8</span></td></tr>
 <tr><td>esi</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="3">200</span></td></tr>
-<tr><td>edi</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="6">300</span></td></tr>
+<tr><td>edi</td><td class="border" style="width:100px;border-bottom:medium solid;"><span class="fragment" data-fragment-index="6">300</span></td></tr>
 </table>
 </td></tr></table>
 
@@ -230,7 +230,7 @@ lea edi, [a]</code></pre></td>
 <tr><td>...</td><td class="border" style="width:100px"></td></tr>
 <tr><td>a:&nbsp;300</td><td class="border" style="width:100px"><span class="fragment" data-fragment-index="5">15</span></td></tr>
 <tr><td>304</td><td class="border" style="width:100px"></td></tr>
-<tr><td>...</td><td class="border" style="width:100px"></td></tr>
+<tr><td>...</td><td class="border" style="width:100px;border-bottom:medium solid;"></td></tr>
 </table>
 </td></tr></table>
 	  </section>
@@ -399,7 +399,7 @@ xor ecx, ecx
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Control Instructions, part 3
+## Control Instructions, part 2
 - Conditional jumps: j*condition*
   - Uses the machine status word, which was set via `cmp`
     - Which holds info about the results of the last instruction
@@ -624,11 +624,11 @@ return sum / num;
 ## Example: Output in C
 The C equivalent of cout is a function called `printf`
 ```
-printf ("A %s, a %s, a %s: %s!", "man", 
+printf ("A %s, a %s, a %s: %s!\n", "man", 
 		"plan", "canal", "Panama");
-printf ("A percent sign: %%");
+printf ("A percent sign: %%\n");
 printf ("An int: %d\n", i);
-printf ("A float with 2 decimal digits: %.2f", 
+printf ("A float with 2 decimal digits: %.2f\n", 
 		float_value);
 ```
 Output:
@@ -709,8 +709,8 @@ A float with 2 decimal digits: 3.14
 ## Caller Rules Example
 We'll see this code in the following slides:
 ```
-int myFunc(int a, int b, int c){
-    int x
+int myFunc(int a, int b, int c) {
+    int result;
     // some code
     return result;
 }
@@ -757,7 +757,7 @@ pop edx          ; restore saved edx value
 <tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td>To lower addresses</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td>(to 0x00000000)</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
-<tr><td>&darr;</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td>&darr;</td><td style="width:50px"></td><td class="border" style="width:300px;border-bottom:medium solid;">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 </table>
 	  </section>
 
@@ -774,7 +774,7 @@ pop edx          ; restore saved edx value
 <tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td>To lower addresses</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td>(to 0x00000000)</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
-<tr><td>&darr;</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td>&darr;</td><td style="width:50px"></td><td class="border" style="width:300px;border-bottom:medium solid;">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 </table>
 	  </section>
 
@@ -800,8 +800,8 @@ pop edx          ; restore saved edx value
 ## Caller Rules Example
 We'll see this code in the following slides:
 ```
-int myFunc(int a, int b, int c){
-    int x
+int myFunc(int a, int b, int c) {
+    int result;
     // some code
     return result;
 }
@@ -874,7 +874,7 @@ int myFunc(int a, int b, int c) {
     return result;
 }
 
-int main(){
+int main() {
     int x = 1, z = 3;
     int retVal = myFunc(x, 123, z);
     //...
@@ -936,7 +936,7 @@ ret             ; pop top value from stack, jump there
 <tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td>To lower addresses</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td>(to 0x00000000)</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
-<tr><td>&darr;</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td>&darr;</td><td style="width:50px"></td><td class="border" style="width:300px;border-bottom:medium solid;">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 </table>
 	  </section>
 
@@ -953,7 +953,7 @@ ret             ; pop top value from stack, jump there
 <tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">ebp backup</td><td style="width:25px"></td><td>&larr; esp</td></tr>
 <tr><td>To lower addresses</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td>(to 0x00000000)</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
-<tr><td>&darr;</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
+<tr><td>&darr;</td><td style="width:50px"></td><td class="border" style="width:300px;border-bottom:medium solid;">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 </table>
 	  </section>
 
@@ -970,9 +970,103 @@ ret             ; pop top value from stack, jump there
 <tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">ebp backup</td><td style="width:25px"></td><td>&larr; ebp</td></tr>
 <tr><td>To lower addresses</td><td style="width:50px"></td><td class="border" style="width:300px">local variable</td><td style="width:25px"></td><td>[ebp-4]</td></tr>
 <tr><td>(to 0x00000000)</td><td style="width:50px"></td><td class="border" style="width:300px">saved value of ebx</td><td style="width:25px"></td><td>&nbsp;</td></tr>
-<tr><td>&darr;</td><td style="width:50px"></td><td class="border" style="width:300px">saved value of esi</td><td style="width:25px"></td><td>&larr; esp</td></tr>
+<tr><td>&darr;</td><td style="width:50px"></td><td class="border" style="width:300px;border-bottom:medium solid;">saved value of esi</td><td style="width:25px"></td><td>&larr; esp</td></tr>
 </table>
 	  </section>
+
+	  <section>
+    <table class="transparent">
+      <tr>
+	<td>
+
+	  <!-- code block table -->
+	  <small>
+	  <table class="transparent">
+	    <tr><td><span style="font-size:larger">Code</span></td></tr>
+	    <tr><td style="vertical-align:top">
+		<table class="transparent" style="padding:0;spacing:0;border-spacing:0;border-collapse:collapse">
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>push ebp</code></pre></td>         <td><span class="fragment" data-fragment-index="1"><span class="fragment fade-out" data-fragment-index="3"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov ebp, esp</code></pre></td>     <td><span class="fragment" data-fragment-index="3"><span class="fragment fade-out" data-fragment-index="6"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>sub esp, 4</code></pre></td>       <td><span class="fragment" data-fragment-index="6"><span class="fragment fade-out" data-fragment-index="8"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>push ebx</code></pre></td>         <td><span class="fragment" data-fragment-index="8"><span class="fragment fade-out" data-fragment-index="10"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>push esi</code></pre></td>         <td><span class="fragment" data-fragment-index="10"><span class="fragment fade-out" data-fragment-index="12"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov eax, [ebp+8]</code></pre></td> <td><span class="fragment" data-fragment-index="12"><span class="fragment fade-out" data-fragment-index="14"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov esi, [ebp+12]</code></pre></td><td><span class="fragment" data-fragment-index="14"><span class="fragment fade-out" data-fragment-index="16"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov ebx, [ebp+16]</code></pre></td><td><span class="fragment" data-fragment-index="16"><span class="fragment fade-out" data-fragment-index="18"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov [ebp-4], ebx</code></pre></td> <td><span class="fragment" data-fragment-index="18"><span class="fragment fade-out" data-fragment-index="20"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>add [ebp-4], esi</code></pre></td> <td><span class="fragment" data-fragment-index="20"><span class="fragment fade-out" data-fragment-index="22"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov eax, [ebp-4]</code></pre></td> <td><span class="fragment" data-fragment-index="22"><span class="fragment fade-out" data-fragment-index="24"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>pop esi</code></pre></td>          <td><span class="fragment" data-fragment-index="24"><span class="fragment fade-out" data-fragment-index="26"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>pop ebx</code></pre></td>          <td><span class="fragment" data-fragment-index="26"><span class="fragment fade-out" data-fragment-index="28"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov esp, ebp</code></pre></td>     <td><span class="fragment" data-fragment-index="28"><span class="fragment fade-out" data-fragment-index="30"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>pop ebp</code></pre></td>          <td><span class="fragment" data-fragment-index="30"><span class="fragment fade-out" data-fragment-index="32"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>ret</code></pre></td>              <td><span class="fragment" data-fragment-index="32"><span class="fragment fade-out" data-fragment-index="100"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		</table>
+	    </td></tr>
+	  </table>
+	  </small>
+
+	</td>
+	<td>
+
+	  <table class="transparent">
+	    <tr><td colspan="3"><h2>Callee Animation</h2></td></tr>
+	    <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+	    <tr><td>Stack</td><td colspan="2">Registers</td></tr>
+	    <tr>
+	      <td style="vertical-align:top">
+		<div style="position:relative;left:0;top:0">
+		  <img alt="cc animation" class="fragment fade-out" data-fragment-index="2" src="x86/x86-cc-stack.dot.6.svg" style="position:relative;left:0px;top:0px">
+		  <span class="fragment fade-out" data-fragment-index="7"><img alt="cc animation" class="fragment" data-fragment-index="2" src="x86/x86-cc-stack.dot.7.svg" style="position:absolute;left:0;top:0px"></span>
+		  <span class="fragment fade-out" data-fragment-index="9"><img alt="cc animation" class="fragment" data-fragment-index="7" src="x86/x86-cc-stack.dot.8.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="11"><img alt="cc animation" class="fragment" data-fragment-index="9" src="x86/x86-cc-stack.dot.9.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="19"><img alt="cc animation" class="fragment" data-fragment-index="11" src="x86/x86-cc-stack.dot.10.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="21"><img alt="cc animation" class="fragment" data-fragment-index="19" src="x86/x86-cc-stack.dot.11.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="25"><img alt="cc animation" class="fragment" data-fragment-index="21" src="x86/x86-cc-stack.dot.12.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="27"><img alt="cc animation" class="fragment" data-fragment-index="25" src="x86/x86-cc-stack.dot.13.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="29"><img alt="cc animation" class="fragment" data-fragment-index="27" src="x86/x86-cc-stack.dot.14.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="31"><img alt="cc animation" class="fragment" data-fragment-index="29" src="x86/x86-cc-stack.dot.7.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="33"><img alt="cc animation" class="fragment" data-fragment-index="31" src="x86/x86-cc-stack.dot.6.svg" style="position:absolute;left:0;top:0"></span>
+		  <img alt="cc animation" class="fragment" data-fragment-index="33" src="x86/x86-cc-stack.dot.5.svg" style="position:absolute;left:0;top:0">
+		</div>
+	      </td>
+	      
+	      <td style="vertical-align:top">
+		<div style="position:relative;left:0;top:0">
+		  <img alt="cc animation" class="fragment fade-out" data-fragment-index="2" src="x86/x86-cc-esp.dot.6.svg" style="position:relative;left:0;top:0">
+		  <span class="fragment fade-out" data-fragment-index="4"><img alt="cc animation" class="fragment" data-fragment-index="2" src="x86/x86-cc-esp.dot.7.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="5"><img alt="cc animation" class="fragment" data-fragment-index="4" src="x86/x86-cc-esp.dot.8.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="7"><img alt="cc animation" class="fragment" data-fragment-index="5" src="x86/x86-cc-esp.dot.9.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="9"><img alt="cc animation" class="fragment" data-fragment-index="7" src="x86/x86-cc-esp.dot.10.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="11"><img alt="cc animation" class="fragment" data-fragment-index="9" src="x86/x86-cc-esp.dot.11.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="25"><img alt="cc animation" class="fragment" data-fragment-index="11" src="x86/x86-cc-esp.dot.12.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="27"><img alt="cc animation" class="fragment" data-fragment-index="25" src="x86/x86-cc-esp.dot.11.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="29"><img alt="cc animation" class="fragment" data-fragment-index="27" src="x86/x86-cc-esp.dot.10.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="31"><img alt="cc animation" class="fragment" data-fragment-index="29" src="x86/x86-cc-esp.dot.9.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="33"><img alt="cc animation" class="fragment" data-fragment-index="31" src="x86/x86-cc-esp.dot.6.svg" style="position:absolute;left:0;top:0"></span>
+		  <img alt="cc animation" class="fragment" data-fragment-index="33" src="x86/x86-cc-esp.dot.5.svg" style="position:absolute;left:0;top:0">
+		</div>
+	      </td>
+
+	      <td style="vertical-align:top">
+		<div style="position:relative;left:0;top:0">
+		  <img alt="cc animation" class="fragment fade-out" data-fragment-index="13" src="x86/x86-cc-regs.dot.svg" style="position:relative;left:0;top:0">
+		  <span class="fragment fade-out" data-fragment-index="15"><img alt="cc animation" class="fragment" data-fragment-index="13" src="x86/x86-cc-regs.dot.2.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="17"><img alt="cc animation" class="fragment" data-fragment-index="15" src="x86/x86-cc-regs.dot.3.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="23"><img alt="cc animation" class="fragment" data-fragment-index="17" src="x86/x86-cc-regs.dot.4.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="25"><img alt="cc animation" class="fragment" data-fragment-index="23" src="x86/x86-cc-regs.dot.5.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="27"><img alt="cc animation" class="fragment" data-fragment-index="25" src="x86/x86-cc-regs.dot.6.svg" style="position:absolute;left:0;top:0"></span>
+		  <img alt="cc animation" class="fragment" data-fragment-index="27" src="x86/x86-cc-regs.dot.7.svg" style="position:absolute;left:0;top:0">
+		</div>
+	      </td>
+	    </tr>
+	  </table>
+
+	</td>
+      </tr>
+    </table>
+	  </section>
+
 
 	</section>
 
@@ -1033,15 +1127,13 @@ ret             ; pop top value from stack, jump there
     scanf ("%s", buffer); // how C handles input
 }</code></pre>
 <p>The stack looks like (with sizes in parenthesis):</p>
-<p>&nbsp;</p>
-<table class="transparent"><tr>
+<table class="transparent" style="border-bottom:medium solid;"><tr>
   <td class="border">&nbsp;esi (4)&nbsp;</td>
   <td class="border">&nbsp;edi (4)&nbsp;</td>
   <td class="border">&nbsp;buffer (12)&nbsp;</td>
   <td class="border">&nbsp;ebp (4)&nbsp;</td>
   <td class="border">&nbsp;ret addr (4)&nbsp;</td>
 </tr></table>
-<p>&nbsp;</p>
 <ul>
 <li>Addresses increase to the right (the stack grows to the left)</li>
 <li class="fragment">What happens if the value stored into buffer is 13 bytes long?</li>
@@ -1096,7 +1188,7 @@ Code we'll see:
 	  <section data-markdown><script type="text/template">
 ## clang++ creates some odd assembly...
 - We'll see why later, but clang++ creates some odd-looking assembly
-  - Whcih does not appear to follow the calling convention
+  - Which does not appear to follow the calling convention
 - So you can use g++ to view the assembly
   - The flags are different:
 ```
@@ -1207,9 +1299,8 @@ absolute_value:
 	  <section data-markdown><script type="text/template">
 ## Assembly differences
 - There are a lot of differences between the assembly we've seen and what `g++ -S` produces
-  - `movl`, `pushl`, `compl`, `negl`, `popl`
-    - the 'l' part means 'long' (i.e. 32 bits, so the assembler doesn't have to assume)
-  - `jns` means jump if not signed (i.e. if positive)
+  - `movl`, `pushl`, `cmpl`, `subl`, `popl`, etc.
+    - the 'l' part means 'long' (i.e. 32 bits, so the assembler doesn't have to guess)
   - `$0` is the constant 0
   - Register names begin with a percent sign
   - `8(%ebp)` is [ebp+8]
@@ -1224,7 +1315,6 @@ absolute_value:
 - Flavors:
   - Intel syntax: what we will use, and what nasm uses
   - AT&T syntax: what `g++ -S` uses by default
-
 - To make clang++ use the Intel syntax, you need to add the <br>`-mllvm --x86-asm-syntax=intel` flags
 ```
 clang++ -m32 -mllvm --x86-asm-syntax=intel -S \
@@ -1253,6 +1343,8 @@ absolute_value:
 	pop     ebp
 	ret
 ```
+`jns` means jump if not signed (i.e. if positive)
+
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -1279,7 +1371,7 @@ int absolute_value(int x) {
     return x;     // return x
 }
 
-int main(){
+int main() {
     int theValue=0;
     printf ("Enter a value: \n");
     scanf ("%d", &theValue);
@@ -1298,7 +1390,7 @@ int main(){
   - C: [test_abs_c.s](code/08-x86/test_abs_c.s.html) ([src](code/08-x86/test_abs_c.s))
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
+	  <section data-markdown id="max"><script type="text/template">
 ## int max(int x, int y)
 (see next slide for the source code link)
 ```
@@ -1323,7 +1415,7 @@ extern "C" int max(int x, int y);
 
 // the max function from the previous slide
 
-int main(){
+int main() {
     int theValue1=0, theValue2=0;
     cout << "Enter value 1: " << endl;
     cin >> theValue1;
@@ -1338,7 +1430,7 @@ int main(){
 
 	  <section data-markdown><script type="text/template">
 ## x86 code for max()
-Using `g++ -masm=intel`
+Using: `g++ -S -m32 -masm=intel`
 
 Source code: [test_max.s](code/08-x86/test_max.s.html) ([src](code/08-x86/test_max.s))
 ```
@@ -1364,7 +1456,7 @@ max:
 
 	  <section data-markdown><script type="text/template">
 ## x86 code for max() using -O2
-Using `g++ -masm=intel` and `-O2`
+Using: `g++ -S -m32 -masm=intel` and `-O2`
 
 Source code: [test_max-O2.s](code/08-x86/test_max-O2.s.html) ([src](code/08-x86/test_max-O2.s))
 ```
@@ -1375,12 +1467,12 @@ max:
 	cmovge  eax, edx
 	ret
 ```
-The [cmovg](http://www.asmpedia.org/index.php?title=CMOVG) opcode will move the greater value into the first parameter; [cmovg](http://www.asmpedia.org/index.php?title=CMOVG) does the move greater than *or equal to* value
+The [cmovg](http://www.asmpedia.org/index.php?title=CMOVG) opcode (conditional move if greater than) will move the greater value into the first parameter; [cmovge](http://www.asmpedia.org/index.php?title=CMOVGE) does the move greater than *or equal to* value
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## x86 code for max() without 'extern "C"'
-Using `g++ -masm=intel`
+Using: `g++ -S -m32 -masm=intel`
 
 Source code: [test_max-noextern.s](code/08-x86/test_max-noextern.s.html) ([src](code/08-x86/test_max-noextern.s))
 ```
@@ -1435,7 +1527,7 @@ extern "C" bool compare_string(const char* theStr1,
 
 // code for compare_string here
 
-int main(){
+int main() {
     string theValue1, theValue2;
     cout << "Enter string 1: " << endl;
     cin >> theValue1;
@@ -1451,7 +1543,7 @@ int main(){
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for compare_string(), 1/3
-Using `g++ -masm=intel`
+Using: `g++ -S -m32 -masm=intel`
 
 Source code: [test_string_compare.s](code/08-x86/test_string_compare.s.html) ([src](code/08-x86/test_string_compare.s))
 ```
@@ -1467,7 +1559,7 @@ compare_string:
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for compare_string(), 2/3
-Using `g++ -masm=intel`
+Using: `g++ -S -m32 -masm=intel`
 
 Source code: [test_string_compare.s](code/08-x86/test_string_compare.s.html) ([src](code/08-x86/test_string_compare.s))
 ```
@@ -1489,7 +1581,7 @@ Source code: [test_string_compare.s](code/08-x86/test_string_compare.s.html) ([s
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for compare_string(), 3/3
-Using `g++ -masm=intel`
+Using: `g++ -S -m32 -masm=intel`
 
 Source code: [test_string_compare.s](code/08-x86/test_string_compare.s.html) ([src](code/08-x86/test_string_compare.s))
 ```
@@ -1509,7 +1601,7 @@ Source code: [test_string_compare.s](code/08-x86/test_string_compare.s.html) ([s
 ```
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
+	  <section data-markdown id="fib"><script type="text/template">
 ## int fib
 (see next slide for the source code link)
 ```
@@ -1535,7 +1627,7 @@ int fib(unsigned int n) {
     return fib(n-1) + fib(n-2);
 }
 
-int main(){
+int main() {
     int theValue = 0;
     cout << "Enter value for fib(): " << endl;    
     cin >> theValue;
@@ -1548,7 +1640,7 @@ int main(){
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for fib(), 1/2
-Using `g++ -masm=intel`
+Using: `g++ -S -m32 -masm=intel`
 
 Source code: [test_fib.s](code/08-x86/test_fib.s.html) ([src](code/08-x86/test_fib.s))
 ```
@@ -1569,7 +1661,7 @@ fib:
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for fib(), 2/2
-Using `g++ -masm=intel`
+Using: `g++ -S -m32 -masm=intel`
 
 Source code: [test_fib.s](code/08-x86/test_fib.s.html) ([src](code/08-x86/test_fib.s))
 ```
@@ -1597,7 +1689,7 @@ Source code: [test_fib.s](code/08-x86/test_fib.s.html) ([src](code/08-x86/test_f
 - Not really!
 - The convention states what the stack must look like when a subroutine is invoked
 - The steps given in this slide set are to help learn the convention
-- So as the stack was set up correctly, the convention was follows
+- So as the stack was set up correctly, the convention was followed
 	  </script></section>
 
 	  <section>
@@ -1623,6 +1715,29 @@ Source code: [test_fib.s](code/08-x86/test_fib.s.html) ([src](code/08-x86/test_f
   - And if the subroutine invocation is solely within clang's code...
     - ... meaning that there is no call to an external library, or this is not code that will go *into* a library...
     - ... then parameters may be passed in the registers
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## An aside: An advantage of little-Endian
+- Consider the 32-bit big-Endian word 0x680abcde in memory starting address 1000:
+  - In big-Endian:
+    - Byte '68' is the most significant; is at address 1000
+    - Byte 'de' is the least significant; is at address 1003
+  - In little-Endian:
+    - Byte 'de' is the most significant; is at address 1000
+    - Byte '68' is the least significant; is at address 1003
+- Note that, in little-Endian, the entire 32-bit word *and* the 8-bit least significant byte have the same address!
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## More on little-Endian
+- In little-Endian, the entire 32-bit word *and* the 8-bit least significant byte have the same address
+- Consider a `movb`, `movw`, or `movl`
+  - Moving a 8, 16, and 32 bit quantity, respecitively
+  - If you called `movb`, that instruction moves the *least* significant 8 bits of the 32-bit quantity
+- Thus, if you are doing one of those moves, the address is the *same*, which makes the CPU addressing routines simpler
+- This means integer *casts* are a essentially a no-op
+  - To cast an `int` to a `short`, you just tke lowest 16 bits, which means you use a `movw` instead of a `movl`
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -1653,7 +1768,7 @@ Source code: [test_fib.s](code/08-x86/test_fib.s.html) ([src](code/08-x86/test_f
     </div>
 
     <script src="reveal.js/lib/js/head.min.js"></script>
-    <script src="reveal.js/js/reveal.min.js"></script>
+    <script src="reveal.js/js/reveal.js"></script>
     <script src="js/settings.js"></script>
 
   </body>

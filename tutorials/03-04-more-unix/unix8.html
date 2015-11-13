@@ -4,10 +4,15 @@
 <head>
 <title>UNIX Tutorial Eight</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<meta name="Copyright" content="Michael Stonebank, 1995" />
-<link href="unixtut1.css" rel="stylesheet" type="text/css" />
+<meta name="Copyright" content="Michael Stonebank, 1995-2003" />
+
+<link href="unixtut2.css" rel="stylesheet" type="text/css" />
+<link href="unixtut2-print.css" rel="stylesheet" type="text/css" media="print" />
+
 </head>
 <body>
+<div id="container">
+
 <h1>UNIX Tutorial Eight </h1>
 <h2>8.1 UNIX Variables</h2>
 <p>Variables are a way of passing information from the shell to programs when 
@@ -25,7 +30,7 @@
 <h2>8.2 Environment Variables</h2>
 <p>An example of an environment variable is the OSTYPE variable. The value of 
   this is the current operating system you are using. Type </p>
-<p class="command">% echo $OSTYPE </p>
+<p class="cli">% echo $OSTYPE </p>
 <p>More examples of environment variables are </p>
 <ul>
   <li> USER (your login name)</li>
@@ -38,11 +43,11 @@
 </ul>
 <h3>Finding out the current values of these variables.</h3>
 
-<p>ENVIRONMENT variables are set using the <samp>setenv</samp> command, displayed 
-  using the <samp>printenv</samp> or <samp>env</samp> commands, and unset using 
-  the <samp>unsetenv</samp> command. </p>
+<p>ENVIRONMENT variables are set using the <span class="command">setenv</span> command, displayed 
+  using the <span class="command">printenv</span> or <span class="command">env</span> commands, and unset using 
+  the <span class="command">unsetenv</span> command. </p>
 <p>To show all values of these variables, type</p>
-<p class="command">% printenv | less</p>
+<p class="cli">% printenv | less</p>
 <h2>8.3 Shell Variables</h2>
 <p>An example of a shell variable is the history variable. The value of this is 
   how many shell commands to save, allow the user to scroll back through all the 
@@ -63,10 +68,10 @@
 
 <h3>Finding out the current values of these variables.</h3>
 
-<p>SHELL variables are both set and displayed using the <samp>set</samp> command. 
-  They can be unset by using the <samp>unset</samp> command. </p>
+<p>SHELL variables are both set and displayed using the <span class="command">set</span> command. 
+  They can be unset by using the unset command. </p>
 <p>To show all values of these variables, type</p>
-<p class="command">% set | less</p>
+<p class="cli">% set | less</p>
 
 <h3>So what is the difference between PATH and path ?</h3>
 <p>In general, environment and shell variables that have the same name (apart 
@@ -91,29 +96,29 @@
   to the shell and to each invocation of it.</p>
 <p>The guidelines are to set ENVIRONMENT variables in the <strong>.login</strong> 
   file and SHELL variables in the <strong>.cshrc</strong> file. </p>
-<p class="warning"><strong>WARNING:</strong> NEVER put commands that run graphical 
+<p class="hint"><strong>WARNING:</strong> NEVER put commands that run graphical 
   displays (e.g. a web browser) in your .cshrc or .login file. </p>
 <h2>8.5 Setting shell variables in the .cshrc file</h2>
 <p>For example, to change the number of shell commands saved in the history list, 
   you need to set the shell variable history. It is set to 100 by default, but 
   you can increase this if you wish.</p>
-<p class="command">% set history = 200</p>
+<p class="cli">% set history = 200</p>
 <p>Check this has worked by typing</p>
-<p class="command">% echo $history</p>
+<p class="cli">% echo $history</p>
 <p>However, this has only set the variable for the lifetime of the current shell. 
   If you open a new xterm window, it will only have the default history value 
   set. To PERMANENTLY set the value of history, you will need to add the set command 
   to the .cshrc file.</p>
 <p>First open the <strong>.cshrc</strong> file in a text editor. An easy, user-friendly 
   editor to use is nedit.</p>
-<p class="command">% nedit ~/.cshrc</p>
+<p class="cli">% nedit ~/.cshrc</p>
 <p>Add the following line AFTER the list of other commands.</p>
 <p class="sourcecode"> set history = 200</p>
 <p>Save the file and force the shell to reread its .cshrc file buy using the shell 
   source command.</p>
-<p class="command">% source .cshrc</p>
+<p class="cli">% source .cshrc</p>
 <p>Check this has worked by typing</p>
-<p class="command">% echo $history</p>
+<p class="cli">% echo $history</p>
 
 <h2>8.6 Setting the path</h2>
 <p>When you type a command, your path (or PATH) variable defines in which directories 
@@ -126,21 +131,23 @@
   in your path. </p>
 <p>You can add it to the end of your existing path (the <strong>$path</strong> 
   represents this) by issuing the command: </p>
-<p class="command"> % set path = ($path ~/units174/bin)</p>
+<p class="cli"> % set path = ($path ~/units174/bin)</p>
 <p>Test that this worked by trying to run units in any directory other that where 
   units is actually located. </p>
-<p class="command">% cd; units</p>
-<p class="hint"><strong>HINT:</strong> You can run multiple commands on one line 
-  by separating them with a semicolon. </p>
+<p class="cli">% cd<br />
+  % 
+  units</p>
 <p>To add this path PERMANENTLY, add the following line to your .cshrc AFTER the 
   list of other commands.</p>
-<p class="sourcecode">set path = ($path ~/units174/bin)</p>
+<p class="cli">set path = ($path ~/units174/bin)</p>
 
-<p class="navbar"><a href="unix7.html"><img src="media/left.gif" alt="Back" width="37" height="39" border="0" /></a> 
-  <a href="index.html"><img src="media/home.gif" alt="Home" width="81" height="39" border="0" /></a> 
-</p>
+<p align="center" class="navbar"><a href="unix7.html"><img src="media/left.gif" alt="Back" width="37" height="39" border="0" /></a> 
+  <a href="index.html"><img src="media/home.gif" alt="Home" width="81" height="39" border="0" /></a></p>
 
+<p align="center"><script type="text/javascript"><!--
+  amazon_ad_tag = "unixtutorialf-20";  amazon_ad_width = "728";  amazon_ad_height = "90";  amazon_ad_logo = "hide";  amazon_ad_link_target = "new";  amazon_ad_price = "retail";  amazon_color_border = "E9ECF5";  amazon_color_link = "0000FF";  amazon_color_logo = "093697";  amazon_ad_categories = "abcdefg";//--></script>
+<script type="text/javascript" src="http://www.assoc-amazon.com/s/ads.js"></script></p>
 <p class="date">M.Stonebank@surrey.ac.uk October 2001 </p>
-<p> </p>
+</div>
 </body>
 </html>

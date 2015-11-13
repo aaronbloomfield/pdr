@@ -7,26 +7,26 @@
     <meta name="author" content="Aaron Bloomfield">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
-    <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
-    <link rel="stylesheet" href="css/pdr.css">
-    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
-    <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
-	if( window.location.search.match( /print-pdf/gi ) ) {
-		var link = document.createElement( 'link' );
-		link.rel = 'stylesheet';
-		link.type = 'text/css';
-		link.href = 'reveal.js/css/print/pdf.css';
-		document.getElementsByTagName( 'head' )[0].appendChild( link );
-	}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/css/pdr.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
     <!--[if lt IE 9]>
-    <script src="reveal.js/lib/js/html5shiv.js"></script>
-    <![endif]-->
-    <script type="text/javascript" src="js/dhtmlwindow.js"></script>
-    <script type="text/javascript" src="js/canvas.js"></script>
-    <link rel="stylesheet" href="css/dhtmlwindow.css" type="text/css">
+	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
+	<![endif]-->
+    <script type="text/javascript" src="../slides/js/dhtmlwindow.js"></script>
+    <script type="text/javascript" src="../slides/js/canvas.js"></script>
+    <link rel="stylesheet" href="../slides/css/dhtmlwindow.css" type="text/css">
   </head>
 
   <body onload="canvasinit()">
@@ -218,19 +218,21 @@
 ![ENIAC](images/03-numbers/eniac.png)
 	    </script></section>
 
-	    <section data-markdown><script type="text/template">
-## Directions for getting **6**
-1. Choose any regular accumulator (ie. Accumulator #9). 
-2. Direct the Initiating Pulse to terminal 5i. 
-3. The initiating pulse is produced by the initiating unit's Io terminal (usually plugged into Program Line 1-1) each time the Eniac is started. Simply connect a program cable from Program Line 1-1 to terminal 5i on this Accumulator. 
-4. Set the Repeat Switch for Program Control 5 to 6. 
-5. Set the Operation Switch for Program Control 5 to ADD. 
-6. Set the Clear-Correct switch to C. 
-7. Turn on and clear the Eniac. 
-8. If there are random neons illuminated in the accumulators, press the "Initial Clear" button of the Initiating device
-9. Press the "Initiating Pulse Switch" that is located on the Initiating device. 
-10. **Stand back.**
-	    </script></section>
+	    <section>
+<h2>Directions for getting 6<h2>
+<ol style="font-size:55%;line-height:120%;font-variant:normal">
+<li>Choose any regular accumulator (ie. Accumulator #9).</li>
+<li>Direct the Initiating Pulse to terminal 5i.</li>
+<li>The initiating pulse is produced by the initiating unit's Io terminal (usually plugged into Program Line 1-1) each time the Eniac is started. Simply connect a program cable from Program Line 1-1 to terminal 5i on this Accumulator.</li>
+<li>Set the Repeat Switch for Program Control 5 to 6.</li>
+<li>Set the Operation Switch for Program Control 5 to ADD.</li>
+<li>Set the Clear-Correct switch to C.</li> 
+<li>Turn on and clear the Eniac. </li>
+<li>If there are random neons illuminated in the accumulators, press the "Initial Clear" button of the Initiating device</li>
+<li>Press the "Initiating Pulse Switch" that is located on the Initiating device.</li>
+<li><b>Stand back.</b></li>
+</ol>
+	    </section>
 
 	    <section data-markdown><script type="text/template">
 ## ENIAC Number Representation
@@ -263,7 +265,6 @@
 <li>1 + 0 = 1</li>
 <li>1 + 1 = 0 carry 1</li>
 </ul>
-<p>&nbsp;</p>
 <p>Maximum value is \( 2^n-1 \) -- but what should \( n \) be?</p>
 	    </section>
 
@@ -499,6 +500,31 @@ void Image::WriteInt (int value, FILE * fp) {
 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | = | -128 |
 	  </script></section>
 
+	  <section data-markdown><script type="text/template">
+## Integer overflow
+- Given a signed 8-bit integer: 127 = 0111 1111
+  - The maximum value for that data type
+- If you add 1 to that, you get 1000 000
+  - Which is -128
+- This is called *overflow* (or *integer overflow*)
+- Other common overflows:
+  - 16-bits: 32,767 + 1 = -32,768
+  - 32-bits: 2,147,483,647 + 1 = -2,147,483,648
+- This has real-word applications: [*Gangnam Style* overflows INT_MAX, forces YouTube to go 64-bit](http://arstechnica.com/business/2014/12/gangnam-style-overflows-int_max-forces-youtube-to-go-64-bit/) (Dec 3, 2014)
+  - If you care, it's now at 2.4 billion views (as of Sep 2015)
+	  </script></section>
+
+	  <section>
+<h2>A bit of an aside...</h2>
+<p>This is an <i>actual</i> comment left by a graduating SEAS computer science major:</p>
+<p>&nbsp;</p>
+<blockquote class="fragment">
+  <p>I can't count the number of times I was taught how to count in binary</p>
+</blockquote>
+<p>&nbsp;</p>
+<p class="fragment">So this material may appear again in the CS curriculum.  Hopefully everybody will (eventually) learn it...</p>
+	  </section>
+
 	</section>
 
 
@@ -532,12 +558,17 @@ void Image::WriteInt (int value, FILE * fp) {
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Floating Point
+## Floating Point, part 1
 - Each number in scientific notation has four parts: -3.24 \* 10<sup>6</sup>
   - Sign bit (1 is negative)
   - Mantissa (the "value" of the number): 3.24 in the example above
     - Always in the range 1.0 &le; *m* < 10.0 for decimal numbers in scientific notation
     - Always in the range 1.0 &le; *m* < 2.0 in the binary representation
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Floating Point, part 2
+- Each number in scientific notation has four parts: -3.24 \* 10<sup>6</sup>
   - Base
     - This is 10 for tyipcaly scientific notation, but 2 for computers
     - As this is always known for floats and doubles, it is omitted
@@ -642,11 +673,11 @@ void Image::WriteInt (int value, FILE * fp) {
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Floating point numbers are<br>not spatially uniform
+## Not spatially uniform!
 - Consider a numerical type that holds only 3 decimal digits
   - Examples: 1.23, 12.3, 123, 1,230
     - In scientific notation, respectively: 1.23\*10<sup>0</sup>, 1.23\*10<sup>1</sup>, 1.23\*10<sup>2</sup>, 1.23\*10<sup>3</sup>
-- Consider the next highest number for each of those examples
+- Consider the next highest number for each of them:
   - Next highest in this numerical type, not of all real numbers
   - 1.23 => 1.24; difference is 0.01
   - 12.3 => 12.4; difference is 0.1
@@ -666,17 +697,16 @@ void Image::WriteInt (int value, FILE * fp) {
 
 	  <section data-markdown><script type="text/template">
 ## Converting a float<br>from decimal to binary
-- Algorithm to covert *f* into binary:
-  - Sign: 1 if negative, 0 if positive
-  - Exponent (*e*): find what power of 2 is required to bring the number to 1.0 <= *x* < 2.0
-    - If you have to multiply, then it's negative
-    - If you have to divide, then it's positive
-    - Add 127 to that value
-  - The mantissa is *f/2<sup>e</sup>*
-    - Note that *e* is the exponent before adding 127 to it
-    - Subtract 1 from the mantissa (so that 0.0 &le; *m* < 1.0)
-    - Convert to it's closest representation using powers of &frac12;
-    - Similar to converting a base *n* number to base 10
+- Sign: 1 if negative, 0 if positive
+- Exponent (*e*): find what power of 2 is required to bring the number to 1.0 <= *x* < 2.0
+  - If you have to multiply, then it's negative
+  - If you have to divide, then it's positive
+  - Add 127 to that value
+- The mantissa is *f/2<sup>e</sup>*
+  - Note that *e* is the exponent before adding 127 to it
+  - Subtract 1 from the mantissa (so that 0.0 &le; *m* < 1.0)
+  - Convert to closest representation using powers of &frac12;
+  - Similar to converting a base *n* number to base 10
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -722,7 +752,7 @@ Output: 0x42288000
 </ul></li>
 <li>Sign is 0 (it's positive)</li>
 <li>Exponent: <ul>
-  <li>Divide by the highest power of 2 that is <i>less</i> than the number</li>
+  <li>Divide by the highest power of 2 that's <i>less</i> than num</li>
   <li>In this case, that is 2<sup>5</sup> = 32</li>
   <li>\( \frac{\frac{337}{8}}{2^5} = \frac{337}{8*2^5} = \frac{337}{256} \)</li>
   <li>Exponent is 5+127 = 132 (1000 0100<sub>b</sub>)</li>
@@ -803,7 +833,7 @@ double c = .9999999999999999;
 - Two false expressions!
   - `a == b`
   - `b != c`
-- Problem lies with the finite precision of the floating-point types
+- Problem is with the finite precision of floating-point types
   - Instead with the ordering operators for closeness
 	  </script></section>
 
@@ -830,10 +860,10 @@ bool foo = fabs (a-b) < EPSILON;
 	  <section data-markdown><script type="text/template">
 ## Floating point rounding errors
 - Add 0.333333333333333333 a total of 3 times, and you don't get 1.0
-  - As 1/3 cannot be represented properly with a (finite) decimal number
+  - As 1/3 cannot be represented via a (finite) decimal num
     - Any denominator that has factors that are not factors of the radix
     - Decimal radix factors: 2 an 5
-    - Good: 25 (factors are 5 and 5), 10 (factors are 2 2 5 5), etc.
+    - Good: 25 (factors: 5, 5), 10 (factors: 2, 2, 5, 5), etc.
     - Bad: 1/3, 1/7, 1/11, 1/12
   - Same thing with 0.1 (and many others!) in binary
     - Any denominator that has factors that are not factors of the radix (which is just 2!)
@@ -849,7 +879,7 @@ bool foo = fabs (a-b) < EPSILON;
 <li>Which is exactly equal to:
 <ul><li> 0.100000001490116119384765625</li>
 <li>But only the first 7 digits, .1000000, are printed</li></ul></li>
-<li>It's a finite number in decimal, but repeating in binary</li>
+<li>0.1 (exactly) is a finite number in decimal, but repeating in binary</li>
 </ul>
 	  </section>
 
@@ -866,18 +896,17 @@ bool foo = fabs (a-b) < EPSILON;
 	  <section data-markdown><script type="text/template">
 ## Real world example: Patriot Missile
 - Gulf War I (1990-1991)
-- Failed to intercept incoming Iraqi scud missile (Feb 25, 1991)
-  - Both travel at about Mach 5
+- Failed to intercept incoming Iraqi scud missile (Feb 25, 1991); both travel at about Mach 5
 - 28 American soldiers killed
 ![patriot missile launch](images/03-numbers/patriot-missile.jpg)
-- GAO report: [GAO/IMTEC-92-26 Patriot Missile Software Problem](http://www.fas.org/spp/starwars/gao/im92026.htm); image from [Wikipedia](http://en.wikipedia.org/wiki/File:Patriot_missile_launch_b.jpg)
+- GAO report [here](http://www.fas.org/spp/starwars/gao/im92026.htm); image from [Wikipedia](http://en.wikipedia.org/wiki/File:Patriot_missile_launch_b.jpg)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Patriot Design
 - Intended to operate only for a few hours at a time
-  - But was left running for about 100 hours prior to the incident
-  - Designed to defend Europe from Soviet aircraft & missiles
+  - But was left running for ~100 hours prior to incident
+  - Designed to defend Europe from Soviet weapons
 - Four 24 bit fixed-point registers (1970s design)
   - Meaning there were only 24 bits of precision after the decimal place
   - Although a `float` has somewhat similar precision
@@ -899,7 +928,7 @@ bool foo = fabs (a-b) < EPSILON;
     <li>At 1/10485760 time error per tenth of a second, that yields 0.0034 seconds of time error per hour</li>
     <li>100 hours: 0.34s</li></ul></li>
 <li>The Scud missile was traveling at 1,676 m/s (Mach 4.93)<ul>
-    <li>1,676 meters per second * 0.34 seconds = 570 meters (1,870 feet)</li>
+    <li>1,676 m/s * 0.34 seconds = 570 meters (1,870 feet)</li>
     <li>The Patriot thus missed the target by over a half a km</li></ul></li>
 </ul>
 	  </section>
@@ -918,13 +947,14 @@ bool foo = fabs (a-b) < EPSILON;
 - IEEE 754 Double Precision (64 bits)
   - A `float` has about 7 decimal places of accuracy, and a `double` has about 15
 - 64 bits are split as follows:
-  - bit 0: sign bit, 1 means negative (1 bit)
-  - bits 1-11: exponent (11 bits)
-  - bits 12-63: mantissa (52 bits)
+  - bit 1: sign bit, 1 means negative (1 bit)
+  - bits 2-12: exponent (11 bits)
+  - bits 13-64: mantissa (52 bits)
   - Exponent offset is 2<sup>*e*-1</sup>-1 = 1023
 - Single precision: 0.1 = 209715 / 2097152
   - Error = 9.5 \* 10<sup>-8</sup>  (at least 20 hours to miss target)
-- Double precision: 0.1 = 56294995342131 / 562949953421312
+- Double precision: 
+  - 0.1 = 56294995342131 / 562949953421312
   - Error = 3.608 \* 10<sup>-16</sup> (2,172,375,450 ***years*** to miss)
 	  </script></section>
 
@@ -942,16 +972,20 @@ bool foo = fabs (a-b) < EPSILON;
     - 3 decimal digits (0-999) into 10 binary digits (0-1023) (24 wasted out of 1024)
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
-## Smaller Floating Point
-- 16-bit floating point representations
-  - Minifloat: 1 sign, 5-bit exponent, 10-bit mantissa
-  - Range from 2.98 \* 10<sup>-8</sup> to 65504 
-  - Your graphics card uses this (if you have a good one)
-  - 40 billion floating point operations per second (3 Ghz Pentium = 12 billion)
-![nvidia logo](images/03-numbers/nvidia.png)
-	  </script></section>
-
+	  <section>
+<h2>Smaller Floating Point</h2>
+<ul>
+  <li>16-bit floating point representations
+    <ul>
+      <li>Minifloat: 1 sign, 5-bit exponent, 10-bit mantissa</li>
+      <li>Range from 2.98 * 10<sup>-8</sup> to 65504</li>
+      <li>Your graphics card uses this (if you have a good one)</li>
+      <li>40 billion floating point operations per second (3 Ghz Pentium = 12 billion)</li>
+    </ul>
+  </li>
+</ul>
+<img src='images/03-numbers/nvidia.png' alt='nvidia logo' style="background-color:white">
+	  </section>
 
 	</section>
 
@@ -968,7 +1002,7 @@ bool foo = fabs (a-b) < EPSILON;
     </div>
 
     <script src="reveal.js/lib/js/head.min.js"></script>
-    <script src="reveal.js/js/reveal.min.js"></script>
+    <script src="reveal.js/js/reveal.js"></script>
     <script src="js/settings.js"></script>
 
   </body>

@@ -15,8 +15,8 @@ In lecture we discussed Huffman coding and the construction of prefix code trees
 
 ### Reading(s): ###
 
-- The [Heaps and Huffman slide set](../../slides/11-heaps-huffman.html) are available in the repository, and that covers Huffman compression and decompression.
-- Code for binary heaps is also available from that slide set: [priority_queue.cpp](../../slides/code/11-heaps-huffman/priority_queue.cpp.html) ([src](../../slides/code/11-heaps-huffman/priority_queue.cpp)), [priority_queue.h](../../slides/code/11-heaps-huffman/priority_queue.h.html) ([src](../../slides/code/11-heaps-huffman/priority_queue.h)), [pq-test.cpp](../../slides/code/11-heaps-huffman/pq-test.cpp.html) ([src](../../slides/code/11-heaps-huffman/pq-test.cpp)).  You may use/modify this code if you wish, or implement your own heaps, but you may NOT use the STL priority_queue class (you can use other STL classes -- i.e. non-heap related classes).  IF YOU ARE GOING TO USE THIS CODE, you should really remove the templates.  It will save you a heck of a lot of time.
+- The [Heaps and Huffman slide set](../../slides/10-heaps-huffman.html) are available in the repository, and that covers Huffman compression and decompression.
+- Code for binary heaps is also available from that slide set: [binary_heap.cpp](../../slides/code/10-heaps-huffman/binary_heap.cpp.html) ([src](../../slides/code/10-heaps-huffman/binary_heap.cpp)), [binary_heap.h](../../slides/code/10-heaps-huffman/binary_heap.h.html) ([src](../../slides/code/10-heaps-huffman/binary_heap.h)), [heap-test.cpp](../../slides/code/10-heaps-huffman/heap-test.cpp.html) ([src](../../slides/code/10-heaps-huffman/heap-test.cpp)).  You may use/modify this code if you wish, or implement your own heaps, but you may NOT use the STL priority_queue class (you can use other STL classes -- i.e. non-heap related classes).
 
 Lab Procedure
 -------------
@@ -29,7 +29,7 @@ Lab Procedure
 4. Your program must compile with make!
 5. Your program should only take in one command-line parameter!
 6. Files to download: [fileio.cpp](fileio.cpp.html) ([src](fileio.cpp)), and the example files (in the [labs/lab10/examples/ directory](examples/), or as one [examples.zip](examples.zip) file)
-7. Files to submit: heap.cpp, heap.h, huffmanenc.cpp, Makefile (you can submit additional .cpp/.h files, if needed, as long as it compiles with 'make')
+7. Files to submit: heap.cpp, heap.h, huffmanenc.cpp, Makefile (you can submit additional .cpp/.h files, if needed, as long as it compiles with `make`)
 
 ### In-lab ###
 
@@ -38,15 +38,15 @@ Lab Procedure
 3. Your program must compile with make!
 4. Your program should only take in one command-line parameter!
 5. Files to download: [inlab-skeleton.cpp](inlab-skeleton.cpp.html) ([src](inlab-skeleton.cpp)), and your pre-lab files
-6. Files to submit: huffmandec.cpp, Makefile (you can submit additional .cpp/.h files, if needed, as long as it compiles with 'make')
+6. Files to submit: huffmandec.cpp, Makefile (you can submit additional .cpp/.h files, if needed, as long as it compiles with `make`)
 
 ### Post-lab ###
 
 1. Complete the post-lab report, as described in the post-lab section.
-2. Read the [Objective C tutorial](../../tutorials/10-objc/index.html), as described in the post-lab section.
-3. Write the Objective C program described in the post-lab section, which implements a singly-linked list.
-4. Files to download: [helloworld.m](../..//tutorials/10-objc/helloworld.m).
-5. Files to submit: postlab10.pdf, linkedlist.m (no Makefile for this lab!); if your program uses multiple .m or .h files, that's fine.
+2. Ensure that the pre-lab code (compression) and post-lab code (decompression) work properly, as they will be submitted again
+3. Create a new Makefile, as specified below
+4. Files to submit: postlab10.pdf, Makefile, all necessary source code files
+
 
 ------------------------------------------------------------
 
@@ -71,11 +71,11 @@ The basic steps in decompression (for the in-lab) are:
 4. Output the character stored at the leaf node.
 5. Repeat the last two steps until the encoded file is finished.
 
-Huffman compression and decompression are both covered in the [Heaps and Huffman slide set](../../slides/11-heaps-huffman.html).
+Huffman compression and decompression are both covered in the [Heaps and Huffman slide set](../../slides/10-heaps-huffman.html).
 
 ### Requirements ###
 
-Assume that only printable ASCII characters will occur in the source (original, uncompressed) text file.  That is, your program should ignore newlines and tabs, but should not ignore spaces -- thus, spaces need to be encoded, just like with other (printable) characters.  Your program should be case-sensitive (count upper-case and lower-case versions of the same letter as different characters).  The lecture notes describe [which characters are to be encoded](../../slides/11-heaps-huffman.html#ascii).
+Assume that only printable ASCII characters will occur in the source (original, uncompressed) text file.  That is, your program should ignore newlines and tabs, but should not ignore spaces -- thus, spaces need to be encoded, just like with other (printable) characters.  Your program should be case-sensitive (count upper-case and lower-case versions of the same letter as different characters).  The lecture notes describe [which characters are to be encoded](../../slides/10-heaps-huffman.html#asciiset).
 
 You ***must*** use a heap (priority queue) data structure to receive full credit on this pre-lab.  You may use heap code from the slides (give said credit if you do so), or you may implement your own.  You may NOT use the priority_queue class from the STL, but you may use other classes from the STL (i.e. non-heap related classes).
 
@@ -152,6 +152,10 @@ This gives a compression ratio of 4.30769.
 The cost of the Huffman tree is 1.85714 bits per character.
 ```
 
+The Huffman tree that this forms is the same as the one shown in the slide set (specifically, [here](../../slides/10-heaps-huffman.html#/lab10tree)), and is dupliated below.
+
+![](prelab-tree.png)
+
 Below is an equivalent version of the same file.  Note that the characters are not in the same order in the previous example, the whitespace for the middle part is quite different, the English explanation in the third part says the same thing but in a different format, and the particular prefix codes are different (but note that the lengths are the same).  Your in-lab code will need to be able to read in both of these files (as well as others in the [labs/lab10/examples/ directory(examples/)).  For writing your pre-lab, you should consider having a space or a newline between the Huffman encoded characters, as that will make your code easier to check and debug.
 
 ```
@@ -192,11 +196,11 @@ There are additional examples of encodings in the [labs/lab10/examples/ director
 
 We provide a number of sample files for you to test your code with.  A brief description of each is described here.  The "normal" files are the English input.  The "encoded" files are the Huffman encoded files, following the file format described above.  Except where indicated, the middle part of each encoded file (the digits `0` and `1`) has a space is inserted between each letter from the original file, so that you can see which letter is encoded as which bitcode.
 
-- [normal1.txt](examples/normal1.txt) / [encoded1.txt](examples/encoded1.txt): This is the first example from the lecture slides (`dbacaad`)
-- [normal2.txt](examples/normal2.txt) / [encoded2.txt](examples/encoded2.txt): This is the second example from the lecture slides, in the "Huffman Encoding" section.  This is the example that we built up the Huffman tree from.
+- [normal1.txt](examples/normal1.txt) / [encoded1.txt](examples/encoded1.txt): This is the first example from the lecture slides (`dbacaad`).  The Huffman tree can be viewed [here](prelab-tree.png).
+- [normal2.txt](examples/normal2.txt) / [encoded2.txt](examples/encoded2.txt): This is the second example from the lecture slides, in the "Huffman Encoding" section.  This is the example that we built up the Huffman tree from.  The Huffman tree can be viewed [here](inlab-tree-2.png).
 - [normal3.txt](examples/normal3.txt) / [encoded3.txt](examples/encoded3.txt): This is a paragraph from [Gadsby](http://en.wikipedia.org/wiki/ Gadsby_%28novel%29), which is a novel that does not ever use the letter 'e'.
 - [normal4.txt](examples/normal4.txt) / [encoded4.txt](examples/encoded4.txt): The first paragraph from a [front page story in the 27 November 2007 edition of the Cavalier Daily](http://www.cavalierdaily.com/CVArticle.asp?ID=31789&pid=1656).
--- [encoded4a.txt](examples/encoded4a.txt): This is the same encoding as the previous file ([encoded4.txt](examples/encoded4.txt)), but with all spaces in the middle section of the file removed, so that it's just a very long string of `0`s and `1`s.
+    - [encoded4a.txt](examples/encoded4a.txt): This is the same encoding as the previous file ([encoded4.txt](examples/encoded4.txt)), but with all spaces in the middle section of the file removed, so that it's just a very long string of `0`s and `1`s.
 
 During in-lab, you will implement the decompression steps for the Huffman encoding.  These steps are listed at the beginning of this lab document.
 
@@ -208,7 +212,7 @@ Not creating a Huffman tree from the file will result in zero credit for the in-
 
 Lastly, read in the second part of the file, transverse your Huffman tree, and output a character when you reach a leaf node.  You can output as much text as you would like, such as status updates as to how the program is progressing.  The only caveat is that the decoded file must be the last thing printed, and it must be clear where the other text ends and the decoded message that you are decoding begins (a separator of dashes would be fine for this).  Of course, you are more than welcome to just print out the decoded message and nothing else.
 
-You will need to get the Huffman decoder working when you submit the in-lab, as you will not be submitting it again for the post-lab.  If you cannot get it working during the in-lab time, then you should request a lab extension, and submit what you have done so far.
+If you cannot get the Huffman decoder working during the in-lab time, then you should request a lab extension, and submit what you have done so far.
 
 As with the pre-lab, you should ensure that those files compile successfully with `make`.
 
@@ -217,9 +221,7 @@ As with the pre-lab, you should ensure that those files compile successfully wit
 Post-lab
 --------
 
-There are two parts to this post-lab: the time and space complexity analysis, and the [Objective C tutorial](../../tutorials/10-objc/index.html).
-
-The Huffman decoding code was submitted for the in-lab, and won't be submitted for the post-lab.  The Huffman encoding code was be submitted for the pre-lab, and also won't be submitted for the post-lab either.
+There are two parts to this post-lab: the time and space complexity analysis, and submitting all your (working) code again.
 
 ### Time and Space Complexity ###
 
@@ -238,6 +240,16 @@ Worst case running time -- for this be sure to include all steps of the compress
 
 Space complexity -- for this, you should calculate the number of bytes that are used by each data structure in your implementation.  The easiest way to do this is to step through your code, just as you have done for the worst case running time, and make a note each time you use a new data structure.  You do not need to take into account scalar variables (loop counters, other singleton variables), focus on the data structures whose size depends on values such as the total number of characters and the total number of unique characters, and use those values in your answer.
 
-### Objective C ###
+### Huffman Encoding and Decoding ###
 
-Read though, and complete, the [Objective C tutorial](../../tutorials/10-objc/index.html); you will need to download the [helloworld.m](../../tutorials/10-objc/helloworld.m) file, and submit a linkedlist.m file.
+For the post-lab, the purpose is to clean up your code from the pre-lab and in-lab, and submit all of it together.  If your pre-lab and in-lab code work properly, then there is no futher clean-up to do; however, you must still submit the files along with a *new* Makefile.
+
+When we run `make`, the code should be compiled into two executables: `encoder` and `decoder`, which are the pre-lab and in-lab code bases, respectively.  Unlike the pre-lab and in-lab, you should ***NOT*** name your executables `a.out`!  After compiling your code with `make`, we will test it as such:
+
+```
+./encoder testfile.txt > encoded.txt
+./decoder encoded.txt > output.txt
+diff testfile.txt output.txt
+```
+
+This encodes a sample text file, then decodes it.  Both the original file (`testfile.txt`) and the final file (`output.txt`) should be the same, which is what the `diff` command does.  Note that, if there are no differences between the two files, then `diff` does not print any output.

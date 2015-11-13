@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+<meta name="GENERATOR" content="GNU source-highlight 3.1.6
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
@@ -13,7 +13,7 @@ http://www.gnu.org/software/src-highlite">
 <i><font color="#9A1900"># This Makefile shows how to link assembly with C/C++</font></i>
 
 <i><font color="#9A1900"># Defines the C++ compiler we'll be using</font></i>
-<font color="#009900">CXX	=</font> clang<font color="#990000">++</font> -m<font color="#993399">32</font>
+<font color="#009900">CXX	=</font> g<font color="#990000">++</font> -m<font color="#993399">32</font>
 
 <i><font color="#9A1900"># Defines the flags we'll be passing to the C++ compiler</font></i>
 <font color="#009900">CXXFLAGS	=</font> -Wall -g
@@ -39,7 +39,7 @@ http://www.gnu.org/software/src-highlite">
 <i><font color="#9A1900"># output executable name -- in order for this to work with the grading</font></i>
 <i><font color="#9A1900"># system, the file needs to be a.out (a.exe in Cygwin).</font></i>
 <font color="#990000">main:</font>	<font color="#009900">$(OFILES)</font>
-	<font color="#009900">$(CXX)</font> <font color="#009900">$(CXXFLAGS)</font> -o vecsum <font color="#009900">$(OFILES)</font>
+	<font color="#009900">$(CXX)</font> <font color="#009900">$(CXXFLAGS)</font> <font color="#009900">$(OFILES)</font>
 
 <i><font color="#9A1900"># This will clean up (remove) all our object files.  The -f option</font></i>
 <i><font color="#9A1900"># tells rm to forcily remove the files (i.e. don't ask if they should</font></i>

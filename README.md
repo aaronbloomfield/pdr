@@ -1,29 +1,36 @@
 Program and Data Representation
 ===============================
 
-Contents
---------
-
-- [Introduction](#introduction)
-- [Contributing to this repository](#contributing)
-- [Repository contents](#contents)
-- [Course description](#description)
-- [Markdown](#markdown)
-- [Source code](#sourcecode)
-- [Canvas notes](#canvasnotes)
-- [License](#license)
+[Introduction](#introduction) | [Repository contents](#contents) | [Contributing to this repository](#contributing) | [Course description](#description) | [Markdown](#markdown) | [Source code](#sourcecode) | [Canvas notes](#canvasnotes) | [License](#license)
 
 <a name="introduction"></a>Introduction
 ---------------------------------------
 
 This repository contains the materials for the course entitled "CS 2150: Program and Data Representation" in the [Computer Science Department](http://www.cs.virginia.edu) at the [University of Virginia](http://www.virginia.edu).  It contains all of the slides, labs, exams, etc., used throughout the course.  The course description is [below](#description).  The github repository for this course is at [https://github.com/aaronbloomfield/pdr](https://github.com/aaronbloomfield/pdr).
 
-Students *currently* in the course should view the [cs2150/index.html](cs2150/index.html) ([md](cs2150/index.md)) file in the **cloned** repository (i.e., don't try to view it on github.com).  Note that many of the course materials are modified right before they are needed -- for example, this repository will be updated right before the semester starts.
+Students *currently* in the course should view the [cs2150/index.html](cs2150/index.html) ([md](cs2150/index.md)) file in the **cloned** repository (i.e., don't try to view it on github.com); current students may also want to view the [daily announcements](cs2150/daily-announcements.html#/).  Note that many of the course materials are modified right before they are needed -- for example, this repository will be updated right before the semester starts.
 
 Students who were previously in the course may want to view the current version, or you can view the version from your semester.  All semester versions are tagged with an end-of-semester tag of the form "year-semester".  For example, the spring 2014 semester was tagged as `2014-spring`.  To obtain a specific tag, you can enter `git checkout tags/2014-spring` in an already cloned repository.
 
-The primary author is [Aaron Bloomfield](http://www.cs.virginia.edu/~asb) ([aaron@virginia.edu](<mailto:aaron@virginia.edu>), [\@bloomfieldaaron](http://twitter.com/bloomfieldaaron)).  The fall 2014 semester will be the 15th consecutive semester I have taught the course.
+The primary author is [Aaron Bloomfield](http://www.cs.virginia.edu/~asb) ([aaron@virginia.edu](<mailto:aaron@virginia.edu>), [\@bloomfieldaaron](http://twitter.com/bloomfieldaaron)).  The fall 2015 semester will be the 17th consecutive semester I have taught the course.
 
+
+<a name="contents"></a>Repository Contents
+------------------------------------------
+
+**Note that the links below will not work correctly if you are viewing
+this online at github.com -- you will need to clone (download) the
+repository first**
+
+- [book](book/index.html) ([md](book/index.md)): the beginnings of a textbook to be used for this course.  It is written using LaTeX.
+- [docs](docs/index.html) ([md](docs/index.md)): a series of useful documents that are not labs or tutorials.
+- [cs2150](cs2150/index.html) ([md](cs2150/index.md)): the materials that are specific to CS 2150 as taught at the University of Virginia, such as daily announcements, due dates, etc.
+- [exams](exams/index.html) ([md](exams/index.md)): past exams for the course; there are two midterms and a final for each semester.
+- [ibcm](ibcm/ibcm.html) ([md](ibcm/ibcm.md)): the files necessary for the IBCM module on machine language, which is taught about two thirds of the way into the course.
+- [labs](labs/index.html) ([md](labs/index.md)): the labs are the main assignments in the course, and each lab is split into pre-lab, in-lab, and post-lab parts.  There are 11 full labs, with a partial 12th lab that is an optional component of the course.  The labs are written using [markdown](http://daringfireball.net/projects/markdown/), and the rendered HTML version of each lab is also committed to this repository.
+- [slides](slides/index.html) ([md](slides/index.md)): Contains the slides used in the course.  The slides use [reveal.js](https://github.com/hakimel/reveal.js/), an HTML presentation framework.
+- [tutorials](tutorials/index.html) ([md](tutorials/index.md)): the tutorials that are used as part of the lab assignments, these are primarily Linux tutorials.
+- [utils](utils/index.html) ([md](tutorials/index.md)): various utilities for this repository
 
 <a name="contributing"></a>Contributing to this Repository
 ----------------------------------------------------------
@@ -40,23 +47,6 @@ At that point, I will receive a notice that a change has been submitted, and I'l
 
 When you want to bring in the updates from the main pdr github repository into your forked repository, you will need to follow the instructions [here](https://help.github.com/articles/syncing-a-fork).
 
-
-<a name="contents"></a>Repository Contents
-------------------------------------------
-
-**Note that the links below will not work correctly if you are viewing
-this online at github.com -- you will need to clone (download) the
-repository first**
-
-- [book](book/index.html) ([md](book/index.md)): the beginnings of a textbook to be used for this course.  It is written using LaTeX.
-- [docs](docs/index.html) ([md](docs/index.md)): a series of useful documents that are not labs or tutorials.
-- [cs2150](cs2150/index.html) ([md](cs2150/index.md)): the materials that are specific to CS 2150 as taught at the University of Virginia, such as daily announcements, due dates, etc.
-- [exams](exams/index.html) ([md](exams/index.md)): past exams for the course; there are two midterms and a final for each semester.
-- [ibcm](ibcm/ibcm.html) ([md](ibcm/index.md)): the files necessary for the IBCM module on machine language, which is taught about two thirds of the way into the course.
-- [labs](labs/index.html) ([md](labs/index.md)): the labs are the main assignments in the course, and each lab is split into pre-lab, in-lab, and post-lab parts.  There are 11 full labs, with a partial 12th lab that is an optional component of the course.  The labs are written using [markdown](http://daringfireball.net/projects/markdown/), and the rendered HTML version of each lab is also committed to this repository.
-- [slides](slides/index.html) ([md](slides/index.md)): Contains the slides used in the course.  The slides use [reveal.js](https://github.com/hakimel/reveal.js/), an HTML presentation framework.
-- [tutorials](tutorials/index.html) ([md](tutorials/index.md)): the tutorials that are used as part of the lab assignments, these are primarily Linux tutorials.
-- [utils](utils/index.html) ([md](tutorials/index.md)): various utilities for this repository
 
 <a name="description"></a>Course Description
 --------------------------------------------
@@ -85,17 +75,16 @@ Note that Github supports an enhanced version of Markdown, called [Github Flavor
 <a name="sourcecode"></a>Source code
 ------------------------------------
 
-All source code is formatted via [astyle](http://astyle.sourceforge.net/) and then highlighted via [source-highlight](http://www.gnu.org/software/src-highlite/source-highlight.html).  Both the original file (foo.cpp) and the highlighted version (foo.cpp.html) are included in the repository.  All links to source code will like to the .html, with a "([src](...))" after it to link to the original source code.
+All source code is formatted via [astyle](http://astyle.sourceforge.net/) and then highlighted via [source-highlight](http://www.gnu.org/software/src-highlite/source-highlight.html).  Both the original file (foo.cpp) and the highlighted version (foo.cpp.html) are included in the repository.  All links to source code will like to the .html, with a "([src](README.md))" after it to link to the original source code.
 
-- astyle options: `-A2 -s4 -S -xG`
-    - note that the current version of astyle on Ubuntu 12.04 seems to ignore the -xG flag...
+- astyle options: `-A2 -s4 -S`
 - source-highlight options: `-d`
 
 
 <a name="canvasnotes"></a>Canvas notes
 --------------------------------------
 
-To add a canvas to a slide (to allow drawing with a mouse or a stylus), you must do a few things:
+Some of the slides allow pen-based markup of the slides.  To add a canvas to a slide (to allow drawing with a mouse or a stylus), you must do a few things:
 
 1) The slide can NOT be Markdown, it must be all pure HTML
 
@@ -145,6 +134,6 @@ A few other notes:
 
 The material in this repository is released under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/) (CC BY-SA).
 
-Copyright (c) 2013-2014 by Aaron Bloomfield.
+Copyright (c) 2013-2015 by Aaron Bloomfield.
 
 Some parts of this repository are taken, with permission, from other sources.  The full details are in the [License](LICENSE.html) ([md](LICENSE.md)) file.  In particular, some parts of this repository that were obtained elsewhere can not be used for commercial purposes.

@@ -16,13 +16,13 @@ The labs for this course:
 
 - [Lab 2: Linked Lists](lab02/index.html)
     - Source code: [ListNode.h](lab02/ListNode.h.html) ([src](lab02/ListNode.h)), [List.h](lab02/List.h.html) ([src](lab02/List.h)), [ListItr.h](lab02/ListItr.h.html) ([src](lab02/ListItr.h)), [ListTest.cpp](lab02/ListTest.cpp.html) ([src](lab02/ListTest.cpp)),
-    - [Tutorial 2: GDB](../tutorials/02-gdb/index.html) and the necessary [debug.cpp](../tutorials/02-gdb/debug.cpp.html) ([src](../tutorials/02-gdb/debug.cpp))
+    - [Tutorial 2: LLDB](../tutorials/02-lldb/index.html) and the necessary [prog1.cpp](../tutorials/02-lldb/prog1.cpp.html) ([src](../tutorials/02-lldb/prog1.cpp)) and [debug.cpp](../tutorials/02-lldb/debug.cpp.html) ([src](../tutorials/02-lldb/debug.cpp))
 
 &nbsp;
 
 - [Lab 3: Stacks](lab03/index.html)
     - No source code for this lab!
-    - [Tutorial 3: More Unix, part 1](../tutorials/03-04-more-unix/index.html), which is sections 1-4; this tutorial is originally from [here](http://www.ee.surrey.ac.uk/Teaching/Unix/)
+    - [Tutorial 3: More Unix, part 1](../tutorials/03-04-more-unix/index.html), which is the introduction and sections 1-4; this tutorial is originally from [here](http://www.ee.surrey.ac.uk/Teaching/Unix/)
 
 &nbsp;
 
@@ -56,14 +56,14 @@ The labs for this course:
 - [Lab 7: IBCM](lab07/index.html) (machine language)
     - C++ Source code: [bubblesort.cpp](lab07/bubblesort.cpp.html) ([src](lab07/bubblesort.cpp)), [counter.cpp](lab07/counter.cpp.html) ([src](lab07/counter.cpp))
     - IBCM source code: [summation.ibcm](../ibcm/summation.ibcm) and [array-summation.ibcm](../ibcm/array-summation.ibcm)
-    - The online emulator is [here](http://www.cs.virginia.edu/~cs216/ibcm), with mirrors [1](http://libra.cs.virginia.edu/~aaron/ibcm/) and [2](http://people.virginia.edu/~asb2t/ibcm/)
+    - The online emulator is [here](http://www.cs.virginia.edu/~cs216/ibcm), with mirrors [1](http://pegasus.cs.virginia.edu/ibcm/) and [2](http://people.virginia.edu/~asb2t/ibcm/)
     - The [IBCM book chapter](../book/ibcm-chapter.pdf) (PDF)
 
 &nbsp;
 
 - [Lab 8: x86, part 1](lab08/index.html) (assembly language)
     - Source code: [vecsum.s](lab08/vecsum.s.html) ([src](lab08/vecsum.s)), [main.cpp](lab08/main.cpp.html) ([src](lab08/main.cpp)), [Makefile](lab08/Makefile.html) ([src](lab08/Makefile))
-    - Readings: the two x86 book chapters: [x86 Assembly](../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../book/x86-ccc-chapter.pdf)
+    - Readings (which is also the tutorial): the two x86 book chapters: [x86 Assembly](../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../book/x86-ccc-chapter.pdf)
 
 &nbsp;
 
@@ -76,19 +76,19 @@ The labs for this course:
 
 - [Lab 10: Huffman coding](lab10/index.html)
     - Source code
-        - Binary heap code from the [Heaps and Huffman slide set](../slides/11-heaps-huffman.html): [priority_queue.cpp](../slides/code/11-heaps-huffman/priority_queue.cpp.html) ([src](../slides/code/11-heaps-huffman/priority_queue.cpp)), [priority_queue.h](../slides/code/11-heaps-huffman/priority_queue.h.html) ([src](../slides/code/11-heaps-huffman/priority_queue.h)), [pq-test.cpp](../slides/code/11-heaps-huffman/pq-test.cpp.html) ([src](../slides/code/11-heaps-huffman/pq-test.cpp))
+        - Binary heap code from the [Heaps and Huffman slide set](../slides/10-heaps-huffman.html): [binary_heap.cpp](../slides/code/10-heaps-huffman/binary_heap.cpp.html) ([src](../slides/code/10-heaps-huffman/binary_heap.cpp)), [binary_heap.h](../slides/code/10-heaps-huffman/binary_heap.h.html) ([src](../slides/code/10-heaps-huffman/binary_heap.h)), [heap-test.cpp](../slides/code/10-heaps-huffman/heap-test.cpp.html) ([src](../slides/code/10-heaps-huffman/heap-test.cpp))
       - File I/O example: [fileio.cpp](lab10/fileio.cpp.html) ([src](lab10/fileio.cpp))
       - In-lab skeleton code: [inlab-skeleton.cpp](lab10/inlab-skeleton.cpp.html) ([src](lab10/inlab-skeleton.cpp))
-      - Example encoded and decoded files are in the [labs/lab10/examples/ directory](lab10/examples/), or as one [examples.zip](lab10/examples.zip) file)
-      - The tutorial, for the post-lab, is the [Objective C tutorial](../tutorials/10-objc/index.html), for which you will need the [helloworld.m](../tutorials/10-objc/helloworld.m.html) ([src](../tutorials/10-objc/helloworld.m)) file, and you will need to implement the linkedlist.c program.
+      - Example encoded and decoded files are in the [labs/lab10/examples/ directory](lab10/examples/), or as one [examples.zip](lab10/examples.zip) file
 
 &nbsp;
 
 - [Lab 11: Graphs](lab11/index.html)
-    - Source code: [middleearth.h](lab11/middleearth.h.html) ([src](lab11/middleearth.h)), [middleearth.cpp](lab11/middleearth.cpp.html) ([src](lab11/middleearth.cpp)), [fileio2.cpp](lab11/fileio2.cpp.html) ([src](lab11/fileio2.cpp)), [traveling-skeleton.cpp](lab11/traveling-skeleton.cpp.html) ([src](lab11/traveling-skeleton.cpp)), [Doxyfile](lab11/Doxyfile)
+    - Source code: [middleearth.h](lab11/middleearth.h.html) ([src](lab11/middleearth.h)), [middleearth.cpp](lab11/middleearth.cpp.html) ([src](lab11/middleearth.cpp)), [fileio2.cpp](lab11/fileio2.cpp.html) ([src](lab11/fileio2.cpp)), [traveling-skeleton.cpp](lab11/traveling-skeleton.cpp.html) ([src](lab11/traveling-skeleton.cpp))
     - Data files: [prelab-test-small.txt](lab11/prelab-test-small.txt), [prelab-test-full.txt](lab11/prelab-test-full.txt)
     - The [Doxygen tutorial](../tutorials/11-doxygen/index.html) and the necessary files for that: [average.cpp](../tutorials/11-doxygen/average.cpp.html) ([src](../tutorials/11-doxygen/average.cpp))
   
 &nbsp;
 
 - [Lab 12: Conclusion](lab12/index.html)
+    - The tutorial, for the pre-lab, is the [Objective C tutorial](../tutorials/12-objc/index.html), for which you will need the [helloworld.m](../tutorials/12-objc/helloworld.m.html) ([src](../tutorials/12-objc/helloworld.m)) file, and you will need to implement the linkedlist.c program.

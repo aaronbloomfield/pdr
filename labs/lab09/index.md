@@ -13,7 +13,7 @@ The Intel x86 assembly language is currently one of the most popular assembly la
 
 ### Reading(s) ###
 
-1. Read the [slides on x86](../../slides/09-x86.html)
+1. Read the [slides on x86](../../slides/08-x86.html)
 2. The two book chapters on x86: [x86 Assembly](../../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../../book/x86-ccc-chapter.pdf).
 
 Lab Procedure
@@ -87,7 +87,17 @@ The routine MUST take only ONE parameter -- the number that you are inputting in
 
 Once the subroutine is done, you will need to optimize it as much as possible.  With the exceptions listed below, any optimization is valid, as long as it computes the correct result.  The grade on this pre-lab will be based both on the correctness of the subroutine and the optimizations included.  The only exceptions to the optimizations are that it must still be a recursive subroutine, and must still follow the proper C style calling conventions.
 
-What optimizations do you use?  First, try to figure out how you can write the same routine using fewer x86 instructions.  Some optimizations, such as using the `lea` instruction (which can do addition and multiplication in one instruction) to quickly add or multiply numbers, are specific to the x86 architecture.  Also, take a look [here](http://en.wikipedia.org/wiki/Category:Compiler_optimizations) for various optimizations. Specifically, take a look at [Loop Unrolling](http://en.wikipedia.org/wiki/Loop_unrolling), [Dead Code Elimination](http://en.wikipedia.org/wiki/Dead_code_elimination), [Instruction Scheduling](http://en.wikipedia.org/wiki/Instruction_scheduling), [Peephole Optimization](http://en.wikipedia.org/wiki/Peephole_optimization), and [Redundant Code](http://en.wikipedia.org/wiki/Redundant_code). Furthermore, consider [Branch Mispredictions](http://en.wikipedia.org/wiki/Branch_misprediction) and how to avoid them. Lastly, consider the [Memory Hierarchy](http://en.wikipedia.org/wiki/Memory_hierarchy) with regard to speed and memory accesses (i.e. which is faster: accessing a register or memory?).
+What optimizations do you use?
+
+- First, try to figure out how you can write the same routine using fewer x86 instructions.  x86 has lots of complex instructions that can be used for this purpose -- Google is your friend, here.
+- Some optimizations, such as using the `lea` instruction (which can do addition and multiplication in one instruction) to quickly add or multiply numbers, are specific to the x86 architecture.
+- In some cases, you can use bit shifts instead of multiplication and divide.  Computing `5*x` might be more quickly done as `4*x+x`, as the latter can use a shift.  But you can use the `lea` instruction for that one anyway.
+- Branching is bad, in that it slows down the execution speed of a program.  As much as possible, eliminate branching (if/else statements, loops, etc.).  For loops, consider [loop unrolling](http://en.wikipedia.org/wiki/Loop_unrolling).
+- Consider the [memory Hierarchy](http://en.wikipedia.org/wiki/Memory_hierarchy) and try to reduce memory accesses (this includes `push` and `pop`).
+- Reduce the number of instructions used to create (and remove) the activation record; this was done in a few x86 examples we studied: [max](../../slides/08-x86.html#/max) and [fib](../../slides/08-x86.html#/fib)
+- Reduce the registers that are backed up to the stack in the calling convention
+- Can you offset things from `esp` instead of `ebp`?  If so, then you don't have to set up the base pointer.
+- Many optimizations are listed [here](http://en.wikipedia.org/wiki/Category:Compiler_optimizations), but most would not apply to this one program.
 
 You will need to include at least one optimization beyond just figuring out how to write your subroutine with fewer instructions.  You should put the optimizations used as a comment in the beginning of your assembly file.  
 
@@ -136,12 +146,17 @@ In your report, you should explain something from at least one item in the list 
 
 Recall that using the `-S` flag with g++ will generate the assembly code.  You will also want to use the `-masm=intel` and `-m32` flags.
 
-### In-lab 9 list: (You must do TWO of these) ###
+### In-lab 9 list: (You must do the required and ONE optional) ###
 
+####Required####
+1. Dynamic dispatch: Describe how dynamic dispatch is implemented.  Note that dynamic dispatch is NOT the same thing as dynamic memory!  Show this using a simple class hierarchy that includes virtual functions.  Use more than one virtual function per class.
+
+####Optional####
 1. Inheritance (data layout, construction, and destruction): Create an instance of an object that inherits data members from another class, and also includes data members of its own.  Show in memory where data members are laid out in that object.  Then explain how construction and destruction happens in this class hierarchy.  Explain what happens when a user-defined object is instantiated and what happens when it goes out of scope.  What if anything is "destroyed" by the destructor?  Show this process happening in the assembly code using a simple class hierarchy.  Point out in the assembly code exactly where the destructors and constructors are getting called.
-2. Dynamic dispatch: Describe how dynamic dispatch is implemented.  Note that dynamic dispatch is NOT the same thing as dynamic memory!  Show this using a simple class hierarchy that includes virtual functions.  Use more than one virtual function per class.
-3. Optimized code: Compare code generated normally to optimized code.  To create optimized code, you will need to use the `-O2` compiler flag.  Can you make any guesses as to why the optimized code looks as it does?  What is being optimized?  Be sure to show your original sample code as well as the optimized version.  Try loops and function calls to see what "optimizing" does. Be aware that if instructions are "not necessary" to the final output of the program then they may be optimized away completely!  This does not lead to very interesting comparisons.  Describe at least four (non-trivial) differences you see between 'normal' code and optimized code.
-4. Templates:  What does the code look like for the instantiation of a simple templated class you wrote?  You may use Weiss templated code if you wish, but may need to simplify it to understand what is going on.  What if you instantiate the class for different data types, what code is generated then?  Is it the same or different?  If the same, why? If different, why?  Compare code for a user-defined templated class or function to a templated class from the STL (e.g. classes such as vectors or functions such as sort). 
+
+2. Optimized code: Compare code generated normally to optimized code.  To create optimized code, you will need to use the `-O2` compiler flag.  Can you make any guesses as to why the optimized code looks as it does?  What is being optimized?  Be sure to show your original sample code as well as the optimized version.  Try loops and function calls to see what "optimizing" does. Be aware that if instructions are "not necessary" to the final output of the program then they may be optimized away completely!  This does not lead to very interesting comparisons.  Describe at least four (non-trivial) differences you see between 'normal' code and optimized code.
+
+3. Templates:  What does the code look like for the instantiation of a simple templated class you wrote?  You may use Weiss templated code if you wish, but may need to simplify it to understand what is going on.  What if you instantiate the class for different data types, what code is generated then?  Is it the same or different?  If the same, why? If different, why?  Compare code for a user-defined templated class or function to a templated class from the STL (e.g. classes such as vectors or functions such as sort). 
 
 ------------------------------------------------------------
 

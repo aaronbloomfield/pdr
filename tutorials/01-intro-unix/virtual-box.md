@@ -10,7 +10,8 @@ VirtualBox is a free program that allows you to run another operating system on 
 - A bit of terminology: the 'host' machine is the physical computer (laptop, desktop, etc.) that you are using.  The 'guest' machine is the virtual machine that is running in VirtualBox, and is often just called the 'guest operating system'.
     - You are welcome to try this on a netbook host machine, but the computing power of a netbook may not be enough
 - You will need to install the Virtual Box client.  It can be downloaded for free from [here](http://www.virtualbox.org/) and runs on most operating systems.
-     - Under Linux, I installed the 'virtualbox-ose-qt' package (the name of yours might be different), but if you are running Linux already, you won't need to install a virtual machine running Linux...
+    - For the fall 2015 semester, you **MUST USE VIRTUALBOX VERSION 4.3** -- version 5.0 and above does not work properly
+    - Under Linux, I installed the 'virtualbox-ose-qt' package (the name of yours might be different), but if you are running Linux already, you won't need to install a virtual machine running Linux...
 - Download the provided VirtualBox image (from Collab, in the misc/ folder of the Resources tool).  You will need to unzip this file before using it.
     - This file is rather large (about 2 Gb), so you may want to try downloading it during off hours, such as late at night.  If you have problems downloading it, let us know.  If you do not have sufficient bandwidth to download it, please see us after lecture, and we will provide it on a different media for you.
 	- Unzip this file; it will take up about 6.4 Gb on your machine.  Once uncompressed, you can download the .zip file that you downloaded.
@@ -44,21 +45,13 @@ VirtualBox is a free program that allows you to run another operating system on 
 
 ### Transferring files back and forth ###
 
-The easiest solution may be the last one listed here, so read through these before you start on any of them.
+The easiest solution may be the last one listed here, but read through these before you start on any of them.
 
-One option is to set up an e-mail client (or use a web browser - firefox is installed, and the icon is on the top menu bar) and e-mail your files back and forth.  Or use an online file server.
+One option is to set up an e-mail client (or use a web browser - Google Chrome is installed, and the icon is on the bottom menu bar) and e-mail your files back and forth.  Or use an online file server.
 
 You can also set up 'shared folders' to directly read and write files back and forth.  To do so, see [here](http://www.ubuntugeek.com/how-to-access-windows-host-shared-folders-from-ubuntu-guest-in-virtualbox.html).
 
-[Dropbox](http://dropbox.com) may be the easiest way to sync files between your virtual machine and your host machine.  To install:
-
-- download the 32-bit Ubuntu version downloaded from [here](https://www.dropbox.com/install?os=lnx) - be sure to save the file, not open it, from Firefox
-- install it from the command-line via 'sudo dpkg -i dropbox_1.4.0_i386.deb' but note that the file name may change as a new version is released
-    - note: dropbox requires a supporting package (python-gpgme), but I already installed that on the image
-- once installed, a vibrating icon will appear in the left-hand launcher; click on that, then click on "Start Dropbox"
-- this will download the proprietary daemon (a daemon is a background process) and install it
-- at that point, the standard dropbox registration wizard will appear
-
+[Dropbox](http://dropbox.com) may be the easiest way to sync files between your virtual machine and your host machine.  To install, see the instructions toward the bottom of the [Virtual Box Image Creation Details](vb-image-details.html) ([md](vb-image-details.md)) page.
 
 ### Image creation details ###
 

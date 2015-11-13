@@ -38,14 +38,14 @@ Program and Data Representation: Slides
 
 [Slide set 7: IBCM (machine language)](07-ibcm.html)
 
-- The online simulator is [here](http://www.cs.virginia.edu/~cs216/ibcm/) (with mirrors [1](http://libra.cs.virginia.edu/ibcm/) and [2](http://people.virginia.edu/~asb2t/ibcm/))
+- The online simulator is [here](http://www.cs.virginia.edu/~cs216/ibcm/) (with mirrors [1](http://pegasus.cs.virginia.edu/ibcm/) and [2](http://people.virginia.edu/~asb2t/ibcm/))
 - Source code: [summation.ibcm](../ibcm/summation.ibcm), [array-summation.ibcm](../ibcm/array-summation.ibcm)
 - [IBCM book chapter](../book/ibcm-chapter.pdf) as the reading
 - There is a separate [IBCM section](../ibcm/index.html) of this repository with more IBCM information, although that additional information will not be needed in this course
 
 [Slide set 8: x86 (assembly language)](08-x86.html)
 
-- [x86 book chapter](../book/x86-chapter.pdf) as the reading
+- The x86 book chapters on [x86](../book/x86-asm-chapter.pdf) and the [C calling convention](../book/x86-ccc-chapter.pdf) as the reading
 - Source code
     - The generated assembly was generated using `make asm`, which uses gcc/g++; to generate it using clang/clang++, use the 'asmclang' target
     - [Makefile](code/08-x86/Makefile.html) ([src](code/08-x86/Makefile))
@@ -53,7 +53,8 @@ Program and Data Representation: Slides
     - Fibonacci example: [test_fib.cpp](code/08-x86/test_fib.cpp.html) ([src](code/08-x86/test_fib.cpp)), [test_fib.s](code/08-x86/test_fib.s.html) ([src](code/08-x86/test_fib.s))
     - Max example: [test_max.cpp](code/08-x86/test_max.cpp.html) ([src](code/08-x86/test_max.cpp)), [test_max.s](code/08-x86/test_max.s.html) ([src](code/08-x86/test_max.s)), [test_max-O2.s](code/08-x86/test_max-O2.s.html) ([src](code/08-x86/test_max-O2.s)), [test_max-noextern.s](code/08-x86/test_max-noextern.s.html) ([src](code/08-x86/test_max-noextern.s))
     - String compare example: [test_string_compare.cpp](code/08-x86/test_string_compare.cpp.html) ([src](code/08-x86/test_string_compare.cpp)), [test_string_compare.s](code/08-x86/test_string_compare.s.html) ([src](code/08-x86/test_string_compare.s))
-- The tutorial for [lab 8](../labs/lab08/index.html) ([md](../labs/lab08/index.md)) is the online [nasm tutorial](http://cs.lmu.edu/~ray/notes/nasmexamples/), which has more examples of assembly code
+- The tutorial for [lab 8](../labs/lab08/index.html) ([md](../labs/lab08/index.md))
+   - Tutorial 8 is nasm, which consists of two PDF book chapters that are contained in this repository: [x86 Assembly](../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../book/x86-ccc-chapter.pdf); the contain more examples of assembly code
     - You can skip a few of the sections (feel free to look at them if interested, but they are not needed): Floating Point Instructions, SIMD Parallelism, Saturated Arithmetic, and Graphics.
 
 

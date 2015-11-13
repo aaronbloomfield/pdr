@@ -24,13 +24,8 @@
 <h3 id="pre-lab">Pre-lab</h3>
 <ol style="list-style-type: decimal">
 <li>You should be familiar with the readings described above. They detail the x86 material that this lab requires.</li>
-<li>Complete the <a href="http://cs.lmu.edu/~ray/notes/nasmexamples/">C++/assembly tutorial</a>; there are some sections you can skip, as described in the pre-lab section below. Note that this tutorial is in C, not C++, so you will notice a few minor differences:
-<ol style="list-style-type: decimal">
-<li>Using <code>clang</code> to compile versus <code>clang++</code></li>
-<li>Using <code>printf()</code> for the output, not <code>cout</code></li>
-<li>You cannot use <code>//</code> for comments; instead you must use <code>/* ... */</code></li>
-</ol></li>
-<li>Read through the section pages on compiling C++ with assembly, as well as the vecsum program.</li>
+<li>Complete the tutorial, which consists of reading two book chapters that are contained in this repository: <a href="../../book/x86-asm-chapter.pdf">x86 Assembly</a> and <a href="../../book/x86-ccc-chapter.pdf">The x86 C Calling Convention</a>.</li>
+<li>Read through the section, below, on compiling C++ with assembly on different architectures, as well as the vecsum program.</li>
 <li>There are different program formats for different architectures, and this pre-lab <strong>must</strong> be submitted in the submission format for this lab (see the next section, below). If you do not submit it in the required format (64-bit Linux), you will not receive credit for the lab, as it will not compile.</li>
 <li>Follow the pre-lab instructions in this document. They require you to write a program in x86 assembly called mathlib.s. To see other examples of nasm code, you should look at the vecsum.s program, as well as the code in the nasm tutorial.</li>
 <li>Make sure your mathfun.cpp takes in only the input described in the pre-lab section! Input is to be provided via standard input (i.e., <code>cin</code>), not through command-line parameters.</li>
@@ -57,7 +52,7 @@
 <hr />
 <h2 id="platform-architectures">Platform Architectures</h2>
 <h3 id="different-architectures">Different Architectures</h3>
-<p>There are four different platforms that students are developing their code on:</p>
+<p>There are four different platforms that students are potentially developing their code on:</p>
 <ol style="list-style-type: decimal">
 <li>32-bit Linux (what is on the VirtualBox image)</li>
 <li>64-bit Linux (what the submission server is running, as well as what is installed on the computers in Rice 340 and Olsson 001)</li>
@@ -65,23 +60,23 @@
 <li>64-bit Mac OS X</li>
 </ol>
 <p><strong>Your code must compile and run on the submission server, which is a 64-bit Linux machine!</strong></p>
-<p>There are three changes that will have to be made to compile your program (and this to the Makefile) depending on your platform:</p>
+<p>There are three changes that will have to be made to compile your program (and this to the Makefile) depending on your own development platform:</p>
 <ul>
-<li>You will have to determine whether to name your function 'vecsum' instead of '_vecsum' (note the lack of underscore) in vecsum.s (this file is described more below). In the final linking step, if you get a message such as, &quot;main.cpp:(.text+0x12): undefined reference to `vecsum'&quot;, then you should change the name of the function.<br /></li>
-<li>Some systems will have to supply a command-line parameter to clang++; this can be put on the CXX or CXXFLAGS macro(s) line in your Makefile</li>
-<li>All systems will have a specific nasm file format option ('-f') that will need to be specified.</li>
+<li>You will have to determine whether to name your function <code>vecsum</code> instead of <code>_vecsum</code> (note the lack of underscore) in vecsum.s (this file is described more below). In the final linking step, if you get a message such as, <code>main.cpp:(.text+0x12): undefined reference to 'vecsum'</code>, then you should change the name of the function.<br /></li>
+<li>Some systems will have to supply a command-line parameter to clang++; this can be put on the <code>CXX</code> or <code>CXXFLAGS</code> macro(s) line in your Makefile</li>
+<li>All systems will have a specific nasm file format option (<code>-f</code>) that will need to be specified.</li>
 </ul>
 <p>The first bullet point highlights a compatibility problem between Linux and Mac OS X. When calling a subroutine, which in C++ would be called <code>foo()</code>, there are two standards as to how to name the assembly routine: you can name it either <code>_foo</code> (adding an underscore is added before the name), or name it just <code>foo</code> (with no underscore). Unfortunately, Linux uses a different standard than Mac OS X, so we have to make (minor) code modifications in order to compile the code on the other system: in Mac OS X, the vecsum.s file should have the subroutine be called <code>_vecsum</code>, and under Linux, it should be called <code>vecsum</code> (this is twice, on lines 9 and 21).</p>
 <p>In an effort to make sure all the files submitted conform to one standard or the other, <strong>all assembly and C/C++ code must be submitted in Linux form</strong> (i.e. will be called <code>foo</code> and not <code>_foo</code>). Note that in many programs, such as the vecsum.s that we provided you, you have to change the name in TWO places: on the <code>global</code> line (line 9 of vecsum.s) and on the label line (line 21 of vecsum.s). <strong>If your code does not compile on the submission system, you will receive zero credit!</strong></p>
-<p>Also note that your code must compile with <code>make</code>. We provide a sample Makefile that will compile vecsum, so you can just modify this Makefile to compile your pre-lab program. <strong>Please note that you should NOT specify a --o flag to clang++ (not even '-o a')</strong>, as we want it to be named the default (a.out). This allows easy porting between the two operating systems.</p>
-<p>If you plan to develop it in Mac OS X, we suggest that you develop it normally (putting in the '_' before the subroutine name). Then, once you have verified everything works, remove the underscores from <strong>all</strong> the relevant lines, and test it out on a 32-bit Linux machine, such as the VirtualBox image, before submitting it.</p>
+<p>Also note that your code must compile with <code>make</code>. We provide a sample Makefile that will compile vecsum, so you can just modify this Makefile to compile your pre-lab program. <strong>Please note that you should NOT specify a <code>-o</code> flag to clang++ (not even <code>-o a</code>)</strong>, as we want it to be named the default (a.out). This allows easy porting between the two operating systems.</p>
+<p>If you plan to develop it in Mac OS X, we suggest that you develop it normally (putting in the <code>_</code> before the subroutine name). Then, once you have verified everything works, remove the underscores from <strong>all</strong> the relevant lines, and test it out on a 32-bit Linux machine, such as the VirtualBox image, before submitting it.</p>
 <h3 id="platform-specifics">Platform Specifics</h3>
 <p>Each of these different platforms has different compilation lines to allow it to compile. Some of them require changing the assembly files as well. You only need to read the line(s) pertaining to the platform(s) you are developing on.</p>
 <p>The provided code works under both 32-bit and 64-bit Linux (although 64-bit Linux usage should read below).</p>
 <p><strong>32-bit Linux:</strong> The provided code and Makefile works on 32-bit Linux. All assembly sub-routine names must <strong>NOT</strong> have a leading underscore (i.e. they should be <code>vecsum</code> and not <code>_vecsum</code>). nasm is invoked with the <code>-f elf</code> option. We have the <code>-m32</code> flag on the CXX macro line so that it will work fine on a 64-bit Linux machine (including our submission server), but it is technically not necessary (it doesn't hurt, it just doesn't do anything on a 32-bit machine).</p>
 <p><strong>64-bit Linux:</strong> You have to explicitly tell clang++ to compile in 32-bit mode by passing in the <code>-m32</code> parameter (note that this parameter is fine to pass in on 32-bit systems as well). You may need to install the g++-multilib package - we realize that we are not using the g++ compiler, but this installs the correct library in the correct place (if this differs with your version of Linux, then please let us know!). The options for nasm (<code>-f elf</code>) and the naming of the subroutines (<code>vecsum</code>, not <code>_vecsum</code>) are the same as 32-bit Linux.</p>
-<p><strong>32-bit Mac OS X:</strong> to run the code, will need to rename all the assembly function names with a leading underscore (i.e. <code>_vecsum</code> not <code>vecsum</code>). You will also have to use the <code>-f macho</code> format for nasm, and tell clang++ to generate the correct architecture code. In the past, to generate the correct architecture code <strong>WAS</strong> done by providing the <code>-arch i386</code> parameter to the compiler we used previously; we are not sure if this is necessary with clang++ (please let us know how this works for you; we do not have access to a 32-bit Mac machine with clang/clang++ to test this out). In the provided Makefile, try the <code>CXX</code> macro line to be <code>clang++ -arch i386</code> (instead of the default <code>clang++</code>), and change the ASFLAGS macro line to <code>-f macho</code> (instead of the default <code>-f elf</code>). You will probably want to remove the <code>-m32</code> flag on the CXX macro line, but be sure to put that back in before you resubmit. Note that you <strong>MUST</strong> change all of this back in order for it to compile via the submission system! Also note that Mac OS X may not support the format of assembly that we use in this course, which means that you may be stuck reading the assembly in the other format we discussed in class.</p>
-<p><strong>64-bit Mac OS X:</strong> As far as we can tell, this is the same as the 32-bit Mac OS X. If you run into problems with this (or get it working!), please let us know. We don't have a lot of access to 64-bit Mac OS X machines. Note that Mac OS X may not support the format of assembly that we use in this course, which means that you may be stuck reading the assembly in the other format we discussed in class.</p>
+<p><strong>32-bit Mac OS X:</strong> to run the code, will need to rename all the assembly function names with a leading underscore (i.e. <code>_vecsum</code> not <code>vecsum</code>). You will also have to use the <code>-f macho</code> format for nasm, and tell clang++ to generate the correct architecture code. In the past, to generate the correct architecture code <strong>WAS</strong> done by providing the <code>-arch i386</code> parameter to the compiler we used previously; we are not sure if this is necessary with clang++ (please let us know how this works for you; we do not have access to a 32-bit Mac machine with clang/clang++ to test this out). In the provided Makefile, try the <code>CXX</code> macro line to be <code>clang++ -arch i386</code> (instead of the default <code>clang++</code>), and change the <code>ASFLAGS</code> macro line to <code>-f macho</code> (instead of the default <code>-f elf</code>). You will probably want to remove the <code>-m32</code> flag on the <code>CXX</code> macro line, but be sure to put that back in before you resubmit. Note that you <strong>MUST</strong> change all of this back in order for it to compile via the submission system! Also note that Mac OS X does not support the format of assembly that we use in this course, which means that you will be stuck reading the assembly in the other format we discussed in class.</p>
+<p><strong>64-bit Mac OS X:</strong> As far as we are aware, this is the same as the 32-bit Mac OS X. If you run into problems with this, please let us know. Note that Mac OS X does not support the format of assembly that we use in this course, which means that you will be stuck reading the assembly in the other format we discussed in class.</p>
 <p>Below is a table summarizing the changes</p>
 <table>
 <thead>
@@ -111,7 +106,14 @@
 <tr class="odd">
 <td align="left">32 bit Mac OS X</td>
 <td align="left">-f macho</td>
-<td align="left"><em>vecsum | -arch i386 | We are unsure about the -arch i386 flag's necessity. May not be able to print the assembly in the format discussed in class. | | 64 bit Mac OS X | -f macho | </em>vecsum</td>
+<td align="left">_vecsum</td>
+<td align="left">-arch i386</td>
+<td align="left">We are unsure about the -arch i386 flag's necessity. May not be able to print the assembly in the format discussed in class.</td>
+</tr>
+<tr class="even">
+<td align="left">64 bit Mac OS X</td>
+<td align="left">-f macho</td>
+<td align="left">_vecsum</td>
 <td align="left">-arch i386</td>
 <td align="left">We think this is the same as 32-bit Mac OS X platform. We are unsure about the -arch i386 flag's necessity. May not be able to print the assembly in the format discussed in class.</td>
 </tr>
@@ -134,7 +136,7 @@
 <pre><code>clang++ -m32 -Wall -g -o vecsum vecsum.o main.o</code></pre>
 <p>This tells clang++ to link both of the .o files created above into an executable called vecsum. Note that there isn't any compiling done at this stage (the compilation was done before) -- this just links the two object files into the final executable. Also note that for our submitted Makefiles, we will NOT have the <code>-o</code> flag present.</p>
 <h3 id="tutorial">Tutorial</h3>
-<p>Complete the C++/assembly tutorial, which is found online <a href="http://cs.lmu.edu/~ray/notes/nasmexamples/">here</a>. You can skip a few of the sections (feel free to look at them if interested, but they are not needed): Floating Point Instructions, SIMD Parallelism, Saturated Arithmetic, and Graphics.</p>
+<p>Complete the C++/assembly tutorial, which consists of reading two book chapters that are contained in this repository: <a href="../../book/x86-asm-chapter.pdf">x86 Assembly</a> and <a href="../../book/x86-ccc-chapter.pdf">The x86 C Calling Convention</a>.</p>
 <h3 id="vecsum">Vecsum</h3>
 <p>Examine the vecsum subroutine in <a href="vecsum.s.html">vecsum.s</a> (<a href="vecsum.s">src</a>). Use the slides and readings to help understand what is happening in vecsum.s. Make sure you understand the prologue and epilogue implementation, as well as the instructions used in the subroutine.</p>
 <p>Compile and run the vecsum program:</p>
@@ -166,7 +168,7 @@
 <p>For the in-lab, you will need to work on the two topics shown below -- note that there will be a different topics to work through on the next lab.</p>
 <p>The deliverable for this in-lab is a document named inlab8.pdf. It must be in PDF format! See the <a href="../../docs/convert_to_pdf.html">How to convert a file to PDF</a> page for details about creating a PDF file.</p>
 <p>In the report, you should explain all the items in <em>one</em> of the categories below (either objects or parameter passing). For the post-lab, you will need to have all items from both categories explained. We are looking for significant evidence that you were able to complete some work during the in-lab, and thus are not setting page length requirements.</p>
-<p>Recall that using the <code>-S</code> flag with clang++ will generate the assembly code. You will also want to use the '-mllvm --x86-asm-syntax=intel` flags.</p>
+<p>Recall that using the <code>-S</code> flag with clang++ will generate the assembly code. You will also want to use the <code>-mllvm --x86-asm-syntax=intel</code> flags.</p>
 <h3 id="clang-and-the-calling-convention">clang++ and the Calling Convention</h3>
 <p>As discussed in class (specifically, <a href="../../slides/08-x86.html#clangconventionbreak">here</a>), clang will often optimize away many parts of the calling convention, and has even been known to pass parameters in registers. So if you see code that is unexpected, trace it by hand to determine what is really happening. Likely, it is an optimization of the calling convention. To avoid this in the in-lab, use g++ rather than clang++ to compile. The correct g++ flags are <code>-S -m32 -masm=intel</code>.</p>
 <h3 id="in-lab-8-topics-you-must-do-all-of-these-for-the-post-lab-but-only-one-of-these-for-the-in-lab">In-lab 8 topics: you must do ALL of these for the post-lab, but only ONE of these for the in-lab</h3>
@@ -193,7 +195,7 @@
 <p>Your report should be in PDF file called postlab8.pdf. It must be in PDF format! See the <a href="../../docs/convert_to_pdf.html">How to convert a file to PDF</a> page for details about creating a PDF file.</p>
 <h3 id="tips-for-getting-started-on-the-post-lab">Tips for Getting Started on the Post-lab</h3>
 <p>Think about how best to investigate the issues you choose. A good starting point is to write a small C++ program that illustrates one of the issues. This program should be as simple as possible.</p>
-<p>Look at the assembly code associated with your C++ code. To examine the disassembled code you have two main options: you can step through the code in the debugger using the disassembly view, or you can have the C++ code output to an assembly file (using the '-S' and '-masm=intel' flags), which you can then browse or edit.</p>
+<p>Look at the assembly code associated with your C++ code. To examine the disassembled code you have two main options: you can step through the code in the debugger using the disassembly view, or you can have the C++ code output to an assembly file (using the <code>-S</code> and <code>-masm=intel</code> flags), which you can then browse or edit.</p>
 <p>Generating assembly listings: to generate an assembly listing in clang++, use the flags described above, and see the wiki page for details. Probably the most useful listing will include source, and assembly code. For some issues it will be of interest to see the machine code as well.</p>
 <p>A couple of things you will notice almost immediately about these assembly files is that they can be surprisingly long, and that they contain a bunch of labels, directives, and instructions that at first glance appear to have little to do with your original source program. Don't despair, with a little perseverance you will be able to make heads and tails of a good bit of this.</p>
 <p>Note that printing out these disassembled files is probably not your most useful option. You will most likely find that it is significantly easier to view the files in a browser of your choice, such as emacs. In this way you can navigate through the file, searching for particular labels or C++ code. Besides, you may want to make a slight modification to your C++ code and recompile often anyway.</p>
