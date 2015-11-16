@@ -93,7 +93,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |32| Nov&nbsp;9  | Monday    | Exam 2 instead during Tuesday's lab | [09: Advanced C++][89] | [09: Advanced C++][89], slides [25][10905] to [46][1090521] ([recording][236]) |
 |33| Nov&nbsp;11 | Wednesday | | [09: Advanced C++][89], [10: Heaps and Huffman coding][90]| [09: Advanced C++][89], slides [47][10906] to [65][1090711] (end) ([recording][237]) |
 |34| Nov&nbsp;13 | Friday    | | [10: Heaps and Huffman coding][90] | [10: Heaps and Huffman coding][90], slides [1][90] to [15][1100407] ([recording][240]) |
-|35| Nov&nbsp;16 | Monday    | [Lab 9: x86, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [10: Heaps and Huffman coding][90] | |
+|35| Nov&nbsp;16 | Monday    | [Lab 9: x86, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [10: Heaps and Huffman coding][90] | [10: Heaps and Huffman coding][90], slides [14][1100406] to [29][1100512] ([recording][241]) |
 |36| Nov&nbsp;18 | Wednesday | | [10: Heaps and Huffman coding][90], [11: Graphs][91] | |
 |37| Nov&nbsp;20 | Friday    | | [11: Graphs][91] | |
 |38| Nov&nbsp;23 | Monday    | [Lab 10: Huffman coding][10] ([md][30]) / (no tutorial) | [11: Graphs][91] | |
@@ -405,11 +405,13 @@ None yet!
 [1090708]: ../slides/09-advanced-cpp.html#/7/8
 [1090710]: ../slides/09-advanced-cpp.html#/7/10
 [1090711]: ../slides/09-advanced-cpp.html#/7/11
+[1100406]: ../slides/10-heaps-huffman.html#/4/6
 [1100407]: ../slides/10-heaps-huffman.html#/4/7
 [1100408]: ../slides/10-heaps-huffman.html#/4/8
 [11005]: ../slides/10-heaps-huffman.html#/5
 [1100503]: ../slides/10-heaps-huffman.html#/5/3
 [1100508]: ../slides/10-heaps-huffman.html#/5/8
+[1100512]: ../slides/10-heaps-huffman.html#/5/12
 [1100605]: ../slides/10-heaps-huffman.html#/6/5
 [1100606]: ../slides/10-heaps-huffman.html#/6/6
 [1100705]: ../slides/10-heaps-huffman.html#/7/5

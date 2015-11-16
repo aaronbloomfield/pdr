@@ -263,14 +263,21 @@ void binary_heap::insert(int x) {
     // move it up into the right position
     percolateUp(++heap_size);
 }
+```
+	  </script></section>
 
+	  <section data-markdown><script type="text/template">
+## percolateUp(int hole)
+
+Source code: [binary_heap.cpp](code/10-heaps-huffman/binary_heap.cpp.html) ([src](code/10-heaps-huffman/binary_heap.cpp))
+```
 void binary_heap::percolateUp(int hole) {
     // get the value just inserted
     int x = heap[hole];
     // while we haven't run off the top and while the 
     // value is less than the parent...
     for ( ; (hole > 1) && (x < heap[hole/2]); hole /= 2 )
-        heap[hole] = heap[hole/2]; // move the parent down
+        heap[hole] = heap[hole/2]; // move parent down
     // correct position found!  insert at that spot
     heap[hole] = x;
 }
