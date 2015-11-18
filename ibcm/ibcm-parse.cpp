@@ -95,9 +95,10 @@ void printHelp(char *name) {
 
     helpPrinted = true;
 
-    cout << "Usage: " << name << " [option] IBCM_FILE" << endl;
+    cout << "Usage: " << name << " [option] <inputfile>" << endl;
     cout << "Options:" << endl;
-    cout << "\t[-allowcomments]\tAllows IBCM_FILE to contain lines beginning with `//` and `#`." << endl;
+    cout << "\t[-allowcomments]\tAllows file specified by <inputfile> to contain" << endl
+         << "\t\t\t\tlines beginning with `//` and `#`." << endl;
     cout << "\t[-help]\t\t\tPrints this help message." << endl;
 }
 
