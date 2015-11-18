@@ -14,6 +14,9 @@
 
 using namespace std;
 
+void printHelp(char* name);
+bool isEmpty(string& line);
+
 int main (int argc, char *argv[]) {
     string line;
     int linenum = 0;
@@ -24,11 +27,25 @@ int main (int argc, char *argv[]) {
         exit(1);
     }
     for ( int i = 1; i < argc; i++ ) {
+        // print the help description
+        if ( !strcmp(argv[i], "-help") ) {
+            printHelp(argv[0]);
+            exit(0);
+        }
+
+        // a comment has a '#' as the first character on a line or
         // a comment has a '//' as the first two characters on a line
         if ( !strcmp(argv[i],"-allowcomments") ) {
             allowComments = true;
             continue;
         }
+        
+        if ( argv[i][0] == '-' ) {
+            cout << argv[0] << ": " << argv[i] << ": no such argument" << endl;
+            printHelp(argv[0]);
+            exit(1);
+        }
+
         // open the file
         ifstream file(argv[i]);
         if ( !file.is_open() ) {
@@ -43,8 +60,8 @@ int main (int argc, char *argv[]) {
             // is it the last line of the file?
             if ( (line.size() == 0) && (!file.good()) )
                 break;
-            // is the line empty?
-            if ( (line.size() == 0) )
+            // is the line empty or all whitespace?
+            if ( isEmpty(line) )
                 continue;
             // is it a `//` comment?
             else if ( allowComments && (line.size() >= 2) &&
@@ -62,7 +79,7 @@ int main (int argc, char *argv[]) {
             // are the first four digits hex characters?
             for ( int j = 0; j < 4; j++ )
                 if ( !isxdigit(line[j]) ) {
-                    cout << argv[0] << ": " << argv[i] << " invalid hexadecimal digit on line " << linenum << " character " << (j+1) << endl;
+                    cout << argv[0] << ": " << argv[i] << " invalid hexadecimal digit '" << line[j] << "' on line " << linenum << " character " << (j+1) << endl;
                     exit(3);
                 }
         }
@@ -70,4 +87,33 @@ int main (int argc, char *argv[]) {
         file.close();
     }
     return 0;
+}
+
+void printHelp(char *name) {
+    static bool helpPrinted; // Static values are initialized to 0 or 0-equivalent
+    if(helpPrinted) return;
+
+    helpPrinted = true;
+
+    cout << "Usage: " << name << " [option] IBCM_FILE" << endl;
+    cout << "Options:" << endl;
+    cout << "\t[-allowcomments]\tAllows IBCM_FILE to contain lines beginning with `//` and `#`." << endl;
+    cout << "\t[-help]\t\t\tPrints this help message." << endl;
+}
+
+bool isEmpty(string& line) {
+    // is the line empty?
+    if ( line.empty() ) {
+        return true;
+    }
+
+    // does the line contain spaces or carriage returns?
+    else if ( line.find_first_not_of(' ') != line.npos &&
+              line.find_first_not_of('\n') != line.npos && 
+              line.find_first_not_of('\r') != line.npos) {
+        return false;
+    }
+
+    // otherwise, the line is basically empty
+    return true;
 }
