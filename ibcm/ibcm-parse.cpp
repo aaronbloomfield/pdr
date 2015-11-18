@@ -44,15 +44,15 @@ int main (int argc, char *argv[]) {
             if ( (line.size() == 0) && (!file.good()) )
                 break;
             // is it a `//` comment?
-            if ( allowComments && (line.size() >= 2) &&
+            else if ( allowComments && (line.size() >= 2) &&
                     (line[0] == '/') && (line[1] == '/') )
                 continue;
             // is it a `#` comment?
-            if ( allowComments && (line.size() >= 1) &&
+            else if ( allowComments && (line.size() >= 1) &&
                     (line[0] == '#') )
                 continue;
             // is the line too short?
-            if ( line.size() < 4 ) {
+            else if ( line.size() < 4 ) {
                 cout << argv[0] << ": " << argv[i] << " has too short a line on line number " << linenum << "(" << line.size() << ")" << endl;
                 exit(3);
             }
