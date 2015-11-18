@@ -43,9 +43,13 @@ int main (int argc, char *argv[]) {
             // is it the last line of the file?
             if ( (line.size() == 0) && (!file.good()) )
                 break;
-            // is it a comment?
+            // is it a `//` comment?
             if ( allowComments && (line.size() >= 2) &&
                     (line[0] == '/') && (line[1] == '/') )
+                continue;
+            // is it a `#` comment?
+            if ( allowComments && (line.size() >= 1) &&
+                    (line[0] == '#') )
                 continue;
             // is the line too short?
             if ( line.size() < 4 ) {
