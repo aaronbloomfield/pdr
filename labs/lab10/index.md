@@ -75,7 +75,7 @@ Huffman compression and decompression are both covered in the [Heaps and Huffman
 
 ### Requirements ###
 
-Assume that only printable ASCII characters will occur in the source (original, uncompressed) text file.  That is, your program should ignore newlines and tabs, but should not ignore spaces -- thus, spaces need to be encoded, just like with other (printable) characters.  Your program should be case-sensitive (count upper-case and lower-case versions of the same letter as different characters).  The lecture notes describe [which characters are to be encoded](../../slides/10-heaps-huffman.html#asciiset).
+Assume that only printable ASCII characters will occur in the source (original, uncompressed) text file.  That is, your program should ignore newlines and tabs, but should not ignore spaces -- thus, spaces need to be encoded, just like with other (printable) characters (note, however, that spaces are encoded differently; see the input format for details).  Your program should be case-sensitive (count upper-case and lower-case versions of the same letter as different characters).  The lecture notes describe [which characters are to be encoded](../../slides/10-heaps-huffman.html#asciiset).
 
 You ***must*** use a heap (priority queue) data structure to receive full credit on this pre-lab.  You may use heap code from the slides (give said credit if you do so), or you may implement your own.  You may NOT use the priority_queue class from the STL, but you may use other classes from the STL (i.e. non-heap related classes).
 
@@ -122,7 +122,7 @@ In an effort to both ease the in-lab implementation (as we can thus provide exam
 
 The file format is as follows.  There are three sections to an encoded file, each separated by a specific separator.
 
-The first section of the file are the ASCII characters that are encoded, followed by their bit encoding.  Only one such encoding per line, with no blank lines allowed.  The format for a line is the ASCII character, a single space, and then the `1` and `0` characters that are the encoding for that character, followed by a newline.  The order of the characters does not matter.  However, your code to read in the file must be able to handle the characters in any order.  Keep in mind that the first character on this type of line can be a space, but cannot be a newline, tab, or a non-printable character (note that this means that the encoding of a space will be two spaces followed by the prefix code).  No line in this part can be more than 256 characters.  You can safely assume that the data provided will be a valid Huffman coding tree (i.e. there won't be an internal node with one child, etc.).
+The first section of the file are the ASCII characters that are encoded, followed by their bit encoding.  Only one such encoding per line, with no blank lines allowed.  The format for a line is the ASCII character, a single space, and then the `1` and `0` characters that are the encoding for that character, followed by a newline.  The order of the characters does not matter.  However, your code to read in the file must be able to handle the characters in any order.  If the character being written is the space character itself, you should write `space` instead of " "; thus a line for the space character might look like: `space 101010`.  Keep in mind that the first character on this type of line cannot be a newline, tab, or a non-printable character.  No line in this part can be more than 256 characters.  You can safely assume that the data provided will be a valid Huffman coding tree (i.e. there won't be an internal node with one child, etc.).
 
 Following that is a separator line, and is a single line containing 40 dashes and no spaces.
 
@@ -156,7 +156,7 @@ The Huffman tree that this forms is the same as the one shown in the slide set (
 
 ![](prelab-tree.png)
 
-Below is an equivalent version of the same file.  Note that the characters are not in the same order in the previous example, the whitespace for the middle part is quite different, the English explanation in the third part says the same thing but in a different format, and the particular prefix codes are different (but note that the lengths are the same).  Your in-lab code will need to be able to read in both of these files (as well as others in the [labs/lab10/examples/ directory(examples/)).  For writing your pre-lab, you should consider having a space or a newline between the Huffman encoded characters, as that will make your code easier to check and debug.
+Below is an equivalent version of the same file.  Note that the characters are not in the same order in the previous example, the whitespace for the middle part is quite different, the English explanation in the third part says the same thing but in a different format, and the particular prefix codes are different (but note that the lengths are the same).  Your in-lab code will need to be able to read in both of these files (as well as others in the [labs/lab10/examples/ directory](examples/)).  For writing your pre-lab, you should consider having a space or a newline between the Huffman encoded characters, as that will make your code easier to check and debug.
 
 ```
 d 11
@@ -188,7 +188,7 @@ A few hints from experience with this in previous semesters.
 In-lab
 ---------------
 
-Make sure your pre-lab code can read in any printable ASCII character, including spaces, but not newlines or tabs.  If you look at the ASCII table in the Huffman coding lecture notes, you want to be able to handle all of the characters in the red box.  Keep in mind that text files will always have a newline character (`\n`) at the end of each line.  Some text files might also have the carriage return character (`\r`) at the end of each line as well.  This is from the difference in text file formats between Windows and Unix.
+Make sure your pre-lab code can read in any printable ASCII character, including spaces (which are encoded differently!), but not newlines or tabs.  If you look at the ASCII table in the Huffman coding lecture notes, you want to be able to handle all of the characters in the red box.  Keep in mind that text files will always have a newline character (`\n`) at the end of each line.  Some text files might also have the carriage return character (`\r`) at the end of each line as well.  This is from the difference in text file formats between Windows and Unix.
 
 Your program should output to the standard output (i.e. `cout`) the *exact* file format described above, and nothing else.
 
