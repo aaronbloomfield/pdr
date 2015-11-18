@@ -156,7 +156,7 @@ Recall that using the `-S` flag with g++ will generate the assembly code.  You w
 
 2. Optimized code: Compare code generated normally to optimized code.  To create optimized code, you will need to use the `-O2` compiler flag.  Can you make any guesses as to why the optimized code looks as it does?  What is being optimized?  Be sure to show your original sample code as well as the optimized version.  Try loops and function calls to see what "optimizing" does. Be aware that if instructions are "not necessary" to the final output of the program then they may be optimized away completely!  This does not lead to very interesting comparisons.  Describe at least four (non-trivial) differences you see between 'normal' code and optimized code.
 
-3. Templates:  What does the code look like for the instantiation of a simple templated class you wrote?  You may use Weiss templated code if you wish, but may need to simplify it to understand what is going on.  What if you instantiate the class for different data types, what code is generated then?  Is it the same or different?  If the same, why? If different, why?  Compare code for a user-defined templated class or function to a templated class from the STL (e.g. classes such as vectors or functions such as sort). 
+3. Templates:  What does the code look like for the instantiation of a simple templated class you wrote?  What if you instantiate the class for different data types, what code is generated then?  Is it the same or different?  If the same, why? If different, why?  Compare code for a user-defined templated class or function to a templated class from the STL (e.g. classes such as vectors or functions such as sort). 
 
 ------------------------------------------------------------
 
