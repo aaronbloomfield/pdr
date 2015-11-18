@@ -43,6 +43,9 @@ int main (int argc, char *argv[]) {
             // is it the last line of the file?
             if ( (line.size() == 0) && (!file.good()) )
                 break;
+            // is the line empty?
+            if ( (line.size() == 0) )
+                continue;
             // is it a `//` comment?
             else if ( allowComments && (line.size() >= 2) &&
                     (line[0] == '/') && (line[1] == '/') )
