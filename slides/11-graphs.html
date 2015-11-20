@@ -249,7 +249,8 @@
 ```
 void Graph::topsort() {
   Vertex v, w;
-  for (int counter=0; counter < NUM_VERTICES; counter++) {
+  for (int counter=0; counter < NUM_VERTICES; 
+                                      counter++) {
     v = findNewVertexOfInDegreeZero();
     if (v == NOT_A_VERTEX)
       throw CycleFound();
@@ -278,7 +279,7 @@ void Graph::topsort() {
   while (!q.isEmpty()) {
     v = q.dequeue(); // get vertex of indegree 0
     v.topologicalNum = ++counter;
-    for each w adjacent to v: // insert eligible vertices
+    for each w adjacent to v: // insert eligible verts
       if (--w.indegree == 0)
         q.enqueue(w);
   }
@@ -363,7 +364,7 @@ void Graph::unweighted (Vertex s) {
       if (w.dist == INFINITY) {
         w.dist = v.dist + 1;
         w.path = v;
-        q.enqueue(w); // each vertex enqueued at most once
+        q.enqueue(w); // each vertex added at most once
       }
     }
   }
@@ -560,7 +561,8 @@ void Graph::dijkstra(Vertex s) {
 
 	  <section>
 <h2>Really Hard</h2>
-<a href="http://commons.wikimedia.org/wiki/File:US_map_-_geographic.png"><img class="stretch" src="images/11-graphs/us-city-map.jpg" alt="graph"></a>
+<img class="stretch" src="images/11-graphs/us-city-map.jpg" alt="graph">
+(<a href="http://commons.wikimedia.org/wiki/File:US_map_-_geographic.png">source</a>)
 	  </section>
 
 	  <section data-markdown><script type="text/template">
