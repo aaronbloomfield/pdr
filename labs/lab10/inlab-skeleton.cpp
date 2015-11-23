@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <stdlib.h>
 using namespace std;
 
@@ -23,35 +24,37 @@ int main (int argc, char **argv) {
         exit(2);
     }
     // read in the first section of the file: the prefix codes
-    char buffer[256];
     while ( true ) {
-        // read in first character on line
-        char first = file.get();
-        // catch DOS and UNIX newlines
-        if ( (first == '\n') || (first == '\r') )
-            continue;
-        // read in second character on line
-        char second = file.get();
-        // did we encounter the separator?
-        if ( (first == '-') && (second == '-') ) {
-            // read in the rest of the line
-            file.getline(buffer, 255, '\n');
+        string character, prefix;
+        // read in the first token on the line
+        file >> character;
+        // did we hit the separator?
+        if ( (character[0] == '-') && (character.length() > 1) )
             break;
-        }
+        // check for space
+        if ( character == "space" )
+            character = " ";
         // read in the prefix code
-        file.getline(buffer, 255, '\n');
+        file >> prefix;
         // do something with the prefix code
-        cout << "character '" << first << "' has prefix code '"
-             << buffer << "'" << endl;
+        cout << "character '" << character << "' has prefix code '"
+             << prefix << "'" << endl;
     }
     // read in the second section of the file: the encoded message
-    char bit;
-    while ( (bit = file.get()) != '-' ) {
-        if ( (bit != '0') && (bit != '1') )
-            continue;
-        // do something with the bit read in
-        cout << "read in bit '" << bit << "'" << endl;
+    stringstream sstm;
+    while ( true ) {
+        string bits;
+        // read in the next set of 1's and 0's
+        file >> bits;
+        // check for the separator
+        if ( bits[0] == '-' )
+            break;
+        // add it to the stringstream
+        sstm << bits;
     }
+    string allbits = sstm.str();
+    // at this point, all the bits are in the 'allbits' string
+    cout << "All the bits: " << allbits << endl;
     // close the file before exiting
     file.close();
 }
