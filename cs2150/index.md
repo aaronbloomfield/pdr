@@ -100,7 +100,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |  | Nov&nbsp;25 | Wednesday | | no class (Thanksgiving break) | No lecture today (Thanksgiving break) |
 |  | Nov&nbsp;27 | Friday    | | no class (Thanksgiving break) | No lecture today (Thanksgiving break) |
 |39| Nov&nbsp;30 | Monday    | [Lab 11: Graphs][11] ([md][31]) / [Tutorial 11: doxygen][51] ([md][71]) | [11: Graphs][91] | [11: Graphs][91], slides [1][91] to [26][1110408] ([recording][244]) |
-|40| Dec&nbsp;2  | Wednesday | | [11: Graphs][91], [12: Memory][92] | |
+|40| Dec&nbsp;2  | Wednesday | | [11: Graphs][91], [12: Memory][92] | [11: Graphs][91], slides [27][11105] to [40][1110513] and [47][11107] to [55][1110708] ([recording][245]) |
 |41| Dec&nbsp;4  | Friday    | | [12: Memory][92] | |
 |42| Dec&nbsp;7  | Monday    | [Lab 12: Objective C][12] ([md][32])| [12: Memory][92], [13: Esoteric PLs][93], [Course conclusion][94] | |
 |  | Dec&nbsp;9  | Wednesday | | Final exam review session | |
@@ -430,6 +430,7 @@ None yet!
 [1110509]: ../slides/11-graphs.html#/5/9
 [1110513]: ../slides/11-graphs.html#/5/13
 [11106]: ../slides/11-graphs.html#/6
+[11107]: ../slides/11-graphs.html#/7
 [1110708]: ../slides/11-graphs.html#/7/8
 [11108]: ../slides/11-graphs.html#/8
 [1110806]: ../slides/11-graphs.html#/8/6
