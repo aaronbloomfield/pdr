@@ -71,7 +71,7 @@
 	<section data-markdown><script type="text/template">
 # Contents
 &nbsp;  
-[Memory Hierarchy](#memory)  
+[Memory Hierarchy](#memorysec)  
 [String Functions](#strings)  
 	</script></section>
 
@@ -79,7 +79,7 @@
 
 	<section>
 
-	  <section id="memory" data-markdown><script type="text/template">
+	  <section id="memorysec" data-markdown><script type="text/template">
 # Memory Hierarchy
 	  </script></section>
 
@@ -144,7 +144,6 @@ ret		</code></pre></td><td style="width:50px"></td>
 <td><img src="images/08-x86/x86-activation-record.svg" alt="activation record"></td></tr></table>
 <p>&nbsp;</p>
 <p>How would this change with <code>alloca()</code>?</p>
-
 	  </section>
 
 	  <section data-markdown><script type="text/template">
@@ -358,8 +357,7 @@ What if we swap each of the three `i` and `j` loops?
 ## Trends (Example)
 Over a 20 year period:
 
-- CPU speed:
-  - 600x speed
+- CPU speed: 600x speed
 - SRAM (cache memory):
   - 200x capacity
   - 100x latency
@@ -442,7 +440,7 @@ int main (int argc, char **argv) {
     // allocate a space in memory for result
     char *result = (char *) malloc (sizeof (*result));
     *result = '\0';
-    while (i < argc) {  // while there are still arguments
+    while (i < argc) {  // while there are still args
         char *s = (char *) malloc (sizeof (*s) *
                 (strlen(result) + strlen(argv[i]) + 1));
         strcpy (s, result);
@@ -454,7 +452,7 @@ int main (int argc, char **argv) {
     return 0;
 }
 ```
-Do you see any memroy leak problems?
+Do you see any memory leak problems?
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
