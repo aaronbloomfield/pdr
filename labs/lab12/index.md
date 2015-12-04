@@ -28,7 +28,7 @@ Procedure
 2. Write the Objective C program described in the post-lab section, which implements a singly-linked list.
 3. Files to download: [helloworld.m](../..//tutorials/12-objc/helloworld.m.html) ([src](../..//tutorials/12-objc/helloworld.m))
 .
-4. Files to submit: linkedlist.m; if your program uses multiple .m or .h files, that's fine.
+4. Files to submit: linkedlist.m; if your program uses multiple .m or .h files, that's fine.  There is no Makefile submitted with this lab.
 
 ### In-lab ###
 

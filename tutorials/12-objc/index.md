@@ -5,6 +5,14 @@ PDR: Objective C Tutorial
 
 Throughout this semester, we have studied C++, which was one way to add object oriented programming capability to the C programming language.  There are other languages that also do that: the one that we will study in this pre-lab is Objective C.  The others are described [here](http://en.wikipedia.org/wiki/C_programming_language#Related_languages).  Objective C had mostly died out as a language that was widely used until Apple decided to use it for their iPhone (and now iPad) application development.  Now it's all the rage.  We want you to be familiar with it, so that you can see a different way to allow for object oriented programming using a C-like language.  
 
+### But, why? ###
+
+Wait a minute -- isn't Objective C a [dying programming language](http://www.infoworld.com/article/2935995/application-development/objective-c-spirals-downward-in-language-popularity.html)?
+
+Well, yes and no.  Objective C was exclusively used to implement iOS apps (i.e., iPad, iPhone, and iPod) .  But with the recent advent of [Swift](https://developer.apple.com/swift/), more people are moving toward that and away from Objective C.  So while Objective C is seeing a decline in how much it is used, it is [not going anywhere anytime soon](http://www.huffingtonpost.com/ahmed-eid/apples-swift-is-great-but_b_5492239.html).
+
+However, the point of having this tutorial is not about being an iOS developer -- instead, it's to show you that there is another way to add objects to C other than C++.
+
 ### Objective C Installation ###
 
 The first part of the pre-lab is to make sure you have access to a compilation environment for Objective C.
