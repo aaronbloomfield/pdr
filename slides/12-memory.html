@@ -114,10 +114,10 @@
 <h2>Memory Allocators</h2>
 
 <table>
-<tr style="background-color:transparent"><td colspan="2"></td><th colspan="2">Lifetime</th></tr>
-<tr style="background-color:transparent"><td colspan="2"></td><th>Scoped</th><th>Unlimited</th></tr>
-<tr><th>&nbsp;<br>Size</th><th>Known</th><td>local variable declarations</td><td>global, static variable declarations</td></tr>
-<tr><th></th><th>Unknown</th><td><code>alloca()</code></td><td><code>new</code> &amp; <code>malloc()</code></td></tr>
+<tr style="background-color:transparent"><td colspan="2" style="border-bottom:0em"></td><th colspan="2">Lifetime</th></tr>
+<tr style="background-color:transparent"><td colspan="2"></td><th style="border-right:1px solid">Scoped</th><th>Unlimited</th></tr>
+<tr><th style="border-bottom:0em;border-right:1px solid">&nbsp;<br>Size</th><th>Known</th><td style="border-right:1px solid">local variable declarations</td><td>global, static variable declarations</td></tr>
+<tr><th style="border-right:1px solid"></th><th>Unknown</th><td style="border-right:1px solid"><code>alloca()</code></td><td><code>new</code> &amp; <code>malloc()</code></td></tr>
 </table>
 <p>&nbsp;</p>
 <p><code>alloca()</code>: like <code>malloc()</code>, but on the stack, not the heap (rarely used)</p>

@@ -102,7 +102,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |39| Nov&nbsp;30 | Monday    | [Lab 11: Graphs][11] ([md][31]) / [Tutorial 11: doxygen][51] ([md][71]) | [11: Graphs][91] | [11: Graphs][91], slides [1][91] to [26][1110408] ([recording][244]) |
 |40| Dec&nbsp;2  | Wednesday | | [11: Graphs][91], [12: Memory][92] | [11: Graphs][91], slides [27][11105] to [40][1110513] and [47][11107] to [55][1110708] ([recording][245]) |
 |41| Dec&nbsp;4  | Friday    | | [12: Memory][92] | [11: Graphs][91], slides [41][11106] to [46][1110605] and [56][11108] to [70][1110814] (end); [12: Memory][92], slides [1][92] to [8][1120304] ([recording][248]) |
-|42| Dec&nbsp;7  | Monday    | [Lab 12: Objective C][12] ([md][32])| [12: Memory][92], [13: Esoteric PLs][93], [Course conclusion][94] | |
+|42| Dec&nbsp;7  | Monday    | [Lab 12: Objective C][12] ([md][32])| [12: Memory][92], [13: Esoteric PLs][93], [Course conclusion][94] | [12: Memory][92], slides [8][1120304] to [29][1120325] ([recording][249]) |
 |  | Dec&nbsp;9  | Wednesday | | Final exam review session | |
 |  | Dec&nbsp;11 | Friday    | Final exam from 9:00-noon in Gilmer 130| Final exam from 9:00-noon in Gilmer 130 | |
 
