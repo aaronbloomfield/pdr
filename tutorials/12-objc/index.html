@@ -44,7 +44,7 @@ int main (void) {
 <p>In our installations, both on the Linux VirtualBox image and on Mac OS X, we will replace that with the following:</p>
 <pre><code>#import &lt;Foundation/NSObject.h&gt;</code></pre>
 <p><strong>Difference 2: the super-class</strong></p>
-<p>We have included (well, imported) a different file, and thus can no longer subclass from <code>Object</code>. THus, we must change the super class name from <code>Object</code> to <code>NSObject</code>. This is line 3 of the Point.h class in the <a href="http://en.wikibooks.org/wiki/Objective-C_Programming/syntax">Objective C Syntax</a> tutorial on Wikibooks.</p>
+<p>We have included (well, imported) a different file, and thus can no longer subclass from <code>Object</code>. Thus, we must change the super class name from <code>Object</code> to <code>NSObject</code>. This is line 3 of the Point.h class in the <a href="http://en.wikibooks.org/wiki/Objective-C_Programming/syntax">Objective C Syntax</a> tutorial on Wikibooks.</p>
 <p><strong>Difference 3: compilation command</strong></p>
 <p>As our programs are now more complicated than just a &quot;hello world&quot;, the compilation line is longer as well. The compilation command for Linux machines (such as the VirtualBox image) is:</p>
 <pre><code>clang -I /usr/include/GNUstep/ *.m -lobjc -lgnustep-base</code></pre>
