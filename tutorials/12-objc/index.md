@@ -72,7 +72,7 @@ In our installations, both on the Linux VirtualBox image and on Mac OS X, we wil
 
 **Difference 2: the super-class**
 
-We have included (well, imported) a different file, and thus can no longer subclass from `Object`.  THus, we must change the super class name from `Object` to `NSObject`.  This is line 3 of hte Point.h class in the [Objective C Syntax](http://en.wikibooks.org/wiki/Objective-C_Programming/syntax) tutorial on Wikibooks.
+We have included (well, imported) a different file, and thus can no longer subclass from `Object`.  Thus, we must change the super class name from `Object` to `NSObject`.  This is line 3 of the Point.h class in the [Objective C Syntax](http://en.wikibooks.org/wiki/Objective-C_Programming/syntax) tutorial on Wikibooks.
 
 **Difference 3: compilation command**
 
