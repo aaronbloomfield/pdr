@@ -34,7 +34,10 @@ Let's start off this chapter with some math. (Don't worry, we'll get back to pro
 
 The image \where{dw-screencap} is one frame of a video (specifically, an episode of the British television programme \textit{Doctor Who}). You're interested in downloading this video, but your hard drive is filling up. How much space would you expect the video to take up?
 
-We can estimate by figuring out the information content of the video. Every frame is 1920 by 1080 pixels; each pixel is at least three bytes (eight bits of red, eight bits of blue, and eight bits of green.) For video to appear smooth to the human eye, it have a minimum framerate of about 30 frames per second (fps); however, some television is shot at 24 fps. The video is 2882 seconds long.
+We can estimate by figuring out the information content of the video. Every
+frame is 1920 by 1080 pixels; each pixel is at least three bytes (eight bits of
+red, eight bits of blue, and eight bits of green.) For video to appear smooth to
+the human eye, it must have a minimum framerate of about 30 frames per second (fps); however, some television is shot at 24 fps. The video is 2882 seconds long.
 
 %$$
 %& \frac{8 \text{ bits}}{1 \text{ byte}} \times 
@@ -48,9 +51,9 @@ We can estimate by figuring out the information content of the video. Every fram
 
 By this calculation, a 50-minute, high-definition, television episode should amount to 400 gigabytes of data. And yet, the actual file is only about 1.5 gigabytes. Where did all the information go?
 
-Well- no where. The above calculation is only relevant if every single bit would change the resulting message, \textit{and} if there are no patterns that can be expressed in a shorter way. Though one may not realize it just by watching, video does have patterns. Adjacent pixels (in space and time) tend towards groups of similarity, with lines (edges) of contrast and motion. Some very clever people have come up with ways to reduce the overall size, without actually losing information; the computer just has to do some work to 
+Well- nowhere. The above calculation is only relevant if every single bit would change the resulting message, \textit{and} if there are no patterns that can be expressed in a shorter way. Though one may not realize it just by watching, video does have patterns. Adjacent pixels (in space and time) tend towards groups of similarity, with lines (edges) of contrast and motion. Some very clever people have come up with ways to reduce the overall size, without actually losing information; the computer just has to do some work to do.
 
-Compression is a form of \textit{encoding}: a mapping from one representation of information to another representation. Different representations may take up more or less space, but may take less or more time to interpret. Take, for example, the Latin alphabet. Humans are very good at recognizing Latin characters (and, moreover, words) when depicted in graphical form. Computers, however, may have trouble recognizing these. On the other hand, a computer can easily deal with the ASCII encoding of a string, while (most) humans would have difficulty reading a book bit-by-bit. Note also that a (two-dimensional) graphic takes up more space than a (one-dimensional) ASCII encoding; this is why a scanned page of, say, a book page takes up more space than an original digital document.
+Compression is a form of \textit{encoding}: a mapping from one representation of information to another representation. Different representations may take up more or less space, but may take less or more time to interpret. Take, for example, the Latin alphabet. Humans are very good at recognizing Latin characters and words when depicted in graphical form. Computers, however, may have trouble recognizing these. On the other hand, a computer can easily deal with the ASCII encoding of a string, while most humans would have difficulty reading a book bit-by-bit. Note also that a two-dimensional graphic takes up more space than a one-dimensional ASCII encoding; this is why a scanned page of, say, a book takes up more space than an original digital document.
 
 % FIGURE: A CAPTCHA
 % FIGURE: ASCII ENCODING OF A CAPTCHA
@@ -58,14 +61,14 @@ Compression is a form of \textit{encoding}: a mapping from one representation of
 % FIGURE: Scan of a printout of this page.
 % FIGURE: Screen capture of this .TEX file.
 
-Compression embodies a longstanding tradeoff in computing, between space and time. For many problems, the computer can store a (small) set of inputs to a function, and re-compute the (large) set of outputs as needed; or, it can save the re-computation time by storing the outputs and referring to them as needed. Compression and decompression take time and energy, but they allow data to take up less space when not in use.
+Compression embodies a longstanding tradeoff in computing between space and time. For many problems, the computer can store a small set of inputs to a function, and re-compute the large set of outputs as needed. Alternatively, it can save the re-computation time by storing the outputs and referring to them as needed. Compression and decompression take time and energy, but they allow data to take up less space when not in use.
 
 \section{Text compression}
 
-Music, video, and image media have numerous attributes related to representation and perception that encourage specialized compression algorithms- so let's make it easy, and look at plain text.
+Music, video, and image media have numerous attributes related to representation and perception that encourage specialized compression algorithms- so let's make it easy and look at plain text.
 
 \begin{quotation}
-Let’s imagine a language which has only two valid sentences, and every tweet must be one of the two sentences. They are:
+Let's imagine a language which has only two valid sentences, and every tweet must be one of the two sentences. They are:
 
 {\em
 “There’s a horse in aisle five.”\\
