@@ -111,7 +111,7 @@ This is an improvement over ASCII's 7-bit-per-character coding only for words ov
 
 \section{The prefix tree}
 
-What we'd like, then, is an algorithm for coding and decoding that will respond to the particular message transmitted. We can do this by creating a per-message dictionary: we'll transmit only those entries which the current message uses.
+What we'd like to create is an algorithm for coding and decoding that will respond to the particular message transmitted. We can do this by creating a per-message dictionary: we'll transmit only those entries which the current message uses.
 
 The Huffman algorithm generates this dictionary using a data structure called a \textit{prefix tree}. A prefix tree is a binary tree with this additional property:
 \begin{quotation}
@@ -138,7 +138,7 @@ In a prefix tree, every path string is either the prefix to a leaf's path string
 
 A formal proof is beyond the scope of this chapter, but you should convince yourself it's correct.
 
-So: given a prefix tree whose leaves correspond to symbols, we can unambiguously translate a binary string of any length into a series of symbols. Our program reads one bit at a time from the input string, and moves an indicator left or right down the tree as directed. When it reaches a leaf node, it outputs that symbol, and resets the indicator to the head of the tree.
+So given a prefix tree whose leaves correspond to symbols, we can unambiguously translate a binary string of any length into a series of symbols. Our program reads one bit at a time from the input string and moves an indicator left or right down the tree as directed. When it reaches a leaf node, it outputs that symbol and resets the indicator to the head of the tree.
 
 The above paragraph is all that Huffman decoding requires. Let's run through an example.
 
