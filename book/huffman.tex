@@ -70,10 +70,10 @@ Music, video, and image media have numerous attributes related to representation
 \begin{quotation}
 Let's imagine a language which has only two valid sentences, and every tweet must be one of the two sentences. They are:
 
-{\em
-“There’s a horse in aisle five.”\\
-“My house is full of traps.”
-}
+\begin{enumerate}
+\item {\em“There’s a horse in aisle five.”}
+\item {\em“My house is full of traps.”}
+\end{enumerate}
 
 Twitter would look like this:
 
@@ -86,24 +86,24 @@ Twitter would look like this:
 
 %\image{xkcd-what-if-34-twitter_screenshot.png}
 
-The messages are relatively long, but there’s not a lot of information in each one—all they tell you is whether the person decided to send the trap message or the horse message. It’s a 1 or a 0. Although there are a lot of letters, for a reader who knows the pattern the language carries only one bit of information per sentence.
+The messages are relatively long, but there’s not a lot of information in each one - all they tell you is whether the person decided to send the trap message or the horse message. It's a 1 or a 0. Although there are a lot of letters, for a reader who knows the pattern the language carries only one bit of information per sentence.
 
 This example hints at a very deep idea, which is that information is fundamentally tied to the recipient’s uncertainty about the message’s content and their ability to predict it in advance.
 
-Claude Shannon—who almost singlehandedly invented modern information theory—had a clever method for measuring the information content of a language. He showed groups of people samples of typical written English which were cut off at a random point, then asked them to guess which letter came next.
+Claude Shannon - who almost singlehandedly invented modern information theory — had a clever method for measuring the information content of a language. He showed groups of people samples of typical written English which were cut off at a random point, then asked them to guess which letter came next.
 
-Based on the rates of correct guesses—and rigorous mathematical analysis—Shannon determined that the information content of typical written English was around 1.0 to 1.2 bits per letter. This means that a good compression algorithm should be able to compress ASCII English text—which is eight bits per letter—to about 1/8th of its original size. Indeed, if you use a good file compressor on a .txt ebook, that’s about what you’ll find.
+Based on the rates of correct guesses - and rigorous mathematical analysis - Shannon determined that the information content of typical written English was around 1.0 to 1.2 bits per letter. This means that a good compression algorithm should be able to compress ASCII English text - which uses eight bits per letter - to about 1/8th of its original size. Indeed, if you use a good file compressor on a .txt ebook, that’s about what you'll find.
 
 -- Randall Munroe, in 'what if?'\cite{xkcd-what-if-34}
 \end{quotation}
 
-Let's dive into this a little more. If all parties involved know that 0 means "There's a horse in aisle five." and that 1 menas "My house is full of traps.", those parties can communicate those two messages very efficiently.\footnote{Furthermore, the 1990 film \textit{Home Alone} could be compressed into Macaulay Culkin repeating "1".} There is some setup involved in ensuring all parties understand this coding; furthermore, the language of expression is limited to those two phrases, which are not very useful in most circumstances.
+Let's dive into this a little more. If all parties involved know that 0 means "There's a horse in aisle five." and that 1 means "My house is full of traps.", those parties can communicate those two messages very efficiently.\footnote{Furthermore, the 1990 film \textit{Home Alone} could be compressed into Macaulay Culkin repeating "1".} There is some setup involved in ensuring all parties understand this coding; furthermore, the language of expression is limited to those two phrases, which are not very useful in most circumstances.
 
 How do we expand the language of discourse- say, to all of English? Instead of mapping two numbers (0 and 1) to two phrases, let's try mapping numbers to words. We can use an old cryptographic technique called a \textit{dictionary cypher}: everyone involved in the communication has the same edition of the same book. A word is written as a page number, followed by a word number on that page: "43 24" refers to the 24th word on page 43.
 
-This dictionary cypher is an encoding; however, is it necessarily a compression? To determine this, we have to look at the information transmitted versus the information content of the (uncompressed) message. We must include the transmission of the dictionary (to ensure that both the sender and recevier has a copy), as well as the individual message.
+This dictionary cypher is an encoding; however, is it necessarily a compression? To determine this, we have to look at the information transmitted versus the information content of the uncompressed message. We must include the transmission of the dictionary (to ensure that both the sender and recevier has a copy), as well as the individual message.
 
-An efficient book to use would be the \textit{Scrabble Players Dictionary}, which includes "More than 100,000\ldots words" on 720 pages; since the book does not contain definitions few, if any, words are repeated. 
+An efficient book to use would be the \textit{Scrabble Players Dictionary}, which includes "More than 100,000\ldots words" on 720 pages. Since this book does not contain definitions few, if any, words are repeated. 
 % http://www.merriam-webster.com/cgi-bin/book.pl?scrabdic.htm&3
 720 pages can be indexed by 10 bits ($2^{10}=1024$), and each page can be indexed by an 8-bit number ($\frac{100000}{720}=139$, $2^7 < 139 < 2^8$). Thus, any word can be compressed into 18 bits using this dictionary cypher.
 
