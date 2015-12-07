@@ -140,7 +140,7 @@ A few notes while working on the program:
 3. The `this` pointer in Objective C is called `self`
 4. The `NULL` pointer in C++ is called `nil` in Objective C
 5. Be careful about naming your list class "List" if you are using Mac OS X, as it will conflict with the List class already declared in an existing library.  Name it something else.
-6. An object is deleted by calling the `free` method, which is automatically inherited by all classes.  To create a custom destructor, create another method (`freeCompletely`, or similar), and just call `self free` as the last command of that destructor.  But you probably don't need a custom constructor for this program.
+6. An object is deleted by calling the `dealloc` method, which is automatically inherited by all classes.  You should NOT call `dealloc` anywhere in your code -- `dealloc` is called by the Objective C runtime (in a similar way the destructor is called when an object goes out of scope in C++).  To create a custom destructor, override the `dealloc` method, and just call `super dealloc` as the last command of that destructor.  But you probably don't need a custom constructor for this program.  To indicate to the runtime that you are no longer using the object, call `release` on that object (e.g., `[myObj release]`).
 
 ### Constructors ###
 
