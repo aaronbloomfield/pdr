@@ -11,7 +11,7 @@ CXXFLAGS	= -Wall -g
 AS	= nasm
 
 # Defines the flags for the assembler
-ASFLAGS	= -f elf
+ASFLAGS	= -f elf -g
 
 # All of the .o files for our program
 OFILES	= vecsum.o main.o
@@ -28,7 +28,7 @@ OFILES	= vecsum.o main.o
 # output executable name -- in order for this to work with the grading
 # system, the file needs to be a.out (a.exe in Cygwin).
 main:	$(OFILES)
-	$(CXX) $(CXXFLAGS) -o vecsum $(OFILES)
+	$(CXX) $(CXXFLAGS) $(OFILES)
 
 # This will clean up (remove) all our object files.  The -f option
 # tells rm to forcily remove the files (i.e. don't ask if they should

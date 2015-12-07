@@ -5,9 +5,9 @@ PDR: Doxygen Tutorial
 
 A Mac OS X note: doxygen on a Mac is very hard to install and configure.  It will likely be easier to run doxygen through VirtualBox.  But see the very last paragraph of this lab for Mac-specific details.
 
-Note that the current version of doxygen, as of the writing of this lab (April 2015), is 1.8.9.  The version currently installing on Ubuntu Linux (both in the lab and on Virtual Box) may be a different version.  These differences should not make any difference for the tags we are using.
+Note that the current version of doxygen, as of the writing of this lab (released June 2015, and current as of late 2015), is 1.8.10.  The version currently installing on Ubuntu Linux (both in the lab and on Virtual Box) may be a different version.  These differences should not make any difference for the tags we are using.
 
-**NOTE:** Graphviz, which is needed for doxygen to work properly, was not installed on the VirtualBox image.  To install it, run two commands: `sudo apt-get update` and then `sudo apt-get install graphviz`.
+A note about line numbers: the line numbers shown throughout this document are for Doxygen version 1.8.6 (not the most recent version!); to find out what version you have installed, run `doxygen -v`.  If it is a different version, then the line numbers will likely change, although they should be somewhat similar.
 
 ### Getting Started ###
 
@@ -62,7 +62,7 @@ Do you see how the tags are separated into the different parts of this comment b
 
 ### Call Graphs ###
 
-Doxygen can create call graphs for your code.  To do this, first make sure that graphviz is installed (see the notes at the top of this lab).  Then edit the Doxyfile.  We are going to change three options to "YES": `HAVE_DOT` (line 2,052), `CALL_GRAPH` (line 2,168), and `CALLER_GRAPH` (line 2,179).  The first one turns on graph creation ("dot" is the command-line for the graphviz package); the second and third turn on specific types of graphs.
+Doxygen can create call graphs for your code.  We are going to change three options to "YES": `HAVE_DOT` (line 2,052), `CALL_GRAPH` (line 2,168), and `CALLER_GRAPH` (line 2,179).  The first one turns on graph creation ("dot" is the command-line for the graphviz package); the second and third turn on specific types of graphs.
 
 Now, run `doxygen` again, and view the page describe above (the one that shows the contents of average.cpp).  You will see a few new graphs added.  Keep in mind that, as the input source code (average.cpp) was rather small, these graphs are not going to be particularly all that large, either.
 

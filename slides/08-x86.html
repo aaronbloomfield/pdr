@@ -624,11 +624,11 @@ return sum / num;
 ## Example: Output in C
 The C equivalent of cout is a function called `printf`
 ```
-printf ("A %s, a %s, a %s: %s!", "man", 
+printf ("A %s, a %s, a %s: %s!\n", "man", 
 		"plan", "canal", "Panama");
-printf ("A percent sign: %%");
+printf ("A percent sign: %%\n");
 printf ("An int: %d\n", i);
-printf ("A float with 2 decimal digits: %.2f", 
+printf ("A float with 2 decimal digits: %.2f\n", 
 		float_value);
 ```
 Output:
@@ -710,7 +710,7 @@ A float with 2 decimal digits: 3.14
 We'll see this code in the following slides:
 ```
 int myFunc(int a, int b, int c) {
-    int x;
+    int result;
     // some code
     return result;
 }
@@ -801,7 +801,7 @@ pop edx          ; restore saved edx value
 We'll see this code in the following slides:
 ```
 int myFunc(int a, int b, int c) {
-    int x
+    int result;
     // some code
     return result;
 }
@@ -1188,7 +1188,7 @@ Code we'll see:
 	  <section data-markdown><script type="text/template">
 ## clang++ creates some odd assembly...
 - We'll see why later, but clang++ creates some odd-looking assembly
-  - Whcih does not appear to follow the calling convention
+  - Which does not appear to follow the calling convention
 - So you can use g++ to view the assembly
   - The flags are different:
 ```
@@ -1430,7 +1430,7 @@ int main() {
 
 	  <section data-markdown><script type="text/template">
 ## x86 code for max()
-Using `g++ -masm=intel`
+Using: `g++ -S -m32 -masm=intel`
 
 Source code: [test_max.s](code/08-x86/test_max.s.html) ([src](code/08-x86/test_max.s))
 ```
@@ -1456,7 +1456,7 @@ max:
 
 	  <section data-markdown><script type="text/template">
 ## x86 code for max() using -O2
-Using `g++ -masm=intel` and `-O2`
+Using: `g++ -S -m32 -masm=intel` and `-O2`
 
 Source code: [test_max-O2.s](code/08-x86/test_max-O2.s.html) ([src](code/08-x86/test_max-O2.s))
 ```
@@ -1472,7 +1472,7 @@ The [cmovg](http://www.asmpedia.org/index.php?title=CMOVG) opcode (conditional m
 
 	  <section data-markdown><script type="text/template">
 ## x86 code for max() without 'extern "C"'
-Using `g++ -masm=intel`
+Using: `g++ -S -m32 -masm=intel`
 
 Source code: [test_max-noextern.s](code/08-x86/test_max-noextern.s.html) ([src](code/08-x86/test_max-noextern.s))
 ```
@@ -1543,7 +1543,7 @@ int main() {
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for compare_string(), 1/3
-Using `g++ -masm=intel`
+Using: `g++ -S -m32 -masm=intel`
 
 Source code: [test_string_compare.s](code/08-x86/test_string_compare.s.html) ([src](code/08-x86/test_string_compare.s))
 ```
@@ -1559,7 +1559,7 @@ compare_string:
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for compare_string(), 2/3
-Using `g++ -masm=intel`
+Using: `g++ -S -m32 -masm=intel`
 
 Source code: [test_string_compare.s](code/08-x86/test_string_compare.s.html) ([src](code/08-x86/test_string_compare.s))
 ```
@@ -1581,7 +1581,7 @@ Source code: [test_string_compare.s](code/08-x86/test_string_compare.s.html) ([s
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for compare_string(), 3/3
-Using `g++ -masm=intel`
+Using: `g++ -S -m32 -masm=intel`
 
 Source code: [test_string_compare.s](code/08-x86/test_string_compare.s.html) ([src](code/08-x86/test_string_compare.s))
 ```
@@ -1640,7 +1640,7 @@ int main() {
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for fib(), 1/2
-Using `g++ -masm=intel`
+Using: `g++ -S -m32 -masm=intel`
 
 Source code: [test_fib.s](code/08-x86/test_fib.s.html) ([src](code/08-x86/test_fib.s))
 ```
@@ -1661,7 +1661,7 @@ fib:
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for fib(), 2/2
-Using `g++ -masm=intel`
+Using: `g++ -S -m32 -masm=intel`
 
 Source code: [test_fib.s](code/08-x86/test_fib.s.html) ([src](code/08-x86/test_fib.s))
 ```
@@ -1689,7 +1689,7 @@ Source code: [test_fib.s](code/08-x86/test_fib.s.html) ([src](code/08-x86/test_f
 - Not really!
 - The convention states what the stack must look like when a subroutine is invoked
 - The steps given in this slide set are to help learn the convention
-- So as the stack was set up correctly, the convention was follows
+- So as the stack was set up correctly, the convention was followed
 	  </script></section>
 
 	  <section>
@@ -1735,7 +1735,7 @@ Source code: [test_fib.s](code/08-x86/test_fib.s.html) ([src](code/08-x86/test_f
 - Consider a `movb`, `movw`, or `movl`
   - Moving a 8, 16, and 32 bit quantity, respecitively
   - If you called `movb`, that instruction moves the *least* significant 8 bits of the 32-bit quantity
-- Thus, if you are doing one of those moves, the address is the same, which makes the CPU addressing routines simpler
+- Thus, if you are doing one of those moves, the address is the *same*, which makes the CPU addressing routines simpler
 - This means integer *casts* are a essentially a no-op
   - To cast an `int` to a `short`, you just tke lowest 16 bits, which means you use a `movw` instead of a `movl`
 	  </script></section>

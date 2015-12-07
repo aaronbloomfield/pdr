@@ -38,7 +38,7 @@ Procedure
 
 ### In-lab ###
 
-1. Implement a brute-force traveling salesman solution, as described in the in-lab section.
+1. Implement a brute-force traveling salesperson solution, as described in the in-lab section.
 2. Create a Makefile that will fully compile your code.  You should not specify the resulting executable name (i.e., no `-o` output for the final link step).  It will default to a.out, which is what is desired.
 3. Document your C++ files with doxygen commands.  You must **ALSO** include commented middleearth.h and middleearth.cpp (this should have been done in the pre-lab).
 4. Your code should compile with `make`!  It should do ***TWO*** tasks: compile your code, and call `doxygen`.  See the pre-lab section for more information about required make target.
@@ -155,9 +155,9 @@ In-lab
 
 ### Introduction ###
 
-You are going to implement a program that will find a solution to the traveling salesman problem.  This problem is known to be [NP-complete](http://en.wikipedia.org/wiki/Np-complete), which means that there is no known efficient solution to the problem, and it is believed that an efficient solution does not exist.  Thus, we will be implementing a rather inefficient solution -- a brute-force method that tries every possible path combination.
+You are going to implement a program that will find a solution to the traveling salesperson problem.  This problem is known to be [NP-complete](http://en.wikipedia.org/wiki/Np-complete), which means that there is no known efficient solution to the problem, and it is believed that an efficient solution does not exist.  Thus, we will be implementing a rather inefficient solution -- a brute-force method that tries every possible path combination.
 
-The traveling salesman problem is as described in lecture.  In brief, you start from a given city (your "home" city), and have to travel to a number of other cities before returning home.  There is a fixed cost between any two cities (miles traveled, dollars spent, time taken, etc.).  The goal of this algorithm is to find the path that travels to each of the cities, in any order, and that has the minimum cost.  Note that it is really a cycle, as you have to start and end in the same city.  Also note that the direction you travel in the cycle does not matter, as the distance is the same.
+The traveling salesperson problem is as described in lecture.  In brief, you start from a given city (your "home" city), and have to travel to a number of other cities before returning home.  There is a fixed cost between any two cities (miles traveled, dollars spent, time taken, etc.).  The goal of this algorithm is to find the path that travels to each of the cities, in any order, and that has the minimum cost.  Note that it is really a cycle, as you have to start and end in the same city.  Also note that the direction you travel in the cycle does not matter, as the distance is the same.
 
 If you want more background on the Traveling Salesperson problem, you can see [here](http://www-e.uni-magdeburg.de/mertens/TSP/TSP.html).
 
@@ -283,9 +283,9 @@ For this part of the post-lab, we want you to do a time and space complexity ana
 
 ### Acceleration techniques ###
 
-We all know that the solution for the traveling salesman is inefficient.  So inefficient that a 20 route tour through Middle Earth (i.e. using the command-line parameters `20 20 20 14 20`) would take over 3 hundred thousand years when running on Linux, assuming the computer can check about 200,000 paths per second.  We could run it on a more efficient computer -- this would help, but not much.  If you are trying to compute a [61-route tour](https://www.google.com/search?q=61!), then there are more possibilities than there are [atoms in the known universe](http://www.universetoday.com/36302/atoms-in-the-universe/).  So it's not likely that you will be able to push that many electrons through your computer, even if you could wait the [10<sup>70</sup>](https://www.google.com/search?q=61!%2F(200000*60*60*24*365.25\)) years required.  You might be able to lower that somewhat if you used a more efficient computer -- perhaps to 10<sup>69</sup> years.  That's still longer than the expected life of the universe.
+We all know that the solution for the traveling salesperson is inefficient.  So inefficient that a 20 route tour through Middle Earth (i.e. using the command-line parameters `20 20 20 14 20`) would take over 3 hundred thousand years when running on Linux, assuming the computer can check about 200,000 paths per second.  We could run it on a more efficient computer -- this would help, but not much.  If you are trying to compute a [61-route tour](https://www.google.com/search?q=61!), then there are more possibilities than there are [atoms in the known universe](http://www.universetoday.com/36302/atoms-in-the-universe/).  So it's not likely that you will be able to push that many electrons through your computer, even if you could wait the [10<sup>70</sup>](https://www.google.com/search?q=61!%2F(200000*60*60*24*365.25)) years required.  You might be able to lower that somewhat if you used a more efficient computer -- perhaps to 10<sup>69</sup> years.  That's still longer than the expected life of the universe.
 
-It's safe to say that we can all agree that this problem is very inefficient.  Yet the world record for the longest traveling salesman solution is a whopping 85,900 cities!  See the [here](http://en.wikipedia.org/wiki/Traveling_salesman_problem#Exact_algorithms) for details.
+It's safe to say that we can all agree that this problem is very inefficient.  Yet the world record for the longest traveling salesperson solution is a whopping 85,900 cities!  See the [here](http://en.wikipedia.org/wiki/Traveling_salesman_problem#Exact_algorithms) for details.
 
 Let's do a bit of math.  If we assume that a properly coded solution runs in &Theta;(*n*!) time (yours may be different, by the way, but probably not by much), then this size input set would take 85960! steps.  That's 9.61 * 10<sup>386,526</sup> (yes, there are more than 1/3 of a million digits in this number).  Let's assume we could get a fast program to compute 1 million possible paths per second.  With 60 seconds per minute, 60 minutes per hour, 24 hours per day, and 365.25 days per year, that will take 3.04 * 10<sup>386,516</sup> years (the exponent lowered by 10).  With a number this big, a faster computer will not make much of a difference.
 
@@ -293,7 +293,7 @@ The people who computed the 85,900 city traveling salesperson problem obviously 
 
 To accomplish this, they had to use a number of acceleration techniques.
 
-The second part of the post-lab is for you to research other acceleration techniques that can be used to speed up the traveling salesman problem.  You are welcome to view the Wikipedia page -- however, we also know what's on the Wikipedia page.  So just copying that information down will get you no credit -- you need to understand the acceleration techniques, and write them in your *OWN* words.  Basically, we want you to investigate and understand this, and not just paraphrase what Wikipedia says.  We are going to read the Wikipedia page (and other similar pages) before we grade the post-lab.
+The second part of the post-lab is for you to research other acceleration techniques that can be used to speed up the traveling salesperson problem.  You are welcome to view the Wikipedia page -- however, we also know what's on the Wikipedia page.  So just copying that information down will get you no credit -- you need to understand the acceleration techniques, and write them in your *OWN* words.  Basically, we want you to investigate and understand this, and not just paraphrase what Wikipedia says.  We are going to read the Wikipedia page (and other similar pages) before we grade the post-lab.
 
 Your report should include information on 3 such acceleration techniques (again, feel free to start with the 3 that Wikipedia mentions).  You should write sufficient text on each to explain how it would work, the running time, and an estimate of how much faster it would make your code.  You don't need to implement any of these techniques -- just understand (at the high level) how they work.
 

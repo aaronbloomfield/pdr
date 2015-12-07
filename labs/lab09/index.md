@@ -32,16 +32,16 @@ Lab Procedure
 
 ### In-lab ###
 
-1. Address at least one of the topics in the list of the in-lab section.  Be sure to address all the issues in each topic!  You will have to complete two (total) of these topics for the post-lab report.
-2. We are looking for a brief write-up indicating that you addressed at least one of the topics, and the results that you found.  You do not need to make it a full fledged report yet (that's the post-lab).
+1. Address one of the topics in the list of the in-lab section.  Be sure to address all the issues in that topic!  You will have to complete two (total) of these topics for the post-lab report.
+2. We are looking for a brief write-up indicating that you addressed one of the topics, and the results that you found.  You do not need to make it a full fledged report yet (that's the post-lab).
 3. Files to download: none (other than the results of your pre-lab)
 1. Files to submit: inlab9.pdf
 
 ### Post-lab ###
 
-1. Finish addressing two of the topics listed in the in-lab section.  We are looking for a quality write-up here, as detailed below.
+1. Finish addressing two of the topics listed in the in-lab section (the first topic is the one you started in the in-lab; the second one is new for the post-lab).  We are looking for a quality write-up here, as detailed below.
 2. While this seems like a long post-lab, these list items should have been worked on during the pre-lab and the in-lab, which makes the post-lab much shorter.
-3. Implement the linkedlist.c program from the [Tutorial 9\: C]
+3. Implement the linkedlist.c program from the [Tutorial 9\: C](../../tutorials/09-c/index.html) ([md](../../tutorials/09-c/index.md))
 4. Make sure your Makefile compiles your code!
 5. Files to download: none (other than the results of your pre-lab and in-lab)
 6. Files to submit: postlab9.pdf, linkedlist.c, Makefile
@@ -138,15 +138,17 @@ You should be able to explain and write recursive functions for the final exam, 
 
 The general activity of this in-lab will be to write small snippets of C++ code, compile them so that you can look at the generated assembly code, then make modifications and recompile as needed in order to deduce the representation of a number of C++ constructs, listed below.  Remember that we are compiling using g++ (`g++ -S -masm=intel -m32`), and not clang++.
 
-For the in-lab, you will need to work on at least one of the items in the list below -- note that this is a different list than the previous lab.  You will need to tackle two of the more complex items from the list.  Keep working on more items as time permits, as you will have time to finish addressing the problems in your final post-lab report.  You should be prepared to explain the appropriate items from the list to the TA.
+For the in-lab, you will need to work on one of the items in the list below -- note that this is a different list than the previous lab.  You will do a second topic for the post-lab.  You should be prepared to explain the appropriate items from the list to the TA.
 
 The deliverable for the in-lab is a PDF document named inlab9.pdf.  It must be in PDF format!  See [How to convert a file to PDF](../../docs/convert_to_pdf.html) page for details about creating a PDF file.
 
-In your report, you should explain something from at least one item in the list in the in-lab report.  Note that for the post-lab, you will have to have two of the items fully explained, but you need only get through one for the in-lab.  Your report would presumably include the code snippets (both C++ and assembly) that you generated during lab, images, screen shots, results, etc.
+In your report, you should explain something from one item in the list in the in-lab report.  Note that for the post-lab, you will have to have two of the items fully explained, but you need only get through one for the in-lab.  Your report would presumably include the code snippets (both C++ and assembly) that you generated during lab, images, screen shots, results, etc.
 
 Recall that using the `-S` flag with g++ will generate the assembly code.  You will also want to use the `-masm=intel` and `-m32` flags.
 
-### In-lab 9 list: (You must do the required and ONE optional) ###
+### Topic List
+
+For the in-lab, you have to address one topic; either the required one or an optional one.  For the post-lab, you will have to address two total topics: the one you addressed from the in-lab, and one additional one for the post-lab.  Note that everybody has to address the dynamic dispatch one, but it is your call whether you do that for the in-lab or the post-lab.
 
 ####Required####
 1. Dynamic dispatch: Describe how dynamic dispatch is implemented.  Note that dynamic dispatch is NOT the same thing as dynamic memory!  Show this using a simple class hierarchy that includes virtual functions.  Use more than one virtual function per class.
@@ -156,7 +158,7 @@ Recall that using the `-S` flag with g++ will generate the assembly code.  You w
 
 2. Optimized code: Compare code generated normally to optimized code.  To create optimized code, you will need to use the `-O2` compiler flag.  Can you make any guesses as to why the optimized code looks as it does?  What is being optimized?  Be sure to show your original sample code as well as the optimized version.  Try loops and function calls to see what "optimizing" does. Be aware that if instructions are "not necessary" to the final output of the program then they may be optimized away completely!  This does not lead to very interesting comparisons.  Describe at least four (non-trivial) differences you see between 'normal' code and optimized code.
 
-3. Templates:  What does the code look like for the instantiation of a simple templated class you wrote?  You may use Weiss templated code if you wish, but may need to simplify it to understand what is going on.  What if you instantiate the class for different data types, what code is generated then?  Is it the same or different?  If the same, why? If different, why?  Compare code for a user-defined templated class or function to a templated class from the STL (e.g. classes such as vectors or functions such as sort). 
+3. Templates:  What does the code look like for the instantiation of a simple templated class you wrote?  What if you instantiate the class for different data types, what code is generated then?  Is it the same or different?  If the same, why? If different, why?  Compare code for a user-defined templated class or function to a templated class from the STL (e.g. classes such as vectors or functions such as sort). 
 
 ------------------------------------------------------------
 
@@ -169,7 +171,7 @@ Read the [C tutorial](../../tutorials/09-c/index.html).  You will need to implem
 
 ### Report! ###
 
-Explore, investigate, and understand two of the four items from the in-lab list.  Be able to answer "how" and possibly "why" for each item.  Use test cases and the debugger as resources.  Additionally use resources other than yourself (e.g. books, Web, etc.). Be sure to credit these sources.  ***You must use (and cite!) additional resources for this!***
+Explore, investigate, and understand two of the four topics from the topic list shown in the in-lab section.  The topic addressed during the in-lab is one of these; for the post-lab, you have to address one other.  Be able to answer "how" and possibly "why" for each item.  Use test cases and the debugger as resources.  Additionally use resources other than yourself (e.g. books, Web, etc.). Be sure to credit these sources.  ***You must use (and cite!) additional resources for this!***
 
 Prepare a report that explains your findings.  Follow the guidelines in the Post-lab Report Guidelines section from the previous lab.  Address the following: How the compiler implements the construct at the machine and assembly levels.  What leads you to this conclusion?  You must show evidence of this behavior in the form of assembly code, C++, screenshots, memory dumps, manual quotations, output, etc.  Also include where you found the information that lead to your conclusion. (i.e. your sources).
 
