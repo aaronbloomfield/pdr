@@ -31,6 +31,7 @@ The parts of this course that are in this repo are:
 - [UNIX honor pledge][172], which needs to be signed by all the students in the course (it is created from a [.tex][114] file)
 - [Generic review session slide set][113], which is really just a blank set of slides
 - [Frivolous regrade policy][109] ([md][110]) for exams
+- [Course conclusion slide set][94]
 
 ------------------------------------------------------------
 
@@ -103,7 +104,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |40| Dec&nbsp;2  | Wednesday | | [11: Graphs][91], [12: Memory][92] | [11: Graphs][91], slides [41][11106] to [46][1110605] and [56][11108] to [70][1110814] (end); [12: Memory][92], slides [1][92] to [8][1120304] ([recording][248]) |
 |41| Dec&nbsp;4  | Friday    | | [12: Memory][92] | [12: Memory][92], slides [8][1120304] to [29][1120325] ([recording][249]) |
 |42| Dec&nbsp;7  | Monday    | [Lab 12: Objective C][12] ([md][32])| [12: Memory][92], [13: Esoteric PLs][93], [Course conclusion][94] | [12: Memory][92], slides [30][11204] to [48][1120418]; [13: Esoteric PLs][93], slides [1][93] to [54][1130512]; [Course conclusion][94], slides [1][94] to [12][12011] ([recording][251]) |
-|  | Dec&nbsp;9  | Wednesday | | Final exam review session | |
+|  | Dec&nbsp;9  | Wednesday | | Final exam review session | ([recording][252]) |
 |  | Dec&nbsp;11 | Friday    | Final exam from 9:00-noon in Gilmer 130| Final exam from 9:00-noon in Gilmer 130 | |
 
 On Wednesday, Ocrober 7th, Mark Floryan covered class, and the lecture was not recorded.  What is posted instead are the lectures from last semester (spring 2015) that covered the same material.  Because the two semesters were slightly out of sync with each other, the material was covered across two lectures: [05-trees-3-spring-2015](https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/05-trees-3-spring-2015/05-trees-3.htm), starting at 33:37, and [05-trees-4-spring-2015](https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/05-trees-4-spring-2015/05-trees-4.htm), ending at 30:57.  Because of a difference in the verions of the slide software, the slide numbers won't match up.
