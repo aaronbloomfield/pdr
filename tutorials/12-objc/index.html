@@ -37,14 +37,14 @@ int main (void) {
 <p>The tutorial for this week is the following two sections: <a href="http://en.wikibooks.org/wiki/Objective-C_Programming/syntax">Objective C Syntax</a> and <a href="http://en.wikibooks.org/wiki/Objective-C_Programming/in_depth">Objective C: In Depth</a>. While we won't expect you to be experts on Objective C after this lab, we will expect you to be familiar with the material at those two URLs. The first one is what is necessary to write the program for this tutorial; the second is good information to know (i.e. makes a great final exam question), but probably not necessary for the pre-lab program. Our solution code for this pre-lab did not use any of the material from the in-depth tutorial.</p>
 <p>If you are interested in the history of Objective C, and why it's used on the Apple platforms (including the iPhone and iPad), see the <a href="http://en.wikipedia.org/wiki/Objective_c#History">History section</a> of the <a href="http://en.wikipedia.org/wiki/Objective_c">Wikipedia article on Objective C</a> (this is not required reading).</p>
 <h3 id="differences-with-the-wikibooks-tutorials">Differences with the Wikibooks Tutorials</h3>
-<p>The tutorials on Wikibooks are sufficient for this tutorial. However, there are a few changes that <strong>MUST</strong> be made for your program to compile and run properly! There are four differences to keep in mind. The rest of the tutorials are valid, but the changes mentioned here will need to always differ from what the tutorial states.</p>
+<p>The tutorials on Wikibooks are sufficient for this tutorial. However, there are a few changes that <strong>MUST</strong> be made for your program to compile and run properly! There are five differences to keep in mind. The rest of the tutorials are valid, but the changes mentioned here will need to always differ from what the tutorial states.</p>
 <p><strong>Difference 1: the <code>#import</code> line</strong></p>
 <p>The <a href="http://en.wikibooks.org/wiki/Objective-C_Programming/syntax">Objective C Syntax</a> tutorial on Wikibooks has the following <code>#import</code> line (this is the first line of the Point.h file):</p>
 <pre><code>#import &lt;objc/Object.h&gt;</code></pre>
 <p>In our installations, both on the Linux VirtualBox image and on Mac OS X, we will replace that with the following:</p>
 <pre><code>#import &lt;Foundation/NSObject.h&gt;</code></pre>
 <p><strong>Difference 2: the super-class</strong></p>
-<p>We have included (well, imported) a different file, and thus can no longer subclass from <code>Object</code>. THus, we must change the super class name from <code>Object</code> to <code>NSObject</code>. This is line 3 of hte Point.h class in the <a href="http://en.wikibooks.org/wiki/Objective-C_Programming/syntax">Objective C Syntax</a> tutorial on Wikibooks.</p>
+<p>We have included (well, imported) a different file, and thus can no longer subclass from <code>Object</code>. Thus, we must change the super class name from <code>Object</code> to <code>NSObject</code>. This is line 3 of the Point.h class in the <a href="http://en.wikibooks.org/wiki/Objective-C_Programming/syntax">Objective C Syntax</a> tutorial on Wikibooks.</p>
 <p><strong>Difference 3: compilation command</strong></p>
 <p>As our programs are now more complicated than just a &quot;hello world&quot;, the compilation line is longer as well. The compilation command for Linux machines (such as the VirtualBox image) is:</p>
 <pre><code>clang -I /usr/include/GNUstep/ *.m -lobjc -lgnustep-base</code></pre>
@@ -52,6 +52,8 @@ int main (void) {
 <pre><code>clang *.m -lobjc</code></pre>
 <p><strong>Difference 4: other libraries to use</strong></p>
 <p>If you are compiling the Point class, described in the <a href="http://en.wikibooks.org/wiki/Objective-C_Programming/syntax">Objective C Syntax</a> tutorial on Wikibooks, the compiler will need to know what the <code>sqrt()</code> function is. Thus, you will have to link it to the math library: put <code>-lm</code> at the end of the compilation command, otherwise it will tell you that it cannot find the <code>sqrt()</code> implementation. This likely won't be necessary for the program you have to do below, but it will be necessary for the Point class program.</p>
+<p><strong>Difference 5: use <code>release</code> instead of <code>free</code></strong>*</p>
+<p>To deallocate an object, use release instead of free. In other words, <code>[temp free];</code> will <strong>not</strong> work (which is what the tutorial states), but <code>[temp release];</code> will work properly.</p>
 <h3 id="hack-some-objective-c-code">Hack some Objective C code</h3>
 <p>What tutorial would be complete without a data structure to implement?</p>
 <p>Your task is to implement a data structure in Objective C -- a <strong>very simple singly</strong> linked list for integers. The program is basically the same as that which was required in the <a href="../09-c/index.html">C tutorial</a>. The requirements for the program are:</p>
@@ -93,7 +95,7 @@ Enter value 4: 8
 <li>The <code>this</code> pointer in Objective C is called <code>self</code></li>
 <li>The <code>NULL</code> pointer in C++ is called <code>nil</code> in Objective C</li>
 <li>Be careful about naming your list class &quot;List&quot; if you are using Mac OS X, as it will conflict with the List class already declared in an existing library. Name it something else.</li>
-<li>An object is deleted by calling the <code>free</code> method, which is automatically inherited by all classes. To create a custom destructor, create another method (<code>freeCompletely</code>, or similar), and just call <code>self free</code> as the last command of that destructor. But you probably don't need a custom constructor for this program.</li>
+<li>An object is deleted by calling the <code>dealloc</code> method, which is automatically inherited by all classes. You should NOT call <code>dealloc</code> anywhere in your code -- <code>dealloc</code> is called by the Objective C runtime (in a similar way the destructor is called when an object goes out of scope in C++). To create a custom destructor, override the <code>dealloc</code> method, and just call <code>super dealloc</code> as the last command of that destructor. But you probably don't need a custom constructor for this program. To indicate to the runtime that you are no longer using the object, call <code>release</code> on that object (e.g., <code>[myObj release]</code>).</li>
 </ol>
 <h3 id="constructors">Constructors</h3>
 <p>Constructors are not explained very well in the tutorial, so we describe them a bit here.</p>

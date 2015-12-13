@@ -31,6 +31,7 @@ The parts of this course that are in this repo are:
 - [UNIX honor pledge][172], which needs to be signed by all the students in the course (it is created from a [.tex][114] file)
 - [Generic review session slide set][113], which is really just a blank set of slides
 - [Frivolous regrade policy][109] ([md][110]) for exams
+- [Course conclusion slide set][94]
 
 ------------------------------------------------------------
 
@@ -96,14 +97,14 @@ The links in the right-most column link directly to the lecture recording on Col
 |35| Nov&nbsp;16 | Monday    | [Lab 9: x86, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [10: Heaps and Huffman coding][90] | [10: Heaps and Huffman coding][90], slides [14][1100406] to [29][1100512] ([recording][241]) |
 |36| Nov&nbsp;18 | Wednesday | | [10: Heaps and Huffman coding][90], [11: Graphs][91] | [10: Heaps and Huffman coding][90], slides [29][1100512] to [46][1100705] ([recording][242]) |
 |37| Nov&nbsp;20 | Friday    | | [11: Graphs][91] | [10: Heaps and Huffman coding][90], slides [47][1100706] to [80][1100808] (end) ([recording][243]) |
-|38| Nov&nbsp;23 | Monday    | [Lab 10: Huffman coding][10] ([md][30]) / (no tutorial) | [11: Graphs][91] | |
+|38| Nov&nbsp;23 | Monday    | [Lab 10: Huffman coding][10] ([md][30]) / (no tutorial) | [11: Graphs][91] | [11: Graphs][91], slides [1][91] to [26][1110408] ([recording][244]) |
 |  | Nov&nbsp;25 | Wednesday | | no class (Thanksgiving break) | No lecture today (Thanksgiving break) |
 |  | Nov&nbsp;27 | Friday    | | no class (Thanksgiving break) | No lecture today (Thanksgiving break) |
-|39| Nov&nbsp;30 | Monday    | [Lab 11: Graphs][11] ([md][31]) / [Tutorial 11: doxygen][51] ([md][71]) | [11: Graphs][91] | [11: Graphs][91], slides [1][91] to [26][1110408] ([recording][244]) |
-|40| Dec&nbsp;2  | Wednesday | | [11: Graphs][91], [12: Memory][92] | [11: Graphs][91], slides [27][11105] to [40][1110513] and [47][11107] to [55][1110708] ([recording][245]) |
-|41| Dec&nbsp;4  | Friday    | | [12: Memory][92] | [11: Graphs][91], slides [41][11106] to [46][1110605] and [56][11108] to [70][1110814] (end); [12: Memory][92], slides [1][92] to [8][1120304] ([recording][248]) |
-|42| Dec&nbsp;7  | Monday    | [Lab 12: Objective C][12] ([md][32])| [12: Memory][92], [13: Esoteric PLs][93], [Course conclusion][94] | [12: Memory][92], slides [8][1120304] to [29][1120325] ([recording][249]) |
-|  | Dec&nbsp;9  | Wednesday | | Final exam review session | |
+|39| Nov&nbsp;30 | Monday    | [Lab 11: Graphs][11] ([md][31]) / [Tutorial 11: doxygen][51] ([md][71]) | [11: Graphs][91] | [11: Graphs][91], slides [27][11105] to [40][1110513] and [47][11107] to [55][1110708] ([recording][245]) |
+|40| Dec&nbsp;2  | Wednesday | | [11: Graphs][91], [12: Memory][92] | [11: Graphs][91], slides [41][11106] to [46][1110605] and [56][11108] to [70][1110814] (end); [12: Memory][92], slides [1][92] to [8][1120304] ([recording][248]) |
+|41| Dec&nbsp;4  | Friday    | | [12: Memory][92] | [12: Memory][92], slides [8][1120304] to [29][1120325] ([recording][249]) |
+|42| Dec&nbsp;7  | Monday    | [Lab 12: Objective C][12] ([md][32])| [12: Memory][92], [13: Esoteric PLs][93], [Course conclusion][94] | [12: Memory][92], slides [30][11204] to [48][1120418]; [13: Esoteric PLs][93], slides [1][93] to [54][1130512]; [Course conclusion][94], slides [1][94] to [12][12011] ([recording][251]) |
+|  | Dec&nbsp;9  | Wednesday | | Final exam review session | ([recording][252]) |
 |  | Dec&nbsp;11 | Friday    | Final exam from 9:00-noon in Gilmer 130| Final exam from 9:00-noon in Gilmer 130 | |
 
 On Wednesday, Ocrober 7th, Mark Floryan covered class, and the lecture was not recorded.  What is posted instead are the lectures from last semester (spring 2015) that covered the same material.  Because the two semesters were slightly out of sync with each other, the material was covered across two lectures: [05-trees-3-spring-2015](https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/05-trees-3-spring-2015/05-trees-3.htm), starting at 33:37, and [05-trees-4-spring-2015](https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/05-trees-4-spring-2015/05-trees-4.htm), ending at 30:57.  Because of a difference in the verions of the slide software, the slide numbers won't match up.
@@ -441,9 +442,11 @@ None yet!
 [1120308]: ../slides/12-memory.html#/3/8
 [1120311]: ../slides/12-memory.html#/3/11
 [1120325]: ../slides/12-memory.html#/3/25
+[11204]: ../slides/12-memory.html#/4
 [1120407]: ../slides/12-memory.html#/4/7
 [1120418]: ../slides/12-memory.html#/4/18
 [1130325]: ../slides/13-esoteric-pls.html#/3/25
 [1130512]: ../slides/13-esoteric-pls.html#/5/12
 [12009]: course-conclusion.html#/9
 [12010]: course-conclusion.html#/10
+[12011]: course-conclusion.html#/11
