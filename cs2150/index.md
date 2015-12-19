@@ -32,6 +32,7 @@ The parts of this course that are in this repo are:
 - [Generic review session slide set][113], which is really just a blank set of slides
 - [Frivolous regrade policy][109] ([md][110]) for exams
 - [Course conclusion slide set][94]
+- [Grading explanations][116] ([md][115])
 
 ------------------------------------------------------------
 
