@@ -274,11 +274,11 @@ None yet!
 [251]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/course-conclusion/course-conclusion.htm
 [252]: https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/final-review/final-review.htm
 
-[1000303]: ../cs2150/course-introduction.html#/3/3
-[10004]: ../cs2150/course-introduction.html#/4
-[1000402]: ../cs2150/course-introduction.html#/4/2
-[10005]: ../cs2150/course-introduction.html#/5
-[1000601]: ../cs2150/course-introduction.html#/6/1
+[1000303]: ../uva/course-introduction.html#/3/3
+[10004]: ../uva/course-introduction.html#/4
+[1000402]: ../uva/course-introduction.html#/4/2
+[10005]: ../uva/course-introduction.html#/5
+[1000601]: ../uva/course-introduction.html#/6/1
 [1010310]: ../slides/01-cpp.html#/3/10
 [1010311]: ../slides/01-cpp.html#/3/11
 [1010404]: ../slides/01-cpp.html#/4/4

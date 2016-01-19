@@ -6,5 +6,5 @@ markdown:
 
 clean:
 	/bin/rm -rf *~ */*~ */*/*~ */*/*/*~
-	/bin/rm -f cs2150/*.aux cs2150/*.log
+	/bin/rm -f uva/*.aux uva/*.log
 

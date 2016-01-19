@@ -81,7 +81,7 @@ sudo update-alternatives --set c++ /usr/bin/clang++
 - Added konsole, emacs, and google chrome icons to the launch bar
 - Browser customization
     - Set both Firefox and Chrome's home page to Collab
-    - Added the pdr/cs2150/index.html page as the second tab loaded up by both Firefox and Chrome
+    - Added the pdr/uva/index.html page as the second tab loaded up by both Firefox and Chrome
     - Chrome is set as the default browser
 - I loaded up emacs from the command line, and then told it to disable showing the startup messages (this could also be accomplished by following the guidelines [here](http://xenon.stanford.edu/~manku/dotemacs.html)).
 - Added a few aliases were added (the last 4 lines of .bashrc) to help prevent people from accidentally removing files (adding -i for rm, mv, and cp; and aliasing xemacs to emacs).  This was done both in /home/student/.bashrc and /etc/skel/.bashrc.

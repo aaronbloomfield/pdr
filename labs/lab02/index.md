@@ -61,7 +61,7 @@ Procedure
     3. ListItr.h and ListItr.cpp
     4. and the test harness, ListTest.cpp
 2. *Be sure you submit all 7 files!* If you don't, then your code will not compile properly, and you will lose points!
-3. It is due on the Friday of the week of the lab, at the time listed on the [Lab due dates page](../../cs2150/labduedates.html).  Be sure to include: your name, the date, and the name of the file in a banner comment at the beginning of each file you submit.
+3. It is due on the Friday of the week of the lab, at the time listed on the [Lab due dates page](../../uva/labduedates.html).  Be sure to include: your name, the date, and the name of the file in a banner comment at the beginning of each file you submit.
 4. Files to download: no additional files beyond the pre-lab and in-lab
 5. Files to submit: ListNode.h/cpp, ListItr.h/cpp, List.h/cpp, ListTest.cpp
 

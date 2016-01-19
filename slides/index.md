@@ -3,9 +3,9 @@ Program and Data Representation: Slides
 
 [Go up to the main README file](../README.html) ([md](../README.md))
 
-[Course Introduction](../cs2150/course-introduction.html#/) **(CS 2150 specific)**
+[Course Introduction](../uva/course-introduction.html#/) **(CS 2150 specific)**
 
-- Source code: [DataStructureComparison.java](../cs2150/code/introduction/DataStructureComparison.java.html) ([src](../cs2150/code/introduction/DataStructureComparison.java))
+- Source code: [DataStructureComparison.java](../uva/code/introduction/DataStructureComparison.java.html) ([src](../uva/code/introduction/DataStructureComparison.java))
 
 
 [Slide set 1: C++](01-cpp.html#/)
@@ -73,4 +73,4 @@ Program and Data Representation: Slides
 
 [Slide set 13: Esoteric Programming Languages](13-esoteric-pls.html#/)
 
-[Course Conclusion](../cs2150/course-conclusion.html#/) **(CS 2150 specific)**
+[Course Conclusion](../uva/course-conclusion.html#/) **(CS 2150 specific)**

@@ -9,7 +9,7 @@ This is laboratory is intended to get you up to speed quickly with both C++ and 
 
 ### Background ###
 
-Every week we will have a lab meeting.  Each lab will consist of three parts: a pre-lab (to be completed by Tuesday at the due time listed on the [lab due dates](../../cs2150/labduedates.html) page, an in-lab (activity to be done during lab), and a post-lab.  The pre-lab will typically also include a tutorial.  Parts of all three of these may be required to turned in.  The due dates are all listed on the [lab due dates](../../cs2150/labduedates.html) page. This will all be discussed in this lab.
+Every week we will have a lab meeting.  Each lab will consist of three parts: a pre-lab (to be completed by Tuesday at the due time listed on the [lab due dates](../../uva/labduedates.html) page, an in-lab (activity to be done during lab), and a post-lab.  The pre-lab will typically also include a tutorial.  Parts of all three of these may be required to turned in.  The due dates are all listed on the [lab due dates](../../uva/labduedates.html) page. This will all be discussed in this lab.
 
 ### Reading(s) ###
 
@@ -25,7 +25,7 @@ Procedure
 3. Write the xToN.cpp file, as described in the pre-lab section. Since you are unfamiliar with the submission system, you should read through the in-lab section of the document, which describes the submission process.  Submit the xToN.cpp file.
 4. Examine the Object life-cycle code ([lifecycle.cpp](lifecycle.cpp.html) ([src](lifecycle.cpp))).  You may not understand everything in this program by the beginning of lab, but you should by the end of next week.  We will be using this program during the in-lab activity.
 5. Read how to reboot into Linux for the in-lab.  Although the TAs will be able to help you, you should still have an idea how to do it.
-6. The due date for this lab is listed on the [lab due dates](../../cs2150/labduedates.html) page -- see the in-lab section for more details about submission deadlines.
+6. The due date for this lab is listed on the [lab due dates](../../uva/labduedates.html) page -- see the in-lab section for more details about submission deadlines.
 7. Files to download: [lifecycle.cpp](lifecycle.cpp.html) ([src](lifecycle.cpp))
 8. Files to submit: xToN.cpp
 
@@ -40,7 +40,7 @@ Procedure
 
 ### Post-lab ###
 1. See details in the postlab section, below
-2. For this lab you will be submitting your code electronically. Your submission is due on the Friday of the week of the lab; the exact due time is listed on the [lab due dates](../../cs2150/labduedates.html) page.  Be sure to include your name, email ID, the date, and the name of the file in a header comment at the beginning of each file you submit (including text files!).
+2. For this lab you will be submitting your code electronically. Your submission is due on the Friday of the week of the lab; the exact due time is listed on the [lab due dates](../../uva/labduedates.html) page.  Be sure to include your name, email ID, the date, and the name of the file in a header comment at the beginning of each file you submit (including text files!).
 3. Files to download: [list.h](list.h.html) ([src](list.h)), [list.cpp](list.cpp.html) ([src](list.cpp))
 4. Files to submit: postlab1.question.txt
 
@@ -169,7 +169,7 @@ All assignments will be submitted through our custom submission tool.  These can
 
 Each assignment has 3 dates: an open date (when you can start submitting the assignment), a due date (when it's due), and a close date (the last point that you can submit the assignment).  The dates are listed for the week of the lab (the lab week starts on a Sunday and ends on a Saturday).  In particular, the due date for the pre-labs, as well as the open date for the in-labs and post-labs is when the first lab section starts.  The close date for the post-labs is the start of Friday's lecture (the first lecture, if there are multiple lecture periods).
 
-The various dates: open dates, due dates, and close dates, are listed on the [lab due dates](../../cs2150/labduedates.html) page.
+The various dates: open dates, due dates, and close dates, are listed on the [lab due dates](../../uva/labduedates.html) page.
 
 Please note, however, that there are a number of rules that we will strictly follow:
 
@@ -205,7 +205,7 @@ Post-lab
 
 Complete the exercise below, and submit the text file described there to the submission system.
 
-For this lab you will be submitting your assignment electronically.  Your submission is on the Friday of the week of the lab; the exact time is listed on the [lab due dates](../../cs2150/labduedates.html) page.  Be sure to include your name, email ID, the date, and the name of the file in a banner comment at the beginning of each file you submit.
+For this lab you will be submitting your assignment electronically.  Your submission is on the Friday of the week of the lab; the exact time is listed on the [lab due dates](../../uva/labduedates.html) page.  Be sure to include your name, email ID, the date, and the name of the file in a banner comment at the beginning of each file you submit.
 
 ### Linked List Template code ###
 
