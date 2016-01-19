@@ -1,4 +1,4 @@
-Grading Explanations, Fall 2015
+Grading Explanations, Spring 2015
 ===============================
 
 [Go up to the CS 2150 page](index.html) ([md](index.md))

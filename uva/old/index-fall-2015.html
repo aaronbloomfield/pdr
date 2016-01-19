@@ -1,0 +1,474 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Program and Data Representation: CS 2150 Specific Content</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../../markdown.css" type="text/css" />
+</head>
+<body>
+<h1 id="program-and-data-representation-cs-2150-specific-content">Program and Data Representation: CS 2150 Specific Content</h1>
+<h2 id="fall-2015">Fall 2015</h2>
+<p><a href="../../README.html">Go up to the main README file</a> (<a href="../../README.md">md</a>)</p>
+<p>Much of the rest of this git repo is meant to be generic to anybody who has a class such as this one. But this page contains details specific to the CS 2150 version of the course at the University of Virginia.</p>
+<hr />
+<h2 id="links">Links</h2>
+<p>There are a number of links and other parts of this course that are <strong>NOT</strong> included in this repository. They are:</p>
+<ul>
+<li>The set of online tools, which can be accessed through Collab or <a href="https://libra.cs.virginia.edu/~pedagogy/">here</a>.
+<ul>
+<li>These tools are: <a href="https://libra.cs.virginia.edu/~pedagogy/support.php">support requests</a>, <a href="https://libra.cs.virginia.edu/~pedagogy/submit.php">lab submission</a>, <a href="https://libra.cs.virginia.edu/~pedagogy/regrades.php">regrades</a>, <a href="https://libra.cs.virginia.edu/~pedagogy/gradebook.php">gradebook</a>, <a href="https://libra.cs.virginia.edu/~pedagogy/labextension.php">lab extensions</a>, and the <a href="https://libra.cs.virginia.edu/~pedagogy/queue.php">office hours queue</a></li>
+</ul></li>
+<li>The announcements, which are posted to the CS 2150 twitter feed: <a href="http://twitter.com/UVaCS2150">@UVaCS2150</a></li>
+<li>The <a href="https://www.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&amp;amp;ctz=America/New_York">CS 2150 Google calendar</a></li>
+<li>Grading guidelines, which are available in the Collab wiki (<a href="https://collab.itc.virginia.edu/portal/site/415219f8-1a72-4ade-a753-b37ec6aecb61/page/cf081a8e-49ca-4fd5-8f6b-5399dafb7268">here</a> is the direct link, although Collab login is required)</li>
+<li>Email list archive, which is a Collab tool (<a href="https://collab.itc.virginia.edu/portal/site/415219f8-1a72-4ade-a753-b37ec6aecb61/page/5bb93f34-d7a2-4171-b177-e4a2608999c3">here</a> is the direct link, although Collab login is required)</li>
+<li><a href="https://piazza.com/">Piazza</a>; Collab can log you in directly; the Collab tool link is <a href="https://collab.itc.virginia.edu/portal/directtool/15f4bf06-5c89-49a4-a76c-db52df940b31/">here</a> (again, Collab login required)</li>
+</ul>
+<p>The parts of this course that are in this repo are:</p>
+<ul>
+<li><a href="daily-announcements-fall-2015.html#/">Daily announcements slide set</a></li>
+<li><a href="../course-introduction.html#/">Course introduction slide set</a></li>
+<li><a href="syllabus-fall-2015.html">Course syllabus</a> (<a href="syllabus-fall-2015.md">md</a>): the course syllabus</li>
+<li><a href="../labduedates.html">Lab due dates</a> (<a href="../labduedates.md">md</a>): When the various lab parts are due</li>
+<li><a href="unix-honor-pledge-f15.pdf">UNIX honor pledge</a>, which needs to be signed by all the students in the course (it is created from a <a href="../unix-honor-pledge.tex">.tex</a> file)</li>
+<li><a href="../exam-review.html#/">Generic review session slide set</a>, which is really just a blank set of slides</li>
+<li><a href="../frivolous-regrades.html">Frivolous regrade policy</a> (<a href="../frivolous-regrades.md">md</a>) for exams</li>
+<li><a href="../course-conclusion.html#/">Course conclusion slide set</a></li>
+<li><a href="grades-fall-2015.html">Grading explanations</a> (<a href="grades-fall-2015.md">md</a>)</li>
+</ul>
+<hr />
+<h2 id="labs-and-tutorials">Labs and Tutorials</h2>
+<p>This is a series of links to the labs and tutorials that are elsewhere in this repository. A bunch of notes:</p>
+<ul>
+<li>The lab parts are all due on specific times throughout the week, as detailed on the <a href="../labduedates.html">lab due dates</a> (<a href="../labduedates.md">md</a>) page
+<ul>
+<li>Each lab is for a given week, which (for sake of argument) we claim starts on a Monday</li>
+<li>Which lab is done on which week is listed below in the semester schedule</li>
+</ul></li>
+<li>The lab is released the week before, typically on a Wednesday or Thursday
+<ul>
+<li>While a version of the lab will be in this github repo for some time prior, there <strong>WILL</strong> be modifications to that lab up until the &quot;official&quot; release, which is when it is announced as released on the twitter feed: <a href="http://twitter.com/UVaCS2150">@UVaCS2150</a></li>
+</ul></li>
+<li>All the labs and tutorials can be found on the <a href="../../labs/index.html">labs page</a> (<a href="../../labs/index.md">md</a>) and the <a href="../../tutorials/index.html">tutorials page</a> (<a href="../../tutorials/index.md">md</a>).
+<ul>
+<li>In particular, these pages have additional details and links not described here</li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="semester-schedule">Semester Schedule</h2>
+<p>The links in the right-most column link directly to the lecture recording on Collab, and you have to be logged into Collab first before the link will work. Some plugins (such as NoScript) will block that link from working. Unless otherwise indicated, both lectures stopped at the same point.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Num</th>
+<th align="left">Date</th>
+<th align="left">Day of week</th>
+<th align="left">Lab &amp; Tutorial (on Tue)</th>
+<th align="left">Planned topic</th>
+<th align="left">Actual lecture progress (and recording)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1</td>
+<td align="left">Aug 26</td>
+<td align="left">Wednesday</td>
+<td align="left">no lab this week</td>
+<td align="left"><a href="../course-introduction.html#/">Course introduction</a></td>
+<td align="left"><a href="../course-introduction.html#/">Course introduction</a>, slides <a href="../course-introduction.html#/">1</a> to <a href="../../uva/course-introduction.html#/3/3">42</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/course-introduction-1/course-introduction-1.htm">recording</a>)</td>
+</tr>
+<tr class="even">
+<td align="left">2</td>
+<td align="left">Aug 28</td>
+<td align="left">Friday</td>
+<td align="left"></td>
+<td align="left"><a href="../course-introduction.html#/">Course introduction</a>, <a href="../../slides/01-cpp.html#/">01: C++</a></td>
+<td align="left"><a href="../course-introduction.html#/">Course introduction</a>, slides <a href="../../uva/course-introduction.html#/4">43</a> to <a href="../../uva/course-introduction.html#/6/1">58</a> (end); <a href="../../slides/01-cpp.html#/">01-cpp</a>, slides <a href="../../slides/01-cpp.html#/">1</a> to <a href="../../slides/01-cpp.html#/3/10">14</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/01-cpp-1/01-cpp-1.htm">recording</a>)</td>
+</tr>
+<tr class="odd">
+<td align="left">3</td>
+<td align="left">Aug 31</td>
+<td align="left">Monday</td>
+<td align="left"><a href="../../labs/lab01/index.html">Lab 1: Intro to C++</a> (<a href="../../labs/lab01/index.md">md</a>) / <a href="../../tutorials/01-intro-unix/index.html">Tutorial 1: Intro to UNIX</a> (<a href="../../tutorials/01-intro-unix/index.md">md</a>)</td>
+<td align="left"><a href="../../slides/01-cpp.html#/">01: C++</a></td>
+<td align="left"><a href="../../slides/01-cpp.html#/">01-cpp</a>, slides <a href="../../slides/01-cpp.html#/3/11">15</a> to <a href="../../slides/01-cpp.html#/6/8">42</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/01-cpp-2/01-cpp-2.htm">recording</a>)</td>
+</tr>
+<tr class="even">
+<td align="left">4</td>
+<td align="left">Sep 2</td>
+<td align="left">Wednesday</td>
+<td align="left"></td>
+<td align="left"><a href="../../slides/01-cpp.html#/">01: C++</a></td>
+<td align="left"><a href="../../slides/01-cpp.html#/">01-cpp</a>, slides <a href="../../slides/01-cpp.html#/7">43</a> to <a href="../../slides/01-cpp.html#/8/15">63</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/01-cpp-3/01-cpp-3.htm">recording</a>)</td>
+</tr>
+<tr class="odd">
+<td align="left">5</td>
+<td align="left">Sep 4</td>
+<td align="left">Friday</td>
+<td align="left"></td>
+<td align="left"><a href="../../slides/01-cpp.html#/">01: C++</a></td>
+<td align="left"><a href="../../slides/01-cpp.html#/">01-cpp</a>, slides <a href="../../slides/01-cpp.html#/8/16">64</a> to <a href="../../slides/01-cpp.html#/9/12">79</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/01-cpp-4/01-cpp-4.htm">recording</a>)</td>
+</tr>
+<tr class="even">
+<td align="left">6</td>
+<td align="left">Sep 7</td>
+<td align="left">Monday</td>
+<td align="left"><a href="../../labs/lab02/index.html">Lab 2: Linked lists</a> (<a href="../../labs/lab02/index.md">md</a>) / <a href="../../tutorials/02-lldb/index.html">Tutorial 2: LLDB</a> (<a href="../../tutorials/02-lldb/index.md">md</a>) <em>OR</em> <a href="../../tutorials/02-gdb/index.html">Tutorial 2: GDB</a> (<a href="../../tutorials/02-gdb/index.md">md</a>) (see <a href="../../labs/lab02/index.html">lab 2</a> for which one to pick)</td>
+<td align="left"><a href="../../slides/01-cpp.html#/">01: C++</a></td>
+<td align="left"><a href="../../slides/01-cpp.html#/">01-cpp</a>, slides <a href="../../slides/01-cpp.html#/9/13">80</a> to <a href="../../slides/01-cpp.html#/10">87</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/01-cpp-5/01-cpp-5.htm">recording</a>)</td>
+</tr>
+<tr class="odd">
+<td align="left">7</td>
+<td align="left">Sep 9</td>
+<td align="left">Wednesday</td>
+<td align="left"></td>
+<td align="left"><a href="../../slides/01-cpp.html#/">01: C++</a>, <a href="../../slides/02-lists.html#/">02: Lists</a></td>
+<td align="left"><a href="../../slides/01-cpp.html#/">01-cpp</a>, slides <a href="../../slides/01-cpp.html#/10">87</a> to <a href="../../slides/01-cpp.html#/12/13">121</a> (end) (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/01-cpp-6/01-cpp-6.htm">recording</a>)</td>
+</tr>
+<tr class="even">
+<td align="left">8</td>
+<td align="left">Sep 11</td>
+<td align="left">Friday</td>
+<td align="left"></td>
+<td align="left"><a href="../../slides/02-lists.html#/">02: Lists</a></td>
+<td align="left"><a href="../../slides/02-lists.html#/">02-lists</a>, slides <a href="../../slides/02-lists.html#/">1</a> to <a href="../../slides/02-lists.html#/5/7">27</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/02-lists-1/02-lists-1.htm">recording</a>)</td>
+</tr>
+<tr class="odd">
+<td align="left">9</td>
+<td align="left">Sep 14</td>
+<td align="left">Monday</td>
+<td align="left"><a href="../../labs/lab03/index.html">Lab 3: Stacks</a> (<a href="../../labs/lab03/index.md">md</a>) / <a href="../../tutorials/03-04-more-unix/index.html">Tutorial 3: More UNIX, part 1</a>, introduction and sections 1-4</td>
+<td align="left"><a href="../../slides/02-lists.html#/">02: Lists</a>, <a href="../../slides/03-numbers.html#/">03: Numbers</a></td>
+<td align="left"><a href="../../slides/02-lists.html#/">02-lists</a>, slides <a href="../../slides/02-lists.html#/5/8">28</a> to <a href="../../slides/02-lists.html#/8/3">56</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/02-lists-2/02-lists-2.htm">recording</a>)</td>
+</tr>
+<tr class="even">
+<td align="left">10</td>
+<td align="left">Sep 16</td>
+<td align="left">Wednesday</td>
+<td align="left"></td>
+<td align="left"><a href="../../slides/03-numbers.html#/">03: Numbers</a></td>
+<td align="left"><a href="../../slides/03-numbers.html#/">03: Numbers</a>, slides <a href="../../slides/03-numbers.html#/">1</a> to <a href="../../slides/03-numbers.html#/6/8">30</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/03-numbers-1/03-numbers-1.htm">recording</a>)</td>
+</tr>
+<tr class="odd">
+<td align="left">11</td>
+<td align="left">Sep 18</td>
+<td align="left">Friday</td>
+<td align="left"></td>
+<td align="left"><a href="../../slides/03-numbers.html#/">03: Numbers</a></td>
+<td align="left"><a href="../../slides/03-numbers.html#/">03: Numbers</a>, slides <a href="../../slides/03-numbers.html#/7">31</a> to <a href="../../slides/03-numbers.html#/8/9">49</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/03-numbers-2/03-numbers-2.htm">recording</a>)</td>
+</tr>
+<tr class="even">
+<td align="left">12</td>
+<td align="left">Sep 21</td>
+<td align="left">Monday</td>
+<td align="left"><a href="../../labs/lab04/index.html">Lab 4: Numbers</a> (<a href="../../labs/lab04/index.md">md</a>) / <a href="../../tutorials/03-04-more-unix/index.html">Tutorial 4: More UNIX, part 2</a>, sections 5-8</td>
+<td align="left"><a href="../../slides/03-numbers.html#/">03: Numbers</a></td>
+<td align="left"><a href="../../slides/03-numbers.html#/">03: Numbers</a>, slides <a href="../../slides/03-numbers.html#/8/10">50</a> to <a href="../../slides/03-numbers.html#/8/25">65</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/03-numbers-3/03-numbers-3.htm">recording</a>)</td>
+</tr>
+<tr class="odd">
+<td align="left">13</td>
+<td align="left">Sep 23</td>
+<td align="left">Wednesday</td>
+<td align="left"></td>
+<td align="left"><a href="../../slides/04-arrays-bigoh.html#/">04: Arrays &amp; big-Oh</a></td>
+<td align="left"><a href="../../slides/03-numbers.html#/">03: Numbers</a>, slides <a href="../../slides/03-numbers.html#/8/25">65</a> to <a href="../../slides/03-numbers.html#/8/33">73</a> (end); <a href="../../slides/04-arrays-bigoh.html#/">04: Arrays &amp; Big-Oh</a>, slides <a href="../../slides/04-arrays-bigoh.html#/">1</a> to <a href="../../slides/04-arrays-bigoh.html#/3/11">15</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/04-arrays-bigoh-1/04-arrays-bigoh-1.htm">recording</a>)</td>
+</tr>
+<tr class="even">
+<td align="left">14</td>
+<td align="left">Sep 25</td>
+<td align="left">Friday</td>
+<td align="left"></td>
+<td align="left"><a href="../../slides/04-arrays-bigoh.html#/">04: Arrays &amp; big-Oh</a></td>
+<td align="left"><a href="../../slides/04-arrays-bigoh.html#/">04: Arrays &amp; Big-Oh</a>, slides <a href="../../slides/04-arrays-bigoh.html#/4">16</a> to <a href="../../slides/04-arrays-bigoh.html#/4/9">25</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/04-arrays-bigoh-2/04-arrays-bigoh-2.htm">recording</a>)</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">Sep 27</td>
+<td align="left">Sunday</td>
+<td align="left"></td>
+<td align="left">Exam 1 review session</td>
+<td align="left">(<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/exam1-review/exam1-review.htm">recording</a>)</td>
+</tr>
+<tr class="even">
+<td align="left">15</td>
+<td align="left">Sep 28</td>
+<td align="left">Monday</td>
+<td align="left">Exam 1 instead during Tuesday's lab</td>
+<td align="left"><a href="../../slides/04-arrays-bigoh.html#/">04: Arrays &amp; big-Oh</a>, <a href="../../slides/05-trees.html#/">05: Trees</a></td>
+<td align="left"><a href="../../slides/04-arrays-bigoh.html#/">04: Arrays &amp; Big-Oh</a>, slides <a href="../../slides/04-arrays-bigoh.html#/4/10">26</a> to <a href="../../slides/04-arrays-bigoh.html#/5/7">58</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/04-arrays-bigoh-3/04-arrays-bigoh-3.htm">recording</a>)</td>
+</tr>
+<tr class="odd">
+<td align="left">16</td>
+<td align="left">Sep 30</td>
+<td align="left">Wednesday</td>
+<td align="left"></td>
+<td align="left"><a href="../../slides/05-trees.html#/">05: Trees</a></td>
+<td align="left"><a href="../../slides/05-trees.html#/">05: Trees</a>, slides <a href="../../slides/05-trees.html#/">1</a> to <a href="../../slides/05-trees.html#/4/10">30</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/05-trees-1/05-trees-1.htm">recording</a>)</td>
+</tr>
+<tr class="even">
+<td align="left">17</td>
+<td align="left">Oct 2</td>
+<td align="left">Friday</td>
+<td align="left"></td>
+<td align="left"><a href="../../slides/05-trees.html#/">05: Trees</a></td>
+<td align="left"><a href="../../slides/05-trees.html#/">05: Trees</a>, slides <a href="../../slides/05-trees.html#/4/10">30</a> to <a href="../../slides/05-trees.html#/6/9">64</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/05-trees-2/05-trees-2.htm">recording</a>)</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">Oct 5</td>
+<td align="left">Monday</td>
+<td align="left">no lab this week due to fall break</td>
+<td align="left">no class (fall break)</td>
+<td align="left">No lecture today (fall break)</td>
+</tr>
+<tr class="even">
+<td align="left">18</td>
+<td align="left">Oct 7</td>
+<td align="left">Wednesday</td>
+<td align="left"></td>
+<td align="left"><a href="../../slides/05-trees.html#/">05: Trees</a></td>
+<td align="left"><a href="../../slides/05-trees.html#/">05: Trees</a>, slides <a href="../../slides/05-trees.html#/6/10">65</a> to <a href="../../slides/05-trees.html#/6/30">85</a> (see below this table for details about the recording)</td>
+</tr>
+<tr class="odd">
+<td align="left">19</td>
+<td align="left">Oct 9</td>
+<td align="left">Friday</td>
+<td align="left"></td>
+<td align="left"><a href="../../slides/05-trees.html#/">05: Trees</a></td>
+<td align="left"><a href="../../slides/05-trees.html#/">05: Trees</a>, slides <a href="../../slides/05-trees.html#/7">86</a> to <a href="../../slides/05-trees.html#/8/1">99</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/05-trees-4/05-trees-4.htm">recording</a>)</td>
+</tr>
+<tr class="even">
+<td align="left">20</td>
+<td align="left">Oct 12</td>
+<td align="left">Monday</td>
+<td align="left"><a href="../../labs/lab05/index.html">Lab 5: Trees</a> (<a href="../../labs/lab05/index.md">md</a>) / <a href="../../tutorials/05-make/index.html">Tutorial 5: make</a> (<a href="../../tutorials/05-make/index.md">md</a>)</td>
+<td align="left"><a href="../../slides/06-hashes.html#/">06: Hashes</a></td>
+<td align="left"><a href="../../slides/05-trees.html#/">05: Trees</a>, slides <a href="../../slides/05-trees.html#/8/2">100</a> to <a href="../../slides/05-trees.html#/9/9">116</a> (end); <a href="../../slides/06-hashes.html#/">06: Hashes</a>, slides <a href="../../slides/06-hashes.html#/">1</a> to <a href="../../slides/06-hashes.html#/4/4">18</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/06-hashes-1/06-hashes-1.htm">recording</a>)</td>
+</tr>
+<tr class="odd">
+<td align="left">21</td>
+<td align="left">Oct 14</td>
+<td align="left">Wednesday</td>
+<td align="left"></td>
+<td align="left"><a href="../../slides/06-hashes.html#/">06: Hashes</a></td>
+<td align="left"><a href="../../slides/06-hashes.html#/">06: Hashes</a>, slides <a href="../../slides/06-hashes.html#/4/5">19</a> to <a href="../../slides/06-hashes.html#/5/7">36</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/06-hashes-2/06-hashes-2.htm">recording</a>)</td>
+</tr>
+<tr class="even">
+<td align="left">22</td>
+<td align="left">Oct 16</td>
+<td align="left">Friday</td>
+<td align="left"></td>
+<td align="left"><a href="../../slides/06-hashes.html#/">06: Hashes</a>, <a href="../../slides/07-ibcm.html#/">07: IBCM</a> (machine language)</td>
+<td align="left"><a href="../../slides/06-hashes.html#/">06: Hashes</a>, slides <a href="../../slides/06-hashes.html#/6">37</a> to <a href="../../slides/06-hashes.html#/6/11">48</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/06-hashes-3/06-hashes-3.htm">recording</a>)</td>
+</tr>
+<tr class="odd">
+<td align="left">23</td>
+<td align="left">Oct 19</td>
+<td align="left">Monday</td>
+<td align="left"><a href="../../labs/lab06/index.html">Lab 6: Hashes</a> (<a href="../../labs/lab06/index.md">md</a>) / Tutorial 6: Shell scripting, part 1 (part of <a href="http://en.wikibooks.org/wiki/Bash_Shell_Scripting">this link</a>; the specific sections are mentioned on the <a href="../../tutorials/index.html">tutorials page</a>)</td>
+<td align="left"><a href="../../slides/07-ibcm.html#/">07: IBCM</a> (machine language)</td>
+<td align="left"><a href="../../slides/06-hashes.html#/">06: Hashes</a>, slides <a href="../../slides/06-hashes.html#/7">49</a> to <a href="../../slides/06-hashes.html#/7/6">55</a> (end); <a href="../../slides/07-ibcm.html#/">07: IBCM</a>, slides <a href="../../slides/07-ibcm.html#/">1</a> to <a href="../../slides/07-ibcm.html#/4/7">18</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/07-ibcm-1/07-ibcm-1.htm">recording</a>)</td>
+</tr>
+<tr class="even">
+<td align="left">24</td>
+<td align="left">Oct 21</td>
+<td align="left">Wednesday</td>
+<td align="left"></td>
+<td align="left"><a href="../../slides/07-ibcm.html#/">07: IBCM</a> (machine language)</td>
+<td align="left"><a href="../../slides/07-ibcm.html#/">07: IBCM</a>, slides <a href="../../slides/07-ibcm.html#/4/4">15</a> to <a href="../../slides/07-ibcm.html#/5/3">30</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/07-ibcm-2/07-ibcm-2.htm">recording</a>)</td>
+</tr>
+<tr class="odd">
+<td align="left">25</td>
+<td align="left">Oct 23</td>
+<td align="left">Friday</td>
+<td align="left"></td>
+<td align="left"><a href="../../slides/07-ibcm.html#/">07: IBCM</a> (machine language)</td>
+<td align="left"><a href="../../slides/07-ibcm.html#/">07: IBCM</a>, slides <a href="../../slides/07-ibcm.html#/5/3">30</a> to <a href="../../slides/07-ibcm.html#/6/1">40</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/07-ibcm-3/07-ibcm-3.htm">recording</a>)</td>
+</tr>
+<tr class="even">
+<td align="left">26</td>
+<td align="left">Oct 26</td>
+<td align="left">Monday</td>
+<td align="left"><a href="../../labs/lab07/index.html">Lab 7: IBCM</a> (<a href="../../labs/lab07/index.md">md</a>) / Tutorial 7: Shell scripting, part 2 (remainder of <a href="http://en.wikibooks.org/wiki/Bash_Shell_Scripting">here</a>, as described on the <a href="../../tutorials/index.html">tutorials page</a>)</td>
+<td align="left"><a href="../../slides/08-x86.html#/">08: x86</a> (assembly language)</td>
+<td align="left"><a href="../../slides/07-ibcm.html#/">07: IBCM</a>, slides <a href="../../slides/07-ibcm.html#/6/1">40</a> to <a href="../../slides/07-ibcm.html#/6/9">48</a> (end); <a href="../../slides/08-x86.html#/">08: x86</a>, slides <a href="../../slides/08-x86.html#/">1</a> to <a href="../../slides/08-x86.html#/3/6">10</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/08-x86-1/08-x86-1.htm">recording</a>)</td>
+</tr>
+<tr class="odd">
+<td align="left">27</td>
+<td align="left">Oct 28</td>
+<td align="left">Wednesday</td>
+<td align="left"></td>
+<td align="left"><a href="../../slides/08-x86.html#/">08: x86</a> (assembly language)</td>
+<td align="left"><a href="../../slides/08-x86.html#/">08: x86</a>, slides <a href="../../slides/08-x86.html#/3/6">10</a> to <a href="../../slides/08-x86.html#/5/2">31</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/08-x86-2/08-x86-2.htm">recording</a>)</td>
+</tr>
+<tr class="even">
+<td align="left">28</td>
+<td align="left">Oct 30</td>
+<td align="left">Friday</td>
+<td align="left"></td>
+<td align="left"><a href="../../slides/08-x86.html#/">08: x86</a> (assembly language)</td>
+<td align="left"><a href="../../slides/08-x86.html#/">08: x86</a>, slides <a href="../../slides/08-x86.html#/5/2">31</a> to <a href="../../slides/08-x86.html#/6/9">51</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/08-x86-3/08-x86-3.htm">recording</a>)</td>
+</tr>
+<tr class="odd">
+<td align="left">29</td>
+<td align="left">Nov 2</td>
+<td align="left">Monday</td>
+<td align="left"><a href="../../labs/lab08/index.html">Lab 8: x86, part 1</a> (<a href="../../labs/lab08/index.md">md</a>) / Tutorial 8: nasm, which is two book chapters: <a href="../../book/x86-asm-chapter.pdf">1</a> and <a href="../../book/x86-ccc-chapter.pdf">2</a></td>
+<td align="left"><a href="../../slides/08-x86.html#/">08: x86</a> (assembly language)</td>
+<td align="left"><a href="../../slides/08-x86.html#/">08: x86</a>, slides <a href="../../slides/08-x86.html#/7">52</a> to <a href="../../slides/08-x86.html#/7/13">65</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/08-x86-4/08-x86-4.htm">recording</a>)</td>
+</tr>
+<tr class="even">
+<td align="left">30</td>
+<td align="left">Nov 4</td>
+<td align="left">Wednesday</td>
+<td align="left"></td>
+<td align="left"><a href="../../slides/08-x86.html#/">08: x86</a>, <a href="../../slides/09-advanced-cpp.html#/">09: Advanced C++</a></td>
+<td align="left"><a href="../../slides/08-x86.html#/">08: x86</a>, slides <a href="../../slides/08-x86.html#/8">66</a> to <a href="../../slides/08-x86.html#/9/14">86</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/08-x86-5/08-x86-5.htm">recording</a>)</td>
+</tr>
+<tr class="odd">
+<td align="left">31</td>
+<td align="left">Nov 6</td>
+<td align="left">Friday</td>
+<td align="left"></td>
+<td align="left"><a href="../../slides/09-advanced-cpp.html#/">09: Advanced C++</a></td>
+<td align="left"><a href="../../slides/08-x86.html#/">08: x86</a>, slides <a href="../../slides/08-x86.html#/9/15">87</a> to <a href="../../slides/08-x86.html#/9/34">106</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/08-x86-6/08-x86-6.htm">recording</a>)</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">Nov 8</td>
+<td align="left">Sunday</td>
+<td align="left"></td>
+<td align="left">Exam 2 review session</td>
+<td align="left">(<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/exam2-review/exam2-review.htm">recording</a>)</td>
+</tr>
+<tr class="odd">
+<td align="left">32</td>
+<td align="left">Nov 9</td>
+<td align="left">Monday</td>
+<td align="left">Exam 2 instead during Tuesday's lab</td>
+<td align="left"><a href="../../slides/09-advanced-cpp.html#/">09: Advanced C++</a></td>
+<td align="left"><a href="../../slides/09-advanced-cpp.html#/">09: Advanced C++</a>, slides <a href="../../slides/09-advanced-cpp.html#/5">25</a> to <a href="../../slides/09-advanced-cpp.html#/5/21">46</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/09-advanced-cpp-1/09-advanced-cpp-1.htm">recording</a>)</td>
+</tr>
+<tr class="even">
+<td align="left">33</td>
+<td align="left">Nov 11</td>
+<td align="left">Wednesday</td>
+<td align="left"></td>
+<td align="left"><a href="../../slides/09-advanced-cpp.html#/">09: Advanced C++</a>, <a href="../../slides/10-heaps-huffman.html#/">10: Heaps and Huffman coding</a></td>
+<td align="left"><a href="../../slides/09-advanced-cpp.html#/">09: Advanced C++</a>, slides <a href="../../slides/09-advanced-cpp.html#/6">47</a> to <a href="../../slides/09-advanced-cpp.html#/7/11">65</a> (end) (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/09-advanced-cpp-2/09-advanced-cpp-2.htm">recording</a>)</td>
+</tr>
+<tr class="odd">
+<td align="left">34</td>
+<td align="left">Nov 13</td>
+<td align="left">Friday</td>
+<td align="left"></td>
+<td align="left"><a href="../../slides/10-heaps-huffman.html#/">10: Heaps and Huffman coding</a></td>
+<td align="left"><a href="../../slides/10-heaps-huffman.html#/">10: Heaps and Huffman coding</a>, slides <a href="../../slides/10-heaps-huffman.html#/">1</a> to <a href="../../slides/10-heaps-huffman.html#/4/7">15</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/10-heaps-huffman-1/10-heaps-huffman-1.htm">recording</a>)</td>
+</tr>
+<tr class="even">
+<td align="left">35</td>
+<td align="left">Nov 16</td>
+<td align="left">Monday</td>
+<td align="left"><a href="../../labs/lab09/index.html">Lab 9: x86, part 2</a> (<a href="../../labs/lab09/index.md">md</a>) / <a href="../../tutorials/09-c/index.html">Tutorial 9: C</a> (<a href="../../tutorials/09-c/index.md">md</a>)</td>
+<td align="left"><a href="../../slides/10-heaps-huffman.html#/">10: Heaps and Huffman coding</a></td>
+<td align="left"><a href="../../slides/10-heaps-huffman.html#/">10: Heaps and Huffman coding</a>, slides <a href="../../slides/10-heaps-huffman.html#/4/6">14</a> to <a href="../../slides/10-heaps-huffman.html#/5/12">29</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/10-heaps-huffman-2/10-heaps-huffman-2.htm">recording</a>)</td>
+</tr>
+<tr class="odd">
+<td align="left">36</td>
+<td align="left">Nov 18</td>
+<td align="left">Wednesday</td>
+<td align="left"></td>
+<td align="left"><a href="../../slides/10-heaps-huffman.html#/">10: Heaps and Huffman coding</a>, <a href="../../slides/11-graphs.html#/">11: Graphs</a></td>
+<td align="left"><a href="../../slides/10-heaps-huffman.html#/">10: Heaps and Huffman coding</a>, slides <a href="../../slides/10-heaps-huffman.html#/5/12">29</a> to <a href="../../slides/10-heaps-huffman.html#/7/5">46</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/10-heaps-huffman-3/10-heaps-huffman-3.htm">recording</a>)</td>
+</tr>
+<tr class="even">
+<td align="left">37</td>
+<td align="left">Nov 20</td>
+<td align="left">Friday</td>
+<td align="left"></td>
+<td align="left"><a href="../../slides/11-graphs.html#/">11: Graphs</a></td>
+<td align="left"><a href="../../slides/10-heaps-huffman.html#/">10: Heaps and Huffman coding</a>, slides <a href="../../slides/10-heaps-huffman.html#/7/6">47</a> to <a href="../../slides/10-heaps-huffman.html#/8/8">80</a> (end) (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/10-heaps-huffman-4/10-heaps-huffman-4.htm">recording</a>)</td>
+</tr>
+<tr class="odd">
+<td align="left">38</td>
+<td align="left">Nov 23</td>
+<td align="left">Monday</td>
+<td align="left"><a href="../../labs/lab10/index.html">Lab 10: Huffman coding</a> (<a href="../../labs/lab10/index.md">md</a>) / (no tutorial)</td>
+<td align="left"><a href="../../slides/11-graphs.html#/">11: Graphs</a></td>
+<td align="left"><a href="../../slides/11-graphs.html#/">11: Graphs</a>, slides <a href="../../slides/11-graphs.html#/">1</a> to <a href="../../slides/11-graphs.html#/4/8">26</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/11-graphs-1/11-graphs-1.htm">recording</a>)</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">Nov 25</td>
+<td align="left">Wednesday</td>
+<td align="left"></td>
+<td align="left">no class (Thanksgiving break)</td>
+<td align="left">No lecture today (Thanksgiving break)</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">Nov 27</td>
+<td align="left">Friday</td>
+<td align="left"></td>
+<td align="left">no class (Thanksgiving break)</td>
+<td align="left">No lecture today (Thanksgiving break)</td>
+</tr>
+<tr class="even">
+<td align="left">39</td>
+<td align="left">Nov 30</td>
+<td align="left">Monday</td>
+<td align="left"><a href="../../labs/lab11/index.html">Lab 11: Graphs</a> (<a href="../../labs/lab11/index.md">md</a>) / <a href="../../tutorials/11-doxygen/index.html">Tutorial 11: doxygen</a> (<a href="../../tutorials/11-doxygen/index.md">md</a>)</td>
+<td align="left"><a href="../../slides/11-graphs.html#/">11: Graphs</a></td>
+<td align="left"><a href="../../slides/11-graphs.html#/">11: Graphs</a>, slides <a href="../../slides/11-graphs.html#/5">27</a> to <a href="../../slides/11-graphs.html#/5/13">40</a> and <a href="../../slides/11-graphs.html#/7">47</a> to <a href="../../slides/11-graphs.html#/7/8">55</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/11-graphs-2/11-graphs-2.htm">recording</a>)</td>
+</tr>
+<tr class="odd">
+<td align="left">40</td>
+<td align="left">Dec 2</td>
+<td align="left">Wednesday</td>
+<td align="left"></td>
+<td align="left"><a href="../../slides/11-graphs.html#/">11: Graphs</a>, <a href="../../slides/12-memory.html#/">12: Memory</a></td>
+<td align="left"><a href="../../slides/11-graphs.html#/">11: Graphs</a>, slides <a href="../../slides/11-graphs.html#/6">41</a> to <a href="../../slides/11-graphs.html#/6/5">46</a> and <a href="../../slides/11-graphs.html#/8">56</a> to <a href="../../slides/11-graphs.html#/8/14">70</a> (end); <a href="../../slides/12-memory.html#/">12: Memory</a>, slides <a href="../../slides/12-memory.html#/">1</a> to <a href="../../slides/12-memory.html#/3/4">8</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/12-memory-1/12-memory-1.htm">recording</a>)</td>
+</tr>
+<tr class="even">
+<td align="left">41</td>
+<td align="left">Dec 4</td>
+<td align="left">Friday</td>
+<td align="left"></td>
+<td align="left"><a href="../../slides/12-memory.html#/">12: Memory</a></td>
+<td align="left"><a href="../../slides/12-memory.html#/">12: Memory</a>, slides <a href="../../slides/12-memory.html#/3/4">8</a> to <a href="../../slides/12-memory.html#/3/25">29</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/12-memory-2/12-memory-2.htm">recording</a>)</td>
+</tr>
+<tr class="odd">
+<td align="left">42</td>
+<td align="left">Dec 7</td>
+<td align="left">Monday</td>
+<td align="left"><a href="../../labs/lab12/index.html">Lab 12: Objective C</a> (<a href="../../labs/lab12/index.md">md</a>)</td>
+<td align="left"><a href="../../slides/12-memory.html#/">12: Memory</a>, <a href="../../slides/13-esoteric-pls.html#/">13: Esoteric PLs</a>, <a href="../course-conclusion.html#/">Course conclusion</a></td>
+<td align="left"><a href="../../slides/12-memory.html#/">12: Memory</a>, slides <a href="../../slides/12-memory.html#/4">30</a> to <a href="../../slides/12-memory.html#/4/18">48</a>; <a href="../../slides/13-esoteric-pls.html#/">13: Esoteric PLs</a>, slides <a href="../../slides/13-esoteric-pls.html#/">1</a> to <a href="../../slides/13-esoteric-pls.html#/5/12">54</a>; <a href="../course-conclusion.html#/">Course conclusion</a>, slides <a href="../course-conclusion.html#/">1</a> to <a href="../course-conclusion.html#/11">12</a> (<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/course-conclusion/course-conclusion.htm">recording</a>)</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">Dec 9</td>
+<td align="left">Wednesday</td>
+<td align="left"></td>
+<td align="left">Final exam review session</td>
+<td align="left">(<a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/final-review/final-review.htm">recording</a>)</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">Dec 11</td>
+<td align="left">Friday</td>
+<td align="left">Final exam from 9:00-noon in Gilmer 130</td>
+<td align="left">Final exam from 9:00-noon in Gilmer 130</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<p>On Wednesday, Ocrober 7th, Mark Floryan covered class, and the lecture was not recorded. What is posted instead are the lectures from last semester (spring 2015) that covered the same material. Because the two semesters were slightly out of sync with each other, the material was covered across two lectures: <a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/05-trees-3-spring-2015/05-trees-3.htm">05-trees-3-spring-2015</a>, starting at 33:37, and <a href="https://collab.itc.virginia.edu/access/content/group/415219f8-1a72-4ade-a753-b37ec6aecb61/lectures/05-trees-4-spring-2015/05-trees-4.htm">05-trees-4-spring-2015</a>, ending at 30:57. Because of a difference in the verions of the slide software, the slide numbers won't match up.</p>
+<hr />
+<h2 id="grading-concerns">Grading Concerns</h2>
+<p>None yet!</p>
+</body>
+</html>
