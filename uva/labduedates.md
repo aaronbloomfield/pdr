@@ -15,4 +15,4 @@ Below are the dates when the various assignment *submissions* for the lab parts 
 |----------|-|--------------------|-|------------------------|-|----------------------------|
 | Pre-lab  | | Sunday at 12 noon  | | Tuesday at 9 am        | | Wednesday at 9 am          |
 | In-lab   | | Tuesday at 9 am    | | At the end of your lab | | Wednesday at 11:59:59 p.m. |
-| Post-lab | | Tuesday at 9 am    | | Friday at 11 am        | | Saturday at 11 am          |
+| Post-lab | | Tuesday at 9 am    | | Friday at 12 noon      | | Saturday at 12 noon        |

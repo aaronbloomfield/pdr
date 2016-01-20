@@ -12,7 +12,7 @@ Students *currently* in the course should view the [uva/index.html](uva/index.ht
 
 Students who were previously in the course may want to view the current version, or you can view the version from your semester.  All semester versions are tagged with an end-of-semester tag of the form "year-semester".  For example, the spring 2014 semester was tagged as `2014-spring`.  To obtain a specific tag, you can enter `git checkout tags/2014-spring` in an already cloned repository.
 
-The primary author is [Aaron Bloomfield](http://www.cs.virginia.edu/~asb) ([aaron@virginia.edu](<mailto:aaron@virginia.edu>), [\@bloomfieldaaron](http://twitter.com/bloomfieldaaron)).  The fall 2015 semester will be the 17th consecutive semester I have taught the course.
+The primary author is [Aaron Bloomfield](http://www.cs.virginia.edu/~asb) ([aaron@virginia.edu](<mailto:aaron@virginia.edu>), [\@bloomfieldaaron](http://twitter.com/bloomfieldaaron)).  The spring 2016 semester will be the 18th consecutive semester I have taught the course.
 
 
 <a name="contents"></a>Repository Contents
@@ -24,7 +24,7 @@ repository first**
 
 - [book](book/index.html) ([md](book/index.md)): the beginnings of a textbook to be used for this course.  It is written using LaTeX.
 - [docs](docs/index.html) ([md](docs/index.md)): a series of useful documents that are not labs or tutorials.
-- [cs2150](uva/index.html) ([md](uva/index.md)): the materials that are specific to CS 2150 as taught at the University of Virginia, such as daily announcements, due dates, etc.
+- [uva](uva/index.html) ([md](uva/index.md)): the materials that are specific to CS 2150 as taught at the University of Virginia, such as daily announcements, due dates, etc.
 - [exams](exams/index.html) ([md](exams/index.md)): past exams for the course; there are two midterms and a final for each semester.
 - [ibcm](ibcm/ibcm.html) ([md](ibcm/ibcm.md)): the files necessary for the IBCM module on machine language, which is taught about two thirds of the way into the course.
 - [labs](labs/index.html) ([md](labs/index.md)): the labs are the main assignments in the course, and each lab is split into pre-lab, in-lab, and post-lab parts.  There are 11 full labs, with a partial 12th lab that is an optional component of the course.  The labs are written using [markdown](http://daringfireball.net/projects/markdown/), and the rendered HTML version of each lab is also committed to this repository.
