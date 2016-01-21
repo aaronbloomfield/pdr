@@ -10,8 +10,8 @@ VirtualBox is a free program that allows you to run another operating system on 
 - A bit of terminology: the 'host' machine is the physical computer (laptop, desktop, etc.) that you are using.  The 'guest' machine is the virtual machine that is running in VirtualBox, and is often just called the 'guest operating system'.
     - You are welcome to try this on a netbook host machine, but the computing power of a netbook may not be enough
 - You will need to install the Virtual Box client.  It can be downloaded for free from [here](http://www.virtualbox.org/) and runs on most operating systems.
-    - For the fall 2015 semester, you **MUST USE VIRTUALBOX VERSION 4.3** -- version 5.0 and above does not work properly
-    - Under Linux, I installed the 'virtualbox-ose-qt' package (the name of yours might be different), but if you are running Linux already, you won't need to install a virtual machine running Linux...
+    - For the spring 2016 semester, the latest VirtualBox version (5.0) seems to work properly on the recent versions of Windows (i.e., Windows 10)
+	- Under Linux, I installed the 'virtualbox-ose-qt' package (the name of yours might be different), but if you are running Linux already, you won't need to install a virtual machine running Linux...
 - Download the provided VirtualBox image (from Collab, in the misc/ folder of the Resources tool).  You will need to unzip this file before using it.
     - This file is rather large (about 2 Gb), so you may want to try downloading it during off hours, such as late at night.  If you have problems downloading it, let us know.  If you do not have sufficient bandwidth to download it, please see us after lecture, and we will provide it on a different media for you.
 	- Unzip this file; it will take up about 6.4 Gb on your machine.  Once uncompressed, you can download the .zip file that you downloaded.
