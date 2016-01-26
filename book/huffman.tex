@@ -34,7 +34,10 @@ Let's start off this chapter with some math. (Don't worry, we'll get back to pro
 
 The image \where{dw-screencap} is one frame of a video (specifically, an episode of the British television programme \textit{Doctor Who}). You're interested in downloading this video, but your hard drive is filling up. How much space would you expect the video to take up?
 
-We can estimate by figuring out the information content of the video. Every frame is 1920 by 1080 pixels; each pixel is at least three bytes (eight bits of red, eight bits of blue, and eight bits of green.) For video to appear smooth to the human eye, it have a minimum framerate of about 30 frames per second (fps); however, some television is shot at 24 fps. The video is 2882 seconds long.
+We can estimate by figuring out the information content of the video. Every
+frame is 1920 by 1080 pixels; each pixel is at least three bytes (eight bits of
+red, eight bits of blue, and eight bits of green.) For video to appear smooth to
+the human eye, it must have a minimum framerate of about 30 frames per second (fps); however, some television is shot at 24 fps. The video is 2882 seconds long.
 
 %$$
 %& \frac{8 \text{ bits}}{1 \text{ byte}} \times 
@@ -48,9 +51,9 @@ We can estimate by figuring out the information content of the video. Every fram
 
 By this calculation, a 50-minute, high-definition, television episode should amount to 400 gigabytes of data. And yet, the actual file is only about 1.5 gigabytes. Where did all the information go?
 
-Well- no where. The above calculation is only relevant if every single bit would change the resulting message, \textit{and} if there are no patterns that can be expressed in a shorter way. Though one may not realize it just by watching, video does have patterns. Adjacent pixels (in space and time) tend towards groups of similarity, with lines (edges) of contrast and motion. Some very clever people have come up with ways to reduce the overall size, without actually losing information; the computer just has to do some work to 
+Well- nowhere. The above calculation is only relevant if every single bit would change the resulting message, \textit{and} if there are no patterns that can be expressed in a shorter way. Though one may not realize it just by watching, video does have patterns. Adjacent pixels (in space and time) tend towards groups of similarity, with lines (edges) of contrast and motion. Some very clever people have come up with ways to reduce the overall size, without actually losing information; the computer just has to do some work to do.
 
-Compression is a form of \textit{encoding}: a mapping from one representation of information to another representation. Different representations may take up more or less space, but may take less or more time to interpret. Take, for example, the Latin alphabet. Humans are very good at recognizing Latin characters (and, moreover, words) when depicted in graphical form. Computers, however, may have trouble recognizing these. On the other hand, a computer can easily deal with the ASCII encoding of a string, while (most) humans would have difficulty reading a book bit-by-bit. Note also that a (two-dimensional) graphic takes up more space than a (one-dimensional) ASCII encoding; this is why a scanned page of, say, a book page takes up more space than an original digital document.
+Compression is a form of \textit{encoding}: a mapping from one representation of information to another representation. Different representations may take up more or less space, but may take less or more time to interpret. Take, for example, the Latin alphabet. Humans are very good at recognizing Latin characters and words when depicted in graphical form. Computers, however, may have trouble recognizing these. On the other hand, a computer can easily deal with the ASCII encoding of a string, while most humans would have difficulty reading a book bit-by-bit. Note also that a two-dimensional graphic takes up more space than a one-dimensional ASCII encoding; this is why a scanned page of, say, a book takes up more space than an original digital document.
 
 % FIGURE: A CAPTCHA
 % FIGURE: ASCII ENCODING OF A CAPTCHA
@@ -58,19 +61,19 @@ Compression is a form of \textit{encoding}: a mapping from one representation of
 % FIGURE: Scan of a printout of this page.
 % FIGURE: Screen capture of this .TEX file.
 
-Compression embodies a longstanding tradeoff in computing, between space and time. For many problems, the computer can store a (small) set of inputs to a function, and re-compute the (large) set of outputs as needed; or, it can save the re-computation time by storing the outputs and referring to them as needed. Compression and decompression take time and energy, but they allow data to take up less space when not in use.
+Compression embodies a longstanding tradeoff in computing between space and time. For many problems, the computer can store a small set of inputs to a function, and re-compute the large set of outputs as needed. Alternatively, it can save the re-computation time by storing the outputs and referring to them as needed. Compression and decompression take time and energy, but they allow data to take up less space when not in use.
 
 \section{Text compression}
 
-Music, video, and image media have numerous attributes related to representation and perception that encourage specialized compression algorithms- so let's make it easy, and look at plain text.
+Music, video, and image media have numerous attributes related to representation and perception that encourage specialized compression algorithms- so let's make it easy and look at plain text.
 
 \begin{quotation}
-Let’s imagine a language which has only two valid sentences, and every tweet must be one of the two sentences. They are:
+Let's imagine a language which has only two valid sentences, and every tweet must be one of the two sentences. They are:
 
-{\em
-“There’s a horse in aisle five.”\\
-“My house is full of traps.”
-}
+\begin{enumerate}
+\item {\em“There’s a horse in aisle five.”}
+\item {\em“My house is full of traps.”}
+\end{enumerate}
 
 Twitter would look like this:
 
@@ -83,24 +86,24 @@ Twitter would look like this:
 
 %\image{xkcd-what-if-34-twitter_screenshot.png}
 
-The messages are relatively long, but there’s not a lot of information in each one—all they tell you is whether the person decided to send the trap message or the horse message. It’s a 1 or a 0. Although there are a lot of letters, for a reader who knows the pattern the language carries only one bit of information per sentence.
+The messages are relatively long, but there’s not a lot of information in each one - all they tell you is whether the person decided to send the trap message or the horse message. It's a 1 or a 0. Although there are a lot of letters, for a reader who knows the pattern the language carries only one bit of information per sentence.
 
 This example hints at a very deep idea, which is that information is fundamentally tied to the recipient’s uncertainty about the message’s content and their ability to predict it in advance.
 
-Claude Shannon—who almost singlehandedly invented modern information theory—had a clever method for measuring the information content of a language. He showed groups of people samples of typical written English which were cut off at a random point, then asked them to guess which letter came next.
+Claude Shannon - who almost singlehandedly invented modern information theory — had a clever method for measuring the information content of a language. He showed groups of people samples of typical written English which were cut off at a random point, then asked them to guess which letter came next.
 
-Based on the rates of correct guesses—and rigorous mathematical analysis—Shannon determined that the information content of typical written English was around 1.0 to 1.2 bits per letter. This means that a good compression algorithm should be able to compress ASCII English text—which is eight bits per letter—to about 1/8th of its original size. Indeed, if you use a good file compressor on a .txt ebook, that’s about what you’ll find.
+Based on the rates of correct guesses - and rigorous mathematical analysis - Shannon determined that the information content of typical written English was around 1.0 to 1.2 bits per letter. This means that a good compression algorithm should be able to compress ASCII English text - which is eight bits per letter - to about 1/8th of its original size. Indeed, if you use a good file compressor on a .txt ebook, that’s about what you'll find.
 
 -- Randall Munroe, in 'what if?'\cite{xkcd-what-if-34}
 \end{quotation}
 
-Let's dive into this a little more. If all parties involved know that 0 means "There's a horse in aisle five." and that 1 menas "My house is full of traps.", those parties can communicate those two messages very efficiently.\footnote{Furthermore, the 1990 film \textit{Home Alone} could be compressed into Macaulay Culkin repeating "1".} There is some setup involved in ensuring all parties understand this coding; furthermore, the language of expression is limited to those two phrases, which are not very useful in most circumstances.
+Let's dive into this a little more. If all parties involved know that 0 means "There's a horse in aisle five." and that 1 means "My house is full of traps.", those parties can communicate those two messages very efficiently.\footnote{Furthermore, the 1990 film \textit{Home Alone} could be compressed into Macaulay Culkin repeating "1".} There is some setup involved in ensuring all parties understand this coding; furthermore, the language of expression is limited to those two phrases, which are not very useful in most circumstances.
 
 How do we expand the language of discourse- say, to all of English? Instead of mapping two numbers (0 and 1) to two phrases, let's try mapping numbers to words. We can use an old cryptographic technique called a \textit{dictionary cypher}: everyone involved in the communication has the same edition of the same book. A word is written as a page number, followed by a word number on that page: "43 24" refers to the 24th word on page 43.
 
-This dictionary cypher is an encoding; however, is it necessarily a compression? To determine this, we have to look at the information transmitted versus the information content of the (uncompressed) message. We must include the transmission of the dictionary (to ensure that both the sender and recevier has a copy), as well as the individual message.
+This dictionary cypher is an encoding; however, is it necessarily a compression? To determine this, we have to look at the information transmitted versus the information content of the uncompressed message. We must include the transmission of the dictionary (to ensure that both the sender and recevier has a copy), as well as the individual message.
 
-An efficient book to use would be the \textit{Scrabble Players Dictionary}, which includes "More than 100,000\ldots words" on 720 pages; since the book does not contain definitions few, if any, words are repeated. 
+An efficient book to use would be the \textit{Scrabble Players Dictionary}, which includes "More than 100,000\ldots words" on 720 pages. Since this book does not contain definitions few, if any, words are repeated. 
 % http://www.merriam-webster.com/cgi-bin/book.pl?scrabdic.htm&3
 720 pages can be indexed by 10 bits ($2^{10}=1024$), and each page can be indexed by an 8-bit number ($\frac{100000}{720}=139$, $2^7 < 139 < 2^8$). Thus, any word can be compressed into 18 bits using this dictionary cypher.
 
@@ -108,7 +111,7 @@ This is an improvement over ASCII's 7-bit-per-character coding only for words ov
 
 \section{The prefix tree}
 
-What we'd like, then, is an algorithm for coding and decoding that will respond to the particular message transmitted. We can do this by creating a per-message dictionary: we'll transmit only those entries which the current message uses.
+What we'd like to create is an algorithm for coding and decoding that will respond to the particular message transmitted. We can do this by creating a per-message dictionary: we'll transmit only those entries which the current message uses.
 
 The Huffman algorithm generates this dictionary using a data structure called a \textit{prefix tree}. A prefix tree is a binary tree with this additional property:
 \begin{quotation}
@@ -135,7 +138,7 @@ In a prefix tree, every path string is either the prefix to a leaf's path string
 
 A formal proof is beyond the scope of this chapter, but you should convince yourself it's correct.
 
-So: given a prefix tree whose leaves correspond to symbols, we can unambiguously translate a binary string of any length into a series of symbols. Our program reads one bit at a time from the input string, and moves an indicator left or right down the tree as directed. When it reaches a leaf node, it outputs that symbol, and resets the indicator to the head of the tree.
+So given a prefix tree whose leaves correspond to symbols, we can unambiguously translate a binary string of any length into a series of symbols. Our program reads one bit at a time from the input string and moves an indicator left or right down the tree as directed. When it reaches a leaf node, it outputs that symbol and resets the indicator to the head of the tree.
 
 The above paragraph is all that Huffman decoding requires. Let's run through an example.
 
@@ -153,6 +156,6 @@ We begin by selecting our set of symbols. In this example, we'll use ASCII chara
 
 In the introduction of this chapter, we discussed a compression that reduced the size without loss of information. In fact, many media encodings are \textit{lossy}: they do not perfectly preserve the input data. The MP3 music codec, H.264 video codec, and JPEG image format are all (at least optionally) lossy encodings. They exploit the fact that humans have limited perceptive abilities to remove differences that the consumer (audience) might not be able to percieve, in addition to using other compression techniques.
 
-The Huffman encoding we explore in this chapter relies on having access to the entire (unencoded) message before producing the encoded message. Not all encodings have this property: stream algorithms attempt to encode data in a single pass, and block encodings take subsections of the message and compress them in series or parallel. (Huffman decoding is a stream operation: once the Huffman tree is received, only a single pass over the encoded message is required.)
+The Huffman encoding we explore in this chapter relies on having access to the entire unencoded message before producing the encoded message. Not all encodings have this property: stream algorithms attempt to encode data in a single pass, and block encodings take subsections of the message and compress them in series or parallel. (Huffman decoding is a stream operation: once the Huffman tree is received, only a single pass over the encoded message is required.)
 
 Compression and cryptography are both coding problems, and share some similarities. While compression is focused on minimizing encoded message length, cryptography is focused on maximizing encoded message entropy.
