@@ -57,11 +57,13 @@ function load_ibcm_file () {
 
       //Check old file format
       while( !feof($fp) ) {
-	$line = fgets($fp);
+	$line = fgets($fp).trim();
 	if ( $line == "" )
 	  continue;
 	if ( substr($line,0,2) == "//" )
 	  continue;
+        if ( substr($line,0,1) == "#"  )
+          continue;
 	$mem[$n++] = substr($line,0,4);
       }
       $top = 100;
