@@ -45,7 +45,7 @@
 <center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
 <center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="01-cpp.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
 <center><small>Themes: [default](?#/cover), [sky](?theme=sky#/cover), [beige](?theme=beige#/cover), [simple](?theme=simple#/cover), [serif](?theme=serif#/cover), [night](?theme=night#/cover), [moon](?theme=moon#/cover), [solarized](?theme=solarized#/cover)</small></center>
-&nbsp;  
+&nbsp;
 &nbsp;
 ## C++
 	</script></section>
@@ -68,17 +68,17 @@
     </section>
 	<section data-markdown><script type="text/template">
 # Contents
-&nbsp;  
-[Introduction to C++](#/intro)  
-[Functions](#/functions)  
-[Classes](#/classes)  
-[Rational Example](#/rational)  
-[Pre-Processor](#/preproc)  
-[Pointers](#/pointers)  
-[Dynamic Memory Allocation](#/dynamic)  
-[References](#/references)  
-[Parameter Passing](#/parameters)  
-[Sample (advanced) code](#/advanced)  
+&nbsp;
+[Introduction to C++](#/intro)
+[Functions](#/functions)
+[Classes](#/classes)
+[Rational Example](#/rational)
+[Pre-Processor](#/preproc)
+[Pointers](#/pointers)
+[Dynamic Memory Allocation](#/dynamic)
+[References](#/references)
+[Parameter Passing](#/parameters)
+[Sample (advanced) code](#/advanced)
 	</script></section>
 
 	<section>
@@ -117,7 +117,7 @@ public class HelloWorld {
     }
 }
 ```
-&nbsp;  
+&nbsp;
 ```
 // C++
 #include <iostream>
@@ -186,7 +186,7 @@ int main() {
 #include &lt;iostream&gt;
 using namespace std;
 int main() {
-    cout &lt;&lt; "Hello World!" 
+    cout &lt;&lt; "Hello World!"
          &lt;&lt; endl;
     return 0;
 }
@@ -197,7 +197,7 @@ int main() {
 // C++
 #include &lt;iostream&gt;
 int main() {
-    std::cout &lt;&lt; "Hello World!" 
+    std::cout &lt;&lt; "Hello World!"
               &lt;&lt; std::endl;
     return 0;
 }
@@ -293,11 +293,11 @@ int main() {
 - Methods that are not a member of a class
         #include <iostream>
         using namespace std;
-        
+
         ret_type func_name(int a, int b, ...) {
             <function body>
         }
-        
+
         int main() {
             ...
             z = func_name(x, y, ...);
@@ -364,7 +364,7 @@ int main() {
 }
 
 // actual function implementation
-int max(int a, int b) { 
+int max(int a, int b) {
     return (a>b) ? a : b;
 }
 ```
@@ -382,7 +382,7 @@ int max(int a, int b) {
 ## Java: IntCell.java
 Source code: [IntCell.java](code/01-cpp/IntCell.java.html) ([src](code/01-cpp/IntCell.java))
 ```
-public class IntCell {  
+public class IntCell {
 
     // default constructor
     public IntCell() {
@@ -396,7 +396,7 @@ public class IntCell {
 
     // accessor member function
     public int getValue() {
-        return storedValue; 
+        return storedValue;
     }
 
 ```
@@ -408,7 +408,7 @@ Source code: [IntCell.java](code/01-cpp/IntCell.java.html) ([src](code/01-cpp/In
 ```
     // mutator member function
     public void setValue(int val) {
-        storedValue = val; 
+        storedValue = val;
     }
 
     // private data member
@@ -418,7 +418,7 @@ Source code: [IntCell.java](code/01-cpp/IntCell.java.html) ([src](code/01-cpp/In
     public static void main(String [] args) {
         IntCell m1 = new IntCell();
         IntCell m2 = new IntCell(37);
-        System.out.println(m1.getValue() + " " + 
+        System.out.println(m1.getValue() + " " +
                  m2.getValue());
     }
 }
@@ -439,17 +439,17 @@ Source code: [IntCell.java](code/01-cpp/IntCell.java.html) ([src](code/01-cpp/In
 Source code: [TestIntCell.cpp](code/01-cpp/TestIntCell.cpp.html) ([src](code/01-cpp/TestIntCell.cpp))
 ```
 #include <iostream>
-#include "IntCell.h" 
-using namespace std; 
+#include "IntCell.h"
+using namespace std;
 
-int main( ) { 
+int main( ) {
     IntCell m1; // calls the default constructor
     IntCell m2( 37 );
     cout << m1.getValue( ) << " "
          << m2.getValue( ) << endl;
     m1 = m2;
     m2.setValue( 40 );
-    cout << m1.getValue( ) << " " 
+    cout << m1.getValue( ) << " "
          << m2.getValue( ) << endl;
     return 0;
 }
@@ -483,20 +483,20 @@ class IntCell {
 ## C++ IntCell: IntCell.cpp
 Source code: [IntCell.cpp](code/01-cpp/IntCell.cpp.html) ([src](code/01-cpp/IntCell.cpp))
 ```
-#include "IntCell.h" 
+#include "IntCell.h"
 using namespace std; // (not really necessary, but...)
 
-IntCell::IntCell( int initialValue ) : 
-	      storedValue( initialValue ) { 
+IntCell::IntCell( int initialValue ) :
+	      storedValue( initialValue ) {
 }
 
-int IntCell::getValue( ) const { 
-    return storedValue; 
+int IntCell::getValue( ) const {
+    return storedValue;
 }
 
-void IntCell::setValue( int val ) { 
-    storedValue = val; 
-} 
+void IntCell::setValue( int val ) {
+    storedValue = val;
+}
 
 int IntCell::max(int m){
     return 1;
@@ -532,8 +532,8 @@ class IntCell {
 Source code: [TestIntCell.cpp](code/01-cpp/TestIntCell.cpp.html) ([src](code/01-cpp/TestIntCell.cpp))
 ```
 #include <iostream>
-#include "IntCell.h" 
-using namespace std; 
+#include "IntCell.h"
+using namespace std;
 
 int main( ) {
     IntCell m1; // calls the default constructor
@@ -542,7 +542,7 @@ int main( ) {
          << m2.getValue( ) << endl;
     m1 = m2;
     m2.setValue( 40 );
-    cout << m1.getValue( ) << " " 
+    cout << m1.getValue( ) << " "
          << m2.getValue( ) << endl;
     return 0;
 }
@@ -596,21 +596,21 @@ int main( ) {
 Source code: [Rational.h](code/01-cpp/Rational.h.html) ([src](code/01-cpp/Rational.h))
 ```
 #ifndef RATIONAL_H
-#define RATIONAL_H 
+#define RATIONAL_H
 
-class Rational { 
-  public: 
-    Rational(); // default constructor 
-    ~Rational();         // destructor 
-    Rational(int numerator, int denominator); 
-    void print() ; 
-    Rational times(Rational b); 
-    Rational plus(Rational b); 
+class Rational {
+  public:
+    Rational(); // default constructor
+    ~Rational();         // destructor
+    Rational(int numerator, int denominator);
+    void print() ;
+    Rational times(Rational b);
+    Rational plus(Rational b);
     Rational reciprocal();
-    Rational divides(Rational b); 
-  private: 
+    Rational divides(Rational b);
+  private:
     int num, den; // the numerator and denominator
-    int gcd(int m, int n); 
+    int gcd(int m, int n);
 };
 
 #endif
@@ -621,17 +621,17 @@ class Rational {
 ## Rational.cpp, 1 of 2
 Source code: [Rational.cpp](code/01-cpp/Rational.cpp.html) ([src](code/01-cpp/Rational.cpp))
 ```
-#include "Rational.h" 
-#include <iostream> 
-using namespace std; 
+#include "Rational.h"
+#include <iostream>
+using namespace std;
 
 // default constructor: initialize to 0/1
-Rational::Rational() : num(0), den(1) { } 
+Rational::Rational() : num(0), den(1) { }
 
-void Rational::print() { 
+void Rational::print() {
     if (den == 1)
         cout << num << "" << endl;
-    else 
+    else
         cout << num << "/" << den << endl;
 }
 ```
@@ -641,16 +641,16 @@ void Rational::print() {
 ## Rational.cpp, 2 of 2
 Source code: [Rational.cpp](code/01-cpp/Rational.cpp.html) ([src](code/01-cpp/Rational.cpp))
 ```
-Rational Rational::times(Rational b) { 
-    return Rational(num * b.num, den * b.den); 
+Rational Rational::times(Rational b) {
+    return Rational(num * b.num, den * b.den);
 }
 
-Rational::Rational(int numerator, int denominator) { 
+Rational::Rational(int numerator, int denominator) {
     if (denominator == 0)
-       cout << "Denominator is zero" << endl; 
+       cout << "Denominator is zero" << endl;
     int g = gcd(numerator, denominator);
-    num = numerator / g; 
-    den = denominator / g; 
+    num = numerator / g;
+    den = denominator / g;
 }
 ```
 </script></section>
@@ -662,15 +662,15 @@ Source code: [TestRational.cpp](code/01-cpp/TestRational.cpp.html) ([src](code/0
 #include <iostream>
 using namespace std;
 
-#include "Rational.h" 
+#include "Rational.h"
 
-int main() { 
-    Rational x, y, z; 
-    // 1/2 + 1/3 = 5/6 
-    x = Rational(1, 2); 
-    y = Rational(1, 3); 
-    z = x.plus(y); 
-    z.print(); 
+int main() {
+    Rational x, y, z;
+    // 1/2 + 1/3 = 5/6
+    x = Rational(1, 2);
+    y = Rational(1, 3);
+    z = x.plus(y);
+    z.print();
 
     // ... other code very much like above
 }
@@ -803,7 +803,7 @@ bool even (int x);
 </script></section>
 
 <section data-markdown><script type="text/template">
-## C++ Syntax: * 
+## C++ Syntax: *
 - Asterisk: *
   - In a definition
     - defines pointer type
@@ -885,7 +885,7 @@ Source code: [pointers.cpp](code/01-cpp/pointers.cpp.html) ([src](code/01-cpp/po
 <section data-markdown><script type="text/template">
 ## x_pointer = &y
 Source code: [pointers.cpp](code/01-cpp/pointers.cpp.html) ([src](code/01-cpp/pointers.cpp))
-  
+
 <p>&nbsp;</p>
 <table class="transparent"><tr><td>
 <table class="transparent">
@@ -913,7 +913,7 @@ x_pointer = &y;
 <section data-markdown><script type="text/template">
 ## *x_pointer = 3
 Source code: [pointers.cpp](code/01-cpp/pointers.cpp.html) ([src](code/01-cpp/pointers.cpp))
-  
+
 <p>&nbsp;</p>
 <table class="transparent"><tr><td>
 <table class="transparent">
@@ -939,7 +939,7 @@ Source code: [pointers.cpp](code/01-cpp/pointers.cpp.html) ([src](code/01-cpp/po
 
 <section data-markdown><script type="text/template">
 ## Binky's Pointer Fun
-  
+
 <iframe width="720" height="540" src="http://www.youtube.com/embed/UvoHwFvAvQE" frameborder="0" allowfullscreen></iframe>
 
 If that doesn't work, try the [direct Youtube link](http://www.youtube.com/watch?v=UvoHwFvAvQE) (Firefox with Flash enabled doesn't work, in particular)
@@ -964,7 +964,7 @@ int * p;
 <ul><li>p does not have a valid memory address!</li>
 <li>A common initializer value used by programmers is NULL
 <pre><code data-trim>
-int *p=NULL; // better code, then add code to check 
+int *p=NULL; // better code, then add code to check
              // for NULL value
 </code></pre>
 </li>
@@ -991,10 +991,10 @@ Source code: [swap.cpp](code/01-cpp/swap.cpp.html) ([src](code/01-cpp/swap.cpp))
 int main() {
     int a=0;
     int b=3;
-    cout << "Before swap(): a: " << a << "b: " 
+    cout << "Before swap(): a: " << a << "b: "
          << b << endl;
     swap(&b,&a);
-    cout << "After swap(): a: " << a << "b: " 
+    cout << "After swap(): a: " << a << "b: "
          << b << endl;
     return 0;
 }
@@ -1014,7 +1014,7 @@ int main() {
 - Amount of space (memory) already known
       // declare array of 10 elements
       int someArray[10];
-      
+
       // pull a value out of the array
       int value1_address = someArray[3];
 </script></section>
@@ -1038,7 +1038,7 @@ int main() {
     cout << "Please enter an integer value: " ;
     cin >> n;
 
-    // use the user's input to create an array of int 
+    // use the user's input to create an array of int
     // using new
     int * ages = new int [n];
 ```
@@ -1068,7 +1068,7 @@ Source code: [dynamic_allocation.cpp](code/01-cpp/dynamic_allocation.cpp.html) (
 
 <section data-markdown><script type="text/template">
 ## Output
-  
+
 ![Dynamic allocation execution](images/01-cpp/dynamic-allocation-execution.png)
 </script></section>
 
@@ -1093,7 +1093,7 @@ Source code: [dynamic_allocation.cpp](code/01-cpp/dynamic_allocation.cpp.html) (
 
 <section data-markdown><script type="text/template">
 ## C++ Syntax: delete
-- delete 
+- delete
   - `delete rPointer;`
   - `delete intPointer;`
 - delete []
@@ -1133,11 +1133,11 @@ r.num = 4;
 ```
 Rational *r = new Rational();
 (*r).num = 4;
-```    
+```
 - An equivalent shorthand for the previous line is below (the arrow means "follow the pointer"):
 ```
 r->num = 4;
-```    
+```
 - References (which we haven't seen yet) work like regular objects (i.e., the period syntax)
 </script></section>
 
@@ -1218,7 +1218,7 @@ Foo() {
 
 <section data-markdown><script type="text/template">
 ## C++ and memory allocation
-Source code: [memory.cpp](code/01-cpp/memory.cpp.html) ([src](code/01-cpp/memory.cpp))  
+Source code: [memory.cpp](code/01-cpp/memory.cpp.html) ([src](code/01-cpp/memory.cpp))
 ```
 #include <iostream>
 using namespace std;
@@ -1244,8 +1244,8 @@ int main() {
 
 <section data-markdown><script type="text/template">
 ## C++ and memory allocation
-Source code: [memory.cpp](code/01-cpp/memory.cpp.html) ([src](code/01-cpp/memory.cpp))  
-&nbsp;  
+Source code: [memory.cpp](code/01-cpp/memory.cpp.html) ([src](code/01-cpp/memory.cpp))
+&nbsp;
 Result:
 ```
     sizeof(int): 4
@@ -1254,7 +1254,7 @@ Result:
     2nd Foo: 0x6a0680
     Difference: 16
 ```
-  
+
 Why the extra space?  If only 8 bytes are needed for each `Foo`, then why is the second `Foo` 16 bytes beyond the first one?
 
 - Keep track of how much space was allocated
@@ -1322,7 +1322,7 @@ int main() {
     cout << "Before swap(): a: " << a << "b: "
          << b << endl;
     swap(b,a);
-    cout << "After swap(): a: " << a << "b: " 
+    cout << "After swap(): a: " << a << "b: "
          << b << endl;
     return 0;
 }
@@ -1399,8 +1399,8 @@ int main() {
 | Definition | "pointer to"  | "reference to" |
 | Statement  | "dereference" | "address of"   |
 
-&nbsp;  
-&nbsp;  
+&nbsp;
+&nbsp;
 
 Note that `o1->method()` is the same as `(*o1).method()`
 </script></section>
@@ -1438,7 +1438,7 @@ void swap (int &x, int &y);
 ## Call By Constant Reference
 - Parameters are constant (won't change) and are passed by reference
 ```
-bool compare(const Rational & left, 
+bool compare(const Rational & left,
                const Rational & right);
 ```
 - Use when there is a *class type* that *cannot be changed* by formal parameter
@@ -1491,13 +1491,13 @@ delete ptrToAnotherSquare;
 
 <section data-markdown><script type="text/template">
 ## Destructors
-- Called whenever an object 
+- Called whenever an object
   - goes out of scope, or
   - `delete` is called
 - Frees up any resources allocated during the use of an object
 - Example (only prototype shown): `~IntCell();`
 - The purpose is to free up any resources that the object reserved
-  - Tyipcally things allocated via `new`
+  - Typically things allocated via `new`
     - Example: the destructor in List would delete all the ListNodes
   - Can also free up: files, network sockets, etc.
 </script></section>
@@ -1566,7 +1566,7 @@ class test {
     test(const test& x);
     ~test();
     test& operator=(const test& other);
-    friend ostream& operator<<(ostream& out, 
+    friend ostream& operator<<(ostream& out,
                                const test& f);
 };
 ```
@@ -1578,14 +1578,14 @@ Source code: [cpptest.cpp](code/01-cpp/cpptest.cpp.html) ([src](code/01-cpp/cppt
 ```
 int test::idcount = 0;
 
-test::test() : id (idcount++), value(0) { 
+test::test() : id (idcount++), value(0) {
     cout << "calling test(); object created is " << *this
-         << "; address is " << this << endl; 
+         << "; address is " << this << endl;
 }
 
-test::test(int v) : id (idcount++), value(v) { 
-    cout << "calling test(" << v 
-         << "); object created is " << *this 
+test::test(int v) : id (idcount++), value(v) {
+    cout << "calling test(" << v
+         << "); object created is " << *this
          << "; address is " << this << endl;
 }
 
@@ -1600,13 +1600,13 @@ test::~test() {
 Source code: [cpptest.cpp](code/01-cpp/cpptest.cpp.html) ([src](code/01-cpp/cpptest.cpp))
 ```
 test::test(const test& x) : id(x.id), value(x.value) {
-    cout << "calling test(&test) on " << *this 
+    cout << "calling test(&test) on " << *this
          << "; address is " << this << endl;
 }
 
 test& test::operator=(const test& other) {
     cout << "calling operator=(" << other << ")" << endl;
-    test *tmp = new test(other);  
+    test *tmp = new test(other);
     return *tmp;
 }
 
@@ -1631,8 +1631,8 @@ test bar(test param) {
 Source code: [cpptest.cpp](code/01-cpp/cpptest.cpp.html) ([src](code/01-cpp/cpptest.cpp))
 ```
 // this does NOT create a test object; instead, it creates
-// a function called a() that has no body (and thus C++ 
-// defaults it to return 1). Note that there is no output 
+// a function called a() that has no body (and thus C++
+// defaults it to return 1). Note that there is no output
 // statement from the default constructor.
 
 test a();
@@ -1647,10 +1647,10 @@ cout << "attempted to create a: " << a << endl;
 ## main() code and output, 2/9
 Source code: [cpptest.cpp](code/01-cpp/cpptest.cpp.html) ([src](code/01-cpp/cpptest.cpp))
 ```
-// this does create a test object, calling the default 
-// constructor.  Since putting parenthesis in there for 
-// creating an object and calling the default constructor 
-// has another meaning in C++ (specifically, creating a 
+// this does create a test object, calling the default
+// constructor.  Since putting parenthesis in there for
+// creating an object and calling the default constructor
+// has another meaning in C++ (specifically, creating a
 // function),  we have to omit the parenthesis.
 
 cout << "---------------------------------------" << endl;
@@ -1659,7 +1659,7 @@ cout << "created aa: " << aa << endl;
 
 // output:
 // ---------------------------------------
-// calling test(); object created is test[id=0,v=0]; 
+// calling test(); object created is test[id=0,v=0];
                    address is 0xff852a50
 // created aa: test[id=0,v=0]
 ```
@@ -1669,7 +1669,7 @@ cout << "created aa: " << aa << endl;
 ## main() code and output, 3/9
 Source code: [cpptest.cpp](code/01-cpp/cpptest.cpp.html) ([src](code/01-cpp/cpptest.cpp))
 ```
-// this creates a test object, calling the specific 
+// this creates a test object, calling the specific
 // constructor that takes in a single int value
 
 cout << "---------------------------------------" << endl;
@@ -1678,7 +1678,7 @@ cout << "created b: " << b << endl;
 
 // output:
 // ---------------------------------------
-// calling test(1); object created is test[id=1,v=1]; 
+// calling test(1); object created is test[id=1,v=1];
 //                  address is 0xff852a48
 // created b: test[id=1,v=1]
 ```
@@ -1698,10 +1698,10 @@ cout << "created *d: " << *d << " at " << d << endl;
 
 // output:
 // ---------------------------------------
-// calling test(2); object created is test[id=2,v=2]; 
+// calling test(2); object created is test[id=2,v=2];
 //                  address is 0xa009008
 // created *c: test[id=2,v=2] at 0xa009008
-// calling test(); object created is test[id=3,v=0]; 
+// calling test(); object created is test[id=3,v=0];
 //                 address is 0xa009018
 // created *d: test[id=3,v=0] at 0xa009018
 ```
@@ -1711,10 +1711,10 @@ cout << "created *d: " << *d << " at " << d << endl;
 ## main() code and output, 5/9
 Source code: [cpptest.cpp](code/01-cpp/cpptest.cpp.html) ([src](code/01-cpp/cpptest.cpp))
 ```
-// subroutine invocation. The copy constructor is invoked 
-// when the actual parameter is copied into the formal 
+// subroutine invocation. The copy constructor is invoked
+// when the actual parameter is copied into the formal
 // parameter. The subroutine then creates test[id=4,v=10].
-// The parameter that was copied into the subroutine (via 
+// The parameter that was copied into the subroutine (via
 // the copy constructor) is then destructed upon exit.
 
 cout << "---------------------------------------" << endl;
@@ -1725,9 +1725,9 @@ cout << "finished invoking subroutine..." << endl;
 // output:
 // ---------------------------------------
 // about to invoke subroutine...
-// calling test(&test) on test[id=2,v=2]; 
+// calling test(&test) on test[id=2,v=2];
 //                   address is 0xff852a38
-// calling test(10); object created is test[id=4,v=10]; 
+// calling test(10); object created is test[id=4,v=10];
 //                   address is 0xff852a40
 // calling ~test() on test[id=2,v=2]
 // finished invoking subroutine...
@@ -1746,7 +1746,7 @@ test f = b;
 
 // output:
 // ---------------------------------------
-// calling test(&test) on test[id=1,v=1]; 
+// calling test(&test) on test[id=1,v=1];
 //                     address is 0xff852a30
 ```
 </script></section>
@@ -1755,7 +1755,7 @@ test f = b;
 ## main() code and output, 7/9
 Source code: [cpptest.cpp](code/01-cpp/cpptest.cpp.html) ([src](code/01-cpp/cpptest.cpp))
 ```
-// we are only deleting one of the dynamically created 
+// we are only deleting one of the dynamically created
 // test objects
 
 cout << "---------------------------------------" << endl;
@@ -1773,8 +1773,8 @@ delete c;
 ## main() code and output, 8/9
 Source code: [cpptest.cpp](code/01-cpp/cpptest.cpp.html) ([src](code/01-cpp/cpptest.cpp))
 ```
-// because this assignment does NOT happen in the same 
-// statement as the declaration, the operator=() 
+// because this assignment does NOT happen in the same
+// statement as the declaration, the operator=()
 // subroutine is called.
 
 cout << "---------------------------------------" << endl;
@@ -1785,7 +1785,7 @@ aa = b;
 // ---------------------------------------
 // assignment...
 // calling operator=(test[id=1,v=1])
-// calling test(&test) on test[id=1,v=1]; 
+// calling test(&test) on test[id=1,v=1];
 //                     address is 0xa009008
 ```
 </script></section>
@@ -1808,15 +1808,15 @@ cout << "about to leave main..." << endl;
 // calling ~test() on test[id=1,v=1]
 // calling ~test() on test[id=0,v=0]
 
-// Note that d was created via dynamic memory allocation, 
-// so it is not deallcoated by the program. The operating 
-// system will clean up the used memory, but it does not 
+// Note that d was created via dynamic memory allocation,
+// so it is not deallcoated by the program. The operating
+// system will clean up the used memory, but it does not
 // call the destructor on d.
 ```
  </script></section>
 
 	</section>
-	
+
       </div>
 
     </div>
