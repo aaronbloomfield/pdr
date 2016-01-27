@@ -29,4 +29,6 @@ int main() {
     // 0/6 = 0
     x = Rational(0, 6);
     x.print();
+
+    return 0;
 }

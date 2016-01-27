@@ -472,7 +472,7 @@ class IntCell {
 
   private:
     int storedValue;
-    int max(int m);
+    int max(int m) const;
 };
 
 #endif
@@ -498,8 +498,8 @@ void IntCell::setValue( int val ) {
     storedValue = val; 
 } 
 
-int IntCell::max(int m){
-    return 1;
+int IntCell::max(int m) const {
+    return (m>storedValue) ? m : storedValue;
 }
 ```
 </script></section>
@@ -520,7 +520,7 @@ class IntCell {
 
   private:
     int storedValue;
-    int max(int m);
+    int max(int m) const;
 };
 
 #endif
@@ -673,6 +673,8 @@ int main() {
     z.print(); 
 
     // ... other code very much like above
+
+    return 0;
 }
 ```
 </script></section>
