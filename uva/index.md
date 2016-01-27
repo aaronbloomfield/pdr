@@ -59,7 +59,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |1|Jan 20| Wednesday | no lab this week | [Course introduction][80] | Lecture 1: [Course introduction][80], slides [1][80] to [48][1000403] ([recording][201]); Lecture 2: [Course introduction][80], slides [1][80] to [31][1000228] |
 |2|Jan 22| Friday    | | [Course introduction][80], [01: C++][81] | Snow day! |
 |3|Jan 25| Monday    | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | [01: C++][81] | Lecture 1: [C++][81], slides [1][81] to [29][1010505] ([recording][202]); Lecture 2: [C++][81], slides [1][81] to [27][1010503] |
-|4|Jan 27| Wednesday | | [01: C++][81] | Lecture 1: [C++][81], slides [27][1010503] to [47][1010704] ([recording][203]); Lecture 2: [C++][81], slides ... to ... |
+|4|Jan 27| Wednesday | | [01: C++][81] | Lecture 1: [C++][81], slides [27][1010503] to [47][1010704] ([recording][203]); Lecture 2: [C++][81], slides [27][1010503] to [47][1010704] |
 |5|Jan 29| Friday    | | [01: C++][81] | |
 |6|Feb 1| Monday    | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: LLDB][42] ([md][62]) *OR* [Tutorial 2: GDB][52] ([md][72]) (see [lab 2][2] for which one to pick) | [01: C++][81] | |
 |7|Feb 3| Wednesday | | [01: C++][81], [02: Lists][82] | |
