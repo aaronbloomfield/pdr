@@ -46,3 +46,4 @@ Examining data
 - `undisplay (num)`: stop displaying the variable with numeric ID num
 - `print function_call(params)`: execute the function, and print the result
 - `set variable (var) = (value)`: set the variable (var) to the value (value) -- e.g. `set variable foo = 5`
+- `frame x`: moves to frame *x* in the backtrace (`bt`) of a crashed or paused program

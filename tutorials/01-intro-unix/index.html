@@ -67,7 +67,13 @@
 <p>We recommend you create a new directory in your desktop for the rest of this tutorial (<code>mkdir tutorial</code>). Either way, <code>cd</code> into that directory.</p>
 <p>Next, let's open up a new file. Do do that, go to File-&gt;Open (<code>C-x C-f</code>). Enter the name of the file (<code>helloworld.cpp</code>). Note that if the file does not exist, then it is created (thus, it is like File-&gt;New in other programs). If the file does exist, it is opened (like File-&gt;Open in other programs). Also note that in the lower part of the Emacs screen, it should now say &quot;C++ Abbrev&quot; -- this is the mode that Emacs is in. The &quot;C++ Abbrev&quot; means that it is in C++ mode, which is what we want.</p>
 <p>Enter the following program -- feel free to cut-and-paste (there is a 'Edit-&gt;Paste' menu entry). This is the same program found in the first set of slides. What all this C++ code means, we'll get to later -- this tutorial is just for entering, compiling, and running the programs.</p>
-<p><code>C++ // C++ #include &lt;iostream&gt; using namespace std; int main() {     cout &lt;&lt; &quot;Hello World!&quot; &lt;&lt; endl;     return 0; }</code></p>
+<pre><code>// C++
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    cout &lt;&lt; &quot;Hello World!&quot; &lt;&lt; endl;
+    return 0;
+}</code></pre>
 <p>Save the file (File-&gt;Save or <code>C-x C-s</code>). If you switch back to the shell, and do an <code>ls</code>, you should see that file listed.</p>
 <p>Next, we need to compile that file. To do so, switch to the shell, and enter the command: <code>clang++ helloworld.cpp</code>. It will compile, and if successful, the command prompt will be displayed after a brief pause. If there were errors, then the it will list them to the screen.</p>
 <p>After a successful compilation, do an <code>ls</code> -- you will see a second file, called <code>a.exe</code> (<code>a.out</code> if you are using Linux, OS X, or one of the lava machines). This is the compiled version of that program. To run it, enter <code>./a.exe</code> (or <code>./a.out</code>). Note the period and slash before the <code>a.exe</code> -- why this is there (and how to get rid of it) we will see later in the semester.</p>

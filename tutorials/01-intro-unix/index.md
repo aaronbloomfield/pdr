@@ -84,15 +84,13 @@ Next, let's open up a new file.  Do do that, go to File->Open (`C-x C-f`).  Ente
 
 Enter the following program -- feel free to cut-and-paste (there is a 'Edit->Paste' menu entry).  This is the same program found in the first set of slides.  What all this C++ code means, we'll get to later -- this tutorial is just for entering, compiling, and running the programs.
 
-```C++
-// C++
-#include <iostream>
-using namespace std;
-int main() {
-    cout << "Hello World!" << endl;
-    return 0;
-}
-```
+    // C++
+    #include <iostream>
+    using namespace std;
+    int main() {
+        cout << "Hello World!" << endl;
+        return 0;
+    }
 
 Save the file (File->Save or `C-x C-s`).  If you switch back to the shell, and do an `ls`, you should see that file listed.
 

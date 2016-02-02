@@ -44,7 +44,6 @@
 &nbsp;
 <center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
 <center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="01-cpp.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
-<center><small>Themes: [default](?#/cover), [sky](?theme=sky#/cover), [beige](?theme=beige#/cover), [simple](?theme=simple#/cover), [serif](?theme=serif#/cover), [night](?theme=night#/cover), [moon](?theme=moon#/cover), [solarized](?theme=solarized#/cover)</small></center>
 &nbsp;  
 &nbsp;
 ## C++
@@ -472,7 +471,7 @@ class IntCell {
 
   private:
     int storedValue;
-    int max(int m);
+    int max(int m) const;
 };
 
 #endif
@@ -498,8 +497,8 @@ void IntCell::setValue( int val ) {
     storedValue = val; 
 } 
 
-int IntCell::max(int m){
-    return 1;
+int IntCell::max(int m) const {
+    return (m>storedValue) ? m : storedValue;
 }
 ```
 </script></section>
@@ -520,7 +519,7 @@ class IntCell {
 
   private:
     int storedValue;
-    int max(int m);
+    int max(int m) const;
 };
 
 #endif
@@ -673,6 +672,8 @@ int main() {
     z.print(); 
 
     // ... other code very much like above
+
+    return 0;
 }
 ```
 </script></section>
@@ -1497,7 +1498,7 @@ delete ptrToAnotherSquare;
 - Frees up any resources allocated during the use of an object
 - Example (only prototype shown): `~IntCell();`
 - The purpose is to free up any resources that the object reserved
-  - Tyipcally things allocated via `new`
+  - Tyipcally things are allocated via `new`
     - Example: the destructor in List would delete all the ListNodes
   - Can also free up: files, network sockets, etc.
 </script></section>

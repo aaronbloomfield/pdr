@@ -108,6 +108,31 @@ int main() {
 <li>set the <code>p</code> pointer, which is currently <code>NULL</code>, to point to a valud value (the <code>int</code> variable <code>x</code>): <code>set variable p = &amp;x</code></li>
 <li>enter <code>c</code> to let it continue running, and it should finish without crashing this time</li>
 </ul>
+<h3 id="frames">Frames</h3>
+<p>When a program crashes, you can see the list of subroutine calls that led to that point via the 'bt' command. This prints a <em>stack trace</em>, similar to what Java prints when an exception is thrown (but not caught). Each evel in that stack trace is called a <em>frame</em>. Sometimes you may want to look at the variables and what-not a few frames up. To do so, you enter the <code>frame</code> comamnd. Consider the following program:</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+void recurse(int x) {
+  int *y = NULL;
+  if ( x == 0 )
+    cout &lt;&lt; *y &lt;&lt; endl;
+  recurse(x-1);
+}
+int main() {
+  recurse(5);
+  return 0;
+}</code></pre>
+<p>This program will crash on the 5th recursive call to <code>recurse()</code>. If this program is compiled (remember to compile it with <code>-g</code>) and run through the debugger, it will crash, and the resulting stack trace looks like the following:</p>
+<pre><code>(gdb) bt
+#0  0x000000000040084a in recurse (x=0) at frame.cpp:6
+#1  0x0000000000400872 in recurse (x=1) at frame.cpp:7
+#2  0x0000000000400872 in recurse (x=2) at frame.cpp:7
+#3  0x0000000000400872 in recurse (x=3) at frame.cpp:7
+#4  0x0000000000400872 in recurse (x=4) at frame.cpp:7
+#5  0x0000000000400872 in recurse (x=5) at frame.cpp:7
+#6  0x0000000000400882 in main () at frame.cpp:10
+(gdb) </code></pre>
+<p>The frames are listed on the left-hand side, and you can enter <code>frame 4</code> (or whatever value) to move to that frame. You can then examine the contents of the variables in that frame before moving on.</p>
 <h3 id="a-few-final-commands">A few final commands</h3>
 <p>If you find the problem while using the debugger, you may want to exit gdb (by entering <code>quit</code>), recompile your source code, and restart gdb. Be sure to use the <code>-g</code> option when recompiling!</p>
 <h3 id="final-remarks">Final Remarks</h3>

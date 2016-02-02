@@ -16,5 +16,5 @@ void IntCell::setValue( int val ) {
 }
 
 int IntCell::max(int m) {
-    return 1;
+    return (m>storedValue) ? m : storedValue;
 }
