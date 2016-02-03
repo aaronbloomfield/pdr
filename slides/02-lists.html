@@ -102,7 +102,7 @@
 ## Vector: a "growable" array
 - `#include <vector>`
 - Operations:
-  - Object & operator[](int idx): no bounds checking
+  - Object & operator\[\](int idx): no bounds checking
   - Object & at(int idx): does do bounds checking
   - int capacity() const
   - void reserve(int newCapacity)
@@ -131,12 +131,17 @@
 
 	<section data-markdown><script type="text/template">
 ## Vector iterator usage
+- Assume you have a vector defined as:
+```
+vector<int> v;
+```
+- Then you can iterate as follows:
 ```
 for ( vector<int>::iterator it = v.begin(); 
       it != v.end(); it++ )
     cout << *it << endl;
 ```
-It looks much like `int` code with the various operators overrides!
+- Note that it looks much like `int` code with the various operators overrides!
 	</script></section>
 
 	<section data-markdown><script type="text/template">
