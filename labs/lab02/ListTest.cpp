@@ -352,7 +352,7 @@ int   main ()
                 cout << "The list is (backward): ";
                 printList(*list,false);
                 list->makeEmpty();
-                cout << "The list was made empty (forward ): ";
+                cout << "The list was made empty (forward): ";
                 printList(*list,true);
                 cout << "The list was made empty (backward): ";
                 printList(*list,false);
