@@ -19,9 +19,9 @@ Some terminology:
 - "LLVM" is the compiler framework that includes many things,
   including a compiler (`clang++`) as well as the debugger `lldb`
 - `lldb` is the debugger that is often used elsewhere -- it is
-  analgous to `gdb` in how it works
+  analogous to `gdb` in how it works
 
-Note that the gdb debugger is desgined to work with a different
+Note that the gdb debugger is designed to work with a different
 compiler (g++).  However, the lldb debugger, which is designed to work
 with clang++, does not work on an Ubuntu VirtualBox installation (see
 [here](http://llvm.org/bugs/show_bug.cgi?id=20446) for the bug tracker
@@ -41,7 +41,7 @@ debugger.  The debugger allows us to control the execution of the
 program by pausing its execution and then resuming it.  While paused,
 we can find out where we are in the program, what values variables
 have, reset the values of variables, etc.  If a program crashes, the
-debugger can tell you exactly *where* the program crashsed (something
+debugger can tell you exactly *where* the program crashed (something
 that Java does naturally, but C++ does not).  The principles and
 commands described in this document are specific to the gdb debuggers
 for clang++ under UNIX, but every debugger has similar commands.
@@ -151,7 +151,7 @@ run 100 test1.dat
 ```
 
 Note, however, that the prog1 that we are editing here does not need
-any comand line parameters.
+any command line parameters.
 
 ### Where Am I? Where Did It Crash? ###
 
@@ -273,7 +273,7 @@ To remove a variable from the automatic display list, use the
 
 If you see that a variable has the wrong value, and you'd like to
 change that value in mid-stream before continuing execution, you can
-do this easily.  Enter `expr` followed by the type, then the variable,
+do this easily.  Enter `set` followed by the type, then the variable,
 an equals symbol (`=`), and the value or expression.  It's just like a
 C++ assignment statement but without the semi-colon at the end.  For
 example:
@@ -321,7 +321,7 @@ Run it in GDB with the program (`gdb prog`), and try the following:
 - type `run`, and confirm that you want to restart the program
 - at the breakpoint, try printing out the value in p (`p p`); note
   that it is `NULL`
-- set the `p` pointer, which is currently `NULL`, to point to a valud
+- set the `p` pointer, which is currently `NULL`, to point to a valid
   value (the `int` variable `x`): `set variable p = &x`
 - enter `c` to let it continue running, and it should finish without
   crashing this time
@@ -331,9 +331,9 @@ Run it in GDB with the program (`gdb prog`), and try the following:
 When a program crashes, you can see the list of subroutine calls that
 led to that point via the 'bt' command.  This prints a *stack trace*,
 similar to what Java prints when an exception is thrown (but not
-caught).  Each evel in that stack trace is called a *frame*.
+caught).  Each level in that stack trace is called a *frame*.
 Sometimes you may want to look at the variables and what-not a few
-frames up.  To do so, you enter the `frame` comamnd.  Consider the
+frames up.  To do so, you enter the `frame` command.  Consider the
 following program:
 
 ```
@@ -628,5 +628,5 @@ Part III: Summary of gdb commands
 These commands are listed on the
 [GDB command summary](../../docs/gdb_summary.html) page.
 
-You can see a difference between the comamnds of lldb and gdb on the
+You can see a difference between the commands of lldb and gdb on the
 [GDB vs LLDB commands](../../docs/gdb_vs_lldb.html) page.

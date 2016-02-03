@@ -17,7 +17,7 @@ Some terminology:
 - "LLVM" is the compiler framework that includes many things,
   including the `clang` compiler that we are using, as well as `lldb`
 - `gdb` is the debugger that was used in the past, and is often used
-  elsewhere -- it is analgous to `lldb` in how it works
+  elsewhere -- it is analogous to `lldb` in how it works
 
 ------------------------------------------------------------
 
@@ -33,7 +33,7 @@ debugger.  The debugger allows us to control the execution of the
 program by pausing its execution and then resuming it.  While paused,
 we can find out where we are in the program, what values variables
 have, reset the values of variables, etc.  If a program crashes, the
-debugger can tell you exactly *where* the program crashsed (something
+debugger can tell you exactly *where* the program crashed (something
 that Java does naturally, but C++ does not).  The principles and
 commands described in this document are specific to the lldb debuggers
 for clang++ under UNIX, but every debugger has similar commands.
@@ -149,7 +149,7 @@ run 100 test1.dat
 ```
 
 Note, however, that the prog1 that we are editing here does not need
-any comand line parameters.
+any command line parameters.
 
 ### Where Am I? Where Did It Crash? ###
 
@@ -320,7 +320,7 @@ Run it in LLDB with the program (`lldb prog`), and try the following:
 - type `run`, and confirm that you want to restart the program
 - at the breakpoint, try printing out the value in p (`p p`); note
   that it is `NULL`
-- set the `p` pointer, which is currently `NULL`, to point to a valud
+- set the `p` pointer, which is currently `NULL`, to point to a valid
   value (the `int` variable `x`): `expr p = &x`
 - enter `c` to let it continue running, and it should finish without
   crashing this time
@@ -330,9 +330,9 @@ Run it in LLDB with the program (`lldb prog`), and try the following:
 When a program crashes, you can see the list of subroutine calls that
 led to that point via the 'bt' command.  This prints a *stack trace*,
 similar to what Java prints when an exception is thrown (but not
-caught).  Each evel in that stack trace is called a *frame*.
+caught).  Each level in that stack trace is called a *frame*.
 Sometimes you may want to look at the variables and what-not a few
-frames up.  To do so, you enter the `frame` comamnd.  Consider the
+frames up.  To do so, you enter the `frame` command.  Consider the
 following program:
 
 ```
@@ -627,5 +627,5 @@ Part III: Summary of lldb commands
 These commands are listed on the
 [LLDB command summary](../../docs/lldb_summary.html) page.
 
-You can see a difference between the comamnds of lldb and gdb on the
+You can see a difference between the commands of lldb and gdb on the
 [GDB vs LLDB commands](../../docs/gdb_vs_lldb.html) page.

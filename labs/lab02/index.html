@@ -21,9 +21,9 @@
 <li><a href="../../tutorials/02-lldb/index.html">Tutorial 2: LLDB</a> <strong><em>OR</em></strong> <a href="../../tutorials/02-gdb/index.html">Tutorial 2: GDB</a>; see below as to which one to choose.</li>
 </ol>
 <h3 id="debugger-choice">Debugger Choice</h3>
-<p>In this lab, you will have to make a choice as to which debugger to use; this will affect which tutorial you carry out. You can choose the gdb debugger (you would then complete <a href="../../tutorials/02-gdb/index.html">Tutorial 2: GDB</a>) or the lldb debugger (you would then complete <a href="../../tutorials/02-lldb/index.html">Tutorial 2: LLDB</a>). The source code provided for each tutorial is exaclty the same, and the deliverable (i.e., what you turn in) is likewise the exact same.</p>
+<p>In this lab, you will have to make a choice as to which debugger to use; this will affect which tutorial you carry out. You can choose the gdb debugger (you would then complete <a href="../../tutorials/02-gdb/index.html">Tutorial 2: GDB</a>) or the lldb debugger (you would then complete <a href="../../tutorials/02-lldb/index.html">Tutorial 2: LLDB</a>). The source code provided for each tutorial is exactly the same, and the deliverable (i.e., what you turn in) is likewise the exact same.</p>
 <p>The lldb debugger is preferred, as it was built with the <code>clang++</code> compiler that we are using. <strong><em>HOWEVER</em></strong>, it does not work with the Ubuntu VirtualBox image. You can see <a href="http://llvm.org/bugs/show_bug.cgi?id=20446">here</a> for the bug tracker about this issue. So if you are using the provided Ubuntu VirtualBox image, then you <strong><em>MUST</em></strong> choose gdb.</p>
-<p>Utlimately, either one is fine to choose; they were designed to be very similar and have essentially identical functionality. If you have only one installed on your machine (which may be the case for those using Mac OS X), then choose that one. Both are installed on the lab computers. So it's not all that critical a decision. Just remember which one you choose, as you will end up using that debugger throughout this course. And if you ever have to swtich between them, you can use our <a href="../../docs/gdb_vs_lldb.html">GDB vs LLDB</a> page to see the (relatively few) commands that are different between the two.</p>
+<p>Ultimately, either one is fine to choose; they were designed to be very similar and have essentially identical functionality. If you have only one installed on your machine (which may be the case for those using Mac OS X), then choose that one. Both are installed on the lab computers. So it's not all that critical a decision. Just remember which one you choose, as you will end up using that debugger throughout this course. And if you ever have to switch between them, you can use our <a href="../../docs/gdb_vs_lldb.html">GDB vs LLDB</a> page to see the (relatively few) commands that are different between the two.</p>
 <p>So this is a low stress choice. Pick one and don't worry about making the &quot;right&quot; or &quot;wrong&quot; decision.</p>
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
@@ -39,7 +39,7 @@
 <li>Use this same general process for List and for ListItr. For List and ListItr, implement the member functions one at a time and test. To do this, you will still need to provide &quot;dummy&quot; versions of the other member functions in your .cpp file as placeholders so that the code will build. <strong>You will need to create a list of test cases to use to test your classes.</strong> The TAs may ask you to test more cases during lab.</li>
 </ol></li>
 <li>Read through the remainder of this document before coming to lab. Also read the tutorial on Unix debugging, as we will be using that during the in-lab.</li>
-<li>Make sure you submit all 7 files listed below! Your code will not compile unless all 7 files are submitted. Also, if your code does not compile, and you cannot figure out why, comment out the erroneous code until it does compile. And make sure you have the right filename capitalization!</li>
+<li>Make sure you submit all 7 files listed below! Your code will not compile unless all 7 files are submitted. Also, if your code does not compile, and you cannot figure out why, comment out the erroneous code until it does compile. And make sure you have the right file name capitalization!</li>
 <li>Files to download: <a href="List.h.html">List.h</a> (<a href="List.h">src</a>), <a href="ListNode.h.html">ListNode.h</a> (<a href="ListNode.h">src</a>), <a href="ListItr.h.html">ListItr.h</a> (<a href="ListItr.h">src</a>), <a href="ListTest.cpp.html">ListTest.cpp</a> (<a href="ListTest.cpp">src</a>)</li>
 <li>Files to submit: ListNode.h/cpp, ListItr.h/cpp, List.h/cpp, ListTest.cpp</li>
 </ol>
@@ -78,7 +78,7 @@
 <li>ListItr</li>
 </ol>
 <p>For simplicity we will just create a list that holds integers (your code could easily later be templated (i.e. made generic) to allow it to contain objects of other types). <strong><em>You must use the method names listed below in your code.</em></strong></p>
-<p>Below are the class definitions for each, which should be kept in header files with the respective filenames.</p>
+<p>Below are the class definitions for each, which should be kept in header files with the respective file names.</p>
 <h3 id="test-harness">Test Harness</h3>
 <p>We have provided a test harness for testing your whole implementation: <a href="ListTest.cpp.html">ListTest.cpp</a> (<a href="ListTest.cpp">src</a>) <strong><em>The classes you implement must work with this test harness.</em></strong></p>
 <h3 id="uml-diagram">UML Diagram</h3>
