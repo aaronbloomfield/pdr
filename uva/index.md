@@ -305,7 +305,7 @@ None yet!
 [1011106]: ../slides/01-cpp.html#/11/6
 [1011213]: ../slides/01-cpp.html#/12/13
 [1020304]: ../slides/02-lists.html#/3/4
-[1020305]: ../slides/02-lists.html#/3/4
+[1020305]: ../slides/02-lists.html#/3/5
 [10204]: ../slides/02-lists.html#/4
 [1020507]: ../slides/02-lists.html#/5/7
 [1020508]: ../slides/02-lists.html#/5/8

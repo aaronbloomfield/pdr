@@ -259,8 +259,12 @@ class ObjectCell {
   public:
     ObjectCell(const Object & initValue = Object()) 
 				: storedValue(initValue) {}
-    const Object & getValue() const {return storedValue;}
-    void setValue(const Object & val) {storedValue = val;}
+    const Object & getValue() const {
+               return storedValue;
+    }
+    void setValue(const Object & val) {
+                storedValue = val;
+    }
   private:
     Object storedValue;
 };
