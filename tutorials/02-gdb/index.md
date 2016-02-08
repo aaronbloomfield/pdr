@@ -453,7 +453,7 @@ If we knew where the problems were, we could skip over some lines, but
 since we don't, put a breakpoint on the first line of the code, the
 cout statement.  You probably want to set the breakpoint based on the
 line number in the code -- you can use the Emacs command `M-x
-line-number-mode` to have Emacs display line numbers.  Enter `break
+linum-mode` to have Emacs display line numbers.  Enter `break
 x`, where x is the line of the first cout statement in the main()
 method.  Now we need to run the program -- to do this, enter `run`.
 Gdb should start running, then should pause and display approximately

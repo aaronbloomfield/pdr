@@ -159,7 +159,7 @@ int main() {
 <li>a line number (e.g., <code>b 23</code>)</li>
 <li>either of the above preceded by a file name (e.g., <code>b debug.cpp:23</code> or <code>b debug.cpp:GetAverage</code>)</li>
 </ul>
-<p>If we knew where the problems were, we could skip over some lines, but since we don't, put a breakpoint on the first line of the code, the cout statement. You probably want to set the breakpoint based on the line number in the code -- you can use the Emacs command <code>M-x line-number-mode</code> to have Emacs display line numbers. Enter <code>break x</code>, where x is the line of the first cout statement in the main() method. Now we need to run the program -- to do this, enter <code>run</code>. Lldb should start running, then should pause and display approximately the following:</p>
+<p>If we knew where the problems were, we could skip over some lines, but since we don't, put a breakpoint on the first line of the code, the cout statement. You probably want to set the breakpoint based on the line number in the code -- you can use the Emacs command <code>M-x linum-mode</code> to have Emacs display line numbers. Enter <code>break x</code>, where x is the line of the first cout statement in the main() method. Now we need to run the program -- to do this, enter <code>run</code>. Lldb should start running, then should pause and display approximately the following:</p>
 <pre><code>(lldb) b 23
 Breakpoint 1: where = a.out`main + 31 at debug.cpp:23, address = 0x0000000000400a0f
 (lldb) run
