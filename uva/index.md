@@ -61,9 +61,9 @@ The links in the right-most column link directly to the lecture recording on Col
 |3|Jan 25| Monday    | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | [01: C++][81] | [C++][81], slides [1][81] to [29][1010505] ([recording][202]) | [C++][81], slides [1][81] to [27][1010503] |
 |4|Jan 27| Wednesday | | [01: C++][81] | [C++][81], slides [27][1010503] to [47][1010704] ([recording][203]) | [C++][81], slides [27][1010503] to [47][1010704] |
 |5|Jan 29| Friday    | | [01: C++][81] | [C++][81], slides [48][10108] to [78][1010911] ([recording][204]) | [C++][81], slides [48][10108] to [72][1010905] |
-|6|Feb 1| Monday    | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: LLDB][42] ([md][62]) *OR* [Tutorial 2: GDB][52] ([md][72]) (see [lab 2][2] for which one to pick) | [01: C++][81] | [C++][81], slides [78][1010911] to [100][1011104] ([recording][205]) | ...|
-|7|Feb 3| Wednesday | | [01: C++][81], [02: Lists][82] | [C++][81], slides [101][1011105] to [121][1011213] (end); [Lists][82], slides [1][82] to [9][1020305] ([recording][208]) | ...|
-|8|Feb 5| Friday    | | [02: Lists][82] | [Lists][82], slides [10][10204] to [35][1020515] ([recording][209]) | ...|
+|6|Feb 1| Monday    | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: LLDB][42] ([md][62]) *OR* [Tutorial 2: GDB][52] ([md][72]) (see [lab 2][2] for which one to pick) | [01: C++][81] | [C++][81], slides [78][1010911] to [100][1011104] ([recording][205]) | [C++][81], slides [72][1010905] to [86][1010920]|
+|7|Feb 3| Wednesday | | [01: C++][81], [02: Lists][82] | [C++][81], slides [101][1011105] to [121][1011213] (end); [Lists][82], slides [1][82] to [9][1020305] ([recording][208]) | [C++][81], slides [87][10110] to [113][1011205]|
+|8|Feb 5| Friday    | | [02: Lists][82] | [Lists][82], slides [10][10204] to [35][1020515] ([recording][209]) | [Lists][82], slides [1][10200] to [25][1020505]|
 |9|Feb 8| Monday    | [Lab 3: Stacks][3] ([md][23]) / [Tutorial 3: More UNIX, part 1][63], introduction and sections 1-4 | [02: Lists][82], [03: Numbers][83] | | |
 |10|Feb 10| Wednesday | | [03: Numbers][83] | | |
 |11|Feb 12| Friday    | | [03: Numbers][83] | | |
@@ -297,16 +297,20 @@ None yet!
 [1010913]: ../slides/01-cpp.html#/9/13
 [1010914]: ../slides/01-cpp.html#/9/14
 [1010915]: ../slides/01-cpp.html#/9/15
+[1010920]: ../slides/01-cpp.html#/9/20
 [10110]: ../slides/01-cpp.html#/10
 [1011001]: ../slides/01-cpp.html#/10/1
 [1011103]: ../slides/01-cpp.html#/11/3
 [1011104]: ../slides/01-cpp.html#/11/4
 [1011105]: ../slides/01-cpp.html#/11/5
 [1011106]: ../slides/01-cpp.html#/11/6
+[1011205]: ../slides/01-cpp.html#/12/5
 [1011213]: ../slides/01-cpp.html#/12/13
+[10200]: ../slides/02-lists.html
 [1020304]: ../slides/02-lists.html#/3/4
 [1020305]: ../slides/02-lists.html#/3/5
 [10204]: ../slides/02-lists.html#/4
+[1020505]: ../slides/02-lists.html#/5/5
 [1020507]: ../slides/02-lists.html#/5/7
 [1020508]: ../slides/02-lists.html#/5/8
 [1020515]: ../slides/02-lists.html#/5/15
