@@ -18,4 +18,5 @@ int main (int argc, char* argv[]) {
         // and then print them out:
         cout << "\t" << s << endl;
     }
+    return 0;
 }
