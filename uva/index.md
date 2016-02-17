@@ -67,7 +67,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |9|Feb 8| Monday    | [Lab 3: Stacks][3] ([md][23]) / [Tutorial 3: More UNIX, part 1][63], introduction and sections 1-4 | [02: Lists][82], [03: Numbers][83] | [Lists][82], slides [36][10206] to [56][1020803] (end); [Numbers][83], slides [1][83] to [7][1030303] ([recording][210]) | [Lists][82], slides [25][1020505] to [50][1020706] |
 |10|Feb 10| Wednesday | | [03: Numbers][83] | [Numbers][83], slides [8][10304] to [33][1030705] ([recording][211]) | |
 |11|Feb 12| Friday    | | [03: Numbers][83] | [Numbers][83], slides [33][1030705] to [52][1030815] ([recording][212]) | |
-|12|Feb 15| Monday    | [Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8 | [03: Numbers][83] | | |
+|12|Feb 15| Monday    | [Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8 | [03: Numbers][83] | Snow day! Again. | Snow day! Again. |
 |13|Feb 17| Wednesday | | [04: Arrays & big-Oh][84] | | |
 |14|Feb 19| Friday    | | [04: Arrays & big-Oh][84] | | |
 |  |Feb 21| Sunday    | | Exam 1 review session | |
