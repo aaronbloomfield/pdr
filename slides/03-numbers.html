@@ -767,7 +767,7 @@ Output: 0x42288000
 	  </section>
 
 	  <section>
-<h2>Doing the last example by hand, part 1</h2>
+<h2>Doing the last example by hand, part 2</h2>
 <ul>
 <li>Mantissa: encode it using powers of 1/2<ul>
   <li>To do this, we try to subtract increasing powers of 1/2 until we hit zero<ul>
@@ -783,8 +783,14 @@ Output: 0x42288000
   <li>Thus, the parts of the mantissa are 1/4 + 1/16 + 1/256</li>
   <li>Encoded: 0101 0001 0000 0000 0000 000</li>
 </ul></li>
-<li>In binary, then, the full encoding is: <span class='pink'>0</span><span class='green'>100 0010 0</span><span class="skyblue">010 1000 1000 0000 0000 0000</span></li>
 </ul>
+	  </section>
+
+	  <section>
+<h2>Doing the last example by hand, part 3</h2>
+<ul>
+<li>The final encoded number in binary is: <span class='pink'>0</span><span class='green'>100 0010 0</span><span class="skyblue">010 1000 1000 0000 0000 0000</span><ul>
+  <li>The <span class='pink'>sign</span>, <span class='green'>exponent</span> and <span class='skyblue'>mantissa</span> are colored differently for clarity</li></ul></li>
 	  </section>
 
 	  <section data-markdown><script type="text/template">
