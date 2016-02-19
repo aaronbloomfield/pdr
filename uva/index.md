@@ -68,7 +68,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |10|Feb 10| Wednesday | | [03: Numbers][83] | [Numbers][83], slides [8][10304] to [33][1030705] ([recording][211]) | [Lists][82] slide [53][10208] to [Numbers][83] slide [29][1030701] |
 |11|Feb 12| Friday    | | [03: Numbers][83] | [Numbers][83], slides [33][1030705] to [52][1030815] ([recording][212]) | [Numbers][83] slides [29][1030701] to [50][1030813] | 
 |12|Feb 15| Monday    | [Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8 | [03: Numbers][83] | Snow day! Again. | Snow day! Again. |
-|13|Feb 17| Wednesday | | [04: Arrays & big-Oh][84] | [03: Numbers][83], slides [53][1030816] to [71][1030834] (end); [04: Arrays & big-Oh][84], slides [1][84] to [10][1040306] ([recording][214]) | [Numbers][83], slides [51][1030814] to [70][1030833] |
+|13|Feb 17| Wednesday | | [04: Arrays & big-Oh][84] | [03: Numbers][83], slides [53][1030816] to [71][1030834] (end); [04: Arrays & big-Oh][84], slides [1][84] to [10][1040306] ([recording][214]) | [Numbers][83], slides [51][1030814] to [71][1030834] |
 |14|Feb 19| Friday    | | [04: Arrays & big-Oh][84] | | |
 |  |Feb 21| Sunday    | | Exam 1 review session | |
 |15|Feb 22| Monday    | Exam 1 instead during Tuesday's lab | [04: Arrays & big-Oh][84], [05: Trees][85] | | |
