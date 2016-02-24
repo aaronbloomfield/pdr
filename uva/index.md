@@ -71,7 +71,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |13|Feb 17| Wednesday | | [04: Arrays & big-Oh][84] | [03: Numbers][83], slides [53][1030816] to [71][1030834] (end); [04: Arrays & big-Oh][84], slides [1][84] to [10][1040306] ([recording][214]) | [Numbers][83], slides [51][1030814] to [71][1030834] |
 |14|Feb 19| Friday    | | [04: Arrays & big-Oh][84] | [04: Arrays & big-Oh][84], slides [11][1040307] to [25][1040409] ([recording][215]) | |
 |  |Feb 21| Sunday    | | Exam 1 review session | |
-|15|Feb 22| Monday    | Exam 1 instead during Tuesday's lab | [04: Arrays & big-Oh][84], [05: Trees][85] | | |
+|15|Feb 22| Monday    | Exam 1 instead during Tuesday's lab | [04: Arrays & big-Oh][84], [05: Trees][85] | [04: Arrays & big-Oh][84], slides [25][1040409] to [58][1040507] (end) ([recording][216]) | |
 |16|Feb 24| Wednesday | | [05: Trees][85] | | |
 |17|Feb 26| Friday    | | [05: Trees][85] | | |
 |18|Feb 29| Monday    | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [05: Trees][85] | | |
