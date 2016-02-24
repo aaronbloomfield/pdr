@@ -172,7 +172,7 @@ The 'max value' column can be determined by understanding how the type stores th
 
 The following tables do not render very in this document, but the tables in [inlab4.doc](inlab4.doc) render much better.  Note that 'zero' and 'one' should be interpreted appropriately for the given data type.  So 'zero' would be 0 for an `int`, 0.0 for a `float`, `false` for a `bool`, etc.  Similarly for 'one'.
 
-As was mentioned in lecture, the #define'd value `UNIT_MAX` contains the maximum integer value, and you must `#include <climits>` in order to access it.
+As was mentioned in lecture, the #define'd value `UINT_MAX` contains the maximum integer value, and you must `#include <climits>` in order to access it.
 
 | C++ Type | Size in bytes? | Max value? (base 10) | Zero is stored as (in hex)? | One is stored as (in hex)? |
 |----------|----------------|----------------------|-----------------------------|----------------------------|
