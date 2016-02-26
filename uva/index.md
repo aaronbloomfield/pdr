@@ -72,8 +72,8 @@ The links in the right-most column link directly to the lecture recording on Col
 |14|Feb 19| Friday    | | [04: Arrays & big-Oh][84] | [04: Arrays & big-Oh][84], slides [11][1040307] to [25][1040409] ([recording][215]) | |
 |  |Feb 21| Sunday    | | Exam 1 review session | |
 |15|Feb 22| Monday    | Exam 1 instead during Tuesday's lab | [04: Arrays & big-Oh][84], [05: Trees][85] | [04: Arrays & big-Oh][84], slides [25][1040409] to [58][1040507] (end) ([recording][216]) | |
-|16|Feb 24| Wednesday | | [05: Trees][85] | | |
-|17|Feb 26| Friday    | | [05: Trees][85] | | |
+|16|Feb 24| Wednesday | | [05: Trees][85] | [05: Trees][85], slides [1][85] to [31][1050411] ([recording][218]) | |
+|17|Feb 26| Friday    | | [05: Trees][85] | [05: Trees][85], slides [32][1050412] to [59][1050604] ([recording][219]) | |
 |18|Feb 29| Monday    | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [05: Trees][85] | | |
 |19|Mar 2| Wednesday | | [05: Trees][85] | | |
 |20|Mar 4| Friday    | | [06: Hashes][86] | | |
@@ -354,9 +354,12 @@ None yet!
 [1050306]: ../slides/05-trees.html#/3/6
 [1050311]: ../slides/05-trees.html#/3/11
 [1050410]: ../slides/05-trees.html#/4/10
+[1050411]: ../slides/05-trees.html#/4/11
+[1050412]: ../slides/05-trees.html#/4/12
 [1050415]: ../slides/05-trees.html#/4/15
 [1050416]: ../slides/05-trees.html#/4/16
 [1050417]: ../slides/05-trees.html#/4/17
+[1050604]: ../slides/05-trees.html#/6/4
 [1050609]: ../slides/05-trees.html#/6/9
 [1050610]: ../slides/05-trees.html#/6/10
 [1050612]: ../slides/05-trees.html#/6/12
@@ -370,6 +373,8 @@ None yet!
 [1050801]: ../slides/05-trees.html#/8/1
 [1050802]: ../slides/05-trees.html#/8/2
 [1050909]: ../slides/05-trees.html#/9/9
+[1060411]: ../slides/06-hashes.html#/4/11
+[1060412]: ../slides/06-hashes.html#/4/12
 [1060413]: ../slides/06-hashes.html#/4/13
 [1060401]: ../slides/06-hashes.html#/4/1
 [1060404]: ../slides/06-hashes.html#/4/4
@@ -378,6 +383,7 @@ None yet!
 [1060502]: ../slides/06-hashes.html#/5/2
 [1060507]: ../slides/06-hashes.html#/5/7
 [10606]: ../slides/06-hashes.html#/6
+[1060604]: ../slides/06-hashes.html#/6/4
 [1060608]: ../slides/06-hashes.html#/6/8
 [1060609]: ../slides/06-hashes.html#/6/9
 [1060611]: ../slides/06-hashes.html#/6/11
