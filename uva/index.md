@@ -74,7 +74,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |15|Feb 22| Monday    | Exam 1 instead during Tuesday's lab | [04: Arrays & big-Oh][84], [05: Trees][85] | [04: Arrays & big-Oh][84], slides [25][1040409] to [58][1040507] (end) ([recording][216]) | |
 |16|Feb 24| Wednesday | | [05: Trees][85] | [05: Trees][85], slides [1][85] to [31][1050411] ([recording][218]) | |
 |17|Feb 26| Friday    | | [05: Trees][85] | [05: Trees][85], slides [32][1050412] to [59][1050604] ([recording][219]) | |
-|18|Feb 29| Monday    | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [05: Trees][85] | | |
+|18|Feb 29| Monday    | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [05: Trees][85] | [05: Trees][85], slides [59][1050604] to [97][1050711] ([recording][220]) | |
 |19|Mar 2| Wednesday | | [05: Trees][85] | | |
 |20|Mar 4| Friday    | | [06: Hashes][86] | | |
 ||Mar 7| Monday    | no lab this week |(spring break)| | |
