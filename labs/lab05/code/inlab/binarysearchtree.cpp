@@ -76,7 +76,7 @@ double BinarySearchTree::exp_path_length( )
 /*
 **  Calculate the expected path length of the tree
 **  This is the public version, without a parameter.
-**  NOTE that it recursively invokes int_path_length()
+**  NOTE that it invokes the recursive int_path_length()
 */
 {
     // YOUR CODE HERE
