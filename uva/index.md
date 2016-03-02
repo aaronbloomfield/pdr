@@ -75,7 +75,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |16|Feb 24| Wednesday | | [05: Trees][85] | [05: Trees][85], slides [1][85] to [31][1050411] ([recording][218]) | |
 |17|Feb 26| Friday    | | [05: Trees][85] | [05: Trees][85], slides [32][1050412] to [59][1050604] ([recording][219]) | |
 |18|Feb 29| Monday    | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [05: Trees][85] | [05: Trees][85], slides [59][1050604] to [97][1050711] ([recording][220]) | |
-|19|Mar 2| Wednesday | | [05: Trees][85] | | |
+|19|Mar 2| Wednesday | | [05: Trees][85] | [06: Hashes][86], slides [1][86] to [28][1060414] ([recording][223]) | |
 |20|Mar 4| Friday    | | [06: Hashes][86] | | |
 ||Mar 7| Monday    | no lab this week |(spring break)| | |
 ||Mar 9| Wednesday ||(spring break)| | |
@@ -379,6 +379,7 @@ None yet!
 [1060401]: ../slides/06-hashes.html#/4/1
 [1060404]: ../slides/06-hashes.html#/4/4
 [1060405]: ../slides/06-hashes.html#/4/5
+[1060414]: ../slides/06-hashes.html#/4/14
 [10605]: ../slides/06-hashes.html#/5
 [1060502]: ../slides/06-hashes.html#/5/2
 [1060507]: ../slides/06-hashes.html#/5/7
