@@ -77,7 +77,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |18|Feb 29| Monday    | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [05: Trees][85] | [05: Trees][85], slides [59][1050604] to [97][1050711] ([recording][220]) | |
 |19|Mar 2| Wednesday | | [05: Trees][85] | [06: Hashes][86], slides [1][86] to [28][1060414] ([recording][223]) | |
 |20|Mar 4| Friday    | | [06: Hashes][86] | [06: Hashes][86], slides [29][10605] to [48][1060611] ([recording][224]) | |
-||Mar 7| Monday    | no lab this week |(spring break)| | |
+||Mar 7| Monday    | no lab this week |(spring break)| [06: Hashes][86], slides [49][10607] to [55][1060706] (end); [05: Trees][85], slides [98][10508] to [106][1050808] ([recording][225]) | |
 ||Mar 9| Wednesday ||(spring break)| | |
 ||Mar 11| Friday    ||(spring break)| | |
 |21|Mar 14| Monday    | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [06: Hashes][86] | | |
@@ -372,6 +372,7 @@ None yet!
 [10508]: ../slides/05-trees.html#/8
 [1050801]: ../slides/05-trees.html#/8/1
 [1050802]: ../slides/05-trees.html#/8/2
+[1050808]: ../slides/05-trees.html#/8/8
 [1050909]: ../slides/05-trees.html#/9/9
 [1060411]: ../slides/06-hashes.html#/4/11
 [1060412]: ../slides/06-hashes.html#/4/12
