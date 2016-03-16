@@ -77,10 +77,10 @@ The links in the right-most column link directly to the lecture recording on Col
 |18|Feb 29| Monday    | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [05: Trees][85] | [05: Trees][85], slides [59][1050604] to [97][1050711] ([recording][220]) | |
 |19|Mar 2| Wednesday | | [05: Trees][85] | [06: Hashes][86], slides [1][86] to [28][1060414] ([recording][223]) | |
 |20|Mar 4| Friday    | | [06: Hashes][86] | [06: Hashes][86], slides [29][10605] to [48][1060611] ([recording][224]) | |
-||Mar 7| Monday    | no lab this week |(spring break)| [06: Hashes][86], slides [49][10607] to [55][1060706] (end); [05: Trees][85], slides [98][10508] to [106][1050808] ([recording][225]) | |
+||Mar 7| Monday    | no lab this week |(spring break)| | |
 ||Mar 9| Wednesday ||(spring break)| | |
 ||Mar 11| Friday    ||(spring break)| | |
-|21|Mar 14| Monday    | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [06: Hashes][86] | | |
+|21|Mar 14| Monday    | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [06: Hashes][86] | [06: Hashes][86], slides [49][10607] to [55][1060706] (end); [05: Trees][85], slides [98][10508] to [106][1050808] ([recording][225]) | |
 |22|Mar 16| Wednesday | | [06: Hashes][86], [07: IBCM][87] (machine language) | | |
 |23|Mar 18| Friday    | | [07: IBCM][87] (machine language) | | |
 |24|Mar 21| Monday    | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [07: IBCM][87] (machine language) | | |
