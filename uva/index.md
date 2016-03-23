@@ -83,7 +83,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |21|Mar 14| Monday    | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [06: Hashes][86] | [06: Hashes][86], slides [49][10607] to [55][1060706] (end); [05: Trees][85], slides [98][10508] to [106][1050808] ([recording][225]) | [06: Hashes][86], slides [45][1060608] to [55][1060706] |
 |22|Mar 16| Wednesday | | [06: Hashes][86], [07: IBCM][87] (machine language) | [05: Trees][85], slides [107][10509] to [116][1050909] (end); [07: IBCM][87], slides [1][87] to [16][1070405] ([recording][226]) | |
 |23|Mar 18| Friday    | | [07: IBCM][87] (machine language) | [07: IBCM][87], slides [15][1070404] to [32][1070505] ([recording][227]) | |
-|24|Mar 21| Monday    | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [07: IBCM][87] (machine language) | | |
+|24|Mar 21| Monday    | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [07: IBCM][87] (machine language) | [07: IBCM][87], slides [33][1070506] to [43][1070604] ([recording][228]) | |
 |25|Mar 23| Wednesday | | [07: IBCM][87] (machine language) | | |
 |26|Mar 25| Friday    | | [08: x86][88] (assembly language) | | |
 |27|Mar 28| Monday    | [Lab 8: x86, part 1][8] ([md][28]) / Tutorial 8: nasm, which is two book chapters: [1][53] and [2][54] | [08: x86][88] (assembly language) | | |
