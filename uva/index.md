@@ -69,11 +69,11 @@ The links in the right-most column link directly to the lecture recording on Col
 |11|Feb 12| Friday    | | [03: Numbers][83] | [Numbers][83], slides [33][1030705] to [52][1030815] ([recording][212]) | [Numbers][83] slides [29][1030701] to [50][1030813] | 
 |12|Feb 15| Monday    | [Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8 | [03: Numbers][83] | Snow day! Again. | Snow day! Again. |
 |13|Feb 17| Wednesday | | [04: Arrays & big-Oh][84] | [03: Numbers][83], slides [53][1030816] to [71][1030834] (end); [04: Arrays & big-Oh][84], slides [1][84] to [10][1040306] ([recording][214]) | [Numbers][83], slides [51][1030814] to [71][1030834] |
-|14|Feb 19| Friday    | | [04: Arrays & big-Oh][84] | [04: Arrays & big-Oh][84], slides [11][1040307] to [25][1040409] ([recording][215]) | |
+|14|Feb 19| Friday    | | [04: Arrays & big-Oh][84] | [04: Arrays & big-Oh][84], slides [11][1040307] to [25][1040409] ([recording][215]) | [04: Arrays & big-Oh][84], slides [11][1040307] to [25][1040409] |
 |  |Feb 21| Sunday    | | Exam 1 review session | |
-|15|Feb 22| Monday    | Exam 1 instead during Tuesday's lab | [04: Arrays & big-Oh][84], [05: Trees][85] | [04: Arrays & big-Oh][84], slides [25][1040409] to [58][1040507] (end) ([recording][216]) | |
-|16|Feb 24| Wednesday | | [05: Trees][85] | [05: Trees][85], slides [1][85] to [31][1050411] ([recording][218]) | |
-|17|Feb 26| Friday    | | [05: Trees][85] | [05: Trees][85], slides [32][1050412] to [59][1050604] ([recording][219]) | |
+|15|Feb 22| Monday    | Exam 1 instead during Tuesday's lab | [04: Arrays & big-Oh][84], [05: Trees][85] | [04: Arrays & big-Oh][84], slides [25][1040409] to [58][1040507] (end) ([recording][216]) | [04: Arrays & big-Oh][84], slides [25][1040409] to [58][1040507] |
+|16|Feb 24| Wednesday | | [05: Trees][85] | [05: Trees][85], slides [1][85] to [31][1050411] ([recording][218]) | [05: Trees][85], slides [1][85] to [40][10505] |
+|17|Feb 26| Friday    | | [05: Trees][85] | [05: Trees][85], slides [32][1050412] to [59][1050604] ([recording][219]) | [05: Trees][85], slides [40][10505] to [55][10506] |
 |18|Feb 29| Monday    | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [05: Trees][85] | [05: Trees][85], slides [59][1050604] to [97][1050711] ([recording][220]) | [05: Trees][85], slides [55][10506] to [86][10507] |
 |19|Mar 2| Wednesday | | [05: Trees][85] | [06: Hashes][86], slides [1][86] to [28][1060414] ([recording][223]) | [05: Trees][85], slides [86][10507] to [116][1050909]; [06: Hashes][86], slides [1][86] to [14][10604] |
 |20|Mar 4| Friday    | | [06: Hashes][86] | [06: Hashes][86], slides [29][10605] to [48][1060611] ([recording][224]) | [06: Hashes][86], slides [14][10604] to [45][1060608] |
@@ -82,11 +82,11 @@ The links in the right-most column link directly to the lecture recording on Col
 ||Mar 11| Friday    ||(spring break)| | |
 |21|Mar 14| Monday    | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [06: Hashes][86] | [06: Hashes][86], slides [49][10607] to [55][1060706] (end); [05: Trees][85], slides [98][10508] to [106][1050808] ([recording][225]) | [06: Hashes][86], slides [45][1060608] to [55][1060706] |
 |22|Mar 16| Wednesday | | [06: Hashes][86], [07: IBCM][87] (machine language) | [05: Trees][85], slides [107][10509] to [116][1050909] (end); [07: IBCM][87], slides [1][87] to [16][1070405] ([recording][226]) | |
-|23|Mar 18| Friday    | | [07: IBCM][87] (machine language) | [07: IBCM][87], slides [15][1070404] to [32][1070505] ([recording][227]) | |
-|24|Mar 21| Monday    | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [07: IBCM][87] (machine language) | [07: IBCM][87], slides [33][1070506] to [43][1070604] ([recording][228]) | |
-|25|Mar 23| Wednesday | | [07: IBCM][87] (machine language) | [08: x86][88], slides [1][88] to [28][1080410] ([recording][230]) | |
-|26|Mar 25| Friday    | | [08: x86][88] (assembly language) | [08: x86][88], slides [28][1080410] to [65][1080713] ([recording][231]) | |
-|27|Mar 28| Monday    | [Lab 8: x86, part 1][8] ([md][28]) / Tutorial 8: nasm, which is two book chapters: [1][53] and [2][54] | [08: x86][88] (assembly language) | | |
+|23|Mar 18| Friday    | | [07: IBCM][87] (machine language) | [07: IBCM][87], slides [15][1070404] to [32][1070505] ([recording][227]) | slides [15][1070404] to [32][1070505] |
+|24|Mar 21| Monday    | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [07: IBCM][87] (machine language) | [07: IBCM][87], slides [33][1070506] to [43][1070604] ([recording][228]) | [07: IBCM][87], slides [33][1070506] to [43][1070604] |
+|25|Mar 23| Wednesday | | [07: IBCM][87] (machine language) | [08: x86][88], slides [1][88] to [28][1080410] ([recording][230]) | [08: x86][88], slides [1][88] to [28][1080410] |
+|26|Mar 25| Friday    | | [08: x86][88] (assembly language) | [08: x86][88], slides [28][1080410] to [65][1080713] ([recording][231]) | [08: x86][88], slides [28][1080410] to [65][1080713] |
+|27|Mar 28| Monday    | [Lab 8: x86, part 1][8] ([md][28]) / Tutorial 8: nasm, which is two book chapters: [1][53] and [2][54] | [08: x86][88] (assembly language) | | [08: x86][88], slides [66][10808] to [72][10809] |
 |28|Mar 30| Wednesday | | [08: x86][88] (assembly language) | | |
 |29|Apr 1| Friday    | | [08: x86][88] (assembly language) | | |
 ||Apr 3|Sunday| |Exam 2 review session| | |
@@ -359,6 +359,7 @@ None yet!
 [1050415]: ../slides/05-trees.html#/4/15
 [1050416]: ../slides/05-trees.html#/4/16
 [1050417]: ../slides/05-trees.html#/4/17
+[10505]: ../slides/05-trees.html#/5
 [10506]: ../slides/05-trees.html#/6
 [1050604]: ../slides/05-trees.html#/6/4
 [1050609]: ../slides/05-trees.html#/6/9
