@@ -88,7 +88,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |26|Mar 25| Friday    | | [08: x86][88] (assembly language) | [08: x86][88], slides [28][1080410] to [65][1080713] ([recording][231]) | [08: x86][88], slides [28][1080410] to [65][1080713] |
 |27|Mar 28| Monday    | [Lab 8: x86, part 1][8] ([md][28]) / Tutorial 8: nasm, which is two book chapters: [1][53] and [2][54] | [08: x86][88] (assembly language) | [08: x86][88], slides [65][1080713] to [80][1080908] ([recording][232]) | [08: x86][88], slides [66][10808] to [80][1080908] |
 |28|Mar 30| Wednesday | | [08: x86][88] (assembly language) | [08: x86][88], slides [78][1080906] to [102][1080930] ([recording][233]) | |
-|29|Apr 1| Friday    | | [08: x86][88] (assembly language) | [08: x86][88], slides [102][1080930] to [106][1080934] (end); [09: advanced C++][89], slides [1][89] to ... ([recording][236]) | |
+|29|Apr 1| Friday    | | [08: x86][88] (assembly language) | [08: x86][88], slides [102][1080930] to [106][1080934] (end); [09: advanced C++][89], slides [1][89] to [24][1090408] ([recording][236]) | |
 ||Apr 3|Sunday| |Exam 2 review session| | |
 |30|Apr 4| Monday    | Exam 2 instead during Tuesday's lab | [08: x86][88], [09: Advanced C++][89] | | |
 |31|Apr 6| Wednesday | | [09: Advanced C++][89] | | |
@@ -438,6 +438,7 @@ None yet!
 [1080932]: ../slides/08-x86.html#/9/32
 [1080934]: ../slides/08-x86.html#/9/34
 [1090308]: ../slides/09-advanced-cpp.html#/3/8
+[1090408]: ../slides/09-advanced-cpp.html#/4/8
 [10905]: ../slides/09-advanced-cpp.html#/5
 [1090508]: ../slides/09-advanced-cpp.html#/5/8
 [1090509]: ../slides/09-advanced-cpp.html#/5/9

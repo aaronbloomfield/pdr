@@ -1305,7 +1305,7 @@ absolute_value:
   - `8(%ebp)` is [ebp+8]
     - i.e. where the parameters are
 	  </script></section>
-<section><img class="stretch" src="http://www.cs.virginia.edu/~asb/teaching/cs202-spring07/images/mrf8t-orig.jpg"></section>
+
 	  <section data-markdown><script type="text/template">
 ## Assembly syntax "flavors"
 - There are two primary syntax "flavors" of x86 assmembly
@@ -1379,7 +1379,7 @@ int main() {
 }
 ```
 	  </script></section>
-<section><img class="stretch" src="https://www.cs.virginia.edu/people/faculty/images/floryan,mark.jpg"></section>
+
 	  <section data-markdown><script type="text/template">
 ## C++ assembly vs. C assembly
 - Notice how much cleaner C translates into assembly versus C++
@@ -1467,7 +1467,7 @@ max:
 ```
 The [cmovg](http://www.asmpedia.org/index.php?title=CMOVG) opcode (conditional move if greater than) will move the greater value into the first parameter; [cmovge](http://www.asmpedia.org/index.php?title=CMOVGE) does the move greater than *or equal to* value
 	  </script></section>
-<section><img class="stretch" src="https://pbs.twimg.com/profile_images/537422493586587648/XToZdxMt.jpeg"></section>
+
 	  <section data-markdown><script type="text/template">
 ## x86 code for max() without 'extern "C"'
 Using: `g++ -S -m32 -masm=intel`
@@ -1598,7 +1598,7 @@ Source code: [test_string_compare.s](code/08-x86/test_string_compare.s.html) ([s
 	ret
 ```
 	  </script></section>
-<section><img class="stretch" src="http://gamedesign.cs.virginia.edu/images/people/Floryan_GDRG.jpg"></section>
+
 	  <section data-markdown id="fib"><script type="text/template">
 ## int fib
 (see next slide for the source code link)
@@ -1726,7 +1726,7 @@ Source code: [test_fib.s](code/08-x86/test_fib.s.html) ([src](code/08-x86/test_f
     - Byte '68' is the least significant; is at address 1003
 - Note that, in little-Endian, the entire 32-bit word *and* the 8-bit least significant byte have the same address!
 	  </script></section>
-<section><img class="stretch" src="http://aaronbloomfield.github.io/pdr/uva/images/introduction/Floryan.jpg"></section>
+
 	  <section data-markdown><script type="text/template">
 ## More on little-Endian
 - In little-Endian, the entire 32-bit word *and* the 8-bit least significant byte have the same address
@@ -1749,7 +1749,7 @@ Source code: [test_fib.s](code/08-x86/test_fib.s.html) ([src](code/08-x86/test_f
   - More and more complex instructions (300-400 or so)
   - More chip complexity means harder to make run fast
 	  </script></section>
-<section><img class="stretch" src="http://www.cs.virginia.edu/~asb/afrofloryan.jpg"></section>
+
     </section>
 
 
