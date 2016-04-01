@@ -1305,7 +1305,7 @@ absolute_value:
   - `8(%ebp)` is [ebp+8]
     - i.e. where the parameters are
 	  </script></section>
-
+<section><img class="stretch" src="http://www.cs.virginia.edu/~asb/teaching/cs202-spring07/images/mrf8t-orig.jpg"></section>
 	  <section data-markdown><script type="text/template">
 ## Assembly syntax "flavors"
 - There are two primary syntax "flavors" of x86 assmembly
@@ -1343,7 +1343,6 @@ absolute_value:
 	ret
 ```
 `jns` means jump if not signed (i.e. if positive)
-
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -1380,7 +1379,7 @@ int main() {
 }
 ```
 	  </script></section>
-
+<section><img class="stretch" src="https://www.cs.virginia.edu/people/faculty/images/floryan,mark.jpg"></section>
 	  <section data-markdown><script type="text/template">
 ## C++ assembly vs. C assembly
 - Notice how much cleaner C translates into assembly versus C++
@@ -1468,7 +1467,7 @@ max:
 ```
 The [cmovg](http://www.asmpedia.org/index.php?title=CMOVG) opcode (conditional move if greater than) will move the greater value into the first parameter; [cmovge](http://www.asmpedia.org/index.php?title=CMOVGE) does the move greater than *or equal to* value
 	  </script></section>
-
+<section><img class="stretch" src="https://pbs.twimg.com/profile_images/537422493586587648/XToZdxMt.jpeg"></section>
 	  <section data-markdown><script type="text/template">
 ## x86 code for max() without 'extern "C"'
 Using: `g++ -S -m32 -masm=intel`
@@ -1599,7 +1598,7 @@ Source code: [test_string_compare.s](code/08-x86/test_string_compare.s.html) ([s
 	ret
 ```
 	  </script></section>
-
+<section><img class="stretch" src="http://gamedesign.cs.virginia.edu/images/people/Floryan_GDRG.jpg"></section>
 	  <section data-markdown id="fib"><script type="text/template">
 ## int fib
 (see next slide for the source code link)
@@ -1738,7 +1737,7 @@ Source code: [test_fib.s](code/08-x86/test_fib.s.html) ([src](code/08-x86/test_f
 - This means integer *casts* are a essentially a no-op
   - To cast an `int` to a `short`, you just tke lowest 16 bits, which means you use a `movw` instead of a `movl`
 	  </script></section>
-
+<section><img class="stretch" src="http://aaronbloomfield.github.io/pdr/uva/images/introduction/Floryan.jpg"></section>
 	  <section data-markdown><script type="text/template">
 ## RISC versus CISC
 - RISC
