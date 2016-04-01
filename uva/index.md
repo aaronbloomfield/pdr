@@ -86,9 +86,9 @@ The links in the right-most column link directly to the lecture recording on Col
 |24|Mar 21| Monday    | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [07: IBCM][87] (machine language) | [07: IBCM][87], slides [33][1070506] to [43][1070604] ([recording][228]) | [07: IBCM][87], slides [33][1070506] to [43][1070604] |
 |25|Mar 23| Wednesday | | [07: IBCM][87] (machine language) | [08: x86][88], slides [1][88] to [28][1080410] ([recording][230]) | [08: x86][88], slides [1][88] to [28][1080410] |
 |26|Mar 25| Friday    | | [08: x86][88] (assembly language) | [08: x86][88], slides [28][1080410] to [65][1080713] ([recording][231]) | [08: x86][88], slides [28][1080410] to [65][1080713] |
-|27|Mar 28| Monday    | [Lab 8: x86, part 1][8] ([md][28]) / Tutorial 8: nasm, which is two book chapters: [1][53] and [2][54] | [08: x86][88] (assembly language) | | [08: x86][88], slides [66][10808] to [72][10809] |
-|28|Mar 30| Wednesday | | [08: x86][88] (assembly language) | | |
-|29|Apr 1| Friday    | | [08: x86][88] (assembly language) | | |
+|27|Mar 28| Monday    | [Lab 8: x86, part 1][8] ([md][28]) / Tutorial 8: nasm, which is two book chapters: [1][53] and [2][54] | [08: x86][88] (assembly language) | [08: x86][88], slides [65][1080713] to [80][1080908] ([recording][232]) | [08: x86][88], slides [66][10808] to [80][1080908] |
+|28|Mar 30| Wednesday | | [08: x86][88] (assembly language) | [08: x86][88], slides [78][1080906] to [102][1080930] ([recording][233]) | |
+|29|Apr 1| Friday    | | [08: x86][88] (assembly language) | [08: x86][88], slides [102][1080930] to [106][1080934] (end); [09: advanced C++][89], slides [1][89] to ... ([recording][236]) | |
 ||Apr 3|Sunday| |Exam 2 review session| | |
 |30|Apr 4| Monday    | Exam 2 instead during Tuesday's lab | [08: x86][88], [09: Advanced C++][89] | | |
 |31|Apr 6| Wednesday | | [09: Advanced C++][89] | | |
@@ -429,6 +429,8 @@ None yet!
 [1080804]: ../slides/08-x86.html#/8/4
 [1080805]: ../slides/08-x86.html#/8/5
 [10809]: ../slides/08-x86.html#/9
+[1080906]: ../slides/08-x86.html#/9/6
+[1080908]: ../slides/08-x86.html#/9/8
 [1080914]: ../slides/08-x86.html#/9/14
 [1080915]: ../slides/08-x86.html#/9/15
 [1080929]: ../slides/08-x86.html#/9/29
