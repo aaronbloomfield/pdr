@@ -91,7 +91,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |29|Apr 1| Friday    | | [08: x86][88] (assembly language) | [08: x86][88], slides [102][1080930] to [106][1080934] (end); [09: advanced C++][89], slides [1][89] to [24][1090408] ([recording][236]) | |
 ||Apr 3|Sunday| |Exam 2 review session| | |
 |30|Apr 4| Monday    | Exam 2 instead during Tuesday's lab | [08: x86][88], [09: Advanced C++][89] | [09: advanced C++][89], slides [25][10905] to [44][1090519] ([recording][237]) | |
-|31|Apr 6| Wednesday | | [09: Advanced C++][89] | | |
+|31|Apr 6| Wednesday | | [09: Advanced C++][89] | [09: advanced C++][89], slides [45][1090520] to [65][1090711] (end) ([recording][239]) | |
 |32|Apr 8| Friday    | | [09: Advanced C++][89] | | |
 |33|Apr 11| Monday    | [Lab 9: x86, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [09: Advanced C++][89], [10: Heaps and Huffman coding][90]| | |
 |34|Apr 13| Wednesday | | [10: Heaps and Huffman coding][90] | | |
