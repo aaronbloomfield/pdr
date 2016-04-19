@@ -41,7 +41,7 @@
     - [Lab 10: Huffman coding](../labs/lab10/index.html) ([md](../labs/lab10/index.md))
     - [Lab 11: Graphs](../labs/lab11/index.html) ([md](../labs/lab11/index.md))
     - [Lab 12: Conclusion](../labs/lab12/index.html) ([md](../labs/lab12: .md))
-- [Sli[des](../slides/index.html) ([md](../slides/index.md))
+- [Slides](../slides/index.html) ([md](../slides/index.md))
     - [Slide Graph Diagrams](../slides/graphs/index.html) ([md](../slides/graphs/index.md))
 - [Tutorials](../tutorials/index.html) ([md](../tutorials/index.md))
     - [Tutorial 1: Introduction to UNIX](../tutorials/01-intro-unix/index.html) ([md](../tutorials/01-intro-unix/index.md))
