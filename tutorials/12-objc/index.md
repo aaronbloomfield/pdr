@@ -82,6 +82,12 @@ As our programs are now more complicated than just a "hello world", the compilat
 clang -I /usr/include/GNUstep/ *.m -lobjc -lgnustep-base
 ```
 
+On some Linux systems (specificially, on 64-bit Ubuntu 16.04 systems), we had to use the following compilation line; if the one above does not work, then try this one:
+
+```
+clang -I /usr/include/GNUstep/ -I /usr/lib/gcc/x86_64-linux-gnu/5/include/ *.m -lobjc -lgnustep-base
+```
+
 On Mac OS X, the compilation command is much simpler, and is what was shown above:
 
 ```
@@ -92,7 +98,7 @@ clang *.m -lobjc
 
 If you are compiling the Point class, described in the [Objective C Syntax](http://en.wikibooks.org/wiki/Objective-C_Programming/syntax) tutorial on Wikibooks, the compiler will need to know what the `sqrt()` function is.  Thus, you will have to link it to the math library: put `-lm` at the end of the compilation command, otherwise it will tell you that it cannot find the `sqrt()` implementation.  This likely won't be necessary for the program you have to do below, but it will be necessary for the Point class program.
 
-**Difference 5: use `release` instead of `free`***
+**Difference 5: use `release` instead of `free`**
 
 To deallocate an object, use release instead of free.  In other words, `[temp free];` will **not** work (which is what the tutorial states), but `[temp release];` will work properly.
 
