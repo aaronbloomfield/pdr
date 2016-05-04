@@ -96,13 +96,13 @@ The links in the right-most column link directly to the lecture recording on Col
 |33|Apr 11| Monday    | [Lab 9: x86, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [09: Advanced C++][89], [10: Heaps and Huffman coding][90]| [10: heaps and Huffman][90], slides [18][1100501] to [32][1100515] ([recording][241]) | |
 |34|Apr 13| Wednesday | | [10: Heaps and Huffman coding][90] | [10: heaps and Huffman][90], slides [33][11006] to [59][1100718] ([recording][242]) | |
 |35|Apr 15| Friday    | | [10: Heaps and Huffman coding][90] | [10: heaps and Huffman][90], slides [47][1100706] to [80][1100808] (end) ([recording][243]) | |
-|36|Apr 18| Monday    | [Lab 10: Huffman coding][10] ([md][30]) / (no tutorial) | [10: Heaps and Huffman coding][90], [11: Graphs][91] | | |
-|37|Apr 20| Wednesday | | [11: Graphs][91] | | |
-|38|Apr 22| Friday    | | [11: Graphs][91] | | |
-|39|Apr 25| Monday    | [Lab 11: Graphs][11] ([md][31])| [11: Graphs][91] | | |
-|40|Apr 27| Wednesday | | [11: Graphs][91], [12: Memory][92] | | |
-|41|Apr 29| Friday    || [12: Memory][92] | | |
-|42|May 2| Monday    | [Lab 12: Objective C][12] ([md][32])|[13: Esoteric PLs][93], [Course conclusion][94] | | |
+|36|Apr 18| Monday    | [Lab 10: Huffman coding][10] ([md][30]) / (no tutorial) | [10: Heaps and Huffman coding][90], [11: Graphs][91] | [11: Graphs][91], slides [1][91] to [24][1110406] ([recording][244]) | |
+|37|Apr 20| Wednesday | | [11: Graphs][91] | [11: Graphs][91], slides [24][1110406] to [35][1110508] ([recording][245]; no sound) | |
+|38|Apr 22| Friday    | | [11: Graphs][91] | [11: Graphs][91], slides [34][1110507] to [55][1110708] ([recording][246]) | |
+|39|Apr 25| Monday    | [Lab 11: Graphs][11] ([md][31])| [11: Graphs][91] | [11: Graphs][91], slides [56][11108] to [70][1110814] (end) ([recording][247]) | |
+|40|Apr 27| Wednesday | | [11: Graphs][91], [12: Memory][92] | [12: Memory][92], slides [1][92] to [15][1120311] ([recording][248]) | |
+|41|Apr 29| Friday    || [12: Memory][92] | [12: Memory][92], slides [16][1120312] to [44][1120414] ([recording][249]) | |
+|42|May 2| Monday    | [Lab 12: Objective C][12] ([md][32])|[13: Esoteric PLs][93], [Course conclusion][94] | [12: Memory][92], slides [45][1120415] to [48][1120418] (end); [13: Esoteric PLs][93], slides [1][93] to [54][1130512] (end); [Course conclusion][94], slides [1][94] to [12][12011] (end) ([recording][251]) |
 ||May 4| Wednesday || Final exam review session | | |
 ||May 6| Friday    | Final exam from 7:00 p.m. - 10:00 p.m. in the lecture classroom| Final exam from 7:00 p.m. - 10:00 p.m. in the lecture classroom| | |
 
@@ -472,8 +472,10 @@ None yet!
 [1110305]: ../slides/11-graphs.html#/3/5
 [1110402]: ../slides/11-graphs.html#/4/2
 [11104]: ../slides/11-graphs.html#/4
+[1110406]: ../slides/11-graphs.html#/4/6
 [1110408]: ../slides/11-graphs.html#/4/8
 [11105]: ../slides/11-graphs.html#/5
+[1110507]: ../slides/11-graphs.html#/5/7
 [1110508]: ../slides/11-graphs.html#/5/8
 [1110509]: ../slides/11-graphs.html#/5/9
 [1110513]: ../slides/11-graphs.html#/5/13
@@ -488,9 +490,12 @@ None yet!
 [1120304]: ../slides/12-memory.html#/3/4
 [1120308]: ../slides/12-memory.html#/3/8
 [1120311]: ../slides/12-memory.html#/3/11
+[1120312]: ../slides/12-memory.html#/3/12
 [1120325]: ../slides/12-memory.html#/3/25
 [11204]: ../slides/12-memory.html#/4
 [1120407]: ../slides/12-memory.html#/4/7
+[1120414]: ../slides/12-memory.html#/4/14
+[1120415]: ../slides/12-memory.html#/4/15
 [1120418]: ../slides/12-memory.html#/4/18
 [1130325]: ../slides/13-esoteric-pls.html#/3/25
 [1130512]: ../slides/13-esoteric-pls.html#/5/12
