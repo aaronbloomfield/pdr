@@ -22,4 +22,4 @@ These are all the exams from the previous semesters of the course.  No solutions
 - Fall 2014: [midterm 1](exam1-f14.pdf), [midterm 2](exam2-f14.pdf), [final exam](final-f14.pdf)
 - Spring 2015: [midterm 1](exam1-s15.pdf), [midterm 2](exam2-s15.pdf), [final exam](final-s15.pdf)
 - Fall 2015: [midterm 1](exam1-f15.pdf), [midterm 2](exam2-f15.pdf), [final exam](final-f15.pdf)
-- Spring 2016: [midterm 1](exam1-s16.pdf), [midterm 2](exam2-s16.pdf)
+- Spring 2016: [midterm 1](exam1-s16.pdf), [midterm 2](exam2-s16.pdf), [final exam](final-s16.pdf)
