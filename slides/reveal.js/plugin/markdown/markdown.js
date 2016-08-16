@@ -4,10 +4,13 @@
  * of external markdown documents.
  */
 (function( root, factory ) {
-	if( typeof exports === 'object' ) {
+	if (typeof define === 'function' && define.amd) {
+		root.marked = require( './marked' );
+		root.RevealMarkdown = factory( root.marked );
+		root.RevealMarkdown.initialize();
+	} else if( typeof exports === 'object' ) {
 		module.exports = factory( require( './marked' ) );
-	}
-	else {
+	} else {
 		// Browser globals (root is window)
 		root.RevealMarkdown = factory( root.marked );
 		root.RevealMarkdown.initialize();
@@ -31,6 +34,8 @@
 		DEFAULT_ELEMENT_ATTRIBUTES_SEPARATOR = '\\\.element\\\s*?(.+?)$',
 		DEFAULT_SLIDE_ATTRIBUTES_SEPARATOR = '\\\.slide:\\\s*?(\\\S.+?)$';
 
+	var SCRIPT_END_PLACEHOLDER = '__SCRIPT_END__';
+
 
 	/**
 	 * Retrieves the markdown contents of a slide section
@@ -42,6 +47,9 @@
 
 		// strip leading whitespace so it isn't evaluated as code
 		var text = ( template || section ).textContent;
+
+		// restore script end tags
+		text = text.replace( new RegExp( SCRIPT_END_PLACEHOLDER, 'g' ), '</script>' );
 
 		var leadingWs = text.match( /^\n?(\s*)/ )[1].length,
 			leadingTabs = text.match( /^\n?(\t*)/ )[1].length;
@@ -112,8 +120,12 @@
 		var notesMatch = content.split( new RegExp( options.notesSeparator, 'mgi' ) );
 
 		if( notesMatch.length === 2 ) {
-			content = notesMatch[0] + '<aside class="notes" data-markdown>' + notesMatch[1].trim() + '</aside>';
+			content = notesMatch[0] + '<aside class="notes">' + marked(notesMatch[1].trim()) + '</aside>';
 		}
+
+		// prevent script end tags in the content from interfering
+		// with parsing
+		content = content.replace( /<\/script>/g, SCRIPT_END_PLACEHOLDER );
 
 		return '<script type="text/template">' + content + '</script>';
 
