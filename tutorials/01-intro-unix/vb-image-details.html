@@ -13,19 +13,20 @@
 <p><a href="index.html">Go up to the main tutorial 1 page</a></p>
 <p>For those who are interested, this is how the image was set up. Note that a few of the sections here are for classes beyond PDR (in particular, the LAMP configuration, Ruby on Rails configuration, and the Programming Contest configuration sections). If you were to reproduce those on another computer, those sections can be (and should be) skipped.</p>
 <p>These directions are identical to the ones in the <a href="https://github.com/aaronbloomfield/slp">SLP repository</a> (specifically the ones found <a href="http://aaronbloomfield.github.io/slp/docs/virtualbox-image-details.html">here</a>).</p>
+<p>In the fall of 2016, these instructions were changed over to the 64-bit version of Ubuntu. If you want to see the old instructions (Kubuntu 14.04, 32 bit), see <a href="https://github.com/aaronbloomfield/pdr/blob/2016-spring/tutorials/01-intro-unix/vb-image-details.md">here</a>.</p>
 <h1 id="introduction">Introduction</h1>
 <p>This page has a number of different sections, and the sections you need to install will vary depending on what you are using this image for. The image provided with the class has only two sections not installed: Dropbox configuration (in &quot;Image completion&quot;) and Turning of the Internet access (in &quot;Programming Contest configuration&quot;).</p>
 <p>The top of each section describes which of the sub-sections need to be installed for what.</p>
 <p><strong>Versions</strong></p>
 <p>This installation document installs the following versions:</p>
 <ul>
-<li>Kubuntu 14.04</li>
-<li>Apache 2.4.7</li>
-<li>PHP 5.5.9</li>
-<li>Python 2.7.6 and 3.4.0; Django 1.8.4</li>
-<li>Ruby 2.2.3; Rails 4.2.3</li>
+<li><a href="http://kubuntu.org/getkubuntu/">Kubuntu 16.04, 64-bit</a></li>
+<li><a href="http://packages.ubuntu.com/xenial/apache2">Apache 2.4.18</a></li>
+<li><a href="http://packages.ubuntu.com/xenial/php">PHP 7.0.8</a></li>
+<li>Python <a href="http://packages.ubuntu.com/xenial/python">2.7.12</a> and <a href="http://packages.ubuntu.com/xenial/python3">3.5.2</a>; <a href="https://www.djangoproject.com/download/">Django 1.10</a></li>
+<li><a href="https://gorails.com/setup/ubuntu/16.04">Ruby 2.3.1; Rails 4.2.6</a></li>
 </ul>
-<p>Newer versions of the above may have since come out, but at the time of the writing of this document (August 2015), they were either the versions installed via apt-get (Apache, PHP, and Python), or the latest versions installed manually (Django, Ruby, and Rails).</p>
+<p>Newer versions of the above may have since come out, but at the time of the writing of this document (August 2016), they were either the versions installed via apt-get (Apache, PHP, and Python), or the latest versions installed manually (Django, Ruby, and Rails).</p>
 <p><strong>Notes</strong></p>
 <ul>
 <li>The guest hard drive reported 5.4 Gb of space used, and 13 Gb of space available, prior to distribution of the image. The disk image itself was, after compaction, 6.2 Gb. When compressed via zip, it was 1.9 Gb in size.</li>
@@ -39,55 +40,51 @@
 <ul>
 <li>Created a new VirtualBox image
 <ul>
-<li>I named it &quot;Kubuntu 14.04&quot; or similar; this automatically selected Linux as the OS type; I manually selected &quot;Ubuntu (32 bit)&quot; as the version</li>
-<li>I set the memory at 1024 Mb (instead of the default of 512 Mb), ensured that the disk size was &quot;dynamically allocated&quot; and was set to 20 Gb (instead of the default 8 Gb); everything else was set at the default</li>
+<li>I named it &quot;Kubuntu 16.04&quot; or similar; this automatically selected Linux as the OS type; I manually selected &quot;Ubuntu (64 bit)&quot; as the version</li>
+<li>I set the memory at 1536 Mb (instead of the default of 512 Mb), ensured that the disk size was &quot;dynamically allocated&quot; and was set to 20 Gb (instead of the default 8 Gb); everything else was set at the default</li>
 </ul></li>
-<li>I installed Kubuntu 14.04.2 LTS (32 bit), desktop edition, from the DVD image downloaded from <a href="http://www.kubuntu.org/getkubuntu">http://www.kubuntu.org/getkubuntu</a> (the specific image file is <a href="http://cdimage.ubuntu.com/kubuntu/releases/trusty/release/kubuntu-14.04.2-desktop-i386.iso">here</a>)
+<li>I installed Kubuntu 16.04.1 LTS (64 bit), desktop edition, from the DVD image downloaded from <a href="http://www.kubuntu.org/getkubuntu">http://www.kubuntu.org/getkubuntu</a> (the specific image file is <a href="http://cdimage.ubuntu.com/kubuntu/releases/16.04.1/release/kubuntu-16.04.1-desktop-amd64.iso">here</a>)
 <ul>
 <li>When prompted, I clicked on 'download updates' and 'install 3rd party software' when the options were given</li>
 <li>For hard drive, I used the default: &quot;Guided -- use entire disk&quot;</li>
-<li>The computer name is cassiopeia, the login name is 'student', full name is 'L33t Hax0r', and the password is 'password'</li>
+<li>The computer name is cassiopeia, the login name is 'student', full name is 'L33t H4x0r', and the password is 'password'</li>
 <li>This account can run root (system) commands via 'sudo' - if you don't know what this means, you can safely ignore it</li>
 </ul></li>
 <li>Once it was finished, I rebooted, and logged in</li>
-<li>Ran <code>sudo apt-get update</code></li>
-<li>Installed the guest addition drivers. There are many ways to do this, but few seemed to work. I got it working via modifying the directions <a href="http://askubuntu.com/questions/451805/screen-resolution-problem-with-ubuntu-14-04-and-virtualbox">here</a> (one of the comments of the top rated answer):
-<ul>
-<li>Ran <code>sudo apt-get install xserver-xorg-core</code> (the package manager had a lot of complaints with this, but it all seemed to work...)
-<ul>
-<li>Another source indicated that xserver-xorg-core and xorg-video-abi-15 are the two packages to be installed, but the images as created here didn't test this out</li>
-</ul></li>
-<li>Ran <code>sudo apt-get install -f virtualbox-guest-dkms virtualbox-guest-x11</code></li>
-<li>Reboot; the X11 screen started resizing with the VirtualBox window</li>
-</ul></li>
-<li>Ran <code>sudo apt-get dist-upgrade</code>.</li>
+<li>Via a Konsole, ran <code>sudo apt-get update</code> then <code>sudo apt-get dist-upgrade</code></li>
 <li>Reboot!</li>
-<li>Ran <code>apt-get autoremove</code></li>
+<li>Ran <code>apt-get autoremove</code> (which didn't have to remove anything)</li>
+<li>VirtualBox guest additions
+<ul>
+<li>These are the utilities so that VirtualBox will work correctly with the host computer (proper full screen, etc.)</li>
+<li>From the VirtualBox Device menu, select &quot;Insert Guest Additions CD Image&quot;, and follow the prompts</li>
+<li>Once done, run <code>autorun.sh</code> from <code>/media/student/VBOXADDITIONS_4.3.36_105129</code> (or similar), and follow the prompts</li>
+</ul></li>
+<li>Reboot!</li>
 </ul>
 <h1 id="development-installation">Development installation</h1>
 <p>The &quot;Program and Data Representation configuration&quot; section is for the <a href="http://aaronbloomfield.github.io/pdr">Program and Data Representation</a> course, and it includes all of the compilers and editors needed. The &quot;LAMP configuration (with both PHP and Python)&quot; section installs a full <a href="https://en.wikipedia.org/wiki/LAMP_%28software_bundle%29">LAMP stack</a> for use with web development; both PHP and Python are installed. The &quot;Ruby on Rails configuration&quot; section is for developing Ruby on Rails software.</p>
 <p><strong>Program and Data Representation configuration</strong></p>
 <ul>
-<li>Installed the other packages: <code>sudo apt-get install clang emacs24 nasm astyle tofrodos source-highlight gdb doxygen doxygen-doc graphviz ddd git g++ python-gpgme gobjc gnustep gnustep-make gnustep-common libgnustep-base-dev</code>
+<li>Installed the other packages: <code>sudo apt-get install clang emacs24 vim nasm astyle tofrodos source-highlight gdb lldb doxygen doxygen-doc graphviz ddd git g++ python-gpgme gobjc gnustep gnustep-make gnustep-common libgnustep-base-dev</code>
 <ul>
 <li>Note that there are two other <code>apt-get install</code> lines to be run, below: when installing LAMP and when following the <a href="https://gorails.com/setup/ubuntu/14.04">Ruby on Rails installation instructions</a>, both of which are described below</li>
 <li>The python-gpgme package is a supporting package for Dropbox, in case students want to install that</li>
 <li>The last 5 packages are for Objective C, based on the instructions <a href="http://www.fatvat.co.uk/2010/04/getting-started-with-objective-c-on.html">here</a> (it may be that only a subset of those packages are actually necessary)</li>
-<li>If this were a native machine, then the &quot;lldb-3.5&quot; package should also be installed; however, lldb does not work in Ubuntu 14.04 when running through VirtualBox (but gdb does) (<a href="http://lists.cs.uiuc.edu/pipermail/lldb-dev/2014-April/003879.html">reference</a>)</li>
 </ul></li>
 <li><p>Ran the following two commands to change the default C/C++ compiler to clang:</p>
 <pre><code>sudo update-alternatives --set cc /usr/bin/clang
 sudo update-alternatives --set c++ /usr/bin/clang++</code></pre></li>
-<li>Downloaded Google Chrome from <a href="https://www.google.com/intl/en/chrome/browser/">here</a>, and installed it via <code>sudo dpkg -i google-chrome-stable_current_i386.deb</code>
+<li>Downloaded Google Chrome from <a href="https://www.google.com/chrome/browser/desktop/index.html">here</a>, and installed it via <code>sudo dpkg -i google-chrome-stable_current_i386.deb</code>
 <ul>
 <li>That installation did not work perfectly (which was expected), and to fix an installation such as this you run <code>sudo apt-get -f install</code></li>
 <li>Then the .deb file was removed</li>
 </ul></li>
-<li>Added konsole, emacs, and google chrome icons to the launch bar</li>
+<li>Added konsole, emacs, firefox, and google chrome icons to favorites (from the K (start) menu, right-click and select 'add to favorites'), and the task bar (from the favorites menu, right-click and select 'add to panel')</li>
 <li>Browser customization
 <ul>
 <li>Set both Firefox and Chrome's home page to Collab</li>
-<li>Added the pdr/uva/index.html page as the second tab loaded up by both Firefox and Chrome</li>
+<li>Added the http://aaronbloomfield.github.io/pdr/uva/index.html page as the second tab loaded up by both Firefox and Chrome</li>
 <li>Chrome is set as the default browser</li>
 </ul></li>
 <li>I loaded up emacs from the command line, and then told it to disable showing the startup messages (this could also be accomplished by following the guidelines <a href="http://xenon.stanford.edu/~manku/dotemacs.html">here</a>).</li>
@@ -98,28 +95,30 @@ alias cp=&#39;cp -i&#39;
 alias xemacs=&#39;emacs&#39;</code></pre></li>
 <li>Cloned the github repo via <code>git clone https://github.com/aaronbloomfield/pdr</code>; note that a <code>git pull</code> will still have to be executed each time to update it</li>
 <li>Removed all the empty default directories in ~/student other than Desktop and Downloads</li>
-<li><p>Disabled the KDE Wallet, as it was annoying and kept popping up all the time (KMenu -&gt; Computer -&gt; System Settings -&gt; Account Details -&gt; KDE Wallet)</p></li>
+<li><p>Changed the auto-lock feature: K-menu -&gt; Computer -&gt; System Settings -&gt; Desktop Behavior -&gt; Screen Locking, uncheck the &quot;lock screen...&quot; button, and click Apply.</p></li>
 </ul>
 <p><strong>LAMP configuration (with both PHP and Python)</strong></p>
 <ul>
-<li>Installed more packages: <code>sudo apt-get install apache2 php5 php5-cli netbeans phpmyadmin phpunit libmysqlclient-dev mysql-server mysql-client php5-mysql default-jdk openssh-server tk-dev python-mysqldb php5-mcrypt php5-intl python-pip</code></li>
-<li>any prompted passwords (such as mysql) are 'password'
+<li>Installed more packages: <code>sudo apt-get install apache2 php php-cli netbeans phpmyadmin phpunit libmysqlclient-dev mysql-server mysql-client php-mysql default-jdk openssh-server tk-dev python-mysqldb php-mcrypt php-intl python-pip composer libapache2-mod-php</code>
 <ul>
-<li>phpmyadmin is only configured with the apache2 server; the default option to the prompted yes/no question was used</li>
+<li>any prompted passwords (such as mysql) are 'password'</li>
+<li>anything that needed configuration with a web server (phpmyadmin, for example) is only configured with the apache2 server</li>
+<li>once done, ran <code>sudo -H pip install --upgrade pip</code></li>
 </ul></li>
 <li>apache2 configuration
 <ul>
 <li>enabled the userdir apache2 module (i.e., using ~userid/ for each userid): <code>sudo a2enmod userdir</code></li>
 <li>enabled the URL rewriting apache2 module: <code>sudo a2enmod rewrite</code></li>
-<li>enabled the two PHP modules needed for the CakePHP framework: <code>sudo php5enmod intl</code> and <code>sudo php5enmod mcrypt</code></li>
-<li>enabled PHP in user directories: comment out the 'php_admin_value engine Off' line in /etc/apache2/mods-available/php5.conf</li>
+<li>enabled the two PHP modules needed for the CakePHP framework: <code>sudo phpenmod intl</code> and <code>sudo phpenmod mcrypt</code></li>
+<li>enabled PHP in user directories: edit (via sudo) <code>etc/apache2/mods-available/php7.0.conf</code>, and change the <code>Off</code> in the <code>php_admin_value engine Off</code> line to <code>On</code></li>
 <li>restart apache: <code>sudo service apache2 restart</code></li>
 <li>the 'student' user can already view the apache2 error logs (in /var/log/apache2), but if they couldn't, then they would have to have been added to the 'adm' group (i.e., <code>usermod -a -G adm student</code>, but this requires logging out and logging in for the group change to take effect)</li>
 <li>made a 'public_html' directory both in ~student and /etc/skel</li>
 </ul></li>
 <li>ssh'ed to localhost to accept the ssh key</li>
-<li>Installed Django: the version of Django installed via apt-get is 1.6 (via the <a href="http://packages.ubuntu.com/trusty/python-django">python-django</a> package); this version is <a href="https://en.wikipedia.org/wiki/Django_%28web_framework%29#Versions">no longer supported</a>, and thus 1.8 was installed instead. Django 1.8 is a long-term support release, and will be supported until at least April 2018 (<a href="https://en.wikipedia.org/wiki/Django_%28web_framework%29#Versions">reference</a>). To install: <code>sudo pip install Django==1.8.4</code></li>
-<li>Installed Composer (the package manager for PHP) globally following the directions <a href="https://getcomposer.org/doc/00-intro.md">here</a>: ran <code>curl -sS https://getcomposer.org/installer | php</code> followed by <code>mv composer.phar /usr/local/bin/composer</code>.</li>
+<li>Installed Django: the version of Django installed via apt-get is old, so we will install via pip: <code>sudo -H pip install Django==1.10</code></li>
+<li>Attempted a CakePHP installation, to ensure that composer worked, and also to pre-download the files that would be used: <code>composer create-project --prefer-dist cakephp/app test</code>. The directory created was then deleted</li>
+<li>Installed the <code>virtualenv</code> Python package: <code>sudo -H pip install virtualenv</code></li>
 </ul>
 <p><strong>Ruby on Rails configuration</strong></p>
 <ul>
@@ -127,8 +126,9 @@ alias xemacs=&#39;emacs&#39;</code></pre></li>
 <li><p>First, switch the C/C++ compiler back to gcc/g++:</p>
 <pre><code>sudo update-alternatives --set cc /usr/bin/gcc
 sudo update-alternatives --set c++ /usr/bin/g++</code></pre></li>
-<li>I then followed the directions at <a href="https://gorails.com/setup/ubuntu/14.04">https://gorails.com/setup/ubuntu/14.04</a>. The versions I used were Ruby 2.2.3, and Rails 4.2.3 (at the time of this document's writing); newer versions may have since appeared.
+<li>I then followed the directions at <a href="https://gorails.com/setup/ubuntu/16.04">https://gorails.com/setup/ubuntu/16.04</a>. The versions I used were Ruby 2.3.1, and Rails 4.2.6 (at the time of this document's writing); newer versions may have since appeared.
 <ul>
+<li>The rbenv installation method for Ruby was used</li>
 <li>The git/github configuration step was skipped, as that requires the final user of the image</li>
 <li>MySQL was already set up in the LAMP configuration section</li>
 <li>PostgreSQL is another SQL database, but we are not using that on the image</li>
@@ -260,20 +260,7 @@ sudo rsync -a --del hspcteam/ /home/hspcteam/</code></pre></li>
 <li>Boot into Kubuntu normally.</li>
 </ul>
 <p><strong>Upgrading from a previous version</strong></p>
-<p>For those who had a previous version of this image, these are the presumed steps to upgrade. It should be the case that the new image can do everything that the old images can do (and more). As the fall images are created from scratch, these steps have not been tested. Depending on which previous version of the image you have, some of these steps may have already been done.</p>
-<ul>
-<li>Increase the disk size, if necessary -- it should be about 16-20 Gb, whereas some previous versions were 8 Gb. See above for how to do this.</li>
-<li>Run <code>sudo apt-get update</code> and then <code>sudo apt-get dist-upgrade</code></li>
-<li>Install some new packages: <code>sudo apt-get install php5-mcrypt php5-intl phpunit graphviz</code>
-<ul>
-<li>That being said, re-running the apt-get installation commands listed above can't hurt, just to be sure that all the packages have been installed</li>
-</ul></li>
-<li>Enable the two PHP modules needed for the CakePHP framework: <code>sudo php5enmod intl</code> and <code>sudo php5enmod mcrypt</code></li>
-<li>Uninstall the default Django version: <code>sudo apt-get remove python-django</code></li>
-<li>Install the new Django version: <code>sudo pip install Django==1.8.4</code></li>
-<li>Upgrade the Ruby on Rails version. This is most easily done by reinstalling it from scratch, following the directions above all over again. In particular, you should remove the <code>~/.gemrc</code> file and the <code>~/.rbenv</code> and <code>~/.gem</code> directories. Also, the changes made previously to <code>~/.bashrc</code> may need to be removed, as they are re-done by following the above directions.</li>
-<li>Install composer, following the directions in the last bullet point in the &quot;Lamp configuration&quot; section.</li>
-</ul>
+<p>Because previous versions of this image were a different version of Ubuntu (specifically, 14.04), we are not providing upgrade information, as it is too extensive to properly check those instructions.</p>
 <p><strong>Changes for the future</strong></p>
 <p>None known yet!</p>
 </body>
