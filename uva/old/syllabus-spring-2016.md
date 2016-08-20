@@ -3,27 +3,26 @@ CS 2150: Program and Data Representation: Course Syllabus
 
 [Go up to the CS 2150 page][1] ([md][2])
 
-## Fall 2016
+## Spring 2016
 
 ### Instructors ###
 
-- [Aaron Bloomfield][31] / [aaron@virginia.edu][32] / [\@bloomfieldaaron][33]. Office: Rice Hall, room 403. Office hours are TBA
-- [Mark Floryan][38] / [mrf8t@virginia.edu][39].  Office: Rice Hall, room 203.  Office hours are TBA
+- [Aaron Bloomfield][31] / [aaron@virginia.edu][32] / [\@bloomfieldaaron][33]. Office: Rice Hall, room 403. Office hours are Mondays 2:30-4:00 and Fridays 10:00-11:30.
+- [Mark Floryan][38] / [mrf8t@virginia.edu][39].  Office: Rice Hall, room 203.  Office hours are Wednesdays 2:00-4:00 and Thursdays 1:00-3:30.
 
 ### Course Info ###
 
-- Lecture: M/W/F 1:00-1:50, Olsson Hall 120; 2:00-2:50, Gilmer Hall 130
+- Lecture: M/W/F 12:00-12:50, Gilmer Hall 130; 1:00-1:50, Rice 130
 - Email: none; fill out a [support request][42] instead
 - Announcement feed: [\@UVaCS2150][34]
 - TAs and their office hours will be posted on the [CS 2150 Google Calendar][35] (which is also linked to via Collab); all office hours start the Sunday after classes start
 - Laboratory Meetings (all in Olsson 001):
-    - Section 102: Tuesday, 9:30 am -- 10:45 am
-    - Section 103: Tuesday, 11:00 pm -- 12:15 pm
-    - Section 104: Tuesday, 12:30 pm -- 1:45 pm
-    - Section 105: Tuesday, 2:00 pm -- 3:15 pm
-    - Section 106: Tuesday, 3:30 pm -- 4:45 pm
-    - Section 107: Tuesday, 5:00 pm -- 6:15 pm
-    - Section 108: Tuesday, 6:30 pm -- 7:45 pm
+    - Section 106: Tuesday, 9:00 am -- 10:45 am
+    - Section 104: Tuesday, 11:30 pm -- 1:15 pm
+    - Section 105: Tuesday, 1:30 pm -- 3:15 pm
+    - Section 101: Tuesday, 3:30 pm -- 5:15 pm
+    - Section 102: Tuesday, 5:30 pm -- 7:15 pm
+    - Section 103: Tuesday, 7:30 pm -- 9:15 pm
 
 **Course Description:** This course will introduce you to program and data representation from high level concepts to machine level implementation. Data structuring techniques and the representation of data structures during program execution are discussed, as are operations and control structures and their representation during program execution. Representations of numbers, arithmetic operations, arrays, records, recursion, hashing, stacks, queues, trees, graphs, and related concepts are also covered.
 
@@ -55,17 +54,16 @@ We expect that grades will follow the standard decade curve: 90 and above is an 
 
 **Exams:** There will be two midterm exams held during laboratory sessions (combined worth 30% of the final grade) and one final exam (worth 25% of the final grade). Note that we hope (but do not guarantee!) to have the first exam returned before the SEAS drop date of Tuesday, October 13th.
 
-- Midterm Exam 1: Tuesday, September 27th, during lab session in Olsson 001
-- Midterm Exam 2: Tuesday, November 8th, during lab session in Olsson 001
-- Final Exam: Friday, December 9th from 7 p.m. to 10 p.m. in Gilmer 130 and/or Olsson 001
-    - This is a common exam time, and conflicts with BIOL 2100; CS 2110; KOR 1010, 2010 and 3010; and STAT 2120 and 3120
-    - Information about confliting exams will be dealt with later in the semester
+- Midterm Exam 1: Tuesday, February 23rd, during lab session in Olsson 001
+- Midterm Exam 2: Tuesday, April 5th, during lab session in Olsson 001
+- Final Exam: Friday, May 6th from 7 p.m. to 10 p.m. in Gilmer 130
+    - This is a common exam time, and conflicts with APMA 3110 and ECON 2020 (sections 100 and 200 only); information about confliting exams will be dealt with later in the semester
 
 Under **NO** circumstances will anybody be allowed to take the final exam early.  You may **ONLY** request to take the final exam at a different time if you have a final exam **CONFLICT**, not a busy final exam schedule.  Since it is a common exam time, the only conflicts are the courses listed above.
 
 You may submit lab questions for regrading within 10 days of when they are returned to you (less time for the final due to the end of the semester); this is done via the [course tools][41].  However, you MUST be aware of the [Frivolous regrade policy][3] ([md][4]), which will be strictly enforced.
 
-**Laboratories:** There will be 11 or 12 programming labs this semester, and they constitute 45% of your grade (roughly 4% per lab, although some labs may be weighted more than others).  Note that if the number of labs changes, the respective weights for each lab will also be adjusted and announced in class.  The total weight of the labs for the final grade will remain 45%, unless a change in the course grading criteria (as above) is announced in class.  The majority of the work in this class is through the labs -- there are no separate homework assignments.  The labs have different late policies, which will be specified in more detail in the first lab.  **Your lab submission must compile for you to receive *any* credit** -- this is an advanced programming class, and under no circumstances should you be submitting code that does not compile - we have a page on [compilation issues][5] ([md][6]) to help you if you cannot get your code to compile.
+**Laboratories:** There will be 11 or 12 programming labs this semester, and they constitute 40% of your grade (roughly 4% per lab, although some labs may be weighted more than others).  Note that if the number of labs changes, the respective weights for each lab will also be adjusted and announced in class.  The total weight of the labs for the final grade will remain 40%, unless a change in the course grading criteria (as above) is announced in class.  The majority of the work in this class is through the labs -- there are no separate homework assignments.  The labs have different late policies, which will be specified in more detail in the first lab.  **Your lab submission must compile for you to receive *any* credit** -- this is an advanced programming class, and under no circumstances should you be submitting code that does not compile - we have a page on [compilation issues][5] ([md][6]) to help you if you cannot get your code to compile.
 
 All assignments will be submitted through our custom assignments tool, which can be accessed through Collab or [here][41] (Netbadge login required).  Each assignment has 3 dates: an open date (when you can start submitting the assignment), a due date (when it is due), and a close date (the last point that you can submit the assignment); the close date is 24 hours after the due date, due to the late policy (which is explained in [lab 1][13] ([md][14])).  Note that the assignment will be available much earlier, typically Wednesday or Thursday of the week before it's due.  The dates are listed for the week of the lab - the lab week starts on a Sunday and ends on a Saturday.
 
@@ -84,6 +82,7 @@ The assignments tool does not display due dates such as "at the end of your lab 
 **Computing resources:** There are two specific computer resources needed for this course:
 
 - You need to have a working computer that can run a recent build of [VirtualBox][36], with enough hard drive space (and memory) to use a course VirtualBox image (about 10 Gb will be needed for the install, and then 6 Gb  will be used once the installation files are deleted).  Any computer made in the last 3 years will suffice for these requirements (and many older ones will as well).  It doesn't matter if it's a desktop or notebook; nor does the speed matter.
+    - For the fall 2015 semester, you **MUST DOWNLOAD VIRTUALBOX 4.3**.  Version 5.0 and above do NOT work properly!
 - There are a few documents that you will have to print (a worksheet with lab 5, the UNIX honor pledge, etc.).  The total printing load will be under 5 pages for the entire semester.  You will need to obtain access to a printer for those pages.
 
 **Attendance:** Attendance in labs is mandatory; attendance in lecture is not.  Not attending lab will result in a zero for the in-lab.  You cannot change labs without prior permission -- we don't have enough computers to accommodate this.  Please see the [first set of lecture slides][11] about lab attendance, in particular with regards to the fact that there is a lab the week of Thanksgiving break.
