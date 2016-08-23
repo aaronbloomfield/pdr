@@ -30,7 +30,7 @@ Newer versions of the above may have since come out, but at the time of the writ
 
 **Notes**
 
-- The guest hard drive reported 5.4 Gb of space used, and 13 Gb of space available, prior to distribution of the image.  The disk image itself was, after compaction, 6.2 Gb.  When compressed via zip, it was 1.9 Gb in size.
+- The guest hard drive reported 9.9 Gb of space available, prior to distribution of the image.  The disk image itself was, after compaction, 8.0 Gb.  When compressed via zip, it was 2.5 Gb in size.
 - Firefox was a recent version, and video (via youtube) worked right out of the box, along with sound; video and sound (also via youtube) worked fine with Chrome
 - The VM may capture the mouse - to uncapture it, you press the "host key", (which is the right Control key on Linux and Windows hosts, and the left Command key on Mac hosts).  To have it warn you about what this is, you can reset all warnings via the VirtualBox help menu, and it will warn you about this at boot-up
 - In the image creation process, you may run into a problem with VirtualBox where it cannot register a new (or different) disk because it has the same UUID as a previous disk that you are replacing.  If so, then the command `VBoxManage internalcommands sethduuid disk.vdi` (changing `disk.vdi` appropriately) will change the UUID, and allow you to proceed
@@ -66,7 +66,7 @@ is for the [Program and Data Representation](http://aaronbloomfield.github.io/pd
 
 **Program and Data Representation configuration**
 
-- Installed the other packages: `sudo apt-get install clang emacs24 vim nasm astyle tofrodos source-highlight gdb lldb doxygen doxygen-doc graphviz ddd git g++ python-gpgme gobjc gnustep gnustep-make gnustep-common libgnustep-base-dev`
+- Installed the other packages: `sudo apt-get install clang emacs24 vim nasm astyle tofrodos source-highlight gdb lldb doxygen doxygen-doc graphviz ddd git g++ python-gpgme gobjc gnustep gnustep-make gnustep-common libgnustep-base-dev evince`
     - Note that there are two other `apt-get install` lines to be run, below: when installing LAMP and when following the [Ruby on Rails installation instructions](https://gorails.com/setup/ubuntu/14.04), both of which are described below
     - The python-gpgme package is a supporting package for Dropbox, in case students want to install that
 	- The last 5 packages are for Objective C, based on the instructions [here](http://www.fatvat.co.uk/2010/04/getting-started-with-objective-c-on.html) (it may be that only a subset of those packages are actually necessary)
@@ -231,6 +231,10 @@ The "Installing Dropbox" section is not installed by default.  The "Image finali
 
 **Image finalization**
 
+- I ran a few commands to make sure everything worked properly (and deleted any created directories afterward):
+    - `composer create-project --prefer-dist cakephp/app cakephp`
+    - `rails new railshw -d mysql`
+	- `django-admin startproject mysite`
 - Reboot (rebooting also clears out /tmp)
 - Run `apt-get autoremove` and `apt-get clean`
 - Cleared both browser histories
@@ -252,7 +256,7 @@ The "Installing Dropbox" section is not installed by default.  The "Image finali
 
 **Increasing the disk size**
 
-The hard drive size was set at 20 Gb, and about 8.7 Gb is available; the rest is used by the operating system (and the swap partition).  If you need more space than this, you will have to expand the hard drive.  Be careful -- it is easy to accidentally erase the entire hard drive while doing this!
+The hard drive size was set at 20 Gb, and about 9.9 Gb is available; the rest is used by the operating system (and the swap partition).  If you need more space than this, you will have to expand the hard drive.  Be careful -- it is easy to accidentally erase the entire hard drive while doing this!
 
 - The process has two steps: increase the VirtualBox disk image itself, then increase the partition of the guest OS.
 - To increase the VirtualBox disk image, power it down, and then run the following command.  The size listed is the size in Mb, so 20480 Mb is 20 Gb.  The command is: `VBoxManage modifyhd <imagefile> --resize 20480`
