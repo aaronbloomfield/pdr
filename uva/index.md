@@ -71,15 +71,15 @@ The links in the right-most column link directly to the lecture recording on Col
 |13|Sep 21| Wednesday | | [04: Arrays & big-Oh][84] | | |
 |14|Sep 23| Friday    | | [04: Arrays & big-Oh][84] | | |
 |  |Sep 25| Sunday    | | Exam 1 review session | | |
-|15|Sep 26| Monday    | Exam 1 instead during Tuesday's lab | [04: Arrays & big-Oh][84], [05: Trees][85] | | |
+|15|Sep 26| Monday    | Exam 1 instead during Tuesday's lab | [04: Arrays & big-Oh][84] | | |
 |16|Sep 38| Wednesday | | [05: Trees][85] | | |
-|17|Sep 30| Friday    | | [05: Trees][85] | | |
+|17|Sep 30| Friday    | | [05: Trees][85]| | |
 |  |Oct 3| Monday    | No lab this week due to fall break | (fall break) | | |
 |18|Oct 5| Wednesday | | [05: Trees][85] | | |
-|19|Oct 7| Friday    | | [06: Hashes][86] | | |
+|19|Oct 7| Friday    | | [05: Trees][85], [06: Hashes][86] | | |
 |20|Oct 10| Monday    | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [06: Hashes][86] | | |
-|21|Oct 12| Wednesday | | [06: Hashes][86], [07: IBCM][87] (machine language) | | |
-|22|Oct 14| Friday    | | [07: IBCM][87] (machine language) | | |
+|21|Oct 12| Wednesday | | [06: Hashes][86] | | |
+|22|Oct 14| Friday    | | [06: Hashes][86], [07: IBCM][87] (machine language) | | |
 |23|Oct 17| Monday    | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [07: IBCM][87] (machine language) | | |
 |24|Oct 19| Wednesday | | [07: IBCM][87] (machine language) | | |
 |25|Oct 21| Friday    | | [08: assembly][88] (assembly language) | | |
@@ -90,7 +90,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |30|Nov 2| Wednesday | | [09: Advanced C++][89] | | |
 |31|Nov 4| Friday    | | [09: Advanced C++][89] | | |
 ||Nov 6|Sunday| |Exam 2 review session| | |
-|32|Nov 7| Monday    | Exam 2 instead during Tuesday's lab | [09: Advanced C++][89], [10: Heaps and Huffman coding][90] | | |
+|32|Nov 7| Monday    | Exam 2 instead during Tuesday's lab | [10: Heaps and Huffman coding][90] | | |
 |33|Nov 9| Wednesday | | [10: Heaps and Huffman coding][90] | | |
 |34|Nov 11| Friday    | | [10: Heaps and Huffman coding][90] | | |
 |35|Nov 14| Monday    | [Lab 9: assembly, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [10: Heaps and Huffman coding][90], [11: Graphs][91] | | |
@@ -99,7 +99,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |38|Nov 21| Monday    | [Lab 10: Huffman coding][10] ([md][30]) / (no tutorial) | [11: Graphs][91] | | |
 ||Nov 23| Wednesday | | (Thanksgiving break) | | |
 ||Nov 25| Friday    | | (Thanksgiving break) | | |
-|39|Nov 28| Monday | [Lab 11: Graphs][11] ([md][31]) | [11: Graphs][91], [12: Memory][92] | | |
+|39|Nov 28| Monday | [Lab 11: Graphs][11] ([md][31]) | [11: Graphs][91] | | |
 |40|Nov 30| Wednesday    || [12: Memory][92] | | |
 |41|Dec 2| Friday    || [12: Memory][92] | | |
 |42|Dec 5| Monday   | [Lab 12: Objective C][12] ([md][32])|[13: Esoteric PLs][93], [Course conclusion][94] | | |
