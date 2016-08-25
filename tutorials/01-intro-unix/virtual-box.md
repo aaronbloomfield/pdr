@@ -13,10 +13,10 @@ VirtualBox is a free program that allows you to run another operating system on 
 	- Under Linux, I installed the 'virtualbox-ose-qt' package (the name of yours might be different), but if you are running Linux already, you won't need to install a virtual machine running Linux...
 - Download the provided VirtualBox image (from Collab, in the misc/ folder of the Resources tool).  You will need to unzip this file before using it.
     - This file is rather large (about 2.5 Gb), so you may want to try downloading it during off hours, such as late at night.  If you have problems downloading it, let us know.  If you do not have sufficient bandwidth to download it, please see us after lecture, and we will provide it on a different media for you.
-	- Unzip this file; it will take up about 6.4 Gb on your machine.  Once uncompressed, you can download the .zip file that you downloaded.
+	- Unzip this file; it will take up about 8.2 Gb on your machine.  Once uncompressed, you can download the .zip file that you downloaded.
         - Your unzip program may complain about needing some insane amount of space (like 700 petabytes, where a petabyte is 1,000 terabytes); this is a bug in many unzip programs.  Try [7-zip](http://www.7-zip.org/), which has had more success.
 - Run VirtualBox, and import the image:
-    - To do that, click on 'New', and choose the right OS/version ("Ubuntu (32 bit)" -- don't choose the 64 bit version!).  Give it a name to help differentiate it from other virtual machines that you may end up using in later classes.
+    - To do that, click on 'New', and choose the right OS type/version ("Linux"/"Ubuntu (64 bit)" -- don't choose the 32 bit version!).  Give it a name to help differentiate it from other virtual machines that you may end up using in later classes.
     - Stay with the default memory amount (you can change it later)
     - At the 'Hard drive' screen select 'use an existing virtual hard drive file', and click the folder icon to the right of the drop-down list.  You want to use the file you unzipped above.
     - That should be it for the Wizard
