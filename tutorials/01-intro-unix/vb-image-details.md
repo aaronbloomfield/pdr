@@ -35,7 +35,7 @@ Newer versions of the above may have since come out, but at the time of the writ
 - The VM may capture the mouse - to uncapture it, you press the "host key", (which is the right Control key on Linux and Windows hosts, and the left Command key on Mac hosts).  To have it warn you about what this is, you can reset all warnings via the VirtualBox help menu, and it will warn you about this at boot-up
 - In the image creation process, you may run into a problem with VirtualBox where it cannot register a new (or different) disk because it has the same UUID as a previous disk that you are replacing.  If so, then the command `VBoxManage internalcommands sethduuid disk.vdi` (changing `disk.vdi` appropriately) will change the UUID, and allow you to proceed
 
-# Basic installation
+# Basic installation {#basic}
 
 All installations need to run through this, as it sets up the default Kubuntu installation.
 
@@ -59,7 +59,7 @@ All installations need to run through this, as it sets up the default Kubuntu in
     - Once done, run `autorun.sh` from `/media/student/VBOXADDITIONS_4.3.36_105129` (or similar), and follow the prompts
 - Reboot!
 
-# Development installation
+# Development installation {#development}
 
 The "Program and Data Representation configuration" section
 is for the [Program and Data Representation](http://aaronbloomfield.github.io/pdr) course, and it includes all of the compilers and editors needed.  The "LAMP configuration (with both PHP and Python)" section installs a full [LAMP stack](https://en.wikipedia.org/wiki/LAMP_%28software_bundle%29) for use with web development; both PHP and Python are installed.  The "Ruby on Rails configuration" section is for developing Ruby on Rails software.
@@ -145,7 +145,7 @@ sudo update-alternatives --set cc /usr/bin/clang
 sudo update-alternatives --set c++ /usr/bin/clang++
 ```
 
-# Programming Contest configuration sections
+# Programming Contest configuration sections {#pc}
 
 These sections are for configuring the image to run a programming contest using [PC^2](http://www.ecs.csus.edu/pc2/), and are not needed if you are *not* running (or participating in) such a contest.  One of the sections below will detail how to turn off the Internet for use in the actual contest, and that should only be completed for the final contest image.
 
@@ -225,7 +225,7 @@ cd
 sudo rsync -a --del hspcteam/ /home/hspcteam/
 ```
 
-# Image completion
+# Image completion {#completion}
 
 The "Installing Dropbox" section is not installed by default.  The "Image finalization" section should be run on every image.  The other sections largely deal with maintenance.
 

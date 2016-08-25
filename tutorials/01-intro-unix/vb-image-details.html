@@ -34,7 +34,7 @@
 <li>The VM may capture the mouse - to uncapture it, you press the &quot;host key&quot;, (which is the right Control key on Linux and Windows hosts, and the left Command key on Mac hosts). To have it warn you about what this is, you can reset all warnings via the VirtualBox help menu, and it will warn you about this at boot-up</li>
 <li>In the image creation process, you may run into a problem with VirtualBox where it cannot register a new (or different) disk because it has the same UUID as a previous disk that you are replacing. If so, then the command <code>VBoxManage internalcommands sethduuid disk.vdi</code> (changing <code>disk.vdi</code> appropriately) will change the UUID, and allow you to proceed</li>
 </ul>
-<h1 id="basic-installation">Basic installation</h1>
+<h1 id="basic">Basic installation</h1>
 <p>All installations need to run through this, as it sets up the default Kubuntu installation.</p>
 <p><strong>Basic installation</strong></p>
 <ul>
@@ -62,7 +62,7 @@
 </ul></li>
 <li>Reboot!</li>
 </ul>
-<h1 id="development-installation">Development installation</h1>
+<h1 id="development">Development installation</h1>
 <p>The &quot;Program and Data Representation configuration&quot; section is for the <a href="http://aaronbloomfield.github.io/pdr">Program and Data Representation</a> course, and it includes all of the compilers and editors needed. The &quot;LAMP configuration (with both PHP and Python)&quot; section installs a full <a href="https://en.wikipedia.org/wiki/LAMP_%28software_bundle%29">LAMP stack</a> for use with web development; both PHP and Python are installed. The &quot;Ruby on Rails configuration&quot; section is for developing Ruby on Rails software.</p>
 <p><strong>Program and Data Representation configuration</strong></p>
 <ul>
@@ -148,7 +148,7 @@ rails server</code></pre>
 <pre><code>sudo update-alternatives --set cc /usr/bin/clang
 sudo update-alternatives --set c++ /usr/bin/clang++</code></pre></li>
 </ul>
-<h1 id="programming-contest-configuration-sections">Programming Contest configuration sections</h1>
+<h1 id="pc">Programming Contest configuration sections</h1>
 <p>These sections are for configuring the image to run a programming contest using <a href="http://www.ecs.csus.edu/pc2/">PC^2</a>, and are not needed if you are <em>not</em> running (or participating in) such a contest. One of the sections below will detail how to turn off the Internet for use in the actual contest, and that should only be completed for the final contest image.</p>
 <p><strong>Programming Contest configuration</strong></p>
 <ul>
@@ -220,7 +220,7 @@ cd
 sudo rsync -a --del hspcteam/ /home/hspcteam/</code></pre></li>
 </ul></li>
 </ul>
-<h1 id="image-completion">Image completion</h1>
+<h1 id="completion">Image completion</h1>
 <p>The &quot;Installing Dropbox&quot; section is not installed by default. The &quot;Image finalization&quot; section should be run on every image. The other sections largely deal with maintenance.</p>
 <p><strong>Image finalization</strong></p>
 <ul>
