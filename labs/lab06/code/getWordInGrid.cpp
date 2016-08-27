@@ -1,6 +1,6 @@
 /** This file defines and demonstrates two necessary components for
  * the hash table lab for CS 2150.  The first is the use of the
- * getWordInTable() function, which is used for retrieving a word in a
+ * getWordInGrid() function, which is used for retrieving a word in a
  * grid of letters in one of the cardinal 8 directions (north,
  * south-east, etc).  The second is the use of file streams to read in
  * input from a file, specifically one formatted as per the lab 6
@@ -15,27 +15,27 @@
 #include <stdlib.h>
 using namespace std;
 
-// We create a 2-D array of some big size, and assume that the table
+// We create a 2-D array of some big size, and assume that the grid
 // read in will be less than this size (a valid assumption for lab 6)
 #define MAXROWS 500
 #define MAXCOLS 500
-char table[MAXROWS][MAXCOLS];
+char grid[MAXROWS][MAXCOLS];
 
 // Forward declarations
-bool readInTable (string filename, int &rows, int &cols);
-char* getWordInTable (int startRow, int startCol, int dir, int len,
-                      int numRows, int numCols);
+bool readInGrid (string filename, int &rows, int &cols);
+char* getWordInGrid (int startRow, int startCol, int dir, int len,
+                     int numRows, int numCols);
 
 
 
-/** The main() function shows how to call both the readInTable()
- * function as well as the getWordInTable() function.
+/** The main() function shows how to call both the readInGrid()
+ * function as well as the getWordInGrid() function.
  */
 int main() {
     // to hold the number of rows and cols in the input file
     int rows, cols;
     // attempt to read in the file
-    bool result = readInTable ("5x8.grid.txt", rows, cols);
+    bool result = readInGrid ("5x8.grid.txt", rows, cols);
     // if there is an error, report it
     if ( !result ) {
         cout << "Error reading in file!" << endl;
@@ -45,7 +45,7 @@ int main() {
     // array, in each of the 8 directions
     cout << endl;
     for ( int i = 0; i < 8; i++ )
-        cout << i << ": " << getWordInTable(2,2,i,10,rows,cols) << endl;
+        cout << i << ": " << getWordInGrid(2,2,i,10,rows,cols) << endl;
     // All done!
     return 0;
 }
@@ -53,7 +53,7 @@ int main() {
 
 
 /** This function will read in a grid file, as per the format in the
- * CS 2150 lab 6 document, into a global table[][] array.  It uses C++
+ * CS 2150 lab 6 document, into a global grid[][] array.  It uses C++
  * file streams, and thus requires the the <fstream> #include header.
  *
  * @return true or false, depending on whether the file was
@@ -65,7 +65,7 @@ int main() {
  * @param cols The number of columnss as specified in the input file;
  *             as this is a reference, it is set by the function.
  */
-bool readInTable (string filename, int &rows, int &cols) {
+bool readInGrid (string filename, int &rows, int &cols) {
     // a C++ string to hold the line of data that is read in
     string line;
     // set up the file stream to read in the file (takes in a C-style
@@ -87,13 +87,13 @@ bool readInTable (string filename, int &rows, int &cols) {
     // close the file
     file.close();
     // convert the string read in to the 2-D grid format into the
-    // table[][] array.  In the process, we'll print the table to the
+    // grid[][] array.  In the process, we'll print the grid to the
     // screen as well.
     int pos = 0; // the current position in the input data
     for ( int r = 0; r < rows; r++ ) {
         for ( int c = 0; c < cols; c++ ) {
-            table[r][c] = line[pos++];
-            cout << table[r][c];
+            grid[r][c] = line[pos++];
+            cout << grid[r][c];
         }
         cout << endl;
     }
@@ -106,7 +106,7 @@ bool readInTable (string filename, int &rows, int &cols) {
 /** This function will retrieve a word in a grid of letters in a given
  * direction.  If the end of the grid is encountered before the length
  * of the desired string is reached, then a shorter string will be
- * returned.  The data is retrieved from a global char table[][]
+ * returned.  The data is retrieved from a global char grid[][]
  * array, which is assumed to be defined (and in scope).  NOTE: The
  * return value is a static char[][] variable (for efficiency
  * reasons), so a successive return value will overwrite a previous
@@ -119,15 +119,19 @@ bool readInTable (string filename, int &rows, int &cols) {
  * @param dir The direction to move: 0 is north (upwards), 1 is
  *            northeast, and it rotates around clockwise until it
  *            reaches 7 for northwest.
- * @param len The length of the string to return (assuming the edge of
- *            the grid is not reached).
- * @param numRows The number of rows in the global char table[][]
- *                array .
- * @param numCols The number of columns in the global char table[][]
+ * @param len The desired length of the string to return (assuming
+ *            the edge of the grid is not reached--if the edge of the
+ *            grid is reached, it will return as many characters as
+ *            possible up to the edge of the grid, so the returned
+ *            string may not have the same length as this parameter
+ *            indicates).
+ * @param numRows The number of rows in the global char grid[][]
+ *                array.
+ * @param numCols The number of columns in the global char grid[][]
  *                array.
  */
-char* getWordInTable (int startRow, int startCol, int dir, int len,
-                      int numRows, int numCols) {
+char* getWordInGrid (int startRow, int startCol, int dir, int len,
+                     int numRows, int numCols) {
     // the static-ness of this variable prevents it from being
     // re-declared upon each function invocataion.  It also prevents it
     // from being deallocated between invocations.  It's probably not
@@ -146,10 +150,10 @@ char* getWordInTable (int startRow, int startCol, int dir, int len,
         if ( (c >= numCols) || (r >= numRows) || (r < 0) || (c < 0) )
             break;
         // set the next character in the output array to the next letter
-        // in the table
-        output[pos++] = table[r][c];
+        // in the grid
+        output[pos++] = grid[r][c];
         // move in the direction specified by the parameter
-        switch (dir) { // assumes table[0][0] is in the upper-left
+        switch (dir) { // assumes grid[0][0] is in the upper-left
             case 0:
                 r--;
                 break; // north
