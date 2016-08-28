@@ -84,8 +84,7 @@
 <h3 id="uml-diagram">UML Diagram</h3>
 <p>Below is a UML diagram showing how these classes interact with each other.</p>
 <div class="figure">
-<img src="list-diagram.png" alt="UML diagram" />
-<p class="caption">UML diagram</p>
+<img src="list-diagram.png" alt="UML diagram" /><p class="caption">UML diagram</p>
 </div>
 <p>This diagram shows a list containing two elements, the integers 3 and 7. Note that there are more methods in the List and ListItr classes than what is shown above. The head and tail pointers in the List class point to dummy nodes -- they are put there to make inserting elements into the list easier. It doesn't matter what the value of the dummy notes is set to, as it won't be used. Each ListNode points to the nodes before and after it (although the dummy nodes each have one pointer pointing to NULL).</p>
 <p>Thus, our doubly linked list will have only one List object and many ListNode objects (2 more than the number of elements in the list). A ListItr is a separate object, which points to one element in the list (possibly a dummy node). As you call the various methods in ListItr to move the iterator forward and backward, the node that it points to will change.</p>
