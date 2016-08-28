@@ -13,7 +13,7 @@ A [hash table](https://en.wikipedia.org/wiki/Hash_table) is a dictionary in whic
 
 ### Reading(s): ###
 
-1. Learn how to use C++ file streams to read from data files. See the [Input/output with files article](http://www.cplusplus.com/doc/tutorial/files/) on [cplusplus.com](http://www.cplusplus.com/).  You can also see the code in the provided [getWordInTable.cpp](code/getWordInTable.cpp.html) ([src](code/getWordInTable.cpp)) file which uses streams as well.  You may want to use the [good()](http://www.cplusplus.com/reference/fstream/ifstream/) method in the ifstream class -- you can put it in a `while` loop: `while (foo.good())`.
+1. Learn how to use C++ file streams to read from data files. See the [Input/output with files article](http://www.cplusplus.com/doc/tutorial/files/) on [cplusplus.com](http://www.cplusplus.com/).  You can also see the code in the provided [getWordInGrid.cpp](code/getWordInGrid.cpp.html) ([src](code/getWordInGrid.cpp)) file which uses streams as well.  You may want to use the [good()](http://www.cplusplus.com/reference/fstream/ifstream/) method in the ifstream class -- you can put it in a `while` loop: `while (foo.good())`.
 
 Procedure
 ---------
@@ -24,14 +24,14 @@ Procedure
 2. Your program should take in two file names as command-line arguments, and should NOT ask for any input.  The command-line arguments are the dictionary filename and the grid filename, in that order.
 3. Place the timer calls before and after your code.  Note that the time you spend building the hash table should not be inside the timer calls -- only the code that finds the words in the grid.  An actual time from a running of your program should be listed as a comment at the top of wordPuzzle.cpp.
 4. The output you produce should match the format of the sample output files given in the [labs/lab06/data/ directory](data/), and should be printed to standard output.  In other words, your results should be printed using `cout` statements.  Your output **must** conform to the output format described below!
-5. Calculate the big-theta running time of your application.  This should be listed as a comment at the top of wordPuzzle.cpp.
+5. Calculate the big-theta running time of the word-search portion of your application (the file-reading and hash table creation time complexity should not be included in this expression).  This should be listed as a comment at the top of wordPuzzle.cpp.
 6. You will need to create a Makefile for this lab.  Your executable that `make` creates **MUST** be called a.out.  This means that you must NOT specify a -o flag to clang++, otherwise it will not work on the grading server!  Just let clang++ name it the default without specifying a -o flag.
 7. Because the pre-lab in this assignment is a bit long, this week's Unix tutorial is part of the in-lab.
 8. Note that you will be submitting different word puzzle code during the post-lab, so your pre-lab code must still work.  But it need not be efficient -- that's for the post-lab.
 9. Look over the shell script tutorial for this lab, which is the first 6 sections (through and including 'exit status') of the [Wikibooks article on Bash Shell Scripting](http://en.wikibooks.org/wiki/Bash_Shell_Scripting).  You will be writing a shell script during the in-lab, but you should probably start reading it before then.  The remaining sections of that article will be the tutorial for the next lab, so feel free to read on, if you are interested.
 10. Don't forget to put your name, date, and lab section at the top of each of your source code files!
 11. Files to download: 
-     - The 5 provided code files: [getWordInTable.cpp](code/getWordInTable.cpp.html) ([src](code/getWordInTable.cpp)), [primenumber.cpp](code/primenumber.cpp.html) ([src](code/primenumber.cpp)), [timer.cpp](code/timer.cpp.html) ([src](code/timer.cpp)), [timer.h](code/timer.h.html) ([src](code/timer.h)), [timer_test.cpp](code/timer_test.cpp.html) ([src](code/timer_test.cpp)).  These can also be downloaded all at once via the [code.zip](code.zip) file.
+     - The 5 provided code files: [getWordInGrid.cpp](code/getWordInGrid.cpp.html) ([src](code/getWordInGrid.cpp)), [primenumber.cpp](code/primenumber.cpp.html) ([src](code/primenumber.cpp)), [timer.cpp](code/timer.cpp.html) ([src](code/timer.cpp)), [timer.h](code/timer.h.html) ([src](code/timer.h)), [timer_test.cpp](code/timer_test.cpp.html) ([src](code/timer_test.cpp)).  These can also be downloaded all at once via the [code.zip](code.zip) file.
      - The data files in the [labs/lab06/data/ directory](data/).  These can also be downloaded all at once via the [data.zip](data.zip) file.
 11. Files to submit: Makefile, wordPuzzle.cpp, timer.h/cpp, hashTable.h/cpp (see below for details)
 
@@ -114,9 +114,9 @@ As discussed in lecture, a hash table needs to be a prime number in size in orde
 
 Creating a dynamic 2-D array in C++ is more difficult than it should be -- one solution is to create a vector of vectors, but that is not the most efficient means to do it.  For this lab, you can just create a 500x500 static array, and can assume that you will not have your program run on larger input grids.  This is not very elegant, but it will work until we go over dynamic array creation in lecture.
 
-We provide you with a second C++ file, [getWordInTable.cpp](code/getWordInTable.cpp.html) ([src](code/getWordInTable.cpp)), that provides two useful functions.  The first is `readInTable()`, which will read in a grid file using C++ streams.  The grid file format (specified below) is very specific, and this code follows that specification.  Note that the `open()` method to `ifstream` (and `ofstream`) takes in a C-style string, NOT a C++-style string (you can convert use the `string::c_str()` method to convert a C++ string to a C string).  The second function, `getWordInTable()`, will return a word in a 2-D grid of letters in a given direction.  Extensive comments in the getWordInTable.cpp file explain how to use these functions.  Note that a couple of the items in that file require different `#include` headers, as mentioned in the comments.
+We provide you with a second C++ file, [getWordInGrid.cpp](code/getWordInGrid.cpp.html) ([src](code/getWordInGrid.cpp)), that provides two useful functions.  The first is `readInGrid()`, which will read in a grid file using C++ streams.  The grid file format (specified below) is very specific, and this code follows that specification.  Note that the `open()` method to `ifstream` (and `ofstream`) takes in a C-style string, NOT a C++-style string (you can convert use the `string::c_str()` method to convert a C++ string to a C string).  The second function, `getWordInGrid()`, will return a word in a 2-D grid of letters in a given direction.  Extensive comments in the getWordInGrid.cpp file explain how to use these functions.  Note that a couple of the items in that file require different `#include` headers, as mentioned in the comments.
 
-You must understand the concepts in the getWordInTable.cpp file!  In particular, you will be expected to be able to program C++ streams for file input in future labs and exams.  And you will need to write your own C++ stream input routines to read in the dictionary file.  If there is anything there that you are confused about, see the Reading links at the beginning of this lab document.
+You must understand the concepts in the getWordInGrid.cpp file!  In particular, you will be expected to be able to program C++ streams for file input in future labs and exams.  And you will need to write your own C++ stream input routines to read in the dictionary file.  If there is anything there that you are confused about, see the Reading links at the beginning of this lab document.
 
 Somehow your program will need to handle input dictionaries of various sizes, and creating the appropriate size hash table.  To get the program working the first time, you can just hard code a prime number table size.  But at some point, you will have to handle different size hash tables.
 
@@ -304,7 +304,7 @@ This report should contain items such as:
 - How much faster was your program with the -O2 flag?
 - What was the speed of your implementation?  How fast did it run on the 250x250 grid using words.txt as the dictionary file?  What about words2.txt and the 300x300 grid?
 -- If you ran it on a different machine other than the ones in Olsson 001, specify so.
-- What is the big-Theta running speed of your program?  Please do this in terms of *r* (rows), *c* (columns), and *w* (words).  You can assume that the maximum word size is some small constant.
+- What is the big-Theta running speed of your program?  Please do this in terms of *r* (rows), *c* (columns), and *w* (words).  You can assume that the maximum word size is some small constant.  Only consider the word-search component of the program, and not the file reading or hash table creation time.
 - What problems did you encounter when implementing this lab?
 - How did your shell scripting writing go?  What do you think of shell scripts so far?
 
@@ -348,7 +348,7 @@ One of the deliverables for the post-lab is a PDF document named postlab6.pdf.  
 
 If you single-space your report, you can divide the page lengths listed below by a factor of 2.  If you single space your report and include a lot of blank space with tables, that's not what we are looking for here.
 
-Include the big-theta running time of your application, and a full explanation as to why.  This should be half a page or so.  This should address ALL aspects of your application -- from reading in the input files to printing out the results to any and all optimizations that you made.  Please do this in terms of *r* (rows), *c* (columns), and *w* (words).  You can assume that the maximum word size is some small constant.
+Include the big-theta running time of your application, and a full explanation as to why.  This should be half a page or so.  This should address only the word-search portion of your application -- not the reading of input files, hash table creation, etc.  This big-Theta runtime should take into account any and all optimizations that you made.  Please do this in terms of *r* (rows), *c* (columns), and *w* (words).  You can assume that the maximum word size is some small constant.
 
 Include the timing information for your application on two input files of your choice.  This should also be half a page or more.  You can do this on any machine and data files, just use the same machine and files for all tests.  Be sure to specify which files and machine you used.  Show timing results (use the timer placement as we used in lab) for:
 
