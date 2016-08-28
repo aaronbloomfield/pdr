@@ -5,6 +5,16 @@ PDR: Tutorial 1: Introduction to UNIX: VirtualBox Use
 
 VirtualBox is a free program that allows you to run another operating system on your machine without needing to reinstall anything.  You just have to install the VirtualBox client, which installs like any other program and is available for many different platforms (Windows, Mac, Linux).  We provide you with a pre-configured VirtualBox image that contains an Ubuntu Linux installation that you can use for this course.
 
+### Emulating 64-bit ###
+
+When stepping through the steps below, you need to select 64-bit Linux/Ubuntu, and **NOT** 32-bit.  If the *only* options that appear at that step are 32-bit OSes, then you need to enable your computer to emulate 64-bit OSes.  Two of these things are done in the BIOS (hit delete, F1, or F10 when your computer starts).  Because everybody's BIOS is different, we cannot provide specific instructions as to which exact steps to take.  However, you need to enable the following two features in the BIOS:
+
+1. Intel Virtualization Technology
+2. VT-d
+
+In addition, if you are using a Windows machine, you will need Hyper-V disabled in the "Turn Windows Features on and off" menu.  You can get to it by searching for that quoted text in the start menu.
+
+
 ### Quick start ###
 
 - A bit of terminology: the 'host' machine is the physical computer (laptop, desktop, etc.) that you are using.  The 'guest' machine is the virtual machine that is running in VirtualBox, and is often just called the 'guest operating system'.
