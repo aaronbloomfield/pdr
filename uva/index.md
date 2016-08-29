@@ -57,8 +57,8 @@ The links in the right-most column link directly to the lecture recording on Col
 | Num | Date | Day of week | Lab & Tutorial (on Tue) | Planned topic | Lecture 1 progress | Lecture 2 progress |
 |-----|--------|-------------|----------------------------------------------------------|--------------------------|-----------|--------------| 
 |1|Aug 24| Wednesday | no lab this week | [Course introduction][80] | [course intro][80], slides [1][80] to [5.3][1000402] ([recording][201]) | [course intro][80], slides [1][80] to [5.0][10004] |
-|2|Aug 26| Friday    | | [Course introduction][80], [01: C++][81] | [course intro][80], slides [5.4][1000403] to [7.2][1000601]; [C++][81], slides [1][81] to [4.13][1010312] ([recording][202]) | [course intro][80], slides [5.0][10004] to [6.1][1000601]; [C++][81], slides [1][81] to [5.0][10105] |
-|3|Aug 29| Monday    | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | [01: C++][81] | | |
+|2|Aug 26| Friday    | | [Course introduction][80], [01: C++][81] | [course intro][80], slides [5.4][1000403] to [7.2][1000601]; [C++][81], slides [1][81] to [4.13][1010312] ([recording][202]) | [course intro][80], slides [5.0][10004] to [6.1][1000601]; [C++][81], slides [1][81] to [6.1][10105] |
+|3|Aug 29| Monday    | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | [01: C++][81] | | [01:C++][81], slides [6.1][10105] to [8.5][1010704] |
 |4|Aug 31| Wednesday | | [01: C++][81] | | |
 |5|Sep 2| Friday    | | [01: C++][81] | | |
 |6|Sep 5| Monday    | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: LLDB][42] ([md][62]) *OR* [Tutorial 2: GDB][52] ([md][72]) (see [lab 2][2] for which one to pick) | [01: C++][81] | | |
