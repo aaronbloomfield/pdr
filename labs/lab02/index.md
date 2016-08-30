@@ -15,6 +15,7 @@ The linked list is a basic data structure from which one can implement stacks, q
 
 1. Readings on [Readings](../../docs/readings.html) page.
 2. [Tutorial 2: LLDB](../../tutorials/02-lldb/index.html) ***OR*** [Tutorial 2: GDB](../../tutorials/02-gdb/index.html); see below as to which one to choose.
+3. For the in-lab, some articles on debugging
 
 ### Debugger Choice ###
 
@@ -46,12 +47,13 @@ Procedure
 
 ### In-lab ###
 
-1. Carry out [Tutorial 2: LLDB](../../tutorials/02-lldb/index.html) OR [Tutorial 2: GDB](../../tutorials/02-gdb/index.html) on how to use Unix debuggers.  The debugger is an important tool that you will use extensively throughout the semester to debug your code.  You will need to download the prog1.cpp and debug.cpp files for the tutorial.
-2. In the future, if you have a post-compilation problem with your program (crash, etc.), the TAs will not help you until you have run it through the debugger and learned all that can be learned from this.  So make sure you understand the tutorial!
-3. Submit your debugged version of debug.cpp to inlab2; we are not submitting prog1.cpp.  Remember the standard identifying header information.
-4. Verify to yourself that your methods are working properly with your linked list code using the debugger that you just learned about.  If you have not yet completed your linked list implementation, use the debugger to help you identify the issues/problems with parts of your current implementation.  You should do this by using the simple test cases that you used in the pre-lab.  Consult with a TA if you have questions.
-5. Files to download: [prog1.cpp](../../tutorials/02-lldb/prog1.cpp.html) ([src](../../tutorials/02-lldb/prog1.cpp)), [debug.cpp](../../tutorials/02-lldb/debug.cpp.html) ([src](../../tutorials/02-lldb/debug.cpp))
-6. Files to submit: debug.cpp
+1. Ensure you are familiar with debugging.  You should look over the [Debugging FAQ from UMich](http://umich.edu/~eecs381/generalFAQ/Debugging.html), which is a good introduction.
+2. Carry out [Tutorial 2: LLDB](../../tutorials/02-lldb/index.html) OR [Tutorial 2: GDB](../../tutorials/02-gdb/index.html) on how to use Unix debuggers.  The debugger is an important tool that you will use extensively throughout the semester to debug your code.  You will need to download the prog1.cpp and debug.cpp files for the tutorial.
+3. In the future, if you have a post-compilation problem with your program (crash, etc.), the TAs will not help you until you have run it through the debugger and learned all that can be learned from this.  So make sure you understand the tutorial!
+4. Submit your debugged version of debug.cpp to inlab2; we are not submitting prog1.cpp.  Remember the standard identifying header information.
+5. Verify to yourself that your methods are working properly with your linked list code using the debugger that you just learned about.  If you have not yet completed your linked list implementation, use the debugger to help you identify the issues/problems with parts of your current implementation.  You should do this by using the simple test cases that you used in the pre-lab.  Consult with a TA if you have questions.
+6. Files to download: [prog1.cpp](../../tutorials/02-lldb/prog1.cpp.html) ([src](../../tutorials/02-lldb/prog1.cpp)), [debug.cpp](../../tutorials/02-lldb/debug.cpp.html) ([src](../../tutorials/02-lldb/debug.cpp))
+7. Files to submit: debug.cpp
 
 ### Post-lab ###
 
