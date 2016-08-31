@@ -157,8 +157,8 @@ These sections are for configuring the image to run a programming contest using 
 	- The openjdk-7-doc package is not installed here to keep the image size down, but the packages above install it anyway
 	- For various reasons, the eclipse package is typically not installed on the image released to the students, but should be installed on the final contest image
 - Download the latest [PC^2](http://www.ecs.csus.edu/pc2/) software and unzip it in /usr/local/
-	- At the time of this writing, the latest version is 9.2.4-2837, and the direct download link is [here](http://www.ecs.csus.edu/pc2/code/v9/pc2-9.2.4-2837/pc2-9.2.4-2837.zip); thus, the directory it is unzipped into would be `/usr/local/pc2-9.2.4`
-	- After unzipping, create a symlink: from /usr/local/ run (changing the version as necessary): `sudo ln -s pc2-9.2.4 pc2`
+	- At the time of this writing, the latest version is 9.3.2-3449, and the direct download link is [here](http://www.ecs.csus.edu/pc2/code/v9/pc2-9.3.2-3449/pc2-9.3.2-3449.zip); thus, the directory it is unzipped into would be `/usr/local/pc2-9.3.2`
+	- After unzipping, create a symlink: from /usr/local/ run (changing the version as necessary): `sudo ln -s pc2-9.3.2 pc2`
 	- Edit /usr/local/pc2/pc2v9.ini and replace `localhost` on the `server` line (likely line 12) with the full server name of the primary submission server
 - Create a script to restore the Internet access after the contest (this does not hurt anything to have it ready, as it won't do anything if the Internet is not turned off).  This can be `/usr/local/bin/restore-internet` -- the commands therein need sudo, so only the `student` user can run them. This is typically executed at the end of the contest if the contestants want to save their work.  All that has to be done is to modify the default policy for the chains. Be sure to also run `chmod 755 /usr/local/bin/restore-internet`.
 ```
