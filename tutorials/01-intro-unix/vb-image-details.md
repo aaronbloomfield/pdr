@@ -56,7 +56,7 @@ All installations need to run through this, as it sets up the default Kubuntu in
 - VirtualBox guest additions
     - These are the utilities so that VirtualBox will work correctly with the host computer (proper full screen, etc.)
     - From the VirtualBox Device menu, select "Insert Guest Additions CD Image", and follow the prompts
-    - Once done, run `autorun.sh` from `/media/student/VBOXADDITIONS_4.3.36_105129` (or similar), and follow the prompts
+    - Once done, run `autorun.sh` from `/media/student/VBOXADDITIONS_4.3.36_105129` (or similar), and follow the prompts.  Alternatively, if that does not work, try running `sudo bash VBoxLinuxAdditions.run` from that same directory.
 - Reboot!
 
 # Development installation {#development}
