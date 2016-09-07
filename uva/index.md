@@ -61,8 +61,8 @@ The links in the right-most column link directly to the lecture recording on Col
 |3|Aug 29| Monday    | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | [01: C++][81] | [C++][81], slides [4.14][1010313] to [7.9][1010608] ([recording][203]) | [01:C++][81], slides [6.1][10105] to [8.5][1010704] |
 |4|Aug 31| Wednesday | | [01: C++][81] | [C++][81], slides [8.1][10107] to [9.19][1010818] ([recording][204]) | [01:C++][81], slides [9.1][10108] to [9.17][1010816] |
 |5|Sep 2| Friday    | | [01: C++][81] | [C++][81], slides [10.1][10109] to [10.16][1010915] ([recording][205]) | [01:C++][81], slides [9.18][1010817] to [10.13][1010912] |
-|6|Sep 5| Monday    | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: LLDB][42] ([md][62]) *OR* [Tutorial 2: GDB][52] ([md][72]) (see [lab 2][2] for which one to pick) | [01: C++][81] | | [01:C++][81], slides [10.13][1010912] to [12.4][1011103] |
-|7|Sep 7| Wednesday | | [01: C++][81], [02: Lists][82] | | |
+|6|Sep 5| Monday    | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: LLDB][42] ([md][62]) *OR* [Tutorial 2: GDB][52] ([md][72]) (see [lab 2][2] for which one to pick) | [01: C++][81] | [C++][81], slides [10.17][1010916] to [12.7][1011106] | [01:C++][81], slides [10.13][1010912] to [12.4][1011103] |
+|7|Sep 7| Wednesday | | [01: C++][81], [02: Lists][82] | [C++][81], slides [12.8][1011107] to [13.14][1011213] (end); [lists][82], slides [1][82] to [4.5][1020304] ([recording][208]) | |
 |8|Sep 9| Friday    | | [02: Lists][82] | | |
 |9|Sep 12| Monday    | [Lab 3: Stacks][3] ([md][23]) / [Tutorial 3: More UNIX, part 1][63], introduction and sections 1-4 | [02: Lists][82], [03: Numbers][83] | | |
 |10|Sep 14| Wednesday | | [03: Numbers][83] | | |
@@ -302,6 +302,7 @@ None yet!
 [1010913]: ../slides/01-cpp.html#/9/13
 [1010914]: ../slides/01-cpp.html#/9/14
 [1010915]: ../slides/01-cpp.html#/9/15
+[1010916]: ../slides/01-cpp.html#/9/16
 [1010919]: ../slides/01-cpp.html#/9/19
 [1010920]: ../slides/01-cpp.html#/9/20
 [10110]: ../slides/01-cpp.html#/10
@@ -310,6 +311,7 @@ None yet!
 [1011104]: ../slides/01-cpp.html#/11/4
 [1011105]: ../slides/01-cpp.html#/11/5
 [1011106]: ../slides/01-cpp.html#/11/6
+[1011107]: ../slides/01-cpp.html#/11/7
 [1011205]: ../slides/01-cpp.html#/12/5
 [1011213]: ../slides/01-cpp.html#/12/13
 [10200]: ../slides/02-lists.html
