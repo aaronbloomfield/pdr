@@ -16,24 +16,23 @@
 <p>The primary mechanism for learning IBCM is through the <a href="../slides/07-ibcm.html">IBCM slide set</a> and the <a href="../book/ibcm-chapter.pdf">IBCM book chapter</a>. The material in both of those largely duplicates itself, but in different formats. IBCM is utilized through an online set of web pages, described next. A few C++ utilities are described at the bottom of this page.</p>
 <h2 id="website">Website</h2>
 <p>The IBCM is utilized through an online series of webpages. The IBCM simulator needs PHP in order to run, and thus must be run from a web server (i.e., not as a local file). Most of the computational load is on the client side (via Javascript), and little is on the server side. There are a few mirros of this website available, which are listed below. All the necessary code to run a separate copy are included in this repository.</p>
-<p>The primary file for the website is <a href="index.html" class="uri">index.html</a>, and the directions are on the <a href="directions.html" class="uri">directions.html</a> page. The simulator itself is on the <a href="simulator.php" class="uri">simulator.php</a> page -- but as described above, this must be run on an actual web server. Two supporting files (<a href="simulator.js" class="uri">simulator.js</a> and <a href="ibcm.css" class="uri">ibcm.css</a>) and the entire img/ directory are needed as well. Note that two of the programs listed below (<a href="summation.ibcm" class="uri">summation.ibcm</a> and <a href="array-summation.ibcm" class="uri">array-summation.ibcm</a>) are linked to from the various website pages.</p>
+<p>The primary file for the website is <a href="index.html">index.html</a>, and the directions are on the <a href="directions.html">directions.html</a> page. The simulator itself is on the <a href="simulator.php">simulator.php</a> page -- but as described above, this must be run on an actual web server. Two supporting files (<a href="simulator.js">simulator.js</a> and <a href="ibcm.css">ibcm.css</a>) and the entire img/ directory are needed as well. Note that two of the programs listed below (<a href="summation.ibcm">summation.ibcm</a> and <a href="array-summation.ibcm">array-summation.ibcm</a>) are linked to from the various website pages.</p>
 <p>The mirrors are:</p>
 <ul>
-<li><a href="http://www.cs.virginia.edu/~cs216/ibcm/" class="uri">http://www.cs.virginia.edu/~cs216/ibcm/</a></li>
-<li><a href="http://pegasus.cs.virginia.edu/ibcm/" class="uri">http://pegasus.cs.virginia.edu/ibcm/</a></li>
-<li><a href="http://people.virginia.edu/~asb2t/ibcm/" class="uri">http://people.virginia.edu/~asb2t/ibcm/</a></li>
+<li><a href="http://www.cs.virginia.edu/~cs216/ibcm/">http://www.cs.virginia.edu/~cs216/ibcm/</a></li>
+<li><a href="http://pegasus.cs.virginia.edu/ibcm/">http://pegasus.cs.virginia.edu/ibcm/</a></li>
+<li><a href="http://people.virginia.edu/~asb2t/ibcm/">http://people.virginia.edu/~asb2t/ibcm/</a></li>
 </ul>
 <h2 id="sample-ibcm-code">Sample IBCM code</h2>
 <p>The sample IBCM code included in this repository:</p>
 <ul>
-<li><a href="summation.ibcm" class="uri">summation.ibcm</a>: a program that reads in a single integer value <em>n</em>, and computes the sum from 1 to <em>n</em>. This is the first program that is discussed in the <a href="../slides/07-ibcm.html">IBCM slide set</a>.</li>
-<li><a href="array-summation.ibcm" class="uri">array-summation.ibcm</a>: a program that will compute the sum of a number of elements in an array. Due to the fact that IBCM is intentionally a simplistic language, array indexing instrcutions must be created during run-time. This is the second program that is discussed in the <a href="../slides/07-ibcm.html">IBCM slide set</a>.</li>
-<li><a href="multiply.ibcm" class="uri">multiply.ibcm</a>: a program that creates an activation to allow for recursive calls. It can call itself recursively about 1,300 times before it runs out of memory. The 'stack', which contains the activation records, starts at the end of memory, and contains only the two parameters to the subroutine and the reutrn address.</li>
-<li><a href="turing.ibcm" class="uri">turing.ibcm</a>: a Turing machine simulator. The automaton simulated is a four state <a href="http://en.wikipedia.org/wiki/Busy_beaver">Busy Beaver</a> automaton, shown below. Details about the Turing completeness can be found in the <a href="http://dl.acm.org/citation.cfm?id=1953273">IBCM article</a>.</li>
+<li><a href="summation.ibcm">summation.ibcm</a>: a program that reads in a single integer value <em>n</em>, and computes the sum from 1 to <em>n</em>. This is the first program that is discussed in the <a href="../slides/07-ibcm.html">IBCM slide set</a>.</li>
+<li><a href="array-summation.ibcm">array-summation.ibcm</a>: a program that will compute the sum of a number of elements in an array. Due to the fact that IBCM is intentionally a simplistic language, array indexing instrcutions must be created during run-time. This is the second program that is discussed in the <a href="../slides/07-ibcm.html">IBCM slide set</a>.</li>
+<li><a href="multiply.ibcm">multiply.ibcm</a>: a program that creates an activation to allow for recursive calls. It can call itself recursively about 1,300 times before it runs out of memory. The 'stack', which contains the activation records, starts at the end of memory, and contains only the two parameters to the subroutine and the reutrn address.</li>
+<li><a href="turing.ibcm">turing.ibcm</a>: a Turing machine simulator. The automaton simulated is a four state <a href="http://en.wikipedia.org/wiki/Busy_beaver">Busy Beaver</a> automaton, shown below. Details about the Turing completeness can be found in the <a href="http://dl.acm.org/citation.cfm?id=1953273">IBCM article</a>.</li>
 </ul>
 <div class="figure">
-<img src="busy-beaver.png" alt="Busy Beaver automaton" />
-<p class="caption">Busy Beaver automaton</p>
+<img src="busy-beaver.png" alt="Busy Beaver automaton" /><p class="caption">Busy Beaver automaton</p>
 </div>
 <h2 id="c-utilities">C++ Utilities</h2>
 <p>There are two C++ utility programs included, which are primarly useful for grading. In particular, they allow the programs to be run through a series of scripts (or other automated grading system).</p>

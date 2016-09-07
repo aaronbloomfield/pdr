@@ -30,3 +30,10 @@ The tutorials for this course are listed below.
     - Source code: [average.cpp](11-doxygen/average.cpp.html) ([src](11-doxygen/average.cpp))
 - [Tutorial 12: Objective C](12-objc/index.html)
     - Source code: [helloworld.m](12-objc/helloworld.m.html) ([src](12-objc/helloworld.m))
+
+
+### Other Tutorials
+
+These are tutorials that may be useful to students, but are not assigned as part of the labs.
+
+- [SSH and SCP tutorial](other/ssh-scp.html)

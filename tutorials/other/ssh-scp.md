@@ -3,10 +3,10 @@ PDR: ssh and scp Tutorial
 
 [Go up to the Tutorials table of contents page](../index.html)
 
-It has come to our attention that PDR students often need reliable access to the
+Students often need reliable access to the
 course lab servers in order to successfully complete the assembly language
 (architecture dependent) assignments, as well as to easily synchronize work done on 
-Olsson 001 lab computers (e.g. source code files) with personal laptops. This tutorial 
+the lab computers (e.g. source code files) with personal laptops. This tutorial 
 should--hopefully--make it simple to navigate the process of remotely logging
 onto lab machines and copy files back and forth (via `ssh` and `scp`
 respectively).
@@ -15,9 +15,9 @@ respectively).
 
 `ssh` is the [**s**ecure **sh**ell](https://en.wikipedia.org/wiki/Secure_Shell)
 protocol, which will allow us to remotely login to the course lab machines (yes,
-the same synchronized filesystem you have access to on any of the Olsson 001 desktops during labs). `ssh`
+the same synchronized file system you have access to on any of the lab desktops during labs). `ssh`
 provides a way for you to use your lab account's `bash` shell without needing to be present in the
-room; you can work on assignments for PDR on the lab machines from anywhere in the world!
+room; you can work on assignments for PDR on the lab machines from anywhere.
 No graphical applications/windows, including any usage of your mouse, are available via
 `ssh` (well, X-11 forwarding is not enabled on our servers)-- so you will need to get comfortable with the keystrokes for `emacs`,
 `vim`, [or whichever other editor you use](https://xkcd.com/378/) if you plan to do your work with this
@@ -41,6 +41,8 @@ convenient to you. In addition, you could send any files you worked on from your
 server so that it is waiting for you on the lab desktops when you come in on
 Tuesday.
 
+There are Windows versions of `ssh` and `scp` as well; one set of these applications are called SecureCRT and SecureFX (UVa provides them for free in its Software Central).  [PuTTY](http://www.putty.org/) is a free and low-overhead ssh client for Windows.
+
 **Lastly, if your VirtualBox image/macOS/WSL/native Linux environment
 etc is *destroyed or unusable* by some means, using `ssh` and `scp` with the 
 lab servers is an excellent alternative way to do your course assignments.**
@@ -48,7 +50,7 @@ lab servers is an excellent alternative way to do your course assignments.**
 ## Using ssh to login to a lab server from your local machine ##
 
 Open the `bash` terminal on your laptop (via either the course image in VirtualBox, macOS, WSL, native Linux
-environment etc). Have your Olsson 001 lab account password available (if you
+environment etc). Have your lab account password available (if you
 did not change it from the default password, it should be in email sent to
 *yourComputingID*@virginia.edu from root@virginia.edu).
 Run the command `ssh yourComputingID@labunix01.cs.virginia.edu` (you may
@@ -57,7 +59,7 @@ synchronized, it does not matter which number you use).
 You will be prompted to enter your lab account password, and as
 you enter it **you may notice that nothing appears to happen on the screen**; do
 not worry, this
-is how `bash` hides your password from being shown in plaintext, rather than
+is how `bash` hides your password from being shown in plain text, rather than
 using the "common" practice of printing `*`s for
 each character you enter. When you are done entering the password, press enter
 and you should see the prompt on your terminal change to something along the
@@ -86,7 +88,7 @@ are getting into, you are welcome to try to do that on your own (`sftp` or
 likely commands to look into for that scenario).**
 
 Open the `bash` terminal on your laptop (via either the course image in VirtualBox, macOS, WSL, native Linux
-environment etc). Have your Olsson 001 lab account password available (if you
+environment etc). Have your lab account password available (if you
 did not change it from the default password, it should be in email sent to
 *yourComputingID*@virginia.edu from root@virginia.edu). 
 
@@ -120,7 +122,7 @@ referring to your local machine's path). `~` means "my home directory on that
 machine". If you just want the file to be put in your remote machine's home
 directory, `~/` is the remote path to use.
 
-3\. Transferring an **entire directory or pattern** (incl. subdirectories)
+3\. Transferring an **entire directory or pattern** (incl. sub-directories)
 ***from*** the
 lab machine ***to*** your local machine
 
@@ -137,7 +139,7 @@ machine". If you just want the files/directories to be put in your current local
 the local path to use.
 
 
-4\. Transferring an **entire directory or pattern** (incl. subdirectories)
+4\. Transferring an **entire directory or pattern** (incl. sub-directories)
 ***from*** your local machine ***to*** the lab machine
 
 Run the command
@@ -168,4 +170,3 @@ students](https://www.cs.virginia.edu/~lat7h/3330/F2016/sshscp.html)
 * [reference `man` pages](https://en.wikipedia.org/wiki/Man_page) (a manual on how to use a command you are trying to run)
 * use a web browser + search engine to troubleshoot on your own (and then try the 
   above suggestions again if needed)
-* keep your head up! you can do this :-)
