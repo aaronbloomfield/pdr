@@ -355,7 +355,7 @@ int   main ()
                     break;
                 }
 
-                cout << "The list is (forward ): ";
+                cout << "The list is (forward): ";
                 printList(*list,true);
                 cout << "The list is (backward): ";
                 printList(*list,false);
