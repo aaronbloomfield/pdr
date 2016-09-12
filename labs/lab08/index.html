@@ -45,8 +45,7 @@
 </ol>
 <h3 id="post-lab">Post-lab</h3>
 <ol style="list-style-type: decimal">
-<li>Finish addressing the topics listed in the in-lab section. We are looking for a quality write-up here, as detailed in the post-lab section. Be sure to address all the issues in each topic!<br />
-</li>
+<li>Finish addressing the topics listed in the in-lab section. We are looking for a quality write-up here, as detailed in the post-lab section. Be sure to address all the issues in each topic!<br /></li>
 <li>Files to download: none (other than the results of your pre-lab and in-lab)</li>
 <li>Files to submit: postlab8.pdf</li>
 </ol>
@@ -63,8 +62,7 @@
 <p><strong>Your code must compile and run on the submission server, which is a 64-bit Linux machine!</strong></p>
 <p>There are three changes that will have to be made to compile your program (and this to the Makefile) depending on your own development platform:</p>
 <ul>
-<li>You will have to determine whether to name your function <code>vecsum</code> instead of <code>_vecsum</code> (note the lack of underscore) in vecsum.s (this file is described more below). In the final linking step, if you get a message such as, <code>main.cpp:(.text+0x12): undefined reference to 'vecsum'</code>, then you should change the name of the function.<br />
-</li>
+<li>You will have to determine whether to name your function <code>vecsum</code> instead of <code>_vecsum</code> (note the lack of underscore) in vecsum.s (this file is described more below). In the final linking step, if you get a message such as, <code>main.cpp:(.text+0x12): undefined reference to 'vecsum'</code>, then you should change the name of the function.<br /></li>
 <li>Some systems will have to supply a command-line parameter to clang++; this can be put on the <code>CXX</code> or <code>CXXFLAGS</code> macro(s) line in your Makefile</li>
 <li>All systems will have a specific nasm file format option (<code>-f</code>) that will need to be specified.</li>
 </ul>
@@ -80,14 +78,7 @@
 <p><strong>32-bit Mac OS X:</strong> to run the code, will need to rename all the assembly function names with a leading underscore (i.e. <code>_vecsum</code> not <code>vecsum</code>). You will also have to use the <code>-f macho</code> format for nasm, and tell clang++ to generate the correct architecture code. In the past, to generate the correct architecture code <strong>WAS</strong> done by providing the <code>-arch i386</code> parameter to the compiler we used previously; we are not sure if this is necessary with clang++ (please let us know how this works for you; we do not have access to a 32-bit Mac machine with clang/clang++ to test this out). In the provided Makefile, try the <code>CXX</code> macro line to be <code>clang++ -arch i386</code> (instead of the default <code>clang++</code>), and change the <code>ASFLAGS</code> macro line to <code>-f macho</code> (instead of the default <code>-f elf</code>). You will probably want to remove the <code>-m32</code> flag on the <code>CXX</code> macro line, but be sure to put that back in before you resubmit. Note that you <strong>MUST</strong> change all of this back in order for it to compile via the submission system! Also note that Mac OS X does not support the format of assembly that we use in this course, which means that you will be stuck reading the assembly in the other format we discussed in class.</p>
 <p><strong>64-bit Mac OS X:</strong> As far as we are aware, this is the same as the 32-bit Mac OS X. If you run into problems with this, please let us know. Note that Mac OS X does not support the format of assembly that we use in this course, which means that you will be stuck reading the assembly in the other format we discussed in class.</p>
 <p>Below is a table summarizing the changes</p>
-<table style="width:14%;">
-<colgroup>
-<col width="2%" />
-<col width="2%" />
-<col width="2%" />
-<col width="2%" />
-<col width="2%" />
-</colgroup>
+<table>
 <thead>
 <tr class="header">
 <th align="left">Platform</th>
