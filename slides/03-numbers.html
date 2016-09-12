@@ -512,8 +512,9 @@ void Image::WriteInt (int value, FILE * fp) {
 - Other common overflows:
   - 16-bits: 32,767 + 1 = -32,768
   - 32-bits: 2,147,483,647 + 1 = -2,147,483,648
+  - 64-bits: 9,223,372,036,854,775,807 + 1 = -9,223,372,036,854,775,808
 - This has real-word applications: [*Gangnam Style* overflows INT_MAX, forces YouTube to go 64-bit](http://arstechnica.com/business/2014/12/gangnam-style-overflows-int_max-forces-youtube-to-go-64-bit/) (Dec 3, 2014)
-  - If you care, it's now at 2.4 billion views (as of Sep 2015)
+  - If you care, it's now at 2.6 billion views (as of Sep 2016)
 	  </script></section>
 
 	  <section>
@@ -714,6 +715,9 @@ void Image::WriteInt (int value, FILE * fp) {
 	  <section data-markdown><script type="text/template">
 ## Converting a float
 Source code: [float_to_hex.cpp](code/03-numbers/float_to_hex.cpp.html) ([src](code/03-numbers/float_to_hex.cpp))
+
+Because we want this to be a 32-bit pointer, we must compile it with `-m32`
+
 ```
 #include <iostream>
 using namespace std;
