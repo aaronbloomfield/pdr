@@ -149,7 +149,7 @@ If you want to see some quick code for converting a string to an int, see the `S
 
 In the past, students have run into a few problems with this lab.  We list them here in an effort to prevent these particular problems from being encountered again.
 
-- When compiling your code, remember to compile ALL of your cpp files in the compile command: `clang++ postfixCalculator.cpp, testPostfixCalc.cpp`.  Or you can use `clang++ *.cpp`
+- When compiling your code, remember to compile ALL of your cpp files in the compile command: `clang++ postfixCalculator.cpp testPostfixCalc.cpp`.  Or you can use `clang++ *.cpp`
 - Remember to put `using namespace std;` at the top of EACH file you write.  Even if you don't use anything from the standard namespace, putting that at the top of the file will not hurt.
 
 
