@@ -5,7 +5,6 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <title>PDR: Laboratory 3: Stacks</title>
-  <style type="text/css">code{white-space: pre;}</style>
   <link rel="stylesheet" href="../../markdown.css" type="text/css" />
 </head>
 <body>
@@ -134,7 +133,7 @@
 <li>Postfix: 3 6 + 8 4 / -</li>
 </ul>
 <p>An online description of postfix calculators can be found <a href="http://en.wikipedia.org/wiki/Reverse_Polish_notation">on Wikipedia</a> - note that you do <strong>NOT</strong> need to print out the infix form of the postfix expression; you only need to print the final answer. See the end of this lab for example input and expected output.</p>
-<p>When you start handling input (in the in-lab), you will want to store your read-in values into strings. You can use the <a href="http://www.cplusplus.com/reference/string/string/compare/">string compare()</a> method to compare them, but realize that it returns 0 if they are <em>equal</em>, and non-zero if they are not equal.</p>
+<p>When you start handling input (in the in-lab), you will want to store your read-in values into strings. You can use <code>==</code> to compare STL strings. Alternatively, you can use the <a href="http://www.cplusplus.com/reference/string/string/compare/">string compare()</a> method to compare them, but realize that it returns 0 if they are <em>equal</em>, and non-zero if they are not equal.</p>
 <p>If you want to see some quick code for converting a string to an int, see the <code>StringToInt()</code> function at the bottom of <a href="http://faq.cprogramming.com/cgi-bin/smartfaq.cgi?answer=1046996179&amp;id=1043284385">this page</a>. Warning: just copying that function without understanding it will only make your life more difficult.</p>
 <h3 id="hints">Hints</h3>
 <p>In the past, students have run into a few problems with this lab. We list them here in an effort to prevent these particular problems from being encountered again.</p>
@@ -154,57 +153,18 @@
 <pre><code>./a.out &lt; addition.txt</code></pre>
 <h3 id="reading-in-tokens">Reading in Tokens</h3>
 <p>A token is a single 'thing' passed to the postfix calculator. It can be an operator or a number, but is always separated by spaces. Thus, it is an entire number that is passed to the calculator, and not part of a number. The following code will read in the tokens for this program.</p>
-<pre><code>#include &lt;iostream&gt;
-using namespace std;
-
-int main() {
-    while(true) {
-        string s;
-        cin &gt;&gt; s;
-        if(s == &quot;&quot;) {
-            break;
-        }
-        cout &lt;&lt; s &lt;&lt; endl;
-    }
-    return 0;
-}</code></pre>
-<p>For the postfix calculator, each string <code>s</code> that is read in must then be processed to determine if it's a number or an operator. The difficult part is if a minus sign is the first character of the token -- it could be a subtraction sign or the beginning of a negative number (recall that the unary negation operator is the tilde).</p>
+<p>``` #include <iostream> using namespace std;</p>
+<p>int main() { while(true) { string s; cin &gt;&gt; s; if(s == &quot;&quot;) { break; } cout &lt;&lt; s &lt;&lt; endl; } return 0; } ``<code>For the postfix calculator, each string</code>s` that is read in must then be processed to determine if it's a number or an operator. The difficult part is if a minus sign is the first character of the token -- it could be a subtraction sign or the beginning of a negative number (recall that the unary negation operator is the tilde).</p>
 <p>You may find it useful to use the <code>isdigit()</code> or <code>atoi()</code> functions provided in <code>&lt;cstdlib&gt;</code> in this lab. Try searching on the web for info on these routines. The <code>atoi()</code> function operates on a C-style string, which is an array of characters. You can convert a C++ string to one of these by calling the <code>c_str()</code> method of the C++ string object. More string functions can be found at <a href="http://www.sgi.com/tech/stl/">http//www.sgi.com/tech/stl/</a>.</p>
 <p>The following illustrates the execution of the previous code. Recall that this program reads in strings from the keyboard and prints them back out to the screen. Let's assume we have a file <code>random-tokens.txt</code>, which contains:</p>
 <pre><code>+ 2 3 isn&#39;t 2150 great??</code></pre>
 <p>When run, it looks like the following:</p>
-<pre><code>$ ./a.out &lt; random-words.txt
-+
-2
-3
-isn&#39;t
-2150
-great??</code></pre>
-<p>Note, as stated above, that this code reads in each space-delimited <em>token</em>. Another way this code can be run is by directly typing into <code>stdin</code>:</p>
-<pre><code>$ ./a.out
-+ 2 3 isn&#39;t 2150 great??
-+
-2
-3
-isn&#39;t
-2150
-great??
-^D</code></pre>
-<p>In the above execution, what was typed in was <code>+ 2 3 isn't 2150 great??</code> (the second line). After the end of the line (i.e., after the Enter key was pressed), the program reads in that, and prints each token on a separate line. Since there was no more into to provide, Control-D (shown as <code>^D</code>) was then pressed (the last line in that execution run). Control-D closes the stdin pipe by providing the EOF flag.</p>
+<p><code>$ ./a.out &lt; random-words.txt + 2 3 isn't 2150 great??</code> Note, as stated above, that this code reads in each space-delimited <em>token</em>. Another way this code can be run is by directly typing into <code>stdin</code>:</p>
+<p><code>$ ./a.out + 2 3 isn't 2150 great?? + 2 3 isn't 2150 great?? ^D</code> In the above execution, what was typed in was <code>+ 2 3 isn't 2150 great??</code> (the second line). After the end of the line (i.e., after the Enter key was pressed), the program reads in that, and prints each token on a separate line. Since there was no more into to provide, Control-D (shown as <code>^D</code>) was then pressed (the last line in that execution run). Control-D closes the stdin pipe by providing the EOF flag.</p>
 <p><strong><em>NOTE:</em></strong> When hitting Control-D, you have to enter it <em>on it's own line</em>. This means that you first have to hit Enter, then Control-D.</p>
 <p>Another way of accomplishing the above code to check if there is any more input is to use the <code>good()</code> method in cin (i.e., <code>cin.good()</code>):</p>
-<pre><code>#include &lt;iostream&gt;
-using namespace std;
-
-int main() {
-    while (cin.good()) {
-        string s;
-        cin &gt;&gt; s;
-        cout &lt;&lt; s &lt;&lt; endl;
-    }
-    return 0;
-}</code></pre>
-<p>They are two different ways of reading from stdin. In the former case, you use control-d to close stdin, whereas in the latter case, <code>cin.good()</code> takes care of that.</p>
+<p>``` #include <iostream> using namespace std;</p>
+<p>int main() { while (cin.good()) { string s; cin &gt;&gt; s; cout &lt;&lt; s &lt;&lt; endl; } return 0; } ``<code>They are two different ways of reading from stdin. In the former case, you use control-d to close stdin, whereas in the latter case,</code>cin.good()` takes care of that.</p>
 <h3 id="assumptions">Assumptions:</h3>
 <ol style="list-style-type: decimal">
 <li>Assume that the input, i.e. the postfix expression, is entered in on one line and that all numbers and operators are separated by a single space. We will only provide you with valid input.</li>
