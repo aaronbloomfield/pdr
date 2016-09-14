@@ -277,7 +277,7 @@ You will also have to write up the difficulties.txt file, as described above in 
 
 Note that you only have to implement the four stack methods described in the pre-lab section (and the constructor, of course): `push()`, `pop()`, `top()`, and `empty()`.  The other methods (copy constructor, `operator=()`, etc.) do not need to be implemented for this lab.
 
-If you are using an array-based implementation, you must be able to handle when the array fills up; you can't use the `vector` class for this lab.
+You may NOT use an array to implement your stack. You MUST use a linked-list/pointer-based implementation.
 
 ### Submitting the stack / list files ###
 
