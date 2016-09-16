@@ -65,8 +65,8 @@ The links in the right-most column link directly to the lecture recording on Col
 |7|Sep 7| Wednesday | | [01: C++][81], [02: Lists][82] | [C++][81], slides [12.8][1011107] to [13.14][1011213] (end); [lists][82], slides [1][82] to [4.5][1020304] ([recording][208]) | [01:C++][81], slides [12.5][1011103] to [13.14][1011213] |
 |8|Sep 9| Friday    | | [02: Lists][82] | [lists][82], slides [4.5][1020304] to [6.13][1020512] ([recording][209]) | [lists][82], slides [1][82] to [5.10][1020409] |
 |9|Sep 12| Monday    | [Lab 3: Stacks][3] ([md][23]) / [Tutorial 3: More UNIX, part 1][63], introduction and sections 1-4 | [02: Lists][82], [03: Numbers][83] | [lists][82], slides [6.13][1020512] to [9.4][1020803] (end); [numbers][83], slides [1][83] to [5.4][1030403] ([recording][210]) | |
-|10|Sep 14| Wednesday | | [03: Numbers][83] | | |
-|11|Sep 16| Friday    | | [03: Numbers][83] | | |
+|10|Sep 14| Wednesday | | [03: Numbers][83] | [numbers][83], slides [5.5][1030404] to [8.9][1030708] ([recording][211]) | |
+|11|Sep 16| Friday    | | [03: Numbers][83] | [numbers][83], slides [9.1][10309] to ... | |
 |12|Sep 19| Monday    | [Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8 | [03: Numbers][83] | | |
 |13|Sep 21| Wednesday | | [04: Arrays & big-Oh][84] | | |
 |14|Sep 23| Friday    | | [04: Arrays & big-Oh][84] | | |
@@ -336,6 +336,7 @@ None yet!
 [1030303]: ../slides/03-numbers.html#/3/3
 [10307]: ../slides/03-numbers.html#/7
 [1030701]: ../slides/03-numbers.html#/7/1
+[1030708]: ../slides/03-numbers.html#/7/8
 [1030608]: ../slides/03-numbers.html#/6/8
 [1030705]: ../slides/03-numbers.html#/7/5
 [1030801]: ../slides/03-numbers.html#/8/1
@@ -349,6 +350,7 @@ None yet!
 [1030832]: ../slides/03-numbers.html#/8/32
 [1030833]: ../slides/03-numbers.html#/8/33
 [1030834]: ../slides/03-numbers.html#/8/34
+[10309]: ../slides/03-numbers.html#/9
 [1040306]: ../slides/04-arrays-bigoh.html#/3/6
 [1040307]: ../slides/04-arrays-bigoh.html#/3/7
 [1040311]: ../slides/04-arrays-bigoh.html#/3/11
