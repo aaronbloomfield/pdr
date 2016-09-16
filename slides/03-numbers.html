@@ -700,7 +700,7 @@ void Image::WriteInt (int value, FILE * fp) {
 
 	  <section data-markdown><script type="text/template">
 ## Converting a float<br>from decimal to binary
-- Sign: 1 if negative, 0 if positive
+- Sign: 1 if negative (signed), 0 if non-negative (unsigned)
 - Exponent (*e*): find what power of 2 is required to bring the number to 1.0 <= *x* < 2.0
   - If you have to multiply, then it's negative
   - If you have to divide, then it's positive
