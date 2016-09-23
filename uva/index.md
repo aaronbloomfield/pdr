@@ -67,9 +67,9 @@ The links in the right-most column link directly to the lecture recording on Col
 |9|Sep 12| Monday    | [Lab 3: Stacks][3] ([md][23]) / [Tutorial 3: More UNIX, part 1][63], introduction and sections 1-4 | [02: Lists][82], [03: Numbers][83] | [lists][82], slides [6.13][1020512] to [9.4][1020803] (end); [numbers][83], slides [1][83] to [5.4][1030403] ([recording][210]) | [lists][82], slides [6.1][10205] to [7.3][1020602] |
 |10|Sep 14| Wednesday | | [03: Numbers][83] | [numbers][83], slides [5.5][1030404] to [8.9][1030708] ([recording][211]) | [lists][82], slides [7.4][1020603] to [9.4][1020803]; [numbers][83], slides [1][83] to [7.4][1030603] |
 |11|Sep 16| Friday    | | [03: Numbers][83] | [numbers][83], slides [9.1][10308] to [9.15][1030814] ([recording][212]) | [numbers][83], slides [7.4][1030603] to [9.16][1030815] |
-|12|Sep 19| Monday    | [Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8 | [03: Numbers][83] | [numbers][83], slides [9.15][1030814] to [9.35][1030834] (end) ([recording][213]) | |
-|13|Sep 21| Wednesday | | [04: Arrays & big-Oh][84] | | |
-|14|Sep 23| Friday    | | [04: Arrays & big-Oh][84] | | |
+|12|Sep 19| Monday    | [Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8 | [03: Numbers][83] | [numbers][83], slides [9.15][1030814] to [9.35][1030834] (end) ([recording][213]) | [numbers][83], slides [9.15][1030814] to [9.35][1030834] |
+|13|Sep 21| Wednesday | | [04: Arrays & big-Oh][84] | | [Arrays & big-Oh][84], slides [1][84] to [5.8][1040407] |
+|14|Sep 23| Friday    | | [04: Arrays & big-Oh][84] | | [Arrays & big-Oh][84], slides [5.8][1040407] to [6.8][1040507] |
 |  |Sep 25| Sunday    | | Exam 1 review session | | |
 |15|Sep 26| Monday    | Exam 1 instead during Tuesday's lab | [04: Arrays & big-Oh][84] | | |
 |16|Sep 38| Wednesday | | [05: Trees][85] | | |
@@ -362,6 +362,7 @@ None yet!
 [10404]: ../slides/04-arrays-bigoh.html#/4
 [1040402]: ../slides/04-arrays-bigoh.html#/4/2
 [1040403]: ../slides/04-arrays-bigoh.html#/4/3
+[1040407]: ../slides/04-arrays-bigoh.html#/4/7
 [1040409]: ../slides/04-arrays-bigoh.html#/4/9
 [1040410]: ../slides/04-arrays-bigoh.html#/4/10
 [1040419]: ../slides/04-arrays-bigoh.html#/4/19

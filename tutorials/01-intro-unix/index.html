@@ -60,7 +60,8 @@
 </ul>
 <p>You should now have emacs loaded and running -- if not, then something is wrong. If you are using the VirtualBox image, it will look like the following. Other systems will look similar.</p>
 <div class="figure">
-<img src="screenshot-1.png" alt="Emacs screenshot" /><p class="caption">Emacs screenshot</p>
+<img src="screenshot-1.png" alt="Emacs screenshot" />
+<p class="caption">Emacs screenshot</p>
 </div>
 <p>All of the mouse commands in Emacs have keyboard shortcuts. Eventually, you will want to learn the shortcuts, as they are much faster to enter once they are known. For the commands below, the keyboard shortcut commands are listed -- partly so you can get used to seeing and using them, and partly because for those using SecureCRT, they cannot use the mouse.</p>
 <p>The first commands in Emacs that we will learn will use the control key. For example, the exit command (to leave emacs) is listed as <code>C-x C-c</code>. This means hit Control-x then Control-c. We will be going over Emacs command in more detail later. For now, remember that if you get stuck, hit <code>C-g</code> (Control-g) a few times, and that should un-stick it.</p>
@@ -80,21 +81,25 @@ int main() {
 <p>Another useful command is the undo command: <code>C-_</code>. This means hold down the control and shift keys, and hit the dash/underscore key.</p>
 <p>Right now your Emacs should look approximately like this (with the helloworld.cpp file loaded):</p>
 <div class="figure">
-<img src="emacs-screenshot-new.png" alt="Emacs screenshot" /><p class="caption">Emacs screenshot</p>
+<img src="emacs-screenshot-new.png" alt="Emacs screenshot" />
+<p class="caption">Emacs screenshot</p>
 </div>
 <p>The following is useful for older versions of Emacs. Read over it and familiarize yourself with it, specifically the meta-commands, but note that if you see text coloring and line-numbers, you are good to go.</p>
 <p>There are two more Emacs commands that will be very useful as we continue in the course. The Emacs editor is very powerful, but you would never know it by looking at the code that you just entered. It really just looks like Notepad right now:</p>
 <div class="figure">
-<img src="screenshot-2.png" alt="Emacs screenshot" /><p class="caption">Emacs screenshot</p>
+<img src="screenshot-2.png" alt="Emacs screenshot" />
+<p class="caption">Emacs screenshot</p>
 </div>
 <p>Let's color the text and turn on line numbers -- both very useful things to have when you are editing code. We've seen control commands (such as <code>C-x C-s</code> for saving a file). Next up are commands called meta-commands, because they use the meta (or escape) key. A meta-command looks like <code>M-x linum-mode</code>. Thus, to enter the command, hit the escape key, RELEASE THE ESCAPE KEY, and hit <code>x</code>. Note that with the control commands, you hold down the control key while pressing the other key -- with meta commands, you press and then release the escape key, and then hit <code>x</code>. At that point, the bottom of your Emacs screen will look like the following:</p>
 <div class="figure">
-<img src="screenshot-3.png" alt="Emacs screenshot" /><p class="caption">Emacs screenshot</p>
+<img src="screenshot-3.png" alt="Emacs screenshot" />
+<p class="caption">Emacs screenshot</p>
 </div>
 <p>Note the <code>M-x</code> at the bottom -- Emacs is ready to receive an 'extended' meta command. Type in <code>linum-mode</code>, hit Enter, and the line number that the cursor is on will appear in the status bar at the bottom of the Emacs screen. Note that it is going to be annoying to have to type all of that in each time. This, if you hit the tab key after entering <code>line</code>, it will complete the rest of the command for you. While this may seem like a lot of typing, once you get used to it, these commands can be entered significantly faster than the mouse clicks needed to do this in other editors. There are ways you can have line numbers always displayed when you enter Emacs -- we'll get to these later in the semester. Note that you can enter <code>M-x linum-mode</code> as many times as you want -- it will just toggle the display of the line numbers on and off.</p>
 <p>The other command that is useful is to color the program text. Use the command <code>M-x font-lock-mode</code>. Note that if you hit the tab key after entering <code>font</code>, it doesn't fully complete it (you still have to enter 'mode'). Your C++ program should now be colored, and your Emacs window should look like the following.</p>
 <div class="figure">
-<img src="screenshot-4.png" alt="Emacs screenshot" /><p class="caption">Emacs screenshot</p>
+<img src="screenshot-4.png" alt="Emacs screenshot" />
+<p class="caption">Emacs screenshot</p>
 </div>
 <p>In addition to the font coloring of the C++ program code, note that the word 'Font' is between 'C++' and 'Abbrev' on the status bar (as we are now using font colors), and the line number is shown to the right of that (the cursor is on line 1 in the image).</p>
 <h2 id="summary">Summary</h2>
