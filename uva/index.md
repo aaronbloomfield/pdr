@@ -71,7 +71,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |13|Sep 21| Wednesday | | [04: Arrays & big-Oh][84] | [arrays & big-Oh][84], slides [1][84] to [5.4][1040403] ([recording][214])| [Arrays & big-Oh][84], slides [1][84] to [5.8][1040407] |
 |14|Sep 23| Friday    | | [04: Arrays & big-Oh][84] | [arrays & big-Oh][84], slides [5.2][1040401] to [5.18][1040417] ([recording][215]) | [Arrays & big-Oh][84], slides [5.8][1040407] to [6.8][1040507] |
 |  |Sep 25| Sunday    | | Exam 1 review session | | |
-|15|Sep 26| Monday    | Exam 1 instead during Tuesday's lab | [04: Arrays & big-Oh][84] | | |
+|15|Sep 26| Monday    | Exam 1 instead during Tuesday's lab | [04: Arrays & big-Oh][84] | [arrays & big-Oh][84], slides [5.16][1040415] to [6.8][1040507] (end); [trees][85], slides [1][85] to [4.12][1050311] ([recording][218]) | |
 |16|Sep 38| Wednesday | | [05: Trees][85] | | |
 |17|Sep 30| Friday    | | [05: Trees][85]| | |
 |  |Oct 3| Monday    | No lab this week due to fall break | (fall break) | | |
@@ -366,6 +366,7 @@ None yet!
 [1040407]: ../slides/04-arrays-bigoh.html#/4/7
 [1040409]: ../slides/04-arrays-bigoh.html#/4/9
 [1040410]: ../slides/04-arrays-bigoh.html#/4/10
+[1040415]: ../slides/04-arrays-bigoh.html#/4/15
 [1040417]: ../slides/04-arrays-bigoh.html#/4/17
 [1040419]: ../slides/04-arrays-bigoh.html#/4/19
 [1040420]: ../slides/04-arrays-bigoh.html#/4/20
