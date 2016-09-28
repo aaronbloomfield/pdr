@@ -72,7 +72,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |14|Sep 23| Friday    | | [04: Arrays & big-Oh][84] | [arrays & big-Oh][84], slides [5.2][1040401] to [5.18][1040417] ([recording][215]) | [Arrays & big-Oh][84], slides [5.8][1040407] to [6.8][1040507] |
 |  |Sep 25| Sunday    | | Exam 1 review session | | |
 |15|Sep 26| Monday    | Exam 1 instead during Tuesday's lab | [04: Arrays & big-Oh][84] | [arrays & big-Oh][84], slides [5.16][1040415] to [6.8][1040507] (end); [trees][85], slides [1][85] to [4.12][1050311] ([recording][218]) | |
-|16|Sep 38| Wednesday | | [05: Trees][85] | | |
+|16|Sep 38| Wednesday | | [05: Trees][85] | [trees][85], slides [4.12][1050311] to [5.18][1050417] ([recording][219]) | |
 |17|Sep 30| Friday    | | [05: Trees][85]| | |
 |  |Oct 3| Monday    | No lab this week due to fall break | (fall break) | | |
 |18|Oct 5| Wednesday | | [05: Trees][85] | | |
