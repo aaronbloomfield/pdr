@@ -75,7 +75,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |16|Sep 38| Wednesday | | [05: Trees][85] | [trees][85], slides [4.12][1050311] to [5.18][1050417] ([recording][219]) | |
 |17|Sep 30| Friday    | | [05: Trees][85]| [trees][85], slides [5.19][1050418] to [7.10][1050609] ([recording][220]) | |
 |  |Oct 3| Monday    | No lab this week due to fall break | (fall break) | | |
-|18|Oct 5| Wednesday | | [05: Trees][85] | | |
+|18|Oct 5| Wednesday | | [05: Trees][85] | [trees][85], slides [7.10][1050609] to [7.31][1050630] ([recording][221]) | |
 |19|Oct 7| Friday    | | [05: Trees][85], [06: Hashes][86] | | |
 |20|Oct 10| Monday    | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [06: Hashes][86] | | |
 |21|Oct 12| Wednesday | | [06: Hashes][86] | | |
