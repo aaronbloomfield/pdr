@@ -55,7 +55,7 @@ Semester Schedule
 The links in the right-most column link directly to the lecture recording on Collab, and you have to be logged into Collab first before the link will work. Some plugins (such as NoScript) will block that link from working.
 
 | Num | Date | Day of week | Lab & Tutorial (on Tue) | Planned topic | Lecture 1 progress | Lecture 2 progress |
-|-----|--------|-------------|----------------------------------------------------------|--------------------------|-----------|--------------| 
+|-----|--------|-------------|-------------------------|--------------------------|------------------|------------------|
 |1|Aug 24| Wednesday | no lab this week | [Course introduction][80] | [course intro][80], slides [1][80] to [5.3][1000402] ([recording][201]) | [course intro][80], slides [1][80] to [5.0][10004] |
 |2|Aug 26| Friday    | | [Course introduction][80], [01: C++][81] | [course intro][80], slides [5.4][1000403] to [7.2][1000601]; [C++][81], slides [1][81] to [4.13][1010312] ([recording][202]) | [course intro][80], slides [5.0][10004] to [6.1][1000601]; [C++][81], slides [1][81] to [6.1][10105] |
 |3|Aug 29| Monday    | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | [01: C++][81] | [C++][81], slides [4.14][1010313] to [7.9][1010608] ([recording][203]) | [01:C++][81], slides [6.1][10105] to [8.5][1010704] |
@@ -76,8 +76,8 @@ The links in the right-most column link directly to the lecture recording on Col
 |17|Sep 30| Friday    | | [05: Trees][85]| [trees][85], slides [5.19][1050418] to [7.10][1050609] ([recording][220]) | |
 |  |Oct 3| Monday    | No lab this week due to fall break | (fall break) | | |
 |18|Oct 5| Wednesday | | [05: Trees][85] | [trees][85], slides [7.10][1050609] to [7.31][1050630] ([recording][221]) | |
-|19|Oct 7| Friday    | | [05: Trees][85], [06: Hashes][86] | | |
-|20|Oct 10| Monday    | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [06: Hashes][86] | | |
+|19|Oct 7| Friday    | | [05: Trees][85], [06: Hashes][86] | [trees][85], slides [8.1][10507] to [9.9][1050808] | |
+|20|Oct 10| Monday    | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [06: Hashes][86] | [trees][85], slides [10.1][10509] to [10.10][1050909] (end); [hashes][86], slides [1][86] to [5.7][1060406] ([recording][223]) | |
 |21|Oct 12| Wednesday | | [06: Hashes][86] | | |
 |22|Oct 14| Friday    | | [06: Hashes][86], [07: IBCM][87] (machine language) | | |
 |23|Oct 17| Monday    | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [07: IBCM][87] (machine language) | | |
@@ -390,6 +390,7 @@ None yet!
 [1050617]: ../slides/05-trees.html#/6/17
 [1050630]: ../slides/05-trees.html#/6/30
 [10507]: ../slides/05-trees.html#/7
+[1050701]: ../slides/05-trees.html#/7/1
 [1050703]: ../slides/05-trees.html#/7/3
 [1050709]: ../slides/05-trees.html#/7/9
 [1050711]: ../slides/05-trees.html#/7/11
@@ -398,8 +399,10 @@ None yet!
 [1050802]: ../slides/05-trees.html#/8/2
 [1050808]: ../slides/05-trees.html#/8/8
 [10509]: ../slides/05-trees.html#/9
+[1050901]: ../slides/05-trees.html#/9/1
 [1050909]: ../slides/05-trees.html#/9/9
 [10604]: ../slides/06-hashes.html#/4
+[1060406]: ../slides/06-hashes.html#/4/6
 [1060411]: ../slides/06-hashes.html#/4/11
 [1060412]: ../slides/06-hashes.html#/4/12
 [1060413]: ../slides/06-hashes.html#/4/13

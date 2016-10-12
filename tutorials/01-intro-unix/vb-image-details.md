@@ -276,4 +276,4 @@ Because previous versions of this image were a different version of Ubuntu (spec
 
 **Changes for the future**
 
-None known yet!
+- Plasmashell, which is part of the graphical window system, was crashing repeatedly.  The reason seems to be tooltip previews of application windows, so these should be disabled: right click taskbar -> Task Manager Settings -> General -> Uncheck "show tooltips"
