@@ -43,7 +43,7 @@ Program and Data Representation: Slides
 - [IBCM book chapter](../book/ibcm-chapter.pdf) as the reading
 - There is a separate [IBCM section](../ibcm/index.html) of this repository with more IBCM information, although that additional information will not be needed in this course
 
-[Slide set 8: ssembly language](08-assembly.html#/)
+[Slide set 8: assembly language](08-assembly.html#/)
 
 - The x86 book chapters on [x86](../book/x86-asm-chapter.pdf) and the [C calling convention](../book/x86-ccc-chapter.pdf) as the reading
 - Source code

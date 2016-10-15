@@ -78,8 +78,8 @@ The links in the right-most column link directly to the lecture recording on Col
 |18|Oct 5| Wednesday | | [05: Trees][85] | [trees][85], slides [7.10][1050609] to [7.31][1050630] ([recording][221]) | |
 |19|Oct 7| Friday    | | [05: Trees][85], [06: Hashes][86] | [trees][85], slides [8.1][10507] to [9.9][1050808] | |
 |20|Oct 10| Monday    | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [06: Hashes][86] | [trees][85], slides [10.1][10509] to [10.10][1050909] (end); [hashes][86], slides [1][86] to [5.7][1060406] ([recording][223]) | |
-|21|Oct 12| Wednesday | | [06: Hashes][86] | | |
-|22|Oct 14| Friday    | | [06: Hashes][86], [07: IBCM][87] (machine language) | | |
+|21|Oct 12| Wednesday | | [06: Hashes][86] | [hashes][86], slides [5.8][1060407] to [6.6][1060505] ([recording][224]) | |
+|22|Oct 14| Friday    | | [06: Hashes][86], [07: IBCM][87] (machine language) | [hashes][86], slides [6.7][1060506] to [8.4][1060703] ([recording][225]) | |
 |23|Oct 17| Monday    | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [07: IBCM][87] (machine language) | | |
 |24|Oct 19| Wednesday | | [07: IBCM][87] (machine language) | | |
 |25|Oct 21| Friday    | | [08: assembly][88] (assembly language) | | |
@@ -403,6 +403,7 @@ None yet!
 [1050909]: ../slides/05-trees.html#/9/9
 [10604]: ../slides/06-hashes.html#/4
 [1060406]: ../slides/06-hashes.html#/4/6
+[1060407]: ../slides/06-hashes.html#/4/7
 [1060411]: ../slides/06-hashes.html#/4/11
 [1060412]: ../slides/06-hashes.html#/4/12
 [1060413]: ../slides/06-hashes.html#/4/13
@@ -412,6 +413,8 @@ None yet!
 [1060414]: ../slides/06-hashes.html#/4/14
 [10605]: ../slides/06-hashes.html#/5
 [1060502]: ../slides/06-hashes.html#/5/2
+[1060505]: ../slides/06-hashes.html#/5/5
+[1060506]: ../slides/06-hashes.html#/5/6
 [1060507]: ../slides/06-hashes.html#/5/7
 [10606]: ../slides/06-hashes.html#/6
 [1060604]: ../slides/06-hashes.html#/6/4
@@ -420,6 +423,7 @@ None yet!
 [1060611]: ../slides/06-hashes.html#/6/11
 [10607]: ../slides/06-hashes.html#/7
 [1060702]: ../slides/06-hashes.html#/7/2
+[1060703]: ../slides/06-hashes.html#/7/3
 [1060706]: ../slides/06-hashes.html#/7/6
 [1070302]: ../slides/07-ibcm.html#/3/2
 [1070303]: ../slides/07-ibcm.html#/3/3
