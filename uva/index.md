@@ -80,7 +80,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |20|Oct 10| Monday    | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [06: Hashes][86] | [trees][85], slides [10.1][10509] to [10.10][1050909] (end); [hashes][86], slides [1][86] to [5.7][1060406] ([recording][223]) | |
 |21|Oct 12| Wednesday | | [06: Hashes][86] | [hashes][86], slides [5.8][1060407] to [6.6][1060505] ([recording][224]) | |
 |22|Oct 14| Friday    | | [06: Hashes][86], [07: IBCM][87] (machine language) | [hashes][86], slides [6.7][1060506] to [8.4][1060703] ([recording][225]) | |
-|23|Oct 17| Monday    | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [07: IBCM][87] (machine language) | | |
+|23|Oct 17| Monday    | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [07: IBCM][87] (machine language) | [hashes][86], slides [8.5][1060704] to [8.7][1060706] (end); [IBCM][87], slides [1][87] to [5.11][1070410] | |
 |24|Oct 19| Wednesday | | [07: IBCM][87] (machine language) | | |
 |25|Oct 21| Friday    | | [08: assembly][88] (assembly language) | | |
 |26|Oct 24| Monday    | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [08: assembly][88] (assembly language) | | |
@@ -424,6 +424,7 @@ None yet!
 [10607]: ../slides/06-hashes.html#/7
 [1060702]: ../slides/06-hashes.html#/7/2
 [1060703]: ../slides/06-hashes.html#/7/3
+[1060704]: ../slides/06-hashes.html#/7/4
 [1060706]: ../slides/06-hashes.html#/7/6
 [1070302]: ../slides/07-ibcm.html#/3/2
 [1070303]: ../slides/07-ibcm.html#/3/3
@@ -432,6 +433,7 @@ None yet!
 [1070404]: ../slides/07-ibcm.html#/4/4
 [1070405]: ../slides/07-ibcm.html#/4/5
 [1070407]: ../slides/07-ibcm.html#/4/7
+[1070410]: ../slides/07-ibcm.html#/4/10
 [1070415]: ../slides/07-ibcm.html#/4/15
 [10705]: ../slides/07-ibcm.html#/5
 [1070503]: ../slides/07-ibcm.html#/5/3
