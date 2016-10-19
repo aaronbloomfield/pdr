@@ -76,12 +76,12 @@ The links in the right-most column link directly to the lecture recording on Col
 |17|Sep 30| Friday    | | [05: Trees][85]| [trees][85], slides [5.19][1050418] to [7.10][1050609] ([recording][220]) | |
 |  |Oct 3| Monday    | No lab this week due to fall break | (fall break) | | |
 |18|Oct 5| Wednesday | | [05: Trees][85] | [trees][85], slides [7.10][1050609] to [7.31][1050630] ([recording][221]) | |
-|19|Oct 7| Friday    | | [05: Trees][85], [06: Hashes][86] | [trees][85], slides [8.1][10507] to [9.9][1050808] | |
+|19|Oct 7| Friday    | | [05: Trees][85], [06: Hashes][86] | [trees][85], slides [8.1][10507] to [9.9][1050808] (no recording; see note below) | |
 |20|Oct 10| Monday    | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [06: Hashes][86] | [trees][85], slides [10.1][10509] to [10.10][1050909] (end); [hashes][86], slides [1][86] to [5.7][1060406] ([recording][223]) | |
 |21|Oct 12| Wednesday | | [06: Hashes][86] | [hashes][86], slides [5.8][1060407] to [6.6][1060505] ([recording][224]) | |
 |22|Oct 14| Friday    | | [06: Hashes][86], [07: IBCM][87] (machine language) | [hashes][86], slides [6.7][1060506] to [8.4][1060703] ([recording][225]) | |
-|23|Oct 17| Monday    | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [07: IBCM][87] (machine language) | [hashes][86], slides [8.5][1060704] to [8.7][1060706] (end); [IBCM][87], slides [1][87] to [5.11][1070410] | |
-|24|Oct 19| Wednesday | | [07: IBCM][87] (machine language) | | |
+|23|Oct 17| Monday    | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [07: IBCM][87] (machine language) | [hashes][86], slides [8.5][1060704] to [8.7][1060706] (end); [IBCM][87], slides [1][87] to [5.11][1070410] ([recording][226]; see note below) | |
+|24|Oct 19| Wednesday | | [07: IBCM][87] (machine language) | [IBCM][87], slides [5.11][1070410] to [6.8][1070507] ([recording][227]) | |
 |25|Oct 21| Friday    | | [08: assembly][88] (assembly language) | | |
 |26|Oct 24| Monday    | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [08: assembly][88] (assembly language) | | |
 |27|Oct 26| Wednesday | | [08: assembly][88] (assembly language) | | |
@@ -106,6 +106,11 @@ The links in the right-most column link directly to the lecture recording on Col
 ||Dec 7| Wednesday || Final exam review session | | |
 ||Dec 9| Friday    | Final exam from 7:00 p.m. - 10:00 p.m. in the lecture classroom| Final exam from 7:00 p.m. - 10:00 p.m. in the lecture classroom | | |
 
+
+#### Recording notes
+
+- For October 7th ([trees][85], slides [8.1][10507] to [9.9][1050808]), there was no recording (since Bloomfield was out of town), and there does not exist a recording from the last year or so that is viable to be used instead
+- For October 17th ([hashes][86], slides [8.5][1060704] to [8.7][1060706] (end); [IBCM][87], slides [1][87] to [5.11][1070410]), the last three slides on hashes was not recorded; only the IBCM content was recorded.
 
 ------------------------------------------------------------
 
@@ -439,6 +444,7 @@ None yet!
 [1070503]: ../slides/07-ibcm.html#/5/3
 [1070505]: ../slides/07-ibcm.html#/5/5
 [1070506]: ../slides/07-ibcm.html#/5/6
+[1070507]: ../slides/07-ibcm.html#/5/7
 [1070511]: ../slides/07-ibcm.html#/5/11
 [1070601]: ../slides/07-ibcm.html#/6/1
 [1070604]: ../slides/07-ibcm.html#/6/4
