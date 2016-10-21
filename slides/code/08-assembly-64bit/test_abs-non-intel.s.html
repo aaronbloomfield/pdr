@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>test_abs-non-intel.s</title>
+</head>
+<body bgcolor="white">
+<pre><tt>	.text
+	.file	<font color="#FF0000">"test_abs.cpp"</font>
+	.section	.text.startup,<font color="#FF0000">"ax"</font>,@progbits
+	.align	16, 0x90
+	.type	__cxx_global_var_init,@function
+__cxx_global_var_init:                  <i><font color="#9A1900"># @__cxx_global_var_init</font></i>
+	.cfi_startproc
+<i><font color="#9A1900"># BB#0:</font></i>
+	pushq	%rbp
+.Ltmp0:
+	.cfi_def_cfa_offset 16
+.Ltmp1:
+	.cfi_offset %rbp, -16
+	movq	<font color="#990000">%rsp, %</font>rbp
+.Ltmp2:
+	.cfi_def_cfa_register %rbp
+	subq	$16, %rsp
+	movabsq	$_ZStL8__ioinit, %rdi
+	callq	_ZNSt8ios_base4InitC1Ev
+	movabsq	$_ZNSt8ios_base4InitD1Ev, %rdi
+	movabsq	$_ZStL8__ioinit, %rsi
+	movabsq	$__dso_handle, %rdx
+	callq	__cxa_atexit
+	movl	<font color="#990000">%eax, -4(%</font>rbp)          <i><font color="#9A1900"># 4-byte Spill</font></i>
+	addq	$16, %rsp
+	popq	%rbp
+	retq
+.Lfunc_end0:
+	.size	__cxx_global_var_init, .Lfunc_end0-__cxx_global_var_init
+	.cfi_endproc
+
+	.text
+	.globl	absolute_value
+	.align	16, 0x90
+	.type	absolute_value,@function
+absolute_value:                         <i><font color="#9A1900"># @absolute_value</font></i>
+	.cfi_startproc
+<i><font color="#9A1900"># BB#0:</font></i>
+	pushq	%rbp
+.Ltmp3:
+	.cfi_def_cfa_offset 16
+.Ltmp4:
+	.cfi_offset %rbp, -16
+	movq	<font color="#990000">%rsp, %</font>rbp
+.Ltmp5:
+	.cfi_def_cfa_register %rbp
+	movl	<font color="#990000">%edi, -4(%</font>rbp)
+	cmpl	$0, -4(%rbp)
+	jge	.LBB1_2
+<i><font color="#9A1900"># BB#1:</font></i>
+	xorl	<font color="#990000">%eax, %</font>eax
+	subl	-4(<font color="#990000">%rbp), %</font>eax
+	movl	<font color="#990000">%eax, -4(%</font>rbp)
+.LBB1_2:
+	movl	-4(<font color="#990000">%rbp), %</font>eax
+	popq	%rbp
+	retq
+.Lfunc_end1:
+	.size	absolute_value, .Lfunc_end1-absolute_value
+	.cfi_endproc
+
+	.globl	main
+	.align	16, 0x90
+	.type	main,@function
+main:                                   <i><font color="#9A1900"># @main</font></i>
+	.cfi_startproc
+<i><font color="#9A1900"># BB#0:</font></i>
+	pushq	%rbp
+.Ltmp6:
+	.cfi_def_cfa_offset 16
+.Ltmp7:
+	.cfi_offset %rbp, -16
+	movq	<font color="#990000">%rsp, %</font>rbp
+.Ltmp8:
+	.cfi_def_cfa_register %rbp
+	subq	$48, %rsp
+	movabsq	$_ZSt4cout, %rdi
+	movabsq	$.L.str, %rsi
+	movl	$0, -4(%rbp)
+	movl	$0, -8(%rbp)
+	callq	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	movabsq	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, %rsi
+	movq	<font color="#990000">%rax, %</font>rdi
+	callq	_ZNSolsEPFRSoS_E
+	movabsq	$_ZSt3cin, %rdi
+	leaq	-8(<font color="#990000">%rbp), %</font>rsi
+	movq	<font color="#990000">%rax, -24(%</font>rbp)         <i><font color="#9A1900"># 8-byte Spill</font></i>
+	callq	_ZNSirsERi
+	movl	-8(<font color="#990000">%rbp), %</font>edi
+	movq	<font color="#990000">%rax, -32(%</font>rbp)         <i><font color="#9A1900"># 8-byte Spill</font></i>
+	callq	absolute_value
+	movabsq	$_ZSt4cout, %rdi
+	movabsq	$.L.str.1, %rsi
+	movl	<font color="#990000">%eax, -12(%</font>rbp)
+	callq	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	movl	-12(<font color="#990000">%rbp), %</font>esi
+	movq	<font color="#990000">%rax, %</font>rdi
+	callq	_ZNSolsEi
+	movabsq	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, %rsi
+	movq	<font color="#990000">%rax, %</font>rdi
+	callq	_ZNSolsEPFRSoS_E
+	xorl	<font color="#990000">%ecx, %</font>ecx
+	movq	<font color="#990000">%rax, -40(%</font>rbp)         <i><font color="#9A1900"># 8-byte Spill</font></i>
+	movl	<font color="#990000">%ecx, %</font>eax
+	addq	$48, %rsp
+	popq	%rbp
+	retq
+.Lfunc_end2:
+	.size	main, .Lfunc_end2-main
+	.cfi_endproc
+
+	.section	.text.startup,<font color="#FF0000">"ax"</font>,@progbits
+	.align	16, 0x90
+	.type	_GLOBAL__sub_I_test_abs.cpp,@function
+_GLOBAL__sub_I_test_abs.cpp:            <i><font color="#9A1900"># @_GLOBAL__sub_I_test_abs.cpp</font></i>
+	.cfi_startproc
+<i><font color="#9A1900"># BB#0:</font></i>
+	pushq	%rbp
+.Ltmp9:
+	.cfi_def_cfa_offset 16
+.Ltmp10:
+	.cfi_offset %rbp, -16
+	movq	<font color="#990000">%rsp, %</font>rbp
+.Ltmp11:
+	.cfi_def_cfa_register %rbp
+	callq	__cxx_global_var_init
+	popq	%rbp
+	retq
+.Lfunc_end3:
+	.size	_GLOBAL__sub_I_test_abs.cpp, .Lfunc_end3-_GLOBAL__sub_I_test_abs.cpp
+	.cfi_endproc
+
+	.type	_ZStL8__ioinit,@object  <i><font color="#9A1900"># @_ZStL8__ioinit</font></i>
+	.local	_ZStL8__ioinit
+	.comm	_ZStL8__ioinit,1,1
+	.type	.L.str,@object          <i><font color="#9A1900"># @.str</font></i>
+	.section	.rodata.str1.1,<font color="#FF0000">"aMS"</font>,@progbits,1
+.L.str:
+	.asciz	<font color="#FF0000">"Enter a value: "</font>
+	.size	.L.str, 16
+
+	.type	.L.str.1,@object        <i><font color="#9A1900"># @.str.1</font></i>
+.L.str.1:
+	.asciz	<font color="#FF0000">"The result is: "</font>
+	.size	.L.str.1, 16
+
+	.section	.init_array,<font color="#FF0000">"aw"</font>,@init_array
+	.align	8
+	.quad	_GLOBAL__sub_I_test_abs.cpp
+
+	.ident	<font color="#FF0000">"clang version 3.8.0-2ubuntu4 (tags/RELEASE_380/final)"</font>
+	.section	<font color="#FF0000">".note.GNU-stack"</font>,<font color="#FF0000">""</font>,@progbits
+</tt></pre>
+</body>
+</html>

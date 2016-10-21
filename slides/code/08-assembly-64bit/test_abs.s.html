@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>test_abs.s</title>
+</head>
+<body bgcolor="white">
+<pre><tt>	.text
+	.intel_syntax noprefix
+	.file	<font color="#FF0000">"test_abs.cpp"</font>
+	.section	.text.startup,<font color="#FF0000">"ax"</font>,@progbits
+	.align	16, 0x90
+	.type	__cxx_global_var_init,@function
+__cxx_global_var_init:                  <i><font color="#9A1900"># @__cxx_global_var_init</font></i>
+	.cfi_startproc
+<i><font color="#9A1900"># BB#0:</font></i>
+	push	rbp
+.Ltmp0:
+	.cfi_def_cfa_offset 16
+.Ltmp1:
+	.cfi_offset rbp, -16
+	mov	rbp, rsp
+.Ltmp2:
+	.cfi_def_cfa_register rbp
+	sub	rsp, 16
+	movabs	rdi, _ZStL8__ioinit
+	call	_ZNSt8ios_base4InitC1Ev
+	movabs	rdi, _ZNSt8ios_base4InitD1Ev
+	movabs	rsi, _ZStL8__ioinit
+	movabs	rdx, __dso_handle
+	call	__cxa_atexit
+	mov	dword ptr [rbp - 4], eax <i><font color="#9A1900"># 4-byte Spill</font></i>
+	add	rsp, 16
+	pop	rbp
+	ret
+.Lfunc_end0:
+	.size	__cxx_global_var_init, .Lfunc_end0-__cxx_global_var_init
+	.cfi_endproc
+
+	.text
+	.globl	absolute_value
+	.align	16, 0x90
+	.type	absolute_value,@function
+absolute_value:                         <i><font color="#9A1900"># @absolute_value</font></i>
+	.cfi_startproc
+<i><font color="#9A1900"># BB#0:</font></i>
+	push	rbp
+.Ltmp3:
+	.cfi_def_cfa_offset 16
+.Ltmp4:
+	.cfi_offset rbp, -16
+	mov	rbp, rsp
+.Ltmp5:
+	.cfi_def_cfa_register rbp
+	mov	dword ptr [rbp - 4], edi
+	cmp	dword ptr [rbp - 4], 0
+	jge	.LBB1_2
+<i><font color="#9A1900"># BB#1:</font></i>
+	xor	eax, eax
+	sub	eax, dword ptr [rbp - 4]
+	mov	dword ptr [rbp - 4], eax
+.LBB1_2:
+	mov	eax, dword ptr [rbp - 4]
+	pop	rbp
+	ret
+.Lfunc_end1:
+	.size	absolute_value, .Lfunc_end1-absolute_value
+	.cfi_endproc
+
+	.globl	main
+	.align	16, 0x90
+	.type	main,@function
+main:                                   <i><font color="#9A1900"># @main</font></i>
+	.cfi_startproc
+<i><font color="#9A1900"># BB#0:</font></i>
+	push	rbp
+.Ltmp6:
+	.cfi_def_cfa_offset 16
+.Ltmp7:
+	.cfi_offset rbp, -16
+	mov	rbp, rsp
+.Ltmp8:
+	.cfi_def_cfa_register rbp
+	sub	rsp, 48
+	movabs	rdi, _ZSt4cout
+	movabs	rsi, .L.str
+	mov	dword ptr [rbp - 4], 0
+	mov	dword ptr [rbp - 8], 0
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	movabs	rsi, _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+	mov	rdi, rax
+	call	_ZNSolsEPFRSoS_E
+	movabs	rdi, _ZSt3cin
+	lea	rsi, [rbp - 8]
+	mov	qword ptr [rbp - 24], rax <i><font color="#9A1900"># 8-byte Spill</font></i>
+	call	_ZNSirsERi
+	mov	edi, dword ptr [rbp - 8]
+	mov	qword ptr [rbp - 32], rax <i><font color="#9A1900"># 8-byte Spill</font></i>
+	call	absolute_value
+	movabs	rdi, _ZSt4cout
+	movabs	rsi, .L.str.1
+	mov	dword ptr [rbp - 12], eax
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	mov	esi, dword ptr [rbp - 12]
+	mov	rdi, rax
+	call	_ZNSolsEi
+	movabs	rsi, _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+	mov	rdi, rax
+	call	_ZNSolsEPFRSoS_E
+	xor	ecx, ecx
+	mov	qword ptr [rbp - 40], rax <i><font color="#9A1900"># 8-byte Spill</font></i>
+	mov	eax, ecx
+	add	rsp, 48
+	pop	rbp
+	ret
+.Lfunc_end2:
+	.size	main, .Lfunc_end2-main
+	.cfi_endproc
+
+	.section	.text.startup,<font color="#FF0000">"ax"</font>,@progbits
+	.align	16, 0x90
+	.type	_GLOBAL__sub_I_test_abs.cpp,@function
+_GLOBAL__sub_I_test_abs.cpp:            <i><font color="#9A1900"># @_GLOBAL__sub_I_test_abs.cpp</font></i>
+	.cfi_startproc
+<i><font color="#9A1900"># BB#0:</font></i>
+	push	rbp
+.Ltmp9:
+	.cfi_def_cfa_offset 16
+.Ltmp10:
+	.cfi_offset rbp, -16
+	mov	rbp, rsp
+.Ltmp11:
+	.cfi_def_cfa_register rbp
+	call	__cxx_global_var_init
+	pop	rbp
+	ret
+.Lfunc_end3:
+	.size	_GLOBAL__sub_I_test_abs.cpp, .Lfunc_end3-_GLOBAL__sub_I_test_abs.cpp
+	.cfi_endproc
+
+	.type	_ZStL8__ioinit,@object  <i><font color="#9A1900"># @_ZStL8__ioinit</font></i>
+	.local	_ZStL8__ioinit
+	.comm	_ZStL8__ioinit,1,1
+	.type	.L.str,@object          <i><font color="#9A1900"># @.str</font></i>
+	.section	.rodata.str1.1,<font color="#FF0000">"aMS"</font>,@progbits,1
+.L.str:
+	.asciz	<font color="#FF0000">"Enter a value: "</font>
+	.size	.L.str, 16
+
+	.type	.L.str.1,@object        <i><font color="#9A1900"># @.str.1</font></i>
+.L.str.1:
+	.asciz	<font color="#FF0000">"The result is: "</font>
+	.size	.L.str.1, 16
+
+	.section	.init_array,<font color="#FF0000">"aw"</font>,@init_array
+	.align	8
+	.quad	_GLOBAL__sub_I_test_abs.cpp
+
+	.ident	<font color="#FF0000">"clang version 3.8.0-2ubuntu4 (tags/RELEASE_380/final)"</font>
+	.section	<font color="#FF0000">".note.GNU-stack"</font>,<font color="#FF0000">""</font>,@progbits
+</tt></pre>
+</body>
+</html>
