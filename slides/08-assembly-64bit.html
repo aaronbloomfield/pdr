@@ -546,6 +546,7 @@ int main() {
 - Answers to questions
   - Parameters: passed in registers
   	- If more than 6, then params 7-*n* placed on stack
+  	- If passing a large object, then placed on stack (doesn't fit in 64-bit register)
   - Registers: saved on the stack
   - Local variables: placed in memory on the stack
   	- Or in registers if room available
@@ -1005,7 +1006,7 @@ ret             ; pop top value from stack, jump there
 <tr><td>To higher addresses</td><td style="width:50px"></td><td class="border" style="width:300px">return address</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td>(to 0xffffffff)</td><td style="width:50px"></td><td class="border" style="width:300px">local var (result)</td><td style="width:25px"></td><td>&larr; [rsp+16]</td></tr>
 <tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">value of rbx</td><td style="width:25px"></td><td>&larr; [rsp+8]</td></tr>
-<tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">value of rbp</td><td style="width:25px"></td><td>&larr; rsp</td></tr>
+<tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">value of rbp</td><td style="width:25px"></td><td>&larr; [rsp]</td></tr>
 <tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td>To lower addresses</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td>(to 0x00000000)</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
