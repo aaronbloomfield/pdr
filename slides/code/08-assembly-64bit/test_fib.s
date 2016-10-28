@@ -1,36 +1,6 @@
 	.text
 	.intel_syntax noprefix
 	.file	"test_fib.cpp"
-	.section	.text.startup,"ax",@progbits
-	.align	16, 0x90
-	.type	__cxx_global_var_init,@function
-__cxx_global_var_init:                  # @__cxx_global_var_init
-	.cfi_startproc
-# BB#0:
-	push	rbp
-.Ltmp0:
-	.cfi_def_cfa_offset 16
-.Ltmp1:
-	.cfi_offset rbp, -16
-	mov	rbp, rsp
-.Ltmp2:
-	.cfi_def_cfa_register rbp
-	sub	rsp, 16
-	movabs	rdi, _ZStL8__ioinit
-	call	_ZNSt8ios_base4InitC1Ev
-	movabs	rdi, _ZNSt8ios_base4InitD1Ev
-	movabs	rsi, _ZStL8__ioinit
-	movabs	rdx, __dso_handle
-	call	__cxa_atexit
-	mov	dword ptr [rbp - 4], eax # 4-byte Spill
-	add	rsp, 16
-	pop	rbp
-	ret
-.Lfunc_end0:
-	.size	__cxx_global_var_init, .Lfunc_end0-__cxx_global_var_init
-	.cfi_endproc
-
-	.text
 	.globl	fib
 	.align	16, 0x90
 	.type	fib,@function
@@ -38,42 +8,46 @@ fib:                                    # @fib
 	.cfi_startproc
 # BB#0:
 	push	rbp
-.Ltmp3:
+.Ltmp0:
 	.cfi_def_cfa_offset 16
+	push	rbx
+.Ltmp1:
+	.cfi_def_cfa_offset 24
+	push	rax
+.Ltmp2:
+	.cfi_def_cfa_offset 32
+.Ltmp3:
+	.cfi_offset rbx, -24
 .Ltmp4:
 	.cfi_offset rbp, -16
-	mov	rbp, rsp
-.Ltmp5:
-	.cfi_def_cfa_register rbp
-	sub	rsp, 16
-	mov	dword ptr [rbp - 8], edi
-	cmp	dword ptr [rbp - 8], 0
-	je	.LBB1_2
-# BB#1:
-	cmp	dword ptr [rbp - 8], 1
-	jne	.LBB1_3
-.LBB1_2:
-	mov	dword ptr [rbp - 4], 1
-	jmp	.LBB1_4
-.LBB1_3:
-	mov	eax, dword ptr [rbp - 8]
-	sub	eax, 1
-	mov	edi, eax
+	mov	ebx, edi
+	mov	eax, ebx
+	or	eax, 1
+	mov	ebp, 1
+	cmp	eax, 1
+	je	.LBB0_3
+# BB#1:                                 # %tailrecurse.preheader
+	add	ebx, -2
+	mov	ebp, 1
+	.align	16, 0x90
+.LBB0_2:                                # %tailrecurse
+                                        # =>This Inner Loop Header: Depth=1
+	lea	edi, [rbx + 1]
 	call	fib
-	mov	edi, dword ptr [rbp - 8]
-	sub	edi, 2
-	mov	dword ptr [rbp - 12], eax # 4-byte Spill
-	call	fib
-	mov	edi, dword ptr [rbp - 12] # 4-byte Reload
-	add	edi, eax
-	mov	dword ptr [rbp - 4], edi
-.LBB1_4:
-	mov	eax, dword ptr [rbp - 4]
-	add	rsp, 16
+	add	ebp, eax
+	mov	eax, ebx
+	or	eax, 1
+	add	ebx, -2
+	cmp	eax, 1
+	jne	.LBB0_2
+.LBB0_3:                                # %tailrecurse._crit_edge
+	mov	eax, ebp
+	add	rsp, 8
+	pop	rbx
 	pop	rbp
 	ret
-.Lfunc_end1:
-	.size	fib, .Lfunc_end1-fib
+.Lfunc_end0:
+	.size	fib, .Lfunc_end0-fib
 	.cfi_endproc
 
 	.globl	main
@@ -82,48 +56,95 @@ fib:                                    # @fib
 main:                                   # @main
 	.cfi_startproc
 # BB#0:
-	push	rbp
-.Ltmp6:
+	push	r14
+.Ltmp5:
 	.cfi_def_cfa_offset 16
+	push	rbx
+.Ltmp6:
+	.cfi_def_cfa_offset 24
+	push	rax
 .Ltmp7:
-	.cfi_offset rbp, -16
-	mov	rbp, rsp
+	.cfi_def_cfa_offset 32
 .Ltmp8:
-	.cfi_def_cfa_register rbp
-	sub	rsp, 48
-	movabs	rdi, _ZSt4cout
-	movabs	rsi, .L.str
-	mov	dword ptr [rbp - 4], 0
-	mov	dword ptr [rbp - 8], 0
-	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
-	movabs	rsi, _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+	.cfi_offset rbx, -24
+.Ltmp9:
+	.cfi_offset r14, -16
+	mov	dword ptr [rsp + 4], 0
+	mov	edi, _ZSt4cout
+	mov	esi, .L.str
+	mov	edx, 23
+	call	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+	mov	rax, qword ptr [rip + _ZSt4cout]
+	mov	rax, qword ptr [rax - 24]
+	mov	rbx, qword ptr [rax + _ZSt4cout+240]
+	test	rbx, rbx
+	je	.LBB1_9
+# BB#1:                                 # %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit
+	cmp	byte ptr [rbx + 56], 0
+	je	.LBB1_3
+# BB#2:
+	mov	al, byte ptr [rbx + 67]
+	jmp	.LBB1_4
+.LBB1_3:
+	mov	rdi, rbx
+	call	_ZNKSt5ctypeIcE13_M_widen_initEv
+	mov	rax, qword ptr [rbx]
+	mov	esi, 10
+	mov	rdi, rbx
+	call	qword ptr [rax + 48]
+.LBB1_4:                                # %_ZNKSt5ctypeIcE5widenEc.exit
+	movsx	esi, al
+	mov	edi, _ZSt4cout
+	call	_ZNSo3putEc
 	mov	rdi, rax
-	call	_ZNSolsEPFRSoS_E
-	movabs	rdi, _ZSt3cin
-	lea	rsi, [rbp - 8]
-	mov	qword ptr [rbp - 24], rax # 8-byte Spill
+	call	_ZNSo5flushEv
+	lea	rsi, [rsp + 4]
+	mov	edi, _ZSt3cin
 	call	_ZNSirsERi
-	mov	edi, dword ptr [rbp - 8]
-	mov	qword ptr [rbp - 32], rax # 8-byte Spill
+	mov	edi, dword ptr [rsp + 4]
 	call	fib
-	movabs	rdi, _ZSt4cout
-	movabs	rsi, .L.str.1
-	mov	dword ptr [rbp - 12], eax
-	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
-	mov	esi, dword ptr [rbp - 12]
-	mov	rdi, rax
+	mov	ebx, eax
+	mov	edi, _ZSt4cout
+	mov	esi, .L.str.1
+	mov	edx, 15
+	call	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+	mov	edi, _ZSt4cout
+	mov	esi, ebx
 	call	_ZNSolsEi
-	movabs	rsi, _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+	mov	r14, rax
+	mov	rax, qword ptr [r14]
+	mov	rax, qword ptr [rax - 24]
+	mov	rbx, qword ptr [r14 + rax + 240]
+	test	rbx, rbx
+	je	.LBB1_9
+# BB#5:                                 # %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit3
+	cmp	byte ptr [rbx + 56], 0
+	je	.LBB1_7
+# BB#6:
+	mov	al, byte ptr [rbx + 67]
+	jmp	.LBB1_8
+.LBB1_7:
+	mov	rdi, rbx
+	call	_ZNKSt5ctypeIcE13_M_widen_initEv
+	mov	rax, qword ptr [rbx]
+	mov	esi, 10
+	mov	rdi, rbx
+	call	qword ptr [rax + 48]
+.LBB1_8:                                # %_ZNKSt5ctypeIcE5widenEc.exit2
+	movsx	esi, al
+	mov	rdi, r14
+	call	_ZNSo3putEc
 	mov	rdi, rax
-	call	_ZNSolsEPFRSoS_E
-	xor	ecx, ecx
-	mov	qword ptr [rbp - 40], rax # 8-byte Spill
-	mov	eax, ecx
-	add	rsp, 48
-	pop	rbp
+	call	_ZNSo5flushEv
+	xor	eax, eax
+	add	rsp, 8
+	pop	rbx
+	pop	r14
 	ret
-.Lfunc_end2:
-	.size	main, .Lfunc_end2-main
+.LBB1_9:
+	call	_ZSt16__throw_bad_castv
+.Lfunc_end1:
+	.size	main, .Lfunc_end1-main
 	.cfi_endproc
 
 	.section	.text.startup,"ax",@progbits
@@ -132,19 +153,18 @@ main:                                   # @main
 _GLOBAL__sub_I_test_fib.cpp:            # @_GLOBAL__sub_I_test_fib.cpp
 	.cfi_startproc
 # BB#0:
-	push	rbp
-.Ltmp9:
-	.cfi_def_cfa_offset 16
+	push	rax
 .Ltmp10:
-	.cfi_offset rbp, -16
-	mov	rbp, rsp
-.Ltmp11:
-	.cfi_def_cfa_register rbp
-	call	__cxx_global_var_init
-	pop	rbp
-	ret
-.Lfunc_end3:
-	.size	_GLOBAL__sub_I_test_fib.cpp, .Lfunc_end3-_GLOBAL__sub_I_test_fib.cpp
+	.cfi_def_cfa_offset 16
+	mov	edi, _ZStL8__ioinit
+	call	_ZNSt8ios_base4InitC1Ev
+	mov	edi, _ZNSt8ios_base4InitD1Ev
+	mov	esi, _ZStL8__ioinit
+	mov	edx, __dso_handle
+	pop	rax
+	jmp	__cxa_atexit            # TAILCALL
+.Lfunc_end2:
+	.size	_GLOBAL__sub_I_test_fib.cpp, .Lfunc_end2-_GLOBAL__sub_I_test_fib.cpp
 	.cfi_endproc
 
 	.type	_ZStL8__ioinit,@object  # @_ZStL8__ioinit

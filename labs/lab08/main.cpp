@@ -6,7 +6,7 @@
 
 using namespace std;
 
-extern "C" int vecsum (int *, int);
+extern "C" int vecsum (long*, long);
 
 // Purpose: This main program produces a vector of random
 //          numbers between 0 and 99, then calls the
@@ -15,7 +15,7 @@ extern "C" int vecsum (int *, int);
 // Author:  Adam Ferrari
 
 int  main () {
-    int  n, *vec, sum;
+    long  n, *vec, sum;
     cout << "Please enter a vector size:  ";
     cin >> n;
 
@@ -26,11 +26,11 @@ int  main () {
     }
 
     // allocate, initialize, and display vector
-    vec = new int[n];
+    vec = new long[n];
 
     // use current time as random seed
     srand((unsigned) time(NULL));
-    for (int i = 0; i < n; ++i) {
+    for (long i = 0; i < n; ++i) {
         vec[i] = rand() % 100;
         cout << "\tvec[" << i << "] = " << vec[i] << endl;
     }

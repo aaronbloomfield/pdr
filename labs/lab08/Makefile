@@ -2,7 +2,7 @@
 # This Makefile shows how to link assembly with C/C++
 
 # Defines the C++ compiler we'll be using
-CXX	= g++ -m32
+CXX	= g++ -m64
 
 # Defines the flags we'll be passing to the C++ compiler
 CXXFLAGS	= -Wall -g
@@ -11,7 +11,7 @@ CXXFLAGS	= -Wall -g
 AS	= nasm
 
 # Defines the flags for the assembler
-ASFLAGS	= -f elf -g
+ASFLAGS	= -f elf64 -g
 
 # All of the .o files for our program
 OFILES	= vecsum.o main.o
