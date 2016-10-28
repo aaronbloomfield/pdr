@@ -788,7 +788,7 @@ pop rdi          ; restore saved rdi value
 <p>This is just before the <code>call</code> opcode is invoked.</p>
 <hr>
 <table class="transparent">
-<tr><td>&uarr;</td><td style="width:50px"></td><td class="border" style="width:300px">value of rdi</td><td style="width:25px"></td><td>&larr; esp</td></tr>
+<tr><td>&uarr;</td><td style="width:50px"></td><td class="border" style="width:300px">value of rdi</td><td style="width:25px"></td><td>&larr; rsp</td></tr>
 <tr><td>To higher addresses</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td>(to 0xffffffff)</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
@@ -806,7 +806,7 @@ pop rdi          ; restore saved rdi value
 <hr>
 <table class="transparent">
 <tr><td>&uarr;</td><td style="width:50px"></td><td class="border" style="width:300px">value of rdi</td><td style="width:25px"></td><td>&nbsp;</td></tr>
-<tr><td>To higher addresses</td><td style="width:50px"></td><td class="border" style="width:300px">return address</td><td style="width:25px"></td><td>&larr; esp</td></tr>
+<tr><td>To higher addresses</td><td style="width:50px"></td><td class="border" style="width:300px">return address</td><td style="width:25px"></td><td>&larr; rsp</td></tr>
 <tr><td>(to 0xffffffff)</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
@@ -943,7 +943,7 @@ push rbp        ; both will be used by myFunc
 ```
                      ; subroutine body
 mov rax, rdi	     ; param 1 to rax
-mov rbp, rsi 	     ; param 2 to rbp
+mov rbp, rsi 	    ; param 2 to rbp
 mov rbx, rdx    	 ; param 3 to rbx
 mov [rsp+16], rbx    ; put rbx into local var
 add [rsp+16], rbp    ; add rbp into local var
