@@ -464,9 +464,9 @@ while (i &lt;= n) {
 }</code></pre></td>
 <td style="width:50px"></td>
 <td><p>Assembly code:</p><pre><code>section .data
-n	DD 5
-i	DD 1
-sum	DD 0
+n	DQ 5
+i	DQ 1
+sum	DQ 0
 
 section .text
 loop:  	mov rcx, [i]
@@ -580,12 +580,12 @@ int main() {
 	  <section data-markdown><script type="text/template">
 ## Register usage
 - One register is used for the return value: rax
-- six registers are used for parameter passing:
+- Six registers are used for parameter passing:
 	- rdi, rsi, rdx, rcx, r8, r9
 - Two registers may be modified by the callee: r10 and r11
   - If the caller wants to keep those values, they need to be saved by pushing them onto the stack
   - Actually, these two have specific uses depending on the language, so are often not used for this reason.
-- six registers may not be modified by a subroutine callee:
+- Six registers may not be modified by a subroutine callee:
 	- rbx, rbp, r12-r15
         - If it wans to use them, the subroutine must back them up (onto the stack) and restore them later
 - rsp should almost never be modified directly, as it points to the top of the stack
