@@ -83,8 +83,8 @@ The links in the right-most column link directly to the lecture recording on Col
 |23|Oct 17| Monday    | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [07: IBCM][87] (machine language) | [hashes][86], slides [8.5][1060704] to [8.7][1060706] (end); [IBCM][87], slides [1][87] to [5.11][1070410] ([recording][226]; see note below) | |
 |24|Oct 19| Wednesday | | [07: IBCM][87] (machine language) | [IBCM][87], slides [5.11][1070410] to [6.8][1070507] ([recording][227]) | |
 |25|Oct 21| Friday    | | [08: assembly][88] (assembly language) | [IBCM][87], slides [6.9][1070508] to [7.10][1070609] (end) ([recording][228]) | |
-|26|Oct 24| Monday    | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [08: assembly][88] (assembly language) | | |
-|27|Oct 26| Wednesday | | [08: assembly][88] (assembly language) | | |
+|26|Oct 24| Monday    | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [08: assembly][88] (assembly language) | (slides 1 to 4.10) | |
+|27|Oct 26| Wednesday | | [08: assembly][88] (assembly language) | (slides 4.10 to 6.6) | |
 |28|Oct 28| Friday    | | [08: assembly][88] (assembly language) | | |
 |29|Oct 31| Monday    | [Lab 8: assembly, part 1][8] ([md][28]) / Tutorial 8: nasm, which is two book chapters: [1][53] and [2][54] | [08: assembly][88], [09: Advanced C++][89] | | |
 |30|Nov 2| Wednesday | | [09: Advanced C++][89] | | |

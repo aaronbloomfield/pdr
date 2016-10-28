@@ -464,9 +464,9 @@ while (i &lt;= n) {
 }</code></pre></td>
 <td style="width:50px"></td>
 <td><p>Assembly code:</p><pre><code>section .data
-n	DD 5
-i	DD 1
-sum	DD 0
+n	DQ 5
+i	DQ 1
+sum	DQ 0
 
 section .text
 loop:  	mov rcx, [i]
@@ -580,12 +580,12 @@ int main() {
 	  <section data-markdown><script type="text/template">
 ## Register usage
 - One register is used for the return value: rax
-- six registers are used for parameter passing:
+- Six registers are used for parameter passing:
 	- rdi, rsi, rdx, rcx, r8, r9
 - Two registers may be modified by the callee: r10 and r11
   - If the caller wants to keep those values, they need to be saved by pushing them onto the stack
   - Actually, these two have specific uses depending on the language, so are often not used for this reason.
-- six registers may not be modified by a subroutine callee:
+- Six registers may not be modified by a subroutine callee:
 	- rbx, rbp, r12-r15
         - If it wans to use them, the subroutine must back them up (onto the stack) and restore them later
 - rsp should almost never be modified directly, as it points to the top of the stack
@@ -1211,7 +1211,7 @@ ret             ; pop top value from stack, jump there
 
 	  <section data-markdown><script type="text/template">
 ## x86 Examples
-All examples are in the [slides/code/08-x86/](code/08-x86/) directory in the github repo  
+All examples are in the [slides/code/08-assembly-64bit/](code/08-assembly-64bit/) directory in the github repo  
 &nbsp;  
 Code we'll see:
 
@@ -1248,7 +1248,7 @@ int absolute_value(int x) {
 
 	  <section data-markdown><script type="text/template">
 ## test_abs.cpp
-Source code: [test_abs.cpp](code/08-x86/test_abs.cpp.html) ([src](code/08-x86/test_abs.cpp))
+Source code: [test_abs.cpp](code/08-assembly-64bit/test_abs.cpp.html) ([src](code/08-assembly-64bit/test_abs.cpp))
 ```
 #include <iostream>
 using namespace std;
@@ -1310,16 +1310,21 @@ g++ -O2 -m64 -S test_abs.cpp -o test_abs-non-intel.s
 ## g++'s assembly for absolute_value
 Note the source / destination order is reversed!  And lots of other differences...
 
-Source code: [test_abs-non-intel.s](code/08-x86/test_abs-non-intel.s.html) ([src](code/08-x86/test_abs-non-intel.s))
+Source code: [test_abs-non-intel.s](code/08-assembly-64bit/test_abs-non-intel.s.html) ([src](code/08-assembly-64bit/test_abs-non-intel.s))
 ```
 absolute_value:
-	.cfi_startproc
-	movq	%rdi, %rdx
-	movq	%rdi, %rax
-	sarq	$63, %rdx
-	xorq	%rdx, %rax
-	ret
-	.cfi_endproc
+	pushq	%rbp
+	movq	%rsp, %rbp
+	movl	%edi, -4(%rbp)
+	cmpl	$0, -4(%rbp)
+	jge	.LBB1_2
+	xorl	%eax, %eax
+	subl	-4(%rbp), %eax
+	movl	%eax, -4(%rbp)
+.LBB1_2:
+	movl	-4(%rbp), %eax
+	popq	%rbp
+	retq
 ```
 	  </script></section>
 
@@ -1356,17 +1361,21 @@ g++ -m64 -masm=intel -S test_abs.cpp -o test_abs.s
 ## g++'s assembly for absolute_value
 This is with the `-masm=intel` and `-O2` flags
 
-Source code: [test_abs.s](code/08-x86/test_abs.s.html) ([src](code/08-x86/test_abs.s))
+Source code: [test_abs.s](code/08-assembly-64bit/test_abs.s.html) ([src](code/08-assembly-64bit/test_abs.s))
 ```
 absolute_value:
-	.cfi_startproc
-	mov   rdx, rdi
-	mov   rax, rdi
-	sar   rdx, 63
-	xor   rax, rdx
-	sub   rax, rdx
+	push	rbp
+	mov	rbp, rsp
+	mov	dword ptr [rbp - 4], edi
+	cmp	dword ptr [rbp - 4], 0
+	jge	.LBB1_2
+	xor	eax, eax
+	sub	eax, dword ptr [rbp - 4]
+	mov	dword ptr [rbp - 4], eax
+.LBB1_2:
+	mov	eax, dword ptr [rbp - 4]
+	pop	rbp
 	ret
-	.cfi_endproc
 ```
 
 	  </script></section>
@@ -1386,7 +1395,7 @@ absolute_value:
 
 	  <section data-markdown><script type="text/template">
 ## test_abs_c.c
-Source code: [test_abs_c.c](code/08-x86/test_abs_c.c.html) ([src](code/08-x86/test_abs_c.c))
+Source code: [test_abs_c.c](code/08-assembly-64bit/test_abs_c.c.html) ([src](code/08-assembly-64bit/test_abs_c.c))
 ```
 #include <stdio.h>
 
@@ -1411,8 +1420,8 @@ int main() {
 ## C++ assembly vs. C assembly
 - Notice how much cleaner C translates into assembly versus C++
 - Compare the absolute value code in both C and C++:
-  - C++: [test_abs.s](code/08-x86/test_abs.s.html) ([src](code/08-x86/test_abs.s))
-  - C: [test_abs_c.s](code/08-x86/test_abs_c.s.html) ([src](code/08-x86/test_abs_c.s))
+  - C++: [test_abs.s](code/08-assembly-64bit/test_abs.s.html) ([src](code/08-assembly-64bit/test_abs.s))
+  - C: [test_abs_c.s](code/08-assembly-64bit/test_abs_c.s.html) ([src](code/08-assembly-64bit/test_abs_c.s))
 	  </script></section>
 
 	  <section data-markdown id="max"><script type="text/template">
@@ -1432,7 +1441,7 @@ int max(int x, int y) {
 
 	  <section data-markdown><script type="text/template">
 ## test_max.cpp
-Source code: [test_max.cpp](code/08-x86/test_max.cpp.html) ([src](code/08-x86/test_max.cpp))
+Source code: [test_max.cpp](code/08-assembly-64bit/test_max.cpp.html) ([src](code/08-assembly-64bit/test_max.cpp))
 ```
 #include <iostream>
 using namespace std;
@@ -1455,21 +1464,75 @@ int main() {
 
 	  <section data-markdown><script type="text/template">
 ## x86 code for max()
-Using: `g++ -S -m32 -masm=intel`
+Using: `g++ -S -m64 -masm=intel`
 
-Source code: [test_max.s](code/08-x86/test_max.s.html) ([src](code/08-x86/test_max.s))
+Source code: [test_max.s](code/08-assembly-64bit/test_max.s.html) ([src](code/08-assembly-64bit/test_max.s))
 ```
 max:
-	cmp     edi, esi 
-	mov     eax, esi
-	cmovge  eax, edi
+	push   rbp
+	mov	rbp, rsp
+	mov	dword ptr [rbp - 4], edi
+	mov	dword ptr [rbp - 8], esi
+	mov	esi, dword ptr [rbp - 4]
+	cmp	esi, dword ptr [rbp - 8]
+	jle	.LBB1_2
+	mov	eax, dword ptr [rbp - 4]
+	mov	dword ptr [rbp - 12], eax
+	jmp	.LBB1_3
+.LBB1_2:
+	mov	eax, dword ptr [rbp - 8]
+	mov	dword ptr [rbp - 12], eax
+.LBB1_3:
+	mov	eax, dword ptr [rbp - 12]
+	pop	rbp
 	ret
 ```
 - Notice that we are using 32-bits of the registers when we use ints here (e.g., eax instead of rax).
 	  </script></section>
 
+	  <section data-markdown><script type="text/template">
+## x86 code for max() using -O2
+Using: `g++ -S -m64 -masm=intel` and `-O2`
 
-	
+Source code: [test_max-O2.s](code/08-assembly-64bit/test_max-O2.s.html) ([src](code/08-assembly-64bit/test_max-O2.s))
+```
+max:
+	cmp     edi, esi
+	cmovge  esi, edi
+	mov     eax, esi
+	ret
+```
+The [cmovg](http://www.asmpedia.org/index.php?title=CMOVG) opcode (conditional move if greater than) will move the greater value into the first parameter; [cmovge](http://www.asmpedia.org/index.php?title=CMOVGE) does the move greater than *or equal to* value
+
+Note that this code uses the 32-bit versions of the registers because the variables were decalred as `int` rather than `long`.
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## x86 code for max() without 'extern "C"'
+Using: `g++ -S -m64 -masm=intel`
+
+Source code: [test_max-noextern.s](code/08-assembly-64bit/test_max-noextern.s.html) ([src](code/08-assembly-64bit/test_max-noextern.s))
+```
+_Z3maxii:
+	push	rbp
+	mov	rbp, rsp
+	mov	dword ptr [rbp - 4], edi
+	mov	dword ptr [rbp - 8], esi
+	mov	esi, dword ptr [rbp - 4]
+	cmp	esi, dword ptr [rbp - 8]
+	jle	.LBB1_2
+	mov	eax, dword ptr [rbp - 4]
+	mov	dword ptr [rbp - 12], eax
+	jmp	.LBB1_3
+.LBB1_2:
+	mov	eax, dword ptr [rbp - 8]
+	mov	dword ptr [rbp - 12], eax
+.LBB1_3:
+	mov	eax, dword ptr [rbp - 12]
+	pop	rbp
+	ret
+```
+	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## C-string Comparison
@@ -1491,7 +1554,7 @@ bool compare_string (const char *theStr1,
 
 	  <section data-markdown><script type="text/template">
 ## test_string_compare.cpp
-Source code: [test_string_compare.cpp](code/08-x86/test_string_compare.cpp.html) ([src](code/08-x86/test_string_compare.cpp))
+Source code: [test_string_compare.cpp](code/08-assembly-64bit/test_string_compare.cpp.html) ([src](code/08-assembly-64bit/test_string_compare.cpp))
 ```
 #include <iostream>
 #include <string>
@@ -1518,18 +1581,21 @@ int main() {
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for compare_string(), 1/2
-Using: `g++ -O2 -S -m32 -masm=intel`
+Using: `g++ -O2 -S -m64 -masm=intel`
 
-Source code: [test_string_compare.s](code/08-x86/test_string_compare.s.html) ([src](code/08-x86/test_string_compare.s))
+Source code: [test_string_compare.s](code/08-assembly-64bit/test_string_compare.s.html) ([src](code/08-assembly-64bit/test_string_compare.s))
 ```
 compare_string:
-	movzx   eax, BYTE PTR [rdi]
-    movzx   edx, BYTE PTR [rsi]
-    test    al, al
-    je      .L3
-    cmp     dl, al
-    je      .L5
-    jmp     .L3
+	mov	al, byte ptr [rdi]
+	test	al, al
+	je	.LBB0_4
+	inc	rdi
+	.align	16, 0x90
+.LBB0_2:
+	movzx	ecx, byte ptr [rsi]
+	movzx	edx, al
+	cmp	edx, ecx
+	jne	.LBB0_5
     ...
 
 ```
@@ -1537,26 +1603,23 @@ compare_string:
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for compare_string(), 2/2
-Using: `g++ -O2 -S -m32 -masm=intel`
+Using: `g++ -O2 -S -m64 -masm=intel`
 
-Source code: [test_string_compare.s](code/08-x86/test_string_compare.s.html) ([src](code/08-x86/test_string_compare.s))
+Source code: [test_string_compare.s](code/08-assembly-64bit/test_string_compare.s.html) ([src](code/08-assembly-64bit/test_string_compare.s))
 ```
-.L6:
-    cmp     al, dl
-    mov     rsi, rcx
-    jne     .L3
-.L5:
-    add     rdi, 1
-    movzx   eax, BYTE PTR [rdi]
-    lea     rcx, [rsi+1]
-    movzx   edx, BYTE PTR [rsi+1]
-    test    al, al
-    jne     .L6
-.L3:
-    cmp     al, dl
-    sete    al
-    ret
-
+	inc	rsi
+	mov	al, byte ptr [rdi]
+	inc	rdi
+	test	al, al
+	jne	.LBB0_2
+.LBB0_4:
+	xor	eax, eax
+.LBB0_5:
+	movzx	ecx, byte ptr [rsi]
+	movzx	eax, al
+	cmp	eax, ecx
+	sete	al
+	ret
 ```
 	  </script></section>
 
@@ -1575,7 +1638,7 @@ long fib(unsigned long n) {
 
 	  <section data-markdown><script type="text/template">
 ## test_fib.cpp
-Source code: [test_fib.cpp](code/08-x86/test_fib.cpp.html) ([src](code/08-x86/test_fib.cpp))
+Source code: [test_fib.cpp](code/08-assembly-64bit/test_fib.cpp.html) ([src](code/08-assembly-64bit/test_fib.cpp))
 ```
 #include <iostream>
 using namespace std;
@@ -1600,9 +1663,9 @@ int main() {
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for fib(), 1/2
-Using: `g++ -S -m32 -masm=intel`
+Using: `g++ -S -m64 -masm=intel`
 
-Source code: [test_fib.s](code/08-x86/test_fib.s.html) ([src](code/08-x86/test_fib.s))
+Source code: [test_fib.s](code/08-assembly-64bit/test_fib.s.html) ([src](code/08-assembly-64bit/test_fib.s))
 ```
 fib:
     cmp     rdi, 1
@@ -1619,9 +1682,9 @@ fib:
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for fib(), 2/2
-Using: `g++ -S -m32 -masm=intel`
+Using: `g++ -O2 -S -m64 -masm=intel`
 
-Source code: [test_fib.s](code/08-x86/test_fib.s.html) ([src](code/08-x86/test_fib.s))
+Source code: [test_fib.s](code/08-assembly-64bit/test_fib.s.html) ([src](code/08-assembly-64bit/test_fib.s))
 ```
 .L3:
     lea     rdi, [rbx-1]
