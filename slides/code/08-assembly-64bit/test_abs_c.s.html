@@ -18,24 +18,16 @@ http://www.gnu.org/software/src-highlite">
 absolute_value:                         <i><font color="#9A1900"># @absolute_value</font></i>
 	.cfi_startproc
 <i><font color="#9A1900"># BB#0:</font></i>
-	push	rbp
-.Ltmp0:
-	.cfi_def_cfa_offset 16
-.Ltmp1:
-	.cfi_offset rbp, -16
-	mov	rbp, rsp
-.Ltmp2:
-	.cfi_def_cfa_register rbp
-	mov	dword ptr [rbp - 4], edi
-	cmp	dword ptr [rbp - 4], 0
+	mov	qword ptr [rsp - 8], rdi
+	cmp	qword ptr [rsp - 8], 0
 	jge	.LBB0_2
 <i><font color="#9A1900"># BB#1:</font></i>
 	xor	eax, eax
-	sub	eax, dword ptr [rbp - 4]
-	mov	dword ptr [rbp - 4], eax
+	mov	ecx, eax
+	sub	rcx, qword ptr [rsp - 8]
+	mov	qword ptr [rsp - 8], rcx
 .LBB0_2:
-	mov	eax, dword ptr [rbp - 4]
-	pop	rbp
+	mov	rax, qword ptr [rsp - 8]
 	ret
 .Lfunc_end0:
 	.size	absolute_value, .Lfunc_end0-absolute_value
@@ -47,38 +39,31 @@ absolute_value:                         <i><font color="#9A1900"># @absolute_val
 main:                                   <i><font color="#9A1900"># @main</font></i>
 	.cfi_startproc
 <i><font color="#9A1900"># BB#0:</font></i>
-	push	rbp
-.Ltmp3:
-	.cfi_def_cfa_offset 16
-.Ltmp4:
-	.cfi_offset rbp, -16
-	mov	rbp, rsp
-.Ltmp5:
-	.cfi_def_cfa_register rbp
-	sub	rsp, 32
+	sub	rsp, 40
+.Ltmp0:
+	.cfi_def_cfa_offset 48
 	movabs	rdi, .L.str
-	mov	dword ptr [rbp - 4], 0
-	mov	dword ptr [rbp - 8], 0
+	mov	dword ptr [rsp + 36], 0
+	mov	qword ptr [rsp + 24], 0
 	mov	al, 0
 	call	printf
 	movabs	rdi, .L.str.1
-	lea	rsi, [rbp - 8]
-	mov	dword ptr [rbp - 16], eax <i><font color="#9A1900"># 4-byte Spill</font></i>
+	lea	rsi, [rsp + 24]
+	mov	dword ptr [rsp + 12], eax <i><font color="#9A1900"># 4-byte Spill</font></i>
 	mov	al, 0
 	call	__isoc99_scanf
-	mov	edi, dword ptr [rbp - 8]
-	mov	dword ptr [rbp - 20], eax <i><font color="#9A1900"># 4-byte Spill</font></i>
+	mov	rdi, qword ptr [rsp + 24]
+	mov	dword ptr [rsp + 8], eax <i><font color="#9A1900"># 4-byte Spill</font></i>
 	call	absolute_value
 	movabs	rdi, .L.str.2
-	mov	dword ptr [rbp - 12], eax
-	mov	esi, dword ptr [rbp - 12]
+	mov	qword ptr [rsp + 16], rax
+	mov	rsi, qword ptr [rsp + 16]
 	mov	al, 0
 	call	printf
-	xor	esi, esi
-	mov	dword ptr [rbp - 24], eax <i><font color="#9A1900"># 4-byte Spill</font></i>
-	mov	eax, esi
-	add	rsp, 32
-	pop	rbp
+	xor	ecx, ecx
+	mov	dword ptr [rsp + 4], eax <i><font color="#9A1900"># 4-byte Spill</font></i>
+	mov	eax, ecx
+	add	rsp, 40
 	ret
 .Lfunc_end1:
 	.size	main, .Lfunc_end1-main
@@ -92,13 +77,13 @@ main:                                   <i><font color="#9A1900"># @main</font><
 
 	.type	.L.str.1,@object        <i><font color="#9A1900"># @.str.1</font></i>
 .L.str.1:
-	.asciz	<font color="#FF0000">"%d"</font>
-	.size	.L.str.1, 3
+	.asciz	<font color="#FF0000">"%ld"</font>
+	.size	.L.str.1, 4
 
 	.type	.L.str.2,@object        <i><font color="#9A1900"># @.str.2</font></i>
 .L.str.2:
-	.asciz	<font color="#FF0000">"The result is: %d</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
-	.size	.L.str.2, 19
+	.asciz	<font color="#FF0000">"The result is: %ld</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
+	.size	.L.str.2, 20
 
 
 	.ident	<font color="#FF0000">"clang version 3.8.0-2ubuntu4 (tags/RELEASE_380/final)"</font>

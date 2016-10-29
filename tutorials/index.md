@@ -22,8 +22,9 @@ The tutorials for this course are listed below.
     - In particular, it is [section 1 (introduction)](http://en.wikibooks.org/w/index.php?title=Bash_Shell_Scripting#Introduction) through [section 4 (variables)](http://en.wikibooks.org/w/index.php?title=Bash_Shell_Scripting#Variables), as well as [section 12 (shell arithmetic)](http://en.wikibooks.org/w/index.php?title=Bash_Shell_Scripting#Shell_arithmetic) and [section 14 (input/output)](http://en.wikibooks.org/w/index.php?title=Bash_Shell_Scripting#Input.2FOutput)
 - Tutorial 7: Shell scripting, part 2
     - This is the remainder of the [Wikibooks article on Bash Shell Scripting](http://en.wikibooks.org/wiki/Bash_Shell_Scripting)
-- Tutorial 8: nasm
-    - This two PDF book chapters that are contained in this repository: [x86 Assembly](../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../book/x86-ccc-chapter.pdf)
+- Tutorial 8: assembly
+    - ~~32-bit: This two PDF book chapters that are contained in this repository: [x86 Assembly](../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../book/x86-ccc-chapter.pdf)~~
+	- 64-bit: The C++/assembly tutorial, which consists of reading [x86-64 Machine-Level Programming](https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf) from CMU
 - [Tutorial 9: C](09-c/index.html)
 - (no tutorial 10)
 - [Tutorial 11: Doxygen](11-doxygen/index.html)

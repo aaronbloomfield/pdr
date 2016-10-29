@@ -7,24 +7,17 @@
 __cxx_global_var_init:                  # @__cxx_global_var_init
 	.cfi_startproc
 # BB#0:
-	push	rbp
+	push	rax
 .Ltmp0:
 	.cfi_def_cfa_offset 16
-.Ltmp1:
-	.cfi_offset rbp, -16
-	mov	rbp, rsp
-.Ltmp2:
-	.cfi_def_cfa_register rbp
-	sub	rsp, 16
 	movabs	rdi, _ZStL8__ioinit
 	call	_ZNSt8ios_base4InitC1Ev
 	movabs	rdi, _ZNSt8ios_base4InitD1Ev
 	movabs	rsi, _ZStL8__ioinit
 	movabs	rdx, __dso_handle
 	call	__cxa_atexit
-	mov	dword ptr [rbp - 4], eax # 4-byte Spill
-	add	rsp, 16
-	pop	rbp
+	mov	dword ptr [rsp + 4], eax # 4-byte Spill
+	pop	rax
 	ret
 .Lfunc_end0:
 	.size	__cxx_global_var_init, .Lfunc_end0-__cxx_global_var_init
@@ -37,24 +30,16 @@ __cxx_global_var_init:                  # @__cxx_global_var_init
 absolute_value:                         # @absolute_value
 	.cfi_startproc
 # BB#0:
-	push	rbp
-.Ltmp3:
-	.cfi_def_cfa_offset 16
-.Ltmp4:
-	.cfi_offset rbp, -16
-	mov	rbp, rsp
-.Ltmp5:
-	.cfi_def_cfa_register rbp
-	mov	dword ptr [rbp - 4], edi
-	cmp	dword ptr [rbp - 4], 0
+	mov	qword ptr [rsp - 8], rdi
+	cmp	qword ptr [rsp - 8], 0
 	jge	.LBB1_2
 # BB#1:
 	xor	eax, eax
-	sub	eax, dword ptr [rbp - 4]
-	mov	dword ptr [rbp - 4], eax
+	mov	ecx, eax
+	sub	rcx, qword ptr [rsp - 8]
+	mov	qword ptr [rsp - 8], rcx
 .LBB1_2:
-	mov	eax, dword ptr [rbp - 4]
-	pop	rbp
+	mov	rax, qword ptr [rsp - 8]
 	ret
 .Lfunc_end1:
 	.size	absolute_value, .Lfunc_end1-absolute_value
@@ -66,45 +51,38 @@ absolute_value:                         # @absolute_value
 main:                                   # @main
 	.cfi_startproc
 # BB#0:
-	push	rbp
-.Ltmp6:
-	.cfi_def_cfa_offset 16
-.Ltmp7:
-	.cfi_offset rbp, -16
-	mov	rbp, rsp
-.Ltmp8:
-	.cfi_def_cfa_register rbp
-	sub	rsp, 48
+	sub	rsp, 56
+.Ltmp1:
+	.cfi_def_cfa_offset 64
 	movabs	rdi, _ZSt4cout
 	movabs	rsi, .L.str
-	mov	dword ptr [rbp - 4], 0
-	mov	dword ptr [rbp - 8], 0
+	mov	dword ptr [rsp + 52], 0
+	mov	qword ptr [rsp + 40], 0
 	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
 	movabs	rsi, _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
 	mov	rdi, rax
 	call	_ZNSolsEPFRSoS_E
 	movabs	rdi, _ZSt3cin
-	lea	rsi, [rbp - 8]
-	mov	qword ptr [rbp - 24], rax # 8-byte Spill
-	call	_ZNSirsERi
-	mov	edi, dword ptr [rbp - 8]
-	mov	qword ptr [rbp - 32], rax # 8-byte Spill
+	lea	rsi, [rsp + 40]
+	mov	qword ptr [rsp + 24], rax # 8-byte Spill
+	call	_ZNSirsERl
+	mov	rdi, qword ptr [rsp + 40]
+	mov	qword ptr [rsp + 16], rax # 8-byte Spill
 	call	absolute_value
 	movabs	rdi, _ZSt4cout
 	movabs	rsi, .L.str.1
-	mov	dword ptr [rbp - 12], eax
+	mov	qword ptr [rsp + 32], rax
 	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
-	mov	esi, dword ptr [rbp - 12]
+	mov	rsi, qword ptr [rsp + 32]
 	mov	rdi, rax
-	call	_ZNSolsEi
+	call	_ZNSolsEl
 	movabs	rsi, _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
 	mov	rdi, rax
 	call	_ZNSolsEPFRSoS_E
 	xor	ecx, ecx
-	mov	qword ptr [rbp - 40], rax # 8-byte Spill
+	mov	qword ptr [rsp + 8], rax # 8-byte Spill
 	mov	eax, ecx
-	add	rsp, 48
-	pop	rbp
+	add	rsp, 56
 	ret
 .Lfunc_end2:
 	.size	main, .Lfunc_end2-main
@@ -116,16 +94,11 @@ main:                                   # @main
 _GLOBAL__sub_I_test_abs.cpp:            # @_GLOBAL__sub_I_test_abs.cpp
 	.cfi_startproc
 # BB#0:
-	push	rbp
-.Ltmp9:
+	push	rax
+.Ltmp2:
 	.cfi_def_cfa_offset 16
-.Ltmp10:
-	.cfi_offset rbp, -16
-	mov	rbp, rsp
-.Ltmp11:
-	.cfi_def_cfa_register rbp
 	call	__cxx_global_var_init
-	pop	rbp
+	pop	rax
 	ret
 .Lfunc_end3:
 	.size	_GLOBAL__sub_I_test_abs.cpp, .Lfunc_end3-_GLOBAL__sub_I_test_abs.cpp

@@ -1,18 +1,18 @@
 #include <iostream>
 using namespace std;
-extern "C" long absolute_value(long x);
+extern "C" int absolute_value(int x);
 
-long absolute_value(long x) {
+int absolute_value(int x) {
     if (x<0)	// if x is negative
         x = -x;	// negate x
     return x;	// return x
 }
 
 int main() {
-    long theValue=0;
+    int theValue=0;
     cout << "Enter a value: " << endl;
     cin >> theValue;
-    long theResult = absolute_value(theValue);
+    int theResult = absolute_value(theValue);
     cout << "The result is: " << theResult << endl;
     return 0;
 }

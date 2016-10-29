@@ -767,7 +767,7 @@ int main() {
 	  <section data-markdown><script type="text/template">
 ## Caller Rules Example
 ```
-push rdi         ; rdi will be used as param, so caller is saving
+push rdi         ; rdi will be a param, so saving it
 
                  ; long retVal = myFunc(x, 123, z);
 mov rdi, [x]     ; put first param in rdi
@@ -788,7 +788,7 @@ pop rdi          ; restore saved rdi value
 <p>This is just before the <code>call</code> opcode is invoked.</p>
 <hr>
 <table class="transparent">
-<tr><td>&uarr;</td><td style="width:50px"></td><td class="border" style="width:300px">value of rdi</td><td style="width:25px"></td><td>&larr; esp</td></tr>
+<tr><td>&uarr;</td><td style="width:50px"></td><td class="border" style="width:300px">value of rdi</td><td style="width:25px"></td><td>&larr; rsp</td></tr>
 <tr><td>To higher addresses</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td>(to 0xffffffff)</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
@@ -806,7 +806,7 @@ pop rdi          ; restore saved rdi value
 <hr>
 <table class="transparent">
 <tr><td>&uarr;</td><td style="width:50px"></td><td class="border" style="width:300px">value of rdi</td><td style="width:25px"></td><td>&nbsp;</td></tr>
-<tr><td>To higher addresses</td><td style="width:50px"></td><td class="border" style="width:300px">return address</td><td style="width:25px"></td><td>&larr; esp</td></tr>
+<tr><td>To higher addresses</td><td style="width:50px"></td><td class="border" style="width:300px">return address</td><td style="width:25px"></td><td>&larr; rsp</td></tr>
 <tr><td>(to 0xffffffff)</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
@@ -868,16 +868,17 @@ That is it. NOTE: caller is also allowed to use valid registers for local variab
 
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
+	  <section data-markdown id="pushrbp"><script type="text/template">
 ## PUBLIC SERVICE ANNOUNCEMENT!
-
-NOTE. You might see the following during lab:
+- Note that you might see the following:
 ```
-push rbp
+push rbp       ; at the start of the callee
 mov rbp, rsp
+...
+pop rbp        ; just before the ending 'ret'
 ```
-  - This is a 32-bit x86 convention that is no longer officially used, but is sometimes seen anyway.
-
+- This is a 32-bit x86 convention that is no longer officially used, but is sometimes seen anyway.
+- To omit it, add the `-fomit-frame-pointer` flag to the compilation line
 	  </script></section>
 
 	  <section>
@@ -932,7 +933,7 @@ int main() {
 section .text
 myFunc:
                 ; prologue
-sub rsp, 8      ; save room for 1 64-bit local var (result)
+sub rsp, 8      ; room for a 64-bit local var (result)
 push rbx        ; save callee-save registers
 push rbp        ; both will be used by myFunc
 ```
@@ -1222,19 +1223,6 @@ Code we'll see:
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## clang++ creates some odd assembly...
-- We'll see why later, but clang++ creates some odd-looking assembly
-  - Which does not appear to follow the calling convention
-- So you can use g++ to view the assembly
-  - The flags are different:
-```
-g++ -S -m64 -masm=intel
-```
-  - g++ was installed on your VirtualBox image specifically for this reason
-- The assembly shown in this slide set was generated using g++, not clang++
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
 ## int absolute_value(int x)
 (see next slide for the source code link)
 ```
@@ -1275,7 +1263,8 @@ int main() {
 ## x86 Assembly for absolute_value
 No external source code; this is how we might write it ourselves.
 ```
-; prologue, nothing here because no saved registers and no loval vars
+; prologue, nothing here because no saved
+; registers and no loval vars
 
 ; procedure body
 mov rax, rdi    	  ; eax <- x
@@ -1284,13 +1273,14 @@ jge end_of_proc       ; if pos goto end
 neg rax               ; negate x
 
 end_of_proc:
-; Standard epilogue, no local vars and no saved registers
+				   
+; Standard epilogue, no local vars and no saved regs
 ret
 ```
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Generating assembly with clang++ or g++
+## Generating assembly with clang++
 - Using the -S flag, we can generate assembly from C/C++ code
 - Note that the format is a bit different
   - Register specification, dest/source order, etc.
@@ -1299,38 +1289,43 @@ ret
 clang++ -m64 -S test_abs.cpp -o test_abs-non-intel.s
 ```
   - You'll see why it has 'non-intel' in the name shortly...
-- If you want to use g++ (which we do), you use:
-```
-g++ -O2 -m64 -S test_abs.cpp -o test_abs-non-intel.s
-```
-- The formatting is still slightly different from nasm, but the idea is the same
+- Actually, we use even more flags...
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## g++'s assembly for absolute_value
+## clang++ flags
+- Most of the code in this section uses the following compiler flags: `-m64 -mllvm --x86-asm-syntax=intel -S -fomit-frame-pointer`
+- The meanings:
+  - `-m64`: create 64-bit code (clang++ sometimes defaults to 32-bit code)
+  - `-mllvm --x86-asm-syntax=intel`: this tells clang++ to generate the assembly in the format we are studying
+  - `-S`: generates assembly, rather than compiling it into object code (or an executable)
+  - `-fomit-frame-pointer`: prevents the push rbp / mov rbp, rsp / pop rbp code discussed [here](#/pushrbp)
+- The assembly shown in this slide set was all generated using clang++ (or clang)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## clang++'s assembly for absolute_value
 Note the source / destination order is reversed!  And lots of other differences...
 
 Source code: [test_abs-non-intel.s](code/08-assembly-64bit/test_abs-non-intel.s.html) ([src](code/08-assembly-64bit/test_abs-non-intel.s))
 ```
 absolute_value:
-	pushq	%rbp
-	movq	%rsp, %rbp
-	movl	%edi, -4(%rbp)
-	cmpl	$0, -4(%rbp)
+	movq	%rdi, -8(%rsp)
+	cmpq	$0, -8(%rsp)
 	jge	.LBB1_2
 	xorl	%eax, %eax
-	subl	-4(%rbp), %eax
-	movl	%eax, -4(%rbp)
+	movl	%eax, %ecx
+	subq	-8(%rsp), %rcx
+	movq	%rcx, -8(%rsp)
 .LBB1_2:
-	movl	-4(%rbp), %eax
-	popq	%rbp
+	movq	-8(%rsp), %rax
 	retq
 ```
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Assembly differences
-- There are a lot of differences between the assembly we've seen and what `g++ -O2 -S` produces
+- There are a lot of differences between the assembly we've seen and what `clang++ -O2 -S -fomit-frame-pointer` produces
   - `movq`, `sarq`, `xorq` etc.
     - the 'q' part means 'quadword' (i.e. 64 bits, so the assembler doesn't have to guess)
   - `$0` is the constant 0
@@ -1345,72 +1340,82 @@ absolute_value:
   - You can see more details about the differences [here](https://en.wikipedia.org/wiki/X86_assembly_language#Syntax)
 - Flavors:
   - Intel syntax: what we will use, and what nasm uses
-  - AT&T syntax: what `g++ -S` uses by default
+  - AT&T syntax: what `clang++ -S` uses by default
 - To make clang++ use the Intel syntax, you need to add the <br>`-mllvm --x86-asm-syntax=intel` flags
 ```
 clang++ -m64 -mllvm --x86-asm-syntax=intel -S \
-          test_abs.cpp -o test_abs.s
-```
-- For g++, use the `-masm=intel` flags:
-```
-g++ -m64 -masm=intel -S test_abs.cpp -o test_abs.s
+        -fomit-frame-pointer test_abs.cpp -o test_abs.s
 ```
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## g++'s assembly for absolute_value
-This is with the `-masm=intel` and `-O2` flags
+## clang++'s asmsembly for absolute_value
+This is with the `-mllvm --x86-asm-syntax=intel` flags
 
 Source code: [test_abs.s](code/08-assembly-64bit/test_abs.s.html) ([src](code/08-assembly-64bit/test_abs.s))
 ```
 absolute_value:
-	push	rbp
-	mov	rbp, rsp
-	mov	dword ptr [rbp - 4], edi
-	cmp	dword ptr [rbp - 4], 0
+	mov	qword ptr [rsp - 8], rdi
+	cmp	qword ptr [rsp - 8], 0
 	jge	.LBB1_2
 	xor	eax, eax
-	sub	eax, dword ptr [rbp - 4]
-	mov	dword ptr [rbp - 4], eax
+	mov	ecx, eax
+	sub	rcx, qword ptr [rsp - 8]
+	mov	qword ptr [rsp - 8], rcx
 .LBB1_2:
-	mov	eax, dword ptr [rbp - 4]
-	pop	rbp
+	mov	rax, qword ptr [rsp - 8]
 	ret
 ```
-
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## clang++'s assembly output on Macs
-- With g++ (what we used last year), Darwin (i.e., Mac OS X) did not support the `-masm=intel` flag
-  - And clang++ may not support the `-mllvm --x86-asm-syntax=intel` flags
-- But I don't know what clang++ will do...
+- clang++ may not support the `-mllvm --x86-asm-syntax=intel` flags
   - Can anybody test this?
 - So you may be stuck using the "other" format
   - With the source / destination order reversed
 - You can compile it on a the Linux VirtualBox image, if you want the 'correct' order
   - We recommned this for the x86 labs!
-- Also note that g++ (without the -O2 flag) uses some legacy calling convention features that we didn't discuss here.
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## clang++'s asmsembly for ints
+This is for [test_abs_int.cpp](code/08-assembly-64bit/test_abs_int.cpp.html), which uses `int` types instead of `long` types
+
+Source code: [test_abs_int.s](code/08-assembly-64bit/test_abs_int.s.html) ([src](code/08-assembly-64bit/test_abs_int.s))
+```
+absolute_value:
+	mov	dword ptr [rsp - 4], edi
+	cmp	dword ptr [rsp - 4], 0
+	jge	.LBB1_2
+	xor	eax, eax
+	sub	eax, dword ptr [rsp - 4]
+	mov	dword ptr [rsp - 4], eax
+.LBB1_2:
+	mov	eax, dword ptr [rsp - 4]
+	ret
+```
+Note the use of eax instead of rax, and that the offets are `[rsp-4]` rather than `[rsp-8]`
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## test_abs_c.c
-Source code: [test_abs_c.c](code/08-assembly-64bit/test_abs_c.c.html) ([src](code/08-assembly-64bit/test_abs_c.c))
+Source code: [test_abs_c.c](code/08-assembly-64bit/test_abs_c.c.html) ([src](code/08-assembly-64bit/test_abs_c.c)); we're back to using `long` types again
 ```
 #include <stdio.h>
 
-int absolute_value(int x) {
-    if ( x < 0 )      // if x is negative
-        x = -x;   // negate x
-    return x;     // return x
+long absolute_value(long x) {
+    if (x<0)	// if x is negative
+        x = -x;	// negate x
+    return x;	// return x
 }
 
 int main() {
-    int theValue=0;
+    long theValue=0;
     printf ("Enter a value: \n");
-    scanf ("%d", &theValue);
-    int theResult = absolute_value(theValue);
-    printf ("The result is: %d\n", theResult);
+    scanf ("%ld", &theValue);
+    long theResult = absolute_value(theValue);
+    printf ("The result is: %ld\n", theResult);
     return 0;
 }
 ```
@@ -1464,35 +1469,37 @@ int main() {
 
 	  <section data-markdown><script type="text/template">
 ## x86 code for max()
-Using: `g++ -S -m64 -masm=intel`
-
 Source code: [test_max.s](code/08-assembly-64bit/test_max.s.html) ([src](code/08-assembly-64bit/test_max.s))
 ```
 max:
-	push   rbp
-	mov	rbp, rsp
-	mov	dword ptr [rbp - 4], edi
-	mov	dword ptr [rbp - 8], esi
-	mov	esi, dword ptr [rbp - 4]
-	cmp	esi, dword ptr [rbp - 8]
+	mov	dword ptr [rsp - 4], edi
+	mov	dword ptr [rsp - 8], esi
+	mov	esi, dword ptr [rsp - 4]
+	cmp	esi, dword ptr [rsp - 8]
 	jle	.LBB1_2
-	mov	eax, dword ptr [rbp - 4]
-	mov	dword ptr [rbp - 12], eax
+	mov	eax, dword ptr [rsp - 4]
+	mov	dword ptr [rsp - 12], eax
 	jmp	.LBB1_3
 .LBB1_2:
-	mov	eax, dword ptr [rbp - 8]
-	mov	dword ptr [rbp - 12], eax
+	mov	eax, dword ptr [rsp - 8]
+	mov	dword ptr [rsp - 12], eax
 .LBB1_3:
-	mov	eax, dword ptr [rbp - 12]
-	pop	rbp
+	mov	eax, dword ptr [rsp - 12]
 	ret
 ```
-- Notice that we are using 32-bits of the registers when we use ints here (e.g., eax instead of rax).
+- Notes on this on the next slide
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Notes on x86 code for max()
+- We are using 32-bit registers (eax instead of rax) because the code used `int` types instead of `long` types
+  - Likewise, our offsets are 4 bytes instead of 8 bytes: `[rsp-4]` rather than `[rsp-8]`
+- This was compiled with the clang++ flags: `-m64 -mllvm --x86-asm-syntax=intel -S -fomit-frame-pointer`
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## x86 code for max() using -O2
-Using: `g++ -S -m64 -masm=intel` and `-O2`
+Compiled like the previous, but with `-O2`
 
 Source code: [test_max-O2.s](code/08-assembly-64bit/test_max-O2.s.html) ([src](code/08-assembly-64bit/test_max-O2.s))
 ```
@@ -1508,28 +1515,25 @@ Note that this code uses the 32-bit versions of the registers because the variab
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## x86 code for max() without 'extern "C"'
-Using: `g++ -S -m64 -masm=intel`
+## x86 code without 'extern "C"'
+Compiled like the previous, but *without* `-O2`
 
 Source code: [test_max-noextern.s](code/08-assembly-64bit/test_max-noextern.s.html) ([src](code/08-assembly-64bit/test_max-noextern.s))
 ```
 _Z3maxii:
-	push	rbp
-	mov	rbp, rsp
-	mov	dword ptr [rbp - 4], edi
-	mov	dword ptr [rbp - 8], esi
-	mov	esi, dword ptr [rbp - 4]
-	cmp	esi, dword ptr [rbp - 8]
+	mov	dword ptr [rsp - 4], edi
+	mov	dword ptr [rsp - 8], esi
+	mov	esi, dword ptr [rsp - 4]
+	cmp	esi, dword ptr [rsp - 8]
 	jle	.LBB1_2
-	mov	eax, dword ptr [rbp - 4]
-	mov	dword ptr [rbp - 12], eax
+	mov	eax, dword ptr [rsp - 4]
+	mov	dword ptr [rsp - 12], eax
 	jmp	.LBB1_3
 .LBB1_2:
-	mov	eax, dword ptr [rbp - 8]
-	mov	dword ptr [rbp - 12], eax
+	mov	eax, dword ptr [rsp - 8]
+	mov	dword ptr [rsp - 12], eax
 .LBB1_3:
-	mov	eax, dword ptr [rbp - 12]
-	pop	rbp
+	mov	eax, dword ptr [rsp - 12]
 	ret
 ```
 	  </script></section>
@@ -1580,46 +1584,45 @@ int main() {
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## x86 assembly for compare_string(), 1/2
-Using: `g++ -O2 -S -m64 -masm=intel`
+## x86 for compare_string(), 1/2
+Compiled like the previous
 
 Source code: [test_string_compare.s](code/08-assembly-64bit/test_string_compare.s.html) ([src](code/08-assembly-64bit/test_string_compare.s))
 ```
 compare_string:
-	mov	al, byte ptr [rdi]
-	test	al, al
-	je	.LBB0_4
-	inc	rdi
-	.align	16, 0x90
+    mov      al, byte ptr [rdi]
+    test     al, al
+    je       .LBB0_4
+    inc      rdi
 .LBB0_2:
-	movzx	ecx, byte ptr [rsi]
-	movzx	edx, al
-	cmp	edx, ecx
-	jne	.LBB0_5
+    movzx    ecx, byte ptr [rsi]
+    movzx    edx, al
+    cmp      edx, ecx
+    jne      .LBB0_5
+    inc      rsi
+    mov      al, byte ptr [rdi]
+    inc      rdi
+    test     al, al
+    jne      .LBB0_2
     ...
 
 ```
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## x86 assembly for compare_string(), 2/2
-Using: `g++ -O2 -S -m64 -masm=intel`
+## x86 for compare_string(), 2/2
+Compiled like the previous
 
 Source code: [test_string_compare.s](code/08-assembly-64bit/test_string_compare.s.html) ([src](code/08-assembly-64bit/test_string_compare.s))
 ```
-	inc	rsi
-	mov	al, byte ptr [rdi]
-	inc	rdi
-	test	al, al
-	jne	.LBB0_2
 .LBB0_4:
-	xor	eax, eax
+    xor      eax, eax
 .LBB0_5:
-	movzx	ecx, byte ptr [rsi]
-	movzx	eax, al
-	cmp	eax, ecx
-	sete	al
-	ret
+    movzx    ecx, byte ptr [rsi]
+    movzx    eax, al
+    cmp      eax, ecx
+    sete     al
+    ret
 ```
 	  </script></section>
 
@@ -1628,12 +1631,13 @@ Source code: [test_string_compare.s](code/08-assembly-64bit/test_string_compare.
 ## int fib
 (see next slide for the source code link)
 ```
-long fib(unsigned long n) {
+long fib(unsigned int n) {
     if ((n==0) || (n==1))
         return 1;
     return fib(n-1) + fib(n-2);
 }
 ```
+Note that the parameter is `unsigned int` (32-bit), but the return type is `long` (64-bit)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -1642,17 +1646,18 @@ Source code: [test_fib.cpp](code/08-assembly-64bit/test_fib.cpp.html) ([src](cod
 ```
 #include <iostream>
 using namespace std;
-extern "C" long fib(unsigned long n);
 
-long fib(unsigned long n) {
+extern "C" long fib(unsigned int n);
+
+long fib(unsigned int n) {
     if ((n==0) || (n==1))
         return 1;
     return fib(n-1) + fib(n-2);
 }
 
 int main() {
-    unsigned long theValue = 0;
-    cout << "Enter value for fib(): " << endl;    
+    unsigned int theValue = 0;
+    cout << "Enter value for fib(): " << endl;
     cin >> theValue;
     long theResult = fib(theValue);
     cout << "The result is: " << theResult << endl;
@@ -1663,45 +1668,47 @@ int main() {
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for fib(), 1/2
-Using: `g++ -S -m64 -masm=intel`
+Compiled like the previous, but with `-O2`
 
 Source code: [test_fib.s](code/08-assembly-64bit/test_fib.s.html) ([src](code/08-assembly-64bit/test_fib.s))
 ```
 fib:
-    cmp     rdi, 1
-    jbe     .L4
-    push    rbp
-    push    rbxf
-    xor     ebp, ebp
-    mov     rbx, rdi
-    sub     rsp, 8
+    push    r14
+    push    rbx
+    push    rax
+    mov     ebx, edi
+    mov     eax, ebx
+    or      eax, 1
+    mov     r14d, 1
+    cmp     eax, 1
+    je      .LBB0_3
+    add     ebx, -2
+    mov     r14d, 1
     ...
-
 ```
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for fib(), 2/2
-Using: `g++ -O2 -S -m64 -masm=intel`
+Compiled like the previous, but with `-O2`
 
 Source code: [test_fib.s](code/08-assembly-64bit/test_fib.s.html) ([src](code/08-assembly-64bit/test_fib.s))
 ```
-.L3:
-    lea     rdi, [rbx-1]
-    sub     rbx, 2
-    call    _Z3fibm
-    add     rbp, rax
-    cmp     rbx, 1
-    ja      .L3
+.LBB0_2:
+    lea     edi, [rbx + 1]
+    call    fib
+    add     r14, rax
+    mov     eax, ebx
+    or      eax, 1
+    add     ebx, -2
+    cmp     eax, 1
+    jne     .LBB0_2
+.LBB0_3:
+    mov     rax, r14
     add     rsp, 8
-    lea     rax, [rbp+1]
     pop     rbx
-    pop     rbp
+    pop     r14
     ret
-.L4:
-    mov     eax, 1
-    ret
-
 ```
 	  </script></section>
 

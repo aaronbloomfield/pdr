@@ -7,7 +7,7 @@
 fib:                                    # @fib
 	.cfi_startproc
 # BB#0:
-	push	rbp
+	push	r14
 .Ltmp0:
 	.cfi_def_cfa_offset 16
 	push	rbx
@@ -19,32 +19,32 @@ fib:                                    # @fib
 .Ltmp3:
 	.cfi_offset rbx, -24
 .Ltmp4:
-	.cfi_offset rbp, -16
+	.cfi_offset r14, -16
 	mov	ebx, edi
 	mov	eax, ebx
 	or	eax, 1
-	mov	ebp, 1
+	mov	r14d, 1
 	cmp	eax, 1
 	je	.LBB0_3
 # BB#1:                                 # %tailrecurse.preheader
 	add	ebx, -2
-	mov	ebp, 1
+	mov	r14d, 1
 	.align	16, 0x90
 .LBB0_2:                                # %tailrecurse
                                         # =>This Inner Loop Header: Depth=1
 	lea	edi, [rbx + 1]
 	call	fib
-	add	ebp, eax
+	add	r14, rax
 	mov	eax, ebx
 	or	eax, 1
 	add	ebx, -2
 	cmp	eax, 1
 	jne	.LBB0_2
 .LBB0_3:                                # %tailrecurse._crit_edge
-	mov	eax, ebp
+	mov	rax, r14
 	add	rsp, 8
 	pop	rbx
-	pop	rbp
+	pop	r14
 	ret
 .Lfunc_end0:
 	.size	fib, .Lfunc_end0-fib
@@ -100,17 +100,17 @@ main:                                   # @main
 	call	_ZNSo5flushEv
 	lea	rsi, [rsp + 4]
 	mov	edi, _ZSt3cin
-	call	_ZNSirsERi
+	call	_ZNSi10_M_extractIjEERSiRT_
 	mov	edi, dword ptr [rsp + 4]
 	call	fib
-	mov	ebx, eax
+	mov	rbx, rax
 	mov	edi, _ZSt4cout
 	mov	esi, .L.str.1
 	mov	edx, 15
 	call	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
 	mov	edi, _ZSt4cout
-	mov	esi, ebx
-	call	_ZNSolsEi
+	mov	rsi, rbx
+	call	_ZNSo9_M_insertIlEERSoT_
 	mov	r14, rax
 	mov	rax, qword ptr [r14]
 	mov	rax, qword ptr [rax - 24]

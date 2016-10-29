@@ -61,9 +61,13 @@ The labs for this course:
 
 &nbsp;
 
-- [Lab 8: x86, part 1](lab08/index.html) (assembly language)
-    - Source code: [vecsum.s](lab08/vecsum.s.html) ([src](lab08/vecsum.s)), [main.cpp](lab08/main.cpp.html) ([src](lab08/main.cpp)), [Makefile](lab08/Makefile.html) ([src](lab08/Makefile))
-    - Readings (which is also the tutorial): the two x86 book chapters: [x86 Assembly](../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../book/x86-ccc-chapter.pdf)
+- Lab 8: x86 (assembly), part 1: in 32-bit and 64-bit versions
+    - ~~[32-bit version of the lab](lab08/index-32bit.html)~~
+        - ~~Source code: [vecsum.s](lab08/32-bit/vecsum.s.html) ([src](lab08/32-bit/vecsum.s)), [main.cpp](lab08/32-bit/main.cpp.html) ([src](lab08/32-bit/main.cpp)), [Makefile](lab08/32-bit/Makefile.html) ([src](lab08/32-bit/Makefile))~~
+        - ~~Readings (which is also the tutorial): the two x86 book chapters: [x86 Assembly](../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../book/x86-ccc-chapter.pdf)~~
+    - [64-bit version of the lab](lab08/index.html)
+        - Source code: [vecsum.s](lab08/vecsum.s.html) ([src](lab08/vecsum.s)), [main.cpp](lab08/main.cpp.html) ([src](lab08/main.cpp)), [Makefile](lab08/Makefile.html) ([src](lab08/Makefile))
+        - Readings (which is also the tutorial): the C++/assembly tutorial, which consists of reading [x86-64 Machine-Level Programming](https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf) from CMU
 
 &nbsp;
 
