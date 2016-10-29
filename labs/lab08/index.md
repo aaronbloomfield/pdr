@@ -62,7 +62,7 @@ There are two different platforms that students are potentially developing their
 
 **Your code must compile and run on the submission server, which is a 64-bit Linux machine!**
 
-There are three changes that will have to be made to compile your program (and this to the Makefile) depending on your own development platform:
+There are three changes that will have to be made to compile your program (and thus to the Makefile) depending on your own development platform:
 
 - You will have to determine whether to name your function `vecsum` instead of `_vecsum` (note the lack of underscore in the former) in vecsum.s (this file is described more below).  In the final linking step, if you get a message such as, `main.cpp:(.text+0x12): undefined reference to 'vecsum'`, then you should change the name of the function.  
 - Some systems will have to supply a command-line parameter to clang++; this can be put on the `CXX` or `CXXFLAGS` macro(s) line in your Makefile
@@ -74,7 +74,7 @@ In an effort to make sure all the files submitted conform to one standard or the
 
 Also note that your code must compile with `make`.  We provide a sample Makefile that will compile vecsum, so you can just modify this Makefile to compile your pre-lab program.  **Please note that you should NOT specify a `-o` flag to clang++ (not even `-o a`)**, as we want it to be named the default (a.out).  This allows easy porting between the two operating systems.
 
-If you plan to develop it in Mac OS X, we suggest that you develop it normally (putting in the `_` before the subroutine name).  Then, once you have verified everything works, remove the underscores from **all** the relevant lines, and test it out on a 64-bit Linux machine, such as the VirtualBox image, before submitting it.
+If you plan to develop this lab in Mac OS X, we suggest that you develop it normally (putting in the `_` before the subroutine name).  Then, once you have verified everything works, remove the underscores from **all** the relevant lines, and test it out on a 64-bit Linux machine, such as the VirtualBox image, before submitting it.
 
 ### Platform Specifics ###
 
@@ -113,7 +113,7 @@ clang++ -m64 -Wall -g  -c -o main.o main.cpp
 
 ```
 
-Note that we used the -c flag, which tells the compiler to compile but not link the program.  Linking it will create the final executable -- but as there is not a `vecsum()` function defined (yet), the compiler will report an error stating that it does now know the vecsum() function.  The `-o main.o` part tells clang++ to put the compilation output into the file named main.o.  Note that the `-o` flag wasn't really necessary here (as clang++ will use main.o by default when compiling main.cpp), but we wanted to include it, as we are going to use it below.  We include the `-m64` flag to force it to be a 32-bit file.  We also added a few more flags (`-Wall -g`) to print all warnings and compile debugging symbols into the program.
+Note that we used the -c flag, which tells the compiler to compile but not link the program.  Linking it will create the final executable -- but as there is not a `vecsum()` function defined (yet), the compiler will report an error stating that it does not know what the vecsum() function is.  The `-o main.o` part tells clang++ to put the compilation output into the file named main.o.  Note that the `-o` flag wasn't really necessary here (as clang++ will use main.o by default when compiling main.cpp), but we wanted to include it, as we are going to use it below.  We include the `-m64` flag to force it to be a 64-bit file.  We also added a few more flags (`-Wall -g`) to print all warnings and compile debugging symbols into the program.
 
 Next, we need to compile the assembly file.  To do this, we enter the following:
 
@@ -177,13 +177,13 @@ In-lab
 
 Come to lab with a functioning version of the pre-lab, and be prepared to demonstrate that you understand how to build and run the pre-lab programs.  If you are unsure about any part of the pre-lab, talk to a TA.  The in-lab will ask you to write C++ code and examine the generated assembly language for a variety of topics.
 
-You should be able to explain and write recursive functions for the final exam, so make sure that you understand how to implement the pre-lab program.  Speak to a TA if you have any questions.
+You should be able to explain and write recursive functions in assembly for the exams in this course, so make sure that you understand how to implement the pre-lab program.  Speak to a TA if you have any questions.
 
 The general activity of this in-lab will be to write small snippets of C++ code, compile them so that you can look at the generated assembly code, then make modifications and recompile as needed in order to deduce the representation of a number of C++ constructs (listed below).  
 
 For the in-lab, you will need to work on the two topics shown below -- note that there will be a different topics to work through on the next lab.
 
-The deliverable for this in-lab is a document named inlab8.pdf.  It must be in PDF format!  See the [How to convert a file to PDF](../../docs/convert_to_pdf.html) page for details about creating a PDF file.
+The deliverable for this in-lab is a document named inlab8.pdf.  It must be in PDF format!  See the [How to convert a file to PDF](../../docs/convert_to_pdf.html) page for details about creating a PDF file. *NOTE: Many students turn in pdf files that are incorrectly produced. Make sure to follow the conversion steps exactly.
 
 In the report, you should explain all the items in *one* of the categories below (either objects or parameter passing).  For the post-lab, you will need to have all items from both categories explained.  We are looking for significant evidence that you were able to complete some work during the in-lab, and thus are not setting page length requirements.
 
@@ -191,7 +191,7 @@ Recall that using the `-S` flag with clang++ will generate the assembly code.  Y
 
 ### In-lab 8 topics: you must do ALL of these for the post-lab, but only ONE of these for the in-lab ###
 
-The questions posed below are example questions to answer.  Some of them may overlap.  Others may not be necessary.  And there may be questions not listed that are worth answering.  The purpose of posing those questions is to help you think about what topics and ideas you should address in your response - it's not meant to be a rigid structure that you absolutely must follow.  We are going to look at whether you have addressed the general idea of each of the list topics.
+The questions posed below are example questions to answer.  Some of them may overlap.  Others may not be necessary.  And there may be questions not listed that are worth answering.  The purpose of posing these questions is to help you think about what topics and ideas you should address in your response - it's not meant to be a rigid structure that you absolutely must follow.  We are going to look at whether you have addressed the general idea of each of the list topics.
 
 ### Parameter passing ###
 
