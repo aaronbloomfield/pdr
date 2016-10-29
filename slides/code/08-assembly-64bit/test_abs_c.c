@@ -1,16 +1,16 @@
 #include <stdio.h>
 
-int absolute_value(int x) {
+long absolute_value(long x) {
     if (x<0)	// if x is negative
         x = -x;	// negate x
     return x;	// return x
 }
 
 int main() {
-    int theValue=0;
+    long theValue=0;
     printf ("Enter a value: \n");
-    scanf ("%d", &theValue);
-    int theResult = absolute_value(theValue);
-    printf ("The result is: %d\n", theResult);
+    scanf ("%ld", &theValue);
+    long theResult = absolute_value(theValue);
+    printf ("The result is: %ld\n", theResult);
     return 0;
 }

@@ -7,24 +7,16 @@
 absolute_value:                         # @absolute_value
 	.cfi_startproc
 # BB#0:
-	push	rbp
-.Ltmp0:
-	.cfi_def_cfa_offset 16
-.Ltmp1:
-	.cfi_offset rbp, -16
-	mov	rbp, rsp
-.Ltmp2:
-	.cfi_def_cfa_register rbp
-	mov	dword ptr [rbp - 4], edi
-	cmp	dword ptr [rbp - 4], 0
+	mov	qword ptr [rsp - 8], rdi
+	cmp	qword ptr [rsp - 8], 0
 	jge	.LBB0_2
 # BB#1:
 	xor	eax, eax
-	sub	eax, dword ptr [rbp - 4]
-	mov	dword ptr [rbp - 4], eax
+	mov	ecx, eax
+	sub	rcx, qword ptr [rsp - 8]
+	mov	qword ptr [rsp - 8], rcx
 .LBB0_2:
-	mov	eax, dword ptr [rbp - 4]
-	pop	rbp
+	mov	rax, qword ptr [rsp - 8]
 	ret
 .Lfunc_end0:
 	.size	absolute_value, .Lfunc_end0-absolute_value
@@ -36,38 +28,31 @@ absolute_value:                         # @absolute_value
 main:                                   # @main
 	.cfi_startproc
 # BB#0:
-	push	rbp
-.Ltmp3:
-	.cfi_def_cfa_offset 16
-.Ltmp4:
-	.cfi_offset rbp, -16
-	mov	rbp, rsp
-.Ltmp5:
-	.cfi_def_cfa_register rbp
-	sub	rsp, 32
+	sub	rsp, 40
+.Ltmp0:
+	.cfi_def_cfa_offset 48
 	movabs	rdi, .L.str
-	mov	dword ptr [rbp - 4], 0
-	mov	dword ptr [rbp - 8], 0
+	mov	dword ptr [rsp + 36], 0
+	mov	qword ptr [rsp + 24], 0
 	mov	al, 0
 	call	printf
 	movabs	rdi, .L.str.1
-	lea	rsi, [rbp - 8]
-	mov	dword ptr [rbp - 16], eax # 4-byte Spill
+	lea	rsi, [rsp + 24]
+	mov	dword ptr [rsp + 12], eax # 4-byte Spill
 	mov	al, 0
 	call	__isoc99_scanf
-	mov	edi, dword ptr [rbp - 8]
-	mov	dword ptr [rbp - 20], eax # 4-byte Spill
+	mov	rdi, qword ptr [rsp + 24]
+	mov	dword ptr [rsp + 8], eax # 4-byte Spill
 	call	absolute_value
 	movabs	rdi, .L.str.2
-	mov	dword ptr [rbp - 12], eax
-	mov	esi, dword ptr [rbp - 12]
+	mov	qword ptr [rsp + 16], rax
+	mov	rsi, qword ptr [rsp + 16]
 	mov	al, 0
 	call	printf
-	xor	esi, esi
-	mov	dword ptr [rbp - 24], eax # 4-byte Spill
-	mov	eax, esi
-	add	rsp, 32
-	pop	rbp
+	xor	ecx, ecx
+	mov	dword ptr [rsp + 4], eax # 4-byte Spill
+	mov	eax, ecx
+	add	rsp, 40
 	ret
 .Lfunc_end1:
 	.size	main, .Lfunc_end1-main
@@ -81,13 +66,13 @@ main:                                   # @main
 
 	.type	.L.str.1,@object        # @.str.1
 .L.str.1:
-	.asciz	"%d"
-	.size	.L.str.1, 3
+	.asciz	"%ld"
+	.size	.L.str.1, 4
 
 	.type	.L.str.2,@object        # @.str.2
 .L.str.2:
-	.asciz	"The result is: %d\n"
-	.size	.L.str.2, 19
+	.asciz	"The result is: %ld\n"
+	.size	.L.str.2, 20
 
 
 	.ident	"clang version 3.8.0-2ubuntu4 (tags/RELEASE_380/final)"

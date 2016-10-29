@@ -6,24 +6,17 @@
 __cxx_global_var_init:                  # @__cxx_global_var_init
 	.cfi_startproc
 # BB#0:
-	pushq	%rbp
+	pushq	%rax
 .Ltmp0:
 	.cfi_def_cfa_offset 16
-.Ltmp1:
-	.cfi_offset %rbp, -16
-	movq	%rsp, %rbp
-.Ltmp2:
-	.cfi_def_cfa_register %rbp
-	subq	$16, %rsp
 	movabsq	$_ZStL8__ioinit, %rdi
 	callq	_ZNSt8ios_base4InitC1Ev
 	movabsq	$_ZNSt8ios_base4InitD1Ev, %rdi
 	movabsq	$_ZStL8__ioinit, %rsi
 	movabsq	$__dso_handle, %rdx
 	callq	__cxa_atexit
-	movl	%eax, -4(%rbp)          # 4-byte Spill
-	addq	$16, %rsp
-	popq	%rbp
+	movl	%eax, 4(%rsp)           # 4-byte Spill
+	popq	%rax
 	retq
 .Lfunc_end0:
 	.size	__cxx_global_var_init, .Lfunc_end0-__cxx_global_var_init
@@ -36,24 +29,16 @@ __cxx_global_var_init:                  # @__cxx_global_var_init
 absolute_value:                         # @absolute_value
 	.cfi_startproc
 # BB#0:
-	pushq	%rbp
-.Ltmp3:
-	.cfi_def_cfa_offset 16
-.Ltmp4:
-	.cfi_offset %rbp, -16
-	movq	%rsp, %rbp
-.Ltmp5:
-	.cfi_def_cfa_register %rbp
-	movl	%edi, -4(%rbp)
-	cmpl	$0, -4(%rbp)
+	movq	%rdi, -8(%rsp)
+	cmpq	$0, -8(%rsp)
 	jge	.LBB1_2
 # BB#1:
 	xorl	%eax, %eax
-	subl	-4(%rbp), %eax
-	movl	%eax, -4(%rbp)
+	movl	%eax, %ecx
+	subq	-8(%rsp), %rcx
+	movq	%rcx, -8(%rsp)
 .LBB1_2:
-	movl	-4(%rbp), %eax
-	popq	%rbp
+	movq	-8(%rsp), %rax
 	retq
 .Lfunc_end1:
 	.size	absolute_value, .Lfunc_end1-absolute_value
@@ -65,45 +50,38 @@ absolute_value:                         # @absolute_value
 main:                                   # @main
 	.cfi_startproc
 # BB#0:
-	pushq	%rbp
-.Ltmp6:
-	.cfi_def_cfa_offset 16
-.Ltmp7:
-	.cfi_offset %rbp, -16
-	movq	%rsp, %rbp
-.Ltmp8:
-	.cfi_def_cfa_register %rbp
-	subq	$48, %rsp
+	subq	$56, %rsp
+.Ltmp1:
+	.cfi_def_cfa_offset 64
 	movabsq	$_ZSt4cout, %rdi
 	movabsq	$.L.str, %rsi
-	movl	$0, -4(%rbp)
-	movl	$0, -8(%rbp)
+	movl	$0, 52(%rsp)
+	movq	$0, 40(%rsp)
 	callq	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
 	movabsq	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, %rsi
 	movq	%rax, %rdi
 	callq	_ZNSolsEPFRSoS_E
 	movabsq	$_ZSt3cin, %rdi
-	leaq	-8(%rbp), %rsi
-	movq	%rax, -24(%rbp)         # 8-byte Spill
-	callq	_ZNSirsERi
-	movl	-8(%rbp), %edi
-	movq	%rax, -32(%rbp)         # 8-byte Spill
+	leaq	40(%rsp), %rsi
+	movq	%rax, 24(%rsp)          # 8-byte Spill
+	callq	_ZNSirsERl
+	movq	40(%rsp), %rdi
+	movq	%rax, 16(%rsp)          # 8-byte Spill
 	callq	absolute_value
 	movabsq	$_ZSt4cout, %rdi
 	movabsq	$.L.str.1, %rsi
-	movl	%eax, -12(%rbp)
+	movq	%rax, 32(%rsp)
 	callq	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
-	movl	-12(%rbp), %esi
+	movq	32(%rsp), %rsi
 	movq	%rax, %rdi
-	callq	_ZNSolsEi
+	callq	_ZNSolsEl
 	movabsq	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, %rsi
 	movq	%rax, %rdi
 	callq	_ZNSolsEPFRSoS_E
 	xorl	%ecx, %ecx
-	movq	%rax, -40(%rbp)         # 8-byte Spill
+	movq	%rax, 8(%rsp)           # 8-byte Spill
 	movl	%ecx, %eax
-	addq	$48, %rsp
-	popq	%rbp
+	addq	$56, %rsp
 	retq
 .Lfunc_end2:
 	.size	main, .Lfunc_end2-main
@@ -115,16 +93,11 @@ main:                                   # @main
 _GLOBAL__sub_I_test_abs.cpp:            # @_GLOBAL__sub_I_test_abs.cpp
 	.cfi_startproc
 # BB#0:
-	pushq	%rbp
-.Ltmp9:
+	pushq	%rax
+.Ltmp2:
 	.cfi_def_cfa_offset 16
-.Ltmp10:
-	.cfi_offset %rbp, -16
-	movq	%rsp, %rbp
-.Ltmp11:
-	.cfi_def_cfa_register %rbp
 	callq	__cxx_global_var_init
-	popq	%rbp
+	popq	%rax
 	retq
 .Lfunc_end3:
 	.size	_GLOBAL__sub_I_test_abs.cpp, .Lfunc_end3-_GLOBAL__sub_I_test_abs.cpp

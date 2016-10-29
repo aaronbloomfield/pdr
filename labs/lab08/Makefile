@@ -2,7 +2,7 @@
 # This Makefile shows how to link assembly with C/C++
 
 # Defines the C++ compiler we'll be using
-CXX	= g++ -m64
+CXX	= clang++ -m64
 
 # Defines the flags we'll be passing to the C++ compiler
 CXXFLAGS	= -Wall -g

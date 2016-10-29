@@ -82,11 +82,11 @@ The links in the right-most column link directly to the lecture recording on Col
 |22|Oct 14| Friday    | | [06: Hashes][86], [07: IBCM][87] (machine language) | [hashes][86], slides [6.7][1060506] to [8.4][1060703] ([recording][225]) | |
 |23|Oct 17| Monday    | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [07: IBCM][87] (machine language) | [hashes][86], slides [8.5][1060704] to [8.7][1060706] (end); [IBCM][87], slides [1][87] to [5.11][1070410] ([recording][226]; see note below) | |
 |24|Oct 19| Wednesday | | [07: IBCM][87] (machine language) | [IBCM][87], slides [5.11][1070410] to [6.8][1070507] ([recording][227]) | |
-|25|Oct 21| Friday    | | [08: assembly][88] (assembly language) | [IBCM][87], slides [6.9][1070508] to [7.10][1070609] (end) ([recording][228]) | |
-|26|Oct 24| Monday    | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [08: assembly][88] (assembly language) | (slides 1 to 4.10) | |
-|27|Oct 26| Wednesday | | [08: assembly][88] (assembly language) | (slides 4.10 to 6.6) | |
-|28|Oct 28| Friday    | | [08: assembly][88] (assembly language) | | |
-|29|Oct 31| Monday    | [Lab 8: assembly, part 1][8] ([md][28]) / Tutorial 8: nasm, which is two book chapters: [1][53] and [2][54] | [08: assembly][88], [09: Advanced C++][89] | | |
+|25|Oct 21| Friday    | | [08: Assembly][88] (assembly language) | [IBCM][87], slides [6.9][1070508] to [7.10][1070609] (end) ([recording][228]) | |
+|26|Oct 24| Monday    | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [08: Assembly][88] (assembly language) | [08: Assembly][88], slides [1][88] to [4.10][1080309] ([recording][230]) | |
+|27|Oct 26| Wednesday | | [08: Assembly][88] (assembly language) | [08: Assembly][88], slides [4.10][1080309] to [6.6][1080505] ([recording][231]) | |
+|28|Oct 28| Friday    | | [08: Assembly][88] (assembly language) | [08: Assembly][88], slides [6.6][1080505] to [8.14][1080713] ([recording][232]) | |
+|29|Oct 31| Monday    | [Lab 8: assembly, part 1][8] ([md][28]) / Tutorial 8: the reading [here](https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf) | [08: Assembly][88], [09: Advanced C++][89] | | |
 |30|Nov 2| Wednesday | | [09: Advanced C++][89] | | |
 |31|Nov 4| Friday    | | [09: Advanced C++][89] | | |
 ||Nov 6|Sunday| |Exam 2 review session| | |
@@ -180,7 +180,7 @@ None yet!
 [85]: ../slides/05-trees.html#/
 [86]: ../slides/06-hashes.html#/
 [87]: ../slides/07-ibcm.html#/
-[88]: ../slides/08-assembly.html#/
+[88]: ../slides/08-assembly-64bit.html#/
 [89]: ../slides/09-advanced-cpp.html#/
 [90]: ../slides/10-heaps-huffman.html#/
 [91]: ../slides/11-graphs.html#/
@@ -252,12 +252,12 @@ None yet!
 [227]: https://collab.itc.virginia.edu/access/content/group/96c378c9-1219-45c7-a514-acd313ae6c00/lectures/07-ibcm-2/07-ibcm-2.htm
 [228]: https://collab.itc.virginia.edu/access/content/group/96c378c9-1219-45c7-a514-acd313ae6c00/lectures/07-ibcm-3/07-ibcm-3.htm
 [229]: https://collab.itc.virginia.edu/access/content/group/96c378c9-1219-45c7-a514-acd313ae6c00/lectures/07-ibcm-4/07-ibcm-4.htm
-[230]: https://collab.itc.virginia.edu/access/content/group/96c378c9-1219-45c7-a514-acd313ae6c00/lectures/08-assembly-1/08-assembly-1.htm
-[231]: https://collab.itc.virginia.edu/access/content/group/96c378c9-1219-45c7-a514-acd313ae6c00/lectures/08-assembly-2/08-assembly-2.htm
-[232]: https://collab.itc.virginia.edu/access/content/group/96c378c9-1219-45c7-a514-acd313ae6c00/lectures/08-assembly-3/08-assembly-3.htm
-[233]: https://collab.itc.virginia.edu/access/content/group/96c378c9-1219-45c7-a514-acd313ae6c00/lectures/08-assembly-4/08-assembly-4.htm
-[234]: https://collab.itc.virginia.edu/access/content/group/96c378c9-1219-45c7-a514-acd313ae6c00/lectures/08-assembly-5/08-assembly-5.htm
-[235]: https://collab.itc.virginia.edu/access/content/group/96c378c9-1219-45c7-a514-acd313ae6c00/lectures/08-assembly-6/08-assembly-6.htm
+[230]: https://collab.itc.virginia.edu/access/content/group/96c378c9-1219-45c7-a514-acd313ae6c00/lectures/08-x86-1/08-x86-1.htm
+[231]: https://collab.itc.virginia.edu/access/content/group/96c378c9-1219-45c7-a514-acd313ae6c00/lectures/08-x86-2/08-x86-2.htm
+[232]: https://collab.itc.virginia.edu/access/content/group/96c378c9-1219-45c7-a514-acd313ae6c00/lectures/08-x86-3/08-x86-3.htm
+[233]: https://collab.itc.virginia.edu/access/content/group/96c378c9-1219-45c7-a514-acd313ae6c00/lectures/08-x86-4/08-x86-4.htm
+[234]: https://collab.itc.virginia.edu/access/content/group/96c378c9-1219-45c7-a514-acd313ae6c00/lectures/08-x86-5/08-x86-5.htm
+[235]: https://collab.itc.virginia.edu/access/content/group/96c378c9-1219-45c7-a514-acd313ae6c00/lectures/08-x86-6/08-x86-6.htm
 [236]: https://collab.itc.virginia.edu/access/content/group/96c378c9-1219-45c7-a514-acd313ae6c00/lectures/09-advanced-cpp-1/09-advanced-cpp-1.htm
 [237]: https://collab.itc.virginia.edu/access/content/group/96c378c9-1219-45c7-a514-acd313ae6c00/lectures/09-advanced-cpp-2/09-advanced-cpp-2.htm
 [238]: https://collab.itc.virginia.edu/access/content/group/96c378c9-1219-45c7-a514-acd313ae6c00/lectures/exam2-review/exam2-review.htm
@@ -450,31 +450,32 @@ None yet!
 [1070601]: ../slides/07-ibcm.html#/6/1
 [1070604]: ../slides/07-ibcm.html#/6/4
 [1070609]: ../slides/07-ibcm.html#/6/9
-[1080306]: ../slides/08-assembly.html#/3/6
-[1080410]: ../slides/08-assembly.html#/4/10
-[1080304]: ../slides/08-assembly.html#/3/4
-[1080305]: ../slides/08-assembly.html#/3/5
-[10805]: ../slides/08-assembly.html#/5
-[1080502]: ../slides/08-assembly.html#/5/2
-[1080504]: ../slides/08-assembly.html#/5/4
-[1080505]: ../slides/08-assembly.html#/5/5
-[1080607]: ../slides/08-assembly.html#/6/7
-[1080608]: ../slides/08-assembly.html#/6/8
-[1080609]: ../slides/08-assembly.html#/6/9
-[10807]: ../slides/08-assembly.html#/7
-[1080713]: ../slides/08-assembly.html#/7/13
-[10808]: ../slides/08-assembly.html#/8
-[1080804]: ../slides/08-assembly.html#/8/4
-[1080805]: ../slides/08-assembly.html#/8/5
-[10809]: ../slides/08-assembly.html#/9
-[1080906]: ../slides/08-assembly.html#/9/6
-[1080908]: ../slides/08-assembly.html#/9/8
-[1080914]: ../slides/08-assembly.html#/9/14
-[1080915]: ../slides/08-assembly.html#/9/15
-[1080929]: ../slides/08-assembly.html#/9/29
-[1080930]: ../slides/08-assembly.html#/9/30
-[1080932]: ../slides/08-assembly.html#/9/32
-[1080934]: ../slides/08-assembly.html#/9/34
+[1080306]: ../slides/08-assembly-64bit.html#/3/6
+[1080410]: ../slides/08-assembly-64bit.html#/4/10
+[1080304]: ../slides/08-assembly-64bit.html#/3/4
+[1080305]: ../slides/08-assembly-64bit.html#/3/5
+[1080309]: ../slides/08-assembly-64bit.html#/3/9
+[10805]: ../slides/08-assembly-64bit.html#/5
+[1080502]: ../slides/08-assembly-64bit.html#/5/2
+[1080504]: ../slides/08-assembly-64bit.html#/5/4
+[1080505]: ../slides/08-assembly-64bit.html#/5/5
+[1080607]: ../slides/08-assembly-64bit.html#/6/7
+[1080608]: ../slides/08-assembly-64bit.html#/6/8
+[1080609]: ../slides/08-assembly-64bit.html#/6/9
+[10807]: ../slides/08-assembly-64bit.html#/7
+[1080713]: ../slides/08-assembly-64bit.html#/7/13
+[10808]: ../slides/08-assembly-64bit.html#/8
+[1080804]: ../slides/08-assembly-64bit.html#/8/4
+[1080805]: ../slides/08-assembly-64bit.html#/8/5
+[10809]: ../slides/08-assembly-64bit.html#/9
+[1080906]: ../slides/08-assembly-64bit.html#/9/6
+[1080908]: ../slides/08-assembly-64bit.html#/9/8
+[1080914]: ../slides/08-assembly-64bit.html#/9/14
+[1080915]: ../slides/08-assembly-64bit.html#/9/15
+[1080929]: ../slides/08-assembly-64bit.html#/9/29
+[1080930]: ../slides/08-assembly-64bit.html#/9/30
+[1080932]: ../slides/08-assembly-64bit.html#/9/32
+[1080934]: ../slides/08-assembly-64bit.html#/9/34
 [1090308]: ../slides/09-advanced-cpp.html#/3/8
 [1090408]: ../slides/09-advanced-cpp.html#/4/8
 [10905]: ../slides/09-advanced-cpp.html#/5
