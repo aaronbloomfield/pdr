@@ -48,7 +48,7 @@ pointer (EBP).
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=4in]{x86/x86-register-diagram.pdf}
+\includegraphics[width=4in]{x86-32bit/x86-register-diagram.pdf}
 \end{center}
 \caption{The x86 register set}
 \label{x86-register-diagram.fig}
@@ -87,7 +87,7 @@ memory next to one another.  Some example declarations are depicted in
 Listing~\ref{x86-declaring-memory-regions.lst}.
 
 \begin{figure}[h]
-\lstinputlisting[caption=Declaring x86 memory regions,label={x86-declaring-memory-regions.lst},backgroundcolor=\color{white},frame=trBL,linewidth=7in,xleftmargin=0in,language={[x86masm]Assembler}]{x86/code/memory-regions.s}
+\lstinputlisting[caption=Declaring x86 memory regions,label={x86-declaring-memory-regions.lst},backgroundcolor=\color{white},frame=trBL,linewidth=7in,xleftmargin=0in,language={[x86masm]Assembler}]{x86-32bit/code/memory-regions.s}
 \end{figure}
 
 The last example in Listing~\ref{x86-declaring-memory-regions.lst}
@@ -102,7 +102,7 @@ expression a given number of times. For example, the statement ``TIMES
 arrays are depicted in Listing~\ref{x86-declaring-arrays.lst}.
 
 \begin{figure}[h]
-\lstinputlisting[caption=Declaring x86 arrays in memory,label={x86-declaring-arrays.lst},backgroundcolor=\color{white},frame=trBL,linewidth=7in,xleftmargin=0in,language={[x86masm]Assembler}]{x86/code/declaring-arrays.s}
+\lstinputlisting[caption=Declaring x86 arrays in memory,label={x86-declaring-arrays.lst},backgroundcolor=\color{white},frame=trBL,linewidth=7in,xleftmargin=0in,language={[x86masm]Assembler}]{x86-32bit/code/declaring-arrays.s}
 \end{figure}
 
 \subsection{Addressing Memory}
@@ -134,13 +134,13 @@ computations that obey the above rule are shown in
 Listing~\ref{x86-valid-addressing-modes.lst}.
 
 \begin{figure}[h]
-\lstinputlisting[caption={Valid x86 addressing modes},label={x86-valid-addressing-modes.lst},backgroundcolor=\color{white},frame=trBL,linewidth=7in,xleftmargin=0in,language={[x86masm]Assembler}]{x86/code/valid-addressing-modes.s}
+\lstinputlisting[caption={Valid x86 addressing modes},label={x86-valid-addressing-modes.lst},backgroundcolor=\color{white},frame=trBL,linewidth=7in,xleftmargin=0in,language={[x86masm]Assembler}]{x86-32bit/code/valid-addressing-modes.s}
 \end{figure}
 
 Some examples of incorrect address calculations are shown in Listing~\ref{x86-invalid-addressing-modes.lst}.
 
 \begin{figure}[h]
-\lstinputlisting[caption={Invalid x86 addressing modes},label={x86-invalid-addressing-modes.lst},backgroundcolor=\color{white},frame=trBL,linewidth=7in,xleftmargin=0in,language={[x86masm]Assembler}]{x86/code/invalid-addressing-modes.s}
+\lstinputlisting[caption={Invalid x86 addressing modes},label={x86-invalid-addressing-modes.lst},backgroundcolor=\color{white},frame=trBL,linewidth=7in,xleftmargin=0in,language={[x86masm]Assembler}]{x86-32bit/code/invalid-addressing-modes.s}
 \end{figure}
 
 
@@ -163,7 +163,7 @@ to which is correct.  The size directives {\tt BYTE PTR}, {\tt WORD
 Listing~\ref{x86-size-directives.lst}.
 
 \begin{figure}[h]
-\lstinputlisting[caption={x86 size directive usage},label={x86-size-directives.lst},backgroundcolor=\color{white},frame=trBL,linewidth=7in,xleftmargin=0in,language={[x86masm]Assembler}]{x86/code/size-directives.s}
+\lstinputlisting[caption={x86 size directive usage},label={x86-size-directives.lst},backgroundcolor=\color{white},frame=trBL,linewidth=7in,xleftmargin=0in,language={[x86masm]Assembler}]{x86-32bit/code/size-directives.s}
 \end{figure}
 
 
@@ -375,7 +375,7 @@ name ``begin'' instead of having to refer to the memory address as an
 integer.
 
 \begin{figure}[h]
-\lstinputlisting[caption={x86 labeled code location},label={x86-labeled-code-location.lst},backgroundcolor=\color{white},frame=trBL,linewidth=4.75in,xleftmargin=2.25in,language={[x86masm]Assembler}]{x86/code/labeled-code-location.s}
+\lstinputlisting[caption={x86 labeled code location},label={x86-labeled-code-location.lst},backgroundcolor=\color{white},frame=trBL,linewidth=4.75in,xleftmargin=2.25in,language={[x86masm]Assembler}]{x86-32bit/code/labeled-code-location.s}
 \end{figure}
 
 
@@ -467,7 +467,7 @@ location to return to when the subroutine completes.}
 \label{x86-basic-program-structure.sec}
 
 \begin{wrapfigure}{r}{0.37\textwidth}
-\lstinputlisting[backgroundcolor=\color{white},frame=trBL,linewidth=2.5in,xleftmargin=0.25in,label={x86-return2.s.lst},language={[x86masm]Assembler},caption={x86 code to return 2}]{x86/code/return2.s}
+\lstinputlisting[backgroundcolor=\color{white},frame=trBL,linewidth=2.5in,xleftmargin=0.25in,label={x86-return2.s.lst},language={[x86masm]Assembler},caption={x86 code to return 2}]{x86-32bit/code/return2.s}
 \vspace{-0.25in}
 \end{wrapfigure}
 
@@ -502,7 +502,7 @@ and DD directives (described in Section 3.1) to reserve and initialize
 a 4-byte (i.e., integer-sized) memory region labeled ``var''.
 
 \begin{wrapfigure}{r}{0.37\textwidth}
-\lstinputlisting[backgroundcolor=\color{white},frame=trBL,linewidth=2.5in,xleftmargin=0.25in,label={x86-return2.cpp.lst},language=C++,caption={C++ code to return 2}]{x86/code/return2.cpp}
+\lstinputlisting[backgroundcolor=\color{white},frame=trBL,linewidth=2.5in,xleftmargin=0.25in,label={x86-return2.cpp.lst},language=C++,caption={C++ code to return 2}]{x86-32bit/code/return2.cpp}
 \vspace{-0.25in}\end{wrapfigure}
 
 Next in each file, we find the declaration of the function named
@@ -523,7 +523,7 @@ by convention, hence the instruction to move the contents of ``var''
 into EAX in the assembly code.
 
 \begin{wrapfigure}{r}{0.48\textwidth}
-\lstinputlisting[backgroundcolor=\color{white},frame=trBL,linewidth=4in,xleftmargin=0.25in,label={x86-calling-return2.cpp.lst},language=C++,caption={Calling returnTwo() from C++}]{x86/code/calling-return2.cpp}
+\lstinputlisting[backgroundcolor=\color{white},frame=trBL,linewidth=4in,xleftmargin=0.25in,label={x86-calling-return2.cpp.lst},language=C++,caption={Calling returnTwo() from C++}]{x86-32bit/code/calling-return2.cpp}
 \vspace{-0.25in}
 \end{wrapfigure}
 

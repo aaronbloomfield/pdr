@@ -127,7 +127,7 @@ None yet!
 [5]: ../labs/lab05/index.html
 [6]: ../labs/lab06/index.html
 [7]: ../labs/lab07/index.html
-[8]: ../labs/lab08/index.html
+[8]: ../labs/lab08-64bit/index.html
 [9]: ../labs/lab09/index.html
 [10]: ../labs/lab10/index.html
 [11]: ../labs/lab11/index.html
@@ -140,7 +140,7 @@ None yet!
 [25]: ../labs/lab05/index.md
 [26]: ../labs/lab06/index.md
 [27]: ../labs/lab07/index.md
-[28]: ../labs/lab08/index.md
+[28]: ../labs/lab08-64bit/index.md
 [29]: ../labs/lab09/index.md
 [30]: ../labs/lab10/index.md
 [31]: ../labs/lab11/index.md
@@ -159,8 +159,10 @@ None yet!
 [50]: ../tutorials/10-objc/index.html
 [51]: ../tutorials/11-doxygen/index.html
 [52]: ../tutorials/02-gdb/index.html
-[53]: ../book/x86-asm-chapter.pdf
-[54]: ../book/x86-ccc-chapter.pdf
+[53]: ../book/x86-32bit-asm-chapter.pdf
+[54]: ../book/x86-32bit-ccc-chapter.pdf
+[55]: ../book/x86-64bit-asm-chapter.pdf
+[56]: ../book/x86-64bit-ccc-chapter.pdf
 
 [61]: ../tutorials/01-intro-unix/index.md
 [62]: ../tutorials/02-lldb/index.md

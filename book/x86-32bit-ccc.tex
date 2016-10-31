@@ -196,7 +196,7 @@ understanding the call convention, we now examine a simple example of a subrouti
 subroutine definition.
 
 \begin{figure}
-\lstinputlisting[caption={Example function call, caller's rules obeyed},label={x86-caller-example-1.s.lst},backgroundcolor=\color{white},frame=trBL,linewidth=6in,xleftmargin=0.75in,language={[x86masm]Assembler}]{x86/code/caller-example-1.s}
+\lstinputlisting[caption={Example function call, caller's rules obeyed},label={x86-caller-example-1.s.lst},backgroundcolor=\color{white},frame=trBL,linewidth=6in,xleftmargin=0.75in,language={[x86masm]Assembler}]{x86-32bit/code/caller-example-1.s}
 \end{figure}
 
 
@@ -240,7 +240,7 @@ instruction is used to return to the appropriate code location in the
 caller.
 
 \begin{figure}
-\lstinputlisting[caption={Example function definition, callee's rules obeyed},label={x86-callee-example-1.s.lst},backgroundcolor=\color{white},frame=trBL,linewidth=6.9in,xleftmargin=0.15in,language={[x86masm]Assembler}]{x86/code/callee-example-1.s}
+\lstinputlisting[caption={Example function definition, callee's rules obeyed},label={x86-callee-example-1.s.lst},backgroundcolor=\color{white},frame=trBL,linewidth=6.9in,xleftmargin=0.15in,language={[x86masm]Assembler}]{x86-32bit/code/callee-example-1.s}
 \end{figure}
 
 
@@ -262,7 +262,7 @@ the first parameter.
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=4in]{x86/x86-activation-record.pdf}
+\includegraphics[width=4in]{x86-32bit/x86-activation-record.pdf}
 \caption{A picture of the stack in memory during the execution of the body of myFunc}
 \label{x86-activation-record.fig}
 \end{figure}
@@ -273,7 +273,7 @@ subroutine is shown in
 Listing~\ref{x86-callee-example-main.cpp.lst}.
 
 \begin{figure}[h!]
-\lstinputlisting[caption={Example C++ code to invoke a 3-parameter x86 subroutine},label={x86-callee-example-main.cpp.lst},backgroundcolor=\color{white},frame=trBL,linewidth=6.9in,xleftmargin=0.15in,language=C++]{x86/code/callee-example-main.cpp}
+\lstinputlisting[caption={Example C++ code to invoke a 3-parameter x86 subroutine},label={x86-callee-example-main.cpp.lst},backgroundcolor=\color{white},frame=trBL,linewidth=6.9in,xleftmargin=0.15in,language=C++]{x86-32bit/code/callee-example-main.cpp}
 \end{figure}
 
 

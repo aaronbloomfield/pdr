@@ -1,5 +1,5 @@
-PDR: Laboratory 8: x86 Assembly Language, part 1
-================================================
+PDR: Laboratory 8: x86 Assembly Language, part 1 (32 bit)
+=========================================================
 
 [Go up to the Labs table of contents page](../index.html)
 
@@ -7,14 +7,16 @@ PDR: Laboratory 8: x86 Assembly Language, part 1
 
 This lab is one of two labs meant to familiarize you with the process of writing, assembling, and linking assembly language code. The purposes of the in-lab and post-lab activities are to investigate how various C++ language features are implemented at the assembly level.
 
+There are both [32 bit](../lab08-32bit/index.html) ([md](../lab08-32bit/index.md)) and [64 bit](../lab08-64bit/index.html) ([md](../lab08-64bit/index.md)) versions of this lab.  This is the ***32 bit version***.
+
 ### Background ###
 
-The Intel x86 assembly language is currently one of the most popular assembly languages and runs on many architectures from the x86 line through the Pentium 4.  It is a [CISC](http://en.wikipedia.org/wiki/Complex_instruction_set_computing) instruction set that has been extended multiple times (e.g. [MMX](http://en.wikipedia.org/wiki/MMX_%28instruction_set%29)) into a larger instruction set.
+The Intel x86 assembly language is currently one of the most popular assembly languages and runs on many architectures from the x86 line through the Pentium 4.  It is a [CISC](http://en.wikipedia.org/wiki/Complex_instruction_set_computing) instruction set that has been extended multiple times (e.g. [MMX](http://en.wikipedia.org/wiki/MMX_%28instruction_set%29)) into a larger instruction set.  In 2004 it was extended to allow for a 64 bit memory space.
 
 ### Reading(s) ###
 
-1. Read the [slides on x86](../../slides/08-x86.html)
-2. The two book chapters on x86: [x86 Assembly](../../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../../book/x86-ccc-chapter.pdf).
+1. Read the [slides on 32 bit x86](../../slides/08-assembly-32bit.html)
+2. The two book chapters on x86: [x86 Assembly](../../book/x86-32bit-asm-chapter.pdf) and [The x86 C Calling Convention](../../book/x86-32bit-ccc-chapter.pdf).
 
 Procedure
 ---------
@@ -22,7 +24,7 @@ Procedure
 ### Pre-lab ###
 
 1. You should be familiar with the readings described above.  They detail the x86 material that this lab requires.
-2. Complete the tutorial, which consists of reading two book chapters that are contained in this repository: [x86 Assembly](../../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../../book/x86-ccc-chapter.pdf).
+2. Complete the tutorial, which consists of reading two book chapters that are contained in this repository: [x86 Assembly](../../book/x86-32bit-asm-chapter.pdf) and [The x86 C Calling Convention](../../book/x86-32bit-ccc-chapter.pdf).
 3. Read through the section, below, on compiling C++ with assembly on different architectures, as well as the vecsum program.
 4. There are different program formats for different architectures, and this pre-lab **must** be submitted in the submission format for this lab (see the next section, below).  If you do not submit it in the required format (64-bit Linux), you will not receive credit for the lab, as it will not compile.
 5. Follow the pre-lab instructions in this document.  They require you to write a program in x86 assembly called mathlib.s.  To see other examples of nasm code, you should look at the vecsum.s program, as well as the code in the nasm tutorial.
@@ -64,9 +66,9 @@ There are four different platforms that students are potentially developing thei
 
 There are three changes that will have to be made to compile your program (and this to the Makefile) depending on your own development platform:
 
-- You will have to determine whether to name your function `vecsum` instead of `_vecsum` (note the lack of underscore) in vecsum.s (this file is described more below).  In the final linking step, if you get a message such as, `main.cpp:(.text+0x12): undefined reference to 'vecsum'`, then you should change the name of the function.  
+- You will have to determine whether to name your function `vecsum` instead of `_vecsum` (note the lack of underscore in the former) in vecsum.s (this file is described more below).  In the final linking step, if you get a message such as, `main.cpp:(.text+0x12): undefined reference to 'vecsum'`, then you should change the name of the function.  
 - Some systems will have to supply a command-line parameter to clang++; this can be put on the `CXX` or `CXXFLAGS` macro(s) line in your Makefile
-- All systems will have a specific nasm file format option (`-f`) that will need to be specified.
+- All systems will have a specific nasm file format option (via `-f`) that will need to be specified.
 
 The first bullet point highlights a compatibility problem between Linux and Mac OS X.  When calling a subroutine, which in C++ would be called `foo()`, there are two standards as to how to name the assembly routine: you can name it either `_foo` (adding an underscore is added before the name), or name it just `foo` (with no underscore).  Unfortunately, Linux uses a different standard than Mac OS X, so we have to make (minor) code modifications in order to compile the code on the other system: in Mac OS X, the vecsum.s file should have the subroutine be called `_vecsum`, and under Linux, it should be called `vecsum` (this is twice, on lines 9 and 21).
 
@@ -82,7 +84,7 @@ Each of these different platforms has different compilation lines to allow it to
 
 The provided code works under both 32-bit and 64-bit Linux (although 64-bit Linux usage should read below).
 
-**32-bit Linux:** The provided code and Makefile works on 32-bit Linux.  All assembly sub-routine names must **NOT** have a leading underscore (i.e. they should be `vecsum` and not `_vecsum`).  nasm is invoked with the `-f elf` option.  We have the `-m32` flag on the CXX macro line so that it will work fine on a 64-bit Linux machine (including our submission server), but it is technically not necessary (it doesn't hurt, it just doesn't do anything on a 32-bit machine).
+**32-bit Linux:** The provided code and Makefile works on 32-bit Linux.  All assembly subroutine names must **NOT** have a leading underscore (i.e. they should be `vecsum` and not `_vecsum`).  nasm is invoked with the `-f elf` option.  We have the `-m32` flag on the CXX macro line so that it will work fine on a 64-bit Linux machine (including our submission server), but it is technically not necessary (it doesn't hurt, it just doesn't do anything on a 32-bit machine).
 
 **64-bit Linux:** You have to explicitly tell clang++ to compile in 32-bit mode by passing in the `-m32` parameter (note that this parameter is fine to pass in on 32-bit systems as well).  You may need to install the g++-multilib package - we realize that we are not using the g++ compiler, but this installs the correct library in the correct place (if this differs with your version of Linux, then please let us know!).  The options for nasm (`-f elf`) and the naming of the subroutines (`vecsum`, not `_vecsum`) are the same as 32-bit Linux.
 
@@ -94,7 +96,7 @@ Below is a table summarizing the changes
 
 
 | Platform | nasm flag | x86 subroutine name | clang++ flags | Notes |
-|-|-|-|-|-|
+|---------|-----|-----|-----|-----------------------------------------|
 | 32-bit Linux | -f elf | vecsum | -m32 | This is the platform on the 001 machines and in the VirtualBox image; -m32 is optional, but keep it in there for compatibility with 64-bit Linux |
 | 64-bit Linux | -f elf | vecsum | -m32 | This is what our submission server is running, **and what your code must work on.**  If you have it on your computer, you must install a few packages as well - see above |
 | 32 bit Mac OS X | -f macho | \_vecsum | -arch i386 | We are unsure about the -arch i386 flag's necessity.  May not be able to print the assembly in the format discussed in class. |
@@ -119,29 +121,29 @@ clang++ -m32 -Wall -g  -c -o main.o main.cpp
 
 ```
 
-Note that we used the -c flag, which tells the compiler to compile but not link the program.  Linking it will create the final executable -- but as there is not a vecsum() function defined (yet), the compiler will report an error stating that it does now know the vecsum() function.  The `-o main.o` part tells clang++ to put the compilation output into the file named main.o.  Note that the -o flag wasn't really necessary here (as clang++ will use main.o by default when compiling main.cpp), but we wanted to include it, as we are going to use it below.  We include the `-m32` flag to force it to be a 32-bit file.  We also added a few more flags (`-Wall -g`) to print all warnings and compile debugging symbols into the program.
+Note that we used the -c flag, which tells the compiler to compile but not link the program.  Linking it will create the final executable -- but as there is not a `vecsum()` function defined (yet), the compiler will report an error stating that it does now know the vecsum() function.  The `-o main.o` part tells clang++ to put the compilation output into the file named main.o.  Note that the `-o` flag wasn't really necessary here (as clang++ will use main.o by default when compiling main.cpp), but we wanted to include it, as we are going to use it below.  We include the `-m32` flag to force it to be a 32-bit file.  We also added a few more flags (`-Wall -g`) to print all warnings and compile debugging symbols into the program.
 
 Next, we need to compile the assembly file.  To do this, we enter the following:
 
 ```
-nasm -f elf -o vecsum.o vecsum.s
+nasm -f elf -g -o vecsum.o vecsum.s
 ```
 
-This invokes nasm, which is the assembler that we are using for this course.  We'll get to the `-f elf` part in a moment.  The `-o vecsum.o` option is the same as with clang++ -- it is telling the assembler to put the output into a file named vecsum.o.  If you do not specify a filename with the -o flag, it will default to vecsum.obj, NOT vecsum.o -- this is why we are using the --o flag.  The assembly file name is specified by the `vecsum.s` at the end of the command line.
+This invokes nasm, which is the assembler that we are using for this course.  We'll get to the `-f elf` part in a moment.  The `-o vecsum.o` option is the same as with clang++ -- it is telling the assembler to put the output into a file named vecsum.o.  If you do not specify a filename with the `-o` flag, it will default to vecsum.obj, NOT vecsum.o -- this is why we are using the `-o` flag.  We also tell it to include debugging symbols via `-g`. The assembly file name is specified by the `vecsum.s` at the end of the command line.
 
-The new flag here is the `-f elf`.  This tells the assembler the output format for the final executable.  Operating systems can typically execute a number of different formats.  As we are running under Linux, we specify the elf format.  Mac OS X uses `-f macho` -- see the above section for more details.
+The new flag here is the `-f elf`.  This tells the assembler the output format for the final executable.  Operating systems can typically execute a number of different formats.  As we are running under 32 bit Linux, we specify the elf format.  Mac OS X uses `-f macho` -- see the above section for more details.
 
 Finally, we have to link the two files into the final executable.  We do this as before:
 
 ```
-clang++ -m32 -Wall -g -o vecsum vecsum.o main.o
+clang++ -m32 -Wall -g vecsum.o main.o
 ```
 
-This tells clang++ to link both of the .o files created above into an executable called vecsum.  Note that there isn't any compiling done at this stage (the compilation was done before) -- this just links the two object files into the final executable.  Also note that for our submitted Makefiles, we will NOT have the `-o` flag present.
+This tells clang++ to link both of the .o files created above into an executable, which it called `a.out`.  Note that there isn't any compiling done at this stage (the compilation was done before) -- this just links the two object files into the final executable.  Also note that for our submitted Makefiles, we will NOT have the `-o` flag present.
 
 ### Tutorial ###
 
-Complete the C++/assembly tutorial, which consists of reading two book chapters that are contained in this repository: [x86 Assembly](../../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../../book/x86-ccc-chapter.pdf).
+Complete the C++/assembly tutorial, which consists of reading two book chapters that are contained in this repository: [x86 Assembly](../../book/x86-32bit-asm-chapter.pdf) and [The x86 C Calling Convention](../../book/x86-32bit-ccc-chapter.pdf).
 
 ### Vecsum ###
 

@@ -14,7 +14,7 @@ The Intel x86 assembly language is currently one of the most popular assembly la
 ### Reading(s) ###
 
 1. Read the [slides on x86](../../slides/08-x86.html)
-2. The two book chapters on x86: [x86 Assembly](../../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../../book/x86-ccc-chapter.pdf).
+2. The two book chapters on x86: [x86 Assembly](../../book/x86-32bit-asm-chapter.pdf) and [The x86 C Calling Convention](../../book/x86-32bit-ccc-chapter.pdf).
 
 Lab Procedure
 ---------------
