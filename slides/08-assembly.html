@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>CS 2150: 08-x86 (64 bit) slide set</title>
+    <title>CS 2150: 08-x86 slide set</title>
     <meta name="description" content="A set of slides for a course on Program and Data Representation">
     <meta name="author" content="Aaron Bloomfield">
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -46,7 +46,7 @@
 <center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="08-x86.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
 &nbsp;  
 &nbsp;  
-## 64 bit x86 (assembly language)
+## x86 (assembly language)
 	</script></section>
 
 	  <section>
@@ -98,15 +98,13 @@
 <li>1985: 80386, 32-bit words</li>
 <li>1989: 80486</li>
 <li>1993: Pentium</li>
-<li>1995: Pentium Pro</li>
 </ul>
 </td><td>
 <ul>
+<li>1995: Pentium Pro</li>
 <li>1997: Pentium II</li>
 <li>1998: Pentium III</li>
 <li>2000-2008: Pentium IV</li>
-<li>2003: AMD64 Opteron</li>
-<li>2004: Intel 64 bit chips</li>
 <li>2005-2008: Pentium D</li>
 <li>2006-2011: Core 2</li>
 <li>2008-present: Core i3, i5, i7</li>
@@ -115,36 +113,8 @@
 	  </section>
 
 	  <section data-markdown><script type="text/template">
-## AMD vs Intel
-- AMD developed their standard in 2000
-  - First chip was available in 2003
-- Intel had been working on their IA64 (Itanium) line
-  - There is a reason you have never heard of it
-- They released their first chip, similar to the AMD64, in 2004
-  - But it had slight differences!
-- The x86-64 standard is what compilers typically use, and is the intersection of the two instruction sets
-  - More than 95% of it is the same
-	  </script></section>
-
-	  <section>
-<h2>IBCM vs. x86: Registers</h2>
-<img src="images/08-x86/registers_x86_64bit.png" class="stretch">
-	  </section>
-
-	  <section data-markdown><script type="text/template">
-## Funny register names
-
-| &nbsp;&nbsp;8-bit name &nbsp;&nbsp;| &nbsp;&nbsp;16-bit name &nbsp;&nbsp;| &nbsp;&nbsp;32-bit name &nbsp;&nbsp;| &nbsp;&nbsp;64-bit name &nbsp;&nbsp;|
-|--|--|--|--|
-| a (al/ah) | ax | eax | rax |
-| b (bl/bh) | bx | ebx | rbx |
-| c (cl/ch) | cx | ecx | rcx |
-| d (dl/dh) | dx | edx | rdx |
-| - | -  | esi | rsi |
-| - | -  | edi | rdi |
-| - | sp | esp | rsp |
-| - | bp | ebp | rbp |
-| - | -  | -   | r8 - r15 |
+## IBCM vs. x86: Registers
+![x86 registers](images/08-x86/registers_x86_64bit.png)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -332,7 +302,7 @@ mov 20, [rax]
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Data Movement Instructions
+## Data Movement Instructions, part 1
 - `mov` (or `movq` if you are moving 8 bytes)
   - We've seen this in detail already
 - `push`
@@ -346,7 +316,7 @@ push [var]
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Data Movement Instructions
+## Data Movement Instructions, part 2
 - `pop`
   - Pop top element of stack to memory or register, then increment stack pointer (RSP) by 8
   - Value is written to the parameter
@@ -364,7 +334,7 @@ lea rdi, [rbx+4*rsi]
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Arithmetic Instructions
+## Arithmetic Instructions, part 1
 - `add`, `sub`
 ```
 add <reg>, <reg>
@@ -380,7 +350,7 @@ add <mem>, <constant>
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Arithmetic Instructions
+## Arithmetic Instructions, part 2
 - `inc`, `dec` (increment and decrement by one)
 ```
 inc <reg>
@@ -464,9 +434,9 @@ while (i &lt;= n) {
 }</code></pre></td>
 <td style="width:50px"></td>
 <td><p>Assembly code:</p><pre><code>section .data
-n	DQ 5
-i	DQ 1
-sum	DQ 0
+n	DD 5
+i	DD 1
+sum	DD 0
 
 section .text
 loop:  	mov rcx, [i]
@@ -545,11 +515,10 @@ int main() {
 ## C Calling Convention Overview
 - Answers to questions
   - Parameters: passed in registers
-  	- If more than 6, then params 7-*n* placed on stack
-  	- If passing a large object, then placed on stack (doesn't fit in 64-bit register)
+  	- If more than 6, then params 7-n placed on stack
   - Registers: saved on the stack
   - Local variables: placed in memory on the stack
-  	- Or in registers if room available
+  	- or in registers if room available
   - Return value: rax register
 	  </script></section>
 
@@ -580,14 +549,14 @@ int main() {
 	  <section data-markdown><script type="text/template">
 ## Register usage
 - One register is used for the return value: rax
-- Six registers are used for parameter passing:
+- six registers are used for parameter passing:
 	- rdi, rsi, rdx, rcx, r8, r9
 - Two registers may be modified by the callee: r10 and r11
   - If the caller wants to keep those values, they need to be saved by pushing them onto the stack
   - Actually, these two have specific uses depending on the language, so are often not used for this reason.
-- Six registers may not be modified by a subroutine callee:
+- six registers may not be modified by a subroutine callee:
 	- rbx, rbp, r12-r15
-        - If it wans to use them, the subroutine must back them up (onto the stack) and restore them later
+	- If the subroutine wants to modify them, it needs to back them up first (onto the stack) and restore them before returning
 - rsp should almost never be modified directly, as it points to the top of the stack
 	  </script></section>
 
@@ -767,17 +736,12 @@ int main() {
 	  <section data-markdown><script type="text/template">
 ## Caller Rules Example
 ```
-; Want to call a function "myFunc" that takes three
-; integer parameters. First parameter is in rax.
-; Second parameter is the constant 123. Third
-; parameter is in memory location "var"
-
-push rdi         ; rdi will be a param, so saving it
+push rdi         ; rdi will be used as param, so caller is saving
 
                  ; long retVal = myFunc(x, 123, z);
-mov rdi, rax     ; put first param in rdi
-mov rsi, 123     ; put second param in rsi
-mov rdx, [var]   ; put third param in rdx
+mov rdi, [x]     ; put first param in rdi
+mov rsi, rax     ; put second param in rsi
+mov rdx, [z]     ; put third param in rdx
 
 call myFunc      ; call the function
 
@@ -793,7 +757,7 @@ pop rdi          ; restore saved rdi value
 <p>This is just before the <code>call</code> opcode is invoked.</p>
 <hr>
 <table class="transparent">
-<tr><td>&uarr;</td><td style="width:50px"></td><td class="border" style="width:300px">value of rdi</td><td style="width:25px"></td><td>&larr; rsp</td></tr>
+<tr><td>&uarr;</td><td style="width:50px"></td><td class="border" style="width:300px">value of rdi</td><td style="width:25px"></td><td>&larr; esp</td></tr>
 <tr><td>To higher addresses</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td>(to 0xffffffff)</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
@@ -811,7 +775,7 @@ pop rdi          ; restore saved rdi value
 <hr>
 <table class="transparent">
 <tr><td>&uarr;</td><td style="width:50px"></td><td class="border" style="width:300px">value of rdi</td><td style="width:25px"></td><td>&nbsp;</td></tr>
-<tr><td>To higher addresses</td><td style="width:50px"></td><td class="border" style="width:300px">return address</td><td style="width:25px"></td><td>&larr; rsp</td></tr>
+<tr><td>To higher addresses</td><td style="width:50px"></td><td class="border" style="width:300px">return address</td><td style="width:25px"></td><td>&larr; esp</td></tr>
 <tr><td>(to 0xffffffff)</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
@@ -842,7 +806,7 @@ pop rdi          ; restore saved rdi value
 
 	  <section data-markdown><script type="text/template">
 ## Caller Rules Example
-We will see this code in the following slides:
+We'll see this code in the following slides:
 ```
 long myFunc(long a, long b, long c) {
     long result;
@@ -873,17 +837,16 @@ That is it. NOTE: caller is also allowed to use valid registers for local variab
 
 	  </script></section>
 
-	  <section data-markdown id="pushrbp"><script type="text/template">
+	  <section data-markdown><script type="text/template">
 ## PUBLIC SERVICE ANNOUNCEMENT!
-- Note that you might see the following:
+
+NOTE. You might see the following during lab:
 ```
-push rbp       ; at the start of the callee
+push rbp
 mov rbp, rsp
-...
-pop rbp        ; just before the ending 'ret'
 ```
-- This is a 32-bit x86 convention that is no longer officially used, but is sometimes seen anyway.
-- To omit it, add the `-fomit-frame-pointer` flag to the compilation line
+  - This is a 32-bit x86 convention that is no longer officially used, but is sometimes seen anyway.
+
 	  </script></section>
 
 	  <section>
@@ -938,7 +901,7 @@ int main() {
 section .text
 myFunc:
                 ; prologue
-sub rsp, 8      ; room for a 64-bit local var (result)
+sub rsp, 8      ; save room for 1 64-bit local var (result)
 push rbx        ; save callee-save registers
 push rbp        ; both will be used by myFunc
 ```
@@ -949,8 +912,8 @@ push rbp        ; both will be used by myFunc
 ```
                      ; subroutine body
 mov rax, rdi	     ; param 1 to rax
-mov rbp, rsi         ; param 2 to rbp
-mov rbx, rdx         ; param 3 to rbx
+mov rbp, rsi 	     ; param 2 to rbp
+mov rbx, rdx    	 ; param 3 to rbx
 mov [rsp+16], rbx    ; put rbx into local var
 add [rsp+16], rbp    ; add rbp into local var
 mov rax, [rsp+16]    ; mov contents of local var to rax
@@ -1012,7 +975,7 @@ ret             ; pop top value from stack, jump there
 <tr><td>To higher addresses</td><td style="width:50px"></td><td class="border" style="width:300px">return address</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td>(to 0xffffffff)</td><td style="width:50px"></td><td class="border" style="width:300px">local var (result)</td><td style="width:25px"></td><td>&larr; [rsp+16]</td></tr>
 <tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">value of rbx</td><td style="width:25px"></td><td>&larr; [rsp+8]</td></tr>
-<tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">value of rbp</td><td style="width:25px"></td><td>&larr; [rsp]</td></tr>
+<tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">value of rbp</td><td style="width:25px"></td><td>&larr; rsp</td></tr>
 <tr><td></td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td>To lower addresses</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
 <tr><td>(to 0x00000000)</td><td style="width:50px"></td><td class="border" style="width:300px">&nbsp;</td><td style="width:25px"></td><td>&nbsp;</td></tr>
@@ -1032,18 +995,18 @@ ret             ; pop top value from stack, jump there
 	    <tr><td style="vertical-align:top">
 		<table class="transparent" style="padding:0;spacing:0;border-spacing:0;border-collapse:collapse">
 		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>sub rsp, 8</code></pre></td>         <td><span class="fragment" data-fragment-index="1"><span class="fragment fade-out" data-fragment-index="3"><span style="font-size:larger">&larr;</span></span></span></td></tr>
-		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>push rbx</code></pre></td>     <td><span class="fragment" data-fragment-index="3"><span class="fragment fade-out" data-fragment-index="5"><span style="font-size:larger">&larr;</span></span></span></td></tr>
-		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>push rbp</code></pre></td>       <td><span class="fragment" data-fragment-index="5"><span class="fragment fade-out" data-fragment-index="7"><span style="font-size:larger">&larr;</span></span></span></td></tr>
-		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov rax, rdi</code></pre></td>         <td><span class="fragment" data-fragment-index="7"><span class="fragment fade-out" data-fragment-index="9"><span style="font-size:larger">&larr;</span></span></span></td></tr>
-		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov rbp, rsi</code></pre></td>         <td><span class="fragment" data-fragment-index="9"><span class="fragment fade-out" data-fragment-index="11"><span style="font-size:larger">&larr;</span></span></span></td></tr>
-		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov rbx, rdx</code></pre></td> <td><span class="fragment" data-fragment-index="11"><span class="fragment fade-out" data-fragment-index="13"><span style="font-size:larger">&larr;</span></span></span></td></tr>
-		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov [rsp+16], rbx</code></pre></td><td><span class="fragment" data-fragment-index="13"><span class="fragment fade-out" data-fragment-index="15"><span style="font-size:larger">&larr;</span></span></span></td></tr>
-		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>add [rsp+16], rbp</code></pre></td><td><span class="fragment" data-fragment-index="15"><span class="fragment fade-out" data-fragment-index="17"><span style="font-size:larger">&larr;</span></span></span></td></tr>
-		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov rax, [rsp+16]</code></pre></td> <td><span class="fragment" data-fragment-index="17"><span class="fragment fade-out" data-fragment-index="19"><span style="font-size:larger">&larr;</span></span></span></td></tr>
-		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>pop rbp</code></pre></td> <td><span class="fragment" data-fragment-index="19"><span class="fragment fade-out" data-fragment-index="21"><span style="font-size:larger">&larr;</span></span></span></td></tr>
-		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>pop rbx</code></pre></td> <td><span class="fragment" data-fragment-index="21"><span class="fragment fade-out" data-fragment-index="23"><span style="font-size:larger">&larr;</span></span></span></td></tr>
-		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>add rsp, 8</code></pre></td>          <td><span class="fragment" data-fragment-index="23"><span class="fragment fade-out" data-fragment-index="25"><span style="font-size:larger">&larr;</span></span></span></td></tr>
-		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>ret</code></pre></td>          <td><span class="fragment" data-fragment-index="25"><span class="fragment fade-out" data-fragment-index="27"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>push rbx</code></pre></td>     <td><span class="fragment" data-fragment-index="3"><span class="fragment fade-out" data-fragment-index="6"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>push rbp</code></pre></td>       <td><span class="fragment" data-fragment-index="6"><span class="fragment fade-out" data-fragment-index="8"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov rax, rdi</code></pre></td>         <td><span class="fragment" data-fragment-index="8"><span class="fragment fade-out" data-fragment-index="10"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov rbp, rsi</code></pre></td>         <td><span class="fragment" data-fragment-index="10"><span class="fragment fade-out" data-fragment-index="12"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov rbx, rdx</code></pre></td> <td><span class="fragment" data-fragment-index="12"><span class="fragment fade-out" data-fragment-index="14"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov [rsp+16], rbx</code></pre></td><td><span class="fragment" data-fragment-index="14"><span class="fragment fade-out" data-fragment-index="16"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>add [rsp+16], rbp</code></pre></td><td><span class="fragment" data-fragment-index="16"><span class="fragment fade-out" data-fragment-index="18"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov rax, [rsp+16]</code></pre></td> <td><span class="fragment" data-fragment-index="18"><span class="fragment fade-out" data-fragment-index="20"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>pop rbp</code></pre></td> <td><span class="fragment" data-fragment-index="20"><span class="fragment fade-out" data-fragment-index="22"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>pop rbx</code></pre></td> <td><span class="fragment" data-fragment-index="22"><span class="fragment fade-out" data-fragment-index="24"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>add rsp, 8</code></pre></td>          <td><span class="fragment" data-fragment-index="24"><span class="fragment fade-out" data-fragment-index="26"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>ret</code></pre></td>          <td><span class="fragment" data-fragment-index="26"><span class="fragment fade-out" data-fragment-index="28"><span style="font-size:larger">&larr;</span></span></span></td></tr>
 		</table>
 	    </td></tr>
 	  </table>
@@ -1059,37 +1022,47 @@ ret             ; pop top value from stack, jump there
 	    <tr>
 	      <td style="vertical-align:top">
 		<div style="position:relative;left:0;top:0">
-		  <img alt="cc animation" class="fragment fade-out" data-fragment-index="2" src="x86/64bit/x86-cc-stack.dot.3.svg" style="position:relative;left:0px;top:0px">
-		  <span class="fragment fade-out" data-fragment-index="4"><img alt="cc animation" class="fragment" data-fragment-index="2" src="x86/64bit/x86-cc-stack.dot.4.svg" style="position:absolute;left:0;top:0px"></span>
-		  <span class="fragment fade-out" data-fragment-index="6"><img alt="cc animation" class="fragment" data-fragment-index="4" src="x86/64bit/x86-cc-stack.dot.5.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="14"><img alt="cc animation" class="fragment" data-fragment-index="6" src="x86/64bit/x86-cc-stack.dot.6.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="16"><img alt="cc animation" class="fragment" data-fragment-index="14" src="x86/64bit/x86-cc-stack.dot.7.svg" style="position:absolute;left:0;top:0"></span>
-		  <img alt="cc animation" class="fragment" data-fragment-index="16" src="x86/64bit/x86-cc-stack.dot.8.svg" style="position:absolute;left:0;top:0">
+		  <img alt="cc animation" class="fragment fade-out" data-fragment-index="2" src="x86/x86-cc-stack.dot.6.svg" style="position:relative;left:0px;top:0px">
+		  <span class="fragment fade-out" data-fragment-index="7"><img alt="cc animation" class="fragment" data-fragment-index="2" src="x86/x86-cc-stack.dot.7.svg" style="position:absolute;left:0;top:0px"></span>
+		  <span class="fragment fade-out" data-fragment-index="9"><img alt="cc animation" class="fragment" data-fragment-index="7" src="x86/x86-cc-stack.dot.8.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="11"><img alt="cc animation" class="fragment" data-fragment-index="9" src="x86/x86-cc-stack.dot.9.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="19"><img alt="cc animation" class="fragment" data-fragment-index="11" src="x86/x86-cc-stack.dot.10.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="21"><img alt="cc animation" class="fragment" data-fragment-index="19" src="x86/x86-cc-stack.dot.11.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="25"><img alt="cc animation" class="fragment" data-fragment-index="21" src="x86/x86-cc-stack.dot.12.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="27"><img alt="cc animation" class="fragment" data-fragment-index="25" src="x86/x86-cc-stack.dot.13.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="29"><img alt="cc animation" class="fragment" data-fragment-index="27" src="x86/x86-cc-stack.dot.14.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="31"><img alt="cc animation" class="fragment" data-fragment-index="29" src="x86/x86-cc-stack.dot.7.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="33"><img alt="cc animation" class="fragment" data-fragment-index="31" src="x86/x86-cc-stack.dot.6.svg" style="position:absolute;left:0;top:0"></span>
+		  <img alt="cc animation" class="fragment" data-fragment-index="33" src="x86/x86-cc-stack.dot.5.svg" style="position:absolute;left:0;top:0">
 		</div>
 	      </td>
 	      
 	      <td style="vertical-align:top">
 		<div style="position:relative;left:0;top:0">
-		  <img alt="cc animation" class="fragment fade-out" data-fragment-index="2" src="x86/64bit/x86-cc-rsp.dot.3.svg" style="position:relative;left:0;top:0">
-		  <span class="fragment fade-out" data-fragment-index="4"><img alt="cc animation" class="fragment" data-fragment-index="2" src="x86/64bit/x86-cc-rsp.dot.4.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="6"><img alt="cc animation" class="fragment" data-fragment-index="4" src="x86/64bit/x86-cc-rsp.dot.5.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="20"><img alt="cc animation" class="fragment" data-fragment-index="6" src="x86/64bit/x86-cc-rsp.dot.6.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="22"><img alt="cc animation" class="fragment" data-fragment-index="20" src="x86/64bit/x86-cc-rsp.dot.5.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="24"><img alt="cc animation" class="fragment" data-fragment-index="22" src="x86/64bit/x86-cc-rsp.dot.4.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="26"><img alt="cc animation" class="fragment" data-fragment-index="24" src="x86/64bit/x86-cc-rsp.dot.3.svg" style="position:absolute;left:0;top:0"></span>
-		  <img alt="cc animation" class="fragment" data-fragment-index="26" src="x86/64bit/x86-cc-rsp.dot.2.svg" style="position:absolute;left:0;top:0">
+		  <img alt="cc animation" class="fragment fade-out" data-fragment-index="2" src="x86/x86-cc-esp.dot.6.svg" style="position:relative;left:0;top:0">
+		  <span class="fragment fade-out" data-fragment-index="4"><img alt="cc animation" class="fragment" data-fragment-index="2" src="x86/x86-cc-esp.dot.7.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="5"><img alt="cc animation" class="fragment" data-fragment-index="4" src="x86/x86-cc-esp.dot.8.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="7"><img alt="cc animation" class="fragment" data-fragment-index="5" src="x86/x86-cc-esp.dot.9.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="9"><img alt="cc animation" class="fragment" data-fragment-index="7" src="x86/x86-cc-esp.dot.10.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="11"><img alt="cc animation" class="fragment" data-fragment-index="9" src="x86/x86-cc-esp.dot.11.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="25"><img alt="cc animation" class="fragment" data-fragment-index="11" src="x86/x86-cc-esp.dot.12.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="27"><img alt="cc animation" class="fragment" data-fragment-index="25" src="x86/x86-cc-esp.dot.11.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="29"><img alt="cc animation" class="fragment" data-fragment-index="27" src="x86/x86-cc-esp.dot.10.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="31"><img alt="cc animation" class="fragment" data-fragment-index="29" src="x86/x86-cc-esp.dot.9.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="33"><img alt="cc animation" class="fragment" data-fragment-index="31" src="x86/x86-cc-esp.dot.6.svg" style="position:absolute;left:0;top:0"></span>
+		  <img alt="cc animation" class="fragment" data-fragment-index="33" src="x86/x86-cc-esp.dot.5.svg" style="position:absolute;left:0;top:0">
 		</div>
 	      </td>
 
 	      <td style="vertical-align:top">
 		<div style="position:relative;left:0;top:0">
-		  <img alt="cc animation" class="fragment fade-out" data-fragment-index="8" src="x86/64bit/x86-cc-regs.dot.svg" style="position:relative;left:0;top:0">
-		  <span class="fragment fade-out" data-fragment-index="10"><img alt="cc animation" class="fragment" data-fragment-index="8" src="x86/64bit/x86-cc-regs.dot.2.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="12"><img alt="cc animation" class="fragment" data-fragment-index="10" src="x86/64bit/x86-cc-regs.dot.3.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="18"><img alt="cc animation" class="fragment" data-fragment-index="12" src="x86/64bit/x86-cc-regs.dot.4.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="20"><img alt="cc animation" class="fragment" data-fragment-index="18" src="x86/64bit/x86-cc-regs.dot.5.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="22"><img alt="cc animation" class="fragment" data-fragment-index="20" src="x86/64bit/x86-cc-regs.dot.6.svg" style="position:absolute;left:0;top:0"></span>
-		  <img alt="cc animation" class="fragment" data-fragment-index="22" src="x86/64bit/x86-cc-regs.dot.7.svg" style="position:absolute;left:0;top:0">
+		  <img alt="cc animation" class="fragment fade-out" data-fragment-index="13" src="x86/x86-cc-regs.dot.svg" style="position:relative;left:0;top:0">
+		  <span class="fragment fade-out" data-fragment-index="15"><img alt="cc animation" class="fragment" data-fragment-index="13" src="x86/x86-cc-regs.dot.2.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="17"><img alt="cc animation" class="fragment" data-fragment-index="15" src="x86/x86-cc-regs.dot.3.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="23"><img alt="cc animation" class="fragment" data-fragment-index="17" src="x86/x86-cc-regs.dot.4.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="25"><img alt="cc animation" class="fragment" data-fragment-index="23" src="x86/x86-cc-regs.dot.5.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="27"><img alt="cc animation" class="fragment" data-fragment-index="25" src="x86/x86-cc-regs.dot.6.svg" style="position:absolute;left:0;top:0"></span>
+		  <img alt="cc animation" class="fragment" data-fragment-index="27" src="x86/x86-cc-regs.dot.7.svg" style="position:absolute;left:0;top:0">
 		</div>
 	      </td>
 	    </tr>
@@ -1099,17 +1072,6 @@ ret             ; pop top value from stack, jump there
       </tr>
     </table>
 	  </section>
-
-	  <section data-markdown><script type="text/template">
-## That subroutine, again
-- We fully realize that the previous assembly method could be written as:
-```
-mov rax, rdx
-add rax, rsi
-ret
-```
-- The long-winded-ness of the previous inefficient version was to show how the calling convention works, not to showcase our assembly writing skills
-	  </script></section>
 
 
 	</section>
@@ -1137,7 +1099,7 @@ ret
 </ul></li>
 </ul>
 </td><td style="width:50%">
-<img alt="x86 activation record" src="images/08-x86/x86-64bit-activation-record.svg">
+<img alt="x86 activation record" src="images/08-x86/x86-activation-record.svg">
 </td></tr></table>
 	  </section>
 
@@ -1218,7 +1180,7 @@ ret
 
 	  <section data-markdown><script type="text/template">
 ## x86 Examples
-All examples are in the [slides/code/08-assembly-64bit/](code/08-assembly-64bit/) directory in the github repo  
+All examples are in the [slides/code/08-x86/](code/08-x86/) directory in the github repo  
 &nbsp;  
 Code we'll see:
 
@@ -1226,6 +1188,19 @@ Code we'll see:
 - int max(int x, int y)
 - bool compare_string(const char \*theStr1, const char \*theStr2)
 - int fib(unsigned int n)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## clang++ creates some odd assembly...
+- We'll see why later, but clang++ creates some odd-looking assembly
+  - Which does not appear to follow the calling convention
+- So you can use g++ to view the assembly
+  - The flags are different:
+```
+g++ -S -m64 -masm=intel
+```
+  - g++ was installed on your VirtualBox image specifically for this reason
+- The assembly shown in this slide set was generated using g++, not clang++
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -1242,7 +1217,7 @@ int absolute_value(int x) {
 
 	  <section data-markdown><script type="text/template">
 ## test_abs.cpp
-Source code: [test_abs.cpp](code/08-assembly-64bit/test_abs.cpp.html) ([src](code/08-assembly-64bit/test_abs.cpp))
+Source code: [test_abs.cpp](code/08-x86/test_abs.cpp.html) ([src](code/08-x86/test_abs.cpp))
 ```
 #include <iostream>
 using namespace std;
@@ -1269,8 +1244,7 @@ int main() {
 ## x86 Assembly for absolute_value
 No external source code; this is how we might write it ourselves.
 ```
-; prologue, nothing here because no saved
-; registers and no loval vars
+; prologue, nothing here because no saved registers and no loval vars
 
 ; procedure body
 mov rax, rdi    	  ; eax <- x
@@ -1279,14 +1253,13 @@ jge end_of_proc       ; if pos goto end
 neg rax               ; negate x
 
 end_of_proc:
-				   
-; Standard epilogue, no local vars and no saved regs
+; Standard epilogue, no local vars and no saved registers
 ret
 ```
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Generating assembly with clang++
+## Generating assembly with clang++ or g++
 - Using the -S flag, we can generate assembly from C/C++ code
 - Note that the format is a bit different
   - Register specification, dest/source order, etc.
@@ -1295,43 +1268,33 @@ ret
 clang++ -m64 -S test_abs.cpp -o test_abs-non-intel.s
 ```
   - You'll see why it has 'non-intel' in the name shortly...
-- Actually, we use even more flags...
+- If you want to use g++ (which we do), you use:
+```
+g++ -O2 -m64 -S test_abs.cpp -o test_abs-non-intel.s
+```
+- The formatting is still slightly different from nasm, but the idea is the same
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## clang++ flags
-- Most of the code in this section uses the following compiler flags: `-m64 -mllvm --x86-asm-syntax=intel -S -fomit-frame-pointer`
-- The meanings:
-  - `-m64`: create 64-bit code (clang++ sometimes defaults to 32-bit code)
-  - `-mllvm --x86-asm-syntax=intel`: this tells clang++ to generate the assembly in the format we are studying
-  - `-S`: generates assembly, rather than compiling it into object code (or an executable)
-  - `-fomit-frame-pointer`: prevents the push rbp / mov rbp, rsp / pop rbp code discussed [here](#/pushrbp)
-- The assembly shown in this slide set was all generated using clang++ (or clang)
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
-## clang++'s assembly for absolute_value
+## g++'s assembly for absolute_value
 Note the source / destination order is reversed!  And lots of other differences...
 
-Source code: [test_abs-non-intel.s](code/08-assembly-64bit/test_abs-non-intel.s.html) ([src](code/08-assembly-64bit/test_abs-non-intel.s))
+Source code: [test_abs-non-intel.s](code/08-x86/test_abs-non-intel.s.html) ([src](code/08-x86/test_abs-non-intel.s))
 ```
 absolute_value:
-	movq	%rdi, -8(%rsp)
-	cmpq	$0, -8(%rsp)
-	jge	.LBB1_2
-	xorl	%eax, %eax
-	movl	%eax, %ecx
-	subq	-8(%rsp), %rcx
-	movq	%rcx, -8(%rsp)
-.LBB1_2:
-	movq	-8(%rsp), %rax
-	retq
+	.cfi_startproc
+	movq	%rdi, %rdx
+	movq	%rdi, %rax
+	sarq	$63, %rdx
+	xorq	%rdx, %rax
+	ret
+	.cfi_endproc
 ```
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Assembly differences
-- There are a lot of differences between the assembly we've seen and what `clang++ -O2 -S -fomit-frame-pointer` produces
+- There are a lot of differences between the assembly we've seen and what `g++ -O2 -S` produces
   - `movq`, `sarq`, `xorq` etc.
     - the 'q' part means 'quadword' (i.e. 64 bits, so the assembler doesn't have to guess)
   - `$0` is the constant 0
@@ -1346,82 +1309,68 @@ absolute_value:
   - You can see more details about the differences [here](https://en.wikipedia.org/wiki/X86_assembly_language#Syntax)
 - Flavors:
   - Intel syntax: what we will use, and what nasm uses
-  - AT&T syntax: what `clang++ -S` uses by default
+  - AT&T syntax: what `g++ -S` uses by default
 - To make clang++ use the Intel syntax, you need to add the <br>`-mllvm --x86-asm-syntax=intel` flags
 ```
 clang++ -m64 -mllvm --x86-asm-syntax=intel -S \
-        -fomit-frame-pointer test_abs.cpp -o test_abs.s
+          test_abs.cpp -o test_abs.s
+```
+- For g++, use the `-masm=intel` flags:
+```
+g++ -m64 -masm=intel -S test_abs.cpp -o test_abs.s
 ```
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## clang++'s asmsembly for absolute_value
-This is with the `-mllvm --x86-asm-syntax=intel` flags
+## g++'s assembly for absolute_value
+This is with the `-masm=intel` and `-O2` flags
 
-Source code: [test_abs.s](code/08-assembly-64bit/test_abs.s.html) ([src](code/08-assembly-64bit/test_abs.s))
+Source code: [test_abs.s](code/08-x86/test_abs.s.html) ([src](code/08-x86/test_abs.s))
 ```
 absolute_value:
-	mov	qword ptr [rsp - 8], rdi
-	cmp	qword ptr [rsp - 8], 0
-	jge	.LBB1_2
-	xor	eax, eax
-	mov	ecx, eax
-	sub	rcx, qword ptr [rsp - 8]
-	mov	qword ptr [rsp - 8], rcx
-.LBB1_2:
-	mov	rax, qword ptr [rsp - 8]
+	.cfi_startproc
+	mov   rdx, rdi
+	mov   rax, rdi
+	sar   rdx, 63
+	xor   rax, rdx
+	sub   rax, rdx
 	ret
+	.cfi_endproc
 ```
+
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## clang++'s assembly output on Macs
-- clang++ may not support the `-mllvm --x86-asm-syntax=intel` flags
+- With g++ (what we used last year), Darwin (i.e., Mac OS X) did not support the `-masm=intel` flag
+  - And clang++ may not support the `-mllvm --x86-asm-syntax=intel` flags
+- But I don't know what clang++ will do...
   - Can anybody test this?
 - So you may be stuck using the "other" format
   - With the source / destination order reversed
 - You can compile it on a the Linux VirtualBox image, if you want the 'correct' order
   - We recommned this for the x86 labs!
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
-## clang++'s asmsembly for ints
-This is for [test_abs_int.cpp](code/08-assembly-64bit/test_abs_int.cpp.html), which uses `int` types instead of `long` types
-
-Source code: [test_abs_int.s](code/08-assembly-64bit/test_abs_int.s.html) ([src](code/08-assembly-64bit/test_abs_int.s))
-```
-absolute_value:
-	mov	dword ptr [rsp - 4], edi
-	cmp	dword ptr [rsp - 4], 0
-	jge	.LBB1_2
-	xor	eax, eax
-	sub	eax, dword ptr [rsp - 4]
-	mov	dword ptr [rsp - 4], eax
-.LBB1_2:
-	mov	eax, dword ptr [rsp - 4]
-	ret
-```
-Note the use of eax instead of rax, and that the offets are `[rsp-4]` rather than `[rsp-8]`
+- Also note that g++ (without the -O2 flag) uses some legacy calling convention features that we didn't discuss here.
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## test_abs_c.c
-Source code: [test_abs_c.c](code/08-assembly-64bit/test_abs_c.c.html) ([src](code/08-assembly-64bit/test_abs_c.c)); we're back to using `long` types again
+Source code: [test_abs_c.c](code/08-x86/test_abs_c.c.html) ([src](code/08-x86/test_abs_c.c))
 ```
 #include <stdio.h>
 
-long absolute_value(long x) {
-    if (x<0)	// if x is negative
-        x = -x;	// negate x
-    return x;	// return x
+int absolute_value(int x) {
+    if ( x < 0 )      // if x is negative
+        x = -x;   // negate x
+    return x;     // return x
 }
 
 int main() {
-    long theValue=0;
+    int theValue=0;
     printf ("Enter a value: \n");
-    scanf ("%ld", &theValue);
-    long theResult = absolute_value(theValue);
-    printf ("The result is: %ld\n", theResult);
+    scanf ("%d", &theValue);
+    int theResult = absolute_value(theValue);
+    printf ("The result is: %d\n", theResult);
     return 0;
 }
 ```
@@ -1431,8 +1380,8 @@ int main() {
 ## C++ assembly vs. C assembly
 - Notice how much cleaner C translates into assembly versus C++
 - Compare the absolute value code in both C and C++:
-  - C++: [test_abs.s](code/08-assembly-64bit/test_abs.s.html) ([src](code/08-assembly-64bit/test_abs.s))
-  - C: [test_abs_c.s](code/08-assembly-64bit/test_abs_c.s.html) ([src](code/08-assembly-64bit/test_abs_c.s))
+  - C++: [test_abs.s](code/08-x86/test_abs.s.html) ([src](code/08-x86/test_abs.s))
+  - C: [test_abs_c.s](code/08-x86/test_abs_c.s.html) ([src](code/08-x86/test_abs_c.s))
 	  </script></section>
 
 	  <section data-markdown id="max"><script type="text/template">
@@ -1452,7 +1401,7 @@ int max(int x, int y) {
 
 	  <section data-markdown><script type="text/template">
 ## test_max.cpp
-Source code: [test_max.cpp](code/08-assembly-64bit/test_max.cpp.html) ([src](code/08-assembly-64bit/test_max.cpp))
+Source code: [test_max.cpp](code/08-x86/test_max.cpp.html) ([src](code/08-x86/test_max.cpp))
 ```
 #include <iostream>
 using namespace std;
@@ -1475,74 +1424,21 @@ int main() {
 
 	  <section data-markdown><script type="text/template">
 ## x86 code for max()
-Source code: [test_max.s](code/08-assembly-64bit/test_max.s.html) ([src](code/08-assembly-64bit/test_max.s))
+Using: `g++ -S -m32 -masm=intel`
+
+Source code: [test_max.s](code/08-x86/test_max.s.html) ([src](code/08-x86/test_max.s))
 ```
 max:
-	mov	dword ptr [rsp - 4], edi
-	mov	dword ptr [rsp - 8], esi
-	mov	esi, dword ptr [rsp - 4]
-	cmp	esi, dword ptr [rsp - 8]
-	jle	.LBB1_2
-	mov	eax, dword ptr [rsp - 4]
-	mov	dword ptr [rsp - 12], eax
-	jmp	.LBB1_3
-.LBB1_2:
-	mov	eax, dword ptr [rsp - 8]
-	mov	dword ptr [rsp - 12], eax
-.LBB1_3:
-	mov	eax, dword ptr [rsp - 12]
-	ret
-```
-- Notes on this on the next slide
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
-## Notes on x86 code for max()
-- We are using 32-bit registers (eax instead of rax) because the code used `int` types instead of `long` types
-  - Likewise, our offsets are 4 bytes instead of 8 bytes: `[rsp-4]` rather than `[rsp-8]`
-- This was compiled with the clang++ flags: `-m64 -mllvm --x86-asm-syntax=intel -S -fomit-frame-pointer`
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
-## x86 code for max() using -O2
-Compiled like the previous, but with `-O2`
-
-Source code: [test_max-O2.s](code/08-assembly-64bit/test_max-O2.s.html) ([src](code/08-assembly-64bit/test_max-O2.s))
-```
-max:
-	cmp     edi, esi
-	cmovge  esi, edi
+	cmp     edi, esi 
 	mov     eax, esi
+	cmovge  eax, edi
 	ret
 ```
-The [cmovg](http://www.asmpedia.org/index.php?title=CMOVG) opcode (conditional move if greater than) will move the greater value into the first parameter; [cmovge](http://www.asmpedia.org/index.php?title=CMOVGE) does the move greater than *or equal to* value
-
-Note that this code uses the 32-bit versions of the registers because the variables were decalred as `int` rather than `long`.
+- Notice that we are using 32-bits of the registers when we use ints here (e.g., eax instead of rax).
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
-## x86 code without 'extern "C"'
-Compiled like the previous, but *without* `-O2`
 
-Source code: [test_max-noextern.s](code/08-assembly-64bit/test_max-noextern.s.html) ([src](code/08-assembly-64bit/test_max-noextern.s))
-```
-_Z3maxii:
-	mov	dword ptr [rsp - 4], edi
-	mov	dword ptr [rsp - 8], esi
-	mov	esi, dword ptr [rsp - 4]
-	cmp	esi, dword ptr [rsp - 8]
-	jle	.LBB1_2
-	mov	eax, dword ptr [rsp - 4]
-	mov	dword ptr [rsp - 12], eax
-	jmp	.LBB1_3
-.LBB1_2:
-	mov	eax, dword ptr [rsp - 8]
-	mov	dword ptr [rsp - 12], eax
-.LBB1_3:
-	mov	eax, dword ptr [rsp - 12]
-	ret
-```
-	  </script></section>
+	
 
 	  <section data-markdown><script type="text/template">
 ## C-string Comparison
@@ -1564,7 +1460,7 @@ bool compare_string (const char *theStr1,
 
 	  <section data-markdown><script type="text/template">
 ## test_string_compare.cpp
-Source code: [test_string_compare.cpp](code/08-assembly-64bit/test_string_compare.cpp.html) ([src](code/08-assembly-64bit/test_string_compare.cpp))
+Source code: [test_string_compare.cpp](code/08-x86/test_string_compare.cpp.html) ([src](code/08-x86/test_string_compare.cpp))
 ```
 #include <iostream>
 #include <string>
@@ -1590,45 +1486,46 @@ int main() {
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## x86 for compare_string(), 1/2
-Compiled like the previous
+## x86 assembly for compare_string(), 1/2
+Using: `g++ -O2 -S -m32 -masm=intel`
 
-Source code: [test_string_compare.s](code/08-assembly-64bit/test_string_compare.s.html) ([src](code/08-assembly-64bit/test_string_compare.s))
+Source code: [test_string_compare.s](code/08-x86/test_string_compare.s.html) ([src](code/08-x86/test_string_compare.s))
 ```
 compare_string:
-    mov      al, byte ptr [rdi]
-    test     al, al
-    je       .LBB0_4
-    inc      rdi
-.LBB0_2:
-    movzx    ecx, byte ptr [rsi]
-    movzx    edx, al
-    cmp      edx, ecx
-    jne      .LBB0_5
-    inc      rsi
-    mov      al, byte ptr [rdi]
-    inc      rdi
-    test     al, al
-    jne      .LBB0_2
+	movzx   eax, BYTE PTR [rdi]
+    movzx   edx, BYTE PTR [rsi]
+    test    al, al
+    je      .L3
+    cmp     dl, al
+    je      .L5
+    jmp     .L3
     ...
 
 ```
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## x86 for compare_string(), 2/2
-Compiled like the previous
+## x86 assembly for compare_string(), 2/2
+Using: `g++ -O2 -S -m32 -masm=intel`
 
-Source code: [test_string_compare.s](code/08-assembly-64bit/test_string_compare.s.html) ([src](code/08-assembly-64bit/test_string_compare.s))
+Source code: [test_string_compare.s](code/08-x86/test_string_compare.s.html) ([src](code/08-x86/test_string_compare.s))
 ```
-.LBB0_4:
-    xor      eax, eax
-.LBB0_5:
-    movzx    ecx, byte ptr [rsi]
-    movzx    eax, al
-    cmp      eax, ecx
-    sete     al
+.L6:
+    cmp     al, dl
+    mov     rsi, rcx
+    jne     .L3
+.L5:
+    add     rdi, 1
+    movzx   eax, BYTE PTR [rdi]
+    lea     rcx, [rsi+1]
+    movzx   edx, BYTE PTR [rsi+1]
+    test    al, al
+    jne     .L6
+.L3:
+    cmp     al, dl
+    sete    al
     ret
+
 ```
 	  </script></section>
 
@@ -1637,33 +1534,31 @@ Source code: [test_string_compare.s](code/08-assembly-64bit/test_string_compare.
 ## int fib
 (see next slide for the source code link)
 ```
-long fib(unsigned int n) {
+long fib(unsigned long n) {
     if ((n==0) || (n==1))
         return 1;
     return fib(n-1) + fib(n-2);
 }
 ```
-Note that the parameter is `unsigned int` (32-bit), but the return type is `long` (64-bit)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## test_fib.cpp
-Source code: [test_fib.cpp](code/08-assembly-64bit/test_fib.cpp.html) ([src](code/08-assembly-64bit/test_fib.cpp))
+Source code: [test_fib.cpp](code/08-x86/test_fib.cpp.html) ([src](code/08-x86/test_fib.cpp))
 ```
 #include <iostream>
 using namespace std;
+extern "C" long fib(unsigned long n);
 
-extern "C" long fib(unsigned int n);
-
-long fib(unsigned int n) {
+long fib(unsigned long n) {
     if ((n==0) || (n==1))
         return 1;
     return fib(n-1) + fib(n-2);
 }
 
 int main() {
-    unsigned int theValue = 0;
-    cout << "Enter value for fib(): " << endl;
+    unsigned long theValue = 0;
+    cout << "Enter value for fib(): " << endl;    
     cin >> theValue;
     long theResult = fib(theValue);
     cout << "The result is: " << theResult << endl;
@@ -1674,47 +1569,45 @@ int main() {
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for fib(), 1/2
-Compiled like the previous, but with `-O2`
+Using: `g++ -S -m32 -masm=intel`
 
-Source code: [test_fib.s](code/08-assembly-64bit/test_fib.s.html) ([src](code/08-assembly-64bit/test_fib.s))
+Source code: [test_fib.s](code/08-x86/test_fib.s.html) ([src](code/08-x86/test_fib.s))
 ```
 fib:
-    push    r14
-    push    rbx
-    push    rax
-    mov     ebx, edi
-    mov     eax, ebx
-    or      eax, 1
-    mov     r14d, 1
-    cmp     eax, 1
-    je      .LBB0_3
-    add     ebx, -2
-    mov     r14d, 1
+    cmp     rdi, 1
+    jbe     .L4
+    push    rbp
+    push    rbxf
+    xor     ebp, ebp
+    mov     rbx, rdi
+    sub     rsp, 8
     ...
+
 ```
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## x86 assembly for fib(), 2/2
-Compiled like the previous, but with `-O2`
+Using: `g++ -S -m32 -masm=intel`
 
-Source code: [test_fib.s](code/08-assembly-64bit/test_fib.s.html) ([src](code/08-assembly-64bit/test_fib.s))
+Source code: [test_fib.s](code/08-x86/test_fib.s.html) ([src](code/08-x86/test_fib.s))
 ```
-.LBB0_2:
-    lea     edi, [rbx + 1]
-    call    fib
-    add     r14, rax
-    mov     eax, ebx
-    or      eax, 1
-    add     ebx, -2
-    cmp     eax, 1
-    jne     .LBB0_2
-.LBB0_3:
-    mov     rax, r14
+.L3:
+    lea     rdi, [rbx-1]
+    sub     rbx, 2
+    call    _Z3fibm
+    add     rbp, rax
+    cmp     rbx, 1
+    ja      .L3
     add     rsp, 8
+    lea     rax, [rbp+1]
     pop     rbx
-    pop     r14
+    pop     rbp
     ret
+.L4:
+    mov     eax, 1
+    ret
+
 ```
 	  </script></section>
 
