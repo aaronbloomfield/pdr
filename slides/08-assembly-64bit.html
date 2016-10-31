@@ -1032,18 +1032,18 @@ ret             ; pop top value from stack, jump there
 	    <tr><td style="vertical-align:top">
 		<table class="transparent" style="padding:0;spacing:0;border-spacing:0;border-collapse:collapse">
 		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>sub rsp, 8</code></pre></td>         <td><span class="fragment" data-fragment-index="1"><span class="fragment fade-out" data-fragment-index="3"><span style="font-size:larger">&larr;</span></span></span></td></tr>
-		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>push rbx</code></pre></td>     <td><span class="fragment" data-fragment-index="3"><span class="fragment fade-out" data-fragment-index="6"><span style="font-size:larger">&larr;</span></span></span></td></tr>
-		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>push rbp</code></pre></td>       <td><span class="fragment" data-fragment-index="6"><span class="fragment fade-out" data-fragment-index="8"><span style="font-size:larger">&larr;</span></span></span></td></tr>
-		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov rax, rdi</code></pre></td>         <td><span class="fragment" data-fragment-index="8"><span class="fragment fade-out" data-fragment-index="10"><span style="font-size:larger">&larr;</span></span></span></td></tr>
-		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov rbp, rsi</code></pre></td>         <td><span class="fragment" data-fragment-index="10"><span class="fragment fade-out" data-fragment-index="12"><span style="font-size:larger">&larr;</span></span></span></td></tr>
-		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov rbx, rdx</code></pre></td> <td><span class="fragment" data-fragment-index="12"><span class="fragment fade-out" data-fragment-index="14"><span style="font-size:larger">&larr;</span></span></span></td></tr>
-		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov [rsp+16], rbx</code></pre></td><td><span class="fragment" data-fragment-index="14"><span class="fragment fade-out" data-fragment-index="16"><span style="font-size:larger">&larr;</span></span></span></td></tr>
-		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>add [rsp+16], rbp</code></pre></td><td><span class="fragment" data-fragment-index="16"><span class="fragment fade-out" data-fragment-index="18"><span style="font-size:larger">&larr;</span></span></span></td></tr>
-		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov rax, [rsp+16]</code></pre></td> <td><span class="fragment" data-fragment-index="18"><span class="fragment fade-out" data-fragment-index="20"><span style="font-size:larger">&larr;</span></span></span></td></tr>
-		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>pop rbp</code></pre></td> <td><span class="fragment" data-fragment-index="20"><span class="fragment fade-out" data-fragment-index="22"><span style="font-size:larger">&larr;</span></span></span></td></tr>
-		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>pop rbx</code></pre></td> <td><span class="fragment" data-fragment-index="22"><span class="fragment fade-out" data-fragment-index="24"><span style="font-size:larger">&larr;</span></span></span></td></tr>
-		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>add rsp, 8</code></pre></td>          <td><span class="fragment" data-fragment-index="24"><span class="fragment fade-out" data-fragment-index="26"><span style="font-size:larger">&larr;</span></span></span></td></tr>
-		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>ret</code></pre></td>          <td><span class="fragment" data-fragment-index="26"><span class="fragment fade-out" data-fragment-index="28"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>push rbx</code></pre></td>     <td><span class="fragment" data-fragment-index="3"><span class="fragment fade-out" data-fragment-index="5"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>push rbp</code></pre></td>       <td><span class="fragment" data-fragment-index="5"><span class="fragment fade-out" data-fragment-index="7"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov rax, rdi</code></pre></td>         <td><span class="fragment" data-fragment-index="7"><span class="fragment fade-out" data-fragment-index="9"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov rbp, rsi</code></pre></td>         <td><span class="fragment" data-fragment-index="9"><span class="fragment fade-out" data-fragment-index="11"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov rbx, rdx</code></pre></td> <td><span class="fragment" data-fragment-index="11"><span class="fragment fade-out" data-fragment-index="13"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov [rsp+16], rbx</code></pre></td><td><span class="fragment" data-fragment-index="13"><span class="fragment fade-out" data-fragment-index="15"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>add [rsp+16], rbp</code></pre></td><td><span class="fragment" data-fragment-index="15"><span class="fragment fade-out" data-fragment-index="17"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>mov rax, [rsp+16]</code></pre></td> <td><span class="fragment" data-fragment-index="17"><span class="fragment fade-out" data-fragment-index="19"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>pop rbp</code></pre></td> <td><span class="fragment" data-fragment-index="19"><span class="fragment fade-out" data-fragment-index="21"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>pop rbx</code></pre></td> <td><span class="fragment" data-fragment-index="21"><span class="fragment fade-out" data-fragment-index="23"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>add rsp, 8</code></pre></td>          <td><span class="fragment" data-fragment-index="23"><span class="fragment fade-out" data-fragment-index="25"><span style="font-size:larger">&larr;</span></span></span></td></tr>
+		  <tr><td><pre style="margin-top:0px;margin-bottom:0px"><code>ret</code></pre></td>          <td><span class="fragment" data-fragment-index="25"><span class="fragment fade-out" data-fragment-index="27"><span style="font-size:larger">&larr;</span></span></span></td></tr>
 		</table>
 	    </td></tr>
 	  </table>
@@ -1059,47 +1059,37 @@ ret             ; pop top value from stack, jump there
 	    <tr>
 	      <td style="vertical-align:top">
 		<div style="position:relative;left:0;top:0">
-		  <img alt="cc animation" class="fragment fade-out" data-fragment-index="2" src="x86/64bit/x86-cc-stack.dot.6.svg" style="position:relative;left:0px;top:0px">
-		  <span class="fragment fade-out" data-fragment-index="7"><img alt="cc animation" class="fragment" data-fragment-index="2" src="x86/64bit/x86-cc-stack.dot.7.svg" style="position:absolute;left:0;top:0px"></span>
-		  <span class="fragment fade-out" data-fragment-index="9"><img alt="cc animation" class="fragment" data-fragment-index="7" src="x86/64bit/x86-cc-stack.dot.8.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="11"><img alt="cc animation" class="fragment" data-fragment-index="9" src="x86/64bit/x86-cc-stack.dot.9.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="19"><img alt="cc animation" class="fragment" data-fragment-index="11" src="x86/64bit/x86-cc-stack.dot.10.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="21"><img alt="cc animation" class="fragment" data-fragment-index="19" src="x86/64bit/x86-cc-stack.dot.11.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="25"><img alt="cc animation" class="fragment" data-fragment-index="21" src="x86/64bit/x86-cc-stack.dot.12.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="27"><img alt="cc animation" class="fragment" data-fragment-index="25" src="x86/64bit/x86-cc-stack.dot.13.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="29"><img alt="cc animation" class="fragment" data-fragment-index="27" src="x86/64bit/x86-cc-stack.dot.14.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="31"><img alt="cc animation" class="fragment" data-fragment-index="29" src="x86/64bit/x86-cc-stack.dot.7.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="33"><img alt="cc animation" class="fragment" data-fragment-index="31" src="x86/64bit/x86-cc-stack.dot.6.svg" style="position:absolute;left:0;top:0"></span>
-		  <img alt="cc animation" class="fragment" data-fragment-index="33" src="x86/64bit/x86-cc-stack.dot.5.svg" style="position:absolute;left:0;top:0">
+		  <img alt="cc animation" class="fragment fade-out" data-fragment-index="2" src="x86/64bit/x86-cc-stack.dot.3.svg" style="position:relative;left:0px;top:0px">
+		  <span class="fragment fade-out" data-fragment-index="4"><img alt="cc animation" class="fragment" data-fragment-index="2" src="x86/64bit/x86-cc-stack.dot.4.svg" style="position:absolute;left:0;top:0px"></span>
+		  <span class="fragment fade-out" data-fragment-index="6"><img alt="cc animation" class="fragment" data-fragment-index="4" src="x86/64bit/x86-cc-stack.dot.5.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="14"><img alt="cc animation" class="fragment" data-fragment-index="6" src="x86/64bit/x86-cc-stack.dot.6.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="16"><img alt="cc animation" class="fragment" data-fragment-index="14" src="x86/64bit/x86-cc-stack.dot.7.svg" style="position:absolute;left:0;top:0"></span>
+		  <img alt="cc animation" class="fragment" data-fragment-index="16" src="x86/64bit/x86-cc-stack.dot.8.svg" style="position:absolute;left:0;top:0">
 		</div>
 	      </td>
 	      
 	      <td style="vertical-align:top">
 		<div style="position:relative;left:0;top:0">
-		  <img alt="cc animation" class="fragment fade-out" data-fragment-index="2" src="x86/64bit/x86-cc-esp.dot.6.svg" style="position:relative;left:0;top:0">
-		  <span class="fragment fade-out" data-fragment-index="4"><img alt="cc animation" class="fragment" data-fragment-index="2" src="x86/64bit/x86-cc-esp.dot.7.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="5"><img alt="cc animation" class="fragment" data-fragment-index="4" src="x86/64bit/x86-cc-esp.dot.8.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="7"><img alt="cc animation" class="fragment" data-fragment-index="5" src="x86/64bit/x86-cc-esp.dot.9.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="9"><img alt="cc animation" class="fragment" data-fragment-index="7" src="x86/64bit/x86-cc-esp.dot.10.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="11"><img alt="cc animation" class="fragment" data-fragment-index="9" src="x86/64bit/x86-cc-esp.dot.11.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="25"><img alt="cc animation" class="fragment" data-fragment-index="11" src="x86/64bit/x86-cc-esp.dot.12.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="27"><img alt="cc animation" class="fragment" data-fragment-index="25" src="x86/64bit/x86-cc-esp.dot.11.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="29"><img alt="cc animation" class="fragment" data-fragment-index="27" src="x86/64bit/x86-cc-esp.dot.10.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="31"><img alt="cc animation" class="fragment" data-fragment-index="29" src="x86/64bit/x86-cc-esp.dot.9.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="33"><img alt="cc animation" class="fragment" data-fragment-index="31" src="x86/64bit/x86-cc-esp.dot.6.svg" style="position:absolute;left:0;top:0"></span>
-		  <img alt="cc animation" class="fragment" data-fragment-index="33" src="x86/64bit/x86-cc-esp.dot.5.svg" style="position:absolute;left:0;top:0">
+		  <img alt="cc animation" class="fragment fade-out" data-fragment-index="2" src="x86/64bit/x86-cc-rsp.dot.3.svg" style="position:relative;left:0;top:0">
+		  <span class="fragment fade-out" data-fragment-index="4"><img alt="cc animation" class="fragment" data-fragment-index="2" src="x86/64bit/x86-cc-rsp.dot.4.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="6"><img alt="cc animation" class="fragment" data-fragment-index="4" src="x86/64bit/x86-cc-rsp.dot.5.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="20"><img alt="cc animation" class="fragment" data-fragment-index="6" src="x86/64bit/x86-cc-rsp.dot.6.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="22"><img alt="cc animation" class="fragment" data-fragment-index="20" src="x86/64bit/x86-cc-rsp.dot.5.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="24"><img alt="cc animation" class="fragment" data-fragment-index="22" src="x86/64bit/x86-cc-rsp.dot.4.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="26"><img alt="cc animation" class="fragment" data-fragment-index="24" src="x86/64bit/x86-cc-rsp.dot.3.svg" style="position:absolute;left:0;top:0"></span>
+		  <img alt="cc animation" class="fragment" data-fragment-index="26" src="x86/64bit/x86-cc-rsp.dot.2.svg" style="position:absolute;left:0;top:0">
 		</div>
 	      </td>
 
 	      <td style="vertical-align:top">
 		<div style="position:relative;left:0;top:0">
-		  <img alt="cc animation" class="fragment fade-out" data-fragment-index="13" src="x86/64bit/x86-cc-regs.dot.svg" style="position:relative;left:0;top:0">
-		  <span class="fragment fade-out" data-fragment-index="15"><img alt="cc animation" class="fragment" data-fragment-index="13" src="x86/64bit/x86-cc-regs.dot.2.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="17"><img alt="cc animation" class="fragment" data-fragment-index="15" src="x86/64bit/x86-cc-regs.dot.3.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="23"><img alt="cc animation" class="fragment" data-fragment-index="17" src="x86/64bit/x86-cc-regs.dot.4.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="25"><img alt="cc animation" class="fragment" data-fragment-index="23" src="x86/64bit/x86-cc-regs.dot.5.svg" style="position:absolute;left:0;top:0"></span>
-		  <span class="fragment fade-out" data-fragment-index="27"><img alt="cc animation" class="fragment" data-fragment-index="25" src="x86/64bit/x86-cc-regs.dot.6.svg" style="position:absolute;left:0;top:0"></span>
-		  <img alt="cc animation" class="fragment" data-fragment-index="27" src="x86/64bit/x86-cc-regs.dot.7.svg" style="position:absolute;left:0;top:0">
+		  <img alt="cc animation" class="fragment fade-out" data-fragment-index="8" src="x86/64bit/x86-cc-regs.dot.svg" style="position:relative;left:0;top:0">
+		  <span class="fragment fade-out" data-fragment-index="10"><img alt="cc animation" class="fragment" data-fragment-index="8" src="x86/64bit/x86-cc-regs.dot.2.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="12"><img alt="cc animation" class="fragment" data-fragment-index="10" src="x86/64bit/x86-cc-regs.dot.3.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="18"><img alt="cc animation" class="fragment" data-fragment-index="12" src="x86/64bit/x86-cc-regs.dot.4.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="20"><img alt="cc animation" class="fragment" data-fragment-index="18" src="x86/64bit/x86-cc-regs.dot.5.svg" style="position:absolute;left:0;top:0"></span>
+		  <span class="fragment fade-out" data-fragment-index="22"><img alt="cc animation" class="fragment" data-fragment-index="20" src="x86/64bit/x86-cc-regs.dot.6.svg" style="position:absolute;left:0;top:0"></span>
+		  <img alt="cc animation" class="fragment" data-fragment-index="22" src="x86/64bit/x86-cc-regs.dot.7.svg" style="position:absolute;left:0;top:0">
 		</div>
 	      </td>
 	    </tr>
@@ -1109,6 +1099,17 @@ ret             ; pop top value from stack, jump there
       </tr>
     </table>
 	  </section>
+
+	  <section data-markdown><script type="text/template">
+## That subroutine, again
+- We fully realize that the previous assembly method could be written as:
+```
+mov rax, rdx
+add rax, rsi
+ret
+```
+- The long-winded-ness of the previous inefficient version was to show how the calling convention works, not to showcase our assembly writing skills
+	  </script></section>
 
 
 	</section>
@@ -1136,7 +1137,7 @@ ret             ; pop top value from stack, jump there
 </ul></li>
 </ul>
 </td><td style="width:50%">
-<img alt="x86 activation record" src="images/08-x86/x86-activation-record.svg">
+<img alt="x86 activation record" src="images/08-x86/x86-64bit-activation-record.svg">
 </td></tr></table>
 	  </section>
 
