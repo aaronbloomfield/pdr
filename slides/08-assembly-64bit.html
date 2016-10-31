@@ -126,10 +126,10 @@
   - More than 95% of it is the same
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
-## IBCM vs. x86: Registers
-![x86 registers](images/08-x86/registers_x86_64bit.png)
-	  </script></section>
+	  <section>
+<h2>IBCM vs. x86: Registers</h2>
+<img src="images/08-x86/registers_x86_64bit.png" class="stretch">
+	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## Funny register names
@@ -767,12 +767,17 @@ int main() {
 	  <section data-markdown><script type="text/template">
 ## Caller Rules Example
 ```
+; Want to call a function "myFunc" that takes three
+; integer parameters. First parameter is in rax.
+; Second parameter is the constant 123. Third
+; parameter is in memory location "var"
+
 push rdi         ; rdi will be a param, so saving it
 
                  ; long retVal = myFunc(x, 123, z);
-mov rdi, [x]     ; put first param in rdi
-mov rsi, rax     ; put second param in rsi
-mov rdx, [z]     ; put third param in rdx
+mov rdi, rax     ; put first param in rdi
+mov rsi, 123     ; put second param in rsi
+mov rdx, [var]   ; put third param in rdx
 
 call myFunc      ; call the function
 
@@ -944,8 +949,8 @@ push rbp        ; both will be used by myFunc
 ```
                      ; subroutine body
 mov rax, rdi	     ; param 1 to rax
-mov rbp, rsi 	     ; param 2 to rbp
-mov rbx, rdx    	 ; param 3 to rbx
+mov rbp, rsi         ; param 2 to rbp
+mov rbx, rdx         ; param 3 to rbx
 mov [rsp+16], rbx    ; put rbx into local var
 add [rsp+16], rbp    ; add rbp into local var
 mov rax, [rsp+16]    ; mov contents of local var to rax

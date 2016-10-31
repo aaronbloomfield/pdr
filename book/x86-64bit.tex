@@ -10,7 +10,7 @@ Jones, and Aaron Bloomfield}
 This small guide, in combination with the material covered in the
 class lectures on assembly language programming, should provide enough
 information to do the assembly language labs for this class. In this
-guide, we describe the basics of 32-bit x86 assembly language
+guide, we describe the basics of 64-bit x86 assembly language
 programming, covering a small but useful subset of the available
 instructions and assembler directives. However, real x86 programming
 is a large and extremely complex universe, much of which is beyond the
@@ -18,48 +18,52 @@ useful scope of this class. For example, there exists real (albeit
 older) x86 code running in the world was written using the 16-bit
 subset of the x86 instruction set. Using the 16-bit programming model
 can be quite complex~-- it has a segmented memory model, more
-restrictions on register usage, and so on. In this guide we'll
-restrict our attention to the more modern aspects of 32-bit x86
-programming, and delve into the instruction set only in enough detail
-to get a basic feel for programming x86 compatible chips at the
-hardware level.
+restrictions on register usage, and so on. This was expanded into a
+32-bit programming model in 1985, but that had the limit of only 4 Gb
+of memory.  In this guide we'll restrict our attention to the more
+modern aspects of 64-bit x86 programming, and delve into the
+instruction set only in enough detail to get a basic feel for
+programming x86 compatible chips at the hardware level.
 
 \section{Registers}
 
-Modern (i.e., 386 and beyond) x86 processors have eight 32-bit general
-purpose registers, as depicted in
-Figure~\ref{x86-register-diagram.fig}. The register names are mostly
-historical in nature. For example, EAX used to be called the
-``accumulator'' since it was used by a number of arithmetic
-operations, and ECX was known as the ``counter'' since it was used to
-hold a loop index. Whereas most of the registers have lost their
-special purposes in the modern instruction set, by convention, two are
-reserved for special purposes~-- the stack pointer (ESP) and the base
-pointer (EBP).
+Modern 64-bit x86 processors have sixteen 64-bit general purpose
+registers, as depicted in Figure~\ref{x86-register-diagram.fig}. The
+register names for the first eight registers are mostly historical in
+nature; the last eight registers were given sequential numbers. For
+example, RAX used to be EAX (in the 32-bit machine), which used to be
+called the ``accumulator'' since it was used by a number of arithmetic
+operations, and RCX (32-bit version: ECX) was known as the ``counter''
+since it was used to hold a loop index. Whereas most of the registers
+have lost their special purposes in the modern instruction set, by
+convention, two are sometimes reserved for special purposes~-- the
+stack pointer (RSP) and the base pointer (RBP).
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=4in]{x86-32bit/x86-register-diagram.pdf}
+\includegraphics[width=4in]{x86-64bit/x86-register-diagram.pdf}
 \end{center}
 \caption{The x86 register set}
 \label{x86-register-diagram.fig}
 \end{figure}
 
-In some cases, namely EAX, EBX, ECX, and EDX, subsections of the
-registers may be used.  For example, the least significant 2 bytes of
-EAX can be treated as a 16-bit register called AX.  The least
-significant byte of AX can be used as a single 8-bit register called
-AL, while the most significant byte of AX can be used as a single
-8-bit register called AH. It is important to realize that these names
-refer to the same physical register. When a two-byte quantity is
-placed into DX, the update affects the value of EDX (in particular,
-the least significant 16 bits of EDX). These ``sub-registers''
-are mainly hold-overs from older, 16-bit versions of the instruction
-set. However, they are sometimes convenient when dealing with data
-that are smaller than 32-bits (e.g., 1-byte ASCII characters).
+In all cases, subsections of the registers may be used.  For example,
+the least significant 2 bytes of RAX can be treated as a 16-bit
+register called AX.  The least significant byte of AX can be used as a
+single 8-bit register called AL, while the most significant byte of AX
+can be used as a single 8-bit register called AH. It is important to
+realize that these names refer to the same physical register. When a
+two-byte quantity is placed into DX, the update affects the value of
+RDX (in particular, the least significant 16 bits of RDX). These
+``sub-registers'' are mainly hold-overs from older, 16-bit versions of
+the instruction set. However, they are sometimes convenient when
+dealing with data that are smaller than 64-bits (e.g., 1-byte ASCII
+characters).  Note that four of the registers (EAX, EBX, ECX, and EDX)
+have an addition ``sub-register'' spot: the second to last byte of the
+register.
 
 When referring to registers in assembly language, the names are not
-case-sensitive. For example, the names EAX and eax refer to the same
+case-sensitive. For example, the names RAX and rax refer to the same
 register.
 
 \section{Memory and Addressing Modes}
@@ -78,7 +82,7 @@ memory next to one another.  Some example declarations are depicted in
 Listing~\ref{x86-declaring-memory-regions.lst}.
 
 \begin{figure}[h]
-\lstinputlisting[caption=Declaring x86 memory regions,label={x86-declaring-memory-regions.lst},backgroundcolor=\color{white},frame=trBL,linewidth=7in,xleftmargin=0in,language={[x86masm]Assembler}]{x86-32bit/code/memory-regions.s}
+\lstinputlisting[caption=Declaring x86 memory regions,label={x86-declaring-memory-regions.lst},backgroundcolor=\color{white},frame=trBL,linewidth=7in,xleftmargin=0in,language={[x86masm]Assembler}]{x86-64bit/code/memory-regions.s}
 \end{figure}
 
 The last example in Listing~\ref{x86-declaring-memory-regions.lst}
@@ -93,24 +97,24 @@ expression a given number of times. For example, the statement ``TIMES
 arrays are depicted in Listing~\ref{x86-declaring-arrays.lst}.
 
 \begin{figure}[h]
-\lstinputlisting[caption=Declaring x86 arrays in memory,label={x86-declaring-arrays.lst},backgroundcolor=\color{white},frame=trBL,linewidth=7in,xleftmargin=0in,language={[x86masm]Assembler}]{x86-32bit/code/declaring-arrays.s}
+\lstinputlisting[caption=Declaring x86 arrays in memory,label={x86-declaring-arrays.lst},backgroundcolor=\color{white},frame=trBL,linewidth=7in,xleftmargin=0in,language={[x86masm]Assembler}]{x86-64bit/code/declaring-arrays.s}
 \end{figure}
 
 \subsection{Addressing Memory}
 \label{addressing-memory.sec}
 
 Modern x86-compatible processors are capable of addressing up to
-$2^{32}$ bytes of memory; that is, memory addresses are 32-bits wide.
+$2^{64}$ bytes of memory; that is, memory addresses are 64-bits wide.
 For example, in Listings~\ref{x86-declaring-memory-regions.lst} and
 \ref{x86-declaring-arrays.lst}, where we used labels to refer to memory
 regions, these labels are actually replaced by the assembler with
-32-bit quantities that specify addresses in memory. In addition to
+64-bit quantities that specify addresses in memory. In addition to
 supporting referring to memory regions by labels (i.e. constant
 values), the x86 provides a flexible scheme for computing and
 referring to memory addresses:
 
-{\bf x86 Addressing Mode Rule}~-- Up to two of the 32-bit registers
-and a 32-bit signed constant can be added together to compute a memory
+{\bf x86 Addressing Mode Rule}~-- Up to two of the 64-bit registers
+and a 64-bit signed constant can be added together to compute a memory
 address. One of the registers can be optionally pre-multiplied by 2,
 4, or 8.
 
@@ -125,36 +129,41 @@ computations that obey the above rule are shown in
 Listing~\ref{x86-valid-addressing-modes.lst}.
 
 \begin{figure}[h]
-\lstinputlisting[caption={Valid x86 addressing modes},label={x86-valid-addressing-modes.lst},backgroundcolor=\color{white},frame=trBL,linewidth=7in,xleftmargin=0in,language={[x86masm]Assembler}]{x86-32bit/code/valid-addressing-modes.s}
+\lstinputlisting[caption={Valid x86 addressing modes},label={x86-valid-addressing-modes.lst},backgroundcolor=\color{white},frame=trBL,linewidth=7in,xleftmargin=0in,language={[x86masm]Assembler}]{x86-64bit/code/valid-addressing-modes.s}
 \end{figure}
 
 Some examples of incorrect address calculations are shown in Listing~\ref{x86-invalid-addressing-modes.lst}.
 
 \begin{figure}[h]
-\lstinputlisting[caption={Invalid x86 addressing modes},label={x86-invalid-addressing-modes.lst},backgroundcolor=\color{white},frame=trBL,linewidth=7in,xleftmargin=0in,language={[x86masm]Assembler}]{x86-32bit/code/invalid-addressing-modes.s}
+\lstinputlisting[caption={Invalid x86 addressing modes},label={x86-invalid-addressing-modes.lst},backgroundcolor=\color{white},frame=trBL,linewidth=7in,xleftmargin=0in,language={[x86masm]Assembler}]{x86-64bit/code/invalid-addressing-modes.s}
 \end{figure}
 
 
 \subsection{Size Directives}
 
-In general, the intended size of the of the data item at a given memory address can be inferred
-from the assembly code instruction in which it is referenced. For example, in all of the above
-instructions, the size of the memory regions could be inferred from the size of the register operand~-- when we were loading a 32-bit register, the assembler could infer that the region of memory
-we were referring to was 4 bytes wide. When we were storing the value of a one byte register to
-memory, the assembler could infer that we wanted the address to refer to a single byte in memory.
-However, in some cases the size of a referred-to memory region is ambiguous. Consider the instruction {\tt mov [ebx], 2}.
+In general, the intended size of the of the data item at a given
+memory address can be inferred from the assembly code instruction in
+which it is referenced. For example, in all of the above instructions,
+the size of the memory regions could be inferred from the size of the
+register operand~-- when we were loading a 64-bit register, the
+assembler could infer that the region of memory we were referring to
+was 8 bytes wide. When we were storing the value of a one byte
+register to memory, the assembler could infer that we wanted the
+address to refer to a single byte in memory.  However, in some cases
+the size of a referred-to memory region is ambiguous. Consider the
+instruction {\tt mov [ebx], 2}.
 
 
 Should this instruction move the value 2 into the single byte at
-address EBX? Perhaps it should move the 32-bit integer representation
+address EBX? Perhaps it should move the 64-bit integer representation
 of 2 into the 4-bytes starting at address EBX. Since either is a valid
 possible interpretation, the assembler must be explicitly directed as
 to which is correct.  The size directives {\tt BYTE PTR}, {\tt WORD
-  PTR}, and {\tt DWORD PTR} serve this purpose. For examples, see
-Listing~\ref{x86-size-directives.lst}.
+  PTR}, {\tt DWORD PTR}, and {\tt QWORD PTR} serve this purpose. For
+examples, see Listing~\ref{x86-size-directives.lst}.
 
 \begin{figure}[h]
-\lstinputlisting[caption={x86 size directive usage},label={x86-size-directives.lst},backgroundcolor=\color{white},frame=trBL,linewidth=7in,xleftmargin=0in,language={[x86masm]Assembler}]{x86-32bit/code/size-directives.s}
+\lstinputlisting[caption={x86 size directive usage},label={x86-size-directives.lst},backgroundcolor=\color{white},frame=trBL,linewidth=7in,xleftmargin=0in,language={[x86masm]Assembler}]{x86-64bit/code/size-directives.s}
 \end{figure}
 
 
@@ -168,12 +177,14 @@ rather a useful subset.
 In this section, we will use the following notation:
 
 \begin{itemlist}
-\item $<$reg32$>$ - means any 32-bit register described in Section 2, for example, ESI.
+\item $<$reg64$>$ - means any 64-bit register described in Section 2, for example, ESI.
 \item $<$reg16$>$ - means any 16-bit register described in Section 2, for example, BX.
+\item $<$reg32$>$ - means any 32-bit register described in Section 2, for example, BX.
 \item $<$reg8$>$ - means any 8-bit register described in Section 2, for example AL.
 \item $<$reg$>$ - means any of the above.
 \item $<$mem$>$ - will refer to a memory address, as described in Section~\ref{addressing-memory.sec}, for example {\tt [EAX]}, or
-{\tt [var+4]}, or {\tt DWORD PTR [EAX+EBX]}.
+{\tt [var+4]}, or {\tt DWORD PTR [RAX+RBX]}.
+\item $<$con64$>$ - means any 64-bit constant.
 \item $<$con32$>$ - means any 32-bit constant.
 \item $<$con16$>$ - means any 16-bit constant.
 \item $<$con8$>$ - means any 8-bit constant.
@@ -193,45 +204,45 @@ In this section, we will use the following notation:
   transfers are desired, the source memory contents must first be
   loaded into a register, then can be stored to the destination memory
   address.}
-{mov eax, ebx \linebreak mov BYTE PTR [var], 5 }
+{mov rax, rbx \linebreak mov BYTE PTR [var], 5 }
 {; transfer ebx to eax\linebreak; store the value 5 into the byte at\linebreak; memory location ``var''}
 {2.2in}{3.5in}
 
 \asminstructionsummary{push}
-{push $<$reg32$>$\newline push $<$mem$>$\newline push $<$con32$>$}
+{push $<$reg$>$\newline push $<$mem$>$\newline push $<$con64$>$}
 {The push instruction places its operand onto the top of the hardware supported
-stack in memory. Specifically, push first decrements ESP by 4, then places its
-operand into the contents of the 32-bit location at address [ESP]. ESP (the stack
+stack in memory. Specifically, push first decrements RSP by 8, then places its
+operand into the contents of the 64-bit location at address [RSP]. RSP (the stack
 pointer) is decremented by push since the x86 stack grows down~-- i.e. the stack
 grows from high addresses to lower addresses.}
-{push eax\newline push [var]}
-{; push the contents of eax onto the stack\newline
-; push the 4 bytes at address ``var'' onto stack}
+{push rax\newline push [var]}
+{; push the contents of rax onto the stack\newline
+; push the 8 bytes at address ``var'' onto stack}
 {1in}{4.7in}
 
 \asminstructionsummary{pop}
-{pop $<$reg32$>$\newline pop $<$mem$>$}
-{The pop instruction removes the 4-byte data element from the top of
+{pop $<$reg$>$\newline pop $<$mem$>$}
+{The pop instruction removes the 8-byte data element from the top of
   the hardware supported stack into the specified operand (i.e.
-  register or memory location). Specifically, pop first moves the 4
-  bytes located at memory location [ESP] into the specified register or
-  memory location, and then increments SP by 4.}
-{pop edi \newline pop [ebx]}
-{; pop the top element of the stack into EDI.\newline
+  register or memory location). Specifically, pop first moves the 8
+  bytes located at memory location [RSP] into the specified register or
+  memory location, and then increments SP by 8.}
+{pop rdi \newline pop [rbx]}
+{; pop the top element of the stack into RDI.\newline
 ; pop the top element of the stack into memory at\newline
-; the four bytes starting at location EBX.}
+; the four bytes starting at location RBX.}
 {1in}{4.7in}
 
 \asminstructionsummary{lea}
-{lea $<$reg32$>$,$<$mem$>$}
+{lea $<$reg64$>$,$<$mem$>$}
 {The lea instruction places the address specified by its second
   operand into the register specified by its first operand. Note, the
   contents of the memory location are not loaded~-- only the effective
   address is computed and placed into the register.  This is useful
   for obtaining a ``pointer'' into a memory region.}
-{lea eax, [var]\newline lea edi, [ebx+4*esi]}
-{; the address of ``var'' is placed in EAX \newline
-; the value EBX+4*ESI is placed in EDI}
+{lea rax, [var]\newline lea rdi, [rbx+4*rsi]}
+{; the address of ``var'' is placed in RAX \newline
+; the value RBX+4*RSI is placed in RDI}
 {1.85in}{3.85in}
 
 \subsection{Arithmetic and Logic Instructions}
@@ -247,12 +258,12 @@ add $<$mem$>$,$<$con$>$ \hspace{0.5in} sub $<$mem$>$,$<$con$>$}
   subtracts its second operand from its first.  Note, whereas both
   operands may be registers, at most one operand may be a memory
   location.}
-{add eax, 10\newline 
-sub [var], esi\newline\newline\newline
+{add rax, 10\newline 
+sub [var], rsi\newline\newline\newline
 add BYTE PTR [var], 10}
-{; add 10 to the contents of EAX. \newline
-; subtract the contents of ESI from \newline
-; the 32-bit integer stored at \newline
+{; add 10 to the contents of RAX. \newline
+; subtract the contents of RSI from \newline
+; the 64-bit integer stored at \newline
 ; memory location ``var''.\newline
 ; add 10 to the single byte stored\newline
 ; at memory address ``var''.\newline}
@@ -263,17 +274,17 @@ add BYTE PTR [var], 10}
 inc $<$mem$>$ \hspace{0.5in} dec $<$mem$>$}
 {The inc instruction increments the contents of its operand by one,
   and similarly dec decrements the contents of its operand by one.}
-{dec eax \newline inc DWORD PTR [var]}
-{; subtract one from the contents of EAX. \newline
-; add one to the 32-bit integer stored at \newline
+{dec rax \newline inc DWORD PTR [var]}
+{; subtract one from the contents of RAX. \newline
+; add one to the 64-bit integer stored at \newline
 ; memory location ``var''.}
 {1.8in}{3.9in}
 
 \asminstructionsummary{imul}
-{imul $<$reg32$>$,$<$reg32$>$\newline
-imul $<$reg32$>$,$<$mem$>$\newline
-imul $<$reg32$>$,$<$reg32$>$,$<$con$>$\newline
-imul $<$reg32$>$,$<$mem$>$,$<$con$>$}
+{imul $<$reg64$>$,$<$reg64$>$\newline
+imul $<$reg64$>$,$<$mem$>$\newline
+imul $<$reg64$>$,$<$reg64$>$,$<$con$>$\newline
+imul $<$reg64$>$,$<$mem$>$,$<$con$>$}
 {The imul instruction has two basic formats: two-operand (first two
 syntax listings above) and three-operand (last two syntax listings
 above).  The two-operand form multiplies its two operands together and
@@ -282,33 +293,33 @@ operand must be a register.  The three operand form multiplies its
 second and third operands together and stores the result in its first
 operand. Again, the result operand must be a register.  Furthermore,
 the third operand is restricted to being a constant value.}
-{imul eax, [var]\newline\newline\newline
-imul esi, edi, 25}
-{; multiply the contents of EAX by the \newline
-; 32-bit contents of the memory location \newline
-; ``var''. Store the result in EAX.\newline
-; multiply the contents of EDI by 25. \newline
-; Store the result in ESI.}
+{imul rax, [var]\newline\newline\newline
+imul rsi, rdi, 25}
+{; multiply the contents of RAX by the \newline
+; 64-bit contents of the memory location \newline
+; ``var''. Store the result in RAX.\newline
+; multiply the contents of RDI by 25. \newline
+; Store the result in RSI.}
 {1.8in}{3.9in}
 
 \asminstructionsummary{idiv}
-{idiv $<$reg32$>$\newline
+{idiv $<$reg64$>$\newline
 idiv $<$mem$>$}
 {The idiv instruction is used to divide the contents of the 64 bit
-  integer EDX:EAX (constructed by viewing EDX as the most significant
-  four bytes and EAX as the least significant four bytes) by the
+  integer RDX:RAX (constructed by viewing RDX as the most significant
+  eight bytes and RAX as the least significant eight bytes) by the
   specified operand value. The quotient result of the division is
-  stored into EAX, while the remainder is placed in EDX. This
+  stored into RAX, while the remainder is placed in RDX. This
   instruction must be used with care. Before executing the
   instruction, the appropriate value to be divided must be placed into
-  EDX and EAX. Clearly, this value is overwritten when the idiv
+  RDX and RAX. Clearly, this value is overwritten when the idiv
   instruction is executed.}
-{idiv ebx \newline\newline\newline idiv DWORD PTR [var]}
-{; divide the contents of EDX:EAX by the \newline
-; contents of EBX. Place the quotient \newline
-; in EAX and the remainder in EDX.\newline
+{idiv rbx \newline\newline\newline idiv DWORD PTR [var]}
+{; divide the contents of RDX:RAX by the \newline
+; contents of RBX. Place the quotient \newline
+; in RAX and the remainder in RDX.\newline
 ; same as above, but divide by the \newline
-; 32-bit value stored at memory \newline
+; 64-bit value stored at memory \newline
 ; location ``var''.}
 {1.9in}{3.8in}
 
@@ -321,8 +332,8 @@ and $<$mem$>$,$<$con$>$ \hspace{0.25in} or $<$mem$>$,$<$con$>$ \hspace{0.25in} x
 {These instructions perform the specified logical operation (logical
 bitwise and, or, and exclusive or, respectively) on their operands,
 placing the result in the first operand location.}
-{and eax, 0fH \newline xor edx, edx}
-{; clear all but the last 4 bits of EAX. \newline ; set the contents of EDX to zero.}
+{and rax, 0fH \newline xor rdx, rdx}
+{; clear all but the last 4 bits of RAX. \newline ; set the contents of RDX to zero.}
 {1.7in}{4in}
 
 \asminstructionsummary{not}
@@ -335,8 +346,8 @@ placing the result in the first operand location.}
 \asminstructionsummary{neg}
 {neg $<$reg$>$ \newline neg $<$mem$>$}
 {Performs the arithmetic (i.e., two's complement) negation of the operand contents.}
-{neg eax \newline neg [var]}
-{; negate the contents of EAX. \newline ; negate the contests of ``var''}
+{neg rax \newline neg [var]}
+{; negate the contents of RAX. \newline ; negate the contests of ``var''}
 {1.4in}{4.3in}
 
 \asminstructionsummary{shl, shr}
@@ -350,8 +361,8 @@ shl $<$mem$>$,cl \hspace{0.92in} shr $<$mem$>$,cl}
   shifted up to 31 places. The number of bits to shift is specified
   by the second operand, which can be either an 8-bit constant or the
   register CL. In either case, shifts counts of greater then 31 are
-  performed modulo 32.}
-{shl eax 5 \newline\newline shr [var] 3}{; shift the contents of eax left by 5 bit \newline ; positions \newline ; shift the contents of ``var'' right by 3 \newline ; bit positions}{1.4in}{4.3in}
+  performed modulo 64.}
+{shl rax 5 \newline\newline shr [var] 3}{; shift the contents of rax left by 5 bit \newline ; positions \newline ; shift the contents of ``var'' right by 3 \newline ; bit positions}{1.4in}{4.3in}
 
 \subsection{Control Flow Instructions}
 
@@ -366,7 +377,7 @@ name ``begin'' instead of having to refer to the memory address as an
 integer.
 
 \begin{figure}[h]
-\lstinputlisting[caption={x86 labeled code location},label={x86-labeled-code-location.lst},backgroundcolor=\color{white},frame=trBL,linewidth=4.75in,xleftmargin=2.25in,language={[x86masm]Assembler}]{x86-32bit/code/labeled-code-location.s}
+\lstinputlisting[caption={x86 labeled code location},label={x86-labeled-code-location.lst},backgroundcolor=\color{white},frame=trBL,linewidth=4.75in,xleftmargin=2.25in,language={[x86masm]Assembler}]{x86-64bit/code/labeled-code-location.s}
 \end{figure}
 
 
@@ -404,9 +415,9 @@ jle $<$label$>$ ; Jump when less than or equal to}
   compare instruction, cmp (see below).  For example, conditional
   branches such as jle and jne are based on first performing a cmp
   operation on the desired operands.}
-{cmp eax, ebx \newline jle done}
-{; if the contents of eax are less than or \newline
-; equal to the contents of EBX, jump to the \newline
+{cmp rax, rbx \newline jle done}
+{; if the contents of rax are less than or \newline
+; equal to the contents of ebx, jump to the \newline
 ; code location labeled ``done''.}
 {1.4in}{4.3in}
 
@@ -458,7 +469,7 @@ location to return to when the subroutine completes.}
 \label{x86-basic-program-structure.sec}
 
 \begin{wrapfigure}{r}{0.37\textwidth}
-\lstinputlisting[backgroundcolor=\color{white},frame=trBL,linewidth=2.5in,xleftmargin=0.25in,label={x86-return2.s.lst},language={[x86masm]Assembler},caption={x86 code to return 2}]{x86-32bit/code/return2.s}
+\lstinputlisting[backgroundcolor=\color{white},frame=trBL,linewidth=2.5in,xleftmargin=0.25in,label={x86-return2.s.lst},language={[x86masm]Assembler},caption={x86 code to return 2}]{x86-64bit/code/return2.s}
 \vspace{-0.25in}
 \end{wrapfigure}
 
@@ -482,6 +493,12 @@ file. In Listings~\ref{x86-return2.s.lst} and \ref{x86-return2.cpp.lst} we see
 two files, one in C++, the other in x86 assembly. Each file includes a
 function (albeit an ugly one) to return the integer value 2.
 
+Note that the fucntion shown in assembly in
+Listing~\ref{x86-return2.s.lst} returns a 32-bit value, since it is
+put into register eax.  This corresponds to retnring an {\tt int} in C
+or C++.  If we wanted to return a 64-bit value, which corresponds to
+returning a {\tt long}, then we would put the return value into rax.
+
 The top of the assembly file contains two directives that indicate the
 instruction set and memory model we will use for all work in this
 class (note, there are other possibilities~-- one might use only the
@@ -493,7 +510,7 @@ and DD directives (described in Section 3.1) to reserve and initialize
 a 4-byte (i.e., integer-sized) memory region labeled ``var''.
 
 \begin{wrapfigure}{r}{0.37\textwidth}
-\lstinputlisting[backgroundcolor=\color{white},frame=trBL,linewidth=2.5in,xleftmargin=0.25in,label={x86-return2.cpp.lst},language=C++,caption={C++ code to return 2}]{x86-32bit/code/return2.cpp}
+\lstinputlisting[backgroundcolor=\color{white},frame=trBL,linewidth=2.5in,xleftmargin=0.25in,label={x86-return2.cpp.lst},language=C++,caption={C++ code to return 2}]{x86-64bit/code/return2.cpp}
 \vspace{-0.25in}\end{wrapfigure}
 
 Next in each file, we find the declaration of the function named
@@ -514,7 +531,7 @@ by convention, hence the instruction to move the contents of ``var''
 into EAX in the assembly code.
 
 \begin{wrapfigure}{r}{0.48\textwidth}
-\lstinputlisting[backgroundcolor=\color{white},frame=trBL,linewidth=4in,xleftmargin=0.25in,label={x86-calling-return2.cpp.lst},language=C++,caption={Calling returnTwo() from C++}]{x86-32bit/code/calling-return2.cpp}
+\lstinputlisting[backgroundcolor=\color{white},frame=trBL,linewidth=4in,xleftmargin=0.25in,label={x86-calling-return2.cpp.lst},language=C++,caption={Calling returnTwo() from C++}]{x86-64bit/code/calling-return2.cpp}
 \vspace{-0.25in}
 \end{wrapfigure}
 

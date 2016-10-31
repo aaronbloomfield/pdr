@@ -85,8 +85,7 @@ subroutine:
   the stack, and branches to the subroutine code.
 \item After the subroutine returns, (i.e. immediately following the
   call instruction) the caller must remove the parameters from stack.
-  This restores the stack to its state before the call was per-
-  formed.
+  This restores the stack to its state before the call was performed.
 \item The caller can expect to find the return value of the subroutine
   in the register EAX.
 \item The caller restores the contents of caller-saved registers (EAX,
@@ -208,13 +207,19 @@ the subroutine will use the ret instruction to return when the
 subroutine completes. When the subroutine returns, the parameters must
 be removed from the stack. A simple way to do this is to add the
 appropriate amount to the stack pointer (since the stack grows down).
-Finally, the result is available in EAX.  Relative to the caller's
-rules, the callee's rules are somewhat more complex. An example
-subroutine implementation that obeys the callee's rules is depicted in
-ListingFigure 8. The subroutine prologue performs the standard actions of
-saving a snapshot of the stack pointer in EBP (the base pointer),
-allocating local variables by decrementing the stack pointer, and
-saving register values on the stack.
+Finally, the result is available in EAX.
+
+Relative to the caller's rules, the callee's rules are somewhat more
+complex. An example subroutine implementation that obeys the callee's
+rules is depicted in Listing~\ref{x86-callee-example-1.s.lst}. The
+subroutine prologue performs the standard actions of saving a snapshot
+of the stack pointer in EBP (the base pointer), allocating local
+variables by decrementing the stack pointer, and saving register
+values on the stack.
+
+\begin{figure}[h!]
+\lstinputlisting[caption={Example function definition, callee's rules obeyed},label={x86-callee-example-1.s.lst},backgroundcolor=\color{white},frame=trBL,linewidth=6.9in,xleftmargin=0.15in,language={[x86masm]Assembler}]{x86-32bit/code/callee-example-1.s}
+\end{figure}
 
 In the body of the subroutine we can now more clearly see the use of
 the base pointer illustrated. Both parameters and local variables are
@@ -235,24 +240,19 @@ variables and parameters within a function body.
 The function epilogue, as expected, is basically a mirror image of the
 function prologue. The caller's register values are recovered from the
 stack, the local variables are deallocated by resetting the stack
-pointer, the caller's base pointer value is recovered, and the ret
-instruction is used to return to the appropriate code location in the
-caller.
-
-\begin{figure}
-\lstinputlisting[caption={Example function definition, callee's rules obeyed},label={x86-callee-example-1.s.lst},backgroundcolor=\color{white},frame=trBL,linewidth=6.9in,xleftmargin=0.15in,language={[x86masm]Assembler}]{x86-32bit/code/callee-example-1.s}
-\end{figure}
-
+pointer, the caller's base pointer value is recovered, and the {\tt
+  ret} instruction is used to return to the appropriate code location
+in the caller.
 
 A good way to visualize the operation of the calling convention is to
 draw the contents of the nearby region of the stack during subroutine
 execution. Figure~\ref{x86-activation-record.fig} depicts the contents
-of the stack during the execution of the body of myFunc (depicted in
-Listing~\ref{x86-callee-example-1.s.lst}). Notice, lower addresses are
-depicted lower in the figure, and thus the ``top'' of the stack is the
-bottom-most cell. This corresponds visually to the intuitive
-statement that the x86 hardware stack ``grows down.'' The cells
-depicted in the stack are 32-bit wide memory locations, thus the
+of the stack during the execution of the body of myFunc (myFunc is
+depicted in Listing~\ref{x86-callee-example-1.s.lst}). Notice, lower
+addresses are depicted lower in the figure, and thus the ``top'' of
+the stack is the bottom-most cell. This corresponds visually to the
+intuitive statement that the x86 hardware stack ``grows down.'' The
+cells depicted in the stack are 32-bit wide memory locations, thus the
 memory addresses of the cells are 4 bytes apart. From this picture we
 see clearly why the first parameter resides at an offset of 8 bytes
 from the base pointer. Above the parameters on the stack (and below
@@ -268,7 +268,7 @@ the first parameter.
 \end{figure}
 
 The assembly code for {\tt myFunc()} was shown above in
-Listing~\ref{x86-callee-example-1.s.lst}). The C++ code to call that
+Listing~\ref{x86-callee-example-1.s.lst}. The C++ code to call that
 subroutine is shown in
 Listing~\ref{x86-callee-example-main.cpp.lst}.
 

@@ -23,8 +23,9 @@ The tutorials for this course are listed below.
 - Tutorial 7: Shell scripting, part 2
     - This is the remainder of the [Wikibooks article on Bash Shell Scripting](http://en.wikibooks.org/wiki/Bash_Shell_Scripting)
 - Tutorial 8: assembly
-    - ~~32-bit: This two PDF book chapters that are contained in this repository: [x86 Assembly](../book/x86-32bit-asm-chapter.pdf) and [The x86 C Calling Convention](../book/x86-32bit-ccc-chapter.pdf)~~
-	- 64-bit: The C++/assembly tutorial, which consists of reading [x86-64 Machine-Level Programming](https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf) from CMU
+    - ~~32-bit: This two PDF book chapters that are contained in this repository: [x86 Assembly, 32 bit](../book/x86-32bit-asm-chapter.pdf) and [The 32 bit x86 C Calling Convention](../book/x86-32bit-ccc-chapter.pdf)~~
+    - 64-bit: This two PDF book chapters that are contained in this repository: [x86 Assembly, 64 bit](../book/x86-64bit-asm-chapter.pdf) and [The 64 bit x86 C Calling Convention](../book/x86-64bit-ccc-chapter.pdf)
+        - Another good reading document is the [x86-64 Machine-Level Programming document](https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf) from CMU, although they use the other assembly language format
 - [Tutorial 9: C](09-c/index.html)
 - (no tutorial 10)
 - [Tutorial 11: Doxygen](11-doxygen/index.html)

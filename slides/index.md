@@ -46,7 +46,8 @@ Program and Data Representation: Slides
 Slide set 8: assembly language: in 32 bit and 64 bit flavors
 
 - 64 bit materials: [64 bit assembly slides](08-assembly-64bit.html#/)
-    - A good reading document is the [x86-64 Machine-Level Programming document](https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf) from CMU
+    - The x86 book chapters on [x86](../book/x86-64bit-asm-chapter.pdf) and the [C calling convention](../book/x86-64bit-ccc-chapter.pdf) as the reading
+        - Another good reading document is the [x86-64 Machine-Level Programming document](https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf) from CMU, although they use the other assembly language format
     - Source code
         - The generated assembly was generated using `make asm`, which uses gcc/g++; to generate it using clang/clang++, use the 'asmclang' target
         - [Makefile](code/08-assembly-64bit/Makefile.html) ([src](code/08-assembly-64bit/Makefile))

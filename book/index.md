@@ -15,11 +15,13 @@ Directory contents
 
 Each chapter is named as foo.tex, with a foo/ direcotry to hold the images and source code for that chapter (all source code is kept external to the LaTeX files).
 
+
 #### IBCM files
 
 - [ibcm.tex](ibcm.tex): The actual content of the IBCM chapter; it is included in various other files (main.tex and ibcm-chapter.tex).  One can not LaTeX this file by itself.
 - [ibcm-chapter.tex](ibcm-chapter.tex) ([pdf](ibcm-chapter.pdf)): This file includes ibcm.tex, and allows that content to be created into a stand-alone PDF of the IBCM content.
 - [ibcm/](ibcm/): The directory that contains the various source code files and images used in the IBCM chapter.
+
 
 #### x86 (32 bit) files
 
@@ -28,6 +30,15 @@ Each chapter is named as foo.tex, with a foo/ direcotry to hold the images and s
 - [x86-32bit-asm-chapter.tex](x86-32bit-asm-chapter.tex) ([pdf](x86-32bit-asm-chapter.pdf)): This file includes x86-32bit.tex, and allows that content to be created into a stand-alone PDF of the x86 introduction content.
 - [x86-32bit-ccc-chapter.tex](x86-32bit-ccc-chapter.tex) ([pdf](x86-32bit-ccc-chapter.pdf)): This file includes x86-32bit-ccc.tex, and allows that content to be created into a stand-alone PDF of the x86 calling convention content.
 - [x86-32bit/](x86-32bit/): The directory that contains the various source code files and images used in the 32 bit x86 chapters.
+
+
+#### x86 (64 bit) files
+
+- [x86-64bit.tex](x86-64bit.tex): The introduction of the 64 bit x86 assembly instruction set; this is the actual content, and this file cannot be LaTeX'ed directly.
+- [x86-64bit-ccc.tex](x86-64bit-ccc.tex): The C calling convention for 64 bit x86 assembly; this is the actual content, and this file cannot be LaTeX'ed directly.
+- [x86-64bit-asm-chapter.tex](x86-64bit-asm-chapter.tex) ([pdf](x86-64bit-asm-chapter.pdf)): This file includes x86-64bit.tex, and allows that content to be created into a stand-alone PDF of the x86 introduction content.
+- [x86-64bit-ccc-chapter.tex](x86-64bit-ccc-chapter.tex) ([pdf](x86-64bit-ccc-chapter.pdf)): This file includes x86-64bit-ccc.tex, and allows that content to be created into a stand-alone PDF of the x86 calling convention content.
+- [x86-64bit/](x86-64bit/): The directory that contains the various source code files and images used in the 32 bit x86 chapters.
 
 
 #### Common files

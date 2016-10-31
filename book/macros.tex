@@ -12,3 +12,12 @@
 \setlength{\itemsep}{0pt}
 \setlength{\parskip}{0pt}}
 {\end{enumerate}}
+
+\newcommand{\asminstructionsummary}[7]{
+\noindent\begin{tabular}{p{1in}p{#6}p{#7}}
+\multicolumn{3}{p{6.7in}}{\bf Instruction: #1} \\
+\em Syntax: & \multicolumn{2}{p{5.7in}}{\tt #2} \\
+\em Semantics: & \multicolumn{2}{p{5.7in}}{#3} \\
+\em Examples: & \tt #4 & \tt #5 \\
+\end{tabular}
+}
