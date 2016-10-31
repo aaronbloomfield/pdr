@@ -1270,10 +1270,10 @@ int main() {
 No external source code; this is how we might write it ourselves.
 ```
 ; prologue, nothing here because no saved
-; registers and no loval vars
+; registers and no local vars
 
 ; procedure body
-mov rax, rdi    	  ; eax <- x
+mov rax, rdi    	  ; rax <- x
 cmp rax, 0            ; x == 0 ?
 jge end_of_proc       ; if pos goto end
 neg rax               ; negate x
@@ -1336,12 +1336,12 @@ absolute_value:
     - the 'q' part means 'quadword' (i.e. 64 bits, so the assembler doesn't have to guess)
   - `$0` is the constant 0
   - Register names begin with a percent sign
-  - `8(%rbp)` is [rbp+8] (though we did not see this one here)
+  - `-8(%rsp)` is [rsp-8]
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Assembly syntax "flavors"
-- There are two primary syntax "flavors" of x86 assmembly
+- There are two primary syntax "flavors" of x86 assembly
   - The difference is solely in the formatting; all assembly commands can be written in either format
   - You can see more details about the differences [here](https://en.wikipedia.org/wiki/X86_assembly_language#Syntax)
 - Flavors:
@@ -1355,7 +1355,7 @@ clang++ -m64 -mllvm --x86-asm-syntax=intel -S \
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## clang++'s asmsembly for absolute_value
+## clang++'s assembly for absolute_value
 This is with the `-mllvm --x86-asm-syntax=intel` flags
 
 Source code: [test_abs.s](code/08-assembly-64bit/test_abs.s.html) ([src](code/08-assembly-64bit/test_abs.s))
@@ -1385,7 +1385,7 @@ absolute_value:
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## clang++'s asmsembly for ints
+## clang++'s assembly for ints
 This is for [test_abs_int.cpp](code/08-assembly-64bit/test_abs_int.cpp.html), which uses `int` types instead of `long` types
 
 Source code: [test_abs_int.s](code/08-assembly-64bit/test_abs_int.s.html) ([src](code/08-assembly-64bit/test_abs_int.s))
@@ -1517,7 +1517,7 @@ max:
 ```
 The [cmovg](http://www.asmpedia.org/index.php?title=CMOVG) opcode (conditional move if greater than) will move the greater value into the first parameter; [cmovge](http://www.asmpedia.org/index.php?title=CMOVGE) does the move greater than *or equal to* value
 
-Note that this code uses the 32-bit versions of the registers because the variables were decalred as `int` rather than `long`.
+Note that this code uses the 32-bit versions of the registers because the variables were declared as `int` rather than `long`.
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
