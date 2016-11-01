@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 2150: course-conclusion slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/css/pdr.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
+	<![endif]-->
+    <script type="text/javascript" src="../slides/js/dhtmlwindow.js"></script>
+    <script type="text/javascript" src="../slides/js/canvas.js"></script>
+    <link rel="stylesheet" href="../slides/css/dhtmlwindow.css" type="text/css">
+  </head>
+
+  <body onload="canvasinit()">
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	<section data-markdown id="cover"><script type="text/template">
+# CS 2150
+&nbsp;
+### Program and Data Representation
+### Spring 2016
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="course-conclusion.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png"></a></small></center>
+&nbsp;  
+&nbsp;  
+## Course Conclusion
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Course Objectives
+
+<div style="font-size:80%">
+<ul>
+<li>Understand program representation from the high-level programming language perspective down to the underlying machine level representation, including: number representation, operations, conditionals, and control structures</li>
+<li>Be able to implement basic and advanced abstract data types in C++ including: linked lists, stacks, queues, hash tables, trees, and graphs</li>
+<li>Be able to evaluate asymptotic time and space complexity analysis of programs and data structure implementations using Big-O, Big-Omega, and Big-Theta notation and assess the suitability of a data structure for a particular problem</li>
+<li>Understand the basic program execution model and the underlying computer hardware and software (fetch-execute cycle, memory hierarchy, operating system, compiler)</li>
+<li>Be able to implement basic program control and data structures in an assembly language (loops, conditionals, subroutines and parameter passing modes, arrays)</li>
+</div>
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## What was new this semester
+- Many tweaks and updates to the [github repo](https://github.com/aaronbloomfield/pdr)
+- A (somewhat) reasonable amount of TA resources
+- The largest enrollment ever (264 students)
+  - Due to this, I purposely didn't make many major changes to the course
+- Streamlined grading, even if we did run into hitches and delays
+- Two instructors meant synchronizing the lectures more carefully
+	</script></section>
+
+	<section>
+<h2>Lab comments</h2>
+<table class="transparent">
+<tr><td><ul>
+<li>Lab 1: Intro to C++</li>
+<li>Lab 2: Lists</li>
+<li>Lab 3: Stacks</li>
+<li>Lab 4: Data representation</li>
+<li>Lab 5: Trees</li>
+<li>Lab 6: Hashes</li>
+</ul></td><td style="width:50px"></td><td class="top"><ul>
+<li>Lab 7: IBCM</li>
+<li>Lab 8: x86 part 1</li>
+<li>Lab 9: x86 part 2</li>
+<li>Lab 10: Huffman</li>
+<li>Lab 11: Graphs</li>
+<li>Lab 12: Objective C</li>
+</td></tr></table>
+	</section>
+
+	<section data-markdown><script type="text/template">
+## What didn't work well
+- Two snow days this semester
+- The submission server issues
+- Falling behind in the grading, although we did periodically catch up
+- Support request response slowness
+- Still a somewhat small course staff due to lack of departmental $$$
+- Not having as many readings available as I would have liked
+- VirtualBox caused a lot of issues for some people
+- The lecture reording, when it didn't work
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## CS 2150 Enrollment Graph
+![enrollment graph](enrollment.svg)
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## What did work well
+- Submission and gradebook scripts!  This saved a HUGE amount of TA time, and streamlined submission and grading
+  - Especially the support ticket system
+- A (relatively) large number of TAs along with an excellent group of TAs
+- None of the labs had any major issues!  W00t!
+  - Labs 6 & 10 do not count as "major issues"
+- Use of the [github repo](https://github.com/aaronbloomfield/pdr), and almost no use of Collab
+- Behind-the-scenes stuff: TA management, organization, etc.
+- The lecture reording, when it did work
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Did I push too hard?
+- I got as many "things are going great" comments as "things are going terrible"
+  - Although anonymous feedback was rather lonely this semester...
+- Part of the issues were the hard labs
+- This course is meant to be a lot of work: a gateway into the CS electives
+- The goal is to make you work efficiently, not necessarily more
+- In hindsight, considering how much you accomplished this semester, was it still too much work?
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Changes for next semester
+- More students than ever (likely at capacity of 300)
+- Updates to the content in the [github repo](https://github.com/aaronbloomfield/pdr) (specifically what's listed in the [github repo issues](https://github.com/aaronbloomfield/pdr/issues))
+- With the data recorded from the office hours queue, we can better target where to staff extra TAs for the busiest office hours
+- More book chapters; we only had a few this semester; I'd like to expand on the x86 one for next semester, and add a heap/Huffman chapter
+- VirtualBox is showing it's age, and may be replaced
+- Course content changes (next slide)
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## CS 2150 moving forward
+- We are (finally) moving to 64-bit x86 assembly for the fall
+  - I think that 32-bit is better for teaching, but the world has moved on...
+  - Note that CS 3330 will move in the fall from 64-bit x86 assembly to ARM 7 or ARM 8 assembly
+- Spring 2017 changes
+  - The data structures covered will change
+  - CS 2110 will focus on lists and BSTs in the fall
+  - CS 2150 will spend less time on lists and BSTs, but cover the remaining data structures
+    - We will introduce some new ones: perhaps set data structures
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Let me know your comments!
+- Please send me your feedback!
+  - Either by e-mail or anonymously or on the course surveys
+- Please fill out the course surveys!
+	</script></section>
+
+	<section>
+<h2>Have a great summer break!</h2>
+<img class="stretch" src="http://www.adamfishercox.com/calvinandhobbes/pageimages/laststrip.png" alt="calvin and hobbes" style="width:100%;background-color:white">
+	</section>
+
+      </div>
+
+    </div>
+
+    <div id="calibratediv" style="display:none">
+      <div id="calibratecanvasdiv">
+        <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
+      </div>
+      <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
+    </div>
+    <script src="../slides/reveal.js/lib/js/head.min.js"></script>
+    <script src="../slides/reveal.js/js/reveal.js"></script>
+    <!-- You cannot, apparently, include this from another directory, hence why settings.js is reproduced here in full -->
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      slideNumber: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: '../slides/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: '../slides/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: '../slides/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: '../slides/reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: '../slides/reveal.js/plugin/zoom-js/zoom.js', async: true },
+      { src: '../slides/reveal.js/plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+
+  </body>
+</html>

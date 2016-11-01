@@ -12,6 +12,13 @@
 <h1 id="pdr-tutorial-1-introduction-to-unix-virtualbox-use">PDR: Tutorial 1: Introduction to UNIX: VirtualBox Use</h1>
 <p><a href="index.html">Go up to the main tutorial 1 page</a></p>
 <p>VirtualBox is a free program that allows you to run another operating system on your machine without needing to reinstall anything. You just have to install the VirtualBox client, which installs like any other program and is available for many different platforms (Windows, Mac, Linux). We provide you with a pre-configured VirtualBox image that contains an Ubuntu Linux installation that you can use for this course.</p>
+<h3 id="emulating-64-bit">Emulating 64-bit</h3>
+<p>When stepping through the steps below, you need to select 64-bit Linux/Ubuntu, and <strong>NOT</strong> 32-bit. If the <em>only</em> options that appear at that step are 32-bit OSes, then you need to enable your computer to emulate 64-bit OSes. Two of these things are done in the BIOS (hit delete, F1, or F10 when your computer starts). Because everybody's BIOS is different, we cannot provide specific instructions as to which exact steps to take. However, you need to enable the following two features in the BIOS:</p>
+<ol style="list-style-type: decimal">
+<li>Intel Virtualization Technology</li>
+<li>VT-d</li>
+</ol>
+<p>In addition, if you are using a Windows machine, you will need Hyper-V disabled in the &quot;Turn Windows Features on and off&quot; menu. You can get to it by searching for that quoted text in the start menu.</p>
 <h3 id="quick-start">Quick start</h3>
 <ul>
 <li>A bit of terminology: the 'host' machine is the physical computer (laptop, desktop, etc.) that you are using. The 'guest' machine is the virtual machine that is running in VirtualBox, and is often just called the 'guest operating system'.
@@ -20,20 +27,19 @@
 </ul></li>
 <li>You will need to install the Virtual Box client. It can be downloaded for free from <a href="http://www.virtualbox.org/">here</a> and runs on most operating systems.
 <ul>
-<li>For the fall 2015 semester, you <strong>MUST USE VIRTUALBOX VERSION 4.3</strong> -- version 5.0 and above does not work properly</li>
 <li>Under Linux, I installed the 'virtualbox-ose-qt' package (the name of yours might be different), but if you are running Linux already, you won't need to install a virtual machine running Linux...</li>
 </ul></li>
 <li>Download the provided VirtualBox image (from Collab, in the misc/ folder of the Resources tool). You will need to unzip this file before using it.
 <ul>
-<li>This file is rather large (about 2 Gb), so you may want to try downloading it during off hours, such as late at night. If you have problems downloading it, let us know. If you do not have sufficient bandwidth to download it, please see us after lecture, and we will provide it on a different media for you.</li>
-<li>Unzip this file; it will take up about 6.4 Gb on your machine. Once uncompressed, you can download the .zip file that you downloaded.
+<li>This file is rather large (about 2.5 Gb), so you may want to try downloading it during off hours, such as late at night. If you have problems downloading it, let us know. If you do not have sufficient bandwidth to download it, please see us after lecture, and we will provide it on a different media for you.</li>
+<li>Unzip this file; it will take up about 8.2 Gb on your machine. Once uncompressed, you can download the .zip file that you downloaded.
 <ul>
 <li>Your unzip program may complain about needing some insane amount of space (like 700 petabytes, where a petabyte is 1,000 terabytes); this is a bug in many unzip programs. Try <a href="http://www.7-zip.org/">7-zip</a>, which has had more success.</li>
 </ul></li>
 </ul></li>
 <li>Run VirtualBox, and import the image:
 <ul>
-<li>To do that, click on 'New', and choose the right OS/version (&quot;Ubuntu (32 bit)&quot; -- don't choose the 64 bit version!). Give it a name to help differentiate it from other virtual machines that you may end up using in later classes.</li>
+<li>To do that, click on 'New', and choose the right OS type/version (&quot;Linux&quot;/&quot;Ubuntu (64 bit)&quot; -- don't choose the 32 bit version!). Give it a name to help differentiate it from other virtual machines that you may end up using in later classes.</li>
 <li>Stay with the default memory amount (you can change it later)</li>
 <li>At the 'Hard drive' screen select 'use an existing virtual hard drive file', and click the folder icon to the right of the drop-down list. You want to use the file you unzipped above.</li>
 <li>That should be it for the Wizard</li>
@@ -68,6 +74,6 @@
 <p>You can also set up 'shared folders' to directly read and write files back and forth. To do so, see <a href="http://www.ubuntugeek.com/how-to-access-windows-host-shared-folders-from-ubuntu-guest-in-virtualbox.html">here</a>.</p>
 <p><a href="http://dropbox.com">Dropbox</a> may be the easiest way to sync files between your virtual machine and your host machine. To install, see the instructions toward the bottom of the <a href="vb-image-details.html">Virtual Box Image Creation Details</a> (<a href="vb-image-details.md">md</a>) page.</p>
 <h3 id="image-creation-details">Image creation details</h3>
-<p><a href="vb-image-details.html">Here</a> (<a href="vb-image-details.md">md</a>) are the details of how the image was created.</p>
+<p><a href="vb-image-details.html">Here</a> (<a href="vb-image-details.md">md</a>) are the details of how the image was created. That page lists a number of installation options. The only sections needed for this course are the <a href="vb-image-details.md#basic">Basic Installation</a> (<a href="vb-image-details.html#basic">html</a>), and the <a href="vb-image-details.md#development">Development Installation</a> (<a href="vb-image-details.html#development">html</a>). The Development Installation has three sections, and only the first is needed for this course; however, the image has the other two sections configured as well (they are used for <a href="http://aaronbloomfield.github.io/slp">another course</a>). In addition, the Image Finalization part of the <a href="vb-image-details.md#completion">Image Completion</a> (<a href="vb-image-details.html#completion">html</a>) section was done on the image, although that is not necessary if one is installing this on their own machine.</p>
 </body>
 </html>

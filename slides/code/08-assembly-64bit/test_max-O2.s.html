@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>test_max-O2.s</title>
+</head>
+<body bgcolor="white">
+<pre><tt>	.text
+	.intel_syntax noprefix
+	.file	<font color="#FF0000">"test_max.cpp"</font>
+	.globl	max
+	.align	16, 0x90
+	.type	max,@function
+max:                                    <i><font color="#9A1900"># @max</font></i>
+	.cfi_startproc
+<i><font color="#9A1900"># BB#0:</font></i>
+	cmp	edi, esi
+	cmovge	esi, edi
+	mov	eax, esi
+	ret
+.Lfunc_end0:
+	.size	max, .Lfunc_end0-max
+	.cfi_endproc
+
+	.globl	main
+	.align	16, 0x90
+	.type	main,@function
+main:                                   <i><font color="#9A1900"># @main</font></i>
+	.cfi_startproc
+<i><font color="#9A1900"># BB#0:</font></i>
+	push	r14
+.Ltmp0:
+	.cfi_def_cfa_offset 16
+	push	rbx
+.Ltmp1:
+	.cfi_def_cfa_offset 24
+	push	rax
+.Ltmp2:
+	.cfi_def_cfa_offset 32
+.Ltmp3:
+	.cfi_offset rbx, -24
+.Ltmp4:
+	.cfi_offset r14, -16
+	mov	dword ptr [rsp + 4], 0
+	mov	dword ptr [rsp], 0
+	mov	edi, _ZSt4cout
+	mov	esi, .L.str
+	mov	edx, 15
+	call	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+	mov	rax, qword ptr [rip + _ZSt4cout]
+	mov	rax, qword ptr [rax - 24]
+	mov	rbx, qword ptr [rax + _ZSt4cout+240]
+	test	rbx, rbx
+	je	.LBB1_13
+<i><font color="#9A1900"># BB#1:                                 # %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit</font></i>
+	cmp	byte ptr [rbx + 56], 0
+	je	.LBB1_3
+<i><font color="#9A1900"># BB#2:</font></i>
+	mov	al, byte ptr [rbx + 67]
+	jmp	.LBB1_4
+.LBB1_3:
+	mov	rdi, rbx
+	call	_ZNKSt5ctypeIcE13_M_widen_initEv
+	mov	rax, qword ptr [rbx]
+	mov	esi, 10
+	mov	rdi, rbx
+	call	qword ptr [rax + 48]
+.LBB1_4:                                <i><font color="#9A1900"># %_ZNKSt5ctypeIcE5widenEc.exit</font></i>
+	movsx	esi, al
+	mov	edi, _ZSt4cout
+	call	_ZNSo3putEc
+	mov	rdi, rax
+	call	_ZNSo5flushEv
+	lea	rsi, [rsp + 4]
+	mov	edi, _ZSt3cin
+	call	_ZNSirsERi
+	mov	edi, _ZSt4cout
+	mov	esi, .L.str.1
+	mov	edx, 15
+	call	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+	mov	rax, qword ptr [rip + _ZSt4cout]
+	mov	rax, qword ptr [rax - 24]
+	mov	rbx, qword ptr [rax + _ZSt4cout+240]
+	test	rbx, rbx
+	je	.LBB1_13
+<i><font color="#9A1900"># BB#5:                                 # %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit5</font></i>
+	cmp	byte ptr [rbx + 56], 0
+	je	.LBB1_7
+<i><font color="#9A1900"># BB#6:</font></i>
+	mov	al, byte ptr [rbx + 67]
+	jmp	.LBB1_8
+.LBB1_7:
+	mov	rdi, rbx
+	call	_ZNKSt5ctypeIcE13_M_widen_initEv
+	mov	rax, qword ptr [rbx]
+	mov	esi, 10
+	mov	rdi, rbx
+	call	qword ptr [rax + 48]
+.LBB1_8:                                <i><font color="#9A1900"># %_ZNKSt5ctypeIcE5widenEc.exit2</font></i>
+	movsx	esi, al
+	mov	edi, _ZSt4cout
+	call	_ZNSo3putEc
+	mov	rdi, rax
+	call	_ZNSo5flushEv
+	lea	rsi, [rsp]
+	mov	edi, _ZSt3cin
+	call	_ZNSirsERi
+	mov	eax, dword ptr [rsp + 4]
+	mov	ebx, dword ptr [rsp]
+	cmp	eax, ebx
+	cmovge	ebx, eax
+	mov	edi, _ZSt4cout
+	mov	esi, .L.str.2
+	mov	edx, 15
+	call	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+	mov	edi, _ZSt4cout
+	mov	esi, ebx
+	call	_ZNSolsEi
+	mov	r14, rax
+	mov	rax, qword ptr [r14]
+	mov	rax, qword ptr [rax - 24]
+	mov	rbx, qword ptr [r14 + rax + 240]
+	test	rbx, rbx
+	je	.LBB1_13
+<i><font color="#9A1900"># BB#9:                                 # %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit6</font></i>
+	cmp	byte ptr [rbx + 56], 0
+	je	.LBB1_11
+<i><font color="#9A1900"># BB#10:</font></i>
+	mov	al, byte ptr [rbx + 67]
+	jmp	.LBB1_12
+.LBB1_11:
+	mov	rdi, rbx
+	call	_ZNKSt5ctypeIcE13_M_widen_initEv
+	mov	rax, qword ptr [rbx]
+	mov	esi, 10
+	mov	rdi, rbx
+	call	qword ptr [rax + 48]
+.LBB1_12:                               <i><font color="#9A1900"># %_ZNKSt5ctypeIcE5widenEc.exit4</font></i>
+	movsx	esi, al
+	mov	rdi, r14
+	call	_ZNSo3putEc
+	mov	rdi, rax
+	call	_ZNSo5flushEv
+	xor	eax, eax
+	add	rsp, 8
+	pop	rbx
+	pop	r14
+	ret
+.LBB1_13:
+	call	_ZSt16__throw_bad_castv
+.Lfunc_end1:
+	.size	main, .Lfunc_end1-main
+	.cfi_endproc
+
+	.section	.text.startup,<font color="#FF0000">"ax"</font>,@progbits
+	.align	16, 0x90
+	.type	_GLOBAL__sub_I_test_max.cpp,@function
+_GLOBAL__sub_I_test_max.cpp:            <i><font color="#9A1900"># @_GLOBAL__sub_I_test_max.cpp</font></i>
+	.cfi_startproc
+<i><font color="#9A1900"># BB#0:</font></i>
+	push	rax
+.Ltmp5:
+	.cfi_def_cfa_offset 16
+	mov	edi, _ZStL8__ioinit
+	call	_ZNSt8ios_base4InitC1Ev
+	mov	edi, _ZNSt8ios_base4InitD1Ev
+	mov	esi, _ZStL8__ioinit
+	mov	edx, __dso_handle
+	pop	rax
+	jmp	__cxa_atexit            <i><font color="#9A1900"># TAILCALL</font></i>
+.Lfunc_end2:
+	.size	_GLOBAL__sub_I_test_max.cpp, .Lfunc_end2-_GLOBAL__sub_I_test_max.cpp
+	.cfi_endproc
+
+	.type	_ZStL8__ioinit,@object  <i><font color="#9A1900"># @_ZStL8__ioinit</font></i>
+	.local	_ZStL8__ioinit
+	.comm	_ZStL8__ioinit,1,1
+	.type	.L.str,@object          <i><font color="#9A1900"># @.str</font></i>
+	.section	.rodata.str1.1,<font color="#FF0000">"aMS"</font>,@progbits,1
+.L.str:
+	.asciz	<font color="#FF0000">"Enter value 1: "</font>
+	.size	.L.str, 16
+
+	.type	.L.str.1,@object        <i><font color="#9A1900"># @.str.1</font></i>
+.L.str.1:
+	.asciz	<font color="#FF0000">"Enter value 2: "</font>
+	.size	.L.str.1, 16
+
+	.type	.L.str.2,@object        <i><font color="#9A1900"># @.str.2</font></i>
+.L.str.2:
+	.asciz	<font color="#FF0000">"The result is: "</font>
+	.size	.L.str.2, 16
+
+	.section	.init_array,<font color="#FF0000">"aw"</font>,@init_array
+	.align	8
+	.quad	_GLOBAL__sub_I_test_max.cpp
+
+	.ident	<font color="#FF0000">"clang version 3.8.0-2ubuntu4 (tags/RELEASE_380/final)"</font>
+	.section	<font color="#FF0000">".note.GNU-stack"</font>,<font color="#FF0000">""</font>,@progbits
+</tt></pre>
+</body>
+</html>

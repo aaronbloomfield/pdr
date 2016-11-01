@@ -5,19 +5,28 @@ PDR: Tutorial 1: Introduction to UNIX: VirtualBox Use
 
 VirtualBox is a free program that allows you to run another operating system on your machine without needing to reinstall anything.  You just have to install the VirtualBox client, which installs like any other program and is available for many different platforms (Windows, Mac, Linux).  We provide you with a pre-configured VirtualBox image that contains an Ubuntu Linux installation that you can use for this course.
 
+### Emulating 64-bit ###
+
+When stepping through the steps below, you need to select 64-bit Linux/Ubuntu, and **NOT** 32-bit.  If the *only* options that appear at that step are 32-bit OSes, then you need to enable your computer to emulate 64-bit OSes.  Two of these things are done in the BIOS (hit delete, F1, or F10 when your computer starts).  Because everybody's BIOS is different, we cannot provide specific instructions as to which exact steps to take.  However, you need to enable the following two features in the BIOS:
+
+1. Intel Virtualization Technology
+2. VT-d
+
+In addition, if you are using a Windows machine, you will need Hyper-V disabled in the "Turn Windows Features on and off" menu.  You can get to it by searching for that quoted text in the start menu.
+
+
 ### Quick start ###
 
 - A bit of terminology: the 'host' machine is the physical computer (laptop, desktop, etc.) that you are using.  The 'guest' machine is the virtual machine that is running in VirtualBox, and is often just called the 'guest operating system'.
     - You are welcome to try this on a netbook host machine, but the computing power of a netbook may not be enough
 - You will need to install the Virtual Box client.  It can be downloaded for free from [here](http://www.virtualbox.org/) and runs on most operating systems.
-    - For the fall 2015 semester, you **MUST USE VIRTUALBOX VERSION 4.3** -- version 5.0 and above does not work properly
-    - Under Linux, I installed the 'virtualbox-ose-qt' package (the name of yours might be different), but if you are running Linux already, you won't need to install a virtual machine running Linux...
+	- Under Linux, I installed the 'virtualbox-ose-qt' package (the name of yours might be different), but if you are running Linux already, you won't need to install a virtual machine running Linux...
 - Download the provided VirtualBox image (from Collab, in the misc/ folder of the Resources tool).  You will need to unzip this file before using it.
-    - This file is rather large (about 2 Gb), so you may want to try downloading it during off hours, such as late at night.  If you have problems downloading it, let us know.  If you do not have sufficient bandwidth to download it, please see us after lecture, and we will provide it on a different media for you.
-	- Unzip this file; it will take up about 6.4 Gb on your machine.  Once uncompressed, you can download the .zip file that you downloaded.
+    - This file is rather large (about 2.5 Gb), so you may want to try downloading it during off hours, such as late at night.  If you have problems downloading it, let us know.  If you do not have sufficient bandwidth to download it, please see us after lecture, and we will provide it on a different media for you.
+	- Unzip this file; it will take up about 8.2 Gb on your machine.  Once uncompressed, you can download the .zip file that you downloaded.
         - Your unzip program may complain about needing some insane amount of space (like 700 petabytes, where a petabyte is 1,000 terabytes); this is a bug in many unzip programs.  Try [7-zip](http://www.7-zip.org/), which has had more success.
 - Run VirtualBox, and import the image:
-    - To do that, click on 'New', and choose the right OS/version ("Ubuntu (32 bit)" -- don't choose the 64 bit version!).  Give it a name to help differentiate it from other virtual machines that you may end up using in later classes.
+    - To do that, click on 'New', and choose the right OS type/version ("Linux"/"Ubuntu (64 bit)" -- don't choose the 32 bit version!).  Give it a name to help differentiate it from other virtual machines that you may end up using in later classes.
     - Stay with the default memory amount (you can change it later)
     - At the 'Hard drive' screen select 'use an existing virtual hard drive file', and click the folder icon to the right of the drop-down list.  You want to use the file you unzipped above.
     - That should be it for the Wizard
@@ -55,4 +64,19 @@ You can also set up 'shared folders' to directly read and write files back and f
 
 ### Image creation details ###
 
-[Here](vb-image-details.html) ([md](vb-image-details.md)) are the details of how the image was created.
+[Here](vb-image-details.html) ([md](vb-image-details.md)) are the
+ details of how the image was created.  That page lists a number of
+ installation options.  The only sections needed for this course are the
+ [Basic Installation](vb-image-details.md#basic)
+ ([html](vb-image-details.html#basic)), and the
+ [Development Installation](vb-image-details.md#development)
+ ([html](vb-image-details.html#development)).  The Development
+ Installation has three sections, and only the first is needed for
+ this course; however, the image has the other two sections configured
+ as well (they are used for
+ [another course](http://aaronbloomfield.github.io/slp)).  In addition,
+ the Image Finalization part of the
+ [Image Completion](vb-image-details.md#completion)
+ ([html](vb-image-details.html#completion)) section was done on the
+ image, although that is not necessary if one is installing this on
+ their own machine.

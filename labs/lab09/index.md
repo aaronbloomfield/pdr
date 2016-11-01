@@ -14,7 +14,7 @@ The Intel x86 assembly language is currently one of the most popular assembly la
 ### Reading(s) ###
 
 1. Read the [slides on x86](../../slides/08-x86.html)
-2. The two book chapters on x86: [x86 Assembly](../../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../../book/x86-ccc-chapter.pdf).
+2. The two book chapters on x86: [x86 Assembly](../../book/x86-32bit-asm-chapter.pdf) and [The x86 C Calling Convention](../../book/x86-32bit-ccc-chapter.pdf).
 
 Lab Procedure
 ---------------
@@ -40,11 +40,12 @@ Lab Procedure
 ### Post-lab ###
 
 1. Finish addressing two of the topics listed in the in-lab section (the first topic is the one you started in the in-lab; the second one is new for the post-lab).  We are looking for a quality write-up here, as detailed below.
-2. While this seems like a long post-lab, these list items should have been worked on during the pre-lab and the in-lab, which makes the post-lab much shorter.
-3. Implement the linkedlist.c program from the [Tutorial 9\: C](../../tutorials/09-c/index.html) ([md](../../tutorials/09-c/index.md))
-4. Make sure your Makefile compiles your code!
-5. Files to download: none (other than the results of your pre-lab and in-lab)
-6. Files to submit: postlab9.pdf, linkedlist.c, Makefile
+2. You must complete two total topics; the first one is what you started (and possibly finished) from the in-lab; the second one is new for the post-lab
+3. While this seems like a long post-lab, these list items should have been worked on during the pre-lab and the in-lab, which makes the post-lab much shorter.
+4. Implement the linkedlist.c program from the [Tutorial 9\: C](../../tutorials/09-c/index.html) ([md](../../tutorials/09-c/index.md))
+5. Make sure your Makefile compiles your code!
+6. Files to download: none (other than the results of your pre-lab and in-lab)
+7. Files to submit: postlab9.pdf, linkedlist.c, Makefile
 
 ----
 

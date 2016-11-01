@@ -44,7 +44,6 @@
 &nbsp;
 <center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
 <center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="02-lists.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
-<center><small>Themes: [default](?#/cover), [sky](?theme=sky#/cover), [beige](?theme=beige#/cover), [simple](?theme=simple#/cover), [serif](?theme=serif#/cover), [night](?theme=night#/cover), [moon](?theme=moon#/cover), [solarized](?theme=solarized#/cover)</small></center>
 &nbsp;  
 &nbsp;
 ## Lists (and a bit more C++)
@@ -103,7 +102,7 @@
 ## Vector: a "growable" array
 - `#include <vector>`
 - Operations:
-  - Object & operator[](int idx): no bounds checking
+  - Object & operator\[\](int idx): no bounds checking
   - Object & at(int idx): does do bounds checking
   - int capacity() const
   - void reserve(int newCapacity)
@@ -132,12 +131,17 @@
 
 	<section data-markdown><script type="text/template">
 ## Vector iterator usage
+- Assume you have a vector defined as:
+```
+vector<int> v;
+```
+- Then you can iterate as follows:
 ```
 for ( vector<int>::iterator it = v.begin(); 
       it != v.end(); it++ )
     cout << *it << endl;
 ```
-It looks much like `int` code with the various operators overrides!
+- Note that it looks much like `int` code with the various operators overrides!
 	</script></section>
 
 	<section data-markdown><script type="text/template">
@@ -255,8 +259,12 @@ class ObjectCell {
   public:
     ObjectCell(const Object & initValue = Object()) 
 				: storedValue(initValue) {}
-    const Object & getValue() const {return storedValue;}
-    void setValue(const Object & val) {storedValue = val;}
+    const Object & getValue() const {
+               return storedValue;
+    }
+    void setValue(const Object & val) {
+                storedValue = val;
+    }
   private:
     Object storedValue;
 };
@@ -380,6 +388,7 @@ Buffer<string,2048> buf2;  // Buffer<string,2048>
     - Push number onto stack
   - If operator
     - Apply operator to 2 numbers popped from stack, then place result on stack
+- After end of input, there should be exaclty one number left on the stack
 	</script></section>
 
 	<section>
@@ -561,6 +570,7 @@ void Stack::push(int value){
     - set return value to `theArray[front]`
     - decrement current size
     - increment front
+- front() and back() are the find operations
 - Again, have to handle the situation when the array is full
 	</script></section>
 

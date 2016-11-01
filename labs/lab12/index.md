@@ -35,7 +35,7 @@ Procedure
 1. While we are required to have you show up to lab today, we won't be taking up much of your time.
 2. However, note that you still have to attend lab in Olsson 001 (or Rice 340), however briefly, and submit your file for this lab from there.
 3. How much wrath do you have to vent about the course? How much did it ruin your life? How much did you learn? Let us know -- fill out the course surveys! You can access them through Collab (or SIS? We aren't actually given any information about how students access the course evaluations). On a more serious note, we are very interested in your feedback about the course, and would greatly appreciate your filling out of the course evaluation.
-4. The one text file you must submit for this lab is called suggestion.txt, and it should contain one *constructive* suggestion as to how to improve this course. Here, constructive means that it could actually be accomplished (so you can't just say "ditch C++" without some sort of suggestion as to what to place in it's stead).
+4. The one text file you must submit for this lab is called suggestion.txt, and it should contain one *constructive* suggestion as to how to improve this course. Here, constructive means that it could actually be accomplished (so you can't just say "ditch C++" without some sort of suggestion as to what to place in its stead).
 5. Any other comments to pass on? There is always the Collab anonymous feedback for more comments as well.
 6. There will be a review session for the final; details to be announced later.
 7. Make sure you know when the final exam is!!!

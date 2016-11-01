@@ -13,11 +13,38 @@ Due to the fact that it is currently used in the course, and that students may n
 Directory contents
 ------------------
 
-All of the files in this directory are not listed on this web page, just a few that need an explanation:
-
-- main.tex: The full book, which has spaces for each chapter.  As mentioned above, only 1 chapter (IBCM) is anywhere near complete, and two others (the two x86 chapters) are in the draft stage.
-- working.tex: this is meant to allow LaTeX to be run on the individual chapter(s) that are being worked on, without having to recompile the entire book.  This was used to generate the [ibcm-chapter.pdf](ibcm-chapter.pdf) file.
-- references.bib: all the references used throughout in the book.
-- Makefile: a series of targets to automate the building of the PDF documents in this book.
-
 Each chapter is named as foo.tex, with a foo/ direcotry to hold the images and source code for that chapter (all source code is kept external to the LaTeX files).
+
+
+#### IBCM files
+
+- [ibcm.tex](ibcm.tex): The actual content of the IBCM chapter; it is included in various other files (main.tex and ibcm-chapter.tex).  One can not LaTeX this file by itself.
+- [ibcm-chapter.tex](ibcm-chapter.tex) ([pdf](ibcm-chapter.pdf)): This file includes ibcm.tex, and allows that content to be created into a stand-alone PDF of the IBCM content.
+- [ibcm/](ibcm/): The directory that contains the various source code files and images used in the IBCM chapter.
+
+
+#### x86 (32 bit) files
+
+- [x86-32bit.tex](x86-32bit.tex): The introduction of the 32 bit x86 assembly instruction set; this is the actual content, and this file cannot be LaTeX'ed directly.
+- [x86-32bit-ccc.tex](x86-32bit-ccc.tex): The C calling convention for 32 bit x86 assembly; this is the actual content, and this file cannot be LaTeX'ed directly.
+- [x86-32bit-asm-chapter.tex](x86-32bit-asm-chapter.tex) ([pdf](x86-32bit-asm-chapter.pdf)): This file includes x86-32bit.tex, and allows that content to be created into a stand-alone PDF of the x86 introduction content.
+- [x86-32bit-ccc-chapter.tex](x86-32bit-ccc-chapter.tex) ([pdf](x86-32bit-ccc-chapter.pdf)): This file includes x86-32bit-ccc.tex, and allows that content to be created into a stand-alone PDF of the x86 calling convention content.
+- [x86-32bit/](x86-32bit/): The directory that contains the various source code files and images used in the 32 bit x86 chapters.
+
+
+#### x86 (64 bit) files
+
+- [x86-64bit.tex](x86-64bit.tex): The introduction of the 64 bit x86 assembly instruction set; this is the actual content, and this file cannot be LaTeX'ed directly.
+- [x86-64bit-ccc.tex](x86-64bit-ccc.tex): The C calling convention for 64 bit x86 assembly; this is the actual content, and this file cannot be LaTeX'ed directly.
+- [x86-64bit-asm-chapter.tex](x86-64bit-asm-chapter.tex) ([pdf](x86-64bit-asm-chapter.pdf)): This file includes x86-64bit.tex, and allows that content to be created into a stand-alone PDF of the x86 introduction content.
+- [x86-64bit-ccc-chapter.tex](x86-64bit-ccc-chapter.tex) ([pdf](x86-64bit-ccc-chapter.pdf)): This file includes x86-64bit-ccc.tex, and allows that content to be created into a stand-alone PDF of the x86 calling convention content.
+- [x86-64bit/](x86-64bit/): The directory that contains the various source code files and images used in the 32 bit x86 chapters.
+
+
+#### Common files
+
+- [macros.tex](macros.tex): A number of LaTeX macros used throughout the files herein.
+- [main.tex](main.tex) ([pdf](main.pdf)): The full book, which has spaces for each chapter.  As mentioned above, only a few chapters (IBCM and the x86 chapters) are anywhere near complete.
+- [Makefile](Makefile): A series of targets to automate the building of the PDF documents in this book.
+- [references.bib](references.bib): All the references used throughout in the book.
+- [working.tex](working.tex): This is meant to allow LaTeX to be run on the individual chapter(s) that are being worked on, without having to recompile the entire book.

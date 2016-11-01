@@ -84,15 +84,13 @@ Next, let's open up a new file.  Do do that, go to File->Open (`C-x C-f`).  Ente
 
 Enter the following program -- feel free to cut-and-paste (there is a 'Edit->Paste' menu entry).  This is the same program found in the first set of slides.  What all this C++ code means, we'll get to later -- this tutorial is just for entering, compiling, and running the programs.
 
-```C++
-// C++
-#include <iostream>
-using namespace std;
-int main() {
-    cout << "Hello World!" << endl;
-    return 0;
-}
-```
+    // C++
+    #include <iostream>
+    using namespace std;
+    int main() {
+        cout << "Hello World!" << endl;
+        return 0;
+    }
 
 Save the file (File->Save or `C-x C-s`).  If you switch back to the shell, and do an `ls`, you should see that file listed.
 
@@ -112,11 +110,11 @@ There are two more Emacs commands that will be very useful as we continue in the
 
 ![Emacs screenshot](screenshot-2.png)
 
-Let's color the text and turn on line numbers -- both very useful things to have when you are editing code.  We've seen control commands (such as `C-x C-s` for saving a file).  Next up are commands called meta-commands, because they use the meta (or escape) key.  A meta-command looks like `M-x line-number-mode`.  Thus, to enter the command, hit the escape key, RELEASE THE ESCAPE KEY, and hit `x`.  Note that with the control commands, you hold down the control key while pressing the other key -- with meta commands, you press and then release the escape key, and then hit `x`.  At that point, the bottom of your Emacs screen will look like the following:
+Let's color the text and turn on line numbers -- both very useful things to have when you are editing code.  We've seen control commands (such as `C-x C-s` for saving a file).  Next up are commands called meta-commands, because they use the meta (or escape) key.  A meta-command looks like `M-x linum-mode`.  Thus, to enter the command, hit the escape key, RELEASE THE ESCAPE KEY, and hit `x`.  Note that with the control commands, you hold down the control key while pressing the other key -- with meta commands, you press and then release the escape key, and then hit `x`.  At that point, the bottom of your Emacs screen will look like the following:
 
 ![Emacs screenshot](screenshot-3.png)
  
-Note the `M-x` at the bottom -- Emacs is ready to receive an 'extended' meta command.  Type in `line-number-mode`, hit Enter, and the line number that the cursor is on will appear in the status bar at the bottom of the Emacs screen.  Note that it is going to be annoying to have to type all of that in each time.  This, if you hit the tab key after entering `line`, it will complete the rest of the command for you.  While this may seem like a lot of typing, once you get used to it, these commands can be entered significantly faster than the mouse clicks needed to do this in other editors.  There are ways you can have line numbers always displayed when you enter Emacs -- we'll get to these later in the semester.  Note that you can enter `M-x line-number-mode` as many times as you want -- it will just toggle the display of the line numbers on and off.
+Note the `M-x` at the bottom -- Emacs is ready to receive an 'extended' meta command.  Type in `linum-mode`, hit Enter, and the line number that the cursor is on will appear in the status bar at the bottom of the Emacs screen.  Note that it is going to be annoying to have to type all of that in each time.  This, if you hit the tab key after entering `line`, it will complete the rest of the command for you.  While this may seem like a lot of typing, once you get used to it, these commands can be entered significantly faster than the mouse clicks needed to do this in other editors.  There are ways you can have line numbers always displayed when you enter Emacs -- we'll get to these later in the semester.  Note that you can enter `M-x linum-mode` as many times as you want -- it will just toggle the display of the line numbers on and off.
 
 The other command that is useful is to color the program text.  Use the command `M-x font-lock-mode`.  Note that if you hit the tab key after entering `font`, it doesn't fully complete it (you still have to enter 'mode').  Your C++ program should now be colored, and your Emacs window should look like the following.
  
@@ -132,7 +130,7 @@ In summary, you should be familiar with the following Emacs commands:
 - `C-x C-c`: Exit Emacs (prompts to save the file if it is not saved)
 - `C-g`: Quit (stops the current command, doesn't exit Emacs)
 - `C-_`: Undo
-- `M-x line-number-mode`: Turn on line numbers
+- `M-x linum-mode`: Turn on line numbers
 - `M-x font-lock-mode`: Turn on font coloring
 
 A good Emacs reference sheet can be found [here](http://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf).  This file is also in the Collab Resources section, under the misc folder.  Note that this page is formatted for A4 paper -- it should print out fine on our letter-sized paper, but you may have to scale the image in Acrobat Reader when you print it out.

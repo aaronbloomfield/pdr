@@ -16,12 +16,12 @@
 <ul>
 <li><code>lldb</code> is a command-line debugger (we may see graphical debuggers later in the semester.)</li>
 <li>&quot;LLVM&quot; is the compiler framework that includes many things, including the <code>clang</code> compiler that we are using, as well as <code>lldb</code></li>
-<li><code>gdb</code> is the debugger that was used in the past, and is often used elsewhere -- it is analgous to <code>lldb</code> in how it works</li>
+<li><code>gdb</code> is the debugger that was used in the past, and is often used elsewhere -- it is analogous to <code>lldb</code> in how it works</li>
 </ul>
 <hr />
 <h2 id="part-i-lldb-tutorial">Part I: LLDB Tutorial</h2>
 <h3 id="what-is-a-debugger">What is a Debugger?</h3>
-<p>A debugger is a utility program that allows you to run a program under development while controlling its execution and examining the internal values of variables. We think of a program running &quot;inside&quot; a debugger. The debugger allows us to control the execution of the program by pausing its execution and then resuming it. While paused, we can find out where we are in the program, what values variables have, reset the values of variables, etc. If a program crashes, the debugger can tell you exactly <em>where</em> the program crashsed (something that Java does naturally, but C++ does not). The principles and commands described in this document are specific to the lldb debuggers for clang++ under UNIX, but every debugger has similar commands.</p>
+<p>A debugger is a utility program that allows you to run a program under development while controlling its execution and examining the internal values of variables. We think of a program running &quot;inside&quot; a debugger. The debugger allows us to control the execution of the program by pausing its execution and then resuming it. While paused, we can find out where we are in the program, what values variables have, reset the values of variables, etc. If a program crashes, the debugger can tell you exactly <em>where</em> the program crashed (something that Java does naturally, but C++ does not). The principles and commands described in this document are specific to the lldb debuggers for clang++ under UNIX, but every debugger has similar commands.</p>
 <p>All computer scientists should learn the basics of debugging and how to use a debugger. It will save you literally hours of time when finding and fixing problems in your programs. The few minutes of investment you put into learning how to use a debugger will pay off tremendously in a matter of weeks. Work smart!</p>
 <h3 id="sample-program">Sample Program</h3>
 <p>Consider the following buggy program into <a href="prog1.cpp.html">prog1.cpp</a> (<a href="prog1.cpp">src</a>):</p>
@@ -60,7 +60,7 @@ int main() {
 <pre><code>prog1 100 test1.dat</code></pre>
 <p>In the debugger, you would enter:</p>
 <pre><code>run 100 test1.dat</code></pre>
-<p>Note, however, that the prog1 that we are editing here does not need any comand line parameters.</p>
+<p>Note, however, that the prog1 that we are editing here does not need any command line parameters.</p>
 <h3 id="where-am-i-where-did-it-crash">Where Am I? Where Did It Crash?</h3>
 <p>Under UNIX, one of the most frustrating things about running C or C++ programs is that they normally give little useful information when they crash -- usually they just say, 'segmentation fault'. Part of the reason is that by default the executable file doesn't include information about the source code that is needed to print an error message (like the line number).</p>
 <p>But when you run a program inside a debugger, you can easily see what the current line is when a program crashes. Type <code>f</code> to see the current and surrounding lines.</p>
@@ -105,9 +105,36 @@ int main() {
 <li>set up a break point at line 12, which is the line that is causing the crash</li>
 <li>type <code>run</code>, and confirm that you want to restart the program</li>
 <li>at the breakpoint, try printing out the value in p (<code>p p</code>); note that it is <code>NULL</code></li>
-<li>set the <code>p</code> pointer, which is currently <code>NULL</code>, to point to a valud value (the <code>int</code> variable <code>x</code>): <code>expr p = &amp;x</code></li>
+<li>set the <code>p</code> pointer, which is currently <code>NULL</code>, to point to a valid value (the <code>int</code> variable <code>x</code>): <code>expr p = &amp;x</code></li>
 <li>enter <code>c</code> to let it continue running, and it should finish without crashing this time</li>
 </ul>
+<h3 id="frames">Frames</h3>
+<p>When a program crashes, you can see the list of subroutine calls that led to that point via the 'bt' command. This prints a <em>stack trace</em>, similar to what Java prints when an exception is thrown (but not caught). Each level in that stack trace is called a <em>frame</em>. Sometimes you may want to look at the variables and what-not a few frames up. To do so, you enter the <code>frame</code> command. Consider the following program:</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+void recurse(int x) {
+  int *y = NULL;
+  if ( x == 0 )
+    cout &lt;&lt; *y &lt;&lt; endl;
+  recurse(x-1);
+}
+int main() {
+  recurse(5);
+  return 0;
+}</code></pre>
+<p>This program will crash on the 5th recursive call to <code>recurse()</code>. If this program is compiled (remember to compile it with <code>-g</code>) and run through the debugger, it will crash, and the resulting stack trace looks like the following:</p>
+<pre><code>(lldb) bt
+* thread #1: tid = 31030, 0x000000000040084a frame`recurse(x=0) + 29 at frame.cpp:6, name = &#39;frame&#39;, stop reason = invalid address (fault address: 0x0)
+  * frame #0: 0x000000000040084a frame`recurse(x=0) + 29 at frame.cpp:6
+    frame #1: 0x0000000000400872 frame`recurse(x=1) + 69 at frame.cpp:7
+    frame #2: 0x0000000000400872 frame`recurse(x=2) + 69 at frame.cpp:7
+    frame #3: 0x0000000000400872 frame`recurse(x=3) + 69 at frame.cpp:7
+    frame #4: 0x0000000000400872 frame`recurse(x=4) + 69 at frame.cpp:7
+    frame #5: 0x0000000000400872 frame`recurse(x=5) + 69 at frame.cpp:7
+    frame #6: 0x0000000000400882 frame`main + 14 at frame.cpp:10
+    frame #7: 0x00007f971522fec5 libc.so.6`__libc_start_main(main=0x0000000000400874, argc=1, argv=0x00007fff5a68bf08, init=&lt;unavailable&gt;, fini=&lt;unavailable&gt;, rtld_fini=&lt;unavailable&gt;, stack_end=0x00007fff5a68bef8) + 245 at libc-start.c:287
+(lldb) </code></pre>
+<p>The frames are listed on the left-hand side, and you are in frame #0 by default (it states this in some of the lldb output that was not included above). You can enter <code>up</code> and <code>down</code> to move to different frames. You can then examine the contents of the variables in that frame before moving on.</p>
 <h3 id="a-few-final-commands">A few final commands</h3>
 <p>If you find the problem while using the debugger, you may want to exit lldb (by entering <code>quit</code>), recompile your source code, and restart lldb. Be sure to use the <code>-g</code> option when recompiling!</p>
 <h3 id="final-remarks">Final Remarks</h3>
@@ -132,7 +159,7 @@ int main() {
 <li>a line number (e.g., <code>b 23</code>)</li>
 <li>either of the above preceded by a file name (e.g., <code>b debug.cpp:23</code> or <code>b debug.cpp:GetAverage</code>)</li>
 </ul>
-<p>If we knew where the problems were, we could skip over some lines, but since we don't, put a breakpoint on the first line of the code, the cout statement. You probably want to set the breakpoint based on the line number in the code -- you can use the Emacs command <code>M-x line-number-mode</code> to have Emacs display line numbers. Enter <code>break x</code>, where x is the line of the first cout statement in the main() method. Now we need to run the program -- to do this, enter <code>run</code>. Lldb should start running, then should pause and display approximately the following:</p>
+<p>If we knew where the problems were, we could skip over some lines, but since we don't, put a breakpoint on the first line of the code, the cout statement. You probably want to set the breakpoint based on the line number in the code -- you can use the Emacs command <code>M-x linum-mode</code> to have Emacs display line numbers. Enter <code>break x</code>, where x is the line of the first cout statement in the main() method. Now we need to run the program -- to do this, enter <code>run</code>. Lldb should start running, then should pause and display approximately the following:</p>
 <pre><code>(lldb) b 23
 Breakpoint 1: where = a.out`main + 31 at debug.cpp:23, address = 0x0000000000400a0f
 (lldb) run
@@ -187,6 +214,6 @@ Process 10943 stopped
 <hr />
 <h2 id="part-iii-summary-of-lldb-commands">Part III: Summary of lldb commands</h2>
 <p>These commands are listed on the <a href="../../docs/lldb_summary.html">LLDB command summary</a> page.</p>
-<p>You can see a difference between the comamnds of lldb and gdb on the <a href="../../docs/gdb_vs_lldb.html">GDB vs LLDB commands</a> page.</p>
+<p>You can see a difference between the commands of lldb and gdb on the <a href="../../docs/gdb_vs_lldb.html">GDB vs LLDB commands</a> page.</p>
 </body>
 </html>
