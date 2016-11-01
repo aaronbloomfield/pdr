@@ -86,7 +86,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |26|Oct 24| Monday    | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [08: Assembly][88] (assembly language) | [08: Assembly][88], slides [1][88] to [4.10][1080309] ([recording][230]) | |
 |27|Oct 26| Wednesday | | [08: Assembly][88] (assembly language) | [08: Assembly][88], slides [4.10][1080309] to [6.6][1080505] ([recording][231]) | |
 |28|Oct 28| Friday    | | [08: Assembly][88] (assembly language) | [08: Assembly][88], slides [6.6][1080505] to [8.14][1080713] ([recording][232]) | |
-|29|Oct 31| Monday    | [Lab 8: assembly, part 1][8] ([md][28]) / Tutorial 8: see the information on the [tutorials page](../tutorials/index.html) ([md](../tutorials.md)) | [08: Assembly][88], [09: Advanced C++][89] | | |
+|29|Oct 31| Monday    | [Lab 8: assembly, part 1][8] ([md][28]) / Tutorial 8: see the information on the [tutorials page](../tutorials/index.html) ([md](../tutorials.md)) | [08: Assembly][88], [09: Advanced C++][89] | [08: Assembly][88], slides [8.15][1080714] to [10.19][1080918] ([recording][233]) | |
 |30|Nov 2| Wednesday | | [09: Advanced C++][89] | | |
 |31|Nov 4| Friday    | | [09: Advanced C++][89] | | |
 ||Nov 6|Sunday| |Exam 2 review session| | |
@@ -466,6 +466,7 @@ None yet!
 [1080609]: ../slides/08-assembly-64bit.html#/6/9
 [10807]: ../slides/08-assembly-64bit.html#/7
 [1080713]: ../slides/08-assembly-64bit.html#/7/13
+[1080714]: ../slides/08-assembly-64bit.html#/7/14
 [10808]: ../slides/08-assembly-64bit.html#/8
 [1080804]: ../slides/08-assembly-64bit.html#/8/4
 [1080805]: ../slides/08-assembly-64bit.html#/8/5
@@ -474,6 +475,7 @@ None yet!
 [1080908]: ../slides/08-assembly-64bit.html#/9/8
 [1080914]: ../slides/08-assembly-64bit.html#/9/14
 [1080915]: ../slides/08-assembly-64bit.html#/9/15
+[1080918]: ../slides/08-assembly-64bit.html#/9/18
 [1080929]: ../slides/08-assembly-64bit.html#/9/29
 [1080930]: ../slides/08-assembly-64bit.html#/9/30
 [1080932]: ../slides/08-assembly-64bit.html#/9/32

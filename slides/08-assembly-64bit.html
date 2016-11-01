@@ -1174,14 +1174,12 @@ ret
   <td class="border">&nbsp;rsi (8)&nbsp;</td>
   <td class="border">&nbsp;rdi (8)&nbsp;</td>
   <td class="border">&nbsp;buffer (12)&nbsp;</td>
-  <td class="border">&nbsp;rbp (8)&nbsp;</td>
   <td class="border">&nbsp;ret addr (8)&nbsp;</td>
 </tr></table>
 <ul>
 <li>Addresses increase to the right (the stack grows to the left)</li>
 <li class="fragment">What happens if the value stored into buffer is 13 bytes long?</li>
-<li class="fragment">What happens if the value stored into buffer is 20 bytes long?</li>
-<li class="fragment">What if it is exactly 28 bytes long?<ul>
+<li class="fragment">What happens if the value stored into buffer is 20 bytes long?<ul>
     <li class="fragment">We overwrite the return address!</li>
 </ul></li>
 </ul>
@@ -1212,8 +1210,8 @@ ret
 - The x86 code samples in this slide set are either:
   - "Generic" x86 examples that could work in nasm if put into a proper program
     - In the same way that you have seen C++ code snippets
-  - Or the output from "clang++ -S" or "g++ -S" (and probably some other flags)
-    - This code will *NOT* work with nasm, but will work with clang++/g++ (which we aren't really using to compile our assembly anyway)
+  - Or the output from "clang++ -S" (and some other flags)
+    - This code will *NOT* work with nasm, but will work with clang++ (which we aren't really using to compile our assembly anyway)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -1232,7 +1230,7 @@ Code we'll see:
 ## int absolute_value(int x)
 (see next slide for the source code link)
 ```
-int absolute_value(int x) {
+long absolute_value(long x) {
     if ( x < 0 )        // if x is negative
         x = -x;    // negate x
     return x;      // return x
@@ -1299,17 +1297,6 @@ clang++ -m64 -S test_abs.cpp -o test_abs-non-intel.s
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## clang++ flags
-- Most of the code in this section uses the following compiler flags: `-m64 -mllvm --x86-asm-syntax=intel -S -fomit-frame-pointer`
-- The meanings:
-  - `-m64`: create 64-bit code (clang++ sometimes defaults to 32-bit code)
-  - `-mllvm --x86-asm-syntax=intel`: this tells clang++ to generate the assembly in the format we are studying
-  - `-S`: generates assembly, rather than compiling it into object code (or an executable)
-  - `-fomit-frame-pointer`: prevents the push rbp / mov rbp, rsp / pop rbp code discussed [here](#/pushrbp)
-- The assembly shown in this slide set was all generated using clang++ (or clang)
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
 ## clang++'s assembly for absolute_value
 Note the source / destination order is reversed!  And lots of other differences...
 
@@ -1332,6 +1319,7 @@ absolute_value:
 	  <section data-markdown><script type="text/template">
 ## Assembly differences
 - There are a lot of differences between the assembly we've seen and what `clang++ -O2 -S -fomit-frame-pointer` produces
+  - The source / destination order is reversed
   - `movq`, `sarq`, `xorq` etc.
     - the 'q' part means 'quadword' (i.e. 64 bits, so the assembler doesn't have to guess)
   - `$0` is the constant 0
@@ -1352,6 +1340,17 @@ absolute_value:
 clang++ -m64 -mllvm --x86-asm-syntax=intel -S \
         -fomit-frame-pointer test_abs.cpp -o test_abs.s
 ```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## clang++ flags
+- Most of the code in this section uses the following compiler flags: `-m64 -mllvm --x86-asm-syntax=intel -S -fomit-frame-pointer`
+- The meanings:
+  - `-m64`: create 64-bit code (clang++ sometimes defaults to 32-bit code)
+  - `-mllvm --x86-asm-syntax=intel`: this tells clang++ to generate the assembly in the format we are studying
+  - `-S`: generates assembly, rather than compiling it into object code (or an executable)
+  - `-fomit-frame-pointer`: prevents the push rbp / mov rbp, rsp / pop rbp code discussed [here](#/pushrbp)
+- The assembly shown in this slide set was all generated using clang++ (or clang)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
