@@ -53,7 +53,7 @@ Procedure
 
 ### Post-lab ###
 
-1. Implement a stack class (into files stack.h and stack.cpp).  **You can NOT use an STL container class for this** (`list`, `vector`, `stack`, etc.) for this, but you can use the STL `string` class.  You should use either your List class from the last lab (if it works), or write up new stack class based on either the lecture notes or the textbook pages on stacks.  Note that your stack class can contain a LinkedList object, and a stack class method can just pass the value onto the appropriate method in the LinkedList class.  You don't need to implement all possible stack methods (in particular, you can ignore the copy constructor, `operator=()`, etc.) -- just the four mentioned in the pre-lab (push(), top(), pop(), and empty()).  After this lab, it is expected that you will be able to implement a stack class in C++.
+1. Implement a stack class (into files stack.h and stack.cpp).  **You can NOT use arrays or an STL container class for this** (`list`, `vector`, `stack`, etc.) for this, but you can use the STL `string` class.  You should use either your List class from the last lab (if it works), or write up new stack class based on either the lecture notes or the textbook pages on stacks.  Your stack class MUST use a linked-list/pointer-based implementation, but again, you MAY use your List class from the last lab.  Note that your stack class can contain a LinkedList object, and a stack class method can just pass the value onto the appropriate method in the LinkedList class.  You don't need to implement all possible stack methods (in particular, you can ignore the copy constructor, `operator=()`, etc.) -- just the four mentioned in the pre-lab (push(), top(), pop(), and empty()).  After this lab, it is expected that you will be able to implement a stack class in C++.
 2. Modify your postfix calculator to use the stack class that you have implemented.
 3. Be sure to include: your name, the date, and the name of the file in a banner comment at the beginning of each file you submit.  Your submission must contain the following code:
     1. Your stack code.  This will likely be stack.h/cpp, and may (or may not; your choice) include all of the List.h/cpp, ListItr.h/cpp, ListNode.h/cpp files from lab 2
@@ -141,7 +141,7 @@ Postfix notation (also known as reverse Polish notation) involves writing the op
 
 An online description of postfix calculators can be found [on Wikipedia](http://en.wikipedia.org/wiki/Reverse_Polish_notation) - note that you do **NOT** need to print out the infix form of the postfix expression; you only need to print the final answer.  See the end of this lab for example input and expected output.
 
-When you start handling input (in the in-lab), you will want to store your read-in values into strings.  You can use the [string compare()](http://www.cplusplus.com/reference/string/string/compare/) method to compare them, but realize that it returns 0 if they are *equal*, and non-zero if they are not equal.
+When you start handling input (in the in-lab), you will want to store your read-in values into strings. You can use `==` to compare STL strings. Alternatively, you can use the [string compare()](http://www.cplusplus.com/reference/string/string/compare/) method to compare them, but realize that it returns 0 if they are *equal*, and non-zero if they are not equal.
 
 If you want to see some quick code for converting a string to an int, see the `StringToInt()` function at the bottom of [this page](http://faq.cprogramming.com/cgi-bin/smartfaq.cgi?answer=1046996179&id=1043284385).  Warning: just copying that function without understanding it will only make your life more difficult.
 
@@ -277,7 +277,7 @@ You will also have to write up the difficulties.txt file, as described above in 
 
 Note that you only have to implement the four stack methods described in the pre-lab section (and the constructor, of course): `push()`, `pop()`, `top()`, and `empty()`.  The other methods (copy constructor, `operator=()`, etc.) do not need to be implemented for this lab.
 
-If you are using an array-based implementation, you must be able to handle when the array fills up; you can't use the `vector` class for this lab.
+You may NOT use an array to implement your stack. You MUST use a linked-list/pointer-based implementation.
 
 ### Submitting the stack / list files ###
 
