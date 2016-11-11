@@ -1,11 +1,13 @@
-PDR: Laboratory 9: x86 Assembly Language, part 2
-================================================
+PDR: Laboratory 9: x86 Assembly Language, part 2 (32 bit)
+=========================================================
 
 [Go up to the Labs table of contents page](../index.html)
 
 ### Objective ###
 
 This lab is one of two labs meant to familiarize you with the process of writing, assembling, and linking assembly language code. The purposes of the in-lab and post-lab activities are to investigate how various C++ language features are implemented at the assembly level.
+
+There are both [32 bit](../lab09-32bit/index.html) ([md](../lab09-32bit/index.md)) and [64 bit](../lab09-64bit/index.html) ([md](../lab09-64bit/index.md)) versions of this lab.  This is the ***32 bit version***.
 
 ### Background ###
 
@@ -58,7 +60,7 @@ You may want to reference the "Compiling Assembly With C++" and "Vecsum" section
 
 The 3x+1 conjecture (also called the Collatz conjecture) is an open problem in mathematics, meaning that it has not yet been proven to be true.  The conjecture states that if you take any positive integer, you can repeatedly apply the following function to it:
 
-![formula.png](formula.png)
+![](formula.png)
 
 The conjecture is that eventually, the result will reach 1.  For example, consider *x* = 13:
 
