@@ -90,8 +90,8 @@ The links in the right-most column link directly to the lecture recording on Col
 |30|Nov 2| Wednesday | | [09: Advanced C++][89] | [08: Assembly][88], slides [10.17][1080916] to [10.33][1080932] (end); [09: Advanced C++][89], slides [1][89] to [6.4][1090503] ([recording][236]) | |
 |31|Nov 4| Friday    | | [09: Advanced C++][89] | [09: Advanced C++][89], slides [6.4][1090503] to [6.22][1090521] ([recording][237]) | |
 ||Nov 6|Sunday| |Exam 2 review session| | |
-|32|Nov 7| Monday    | Exam 2 instead during Tuesday's lab | [10: Heaps and Huffman coding][90] | | |
-|33|Nov 9| Wednesday | | [10: Heaps and Huffman coding][90] | | |
+|32|Nov 7| Monday    | Exam 2 instead during Tuesday's lab | [10: Heaps and Huffman coding][90] | [09: Advanced C++][89], slides [7][10906] to [8.12][1090711] (end); [10: Heaps and Huffman][90], slides [1][90] to [4.4][1100303] ([recording][240]) | |
+|33|Nov 9| Wednesday | | [10: Heaps and Huffman coding][90] | [10: Heaps and Huffman][90], slides [5][11004] to [6.11][1100510] ([recording][241]) | |
 |34|Nov 11| Friday    | | [10: Heaps and Huffman coding][90] | | |
 |35|Nov 14| Monday    | [Lab 9: assembly, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [10: Heaps and Huffman coding][90], [11: Graphs][91] | | |
 |36|Nov 16| Wednesday | | [11: Graphs][91] | | |
@@ -495,6 +495,8 @@ None yet!
 [1090708]: ../slides/09-advanced-cpp.html#/7/8
 [1090710]: ../slides/09-advanced-cpp.html#/7/10
 [1090711]: ../slides/09-advanced-cpp.html#/7/11
+[1100303]: ../slides/10-heaps-huffman.html#/3/3
+[11004]: ../slides/10-heaps-huffman.html#/4
 [1100406]: ../slides/10-heaps-huffman.html#/4/6
 [1100407]: ../slides/10-heaps-huffman.html#/4/7
 [1100408]: ../slides/10-heaps-huffman.html#/4/8
@@ -502,6 +504,7 @@ None yet!
 [1100501]: ../slides/10-heaps-huffman.html#/5/1
 [1100503]: ../slides/10-heaps-huffman.html#/5/3
 [1100508]: ../slides/10-heaps-huffman.html#/5/8
+[1100510]: ../slides/10-heaps-huffman.html#/5/10
 [1100512]: ../slides/10-heaps-huffman.html#/5/12
 [1100515]: ../slides/10-heaps-huffman.html#/5/15
 [1100605]: ../slides/10-heaps-huffman.html#/6/5
