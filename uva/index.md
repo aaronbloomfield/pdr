@@ -94,9 +94,9 @@ The links in the right-most column link directly to the lecture recording on Col
 |33|Nov 9| Wednesday | | [10: Heaps and Huffman coding][90] | [10: Heaps and Huffman][90], slides [5][11004] to [6.11][1100510] ([recording][241]) | |
 |34|Nov 11| Friday    | | [10: Heaps and Huffman coding][90] | [10: Heaps and Huffman][90], slides [6.11][1100510] to [6.16][1100515] ([recording][242]) | |
 |35|Nov 14| Monday    | [Lab 9: assembly, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [10: Heaps and Huffman coding][90], [11: Graphs][91] | [10: Heaps and Huffman][90], slides [7.1][11006] to [8.24][1100723] ([recording][243]) | |
-|36|Nov 16| Wednesday | | [11: Graphs][91] | [10: Heaps and Huffman][90], slides [8.21][1100720] to ... | |
-|37|Nov 18| Friday    | | [11: Graphs][91] | | |
-|38|Nov 21| Monday    | [Lab 10: Huffman coding][10] ([md][30]) / (no tutorial) | [11: Graphs][91] | | |
+|36|Nov 16| Wednesday | | [11: Graphs][91] | [10: Heaps and Huffman][90], slides [8.21][1100720] to [9.9][1100808] (end); [11: Graphs][91], slides [1][91] to [4.7][1110306] ([recording][244]) | |
+|37|Nov 18| Friday    | | [11: Graphs][91] | [11: Graphs][91], slides [4.7][1110306] to [6.7][1110506] ([recording][245]) | |
+|38|Nov 21| Monday    | [Lab 10: Huffman coding][10] ([md][30]) / (no tutorial) | [11: Graphs][91] | [11: Graphs][91], slides [6.7][1110506] to ... ([recording][246]) | |
 ||Nov 23| Wednesday | | (Thanksgiving break) | | |
 ||Nov 25| Friday    | | (Thanksgiving break) | | |
 |39|Nov 28| Monday | [Lab 11: Graphs][11] ([md][31]) | [11: Graphs][91] | | |
@@ -520,11 +520,13 @@ None yet!
 [1100808]: ../slides/10-heaps-huffman.html#/8/8
 [1110304]: ../slides/11-graphs.html#/3/4
 [1110305]: ../slides/11-graphs.html#/3/5
+[1110306]: ../slides/11-graphs.html#/3/6
 [1110402]: ../slides/11-graphs.html#/4/2
 [11104]: ../slides/11-graphs.html#/4
 [1110406]: ../slides/11-graphs.html#/4/6
 [1110408]: ../slides/11-graphs.html#/4/8
 [11105]: ../slides/11-graphs.html#/5
+[1110506]: ../slides/11-graphs.html#/5/6
 [1110507]: ../slides/11-graphs.html#/5/7
 [1110508]: ../slides/11-graphs.html#/5/8
 [1110509]: ../slides/11-graphs.html#/5/9
