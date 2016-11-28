@@ -99,7 +99,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |38|Nov 21| Monday    | [Lab 10: Huffman coding][10] ([md][30]) / (no tutorial) | [11: Graphs][91] | [11: Graphs][91], slides [6.7][1110506] to [7.6][1110605] ([recording][246]) | |
 ||Nov 23| Wednesday | | (Thanksgiving break) | | |
 ||Nov 25| Friday    | | (Thanksgiving break) | | |
-|39|Nov 28| Monday | [Lab 11: Graphs][11] ([md][31]) | [11: Graphs][91] | | |
+|39|Nov 28| Monday | [Lab 11: Graphs][11] ([md][31]) | [11: Graphs][91] | [11: Graphs][91], slides [8.1][11107] to [9.15][1110814] ([recording][247]) | |
 |40|Nov 30| Wednesday    || [12: Memory][92] | | |
 |41|Dec 2| Friday    || [12: Memory][92] | | |
 |42|Dec 5| Monday   | [Lab 12: Objective C][12] ([md][32])|[13: Esoteric PLs][93], [Course conclusion][94] | | |
