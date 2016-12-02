@@ -100,7 +100,7 @@ The links in the right-most column link directly to the lecture recording on Col
 ||Nov 23| Wednesday | | (Thanksgiving break) | | |
 ||Nov 25| Friday    | | (Thanksgiving break) | | |
 |39|Nov 28| Monday | [Lab 11: Graphs][11] ([md][31]) | [11: Graphs][91] | [11: Graphs][91], slides [8.1][11107] to [9.15][1110814] ([recording][247]) | |
-|40|Nov 30| Wednesday    || [12: Memory][92] | | |
+|40|Nov 30| Wednesday    || [12: Memory][92] | [12: Memory][92], slides [1][92] to [4.12][1120311] ([recording][248]) | |
 |41|Dec 2| Friday    || [12: Memory][92] | | |
 |42|Dec 5| Monday   | [Lab 12: Objective C][12] ([md][32])|[13: Esoteric PLs][93], [Course conclusion][94] | | |
 ||Dec 7| Wednesday || Final exam review session | | |
