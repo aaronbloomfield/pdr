@@ -103,7 +103,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |39|Nov 28| Monday | [Lab 11: Graphs][11] ([md][31]) | [11: Graphs][91] | [11: Graphs][91], slides [8.1][11107] to [9.15][1110814] ([recording][247]) | |
 |40|Nov 30| Wednesday    || [12: Memory][92] | [12: Memory][92], slides [1][92] to [4.12][1120311] ([recording][248]) | |
 |41|Dec 2| Friday    || [12: Memory][92] | [12: Memory][92], slides [4.12][1120311] to [4.26][1120325] ([recording][249]) | |
-|42|Dec 5| Monday   | [Lab 12: Objective C][12] ([md][32])|[13: Esoteric PLs][93], [Course conclusion][94] | | |
+|42|Dec 5| Monday   | [Lab 12: Objective C][12] ([md][32])|[13: Esoteric PLs][93], [Course conclusion][94] | [12: Memory][92], slides [5.1][11204] to [5.19][1120418] (end); [13: Esoteric PLs][93], slides [1][93] to [6.13][1130512] (end); [Course conclusion][94], slides [1][94] to [12][12011] (end) ([recording][251]) |
 ||Dec 7| Wednesday || Final exam review session | | |
 ||Dec 9| Friday    | Final exam from 7:00 p.m. - 10:00 p.m. in the lecture classroom| Final exam from 7:00 p.m. - 10:00 p.m. in the lecture classroom | | |
 
