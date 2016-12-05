@@ -31,6 +31,7 @@ The parts of this course that are in this repo are:
 - [UNIX honor pledge][172], which needs to be signed by all the students in the course (it is created from a [.tex][114] file)
 - [Generic review session slide set][113], which is really just a blank set of slides
 - [Frivolous regrade policy][109] ([md][110]) for exams
+- [Course grade explanations][116] ([md][115])
 
 ------------------------------------------------------------
 
@@ -101,7 +102,7 @@ The links in the right-most column link directly to the lecture recording on Col
 ||Nov 25| Friday    | | (Thanksgiving break) | | |
 |39|Nov 28| Monday | [Lab 11: Graphs][11] ([md][31]) | [11: Graphs][91] | [11: Graphs][91], slides [8.1][11107] to [9.15][1110814] ([recording][247]) | |
 |40|Nov 30| Wednesday    || [12: Memory][92] | [12: Memory][92], slides [1][92] to [4.12][1120311] ([recording][248]) | |
-|41|Dec 2| Friday    || [12: Memory][92] | | |
+|41|Dec 2| Friday    || [12: Memory][92] | [12: Memory][92], slides [4.12][1120311] to [4.26][1120325] ([recording][249]) | |
 |42|Dec 5| Monday   | [Lab 12: Objective C][12] ([md][32])|[13: Esoteric PLs][93], [Course conclusion][94] | | |
 ||Dec 7| Wednesday || Final exam review session | | |
 ||Dec 9| Friday    | Final exam from 7:00 p.m. - 10:00 p.m. in the lecture classroom| Final exam from 7:00 p.m. - 10:00 p.m. in the lecture classroom | | |
