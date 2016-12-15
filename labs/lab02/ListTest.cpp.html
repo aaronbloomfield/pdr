@@ -316,6 +316,10 @@ http://www.gnu.org/software/src-highlite">
                 <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
 
             <b><font color="#0000FF">case</font></b> <font color="#993399">15</font><font color="#990000">:</font> <font color="#FF0000">{</font>                    <i><font color="#9A1900">// test copy constructor</font></i>
+                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>list <font color="#990000">==</font> NULL<font color="#990000">)</font> <font color="#FF0000">{</font>
+                    cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Create a List first."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+                    <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
+                <font color="#FF0000">}</font>
                 List<font color="#990000">*</font> old_list<font color="#990000">=</font>list<font color="#990000">;</font>
                 list<font color="#990000">=</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">List</font></b><font color="#990000">(*</font>old_list<font color="#990000">);</font>
                 old_list<font color="#990000">-&gt;</font><b><font color="#000000">makeEmpty</font></b><font color="#990000">();</font>
@@ -333,6 +337,10 @@ http://www.gnu.org/software/src-highlite">
                 <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
             <font color="#FF0000">}</font>
             <b><font color="#0000FF">case</font></b> <font color="#993399">16</font><font color="#990000">:</font> <font color="#FF0000">{</font>                    <i><font color="#9A1900">// test equals operator</font></i>
+                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>list <font color="#990000">==</font> NULL<font color="#990000">)</font> <font color="#FF0000">{</font>
+                    cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Create a List first."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+                    <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
+                <font color="#FF0000">}</font>
                 List<font color="#990000">*</font> old_list<font color="#990000">=</font>list<font color="#990000">;</font>
                 list<font color="#990000">=</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">List</font></b><font color="#990000">();</font>
                 <font color="#990000">*</font>list<font color="#990000">=*</font>old_list<font color="#990000">;</font>
@@ -363,7 +371,7 @@ http://www.gnu.org/software/src-highlite">
                 cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The list is (backward): "</font><font color="#990000">;</font>
                 <b><font color="#000000">printList</font></b><font color="#990000">(*</font>list<font color="#990000">,</font><b><font color="#0000FF">false</font></b><font color="#990000">);</font>
                 list<font color="#990000">-&gt;</font><b><font color="#000000">makeEmpty</font></b><font color="#990000">();</font>
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The list was made empty (forward ): "</font><font color="#990000">;</font>
+                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The list was made empty (forward): "</font><font color="#990000">;</font>
                 <b><font color="#000000">printList</font></b><font color="#990000">(*</font>list<font color="#990000">,</font><b><font color="#0000FF">true</font></b><font color="#990000">);</font>
                 cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The list was made empty (backward): "</font><font color="#990000">;</font>
                 <b><font color="#000000">printList</font></b><font color="#990000">(*</font>list<font color="#990000">,</font><b><font color="#0000FF">false</font></b><font color="#990000">);</font>

@@ -109,7 +109,7 @@
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Implementations of Priority Queue ADT
+## Priority Queue data structures
 
 | Data structure | insert | findMin | deleteMin |
 |-|-|-|-|
@@ -145,12 +145,11 @@
 
 	  <section data-markdown><script type="text/template">
 ## Definitions
-A *perfect* (or *complete*) binary tree is a binary tree with all leaf nodes at the same depth; all internal nodes have 2 children.
+A *perfect* (or *complete*) binary tree has all leaf nodes at the same depth; all internal nodes have 2 children.
 ![heap 1](graphs/heap-1.svg)
 
-- This has height *h*, 2<sup>*h*+1</sup>-1 nodes, 2<sup>*h*</sup>-1 non-leaves, and 2<sup>*h*</sup> leaves
+- Has height *h*, 2<sup>*h*+1</sup>-1 nodes, 2<sup>*h*</sup>-1 non-leaves, and 2<sup>*h*</sup> leaves
   - Note that about half of the nodes are leaves
-- Note that this example is a complete binary tree, not a heap
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -184,7 +183,7 @@ A *perfect* (or *complete*) binary tree is a binary tree with all leaf nodes at 
 	  </section>
 
 	  <section>
-<h2>Representing Complete Binary Trees in Arrays</h2>
+<h2>Complete Binary Trees in Arrays</h2>
 <table class="transparent">
 <tr><td class="top"><img alt="heap 8" src="graphs/heap-8.svg"></td>
 <td>
@@ -238,7 +237,7 @@ A *perfect* (or *complete*) binary tree is a binary tree with all leaf nodes at 
 - insert(val): percolate up
 - deleteMin: percolate down  
 &nbsp;  
-See [here](http://people.ksp.sk/~kuko/bak/index.html) for a good heap animation site
+See [here](http://people.ksp.sk/~kuko/bak/index.html) for a good heap animation site; [local copy](misc/gt.jar)
 ![heap 11](graphs/heap-11.svg)
 	  </script></section>
 
@@ -685,9 +684,8 @@ void binary_heap::percolateDown(int hole) {
 
 ![huffman 1](graphs/huffman-1.svg)
 
-- Repeat
-  - Take the two trees that have the lowest frequency
-    - The next two removals from the heap
+- Repeat: take the two trees that have the lowest frequency
+  - The next two removals from the heap
   - Make them children of a new node
   - Keep track of the total frequency of that node
     - And stick that tree back into the heap

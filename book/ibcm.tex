@@ -402,16 +402,16 @@ instruction, and ``mem[]'' is memory.
 3$_{16}$ & load  & a := mem[addr]       & load accumulator from memory \\
 4$_{16}$ & store & mem[addr] := a       & store accumulator into memory \\
 5$_{16}$ & add   & a := a + mem[addr]   & add memory to accumulator \\
-6$_{16}$ & sub   & a := a - mem[addr]   & subtract memory from accumulator \\
-7$_{16}$ & and   & a := a \& mem[addr]  & logical 'and' memory into accumulator \\
-8$_{16}$ & or    & a := a $|$ mem[addr] & logical 'or' memory into accumulator \\
-9$_{16}$ & xor   & a := a $\oplus$ mem[addr] & logical 'xor' memory into accumulator \\
-A$_{16}$ & not  & a := ~ a             & logical complement of accumulator \\
+6$_{16}$ & sub   & a := a -- mem[addr]   & subtract memory from accumulator \\
+7$_{16}$ & and   & a := a \& mem[addr]  & logical `and' memory into accumulator \\
+8$_{16}$ & or    & a := a $|$ mem[addr] & logical `or' memory into accumulator \\
+9$_{16}$ & xor   & a := a $\oplus$ mem[addr] & logical `xor' memory into accumulator \\
+A$_{16}$ & not   & a := $\sim$ a             & logical complement of accumulator \\
 B$_{16}$ & nop   &                      & do nothing (no operation) \\
-C$_{16}$ & jmp   & goto 'addr'          & jump to 'addr' \\
-D$_{16}$ & jmpe  & if a = 0 goto addr   & jump to 'addr' if accumulator equals zero \\
-E$_{16}$ & jmpl  & if a $<$ goto addr   & jump to 'addr' if accumulator less than zero \\
-F$_{16}$ & brl   & branch and link      & jump (branch) to 'addr'; set accumulator to the value of the \\
+C$_{16}$ & jmp   & goto `addr'          & jump to `addr' \\
+D$_{16}$ & jmpe  & if a = 0 goto addr   & jump to `addr' if accumulator equals zero \\
+E$_{16}$ & jmpl  & if a $<$ 0 goto addr   & jump to `addr' if accumulator less than zero \\
+F$_{16}$ & brl   & branch and link      & jump (branch) to `addr'; set accumulator to the value of the \\
          &       &                      & the ``return address'' (i.e., the instruction just {\em after} the brl) \\
 \end{tabular}
 \caption{IBCM opcodes}
@@ -465,7 +465,7 @@ not & \\ \hline \hline
 
 \item The {\tt not} instruction only inverts the bits in the
   accumulator, and does not use a memory location; the 'address' part
-  of the instrcution is ignored.
+  of the instruction is ignored.
 
 \item Likewise, the {\tt nop} instruction ignores the 'address' part
   of the instruction.
@@ -1042,11 +1042,11 @@ shown in the diagram for clarity, but would not be included in the
 IBCM source code file.
 
 \begin{figure}
-\lstinputlisting[caption={IBCM multiplcation program, part 1},label={IBCM-multiplication-program-pt1.lst},backgroundcolor=\color{white},frame=trBL,linewidth=7.05in,xleftmargin=0.15in]{ibcm/multiplication-pt1.ibcm.txt}
+\lstinputlisting[caption={IBCM multiplication program, part 1},label={IBCM-multiplication-program-pt1.lst},backgroundcolor=\color{white},frame=trBL,linewidth=7.05in,xleftmargin=0.15in]{ibcm/multiplication-pt1.ibcm.txt}
 \end{figure}
 
 \begin{figure}
-\lstinputlisting[caption={IBCM multiplcation program, part 2},label={IBCM-multiplication-program-pt2.lst},backgroundcolor=\color{white},frame=trBL,linewidth=7.05in,xleftmargin=0.15in]{ibcm/multiplication-pt2.ibcm.txt}
+\lstinputlisting[caption={IBCM multiplication program, part 2},label={IBCM-multiplication-program-pt2.lst},backgroundcolor=\color{white},frame=trBL,linewidth=7.05in,xleftmargin=0.15in]{ibcm/multiplication-pt2.ibcm.txt}
 \end{figure}
 
 \section{Turing Completeness}

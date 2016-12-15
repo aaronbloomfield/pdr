@@ -15,13 +15,36 @@
 <p>In addition to a standard LaTeX installation, the texlive-pstricks package will need to be installed in order to compile the book from the LaTeX source.</p>
 <p>Due to the fact that it is currently used in the course, and that students may not have LaTeX installed, the <a href="ibcm-chapter.pdf" class="uri">ibcm-chapter.pdf</a> file is directly committed to the repository.</p>
 <h2 id="directory-contents">Directory contents</h2>
-<p>All of the files in this directory are not listed on this web page, just a few that need an explanation:</p>
-<ul>
-<li>main.tex: The full book, which has spaces for each chapter. As mentioned above, only 1 chapter (IBCM) is anywhere near complete, and two others (the two x86 chapters) are in the draft stage.</li>
-<li>working.tex: this is meant to allow LaTeX to be run on the individual chapter(s) that are being worked on, without having to recompile the entire book. This was used to generate the <a href="ibcm-chapter.pdf" class="uri">ibcm-chapter.pdf</a> file.</li>
-<li>references.bib: all the references used throughout in the book.</li>
-<li>Makefile: a series of targets to automate the building of the PDF documents in this book.</li>
-</ul>
 <p>Each chapter is named as foo.tex, with a foo/ direcotry to hold the images and source code for that chapter (all source code is kept external to the LaTeX files).</p>
+<h4 id="ibcm-files">IBCM files</h4>
+<ul>
+<li><a href="ibcm.tex" class="uri">ibcm.tex</a>: The actual content of the IBCM chapter; it is included in various other files (main.tex and ibcm-chapter.tex). One can not LaTeX this file by itself.</li>
+<li><a href="ibcm-chapter.tex" class="uri">ibcm-chapter.tex</a> (<a href="ibcm-chapter.pdf">pdf</a>): This file includes ibcm.tex, and allows that content to be created into a stand-alone PDF of the IBCM content.</li>
+<li><a href="ibcm/" class="uri">ibcm/</a>: The directory that contains the various source code files and images used in the IBCM chapter.</li>
+</ul>
+<h4 id="x86-32-bit-files">x86 (32 bit) files</h4>
+<ul>
+<li><a href="x86-32bit.tex" class="uri">x86-32bit.tex</a>: The introduction of the 32 bit x86 assembly instruction set; this is the actual content, and this file cannot be LaTeX'ed directly.</li>
+<li><a href="x86-32bit-ccc.tex" class="uri">x86-32bit-ccc.tex</a>: The C calling convention for 32 bit x86 assembly; this is the actual content, and this file cannot be LaTeX'ed directly.</li>
+<li><a href="x86-32bit-asm-chapter.tex" class="uri">x86-32bit-asm-chapter.tex</a> (<a href="x86-32bit-asm-chapter.pdf">pdf</a>): This file includes x86-32bit.tex, and allows that content to be created into a stand-alone PDF of the x86 introduction content.</li>
+<li><a href="x86-32bit-ccc-chapter.tex" class="uri">x86-32bit-ccc-chapter.tex</a> (<a href="x86-32bit-ccc-chapter.pdf">pdf</a>): This file includes x86-32bit-ccc.tex, and allows that content to be created into a stand-alone PDF of the x86 calling convention content.</li>
+<li><a href="x86-32bit/" class="uri">x86-32bit/</a>: The directory that contains the various source code files and images used in the 32 bit x86 chapters.</li>
+</ul>
+<h4 id="x86-64-bit-files">x86 (64 bit) files</h4>
+<ul>
+<li><a href="x86-64bit.tex" class="uri">x86-64bit.tex</a>: The introduction of the 64 bit x86 assembly instruction set; this is the actual content, and this file cannot be LaTeX'ed directly.</li>
+<li><a href="x86-64bit-ccc.tex" class="uri">x86-64bit-ccc.tex</a>: The C calling convention for 64 bit x86 assembly; this is the actual content, and this file cannot be LaTeX'ed directly.</li>
+<li><a href="x86-64bit-asm-chapter.tex" class="uri">x86-64bit-asm-chapter.tex</a> (<a href="x86-64bit-asm-chapter.pdf">pdf</a>): This file includes x86-64bit.tex, and allows that content to be created into a stand-alone PDF of the x86 introduction content.</li>
+<li><a href="x86-64bit-ccc-chapter.tex" class="uri">x86-64bit-ccc-chapter.tex</a> (<a href="x86-64bit-ccc-chapter.pdf">pdf</a>): This file includes x86-64bit-ccc.tex, and allows that content to be created into a stand-alone PDF of the x86 calling convention content.</li>
+<li><a href="x86-64bit/" class="uri">x86-64bit/</a>: The directory that contains the various source code files and images used in the 32 bit x86 chapters.</li>
+</ul>
+<h4 id="common-files">Common files</h4>
+<ul>
+<li><a href="macros.tex" class="uri">macros.tex</a>: A number of LaTeX macros used throughout the files herein.</li>
+<li><a href="main.tex" class="uri">main.tex</a> (<a href="main.pdf">pdf</a>): The full book, which has spaces for each chapter. As mentioned above, only a few chapters (IBCM and the x86 chapters) are anywhere near complete.</li>
+<li><a href="Makefile" class="uri">Makefile</a>: A series of targets to automate the building of the PDF documents in this book.</li>
+<li><a href="references.bib" class="uri">references.bib</a>: All the references used throughout in the book.</li>
+<li><a href="working.tex" class="uri">working.tex</a>: This is meant to allow LaTeX to be run on the individual chapter(s) that are being worked on, without having to recompile the entire book.</li>
+</ul>
 </body>
 </html>

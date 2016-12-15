@@ -58,7 +58,7 @@
 <ul>
 <li>These are the utilities so that VirtualBox will work correctly with the host computer (proper full screen, etc.)</li>
 <li>From the VirtualBox Device menu, select &quot;Insert Guest Additions CD Image&quot;, and follow the prompts</li>
-<li>Once done, run <code>autorun.sh</code> from <code>/media/student/VBOXADDITIONS_4.3.36_105129</code> (or similar), and follow the prompts</li>
+<li>Once done, run <code>autorun.sh</code> from <code>/media/student/VBOXADDITIONS_4.3.36_105129</code> (or similar), and follow the prompts. Alternatively, if that does not work, try running <code>sudo bash VBoxLinuxAdditions.run</code> from that same directory.</li>
 </ul></li>
 <li>Reboot!</li>
 </ul>
@@ -161,8 +161,8 @@ sudo update-alternatives --set c++ /usr/bin/clang++</code></pre></li>
 </ul></li>
 <li>Download the latest <a href="http://www.ecs.csus.edu/pc2/">PC^2</a> software and unzip it in /usr/local/
 <ul>
-<li>At the time of this writing, the latest version is 9.2.4-2837, and the direct download link is <a href="http://www.ecs.csus.edu/pc2/code/v9/pc2-9.2.4-2837/pc2-9.2.4-2837.zip">here</a>; thus, the directory it is unzipped into would be <code>/usr/local/pc2-9.2.4</code></li>
-<li>After unzipping, create a symlink: from /usr/local/ run (changing the version as necessary): <code>sudo ln -s pc2-9.2.4 pc2</code></li>
+<li>At the time of this writing, the latest version is 9.3.2-3449, and the direct download link is <a href="http://www.ecs.csus.edu/pc2/code/v9/pc2-9.3.2-3449/pc2-9.3.2-3449.zip">here</a>; thus, the directory it is unzipped into would be <code>/usr/local/pc2-9.3.2</code></li>
+<li>After unzipping, create a symlink: from /usr/local/ run (changing the version as necessary): <code>sudo ln -s pc2-9.3.2 pc2</code></li>
 <li>Edit /usr/local/pc2/pc2v9.ini and replace <code>localhost</code> on the <code>server</code> line (likely line 12) with the full server name of the primary submission server</li>
 </ul></li>
 <li><p>Create a script to restore the Internet access after the contest (this does not hurt anything to have it ready, as it won't do anything if the Internet is not turned off). This can be <code>/usr/local/bin/restore-internet</code> -- the commands therein need sudo, so only the <code>student</code> user can run them. This is typically executed at the end of the contest if the contestants want to save their work. All that has to be done is to modify the default policy for the chains. Be sure to also run <code>chmod 755 /usr/local/bin/restore-internet</code>.</p>
@@ -268,6 +268,8 @@ sudo rsync -a --del hspcteam/ /home/hspcteam/</code></pre></li>
 <p><strong>Upgrading from a previous version</strong></p>
 <p>Because previous versions of this image were a different version of Ubuntu (specifically, 14.04), we are not providing upgrade information, as it is too extensive to properly check those instructions.</p>
 <p><strong>Changes for the future</strong></p>
-<p>None known yet!</p>
+<ul>
+<li>Plasmashell, which is part of the graphical window system, was crashing repeatedly. The reason seems to be tooltip previews of application windows, so these should be disabled: right click taskbar -&gt; Task Manager Settings -&gt; General -&gt; Uncheck &quot;show tooltips&quot;</li>
+</ul>
 </body>
 </html>

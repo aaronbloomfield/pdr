@@ -305,6 +305,10 @@ int   main ()
                 break;
 
             case 15: {                    // test copy constructor
+                if (list == NULL) {
+                    cout << endl << "\tCreate a List first." << endl;
+                    break;
+                }
                 List* old_list=list;
                 list=new List(*old_list);
                 old_list->makeEmpty();
@@ -322,6 +326,10 @@ int   main ()
                 break;
             }
             case 16: {                    // test equals operator
+                if (list == NULL) {
+                    cout << endl << "\tCreate a List first." << endl;
+                    break;
+                }
                 List* old_list=list;
                 list=new List();
                 *list=*old_list;
@@ -347,7 +355,7 @@ int   main ()
                     break;
                 }
 
-                cout << "The list is (forward ): ";
+                cout << "The list is (forward): ";
                 printList(*list,true);
                 cout << "The list is (backward): ";
                 printList(*list,false);
