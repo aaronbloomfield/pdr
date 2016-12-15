@@ -42,7 +42,7 @@ Procedure
 ### In-lab ###
 
 1. Come to class with a *working prelab*.
-2. Run your postfix calculator on the test sequences posted on the board by the TAs.  Since your code only can handle hard-coded values, this will require a code modification and a recompilation to test each case.  If your program does not calculate the correct result, use the debugger to find the errors and correct them.  These modifications will be submitted to the in-lab.
+2. Run your postfix calculator on the test sequences posted on the board by the TAs.  (These test sequences are also at the very bottom of this page.)  Since your code only can handle hard-coded values, this will require a code modification and a recompilation to test each case.  If your program does not calculate the correct result, use the debugger to find the errors and correct them.  These modifications will be submitted to the in-lab.
     - Be sure you are able to explain how all parts your code work. You will be responsible for this material for the midterms and final exam.
 3. You need to expand your pre-lab code to handle keyboard input.  See the specifications in the in-lab section for how to handle the input.
 4. The files you submit should be a FULLY WORKING postfix calculator, which still uses the STL stack class.
@@ -130,7 +130,16 @@ Keep in mind that you can type up a few of the blocks, and comment them out with
 
 ### Stack Calculator Implementation: ###
 
-Your calculator must implement the following arithmetic operations: ~, +, -, \*, and /.  The tilde (~) is the unary negation operator -- it negates the top element of the stack, and (unlike the other four operators) does not use a second number from the stack.  Note that negative numbers still use a regular minus sign (i.e. '-3') -- this just involves putting the negative number on the stack.  But if you want to do negation (which involves popping the top value, negating it, and pushing that new value back on the stack), then you would use the tilde.  For the non-commutative operators (operators where the order of the numbers matters, such as minus and divide), the first value you pop we'll call x, the second value you pop we'll call y; the result should be *y-x* or *y/x*, NOT *x-y* (or *x/y*) -- in other words, the "lower" value in the stack minus/divided by the "higher" one in the stack).
+Your calculator must implement the following arithmetic operations:
+  - `+` : addition
+  - `-` : subtraction
+  - `*` : multiplication
+  - `/` : division
+  - `~` : unary negation
+
+Notes: 
+  - We use the tilde (~) as the unary negation operator -- this negates the top element of the stack, and (unlike the other four operators) does not use a second number from the stack.  Do not confuse this operator with the tilde operator in C++, which performs bitwise negation.  Negative numbers still use a regular minus sign (i.e. '-3') and just pushes the negative number on the stack.  But, if you want to do negation (which involves popping the top value, negating it, and pushing that new value back on the stack), then you would use the tilde.  
+  - For the non-commutative operators (operators where the order of the numbers matters, such as minus and divide), the first value you pop we'll call x, the second value you pop we'll call y; the result should be *y-x* or *y/x*, NOT *x-y* (or *x/y*) -- in other words, the "lower" value in the stack minus/divided by the "higher" one in the stack).
 
 ### Useful Information ###
 
