@@ -45,7 +45,7 @@ The labs for this course:
 &nbsp;
 
 - [Lab 6: Hashing](lab06/index.html)
-    - Source code: [getWordInTable.cpp](lab06/code/getWordInTable.cpp.html) ([src](lab06/code/getWordInTable.cpp)), [primenumber.cpp](lab06/code/primenumber.cpp.html) ([src](lab06/code/primenumber.cpp)), [timer.cpp](lab06/code/timer.cpp.html) ([src](lab06/code/timer.cpp)), [timer.h](lab06/code/timer.h.html) ([src](lab06/code/timer.h)), [timer_test.cpp](lab06/code/timer_test.cpp.html) ([src](lab06/code/timer_test.cpp))
+    - Source code: [getWordInGrid.cpp](lab06/code/getWordInGrid.cpp.html) ([src](lab06/code/getWordInGrid.cpp)), [primenumber.cpp](lab06/code/primenumber.cpp.html) ([src](lab06/code/primenumber.cpp)), [timer.cpp](lab06/code/timer.cpp.html) ([src](lab06/code/timer.cpp)), [timer.h](lab06/code/timer.h.html) ([src](lab06/code/timer.h)), [timer_test.cpp](lab06/code/timer_test.cpp.html) ([src](lab06/code/timer_test.cpp))
         - These can also be downloaded all at once via the [code.zip](lab06/code.zip) file
     - The data files in the [labs/lab06/data/ directory](lab06/data/)
         - These can also be downloaded all at once via the [data.zip](lab06/data.zip) file
@@ -71,7 +71,7 @@ The labs for this course:
 
 &nbsp;
 
-- [Lab 9: x86, part 2](lab09/index.html) (assembly language)
+- Lab 9: x86 (assembly), part 2: in 32-bit and 64-bit versions
     - ~~[32-bit version of the lab](lab09-32bit/index.html)~~
         - ~~Readings: the two x86 book chapters: [x86 Assembly](../book/x86-32bit-asm-chapter.pdf) and [The x86 C Calling Convention](../book/x86-32bit-ccc-chapter.pdf)~~
     - [64-bit version of the lab](lab09-64bit/index.html)
