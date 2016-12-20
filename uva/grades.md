@@ -29,7 +29,7 @@ From the exams, we have 3.0+1.25 = 4.25 added to everybody's course grade.
 Rounding
 --------
 
-Yes, we round grades.  Note that `round(x) == floor(x)+0.5`.  So we added 0.5 points to everybody's curve to take into account rounding.  Note that this means rounding is already taken care of, so if you get an 89.9999999999999999999, it's still a B+, no matter how many times you ask - you don't get to round a second time (in reality, it was an 89.49).
+Yes, we round grades.  Note that `round(x) == floor(x+0.5)`.  So we added 0.5 points to everybody's curve to take into account rounding.  Note that this means rounding is already taken care of, so if you get an 89.9999999999999999999, it's still a B+, no matter how many times you ask - you don't get to round a second time (in reality, it was an 89.49).
 
 
 Course curve
