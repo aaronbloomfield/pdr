@@ -1,0 +1,167 @@
+	.file	"test_max.cpp"
+	.intel_syntax noprefix
+	.section	.text.unlikely,"ax",@progbits
+.LCOLDB0:
+	.text
+.LHOTB0:
+	.p2align 4,,15
+	.globl	max
+	.type	max, @function
+max:
+.LFB1048:
+	.cfi_startproc
+	mov	eax, DWORD PTR [esp+4]
+	mov	edx, DWORD PTR [esp+8]
+	cmp	eax, edx
+	cmovl	eax, edx
+	ret
+	.cfi_endproc
+.LFE1048:
+	.size	max, .-max
+	.section	.text.unlikely
+.LCOLDE0:
+	.text
+.LHOTE0:
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC1:
+	.string	"Enter value 1: "
+.LC2:
+	.string	"Enter value 2: "
+.LC3:
+	.string	"The result is: "
+	.section	.text.unlikely
+.LCOLDB4:
+	.section	.text.startup,"ax",@progbits
+.LHOTB4:
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB1049:
+	.cfi_startproc
+	lea	ecx, [esp+4]
+	.cfi_def_cfa 1, 0
+	and	esp, -16
+	push	DWORD PTR [ecx-4]
+	push	ebp
+	.cfi_escape 0x10,0x5,0x2,0x75,0
+	mov	ebp, esp
+	push	ebx
+	push	ecx
+	.cfi_escape 0xf,0x3,0x75,0x78,0x6
+	.cfi_escape 0x10,0x3,0x2,0x75,0x7c
+	sub	esp, 20
+	mov	DWORD PTR [ebp-20], 0
+	mov	DWORD PTR [ebp-16], 0
+	push	15
+	push	OFFSET FLAT:.LC1
+	push	OFFSET FLAT:_ZSt4cout
+	mov	eax, DWORD PTR gs:20
+	mov	DWORD PTR [ebp-12], eax
+	xor	eax, eax
+	call	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_i
+	mov	DWORD PTR [esp], OFFSET FLAT:_ZSt4cout
+	call	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+	pop	eax
+	lea	eax, [ebp-20]
+	pop	edx
+	push	eax
+	push	OFFSET FLAT:_ZSt3cin
+	call	_ZNSirsERi
+	add	esp, 12
+	push	15
+	push	OFFSET FLAT:.LC2
+	push	OFFSET FLAT:_ZSt4cout
+	call	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_i
+	mov	DWORD PTR [esp], OFFSET FLAT:_ZSt4cout
+	call	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+	pop	ecx
+	lea	eax, [ebp-16]
+	pop	ebx
+	push	eax
+	push	OFFSET FLAT:_ZSt3cin
+	call	_ZNSirsERi
+	mov	eax, DWORD PTR [ebp-16]
+	mov	ebx, DWORD PTR [ebp-20]
+	add	esp, 12
+	push	15
+	push	OFFSET FLAT:.LC3
+	push	OFFSET FLAT:_ZSt4cout
+	cmp	eax, ebx
+	cmovge	ebx, eax
+	call	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_i
+	pop	eax
+	pop	edx
+	push	ebx
+	push	OFFSET FLAT:_ZSt4cout
+	call	_ZNSolsEi
+	mov	DWORD PTR [esp], eax
+	call	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+	add	esp, 16
+	mov	edx, DWORD PTR [ebp-12]
+	xor	edx, DWORD PTR gs:20
+	jne	.L6
+	lea	esp, [ebp-8]
+	xor	eax, eax
+	pop	ecx
+	.cfi_remember_state
+	.cfi_restore 1
+	.cfi_def_cfa 1, 0
+	pop	ebx
+	.cfi_restore 3
+	pop	ebp
+	.cfi_restore 5
+	lea	esp, [ecx-4]
+	.cfi_def_cfa 4, 4
+	ret
+.L6:
+	.cfi_restore_state
+	call	__stack_chk_fail
+	.cfi_endproc
+.LFE1049:
+	.size	main, .-main
+	.section	.text.unlikely
+.LCOLDE4:
+	.section	.text.startup
+.LHOTE4:
+	.section	.text.unlikely
+.LCOLDB5:
+	.section	.text.startup
+.LHOTB5:
+	.p2align 4,,15
+	.type	_GLOBAL__sub_I_max, @function
+_GLOBAL__sub_I_max:
+.LFB1059:
+	.cfi_startproc
+	sub	esp, 24
+	.cfi_def_cfa_offset 28
+	push	OFFSET FLAT:_ZStL8__ioinit
+	.cfi_def_cfa_offset 32
+	call	_ZNSt8ios_base4InitC1Ev
+	add	esp, 12
+	.cfi_def_cfa_offset 20
+	push	OFFSET FLAT:__dso_handle
+	.cfi_def_cfa_offset 24
+	push	OFFSET FLAT:_ZStL8__ioinit
+	.cfi_def_cfa_offset 28
+	push	OFFSET FLAT:_ZNSt8ios_base4InitD1Ev
+	.cfi_def_cfa_offset 32
+	call	__cxa_atexit
+	add	esp, 28
+	.cfi_def_cfa_offset 4
+	ret
+	.cfi_endproc
+.LFE1059:
+	.size	_GLOBAL__sub_I_max, .-_GLOBAL__sub_I_max
+	.section	.text.unlikely
+.LCOLDE5:
+	.section	.text.startup
+.LHOTE5:
+	.section	.init_array,"aw"
+	.align 4
+	.long	_GLOBAL__sub_I_max
+	.local	_ZStL8__ioinit
+	.comm	_ZStL8__ioinit,1,1
+	.hidden	__dso_handle
+	.ident	"GCC: (Ubuntu 5.4.0-6ubuntu1~16.04.2) 5.4.0 20160609"
+	.section	.note.GNU-stack,"",@progbits

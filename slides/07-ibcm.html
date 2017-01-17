@@ -44,7 +44,6 @@
 &nbsp;
 <center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
 <center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="07-ibcm.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
-<center><small>Themes: [default](?#/cover), [sky](?theme=sky#/cover), [beige](?theme=beige#/cover), [simple](?theme=simple#/cover), [serif](?theme=serif#/cover), [night](?theme=night#/cover), [moon](?theme=moon#/cover), [solarized](?theme=solarized#/cover)</small></center>
 &nbsp;  
 &nbsp;  
 ## IBCM (machine language)
@@ -343,7 +342,7 @@ store 300
 <tr><td>7</td><td>and</td><td><code>a := a &and; mem[addr]</code></td><td>logical 'and' memory into accumulator</td></tr>
 <tr><td>8</td><td>or</td><td><code>a := a &or; mem[addr]</code></td><td>logical 'or' memory into accumulator</td></tr>
 <tr><td>9</td><td>xor</td><td><code>a := a &oplus; mem[addr]</code></td><td>logical 'xor' memory into accumulator</td></tr>
-<tr><td>A</td><td>not</td><td><code>a := !a</code></td><td>logical complement of accumulator</td></tr>
+<tr><td>A</td><td>not</td><td><code>a := ~a</code></td><td>logical complement of accumulator</td></tr>
 <tr><td>B</td><td>nop</td><td><code>/* */</code></td><td>do nothing (no operation)</td></tr>
 <tr><td>C</td><td>jmp</td><td><code>goto addr</code></td><td>jump to 'addr'</td></tr>
 <tr><td>D</td><td>jmpe</td><td><code>if a == 0 goto addr</code></td><td>jump to 'addr' if accumulator equals zero</td></tr>

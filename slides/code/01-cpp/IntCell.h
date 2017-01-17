@@ -12,7 +12,7 @@ public:
 
 private:
     int storedValue;
-    int max(int m);
+    int max(int m) const;
 };
 
 #endif

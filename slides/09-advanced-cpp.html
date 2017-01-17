@@ -44,7 +44,6 @@
 &nbsp;
 <center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
 <center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="09-advanced-cpp.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
-<center><small>Themes: [default](?#/cover), [sky](?theme=sky#/cover), [beige](?theme=beige#/cover), [simple](?theme=simple#/cover), [serif](?theme=serif#/cover), [night](?theme=night#/cover), [moon](?theme=moon#/cover), [solarized](?theme=solarized#/cover)</small></center>
 &nbsp;  
 &nbsp;  
 ## Advanced C++
@@ -646,15 +645,16 @@ class B : public A {
 ## Abstract classes
 Consider:
 ```
-class foo {
+class shape {
     public:
-      virtual void bar() = 0;
+      virtual void draw() = 0;
 };
 ```
 - Must be virtual!
-- `bar()` is called a "pure virtual function" or "pure virtual method"
+- `draw()` is called a "pure virtual function" or "pure virtual method"
   - It has no body definition in the .cpp file
   - And thus this class can not be instantiated, since there is no method body
+- Sub-classes (circle, triangle, etc.) would define their own method bodies
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">

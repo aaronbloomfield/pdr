@@ -44,7 +44,6 @@
 &nbsp;
 <center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
 <center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="03-numbers.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
-<center><small>Themes: [default](?#/cover), [sky](?theme=sky#/cover), [beige](?theme=beige#/cover), [simple](?theme=simple#/cover), [serif](?theme=serif#/cover), [night](?theme=night#/cover), [moon](?theme=moon#/cover), [solarized](?theme=solarized#/cover)</small></center>
 &nbsp;  
 &nbsp;  
 ## Number Representation
@@ -323,6 +322,7 @@
 - Most Internet standards: big-endian
 	  </script></section>
 
+<!-- 
 	  <section data-markdown><script type="text/template">
 ## Endian checking, 1 of 2
 (no external source code)
@@ -397,6 +397,8 @@ void Image::WriteInt (int value, FILE * fp) {
 ```
 	  </script></section>
 
+-->
+
 	  <section data-markdown><script type="text/template">
 ## More on Endianness
 - Little vs. big-endian deals with the *byte* order, not the *bit* order
@@ -426,7 +428,7 @@ void Image::WriteInt (int value, FILE * fp) {
 - Sign Bit, sign-and-magnitude
 ![sign and magnitude](images/03-numbers/sign-and-magnitude.png)
 - Algorithm to encode:
-  - Encode number using *n*-1 bits
+  - Encode absolute value of the number using *n*-1 bits
   - First bit is 1 if the number is < 0
 - Problem!
   - Two representations for 0
@@ -437,7 +439,7 @@ void Image::WriteInt (int value, FILE * fp) {
 - Sign Bit, One's Complement
 ![one's complement](images/03-numbers/ones-complement.png)
 - Algorithm to encode:
-  - Encode number using *n*-1 bits
+  - Encode absolute value of the number using *n*-1 bits
   - If negative, flip all the bits
 - Problem!
   - Still two representations for 0
@@ -510,8 +512,9 @@ void Image::WriteInt (int value, FILE * fp) {
 - Other common overflows:
   - 16-bits: 32,767 + 1 = -32,768
   - 32-bits: 2,147,483,647 + 1 = -2,147,483,648
+  - 64-bits: 9,223,372,036,854,775,807 + 1 = -9,223,372,036,854,775,808
 - This has real-word applications: [*Gangnam Style* overflows INT_MAX, forces YouTube to go 64-bit](http://arstechnica.com/business/2014/12/gangnam-style-overflows-int_max-forces-youtube-to-go-64-bit/) (Dec 3, 2014)
-  - If you care, it's now at 2.4 billion views (as of Sep 2015)
+  - If you care, it's now at 2.6 billion views (as of Sep 2016)
 	  </script></section>
 
 	  <section>
@@ -697,7 +700,7 @@ void Image::WriteInt (int value, FILE * fp) {
 
 	  <section data-markdown><script type="text/template">
 ## Converting a float<br>from decimal to binary
-- Sign: 1 if negative, 0 if positive
+- Sign: 1 if negative (signed), 0 if non-negative (unsigned)
 - Exponent (*e*): find what power of 2 is required to bring the number to 1.0 <= *x* < 2.0
   - If you have to multiply, then it's negative
   - If you have to divide, then it's positive
@@ -712,6 +715,9 @@ void Image::WriteInt (int value, FILE * fp) {
 	  <section data-markdown><script type="text/template">
 ## Converting a float
 Source code: [float_to_hex.cpp](code/03-numbers/float_to_hex.cpp.html) ([src](code/03-numbers/float_to_hex.cpp))
+
+Because we want this to be a 32-bit pointer, we must compile it with `-m32`
+
 ```
 #include <iostream>
 using namespace std;
@@ -724,6 +730,7 @@ union foo {
 int main() {
     bar.f = 42.125;
     cout << bar.x << endl; // prints in big-endian
+    return 0;
 }
 ```
 Output: 0x42288000
@@ -764,7 +771,7 @@ Output: 0x42288000
 	  </section>
 
 	  <section>
-<h2>Doing the last example by hand, part 1</h2>
+<h2>Doing the last example by hand, part 2</h2>
 <ul>
 <li>Mantissa: encode it using powers of 1/2<ul>
   <li>To do this, we try to subtract increasing powers of 1/2 until we hit zero<ul>
@@ -780,8 +787,14 @@ Output: 0x42288000
   <li>Thus, the parts of the mantissa are 1/4 + 1/16 + 1/256</li>
   <li>Encoded: 0101 0001 0000 0000 0000 000</li>
 </ul></li>
-<li>In binary, then, the full encoding is: <span class='pink'>0</span><span class='green'>100 0010 0</span><span class="skyblue">010 1000 1000 0000 0000 0000</span></li>
 </ul>
+	  </section>
+
+	  <section>
+<h2>Doing the last example by hand, part 3</h2>
+<ul>
+<li>The final encoded number in binary is: <span class='pink'>0</span><span class='green'>100 0010 0</span><span class="skyblue">010 1000 1000 0000 0000 0000</span><ul>
+  <li>The <span class='pink'>sign</span>, <span class='green'>exponent</span> and <span class='skyblue'>mantissa</span> are colored differently for clarity</li></ul></li>
 	  </section>
 
 	  <section data-markdown><script type="text/template">

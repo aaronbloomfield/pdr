@@ -45,3 +45,4 @@ Examining data
 - `undisplay (num)`: stop displaying the variable with numeric ID num
 - `print function_call(params)`: execute the function, and print the result
 - `expr (var) = (value)`: set the variable (var) to the value (value) -- e.g. `expr foo = 5`
+- `up` and `down`: moves up a frame or down a frame in the backtrace (`bt`) of a crashed or paused program

@@ -46,7 +46,7 @@ Procedure
 
 ### Post-lab ###
 
-1. Write the recursive bit counter, in bitCounter,cpp, as described in the post-lab section.
+1. Write the recursive bit counter, in bitCounter.cpp, as described in the post-lab section.
 2. Complete the radix worksheet -- this worksheet is in the [radixWorksheet.doc](radixWorksheet.doc) file.  This will be converted to PDF and called radixWorksheet.pdf.
 3. Files to download: [radixWorksheet.doc](radixWorksheet.doc)
 4. Files to submit: bitCounter.cpp, radixWorksheet.pdf
@@ -172,7 +172,7 @@ The 'max value' column can be determined by understanding how the type stores th
 
 The following tables do not render very in this document, but the tables in [inlab4.doc](inlab4.doc) render much better.  Note that 'zero' and 'one' should be interpreted appropriately for the given data type.  So 'zero' would be 0 for an `int`, 0.0 for a `float`, `false` for a `bool`, etc.  Similarly for 'one'.
 
-As was mentioned in lecture, the #define'd value `UNIT_MAX` contains the maximum integer value, and you must `#include <climits>` in order to access it.
+As was mentioned in lecture, the #define'd value `UINT_MAX` contains the maximum integer value, and you must `#include <climits>` in order to access it.
 
 | C++ Type | Size in bytes? | Max value? (base 10) | Zero is stored as (in hex)? | One is stored as (in hex)? |
 |----------|----------------|----------------------|-----------------------------|----------------------------|
@@ -251,7 +251,9 @@ Post-Lab
 
 ### Binary bit counter ###
 
-Write a ***recursive*** function that returns the number of 1's in the binary representation of *n*.  Use the fact that this is equal to the number of 1's in the representation of *n/2*, plus 1, if *n* is odd.  You may assume that *n* is a non-negative integer stored in two's complement.  However, *n* will be passed in the standard decimal (i.e. base-10) format.  This should be a rather simple function that uses what you've learned about integer representation.  If you find you need things like global variables or the `pow()` function to implement this then you are going too far.
+Write a ***recursive*** function that returns the number of 1's in the binary representation of *n*.  Use the following fact: if *n* is even, the number of bits in the representation of *n* is the same as that in *n/2*; if *n* is odd, the number of bits is the same as that in *floor(n/2)* plus 1.
+
+You may assume that *n* is a non-negative integer that will be stored in two's complement.  However, *n* will be passed in the standard decimal (i.e. base-10) format.  This should be a rather simple function that uses what you've learned about integer representation.  If you find you need things like global variables or the `pow()` function to implement this then you are going too far.
 
 This program, called bitCounter.cpp should take in a value as a command-line parameter (no input!).  See below for how to handle command-line parameters.  Note that if the program is run without any command-line parameters, your program should gracefully exit with an appropriate error message.  Your program need not handle an invalid number for the command-line parameter.  And any additional command-line parameters beyond the first can be (and should be) ignored.
 

@@ -17,7 +17,7 @@ Some terminology:
 - "LLVM" is the compiler framework that includes many things,
   including the `clang` compiler that we are using, as well as `lldb`
 - `gdb` is the debugger that was used in the past, and is often used
-  elsewhere -- it is analgous to `lldb` in how it works
+  elsewhere -- it is analogous to `lldb` in how it works
 
 ------------------------------------------------------------
 
@@ -33,7 +33,7 @@ debugger.  The debugger allows us to control the execution of the
 program by pausing its execution and then resuming it.  While paused,
 we can find out where we are in the program, what values variables
 have, reset the values of variables, etc.  If a program crashes, the
-debugger can tell you exactly *where* the program crashsed (something
+debugger can tell you exactly *where* the program crashed (something
 that Java does naturally, but C++ does not).  The principles and
 commands described in this document are specific to the lldb debuggers
 for clang++ under UNIX, but every debugger has similar commands.
@@ -149,7 +149,7 @@ run 100 test1.dat
 ```
 
 Note, however, that the prog1 that we are editing here does not need
-any comand line parameters.
+any command line parameters.
 
 ### Where Am I? Where Did It Crash? ###
 
@@ -320,10 +320,60 @@ Run it in LLDB with the program (`lldb prog`), and try the following:
 - type `run`, and confirm that you want to restart the program
 - at the breakpoint, try printing out the value in p (`p p`); note
   that it is `NULL`
-- set the `p` pointer, which is currently `NULL`, to point to a valud
+- set the `p` pointer, which is currently `NULL`, to point to a valid
   value (the `int` variable `x`): `expr p = &x`
 - enter `c` to let it continue running, and it should finish without
   crashing this time
+
+### Frames ###
+
+When a program crashes, you can see the list of subroutine calls that
+led to that point via the 'bt' command.  This prints a *stack trace*,
+similar to what Java prints when an exception is thrown (but not
+caught).  Each level in that stack trace is called a *frame*.
+Sometimes you may want to look at the variables and what-not a few
+frames up.  To do so, you enter the `frame` command.  Consider the
+following program:
+
+```
+#include <iostream>
+using namespace std;
+void recurse(int x) {
+  int *y = NULL;
+  if ( x == 0 )
+    cout << *y << endl;
+  recurse(x-1);
+}
+int main() {
+  recurse(5);
+  return 0;
+}
+```
+
+This program will crash on the 5th recursive call to `recurse()`.  If
+this program is compiled (remember to compile it with `-g`) and run
+through the debugger, it will crash, and the resulting stack trace
+looks like the following:
+
+```
+(lldb) bt
+* thread #1: tid = 31030, 0x000000000040084a frame`recurse(x=0) + 29 at frame.cpp:6, name = 'frame', stop reason = invalid address (fault address: 0x0)
+  * frame #0: 0x000000000040084a frame`recurse(x=0) + 29 at frame.cpp:6
+    frame #1: 0x0000000000400872 frame`recurse(x=1) + 69 at frame.cpp:7
+    frame #2: 0x0000000000400872 frame`recurse(x=2) + 69 at frame.cpp:7
+    frame #3: 0x0000000000400872 frame`recurse(x=3) + 69 at frame.cpp:7
+    frame #4: 0x0000000000400872 frame`recurse(x=4) + 69 at frame.cpp:7
+    frame #5: 0x0000000000400872 frame`recurse(x=5) + 69 at frame.cpp:7
+    frame #6: 0x0000000000400882 frame`main + 14 at frame.cpp:10
+    frame #7: 0x00007f971522fec5 libc.so.6`__libc_start_main(main=0x0000000000400874, argc=1, argv=0x00007fff5a68bf08, init=<unavailable>, fini=<unavailable>, rtld_fini=<unavailable>, stack_end=0x00007fff5a68bef8) + 245 at libc-start.c:287
+(lldb) 
+```
+
+The frames are listed on the left-hand side, and you are in frame #0
+by default (it states this in some of the lldb output that was not
+included above).  You can enter `up` and `down` to move to different
+frames.  You can then examine the contents of the variables in that
+frame before moving on.
 
 ### A few final commands ###
 
@@ -406,7 +456,7 @@ If we knew where the problems were, we could skip over some lines, but
 since we don't, put a breakpoint on the first line of the code, the
 cout statement.  You probably want to set the breakpoint based on the
 line number in the code -- you can use the Emacs command `M-x
-line-number-mode` to have Emacs display line numbers.  Enter `break
+linum-mode` to have Emacs display line numbers.  Enter `break
 x`, where x is the line of the first cout statement in the main()
 method.  Now we need to run the program -- to do this, enter `run`.
 Lldb should start running, then should pause and display approximately
@@ -577,5 +627,5 @@ Part III: Summary of lldb commands
 These commands are listed on the
 [LLDB command summary](../../docs/lldb_summary.html) page.
 
-You can see a difference between the comamnds of lldb and gdb on the
+You can see a difference between the commands of lldb and gdb on the
 [GDB vs LLDB commands](../../docs/gdb_vs_lldb.html) page.

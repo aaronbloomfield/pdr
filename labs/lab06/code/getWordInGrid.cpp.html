@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.6
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>getWordInGrid.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">/** This file defines and demonstrates two necessary components for</font></i>
+<i><font color="#9A1900"> * the hash table lab for CS 2150.  The first is the use of the</font></i>
+<i><font color="#9A1900"> * getWordInGrid() function, which is used for retrieving a word in a</font></i>
+<i><font color="#9A1900"> * grid of letters in one of the cardinal 8 directions (north,</font></i>
+<i><font color="#9A1900"> * south-east, etc).  The second is the use of file streams to read in</font></i>
+<i><font color="#9A1900"> * input from a file, specifically one formatted as per the lab 6</font></i>
+<i><font color="#9A1900"> * guidelines.</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * Written by Aaron Bloomfield, 2009</font></i>
+<i><font color="#9A1900"> */</font></i>
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;fstream&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;string&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdlib.h&gt;</font>
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<i><font color="#9A1900">// We create a 2-D array of some big size, and assume that the grid</font></i>
+<i><font color="#9A1900">// read in will be less than this size (a valid assumption for lab 6)</font></i>
+<b><font color="#000080">#define</font></b> MAXROWS <font color="#993399">500</font>
+<b><font color="#000080">#define</font></b> MAXCOLS <font color="#993399">500</font>
+<font color="#009900">char</font> grid<font color="#990000">[</font>MAXROWS<font color="#990000">][</font>MAXCOLS<font color="#990000">];</font>
+
+<i><font color="#9A1900">// Forward declarations</font></i>
+<font color="#009900">bool</font> <b><font color="#000000">readInGrid</font></b> <font color="#990000">(</font><font color="#008080">string</font> filename<font color="#990000">,</font> <font color="#009900">int</font> <font color="#990000">&amp;</font>rows<font color="#990000">,</font> <font color="#009900">int</font> <font color="#990000">&amp;</font>cols<font color="#990000">);</font>
+<font color="#009900">char</font><font color="#990000">*</font> <b><font color="#000000">getWordInGrid</font></b> <font color="#990000">(</font><font color="#009900">int</font> startRow<font color="#990000">,</font> <font color="#009900">int</font> startCol<font color="#990000">,</font> <font color="#009900">int</font> dir<font color="#990000">,</font> <font color="#009900">int</font> len<font color="#990000">,</font>
+                     <font color="#009900">int</font> numRows<font color="#990000">,</font> <font color="#009900">int</font> numCols<font color="#990000">);</font>
+
+
+
+<i><font color="#9A1900">/** The main() function shows how to call both the readInGrid()</font></i>
+<i><font color="#9A1900"> * function as well as the getWordInGrid() function.</font></i>
+<i><font color="#9A1900"> */</font></i>
+<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+    <i><font color="#9A1900">// to hold the number of rows and cols in the input file</font></i>
+    <font color="#009900">int</font> rows<font color="#990000">,</font> cols<font color="#990000">;</font>
+    <i><font color="#9A1900">// attempt to read in the file</font></i>
+    <font color="#009900">bool</font> result <font color="#990000">=</font> <b><font color="#000000">readInGrid</font></b> <font color="#990000">(</font><font color="#FF0000">"5x8.grid.txt"</font><font color="#990000">,</font> rows<font color="#990000">,</font> cols<font color="#990000">);</font>
+    <i><font color="#9A1900">// if there is an error, report it</font></i>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">!</font>result <font color="#990000">)</font> <font color="#FF0000">{</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Error reading in file!"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+        <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">);</font> <i><font color="#9A1900">// requires the &lt;stdlib.h&gt; #include header!</font></i>
+    <font color="#FF0000">}</font>
+    <i><font color="#9A1900">// Get a word (of length 10), starting at position (2,2) in the</font></i>
+    <i><font color="#9A1900">// array, in each of the 8 directions</font></i>
+    cout <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> <font color="#993399">8</font><font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> i <font color="#990000">&lt;&lt;</font> <font color="#FF0000">": "</font> <font color="#990000">&lt;&lt;</font> <b><font color="#000000">getWordInGrid</font></b><font color="#990000">(</font><font color="#993399">2</font><font color="#990000">,</font><font color="#993399">2</font><font color="#990000">,</font>i<font color="#990000">,</font><font color="#993399">10</font><font color="#990000">,</font>rows<font color="#990000">,</font>cols<font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <i><font color="#9A1900">// All done!</font></i>
+    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+
+
+<i><font color="#9A1900">/** This function will read in a grid file, as per the format in the</font></i>
+<i><font color="#9A1900"> * CS 2150 lab 6 document, into a global grid[][] array.  It uses C++</font></i>
+<i><font color="#9A1900"> * file streams, and thus requires the the </font></i><b><font color="#0000FF">&lt;fstream&gt;</font></b><i><font color="#9A1900"> #include header.</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * </font></i><font color="#009900">@return</font><i><font color="#9A1900"> true or false, depending on whether the file was</font></i>
+<i><font color="#9A1900"> *         successfully opened.</font></i>
+<i><font color="#9A1900"> * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> filename The file name to read in -- it's assumed to be in</font></i>
+<i><font color="#9A1900"> *                 the file format described in the lab document.</font></i>
+<i><font color="#9A1900"> * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> rows The number of rows as specified in the input file;</font></i>
+<i><font color="#9A1900"> *             as this is a reference, it is set by the function.</font></i>
+<i><font color="#9A1900"> * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> cols The number of columnss as specified in the input file;</font></i>
+<i><font color="#9A1900"> *             as this is a reference, it is set by the function.</font></i>
+<i><font color="#9A1900"> */</font></i>
+<font color="#009900">bool</font> <b><font color="#000000">readInGrid</font></b> <font color="#990000">(</font><font color="#008080">string</font> filename<font color="#990000">,</font> <font color="#009900">int</font> <font color="#990000">&amp;</font>rows<font color="#990000">,</font> <font color="#009900">int</font> <font color="#990000">&amp;</font>cols<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <i><font color="#9A1900">// a C++ string to hold the line of data that is read in</font></i>
+    <font color="#008080">string</font> line<font color="#990000">;</font>
+    <i><font color="#9A1900">// set up the file stream to read in the file (takes in a C-style</font></i>
+    <i><font color="#9A1900">// char* string, not a C++ string object)</font></i>
+    <font color="#008080">ifstream</font> <b><font color="#000000">file</font></b><font color="#990000">(</font>filename<font color="#990000">.</font><b><font color="#000000">c_str</font></b><font color="#990000">());</font>
+    <i><font color="#9A1900">// upon an error, return false</font></i>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">!</font>file<font color="#990000">.</font><b><font color="#000000">is_open</font></b><font color="#990000">()</font> <font color="#990000">)</font>
+        <b><font color="#0000FF">return</font></b> <b><font color="#0000FF">false</font></b><font color="#990000">;</font>
+    <i><font color="#9A1900">// the first line is the number of rows: read it in</font></i>
+    file <font color="#990000">&gt;&gt;</font> rows<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"There are "</font> <font color="#990000">&lt;&lt;</font> rows <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" rows."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <b><font color="#000000">getline</font></b> <font color="#990000">(</font>file<font color="#990000">,</font>line<font color="#990000">);</font> <i><font color="#9A1900">// eats up the return at the end of the line</font></i>
+    <i><font color="#9A1900">// the second line is the number of cols: read it in and parse it</font></i>
+    file <font color="#990000">&gt;&gt;</font> cols<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"There are "</font> <font color="#990000">&lt;&lt;</font> cols <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" cols."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <b><font color="#000000">getline</font></b> <font color="#990000">(</font>file<font color="#990000">,</font>line<font color="#990000">);</font> <i><font color="#9A1900">// eats up the return at the end of the line</font></i>
+    <i><font color="#9A1900">// the third and last line is the data: read it in</font></i>
+    <b><font color="#000000">getline</font></b> <font color="#990000">(</font>file<font color="#990000">,</font>line<font color="#990000">);</font>
+    <i><font color="#9A1900">// close the file</font></i>
+    file<font color="#990000">.</font><b><font color="#000000">close</font></b><font color="#990000">();</font>
+    <i><font color="#9A1900">// convert the string read in to the 2-D grid format into the</font></i>
+    <i><font color="#9A1900">// grid[][] array.  In the process, we'll print the grid to the</font></i>
+    <i><font color="#9A1900">// screen as well.</font></i>
+    <font color="#009900">int</font> pos <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> <i><font color="#9A1900">// the current position in the input data</font></i>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> r <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> r <font color="#990000">&lt;</font> rows<font color="#990000">;</font> r<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+        <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> c <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> c <font color="#990000">&lt;</font> cols<font color="#990000">;</font> c<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+            grid<font color="#990000">[</font>r<font color="#990000">][</font>c<font color="#990000">]</font> <font color="#990000">=</font> line<font color="#990000">[</font>pos<font color="#990000">++];</font>
+            cout <font color="#990000">&lt;&lt;</font> grid<font color="#990000">[</font>r<font color="#990000">][</font>c<font color="#990000">];</font>
+        <font color="#FF0000">}</font>
+        cout <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+    <i><font color="#9A1900">// return success!</font></i>
+    <b><font color="#0000FF">return</font></b> <b><font color="#0000FF">true</font></b><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+
+
+<i><font color="#9A1900">/** This function will retrieve a word in a grid of letters in a given</font></i>
+<i><font color="#9A1900"> * direction.  If the end of the grid is encountered before the length</font></i>
+<i><font color="#9A1900"> * of the desired string is reached, then a shorter string will be</font></i>
+<i><font color="#9A1900"> * returned.  The data is retrieved from a global char grid[][]</font></i>
+<i><font color="#9A1900"> * array, which is assumed to be defined (and in scope).  NOTE: The</font></i>
+<i><font color="#9A1900"> * return value is a static char[][] variable (for efficiency</font></i>
+<i><font color="#9A1900"> * reasons), so a successive return value will overwrite a previous</font></i>
+<i><font color="#9A1900"> * return value.</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * </font></i><font color="#009900">@return</font><i><font color="#9A1900"> A char* containing the letters in the provided direction</font></i>
+<i><font color="#9A1900"> *         (NOTE: it is returned in a static char array).</font></i>
+<i><font color="#9A1900"> * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> startRow The starting (row,col) position to find the word.</font></i>
+<i><font color="#9A1900"> * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> startCol The starting (row,col) position to find the word.</font></i>
+<i><font color="#9A1900"> * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> dir The direction to move: 0 is north (upwards), 1 is</font></i>
+<i><font color="#9A1900"> *            northeast, and it rotates around clockwise until it</font></i>
+<i><font color="#9A1900"> *            reaches 7 for northwest.</font></i>
+<i><font color="#9A1900"> * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> len The desired length of the string to return (assuming</font></i>
+<i><font color="#9A1900"> *            the edge of the grid is not reached--if the edge of the</font></i>
+<i><font color="#9A1900"> *            grid is reached, it will return as many characters as</font></i>
+<i><font color="#9A1900"> *            possible up to the edge of the grid, so the returned</font></i>
+<i><font color="#9A1900"> *            string may not have the same length as this parameter</font></i>
+<i><font color="#9A1900"> *            indicates).</font></i>
+<i><font color="#9A1900"> * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> numRows The number of rows in the global char grid[][]</font></i>
+<i><font color="#9A1900"> *                array.</font></i>
+<i><font color="#9A1900"> * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> numCols The number of columns in the global char grid[][]</font></i>
+<i><font color="#9A1900"> *                array.</font></i>
+<i><font color="#9A1900"> */</font></i>
+<font color="#009900">char</font><font color="#990000">*</font> <b><font color="#000000">getWordInGrid</font></b> <font color="#990000">(</font><font color="#009900">int</font> startRow<font color="#990000">,</font> <font color="#009900">int</font> startCol<font color="#990000">,</font> <font color="#009900">int</font> dir<font color="#990000">,</font> <font color="#009900">int</font> len<font color="#990000">,</font>
+                     <font color="#009900">int</font> numRows<font color="#990000">,</font> <font color="#009900">int</font> numCols<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <i><font color="#9A1900">// the static-ness of this variable prevents it from being</font></i>
+    <i><font color="#9A1900">// re-declared upon each function invocataion.  It also prevents it</font></i>
+    <i><font color="#9A1900">// from being deallocated between invocations.  It's probably not</font></i>
+    <i><font color="#9A1900">// good programming practice, but it's an efficient means to return</font></i>
+    <i><font color="#9A1900">// a value.</font></i>
+    <b><font color="#0000FF">static</font></b> <font color="#009900">char</font> output<font color="#990000">[</font><font color="#993399">256</font><font color="#990000">];</font>
+    <i><font color="#9A1900">// make sure the length is not greater than the array size.</font></i>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> len <font color="#990000">&gt;=</font> <font color="#993399">255</font> <font color="#990000">)</font>
+        len <font color="#990000">=</font> <font color="#993399">255</font><font color="#990000">;</font>
+    <i><font color="#9A1900">// the position in the output array, the current row, and the</font></i>
+    <i><font color="#9A1900">// current column</font></i>
+    <font color="#009900">int</font> pos <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">,</font> r <font color="#990000">=</font> startRow<font color="#990000">,</font> c <font color="#990000">=</font> startCol<font color="#990000">;</font>
+    <i><font color="#9A1900">// iterate once for each character in the output</font></i>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> len<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+        <i><font color="#9A1900">// if the current row or column is out of bounds, then break</font></i>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>c <font color="#990000">&gt;=</font> numCols<font color="#990000">)</font> <font color="#990000">||</font> <font color="#990000">(</font>r <font color="#990000">&gt;=</font> numRows<font color="#990000">)</font> <font color="#990000">||</font> <font color="#990000">(</font>r <font color="#990000">&lt;</font> <font color="#993399">0</font><font color="#990000">)</font> <font color="#990000">||</font> <font color="#990000">(</font>c <font color="#990000">&lt;</font> <font color="#993399">0</font><font color="#990000">)</font> <font color="#990000">)</font>
+            <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
+        <i><font color="#9A1900">// set the next character in the output array to the next letter</font></i>
+        <i><font color="#9A1900">// in the grid</font></i>
+        output<font color="#990000">[</font>pos<font color="#990000">++]</font> <font color="#990000">=</font> grid<font color="#990000">[</font>r<font color="#990000">][</font>c<font color="#990000">];</font>
+        <i><font color="#9A1900">// move in the direction specified by the parameter</font></i>
+        <b><font color="#0000FF">switch</font></b> <font color="#990000">(</font>dir<font color="#990000">)</font> <font color="#FF0000">{</font> <i><font color="#9A1900">// assumes grid[0][0] is in the upper-left</font></i>
+            <b><font color="#0000FF">case</font></b> <font color="#993399">0</font><font color="#990000">:</font>
+                r<font color="#990000">--;</font>
+                <b><font color="#0000FF">break</font></b><font color="#990000">;</font> <i><font color="#9A1900">// north</font></i>
+            <b><font color="#0000FF">case</font></b> <font color="#993399">1</font><font color="#990000">:</font>
+                r<font color="#990000">--;</font>
+                c<font color="#990000">++;</font>
+                <b><font color="#0000FF">break</font></b><font color="#990000">;</font> <i><font color="#9A1900">// north-east</font></i>
+            <b><font color="#0000FF">case</font></b> <font color="#993399">2</font><font color="#990000">:</font>
+                c<font color="#990000">++;</font>
+                <b><font color="#0000FF">break</font></b><font color="#990000">;</font> <i><font color="#9A1900">// east</font></i>
+            <b><font color="#0000FF">case</font></b> <font color="#993399">3</font><font color="#990000">:</font>
+                r<font color="#990000">++;</font>
+                c<font color="#990000">++;</font>
+                <b><font color="#0000FF">break</font></b><font color="#990000">;</font> <i><font color="#9A1900">// south-east</font></i>
+            <b><font color="#0000FF">case</font></b> <font color="#993399">4</font><font color="#990000">:</font>
+                r<font color="#990000">++;</font>
+                <b><font color="#0000FF">break</font></b><font color="#990000">;</font> <i><font color="#9A1900">// south</font></i>
+            <b><font color="#0000FF">case</font></b> <font color="#993399">5</font><font color="#990000">:</font>
+                r<font color="#990000">++;</font>
+                c<font color="#990000">--;</font>
+                <b><font color="#0000FF">break</font></b><font color="#990000">;</font> <i><font color="#9A1900">// south-west</font></i>
+            <b><font color="#0000FF">case</font></b> <font color="#993399">6</font><font color="#990000">:</font>
+                c<font color="#990000">--;</font>
+                <b><font color="#0000FF">break</font></b><font color="#990000">;</font> <i><font color="#9A1900">// west</font></i>
+            <b><font color="#0000FF">case</font></b> <font color="#993399">7</font><font color="#990000">:</font>
+                r<font color="#990000">--;</font>
+                c<font color="#990000">--;</font>
+                <b><font color="#0000FF">break</font></b><font color="#990000">;</font> <i><font color="#9A1900">// north-west</font></i>
+        <font color="#FF0000">}</font>
+    <font color="#FF0000">}</font>
+    <i><font color="#9A1900">// set the next character to zero (end-of-string)</font></i>
+    output<font color="#990000">[</font>pos<font color="#990000">]</font> <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+    <i><font color="#9A1900">// return the string (a C-style char* string, not a C++ string</font></i>
+    <i><font color="#9A1900">// object)</font></i>
+    <b><font color="#0000FF">return</font></b> output<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

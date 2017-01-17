@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>main.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">// main.cpp</font></i>
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;time.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;cstdlib&gt;</font>
+
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<b><font color="#0000FF">extern</font></b> <font color="#FF0000">"C"</font> <font color="#009900">long</font> <b><font color="#000000">vecsum</font></b> <font color="#990000">(</font><font color="#009900">long</font><font color="#990000">*,</font> <font color="#009900">long</font><font color="#990000">);</font>
+
+<i><font color="#9A1900">// Purpose: This main program produces a vector of random numbers</font></i>
+<i><font color="#9A1900">// between 0 and 99, then calls the externally defined function</font></i>
+<i><font color="#9A1900">// 'vecsum' to add up the elements of the vector.</font></i>
+
+<i><font color="#9A1900">// Originally written by Adam Ferrari, and updated by Aaron Bloomfield</font></i>
+
+<font color="#009900">int</font>  <b><font color="#000000">main</font></b> <font color="#990000">()</font> <font color="#FF0000">{</font>
+
+    <i><font color="#9A1900">// delcare the local variables</font></i>
+    <font color="#009900">long</font>  n<font color="#990000">,</font> <font color="#990000">*</font>vec<font color="#990000">,</font> sum<font color="#990000">;</font>
+
+    <i><font color="#9A1900">// how big is the array we want to use?</font></i>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Please enter a array size:  "</font><font color="#990000">;</font>
+    cin <font color="#990000">&gt;&gt;</font> n<font color="#990000">;</font>
+
+    <i><font color="#9A1900">// sanity check the array size</font></i>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>n <font color="#990000">&lt;=</font> <font color="#993399">0</font><font color="#990000">)</font> <font color="#FF0000">{</font>
+        cerr <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Array size must be greater than zero.</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+        <b><font color="#0000FF">return</font></b> <font color="#993399">1</font><font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
+    <i><font color="#9A1900">// allocate the array</font></i>
+    vec <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">long</font><font color="#990000">[</font>n<font color="#990000">];</font>
+
+    <i><font color="#9A1900">// use current time as random seed</font></i>
+    <b><font color="#000000">srand</font></b><font color="#990000">((</font><font color="#009900">unsigned</font><font color="#990000">)</font> <b><font color="#000000">time</font></b><font color="#990000">(</font>NULL<font color="#990000">));</font>
+
+    <i><font color="#9A1900">// fill the array with random values</font></i>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font><font color="#009900">long</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> n<font color="#990000">;</font> <font color="#990000">++</font>i<font color="#990000">)</font> <font color="#FF0000">{</font>
+        vec<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">=</font> <b><font color="#000000">rand</font></b><font color="#990000">()</font> <font color="#990000">%</font> <font color="#993399">100</font><font color="#990000">;</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">vec["</font> <font color="#990000">&lt;&lt;</font> i <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"] = "</font> <font color="#990000">&lt;&lt;</font> vec<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
+    <i><font color="#9A1900">// sum up the array and print out results</font></i>
+    sum <font color="#990000">=</font> <b><font color="#000000">vecsum</font></b><font color="#990000">(</font>vec<font color="#990000">,</font> n<font color="#990000">);</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The sum of all array elements is "</font> <font color="#990000">&lt;&lt;</font> sum <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+
+    <i><font color="#9A1900">// properly deallocate the array</font></i>
+    <b><font color="#0000FF">delete</font></b> <font color="#990000">[]</font> vec<font color="#990000">;</font>
+
+    <i><font color="#9A1900">// all done!</font></i>
+    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

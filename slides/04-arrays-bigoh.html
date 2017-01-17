@@ -44,7 +44,6 @@
 &nbsp;
 <center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
 <center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="04-arrays-bigoh.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
-<center><small>Themes: [default](?#/cover), [sky](?theme=sky#/cover), [beige](?theme=beige#/cover), [simple](?theme=simple#/cover), [serif](?theme=serif#/cover), [night](?theme=night#/cover), [moon](?theme=moon#/cover), [solarized](?theme=solarized#/cover)</small></center>
 &nbsp;  
 &nbsp;
 ## Arrays & Big-Oh
@@ -175,6 +174,7 @@ someFunc(int arrayOfInts[]) { /* ... */ }
 int main() {
     int someInts[3];
     someFunc(someInts); // no brackets
+    return 0;
 }
 ```
 - `someInts` is a memory address
@@ -234,6 +234,7 @@ int main (int argc, char* argv[]) {
         string s(argv[i]);
         cout << "\t" << s << endl;
     }
+    return 0;
 }
 ```
 	  </script></section>
@@ -275,16 +276,16 @@ int main (int argc, char* argv[]) {
   - A [bogosort](http://en.wikipedia.org/wiki/Bogosort) will work just fine
 - Consider big input sizes:
   - UVa's e-mail probably has about 100,000 e-mail addresses
-  - [OpenStreetMap](http://www.openstreetmap.org), for driving routes, has over 3 billion nodes ([ref](http://www.openstreetmap.org/stats/data_stats.html)) (as of Sep 2015)
+  - [OpenStreetMap](http://www.openstreetmap.org), for driving routes, has over 3.2 billion nodes and 5.1 million GPS points ([ref](http://www.openstreetmap.org/stats/data_stats.html)) (as of Feb 2016)
     - A 'node' is a point on the Earth's surface, and not necessarily an intersection
-  - Google's index has over 46 billion items ([ref](http://www.worldwidewebsize.com/)) (as of Sep 2015)
+  - Google's index has almost 50 billion items ([ref](http://www.worldwidewebsize.com/)) (as of Feb 2016)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Even for smaller input sizes...
 - This is from the first lecture set
 - All times are in ms (1/1000<sup>th</sup> of a second)
-- Source code: [DataStructureComparison.java](../cs2150/code/introduction//DataStructureComparison.java.html) ([src](../cs2150/code/introduction//DataStructureComparison.java))
+- Source code: [DataStructureComparison.java](../uva/code/introduction//DataStructureComparison.java.html) ([src](../uva/code/introduction//DataStructureComparison.java))
 &nbsp;  
 &nbsp;  
 

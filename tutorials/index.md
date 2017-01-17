@@ -22,11 +22,20 @@ The tutorials for this course are listed below.
     - In particular, it is [section 1 (introduction)](http://en.wikibooks.org/w/index.php?title=Bash_Shell_Scripting#Introduction) through [section 4 (variables)](http://en.wikibooks.org/w/index.php?title=Bash_Shell_Scripting#Variables), as well as [section 12 (shell arithmetic)](http://en.wikibooks.org/w/index.php?title=Bash_Shell_Scripting#Shell_arithmetic) and [section 14 (input/output)](http://en.wikibooks.org/w/index.php?title=Bash_Shell_Scripting#Input.2FOutput)
 - Tutorial 7: Shell scripting, part 2
     - This is the remainder of the [Wikibooks article on Bash Shell Scripting](http://en.wikibooks.org/wiki/Bash_Shell_Scripting)
-- Tutorial 8: nasm
-    - This two PDF book chapters that are contained in this repository: [x86 Assembly](../book/x86-asm-chapter.pdf) and [The x86 C Calling Convention](../book/x86-ccc-chapter.pdf)
+- Tutorial 8: assembly
+    - ~~32-bit: This two PDF book chapters that are contained in this repository: [x86 Assembly, 32 bit](../book/x86-32bit-asm-chapter.pdf) and [The 32 bit x86 C Calling Convention](../book/x86-32bit-ccc-chapter.pdf)~~
+    - 64-bit: This two PDF book chapters that are contained in this repository: [x86 Assembly, 64 bit](../book/x86-64bit-asm-chapter.pdf) and [The 64 bit x86 C Calling Convention](../book/x86-64bit-ccc-chapter.pdf)
+        - Another good reading document is the [x86-64 Machine-Level Programming document](https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf) from CMU, although they use the other assembly language format
 - [Tutorial 9: C](09-c/index.html)
 - (no tutorial 10)
 - [Tutorial 11: Doxygen](11-doxygen/index.html)
     - Source code: [average.cpp](11-doxygen/average.cpp.html) ([src](11-doxygen/average.cpp))
 - [Tutorial 12: Objective C](12-objc/index.html)
     - Source code: [helloworld.m](12-objc/helloworld.m.html) ([src](12-objc/helloworld.m))
+
+
+### Other Tutorials
+
+These are tutorials that may be useful to students, but are not assigned as part of the labs.
+
+- [SSH and SCP tutorial](other/ssh-scp.html)

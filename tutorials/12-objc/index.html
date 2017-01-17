@@ -48,11 +48,13 @@ int main (void) {
 <p><strong>Difference 3: compilation command</strong></p>
 <p>As our programs are now more complicated than just a &quot;hello world&quot;, the compilation line is longer as well. The compilation command for Linux machines (such as the VirtualBox image) is:</p>
 <pre><code>clang -I /usr/include/GNUstep/ *.m -lobjc -lgnustep-base</code></pre>
+<p>On some Linux systems (specificially, on 64-bit Ubuntu 16.04 systems), we had to use the following compilation line; if the one above does not work, then try this one:</p>
+<pre><code>clang -I /usr/include/GNUstep/ -I /usr/lib/gcc/x86_64-linux-gnu/5/include/ *.m -lobjc -lgnustep-base</code></pre>
 <p>On Mac OS X, the compilation command is much simpler, and is what was shown above:</p>
 <pre><code>clang *.m -lobjc</code></pre>
 <p><strong>Difference 4: other libraries to use</strong></p>
 <p>If you are compiling the Point class, described in the <a href="http://en.wikibooks.org/wiki/Objective-C_Programming/syntax">Objective C Syntax</a> tutorial on Wikibooks, the compiler will need to know what the <code>sqrt()</code> function is. Thus, you will have to link it to the math library: put <code>-lm</code> at the end of the compilation command, otherwise it will tell you that it cannot find the <code>sqrt()</code> implementation. This likely won't be necessary for the program you have to do below, but it will be necessary for the Point class program.</p>
-<p><strong>Difference 5: use <code>release</code> instead of <code>free</code></strong>*</p>
+<p><strong>Difference 5: use <code>release</code> instead of <code>free</code></strong></p>
 <p>To deallocate an object, use release instead of free. In other words, <code>[temp free];</code> will <strong>not</strong> work (which is what the tutorial states), but <code>[temp release];</code> will work properly.</p>
 <h3 id="hack-some-objective-c-code">Hack some Objective C code</h3>
 <p>What tutorial would be complete without a data structure to implement?</p>
