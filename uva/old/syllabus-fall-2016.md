@@ -3,7 +3,7 @@ CS 2150: Program and Data Representation: Course Syllabus
 
 [Go up to the CS 2150 page][1] ([md][2])
 
-## Spring 2017
+## Fall 2016
 
 ### Instructors ###
 
@@ -12,18 +12,18 @@ CS 2150: Program and Data Representation: Course Syllabus
 
 ### Course Info ###
 
-- Lecture: M/W/F 1:00-1:50, Rice Hall 130; 2:00-2:50, Wilson Hall 301
+- Lecture: M/W/F 1:00-1:50, Olsson Hall 120; 2:00-2:50, Gilmer Hall 130
 - Email: none; fill out a [support request][42] instead
 - Announcement feed: [\@UVaCS2150][34]
 - TAs and their office hours will be posted on the [CS 2150 Google Calendar][35] (which is also linked to via Collab); all office hours start the Sunday after classes start
 - Laboratory Meetings (all in Olsson 001):
-    - Section 101: Tuesday, 9:30 am -- 10:45 am
-    - Section 102: Tuesday, 11:00 pm -- 12:15 pm
-    - Section 103: Tuesday, 12:30 pm -- 1:45 pm
-    - Section 104: Tuesday, 2:00 pm -- 3:15 pm
-    - Section 105: Tuesday, 3:30 pm -- 4:45 pm
-    - Section 106: Tuesday, 5:00 pm -- 6:15 pm
-    - Section 107: Tuesday, 6:30 pm -- 7:45 pm
+    - Section 102: Tuesday, 9:30 am -- 10:45 am
+    - Section 103: Tuesday, 11:00 pm -- 12:15 pm
+    - Section 104: Tuesday, 12:30 pm -- 1:45 pm
+    - Section 105: Tuesday, 2:00 pm -- 3:15 pm
+    - Section 106: Tuesday, 3:30 pm -- 4:45 pm
+    - Section 107: Tuesday, 5:00 pm -- 6:15 pm
+    - Section 108: Tuesday, 6:30 pm -- 7:45 pm
 
 **Course Description:** This course will introduce you to program and data representation from high level concepts to machine level implementation. Data structuring techniques and the representation of data structures during program execution are discussed, as are operations and control structures and their representation during program execution. Representations of numbers, arithmetic operations, arrays, records, recursion, hashing, stacks, queues, trees, graphs, and related concepts are also covered.
 
@@ -55,10 +55,10 @@ We expect that grades will follow the standard decade curve: 90 and above is an 
 
 **Exams:** There will be two midterm exams held during laboratory sessions (combined worth 30% of the final grade) and one final exam (worth 25% of the final grade). Note that we hope (but do not guarantee!) to have the first exam returned before the SEAS drop date of Tuesday, October 13th.
 
-- Midterm Exam 1: Tuesday, February 21st, during lab session in Olsson 001
-- Midterm Exam 2: Tuesday, April 4th, during lab session in Olsson 001
-- Final Exam: Saturday, May 6th from 7 p.m. to 10 p.m. in Rice 130 and/or Wilson 301
-    - This is a common exam time, and conflicts with APMA 3110, ECON 2020 (sections 001 and 002 only), and MATH 3100 (sections 002 and 003 only)
+- Midterm Exam 1: Tuesday, September 27th, during lab session in Olsson 001
+- Midterm Exam 2: Tuesday, November 8th, during lab session in Olsson 001
+- Final Exam: Friday, December 9th from 7 p.m. to 10 p.m. in Gilmer 130 and/or Olsson 120
+    - This is a common exam time, and conflicts with BIOL 2100; CS 2110; KOR 1010, 2010 and 3010; and STAT 2120 and 3120
     - Information about confliting exams will be dealt with later in the semester
 
 Under **NO** circumstances will anybody be allowed to take the final exam early.  You may **ONLY** request to take the final exam at a different time if you have a final exam **CONFLICT**, not a busy final exam schedule.  Since it is a common exam time, the only conflicts are the courses listed above.
@@ -87,8 +87,6 @@ The assignments tool does not display due dates such as "at the end of your lab 
 - There are a few documents that you will have to print (a worksheet with lab 5, the UNIX honor pledge, etc.).  The total printing load will be under 5 pages for the entire semester.  You will need to obtain access to a printer for those pages.
 
 **Attendance:** Attendance in labs is mandatory; attendance in lecture is not.  Not attending lab will result in a zero for the in-lab.  You cannot change labs without prior permission -- we don't have enough computers to accommodate this.  Please see the [first set of lecture slides][11] about lab attendance, in particular with regards to the fact that there is a lab the week of Thanksgiving break.
-
-**Professionalism:** We are all adults, and should act like such.  Acting in an unprofessional manner that disrupts the class will first incur a stern talking-to.  After that, a grade penalty may be assessed.  Examples include: disrupting class, trolling people on Piazza, abusing the support request system, etc.  This is meant to keep people from repeatedly disrupting class; we aren't trying to be super strict on this.  And yes, a warning will first be given prior to any other action.
 
 **Honor Policy:** There have been a large number of honor violations in this class and other low-level CS courses recently.  Outside the normal UVa honor policy rules, we have these additional rules:
 
