@@ -59,7 +59,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | Num | Date | Day of week | Lab & Tutorial (on Tue) | Planned topic | Lecture 1 progress | Lecture 2 progress |
 |-----|--------|-------------|-------------------------|--------------------------|------------------|------------------|
 | 1 | Jan 18 | Wednesday | no lab this week | [Course introduction][80] |  [course intro][80], slides [1][80] to [5.4][1000403] ([recording][201]) | |
-| 2 | Jan 20 | Friday |  | [Course introduction][80], [01: C++][81] |  |  |
+| 2 | Jan 20 | Friday |  | [Course introduction][80], [01: C++][81] | [course intro][80], slides [6.1][10005] to [7.2][1000601]; [C++][81], slides [1][81] to [4.15][1010314] ([recording][202]) | |
 | 3 | Jan 23 | Monday | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | [01: C++][81] |  |  |
 | 4 | Jan 25 | Wednesday |  | [01: C++][81] |  |  |
 | 5 | Jan 27 | Friday |  | [01: C++][81] |  |  |
@@ -291,6 +291,7 @@ None yet!
 [1010311]: ../slides/01-cpp.html#/3/11
 [1010312]: ../slides/01-cpp.html#/3/12
 [1010313]: ../slides/01-cpp.html#/3/13
+[1010314]: ../slides/01-cpp.html#/3/14
 [1010404]: ../slides/01-cpp.html#/4/4
 [10105]: ../slides/01-cpp.html#/5
 [1010503]: ../slides/01-cpp.html#/5/3
