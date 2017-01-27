@@ -53,7 +53,7 @@ We expect that grades will follow the standard decade curve: 90 and above is an 
 
 **Textbooks: ** Due to the high cost of textbooks, and their relative low quality, there will be no recommended nor required textbooks this semester.  Instead, there will be selected [Readings][9] ([md][10]) that can be used in lieu of a recommended textbook.
 
-**Exams:** There will be two midterm exams held during laboratory sessions (combined worth 30% of the final grade) and one final exam (worth 25% of the final grade). Note that we hope (but do not guarantee!) to have the first exam returned before the SEAS drop date of Tuesday, October 13th.
+**Exams:** There will be two midterm exams held during laboratory sessions (combined worth 30% of the final grade) and one final exam (worth 25% of the final grade). Note that we hope (but do not guarantee!) to have the first exam returned before the SEAS drop date.
 
 - Midterm Exam 1: Tuesday, February 21st, during lab session in Olsson 001
 - Midterm Exam 2: Tuesday, April 4th, during lab session in Olsson 001

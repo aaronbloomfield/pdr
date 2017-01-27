@@ -1,17 +1,23 @@
-/* Author: Michele Co, CS 216, Spring 2007
+/* Original author: Michele Co, CS 216, Spring 2007
+ * Updated by Aaron Bloomfield, CS 2150, Spring 2017
  * Filename: pointers.cpp
  * Description: Examples demonstrating pointers and C++ syntax related to pointers
+ *
+ * To force 64-bit operation, this file will have to be compiled with
+ * the -m64 flag
  */
+
 #include <iostream>
 using namespace std;
 
 int main() {
-    // declare and initialize some int variables
-    int x = 1;
-    int y = 5;
+    // declare and initialize some int variables (we use longs to
+    // ensure 64-bit operation)
+    long y = 5;
+    long x = 1;
 
     // declare a pointer to int and initialize to the address of x
-    int * x_pointer = &x;
+    long * x_pointer = &x;
 
     // print the values of each of these variables
     cout << "x = " << x << endl;

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
@@ -13,11 +13,11 @@ http://www.gnu.org/software/src-highlite">
 <b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
 
 <b><font color="#0000FF">class</font></b> <font color="#008080">Foo</font> <font color="#FF0000">{</font>
-    <font color="#009900">int</font> x<font color="#990000">,</font> y<font color="#990000">;</font>
+    <font color="#009900">long</font> x<font color="#990000">,</font> y<font color="#990000">;</font>
 <font color="#FF0000">}</font><font color="#990000">;</font>
 
 <font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"sizeof(int): "</font> <font color="#990000">&lt;&lt;</font> <b><font color="#0000FF">sizeof</font></b><font color="#990000">(</font><font color="#009900">int</font><font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"sizeof(long): "</font> <font color="#990000">&lt;&lt;</font> <b><font color="#0000FF">sizeof</font></b><font color="#990000">(</font><font color="#009900">long</font><font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
     cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"sizeof(Foo): "</font> <font color="#990000">&lt;&lt;</font> <b><font color="#0000FF">sizeof</font></b><font color="#990000">(</font>Foo<font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
 
     <font color="#008080">Foo</font> <font color="#990000">*</font>qux <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Foo</font></b><font color="#990000">();</font>
@@ -26,7 +26,7 @@ http://www.gnu.org/software/src-highlite">
     cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"1st Foo: "</font> <font color="#990000">&lt;&lt;</font> qux <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
     cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"2nd Foo: "</font> <font color="#990000">&lt;&lt;</font> bar <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
 
-    <font color="#009900">int</font> diff <font color="#990000">=</font> <font color="#990000">((</font><font color="#009900">int</font><font color="#990000">)</font>bar<font color="#990000">)-((</font><font color="#009900">int</font><font color="#990000">)</font>qux<font color="#990000">);</font>
+    <font color="#009900">long</font> diff <font color="#990000">=</font> <font color="#990000">((</font><font color="#009900">long</font><font color="#990000">)</font>bar<font color="#990000">)-((</font><font color="#009900">long</font><font color="#990000">)</font>qux<font color="#990000">);</font>
 
     cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Difference: "</font> <font color="#990000">&lt;&lt;</font> diff <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
 

@@ -60,13 +60,128 @@ line-height:120%;
 	<section>
 
 	  <section>
+<h4>Pointers</h4><!-- xkcd -->
+<img class="stretch" src="http://imgs.xkcd.com/comics/pointers.png" title="Every computer, at the unreachable memory address 0x-1, stores a secret.  I found it, and it is that all humans ar-- SEGMENTATION FAULT." alt="Pointers">
+<p class="center"><a href="http://xkcd.com/138/">xkcd # 138</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 5: Friday, Jan 27th
+- Office hours are in full swing, and are all listed on the [Google calendar](https://t.co/9kRXZnqkxZ)
+- Lab capacity is set to 45 (the maximum possible) for all labs; no more labs will be created
+- [Lab 1](../labs/lab01/index.html) and [tutorial 1](../tutorials/01-intro-unix/index.html): how did they go?
+- [Lab 2](../labs/lab02/index.html) and the tutorial (debugging) are out
+  - It's not an easy lab, so please don't wait until the last minute!
+- Final exam conflict?  Please fill out a [support request](https://libra.cs.virginia.edu/~pedagogy/support.php) by the end of January
+  - We will respond, soon, to those who have already done so
+- Lecture recordings are available online from the [uva/index.html](index.html) page
+- Clarification: the post-labs are due by *noon* on Friday, not 1 p.m.
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [C++](../slides/01-cpp.html#/), which will take us into next week
+  - I updated some of the pointer-related slides, so what you will now find in the repo will not exactly match what is on the video recordings...
+	  </script></section>
+	  
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4>Goto</h4><!-- xkcd -->
+<img class="stretch" src="http://imgs.xkcd.com/comics/goto.png" title="Neal Stephenson thinks it&#39;s cute to name his labels &#39;dengo&#39;" alt="goto">
+<p class="center"><a href="http://xkcd.com/292/">xkcd # 292</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 4: Wednesday, Jan 25th
+- Office hours are in full swing, and are all listed on the [Google calendar](https://t.co/9kRXZnqkxZ)
+- Lab capacity is set to 45 (the maximum possible) for all labs
+  - There will not be an additional lab section created
+  - Thus, the only way to enroll in the course is the 2 p.m. lecture and one of the open labs
+  - As of last night, there were 7 spots available
+- [Lab 1](../labs/lab01/index.html) and [Tutorial 1](../tutorials/01-intro-unix/index.html) are out: how are they going?
+  - When labs are ready, it is be posted on the twitter feed: [@UVaCS2150](https://twitter.com/@UVaCS2150)
+  - The VirtualBox image is now uploaded ([direct link](https://collab.itc.virginia.edu/access/content/group/595e2a9f-14e2-4fca-85b6-4495d633efca/misc/student-kubuntu-16.04-64-bit-spring-2017.vdi.zip)); it's 2.9 Gb in size
+  - You will need [7-zip](http://www.7-zip.org/) to unzip it; and make sure you specify that the guest is 64-bit!
+  - To get started, you can view the repo online at http://aaronbloomfield.github.io/pdr/ (the lab is [here](http://aaronbloomfield.github.io/pdr/labs/lab01/index.html); the tutorial is [here](http://aaronbloomfield.github.io/pdr/tutorials/01-intro-unix/index.html))
+- More on lab / enrollment problems on the next slide...
+- Final exam conflict?  Please fill out a [support request](https://libra.cs.virginia.edu/~pedagogy/support.php) by the end of January
+  - We will respond, later this week, to those who have already done so
+- Lecture recordings are available online from the [uva/index.html](index.html) page
+- Clarification: the post-labs are due by *noon* on Friday, not 1 p.m.
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [C++](../slides/01-cpp.html#/), which will take us into next week
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Solving Common First Week CS 2150 Course Issues
+1. Unable to submit (or see Collab) due to not (yet) being enrolled
+  - Once you are enrolled, submit a support request, and we will give you extensions for the first lab so that you are not penalized.  You can view the course materials online at http://aaronbloomfield.github.io/pdr; Collab will become visible once you are enrolled
+2. You were unable to submit the in-lab (*or* to submit an extension) due to the Great Lab One Internet Outage (or due to not having an account)
+  - Submit a support request, and we will handle that for you as well
+3. Virtual Box prevented you from submitting the pre-lab on time
+  - Submit a support request, and we will handle that for you as well
+4. Virtual Box is not yet installed (or not working)
+  - Come to office hours right away to get this solved; we will give you extensions on lab 1 for this, but not on lab 2
+5. You don't have a Linux account in Olsson 001 due to a late registration
+  - You will receive it early next week (Monday), in time for lab 2; also see #2
+
+Basically, we are not going to be jerks due to problems with enrollment, Internet outages, or Virtual Box installations.  At least for lab 1; for lab 2, all bets are off.
+	  </script></section>
+	  
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4>Donald Knuth</h4><!-- xkcd -->
+<img class="stretch" src="http://imgs.xkcd.com/comics/donald_knuth.png" title="His books were kinda intimidating; rappelling down through his skylight seemed like the best option." alt="Donald Knuth">
+<p class="center"><a href="http://xkcd.com/163/">xkcd # 163</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 3: Monday, Jan 23rd
+- Office hours are in full swing, and are all listed on the [Google calendar](https://t.co/9kRXZnqkxZ)
+- Lab capacity is set to 45 (the maximum possible) for all labs
+  - There will not be an additional lab section created
+  - Thus, the only way to enroll in the course is the 2 p.m. lecture and one of the open labs
+  - As of last night, there were still 5 spots available
+- [Lab 1](../labs/lab01/index.html) and [Tutorial 1](../tutorials/01-intro-unix/index.html) are out: how are they going?
+  - When labs are ready, it is be posted on the twitter feed: [@UVaCS2150](https://twitter.com/@UVaCS2150)
+  - The VirtualBox image is now uploaded ([direct link](https://collab.itc.virginia.edu/access/content/group/595e2a9f-14e2-4fca-85b6-4495d633efca/misc/student-kubuntu-16.04-64-bit-spring-2017.vdi.zip)); it's 2.9 Gb in size
+  - You will need [7-zip](http://www.7-zip.org/) to unzip it; and make sure you specify that the guest is 64-bit!
+  - To get started, you can view the repo online at http://aaronbloomfield.github.io/pdr/ (the lab is [here](http://aaronbloomfield.github.io/pdr/labs/lab01/index.html); the tutorial is [here](http://aaronbloomfield.github.io/pdr/tutorials/01-intro-unix/index.html))
+- Final exam conflict?  Please fill out a [support request](https://libra.cs.virginia.edu/~pedagogy/support.php) by the end of January
+  - We will respond, later this week, to those who have already done so
+- Lecture recordings are available online from the [uva/index.html](index.html) page
+- Clarification: the post-labs are due by *noon* on Friday, not 1 p.m.
+- Anybody interested in being a SDAC peer note-taker?  Contact us for details...
+- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
+- Interested in installing Linux?  We suggest Ubuntu; speak to us for details
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [C++](../slides/01-cpp.html#/), which will take us into next week
+  - We will see a brief tour of the Collab workspace and/or the git repo today
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
 <h4>Good Code</h4><!-- xkcd -->
 <img class="stretch" src="http://imgs.xkcd.com/comics/good_code.png" title="You can either hang out in the Android Loop or the HURD loop." alt="Good Code">
 <p class="center"><a href="http://xkcd.com/844/">xkcd # 844</a></p>
 	  </section>
 
 	  <section data-markdown><script type="text/template">
-## Lecture 2: Friday, January 20th
+## Lecture 2: Friday, Jan 20th
 - Office hours are all listed on the [Google calendar](https://t.co/9kRXZnqkxZ)
   - They start this Sunday!
   - Although Bloomfield's will start on Wednesday

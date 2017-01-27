@@ -2,11 +2,11 @@
 using namespace std;
 
 class Foo {
-    int x, y;
+    long x, y;
 };
 
 int main() {
-    cout << "sizeof(int): " << sizeof(int) << endl;
+    cout << "sizeof(long): " << sizeof(long) << endl;
     cout << "sizeof(Foo): " << sizeof(Foo) << endl;
 
     Foo *qux = new Foo();
@@ -15,7 +15,7 @@ int main() {
     cout << "1st Foo: " << qux << endl;
     cout << "2nd Foo: " << bar << endl;
 
-    int diff = ((int)bar)-((int)qux);
+    long diff = ((long)bar)-((long)qux);
 
     cout << "Difference: " << diff << endl;
 

@@ -174,11 +174,11 @@ Read the [C tutorial](../../tutorials/09-c/index.html).  You will need to implem
 
 ### Report! ###
 
-Explore, investigate, and understand two of the four topics from the topic list shown in the in-lab section.  The topic addressed during the in-lab is one of these; for the post-lab, you have to address one other.  Be able to answer "how" and possibly "why" for each item.  Use test cases and the debugger as resources.  Additionally use resources other than yourself (e.g. books, Web, etc.). Be sure to credit these sources.  ***You must use (and cite!) additional resources for this!***
+Explore, investigate, and understand two of the four topics from the topic list shown in the in-lab section.  The topic addressed during the in-lab is one of these; for the post-lab, you have to address one other.  Be able to answer "how" and possibly "why" for each item.  Use test cases and the debugger as resources.  Additionally, use resources other than yourself (e.g. books, reputable websites) and external to the course (i.e. "the TAs" or "lecture" don't count towards these sources). Be sure to credit these sources.  ***You must use (and cite!) additional resources for this post-lab!***
 
 Prepare a report that explains your findings.  Follow the guidelines in the Post-lab Report Guidelines section from the previous lab.  Address the following: How the compiler implements the construct at the machine and assembly levels.  What leads you to this conclusion?  You must show evidence of this behavior in the form of assembly code, C++, screenshots, memory dumps, manual quotations, output, etc.  Also include where you found the information that lead to your conclusion. (i.e. your sources).
 
-The deliverable for the in-lab is a Word document named postlab9.pdf.  It must be in PDF format!  See [How to convert a file to PDF] for details.
+The deliverable for the in-lab is a Word document named postlab9.pdf.  It must be in PDF format!  See [How to convert a file to PDF](../../docs/convert_to_pdf.html) page for details about creating a PDF file.
 
 ### Tips for Getting Started on the Post-lab ###
 
