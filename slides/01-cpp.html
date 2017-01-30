@@ -1187,7 +1187,7 @@ Foo() {
 ## Associativity of *
 - Consider:
   - `char*  x, y;`
-- We can all agree that x is a character pointer (32 bits)
+- We can all agree that x is a character pointer (64 bits)
 - But what type is y?
   - It's a regular char (8 bits)
 - The * is right associative, meaning that the spacing should be:
@@ -1219,7 +1219,7 @@ class Foo {
 };
 
 int main() {
-    cout << "sizeof(long): " << sizeof(int) << endl;
+    cout << "sizeof(long): " << sizeof(long) << endl;
     cout << "sizeof(Foo): " << sizeof(Foo) << endl;
     Foo *qux = new Foo(), *bar = new Foo();
     cout << "1st Foo: " << qux << endl;
