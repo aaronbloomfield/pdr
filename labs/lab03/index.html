@@ -147,7 +147,7 @@
 <li>Postfix: 3 6 + 8 4 / -</li>
 </ul>
 <p>An online description of postfix calculators can be found <a href="http://en.wikipedia.org/wiki/Reverse_Polish_notation">on Wikipedia</a> - note that you do <strong>NOT</strong> need to print out the infix form of the postfix expression; you only need to print the final answer. See the end of this lab for example input and expected output.</p>
-<p>When you start handling input (in the in-lab), you will want to store your read-in values into strings. You can use <code>==</code> to compare STL strings. Alternatively, you can use the <a href="http://www.cplusplus.com/reference/string/string/compare/">string compare()</a> method to compare them, but realize that it returns 0 if they are <em>equal</em>, and non-zero if they are not equal.</p>
+<p>When you start handling input (in the in-lab), you will want to store your read-in values into strings. You can use <code>==</code> to compare STL strings. Alternatively, you can use the <a href="http://www.cplusplus.com/reference/string/string/compare/">string compare()</a> method to compare them, but realize that it returns 0 if they are <em>equal</em>, and non-zero if they are not equal. The <code>==</code> operator on strings works as expected (returns true if they are the same).</p>
 <p>If you want to see some quick code for converting a string to an int, see the <code>StringToInt()</code> function at the bottom of <a href="http://faq.cprogramming.com/cgi-bin/smartfaq.cgi?answer=1046996179&amp;id=1043284385">this page</a>. Warning: just copying that function without understanding it will only make your life more difficult.</p>
 <h3 id="hints">Hints</h3>
 <p>In the past, students have run into a few problems with this lab. We list them here in an effort to prevent these particular problems from being encountered again.</p>
@@ -235,7 +235,7 @@ int main() {
 <p>For the post-lab, you will be implementing your own stack. This can be code that you write yourself, or you can re-use your List code from lab 2 (make sure it works before you re-use it, though!).</p>
 <p>You will also have to write up the difficulties.txt file, as described above in the lab procedure section.</p>
 <p>Note that you only have to implement the four stack methods described in the pre-lab section (and the constructor, of course): <code>push()</code>, <code>pop()</code>, <code>top()</code>, and <code>empty()</code>. The other methods (copy constructor, <code>operator=()</code>, etc.) do not need to be implemented for this lab.</p>
-<p>You may NOT use an array to implement your stack. You MUST use a linked-list/pointer-based implementation.</p>
+<p><strong>You may NOT use an array to implement your stack</strong>. You MUST use a linked-list/pointer-based implementation.</p>
 <h3 id="submitting-the-stack-list-files">Submitting the stack / list files</h3>
 <p>Depending on how you implement the stack class, you may just need the stack.h/cpp files, in addition to the three postfix calculator files (postfixCalculator.h/cpp and testPostfixCalc.cpp). Or you may need stack.h/cpp and stacknode.h/cpp in addition to the three postfix calculator files. Or you may want to include the six List/ListItr/ListNode files from lab 2 as well as stack.h/cpp and the three postfix calculator files. How you do this is up to you - as long as it works, we don't really care, provided that:</p>
 <ol style="list-style-type: decimal">

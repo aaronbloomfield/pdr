@@ -152,7 +152,7 @@ Postfix notation (also known as reverse Polish notation) involves writing the op
 
 An online description of postfix calculators can be found [on Wikipedia](http://en.wikipedia.org/wiki/Reverse_Polish_notation) - note that you do **NOT** need to print out the infix form of the postfix expression; you only need to print the final answer.  See the end of this lab for example input and expected output.
 
-When you start handling input (in the in-lab), you will want to store your read-in values into strings. You can use `==` to compare STL strings. Alternatively, you can use the [string compare()](http://www.cplusplus.com/reference/string/string/compare/) method to compare them, but realize that it returns 0 if they are *equal*, and non-zero if they are not equal.
+When you start handling input (in the in-lab), you will want to store your read-in values into strings. You can use `==` to compare STL strings. Alternatively, you can use the [string compare()](http://www.cplusplus.com/reference/string/string/compare/) method to compare them, but realize that it returns 0 if they are *equal*, and non-zero if they are not equal.  The `==` operator on strings works as expected (returns true if they are the same).
 
 If you want to see some quick code for converting a string to an int, see the `StringToInt()` function at the bottom of [this page](http://faq.cprogramming.com/cgi-bin/smartfaq.cgi?answer=1046996179&id=1043284385).  Warning: just copying that function without understanding it will only make your life more difficult.
 
@@ -288,7 +288,7 @@ You will also have to write up the difficulties.txt file, as described above in 
 
 Note that you only have to implement the four stack methods described in the pre-lab section (and the constructor, of course): `push()`, `pop()`, `top()`, and `empty()`.  The other methods (copy constructor, `operator=()`, etc.) do not need to be implemented for this lab.
 
-You may NOT use an array to implement your stack. You MUST use a linked-list/pointer-based implementation.
+**You may NOT use an array to implement your stack**. You MUST use a linked-list/pointer-based implementation.
 
 ### Submitting the stack / list files ###
 
