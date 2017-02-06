@@ -66,7 +66,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 6 | Jan 30 | Monday | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: LLDB][42] ([md][62]) *OR* [Tutorial 2: GDB][52] ([md][72]) (see [lab 2][2] for which one to pick) | [01: C++][81] | [C++][81], slides [10.15][1010914] to [12.10][1011109] ([recording][206]) |
 | 7 | Feb 1 | Wednesday |  | [01: C++][81], [02: Lists][82] | [C++][81], slides [12.11][1011110] to [13.14][1011213] (end); [lists][82], slides [1][82] to [4.6][1020305] ([recording][208]) |
 | 8 | Feb 3 | Friday |  | [02: Lists][82] | [lists][82], slides [5.1][10204] to [7.2][1020601] ([recording][209]) |
-| 9 | Feb 6 | Monday | [Lab 3: Stacks][3] ([md][23]) / [Tutorial 3: More UNIX, part 1][63], introduction and sections 1-4 | [02: Lists][82], [03: Numbers][83] |  |  
+| 9 | Feb 6 | Monday | [Lab 3: Stacks][3] ([md][23]) / [Tutorial 3: More UNIX, part 1][63], introduction and sections 1-4 | [02: Lists][82], [03: Numbers][83] | [lists][82], slides [7.1][10206] to [9.4][1020803] (end); [numbers][83], slides [1][83] to [5.7][1030406] ([recording][210]) |
 | 10 | Feb 8 | Wednesday |  | [03: Numbers][83] |  |  
 | 11 | Feb 10 | Friday |  | [03: Numbers][83] |  |  
 | 12 | Feb 13 | Monday | [Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8 | [03: Numbers][83] |  |  
@@ -344,13 +344,15 @@ None yet!
 [1020603]: ../slides/02-lists.html#/6/3
 [1020606]: ../slides/02-lists.html#/6/6
 [1020607]: ../slides/02-lists.html#/6/7
+[10207]: ../slides/02-lists.html#/7
 [1020706]: ../slides/02-lists.html#/7/6
 [10208]: ../slides/02-lists.html#/8
 [1020803]: ../slides/02-lists.html#/8/3
+[1030303]: ../slides/03-numbers.html#/3/3
 [10304]: ../slides/03-numbers.html#/4
 [1030403]: ../slides/03-numbers.html#/4/3
 [1030404]: ../slides/03-numbers.html#/4/4
-[1030303]: ../slides/03-numbers.html#/3/3
+[1030406]: ../slides/03-numbers.html#/4/6
 [10307]: ../slides/03-numbers.html#/7
 [1030701]: ../slides/03-numbers.html#/7/1
 [1030708]: ../slides/03-numbers.html#/7/8
