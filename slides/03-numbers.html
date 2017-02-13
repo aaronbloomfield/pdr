@@ -752,7 +752,7 @@ Output: 0x42288000
 	  </script></section>
 
 	  <section>
-<h2>Doing the last example by hand, part 1</h2>
+<h2>Doing the last example by hand</h2>
 <ul>
 <li>Convert  42.125 to rational form: 42 1/8 = 337/8<ul>
   <li>Everything stays in rational form for the entire conversion process</li>
@@ -771,7 +771,7 @@ Output: 0x42288000
 	  </section>
 
 	  <section>
-<h2>Doing the last example by hand, part 2</h2>
+<h2>Doing the last example by hand</h2>
 <ul>
 <li>Mantissa: encode it using powers of 1/2<ul>
   <li>To do this, we try to subtract increasing powers of 1/2 until we hit zero<ul>
@@ -791,7 +791,7 @@ Output: 0x42288000
 	  </section>
 
 	  <section>
-<h2>Doing the last example by hand, part 3</h2>
+<h2>Doing the last example by hand</h2>
 <ul>
 <li>The final encoded number in binary is: <span class='pink'>0</span><span class='green'>100 0010 0</span><span class="skyblue">010 1000 1000 0000 0000 0000</span><ul>
   <li>The <span class='pink'>sign</span>, <span class='green'>exponent</span> and <span class='skyblue'>mantissa</span> are colored differently for clarity</li></ul></li>
@@ -832,7 +832,7 @@ Hint: it's not 1.0!
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Take care with floating-point values
+## Comparing floating-point values
 - Consider, in Java:
 ```
 double a = 1;
@@ -907,7 +907,7 @@ bool foo = fabs (a-b) < EPSILON;
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Real world example: Patriot Missile
+## Real example: Patriot Missile
 - Gulf War I (1990-1991)
 - Failed to intercept incoming Iraqi scud missile (Feb 25, 1991); both travel at about Mach 5
 - 28 American soldiers killed
@@ -956,7 +956,7 @@ bool foo = fabs (a-b) < EPSILON;
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Better Floating Point: Use More Bits
+## Better Floating Point: More Bits
 - IEEE 754 Double Precision (64 bits)
   - A `float` has about 7 decimal places of accuracy, and a `double` has about 15
 - 64 bits are split as follows:
