@@ -71,7 +71,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 11 | Feb 10 | Friday |  | [03: Numbers][83] | [numbers][83], slides [9.1][10308] to [9.17][1030816] ([recording][212]) |
 | 12 | Feb 13 | Monday | [Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8 | [03: Numbers][83] | [numbers][83], slides [9.17][1030816] to [9.35][1030834] (end) ([recording][213]) |
 | 13 | Feb 15 | Wednesday |  | [04: Arrays & big-Oh][84] |  [arrays & big-Oh][84], slides [1][84] to [5.6][1040405] ([recording][214]) |  
-| 14 | Feb 17 | Friday |  | [04: Arrays & big-Oh][84] |  |  
+| 14 | Feb 17 | Friday |  | [04: Arrays & big-Oh][84] | [arrays & big-Oh][84], slides [5.6][1040405] to [5.26][1040425] ([recording][215]) |  
 |  | Feb 19 | Sunday |  | Midterm 1 review session |  |  
 | 15 | Feb 20 | Monday | Midterm 1 instead during Tuesday's lab | [04: Arrays & big-Oh][84], [05: Trees][85] |  |  
 | 16 | Feb 22 | Wednesday |  | [05: Trees][85] |  |  
@@ -388,6 +388,7 @@ None yet!
 [1040417]: ../slides/04-arrays-bigoh.html#/4/17
 [1040419]: ../slides/04-arrays-bigoh.html#/4/19
 [1040420]: ../slides/04-arrays-bigoh.html#/4/20
+[1040425]: ../slides/04-arrays-bigoh.html#/4/25
 [1040507]: ../slides/04-arrays-bigoh.html#/5/7
 [1050305]: ../slides/05-trees.html#/3/5
 [1050306]: ../slides/05-trees.html#/3/6
