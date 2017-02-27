@@ -72,10 +72,10 @@ The links in the right-most column link directly to the lecture recording on Col
 | 12 | Feb 13 | Monday | [Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8 | [03: Numbers][83] | [numbers][83], slides [9.17][1030816] to [9.35][1030834] (end) ([recording][213]) |
 | 13 | Feb 15 | Wednesday |  | [04: Arrays & big-Oh][84] |  [arrays & big-Oh][84], slides [1][84] to [5.6][1040405] ([recording][214]) |  
 | 14 | Feb 17 | Friday |  | [04: Arrays & big-Oh][84] | [arrays & big-Oh][84], slides [5.6][1040405] to [5.26][1040425] ([recording][215]) |  
-|  | Feb 19 | Sunday |  | Midterm 1 review session | [arrays & big-Oh][84], slides [5.26][1040425] to [6.8][1040507] (end); [trees][85], slides [1][85] to [4.16][1050315] ([recording][218]) |  
-| 15 | Feb 20 | Monday | Midterm 1 instead during Tuesday's lab | [04: Arrays & big-Oh][84], [05: Trees][85] |  |  
-| 16 | Feb 22 | Wednesday |  | [05: Trees][85] |  |  
-| 17 | Feb 24 | Friday |  | [05: Trees][85] |  |  
+|  | Feb 19 | Sunday |  | Midterm 1 review session | |
+| 15 | Feb 20 | Monday | Midterm 1 instead during Tuesday's lab | [04: Arrays & big-Oh][84], [05: Trees][85] | [arrays & big-Oh][84], slides [5.26][1040425] to [6.8][1040507] (end); [trees][85], slides [1][85] to [4.16][1050315] ([recording][218]) |
+| 16 | Feb 22 | Wednesday |  | [05: Trees][85] | [trees][85], slides [5.1][10504] to [7.10][1050609] ([recording][219]) |
+| 17 | Feb 24 | Friday |  | [05: Trees][85] | [trees][85], slides [7.10][1050609] to [8.5][1050704] ([recording][220]) |
 | 18 | Feb 27 | Monday | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [05: Trees][85] |  |  
 | 19 | Mar 1 | Wednesday |  | [05: Trees][85] |  |  
 | 20 | Mar 6 | Friday |  | [05: Trees][85], [06: Hashes][86] |  |  
@@ -394,6 +394,7 @@ None yet!
 [1050306]: ../slides/05-trees.html#/3/6
 [1050311]: ../slides/05-trees.html#/3/11
 [1050315]: ../slides/05-trees.html#/3/15
+[10504]: ../slides/05-trees.html#/4
 [1050410]: ../slides/05-trees.html#/4/10
 [1050411]: ../slides/05-trees.html#/4/11
 [1050412]: ../slides/05-trees.html#/4/12
@@ -412,6 +413,7 @@ None yet!
 [10507]: ../slides/05-trees.html#/7
 [1050701]: ../slides/05-trees.html#/7/1
 [1050703]: ../slides/05-trees.html#/7/3
+[1050704]: ../slides/05-trees.html#/7/4
 [1050709]: ../slides/05-trees.html#/7/9
 [1050711]: ../slides/05-trees.html#/7/11
 [10508]: ../slides/05-trees.html#/8
