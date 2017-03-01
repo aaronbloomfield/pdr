@@ -59,7 +59,7 @@
 <li>Create postlab6.pdf file (see the post-lab section for formatting details), containing the post-lab report (see below).</li>
 <li>Don't forget to put your name, date, and lab section at the top of each of your source code files!</li>
 <li>Files to download: none beyond what has already been downloaded</li>
-<li>Files to submit: the files containing your post-lab code (Makefile, wordPuzzle.cpp, timer.h/cpp, hashTable.h/cpp), the post-lab report (postlab6.pdf -- see the post-lab section for formatting details), and the in-lab shell script again (averagetime.sh).</li>
+<li>Files to submit: the files containing your post-lab code (Makefile, wordPuzzle.cpp, timer.h/cpp, hashTable.h/cpp), the post-lab report (postlab6.pdf -- see the post-lab section for formatting details)</li>
 </ol>
 <hr />
 <h2 id="world-puzzle-problem">World Puzzle Problem</h2>
@@ -189,6 +189,7 @@ diff output.txt words2.sorted.out.txt</code></pre>
 <ul>
 <li>The shell script takes two inputs (dictionary file and grid file), in that order; no command-line parameters.</li>
 <li>Your program should be called <code>averagetime.sh</code>, and should have <code>#!/bin/bash</code> as the very first line of the script</li>
+<li>If you don't put the <code>#!/bin/bash</code>, it will use the wrong shell, and your program won't work properly!</li>
 <li>When setting variables, do not have spaces around the equals sign</li>
 <li>Keep in mind that to grab program output (such as the output of the binary program), you use back quotes (i.e. `)</li>
 <li>To execute your script, you can just enter, <code>./averagetime.sh</code>. If you get a complaint about that ('permission denied', for example), enter this command: <code>chmod 755 averagetime.sh</code>. This tells your Unix system that averagetime.sh is a program that can be executed (remember chmod?).</li>
@@ -200,7 +201,7 @@ diff output.txt words2.sorted.out.txt</code></pre>
 <li>Did your implementation produce the correct results? Did you have to reformat your output?</li>
 <li>How much faster was your program with the -O2 flag?</li>
 <li>What was the speed of your implementation? How fast did it run on the 250x250 grid using words.txt as the dictionary file? What about words2.txt and the 300x300 grid? -- If you ran it on a different machine other than the ones in Olsson 001, specify so.</li>
-<li>What is the big-Theta running speed of your program? Please do this in terms of <em>r</em> (rows), <em>c</em> (columns), and <em>w</em> (words). You can assume that the maximum word size is some small constant. Only consider the word-search component of the program, and not the file reading or hash table creation time.</li>
+<li>What is the big-Theta running speed of your program? We are really only interested in the word search part, not the part where you populate the hash table. Please do this in terms of <em>r</em> (rows), <em>c</em> (columns), and <em>w</em> (words). You can assume that the maximum word size is some small constant. Only consider the word-search component of the program, and not the file reading or hash table creation time.</li>
 <li>What problems did you encounter when implementing this lab?</li>
 <li>How did your shell scripting writing go? What do you think of shell scripts so far?</li>
 </ul>
@@ -229,7 +230,7 @@ diff output.txt words2.sorted.out.txt</code></pre>
 <p>One of the deliverables for the post-lab is a PDF document named postlab6.pdf. It must be in PDF format! See <a href="../../docs/convert_to_pdf.html">How to convert a file to PDF</a> for details about creating a PDF file.</p>
 <p>If you single-space your report, you can divide the page lengths listed below by a factor of 2. If you single space your report and include a lot of blank space with tables, that's not what we are looking for here.</p>
 <p>Include the big-theta running time of your application, and a full explanation as to why. This should be half a page or so. This should address only the word-search portion of your application -- not the reading of input files, hash table creation, etc. This big-Theta runtime should take into account any and all optimizations that you made. Please do this in terms of <em>r</em> (rows), <em>c</em> (columns), and <em>w</em> (words). You can assume that the maximum word size is some small constant.</p>
-<p>Include the timing information for your application on two input files of your choice. This should also be half a page or more. You can do this on any machine and data files, just use the same machine and files for all tests. Be sure to specify which files and machine you used. Show timing results (use the timer placement as we used in lab) for:</p>
+<p>Include the timing information for your application (as described at the end of the in-lab section). This should also be half a page or more. You can do this on any machine and data files, just use the same machine and files for all tests. Be sure to specify which files and machine you used. Show timing results (use the timer placement as we used in lab) for:</p>
 <ol style="list-style-type: decimal">
 <li>Your original application</li>
 <li>Pick a new hash function designed to make performance worse in terms of time. What new hash function did you choose and why was your performance worse?</li>

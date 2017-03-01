@@ -55,7 +55,7 @@ Procedure
 3. Create postlab6.pdf file (see the post-lab section for formatting details), containing the post-lab report (see below).
 4. Don't forget to put your name, date, and lab section at the top of each of your source code files!
 5. Files to download: none beyond what has already been downloaded
-6. Files to submit: the files containing your post-lab code (Makefile, wordPuzzle.cpp, timer.h/cpp, hashTable.h/cpp), the post-lab report (postlab6.pdf -- see the post-lab section for formatting details), and the in-lab shell script again (averagetime.sh).
+6. Files to submit: the files containing your post-lab code (Makefile, wordPuzzle.cpp, timer.h/cpp, hashTable.h/cpp), the post-lab report (postlab6.pdf -- see the post-lab section for formatting details)
 
 ------------------------------------------------------------
 
@@ -290,6 +290,7 @@ Below are a few notes to keep in mind when writing your shell script.  Bash is a
 
 - The shell script takes two inputs (dictionary file and grid file), in that order; no command-line parameters.
 - Your program should be called `averagetime.sh`, and should have `#!/bin/bash` as the very first line of the script
+  - If you don't put the `#!/bin/bash`, it will use the wrong shell, and your program won't work properly!
 - When setting variables, do not have spaces around the equals sign
 - Keep in mind that to grab program output (such as the output of the binary program), you use back quotes (i.e. \`)
 - To execute your script, you can just enter, `./averagetime.sh`.  If you get a complaint about that ('permission denied', for example), enter this command: `chmod 755 averagetime.sh`.  This tells your Unix system that averagetime.sh is a program that can be executed (remember chmod?).
@@ -304,7 +305,7 @@ This report should contain items such as:
 - How much faster was your program with the -O2 flag?
 - What was the speed of your implementation?  How fast did it run on the 250x250 grid using words.txt as the dictionary file?  What about words2.txt and the 300x300 grid?
 -- If you ran it on a different machine other than the ones in Olsson 001, specify so.
-- What is the big-Theta running speed of your program?  Please do this in terms of *r* (rows), *c* (columns), and *w* (words).  You can assume that the maximum word size is some small constant.  Only consider the word-search component of the program, and not the file reading or hash table creation time.
+- What is the big-Theta running speed of your program?  We are really only interested in the word search part, not the part where you populate the hash table.  Please do this in terms of *r* (rows), *c* (columns), and *w* (words).  You can assume that the maximum word size is some small constant.  Only consider the word-search component of the program, and not the file reading or hash table creation time.
 - What problems did you encounter when implementing this lab?
 - How did your shell scripting writing go?  What do you think of shell scripts so far?
 
@@ -350,7 +351,7 @@ If you single-space your report, you can divide the page lengths listed below by
 
 Include the big-theta running time of your application, and a full explanation as to why.  This should be half a page or so.  This should address only the word-search portion of your application -- not the reading of input files, hash table creation, etc.  This big-Theta runtime should take into account any and all optimizations that you made.  Please do this in terms of *r* (rows), *c* (columns), and *w* (words).  You can assume that the maximum word size is some small constant.
 
-Include the timing information for your application on two input files of your choice.  This should also be half a page or more.  You can do this on any machine and data files, just use the same machine and files for all tests.  Be sure to specify which files and machine you used.  Show timing results (use the timer placement as we used in lab) for:
+Include the timing information for your application (as described at the end of the in-lab section).  This should also be half a page or more.  You can do this on any machine and data files, just use the same machine and files for all tests.  Be sure to specify which files and machine you used.  Show timing results (use the timer placement as we used in lab) for:
 
 1. Your original application
 1. Pick a new hash function designed to make performance worse in terms of time.  What new hash function did you choose and why was your performance worse?
