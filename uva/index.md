@@ -76,9 +76,9 @@ The links in the right-most column link directly to the lecture recording on Col
 | 15 | Feb 20 | Monday | Midterm 1 instead during Tuesday's lab | [04: Arrays & big-Oh][84], [05: Trees][85] | [arrays & big-Oh][84], slides [5.26][1040425] to [6.8][1040507] (end); [trees][85], slides [1][85] to [4.16][1050315] ([recording][218]) |
 | 16 | Feb 22 | Wednesday |  | [05: Trees][85] | [trees][85], slides [5.1][10504] to [7.10][1050609] ([recording][219]) |
 | 17 | Feb 24 | Friday |  | [05: Trees][85] | [trees][85], slides [7.10][1050609] to [8.5][1050704] ([recording][220]) |
-| 18 | Feb 27 | Monday | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [05: Trees][85] |  |  
-| 19 | Mar 1 | Wednesday |  | [05: Trees][85] |  |  
-| 20 | Mar 6 | Friday |  | [05: Trees][85], [06: Hashes][86] |  |  
+| 18 | Feb 27 | Monday | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [05: Trees][85] | [trees][85], slides [8.3][1050702] to [8.12][1050711]; [hashes][86], slides [1][86] to [5.11][1060410] ([recording][223]) |  
+| 19 | Mar 1 | Wednesday |  | [05: Trees][85] | [hashes][86], slides [5.11][1060410] to [7.4][1060603] ([recording][224]) |  
+| 20 | Mar 3 | Friday |  | [05: Trees][85], [06: Hashes][86] | [hashes][86], slides [7.4][1060603] to [8.7][1060706] (end) ([recording][225]) |  
 |  | Mar 6 | Monday | (spring break) | (spring break) |  |  
 |  | Mar 8 | Wednesday | (spring break) | (spring break) |  |  
 |  | Mar 10 | Friday | (spring break) | (spring break) |  |  
@@ -412,6 +412,7 @@ None yet!
 [1050630]: ../slides/05-trees.html#/6/30
 [10507]: ../slides/05-trees.html#/7
 [1050701]: ../slides/05-trees.html#/7/1
+[1050702]: ../slides/05-trees.html#/7/2
 [1050703]: ../slides/05-trees.html#/7/3
 [1050704]: ../slides/05-trees.html#/7/4
 [1050709]: ../slides/05-trees.html#/7/9
@@ -420,6 +421,7 @@ None yet!
 [1050801]: ../slides/05-trees.html#/8/1
 [1050802]: ../slides/05-trees.html#/8/2
 [1050808]: ../slides/05-trees.html#/8/8
+[1050811]: ../slides/05-trees.html#/8/11
 [10509]: ../slides/05-trees.html#/9
 [1050901]: ../slides/05-trees.html#/9/1
 [1050909]: ../slides/05-trees.html#/9/9
@@ -432,6 +434,7 @@ None yet!
 [1060401]: ../slides/06-hashes.html#/4/1
 [1060404]: ../slides/06-hashes.html#/4/4
 [1060405]: ../slides/06-hashes.html#/4/5
+[1060410]: ../slides/06-hashes.html#/4/10
 [1060414]: ../slides/06-hashes.html#/4/14
 [10605]: ../slides/06-hashes.html#/5
 [1060502]: ../slides/06-hashes.html#/5/2
@@ -439,6 +442,7 @@ None yet!
 [1060506]: ../slides/06-hashes.html#/5/6
 [1060507]: ../slides/06-hashes.html#/5/7
 [10606]: ../slides/06-hashes.html#/6
+[1060603]: ../slides/06-hashes.html#/6/3
 [1060604]: ../slides/06-hashes.html#/6/4
 [1060608]: ../slides/06-hashes.html#/6/8
 [1060609]: ../slides/06-hashes.html#/6/9
