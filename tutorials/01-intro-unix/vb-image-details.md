@@ -277,3 +277,8 @@ Because previous versions of this image were a different version of Ubuntu (spec
 **Changes for the future**
 
 - Plasmashell, which is part of the graphical window system, was crashing repeatedly.  The reason seems to be tooltip previews of application windows, so these should be disabled: right click taskbar -> Task Manager Settings -> General -> Uncheck "show tooltips"
+- The package is now `openjdk-8-jdk`, not `openjdk-7-jdk`
+- Turned off screen locking (K Menu -> Computer -> System Settings -> Desktop Behavior -> Screen Locking)
+- If creating a 32-bit image (such as for a programming contest), then Chrome is no longer supported on that platform
+- For programming contests, start up Eclipse and create the workspace/ directory
+- For adding the pc2team icon: right click on the K menu, select edit applilcations, and proceed from there
