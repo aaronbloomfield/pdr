@@ -82,9 +82,9 @@ The links in the right-most column link directly to the lecture recording on Col
 |  | Mar 6 | Monday | (spring break) | (spring break) |  |  
 |  | Mar 8 | Wednesday | (spring break) | (spring break) |  |  
 |  | Mar 10 | Friday | (spring break) | (spring break) |  |  
-| 21 | Mar 13 | Monday | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1,(part of [this link][46]; the specific sections are mentioned on the,[tutorials page][40]) | [06: Hashes][86] |  |  
-| 22 | Mar 15 | Wednesday |  | [06: Hashes][86] |  |  
-| 23 | Mar 17 | Friday |  | [06: Hashes][86], [07: IBCM][87] (machine language) |  |  
+| 21 | Mar 13 | Monday | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1,(part of [this link][46]; the specific sections are mentioned on the,[tutorials page][40]) | [06: Hashes][86] | [IBCM][87], slides [1][87] to [5.11][1070410] ([recording][226]) |
+| 22 | Mar 15 | Wednesday |  | [06: Hashes][86] | [IBCM][87], slides [5.11][1070410] to [6.6][1070505] ([recording][227]) |
+| 23 | Mar 17 | Friday |  | [06: Hashes][86], [07: IBCM][87] (machine language) | [IBCM][87], slides [6.6][1070505] to [7.10][1070609] (end) ([recording][228]) | |
 | 24 | Mar 20 | Monday | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2,(remainder of [here][47], as described on the [tutorials page][40]) | [07: IBCM][87] (machine language) |  |  
 | 25 | Mar 22 | Wednesday |  | [07: IBCM][87] (machine language) |  |  
 | 26 | Mar 24 | Friday |  | [08: Assembly][88] (assembly language) |  |  
