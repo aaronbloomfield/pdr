@@ -6,6 +6,13 @@
  * Run with the `-help` flag to see the full list of options.
  */
 
+#ifndef IS_LITTLE_ENDIAN
+#ifndef IS_BIG_ENDIAN
+#error Must define IS_LITTLE_ENDIAN or IS_BIG_ENDIAN via the `-D` flag to the compiler
+#define IS_LITTLE_ENDIAN
+#endif
+#endif
+
 #include <iostream>
 #include <fstream>
 #include <string>
