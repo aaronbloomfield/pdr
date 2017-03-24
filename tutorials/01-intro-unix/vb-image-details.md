@@ -282,3 +282,7 @@ Because previous versions of this image were a different version of Ubuntu (spec
 - If creating a 32-bit image (such as for a programming contest), then Chrome is no longer supported on that platform
 - For programming contests, start up Eclipse and create the workspace/ directory
 - For adding the pc2team icon: right click on the K menu, select edit applilcations, and proceed from there
+- For the programming contests, install PyCharm, as per the directions at http://askubuntu.com/questions/701618/pycharm-by-jetbrains-installation (the second set that uses apt-get); put that quick launch icon in the task bar
+  - start up PyCharm, accept the license, and then make sure it's using python3 (https://www.jetbrains.com/help/pycharm/2016.3/configuring-available-python-interpreters.html)
+  - if pc2team will not run from the system tray, look at https://bugs.launchpad.net/kubuntu-ppa/+bug/1437603 (see the response on 2015-07-20)
+  - Probably should make the programming contest image more than 8 Gb in size (only 1.6 Gb was left)
