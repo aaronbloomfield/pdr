@@ -153,10 +153,10 @@ Recall that using the `-S` flag with g++ will generate the assembly code.  You w
 
 For the in-lab, you have to address one topic; either the required one or an optional one.  For the post-lab, you will have to address two total topics: the one you addressed from the in-lab, and one additional one for the post-lab.  Note that everybody has to address the dynamic dispatch one, but it is your call whether you do that for the in-lab or the post-lab.
 
-####Required####
+#### Required ####
 1. Dynamic dispatch: Describe how dynamic dispatch is implemented.  Note that dynamic dispatch is NOT the same thing as dynamic memory!  Show this using a simple class hierarchy that includes virtual functions.  Use more than one virtual function per class.
 
-####Optional####
+#### Optional ####
 1. Inheritance (data layout, construction, and destruction): Create an instance of an object that inherits data members from another class, and also includes data members of its own.  Show in memory where data members are laid out in that object.  Then explain how construction and destruction happens in this class hierarchy.  Explain what happens when a user-defined object is instantiated and what happens when it goes out of scope.  What if anything is "destroyed" by the destructor?  Show this process happening in the assembly code using a simple class hierarchy.  Point out in the assembly code exactly where the destructors and constructors are getting called.
 
 2. Optimized code: Compare code generated normally to optimized code.  To create optimized code, you will need to use the `-O2` compiler flag.  Can you make any guesses as to why the optimized code looks as it does?  What is being optimized?  Be sure to show your original sample code as well as the optimized version.  Try loops and function calls to see what "optimizing" does. Be aware that if instructions are "not necessary" to the final output of the program then they may be optimized away completely!  This does not lead to very interesting comparisons.  Describe at least four (non-trivial) differences you see between 'normal' code and optimized code.
