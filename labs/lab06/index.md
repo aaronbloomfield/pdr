@@ -51,7 +51,7 @@ Procedure
 ### Post-lab ###
 
 1. Optimize your implementation of the word puzzle solver.  Your program should produce the same output as the sample output files in the [labs/lab06/data/ directory](data/) (your program can contain output such as timer results, as described in the in-lab section).  The input (i.e., the command-line parameters) is the exact same as for the pre-lab.
-2. The various optimizations allowed are listed in the description of the world puzzle problem as well as the post-lab section.  You will have to include a description of the optimization methods used in the post-lab report.  Your Makefile should be modified for the post-lab (probably just adding -O2).
+2. The various optimizations allowed are listed in the description of the word puzzle problem as well as the post-lab section.  You will have to include a description of the optimization methods used in the post-lab report.  Your Makefile should be modified for the post-lab (probably just adding -O2).
 3. Create postlab6.pdf file (see the post-lab section for formatting details), containing the post-lab report (see below).
 4. Don't forget to put your name, date, and lab section at the top of each of your source code files!
 5. Files to download: none beyond what has already been downloaded
@@ -60,7 +60,7 @@ Procedure
 ------------------------------------------------------------
 
 
-World Puzzle Problem
+Word Puzzle Problem
 --------------------
 
 Consider the problem called [word search](https://en.wikipedia.org/wiki/Word_search), illustrated in the diagram below.
