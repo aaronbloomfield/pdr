@@ -89,8 +89,8 @@ The links in the right-most column link directly to the lecture recording on Col
 | 25 | Mar 22 | Wednesday |  | [07: IBCM][87] (machine language) | [assembly][88], slides [5.3][1080402] to [6.6][1080505] ([recording][231]) |
 | 26 | Mar 24 | Friday |  | [08: Assembly][88] (assembly language) | [assembly][88], slides [6.6][1080505] to [8.11][1080710] ([recording][232]) |
 | 27 | Mar 27 | Monday | [Lab 8: assembly, part 1][8] ([md][28]) / Tutorial 8: see the,information on the [tutorials page](../tutorials/index.html),([md](../tutorials.md)) | [08: Assembly][88] (assembly language) | [assembly][88], slides [8.11][1080710] to [10.9][1080908] ([recording][233]) |
-| 28 | Mar 29 | Wednesday |  | [08: Assembly][88] (assembly language) |  |  
-| 29 | Mar 31 | Friday |  | [08: Assembly][88] (assembly language) |  |  
+| 28 | Mar 29 | Wednesday |  | [08: Assembly][88] (assembly language) | [10.5][1080904] to [10.31][1080930] ([recording][234]) |
+| 29 | Mar 31 | Friday |  | [08: Assembly][88] (assembly language) | [10.31][1080930]  to [10.33][1080932] (end); [05: Trees][85], slides [9.1][10508] to ... |
 |  | Apr 2 | Sunday |  | Midterm 2 review session |  |  
 | 30 | Apr 3 | Monday | Midterm 2 instead during Tuesday's lab | [08: Assembly][88], [09: Advanced C++][89] |  |  
 | 31 | Apr 5 | Wednesday |  | [09: Advanced C++][89] |  |  
@@ -492,6 +492,7 @@ None yet!
 [1080804]: ../slides/08-assembly-64bit.html#/8/4
 [1080805]: ../slides/08-assembly-64bit.html#/8/5
 [10809]: ../slides/08-assembly-64bit.html#/9
+[1080904]: ../slides/08-assembly-64bit.html#/9/4
 [1080906]: ../slides/08-assembly-64bit.html#/9/6
 [1080908]: ../slides/08-assembly-64bit.html#/9/8
 [1080914]: ../slides/08-assembly-64bit.html#/9/14
