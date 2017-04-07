@@ -89,12 +89,12 @@ The links in the right-most column link directly to the lecture recording on Col
 | 25 | Mar 22 | Wednesday |  | [07: IBCM][87] (machine language) | [assembly][88], slides [5.3][1080402] to [6.6][1080505] ([recording][231]) |
 | 26 | Mar 24 | Friday |  | [08: Assembly][88] (assembly language) | [assembly][88], slides [6.6][1080505] to [8.11][1080710] ([recording][232]) |
 | 27 | Mar 27 | Monday | [Lab 8: assembly, part 1][8] ([md][28]) / Tutorial 8: see the,information on the [tutorials page](../tutorials/index.html),([md](../tutorials.md)) | [08: Assembly][88] (assembly language) | [assembly][88], slides [8.11][1080710] to [10.9][1080908] ([recording][233]) |
-| 28 | Mar 29 | Wednesday |  | [08: Assembly][88] (assembly language) | [10.5][1080904] to [10.31][1080930] ([recording][234]) |
-| 29 | Mar 31 | Friday |  | [08: Assembly][88] (assembly language) | [10.31][1080930]  to [10.33][1080932] (end); [05: Trees][85], slides [9.1][10508] to [10.10][1050909] ([recording][221]) |
+| 28 | Mar 29 | Wednesday |  | [08: Assembly][88] (assembly language) | [assembly][88], slides [10.5][1080904] to [10.31][1080930] ([recording][234]) |
+| 29 | Mar 31 | Friday |  | [08: Assembly][88] (assembly language) | [assembly][88], slides [10.31][1080930]  to [10.33][1080932] (end); [05: Trees][85], slides [9.1][10508] to [10.10][1050909] ([recording][221]) |
 |  | Apr 2 | Sunday |  | Midterm 2 review session |  |  
-| 30 | Apr 3 | Monday | Midterm 2 instead during Tuesday's lab | [08: Assembly][88], [09: Advanced C++][89] |  |  
-| 31 | Apr 5 | Wednesday |  | [09: Advanced C++][89] |  |  
-| 32 | Apr 7 | Friday |  | [09: Advanced C++][89], [10: Heaps and Huffman coding][90] |  |  
+| 30 | Apr 3 | Monday | Midterm 2 instead during Tuesday's lab | [08: Assembly][88], [09: Advanced C++][89] | [advanced C++][89], slides [1][89] to [5.9][1090408] ([recording][236]) |  
+| 31 | Apr 5 | Wednesday |  | [09: Advanced C++][89] | [advanced C++][89], slides [6.1][10905] to [6.22][1090521] ([recording][237]) |  
+| 32 | Apr 7 | Friday |  | [09: Advanced C++][89], [10: Heaps and Huffman coding][90] | [advanced C++][89], slides [7.1][10906] to [8.12][1090711] ([recording][239]) |  
 | 33 | Apr 10 | Monday | [Lab 9: assembly, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [10: Heaps and Huffman coding][90] |  |  
 | 34 | Apr 12 | Wednesday |  | [10: Heaps and Huffman coding][90] |  |  
 | 35 | Apr 14 | Friday |  | [10: Heaps and Huffman coding][90] |  |  
