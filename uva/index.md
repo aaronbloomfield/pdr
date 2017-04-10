@@ -94,7 +94,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |  | Apr 2 | Sunday |  | Midterm 2 review session |  |  
 | 30 | Apr 3 | Monday | Midterm 2 instead during Tuesday's lab | [08: Assembly][88], [09: Advanced C++][89] | [advanced C++][89], slides [1][89] to [5.9][1090408] ([recording][236]) |  
 | 31 | Apr 5 | Wednesday |  | [09: Advanced C++][89] | [advanced C++][89], slides [6.1][10905] to [6.22][1090521] ([recording][237]) |  
-| 32 | Apr 7 | Friday |  | [09: Advanced C++][89], [10: Heaps and Huffman coding][90] | [advanced C++][89], slides [7.1][10906] to [8.12][1090711] ([recording][239]) |  
+| 32 | Apr 7 | Friday |  | [09: Advanced C++][89], [10: Heaps and Huffman coding][90] | [advanced C++][89], slides [7.1][10906] to [8.12][1090711] (end) ([recording][239]) |  
 | 33 | Apr 10 | Monday | [Lab 9: assembly, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [10: Heaps and Huffman coding][90] |  |  
 | 34 | Apr 12 | Wednesday |  | [10: Heaps and Huffman coding][90] |  |  
 | 35 | Apr 14 | Friday |  | [10: Heaps and Huffman coding][90] |  |  
