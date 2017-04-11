@@ -473,7 +473,7 @@ loop:  	mov rcx, [i]
 	cmp rcx, [n]
 	jg endOfLoop
 	add [sum], rcx
-	inc [i]
+	inc qword [i]
 	jmp loop
 endOfLoop:
 </code></pre></td></tr></table>
