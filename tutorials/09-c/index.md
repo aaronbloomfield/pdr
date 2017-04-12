@@ -206,7 +206,7 @@ Like C++, C allows programmers to derive types from existing types.  There are s
 
 ### struct ###
 
-C++ does not have classes, but it does have structures.  Early versions of C++ were called *C with Classes*; the C++ "compiler" was little more than a preprocessor, and *class* syntactical constructs were converted to structures so that the output could be compiled by a C compiler.
+C does not have classes, but it does have structures.  Early versions of C++ were called *C with Classes*; the C++ "compiler" was little more than a preprocessor, and *class* syntactical constructs were converted to structures so that the output could be compiled by a C compiler.
 
 A structure definition has the following format:
 
