@@ -96,7 +96,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 31 | Apr 5 | Wednesday |  | [09: Advanced C++][89] | [advanced C++][89], slides [6.1][10905] to [6.22][1090521] ([recording][237]) |  
 | 32 | Apr 7 | Friday |  | [09: Advanced C++][89], [10: Heaps and Huffman coding][90] | [advanced C++][89], slides [7.1][10906] to [8.12][1090711] (end) ([recording][239]) |  
 | 33 | Apr 10 | Monday | [Lab 9: assembly, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [10: Heaps and Huffman coding][90] | [heaps & Huffman coding][90], slides [1][90] to [6.7][1100506] ([recording][240]) |
-| 34 | Apr 12 | Wednesday |  | [10: Heaps and Huffman coding][90] |  |  
+| 34 | Apr 12 | Wednesday |  | [10: Heaps and Huffman coding][90] | [heaps & Huffman coding][90], slides [6.8][1100507] to [8.4][1100703] ([recording][241]) |
 | 35 | Apr 14 | Friday |  | [10: Heaps and Huffman coding][90] |  |  
 | 36 | Apr 17 | Monday | [Lab 10: Huffman coding][10] ([md][30]) / (no tutorial) | [10: Heaps and Huffman coding][90], [11: Graphs][91] |  |  
 | 37 | Apr 19 | Wednesday |  | [11: Graphs][91] |  |  
@@ -119,7 +119,7 @@ None yet!
 Grading Concerns
 ----------------
 
-None yet!
+- Both [exam 1](../exams/exam1-s17.pdf) and [exam 2](../exams/exam2-s17.pdf) will have a 10 *percentage* point curve.  Rather than modify the exam grades themselves, the end-of-the-semester cut-offs for the various letter grades will be lowerd by an equivalent amount
 
 
 [1]: ../labs/lab01/index.html
@@ -526,13 +526,16 @@ None yet!
 [1100501]: ../slides/10-heaps-huffman.html#/5/1
 [1100503]: ../slides/10-heaps-huffman.html#/5/3
 [1100506]: ../slides/10-heaps-huffman.html#/5/6
+[1100507]: ../slides/10-heaps-huffman.html#/5/7
 [1100508]: ../slides/10-heaps-huffman.html#/5/8
 [1100510]: ../slides/10-heaps-huffman.html#/5/10
 [1100512]: ../slides/10-heaps-huffman.html#/5/12
 [1100515]: ../slides/10-heaps-huffman.html#/5/15
+[1100603]: ../slides/10-heaps-huffman.html#/6/3
 [1100605]: ../slides/10-heaps-huffman.html#/6/5
 [11006]: ../slides/10-heaps-huffman.html#/6
 [1100606]: ../slides/10-heaps-huffman.html#/6/6
+[1100703]: ../slides/10-heaps-huffman.html#/7/3
 [1100705]: ../slides/10-heaps-huffman.html#/7/5
 [1100706]: ../slides/10-heaps-huffman.html#/7/6
 [1100718]: ../slides/10-heaps-huffman.html#/7/18
