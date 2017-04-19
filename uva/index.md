@@ -97,8 +97,8 @@ The links in the right-most column link directly to the lecture recording on Col
 | 32 | Apr 7 | Friday |  | [09: Advanced C++][89], [10: Heaps and Huffman coding][90] | [advanced C++][89], slides [7.1][10906] to [8.12][1090711] (end) ([recording][239]) |  
 | 33 | Apr 10 | Monday | [Lab 9: assembly, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [10: Heaps and Huffman coding][90] | [heaps & Huffman coding][90], slides [1][90] to [6.7][1100506] ([recording][240]) |
 | 34 | Apr 12 | Wednesday |  | [10: Heaps and Huffman coding][90] | [heaps & Huffman coding][90], slides [6.8][1100507] to [8.4][1100703] ([recording][241]) |
-| 35 | Apr 14 | Friday |  | [10: Heaps and Huffman coding][90] |  |  
-| 36 | Apr 17 | Monday | [Lab 10: Huffman coding][10] ([md][30]) / (no tutorial) | [10: Heaps and Huffman coding][90], [11: Graphs][91] |  |  
+| 35 | Apr 14 | Friday |  | [10: Heaps and Huffman coding][90] | [heaps & Huffman coding][90], slides [8.4][1100703] to [8.31][1100730] ([recording][242]) |
+| 36 | Apr 17 | Monday | [Lab 10: Huffman coding][10] ([md][30]) / (no tutorial) | [10: Heaps and Huffman coding][90], [11: Graphs][91] | [heaps & Huffman coding][90], slides [9.1][11008] to [9.9][1100808] (end); [graphs][91], slides [1][91] to [5.3][1110402] ([recording][244]) |
 | 37 | Apr 19 | Wednesday |  | [11: Graphs][91] |  |  
 | 38 | Apr 21 | Friday |  | [11: Graphs][91] |  |  
 | 39 | Apr 24 | Monday | [Lab 11: Graphs][11] ([md][31]) | [11: Graphs][91] |  |  
@@ -544,6 +544,7 @@ Grading Concerns
 [1100730]: ../slides/10-heaps-huffman.html#/7/30
 [11008]: ../slides/10-heaps-huffman.html#/8
 [1100808]: ../slides/10-heaps-huffman.html#/8/8
+[1100830]: ../slides/10-heaps-huffman.html#/8/30
 [1110304]: ../slides/11-graphs.html#/3/4
 [1110305]: ../slides/11-graphs.html#/3/5
 [1110306]: ../slides/11-graphs.html#/3/6
