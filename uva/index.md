@@ -99,14 +99,14 @@ The links in the right-most column link directly to the lecture recording on Col
 | 34 | Apr 12 | Wednesday |  | [10: Heaps and Huffman coding][90] | [heaps & Huffman coding][90], slides [6.8][1100507] to [8.4][1100703] ([recording][241]) |
 | 35 | Apr 14 | Friday |  | [10: Heaps and Huffman coding][90] | [heaps & Huffman coding][90], slides [8.4][1100703] to [8.31][1100730] ([recording][242]) |
 | 36 | Apr 17 | Monday | [Lab 10: Huffman coding][10] ([md][30]) / (no tutorial) | [10: Heaps and Huffman coding][90], [11: Graphs][91] | [heaps & Huffman coding][90], slides [9.1][11008] to [9.9][1100808] (end); [graphs][91], slides [1][91] to [5.3][1110402] ([recording][244]) |
-| 37 | Apr 19 | Wednesday |  | [11: Graphs][91] |  |  
-| 38 | Apr 21 | Friday |  | [11: Graphs][91] |  |  
-| 39 | Apr 24 | Monday | [Lab 11: Graphs][11] ([md][31]) | [11: Graphs][91] |  |  
-| 40 | Apr 26 | Wednesday |  | [12: Memory][92] |  |  
-| 41 | Apr 28 | Friday |  | [12: Memory][92] |  |  
-| 42 | May 1 | Monday | [Lab 12: Objective C][12] ([md][32]) | [13: Esoteric PLs][93], [Course conclusion][94] |  |  
-|  | May 4 | Thursday |  | Final exam review session |  |  
-|  | May 6 | Saturday | Final exam from 7:00 p.m. - 10:00 p.m. in the lecture classroom | Final exam from 7:00 p.m. - 10:00 p.m. in the lecture classroom |  |  
+| 37 | Apr 19 | Wednesday |  | [11: Graphs][91] | [graphs][91], slides [5.3][1110402] to [6.9][1110508] ([recording][245]) |
+| 38 | Apr 21 | Friday |  | [11: Graphs][91] | [graphs][91], slides [6.9][1110508] to [7.6][1110605] ([recording][246]) |
+| 39 | Apr 24 | Monday | [Lab 11: Graphs][11] ([md][31]) | [11: Graphs][91] | [graphs][91], slides [8.1][11106] to [9.11][1110810] ([recording][247]) |
+| 40 | Apr 26 | Wednesday |  | [12: Memory][92] | [graphs][91], slides [9.10][1110809] to [9.15][1110814] (end); [memory][92], slides [1][92] to [4.9][1120308] ([recording][248]) |
+| 41 | Apr 28 | Friday |  | [12: Memory][92] | [memory][92], slides [4.9][1120308] to [5.19][1120418] (end) ([recording][249]) |
+| 42 | May 1 | Monday | [Lab 12: Objective C][12] ([md][32]) | [13: Esoteric PLs][93], [Course conclusion][94] | [esoteric PLs][93], slides [1][93] to [6.13][1130512] (end); [course conclusion][94], slides [1][94] to [12][12011] (end) ([recording][251]) |
+|  | May 4 | Wednesday |  | Final exam review session |  |  
+|  | May 6 | Saturday | Final exam from 7:00 p.m. - 10:00 p.m. in CHM 402 | Final exam from 7:00 p.m. - 10:00 p.m. in CHM 402 |  |  
 
 
 
@@ -120,7 +120,7 @@ Grading Concerns
 ----------------
 
 - Both [exam 1](../exams/exam1-s17.pdf) and [exam 2](../exams/exam2-s17.pdf) will have a 10 *percentage* point curve.  Rather than modify the exam grades themselves, the end-of-the-semester cut-offs for the various letter grades will be lowerd by an equivalent amount
-
+- See the [Grading Explanations, Spring 2017][116] ([md][115]) for details
 
 [1]: ../labs/lab01/index.html
 [2]: ../labs/lab02/index.html
@@ -564,6 +564,8 @@ Grading Concerns
 [1110708]: ../slides/11-graphs.html#/7/8
 [11108]: ../slides/11-graphs.html#/8
 [1110806]: ../slides/11-graphs.html#/8/6
+[1110809]: ../slides/11-graphs.html#/8/9
+[1110810]: ../slides/11-graphs.html#/8/10
 [1110814]: ../slides/11-graphs.html#/8/14
 [1120303]: ../slides/12-memory.html#/3/3
 [1120304]: ../slides/12-memory.html#/3/4
