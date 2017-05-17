@@ -1,8 +1,10 @@
 <?php
-$CPAGE = $_GET["CPAGE"];
+// global variables
+$CPAGE = isset($_GET["CPAGE"]) ? $_GET["CPAGE"] : "";
 if($CPAGE=="")
-    $CPAGE="unloaded";
+  $CPAGE="unloaded";
 $mem = array();
+$filestatus = "";
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
@@ -16,77 +18,81 @@ $mem = array();
   <link rel="stylesheet" type="text/css" href="ibcm.css" media="screen" />
 
 <?php
-$filestatus = "";
 function load_ibcm_file () {
+  global $CPAGE;
   global $mem;
+  global $filestatus;
   if($CPAGE=="loaded")
     $errornum = $_FILES['userfile']['error'];
 
-  // (0 - successful upload, 1 - file exceeds maximum upload
-  // size, 2 - file exceeds maximum file size, 3 - file
-  // partially uploaded, 4 - no file uploaded)
+  // error codes:
+  // 0 - successful upload
+  // 1 - file exceeds maximum upload size
+  // 2 - file exceeds maximum file size
+  // 3 - file partially uploaded
+  // 4 - no file uploaded
 
   if (($errornum == 1) or ($errornum == 2)) {
-    $filestatus = "The file uploaded was too big! The maximum file size that can be uploaded is " . ini_get("upload_max_filesize") . "; but above " . ini_get("post_max_size") . ", it won't even indicate a file upload has been attempted. To fix this, you need to set the values (in php.ini) of upload_max_filesize and post_max_size.";
+    $filestatus = "Error: The file uploaded was too big! The maximum file size that can be uploaded is " . ini_get("upload_max_filesize") . "; but above " . ini_get("post_max_size") . ", it won't even indicate a file upload has been attempted. To fix this, you need to set the values (in php.ini) of upload_max_filesize and post_max_size.";
   } else if ( $errornum == 3 ) {
     $filestatus = "Error: 'file partially uploaded'. No idea what this means -- try it again.";
   } else if ( $errornum == 4 ) {
-    $filestatus = "Error: you must select a valid file!";
+    $filestatus = "Error: You must select a valid file!";
   } else {
     if ( $_FILES['userfile']['tmp_name'] != "" ) {
       $fp = fopen($_FILES['userfile']['tmp_name'],"r");
-      $n=0;
-	 
-      /*
-      //Check new file format
-      $buf = fread($fp,4);
-      if(strncmp($buf, 'PC', 2)==0) {
-	$PC=fread($fp, 4);
-	echo "<p>PC is ".$PC."</p>";
-	fgets($fp, 1000);
-	fread($fp, 4);
-	$ACCUM=fread($fp, 4);
-	fgets($fp, 1000);
-	while(!feof($fp)) {
-	  $buf=fread($fp, 4);
-	  $mem[$n]=$buf;
-	  fgets($fp, 1000);
-	  $n++;
-	}
-	} */
+      $n=0;         // line number of memory
+      $linenum=0;   // line number of file (includes comments and blank lines)
 
-      //Check old file format
+      // Check file format
       while( !feof($fp) ) {
-	$line = fgets($fp).trim();
-	if ( $line == "" )
-	  continue;
-	if ( substr($line,0,2) == "//" )
-	  continue;
+        $line = trim(fgets($fp));
+        $linenum++;
+
+        // ignore blank lines and comments
+        if ( $line == "" )
+          continue;
+        if ( substr($line,0,2) == "//" )
+          continue;
         if ( substr($line,0,1) == "#"  )
           continue;
-	$mem[$n++] = substr($line,0,4);
+
+        // validate the line starts with 4 hex digits
+        $hexline = substr($line,0,4);
+        if (!preg_match('/^[a-fA-F0-9]{4}/', $hexline)) {
+          $filestatus = "Error: The file is malformed at line " . $linenum . " -- please fix and try again.";
+
+          // reset contents of memory, close file, and exit early
+          $mem = array();
+          fclose($fp);
+          return;
+        }
+
+        // insert line into memory
+        $mem[$n++] = $hexline;
       }
+
+      // determine upper bound of memory
       $top = 100;
-      if ( $_POST['loadmem'] )
-      	 $top = 4096;
+      if ( isset($_POST['loadmem']) && $_POST['loadmem'] )
+        $top = 4096;
 
       // fill in remaining spots with 0's
       for ( ; $n < $top; $n++ )
-	$mem[$n] = "0000";
+        $mem[$n] = "0000";
 
-      $PC="0000";
-	
-      //}
-      //echo "<p>PC is ".$PC."</p>";
-      //print_r($mem);
       fclose($fp);
     }
   }
 }
-load_ibcm_file();
+// if the user posted a file in this request, then load it
+if (isset($_FILES['userfile'])) {
+  load_ibcm_file();
+}
 ?>
 
-  <script type="text/javascript"><!--
+<script type="text/javascript">
+<!--
 function revert() {
   reset();
 <?php
@@ -94,7 +100,8 @@ function revert() {
     echo "  document.getElementById('v" . sprintf("%04x", $key) . "').value = '$mem[$key]';\n";
 ?>
 }
---></script>
+-->
+</script>
 <script language="javascript1.2" type="text/javascript" src="simulator.js"></script>
 
  </head>
@@ -105,7 +112,7 @@ function revert() {
    <div id="top">
     <h2><a href="./index.html" title="Back to main page">IBCM Interface</a></h2>
      <!-- Top Menu Container -->
-	 <div id="menu">
+     <div id="menu">
       <ul>
        <li><a href="./index.html">Home</a></li>
        <li><a href="./directions.html">Directions</a></li>
@@ -116,36 +123,42 @@ function revert() {
 
    <!-- Main Content Container -->
    <div id="content2">
-  <p class="center"><a href="directions.html">Directions for how to use this simulator</a> are available.</p>
-     <table border="7" cellpadding="10">
+    <p class="center"><a href="directions.html">Directions for how to use this simulator</a> are available.</p>
+    <table border="7" cellpadding="10">
      <!-- Browse section -->
      <tr><td colspan="2" align="center">
 
-     <?php
-     echo '<form id="simulate" name="simulate" enctype="multipart/form-data" action="./simulator.php?CPAGE=loaded" method="post">';
-     echo '<p class="center">Load IBCM file: <input type="file" name="userfile" tabindex="4" size="20" />';
-     echo '<input type="submit" value="Load" /></p>';
-     echo 'Load all of memory: <input type="checkbox" id="loadmem" name="loadmem"';
-     if ( $_POST['loadmem'] )
-          echo " checked ";
-     echo '> (leave unchecked if unsure)</form>';
+     <form id="simulate" name="simulate" enctype="multipart/form-data" action="./simulator.php?CPAGE=loaded" method="post">
+      <p class="center">Load IBCM file:
+        <input type="file" name="userfile" tabindex="4" size="20" />
+        <input type="submit" value="Load" />
+      </p>
+      <p class="center danger">
+        <?php echo $filestatus; ?>
+      </p>
+      <p class="center">Load all of memory: <input type="checkbox" id="loadmem" name="loadmem"
+      <?php if ( isset($_POST['loadmem']) && $_POST['loadmem'] )
+        echo " checked";
+      ?>> (leave unchecked if unsure)</p>
+      <p class="center">Enable watchdog timer: <input type="checkbox" id="watchtimer" name="watchtimer"
+      <?php if ( isset($_POST['watchtimer']) && $_POST['watchtimer'] )
+        echo " checked";
+      ?>> (check to guard against infinite loops)</p>
+      <p id="watchwarning" class="center danger"></p>
+     </form>
 
-       // file is loaded above
-
-
-     ?>
      </td></tr>
 
      <!-- Mem Table -->
      <tr><td>
-     <div id="tabletitle"><table border="7" width="300"><tr><th>Mem</th><th>Value</th><th>PC</th></tr></table></div>
-     <div id="tbl-container">
+      <div id="tabletitle"><table border="7" width="300"><tr><th>Mem</th><th>Value</th><th>PC</th></tr></table></div>
+      <div id="tbl-container">
       <div id="memtable"></div>
-     </div> <!-- id="tbl-container" -->
+      </div> <!-- id="tbl-container" -->
      </td>
-      <!-- Accum and Input Section -->
-      
-      <td valign="top">
+
+     <!-- Accum and Input Section -->
+     <td valign="top">
 
       <table border=0>
        <tr><td><p class="righttitle">Accumulator (hex): </p></td><td>&nbsp;<input name="accum" id="accum" type="text" value="0000" readonly="readonly"/></td></tr>
@@ -155,37 +168,40 @@ function revert() {
        <tr><td><p class="righttitle"><div id="bptitle">Breakpoint (4 digits): </div></p></td><td>&nbsp;<input name="breakpoint" id="breakpoint" type="text" value="" /></td></tr>
        <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
        <tr><td><p class="righttitle"><div id="inputtitle">Input: </div></p></td><td>&nbsp;<input name="input" id="input" type="text" value="0" /></td></tr>
-</table>
-
-       <p>&nbsp;</p><hr /><p>&nbsp;</p>
-
-        <table border="5" cellpadding="25">
-         <tr>
-         <td><input name="Runner" type="button" value="Run" onclick='run_simulator()'/></td>
-         <td><input name="Stepper" type="button" value="Step" onclick="step_simulator()" /></td></tr>
-       <tr><td><input name="Resetter" type="button" value="Reset" onclick="reset()" /></td>
-       <td><input name="Reverter" type="button" value="Revert" onclick="revert()" /></td>
-         </tr>
       </table>
 
-       <p>&nbsp;</p><hr /><p>&nbsp;</p>
+      <p>&nbsp;</p><hr /><p>&nbsp;</p>
 
-     <!-- Display Section -->
-       <p class="center">Output</p>
-     <textarea name="output" id="output" cols="40" rows="15" readonly="readonly"></textarea>
+      <table border="5" cellpadding="25">
+       <tr>
+        <td><input name="Runner" type="button" value="Run" onclick='run_simulator()'/></td>
+        <td><input name="Stepper" type="button" value="Step" onclick="step_simulator()" /></td>
+       </tr>
+       <tr>
+        <td><input name="Resetter" type="button" value="Reset" onclick="reset()" /></td>
+        <td><input name="Reverter" type="button" value="Revert" onclick="revert()" /></td>
+       </tr>
+      </table>
 
+      <p>&nbsp;</p><hr /><p>&nbsp;</p>
 
-     <!-- Separation Divider -->
-     <div id="clear">
-     </div> <!-- id="clear" -->
+      <!-- Display Section -->
+      <p class="center">Output</p>
+      <textarea name="output" id="output" cols="40" rows="15" readonly="readonly"></textarea>
 
-       </td></tr></table>
+      <!-- Separation Divider -->
+      <div id="clear">
+      </div> <!-- id="clear" -->
+
+      </td>
+     </tr>
+    </table>
 
    </div> <!-- id="content2" -->
      
-    <!-- Footer -->
-    <div id="footer">
-    </div>
+   <!-- Footer -->
+   <div id="footer">
+   </div>
 
   </div> <!-- id="wrap" -->
  </body>

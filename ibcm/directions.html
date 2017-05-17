@@ -134,15 +134,19 @@ separate line.</p>
  checking that is done is to ensure that a non-empty string was
  entered (if it was, then the simulator waits for more input).<br />&nbsp;</li>
 <li>Because of the limitations of threads running in web browsers,
- there is no way to terminate a program that is stuck in an infinite
- (or very long) loop -- the browser will not allow a polling
- (checking) to see if a Stop button was pressed, for example.  Some
- browsers will pause the script after a minute (or so) of execution,
- and ask if the user wants to continue.  Alternatively, you can close
- the web browser and restart. <strong>Note that this means if you have
- edited any of the memory locations, and your browser hangs or is
- restarted, you will lose any and all changes you have made to the
- memory locations!</strong><br />&nbsp;</li>
+ there is no native way to terminate a program that is stuck in an
+ infinite (or very long) loop -- the browser will not allow polling
+ (checking) to see if a Stop button was pressed, for example. To
+ mitigate this issue, the simulator includes a "watchdog timer" which
+ will pause execution after 10000 instructions, giving control of the
+ browser back to the user in the event of an infinite loop. The timer
+ needs to be enabled with a checkbox input at the top of the page; if
+ it is not enabled, then the browser may hang. Some browsers will
+ pause the script after a minute (or so) of execution, and ask if the
+ user wants to continue. Alternatively, you can close the web browser
+ and restart. <strong>Note that this means if you have edited any of
+ the memory locations, and your browser hangs or is restarted, you
+ will lose any and all changes you have made to the memory locations!</strong><br />&nbsp;</li>
 <li>The <a href="simulator.php">simulator page</a> is a PHP script,
 which means that it will not work if you are viewing it as a local
 file (if the beginning of your URL is &quot;file://&quot; instead of
