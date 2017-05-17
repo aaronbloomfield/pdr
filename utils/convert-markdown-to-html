@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # take every path in the repo ending in .md, ignoring those under reveal.js
-for infile in `find . | grep '\.md$' | grep -v 'reveal\.js'`; do
+for infile in `find . -type f -name '*.md' | grep -v 'reveal\.js'`; do
     # derive HTML page title from header of MD file
     lineone=`head -1 $infile`
     # derive output file name (replace .md with .html)
