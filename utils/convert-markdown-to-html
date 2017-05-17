@@ -7,7 +7,7 @@ for infile in `find . -type f -name '*.md' | grep -v 'reveal\.js'`; do
     # derive output file name (replace .md with .html)
     outfile=`echo $infile | sed 's/md$/html/g'`
     # calculate relative path from any file in a subdirectory to another (CSS) in the root directory
-    pathprefix=`echo "$infile" | tr -d -c '/' | sed -r 's/^\///g' | sed -r 's/\//..\//g'`
+    pathprefix=`echo ${infile:2} | tr -d -c '/' | sed -r 's/\//..\//g'`
     # perform the conversion from MD to HTML, linking CSS in the process
     pandoc -V "pagetitle:$lineone" -f markdown -c ${pathprefix}markdown.css -t html -o $outfile $infile
 done
