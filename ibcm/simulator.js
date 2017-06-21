@@ -35,6 +35,7 @@ function reset() {
   document.getElementById("output").value = "";
   during_input = 0;
   document.getElementById("bptitle").innerHTML = "Breakpoint (4 digits): ";
+  document.getElementById("watchwarning").innerHTML = "";
 }
 
 
@@ -187,17 +188,30 @@ function create_ibcm_memory_table() {
 function init() {
   create_ibcm_memory_table();
   revert();
-  document.getElementById("bptitle").innerHTML = "Breakpoint (4 digits): ";
 }
 
 function run_simulator () {
-  var breakpoint = document.getElementById("breakpoint").value;
+  // initialize watchdog vars
+  var useWatchdogTimer = document.getElementById("watchtimer").checked;
+  var watchdogCounter = 1;
+  var watchdogMaxLimit = 10000;
+  document.getElementById("watchwarning").innerHTML = "";
+
+  // initialize breakpoint vars
+  var breakpoint = document.getElementById("breakpoint").value.toLowerCase();
   document.getElementById("bptitle").innerHTML = "Breakpoint (4 digits): ";
+
+  // run until the breakpoint is hit or the watchdog counter reaches its limit
   execute_instruction();
-  while ( (pchex != "xxxx") && (!during_input) && (pchex != breakpoint) )
+  while ( (pchex != "xxxx") && (!during_input) && (pchex != breakpoint) && (useWatchdogTimer ? watchdogCounter < watchdogMaxLimit : true) ) {
     execute_instruction();
-  if ( pchex == breakpoint )
-    document.getElementById("bptitle").innerHTML = "<blink>Breakpoint (4 digits): </blink>";
+    watchdogCounter++;
+  }
+  if ( pchex == breakpoint ) {
+    document.getElementById("bptitle").innerHTML = "<em>Breakpoint (4 digits): </em>";
+  } else if (useWatchdogTimer && watchdogCounter >= watchdogMaxLimit) {
+    document.getElementById("watchwarning").innerHTML = sprintf("Watchdog timed out after %d instructions. If this is expected, continue with 'Run'.", watchdogMaxLimit);
+  }
 }
 
 function step_simulator () {
@@ -261,134 +275,129 @@ function execute_instruction () {
   if ( !during_input )
     increment_pc();
 
-  //  try {
-    switch (opcode) {
-    case 0: // halt
-      pchex = convert_dec_to_hex4(eval(convert_hex_to_dec(pchex)-1));
-      document.getElementById("pc"+pchex).innerHTML="H";
-      document.getElementById("pc").value = pchex + " (halted)";
-      pchexbak = pchex; // so the 'H' can be erased by the reset button
-      pchex = "xxxx";
-      break;
-    case 1: // I/O
-      var input = document.getElementById("input");
-      var output = document.getElementById("output");
-      asciimode = get_IBCM_2bitop(hexinst);
-      switch ( asciimode ) {
-      case 0: // read hex
-	// FALL THRU
-      case 1: // read ascii
-	if ( !during_input ) {
-	  if ( asciimode )
-	    document.getElementById("inputtitle").innerHTML = "<blink>Input (asc):</blink>";
-	  else
-	    document.getElementById("inputtitle").innerHTML = "<blink>Input (hex):</blink>";
-	  document.getElementById("input").value = "";
-	  pchex = convert_dec_to_hex4(eval(convert_hex_to_dec(pchex)-1));
-	  document.getElementById("pc"+pchex).innerHTML="I";
-	  document.getElementById("pc").value = pchex + " (awaiting input)";
-	  during_input = 1;
-	  document.getElementById("input").focus();
-	  return;
-	} else {
-	  // is the value empty?
-	  if ( document.getElementById("input").value == "" ) {
-	    document.getElementById("pc"+pchex).innerHTML="I";
-	    document.getElementById("input").focus();
-	    return;
-	  }
+  switch (opcode) {
+  case 0: // halt
+    pchex = convert_dec_to_hex4(eval(convert_hex_to_dec(pchex)-1));
+    document.getElementById("pc"+pchex).innerHTML="H";
+    document.getElementById("pc").value = pchex + " (halted)";
+    pchexbak = pchex; // so the 'H' can be erased by the reset button
+    pchex = "xxxx";
+    break;
+  case 1: // I/O
+    var input = document.getElementById("input");
+    var output = document.getElementById("output");
+    asciimode = get_IBCM_2bitop(hexinst);
+    switch ( asciimode ) {
+    case 0: // read hex
+      // FALL THRU
+    case 1: // read ascii
+      if ( !during_input ) {
+        if ( asciimode )
+          document.getElementById("inputtitle").innerHTML = "<em>Input (asc):</em>";
+        else
+          document.getElementById("inputtitle").innerHTML = "<em>Input (hex):</em>";
+        document.getElementById("input").value = "";
+        pchex = convert_dec_to_hex4(eval(convert_hex_to_dec(pchex)-1));
+        document.getElementById("pc"+pchex).innerHTML="I";
+        document.getElementById("pc").value = pchex + " (awaiting input)";
+        during_input = 1;
+        document.getElementById("input").focus();
+        return;
+      } else {
+        // is the value empty?
+        if ( document.getElementById("input").value == "" ) {
+          document.getElementById("pc"+pchex).innerHTML="I";
+          document.getElementById("input").focus();
+          return;
+        }
 
-	  document.getElementById("inputtitle").innerHTML = "Input:";
-	  document.getElementById("pc"+pchex).innerHTML=""; // remove the 'I'
-	  during_input = 0;
-	  increment_pc();
-	  if ( asciimode ) {
-	    accum = convert_dec_to_hex4(document.getElementById("input").value.charCodeAt(0));
-	  } else { // hex
-	    accum = convert_dec_to_hex4(parseInt(document.getElementById("input").value,16));
-	  }
-
-	}
-	break;
-      case 2: // write hex
-	output.value += accum + "\n";
-	break;
-      case 3: // write ascii
-	output.value += String.fromCharCode(convert_hex_to_dec(accum) & 0xff) + "\n";
-	break;
+        document.getElementById("inputtitle").innerHTML = "Input:";
+        document.getElementById("pc"+pchex).innerHTML=""; // remove the 'I'
+        during_input = 0;
+        increment_pc();
+        if ( asciimode ) {
+          accum = convert_dec_to_hex4(document.getElementById("input").value.charCodeAt(0));
+        } else { // hex
+          accum = convert_dec_to_hex4(parseInt(document.getElementById("input").value,16));
+        }
       }
-
       break;
-    case 2: // shifts
-      shiftamount = get_IBCM_shift(hexinst);
-      accdec = convert_hex_to_dec(accum);
-      switch ( get_IBCM_2bitop(hexinst) ) {
-      case 0: // shift left
-	accdec = (accdec << shiftamount) & 0xffff;
-	break;
-      case 1: // shift right
-	accdec = (accdec >> shiftamount) & (0xffff >> shiftamount);
-	break;
-      case 2: // rotate left
-	accdec = ((accdec << shiftamount) & 0xffff) | ((accdec >> 16-shiftamount) & (0xffff >> 16-shiftamount));
-	break;
-      case 3: // rotate right
-	accdec = ((accdec >> shiftamount) & (0xffff >> shiftamount)) | ((accdec << 16-shiftamount) & 0xffff);
-	break;	
-      }
-      accum = convert_dec_to_hex4(accdec);
+    case 2: // write hex
+      output.value += accum + "\n";
       break;
-    case 3: // load
-      var accum = document.getElementById("v0"+hexaddress).value;
-      break;
-    case 4: // store
-      document.getElementById("v0"+hexaddress).value = accum;
-      break;
-    case 5: // add
-      var val = document.getElementById("v0"+hexaddress).value;
-      accum = convert_dec_to_hex4(eval(convert_hex_to_dec(accum)+convert_hex_to_dec(val)));
-      break;
-    case 6: // sub
-      var val = document.getElementById("v0"+hexaddress).value;
-      accum = convert_dec_to_hex4(eval(convert_hex_to_dec(accum)-convert_hex_to_dec(val)));
-      break;
-    case 7: // and
-      var val = document.getElementById("v0"+hexaddress).value;
-      accum = convert_dec_to_hex4(eval(convert_hex_to_dec(accum)&convert_hex_to_dec(val)));
-      break;
-    case 8: // or
-      var val = document.getElementById("v0"+hexaddress).value;
-      accum = convert_dec_to_hex4(eval(convert_hex_to_dec(accum)|convert_hex_to_dec(val)));
-      break;
-    case 9: // xor
-      var val = document.getElementById("v0"+hexaddress).value;
-      accum = convert_dec_to_hex4(eval(convert_hex_to_dec(accum)^convert_hex_to_dec(val)));
-      break;
-    case 10: // not
-      accum = convert_dec_to_hex4(eval(~convert_hex_to_dec(accum)));
-      break;
-    case 11: // nop
-      // do nothing
-      break;
-    case 12: // jmp
-      pchex = "0"+hexaddress;
-      break;
-    case 13: // jmpe
-      if ( accum == "0000" )
-	pchex = "0"+hexaddress;
-      break;
-    case 14: // jmpl
-      if ( convert_hex_to_dec(accum) < 0 )
-	pchex = "0"+hexaddress;
-      break;
-    case 15: // brl
-      accum = pchex;
-      pchex = "0"+hexaddress;
+    case 3: // write ascii
+      output.value += String.fromCharCode(convert_hex_to_dec(accum) & 0xff) + "\n";
       break;
     }
-    // } catch (err) {
-    // alert ("Error executing instruction at address " + pchex + " (" + err + ")");
-    //  }
+    break;
+
+  case 2: // shifts
+    shiftamount = get_IBCM_shift(hexinst);
+    accdec = convert_hex_to_dec(accum);
+    switch ( get_IBCM_2bitop(hexinst) ) {
+    case 0: // shift left
+      accdec = (accdec << shiftamount) & 0xffff;
+      break;
+    case 1: // shift right
+      accdec = (accdec >> shiftamount) & (0xffff >> shiftamount);
+      break;
+    case 2: // rotate left
+      accdec = ((accdec << shiftamount) & 0xffff) | ((accdec >> 16-shiftamount) & (0xffff >> 16-shiftamount));
+      break;
+    case 3: // rotate right
+      accdec = ((accdec >> shiftamount) & (0xffff >> shiftamount)) | ((accdec << 16-shiftamount) & 0xffff);
+      break;
+    }
+    accum = convert_dec_to_hex4(accdec);
+    break;
+  case 3: // load
+    var accum = document.getElementById("v0"+hexaddress).value;
+    break;
+  case 4: // store
+    document.getElementById("v0"+hexaddress).value = accum;
+    break;
+  case 5: // add
+    var val = document.getElementById("v0"+hexaddress).value;
+    accum = convert_dec_to_hex4(eval(convert_hex_to_dec(accum)+convert_hex_to_dec(val)));
+    break;
+  case 6: // sub
+    var val = document.getElementById("v0"+hexaddress).value;
+    accum = convert_dec_to_hex4(eval(convert_hex_to_dec(accum)-convert_hex_to_dec(val)));
+    break;
+  case 7: // and
+    var val = document.getElementById("v0"+hexaddress).value;
+    accum = convert_dec_to_hex4(eval(convert_hex_to_dec(accum)&convert_hex_to_dec(val)));
+    break;
+  case 8: // or
+    var val = document.getElementById("v0"+hexaddress).value;
+    accum = convert_dec_to_hex4(eval(convert_hex_to_dec(accum)|convert_hex_to_dec(val)));
+    break;
+  case 9: // xor
+    var val = document.getElementById("v0"+hexaddress).value;
+    accum = convert_dec_to_hex4(eval(convert_hex_to_dec(accum)^convert_hex_to_dec(val)));
+    break;
+  case 10: // not
+    accum = convert_dec_to_hex4(eval(~convert_hex_to_dec(accum)));
+    break;
+  case 11: // nop
+    // do nothing
+    break;
+  case 12: // jmp
+    pchex = "0"+hexaddress;
+    break;
+  case 13: // jmpe
+    if ( accum == "0000" )
+      pchex = "0"+hexaddress;
+    break;
+  case 14: // jmpl
+    if ( convert_hex_to_dec(accum) < 0 )
+      pchex = "0"+hexaddress;
+    break;
+  case 15: // brl
+    accum = pchex;
+    pchex = "0"+hexaddress;
+    break;
+  }
 
   if ( pchex != "xxxx" ) {
     document.getElementById("pc"+pchex).innerHTML="<-"; // set new PC
