@@ -1,19 +1,13 @@
 #!/bin/bash
 
-for infile in `ls *.md`; do
+# take every path in the repo ending in .md, ignoring those under reveal.js
+for infile in `find . -type f -name '*.md' | grep -v 'reveal\.js'`; do
+    # derive HTML page title from header of MD file
     lineone=`head -1 $infile`
+    # derive output file name (replace .md with .html)
     outfile=`echo $infile | sed 's/md$/html/g'`
-    pandoc -V "pagetitle:$lineone" -f markdown -c markdown.css -t html -o $outfile $infile
-done
-
-for infile in `ls */*.md`; do
-    lineone=`head -1 $infile`
-    outfile=`echo $infile | sed 's/md$/html/g'`
-    pandoc -V "pagetitle:$lineone" -f markdown -c ../markdown.css -t html -o $outfile $infile
-done
-
-for infile in `ls */*/*.md | grep -v reveal.js`; do
-    lineone=`head -1 $infile`
-    outfile=`echo $infile | sed 's/md$/html/g'`
-    pandoc -V "pagetitle:$lineone" -f markdown -c ../../markdown.css -t html -o $outfile $infile
+    # calculate relative path from any file in a subdirectory to another (CSS) in the root directory
+    pathprefix=`echo ${infile:2} | tr -d -c '/' | sed -r 's/\//..\//g'`
+    # perform the conversion from MD to HTML, linking CSS in the process
+    pandoc -V "pagetitle:$lineone" -f markdown -c ${pathprefix}markdown.css -t html -o $outfile $infile
 done
