@@ -5,6 +5,8 @@ Grading Explanations, Spring 2017
 
 &nbsp;  
 
+#**NOTE THAT THIS IS THE GRADE EXPLANATION FOR LAST SEMESTER AND WILL BE UPDATED AT THE END OF THIS SEMESTER**
+
 
 Grade parts
 -----------
