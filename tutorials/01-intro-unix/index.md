@@ -19,7 +19,7 @@ The options are:
 Should you not want to install anything on your machine, or you want to work elsewhere, there are other options available to you as well:
 
 - Complete this lab in any ITC lab -- oh, wait.  They got rid of them because undergraduate education is too expensive.  Idiotic decision...
-- Complete this lab in Olsson 001 using Linux.  You will need to speak to me to get a key (and it will require a $5 deposit).  Note that while you can generally use the lab at any time, you are not allowed to be in the room when another lab is going on.  The lab machines already have both Linux and Windows installed, although you will have to reboot the computer into Linux (see below).
+- Complete this lab in Olsson 001 using Linux. You should be able to use your University Id to swipe into the room.  Note that while you can generally use the lab at any time, you are not allowed to be in the room when another lab is going on.  The lab machines already have both Linux and Windows installed, although you will have to reboot the computer into Linux (see below).
 
 ----
 
