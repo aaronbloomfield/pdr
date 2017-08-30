@@ -110,7 +110,7 @@ All of the files required for this lab are listed above (in the Procedure sectio
 The first thing you need to do is clone the github repo into your lab account.  To do this, enter:
 
 ```
-git clone https://github.com/aaronbloomfield/pdr.git
+git clone https://github.com/markfloryan/pdr.git
 ```
 
 This will create a 'pdr' directory, which is the copy of the repo.  Each week, you will need to update the repo with the current contents.  To do so, cd into that 'pdr' directory, and enter:
@@ -127,7 +127,7 @@ file:///home/mst3k/pdr/README.html
 
 Note that there are three forward slashes there!
 
-We realize that you cannot view these directions until after you have the github repo cloned locally.  So hopefully you read these ahead of time.  Otherwise, the TAs will be able to help you with this part.  The lab can also be viewed online at [http://aaronbloomfield.github.io/pdr/labs/lab01/index.html](http://aaronbloomfield.github.io/pdr/labs/lab01/index.html).
+We realize that you cannot view these directions until after you have the github repo cloned locally.  So hopefully you read these ahead of time.  Otherwise, the TAs will be able to help you with this part.  The lab can also be viewed online at [http://markfloryan.github.io/pdr/labs/lab01/index.html](http://markfloryan.github.io/pdr/labs/lab01/index.html).
 
 
 ### Understanding C++ ###
