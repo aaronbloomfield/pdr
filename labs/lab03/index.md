@@ -251,7 +251,7 @@ In the above execution, what was typed in was `+ 2 3 isn't 2150 great??` (the se
 How should the program know when you are finished providing input?  There are a couple of ways to do this.
 
 - Only read in one line, and not accept any more input -- if you handle it this way, you will have to use the `getline()` method, but this is likely the harder way to deal with it.
-- Read in input until `cin.good()` method returns `false`; **this will require entering a Control-D at the end of the provided input** (i.e., enter a line of the postfix expression, hit Enter, and then hit Control-D).  The input we provide during the execution will provide the Control-D at the end of said input.
+- Read in input using the while(cin >> s) like loop shown above. **this will require entering a Control-D at the end of the provided input** (i.e., enter a line of the postfix expression, hit Enter, and then hit Control-D).  The input we provide during the execution will provide the Control-D at the end of said input.
 
 Either way is fine.  Our test scripts will send in all the input *on a single line*, followed by the Enter key; we will also provide a Control-D if necessary.  So whichever means you use to determine the end of your input is fine.
 

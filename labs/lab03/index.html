@@ -171,12 +171,8 @@
 using namespace std;
 
 int main() {
-    while(true) {
-        string s;
-        cin &gt;&gt; s;
-        if(s == &quot;&quot;) {
-            break;
-        }
+    string s;
+    while (cin &gt;&gt; s) {
         cout &lt;&lt; s &lt;&lt; endl;
     }
     return 0;
@@ -205,19 +201,6 @@ great??
 ^D</code></pre>
 <p>In the above execution, what was typed in was <code>+ 2 3 isn't 2150 great??</code> (the second line). After the end of the line (i.e., after the Enter key was pressed), the program reads in that, and prints each token on a separate line. Since there was no more into to provide, Control-D (shown as <code>^D</code>) was then pressed (the last line in that execution run). Control-D closes the stdin pipe by providing the EOF flag.</p>
 <p><strong><em>NOTE:</em></strong> When hitting Control-D, you have to enter it <em>on it's own line</em>. This means that you first have to hit Enter, then Control-D.</p>
-<p>Another way of accomplishing the above code to check if there is any more input is to use the <code>good()</code> method in cin (i.e., <code>cin.good()</code>):</p>
-<pre><code>#include &lt;iostream&gt;
-using namespace std;
-
-int main() {
-    while (cin.good()) {
-        string s;
-        cin &gt;&gt; s;
-        cout &lt;&lt; s &lt;&lt; endl;
-    }
-    return 0;
-}</code></pre>
-<p>They are two different ways of reading from stdin. In the former case, you use control-d to close stdin, whereas in the latter case, <code>cin.good()</code> takes care of that.</p>
 <h3 id="assumptions">Assumptions:</h3>
 <ol style="list-style-type: decimal">
 <li>Assume that the input, i.e. the postfix expression, is entered in on one line and that all numbers and operators are separated by a single space. We will only provide you with valid input.</li>
@@ -227,7 +210,7 @@ int main() {
 <p>How should the program know when you are finished providing input? There are a couple of ways to do this.</p>
 <ul>
 <li>Only read in one line, and not accept any more input -- if you handle it this way, you will have to use the <code>getline()</code> method, but this is likely the harder way to deal with it.</li>
-<li>Read in input until <code>cin.good()</code> method returns <code>false</code>; <strong>this will require entering a Control-D at the end of the provided input</strong> (i.e., enter a line of the postfix expression, hit Enter, and then hit Control-D). The input we provide during the execution will provide the Control-D at the end of said input.</li>
+<li>Read in input using the while(cin &gt;&gt; s) like loop shown above. <strong>this will require entering a Control-D at the end of the provided input</strong> (i.e., enter a line of the postfix expression, hit Enter, and then hit Control-D). The input we provide during the execution will provide the Control-D at the end of said input.</li>
 </ul>
 <p>Either way is fine. Our test scripts will send in all the input <em>on a single line</em>, followed by the Enter key; we will also provide a Control-D if necessary. So whichever means you use to determine the end of your input is fine.</p>
 <hr />

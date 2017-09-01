@@ -1201,9 +1201,9 @@ Foo() {
 - Assume `int *x` has been declared
   - And `int y` is from user input
 - Consider these separate C++ lines of code:
-  - `x = new int[10]; // 40 bytes`
-  - `x = new int;     // 4 bytes`
-  - `x = new int[y];  // y*4 bytes`
+  - `x = new int[10]; // 80 bytes`
+  - `x = new int;     // 8 bytes`
+  - `x = new int[y];  // y*8 bytes`
 - When they are deleted, how does C++ know how much memory to free up?
 </script></section>
 
