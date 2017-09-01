@@ -196,14 +196,10 @@ A token is a single 'thing' passed to the postfix calculator.  It can be an oper
 using namespace std;
 
 int main() {
-	while(true) {
-    	string s;
-	    cin >> s;
-    	if(s == "") {
-        	break;
-        }
-	    cout << s << endl;
-	}
+    string s;
+    while (cin >> s) {
+        cout << s << endl;
+    }
     return 0;
 }
 ```
@@ -244,23 +240,6 @@ great??
 In the above execution, what was typed in was `+ 2 3 isn't 2150 great??` (the second line). After the end of the line (i.e., after the Enter key was pressed), the program reads in that, and prints each token on a separate line.  Since there was no more into to provide, Control-D (shown as `^D`) was then pressed (the last line in that execution run).  Control-D closes the stdin pipe by providing the EOF flag.
 
 ***NOTE:*** When hitting Control-D, you have to enter it *on it's own line*.  This means that you first have to hit Enter, then Control-D.
-
-Another way of accomplishing the above code to check if there is any more input is to use the `good()` method in cin (i.e., `cin.good()`):
-
-```
-#include <iostream>
-using namespace std;
-
-int main() {
-	while (cin.good()) {
-		string s;
-		cin >> s;
-		cout << s << endl;
-	}
-	return 0;
-}
-```
-They are two different ways of reading from stdin. In the former case, you use control-d to close stdin, whereas in the latter case, `cin.good()` takes care of that.
 
 ### Assumptions: ###
 
