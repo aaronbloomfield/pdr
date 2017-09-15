@@ -31,7 +31,7 @@
 </ul></li>
 <li>Write the <code>overflow()</code> function, as described in the pre-lab section.</li>
 <li>Combine these functions into a prelab4.cpp file, as described in the pre-lab section. This program should only take in a <em>single</em> <code>int</code> value as input!</li>
-<li>Get your floating point number <a href="http://libra.cs.virginia.edu/getfloat.php">here</a>, and then complete your floating point conversion, as described in the pre-lab section, into a file called floatingpoint.pdf; you can convert a file into a PDF via the directions on the <a href="../../docs/convert_to_pdf.html">How to convert a file to PDF</a> page.
+<li>Get your floating point number <a href="http://libra.cs.virginia.edu/getfloat.php">here</a>, and then complete your floating point conversion, as described in the pre-lab section, into a file called floatingpoint.pdf; you can convert a file into a PDF via the directions on the <a href="../../docs/convert_to_pdf.html">How to convert a file to PDF</a> page. <strong>Note: Many students will submit a text file that happens to be called floatingpoint.pdf. Make sure to check for this before submitting!</strong>
 <ul>
 <li>Note that this must be typed up in a document; you cannot do this by hand and scan it in (or take a photo of it)</li>
 <li>Make sure you read the part, in the pre-lab section below, about the maximum file size! Otherwise your submission will not be accepted.</li>
@@ -61,7 +61,7 @@
 </ol>
 <hr />
 <h2 id="pre-lab-1">Pre-lab</h2>
-<p>One of the deliverables for the pre-lab is a PDF document named floatingpoint.pdf. It must be in PDF format! See <a href="../../docs/convert_to_pdf.html">How To Convert A File To PDF</a> for details.</p>
+<p>One of the deliverables for the pre-lab is a PDF document named floatingpoint.pdf. It must be in PDF format! See <a href="../../docs/convert_to_pdf.html">How To Convert A File To PDF</a> for details. <strong>Note: Many students will submit a text file that happens to be called floatingpoint.pdf. Make sure to check for this before submitting!</strong></p>
 <h3 id="reading">Reading</h3>
 <p>You should see the <a href="../../docs/readings.html">Readings</a> on <a href="../../docs/readings.html#arrays">arrays</a> -- that will be needed in the in-lab. Also, the <a href="../../docs/readings.html">Readings</a> on <a href="../../docs/readings.html#structsunions">unions</a>.</p>
 <h3 id="sizeoftest">sizeOfTest()</h3>
@@ -88,7 +88,7 @@ outputBinary(1000000) //=&gt; 0000 0000 0000 1111 0100 0010 0100 0000</code></pr
 <p>Your function should create an <code>unsigned int</code>, give it the max value, and add 1 to that. By printing out the result, you will effectively answer the first 3 of the 4 questions. Answer the last question in a <code>cout</code> statement (NOT as a comment!). The function takes in no parameters.</p>
 <h3 id="prelab4.cpp">prelab4.cpp</h3>
 <p>Your three functions, <code>sizeOfTest()</code>, <code>outputBinary()</code>, and <code>overflow()</code> should be combined into a prelab4.cpp file. This is the one C++ source code file that you will submit for the pre-lab. The input requirements for this program are fairly strict, so as to allow automated execution of your programs.</p>
-<p><strong>Your program should ask for a single integer value for input</strong>, which we will call <em>x</em>. The program will call the three functions in order: <code>sizeOfTest()</code>, <code>outputBinary()</code>, and then <code>overflow()</code>. Note that only <code>outputBinary()</code> takes in <em>x</em> as the parameter. The program should take in no further input.</p>
+<p><strong>Your program should ask for a single integer value for input</strong>, which we will call <em>x</em>. The program will call the three functions in order: <code>sizeOfTest()</code>, <code>outputBinary(x)</code>, and then <code>overflow()</code>. Note that only <code>outputBinary()</code> takes in <em>x</em> as the parameter. The program should take in no further input.</p>
 <h3 id="floating-point-conversion">Floating point conversion</h3>
 <p>For the last part of the pre-lab, you will need to convert a floating point number to binary representation, and another number from binary representation to a floating point number. You should do this by hand (i.e. not in a computer program), and have the worked-out solution (similar to the lecture notes) be in a floatingpoint.pdf file -- you can use any editor you would like to generate the file, as long as what you submit is a PDF file.</p>
 <p>First, you will need to determine what your floating point numbers are going to be -- these numbers will be different for each student. To do so, visit <a href="http://libra.cs.virginia.edu/getfloat.php" class="uri">http://libra.cs.virginia.edu/getfloat.php</a> and enter your UVa userid. Each floating point number is unique to the userid entered. Note that the hexadecimal number printed is in <strong>little Endian</strong> format.</p>

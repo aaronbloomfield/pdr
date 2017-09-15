@@ -27,7 +27,7 @@ Procedure
     - You cannot use the `bitset` class (or anything similar) for this!
 5. Write the `overflow()` function, as described in the pre-lab section.
 6. Combine these functions into a prelab4.cpp file, as described in the pre-lab section.  This program should only take in a *single* `int` value as input!
-7. Get your floating point number [here](http://libra.cs.virginia.edu/getfloat.php), and then complete your floating point conversion, as described in the pre-lab section, into a file called floatingpoint.pdf; you can convert a file into a PDF via the directions on the [How to convert a file to PDF](../../docs/convert_to_pdf.html) page.
+7. Get your floating point number [here](http://libra.cs.virginia.edu/getfloat.php), and then complete your floating point conversion, as described in the pre-lab section, into a file called floatingpoint.pdf; you can convert a file into a PDF via the directions on the [How to convert a file to PDF](../../docs/convert_to_pdf.html) page. **Note: Many students will submit a text file that happens to be called floatingpoint.pdf. Make sure to check for this before submitting!**
     - Note that this must be typed up in a document; you cannot do this by hand and scan it in (or take a photo of it)
     - Make sure you read the part, in the pre-lab section below, about the maximum file size!  Otherwise your submission will not be accepted.
 7. Files to download: none
@@ -56,7 +56,7 @@ Procedure
 Pre-lab
 -------
 
-One of the deliverables for the pre-lab is a PDF document named floatingpoint.pdf.  It must be in PDF format!  See [How To Convert A File To PDF](../../docs/convert_to_pdf.html) for details.
+One of the deliverables for the pre-lab is a PDF document named floatingpoint.pdf.  It must be in PDF format!  See [How To Convert A File To PDF](../../docs/convert_to_pdf.html) for details. **Note: Many students will submit a text file that happens to be called floatingpoint.pdf. Make sure to check for this before submitting!**
 
 ### Reading ###
 
@@ -98,7 +98,7 @@ Your function should create an `unsigned int`, give it the max value, and add 1 
 
 Your three functions, `sizeOfTest()`, `outputBinary()`, and `overflow()` should be combined into a prelab4.cpp file.  This is the one C++ source code file that you will submit for the pre-lab.  The input requirements for this program are fairly strict, so as to allow automated execution of your programs.
 
-**Your program should ask for a single integer value for input**, which we will call *x*.  The program will call the three functions in order: `sizeOfTest()`, `outputBinary()`, and then `overflow()`.  Note that only `outputBinary()` takes in *x* as the parameter.  The program should take in no further input.
+**Your program should ask for a single integer value for input**, which we will call *x*.  The program will call the three functions in order: `sizeOfTest()`, `outputBinary(x)`, and then `overflow()`.  Note that only `outputBinary()` takes in *x* as the parameter.  The program should take in no further input.
 
 ### Floating point conversion ###
 
