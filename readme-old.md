@@ -75,7 +75,7 @@ Note that Github supports an enhanced version of Markdown, called [Github Flavor
 <a name="sourcecode"></a>Source code
 ------------------------------------
 
-All source code is formatted via [astyle](http://astyle.sourceforge.net/) and then highlighted via [source-highlight](http://www.gnu.org/software/src-highlite/source-highlight.html).  Both the original file (foo.cpp) and the highlighted version (foo.cpp.html) are included in the repository.  All links to source code will like to the .html, with a "([src](README.md))" after it to link to the original source code.
+All source code is formatted via [astyle](http://astyle.sourceforge.net/) and then highlighted via [source-highlight](http://www.gnu.org/software/src-highlite/source-highlight.html).  Both the original file (foo.cpp) and the highlighted version (foo.cpp.html) are included in the repository.  All links to source code will like to the .html, with a "([src](readme-old.md))" after it to link to the original source code.
 
 - astyle options: `-A2 -s4 -S`
 - source-highlight options: `-d`

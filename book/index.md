@@ -1,7 +1,7 @@
 Program and Data Representation: Textbook
 =========================================
 
-[Go up to the main README file](../README.html) ([md](../README.md))
+[Go up to the main README file](../readme-old.html) ([md](../readme-old.md))
 
 Herein lies the beginnings of a textbook to accompany the course.  The only part that is complete at this point is the chapter on IBCM: [ibcm-chapter.pdf](ibcm-chapter.pdf).  The two chapters on x86 are **NOT** complete, and are not meant to be used at this time.
 
