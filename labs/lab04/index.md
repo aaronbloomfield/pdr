@@ -282,7 +282,7 @@ These two parameters are providing you with the command-line parameters.  The fi
 
 Thus, if you supply the program with 3 command-line parameters, then argc would be set to 4, `argv[0]` would be the C-string that contains the program name ('a.out', for example'), and `argv[1]`, `argv[2]`, and `argv[3]` are the 3 supplied command line parameters.
 
-Your task is to implement the binary bit counter function that takes in a single command-line value (which is a standard base-10 integer) and prints out the number of bits contained therein.
+Your task is to implement the binary bit counter function that takes in a single command-line value (which is a standard base-10 integer) and prints out the number of ones contained therein.
 
 ### Converting between number systems ###
 
