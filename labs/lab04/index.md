@@ -258,7 +258,7 @@ Post-Lab
 
 ### Binary bit counter ###
 
-Write a ***recursive*** function that returns the number of 1's in the binary representation of *n*.  Use the following fact: if *n* is even, the number of bits in the representation of *n* is the same as that in *n/2*; if *n* is odd, the number of bits is the same as that in *floor(n/2)* plus 1.
+Write a ***recursive*** function that returns the number of 1's in the binary representation of *n*.  Use the following fact: if *n* is even, the number of 1's in the representation of *n* is the same as that in *n/2*; if *n* is odd, the number of 1's is the same as that in *floor(n/2)* plus 1.
 
 You may assume that *n* is a non-negative integer that will be stored in two's complement.  However, *n* will be passed in the standard decimal (i.e. base-10) format.  This should be a rather simple function that uses what you've learned about integer representation.  If you find you need things like global variables or the `pow()` function to implement this then you are going too far.
 
