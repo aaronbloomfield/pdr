@@ -56,7 +56,7 @@ I expect that grades will follow the standard decade curve: 90 and above is an A
 
 - Midterm Exam 1: Tuesday, September 26, during lab session in Olsson 001
 - Midterm Exam 2: Tuesday, November 7, during lab session in Olsson 001
-- Final Exam: Monday, December 1 from 7 p.m. to 10 p.m.
+- Final Exam: Monday, December 11 from 7 p.m. to 10 p.m.
 	- Exam room TBD
     - This is a common exam time, and conflicts with several other courses
     - Information about conflicting exams will be dealt with later in the semester
