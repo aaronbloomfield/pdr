@@ -38,7 +38,7 @@ In addition, if you are using a Windows machine, you will need Hyper-V disabled 
 
 - No root password is set (you can use `sudo` instead); to change the root password, run `sudo passwd`.
 - The 'host key' is defined by your host machine's operating system (it's the right control button under Linux, for example).  This key is used for a number of contexts, including un-capturing the mouse.  To have VirtualBox warn you about what the host key is, you can reset all warnings via the VirtualBox help menu, and it will warn you about this at boot-up.  It may also be listed in the lower-right of the VirtualBox window.
-- We did not install the latest version of Ubuntu, but instead installed the Long-Term Support (LTS) version, which is 14.04.  The difference is that the LTS versions are supported for far longer (3 years or so) than the non-LTS versions (which are only supported for a year or so).  For this class, there won't be a noticable difference between 14.04 and more recent versions.
+- We did not install the latest version of Ubuntu, but instead installed the Long-Term Support (LTS) version, which is 16.04.  The difference is that the LTS versions are supported for far longer (3 years or so) than the non-LTS versions (which are only supported for a year or so).  For this class, there won't be a noticable difference between 16.04 and more recent versions.
 - Sound and network should work automatically, as the VirtualBox program will connect those to your host machine's sound and network device drivers.
 
 ### How-Tos ##
