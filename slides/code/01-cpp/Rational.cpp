@@ -22,8 +22,8 @@ Rational::Rational(int numerator, int denominator) {
     den = denominator / g;
 }
 
-// return string representation of (this)
-void Rational::print() {
+// print string representation of (this) to cout
+void Rational::print() const {
     if (den == 1) {
         cout << num << "" << endl;
     } else {
@@ -32,25 +32,25 @@ void Rational::print() {
 }
 
 // return (this * b)
-Rational Rational::times(Rational b) {
+Rational Rational::times(Rational b) const {
     return Rational(num * b.num, den * b.den);
 }
 
 
 // return (this + b)
-Rational Rational::plus(Rational b) {
+Rational Rational::plus(Rational b) const {
     int numerator   = (num * b.den) + (den * b.num);
     int denominator = den * b.den;
     return Rational(numerator, denominator);
 }
 
 // return (1 / this)
-Rational Rational::reciprocal() {
+Rational Rational::reciprocal() const {
     return Rational(den, num);
 }
 
 // return (this / b)
-Rational Rational::divides(Rational b) {
+Rational Rational::divides(Rational b) const {
     return times(b.reciprocal());
 }
 
