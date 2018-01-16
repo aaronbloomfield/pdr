@@ -49,7 +49,7 @@ test::test(int v) : id (idcount++), value(v) {
 }
 
 test::test(const test& x) : id(x.id), value(x.value) {
-    cout << "calling test(&test) on " << *this << "; address is " << this << endl;
+    cout << "calling test(const test&) on " << *this << "; address is " << this << endl;
 }
 
 test::~test() {
@@ -133,7 +133,7 @@ int main() {
     // output:
     // ----------------------------------------
     // about to invoke subroutine...
-    // calling test(&test) on test[id=2,v=2]; address is 0xff852a38
+    // calling test(const test&) on test[id=2,v=2]; address is 0xff852a38
     // calling test(10); object created is test[id=4,v=10]; address is 0xff852a40
     // calling ~test() on test[id=2,v=2]
     // finished invoking subroutine...

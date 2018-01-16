@@ -1599,7 +1599,7 @@ test::~test() {
 Source code: [cpptest.cpp](code/01-cpp/cpptest.cpp.html) ([src](code/01-cpp/cpptest.cpp))
 ```
 test::test(const test& x) : id(x.id), value(x.value) {
-    cout << "calling test(&test) on " << *this 
+    cout << "calling test(const test&) on " << *this 
          << "; address is " << this << endl;
 }
 
@@ -1724,7 +1724,7 @@ cout << "finished invoking subroutine..." << endl;
 // output:
 // ---------------------------------------
 // about to invoke subroutine...
-// calling test(&test) on test[id=2,v=2]; 
+// calling test(const test&) on test[id=2,v=2]; 
 //                   address is 0xff852a38
 // calling test(10); object created is test[id=4,v=10]; 
 //                   address is 0xff852a40
@@ -1745,7 +1745,7 @@ test f = b;
 
 // output:
 // ---------------------------------------
-// calling test(&test) on test[id=1,v=1]; 
+// calling test(const test&) on test[id=1,v=1]; 
 //                     address is 0xff852a30
 ```
 </script></section>
@@ -1784,7 +1784,7 @@ aa = b;
 // ---------------------------------------
 // assignment...
 // calling operator=(test[id=1,v=1])
-// calling test(&test) on test[id=1,v=1]; 
+// calling test(const test&) on test[id=1,v=1]; 
 //                     address is 0xa009008
 ```
 </script></section>
