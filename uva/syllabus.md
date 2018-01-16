@@ -3,15 +3,16 @@ CS 2150: Program and Data Representation: Course Syllabus
 
 [Go up to the CS 2150 page][1] ([md][2])
 
-## Fall 2017
+## Spring 2018
 
-### Instructor ###
+### Instructors ###
 
 - [Mark Floryan][38] / [mrf8t@virginia.edu][39].  Office: Rice Hall, room 203.  Office hours are TBD
+- [Charles Reiss][43] / [creiss@virginia.edu][44].  Office: Rice Hall, room 205.  Office hours are TBD
 
 ### Course Info ###
 
-- Lecture: M/W/F 12:00-12:50, Thornton E303; 2:00-2:50, Maury 209
+- Lecture: M/W/F 9:00-9:50, Nau Hall 101; 1:00-1:50, Rice Hall 130
 - Email: none; fill out a [support request][42] instead
 - Announcement feed: [\@UVaCS2150][34]
 - TAs and their office hours will be posted on the [CS 2150 Google Calendar][35] (which is also linked to via Collab); all office hours start the Sunday after classes start
@@ -54,11 +55,10 @@ I expect that grades will follow the standard decade curve: 90 and above is an A
 
 **Exams:** There will be two midterm exams held during laboratory sessions (combined worth 30% of the final grade) and one final exam (worth 25% of the final grade). Note that we hope (but do not guarantee!) to have the first exam returned before the SEAS drop date.
 
-- Midterm Exam 1: Tuesday, September 26, during lab session in Olsson 001
-- Midterm Exam 2: Tuesday, November 7, during lab session in Olsson 001
-- Final Exam: Monday, December 11 from 7 p.m. to 10 p.m.
-	- Two exam rooms: Mec 205 and Rice 130
-    - Students can attend either as long as there are enough seats in the room they desire.
+- Midterm Exam 1: Tuesday, February 20, during lab session in Olsson 001
+- Midterm Exam 2: Tuesday, April 3, during lab session in Olsson 001
+- Final Exam: Monday, May 7 from 7 p.m. to 10 p.m.
+	- Room TBD
     - This is a common exam time, and conflicts with several other courses
     - Information about conflicting exams will be dealt with later in the semester
 
@@ -126,5 +126,8 @@ Any honor violation or cheating will be referred to the honor committee, **and w
 [38]: http://www.cs.virginia.edu/~mrf8t/
 [39]: mailto:mrf8t@virginia.edu
 
+
 [41]: https://libra.cs.virginia.edu/~pedagogy/
 [42]: https://libra.cs.virginia.edu/~pedagogy/support.php
+[43]: https://www.cs.virginia.edu/~cr4bd/
+[44]: mailto:creiss@virginia.edu
