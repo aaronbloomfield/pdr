@@ -3,7 +3,7 @@ CS 2150: Program and Data Representation: Course Syllabus
 
 [Go up to the CS 2150 page][1] ([md][2])
 
-## Spring 2017
+## Spring 2018
 
 ### Instructors ###
 
