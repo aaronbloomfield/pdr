@@ -3,12 +3,12 @@ Program and Data Representation: Slides
 
 [Go up to the main README file](../README.html) ([md](../README.md))
 
-[Course Introduction](../uva/course-introduction.html#/) **(CS 2150 specific)**
+[Course Introduction](../uva/course-introduction.html#/) ([version from Reiss's lectures (PDF)](reiss/courseintro.pdf)) **(CS 2150 specific)**
 
 - Source code: [DataStructureComparison.java](../uva/code/introduction/DataStructureComparison.java.html) ([src](../uva/code/introduction/DataStructureComparison.java))
 
 
-[Slide set 1: C++](01-cpp.html#/)
+[Slide set 1: C++](01-cpp.html#/) ([version from Reiss's lectures (PDF)](reiss/cpp.pdf))
 
 - Source code:
     - General source code: [evenodd.cpp](code/01-cpp/evenodd.cpp.html) ([src](code/01-cpp/evenodd.cpp)), [pointers.cpp](code/01-cpp/pointers.cpp.html) ([src](code/01-cpp/pointers.cpp)), [swap.cpp](code/01-cpp/swap.cpp.html) ([src](code/01-cpp/swap.cpp)), [dynamic_allocation.cpp](code/01-cpp/dynamic_allocation.cpp.html) ([src](code/01-cpp/dynamic_allocation.cpp)), [delete.cpp](code/01-cpp/delete.cpp.html) ([src](code/01-cpp/delete.cpp)), [memory.cpp](code/01-cpp/memory.cpp.html) ([src](code/01-cpp/memory.cpp)), [swapref.cpp](code/01-cpp/swapref.cpp.html) ([src](code/01-cpp/swapref.cpp)), [cpptest.cpp](code/01-cpp/cpptest.cpp.html) ([src](code/01-cpp/cpptest.cpp))
