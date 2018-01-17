@@ -6,6 +6,7 @@ Program and Data Representation: Slides
 [Course Introduction](../uva/course-introduction.html#/) ([version from Reiss's lectures (PDF)](reiss/courseintro.pdf)) **(CS 2150 specific)**
 
 - Source code: [DataStructureComparison.java](../uva/code/introduction/DataStructureComparison.java.html) ([src](../uva/code/introduction/DataStructureComparison.java))
+- Reiss's lecture recording: [audio](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180117-audio.mp3), [screencapture+audio](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180117-video-and-audio.webm), [view in browser](https://www.cs.virginia.edu/~cr4bd/videoplayer?2150-recordings/S2018/20180117-video-and-audio)
 
 
 [Slide set 1: C++](01-cpp.html#/) ([version from Reiss's lectures (PDF)](reiss/cpp.pdf))
