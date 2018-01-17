@@ -21,7 +21,7 @@ In addition, if you are using a Windows machine, you will need Hyper-V disabled 
     - You are welcome to try this on a netbook host machine, but the computing power of a netbook may not be enough
 - You will need to install the Virtual Box client.  It can be downloaded for free from [here](http://www.virtualbox.org/) and runs on most operating systems.
 	- Under Linux, I installed the 'virtualbox-ose-qt' package (the name of yours might be different), but if you are running Linux already, you won't need to install a virtual machine running Linux...
-- Download the provided VirtualBox image (Most semesters it is on Collab under resources, but for Fall 2017 use [this link](http://tinyurl.com/y83lv7sd)).  You will need to unzip this file before using it.
+- Download the provided VirtualBox image (Most semesters it is on Collab under resources, but for Spring 2018 use [this link](http://tinyurl.com/y83lv7sd)).  You will need to unzip this file before using it.
     - This file is rather large (about 2.5 Gb), so you may want to try downloading it during off hours, such as late at night.  If you have problems downloading it, let us know.  If you do not have sufficient bandwidth to download it, please see us after lecture, and we will provide it on a different media for you.
 	- Unzip this file; it will take up about 8.2 Gb on your machine.  Once uncompressed, you can download the .zip file that you downloaded.
         - Your unzip program may complain about needing some insane amount of space (like 700 petabytes, where a petabyte is 1,000 terabytes); this is a bug in many unzip programs.  Try [7-zip](http://www.7-zip.org/), which has had more success.
