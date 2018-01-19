@@ -6,7 +6,7 @@ Program and Data Representation: Slides
 [Course Introduction](../uva/course-introduction.html#/) ([version from Reiss's lectures (PDF)](reiss/courseintro.pdf)) **(CS 2150 specific)**
 
 - Source code: [DataStructureComparison.java](../uva/code/introduction/DataStructureComparison.java.html) ([src](../uva/code/introduction/DataStructureComparison.java))
-- Reiss's lecture recording: [audio](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180117-audio.mp3), [screencapture+audio](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180117-video-and-audio.webm), [view in browser](https://www.cs.virginia.edu/~cr4bd/videoplayer?2150-recordings/S2018/20180117-video-and-audio)
+- Reiss's lecture recording: [audio](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180117-audio.mp3), [video](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180117-video-and-audio.webm), [view in browser](https://www.cs.virginia.edu/~cr4bd/videoplayer?2150-recordings/S2018/20180117-video-and-audio)
 
 
 [Slide set 1: C++](01-cpp.html#/) ([version from Reiss's lectures (PDF)](reiss/cpp.pdf))
@@ -15,6 +15,7 @@ Program and Data Representation: Slides
     - General source code: [evenodd.cpp](code/01-cpp/evenodd.cpp.html) ([src](code/01-cpp/evenodd.cpp)), [pointers.cpp](code/01-cpp/pointers.cpp.html) ([src](code/01-cpp/pointers.cpp)), [swap.cpp](code/01-cpp/swap.cpp.html) ([src](code/01-cpp/swap.cpp)), [dynamic_allocation.cpp](code/01-cpp/dynamic_allocation.cpp.html) ([src](code/01-cpp/dynamic_allocation.cpp)), [delete.cpp](code/01-cpp/delete.cpp.html) ([src](code/01-cpp/delete.cpp)), [memory.cpp](code/01-cpp/memory.cpp.html) ([src](code/01-cpp/memory.cpp)), [swapref.cpp](code/01-cpp/swapref.cpp.html) ([src](code/01-cpp/swapref.cpp)), [cpptest.cpp](code/01-cpp/cpptest.cpp.html) ([src](code/01-cpp/cpptest.cpp))
     - IntCell code: [IntCell.java](code/01-cpp/IntCell.java.html) ([src](code/01-cpp/IntCell.java)), [TestIntCell.cpp](code/01-cpp/TestIntCell.cpp.html) ([src](code/01-cpp/TestIntCell.cpp)), [IntCell.h](code/01-cpp/IntCell.h.html) ([src](code/01-cpp/IntCell.h)), [IntCell.cpp](code/01-cpp/IntCell.cpp.html) ([src](code/01-cpp/IntCell.cpp))
     - Rational code: [Rational.java](code/01-cpp/Rational.java.html) ([src](code/01-cpp/Rational.java)), [Rational.h](code/01-cpp/Rational.h.html) ([src](code/01-cpp/Rational.h)), [Rational.cpp](code/01-cpp/Rational.cpp.html) ([src](code/01-cpp/Rational.cpp)), [TestRational.cpp](code/01-cpp/TestRational.cpp.html) ([src](code/01-cpp/TestRational.cpp))
+- Reiss's lecture recordings: 19 Jan: [audio](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180119-audio.mp3), [video](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180119-video-and-audio.webm), [view in browser](https://www.cs.virginia.edu/~cr4bd/videoplayer?2150-recordings/S2018/20180119-video-and-audio)
 
 [Slide set 2: Lists](02-lists.html#/)
 
