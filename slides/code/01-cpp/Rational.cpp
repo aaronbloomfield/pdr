@@ -60,7 +60,7 @@ Rational Rational::divides(Rational b) const {
  *************************************************************************/
 
 // return gcd(m, n)
-int Rational::gcd(int m, int n) {
+int Rational::gcd(int m, int n) const {
     if (0 == n)
         return m;
     else
