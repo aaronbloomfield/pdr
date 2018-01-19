@@ -60,7 +60,8 @@ Rational Rational::divides(Rational b) const {
  *************************************************************************/
 
 // return gcd(m, n)
-int Rational::gcd(int m, int n) const {
+// not marked as 'static' here because that can only be done in declaration
+int Rational::gcd(int m, int n) {
     if (0 == n)
         return m;
     else
