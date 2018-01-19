@@ -38,7 +38,7 @@ private:
     *  Helper functions
     *************************************************************************/
     // return gcd(m, n)
-    int gcd(int m, int n);
+    int gcd(int m, int n) const;
 
 };
 
