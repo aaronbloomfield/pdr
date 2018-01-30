@@ -51,14 +51,14 @@
 <li>Be sure you are able to explain how all parts your code work. You will be responsible for this material for the midterms and final exam.</li>
 </ul></li>
 <li>You need to expand your pre-lab code to handle keyboard input. See the specifications in the in-lab section for how to handle the input.</li>
-<li>The files you submit should be a FULLY WORKING postfix calculator, which still uses the STL stack class.</li>
+<li>The files you submit should be a FULLY WORKING postfix calculator, which still uses the standard library's stack class.</li>
 <li>Start working on the post-lab (implementing your own stack class) if you get your calculator fully working before lab ends.</li>
 <li>Files to download: none (just your pre-lab source code)</li>
 <li>Files to submit: postfixCalculator.h, postfixCalculator.cpp, testPostfixCalc.cpp</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
 <ol style="list-style-type: decimal">
-<li>Implement a stack class (into files stack.h and stack.cpp). <strong>You can NOT use arrays or an STL container class for this</strong> (<code>list</code>, <code>vector</code>, <code>stack</code>, etc.) for this, but you can use the STL <code>string</code> class. You should use either your List class from the last lab (if it works), or write up new stack class based on either the lecture notes or the textbook pages on stacks. Your stack class MUST use a linked-list/pointer-based implementation, but again, you MAY use your List class from the last lab. Note that your stack class can contain a LinkedList object, and a stack class method can just pass the value onto the appropriate method in the LinkedList class. You don't need to implement all possible stack methods (in particular, you can ignore the copy constructor, <code>operator=()</code>, etc.) -- just the four mentioned in the pre-lab (push(), top(), pop(), and empty()). After this lab, it is expected that you will be able to implement a stack class in C++.</li>
+<li>Implement a stack class (into files stack.h and stack.cpp). <strong>You can NOT use arrays or an standard library container class for this</strong> (<code>list</code>, <code>vector</code>, <code>stack</code>, etc.) for this, but you can use the standard library's <code>string</code> class. You should use either your List class from the last lab (if it works), or write up new stack class based on either the lecture notes or the textbook pages on stacks. Your stack class MUST use a linked-list/pointer-based implementation, but again, you MAY use your List class from the last lab. Note that your stack class can contain a LinkedList object, and a stack class method can just pass the value onto the appropriate method in the LinkedList class. You don't need to implement all possible stack methods (in particular, you can ignore the copy constructor, <code>operator=()</code>, etc.) -- just the four mentioned in the pre-lab (push(), top(), pop(), and empty()). After this lab, it is expected that you will be able to implement a stack class in C++.</li>
 <li>Modify your postfix calculator to use the stack class that you have implemented.</li>
 <li>Be sure to include: your name, the date, and the name of the file in a banner comment at the beginning of each file you submit. Your submission must contain the following code:
 <ol style="list-style-type: decimal">
@@ -78,9 +78,9 @@
 <h3 id="code-description">Code Description</h3>
 <p>In this lab, you will:</p>
 <ul>
-<li>Implement a stack class that handles a stack of integer numbers. This stack implementation is done for the post-lab; for the pre-lab and the in-lab, you will be using a pre-existing stack class from C++'s standard template library (STL).
+<li>Implement a stack class that handles a stack of integer numbers. This stack implementation is done for the post-lab; for the pre-lab and the in-lab, you will be using a pre-existing stack class from C++'s standard library.
 <ul>
-<li>Documentation on the STL routines can be found at <a href="http://www.sgi.com/tech/stl/" class="uri">http://www.sgi.com/tech/stl/</a>; the stack documentation is <a href="http://www.sgi.com/tech/stl/stack.html">here</a>.</li>
+<li>Documentation on the standard library routines can be found at <a href="http://en.cppreference.com" class="uri">http://en.cppreference.com</a>. The stack class's documentation can be found at <a href="https://en.cppreference.com/w/cpp/container/stack">here</a>.</li>
 </ul></li>
 <li>Write a program that uses this class to implement a postfix calculator. This will include the following files:
 <ul>
@@ -147,7 +147,7 @@
 <li>Postfix: 3 6 + 8 4 / -</li>
 </ul>
 <p>An online description of postfix calculators can be found <a href="http://en.wikipedia.org/wiki/Reverse_Polish_notation">on Wikipedia</a> - note that you do <strong>NOT</strong> need to print out the infix form of the postfix expression; you only need to print the final answer. See the end of this lab for example input and expected output.</p>
-<p>When you start handling input (in the in-lab), you will want to store your read-in values into strings. You can use <code>==</code> to compare STL strings. Alternatively, you can use the <a href="http://www.cplusplus.com/reference/string/string/compare/">string compare()</a> method to compare them, but realize that it returns 0 if they are <em>equal</em>, and non-zero if they are not equal. The <code>==</code> operator on strings works as expected (returns true if they are the same).</p>
+<p>When you start handling input (in the in-lab), you will want to store your read-in values into strings. You can use <code>==</code> to compare <code>string</code>s. Alternatively, you can use the <a href="http://www.cplusplus.com/reference/string/string/compare/">string compare()</a> method to compare them, but realize that it returns 0 if they are <em>equal</em>, and non-zero if they are not equal. The <code>==</code> operator on strings works as expected (returns true if they are the same).</p>
 <p>If you want to see some quick code for converting a string to an int, see the <code>StringToInt()</code> function at the bottom of <a href="http://faq.cprogramming.com/cgi-bin/smartfaq.cgi?answer=1046996179&amp;id=1043284385">this page</a>. Warning: just copying that function without understanding it will only make your life more difficult.</p>
 <h3 id="hints">Hints</h3>
 <p>In the past, students have run into a few problems with this lab. We list them here in an effort to prevent these particular problems from being encountered again.</p>
@@ -160,7 +160,7 @@
 <p>The purpose of the in-lab is first to ensure that your pre-lab code (the postfix calculator) is working properly. Then, you will need to add keyboard input to your lab. For the post-lab, you will be implementing your own stack. It will be much easier to debug if you know that your calculator code works -- then, you'll know that your bugs (if any) are in your input routines or your stack code.</p>
 <p>If you finish your in-lab before the end of the lab session, start working on your post-lab.</p>
 <h3 id="input-1">Input</h3>
-<p>For your keyboard input, your program should read in just a single line. You should read this in using STL strings (if you are looking at building a tokenizer, then you are making it much more difficult than it need be). Once you encounter the end of a line, you can assume that there is no more input to read in. Your program should read in a single line, compute the result, and exit (i.e. don't prompt the user for more input). When processing input, you can't know before you read something if it will be an operand (a numeric value) or an operator (a character), so you must read in each space-separated part into a string variable, and analyze that.</p>
+<p>For your keyboard input, your program should read in just a single line. You should read this in using <code>string</code>s (if you are looking at building a tokenizer, then you are making it much more difficult than it need be). Once you encounter the end of a line, you can assume that there is no more input to read in. Your program should read in a single line, compute the result, and exit (i.e. don't prompt the user for more input). When processing input, you can't know before you read something if it will be an operand (a numeric value) or an operator (a character), so you must read in each space-separated part into a string variable, and analyze that.</p>
 <p>All input is read from standard input (i.e. <code>cin</code>)! You should not be dealing with files for this lab. Once you read in a line, your program should exit. When we test your program, we will only be providing it with one line of input, so if your program is waiting for more, that will be a problem.</p>
 <p>You need to accept both negative numbers (-5 for example), and numbers with multiple digits (34 is the number thirty-four, not the separate numbers three and four) -- and thus negative numbers with multiple digits (-34, for example). No values, nor intermediate computational results, will exceed what can be stored in an <code>int</code>.</p>
 <p>We provide you with a number of input files that match the input shown at the end of this lab document. Recall that you can supply the contents of a file as input to your program (as described in the Unix tutorial):</p>

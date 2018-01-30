@@ -45,7 +45,7 @@ Procedure
 2. Run your postfix calculator on the test sequences posted on the board by the TAs.  (These test sequences are also at the very bottom of this page.)  Since your code only can handle hard-coded values, this will require a code modification and a recompilation to test each case.  If your program does not calculate the correct result, use the debugger to find the errors and correct them.  These modifications will be submitted to the in-lab.
     - Be sure you are able to explain how all parts your code work. You will be responsible for this material for the midterms and final exam.
 3. You need to expand your pre-lab code to handle keyboard input.  See the specifications in the in-lab section for how to handle the input.
-4. The files you submit should be a FULLY WORKING postfix calculator, which still uses the STL stack class.
+4. The files you submit should be a FULLY WORKING postfix calculator, which still uses the standard library's stack class.
 5. Start working on the post-lab (implementing your own stack class) if you get your calculator fully working before lab ends.
 6. Files to download: none (just your pre-lab source code)
 7. Files to submit: postfixCalculator.h, postfixCalculator.cpp, testPostfixCalc.cpp
@@ -53,7 +53,7 @@ Procedure
 
 ### Post-lab ###
 
-1. Implement a stack class (into files stack.h and stack.cpp).  **You can NOT use arrays or an STL container class for this** (`list`, `vector`, `stack`, etc.) for this, but you can use the STL `string` class.  You should use either your List class from the last lab (if it works), or write up new stack class based on either the lecture notes or the textbook pages on stacks.  Your stack class MUST use a linked-list/pointer-based implementation, but again, you MAY use your List class from the last lab.  Note that your stack class can contain a LinkedList object, and a stack class method can just pass the value onto the appropriate method in the LinkedList class.  You don't need to implement all possible stack methods (in particular, you can ignore the copy constructor, `operator=()`, etc.) -- just the four mentioned in the pre-lab (push(), top(), pop(), and empty()).  After this lab, it is expected that you will be able to implement a stack class in C++.
+1. Implement a stack class (into files stack.h and stack.cpp).  **You can NOT use arrays or an standard library container class for this** (`list`, `vector`, `stack`, etc.) for this, but you can use the standard library's `string` class.  You should use either your List class from the last lab (if it works), or write up new stack class based on either the lecture notes or the textbook pages on stacks.  Your stack class MUST use a linked-list/pointer-based implementation, but again, you MAY use your List class from the last lab.  Note that your stack class can contain a LinkedList object, and a stack class method can just pass the value onto the appropriate method in the LinkedList class.  You don't need to implement all possible stack methods (in particular, you can ignore the copy constructor, `operator=()`, etc.) -- just the four mentioned in the pre-lab (push(), top(), pop(), and empty()).  After this lab, it is expected that you will be able to implement a stack class in C++.
 2. Modify your postfix calculator to use the stack class that you have implemented.
 3. Be sure to include: your name, the date, and the name of the file in a banner comment at the beginning of each file you submit.  Your submission must contain the following code:
     1. Your stack code.  This will likely be stack.h/cpp, and may (or may not; your choice) include all of the List.h/cpp, ListItr.h/cpp, ListNode.h/cpp files from lab 2
@@ -73,8 +73,8 @@ Pre-lab
 
 In this lab, you will:
 
-- Implement a stack class that handles a stack of integer numbers.  This stack implementation is done for the post-lab; for the pre-lab and the in-lab, you will be using a pre-existing stack class from C++'s standard template library (STL).
-    - Documentation on the STL routines can be found at [http://www.sgi.com/tech/stl/](http://www.sgi.com/tech/stl/); the stack documentation is [here](http://www.sgi.com/tech/stl/stack.html).
+- Implement a stack class that handles a stack of integer numbers.  This stack implementation is done for the post-lab; for the pre-lab and the in-lab, you will be using a pre-existing stack class from C++'s standard library.
+    - Documentation on the standard library routines can be found at [http://en.cppreference.com](http://en.cppreference.com). The stack class's documentation can be found at [here](https://en.cppreference.com/w/cpp/container/stack).
 - Write a program that uses this class to implement a postfix calculator. This will include the following files:
     - postfixCalculator.h, which is the class declaration of the postfix calculator
     - postfixCalculator.cpp, which is the implementation of the postfix calculator
@@ -152,7 +152,7 @@ Postfix notation (also known as reverse Polish notation) involves writing the op
 
 An online description of postfix calculators can be found [on Wikipedia](http://en.wikipedia.org/wiki/Reverse_Polish_notation) - note that you do **NOT** need to print out the infix form of the postfix expression; you only need to print the final answer.  See the end of this lab for example input and expected output.
 
-When you start handling input (in the in-lab), you will want to store your read-in values into strings. You can use `==` to compare STL strings. Alternatively, you can use the [string compare()](http://www.cplusplus.com/reference/string/string/compare/) method to compare them, but realize that it returns 0 if they are *equal*, and non-zero if they are not equal.  The `==` operator on strings works as expected (returns true if they are the same).
+When you start handling input (in the in-lab), you will want to store your read-in values into strings. You can use `==` to compare `string`s. Alternatively, you can use the [string compare()](http://www.cplusplus.com/reference/string/string/compare/) method to compare them, but realize that it returns 0 if they are *equal*, and non-zero if they are not equal.  The `==` operator on strings works as expected (returns true if they are the same).
 
 If you want to see some quick code for converting a string to an int, see the `StringToInt()` function at the bottom of [this page](http://faq.cprogramming.com/cgi-bin/smartfaq.cgi?answer=1046996179&id=1043284385).  Warning: just copying that function without understanding it will only make your life more difficult.
 
@@ -175,7 +175,7 @@ If you finish your in-lab before the end of the lab session, start working on yo
 
 ### Input ###
 
-For your keyboard input, your program should read in just a single line.  You should read this in using STL strings (if you are looking at building a tokenizer, then you are making it much more difficult than it need be).  Once you encounter the end of a line, you can assume that there is no more input to read in.  Your program should read in a single line, compute the result, and exit (i.e. don't prompt the user for more input).  When processing input, you can't know before you read something if it will be an operand (a numeric value) or an operator (a character), so you must read in each space-separated part into a string variable, and analyze that.
+For your keyboard input, your program should read in just a single line.  You should read this in using `string`s (if you are looking at building a tokenizer, then you are making it much more difficult than it need be).  Once you encounter the end of a line, you can assume that there is no more input to read in.  Your program should read in a single line, compute the result, and exit (i.e. don't prompt the user for more input).  When processing input, you can't know before you read something if it will be an operand (a numeric value) or an operator (a character), so you must read in each space-separated part into a string variable, and analyze that.
 
 All input is read from standard input (i.e. `cin`)!  You should not be dealing with files for this lab.  Once you read in a line, your program should exit.  When we test your program, we will only be providing it with one line of input, so if your program is waiting for more, that will be a problem.
 
