@@ -19,7 +19,7 @@ Program and Data Representation: Slides
 
 
 
-[Slide set 2: Lists](02-lists.html#/)
+[Slide set 2: Lists](02-lists.html#/) ([version from Reiss's lectures (PDF)](reiss/lists.pdf))
 
 - Source code: [findMax.cpp](code/02-lists/findMax.cpp.html) ([src](code/02-lists/findMax.cpp)), [objectCell.h](code/02-lists/objectCell.h.html) ([src](code/02-lists/objectCell.h)), [objectCellMain.cpp](code/02-lists/objectCellMain.cpp.html) ([src](code/02-lists/objectCellMain.cpp))
 
