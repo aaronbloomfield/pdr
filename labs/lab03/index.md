@@ -24,11 +24,11 @@ Procedure
 1. Read this entire lab document before coming to lab.
 2. Go through [Tutorial 3: Unix, part 1](../../tutorials/03-04-more-unix/index.html), which is the introduction and sections 1-4.  This tutorial is originally from the department of Electrical Engineering at the University of Surrey, and is available online [here](http://www.ee.surrey.ac.uk/Teaching/Unix/).  You should complete the introductory part and sections 1-4.  You should already be somewhat familiar with some of the materials in the first few of these tutorials, as it was in the [Unix tutorial from the first lab](../../tutorials/01-intro-unix/index.html).  The rest of the tutorial (sections 5-8) are for next week's lab, but feel free to go through it this week, if you are interested.
 3. Write up at least one question that you still have on Unix (or things you are still confused about) into unix.questions.txt.
-4. Your code for the pre-lab will use the pre-existing STL `stack` class.  The STL is the [Standard Template Library](http://en.wikipedia.org/wiki/Standard_template_library), and is a collection of useful routines analogous to the routines in Java's SDK, albeit much smaller (it contains a vector class, for example).
-    - To use the stack STL class, just put `#include <stack>` at the top of your C++ file.  A standard clang++ installation should automatically find the STL stack class (this works in Linux).
-    - Documentation on the STL routines can be found at [http://www.sgi.com/tech/stl/](http://www.sgi.com/tech/stl/); the stack documentation is [here](http://www.sgi.com/tech/stl/stack.html).
+4. Your code for the pre-lab will use the pre-existing standard library `stack` class.  The standard library includes a collection of useful routines analogous to the routines in Java's SDK, albeit much smaller (it contains a vector class, for example).
+    - To use the stack class, just put `#include <stack>` at the top of your C++ file.  A standard clang++ installation should automatically find the standard stack class (this works in Linux).
+    - Documentation on the standard library routines can be found at [http://en.cppreference.com](http://en.cppreference.com). The stack class's documentation can be found at [here](https://en.cppreference.com/w/cpp/container/stack).
 5. Implement a simple postfix stack calculator for integers using your stack.
-    - **You should use the STL stack class**, rather than implement your own.
+    - **You should use the standard library stack class**, rather than implement your own.
     - An online description of postfix calculators can be found [on Wikipedia](http://en.wikipedia.org/wiki/Reverse_Polish_notation) -- you will need to implement this into postfixCalculator.h and postfixCalculator.cpp
     - Create a simple test driver, testPostfixCalc.cpp, which will be used to demonstrate your calculator (i.e., it will have the `main()` function).  This file should have hard-coded values for input; handling keyboard input is the in-lab.
     - The last page of this document has some sample test cases you can use.
