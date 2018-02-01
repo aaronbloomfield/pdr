@@ -53,7 +53,7 @@ Procedure
 
 ### Post-lab ###
 
-1. Implement a stack class (into files stack.h and stack.cpp).  **You can NOT use arrays or an standard library container class for this** (`list`, `vector`, `stack`, etc.) for this, but you can use the standard library's `string` class.  You should use either your List class from the last lab (if it works), or write up new stack class based on either the lecture notes or the textbook pages on stacks.  Your stack class MUST use a linked-list/pointer-based implementation, but again, you MAY use your List class from the last lab.  Note that your stack class can contain a LinkedList object, and a stack class method can just pass the value onto the appropriate method in the LinkedList class.  You don't need to implement all possible stack methods (in particular, you can ignore the copy constructor, `operator=()`, etc.) -- just the four mentioned in the pre-lab (push(), top(), pop(), and empty()).  After this lab, it is expected that you will be able to implement a stack class in C++.
+1. Implement a stack class (into files stack.h and stack.cpp).  **You can NOT use a standard library container class (`list`, `vector`, `stack`, etc.) for this**, but you can use the standard library's `string` class.  You should use either your List class from the last lab (if it works), or write up new stack class based on either the lecture notes or the textbook pages on stacks.  Your stack class can use a linked-list/pointer-based implementation, or an array-based implementation. Note that your stack class can contain a LinkedList object, and a stack class method can just pass the value onto the appropriate method in the LinkedList class.  You don't need to implement all possible stack methods (in particular, you can ignore the copy constructor, `operator=()`, etc.) -- just the four mentioned in the pre-lab (push(), top(), pop(), and empty()).  After this lab, it is expected that you will be able to implement a stack class in C++.
 2. Modify your postfix calculator to use the stack class that you have implemented.
 3. Be sure to include: your name, the date, and the name of the file in a banner comment at the beginning of each file you submit.  Your submission must contain the following code:
     1. Your stack code.  This will likely be stack.h/cpp, and may (or may not; your choice) include all of the List.h/cpp, ListItr.h/cpp, ListNode.h/cpp files from lab 2
@@ -267,7 +267,11 @@ You will also have to write up the difficulties.txt file, as described above in 
 
 Note that you only have to implement the four stack methods described in the pre-lab section (and the constructor, of course): `push()`, `pop()`, `top()`, and `empty()`.  The other methods (copy constructor, `operator=()`, etc.) do not need to be implemented for this lab.
 
-**You may NOT use an array to implement your stack**. You MUST use a linked-list/pointer-based implementation.
+Most of you will implement your stack in one of the following ways:
+
+1. Re-use your list class from lab 2. You may need to add one or two methods to it for extra convenience.
+2. Build a linked-list / pointer based stack as discussed in lecture. Your stack class would contain a pointer to the head node of the stack, and push and pop would modify the singly-linked list accordingly.
+3. Manually implement an array-based stack. If you choose this method, your array must be able to automatically resize if the stack grows large enough to sufficiently fill the array. This is probably the most difficult of the three options.
 
 ### Submitting the stack / list files ###
 
