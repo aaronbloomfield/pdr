@@ -20,8 +20,9 @@ Program and Data Representation: Slides
 [Slide set 2: Lists](02-lists.html#/) ([version from Reiss's lectures (PDF)](reiss/lists.pdf))
 
 - Source code: [findMax.cpp](code/02-lists/findMax.cpp.html) ([src](code/02-lists/findMax.cpp)), [objectCell.h](code/02-lists/objectCell.h.html) ([src](code/02-lists/objectCell.h)), [objectCellMain.cpp](code/02-lists/objectCellMain.cpp.html) ([src](code/02-lists/objectCellMain.cpp))
+- Reiss's lecture recordings: 2 Feb: [audio](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180202-audio.mp3), [video](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180202-video-and-audio.webm), [view in browser](https://www.cs.virginia.edu/~cr4bd/videoplayer?2150-recordings/S2018/20180202-video-and-audio);
 
-[Slide set 3: Numbers](03-numbers.html#/)
+[Slide set 3: Numbers](03-numbers.html#/) ([version from Reiss's lectures (PDF)](reiss/lists.pdf))
 
 - Source code: [float_to_hex.cpp](code/03-numbers/float_to_hex.cpp.html) ([src](code/03-numbers/float_to_hex.cpp)), [FloatTest.java](code/03-numbers/FloatTest.java.html) ([src](code/03-numbers/FloatTest.java))
 
