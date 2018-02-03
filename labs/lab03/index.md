@@ -205,7 +205,7 @@ int main() {
 ```
 For the postfix calculator, each string `s` that is read in must then be processed to determine if it's a number or an operator.  The difficult part is if a minus sign is the first character of the token -- it could be a subtraction sign or the beginning of a negative number (recall that the unary negation operator is the tilde).
 
-You may find it useful to use the `isdigit()` or `atoi()` functions provided in `<cstdlib>` in this lab.  Try searching on the web for info on these routines.  The `atoi()` function operates on a C-style string, which is an array of characters. You can convert a C++ string to one of these by calling the `c_str()` method of the C++ string object.  More string functions can be found at [http//www.sgi.com/tech/stl/](http://www.sgi.com/tech/stl/).
+You may find it useful to use the `isdigit()` or `atoi()` functions provided in `<cstdlib>` in this lab.  Try searching on the web for info on these routines.  The `atoi()` function operates on a C-style string, which is an array of characters. You can convert a C++ string to one of these by calling the `c_str()` method of the C++ string object.  More string methods can be found at [http://en.cppreference.com/w/cpp/string/basic_string](http://en.cppreference.com/w/cpp/string/basic_string).
 
 The following illustrates the execution of the previous code.  Recall that this program reads in strings from the keyboard and prints them back out to the screen.  Let's assume we have a file `random-tokens.txt`, which contains:
 
