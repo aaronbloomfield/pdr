@@ -758,8 +758,9 @@ A0, A1, A2, A3, A4
 
 	<section data-markdown><script type="text/template">
 ## Closing thoughts on strings
-- You have to enter Control-D for input
-  - This will return an empty string (length 0)
+- You can enter Control-D for input
+  - This will set cin.eof() to true, and then you can break
+  - So something like: cin >> x; if(cin.eof()) break; //or similar
 - Like Java, to compare strings, you need to compare the characters that they point to
   - .equals() in Java
 - But in the STL string class, the == operator is overloaded to do this!
