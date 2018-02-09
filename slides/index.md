@@ -23,7 +23,7 @@ Program and Data Representation: Slides
 - Reiss's lecture recordings: 2 Feb: [audio](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180202-audio.mp3), [video](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180202-video-and-audio.webm), [view in browser](https://www.cs.virginia.edu/~cr4bd/videoplayer?2150-recordings/S2018/20180202-video-and-audio); 5 Feb: [audio](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180205-audio.mp3), [video](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180205-video-and-audio.webm), [view in browser](https://www.cs.virginia.edu/~cr4bd/videoplayer?2150-recordings/S2018/20180205-video-and-audio);
 
 
-[Slide set 3: Numbers](03-numbers.html#/) ([version from Reiss's lectures (PDF)](reiss/lists.pdf))
+[Slide set 3: Numbers](03-numbers.html#/) ([version from Reiss's lectures (PDF)](reiss/numbers.pdf))
 
 - Source code: [float_to_hex.cpp](code/03-numbers/float_to_hex.cpp.html) ([src](code/03-numbers/float_to_hex.cpp)), [FloatTest.java](code/03-numbers/FloatTest.java.html) ([src](code/03-numbers/FloatTest.java))
 - Reiss's lecture recordings: 7 Feb: [audio](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180207-audio.mp3), [video](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180207-video-and-audio.webm), [view in browser](https://www.cs.virginia.edu/~cr4bd/videoplayer?2150-recordings/S2018/20180207-video-and-audio);
