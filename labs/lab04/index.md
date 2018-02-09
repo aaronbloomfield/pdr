@@ -27,11 +27,8 @@ Procedure
     - You cannot use the `bitset` class (or anything similar) for this!
 5. Write the `overflow()` function, as described in the pre-lab section.
 6. Combine these functions into a prelab4.cpp file, as described in the pre-lab section.  This program should only take in a *single* `int` value as input!
-7. Get your floating point number [here](http://libra.cs.virginia.edu/getfloat.php), and then complete your floating point conversion, as described in the pre-lab section, into a file called floatingpoint.pdf; you can convert a file into a PDF via the directions on the [How to convert a file to PDF](../../docs/convert_to_pdf.html) page. **Note: Many students will submit a text file that happens to be called floatingpoint.pdf. Make sure to check for this before submitting!**
-    - Note that this must be typed up in a document; you cannot do this by hand and scan it in (or take a photo of it)
-    - Make sure you read the part, in the pre-lab section below, about the maximum file size!  Otherwise your submission will not be accepted.
 7. Files to download: none
-8. Files to submit: prelab4.cpp, floatingpoint.pdf
+8. Files to submit: prelab4.cpp
 
 ### In-lab ###
 
@@ -42,7 +39,10 @@ Procedure
     3. Primitive arrays in C++
 3. Files to download: [inlab4.doc](inlab4.doc)
 4. Convert inlab4.doc to a PDF via the directions on the [How to convert a file to PDF](../../docs/convert_to_pdf.html) page
-5. Files to submit: inlab4.pdf (the PDF version of inlab4.doc), inlab4.cpp
+5. Get your floating point number [here](http://libra.cs.virginia.edu/getfloat.php), and then complete your floating point conversion, as described in the pre-lab section, into a file called floatingpoint.pdf; you can convert a file into a PDF via the directions on the [How to convert a file to PDF](../../docs/convert_to_pdf.html) page. **Note: Many students will submit a text file that happens to be called floatingpoint.pdf. Make sure to check for this before submitting!**
+    - Note that this must be typed up in a document; you cannot do this by hand and scan it in (or take a photo of it)
+    - Make sure you read the part, in the pre-lab section below, about the maximum file size!  Otherwise your submission will not be accepted.
+6. Files to submit: inlab4.pdf (the PDF version of inlab4.doc), inlab4.cpp, floatingpoint.pdf
 
 ### Post-lab ###
 
@@ -99,35 +99,6 @@ Your function should create an `unsigned int`, give it the max value, and add 1 
 Your three functions, `sizeOfTest()`, `outputBinary()`, and `overflow()` should be combined into a prelab4.cpp file.  This is the one C++ source code file that you will submit for the pre-lab.  The input requirements for this program are fairly strict, so as to allow automated execution of your programs.
 
 **Your program should ask for a single integer value for input**, which we will call *x*.  The program will call the three functions in order: `sizeOfTest()`, `outputBinary(x)`, and then `overflow()`.  Note that only `outputBinary()` takes in *x* as the parameter.  The program should take in no further input.
-
-### Floating point conversion ###
-
-For the last part of the pre-lab, you will need to convert a floating point number to binary representation, and another number from binary representation to a floating point number.  You should do this by hand (i.e. not in a computer program), and have the worked-out solution (similar to the lecture notes) be in a floatingpoint.pdf file -- you can use any editor you would like to generate the file, as long as what you submit is a PDF file.
-
-First, you will need to determine what your floating point numbers are going to be -- these numbers will be different for each student.  To do so, visit [http://libra.cs.virginia.edu/getfloat.php](http://libra.cs.virginia.edu/getfloat.php) and enter your UVa userid.  Each floating point number is unique to the userid entered.  Note that the hexadecimal number printed is in **little Endian** format.
-
-The first number must be converted into (little-Endian) format -- you should leave your answer in hexadecimal, as that will be an easier way (versus binary) to represent the number.  The second number (the one in hexadecimal) needs to be converted to a base 10 real number as per the algorithm for converting IEEE 754 single-precision (i.e. 32-bit) floating point numbers.
-
-Note that a '0x' before a number means that the number is in hexadecimal.  Thus, 0x11 has decimal value 17, as that is what 11 is in hexadecimal.  The '0x' part is not part of the value.
-
-For example, if you entered 'asb2t', you would get:
-
-```
-Your magic (32 bit) floating point number is -35.125
-This is the number that needs to be converted to (little endian) binary, and expressed in hexadecimal.
-
-Your other magic floating point number is, in hex, 0x00401f41
-This is the number that needs to be converted to a (32 bit) floating point number.
-Note that the hexadecimal printed above is in little-endian format!
-```
-
-In this example, you would convert -35.125 to 0x800cc2 (or 0x00800cc2 -- same thing with the leading zeros added), and 0x401f41 (or 0x00401f41 -- again, the same thing) to 9.95312.
-
-Note: during the conversion, the numbers provided do not have any 1 bits in the mantissa after the 10th bit.  It could be that your floating point number needs the first 10 bits of the mantissa, or it could need less.  But all bits after the first 10 are supposed to be zero.  So if your conversion has any bits beyond that set to 1, then you are doing something wrong.  You will be expected to be able to do this on a test -- although in an exam situation, because no calculators are allowed, the math involved with determining the mantissa won't be very hard.
-
-Your conversion should be in a PDF file called floatingpoint.pdf, which will be submitted with the pre-lab.  The idea is to show the math behind the conversion (similar to how was done in class), not to write a program to do it.
-
-You must actually type up your work in a word editor (Word is fine, as is Mac Pages; [LibreOffice](http://www.libreoffice.org/) is a free alternative).  You can ***NOT*** do the assignment by hand, then scan it in (or take a photo of it).  It must actually be typeset in your favorite editor of choice.  Note that the Unix honor pledge only applies to development, so you are free to use anything to type up the file.
 
 **File size:** the submission server will only accept files of up to a certain size, and your file must be less than this size.  If you properly type set your document, then this will not be a problem.  But if you write out your assignment by hand, then scan (or take a picture of) it, then it will be too big to submit.  And note that you have to actually type set it, as mentioned above, so you should be doing this anyway.
 
@@ -250,6 +221,35 @@ The base address of the array is the identifier (IntArray2D), and the expression
 ```
 
 Remember to include the standard identifying header at the top of all your files (name, date, etc.).  The inlab4.doc worksheet should be converted to PDF and submitted, along with the inlab4.cpp file.
+
+### Floating point conversion ###
+
+For the last part of the in-lab, you will need to convert a floating point number to binary representation, and another number from binary representation to a floating point number.  You should do this by hand (i.e. not in a computer program), and have the worked-out solution (similar to the lecture notes) be in a floatingpoint.pdf file -- you can use any editor you would like to generate the file, as long as what you submit is a PDF file.
+
+First, you will need to determine what your floating point numbers are going to be -- these numbers will be different for each student.  To do so, visit [http://libra.cs.virginia.edu/getfloat.php](http://libra.cs.virginia.edu/getfloat.php) and enter your UVa userid.  Each floating point number is unique to the userid entered.  Note that the hexadecimal number printed is in **little Endian** format.
+
+The first number must be converted into (little-Endian) format -- you should leave your answer in hexadecimal, as that will be an easier way (versus binary) to represent the number.  The second number (the one in hexadecimal) needs to be converted to a base 10 real number as per the algorithm for converting IEEE 754 single-precision (i.e. 32-bit) floating point numbers.
+
+Note that a '0x' before a number means that the number is in hexadecimal.  Thus, 0x11 has decimal value 17, as that is what 11 is in hexadecimal.  The '0x' part is not part of the value.
+
+For example, if you entered 'asb2t', you would get:
+
+```
+Your magic (32 bit) floating point number is -35.125
+This is the number that needs to be converted to (little endian) binary, and expressed in hexadecimal.
+
+Your other magic floating point number is, in hex, 0x00401f41
+This is the number that needs to be converted to a (32 bit) floating point number.
+Note that the hexadecimal printed above is in little-endian format!
+```
+
+In this example, you would convert -35.125 to 0x800cc2 (or 0x00800cc2 -- same thing with the leading zeros added), and 0x401f41 (or 0x00401f41 -- again, the same thing) to 9.95312.
+
+Note: during the conversion, the numbers provided do not have any 1 bits in the mantissa after the 10th bit.  It could be that your floating point number needs the first 10 bits of the mantissa, or it could need less.  But all bits after the first 10 are supposed to be zero.  So if your conversion has any bits beyond that set to 1, then you are doing something wrong.  You will be expected to be able to do this on a test -- although in an exam situation, because no calculators are allowed, the math involved with determining the mantissa won't be very hard.
+
+Your conversion should be in a PDF file called floatingpoint.pdf, which will be submitted with the pre-lab.  The idea is to show the math behind the conversion (similar to how was done in class), not to write a program to do it.
+
+You must actually type up your work in a word editor (Word is fine, as is Mac Pages; [LibreOffice](http://www.libreoffice.org/) is a free alternative).  You can ***NOT*** do the assignment by hand, then scan it in (or take a photo of it).  It must actually be typeset in your favorite editor of choice.  Note that the Unix honor pledge only applies to development, so you are free to use anything to type up the file.
 
 ------------------------------------------------------------
 
