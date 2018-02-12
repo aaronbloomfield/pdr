@@ -56,8 +56,6 @@ Procedure
 Pre-lab
 -------
 
-One of the deliverables for the pre-lab is a PDF document named floatingpoint.pdf.  It must be in PDF format!  See [How To Convert A File To PDF](../../docs/convert_to_pdf.html) for details. **Note: Many students will submit a text file that happens to be called floatingpoint.pdf. Make sure to check for this before submitting!**
-
 ### Reading ###
 
 You should see the [Readings](../../docs/readings.html) on [arrays](../../docs/readings.html#arrays) -- that will be needed in the in-lab.  Also, the [Readings](../../docs/readings.html) on [unions](../../docs/readings.html#structsunions).
