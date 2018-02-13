@@ -30,7 +30,7 @@ Program and Data Representation: Slides
 
 
 
-[Slide set 4: Arrays & Big-Oh](04-arrays-bigoh.html#/)
+[Slide set 4: Arrays & Big-Oh](04-arrays-bigoh.html#/) (version from Reiss's lectures: [part 1](reiss/arrays.pdf) [part 2](reiss/numbers.pdf))
 
 - Source code: [cmdlineparams.cpp](code/04-arrays-bigoh/cmdlineparams.cpp.html) ([src](code/04-arrays-bigoh/cmdlineparams.cpp))
 
