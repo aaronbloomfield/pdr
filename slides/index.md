@@ -33,6 +33,7 @@ Program and Data Representation: Slides
 [Slide set 4: Arrays & Big-Oh](04-arrays-bigoh.html#/) (version from Reiss's lectures: [part 1](reiss/arrays.pdf) [part 2](reiss/numbers.pdf))
 
 - Source code: [cmdlineparams.cpp](code/04-arrays-bigoh/cmdlineparams.cpp.html) ([src](code/04-arrays-bigoh/cmdlineparams.cpp))
+- Reiss's lecture recordings: 14 Feb: [audio](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180214-audio.mp3), [video](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180214-video-and-audio.webm), [view in browser](https://www.cs.virginia.edu/~cr4bd/videoplayer?2150-recordings/S2018/20180214-video-and-audio)
 
 [Slide set 5: Trees](05-trees.html#/)
 
