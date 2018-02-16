@@ -165,7 +165,7 @@ To recap, submit the follwing files:
 The report for this lab should contain the following: 
 
 1. Your name, the date, and your CS 2150 lab section.
-2. What do [testfile1.txt](code/postlab/testfile1.txt), [testfile2.txt](code/postlab/testfile2.txt), and [testfile3.txt](code/postlab/testfile3.txt) suggest about the relative performance of AVL trees and BSTs?
+2. What do [testfile1.txt](code/postlab/testfile1.txt) ([output](code/postlab/testfile1.out.txt)), [testfile2.txt](code/postlab/testfile2.txt) ([output](code/postlab/testfile2.out.txt)), and [testfile3.txt](code/postlab/testfile3.txt) ([output](code/postlab/testfile3.out.txt)) suggest about the relative performance of AVL trees and BSTs?
 3. Actual numerical results for some operations on both AVL trees and BSTs for the three provided test files and any additional tests you created.
 4. A characterization of situations where AVL trees are preferable to BSTs.
 5. A discussion of the costs incurred in an AVL implementation. 

@@ -60,4 +60,7 @@ class AVLTree {
   // Any other methods you need...
 };
 
+// max returns the greater of two integers.
+int max(int a, int b);
+
 #endif

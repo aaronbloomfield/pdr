@@ -54,6 +54,14 @@ AVLNode* AVLTree::remove(AVLNode*& n, const string& x) {
   return n;
 }
 
+// max returns the greater of two integers.
+int max(int a, int b) {
+  if (a > b) {
+    return a;
+  }
+  return b;
+}
+
 // min finds the string with the smallest value in a subtree.
 string AVLTree::min(AVLNode* node) const {
   // go to bottom-left node
