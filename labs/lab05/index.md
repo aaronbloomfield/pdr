@@ -16,7 +16,7 @@ A binary tree is a tree with a maximum of two children per node.  Three traversa
 
 ### Reading(s): ###
 
-The [Wikipedia article on Expression trees](http://en.wikipedia.org/wiki/Expression_tree), expecially the [section on construction of expression trees](http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_Expression_Tree).  Also the [05: Trees](../../slides/05-trees.html) slide set.
+The [Wikipedia article on Expression trees](http://en.wikipedia.org/wiki/Expression_tree), especially the [section on construction of expression trees](http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_Expression_Tree).  Also the [05: Trees](../../slides/05-trees.html) slide set.
 
 
 Procedure
@@ -25,7 +25,7 @@ Procedure
 ### Pre-lab ###
 
 1. Come to lab with a fully functional tree calculator, as described below.  
-2. Read the [Wikipedia article on Expression trees](http://en.wikipedia.org/wiki/Expression_tree), expecially the [section on construction of expression trees](http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_Expression_Tree).
+2. Read the [Wikipedia article on Expression trees](http://en.wikipedia.org/wiki/Expression_tree), especially the [section on construction of expression trees](http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_Expression_Tree).
 3. Files to download: [TreeCalc.h](code/prelab/TreeCalc.h.html) ([src](code/prelab/TreeCalc.h)), [TreeCalc.cpp](code/prelab/TreeCalc.cpp.html) ([src](code/prelab/TreeCalc.cpp)), [TreeNode.h](code/prelab/TreeNode.h.html) ([src](code/prelab/TreeNode.h)), [TreeNode.cpp](code/prelab/TreeNode.cpp.html) ([src](code/prelab/TreeNode.cpp)), and  [TreeCalcTest.cpp](code/prelab/TreeCalcTest.cpp.html) ([src](code/prelab/TreeCalcTest.cpp)).  These files are contained in the prelab/ directory of the [code.zip](code.zip) file.
 4. Files to submit: TreeCalc.h/cpp, TreeCalcTest.cpp, TreeNode.h/cpp
 
@@ -41,7 +41,7 @@ Procedure
 1. For this lab, you will implement a Binary search tree, an AVL tree, and submit a brief lab report electronically via the submission system.
 2. Your report must be in PDF format!  See the [How to convert a file to PDF](../../docs/convert_to_pdf.html) page for details.
 3. Files to download: [BinarySearchTree.h](code/postlab/BinarySearchTree.h.html) ([src](code/postlab/BinarySearchTree.h)), [AVLTree.h](code/postlab/AVLTree.h.html) ([src](code/postlab/AVLTree.h)), [AVLTree.cpp](code/postlab/AVLTree.cpp.html) ([src](code/postlab/AVLTree.cpp)), [TreePathTest.cpp](code/postlab/TreePathTest.cpp.html) ([src](code/postlab/TreePathTest.cpp)), [testfile1.txt](code/postlab/testfile1.txt), [testfile2.txt](code/postlab/testfile2.txt), [testfile3.txt](code/postlab/testfile3.txt). These files are contained in the postlab/ directory of the [code.zip](code.zip) file.
-4. Files to submit: AVLTree.h, BinarySearchTree.h, TreePathTest.cpp, Makefile, any other files needed to make your code compile, analysis.pdf (see the post-lab section for formatting details)
+4. Files to submit: AVLTree.h, BinarySearchTree.h, TreePathTest.cpp, Makefile, any other files needed to make your code compile (files such as AVLTree.cpp, BinarySearchTree.cpp, etc...), analysis.pdf (see the post-lab section for formatting details)
 
 ------------------------------------------------------------
 
@@ -50,7 +50,7 @@ Pre-lab
 
 For this lab you will be using a stack to help you read in a postfix expression into an expression tree.  While this is similar to lab 3, you will instead be ultimately creating a expression tree for the postfix expression, rather than evaluating it and leaving the result on the stack.  You should use the [STL stack class](http://www.cplusplus.com/reference/stack/stack/) for this lab.
 
-Your tree calculator should read in expressions in postfix notation -- you can assume that these will be well-formed expressions as we did in lab 3.  You will need to build an expression tree using the algorithm described in  the [Wikipedia article on Expression trees](http://en.wikipedia.org/wiki/Expression_tree), specifically the [section on construction of expression trees](http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_Expression_Tree).  Trees similar to this type of expression tree are used extensively in compilers.  
+Your tree calculator should read in expressions in postfix notation -- you can assume that these will be well-formed expressions as we did in lab 3.  You will need to build an expression tree using the algorithm described in the [Wikipedia article on Expression trees](http://en.wikipedia.org/wiki/Expression_tree), specifically the [section on construction of expression trees](http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_Expression_Tree).  Trees similar to this type of expression tree are used extensively in compilers.  
 
 ### Code base ###
 
@@ -136,13 +136,13 @@ If you have time remaining, you may want to start working on the post-lab. Consu
 Post-lab
 --------
 
-The objective of this lab is to understand the runtime characterstics and trade-offs between normal Binary search trees and AVL trees. You will have to implement a Binary search tree, an AVL tree, and compare their results with the test program for the three provided test files.
+The objective of this lab is to understand the runtime characteristics and trade-offs between normal Binary search trees and AVL trees. You will have to implement a Binary search tree, an AVL tree, and compare their results with the test program for the three provided test files.
 
 Both trees must implement their respective class definitions in [BinarySearchTree.h](code/postlab/BinarySearchTree.h.html) ([src](code/postlab/BinarySearchTree.h)) and [AVLTree.h](code/postlab/AVLTree.h.html) ([src](code/postlab/AVLTree.h)). However, you are free to add as many other member functions as you wish. Note that we have provided an implementation of `remove()` in [AVLTree.cpp](code/postlab/AVLTree.cpp.html) ([src](code/postlab/AVLTree.cpp)), but you must still implement `remove()` for the Binary search tree.
 
 Do NOT alter [TreePathTest.cpp](code/postlab/TreePathTest.cpp.html) ([src](code/postlab/TreePathTest.cpp)). This program will be used to run automated tests on your implementations. Do not change it.
 
-Feel free to move the implementation of the AVL tree to another .cpp file. However, we recommend separate .cpp files for the different trees.
+Feel free to move the implementation of the AVL tree to another .cpp file. However, we recommend separate .cpp files for the different trees. Additionally, you may find it helpful to have private versions of `insert`, `pathTo`, etc... that take a node as a parameter. This allows them to operate on any node, not just the root.
 
 The test program will read inputs and attempt to insert elements into your trees. Its input format is a sequence of instruction/word pairs defined as follows:
 - Insert <word>: `I <word>`
@@ -155,7 +155,7 @@ The Lookup instruction will call the `pathTo()` method defined in your trees. `p
 
 `pathTo("W")` would then return the string `"M P Z W"`. Calling `pathTo()` on an element that doesn't exist would result in an empty string `""`.
 
-To recap, submit the follwing files:
+To recap, submit the following files:
 - TreePathTest.cpp: Do NOT modify, contains `main()` method.
 - AVLTree.h, BinarySearchTree.h: class definitions which the test program depends on.
 - Your .cpp files which contain the implementions of AVLTree and BinarySearchTree.
