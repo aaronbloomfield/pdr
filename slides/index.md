@@ -36,7 +36,7 @@ Program and Data Representation: Slides
 - Reiss's lecture recordings: 14 Feb: [audio](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180214-audio.mp3), [video](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180214-video-and-audio.webm), [view in browser](https://www.cs.virginia.edu/~cr4bd/videoplayer?2150-recordings/S2018/20180214-video-and-audio); 16 Feb: [audio](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180216-audio.mp3), [video](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180216-video-and-audio.webm), [view in browser](https://www.cs.virginia.edu/~cr4bd/videoplayer?2150-recordings/S2018/20180216-video-and-audio); 19 Feb: [audio](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180219-audio.mp3), [video](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180219-video-and-audio.webm), [view in browser](https://www.cs.virginia.edu/~cr4bd/videoplayer?2150-recordings/S2018/20180219-video-and-audio)
 
 
-[Slide set 5: Trees](05-trees.html#/)
+[Slide set 5: Trees](05-trees.html#/) ([version from Reiss's lectures (PDF)](reiss/trees.pdf))
 
 - The trees diagrams were generated from the files described [here](graphs/index.html)
 - The tree animation site is [here](http://www.qmatica.com/DataStructures/Trees/BST.html) ([mirror](http://webdiis.unizar.es/asignaturas/EDA/AVLTree/avltree.html))
