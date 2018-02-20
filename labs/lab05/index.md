@@ -8,6 +8,7 @@ PDR: Laboratory 5: Trees
 1. Learn about binary trees 
 2. See tree traversals in the context of a useful application
 3. Understand tree rotations
+3. Implement binary search trees and AVL trees
 4. Evaluate the performance of binary search trees and AVL trees
 
 ### Background: ###
