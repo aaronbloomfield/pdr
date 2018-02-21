@@ -32,7 +32,7 @@ Procedure
 
 ### In-lab ###
 
-1. Complete the [AVL tree worksheet](avl-worksheet.pdf), which is a separate file.  If you complete it in lab, the TAs will collect it at the end.  Otherwise, turn in a scanned copy of the PDF electronically. **You need to turn in that sheet** (you can't write your answer on notebook paper, for example) and bubble in your ID at the bottom of the front page.  Feel free to print it single sided or double sided.  We will provide copies of this in lecture for you as well.
+1. Complete the [AVL tree worksheet](avl-worksheet.pdf), which is a separate file.  If you complete it in lab, the TAs will collect it at the end.  Otherwise, turn in a scanned copy of the PDF electronically. **You need to turn in that sheet** (you can't write your answer on notebook paper, for example) and bubble in your ID at the bottom of the front page.  Feel free to print it single sided or double sided.
 2. Complete the [makefile tutorial](../../tutorials/05-make/index.html).  While you will not have to write a makefile for this in-lab, you will need to know how to write on in the future -- all the following labs will be compiled via Makefiles.   There is one file that needs to be submitted from the tutorial -- you should name this file Makefile-pizza.
 3. Your file **MUST** be named `Makefile-pizza` - not Makefile-pizza.txt, not Makefile-Pizza, not Makefilepizza.  If it is not named correctly, it will not work with our grading scripts, and you will not get credit for that part of the lab.
 4. Files to submit: avl-worksheet.pdf (if not submitted during lab), Makefile-pizza
