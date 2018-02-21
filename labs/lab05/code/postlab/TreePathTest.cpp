@@ -16,7 +16,7 @@ int main() {
       bst.insert(word);
     } else if (instr == "R") {
       avl.remove(word);
-      bst.insert(word);
+      bst.remove(word);
     } else if (instr == "L") {
       cout << "AVL path: " << avl.pathTo(word) << endl;
       cout << "BST path: " << bst.pathTo(word) << endl;
