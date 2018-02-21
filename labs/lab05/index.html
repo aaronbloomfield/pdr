@@ -34,10 +34,10 @@
 </ol>
 <h3 id="in-lab">In-lab</h3>
 <ol style="list-style-type: decimal">
-<li>Complete the <a href="avl-worksheet.pdf">AVL tree worksheet</a>, which is a separate file. If you complete it in lab, the TAs will collect it at the end. Otherwise, turn in a scanned copy of the PDF electronically. <strong>You need to turn in that sheet</strong> (you can't write your answer on notebook paper, for example) and bubble in your ID at the bottom of the front page. Feel free to print it single sided or double sided.</li>
+<li>Complete the <a href="avl-worksheet.pdf">AVL tree worksheet</a>, which is a separate file. Turn this worksheet in before the end of lab. Feel free to print it single sided or double sided.</li>
 <li>Complete the <a href="../../tutorials/05-make/index.html">makefile tutorial</a>. While you will not have to write a makefile for this in-lab, you will need to know how to write on in the future -- all the following labs will be compiled via Makefiles. There is one file that needs to be submitted from the tutorial -- you should name this file Makefile-pizza.</li>
 <li>Your file <strong>MUST</strong> be named <code>Makefile-pizza</code> - not Makefile-pizza.txt, not Makefile-Pizza, not Makefilepizza. If it is not named correctly, it will not work with our grading scripts, and you will not get credit for that part of the lab.</li>
-<li>Files to submit: avl-worksheet.pdf (if not submitted during lab), Makefile-pizza</li>
+<li>Files to submit: Makefile-pizza</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
 <ol style="list-style-type: decimal">
@@ -116,13 +116,14 @@ Expression tree in prefix expression: - + 34 6 / -8 4
 The result of the expression tree is 42 </code></pre>
 <hr />
 <h2 id="in-lab-1">In-lab</h2>
-<p>The deliverables for this in-lab are the AVL worksheet and the Makefile-pizza tutorial. Print out the worksheet and bring it to your lab section. Turn in the worksheet by the end of lab. Make sure to bubble in your ID at the bottom of the page. If you do not finish it by the end of lab, submit a 24 hour extension and turn in a scanned PDF electronically.</p>
+<p>The deliverables for this in-lab are the AVL worksheet and the <a href="../../tutorials/05-make/index.html">makefile tutorial</a>. Print out the worksheet and bring it to your lab section. Turn in the worksheet by the end of lab. Make sure to bubble in your ID at the bottom of the page.</p>
+<p>Complete the <a href="../../tutorials/05-make/index.html">makefile tutorial</a> and submit Makefile-pizza by the end of lab (or by Wednesday if using the extension).</p>
 <p>If you have time remaining, you may want to start working on the post-lab. Consult the TAs for any help understanding tree rotations.</p>
 <hr />
 <h2 id="post-lab-1">Post-lab</h2>
 <p>The objective of this lab is to understand the runtime characteristics and trade-offs between normal Binary search trees and AVL trees. You will have to implement a Binary search tree, an AVL tree, and compare their results with the test program for the three provided test files.</p>
-<p>Both trees must implement their respective class definitions in <a href="code/postlab/BinarySearchTree.h.html">BinarySearchTree.h</a> (<a href="code/postlab/BinarySearchTree.h">src</a>) and <a href="code/postlab/AVLTree.h.html">AVLTree.h</a> (<a href="code/postlab/AVLTree.h">src</a>). However, you are free to add as many other member functions as you wish. Note that we have provided an implementation of <code>remove()</code> in <a href="code/postlab/AVLTree.cpp.html">AVLTree.cpp</a> (<a href="code/postlab/AVLTree.cpp">src</a>), but you must still implement <code>remove()</code> for the Binary search tree.</p>
-<p>Do NOT alter <a href="code/postlab/TreePathTest.cpp.html">TreePathTest.cpp</a> (<a href="code/postlab/TreePathTest.cpp">src</a>). This program will be used to run automated tests on your implementations. Do not change it.</p>
+<p>Both trees must implement their respective class definitions in <a href="code/postlab/BinarySearchTree.h">BinarySearchTree.h</a> and <a href="code/postlab/AVLTree.h">AVLTree.h</a>. However, you are free to add as many other member functions as you wish. Note that we have provided an implementation of <code>remove()</code> in <a href="code/postlab/AVLTree.cpp">AVLTree.cpp</a>, but you must still implement <code>remove()</code> for the Binary search tree.</p>
+<p>Do NOT alter <a href="code/postlab/TreePathTest.cpp">TreePathTest.cpp</a>. This program will be used to run automated tests on your implementations. Do not change it.</p>
 <p>Feel free to move the implementation of the AVL tree to another .cpp file. However, we recommend separate .cpp files for the different trees. Additionally, you may find it helpful to have private versions of <code>insert</code>, <code>pathTo</code>, etc... that take a node as a parameter. This allows them to operate on any node, not just the root.</p>
 <p>The test program will read inputs and attempt to insert elements into your trees. Its input format is a sequence of instruction/word pairs defined as follows: - Insert <word>: <code>I &lt;word&gt;</code> - Remove <word>: <code>R &lt;word&gt;</code> - Lookup <word>: <code>L &lt;word&gt;</code></p>
 <p>The Lookup instruction will call the <code>pathTo()</code> method defined in your trees. <code>pathTo()</code> must return a string representing the nodes encountered when finding an element. For instance in the following image, the bold lines indicate the path taken for locating element W.</p>

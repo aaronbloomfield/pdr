@@ -32,10 +32,10 @@ Procedure
 
 ### In-lab ###
 
-1. Complete the [AVL tree worksheet](avl-worksheet.pdf), which is a separate file.  If you complete it in lab, the TAs will collect it at the end.  Otherwise, turn in a scanned copy of the PDF electronically. **You need to turn in that sheet** (you can't write your answer on notebook paper, for example) and bubble in your ID at the bottom of the front page.  Feel free to print it single sided or double sided.
+1. Complete the [AVL tree worksheet](avl-worksheet.pdf), which is a separate file.  Turn this worksheet in before the end of lab. Feel free to print it single sided or double sided.
 2. Complete the [makefile tutorial](../../tutorials/05-make/index.html).  While you will not have to write a makefile for this in-lab, you will need to know how to write on in the future -- all the following labs will be compiled via Makefiles.   There is one file that needs to be submitted from the tutorial -- you should name this file Makefile-pizza.
 3. Your file **MUST** be named `Makefile-pizza` - not Makefile-pizza.txt, not Makefile-Pizza, not Makefilepizza.  If it is not named correctly, it will not work with our grading scripts, and you will not get credit for that part of the lab.
-4. Files to submit: avl-worksheet.pdf (if not submitted during lab), Makefile-pizza
+4. Files to submit: Makefile-pizza
 
 ### Post-lab ###
 
@@ -128,7 +128,9 @@ The result of the expression tree is 42
 In-lab
 ------
 
-The deliverables for this in-lab are the AVL worksheet and the Makefile-pizza tutorial. Print out the worksheet and bring it to your lab section. Turn in the worksheet by the end of lab. Make sure to bubble in your ID at the bottom of the page. If you do not finish it by the end of lab, submit a 24 hour extension and turn in a scanned PDF electronically. 
+The deliverables for this in-lab are the AVL worksheet and the [makefile tutorial](../../tutorials/05-make/index.html). Print out the worksheet and bring it to your lab section. Turn in the worksheet by the end of lab. Make sure to bubble in your ID at the bottom of the page.
+
+Complete the [makefile tutorial](../../tutorials/05-make/index.html) and submit Makefile-pizza by the end of lab (or by Wednesday if using the extension).
 
 If you have time remaining, you may want to start working on the post-lab. Consult the TAs for any help understanding tree rotations.  
 
@@ -139,9 +141,9 @@ Post-lab
 
 The objective of this lab is to understand the runtime characteristics and trade-offs between normal Binary search trees and AVL trees. You will have to implement a Binary search tree, an AVL tree, and compare their results with the test program for the three provided test files.
 
-Both trees must implement their respective class definitions in [BinarySearchTree.h](code/postlab/BinarySearchTree.h.html) ([src](code/postlab/BinarySearchTree.h)) and [AVLTree.h](code/postlab/AVLTree.h.html) ([src](code/postlab/AVLTree.h)). However, you are free to add as many other member functions as you wish. Note that we have provided an implementation of `remove()` in [AVLTree.cpp](code/postlab/AVLTree.cpp.html) ([src](code/postlab/AVLTree.cpp)), but you must still implement `remove()` for the Binary search tree.
+Both trees must implement their respective class definitions in [BinarySearchTree.h](code/postlab/BinarySearchTree.h) and [AVLTree.h](code/postlab/AVLTree.h). However, you are free to add as many other member functions as you wish. Note that we have provided an implementation of `remove()` in [AVLTree.cpp](code/postlab/AVLTree.cpp), but you must still implement `remove()` for the Binary search tree.
 
-Do NOT alter [TreePathTest.cpp](code/postlab/TreePathTest.cpp.html) ([src](code/postlab/TreePathTest.cpp)). This program will be used to run automated tests on your implementations. Do not change it.
+Do NOT alter [TreePathTest.cpp](code/postlab/TreePathTest.cpp). This program will be used to run automated tests on your implementations. Do not change it.
 
 Feel free to move the implementation of the AVL tree to another .cpp file. However, we recommend separate .cpp files for the different trees. Additionally, you may find it helpful to have private versions of `insert`, `pathTo`, etc... that take a node as a parameter. This allows them to operate on any node, not just the root.
 
