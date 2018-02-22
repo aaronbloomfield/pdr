@@ -40,6 +40,7 @@ Program and Data Representation: Slides
 
 - The trees diagrams were generated from the files described [here](graphs/index.html)
 - The tree animation site is [here](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html)
+- Reiss's lecture recordings: 21 Feb: [audio](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180221-audio.mp3), [video](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180221-video-and-audio.webm), [view in browser](https://www.cs.virginia.edu/~cr4bd/videoplayer?2150-recordings/S2018/20180221-video-and-audio)
 
 [Slide set 6: Hashes](06-hashes.html#/)
 
