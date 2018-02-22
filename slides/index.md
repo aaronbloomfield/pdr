@@ -39,7 +39,7 @@ Program and Data Representation: Slides
 [Slide set 5: Trees](05-trees.html#/) ([version from Reiss's lectures (PDF)](reiss/trees.pdf))
 
 - The trees diagrams were generated from the files described [here](graphs/index.html)
-- The tree animation site is [here](http://www.qmatica.com/DataStructures/Trees/BST.html) ([mirror](http://webdiis.unizar.es/asignaturas/EDA/AVLTree/avltree.html))
+- The tree animation site is [here](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html)
 
 [Slide set 6: Hashes](06-hashes.html#/)
 
