@@ -31,6 +31,7 @@ AVLNode* AVLTree::remove(AVLNode*& n, const string& x) {
     // found
     // no children
     if (n->left == NULL && n->right == NULL) {
+      delete n;
       return NULL;
     }
     // single child
