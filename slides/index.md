@@ -43,7 +43,7 @@ Program and Data Representation: Slides
 - Reiss's lecture recordings: 21 Feb: [audio](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180226-audio.mp3), [video](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180226-video-and-audio.webm), [view in browser](https://www.cs.virginia.edu/~cr4bd/videoplayer?2150-recordings/S2018/20180226-video-and-audio), 23 Feb: see below (audio only); 26 Feb: [audio](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180226-audio.mp3), [video](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180226-video-and-audio.webm), [view in browser](https://www.cs.virginia.edu/~cr4bd/videoplayer?2150-recordings/S2018/20180226-video-and-audio)
 - 23 Feb lecture recordings (Marina): [9am](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180223am-audio.mp3), [1pm](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180223pm-audio.mp3)
 
-[Slide set 6: Hashes](06-hashes.html#/)
+[Slide set 6: Hashes](06-hashes.html#/) ([version from Reiss's lectures (PDF)](reiss/hashes.pdf))
 
 - The hash table bucket signs as both a [pdf](misc/hash-table-buckets.pdf) and an [odt](misc/hash-table-buckets.odt)
 
