@@ -48,7 +48,7 @@ Program and Data Representation: Slides
 
 - The hash table bucket signs as both a [pdf](misc/hash-table-buckets.pdf) and an [odt](misc/hash-table-buckets.odt)
 
-- Reiss's lecture recordings: 28 Feb: [audio](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180228-audio.mp3), [video](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180228-video-and-audio.webm), [view in browser](https://www.cs.virginia.edu/~cr4bd/videoplayer?2150-recordings/S2018/20180228-video-and-audio);
+- Reiss's lecture recordings: 28 Feb: [audio](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180228-audio.mp3), [video](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180228-video-and-audio.webm), [view in browser](https://www.cs.virginia.edu/~cr4bd/videoplayer?2150-recordings/S2018/20180228-video-and-audio); 2 March: [audio](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180302-audio.mp3), [video](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180302-video-and-audio.webm), [view in browser](https://www.cs.virginia.edu/~cr4bd/videoplayer?2150-recordings/S2018/20180302-video-and-audio);
 
 
 [Slide set 7: IBCM (machine language)](07-ibcm.html#/)
