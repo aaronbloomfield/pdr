@@ -807,7 +807,7 @@ union ibcm_instruction {
     struct { unsigned int op:4, unused:12; } halt;
     struct { unsigned int op:4, ioopt:2, unused:10 } io;
     struct { unsigned int op:4, shiftop: 2, 
-             unused:5, shiftcout:5; } shifts;
+             unused:5, shiftcount:5; } shifts;
     struct { unsigned int op:4, address:12; } others;
 };
 ```
