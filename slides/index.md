@@ -56,6 +56,7 @@ Program and Data Representation: Slides
 - Source code: [summation.ibcm](../ibcm/summation.ibcm), [array-summation.ibcm](../ibcm/array-summation.ibcm)
 - [IBCM book chapter](../book/ibcm-chapter.pdf) as the reading
 - There is a separate [IBCM section](../ibcm/index.html) of this repository with more IBCM information, although that additional information will not be needed in this course
+- Reiss's lecture recordings: 14 Mar: [audio](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180314-audio.mp3), [video](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180314-video-and-audio.webm), [view in browser](https://www.cs.virginia.edu/~cr4bd/videoplayer?2150-recordings/S2018/20180314-video-and-audio); 
 
 Slide set 8: assembly language: in 32 bit and 64 bit flavors
 
