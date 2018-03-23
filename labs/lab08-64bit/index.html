@@ -90,27 +90,27 @@
 </colgroup>
 <thead>
 <tr class="header">
-<th>Platform</th>
-<th>nasm flag</th>
-<th>x86 subroutine name</th>
-<th>clang++ flags</th>
-<th>Notes</th>
+<th align="left">Platform</th>
+<th align="left">nasm flag</th>
+<th align="left">x86 subroutine name</th>
+<th align="left">clang++ flags</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>64-bit Linux</td>
-<td>-f elf64</td>
-<td>vecsum</td>
-<td>-m64</td>
-<td>This is what our submission server is running, <strong>and what your code must work on.</strong> If you have it on your computer, you must install a few packages as well - see above</td>
+<td align="left">64-bit Linux</td>
+<td align="left">-f elf64</td>
+<td align="left">vecsum</td>
+<td align="left">-m64</td>
+<td align="left">This is what our submission server is running, <strong>and what your code must work on.</strong> If you have it on your computer, you must install a few packages as well - see above</td>
 </tr>
 <tr class="even">
-<td>64 bit Mac OS X</td>
-<td>-f macho64</td>
-<td>_vecsum</td>
-<td>???</td>
-<td>We are unsure about the clang++ flags necessary. May not be able to print the assembly in the format discussed in class.</td>
+<td align="left">64 bit Mac OS X</td>
+<td align="left">-f macho64</td>
+<td align="left">_vecsum</td>
+<td align="left">???</td>
+<td align="left">We are unsure about the clang++ flags necessary. May not be able to print the assembly in the format discussed in class.</td>
 </tr>
 </tbody>
 </table>
@@ -131,7 +131,7 @@
 <pre><code>clang++ -m64 -Wall -g vecsum.o main.o</code></pre>
 <p>This tells clang++ to link both of the .o files created above into an executable, which it called <code>a.out</code>. Note that there isn't any compiling done at this stage (the compilation was done before) -- this just links the two object files into the final executable. Also note that for our submitted Makefiles, we will NOT have the <code>-o</code> flag present.</p>
 <h3 id="tutorial">Tutorial</h3>
-<p>Complete the C++/assembly tutorial, which consists of reading <a href="https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf">x86-64 Machine-Level Programming</a> from CMU.</p>
+<p>Complete the C++/assembly tutorial, which consists of reading the book chapters on <a href="../../book/x86-64bit-asm-chapter.pdf">x86-64</a> and the <a href="../../book/x86-64bit-ccc-chapter.pdf">calling convention</a>]. Another good reading is <a href="https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf">x86-64 Machine-Level Programming</a> from CMU. (The CMU reading uses the other assembly language format.)</p>
 <h3 id="vecsum">Vecsum</h3>
 <p>Examine the vecsum subroutine in <a href="vecsum.s.html">vecsum.s</a> (<a href="vecsum.s">src</a>). Use the slides and readings to help understand what is happening in vecsum.s. Make sure you understand the prologue and epilogue implementation, as well as the instructions used in the subroutine.</p>
 <p>Compile and run the vecsum program:</p>
@@ -154,7 +154,7 @@
 <p>You can assume that the numbers passed into both routines will both be positive, so you need not consider negative numbers or zero. Furthermore, as described above, no values will be used on your program that could cause an integer overflow.</p>
 <p>Both of these routines should be in a file called mathlib.s, and must use the proper C-style calling convention. You must also provide a mathfun.cpp file, which calls both of your subroutines -- see the main.cpp file provided as a template. The program should take in ONLY two integers (we'll call them <em>x</em> and <em>y</em>). It should then print out the output of calling <code>product(x,y)</code> and <code>power(x,y)</code>. Thus, if the input is 3 and 4, it would print out 12 and 81.</p>
 <p>Input is to be read via standard input (i.e., <code>cin</code>), not through command-line parameters.</p>
-<p>If you are going to have multiple routines in a single assembly file (as is needed for mathlib.s), you just have to have multiple <code>global</code> lines for each subroutine that you plan on calling from your C/C++ code.</p>
+<p>In order for routines in an assembly file to be callable from C/C++, you need to declare them with <code>global</code>, like is done in <code>vecsum.s</code>. To have multiple routines in a single assembly file (as is needed for mathlib.s), you should have multiple <code>global</code> lines, one for each subroutine that you plan on calling from your C/C++ code.</p>
 <hr />
 <h2 id="in-lab-1">In-lab</h2>
 <p>Come to lab with a functioning version of the pre-lab, and be prepared to demonstrate that you understand how to build and run the pre-lab programs. If you are unsure about any part of the pre-lab, talk to a TA. You should be able to explain and write recursive functions in assembly for the exams in this course, so make sure that you understand how to implement the pre-lab program.</p>
