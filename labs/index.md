@@ -66,7 +66,7 @@ The labs for this course:
         - ~~Source code: [vecsum.s](lab08-32bit/vecsum.s.html) ([src](lab08-32bit/vecsum.s)), [main.cpp](lab08-32bit/main.cpp.html) ([src](lab08-32bit/main.cpp)), [Makefile](lab08-32bit/Makefile.html) ([src](lab08-32bit/Makefile))~~
         - ~~Readings (which is also the tutorial): the two x86 book chapters: [x86 Assembly](../book/x86-32bit-asm-chapter.pdf) and [The x86 C Calling Convention](../book/x86-32bit-ccc-chapter.pdf)~~
     - [64-bit version of the lab](lab08-64bit/index.html)
-        - Source code: [vecsum.s](lab08-64bit/vecsum.s.html) ([src](lab08-64bit/vecsum.s)), [main.cpp](lab08-64bit/main.cpp.html) ([src](lab08-64bit/main.cpp)), [Makefile](lab08-64bit/Makefile.html) ([src](lab08-64bit/Makefile))
+        - Source code: [vecsum.s](lab08-64bit/vecsum.s.html) ([src](lab08-64bit/vecsum.s)), [main.cpp](lab08-64bit/main.cpp.html) ([src](lab08-64bit/main.cpp)), [Makefile](lab08-64bit/Makefile.html) ([src](lab08-64bit/Makefile)), [mergeSort.s](lab08-64bit/mergeSort.s.html) ([src](lab08-64bit/mergeSort.s)), [testMergeSort.cpp](lab08-64bit/testMergeSort.cpp.html) ([src](lab08-64bit/testMergeSort.cpp))
         - Readings (which is also the tutorial): the C++/assembly tutorial, which consists of reading [x86-64 Machine-Level Programming](https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf) from CMU
 
 &nbsp;
