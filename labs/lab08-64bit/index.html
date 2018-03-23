@@ -33,8 +33,8 @@
 <li>Make sure your mathfun.cpp takes in only the input described in the pre-lab section! Input is to be provided via standard input (i.e., <code>cin</code>), not through command-line parameters.</li>
 <li>Your code must compile with <code>make</code>!
 <ul>
-  <li>And does your code work on a 64-bit Linux machine? It will need to in order to receive credit.</li>
-  <li>You may need to SSH into a lab machine to run your code. To do so, follow the instructions in the SSH/SCP tutorial.
+<li>And does your code work on a 64-bit Linux machine? It will need to in order to receive credit.</li>
+<li>You may need to SSH into a lab machine to run your code. To do so, follow the instructions in the SSH/SCP tutorial.</li>
 </ul></li>
 <li>Files to download <a href="vecsum.s.html">vecsum.s</a> (<a href="vecsum.s">src</a>), <a href="main.cpp.html">main.cpp</a> (<a href="main.cpp">src</a>), <a href="Makefile.html">Makefile</a> (<a href="Makefile">src</a>)</li>
 <li>Files to submit mathlib.s, mathfun.cpp, Makefile</li>
@@ -158,13 +158,9 @@
 <hr />
 <h2 id="in-lab-1">In-lab</h2>
 <p>Come to lab with a functioning version of the pre-lab, and be prepared to demonstrate that you understand how to build and run the pre-lab programs. If you are unsure about any part of the pre-lab, talk to a TA. You should be able to explain and write recursive functions in assembly for the exams in this course, so make sure that you understand how to implement the pre-lab program.</p>
-
-  <p>Before starting the in-lab, make sure you read and understand the book chapters on the C calling convention. For the in-lab, you will be implementing merge sort in x86 assembly. We have provided the helper function <code>merge</code> in mergeSort.s. Note: <code>merge</code> makes use of two caller-saved registers, r10 and r11. <b>Remember to save and restore these registers</b> before and after calling <code>merge</code>.
-
-<p>Download <a href="mergeSort.s.html">mergeSort.s</a> (<a href="mergeSort.s">src</a>), as well as <a href="testMergeSort.s.html">testMergeSort.s</a> (<a href="testMergeSort.s">src</a>), which you will use to test your code. Make sure you do not alter testMergeSort.cpp, as you must include the original file in your submission. You will need to create a Makefile for the in-lab. To do so, you can copy the pre-lab Makefile and set <code>OFILES=mergeSort.o testMergeSort.o</code>.</p>
-
+<p>Before starting the in-lab, make sure you read and understand the book chapters on the C calling convention. For the in-lab, you will be implementing merge sort in x86 assembly. We have provided the helper function <code>merge</code> in mergeSort.s. Note: <code>merge</code> makes use of two caller-saved registers, r10 and r11. <strong>Remember to save and restore these registers</strong> before and after calling <code>merge</code>.</p>
+<p>Download <a href="mergeSort.s.html">mergeSort.s</a> (<a href="mergeSort.s">src</a>), as well as <a href="testMergeSort.cpp.html">testMergeSort.cpp</a> (<a href="testMergeSort.cpp">src</a>), which you will use to test your code. Make sure you do not alter testMergeSort.cpp, as you must include the original file in your submission. You will need to create a Makefile for the in-lab. To do so, you can copy the pre-lab Makefile and set <code>OFILES=mergeSort.o testMergeSort.o</code>.</p>
 <p>Your task for the in-lab is to implement the <code>mergeSort</code> function in mergeSort.s. This function takes in three parameters. The first parameter is a pointer to an int array. The second parameter is an integer corresponding to the left index in the array. The third parameter is an integer corresponding to the right index in the array. The return type of this function is void, and it modifies the original array. You may assume the size of the array is nonzero. When testing your function using testMergeSort.cpp, input will be read via standard input, not through command-line parameters. After entering the array size, you will be prompted to enter each element one by one. This test file will call your <code>mergeSort</code> function on the array, and print the result. Make sure you test your function on arrays of various sizes.</p>
-
 <h3 id="sample-execution-run">Sample Execution Run</h3>
 <p>Below is a sample execution run to show you the input and output format we are looking for.</p>
 <pre><code>Enter the array size: 5
@@ -175,23 +171,18 @@ Enter value 3: 12
 Enter value 4: 8
 Unsorted array: -7 2 -39 12 8 
 Sorted array: -39 -7 2 8 12</code></pre>
-
 <p>The following resource explains the merge sort algorithm. This is what you need to implement in x86 assembly: <a href="https://www.hackerearth.com/practice/algorithms/sorting/merge-sort/tutorial/">www.hackerearth.com/practice/algorithms/sorting/merge-sort/tutorial/</a></p>
-
-<p>Once you have completed the in-lab, submit mergeSort.s, testMergeSort.cpp, and your Makefile. <strong>If you finish the in-lab early, you should begin working on the post-lab report.</strong></p> 
-
+<p>Once you have completed the in-lab, submit mergeSort.s, testMergeSort.cpp, and your Makefile. <strong>If you finish the in-lab early, you should begin working on the post-lab report.</strong></p>
 <hr />
 <h2 id="post-lab-1">Post-lab</h2>
 <p>For the post-lab, you should investigate and understand the topics below, and prepare a report that explains your findings. Follow the guidelines in the Post-lab Report Guideline section. You must show evidence of your conclusions in the form of assembly code, C++, screenshots, memory dumps, manual quotations, output, etc. Use test cases and the debugger as resources. Additionally, use resources other than yourself (e.g. books, reputable websites) and external to the course (i.e. &quot;the TAs&quot; or &quot;lecture&quot; don't count). <strong><em>You must use (and cite!) at least TWO additional resources for this post-lab!</em></strong></p>
-
-<p>The general activity of this post-lab will be to write small snippets of C++ code, compile them so that you can look at the generated assembly code, then make modifications and recompile as needed in order to deduce the representation of a number of C++ constructs (listed below).</p>
 <h3 id="post-lab-8-topics">Post-lab 8 topics</h3>
 <p>The questions below are what you must address in your post-lab report. Make sure you answer each part and include sufficient evidence. You should create a simple class to help you answer the following questions. In your class, be sure to include several methods and at least 5 data members of different types and access levels (public and private).</p>
 <h3 id="parameter-passing">Parameter passing</h3>
 <p>Show and explain assembly code generated by the compiler for a simple function and function call that passes parameters by a variety of means. Show what is happening both in the caller and in the callee. You do not need to describe parts of the C calling convention we described in class (e.g. saving registers, saving the base pointer, how the call instruction works). The focus here is on examining in detail what happens when parameters are passed.</p>
 <ol style="list-style-type: decimal">
-  <li>How are variables (ints, chars, pointers, floats, etc.) passed by value? How are they passed by reference? Create several functions and examine the parameter registers to help you answer this question.</li>
-  <li>Create a simple function that takes in an object. How are objects passed by value? How are they passed by reference? Specifically, what is contained in the parameter registers in each case?</li>
+<li>How are variables (ints, chars, pointers, floats, etc.) passed by value? How are they passed by reference? Create several functions and examine the parameter registers to help you answer this question.</li>
+<li>Create a simple function that takes in an object. How are objects passed by value? How are they passed by reference? Specifically, what is contained in the parameter registers in each case?</li>
 <li>Create an array in your main method, and write a function that takes it in as a parameter. How are arrays passed into functions? How does the callee access the parameters? Where are the data values placed? Hint: you will need to determine at least a register-relative address.</li>
 <li>Is passing values by reference different than passing by pointer? If they are the same, what exactly is passed in the parameter register? If they are different, how so?</li>
 </ol>
@@ -203,16 +194,13 @@ Sorted array: -39 -7 2 8 12</code></pre>
 <li>How are data members accessed both from inside a member function and from outside? In other words, describe what the assembly code does to access data members in both of these situations.</li>
 <li>How are public member functions accessed for your class? Call some of the public member functions for your class and examine the parameters. How is the &quot;this&quot; pointer implemented? Where is it stored? When is it accessed? How is it passed to member functions?</li>
 </ol>
-<b><p>Your grade will be based on whether you sufficiently answered and provided evidence for the above questions.</p></b>
-
+<p><strong>Your grade will be based on whether you sufficiently answered and provided evidence for the above questions.</strong></p>
 <h3 id="tips-for-getting-started-on-the-post-lab">Tips for Getting Started on the Post-lab</h3>
 <p>Think about how best to investigate the issues you choose. A good starting point is to write a small C++ program that illustrates one of the issues. This program should be as simple as possible.</p>
 <p>Look at the assembly code associated with your C++ code. To examine the disassembled code you have three options. First, you can step through the code in the debugger using the disassembly view. You can also have the C++ code output to an assembly file using <code>clang++ -S -mllvm --x86-asm-syntax=intel fileName.cpp</code>, which can be viewed in emacs. Lastly, you may use the site <a href="https://www.godbolt.org">www.godbolt.org</a> to view the assembly code. You can paste your C++ code directly into the editor, or upload a file. Choose either clang or gcc as your compiler.</p>
 <p>Focus on devising experiments that will help you learn more about the particular issues. By tracing though some parts of the code, modifying your C++ code, and comparing the generated assembly for the two different versions, you should be able to come up with some reasonably good hypotheses about what is happening. Seek out resources that explain the issue. Keep in mind that you are required to list your sources in your post-lab report.</p>
 <h3 id="post-lab-report-guidelines">Post-lab Report Guidelines</h3>
-
 <p>The report should be a PDF file called postlab8.pdf. See the <a href="../../docs/convert_to_pdf.html">How to convert a file to PDF</a> page for details about creating a PDF file. Your report should be single spaced. In your report, label the items according to which list item they came from (parameter passing or objects), and their item number within that list. Your evidence should be embedded into the document. Highlighting portions of code or drawing arrows between things may help make your explanations clearer. For each item, you should include a short explanation (1-2 paragraphs maximum) and at least one piece of evidence. Don't forget to include at least two external resources. Other than your own experiments, feel free to use online x86 assembly references, C++ books, and resources you may find on the Internet or elsewhere. <strong>Discussing these issues is allowed, however, remember that your code and final report must be your own work and that you must credit ANY resources used.</strong></p>
 <p>We want you to investigate the particular topic area from the given list, write code to discover the answers, and learn about this topic on your own.</p>
-  
 </body>
 </html>

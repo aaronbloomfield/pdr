@@ -125,15 +125,14 @@ The result of the expression tree is 42 </code></pre>
 <p>Both trees must implement their respective class definitions in <a href="code/postlab/BinarySearchTree.h">BinarySearchTree.h</a> and <a href="code/postlab/AVLTree.h">AVLTree.h</a>. However, you are free to add as many other member functions as you wish. Note that we have provided an implementation of <code>remove()</code> in <a href="code/postlab/AVLTree.cpp">AVLTree.cpp</a>, but you must still implement <code>remove()</code> for the Binary search tree.</p>
 <p>Do NOT alter <a href="code/postlab/TreePathTest.cpp">TreePathTest.cpp</a>. This program will be used to run automated tests on your implementations. Do not change it.</p>
 <p>Feel free to move the implementation of the AVL tree to another .cpp file. However, we recommend separate .cpp files for the different trees. Additionally, you may find it helpful to have private versions of <code>insert</code>, <code>pathTo</code>, etc... that take a node as a parameter. This allows them to operate on any node, not just the root.</p>
-<p>The test program will read inputs and attempt to insert elements into your trees. Its input format is a sequence of instruction/word pairs defined as follows:</p>
-<ul><li>Insert: <code>I &lt;word&gt;</code></li> <li>Remove: <code>R &lt;word&gt;</code></li><li>Lookup: <code>L &lt;word&gt;</code></li></ul>
+<p>The test program will read inputs and attempt to insert elements into your trees. Its input format is a sequence of instruction/word pairs defined as follows: - Insert <word>: <code>I &lt;word&gt;</code> - Remove <word>: <code>R &lt;word&gt;</code> - Lookup <word>: <code>L &lt;word&gt;</code></p>
 <p>The Lookup instruction will call the <code>pathTo()</code> method defined in your trees. <code>pathTo()</code> must return a string representing the nodes encountered when finding an element. For instance in the following image, the bold lines indicate the path taken for locating element W.</p>
 <div class="figure">
 <img src="avl-tree-pic-1.png" alt="avl-tree-pic-1" />
 <p class="caption">avl-tree-pic-1</p>
 </div>
 <p><code>pathTo(&quot;W&quot;)</code> would then return the string <code>&quot;M P Z W&quot;</code>. Calling <code>pathTo()</code> on an element that doesn't exist would result in an empty string <code>&quot;&quot;</code>.</p>
-<p>To recap, submit the following files:</p><ul><li>TreePathTest.cpp: Do NOT modify, contains <code>main()</code> method.</li> <li>AVLTree.h, BinarySearchTree.h: class definitions which the test program depends on.</li> <li>Your .cpp files which contain the implementions of AVLTree and BinarySearchTree.</li> <li>Makefile: compiles your program and produces the a.out executable.</li> <li>analysis.pdf: The report for this lab.</li></ul>
+<p>To recap, submit the following files: - TreePathTest.cpp: Do NOT modify, contains <code>main()</code> method. - AVLTree.h, BinarySearchTree.h: class definitions which the test program depends on. - Your .cpp files which contain the implementions of AVLTree and BinarySearchTree. - Makefile: compiles your program and produces the a.out executable - analysis.pdf: The report for this lab.</p>
 <p>The report for this lab should contain the following:</p>
 <ol style="list-style-type: decimal">
 <li>Your name, the date, and your CS 2150 lab section.</li>
