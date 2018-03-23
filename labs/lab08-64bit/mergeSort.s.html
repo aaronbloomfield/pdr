@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<title>mergeSort.s</title>
+</head>
+<body bgcolor="white">
+<pre>
+<span style='color:#9A1900; '>; University of Virginia</span>
+<span style='color:#9A1900; '>; CS 2150 In-Lab 8</span>
+<span style='color:#9A1900; '>; Spring 2018</span>
+<span style='color:#9A1900; '>; mergeSort.s</span>
+
+	global mergeSort
+	global merge
+
+	section <span style='color:#9A1900; '>.</span>text
+
+
+<span style='color:#9A1900; '>; Parameter 1 is a pointer to the int array </span>
+<span style='color:#9A1900; '>; Parameter 2 is the left index in the array </span>
+<span style='color:#9A1900; '>; Parameter 3 is the right index in the array</span>
+<span style='color:#9A1900; '>; Return type is void </span>
+<b><span style='color:#000080; '>mergeSort:</span></b>
+
+	<span style='color:#9A1900; '>; Implement mergeSort here</span>
+	
+
+
+
+<span style='color:#9A1900; '>; Parameter 1 is a pointer to the int array </span>
+<span style='color:#9A1900; '>; Parameter 2 is the left index in the array</span>
+<span style='color:#9A1900; '>; Parameter 3 is the middle index in the array </span>
+<span style='color:#9A1900; '>; Parameter 4 is the right index in the array</span>
+<span style='color:#9A1900; '>; Return type is void </span>
+<b><span style='color:#000080; '>merge:</span></b>
+	<span style='color:#9A1900; '>; Save callee-save registers</span>
+	<span style='color:#9A1900; '>; Store local variables </span>
+	<span style='color:#0000ff; font-weight:bold; '>push</span> rbx			<span style='color:#9A1900; '>; int i</span>
+	<span style='color:#0000ff; font-weight:bold; '>push</span> r1<span style='color:#800000; '>2</span>			<span style='color:#9A1900; '>; int j</span>
+	<span style='color:#0000ff; font-weight:bold; '>push</span> r1<span style='color:#800000; '>3</span>			<span style='color:#9A1900; '>; int k</span>
+	<span style='color:#0000ff; font-weight:bold; '>push</span> r1<span style='color:#800000; '>4</span>			<span style='color:#9A1900; '>; int n1</span>
+	<span style='color:#0000ff; font-weight:bold; '>push</span> r1<span style='color:#800000; '>5</span>			<span style='color:#9A1900; '>; int n2</span>
+	
+	<span style='color:#0000ff; font-weight:bold; '>mov</span> r1<span style='color:#800000; '>4</span><span style='color:#0000ff; '>,</span> rdx			<span style='color:#9A1900; '>; n1 = mid - left + 1</span>
+	<span style='color:#0000ff; font-weight:bold; '>sub</span> r1<span style='color:#800000; '>4</span><span style='color:#0000ff; '>,</span> rsi
+	<span style='color:#0000ff; font-weight:bold; '>inc</span> r1<span style='color:#800000; '>4</span>
+
+	<span style='color:#0000ff; font-weight:bold; '>mov</span> r1<span style='color:#800000; '>5</span><span style='color:#0000ff; '>,</span> rcx			<span style='color:#9A1900; '>; n2 = right - mid </span>
+	<span style='color:#0000ff; font-weight:bold; '>sub</span> r1<span style='color:#800000; '>5</span><span style='color:#0000ff; '>,</span> rdx
+
+	<span style='color:#0000ff; font-weight:bold; '>lea</span> r1<span style='color:#800000; '>1</span><span style='color:#0000ff; '>,</span> <span style='color:#0000ff; '>[</span>r1<span style='color:#800000; '>4</span><span style='color:#0000ff; '>+</span>r1<span style='color:#800000; '>5</span><span style='color:#0000ff; '>]</span>		<span style='color:#9A1900; '>; r11 = rsp offset = 4(n1 + n2)</span>
+	<span style='color:#0000ff; font-weight:bold; '>lea</span> r1<span style='color:#800000; '>1</span><span style='color:#0000ff; '>,</span> <span style='color:#0000ff; '>[</span><span style='color:#800000; '>4</span><span style='color:#0000ff; '>*</span>r1<span style='color:#800000; '>1</span><span style='color:#0000ff; '>]</span>		
+	<span style='color:#0000ff; font-weight:bold; '>sub</span> rsp<span style='color:#0000ff; '>,</span> r1<span style='color:#800000; '>1</span>			<span style='color:#9A1900; '>; allocate space for temp arrays</span>
+
+	<span style='color:#0000ff; font-weight:bold; '>mov</span> rbx<span style='color:#0000ff; '>,</span> <span style='color:#800000; '>0</span>			<span style='color:#9A1900; '>; i = 0</span>
+	<span style='color:#0000ff; font-weight:bold; '>mov</span> r1<span style='color:#800000; '>2</span><span style='color:#0000ff; '>,</span> <span style='color:#800000; '>0</span>			<span style='color:#9A1900; '>; j = 0</span>
+	
+<span style='color:#9A1900; '>; Copy elements of arr[] into L[]	</span>
+<b><span style='color:#000080; '>copyLloop:</span></b>
+	<span style='color:#0000ff; font-weight:bold; '>cmp</span> rbx<span style='color:#0000ff; '>,</span> r1<span style='color:#800000; '>4</span>			<span style='color:#9A1900; '>; is i >= n1?</span>
+	<span style='color:#0000ff; font-weight:bold; '>jge </span>copyRloop
+					<span style='color:#9A1900; '>; L[i] = arr[left + i]</span>
+	<span style='color:#0000ff; font-weight:bold; '>lea</span> r1<span style='color:#800000; '>0</span><span style='color:#0000ff; '>,</span> <span style='color:#0000ff; '>[</span>rsi<span style='color:#0000ff; '>+</span>rbx<span style='color:#0000ff; '>]</span>		
+	<span style='color:#0000ff; font-weight:bold; '>mov</span> r10d<span style='color:#0000ff; '>,</span> <span style='color:#0000ff; font-weight:bold; '>DWORD</span> <span style='color:#0000ff; '>[</span>rdi<span style='color:#0000ff; '>+</span><span style='color:#800000; '>4</span><span style='color:#0000ff; '>*</span>r1<span style='color:#800000; '>0</span><span style='color:#0000ff; '>]</span>	<span style='color:#9A1900; '>; r10 = arr[left + i]</span>
+	<span style='color:#0000ff; font-weight:bold; '>mov</span> <span style='color:#0000ff; font-weight:bold; '>DWORD</span> <span style='color:#0000ff; '>[</span>rsp<span style='color:#0000ff; '>+</span><span style='color:#800000; '>4</span><span style='color:#0000ff; '>*</span>rbx<span style='color:#0000ff; '>]</span><span style='color:#0000ff; '>,</span> r10d	<span style='color:#9A1900; '>; L[i] = r10</span>
+	<span style='color:#0000ff; font-weight:bold; '>inc</span> rbx				<span style='color:#9A1900; '>; i++</span>
+	<span style='color:#0000ff; font-weight:bold; '>jmp </span>copyLloop
+
+<span style='color:#9A1900; '>; Copy elements of arr[] into R[]</span>
+<b><span style='color:#000080; '>copyRloop:</span></b>
+	<span style='color:#0000ff; font-weight:bold; '>cmp</span> r1<span style='color:#800000; '>2</span><span style='color:#0000ff; '>,</span> r1<span style='color:#800000; '>5</span>			<span style='color:#9A1900; '>; is j >= n2?</span>
+	<span style='color:#0000ff; font-weight:bold; '>jge </span>endcopyR
+ 					<span style='color:#9A1900; '>; R[j] = arr[mid + 1 + j]</span>
+	<span style='color:#0000ff; font-weight:bold; '>lea</span> r1<span style='color:#800000; '>0</span><span style='color:#0000ff; '>,</span> <span style='color:#0000ff; '>[</span>rdx<span style='color:#0000ff; '>+</span>r1<span style='color:#800000; '>2</span><span style='color:#800000; '>+1</span><span style='color:#0000ff; '>]</span>	
+	<span style='color:#0000ff; font-weight:bold; '>mov</span> r10d<span style='color:#0000ff; '>,</span> <span style='color:#0000ff; font-weight:bold; '>DWORD</span> <span style='color:#0000ff; '>[</span>rdi<span style='color:#0000ff; '>+</span><span style='color:#800000; '>4</span><span style='color:#0000ff; '>*</span>r1<span style='color:#800000; '>0</span><span style='color:#0000ff; '>]</span>	<span style='color:#9A1900; '>; r10 = arr[mid + 1 + j]</span>
+	<span style='color:#0000ff; font-weight:bold; '>lea</span> rax<span style='color:#0000ff; '>,</span> <span style='color:#0000ff; '>[</span>r1<span style='color:#800000; '>2</span><span style='color:#0000ff; '>+</span>r1<span style='color:#800000; '>4</span><span style='color:#0000ff; '>]</span>		
+	<span style='color:#0000ff; font-weight:bold; '>mov</span> <span style='color:#0000ff; font-weight:bold; '>DWORD</span> <span style='color:#0000ff; '>[</span>rsp<span style='color:#0000ff; '>+</span><span style='color:#800000; '>4</span><span style='color:#0000ff; '>*</span>rax<span style='color:#0000ff; '>]</span><span style='color:#0000ff; '>,</span> r10d	<span style='color:#9A1900; '>; R[j] = r10</span>
+	<span style='color:#0000ff; font-weight:bold; '>inc</span> r1<span style='color:#800000; '>2</span>				<span style='color:#9A1900; '>; j++</span>
+	<span style='color:#0000ff; font-weight:bold; '>jmp </span>copyRloop
+
+<b><span style='color:#000080; '>endcopyR:</span></b>	
+	<span style='color:#0000ff; font-weight:bold; '>mov</span> rbx<span style='color:#0000ff; '>,</span> <span style='color:#800000; '>0</span>			<span style='color:#9A1900; '>; i = 0</span>
+	<span style='color:#0000ff; font-weight:bold; '>mov</span> r1<span style='color:#800000; '>2</span><span style='color:#0000ff; '>,</span> <span style='color:#800000; '>0</span>			<span style='color:#9A1900; '>; j = 0</span>
+	<span style='color:#0000ff; font-weight:bold; '>mov</span> r1<span style='color:#800000; '>3</span><span style='color:#0000ff; '>,</span> rsi			<span style='color:#9A1900; '>; k = left</span>
+
+<span style='color:#9A1900; '>; Merge L[] and R[] into arr[]</span>
+<b><span style='color:#000080; '>mergeLoop:</span></b>
+	<span style='color:#0000ff; font-weight:bold; '>cmp</span> rbx<span style='color:#0000ff; '>,</span> r1<span style='color:#800000; '>4</span>			<span style='color:#9A1900; '>; is i >= n1 or j >= n2?</span>
+	<span style='color:#0000ff; font-weight:bold; '>jge </span>loopL
+	<span style='color:#0000ff; font-weight:bold; '>cmp</span> r1<span style='color:#800000; '>2</span><span style='color:#0000ff; '>,</span> r1<span style='color:#800000; '>5</span>
+	<span style='color:#0000ff; font-weight:bold; '>jge </span>loopL
+	<span style='color:#0000ff; font-weight:bold; '>lea</span> r1<span style='color:#800000; '>0</span><span style='color:#0000ff; '>,</span> <span style='color:#0000ff; '>[</span>r1<span style='color:#800000; '>2</span><span style='color:#0000ff; '>+</span>r1<span style='color:#800000; '>4</span><span style='color:#0000ff; '>]</span>
+	<span style='color:#0000ff; font-weight:bold; '>mov</span> r10d<span style='color:#0000ff; '>,</span> <span style='color:#0000ff; font-weight:bold; '>DWORD</span> <span style='color:#0000ff; '>[</span>rsp<span style='color:#0000ff; '>+</span><span style='color:#800000; '>4</span><span style='color:#0000ff; '>*</span>r1<span style='color:#800000; '>0</span><span style='color:#0000ff; '>]</span> 	<span style='color:#9A1900; '>; r10d = R[j]</span>
+	<span style='color:#0000ff; font-weight:bold; '>cmp</span> <span style='color:#0000ff; font-weight:bold; '>DWORD</span> <span style='color:#0000ff; '>[</span>rsp<span style='color:#0000ff; '>+</span><span style='color:#800000; '>4</span><span style='color:#0000ff; '>*</span>rbx<span style='color:#0000ff; '>]</span><span style='color:#0000ff; '>,</span> r10d	<span style='color:#9A1900; '>; is L[i] &lt;= R[j]?</span>
+	<span style='color:#0000ff; font-weight:bold; '>jle </span>if
+	<span style='color:#0000ff; font-weight:bold; '>mov</span> <span style='color:#0000ff; font-weight:bold; '>DWORD</span> <span style='color:#0000ff; '>[</span>rdi<span style='color:#0000ff; '>+</span><span style='color:#800000; '>4</span><span style='color:#0000ff; '>*</span>r1<span style='color:#800000; '>3</span><span style='color:#0000ff; '>]</span><span style='color:#0000ff; '>,</span> r10d	<span style='color:#9A1900; '>; arr[k] = R[j]</span>
+	<span style='color:#0000ff; font-weight:bold; '>inc</span> r1<span style='color:#800000; '>2</span>				<span style='color:#9A1900; '>; j++</span>
+	<span style='color:#0000ff; font-weight:bold; '>jmp </span>endif
+<b><span style='color:#000080; '>if:</span></b>
+	<span style='color:#0000ff; font-weight:bold; '>mov</span> r10d<span style='color:#0000ff; '>,</span> <span style='color:#0000ff; font-weight:bold; '>DWORD</span> <span style='color:#0000ff; '>[</span>rsp<span style='color:#0000ff; '>+</span><span style='color:#800000; '>4</span><span style='color:#0000ff; '>*</span>rbx<span style='color:#0000ff; '>]</span> 
+	<span style='color:#0000ff; font-weight:bold; '>mov</span> <span style='color:#0000ff; font-weight:bold; '>DWORD</span> <span style='color:#0000ff; '>[</span>rdi<span style='color:#0000ff; '>+</span><span style='color:#800000; '>4</span><span style='color:#0000ff; '>*</span>r1<span style='color:#800000; '>3</span><span style='color:#0000ff; '>]</span><span style='color:#0000ff; '>,</span> r10d	<span style='color:#9A1900; '>; arr[k] = L[i] </span>
+	<span style='color:#0000ff; font-weight:bold; '>inc</span> rbx				<span style='color:#9A1900; '>; i++</span>
+<b><span style='color:#000080; '>endif:</span></b>	
+	<span style='color:#0000ff; font-weight:bold; '>inc</span> r1<span style='color:#800000; '>3</span>				<span style='color:#9A1900; '>; k++	</span>
+	<span style='color:#0000ff; font-weight:bold; '>jmp </span>mergeLoop
+	
+<span style='color:#9A1900; '>; Copy elements of L[] into arr[]</span>
+<b><span style='color:#000080; '>loopL:</span></b>				
+	<span style='color:#0000ff; font-weight:bold; '>cmp</span> rbx<span style='color:#0000ff; '>,</span> r1<span style='color:#800000; '>4</span>			<span style='color:#9A1900; '>; is i >= n1?</span>
+	<span style='color:#0000ff; font-weight:bold; '>jge </span>loopR
+	<span style='color:#0000ff; font-weight:bold; '>mov</span> r10d<span style='color:#0000ff; '>,</span> <span style='color:#0000ff; font-weight:bold; '>DWORD</span> <span style='color:#0000ff; '>[</span>rsp<span style='color:#0000ff; '>+</span><span style='color:#800000; '>4</span><span style='color:#0000ff; '>*</span>rbx<span style='color:#0000ff; '>]</span> 
+	<span style='color:#0000ff; font-weight:bold; '>mov</span> <span style='color:#0000ff; font-weight:bold; '>DWORD</span> <span style='color:#0000ff; '>[</span>rdi<span style='color:#0000ff; '>+</span><span style='color:#800000; '>4</span><span style='color:#0000ff; '>*</span>r1<span style='color:#800000; '>3</span><span style='color:#0000ff; '>]</span><span style='color:#0000ff; '>,</span> r10d	<span style='color:#9A1900; '>; arr[k] = L[i]</span>
+	<span style='color:#0000ff; font-weight:bold; '>inc</span> rbx				<span style='color:#9A1900; '>; i++</span>
+	<span style='color:#0000ff; font-weight:bold; '>inc</span> r1<span style='color:#800000; '>3</span>				<span style='color:#9A1900; '>; k++</span>
+	<span style='color:#0000ff; font-weight:bold; '>jmp </span>loopL
+
+<span style='color:#9A1900; '>; Copy elements of R[] into arr[]</span>
+<b><span style='color:#000080; '>loopR:</span></b>	
+	<span style='color:#0000ff; font-weight:bold; '>cmp</span> r1<span style='color:#800000; '>2</span><span style='color:#0000ff; '>,</span> r1<span style='color:#800000; '>5</span>			<span style='color:#9A1900; '>; is j >= n2?</span>
+	<span style='color:#0000ff; font-weight:bold; '>jge </span>endR
+	<span style='color:#0000ff; font-weight:bold; '>lea</span> r1<span style='color:#800000; '>0</span><span style='color:#0000ff; '>,</span> <span style='color:#0000ff; '>[</span>r1<span style='color:#800000; '>2</span><span style='color:#0000ff; '>+</span>r1<span style='color:#800000; '>4</span><span style='color:#0000ff; '>]</span>
+	<span style='color:#0000ff; font-weight:bold; '>mov</span> r10d<span style='color:#0000ff; '>,</span> <span style='color:#0000ff; font-weight:bold; '>DWORD</span> <span style='color:#0000ff; '>[</span>rsp<span style='color:#0000ff; '>+</span><span style='color:#800000; '>4</span><span style='color:#0000ff; '>*</span>r1<span style='color:#800000; '>0</span><span style='color:#0000ff; '>]</span> 	
+	<span style='color:#0000ff; font-weight:bold; '>mov</span> <span style='color:#0000ff; font-weight:bold; '>DWORD</span> <span style='color:#0000ff; '>[</span>rdi<span style='color:#0000ff; '>+</span><span style='color:#800000; '>4</span><span style='color:#0000ff; '>*</span>r1<span style='color:#800000; '>3</span><span style='color:#0000ff; '>]</span><span style='color:#0000ff; '>,</span> r10d	<span style='color:#9A1900; '>; arr[k] = R[j]</span>
+
+	<span style='color:#0000ff; font-weight:bold; '>inc</span> r1<span style='color:#800000; '>2</span>				<span style='color:#9A1900; '>; j++</span>
+	<span style='color:#0000ff; font-weight:bold; '>inc</span> r1<span style='color:#800000; '>3</span>				<span style='color:#9A1900; '>; k++</span>
+	<span style='color:#0000ff; font-weight:bold; '>jmp </span>loopR
+	
+<b><span style='color:#000080; '>endR:</span></b>
+	<span style='color:#9A1900; '>; deallocate temp arrays</span>
+	<span style='color:#9A1900; '>; restore callee-save registers</span>
+	<span style='color:#0000ff; font-weight:bold; '>add</span> rsp<span style='color:#0000ff; '>,</span> r1<span style='color:#800000; '>1</span>	
+	<span style='color:#0000ff; font-weight:bold; '>pop</span> r1<span style='color:#800000; '>5</span>			
+	<span style='color:#0000ff; font-weight:bold; '>pop</span> r1<span style='color:#800000; '>4</span>
+	<span style='color:#0000ff; font-weight:bold; '>pop</span> r1<span style='color:#800000; '>3</span>
+	<span style='color:#0000ff; font-weight:bold; '>pop</span> r1<span style='color:#800000; '>2</span>
+	<span style='color:#0000ff; font-weight:bold; '>pop</span> rbx
+	<span style='color:#0000ff; font-weight:bold; '>ret</span>
+</pre>
+</body>
+</html>
