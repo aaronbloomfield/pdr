@@ -131,7 +131,7 @@
 <pre><code>clang++ -m64 -Wall -g vecsum.o main.o</code></pre>
 <p>This tells clang++ to link both of the .o files created above into an executable, which it called <code>a.out</code>. Note that there isn't any compiling done at this stage (the compilation was done before) -- this just links the two object files into the final executable. Also note that for our submitted Makefiles, we will NOT have the <code>-o</code> flag present.</p>
 <h3 id="tutorial">Tutorial</h3>
-<p>Complete the C++/assembly tutorial, which consists of reading the book chapters on <a href="../../book/x86-64bit-asm-chapter.pdf">x86-64</a> and the <a href="../../book/x86-64bit-ccc-chapter.pdf">calling convention</a>]. Another good reading is <a href="https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf">x86-64 Machine-Level Programming</a> from CMU. (The CMU reading uses the other assembly language format.)</p>
+<p>Complete the C++/assembly tutorial, which consists of reading the book chapters on <a href="../../book/x86-64bit-asm-chapter.pdf">x86-64</a> and the <a href="../../book/x86-64bit-ccc-chapter.pdf">calling convention</a>. Another good reading is <a href="https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf">x86-64 Machine-Level Programming</a> from CMU. (The CMU reading uses the other assembly language format.)</p>
 <h3 id="vecsum">Vecsum</h3>
 <p>Examine the vecsum subroutine in <a href="vecsum.s.html">vecsum.s</a> (<a href="vecsum.s">src</a>). Use the slides and readings to help understand what is happening in vecsum.s. Make sure you understand the prologue and epilogue implementation, as well as the instructions used in the subroutine.</p>
 <p>Compile and run the vecsum program:</p>

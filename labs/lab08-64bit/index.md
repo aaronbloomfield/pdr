@@ -140,7 +140,7 @@ This tells clang++ to link both of the .o files created above into an executable
 
 ### Tutorial ###
 
-Complete the C++/assembly tutorial, which consists of reading the book chapters on [x86-64](../../book/x86-64bit-asm-chapter.pdf) and the [calling convention](../../book/x86-64bit-ccc-chapter.pdf)]. Another good reading is [x86-64 Machine-Level Programming](https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf) from CMU. (The CMU reading uses the other assembly language format.)
+Complete the C++/assembly tutorial, which consists of reading the book chapters on [x86-64](../../book/x86-64bit-asm-chapter.pdf) and the [calling convention](../../book/x86-64bit-ccc-chapter.pdf). Another good reading is [x86-64 Machine-Level Programming](https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf) from CMU. (The CMU reading uses the other assembly language format.)
 
 ### Vecsum ###
 
