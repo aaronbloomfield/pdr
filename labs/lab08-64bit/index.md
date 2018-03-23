@@ -140,7 +140,7 @@ This tells clang++ to link both of the .o files created above into an executable
 
 ### Tutorial ###
 
-Complete the C++/assembly tutorial, which consists of reading [x86-64 Machine-Level Programming](https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf) from CMU.
+Complete the C++/assembly tutorial, which consists of reading [x86-64 Machine-Level Programming](https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf) from CMU. (This uses the AT&T assembly syntax. Most notably, this reverses the order of instruction operands compared to the Intel syntax that appears in the slides.)
 
 ### Vecsum ###
 
