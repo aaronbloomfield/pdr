@@ -173,7 +173,7 @@ Both of these routines should be in a file called mathlib.s, and must use the pr
 
 Input is to be read via standard input (i.e., `cin`), not through command-line parameters.
 
-If you are going to have multiple routines in a single assembly file (as is needed for mathlib.s), you just have to have multiple `global` lines for each subroutine that you plan on calling from your C/C++ code.
+In order for routines in an assembly file to be callable from C/C++, you need to declare them with `global`, like is done in `vecsum.s`.  To have multiple routines in a single assembly file (as is needed for mathlib.s), you should have multiple `global` lines, one for each subroutine that you plan on calling from your C/C++ code.
 
 ------------------------------------------------------------
 
