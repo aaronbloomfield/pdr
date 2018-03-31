@@ -46,5 +46,12 @@ int main() {
     cout << "calling makeEmpty()" << endl;
     bh.makeEmpty();
     cout << "isEmpty(): " << bh.isEmpty() << endl;
+    cout << "inserting a value into the heap..." << endl;
+    bh.insert(100);
+    cout << "size: " << bh.size() << endl;
+    cout << "deleting min..." << endl;
+    bh.deleteMin();
+    cout << "size: " << bh.size() << endl;
+    cout << "isEmpty(): " << bh.isEmpty() << endl;
     return 0;
 }

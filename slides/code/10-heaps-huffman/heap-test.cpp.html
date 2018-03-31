@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+<meta name="GENERATOR" content="GNU source-highlight 3.1.6
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
@@ -56,6 +56,13 @@ http://www.gnu.org/software/src-highlite">
     cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"isEmpty(): "</font> <font color="#990000">&lt;&lt;</font> bh<font color="#990000">.</font><b><font color="#000000">isEmpty</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
     cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"calling makeEmpty()"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
     bh<font color="#990000">.</font><b><font color="#000000">makeEmpty</font></b><font color="#990000">();</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"isEmpty(): "</font> <font color="#990000">&lt;&lt;</font> bh<font color="#990000">.</font><b><font color="#000000">isEmpty</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"inserting a value into the heap..."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    bh<font color="#990000">.</font><b><font color="#000000">insert</font></b><font color="#990000">(</font><font color="#993399">100</font><font color="#990000">);</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"size: "</font> <font color="#990000">&lt;&lt;</font> bh<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"deleting min..."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    bh<font color="#990000">.</font><b><font color="#000000">deleteMin</font></b><font color="#990000">();</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"size: "</font> <font color="#990000">&lt;&lt;</font> bh<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
     cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"isEmpty(): "</font> <font color="#990000">&lt;&lt;</font> bh<font color="#990000">.</font><b><font color="#000000">isEmpty</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
     <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
 <font color="#FF0000">}</font>

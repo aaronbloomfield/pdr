@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+<meta name="GENERATOR" content="GNU source-highlight 3.1.6
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
@@ -101,6 +101,7 @@ binary_heap<font color="#990000">::~</font><b><font color="#000000">binary_heap<
 
 <font color="#009900">void</font> binary_heap<font color="#990000">::</font><b><font color="#000000">makeEmpty</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
     heap_size <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+    heap<font color="#990000">.</font><b><font color="#000000">resize</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">);</font>
 <font color="#FF0000">}</font>
 
 <font color="#009900">bool</font> binary_heap<font color="#990000">::</font><b><font color="#000000">isEmpty</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
