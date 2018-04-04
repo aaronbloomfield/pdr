@@ -93,9 +93,9 @@ Slide set 8: assembly language: in 32 bit and 64 bit flavors
 [Slide set 9: Advanced C++](09-advanced-cpp.html#/) ([version from Reiss's lectures (PDF)](reiss/advancedCpp.pdf))
 
 - Source code: [name-contact.cpp](code/09-advanced-cpp/name-contact.cpp.html) ([src](code/09-advanced-cpp/name-contact.cpp))
-- Reiss's lecture recordings: 2 Apr: [audio](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180402-audio.mp3), [video](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180402-video-and-audio.webm), [view in browser](https://www.cs.virginia.edu/~cr4bd/videoplayer?2150-recordings/S2018/20180402-video-and-audio) 
+- Reiss's lecture recordings: 2 Apr: [audio](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180402-audio.mp3), [video](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180402-video-and-audio.webm), [view in browser](https://www.cs.virginia.edu/~cr4bd/videoplayer?2150-recordings/S2018/20180402-video-and-audio); 4 Apr: [audio](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180404-audio.mp3), [video](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180404-video-and-audio.webm), [view in browser](https://www.cs.virginia.edu/~cr4bd/videoplayer?2150-recordings/S2018/20180404-video-and-audio);
 
-[Slide set 10: Heaps and Huffman coding](10-heaps-huffman.html#/)
+[Slide set 10: Heaps and Huffman coding](10-heaps-huffman.html#/) ([version from Reiss's lectures (PDF)](reiss/heapsHuffman.pdf))
 
 - Source code: [binary_heap.cpp](code/10-heaps-huffman/binary_heap.cpp.html) ([src](code/10-heaps-huffman/binary_heap.cpp)), [binary_heap.h](code/10-heaps-huffman/binary_heap.h.html) ([src](code/10-heaps-huffman/binary_heap.h)), [heap-test.cpp](code/10-heaps-huffman/heap-test.cpp.html) ([src](code/10-heaps-huffman/heap-test.cpp))
 
