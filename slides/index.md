@@ -98,6 +98,7 @@ Slide set 8: assembly language: in 32 bit and 64 bit flavors
 [Slide set 10: Heaps and Huffman coding](10-heaps-huffman.html#/) ([version from Reiss's lectures (PDF)](reiss/heapsHuffman.pdf))
 
 - Source code: [binary_heap.cpp](code/10-heaps-huffman/binary_heap.cpp.html) ([src](code/10-heaps-huffman/binary_heap.cpp)), [binary_heap.h](code/10-heaps-huffman/binary_heap.h.html) ([src](code/10-heaps-huffman/binary_heap.h)), [heap-test.cpp](code/10-heaps-huffman/heap-test.cpp.html) ([src](code/10-heaps-huffman/heap-test.cpp))
+- Reiss's lecture recordings: 6 Apr: [audio](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180406-audio.mp3), [video](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180406-video-and-audio.webm), [view in browser](https://www.cs.virginia.edu/~cr4bd/videoplayer?2150-recordings/S2018/20180406-video-and-audio); 9 Apr: [audio](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180409-audio.mp3), [video](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180409-video-and-audio.webm), [view in browser](https://www.cs.virginia.edu/~cr4bd/videoplayer?2150-recordings/S2018/20180409-video-and-audio);
 
 [Slide set 11: Graphs](11-graphs.html#/)
 
