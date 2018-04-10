@@ -58,7 +58,7 @@ I expect that grades will follow the standard decade curve: 90 and above is an A
 - Midterm Exam 1: Tuesday, February 20, during lab session in Olsson 001
 - Midterm Exam 2: Tuesday, April 3, during lab session in Olsson 001
 - Final Exam: Monday, May 7 from 7 p.m. to 10 p.m.
-	- Room TBD
+	- Chem 402
     - This is a common exam time, and conflicts with several other courses
     - Information about conflicting exams will be dealt with later in the semester
 
