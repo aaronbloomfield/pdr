@@ -112,3 +112,6 @@ Slide set 8: assembly language: in 32 bit and 64 bit flavors
 [Slide set 13: Esoteric Programming Languages](13-esoteric-pls.html#/)
 
 [Course Conclusion](../uva/course-conclusion.html#/) **(CS 2150 specific)**
+
+- Reiss's lecture recording: 30 Apr: [audio](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180430-audio.mp3), [video](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180430-video-and-audio.webm), [view in browser](https://www.cs.virginia.edu/~cr4bd/videoplayer?2150-recordings/S2018/20180430-video-and-audio), [notes (text file)](https://www.cs.virginia.edu/~cr4bd/2150-recordings/S2018/20180430-notes.txt);
+
