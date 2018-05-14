@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>AVLNode.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><b><font color="#000080">#include</font></b> <font color="#FF0000">"AVLNode.h"</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;string&gt;</font>
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+AVLNode<font color="#990000">::</font><b><font color="#000000">AVLNode</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+  value <font color="#990000">=</font> <font color="#FF0000">"?"</font><font color="#990000">;</font>
+  left <font color="#990000">=</font> NULL<font color="#990000">;</font>
+  right <font color="#990000">=</font> NULL<font color="#990000">;</font>
+  height <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+AVLNode<font color="#990000">::~</font><b><font color="#000000">AVLNode</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+  <b><font color="#0000FF">delete</font></b> left<font color="#990000">;</font>
+  <b><font color="#0000FF">delete</font></b> right<font color="#990000">;</font>
+  left <font color="#990000">=</font> NULL<font color="#990000">;</font>
+  right <font color="#990000">=</font> NULL<font color="#990000">;</font>
+<font color="#FF0000">}</font></tt></pre>
+</body>
+</html>
