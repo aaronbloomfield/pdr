@@ -41,7 +41,7 @@ Procedure
 
 1. For this lab, you will implement a Binary search tree, an AVL tree, and submit a brief lab report electronically via the submission system.
 2. Your report must be in PDF format!  See the [How to convert a file to PDF](../../docs/convert_to_pdf.html) page for details.
-3. Files to download: [BinarySearchTree.h](code/postlab/BinarySearchTree.h.html) ([src](code/postlab/BinarySearchTree.h)), [AVLTree.h](code/postlab/AVLTree.h.html) ([src](code/postlab/AVLTree.h)), [AVLTree.cpp](code/postlab/AVLTree.cpp.html) ([src](code/postlab/AVLTree.cpp)), [TreePathTest.cpp](code/postlab/TreePathTest.cpp.html) ([src](code/postlab/TreePathTest.cpp)), [testfile1.txt](code/postlab/testfile1.txt), [testfile2.txt](code/postlab/testfile2.txt), [testfile3.txt](code/postlab/testfile3.txt). These files are contained in the postlab/ directory of the [code.zip](code.zip) file.
+3. Files to download: [BinaryNode.h](code/postlab/BinaryNode.h.html) ([src](code/postlab/BinaryNode.h)), [BinaryNode.cpp](code/postlab/BinaryNode.cpp.html) ([src](code/postlab/BinaryNode.cpp)), [BinarySearchTree.h](code/postlab/BinarySearchTree.h.html) ([src](code/postlab/BinarySearchTree.h)), [BinarySearchTree.cpp](code/postlab/BinarySearchTree.cpp.html) ([src](code/postlab/BinarySearchTree.cpp)), [AVLNode.h](code/postlab/AVLNode.h.html) ([src](code/postlab/AVLNode.h)), [AVLNode.cpp](code/postlab/AVLNode.cpp.html) ([src](code/postlab/AVLNode.cpp)), [AVLTree.h](code/postlab/AVLTree.h.html) ([src](code/postlab/AVLTree.h)), [AVLTree.cpp](code/postlab/AVLTree.cpp.html) ([src](code/postlab/AVLTree.cpp)), [TreePathTest.cpp](code/postlab/TreePathTest.cpp.html) ([src](code/postlab/TreePathTest.cpp)), [testfile1.txt](code/postlab/testfile1.txt), [testfile2.txt](code/postlab/testfile2.txt), [testfile3.txt](code/postlab/testfile3.txt). These files are contained in the postlab/ directory of the [code.zip](code.zip) file.
 4. Files to submit: AVLTree.h, BinarySearchTree.h, TreePathTest.cpp, Makefile, any other files needed to make your code compile (files such as AVLTree.cpp, BinarySearchTree.cpp, etc...), analysis.pdf (see the post-lab section for formatting details)
 
 ------------------------------------------------------------
@@ -141,7 +141,7 @@ Post-lab
 
 The objective of this lab is to understand the runtime characteristics and trade-offs between normal Binary search trees and AVL trees. You will have to implement a Binary search tree, an AVL tree, and compare their results with the test program for the three provided test files.
 
-Both trees must implement their respective class definitions in [BinarySearchTree.h](code/postlab/BinarySearchTree.h) and [AVLTree.h](code/postlab/AVLTree.h). However, you are free to add as many other member functions as you wish. Note that we have provided an implementation of `remove()` in [AVLTree.cpp](code/postlab/AVLTree.cpp), but you must still implement `remove()` for the Binary search tree.
+Both trees must implement their respective class definitions in [BinarySearchTree.h](code/postlab/BinarySearchTree.h) and [AVLTree.h](code/postlab/AVLTree.h). However, you are free to add as many other member functions as you wish. Note that we have provided implementations of `remove()` in [BinarySearchTree.cpp](code/postlab/BinarySearchTree.cpp) and [AVLTree.cpp](code/postlab/AVLTree.cpp).
 
 Do NOT alter [TreePathTest.cpp](code/postlab/TreePathTest.cpp). This program will be used to run automated tests on your implementations. Do not change it.
 
@@ -161,6 +161,7 @@ The Lookup instruction will call the `pathTo()` method defined in your trees. `p
 To recap, submit the following files:
 - TreePathTest.cpp: Do NOT modify, contains `main()` method.
 - AVLTree.h, BinarySearchTree.h: class definitions which the test program depends on.
+- Your .cpp files which contain the definitions of AVLNode and BinaryNode.
 - Your .cpp files which contain the implementions of AVLTree and BinarySearchTree.
 - Makefile: compiles your program and produces the a.out executable
 - analysis.pdf: The report for this lab.

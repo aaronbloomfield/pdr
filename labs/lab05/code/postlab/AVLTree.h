@@ -2,19 +2,9 @@
 #define AVL_H
 
 #include <string>
+#include "AVLNode.h"
 
 using namespace std;
-
-class AVLNode {
-  AVLNode();
-
-  string value;
-  AVLNode* left;
-  AVLNode* right;
-  int height;
-
-  friend class AVLTree;
-};
 
 class AVLTree {
  public:
@@ -43,9 +33,9 @@ class AVLTree {
   // balance makes sure that the subtree with root n maintains the AVL tree
   // property, namely that the balance factor of n is either -1, 0, or 1.
   void balance(AVLNode*& n);
-  // rotateLeft performs a single rotation on node n with its left child.
+  // rotateLeft performs a single rotation on node n with its right child.
   AVLNode* rotateLeft(AVLNode*& n);
-  // rotateRight performs a single rotation on node n with its right child.
+  // rotateRight performs a single rotation on node n with its left child.
   AVLNode* rotateRight(AVLNode*& n);
 
   // private helper for remove to allow recursion over different nodes. returns
