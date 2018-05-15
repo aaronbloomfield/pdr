@@ -1,4 +1,4 @@
-Grading Explanations, Fall 2017
+Grading Explanations, Spring 2018
 =================================
 
 [Go up to the CS 2150 page](index.html) ([md](index.md))
@@ -19,9 +19,7 @@ The grade breakdown (how much each part counts for the final grade) is as listed
 Grade curves
 ------------
 
-For the first, midterm, we are giving 5 percentage points to everyone (the average was high). We are giving 8 percentage points on each of the midterm and final exams.
-
-Thus, the total curve for exams is (5 * 0.15)+(8 * 0.15)+(8 * 0.25)=3.95 percentage points towards everyone's final average. We'll round this up to 4 points.
+We decided to give a curve of 4.5 points on your final average (plus rounding, see below).
 
 
 Rounding
@@ -33,13 +31,13 @@ Yes, we round grades.  Note that `round(x) == floor(x+0.5)`.  So we added 0.5 po
 Course curve
 ------------
 
-The course curve is 4 (from the exams) plus 0.5 (from rouding), for a total of 4.5. You can add this to the grade you see in your gradebook and look it up in the chart below.
+The course curve is 4.5 (from the grade curve above) plus 0.5 (from rouding), for a total of 5.0. You can add this to the grade you see in your gradebook and look it up in the chart below.
 
 
 Grade breakdown
 ---------------
 
-As stated at the beginning of the semester, each 10-point "decade" is a separate letter grade range (60-70 is a D, 70-80 is a C, etc.).  The exact ranges are below. Take your exact average and add 4.5 for the curve, then see where the result lies on this table. Rounding has already been taken into account (see above), so you don't get to round a second time.
+As stated at the beginning of the semester, each 10-point "decade" is a separate letter grade range (60-70 is a D, 70-80 is a C, etc.).  The exact ranges are below. Take your exact average and add 5.0 for the curve, then see where the result lies on this table. Rounding has already been taken into account (see above), so you don't get to round a second time.
 
 | Minimum course average | Letter grade |
 |------------------------|--------------|
@@ -69,8 +67,8 @@ The following table shows the percentage of students who earned each letter grad
 
 | Letter Grade | Percent students earning that grade |
 |------------------------|--------------|
-| A | 41.12% |
-| B | 32.24% |
-| C | 16.12% |
-| D | 4.61% |
-| F | 5.92% |
+| A | 32.94% |
+| B | 35.59% |
+| C | 22.35% |
+| D | 4.12% |
+| F | 5.00% |
