@@ -1,7 +1,7 @@
 PDR: Licensing Details
 ======================
 
-[Go up to the main README file](readme-old.html) ([md](readme-old.md))
+[Go up to the main README file](readme.html) ([md](readme.md))
 
 This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International](http://creativecommons.org/licenses/by-sa/4.0/) License
 

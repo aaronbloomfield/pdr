@@ -1,7 +1,7 @@
 Program and Data Representation: Documents
 ==========================================
 
-[Go up to the main README file](../readme-old.html) ([md](../readme-old.md))
+[Go up to the main README file](../readme.html) ([md](../readme.md))
 
 These are useful documents that are not slides nor tutorials.
 

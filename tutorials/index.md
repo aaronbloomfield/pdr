@@ -1,7 +1,7 @@
 Program and Data Representation: Tutorials
 ==========================================
 
-[Go up to the main README file](../readme-old.html)
+[Go up to the main README file](../readme.html)
 
 The tutorials for this course are listed below.
 

@@ -1,7 +1,7 @@
 Program and Data Representation: CS 2150 Specific Content
 =========================================================
 
-## Fall 2017
+## Fall 2018
 
 [Go up to the main README file][111] ([md][112])
 
@@ -136,8 +136,8 @@ Grading Concerns
 [108]: ../labs/index.md
 [109]: frivolous-regrades.html
 [110]: frivolous-regrades.md
-[111]: ../readme-old.html
-[112]: ../readme-old.md
+[111]: ../readme.html
+[112]: ../readme.md
 [113]: exam-review.html#/
 [114]: unix-honor-pledge.tex
 [115]: grades.md

@@ -1,7 +1,7 @@
 Program and Data Representation: Labs
 =====================================
 
-[Go up to the main README file](../readme-old.html)
+[Go up to the main README file](../readme.html)
 
 The labs for this course:
 

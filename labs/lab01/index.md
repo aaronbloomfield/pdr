@@ -122,7 +122,7 @@ git pull
 To view the contents in a web browser, you should enter the following as the URL (replacing 'mst3k' with your userid):
 
 ```
-file:///home/mst3k/pdr/readme-old.html
+file:///home/mst3k/pdr/readme.html
 ```
 
 Note that there are three forward slashes there!

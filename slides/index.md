@@ -1,7 +1,7 @@
 Program and Data Representation: Slides
 =======================================
 
-[Go up to the main README file](../readme-old.html) ([md](../readme-old.md))
+[Go up to the main README file](../readme.html) ([md](../readme.md))
 
 [Course Introduction](../uva/course-introduction.html#/) ([version from Reiss's lectures (PDF)](reiss/courseintro.pdf)) **(CS 2150 specific)**
 
