@@ -15,20 +15,20 @@ public:
     // create and initialize a new Rational object
     Rational(int numerator, int denominator);
 
-    // return string representation of (this)
-    void print() ;
+    // print string representation of (this) to cout
+    void print() const;
 
     // return (this * b)
-    Rational times(Rational b);
+    Rational times(Rational b) const;
 
     // return (this + b)
-    Rational plus(Rational b);
+    Rational plus(Rational b) const;
 
     // return (1 / this)
-    Rational reciprocal();
+    Rational reciprocal() const;
 
     // return (this / b)
-    Rational divides(Rational b);
+    Rational divides(Rational b) const;
 
 private:
     int num;   // the numerator

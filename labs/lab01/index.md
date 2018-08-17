@@ -88,7 +88,7 @@ Lastly, take a look at the object life-cycle code ([lifecycle.cpp](lifecycle.cpp
 
 This section describes how to log into Linux in the lab room (either Olsson 001 or Rice 340).  Although this is really part of the in-lab, you won't be able to access this document until you have logged in, which is why the directions are listed in the pre-lab section.
 
-The machines in the lab room have two operating systems installed -- Windows and Linux (the Ubuntu distribution).  You have accounts on each, although the passwords will be separate.  You will need to reboot the computer into Linux -- to do this, do a regular reboot from Windows.  Upon the reboot, after the Dell logo screen is shown, a boot loader screen will appear, allowing you to choose which operating system to load.  There are a number of choices, but the one we are interested in is the Ubuntu choice (there are two -- ignore the 'safe mode' version).  You will note that the default selection is Windows -- you will have to use the arrow keys to select the Ubuntu line, and then hit Enter.
+The machines in the lab room run Linux (the Ubuntu distribution). You have accounts on these machines, and the password should have been emailed to you.
 
 Once the login screen appears, you can log in.  Be aware that it may take a full minute to log you into the machine.  Linux has a number of *desktop environments* that one can choose from -- each of these has a different look-and-feel, in the same way that Windows is different from Mac OS X.  We are currently using KDE.  To load up a terminal window, click on the button that looks like the Windows start button, and type in "konsole" into the search box.
 
@@ -110,7 +110,7 @@ All of the files required for this lab are listed above (in the Procedure sectio
 The first thing you need to do is clone the github repo into your lab account.  To do this, enter:
 
 ```
-git clone https://github.com/aaronbloomfield/pdr.git
+git clone https://github.com/markfloryan/pdr.git
 ```
 
 This will create a 'pdr' directory, which is the copy of the repo.  Each week, you will need to update the repo with the current contents.  To do so, cd into that 'pdr' directory, and enter:
@@ -127,7 +127,7 @@ file:///home/mst3k/pdr/readme-old.html
 
 Note that there are three forward slashes there!
 
-We realize that you cannot view these directions until after you have the github repo cloned locally.  So hopefully you read these ahead of time.  Otherwise, the TAs will be able to help you with this part.  The lab can also be viewed online at [http://aaronbloomfield.github.io/pdr/labs/lab01/index.html](http://aaronbloomfield.github.io/pdr/labs/lab01/index.html).
+We realize that you cannot view these directions until after you have the github repo cloned locally.  So hopefully you read these ahead of time.  Otherwise, the TAs will be able to help you with this part.  The lab can also be viewed online at [http://markfloryan.github.io/pdr/labs/lab01/index.html](http://markfloryan.github.io/pdr/labs/lab01/index.html).
 
 
 ### Understanding C++ ###

@@ -90,6 +90,7 @@ unsigned int binary_heap::size() {
 
 void binary_heap::makeEmpty() {
     heap_size = 0;
+    heap.resize(1);
 }
 
 bool binary_heap::isEmpty() {

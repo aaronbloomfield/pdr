@@ -36,10 +36,10 @@ The labs for this course:
 &nbsp;
 
 - [Lab 5: Trees](lab05/index.html)
-    - Source code is all contained in the prelab/ and inlab/ directories of the [code.zip](lab05/code.zip) file
-        - Pre-lab: [TreeCalc.h](lab05/code/prelab/TreeCalc.h.html) ([src](lab05/code/prelab/TreeCalc.h)), [TreeCalc.cpp](lab05/code/prelab/TreeCalc.cpp.html) ([src](lab05/code/prelab/TreeCalc.cpp)), [TreeNode.cpp](lab05/code/prelab/TreeNode.cpp.html) ([src](lab05/code/prelab/TreeNode.cpp)), [TreeNode.h](lab05/code/prelab/TreeNode.h.html) ([src](lab05/code/prelab/TreeNode.h)), [TreeCalcTest.cpp](lab05/code/prelab/TreeCalcTest.cpp.html) ([src](lab05/code/prelab/TreeCalcTest.cpp)).  These files 
-        - In-lab: [Makefile](lab05/code/inlab/Makefile.html) ([src](lab05/code/inlab/Makefile)), [avlnode.h](lab05/code/inlab/avlnode.h.html) ([src](lab05/code/inlab/avlnode.h)), [binarynode.h](lab05/code/inlab/binarynode.h.html) ([src](lab05/code/inlab/binarynode.h)), [avltree.h](lab05/code/inlab/avltree.h.html) ([src](lab05/code/inlab/avltree.h)), [avltree.cpp](lab05/code/inlab/avltree.cpp.html) ([src](lab05/code/inlab/avltree.cpp)), [binarysearchtree.h](lab05/code/inlab/binarysearchtree.h.html) ([src](lab05/code/inlab/binarysearchtree.h)), [binarysearchtree.cpp](lab05/code/inlab/binarysearchtree.cpp.html) ([src](lab05/code/inlab/binarysearchtree.cpp)), [tree_test.cpp](lab05/code/inlab/tree_test.cpp.html) ([src](lab05/code/inlab/tree_test.cpp)), [testfile1.txt](lab05/code/inlab/testfile1.txt), [testfile2.txt](lab05/code/inlab/testfile2.txt), [testfile3.txt](lab05/code/inlab/testfile3.txt)
-    - [AVL tree worksheet](lab05/avl-worksheet.pdf) for the pre-lab
+    - Source code is all contained in the prelab/ and postlab/ directories of the [code.zip](lab05/code.zip) file
+        - Pre-lab: [TreeCalc.h](lab05/code/prelab/TreeCalc.h.html) ([src](lab05/code/prelab/TreeCalc.h)), [TreeCalc.cpp](lab05/code/prelab/TreeCalc.cpp.html) ([src](lab05/code/prelab/TreeCalc.cpp)), [TreeNode.cpp](lab05/code/prelab/TreeNode.cpp.html) ([src](lab05/code/prelab/TreeNode.cpp)), [TreeNode.h](lab05/code/prelab/TreeNode.h.html) ([src](lab05/code/prelab/TreeNode.h)), [TreeCalcTest.cpp](lab05/code/prelab/TreeCalcTest.cpp.html) ([src](lab05/code/prelab/TreeCalcTest.cpp)).
+        - Post-lab: [BinarySearchTree.h](code/postlab/BinarySearchTree.h.html) ([src](code/postlab/BinarySearchTree.h)), [AVLTree.h](code/postlab/AVLTree.h.html) ([src](code/postlab/AVLTree.h)), [AVLTree.cpp](code/postlab/AVLTree.cpp.html) ([src](code/postlab/AVLTree.cpp)), [TreePathTest.cpp](code/postlab/TreePathTest.cpp.html) ([src](code/postlab/TreePathTest.cpp)), [testfile1.txt](code/postlab/testfile1.txt), [testfile2.txt](code/postlab/testfile2.txt), [testfile3.txt](code/postlab/testfile3.txt).
+    - [AVL tree worksheet](lab05/avl-worksheet.pdf)
     - [Tutorial 5: make](../tutorials/05-make/index.html)
 
 &nbsp;
@@ -66,7 +66,7 @@ The labs for this course:
         - ~~Source code: [vecsum.s](lab08-32bit/vecsum.s.html) ([src](lab08-32bit/vecsum.s)), [main.cpp](lab08-32bit/main.cpp.html) ([src](lab08-32bit/main.cpp)), [Makefile](lab08-32bit/Makefile.html) ([src](lab08-32bit/Makefile))~~
         - ~~Readings (which is also the tutorial): the two x86 book chapters: [x86 Assembly](../book/x86-32bit-asm-chapter.pdf) and [The x86 C Calling Convention](../book/x86-32bit-ccc-chapter.pdf)~~
     - [64-bit version of the lab](lab08-64bit/index.html)
-        - Source code: [vecsum.s](lab08-64bit/vecsum.s.html) ([src](lab08-64bit/vecsum.s)), [main.cpp](lab08-64bit/main.cpp.html) ([src](lab08-64bit/main.cpp)), [Makefile](lab08-64bit/Makefile.html) ([src](lab08-64bit/Makefile))
+        - Source code: [vecsum.s](lab08-64bit/vecsum.s.html) ([src](lab08-64bit/vecsum.s)), [main.cpp](lab08-64bit/main.cpp.html) ([src](lab08-64bit/main.cpp)), [Makefile](lab08-64bit/Makefile.html) ([src](lab08-64bit/Makefile)), [mergeSort.s](lab08-64bit/mergeSort.s.html) ([src](lab08-64bit/mergeSort.s)), [testMergeSort.cpp](lab08-64bit/testMergeSort.cpp.html) ([src](lab08-64bit/testMergeSort.cpp))
         - Readings (which is also the tutorial): the C++/assembly tutorial, which consists of reading [x86-64 Machine-Level Programming](https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf) from CMU
 
 &nbsp;

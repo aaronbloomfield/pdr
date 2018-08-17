@@ -324,7 +324,7 @@ Your coding task for the post-lab is to optimize your program.  At this point, y
 
 First, record how long it takes to run your un-optimized program.  We will need this value later.  All these values should be recorded when the executable being run was compiled with the -O2 flag.
 
-You will need to implement optimizations to your program.  In addition to the optimizations described above (in the section that describes the word puzzle problem), some other ossible optimizations include:
+You will need to implement optimizations to your program.  In addition to the optimizations described above (in the section that describes the word puzzle problem), some other possible optimizations include:
 
 - A better hash functions on the strings.
 - Trying the various collision resolution strategies to find the fastest one.

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
@@ -60,7 +60,7 @@ test<font color="#990000">::</font><b><font color="#000000">test</font></b><font
 <font color="#FF0000">}</font>
 
 test<font color="#990000">::</font><b><font color="#000000">test</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> test<font color="#990000">&amp;</font> x<font color="#990000">)</font> <font color="#990000">:</font> <b><font color="#000000">id</font></b><font color="#990000">(</font>x<font color="#990000">.</font>id<font color="#990000">),</font> <b><font color="#000000">value</font></b><font color="#990000">(</font>x<font color="#990000">.</font>value<font color="#990000">)</font> <font color="#FF0000">{</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"calling test(&amp;test) on "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font><b><font color="#0000FF">this</font></b> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"; address is "</font> <font color="#990000">&lt;&lt;</font> <b><font color="#0000FF">this</font></b> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"calling test(const test&amp;) on "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font><b><font color="#0000FF">this</font></b> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"; address is "</font> <font color="#990000">&lt;&lt;</font> <b><font color="#0000FF">this</font></b> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
 <font color="#FF0000">}</font>
 
 test<font color="#990000">::~</font><b><font color="#000000">test</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
@@ -144,7 +144,7 @@ ostream<font color="#990000">&amp;</font> <b><font color="#0000FF">operator</fon
     <i><font color="#9A1900">// output:</font></i>
     <i><font color="#9A1900">// ----------------------------------------</font></i>
     <i><font color="#9A1900">// about to invoke subroutine...</font></i>
-    <i><font color="#9A1900">// calling test(&amp;test) on test[id=2,v=2]; address is 0xff852a38</font></i>
+    <i><font color="#9A1900">// calling test(const test&amp;) on test[id=2,v=2]; address is 0xff852a38</font></i>
     <i><font color="#9A1900">// calling test(10); object created is test[id=4,v=10]; address is 0xff852a40</font></i>
     <i><font color="#9A1900">// calling ~test() on test[id=2,v=2]</font></i>
     <i><font color="#9A1900">// finished invoking subroutine...</font></i>

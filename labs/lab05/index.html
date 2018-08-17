@@ -15,39 +15,36 @@
 <ol style="list-style-type: decimal">
 <li>Learn about binary trees</li>
 <li>See tree traversals in the context of a useful application</li>
+<li>Understand tree rotations</li>
+<li>Implement binary search trees and AVL trees</li>
 <li>Evaluate the performance of binary search trees and AVL trees</li>
 </ol>
 <h3 id="background">Background:</h3>
 <p>A binary tree is a tree with a maximum of two children per node. Three traversals are commonly associated with binary trees. A pre-order traversal processes the given node first and then processes its left and then right subtrees. In an in-order traversal, first the node's left subtree is processed, followed by the node itself, and finally its right subtree. A post-order traversal operates on the left subtree, followed by the right subtree, and finally on the node itself.</p>
 <h3 id="readings">Reading(s):</h3>
-<p>The <a href="http://en.wikipedia.org/wiki/Expression_tree">Wikipedia article on Expression trees</a>, expecially the <a href="http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_Expression_Tree">section on construction of expression trees</a>. Also the <a href="../../slides/05-trees.html">05: Trees</a> slide set.</p>
+<p>The <a href="http://en.wikipedia.org/wiki/Expression_tree">Wikipedia article on Expression trees</a>, especially the <a href="http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_Expression_Tree">section on construction of expression trees</a>. Also the <a href="../../slides/05-trees.html">05: Trees</a> slide set.</p>
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
 <ol style="list-style-type: decimal">
-<li>Complete the <a href="../../tutorials/05-make/index.html">makefile tutorial</a> prior to coming to lab. While you will not have to write a makefile for this pre-lab, you will need to know how to write on in the future -- all the following labs will be compiled via Makefiles. There is one file that needs to be submitted from the tutorial -- you should name this file Makefile-pizza. You can compile your code for the pre-lab using 'clang++ *.cpp'.</li>
-<li>Your file <strong>MUST</strong> be named <code>Makefile-pizza</code> - not Makefile-pizza.txt, not Makefile-Pizza, not Makefilepizza. If it is not named correctly, it will not work with our grading scripts, and you will not get credit for that part of the lab.</li>
 <li>Come to lab with a fully functional tree calculator, as described below.<br />
 </li>
-<li>Read the <a href="http://en.wikipedia.org/wiki/Expression_tree">Wikipedia article on Expression trees</a>, expecially the <a href="http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_Expression_Tree">section on construction of expression trees</a>.</li>
-<li>Complete the <a href="avl-worksheet.pdf">AVL tree worksheet</a>, which is a separate file. The TAs will collect it at the beginning of lab. <strong>You need to turn in that sheet</strong> (you can't write your answer on notebook paper, for example) and bubble in your ID at the bottom of the front page. Feel free to print it single sided or double sided. We will provide copies of this in lecture for you as well.</li>
+<li>Read the <a href="http://en.wikipedia.org/wiki/Expression_tree">Wikipedia article on Expression trees</a>, especially the <a href="http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_Expression_Tree">section on construction of expression trees</a>.</li>
 <li>Files to download: <a href="code/prelab/TreeCalc.h.html">TreeCalc.h</a> (<a href="code/prelab/TreeCalc.h">src</a>), <a href="code/prelab/TreeCalc.cpp.html">TreeCalc.cpp</a> (<a href="code/prelab/TreeCalc.cpp">src</a>), <a href="code/prelab/TreeNode.h.html">TreeNode.h</a> (<a href="code/prelab/TreeNode.h">src</a>), <a href="code/prelab/TreeNode.cpp.html">TreeNode.cpp</a> (<a href="code/prelab/TreeNode.cpp">src</a>), and <a href="code/prelab/TreeCalcTest.cpp.html">TreeCalcTest.cpp</a> (<a href="code/prelab/TreeCalcTest.cpp">src</a>). These files are contained in the prelab/ directory of the <a href="code.zip" class="uri">code.zip</a> file.</li>
-<li>Files to submit: TreeCalc.h/cpp, TreeCalcTest.cpp, TreeNode.h/cpp, Makefile-pizza</li>
+<li>Files to submit: TreeCalc.h/cpp, TreeCalcTest.cpp, TreeNode.h/cpp</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
 <ol style="list-style-type: decimal">
-<li>Turn in the AVL worksheet at the <em>beginning</em> of lab.</li>
-<li>You should modify the code provided here as described in the in-lab description (avltree.cpp and binarysearchtree.cpp).</li>
-<li>Devise a reasonably convincing experiment to show that AVL trees are markedly superior to randomly grown trees. We have provided testfile1.txt, testfile2.txt and testfile3.txt for you to experiment with. Your new experiment should be in a testfile4.txt file, which you will need to submit.</li>
-<li>Examine the <a href="code/inlab/Makefile.html">Makefile</a> (<a href="code/inlab/Makefile">src</a>) for this project. You should understand everything in the Makefile! The grading compile command for the inlab will be performed using 'make'.</li>
-<li>Files to download: <a href="code/inlab/Makefile.html">Makefile</a> (<a href="code/inlab/Makefile">src</a>), <a href="code/inlab/avlnode.h.html">avlnode.h</a> (<a href="code/inlab/avlnode.h">src</a>), <a href="code/inlab/binarynode.h.html">binarynode.h</a> (<a href="code/inlab/binarynode.h">src</a>), <a href="code/inlab/avltree.h.html">avltree.h</a> (<a href="code/inlab/avltree.h">src</a>), <a href="code/inlab/avltree.cpp.html">avltree.cpp</a> (<a href="code/inlab/avltree.cpp">src</a>), <a href="code/inlab/binarysearchtree.h.html">binarysearchtree.h</a> (<a href="code/inlab/binarysearchtree.h">src</a>), <a href="code/inlab/binarysearchtree.cpp.html">binarysearchtree.cpp</a> (<a href="code/inlab/binarysearchtree.cpp">src</a>), <a href="code/inlab/tree_test.cpp.html">tree_test.cpp</a> (<a href="code/inlab/tree_test.cpp">src</a>), <a href="code/inlab/testfile1.txt">testfile1.txt</a>, <a href="code/inlab/testfile2.txt">testfile2.txt</a>, <a href="code/inlab/testfile3.txt">testfile3.txt</a>. These files are contained in the inlab/ directory of the <a href="code.zip" class="uri">code.zip</a> file.</li>
-<li>Files to submit: avlnode.h, binarynode.h, avltree.h/cpp, binarysearchtree.h/cpp, tree_test.cpp, testfile4.txt, Makefile</li>
+<li>Complete the <a href="avl-worksheet.pdf">AVL tree worksheet</a>, which is a separate file. Turn this worksheet in before the end of lab. Feel free to print it single sided or double sided.</li>
+<li>Complete the <a href="../../tutorials/05-make/index.html">makefile tutorial</a>. While you will not have to write a makefile for this in-lab, you will need to know how to write on in the future -- all the following labs will be compiled via Makefiles. There is one file that needs to be submitted from the tutorial -- you should name this file Makefile-pizza.</li>
+<li>Your file <strong>MUST</strong> be named <code>Makefile-pizza</code> - not Makefile-pizza.txt, not Makefile-Pizza, not Makefilepizza. If it is not named correctly, it will not work with our grading scripts, and you will not get credit for that part of the lab.</li>
+<li>Files to submit: Makefile-pizza</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
 <ol style="list-style-type: decimal">
-<li>For this lab you will submit a brief lab report electronically via the submission system.</li>
+<li>For this lab, you will implement a Binary search tree, an AVL tree, and submit a brief lab report electronically via the submission system.</li>
 <li>Your report must be in PDF format! See the <a href="../../docs/convert_to_pdf.html">How to convert a file to PDF</a> page for details.</li>
-<li>Files to download: (none, beyond what was done during the in-lab)</li>
-<li>Files to submit: analysis.pdf (see the post-lab section for formatting details)</li>
+<li>Files to download: <a href="code/postlab/BinarySearchTree.h.html">BinarySearchTree.h</a> (<a href="code/postlab/BinarySearchTree.h">src</a>), <a href="code/postlab/AVLTree.h.html">AVLTree.h</a> (<a href="code/postlab/AVLTree.h">src</a>), <a href="code/postlab/AVLTree.cpp.html">AVLTree.cpp</a> (<a href="code/postlab/AVLTree.cpp">src</a>), <a href="code/postlab/TreePathTest.cpp.html">TreePathTest.cpp</a> (<a href="code/postlab/TreePathTest.cpp">src</a>), <a href="code/postlab/testfile1.txt">testfile1.txt</a>, <a href="code/postlab/testfile2.txt">testfile2.txt</a>, <a href="code/postlab/testfile3.txt">testfile3.txt</a>. These files are contained in the postlab/ directory of the <a href="code.zip" class="uri">code.zip</a> file.</li>
+<li>Files to submit: AVLTree.h, BinarySearchTree.h, TreePathTest.cpp, Makefile, any other files needed to make your code compile (files such as AVLTree.cpp, BinarySearchTree.cpp, etc...), analysis.pdf (see the post-lab section for formatting details)</li>
 </ol>
 <hr />
 <h2 id="pre-lab-1">Pre-lab</h2>
@@ -119,100 +116,31 @@ Expression tree in prefix expression: - + 34 6 / -8 4
 The result of the expression tree is 42 </code></pre>
 <hr />
 <h2 id="in-lab-1">In-lab</h2>
-<p>The objective of the in-lab is to begin developing an empirical approach to the analysis of data structure performance. In this lab you will compare the performance of <a href="https://en.wikipedia.org/wiki/Binary_search_tree">BSTs</a> and <a href="https://en.wikipedia.org/wiki/Avl_trees">AVL trees</a> on several data files.</p>
-<p>We have discussed both binary search trees and AVL trees in class. AVL trees are a form of a balanced search tree. For a little extra computational cost, AVL trees ensure that the heights of any two subtrees of a parent node are within 1 of each other; so retrieval performance is Θ(log <em>n</em>) in the worst case.</p>
-<p>Since a goal of the lab is to compare binary and AVL trees, we need to establish common metrics on which to compare the trees created by each algorithm. One metric for comparing the data structures is <em>retrieval time</em>. For both binary search and AVL trees, the retrieval time of a value is dependent on the depth of the node storing the value. For example, it is much quicker to find a value stored in the root node than to find a value stored in a leaf.</p>
-<h3 id="summary">Summary</h3>
-<p>You will need to download the following files: <a href="code/inlab/Makefile.html">Makefile</a> (<a href="code/inlab/Makefile">src</a>), <a href="code/inlab/avlnode.h.html">avlnode.h</a> (<a href="code/inlab/avlnode.h">src</a>), <a href="code/inlab/binarynode.h.html">binarynode.h</a> (<a href="code/inlab/binarynode.h">src</a>), <a href="code/inlab/avltree.h.html">avltree.h</a> (<a href="code/inlab/avltree.h">src</a>), <a href="code/inlab/avltree.cpp.html">avltree.cpp</a> (<a href="code/inlab/avltree.cpp">src</a>), <a href="code/inlab/binarysearchtree.h.html">binarysearchtree.h</a> (<a href="code/inlab/binarysearchtree.h">src</a>), <a href="code/inlab/binarysearchtree.cpp.html">binarysearchtree.cpp</a> (<a href="code/inlab/binarysearchtree.cpp">src</a>), <a href="code/inlab/tree_test.cpp.html">tree_test.cpp</a> (<a href="code/inlab/tree_test.cpp">src</a>), <a href="code/inlab/testfile1.txt">testfile1.txt</a>, <a href="code/inlab/testfile2.txt">testfile2.txt</a>, <a href="code/inlab/testfile3.txt">testfile3.txt</a>. These files are contained in the inlab/ directory of the <a href="code.zip" class="uri">code.zip</a> file.</p>
-<p>To complete this lab you will have to make the following code modifications:</p>
-<ol style="list-style-type: decimal">
-<li>Edit the AVL and binary search tree code to adjust the counter variables appropriately. These variables are: <code>num_nodes</code>, <code>LeftLinksFollowed</code>, <code>RightLinksFollowed</code>, <code>SingleRotations</code>, and <code>DoubleRotations</code>
-<ul>
-<li><strong>NOTE:</strong> The <code>mutable</code> keyword before these variable declarations allows the member functions that are declared as const to modify them (the variables). Basically, it overrides the const modifier. See <a href="https://en.wikipedia.org/wiki/Mutable#C.2B.2B">here</a> for more details, if you are interested.</li>
-<li>You <strong>should not</strong> reset the <code>LeftLinksFollowed</code> or <code>RightLinksFollowed</code> variables.</li>
-<li>Those two variables (<code>LeftLinksFollowed</code> and <code>RightLinksFollowed</code>) should only be incremented in the <code>find()</code> method, not for the <code>insert()</code> or <code>remove()</code> methods.</li>
-<li>A double rotation is really two single rotations, but for the purposes of this in-lab we'll only count it as one double rotation.</li>
-</ul></li>
-<li>Implement the following methods in the AVL and binary search tree code. See below for details as to how these methods work.
-<ul>
-<li><code>double AvlTree::exp_path_length();</code></li>
-<li><code>double BinarySearchTree::exp_path_length();</code></li>
-<li><code>int AvlTree::int_path_length(AvlNode *t, int depth);</code></li>
-<li><code>int BinarySearchTree::int_path_length(BinaryNode *t, int depth);</code></li>
-</ul></li>
-</ol>
-<h3 id="explanation">Explanation</h3>
-<p>We will use two measures of retrieval time: <em>expected path length</em> and <em>internal path length</em>. The base counting unit we will use is the <strong>number of links followed</strong>. For example, finding element <strong>W</strong> in the tree below requires following 3 links: 2 right links and 1 left link. Note that we will keep track of all left and right links traversed <strong><em>for the life of the tree</em></strong>.</p>
-<p>In the following image, the bold lines indicate the path taken for locating element W. This path contains 3 links.</p>
+<p>The deliverables for this in-lab are the AVL worksheet and the <a href="../../tutorials/05-make/index.html">makefile tutorial</a>. Print out the worksheet and bring it to your lab section. Turn in the worksheet by the end of lab. Make sure to bubble in your ID at the bottom of the page.</p>
+<p>Complete the <a href="../../tutorials/05-make/index.html">makefile tutorial</a> and submit Makefile-pizza by the end of lab (or by Wednesday if using the extension).</p>
+<p>If you have time remaining, you may want to start working on the post-lab. Consult the TAs for any help understanding tree rotations.</p>
+<hr />
+<h2 id="post-lab-1">Post-lab</h2>
+<p>The objective of this lab is to understand the runtime characteristics and trade-offs between normal Binary search trees and AVL trees. You will have to implement a Binary search tree, an AVL tree, and compare their results with the test program for the three provided test files.</p>
+<p>Both trees must implement their respective class definitions in <a href="code/postlab/BinarySearchTree.h">BinarySearchTree.h</a> and <a href="code/postlab/AVLTree.h">AVLTree.h</a>. However, you are free to add as many other member functions as you wish. Note that we have provided an implementation of <code>remove()</code> in <a href="code/postlab/AVLTree.cpp">AVLTree.cpp</a>, but you must still implement <code>remove()</code> for the Binary search tree.</p>
+<p>Do NOT alter <a href="code/postlab/TreePathTest.cpp">TreePathTest.cpp</a>. This program will be used to run automated tests on your implementations. Do not change it.</p>
+<p>Feel free to move the implementation of the AVL tree to another .cpp file. However, we recommend separate .cpp files for the different trees. Additionally, you may find it helpful to have private versions of <code>insert</code>, <code>pathTo</code>, etc... that take a node as a parameter. This allows them to operate on any node, not just the root.</p>
+<p>The test program will read inputs and attempt to insert elements into your trees. Its input format is a sequence of instruction/word pairs defined as follows: - Insert <word>: <code>I &lt;word&gt;</code> - Remove <word>: <code>R &lt;word&gt;</code> - Lookup <word>: <code>L &lt;word&gt;</code></p>
+<p>The Lookup instruction will call the <code>pathTo()</code> method defined in your trees. <code>pathTo()</code> must return a string representing the nodes encountered when finding an element. For instance in the following image, the bold lines indicate the path taken for locating element W.</p>
 <div class="figure">
 <img src="avl-tree-pic-1.png" alt="avl-tree-pic-1" />
 <p class="caption">avl-tree-pic-1</p>
 </div>
-<p>While measuring path length provides a good indication of the retrieval time of individual elements, we are also interested in the average retrieval time or expected path length for the elements within the tree. To calculate this, we must first calculate the internal path length. The internal path length is defined as the sum of the depths of all nodes in a tree.</p>
-<p>To compute the internal path length we sum up the depth of <em>every</em> node in the tree (where the root node has depth 0). Alternatively, we can multiply the number of nodes at a certain &quot;level&quot; by the depth of that level. Here is the computation for the tree shown above:</p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Depth</th>
-<th align="left">Nodes at that depth</th>
-<th align="left">Number of nodes</th>
-<th align="left">Frequency</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">0</td>
-<td align="left">M</td>
-<td align="left">1</td>
-<td align="left">0</td>
-</tr>
-<tr class="even">
-<td align="left">1</td>
-<td align="left">E, P</td>
-<td align="left">2</td>
-<td align="left">2</td>
-</tr>
-<tr class="odd">
-<td align="left">2</td>
-<td align="left">A, H, O, Z</td>
-<td align="left">4</td>
-<td align="left">8</td>
-</tr>
-<tr class="even">
-<td align="left">3</td>
-<td align="left">B, W</td>
-<td align="left">2</td>
-<td align="left">6</td>
-</tr>
-</tbody>
-</table>
-<p>The &quot;Frequency&quot; column is just the product of the number of nodes times the depth. The tree shown above (in both the image and described in the table) has 9 nodes. The sum of the Frequency column, which is the internal path length, is 16.</p>
-<p>The expected path length to a given node is equivalent to the average number of links between any node and the root node -- or, in other words, the internal path length divided by the total number of nodes. If there are 9 nodes in a tree with total internal path length of 16, then the <em>average</em> depth of a node is 16/9 = 1.78; this is the expected path length.</p>
-<p>You will need to modify avltree.cpp and binarysearchtree.cpp to determine and display the expected path length for each type of tree.</p>
-<p>The <code>int_path_length()</code> methods take in two parameters -- a node (either the AvlNode or BinaryNode, depending on the version) and a depth. Recall that the internal path length is the sum of the depths for each and every node in the tree. The depth is how far down the tree this method is being called. If it is called on the root node, then the depth would be zero (and the function would return the total internal path length of the entire tree). The root node will call it recursively (with depth=1) on it's children. If it is called on a leaf node, then the depth of that particular node is just the value of the depth parameter. If it is called on an internal node, then it is going to call itself on each of the children (in each case yielding the internal path length for the child sub-trees), plus the depth of that particular internal node.</p>
-<h3 id="input-format">Input format</h3>
-<p>The program will be provided with two input lines (i.e., there are just two <code>cin</code> calls). The input paragraph will be provided in a file, and the name of the file will be the first input provided to the program. Note that we are <strong><em>NOT</em></strong> providing the file name as a command-line parameter. The second input provided is the word to search for. The provided skeleton code properly handles the input for you already.</p>
-<h3 id="what-you-need-to-do">What you need to do</h3>
-<p>We have already declared the necessary private data members and public inspector functions in binarysearchtree.h/cpp and avltree.h/cpp to hold this information. Your job is to modify the relevant routines to record the information correctly.</p>
-<p>Consult with the TAs if you have any questions.</p>
-<p>Once your code is working correctly, devise a reasonably convincing experiment to show that AVL trees are markedly superior to randomly grown BST trees. What does it cost to achieve such better performance? Can you characterize the situations where AVL trees perform better than BSTs? We have provided the files testfile1.txt, testfile2.txt and testfile3.txt, which in addition to your own test cases, may be of value.</p>
-<p>Your experiment should be in a testfile4.txt file, which you will have to submit. How and why does your example (that you include in testfile4.txt) show that AVL trees are better than BST trees? A single paragraph is fine, and this should be put into the post-lab report. The point of the testfile4.txt is for you to generate an experiment that shows a large difference in performance between AVL trees and BST trees. Just generating a long piece of text, with no reasoning behind it, is not what we are looking for.</p>
-<p>You will need to submit all of your code, along with the testfile4.txt file. Please make sure it compiles with <code>make</code>!</p>
-<p>For your postlab report you will need to provide evidence comparing the two types of trees. You may want to get started on this during the in-lab so you can be sure that your code is doing its calculations correctly.</p>
-<p>If you cannot finish this during the in-lab, you can request a 24 hour lab extension.</p>
-<hr />
-<h2 id="post-lab-1">Post-lab</h2>
-<p>Note that neither the pre-lab nor the in-lab code is being resubmitted for the post-lab.</p>
-<p>The deliverable for this post-lab is a PDF document, the contents of which are described below. It must be submitted in PDF format! See <a href="../../docs/convert_to_pdf.html">How To Convert A File To PDF</a> page for details.</p>
-<p>In the report, you should include:</p>
+<p><code>pathTo(&quot;W&quot;)</code> would then return the string <code>&quot;M P Z W&quot;</code>. Calling <code>pathTo()</code> on an element that doesn't exist would result in an empty string <code>&quot;&quot;</code>.</p>
+<p>To recap, submit the following files: - TreePathTest.cpp: Do NOT modify, contains <code>main()</code> method. - AVLTree.h, BinarySearchTree.h: class definitions which the test program depends on. - Your .cpp files which contain the implementions of AVLTree and BinarySearchTree. - Makefile: compiles your program and produces the a.out executable - analysis.pdf: The report for this lab.</p>
+<p>The report for this lab should contain the following:</p>
 <ol style="list-style-type: decimal">
 <li>Your name, the date, and your CS 2150 lab section.</li>
-<li>The testfile4.txt file you used in the in-lab. You can just cut-and-paste this into the report.</li>
-<li>Why the testfile4.txt file works (this is the single paragraph that was mentioned in the 'What you need to do' section of the in-lab)</li>
+<li>What do <a href="code/postlab/testfile1.txt">testfile1.txt</a> (<a href="code/postlab/testfile1.out.txt">output</a>), <a href="code/postlab/testfile2.txt">testfile2.txt</a> (<a href="code/postlab/testfile2.out.txt">output</a>), and <a href="code/postlab/testfile3.txt">testfile3.txt</a> (<a href="code/postlab/testfile3.out.txt">output</a>) suggest about the relative performance of AVL trees and BSTs?</li>
 <li>Actual numerical results for some operations on both AVL trees and BSTs for the three provided test files and any additional tests you created.</li>
 <li>A characterization of situations where AVL trees are preferable to BSTs.</li>
 <li>A discussion of the costs incurred in an AVL implementation.</li>
 </ol>
-<p>For parts 5-6, a FULL page (if double spaced) is about what we are looking for (that's a full page for parts 5 &amp; 6 combined). Feel free to single space -- the same length (in terms of words, not in terms of page length) is still required.</p>
+<p>For parts 4-5, a FULL page (if double spaced) is about what we are looking for (that's a full page for parts 4 &amp; 5 combined). Feel free to single space -- the same length (in terms of words, not in terms of page length) is still required.</p>
 </body>
 </html>

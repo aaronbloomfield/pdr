@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>CS 2150: 01-cpp slide set</title>
     <meta name="description" content="A set of slides for a course on Program and Data Representation">
-    <meta name="author" content="Aaron Bloomfield">
+    <meta name="author" content="Mark Floryan">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -42,8 +42,8 @@
 &nbsp;
 ### Program and Data Representation
 &nbsp;
-<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
-<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="01-cpp.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
+<center><small>[Mark Floryan](http://www.cs.virginia.edu/~mrf8t) / [mrf8t@virginia.edu](mailto:mrf8t@virginia.edu)</small></center>
+<center><small>Repository: [github.com/markfloryan/pdr](http://github.com/markfloryan/pdr) / [&uarr;](index.html) / <a href="01-cpp.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
 &nbsp;  
 &nbsp;
 ## C++
@@ -598,14 +598,14 @@ class Rational {
     Rational(); // default constructor 
     ~Rational();         // destructor 
     Rational(int numerator, int denominator); 
-    void print() ; 
-    Rational times(Rational b); 
-    Rational plus(Rational b); 
-    Rational reciprocal();
-    Rational divides(Rational b); 
+    void print() const;
+    Rational times(Rational b) const;
+    Rational plus(Rational b) const;
+    Rational reciprocal() const;
+    Rational divides(Rational b) const;
   private: 
     int num, den; // the numerator and denominator
-    int gcd(int m, int n); 
+    static int gcd(int m, int n);
 };
 
 #endif
@@ -623,7 +623,7 @@ using namespace std;
 // default constructor: initialize to 0/1
 Rational::Rational() : num(0), den(1) { } 
 
-void Rational::print() { 
+void Rational::print() const {
     if (den == 1)
         cout << num << "" << endl;
     else 
@@ -636,7 +636,7 @@ void Rational::print() {
 ## Rational.cpp, 2 of 2
 Source code: [Rational.cpp](code/01-cpp/Rational.cpp.html) ([src](code/01-cpp/Rational.cpp))
 ```
-Rational Rational::times(Rational b) { 
+Rational Rational::times(Rational b) const {
     return Rational(num * b.num, den * b.den); 
 }
 
@@ -1599,7 +1599,7 @@ test::~test() {
 Source code: [cpptest.cpp](code/01-cpp/cpptest.cpp.html) ([src](code/01-cpp/cpptest.cpp))
 ```
 test::test(const test& x) : id(x.id), value(x.value) {
-    cout << "calling test(&test) on " << *this 
+    cout << "calling test(const test&) on " << *this 
          << "; address is " << this << endl;
 }
 
@@ -1724,7 +1724,7 @@ cout << "finished invoking subroutine..." << endl;
 // output:
 // ---------------------------------------
 // about to invoke subroutine...
-// calling test(&test) on test[id=2,v=2]; 
+// calling test(const test&) on test[id=2,v=2]; 
 //                   address is 0xff852a38
 // calling test(10); object created is test[id=4,v=10]; 
 //                   address is 0xff852a40
@@ -1745,7 +1745,7 @@ test f = b;
 
 // output:
 // ---------------------------------------
-// calling test(&test) on test[id=1,v=1]; 
+// calling test(const test&) on test[id=1,v=1]; 
 //                     address is 0xff852a30
 ```
 </script></section>
@@ -1784,7 +1784,7 @@ aa = b;
 // ---------------------------------------
 // assignment...
 // calling operator=(test[id=1,v=1])
-// calling test(&test) on test[id=1,v=1]; 
+// calling test(const test&) on test[id=1,v=1]; 
 //                     address is 0xa009008
 ```
 </script></section>

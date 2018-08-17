@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>CS 2150: 07-ibcm slide set</title>
     <meta name="description" content="A set of slides for a course on Program and Data Representation">
-    <meta name="author" content="Aaron Bloomfield">
+    <meta name="author" content="Mark Floryan">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -42,8 +42,8 @@
 &nbsp;
 ### Program and Data Representation
 &nbsp;
-<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
-<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="07-ibcm.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
+<center><small>[Mark Floryan](http://www.cs.virginia.edu/~mrf8t) / [mrf8t@virginia.edu](mailto:mrf8t@virginia.edu)</small></center>
+<center><small>Repository: [github.com/markfloryan/pdr](http://github.com/markfloryan/pdr) / [&uarr;](index.html) / <a href="07-ibcm.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
 &nbsp;  
 &nbsp;  
 ## IBCM (machine language)
@@ -338,7 +338,7 @@ store 300
 <tr><td>3</td><td>load</td><td><code>a := mem[addr]</code></td><td>load accumulator from memory</td></tr>
 <tr><td>4</td><td>store</td><td><code>mem[addr] := a</code></td><td>store accumulator into memory</td></tr>
 <tr><td>5</td><td>add</td><td><code>a := a + mem[addr]</code></td><td>add memory to accumulator</td></tr>
-<tr><td>6</td><td>sub</td><td><code>a := a - mem[addr]</code></td><td>add memory from accumulator</td></tr>
+<tr><td>6</td><td>sub</td><td><code>a := a - mem[addr]</code></td><td>subtract memory from accumulator</td></tr>
 <tr><td>7</td><td>and</td><td><code>a := a &and; mem[addr]</code></td><td>logical 'and' memory into accumulator</td></tr>
 <tr><td>8</td><td>or</td><td><code>a := a &or; mem[addr]</code></td><td>logical 'or' memory into accumulator</td></tr>
 <tr><td>9</td><td>xor</td><td><code>a := a &oplus; mem[addr]</code></td><td>logical 'xor' memory into accumulator</td></tr>
@@ -807,7 +807,7 @@ union ibcm_instruction {
     struct { unsigned int op:4, unused:12; } halt;
     struct { unsigned int op:4, ioopt:2, unused:10 } io;
     struct { unsigned int op:4, shiftop: 2, 
-             unused:5, shiftcout:5; } shifts;
+             unused:5, shiftcount:5; } shifts;
     struct { unsigned int op:4, address:12; } others;
 };
 ```

@@ -307,7 +307,7 @@ clean:
 	-rm -f *.o *~ outputfile
 ```
 
-The above clean rule does not depend on anything, and its action will not be performed unless directly invoked by calling 'make clean'.  The above rule removes all files ending in .o, all files ending in `~` (backup files created by emacs), and a file called outputfile.  The '-' in front of rm means that it does not matter if rm was unsuccessful in removing a .o file (if a command fails, make normally things that it should abort due to the error, but the '-' here tells make to ignore it if this command fails).  The '-f' option does a few things, one of which is to prevent printing of error messages if the files do not exist (i.e. if you run 'make clean' twice in a row).
+The above clean rule does not depend on anything, and its action will not be performed unless directly invoked by calling 'make clean'.  The above rule removes all files ending in .o, all files ending in `~` (backup files created by emacs), and a file called outputfile.  The '-' in front of rm means that it does not matter if rm was unsuccessful in removing a .o file (if a command fails, make normally thinks that it should abort due to the error, but the '-' here tells make to ignore it if this command fails).  The '-f' option does a few things, one of which is to prevent printing of error messages if the files do not exist (i.e. if you run 'make clean' twice in a row).
 
 Makefiles may also have a "debug" and "optimized" target.  These targets will generate a version of the output file for debugging (through gdb, for example) and a version of the output file with optimization flags.  Another way to do this is to edit the Makefile, enter '-g' or '-O2' in the CXXFLAGS macro, then do a 'make clean' and then 'make'.
 

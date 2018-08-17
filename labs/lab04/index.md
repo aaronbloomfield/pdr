@@ -27,11 +27,8 @@ Procedure
     - You cannot use the `bitset` class (or anything similar) for this!
 5. Write the `overflow()` function, as described in the pre-lab section.
 6. Combine these functions into a prelab4.cpp file, as described in the pre-lab section.  This program should only take in a *single* `int` value as input!
-7. Get your floating point number [here](http://libra.cs.virginia.edu/getfloat.php), and then complete your floating point conversion, as described in the pre-lab section, into a file called floatingpoint.pdf; you can convert a file into a PDF via the directions on the [How to convert a file to PDF](../../docs/convert_to_pdf.html) page.
-    - Note that this must be typed up in a document; you cannot do this by hand and scan it in (or take a photo of it)
-    - Make sure you read the part, in the pre-lab section below, about the maximum file size!  Otherwise your submission will not be accepted.
 7. Files to download: none
-8. Files to submit: prelab4.cpp, floatingpoint.pdf
+8. Files to submit: prelab4.cpp
 
 ### In-lab ###
 
@@ -42,7 +39,10 @@ Procedure
     3. Primitive arrays in C++
 3. Files to download: [inlab4.doc](inlab4.doc)
 4. Convert inlab4.doc to a PDF via the directions on the [How to convert a file to PDF](../../docs/convert_to_pdf.html) page
-5. Files to submit: inlab4.pdf (the PDF version of inlab4.doc), inlab4.cpp
+5. Get your floating point number [here](http://libra.cs.virginia.edu/getfloat.php), and then complete your floating point conversion, as described in the pre-lab section, into a file called floatingpoint.pdf; you can convert a file into a PDF via the directions on the [How to convert a file to PDF](../../docs/convert_to_pdf.html) page. **Note: Many students will submit a text file that happens to be called floatingpoint.pdf. Make sure to check for this before submitting!**
+    - Note that this must be typed up in a document; you cannot do this by hand and scan it in (or take a photo of it)
+    - Make sure you read the part, in the pre-lab section below, about the maximum file size!  Otherwise your submission will not be accepted.
+6. Files to submit: inlab4.pdf (the PDF version of inlab4.doc), inlab4.cpp, floatingpoint.pdf
 
 ### Post-lab ###
 
@@ -55,8 +55,6 @@ Procedure
 
 Pre-lab
 -------
-
-One of the deliverables for the pre-lab is a PDF document named floatingpoint.pdf.  It must be in PDF format!  See [How To Convert A File To PDF](../../docs/convert_to_pdf.html) for details.
 
 ### Reading ###
 
@@ -98,36 +96,7 @@ Your function should create an `unsigned int`, give it the max value, and add 1 
 
 Your three functions, `sizeOfTest()`, `outputBinary()`, and `overflow()` should be combined into a prelab4.cpp file.  This is the one C++ source code file that you will submit for the pre-lab.  The input requirements for this program are fairly strict, so as to allow automated execution of your programs.
 
-**Your program should ask for a single integer value for input**, which we will call *x*.  The program will call the three functions in order: `sizeOfTest()`, `outputBinary()`, and then `overflow()`.  Note that only `outputBinary()` takes in *x* as the parameter.  The program should take in no further input.
-
-### Floating point conversion ###
-
-For the last part of the pre-lab, you will need to convert a floating point number to binary representation, and another number from binary representation to a floating point number.  You should do this by hand (i.e. not in a computer program), and have the worked-out solution (similar to the lecture notes) be in a floatingpoint.pdf file -- you can use any editor you would like to generate the file, as long as what you submit is a PDF file.
-
-First, you will need to determine what your floating point numbers are going to be -- these numbers will be different for each student.  To do so, visit [http://libra.cs.virginia.edu/getfloat.php](http://libra.cs.virginia.edu/getfloat.php) and enter your UVa userid.  Each floating point number is unique to the userid entered.  Note that the hexadecimal number printed is in **little Endian** format.
-
-The first number must be converted into (little-Endian) format -- you should leave your answer in hexadecimal, as that will be an easier way (versus binary) to represent the number.  The second number (the one in hexadecimal) needs to be converted to a base 10 real number as per the algorithm for converting IEEE 754 single-precision (i.e. 32-bit) floating point numbers.
-
-Note that a '0x' before a number means that the number is in hexadecimal.  Thus, 0x11 has decimal value 17, as that is what 11 is in hexadecimal.  The '0x' part is not part of the value.
-
-For example, if you entered 'asb2t', you would get:
-
-```
-Your magic (32 bit) floating point number is -35.125
-This is the number that needs to be converted to (little endian) binary, and expressed in hexadecimal.
-
-Your other magic floating point number is, in hex, 0x00401f41
-This is the number that needs to be converted to a (32 bit) floating point number.
-Note that the hexadecimal printed above is in little-endian format!
-```
-
-In this example, you would convert -35.125 to 0x800cc2 (or 0x00800cc2 -- same thing with the leading zeros added), and 0x401f41 (or 0x00401f41 -- again, the same thing) to 9.95312.
-
-Note: during the conversion, the numbers provided do not have any 1 bits in the mantissa after the 10th bit.  It could be that your floating point number needs the first 10 bits of the mantissa, or it could need less.  But all bits after the first 10 are supposed to be zero.  So if your conversion has any bits beyond that set to 1, then you are doing something wrong.  You will be expected to be able to do this on a test -- although in an exam situation, because no calculators are allowed, the math involved with determining the mantissa won't be very hard.
-
-Your conversion should be in a PDF file called floatingpoint.pdf, which will be submitted with the pre-lab.  The idea is to show the math behind the conversion (similar to how was done in class), not to write a program to do it.
-
-You must actually type up your work in a word editor (Word is fine, as is Mac Pages; [LibreOffice](http://www.libreoffice.org/) is a free alternative).  You can ***NOT*** do the assignment by hand, then scan it in (or take a photo of it).  It must actually be typeset in your favorite editor of choice.  Note that the Unix honor pledge only applies to development, so you are free to use anything to type up the file.
+**Your program should ask for a single integer value for input**, which we will call *x*.  The program will call the three functions in order: `sizeOfTest()`, `outputBinary(x)`, and then `overflow()`.  Note that only `outputBinary()` takes in *x* as the parameter.  The program should take in no further input.
 
 **File size:** the submission server will only accept files of up to a certain size, and your file must be less than this size.  If you properly type set your document, then this will not be a problem.  But if you write out your assignment by hand, then scan (or take a picture of) it, then it will be too big to submit.  And note that you have to actually type set it, as mentioned above, so you should be doing this anyway.
 
@@ -136,43 +105,12 @@ You must actually type up your work in a word editor (Word is fine, as is Mac Pa
 In-Lab
 ------
 
-The purpose of this in-lab is to complete the [inlab4.doc](inlab4.doc) worksheet, and turn that in (in PDF format - see [How To Convert A File To PDF](../../docs/convert_to_pdf.html) for details).  The in-lab description, below, discusses filling in this worksheet.  As part of this in-lab, you will have to write a few small programs, which you will combine into an inlab4.cpp file - the output of this program will give you some of the values to fill into the inlab4.doc worksheet.  The sections below named [Representation in memory](#memory) and [Primitive Arrays in C++](#arrays) describe what should be in this file.  It should not take in any input, and should just print out the necessary values.
+For the in-lab, you will complete the [inlab4.doc](inlab4.doc) worksheet and submit it (in PDF format - see [How To Convert A File To PDF](../../docs/convert_to_pdf.html) for details).  To complete this in-lab, you will write a few small functions to help fill in *some* of the values in the inlab4.doc worksheet; you will combine the functions (and some others) into an inlab4.cpp file.  The sections below named [Representation in memory](#memory) and [Primitive Arrays in C++](#arrays) describe what should be in this file.  It should not take in any input, and should just print out the necessary values.
 
-### 32-bit versus 64-bit ###
-
-We realize that most of you will have 64 bit computers.  However, the VirtualBox image is a 32-bit image.  The information you provide for this in-lab can be either for a 32-bit computer (the VirtualBox image), or a 64-bit computer (what you probably have, as well as what is in the lab), as long as you are consistent - meaning you have to have **all** your answers be one or other; you can't mix-and-match.
-
-If you are on a 64-bit machine, you can also compile your code with the `-m32` option, which will force the resulting program (a.out) to be a 32-bit program, regardless of whether it is running on a 64 bit machine or not.
-
-When using GDB, you can use the 'x' (for 'eXamine') command to print out the pointee of an address.  Consider the C++ program that has two variables defined, `int i` and `int *p`.  To print out the int variable `i`, you would enter `x &i` (as you have to enter the address of the data).  If `p` is a pointer to a value, you would enter `x p` to print out the *pointee*.  This may print it using many more hexadecimal digits than you wanted, so you can add a parameter to the 'x' command to have it print only a certain amount:
-
-- `x/xb p`: this will print the one byte at the address that is pointed to by p
-- `x/xh &i`: this will print the two bytes (short) of int variable i
-- `x/xw p`: this will print the four bytes at the address that is pointed to by p
-- `x/xg &i`: this will print the eight bytes of int variable i
-
-Note that this is only really useful when printing out a **smaller** size than really exists.  If your variable is 4 bytes, and you print out 8 bytes, then the other 4 bytes will be whatever arbitrary values are adjacent in memory.
+### Worksheet ###
 
 
-### Size of C++ data types ###
-
-The size of C++ data types is dependent on the underlying hardware on which you are running.  A programmer may determine the size of various data types by using the `sizeof()` operator, discussed in the pre-lab.  Note that, unlike a function, you can supply a type to the `sizeof()` operator (i.e., `sizeof(int)`) -- you can't do this with a function.
-
-Download the document called [inlab4.doc](inlab4.doc) -- this contains (among other things) the table below, in which you will enter in your answers.  Remember to include the standard identifying header at the top of the file (name, date, etc.).  This file will be submitted electronically in PDF format.
-
-Note: `char`, `short`, `int`, and `long` are all integral (i.e. integer) types.  Integral types may be either signed or unsigned.  Signed types have a different range of values than their unsigned counterpart.  A 32-bit `int` can have 2<sup>32</sup> = 4,294,967,296 values.  An `unsigned int` can range from 0 to 4,294,967,295, and a regular (i.e. signed) `int` can range from -2,147,483,648 to 2,147,483,647.  Unless specified as `unsigned` (as in: `unsigned long`), then all integral types in C++ are signed.
-
-To fill in this table, you can use the `outputBinary()` function that you write for the pre-lab for some of the types (specifically those of size 4).  To do this, create a union (as per the lecture notes on number representation) -- have it contain an `unsigned int` and a `float` (or whatever 4-byte type you are dealing with).  Copy in a float, copy out an unsigned int, and print that to the screen using your `outputBinary()` method.
-
-For the other types, you will need to use the debugger.  Write a simple C++ program that creates the variables, and stores the appropriate value (zero or one) into them.  Compile (remember the `-g` flag!), load the debugger, set a breakpoint, and start the program execution.  To find out how the value is stored in hex, first find out the address of where the variable is in memory (`print &i`, for example).  Then, using that address, you can use the examine command: `x/x 0xbf8cd9ac`.  The first 'x' is telling gdb to eXamine a location in memory.  The second 'x', after the forward slash, is telling GDB to print out that result in hex, and the address is the output from the previous print command.  This will print the 4 bytes (32 bits) of memory at that location, in hex.  If you want to print 8 bytes (64 bits), use `x/xg` (the 'g' tells GDB to print 8 bytes instead of 4).  You can also combine these commands by entering `x/x &i`.  The `x/x` part works as above; the `&i` tells it to print the value in memory at the address ('&') of the `i` variable.
-
-For various optimization reasons, when you declare a variable in C++, it does not immediately initialize it.  In fact, it will initialize it just before it is first used.  Thus, if you set a breakpoint after you declare and initialize a variable, but before it is used, the variable will have a random value in it.  You can solve this by printing out the variable via `cout` -- this causes C++ to initialize the variable for the output statement.  You can then set your breakpoint after this `cout` statement.
-
-The 'max value' column can be determined by understanding how the type stores the values (see the lecture notes for details).  Note that you can assign hex constants directly to integer variables in your C++ program: rather than saying `x=17`, you can say `x=0x11`.  You can also assign them directly in the debugger.  In C++, a number beginning with 0 is in octal, e.g. 011 is 9 decimal.  For chars, we are looking for the maximum integer value that can be stored therein (a char is just a byte-sized int); bools have only two possible values (`true` and `false`), so pick your max and min from those.  For pointers, it's the highest memory address that can be addressed.
-
-The following tables do not render very in this document, but the tables in [inlab4.doc](inlab4.doc) render much better.  Note that 'zero' and 'one' should be interpreted appropriately for the given data type.  So 'zero' would be 0 for an `int`, 0.0 for a `float`, `false` for a `bool`, etc.  Similarly for 'one'.
-
-As was mentioned in lecture, the #define'd value `UINT_MAX` contains the maximum integer value, and you must `#include <climits>` in order to access it.
+The [inlab4.doc](inlab4.doc) worksheet asks you to fill in two tables describing certain features of primitive types in C++.  The two tables are reproduced below:
 
 | C++ Type | Size in bytes? | Max value? (base 10) | Zero is stored as (in hex)? | One is stored as (in hex)? |
 |----------|----------------|----------------------|-----------------------------|----------------------------|
@@ -183,16 +121,52 @@ As was mentioned in lecture, the #define'd value `UINT_MAX` contains the maximum
 | char | | | | |
 | bool | | | | |
 
-And, for pointers:
+&nbsp;
 
-| C++ Type | Size in bytes? | Max value? (base 10) | NULL is stored as (in hex)? |
+| C++ Type | Size in bytes? | Max value? (base 16/hex) | NULL is stored as (in hex)? |
 |----------|----------------|----------------------|-----------------------------|
-| int* | | | |
-| char* | | | |
-| double* | | | |
+| int\* | | | |
+| char\* | | | |
+| double\* | | | |
 
+To fill in this table, we recommend using a combination of short "test" programs, the debugger, a header file containing max and min values of certain types, the [Number Representation slides](../../slides/03-numbers.html), and deductive reasoning.  
 
-The results in the hex columns should be in **big endian** format, which is the same format that GDB displays, as well as the format that your `outputBinary()` program should display.  To convert binary into hex, see the [03-numbers slide set](../../slides/03-numbers.html).
+Suggestions to get started:
+
+  - For the "Size in Bytes" column, consider using the `sizeof` operator you learned about in the pre-lab.
+  - The values for the "Zero" and "One" columns should interpreted appropriately for the data type. For example, "zero" is 0 for an `int`, 0.0 for a `float`, `false` for a bool, the character `'0'` for a `char`, etc.  
+  - The header [`climits`](http://en.cppreference.com/w/cpp/header/climits) has constants containing the max values of many types.
+  - For types not in `climits` header, you should reason about how the data is stored (this may involve doing some math on paper).
+  - For pointers, the highest memory address that can be described is the "max value." For `char`s, we want the maximum integer value that may be stored therein.  Finally, booleans only have two possible values, so choose the max and min from these two. 
+  - Hex values should be given in **big-endian**.
+
+### Using the Debugger ###
+
+For some parts of this lab, it is helpful to assign a value to a variable, then inspect that variable's contents using a debugger.  You can write a simple C++ program that creates the variables, and stores the appropriate value (zero, one, or NULL) into them.  Compile (remember the `-g` flag!), load the debugger, set a breakpoint, and start the program execution.  
+
+When using GDB, you can use the 'x' (for 'eXamine') command to print out the pointee of an address.  Consider the C++ program that has two variables defined, `int i` and `int *p`.  To print out the int variable `i`, you would enter `x &i` (as you have to enter the address of the data).  If `p` is a pointer to a value, you would enter `x p` to print out the *pointee*.  This may print it using many more hexadecimal digits than you wanted, so you can add a parameter to the 'x' command to have it print only a certain amount:
+
+- `x/xb p`: this will print the one byte at the address that is pointed to by p
+- `x/xh &i`: this will print the two bytes (short) of int variable i
+- `x/xw p`: this will print the four bytes at the address that is pointed to by p
+- `x/xg &i`: this will print the eight bytes of int variable i
+
+Note that this is only really useful when printing out a **smaller** size than really exists.  If your variable is 4 bytes, and you print out 8 bytes, then the other 4 bytes will be whatever arbitrary values are adjacent in memory.
+
+So, to find out how the value is stored in hex, first find out the address of where the variable is in memory (`print &i`, for example).  Then, using that address, you can use the examine command: `x/x 0xbf8cd9ac`.  The first 'x' is telling gdb to eXamine a location in memory.  The second 'x', after the forward slash, is telling GDB to print out that result in hex, and the address is the output from the previous print command.  This will print the 4 bytes (32 bits) of memory at that location, in hex.  If you want to print 8 bytes (64 bits), use `x/xg` (the 'g' tells GDB to print 8 bytes instead of 4).  You can also combine these commands by entering `x/x &i`.  The `x/x` part works as above; the `&i` tells it to print the value in memory at the address ('&') of the `i` variable.
+
+### Size of C++ data types ###
+
+The size of C++ data types is dependent on the underlying hardware on which you are running.  A programmer may determine the size of various data types by using the `sizeof()` operator, discussed in the pre-lab.  Note that, unlike a function, you can supply a type to the `sizeof()` operator (i.e., `sizeof(int)`) -- you can't do this with a function.
+
+Also, note that `char`, `short`, `int`, and `long` are all integral (i.e. integer) types.  Integral types may be either signed or unsigned.  Signed types have a different range of values than their unsigned counterpart.  A 32-bit `int` can have 2<sup>32</sup> = 4,294,967,296 values.  An `unsigned int` can range from 0 to 4,294,967,295, and a regular (i.e. signed) `int` can range from -2,147,483,648 to 2,147,483,647.  Unless specified as `unsigned` (as in: `unsigned long`), then all integral types in C++ are signed.
+
+For various optimization reasons, when you declare a variable with an initialization value in C++ (e.g. `int x = 17`), it does not actually immediately initialize it.  In fact, it can initialize it right before it is first used.  Thus, if you set a breakpoint after you declare and initialize a variable, but before it is used, the variable will have a random value in it.  You can solve this by printing out the variable via `cout` -- this causes C++ to initialize the variable for the output statement.  You can then set your breakpoint after this `cout` statement.
+
+To convert binary into hex, see the [03-numbers slide set](../../slides/03-numbers.html).  You can also assign variables in C++ directly using hex by prefacing numeric constants with `0x`.  For example, instead of `int x = 17`, you can write `int x = 0x11`.  
+
+### A legacy note on 32-bit machines ###
+In the past, we accepted answers to this lab for either 32-bit or 64-bit computers; as we have transitioned the entire course to 64-bit systems, this is no longer the case.
 
 ### <a name="memory">Representation in memory</a> ###
 
@@ -236,13 +210,44 @@ Assign different values into each element of all four arrays.  As above, put a b
 
 Examine where the elements of the four arrays are in memory. You will be expected to understand and be able to explain this representation for the exams.
 
-Assuming that memory is byte-addressable, write an expression that will tell you the address of the (i,j)th element of `IntArray2D` as declared above.  The base address of the array is the identifier (IntArray2D), and the expression should be in terms of that, as well as `i`, `j`, and the size of the `int` type.  You can assume that: (0 &le; *i* < 6), and (0 &le; *j* < 5 ).  Note: '&' here means "the address of", you may use '&' in your answer.  This answer should also go in your inlab4.doc file.
+The final part of the inlab4.doc worksheet involves writing an expression for the address of the (i,j)th element of `IntArray2D` as declared above.
+
+The base address of the array is the identifier (IntArray2D), and the expression should be in terms of that, as well as `i`, `j`, and the size of the `int` type.  You can assume that: (0 &le; *i* < 6), and (0 &le; *j* < 5 ).  Note: '&' here means "the address of", you may use '&' in your answer.  
 
 ```
 &(IntArray2D[i][j]) = _______________________________________________
 ```
 
-Lastly, convert your inlab4.doc file to PDF format prior to submission.
+Remember to include the standard identifying header at the top of all your files (name, date, etc.).  The inlab4.doc worksheet should be converted to PDF and submitted, along with the inlab4.cpp file.
+
+### Floating point conversion ###
+
+For the last part of the in-lab, you will need to convert a floating point number to binary representation, and another number from binary representation to a floating point number.  You should do this by hand (i.e. not in a computer program), and have the worked-out solution (similar to the lecture notes) be in a floatingpoint.pdf file -- you can use any editor you would like to generate the file, as long as what you submit is a PDF file.
+
+First, you will need to determine what your floating point numbers are going to be -- these numbers will be different for each student.  To do so, visit [http://libra.cs.virginia.edu/getfloat.php](http://libra.cs.virginia.edu/getfloat.php) and enter your UVa userid.  Each floating point number is unique to the userid entered.  Note that the hexadecimal number printed is in **little Endian** format.
+
+The first number must be converted into (little-Endian) format -- you should leave your answer in hexadecimal, as that will be an easier way (versus binary) to represent the number.  The second number (the one in hexadecimal) needs to be converted to a base 10 real number as per the algorithm for converting IEEE 754 single-precision (i.e. 32-bit) floating point numbers.
+
+Note that a '0x' before a number means that the number is in hexadecimal.  Thus, 0x11 has decimal value 17, as that is what 11 is in hexadecimal.  The '0x' part is not part of the value.
+
+For example, if you entered 'asb2t', you would get:
+
+```
+Your magic (32 bit) floating point number is -35.125
+This is the number that needs to be converted to (little endian) binary, and expressed in hexadecimal.
+
+Your other magic floating point number is, in hex, 0x00401f41
+This is the number that needs to be converted to a (32 bit) floating point number.
+Note that the hexadecimal printed above is in little-endian format!
+```
+
+In this example, you would convert -35.125 to 0x800cc2 (or 0x00800cc2 -- same thing with the leading zeros added), and 0x401f41 (or 0x00401f41 -- again, the same thing) to 9.95312.
+
+Note: during the conversion, the numbers provided do not have any 1 bits in the mantissa after the 10th bit.  It could be that your floating point number needs the first 10 bits of the mantissa, or it could need less.  But all bits after the first 10 are supposed to be zero.  So if your conversion has any bits beyond that set to 1, then you are doing something wrong.  You will be expected to be able to do this on a test -- although in an exam situation, because no calculators are allowed, the math involved with determining the mantissa won't be very hard.
+
+Your conversion should be in a PDF file called floatingpoint.pdf, which will be submitted with the pre-lab.  The idea is to show the math behind the conversion (similar to how was done in class), not to write a program to do it.
+
+You must actually type up your work in a word editor (Word is fine, as is Mac Pages; [LibreOffice](http://www.libreoffice.org/) is a free alternative).  You can ***NOT*** do the assignment by hand, then scan it in (or take a photo of it).  It must actually be typeset in your favorite editor of choice.  Note that the Unix honor pledge only applies to development, so you are free to use anything to type up the file.
 
 ------------------------------------------------------------
 
@@ -251,7 +256,7 @@ Post-Lab
 
 ### Binary bit counter ###
 
-Write a ***recursive*** function that returns the number of 1's in the binary representation of *n*.  Use the following fact: if *n* is even, the number of bits in the representation of *n* is the same as that in *n/2*; if *n* is odd, the number of bits is the same as that in *floor(n/2)* plus 1.
+Write a ***recursive*** function that returns the number of 1's in the binary representation of *n*.  Use the following fact: if *n* is even, the number of 1's in the representation of *n* is the same as that in *n/2*; if *n* is odd, the number of 1's is the same as that in *floor(n/2)* plus 1.
 
 You may assume that *n* is a non-negative integer that will be stored in two's complement.  However, *n* will be passed in the standard decimal (i.e. base-10) format.  This should be a rather simple function that uses what you've learned about integer representation.  If you find you need things like global variables or the `pow()` function to implement this then you are going too far.
 
@@ -275,8 +280,10 @@ These two parameters are providing you with the command-line parameters.  The fi
 
 Thus, if you supply the program with 3 command-line parameters, then argc would be set to 4, `argv[0]` would be the C-string that contains the program name ('a.out', for example'), and `argv[1]`, `argv[2]`, and `argv[3]` are the 3 supplied command line parameters.
 
-Your task is to implement the binary bit counter function that takes in a single command-line value (which is a standard base-10 integer) and prints out the number of bits contained therein.
+Your task is to implement the binary bit counter function that takes in a single command-line value (which is a standard base-10 integer) and prints out the number of ones contained therein.
 
 ### Converting between number systems ###
 
 Complete and submit the [radixWorksheet.doc](radixWorksheet.doc) file as a PDF file called radixWorksheet.pdf.  It must be in PDF format!  See [How To Convert A File To PDF](../../docs/convert_to_pdf.html) for details.
+
+
