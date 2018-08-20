@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Program and Data Representation</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="markdown.css" type="text/css" />
+</head>
+<body>
+<h1 id="program-and-data-representation">Program and Data Representation</h1>
+<p><a href="#introduction">Introduction</a> | <a href="#contents">Repository contents</a> | <a href="#contributing">Contributing to this repository</a> | <a href="#description">Course description</a> | <a href="#markdown">Markdown</a> | <a href="#sourcecode">Source code</a> | <a href="#canvasnotes">Canvas notes</a> | <a href="#license">License</a></p>
+<h2 id="introduction"><a name="introduction"></a>Introduction</h2>
+<p>This repository contains the materials for the course entitled &quot;CS 2150: Program and Data Representation&quot; in the <a href="http://www.cs.virginia.edu">Computer Science Department</a> at the <a href="http://www.virginia.edu">University of Virginia</a>. It contains all of the slides, labs, exams, etc., used throughout the course. The course description is <a href="#description">below</a>. The github repository for this course is at <a href="https://github.com/markfloryan/pdr" class="uri">https://github.com/markfloryan/pdr</a>.</p>
+<p>Students <em>currently</em> in the course should view the <a href="uva/index.html" class="uri">uva/index.html</a> (<a href="uva/index.md">md</a>) file in the <strong>cloned</strong> repository (i.e., don't try to view it on github.com); current students may also want to view the <a href="uva/daily-announcements.html#/">daily announcements</a>. Note that many of the course materials are modified right before they are needed -- for example, this repository will be updated right before the semester starts.</p>
+<p>Students who were previously in the course may want to view the current version, or you can view the version from your semester. All semester versions are tagged with an end-of-semester tag of the form &quot;year-semester&quot;. For example, the spring 2014 semester was tagged as <code>2014-spring</code>. To obtain a specific tag, you can enter <code>git checkout tags/2014-spring</code> in an already cloned repository.</p>
+<p>The primary author of this repository is <a href="http://www.cs.virginia.edu/~mrf8t">Mark Floryan</a> (<script type="text/javascript">
+<!--
+h='&#x63;&#x73;&#46;&#118;&#x69;&#114;&#x67;&#x69;&#110;&#x69;&#x61;&#46;&#x65;&#100;&#x75;';a='&#64;';n='&#x6d;&#114;&#102;&#56;&#116;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\/'+'a'+'>');
+// -->
+</script><noscript>&#x6d;&#114;&#102;&#56;&#116;&#32;&#x61;&#116;&#32;&#x63;&#x73;&#32;&#100;&#x6f;&#116;&#32;&#118;&#x69;&#114;&#x67;&#x69;&#110;&#x69;&#x61;&#32;&#100;&#x6f;&#116;&#32;&#x65;&#100;&#x75;</noscript>). This repository originally developed (and has been adapted from) a similar one by <a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (<script type="text/javascript">
+<!--
+h='&#118;&#x69;&#114;&#x67;&#x69;&#110;&#x69;&#x61;&#46;&#x65;&#100;&#x75;';a='&#64;';n='&#x61;&#x61;&#114;&#x6f;&#110;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\/'+'a'+'>');
+// -->
+</script><noscript>&#x61;&#x61;&#114;&#x6f;&#110;&#32;&#x61;&#116;&#32;&#118;&#x69;&#114;&#x67;&#x69;&#110;&#x69;&#x61;&#32;&#100;&#x6f;&#116;&#32;&#x65;&#100;&#x75;</noscript>. Many students and faculty have worked on this course material over the years.</p>
+<h2 id="repository-contents"><a name="contents"></a>Repository Contents</h2>
+<p><strong>Note that the links below will not work correctly if you are viewing this online at github.com -- you will need to clone (download) the repository first</strong></p>
+<ul>
+<li><a href="book/index.html">book</a> (<a href="book/index.md">md</a>): the beginnings of a textbook to be used for this course. It is written using LaTeX.</li>
+<li><a href="docs/index.html">docs</a> (<a href="docs/index.md">md</a>): a series of useful documents that are not labs or tutorials.</li>
+<li><a href="uva/index.html">uva</a> (<a href="uva/index.md">md</a>): the materials that are specific to CS 2150 as taught at the University of Virginia, such as daily announcements, due dates, etc.</li>
+<li><a href="exams/index.html">exams</a> (<a href="exams/index.md">md</a>): past exams for the course; there are two midterms and a final for each semester.</li>
+<li><a href="ibcm/ibcm.html">ibcm</a> (<a href="ibcm/ibcm.md">md</a>): the files necessary for the IBCM module on machine language, which is taught about two thirds of the way into the course.</li>
+<li><a href="labs/index.html">labs</a> (<a href="labs/index.md">md</a>): the labs are the main assignments in the course, and each lab is split into pre-lab, in-lab, and post-lab parts. There are 11 full labs, with a partial 12th lab that is an optional component of the course. The labs are written using <a href="http://daringfireball.net/projects/markdown/">markdown</a>, and the rendered HTML version of each lab is also committed to this repository.</li>
+<li><a href="slides/index.html">slides</a> (<a href="slides/index.md">md</a>): Contains the slides used in the course. The slides use <a href="https://github.com/hakimel/reveal.js/">reveal.js</a>, an HTML presentation framework.</li>
+<li><a href="tutorials/index.html">tutorials</a> (<a href="tutorials/index.md">md</a>): the tutorials that are used as part of the lab assignments, these are primarily Linux tutorials.</li>
+<li><a href="utils/index.html">utils</a> (<a href="utils/index.md">md</a>): various utilities for this repository</li>
+</ul>
+<h2 id="contributing-to-this-repository"><a name="contributing"></a>Contributing to this Repository</h2>
+<p>Updates to the repository are restricted to approved individuals only, to prevent anybody from messing with the slides right before a lecture. However, others can still contribute to this repository -- to do so, take the following steps:</p>
+<ol style="list-style-type: decimal">
+<li>Create a github account, if you do not have one</li>
+<li>Fork this repository: you can click on the &quot;Fork&quot; link in the upper right, or just click <a href="https://github.com/markfloryan/pdr/fork">here</a></li>
+<li>Clone your forked repository on to your local machine</li>
+<li>Make any changes you want to your forked version, then commit and push your changes back to your forked repository</li>
+<li>Create a pull request, following the instructions <a href="https://help.github.com/articles/creating-a-pull-request">here</a></li>
+</ol>
+<p>At that point, I will receive a notice that a change has been submitted, and I'll look at it and hopefully accept it into the main repository.</p>
+<p>When you want to bring in the updates from the main pdr github repository into your forked repository, you will need to follow the instructions <a href="https://help.github.com/articles/syncing-a-fork">here</a>.</p>
+<h2 id="course-description"><a name="description"></a>Course Description</h2>
+<p>This course is a second-year course for computer science majors. It is the primary data structures course in the <a href="http://www.virginia.edu">University of Virginia</a>'s <a href="http://www.cs.virginia.edu">computer science</a> curriculum. Unlike many other data structure courses at other institutions, it is intended as the <em>third</em> course in sequence, meaning that students are expected to have taken two semesters of Java (or equivalent, although some of the examples are specifically from Java). The course focuses on how programs and data are represented from the high level down to the low level. For programs, we examine (from high to low): abstract data types, Java code, C++ code, C code, assembly (x86) code, and a customized machine language. For data, we examine (also from high to low): abstract data types, objects, primitive types, and how numbers are encoded (both floats (IEEE 754) and integers (two's complement)). About two-thirds of this course is programming using C++. The remainder of this course uses other languages, including (in decreasing order): x86 assembly, IBCM (a machine language), C, Objective C, and shell scripting.</p>
+<p>The <a href="http://www.abet.org">ABET</a> course objects are as follows:</p>
+<ul>
+<li>Understand program representation from the high-level programming language perspective down to the underlying machine level representation, including: number representation, operations, conditionals, and control structures</li>
+<li>Be able to implement basic and advanced abstract data types in C++ including: linked lists, stacks, queues, hash tables, trees, and graphs</li>
+<li>Be able to evaluate asymptotic time and space complexity analysis of programs and data structure implementations using Big-O, Big-Omega, and Big-Theta notation and assess the suitability of a data structure for a particular problem</li>
+<li>Understand the basic program execution model and the underlying computer hardware and software (fetch-execute cycle, memory hierarchy, operating system, compiler)</li>
+<li>Be able to implement basic program control and data structures in an assembly language (loops, conditionals, subroutines and parameter passing modes, arrays)</li>
+</ul>
+<h2 id="markdown"><a name="markdown"></a>Markdown</h2>
+<p>The majority of the content in this repository was created using <a href="http://daringfireball.net/projects/markdown/">Markdown</a>. Unfortunately, the only standardized Markdown is very old (2004), and has limited support for many HTML features, such as tables. In the past, there were custom utilities (which can still be found in the <a href="utils/index.html">utils</a> (<a href="tutorials/index.md">md</a>) directory) were used. However, <a href="http://johnmacfarlane.net/pandoc/">pandoc</a> is now used (which is installed via the &quot;pandoc&quot; package on Ubuntu). Typing <code>make</code> in the root repo directory will call pandoc on all the markdown files.</p>
+<p>For all the Markdown files in this repository, both the original (.md) file and the HTML version (.html) are added to the repository, so that people who do not have Markdown installed can still view the contents of this repository.</p>
+<p>Note that Github supports an enhanced version of Markdown, called <a href="https://help.github.com/articles/github-flavored-markdown">Github Flavored Markdown</a>, or GFM. This mostly pertains to this README file. In an effort to ensure compatibility with other Markdown programs (such as the one described here and what reveal.js uses), GFM specific features are generally avoided. One example is the use of anchors in this document -- the HTML tags are included instead of using GFM's version.</p>
+<h2 id="source-code"><a name="sourcecode"></a>Source code</h2>
+<p>All source code is formatted via <a href="http://astyle.sourceforge.net/">astyle</a> and then highlighted via <a href="http://www.gnu.org/software/src-highlite/source-highlight.html">source-highlight</a>. Both the original file (foo.cpp) and the highlighted version (foo.cpp.html) are included in the repository. All links to source code will like to the .html, with a &quot;(<a href="README.md">src</a>)&quot; after it to link to the original source code.</p>
+<ul>
+<li>astyle options: <code>-A2 -s4 -S</code></li>
+<li>source-highlight options: <code>-d</code></li>
+</ul>
+<h2 id="canvas-notes"><a name="canvasnotes"></a>Canvas notes</h2>
+<p>Some of the slides allow pen-based markup of the slides. To add a canvas to a slide (to allow drawing with a mouse or a stylus), you must do a few things:</p>
+<ol style="list-style-type: decimal">
+<li><p>The slide can NOT be Markdown, it must be all pure HTML</p></li>
+<li><p>Include the js/canvas.js and css/dhtmlwindow.js scripts, as well as the dhtmlwindow.css CSS file (the two dhtmlwindow.* files are for the calibration feature):</p></li>
+</ol>
+<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;js/dhtmlwindow.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/canvas.js&quot;&gt;&lt;/script&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;css/dhtmlwindow.css&quot; type=&quot;text/css&quot;&gt;</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Add an <code>onload=&quot;canvasinit()&quot;</code> to the <code>&lt;body&gt;</code> tag: <code>&lt;body onload=&quot;canvasinit()&quot;&gt;</code></p></li>
+<li><p>Add the following immediately after the <code>&lt;body&gt;</code> tag (this is for the calibration feature):</p></li>
+</ol>
+<pre><code>&lt;div id=&quot;dhtmlwindowholder&quot;&gt;&lt;span style=&quot;display:none&quot;&gt;&lt;/span&gt;&lt;/div&gt;</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>Add the following code at the end of the .html file (just before the three script tags):</li>
+</ol>
+<pre><code>&lt;div id=&quot;calibratediv&quot; style=&quot;display:none&quot;&gt;
+  &lt;div id=&quot;calibratecanvasdiv&quot;&gt;
+    &lt;canvas id=&quot;calibratecanvas&quot; width=&quot;300&quot; height=&quot;300&quot;&gt;Your
+            browser does not support the canvas tag&lt;/canvas&gt;
+   &lt;/div&gt;
+   &lt;p style=&quot;text-align:center&quot;&gt;Click the center of the target&lt;br&gt;&lt;a href=&quot;#&quot; 
+       onClick=&quot;calibratewin.close(); return false&quot;&gt;Close window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>Then, on each slide that you want a canvas on, you add the following:</li>
+</ol>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;insertCanvas();&lt;/script&gt;</code></pre>
+<p>A few other notes:</p>
+<ul>
+<li>The canvas is larger than the slide itself, and the amount, in number of pixels, is the <code>canvas_border</code> variable in the canvas.js file</li>
+<li>To add colors, add them to the <code>colors</code> array in the canvas.js file; more color names can be found <a href="http://www.tutorialspoint.com/html5/html5_color_names.htm">here</a></li>
+</ul>
+<h2 id="license"><a name="license"></a>License</h2>
+<p>The material in this repository is released under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> (CC BY-SA).</p>
+<p>Copyright (c) 2017-2018 by Mark Floryan Copyright (c) 2013-2017 by Aaron Bloomfield.</p>
+<p>Some parts of this repository are taken, with permission, from other sources. The full details are in the <a href="LICENSE.html">License</a> (<a href="LICENSE.md">md</a>) file. In particular, some parts of this repository that were obtained elsewhere can not be used for commercial purposes.</p>
+</body>
+</html>
