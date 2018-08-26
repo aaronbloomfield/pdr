@@ -145,7 +145,7 @@ Grading Concerns
 
 [150]: https://calendar.google.com/calendar/embed?src=fnt7qr3f64egh65rfe1bng8f8s%40group.calendar.google.com&ctz=America/New_York
 [151]: http://twitter.com/UVaCS2150
-[152]: https://piazza.com/
+[152]: https://piazza.com/class/jla8mchboir245
 
 [160]: https://libra.cs.virginia.edu/~pedagogy/
 [161]: https://libra.cs.virginia.edu/~pedagogy/support.php
@@ -155,10 +155,10 @@ Grading Concerns
 [165]: https://libra.cs.virginia.edu/~pedagogy/labextension.php
 [166]: https://libra.cs.virginia.edu/~pedagogy/queue.php
 
-[170]: https://collab.its.virginia.edu/portal/site/cf8d5d0f-5f71-411e-934a-6bc45a6a5555/tool/e78005b9-fddd-40d4-a860-4ad966f34911
-[171]: https://collab.itc.virginia.edu/portal/directtool/45c39130-97aa-4ecc-a376-49d425c16ef1/
-[172]: unix-honor-pledge-f17.pdf
-[173]: https://collab.itc.virginia.edu/portal/directtool/f63a0438-2610-43f7-9148-5132d1904014/
+[170]: https://collab.its.virginia.edu/portal/site/ecaa9c3b-b126-466c-a2a0-25ac318eddbb/tool-reset/8bfb80f1-1fb2-418a-a950-3bd7918bf490
+[171]: https://collab.its.virginia.edu/portal/site/ecaa9c3b-b126-466c-a2a0-25ac318eddbb/tool-reset/b0ef4dba-7bde-4571-adfc-af9d7bd2407a
+[172]: unix-honor-pledge-f18.pdf
+[173]: ...
 
 [201]: https://collab.itc.virginia.edu/access/content/group/595e2a9f-14e2-4fca-85b6-4495d633efca/lectures/course-introduction-1/course-introduction-1.htm
 [202]: https://collab.itc.virginia.edu/access/content/group/595e2a9f-14e2-4fca-85b6-4495d633efca/lectures/01-cpp-1/01-cpp-1.htm

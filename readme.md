@@ -6,7 +6,7 @@ Program and Data Representation
 <a name="introduction"></a>Introduction
 ---------------------------------------
 
-This repository contains the materials for the course entitled "CS 2150: Program and Data Representation" in the [Computer Science Department](http://www.cs.virginia.edu) at the [University of Virginia](http://www.virginia.edu).  It contains all of the slides, labs, exams, etc., used throughout the course.  The course description is [below](#description).  The github repository for this course is at [https://github.com/uva-cs/pdr](https://github.com/uva-cs/pdr).
+This repository contains the materials for the course entitled "CS 2150: Program and Data Representation" in the [Computer Science Department](http://www.cs.virginia.edu) at the [University of Virginia](http://www.virginia.edu).  It contains all of the slides, labs, exams, etc., used throughout the course.  The course description is [below](#description).  The github repository for this course is at [https://github.com/uva-cs/pdr](https://github.com/uva-cs/pdr).  It can be viewed online at [http://aaronbloomfield.github.io/pdr/](http://aaronbloomfield.github.io/pdr/).
 
 Students *currently* in the course should view the [uva/index.html](uva/index.html) ([md](uva/index.md)) file in the **cloned** repository (i.e., don't try to view it on github.com); current students may also want to view the [daily announcements](uva/daily-announcements.html#/).  Note that many of the course materials are modified right before they are needed -- for example, this repository will be updated right before the semester starts.
 

@@ -2,6 +2,7 @@
 // https://github.com/hakimel/reveal.js#configuration
 Reveal.initialize({
     controls: true,
+    controlsTutorial: false,
     progress: true,
     history: true,
     center: true,

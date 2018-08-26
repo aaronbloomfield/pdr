@@ -3,31 +3,25 @@ CS 2150: Program and Data Representation: Course Syllabus
 
 [Go up to the CS 2150 page][1] ([md][2])
 
-## Spring 2018
+## Fall 2018
 
 ### Instructors ###
 
-- [Mark Floryan][38] / [mrf8t@virginia.edu][39].  Office: Rice Hall, room 203.  Office hours are TBD
-- [Charles Reiss][43] / [creiss@virginia.edu][44].  Office: Rice Hall, room 205.  Office hours are TBD
+- [Mark Floryan][31] / [mrf8t@virginia.edu][39].  Office: Rice Hall, room 203.  Office hours are TBD
+- [Rich Nguyen][38] / [nn4pj@virginia.edu](mailto:nn4pj@virginia.edu).  Office: Rice Hall, room ???.  Office hours are TBD
+- [Aaron Bloomfield][33] / [aaron@virginia.edu](mailto:aaron@virginia.edu).  Office: Rice Hall, room 403.  Office hours are TBD
 
 ### Course Info ###
 
-- Lecture: M/W/F 9:00-9:50, Nau Hall 101; 1:00-1:50, Rice Hall 130
+- Lectures: M/W/F 10:00-10:50 (Minor 125), 11:00-11:50 (Olsson 120), or 1:00-1:50 (Olsson 120)
 - Email: none; fill out a [support request][42] instead
 - Announcement feed: [\@UVaCS2150][34]
 - TAs and their office hours will be posted on the [CS 2150 Google Calendar][35] (which is also linked to via Collab); all office hours start the Sunday after classes start
-- Laboratory Meetings (all in Olsson 001):
-    - Section 101: Tuesday, 9:30 am -- 10:45 am
-    - Section 102: Tuesday, 11:00 pm -- 12:15 pm
-    - Section 103: Tuesday, 12:30 pm -- 1:45 pm
-    - Section 104: Tuesday, 2:00 pm -- 3:15 pm
-    - Section 105: Tuesday, 3:30 pm -- 4:45 pm
-    - Section 106: Tuesday, 5:00 pm -- 6:15 pm
-    - Section 107: Tuesday, 6:30 pm -- 7:45 pm
+- Laboratory Meetings (all in Olsson 001): all on Tuesdays
 
 **Course Description:** This course will introduce you to program and data representation from high level concepts to machine level implementation. Data structuring techniques and the representation of data structures during program execution are discussed, as are operations and control structures and their representation during program execution. Representations of numbers, arithmetic operations, arrays, records, recursion, hashing, stacks, queues, trees, graphs, and related concepts are also covered.
 
-**Availability:** It is important to me to be available to my students, and to address their concerns. If you cannot meet with me during office hours, e-mail and I will try to find the time to meet. That being said, like everybody else I am quite busy, so it may take a day or more to find a time to meet. And if you have any comments on the course - what is working, what is not working, what can be done better, etc. - I am very interested in hearing about them. There is an [anonymous feedback tool through Collab][37], or you can send me an e-mail (please do NOT email the TAs directly). I tend to get bogged down by e-mail as the semester progresses, so seeing me in person (right after lecture, during office hours, etc.) is often a good way to get a more immediate response.
+**Availability:** It is important to us to be available to our students, and to address their concerns. If you cannot meet with us during office hours, e-mail and we will try to find the time to meet. That being said, like everybody else we are quite busy, so it may take a day or more to find a time to meet. And if you have any comments on the course - what is working, what is not working, what can be done better, etc. - we are very interested in hearing about them. There is an [anonymous feedback tool through Collab][37], or you can send an e-mail (please do NOT email the TAs directly). We tend to get bogged down by e-mail as the semester progresses, so seeing us in person (right after lecture, during office hours, etc.) is often a good way to get a more immediate response.
 
 **Prerequisites:** CS 2110 (Software Development Methods) or CS 2220 (Engineering Software); and CS 2102 (Discrete Math), all with grades of C- or above.  Note that CS 2102 is allowed as a co-requisite, but see the details for this in the [first slide set][11] (specifically, [here][12]).
 
@@ -45,7 +39,7 @@ CS 2150: Program and Data Representation: Course Syllabus
 - 30%: Two midterm exams
 - 25%: Final exam
 
-I expect that grades will follow the standard decade curve: 90 and above is an A of some sort (A-, A, or A+), 80 and above is some sort of a B, etc.  **Note:** I reserve the right to modify the weighting (changing the curve, adding pop quizzes, etc.), especially if attendance drops off significantly.  If this does happen, it will be clearly announced in lecture.
+We expect that grades will follow the standard decade curve: 90 and above is an A of some sort (A-, A, or A+), 80 and above is some sort of a B, etc.  **Note:** We reserve the right to modify the weighting (changing the curve, adding pop quizzes, etc.), especially if attendance drops off significantly.  If this does happen, it will be clearly announced in lecture.
 
 **Development Environment:** In this class, you may NOT use Microsoft Visual Studio, any other Microsoft Windows-based development environment, or any IDE (Integrated Development Environment), for any reason.  This includes, among others, Eclipse, Netbeans, Xcode, Geany, Visual Studio, and Atom. This applies to program development -- obviously, you can use MS Office to edit text documents. The purpose behind this rule is to introduce you to the Unix environment -- thus, all course work in this class is to be done in a Unix environment (Solaris, Linux, FreeBSD, Cygwin, etc.). We will discuss how to access and/or install these environments in the beginning of the course. **In order to take this course, you agree to sign an honor pledge that states that you will NOT use a Microsoft Windows-based development environment or IDE for any course work.**
 
@@ -55,14 +49,13 @@ I expect that grades will follow the standard decade curve: 90 and above is an A
 
 **Exams:** There will be two midterm exams held during laboratory sessions (combined worth 30% of the final grade) and one final exam (worth 25% of the final grade). Note that we hope (but do not guarantee!) to have the first exam returned before the SEAS drop date.
 
-- Midterm Exam 1: Tuesday, February 20, during lab session in Olsson 001
-- Midterm Exam 2: Tuesday, April 3, during lab session in Olsson 001
-- Final Exam: Monday, May 7 from 7 p.m. to 10 p.m.
-	- Chem 402
+- Midterm Exam 1: Tuesday, September ??, during lab session
+- Midterm Exam 2: Tuesday, November ??, during lab session
+- Final Exam: Saturday, December 15 from 7 p.m. to 10 p.m.
     - This is a common exam time, and conflicts with several other courses
-    - Information about conflicting exams will be dealt with later in the semester
+    - Let us know by September 15th if you have a conflit (via a support request); we will deal with scheduling conflits later in the semester
 
-Under **NO** circumstances will anybody be allowed to take the final exam early.  You may **ONLY** request to take the final exam at a different time if you have a final exam **CONFLICT**, not a busy final exam schedule.  Since it is a common exam time, the only conflicts are the courses listed on UVa's official exam schedule.
+Under **NO** circumstances will anybody be allowed to take the final exam early.  You may **ONLY** request to take the final exam at a different time if you have a final exam **CONFLICT**, not a busy final exam schedule.  Since it is a common exam time, the only conflicts are the courses listed on UVa's official exam schedule.  For fall 2018, they are: APMA 1090; BIOL 2100; CS 2110; KOR 1010, 2010, & 3010; STAT 2120 & 3120.
 
 You may submit lab questions for regrading within 10 days of when they are returned to you (less time for the final due to the end of the semester); this is done via the [course tools][41].  However, you MUST be aware of the [Frivolous regrade policy][3] ([md][4]), which will be strictly enforced.
 
@@ -118,12 +111,12 @@ Any honor violation or cheating will be referred to the honor committee, **and w
 
 [31]: http://www.cs.virginia.edu/~mrf8t
 [32]: mailto:mrf8t@virginia.edu
-[33]: http://twitter.com/bloomfieldaaron
+[33]: http://www.cs.virginia.edu/~asb
 [34]: http://twitter.com/UVaCS2150
 [35]: https://calendar.google.com/calendar/embed?src=fnt7qr3f64egh65rfe1bng8f8s%40group.calendar.google.com&ctz=America/New_York
 [36]: https://www.virtualbox.org/
 [37]: https://collab.itc.virginia.edu/portal/site/415219f8-1a72-4ade-a753-b37ec6aecb61/page/37b584bf-c5a5-41e1-bda7-1f2fcbec258e
-[38]: http://www.cs.virginia.edu/~mrf8t/
+[38]: ...
 [39]: mailto:mrf8t@virginia.edu
 
 
