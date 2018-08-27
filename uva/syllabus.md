@@ -7,9 +7,9 @@ CS 2150: Program and Data Representation: Course Syllabus
 
 ### Instructors ###
 
-- [Mark Floryan][31] / [mrf8t@virginia.edu][39].  Office: Rice Hall, room 203.  Office hours are TBD
+- [Mark Floryan][31] / [mrf8t@virginia.edu][39].  Office: Rice Hall, room 203.  Office hours are Tu/W 1:00-2:30
 - [Rich Nguyen][38] / [nn4pj@virginia.edu](mailto:nn4pj@virginia.edu).  Office: Rice Hall, room 202.  Office hours are TBD
-- [Aaron Bloomfield][33] / [aaron@virginia.edu](mailto:aaron@virginia.edu).  Office: Rice Hall, room 403.  Office hours are TBD
+- [Aaron Bloomfield][33] / [aaron@virginia.edu](mailto:aaron@virginia.edu).  Office: Rice Hall, room 403.  Office hours are Tu/Th/F 11:00-12:00
 
 ### Course Info ###
 
@@ -42,6 +42,8 @@ CS 2150: Program and Data Representation: Course Syllabus
 We expect that grades will follow the standard decade curve: 90 and above is an A of some sort (A-, A, or A+), 80 and above is some sort of a B, etc.  **Note:** We reserve the right to modify the weighting (changing the curve, adding pop quizzes, etc.), especially if attendance drops off significantly.  If this does happen, it will be clearly announced in lecture.
 
 **Development Environment:** In this class, you may NOT use Microsoft Visual Studio, any other Microsoft Windows-based development environment, or any IDE (Integrated Development Environment), for any reason.  This includes, among others, Eclipse, Netbeans, Xcode, Geany, Visual Studio, and Atom. This applies to program development - obviously, you can use MS Office to edit text documents. The purpose behind this rule is to introduce you to the Unix environment - thus, all course work in this class is to be done in a Unix environment (Solaris, Linux, FreeBSD, Cygwin, etc.). We will discuss how to access and/or install these environments in the beginning of the course. **In order to take this course, you agree to sign an honor pledge that states that you will NOT use a Microsoft Windows-based development environment or IDE for any course work.**
+
+**Disabilities:**  The University of Virginia strives to provide accessibility to all students. If you require an accommodation to fully access this course, please contact the Student Disability Access Center (SDAC) at (434) 243-5180 or sdac@virginia.edu. If you are unsure if you require an accommodation, or to learn more about their services, you may contact the SDAC at the number above or by visiting their website at http://studenthealth.virginia.edu/student-disability-access-center/faculty-staff.
 
 **Special Circumstances:** Students with special circumstances (athletics, extra time required on exams, final exam conflicts, LNEC considerations, etc.) need to let one of us know during the **first week of class**.
 
@@ -93,6 +95,12 @@ The assignments tool does not display due dates such as "at the end of your lab 
 5. Using a computer to generate your *assembly* code, instead of writing yourself, is an honor violation (this includes using the compiler to generate assembly code for submission, although not for including in a report)
 
 Any honor violation or cheating will be referred to the honor committee, **and will result in an immediate failure for the course**, regardless of the outcome of the honor trial or your other grades.  No exceptions!  I am very strict on this, and one have successfully raised honor charges against students in the past due to violations of this policy.
+
+**Your Well Being:** The Engineering School proudly serves as a safe space for its students and aims to promote their well being. If you are feeling overwhelmed, stressed, or isolated, there are many individuals here who are ready and wanting to help.   In addition to the course instructors, you can seek help through the Engineering Undergraduate office (Thornton A122), or Alex Hall (aec5d, 924-7601) who is the assistant dean of students for the Engineering school.  
+
+Alternatively, there are also other University of Virginia resources available. The Student Health Center offers Counseling and Psychological Services (CAPS) for its students. Call 434-243-5150 (or 434-972-7004 for after hours and weekend crisis assistance) to get started and schedule an appointment. If you prefer to speak anonymously and confidentially over the phone, call Madison House's HELP Line at any hour of any day: 434-295-8255.
+
+If you or someone you know is struggling with gender, sexual, or domestic violence, there are many community and University of Virginia resources available. The Office of the Dean of Students, Sexual Assault Resource Agency (SARA), Shelter for Help in Emergency (SHE), and UVA Women's Center are ready and eager to help. Contact the Director of Sexual and Domestic Violence Services at 434-982-2774.
 
 [1]: index.html
 [2]: index.md
