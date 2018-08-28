@@ -8,8 +8,8 @@ CS 2150: Program and Data Representation: Course Syllabus
 ### Instructors ###
 
 - [Mark Floryan][31] / [mrf8t@virginia.edu][39].  Office: Rice Hall, room 203.  Office hours are Tu/W 1:00-2:30
-- [Rich Nguyen][38] / [nn4pj@virginia.edu](mailto:nn4pj@virginia.edu).  Office: Rice Hall, room 202.  Office hours are TBD
-- [Aaron Bloomfield][33] / [aaron@virginia.edu](mailto:aaron@virginia.edu).  Office: Rice Hall, room 403.  Office hours are Tu/Th/F 11:00-12:00
+- [Rich Nguyen][38] / [nn4pj@virginia.edu](mailto:nn4pj@virginia.edu).  Office: Rice Hall, room 202.  Office hours are Tu/Th/F 11:00-12:00.
+- [Aaron Bloomfield][33] / [aaron@virginia.edu](mailto:aaron@virginia.edu).  Office: Rice Hall, room 403.  Office hours are TBD.
 
 ### Course Info ###
 
@@ -47,12 +47,12 @@ We expect that grades will follow the standard decade curve: 90 and above is an 
 
 **Special Circumstances:** Students with special circumstances (athletics, extra time required on exams, final exam conflicts, LNEC considerations, etc.) need to let one of us know during the **first week of class**.
 
-**Textbooks: ** Due to the high cost of textbooks, and their relative low quality, there will be no recommended nor required textbooks this semester.  Instead, there will be selected [Readings][9] ([md][10]) that can be used in lieu of a recommended textbook.
+**Textbooks:** Due to the high cost of textbooks, and their relative low quality, there will be no recommended nor required textbooks this semester.  Instead, there will be selected [Readings][9] ([md][10]) that can be used in lieu of a recommended textbook.
 
 **Exams:** There will be two midterm exams held during laboratory sessions (combined worth 30% of the final grade) and one final exam (worth 25% of the final grade). Note that we hope (but do not guarantee!) to have the first exam returned before the SEAS drop date.
 
-- Midterm Exam 1: Tuesday, September ??, during lab session
-- Midterm Exam 2: Tuesday, November ??, during lab session
+- Midterm Exam 1: Tuesday, October 2nd, during lab session
+- Midterm Exam 2: Tuesday, November 13th, during lab session
 - Final Exam: Saturday, December 15 from 7 p.m. to 10 p.m.
     - This is a common exam time, and conflicts with several other courses
     - Let us know by September 15th if you have a conflit (via a support request); we will deal with scheduling conflits later in the semester
