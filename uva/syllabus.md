@@ -25,7 +25,7 @@ CS 2150: Program and Data Representation: Course Syllabus
 
 **Prerequisites:** CS 2110 (Software Development Methods) or CS 2220 (Engineering Software); and CS 2102 (Discrete Math), all with grades of C- or above.  Note that CS 2102 is allowed as a co-requisite, but see the details for this in the [first slide set][11] (specifically, [here][12]).
 
-**Course objectives:** Students who complete the course will:
+**Course Objectives:** Students who complete the course will:
 
 - Understand program representation from the high-level programming language perspective down to the underlying machine level representation, including: number representation, operations, conditionals, and control structures
 - Be able to implement basic and advanced abstract data types in C++ including: linked lists, stacks, queues, hash tables, trees, and graphs
