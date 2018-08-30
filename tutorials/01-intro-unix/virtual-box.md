@@ -21,13 +21,13 @@ In addition, if you are using a Windows machine, you will need Hyper-V disabled 
     - You are welcome to try this on a netbook host machine, but the computing power of a netbook may not be enough
 - You will need to install the Virtual Box client.  It can be downloaded for free from [here](http://www.virtualbox.org/) and runs on most operating systems.
 	- Under Linux, I installed the 'virtualbox-ose-qt' package (the name of yours might be different), but if you are running Linux already, you won't need to install a virtual machine running Linux...
-- Download the provided VirtualBox image (Most semesters it is on Collab under resources, but for Spring 2018 use [this link](http://tinyurl.com/y83lv7sd)).  You will need to unzip this file before using it.
-    - This file is rather large (about 2.5 Gb), so you may want to try downloading it during off hours, such as late at night.  If you have problems downloading it, let us know.  If you do not have sufficient bandwidth to download it, please see us after lecture, and we will provide it on a different media for you.
-	- Unzip this file; it will take up about 8.2 Gb on your machine.  Once uncompressed, you can download the .zip file that you downloaded.
+- Download the provided VirtualBox image from [here](https://tinyurl.com/y8jxyav6).  You will need to unzip this file before using it.
+    - This file to download is rather large (about 3.9 Gb), so you may want to try downloading it during off hours, such as late at night.  If you have problems downloading it, let us know.  If you do not have sufficient bandwidth to download it, please see us after lecture, and we will provide it on a different media for you.
+	- Unzip this file; it will take up about 9.8 Gb on your machine.  Once uncompressed, you can delete the .zip file that you downloaded.
         - Your unzip program may complain about needing some insane amount of space (like 700 petabytes, where a petabyte is 1,000 terabytes); this is a bug in many unzip programs.  Try [7-zip](http://www.7-zip.org/), which has had more success.
 - Run VirtualBox, and import the image:
     - To do that, click on 'New', and choose the right OS type/version ("Linux"/"Ubuntu (64 bit)" -- don't choose the 32 bit version!).  Give it a name to help differentiate it from other virtual machines that you may end up using in later classes.
-    - Stay with the default memory amount (you can change it later)
+    - Stay with the default memory amount (you can change it later).  You don't want to use less than 2048 Mb (2 Gb) -- it will not really be usable with less than that.  For a reasonable speed, you will want more -- 3072 Mb (3 Gb) or even 4096 (4 Gb), if your computer has it.  In any case, you probably shouldn't dedicate more than half of your host computer's memory to the VirtualBox image.  You can always change this later, as mentioned (right-click on the icon for the machine when VirtualBox starts up, and click on Settings).
     - At the 'Hard drive' screen select 'use an existing virtual hard drive file', and click the folder icon to the right of the drop-down list.  You want to use the file you unzipped above.
     - That should be it for the Wizard
 - Boot the machine (click the Start icon at the top - it's a green rightward pointing arrow).  You may notice some display artifacts during boot-up as the virtual machine changes video modes, but that will stabilize once booting has completed.

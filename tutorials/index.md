@@ -7,6 +7,7 @@ The tutorials for this course are listed below.
 
 - [Tutorial 1: Introduction to Unix](01-intro-unix/index.html)
     - And [Tutorial 1: Introduction to Unix: VirtualBox use](01-intro-unix/virtual-box.html)
+    - And [Tutorial 1: Introduction to Unix: NoMachine usage](01-intro-unix/nomachine.html)
     - And [Tutorial 1: Introduction to Unix: VirtualBox image creation details](01-intro-unix/vb-image-details.html)
 - Tutorial 2: Debugger
     - There are *two* different tutorials, depending on whether you want to use gdb or lldb; only one is required.  Pick the one that works best in your environment (lldb is preferred, but that does not work in the Ubuntu VirtualBox image).  The source code provided is the same.

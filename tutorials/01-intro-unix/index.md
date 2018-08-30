@@ -8,22 +8,39 @@ Part I: Introduction and setting up your UNIX environment
 
 This tutorial is meant to get you up and running with editing, compiling, and executing a program in a Unix-like environment.  There are a number of options that you can use to do this, depending on if you have your own PC, and how much time you want to spend installing software.  We recommend the first of the options listed if you are using Windows; Mac OS X users should use the second option listed.
 
-The options are:
+We have two recommended options:
 
-- Use VirtualBox, a free virtual machine software package.  This will allow you to run Linux on your home machine without needing to re-install anything.  Directions for setting up and how to use VirtualBox can be found at [Tutorial 1: Introduction to UNIX: VirtualBox use](virtual-box.html)
-- Mac OS X users are already running UNIX, as Mac OS X runs on top of FreeBSD (a version of UNIX).  So you can just use the computer you have.  HOWEVER, note that you still can't use an IDE (Eclipse, Xcode, etc.).  You can download Emacs (an editor) from [here](http://emacsformacosx.com/).  From a terminal window, try typing in `clang++` - if you get "Command not found", you will need to install Xcode from the App Store, and then install the Command Line Tools (under Preferences - Downloads).  In newer versions of OS X, after typing `clang++`, a popup should appear asking if you would like to install command line developer tools.  Also note that you cannot load up Emacs easily from a command line, but you can load it up as you would any other application.
+- Use NoMachine, as detailed on the [NoMachine usage](nomachine.html) page.  This requires an Internet connection, and you will be connecting to the department's servers to run your code there.
+- Use VirtualBox, a free virtual machine software package.  This will allow you to run Linux on your home machine without needing to re-install anything.  Directions for setting up and how to use VirtualBox can be found at [Tutorial 1: Introduction to UNIX: VirtualBox use](virtual-box.html).  This will require downloading a hard drive image that we provide.
+
+There are other options available:
+
+- Mac OS X users are already running UNIX, as Mac OS X runs on top of FreeBSD (a version of UNIX).  So you can just use the computer you have.  HOWEVER, note that you still can't use an IDE (Eclipse, Xcode, etc.).  You can download Emacs (an editor) from [here](http://emacsformacosx.com/).  From a terminal window, try typing in `clang++` - if you get "Command not found", you will need to install Xcode from the App Store, and then install the Command Line Tools (under Preferences - Downloads).  In newer versions of OS X, after typing `clang++`, a pop-up should appear asking if you would like to install command line developer tools.  Also note that you cannot load up Emacs easily from a command line, but you can load it up as you would any other application.
     - You will need to install Xcode and the command line tools (with the latest version of Xcode, you have to download and install the command-line tools separately)
     - Note that some software that you will need for this course (in particular, doxygen and x86 code creation) does NOT work well on a Mac, and you will likely need the VirtualBox image for that
 - Install a Unix variant on your home machine.  There are a number of options: Linux, FreeBSD, Solaris, etc.  We use Linux (specifically, the Ubuntu distribution), as it has a large user community, both at the University and outside.  Thus, if you run into a problem, the course staff might be able to help you.  This will require repartitioning your hard drive, and thus there is a chance of data loss.  **THUS YOU NEED TO BACK UP YOUR DATA FIRST!!!** You will have to choose a distribution of Linux to install -- as mentioned above, we use Ubuntu.  You can find install guides on the web.  Be sure to install the development environments with Linux -- pretty much all of the required software will be included in that.  Also consider [Wubi](http://wubi-installer.org/), an easy-to use installer for Windows (while we have not used it ourselves, we have heard good reports about it from previous students).
 
-Should you not want to install anything on your machine, or you want to work elsewhere, there are other options available to you as well:
+----
 
-- Complete this lab in any ITC lab -- oh, wait.  They got rid of them because undergraduate education is too expensive.  Idiotic decision...
-- Complete this lab in Olsson 001 using Linux. You should be able to use your University Id to swipe into the room.  Note that while you can generally use the lab at any time, you are not allowed to be in the room when another lab is going on.  The lab machines already have both Linux and Windows installed, although you will have to reboot the computer into Linux (see below).
+Part II: A Tale of Two GUIs
+---------------------------
+
+When you install Linux, there are a number of graphical user interfaces -- or window managers -- that one can use.  Think of how MS Windows is different than Mac OS X, and you get the idea.  There are two relevant ones here.
+
+*KDE* is designed to be similar to Microsoft Windows -- it has the equivalent of the start button in the lower left, which pulls up a menu just like in Windows.  People who are both familiar with, prefer, the Windows interface often also prefer this interface.  You can see a screen shot of it [here](https://www.kde.org/announcements/4.2/screenshots/desktop.png).
+
+*GNOME* (pronounced guh-NOME) is a user interface that is specific to UNIX machines.  The interactions with the GUI are a bit different, but the same concepts.  One can interact with GNOME really quickly once one gets used to the new interface.  You can see a screen shot of it [here](https://www.distroscreens.com/2017/03/manjaro-170-gellivara-gnome-screenshots.html).
+
+The reason this is relevant is that your choice of how you will use a UNIX environment will determine which interface you use.  The [NoMachine](nomachine.html) connection *only* has GNOME as an option.  The VirtualBox image has *both* GNOME and KDE (see below for how to switch between them).
+
+If you are going to be using both NoMachine and VirtualBox, you may want to start using GNOME, since it will be (more or less) consistent between the two Linux options.  If you are *only* going to use VirtualBox, and you like the Windows interface, you may want to go with KDE.
+
+With VirtualBox, as was mentioned, you can choose which interface.  When you log in, after you click the user name and are about to enter your password, there is a gear icon beneath the password field, and you can use that to select which interface -- the GNOME interface is called "Ubuntu", and the KDE interface is called "Plasma".  It will remember that choice, so you don't have to enter it again unless you want to change to another interface.
+
 
 ----
 
-Part II: A (brief!) Unix tutorial
+Part III: A (brief!) Unix tutorial
 ---------------------------------
 
 Unix is a very powerful operating system that has been around, in one form or another, for almost 40 years.  The fact that it still exists attests to how powerful it can be for completing tasks on a computer.  The reason it is not more widely adopted is because it is not very easy to use or intuitive -- it was written by computer programmers for computer programmers.  While the people in this course are certainly capable of learning it, many people just want a computer to work, and to run an Office suite and a set of Internet programs such as a browser.  For those users, an easier to use operating system (such as Windows or Mac OS X) is often better.  Unix is coming more into the mainstream lately with the increased popularity of Linux, as well as the fact that Mac OS X is built upon a Unix operating system (FreeBSD, in particular).
@@ -32,13 +49,13 @@ The word "Unix" can mean any Unix-like operating system.  There are many availab
 
 A quick note: Unix IS CASE SENSITIVE.  Thus, foo, Foo, FOO, and FoO are all different, and allowable, file names.  This causes problems with Windows, which sees all those names as the same thing.  So be careful about your cases!
 
-### Connecting to Unix ###
+### Loading a command shell ###
 
 First, you need to load up a command shell.  For those who have used DOS, or the Windows command prompt, it is a somewhat similar interface.
 
-**A Unix system installed on your home machine, including VirtualBox:** In Linux (or FreeBSD, Solaris, etc.): Log in (presumably to the X-Windows interface), and load up a command shell.  How you load that up is dependent on your version of Linux.  With VirtualBox, it's one of the icons on the top toolbar.
-
-**A Linux machine in Olsson 001:** You will need to reboot the computer into Linux -- see the directions in the first lab for how to do this.
+- With VirtualBox and GNOME, it's an icon on the toolbar on the left-hand side of the desktop
+- With Virtualbox and KDE, it's the black icon with a greater-than sign in it on the bottom-left
+- With NoMachine, click on the "Activities" text in the upper-left, and the menu will slide in from the left-hand side of the screen
 
 
 ### The Unix Tutorial ###
@@ -58,7 +75,7 @@ That's it for the Unix tutorial for now.  There are many further tutorials onlin
 
 ----
 
-Part III: Editing, compiling, and running a C++ program
+Part IV: Editing, compiling, and running a C++ program
 -------------------------------------------------------
 
 First, you will need to load up a command shell (as in the previous section), from which we will load up the editor.  We will be using a version of Emacs for this course.
@@ -122,7 +139,7 @@ The other command that is useful is to color the program text.  Use the command 
 
 In addition to the font coloring of the C++ program code, note that the word 'Font' is between 'C++' and 'Abbrev' on the status bar (as we are now using font colors), and the line number is shown to the right of that (the cursor is on line 1 in the image).
 
-##Summary
+## Summary
 
 In summary, you should be familiar with the following Emacs commands:
 

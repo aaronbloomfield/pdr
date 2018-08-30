@@ -22,6 +22,8 @@ Procedure
 ### Pre-lab ###
 1. If desired, the alternative readings are available on the [Readings page](../../docs/readings.html)
 2. Complete [Tutorial 1: Introduction to UNIX](../../tutorials/01-intro-unix/index.html)
+    a. As part of this tutorial, you will need to decide how you want to develop in a Unix environment -- we recommend [VirtualBox](../../tutorials/01-intro-unix/virtual-box.html) or [NoMachine](../../tutorials/01-intro-unix/nomachine.html), but there are other options available
+    b. If you are using VirtualBox, you will have to decide on which display manager to use
 3. Write the xToN.cpp file, as described in the pre-lab section. Since you are unfamiliar with the submission system, you should read through the in-lab section of the document, which describes the submission process.  Submit the xToN.cpp file.
 4. Examine the Object life-cycle code ([lifecycle.cpp](lifecycle.cpp.html) ([src](lifecycle.cpp))).  You may not understand everything in this program by the beginning of lab, but you should by the end of next week.  We will be using this program during the in-lab activity.
 5. Read how to reboot into Linux for the in-lab.  Although the TAs will be able to help you, you should still have an idea how to do it.
@@ -45,7 +47,7 @@ Procedure
 4. Files to submit: postlab1.question.txt
 
 ### Course Tools ###
-Lab submission and in-lab extensions can be found through the Course Tools tab on Collab or directly at this link: [https://libra.cs.virginia.edu/~pedagogy](https://libra.cs.virginia.edu/~pedagogy)
+Lab submission can be found through the Course Tools tab on Collab or directly at this link: [https://libra.cs.virginia.edu/~pedagogy](https://libra.cs.virginia.edu/~pedagogy)
 
 ------------------------------------------------------------
 
@@ -53,6 +55,8 @@ Pre-lab
 -------
 
 Complete [Tutorial 1: Introduction to UNIX](../../tutorials/01-intro-unix/index.html). For this course, you will need to be familiar with Emacs.  You are welcome to use any editor that is not an IDE (Integrated Development Environment), such as emacs, nano, or vim; you may be tested on the key bindings of your preferred editor. (Notepad doesn't count.)
+
+For those who are using VirtualBox, you will need to decide which GUI to use.  See the details in [Tutorial 1: Introduction to UNIX](../../tutorials/01-intro-unix/index.html), specifically in part 2.
 
 Below is a sample function with a `main()` function that calls it.  You may find this example helpful in writing your function to compute *x^n* and the `main()` function to call it.
 
@@ -76,7 +80,7 @@ int main( ) {
 }
 ```
 
-For the pre-lab, you will need to write a **recursive** function called `xton()` to compute *x^n* for nonnegative integers *n*.  Assume that *x^0=1*.  Put this function in a program with a `main()` function.  Your program should prompt the user for two integer values, and raise the first to the power of the second by calling your `xton()` function.
+For the pre-lab, you will need to write a **recursive** function called `xton()` to compute *x^n* for non-negative integers *n*.  Assume that *x^0=1*.  Put this function in a program with a `main()` function.  Your program should prompt the user for two integer values, and raise the first to the power of the second by calling your `xton()` function.
 
 The file should be called xToN.cpp, and should be submitted to the pre-lab 1 assignment in the submission system.
 
@@ -84,15 +88,7 @@ Note that your program should take in **exactly two inputs and nothing else**.  
 
 Lastly, take a look at the object life-cycle code ([lifecycle.cpp](lifecycle.cpp.html) ([src](lifecycle.cpp))).  Use it as a mechanism for understanding how various aspects of C++ work. Compile and run the program (see part III of the [tutorial](../../tutorials/01-intro-unix/index.html)).  Try stepping through it by hand.  Use the [readings](../../docs/readings.html), the web, and any other C++ references to help you look up parts of the program you do not understand.
 
-### Linux in the lab room ###
-
-This section describes how to log into Linux in the lab room (either Olsson 001 or Rice 340).  Although this is really part of the in-lab, you won't be able to access this document until you have logged in, which is why the directions are listed in the pre-lab section.
-
-The machines in the lab room run Linux (the Ubuntu distribution). You have accounts on these machines, and the password should have been emailed to you.
-
-Once the login screen appears, you can log in.  Be aware that it may take a full minute to log you into the machine.  Linux has a number of *desktop environments* that one can choose from -- each of these has a different look-and-feel, in the same way that Windows is different from Mac OS X.  We are currently using KDE.  To load up a terminal window, click on the button that looks like the Windows start button, and type in "konsole" into the search box.
-
-When you are finished, you should log out (from the menu at the top, or you can hit Ctrl-Alt-Backspace), and reboot the computer (through the options menu at the bottom of the login screen).
+***Note that you have to bring your computer to in-lab!***
 
 ------------------------------------------------------------
 
@@ -107,27 +103,35 @@ All of the files required for this lab are listed above (in the Procedure sectio
 
 ### Cloning the github repo ###
 
-The first thing you need to do is clone the github repo into your lab account.  To do this, enter:
+The first thing you need to do is clone the github repo onto your computer.  This was already done on the VirtualBox image, but not in your NoMachine account.  So if you are doing this on VirtualBox, skip to the `git pull` step, below.
+
+To copy the github repo onto your machine, enter:
 
 ```
-git clone https://github.com/markfloryan/pdr.git
+git clone https://github.com/uva-cs/pdr.git
 ```
 
-This will create a 'pdr' directory, which is the copy of the repo.  Each week, you will need to update the repo with the current contents.  To do so, cd into that 'pdr' directory, and enter:
+This will create a 'pdr' directory, which is the copy of the repo.
+
+Each week, you will need to update the repo with the current contents.  To do so, cd into that 'pdr' directory, and enter:
 
 ```
 git pull
 ```
 
-To view the contents in a web browser, you should enter the following as the URL (replacing 'mst3k' with your userid):
+To view the contents in a web browser, you should enter a URL similar to the following.  Note that there are three slashes after the `file:` part.  Be sure to replace 'mst3k' with your userid, and change the path if you have the file somewhere else.
 
 ```
 file:///home/mst3k/pdr/readme.html
 ```
 
-Note that there are three forward slashes there!
+Note that there are three forward slashes there! On the VirtualBox image, it would be:
 
-We realize that you cannot view these directions until after you have the github repo cloned locally.  So hopefully you read these ahead of time.  Otherwise, the TAs will be able to help you with this part.  The lab can also be viewed online at [http://markfloryan.github.io/pdr/labs/lab01/index.html](http://markfloryan.github.io/pdr/labs/lab01/index.html).
+```
+file:///home/student/pdr/readme.html
+```
+
+We realize that you cannot view these directions until after you have the github repo cloned locally.  So hopefully you read these ahead of time.  Otherwise, the TAs will be able to help you with this part.  The lab can also be viewed online at [http://uva-cs.github.io/pdr/labs/lab01/index.html](http://uva-cs.github.io/pdr/labs/lab01/index.html).
 
 
 ### Understanding C++ ###
@@ -167,24 +171,15 @@ Under Windows, the case of a file name is ignored -- thus, lifecycle.cpp, LifeCy
 
 All assignments will be submitted through our custom submission tool.  These can be accessed through Collab, or directly at the link in the Procedure section of this lab.
 
-Each assignment has 3 dates: an open date (when you can start submitting the assignment), a due date (when it's due), and a close date (the last point that you can submit the assignment).  The dates are listed for the week of the lab (the lab week starts on a Sunday and ends on a Saturday).  In particular, the due date for the pre-labs, as well as the open date for the in-labs and post-labs is when the first lab section starts.  The close date for the post-labs is the start of Friday's lecture (the first lecture, if there are multiple lecture periods).
+Each assignment has 3 dates: an open date (when you can start submitting the assignment), a due date (when it's due), and a close date (the last point that you can submit the assignment).  The dates are listed for the week of the lab -- the lab week starts on a Sunday and ends on a Saturday.  In particular, the due date for the pre-labs, as well as the open date for the in-labs and post-labs is when the first lab section starts.  The close date for the post-labs is the start of Friday's lecture (the first lecture, if there are multiple lecture periods).
 
 The various dates: open dates, due dates, and close dates, are listed on the [lab due dates](../../uva/labduedates.html) page.
 
 Please note, however, that there are a number of rules that we will strictly follow:
 
 - Pre-labs are due at the same time for everybody, regardless of your lab section; that time is the beginning of the FIRST Tuesday lab.
-- In-labs are due at the end of your scheduled lab session, regardless of what Collab states.  But see the part about in-lab extensions, below.
-- An in-lab extension (see below for details) will postpone the in-lab due date until 11:59:59 p.m. on Wednesday evening, regardless of your lab section; this allows those who have requested a lab extension to visit the Wednesday evening office hours.
-- In-labs **MUST** be done from the lab in the lab room, or no credit will be given for the **ENTIRE** lab.
+- In-labs are due at the end of the day on Tuesday.
 - Any late lab part will receive 25% off (for just that part) for the first 24 hours (or part thereof) that it is late, after which no credit will be given.  Note that a computer program does this deduction -- so if your lab is 1 second late, it still receives 25% off.
-- There is no penalty for in-lab extensions, neither is there a limit to the number of weeks you can use them. The extended in-lab does not need to be completed in the lab room.
-
-The assignments tool does not handle due dates such as "at the end of your lab session" very well -- indeed, the due date is listed as 10 p.m. on Tuesdays.  Note that we have a script that will test the assignment's due date against your lab date, so please be sure to follow the above due dates.
-
-### Lab Extensions ###
-
-You can automatically request a lab extension if you are unable to complete your in-lab during the allotted time.  This is done through the lab extension tool, which is accessible either via Collab or through the link in the Procedure section, above.  Note that this only applies to the in-lab.  The due date with the extension is the end of the day on Wednesday (i.e. 11:59 p.m.), regardless of your lab section, as this gives you a chance to go to the Wednesday evening office hours.
 
 ### Submitting your files ###
 

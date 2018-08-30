@@ -5,14 +5,19 @@ VirtualBox image creation details
 
 For those who are interested, this is how the VirtualBox image was created.
 
-These directions are duplicated in multiple repositories, as they all use the same image.  Those are:
-
-
 # Introduction
 
 This page has a number of different sections, and the sections you need to install will vary depending on what you are using this image for.  The image provided with the class has only two sections not installed: Dropbox configuration (in "Image completion") and Turning of the Internet access (in "Programming Contest configuration").
 
 The top of each section describes which of the sub-sections need to be installed for what.
+
+For the fall 2018 version, *only* a few sections were installed on the image:
+
+- Basic Installation
+- A Take of Two GUIs
+- Development Installation, but only the "Program and Data Representation" part
+
+All other sections were *not* installed on the fall 2018 version.  The directions for those other parts have not been updated since August 2017, so they may be out of date -- certainly the version numbers are, if not those directions themselves.
 
 **Software Versions**
 
@@ -27,9 +32,9 @@ Newer versions of the above may have since come out, but at the time of the writ
 
 **Notes**
 
-- The guest hard drive reported 9.3 Gb of space available, prior to distribution of the image.  The disk image itself was, after compaction, 7.6 Gb.  When compressed via zip, it was 2.6 Gb in size.
+- The guest hard drive reported 9.1 Gb of space available, prior to distribution of the image.  The disk image itself was, after compaction, 9.4 Gb.  When compressed via zip, it was 3.9 Gb in size.
 - You will likely need to use a different unzip program to extract the image; the ones that come bundled with most operating systems can not handle archives of that size.  We have used [7-zip](http://www.7-zip.org/) with success.
-- Video and sound (via youtube) worked fine with Chrome
+- Video and sound (via youtube) worked fine with both Chrome and Firefox (although it may a bit slow depending on your computer's speed)
 - The VM may capture the mouse - to uncapture it, you press the "host key", (which is the right Control key on Linux and Windows hosts, and the left Command key on Mac hosts).  To have it warn you about what this is, you can reset all warnings via the VirtualBox help menu, and it will warn you about this at boot-up
 - In the image creation process, you may run into a problem with VirtualBox where it cannot register a new (or different) disk because it has the same UUID as a previous disk that you are replacing.  If so, then the command `VBoxManage internalcommands sethduuid disk.vdi` (changing `disk.vdi` appropriately) will change the UUID, and allow you to proceed
 

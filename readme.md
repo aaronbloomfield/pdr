@@ -38,7 +38,7 @@ repository first**
 Updates to the repository are restricted to approved individuals only, to prevent anybody from messing with the slides right before a lecture.  However, others can still contribute to this repository -- to do so, take the following steps:
 
 1. Create a github account, if you do not have one
-2. Fork this repository: you can click on the "Fork" link in the upper right, or just click [here](https://github.com/markfloryan/pdr/fork)
+2. Fork this repository: you can click on the "Fork" link in the upper right, or just click [here](https://github.com/uva-cs/pdr/fork)
 3. Clone your forked repository on to your local machine
 4. Make any changes you want to your forked version, then commit and push your changes back to your forked repository
 5. Create a pull request, following the instructions [here](https://help.github.com/articles/creating-a-pull-request)
