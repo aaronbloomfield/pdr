@@ -13,24 +13,18 @@
 <p><a href="index.html">Go up to the main directory page</a> (<a href="index.md">md</a>)</p>
 <p>For those who are interested, this is how the VirtualBox image was created.</p>
 <p>These directions are duplicated in multiple repositories, as they all use the same image. Those are:</p>
-<ul>
-<li><a href="https://github.com/aaronbloomfield/slp">aaronbloomfield/slp</a> (docs directory)</li>
-<li><a href="https://github.com/markfloryan/pdr">markfloryan/pdr</a> (tutorial 1)</li>
-<li><a href="https://github.com/aaronbloomfield/dada">aaronbloomfield/dada</a> (docs directory)</li>
-<li><a href="https://github.com/uva-acm/hspc">uva-acm/hspc</a> (common directory)</li>
-</ul>
 <h1 id="introduction">Introduction</h1>
 <p>This page has a number of different sections, and the sections you need to install will vary depending on what you are using this image for. The image provided with the class has only two sections not installed: Dropbox configuration (in &quot;Image completion&quot;) and Turning of the Internet access (in &quot;Programming Contest configuration&quot;).</p>
 <p>The top of each section describes which of the sub-sections need to be installed for what.</p>
 <p><strong>Software Versions</strong></p>
 <p>This installation document installs the following versions:</p>
 <ul>
-<li><a href="http://kubuntu.org/getkubuntu/">Kubuntu 16.04, 64-bit</a></li>
-<li>Clang++ version 3.8.0</li>
-<li>Python <a href="http://packages.ubuntu.com/xenial/python3">3.5.2</a>; <a href="https://www.djangoproject.com/download/">Django 1.11</a></li>
-<li><a href="https://gorails.com/setup/ubuntu/16.04">Ruby 2.4.1; Rails 5.1.3</a></li>
+<li><a href="http://ubuntu.com">Ubuntu 18.04, 64-bit</a></li>
+<li>Clang++ version 6.0.0</li>
+<li>Python <a href="http://packages.ubuntu.com/xenial/python3">3.6.5</a>; <del><a href="https://www.djangoproject.com/download/">Django 2.1</a></del></li>
+<li><del><a href="https://gorails.com/setup/ubuntu/18.04">Ruby 2.4.1; Rails 5.1.3</a></del></li>
 </ul>
-<p>Newer versions of the above may have since come out, but at the time of the writing of this document (August 2017), they were either the versions installed via apt-get (Clang, Python), or the latest versions installed manually (Django, Ruby, and Rails).</p>
+<p>Newer versions of the above may have since come out, but at the time of the writing of this document (August 2018), they were either the versions installed via apt-get (Clang, Python), or the latest versions installed manually (Django, Ruby, and Rails).</p>
 <p><strong>Notes</strong></p>
 <ul>
 <li>The guest hard drive reported 9.3 Gb of space available, prior to distribution of the image. The disk image itself was, after compaction, 7.6 Gb. When compressed via zip, it was 2.6 Gb in size.</li>
@@ -40,19 +34,19 @@
 <li>In the image creation process, you may run into a problem with VirtualBox where it cannot register a new (or different) disk because it has the same UUID as a previous disk that you are replacing. If so, then the command <code>VBoxManage internalcommands sethduuid disk.vdi</code> (changing <code>disk.vdi</code> appropriately) will change the UUID, and allow you to proceed</li>
 </ul>
 <h1 id="basic-installation">Basic installation</h1>
-<p>All installations need to run through this, as it sets up the default Kubuntu installation.</p>
+<p>All installations need to run through this, as it sets up the default Ubuntu installation.</p>
 <p><strong>Basic installation</strong></p>
 <ul>
 <li>Created a new VirtualBox image
 <ul>
-<li>I named it &quot;Kubuntu 16.04&quot; or similar; this automatically selected Linux as the OS type; I manually selected &quot;Ubuntu (64 bit)&quot; as the version</li>
-<li>I set the memory at 1536 Mb (instead of the default of 512 Mb), ensured that the disk size was &quot;dynamically allocated&quot; and was set to 20 Gb (instead of the default 8 Gb); everything else was set at the default</li>
+<li>I named it &quot;Ubuntu 18.04&quot; or similar; this automatically selected Linux as the OS type; I manually selected &quot;Ubuntu (64 bit)&quot; as the version</li>
+<li>I set the memory at 2048 Mb (instead of the default of 512 Mb), ensured that the disk size was &quot;dynamically allocated&quot; and was set to 20 Gb (instead of the default 8 Gb); everything else was set at the default</li>
 </ul></li>
-<li>I installed Kubuntu 16.04.1 LTS (64 bit), desktop edition, from the DVD image downloaded from <a href="http://www.kubuntu.org/getkubuntu" class="uri">http://www.kubuntu.org/getkubuntu</a> (the specific image file is <a href="http://cdimage.ubuntu.com/kubuntu/releases/16.04.1/release/kubuntu-16.04.3.desktop-amd64.iso">here</a>)
+<li>I installed Ubuntu 18.04.1 LTS (64 bit), desktop edition, from the DVD image downloaded from <a href="https://www.ubuntu.com">ubuntu.com</a>
 <ul>
 <li>When prompted, I clicked on 'download updates' and 'install 3rd party software' when the options were given</li>
-<li>For hard drive, I used the default: &quot;Guided -- use entire disk&quot;</li>
-<li>The computer name is cassiopeia, the login name is 'student', full name is 'L33t H4x0r', and the password is 'password'</li>
+<li>For hard drive, I used the default option that was already selected</li>
+<li>The computer name is cassiopeia, the login name is 'student', full name is 'l33t h4x0r', and the password is 'password'</li>
 <li>This account can run root (system) commands via 'sudo' - if you don't know what this means, you can safely ignore it</li>
 </ul></li>
 <li>Once it was finished, I rebooted, and logged in</li>
@@ -67,14 +61,15 @@
 </ul></li>
 <li>Reboot!</li>
 </ul>
+<h1 id="a-tale-of-two-guis">A Tale of Two GUIs</h1>
+<p>For students in CS 2150 for the fall 2018 semester, there are two possible GUIs that they may want to use. KDE is more similar to Windows, which is what everybody is familiar with. Gnome is similar to the NoMachine connection that they also will have access to. Thus, <em>both</em> GUIs were installed (yes, this greatly increased the hard disk size). The installation of KDE was via <code>sudo apt-get install kubuntu-desktop</code>.</p>
 <h1 id="development-installation">Development installation</h1>
-<p>The &quot;Program and Data Representation configuration&quot; section is for the <a href="http://markfloryan.github.io/pdr">Program and Data Representation</a> course, and it includes all of the compilers and editors needed. The &quot;Python/Django&quot; section installs the files needed to run Python 3 and the Django framework. The &quot;Ruby on Rails configuration&quot; section is for developing Ruby on Rails software.</p>
+<p>The &quot;Program and Data Representation configuration&quot; section is for the <a href="http://uva-cs.github.io/pdr">Program and Data Representation</a> course, and it includes all of the compilers and editors needed. The &quot;Python/Django&quot; section installs the files needed to run Python 3 and the Django framework. The &quot;Ruby on Rails configuration&quot; section is for developing Ruby on Rails software.</p>
 <p><strong>Program and Data Representation configuration</strong></p>
 <ul>
-<li>Installed the other packages: <code>sudo apt-get install clang emacs24 vim nasm astyle tofrodos source-highlight gdb lldb doxygen doxygen-doc graphviz ddd git g++ python-gpgme gobjc gnustep gnustep-make gnustep-common libgnustep-base-dev evince g++-multilib libc6-dev-i386 libc6-dev:i386 flex</code>
+<li>Installed the other packages: <code>sudo apt-get install clang emacs25 vim nasm astyle tofrodos source-highlight gdb lldb doxygen doxygen-doc graphviz ddd git g++ gobjc gnustep gnustep-make gnustep-common libgnustep-base-dev evince g++-multilib libc6-dev-i386 libc6-dev:i386 flex</code>
 <ul>
 <li>Note that there are two other <code>apt-get install</code> lines to be run, below</li>
-<li>The python-gpgme package is a supporting package for Dropbox, in case students want to install that</li>
 <li>The last 5 packages are for Objective C, based on the instructions <a href="http://www.fatvat.co.uk/2010/04/getting-started-with-objective-c-on.html">here</a> (it may be that only a subset of those packages are actually necessary)</li>
 </ul></li>
 <li><p>Ran the following two commands to change the default C/C++ compiler to clang:</p>
@@ -82,14 +77,27 @@
 sudo update-alternatives --set c++ /usr/bin/clang++</code></pre></li>
 <li>Downloaded Google Chrome from <a href="https://www.google.com/chrome/browser/desktop/index.html">here</a>, and installed it via <code>sudo dpkg -i google-chrome-stable_current_i386.deb</code>
 <ul>
-<li>That installation did not work perfectly (which was expected), and to fix an installation such as this you run <code>sudo apt-get -f install</code></li>
+<li>If that installation does not work perfectly, run <code>sudo apt-get -f install</code></li>
 <li>Then the .deb file was removed</li>
 </ul></li>
-<li>Added konsole, emacs, and google chrome icons to favorites (from the K (start) menu, right-click and select 'add to favorites'), and the task bar (from the favorites menu, right-click and select 'add to panel'; this may require right-clicking on the panel and selecting panel options -&gt; panel settings prior to moving the icons)</li>
+<li>Downloaded the NoMachine client from <a href="https://www.nomachine.com/">nomachine.com</a>, and installed it via <code>sudo dpkg -i nomachine_6.2.4_1_amd64.deb</code> (and then removed the .deb file)</li>
+<li>KDE customization
+<ul>
+<li>Removed Discover, Kontact, and KSysGuard from Favoriteskonso</li>
+<li>Added konsole, emacs, firefox, and google chrome icons to favorites (from the K (start) menu, right-click and select 'add to favorites'), and the task bar (from the favorites menu, right-click and select 'add to panel'; this may require right-clicking on the panel and selecting panel options -&gt; panel settings prior to moving the icons)</li>
+<li>Changed the auto-lock feature: K-menu -&gt; Computer -&gt; System Settings -&gt; Desktop Behavior -&gt; Screen Locking, uncheck the &quot;lock screen automatically...&quot; button, and click Apply.</li>
+<li>Plasmashell, which is part of the graphical window system, was crashing repeatedly. The reason seems to be tooltip previews of application windows, so these should be disabled: right click taskbar -&gt; Task Manager Settings -&gt; General -&gt; Uncheck &quot;show tooltips&quot;</li>
+</ul></li>
+<li>GNOME customization
+<ul>
+<li>Removed RhythmBox, Ubuntu Software, and Amazon from the favorites bar on the left-hand side</li>
+<li>Added Terminal, Emacs, and Chrome to the favorites on the left-hand side</li>
+<li>Disabled the screen saver lock, as detailed in the first answer <a href="https://stackoverflow.com/questions/28281077/how-do-i-disable-the-gnome-desktop-screen-lock">here</a></li>
+<li>NoMachine load upon startup was disabled (via the icon in the upper-right in GNOME)</li>
+</ul></li>
 <li>Browser customization
 <ul>
-<li>Set both Chrome's home page to Collab</li>
-<li>Added the http://markfloryan.github.io/pdr/uva/index.html page as the second tab loaded up by Chrome</li>
+<li>Set the home pages for both Chrome and Firefox to online course repo site (http://uva-cs.github.io/pdr) and to Collab</li>
 <li>Chrome is set as the default browser</li>
 </ul></li>
 <li>I loaded up emacs from the command line, and then told it to disable showing the startup messages (this could also be accomplished by following the guidelines <a href="http://xenon.stanford.edu/~manku/dotemacs.html">here</a>).</li>
@@ -98,10 +106,8 @@ sudo update-alternatives --set c++ /usr/bin/clang++</code></pre></li>
 alias rm=&#39;rm -i&#39;
 alias cp=&#39;cp -i&#39;
 alias xemacs=&#39;emacs&#39;</code></pre></li>
-<li>Cloned the github repo via <code>git clone https://github.com/markfloryan/pdr</code>; note that a <code>git pull</code> will still have to be executed each time to update it</li>
-<li>Removed all the empty default directories in ~/student other than Desktop and Downloads</li>
-<li>Changed the auto-lock feature: K-menu -&gt; Computer -&gt; System Settings -&gt; Desktop Behavior -&gt; Screen Locking, uncheck the &quot;lock screen automatically...&quot; button, and click Apply.</li>
-<li><p>Plasmashell, which is part of the graphical window system, was crashing repeatedly. The reason seems to be tooltip previews of application windows, so these should be disabled: right click taskbar -&gt; Task Manager Settings -&gt; General -&gt; Uncheck &quot;show tooltips&quot;</p></li>
+<li>Cloned the github repo via <code>git clone https://github.com/uva-cs/pdr</code>; note that a <code>git pull</code> will still have to be executed each time to update it</li>
+<li><p>Removed all the empty default directories in ~/student other than Desktop and Downloads</p></li>
 </ul>
 <p><strong>LAMP configuration (with both PHP and Python 3)</strong></p>
 <ul>
@@ -232,7 +238,7 @@ sudo rsync -a --del hspcteam/ /home/hspcteam/</code></pre></li>
 <p>The &quot;Installing Dropbox&quot; section is not installed by default. The &quot;Image finalization&quot; section should be run on every image. The other sections largely deal with maintenance.</p>
 <p><strong>Image finalization</strong></p>
 <ul>
-<li>I ran a few commands to make sure everything worked properly (and deleted any created directories afterward):
+<li>I ran a few commands to make sure everything worked properly (and deleted any created directories afterward) -- but only run these if those packages were installed above:
 <ul>
 <li><code>composer create-project --prefer-dist cakephp/app cakephp</code></li>
 <li><code>rails new railshw -d mysql</code></li>
@@ -275,7 +281,7 @@ sudo rsync -a --del hspcteam/ /home/hspcteam/</code></pre></li>
 <li>Boot into Kubuntu normally.</li>
 </ul>
 <p><strong>Upgrading from a previous version</strong></p>
-<p>Because previous versions of this image were a different version of Ubuntu (specifically, 14.04), we are not providing upgrade information, as it is too extensive to properly check those instructions.</p>
+<p>Because previous versions of this image were a different version of Ubuntu (specifically, 16.04), we are not providing upgrade information, as it is too extensive to properly check those instructions.</p>
 <p><strong>Changes for the future</strong></p>
 <ul>
 <li>none, yet</li>
