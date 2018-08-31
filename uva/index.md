@@ -58,7 +58,7 @@ The links in the right-most column link directly to the lecture recording on Col
 
 | Num | Date | Day of week | Lab & Tutorial (on Tue) | Planned topic | Bloomfield's lecture progress | Floryan's lecture progress | Nguyen's lecture progress |
 |-----|--------|-------------|-------------------------|--------------------------|------------------|------------------|------------------|
-|1|Aug 29| Wednesday | no lab this week | [Course introduction][80] | [course intro][80], slides [1][80] to [3.41][1000240] (recording not yet available) | | |
+|1|Aug 29| Wednesday | no lab this week | [Course introduction][80] | [course intro][80], slides [1][80] to [3.41][1000240] ([recording][201]) | | |
 |2|Aug 31| Friday    | | [Course introduction][80], [01: C++][81] | | | |
 |3|Sep 3| Monday    | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | [01: C++][81] | | | |
 |4|Sep 5| Wednesday | | [01: C++][81] | | | |
@@ -224,7 +224,7 @@ Grading Concerns
 [172]: unix-honor-pledge-f18.pdf
 [173]: https://collab.its.virginia.edu/portal/site/ecaa9c3b-b126-466c-a2a0-25ac318eddbb/tool-reset/4bb56bba-b711-4375-85c3-8d13483ebe33
 
-[201]: https://collab.itc.virginia.edu/access/content/group/ecaa9c3b-b126-466c-a2a0-25ac318eddbb/lectures/course-introduction-1/course-introduction-1.htm
+[201]: https://collab.itc.virginia.edu/access/content/group/ecaa9c3b-b126-466c-a2a0-25ac318eddbb/lectures/course-introduction/course-introduction.htm
 [202]: https://collab.itc.virginia.edu/access/content/group/ecaa9c3b-b126-466c-a2a0-25ac318eddbb/lectures/01-cpp-1/01-cpp-1.htm
 [203]: https://collab.itc.virginia.edu/access/content/group/ecaa9c3b-b126-466c-a2a0-25ac318eddbb/lectures/01-cpp-2/01-cpp-2.htm
 [204]: https://collab.itc.virginia.edu/access/content/group/ecaa9c3b-b126-466c-a2a0-25ac318eddbb/lectures/01-cpp-3/01-cpp-3.htm
