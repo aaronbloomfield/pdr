@@ -21,6 +21,7 @@ There are a number of links and other parts of this course that are **NOT** incl
 - Grading guidelines, which are available in the Collab wiki ([here][171] is the direct link, although Collab login is required)
 - Email list archive, which is a Collab tool ([here][170] is the direct link, although Collab login is required)
 - [Piazza][152]; Collab can log you in directly; the Collab tool link is [here][173] (again, Collab login required)
+- [Anonymous feedback][173]
 
 The parts of this course that are in this repo are:
 
@@ -221,7 +222,7 @@ Grading Concerns
 [170]: https://collab.its.virginia.edu/portal/site/ecaa9c3b-b126-466c-a2a0-25ac318eddbb/tool-reset/8bfb80f1-1fb2-418a-a950-3bd7918bf490
 [171]: https://collab.its.virginia.edu/portal/site/ecaa9c3b-b126-466c-a2a0-25ac318eddbb/tool-reset/b0ef4dba-7bde-4571-adfc-af9d7bd2407a
 [172]: unix-honor-pledge-f18.pdf
-[173]: ...
+[173]: https://collab.its.virginia.edu/portal/site/ecaa9c3b-b126-466c-a2a0-25ac318eddbb/tool-reset/4bb56bba-b711-4375-85c3-8d13483ebe33
 
 [201]: https://collab.itc.virginia.edu/access/content/group/ecaa9c3b-b126-466c-a2a0-25ac318eddbb/lectures/course-introduction-1/course-introduction-1.htm
 [202]: https://collab.itc.virginia.edu/access/content/group/ecaa9c3b-b126-466c-a2a0-25ac318eddbb/lectures/01-cpp-1/01-cpp-1.htm
