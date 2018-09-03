@@ -60,7 +60,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |-----|--------|-------------|-------------------------|--------------------------|------------------|------------------|------------------|
 |1|Aug 29| Wednesday | no lab this week | [Course introduction][80] | [course intro][80], slides [1][80] to [3.41][1000240] ([recording][201]) | | |
 |2|Aug 31| Friday    | | [Course introduction][80], [01: C++][81] | [course intro][80], slides [3.42][1000241] to [7.3][1000602] (end); [C++][81], slides [1][81] to [4.10][1010309] ([recording][202]) | | |
-|3|Sep 3| Monday    | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | [01: C++][81] | [C++][81], slides [4.10][1010309] to ... ([recording][203]) | | |
+|3|Sep 3| Monday    | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | [01: C++][81] | [C++][81], slides [4.10][1010309] to [6.9][1010508] ([recording][203]) | | |
 |4|Sep 5| Wednesday | | [01: C++][81] | | | |
 |5|Sep 7| Friday    | | [01: C++][81] | | | |
 |6|Sep 10| Monday    | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: LLDB][42] ([md][62]) *OR* [Tutorial 2: GDB][52] ([md][72]) (see [lab 2][2] for which one to pick) | [01: C++][81] | | | |
@@ -299,6 +299,7 @@ Grading Concerns
 [10105]: ../slides/01-cpp.html#/5
 [1010503]: ../slides/01-cpp.html#/5/3
 [1010505]: ../slides/01-cpp.html#/5/5
+[1010508]: ../slides/01-cpp.html#/5/8
 [1010608]: ../slides/01-cpp.html#/6/8
 [10107]: ../slides/01-cpp.html#/7
 [1010704]: ../slides/01-cpp.html#/7/4
