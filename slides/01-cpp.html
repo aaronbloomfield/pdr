@@ -824,7 +824,6 @@ bool even (int x);
 <section>
 <h2>Pointer Variables</h2>
 <p>Source code: <a href="code/01-cpp/pointers.cpp.html">pointers.cpp</a> (<a href="code/01-cpp/pointers.cpp">src</a>)</p>
-<p>&nbsp;</p>
 <table class="transparent"><tr><td>
 <table class="transparent">
 <tr><th>Variable</th><th>Address</th><th>Memory</th></tr>
@@ -854,7 +853,6 @@ cout &lt;&lt; *x_pointer;
 ## Dereferencing and Assigning
 Source code: [pointers.cpp](code/01-cpp/pointers.cpp.html) ([src](code/01-cpp/pointers.cpp))
 
-<p>&nbsp;</p>
 <table class="transparent"><tr><td>
 <table class="transparent">
 <tr><th>Variable</th><th>Address</th><th>Memory</th></tr>
@@ -881,7 +879,6 @@ Source code: [pointers.cpp](code/01-cpp/pointers.cpp.html) ([src](code/01-cpp/po
 ## x_pointer = &y
 Source code: [pointers.cpp](code/01-cpp/pointers.cpp.html) ([src](code/01-cpp/pointers.cpp))
   
-<p>&nbsp;</p>
 <table class="transparent"><tr><td>
 <table class="transparent">
 <tr><th>Variable</th><th>Address</th><th>Memory</th></tr>
@@ -908,7 +905,6 @@ Source code: [pointers.cpp](code/01-cpp/pointers.cpp.html) ([src](code/01-cpp/po
 ## *x_pointer = 3
 Source code: [pointers.cpp](code/01-cpp/pointers.cpp.html) ([src](code/01-cpp/pointers.cpp))
   
-<p>&nbsp;</p>
 <table class="transparent"><tr><td>
 <table class="transparent">
 <tr><th>Variable</th><th>Address</th><th>Memory</th></tr>
@@ -1129,7 +1125,7 @@ Rational *r = new Rational();
 ```
 r->num = 4;
 ```    
-- References (which we haven't seen yet) work like regular objects (i.e., the period syntax)
+- References (coming soon) use a period like regular objects
 </script></section>
 
 <section data-markdown><script type="text/template">
@@ -1236,7 +1232,7 @@ int main() {
 <section data-markdown><script type="text/template">
 ## C++ and memory allocation
 Source code: [memory.cpp](code/01-cpp/memory.cpp.html) ([src](code/01-cpp/memory.cpp))  
-&nbsp;  
+
 Result:
 ```
     sizeof(long): 8
@@ -1246,7 +1242,7 @@ Result:
     Difference: 32
 ```
   
-Why the extra space?  If only 16 bytes are needed for each `Foo`, then why is the second `Foo` 32 bytes beyond the first one?
+Why the extra space?  If only 16 bytes are needed for a `Foo`, then why is the 2nd `Foo` 32 bytes beyond the 1st?
 
 - Keep track of how much space was allocated
 - Dynamic memory allocation is not so "efficient" at storing data
