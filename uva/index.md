@@ -44,7 +44,7 @@ This is a series of links to the labs and tutorials that are elsewhere in this r
     - Each lab is for a given week, which (for sake of argument) we claim starts on a Monday
     - Which lab is done on which week is listed below in the semester schedule
 - The lab is released the week before, typically on a Wednesday or Thursday
-    - While a version of the lab will be in this github repo for some time prior, there **WILL** be modifications to that lab up until the "official" release, which is when it is announced as released on the twitter feed: [\@UVaCS2150](http://twitter.com/UVaCS2150)
+    - While a version of the lab will be in this github repo for some time prior, there **WILL** be modifications to that lab up until the "official" release, which is when it is announced as released on the twitter feed: [\@UVaCS2150][151]
 - All the labs and tutorials can be found on the [labs page][107] ([md][108]) and the [tutorials page][100] ([md][101]).
     - In particular, these pages have additional details and links not described here
 
@@ -62,7 +62,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |2|Aug 31| Friday    | | [Course introduction][80], [01: C++][81] | [course intro][80], slides [3.42][1000241] to [7.3][1000602] (end); [C++][81], slides [1][81] to [4.10][1010309] ([recording][202]) | |[course intro][80], slides [5.01][10505] to [7.03][1000703] (end); [C++][81], slides [1][81] to [4.15][1010415] |
 |3|Sep 3| Monday    | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | [01: C++][81] | [C++][81], slides [4.10][1010309] to [6.9][1010508] ([recording][203]) | |[C++][81], slides [5.01][10105] to [6.9][1010608] |
 |4|Sep 5| Wednesday | | [01: C++][81] | [C++][81], slides [6.9][1010508] to [9.7][1010806] ([recording][204]) | |[C++][81], slides [6.9][1010608] to [9.11][1010911] |
-|5|Sep 7| Friday    | | [01: C++][81] | | | |
+|5|Sep 7| Friday    | | [01: C++][81] | [C++][81], slides [9.7][1010806] to [10.13][1010912] ([recording][205]) | | |
 |6|Sep 10| Monday    | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: LLDB][42] ([md][62]) *OR* [Tutorial 2: GDB][52] ([md][72]) (see [lab 2][2] for which one to pick) | [01: C++][81] | | | |
 |7|Sep 12| Wednesday | | [01: C++][81], [02: Lists][82] | | | |
 |8|Sep 14| Friday    | | [02: Lists][82] | | | |
@@ -208,6 +208,7 @@ Grading Concerns
 [116]: grades.html
 
 [150]: https://calendar.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&ctz=America%2FNew_York
+[151]: http://twitter.com/UVaCS2150
 [152]: https://piazza.com/class/jla8mchboir245
 
 [160]: https://libra.cs.virginia.edu/~pedagogy/
