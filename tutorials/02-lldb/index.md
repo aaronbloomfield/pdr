@@ -111,11 +111,13 @@ Note that some systems may have the debugger have a slightly different
 name:
 
 ```
-lldb-3.4 prog1
+lldb-6.0 prog1
 ```
 
-This was assuming your executable (created with clang's `-o` option)
-was "prog1".  If you didn't use the -o option, then you'll type:
+Replace `6.0` with the current version; that was the version as of the
+2018-2019 academic year.  This was assuming your executable (created
+with clang's `-o` option) was "prog1".  If you didn't use the -o
+option, then you'll type:
 
 ```
 lldb a.out
