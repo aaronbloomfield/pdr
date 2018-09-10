@@ -65,7 +65,7 @@ The [ABET](http://www.abet.org) course objects are as follows:
 <a name="markdown"></a>Markdown
 -------------------------------
 
-The majority of the content in this repository was created using [Markdown](http://daringfireball.net/projects/markdown/).  Unfortunately, the only standardized Markdown is very old (2004), and has limited support for many HTML features, such as tables.  In the past, there were custom utilities (which can still be found in the [utils](utils/index.html) ([md](tutorials/index.md)) directory) were used.  However, [pandoc](http://johnmacfarlane.net/pandoc/) is now used (which is installed via the "pandoc" package on Ubuntu).  Typing `make` in the root repo directory will call pandoc on all the markdown files.
+The majority of the content in this repository was created using [Markdown](http://daringfireball.net/projects/markdown/).  Unfortunately, the only standardized Markdown is very old (2004), and has limited support for many HTML features, such as tables.  A simple conversion script in a Makefile is in the [utils](utils/index.html) ([md](tutorials/index.md)) directory, which uses [pandoc](http://johnmacfarlane.net/pandoc/).  Assuming pandoc is installed, run `make` in the root repo directory to re-create all the .html files from their associated .md files.
 
 For all the Markdown files in this repository, both the original (.md) file and the HTML version (.html) are added to the repository, so that people who do not have Markdown installed can still view the contents of this repository.
 

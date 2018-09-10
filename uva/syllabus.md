@@ -71,6 +71,7 @@ Please note, however, that there are a number of rules that we will strictly fol
 
 - Pre-labs are due at the same time for everybody, regardless of your lab section; that time is the beginning of the FIRST Tuesday lab.
 - In-labs are due at the end of the day on Tuesday.
+- Post-labs are due at the start of the first lecture on Friday, regardless of which lecture section one is registered for.
 - Any late lab part will receive 25% off (for just that part) for the first 24 hours (or part thereof) that it is late, after which no credit will be given. Note that a computer program does this deduction -- so if your lab is 1 second late, it still receives 25% off.
 
 The assignments tool does not display due dates such as "at the end of your lab session" very well - indeed, the due date is listed as 10 p.m. on Tuesdays.  Note that we have a script that will test the assignment due date against your lab date, so please be sure to follow the above due dates.
