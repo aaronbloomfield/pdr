@@ -2,6 +2,7 @@ markdown:
 	@echo Converting markdown files to html format...
 	@chmod 755 utils/convert-markdown-to-html
 	@utils/convert-markdown-to-html
+	@git checkout uva/old/*.html
 	@echo done!
 
 clean:
