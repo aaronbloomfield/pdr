@@ -69,9 +69,9 @@ The various dates: open dates, due dates, and close dates, are listed on the [La
 
 Please note, however, that there are a number of rules that we will strictly follow:
 
-- Pre-labs are due at the same time for everybody, regardless of your lab section; that time is about at the beginning of the FIRST Tuesday lab.
-- In-labs are due at the end of your scheduled lab session, regardless of what the submission system states.
-- Any late lab part will receive 25% off (for just that part) for the first 24 hours (or part thereof) that it is late, after which no credit will be given.  Note that a computer program does this deduction - so if your lab is 1 second late, it still receives 25% off.
+- Pre-labs are due at the same time for everybody, regardless of your lab section; that time is the beginning of the FIRST Tuesday lab.
+- In-labs are due at the end of the day on Tuesday.
+- Any late lab part will receive 25% off (for just that part) for the first 24 hours (or part thereof) that it is late, after which no credit will be given. Note that a computer program does this deduction -- so if your lab is 1 second late, it still receives 25% off.
 
 The assignments tool does not display due dates such as "at the end of your lab session" very well - indeed, the due date is listed as 10 p.m. on Tuesdays.  Note that we have a script that will test the assignment due date against your lab date, so please be sure to follow the above due dates.
 
