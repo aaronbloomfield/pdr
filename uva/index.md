@@ -64,7 +64,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |4|Sep 5| Wednesday | | [01: C++][81] | [C++][81], slides [6.9][1010508] to [9.7][1010806] ([recording][204]) | |[C++][81], slides [6.9][1010608] to [9.11][1010911] |
 |5|Sep 7| Friday    | | [01: C++][81] | [C++][81], slides [9.7][1010806] to [10.13][1010912] ([recording][205]) | | |
 |6|Sep 10| Monday    | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: LLDB][42] ([md][62]) *OR* [Tutorial 2: GDB][52] ([md][72]) (see [lab 2][2] for which one to pick) | [01: C++][81] | [C++][81], slides [10.13][1010912] to [12.5][1011104] ([recording][206]) | | |
-|7|Sep 12| Wednesday | | [01: C++][81], [02: Lists][82] | | | |
+|7|Sep 12| Wednesday | | [01: C++][81], [02: Lists][82] | [C++][81], slides [12.5][1011104] to [13.14][1011213] (end); [Lists][82], slides [1][82] to [4.4][1020303] ([recording][208]) | | |
 |8|Sep 14| Friday    | | [02: Lists][82] | | | |
 |9|Sep 17| Monday    | [Lab 3: Stacks][3] ([md][23]) / [Tutorial 3: More UNIX, part 1][63], introduction and sections 1-4 | [02: Lists][82], [03: Numbers][83] | | | |
 |10|Sep 19| Wednesday | | [03: Numbers][83] | | | |
@@ -335,6 +335,7 @@ Grading Concerns
 [1011205]: ../slides/01-cpp.html#/12/5
 [1011213]: ../slides/01-cpp.html#/12/13
 [10200]: ../slides/02-lists.html
+[1020303]: ../slides/02-lists.html#/3/3
 [1020304]: ../slides/02-lists.html#/3/4
 [1020305]: ../slides/02-lists.html#/3/5
 [10204]: ../slides/02-lists.html#/4
