@@ -62,8 +62,8 @@ The links in the right-most column link directly to the lecture recording on Col
 |2|Aug 31| Friday    | | [Course introduction][80], [01: C++][81] | [course intro][80], slides [3.42][1000241] to [7.3][1000602] (end); [C++][81], slides [1][81] to [4.10][1010309] ([recording][202]) | |[course intro][80], slides [5.01][10505] to [7.03][1000703] (end); [C++][81], slides [1][81] to [4.15][1010415] |
 |3|Sep 3| Monday    | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | [01: C++][81] | [C++][81], slides [4.10][1010309] to [6.9][1010508] ([recording][203]) | |[C++][81], slides [5.01][10105] to [6.9][1010608] |
 |4|Sep 5| Wednesday | | [01: C++][81] | [C++][81], slides [6.9][1010508] to [9.7][1010806] ([recording][204]) | |[C++][81], slides [6.9][1010608] to [9.11][1010911] |
-|5|Sep 7| Friday    | | [01: C++][81] | [C++][81], slides [9.7][1010806] to [10.13][1010912] ([recording][205]) | | |
-|6|Sep 10| Monday    | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: LLDB][42] ([md][62]) *OR* [Tutorial 2: GDB][52] ([md][72]) (see [lab 2][2] for which one to pick) | [01: C++][81] | [C++][81], slides [10.13][1010912] to [12.5][1011104] ([recording][206]) | | |
+|5|Sep 7| Friday    | | [01: C++][81] | [C++][81], slides [9.7][1010806] to [10.13][1010912] ([recording][205]) | | [C++][81], slides [9.12][1010806] to [10.15][1010912] |
+|6|Sep 10| Monday    | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: LLDB][42] ([md][62]) *OR* [Tutorial 2: GDB][52] ([md][72]) (see [lab 2][2] for which one to pick) | [01: C++][81] | [C++][81], slides [10.13][1010912] to [12.5][1011104] ([recording][206]) | | [C++][81], slides [10.14][1010912] to [12.4][1011104] |
 |7|Sep 12| Wednesday | | [01: C++][81], [02: Lists][82] | | | |
 |8|Sep 14| Friday    | | [02: Lists][82] | | | |
 |9|Sep 17| Monday    | [Lab 3: Stacks][3] ([md][23]) / [Tutorial 3: More UNIX, part 1][63], introduction and sections 1-4 | [02: Lists][82], [03: Numbers][83] | | | |
