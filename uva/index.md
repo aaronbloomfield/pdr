@@ -69,7 +69,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |9|Sep 17| Monday    | [Lab 3: Stacks][3] ([md][23]) / [Tutorial 3: More UNIX, part 1][63], introduction and sections 1-4 | [02: Lists][82], [03: Numbers][83] | [Lists][82], slides [6.8][1020507] to [9.4][1020803] (end) ([recording][210]) | | |
 |10|Sep 19| Wednesday | | [03: Numbers][83] | [Numbers][83], slides [1][83] to [8.4][1030703] ([recording][211]) | | |
 |11|Sep 21| Friday    | | [03: Numbers][83] | [Numbers][83], slides [8.4][1030703] to [9.13][1030812] ([recording][212]) | | |
-|12|Sep 24| Monday    | [Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8 | [03: Numbers][83] | | | |
+|12|Sep 24| Monday    | [Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8 | [03: Numbers][83] | [Numbers][83], slides [9.13][1030812] to [9.32][1030831] ([recording][213]) | | |
 |13|Sep 26| Wednesday | | [04: Arrays & big-Oh][84] | | | |
 |14|Sep 28| Friday    | | [04: Arrays & big-Oh][84] | | | |
 |  |Sep 30| Sunday    | | Exam 1 review session | | | |
@@ -381,6 +381,7 @@ Grading Concerns
 [1030815]: ../slides/03-numbers.html#/8/15
 [1030816]: ../slides/03-numbers.html#/8/16
 [1030825]: ../slides/03-numbers.html#/8/25
+[1030831]: ../slides/03-numbers.html#/8/31
 [1030832]: ../slides/03-numbers.html#/8/32
 [1030833]: ../slides/03-numbers.html#/8/33
 [1030834]: ../slides/03-numbers.html#/8/34
