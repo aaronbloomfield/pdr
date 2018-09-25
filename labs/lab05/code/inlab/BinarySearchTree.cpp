@@ -84,3 +84,41 @@ string BinarySearchTree::min(BinaryNode* node) const {
   }
   return min(node->left);
 }
+
+// Helper function to print branches of the binary tree
+void showTrunks(Trunk* p) {
+  if (p == nullptr) return;
+  showTrunks(p->prev);
+  cout << p->str;
+}
+
+// Recursive function to print binary tree
+// It uses inorder traversal
+void BinarySearchTree::printTree(BinaryNode* root, Trunk* prev, bool isLeft) {
+  if (root == NULL) return;
+
+  string prev_str = "    ";
+  Trunk* trunk = new Trunk(prev, prev_str);
+
+  printTree(root->left, trunk, true);
+
+  if (!prev)
+    trunk->str = "---";
+  else if (isLeft) {
+    trunk->str = ".---";
+    prev_str = "   |";
+  } else {
+    trunk->str = "`---";
+    prev->str = prev_str;
+  }
+
+  showTrunks(trunk);
+  cout << root->value << endl;
+
+  if (prev) prev->str = prev_str;
+  trunk->str = "   |";
+
+  printTree(root->right, trunk, false);
+}
+
+void BinarySearchTree::printTree() { printTree(root, NULL, false); }

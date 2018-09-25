@@ -6,6 +6,16 @@
 
 using namespace std;
 
+struct Trunk {
+  Trunk* prev;
+  string str;
+
+  Trunk(Trunk* prev, string str) {
+    this->prev = prev;
+    this->str = str;
+  }
+};
+
 class AVLTree {
  public:
   AVLTree();
@@ -17,6 +27,8 @@ class AVLTree {
   // remove finds x's position in the tree and removes it, rebalancing as
   // necessary.
   void remove(const string& x);
+  // printTree pretty-prints the tree to aid debugging.
+  void printTree();
 
   // pathTo finds x in the tree and returns a string representing the path it
   // took to get there.
@@ -46,6 +58,9 @@ class AVLTree {
   // height returns the value of the height field in a node. If the node is
   // null, it returns -1.
   int height(AVLNode* node) const;
+
+  // private helper for printTree to allow recursion over different nodes.
+  void printTree(AVLNode* root, Trunk* prev, bool isLeft);
 
   // Any other methods you need...
 };
