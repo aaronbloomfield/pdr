@@ -1,24 +1,56 @@
 #include "AVLTree.h"
 #include <string>
-
+#include "AVLNode.h"
 using namespace std;
 
-// Implement the following
-AVLNode::AVLNode() {}
-AVLTree::AVLTree() {}
-AVLTree::~AVLTree() {}
-void AVLTree::insert(const string& x) {}
-string pathTo(const string& x) const {}
-bool find(const string& x) const {}
-int numNodes() const {}
-void balance(AVLNode*& n) {}
-AVLNode* rotateLeft(AVLNode*& n) {}
-AVLNode* rotateRight(AVLNode*& n) {}
+AVLTree::AVLTree() { root = NULL; }
 
-// The following are implemented for you
+AVLTree::~AVLTree() {
+  delete root;
+  root = NULL;
+}
+
+// insert finds a position for x in the tree and places it there, rebalancing
+// as necessary.
+void AVLTree::insert(const string& x) {
+  // YOUR IMPLEMENTATION GOES HERE
+}
+
 // remove finds x's position in the tree and removes it, rebalancing as
 // necessary.
 void AVLTree::remove(const string& x) { root = remove(root, x); }
+
+// pathTo finds x in the tree and returns a string representing the path it
+// took to get there.
+string AVLTree::pathTo(const string& x) const {
+  // YOUR IMPLEMENTATION GOES HERE
+}
+
+// find determines whether or not x exists in the tree.
+bool AVLTree::find(const string& x) const {
+  // YOUR IMPLEMENTATION GOES HERE
+}
+
+// numNodes returns the total number of nodes in the tree.
+int AVLTree::numNodes() const {
+  // YOUR IMPLEMENTATION GOES HERE
+}
+
+// balance makes sure that the subtree with root n maintains the AVL tree
+// property, namely that the balance factor of n is either -1, 0, or 1.
+void AVLTree::balance(AVLNode*& n) {
+  // YOUR IMPLEMENTATION GOES HERE
+}
+
+// rotateLeft performs a single rotation on node n with its right child.
+AVLNode* AVLTree::rotateLeft(AVLNode*& n) {
+  // YOUR IMPLEMENTATION GOES HERE
+}
+
+// rotateRight performs a single rotation on node n with its left child.
+AVLNode* AVLTree::rotateRight(AVLNode*& n) {
+  // YOUR IMPLEMENTATION GOES HERE
+}
 
 // private helper for remove to allow recursion over different nodes. returns
 // an AVLNode* that is assigned to the original node.
@@ -32,14 +64,23 @@ AVLNode* AVLTree::remove(AVLNode*& n, const string& x) {
     // no children
     if (n->left == NULL && n->right == NULL) {
       delete n;
+      n = NULL;
       return NULL;
     }
     // single child
     if (n->left == NULL) {
-      return n->right;
+      AVLNode* temp = n->right;
+      n->right = NULL;
+      delete n;
+      n = NULL;
+      return temp;
     }
     if (n->right == NULL) {
-      return n->left;
+      AVLNode* temp = n->left;
+      n->left = NULL;
+      delete n;
+      n = NULL;
+      return temp;
     }
     // two children -- tree may become unbalanced after deleting n
     string sr = min(n->right);
@@ -53,14 +94,6 @@ AVLNode* AVLTree::remove(AVLNode*& n, const string& x) {
   n->height = 1 + max(height(n->left), height(n->right));
   balance(n);
   return n;
-}
-
-// max returns the greater of two integers.
-int max(int a, int b) {
-  if (a > b) {
-    return a;
-  }
-  return b;
 }
 
 // min finds the string with the smallest value in a subtree.
@@ -79,4 +112,12 @@ int AVLTree::height(AVLNode* node) const {
     return -1;
   }
   return node->height;
+}
+
+// max returns the greater of two integers.
+int max(int a, int b) {
+  if (a > b) {
+    return a;
+  }
+  return b;
 }

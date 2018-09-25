@@ -1,15 +1,8 @@
 #ifndef BST_H
 #define BST_H
 
-class BinaryNode {
-  BinaryNode();
-
-  string value;
-  BinaryNode* left;
-  BinaryNode* right;
-
-  friend class BinarySearchTree;
-};
+#include <string>
+#include "BinaryNode.h"
 
 class BinarySearchTree {
  public:
@@ -32,6 +25,12 @@ class BinarySearchTree {
  private:
   // Declare a root node
   BinaryNode* root;
+
+  // private helper for remove to allow recursion over different nodes. returns
+  // a BinaryNode* that is assigned to the original node.
+  BinaryNode* remove(BinaryNode*& n, const string& x);
+  // min finds the string with the smallest value in a subtree.
+  string min(BinaryNode* node) const;
 
   // Any other methods you need...
 };
