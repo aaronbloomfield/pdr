@@ -27,6 +27,7 @@
     <script type="text/javascript" src="../slides/js/dhtmlwindow.js"></script>
     <script type="text/javascript" src="../slides/js/canvas.js"></script>
     <link rel="stylesheet" href="../slides/css/dhtmlwindow.css" type="text/css">
+    <style>.reveal li { font-size:93%; line-height:120%; }</style>
   </head>
 
   <body onload="canvasinit()">
@@ -213,7 +214,7 @@ Multi-dimensional arrays in C++ are stored in ***row major*** order
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Command-line parameters example
+## Command-line parameters
 Source code: [cmdlineparams.cpp](code/04-arrays-bigoh/cmdlineparams.cpp.html) ([src](code/04-arrays-bigoh/cmdlineparams.cpp))
 ```
 int main (int argc, char* argv[]) {
@@ -276,9 +277,9 @@ int main (int argc, char* argv[]) {
   - A [bogosort](http://en.wikipedia.org/wiki/Bogosort) will work just fine
 - Consider big input sizes:
   - UVa's e-mail probably has about 100,000 e-mail addresses
-  - [OpenStreetMap](http://www.openstreetmap.org), for driving routes, has over 3.2 billion nodes and 5.1 million GPS points ([ref](http://www.openstreetmap.org/stats/data_stats.html)) (as of Feb 2016)
+  - [OpenStreetMap](http://www.openstreetmap.org), for driving routes, has over 4.7 billion nodes and 6.4 million GPS points ([ref](http://www.openstreetmap.org/stats/data_stats.html)) (as of Sep 2018)
     - A 'node' is a point on the Earth's surface, and not necessarily an intersection
-  - Google's index has almost 50 billion items ([ref](http://www.worldwidewebsize.com/)) (as of Feb 2016)
+  - Google's index has almost 47 billion items ([ref](http://www.worldwidewebsize.com/)) (as of Sep 2018)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">

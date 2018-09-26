@@ -27,6 +27,7 @@
     <script type="text/javascript" src="../slides/js/dhtmlwindow.js"></script>
     <script type="text/javascript" src="../slides/js/canvas.js"></script>
     <link rel="stylesheet" href="../slides/css/dhtmlwindow.css" type="text/css">
+    <style>.reveal li { font-size:93%; line-height:120%; }</style>
   </head>
 
   <body onload="canvasinit()">
@@ -832,7 +833,7 @@ Hint: it's not 1.0!
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Comparing floating-point values
+## Comparing floats & doubles
 - Consider, in Java:
 ```
 double a = 1;
@@ -956,7 +957,7 @@ bool foo = fabs (a-b) < EPSILON;
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Better Floating Point: More Bits
+## Better Floats: More Bits
 - IEEE 754 Double Precision (64 bits)
   - A `float` has about 7 decimal places of accuracy, and a `double` has about 15
 - 64 bits are split as follows:
