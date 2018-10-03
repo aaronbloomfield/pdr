@@ -847,7 +847,7 @@ Each theme is available as a separate stylesheet. To change theme you will need 
 <link rel="stylesheet" href="css/theme/black.css" id="theme">
 ```
 
-If you want to add a theme of your own see the instructions here: [/css/theme/README.md](https://github.com/hakimel/reveal.js/blob/master/css/theme/README.md).
+If you want to add a theme of your own see the instructions here: [/css/theme/readme-old.md](https://github.com/hakimel/reveal.js/blob/master/css/theme/readme-old.md).
 
 
 ## Speaker Notes

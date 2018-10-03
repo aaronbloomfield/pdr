@@ -1,7 +1,7 @@
 PDR: Exams
 ==========
 
-[Go up to the main README file](../README.html) ([md](../README.md))
+[Go up to the main README file](../readme-old.html) ([md](../readme-old.md))
 
 These are all the exams from the previous semesters of the course.  No solutions are provided, nor are the grading guidelines.  Currently they are all in PDF format, but that may change in the future.  The more recent ones were developed using LaTeX, the earlier ones using Word.
 
