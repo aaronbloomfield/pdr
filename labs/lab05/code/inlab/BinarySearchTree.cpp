@@ -1,60 +1,42 @@
-#include "AVLTree.h"
+#include "BinarySearchTree.h"
 #include <string>
-#include "AVLNode.h"
+#include "BinaryNode.h"
 using namespace std;
 
-AVLTree::AVLTree() { root = NULL; }
+BinarySearchTree::BinarySearchTree() { root = NULL; }
 
-AVLTree::~AVLTree() {
+BinarySearchTree::~BinarySearchTree() {
   delete root;
   root = NULL;
 }
 
-// insert finds a position for x in the tree and places it there, rebalancing
-// as necessary.
-void AVLTree::insert(const string& x) {
+// insert finds a position for x in the tree and places it there.
+void BinarySearchTree::insert(const string& x) {
   // YOUR IMPLEMENTATION GOES HERE
 }
 
-// remove finds x's position in the tree and removes it, rebalancing as
-// necessary.
-void AVLTree::remove(const string& x) { root = remove(root, x); }
+// remove finds x's position in the tree and removes it.
+void BinarySearchTree::remove(const string& x) { root = remove(root, x); }
 
 // pathTo finds x in the tree and returns a string representing the path it
 // took to get there.
-string AVLTree::pathTo(const string& x) const {
+string BinarySearchTree::pathTo(const string& x) const {
   // YOUR IMPLEMENTATION GOES HERE
 }
 
 // find determines whether or not x exists in the tree.
-bool AVLTree::find(const string& x) const {
+bool BinarySearchTree::find(const string& x) const {
   // YOUR IMPLEMENTATION GOES HERE
 }
 
 // numNodes returns the total number of nodes in the tree.
-int AVLTree::numNodes() const {
-  // YOUR IMPLEMENTATION GOES HERE
-}
-
-// balance makes sure that the subtree with root n maintains the AVL tree
-// property, namely that the balance factor of n is either -1, 0, or 1.
-void AVLTree::balance(AVLNode*& n) {
-  // YOUR IMPLEMENTATION GOES HERE
-}
-
-// rotateLeft performs a single rotation on node n with its right child.
-AVLNode* AVLTree::rotateLeft(AVLNode*& n) {
-  // YOUR IMPLEMENTATION GOES HERE
-}
-
-// rotateRight performs a single rotation on node n with its left child.
-AVLNode* AVLTree::rotateRight(AVLNode*& n) {
+int BinarySearchTree::numNodes() const {
   // YOUR IMPLEMENTATION GOES HERE
 }
 
 // private helper for remove to allow recursion over different nodes. returns
-// an AVLNode* that is assigned to the original node.
-AVLNode* AVLTree::remove(AVLNode*& n, const string& x) {
+// a BinaryNode* that is assigned to the original node.
+BinaryNode* BinarySearchTree::remove(BinaryNode*& n, const string& x) {
   if (n == NULL) {
     return NULL;
   }
@@ -69,20 +51,20 @@ AVLNode* AVLTree::remove(AVLNode*& n, const string& x) {
     }
     // single child
     if (n->left == NULL) {
-      AVLNode* temp = n->right;
+      BinaryNode* temp = n->right;
       n->right = NULL;
       delete n;
       n = NULL;
       return temp;
     }
     if (n->right == NULL) {
-      AVLNode* temp = n->left;
+      BinaryNode* temp = n->left;
       n->left = NULL;
       delete n;
       n = NULL;
       return temp;
     }
-    // two children -- tree may become unbalanced after deleting n
+    // two children
     string sr = min(n->right);
     n->value = sr;
     n->right = remove(n->right, sr);
@@ -91,35 +73,16 @@ AVLNode* AVLTree::remove(AVLNode*& n, const string& x) {
   } else {
     n->right = remove(n->right, x);
   }
-  n->height = 1 + max(height(n->left), height(n->right));
-  balance(n);
   return n;
 }
 
 // min finds the string with the smallest value in a subtree.
-string AVLTree::min(AVLNode* node) const {
+string BinarySearchTree::min(BinaryNode* node) const {
   // go to bottom-left node
   if (node->left == NULL) {
     return node->value;
   }
   return min(node->left);
-}
-
-// height returns the value of the height field in a node. If the node is
-// null, it returns -1.
-int AVLTree::height(AVLNode* node) const {
-  if (node == NULL) {
-    return -1;
-  }
-  return node->height;
-}
-
-// max returns the greater of two integers.
-int max(int a, int b) {
-  if (a > b) {
-    return a;
-  }
-  return b;
 }
 
 // Helper function to print branches of the binary tree
@@ -131,7 +94,7 @@ void showTrunks(Trunk* p) {
 
 // Recursive function to print binary tree
 // It uses inorder traversal
-void AVLTree::printTree(AVLNode* root, Trunk* prev, bool isLeft) {
+void BinarySearchTree::printTree(BinaryNode* root, Trunk* prev, bool isLeft) {
   if (root == NULL) return;
 
   string prev_str = "    ";
@@ -158,4 +121,4 @@ void AVLTree::printTree(AVLNode* root, Trunk* prev, bool isLeft) {
   printTree(root->right, trunk, false);
 }
 
-void AVLTree::printTree() { printTree(root, NULL, false); }
+void BinarySearchTree::printTree() { printTree(root, NULL, false); }

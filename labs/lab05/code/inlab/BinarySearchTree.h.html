@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>BinarySearchTree.h</title>
+</head>
+<body bgcolor="white">
+<pre><tt><b><font color="#000080">#ifndef</font></b> BST_H
+<b><font color="#000080">#define</font></b> BST_H
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;string&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">"BinaryNode.h"</font>
+
+<b><font color="#0000FF">class</font></b> <font color="#008080">BinarySearchTree</font> <font color="#FF0000">{</font>
+ <b><font color="#0000FF">public</font></b><font color="#990000">:</font>
+  <b><font color="#000000">BinarySearchTree</font></b><font color="#990000">();</font>
+  <font color="#990000">~</font><b><font color="#000000">BinarySearchTree</font></b><font color="#990000">();</font>
+
+  <i><font color="#9A1900">// insert finds a position for x in the tree and places it there.</font></i>
+  <font color="#009900">void</font> <b><font color="#000000">insert</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> string<font color="#990000">&amp;</font> x<font color="#990000">);</font>
+  <i><font color="#9A1900">// remove finds x's position in the tree and removes it.</font></i>
+  <font color="#009900">void</font> <b><font color="#000000">remove</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> string<font color="#990000">&amp;</font> x<font color="#990000">);</font>
+
+  <i><font color="#9A1900">// pathTo finds x in the tree and returns a string representing the path it</font></i>
+  <i><font color="#9A1900">// took to get there.</font></i>
+  <font color="#008080">string</font> <b><font color="#000000">pathTo</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> string<font color="#990000">&amp;</font> x<font color="#990000">)</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font>
+  <i><font color="#9A1900">// find determines whether or not x exists in the tree.</font></i>
+  <font color="#009900">bool</font> <b><font color="#000000">find</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> string<font color="#990000">&amp;</font> x<font color="#990000">)</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font>
+  <i><font color="#9A1900">// numNodes returns the total number of nodes in the tree.</font></i>
+  <font color="#009900">int</font> <b><font color="#000000">numNodes</font></b><font color="#990000">()</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font>
+
+ <b><font color="#0000FF">private</font></b><font color="#990000">:</font>
+  <i><font color="#9A1900">// Declare a root node</font></i>
+  BinaryNode<font color="#990000">*</font> root<font color="#990000">;</font>
+
+  <i><font color="#9A1900">// private helper for remove to allow recursion over different nodes. returns</font></i>
+  <i><font color="#9A1900">// a BinaryNode* that is assigned to the original node.</font></i>
+  BinaryNode<font color="#990000">*</font> <b><font color="#000000">remove</font></b><font color="#990000">(</font>BinaryNode<font color="#990000">*&amp;</font> n<font color="#990000">,</font> <b><font color="#0000FF">const</font></b> string<font color="#990000">&amp;</font> x<font color="#990000">);</font>
+  <i><font color="#9A1900">// min finds the string with the smallest value in a subtree.</font></i>
+  <font color="#008080">string</font> <b><font color="#000000">min</font></b><font color="#990000">(</font>BinaryNode<font color="#990000">*</font> node<font color="#990000">)</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font>
+
+  <i><font color="#9A1900">// Any other methods you need...</font></i>
+<font color="#FF0000">}</font><font color="#990000">;</font>
+
+<b><font color="#000080">#endif</font></b></tt></pre>
+</body>
+</html>

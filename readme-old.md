@@ -6,13 +6,13 @@ Program and Data Representation
 <a name="introduction"></a>Introduction
 ---------------------------------------
 
-This repository contains the materials for the course entitled "CS 2150: Program and Data Representation" in the [Computer Science Department](http://www.cs.virginia.edu) at the [University of Virginia](http://www.virginia.edu).  It contains all of the slides, labs, exams, etc., used throughout the course.  The course description is [below](#description).  The github repository for this course is at [https://github.com/uva-cs/pdr](https://github.com/uva-cs/pdr).  It can be viewed online at [http://uva-cs.github.io/pdr/](http://uva-cs.github.io/pdr/).
+This repository contains the materials for the course entitled "CS 2150: Program and Data Representation" in the [Computer Science Department](http://www.cs.virginia.edu) at the [University of Virginia](http://www.virginia.edu).  It contains all of the slides, labs, exams, etc., used throughout the course.  The course description is [below](#description).  The github repository for this course is at [https://github.com/markfloryan/pdr](https://github.com/markfloryan/pdr).
 
 Students *currently* in the course should view the [uva/index.html](uva/index.html) ([md](uva/index.md)) file in the **cloned** repository (i.e., don't try to view it on github.com); current students may also want to view the [daily announcements](uva/daily-announcements.html#/).  Note that many of the course materials are modified right before they are needed -- for example, this repository will be updated right before the semester starts.
 
 Students who were previously in the course may want to view the current version, or you can view the version from your semester. All semester versions are tagged with an end-of-semester tag of the form "year-semester".  For example, the spring 2014 semester was tagged as `2014-spring`.  To obtain a specific tag, you can enter `git checkout tags/2014-spring` in an already cloned repository.
 
-The primary authors of this repository are [Mark Floryan](http://www.cs.virginia.edu/~mrf8t) ([mrf8t@cs.virginia.edu](<mailto:mrf8t@cs.virginia.edu>)), [Rich Nguyen](http://www.cs.virginia.edu/~nn4pj) ([nn4pj@virginia.edu](<mailto:nn4pj@virginia.edu>)), and [Aaron Bloomfield](http://www.cs.virginia.edu/~asb) ([aaron@virginia.edu](<mailto:aaron@virginia.edu>)). Many students and faculty have worked on this course material over the years.
+The primary author of this repository is [Mark Floryan](http://www.cs.virginia.edu/~mrf8t) ([mrf8t@cs.virginia.edu](<mailto:mrf8t@cs.virginia.edu>)). This repository originally developed (and has been adapted from) a similar one by [Aaron Bloomfield](http://www.cs.virginia.edu/~asb) ([aaron@virginia.edu](<mailto:aaron@virginia.edu>). Many students and faculty have worked on this course material over the years.
 
 
 <a name="contents"></a>Repository Contents
@@ -38,7 +38,7 @@ repository first**
 Updates to the repository are restricted to approved individuals only, to prevent anybody from messing with the slides right before a lecture.  However, others can still contribute to this repository -- to do so, take the following steps:
 
 1. Create a github account, if you do not have one
-2. Fork this repository: you can click on the "Fork" link in the upper right, or just click [here](https://github.com/uva-cs/pdr/fork)
+2. Fork this repository: you can click on the "Fork" link in the upper right, or just click [here](https://github.com/markfloryan/pdr/fork)
 3. Clone your forked repository on to your local machine
 4. Make any changes you want to your forked version, then commit and push your changes back to your forked repository
 5. Create a pull request, following the instructions [here](https://help.github.com/articles/creating-a-pull-request)
@@ -65,7 +65,7 @@ The [ABET](http://www.abet.org) course objects are as follows:
 <a name="markdown"></a>Markdown
 -------------------------------
 
-The majority of the content in this repository was created using [Markdown](http://daringfireball.net/projects/markdown/).  Unfortunately, the only standardized Markdown is very old (2004), and has limited support for many HTML features, such as tables.  A simple conversion script in a Makefile is in the [utils](utils/index.html) ([md](tutorials/index.md)) directory, which uses [pandoc](http://johnmacfarlane.net/pandoc/).  Assuming pandoc is installed, run `make` in the root repo directory to re-create all the .html files from their associated .md files.
+The majority of the content in this repository was created using [Markdown](http://daringfireball.net/projects/markdown/).  Unfortunately, the only standardized Markdown is very old (2004), and has limited support for many HTML features, such as tables.  In the past, there were custom utilities (which can still be found in the [utils](utils/index.html) ([md](tutorials/index.md)) directory) were used.  However, [pandoc](http://johnmacfarlane.net/pandoc/) is now used (which is installed via the "pandoc" package on Ubuntu).  Typing `make` in the root repo directory will call pandoc on all the markdown files.
 
 For all the Markdown files in this repository, both the original (.md) file and the HTML version (.html) are added to the repository, so that people who do not have Markdown installed can still view the contents of this repository.
 
@@ -137,4 +137,4 @@ The material in this repository is released under a [Creative Commons Attributio
 Copyright (c) 2017-2018 by Mark Floryan
 Copyright (c) 2013-2017 by Aaron Bloomfield.
 
-Some parts of this repository are taken, with permission, from other sources.  The full details are in the [License](license.html) ([md](license.md)) file. In particular, some parts of this repository that were obtained elsewhere can not be used for commercial purposes.
+Some parts of this repository are taken, with permission, from other sources.  The full details are in the [License](LICENSE.html) ([md](LICENSE.md)) file. In particular, some parts of this repository that were obtained elsewhere can not be used for commercial purposes.

@@ -1,14 +1,19 @@
 #ifndef BST_H
 #define BST_H
 
-class BinaryNode {
-  BinaryNode();
+#include <string>
+#include "BinaryNode.h"
 
-  string value;
-  BinaryNode* left;
-  BinaryNode* right;
+using namespace std;
 
-  friend class BinarySearchTree;
+struct Trunk {
+  Trunk* prev;
+  string str;
+
+  Trunk(Trunk* prev, string str) {
+    this->prev = prev;
+    this->str = str;
+  }
 };
 
 class BinarySearchTree {
@@ -20,6 +25,8 @@ class BinarySearchTree {
   void insert(const string& x);
   // remove finds x's position in the tree and removes it.
   void remove(const string& x);
+  // printTree pretty-prints the tree to aid debugging.
+  void printTree();
 
   // pathTo finds x in the tree and returns a string representing the path it
   // took to get there.
@@ -32,6 +39,15 @@ class BinarySearchTree {
  private:
   // Declare a root node
   BinaryNode* root;
+
+  // private helper for remove to allow recursion over different nodes. returns
+  // a BinaryNode* that is assigned to the original node.
+  BinaryNode* remove(BinaryNode*& n, const string& x);
+  // min finds the string with the smallest value in a subtree.
+  string min(BinaryNode* node) const;
+
+  // private helper for printTree to allow recursion over different nodes.
+  void printTree(BinaryNode* root, Trunk* prev, bool isLeft);
 
   // Any other methods you need...
 };

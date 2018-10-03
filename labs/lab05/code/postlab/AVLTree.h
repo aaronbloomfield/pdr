@@ -2,18 +2,18 @@
 #define AVL_H
 
 #include <string>
+#include "AVLNode.h"
 
 using namespace std;
 
-class AVLNode {
-  AVLNode();
+struct Trunk {
+  Trunk* prev;
+  string str;
 
-  string value;
-  AVLNode* left;
-  AVLNode* right;
-  int height;
-
-  friend class AVLTree;
+  Trunk(Trunk* prev, string str) {
+    this->prev = prev;
+    this->str = str;
+  }
 };
 
 class AVLTree {
@@ -27,6 +27,8 @@ class AVLTree {
   // remove finds x's position in the tree and removes it, rebalancing as
   // necessary.
   void remove(const string& x);
+  // printTree pretty-prints the tree to aid debugging.
+  void printTree();
 
   // pathTo finds x in the tree and returns a string representing the path it
   // took to get there.
@@ -43,9 +45,9 @@ class AVLTree {
   // balance makes sure that the subtree with root n maintains the AVL tree
   // property, namely that the balance factor of n is either -1, 0, or 1.
   void balance(AVLNode*& n);
-  // rotateLeft performs a single rotation on node n with its left child.
+  // rotateLeft performs a single rotation on node n with its right child.
   AVLNode* rotateLeft(AVLNode*& n);
-  // rotateRight performs a single rotation on node n with its right child.
+  // rotateRight performs a single rotation on node n with its left child.
   AVLNode* rotateRight(AVLNode*& n);
 
   // private helper for remove to allow recursion over different nodes. returns
@@ -56,6 +58,9 @@ class AVLTree {
   // height returns the value of the height field in a node. If the node is
   // null, it returns -1.
   int height(AVLNode* node) const;
+
+  // private helper for printTree to allow recursion over different nodes.
+  void printTree(AVLNode* root, Trunk* prev, bool isLeft);
 
   // Any other methods you need...
 };

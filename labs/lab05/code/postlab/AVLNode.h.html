@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>AVLNode.h</title>
+</head>
+<body bgcolor="white">
+<pre><tt><b><font color="#000080">#ifndef</font></b> AVLNODE_H
+<b><font color="#000080">#define</font></b> AVLNODE_H
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;string&gt;</font>
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<b><font color="#0000FF">class</font></b> <font color="#008080">AVLNode</font> <font color="#FF0000">{</font>
+  <b><font color="#000000">AVLNode</font></b><font color="#990000">();</font>
+  <font color="#990000">~</font><b><font color="#000000">AVLNode</font></b><font color="#990000">();</font>
+
+  <font color="#008080">string</font> value<font color="#990000">;</font>
+  AVLNode<font color="#990000">*</font> left<font color="#990000">;</font>
+  AVLNode<font color="#990000">*</font> right<font color="#990000">;</font>
+  <font color="#009900">int</font> height<font color="#990000">;</font>
+
+  <b><font color="#0000FF">friend</font></b> <b><font color="#0000FF">class</font></b> <font color="#008080">AVLTree</font><font color="#990000">;</font>
+<font color="#FF0000">}</font><font color="#990000">;</font>
+
+<b><font color="#000080">#endif</font></b></tt></pre>
+</body>
+</html>
