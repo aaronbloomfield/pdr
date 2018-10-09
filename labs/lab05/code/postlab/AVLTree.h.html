@@ -17,6 +17,16 @@ http://www.gnu.org/software/src-highlite">
 
 <b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
 
+<b><font color="#0000FF">struct</font></b> <font color="#008080">Trunk</font> <font color="#FF0000">{</font>
+  Trunk<font color="#990000">*</font> prev<font color="#990000">;</font>
+  <font color="#008080">string</font> str<font color="#990000">;</font>
+
+  <b><font color="#000000">Trunk</font></b><font color="#990000">(</font>Trunk<font color="#990000">*</font> prev<font color="#990000">,</font> <font color="#008080">string</font> str<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">this</font></b><font color="#990000">-&gt;</font>prev <font color="#990000">=</font> prev<font color="#990000">;</font>
+    <b><font color="#0000FF">this</font></b><font color="#990000">-&gt;</font>str <font color="#990000">=</font> str<font color="#990000">;</font>
+  <font color="#FF0000">}</font>
+<font color="#FF0000">}</font><font color="#990000">;</font>
+
 <b><font color="#0000FF">class</font></b> <font color="#008080">AVLTree</font> <font color="#FF0000">{</font>
  <b><font color="#0000FF">public</font></b><font color="#990000">:</font>
   <b><font color="#000000">AVLTree</font></b><font color="#990000">();</font>
@@ -28,6 +38,8 @@ http://www.gnu.org/software/src-highlite">
   <i><font color="#9A1900">// remove finds x's position in the tree and removes it, rebalancing as</font></i>
   <i><font color="#9A1900">// necessary.</font></i>
   <font color="#009900">void</font> <b><font color="#000000">remove</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> string<font color="#990000">&amp;</font> x<font color="#990000">);</font>
+  <i><font color="#9A1900">// printTree pretty-prints the tree to aid debugging.</font></i>
+  <font color="#009900">void</font> <b><font color="#000000">printTree</font></b><font color="#990000">();</font>
 
   <i><font color="#9A1900">// pathTo finds x in the tree and returns a string representing the path it</font></i>
   <i><font color="#9A1900">// took to get there.</font></i>
@@ -57,6 +69,9 @@ http://www.gnu.org/software/src-highlite">
   <i><font color="#9A1900">// height returns the value of the height field in a node. If the node is</font></i>
   <i><font color="#9A1900">// null, it returns -1.</font></i>
   <font color="#009900">int</font> <b><font color="#000000">height</font></b><font color="#990000">(</font>AVLNode<font color="#990000">*</font> node<font color="#990000">)</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font>
+
+  <i><font color="#9A1900">// private helper for printTree to allow recursion over different nodes.</font></i>
+  <font color="#009900">void</font> <b><font color="#000000">printTree</font></b><font color="#990000">(</font>AVLNode<font color="#990000">*</font> root<font color="#990000">,</font> Trunk<font color="#990000">*</font> prev<font color="#990000">,</font> <font color="#009900">bool</font> isLeft<font color="#990000">);</font>
 
   <i><font color="#9A1900">// Any other methods you need...</font></i>
 <font color="#FF0000">}</font><font color="#990000">;</font>
