@@ -74,10 +74,10 @@ The links in the right-most column link directly to the lecture recording on Col
 |14|Sep 28| Friday    | | [04: Arrays & big-Oh][84] | [Arrays & big-Oh][84], slides [5.1][10404] to [5.16][1040415] ([recording][216]) | | |
 |  |Sep 30| Sunday    | | Exam 1 review session | [recording][218] | | |
 |15|Oct 1| Monday    | Exam 1 instead during Tuesday's lab | [04: Arrays & big-Oh][84], [05: Trees][85] | [Arrays & big-Oh][84], slides [5.16][1040415] to [6.8][1040507] (end); [Trees][85], slides [1][85] to [4.11][1050310] ([recording][219]) | | |
-|16|Oct 3| Wednesday | | [05: Trees][85] | | | |
-|17|Oct 5| Friday    | | [05: Trees][85]| | | |
-|  |Oct 8| Monday    | No lab this week due to fall break | (fall break) | | | |
-|18|Oct 10| Wednesday | | [05: Trees][85] | | | |
+|16|Oct 3| Wednesday | | [05: Trees][85] | [Trees][85], slides [4.11][1050310] to [5.20][1050419] ([recording][220]) | | |
+|17|Oct 5| Friday    | | [05: Trees][85]| [Trees][85], slides [6.1][10505] to [7.6][1050605] (recording will be available soon) | | |
+|  |Oct 8| Monday    | No lab this week due to fall break | (fall break) | (no class) | | |
+|18|Oct 10| Wednesday | | [05: Trees][85] | [Trees][85], slides [7.1][10506] to [7.30][1050629] ([recording][222]) | | | 
 |19|Oct 12| Friday    | | [05: Trees][85] | | | |
 |20|Oct 15| Monday    | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [06: Hashes][86] | | | |
 |21|Oct 17| Wednesday | | [06: Hashes][86] | | | |
@@ -417,14 +417,17 @@ Grading Concerns
 [1050416]: ../slides/05-trees.html#/4/16
 [1050417]: ../slides/05-trees.html#/4/17
 [1050418]: ../slides/05-trees.html#/4/18
+[1050419]: ../slides/05-trees.html#/4/19
 [10505]: ../slides/05-trees.html#/5
 [10506]: ../slides/05-trees.html#/6
 [1050604]: ../slides/05-trees.html#/6/4
+[1050605]: ../slides/05-trees.html#/6/5
 [1050609]: ../slides/05-trees.html#/6/9
 [1050610]: ../slides/05-trees.html#/6/10
 [1050612]: ../slides/05-trees.html#/6/12
 [1050617]: ../slides/05-trees.html#/6/17
 [1050630]: ../slides/05-trees.html#/6/30
+[1050629]: ../slides/05-trees.html#/6/29
 [10507]: ../slides/05-trees.html#/7
 [1050701]: ../slides/05-trees.html#/7/1
 [1050702]: ../slides/05-trees.html#/7/2
