@@ -15,6 +15,18 @@ http://www.gnu.org/software/src-highlite">
 <b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;string&gt;</font>
 <b><font color="#000080">#include</font></b> <font color="#FF0000">"BinaryNode.h"</font>
 
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<b><font color="#0000FF">struct</font></b> <font color="#008080">Trunk</font> <font color="#FF0000">{</font>
+  Trunk<font color="#990000">*</font> prev<font color="#990000">;</font>
+  <font color="#008080">string</font> str<font color="#990000">;</font>
+
+  <b><font color="#000000">Trunk</font></b><font color="#990000">(</font>Trunk<font color="#990000">*</font> prev<font color="#990000">,</font> <font color="#008080">string</font> str<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">this</font></b><font color="#990000">-&gt;</font>prev <font color="#990000">=</font> prev<font color="#990000">;</font>
+    <b><font color="#0000FF">this</font></b><font color="#990000">-&gt;</font>str <font color="#990000">=</font> str<font color="#990000">;</font>
+  <font color="#FF0000">}</font>
+<font color="#FF0000">}</font><font color="#990000">;</font>
+
 <b><font color="#0000FF">class</font></b> <font color="#008080">BinarySearchTree</font> <font color="#FF0000">{</font>
  <b><font color="#0000FF">public</font></b><font color="#990000">:</font>
   <b><font color="#000000">BinarySearchTree</font></b><font color="#990000">();</font>
@@ -24,6 +36,8 @@ http://www.gnu.org/software/src-highlite">
   <font color="#009900">void</font> <b><font color="#000000">insert</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> string<font color="#990000">&amp;</font> x<font color="#990000">);</font>
   <i><font color="#9A1900">// remove finds x's position in the tree and removes it.</font></i>
   <font color="#009900">void</font> <b><font color="#000000">remove</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> string<font color="#990000">&amp;</font> x<font color="#990000">);</font>
+  <i><font color="#9A1900">// printTree pretty-prints the tree to aid debugging.</font></i>
+  <font color="#009900">void</font> <b><font color="#000000">printTree</font></b><font color="#990000">();</font>
 
   <i><font color="#9A1900">// pathTo finds x in the tree and returns a string representing the path it</font></i>
   <i><font color="#9A1900">// took to get there.</font></i>
@@ -42,6 +56,9 @@ http://www.gnu.org/software/src-highlite">
   BinaryNode<font color="#990000">*</font> <b><font color="#000000">remove</font></b><font color="#990000">(</font>BinaryNode<font color="#990000">*&amp;</font> n<font color="#990000">,</font> <b><font color="#0000FF">const</font></b> string<font color="#990000">&amp;</font> x<font color="#990000">);</font>
   <i><font color="#9A1900">// min finds the string with the smallest value in a subtree.</font></i>
   <font color="#008080">string</font> <b><font color="#000000">min</font></b><font color="#990000">(</font>BinaryNode<font color="#990000">*</font> node<font color="#990000">)</font> <b><font color="#0000FF">const</font></b><font color="#990000">;</font>
+
+  <i><font color="#9A1900">// private helper for printTree to allow recursion over different nodes.</font></i>
+  <font color="#009900">void</font> <b><font color="#000000">printTree</font></b><font color="#990000">(</font>BinaryNode<font color="#990000">*</font> root<font color="#990000">,</font> Trunk<font color="#990000">*</font> prev<font color="#990000">,</font> <font color="#009900">bool</font> isLeft<font color="#990000">);</font>
 
   <i><font color="#9A1900">// Any other methods you need...</font></i>
 <font color="#FF0000">}</font><font color="#990000">;</font>
