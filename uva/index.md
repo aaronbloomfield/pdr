@@ -78,8 +78,8 @@ The links in the right-most column link directly to the lecture recording on Col
 |17|Oct 5| Friday    | | [05: Trees][85]| [Trees][85], slides [6.1][10505] to [7.6][1050605] (recording will be available soon) | | |
 |  |Oct 8| Monday    | No lab this week due to fall break | (fall break) | (no class) | | |
 |18|Oct 10| Wednesday | | [05: Trees][85] | [Trees][85], slides [7.1][10506] to [7.30][1050629] ([recording][222]) | | | 
-|19|Oct 12| Friday    | | [05: Trees][85] | | | |
-|20|Oct 15| Monday    | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [06: Hashes][86] | | | |
+|19|Oct 12| Friday    | | [05: Trees][85] | [Trees][85], slides [7.30][1050629] to [10.2][1050901] ([recording][223]) | | | 
+|20|Oct 15| Monday    | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [06: Hashes][86] | [Trees][85], slides [10.2][1050902] to [10.10][1050909] (end); [Hashes][86], slides [1][86] to [5.8][1060407] ([recording][224]) | | | 
 |21|Oct 17| Wednesday | | [06: Hashes][86] | | | |
 |22|Oct 19| Friday    | | [06: Hashes][86] | | | |
 |23|Oct 22| Monday    | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [06: Hashes][86], [07: IBCM][87] (machine language) | | | |
@@ -442,6 +442,7 @@ Grading Concerns
 [1050811]: ../slides/05-trees.html#/8/11
 [10509]: ../slides/05-trees.html#/9
 [1050901]: ../slides/05-trees.html#/9/1
+[1050902]: ../slides/05-trees.html#/9/2
 [1050909]: ../slides/05-trees.html#/9/9
 [10604]: ../slides/06-hashes.html#/4
 [1060406]: ../slides/06-hashes.html#/4/6
