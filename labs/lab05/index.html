@@ -114,28 +114,50 @@ Enter next element: 4
 Enter next element: /
 Enter next element: -
 Enter next element: #
-Expression tree in postfix expression: 34 6 + -8 4 / - 
+Expression tree in postfix expression: 34 6 + -8 4 / -
 Expression tree in infix expression: ((34 + 6) - (-8 / 4))
-Expression tree in prefix expression: - + 34 6 / -8 4 
-The result of the expression tree is 42 </code></pre>
+Expression tree in prefix expression: - + 34 6 / -8 4
+The result of the expression tree is 42</code></pre>
 <hr />
 <h2 id="in-lab-1">In-lab</h2>
 <p>For this in-lab, you will implement a Binary search tree. The required class declarations are located in <a href="code/inlab/BinaryNode.h">BinaryNode.h</a> and <a href="code/inlab/BinarySearchTree.h">BinarySearchTree.h</a>. You may want to create private helper methods for BinarySearchTree, as done for the implementation of <code>remove</code>, which is already provided for you. Notice how the private methods take a BinaryNode as a parameter. This allows them to recur over a subtree, a common implementation technique.</p>
 <p>Do NOT alter <a href="code/inlab/BSTPathTest.cpp">BSTPathTest.cpp</a>. This program will be used to run automated tests on your implementation. Do not change it.</p>
-<p>The test program reads a sequence of a sequence of instruction/word pairs and attempts to operate on your tree. Example test files are located in the inlab directory. - Insert <word>: <code>I &lt;word&gt;</code> - Remove <word>: <code>R &lt;word&gt;</code> - Lookup <word>: <code>L &lt;word&gt;</code></p>
+<p>The test program reads a sequence of a sequence of instruction/word pairs and attempts to operate on your tree. Example test files are located in the inlab directory.</p>
+<ul>
+<li>Insert <word>: <code>I &lt;word&gt;</code></li>
+<li>Remove <word>: <code>R &lt;word&gt;</code></li>
+<li>Lookup <word>: <code>L &lt;word&gt;</code></li>
+</ul>
 <p>The Lookup instruction will call the <code>pathTo()</code> method defined on your tree. <code>pathTo()</code> must return a string representing the nodes encountered when finding an element. For instance in the following image, the bold lines indicate the path taken for locating element W.</p>
 <div class="figure">
 <img src="avl-tree-pic-1.png" alt="avl-tree-pic-1" />
 <p class="caption">avl-tree-pic-1</p>
 </div>
 <p><code>pathTo(&quot;W&quot;)</code> would then return the string <code>&quot;M P Z W&quot;</code>. Calling <code>pathTo()</code> on an element that doesn't exist would result in an empty string <code>&quot;&quot;</code>.</p>
-<p>To recap, submit the following files: - BSTPathTest.cpp: Do NOT modify, contains <code>main()</code>. - BinaryNode.h, BinarySearchTree.h: class declarations the test program requires. - BinaryNode.cpp: contains the implementation of BinaryNode. - BinarySearchTree.cpp: contains the implemention of BinarySearchTree. - Any other .cpp files required to make your program compile. - Makefile: compiles your program and produces the a.out executable.</p>
+<p>To recap, submit the following files:</p>
+<ul>
+<li>BSTPathTest.cpp: Do NOT modify, contains <code>main()</code>.</li>
+<li>BinaryNode.h, BinarySearchTree.h: class declarations the test program requires.</li>
+<li>BinaryNode.cpp: contains the implementation of BinaryNode.</li>
+<li>BinarySearchTree.cpp: contains the implemention of BinarySearchTree.</li>
+<li>Any other .cpp files required to make your program compile.</li>
+<li>Makefile: compiles your program and produces the a.out executable.</li>
+</ul>
 <hr />
 <h2 id="post-lab-1">Post-lab</h2>
 <p>The objective of this post-lab is to understand the runtime characteristics and trade-offs between normal Binary search trees and AVL trees. You will have to implement an AVL tree and write a brief report to compare its performance with the Binary search tree implemented for the in-lab.</p>
 <p>The required class declarations are located in <a href="code/postlab/AVLNode.h">AVLNode.h</a> and <a href="code/postlab/AVLTree.h">AVLTree.h</a>. Much of the behavior of the AVL implementation is similar to that of the Binary search tree, aside from rotations and rebalancing. You may want to create private helper methods for AVLTree, as done for the implementation of <code>remove</code>, which is already provided for you.</p>
 <p>Do NOT alter <a href="code/postlab/AVLPathTest.cpp">AVLPathTest.cpp</a>. This program will be used to run automated tests on your implementation. Do not change it. The example test files are located in the postlab directory.</p>
-<p>To recap, submit the following files: - AVLPathTest.cpp: Do NOT modify, contains <code>main()</code>. - AVLNode.h, AVLTree.h: class declarations the test program requires. - AVLNode.cpp: contains the implementation of AVLNode. - AVLTree.cpp: contains the implemention of AVLTree. - Any other .cpp files required to make your program compile. - Makefile: compiles your program and produces the a.out executable. - analysis.pdf: The report for this lab.</p>
+<p>To recap, submit the following files:</p>
+<ul>
+<li>AVLPathTest.cpp: Do NOT modify, contains <code>main()</code>.</li>
+<li>AVLNode.h, AVLTree.h: class declarations the test program requires.</li>
+<li>AVLNode.cpp: contains the implementation of AVLNode.</li>
+<li>AVLTree.cpp: contains the implemention of AVLTree.</li>
+<li>Any other .cpp files required to make your program compile.</li>
+<li>Makefile: compiles your program and produces the a.out executable.</li>
+<li>analysis.pdf: The report for this lab.</li>
+</ul>
 <p>The report for this lab should contain the following:</p>
 <ol style="list-style-type: decimal">
 <li>Your name, the date, and your CS 2150 lab section.</li>
