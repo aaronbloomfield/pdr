@@ -80,7 +80,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |18|Oct 10| Wednesday | | [05: Trees][85] | [Trees][85], slides [7.1][10506] to [7.30][1050629] ([recording][222]) | | | 
 |19|Oct 12| Friday    | | [05: Trees][85] | [Trees][85], slides [7.30][1050629] to [10.2][1050901] ([recording][223]) | | | 
 |20|Oct 15| Monday    | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [06: Hashes][86] | [Trees][85], slides [10.2][1050902] to [10.10][1050909] (end); [Hashes][86], slides [1][86] to [5.8][1060407] ([recording][224]) | | | 
-|21|Oct 17| Wednesday | | [06: Hashes][86] | | | |
+|21|Oct 17| Wednesday | | [06: Hashes][86] | [Hashes][86], slides [5.8][1060407] to [7.4][1060603] ([recording][225]) | | |
 |22|Oct 19| Friday    | | [06: Hashes][86] | | | |
 |23|Oct 22| Monday    | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [06: Hashes][86], [07: IBCM][87] (machine language) | | | |
 |24|Oct 24| Wednesday | | [07: IBCM][87] (machine language) | | | |
