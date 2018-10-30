@@ -33,10 +33,9 @@ Procedure
 
 1. Implement the bubble sort algorithm in IBCM from the C++ code.  See the in-lab section for details.
 2. Discuss any problems getting your programs to work with a TA.
-3. If you are unable to finish the lab during the in-lab time, submit an extension request.
-4. Your submitted files MUST have an .ibcm extension (not .ibcm.txt), and can NOT have any blank lines!
-5. Files to download: [bubblesort.cpp](bubblesort.cpp.html) ([src](bubblesort.cpp))
-6. Files to submit: bubblesort.ibcm.  Make sure it's not named bubblesort.ibcm.txt!
+3. Your submitted files MUST have an .ibcm extension (not .ibcm.txt), and can NOT have any blank lines!
+4. Files to download: [bubblesort.cpp](bubblesort.cpp.html) ([src](bubblesort.cpp))
+5. Files to submit: bubblesort.ibcm.  Make sure it's not named bubblesort.ibcm.txt!
 
 ### Post-lab ###
 
