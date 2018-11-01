@@ -56,13 +56,12 @@ Pre-lab
 
 ### Using the IBCM Simulator ###
 
-The easiest way to use the simulator is via the online version, available at [http://www.cs.virginia.edu/~cs216/ibcm](http://www.cs.virginia.edu/~cs216/ibcm).  There are a number of mirrors of this website available (all are identical):
+The easiest way to use the simulator is via the online version, available at [http://pegasus.cs.virginia.edu/ibcm/](http://pegasus.cs.virginia.edu/ibcm/).  There are a number of mirrors of this website available (all are identical):
 
-- [http://www.cs.virginia.edu/~cs216/ibcm](http://www.cs.virginia.edu/~cs216/ibcm)
 - [http://pegasus.cs.virginia.edu/ibcm/](http://pegasus.cs.virginia.edu/ibcm/)
 - [http://people.virginia.edu/~asb2t/ibcm/](http://people.virginia.edu/~asb2t/ibcm/)
 
-We request that you use the first URL ([http://www.cs.virginia.edu/~cs216/ibcm](http://www.cs.virginia.edu/~cs216/ibcm)), and use the others if that one is not available.
+We request that you use the first URL ([http://pegasus.cs.virginia.edu/ibcm/](http://pegasus.cs.virginia.edu/ibcm/)), and use the others if that one is not available.
 
 There are pros and cons to the online version of the emulator.  The online version does not require installation, allows for inline memory modification, but will hang your browser if it gets stuck in an infinite loop.  Also, the online simulator gets rather unhappy if there are extra blank lines at the end of your input file.
 

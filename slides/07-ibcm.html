@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>CS 2150: 07-ibcm slide set</title>
     <meta name="description" content="A set of slides for a course on Program and Data Representation">
-    
+
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -45,8 +45,8 @@
 &nbsp;
 <center><small>[Mark Floryan](http://www.cs.virginia.edu/~mrf8t) ([email](mailto:mrf8t@virginia.edu)), [Rich Nguyen](http://www.cs.virginia.edu/~nn4pj) ([email](mailto:nn4pj@virginia.edu)) &amp; [Aaron Bloomfield](http://www.cs.virginia.edu/~asb) ([email](mailto:aaron@virginia.edu))</small></center>
 <center><small>Repository: [github.com/uva-cs/pdr](http://github.com/uva-cs/pdr) / [&uarr;](index.html) / <a href="07-ibcm.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
-&nbsp;  
-&nbsp;  
+&nbsp;
+&nbsp;
 ## IBCM (machine language)
 	</script></section>
 
@@ -70,11 +70,11 @@
 
 	<section data-markdown><script type="text/template">
 # Contents
-&nbsp;  
-[Introduction](#/introduction)  
-[IBCM Description](#/ibcmdesc)  
-[Writing IBCM code](#/writingibcm)  
-[Conclusions](#/conclusions)  
+&nbsp;
+[Introduction](#/introduction)
+[IBCM Description](#/ibcmdesc)
+[Writing IBCM code](#/writingibcm)
+[Conclusions](#/conclusions)
 	</script></section>
 
 
@@ -185,10 +185,9 @@ store 300
 	  <section data-markdown><script type="text/template">
 ## Running IBCM programs
 - Online IBCM simulator
-  - http://www.cs.virginia.edu/~cs216/ibcm/
+  - http://pegasus.cs.virginia.edu/ibcm/
 - Mirrors (best to use in this order):
   - http://people.virginia.edu/~asb2t/ibcm/
-  - http://pegasus.cs.virginia.edu/ibcm/
   - http://libra.cs.virginia.edu/ibcm/
 - This program will hang your browser if it gets stuck in an infinite loop, due to how web browsers (don't) handle Javascript threads and polling of web pages
 	  </script></section>
@@ -807,7 +806,7 @@ union ibcm_instruction {
 #endif // BIG_ENDIAN
     struct { unsigned int op:4, unused:12; } halt;
     struct { unsigned int op:4, ioopt:2, unused:10 } io;
-    struct { unsigned int op:4, shiftop: 2, 
+    struct { unsigned int op:4, shiftop: 2,
              unused:5, shiftcount:5; } shifts;
     struct { unsigned int op:4, address:12; } others;
 };
