@@ -11,7 +11,7 @@ The labs for this course:
         - Vector code: [svtest.cpp](lab01/svtest.cpp.html) ([src](lab01/svtest.cpp)), [svutil.h](lab01/svutil.h.html) ([src](lab01/svutil.h)), [svutil.cpp](lab01/svutil.cpp.html) ([src](lab01/svutil.cpp))
         - Linked List code: [list.h](lab01/list.h.html) ([src](lab01/list.h)), [list.cpp](lab01/list.cpp.html) ([src](lab01/list.cpp))
     - [Tutorial 1: Introduction to Unix](../tutorials/01-intro-unix/index.html) and [Tutorial 1: Introduction to Unix: VirtualBox use](../tutorials/01-intro-unix/virtual-box.html) and [Tutorial 1: Introduction to Unix: NoMachine usage](../tutorials/01-intro-unix/nomachine.html)
-    
+
 &nbsp;
 
 - [Lab 2: Linked Lists](lab02/index.html)
@@ -57,7 +57,7 @@ The labs for this course:
 - [Lab 7: IBCM](lab07/index.html) (machine language)
     - C++ Source code: [bubblesort.cpp](lab07/bubblesort.cpp.html) ([src](lab07/bubblesort.cpp)), [counter.cpp](lab07/counter.cpp.html) ([src](lab07/counter.cpp))
     - IBCM source code: [summation.ibcm](../ibcm/summation.ibcm) and [array-summation.ibcm](../ibcm/array-summation.ibcm)
-    - The online emulator is [here](http://www.cs.virginia.edu/~cs216/ibcm), with mirrors [1](http://pegasus.cs.virginia.edu/ibcm/) and [2](http://people.virginia.edu/~asb2t/ibcm/)
+    - The online emulator is [here](http://pegasus.cs.virginia.edu/ibcm/), with a mirror [here](http://people.virginia.edu/~asb2t/ibcm/)
     - The [IBCM book chapter](../book/ibcm-chapter.pdf) (PDF)
 
 &nbsp;
@@ -96,7 +96,7 @@ The labs for this course:
     - Source code: [middleearth.h](lab11/middleearth.h.html) ([src](lab11/middleearth.h)), [middleearth.cpp](lab11/middleearth.cpp.html) ([src](lab11/middleearth.cpp)), [fileio2.cpp](lab11/fileio2.cpp.html) ([src](lab11/fileio2.cpp)), [traveling-skeleton.cpp](lab11/traveling-skeleton.cpp.html) ([src](lab11/traveling-skeleton.cpp))
     - Data files: [prelab-test-small.txt](lab11/prelab-test-small.txt), [prelab-test-full.txt](lab11/prelab-test-full.txt)
     - The [Doxygen tutorial](../tutorials/11-doxygen/index.html) and the necessary files for that: [average.cpp](../tutorials/11-doxygen/average.cpp.html) ([src](../tutorials/11-doxygen/average.cpp))
-  
+
 &nbsp;
 
 - [Lab 12: Conclusion](lab12/index.html)
