@@ -149,6 +149,8 @@ The Lookup instruction will call the `pathTo()` method defined on your tree. `pa
 
 `pathTo("W")` would then return the string `"M P Z W"`. Calling `pathTo()` on an element that doesn't exist would result in an empty string `""`.
 
+The BinarySearchTree.cpp file already contains a few methods implemented for you (including remove()). To aid in debugging, we provide a printTree() method and associated helper methods that will print out your tree to the console in a nice format. This will prove useful if you are having trouble and want to see what your tree is doing over several operations. You can call printTree() to see this output and safely ignore all of the helper methods.
+
 To recap, submit the following files:
 
 - BSTPathTest.cpp: Do NOT modify, contains `main()`.
@@ -165,7 +167,7 @@ Post-lab
 
 The objective of this post-lab is to understand the runtime characteristics and trade-offs between normal Binary search trees and AVL trees. You will have to implement an AVL tree and write a brief report to compare its performance with the Binary search tree implemented for the in-lab.
 
-The required class declarations are located in [AVLNode.h](code/postlab/AVLNode.h) and [AVLTree.h](code/postlab/AVLTree.h). Much of the behavior of the AVL implementation is similar to that of the Binary search tree, aside from rotations and rebalancing. You may want to create private helper methods for AVLTree, as done for the implementation of `remove`, which is already provided for you.
+The required class declarations are located in [AVLNode.h](code/postlab/AVLNode.h) and [AVLTree.h](code/postlab/AVLTree.h). Much of the behavior of the AVL implementation is similar to that of the Binary search tree, aside from rotations and rebalancing. You may want to create private helper methods for AVLTree, as done for the implementation of `remove`, which is already provided for you. As with the in-lab, the printTree() method is given to you to aid with visualizing the results of your tree operations and for debugging.
 
 Do NOT alter [AVLPathTest.cpp](code/postlab/AVLPathTest.cpp). This program will be used to run automated tests on your implementation. Do not change it. The example test files are located in the postlab directory.
 

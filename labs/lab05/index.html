@@ -134,6 +134,7 @@ The result of the expression tree is 42</code></pre>
 <p class="caption">avl-tree-pic-1</p>
 </div>
 <p><code>pathTo(&quot;W&quot;)</code> would then return the string <code>&quot;M P Z W&quot;</code>. Calling <code>pathTo()</code> on an element that doesn't exist would result in an empty string <code>&quot;&quot;</code>.</p>
+<p>The BinarySearchTree.cpp file already contains a few methods implemented for you (including remove()). To aid in debugging, we provide a printTree() method and associated helper methods that will print out your tree to the console in a nice format. This will prove useful if you are having trouble and want to see what your tree is doing over several operations. You can call printTree() to see this output and safely ignore all of the helper methods.</p>
 <p>To recap, submit the following files:</p>
 <ul>
 <li>BSTPathTest.cpp: Do NOT modify, contains <code>main()</code>.</li>
@@ -146,7 +147,7 @@ The result of the expression tree is 42</code></pre>
 <hr />
 <h2 id="post-lab-1">Post-lab</h2>
 <p>The objective of this post-lab is to understand the runtime characteristics and trade-offs between normal Binary search trees and AVL trees. You will have to implement an AVL tree and write a brief report to compare its performance with the Binary search tree implemented for the in-lab.</p>
-<p>The required class declarations are located in <a href="code/postlab/AVLNode.h">AVLNode.h</a> and <a href="code/postlab/AVLTree.h">AVLTree.h</a>. Much of the behavior of the AVL implementation is similar to that of the Binary search tree, aside from rotations and rebalancing. You may want to create private helper methods for AVLTree, as done for the implementation of <code>remove</code>, which is already provided for you.</p>
+<p>The required class declarations are located in <a href="code/postlab/AVLNode.h">AVLNode.h</a> and <a href="code/postlab/AVLTree.h">AVLTree.h</a>. Much of the behavior of the AVL implementation is similar to that of the Binary search tree, aside from rotations and rebalancing. You may want to create private helper methods for AVLTree, as done for the implementation of <code>remove</code>, which is already provided for you. As with the in-lab, the printTree() method is given to you to aid with visualizing the results of your tree operations and for debugging.</p>
 <p>Do NOT alter <a href="code/postlab/AVLPathTest.cpp">AVLPathTest.cpp</a>. This program will be used to run automated tests on your implementation. Do not change it. The example test files are located in the postlab directory.</p>
 <p>To recap, submit the following files:</p>
 <ul>
