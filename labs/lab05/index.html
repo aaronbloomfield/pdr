@@ -114,15 +114,20 @@ Enter next element: 4
 Enter next element: /
 Enter next element: -
 Enter next element: #
-Expression tree in postfix expression: 34 6 + -8 4 / - 
+Expression tree in postfix expression: 34 6 + -8 4 / -
 Expression tree in infix expression: ((34 + 6) - (-8 / 4))
-Expression tree in prefix expression: - + 34 6 / -8 4 
-The result of the expression tree is 42 </code></pre>
+Expression tree in prefix expression: - + 34 6 / -8 4
+The result of the expression tree is 42</code></pre>
 <hr />
 <h2 id="in-lab-1">In-lab</h2>
 <p>For this in-lab, you will implement a Binary search tree. The required class declarations are located in <a href="code/inlab/BinaryNode.h">BinaryNode.h</a> and <a href="code/inlab/BinarySearchTree.h">BinarySearchTree.h</a>. You may want to create private helper methods for BinarySearchTree, as done for the implementation of <code>remove</code>, which is already provided for you. Notice how the private methods take a BinaryNode as a parameter. This allows them to recur over a subtree, a common implementation technique.</p>
 <p>Do NOT alter <a href="code/inlab/BSTPathTest.cpp">BSTPathTest.cpp</a>. This program will be used to run automated tests on your implementation. Do not change it.</p>
-<p>The test program reads a sequence of a sequence of instruction/word pairs and attempts to operate on your tree. Example test files are located in the inlab directory. - Insert <word>: <code>I &lt;word&gt;</code> - Remove <word>: <code>R &lt;word&gt;</code> - Lookup <word>: <code>L &lt;word&gt;</code></p>
+<p>The test program reads a sequence of a sequence of instruction/word pairs and attempts to operate on your tree. Example test files are located in the inlab directory.</p>
+<ul>
+<li>Insert <word>: <code>I &lt;word&gt;</code></li>
+<li>Remove <word>: <code>R &lt;word&gt;</code></li>
+<li>Lookup <word>: <code>L &lt;word&gt;</code></li>
+</ul>
 <p>The Lookup instruction will call the <code>pathTo()</code> method defined on your tree. <code>pathTo()</code> must return a string representing the nodes encountered when finding an element. For instance in the following image, the bold lines indicate the path taken for locating element W.</p>
 <div class="figure">
 <img src="avl-tree-pic-1.png" alt="avl-tree-pic-1" />

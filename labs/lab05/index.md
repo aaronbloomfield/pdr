@@ -65,7 +65,7 @@ You must use the skeleton source files provided here as a basis for your prelab.
 - Do NOT alter [TreeCalcTest.cpp](code/prelab/TreeCalcTest.cpp.html) ([src](code/prelab/TreeCalcTest.cpp)).  This is the testing program that we will use to run automated tests on your implementations.  Do not change it.
 - In [TreeCalc.h](code/prelab/TreeCalc.h.html) ([src](code/prelab/TreeCalc.h)) and [TreeCalc.cpp](code/prelab/TreeCalc.cpp.html) ([src](code/prelab/TreeCalc.cpp)):
     - Do NOT alter the `readInput()` method.  Points will be deducted if you do so.
-    - The only modification allowed in the `printOutput()` method is to add calls to your implemented `printPrefix()`, `printPostfix()`, and `printInorder()` methods 
+    - The only modification allowed in the `printOutput()` method is to add calls to your implemented `printPrefix()`, `printPostfix()`, and `printInorder()` methods
 - You should implement all the methods as listed in the class definitions for TreeCalc
 - You may add additional supporting methods and data members to TreeCalc to complete your implementation.
     - Don't modify TreeNode -- note that TreeCalc is a friend of TreeNode, so you can put all your code in TreeCalc.
@@ -122,10 +122,10 @@ Enter next element: 4
 Enter next element: /
 Enter next element: -
 Enter next element: #
-Expression tree in postfix expression: 34 6 + -8 4 / - 
+Expression tree in postfix expression: 34 6 + -8 4 / -
 Expression tree in infix expression: ((34 + 6) - (-8 / 4))
-Expression tree in prefix expression: - + 34 6 / -8 4 
-The result of the expression tree is 42 
+Expression tree in prefix expression: - + 34 6 / -8 4
+The result of the expression tree is 42
 ```
 
 ------------------------------------------------------------
@@ -138,6 +138,7 @@ For this in-lab, you will implement a Binary search tree. The required class dec
 Do NOT alter [BSTPathTest.cpp](code/inlab/BSTPathTest.cpp). This program will be used to run automated tests on your implementation. Do not change it.
 
 The test program reads a sequence of a sequence of instruction/word pairs and attempts to operate on your tree. Example test files are located in the inlab directory.
+
 - Insert <word>: `I <word>`
 - Remove <word>: `R <word>`
 - Lookup <word>: `L <word>`
@@ -180,7 +181,7 @@ To recap, submit the following files:
 - Makefile: compiles your program and produces the a.out executable.
 - analysis.pdf: The report for this lab.
 
-The report for this lab should contain the following: 
+The report for this lab should contain the following:
 
 1. Your name, the date, and your CS 2150 lab section.
 2. A discussion of what [testfile1.txt](code/postlab/testfile1.txt), [testfile2.txt](code/postlab/testfile2.txt), and [testfile3.txt](code/postlab/testfile3.txt) suggest about the relative performance of AVL trees and Binary search trees.
