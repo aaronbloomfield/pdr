@@ -9,20 +9,20 @@ To become familiar with programming with IBCM, and understand how high-level lan
 
 ### Background: ###
 
-IBCM (Itty Bitty Computing Machine) is a simulated computer with a minimal instruction set.  Despite its tiny small instruction set, the IBCM can compute anything that a modern 'powerful' computer can compute. 
+IBCM (Itty Bitty Computing Machine) is a simulated computer with a minimal instruction set.  Despite its tiny small instruction set, the IBCM can compute anything that a modern 'powerful' computer can compute.
 
 ### Reading(s): ###
 
 1. Read the [slides on IBCM](../../slides/07-ibcm.html)
 2. Read [IBCM book chapter](../../book/ibcm-chapter.pdf) (PDF)
-3. Run IBCM code online [here](http://www.cs.virginia.edu/~cs216/ibcm/).  The sample code in the book chapter is also in the repo: [summation.ibcm](../../ibcm/summation.ibcm) and [array-summation.ibcm](../../ibcm/array-summation.ibcm)
+3. Run IBCM code online [here](http://pegasus.cs.virginia.edu/ibcm/).  The sample code in the book chapter is also in the repo: [summation.ibcm](../../ibcm/summation.ibcm) and [array-summation.ibcm](../../ibcm/array-summation.ibcm)
 
 Procedure
 ---------
 
 ### Pre-lab ###
 
-1. The online IBCM simulator is available online [here](http://www.cs.virginia.edu/~cs216/ibcm).  If that site is down, mirror websites are listed in the pre-lab section.
+1. The online IBCM simulator is available online [here](http://pegasus.cs.virginia.edu/ibcm/).  If that site is down, mirror websites are listed in the pre-lab section.
 2. Write the two IBCM programs described in the pre-lab section: addition.ibcm and array.ibcm.
 3. Note that some browsers have problems with the online simulator.  If in doubt, try Firefox or Chrome.
 4. Your submitted files MUST have an .ibcm extension (not .ibcm.txt), and can NOT have any blank lines!
@@ -48,7 +48,7 @@ Procedure
 7. Your submitted files MUST have an .ibcm extension (not .ibcm.txt), and can NOT have any blank lines!
 8. Files to download: [counter.cpp](counter.cpp.html) ([src](counter.cpp))
 9. Files to submit: averagetime.sh, quine.ibcm (don't name it quine.ibcm.txt!), postlab7.pdf
- 
+
 ------------------------------------------------------------
 
 Pre-lab
@@ -56,13 +56,12 @@ Pre-lab
 
 ### Using the IBCM Simulator ###
 
-The easiest way to use the simulator is via the online version, available at [http://www.cs.virginia.edu/~cs216/ibcm](http://www.cs.virginia.edu/~cs216/ibcm).  There are a number of mirrors of this website available (all are identical):
+The easiest way to use the simulator is via the online version, available at [http://pegasus.cs.virginia.edu/ibcm/](http://pegasus.cs.virginia.edu/ibcm/).  There are a number of mirrors of this website available (all are identical):
 
-- [http://www.cs.virginia.edu/~cs216/ibcm](http://www.cs.virginia.edu/~cs216/ibcm)
 - [http://pegasus.cs.virginia.edu/ibcm/](http://pegasus.cs.virginia.edu/ibcm/)
 - [http://people.virginia.edu/~asb2t/ibcm/](http://people.virginia.edu/~asb2t/ibcm/)
 
-We request that you use the first URL ([http://www.cs.virginia.edu/~cs216/ibcm](http://www.cs.virginia.edu/~cs216/ibcm)), and use the others if that one is not available.
+We request that you use the first URL ([http://pegasus.cs.virginia.edu/ibcm/](http://pegasus.cs.virginia.edu/ibcm/)), and use the others if that one is not available.
 
 There are pros and cons to the online version of the emulator.  The online version does not require installation, allows for inline memory modification, but will hang your browser if it gets stuck in an infinite loop.  Also, the online simulator gets rather unhappy if there are extra blank lines at the end of your input file.
 
@@ -114,7 +113,7 @@ You ***MUST*** iterate through the array by creating the array load instruction,
 ### Submitting your code ###
 
 Your code ***MUST*** have comments in the file so that the TAs can grade it.  No comments will earn a zero for the grade.
- 
+
 ------------------------------------------------------------
 
 In-lab
@@ -148,7 +147,7 @@ Submit a report, called postlab7.pdf, that contains your thoughts on IBCM.  What
 
 ### What is a quine ###
 
-Based on the experience from the in-lab, you should now be able to write an IBCM program on your own. For the postlab, you should individually write an IBCM program that prints itself.  This type of program is known as a *quine*. 
+Based on the experience from the in-lab, you should now be able to write an IBCM program on your own. For the postlab, you should individually write an IBCM program that prints itself.  This type of program is known as a *quine*.
 
 > quine: /kwi:n/ /n./ [from the name of the logician Willard van Orman Quine, via Douglas Hofstadter] A program that generates a copy of its own source text as its complete output. Devising the shortest possible quine in some given programming language is a common hackish amusement.
 

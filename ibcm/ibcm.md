@@ -19,7 +19,6 @@ The primary file for the website is [index.html](index.html), and the directions
 
 The mirrors are:
 
-- [http://www.cs.virginia.edu/~cs216/ibcm/](http://www.cs.virginia.edu/~cs216/ibcm/)
 - [http://pegasus.cs.virginia.edu/ibcm/](http://pegasus.cs.virginia.edu/ibcm/)
 - [http://people.virginia.edu/~asb2t/ibcm/](http://people.virginia.edu/~asb2t/ibcm/)
 
