@@ -85,9 +85,9 @@ The links in the right-most column link directly to the lecture recording on Col
 |23|Oct 22| Monday    | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [06: Hashes][86], [07: IBCM][87] (machine language) | [08: Hashes][86], slides [8.4][1060703] to [8.7][1060706] (end); [07: IBCM][87], slides [1][87] to [5.11][1070410] ([recording][227]) | | |
 |24|Oct 24| Wednesday | | [07: IBCM][87] (machine language) | [07: IBCM][87], slides [5.11][1070410] to [6.4][1070503] ([recording][228]) | | |
 |25|Oct 26| Friday    | | [07: IBCM][87] (machine language) | [07: IBCM][87], slides [6.4][1070503] to [6.12][1070511] ([recording][229]) | | |
-|26|Oct 29| Monday    | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [08: Assembly][88] | | | |
-|27|Oct 31| Wednesday | | [08: Assembly][88]| | | |
-|28|Nov 2| Friday    | | [08: Assembly][88] | | | |
+|26|Oct 29| Monday    | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [08: Assembly][88] | [07: IBCM][87], slides [7.1][10706] to [7.10][1070609] (end); [08: assembly][88], slides [1][88] to [4.10][1080309] ([recording][231]) | | |
+|27|Oct 31| Wednesday | | [08: Assembly][88]| [08: assembly][88], slides [4.10][1080309] to [5.11][1080410] ([recording][232]) | | |
+|28|Nov 2| Friday    | | [08: Assembly][88] | [08: assembly][88], slides [5.11][1080410] to [8.14][1080713] ([recording][233]) | | |
 |29|Nov 5| Monday    | [Lab 8: assembly, part 1][8] ([md][28]) / Tutorial 8: see the information on the [tutorials page](../tutorials/index.html) ([md](../tutorials.md)) | [08: Assembly][88]| | | |
 |30|Nov 7| Wednesday | | [08: Assembly][88], [09: Advanced C++][89] | | | |
 |31|Nov 9| Friday    | | [09: Advanced C++][89] | | | |
@@ -487,6 +487,7 @@ Grading Concerns
 [1070507]: ../slides/07-ibcm.html#/5/7
 [1070508]: ../slides/07-ibcm.html#/5/8
 [1070511]: ../slides/07-ibcm.html#/5/11
+[10706]: ../slides/07-ibcm.html#/6
 [1070601]: ../slides/07-ibcm.html#/6/1
 [1070604]: ../slides/07-ibcm.html#/6/4
 [1070609]: ../slides/07-ibcm.html#/6/9
