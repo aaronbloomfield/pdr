@@ -99,7 +99,7 @@ subroutine:
 
 Due to the way the calling convention is structured, it will typically
 be the case that some (or most) of these steps will not make any
-changes to the stackd.  For example, if there are six or fewer
+changes to the stack.  For example, if there are six or fewer
 parameters, then nothing is pushed onto the stack in that step.
 Likewise, programmers (and compilers) tyipcally keep the results they
 care about out of the caller-saved registers in steps 1 and 6 to
@@ -212,7 +212,7 @@ stack.
 \lstinputlisting[caption={Example function definition, callee's rules obeyed},label={x86-callee-example-1.s.lst},backgroundcolor=\color{white},frame=trBL,linewidth=6.9in,xleftmargin=0.15in,language={[x86masm]Assembler}]{x86-64bit/code/callee-example-1.s}
 \end{figure}
 
-In the body of the subroutine we can how the local variables are
+In the body of the subroutine we can see how the local variables are
 accessed.  The prologue put 24 bytes of ``stuff'' onto the stack:
 three 8 byte values.  The first was the local variable (via the {\tt
   sub rsp, 8} call).  The second was the rbx backup, and the third was
