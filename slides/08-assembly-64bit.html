@@ -1224,7 +1224,7 @@ Code we'll see:
 - int absolute_value(int x)
 - int max(int x, int y)
 - bool compare_string(const char \*theStr1, const char \*theStr2)
-- int fib(unsigned int n)
+- int fact(unsigned int n)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -1633,39 +1633,39 @@ Source code: [test_string_compare.s](code/08-assembly-64bit/test_string_compare.
 	  </script></section>
 
 
-	  <section data-markdown id="fib"><script type="text/template">
-## int fib
+	  <section data-markdown id="fact"><script type="text/template">
+## int fact()
 (see next slide for the source code link)
 ```
-long fib(unsigned int n) {
-    if ((n==0) || (n==1))
+long fact(unsigned int n) {
+    if ( n==0 )
         return 1;
-    return fib(n-1) + fib(n-2);
+    return n * fact(n-1);
 }
 ```
 Note that the parameter is `unsigned int` (32-bit), but the return type is `long` (64-bit)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## test_fib.cpp
-Source code: [test_fib.cpp](code/08-assembly-64bit/test_fib.cpp.html) ([src](code/08-assembly-64bit/test_fib.cpp))
+## test_fact.cpp
+Source code: [test_fact.cpp](code/08-assembly-64bit/test_fact.cpp.html) ([src](code/08-assembly-64bit/test_fact.cpp))
 ```
 #include <iostream>
 using namespace std;
 
-extern "C" long fib(unsigned int n);
+extern "C" long fact(unsigned int n);
 
-long fib(unsigned int n) {
-    if ((n==0) || (n==1))
+long fact(unsigned int n) {
+    if ( n==0 )
         return 1;
-    return fib(n-1) + fib(n-2);
+    return n * fact(n-1);
 }
 
 int main() {
     unsigned int theValue = 0;
-    cout << "Enter value for fib(): " << endl;
+    cout << "Enter value for fact(): " << endl;
     cin >> theValue;
-    long theResult = fib(theValue);
+    long theResult = fact(theValue);
     cout << "The result is: " << theResult << endl;
     return 0;
 }
@@ -1673,52 +1673,43 @@ int main() {
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## x86 assembly for fib(), 1/2
-Compiled like the previous, but with `-O2`
+## x86 assembly for fact(), 1/2
+Compiled like the previous.
 
-Source code: [test_fib.s](code/08-assembly-64bit/test_fib.s.html) ([src](code/08-assembly-64bit/test_fib.s))
+Source code: [test_fact.s](code/08-assembly-64bit/test_fact.s.html) ([src](code/08-assembly-64bit/test_fact.s))
 ```
-fib:
-    push    r14
-    push    rbx
-    push    rax
-    mov     ebx, edi
-    mov     eax, ebx
-    or      eax, 1
-    mov     r14d, 1
-    cmp     eax, 1
-    je      .LBB0_3
-    add     ebx, -2
-    mov     r14d, 1
-    ...
+fact:
+	sub	rsp, 24
+	mov	dword ptr [rsp + 12], edi
+	cmp	dword ptr [rsp + 12], 0
+	jne	.LBB1_2
+	mov	qword ptr [rsp + 16], 1
+	jmp	.LBB1_3
+        ...
 ```
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## x86 assembly for fib(), 2/2
-Compiled like the previous, but with `-O2`
-
-Source code: [test_fib.s](code/08-assembly-64bit/test_fib.s.html) ([src](code/08-assembly-64bit/test_fib.s))
+## x86 assembly for fact(), 2/2
+Source code: [test_fact.s](code/08-assembly-64bit/test_fact.s.html) ([src](code/08-assembly-64bit/test_fact.s))
 ```
-.LBB0_2:
-    lea     edi, [rbx + 1]
-    call    fib
-    add     r14, rax
-    mov     eax, ebx
-    or      eax, 1
-    add     ebx, -2
-    cmp     eax, 1
-    jne     .LBB0_2
-.LBB0_3:
-    mov     rax, r14
-    add     rsp, 8
-    pop     rbx
-    pop     r14
-    ret
+.LBB1_2:
+	mov	eax, dword ptr [rsp + 12]
+	mov	ecx, eax
+	mov	eax, dword ptr [rsp + 12]
+	sub	eax, 1
+	mov	edi, eax
+	mov	qword ptr [rsp], rcx
+	call   fact
+	mov	rcx, qword ptr [rsp]
+	imul   rcx, rax
+	mov	qword ptr [rsp + 16], rcx
+.LBB1_3:
+	mov	rax, qword ptr [rsp + 16]
+	add	rsp, 24
+	ret
 ```
 	  </script></section>
-
-
 
 	  <section data-markdown><script type="text/template">
 ## An aside: An advantage of little-Endian

@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>test_fact.s</title>
+</head>
+<body bgcolor="white">
+<pre><tt>	.text
+	.intel_syntax noprefix
+	.file	<font color="#FF0000">"test_fact.cpp"</font>
+	.section	.text.startup,<font color="#FF0000">"ax"</font>,@progbits
+	.p2align	4, 0x90         <i><font color="#9A1900"># -- Begin function __cxx_global_var_init</font></i>
+	.type	__cxx_global_var_init,@function
+__cxx_global_var_init:                  <i><font color="#9A1900"># @__cxx_global_var_init</font></i>
+	.cfi_startproc
+<i><font color="#9A1900"># %bb.0:</font></i>
+	push	rax
+	.cfi_def_cfa_offset 16
+	movabs	rdi, offset _ZStL8__ioinit
+	call	_ZNSt8ios_base4InitC1Ev
+	movabs	rdi, offset _ZNSt8ios_base4InitD1Ev
+	movabs	rsi, offset _ZStL8__ioinit
+	movabs	rdx, offset __dso_handle
+	call	__cxa_atexit
+	mov	dword ptr [rsp + 4], eax <i><font color="#9A1900"># 4-byte Spill</font></i>
+	pop	rax
+	ret
+.Lfunc_end0:
+	.size	__cxx_global_var_init, .Lfunc_end0-__cxx_global_var_init
+	.cfi_endproc
+                                        <i><font color="#9A1900"># -- End function</font></i>
+	.text
+	.globl	fact                    <i><font color="#9A1900"># -- Begin function fact</font></i>
+	.p2align	4, 0x90
+	.type	fact,@function
+fact:                                   <i><font color="#9A1900"># @fact</font></i>
+	.cfi_startproc
+<i><font color="#9A1900"># %bb.0:</font></i>
+	sub	rsp, 24
+	.cfi_def_cfa_offset 32
+	mov	dword ptr [rsp + 12], edi
+	cmp	dword ptr [rsp + 12], 0
+	jne	.LBB1_2
+<i><font color="#9A1900"># %bb.1:</font></i>
+	mov	qword ptr [rsp + 16], 1
+	jmp	.LBB1_3
+.LBB1_2:
+	mov	eax, dword ptr [rsp + 12]
+	mov	ecx, eax
+	mov	eax, dword ptr [rsp + 12]
+	sub	eax, 1
+	mov	edi, eax
+	mov	qword ptr [rsp], rcx    <i><font color="#9A1900"># 8-byte Spill</font></i>
+	call	fact
+	mov	rcx, qword ptr [rsp]    <i><font color="#9A1900"># 8-byte Reload</font></i>
+	imul	rcx, rax
+	mov	qword ptr [rsp + 16], rcx
+.LBB1_3:
+	mov	rax, qword ptr [rsp + 16]
+	add	rsp, 24
+	ret
+.Lfunc_end1:
+	.size	fact, .Lfunc_end1-fact
+	.cfi_endproc
+                                        <i><font color="#9A1900"># -- End function</font></i>
+	.globl	main                    <i><font color="#9A1900"># -- Begin function main</font></i>
+	.p2align	4, 0x90
+	.type	main,@function
+main:                                   <i><font color="#9A1900"># @main</font></i>
+	.cfi_startproc
+<i><font color="#9A1900"># %bb.0:</font></i>
+	sub	rsp, 40
+	.cfi_def_cfa_offset 48
+	movabs	rdi, offset _ZSt4cout
+	movabs	rsi, offset .L.str
+	mov	dword ptr [rsp + 36], 0
+	mov	dword ptr [rsp + 32], 0
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	movabs	rsi, offset _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+	mov	rdi, rax
+	call	_ZNSolsEPFRSoS_E
+	movabs	rdi, offset _ZSt3cin
+	lea	rsi, [rsp + 32]
+	mov	qword ptr [rsp + 16], rax <i><font color="#9A1900"># 8-byte Spill</font></i>
+	call	_ZNSirsERj
+	mov	edi, dword ptr [rsp + 32]
+	mov	qword ptr [rsp + 8], rax <i><font color="#9A1900"># 8-byte Spill</font></i>
+	call	fact
+	movabs	rdi, offset _ZSt4cout
+	movabs	rsi, offset .L.str.1
+	mov	qword ptr [rsp + 24], rax
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	mov	rsi, qword ptr [rsp + 24]
+	mov	rdi, rax
+	call	_ZNSolsEl
+	movabs	rsi, offset _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+	mov	rdi, rax
+	call	_ZNSolsEPFRSoS_E
+	xor	ecx, ecx
+	mov	qword ptr [rsp], rax    <i><font color="#9A1900"># 8-byte Spill</font></i>
+	mov	eax, ecx
+	add	rsp, 40
+	ret
+.Lfunc_end2:
+	.size	main, .Lfunc_end2-main
+	.cfi_endproc
+                                        <i><font color="#9A1900"># -- End function</font></i>
+	.section	.text.startup,<font color="#FF0000">"ax"</font>,@progbits
+	.p2align	4, 0x90         <i><font color="#9A1900"># -- Begin function _GLOBAL__sub_I_test_fact.cpp</font></i>
+	.type	_GLOBAL__sub_I_test_fact.cpp,@function
+_GLOBAL__sub_I_test_fact.cpp:           <i><font color="#9A1900"># @_GLOBAL__sub_I_test_fact.cpp</font></i>
+	.cfi_startproc
+<i><font color="#9A1900"># %bb.0:</font></i>
+	push	rax
+	.cfi_def_cfa_offset 16
+	call	__cxx_global_var_init
+	pop	rax
+	ret
+.Lfunc_end3:
+	.size	_GLOBAL__sub_I_test_fact.cpp, .Lfunc_end3-_GLOBAL__sub_I_test_fact.cpp
+	.cfi_endproc
+                                        <i><font color="#9A1900"># -- End function</font></i>
+	.type	_ZStL8__ioinit,@object  <i><font color="#9A1900"># @_ZStL8__ioinit</font></i>
+	.local	_ZStL8__ioinit
+	.comm	_ZStL8__ioinit,1,1
+	.hidden	__dso_handle
+	.type	.L.str,@object          <i><font color="#9A1900"># @.str</font></i>
+	.section	.rodata.str1.1,<font color="#FF0000">"aMS"</font>,@progbits,1
+.L.str:
+	.asciz	<font color="#FF0000">"Enter value for fact(): "</font>
+	.size	.L.str, 25
+
+	.type	.L.str.1,@object        <i><font color="#9A1900"># @.str.1</font></i>
+.L.str.1:
+	.asciz	<font color="#FF0000">"The result is: "</font>
+	.size	.L.str.1, 16
+
+	.section	.init_array,<font color="#FF0000">"aw"</font>,@init_array
+	.p2align	3
+	.quad	_GLOBAL__sub_I_test_fact.cpp
+
+	.ident	<font color="#FF0000">"clang version 6.0.0-1ubuntu2 (tags/RELEASE_600/final)"</font>
+	.section	<font color="#FF0000">".note.GNU-stack"</font>,<font color="#FF0000">""</font>,@progbits
+</tt></pre>
+</body>
+</html>
