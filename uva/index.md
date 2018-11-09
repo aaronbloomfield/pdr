@@ -104,8 +104,8 @@ The links in the right-most column link directly to the lecture recording on Col
 |39|Dec 3| Monday | [Lab 11: Graphs][11] ([md][31]) | [11: Graphs][91] | | | |
 |40|Dec 5| Wednesday    || [12: Memory][92] | | | |
 |41|Dec 5| Friday   | |[13: Esoteric PLs][93], [Course conclusion][94] | | | |
-||Dec 7| Wednesday || Final exam review session | | | |
-||Dec 9| Saturday    | Final exam from 7:00 p.m. - 10:00 p.m. in the lecture classroom| Final exam from 7:00 p.m. - 10:00 p.m. in the lecture classroom | | | |
+||Dec 12| Wednesday || Final exam review session | | | |
+||Dec 15| Saturday    | Final exam from 7:00 p.m. - 10:00 p.m. in the lecture classroom| Final exam from 7:00 p.m. - 10:00 p.m. in the lecture classroom | | | |
 
 
 #### Recording notes
