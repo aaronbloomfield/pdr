@@ -666,7 +666,7 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 - With all open addressing schemes, we examine ('probe') the cells in the order:
   - *p*<sub>0</sub>(*k*), *p*<sub>1</sub>(*k*), *p*<sub>2</sub>(*k*), ...
   - where: *p*<sub>i</sub>(*k*) = (*hash*(*k*) + *f*(*i*)) mod *table_size*
-- With *double hasing*, <span class="red">*f*(*i*) = *i* \* hash<sub>2</sub>(*k*)</span>
+- With *double hashing*, <span class="red">*f*(*i*) = *i* \* hash<sub>2</sub>(*k*)</span>
   - Which means we have to define a *secondary* hash function!
   - After searching spot *hash*(*k*) in the array, look in:
     - *hash*(*k*) + 1 \* *hash*<sub>2</sub>(*k*)
