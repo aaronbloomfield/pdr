@@ -54,7 +54,7 @@ Lab Procedure
 Pre-lab
 ---------------
 
-You may want to reference the "Compiling Assembly With C++" and "Vecsum" sections from the [previous x86 lab](../lab08/index.html).
+You may want to reference the "Compiling Assembly With C++" and "Vecsum" sections from the [previous x86 lab](../lab08-64bit/index.html).
 
 ### Pre-lab program: threexplusone.s ###
 
