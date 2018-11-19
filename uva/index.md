@@ -88,14 +88,14 @@ The links in the right-most column link directly to the lecture recording on Col
 |26|Oct 29| Monday    | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [08: Assembly][88] | [07: IBCM][87], slides [7.1][10706] to [7.10][1070609] (end); [08: assembly][88], slides [1][88] to [4.10][1080309] ([recording][231]) | | |
 |27|Oct 31| Wednesday | | [08: Assembly][88]| [08: assembly][88], slides [4.10][1080309] to [5.11][1080410] ([recording][232]) | | |
 |28|Nov 2| Friday    | | [08: Assembly][88] | [08: assembly][88], slides [5.11][1080410] to [8.14][1080713] ([recording][233]) | | |
-|29|Nov 5| Monday    | [Lab 8: assembly, part 1][8] ([md][28]) / Tutorial 8: see the information on the [tutorials page](../tutorials/index.html) ([md](../tutorials.md)) | [08: Assembly][88]| | | |
-|30|Nov 7| Wednesday | | [08: Assembly][88], [09: Advanced C++][89] | | | |
-|31|Nov 9| Friday    | | [09: Advanced C++][89] | | | |
-||Nov 11|Sunday| |Exam 2 review session| | | |
-|32|Nov 12| Monday    | Exam 2 instead during Tuesday's lab | [09: Advanced C++][89] | | | |
-|33|Nov 14| Wednesday | | [10: Heaps and Huffman coding][90] | | | |
-|34|Nov 16| Friday    | | [10: Heaps and Huffman coding][90] | | | |
-|35|Nov 19| Monday    | [Lab 9: assembly, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [10: Heaps and Huffman coding][90] | | | |
+|29|Nov 5| Monday    | [Lab 8: assembly, part 1][8] ([md][28]) / Tutorial 8: see the information on the [tutorials page](../tutorials/index.html) ([md](../tutorials.md)) | [08: Assembly][88]| [Assembly][88], slides [8.14][1080713] to [10.13][1080912] ([recording][234]) | | |
+|30|Nov 7| Wednesday | | [08: Assembly][88], [09: Advanced C++][89] | [Assembly][88], slides [10.13][1080912] to [10.33][1080932] (end); [Advanced C++][89], slides [1][89] to [5.9][1090408] ([recording][237]) | | |
+|31|Nov 9| Friday    | | [09: Advanced C++][89] | [Advanced C++][89], slides [6.1][10905] to [6.22][1090521] ([recording][238]) | | |
+||Nov 11|Sunday| |Exam 2 review session| ([recording][239]) | | |
+|32|Nov 12| Monday    | Exam 2 instead during Tuesday's lab | [09: Advanced C++][89] | [Advanced C++][89], slides [6.19][1090518] to [8.11][1090710] (end) ([recording][240]) | | |
+|33|Nov 14| Wednesday | | [10: Heaps and Huffman coding][90] | [Heaps and Huffman][90], slides [1][90] to [6.7][1100506] ([recording][241]) | | |
+|34|Nov 16| Friday    | | [10: Heaps and Huffman coding][90] | [Heaps and Huffman][90], slides [6.7][1100506] to [6.16][1100515] ([recording][242]) | | |
+|35|Nov 19| Monday    | [Lab 9: assembly, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [10: Heaps and Huffman coding][90] | [Heaps and Huffman][90], slides [7.1][11006] to [8.27][1100726] ([recording][243]) | | |
 ||Nov 21| Wednesday | | (Thanksgiving break) | | | |
 ||Nov 23| Friday    | | (Thanksgiving break) | | | |
 |36|Nov 26| Wednesday | | [11: Graphs][91] | | | |
@@ -516,6 +516,7 @@ Grading Concerns
 [1080906]: ../slides/08-assembly-64bit.html#/9/6
 [1080908]: ../slides/08-assembly-64bit.html#/9/8
 [1080914]: ../slides/08-assembly-64bit.html#/9/14
+[1080912]: ../slides/08-assembly-64bit.html#/9/12
 [1080915]: ../slides/08-assembly-64bit.html#/9/15
 [1080916]: ../slides/08-assembly-64bit.html#/9/16
 [1080918]: ../slides/08-assembly-64bit.html#/9/18
@@ -561,6 +562,7 @@ Grading Concerns
 [1100718]: ../slides/10-heaps-huffman.html#/7/18
 [1100720]: ../slides/10-heaps-huffman.html#/7/20
 [1100723]: ../slides/10-heaps-huffman.html#/7/23
+[1100726]: ../slides/10-heaps-huffman.html#/7/26
 [1100730]: ../slides/10-heaps-huffman.html#/7/30
 [11008]: ../slides/10-heaps-huffman.html#/8
 [1100808]: ../slides/10-heaps-huffman.html#/8/8
