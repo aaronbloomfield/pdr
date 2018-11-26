@@ -98,7 +98,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |35|Nov 19| Monday    | [Lab 9: assembly, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [10: Heaps and Huffman coding][90] | [Heaps and Huffman][90], slides [7.1][11006] to [8.27][1100726] ([recording][243]) | | |
 ||Nov 21| Wednesday | | (Thanksgiving break) | | | |
 ||Nov 23| Friday    | | (Thanksgiving break) | | | |
-|36|Nov 26| Wednesday | | [11: Graphs][91] | | | |
+|36|Nov 26| Wednesday | | [11: Graphs][91] | [Heaps and Huffman][90], slides [8.27][1100726] to [9.9][1100808] (end); [Graphs][91], slides [1][91] to [4.13][1110312] | | |
 |37|Nov 28| Friday    | | [11: Graphs][91] | | | |
 |38|Nov 30| Monday    | [Lab 10: Huffman coding][10] ([md][30]) / (no tutorial) | [11: Graphs][91] | | | |
 |39|Dec 3| Monday | [Lab 11: Graphs][11] ([md][31]) | [11: Graphs][91] | | | |
@@ -570,6 +570,7 @@ Grading Concerns
 [1110304]: ../slides/11-graphs.html#/3/4
 [1110305]: ../slides/11-graphs.html#/3/5
 [1110306]: ../slides/11-graphs.html#/3/6
+[1110312]: ../slides/11-graphs.html#/3/12
 [1110402]: ../slides/11-graphs.html#/4/2
 [11104]: ../slides/11-graphs.html#/4
 [1110406]: ../slides/11-graphs.html#/4/6
