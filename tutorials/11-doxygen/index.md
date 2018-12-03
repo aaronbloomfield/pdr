@@ -90,7 +90,7 @@ As the source code gets larger, so do the graphs.  In fact, there is a maximum l
 
 To create the documentation for your code (beyond the average.cpp provided), you will need to create the `Doxyfile` file through the process described above.  Note that it's a text file, even though it does not have a .txt extension -- thus, Emacs is a good editor to use to edit the file.  We won't get into most of the details of the file. Be sure to edit the options mentioned above.  Other fields will allow you to specify such things as the title, author, etc. (these are the things that were missing in the RTF file).
 
-Next, look at the doxygen manual.  You can view it in PDF form, but you will first have to download that file (start [here](http://www.stack.nl/~dimitri/doxygen/download.html#dlmanual)).  Otherwise, you can view the [online HTML manual](http://www.stack.nl/~dimitri/doxygen/manual/index.html) -- not surprisingly, this manual was created in Doxygen.  Start with the ["Documenting the code" chapter](http://www.stack.nl/~dimitri/doxygen/manual/docblocks.html), as the previous chapters were covered by the description above.
+Next, look at the doxygen manual.  You can view it [here](http://www.doxygen.nl/manual/index.html).  Start with the ["Documenting the code" chapter](http://www.doxygen.nl/manual/docblocks.html), as the previous chapters were covered by the description above.
 
 ### Important Notes ###
 
