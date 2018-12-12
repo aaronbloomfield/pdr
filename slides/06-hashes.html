@@ -667,7 +667,7 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 - With all open addressing schemes, we examine ('probe') the cells in the order:
   - *p*<sub>0</sub>(*k*), *p*<sub>1</sub>(*k*), *p*<sub>2</sub>(*k*), ...
   - where: *p*<sub>i</sub>(*k*) = (*hash*(*k*) + *f*(*i*)) mod *table_size*
-- With *double hasing*, <span class="red">*f*(*i*) = *i* \* hash<sub>2</sub>(*k*)</span>
+- With *double hashing*, <span class="red">*f*(*i*) = *i* \* hash<sub>2</sub>(*k*)</span>
   - Which means we have to define a *secondary* hash function!
   - After searching spot *hash*(*k*) in the array, look in:
     - *hash*(*k*) + 1 \* *hash*<sub>2</sub>(*k*)
@@ -798,7 +798,7 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 - Given a string (or file contents, etc.) generate a 128-bit hash
   - 2<sup>128</sup> = 3.4*10<sup>38</sup> (coincidentally, this is is also the [maximum finite value](03-numbers.html#/maxfloatvalue) of a `float`)
   - Typically an MD5 is always written in hex: 16e28b7986fd74f65b061de89dc8b78e
-- This could then be used as they key
+- This could then be used as the key
   - Obviously having to mod it by the table size
 - (Was) good for checking if a download completed successfully
 	  </script></section>

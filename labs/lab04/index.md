@@ -245,7 +245,7 @@ In this example, you would convert -35.125 to 0x800cc2 (or 0x00800cc2 -- same th
 
 Note: during the conversion, the numbers provided do not have any 1 bits in the mantissa after the 10th bit.  It could be that your floating point number needs the first 10 bits of the mantissa, or it could need less.  But all bits after the first 10 are supposed to be zero.  So if your conversion has any bits beyond that set to 1, then you are doing something wrong.  You will be expected to be able to do this on a test -- although in an exam situation, because no calculators are allowed, the math involved with determining the mantissa won't be very hard.
 
-Your conversion should be in a PDF file called floatingpoint.pdf, which will be submitted with the pre-lab.  The idea is to show the math behind the conversion (similar to how was done in class), not to write a program to do it.
+Your conversion should be in a PDF file called floatingpoint.pdf.  The idea is to show the math behind the conversion (similar to how was done in class), not to write a program to do it.
 
 You must actually type up your work in a word editor (Word is fine, as is Mac Pages; [LibreOffice](http://www.libreoffice.org/) is a free alternative).  You can ***NOT*** do the assignment by hand, then scan it in (or take a photo of it).  It must actually be typeset in your favorite editor of choice.  Note that the Unix honor pledge only applies to development, so you are free to use anything to type up the file.
 

@@ -588,7 +588,7 @@ int main() {
   - Actually, these two have specific uses depending on the language, so are often not used for this reason.
 - Six registers may not be modified by a subroutine callee:
 	- rbx, rbp, r12-r15
-        - If it wans to use them, the subroutine must back them up (onto the stack) and restore them later
+        - If it wants to use them, the subroutine must back them up (onto the stack) and restore them later
 - rsp should almost never be modified directly, as it points to the top of the stack
 	  </script></section>
 
@@ -1731,7 +1731,7 @@ Source code: [test_fact.s](code/08-assembly-64bit/test_fact.s.html) ([src](code/
   - If you called `movb`, that instruction moves the *least* significant 8 bits of the 32-bit quantity
 - Thus, if you are doing one of those moves, the address is the *same*, which makes the CPU addressing routines simpler
 - This means integer *casts* are a essentially a no-op
-  - To cast an `int` to a `short`, you just tke lowest 16 bits, which means you use a `movw` instead of a `movl`
+  - To cast an `int` to a `short`, you just take lowest 16 bits, which means you use a `movw` instead of a `movl`
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
