@@ -14,6 +14,7 @@ Links
 
 There are a number of links and other parts of this course that are **NOT** included in this repository.  They are:
 
+- The [final grading metrics][116] ([md][115])
 - The set of online tools, which can be accessed through Collab or [here][160].
     - These tools are: [support requests][161], [lab submission][162], [regrades][163], [gradebook][164], [lab extensions][165], and the [office hours queue][166]
 - The announcements, which are posted to the CS 2150 twitter feed: [\@UVaCS2150][151]
