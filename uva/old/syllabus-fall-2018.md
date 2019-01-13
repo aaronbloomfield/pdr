@@ -3,17 +3,17 @@ CS 2150: Program and Data Representation: Course Syllabus
 
 [Go up to the CS 2150 page][1] ([md][2])
 
-## Spring 2019
+## Fall 2018
 
 ### Instructors ###
 
-- [Mark Floryan][31] / [mrf8t@virginia.edu][39].  Office: Rice Hall, room 203.  Office hours are M/Tu 1:00-2:30pm
-- [Rich Nguyen][38] / [nn4pj@virginia.edu](mailto:nn4pj@virginia.edu).  Office: Rice Hall, room 202.  No office hours scheduled.
-- [Aaron Bloomfield][33] / [aaron@virginia.edu](mailto:aaron@virginia.edu).  Office: Rice Hall, room 403.  Office hours are M/W 1:00-2:30, and start the second week of classes.
+- [Mark Floryan][31] / [mrf8t@virginia.edu][39].  Office: Rice Hall, room 203.  Office hours are Tu/W 1:00-2:30
+- [Rich Nguyen][38] / [nn4pj@virginia.edu](mailto:nn4pj@virginia.edu).  Office: Rice Hall, room 202.  Office hours are Tu/Th/F 11:00-12:00.
+- [Aaron Bloomfield][33] / [aaron@virginia.edu](mailto:aaron@virginia.edu).  Office: Rice Hall, room 403.  Office hours are M/W 1:00-2:30.
 
 ### Course Info ###
 
-- Lectures: M/W/F 9:00-10:50 (Ruffner Hall G008), 10:00-10:50 (MEC 341), or 11:00-11:50 (Olsson 120)
+- Lectures: M/W/F 10:00-10:50 (Minor 125), 11:00-11:50 (Olsson 120), or 1:00-1:50 (Olsson 120)
 - Email: none; fill out a [support request][42] instead
 - Announcement feed: [\@UVaCS2150][34]
 - TAs and their office hours will be posted on the [CS 2150 Google Calendar][35] (which is also linked to via Collab); all office hours start the Sunday after classes start
@@ -51,15 +51,13 @@ We expect that grades will follow the standard decade curve: 90 and above is an 
 
 **Exams:** There will be two midterm exams held during laboratory sessions (combined worth 30% of the final grade) and one final exam (worth 25% of the final grade). Note that we hope (but do not guarantee!) to have the first exam returned before the SEAS drop date.
 
-- Midterm Exam 1: Tuesday, February 19, during lab session
-- Midterm Exam 2: Tuesday, April 2, during lab session
-- Final Exam: Thursday, May 9 from 7 p.m. to 10 p.m.
+- Midterm Exam 1: Tuesday, October 2nd, during lab session
+- Midterm Exam 2: Tuesday, November 13th, during lab session
+- Final Exam: Saturday, December 15 from 7 p.m. to 10 p.m.
     - This is a common exam time, and conflicts with several other courses
-    - Let us know by the end of January if you have a conflict (via a support request); we will deal with scheduling conflicts later in the semester
+    - Let us know by September 15th if you have a conflit (via a support request); we will deal with scheduling conflits later in the semester
 
-***YOU WILL HAVE TO BRING YOUR UVA ID TO ALL EXAMS!!!***
-
-Under **NO** circumstances will anybody be allowed to take the final exam early.  You may **ONLY** request to take the final exam at a different time if you have a final exam **CONFLICT**, not a busy final exam schedule.  Since it is a common exam time, the only conflicts are the courses listed on UVa official exam schedule.  For Spring 2019, they are: BIOL 2100; CS2110; KOR 1010, 2010, 3010; STAT 2120, 3120.
+Under **NO** circumstances will anybody be allowed to take the final exam early.  You may **ONLY** request to take the final exam at a different time if you have a final exam **CONFLICT**, not a busy final exam schedule.  Since it is a common exam time, the only conflicts are the courses listed on UVa official exam schedule.  For fall 2018, they are: APMA 1090; BIOL 2100; CS 2110; KOR 1010, 2010, & 3010; STAT 2120 & 3120.
 
 You may submit lab questions for regrading within 10 days of when they are returned to you (less time for the final due to the end of the semester); this is done via the [course tools][41].  However, you MUST be aware of the [Frivolous regrade policy][3] ([md][4]), which will be strictly enforced.
 
@@ -73,14 +71,14 @@ Please note, however, that there are a number of rules that we will strictly fol
 
 - Pre-labs are due at the same time for everybody, regardless of your lab section; that time is the beginning of the FIRST Tuesday lab.
 - In-labs are due at the end of the day on Tuesday.
-- Post-labs are due at 10am on Friday, regardless of which lecture section you are registered for.
+- Post-labs are due at the start of the first lecture on Friday, regardless of which lecture section one is registered for.
 - Any late lab part will receive 25% off (for just that part) for the first 24 hours (or part thereof) that it is late, after which no credit will be given. Note that a computer program does this deduction -- so if your lab is 1 second late, it still receives 25% off.
 
 The assignments tool does not display due dates such as "at the end of your lab session" very well - indeed, the due date is listed as 10 p.m. on Tuesdays.  Note that we have a script that will test the assignment due date against your lab date, so please be sure to follow the above due dates.
 
 **Computing resources:** There are two specific computer resources needed for this course:
 
-- You need to have a working computer that can run a recent build of [VirtualBox][36], with enough hard drive space (and memory) to use a course VirtualBox image (about 15 Gb will be needed for the install, and then 10 Gb  will be used once the installation files are deleted).  Any computer made in the last 3 years will suffice for these requirements (and many older ones will as well).  It does not matter if it is a desktop or notebook; nor does the speed matter.
+- You need to have a working computer that can run a recent build of [VirtualBox][36], with enough hard drive space (and memory) to use a course VirtualBox image (about 10 Gb will be needed for the install, and then 6 Gb  will be used once the installation files are deleted).  Any computer made in the last 3 years will suffice for these requirements (and many older ones will as well).  It does not matter if it is a desktop or notebook; nor does the speed matter.
 - There are a few documents that you will have to print (a worksheet with lab 5, the UNIX honor pledge, etc.).  The total printing load will be under 5 pages for the entire semester.  You will need to obtain access to a printer for those pages.
 
 **Attendance:** Attendance in labs is mandatory; attendance in lecture is not. Not attending lab will result in a zero for the in-lab. You cannot change labs without prior permission - we do not have enough computers to accommodate this.  Please see the [first set of lecture slides][11] about lab attendance, in particular with regards to the fact that there is a lab the week of Thanksgiving break.
@@ -94,7 +92,6 @@ The assignments tool does not display due dates such as "at the end of your lab 
 3. There are multiple midterm periods where students take exams, with a break between the the individual section times.  Discussing the exam with a student who has not taken it is a violation of the honor policy.
 4. Releasing your homework online, including a public github repository, is an honor violation
 5. Using a computer to generate your *assembly* code, instead of writing yourself, is an honor violation (this includes using the compiler to generate assembly code for submission, although not for including in a report)
-6. We realize we should have to say this, but we will not sign more than one conscientious retraction for a given student within one semester.
 
 Any honor violation or cheating will be referred to the honor committee, **and will result in an immediate failure for the course**, regardless of the outcome of the honor trial or your other grades.  No exceptions!  I am very strict on this, and one have successfully raised honor charges against students in the past due to violations of this policy.
 
