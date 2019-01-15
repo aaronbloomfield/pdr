@@ -59,7 +59,7 @@ The links in the right-most column link directly to the lecture recording on Col
 
 | Num | Date | Day of week | Lab & Tutorial (on Tue) | Planned topic | Lecture progress |
 |-----|---------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|-------------------|
-| 1 | Jan 14 | Monday | no lab this week | [Course introduction][80] | |
+| 1 | Jan 14 | Monday | no lab this week | [Course introduction][80] | [course intro][80], slides [1][80] to [4.6][1000240] ([recording][201]) |
 | 2 | Jan 16 | Wednesday | | [Course introduction][80], [01: C++][81] | |
 | 3 | Jan 18 | Friday | | [01: C++][81] | |
 | | Jan 21 | Monday | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | No class: MLK day | No class: MLK day |
@@ -228,7 +228,7 @@ Grading Concerns
 [173]: https://collab.its.virginia.edu/portal/site/41174582-53b0-472a-a22c-f466f2aa653a/page/ff01651c-a8f2-4821-94a9-ccc136f34f7a
 [174]: https://collab.its.virginia.edu/portal/site/41174582-53b0-472a-a22c-f466f2aa653a/tool/58a6dee4-eb97-4f29-9fab-9e6ad47e759d/main
 
-[201]: https://collab.itc.virginia.edu/access/content/group/41174582-53b0-472a-a22c-f466f2aa653a/lectures/course-introduction/course-introduction.htm
+[201]: https://collab.itc.virginia.edu/access/content/group/41174582-53b0-472a-a22c-f466f2aa653a/lectures/course-introduction-1/course-introduction-1.htm
 [202]: https://collab.itc.virginia.edu/access/content/group/41174582-53b0-472a-a22c-f466f2aa653a/lectures/01-cpp-1/01-cpp-1.htm
 [203]: https://collab.itc.virginia.edu/access/content/group/41174582-53b0-472a-a22c-f466f2aa653a/lectures/01-cpp-2/01-cpp-2.htm
 [204]: https://collab.itc.virginia.edu/access/content/group/41174582-53b0-472a-a22c-f466f2aa653a/lectures/01-cpp-3/01-cpp-3.htm
