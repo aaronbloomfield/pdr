@@ -59,8 +59,8 @@ The links in the right-most column link directly to the lecture recording on Col
 
 | Num | Date | Day of week | Lab & Tutorial (on Tue) | Planned topic | Lecture progress |
 |-----|---------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|-------------------|
-| 1 | Jan 14 | Monday | no lab this week | [Course introduction][80] | [course intro][80], slides [1][80] to [4.6][1000240] ([recording][201]) |
-| 2 | Jan 16 | Wednesday | | [Course introduction][80], [01: C++][81] | |
+| 1 | Jan 14 | Monday | no lab this week | [Course introduction][80] | [course intro][80], slides [1][80] to [3.41][1000240] ([recording][201]) |
+| 2 | Jan 16 | Wednesday | | [Course introduction][80], [01: C++][81] | [course intro][80], slides [3.42][1000241] to [7.3][1000602] (end); [C++][81], slides [1][81] to [4.9][1010308] ([recording][202]) |
 | 3 | Jan 18 | Friday | | [01: C++][81] | |
 | | Jan 21 | Monday | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | No class: MLK day | No class: MLK day |
 | 4 | Jan 23 | Wednesday | | [01: C++][81] | |
@@ -293,6 +293,7 @@ Grading Concerns
 [10005]: ../uva/course-introduction.html#/5
 [1000601]: ../uva/course-introduction.html#/6/1
 [1000602]: ../uva/course-introduction.html#/6/2
+[1010308]: ../slides/01-cpp.html#/3/8
 [1010309]: ../slides/01-cpp.html#/3/9
 [1010310]: ../slides/01-cpp.html#/3/10
 [1010311]: ../slides/01-cpp.html#/3/11
