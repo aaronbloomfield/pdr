@@ -68,7 +68,7 @@
 <li>Reboot!</li>
 </ul>
 <h1 id="a-tale-of-two-guis">A Tale of Two GUIs</h1>
-<p>For students in CS 2150 for the fall 2018 semester, there are two possible GUIs that they may want to use. KDE is more similar to Windows, which is what everybody is familiar with. Gnome is similar to the NoMachine connection that they also will have access to. Thus, <em>both</em> GUIs were installed (yes, this greatly increased the hard disk size). The installation of KDE was via <code>sudo apt-get install kubuntu-desktop</code>.</p>
+<p>For students in CS 2150 for the fall 2018 semester, there are two possible GUIs that they may want to use. KDE is more similar to Windows, which is what everybody is familiar with. Gnome is quite different, but many people like it better. Thus, <em>both</em> GUIs were installed (yes, this greatly increased the hard disk size). The installation of KDE was via <code>sudo apt-get install kubuntu-desktop</code>.</p>
 <h1 id="development-installation">Development installation</h1>
 <p>The &quot;Program and Data Representation configuration&quot; section is for the <a href="http://uva-cs.github.io/pdr">Program and Data Representation</a> course, and it includes all of the compilers and editors needed. The &quot;Python/Django&quot; section installs the files needed to run Python 3 and the Django framework. The &quot;Ruby on Rails configuration&quot; section is for developing Ruby on Rails software.</p>
 <p><strong>Program and Data Representation configuration</strong></p>
@@ -86,7 +86,6 @@ sudo update-alternatives --set c++ /usr/bin/clang++</code></pre></li>
 <li>If that installation does not work perfectly, run <code>sudo apt-get -f install</code></li>
 <li>Then the .deb file was removed</li>
 </ul></li>
-<li>Downloaded the NoMachine client from <a href="https://www.nomachine.com/">nomachine.com</a>, and installed it via <code>sudo dpkg -i nomachine_6.2.4_1_amd64.deb</code> (and then removed the .deb file)</li>
 <li>KDE customization
 <ul>
 <li>Removed Discover, Kontact, and KSysGuard from Favoriteskonso</li>
@@ -99,7 +98,6 @@ sudo update-alternatives --set c++ /usr/bin/clang++</code></pre></li>
 <li>Removed RhythmBox, Ubuntu Software, and Amazon from the favorites bar on the left-hand side</li>
 <li>Added Terminal, Emacs, and Chrome to the favorites on the left-hand side</li>
 <li>Disabled the screen saver lock, as detailed in the first answer <a href="https://stackoverflow.com/questions/28281077/how-do-i-disable-the-gnome-desktop-screen-lock">here</a></li>
-<li>NoMachine load upon startup was disabled (via the icon in the upper-right in GNOME)</li>
 </ul></li>
 <li>Browser customization
 <ul>
@@ -288,6 +286,14 @@ sudo rsync -a --del hspcteam/ /home/hspcteam/</code></pre></li>
 </ul>
 <p><strong>Upgrading from a previous version</strong></p>
 <p>Because previous versions of this image were a different version of Ubuntu (specifically, 16.04), we are not providing upgrade information, as it is too extensive to properly check those instructions.</p>
+<p><strong>Changes made for spring 2019</strong></p>
+<p>These were the changes made for the spring 2019 image, and they have not yet been incorporated into the instructions above.</p>
+<ul>
+<li>As per <a href="https://askubuntu.com/questions/973017/wrong-nameserver-set-by-resolvconf-and-networkmanager">here</a> to fix an issue with /etc/resolv.conf, edited /etc/systemd/resolve/resolved.conf to put 8.8.8.8 as the DNS line, and then ran the commands from the top answer: <code>sudo rm -f /etc/resolv.conf</code>, <code>sudo ln -s /run/systemd/resolve/resolv.conf</code>, and then rebooted</li>
+<li>Ran <code>apt-get remove thunderbird</code></li>
+<li>Ran <code>apt-get install autopsy sleuthkit fcrackzip libarchive-zip-perl libboost-dev libboost-doc</code></li>
+<li>Disable the KDE wallet system</li>
+</ul>
 <p><strong>Changes for the future</strong></p>
 <ul>
 <li>none, yet</li>

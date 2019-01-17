@@ -64,7 +64,7 @@ All installations need to run through this, as it sets up the default Ubuntu ins
 
 # A Tale of Two GUIs
 
-For students in CS 2150 for the fall 2018 semester, there are two possible GUIs that they may want to use.  KDE is more similar to Windows, which is what everybody is familiar with.  Gnome is similar to the NoMachine connection that they also will have access to.  Thus, *both* GUIs were installed (yes, this greatly increased the hard disk size).  The installation of KDE was via `sudo apt-get install kubuntu-desktop`.
+For students in CS 2150 for the fall 2018 semester, there are two possible GUIs that they may want to use.  KDE is more similar to Windows, which is what everybody is familiar with.  Gnome is quite different, but many people like it better.  Thus, *both* GUIs were installed (yes, this greatly increased the hard disk size).  The installation of KDE was via `sudo apt-get install kubuntu-desktop`.
 
 
 # Development installation
@@ -84,7 +84,6 @@ sudo update-alternatives --set c++ /usr/bin/clang++
 - Downloaded Google Chrome from [here](https://www.google.com/chrome/browser/desktop/index.html), and installed it via `sudo dpkg -i google-chrome-stable_current_i386.deb`
     - If that installation does not work perfectly, run `sudo apt-get -f install`
     - Then the .deb file was removed
-- Downloaded the NoMachine client from [nomachine.com](https://www.nomachine.com/), and installed it via `sudo dpkg -i nomachine_6.2.4_1_amd64.deb` (and then removed the .deb file)
 - KDE customization
 	- Removed Discover, Kontact, and KSysGuard from Favoriteskonso
     - Added konsole, emacs, firefox, and google chrome icons to favorites (from the K (start) menu, right-click and select 'add to favorites'), and the task bar (from the favorites menu, right-click and select 'add to panel'; this may require right-clicking on the panel and selecting panel options -> panel settings prior to moving the icons)
@@ -94,7 +93,6 @@ sudo update-alternatives --set c++ /usr/bin/clang++
     - Removed RhythmBox, Ubuntu Software, and Amazon from the favorites bar on the left-hand side
     - Added Terminal, Emacs, and Chrome to the favorites on the left-hand side
 	- Disabled the screen saver lock, as detailed in the first answer [here](https://stackoverflow.com/questions/28281077/how-do-i-disable-the-gnome-desktop-screen-lock)
-	- NoMachine load upon startup was disabled (via the icon in the upper-right in GNOME)
 - Browser customization
     - Set the home pages for both Chrome and Firefox to online course repo site (http://uva-cs.github.io/pdr) and to Collab
     - Chrome is set as the default browser
@@ -291,6 +289,15 @@ The hard drive size was set at 20 Gb, and about 9.9 Gb is available; the rest is
 
 Because previous versions of this image were a different version of Ubuntu (specifically, 16.04), we are not providing upgrade information, as it is too extensive to properly check those instructions.
 
+
+**Changes made for spring 2019**
+
+These were the changes made for the spring 2019 image, and they have not yet been incorporated into the instructions above.
+
+- As per [here](https://askubuntu.com/questions/973017/wrong-nameserver-set-by-resolvconf-and-networkmanager) to fix an issue with /etc/resolv.conf, edited /etc/systemd/resolve/resolved.conf to put 8.8.8.8 as the DNS line, and then ran the commands from the top answer: `sudo rm -f /etc/resolv.conf`, `sudo ln -s /run/systemd/resolve/resolv.conf`, and then rebooted
+- Ran `apt-get remove thunderbird`
+- Ran `apt-get install autopsy sleuthkit fcrackzip libarchive-zip-perl libboost-dev libboost-doc`
+- Disable the KDE wallet system
 
 **Changes for the future**
 

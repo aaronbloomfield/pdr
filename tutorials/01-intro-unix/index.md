@@ -8,10 +8,7 @@ Part I: Introduction and setting up your UNIX environment
 
 This tutorial is meant to get you up and running with editing, compiling, and executing a program in a Unix-like environment.  There are a number of options that you can use to do this, depending on if you have your own PC, and how much time you want to spend installing software.  We recommend the first of the options listed if you are using Windows; Mac OS X users should use the second option listed.
 
-We have two recommended options:
-
-- Use NoMachine, as detailed on the [NoMachine usage](nomachine.html) page.  This requires an Internet connection, and you will be connecting to the department's servers to run your code there.
-- Use VirtualBox, a free virtual machine software package.  This will allow you to run Linux on your home machine without needing to re-install anything.  Directions for setting up and how to use VirtualBox can be found at [Tutorial 1: Introduction to UNIX: VirtualBox use](virtual-box.html).  This will require downloading a hard drive image that we provide.
+We recommended using VirtualBox, a free virtual machine software package.  This will allow you to run Linux on your home machine without needing to re-install anything.  Directions for setting up and how to use VirtualBox can be found at [Tutorial 1: Introduction to UNIX: VirtualBox use](virtual-box.html).  This will require downloading a hard drive image that we provide.
 
 There are other options available:
 
@@ -29,13 +26,11 @@ When you install Linux, there are a number of graphical user interfaces -- or wi
 
 *KDE* is designed to be similar to Microsoft Windows -- it has the equivalent of the start button in the lower left, which pulls up a menu just like in Windows.  People who are both familiar with, prefer, the Windows interface often also prefer this interface.  You can see a screen shot of it [here](https://www.kde.org/announcements/4.2/screenshots/desktop.png).
 
-*GNOME* (pronounced guh-NOME) is a user interface that is specific to UNIX machines.  The interactions with the GUI are a bit different, but the same concepts.  One can interact with GNOME really quickly once one gets used to the new interface.  You can see a screen shot of it [here](https://www.distroscreens.com/2017/03/manjaro-170-gellivara-gnome-screenshots.html).
+*Gnome* (pronounced guh-NOME) is a user interface that is specific to UNIX machines.  The interactions with the GUI are a bit different, but the same concepts.  One can interact with Gnome really quickly once one gets used to the new interface.  You can see a screen shot of it [here](https://www.distroscreens.com/2017/03/manjaro-170-gellivara-gnome-screenshots.html).
 
-The reason this is relevant is that your choice of how you will use a UNIX environment will determine which interface you use.  The [NoMachine](nomachine.html) connection *only* has GNOME as an option.  The VirtualBox image has *both* GNOME and KDE (see below for how to switch between them).
+The reason this is relevant is that your choice of how you will use a UNIX environment will determine which interface you use.  The VirtualBox image has *both* Gnome and KDE (see below for how to switch between them).  KDE is more similar to the Windows interface (a "start" menu in the lower-left, etc.), but many people find Gnome more productive once they get used to it.
 
-If you are going to be using both NoMachine and VirtualBox, you may want to start using GNOME, since it will be (more or less) consistent between the two Linux options.  If you are *only* going to use VirtualBox, and you like the Windows interface, you may want to go with KDE.
-
-With VirtualBox, as was mentioned, you can choose which interface.  When you log in, after you click the user name and are about to enter your password, there is a gear icon beneath the password field, and you can use that to select which interface -- the GNOME interface is called "Ubuntu", and the KDE interface is called "Plasma".  It will remember that choice, so you don't have to enter it again unless you want to change to another interface.
+With VirtualBox, as was mentioned, you can choose which interface.  When you log in, after you click the user name and are about to enter your password, there is a gear icon beneath the password field, and you can use that to select which interface -- the Gnome interface is called "Ubuntu", and the KDE interface is called "Plasma".  It will remember that choice, so you don't have to enter it again unless you want to change to another interface.
 
 
 ----
@@ -53,9 +48,8 @@ A quick note: Unix IS CASE SENSITIVE.  Thus, foo, Foo, FOO, and FoO are all diff
 
 First, you need to load up a command shell.  For those who have used DOS, or the Windows command prompt, it is a somewhat similar interface.
 
-- With VirtualBox and GNOME, it's an icon on the toolbar on the left-hand side of the desktop
+- With VirtualBox and Gnome, it's an icon on the toolbar on the left-hand side of the desktop
 - With Virtualbox and KDE, it's the black icon with a greater-than sign in it on the bottom-left
-- With NoMachine, click on the "Activities" text in the upper-left, and the menu will slide in from the left-hand side of the screen
 
 
 ### The Unix Tutorial ###

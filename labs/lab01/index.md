@@ -22,7 +22,7 @@ Procedure
 ### Pre-lab ###
 1. If desired, the alternative readings are available on the [Readings page](../../docs/readings.html)
 2. Complete [Tutorial 1: Introduction to UNIX](../../tutorials/01-intro-unix/index.html)
-    a. As part of this tutorial, you will need to decide how you want to develop in a Unix environment -- we recommend [VirtualBox](../../tutorials/01-intro-unix/virtual-box.html) or [NoMachine](../../tutorials/01-intro-unix/nomachine.html), but there are other options available
+    a. As part of this tutorial, you will need to decide how you want to develop in a Unix environment -- we recommend [VirtualBox](../../tutorials/01-intro-unix/virtual-box.html), but there are other options available
     b. If you are using VirtualBox, you will have to decide on which display manager to use
 3. Write the xToN.cpp file, as described in the pre-lab section. Since you are unfamiliar with the submission system, you should read through the in-lab section of the document, which describes the submission process.  Submit the xToN.cpp file.
 4. Examine the Object life-cycle code ([lifecycle.cpp](lifecycle.cpp.html) ([src](lifecycle.cpp))).  You may not understand everything in this program by the beginning of lab, but you should by the end of next week.  We will be using this program during the in-lab activity.
@@ -103,7 +103,7 @@ All of the files required for this lab are listed above (in the Procedure sectio
 
 ### Cloning the github repo ###
 
-The first thing you need to do is clone the github repo onto your computer.  This was already done on the VirtualBox image, but not in your NoMachine account.  So if you are doing this on VirtualBox, skip to the `git pull` step, below.
+The first thing you need to do is clone the github repo onto your computer.  This was already done on the VirtualBox image.  So if you are doing this on VirtualBox, skip to the `git pull` step, below.
 
 To copy the github repo onto your machine, enter:
 
