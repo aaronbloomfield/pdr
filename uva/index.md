@@ -58,7 +58,7 @@ Semester Schedule
 The links in the right-most column link directly to the lecture recording on Collab, and you have to be logged into Collab first before the link will work. Some plugins (such as NoScript) will block that link from working.
 
 | Num | Date | Day of week | Lab & Tutorial (on Tue) | Planned topic | Lecture progress |
-|-----|---------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|-------------------|
+|-----|-----|-----|----------------------|---------|--------------------|
 | 1 | Jan 14 | Monday | no lab this week | [Course introduction][80] | [course intro][80], slides [1][80] to [3.41][1000240] ([recording][201]) |
 | 2 | Jan 16 | Wednesday | | [Course introduction][80], [01: C++][81] | [course intro][80], slides [3.42][1000241] to [7.3][1000602] (end); [C++][81], slides [1][81] to [4.9][1010308] ([recording][202]) |
 | 3 | Jan 18 | Friday | | [01: C++][81] | [C++][81], slides [4.10][1010309] to [7.9][1010608] ([recording][203]) |
