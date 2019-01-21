@@ -27,4 +27,4 @@ These are all the exams from the previous semesters of the course.  No solutions
 - Spring 2017: [midterm 1](exam1-s17.pdf), [midterm 2](exam2-s17.pdf), [final exam](final-s17.pdf)
 - Fall 2017: [midterm 1](exam1-f17.pdf), [midterm 2](exam2-f17.pdf), [final exam](final-f17.pdf)
 - Spring 2018: [midterm 1](exam1-s18.pdf), [midterm 2](exam2-s18.pdf), [final exam](final-s18.pdf)
-- Fall 2018: [midterm 1](exam1-f18.pdf), [midterm 2](exam2-f18.pdf), final exam
+- Fall 2018: midterm 1, [midterm 2](exam2-f18.pdf), final exam
