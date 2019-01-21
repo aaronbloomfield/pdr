@@ -26,10 +26,9 @@ Procedure
     b. If you are using VirtualBox, you will have to decide on which display manager to use
 3. Write the xToN.cpp file, as described in the pre-lab section. Since you are unfamiliar with the submission system, you should read through the in-lab section of the document, which describes the submission process.  Submit the xToN.cpp file.
 4. Examine the Object life-cycle code ([lifecycle.cpp](lifecycle.cpp.html) ([src](lifecycle.cpp))).  You may not understand everything in this program by the beginning of lab, but you should by the end of next week.  We will be using this program during the in-lab activity.
-5. Read how to reboot into Linux for the in-lab.  Although the TAs will be able to help you, you should still have an idea how to do it.
-6. The due date for this lab is listed on the [lab due dates](../../uva/labduedates.html) page -- see the in-lab section for more details about submission deadlines.
-7. Files to download: [lifecycle.cpp](lifecycle.cpp.html) ([src](lifecycle.cpp))
-8. Files to submit: xToN.cpp
+5. The due date for this lab is listed on the [lab due dates](../../uva/labduedates.html) page -- see the in-lab section for more details about submission deadlines.
+6. Files to download: [lifecycle.cpp](lifecycle.cpp.html) ([src](lifecycle.cpp))
+7. Files to submit: xToN.cpp
 
 ### In-lab ###
 1. Read through the in-lab section of this document.  You should be sure to be familiar with the submission system.
