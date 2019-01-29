@@ -65,7 +65,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | | Jan 21 | Monday | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | No class: MLK day | No class: MLK day |
 | 4 | Jan 23 | Wednesday | | [01: C++][81] | [C++][81], slides [8.1][10107] to [9.19][1010818] ([recording][204]) |
 | 5 | Jan 25 | Friday | | [01: C++][81] | [C++][81], slides [9.18][1010818] to [11.2][1011002] ([recording][205]) |
-| 6 | Jan 28 | Monday | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: LLDB][42] ([md][62]) *OR* [Tutorial 2: GDB][52] ([md][72]) (see [lab 2][2] for which one to pick) | [01: C++][81] | |
+| 6 | Jan 28 | Monday | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: LLDB][42] ([md][62]) *OR* [Tutorial 2: GDB][52] ([md][72]) (see [lab 2][2] for which one to pick) | [01: C++][81] | [C++][81], slides [11][10110] to [13.14][1011213] (end) ([recording][206]) |
 | 7 | Jan 30 | Wednesday | | [01: C++][81], [02: Lists][82] | |
 | 8 | Feb 1 | Friday | | [02: Lists][82] | |
 | 9 | Feb 4 | Monday | [Lab 3: Stacks][3] ([md][23]) / [Tutorial 3: More UNIX, part 1][63], introduction and sections 1-4 | [02: Lists][82] | |
