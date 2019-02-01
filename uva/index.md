@@ -67,7 +67,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 5 | Jan 25 | Friday | | [01: C++][81] | [C++][81], slides [9.18][1010818] to [11.2][1011002] ([recording][205]) |
 | 6 | Jan 28 | Monday | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: LLDB][42] ([md][62]) *OR* [Tutorial 2: GDB][52] ([md][72]) (see [lab 2][2] for which one to pick) | [01: C++][81] | [C++][81], slides [11][10110] to [13.14][1011213] (end) ([recording][206]) |
 | 7 | Jan 30 | Wednesday | | [01: C++][81], [02: Lists][82] | [Lists][82], slides [1][82] to [5.10][1020409] ([recording][208]) |
-| 8 | Feb 1 | Friday | | [02: Lists][82] | |
+| 8 | Feb 1 | Friday | | [02: Lists][82] | [Lists][82], slides [6][10205] to [8.9][1020708] ([recording][209]) |
 | 9 | Feb 4 | Monday | [Lab 3: Stacks][3] ([md][23]) / [Tutorial 3: More UNIX, part 1][63], introduction and sections 1-4 | [02: Lists][82] | |
 | 10 | Feb 6 | Wednesday | | [03: Numbers][83] | |
 | 11 | Feb 8 | Friday | | [03: Numbers][83] | |
@@ -362,6 +362,7 @@ Grading Concerns
 [1020607]: ../slides/02-lists.html#/6/7
 [10207]: ../slides/02-lists.html#/7
 [1020706]: ../slides/02-lists.html#/7/6
+[1020708]: ../slides/02-lists.html#/7/8
 [10208]: ../slides/02-lists.html#/8
 [1020803]: ../slides/02-lists.html#/8/3
 [1030303]: ../slides/03-numbers.html#/3/3
