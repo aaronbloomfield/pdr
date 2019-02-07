@@ -69,7 +69,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 7 | Jan 30 | Wednesday | | [01: C++][81], [02: Lists][82] | [Lists][82], slides [1][82] to [5.10][1020409] ([recording][208]) |
 | 8 | Feb 1 | Friday | | [02: Lists][82] | [Lists][82], slides [6][10205] to [8.9][1020708] ([recording][209]) |
 | 9 | Feb 4 | Monday | [Lab 3: Stacks][3] ([md][23]) / [Tutorial 3: More UNIX, part 1][63], introduction and sections 1-4 | [02: Lists][82] | [Lists][82], slides [9][10208] to [9.4][1020803] (end); [Numbers][83], slides [1][83] to [6.7][1030506] ([recording][211]) |
-| 10 | Feb 6 | Wednesday | | [03: Numbers][83] | |
+| 10 | Feb 6 | Wednesday | | [03: Numbers][83] | [Numbers][83], slides [7][10306] to [9.4][1030803] ([recording][212]) |
 | 11 | Feb 8 | Friday | | [03: Numbers][83] | |
 | 12 | Feb 11 | Monday | [Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8 | [03: Numbers][83] | |
 | 13 | Feb 13 | Wednesday | | [03: Numbers][83], [04: Arrays &amp; big-Oh][84] | |
@@ -371,6 +371,7 @@ Grading Concerns
 [1030404]: ../slides/03-numbers.html#/4/4
 [1030406]: ../slides/03-numbers.html#/4/6
 [1030506]: ../slides/03-numbers.html#/5/6
+[10306]: ../slides/03-numbers.html#/6
 [10307]: ../slides/03-numbers.html#/7
 [1030701]: ../slides/03-numbers.html#/7/1
 [1030703]: ../slides/03-numbers.html#/7/3
@@ -381,6 +382,7 @@ Grading Concerns
 [1030711]: ../slides/03-numbers.html#/7/11
 [10308]: ../slides/03-numbers.html#/8
 [1030801]: ../slides/03-numbers.html#/8/1
+[1030803]: ../slides/03-numbers.html#/8/3
 [1030809]: ../slides/03-numbers.html#/8/9
 [1030810]: ../slides/03-numbers.html#/8/10
 [1030812]: ../slides/03-numbers.html#/8/12

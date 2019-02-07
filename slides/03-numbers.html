@@ -518,6 +518,18 @@ void Image::WriteInt (int value, FILE * fp) {
   - If you care, it's now at 3.2 billion views (as of Sep 2018)
 	  </script></section>
 
+	  <section data-markdown><script type="text/template">
+## unsigned types
+- C/C++ has *unsigned* types
+  - A 32-bit `int` has a range from $-2^{31} \rightarrow 2^{31}-1$
+    - That's -2.15 billion to +2.15 billion
+    - or maybe it's 64 bits...
+  - An `unsigned int` has a range from $0 \rightarrow 2^{32}-1$
+	- That's zero to +4.3 billion
+    - Still $2^{32}$ values, but all positive (and zero)
+- Tyipcally used for returning sizes of strings, vectors, etc.
+	  </script></section>
+
 	  <section>
 <h2>A bit of an aside...</h2>
 <p>This is an <i>actual</i> comment left by a graduating SEAS computer science major:</p>
