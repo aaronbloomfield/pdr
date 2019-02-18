@@ -73,9 +73,9 @@ The links in the right-most column link directly to the lecture recording on Col
 | 11 | Feb 8 | Friday | | [03: Numbers][83] | [Numbers][83], slides [9.4][1030803] to [9.19][1030818] ([recording][213]) |
 | 12 | Feb 11 | Monday | [Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8 | [03: Numbers][83] | [Numbers][83], slides [9.18][1030817] to [9.35][1030834] (end) ([recording][214]) |
 | 13 | Feb 13 | Wednesday | | [03: Numbers][83], [04: Arrays &amp; big-Oh][84] | [Arrays & big-Oh][84], slides [1][84] to [5.4][1040403] ([recording][215]) |
-| 14 | Feb 15 | Friday | | [04: Arrays &amp; big-Oh][84] | [Arrays & big-Oh][84], slides [5.22][1040421] ([recording][216]) |
-| | Feb 17? | Sunday? | | Exam 1 review session | |
-| 15 | Feb 18 | Monday | Exam 1 instead during Tuesday's lab | [04: Arrays & big-Oh][84], [05: Trees][85] | |
+| 14 | Feb 15 | Friday | | [04: Arrays &amp; big-Oh][84] | [Arrays & big-Oh][84], slides [5.4][1040403] to [5.22][1040421] ([recording][216]) |
+| | Feb 17 | Sunday | | Exam 1 review session | ([recording][218]) |
+| 15 | Feb 18 | Monday | Exam 1 instead during Tuesday's lab | [04: Arrays & big-Oh][84], [05: Trees][85] | [Arrays & big-Oh][84], slides [5.23][1040422] to [6.8][1040507] (end); [Trees][85], slides [1][85] to [4.12][1050311] ([recording][219]) |
 | 16 | Feb 20 | Wednesday | | [05: Trees][85] | |
 | 17 | Feb 22 | Friday | | [05: Trees][85] | |
 | 18 | Feb 25 | Monday | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [05: Trees][85] | |
@@ -416,6 +416,7 @@ Grading Concerns
 [1040419]: ../slides/04-arrays-bigoh.html#/4/19
 [1040420]: ../slides/04-arrays-bigoh.html#/4/20
 [1040421]: ../slides/04-arrays-bigoh.html#/4/21
+[1040422]: ../slides/04-arrays-bigoh.html#/4/22
 [1040425]: ../slides/04-arrays-bigoh.html#/4/25
 [1040507]: ../slides/04-arrays-bigoh.html#/5/7
 [1050305]: ../slides/05-trees.html#/3/5
