@@ -274,14 +274,16 @@ sudo rsync -a --del hspcteam/ /home/hspcteam/</code></pre></li>
 <p>The hard drive size was set at 20 Gb, and about 9.9 Gb is available; the rest is used by the operating system (and the swap partition). If you need more space than this, you will have to expand the hard drive. Be careful -- it is easy to accidentally erase the entire hard drive while doing this!</p>
 <ul>
 <li>The process has two steps: increase the VirtualBox disk image itself, then increase the partition of the guest OS.</li>
-<li>To increase the VirtualBox disk image, power it down, and then run the following command. The size listed is the size in Mb, so 20480 Mb is 20 Gb. The command is: <code>VBoxManage modifyhd &lt;imagefile&gt; --resize 20480</code></li>
+<li>To increase the VirtualBox disk image, power it down, and then run the following command. The size listed is the size in Mb, so 20480 Mb is 20 Gb. The command is: <code>VBoxManage modifyhd &lt;imagefile&gt; --resize 20480</code>
+<ul>
 <li>Note that <code>&lt;imagefile&gt;</code> is the .vdi disk image, and should be the absolute path including the name and extension</li>
-<li>The second step is to resize the guest OS partition. The easiest way to do this is to download a bootable disk image for this purpose. You can use <a href="http://sourceforge.net/projects/gparted/files/gparted-live-stable/">Gparted</a>, which is free. Keep in mind that your guest OS is 32-bit, so you will want the 386 (or 486 or 586) version.</li>
+</ul></li>
+<li>The second step is to resize the guest OS partition. The easiest way to do this is to download a bootable disk image for this purpose. You can use <a href="http://sourceforge.net/projects/gparted/files/gparted-live-stable/">Gparted</a>, which is free. Keep in mind that your guest OS is 64-bit, so you will want the &quot;amd64&quot; version.</li>
 <li>To boot up via the Gparted image, Go to Settings -&gt; Storage. In the &quot;Storage Tree&quot; box, there will be a &quot;Controller: IDE&quot; entry, with an &quot;Empty&quot; line below that; click on the &quot;Empty&quot; line, and select the Gparted disk image (using the blue DVD icon on the right). Click Okay, then start the image. It should start the Gparted disk.</li>
 <li>When Gparted boots, selected the default boot option. In the text-based menus, hit Enter to select the defaults.</li>
-<li>From the GUI, resize your partition. Keep in mind that you will need a 500 Mb swap partition. Hit &quot;Apply&quot; when done.</li>
+<li>From the GUI, resize your partition. Hit &quot;Apply&quot; when done.</li>
 <li>Double click on the red &quot;Exit&quot; icon, and select shutdown.</li>
-<li>Back in Settings -&gt; Storage -&gt; Controller: IDE -&gt; Empty, remove that disk from the virtual CD/DVD drive (under the blue DVD icon, select the last option to remove the image). Click OK.</li>
+<li>Back in Settings -&gt; Storage -&gt; Controller: IDE -&gt; Empty, remove that disk from the virtual CD/DVD drive (under the blue DVD icon, select the last option to remove the image) -- it should not be there by default at this point. Click OK.</li>
 <li>Boot into Kubuntu normally.</li>
 </ul>
 <p><strong>Upgrading from a previous version</strong></p>

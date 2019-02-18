@@ -276,13 +276,13 @@ The hard drive size was set at 20 Gb, and about 9.9 Gb is available; the rest is
 
 - The process has two steps: increase the VirtualBox disk image itself, then increase the partition of the guest OS.
 - To increase the VirtualBox disk image, power it down, and then run the following command.  The size listed is the size in Mb, so 20480 Mb is 20 Gb.  The command is: `VBoxManage modifyhd <imagefile> --resize 20480`
-  - Note that `<imagefile>` is the .vdi disk image, and should be the absolute path including the name and extension
-- The second step is to resize the guest OS partition.  The easiest way to do this is to download a bootable disk image for this purpose.  You can use [Gparted](http://sourceforge.net/projects/gparted/files/gparted-live-stable/), which is free.  Keep in mind that your guest OS is 32-bit, so you will want the 386 (or 486 or 586) version.
+    - Note that `<imagefile>` is the .vdi disk image, and should be the absolute path including the name and extension
+- The second step is to resize the guest OS partition.  The easiest way to do this is to download a bootable disk image for this purpose.  You can use [Gparted](http://sourceforge.net/projects/gparted/files/gparted-live-stable/), which is free.  Keep in mind that your guest OS is 64-bit, so you will want the "amd64" version.
 - To boot up via the Gparted image, Go to Settings -> Storage.  In the "Storage Tree" box, there will be a "Controller: IDE" entry, with an "Empty" line below that; click on the "Empty" line, and select the Gparted disk image (using the blue DVD icon on the right).  Click Okay, then start the image.  It should start the Gparted disk.
 - When Gparted boots, selected the default boot option.  In the text-based menus, hit Enter to select the defaults.
-- From the GUI, resize your partition.  Keep in mind that you will need a 500 Mb swap partition.  Hit "Apply" when done.
+- From the GUI, resize your partition.  Hit "Apply" when done.
 - Double click on the red "Exit" icon, and select shutdown.
-- Back in Settings -> Storage -> Controller: IDE -> Empty, remove that disk from the virtual CD/DVD drive (under the blue DVD icon, select the last option to remove the image).  Click OK.
+- Back in Settings -> Storage -> Controller: IDE -> Empty, remove that disk from the virtual CD/DVD drive (under the blue DVD icon, select the last option to remove the image) -- it should not be there by default at this point.  Click OK.
 - Boot into Kubuntu normally.
 
 **Upgrading from a previous version**
