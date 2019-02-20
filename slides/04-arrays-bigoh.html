@@ -539,7 +539,6 @@ int main (int argc, char* argv[]) {
 |----------|------|
 | *c* | constant |
 | log *n* | logarithmic |
-| log<sup>2</sup>*n* | log-squared |
 | *n* | linear |
 | *n* log *n* | log-linear |
 | *n*<sup>2</sup> | quadratic |
@@ -586,7 +585,7 @@ int main (int argc, char* argv[]) {
   - Analyze from inside to out
     - Runtime of the statement \* product of the sizes of the loops
 - Consecutive statements
-  - Additive (remember that we remove constants!)
+  - Take the max runtime of the individual statements
 - if/else
   - Time for the test plus the longer of the runtimes
 	  </script></section>
