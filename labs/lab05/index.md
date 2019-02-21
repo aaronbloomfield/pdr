@@ -31,9 +31,8 @@ Procedure
 2. Your file **MUST** be named `Makefile-pizza` - not Makefile-pizza.txt, not Makefile-Pizza, not Makefilepizza.  If it is not named correctly, it will not work with our grading scripts, and you will not get credit for that part of the lab.
 3. Come to lab with a fully functional tree calculator, as described below.  
 4. Read the [Wikipedia article on Expression trees](http://en.wikipedia.org/wiki/Expression_tree), especially the [section on construction of expression trees](http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_Expression_Tree).
-5. Complete the [AVL tree worksheet](avl-worksheet.pdf), which is a separate file.  The TAs will collect it at the beginning of lab. Feel free to print it single sided or double sided.
-6. Files to download: [TreeCalc.h](code/prelab/TreeCalc.h.html) ([src](code/prelab/TreeCalc.h)), [TreeCalc.cpp](code/prelab/TreeCalc.cpp.html) ([src](code/prelab/TreeCalc.cpp)), [TreeNode.h](code/prelab/TreeNode.h.html) ([src](code/prelab/TreeNode.h)), [TreeNode.cpp](code/prelab/TreeNode.cpp.html) ([src](code/prelab/TreeNode.cpp)), and  [TreeCalcTest.cpp](code/prelab/TreeCalcTest.cpp.html) ([src](code/prelab/TreeCalcTest.cpp)).  These files are contained in the prelab/ directory of the [code.zip](code.zip) file.
-7. Files to submit: TreeCalc.h/cpp, TreeCalcTest.cpp, TreeNode.h/cpp, Makefile-pizza
+5. Files to download: [TreeCalc.h](code/prelab/TreeCalc.h.html) ([src](code/prelab/TreeCalc.h)), [TreeCalc.cpp](code/prelab/TreeCalc.cpp.html) ([src](code/prelab/TreeCalc.cpp)), [TreeNode.h](code/prelab/TreeNode.h.html) ([src](code/prelab/TreeNode.h)), [TreeNode.cpp](code/prelab/TreeNode.cpp.html) ([src](code/prelab/TreeNode.cpp)), and  [TreeCalcTest.cpp](code/prelab/TreeCalcTest.cpp.html) ([src](code/prelab/TreeCalcTest.cpp)).  These files are contained in the prelab/ directory of the [code.zip](code.zip) file.
+6. Files to submit: TreeCalc.h/cpp, TreeCalcTest.cpp, TreeNode.h/cpp, Makefile-pizza
 
 ### In-lab ###
 
@@ -137,6 +136,8 @@ For this in-lab, you will implement a Binary search tree. The required class dec
 
 Do NOT alter [BSTPathTest.cpp](code/inlab/BSTPathTest.cpp). This program will be used to run automated tests on your implementation. Do not change it.
 
+**IMPORTANT NOTE:** You need to add the following flag as an option to your CXXFLAGS variable in your makefile: **-std=c++11**. WHY? The code we are providing uses some "newer" features of C++ that the grading server won't compile with by default. If you don't add this, your code might compile on your laptop but not the grading server when you submit.
+
 The test program reads a sequence of a sequence of instruction/word pairs and attempts to operate on your tree. Example test files are located in the inlab directory.
 
 - Insert <word>: `I <word>`
@@ -171,6 +172,28 @@ The required class declarations are located in [AVLNode.h](code/postlab/AVLNode.
 
 Do NOT alter [AVLPathTest.cpp](code/postlab/AVLPathTest.cpp). This program will be used to run automated tests on your implementation. Do not change it. The example test files are located in the postlab directory.
 
+**IMPORTANT NOTE:** Similar to the in-lab, you need to add the following flag as an option to your CXXFLAGS variable in your makefile: **-std=c++11**. WHY? The code we are providing uses some "newer" features of C++ that the grading server won't compile with by default. If you don't add this, your code might compile on your laptop but not the grading server when you submit.
+
+A common issue when students implement this lab is that the _balance(AVLNode8 &node)_ method needs to work for insert and for remove. To help avoid potential issues, below is some pseudocode for the balance method that you may use:
+
+```
+//Note that balance factor here is assumed to be height of right - left subtree
+balance(node):
+	if balance factor of node is 2 we will need to rotate left:
+		first, see if we should also rotate right (i.e., do a double rotation)
+		if balance factor of right child is negative:
+			rotate right on the right child
+		endif
+		rotate left on node
+	else if balance factor of node is -2 we will need to rotate right:
+		first, see if we should also rotate left (i.e., double rotation)
+		if balance factor of left is positive:
+			rotate left on the left child
+		endif
+		rotate right on node
+	endif
+```
+
 To recap, submit the following files:
 
 - AVLPathTest.cpp: Do NOT modify, contains `main()`.
@@ -188,4 +211,4 @@ The report for this lab should contain the following:
 3. A description of the space-time tradeoff between the two implementations.
 4. A characterization of situations where AVL trees are preferable to Binary search trees.
 
-We are looking for a full page (double-spaced) for parts 3 and 4 combined. You can single-space as long as it has the same length (in terms of words).
+We are looking for these items to be addressed VERY briefly. We estimate the report should be 1 page or less in total. A short paragraph for each item 2-4 is fine.

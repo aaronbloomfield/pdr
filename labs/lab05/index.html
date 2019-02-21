@@ -32,7 +32,6 @@
 <li>Come to lab with a fully functional tree calculator, as described below.<br />
 </li>
 <li>Read the <a href="http://en.wikipedia.org/wiki/Expression_tree">Wikipedia article on Expression trees</a>, especially the <a href="http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_Expression_Tree">section on construction of expression trees</a>.</li>
-<li>Complete the <a href="avl-worksheet.pdf">AVL tree worksheet</a>, which is a separate file. The TAs will collect it at the beginning of lab. Feel free to print it single sided or double sided.</li>
 <li>Files to download: <a href="code/prelab/TreeCalc.h.html">TreeCalc.h</a> (<a href="code/prelab/TreeCalc.h">src</a>), <a href="code/prelab/TreeCalc.cpp.html">TreeCalc.cpp</a> (<a href="code/prelab/TreeCalc.cpp">src</a>), <a href="code/prelab/TreeNode.h.html">TreeNode.h</a> (<a href="code/prelab/TreeNode.h">src</a>), <a href="code/prelab/TreeNode.cpp.html">TreeNode.cpp</a> (<a href="code/prelab/TreeNode.cpp">src</a>), and <a href="code/prelab/TreeCalcTest.cpp.html">TreeCalcTest.cpp</a> (<a href="code/prelab/TreeCalcTest.cpp">src</a>). These files are contained in the prelab/ directory of the <a href="code.zip" class="uri">code.zip</a> file.</li>
 <li>Files to submit: TreeCalc.h/cpp, TreeCalcTest.cpp, TreeNode.h/cpp, Makefile-pizza</li>
 </ol>
@@ -122,6 +121,7 @@ The result of the expression tree is 42</code></pre>
 <h2 id="in-lab-1">In-lab</h2>
 <p>For this in-lab, you will implement a Binary search tree. The required class declarations are located in <a href="code/inlab/BinaryNode.h">BinaryNode.h</a> and <a href="code/inlab/BinarySearchTree.h">BinarySearchTree.h</a>. You may want to create private helper methods for BinarySearchTree, as done for the implementation of <code>remove</code>, which is already provided for you. Notice how the private methods take a BinaryNode as a parameter. This allows them to recur over a subtree, a common implementation technique.</p>
 <p>Do NOT alter <a href="code/inlab/BSTPathTest.cpp">BSTPathTest.cpp</a>. This program will be used to run automated tests on your implementation. Do not change it.</p>
+<p><strong>IMPORTANT NOTE:</strong> You need to add the following flag as an option to your CXXFLAGS variable in your makefile: <strong>-std=c++11</strong>. WHY? The code we are providing uses some &quot;newer&quot; features of C++ that the grading server won't compile with by default. If you don't add this, your code might compile on your laptop but not the grading server when you submit.</p>
 <p>The test program reads a sequence of a sequence of instruction/word pairs and attempts to operate on your tree. Example test files are located in the inlab directory.</p>
 <ul>
 <li>Insert <word>: <code>I &lt;word&gt;</code></li>
@@ -149,6 +149,23 @@ The result of the expression tree is 42</code></pre>
 <p>The objective of this post-lab is to understand the runtime characteristics and trade-offs between normal Binary search trees and AVL trees. You will have to implement an AVL tree and write a brief report to compare its performance with the Binary search tree implemented for the in-lab.</p>
 <p>The required class declarations are located in <a href="code/postlab/AVLNode.h">AVLNode.h</a> and <a href="code/postlab/AVLTree.h">AVLTree.h</a>. Much of the behavior of the AVL implementation is similar to that of the Binary search tree, aside from rotations and rebalancing. You may want to create private helper methods for AVLTree, as done for the implementation of <code>remove</code>, which is already provided for you. As with the in-lab, the printTree() method is given to you to aid with visualizing the results of your tree operations and for debugging.</p>
 <p>Do NOT alter <a href="code/postlab/AVLPathTest.cpp">AVLPathTest.cpp</a>. This program will be used to run automated tests on your implementation. Do not change it. The example test files are located in the postlab directory.</p>
+<p><strong>IMPORTANT NOTE:</strong> Similar to the in-lab, you need to add the following flag as an option to your CXXFLAGS variable in your makefile: <strong>-std=c++11</strong>. WHY? The code we are providing uses some &quot;newer&quot; features of C++ that the grading server won't compile with by default. If you don't add this, your code might compile on your laptop but not the grading server when you submit.</p>
+<p>A common issue when students implement this lab is that the <em>balance(AVLNode8 &amp;node)</em> method needs to work for insert and for remove. To help avoid potential issues, below is some pseudocode for the balance method that you may use:</p>
+<pre><code>//Note that balance factor here is assumed to be height of right - left subtree
+balance(node):
+    if balance factor of node is 2 we will need to rotate left:
+        first, see if we should also rotate right (i.e., do a double rotation)
+        if balance factor of right child is negative:
+            rotate right on the right child
+        endif
+        rotate left on node
+    else if balance factor of node is -2 we will need to rotate right:
+        first, see if we should also rotate left (i.e., double rotation)
+        if balance factor of left is positive:
+            rotate left on the left child
+        endif
+        rotate right on node
+    endif</code></pre>
 <p>To recap, submit the following files:</p>
 <ul>
 <li>AVLPathTest.cpp: Do NOT modify, contains <code>main()</code>.</li>
@@ -166,6 +183,6 @@ The result of the expression tree is 42</code></pre>
 <li>A description of the space-time tradeoff between the two implementations.</li>
 <li>A characterization of situations where AVL trees are preferable to Binary search trees.</li>
 </ol>
-<p>We are looking for a full page (double-spaced) for parts 3 and 4 combined. You can single-space as long as it has the same length (in terms of words).</p>
+<p>We are looking for these items to be addressed VERY briefly. We estimate the report should be 1 page or less in total. A short paragraph for each item 2-4 is fine.</p>
 </body>
 </html>
