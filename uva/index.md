@@ -76,9 +76,9 @@ The links in the right-most column link directly to the lecture recording on Col
 | 14 | Feb 15 | Friday | | [04: Arrays &amp; big-Oh][84] | [Arrays & big-Oh][84], slides [5.4][1040403] to [5.22][1040421] ([recording][216]) |
 | | Feb 17 | Sunday | | Exam 1 review session | ([recording][218]) |
 | 15 | Feb 18 | Monday | Exam 1 instead during Tuesday's lab | [04: Arrays & big-Oh][84], [05: Trees][85] | [Arrays & big-Oh][84], slides [5.23][1040422] to [6.8][1040507] (end); [Trees][85], slides [1][85] to [4.12][1050311] ([recording][219]) |
-| 16 | Feb 20 | Wednesday | | [05: Trees][85] | |
-| 17 | Feb 22 | Friday | | [05: Trees][85] | |
-| 18 | Feb 25 | Monday | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [05: Trees][85] | |
+| 16 | Feb 20 | Wednesday | | [05: Trees][85] | Snow day, so no classes |
+| 17 | Feb 22 | Friday | | [05: Trees][85] | [Trees][85], slides [4.12][1050311] to [6.15][1050514] ([recording][220]) |
+| 18 | Feb 25 | Monday | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [05: Trees][85] | [Trees][85], slides [7][10506] to [7.31][1050630] ([recording][221]) |
 | 19 | Feb 27 | Wednesday | | [05: Trees][85] | |
 | 20 | Mar 1 | Friday | | [05: Trees][85], [06: Hashes][86] | |
 | 21 | Mar 4 | Monday | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [06: Hashes][86] | |
@@ -434,6 +434,7 @@ Grading Concerns
 [1050418]: ../slides/05-trees.html#/4/18
 [1050419]: ../slides/05-trees.html#/4/19
 [10505]: ../slides/05-trees.html#/5
+[1050514]: ../slides/05-trees.html#/5/14
 [10506]: ../slides/05-trees.html#/6
 [1050604]: ../slides/05-trees.html#/6/4
 [1050605]: ../slides/05-trees.html#/6/5
