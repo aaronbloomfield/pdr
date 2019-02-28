@@ -79,7 +79,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 16 | Feb 20 | Wednesday | | [05: Trees][85] | Snow day, so no classes |
 | 17 | Feb 22 | Friday | | [05: Trees][85] | [Trees][85], slides [4.12][1050311] to [6.15][1050514] ([recording][220]) |
 | 18 | Feb 25 | Monday | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [05: Trees][85] | [Trees][85], slides [7][10506] to [7.31][1050630] ([recording][221]) |
-| 19 | Feb 27 | Wednesday | | [05: Trees][85] | |
+| 19 | Feb 27 | Wednesday | | [05: Trees][85] | [Trees][85], slides [8.1][10507] to [8.12][1050711]; [Hashes][86], slides [1][86] to [5.5][1060404] ([recording][224]) |
 | 20 | Mar 1 | Friday | | [05: Trees][85], [06: Hashes][86] | |
 | 21 | Mar 4 | Monday | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [06: Hashes][86] | |
 | 22 | Mar 6 | Wednesday | | [06: Hashes][86] | |
