@@ -83,7 +83,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 20 | Mar 1 | Friday | | [05: Trees][85], [06: Hashes][86] | [Hashes][86], slides [5.6][1060405] to [6.8][1060507] ([recording from fall 2018][225]) |
 | 21 | Mar 4 | Monday | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [06: Hashes][86] | [Hashes][86], slides [7.1][10606] to [8.5][1060704] ([recording][226]) |
 | 22 | Mar 6 | Wednesday | | [06: Hashes][86] | [Hashes][86], slides [8.5][1060704] to [8.7][1060706] (end); [IBCM][87], slides [1][87] to [5.11][1070410] ([recording][227]) |
-| 23 | Mar 8 | Friday | | [06: Hashes][86], [07: IBCM][87] (machine language) | |
+| 23 | Mar 8 | Friday | | [06: Hashes][86], [07: IBCM][87] (machine language) | [IBCM][87], slides [5.11][1070410] to [6.6][1070505] ([recording][228]) |
 | | Mar 11 | Monday | No lab this week because of spring break | No class: spring break | No class: spring break |
 | | Mar 13 | Wednesday | | No class: spring break | No class: spring break |
 | | Mar 15 | Friday | | No class: spring break | No class: spring break |
