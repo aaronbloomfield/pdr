@@ -87,9 +87,9 @@ The links in the right-most column link directly to the lecture recording on Col
 | | Mar 11 | Monday | No lab this week because of spring break | No class: spring break | No class: spring break |
 | | Mar 13 | Wednesday | | No class: spring break | No class: spring break |
 | | Mar 15 | Friday | | No class: spring break | No class: spring break |
-| 24 | Mar 18 | Monday | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [07: IBCM][87] (machine language) | [IBCM][87], slides [6.7][1070506] to [7.10][1070609] (end); [Assembly][88], slides [1][88] to [4.3][1080302] ([recording][231]) |
-| 25 | Mar 20 | Wednesday | | [07: IBCM][87] (machine language) | |
-| 26 | Mar 22 | Friday | | [07: IBCM][87] (machine language), [08: Assembly][88] | |
+| 24 | Mar 18 | Monday | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [07: IBCM][87] (machine language) | [IBCM][87], slides [6.7][1070506] to [7.10][1070609] (end); [Assembly][88], slides [1][88] to [4.2][1080301] ([recording][231]) |
+| 25 | Mar 20 | Wednesday | | [07: IBCM][87] (machine language) | [Assembly][88], slides [4.3][1080302] to [5.6][1080405] ([recording][232]) |
+| 26 | Mar 22 | Friday | | [07: IBCM][87] (machine language), [08: Assembly][88] | [Assembly][88], slides [5.7][1080406] to [8.14][1080713] ([recording][233]) |
 | 27 | Mar 25 | Monday | [Lab 8: assembly, part 1][8] ([md][28]) / Tutorial 8: see the information on the [tutorials page](../tutorials/index.html) ([md](../tutorials.md)) | [08: Assembly][88] | |
 | 28 | Mar 27 | Wednesday | | [08: Assembly][88] | |
 | 29 | Mar 29 | Friday | | [08: Assembly][88] | |
@@ -507,6 +507,7 @@ Grading Concerns
 [1070601]: ../slides/07-ibcm.html#/6/1
 [1070604]: ../slides/07-ibcm.html#/6/4
 [1070609]: ../slides/07-ibcm.html#/6/9
+[1080301]: ../slides/08-assembly-64bit.html#/3/1
 [1080302]: ../slides/08-assembly-64bit.html#/3/2
 [1080306]: ../slides/08-assembly-64bit.html#/3/6
 [1080410]: ../slides/08-assembly-64bit.html#/4/10
@@ -514,6 +515,8 @@ Grading Concerns
 [1080305]: ../slides/08-assembly-64bit.html#/3/5
 [1080309]: ../slides/08-assembly-64bit.html#/3/9
 [1080402]: ../slides/08-assembly-64bit.html#/4/2
+[1080405]: ../slides/08-assembly-64bit.html#/4/5
+[1080406]: ../slides/08-assembly-64bit.html#/4/6
 [10805]: ../slides/08-assembly-64bit.html#/5
 [1080502]: ../slides/08-assembly-64bit.html#/5/2
 [1080504]: ../slides/08-assembly-64bit.html#/5/4
