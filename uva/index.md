@@ -90,7 +90,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 24 | Mar 18 | Monday | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [07: IBCM][87] (machine language) | [IBCM][87], slides [6.7][1070506] to [7.10][1070609] (end); [Assembly][88], slides [1][88] to [4.2][1080301] ([recording][231]) |
 | 25 | Mar 20 | Wednesday | | [07: IBCM][87] (machine language) | [Assembly][88], slides [4.3][1080302] to [5.6][1080405] ([recording][232]) |
 | 26 | Mar 22 | Friday | | [07: IBCM][87] (machine language), [08: Assembly][88] | [Assembly][88], slides [5.7][1080406] to [8.14][1080713] ([recording][233]) |
-| 27 | Mar 25 | Monday | [Lab 8: assembly, part 1][8] ([md][28]) / Tutorial 8: see the information on the [tutorials page](../tutorials/index.html) ([md](../tutorials.md)) | [08: Assembly][88] | |
+| 27 | Mar 25 | Monday | [Lab 8: assembly, part 1][8] ([md][28]) / Tutorial 8: see the information on the [tutorials page](../tutorials/index.html) ([md](../tutorials.md)) | [08: Assembly][88] | [Assembly][88], slides [8.15][1080714] to [10.16][1080915] ([recording][234]) |
 | 28 | Mar 27 | Wednesday | | [08: Assembly][88] | |
 | 29 | Mar 29 | Friday | | [08: Assembly][88] | |
 | | Mar 31? | Sunday? | | Exam 2 review session | |
