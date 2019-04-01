@@ -91,8 +91,8 @@ The links in the right-most column link directly to the lecture recording on Col
 | 25 | Mar 20 | Wednesday | | [07: IBCM][87] (machine language) | [Assembly][88], slides [4.3][1080302] to [5.6][1080405] ([recording][232]) |
 | 26 | Mar 22 | Friday | | [07: IBCM][87] (machine language), [08: Assembly][88] | [Assembly][88], slides [5.7][1080406] to [8.14][1080713] ([recording][233]) |
 | 27 | Mar 25 | Monday | [Lab 8: assembly, part 1][8] ([md][28]) / Tutorial 8: see the information on the [tutorials page](../tutorials/index.html) ([md](../tutorials.md)) | [08: Assembly][88] | [Assembly][88], slides [8.15][1080714] to [10.16][1080915] ([recording][234]) |
-| 28 | Mar 27 | Wednesday | | [08: Assembly][88] | |
-| 29 | Mar 29 | Friday | | [08: Assembly][88] | |
+| 28 | Mar 27 | Wednesday | | [08: Assembly][88] | [Assembly][88], slides [10.17][1080916] to [10.33][1080932] (end); [Trees][85], slides [9.1][10508] to [9.3][1050802] ([recording][235]) |
+| 29 | Mar 29 | Friday | | [08: Assembly][88] | [Trees][85], slides [9.3][1050802] to [10.10][1050909] (end); [Advanced C++][89], slides [1][89] to [6.4][1090503] ([recording][237]) |
 | | Mar 31? | Sunday? | | Exam 2 review session | |
 | 30 | Apr 1 | Monday | Exam 2 instead during Tuesday's lab | [08: Assembly][88], [09: Advanced C++][89] | |
 | 31 | Apr 3 | Wednesday | | [09: Advanced C++][89] | |
