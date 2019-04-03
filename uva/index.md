@@ -94,7 +94,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 28 | Mar 27 | Wednesday | | [08: Assembly][88] | [Assembly][88], slides [10.17][1080916] to [10.33][1080932] (end); [Trees][85], slides [9.1][10508] to [9.3][1050802] ([recording][235]) |
 | 29 | Mar 29 | Friday | | [08: Assembly][88] | [Trees][85], slides [9.3][1050802] to [10.10][1050909] (end); [Advanced C++][89], slides [1][89] to [6.4][1090503] ([recording][237]) |
 | | Mar 31? | Sunday? | | Exam 2 review session | |
-| 30 | Apr 1 | Monday | Exam 2 instead during Tuesday's lab | [08: Assembly][88], [09: Advanced C++][89] | |
+| 30 | Apr 1 | Monday | Exam 2 instead during Tuesday's lab | [08: Assembly][88], [09: Advanced C++][89] | [Advanced C++][89], slides [6.4][1090503] to [8.12][1090711] (end); [Heaps & Huffman][90], slides [1][90] to  [5.5][1100404] ([recording][241]) |
 | 31 | Apr 3 | Wednesday | | [09: Advanced C++][89] | |
 | 32 | Apr 5 | Friday | | [09: Advanced C++][89] | |
 | 33 | Apr 8 | Monday | [Lab 9: assembly, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [10: Heaps and Huffman coding][90] | |
@@ -560,6 +560,7 @@ Grading Concerns
 [1090711]: ../slides/09-advanced-cpp.html#/7/11
 [1100303]: ../slides/10-heaps-huffman.html#/3/3
 [11004]: ../slides/10-heaps-huffman.html#/4
+[1100404]: ../slides/10-heaps-huffman.html#/4/4
 [1100406]: ../slides/10-heaps-huffman.html#/4/6
 [1100407]: ../slides/10-heaps-huffman.html#/4/7
 [1100408]: ../slides/10-heaps-huffman.html#/4/8

@@ -748,15 +748,12 @@ class Fruit {
         { basket[0] = new Apple(); }
   public String toString() { return "I am a Fruit"; }
 }
-
 class Apple extends Fruit {
   public String toString() { return "I am an Apple"; }
 }
-
 class Orange extends Fruit {
   public String toString() { return "I am an Orange"; }
 }
-
 public class Covariant {
   public static void main (String[] args) {
     Orange oranges[] = { new Orange(), new Orange(), 
