@@ -94,8 +94,8 @@ The links in the right-most column link directly to the lecture recording on Col
 | 28 | Mar 27 | Wednesday | | [08: Assembly][88] | [Assembly][88], slides [10.17][1080916] to [10.33][1080932] (end); [Trees][85], slides [9.1][10508] to [9.3][1050802] ([recording][235]) |
 | 29 | Mar 29 | Friday | | [08: Assembly][88] | [Trees][85], slides [9.3][1050802] to [10.10][1050909] (end); [Advanced C++][89], slides [1][89] to [6.4][1090503] ([recording][237]) |
 | | Mar 31? | Sunday? | | Exam 2 review session | |
-| 30 | Apr 1 | Monday | Exam 2 instead during Tuesday's lab | [08: Assembly][88], [09: Advanced C++][89] | [Advanced C++][89], slides [6.4][1090503] to [8.12][1090711] (end); [Heaps & Huffman][90], slides [1][90] to  [5.5][1100404] ([recording][241]) |
-| 31 | Apr 3 | Wednesday | | [09: Advanced C++][89] | |
+| 30 | Apr 1 | Monday | Exam 2 instead during Tuesday's lab | [08: Assembly][88], [09: Advanced C++][89] | [Advanced C++][89], slides [6.3][1090502] to [7.3][1090602] ([recording][238]) |
+| 31 | Apr 3 | Wednesday | | [09: Advanced C++][89] | [Advanced C++][89], slides [7.3][1090602] to [8.12][1090711] (end); [Heaps & Huffman][90], slides [1][90] to  [5.5][1100404] ([recording][241]) |
 | 32 | Apr 5 | Friday | | [09: Advanced C++][89] | |
 | 33 | Apr 8 | Monday | [Lab 9: assembly, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [10: Heaps and Huffman coding][90] | |
 | 34 | Apr 10 | Wednesday | | [10: Heaps and Huffman coding][90] | |
@@ -547,6 +547,7 @@ Grading Concerns
 [1090308]: ../slides/09-advanced-cpp.html#/3/8
 [1090408]: ../slides/09-advanced-cpp.html#/4/8
 [10905]: ../slides/09-advanced-cpp.html#/5
+[1090502]: ../slides/09-advanced-cpp.html#/5/2
 [1090503]: ../slides/09-advanced-cpp.html#/5/3
 [1090508]: ../slides/09-advanced-cpp.html#/5/8
 [1090509]: ../slides/09-advanced-cpp.html#/5/9
@@ -555,6 +556,7 @@ Grading Concerns
 [1090520]: ../slides/09-advanced-cpp.html#/5/20
 [1090521]: ../slides/09-advanced-cpp.html#/5/21
 [10906]: ../slides/09-advanced-cpp.html#/6
+[1090602]: ../slides/09-advanced-cpp.html#/6/2
 [1090708]: ../slides/09-advanced-cpp.html#/7/8
 [1090710]: ../slides/09-advanced-cpp.html#/7/10
 [1090711]: ../slides/09-advanced-cpp.html#/7/11
