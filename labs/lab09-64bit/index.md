@@ -169,38 +169,36 @@ For the in-lab, you have to address one topic; either the required one or an opt
 
 ### Post-lab ###
 
-Due to it being Thanksgiving week, there is no post-lab due for this lab.
+### Complete the C tutorial's exercise program ###
 
-### ~~Complete the C tutorial's exercise program~~ ###
-
-~~Read the [C tutorial](../../tutorials/09-c/index.html).  You will need to implement the linkedlist.c program.~~
+Read the [C tutorial](../../tutorials/09-c/index.html).  You will need to implement the linkedlist.c program.
 
 
-### ~~Report!~~ ###
+### Report! ###
 
-~~Explore, investigate, and understand two of the four topics from the topic list shown in the in-lab section.  The topic addressed during the in-lab is one of these; for the post-lab, you have to address one other.  Be able to answer "how" and possibly "why" for each item.  Use test cases and the debugger as resources.  Additionally, use resources other than yourself (e.g. books, reputable websites) and external to the course (i.e. "the TAs" or "lecture" don't count towards these sources). Be sure to credit these sources.  ***You must use (and cite!) additional resources for this post-lab!***~~
+Explore, investigate, and understand two of the four topics from the topic list shown in the in-lab section.  The topic addressed during the in-lab is one of these; for the post-lab, you have to address one other.  Be able to answer "how" and possibly "why" for each item.  Use test cases and the debugger as resources.  Additionally, use resources other than yourself (e.g. books, reputable websites) and external to the course (i.e. "the TAs" or "lecture" don't count towards these sources). Be sure to credit these sources.  ***You must use (and cite!) additional resources for this post-lab!***
 
-~~Prepare a report that explains your findings.  Follow the guidelines in the Post-lab Report Guidelines section from the previous lab.  Address the following: How the compiler implements the construct at the machine and assembly levels.  What leads you to this conclusion?  You must show evidence of this behavior in the form of assembly code, C++, screenshots, memory dumps, manual quotations, output, etc.  Also include where you found the information that lead to your conclusion. (i.e. your sources).~~
+Prepare a report that explains your findings.  Follow the guidelines in the Post-lab Report Guidelines section from the previous lab.  Address the following: How the compiler implements the construct at the machine and assembly levels.  What leads you to this conclusion?  You must show evidence of this behavior in the form of assembly code, C++, screenshots, memory dumps, manual quotations, output, etc.  Also include where you found the information that lead to your conclusion. (i.e. your sources).
 
-~~The deliverable for the in-lab is a Word document named postlab9.pdf.  It must be in PDF format!  See [How to convert a file to PDF](../../docs/convert_to_pdf.html) page for details about creating a PDF file.~~
+The deliverable for the in-lab is a Word document named postlab9.pdf.  It must be in PDF format!  See [How to convert a file to PDF](../../docs/convert_to_pdf.html) page for details about creating a PDF file.
 
-### ~~Tips for Getting Started on the Post-lab~~ ###
+### Tips for Getting Started on the Post-lab ###
 
-~~See the section in the previous lab for these tips.~~
+See the section in the previous lab for these tips.
 
-### ~~Post-lab Report Guidelines~~ ###
+### Post-lab Report Guidelines ###
 
-~~See the section in the previous lab for these guidelines.~~
+See the section in the previous lab for these guidelines.
 
-### ~~How much are we looking for?~~ ###
+### How much are we looking for? ###
 
-~~We want you to investigate the particular topic area from the given list, write code to discover the answers, and learn about this topic on your own.  The questions that we pose are just meant to get you thinking about the possible ramifications of a given question.  They aren't meant to be specific questions that necessarily need answering one at a time.~~
+We want you to investigate the particular topic area from the given list, write code to discover the answers, and learn about this topic on your own.  The questions that we pose are just meant to get you thinking about the possible ramifications of a given question.  They aren't meant to be specific questions that necessarily need answering one at a time.
 
-~~As with the previous lab, I would expect the explanation of each item (you have to do two items) to be a page or two long, including embedded code snippets and screenshots (obviously, we want a reasonable amount of English text here -- if you do a lot of screen shots, then your total length will be a bit longer).  Did you investigate the topic?  Did you write code to discover what you didn't know?  Was this written in a reasonably readable format?  This is what we are looking for.~~
+As with the previous lab, I would expect the explanation of each item (you have to do two items) to be a page or two long, including embedded code snippets and screenshots (obviously, we want a reasonable amount of English text here -- if you do a lot of screen shots, then your total length will be a bit longer).  Did you investigate the topic?  Did you write code to discover what you didn't know?  Was this written in a reasonably readable format?  This is what we are looking for.
 
-~~This is somewhat vague, and purposely so -- research is often vague.  If we told you exactly what to write, then there wouldn't be much discovery of that on your part, which would defeat the whole point of this lab.~~
+This is somewhat vague, and purposely so -- research is often vague.  If we told you exactly what to write, then there wouldn't be much discovery of that on your part, which would defeat the whole point of this lab.
 
-~~**We are not looking for you to spend hours and hours and hours on this!**  A *page or two* per list item (and you have to do two of them) - which means your final report needs to be 2-4 pages long.  Keep in mind if you have a lot of screenshots, that doesn't count much towards that page limit.~~
+**We are not looking for you to spend hours and hours and hours on this!**  A *page or two* per list item (and you have to do two of them) - which means your final report needs to be 2-4 pages long.  Keep in mind if you have a lot of screenshots, that doesn't count much towards that page limit.
 
-~~The grading will be based on a set of points that we would expect you to discover when investigating a given topic.  Your grade will be based mostly on how well you hit those points.  A small portion of your grade will be based on the overall report presentation and written ability (while we are a computer science class, we expect you to be able to write in English to some extent!).~~
+The grading will be based on a set of points that we would expect you to discover when investigating a given topic.  Your grade will be based mostly on how well you hit those points.  A small portion of your grade will be based on the overall report presentation and written ability (while we are a computer science class, we expect you to be able to write in English to some extent!).
 
