@@ -14,7 +14,7 @@ The top of each section describes which of the sub-sections need to be installed
 For the fall 2018 version, *only* a few sections were installed on the image:
 
 - Basic Installation
-- A Take of Two GUIs
+- A Tale of Two GUIs
 - Development Installation, but only the "Program and Data Representation" part
 
 All other sections were *not* installed on the fall 2018 version.  The directions for those other parts have not been updated since August 2017, so they may be out of date -- certainly the version numbers are, if not those directions themselves.
