@@ -48,7 +48,6 @@
 <ol style="list-style-type: decimal">
 <li>Complete the post-lab report, as described in the post-lab section.</li>
 <li>Ensure that the pre-lab code (compression) and post-lab code (decompression) work properly, as they will be submitted again</li>
-<li>Implement the linkedlist.c program from the <a href="../../tutorials/09-c/index.html">Tutorial 9: C</a> (<a href="../../tutorials/09-c/index.md">md</a>)</li>
 <li>Create a new Makefile, as specified in the post-lab section</li>
 <li>Files to submit: postlab10.pdf, Makefile, all necessary source code files</li>
 </ol>
@@ -172,7 +171,7 @@ The Huffman tree cost: 1.85 bits per character</code></pre>
 <p>As with the pre-lab, you should ensure that those files compile successfully with <code>make</code>.</p>
 <hr />
 <h2 id="post-lab-1">Post-lab</h2>
-<p>There are three parts to this post-lab: the time and space complexity analysis, the C tutorial, and submitting all your (working) code again.</p>
+<p>There are two parts to this post-lab: the time and space complexity analysis and submitting all your (working) code again.</p>
 <h3 id="time-and-space-complexity">Time and Space Complexity</h3>
 <p>For the post-lab, we want you to do a time and space complexity analysis of your compression and decompression code. You'll submit a written report that describes your implementation choices, and also documents your analysis of time and space complexity. See below for a discussion about the space/time complexity.</p>
 <p>The deliverable for the post-lab is a PDF document named postlab10.pdf. It must be in PDF format! See <a href="../../docs/convert_to_pdf.html">How to convert a file to PDF</a> for details.</p>
@@ -188,12 +187,9 @@ The Huffman tree cost: 1.85 bits per character</code></pre>
 </ol>
 <p>Worst case running time -- for this be sure to include all steps of the compression and decompression. You can leave off the cost of calculating the compression ratio, printing the cost of the tree, and printing a listing of the bit code for each character that was asked for in the pre-lab. Refer to the list of steps given earlier in the lab.</p>
 <p>Space complexity -- for this, you should calculate the number of bytes that are used by each data structure in your implementation. The easiest way to do this is to step through your code, just as you have done for the worst case running time, and make a note each time you use a new data structure. You do not need to take into account scalar variables (loop counters, other singleton variables), focus on the data structures whose size depends on values such as the total number of characters and the total number of unique characters, and use those values in your answer.</p>
-<h3 id="complete-the-c-tutorials-exercise-program">Complete the C tutorial's exercise program</h3>
-<p>Read the <a href="../../tutorials/09-c/index.html">C tutorial</a>. You will need to implement the linkedlist.c program.</p>
-<p>Your Makefile should compile this program into a <code>linkedlist</code> executable. It will also compile other things, described next.</p>
 <h3 id="huffman-encoding-and-decoding-1">Huffman Encoding and Decoding</h3>
 <p>For the post-lab, the purpose is to clean up your code from the pre-lab and in-lab, and submit all of it together. If your pre-lab and in-lab code work properly, then there is no futher clean-up to do; however, you must still submit the files along with a <em>new</em> Makefile.</p>
-<p>When we run <code>make</code>, the code should be compiled into two executables: <code>encoder</code> and <code>decoder</code>, which are the pre-lab and in-lab code bases, respectively. (Also compile the C tutorial code into a <code>linkedlist</code> executable.) Unlike the pre-lab and in-lab, you should <strong><em>NOT</em></strong> name your executables <code>a.out</code>! After compiling your code with <code>make</code>, we will test it as such:</p>
+<p>When we run <code>make</code>, the code should be compiled into two executables: <code>encoder</code> and <code>decoder</code>, which are the pre-lab and in-lab code bases, respectively. Unlike the pre-lab and in-lab, you should <strong><em>NOT</em></strong> name your executables <code>a.out</code>! After compiling your code with <code>make</code>, we will test it as such:</p>
 <pre><code>./encoder testfile.txt &gt; encoded.txt
 ./decoder encoded.txt &gt; output.txt
 diff testfile.txt output.txt</code></pre>
