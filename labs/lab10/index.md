@@ -44,9 +44,8 @@ Lab Procedure
 
 1. Complete the post-lab report, as described in the post-lab section.
 2. Ensure that the pre-lab code (compression) and post-lab code (decompression) work properly, as they will be submitted again
-3. Implement the linkedlist.c program from the [Tutorial 9\: C](../../tutorials/09-c/index.html) ([md](../../tutorials/09-c/index.md))
-4. Create a new Makefile, as specified in the post-lab section
-5. Files to submit: postlab10.pdf, Makefile, all necessary source code files
+3. Create a new Makefile, as specified in the post-lab section
+4. Files to submit: postlab10.pdf, Makefile, all necessary source code files
 
 
 ------------------------------------------------------------
@@ -222,7 +221,7 @@ As with the pre-lab, you should ensure that those files compile successfully wit
 Post-lab
 --------
 
-There are three parts to this post-lab: the time and space complexity analysis, the C tutorial, and submitting all your (working) code again.
+There are two parts to this post-lab: the time and space complexity analysis and submitting all your (working) code again.
 
 ### Time and Space Complexity ###
 
@@ -241,17 +240,11 @@ Worst case running time -- for this be sure to include all steps of the compress
 
 Space complexity -- for this, you should calculate the number of bytes that are used by each data structure in your implementation.  The easiest way to do this is to step through your code, just as you have done for the worst case running time, and make a note each time you use a new data structure.  You do not need to take into account scalar variables (loop counters, other singleton variables), focus on the data structures whose size depends on values such as the total number of characters and the total number of unique characters, and use those values in your answer.
 
-### Complete the C tutorial's exercise program ###
-
-Read the [C tutorial](../../tutorials/09-c/index.html).  You will need to implement the linkedlist.c program.
-
-Your Makefile should compile this program into a `linkedlist` executable.  It will also compile other things, described next.
-
 ### Huffman Encoding and Decoding ###
 
 For the post-lab, the purpose is to clean up your code from the pre-lab and in-lab, and submit all of it together.  If your pre-lab and in-lab code work properly, then there is no futher clean-up to do; however, you must still submit the files along with a *new* Makefile.
 
-When we run `make`, the code should be compiled into two executables: `encoder` and `decoder`, which are the pre-lab and in-lab code bases, respectively.  (Also compile the C tutorial code into a `linkedlist` executable.)  Unlike the pre-lab and in-lab, you should ***NOT*** name your executables `a.out`!  After compiling your code with `make`, we will test it as such:
+When we run `make`, the code should be compiled into two executables: `encoder` and `decoder`, which are the pre-lab and in-lab code bases, respectively. Unlike the pre-lab and in-lab, you should ***NOT*** name your executables `a.out`!  After compiling your code with `make`, we will test it as such:
 
 ```
 ./encoder testfile.txt > encoded.txt
