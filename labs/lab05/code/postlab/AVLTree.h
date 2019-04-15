@@ -60,7 +60,7 @@ class AVLTree {
   int height(AVLNode* node) const;
 
   // private helper for printTree to allow recursion over different nodes.
-  void printTree(AVLNode* root, Trunk* prev, bool isLeft);
+  void printTree(AVLNode* root, Trunk* prev, bool isRight);
 
   // Any other methods you need...
 };

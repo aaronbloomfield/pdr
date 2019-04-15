@@ -131,13 +131,13 @@ void showTrunks(Trunk* p) {
 
 // Recursive function to print binary tree
 // It uses inorder traversal
-void AVLTree::printTree(AVLNode* root, Trunk* prev, bool isLeft) {
+void AVLTree::printTree(AVLNode* root, Trunk* prev, bool isRight) {
   if (root == NULL) return;
 
   string prev_str = "    ";
   Trunk* trunk = new Trunk(prev, prev_str);
 
-  printTree(root->left, trunk, true);
+  printTree(root->right, trunk, true);
 
   if (!prev)
     trunk->str = "---";
@@ -155,7 +155,7 @@ void AVLTree::printTree(AVLNode* root, Trunk* prev, bool isLeft) {
   if (prev) prev->str = prev_str;
   trunk->str = "   |";
 
-  printTree(root->right, trunk, false);
+  printTree(root->left, trunk, false);
 }
 
 void AVLTree::printTree() { printTree(root, NULL, false); }
