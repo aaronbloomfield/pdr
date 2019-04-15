@@ -141,7 +141,7 @@ void AVLTree::printTree(AVLNode* root, Trunk* prev, bool isRight) {
 
   if (!prev)
     trunk->str = "---";
-  else if (isLeft) {
+  else if (isRight) { // github user @willzhang05 pointed out that I forgot to change this from isLeft to isRight on my first commit
     trunk->str = ".---";
     prev_str = "   |";
   } else {
