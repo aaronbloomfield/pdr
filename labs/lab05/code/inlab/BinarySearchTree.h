@@ -47,7 +47,7 @@ class BinarySearchTree {
   string min(BinaryNode* node) const;
 
   // private helper for printTree to allow recursion over different nodes.
-  void printTree(BinaryNode* root, Trunk* prev, bool isLeft);
+  void printTree(BinaryNode* root, Trunk* prev, bool isRight);
 
   // Any other methods you need...
 };
