@@ -98,9 +98,9 @@ The links in the right-most column link directly to the lecture recording on Col
 | 31 | Apr 3 | Wednesday | | [09: Advanced C++][89] | [Advanced C++][89], slides [7.3][1090602] to [8.12][1090711] (end); [Heaps & Huffman][90], slides [1][90] to  [5.5][1100404] ([recording][241]) |
 | 32 | Apr 5 | Friday | | [09: Advanced C++][89] | [Heaps & Huffman][90], slides [5.5][1100404] to  [6.7][1100506] ([recording][242]) |
 | 33 | Apr 8 | Monday | [Lab 9: assembly, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [10: Heaps and Huffman coding][90] | [Heaps & Huffman][90], slides [6.8][1100507] to  [8.2][1100701] ([recording][243]) |
-| 34 | Apr 10 | Wednesday | | [10: Heaps and Huffman coding][90] | |
-| 35 | Apr 12 | Friday | | [10: Heaps and Huffman coding][90] | |
-| 36 | Apr 15 | Monday | [Lab 10: Huffman coding][10] ([md][30]) / (no tutorial) | [10: Heaps and Huffman coding][90], [11: Graphs][91] | |
+| 34 | Apr 10 | Wednesday | | [10: Heaps and Huffman coding][90] | [Heaps & Huffman][90], slides [8.1][11007] to [8.29][1100728] ([recording][244]) |
+| 35 | Apr 12 | Friday | | [10: Heaps and Huffman coding][90] | [Heaps & Huffman][90], slides [8.30][1100729] to  [9.9][1100808] (end); [Graphs][91], slides [1][91] to [4.11][1110310] ([recording][245]) |
+| 36 | Apr 15 | Monday | [Lab 10: Huffman coding][10] ([md][30]) / (no tutorial) | [10: Heaps and Huffman coding][90], [11: Graphs][91] | [Graphs][91], slides [4.11][1110310] to [5.9][1110408] ([recording][246]) |
 | 37 | Apr 17 | Wednesday | | [11: Graphs][91] | |
 | 38 | Apr 19 | Friday | | [11: Graphs][91] | |
 | 39 | Apr 22 | Monday | [Lab 11: Graphs][11] ([md][31]) | [11: Graphs][91] | |
@@ -579,6 +579,7 @@ Grading Concerns
 [1100605]: ../slides/10-heaps-huffman.html#/6/5
 [11006]: ../slides/10-heaps-huffman.html#/6
 [1100606]: ../slides/10-heaps-huffman.html#/6/6
+[11007]: ../slides/10-heaps-huffman.html#/7
 [1100701]: ../slides/10-heaps-huffman.html#/7/1
 [1100703]: ../slides/10-heaps-huffman.html#/7/3
 [1100705]: ../slides/10-heaps-huffman.html#/7/5
@@ -587,6 +588,8 @@ Grading Concerns
 [1100720]: ../slides/10-heaps-huffman.html#/7/20
 [1100723]: ../slides/10-heaps-huffman.html#/7/23
 [1100726]: ../slides/10-heaps-huffman.html#/7/26
+[1100728]: ../slides/10-heaps-huffman.html#/7/28
+[1100729]: ../slides/10-heaps-huffman.html#/7/29
 [1100730]: ../slides/10-heaps-huffman.html#/7/30
 [11008]: ../slides/10-heaps-huffman.html#/8
 [1100808]: ../slides/10-heaps-huffman.html#/8/8
@@ -595,6 +598,7 @@ Grading Concerns
 [1110305]: ../slides/11-graphs.html#/3/5
 [1110306]: ../slides/11-graphs.html#/3/6
 [1110312]: ../slides/11-graphs.html#/3/12
+[1110310]: ../slides/11-graphs.html#/3/10
 [1110402]: ../slides/11-graphs.html#/4/2
 [11104]: ../slides/11-graphs.html#/4
 [1110406]: ../slides/11-graphs.html#/4/6
