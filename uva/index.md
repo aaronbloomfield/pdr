@@ -101,7 +101,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 34 | Apr 10 | Wednesday | | [10: Heaps and Huffman coding][90] | [Heaps & Huffman][90], slides [8.1][11007] to [8.29][1100728] ([recording][244]) |
 | 35 | Apr 12 | Friday | | [10: Heaps and Huffman coding][90] | [Heaps & Huffman][90], slides [8.30][1100729] to  [9.9][1100808] (end); [Graphs][91], slides [1][91] to [4.11][1110310] ([recording][245]) |
 | 36 | Apr 15 | Monday | [Lab 10: Huffman coding][10] ([md][30]) / (no tutorial) | [10: Heaps and Huffman coding][90], [11: Graphs][91] | [Graphs][91], slides [4.11][1110310] to [5.9][1110408] ([recording][246]) |
-| 37 | Apr 17 | Wednesday | | [11: Graphs][91] | |
+| 37 | Apr 17 | Wednesday | | [11: Graphs][91] | [Graphs][91], slides [6.1][11105] to [6.14][1110513] ([recording][247]) |
 | 38 | Apr 19 | Friday | | [11: Graphs][91] | |
 | 39 | Apr 22 | Monday | [Lab 11: Graphs][11] ([md][31]) | [11: Graphs][91] | |
 | 40 | Apr 24 | Wednesday | | [11: Graphs][91] | |
