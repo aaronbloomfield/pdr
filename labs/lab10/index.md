@@ -212,8 +212,6 @@ Not creating a Huffman tree from the file will result in zero credit for the in-
 
 Lastly, read in the second part of the file, transverse your Huffman tree, and output a character when you reach a leaf node.  You can output as much text as you would like, such as status updates as to how the program is progressing.  The only caveat is that the decoded file must be the last thing printed, and it must be clear where the other text ends and the decoded message that you are decoding begins (a separator of dashes would be fine for this).  Of course, you are more than welcome to just print out the decoded message and nothing else.
 
-If you cannot get the Huffman decoder working during the in-lab time, then you should request a lab extension, and submit what you have done so far.
-
 As with the pre-lab, you should ensure that those files compile successfully with `make`.
 
 ------------------------------------------------------------
