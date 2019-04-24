@@ -3,7 +3,7 @@ PDR: Objective C Tutorial
 
 [Go up to the Tutorials table of contents page](../index.html)
 
-Throughout this semester, we have studied C++, which was one way to add object oriented programming capability to the C programming language.  There are other languages that also do that: the one that we will study in this pre-lab is Objective C.  The others are described [here](http://en.wikipedia.org/wiki/C_programming_language#Related_languages).  Objective C had mostly died out as a language that was widely used until Apple decided to use it for their iPhone (and now iPad) application development.  Now it's all the rage.  We want you to be familiar with it, so that you can see a different way to allow for object oriented programming using a C-like language.  
+Throughout this semester, we have studied C++, which was one way to add object oriented programming capability to the C programming language.  There are other languages that also do that: the one that we will study in this pre-lab is Objective C.  The others are described [here](http://en.wikipedia.org/wiki/C_programming_language#Related_languages).  Objective C had mostly died out as a language that was widely used until Apple decided to use it for their iPhone (and now iPad) application development. We want you to be familiar with it, so that you can see a different way to allow for object oriented programming using a C-like language.  
 
 ### But, why? ###
 
@@ -40,7 +40,7 @@ int main (void) {
 }
 ```
 
-The only difference between that program and a normal C program is the use of `#import` instead of `#include`.  The compilation command is `clang helloworld.m -lobjc`. Also, just like pure C `for`-loops, in pure Objective-C the iterating variable should be declared before the `for`-statement.
+The only difference between that program and a normal C program is the use of `#import` instead of `#include`.  The compilation command is `clang helloworld.m -lobjc`.
 
 ### Learn Objective C ###
 
