@@ -11,7 +11,7 @@
 <body>
 <h1 id="pdr-objective-c-tutorial">PDR: Objective C Tutorial</h1>
 <p><a href="../index.html">Go up to the Tutorials table of contents page</a></p>
-<p>Throughout this semester, we have studied C++, which was one way to add object oriented programming capability to the C programming language. There are other languages that also do that: the one that we will study in this pre-lab is Objective C. The others are described <a href="http://en.wikipedia.org/wiki/C_programming_language#Related_languages">here</a>. Objective C had mostly died out as a language that was widely used until Apple decided to use it for their iPhone (and now iPad) application development. Now it's all the rage. We want you to be familiar with it, so that you can see a different way to allow for object oriented programming using a C-like language.</p>
+<p>Throughout this semester, we have studied C++, which was one way to add object oriented programming capability to the C programming language. There are other languages that also do that: the one that we will study in this pre-lab is Objective C. The others are described <a href="http://en.wikipedia.org/wiki/C_programming_language#Related_languages">here</a>. Objective C had mostly died out as a language that was widely used until Apple decided to use it for their iPhone (and now iPad) application development. We want you to be familiar with it, so that you can see a different way to allow for object oriented programming using a C-like language.</p>
 <h3 id="but-why">But, why?</h3>
 <p>Wait a minute -- isn't Objective C a <a href="http://www.infoworld.com/article/2935995/application-development/objective-c-spirals-downward-in-language-popularity.html">dying programming language</a>?</p>
 <p>Well, yes and no. Objective C was exclusively used to implement iOS apps (i.e., iPad, iPhone, and iPod) . But with the recent advent of <a href="https://developer.apple.com/swift/">Swift</a>, more people are moving toward that and away from Objective C. So while Objective C is seeing a decline in how much it is used, it is <a href="http://www.huffingtonpost.com/ahmed-eid/apples-swift-is-great-but_b_5492239.html">not going anywhere anytime soon</a>.</p>
@@ -30,7 +30,7 @@
 int main (void) {
     printf (&quot;Hello world!\n&quot;);
 }</code></pre>
-<p>The only difference between that program and a normal C program is the use of <code>#import</code> instead of <code>#include</code>. The compilation command is <code>clang helloworld.m -lobjc</code>. Also, just like pure C <code>for</code>-loops, in pure Objective-C the iterating variable should be declared before the <code>for</code>-statement.</p>
+<p>The only difference between that program and a normal C program is the use of <code>#import</code> instead of <code>#include</code>. The compilation command is <code>clang helloworld.m -lobjc</code>.</p>
 <h3 id="learn-objective-c">Learn Objective C</h3>
 <p>READ THROUGH THE NEXT SECTION BEFORE YOU START READING THESE TUTORIAL LINKS!</p>
 <p>The tutorials that we will be using come from Wikibooks, and can be found <a href="http://en.wikibooks.org/wiki/Objective-C_Programming">here</a>. The first section (&quot;Objective-C concepts&quot;) discusses such things as what is OOP, and what is an object. You can probably skip that part. The second section (&quot;Getting Started&quot;) talks about how to compile a hello world program, which we have done above, so you can skip that part as well.</p>
@@ -105,7 +105,7 @@ Enter value 4: 8
 <p>In Objective C, constructors are just functions that start with &quot;init&quot; (for convenience sake), and return a pointer to the type we are constructing. Typically, the first line in constructor is <code>[super init];</code>, which will call the parent's constructor. The last line is typically <code>return self;</code>. There is no special handling for constructors as there is in Java or C++.</p>
 <p>You call the default constructor (<code>init()</code>) by the syntax:</p>
 <pre><code>ListNode *node = [[ListNode alloc] init];</code></pre>
-<p>Note that this can be shorted to:</p>
+<p>Note that this can be shortened to:</p>
 <pre><code>ListNode *node = [ListNode new];</code></pre>
 <p>This is how it is declared in the tutorials on Wikibooks, but this is just a shorthand for the alloc/init version shown first. Note that you do not need to declare a default constructor - one is provided for you automatically, just like C++.</p>
 <p>To create a specific constructor, you create it as you would any other method with parameters, and it is typically named starting with &quot;init&quot;. It is called similar to the alloc/init format described above:</p>

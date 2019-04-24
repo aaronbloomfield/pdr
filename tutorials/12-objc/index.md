@@ -167,7 +167,7 @@ You call the default constructor (`init()`) by the syntax:
 ListNode *node = [[ListNode alloc] init];
 ```
 
-Note that this can be shorted to:
+Note that this can be shortened to:
 
 ```
 ListNode *node = [ListNode new];
