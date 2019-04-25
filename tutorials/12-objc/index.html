@@ -46,11 +46,12 @@ int main (void) {
 <p><strong>Difference 2: the super-class</strong></p>
 <p>We have included (well, imported) a different file, and thus can no longer subclass from <code>Object</code>. Thus, we must change the super class name from <code>Object</code> to <code>NSObject</code>. This is line 3 of the Point.h class in the <a href="http://en.wikibooks.org/wiki/Objective-C_Programming/syntax">Objective C Syntax</a> tutorial on Wikibooks.</p>
 <p><strong>Difference 3: compilation command</strong></p>
-<p>As our programs are now more complicated than just a &quot;hello world&quot;, the compilation line is longer as well. The compilation command for Linux machines (such as the VirtualBox image) is:</p>
-<pre><code>clang -I /usr/include/GNUstep/ *.m -lobjc -lgnustep-base</code></pre>
-<p>On some Linux systems (specificially, on 64-bit Ubuntu 16.04 systems), we had to use the following compilation line; if the one above does not work, then try this one:</p>
-<pre><code>clang -I /usr/include/GNUstep/ -I /usr/lib/gcc/x86_64-linux-gnu/5/include/ *.m -lobjc -lgnustep-base</code></pre>
-<p>On Mac OS X, the compilation command is much simpler, and is what was shown above:</p>
+<p>As our programs are now more complicated than just a &quot;hello world&quot;, the compilation line is longer as well. The compilation command for Linux machines (such as VirtualBox image) is:</p>
+<pre><code>clang -I /usr/include/GNUstep/ -I /usr/lib/gcc/x86_64-linux-gnu/7/include/ *.m -lobjc -lgnustep-base</code></pre>
+<p>The command above was tested on the provided Virtual Box image and works. If you are on another Linux system, you can try one of the following similar commands to see if they work:</p>
+<pre><code>clang -I /usr/include/GNUstep/ *.m -lobjc -lgnustep-base
+clang -I /usr/include/GNUstep/ -I /usr/lib/gcc/x86_64-linux-gnu/5/include/ *.m -lobjc -lgnustep-base</code></pre>
+<p>On Mac OS X, the compilation command is much simpler, and is what was previously shown. Here it is again for your convenience:</p>
 <pre><code>clang *.m -lobjc</code></pre>
 <p><strong>Difference 4: other libraries to use</strong></p>
 <p>If you are compiling the Point class, described in the <a href="http://en.wikibooks.org/wiki/Objective-C_Programming/syntax">Objective C Syntax</a> tutorial on Wikibooks, the compiler will need to know what the <code>sqrt()</code> function is. Thus, you will have to link it to the math library: put <code>-lm</code> at the end of the compilation command, otherwise it will tell you that it cannot find the <code>sqrt()</code> implementation. This likely won't be necessary for the program you have to do below, but it will be necessary for the Point class program.</p>

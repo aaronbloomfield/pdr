@@ -76,19 +76,20 @@ We have included (well, imported) a different file, and thus can no longer subcl
 
 **Difference 3: compilation command**
 
-As our programs are now more complicated than just a "hello world", the compilation line is longer as well.  The compilation command for Linux machines (such as the VirtualBox image) is:
+As our programs are now more complicated than just a "hello world", the compilation line is longer as well.  The compilation command for Linux machines (such as VirtualBox image) is:
+
+```
+clang -I /usr/include/GNUstep/ -I /usr/lib/gcc/x86_64-linux-gnu/7/include/ *.m -lobjc -lgnustep-base
+```
+
+The command above was tested on the provided Virtual Box image and works. If you are on another Linux system, you can try one of the following similar commands to see if they work:
 
 ```
 clang -I /usr/include/GNUstep/ *.m -lobjc -lgnustep-base
-```
-
-On some Linux systems (specificially, on 64-bit Ubuntu 16.04 systems), we had to use the following compilation line; if the one above does not work, then try this one:
-
-```
 clang -I /usr/include/GNUstep/ -I /usr/lib/gcc/x86_64-linux-gnu/5/include/ *.m -lobjc -lgnustep-base
 ```
 
-On Mac OS X, the compilation command is much simpler, and is what was shown above:
+On Mac OS X, the compilation command is much simpler, and is what was previously shown. Here it is again for your convenience:
 
 ```
 clang *.m -lobjc
