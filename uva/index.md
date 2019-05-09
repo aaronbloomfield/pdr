@@ -103,10 +103,10 @@ The links in the right-most column link directly to the lecture recording on Col
 | 36 | Apr 15 | Monday | [Lab 10: Huffman coding][10] ([md][30]) / (no tutorial) | [10: Heaps and Huffman coding][90], [11: Graphs][91] | [Graphs][91], slides [4.11][1110310] to [5.9][1110408] ([recording][246]) |
 | 37 | Apr 17 | Wednesday | | [11: Graphs][91] | [Graphs][91], slides [6.1][11105] to [6.14][1110513] ([recording][247]) |
 | 38 | Apr 19 | Friday | | [11: Graphs][91] | [Graphs][91], slides [7.1][11106] to [9.7][1110806] ([recording][248]) |
-| 39 | Apr 22 | Monday | [Lab 11: Graphs][11] ([md][31]) | [11: Graphs][91] | |
-| 40 | Apr 24 | Wednesday | | [11: Graphs][91] | |
-| 41 | Apr 26 | Friday | | [12: Memory][92] | |
-| 42 | Apr 29 | Monday | | [13: Esoteric PLs][93], [Course conclusion][94] | |
+| 39 | Apr 22 | Monday | [Lab 11: Graphs][11] ([md][31]) | [11: Graphs][91] | [Graphs][91], slides [9.7][1110806] to [9.15][1110814] (end); [Memory][92], slides [1][92] to [4.9][1120308] ([recording][249]) |
+| 40 | Apr 24 | Wednesday | | [11: Graphs][91] | [Memory][92], slides [4.9][1120308] to [5.4][1120403] ([recording][250]) |
+| 41 | Apr 26 | Friday | | [12: Memory][92] | [Memory][92], slides [5.4][1120403] to [5.19][1120418] (end); final exam review Q&A ([recording][251]) |
+| 42 | Apr 29 | Monday | | [13: Esoteric PLs][93], [Course conclusion][94] |  [13: Esoteric PLs][93], slides [1][93] to [54][1130512] (end); [Course conclusion][94], slides [1][94] to [12][12011] (end) ([recording][252]) |
 | | May 7? | Tuesday? | | Final exam review session | |
 | | May 9 | Thursday | Final exam from 7:00 p.m. - 10:00 p.m. | Final exam from 7:00 p.m. - 10:00 p.m. | |
 
@@ -625,6 +625,7 @@ Grading Concerns
 [1120312]: ../slides/12-memory.html#/3/12
 [1120325]: ../slides/12-memory.html#/3/25
 [11204]: ../slides/12-memory.html#/4
+[1120403]: ../slides/12-memory.html#/4/3
 [1120407]: ../slides/12-memory.html#/4/7
 [1120414]: ../slides/12-memory.html#/4/14
 [1120415]: ../slides/12-memory.html#/4/15

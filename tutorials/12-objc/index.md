@@ -3,7 +3,7 @@ PDR: Objective C Tutorial
 
 [Go up to the Tutorials table of contents page](../index.html)
 
-Throughout this semester, we have studied C++, which was one way to add object oriented programming capability to the C programming language.  There are other languages that also do that: the one that we will study in this pre-lab is Objective C.  The others are described [here](http://en.wikipedia.org/wiki/C_programming_language#Related_languages).  Objective C had mostly died out as a language that was widely used until Apple decided to use it for their iPhone (and now iPad) application development.  Now it's all the rage.  We want you to be familiar with it, so that you can see a different way to allow for object oriented programming using a C-like language.  
+Throughout this semester, we have studied C++, which was one way to add object oriented programming capability to the C programming language.  There are other languages that also do that: the one that we will study in this pre-lab is Objective C.  The others are described [here](http://en.wikipedia.org/wiki/C_programming_language#Related_languages).  Objective C had mostly died out as a language that was widely used until Apple decided to use it for their iPhone (and now iPad) application development. We want you to be familiar with it, so that you can see a different way to allow for object oriented programming using a C-like language.  
 
 ### But, why? ###
 
@@ -40,7 +40,7 @@ int main (void) {
 }
 ```
 
-The only difference between that program and a normal C program is the use of `#import` instead of `#include`.  The compilation command is `clang helloworld.m -lobjc`. Also, just like pure C `for`-loops, in pure Objective-C the iterating variable should be declared before the `for`-statement.
+The only difference between that program and a normal C program is the use of `#import` instead of `#include`.  The compilation command is `clang helloworld.m -lobjc`.
 
 ### Learn Objective C ###
 
@@ -76,19 +76,25 @@ We have included (well, imported) a different file, and thus can no longer subcl
 
 **Difference 3: compilation command**
 
-As our programs are now more complicated than just a "hello world", the compilation line is longer as well.  The compilation command for Linux machines (such as the VirtualBox image) is:
+As our programs are now more complicated than just a "hello world", the compilation line is longer as well.  The compilation command for Linux machines (such as VirtualBox image) is:
+
+```
+clang -I /usr/include/GNUstep/ -I /usr/lib/gcc/x86_64-linux-gnu/7/include/ *.m -lobjc -lgnustep-base
+```
+
+The command above was tested on the provided Virtual Box image and works. If you are on another Linux system, you can try one of the following similar commands to see if they work:
 
 ```
 clang -I /usr/include/GNUstep/ *.m -lobjc -lgnustep-base
-```
-
-On some Linux systems (specificially, on 64-bit Ubuntu 16.04 systems), we had to use the following compilation line; if the one above does not work, then try this one:
-
-```
 clang -I /usr/include/GNUstep/ -I /usr/lib/gcc/x86_64-linux-gnu/5/include/ *.m -lobjc -lgnustep-base
 ```
+For other Linux distributions you may need to install one or more of the follow packages: `gnustep`, `gnustep-make`, `gnustep-devel`. To install with apt run
+```
+sudo apt install <PACKAGE_NAME>
+```
+Where \<PACKAGE_NAME> is one or more of the packages listed above.
 
-On Mac OS X, the compilation command is much simpler, and is what was shown above:
+On Mac OS X, the compilation command is much simpler, and is what was previously shown. Here it is again for your convenience:
 
 ```
 clang *.m -lobjc
@@ -167,7 +173,7 @@ You call the default constructor (`init()`) by the syntax:
 ListNode *node = [[ListNode alloc] init];
 ```
 
-Note that this can be shorted to:
+Note that this can be shortened to:
 
 ```
 ListNode *node = [ListNode new];
