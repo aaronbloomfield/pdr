@@ -88,6 +88,11 @@ The command above was tested on the provided Virtual Box image and works. If you
 clang -I /usr/include/GNUstep/ *.m -lobjc -lgnustep-base
 clang -I /usr/include/GNUstep/ -I /usr/lib/gcc/x86_64-linux-gnu/5/include/ *.m -lobjc -lgnustep-base
 ```
+For other Linux distributions you may need to install one or more of the follow packages: `gnustep`, `gnustep-make`, `gnustep-devel`. To install with apt run
+```
+sudo apt install <PACKAGE_NAME>
+```
+Where \<PACKAGE_NAME> is one or more of the packages listed above.
 
 On Mac OS X, the compilation command is much simpler, and is what was previously shown. Here it is again for your convenience:
 
