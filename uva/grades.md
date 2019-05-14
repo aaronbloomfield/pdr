@@ -31,7 +31,7 @@ Thus, there was a total of 3.375 points added to your final course average due t
 Rounding
 --------
 
-Yes, we round grades. Note that `round(x) == floor(x+0.5)`. So instead of adding 4.0 (from above) and rounding, you can just add 4.5 and don't round.  But doing it this way means that rounding has already happened, so if you get an 89.9999999999999999999, it's still a B+, no matter how many times you ask - you don't get to round a second time (in reality, it was an 89.49).  Alternatively, you can add 4.0 and then round -- either way will yield the same result.
+Yes, we round grades. Note that `round(x) == floor(x+0.5)`. So instead of adding 3.5 (from above) and rounding, you can just add 4.0 and don't round.  But doing it this way means that rounding has already happened, so if you get an 89.9999999999999999999, it's still a B+, no matter how many times you ask - you don't get to round a second time (in reality, it was an 89.49).  Alternatively, you can add 3.5 and then round -- either way will yield the same result.
 
 
 Overall course curve
@@ -43,7 +43,7 @@ There is 3.5 points from the two midterms, and no curve from the final.  The lab
 Grade breakdown
 ---------------
 
-As stated at the beginning of the semester, each 10-point "decade" is a separate letter grade range (60-70 is a D, 70-80 is a C, etc.).  The exact ranges are below. Take your average from the course gradebook and add 4.5 for the curve (or add 4.0 and then round), then see where the result lies on this table.
+As stated at the beginning of the semester, each 10-point "decade" is a separate letter grade range (60-70 is a D, 70-80 is a C, etc.).  The exact ranges are below. Take your average from the course gradebook and add 4.0 for the curve (or add 3.5 and then round), then see where the result lies on this table.
 
 | Minimum course average | Letter grade |
 |------------------------|--------------|
