@@ -238,7 +238,7 @@ struct list_item {
 Now whenever you want a variable of type `list_item`, you declare it using `struct list_item` - for example, `struct list_item my_item`.
 If the extra `struct` doesn't look right to you, this is where the `typedef` keyword can come in handy.
 
-```c
+```
 /* typedef comes before struct */
 typedef struct list_item {
   struct list_item *prev, *next;
