@@ -27,7 +27,7 @@ int main() {
 ```
 
 A few things to note about this program:
-- The `<stdio.h>` was #included (stdio stands for Standard I/O library), which is where `printf()` (and, later, `scanf()`) live.  These are the basic input and output routines in C, analogous to cout and cin in C++.  More on these functions are below
+- The `<stdio.h>` was `#include`d (stdio stands for Standard I/O library), which is where `printf()` (and, later, `scanf()`) live.  These are the basic input and output routines in C, analogous to cout and cin in C++.  More on these functions are below
 - There are no namespaces in C
 - Comments are enclosed in `/*` and `*/`.  The `//` notation does not work in pure C, but most C compilers will allow it anyway
 - The iterating variable `i` is not declared within the `for` statement in pure C, but most C compilers will allow it anyway.
@@ -70,14 +70,14 @@ and flags:
 
 | Flag | Meaning |
 |-|-|
-| l	(a lower-case 'L') | Instead of an int or float, convert a long int or double |
-| ll (two lower-case 'L's) | ..., convert a long long int or long double |
-| 0 (zero) | Zero pad the conversion to fill the field width |
-| - | Left justify the field |
-| ' ' (a space) | Leave a blank space where an omitted '+' would go |
-| + | Display a '+' for positive numbers |
+| `l`	(a lower-case 'L') | Instead of an int or float, convert a long int or double |
+| `ll` (two lower-case 'L's) | ..., convert a long long int or long double |
+| `0` (zero) | Zero pad the conversion to fill the field width |
+| `-` | Left justify the field |
+| ` ` (a space) | Leave a blank space where an omitted '+' would go |
+| `+` | Display a '+' for positive numbers |
 | Non-zero integer | Minimum field width |
-| '.' followed by a non-zero integer | Number of digits of precision |
+| `.` followed by a non-zero integer | Number of digits of precision |
 
 
 Some examples:
@@ -372,12 +372,12 @@ This exercise is to be developed in C, and compiled using clang (NOT clang++!). 
 1. Read in an integer, which we'll call *n*
 2. Read in *n* more ints, and put those into a linked list
      - The linked list must be dynamically allocated
-3. Print out that linked list (we don't care the order)
+3. Print out that linked list (we don't care about the order!)
 4. Properly deallocate the linked list
 
 That's it - the point is to have you use many of the features of C discussed here (`printf()`, `scanf()`, structs, `malloc()`, and `free()`).  We aren't looking for multiple subroutines, a full list class, etc. - a long `main()` function is just fine.  Don't make this more complicated than necessary!
 
-The program should be in a file called linkedlist.c.  A sample execution run might look like the following:
+The program should be in a file called `linkedlist.c`.  A sample execution run might look like the following:
 
 ```
 Enter how many values to input: 4
