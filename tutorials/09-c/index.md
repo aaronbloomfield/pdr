@@ -122,9 +122,14 @@ int age;
 char grade;
 char school[3];
 
-scanf("AGE: %d", &age);       /* Reads and discards "AGE: ", then converts an integer */
-scanf("GRADE: %c", &grade);   /* Discards "GRADE: ", converts a letter grade (probably 'A') */
-scanf("SCHOOL: %s", school);  /* Discards "SCHOOL: ", converts a string */
+printf("AGE: ");
+scanf("%d", &age);    /* Converts input to an integer and stores it in age */
+
+printf("GRADE: ");
+scanf("%c", &grade);  /* Converts input to a letter grade (probably 'A') and stores it in grade */
+
+printf("SCHOOL: ");
+scanf("%s", school);  /* Converts input to a string and stores it in school */
 ```
 
 The third example above almost certainly overflows the buffer.  `scanf()` will copy input into `school` until it sees the next whitespace character.  If the input is "The University of Virginia", it will save "The", and overflow the buffer by one byte (due to the fact that all C-style strings have a zero byte that terminates the string).  If the input is "UVA", it will save "UVA", but still overflow the buffer.  Using the field width flag `%2s` can solve this buffer overflow problem, but then we will only save "Th" or "UV".  In order to convert whitespace, you must use the more complex conversion.  It's more common to use `fgets()` for this type of input.
