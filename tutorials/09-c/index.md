@@ -74,7 +74,7 @@ and flags:
 | `ll` (two lower-case 'L's) | ..., convert a long long int or long double |
 | `0` (zero) | Zero pad the conversion to fill the field width |
 | `-` | Left justify the field |
-| ` ` (a space) | Leave a blank space where an omitted '+' would go |
+| ' ' (a space) | Leave a blank space where an omitted '+' would go |
 | `+` | Display a '+' for positive numbers |
 | Non-zero integer | Minimum field width |
 | `.` followed by a non-zero integer | Number of digits of precision |
