@@ -30,7 +30,7 @@ int main() {
 <hr />
 <h2 id="input-and-output">Input and Output</h2>
 <p>C does not have <em>iostreams</em> or <em>stream operators</em>, such as <code>&lt;&lt;</code> (for cout) and <code>&gt;&gt;</code> (for cin). For most I/O, we use the <code>printf()</code> family of functions (for output) and the <code>scanf()</code> family (for input).</p>
-<h3 id="int-printfconst-char-format-...">int printf(const char *format, ...) ###</h3>
+<h3 id="int-printfconst-char-format-...">int printf(const char *format, ...)</h3>
 <p><code>printf()</code> takes a <em>format string</em>, containing verbatim text that you want to display and <em>conversion specifiers</em> which describe to <code>printf()</code> how to interpret and display the remaining arguments. The conversion specifiers may contain <em>flags</em>, which control such things as field width, precision, and format. All conversion specifiers begin with a <code>%</code>. To print a <code>%</code>, your format string must contain <code>%%</code>. Other special characters will have to be escaped with a backslash (i.e., to do a return, we enter <code>\n</code>; for a backslash, we enter <code>\\</code>).</p>
 <p>For example, to print an integer, we would enter:</p>
 <pre><code>printf (&quot;this is an int: %d\n&quot;, x);</code></pre>
@@ -125,7 +125,7 @@ int open(const char *pathname, int flags, mode_t mode);</code></pre>
 <p>but C does not support function overloading! While the <code>open()</code> manual page displays the two prototypes above, the actual signature of <code>open()</code> is:</p>
 <pre><code>int open(const char *pathname, int flags, ...);</code></pre>
 <p>The variable argument list (mode) is only used if flags includes the bit <code>O_CREAT</code>, giving <code>open()</code> the information it needs to decide whether or not to access arguments beyond flags.</p>
-<h3 id="int-scanfconst-char-format-...">int scanf(const char *format, ...) ###</h3>
+<h3 id="int-scanfconst-char-format-...">int scanf(const char *format, ...)</h3>
 <p><code>scanf()</code> converts input, rather than output. Its format strings look very similar to those of <code>printf()</code>, with a few more complex conversions, which we will not cover in this tutorial as they are not often used. The key point to remember to differentiate usage of <code>scanf()</code> and <code>printf()</code> is that while <code>printf()</code> converts values (as in <em>pass-by-value</em>), <code>scanf()</code> converts input and thus needs a place to store it (<em>pass-by-address</em>, which is really passing a pointer by value; C does not have <em>pass-by-reference</em>, only C++ does).</p>
 <p><code>scanf()</code> will precisely match all non-whitespace characters in the format string. Whitespace is handled specially, in that each individual instance of whitespace in the format string is treated like a single space, and a single space in the format string matches one or more whitespace characters in the input. Conversion usually stops at the first whitespace character. All matched input is discarded, save that which is converted.</p>
 <p>Be careful of buffer overflow! <code>scanf()</code> doesn't know how large your buffer is. If you don't know either, don't use <code>scanf()</code>. We prefer to use <code>fgets()</code> followed by <code>sscanf()</code> for this reason.</p>

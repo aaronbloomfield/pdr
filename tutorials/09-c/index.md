@@ -41,7 +41,7 @@ Input and Output
 
 C does not have *iostreams* or *stream operators*, such as `<<` (for cout) and `>>` (for cin).  For most I/O, we use the `printf()` family of functions (for output) and the `scanf()` family (for input).
 
-### int printf(const char *format, ...) ###
+### int printf(const char \*format, ...) ###
 
 `printf()` takes a *format string*, containing verbatim text that you want to display and *conversion specifiers* which describe to `printf()` how to interpret and display the remaining arguments.  The conversion specifiers may contain *flags*, which control such things as field width, precision, and format.  All conversion specifiers begin with a `%`.  To print a `%`, your format string must contain `%%`.  Other special characters will have to be escaped with a backslash (i.e., to do a return, we enter `\n`; for a backslash, we enter `\\`).
 
@@ -107,7 +107,7 @@ int open(const char *pathname, int flags, ...);
 
 The variable argument list (mode) is only used if flags includes the bit `O_CREAT`, giving `open()` the information it needs to decide whether or not to access arguments beyond flags.
 
-### int scanf(const char *format, ...) ###
+### int scanf(const char \*format, ...) ###
 
 `scanf()` converts input, rather than output.  Its format strings look very similar to those of `printf()`, with a few more complex conversions, which we will not cover in this tutorial as they are not often used.  The key point to remember to differentiate usage of `scanf()` and `printf()` is that while `printf()` converts values (as in *pass-by-value*), `scanf()` converts input and thus needs a place to store it (*pass-by-address*, which is really passing a pointer by value; C does not have *pass-by-reference*, only C++ does).
 
