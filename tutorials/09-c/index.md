@@ -232,10 +232,22 @@ The following might be a good definition for a list item data structure.  We'll 
 struct list_item {
   struct list_item *prev, *next;
   void *datum;
-} list_item_t;
+};
 ```
 
-Note that in pure C, you will have to declare such a variable either on the last line (this is how `list_item_t` was declared) or via a `struct list_item foo` command.  Note that we have to put `struct` in there (the requirement to list the `struct` (or `class` or `union`) was removed in C++, and some C compilers are lax on requiring it.
+Now whenever you want a variable of type `list_item`, you declare it using `struct list_item` - for example, `struct list_item my_item`.
+If the extra `struct` doesn't look right to you, this is where the `typedef` keyword can come in handy.
+
+```c
+/* typedef comes before struct */
+typedef struct list_item {
+  struct list_item *prev, *next;
+  void *datum;
+} list_item_t; /* what you want to call your struct goes after the closing brace */
+```
+
+With the typedef, we can now refer to our struct as simply `list_item_t`. Therefore, variable declarations become `list_item_t my_item`.
+Note that the `struct list_item *prev, *next` inside of the struct declaration cannot be replaced with `list_item_t *prev, *next`, as the typedef hasn't been finished by that point! We don't know the name of the typedef until after the closing brace.
 
 ### union ###
 
@@ -244,14 +256,17 @@ A union is a type for which the compiler allocates space sufficient only for the
 An anonymous union provides useful syntactic sugar as a structure member.  Take the following example:
 
 ```
-struct {
+struct example_struct {
   int type;
   union {
     int i;
     float f;
     double d;
   };
-} s;
+};
+
+struct example_struct s;
+s.type = 1;
 
 switch (s.type) {
 case 0:
@@ -275,10 +290,13 @@ union ifd_t {
   double d;
 };
 
-struct {
+struct example_struct {
   int type;
   union ifd_t u;
-} s;
+};
+
+struct example_struct s;
+s.type = 1;
 
 switch (s.type) {
 case 0:
