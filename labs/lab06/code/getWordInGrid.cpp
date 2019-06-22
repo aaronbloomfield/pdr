@@ -133,7 +133,7 @@ bool readInGrid (string filename, int &rows, int &cols) {
 char* getWordInGrid (int startRow, int startCol, int dir, int len,
                      int numRows, int numCols) {
     // the static-ness of this variable prevents it from being
-    // re-declared upon each function invocataion.  It also prevents it
+    // re-declared upon each function invocation.  It also prevents it
     // from being deallocated between invocations.  It's probably not
     // good programming practice, but it's an efficient means to return
     // a value.
