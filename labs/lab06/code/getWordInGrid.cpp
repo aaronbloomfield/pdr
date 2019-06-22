@@ -62,7 +62,7 @@ int main() {
  *                 the file format described in the lab document.
  * @param rows The number of rows as specified in the input file;
  *             as this is a reference, it is set by the function.
- * @param cols The number of columnss as specified in the input file;
+ * @param cols The number of columns as specified in the input file;
  *             as this is a reference, it is set by the function.
  */
 bool readInGrid (string filename, int &rows, int &cols) {
