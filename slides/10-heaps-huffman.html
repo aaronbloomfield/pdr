@@ -1037,7 +1037,7 @@ void binary_heap::print() {
     cout << "(" << heap[0] << ") ";
     for ( int i = 1; i <= heap_size; i++ ) {
         cout << heap[i] << " ";
-        // next line from from 
+        // next line from
         // http://tinyurl.com/mf9tbgm
         bool isPow2 = (((i+1) & ~(i))==(i+1))? i+1 : 0; 
         if ( isPow2 )
