@@ -7,17 +7,17 @@ CS 2150: Program and Data Representation: Course Syllabus
 
 ### Instructors ###
 
-- [Mark Floryan][31] / [mrf8t@virginia.edu][39].  Office: Rice Hall, room 203.  Office hours TBA
-- [Rich Nguyen][38] / [nn4pj@virginia.edu](mailto:nn4pj@virginia.edu).  Office: Rice Hall, room 202.  Office hours TBA.
-- [Aaron Bloomfield][33] / [aaron@virginia.edu](mailto:aaron@virginia.edu).  Office: Rice Hall, room 402.  Office hours TBA.
+- [Mark Floryan][31] / [mrf8t@virginia.edu][39].  Office: Rice Hall, room 203.  Office hours are M/Tu 1:00-2:30pm, but do not start until Monday, February 25th.
+- [Rich Nguyen][38] / [nn4pj@virginia.edu](mailto:nn4pj@virginia.edu).  Office: Rice Hall, room 202.  No office hours scheduled.
+- [Aaron Bloomfield][33] / [aaron@virginia.edu](mailto:aaron@virginia.edu).  Office: Rice Hall, room 403.  Office hours are M/W 1:00-2:30, and start the second week of classes.
 
 ### Course Info ###
 
-- Lectures: M/W/F 11:00-11:50 (Olsson 120), 12:00-12:50 (Gilmer 130), or 1:00-1:50 (Olsson 120)
+- Lectures: M/W/F 9:00-10:50 (Ruffner Hall G008), 10:00-10:50 (MEC 341), or 11:00-11:50 (Olsson 120)
 - Email: none; fill out a [support request][42] instead
 - Announcement feed: [\@UVaCS2150][34]
 - TAs and their office hours will be posted on the [CS 2150 Google Calendar][35] (which is also linked to via Collab); all office hours start the Sunday after classes start
-- Laboratory Meetings (in Olsson 009 or MEC 213): all on Tuesdays
+- Laboratory Meetings (all in Olsson 001): all on Tuesdays
 
 **Course Description:** This course will introduce you to program and data representation from high level concepts to machine level implementation. Data structuring techniques and the representation of data structures during program execution are discussed, as are operations and control structures and their representation during program execution. Representations of numbers, arithmetic operations, arrays, records, recursion, hashing, stacks, queues, trees, graphs, and related concepts are also covered.
 
@@ -51,10 +51,10 @@ We expect that grades will follow the standard decade curve: 90 and above is an 
 
 **Exams:** There will be two midterm exams held during laboratory sessions (combined worth 30% of the final grade) and one final exam (worth 25% of the final grade). Note that we hope (but do not guarantee!) to have the first exam returned before the SEAS drop date.
 
-- Midterm Exam 1: Tuesday, October 1, during lab session
-- Midterm Exam 2: Tuesday, November 12, during lab session
-- Final Exam: Monday, December 9 from 7 p.m. to 10 p.m.
-    - This is a common exam time, and conflicts with other courses (BIOL 2100, CS 2110, KOR 1010, KOR 2010, KOR 3010, STAT 2120, and STAT 3120)
+- Midterm Exam 1: Tuesday, February 19, during lab session
+- Midterm Exam 2: Tuesday, April 2, during lab session
+- Final Exam: Thursday, May 9 from 7 p.m. to 10 p.m.
+    - This is a common exam time, and conflicts with other courses (APMA 3110 and ECON 2020 (sections 001 and 002 only))
     - Let us know by the end of January if you have a conflict (via a support request); we will deal with scheduling conflicts later in the semester
 
 ***YOU WILL HAVE TO BRING YOUR UVA ID TO ALL EXAMS!!!***
@@ -81,9 +81,9 @@ The assignments tool does not display due dates such as "at the end of your lab 
 **Computing resources:** There are two specific computer resources needed for this course:
 
 - You need to have a working computer that can run a recent build of [VirtualBox][36], with enough hard drive space (and memory) to use a course VirtualBox image (about 15 Gb will be needed for the install, and then 10 Gb  will be used once the installation files are deleted).  Any computer made in the last 3 years will suffice for these requirements (and many older ones will as well).  It does not matter if it is a desktop or notebook; nor does the speed matter.
-- There are a few documents that you will have to print (the UNIX honor pledge, etc.).  We will attempt to provide copies for you.  The total printing load will be under 5 pages for the entire semester.  You will need to obtain access to a printer for those pages.
+- There are a few documents that you will have to print (a worksheet with lab 5, the UNIX honor pledge, etc.).  The total printing load will be under 5 pages for the entire semester.  You will need to obtain access to a printer for those pages.
 
-**Attendance:** Attendance in labs is mandatory; attendance in lecture is not. Not attending lab will result in a zero for the in-lab. You cannot change labs without prior permission - we do not have enough computers to accommodate this.  Please see the [first set of lecture slides][11] about lab attendance, in particular with regards to the fact that there is a lab the week of Thanksgiving break (in fall semesters) or the weeks before and after spring break (in spring semesters).
+**Attendance:** Attendance in labs is mandatory; attendance in lecture is not. Not attending lab will result in a zero for the in-lab. You cannot change labs without prior permission - we do not have enough computers to accommodate this.  Please see the [first set of lecture slides][11] about lab attendance, in particular with regards to the fact that there is a lab the week of Thanksgiving break.
 
 **Professionalism:** We are all adults, and should act like such.  Acting in an unprofessional manner that disrupts the class will first incur a stern talking-to.  After that, a grade penalty may be assessed.  Examples include: disrupting class, trolling people on Piazza, abusing the support request system, etc.  This is meant to keep people from repeatedly disrupting class; we are not trying to be super strict on this.  And yes, a warning will first be given prior to any other action.
 
@@ -108,16 +108,16 @@ If you or someone you know is struggling with gender, sexual, or domestic violen
 [2]: index.md
 [3]: frivolous-regrades.html
 [4]: frivolous-regrades.md
-[5]: ../docs/compilation.html
-[6]: ../docs/compilation.md
+[5]: ../../docs/compilation.html
+[6]: ../../docs/compilation.md
 [7]: labduedates.html
 [8]: labduedates.md
-[9]: ../docs/readings.html
-[10]: ../docs/readings.md
+[9]: ../../docs/readings.html
+[10]: ../../docs/readings.md
 [11]: course-introduction.html#/
 [12]: course-introduction.html#/cs2102
-[13]: ../labs/lab01/index.html
-[14]: ../labs/lab01/index.md
+[13]: ../../labs/lab01/index.html
+[14]: ../../labs/lab01/index.md
 
 [31]: http://www.cs.virginia.edu/~mrf8t
 [32]: mailto:mrf8t@virginia.edu
@@ -125,7 +125,7 @@ If you or someone you know is struggling with gender, sexual, or domestic violen
 [34]: http://twitter.com/UVaCS2150
 [35]: https://calendar.google.com/calendar/embed?src=fnt7qr3f64egh65rfe1bng8f8s%40group.calendar.google.com&ctz=America/New_York
 [36]: https://www.virtualbox.org/
-[37]: https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool-reset/495df88d-2624-46bf-872f-db154dd6048e
+[37]: https://collab.itc.virginia.edu/portal/site/415219f8-1a72-4ade-a753-b37ec6aecb61/page/37b584bf-c5a5-41e1-bda7-1f2fcbec258e
 [38]: http://www.cs.virginia.edu/~nn4pj
 [39]: mailto:mrf8t@virginia.edu
 
