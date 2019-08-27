@@ -8,7 +8,7 @@ CS 2150: Program and Data Representation: Course Syllabus
 ### Instructors ###
 
 - [Mark Floryan][31] / [mrf8t@virginia.edu][39].  Office: Rice Hall, room 203.  Office hours TBA
-- [Rich Nguyen][38] / [nn4pj@virginia.edu](mailto:nn4pj@virginia.edu).  Office: Rice Hall, room 202.  Office hours M/@ 2:00 - 3:30.
+- [Rich Nguyen][38] / [nn4pj@virginia.edu](mailto:nn4pj@virginia.edu).  Office: Rice Hall, room 202.  Office hours M/W 2:00 - 3:30.
 - [Aaron Bloomfield][33] / [aaron@virginia.edu](mailto:aaron@virginia.edu).  Office: Rice Hall, room 402.  Office hours W 10:00 - 1:00.
 
 ### Course Info ###

@@ -24,9 +24,6 @@
     <!--[if lt IE 9]>
 	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
 	<![endif]-->
-    <script type="text/javascript" src="../slides/js/dhtmlwindow.js"></script>
-    <script type="text/javascript" src="../slides/js/canvas.js"></script>
-    <link rel="stylesheet" href="../slides/css/dhtmlwindow.css" type="text/css">
     <style>
 .reveal li {
 font-size:90%;
@@ -35,8 +32,7 @@ line-height:120%;
     </style>
   </head>
 
-  <body onload="canvasinit()">
-    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+  <body>
 
 		<div class="reveal">
 
@@ -78,25 +74,13 @@ line-height:120%;
   <td><img src="images/introduction/Floryan.jpg"></td><td><img src="images/introduction/Nguyen.JPG"></td><td><img src="images/introduction/aaronbloomfield.jpg"></td>
 </tr>
 <tr>
-  <td><b>Mark Floryan</b><br>Rice Hall, room 203<br>mrf8t@virginia.edu<br>OH: M/Tu 1-2:30pm</td>
-  <td><b>Rich Nguyen</b><br>Rice Hall, room 202<br>nn4pj@virginia.edu<br>OH: NONE</td>
-  <td><b>Aaron Bloomfield</b><br>Rice Hall, room 403<br>aaron@virginia.edu<br>OH: M/W 1-2:30pm</td>
+  <td><b>Mark Floryan</b><br>Rice Hall, room 203<br>mrf8t@virginia.edu<br>OH: TBA</td>
+  <td><b>Rich Nguyen</b><br>Rice Hall, room 202<br>nn4pj@virginia.edu<br>OH: M/W 2-3:30</td>
+  <td><b>Aaron Bloomfield</b><br>Rice Hall, room 402<br>aaron@virginia.edu<br>OH: W 10-1</td>
 </tr>
 </table>
 <p style='text-align:center'>All office hours start next week</p>
 	  </section>
-
-	  <section data-markdown><script type="text/template">
-## Where in the world is ~~Carmen Sandiego~~ Mark Floryan?
-- Paternity leave!
-- He'll be back starting Monday, February 25th
-- Until then...
-  - Nguyen will be covering his 10 am lecture
-    - Note that he will not be holding office hours :-(
-  - Bloomfield will be covering his 11 am lecture
-    - He will be holding office hours :-)
-- His office hours won't start until he's back, obviously
-	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Instructional Staff
@@ -107,9 +91,9 @@ line-height:120%;
 	  <section data-markdown><script type="text/template">
 ## Collab
 - We try to avoid it at all costs.  But we'll use it for:
-  - Large file downloads (VirtualBox image)
+  - Large file downloads (the VirtualBox image)
   - The email list and anonymous feedback
-  - The wiki, but only for very few things (such as the grading guidelines)
+  - The wiki, but only for very few things, such as the grading guidelines
 - Most everything else is external to Collab
   - Course tools: [support requests](https://libra.cs.virginia.edu/~pedagogy/index.php?redirect=support.php), 
     [lab submission](https://libra.cs.virginia.edu/~pedagogy/index.php?redirect=submit.php), 
@@ -126,9 +110,9 @@ line-height:120%;
 - Questions posed through [Piazza](https://piazza.com/class)
   - Typically answered by other students or the TAs
 - Office hours
-  - Will start this Sunday; we will likely have over 40 hours per week
-  - Will be posted in the [CS 2150 Google Calendar](https://calendar.google.com/calendar/embed?src=fnt7qr3f64egh65rfe1bng8f8s%40group.calendar.google.com&ctz=America/New_York)
-    - Please check it before heading over in case there are any changes
+  - Will start this Sunday; we will expect to have over 40 hours per week
+    - Will be posted on the [main UVa page in the repo](index.html)
+    - Any changes will be announced to the [@UVaCS2150](https://twitter.com/@UVaCS2150) twitter feed; please check it before heading over in case there are any changes
   - Professor office hours are in their offices in Rice Hall; the TA's are in the Thornton stacks
 - Anonymous feedback through Collab
 	  </script></section>
@@ -160,7 +144,7 @@ line-height:120%;
 - If you have a concern, feel free to swing by one of our offices; some caveats:
   - If it is something that can be handled by a support request, we'll ask you to do that
   - Likewise if the TA office hours can handle it, we may direct you to them
-  - If we are busy, we'll try to find a time that we can meet later
+  - If we are busy, we'll have to find a time that we can meet later
 - This needs to be used only when necessary -- as there are about 400 students in this course, we cannot handle everybody swinging by our offices at all times...
 	  </script></section>
 
@@ -170,15 +154,16 @@ line-height:120%;
   - In an effort to keep it uncluttered, so that people can find what they are looking for, we will generally not respond from that account to individual tweets
 - Class email
   - We will use this sparingly -- we expect to send 5 (five!) emails this entire semester, unless something goes very wrong (snow day, etc.)
+  - And one of those emails has already been sent
 - Everything in this course happens on a very structured schedule, so there will be no surprises as to when things happen
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Meetings
-- Lectures: one of:
-  - M/W/F 09:00-09:50 (Ruffner G008) by Bloomfield
-  - 10:00-10:50 (MEC 341) by ~~Floryan~~ Nguyen (until 2/25)
-  - 11:00-11:50 (Olsson 120) by ~~Floryan~~ Bloomfield (until 2/25)
+- Lectures: M/W/F and one of:
+  - 11:00 am - 11:50 am by Nguyen in Olsson 120
+  - 12:00 noon - 12:50 pm by Floryan in Gilmer 130
+  - 1:00 pm - 1:50 pm by Bloomfield in Olsson 120
 - Lab meetings: 1 per week at your scheduled lab time
   - You cannot attend another lab section without prior permission
     - And due to lab size, that often cannot be granted
@@ -195,7 +180,7 @@ line-height:120%;
 
 	  <section data-markdown><script type="text/template">
 ## Snow days
-- The schedule for the material this semester is rather tight, and we can withstand missing (maybe) one lecture due to unforseen circumstances
+- The schedule for the material this semester is rather tight, and we can withstand missing (maybe) one lecture due to unforeseen circumstances
   - Snow days, alien invasion, nuclear war, end of the world, Godzilla attack, etc.
 - If we start having snow days, there will be a recorded lecture posted online for each additional lecture day missed
   - You will need to listen to it, as the next lecture will pick up where that recorded one left off
@@ -233,7 +218,7 @@ line-height:120%;
 - Labs will generally be made available on Thursday by noon, and due throughout the following week
   - Pre-lab to be done BEFORE showing up to Tuesday's lab section: all are due at the same time on Tuesday (the start of the *first* lab section)
     - Often includes a tutorial
-  - In-lab to be done IN lab section (due at the end of the day Tuesday)
+  - In-lab to be done IN lab section (due at the end of the day Wednesday)
   - Post-lab to be done AFTER lab section (due Friday morning at the start of the *first* lecture section)
 	  </script></section>
 
@@ -249,11 +234,11 @@ line-height:120%;
 	  </script></section>
 
 	  <section id="registration" data-markdown><script type="text/template">
-## Spring 2019 registration issues
-- There are still waitlists for the course but the labs are full.
+## Fall 2019 registration issues
+- There are still wait lists for the course but the labs are full.
 - We are trying to open up more spots in the labs, but this will take some time
   - Next week we will reassess, and may let additional people in
-  - As per UVa policy, priority will be based on SIS waitlist order
+  - As per UVa policy, priority will be based on SIS wait list order
   - Please keep coming to lecture if you want into the course!
 	  </script></section>
 	  
@@ -261,7 +246,7 @@ line-height:120%;
 ## Lab and Lecture Swaps
 - You are welcome to swap labs (or lectures) with somebody else, or switch into a lab that has free spots
 - To switch to an open lab, do a lab section swap in SIS
-  - If you attempt to drop and then re-add the course, you will go to the END of the waitlist, and then you will not be allowed back into the course!
+  - If you attempt to drop and then re-add the course, you will go to the END of the wait list, and then you will not be allowed back into the course!
   - And make sure there is room in the destination lab before you try this!!!
 - To swap with somebody:
   - Post on [Piazza](https://piazza.com/class) to find somebody to switch with
@@ -292,15 +277,15 @@ line-height:120%;
 	  </script></section>
 
 	  <section data-markdown id="break1"><script type="text/template">
-## Spring break!
-![UVa's spring break](images/introduction/spring-break-2017-uva.png)
-What UVa defines as "Spring break"
+## Thanksgiving!
+![UVa's spring break](images/introduction/thanksgiving-2014-uva.png)
+What UVa defines as "Thanksgiving" (and ignore the fact that the date is off by one)
 	  </script></section>
 
 	  <section data-markdown id="break2"><script type="text/template">
-## Spring break!
-![UVa students' spring break](images/introduction/spring-break-2017-student.png)
-What UVa *students* define as "Spring break"
+## Thanksgiving!
+![UVa students' spring break](images/introduction/thanksgiving-2014-student.png)
+What UVa *students* define as "Thanksgiving"
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -333,8 +318,8 @@ What UVa *students* define as "Spring break"
 This class will program exclusively in a Unix environment.  There are a number of options to do so (listed from easy to hard):
 
 - Run VirtualBox (it's free) and use the course Linux image
-  - This is one of the recommended option; there will be extensive directions
-  - This will be fine for slow (or non-existant) home Internet connections
+  - This is the recommended option; there will be extensive directions
+  - This will be fine for slow (or non-existent) home Internet connections
 	  </script></section>
 
 	  <section data-markdown id="unixinfo"><script type="text/template">
@@ -524,10 +509,10 @@ The answer to all of these is yes, by the way.  And they have all happened in th
 ## Grading Criteria
 - 45% Labs (there will be 11-12 labs)
 - 30% Midterms, during lab and in lab classroom
-  - Midterm 1: Tuesday, February 19 
-  - Midterm 2: Tuesday, April 2
+  - Midterm 1: Tuesday, October 1, during lab session
+  - Midterm 2: Tuesday, November 12, during lab session
 - 25% Final Exam
-  - Thursday, May 9 from 7:00 pm to 10:00 pm
+  - Monday, December 9 from 7 p.m. to 10 p.m.
   - It can NOT be taken early, so please don't ask
 - We reserve the right to change this weighting!  See the [course syllabus](syllabus.html) for details...
 	</script></section>
@@ -537,8 +522,8 @@ The answer to all of these is yes, by the way.  And they have all happened in th
 - Because there are three lecture periods, this class has a common exam time: Thursday, May 9 from 7-10pm
   - You may NOT take it early for any reason
   - You may NOT take the exam at a different time because you have a busy final exam schedule
-- Other classes that also have an exam then: AMPA 3110 and ECON 2020 (sections 001 and 002 only)
-- You must let us know by end of January if you have a conflict (submit a [support request](https://libra.cs.virginia.edu/~pedagogy/index.php?redirect=support.php))
+- Other classes that also have an exam then: BIOL 2100, CS 2110, KOR 1010, KOR 2010, KOR 3010, STAT 2120, and STAT 3120
+- You must let us know by end of September if you have a conflict (submit a [support request](https://libra.cs.virginia.edu/~pedagogy/index.php?redirect=support.php))
   - If you don't let us know by then, then you will have to take it at the common time
 	  </script></section>
 
@@ -706,12 +691,6 @@ Be able to implement basic control and data structures in assembly language (x86
 
     </div>
 
-    <div id="calibratediv" style="display:none">
-      <div id="calibratecanvasdiv">
-        <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
-      </div>
-      <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
-    </div>
     <script src="../slides/reveal.js/lib/js/head.min.js"></script>
     <script src="../slides/reveal.js/js/reveal.js"></script>
     <!-- You cannot, apparently, include this from another directory, hence why settings.js is reproduced here in full -->
