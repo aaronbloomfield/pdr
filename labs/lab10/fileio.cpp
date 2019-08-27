@@ -18,7 +18,7 @@ int main (int argc, char **argv) {
         cout << "Must supply the input file name as the one and only parameter" << endl;
         exit(1);
     }
-    // attempt to open the supplied file.  FILE is a type desgined to
+    // attempt to open the supplied file.  FILE is a type designed to
     // hold file pointers.  The first parameter to fopen() is the
     // filename.  The second parameter is the mode -- "r" means it
     // will read from the file.
@@ -37,7 +37,7 @@ int main (int argc, char **argv) {
     // a nice pretty separator
     cout << "----------------------------------------" << endl;
     // rewinds the file pointer, so that it starts reading the file
-    // again from the begnning
+    // again from the beginning
     rewind(fp);
     // read the file again, and print to the screen
     while ( (g = fgetc(fp)) != EOF )

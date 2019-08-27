@@ -174,7 +174,7 @@ Do NOT alter [AVLPathTest.cpp](code/postlab/AVLPathTest.cpp). This program will 
 
 **IMPORTANT NOTE:** Similar to the in-lab, you need to add the following flag as an option to your CXXFLAGS variable in your makefile: **-std=c++11**. WHY? The code we are providing uses some "newer" features of C++ that the grading server won't compile with by default. If you don't add this, your code might compile on your laptop but not the grading server when you submit.
 
-A common issue when students implement this lab is that the _balance(AVLNode8 &node)_ method needs to work for insert and for remove. To help avoid potential issues, below is some pseudocode for the balance method that you may use:
+A common issue when students implement this lab is that the _balance(AVLNode* &node)_ method needs to work for insert and for remove. To help avoid potential issues, below is some pseudocode for the balance method that you may use:
 
 ```
 //Note that balance factor here is assumed to be height of right - left subtree
