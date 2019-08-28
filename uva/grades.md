@@ -1,4 +1,4 @@
-Grading Explanations, Spring 2019
+Grading Explanations, Fall 2019
 =================================
 
 [Go up to the CS 2150 page](index.html) ([md](index.md))
