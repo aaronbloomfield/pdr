@@ -27,7 +27,7 @@ int main() {
 ```
 
 A few things to note about this program:
-- The `<stdio.h>` was #included (stdio stands for Standard I/O library), which is where `printf()` (and, later, `scanf()`) live.  These are the basic input and output routines in C, analogous to cout and cin in C++.  More on these functions are below
+- The `<stdio.h>` was `#include`d (stdio stands for Standard I/O library), which is where `printf()` (and, later, `scanf()`) live.  These are the basic input and output routines in C, analogous to cout and cin in C++.  More on these functions are below
 - There are no namespaces in C
 - Comments are enclosed in `/*` and `*/`.  The `//` notation does not work in pure C, but most C compilers will allow it anyway
 - The iterating variable `i` is not declared within the `for` statement in pure C, but most C compilers will allow it anyway.
@@ -41,7 +41,7 @@ Input and Output
 
 C does not have *iostreams* or *stream operators*, such as `<<` (for cout) and `>>` (for cin).  For most I/O, we use the `printf()` family of functions (for output) and the `scanf()` family (for input).
 
-### int printf(const char *format, ...) ###
+### int printf(const char \*format, ...) ###
 
 `printf()` takes a *format string*, containing verbatim text that you want to display and *conversion specifiers* which describe to `printf()` how to interpret and display the remaining arguments.  The conversion specifiers may contain *flags*, which control such things as field width, precision, and format.  All conversion specifiers begin with a `%`.  To print a `%`, your format string must contain `%%`.  Other special characters will have to be escaped with a backslash (i.e., to do a return, we enter `\n`; for a backslash, we enter `\\`).
 
@@ -70,14 +70,14 @@ and flags:
 
 | Flag | Meaning |
 |-|-|
-| l	(a lower-case 'L') | Instead of an int or float, convert a long int or double |
-| ll (two lower-case 'L's) | ..., convert a long long int or long double |
-| 0 (zero) | Zero pad the conversion to fill the field width |
-| - | Left justify the field |
+| `l`	(a lower-case 'L') | Instead of an int or float, convert a long int or double |
+| `ll` (two lower-case 'L's) | ..., convert a long long int or long double |
+| `0` (zero) | Zero pad the conversion to fill the field width |
+| `-` | Left justify the field |
 | ' ' (a space) | Leave a blank space where an omitted '+' would go |
-| + | Display a '+' for positive numbers |
+| `+` | Display a '+' for positive numbers |
 | Non-zero integer | Minimum field width |
-| '.' followed by a non-zero integer | Number of digits of precision |
+| `.` followed by a non-zero integer | Number of digits of precision |
 
 
 Some examples:
@@ -107,7 +107,7 @@ int open(const char *pathname, int flags, ...);
 
 The variable argument list (mode) is only used if flags includes the bit `O_CREAT`, giving `open()` the information it needs to decide whether or not to access arguments beyond flags.
 
-### int scanf(const char *format, ...) ###
+### int scanf(const char \*format, ...) ###
 
 `scanf()` converts input, rather than output.  Its format strings look very similar to those of `printf()`, with a few more complex conversions, which we will not cover in this tutorial as they are not often used.  The key point to remember to differentiate usage of `scanf()` and `printf()` is that while `printf()` converts values (as in *pass-by-value*), `scanf()` converts input and thus needs a place to store it (*pass-by-address*, which is really passing a pointer by value; C does not have *pass-by-reference*, only C++ does).
 
@@ -122,9 +122,14 @@ int age;
 char grade;
 char school[3];
 
-scanf("AGE: %d", &age);       /* Reads and discards "AGE: ", then converts an integer */
-scanf("GRADE: %c", &grade);   /* Discards "GRADE: ", converts a letter grade (probably 'A') */
-scanf("SCHOOL: %s", school);  /* Discards "SCHOOL: ", converts a string */
+printf("AGE: ");
+scanf("%d", &age);    /* Converts input to an integer and stores it in age */
+
+printf("GRADE: ");
+scanf("%c", &grade);  /* Converts input to a letter grade (probably 'A') and stores it in grade */
+
+printf("SCHOOL: ");
+scanf("%s", school);  /* Converts input to a string and stores it in school */
 ```
 
 The third example above almost certainly overflows the buffer.  `scanf()` will copy input into `school` until it sees the next whitespace character.  If the input is "The University of Virginia", it will save "The", and overflow the buffer by one byte (due to the fact that all C-style strings have a zero byte that terminates the string).  If the input is "UVA", it will save "UVA", but still overflow the buffer.  Using the field width flag `%2s` can solve this buffer overflow problem, but then we will only save "Th" or "UV".  In order to convert whitespace, you must use the more complex conversion.  It's more common to use `fgets()` for this type of input.
@@ -227,10 +232,22 @@ The following might be a good definition for a list item data structure.  We'll 
 struct list_item {
   struct list_item *prev, *next;
   void *datum;
-} list_item_t;
+};
 ```
 
-Note that in pure C, you will have to declare such a variable either on the last line (this is how `list_item_t` was declared) or via a `struct list_item foo` command.  Note that we have to put `struct` in there (the requirement to list the `struct` (or `class` or `union`) was removed in C++, and some C compilers are lax on requiring it.
+Now whenever you want a variable of type `list_item`, you declare it using `struct list_item` - for example, `struct list_item my_item`.
+If the extra `struct` doesn't look right to you, this is where the `typedef` keyword can come in handy.
+
+```
+/* typedef comes before struct */
+typedef struct list_item {
+  struct list_item *prev, *next;
+  void *datum;
+} list_item_t; /* what you want to call your struct goes after the closing brace */
+```
+
+With the typedef, we can now refer to our struct as simply `list_item_t`. Therefore, variable declarations become `list_item_t my_item`.
+Note that the `struct list_item *prev, *next` inside of the struct declaration cannot be replaced with `list_item_t *prev, *next`, as the typedef hasn't been finished by that point! We don't know the name of the typedef until after the closing brace.
 
 ### union ###
 
@@ -239,14 +256,17 @@ A union is a type for which the compiler allocates space sufficient only for the
 An anonymous union provides useful syntactic sugar as a structure member.  Take the following example:
 
 ```
-struct {
+struct example_struct {
   int type;
   union {
     int i;
     float f;
     double d;
   };
-} s;
+};
+
+struct example_struct s;
+s.type = 1;
 
 switch (s.type) {
 case 0:
@@ -270,10 +290,13 @@ union ifd_t {
   double d;
 };
 
-struct {
+struct example_struct {
   int type;
   union ifd_t u;
-} s;
+};
+
+struct example_struct s;
+s.type = 1;
 
 switch (s.type) {
 case 0:
@@ -349,12 +372,12 @@ This exercise is to be developed in C, and compiled using clang (NOT clang++!). 
 1. Read in an integer, which we'll call *n*
 2. Read in *n* more ints, and put those into a linked list
      - The linked list must be dynamically allocated
-3. Print out that linked list (we don't care the order)
+3. Print out that linked list (we don't care about the order!)
 4. Properly deallocate the linked list
 
 That's it - the point is to have you use many of the features of C discussed here (`printf()`, `scanf()`, structs, `malloc()`, and `free()`).  We aren't looking for multiple subroutines, a full list class, etc. - a long `main()` function is just fine.  Don't make this more complicated than necessary!
 
-The program should be in a file called linkedlist.c.  A sample execution run might look like the following:
+The program should be in a file called `linkedlist.c`.  A sample execution run might look like the following:
 
 ```
 Enter how many values to input: 4

@@ -25,12 +25,12 @@ int main() {
     }
     return 0;
 }</code></pre>
-<p>A few things to note about this program: - The <code>&lt;stdio.h&gt;</code> was #included (stdio stands for Standard I/O library), which is where <code>printf()</code> (and, later, <code>scanf()</code>) live. These are the basic input and output routines in C, analogous to cout and cin in C++. More on these functions are below - There are no namespaces in C - Comments are enclosed in <code>/*</code> and <code>*/</code>. The <code>//</code> notation does not work in pure C, but most C compilers will allow it anyway - The iterating variable <code>i</code> is not declared within the <code>for</code> statement in pure C, but most C compilers will allow it anyway.</p>
+<p>A few things to note about this program: - The <code>&lt;stdio.h&gt;</code> was <code>#include</code>d (stdio stands for Standard I/O library), which is where <code>printf()</code> (and, later, <code>scanf()</code>) live. These are the basic input and output routines in C, analogous to cout and cin in C++. More on these functions are below - There are no namespaces in C - Comments are enclosed in <code>/*</code> and <code>*/</code>. The <code>//</code> notation does not work in pure C, but most C compilers will allow it anyway - The iterating variable <code>i</code> is not declared within the <code>for</code> statement in pure C, but most C compilers will allow it anyway.</p>
 <p>To use <code>malloc()</code>, which is the C version of <code>new</code>, you will need to include the <code>&lt;stdlib.h&gt;</code> file (stdlib is the standard library) - more on <code>malloc()</code> is also below.</p>
 <hr />
 <h2 id="input-and-output">Input and Output</h2>
 <p>C does not have <em>iostreams</em> or <em>stream operators</em>, such as <code>&lt;&lt;</code> (for cout) and <code>&gt;&gt;</code> (for cin). For most I/O, we use the <code>printf()</code> family of functions (for output) and the <code>scanf()</code> family (for input).</p>
-<h3 id="int-printfconst-char-format-...">int printf(const char *format, ...) ###</h3>
+<h3 id="int-printfconst-char-format-...">int printf(const char *format, ...)</h3>
 <p><code>printf()</code> takes a <em>format string</em>, containing verbatim text that you want to display and <em>conversion specifiers</em> which describe to <code>printf()</code> how to interpret and display the remaining arguments. The conversion specifiers may contain <em>flags</em>, which control such things as field width, precision, and format. All conversion specifiers begin with a <code>%</code>. To print a <code>%</code>, your format string must contain <code>%%</code>. Other special characters will have to be escaped with a backslash (i.e., to do a return, we enter <code>\n</code>; for a backslash, we enter <code>\\</code>).</p>
 <p>For example, to print an integer, we would enter:</p>
 <pre><code>printf (&quot;this is an int: %d\n&quot;, x);</code></pre>
@@ -80,19 +80,19 @@ int main() {
 </thead>
 <tbody>
 <tr class="odd">
-<td>l (a lower-case 'L')</td>
+<td><code>l</code> (a lower-case 'L')</td>
 <td>Instead of an int or float, convert a long int or double</td>
 </tr>
 <tr class="even">
-<td>ll (two lower-case 'L's)</td>
+<td><code>ll</code> (two lower-case 'L's)</td>
 <td>..., convert a long long int or long double</td>
 </tr>
 <tr class="odd">
-<td>0 (zero)</td>
+<td><code>0</code> (zero)</td>
 <td>Zero pad the conversion to fill the field width</td>
 </tr>
 <tr class="even">
-<td>-</td>
+<td><code>-</code></td>
 <td>Left justify the field</td>
 </tr>
 <tr class="odd">
@@ -100,7 +100,7 @@ int main() {
 <td>Leave a blank space where an omitted '+' would go</td>
 </tr>
 <tr class="even">
-<td>+</td>
+<td><code>+</code></td>
 <td>Display a '+' for positive numbers</td>
 </tr>
 <tr class="odd">
@@ -108,7 +108,7 @@ int main() {
 <td>Minimum field width</td>
 </tr>
 <tr class="even">
-<td>'.' followed by a non-zero integer</td>
+<td><code>.</code> followed by a non-zero integer</td>
 <td>Number of digits of precision</td>
 </tr>
 </tbody>
@@ -125,7 +125,7 @@ int open(const char *pathname, int flags, mode_t mode);</code></pre>
 <p>but C does not support function overloading! While the <code>open()</code> manual page displays the two prototypes above, the actual signature of <code>open()</code> is:</p>
 <pre><code>int open(const char *pathname, int flags, ...);</code></pre>
 <p>The variable argument list (mode) is only used if flags includes the bit <code>O_CREAT</code>, giving <code>open()</code> the information it needs to decide whether or not to access arguments beyond flags.</p>
-<h3 id="int-scanfconst-char-format-...">int scanf(const char *format, ...) ###</h3>
+<h3 id="int-scanfconst-char-format-...">int scanf(const char *format, ...)</h3>
 <p><code>scanf()</code> converts input, rather than output. Its format strings look very similar to those of <code>printf()</code>, with a few more complex conversions, which we will not cover in this tutorial as they are not often used. The key point to remember to differentiate usage of <code>scanf()</code> and <code>printf()</code> is that while <code>printf()</code> converts values (as in <em>pass-by-value</em>), <code>scanf()</code> converts input and thus needs a place to store it (<em>pass-by-address</em>, which is really passing a pointer by value; C does not have <em>pass-by-reference</em>, only C++ does).</p>
 <p><code>scanf()</code> will precisely match all non-whitespace characters in the format string. Whitespace is handled specially, in that each individual instance of whitespace in the format string is treated like a single space, and a single space in the format string matches one or more whitespace characters in the input. Conversion usually stops at the first whitespace character. All matched input is discarded, save that which is converted.</p>
 <p>Be careful of buffer overflow! <code>scanf()</code> doesn't know how large your buffer is. If you don't know either, don't use <code>scanf()</code>. We prefer to use <code>fgets()</code> followed by <code>sscanf()</code> for this reason.</p>
@@ -134,9 +134,14 @@ int open(const char *pathname, int flags, mode_t mode);</code></pre>
 char grade;
 char school[3];
 
-scanf(&quot;AGE: %d&quot;, &amp;age);       /* Reads and discards &quot;AGE: &quot;, then converts an integer */
-scanf(&quot;GRADE: %c&quot;, &amp;grade);   /* Discards &quot;GRADE: &quot;, converts a letter grade (probably &#39;A&#39;) */
-scanf(&quot;SCHOOL: %s&quot;, school);  /* Discards &quot;SCHOOL: &quot;, converts a string */</code></pre>
+printf(&quot;AGE: &quot;);
+scanf(&quot;%d&quot;, &amp;age);    /* Converts input to an integer and stores it in age */
+
+printf(&quot;GRADE: &quot;);
+scanf(&quot;%c&quot;, &amp;grade);  /* Converts input to a letter grade (probably &#39;A&#39;) and stores it in grade */
+
+printf(&quot;SCHOOL: &quot;);
+scanf(&quot;%s&quot;, school);  /* Converts input to a string and stores it in school */</code></pre>
 <p>The third example above almost certainly overflows the buffer. <code>scanf()</code> will copy input into <code>school</code> until it sees the next whitespace character. If the input is &quot;The University of Virginia&quot;, it will save &quot;The&quot;, and overflow the buffer by one byte (due to the fact that all C-style strings have a zero byte that terminates the string). If the input is &quot;UVA&quot;, it will save &quot;UVA&quot;, but still overflow the buffer. Using the field width flag <code>%2s</code> can solve this buffer overflow problem, but then we will only save &quot;Th&quot; or &quot;UV&quot;. In order to convert whitespace, you must use the more complex conversion. It's more common to use <code>fgets()</code> for this type of input.</p>
 <hr />
 <h2 id="pointers">Pointers</h2>
@@ -197,19 +202,28 @@ void main() {
 <pre><code>struct list_item {
   struct list_item *prev, *next;
   void *datum;
-} list_item_t;</code></pre>
-<p>Note that in pure C, you will have to declare such a variable either on the last line (this is how <code>list_item_t</code> was declared) or via a <code>struct list_item foo</code> command. Note that we have to put <code>struct</code> in there (the requirement to list the <code>struct</code> (or <code>class</code> or <code>union</code>) was removed in C++, and some C compilers are lax on requiring it.</p>
+};</code></pre>
+<p>Now whenever you want a variable of type <code>list_item</code>, you declare it using <code>struct list_item</code> - for example, <code>struct list_item my_item</code>. If the extra <code>struct</code> doesn't look right to you, this is where the <code>typedef</code> keyword can come in handy.</p>
+<pre><code>/* typedef comes before struct */
+typedef struct list_item {
+  struct list_item *prev, *next;
+  void *datum;
+} list_item_t; /* what you want to call your struct goes after the closing brace */</code></pre>
+<p>With the typedef, we can now refer to our struct as simply <code>list_item_t</code>. Therefore, variable declarations become <code>list_item_t my_item</code>. Note that the <code>struct list_item *prev, *next</code> inside of the struct declaration cannot be replaced with <code>list_item_t *prev, *next</code>, as the typedef hasn't been finished by that point! We don't know the name of the typedef until after the closing brace.</p>
 <h3 id="union">union</h3>
 <p>A union is a type for which the compiler allocates space sufficient only for the largest member, not for all members. At any moment in a union instance's lifetime, only one member is valid. It is the responsibility of the programmer to ensure that the data is accessed correctly. The syntax of a union declaration is identical to that of a struct declaration, save the keyword.</p>
 <p>An anonymous union provides useful syntactic sugar as a structure member. Take the following example:</p>
-<pre><code>struct {
+<pre><code>struct example_struct {
   int type;
   union {
     int i;
     float f;
     double d;
   };
-} s;
+};
+
+struct example_struct s;
+s.type = 1;
 
 switch (s.type) {
 case 0:
@@ -229,10 +243,13 @@ case 2:
   double d;
 };
 
-struct {
+struct example_struct {
   int type;
   union ifd_t u;
-} s;
+};
+
+struct example_struct s;
+s.type = 1;
 
 switch (s.type) {
 case 0:
@@ -277,11 +294,11 @@ case 2:
 <ul>
 <li>The linked list must be dynamically allocated</li>
 </ul></li>
-<li>Print out that linked list (we don't care the order)</li>
+<li>Print out that linked list (we don't care about the order!)</li>
 <li>Properly deallocate the linked list</li>
 </ol>
 <p>That's it - the point is to have you use many of the features of C discussed here (<code>printf()</code>, <code>scanf()</code>, structs, <code>malloc()</code>, and <code>free()</code>). We aren't looking for multiple subroutines, a full list class, etc. - a long <code>main()</code> function is just fine. Don't make this more complicated than necessary!</p>
-<p>The program should be in a file called linkedlist.c. A sample execution run might look like the following:</p>
+<p>The program should be in a file called <code>linkedlist.c</code>. A sample execution run might look like the following:</p>
 <pre><code>Enter how many values to input: 4
 Enter value 1: 2
 Enter value 2: 4
