@@ -143,7 +143,7 @@ vector<string> MiddleEarth::getItinerary (unsigned int length) {
     length++; // to account for the start point
     // check parameter
     if ( length > cities.size() ) {
-        cout << "You have requested a itinerary of " << length-1
+        cout << "You have requested an itinerary of " << length-1
              << " cities; you cannot ask for an itinerary of more than length "
              << cities.size()-1 << endl;
         exit(0);

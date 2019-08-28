@@ -10,7 +10,7 @@
 </head>
 <body>
 <h1 id="program-and-data-representation">Program and Data Representation</h1>
-<p><a href="#introduction">Introduction</a> | <a href="#contents">Repository contents</a> | <a href="#contributing">Contributing to this repository</a> | <a href="#description">Course description</a> | <a href="#markdown">Markdown</a> | <a href="#sourcecode">Source code</a> | <a href="#canvasnotes">Canvas notes</a> | <a href="#license">License</a></p>
+<p><a href="#introduction">Introduction</a> | <a href="#contents">Repository contents</a> | <a href="#contributing">Contributing to this repository</a> | <a href="#description">Course description</a> | <a href="#markdown">Markdown</a> | <a href="#sourcecode">Source code</a> | <a href="#license">License</a></p>
 <h2 id="introduction"><a name="introduction"></a>Introduction</h2>
 <p>This repository contains the materials for the course entitled &quot;CS 2150: Program and Data Representation&quot; in the <a href="http://www.cs.virginia.edu">Computer Science Department</a> at the <a href="http://www.virginia.edu">University of Virginia</a>. It contains all of the slides, labs, exams, etc., used throughout the course. The course description is <a href="#description">below</a>. The github repository for this course is at <a href="https://github.com/uva-cs/pdr" class="uri">https://github.com/uva-cs/pdr</a>. It can be viewed online at <a href="http://uva-cs.github.io/pdr/" class="uri">http://uva-cs.github.io/pdr/</a>.</p>
 <p>Students <em>currently</em> in the course should view the <a href="uva/index.html" class="uri">uva/index.html</a> (<a href="uva/index.md">md</a>) file in the <strong>cloned</strong> repository (i.e., don't try to view it on github.com); current students may also want to view the <a href="uva/daily-announcements.html#/">daily announcements</a>. Note that many of the course materials are modified right before they are needed -- for example, this repository will be updated right before the semester starts.</p>
@@ -59,40 +59,6 @@
 <ul>
 <li>astyle options: <code>-A2 -s4 -S</code></li>
 <li>source-highlight options: <code>-d</code></li>
-</ul>
-<h2 id="canvas-notes"><a name="canvasnotes"></a>Canvas notes</h2>
-<p>Some of the slides allow pen-based markup of the slides. To add a canvas to a slide (to allow drawing with a mouse or a stylus), you must do a few things:</p>
-<ol style="list-style-type: decimal">
-<li><p>The slide can NOT be Markdown, it must be all pure HTML</p></li>
-<li><p>Include the js/canvas.js and css/dhtmlwindow.js scripts, as well as the dhtmlwindow.css CSS file (the two dhtmlwindow.* files are for the calibration feature):</p></li>
-</ol>
-<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;js/dhtmlwindow.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;js/canvas.js&quot;&gt;&lt;/script&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;css/dhtmlwindow.css&quot; type=&quot;text/css&quot;&gt;</code></pre>
-<ol start="3" style="list-style-type: decimal">
-<li><p>Add an <code>onload=&quot;canvasinit()&quot;</code> to the <code>&lt;body&gt;</code> tag: <code>&lt;body onload=&quot;canvasinit()&quot;&gt;</code></p></li>
-<li><p>Add the following immediately after the <code>&lt;body&gt;</code> tag (this is for the calibration feature):</p></li>
-</ol>
-<pre><code>&lt;div id=&quot;dhtmlwindowholder&quot;&gt;&lt;span style=&quot;display:none&quot;&gt;&lt;/span&gt;&lt;/div&gt;</code></pre>
-<ol start="5" style="list-style-type: decimal">
-<li>Add the following code at the end of the .html file (just before the three script tags):</li>
-</ol>
-<pre><code>&lt;div id=&quot;calibratediv&quot; style=&quot;display:none&quot;&gt;
-  &lt;div id=&quot;calibratecanvasdiv&quot;&gt;
-    &lt;canvas id=&quot;calibratecanvas&quot; width=&quot;300&quot; height=&quot;300&quot;&gt;Your
-            browser does not support the canvas tag&lt;/canvas&gt;
-   &lt;/div&gt;
-   &lt;p style=&quot;text-align:center&quot;&gt;Click the center of the target&lt;br&gt;&lt;a href=&quot;#&quot; 
-       onClick=&quot;calibratewin.close(); return false&quot;&gt;Close window&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;</code></pre>
-<ol start="6" style="list-style-type: decimal">
-<li>Then, on each slide that you want a canvas on, you add the following:</li>
-</ol>
-<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;insertCanvas();&lt;/script&gt;</code></pre>
-<p>A few other notes:</p>
-<ul>
-<li>The canvas is larger than the slide itself, and the amount, in number of pixels, is the <code>canvas_border</code> variable in the canvas.js file</li>
-<li>To add colors, add them to the <code>colors</code> array in the canvas.js file; more color names can be found <a href="http://www.tutorialspoint.com/html5/html5_color_names.htm">here</a></li>
 </ul>
 <h2 id="license"><a name="license"></a>License</h2>
 <p>The material in this repository is released under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> (CC BY-SA).</p>

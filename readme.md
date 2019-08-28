@@ -1,7 +1,7 @@
 Program and Data Representation
 ===============================
 
-[Introduction](#introduction) | [Repository contents](#contents) | [Contributing to this repository](#contributing) | [Course description](#description) | [Markdown](#markdown) | [Source code](#sourcecode) | [Canvas notes](#canvasnotes) | [License](#license)
+[Introduction](#introduction) | [Repository contents](#contents) | [Contributing to this repository](#contributing) | [Course description](#description) | [Markdown](#markdown) | [Source code](#sourcecode) | [License](#license)
 
 <a name="introduction"></a>Introduction
 ---------------------------------------
@@ -79,54 +79,6 @@ All source code is formatted via [astyle](http://astyle.sourceforge.net/) and th
 
 - astyle options: `-A2 -s4 -S`
 - source-highlight options: `-d`
-
-
-<a name="canvasnotes"></a>Canvas notes
---------------------------------------
-
-Some of the slides allow pen-based markup of the slides.  To add a canvas to a slide (to allow drawing with a mouse or a stylus), you must do a few things:
-
-1) The slide can NOT be Markdown, it must be all pure HTML
-
-2) Include the js/canvas.js and css/dhtmlwindow.js scripts, as well as the dhtmlwindow.css CSS file (the two dhtmlwindow.* files are for the calibration feature):
-
-```
-<script type="text/javascript" src="js/dhtmlwindow.js"></script>
-<script type="text/javascript" src="js/canvas.js"></script>
-<link rel="stylesheet" href="css/dhtmlwindow.css" type="text/css">
-```
-
-3) Add an `onload="canvasinit()"` to the `<body>` tag: `<body onload="canvasinit()">`
-
-4) Add the following immediately after the `<body>` tag (this is for the calibration feature):
-
-```
-<div id="dhtmlwindowholder"><span style="display:none"></span></div>
-```
-
-5) Add the following code at the end of the .html file (just before the three script tags):
-
-```
-<div id="calibratediv" style="display:none">
-  <div id="calibratecanvasdiv">
-    <canvas id="calibratecanvas" width="300" height="300">Your
-            browser does not support the canvas tag</canvas>
-   </div>
-   <p style="text-align:center">Click the center of the target<br><a href="#" 
-       onClick="calibratewin.close(); return false">Close window</a></p>
-</div>
-```
-
-6) Then, on each slide that you want a canvas on, you add the following:
-
-```
-<script type="text/javascript">insertCanvas();</script>
-```
-
-A few other notes:
-
-- The canvas is larger than the slide itself, and the amount, in number of pixels, is the `canvas_border` variable in the canvas.js file
-- To add colors, add them to the `colors` array in the canvas.js file; more color names can be found [here](http://www.tutorialspoint.com/html5/html5_color_names.htm)
 
 
 <a name="license"></a>License

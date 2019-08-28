@@ -130,7 +130,7 @@ The second section is the encoded message, using the characters `0` and `1`.  Yo
 
 The next line is a separator, and is also a single line containing 40 dashes and no spaces.
 
-The last section of the file are English text, which displays the compression ratio and the cost of the Huffman tree.  This does not need to be read in by the decompression routines.  As long as you output the required information, and it is easily understandable by a human, it can be in a format similar to (but not necessarily the same as) what is shown below.  You can have additional information as well, as long as we can easily find what we are looking for (compression ratio and Huffamn tree cost).
+The last section of the file are English text, which displays the compression ratio and the cost of the Huffman tree.  This does not need to be read in by the decompression routines.  As long as you output the required information, and it is easily understandable by a human, it can be in a format similar to (but not necessarily the same as) what is shown below.  You can have additional information as well, as long as we can easily find what we are looking for (compression ratio and Huffman tree cost).
 
 For the in-lab, you can assume that we will not provide you with invalid Huffman file formats.  You can safely assume that we will provide you with a few different valid file formats (a few such examples are available in the [labs/lab10/examples/ directory](examples/)).
 
