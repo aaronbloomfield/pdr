@@ -58,7 +58,7 @@ The links in the right-most column link directly to the lecture recording on Col
 
 | Num | Date | Day of week | Lab & Tutorial (on Tue) | Planned topic | Lecture progress |
 |-----|-----|-----|----------------------|---------|--------------------|
-| 1  | Aug 28 | Wednesday | no lab this week | [Course introduction][80] | |
+| 1  | Aug 28 | Wednesday | no lab this week | [Course introduction][80] | Course intro through slide 4.6 |
 | 2  | Aug 30 | Friday | | [Course introduction][80], [01: C++][81] | |
 | 3  | Sep  2 | Monday | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | [01: C++][81] | |
 | 4  | Sep  4 | Wednesday | | [01: C++][81] | |
