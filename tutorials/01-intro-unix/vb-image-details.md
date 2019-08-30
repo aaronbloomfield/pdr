@@ -93,16 +93,16 @@ alias xemacs='emacs'
 
 ### Introduction to Cybersecurity configuration
 
-These are not included in this repo, but can be found [in the aaronbloomfield/ics repo](https://github.com/aaronbloomfield/ics/blob/fe3d7203eddf40bb76633bec6900e50ec82e47f8/docs/vb-image-details.md#introduction-to-cybersecurity-configuration).  These instructiosn were last updated in August 2019.
+These are not included in this repo, but can be found [in the aaronbloomfield/ics repo](https://github.com/aaronbloomfield/ics/blob/master/docs/vb-image-details.md#introduction-to-cybersecurity-configuration).  These instructiosn were last updated in August 2019.
 
 ### Service Learning Practicum configuration section
 
-These sections are no longer included here, but can be found in [the latest version of the aaronbloomfield/slp repo](https://github.com/aaronbloomfield/slp/blob/master/docs/virtualbox-image-details.md#development-installation).  There were two sections for this: "LAMP configuration (with both PHP and Python 3)" and "Ruby on Rails configuration".  Note that that repo, and the linked instructions, were last updated in August of 2017.  All the versions stated therein are outdated, and many (all?) of those instructions may need tweaking to work properly again.
+These sections are no longer included here, nor used in the images currently distributed, but can be found in [the latest version of the aaronbloomfield/slp repo](https://github.com/aaronbloomfield/slp/blob/master/docs/virtualbox-image-details.md#development-installation).  There were two sections for this: "LAMP configuration (with both PHP and Python 3)" and "Ruby on Rails configuration".  Note that that repo, and the linked instructions, were last updated in August of 2017.  All the versions stated therein are outdated, and many (all?) of those instructions may need tweaking to work properly again.
 
 
 ### Programming Contest configuration section
 
-This section is no longer included here, but can be found in [an old version of the PDR repo](https://github.com/uva-cs/pdr/blob/2019-spring/tutorials/01-intro-unix/vb-image-details.md#programming-contest-configuration-sections).  That version was last updated in the spring of 2018.
+This section is no longer included here, nor used in the images currently distributed, but can be found in [an old version of the PDR repo](https://github.com/uva-cs/pdr/blob/2019-spring/tutorials/01-intro-unix/vb-image-details.md#programming-contest-configuration-sections).  That version was last updated in the spring of 2018.
 
 # Image completion
 
