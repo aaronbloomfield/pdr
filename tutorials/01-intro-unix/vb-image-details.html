@@ -13,27 +13,19 @@
 <p><a href="index.html">Go up to the main directory page</a> (<a href="index.md">md</a>)</p>
 <p>For those who are interested, this is how the VirtualBox image was created.</p>
 <h1 id="introduction">Introduction</h1>
-<p>This page has a number of different sections, and the sections you need to install will vary depending on what you are using this image for. The image provided with the class has only two sections not installed: Dropbox configuration (in &quot;Image completion&quot;) and Turning of the Internet access (in &quot;Programming Contest configuration&quot;).</p>
-<p>The top of each section describes which of the sub-sections need to be installed for what.</p>
-<p>For the fall 2018 version, <em>only</em> a few sections were installed on the image:</p>
-<ul>
-<li>Basic Installation</li>
-<li>A Tale of Two GUIs</li>
-<li>Development Installation, but only the &quot;Program and Data Representation&quot; part</li>
-</ul>
-<p>All other sections were <em>not</em> installed on the fall 2018 version. The directions for those other parts have not been updated since August 2017, so they may be out of date -- certainly the version numbers are, if not those directions themselves.</p>
+<p>This page has a number of different sections, and the sections you need to install will vary depending on what course you are using this image for. The top of each section describes which of the sub-sections need to be installed for what.</p>
 <p><strong>Software Versions</strong></p>
 <p>This installation document installs the following versions:</p>
 <ul>
 <li><a href="http://ubuntu.com">Ubuntu 18.04, 64-bit</a></li>
 <li>Clang++ version 6.0.0</li>
-<li>Python <a href="http://packages.ubuntu.com/xenial/python3">3.6.5</a>; <del><a href="https://www.djangoproject.com/download/">Django 2.1</a></del></li>
-<li><del><a href="https://gorails.com/setup/ubuntu/18.04">Ruby 2.4.1; Rails 5.1.3</a></del></li>
+<li>g++ version 7.4.0</li>
+<li>Python <a href="http://packages.ubuntu.com/xenial/python3">3.6.8</a></li>
 </ul>
-<p>Newer versions of the above may have since come out, but at the time of the writing of this document (August 2018), they were either the versions installed via apt-get (Clang, Python), or the latest versions installed manually (Django, Ruby, and Rails).</p>
+<p>Newer versions of the above may have since come out, but at the time of the last update of this document (August 2019), they the latest versions installed via apt-get.</p>
 <p><strong>Notes</strong></p>
 <ul>
-<li>The guest hard drive reported 9.1 Gb of space available, prior to distribution of the image. The disk image itself was, after compaction, 9.4 Gb. When compressed via zip, it was 3.9 Gb in size.</li>
+<li>The guest hard drive reported 27 Gb of space available, prior to distribution of the image. The disk image itself was, after compaction, 10 Gb. When compressed via zip, it was 4.3 Gb in size.</li>
 <li>You will likely need to use a different unzip program to extract the image; the ones that come bundled with most operating systems can not handle archives of that size. We have used <a href="http://www.7-zip.org/">7-zip</a> with success.</li>
 <li>Video and sound (via youtube) worked fine with both Chrome and Firefox (although it may a bit slow depending on your computer's speed)</li>
 <li>The VM may capture the mouse - to uncapture it, you press the &quot;host key&quot;, (which is the right Control key on Linux and Windows hosts, and the left Command key on Mac hosts). To have it warn you about what this is, you can reset all warnings via the VirtualBox help menu, and it will warn you about this at boot-up</li>
@@ -46,9 +38,9 @@
 <li>Created a new VirtualBox image
 <ul>
 <li>I named it &quot;Ubuntu 18.04&quot; or similar; this automatically selected Linux as the OS type; I manually selected &quot;Ubuntu (64 bit)&quot; as the version</li>
-<li>I set the memory at 2048 Mb (instead of the default of 512 Mb), ensured that the disk size was &quot;dynamically allocated&quot; and was set to 20 Gb (instead of the default 8 Gb); everything else was set at the default</li>
+<li>I set the memory at 4096 Mb (instead of the default of 512 Mb), ensured that the disk size was &quot;dynamically allocated&quot; and was set to 40 Gb (instead of the default 8 Gb); everything else was set at the default</li>
 </ul></li>
-<li>I installed Ubuntu 18.04.1 LTS (64 bit), desktop edition, from the DVD image downloaded from <a href="https://www.ubuntu.com">ubuntu.com</a>
+<li>I installed Ubuntu 18.04.3 LTS (64 bit), desktop edition, from the DVD image downloaded from <a href="https://www.ubuntu.com">ubuntu.com</a>
 <ul>
 <li>When prompted, I clicked on 'download updates' and 'install 3rd party software' when the options were given</li>
 <li>For hard drive, I used the default option that was already selected</li>
@@ -62,16 +54,18 @@
 <li>VirtualBox guest additions
 <ul>
 <li>These are the utilities so that VirtualBox will work correctly with the host computer (proper full screen, etc.)</li>
-<li>From the VirtualBox Device menu, select &quot;Insert Guest Additions CD Image&quot;, and follow the prompts</li>
+<li>The menu option to &quot;Insert Guest Additions CD Image&quot; downloads a version that will not work with the current Linux kernel version, so the ISO must be manually downloaded from <a href="http://download.virtualbox.org/virtualbox/" class="uri">http://download.virtualbox.org/virtualbox/</a></li>
+<li>Installing these requires the <code>gcc make perl</code> packages to be installed first</li>
 <li>Once done, run <code>autorun.sh</code> from <code>/media/student/VBOXADDITIONS_4.3.36_105129</code> (or similar), and follow the prompts. Alternatively, if that does not work, try running <code>sudo bash VBoxLinuxAdditions.run</code> from that same directory.</li>
 </ul></li>
 <li>Reboot!</li>
+<li>As per <a href="https://askubuntu.com/questions/973017/wrong-nameserver-set-by-resolvconf-and-networkmanager">here</a> to fix an issue with /etc/resolv.conf, edited /etc/systemd/resolved.conf to put 8.8.8.8 as the DNS line, and then ran the commands from the second answer: <code>sudo rm -f /etc/resolv.conf</code> followed by <code>sudo ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf</code>, and then rebooted</li>
+<li>Ran <code>apt-get remove thunderbird</code></li>
+<li>Disable the KDE wallet system (if using KDE)</li>
 </ul>
-<h1 id="a-tale-of-two-guis">A Tale of Two GUIs</h1>
-<p>For students in CS 2150 for the fall 2018 semester, there are two possible GUIs that they may want to use. KDE is more similar to Windows, which is what everybody is familiar with. Gnome is quite different, but many people like it better. Thus, <em>both</em> GUIs were installed (yes, this greatly increased the hard disk size). The installation of KDE was via <code>sudo apt-get install kubuntu-desktop</code>.</p>
 <h1 id="development-installation">Development installation</h1>
-<p>The &quot;Program and Data Representation configuration&quot; section is for the <a href="http://uva-cs.github.io/pdr">Program and Data Representation</a> course, and it includes all of the compilers and editors needed. The &quot;Python/Django&quot; section installs the files needed to run Python 3 and the Django framework. The &quot;Ruby on Rails configuration&quot; section is for developing Ruby on Rails software.</p>
-<p><strong>Program and Data Representation configuration</strong></p>
+<p>The &quot;Program and Data Representation configuration&quot; section is for the <a href="http://uva-cs.github.io/pdr">Program and Data Representation</a> course, and it includes all of the compilers and editors needed. The &quot;Python/Django&quot; section installs the files needed to run Python 3 and the Django framework.</p>
+<h3 id="program-and-data-representation-configuration">Program and Data Representation configuration</h3>
 <ul>
 <li>Installed the other packages: <code>sudo apt-get install clang emacs25 vim nasm astyle tofrodos source-highlight gdb lldb doxygen doxygen-doc graphviz ddd git g++ gobjc gnustep gnustep-make gnustep-common libgnustep-base-dev evince g++-multilib libc6-dev-i386 libc6-dev:i386 flex</code>
 <ul>
@@ -85,13 +79,6 @@ sudo update-alternatives --set c++ /usr/bin/clang++</code></pre></li>
 <ul>
 <li>If that installation does not work perfectly, run <code>sudo apt-get -f install</code></li>
 <li>Then the .deb file was removed</li>
-</ul></li>
-<li>KDE customization
-<ul>
-<li>Removed Discover, Kontact, and KSysGuard from Favoriteskonso</li>
-<li>Added konsole, emacs, firefox, and google chrome icons to favorites (from the K (start) menu, right-click and select 'add to favorites'), and the task bar (from the favorites menu, right-click and select 'add to panel'; this may require right-clicking on the panel and selecting panel options -&gt; panel settings prior to moving the icons)</li>
-<li>Changed the auto-lock feature: K-menu -&gt; Computer -&gt; System Settings -&gt; Desktop Behavior -&gt; Screen Locking, uncheck the &quot;lock screen automatically...&quot; button, and click Apply.</li>
-<li>Plasmashell, which is part of the graphical window system, was crashing repeatedly. The reason seems to be tooltip previews of application windows, so these should be disabled: right click taskbar -&gt; Task Manager Settings -&gt; General -&gt; Uncheck &quot;show tooltips&quot;</li>
 </ul></li>
 <li>GNOME customization
 <ul>
@@ -113,168 +100,29 @@ alias xemacs=&#39;emacs&#39;</code></pre></li>
 <li>Cloned the github repo via <code>git clone https://github.com/uva-cs/pdr</code>; note that a <code>git pull</code> will still have to be executed each time to update it</li>
 <li><p>Removed all the empty default directories in ~/student other than Desktop and Downloads</p></li>
 </ul>
-<p><strong>LAMP configuration (with both PHP and Python 3)</strong></p>
-<ul>
-<li>Installed more packages: <code>sudo apt-get install apache2 php php-cli netbeans phpmyadmin phpunit libmysqlclient-dev mysql-server mysql-client php-mysql default-jdk openssh-server tk-dev python-mysqldb php-mcrypt php-intl python3-pip composer libapache2-mod-php sqlite3 postgresql postgresql-contrib</code>
-<ul>
-<li>any prompted passwords (such as mysql) are 'password'</li>
-<li>anything that needed configuration with a web server (phpmyadmin, for example) is only configured with the apache2 server</li>
-<li>once done, ran <code>sudo -H pip3 install --upgrade pip</code></li>
-<li>ran <code>sudo apt-get remove openjdk-8-doc</code>, since that takes up a lot of space and can be accessed on the Internet</li>
-</ul></li>
-<li>apache2 configuration
-<ul>
-<li>enabled the userdir apache2 module (i.e., using ~userid/ for each userid): <code>sudo a2enmod userdir</code></li>
-<li>enabled the URL rewriting apache2 module: <code>sudo a2enmod rewrite</code></li>
-<li>enabled the two PHP modules needed for the CakePHP framework: <code>sudo phpenmod intl</code> and <code>sudo phpenmod mcrypt</code></li>
-<li>enabled PHP in user directories: edit (via sudo) <code>/etc/apache2/mods-available/php7.0.conf</code>, and change the <code>Off</code> in the <code>php_admin_value engine Off</code> line to <code>On</code></li>
-<li>restart apache: <code>sudo service apache2 restart</code></li>
-<li>the 'student' user can already view the apache2 error logs (in /var/log/apache2), but if they couldn't, then they would have to have been added to the 'adm' group (i.e., <code>usermod -a -G adm student</code>, but this requires logging out and logging in for the group change to take effect)</li>
-<li>made a 'public_html' directory both in ~student and /etc/skel; the former is chown'ed to student:student</li>
-</ul></li>
-<li>ssh'ed to localhost to accept the ssh key</li>
-<li>Installed Django: the version of Django installed via apt-get is old, so we will install via pip: <code>sudo -H pip install Django==1.11</code></li>
-<li>Attempted a CakePHP installation, to ensure that composer worked, and also to pre-download the files that would be used: <code>composer create-project --prefer-dist cakephp/app test</code>. The directory created was then deleted</li>
-<li>Installed the virtualenv Python package: <code>sudo -H pip install virtualenv</code></li>
-</ul>
-<p><strong>Ruby on Rails configuration</strong></p>
-<ul>
-<li>This method will take up about 200 Mb in your home directory; it installs the files locally, not system-wide.</li>
-<li><p>First, switch the C/C++ compiler back to gcc/g++:</p>
-<pre><code>sudo update-alternatives --set cc /usr/bin/gcc
-sudo update-alternatives --set c++ /usr/bin/g++</code></pre></li>
-<li>I then followed the directions at <a href="https://gorails.com/setup/ubuntu/16.04" class="uri">https://gorails.com/setup/ubuntu/16.04</a>. The versions I used were Ruby 2.4.1, and Rails 5.1.3 (at the time of this document's writing); newer versions may have since appeared.
-<ul>
-<li>The rbenv installation method for Ruby was used</li>
-<li>The git/github configuration step was skipped, as that requires the final user of the image</li>
-<li>MySQL was already set up in the LAMP configuration section</li>
-<li>PostgreSQL is another SQL database, but we are not using that on the image</li>
-<li>The <code>--no-ri --no-rdoc</code> flags were added to each <code>gem</code> command</li>
-</ul></li>
-<li><p>To start rails application, execute the following commands (the edit to be done in emacs is listed below):</p>
-<pre><code>cd
-rails new myapp -d mysql
-cd myapp
-emacs config/database.yml
-rake db:create
-rails server</code></pre>
-<ul>
-<li>When you edit config/database.yml, you should change the mysql password (line 17 or so) to the root mysql user's password (likely just 'password')</li>
-<li>You can now view the rails app at http://localhost:3000 in your web browser</li>
-</ul></li>
-<li><p>Changed the C/C++ compiler back over to clang/clang++:</p>
-<pre><code>sudo update-alternatives --set cc /usr/bin/clang
-sudo update-alternatives --set c++ /usr/bin/clang++</code></pre></li>
-</ul>
-<h1 id="programming-contest-configuration-sections">Programming Contest configuration sections</h1>
-<p>These sections are for configuring the image to run a programming contest using <a href="http://www.ecs.csus.edu/pc2/">PC^2</a>, and are not needed if you are <em>not</em> running (or participating in) such a contest. One of the sections below will detail how to turn off the Internet for use in the actual contest, and that should only be completed for the final contest image.</p>
-<p><strong>Programming Contest configuration</strong></p>
-<ul>
-<li>If you are upgrading from a previous image version, run <code>sudo apt-get update</code> and then <code>sudo apt-get dist-upgrade</code></li>
-<li>Install the packages: <code>sudo apt-get install emacs24 vim eclipse g++ git gdb openjdk-8-jdk gedit</code>
-<ul>
-<li>If the Basic Installation section, above, was installed, then some of these packages have already been installed</li>
-<li>The openjdk-8-doc package is not installed here to keep the image size down, but the packages above install it anyway</li>
-<li>For various reasons, the eclipse package is typically not installed on the image released to the students, but should be installed on the final contest image</li>
-</ul></li>
-<li>Download the latest <a href="http://www.ecs.csus.edu/pc2/">PC^2</a> software and unzip it in /usr/local/
-<ul>
-<li>At the time of this writing, the latest version is 9.3.2-3449, and the direct download link is <a href="http://www.ecs.csus.edu/pc2/code/v9/pc2-9.3.2-3449/pc2-9.3.2-3449.zip">here</a>; thus, the directory it is unzipped into would be <code>/usr/local/pc2-9.3.2</code></li>
-<li>After unzipping, create a symlink: from /usr/local/ run (changing the version as necessary): <code>sudo ln -s pc2-9.3.2 pc2</code></li>
-<li>Edit /usr/local/pc2/pc2v9.ini and replace <code>localhost</code> on the <code>server</code> line (likely line 12) with the full server name of the primary submission server</li>
-</ul></li>
-<li><p>Create a script to restore the Internet access after the contest (this does not hurt anything to have it ready, as it won't do anything if the Internet is not turned off). This can be <code>/usr/local/bin/restore-internet</code> -- the commands therein need sudo, so only the <code>student</code> user can run them. This is typically executed at the end of the contest if the contestants want to save their work. All that has to be done is to modify the default policy for the chains. Be sure to also run <code>chmod 755 /usr/local/bin/restore-internet</code>.</p>
-<pre><code>#!/bin/bash
-sudo iptables -P INPUT ACCEPT
-sudo iptables -P OUTPUT ACCEPT
-sudo iptables -P FORWARD ACCEPT</code></pre></li>
-<li><p>Create a <code>/usr/local/bin/pc2team</code> shell script, and chmod that to 755 (<code>chmod 755 /usr/local/bin/pc2team</code>):</p>
-<pre><code>#!/bin/bash
-cd
-/bin/cp -f /usr/local/pc2/pc2v9.ini .
-/usr/local/pc2/bin/pc2team &amp;</code></pre></li>
-</ul>
-<p><strong>User account configuration</strong></p>
-<ul>
-<li>Add in the four aliases to .bashrc, as described above in the &quot;Basic installation&quot; section</li>
-<li>Put the often used icons in the tool bar: Chrome or Firefox, Emacs, Konsole (and Eclipse, if it is installed)</li>
-<li>Load up Chrome and/or Firefox, and set the contest site as the default home page</li>
-<li>Load up emacs, click on &quot;never show this again&quot;, and then &quot;dismiss startup screen&quot;; exit emacs</li>
-<li>Remove all directories in the account other than Downloads and Desktop</li>
-<li>If there is a second user, then run <code>chmod 700 /home/*</code> to prevent the second user from accessing any other user accounts (if there is only one user account on the system, then this is not necessary)</li>
-<li>Create an icon in the task bar for pc2team (it may be easiest to use an icon adapted from another application); use an <a href="https://www.google.com/search?q=icpc+logo">appropriate logo</a> for that</li>
-</ul>
-<p><strong>Turning off Internet access (and other things)</strong></p>
-<ul>
-<li>Prior to the contest itself, a bunch of things need to occur to the image for it to work: Internet needs to be turned off, etc. These modifications are <strong><em>NOT</em></strong> made to the image as released, and should be made only right before the final image is prepared for the contest.</li>
-<li>If eclipse is not installed, then do so now (<code>sudo apt-get install eclipse</code>); put that icon in the tool bar</li>
-<li><p>Edit /etc/hosts to allow that to resolve domain names to IP addresses. Put in the course servers, their aliases, and their IP addresses:</p>
-<pre><code>1.2.3.4 server1.university.edu server1
-5.6.7.8 server2.university.edu server2
-9.10.11.12 server3.university.edu server3</code></pre></li>
-<li>Configure iptables: this details how to turn <em>off</em> network access. <strong>It is ONLY to be used on the final image for a programming contest!!!</strong>
-<ul>
-<li><p>These directions based on the ones <a href="https://help.ubuntu.com/community/IptablesHowTo">here</a> and <a href="http://stackoverflow.com/questions/21870386/iptables-block-access-to-all-ports-except-from-a-partial-ip-address">here</a>. We want to allow access to the submission servers, but deny everything else. We set the policy to all three chains to DROP, and add ACCEPT lines for localhost and the course servers for the INPUT and OUTPUT chains (we don’t do anything, other than changing the default policy, to the FORWARD chain). For example, the following commands will work (assuming the servers are server1.cs.univeristy.edu through server3.cs.university.edu):</p>
-<pre><code>iptables -A INPUT -i lo -j ACCEPT
-iptables -A OUTPUT -o lo -j ACCEPT
-iptables -A INPUT -j ACCEPT -s server1.cs.university.edu
-iptables -A INPUT -j ACCEPT -s server2.cs.university.edu
-iptables -A INPUT -j ACCEPT -s server3.cs.university.edu
-iptables -A OUTPUT -j ACCEPT -d server1.cs.university.edu
-iptables -A OUTPUT -j ACCEPT -d server2.cs.university.edu
-iptables -A OUTPUT -j ACCEPT -d server3.cs.university.edu
-iptables -P INPUT DROP
-iptables -P OUTPUT DROP
-iptables -P FORWARD DROP</code></pre></li>
-<li>Once those commands are entered via the command line, we save the rules: <code>iptables-save &gt; /etc/iptables.rules</code></li>
-<li>After saving the rules, we configure the system to apply those rules on boot (specifically, when bringing the network interface up). Edit /etc/network/interfaces. There will only be a clause for lo (the loopback interface) present. Under the <code>iface lo inet loopback</code> line, put in the following line (indented): <code>pre-up iptables-restore &lt; /etc/iptables.rules</code></li>
-</ul></li>
-<li><strong>IMPORTANT</strong>: having the contestants log in as <code>student</code> is problematic, as that is the user that can restore the Internet access (with the password and via <code>sudo</code>). So either create another user, or change the password to something else and have the contest staff log the students in.
-<ul>
-<li>If you are creating a second user, be sure to run through the &quot;user account configuration&quot; section, above</li>
-<li><p>Let's assume that the second user is <code>hspcteam</code>; once this account is all set up, create an hspcteam backup to allow resetting: from /home/student, run <code>sudo /bin/cp -a /home/hspcteam .</code>; then enter the following script (and make it executable) as <code>/usr/local/bin/reset-hspcteam</code>:</p>
-<pre><code>#!/bin/bash
-cd
-sudo rsync -a --del hspcteam/ /home/hspcteam/</code></pre></li>
-</ul></li>
-</ul>
+<h3 id="introduction-to-cybersecurity-configuration">Introduction to Cybersecurity configuration</h3>
+<p>These are not included in this repo, but can be found <a href="https://github.com/aaronbloomfield/ics/blob/fe3d7203eddf40bb76633bec6900e50ec82e47f8/docs/vb-image-details.md#introduction-to-cybersecurity-configuration">in the aaronbloomfield/ics repo</a>. These instructiosn were last updated in August 2019.</p>
+<h3 id="service-learning-practicum-configuration-section">Service Learning Practicum configuration section</h3>
+<p>These sections are no longer included here, but can be found in <a href="https://github.com/aaronbloomfield/slp/blob/master/docs/virtualbox-image-details.md#development-installation">the latest version of the aaronbloomfield/slp repo</a>. There were two sections for this: &quot;LAMP configuration (with both PHP and Python 3)&quot; and &quot;Ruby on Rails configuration&quot;. Note that that repo, and the linked instructions, were last updated in August of 2017. All the versions stated therein are outdated, and many (all?) of those instructions may need tweaking to work properly again.</p>
+<h3 id="programming-contest-configuration-section">Programming Contest configuration section</h3>
+<p>This section is no longer included here, but can be found in <a href="https://github.com/uva-cs/pdr/blob/2019-spring/tutorials/01-intro-unix/vb-image-details.md#programming-contest-configuration-sections">an old version of the PDR repo</a>. That version was last updated in the spring of 2018.</p>
 <h1 id="image-completion">Image completion</h1>
-<p>The &quot;Installing Dropbox&quot; section is not installed by default. The &quot;Image finalization&quot; section should be run on every image. The other sections largely deal with maintenance.</p>
+<p>The &quot;Image finalization&quot; section should be run on every image.</p>
 <p><strong>Image finalization</strong></p>
 <ul>
-<li>I ran a few commands to make sure everything worked properly (and deleted any created directories afterward) -- but only run these if those packages were installed above:
-<ul>
-<li><code>composer create-project --prefer-dist cakephp/app cakephp</code></li>
-<li><code>rails new railshw -d mysql</code></li>
-<li><code>django-admin startproject mysite</code></li>
-</ul></li>
 <li>Reboot (rebooting also clears out /tmp)</li>
 <li>Run <code>apt-get autoremove</code> and <code>apt-get clean</code></li>
 <li>Cleared browser history</li>
+<li>Removed the apt-get proxy, if present: <code>sudo /bin/rm -f /etc/apt/apt.conf.d/02proxy</code></li>
 <li>To reduce the size of the hard disk (since I have to host it for people to download), I ran <code>sudo cat /dev/zero &gt; zero; sudo /bin/rm -f zero</code>. This creates a large file of all 0's until it runs out of space, then removes that file.</li>
 <li>Ran <code>history -c</code> to remove the history of the commands entered on the command line</li>
 <li>Logged out then shut down the guest, and ran: <code>VBoxManage modifyhd disk.vdi --compact</code> (using the real image file name instead of &quot;disk.vdi&quot;). A better way would be to load up into recovery mode and run zerofill, but the grub menu does not seem to be easily available to load into recovery mode, so I didn't pursue it any further.</li>
 </ul>
-<p><strong>Installing Dropbox (optional)</strong></p>
-<p><strong>NOTE:</strong> these instructions have not been tested for a few years, so they may no longer work properly...</p>
-<ul>
-<li>If you want to install Dropbox, you can download the package from https://www.dropbox.com/install</li>
-<li>You want the 32-bit Ubuntu version from <a href="https://www.dropbox.com/install?os=lnx">this page</a></li>
-<li>Install it via <code>sudo dpkg -i dropbox_2015.02.12_i386.deb</code> (adjust the package name to match what you just downloaded)</li>
-<li>The installation will likely fail -- that's fine (there were likely supporting packages needed). Two things to try:
-<ul>
-<li>Note that if you were installing this on your own computer, you would need the python-gpgme package (<code>sudo apt-get install python-gpgme</code>), but that was installed already on the virtual box image</li>
-<li>Run <code>sudo apt-get -f install</code> -- the <code>-f</code> part tells apt-get to install the packages needed to fix an installation</li>
-</ul></li>
-<li>To finish installing Dropbox, run <code>dropbox start -i</code>. This will download and install the rest of the dropbox files needed</li>
-<li>To start dropbox, run <code>dropbox start</code>. This first time it will provide a link -- once you go to that link, and log in, it will know which account to link the computer to, and it will start downloading your files.</li>
-<li><strong>WARNING:</strong> Many people have a <strong><em>lot</em></strong> of files in their Dropbox folder. And if you have 8 Gb of files there, and you install Dropbox on your virtual box image, then it will need to download 8 Gb of files. In addition to taking quite some time, this will also cause the virtual box image to take up an additional 8 Gb of space. And note that the VirtualBox image is set to 20 Gb, and nearly 8 is taken up by the OS itself. So you may want to increase the disk size, which brings us to...</li>
-</ul>
 <p><strong>Increasing the disk size</strong></p>
-<p>The hard drive size was set at 20 Gb, and about 9.9 Gb is available; the rest is used by the operating system (and the swap partition). If you need more space than this, you will have to expand the hard drive. Be careful -- it is easy to accidentally erase the entire hard drive while doing this!</p>
+<p>The hard drive size was set at 40 Gb, and about 27 Gb is available; the rest is used by the operating system (and the swap partition). If you need more space than this, you will have to expand the hard drive. Be careful -- it is easy to accidentally erase the entire hard drive while doing this!</p>
 <ul>
 <li>The process has two steps: increase the VirtualBox disk image itself, then increase the partition of the guest OS.</li>
-<li>To increase the VirtualBox disk image, power it down, and then run the following command. The size listed is the size in Mb, so 20480 Mb is 20 Gb. The command is: <code>VBoxManage modifyhd &lt;imagefile&gt; --resize 20480</code>
+<li>To increase the VirtualBox disk image, power it down, and then run the following command. The size listed is the size in Mb, so 40960 Mb is 40 Gb. The command is: <code>VBoxManage modifyhd &lt;imagefile&gt; --resize 40960</code> -- but you will want to use a larger value if you are increasing the size.
 <ul>
 <li>Note that <code>&lt;imagefile&gt;</code> is the .vdi disk image, and should be the absolute path including the name and extension</li>
 </ul></li>
@@ -285,16 +133,6 @@ sudo rsync -a --del hspcteam/ /home/hspcteam/</code></pre></li>
 <li>Double click on the red &quot;Exit&quot; icon, and select shutdown.</li>
 <li>Back in Settings -&gt; Storage -&gt; Controller: IDE -&gt; Empty, remove that disk from the virtual CD/DVD drive (under the blue DVD icon, select the last option to remove the image) -- it should not be there by default at this point. Click OK.</li>
 <li>Boot into Kubuntu normally.</li>
-</ul>
-<p><strong>Upgrading from a previous version</strong></p>
-<p>Because previous versions of this image were a different version of Ubuntu (specifically, 16.04), we are not providing upgrade information, as it is too extensive to properly check those instructions.</p>
-<p><strong>Changes made for spring 2019</strong></p>
-<p>These were the changes made for the spring 2019 image, and they have not yet been incorporated into the instructions above.</p>
-<ul>
-<li>As per <a href="https://askubuntu.com/questions/973017/wrong-nameserver-set-by-resolvconf-and-networkmanager">here</a> to fix an issue with /etc/resolv.conf, edited /etc/systemd/resolve/resolved.conf to put 8.8.8.8 as the DNS line, and then ran the commands from the top answer: <code>sudo rm -f /etc/resolv.conf</code>, <code>sudo ln -s /run/systemd/resolve/resolv.conf</code>, and then rebooted</li>
-<li>Ran <code>apt-get remove thunderbird</code></li>
-<li>Ran <code>apt-get install autopsy sleuthkit fcrackzip libarchive-zip-perl libboost-dev libboost-doc</code></li>
-<li>Disable the KDE wallet system</li>
 </ul>
 <p><strong>Changes for the future</strong></p>
 <ul>
