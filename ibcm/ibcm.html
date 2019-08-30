@@ -1,12 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
-  <meta name="generator" content="pandoc" />
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Program and Data Representation: Itty Bitty Computing Machine (IBCM)</title>
   <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../markdown.css" type="text/css" />
+  <link rel="stylesheet" href="../markdown.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="program-and-data-representation-itty-bitty-computing-machine-ibcm">Program and Data Representation: Itty Bitty Computing Machine (IBCM)</h1>
@@ -30,10 +33,9 @@
 <li><a href="multiply.ibcm" class="uri">multiply.ibcm</a>: a program that creates an activation to allow for recursive calls. It can call itself recursively about 1,300 times before it runs out of memory. The 'stack', which contains the activation records, starts at the end of memory, and contains only the two parameters to the subroutine and the reutrn address.</li>
 <li><a href="turing.ibcm" class="uri">turing.ibcm</a>: a Turing machine simulator. The automaton simulated is a four state <a href="http://en.wikipedia.org/wiki/Busy_beaver">Busy Beaver</a> automaton, shown below. Details about the Turing completeness can be found in the <a href="http://dl.acm.org/citation.cfm?id=1953273">IBCM article</a>.</li>
 </ul>
-<div class="figure">
-<img src="busy-beaver.png" alt="Busy Beaver automaton" />
-<p class="caption">Busy Beaver automaton</p>
-</div>
+<figure>
+<img src="busy-beaver.png" alt="Busy Beaver automaton" /><figcaption>Busy Beaver automaton</figcaption>
+</figure>
 <h2 id="c-utilities">C++ Utilities</h2>
 <p>There are two C++ utility programs included, which are primarly useful for grading. In particular, they allow the programs to be run through a series of scripts (or other automated grading system).</p>
 <p><a href="ibcm-parse.cpp.html">ibcm-parse.cpp</a> (<a href="ibcm-parse.cpp">src</a>) is a program that will quickly check if the file names passed in via command line arguments look like IBCM files. In particular, it checks if the first four digits on each line are all hexadecimal digits. It does not program validity checking beyond this. It is useful to tell the students if, on submission, their programs will parse correctly in an IBCM simulator.</p>

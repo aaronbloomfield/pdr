@@ -1,12 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
-  <meta name="generator" content="pandoc" />
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>PDR: Laboratory 11: Graphs</title>
   <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../../markdown.css" type="text/css" />
+  <link rel="stylesheet" href="../../markdown.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-laboratory-11-graphs">PDR: Laboratory 11: Graphs</h1>
@@ -16,14 +19,14 @@
 <h3 id="background">Background</h3>
 <p>A graph is a set of vertices connected by edges. In a directed graph, an edge is an ordered pair of vertices, where you can follow an edge from one vertex to another. In a directed acyclic graph (DAG), no path starts and ends at the same vertex. A topological sort orders the vertices in a DAG such that any edge from vertex i to vertex j satisfies i &lt; j.</p>
 <h3 id="readings">Reading(s)</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>The <a href="http://en.wikipedia.org/wiki/Topological_sort">Wikipedia page on Topological sort</a></li>
 <li>The <a href="http://en.wikipedia.org/wiki/Travelling_salesman_problem">Wikipedia page on the Traveling Salesperson problem</a></li>
 <li><a href="../../slides/11-graphs.html">The slides on graphs</a></li>
 </ol>
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Go through the <a href="../../tutorials/11-doxygen/index.html">Doxygen tutorial</a>, as described in the pre-lab section.</li>
 <li>Study the topological sort algorithm described in the readings</li>
 <li>Look at the <a href="middleearth.h.html">middleearth.h</a> (<a href="middleearth.h">src</a>) and <a href="middleearth.cpp.html">middleearth.cpp</a> (<a href="middleearth.cpp">src</a>) files. You should understand <strong>AND DOCUMENT</strong> both of these two files. See the comments in the middleearth.cpp file, as well as the in-lab section, for details as to what these methods do. You should not modify any of the code in this file; only the comments.
@@ -41,7 +44,7 @@
 <li>Files to submit: topological.cpp, middleearth.h/cpp, Makefile, Doxyfile</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Implement a brute-force traveling salesperson solution, as described in the in-lab section.</li>
 <li>Create a Makefile that will fully compile your code. You should not specify the resulting executable name (i.e., no <code>-o</code> output for the final link step). It will default to a.out, which is what is desired.</li>
 <li>Document your C++ files with doxygen commands. You must <strong>ALSO</strong> include commented middleearth.h and middleearth.cpp (this should have been done in the pre-lab).</li>
@@ -50,7 +53,7 @@
 <li>Files to submit: traveling.cpp, middleearth.h, middleearth.cpp, Makefile, Doxyfile</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Complete the post-lab report, as described in the post-lab section.</li>
 <li>Files to download: none (other than your pre-lab and in-lab files)</li>
 <li>Files to submit: postlab11.pdf</li>
@@ -83,10 +86,9 @@
 <h2 id="pre-lab-problem-topological-sort">Pre-lab Problem: Topological Sort</h2>
 <p>It turns out that one of our teaching assistants did not take all of the pre-requisite computer science courses! That TA is all ready to graduate, but it turns that CS 1110 was never taken. The department came down hard, and decided to make that TA take all of the courses over again, to have the proper pre-requisite classes completed for each successive class. But the TA just got a job at Microsoft, and can only take one course a semester while working full time. In what order should the teaching assistant take the list of required courses to properly fulfill the pre-requisites this time around?</p>
 <p>Given the following course pre-requisite graph:</p>
-<div class="figure">
-<img src="pre-reqs.svg" alt="pre-reqs.svg" />
-<p class="caption">pre-reqs.svg</p>
-</div>
+<figure>
+<img src="pre-reqs.svg" alt="pre-reqs.svg" /><figcaption>pre-reqs.svg</figcaption>
+</figure>
 <p>There are multiple valid orders that the courses can be taken in; each is a valid topological sorts:</p>
 <ul>
 <li>cs1110 cs2110 cs2102 cs3330 cs2150 cs4414</li>
@@ -123,7 +125,7 @@ cs1110 cs2102
 <p>If you want more background on the Traveling Salesperson problem, you can see <a href="http://www-e.uni-magdeburg.de/mertens/TSP/TSP.html">here</a>.</p>
 <p>The world we have chosen is <a href="http://en.wikipedia.org/wiki/Middle-earth">Middle-Earth</a>, the location of J.R.R. Tolkien's Hobbit and Lord of the Rings books and movies. The middleearth.h and middleearth.cpp files, that you commented in the pre-lab, contain a class that will create a random 2-dimensional world. The &quot;randomness&quot; means that it will pick a given number of cities (or places), and randomly place them in the &quot;world&quot;. You can travel from any city to any other city, for a given cost (the distance). The city names are all from the books and movies, and can be seen at the beginning of the middleearth.cpp file -- there is a textual description in the code as to what all the places are. The randomness of the world means that cities that are nowhere near each other in the books/movies might be right next to each other in the random world.</p>
 <p>When your program is completed, you will need to specify five command-line parameters to execute the traveling salesperson problem. The parameters are, in order:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>The x-size (i.e. width) of the world. We'll use 20 throughout this lab.</li>
 <li>The y-size (i.e. height) of the world. We'll use 20 throughout this lab.</li>
 <li>The number of cities in the world. There are currently 40 names specified at the top of middleearth.cpp, so you can't specify more than 40 cities.</li>
@@ -144,7 +146,7 @@ cs1110 cs2102
 <p>The <code>getDistance()</code> method will return the distance, as a float, between the two provided cities. In an effort to make your code as efficient as possible, <code>getDistance()</code> has the same running time as a hash table (usually Θ(1)). Lastly, <code>getItinerary()</code> will return a vector of the cities that you must visit. Note that the first city provided is the start (and thus end) city -- you should remove this from the vector before you consider all possible cycles through the graph.</p>
 <h3 id="how-to-proceed">How to proceed</h3>
 <p>We provide the skeleton code for the algorithm -- your job is to complete traveling.cpp.</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>First complete <code>printRoute()</code>, as that will be useful when debugging your code. It should print a route in the form: <code>Dunharrow -&gt; Cirith Ungol -&gt; Hobbiton -&gt; Grey Havens -&gt; Lothlorien -&gt; Dunharrow</code>. Note that we aren't picky about exactly how it's printed, as long as it prints all the cities.</li>
 <li>Next, complete <code>computeDistance()</code>. You can create a sample string vector to test it, and verify it against the distances in the output of <code>printTable()</code> (see above).</li>
 <li>Start on the <code>main()</code> method. Make sure that you can print out all the permutations of the list of destinations. Note that for n cities, there are n! possible permutations. Remember that the start city should not be permuted!</li>
@@ -174,7 +176,7 @@ student@cassiopeia:~/labs/lab11$ </code></pre>
 <p>If the random seed (the fourth parameter) is 14, then the path lengths and paths for the various itinerary lengths are listed below. Because we are explicitly setting the random seed, it should produce the exact same results each time -- and thus your code should also produce the same results.</p>
 <p><strong>Important note:</strong> The method for determining the random seed is different on different systems. So using a random seed of 14 (which is what we used), you may get different results on different systems. We provide the Virtual Box results here, and other 32-bit and 64-bit Linux installations <em>should</em> be similar. But your results may differ! In particular, if you have a different flavor of Linux installed, use a Mac, etc. The machines in Olsson 001 have the same results as shown below. Also note that the direction of your path can be reversed -- it's the same distance (and thus still the shortest path), even if the path order is reversed. You should use the output of your <code>printTable()</code> over what is listed below.</p>
 <p>The Linux results for a random seed of 14, world size of 20x20 with 20 cities, and various path lengths:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Minimum path has distance 16.4499: Dunharrow -&gt; The Grey Havens -&gt; Dunharrow</li>
 <li>Minimum path has distance 38.5555: Dunharrow -&gt; Hobbiton -&gt; The Grey Havens -&gt; Dunharrow</li>
 <li>Minimum path has distance 39.1172: Dunharrow -&gt; Cirith Ungol -&gt; Hobbiton -&gt; The Grey Havens -&gt; Dunharrow</li>
