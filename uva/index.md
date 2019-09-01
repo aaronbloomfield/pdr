@@ -21,7 +21,6 @@ There are a number of links and other parts of this course that are **NOT** incl
 - Email list archive, which is a Collab tool ([here][170] is the direct link, although Collab login is required)
 - [Piazza][152]; Collab can log you in directly; the Collab tool link is [here][173] (again, Collab login required)
 - [Anonymous feedback][174]
-- The [final grading metrics][116] ([md][115])
 
 The parts of this course that are in this repo are:
 
@@ -32,6 +31,7 @@ The parts of this course that are in this repo are:
 - [UNIX honor pledge][172], which needs to be signed by all the students in the course (it is created from a [.tex][114] file)
 - [Generic review session slide set][113], which is really just a blank set of slides
 - [Frivolous regrade policy][109] ([md][110]) for exams
+- The [final grading metrics][116] ([md][115])
 
 ------------------------------------------------------------
 
@@ -59,7 +59,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | Num | Date | Day of week | Lab & Tutorial (on Tue) | Planned topic | Lecture progress |
 |-----|-----|-----|----------------------|---------|--------------------|
 | 1  | Aug 28 | Wednesday | no lab this week | [Course introduction][80] | Course intro through slide 4.6 |
-| 2  | Aug 30 | Friday | | [Course introduction][80], [01: C++][81] | |
+| 2  | Aug 30 | Friday | | [Course introduction][80], [01: C++][81] | Course intro from slide 4.6 to the end; C++ to slide 5.3 |
 | 3  | Sep  2 | Monday | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | [01: C++][81] | |
 | 4  | Sep  4 | Wednesday | | [01: C++][81] | |
 | 5  | Sep  6 | Friday | | [01: C++][81] | |
