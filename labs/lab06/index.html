@@ -1,12 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
-  <meta name="generator" content="pandoc" />
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>PDR: Laboratory 6: Hashing</title>
   <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../../markdown.css" type="text/css" />
+  <link rel="stylesheet" href="../../markdown.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-laboratory-6-hashing">PDR: Laboratory 6: Hashing</h1>
@@ -16,12 +19,12 @@
 <h3 id="background">Background</h3>
 <p>A <a href="https://en.wikipedia.org/wiki/Hash_table">hash table</a> is a dictionary in which keys are mapped to array positions by a <em>hash function</em>. Having more than one key map to the same position is called a <em>collision</em>. There are many ways to resolve collisions, but they may be divided into two primary strategies: separate chaining and open addressing.</p>
 <h3 id="readings">Reading(s):</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Learn how to use C++ file streams to read from data files. See the <a href="http://www.cplusplus.com/doc/tutorial/files/">Input/output with files article</a> on <a href="http://www.cplusplus.com/">cplusplus.com</a>. You can also see the code in the provided <a href="code/getWordInGrid.cpp.html">getWordInGrid.cpp</a> (<a href="code/getWordInGrid.cpp">src</a>) file which uses streams as well. You may want to use the <a href="http://www.cplusplus.com/reference/fstream/ifstream/">good()</a> method in the ifstream class -- you can put it in a <code>while</code> loop: <code>while (foo.good())</code>.</li>
 </ol>
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Implement a solution to the word puzzle problem described below.</li>
 <li>Your program should take in two file names as command-line arguments, and should NOT ask for any input. The command-line arguments are the dictionary filename and the grid filename, in that order.</li>
 <li>Place the timer calls before and after your code. Note that the time you spend building the hash table should not be inside the timer calls -- only the code that finds the words in the grid. An actual time from a running of your program should be listed as a comment at the top of wordPuzzle.cpp.</li>
@@ -40,7 +43,7 @@
 <li>Files to submit: Makefile, wordPuzzle.cpp, timer.h/cpp, hashTable.h/cpp (see below for details)</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Read through the in-lab section below. Make sure you understand what the new clang++ flag (-O2) does, and how to handle input and output.</li>
 <li>Verify with the TA the correct placement of the timer calls.</li>
 <li>Verify that your program gets the correct solution for the 250x250 grid using words.txt as the dictionary, and the 300x300 grid using words2.txt as the dictionary. The output files for these runs are in the <a href="data/">labs/lab06/data/ directory</a>.</li>
@@ -53,7 +56,7 @@
 <li>Files to submit: averagetime.sh, inlab6.pdf</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Optimize your implementation of the word puzzle solver. Your program should produce the same output as the sample output files in the <a href="data/">labs/lab06/data/ directory</a> (your program can contain output such as timer results, as described in the in-lab section). The input (i.e., the command-line parameters) is the exact same as for the pre-lab.</li>
 <li>The various optimizations allowed are listed in the description of the word puzzle problem as well as the post-lab section. You will have to include a description of the optimization methods used in the post-lab report. Your Makefile should be modified for the post-lab (probably just adding -O2).</li>
 <li>Create postlab6.pdf file (see the post-lab section for formatting details), containing the post-lab report (see below).</li>
@@ -231,7 +234,7 @@ diff output.txt words2.sorted.out.txt</code></pre>
 <p>If you single-space your report, you can divide the page lengths listed below by a factor of 2. If you single space your report and include a lot of blank space with tables, that's not what we are looking for here.</p>
 <p>Include the big-theta running time of your application, and a full explanation as to why. This should be half a page or so. This should address only the word-search portion of your application -- not the reading of input files, hash table creation, etc. This big-Theta runtime should take into account any and all optimizations that you made. Please do this in terms of <em>r</em> (rows), <em>c</em> (columns), and <em>w</em> (words). You can assume that the maximum word size is some small constant.</p>
 <p>Include the timing information for your application (as described at the end of the in-lab section). This should also be half a page or more. You can do this on any machine and data files, just use the same machine and files for all tests. Be sure to specify which files and machine you used. Show timing results (use the timer placement as we used in lab) for:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Your original application</li>
 <li>Pick a new hash function designed to make performance worse in terms of time. What new hash function did you choose and why was your performance worse?</li>
 <li>Pick a new hash table size designed to make performance worse in terms of time. What hash table size did you choose and why was your performance worse.</li>

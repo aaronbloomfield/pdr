@@ -1,18 +1,21 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
-  <meta name="generator" content="pandoc" />
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>PDR: Laboratory 10: Huffman Coding</title>
   <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../../markdown.css" type="text/css" />
+  <link rel="stylesheet" href="../../markdown.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-laboratory-10-huffman-coding">PDR: Laboratory 10: Huffman Coding</h1>
 <p><a href="../index.html">Go up to the Labs table of contents page</a></p>
 <h3 id="objective">Objective</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>To become familiar with prefix codes</li>
 <li>To implement a useful application using a variety of data structures</li>
 <li>To analyze the efficiency of your implementation.</li>
@@ -26,7 +29,7 @@
 </ul>
 <h2 id="lab-procedure">Lab Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>The pre-lab is the compression phase of the Huffman coding.</li>
 <li>You may NOT use a STL class for the heap (such as priority_queue), but you may use other STL classes (i.e. non-heap related classes).</li>
 <li>Implement the Huffman encoding routine discussed in the pre-lab section.</li>
@@ -36,7 +39,7 @@
 <li>Files to submit: heap.cpp, heap.h, huffmanenc.cpp, Makefile (you can submit additional .cpp/.h files, if needed, as long as it compiles with <code>make</code>)</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>The in-lab is the decompression phase of the Huffman coding.</li>
 <li>Implement the Huffman decoding routine discussed in the in-lab section.</li>
 <li>Your program must compile with make!</li>
@@ -45,7 +48,7 @@
 <li>Files to submit: huffmandec.cpp, Makefile (you can submit additional .cpp/.h files, if needed, as long as it compiles with <code>make</code>)</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Complete the post-lab report, as described in the post-lab section.</li>
 <li>Ensure that the pre-lab code (compression) and post-lab code (decompression) work properly, as they will be submitted again</li>
 <li>Create a new Makefile, as specified in the post-lab section</li>
@@ -54,7 +57,7 @@
 <hr />
 <h2 id="huffman-encoding-and-decoding">Huffman Encoding and Decoding</h2>
 <p>The basic steps in compression (for the pre-lab) are:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Read the source file and determine the frequencies of the characters in the file.</li>
 <li>Store the character frequencies in a heap (priority queue).</li>
 <li>Build a tree of prefix codes (a Huffman code) that determines the unique bit codes for each character.</li>
@@ -63,7 +66,7 @@
 </ol>
 <p>We are also writing additional information to the file (compression ratio and tree cost), as described herein.</p>
 <p>The basic steps in decompression (for the in-lab) are:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Read in the prefix code structure from the compressed file. You can NOT assume that you can re-use the tree currently in memory, as we will be testing your in-lab code on files that you have not encoded.</li>
 <li>Re-create the Huffman tree from the code structure read in from the file.</li>
 <li>Read in one bit at a time from the compressed file and move through the prefix code tree until a leaf node is reached.</li>
@@ -123,10 +126,9 @@ There were 13 bits in the compressed file.
 This gives a compression ratio of 4.30769.
 The cost of the Huffman tree is 1.85714 bits per character.</code></pre>
 <p>The Huffman tree that this forms is the same as the one shown in the slide set (specifically, <a href="../../slides/10-heaps-huffman.html#/lab10tree">here</a>), and is dupliated below.</p>
-<div class="figure">
+<figure>
 <img src="prelab-tree.png" />
-
-</div>
+</figure>
 <p>Below is an equivalent version of the same file. Note that the characters are not in the same order in the previous example, the whitespace for the middle part is quite different, the English explanation in the third part says the same thing but in a different format, and the particular prefix codes are different (but note that the lengths are the same). Your in-lab code will need to be able to read in both of these files (as well as others in the <a href="examples/">labs/lab10/examples/ directory</a>). For writing your pre-lab, you should consider having a space or a newline between the Huffman encoded characters, as that will make your code easier to check and debug.</p>
 <pre><code>d 11
 c 101
@@ -175,7 +177,7 @@ The Huffman tree cost: 1.85 bits per character</code></pre>
 <p>For the post-lab, we want you to do a time and space complexity analysis of your compression and decompression code. You'll submit a written report that describes your implementation choices, and also documents your analysis of time and space complexity. See below for a discussion about the space/time complexity.</p>
 <p>The deliverable for the post-lab is a PDF document named postlab10.pdf. It must be in PDF format! See <a href="../../docs/convert_to_pdf.html">How to convert a file to PDF</a> for details.</p>
 <p>A written post-lab report (a page is fine) that includes the following. You can double-space your report, but no funky stuff with the formatting (standard size fonts, standard margins, etc.). And if you double-space your report, you need to increase the number of pages appropriately.</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>A description of your implementation. Describe the data structures used in your implementation and <em>why</em> you selected them.</li>
 <li>An efficiency analysis of <em>all steps</em> in Huffman encoding/decoding.
 <ul>

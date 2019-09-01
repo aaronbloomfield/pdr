@@ -1,12 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
-  <meta name="generator" content="pandoc" />
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>PDR: ssh and scp Tutorial</title>
   <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../../markdown.css" type="text/css" />
+  <link rel="stylesheet" href="../../markdown.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-ssh-and-scp-tutorial">PDR: ssh and scp Tutorial</h1>
@@ -18,12 +21,12 @@
 <p>There are Windows versions of <code>ssh</code> and <code>scp</code> as well; one set of these applications are called SecureCRT and SecureFX (UVa provides them for free in its Software Central). <a href="http://www.putty.org/">PuTTY</a> is a free and low-overhead ssh client for Windows.</p>
 <p><strong>Lastly, if your VirtualBox image/macOS/WSL/native Linux environment etc is <em>destroyed or unusable</em> by some means, using <code>ssh</code> and <code>scp</code> with the lab servers is an excellent alternative way to do your course assignments.</strong></p>
 <h2 id="using-ssh-to-login-to-a-lab-server-from-your-local-machine">Using ssh to login to a lab server from your local machine</h2>
-<p>Open the <code>bash</code> terminal on your laptop (via either the course image in VirtualBox, macOS, WSL, native Linux environment etc). Have your lab account password available (if you did not change it from the default password, it should be in email sent to <em>yourComputingID</em><span class="citation">@virginia.edu</span> from root@virginia.edu). Run the command <code>ssh yourComputingID@labunix01.cs.virginia.edu</code> (you may substitute <code>01</code> with <code>02</code> or <code>03</code>, these will all work the same and are synchronized, it does not matter which number you use). You will be prompted to enter your lab account password, and as you enter it <strong>you may notice that nothing appears to happen on the screen</strong>; do not worry, this is how <code>bash</code> hides your password from being shown in plain text, rather than using the &quot;common&quot; practice of printing <code>*</code>s for each character you enter. When you are done entering the password, press enter and you should see the prompt on your terminal change to something along the lines of <code>yourComputingID@labunix01:~$</code>. Try running <code>ls</code> to ensure your files from the lab desktops are all present, and go ahead and run <code>clang++</code> on one of your <code>.cpp</code> files to see that you can successfully compile code while logged in (you do not <em>need</em> to do this, but it's a good practice to ensure your environment works as you expect it to). <code>w</code> or <code>users</code> will show you who else is online...</p>
+<p>Open the <code>bash</code> terminal on your laptop (via either the course image in VirtualBox, macOS, WSL, native Linux environment etc). Have your lab account password available (if you did not change it from the default password, it should be in email sent to <em>yourComputingID</em><span class="citation" data-cites="virginia.edu">@virginia.edu</span> from root@virginia.edu). Run the command <code>ssh yourComputingID@labunix01.cs.virginia.edu</code> (you may substitute <code>01</code> with <code>02</code> or <code>03</code>, these will all work the same and are synchronized, it does not matter which number you use). You will be prompted to enter your lab account password, and as you enter it <strong>you may notice that nothing appears to happen on the screen</strong>; do not worry, this is how <code>bash</code> hides your password from being shown in plain text, rather than using the &quot;common&quot; practice of printing <code>*</code>s for each character you enter. When you are done entering the password, press enter and you should see the prompt on your terminal change to something along the lines of <code>yourComputingID@labunix01:~$</code>. Try running <code>ls</code> to ensure your files from the lab desktops are all present, and go ahead and run <code>clang++</code> on one of your <code>.cpp</code> files to see that you can successfully compile code while logged in (you do not <em>need</em> to do this, but it's a good practice to ensure your environment works as you expect it to). <code>w</code> or <code>users</code> will show you who else is online...</p>
 <p>You can use <code>emacs</code>, <code>vim</code> etc to work on your course assignments while logged on. To exit the <code>ssh</code> session, simply press <code>Ctrl+D</code> or run <code>logout</code>. You should be returned to your local machine's <code>bash</code> terminal.</p>
 <p>If you are having problems getting <code>ssh</code> to work for you, come speak to us during office hours/with Piazza/submitting a support request! Whichever means you deem appropriate.</p>
 <h2 id="using-scp-to-copy-files-back-and-forth-between-your-local-machine-and-a-lab-server">Using scp to copy files back-and-forth between your local machine and a lab server</h2>
 <p><strong>NOTE:</strong> <strong>Use <code>scp</code> <em>only on your local machine (e.g. laptop)</em> for all of your file-transferring needs, to-and-from. <code>scp</code> is more trouble than it's worth to try to use on the lab machines themselves, so do not plan on using the commands listed here from a lab machine; if you know what you are getting into, you are welcome to try to do that on your own (<code>sftp</code> or <code>rsync</code> are the more likely commands to look into for that scenario).</strong></p>
-<p>Open the <code>bash</code> terminal on your laptop (via either the course image in VirtualBox, macOS, WSL, native Linux environment etc). Have your lab account password available (if you did not change it from the default password, it should be in email sent to <em>yourComputingID</em><span class="citation">@virginia.edu</span> from root@virginia.edu).</p>
+<p>Open the <code>bash</code> terminal on your laptop (via either the course image in VirtualBox, macOS, WSL, native Linux environment etc). Have your lab account password available (if you did not change it from the default password, it should be in email sent to <em>yourComputingID</em><span class="citation" data-cites="virginia.edu">@virginia.edu</span> from root@virginia.edu).</p>
 <p>Below are 4 scenarios which most students tend to use <code>scp</code> for (remember that you can substitute <code>01</code> with <code>02</code> or <code>03</code> in specifying the lab server to use):</p>
 <p>1. Transferring a <strong>single file</strong> <strong><em>from</em></strong> the lab machine <strong><em>to</em></strong> your local machine</p>
 <p>Run the command</p>

@@ -1,12 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
-  <meta name="generator" content="pandoc" />
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>PDR: Objective C Tutorial</title>
   <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../../markdown.css" type="text/css" />
+  <link rel="stylesheet" href="../../markdown.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-objective-c-tutorial">PDR: Objective C Tutorial</h1>
@@ -63,7 +66,7 @@ clang -I /usr/include/GNUstep/ -I /usr/lib/gcc/x86_64-linux-gnu/5/include/ *.m -
 <h3 id="hack-some-objective-c-code">Hack some Objective C code</h3>
 <p>What tutorial would be complete without a data structure to implement?</p>
 <p>Your task is to implement a data structure in Objective C -- a <strong>very simple singly</strong> linked list for integers. The program is basically the same as that which was required in the <a href="../09-c/index.html">C tutorial</a>. The requirements for the program are:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Read in an integer, which we'll call <em>n</em></li>
 <li>Read in <em>n</em> more ints, and put those into a linked list
 <ul>
@@ -86,7 +89,7 @@ Enter value 4: 8
 <p>The linked list program will need to be submitted as part of the lab; no Makefile is being submitted. As long as it compiles with the following compilation command, we really don't care what the files are named (within reason). The compile command that we will use to compile your code on Linux is <code>clang -I /usr/include/GNUstep/ *.m -lobjc -lgnustep-base</code>; this is equivalent to <code>clang *.m -lobjc</code> on Mac OS X.</p>
 <p>This is not meant to be a complicated program! We don't care about the order that the list is printed (forward or reverse is fine); you don't need to implement iterators, or anything too complicated. Our code had just <code>main()</code> method, and a ListNode class with a handful of methods. Your <code>insert()</code> code should be in <code>main()</code>, not in your class. Likewise your code to remove the elements, and to print the list should be in <code>main()</code>.</p>
 <p>A few requirements for the program:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>It must have a ListNode (or whatever you want to call it) class, which <strong>must have some basic methods</strong>: getters, setters, that sort of thing.</li>
 <li>You do not need to implement a List class; you can directly create (and destroy) ListNode objects right from your <code>main()</code> function.</li>
 <li>Since this is not Objective C++, it will need to use C input and output, so <code>printf()</code> and <code>scanf()</code> are your friends</li>
@@ -95,7 +98,7 @@ Enter value 4: 8
 <li>The point of this pre-lab is to work with calling various methods in Objective C (getters, setters, etc.). Directly accessing the fields is not what we are looking for.</li>
 </ol>
 <p>A few notes while working on the program:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Pointers can point to Objective C types (objects, structs, etc.) just like in C and C++</li>
 <li>See the <a href="http://en.wikibooks.org/wiki/Objective-C_Programming/syntax#The_interface">Point class</a>, in the <a href="http://en.wikibooks.org/wiki/Objective-C_Programming/syntax">Wikibooks syntax tutorial</a>, for a code class example.</li>
 <li>The <code>this</code> pointer in Objective C is called <code>self</code></li>

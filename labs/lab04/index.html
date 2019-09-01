@@ -1,12 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
-  <meta name="generator" content="pandoc" />
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>PDR: Laboratory 4: Number Representation</title>
   <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../../markdown.css" type="text/css" />
+  <link rel="stylesheet" href="../../markdown.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-laboratory-4-number-representation">PDR: Laboratory 4: Number Representation</h1>
@@ -16,12 +19,12 @@
 <h3 id="background">Background</h3>
 <p>In class we discussed how various data types -- integers, characters, and floating point numbers -- were represented in computers. In this lab we will use the debugger to examine some of these representations.</p>
 <h3 id="readings">Reading(s)</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Any of the optional readings on the <a href="../../docs/readings.html">Readings</a> page, in particular, those on arrays and unions, if you feel you need a bit more background. If you are a bit confused about unions, you might want to read about them prior to the in-lab. Do a Google search for 'C++ unions'.</li>
 </ol>
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Any of the optional readings on the <a href="../../docs/readings.html">Readings</a> page, in particular, those on arrays and unions, if you feel you need a bit more background.</li>
 <li>Go through <a href="../../tutorials/03-04-more-unix/index.html">Tutorial 4: Unix, part 2</a>, which is sections 5-8. This tutorial is originally from the department of Electrical Engineering at the University of Surrey, and is available online <a href="http://www.ee.surrey.ac.uk/Teaching/Unix/">here</a>. You went through sections 1-4 in the last tutorial; this lab has you completing sections 5-8.</li>
 <li>Get your floating point number <a href="http://libra.cs.virginia.edu/getfloat.php">here</a>, and then complete your floating point conversion, as described in the pre-lab section, into a file called floatingpoint.pdf; you can convert a file into a PDF via the directions on the <a href="../../docs/convert_to_pdf.html">How to convert a file to PDF</a> page. <strong>Note: Many students will submit a text file that happens to be called floatingpoint.pdf. Make sure to check for this before submitting!</strong>
@@ -40,10 +43,10 @@
 <li>Files to submit: prelab4.cpp, floatingpoint.pdf</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Work through the steps in the in-lab one a time. Be sure that you understand what is happening at each step.</li>
 <li>The three parts of the in-lab, described below, have you editing both <a href="inlab4.doc" class="uri">inlab4.doc</a> and inlab4.cpp.
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Size of C++ data types</li>
 <li>Representations in memory</li>
 <li>Primitive arrays in C++</li>
@@ -53,7 +56,7 @@
 <li>Files to submit: inlab4.pdf (the PDF version of inlab4.doc), inlab4.cpp</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Write the recursive bit counter, in bitCounter.cpp, as described in the post-lab section.</li>
 <li>Complete the radix worksheet -- this worksheet is in the <a href="radixWorksheet.doc" class="uri">radixWorksheet.doc</a> file. This will be converted to PDF and called radixWorksheet.pdf.</li>
 <li>Files to download: <a href="radixWorksheet.doc" class="uri">radixWorksheet.doc</a></li>
@@ -112,11 +115,11 @@ outputBinary(1000000) //=&gt; 0000 0000 0000 1111 0100 0010 0100 0000</code></pr
 <p>The <a href="inlab4.doc" class="uri">inlab4.doc</a> worksheet asks you to fill in two tables describing certain features of primitive types in C++. The two tables are reproduced below:</p>
 <table>
 <colgroup>
-<col width="10%" />
-<col width="15%" />
-<col width="20%" />
-<col width="27%" />
-<col width="26%" />
+<col style="width: 10%" />
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 27%" />
+<col style="width: 26%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -175,10 +178,10 @@ outputBinary(1000000) //=&gt; 0000 0000 0000 1111 0100 0010 0100 0000</code></pr
 <p> </p>
 <table>
 <colgroup>
-<col width="13%" />
-<col width="20%" />
-<col width="28%" />
-<col width="37%" />
+<col style="width: 13%" />
+<col style="width: 20%" />
+<col style="width: 28%" />
+<col style="width: 37%" />
 </colgroup>
 <thead>
 <tr class="header">

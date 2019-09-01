@@ -1,12 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
-  <meta name="generator" content="pandoc" />
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>PDR: Laboratory 8: x86 Assembly Language, part 1 (32 bit)</title>
   <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../../markdown.css" type="text/css" />
+  <link rel="stylesheet" href="../../markdown.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-laboratory-8-x86-assembly-language-part-1-32-bit">PDR: Laboratory 8: x86 Assembly Language, part 1 (32 bit)</h1>
@@ -17,13 +20,13 @@
 <h3 id="background">Background</h3>
 <p>The Intel x86 assembly language is currently one of the most popular assembly languages and runs on many architectures from the x86 line through the Pentium 4. It is a <a href="http://en.wikipedia.org/wiki/Complex_instruction_set_computing">CISC</a> instruction set that has been extended multiple times (e.g. <a href="http://en.wikipedia.org/wiki/MMX_%28instruction_set%29">MMX</a>) into a larger instruction set. In 2004 it was extended to allow for a 64 bit memory space.</p>
 <h3 id="readings">Reading(s)</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Read the <a href="../../slides/08-assembly-32bit.html">slides on 32 bit x86</a></li>
 <li>The two book chapters on x86: <a href="../../book/x86-32bit-asm-chapter.pdf">x86 Assembly</a> and <a href="../../book/x86-32bit-ccc-chapter.pdf">The x86 C Calling Convention</a>.</li>
 </ol>
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>You should be familiar with the readings described above. They detail the x86 material that this lab requires.</li>
 <li>Complete the tutorial, which consists of reading two book chapters that are contained in this repository: <a href="../../book/x86-32bit-asm-chapter.pdf">x86 Assembly</a> and <a href="../../book/x86-32bit-ccc-chapter.pdf">The x86 C Calling Convention</a>.</li>
 <li>Read through the section, below, on compiling C++ with assembly on different architectures, as well as the vecsum program.</li>
@@ -38,14 +41,14 @@
 <li>Files to submit mathlib.s, mathfun.cpp, Makefile</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Address at least one of the topics shown in the in-lab section. Be sure to address all the issues in that topic! You will have to complete both of these topics for the post-lab report.</li>
 <li>We are looking for a brief write-up indicating that you addressed at least one of the topics, and the results that you found. You do not need to make it a full fledged report yet (that's the post-lab).</li>
 <li>Files to download: none (other than the results of your pre-lab)</li>
 <li>Files to submit: inlab8.pdf</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Finish addressing the topics listed in the in-lab section. We are looking for a quality write-up here, as detailed in the post-lab section. Be sure to address all the issues in each topic!<br />
 </li>
 <li>Files to download: none (other than the results of your pre-lab and in-lab)</li>
@@ -55,7 +58,7 @@
 <h2 id="platform-architectures">Platform Architectures</h2>
 <h3 id="different-architectures">Different Architectures</h3>
 <p>There are four different platforms that students are potentially developing their code on:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>32-bit Linux (what is on the VirtualBox image)</li>
 <li>64-bit Linux (what the submission server is running, as well as what is installed on the computers in Rice 340 and Olsson 001)</li>
 <li>32-bit Mac OS X (although we doubt anybody actually has this anymore)</li>
@@ -83,11 +86,11 @@
 <p>Below is a table summarizing the changes</p>
 <table style="width:97%;">
 <colgroup>
-<col width="13%" />
-<col width="8%" />
-<col width="8%" />
-<col width="8%" />
-<col width="58%" />
+<col style="width: 13%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 58%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -185,13 +188,13 @@
 <p>The questions posed below are example questions to answer. Some of them may overlap. Others may not be necessary. And there may be questions not listed that are worth answering. The purpose of posing those questions is to help you think about what topics and ideas you should address in your response - it's not meant to be a rigid structure that you absolutely must follow. We are going to look at whether you have addressed the general idea of each of the list topics.</p>
 <h3 id="parameter-passing">Parameter passing</h3>
 <p>Show and explain assembly code generated by the compiler for a simple function and function call that passes parameters by a variety of means. Be sure to show what is happening both in the caller (the function which makes a call to another function) and in the callee (the function which is called by another function, possibly a recursive call). You do not need to describe parts of the C calling convention we described in class (e.g. saving registers, saving the base pointer, how the call instruction works). The focus here is on examining in detail what happens when parameters are passed.</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>You should explain how ints, chars, pointers, floats, and objects that contain more than one data member such as user-defined classes are passed by value and by reference.</li>
 <li>In addition, show how arrays (you may pick any type) are passed in C++. Be sure to show <em>both</em> how these values are passed into a function <em>and</em> how the callee accesses the parameters inside of the function. Recall that you can use gdb to pause execution in the assembly code, and then see actual memory addresses -- see the pre-lab for details. This question asks about exactly where the data values are placed, so you will need to determine at least a register-relative address, just saying the parameter is accessed as [var] is not enough. Be sure to ask if you do not understand.</li>
 <li>How does passing values by reference work in assembly? Is it different than passing values by pointer?</li>
 </ol>
 <h3 id="objects">Objects</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Explain how data layout, data member access, and method invocation works in C++ objects. For data layout, how are they kept in memory? How does C++ keep different fields of an object &quot;together&quot;? For data access, how does the assembly know which data member to access? We know how local variables and parameters are accessed (offsets from the base pointer) -- describe how this is done for data fields. For method invocation, we know how functions are invoked. But what about methods -- how does the assembly know which object it is being called out of? Remember that assembly is not object oriented.</li>
 <li>Describe where data is laid out for a sample C++ class. You should include at least five data members in your class. Be sure to include data members of different types (ints, chars, and other user-defined classes) and different access levels (public and private) in your class. We are looking for something descriptive here -- for example, if you define a char and an int (total of 5 bytes needed), how is it laid out in memory?</li>
 <li>Next, demonstrate how data members are accessed both from inside a member function and from outside. In other words, describe what the assembly code does to access member functions in both of these situations.</li>

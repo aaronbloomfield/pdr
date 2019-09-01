@@ -1,18 +1,21 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
-  <meta name="generator" content="pandoc" />
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>PDR: Laboratory 5: Trees</title>
   <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../../markdown.css" type="text/css" />
+  <link rel="stylesheet" href="../../markdown.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-laboratory-5-trees">PDR: Laboratory 5: Trees</h1>
 <p><a href="../index.html">Go up to the Labs table of contents page</a></p>
 <h3 id="objective">Objective:</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Learn about binary trees</li>
 <li>See tree traversals in the context of a useful application</li>
 <li>Understand tree rotations</li>
@@ -26,7 +29,7 @@
 <p>The <a href="http://en.wikipedia.org/wiki/Expression_tree">Wikipedia article on Expression trees</a>, especially the <a href="http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_Expression_Tree">section on construction of expression trees</a>. Also the <a href="../../slides/05-trees.html">05: Trees</a> slide set.</p>
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Complete the <a href="../../tutorials/05-make/index.html">makefile tutorial</a>. You will need to know how to write one for the in-lab and post-lab, since all the following labs will be compiled via Makefiles. There is one file that needs to be submitted from the tutorial -- you should name this file Makefile-pizza.</li>
 <li>Your file <strong>MUST</strong> be named <code>Makefile-pizza</code> - not Makefile-pizza.txt, not Makefile-Pizza, not Makefilepizza. If it is not named correctly, it will not work with our grading scripts, and you will not get credit for that part of the lab.</li>
 <li>Come to lab with a fully functional tree calculator, as described below.<br />
@@ -36,14 +39,14 @@
 <li>Files to submit: TreeCalc.h/cpp, TreeCalcTest.cpp, TreeNode.h/cpp, Makefile-pizza</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>For this lab, you will implement a Binary search tree.</li>
 <li>Your program must compile with make!</li>
 <li>Files to download: <a href="code/inlab/BinaryNode.h.html">BinaryNode.h</a> (<a href="code/inlab/BinaryNode.h">src</a>), <a href="code/inlab/BinaryNode.cpp.html">BinaryNode.cpp</a> (<a href="code/inlab/BinaryNode.cpp">src</a>), <a href="code/inlab/BinarySearchTree.h.html">BinarySearchTree.h</a> (<a href="code/inlab/BinarySearchTree.h">src</a>), <a href="code/inlab/BinarySearchTree.cpp.html">BinarySearchTree.cpp</a> (<a href="code/inlab/BinarySearchTree.cpp">src</a>), <a href="code/inlab/BSTPathTest.cpp.html">BSTPathTest.cpp</a> (<a href="code/inlab/BSTPathTest.cpp">src</a>), <a href="code/inlab/testfile1.txt">testfile1.txt</a> (<a href="code/inlab/testfile1.out.txt">output</a>), <a href="code/inlab/testfile2.txt">testfile2.txt</a> (<a href="code/inlab/testfile2.out.txt">output</a>), <a href="code/inlab/testfile3.txt">testfile3.txt</a> (<a href="code/inlab/testfile3.out.txt">output</a>). These files are contained in the inlab/ directory of the <a href="code.zip" class="uri">code.zip</a> file.</li>
 <li>Files to submit: BinarySearchTree.h, BinarySearchTree.cpp, BinaryNode.h, BinaryNode.cpp, BSTPathTest.cpp, Makefile, and any other files needed to make your code compile.</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>For this lab, you will implement an AVL tree and submit a brief lab report electronically via the submission system.</li>
 <li>Your report must be in PDF format! See the <a href="../../docs/convert_to_pdf.html">How to convert a file to PDF</a> page for details.</li>
 <li>Files to download: <a href="code/postlab/AVLNode.h.html">AVLNode.h</a> (<a href="code/postlab/AVLNode.h">src</a>), <a href="code/postlab/AVLNode.cpp.html">AVLNode.cpp</a> (<a href="code/postlab/AVLNode.cpp">src</a>), <a href="code/postlab/AVLTree.h.html">AVLTree.h</a> (<a href="code/postlab/AVLTree.h">src</a>), <a href="code/postlab/AVLTree.cpp.html">AVLTree.cpp</a> (<a href="code/postlab/AVLTree.cpp">src</a>), <a href="code/postlab/AVLPathTest.cpp.html">AVLPathTest.cpp</a> (<a href="code/postlab/AVLPathTest.cpp">src</a>), <a href="code/postlab/testfile1.txt">testfile1.txt</a> (<a href="code/postlab/testfile1.out.txt">output</a>), <a href="code/postlab/testfile2.txt">testfile2.txt</a> (<a href="code/postlab/testfile2.out.txt">output</a>), <a href="code/postlab/testfile3.txt">testfile3.txt</a> (<a href="code/postlab/testfile3.out.txt">output</a>). These files are contained in the postlab/ directory of the <a href="code.zip" class="uri">code.zip</a> file.</li>
@@ -77,7 +80,7 @@
 </ul>
 <p>Note that the last three files should not be modified at all! If you have additional code to include, put it in TreeCalc.cpp or TreeCalc.h (you should not need to use additional classes). Just in case it wasn't clear yet, all your modifications should be in the TreeCalc.h and TreeCalc.cpp files.</p>
 <p>Your fully functional tree calculator code should do the following:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Read user input in postfix order (assume well-formed expressions) into a stack</li>
 <li>Build an expression tree using the items in the stack (see <a href="http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_Expression_Tree">here</a> for the algorithm)</li>
 <li>Print the resulting expression tree as a <em>postfix</em> expression in the EXACT output format as shown in the next section. Spaces matter!</li>
@@ -129,10 +132,9 @@ The result of the expression tree is 42</code></pre>
 <li>Lookup <word>: <code>L &lt;word&gt;</code></li>
 </ul>
 <p>The Lookup instruction will call the <code>pathTo()</code> method defined on your tree. <code>pathTo()</code> must return a string representing the nodes encountered when finding an element. For instance in the following image, the bold lines indicate the path taken for locating element W.</p>
-<div class="figure">
-<img src="avl-tree-pic-1.png" alt="avl-tree-pic-1" />
-<p class="caption">avl-tree-pic-1</p>
-</div>
+<figure>
+<img src="avl-tree-pic-1.png" alt="avl-tree-pic-1" /><figcaption>avl-tree-pic-1</figcaption>
+</figure>
 <p><code>pathTo(&quot;W&quot;)</code> would then return the string <code>&quot;M P Z W&quot;</code>. Calling <code>pathTo()</code> on an element that doesn't exist would result in an empty string <code>&quot;&quot;</code>.</p>
 <p>The BinarySearchTree.cpp file already contains a few methods implemented for you (including remove()). To aid in debugging, we provide a printTree() method and associated helper methods that will print out your tree to the console in a nice format. This will prove useful if you are having trouble and want to see what your tree is doing over several operations. You can call printTree() to see this output and safely ignore all of the helper methods.</p>
 <p>To recap, submit the following files:</p>
@@ -177,7 +179,7 @@ balance(node):
 <li>analysis.pdf: The report for this lab.</li>
 </ul>
 <p>The report for this lab should contain the following:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Your name, the date, and your CS 2150 lab section.</li>
 <li>A discussion of what <a href="code/postlab/testfile1.txt">testfile1.txt</a>, <a href="code/postlab/testfile2.txt">testfile2.txt</a>, and <a href="code/postlab/testfile3.txt">testfile3.txt</a> suggest about the relative performance of AVL trees and Binary search trees.</li>
 <li>A description of the space-time tradeoff between the two implementations.</li>

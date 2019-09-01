@@ -1,12 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
-  <meta name="generator" content="pandoc" />
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>PDR: Laboratory 2: Linked Lists</title>
   <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../../markdown.css" type="text/css" />
+  <link rel="stylesheet" href="../../markdown.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-laboratory-2-linked-lists">PDR: Laboratory 2: Linked Lists</h1>
@@ -16,7 +19,7 @@
 <h3 id="background">Background:</h3>
 <p>The linked list is a basic data structure from which one can implement stacks, queues, sets, and many other data structures. Lists may be singly- or doubly-linked. In this lab we will implement a doubly-linked list.</p>
 <h3 id="readings">Reading(s):</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Readings on <a href="../../docs/readings.html">Readings</a> page.</li>
 <li><a href="../../tutorials/02-lldb/index.html">Tutorial 2: LLDB</a> <strong><em>OR</em></strong> <a href="../../tutorials/02-gdb/index.html">Tutorial 2: GDB</a>; see below as to which one to choose.</li>
 <li>For the in-lab, some articles on debugging</li>
@@ -28,12 +31,12 @@
 <p>Ultimately, this is a low stress choice. Choose lldb, and only switch over to gdb if you run into VirtualBox crashing issues.</p>
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Consider one of the online alternative readings shown on the <a href="../../docs/readings.html">Readings</a> page.</li>
 <li>Implement the three classes as described below: ListNode, TestListNode, and ListItr. You should have most, if not all, of the code working <strong><em>before</em></strong> coming to lab. TAs will be available to help in lab if you still have questions. Note that it is okay to not have the code perfectly working prior to lab -- for the pre-lab grade, we are going to be looking to see if you have made significant progress, not that it is fully working (that's the post-lab).</li>
 <li>If there is a particular method that is causing you a lot of trouble (i.e. you can't get it working), don't spend inordinate amounts of time on it -- move on, and come back to that one during the in-lab.</li>
 <li><strong>Making the implementation phase less frustrating:</strong> develop in small chunks, then <strong>test/debug incrementally. It is much easier to debug this way!</strong> (And also less frustrating and confusing.) Here is a sample process for implementing ListNode.cpp:
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Implement the ListNode constructor in ListNode.cpp</li>
 <li>Write a short test harness, TestListNode.cpp, which has a main(). The body of main should test the ListNode constructor. In other words, create some ListNodes in main() using the constructor.</li>
 <li>Build and run the test program you just wrote to see if it produces the results you expect. Some items you will want to check are the initialization of the next and previous pointers and the initial value of value</li>
@@ -45,7 +48,7 @@
 <li>Files to submit: ListNode.h/cpp, ListItr.h/cpp, List.h/cpp, ListTest.cpp</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Ensure you are familiar with debugging. You should look over the <a href="http://umich.edu/~eecs381/generalFAQ/Debugging.html">Debugging FAQ from UMich</a>, which is a good introduction.</li>
 <li>Carry out <a href="../../tutorials/02-lldb/index.html">Tutorial 2: LLDB</a> OR <a href="../../tutorials/02-gdb/index.html">Tutorial 2: GDB</a> on how to use Unix debuggers. The debugger is an important tool that you will use extensively throughout the semester to debug your code. You will need to download the prog1.cpp and debug.cpp files for the tutorial.</li>
 <li>In the future, if you have a post-compilation problem with your program (crash, etc.), the TAs will not help you until you have run it through the debugger and learned all that can be learned from this. So make sure you understand the tutorial!</li>
@@ -55,9 +58,9 @@
 <li>Files to submit: debug.cpp</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>For this lab you will be submitting your code electronically via online grading system to postlab2. Your fully functional code must contain the following 7 files:
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>List.h and List.cpp</li>
 <li>ListNode.h and ListNode.cpp</li>
 <li>ListItr.h and ListItr.cpp</li>
@@ -74,7 +77,7 @@
 <p>Linked lists are described in the online <a href="../../docs/readings.html">Readings</a>.</p>
 <p>You will be implementing a doubly linked list, and you will be using &quot;dummy&quot; nodes as well. You will want two dummy nodes -- <strong>one for the head</strong> and <strong>one for the tail</strong>. A benefit of doing your implementation using dummy nodes is that there are fewer special cases to check for -- for example you never have to update the head pointer on an insertBefore() or a remove() -- the head pointer always points to the dummy header node. A dummy tail pointer would help out in the same respect. The downside is that you use two extra &quot;empty&quot; nodes.</p>
 <p>For this lab you will need to implement three classes:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>ListNode</li>
 <li>List</li>
 <li>ListItr</li>
@@ -85,10 +88,9 @@
 <p>We have provided a test harness for testing your whole implementation: <a href="ListTest.cpp.html">ListTest.cpp</a> (<a href="ListTest.cpp">src</a>) <strong><em>The classes you implement must work with this test harness.</em></strong></p>
 <h3 id="uml-diagram">UML Diagram</h3>
 <p>Below is a UML diagram showing how these classes interact with each other.</p>
-<div class="figure">
-<img src="list-diagram.png" alt="UML diagram" />
-<p class="caption">UML diagram</p>
-</div>
+<figure>
+<img src="list-diagram.png" alt="UML diagram" /><figcaption>UML diagram</figcaption>
+</figure>
 <p>This diagram shows a list containing two elements, the integers 3 and 7. Note that there are more methods in the List and ListItr classes than what is shown above. The head and tail pointers in the List class point to dummy nodes -- they are put there to make inserting elements into the list easier. It doesn't matter what the value of the dummy notes is set to, as it won't be used. Each ListNode points to the nodes before and after it (although the dummy nodes each have one pointer pointing to NULL).</p>
 <p>Thus, our doubly linked list will have only one List object and many ListNode objects (2 more than the number of elements in the list). A ListItr is a separate object, which points to one element in the list (possibly a dummy node). As you call the various methods in ListItr to move the iterator forward and backward, the node that it points to will change.</p>
 <h3 id="listnode">ListNode</h3>
@@ -96,7 +98,7 @@
 <h3 id="list">List</h3>
 <p>This class represents the list data structure containing ListNodes. It has a pointer to the first (head) and last (tail) ListNodes of the list, as well as a count of the number of ListNodes in the List. View the <a href="List.h.html">List.h</a> (<a href="List.h">src</a>) code for details.</p>
 <h3 id="explanations">Explanations:</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><code>List()</code> is the default constructor. It should initialize all private data members. Pointers are often initialized to NULL.</li>
 <li><code>~List()</code> is the destructor. It should make the list empty and reclaim the memory allocated in the constructor for head and tail</li>
 <li><code>List&amp; operator=(const List&amp; source)</code> is the <strong>copy assignment operator</strong>. It is called when code such as the following is encountered: lhs = rhs. The copy assignment operator that you implement will copy the contents of every ListNode in source into this (the reference to the calling List object itself)</li>
@@ -162,7 +164,7 @@ List&amp; List::operator=(const List&amp; source) { //Equals operator
 <hr />
 <h2 id="in-lab-1">In-lab</h2>
 <p>These are the same steps from the lab procedure section, above.</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Carry out <a href="../../tutorials/02-lldb/index.html">Tutorial 2: LLDB</a> OR <a href="../../tutorials/02-gdb/index.html">Tutorial 2: GDB</a> on how to use Unix debuggers. The debugger is an important tool that you will use extensively throughout the semester to debug your code. You will need to download the prog1.cpp and debug.cpp files for the tutorial.</li>
 <li>In the future, if you have a post-compilation problem with your program (crash, etc.), the TAs will not help you until you have run it through the debugger and learned all that can be learned from this. So make sure you understand the tutorial!</li>
 <li>Submit your debugged version of debug.cpp to inlab2; we are not submitting prog1.cpp. Remember the standard identifying header information.</li>
@@ -173,9 +175,9 @@ List&amp; List::operator=(const List&amp; source) { //Equals operator
 <hr />
 <h2 id="post-lab-1">Post-lab</h2>
 <p>These are the same steps from the lab procedure section, above.</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>For this lab you will be submitting your code electronically via online grading system to postlab2. Your fully functional code must contain the following 7 files:
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>List.h and List.cpp</li>
 <li>ListNode.h and ListNode.cpp</li>
 <li>ListItr.h and ListItr.cpp</li>

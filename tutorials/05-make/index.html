@@ -1,12 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
-  <meta name="generator" content="pandoc" />
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>PDR: Makefile Tutorial</title>
   <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../../markdown.css" type="text/css" />
+  <link rel="stylesheet" href="../../markdown.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-makefile-tutorial">PDR: Makefile Tutorial</h1>
@@ -53,8 +56,8 @@ clang++ -c testPostfixCalc.cpp</code></pre>
 <p>The following is a list of some predefined macros in make (taken from the <a href="http://www.gnu.org/software/make/manual/">GNU Make Manual</a>, specifically <a href="http://www.gnu.org/software/make/manual/html_node/Implicit-Variables.html#Implicit-Variables">section 10.3</a>):</p>
 <table style="width:32%;">
 <colgroup>
-<col width="18%" />
-<col width="13%" />
+<col style="width: 18%" />
+<col style="width: 13%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -178,7 +181,7 @@ cd folder1
 mkdir folder2
     cd folder2 
 @echo I am in folder 2</code></pre>
-<p>When make is invoked, after performing an action, make will output the action to the screen. If you do not want an action to be displayed after invoking make, you can use '@' before the command. This is useful if you want to echo something but not have echo appear; however, the <span class="citation">@echo</span> statement must be on a separate line.</p>
+<p>When make is invoked, after performing an action, make will output the action to the screen. If you do not want an action to be displayed after invoking make, you can use '@' before the command. This is useful if you want to echo something but not have echo appear; however, the <span class="citation" data-cites="echo">@echo</span> statement must be on a separate line.</p>
 <p>In the pizza directory, pizza.cpp contains <code>main()</code> which uses the PizzaToppings, PizzaDough, and TomatoSauce classes. PizzaToppings is a class which makes use of the Cheese, Pepperoni, Peppers, and Mushrooms classes.</p>
 <p>Note the following rules in the provided Makefile:</p>
 <pre><code>pizza: pizza.o pizzadough.o tomatosauce.o toppings.o \

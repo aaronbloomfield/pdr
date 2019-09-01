@@ -1,12 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
-  <meta name="generator" content="pandoc" />
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>PDR: Laboratory 3: Stacks</title>
   <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../../markdown.css" type="text/css" />
+  <link rel="stylesheet" href="../../markdown.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-laboratory-3-stacks">PDR: Laboratory 3: Stacks</h1>
@@ -16,13 +19,13 @@
 <h3 id="background">Background:</h3>
 <p>A stack is a basic data structure similar in use to a physical stack of papers. You can add to the top (push) and take from the top (pop), but you are not allowed to access the middle or bottom. A stack adheres to the <a href="http://en.wikipedia.org/wiki/LIFO_%28computing%29">LIFO</a> property.</p>
 <h3 id="readings">Reading(s):</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Readings can be found online on the <a href="../../docs/readings.html">Readings</a> page</li>
 <li>The <a href="http://en.wikipedia.org/wiki/Reverse_Polish_notation">Wikipedia article on Reverse Polish notation</a>, which is another name for postfix notation, has a good description along with a sample calculation.</li>
 </ol>
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Read this entire lab document before coming to lab.</li>
 <li>Go through <a href="../../tutorials/03-04-more-unix/index.html">Tutorial 3: Unix, part 1</a>, which is the introduction and sections 1-4. This tutorial is originally from the department of Electrical Engineering at the University of Surrey, and is available online <a href="http://www.ee.surrey.ac.uk/Teaching/Unix/">here</a>. You should complete the introductory part and sections 1-4. You should already be somewhat familiar with some of the materials in the first few of these tutorials, as it was in the <a href="../../tutorials/01-intro-unix/index.html">Unix tutorial from the first lab</a>. The rest of the tutorial (sections 5-8) are for next week's lab, but feel free to go through it this week, if you are interested.</li>
 <li>Write up at least one question that you still have on Unix (or things you are still confused about) into unix.questions.txt.</li>
@@ -44,7 +47,7 @@
 <li>Files to submit: postfixCalculator.h, postfixCalculator.cpp, testPostfixCalc.cpp, unix.questions.txt</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Come to class with a <em>working prelab</em>.</li>
 <li>Run your postfix calculator on the test sequences posted on the board by the TAs. (These test sequences are also at the very bottom of this page.) Since your code only can handle hard-coded values, this will require a code modification and a recompilation to test each case. If your program does not calculate the correct result, use the debugger to find the errors and correct them. These modifications will be submitted to the in-lab.
 <ul>
@@ -57,11 +60,11 @@
 <li>Files to submit: postfixCalculator.h, postfixCalculator.cpp, testPostfixCalc.cpp</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Implement a stack class (into files stack.h and stack.cpp). <strong>You can NOT use a standard library container class (<code>list</code>, <code>vector</code>, <code>stack</code>, etc.) for this</strong>, but you can use the standard library's <code>string</code> class. You should use either your List class from the last lab (if it works), or write up new stack class based on either the lecture notes or the textbook pages on stacks. Your stack class can use a linked-list/pointer-based implementation, or an array-based implementation. Note that your stack class can contain a LinkedList object, and a stack class method can just pass the value onto the appropriate method in the LinkedList class. You don't need to implement all possible stack methods (in particular, you can ignore the copy constructor, <code>operator=()</code>, etc.) -- just the four mentioned in the pre-lab (push(), top(), pop(), and empty()). After this lab, it is expected that you will be able to implement a stack class in C++.</li>
 <li>Modify your postfix calculator to use the stack class that you have implemented.</li>
 <li>Be sure to include: your name, the date, and the name of the file in a banner comment at the beginning of each file you submit. Your submission must contain the following code:
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Your stack code. This will likely be stack.h/cpp, and may (or may not; your choice) include all of the List.h/cpp, ListItr.h/cpp, ListNode.h/cpp files from lab 2
 <ul>
 <li>For your stack code, you are welcome to submit it in many files, as long as it will compile with <code>clang++ *.cpp</code>, and as long as the total number of files submitted does not exceed 11 files (you can submit 12 files total, but you need to submit a text file, described below, as well)</li>
@@ -202,7 +205,7 @@ great??
 <p>In the above execution, what was typed in was <code>+ 2 3 isn't 2150 great??</code> (the second line). After the end of the line (i.e., after the Enter key was pressed), the program reads in that, and prints each token on a separate line. Since there was no more into to provide, Control-D (shown as <code>^D</code>) was then pressed (the last line in that execution run). Control-D closes the stdin pipe by providing the EOF flag.</p>
 <p><strong><em>NOTE:</em></strong> When hitting Control-D, you have to enter it <em>on it's own line</em>. This means that you first have to hit Enter, then Control-D.</p>
 <h3 id="assumptions">Assumptions:</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Assume that the input, i.e. the postfix expression, is entered in on one line and that all numbers and operators are separated by a single space. We will only provide you with valid input.</li>
 <li>You can assume that users will enter the proper number of operands/operators. In other words, if an invalid postfix expression is entered, your program can do anything (including crashing) and we won't take off points.</li>
 </ol>
@@ -219,14 +222,14 @@ great??
 <p>You will also have to write up the difficulties.txt file, as described above in the lab procedure section.</p>
 <p>Note that you only have to implement the four stack methods described in the pre-lab section (and the constructor, of course): <code>push()</code>, <code>pop()</code>, <code>top()</code>, and <code>empty()</code>. The other methods (copy constructor, <code>operator=()</code>, etc.) do not need to be implemented for this lab.</p>
 <p>Most of you will implement your stack in one of the following ways:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Re-use your list class from lab 2. You may need to add one or two methods to it for extra convenience.</li>
 <li>Build a linked-list / pointer based stack as discussed in lecture. Your stack class would contain a pointer to the head node of the stack, and push and pop would modify the singly-linked list accordingly.</li>
 <li>Manually implement an array-based stack. If you choose this method, your array must be able to automatically resize if the stack grows large enough to sufficiently fill the array. This is probably the most difficult of the three options.</li>
 </ol>
 <h3 id="submitting-the-stack-list-files">Submitting the stack / list files</h3>
 <p>Depending on how you implement the stack class, you may just need the stack.h/cpp files, in addition to the three postfix calculator files (postfixCalculator.h/cpp and testPostfixCalc.cpp). Or you may need stack.h/cpp and stacknode.h/cpp in addition to the three postfix calculator files. Or you may want to include the six List/ListItr/ListNode files from lab 2 as well as stack.h/cpp and the three postfix calculator files. How you do this is up to you - as long as it works, we don't really care, provided that:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>It compiles with <code>clang++ *.cpp</code></li>
 <li>The total number of C++ files you submit is 11 or fewer (you can submit 12 files total, but you need to submit a the text file called difficulties.txt as well)</li>
 </ol>

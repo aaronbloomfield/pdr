@@ -1,12 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
-  <meta name="generator" content="pandoc" />
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>PDR: Laboratory 8: x86 Assembly Language, part 1 (64 bit)</title>
   <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../../markdown.css" type="text/css" />
+  <link rel="stylesheet" href="../../markdown.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-laboratory-8-x86-assembly-language-part-1-64-bit">PDR: Laboratory 8: x86 Assembly Language, part 1 (64 bit)</h1>
@@ -17,14 +20,14 @@
 <h3 id="background">Background</h3>
 <p>The Intel x86 assembly language is currently one of the most popular assembly languages and runs on many architectures from the x86 line through the Pentium 4. It is a <a href="http://en.wikipedia.org/wiki/Complex_instruction_set_computing">CISC</a> instruction set that has been extended multiple times (e.g. <a href="http://en.wikipedia.org/wiki/MMX_%28instruction_set%29">MMX</a>) into a larger instruction set. In 2004 it was extended to allow for a 64 bit memory space.</p>
 <h3 id="readings">Reading(s)</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Read the <a href="../../slides/08-assembly-64bit.html">slides on 64 bit x86</a></li>
 <li>The x86 book chapters on <a href="../../book/x86-64bit-asm-chapter.pdf">x86</a> and the <a href="../../book/x86-64bit-ccc-chapter.pdf">C calling convention</a> as the reading</li>
 <li>An optional online reading is <a href="https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf">x86-64 Machine-Level Programming</a> from CMU, although they use the other assembly language format</li>
 </ol>
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>You should be familiar with the readings described above. They detail the x86 material that this lab requires.</li>
 <li>Complete the tutorial, which consists of reading <a href="https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf">x86-64 Machine-Level Programming</a> from CMU</li>
 <li>Read through the section, below, on compiling C++ with assembly on different architectures, as well as the vecsum program.</li>
@@ -40,7 +43,7 @@
 <li>Files to submit mathlib.s, mathfun.cpp, Makefile</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Make sure you have completed the reading on the C calling convention.</li>
 <li>Follow the in-lab instructions in this document. Your assignment is to write a function in x86 assembly called mergeSort. The merge function is provided in mergeSort.s.</li>
 <li>Your code must compile with <code>make</code>. It must work on a 64-bit Linux machine.</li>
@@ -49,7 +52,7 @@
 <li>Files to submit: mergeSort.s, testMergeSort.cpp, Makefile</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Write a report that explains the topics listed in the post-lab section below. Be sure to address all the issues in each topic!</li>
 <li>Files to download: none (other than the results of your pre-lab and in-lab)</li>
 <li>Files to submit: postlab8.pdf</li>
@@ -58,7 +61,7 @@
 <h2 id="platform-architectures">Platform Architectures</h2>
 <h3 id="different-architectures">Different Architectures</h3>
 <p>There are two different platforms that students are potentially developing their code on:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>64-bit Linux (what is on the VirtualBox image and what the submission server is running, as well as what is installed on the computers in Rice 340 and Olsson 001)</li>
 <li>64-bit Mac OS X</li>
 </ol>
@@ -82,11 +85,11 @@
 <p>Below is a table summarizing the changes</p>
 <table style="width:97%;">
 <colgroup>
-<col width="13%" />
-<col width="8%" />
-<col width="8%" />
-<col width="8%" />
-<col width="58%" />
+<col style="width: 13%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 58%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -180,14 +183,14 @@ Sorted array: -39 -7 2 8 12</code></pre>
 <p>The questions below are what you must address in your post-lab report. Make sure you answer each part and include sufficient evidence. You should create a simple class to help you answer the following questions. In your class, be sure to include several methods and at least 5 data members of different types and access levels (public and private).</p>
 <h3 id="parameter-passing">Parameter passing</h3>
 <p>Show and explain assembly code generated by the compiler for a simple function and function call that passes parameters by a variety of means. Show what is happening both in the caller and in the callee. You do not need to describe parts of the C calling convention we described in class (e.g. saving registers, saving the base pointer, how the call instruction works). The focus here is on examining in detail what happens when parameters are passed.</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>How are variables (ints, chars, pointers, floats, etc.) passed by value? How are they passed by reference? Create several functions and examine the parameter registers to help you answer this question.</li>
 <li>Create a simple function that takes in an object. How are objects passed by value? How are they passed by reference? Specifically, what is contained in the parameter registers in each case?</li>
 <li>Create an array in your main method, and write a function that takes it in as a parameter. How are arrays passed into functions? How does the callee access the parameters? Where are the data values placed? Hint: you will need to determine at least a register-relative address.</li>
 <li>Is passing values by reference different than passing by pointer? If they are the same, what exactly is passed in the parameter register? If they are different, how so?</li>
 </ol>
 <h3 id="objects">Objects</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>How is object data laid out in memory? Create an object in your main method, and view where each data member is located in memory. How does C++ keep different fields of an object &quot;together&quot;?</li>
 <li>Explain how data member access works for objects. How does the assembly know which data member to access? We know how local variables and parameters are accessed (offsets from the base pointer) -- describe how this is done for data fields.</li>
 <li>How does method invocation work for objects? Specifically, how does the assembly know which object it is being called out of? Remember that assembly is not object oriented.</li>

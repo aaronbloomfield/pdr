@@ -1,12 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
-  <meta name="generator" content="pandoc" />
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>PDR: Laboratory 7: IBCM Programming</title>
   <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../../markdown.css" type="text/css" />
+  <link rel="stylesheet" href="../../markdown.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-laboratory-7-ibcm-programming">PDR: Laboratory 7: IBCM Programming</h1>
@@ -16,14 +19,14 @@
 <h3 id="background">Background:</h3>
 <p>IBCM (Itty Bitty Computing Machine) is a simulated computer with a minimal instruction set. Despite its tiny small instruction set, the IBCM can compute anything that a modern 'powerful' computer can compute.</p>
 <h3 id="readings">Reading(s):</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Read the <a href="../../slides/07-ibcm.html">slides on IBCM</a></li>
 <li>Read <a href="../../book/ibcm-chapter.pdf">IBCM book chapter</a> (PDF)</li>
 <li>Run IBCM code online <a href="http://pegasus.cs.virginia.edu/ibcm/">here</a>. The sample code in the book chapter is also in the repo: <a href="../../ibcm/summation.ibcm">summation.ibcm</a> and <a href="../../ibcm/array-summation.ibcm">array-summation.ibcm</a></li>
 </ol>
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>The online IBCM simulator is available online <a href="http://pegasus.cs.virginia.edu/ibcm/">here</a>. If that site is down, mirror websites are listed in the pre-lab section.</li>
 <li>Write the two IBCM programs described in the pre-lab section: addition.ibcm and array.ibcm.</li>
 <li>Note that some browsers have problems with the online simulator. If in doubt, try Firefox or Chrome.</li>
@@ -32,7 +35,7 @@
 <li>Files to submit: addition.ibcm, array.ibcm. Make sure they are not named addition.ibcm.txt and array.ibcm.txt!</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Implement the bubble sort algorithm in IBCM from the C++ code. See the in-lab section for details.</li>
 <li>Discuss any problems getting your programs to work with a TA.</li>
 <li>Your submitted files MUST have an .ibcm extension (not .ibcm.txt), and can NOT have any blank lines!</li>
@@ -40,7 +43,7 @@
 <li>Files to submit: bubblesort.ibcm. Make sure it's not named bubblesort.ibcm.txt!</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>The tutorial for this lab is the remainder of the <a href="http://en.wikibooks.org/wiki/Bash_Shell_Scripting">Wikibooks article on Bash Shell Scripting</a>.</li>
 <li>Complete the shell script described in the post-lab section.</li>
 <li>Your shell script MUST use <code>a.out</code> as the executable name</li>
@@ -65,7 +68,7 @@
 <p>You will be developing a somewhat more complicated IBCM program in the in-lab. So, as preparation, study the IBCM documentation and lecture notes. Additionally, you will be expected to come to the in-lab with two working IBCM programs. You will not get much from the lab unless you are thoroughly familiar with the documentation and lecture notes, so make sure you are familiar with the material!</p>
 <h3 id="writing-ibcm-code">Writing IBCM Code</h3>
 <p>You <strong>MUST</strong> comment your IBCM code copiously. This means (practically) every line should have a comment describing what you are doing. Note that you cannot have a line that is only comments, as the emulator will have trouble reading that line! The examples provided in the handouts posted on the course website and discussed in class illustrate a good way of doing this, where there are columns for each of the following:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>the hexadecimal values that will go into that memory location</li>
 <li>the address of that memory location</li>
 <li>labels for jumps or variable names</li>
@@ -103,7 +106,7 @@
 <h3 id="bubble-sort">Bubble sort</h3>
 <p>Download and look at the <a href="bubblesort.cpp.html">bubblesort.cpp</a> (<a href="bubblesort.cpp">src</a>) algorithm. This algorithm is what needs to be implemented in IBCM, although you should <strong>NOT</strong> implement the output in the IBCM version.</p>
 <p>To encode this program, follow these steps:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Write up high-level pseudo-code for your design on paper (make sure that it is absolutely correct, or you will probably regret it later)</li>
 <li>Refine this pseudo-code, making it closer to the assembly code level</li>
 <li>Alter your code into IBCM assembly code with labels instead of addresses</li>
