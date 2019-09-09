@@ -58,11 +58,11 @@ The links in the right-most column link directly to the lecture recording on Col
 
 | Num | Date | Day of week | Lab & Tutorial (on Tue) | Planned topic | Lecture progress |
 |-----|-----|-----|----------------------|---------|--------------------|
-| 1  | Aug 28 | Wednesday | no lab this week | [Course introduction][80] | Course intro through slide 4.6 (no lecture recording) |
-| 2  | Aug 30 | Friday | | [Course introduction][80], [01: C++][81] | Course intro from slide 4.6 to the end; C++ to slide 5.3 (no lecture recording) |
-| 3  | Sep  2 | Monday | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | [01: C++][81] | C++, slides 5.3 to 8.3 ([recording](https://uva.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=230800eb-368d-459d-a76c-aabc0118d5ea)) |
-| 4  | Sep  4 | Wednesday | | [01: C++][81] | C++, slides 8.3 to 9.17 ([recording](https://uva.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=10157ac7-b39c-418b-ad5b-aabe01194c7f)) |
-| 5  | Sep  6 | Friday | | [01: C++][81] | |
+| 1  | Aug 28 | Wednesday | no lab this week | [Course introduction][80] | Course intro to slide 4.6 (no lecture recording) |
+| 2  | Aug 30 | Friday | | [Course introduction][80], [01: C++][81] | Course intro to the end; C++ to slide 5.3 (no lecture recording) |
+| 3  | Sep  2 | Monday | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | [01: C++][81] | C++, to slide 8.3 (recording in Panopto in Collab) |
+| 4  | Sep  4 | Wednesday | | [01: C++][81] | C++ to slide 9.17 (recording in Panopto in Collab) |
+| 5  | Sep  6 | Friday | | [01: C++][81] | C++ to slide 10.14 (recording in Panopto in Collab) |
 | 6  | Sep  9 | Monday | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: LLDB][42] ([md][62]) *OR* [Tutorial 2: GDB][52] ([md][72]) (see [lab 2][2] for which one to pick) | [01: C++][81] | |
 | 7  | Sep 11 | Wednesday | | [01: C++][81], [02: Lists][82] | |
 | 8  | Sep 13 | Friday | | [02: Lists][82] | |
