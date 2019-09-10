@@ -360,6 +360,7 @@ int   main ()
                 cout << "The list is (backward): ";
                 printList(*list,false);
                 list->makeEmpty();
+                itr = new ListItr((list->first()));
                 cout << "The list was made empty (forward): ";
                 printList(*list,true);
                 cout << "The list was made empty (backward): ";
