@@ -161,6 +161,15 @@ List&amp; List::operator=(const List&amp; source) { //Equals operator
 <p>There are ways to compile these programs in pieces, but we will see this later in the semester.</p>
 <p>Some students have had problems with the copy constructor and <code>operator=()</code> methods defined above -- they would cause a crash (segmentation fault). The methods above work fine in our solution, but require that all the called functionality work properly as well. If it is causing a crash in your code, run it through the debugger to see where it crashes -- it's probably a problem with one of your other methods.</p>
 <p>To start, create the .cpp file (List.cpp, ListNode.cpp, ListItr.cpp) that just have empty method bodies (with a dummy return value for non-<code>void</code> methods), and get that to compile. Then start implementing one method at a time, testing as you go.</p>
+<p>Here is the minimum amount of functions you need to have implemented in order to start using the ListTest harness, as well as suggested implementation order:</p>
+<ol type="1">
+<li>All of ListNode (so...the constructor)</li>
+<li>List constructor</li>
+<li><code>List::insertAtTail</code></li>
+<li>All of ListItr</li>
+<li><code>List::first</code></li>
+<li><code>printList</code></li>
+</ol>
 <hr />
 <h2 id="in-lab-1">In-lab</h2>
 <p>These are the same steps from the lab procedure section, above.</p>

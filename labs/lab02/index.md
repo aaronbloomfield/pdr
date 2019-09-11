@@ -192,6 +192,15 @@ Some students have had problems with the copy constructor and `operator=()` meth
 
 To start, create the .cpp file (List.cpp, ListNode.cpp, ListItr.cpp) that just have empty method bodies (with a dummy return value for non-`void` methods), and get that to compile.  Then start implementing one method at a time, testing as you go.
 
+Here is the minimum amount of functions you need to have implemented in order to start using the ListTest harness, as well as suggested implementation order:
+
+1. All of ListNode (so...the constructor)
+2. List constructor
+3. `List::insertAtTail`
+4. All of ListItr
+5. `List::first`
+6. `printList`
+
 ------------------------------------------------------------
 
 In-lab
