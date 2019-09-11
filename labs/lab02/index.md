@@ -19,13 +19,13 @@ The linked list is a basic data structure from which one can implement stacks, q
 
 ### Debugger Choice ###
 
-In this lab, you will have to make a choice as to which debugger to use; this will affect which tutorial you carry out.  You can choose the gdb debugger (you would then complete [Tutorial 2: GDB](../../tutorials/02-gdb/index.html)) or the lldb debugger (you would then complete [Tutorial 2: LLDB](../../tutorials/02-lldb/index.html)).  The source code provided for each tutorial is exactly the same, and the deliverable (i.e., what you turn in) is likewise the exact same.
+In this lab, you will have to make a choice as to which debugger to use; this will affect which tutorial you carry out.  You can choose the lldb debugger (you would then complete [Tutorial 2: LLDB](../../tutorials/02-lldb/index.html)) or the gdb debugger (you would then complete [Tutorial 2: GDB](../../tutorials/02-gdb/index.html)).  The source code provided for each tutorial is exactly the same, and the deliverable (i.e., what you turn in) is likewise the exact same.
 
-The lldb debugger is preferred, as it was built with the `clang++` compiler that we are using.  In the past, there was a [bug](http://llvm.org/bugs/show_bug.cgi?id=20446) where running lldb would cause VirtualBox to crash.  However, that does not seem to be happening anymore.  So start with the lldb tutorial.  If you run into VirtualBox crashing issues (unlikely), switch over to the gdb tutorial.
+The lldb debugger is preferred as it was built with the `clang++` compiler that we are using; however, the gdb tutorial is offered if lldb doesn't work for you.
 
 Just remember which one you choose, as you will end up using that debugger throughout this course.  And if you ever have to switch between them, you can use our [GDB vs LLDB](../../docs/gdb_vs_lldb.html) page to see the (relatively few) commands that are different between the two.
 
-Ultimately, this is a low stress choice.  Choose lldb, and only switch over to gdb if you run into VirtualBox crashing issues.
+Ultimately, this is a low stress choice.  Choose lldb, and only switch over to gdb if you run into issues.
 
 Procedure
 ---------
