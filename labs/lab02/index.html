@@ -99,7 +99,7 @@
 <p>This class represents the list data structure containing ListNodes. It has a pointer to the first (head) and last (tail) ListNodes of the list, as well as a count of the number of ListNodes in the List. View the <a href="List.h.html">List.h</a> (<a href="List.h">src</a>) code for details.</p>
 <h3 id="explanations">Explanations:</h3>
 <ol type="1">
-<li><code>List()</code> is the default constructor. It should initialize all private data members. Pointers are often initialized to NULL.</li>
+<li><code>List()</code> is the default constructor. It should initialize all private data members and set up the basic list structure with the dummy head and tail nodes.</li>
 <li><code>~List()</code> is the destructor. It should make the list empty and reclaim the memory allocated in the constructor for head and tail</li>
 <li><code>List&amp; operator=(const List&amp; source)</code> is the <strong>copy assignment operator</strong>. It is called when code such as the following is encountered: lhs = rhs. The copy assignment operator that you implement will copy the contents of every ListNode in source into this (the reference to the calling List object itself)</li>
 <li><code>List(const List&amp; source)</code> is the <strong>copy constructor</strong>. This will create a new list of ListNodes whose contents are the same values as the ListNodes in source.</li>

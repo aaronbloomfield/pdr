@@ -112,11 +112,11 @@ This class represents the list data structure containing ListNodes.  It has a po
 
 ### Explanations: ###
 
-1. `List()` is the default constructor.  It should initialize all private data members.  Pointers are often initialized to NULL.
-2. `~List()` is the destructor.  It should make the list empty and reclaim the memory allocated in the constructor for head and tail 
-3. `List& operator=(const List& source)` is the **copy assignment operator**.  It is called when code such as the following is encountered: lhs = rhs.  The copy assignment operator that you implement will copy the contents of every ListNode in source into this (the reference to the calling List object itself) 
+1. `List()` is the default constructor.  It should initialize all private data members and set up the basic list structure with the dummy head and tail nodes.
+2. `~List()` is the destructor.  It should make the list empty and reclaim the memory allocated in the constructor for head and tail
+3. `List& operator=(const List& source)` is the **copy assignment operator**.  It is called when code such as the following is encountered: lhs = rhs.  The copy assignment operator that you implement will copy the contents of every ListNode in source into this (the reference to the calling List object itself)
 4. `List(const List& source)` is the **copy constructor**.  This will create a new list of ListNodes whose contents are the same values as the ListNodes in source.
-5. `bool isEmpty()` This member function returns true if the list is empty, else false 
+5. `bool isEmpty()` This member function returns true if the list is empty, else false
 6. `void makeEmpty()` removes/reclaims all items from a list, except the dummy head and tail nodes.
 7. `ListItr first()` returns an iterator that points to the ListNode in the first position.  This is the element **after** the head ListNode (even on an empty list!)
 8. `ListItr last()` returns an iterator that points to the ListNode in the last position.  This is the element **before** the tail node (even on an empty list!)
