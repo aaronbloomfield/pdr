@@ -63,7 +63,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 3  | Sep  2 | Monday | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | [01: C++][81] | C++, to slide 8.3 (recording in Panopto in Collab) |
 | 4  | Sep  4 | Wednesday | | [01: C++][81] | C++ to slide 9.17 (recording in Panopto in Collab) |
 | 5  | Sep  6 | Friday | | [01: C++][81] | C++ to slide 10.14 (recording in Panopto in Collab) |
-| 6  | Sep  9 | Monday | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: LLDB][42] ([md][62]) *OR* [Tutorial 2: GDB][52] ([md][72]) (see [lab 2][2] for which one to pick) | [01: C++][81] | |
+| 6  | Sep  9 | Monday | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: LLDB][42] ([md][62]) *OR* [Tutorial 2: GDB][52] ([md][72]) (see [lab 2][2] for which one to pick) | [01: C++][81] | C++ to slide 11.9 (recording in Panopto in Collab) |
 | 7  | Sep 11 | Wednesday | | [01: C++][81], [02: Lists][82] | |
 | 8  | Sep 13 | Friday | | [02: Lists][82] | |
 | 9  | Sep 16 | Monday | [Lab 3: Stacks][3] ([md][23]) / [Tutorial 3: More UNIX, part 1][63], introduction and sections 1-4 | [02: Lists][82], [03: Numbers][83] | |
