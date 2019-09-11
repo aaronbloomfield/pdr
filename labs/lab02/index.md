@@ -113,16 +113,16 @@ This class represents the list data structure containing ListNodes.  It has a po
 ### Explanations: ###
 
 - `List()` is the default constructor.  It should initialize all private data members and set up the basic list structure with the dummy head and tail nodes.
-- `~List()` is the destructor.  It should make the list empty and reclaim the memory allocated in the constructor for head and tail
-- `List& operator=(const List& source)` is the **copy assignment operator**.  It is called when code such as the following is encountered: lhs = rhs.  The copy assignment operator that you implement will copy the contents of every ListNode in source into this (the reference to the calling List object itself)
+- `~List()` is the destructor.  It should make the list empty and reclaim the memory allocated in the constructor for head and tail.
+- `List& operator=(const List& source)` is the **copy assignment operator**.  It is called when code such as the following is encountered: lhs = rhs.  The copy assignment operator that you implement will copy the contents of every ListNode in source into this (the reference to the calling List object itself).
 - `List(const List& source)` is the **copy constructor**.  This will create a new list of ListNodes whose contents are the same values as the ListNodes in source.
-- `bool isEmpty()` This member function returns true if the list is empty, else false
+- `bool isEmpty()` returns true if the list is empty and false otherwise.
 - `void makeEmpty()` removes/reclaims all items from a list, except the dummy head and tail nodes.
-- `ListItr first()` returns an iterator that points to the ListNode in the first position.  This is the element **after** the head ListNode (even on an empty list!)
-- `ListItr last()` returns an iterator that points to the ListNode in the last position.  This is the element **before** the tail node (even on an empty list!)
+- `ListItr first()` returns an iterator that points to the ListNode in the first position.  This is the element **after** the head ListNode (even on an empty list!).
+- `ListItr last()` returns an iterator that points to the ListNode in the last position.  This is the element **before** the tail node (even on an empty list!).
 - `void insertAfter(int x, ListItr position)` inserts x **after** the current iterator position position.
 - `void insertBefore(int x, ListItr position)` inserts x **before** the current iterator position position.
-- `void insertAtTail(int x)` inserts x at tail of list.
+- `void insertAtTail(int x)` inserts x at the tail of the list.
 - `ListItr find(int x)` returns an iterator that points to the first occurrence of x.  When the parameter is not in the list, return a ListItr object, where the current pointer points to the dummy tail node.  This makes sense because you can test the return from find() to see if isPastEnd() is true.
 - `void remove(int x)` removes the first occurrence of x.
 - `int size()` returns the number of elements in the list.

@@ -100,16 +100,16 @@
 <h3 id="explanations">Explanations:</h3>
 <ul>
 <li><code>List()</code> is the default constructor. It should initialize all private data members and set up the basic list structure with the dummy head and tail nodes.</li>
-<li><code>~List()</code> is the destructor. It should make the list empty and reclaim the memory allocated in the constructor for head and tail</li>
-<li><code>List&amp; operator=(const List&amp; source)</code> is the <strong>copy assignment operator</strong>. It is called when code such as the following is encountered: lhs = rhs. The copy assignment operator that you implement will copy the contents of every ListNode in source into this (the reference to the calling List object itself)</li>
+<li><code>~List()</code> is the destructor. It should make the list empty and reclaim the memory allocated in the constructor for head and tail.</li>
+<li><code>List&amp; operator=(const List&amp; source)</code> is the <strong>copy assignment operator</strong>. It is called when code such as the following is encountered: lhs = rhs. The copy assignment operator that you implement will copy the contents of every ListNode in source into this (the reference to the calling List object itself).</li>
 <li><code>List(const List&amp; source)</code> is the <strong>copy constructor</strong>. This will create a new list of ListNodes whose contents are the same values as the ListNodes in source.</li>
-<li><code>bool isEmpty()</code> This member function returns true if the list is empty, else false</li>
+<li><code>bool isEmpty()</code> returns true if the list is empty and false otherwise.</li>
 <li><code>void makeEmpty()</code> removes/reclaims all items from a list, except the dummy head and tail nodes.</li>
-<li><code>ListItr first()</code> returns an iterator that points to the ListNode in the first position. This is the element <strong>after</strong> the head ListNode (even on an empty list!)</li>
-<li><code>ListItr last()</code> returns an iterator that points to the ListNode in the last position. This is the element <strong>before</strong> the tail node (even on an empty list!)</li>
+<li><code>ListItr first()</code> returns an iterator that points to the ListNode in the first position. This is the element <strong>after</strong> the head ListNode (even on an empty list!).</li>
+<li><code>ListItr last()</code> returns an iterator that points to the ListNode in the last position. This is the element <strong>before</strong> the tail node (even on an empty list!).</li>
 <li><code>void insertAfter(int x, ListItr position)</code> inserts x <strong>after</strong> the current iterator position position.</li>
 <li><code>void insertBefore(int x, ListItr position)</code> inserts x <strong>before</strong> the current iterator position position.</li>
-<li><code>void insertAtTail(int x)</code> inserts x at tail of list.</li>
+<li><code>void insertAtTail(int x)</code> inserts x at the tail of the list.</li>
 <li><code>ListItr find(int x)</code> returns an iterator that points to the first occurrence of x. When the parameter is not in the list, return a ListItr object, where the current pointer points to the dummy tail node. This makes sense because you can test the return from find() to see if isPastEnd() is true.</li>
 <li><code>void remove(int x)</code> removes the first occurrence of x.</li>
 <li><code>int size()</code> returns the number of elements in the list.</li>
