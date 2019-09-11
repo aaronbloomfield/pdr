@@ -77,11 +77,11 @@
 <p>Linked lists are described in the online <a href="../../docs/readings.html">Readings</a>.</p>
 <p>You will be implementing a doubly linked list, and you will be using &quot;dummy&quot; nodes as well. You will want two dummy nodes -- <strong>one for the head</strong> and <strong>one for the tail</strong>. A benefit of doing your implementation using dummy nodes is that there are fewer special cases to check for -- for example you never have to update the head pointer on an insertBefore() or a remove() -- the head pointer always points to the dummy header node. A dummy tail pointer would help out in the same respect. The downside is that you use two extra &quot;empty&quot; nodes.</p>
 <p>For this lab you will need to implement three classes:</p>
-<ol type="1">
+<ul>
 <li>ListNode</li>
 <li>List</li>
 <li>ListItr</li>
-</ol>
+</ul>
 <p>For simplicity we will just create a list that holds integers (your code could easily later be templated (i.e. made generic) to allow it to contain objects of other types). <strong><em>You must use the method names listed below in your code.</em></strong></p>
 <p>Below are the class definitions for each, which should be kept in header files with the respective file names.</p>
 <h3 id="test-harness">Test Harness</h3>
@@ -98,7 +98,7 @@
 <h3 id="list">List</h3>
 <p>This class represents the list data structure containing ListNodes. It has a pointer to the first (head) and last (tail) ListNodes of the list, as well as a count of the number of ListNodes in the List. View the <a href="List.h.html">List.h</a> (<a href="List.h">src</a>) code for details.</p>
 <h3 id="explanations">Explanations:</h3>
-<ol type="1">
+<ul>
 <li><code>List()</code> is the default constructor. It should initialize all private data members and set up the basic list structure with the dummy head and tail nodes.</li>
 <li><code>~List()</code> is the destructor. It should make the list empty and reclaim the memory allocated in the constructor for head and tail</li>
 <li><code>List&amp; operator=(const List&amp; source)</code> is the <strong>copy assignment operator</strong>. It is called when code such as the following is encountered: lhs = rhs. The copy assignment operator that you implement will copy the contents of every ListNode in source into this (the reference to the calling List object itself)</li>
@@ -113,7 +113,7 @@
 <li><code>ListItr find(int x)</code> returns an iterator that points to the first occurrence of x. When the parameter is not in the list, return a ListItr object, where the current pointer points to the dummy tail node. This makes sense because you can test the return from find() to see if isPastEnd() is true.</li>
 <li><code>void remove(int x)</code> removes the first occurrence of x.</li>
 <li><code>int size()</code> returns the number of elements in the list.</li>
-</ol>
+</ul>
 <p>In addition, you must implement this non-List member function: void <code>printList(List&amp; theList, bool forward)</code> is a <strong>non-member function</strong> that prints a list either forwards (by default -- from head to tail) when forward is true, or backwards (from tail to head) when forward is false. <em>You must use your ListItr class to implement this function.</em></p>
 <h3 id="some-of-the-harder-methods...">Some of the harder methods...</h3>
 <p>The code for the copy constructor and the <code>operator=()</code> method in the List class are shown below. Although we are providing you with this code, you must understand how it works by the end of the lab, as you will have to implement these types of methods on future labs and exams.</p>

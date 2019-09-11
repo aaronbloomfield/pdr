@@ -80,9 +80,9 @@ You will be implementing a doubly linked list, and you will be using "dummy" nod
 
 For this lab you will need to implement three classes:
 
-1. ListNode
-2. List
-3. ListItr
+- ListNode
+- List
+- ListItr
 
 For simplicity we will just create a list that holds integers (your code could easily later be templated (i.e. made generic) to allow it to contain objects of other types).  ***You must use the method names listed below in your code.***
 
@@ -112,20 +112,20 @@ This class represents the list data structure containing ListNodes.  It has a po
 
 ### Explanations: ###
 
-1. `List()` is the default constructor.  It should initialize all private data members and set up the basic list structure with the dummy head and tail nodes.
-2. `~List()` is the destructor.  It should make the list empty and reclaim the memory allocated in the constructor for head and tail
-3. `List& operator=(const List& source)` is the **copy assignment operator**.  It is called when code such as the following is encountered: lhs = rhs.  The copy assignment operator that you implement will copy the contents of every ListNode in source into this (the reference to the calling List object itself)
-4. `List(const List& source)` is the **copy constructor**.  This will create a new list of ListNodes whose contents are the same values as the ListNodes in source.
-5. `bool isEmpty()` This member function returns true if the list is empty, else false
-6. `void makeEmpty()` removes/reclaims all items from a list, except the dummy head and tail nodes.
-7. `ListItr first()` returns an iterator that points to the ListNode in the first position.  This is the element **after** the head ListNode (even on an empty list!)
-8. `ListItr last()` returns an iterator that points to the ListNode in the last position.  This is the element **before** the tail node (even on an empty list!)
-9. `void insertAfter(int x, ListItr position)` inserts x **after** the current iterator position position.
-10. `void insertBefore(int x, ListItr position)` inserts x **before** the current iterator position position.
-11. `void insertAtTail(int x)` inserts x at tail of list.
-12. `ListItr find(int x)` returns an iterator that points to the first occurrence of x.  When the parameter is not in the list, return a ListItr object, where the current pointer points to the dummy tail node.  This makes sense because you can test the return from find() to see if isPastEnd() is true.
-13. `void remove(int x)` removes the first occurrence of x.
-14. `int size()` returns the number of elements in the list.
+- `List()` is the default constructor.  It should initialize all private data members and set up the basic list structure with the dummy head and tail nodes.
+- `~List()` is the destructor.  It should make the list empty and reclaim the memory allocated in the constructor for head and tail
+- `List& operator=(const List& source)` is the **copy assignment operator**.  It is called when code such as the following is encountered: lhs = rhs.  The copy assignment operator that you implement will copy the contents of every ListNode in source into this (the reference to the calling List object itself)
+- `List(const List& source)` is the **copy constructor**.  This will create a new list of ListNodes whose contents are the same values as the ListNodes in source.
+- `bool isEmpty()` This member function returns true if the list is empty, else false
+- `void makeEmpty()` removes/reclaims all items from a list, except the dummy head and tail nodes.
+- `ListItr first()` returns an iterator that points to the ListNode in the first position.  This is the element **after** the head ListNode (even on an empty list!)
+- `ListItr last()` returns an iterator that points to the ListNode in the last position.  This is the element **before** the tail node (even on an empty list!)
+- `void insertAfter(int x, ListItr position)` inserts x **after** the current iterator position position.
+- `void insertBefore(int x, ListItr position)` inserts x **before** the current iterator position position.
+- `void insertAtTail(int x)` inserts x at tail of list.
+- `ListItr find(int x)` returns an iterator that points to the first occurrence of x.  When the parameter is not in the list, return a ListItr object, where the current pointer points to the dummy tail node.  This makes sense because you can test the return from find() to see if isPastEnd() is true.
+- `void remove(int x)` removes the first occurrence of x.
+- `int size()` returns the number of elements in the list.
 
 In addition, you must implement this non-List member function: void `printList(List& theList, bool forward)` is a **non-member function** that prints a list either forwards (by default -- from head to tail) when forward is true, or backwards (from tail to head) when forward is false.  *You must use your ListItr class to implement this function.*
 
