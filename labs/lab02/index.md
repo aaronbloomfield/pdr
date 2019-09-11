@@ -123,8 +123,8 @@ This class represents the list data structure containing ListNodes.  It has a po
 9. `void insertAfter(int x, ListItr position)` inserts x **after** the current iterator position position.
 10. `void insertBefore(int x, ListItr position)` inserts x **before** the current iterator position position.
 11. `void insertAtTail(int x)` inserts x at tail of list.
-12. `void remove(int x)` removes the first occurrence of x.
-13. `ListItr find(int x)` returns an iterator that points to the first occurrence of x.  When the parameter is not in the list, return a ListItr object, where the current pointer points to the dummy tail node.  This makes sense because you can test the return from find() to see if isPastEnd() is true.
+12. `ListItr find(int x)` returns an iterator that points to the first occurrence of x.  When the parameter is not in the list, return a ListItr object, where the current pointer points to the dummy tail node.  This makes sense because you can test the return from find() to see if isPastEnd() is true.
+13. `void remove(int x)` removes the first occurrence of x.
 14. `int size()` returns the number of elements in the list.
 
 In addition, you must implement this non-List member function: void `printList(List& theList, bool forward)` is a **non-member function** that prints a list either forwards (by default -- from head to tail) when forward is true, or backwards (from tail to head) when forward is false.  *You must use your ListItr class to implement this function.*
