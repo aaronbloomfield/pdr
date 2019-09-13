@@ -188,6 +188,10 @@ clang++ List.cpp ListItr.cpp ListNode.cpp ListTest.cpp
 
 There are ways to compile these programs in pieces, but we will see this later in the semester.
 
+Linker errors are commonly caused by one of two problems:
+- `Undefined symbols for architecture...` means that you forgot to implement the functions listed below that line, or that you forgot to compile all four files together.
+- `Duplicate symbol...` means that you have defined the same function more than once. Make sure you're only including `.h` files and that you haven't accidentally redefined a function somewhere.
+
 Some students have had problems with the copy constructor and `operator=()` methods defined above -- they would cause a crash (segmentation fault).  The methods above work fine in our solution, but require that all the called functionality work properly as well.  If it is causing a crash in your code, run it through the debugger to see where it crashes -- it's probably a problem with one of your other methods.
 
 To start, create the .cpp file (List.cpp, ListNode.cpp, ListItr.cpp) that just have empty method bodies (with a dummy return value for non-`void` methods), and get that to compile.  Then start implementing one method at a time, testing as you go.
