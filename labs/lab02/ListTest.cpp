@@ -331,6 +331,7 @@ int   main ()
                 cout << "The old list was made empty (backward): ";
                 printList(*old_list, false);
                 cout << "The old list should be destroyed now." << endl;
+                itr = new ListItr((list->first()));
                 delete old_list;
 		if ( itr != NULL ) {
 		  delete itr;
@@ -358,8 +359,8 @@ int   main ()
                 printList(*old_list,true);
                 cout << "The old list was made empty (backward): ";
                 printList(*old_list,false);
-                cout << "The old list should be destroyed now." << endl;
-
+                cout << "The old list should be destroyed now." << endl;                
+                itr = new ListItr((list->first()));
                 delete old_list;
 		if ( itr != NULL ) {
 		  delete itr;
@@ -379,6 +380,7 @@ int   main ()
                 cout << "The list is (backward): ";
                 printList(*list,false);
                 list->makeEmpty();
+                itr = new ListItr((list->first()));
                 cout << "The list was made empty (forward): ";
                 printList(*list,true);
                 cout << "The list was made empty (backward): ";
