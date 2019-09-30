@@ -71,7 +71,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 11 | Sep 20 | Friday | | [03: Numbers][83] | |
 | 12 | Sep 23 | Monday | [Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8 | [03: Numbers][83] | |
 | 13 | Sep 25 | Wednesday | | [04: Arrays &amp; big-Oh][84] | |
-| 14 | Sep 27 | Friday | | [04: Arrays &amp; big-Oh][84] | |
+| 14 | Sep 27 | Friday | | [04: Arrays &amp; big-Oh][84] | Arrays & big-Oh through 5.10 |
 |    | Sep 29 | Sunday | | Exam 1 review session | |
 | 15 | Sep 30 | Monday | Exam 1 instead during Tuesday's lab | [04: Arrays &amp; big-Oh][84], [05: Trees][85] | |
 | 16 | Oct  2 | Wednesday | | [05: Trees][85] | |
