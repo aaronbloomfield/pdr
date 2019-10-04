@@ -89,7 +89,8 @@ int   main ()
                 break;
 
             case 2:                        // New list
-                if (list != NULL) delete list;
+                if (list != NULL)
+		  delete list;
                 list = new List;
 
                 cout << "\tYou have created an empty list\n";
@@ -141,6 +142,8 @@ int   main ()
                     break;
                 }
                 cout << "\tSetting the ListItr to the first element..." << endl;
+		if ( itr != NULL )
+		  delete itr;
                 itr = new ListItr((list->first()));
                 break;
 
@@ -154,6 +157,8 @@ int   main ()
 
                 if (isdigit(response[0])) {
                     int element = atoi(response.c_str());
+		    if ( itr != NULL )
+		      delete itr;
                     itr = new ListItr((list->find(element)));
                     cout << "\tSetting the ListItr to find("
                          << element << ")..." << endl;
@@ -168,6 +173,8 @@ int   main ()
                     break;
                 }
                 cout << "\tSetting the ListItr to the last element..." << endl;
+		if ( itr != NULL )
+		  delete itr;
                 itr = new ListItr((list->last()));
                 break;
 
@@ -310,6 +317,8 @@ int   main ()
                     break;
                 }
                 List* old_list=list;
+		if ( list != NULL )
+		  delete list;
                 list=new List(*old_list);
                 old_list->makeEmpty();
 
@@ -323,6 +332,10 @@ int   main ()
                 printList(*old_list, false);
                 cout << "The old list should be destroyed now." << endl;
                 delete old_list;
+		if ( itr != NULL ) {
+		  delete itr;
+		  itr = NULL;
+		}
                 break;
             }
             case 16: {                    // test equals operator
@@ -331,6 +344,8 @@ int   main ()
                     break;
                 }
                 List* old_list=list;
+		if ( list != NULL )
+		  delete list;
                 list=new List();
                 *list=*old_list;
                 old_list->makeEmpty();
@@ -343,9 +358,13 @@ int   main ()
                 printList(*old_list,true);
                 cout << "The old list was made empty (backward): ";
                 printList(*old_list,false);
-                cout << "The old list should be destroyed now." << endl;
+                cout << "The old list should be destroyed now." << endl;                
 
                 delete old_list;
+		if ( itr != NULL ) {
+		  delete itr;
+		  itr = NULL;
+		}
                 break;
             }
 
@@ -360,6 +379,10 @@ int   main ()
                 cout << "The list is (backward): ";
                 printList(*list,false);
                 list->makeEmpty();
+		if ( itr != NULL ) {
+		  delete itr;
+		  itr = NULL;
+		}
                 cout << "The list was made empty (forward): ";
                 printList(*list,true);
                 cout << "The list was made empty (backward): ";

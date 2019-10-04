@@ -58,22 +58,22 @@ The links in the right-most column link directly to the lecture recording on Col
 
 | Num | Date | Day of week | Lab & Tutorial (on Tue) | Planned topic | Lecture progress |
 |-----|-----|-----|----------------------|---------|--------------------|
-| 1  | Aug 28 | Wednesday | no lab this week | [Course introduction][80] | Course intro through slide 4.6 |
-| 2  | Aug 30 | Friday | | [Course introduction][80], [01: C++][81] | Course intro from slide 4.6 to the end; C++ to slide 5.3 |
-| 3  | Sep  2 | Monday | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | [01: C++][81] | |
-| 4  | Sep  4 | Wednesday | | [01: C++][81] | |
-| 5  | Sep  6 | Friday | | [01: C++][81] | |
-| 6  | Sep  9 | Monday | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: LLDB][42] ([md][62]) *OR* [Tutorial 2: GDB][52] ([md][72]) (see [lab 2][2] for which one to pick) | [01: C++][81] | |
-| 7  | Sep 11 | Wednesday | | [01: C++][81], [02: Lists][82] | |
+| 1  | Aug 28 | Wednesday | no lab this week | [Course introduction][80] | Course intro to slide 4.6 (no lecture recording) |
+| 2  | Aug 30 | Friday | | [Course introduction][80], [01: C++][81] | Course intro to the end; C++ to slide 5.3 (no lecture recording) |
+| 3  | Sep  2 | Monday | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | [01: C++][81] | C++, to slide 8.3 ([recording][175]) |
+| 4  | Sep  4 | Wednesday | | [01: C++][81] | C++ to slide 9.17 ([recording][175]) |
+| 5  | Sep  6 | Friday | | [01: C++][81] | C++ to slide 10.14 ([recording][175]) |
+| 6  | Sep  9 | Monday | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: LLDB][42] ([md][62]) *OR* [Tutorial 2: GDB][52] ([md][72]) (see [lab 2][2] for which one to pick) | [01: C++][81] | C++ to slide 11.9 ([recording][175]) |
+| 7  | Sep 11 | Wednesday | | [01: C++][81], [02: Lists][82] | finished C++; Lists to slide 6.4 ([recording][175]) |
 | 8  | Sep 13 | Friday | | [02: Lists][82] | |
 | 9  | Sep 16 | Monday | [Lab 3: Stacks][3] ([md][23]) / [Tutorial 3: More UNIX, part 1][63], introduction and sections 1-4 | [02: Lists][82], [03: Numbers][83] | |
 | 10 | Sep 18 | Wednesday | | [03: Numbers][83] | |
 | 11 | Sep 20 | Friday | | [03: Numbers][83] | |
 | 12 | Sep 23 | Monday | [Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8 | [03: Numbers][83] | |
 | 13 | Sep 25 | Wednesday | | [04: Arrays &amp; big-Oh][84] | |
-| 14 | Sep 27 | Friday | | [04: Arrays &amp; big-Oh][84] | |
+| 14 | Sep 27 | Friday | | [04: Arrays &amp; big-Oh][84] | Arrays & big-Oh through 5.10 |
 |    | Sep 29 | Sunday | | Exam 1 review session | |
-| 15 | Sep 30 | Monday | Exam 1 instead during Tuesday's lab | [04: Arrays &amp; big-Oh][84], [05: Trees][85] | |
+| 15 | Sep 30 | Monday | Exam 1 instead during Tuesday's lab | [04: Arrays &amp; big-Oh][84], [05: Trees][85] | Finished Arrays & big-Oh; Trees through 4.12 |
 | 16 | Oct  2 | Wednesday | | [05: Trees][85] | |
 | 17 | Oct  4 | Friday | | [05: Trees][85] | |
 |    | Oct  7 | Monday | no lab this week due to fall break | fall break | no lecture due to fall break |
@@ -224,6 +224,7 @@ Grading Concerns
 [172]: unix-honor-pledge-f19.pdf
 [173]: https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/page/003e4025-b9b4-4c37-8ee4-aed84eb97498
 [174]: https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool-reset/495df88d-2624-46bf-872f-db154dd6048e
+[175]: https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/page/589de229-4eb8-48f5-843a-36440dee5f11
 
 [201]: https://collab.itc.virginia.edu/access/content/group/41174582-53b0-472a-a22c-f466f2aa653a/lectures/course-introduction-1/course-introduction-1.htm
 [202]: https://collab.itc.virginia.edu/access/content/group/41174582-53b0-472a-a22c-f466f2aa653a/lectures/01-cpp-1/01-cpp-1.htm

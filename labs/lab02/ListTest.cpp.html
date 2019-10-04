@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta name="GENERATOR" content="GNU source-highlight 3.1.6
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
@@ -100,7 +100,8 @@ http://www.gnu.org/software/src-highlite">
                 <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
 
             <b><font color="#0000FF">case</font></b> <font color="#993399">2</font><font color="#990000">:</font>                        <i><font color="#9A1900">// New list</font></i>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>list <font color="#990000">!=</font> NULL<font color="#990000">)</font> <b><font color="#0000FF">delete</font></b> list<font color="#990000">;</font>
+                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>list <font color="#990000">!=</font> NULL<font color="#990000">)</font>
+		  <b><font color="#0000FF">delete</font></b> list<font color="#990000">;</font>
                 list <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> List<font color="#990000">;</font>
 
                 cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">You have created an empty list</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
@@ -152,6 +153,8 @@ http://www.gnu.org/software/src-highlite">
                     <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
                 <font color="#FF0000">}</font>
                 cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Setting the ListItr to the first element..."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+		<b><font color="#0000FF">if</font></b> <font color="#990000">(</font> itr <font color="#990000">!=</font> NULL <font color="#990000">)</font>
+		  <b><font color="#0000FF">delete</font></b> itr<font color="#990000">;</font>
                 itr <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">ListItr</font></b><font color="#990000">((</font>list<font color="#990000">-&gt;</font><b><font color="#000000">first</font></b><font color="#990000">()));</font>
                 <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
 
@@ -165,6 +168,8 @@ http://www.gnu.org/software/src-highlite">
 
                 <b><font color="#0000FF">if</font></b> <font color="#990000">(</font><b><font color="#000000">isdigit</font></b><font color="#990000">(</font>response<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]))</font> <font color="#FF0000">{</font>
                     <font color="#009900">int</font> element <font color="#990000">=</font> <b><font color="#000000">atoi</font></b><font color="#990000">(</font>response<font color="#990000">.</font><b><font color="#000000">c_str</font></b><font color="#990000">());</font>
+		    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> itr <font color="#990000">!=</font> NULL <font color="#990000">)</font>
+		      <b><font color="#0000FF">delete</font></b> itr<font color="#990000">;</font>
                     itr <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">ListItr</font></b><font color="#990000">((</font>list<font color="#990000">-&gt;</font><b><font color="#000000">find</font></b><font color="#990000">(</font>element<font color="#990000">)));</font>
                     cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Setting the ListItr to find("</font>
                          <font color="#990000">&lt;&lt;</font> element <font color="#990000">&lt;&lt;</font> <font color="#FF0000">")..."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
@@ -179,6 +184,8 @@ http://www.gnu.org/software/src-highlite">
                     <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
                 <font color="#FF0000">}</font>
                 cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Setting the ListItr to the last element..."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+		<b><font color="#0000FF">if</font></b> <font color="#990000">(</font> itr <font color="#990000">!=</font> NULL <font color="#990000">)</font>
+		  <b><font color="#0000FF">delete</font></b> itr<font color="#990000">;</font>
                 itr <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">ListItr</font></b><font color="#990000">((</font>list<font color="#990000">-&gt;</font><b><font color="#000000">last</font></b><font color="#990000">()));</font>
                 <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
 
@@ -321,6 +328,8 @@ http://www.gnu.org/software/src-highlite">
                     <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
                 <font color="#FF0000">}</font>
                 List<font color="#990000">*</font> old_list<font color="#990000">=</font>list<font color="#990000">;</font>
+		<b><font color="#0000FF">if</font></b> <font color="#990000">(</font> list <font color="#990000">!=</font> NULL <font color="#990000">)</font>
+		  <b><font color="#0000FF">delete</font></b> list<font color="#990000">;</font>
                 list<font color="#990000">=</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">List</font></b><font color="#990000">(*</font>old_list<font color="#990000">);</font>
                 old_list<font color="#990000">-&gt;</font><b><font color="#000000">makeEmpty</font></b><font color="#990000">();</font>
 
@@ -334,6 +343,10 @@ http://www.gnu.org/software/src-highlite">
                 <b><font color="#000000">printList</font></b><font color="#990000">(*</font>old_list<font color="#990000">,</font> <b><font color="#0000FF">false</font></b><font color="#990000">);</font>
                 cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The old list should be destroyed now."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
                 <b><font color="#0000FF">delete</font></b> old_list<font color="#990000">;</font>
+		<b><font color="#0000FF">if</font></b> <font color="#990000">(</font> itr <font color="#990000">!=</font> NULL <font color="#990000">)</font> <font color="#FF0000">{</font>
+		  <b><font color="#0000FF">delete</font></b> itr<font color="#990000">;</font>
+		  itr <font color="#990000">=</font> NULL<font color="#990000">;</font>
+		<font color="#FF0000">}</font>
                 <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
             <font color="#FF0000">}</font>
             <b><font color="#0000FF">case</font></b> <font color="#993399">16</font><font color="#990000">:</font> <font color="#FF0000">{</font>                    <i><font color="#9A1900">// test equals operator</font></i>
@@ -342,6 +355,8 @@ http://www.gnu.org/software/src-highlite">
                     <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
                 <font color="#FF0000">}</font>
                 List<font color="#990000">*</font> old_list<font color="#990000">=</font>list<font color="#990000">;</font>
+		<b><font color="#0000FF">if</font></b> <font color="#990000">(</font> list <font color="#990000">!=</font> NULL <font color="#990000">)</font>
+		  <b><font color="#0000FF">delete</font></b> list<font color="#990000">;</font>
                 list<font color="#990000">=</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">List</font></b><font color="#990000">();</font>
                 <font color="#990000">*</font>list<font color="#990000">=*</font>old_list<font color="#990000">;</font>
                 old_list<font color="#990000">-&gt;</font><b><font color="#000000">makeEmpty</font></b><font color="#990000">();</font>
@@ -354,9 +369,13 @@ http://www.gnu.org/software/src-highlite">
                 <b><font color="#000000">printList</font></b><font color="#990000">(*</font>old_list<font color="#990000">,</font><b><font color="#0000FF">true</font></b><font color="#990000">);</font>
                 cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The old list was made empty (backward): "</font><font color="#990000">;</font>
                 <b><font color="#000000">printList</font></b><font color="#990000">(*</font>old_list<font color="#990000">,</font><b><font color="#0000FF">false</font></b><font color="#990000">);</font>
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The old list should be destroyed now."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The old list should be destroyed now."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>                
 
                 <b><font color="#0000FF">delete</font></b> old_list<font color="#990000">;</font>
+		<b><font color="#0000FF">if</font></b> <font color="#990000">(</font> itr <font color="#990000">!=</font> NULL <font color="#990000">)</font> <font color="#FF0000">{</font>
+		  <b><font color="#0000FF">delete</font></b> itr<font color="#990000">;</font>
+		  itr <font color="#990000">=</font> NULL<font color="#990000">;</font>
+		<font color="#FF0000">}</font>
                 <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
             <font color="#FF0000">}</font>
 
@@ -371,6 +390,10 @@ http://www.gnu.org/software/src-highlite">
                 cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The list is (backward): "</font><font color="#990000">;</font>
                 <b><font color="#000000">printList</font></b><font color="#990000">(*</font>list<font color="#990000">,</font><b><font color="#0000FF">false</font></b><font color="#990000">);</font>
                 list<font color="#990000">-&gt;</font><b><font color="#000000">makeEmpty</font></b><font color="#990000">();</font>
+		<b><font color="#0000FF">if</font></b> <font color="#990000">(</font> itr <font color="#990000">!=</font> NULL <font color="#990000">)</font> <font color="#FF0000">{</font>
+		  <b><font color="#0000FF">delete</font></b> itr<font color="#990000">;</font>
+		  itr <font color="#990000">=</font> NULL<font color="#990000">;</font>
+		<font color="#FF0000">}</font>
                 cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The list was made empty (forward): "</font><font color="#990000">;</font>
                 <b><font color="#000000">printList</font></b><font color="#990000">(*</font>list<font color="#990000">,</font><b><font color="#0000FF">true</font></b><font color="#990000">);</font>
                 cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The list was made empty (backward): "</font><font color="#990000">;</font>
