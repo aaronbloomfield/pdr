@@ -1,3 +1,5 @@
+# This is a comment
+
 CXX=clang++ $(CXXFLAGS)
 DEBUG=-Wall -g
 
