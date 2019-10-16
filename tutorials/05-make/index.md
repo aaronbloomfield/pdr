@@ -26,7 +26,7 @@ There are a number of things going on here.  First, clang++ will *compile* each 
 
 While it may seem a bit more complicated to do this in two separate steps, it turns out to be very useful if you have a very large program -- such as hundreds (or thousands) of .cpp files.  If you modify only one file, you just have to compile that single file, and then link everything together.  Specifically, you don't have to compile all the other files again.  So far, we have been telling the compiler to do these two commands at the same time (i.e., `clang++ foo.cpp bar.cpp baz.cpp` or `clang++ *.cpp`).  This tells clang++ to compile each file separately, and then link them together to create the executable a.out.
 
-If you specify the -c option to clang++, it tells the compiler to just compile the file, but do not link it.  The result of this compilation is called an *object file*, and has a .o extension.  This, if you call 'clang++ -c foo.cpp', the compiler will create a foo.o file.  You will need to compile each .cpp file in this way.  Take your code from the stacks post-lab:
+If you specify the -c option to clang++, it tells the compiler to just compile the file, but do not link it.  The result of this compilation is called an *object file*, and has a .o extension.  This, if you call `clang++ -c foo.cpp`, the compiler will create a foo.o file.  You will need to compile each .cpp file in this way.  Take your code from the stacks post-lab:
 
 ```
 clang++ -c postfixCalculator.cpp
@@ -67,7 +67,7 @@ make allows a programmer and the users of their program to be able to easily com
 A typical Makefile consists of comments, macro (variable) definitions, rules, and dependencies.  We'll get to each of these in turn.  First, though, we need to obtain the code used in this tutorial.
 
 - Download the zip file for this tutorial called [pizza.zip](pizza.zip)
-- Unzip the files with the command: 'unzip pizza.zip'
+- Unzip the files with the command: `unzip pizza.zip`
 
 To compile your program, just type 'make' from the pizza/ directory.  Notice that it will go through each of the individual .cpp files, and compile each one (with the -c option).  Once that is done, it will link all of the .o files to create the 'pizza' executable.
 
