@@ -221,13 +221,14 @@ Observe that the general format for any rule is:
 
 The tab is very important here!  make will not work without the tab!
 
-Also notice that <target> does not have to be a file, but could just be a reference to another rule.  For example, if we had another target called target2 that we wanted our Makefile to process, we could just create the following rule:
+Also notice that the `dependencies` can be more than just files, such as references to other rules.
+For example, if we had another target called `target2` that we wanted our Makefile to process, we could just create the following rule:
 
 ```
 outcome: target target2
 ```
 
-The above rule would not require an action since the actions would be defined in the rules for target and target2.  As there is no rule for this line (i.e., nothing defined in the <actions> part), it is just called a dependency -- this is what the output from `clang++ -MM` generates.
+The above rule would not require an action since the actions would be defined in the rules for target and target2.  As there is no rule for this line (i.e., nothing defined in the `actions` part), it is just called a dependency -- this is what the output from `clang++ -MM` generates.
 
 A rule can also have more than one action, and those actions are not just limited to compiling files.  As a matter of fact, any line that begins with a tab will be executed (macros, such as CXX, being replaced by their definition before hand).  Each line designated as an action to be performed all begin in the directory where make is executed.  If a line is so long that it is hard to read, you can use '\\' to continue to the next line and have both lines interpreted as one line.  For example:
 
