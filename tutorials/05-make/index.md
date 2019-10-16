@@ -238,7 +238,7 @@ target: target1 target 2 target3 target4 target5 target6 \
 	cd folder1
 	mkdir folder2
 	cd folder2
-@echo I am in folder 2
+	@echo I am in folder 2
 ```
 
 When make is invoked, after performing an action, make will output the action to the screen.  If you do not want an action to be displayed after invoking make, you can use '@' before the command.  This is useful if you want to echo something but not have echo appear; however, the @echo statement must be on a separate line.
