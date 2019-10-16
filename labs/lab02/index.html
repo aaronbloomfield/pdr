@@ -25,10 +25,10 @@
 <li>For the in-lab, some articles on debugging</li>
 </ol>
 <h3 id="debugger-choice">Debugger Choice</h3>
-<p>In this lab, you will have to make a choice as to which debugger to use; this will affect which tutorial you carry out. You can choose the gdb debugger (you would then complete <a href="../../tutorials/02-gdb/index.html">Tutorial 2: GDB</a>) or the lldb debugger (you would then complete <a href="../../tutorials/02-lldb/index.html">Tutorial 2: LLDB</a>). The source code provided for each tutorial is exactly the same, and the deliverable (i.e., what you turn in) is likewise the exact same.</p>
-<p>The lldb debugger is preferred, as it was built with the <code>clang++</code> compiler that we are using. In the past, there was a <a href="http://llvm.org/bugs/show_bug.cgi?id=20446">bug</a> where running lldb would cause VirtualBox to crash. However, that does not seem to be happening anymore. So start with the lldb tutorial. If you run into VirtualBox crashing issues (unlikely), switch over to the gdb tutorial.</p>
+<p>In this lab, you will have to make a choice as to which debugger to use; this will affect which tutorial you carry out. You can choose the lldb debugger (you would then complete <a href="../../tutorials/02-lldb/index.html">Tutorial 2: LLDB</a>) or the gdb debugger (you would then complete <a href="../../tutorials/02-gdb/index.html">Tutorial 2: GDB</a>). The source code provided for each tutorial is exactly the same, and the deliverable (i.e., what you turn in) is likewise the exact same.</p>
+<p>The lldb debugger is preferred as it was built with the <code>clang++</code> compiler that we are using; however, the gdb tutorial is offered if lldb doesn't work for you.</p>
 <p>Just remember which one you choose, as you will end up using that debugger throughout this course. And if you ever have to switch between them, you can use our <a href="../../docs/gdb_vs_lldb.html">GDB vs LLDB</a> page to see the (relatively few) commands that are different between the two.</p>
-<p>Ultimately, this is a low stress choice. Choose lldb, and only switch over to gdb if you run into VirtualBox crashing issues.</p>
+<p>Ultimately, this is a low stress choice. Choose lldb, and only switch over to gdb if you run into issues.</p>
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
 <ol type="1">
@@ -77,11 +77,11 @@
 <p>Linked lists are described in the online <a href="../../docs/readings.html">Readings</a>.</p>
 <p>You will be implementing a doubly linked list, and you will be using &quot;dummy&quot; nodes as well. You will want two dummy nodes -- <strong>one for the head</strong> and <strong>one for the tail</strong>. A benefit of doing your implementation using dummy nodes is that there are fewer special cases to check for -- for example you never have to update the head pointer on an insertBefore() or a remove() -- the head pointer always points to the dummy header node. A dummy tail pointer would help out in the same respect. The downside is that you use two extra &quot;empty&quot; nodes.</p>
 <p>For this lab you will need to implement three classes:</p>
-<ol type="1">
+<ul>
 <li>ListNode</li>
 <li>List</li>
 <li>ListItr</li>
-</ol>
+</ul>
 <p>For simplicity we will just create a list that holds integers (your code could easily later be templated (i.e. made generic) to allow it to contain objects of other types). <strong><em>You must use the method names listed below in your code.</em></strong></p>
 <p>Below are the class definitions for each, which should be kept in header files with the respective file names.</p>
 <h3 id="test-harness">Test Harness</h3>
@@ -98,22 +98,22 @@
 <h3 id="list">List</h3>
 <p>This class represents the list data structure containing ListNodes. It has a pointer to the first (head) and last (tail) ListNodes of the list, as well as a count of the number of ListNodes in the List. View the <a href="List.h.html">List.h</a> (<a href="List.h">src</a>) code for details.</p>
 <h3 id="explanations">Explanations:</h3>
-<ol type="1">
-<li><code>List()</code> is the default constructor. It should initialize all private data members. Pointers are often initialized to NULL.</li>
-<li><code>~List()</code> is the destructor. It should make the list empty and reclaim the memory allocated in the constructor for head and tail</li>
-<li><code>List&amp; operator=(const List&amp; source)</code> is the <strong>copy assignment operator</strong>. It is called when code such as the following is encountered: lhs = rhs. The copy assignment operator that you implement will copy the contents of every ListNode in source into this (the reference to the calling List object itself)</li>
+<ul>
+<li><code>List()</code> is the default constructor. It should initialize all private data members and set up the basic list structure with the dummy head and tail nodes.</li>
+<li><code>~List()</code> is the destructor. It should make the list empty and reclaim the memory allocated in the constructor for head and tail.</li>
+<li><code>List&amp; operator=(const List&amp; source)</code> is the <strong>copy assignment operator</strong>. It is called when code such as the following is encountered: lhs = rhs. The copy assignment operator that you implement will copy the contents of every ListNode in source into this (the reference to the calling List object itself).</li>
 <li><code>List(const List&amp; source)</code> is the <strong>copy constructor</strong>. This will create a new list of ListNodes whose contents are the same values as the ListNodes in source.</li>
-<li><code>bool isEmpty()</code> This member function returns true if the list is empty, else false</li>
+<li><code>bool isEmpty()</code> returns true if the list is empty and false otherwise.</li>
 <li><code>void makeEmpty()</code> removes/reclaims all items from a list, except the dummy head and tail nodes.</li>
-<li><code>ListItr first()</code> returns an iterator that points to the ListNode in the first position. This is the element <strong>after</strong> the head ListNode (even on an empty list!)</li>
-<li><code>ListItr last()</code> returns an iterator that points to the ListNode in the last position. This is the element <strong>before</strong> the tail node (even on an empty list!)</li>
+<li><code>ListItr first()</code> returns an iterator that points to the ListNode in the first position. This is the element <strong>after</strong> the head ListNode (even on an empty list!).</li>
+<li><code>ListItr last()</code> returns an iterator that points to the ListNode in the last position. This is the element <strong>before</strong> the tail node (even on an empty list!).</li>
 <li><code>void insertAfter(int x, ListItr position)</code> inserts x <strong>after</strong> the current iterator position position.</li>
 <li><code>void insertBefore(int x, ListItr position)</code> inserts x <strong>before</strong> the current iterator position position.</li>
-<li><code>void insertAtTail(int x)</code> inserts x at tail of list.</li>
-<li><code>void remove(int x)</code> removes the first occurrence of x.</li>
+<li><code>void insertAtTail(int x)</code> inserts x at the tail of the list.</li>
 <li><code>ListItr find(int x)</code> returns an iterator that points to the first occurrence of x. When the parameter is not in the list, return a ListItr object, where the current pointer points to the dummy tail node. This makes sense because you can test the return from find() to see if isPastEnd() is true.</li>
+<li><code>void remove(int x)</code> removes the first occurrence of x.</li>
 <li><code>int size()</code> returns the number of elements in the list.</li>
-</ol>
+</ul>
 <p>In addition, you must implement this non-List member function: void <code>printList(List&amp; theList, bool forward)</code> is a <strong>non-member function</strong> that prints a list either forwards (by default -- from head to tail) when forward is true, or backwards (from tail to head) when forward is false. <em>You must use your ListItr class to implement this function.</em></p>
 <h3 id="some-of-the-harder-methods...">Some of the harder methods...</h3>
 <p>The code for the copy constructor and the <code>operator=()</code> method in the List class are shown below. Although we are providing you with this code, you must understand how it works by the end of the lab, as you will have to implement these types of methods on future labs and exams.</p>
@@ -159,8 +159,18 @@ List&amp; List::operator=(const List&amp; source) { //Equals operator
 <p>When compiling your code, you must remember to compile all of your .cpp files in one line:</p>
 <pre><code>clang++ List.cpp ListItr.cpp ListNode.cpp ListTest.cpp</code></pre>
 <p>There are ways to compile these programs in pieces, but we will see this later in the semester.</p>
+<p>Linker errors are commonly caused by one of two problems: - <code>Undefined symbols for architecture...</code> means that you forgot to implement the functions listed below that line, or that you forgot to compile all four files together. - <code>Duplicate symbol...</code> means that you have defined the same function more than once. Make sure you're only including <code>.h</code> files and that you haven't accidentally redefined a function somewhere.</p>
 <p>Some students have had problems with the copy constructor and <code>operator=()</code> methods defined above -- they would cause a crash (segmentation fault). The methods above work fine in our solution, but require that all the called functionality work properly as well. If it is causing a crash in your code, run it through the debugger to see where it crashes -- it's probably a problem with one of your other methods.</p>
 <p>To start, create the .cpp file (List.cpp, ListNode.cpp, ListItr.cpp) that just have empty method bodies (with a dummy return value for non-<code>void</code> methods), and get that to compile. Then start implementing one method at a time, testing as you go.</p>
+<p>Here is the minimum amount of functions you need to have implemented in order to start using the ListTest harness, as well as suggested implementation order:</p>
+<ol type="1">
+<li>All of ListNode (so...the constructor)</li>
+<li>List constructor</li>
+<li><code>List::insertAtTail</code></li>
+<li>All of ListItr</li>
+<li><code>List::first</code></li>
+<li><code>printList</code></li>
+</ol>
 <hr />
 <h2 id="in-lab-1">In-lab</h2>
 <p>These are the same steps from the lab procedure section, above.</p>
@@ -184,7 +194,7 @@ List&amp; List::operator=(const List&amp; source) { //Equals operator
 <li>and the test harness, ListTest.cpp</li>
 </ol></li>
 <li><em>Be sure you submit all 7 files!</em> If you don't, then your code will not compile properly, and you will lose points!</li>
-<li>It is due on the Friday of the week of the lab, at the time listed on the [Lab due dates page]. Be sure to include: your name, the date, and the name of the file in a banner comment at the beginning of each file you submit.</li>
+<li>It is due on the Friday of the week of the lab, at the time listed on the <a href="https://uva-cs.github.io/pdr/uva/labduedates.html">Lab due dates page</a>. Be sure to include: your name, the date, and the name of the file in a banner comment at the beginning of each file you submit.</li>
 <li>Files to download: no additional files beyond the pre-lab and in-lab</li>
 <li>Files to submit: ListNode.h/cpp, ListItr.h/cpp, List.h/cpp, ListTest.cpp</li>
 </ol>
