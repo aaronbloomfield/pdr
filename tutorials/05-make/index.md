@@ -79,6 +79,11 @@ But why did it recompile toppings.cpp?  It makes sense that it recompiled pepper
 
 Note that the default name for a Makefile is just 'Makefile' (note the capitalization).  You can name it something else (how to do this is at the very end of this tutorial), but it's easier to keep this naming convention.  If you name it something else, you will need to call make with the -f flag: `make -f Makefile-by-any-other-name`.
 
+### Comments ###
+
+Comments in a Makefile must begin with `#`, and should generally start in the left-most column of a given line.
+Put your name and lab section as a comment at the top of the Makefile.
+
 ### Macros ###
 
 Macros allow a programmer to easily specify the compiler used, compiler arguments, file paths, targets, and pretty much anything else that one may need to specify when compiling a file.  For example, you can specify that you will always compile with the '-Wall' option (which will list all warnings while compiling).  make already comes with a default list of predefined macros, but it is good practice to define them even if they are the same as the default definition.  You can also define your own macros, as we'll see in a moment.  Note that if you define a predefined macro, your definition will override the default definition.
