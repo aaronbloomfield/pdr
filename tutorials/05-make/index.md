@@ -89,16 +89,13 @@ The following is a list of some predefined macros in make (taken from the [GNU M
 
 | Macro name | Meaning |
 |------------|---------|
-| AS | Program for compiling assembly code; default 'as'; this will be needed in lab 8 |
-| CC | Program for compiling C programs; default 'clang' |
-| CXX | Program for compiling C++ programs; default 'clang++' |
-| CFLAGS | Options provided to the C compiler |
+| CXX | Program for compiling C++ programs |
 | CXXFLAGS | Options provided to the C++ compiler |
-| PC | Program for compiling Pascal programs; default 'pc' |
-| RM | Command to remove a file; default 'rm -f' |
+| CC | Program for compiling C programs |
+| CFLAGS | Options provided to the C compiler |
+| AS | Program for compiling assembly code; this will be needed in lab 8 |
 
-
-Note that in the pizza Makefile, the CXX macro is defined as clang++.  Whenever a macro is *used*, it appears surrounded by $ and parentheses.  For example, `clang++ project.cpp` would be entered as `$(CXX) project.cpp`.  However, whenever a macro is *defined*, the $ and parentheses are not needed as in `CXX=clang++`.
+Note that in the pizza Makefile, the `CXX` macro is defined as `clang++`.  Whenever a macro is *used*, it appears surrounded by $ and parentheses.  For example, `clang++ project.cpp` would be entered as `$(CXX) project.cpp`.  However, whenever a macro is *defined*, the $ and parentheses are not needed as in `CXX=clang++`.
 
 In the pizza Makefile, the first macro in the file is:
 
