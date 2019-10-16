@@ -182,10 +182,10 @@ In order to compile our final program, we would still utilize the pizza rule in 
 ```
 pizza: pizza.o pizzadough.o tomatosauce.o toppings.o \
   mushrooms.o peppers.o cheese.o pepperoni.o
-        $(CXX) $(DEBUG) pizza.o pizzadough.o tomatosauce.o \
-			toppings.o mushrooms.o peppers.o cheese.o \
-  pepperoni.o -o pizza
-        @echo "Pizza is Hot and Ready!"
+	$(CXX) $(DEBUG) pizza.o pizzadough.o tomatosauce.o \
+	  toppings.o mushrooms.o peppers.o cheese.o \
+	  pepperoni.o -o pizza
+	@echo "Pizza is Hot and Ready!"
 ```
 
 The line spacing is odd here because three of the lines wrap around to the next line.  We snuck in a `$(DEBUG)` macro usage here, which could have been a user-defined macro at the top of the Makefile.
@@ -194,7 +194,7 @@ Notice, though, that we have to repeat all the .o files in this target rule.  We
 
 ```
 OFILES = pizza.o pizzadough.o tomatosauce.o toppings.o \
-    mushrooms.o peppers.o cheese.o pepperoni.o
+  mushrooms.o peppers.o cheese.o pepperoni.o
 ```
 
 And changing the pizza rule to:
@@ -202,8 +202,8 @@ And changing the pizza rule to:
 
 ```
 pizza: $(OFILES)
-        $(CXX) $(DEBUG) $(OFILES) -o pizza
-        @echo "Pizza is Hot and Ready!"
+	$(CXX) $(DEBUG) $(OFILES) -o pizza
+	@echo "Pizza is Hot and Ready!"
 ```
 
 If we set up our CXX macro to include the C++ flags macro (i.e., `CXX = clang++ $(CXXFLAGS)` at the top of the Makefile), then we do not need to include CXXFLAGS in the above line.  Otherwise, we will want to replace that line with, `$(CXX) $(CXXFLAGS) $(DEBUG) $(OFILES) -o pizza`.  This will allow any clang++ compiler options to be included also.
@@ -233,10 +233,10 @@ A rule can also have more than one action, and those actions are not just limite
 
 ```
 target: target1 target 2 target3 target4 target5 target6 \
-   target7 target8 target9 target10 target11 target12
+  target7 target8 target9 target10 target11 target12
 	mkdir folder1
-cd folder1
-mkdir folder2
+	cd folder1
+	mkdir folder2
 	cd folder2
 @echo I am in folder 2
 ```
@@ -249,14 +249,14 @@ Note the following rules in the provided Makefile:
 
 ```
 pizza: pizza.o pizzadough.o tomatosauce.o toppings.o \
-       mushrooms.o peppers.o cheese.o pepperoni.o
-$(CXX) pizza.o pizzadough.o tomatosauce.o toppings.o \
-       mushrooms.o peppers.o cheese.o pepperoni.o -o pizza
-@echo "Pizza is Hot and Ready!"
+  mushrooms.o peppers.o cheese.o pepperoni.o
+	$(CXX) pizza.o pizzadough.o tomatosauce.o toppings.o \
+	  mushrooms.o peppers.o cheese.o pepperoni.o -o pizza
+	@echo "Pizza is Hot and Ready!"
 
 toppings.o: pepperoni.cpp peppers.cpp mushrooms.cpp cheese.cpp \
- toppings.cpp pepperoni.h peppers.h mushrooms.h \
- cheese.h toppings.h
+  toppings.cpp pepperoni.h peppers.h mushrooms.h \
+  cheese.h toppings.h
 	$(CXX) -c toppings.cpp
 ```
 
