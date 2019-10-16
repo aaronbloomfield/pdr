@@ -208,7 +208,7 @@ pizza: $(OFILES)
 
 If we set up our CXX macro to include the C++ flags macro (i.e., `CXX = clang++ $(CXXFLAGS)` at the top of the Makefile), then we do not need to include CXXFLAGS in the above line.  Otherwise, we will want to replace that line with, `$(CXX) $(CXXFLAGS) $(DEBUG) $(OFILES) -o pizza`.  This will allow any clang++ compiler options to be included also.
 
-What happens when make is run is that it knows it has to create eight .o files (pizza.o, toppings.o, etc.).  In order to do so, it looks at the suffix rule, which tells make how to create a .o file from a similarly named .cpp file.  make will then create the final executable, and the print out the 'pizza is hot and ready' line.  Note that 'echo' is a print command -- it just prints out what is on the rest of the line.  If you are going to use punctuation, it is best to put it in quotes (many characters have special meanings, such as !).
+What happens when make is run is that it knows it has to create eight .o files (pizza.o, toppings.o, etc.), and looks at the various .o rules to figure out how to do that.  After that, make will then create the final executable, and the print out the 'pizza is hot and ready' line.  Note that 'echo' is a print command -- it just prints out what is on the rest of the line.  If you are going to use punctuation, it is best to put it in quotes (many characters have special meanings, such as !).
 
 ### More on rules and targets ###
 
@@ -294,7 +294,6 @@ We have seen a number of ways to improve the provided pizza Makefile.  We'll put
 - Comments!  This Makefile will be submitted as part of [lab 5](../../labs/lab05/index.html) (see below), so you will need to put in your name and userid at the top of the file.
 - We will want to declare the pre-defined macros, CXX and CXXFLAGS.  CXX is going to be clang++, and we can define CXXFLAGS to be `-Wall -O2 -std=c++11` (give all warnings, optimize the code, and use the C++11 standard).
 - We'll want to define a macro, probably called OFILES, that will list all of the .o files that we are compiling into our target executable.
-- A suffix rule that will tell make to compile all .o files from the corresponding .cpp files.
 - Our first rule -- probably called 'pizza' -- will be for compiling the program.  It will depend on all of the .o files (defined in the OFILES macro), and will define how to compile the program executable.
 - Our second rule we'll call 'clean', and it will remove the executable itself, all the .o files, and all files that end in the tilde (i.e., *~, the backup files that Emacs creates).
 - Lastly, we will need to have clang++ create all the dependency lines, which we will copy-and-paste into the bottom of the Makefile.
