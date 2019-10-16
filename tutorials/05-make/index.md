@@ -39,18 +39,18 @@ At this point, you will have 3 new files on your computer: postfixCalculator.o, 
 The second step is to link these three files together to create the executable:
 
 ```
-clang++ -o pfcalc postfixCalculator.o stack.o testPostfixCalc.o
+clang++ postfixCalculator.o stack.o testPostfixCalc.o -o pfcalc
 ```
 
 Note on this line we specified the .o files, not the .cpp files.  Here we are using the -o flag to create a `pfcalc` executable.  The three .o files that you specify tell clang++ to link them into a single executable file -- clang++ knows that any file with a .o extension is already compiled, so it will just link the files rather than trying to compile them.  Note that we could also have written that last line as follows.
 
 ```
-clang++ -o pfcalc *.o
+clang++ *.o -o pfcalc
 ```
 
 The '*.o' will compile all the files with a .o extension -- as long as there are only those 3 .o files in the current directory (postfixCalculator.o, stack.o, and testPostfixCalc.o), then it will do the same thing.
 
-Try compiling your program this way.  We certainly aren't requiring you to always compile your programs in this manner, as we know it's rather tedious.  Makefiles, the subject of this tutorial, provide a shortcut to compile programs, and they use -c flag, which is why we are learning about it now.
+Try compiling your program this way.  We certainly aren't requiring you to always compile your programs in this manner, as we know it's rather tedious.  Makefiles, the subject of this tutorial, provide a shortcut to compile programs, and they use the -c flag, which is why we are learning about it now.
 
 **When submitting code in this course, you should *NEVER* name a program via the -o flag unless specifically told otherwise.**  Doing so will prevent the executable from being called 'a.out', which will prevent the grading scripts from properly finding (and running) your program.
 
