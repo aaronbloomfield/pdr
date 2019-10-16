@@ -57,7 +57,7 @@ Try compiling your program this way.  We certainly aren't requiring you to alway
 ### Introduction to make ###
 
 Object code, which is what is in the .o files, is advantageous if we have a large project, because making a change after a compile will only require re-compiling the files that have changed, and then linking it with the rest of the object files.  A lot of time can be saved using this recompilation procedure.  However, it can be tedious for a programmer to keep track of all of the dependencies and type in the commands to efficiently recompile a large project.  This is where make and Makefiles help.  make is a Unix utility and a Makefile is a file that make reads in, and that file tells make what to do.
-	
+
 Note that the 'object' of 'object code' has nothing to do with object-oriented programming.  Non-OO programming languages (such as C) still produce 'object' code when compiled with the -c option.
 
 make allows a programmer and the users of their program to be able to easily compile and manage their program without a lot of typing.  make will allow a programmer to easily recompile only the minimal number of files required to generate an updated executable file.
@@ -115,8 +115,8 @@ A single Makefile can hold the instructions to make a number of what are called 
 Rules define dependencies between other files and targets.  Some rules may look something like this:
 
 ```
-target:  target1.o target2.o 
-	$(CXX) target1.o target2.o -o output 
+target:  target1.o target2.o
+	$(CXX) target1.o target2.o -o output
 
 target1.o: target1.cpp
 	$(CXX) -c target1.cpp
@@ -143,10 +143,12 @@ As we have seen, a Makefile determines which files to compile based on the speci
 
 ```
 toppings.o: toppings.cpp toppings.h cheese.h mushrooms.h \
-  peppers.h pepperoni.h 
+  peppers.h pepperoni.h
 ```
 
 The backslash at the end of the first line tells make that the dependency line continues on the next line.  This entire statement will cause a recompilation of toppings.o if any of the listed files are modified.  Notice that a number of .h files (such as pizzadough.h) are not included, as toppings.o does not depend on them.
+
+You may notice that each .o target does not have any rules defined! This is because Make contains some implicit rules and knows to convert *.cpp files to *.o files using `$(CXX) $(CXXFLAGS) -c filename.cpp`.
 
 Creating these dependency lines is essential for a properly functioning Makefile, but they are tedious to create.  If you wrote another file that included toppings.h (anchovies.cpp, for example), you would have to remember that toppings.h included four other .h files, and should thus include anchovies.h.  Fortunately, we can use clang++ to generate these dependency lists for us by entering the following command:
 
@@ -174,32 +176,6 @@ You will notice that the lines in the provided Makefile (purposely) do not exact
 These dependency rules look very similar to target rules.  The difference is that a target rule has one or more lines of commands after rule, whereas the dependency only lists dependencies.
 
 Once we have these dependency rules, we can cut-and-paste them directly into the Makefile, to tell make what the dependencies are.  We will do this in a bit.
-
-### Suffix rules ###
-
-If you examine the Makefile, you'll notice that the same compilation command is repeated for each .o target:
-
-```
-$(CXX) -c filename.cpp
-```
-
-Although we have not defined anything for our CXXFLAGS macro, it's a good idea to include it right after the CXX macro.
-
-You can imagine that if you had a thousand (or more) files in your system, then this would be a difficult Makefile to edit -- you would have to enter such a line for each file in the system.  There certainly exist such systems of this size -- the Linux kernel, for example, has about 10,000 C files (plus many other files, such as assembly files).  As a side note, while such big systems often use make, they also have tools that automatically will generate the Makefiles -- for example, the tools will create a Makefile, and automatically put in the output from 'clang++ -MM' at the end of the file.  We won't see those tools here, though.
-
-What we would like to do is to tell make that for all files that end in .cpp, we want to have a common compilation command.  To do this, we enter the following line in the Makefile:
-
-```
-.SUFFIXES: .o .cpp
-```
-
-This is a *suffix rule*, which tells make how to create files with the .o suffix.  Suffix rules are also known as implicit rules, but we'll use the former terminology here.  This command tells make that it should create a .o file from a similarly named .cpp file (i.e. pizza.o from pizza.cpp).  Fortunately, make knows that a .cpp file is a C++ file, and that a .o file is a object file.  Make will then automatically call the following command for each .o file that it wants to create:
-
-```
-$(CXX) $(CXXFLAGS) -c filename.cpp
-```
-
-Notice that make will use the predefined CXX macro (as make knows that you are compiling a C++ file) and the predefined CXXFLAGS macro as parameters to the compiler (such as '-Wall').
 
 In order to compile our final program, we would still utilize the pizza rule in the Makefile:
 
@@ -261,13 +237,13 @@ target: target1 target 2 target3 target4 target5 target6 \
 	mkdir folder1
 cd folder1
 mkdir folder2
-	cd folder2 
+	cd folder2
 @echo I am in folder 2
 ```
 
 When make is invoked, after performing an action, make will output the action to the screen.  If you do not want an action to be displayed after invoking make, you can use '@' before the command.  This is useful if you want to echo something but not have echo appear; however, the @echo statement must be on a separate line.
 
-In the pizza directory, pizza.cpp contains `main()` which uses the PizzaToppings, PizzaDough, and TomatoSauce classes.  PizzaToppings is a class which makes use of the Cheese, Pepperoni, Peppers, and Mushrooms classes.  
+In the pizza directory, pizza.cpp contains `main()` which uses the PizzaToppings, PizzaDough, and TomatoSauce classes.  PizzaToppings is a class which makes use of the Cheese, Pepperoni, Peppers, and Mushrooms classes.
 
 Note the following rules in the provided Makefile:
 
@@ -278,7 +254,7 @@ $(CXX) pizza.o pizzadough.o tomatosauce.o toppings.o \
        mushrooms.o peppers.o cheese.o pepperoni.o -o pizza
 @echo "Pizza is Hot and Ready!"
 
-toppings.o: pepperoni.cpp peppers.cpp mushrooms.cpp cheese.cpp \ 
+toppings.o: pepperoni.cpp peppers.cpp mushrooms.cpp cheese.cpp \
  toppings.cpp pepperoni.h peppers.h mushrooms.h \
  cheese.h toppings.h
 	$(CXX) -c toppings.cpp
@@ -323,7 +299,7 @@ We have seen a number of ways to improve the provided pizza Makefile.  We'll put
 - Our second rule we'll call 'clean', and it will remove the executable itself, all the .o files, and all files that end in the tilde (i.e., *~, the backup files that Emacs creates).
 - Lastly, we will need to have clang++ create all the dependency lines, which we will copy-and-paste into the bottom of the Makefile.
 
-Test out the Makefile to make sure it works.  You will need to rename it to Makefile-pizza, and submit it as part of pre-lab 5 (we can't name it 'Makefile', as you are submitting a Makefile for the post-lab already).  Note that if the Makefile is not actually called 'Makefile', you can tell make to use a different one by specifying, 'make -f Makefile.foo'.  To specify a different target, the target name goes after the file name: 'make -f Makefile.foo clean'. 
+Test out the Makefile to make sure it works.  You will need to rename it to Makefile-pizza, and submit it as part of pre-lab 5 (we can't name it 'Makefile', as you are submitting a Makefile for the post-lab already).  Note that if the Makefile is not actually called 'Makefile', you can tell make to use a different one by specifying, 'make -f Makefile.foo'.  To specify a different target, the target name goes after the file name: 'make -f Makefile.foo clean'.
 
 ### Further information ###
 
