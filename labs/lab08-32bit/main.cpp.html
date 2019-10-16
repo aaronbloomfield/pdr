@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -6,51 +6,51 @@
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
-<title>labs/lab08-32bit/main.cpp</title>
+<title>main.cpp</title>
 </head>
-<body bgcolor="white">
-<pre><tt><i><font color="#9A1900">// main.cpp</font></i>
+<body style="background-color:white">
+<pre><i><span style="color:#9A1900">// main.cpp</span></i>
 
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;time.h&gt;</font>
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;cstdlib&gt;</font>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;iostream&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;time.h&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;cstdlib&gt;</span>
 
-<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+<b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
-<b><font color="#0000FF">extern</font></b> <font color="#FF0000">"C"</font> <font color="#009900">int</font> <b><font color="#000000">vecsum</font></b> <font color="#990000">(</font><font color="#009900">int</font> <font color="#990000">*,</font> <font color="#009900">int</font><font color="#990000">);</font>
+<b><span style="color:#0000FF">extern</span></b> <span style="color:#FF0000">"C"</span> <span style="color:#009900">int</span> <b><span style="color:#000000">vecsum</span></b> <span style="color:#990000">(</span><span style="color:#009900">int</span> <span style="color:#990000">*,</span> <span style="color:#009900">int</span><span style="color:#990000">);</span>
 
-<i><font color="#9A1900">// Purpose: This main program produces a vector of random</font></i>
-<i><font color="#9A1900">//          numbers between 0 and 99, then calls the</font></i>
-<i><font color="#9A1900">//          externally defined function 'vecsum' to add</font></i>
-<i><font color="#9A1900">//          up the elements of the vector.</font></i>
-<i><font color="#9A1900">// Author:  Adam Ferrari</font></i>
+<i><span style="color:#9A1900">// Purpose: This main program produces a vector of random</span></i>
+<i><span style="color:#9A1900">//          numbers between 0 and 99, then calls the</span></i>
+<i><span style="color:#9A1900">//          externally defined function 'vecsum' to add</span></i>
+<i><span style="color:#9A1900">//          up the elements of the vector.</span></i>
+<i><span style="color:#9A1900">// Author:  Adam Ferrari</span></i>
 
-<font color="#009900">int</font>  <b><font color="#000000">main</font></b> <font color="#990000">()</font> <font color="#FF0000">{</font>
-    <font color="#009900">int</font>  n<font color="#990000">,</font> <font color="#990000">*</font>vec<font color="#990000">,</font> sum<font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Please enter a vector size:  "</font><font color="#990000">;</font>
-    cin <font color="#990000">&gt;&gt;</font> n<font color="#990000">;</font>
+<span style="color:#009900">int</span>  <b><span style="color:#000000">main</span></b> <span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    <span style="color:#009900">int</span>  n<span style="color:#990000">,</span> <span style="color:#990000">*</span>vec<span style="color:#990000">,</span> sum<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Please enter a vector size:  "</span><span style="color:#990000">;</span>
+    cin <span style="color:#990000">&gt;&gt;</span> n<span style="color:#990000">;</span>
 
-    <i><font color="#9A1900">// sanity check the vector size</font></i>
-    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>n <font color="#990000">&lt;=</font> <font color="#993399">0</font><font color="#990000">)</font> <font color="#FF0000">{</font>
-        cerr <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Vector size must be greater than zero.</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
-        <b><font color="#0000FF">return</font></b> <font color="#993399">1</font><font color="#990000">;</font>
-    <font color="#FF0000">}</font>
+    <i><span style="color:#9A1900">// sanity check the vector size</span></i>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>n <span style="color:#990000">&lt;=</span> <span style="color:#993399">0</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        cerr <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Vector size must be greater than zero.</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">;</span>
+        <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">1</span><span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
 
-    <i><font color="#9A1900">// allocate, initialize, and display vector</font></i>
-    vec <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">int</font><font color="#990000">[</font>n<font color="#990000">];</font>
+    <i><span style="color:#9A1900">// allocate, initialize, and display vector</span></i>
+    vec <span style="color:#990000">=</span> <b><span style="color:#0000FF">new</span></b> <span style="color:#009900">int</span><span style="color:#990000">[</span>n<span style="color:#990000">];</span>
 
-    <i><font color="#9A1900">// use current time as random seed</font></i>
-    <b><font color="#000000">srand</font></b><font color="#990000">((</font><font color="#009900">unsigned</font><font color="#990000">)</font> <b><font color="#000000">time</font></b><font color="#990000">(</font>NULL<font color="#990000">));</font>
-    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font><font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> n<font color="#990000">;</font> <font color="#990000">++</font>i<font color="#990000">)</font> <font color="#FF0000">{</font>
-        vec<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">=</font> <b><font color="#000000">rand</font></b><font color="#990000">()</font> <font color="#990000">%</font> <font color="#993399">100</font><font color="#990000">;</font>
-        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">vec["</font> <font color="#990000">&lt;&lt;</font> i <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"] = "</font> <font color="#990000">&lt;&lt;</font> vec<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    <font color="#FF0000">}</font>
+    <i><span style="color:#9A1900">// use current time as random seed</span></i>
+    <b><span style="color:#000000">srand</span></b><span style="color:#990000">((</span><span style="color:#009900">unsigned</span><span style="color:#990000">)</span> <b><span style="color:#000000">time</span></b><span style="color:#990000">(</span>NULL<span style="color:#990000">));</span>
+    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span><span style="color:#009900">int</span> i <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span> i <span style="color:#990000">&lt;</span> n<span style="color:#990000">;</span> <span style="color:#990000">++</span>i<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        vec<span style="color:#990000">[</span>i<span style="color:#990000">]</span> <span style="color:#990000">=</span> <b><span style="color:#000000">rand</span></b><span style="color:#990000">()</span> <span style="color:#990000">%</span> <span style="color:#993399">100</span><span style="color:#990000">;</span>
+        cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">vec["</span> <span style="color:#990000">&lt;&lt;</span> i <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"] = "</span> <span style="color:#990000">&lt;&lt;</span> vec<span style="color:#990000">[</span>i<span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
 
-    <i><font color="#9A1900">// sum up the vector and print out results</font></i>
-    sum <font color="#990000">=</font> <b><font color="#000000">vecsum</font></b><font color="#990000">(</font>vec<font color="#990000">,</font> n<font color="#990000">);</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The sum of all vector elements is "</font> <font color="#990000">&lt;&lt;</font> sum <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
-<font color="#FF0000">}</font>
-</tt></pre>
+    <i><span style="color:#9A1900">// sum up the vector and print out results</span></i>
+    sum <span style="color:#990000">=</span> <b><span style="color:#000000">vecsum</span></b><span style="color:#990000">(</span>vec<span style="color:#990000">,</span> n<span style="color:#990000">);</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"The sum of all vector elements is "</span> <span style="color:#990000">&lt;&lt;</span> sum <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+</pre>
 </body>
 </html>

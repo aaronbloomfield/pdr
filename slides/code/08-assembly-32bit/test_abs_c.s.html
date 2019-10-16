@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -8,98 +8,98 @@ http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
 <title>test_abs_c.s</title>
 </head>
-<body bgcolor="white">
-<pre><tt>	.file	<font color="#FF0000">"test_abs_c.c"</font>
-	.intel_syntax noprefix
-	.text
-	.globl	absolute_value
-	.type	absolute_value, @function
-absolute_value:
-.LFB0:
-	.cfi_startproc
-	push	ebp
-	.cfi_def_cfa_offset 8
-	.cfi_offset 5, -8
-	mov	ebp, esp
-	.cfi_def_cfa_register 5
-	cmp	DWORD PTR [ebp+8], 0
-	jns	.L2
-	neg	DWORD PTR [ebp+8]
-.L2:
-	mov	eax, DWORD PTR [ebp+8]
-	pop	ebp
-	.cfi_restore 5
-	.cfi_def_cfa 4, 4
-	ret
-	.cfi_endproc
-.LFE0:
-	.size	absolute_value, .-absolute_value
-	.section	.rodata
-.LC0:
-	.string	<font color="#FF0000">"Enter a value: "</font>
-.LC1:
-	.string	<font color="#FF0000">"%d"</font>
-.LC2:
-	.string	<font color="#FF0000">"The result is: %d</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
-	.text
-	.globl	main
-	.type	main, @function
-main:
-.LFB1:
-	.cfi_startproc
-	lea	ecx, [esp+4]
-	.cfi_def_cfa 1, 0
-	and	esp, -16
-	push	DWORD PTR [ecx-4]
-	push	ebp
-	.cfi_escape 0x10,0x5,0x2,0x75,0
-	mov	ebp, esp
-	push	ecx
-	.cfi_escape 0xf,0x3,0x75,0x7c,0x6
-	sub	esp, 20
-	mov	eax, DWORD PTR gs:20
-	mov	DWORD PTR [ebp-12], eax
-	xor	eax, eax
-	mov	DWORD PTR [ebp-20], 0
-	sub	esp, 12
-	push	OFFSET FLAT:.LC0
-	call	puts
-	add	esp, 16
-	sub	esp, 8
-	lea	eax, [ebp-20]
-	push	eax
-	push	OFFSET FLAT:.LC1
-	call	__isoc99_scanf
-	add	esp, 16
-	mov	eax, DWORD PTR [ebp-20]
-	sub	esp, 12
-	push	eax
-	call	absolute_value
-	add	esp, 16
-	mov	DWORD PTR [ebp-16], eax
-	sub	esp, 8
-	push	DWORD PTR [ebp-16]
-	push	OFFSET FLAT:.LC2
-	call	printf
-	add	esp, 16
-	mov	eax, 0
-	mov	edx, DWORD PTR [ebp-12]
-	xor	edx, DWORD PTR gs:20
-	je	.L6
-	call	__stack_chk_fail
-.L6:
-	mov	ecx, DWORD PTR [ebp-4]
-	.cfi_def_cfa 1, 0
-	leave
-	.cfi_restore 5
-	lea	esp, [ecx-4]
-	.cfi_def_cfa 4, 4
-	ret
-	.cfi_endproc
-.LFE1:
-	.size	main, .-main
-	.ident	<font color="#FF0000">"GCC: (Ubuntu 5.4.0-6ubuntu1~16.04.2) 5.4.0 20160609"</font>
-	.section	.note.GNU-stack,<font color="#FF0000">""</font>,@progbits
-</tt></pre>
+<body style="background-color:white">
+<pre><b><span style="color:#000080">	.file</span></b>	<span style="color:#FF0000">"test_abs_c.c"</span>
+<b><span style="color:#000080">	.intel</span></b>_syntax noprefix
+<b><span style="color:#000080">	.text</span></b>
+<b><span style="color:#000080">	.globl</span></b>	absolute_value
+<b><span style="color:#000080">	.type</span></b>	absolute_value<span style="color:#990000">,</span> @function
+absolute_value<span style="color:#990000">:</span>
+<b><span style="color:#000080">.LFB0</span></b><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.cfi</span></b>_startproc
+	<b><span style="color:#0000FF">push</span></b>	<span style="color:#009900">ebp</span>
+<b><span style="color:#000080">	.cfi</span></b>_def_cfa_offset <span style="color:#993399">8</span>
+<b><span style="color:#000080">	.cfi</span></b>_offset <span style="color:#993399">5</span><span style="color:#990000">,</span> <span style="color:#990000">-</span><span style="color:#993399">8</span>
+	<b><span style="color:#0000FF">mov</span></b>	<span style="color:#009900">ebp</span><span style="color:#990000">,</span> <span style="color:#009900">esp</span>
+<b><span style="color:#000080">	.cfi</span></b>_def_cfa_register <span style="color:#993399">5</span>
+	<b><span style="color:#0000FF">cmp</span></b>	DWORD <b><span style="color:#0000FF">PTR</span></b> <span style="color:#990000">[</span><span style="color:#009900">ebp</span><span style="color:#990000">+</span><span style="color:#993399">8</span><span style="color:#990000">],</span> <span style="color:#993399">0</span>
+	<b><span style="color:#0000FF">jns</span></b>	<span style="color:#990000">.</span>L<span style="color:#993399">2</span>
+	<b><span style="color:#0000FF">neg</span></b>	DWORD <b><span style="color:#0000FF">PTR</span></b> <span style="color:#990000">[</span><span style="color:#009900">ebp</span><span style="color:#990000">+</span><span style="color:#993399">8</span><span style="color:#990000">]</span>
+<b><span style="color:#000080">.L2</span></b><span style="color:#990000">:</span>
+	<b><span style="color:#0000FF">mov</span></b>	<span style="color:#009900">eax</span><span style="color:#990000">,</span> DWORD <b><span style="color:#0000FF">PTR</span></b> <span style="color:#990000">[</span><span style="color:#009900">ebp</span><span style="color:#990000">+</span><span style="color:#993399">8</span><span style="color:#990000">]</span>
+	<b><span style="color:#0000FF">pop</span></b>	<span style="color:#009900">ebp</span>
+<b><span style="color:#000080">	.cfi</span></b>_restore <span style="color:#993399">5</span>
+<b><span style="color:#000080">	.cfi</span></b>_def_cfa <span style="color:#993399">4</span><span style="color:#990000">,</span> <span style="color:#993399">4</span>
+	<b><span style="color:#0000FF">ret</span></b>
+<b><span style="color:#000080">	.cfi</span></b>_endproc
+<b><span style="color:#000080">.LFE0</span></b><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.size</span></b>	absolute_value<span style="color:#990000">,</span> <span style="color:#990000">.-</span>absolute_value
+<b><span style="color:#000080">	.section</span></b>	<span style="color:#990000">.</span>rodata
+<b><span style="color:#000080">.LC0</span></b><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.string</span></b>	<span style="color:#FF0000">"Enter a value: "</span>
+<b><span style="color:#000080">.LC1</span></b><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.string</span></b>	<span style="color:#FF0000">"%d"</span>
+<b><span style="color:#000080">.LC2</span></b><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.string</span></b>	<span style="color:#FF0000">"The result is: %d</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span>
+<b><span style="color:#000080">	.text</span></b>
+<b><span style="color:#000080">	.globl</span></b>	main
+<b><span style="color:#000080">	.type</span></b>	main<span style="color:#990000">,</span> @function
+<b><span style="color:#000080">main:</span></b>
+<b><span style="color:#000080">.LFB1</span></b><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.cfi</span></b>_startproc
+	<b><span style="color:#0000FF">lea</span></b>	<span style="color:#009900">ecx</span><span style="color:#990000">,</span> <span style="color:#990000">[</span><span style="color:#009900">esp</span><span style="color:#990000">+</span><span style="color:#993399">4</span><span style="color:#990000">]</span>
+<b><span style="color:#000080">	.cfi</span></b>_def_cfa <span style="color:#993399">1</span><span style="color:#990000">,</span> <span style="color:#993399">0</span>
+	<b><span style="color:#0000FF">and</span></b>	<span style="color:#009900">esp</span><span style="color:#990000">,</span> <span style="color:#990000">-</span><span style="color:#993399">16</span>
+	<b><span style="color:#0000FF">push</span></b>	DWORD <b><span style="color:#0000FF">PTR</span></b> <span style="color:#990000">[</span><span style="color:#009900">ecx</span><span style="color:#990000">-</span><span style="color:#993399">4</span><span style="color:#990000">]</span>
+	<b><span style="color:#0000FF">push</span></b>	<span style="color:#009900">ebp</span>
+<b><span style="color:#000080">	.cfi</span></b>_escape <span style="color:#993399">0x10</span><span style="color:#990000">,</span><span style="color:#993399">0x5</span><span style="color:#990000">,</span><span style="color:#993399">0x2</span><span style="color:#990000">,</span><span style="color:#993399">0x75</span><span style="color:#990000">,</span><span style="color:#993399">0</span>
+	<b><span style="color:#0000FF">mov</span></b>	<span style="color:#009900">ebp</span><span style="color:#990000">,</span> <span style="color:#009900">esp</span>
+	<b><span style="color:#0000FF">push</span></b>	<span style="color:#009900">ecx</span>
+<b><span style="color:#000080">	.cfi</span></b>_escape <span style="color:#993399">0xf</span><span style="color:#990000">,</span><span style="color:#993399">0x3</span><span style="color:#990000">,</span><span style="color:#993399">0x75</span><span style="color:#990000">,</span><span style="color:#993399">0x7c</span><span style="color:#990000">,</span><span style="color:#993399">0x6</span>
+	<b><span style="color:#0000FF">sub</span></b>	<span style="color:#009900">esp</span><span style="color:#990000">,</span> <span style="color:#993399">20</span>
+	<b><span style="color:#0000FF">mov</span></b>	<span style="color:#009900">eax</span><span style="color:#990000">,</span> DWORD <b><span style="color:#0000FF">PTR</span></b> <span style="color:#009900">gs</span><span style="color:#990000">:</span><span style="color:#993399">20</span>
+	<b><span style="color:#0000FF">mov</span></b>	DWORD <b><span style="color:#0000FF">PTR</span></b> <span style="color:#990000">[</span><span style="color:#009900">ebp</span><span style="color:#990000">-</span><span style="color:#993399">12</span><span style="color:#990000">],</span> <span style="color:#009900">eax</span>
+	<b><span style="color:#0000FF">xor</span></b>	<span style="color:#009900">eax</span><span style="color:#990000">,</span> <span style="color:#009900">eax</span>
+	<b><span style="color:#0000FF">mov</span></b>	DWORD <b><span style="color:#0000FF">PTR</span></b> <span style="color:#990000">[</span><span style="color:#009900">ebp</span><span style="color:#990000">-</span><span style="color:#993399">20</span><span style="color:#990000">],</span> <span style="color:#993399">0</span>
+	<b><span style="color:#0000FF">sub</span></b>	<span style="color:#009900">esp</span><span style="color:#990000">,</span> <span style="color:#993399">12</span>
+	<b><span style="color:#0000FF">push</span></b>	<b><span style="color:#0000FF">OFFSET</span></b> FLAT<span style="color:#990000">:.</span>LC<span style="color:#993399">0</span>
+	<b><span style="color:#0000FF">call</span></b>	puts
+	<b><span style="color:#0000FF">add</span></b>	<span style="color:#009900">esp</span><span style="color:#990000">,</span> <span style="color:#993399">16</span>
+	<b><span style="color:#0000FF">sub</span></b>	<span style="color:#009900">esp</span><span style="color:#990000">,</span> <span style="color:#993399">8</span>
+	<b><span style="color:#0000FF">lea</span></b>	<span style="color:#009900">eax</span><span style="color:#990000">,</span> <span style="color:#990000">[</span><span style="color:#009900">ebp</span><span style="color:#990000">-</span><span style="color:#993399">20</span><span style="color:#990000">]</span>
+	<b><span style="color:#0000FF">push</span></b>	<span style="color:#009900">eax</span>
+	<b><span style="color:#0000FF">push</span></b>	<b><span style="color:#0000FF">OFFSET</span></b> FLAT<span style="color:#990000">:.</span>LC<span style="color:#993399">1</span>
+	<b><span style="color:#0000FF">call</span></b>	__isoc<span style="color:#993399">99</span>_scanf
+	<b><span style="color:#0000FF">add</span></b>	<span style="color:#009900">esp</span><span style="color:#990000">,</span> <span style="color:#993399">16</span>
+	<b><span style="color:#0000FF">mov</span></b>	<span style="color:#009900">eax</span><span style="color:#990000">,</span> DWORD <b><span style="color:#0000FF">PTR</span></b> <span style="color:#990000">[</span><span style="color:#009900">ebp</span><span style="color:#990000">-</span><span style="color:#993399">20</span><span style="color:#990000">]</span>
+	<b><span style="color:#0000FF">sub</span></b>	<span style="color:#009900">esp</span><span style="color:#990000">,</span> <span style="color:#993399">12</span>
+	<b><span style="color:#0000FF">push</span></b>	<span style="color:#009900">eax</span>
+	<b><span style="color:#0000FF">call</span></b>	absolute_value
+	<b><span style="color:#0000FF">add</span></b>	<span style="color:#009900">esp</span><span style="color:#990000">,</span> <span style="color:#993399">16</span>
+	<b><span style="color:#0000FF">mov</span></b>	DWORD <b><span style="color:#0000FF">PTR</span></b> <span style="color:#990000">[</span><span style="color:#009900">ebp</span><span style="color:#990000">-</span><span style="color:#993399">16</span><span style="color:#990000">],</span> <span style="color:#009900">eax</span>
+	<b><span style="color:#0000FF">sub</span></b>	<span style="color:#009900">esp</span><span style="color:#990000">,</span> <span style="color:#993399">8</span>
+	<b><span style="color:#0000FF">push</span></b>	DWORD <b><span style="color:#0000FF">PTR</span></b> <span style="color:#990000">[</span><span style="color:#009900">ebp</span><span style="color:#990000">-</span><span style="color:#993399">16</span><span style="color:#990000">]</span>
+	<b><span style="color:#0000FF">push</span></b>	<b><span style="color:#0000FF">OFFSET</span></b> FLAT<span style="color:#990000">:.</span>LC<span style="color:#993399">2</span>
+	<b><span style="color:#0000FF">call</span></b>	printf
+	<b><span style="color:#0000FF">add</span></b>	<span style="color:#009900">esp</span><span style="color:#990000">,</span> <span style="color:#993399">16</span>
+	<b><span style="color:#0000FF">mov</span></b>	<span style="color:#009900">eax</span><span style="color:#990000">,</span> <span style="color:#993399">0</span>
+	<b><span style="color:#0000FF">mov</span></b>	<span style="color:#009900">edx</span><span style="color:#990000">,</span> DWORD <b><span style="color:#0000FF">PTR</span></b> <span style="color:#990000">[</span><span style="color:#009900">ebp</span><span style="color:#990000">-</span><span style="color:#993399">12</span><span style="color:#990000">]</span>
+	<b><span style="color:#0000FF">xor</span></b>	<span style="color:#009900">edx</span><span style="color:#990000">,</span> DWORD <b><span style="color:#0000FF">PTR</span></b> <span style="color:#009900">gs</span><span style="color:#990000">:</span><span style="color:#993399">20</span>
+	<b><span style="color:#0000FF">je</span></b>	<span style="color:#990000">.</span>L<span style="color:#993399">6</span>
+	<b><span style="color:#0000FF">call</span></b>	__stack_chk_fail
+<b><span style="color:#000080">.L6</span></b><span style="color:#990000">:</span>
+	<b><span style="color:#0000FF">mov</span></b>	<span style="color:#009900">ecx</span><span style="color:#990000">,</span> DWORD <b><span style="color:#0000FF">PTR</span></b> <span style="color:#990000">[</span><span style="color:#009900">ebp</span><span style="color:#990000">-</span><span style="color:#993399">4</span><span style="color:#990000">]</span>
+<b><span style="color:#000080">	.cfi</span></b>_def_cfa <span style="color:#993399">1</span><span style="color:#990000">,</span> <span style="color:#993399">0</span>
+	<b><span style="color:#0000FF">leave</span></b>
+<b><span style="color:#000080">	.cfi</span></b>_restore <span style="color:#993399">5</span>
+	<b><span style="color:#0000FF">lea</span></b>	<span style="color:#009900">esp</span><span style="color:#990000">,</span> <span style="color:#990000">[</span><span style="color:#009900">ecx</span><span style="color:#990000">-</span><span style="color:#993399">4</span><span style="color:#990000">]</span>
+<b><span style="color:#000080">	.cfi</span></b>_def_cfa <span style="color:#993399">4</span><span style="color:#990000">,</span> <span style="color:#993399">4</span>
+	<b><span style="color:#0000FF">ret</span></b>
+<b><span style="color:#000080">	.cfi</span></b>_endproc
+<b><span style="color:#000080">.LFE1</span></b><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.size</span></b>	main<span style="color:#990000">,</span> <span style="color:#990000">.-</span>main
+<b><span style="color:#000080">	.ident</span></b>	<span style="color:#FF0000">"GCC: (Ubuntu 5.4.0-6ubuntu1~16.04.2) 5.4.0 20160609"</span>
+<b><span style="color:#000080">	.section</span></b>	<span style="color:#990000">.</span>note<span style="color:#990000">.</span>GNU<span style="color:#990000">-</span>stack<span style="color:#990000">,</span><span style="color:#FF0000">""</span><span style="color:#990000">,</span>@progbits
+</pre>
 </body>
 </html>

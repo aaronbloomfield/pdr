@@ -1,61 +1,61 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
 <title>findMax.cpp</title>
 </head>
-<body bgcolor="white">
-<pre><tt><i><font color="#9A1900">// This code requires the IntCell.h/cpp code from the 02-cpp slide set</font></i>
+<body style="background-color:white">
+<pre><i><span style="color:#9A1900">// This code requires the IntCell.h/cpp code from the 02-cpp slide set</span></i>
 
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;vector&gt;</font>
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;string&gt;</font>
-<b><font color="#000080">#include</font></b> <font color="#FF0000">"IntCell.h"</font>
-<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;iostream&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;vector&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;string&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">"IntCell.h"</span>
+<b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
-<b><font color="#0000FF">template</font></b> <font color="#990000">&lt;</font><b><font color="#0000FF">typename</font></b> <font color="#008080">Comparable</font><font color="#990000">&gt;</font>
-<b><font color="#0000FF">const</font></b> Comparable <font color="#990000">&amp;</font> <b><font color="#000000">findMax</font></b> <font color="#990000">(</font><b><font color="#0000FF">const</font></b> vector<font color="#990000">&lt;</font>Comparable<font color="#990000">&gt;</font> <font color="#990000">&amp;</font> a<font color="#990000">)</font> <font color="#FF0000">{</font>
-    <font color="#009900">int</font> maxIndex <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
-    <b><font color="#0000FF">for</font></b><font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> a<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">(</font> <font color="#990000">);</font> i<font color="#990000">++</font> <font color="#990000">)</font>
-        <b><font color="#0000FF">if</font></b><font color="#990000">(</font> a<font color="#990000">[</font> maxIndex <font color="#990000">]</font> <font color="#990000">&lt;</font> a<font color="#990000">[</font> i <font color="#990000">]</font> <font color="#990000">)</font> <i><font color="#9A1900">// note the use of '&lt;'</font></i>
-            maxIndex <font color="#990000">=</font> i<font color="#990000">;</font>
-    <b><font color="#0000FF">return</font></b> a<font color="#990000">[</font> maxIndex <font color="#990000">];</font>
-<font color="#FF0000">}</font>
+<b><span style="color:#0000FF">template</span></b> <span style="color:#990000">&lt;</span><b><span style="color:#0000FF">typename</span></b> <span style="color:#008080">Comparable</span><span style="color:#990000">&gt;</span>
+<b><span style="color:#0000FF">const</span></b> Comparable <span style="color:#990000">&amp;</span> <b><span style="color:#000000">findMax</span></b> <span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> vector<span style="color:#990000">&lt;</span>Comparable<span style="color:#990000">&gt;</span> <span style="color:#990000">&amp;</span> a<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <span style="color:#009900">int</span> maxIndex <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">for</span></b><span style="color:#990000">(</span> <span style="color:#009900">int</span> i <span style="color:#990000">=</span> <span style="color:#993399">1</span><span style="color:#990000">;</span> i <span style="color:#990000">&lt;</span> a<span style="color:#990000">.</span><b><span style="color:#000000">size</span></b><span style="color:#990000">(</span> <span style="color:#990000">);</span> i<span style="color:#990000">++</span> <span style="color:#990000">)</span>
+        <b><span style="color:#0000FF">if</span></b><span style="color:#990000">(</span> a<span style="color:#990000">[</span> maxIndex <span style="color:#990000">]</span> <span style="color:#990000">&lt;</span> a<span style="color:#990000">[</span> i <span style="color:#990000">]</span> <span style="color:#990000">)</span> <i><span style="color:#9A1900">// note the use of '&lt;'</span></i>
+            maxIndex <span style="color:#990000">=</span> i<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">return</span></b> a<span style="color:#990000">[</span> maxIndex <span style="color:#990000">];</span>
+<span style="color:#FF0000">}</span>
 
-<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
-    <font color="#008080">vector&lt;int&gt;</font> <b><font color="#000000">v1</font></b><font color="#990000">(</font><font color="#993399">37</font><font color="#990000">);</font>
-    <font color="#008080">vector&lt;double&gt;</font> <b><font color="#000000">v2</font></b><font color="#990000">(</font><font color="#993399">40</font><font color="#990000">);</font>
-    <font color="#008080">vector&lt;string&gt;</font> <b><font color="#000000">v3</font></b><font color="#990000">(</font><font color="#993399">80</font><font color="#990000">);</font>
-    <font color="#008080">vector&lt;IntCell&gt;</font> <b><font color="#000000">v4</font></b><font color="#990000">(</font><font color="#993399">75</font><font color="#990000">);</font>
+<span style="color:#009900">int</span> <b><span style="color:#000000">main</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    <span style="color:#008080">vector&lt;int&gt;</span> <b><span style="color:#000000">v1</span></b><span style="color:#990000">(</span><span style="color:#993399">37</span><span style="color:#990000">);</span>
+    <span style="color:#008080">vector&lt;double&gt;</span> <b><span style="color:#000000">v2</span></b><span style="color:#990000">(</span><span style="color:#993399">40</span><span style="color:#990000">);</span>
+    <span style="color:#008080">vector&lt;string&gt;</span> <b><span style="color:#000000">v3</span></b><span style="color:#990000">(</span><span style="color:#993399">80</span><span style="color:#990000">);</span>
+    <span style="color:#008080">vector&lt;IntCell&gt;</span> <b><span style="color:#000000">v4</span></b><span style="color:#990000">(</span><span style="color:#993399">75</span><span style="color:#990000">);</span>
 
-    v1<font color="#990000">.</font><b><font color="#000000">push_back</font></b><font color="#990000">(</font><font color="#993399">3</font><font color="#990000">);</font>
-    v1<font color="#990000">.</font><b><font color="#000000">push_back</font></b><font color="#990000">(</font><font color="#993399">7</font><font color="#990000">);</font>
-    v1<font color="#990000">.</font><b><font color="#000000">push_back</font></b><font color="#990000">(</font><font color="#993399">5</font><font color="#990000">);</font>
+    v1<span style="color:#990000">.</span><b><span style="color:#000000">push_back</span></b><span style="color:#990000">(</span><span style="color:#993399">3</span><span style="color:#990000">);</span>
+    v1<span style="color:#990000">.</span><b><span style="color:#000000">push_back</span></b><span style="color:#990000">(</span><span style="color:#993399">7</span><span style="color:#990000">);</span>
+    v1<span style="color:#990000">.</span><b><span style="color:#000000">push_back</span></b><span style="color:#990000">(</span><span style="color:#993399">5</span><span style="color:#990000">);</span>
 
-    v2<font color="#990000">.</font><b><font color="#000000">push_back</font></b><font color="#990000">(</font><font color="#993399">3.14</font><font color="#990000">);</font>
-    v2<font color="#990000">.</font><b><font color="#000000">push_back</font></b><font color="#990000">(</font><font color="#993399">2.718</font><font color="#990000">);</font>
-    v2<font color="#990000">.</font><b><font color="#000000">push_back</font></b><font color="#990000">(-</font><font color="#993399">1.0</font><font color="#990000">);</font>
+    v2<span style="color:#990000">.</span><b><span style="color:#000000">push_back</span></b><span style="color:#990000">(</span><span style="color:#993399">3.14</span><span style="color:#990000">);</span>
+    v2<span style="color:#990000">.</span><b><span style="color:#000000">push_back</span></b><span style="color:#990000">(</span><span style="color:#993399">2.718</span><span style="color:#990000">);</span>
+    v2<span style="color:#990000">.</span><b><span style="color:#000000">push_back</span></b><span style="color:#990000">(-</span><span style="color:#993399">1.0</span><span style="color:#990000">);</span>
 
-    v3<font color="#990000">.</font><b><font color="#000000">push_back</font></b><font color="#990000">(</font><font color="#FF0000">"aardvark"</font><font color="#990000">);</font>
-    v3<font color="#990000">.</font><b><font color="#000000">push_back</font></b><font color="#990000">(</font><font color="#FF0000">"sloth"</font><font color="#990000">);</font>
-    v3<font color="#990000">.</font><b><font color="#000000">push_back</font></b><font color="#990000">(</font><font color="#FF0000">"platypus"</font><font color="#990000">);</font>
-    v3<font color="#990000">.</font><b><font color="#000000">push_back</font></b><font color="#990000">(</font><font color="#FF0000">"zebra"</font><font color="#990000">);</font>
+    v3<span style="color:#990000">.</span><b><span style="color:#000000">push_back</span></b><span style="color:#990000">(</span><span style="color:#FF0000">"aardvark"</span><span style="color:#990000">);</span>
+    v3<span style="color:#990000">.</span><b><span style="color:#000000">push_back</span></b><span style="color:#990000">(</span><span style="color:#FF0000">"sloth"</span><span style="color:#990000">);</span>
+    v3<span style="color:#990000">.</span><b><span style="color:#000000">push_back</span></b><span style="color:#990000">(</span><span style="color:#FF0000">"platypus"</span><span style="color:#990000">);</span>
+    v3<span style="color:#990000">.</span><b><span style="color:#000000">push_back</span></b><span style="color:#990000">(</span><span style="color:#FF0000">"zebra"</span><span style="color:#990000">);</span>
 
-    v4<font color="#990000">.</font><b><font color="#000000">push_back</font></b><font color="#990000">(</font><b><font color="#000000">IntCell</font></b><font color="#990000">(</font><font color="#993399">3</font><font color="#990000">));</font>
-    v4<font color="#990000">.</font><b><font color="#000000">push_back</font></b><font color="#990000">(</font><b><font color="#000000">IntCell</font></b><font color="#990000">(</font><font color="#993399">7</font><font color="#990000">));</font>
-    v4<font color="#990000">.</font><b><font color="#000000">push_back</font></b><font color="#990000">(</font><b><font color="#000000">IntCell</font></b><font color="#990000">(</font><font color="#993399">5</font><font color="#990000">));</font>
+    v4<span style="color:#990000">.</span><b><span style="color:#000000">push_back</span></b><span style="color:#990000">(</span><b><span style="color:#000000">IntCell</span></b><span style="color:#990000">(</span><span style="color:#993399">3</span><span style="color:#990000">));</span>
+    v4<span style="color:#990000">.</span><b><span style="color:#000000">push_back</span></b><span style="color:#990000">(</span><b><span style="color:#000000">IntCell</span></b><span style="color:#990000">(</span><span style="color:#993399">7</span><span style="color:#990000">));</span>
+    v4<span style="color:#990000">.</span><b><span style="color:#000000">push_back</span></b><span style="color:#990000">(</span><b><span style="color:#000000">IntCell</span></b><span style="color:#990000">(</span><span style="color:#993399">5</span><span style="color:#990000">));</span>
 
-    cout <font color="#990000">&lt;&lt;</font> <b><font color="#000000">findMax</font></b><font color="#990000">(</font>v1<font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>  <i><font color="#9A1900">// ok: Comparable = int</font></i>
-    cout <font color="#990000">&lt;&lt;</font> <b><font color="#000000">findMax</font></b><font color="#990000">(</font>v2<font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>  <i><font color="#9A1900">// ok: Comparable = double</font></i>
-    cout <font color="#990000">&lt;&lt;</font> <b><font color="#000000">findMax</font></b><font color="#990000">(</font>v3<font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>  <i><font color="#9A1900">// ok: Comparable = string</font></i>
-    <i><font color="#9A1900">//cout &lt;&lt; findMax(v4) &lt;&lt; endl;  // Illegal: no operator&lt;</font></i>
+    cout <span style="color:#990000">&lt;&lt;</span> <b><span style="color:#000000">findMax</span></b><span style="color:#990000">(</span>v1<span style="color:#990000">)</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>  <i><span style="color:#9A1900">// ok: Comparable = int</span></i>
+    cout <span style="color:#990000">&lt;&lt;</span> <b><span style="color:#000000">findMax</span></b><span style="color:#990000">(</span>v2<span style="color:#990000">)</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>  <i><span style="color:#9A1900">// ok: Comparable = double</span></i>
+    cout <span style="color:#990000">&lt;&lt;</span> <b><span style="color:#000000">findMax</span></b><span style="color:#990000">(</span>v3<span style="color:#990000">)</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>  <i><span style="color:#9A1900">// ok: Comparable = string</span></i>
+    <i><span style="color:#9A1900">//cout &lt;&lt; findMax(v4) &lt;&lt; endl;  // Illegal: no operator&lt;</span></i>
 
-    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
-<font color="#FF0000">}</font>
-</tt></pre>
+    <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+</pre>
 </body>
 </html>

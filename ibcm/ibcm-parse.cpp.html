@@ -1,80 +1,134 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
 <title>ibcm-parse.cpp</title>
 </head>
-<body bgcolor="white">
-<pre><tt><i><font color="#9A1900">/* A program that will quickly check if the file names passed in via</font></i>
-<i><font color="#9A1900"> * command line arguments look like IBCM files.  In particular, it</font></i>
-<i><font color="#9A1900"> * checks if the first four digits on each line are all hexadecimal</font></i>
-<i><font color="#9A1900"> * digits.  It does not program validity checking beyond this.  It is</font></i>
-<i><font color="#9A1900"> * useful to tell the students if, on submission, their programs will</font></i>
-<i><font color="#9A1900"> * parse correctly in an IBCM simulator.</font></i>
-<i><font color="#9A1900"> */</font></i>
+<body style="background-color:white">
+<pre><i><span style="color:#9A1900">/* A program that will quickly check if the file names passed in via</span></i>
+<i><span style="color:#9A1900"> * command line arguments look like IBCM files.  In particular, it</span></i>
+<i><span style="color:#9A1900"> * checks if the first four digits on each line are all hexadecimal</span></i>
+<i><span style="color:#9A1900"> * digits.  It does not program validity checking beyond this.  It is</span></i>
+<i><span style="color:#9A1900"> * useful to tell the students if, on submission, their programs will</span></i>
+<i><span style="color:#9A1900"> * parse correctly in an IBCM simulator.</span></i>
+<i><span style="color:#9A1900"> */</span></i>
 
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;fstream&gt;</font>
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdlib.h&gt;</font>
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;ctype.h&gt;</font>
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;string.h&gt;</font>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;iostream&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;fstream&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;stdlib.h&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;ctype.h&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;string.h&gt;</span>
 
-<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+<b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
-<font color="#009900">int</font> <b><font color="#000000">main</font></b> <font color="#990000">(</font><font color="#009900">int</font> argc<font color="#990000">,</font> <font color="#009900">char</font> <font color="#990000">*</font>argv<font color="#990000">[])</font> <font color="#FF0000">{</font>
-    <font color="#008080">string</font> line<font color="#990000">;</font>
-    <font color="#009900">int</font> linenum <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
-    <font color="#009900">bool</font> allowComments <font color="#990000">=</font> <b><font color="#0000FF">false</font></b><font color="#990000">;</font>
-    <i><font color="#9A1900">// make sure they gave some command-line parameters</font></i>
-    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> argc <font color="#990000">==</font> <font color="#993399">1</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
-        cout <font color="#990000">&lt;&lt;</font> argv<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">": no input files"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-        <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">);</font>
-    <font color="#FF0000">}</font>
-    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> argc<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
-        <i><font color="#9A1900">// a comment has a '//' as the first two characters on a line</font></i>
-        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">!</font><b><font color="#000000">strcmp</font></b><font color="#990000">(</font>argv<font color="#990000">[</font>i<font color="#990000">],</font><font color="#FF0000">"-allowcomments"</font><font color="#990000">)</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
-            allowComments <font color="#990000">=</font> <b><font color="#0000FF">true</font></b><font color="#990000">;</font>
-            <b><font color="#0000FF">continue</font></b><font color="#990000">;</font>
-        <font color="#FF0000">}</font>
-        <i><font color="#9A1900">// open the file</font></i>
-        <font color="#008080">ifstream</font> <b><font color="#000000">file</font></b><font color="#990000">(</font>argv<font color="#990000">[</font>i<font color="#990000">]);</font>
-        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">!</font>file<font color="#990000">.</font><b><font color="#000000">is_open</font></b><font color="#990000">()</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
-            cout <font color="#990000">&lt;&lt;</font> argv<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">": "</font> <font color="#990000">&lt;&lt;</font> argv<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">": no such file"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-            <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">2</font><font color="#990000">);</font>
-        <font color="#FF0000">}</font>
-        <i><font color="#9A1900">// read in the entire file...</font></i>
-        <b><font color="#0000FF">while</font></b> <font color="#990000">(</font> file<font color="#990000">.</font><b><font color="#000000">good</font></b><font color="#990000">()</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
-            <i><font color="#9A1900">// read in a line from the file</font></i>
-            <b><font color="#000000">getline</font></b> <font color="#990000">(</font>file<font color="#990000">,</font> line<font color="#990000">);</font>
-            linenum<font color="#990000">++;</font>
-            <i><font color="#9A1900">// is it the last line of the file?</font></i>
-            <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>line<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">()</font> <font color="#990000">==</font> <font color="#993399">0</font><font color="#990000">)</font> <font color="#990000">&amp;&amp;</font> <font color="#990000">(!</font>file<font color="#990000">.</font><b><font color="#000000">good</font></b><font color="#990000">())</font> <font color="#990000">)</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-            <i><font color="#9A1900">// is it a comment?</font></i>
-            <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> allowComments <font color="#990000">&amp;&amp;</font> <font color="#990000">(</font>line<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">()</font> <font color="#990000">&gt;=</font> <font color="#993399">2</font><font color="#990000">)</font> <font color="#990000">&amp;&amp;</font>
-                    <font color="#990000">(</font>line<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">'/'</font><font color="#990000">)</font> <font color="#990000">&amp;&amp;</font> <font color="#990000">(</font>line<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">'/'</font><font color="#990000">)</font> <font color="#990000">)</font>
-                <b><font color="#0000FF">continue</font></b><font color="#990000">;</font>
-            <i><font color="#9A1900">// is the line too short?</font></i>
-            <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> line<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">()</font> <font color="#990000">&lt;</font> <font color="#993399">4</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
-                cout <font color="#990000">&lt;&lt;</font> argv<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">": "</font> <font color="#990000">&lt;&lt;</font> argv<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" has too short a line on line number "</font> <font color="#990000">&lt;&lt;</font> linenum <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"("</font> <font color="#990000">&lt;&lt;</font> line<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">")"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">3</font><font color="#990000">);</font>
-            <font color="#FF0000">}</font>
-            <i><font color="#9A1900">// are the first four digits hex characters?</font></i>
-            <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> j <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> j <font color="#990000">&lt;</font> <font color="#993399">4</font><font color="#990000">;</font> j<font color="#990000">++</font> <font color="#990000">)</font>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">!</font><b><font color="#000000">isxdigit</font></b><font color="#990000">(</font>line<font color="#990000">[</font>j<font color="#990000">])</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
-                    cout <font color="#990000">&lt;&lt;</font> argv<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">": "</font> <font color="#990000">&lt;&lt;</font> argv<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" invalid hexadecimal digit on line "</font> <font color="#990000">&lt;&lt;</font> linenum <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" character "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">(</font>j<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                    <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">3</font><font color="#990000">);</font>
-                <font color="#FF0000">}</font>
-        <font color="#FF0000">}</font>
-        <i><font color="#9A1900">// all done with this file!</font></i>
-        file<font color="#990000">.</font><b><font color="#000000">close</font></b><font color="#990000">();</font>
-    <font color="#FF0000">}</font>
-    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
-<font color="#FF0000">}</font>
-</tt></pre>
+<span style="color:#009900">void</span> <b><span style="color:#000000">printHelp</span></b><span style="color:#990000">(</span><span style="color:#009900">char</span><span style="color:#990000">*</span> name<span style="color:#990000">);</span>
+<span style="color:#009900">bool</span> <b><span style="color:#000000">isEmpty</span></b><span style="color:#990000">(</span>string<span style="color:#990000">&amp;</span> line<span style="color:#990000">);</span>
+
+<span style="color:#009900">int</span> <b><span style="color:#000000">main</span></b> <span style="color:#990000">(</span><span style="color:#009900">int</span> argc<span style="color:#990000">,</span> <span style="color:#009900">char</span> <span style="color:#990000">*</span>argv<span style="color:#990000">[])</span> <span style="color:#FF0000">{</span>
+    <span style="color:#008080">string</span> line<span style="color:#990000">;</span>
+    <span style="color:#009900">int</span> linenum <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+    <span style="color:#009900">bool</span> allowComments <span style="color:#990000">=</span> <b><span style="color:#0000FF">false</span></b><span style="color:#990000">;</span>
+    <i><span style="color:#9A1900">// make sure they gave some command-line parameters</span></i>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> argc <span style="color:#990000">==</span> <span style="color:#993399">1</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        cout <span style="color:#990000">&lt;&lt;</span> argv<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">": no input files"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+        <b><span style="color:#000000">exit</span></b><span style="color:#990000">(</span><span style="color:#993399">1</span><span style="color:#990000">);</span>
+    <span style="color:#FF0000">}</span>
+    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span> <span style="color:#009900">int</span> i <span style="color:#990000">=</span> <span style="color:#993399">1</span><span style="color:#990000">;</span> i <span style="color:#990000">&lt;</span> argc<span style="color:#990000">;</span> i<span style="color:#990000">++</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        <i><span style="color:#9A1900">// print the help description</span></i>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> <span style="color:#990000">!</span><b><span style="color:#000000">strcmp</span></b><span style="color:#990000">(</span>argv<span style="color:#990000">[</span>i<span style="color:#990000">],</span> <span style="color:#FF0000">"-help"</span><span style="color:#990000">)</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            <b><span style="color:#000000">printHelp</span></b><span style="color:#990000">(</span>argv<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]);</span>
+            <b><span style="color:#000000">exit</span></b><span style="color:#990000">(</span><span style="color:#993399">0</span><span style="color:#990000">);</span>
+        <span style="color:#FF0000">}</span>
+
+        <i><span style="color:#9A1900">// a comment has a '#' as the first character on a line or</span></i>
+        <i><span style="color:#9A1900">// a comment has a '//' as the first two characters on a line</span></i>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> <span style="color:#990000">!</span><b><span style="color:#000000">strcmp</span></b><span style="color:#990000">(</span>argv<span style="color:#990000">[</span>i<span style="color:#990000">],</span><span style="color:#FF0000">"-allowcomments"</span><span style="color:#990000">)</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            allowComments <span style="color:#990000">=</span> <b><span style="color:#0000FF">true</span></b><span style="color:#990000">;</span>
+            <b><span style="color:#0000FF">continue</span></b><span style="color:#990000">;</span>
+        <span style="color:#FF0000">}</span>
+        
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> argv<span style="color:#990000">[</span>i<span style="color:#990000">][</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">==</span> <span style="color:#FF0000">'-'</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            cout <span style="color:#990000">&lt;&lt;</span> argv<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">": "</span> <span style="color:#990000">&lt;&lt;</span> argv<span style="color:#990000">[</span>i<span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">": no such argument"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+            <b><span style="color:#000000">printHelp</span></b><span style="color:#990000">(</span>argv<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]);</span>
+            <b><span style="color:#000000">exit</span></b><span style="color:#990000">(</span><span style="color:#993399">1</span><span style="color:#990000">);</span>
+        <span style="color:#FF0000">}</span>
+
+        <i><span style="color:#9A1900">// open the file</span></i>
+        <span style="color:#008080">ifstream</span> <b><span style="color:#000000">file</span></b><span style="color:#990000">(</span>argv<span style="color:#990000">[</span>i<span style="color:#990000">]);</span>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> <span style="color:#990000">!</span>file<span style="color:#990000">.</span><b><span style="color:#000000">is_open</span></b><span style="color:#990000">()</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            cout <span style="color:#990000">&lt;&lt;</span> argv<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">": "</span> <span style="color:#990000">&lt;&lt;</span> argv<span style="color:#990000">[</span>i<span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">": no such file"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+            <b><span style="color:#000000">exit</span></b><span style="color:#990000">(</span><span style="color:#993399">2</span><span style="color:#990000">);</span>
+        <span style="color:#FF0000">}</span>
+        <i><span style="color:#9A1900">// read in the entire file...</span></i>
+        <b><span style="color:#0000FF">while</span></b> <span style="color:#990000">(</span> file<span style="color:#990000">.</span><b><span style="color:#000000">good</span></b><span style="color:#990000">()</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            <i><span style="color:#9A1900">// read in a line from the file</span></i>
+            <b><span style="color:#000000">getline</span></b> <span style="color:#990000">(</span>file<span style="color:#990000">,</span> line<span style="color:#990000">);</span>
+            linenum<span style="color:#990000">++;</span>
+            <i><span style="color:#9A1900">// is it the last line of the file?</span></i>
+            <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> <span style="color:#990000">(</span>line<span style="color:#990000">.</span><b><span style="color:#000000">size</span></b><span style="color:#990000">()</span> <span style="color:#990000">==</span> <span style="color:#993399">0</span><span style="color:#990000">)</span> <span style="color:#990000">&amp;&amp;</span> <span style="color:#990000">(!</span>file<span style="color:#990000">.</span><b><span style="color:#000000">good</span></b><span style="color:#990000">())</span> <span style="color:#990000">)</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+            <i><span style="color:#9A1900">// is the line empty or all whitespace?</span></i>
+            <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> <b><span style="color:#000000">isEmpty</span></b><span style="color:#990000">(</span>line<span style="color:#990000">)</span> <span style="color:#990000">)</span>
+                <b><span style="color:#0000FF">continue</span></b><span style="color:#990000">;</span>
+            <i><span style="color:#9A1900">// is it a `//` comment?</span></i>
+            <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> allowComments <span style="color:#990000">&amp;&amp;</span> <span style="color:#990000">(</span>line<span style="color:#990000">.</span><b><span style="color:#000000">size</span></b><span style="color:#990000">()</span> <span style="color:#990000">&gt;=</span> <span style="color:#993399">2</span><span style="color:#990000">)</span> <span style="color:#990000">&amp;&amp;</span>
+                    <span style="color:#990000">(</span>line<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">==</span> <span style="color:#FF0000">'/'</span><span style="color:#990000">)</span> <span style="color:#990000">&amp;&amp;</span> <span style="color:#990000">(</span>line<span style="color:#990000">[</span><span style="color:#993399">1</span><span style="color:#990000">]</span> <span style="color:#990000">==</span> <span style="color:#FF0000">'/'</span><span style="color:#990000">)</span> <span style="color:#990000">)</span>
+                <b><span style="color:#0000FF">continue</span></b><span style="color:#990000">;</span>
+            <i><span style="color:#9A1900">// is it a `#` comment?</span></i>
+            <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> allowComments <span style="color:#990000">&amp;&amp;</span> <span style="color:#990000">(</span>line<span style="color:#990000">.</span><b><span style="color:#000000">size</span></b><span style="color:#990000">()</span> <span style="color:#990000">&gt;=</span> <span style="color:#993399">1</span><span style="color:#990000">)</span> <span style="color:#990000">&amp;&amp;</span>
+                    <span style="color:#990000">(</span>line<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">==</span> <span style="color:#FF0000">'#'</span><span style="color:#990000">)</span> <span style="color:#990000">)</span>
+                <b><span style="color:#0000FF">continue</span></b><span style="color:#990000">;</span>
+            <i><span style="color:#9A1900">// is the line too short?</span></i>
+            <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> line<span style="color:#990000">.</span><b><span style="color:#000000">size</span></b><span style="color:#990000">()</span> <span style="color:#990000">&lt;</span> <span style="color:#993399">4</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+                cout <span style="color:#990000">&lt;&lt;</span> argv<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">": "</span> <span style="color:#990000">&lt;&lt;</span> argv<span style="color:#990000">[</span>i<span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" has too short a line on line number "</span> <span style="color:#990000">&lt;&lt;</span> linenum <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"("</span> <span style="color:#990000">&lt;&lt;</span> line<span style="color:#990000">.</span><b><span style="color:#000000">size</span></b><span style="color:#990000">()</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">")"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                <b><span style="color:#000000">exit</span></b><span style="color:#990000">(</span><span style="color:#993399">3</span><span style="color:#990000">);</span>
+            <span style="color:#FF0000">}</span>
+            <i><span style="color:#9A1900">// are the first four digits hex characters?</span></i>
+            <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span> <span style="color:#009900">int</span> j <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span> j <span style="color:#990000">&lt;</span> <span style="color:#993399">4</span><span style="color:#990000">;</span> j<span style="color:#990000">++</span> <span style="color:#990000">)</span>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> <span style="color:#990000">!</span><b><span style="color:#000000">isxdigit</span></b><span style="color:#990000">(</span>line<span style="color:#990000">[</span>j<span style="color:#990000">])</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> argv<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">": "</span> <span style="color:#990000">&lt;&lt;</span> argv<span style="color:#990000">[</span>i<span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" invalid hexadecimal digit '"</span> <span style="color:#990000">&lt;&lt;</span> line<span style="color:#990000">[</span>j<span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"' on line "</span> <span style="color:#990000">&lt;&lt;</span> linenum <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" character "</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">(</span>j<span style="color:#990000">+</span><span style="color:#993399">1</span><span style="color:#990000">)</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                    <b><span style="color:#000000">exit</span></b><span style="color:#990000">(</span><span style="color:#993399">3</span><span style="color:#990000">);</span>
+                <span style="color:#FF0000">}</span>
+        <span style="color:#FF0000">}</span>
+        <i><span style="color:#9A1900">// all done with this file!</span></i>
+        file<span style="color:#990000">.</span><b><span style="color:#000000">close</span></b><span style="color:#990000">();</span>
+    <span style="color:#FF0000">}</span>
+    <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+
+<span style="color:#009900">void</span> <b><span style="color:#000000">printHelp</span></b><span style="color:#990000">(</span><span style="color:#009900">char</span> <span style="color:#990000">*</span>name<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">static</span></b> <span style="color:#009900">bool</span> helpPrinted<span style="color:#990000">;</span> <i><span style="color:#9A1900">// Static values are initialized to 0 or 0-equivalent</span></i>
+    <b><span style="color:#0000FF">if</span></b><span style="color:#990000">(</span>helpPrinted<span style="color:#990000">)</span> <b><span style="color:#0000FF">return</span></b><span style="color:#990000">;</span>
+
+    helpPrinted <span style="color:#990000">=</span> <b><span style="color:#0000FF">true</span></b><span style="color:#990000">;</span>
+
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Usage: "</span> <span style="color:#990000">&lt;&lt;</span> name <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" [option] &lt;inputfile&gt;"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Options:"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">[-allowcomments]</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Allows file specified by &lt;inputfile&gt; to contain"</span> <span style="color:#990000">&lt;&lt;</span> endl
+         <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t\t\t\t</span><span style="color:#FF0000">lines beginning with `//` and `#`."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">[-help]</span><span style="color:#CC33CC">\t\t\t</span><span style="color:#FF0000">Prints this help message."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+
+<span style="color:#009900">bool</span> <b><span style="color:#000000">isEmpty</span></b><span style="color:#990000">(</span>string<span style="color:#990000">&amp;</span> line<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <i><span style="color:#9A1900">// is the line empty?</span></i>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> line<span style="color:#990000">.</span><b><span style="color:#000000">empty</span></b><span style="color:#990000">()</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        <b><span style="color:#0000FF">return</span></b> <b><span style="color:#0000FF">true</span></b><span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
+
+    <i><span style="color:#9A1900">// does the line contain spaces or carriage returns?</span></i>
+    <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> line<span style="color:#990000">.</span><b><span style="color:#000000">find_first_not_of</span></b><span style="color:#990000">(</span><span style="color:#FF0000">' '</span><span style="color:#990000">)</span> <span style="color:#990000">!=</span> line<span style="color:#990000">.</span>npos <span style="color:#990000">&amp;&amp;</span>
+              line<span style="color:#990000">.</span><b><span style="color:#000000">find_first_not_of</span></b><span style="color:#990000">(</span><span style="color:#FF0000">'</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">'</span><span style="color:#990000">)</span> <span style="color:#990000">!=</span> line<span style="color:#990000">.</span>npos <span style="color:#990000">&amp;&amp;</span> 
+              line<span style="color:#990000">.</span><b><span style="color:#000000">find_first_not_of</span></b><span style="color:#990000">(</span><span style="color:#FF0000">'</span><span style="color:#CC33CC">\r</span><span style="color:#FF0000">'</span><span style="color:#990000">)</span> <span style="color:#990000">!=</span> line<span style="color:#990000">.</span>npos<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        <b><span style="color:#0000FF">return</span></b> <b><span style="color:#0000FF">false</span></b><span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
+
+    <i><span style="color:#9A1900">// otherwise, the line is basically empty</span></i>
+    <b><span style="color:#0000FF">return</span></b> <b><span style="color:#0000FF">true</span></b><span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+</pre>
 </body>
 </html>

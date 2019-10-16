@@ -1,47 +1,47 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
 <title>dynamic_allocation.cpp</title>
 </head>
-<body bgcolor="white">
-<pre><tt><i><font color="#9A1900">/* Author: Michele Co, CS 216, Spring 2007</font></i>
-<i><font color="#9A1900"> * Filename: dynamic_allocation.cpp</font></i>
-<i><font color="#9A1900"> * Description: Demonstrates dynamic allocation and de-allocation</font></i>
-<i><font color="#9A1900"> *			using new and delete</font></i>
-<i><font color="#9A1900"> */</font></i>
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
-<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+<body style="background-color:white">
+<pre><i><span style="color:#9A1900">/* Author: Michele Co, CS 216, Spring 2007</span></i>
+<i><span style="color:#9A1900"> * Filename: dynamic_allocation.cpp</span></i>
+<i><span style="color:#9A1900"> * Description: Demonstrates dynamic allocation and de-allocation</span></i>
+<i><span style="color:#9A1900"> *			using new and delete</span></i>
+<i><span style="color:#9A1900"> */</span></i>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;iostream&gt;</span>
+<b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
-<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
-    <font color="#009900">int</font> n<font color="#990000">;</font>
-    <i><font color="#9A1900">// read in a value from the user</font></i>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Please enter an integer value: "</font> <font color="#990000">;</font>
-    cin <font color="#990000">&gt;&gt;</font> n<font color="#990000">;</font>
+<span style="color:#009900">int</span> <b><span style="color:#000000">main</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    <span style="color:#009900">int</span> n<span style="color:#990000">;</span>
+    <i><span style="color:#9A1900">// read in a value from the user</span></i>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Please enter an integer value: "</span> <span style="color:#990000">;</span>
+    cin <span style="color:#990000">&gt;&gt;</span> n<span style="color:#990000">;</span>
 
-    <i><font color="#9A1900">// use the user's input to create an array of int</font></i>
-    <font color="#009900">int</font> <font color="#990000">*</font> ages <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">int</font> <font color="#990000">[</font>n<font color="#990000">];</font>
+    <i><span style="color:#9A1900">// use the user's input to create an array of int</span></i>
+    <span style="color:#009900">int</span> <span style="color:#990000">*</span> ages <span style="color:#990000">=</span> <b><span style="color:#0000FF">new</span></b> <span style="color:#009900">int</span> <span style="color:#990000">[</span>n<span style="color:#990000">];</span>
 
-    <i><font color="#9A1900">// use a loop to prompt the user to initialize the array</font></i>
-    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font><font color="#009900">int</font> i<font color="#990000">=</font><font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> n<font color="#990000">;</font> i<font color="#990000">++)</font> <font color="#FF0000">{</font>
-        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Enter a value for ages[ "</font> <font color="#990000">&lt;&lt;</font> i <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" ]: "</font> <font color="#990000">;</font>
-        cin <font color="#990000">&gt;&gt;</font> ages<font color="#990000">[</font>i<font color="#990000">];</font>
-    <font color="#FF0000">}</font>
+    <i><span style="color:#9A1900">// use a loop to prompt the user to initialize the array</span></i>
+    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span><span style="color:#009900">int</span> i<span style="color:#990000">=</span><span style="color:#993399">0</span><span style="color:#990000">;</span> i <span style="color:#990000">&lt;</span> n<span style="color:#990000">;</span> i<span style="color:#990000">++)</span> <span style="color:#FF0000">{</span>
+        cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Enter a value for ages[ "</span> <span style="color:#990000">&lt;&lt;</span> i <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" ]: "</span> <span style="color:#990000">;</span>
+        cin <span style="color:#990000">&gt;&gt;</span> ages<span style="color:#990000">[</span>i<span style="color:#990000">];</span>
+    <span style="color:#FF0000">}</span>
 
-    <i><font color="#9A1900">// print out the contents of the array</font></i>
-    <b><font color="#0000FF">for</font></b><font color="#990000">(</font><font color="#009900">int</font> i<font color="#990000">=</font><font color="#993399">0</font><font color="#990000">;</font> i<font color="#990000">&lt;</font>n<font color="#990000">;</font> i<font color="#990000">++)</font> <font color="#FF0000">{</font>
-        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"ages[ "</font> <font color="#990000">&lt;&lt;</font> i <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" ]: "</font> <font color="#990000">&lt;&lt;</font> ages<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" , "</font><font color="#990000">;</font>
-    <font color="#FF0000">}</font>
-    cout <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <i><span style="color:#9A1900">// print out the contents of the array</span></i>
+    <b><span style="color:#0000FF">for</span></b><span style="color:#990000">(</span><span style="color:#009900">int</span> i<span style="color:#990000">=</span><span style="color:#993399">0</span><span style="color:#990000">;</span> i<span style="color:#990000">&lt;</span>n<span style="color:#990000">;</span> i<span style="color:#990000">++)</span> <span style="color:#FF0000">{</span>
+        cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"ages[ "</span> <span style="color:#990000">&lt;&lt;</span> i <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" ]: "</span> <span style="color:#990000">&lt;&lt;</span> ages<span style="color:#990000">[</span>i<span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" , "</span><span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
+    cout <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
 
-    <i><font color="#9A1900">// finished with the array, clean up the memory used by calling delete</font></i>
-    <b><font color="#0000FF">delete</font></b> <font color="#990000">[]</font> ages<font color="#990000">;</font>
-    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
-<font color="#FF0000">}</font>
-</tt></pre>
+    <i><span style="color:#9A1900">// finished with the array, clean up the memory used by calling delete</span></i>
+    <b><span style="color:#0000FF">delete</span></b> <span style="color:#990000">[]</span> ages<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+</pre>
 </body>
 </html>

@@ -1,37 +1,37 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
 <title>swap.cpp</title>
 </head>
-<body bgcolor="white">
-<pre><tt><i><font color="#9A1900">/* swap()</font></i>
-<i><font color="#9A1900"> *	common use for pointers</font></i>
-<i><font color="#9A1900"> *  demonstrates use of * to dereference, * to declare pointer, and &amp; to pass an address</font></i>
-<i><font color="#9A1900"> */</font></i>
+<body style="background-color:white">
+<pre><i><span style="color:#9A1900">/* swap()</span></i>
+<i><span style="color:#9A1900"> *	common use for pointers</span></i>
+<i><span style="color:#9A1900"> *  demonstrates use of * to dereference, * to declare pointer, and &amp; to pass an address</span></i>
+<i><span style="color:#9A1900"> */</span></i>
 
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
-<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;iostream&gt;</span>
+<b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
-<font color="#009900">void</font> <b><font color="#000000">swap</font></b><font color="#990000">(</font><font color="#009900">int</font> <font color="#990000">*</font> x<font color="#990000">,</font> <font color="#009900">int</font> <font color="#990000">*</font> y<font color="#990000">)</font> <font color="#FF0000">{</font>
-    <font color="#009900">int</font> temp <font color="#990000">=</font> <font color="#990000">*</font>x<font color="#990000">;</font>	<i><font color="#9A1900">//temp = dereference x</font></i>
-    <font color="#990000">*</font>x <font color="#990000">=</font> <font color="#990000">*</font>y<font color="#990000">;</font>
-    <font color="#990000">*</font>y <font color="#990000">=</font> temp<font color="#990000">;</font>
-<font color="#FF0000">}</font>
+<span style="color:#009900">void</span> <b><span style="color:#000000">swap</span></b><span style="color:#990000">(</span><span style="color:#009900">int</span> <span style="color:#990000">*</span> x<span style="color:#990000">,</span> <span style="color:#009900">int</span> <span style="color:#990000">*</span> y<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <span style="color:#009900">int</span> temp <span style="color:#990000">=</span> <span style="color:#990000">*</span>x<span style="color:#990000">;</span>	<i><span style="color:#9A1900">//temp = dereference x</span></i>
+    <span style="color:#990000">*</span>x <span style="color:#990000">=</span> <span style="color:#990000">*</span>y<span style="color:#990000">;</span>
+    <span style="color:#990000">*</span>y <span style="color:#990000">=</span> temp<span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
 
-<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
-    <font color="#009900">int</font> a<font color="#990000">=</font><font color="#993399">0</font><font color="#990000">;</font>
-    <font color="#009900">int</font> b<font color="#990000">=</font><font color="#993399">3</font><font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Before swap(): a: "</font> <font color="#990000">&lt;&lt;</font> a <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" b: "</font> <font color="#990000">&lt;&lt;</font> b <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    <b><font color="#000000">swap</font></b><font color="#990000">(&amp;</font>b<font color="#990000">,&amp;</font>a<font color="#990000">);</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"After swap(): a: "</font> <font color="#990000">&lt;&lt;</font> a <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" b: "</font> <font color="#990000">&lt;&lt;</font> b <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+<span style="color:#009900">int</span> <b><span style="color:#000000">main</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    <span style="color:#009900">int</span> a<span style="color:#990000">=</span><span style="color:#993399">0</span><span style="color:#990000">;</span>
+    <span style="color:#009900">int</span> b<span style="color:#990000">=</span><span style="color:#993399">3</span><span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Before swap(): a: "</span> <span style="color:#990000">&lt;&lt;</span> a <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" b: "</span> <span style="color:#990000">&lt;&lt;</span> b <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    <b><span style="color:#000000">swap</span></b><span style="color:#990000">(&amp;</span>b<span style="color:#990000">,&amp;</span>a<span style="color:#990000">);</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"After swap(): a: "</span> <span style="color:#990000">&lt;&lt;</span> a <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" b: "</span> <span style="color:#990000">&lt;&lt;</span> b <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
 
-    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
-<font color="#FF0000">}</font>
-</tt></pre>
+    <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+</pre>
 </body>
 </html>

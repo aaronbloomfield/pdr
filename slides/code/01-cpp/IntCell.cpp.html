@@ -1,34 +1,34 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta name="GENERATOR" content="GNU source-highlight 3.1.6
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
 <title>IntCell.cpp</title>
 </head>
-<body bgcolor="white">
-<pre><tt><i><font color="#9A1900">// File IntCell.cpp</font></i>
+<body style="background-color:white">
+<pre><i><span style="color:#9A1900">// File IntCell.cpp</span></i>
 
-<b><font color="#000080">#include</font></b> <font color="#FF0000">"IntCell.h"</font>
-<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font> <i><font color="#9A1900">// (not really necessary, but...)</font></i>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">"IntCell.h"</span>
+<b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span> <i><span style="color:#9A1900">// (not really necessary, but...)</span></i>
 
-IntCell<font color="#990000">::</font><b><font color="#000000">IntCell</font></b><font color="#990000">(</font> <font color="#009900">int</font> initialValue <font color="#990000">)</font> <font color="#990000">:</font> <b><font color="#000000">storedValue</font></b><font color="#990000">(</font> initialValue <font color="#990000">)</font> <font color="#FF0000">{</font>
+IntCell<span style="color:#990000">::</span><b><span style="color:#000000">IntCell</span></b><span style="color:#990000">(</span> <span style="color:#009900">int</span> initialValue <span style="color:#990000">)</span> <span style="color:#990000">:</span> <b><span style="color:#000000">storedValue</span></b><span style="color:#990000">(</span> initialValue <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
 
-<font color="#FF0000">}</font>
+<span style="color:#FF0000">}</span>
 
-<font color="#009900">int</font> IntCell<font color="#990000">::</font><b><font color="#000000">getValue</font></b><font color="#990000">(</font> <font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
-    <b><font color="#0000FF">return</font></b> storedValue<font color="#990000">;</font>
-<font color="#FF0000">}</font>
+<span style="color:#009900">int</span> IntCell<span style="color:#990000">::</span><b><span style="color:#000000">getValue</span></b><span style="color:#990000">(</span> <span style="color:#990000">)</span> <b><span style="color:#0000FF">const</span></b> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">return</span></b> storedValue<span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
 
-<font color="#009900">void</font> IntCell<font color="#990000">::</font><b><font color="#000000">setValue</font></b><font color="#990000">(</font> <font color="#009900">int</font> val <font color="#990000">)</font> <font color="#FF0000">{</font>
-    storedValue <font color="#990000">=</font> val<font color="#990000">;</font>
-<font color="#FF0000">}</font>
+<span style="color:#009900">void</span> IntCell<span style="color:#990000">::</span><b><span style="color:#000000">setValue</span></b><span style="color:#990000">(</span> <span style="color:#009900">int</span> val <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    storedValue <span style="color:#990000">=</span> val<span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
 
-<font color="#009900">int</font> IntCell<font color="#990000">::</font><b><font color="#000000">max</font></b><font color="#990000">(</font><font color="#009900">int</font> m<font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
-    <b><font color="#0000FF">return</font></b> <font color="#990000">(</font>m<font color="#990000">&gt;</font>storedValue<font color="#990000">)</font> <font color="#990000">?</font> m <font color="#990000">:</font> storedValue<font color="#990000">;</font>
-<font color="#FF0000">}</font>
-</tt></pre>
+<span style="color:#009900">int</span> IntCell<span style="color:#990000">::</span><b><span style="color:#000000">max</span></b><span style="color:#990000">(</span><span style="color:#009900">int</span> m<span style="color:#990000">)</span> <b><span style="color:#0000FF">const</span></b><span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">return</span></b> <span style="color:#990000">(</span>m<span style="color:#990000">&gt;</span>storedValue<span style="color:#990000">)</span> <span style="color:#990000">?</span> m <span style="color:#990000">:</span> storedValue<span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+</pre>
 </body>
 </html>

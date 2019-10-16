@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>Makefile</title>
+</head>
+<body style="background-color:white">
+<pre><span style="color:#990000">main:</span>
+	dot -Tsvg -O x86-cc-stack.dot
+	dot -Tsvg -O x86-cc-rsp.dot
+	dot -Tsvg -O x86-cc-regs.dot
+	dot -Tpng -O x86-cc-stack.dot
+	dot -Tpng -O x86-cc-rsp.dot
+	dot -Tpng -O x86-cc-regs.dot
+</pre>
+</body>
+</html>

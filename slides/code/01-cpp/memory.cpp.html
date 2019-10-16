@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -8,32 +8,32 @@ http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
 <title>memory.cpp</title>
 </head>
-<body bgcolor="white">
-<pre><tt><b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
-<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+<body style="background-color:white">
+<pre><b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;iostream&gt;</span>
+<b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
-<b><font color="#0000FF">class</font></b> <font color="#008080">Foo</font> <font color="#FF0000">{</font>
-    <font color="#009900">long</font> x<font color="#990000">,</font> y<font color="#990000">;</font>
-<font color="#FF0000">}</font><font color="#990000">;</font>
+<b><span style="color:#0000FF">class</span></b> <span style="color:#008080">Foo</span> <span style="color:#FF0000">{</span>
+    <span style="color:#009900">long</span> x<span style="color:#990000">,</span> y<span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span><span style="color:#990000">;</span>
 
-<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"sizeof(long): "</font> <font color="#990000">&lt;&lt;</font> <b><font color="#0000FF">sizeof</font></b><font color="#990000">(</font><font color="#009900">long</font><font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"sizeof(Foo): "</font> <font color="#990000">&lt;&lt;</font> <b><font color="#0000FF">sizeof</font></b><font color="#990000">(</font>Foo<font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+<span style="color:#009900">int</span> <b><span style="color:#000000">main</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"sizeof(long): "</span> <span style="color:#990000">&lt;&lt;</span> <b><span style="color:#0000FF">sizeof</span></b><span style="color:#990000">(</span><span style="color:#009900">long</span><span style="color:#990000">)</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"sizeof(Foo): "</span> <span style="color:#990000">&lt;&lt;</span> <b><span style="color:#0000FF">sizeof</span></b><span style="color:#990000">(</span>Foo<span style="color:#990000">)</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
 
-    <font color="#008080">Foo</font> <font color="#990000">*</font>qux <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Foo</font></b><font color="#990000">();</font>
-    <font color="#008080">Foo</font> <font color="#990000">*</font>bar <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Foo</font></b><font color="#990000">();</font>
+    <span style="color:#008080">Foo</span> <span style="color:#990000">*</span>qux <span style="color:#990000">=</span> <b><span style="color:#0000FF">new</span></b> <b><span style="color:#000000">Foo</span></b><span style="color:#990000">();</span>
+    <span style="color:#008080">Foo</span> <span style="color:#990000">*</span>bar <span style="color:#990000">=</span> <b><span style="color:#0000FF">new</span></b> <b><span style="color:#000000">Foo</span></b><span style="color:#990000">();</span>
 
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"1st Foo: "</font> <font color="#990000">&lt;&lt;</font> qux <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"2nd Foo: "</font> <font color="#990000">&lt;&lt;</font> bar <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"1st Foo: "</span> <span style="color:#990000">&lt;&lt;</span> qux <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"2nd Foo: "</span> <span style="color:#990000">&lt;&lt;</span> bar <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
 
-    <font color="#009900">long</font> diff <font color="#990000">=</font> <font color="#990000">((</font><font color="#009900">long</font><font color="#990000">)</font>bar<font color="#990000">)-((</font><font color="#009900">long</font><font color="#990000">)</font>qux<font color="#990000">);</font>
+    <span style="color:#009900">long</span> diff <span style="color:#990000">=</span> <span style="color:#990000">((</span><span style="color:#009900">long</span><span style="color:#990000">)</span>bar<span style="color:#990000">)-((</span><span style="color:#009900">long</span><span style="color:#990000">)</span>qux<span style="color:#990000">);</span>
 
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Difference: "</font> <font color="#990000">&lt;&lt;</font> diff <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Difference: "</span> <span style="color:#990000">&lt;&lt;</span> diff <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
 
-    <b><font color="#0000FF">delete</font></b> qux<font color="#990000">;</font>
-    <b><font color="#0000FF">delete</font></b> bar<font color="#990000">;</font>
-    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
-<font color="#FF0000">}</font>
-</tt></pre>
+    <b><span style="color:#0000FF">delete</span></b> qux<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">delete</span></b> bar<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+</pre>
 </body>
 </html>

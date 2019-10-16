@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -8,132 +8,132 @@ http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
 <title>test_abs-non-intel.s</title>
 </head>
-<body bgcolor="white">
-<pre><tt>	.text
-	.file	<font color="#FF0000">"test_abs.cpp"</font>
-	.section	.text.startup,<font color="#FF0000">"ax"</font>,@progbits
-	.align	16, 0x90
-	.type	__cxx_global_var_init,@function
-__cxx_global_var_init:                  <i><font color="#9A1900"># @__cxx_global_var_init</font></i>
-	.cfi_startproc
-<i><font color="#9A1900"># BB#0:</font></i>
-	pushq	%rax
-.Ltmp0:
-	.cfi_def_cfa_offset 16
-	movabsq	$_ZStL8__ioinit, %rdi
-	callq	_ZNSt8ios_base4InitC1Ev
-	movabsq	$_ZNSt8ios_base4InitD1Ev, %rdi
-	movabsq	$_ZStL8__ioinit, %rsi
-	movabsq	$__dso_handle, %rdx
+<body style="background-color:white">
+<pre><b><span style="color:#000080">	.text</span></b>
+<b><span style="color:#000080">	.file</span></b>	<span style="color:#FF0000">"test_abs.cpp"</span>
+<b><span style="color:#000080">	.section</span></b>	<span style="color:#990000">.</span>text<span style="color:#990000">.</span>startup<span style="color:#990000">,</span><span style="color:#FF0000">"ax"</span><span style="color:#990000">,</span>@progbits
+<b><span style="color:#000080">	.align</span></b>	<span style="color:#993399">16</span><span style="color:#990000">,</span> <span style="color:#993399">0x90</span>
+<b><span style="color:#000080">	.type</span></b>	__cxx_global_var_init<span style="color:#990000">,</span>@function
+__cxx_global_var_init<span style="color:#990000">:</span>                  # @__cxx_global_var_init
+<b><span style="color:#000080">	.cfi</span></b>_startproc
+# BB#<span style="color:#993399">0</span><span style="color:#990000">:</span>
+	pushq	<span style="color:#990000">%</span>rax
+<b><span style="color:#000080">.Ltmp0</span></b><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.cfi</span></b>_def_cfa_offset <span style="color:#993399">16</span>
+	movabsq	$_ZStL<span style="color:#993399">8</span>__ioinit<span style="color:#990000">,</span> <span style="color:#990000">%</span>rdi
+	callq	_ZNSt<span style="color:#993399">8</span>ios_base<span style="color:#993399">4</span>InitC<span style="color:#993399">1</span>Ev
+	movabsq	$_ZNSt<span style="color:#993399">8</span>ios_base<span style="color:#993399">4</span>InitD<span style="color:#993399">1</span>Ev<span style="color:#990000">,</span> <span style="color:#990000">%</span>rdi
+	movabsq	$_ZStL<span style="color:#993399">8</span>__ioinit<span style="color:#990000">,</span> <span style="color:#990000">%</span>rsi
+	movabsq	$__dso_handle<span style="color:#990000">,</span> <span style="color:#990000">%</span>rdx
 	callq	__cxa_atexit
-	movl	<font color="#990000">%eax, 4(%</font>rsp)           <i><font color="#9A1900"># 4-byte Spill</font></i>
-	popq	%rax
+	movl	<span style="color:#990000">%</span><span style="color:#009900">eax</span><span style="color:#990000">,</span> <span style="color:#993399">4</span><span style="color:#990000">(%</span>rsp<span style="color:#990000">)</span>           # <span style="color:#993399">4</span><span style="color:#990000">-</span><span style="color:#009900">byte</span> Spill
+	popq	<span style="color:#990000">%</span>rax
 	retq
-.Lfunc_end0:
-	.size	__cxx_global_var_init, .Lfunc_end0-__cxx_global_var_init
-	.cfi_endproc
+<b><span style="color:#000080">.Lfunc</span></b>_end<span style="color:#993399">0</span><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.size</span></b>	__cxx_global_var_init<span style="color:#990000">,</span> <span style="color:#990000">.</span>Lfunc_end<span style="color:#993399">0</span><span style="color:#990000">-</span>__cxx_global_var_init
+<b><span style="color:#000080">	.cfi</span></b>_endproc
 
-	.text
-	.globl	absolute_value
-	.align	16, 0x90
-	.type	absolute_value,@function
-absolute_value:                         <i><font color="#9A1900"># @absolute_value</font></i>
-	.cfi_startproc
-<i><font color="#9A1900"># BB#0:</font></i>
-	movq	<font color="#990000">%rdi, -8(%</font>rsp)
-	cmpq	$0, -8(%rsp)
-	jge	.LBB1_2
-<i><font color="#9A1900"># BB#1:</font></i>
-	xorl	<font color="#990000">%eax, %</font>eax
-	movl	<font color="#990000">%eax, %</font>ecx
-	subq	-8(<font color="#990000">%rsp), %</font>rcx
-	movq	<font color="#990000">%rcx, -8(%</font>rsp)
-.LBB1_2:
-	movq	-8(<font color="#990000">%rsp), %</font>rax
+<b><span style="color:#000080">	.text</span></b>
+<b><span style="color:#000080">	.globl</span></b>	absolute_value
+<b><span style="color:#000080">	.align</span></b>	<span style="color:#993399">16</span><span style="color:#990000">,</span> <span style="color:#993399">0x90</span>
+<b><span style="color:#000080">	.type</span></b>	absolute_value<span style="color:#990000">,</span>@function
+absolute_value<span style="color:#990000">:</span>                         # @absolute_value
+<b><span style="color:#000080">	.cfi</span></b>_startproc
+# BB#<span style="color:#993399">0</span><span style="color:#990000">:</span>
+	movq	<span style="color:#990000">%</span>rdi<span style="color:#990000">,</span> <span style="color:#990000">-</span><span style="color:#993399">8</span><span style="color:#990000">(%</span>rsp<span style="color:#990000">)</span>
+	cmpq	$<span style="color:#993399">0</span><span style="color:#990000">,</span> <span style="color:#990000">-</span><span style="color:#993399">8</span><span style="color:#990000">(%</span>rsp<span style="color:#990000">)</span>
+	<b><span style="color:#0000FF">jge</span></b>	<span style="color:#990000">.</span>LBB<span style="color:#993399">1_2</span>
+# BB#<span style="color:#993399">1</span><span style="color:#990000">:</span>
+	xorl	<span style="color:#990000">%</span><span style="color:#009900">eax</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">eax</span>
+	movl	<span style="color:#990000">%</span><span style="color:#009900">eax</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">ecx</span>
+	subq	<span style="color:#990000">-</span><span style="color:#993399">8</span><span style="color:#990000">(%</span>rsp<span style="color:#990000">),</span> <span style="color:#990000">%</span>rcx
+	movq	<span style="color:#990000">%</span>rcx<span style="color:#990000">,</span> <span style="color:#990000">-</span><span style="color:#993399">8</span><span style="color:#990000">(%</span>rsp<span style="color:#990000">)</span>
+<b><span style="color:#000080">.LBB1</span></b><span style="color:#993399">_2</span><span style="color:#990000">:</span>
+	movq	<span style="color:#990000">-</span><span style="color:#993399">8</span><span style="color:#990000">(%</span>rsp<span style="color:#990000">),</span> <span style="color:#990000">%</span>rax
 	retq
-.Lfunc_end1:
-	.size	absolute_value, .Lfunc_end1-absolute_value
-	.cfi_endproc
+<b><span style="color:#000080">.Lfunc</span></b>_end<span style="color:#993399">1</span><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.size</span></b>	absolute_value<span style="color:#990000">,</span> <span style="color:#990000">.</span>Lfunc_end<span style="color:#993399">1</span><span style="color:#990000">-</span>absolute_value
+<b><span style="color:#000080">	.cfi</span></b>_endproc
 
-	.globl	main
-	.align	16, 0x90
-	.type	main,@function
-main:                                   <i><font color="#9A1900"># @main</font></i>
-	.cfi_startproc
-<i><font color="#9A1900"># BB#0:</font></i>
-	subq	$56, %rsp
-.Ltmp1:
-	.cfi_def_cfa_offset 64
-	movabsq	$_ZSt4cout, %rdi
-	movabsq	$.L.str, %rsi
-	movl	$0, 52(%rsp)
-	movq	$0, 40(%rsp)
-	callq	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
-	movabsq	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, %rsi
-	movq	<font color="#990000">%rax, %</font>rdi
+<b><span style="color:#000080">	.globl</span></b>	main
+<b><span style="color:#000080">	.align</span></b>	<span style="color:#993399">16</span><span style="color:#990000">,</span> <span style="color:#993399">0x90</span>
+<b><span style="color:#000080">	.type</span></b>	main<span style="color:#990000">,</span>@function
+<b><span style="color:#000080">main:</span></b>                                   # @main
+<b><span style="color:#000080">	.cfi</span></b>_startproc
+# BB#<span style="color:#993399">0</span><span style="color:#990000">:</span>
+	subq	$<span style="color:#993399">56</span><span style="color:#990000">,</span> <span style="color:#990000">%</span>rsp
+<b><span style="color:#000080">.Ltmp1</span></b><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.cfi</span></b>_def_cfa_offset <span style="color:#993399">64</span>
+	movabsq	$_ZSt<span style="color:#993399">4</span>cout<span style="color:#990000">,</span> <span style="color:#990000">%</span>rdi
+	movabsq	$<span style="color:#990000">.</span>L<span style="color:#990000">.</span><b><span style="color:#0000FF">str</span></b><span style="color:#990000">,</span> <span style="color:#990000">%</span>rsi
+	movl	$<span style="color:#993399">0</span><span style="color:#990000">,</span> <span style="color:#993399">52</span><span style="color:#990000">(%</span>rsp<span style="color:#990000">)</span>
+	movq	$<span style="color:#993399">0</span><span style="color:#990000">,</span> <span style="color:#993399">40</span><span style="color:#990000">(%</span>rsp<span style="color:#990000">)</span>
+	callq	_ZStlsISt<span style="color:#993399">11</span>char_traitsIcEERSt<span style="color:#993399">13</span>basic_ostreamIcT_ES<span style="color:#993399">5</span>_PKc
+	movabsq	$_ZSt<span style="color:#993399">4</span>endlIcSt<span style="color:#993399">11</span>char_traitsIcEERSt<span style="color:#993399">13</span>basic_ostreamIT_T<span style="color:#993399">0</span>_ES<span style="color:#993399">6</span>_<span style="color:#990000">,</span> <span style="color:#990000">%</span>rsi
+	movq	<span style="color:#990000">%</span>rax<span style="color:#990000">,</span> <span style="color:#990000">%</span>rdi
 	callq	_ZNSolsEPFRSoS_E
-	movabsq	$_ZSt3cin, %rdi
-	leaq	40(<font color="#990000">%rsp), %</font>rsi
-	movq	<font color="#990000">%rax, 24(%</font>rsp)          <i><font color="#9A1900"># 8-byte Spill</font></i>
+	movabsq	$_ZSt<span style="color:#993399">3</span>cin<span style="color:#990000">,</span> <span style="color:#990000">%</span>rdi
+	leaq	<span style="color:#993399">40</span><span style="color:#990000">(%</span>rsp<span style="color:#990000">),</span> <span style="color:#990000">%</span>rsi
+	movq	<span style="color:#990000">%</span>rax<span style="color:#990000">,</span> <span style="color:#993399">24</span><span style="color:#990000">(%</span>rsp<span style="color:#990000">)</span>          # <span style="color:#993399">8</span><span style="color:#990000">-</span><span style="color:#009900">byte</span> Spill
 	callq	_ZNSirsERl
-	movq	40(<font color="#990000">%rsp), %</font>rdi
-	movq	<font color="#990000">%rax, 16(%</font>rsp)          <i><font color="#9A1900"># 8-byte Spill</font></i>
+	movq	<span style="color:#993399">40</span><span style="color:#990000">(%</span>rsp<span style="color:#990000">),</span> <span style="color:#990000">%</span>rdi
+	movq	<span style="color:#990000">%</span>rax<span style="color:#990000">,</span> <span style="color:#993399">16</span><span style="color:#990000">(%</span>rsp<span style="color:#990000">)</span>          # <span style="color:#993399">8</span><span style="color:#990000">-</span><span style="color:#009900">byte</span> Spill
 	callq	absolute_value
-	movabsq	$_ZSt4cout, %rdi
-	movabsq	$.L.str.1, %rsi
-	movq	<font color="#990000">%rax, 32(%</font>rsp)
-	callq	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
-	movq	32(<font color="#990000">%rsp), %</font>rsi
-	movq	<font color="#990000">%rax, %</font>rdi
+	movabsq	$_ZSt<span style="color:#993399">4</span>cout<span style="color:#990000">,</span> <span style="color:#990000">%</span>rdi
+	movabsq	$<span style="color:#990000">.</span>L<span style="color:#990000">.</span><b><span style="color:#0000FF">str</span></b><span style="color:#993399">.1</span><span style="color:#990000">,</span> <span style="color:#990000">%</span>rsi
+	movq	<span style="color:#990000">%</span>rax<span style="color:#990000">,</span> <span style="color:#993399">32</span><span style="color:#990000">(%</span>rsp<span style="color:#990000">)</span>
+	callq	_ZStlsISt<span style="color:#993399">11</span>char_traitsIcEERSt<span style="color:#993399">13</span>basic_ostreamIcT_ES<span style="color:#993399">5</span>_PKc
+	movq	<span style="color:#993399">32</span><span style="color:#990000">(%</span>rsp<span style="color:#990000">),</span> <span style="color:#990000">%</span>rsi
+	movq	<span style="color:#990000">%</span>rax<span style="color:#990000">,</span> <span style="color:#990000">%</span>rdi
 	callq	_ZNSolsEl
-	movabsq	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, %rsi
-	movq	<font color="#990000">%rax, %</font>rdi
+	movabsq	$_ZSt<span style="color:#993399">4</span>endlIcSt<span style="color:#993399">11</span>char_traitsIcEERSt<span style="color:#993399">13</span>basic_ostreamIT_T<span style="color:#993399">0</span>_ES<span style="color:#993399">6</span>_<span style="color:#990000">,</span> <span style="color:#990000">%</span>rsi
+	movq	<span style="color:#990000">%</span>rax<span style="color:#990000">,</span> <span style="color:#990000">%</span>rdi
 	callq	_ZNSolsEPFRSoS_E
-	xorl	<font color="#990000">%ecx, %</font>ecx
-	movq	<font color="#990000">%rax, 8(%</font>rsp)           <i><font color="#9A1900"># 8-byte Spill</font></i>
-	movl	<font color="#990000">%ecx, %</font>eax
-	addq	$56, %rsp
+	xorl	<span style="color:#990000">%</span><span style="color:#009900">ecx</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">ecx</span>
+	movq	<span style="color:#990000">%</span>rax<span style="color:#990000">,</span> <span style="color:#993399">8</span><span style="color:#990000">(%</span>rsp<span style="color:#990000">)</span>           # <span style="color:#993399">8</span><span style="color:#990000">-</span><span style="color:#009900">byte</span> Spill
+	movl	<span style="color:#990000">%</span><span style="color:#009900">ecx</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">eax</span>
+	addq	$<span style="color:#993399">56</span><span style="color:#990000">,</span> <span style="color:#990000">%</span>rsp
 	retq
-.Lfunc_end2:
-	.size	main, .Lfunc_end2-main
-	.cfi_endproc
+<b><span style="color:#000080">.Lfunc</span></b>_end<span style="color:#993399">2</span><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.size</span></b>	main<span style="color:#990000">,</span> <span style="color:#990000">.</span>Lfunc_end<span style="color:#993399">2</span><span style="color:#990000">-</span>main
+<b><span style="color:#000080">	.cfi</span></b>_endproc
 
-	.section	.text.startup,<font color="#FF0000">"ax"</font>,@progbits
-	.align	16, 0x90
-	.type	_GLOBAL__sub_I_test_abs.cpp,@function
-_GLOBAL__sub_I_test_abs.cpp:            <i><font color="#9A1900"># @_GLOBAL__sub_I_test_abs.cpp</font></i>
-	.cfi_startproc
-<i><font color="#9A1900"># BB#0:</font></i>
-	pushq	%rax
-.Ltmp2:
-	.cfi_def_cfa_offset 16
+<b><span style="color:#000080">	.section</span></b>	<span style="color:#990000">.</span>text<span style="color:#990000">.</span>startup<span style="color:#990000">,</span><span style="color:#FF0000">"ax"</span><span style="color:#990000">,</span>@progbits
+<b><span style="color:#000080">	.align</span></b>	<span style="color:#993399">16</span><span style="color:#990000">,</span> <span style="color:#993399">0x90</span>
+<b><span style="color:#000080">	.type</span></b>	_GLOBAL__sub_I_test_abs<span style="color:#990000">.</span>cpp<span style="color:#990000">,</span>@function
+_GLOBAL__sub_I_test_abs<span style="color:#990000">.</span>cpp<span style="color:#990000">:</span>            # @_GLOBAL__sub_I_test_abs<span style="color:#990000">.</span>cpp
+<b><span style="color:#000080">	.cfi</span></b>_startproc
+# BB#<span style="color:#993399">0</span><span style="color:#990000">:</span>
+	pushq	<span style="color:#990000">%</span>rax
+<b><span style="color:#000080">.Ltmp2</span></b><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.cfi</span></b>_def_cfa_offset <span style="color:#993399">16</span>
 	callq	__cxx_global_var_init
-	popq	%rax
+	popq	<span style="color:#990000">%</span>rax
 	retq
-.Lfunc_end3:
-	.size	_GLOBAL__sub_I_test_abs.cpp, .Lfunc_end3-_GLOBAL__sub_I_test_abs.cpp
-	.cfi_endproc
+<b><span style="color:#000080">.Lfunc</span></b>_end<span style="color:#993399">3</span><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.size</span></b>	_GLOBAL__sub_I_test_abs<span style="color:#990000">.</span>cpp<span style="color:#990000">,</span> <span style="color:#990000">.</span>Lfunc_end<span style="color:#993399">3</span><span style="color:#990000">-</span>_GLOBAL__sub_I_test_abs<span style="color:#990000">.</span>cpp
+<b><span style="color:#000080">	.cfi</span></b>_endproc
 
-	.type	_ZStL8__ioinit,@object  <i><font color="#9A1900"># @_ZStL8__ioinit</font></i>
-	.local	_ZStL8__ioinit
-	.comm	_ZStL8__ioinit,1,1
-	.type	.L.str,@object          <i><font color="#9A1900"># @.str</font></i>
-	.section	.rodata.str1.1,<font color="#FF0000">"aMS"</font>,@progbits,1
-.L.str:
-	.asciz	<font color="#FF0000">"Enter a value: "</font>
-	.size	.L.str, 16
+<b><span style="color:#000080">	.type</span></b>	_ZStL<span style="color:#993399">8</span>__ioinit<span style="color:#990000">,</span>@object  # @_ZStL<span style="color:#993399">8</span>__ioinit
+<b><span style="color:#000080">	.local</span></b>	_ZStL<span style="color:#993399">8</span>__ioinit
+<b><span style="color:#000080">	.comm</span></b>	_ZStL<span style="color:#993399">8</span>__ioinit<span style="color:#990000">,</span><span style="color:#993399">1</span><span style="color:#990000">,</span><span style="color:#993399">1</span>
+<b><span style="color:#000080">	.type</span></b>	<span style="color:#990000">.</span>L<span style="color:#990000">.</span><b><span style="color:#0000FF">str</span></b><span style="color:#990000">,</span>@object          # @<span style="color:#990000">.</span><b><span style="color:#0000FF">str</span></b>
+<b><span style="color:#000080">	.section</span></b>	<span style="color:#990000">.</span>rodata<span style="color:#990000">.</span>str<span style="color:#993399">1.1</span><span style="color:#990000">,</span><span style="color:#FF0000">"aMS"</span><span style="color:#990000">,</span>@progbits<span style="color:#990000">,</span><span style="color:#993399">1</span>
+<b><span style="color:#000080">.L</span></b><span style="color:#990000">.</span><b><span style="color:#0000FF">str</span></b><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.asciz</span></b>	<span style="color:#FF0000">"Enter a value: "</span>
+<b><span style="color:#000080">	.size</span></b>	<span style="color:#990000">.</span>L<span style="color:#990000">.</span><b><span style="color:#0000FF">str</span></b><span style="color:#990000">,</span> <span style="color:#993399">16</span>
 
-	.type	.L.str.1,@object        <i><font color="#9A1900"># @.str.1</font></i>
-.L.str.1:
-	.asciz	<font color="#FF0000">"The result is: "</font>
-	.size	.L.str.1, 16
+<b><span style="color:#000080">	.type</span></b>	<span style="color:#990000">.</span>L<span style="color:#990000">.</span><b><span style="color:#0000FF">str</span></b><span style="color:#993399">.1</span><span style="color:#990000">,</span>@object        # @<span style="color:#990000">.</span><b><span style="color:#0000FF">str</span></b><span style="color:#993399">.1</span>
+<b><span style="color:#000080">.L</span></b><span style="color:#990000">.</span><b><span style="color:#0000FF">str</span></b><span style="color:#993399">.1</span><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.asciz</span></b>	<span style="color:#FF0000">"The result is: "</span>
+<b><span style="color:#000080">	.size</span></b>	<span style="color:#990000">.</span>L<span style="color:#990000">.</span><b><span style="color:#0000FF">str</span></b><span style="color:#993399">.1</span><span style="color:#990000">,</span> <span style="color:#993399">16</span>
 
-	.section	.init_array,<font color="#FF0000">"aw"</font>,@init_array
-	.align	8
-	.quad	_GLOBAL__sub_I_test_abs.cpp
+<b><span style="color:#000080">	.section</span></b>	<span style="color:#990000">.</span>init_array<span style="color:#990000">,</span><span style="color:#FF0000">"aw"</span><span style="color:#990000">,</span>@init_array
+<b><span style="color:#000080">	.align</span></b>	<span style="color:#993399">8</span>
+<b><span style="color:#000080">	.quad</span></b>	_GLOBAL__sub_I_test_abs<span style="color:#990000">.</span>cpp
 
-	.ident	<font color="#FF0000">"clang version 3.8.0-2ubuntu4 (tags/RELEASE_380/final)"</font>
-	.section	<font color="#FF0000">".note.GNU-stack"</font>,<font color="#FF0000">""</font>,@progbits
-</tt></pre>
+<b><span style="color:#000080">	.ident</span></b>	<span style="color:#FF0000">"clang version 3.8.0-2ubuntu4 (tags/RELEASE_380/final)"</span>
+<b><span style="color:#000080">	.section</span></b>	<span style="color:#FF0000">".note.GNU-stack"</span><span style="color:#990000">,</span><span style="color:#FF0000">""</span><span style="color:#990000">,</span>@progbits
+</pre>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -6,69 +6,69 @@
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
-<title>labs/lab10/inlab-skeleton.cpp</title>
+<title>inlab-skeleton.cpp</title>
 </head>
-<body bgcolor="white">
-<pre><tt><i><font color="#9A1900">// This program is the skeleton code for the lab 10 in-lab.  It uses</font></i>
-<i><font color="#9A1900">// C++ streams for the file input, and just prints out the data when</font></i>
-<i><font color="#9A1900">// read in from the file.</font></i>
+<body style="background-color:white">
+<pre><i><span style="color:#9A1900">// This program is the skeleton code for the lab 10 in-lab.  It uses</span></i>
+<i><span style="color:#9A1900">// C++ streams for the file input, and just prints out the data when</span></i>
+<i><span style="color:#9A1900">// read in from the file.</span></i>
 
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;fstream&gt;</font>
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;sstream&gt;</font>
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdlib.h&gt;</font>
-<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;iostream&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;fstream&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;sstream&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;stdlib.h&gt;</span>
+<b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
-<i><font color="#9A1900">// main(): we want to use parameters</font></i>
-<font color="#009900">int</font> <b><font color="#000000">main</font></b> <font color="#990000">(</font><font color="#009900">int</font> argc<font color="#990000">,</font> <font color="#009900">char</font> <font color="#990000">**</font>argv<font color="#990000">)</font> <font color="#FF0000">{</font>
-    <i><font color="#9A1900">// verify the correct number of parameters</font></i>
-    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> argc <font color="#990000">!=</font> <font color="#993399">2</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
-        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Must supply the input file name as the only parameter"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-        <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">);</font>
-    <font color="#FF0000">}</font>
-    <i><font color="#9A1900">// attempt to open the supplied file; must be opened in binary</font></i>
-    <i><font color="#9A1900">// mode, as otherwise whitespace is discarded</font></i>
-    <font color="#008080">ifstream</font> <b><font color="#000000">file</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">],</font> ifstream<font color="#990000">::</font>binary<font color="#990000">);</font>
-    <i><font color="#9A1900">// report any problems opening the file and then exit</font></i>
-    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">!</font>file<font color="#990000">.</font><b><font color="#000000">is_open</font></b><font color="#990000">()</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
-        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Unable to open file '"</font> <font color="#990000">&lt;&lt;</font> argv<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"'."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-        <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">2</font><font color="#990000">);</font>
-    <font color="#FF0000">}</font>
-    <i><font color="#9A1900">// read in the first section of the file: the prefix codes</font></i>
-    <b><font color="#0000FF">while</font></b> <font color="#990000">(</font> <b><font color="#0000FF">true</font></b> <font color="#990000">)</font> <font color="#FF0000">{</font>
-        <font color="#008080">string</font> character<font color="#990000">,</font> prefix<font color="#990000">;</font>
-        <i><font color="#9A1900">// read in the first token on the line</font></i>
-        file <font color="#990000">&gt;&gt;</font> character<font color="#990000">;</font>
-        <i><font color="#9A1900">// did we hit the separator?</font></i>
-        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>character<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">'-'</font><font color="#990000">)</font> <font color="#990000">&amp;&amp;</font> <font color="#990000">(</font>character<font color="#990000">.</font><b><font color="#000000">length</font></b><font color="#990000">()</font> <font color="#990000">&gt;</font> <font color="#993399">1</font><font color="#990000">)</font> <font color="#990000">)</font>
-            <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-        <i><font color="#9A1900">// check for space</font></i>
-        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> character <font color="#990000">==</font> <font color="#FF0000">"space"</font> <font color="#990000">)</font>
-            character <font color="#990000">=</font> <font color="#FF0000">" "</font><font color="#990000">;</font>
-        <i><font color="#9A1900">// read in the prefix code</font></i>
-        file <font color="#990000">&gt;&gt;</font> prefix<font color="#990000">;</font>
-        <i><font color="#9A1900">// do something with the prefix code</font></i>
-        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"character '"</font> <font color="#990000">&lt;&lt;</font> character <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"' has prefix code '"</font>
-             <font color="#990000">&lt;&lt;</font> prefix <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"'"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    <font color="#FF0000">}</font>
-    <i><font color="#9A1900">// read in the second section of the file: the encoded message</font></i>
-    <font color="#008080">stringstream</font> sstm<font color="#990000">;</font>
-    <b><font color="#0000FF">while</font></b> <font color="#990000">(</font> <b><font color="#0000FF">true</font></b> <font color="#990000">)</font> <font color="#FF0000">{</font>
-        <font color="#008080">string</font> bits<font color="#990000">;</font>
-        <i><font color="#9A1900">// read in the next set of 1's and 0's</font></i>
-        file <font color="#990000">&gt;&gt;</font> bits<font color="#990000">;</font>
-        <i><font color="#9A1900">// check for the separator</font></i>
-        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> bits<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">'-'</font> <font color="#990000">)</font>
-            <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-        <i><font color="#9A1900">// add it to the stringstream</font></i>
-        sstm <font color="#990000">&lt;&lt;</font> bits<font color="#990000">;</font>
-    <font color="#FF0000">}</font>
-    <font color="#008080">string</font> allbits <font color="#990000">=</font> sstm<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">();</font>
-    <i><font color="#9A1900">// at this point, all the bits are in the 'allbits' string</font></i>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"All the bits: "</font> <font color="#990000">&lt;&lt;</font> allbits <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    <i><font color="#9A1900">// close the file before exiting</font></i>
-    file<font color="#990000">.</font><b><font color="#000000">close</font></b><font color="#990000">();</font>
-<font color="#FF0000">}</font>
-</tt></pre>
+<i><span style="color:#9A1900">// main(): we want to use parameters</span></i>
+<span style="color:#009900">int</span> <b><span style="color:#000000">main</span></b> <span style="color:#990000">(</span><span style="color:#009900">int</span> argc<span style="color:#990000">,</span> <span style="color:#009900">char</span> <span style="color:#990000">**</span>argv<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <i><span style="color:#9A1900">// verify the correct number of parameters</span></i>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> argc <span style="color:#990000">!=</span> <span style="color:#993399">2</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Must supply the input file name as the only parameter"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+        <b><span style="color:#000000">exit</span></b><span style="color:#990000">(</span><span style="color:#993399">1</span><span style="color:#990000">);</span>
+    <span style="color:#FF0000">}</span>
+    <i><span style="color:#9A1900">// attempt to open the supplied file; must be opened in binary</span></i>
+    <i><span style="color:#9A1900">// mode, as otherwise whitespace is discarded</span></i>
+    <span style="color:#008080">ifstream</span> <b><span style="color:#000000">file</span></b><span style="color:#990000">(</span>argv<span style="color:#990000">[</span><span style="color:#993399">1</span><span style="color:#990000">],</span> ifstream<span style="color:#990000">::</span>binary<span style="color:#990000">);</span>
+    <i><span style="color:#9A1900">// report any problems opening the file and then exit</span></i>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> <span style="color:#990000">!</span>file<span style="color:#990000">.</span><b><span style="color:#000000">is_open</span></b><span style="color:#990000">()</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Unable to open file '"</span> <span style="color:#990000">&lt;&lt;</span> argv<span style="color:#990000">[</span><span style="color:#993399">1</span><span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"'."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+        <b><span style="color:#000000">exit</span></b><span style="color:#990000">(</span><span style="color:#993399">2</span><span style="color:#990000">);</span>
+    <span style="color:#FF0000">}</span>
+    <i><span style="color:#9A1900">// read in the first section of the file: the prefix codes</span></i>
+    <b><span style="color:#0000FF">while</span></b> <span style="color:#990000">(</span> <b><span style="color:#0000FF">true</span></b> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        <span style="color:#008080">string</span> character<span style="color:#990000">,</span> prefix<span style="color:#990000">;</span>
+        <i><span style="color:#9A1900">// read in the first token on the line</span></i>
+        file <span style="color:#990000">&gt;&gt;</span> character<span style="color:#990000">;</span>
+        <i><span style="color:#9A1900">// did we hit the separator?</span></i>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> <span style="color:#990000">(</span>character<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">==</span> <span style="color:#FF0000">'-'</span><span style="color:#990000">)</span> <span style="color:#990000">&amp;&amp;</span> <span style="color:#990000">(</span>character<span style="color:#990000">.</span><b><span style="color:#000000">length</span></b><span style="color:#990000">()</span> <span style="color:#990000">&gt;</span> <span style="color:#993399">1</span><span style="color:#990000">)</span> <span style="color:#990000">)</span>
+            <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+        <i><span style="color:#9A1900">// check for space</span></i>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> character <span style="color:#990000">==</span> <span style="color:#FF0000">"space"</span> <span style="color:#990000">)</span>
+            character <span style="color:#990000">=</span> <span style="color:#FF0000">" "</span><span style="color:#990000">;</span>
+        <i><span style="color:#9A1900">// read in the prefix code</span></i>
+        file <span style="color:#990000">&gt;&gt;</span> prefix<span style="color:#990000">;</span>
+        <i><span style="color:#9A1900">// do something with the prefix code</span></i>
+        cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"character '"</span> <span style="color:#990000">&lt;&lt;</span> character <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"' has prefix code '"</span>
+             <span style="color:#990000">&lt;&lt;</span> prefix <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"'"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
+    <i><span style="color:#9A1900">// read in the second section of the file: the encoded message</span></i>
+    <span style="color:#008080">stringstream</span> sstm<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">while</span></b> <span style="color:#990000">(</span> <b><span style="color:#0000FF">true</span></b> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        <span style="color:#008080">string</span> bits<span style="color:#990000">;</span>
+        <i><span style="color:#9A1900">// read in the next set of 1's and 0's</span></i>
+        file <span style="color:#990000">&gt;&gt;</span> bits<span style="color:#990000">;</span>
+        <i><span style="color:#9A1900">// check for the separator</span></i>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> bits<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">==</span> <span style="color:#FF0000">'-'</span> <span style="color:#990000">)</span>
+            <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+        <i><span style="color:#9A1900">// add it to the stringstream</span></i>
+        sstm <span style="color:#990000">&lt;&lt;</span> bits<span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
+    <span style="color:#008080">string</span> allbits <span style="color:#990000">=</span> sstm<span style="color:#990000">.</span><b><span style="color:#000000">str</span></b><span style="color:#990000">();</span>
+    <i><span style="color:#9A1900">// at this point, all the bits are in the 'allbits' string</span></i>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"All the bits: "</span> <span style="color:#990000">&lt;&lt;</span> allbits <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    <i><span style="color:#9A1900">// close the file before exiting</span></i>
+    file<span style="color:#990000">.</span><b><span style="color:#000000">close</span></b><span style="color:#990000">();</span>
+<span style="color:#FF0000">}</span>
+</pre>
 </body>
 </html>

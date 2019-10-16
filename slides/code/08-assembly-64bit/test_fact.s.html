@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -8,143 +8,143 @@ http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
 <title>test_fact.s</title>
 </head>
-<body bgcolor="white">
-<pre><tt>	.text
-	.intel_syntax noprefix
-	.file	<font color="#FF0000">"test_fact.cpp"</font>
-	.section	.text.startup,<font color="#FF0000">"ax"</font>,@progbits
-	.p2align	4, 0x90         <i><font color="#9A1900"># -- Begin function __cxx_global_var_init</font></i>
-	.type	__cxx_global_var_init,@function
-__cxx_global_var_init:                  <i><font color="#9A1900"># @__cxx_global_var_init</font></i>
-	.cfi_startproc
-<i><font color="#9A1900"># %bb.0:</font></i>
-	push	rax
-	.cfi_def_cfa_offset 16
-	movabs	rdi, offset _ZStL8__ioinit
-	call	_ZNSt8ios_base4InitC1Ev
-	movabs	rdi, offset _ZNSt8ios_base4InitD1Ev
-	movabs	rsi, offset _ZStL8__ioinit
-	movabs	rdx, offset __dso_handle
-	call	__cxa_atexit
-	mov	dword ptr [rsp + 4], eax <i><font color="#9A1900"># 4-byte Spill</font></i>
-	pop	rax
-	ret
-.Lfunc_end0:
-	.size	__cxx_global_var_init, .Lfunc_end0-__cxx_global_var_init
-	.cfi_endproc
-                                        <i><font color="#9A1900"># -- End function</font></i>
-	.text
-	.globl	fact                    <i><font color="#9A1900"># -- Begin function fact</font></i>
-	.p2align	4, 0x90
-	.type	fact,@function
-fact:                                   <i><font color="#9A1900"># @fact</font></i>
-	.cfi_startproc
-<i><font color="#9A1900"># %bb.0:</font></i>
-	sub	rsp, 24
-	.cfi_def_cfa_offset 32
-	mov	dword ptr [rsp + 12], edi
-	cmp	dword ptr [rsp + 12], 0
-	jne	.LBB1_2
-<i><font color="#9A1900"># %bb.1:</font></i>
-	mov	qword ptr [rsp + 16], 1
-	jmp	.LBB1_3
-.LBB1_2:
-	mov	eax, dword ptr [rsp + 12]
-	mov	ecx, eax
-	mov	eax, dword ptr [rsp + 12]
-	sub	eax, 1
-	mov	edi, eax
-	mov	qword ptr [rsp], rcx    <i><font color="#9A1900"># 8-byte Spill</font></i>
-	call	fact
-	mov	rcx, qword ptr [rsp]    <i><font color="#9A1900"># 8-byte Reload</font></i>
-	imul	rcx, rax
-	mov	qword ptr [rsp + 16], rcx
-.LBB1_3:
-	mov	rax, qword ptr [rsp + 16]
-	add	rsp, 24
-	ret
-.Lfunc_end1:
-	.size	fact, .Lfunc_end1-fact
-	.cfi_endproc
-                                        <i><font color="#9A1900"># -- End function</font></i>
-	.globl	main                    <i><font color="#9A1900"># -- Begin function main</font></i>
-	.p2align	4, 0x90
-	.type	main,@function
-main:                                   <i><font color="#9A1900"># @main</font></i>
-	.cfi_startproc
-<i><font color="#9A1900"># %bb.0:</font></i>
-	sub	rsp, 40
-	.cfi_def_cfa_offset 48
-	movabs	rdi, offset _ZSt4cout
-	movabs	rsi, offset .L.str
-	mov	dword ptr [rsp + 36], 0
-	mov	dword ptr [rsp + 32], 0
-	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
-	movabs	rsi, offset _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
-	mov	rdi, rax
-	call	_ZNSolsEPFRSoS_E
-	movabs	rdi, offset _ZSt3cin
-	lea	rsi, [rsp + 32]
-	mov	qword ptr [rsp + 16], rax <i><font color="#9A1900"># 8-byte Spill</font></i>
-	call	_ZNSirsERj
-	mov	edi, dword ptr [rsp + 32]
-	mov	qword ptr [rsp + 8], rax <i><font color="#9A1900"># 8-byte Spill</font></i>
-	call	fact
-	movabs	rdi, offset _ZSt4cout
-	movabs	rsi, offset .L.str.1
-	mov	qword ptr [rsp + 24], rax
-	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
-	mov	rsi, qword ptr [rsp + 24]
-	mov	rdi, rax
-	call	_ZNSolsEl
-	movabs	rsi, offset _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
-	mov	rdi, rax
-	call	_ZNSolsEPFRSoS_E
-	xor	ecx, ecx
-	mov	qword ptr [rsp], rax    <i><font color="#9A1900"># 8-byte Spill</font></i>
-	mov	eax, ecx
-	add	rsp, 40
-	ret
-.Lfunc_end2:
-	.size	main, .Lfunc_end2-main
-	.cfi_endproc
-                                        <i><font color="#9A1900"># -- End function</font></i>
-	.section	.text.startup,<font color="#FF0000">"ax"</font>,@progbits
-	.p2align	4, 0x90         <i><font color="#9A1900"># -- Begin function _GLOBAL__sub_I_test_fact.cpp</font></i>
-	.type	_GLOBAL__sub_I_test_fact.cpp,@function
-_GLOBAL__sub_I_test_fact.cpp:           <i><font color="#9A1900"># @_GLOBAL__sub_I_test_fact.cpp</font></i>
-	.cfi_startproc
-<i><font color="#9A1900"># %bb.0:</font></i>
-	push	rax
-	.cfi_def_cfa_offset 16
-	call	__cxx_global_var_init
-	pop	rax
-	ret
-.Lfunc_end3:
-	.size	_GLOBAL__sub_I_test_fact.cpp, .Lfunc_end3-_GLOBAL__sub_I_test_fact.cpp
-	.cfi_endproc
-                                        <i><font color="#9A1900"># -- End function</font></i>
-	.type	_ZStL8__ioinit,@object  <i><font color="#9A1900"># @_ZStL8__ioinit</font></i>
-	.local	_ZStL8__ioinit
-	.comm	_ZStL8__ioinit,1,1
-	.hidden	__dso_handle
-	.type	.L.str,@object          <i><font color="#9A1900"># @.str</font></i>
-	.section	.rodata.str1.1,<font color="#FF0000">"aMS"</font>,@progbits,1
-.L.str:
-	.asciz	<font color="#FF0000">"Enter value for fact(): "</font>
-	.size	.L.str, 25
+<body style="background-color:white">
+<pre><b><span style="color:#000080">	.text</span></b>
+<b><span style="color:#000080">	.intel</span></b>_syntax noprefix
+<b><span style="color:#000080">	.file</span></b>	<span style="color:#FF0000">"test_fact.cpp"</span>
+<b><span style="color:#000080">	.section</span></b>	<span style="color:#990000">.</span>text<span style="color:#990000">.</span>startup<span style="color:#990000">,</span><span style="color:#FF0000">"ax"</span><span style="color:#990000">,</span>@progbits
+<b><span style="color:#000080">	.p2align</span></b>	<span style="color:#993399">4</span><span style="color:#990000">,</span> <span style="color:#993399">0x90</span>         # <span style="color:#990000">--</span> Begin function __cxx_global_var_init
+<b><span style="color:#000080">	.type</span></b>	__cxx_global_var_init<span style="color:#990000">,</span>@function
+__cxx_global_var_init<span style="color:#990000">:</span>                  # @__cxx_global_var_init
+<b><span style="color:#000080">	.cfi</span></b>_startproc
+# <span style="color:#990000">%</span>bb<span style="color:#993399">.0</span><span style="color:#990000">:</span>
+	<b><span style="color:#0000FF">push</span></b>	rax
+<b><span style="color:#000080">	.cfi</span></b>_def_cfa_offset <span style="color:#993399">16</span>
+	movabs	rdi<span style="color:#990000">,</span> <b><span style="color:#0000FF">offset</span></b> _ZStL<span style="color:#993399">8</span>__ioinit
+	<b><span style="color:#0000FF">call</span></b>	_ZNSt<span style="color:#993399">8</span>ios_base<span style="color:#993399">4</span>InitC<span style="color:#993399">1</span>Ev
+	movabs	rdi<span style="color:#990000">,</span> <b><span style="color:#0000FF">offset</span></b> _ZNSt<span style="color:#993399">8</span>ios_base<span style="color:#993399">4</span>InitD<span style="color:#993399">1</span>Ev
+	movabs	rsi<span style="color:#990000">,</span> <b><span style="color:#0000FF">offset</span></b> _ZStL<span style="color:#993399">8</span>__ioinit
+	movabs	rdx<span style="color:#990000">,</span> <b><span style="color:#0000FF">offset</span></b> __dso_handle
+	<b><span style="color:#0000FF">call</span></b>	__cxa_atexit
+	<b><span style="color:#0000FF">mov</span></b>	<span style="color:#009900">dword</span> <b><span style="color:#0000FF">ptr</span></b> <span style="color:#990000">[</span>rsp <span style="color:#990000">+</span> <span style="color:#993399">4</span><span style="color:#990000">],</span> <span style="color:#009900">eax</span> # <span style="color:#993399">4</span><span style="color:#990000">-</span><span style="color:#009900">byte</span> Spill
+	<b><span style="color:#0000FF">pop</span></b>	rax
+	<b><span style="color:#0000FF">ret</span></b>
+<b><span style="color:#000080">.Lfunc</span></b>_end<span style="color:#993399">0</span><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.size</span></b>	__cxx_global_var_init<span style="color:#990000">,</span> <span style="color:#990000">.</span>Lfunc_end<span style="color:#993399">0</span><span style="color:#990000">-</span>__cxx_global_var_init
+<b><span style="color:#000080">	.cfi</span></b>_endproc
+                                        # <span style="color:#990000">--</span> <b><span style="color:#0000FF">End</span></b> function
+<b><span style="color:#000080">	.text</span></b>
+<b><span style="color:#000080">	.globl</span></b>	fact                    # <span style="color:#990000">--</span> Begin function fact
+<b><span style="color:#000080">	.p2align</span></b>	<span style="color:#993399">4</span><span style="color:#990000">,</span> <span style="color:#993399">0x90</span>
+<b><span style="color:#000080">	.type</span></b>	fact<span style="color:#990000">,</span>@function
+<b><span style="color:#000080">fact:</span></b>                                   # @fact
+<b><span style="color:#000080">	.cfi</span></b>_startproc
+# <span style="color:#990000">%</span>bb<span style="color:#993399">.0</span><span style="color:#990000">:</span>
+	<b><span style="color:#0000FF">sub</span></b>	rsp<span style="color:#990000">,</span> <span style="color:#993399">24</span>
+<b><span style="color:#000080">	.cfi</span></b>_def_cfa_offset <span style="color:#993399">32</span>
+	<b><span style="color:#0000FF">mov</span></b>	<span style="color:#009900">dword</span> <b><span style="color:#0000FF">ptr</span></b> <span style="color:#990000">[</span>rsp <span style="color:#990000">+</span> <span style="color:#993399">12</span><span style="color:#990000">],</span> <span style="color:#009900">edi</span>
+	<b><span style="color:#0000FF">cmp</span></b>	<span style="color:#009900">dword</span> <b><span style="color:#0000FF">ptr</span></b> <span style="color:#990000">[</span>rsp <span style="color:#990000">+</span> <span style="color:#993399">12</span><span style="color:#990000">],</span> <span style="color:#993399">0</span>
+	<b><span style="color:#0000FF">jne</span></b>	<span style="color:#990000">.</span>LBB<span style="color:#993399">1_2</span>
+# <span style="color:#990000">%</span>bb<span style="color:#993399">.1</span><span style="color:#990000">:</span>
+	<b><span style="color:#0000FF">mov</span></b>	<span style="color:#009900">qword</span> <b><span style="color:#0000FF">ptr</span></b> <span style="color:#990000">[</span>rsp <span style="color:#990000">+</span> <span style="color:#993399">16</span><span style="color:#990000">],</span> <span style="color:#993399">1</span>
+	<b><span style="color:#0000FF">jmp</span></b>	<span style="color:#990000">.</span>LBB<span style="color:#993399">1_3</span>
+<b><span style="color:#000080">.LBB1</span></b><span style="color:#993399">_2</span><span style="color:#990000">:</span>
+	<b><span style="color:#0000FF">mov</span></b>	<span style="color:#009900">eax</span><span style="color:#990000">,</span> <span style="color:#009900">dword</span> <b><span style="color:#0000FF">ptr</span></b> <span style="color:#990000">[</span>rsp <span style="color:#990000">+</span> <span style="color:#993399">12</span><span style="color:#990000">]</span>
+	<b><span style="color:#0000FF">mov</span></b>	<span style="color:#009900">ecx</span><span style="color:#990000">,</span> <span style="color:#009900">eax</span>
+	<b><span style="color:#0000FF">mov</span></b>	<span style="color:#009900">eax</span><span style="color:#990000">,</span> <span style="color:#009900">dword</span> <b><span style="color:#0000FF">ptr</span></b> <span style="color:#990000">[</span>rsp <span style="color:#990000">+</span> <span style="color:#993399">12</span><span style="color:#990000">]</span>
+	<b><span style="color:#0000FF">sub</span></b>	<span style="color:#009900">eax</span><span style="color:#990000">,</span> <span style="color:#993399">1</span>
+	<b><span style="color:#0000FF">mov</span></b>	<span style="color:#009900">edi</span><span style="color:#990000">,</span> <span style="color:#009900">eax</span>
+	<b><span style="color:#0000FF">mov</span></b>	<span style="color:#009900">qword</span> <b><span style="color:#0000FF">ptr</span></b> <span style="color:#990000">[</span>rsp<span style="color:#990000">],</span> rcx    # <span style="color:#993399">8</span><span style="color:#990000">-</span><span style="color:#009900">byte</span> Spill
+	<b><span style="color:#0000FF">call</span></b>	fact
+	<b><span style="color:#0000FF">mov</span></b>	rcx<span style="color:#990000">,</span> <span style="color:#009900">qword</span> <b><span style="color:#0000FF">ptr</span></b> <span style="color:#990000">[</span>rsp<span style="color:#990000">]</span>    # <span style="color:#993399">8</span><span style="color:#990000">-</span><span style="color:#009900">byte</span> Reload
+	<b><span style="color:#0000FF">imul</span></b>	rcx<span style="color:#990000">,</span> rax
+	<b><span style="color:#0000FF">mov</span></b>	<span style="color:#009900">qword</span> <b><span style="color:#0000FF">ptr</span></b> <span style="color:#990000">[</span>rsp <span style="color:#990000">+</span> <span style="color:#993399">16</span><span style="color:#990000">],</span> rcx
+<b><span style="color:#000080">.LBB1</span></b><span style="color:#993399">_3</span><span style="color:#990000">:</span>
+	<b><span style="color:#0000FF">mov</span></b>	rax<span style="color:#990000">,</span> <span style="color:#009900">qword</span> <b><span style="color:#0000FF">ptr</span></b> <span style="color:#990000">[</span>rsp <span style="color:#990000">+</span> <span style="color:#993399">16</span><span style="color:#990000">]</span>
+	<b><span style="color:#0000FF">add</span></b>	rsp<span style="color:#990000">,</span> <span style="color:#993399">24</span>
+	<b><span style="color:#0000FF">ret</span></b>
+<b><span style="color:#000080">.Lfunc</span></b>_end<span style="color:#993399">1</span><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.size</span></b>	fact<span style="color:#990000">,</span> <span style="color:#990000">.</span>Lfunc_end<span style="color:#993399">1</span><span style="color:#990000">-</span>fact
+<b><span style="color:#000080">	.cfi</span></b>_endproc
+                                        # <span style="color:#990000">--</span> <b><span style="color:#0000FF">End</span></b> function
+<b><span style="color:#000080">	.globl</span></b>	main                    # <span style="color:#990000">--</span> Begin function main
+<b><span style="color:#000080">	.p2align</span></b>	<span style="color:#993399">4</span><span style="color:#990000">,</span> <span style="color:#993399">0x90</span>
+<b><span style="color:#000080">	.type</span></b>	main<span style="color:#990000">,</span>@function
+<b><span style="color:#000080">main:</span></b>                                   # @main
+<b><span style="color:#000080">	.cfi</span></b>_startproc
+# <span style="color:#990000">%</span>bb<span style="color:#993399">.0</span><span style="color:#990000">:</span>
+	<b><span style="color:#0000FF">sub</span></b>	rsp<span style="color:#990000">,</span> <span style="color:#993399">40</span>
+<b><span style="color:#000080">	.cfi</span></b>_def_cfa_offset <span style="color:#993399">48</span>
+	movabs	rdi<span style="color:#990000">,</span> <b><span style="color:#0000FF">offset</span></b> _ZSt<span style="color:#993399">4</span>cout
+	movabs	rsi<span style="color:#990000">,</span> <b><span style="color:#0000FF">offset</span></b> <span style="color:#990000">.</span>L<span style="color:#990000">.</span><b><span style="color:#0000FF">str</span></b>
+	<b><span style="color:#0000FF">mov</span></b>	<span style="color:#009900">dword</span> <b><span style="color:#0000FF">ptr</span></b> <span style="color:#990000">[</span>rsp <span style="color:#990000">+</span> <span style="color:#993399">36</span><span style="color:#990000">],</span> <span style="color:#993399">0</span>
+	<b><span style="color:#0000FF">mov</span></b>	<span style="color:#009900">dword</span> <b><span style="color:#0000FF">ptr</span></b> <span style="color:#990000">[</span>rsp <span style="color:#990000">+</span> <span style="color:#993399">32</span><span style="color:#990000">],</span> <span style="color:#993399">0</span>
+	<b><span style="color:#0000FF">call</span></b>	_ZStlsISt<span style="color:#993399">11</span>char_traitsIcEERSt<span style="color:#993399">13</span>basic_ostreamIcT_ES<span style="color:#993399">5</span>_PKc
+	movabs	rsi<span style="color:#990000">,</span> <b><span style="color:#0000FF">offset</span></b> _ZSt<span style="color:#993399">4</span>endlIcSt<span style="color:#993399">11</span>char_traitsIcEERSt<span style="color:#993399">13</span>basic_ostreamIT_T<span style="color:#993399">0</span>_ES<span style="color:#993399">6</span>_
+	<b><span style="color:#0000FF">mov</span></b>	rdi<span style="color:#990000">,</span> rax
+	<b><span style="color:#0000FF">call</span></b>	_ZNSolsEPFRSoS_E
+	movabs	rdi<span style="color:#990000">,</span> <b><span style="color:#0000FF">offset</span></b> _ZSt<span style="color:#993399">3</span>cin
+	<b><span style="color:#0000FF">lea</span></b>	rsi<span style="color:#990000">,</span> <span style="color:#990000">[</span>rsp <span style="color:#990000">+</span> <span style="color:#993399">32</span><span style="color:#990000">]</span>
+	<b><span style="color:#0000FF">mov</span></b>	<span style="color:#009900">qword</span> <b><span style="color:#0000FF">ptr</span></b> <span style="color:#990000">[</span>rsp <span style="color:#990000">+</span> <span style="color:#993399">16</span><span style="color:#990000">],</span> rax # <span style="color:#993399">8</span><span style="color:#990000">-</span><span style="color:#009900">byte</span> Spill
+	<b><span style="color:#0000FF">call</span></b>	_ZNSirsERj
+	<b><span style="color:#0000FF">mov</span></b>	<span style="color:#009900">edi</span><span style="color:#990000">,</span> <span style="color:#009900">dword</span> <b><span style="color:#0000FF">ptr</span></b> <span style="color:#990000">[</span>rsp <span style="color:#990000">+</span> <span style="color:#993399">32</span><span style="color:#990000">]</span>
+	<b><span style="color:#0000FF">mov</span></b>	<span style="color:#009900">qword</span> <b><span style="color:#0000FF">ptr</span></b> <span style="color:#990000">[</span>rsp <span style="color:#990000">+</span> <span style="color:#993399">8</span><span style="color:#990000">],</span> rax # <span style="color:#993399">8</span><span style="color:#990000">-</span><span style="color:#009900">byte</span> Spill
+	<b><span style="color:#0000FF">call</span></b>	fact
+	movabs	rdi<span style="color:#990000">,</span> <b><span style="color:#0000FF">offset</span></b> _ZSt<span style="color:#993399">4</span>cout
+	movabs	rsi<span style="color:#990000">,</span> <b><span style="color:#0000FF">offset</span></b> <span style="color:#990000">.</span>L<span style="color:#990000">.</span><b><span style="color:#0000FF">str</span></b><span style="color:#993399">.1</span>
+	<b><span style="color:#0000FF">mov</span></b>	<span style="color:#009900">qword</span> <b><span style="color:#0000FF">ptr</span></b> <span style="color:#990000">[</span>rsp <span style="color:#990000">+</span> <span style="color:#993399">24</span><span style="color:#990000">],</span> rax
+	<b><span style="color:#0000FF">call</span></b>	_ZStlsISt<span style="color:#993399">11</span>char_traitsIcEERSt<span style="color:#993399">13</span>basic_ostreamIcT_ES<span style="color:#993399">5</span>_PKc
+	<b><span style="color:#0000FF">mov</span></b>	rsi<span style="color:#990000">,</span> <span style="color:#009900">qword</span> <b><span style="color:#0000FF">ptr</span></b> <span style="color:#990000">[</span>rsp <span style="color:#990000">+</span> <span style="color:#993399">24</span><span style="color:#990000">]</span>
+	<b><span style="color:#0000FF">mov</span></b>	rdi<span style="color:#990000">,</span> rax
+	<b><span style="color:#0000FF">call</span></b>	_ZNSolsEl
+	movabs	rsi<span style="color:#990000">,</span> <b><span style="color:#0000FF">offset</span></b> _ZSt<span style="color:#993399">4</span>endlIcSt<span style="color:#993399">11</span>char_traitsIcEERSt<span style="color:#993399">13</span>basic_ostreamIT_T<span style="color:#993399">0</span>_ES<span style="color:#993399">6</span>_
+	<b><span style="color:#0000FF">mov</span></b>	rdi<span style="color:#990000">,</span> rax
+	<b><span style="color:#0000FF">call</span></b>	_ZNSolsEPFRSoS_E
+	<b><span style="color:#0000FF">xor</span></b>	<span style="color:#009900">ecx</span><span style="color:#990000">,</span> <span style="color:#009900">ecx</span>
+	<b><span style="color:#0000FF">mov</span></b>	<span style="color:#009900">qword</span> <b><span style="color:#0000FF">ptr</span></b> <span style="color:#990000">[</span>rsp<span style="color:#990000">],</span> rax    # <span style="color:#993399">8</span><span style="color:#990000">-</span><span style="color:#009900">byte</span> Spill
+	<b><span style="color:#0000FF">mov</span></b>	<span style="color:#009900">eax</span><span style="color:#990000">,</span> <span style="color:#009900">ecx</span>
+	<b><span style="color:#0000FF">add</span></b>	rsp<span style="color:#990000">,</span> <span style="color:#993399">40</span>
+	<b><span style="color:#0000FF">ret</span></b>
+<b><span style="color:#000080">.Lfunc</span></b>_end<span style="color:#993399">2</span><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.size</span></b>	main<span style="color:#990000">,</span> <span style="color:#990000">.</span>Lfunc_end<span style="color:#993399">2</span><span style="color:#990000">-</span>main
+<b><span style="color:#000080">	.cfi</span></b>_endproc
+                                        # <span style="color:#990000">--</span> <b><span style="color:#0000FF">End</span></b> function
+<b><span style="color:#000080">	.section</span></b>	<span style="color:#990000">.</span>text<span style="color:#990000">.</span>startup<span style="color:#990000">,</span><span style="color:#FF0000">"ax"</span><span style="color:#990000">,</span>@progbits
+<b><span style="color:#000080">	.p2align</span></b>	<span style="color:#993399">4</span><span style="color:#990000">,</span> <span style="color:#993399">0x90</span>         # <span style="color:#990000">--</span> Begin function _GLOBAL__sub_I_test_fact<span style="color:#990000">.</span>cpp
+<b><span style="color:#000080">	.type</span></b>	_GLOBAL__sub_I_test_fact<span style="color:#990000">.</span>cpp<span style="color:#990000">,</span>@function
+_GLOBAL__sub_I_test_fact<span style="color:#990000">.</span>cpp<span style="color:#990000">:</span>           # @_GLOBAL__sub_I_test_fact<span style="color:#990000">.</span>cpp
+<b><span style="color:#000080">	.cfi</span></b>_startproc
+# <span style="color:#990000">%</span>bb<span style="color:#993399">.0</span><span style="color:#990000">:</span>
+	<b><span style="color:#0000FF">push</span></b>	rax
+<b><span style="color:#000080">	.cfi</span></b>_def_cfa_offset <span style="color:#993399">16</span>
+	<b><span style="color:#0000FF">call</span></b>	__cxx_global_var_init
+	<b><span style="color:#0000FF">pop</span></b>	rax
+	<b><span style="color:#0000FF">ret</span></b>
+<b><span style="color:#000080">.Lfunc</span></b>_end<span style="color:#993399">3</span><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.size</span></b>	_GLOBAL__sub_I_test_fact<span style="color:#990000">.</span>cpp<span style="color:#990000">,</span> <span style="color:#990000">.</span>Lfunc_end<span style="color:#993399">3</span><span style="color:#990000">-</span>_GLOBAL__sub_I_test_fact<span style="color:#990000">.</span>cpp
+<b><span style="color:#000080">	.cfi</span></b>_endproc
+                                        # <span style="color:#990000">--</span> <b><span style="color:#0000FF">End</span></b> function
+<b><span style="color:#000080">	.type</span></b>	_ZStL<span style="color:#993399">8</span>__ioinit<span style="color:#990000">,</span>@object  # @_ZStL<span style="color:#993399">8</span>__ioinit
+<b><span style="color:#000080">	.local</span></b>	_ZStL<span style="color:#993399">8</span>__ioinit
+<b><span style="color:#000080">	.comm</span></b>	_ZStL<span style="color:#993399">8</span>__ioinit<span style="color:#990000">,</span><span style="color:#993399">1</span><span style="color:#990000">,</span><span style="color:#993399">1</span>
+<b><span style="color:#000080">	.hidden</span></b>	__dso_handle
+<b><span style="color:#000080">	.type</span></b>	<span style="color:#990000">.</span>L<span style="color:#990000">.</span><b><span style="color:#0000FF">str</span></b><span style="color:#990000">,</span>@object          # @<span style="color:#990000">.</span><b><span style="color:#0000FF">str</span></b>
+<b><span style="color:#000080">	.section</span></b>	<span style="color:#990000">.</span>rodata<span style="color:#990000">.</span>str<span style="color:#993399">1.1</span><span style="color:#990000">,</span><span style="color:#FF0000">"aMS"</span><span style="color:#990000">,</span>@progbits<span style="color:#990000">,</span><span style="color:#993399">1</span>
+<b><span style="color:#000080">.L</span></b><span style="color:#990000">.</span><b><span style="color:#0000FF">str</span></b><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.asciz</span></b>	<span style="color:#FF0000">"Enter value for fact(): "</span>
+<b><span style="color:#000080">	.size</span></b>	<span style="color:#990000">.</span>L<span style="color:#990000">.</span><b><span style="color:#0000FF">str</span></b><span style="color:#990000">,</span> <span style="color:#993399">25</span>
 
-	.type	.L.str.1,@object        <i><font color="#9A1900"># @.str.1</font></i>
-.L.str.1:
-	.asciz	<font color="#FF0000">"The result is: "</font>
-	.size	.L.str.1, 16
+<b><span style="color:#000080">	.type</span></b>	<span style="color:#990000">.</span>L<span style="color:#990000">.</span><b><span style="color:#0000FF">str</span></b><span style="color:#993399">.1</span><span style="color:#990000">,</span>@object        # @<span style="color:#990000">.</span><b><span style="color:#0000FF">str</span></b><span style="color:#993399">.1</span>
+<b><span style="color:#000080">.L</span></b><span style="color:#990000">.</span><b><span style="color:#0000FF">str</span></b><span style="color:#993399">.1</span><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.asciz</span></b>	<span style="color:#FF0000">"The result is: "</span>
+<b><span style="color:#000080">	.size</span></b>	<span style="color:#990000">.</span>L<span style="color:#990000">.</span><b><span style="color:#0000FF">str</span></b><span style="color:#993399">.1</span><span style="color:#990000">,</span> <span style="color:#993399">16</span>
 
-	.section	.init_array,<font color="#FF0000">"aw"</font>,@init_array
-	.p2align	3
-	.quad	_GLOBAL__sub_I_test_fact.cpp
+<b><span style="color:#000080">	.section</span></b>	<span style="color:#990000">.</span>init_array<span style="color:#990000">,</span><span style="color:#FF0000">"aw"</span><span style="color:#990000">,</span>@init_array
+<b><span style="color:#000080">	.p2align</span></b>	<span style="color:#993399">3</span>
+<b><span style="color:#000080">	.quad</span></b>	_GLOBAL__sub_I_test_fact<span style="color:#990000">.</span>cpp
 
-	.ident	<font color="#FF0000">"clang version 6.0.0-1ubuntu2 (tags/RELEASE_600/final)"</font>
-	.section	<font color="#FF0000">".note.GNU-stack"</font>,<font color="#FF0000">""</font>,@progbits
-</tt></pre>
+<b><span style="color:#000080">	.ident</span></b>	<span style="color:#FF0000">"clang version 6.0.0-1ubuntu2 (tags/RELEASE_600/final)"</span>
+<b><span style="color:#000080">	.section</span></b>	<span style="color:#FF0000">".note.GNU-stack"</span><span style="color:#990000">,</span><span style="color:#FF0000">""</span><span style="color:#990000">,</span>@progbits
+</pre>
 </body>
 </html>

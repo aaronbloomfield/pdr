@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -8,68 +8,68 @@ http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
 <title>pointers.cpp</title>
 </head>
-<body bgcolor="white">
-<pre><tt><i><font color="#9A1900">/* Original author: Michele Co, CS 216, Spring 2007</font></i>
-<i><font color="#9A1900"> * Updated by Aaron Bloomfield, CS 2150, Spring 2017</font></i>
-<i><font color="#9A1900"> * Filename: pointers.cpp</font></i>
-<i><font color="#9A1900"> * Description: Examples demonstrating pointers and C++ syntax related to pointers</font></i>
-<i><font color="#9A1900"> *</font></i>
-<i><font color="#9A1900"> * To force 64-bit operation, this file will have to be compiled with</font></i>
-<i><font color="#9A1900"> * the -m64 flag</font></i>
-<i><font color="#9A1900"> */</font></i>
+<body style="background-color:white">
+<pre><i><span style="color:#9A1900">/* Original author: Michele Co, CS 216, Spring 2007</span></i>
+<i><span style="color:#9A1900"> * Updated by Aaron Bloomfield, CS 2150, Spring 2017</span></i>
+<i><span style="color:#9A1900"> * Filename: pointers.cpp</span></i>
+<i><span style="color:#9A1900"> * Description: Examples demonstrating pointers and C++ syntax related to pointers</span></i>
+<i><span style="color:#9A1900"> *</span></i>
+<i><span style="color:#9A1900"> * To force 64-bit operation, this file will have to be compiled with</span></i>
+<i><span style="color:#9A1900"> * the -m64 flag</span></i>
+<i><span style="color:#9A1900"> */</span></i>
 
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
-<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;iostream&gt;</span>
+<b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
-<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
-    <i><font color="#9A1900">// declare and initialize some int variables (we use longs to</font></i>
-    <i><font color="#9A1900">// ensure 64-bit operation)</font></i>
-    <font color="#009900">long</font> y <font color="#990000">=</font> <font color="#993399">5</font><font color="#990000">;</font>
-    <font color="#009900">long</font> x <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font>
+<span style="color:#009900">int</span> <b><span style="color:#000000">main</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    <i><span style="color:#9A1900">// declare and initialize some int variables (we use longs to</span></i>
+    <i><span style="color:#9A1900">// ensure 64-bit operation)</span></i>
+    <span style="color:#009900">long</span> y <span style="color:#990000">=</span> <span style="color:#993399">5</span><span style="color:#990000">;</span>
+    <span style="color:#009900">long</span> x <span style="color:#990000">=</span> <span style="color:#993399">1</span><span style="color:#990000">;</span>
 
-    <i><font color="#9A1900">// declare a pointer to int and initialize to the address of x</font></i>
-    <font color="#009900">long</font> <font color="#990000">*</font> x_pointer <font color="#990000">=</font> <font color="#990000">&amp;</font>x<font color="#990000">;</font>
+    <i><span style="color:#9A1900">// declare a pointer to int and initialize to the address of x</span></i>
+    <span style="color:#009900">long</span> <span style="color:#990000">*</span> x_pointer <span style="color:#990000">=</span> <span style="color:#990000">&amp;</span>x<span style="color:#990000">;</span>
 
-    <i><font color="#9A1900">// print the values of each of these variables</font></i>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"x = "</font> <font color="#990000">&lt;&lt;</font> x <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"y = "</font> <font color="#990000">&lt;&lt;</font> y <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"x_pointer = "</font> <font color="#990000">&lt;&lt;</font> x_pointer <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"*x_pointer = "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>x_pointer <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <i><span style="color:#9A1900">// print the values of each of these variables</span></i>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"x = "</span> <span style="color:#990000">&lt;&lt;</span> x <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"y = "</span> <span style="color:#990000">&lt;&lt;</span> y <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"x_pointer = "</span> <span style="color:#990000">&lt;&lt;</span> x_pointer <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"*x_pointer = "</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">*</span>x_pointer <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
 
-    <i><font color="#9A1900">// change the value of the memory pointed to by x_pointer</font></i>
-    <i><font color="#9A1900">// by dereferencing and assigning a new value</font></i>
-    <font color="#990000">*</font>x_pointer <font color="#990000">=</font> <font color="#993399">2</font><font color="#990000">;</font>
+    <i><span style="color:#9A1900">// change the value of the memory pointed to by x_pointer</span></i>
+    <i><span style="color:#9A1900">// by dereferencing and assigning a new value</span></i>
+    <span style="color:#990000">*</span>x_pointer <span style="color:#990000">=</span> <span style="color:#993399">2</span><span style="color:#990000">;</span>
 
-    <i><font color="#9A1900">// print the values of all variables</font></i>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"After *x_pointer = 2 "</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"x = "</font> <font color="#990000">&lt;&lt;</font> x <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"y = "</font> <font color="#990000">&lt;&lt;</font> y <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"x_pointer = "</font> <font color="#990000">&lt;&lt;</font> x_pointer <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"*x_pointer = "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>x_pointer <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <i><span style="color:#9A1900">// print the values of all variables</span></i>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"After *x_pointer = 2 "</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"x = "</span> <span style="color:#990000">&lt;&lt;</span> x <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"y = "</span> <span style="color:#990000">&lt;&lt;</span> y <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"x_pointer = "</span> <span style="color:#990000">&lt;&lt;</span> x_pointer <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"*x_pointer = "</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">*</span>x_pointer <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
 
-    <i><font color="#9A1900">// change the address that x_pointer points to, to y</font></i>
-    x_pointer <font color="#990000">=</font> <font color="#990000">&amp;</font>y<font color="#990000">;</font>
+    <i><span style="color:#9A1900">// change the address that x_pointer points to, to y</span></i>
+    x_pointer <span style="color:#990000">=</span> <span style="color:#990000">&amp;</span>y<span style="color:#990000">;</span>
 
-    <i><font color="#9A1900">// print the values of all variables</font></i>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"After x_pointer = &amp;y "</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"x = "</font> <font color="#990000">&lt;&lt;</font> x <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"y = "</font> <font color="#990000">&lt;&lt;</font> y <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"x_pointer = "</font> <font color="#990000">&lt;&lt;</font> x_pointer <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"*x_pointer = "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>x_pointer <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <i><span style="color:#9A1900">// print the values of all variables</span></i>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"After x_pointer = &amp;y "</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"x = "</span> <span style="color:#990000">&lt;&lt;</span> x <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"y = "</span> <span style="color:#990000">&lt;&lt;</span> y <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"x_pointer = "</span> <span style="color:#990000">&lt;&lt;</span> x_pointer <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"*x_pointer = "</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">*</span>x_pointer <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
 
-    <i><font color="#9A1900">// change the value of the memory pointed to by x_pointer</font></i>
-    <i><font color="#9A1900">// by dereferencing and assigning a new value</font></i>
-    <font color="#990000">*</font>x_pointer <font color="#990000">=</font> <font color="#993399">3</font><font color="#990000">;</font>
+    <i><span style="color:#9A1900">// change the value of the memory pointed to by x_pointer</span></i>
+    <i><span style="color:#9A1900">// by dereferencing and assigning a new value</span></i>
+    <span style="color:#990000">*</span>x_pointer <span style="color:#990000">=</span> <span style="color:#993399">3</span><span style="color:#990000">;</span>
 
-    <i><font color="#9A1900">// print the values of all variables</font></i>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"After *x_pointer = 3 "</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"x = "</font> <font color="#990000">&lt;&lt;</font> x <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"y = "</font> <font color="#990000">&lt;&lt;</font> y <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"x_pointer = "</font> <font color="#990000">&lt;&lt;</font> x_pointer <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"*x_pointer = "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>x_pointer <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <i><span style="color:#9A1900">// print the values of all variables</span></i>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"After *x_pointer = 3 "</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"x = "</span> <span style="color:#990000">&lt;&lt;</span> x <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"y = "</span> <span style="color:#990000">&lt;&lt;</span> y <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"x_pointer = "</span> <span style="color:#990000">&lt;&lt;</span> x_pointer <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"*x_pointer = "</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">*</span>x_pointer <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
 
-    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
-<font color="#FF0000">}</font>
-</tt></pre>
+    <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+</pre>
 </body>
 </html>

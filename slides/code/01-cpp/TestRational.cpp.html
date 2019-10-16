@@ -1,48 +1,48 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta name="GENERATOR" content="GNU source-highlight 3.1.6
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
 <title>TestRational.cpp</title>
 </head>
-<body bgcolor="white">
-<pre><tt><i><font color="#9A1900">// File TestRational.cpp</font></i>
+<body style="background-color:white">
+<pre><i><span style="color:#9A1900">// File TestRational.cpp</span></i>
 
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
-<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;iostream&gt;</span>
+<b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
-<b><font color="#000080">#include</font></b> <font color="#FF0000">"Rational.h"</font>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">"Rational.h"</span>
 
-<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
-    <font color="#008080">Rational</font> x<font color="#990000">,</font> y<font color="#990000">,</font> z<font color="#990000">;</font>
+<span style="color:#009900">int</span> <b><span style="color:#000000">main</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    <span style="color:#008080">Rational</span> x<span style="color:#990000">,</span> y<span style="color:#990000">,</span> z<span style="color:#990000">;</span>
 
-    <i><font color="#9A1900">// 1/2 + 1/3 = 5/6</font></i>
-    x <font color="#990000">=</font> <b><font color="#000000">Rational</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">,</font> <font color="#993399">2</font><font color="#990000">);</font>
-    y <font color="#990000">=</font> <b><font color="#000000">Rational</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">,</font> <font color="#993399">3</font><font color="#990000">);</font>
-    z <font color="#990000">=</font> x<font color="#990000">.</font><b><font color="#000000">plus</font></b><font color="#990000">(</font>y<font color="#990000">);</font>
-    z<font color="#990000">.</font><b><font color="#000000">print</font></b><font color="#990000">();</font>
+    <i><span style="color:#9A1900">// 1/2 + 1/3 = 5/6</span></i>
+    x <span style="color:#990000">=</span> <b><span style="color:#000000">Rational</span></b><span style="color:#990000">(</span><span style="color:#993399">1</span><span style="color:#990000">,</span> <span style="color:#993399">2</span><span style="color:#990000">);</span>
+    y <span style="color:#990000">=</span> <b><span style="color:#000000">Rational</span></b><span style="color:#990000">(</span><span style="color:#993399">1</span><span style="color:#990000">,</span> <span style="color:#993399">3</span><span style="color:#990000">);</span>
+    z <span style="color:#990000">=</span> x<span style="color:#990000">.</span><b><span style="color:#000000">plus</span></b><span style="color:#990000">(</span>y<span style="color:#990000">);</span>
+    z<span style="color:#990000">.</span><b><span style="color:#000000">print</span></b><span style="color:#990000">();</span>
 
-    <i><font color="#9A1900">// 8/9 + 1/9 = 1</font></i>
-    x <font color="#990000">=</font> <b><font color="#000000">Rational</font></b><font color="#990000">(</font><font color="#993399">8</font><font color="#990000">,</font> <font color="#993399">9</font><font color="#990000">);</font>
-    y <font color="#990000">=</font> <b><font color="#000000">Rational</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">,</font> <font color="#993399">9</font><font color="#990000">);</font>
-    z <font color="#990000">=</font> x<font color="#990000">.</font><b><font color="#000000">plus</font></b><font color="#990000">(</font>y<font color="#990000">);</font>
-    z<font color="#990000">.</font><b><font color="#000000">print</font></b><font color="#990000">();</font>
+    <i><span style="color:#9A1900">// 8/9 + 1/9 = 1</span></i>
+    x <span style="color:#990000">=</span> <b><span style="color:#000000">Rational</span></b><span style="color:#990000">(</span><span style="color:#993399">8</span><span style="color:#990000">,</span> <span style="color:#993399">9</span><span style="color:#990000">);</span>
+    y <span style="color:#990000">=</span> <b><span style="color:#000000">Rational</span></b><span style="color:#990000">(</span><span style="color:#993399">1</span><span style="color:#990000">,</span> <span style="color:#993399">9</span><span style="color:#990000">);</span>
+    z <span style="color:#990000">=</span> x<span style="color:#990000">.</span><b><span style="color:#000000">plus</span></b><span style="color:#990000">(</span>y<span style="color:#990000">);</span>
+    z<span style="color:#990000">.</span><b><span style="color:#000000">print</span></b><span style="color:#990000">();</span>
 
-    <i><font color="#9A1900">//  4/17 * 7/3 = 28/51</font></i>
-    x <font color="#990000">=</font> <b><font color="#000000">Rational</font></b><font color="#990000">(</font><font color="#993399">4</font><font color="#990000">,</font> <font color="#993399">17</font><font color="#990000">);</font>
-    y <font color="#990000">=</font> <b><font color="#000000">Rational</font></b><font color="#990000">(</font><font color="#993399">7</font><font color="#990000">,</font>  <font color="#993399">3</font><font color="#990000">);</font>
-    z <font color="#990000">=</font> x<font color="#990000">.</font><b><font color="#000000">times</font></b><font color="#990000">(</font>y<font color="#990000">);</font>
-    z<font color="#990000">.</font><b><font color="#000000">print</font></b><font color="#990000">();</font>
+    <i><span style="color:#9A1900">//  4/17 * 7/3 = 28/51</span></i>
+    x <span style="color:#990000">=</span> <b><span style="color:#000000">Rational</span></b><span style="color:#990000">(</span><span style="color:#993399">4</span><span style="color:#990000">,</span> <span style="color:#993399">17</span><span style="color:#990000">);</span>
+    y <span style="color:#990000">=</span> <b><span style="color:#000000">Rational</span></b><span style="color:#990000">(</span><span style="color:#993399">7</span><span style="color:#990000">,</span>  <span style="color:#993399">3</span><span style="color:#990000">);</span>
+    z <span style="color:#990000">=</span> x<span style="color:#990000">.</span><b><span style="color:#000000">times</span></b><span style="color:#990000">(</span>y<span style="color:#990000">);</span>
+    z<span style="color:#990000">.</span><b><span style="color:#000000">print</span></b><span style="color:#990000">();</span>
 
-    <i><font color="#9A1900">// 0/6 = 0</font></i>
-    x <font color="#990000">=</font> <b><font color="#000000">Rational</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">,</font> <font color="#993399">6</font><font color="#990000">);</font>
-    x<font color="#990000">.</font><b><font color="#000000">print</font></b><font color="#990000">();</font>
+    <i><span style="color:#9A1900">// 0/6 = 0</span></i>
+    x <span style="color:#990000">=</span> <b><span style="color:#000000">Rational</span></b><span style="color:#990000">(</span><span style="color:#993399">0</span><span style="color:#990000">,</span> <span style="color:#993399">6</span><span style="color:#990000">);</span>
+    x<span style="color:#990000">.</span><b><span style="color:#000000">print</span></b><span style="color:#990000">();</span>
 
-    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
-<font color="#FF0000">}</font>
-</tt></pre>
+    <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+</pre>
 </body>
 </html>

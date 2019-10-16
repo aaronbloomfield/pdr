@@ -1,479 +1,493 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
 <title>ibcm-simulator.cpp</title>
 </head>
-<body bgcolor="white">
-<pre><tt><i><font color="#9A1900">/* A program that will simulate an IBCM program, and it has a number</font></i>
-<i><font color="#9A1900"> * of command line switches that control its execution.  This program</font></i>
-<i><font color="#9A1900"> * is useful for automating the execution of a number of IBCM programs</font></i>
-<i><font color="#9A1900"> * without having to load each one into the web interface.  It will</font></i>
-<i><font color="#9A1900"> * also print out traces of the entire program execution, if desired.</font></i>
-<i><font color="#9A1900"> * Run with the `-help` flag to see the full list of options.</font></i>
-<i><font color="#9A1900"> */</font></i>
+<body style="background-color:white">
+<pre><i><span style="color:#9A1900">/* A program that will simulate an IBCM program, and it has a number</span></i>
+<i><span style="color:#9A1900"> * of command line switches that control its execution.  This program</span></i>
+<i><span style="color:#9A1900"> * is useful for automating the execution of a number of IBCM programs</span></i>
+<i><span style="color:#9A1900"> * without having to load each one into the web interface.  It will</span></i>
+<i><span style="color:#9A1900"> * also print out traces of the entire program execution, if desired.</span></i>
+<i><span style="color:#9A1900"> * Run with the `-help` flag to see the full list of options.</span></i>
+<i><span style="color:#9A1900"> */</span></i>
 
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;fstream&gt;</font>
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;string&gt;</font>
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;string.h&gt;</font>
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdlib.h&gt;</font>
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;assert.h&gt;</font>
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdio.h&gt;</font>
+<b><span style="color:#000080">#ifndef</span></b> IS_LITTLE_ENDIAN
+<b><span style="color:#000080">#ifndef</span></b> IS_BIG_ENDIAN
+<b><span style="color:#000080">#error</span></b> Must <span style="color:#008080">define</span> IS_LITTLE_ENDIAN <span style="color:#008080">or</span> IS_BIG_ENDIAN <span style="color:#008080">via</span> the `<span style="color:#990000">-</span>D` flag to the compiler
+<b><span style="color:#000080">#define</span></b> IS_LITTLE_ENDIAN
+<b><span style="color:#000080">#endif</span></b>
+<b><span style="color:#000080">#endif</span></b>
 
-<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;iostream&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;fstream&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;string&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;string.h&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;stdlib.h&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;assert.h&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;stdio.h&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;stdint.h&gt;</span>
 
-<font color="#009900">int</font> compState <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
-<font color="#009900">int</font> simState <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
-<font color="#009900">int</font> printState <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
-<font color="#009900">int</font> printStats <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
-<font color="#009900">int</font> dumpState <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
-<font color="#009900">int</font> verbose <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
-<font color="#009900">unsigned</font> <font color="#009900">int</font> numinst <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
-<font color="#009900">int</font> printTicks <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
-<font color="#009900">unsigned</font> <font color="#009900">int</font> maxticks <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
-<font color="#008080">string</font> outputFile <font color="#990000">=</font> <font color="#FF0000">"ibcm.bin"</font><font color="#990000">;</font>
-<font color="#008080">string</font> inputFile<font color="#990000">;</font>
-<font color="#009900">unsigned</font> <font color="#009900">short</font> mem<font color="#990000">[</font><font color="#993399">4096</font><font color="#990000">];</font> <i><font color="#9A1900">// TODO: this should be made to work on systems where shorts are not 16 bits long</font></i>
+<b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
-<font color="#009900">void</font> <b><font color="#000000">printHelp</font></b><font color="#990000">(</font><font color="#009900">char</font> <font color="#990000">*</font>name<font color="#990000">);</font>
-<font color="#009900">void</font> <b><font color="#000000">checkEndian</font></b><font color="#990000">(</font><font color="#009900">void</font><font color="#990000">);</font>
-<font color="#009900">void</font> <b><font color="#000000">compileCode</font></b> <font color="#990000">(</font><font color="#008080">string</font> infilename<font color="#990000">,</font> <font color="#008080">string</font> outfilename<font color="#990000">);</font>
-<font color="#009900">void</font> <b><font color="#000000">simulateIBCM</font></b> <font color="#990000">();</font>
-<font color="#009900">void</font> <b><font color="#000000">readBinaryIBCMFile</font></b> <font color="#990000">(</font><font color="#008080">string</font> infilename<font color="#990000">);</font>
-<font color="#009900">void</font> <b><font color="#000000">dumpIBCMFile</font></b> <font color="#990000">();</font>
-<font color="#009900">char</font><font color="#990000">*</font> <b><font color="#000000">decodeIBCMInstruction</font></b><font color="#990000">(</font><font color="#009900">unsigned</font> <font color="#009900">short</font> inst<font color="#990000">);</font>
+<span style="color:#009900">int</span> compState <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+<span style="color:#009900">int</span> simState <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+<span style="color:#009900">int</span> printState <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+<span style="color:#009900">int</span> printStats <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+<span style="color:#009900">int</span> dumpState <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+<span style="color:#009900">int</span> verbose <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+<span style="color:#009900">unsigned</span> <span style="color:#009900">int</span> numinst <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+<span style="color:#009900">int</span> printTicks <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+<span style="color:#009900">unsigned</span> <span style="color:#009900">int</span> maxticks <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+<span style="color:#008080">string</span> outputFile <span style="color:#990000">=</span> <span style="color:#FF0000">"ibcm.bin"</span><span style="color:#990000">;</span>
+<span style="color:#008080">string</span> inputFile<span style="color:#990000">;</span>
+<span style="color:#008080">uint16_t</span> mem<span style="color:#990000">[</span><span style="color:#993399">4096</span><span style="color:#990000">];</span>
 
-<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">(</font><font color="#009900">int</font> argc<font color="#990000">,</font> <font color="#009900">char</font> <font color="#990000">*</font>argv<font color="#990000">[])</font> <font color="#FF0000">{</font>
-    <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font>
-    <b><font color="#000000">checkEndian</font></b><font color="#990000">();</font>
-    <b><font color="#000000">assert</font></b> <font color="#990000">(</font><b><font color="#0000FF">sizeof</font></b><font color="#990000">(</font><font color="#009900">short</font><font color="#990000">)</font> <font color="#990000">==</font> <font color="#993399">2</font><font color="#990000">);</font>
-    ios<font color="#990000">::</font><b><font color="#000000">sync_with_stdio</font></b><font color="#990000">();</font> <i><font color="#9A1900">// Synchronize C++ and C I/O subsystems!</font></i>
-    <b><font color="#0000FF">while</font></b> <font color="#990000">(</font>i <font color="#990000">&lt;</font> argc<font color="#990000">)</font> <font color="#FF0000">{</font>
-        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font><b><font color="#000000">strcmp</font></b><font color="#990000">(</font>argv<font color="#990000">[</font>i<font color="#990000">],</font> <font color="#FF0000">"-comp"</font><font color="#990000">)==</font><font color="#993399">0</font><font color="#990000">)</font> <font color="#FF0000">{</font>
-            compState<font color="#990000">=</font><font color="#993399">1</font><font color="#990000">;</font>
-            inputFile<font color="#990000">=</font>argv<font color="#990000">[</font>i<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">];</font> <i><font color="#9A1900">// TODO: check that this doesn't go past the array bounds</font></i>
-        <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font><b><font color="#000000">strcmp</font></b><font color="#990000">(</font>argv<font color="#990000">[</font>i<font color="#990000">],</font> <font color="#FF0000">"-sim"</font><font color="#990000">)==</font><font color="#993399">0</font><font color="#990000">)</font> <font color="#FF0000">{</font>
-            simState<font color="#990000">=</font><font color="#993399">1</font><font color="#990000">;</font>
-            inputFile<font color="#990000">=</font>argv<font color="#990000">[</font>i<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">];</font> <i><font color="#9A1900">// TODO: check that this doesn't go past the array bounds</font></i>
-        <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font><b><font color="#000000">strcmp</font></b><font color="#990000">(</font>argv<font color="#990000">[</font>i<font color="#990000">],</font> <font color="#FF0000">"-dump"</font><font color="#990000">)==</font><font color="#993399">0</font><font color="#990000">)</font> <font color="#FF0000">{</font>
-            dumpState<font color="#990000">=</font><font color="#993399">1</font><font color="#990000">;</font>
-            inputFile<font color="#990000">=</font>argv<font color="#990000">[</font>i<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">];</font> <i><font color="#9A1900">// TODO: check that this doesn't go past the array bounds</font></i>
-        <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font><b><font color="#000000">strcmp</font></b><font color="#990000">(</font>argv<font color="#990000">[</font>i<font color="#990000">],</font> <font color="#FF0000">"-o"</font><font color="#990000">)==</font><font color="#993399">0</font><font color="#990000">)</font> <font color="#FF0000">{</font>
-            outputFile<font color="#990000">=</font>argv<font color="#990000">[</font>i<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">];</font> <i><font color="#9A1900">// TODO: check that this doesn't go past the array bounds</font></i>
-            i<font color="#990000">++;</font>
-        <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font><b><font color="#000000">strcmp</font></b><font color="#990000">(</font>argv<font color="#990000">[</font>i<font color="#990000">],</font> <font color="#FF0000">"-verbose"</font><font color="#990000">)==</font><font color="#993399">0</font><font color="#990000">)</font> <font color="#FF0000">{</font>
-            verbose<font color="#990000">++;</font>
-        <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font><b><font color="#000000">strcmp</font></b><font color="#990000">(</font>argv<font color="#990000">[</font>i<font color="#990000">],</font> <font color="#FF0000">"-help"</font><font color="#990000">)==</font><font color="#993399">0</font><font color="#990000">)</font> <font color="#FF0000">{</font>
-            <b><font color="#000000">printHelp</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]);</font>
-        <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font><b><font color="#000000">strcmp</font></b><font color="#990000">(</font>argv<font color="#990000">[</font>i<font color="#990000">],</font> <font color="#FF0000">"-print"</font><font color="#990000">)==</font><font color="#993399">0</font><font color="#990000">)</font> <font color="#FF0000">{</font>
-            printState <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font>
-        <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font><b><font color="#000000">strcmp</font></b><font color="#990000">(</font>argv<font color="#990000">[</font>i<font color="#990000">],</font> <font color="#FF0000">"-stats"</font><font color="#990000">)==</font><font color="#993399">0</font><font color="#990000">)</font> <font color="#FF0000">{</font>
-            printStats <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font>
-        <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font><b><font color="#000000">strcmp</font></b><font color="#990000">(</font>argv<font color="#990000">[</font>i<font color="#990000">],</font> <font color="#FF0000">"-maxticks"</font><font color="#990000">)==</font><font color="#993399">0</font><font color="#990000">)</font> <font color="#FF0000">{</font>
-            maxticks <font color="#990000">=</font> <b><font color="#000000">atoi</font></b><font color="#990000">(</font>argv<font color="#990000">[++</font>i<font color="#990000">]);</font> <i><font color="#9A1900">// TODO: check the format of the int</font></i>
-        <font color="#FF0000">}</font>
-        i<font color="#990000">++;</font>
-    <font color="#FF0000">}</font>
-    <i><font color="#9A1900">//Check for proper combination of params</font></i>
-    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>simState<font color="#990000">==</font><font color="#993399">0</font> <font color="#990000">&amp;&amp;</font> compState<font color="#990000">==</font><font color="#993399">0</font> <font color="#990000">&amp;&amp;</font> inputFile<font color="#990000">==</font><font color="#FF0000">""</font><font color="#990000">)</font> <font color="#FF0000">{</font>
-        <i><font color="#9A1900">//cerr &lt;&lt; "No option specified..." &lt;&lt; endl;</font></i>
-        <b><font color="#000000">printHelp</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]);</font>
-        <b><font color="#0000FF">return</font></b> <font color="#993399">1</font><font color="#990000">;</font>
-    <font color="#FF0000">}</font>
-    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> compState <font color="#990000">)</font>
-        <b><font color="#000000">compileCode</font></b> <font color="#990000">(</font>inputFile<font color="#990000">,</font> outputFile<font color="#990000">);</font>
-    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> simState <font color="#990000">)</font> <font color="#FF0000">{</font>
-        <b><font color="#000000">readBinaryIBCMFile</font></b> <font color="#990000">(</font>inputFile<font color="#990000">);</font>
-        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> printState <font color="#990000">)</font> <font color="#FF0000">{</font>
-            <b><font color="#000000">dumpIBCMFile</font></b> <font color="#990000">();</font>
-            cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-        <font color="#FF0000">}</font>
-        <b><font color="#000000">simulateIBCM</font></b><font color="#990000">();</font>
-        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> printStats <font color="#990000">)</font>
-            cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Total of "</font> <font color="#990000">&lt;&lt;</font> numinst <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" instructions executed."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> printState <font color="#990000">)</font> <font color="#FF0000">{</font>
-            cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-            <b><font color="#000000">dumpIBCMFile</font></b> <font color="#990000">();</font>
-        <font color="#FF0000">}</font>
-    <font color="#FF0000">}</font>
-    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> dumpState <font color="#990000">)</font> <font color="#FF0000">{</font>
-        <b><font color="#000000">readBinaryIBCMFile</font></b> <font color="#990000">(</font>inputFile<font color="#990000">);</font>
-        <b><font color="#000000">dumpIBCMFile</font></b> <font color="#990000">();</font>
-    <font color="#FF0000">}</font>
-    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
-<font color="#FF0000">}</font>
+<span style="color:#009900">void</span> <b><span style="color:#000000">printHelp</span></b><span style="color:#990000">(</span><span style="color:#009900">char</span> <span style="color:#990000">*</span>name<span style="color:#990000">);</span>
+<span style="color:#009900">void</span> <b><span style="color:#000000">checkEndian</span></b><span style="color:#990000">(</span><span style="color:#009900">void</span><span style="color:#990000">);</span>
+<span style="color:#009900">void</span> <b><span style="color:#000000">compileCode</span></b> <span style="color:#990000">(</span><span style="color:#008080">string</span> infilename<span style="color:#990000">,</span> <span style="color:#008080">string</span> outfilename<span style="color:#990000">);</span>
+<span style="color:#009900">void</span> <b><span style="color:#000000">simulateIBCM</span></b> <span style="color:#990000">();</span>
+<span style="color:#009900">void</span> <b><span style="color:#000000">readBinaryIBCMFile</span></b> <span style="color:#990000">(</span><span style="color:#008080">string</span> infilename<span style="color:#990000">);</span>
+<span style="color:#009900">void</span> <b><span style="color:#000000">dumpIBCMFile</span></b> <span style="color:#990000">();</span>
+<span style="color:#009900">char</span><span style="color:#990000">*</span> <b><span style="color:#000000">decodeIBCMInstruction</span></b><span style="color:#990000">(</span><span style="color:#008080">uint16_t</span> inst<span style="color:#990000">);</span>
 
-<font color="#009900">void</font> <b><font color="#000000">printHelp</font></b><font color="#990000">(</font><font color="#009900">char</font> <font color="#990000">*</font>name<font color="#990000">)</font> <font color="#FF0000">{</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Usage: "</font> <font color="#990000">&lt;&lt;</font> name <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" [option] ..."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Options:"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">[-comp &lt;inputfile&gt;]</font><font color="#CC33CC">\t</font><font color="#FF0000">Signals the program to compile the IBCM file speicfied by &lt;inputfile&gt;"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">[-sim &lt;inputfile&gt;]</font><font color="#CC33CC">\t</font><font color="#FF0000">Signals the program to simulate the IBCM program specified by &lt;inputfile&gt;"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">[-o &lt;outfile&gt;]</font><font color="#CC33CC">\t\t</font><font color="#FF0000">Specify the name of the outfile produced by compiling &lt;inputfile&gt;"</font> <font color="#990000">&lt;&lt;</font> endl
-         <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t\t\t\t</font><font color="#FF0000">The defaut value for &lt;outfile&gt; is </font><font color="#CC33CC">\"</font><font color="#FF0000">ibcm.bin.</font><font color="#CC33CC">\"</font><font color="#FF0000">"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">[-verbose]</font><font color="#CC33CC">\t\t</font><font color="#FF0000">Prints useful debugging information while compiling and emulating"</font> <font color="#990000">&lt;&lt;</font> endl
-         <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t\t\t\t</font><font color="#FF0000">he specified IBCM program."</font><font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" Specify twice for more output."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">[-dump &lt;inputfile&gt;]</font><font color="#CC33CC">\t</font><font color="#FF0000">Outputs a binary IBCM file in text format."</font><font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" Also specify -verbose for decompilation."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">[-print]</font><font color="#CC33CC">\t\t</font><font color="#FF0000">Prints a listing of the program before and after the simulation."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">[-maxticks &lt;n&gt;]</font><font color="#CC33CC">\t\t</font><font color="#FF0000">Set the maximum number of ticks."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">[-stats]</font><font color="#CC33CC">\t\t</font><font color="#FF0000">Prints stats of the executed program, including the number of ticks."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-<font color="#FF0000">}</font>
+<span style="color:#009900">int</span> <b><span style="color:#000000">main</span></b><span style="color:#990000">(</span><span style="color:#009900">int</span> argc<span style="color:#990000">,</span> <span style="color:#009900">char</span> <span style="color:#990000">*</span>argv<span style="color:#990000">[])</span> <span style="color:#FF0000">{</span>
+    <span style="color:#009900">int</span> i <span style="color:#990000">=</span> <span style="color:#993399">1</span><span style="color:#990000">;</span>
+    <b><span style="color:#000000">checkEndian</span></b><span style="color:#990000">();</span>
+    <b><span style="color:#000000">assert</span></b> <span style="color:#990000">(</span><b><span style="color:#0000FF">sizeof</span></b><span style="color:#990000">(</span><span style="color:#009900">short</span><span style="color:#990000">)</span> <span style="color:#990000">==</span> <span style="color:#993399">2</span><span style="color:#990000">);</span>
+    ios<span style="color:#990000">::</span><b><span style="color:#000000">sync_with_stdio</span></b><span style="color:#990000">();</span> <i><span style="color:#9A1900">// Synchronize C++ and C I/O subsystems!</span></i>
+    <b><span style="color:#0000FF">while</span></b> <span style="color:#990000">(</span>i <span style="color:#990000">&lt;</span> argc<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span><b><span style="color:#000000">strcmp</span></b><span style="color:#990000">(</span>argv<span style="color:#990000">[</span>i<span style="color:#990000">],</span> <span style="color:#FF0000">"-comp"</span><span style="color:#990000">)==</span><span style="color:#993399">0</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            compState<span style="color:#990000">=</span><span style="color:#993399">1</span><span style="color:#990000">;</span>
+            inputFile<span style="color:#990000">=</span>argv<span style="color:#990000">[</span>i<span style="color:#990000">+</span><span style="color:#993399">1</span><span style="color:#990000">];</span> <i><span style="color:#9A1900">// TODO: check that this doesn't go past the array bounds</span></i>
+        <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span><b><span style="color:#000000">strcmp</span></b><span style="color:#990000">(</span>argv<span style="color:#990000">[</span>i<span style="color:#990000">],</span> <span style="color:#FF0000">"-sim"</span><span style="color:#990000">)==</span><span style="color:#993399">0</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            simState<span style="color:#990000">=</span><span style="color:#993399">1</span><span style="color:#990000">;</span>
+            inputFile<span style="color:#990000">=</span>argv<span style="color:#990000">[</span>i<span style="color:#990000">+</span><span style="color:#993399">1</span><span style="color:#990000">];</span> <i><span style="color:#9A1900">// TODO: check that this doesn't go past the array bounds</span></i>
+        <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span><b><span style="color:#000000">strcmp</span></b><span style="color:#990000">(</span>argv<span style="color:#990000">[</span>i<span style="color:#990000">],</span> <span style="color:#FF0000">"-dump"</span><span style="color:#990000">)==</span><span style="color:#993399">0</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            dumpState<span style="color:#990000">=</span><span style="color:#993399">1</span><span style="color:#990000">;</span>
+            inputFile<span style="color:#990000">=</span>argv<span style="color:#990000">[</span>i<span style="color:#990000">+</span><span style="color:#993399">1</span><span style="color:#990000">];</span> <i><span style="color:#9A1900">// TODO: check that this doesn't go past the array bounds</span></i>
+        <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span><b><span style="color:#000000">strcmp</span></b><span style="color:#990000">(</span>argv<span style="color:#990000">[</span>i<span style="color:#990000">],</span> <span style="color:#FF0000">"-o"</span><span style="color:#990000">)==</span><span style="color:#993399">0</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            outputFile<span style="color:#990000">=</span>argv<span style="color:#990000">[</span>i<span style="color:#990000">+</span><span style="color:#993399">1</span><span style="color:#990000">];</span> <i><span style="color:#9A1900">// TODO: check that this doesn't go past the array bounds</span></i>
+            i<span style="color:#990000">++;</span>
+        <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span><b><span style="color:#000000">strcmp</span></b><span style="color:#990000">(</span>argv<span style="color:#990000">[</span>i<span style="color:#990000">],</span> <span style="color:#FF0000">"-verbose"</span><span style="color:#990000">)==</span><span style="color:#993399">0</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            verbose<span style="color:#990000">++;</span>
+        <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span><b><span style="color:#000000">strcmp</span></b><span style="color:#990000">(</span>argv<span style="color:#990000">[</span>i<span style="color:#990000">],</span> <span style="color:#FF0000">"-help"</span><span style="color:#990000">)==</span><span style="color:#993399">0</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            <b><span style="color:#000000">printHelp</span></b><span style="color:#990000">(</span>argv<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]);</span>
+        <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span><b><span style="color:#000000">strcmp</span></b><span style="color:#990000">(</span>argv<span style="color:#990000">[</span>i<span style="color:#990000">],</span> <span style="color:#FF0000">"-print"</span><span style="color:#990000">)==</span><span style="color:#993399">0</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            printState <span style="color:#990000">=</span> <span style="color:#993399">1</span><span style="color:#990000">;</span>
+        <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span><b><span style="color:#000000">strcmp</span></b><span style="color:#990000">(</span>argv<span style="color:#990000">[</span>i<span style="color:#990000">],</span> <span style="color:#FF0000">"-stats"</span><span style="color:#990000">)==</span><span style="color:#993399">0</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            printStats <span style="color:#990000">=</span> <span style="color:#993399">1</span><span style="color:#990000">;</span>
+        <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span><b><span style="color:#000000">strcmp</span></b><span style="color:#990000">(</span>argv<span style="color:#990000">[</span>i<span style="color:#990000">],</span> <span style="color:#FF0000">"-maxticks"</span><span style="color:#990000">)==</span><span style="color:#993399">0</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            maxticks <span style="color:#990000">=</span> <b><span style="color:#000000">atoi</span></b><span style="color:#990000">(</span>argv<span style="color:#990000">[++</span>i<span style="color:#990000">]);</span> <i><span style="color:#9A1900">// TODO: check the format of the int</span></i>
+        <span style="color:#FF0000">}</span>
+        i<span style="color:#990000">++;</span>
+    <span style="color:#FF0000">}</span>
+    <i><span style="color:#9A1900">//Check for proper combination of params</span></i>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>simState<span style="color:#990000">==</span><span style="color:#993399">0</span> <span style="color:#990000">&amp;&amp;</span> compState<span style="color:#990000">==</span><span style="color:#993399">0</span> <span style="color:#990000">&amp;&amp;</span> inputFile<span style="color:#990000">==</span><span style="color:#FF0000">""</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        <i><span style="color:#9A1900">//cerr &lt;&lt; "No option specified..." &lt;&lt; endl;</span></i>
+        <b><span style="color:#000000">printHelp</span></b><span style="color:#990000">(</span>argv<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]);</span>
+        <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">1</span><span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> compState <span style="color:#990000">)</span>
+        <b><span style="color:#000000">compileCode</span></b> <span style="color:#990000">(</span>inputFile<span style="color:#990000">,</span> outputFile<span style="color:#990000">);</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> simState <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        <b><span style="color:#000000">readBinaryIBCMFile</span></b> <span style="color:#990000">(</span>inputFile<span style="color:#990000">);</span>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> printState <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            <b><span style="color:#000000">dumpIBCMFile</span></b> <span style="color:#990000">();</span>
+            cout <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+        <span style="color:#FF0000">}</span>
+        <b><span style="color:#000000">simulateIBCM</span></b><span style="color:#990000">();</span>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> printStats <span style="color:#990000">)</span>
+            cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Total of "</span> <span style="color:#990000">&lt;&lt;</span> numinst <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" instructions executed."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> printState <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            cout <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+            <b><span style="color:#000000">dumpIBCMFile</span></b> <span style="color:#990000">();</span>
+        <span style="color:#FF0000">}</span>
+    <span style="color:#FF0000">}</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> dumpState <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        <b><span style="color:#000000">readBinaryIBCMFile</span></b> <span style="color:#990000">(</span>inputFile<span style="color:#990000">);</span>
+        <b><span style="color:#000000">dumpIBCMFile</span></b> <span style="color:#990000">();</span>
+    <span style="color:#FF0000">}</span>
+    <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
 
-<font color="#009900">void</font> <b><font color="#000000">checkEndian</font></b><font color="#990000">(</font><font color="#009900">void</font><font color="#990000">)</font> <font color="#FF0000">{</font>
-    <b><font color="#0000FF">static</font></b> <font color="#009900">int</font> firsttime <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font>
-    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>firsttime<font color="#990000">)</font> <font color="#FF0000">{</font>
-        <b><font color="#0000FF">union</font></b> <font color="#FF0000">{</font>
-            <font color="#009900">char</font> charword<font color="#990000">[</font><font color="#993399">4</font><font color="#990000">];</font>
-            <font color="#009900">unsigned</font> <font color="#009900">int</font> intword<font color="#990000">;</font>
-        <font color="#FF0000">}</font> check<font color="#990000">;</font>
-        check<font color="#990000">.</font>charword<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font>
-        check<font color="#990000">.</font>charword<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">]</font> <font color="#990000">=</font> <font color="#993399">2</font><font color="#990000">;</font>
-        check<font color="#990000">.</font>charword<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">]</font> <font color="#990000">=</font> <font color="#993399">3</font><font color="#990000">;</font>
-        check<font color="#990000">.</font>charword<font color="#990000">[</font><font color="#993399">3</font><font color="#990000">]</font> <font color="#990000">=</font> <font color="#993399">4</font><font color="#990000">;</font>
-<b><font color="#000080">#ifdef</font></b> IS_BIG_ENDIAN
-        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>check<font color="#990000">.</font>intword <font color="#990000">!=</font> <font color="#993399">0x01020304</font><font color="#990000">)</font> <font color="#FF0000">{</font>  <i><font color="#9A1900">/* big */</font></i>
-            cerr <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"ERROR: Host machine is not Big Endian.</font><font color="#CC33CC">\n</font><font color="#FF0000">Exiting."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-            <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">205</font><font color="#990000">);</font>
-        <font color="#FF0000">}</font>
-<b><font color="#000080">#else</font></b>
-<b><font color="#000080">#ifdef</font></b> IS_LITTLE_ENDIAN
-        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>check<font color="#990000">.</font>intword <font color="#990000">!=</font> <font color="#993399">0x04030201</font><font color="#990000">)</font> <font color="#FF0000">{</font>  <i><font color="#9A1900">/* little */</font></i>
-            cerr <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"ERROR: Host machine is not Little Endian.</font><font color="#CC33CC">\n</font><font color="#FF0000">Exiting."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-            <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">206</font><font color="#990000">);</font>
-        <font color="#FF0000">}</font>
-<b><font color="#000080">#else</font></b>
-<b><font color="#000080">#error</font></b> ERROR<font color="#990000">:</font> must define <font color="#008080">either</font> IS_LITTLE_ENDIAN <font color="#008080">or</font> IS_BIG_ENDIAN
-<b><font color="#000080">#endif</font></b> <i><font color="#9A1900">// IS_LITTLE_ENDIAN</font></i>
-<b><font color="#000080">#endif</font></b> <i><font color="#9A1900">// IS_BIG_ENDIAN</font></i>
-        firsttime <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
-    <font color="#FF0000">}</font>
-<font color="#FF0000">}</font>
+<span style="color:#009900">void</span> <b><span style="color:#000000">printHelp</span></b><span style="color:#990000">(</span><span style="color:#009900">char</span> <span style="color:#990000">*</span>name<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">static</span></b> <span style="color:#009900">bool</span> helpPrinted<span style="color:#990000">;</span> <i><span style="color:#9A1900">// Static values are initialized to 0 or 0-equivalent</span></i>
+    <b><span style="color:#0000FF">if</span></b><span style="color:#990000">(</span>helpPrinted<span style="color:#990000">)</span> <b><span style="color:#0000FF">return</span></b><span style="color:#990000">;</span>
 
-<font color="#009900">bool</font> <b><font color="#000000">ishexdigit</font></b> <font color="#990000">(</font><font color="#009900">int</font> c<font color="#990000">)</font> <font color="#FF0000">{</font>
-    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <b><font color="#000000">isdigit</font></b><font color="#990000">(</font>c<font color="#990000">)</font> <font color="#990000">)</font>
-        <b><font color="#0000FF">return</font></b> <b><font color="#0000FF">true</font></b><font color="#990000">;</font>
-    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>c <font color="#990000">&gt;=</font> <font color="#FF0000">'a'</font><font color="#990000">)</font> <font color="#990000">&amp;&amp;</font> <font color="#990000">(</font>c <font color="#990000">&lt;=</font> <font color="#FF0000">'f'</font><font color="#990000">)</font> <font color="#990000">)</font>
-        <b><font color="#0000FF">return</font></b> <b><font color="#0000FF">true</font></b><font color="#990000">;</font>
-    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>c <font color="#990000">&gt;=</font> <font color="#FF0000">'A'</font><font color="#990000">)</font> <font color="#990000">&amp;&amp;</font> <font color="#990000">(</font>c <font color="#990000">&lt;=</font> <font color="#FF0000">'F'</font><font color="#990000">)</font> <font color="#990000">)</font>
-        <b><font color="#0000FF">return</font></b> <b><font color="#0000FF">true</font></b><font color="#990000">;</font>
-    <b><font color="#0000FF">return</font></b> <b><font color="#0000FF">false</font></b><font color="#990000">;</font>
-<font color="#FF0000">}</font>
+    helpPrinted <span style="color:#990000">=</span> <b><span style="color:#0000FF">true</span></b><span style="color:#990000">;</span>
 
-<font color="#009900">void</font> <b><font color="#000000">dumpIBCMFile</font></b> <font color="#990000">()</font> <font color="#FF0000">{</font>
-    <i><font color="#9A1900">// find last command to not print</font></i>
-    <font color="#009900">int</font> end<font color="#990000">;</font>
-    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> end <font color="#990000">=</font> <font color="#993399">4095</font><font color="#990000">;</font> end <font color="#990000">&gt;=</font> <font color="#993399">0</font><font color="#990000">;</font> end<font color="#990000">--</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
-        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> mem<font color="#990000">[</font>end<font color="#990000">]</font> <font color="#990000">!=</font> <font color="#993399">0</font> <font color="#990000">)</font>
-            <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-    <font color="#FF0000">}</font>
-    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;=</font> end<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
-        <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"%.4x</font><font color="#CC33CC">\t</font><font color="#FF0000">pc = %.4x</font><font color="#CC33CC">\t</font><font color="#FF0000">%s</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> mem<font color="#990000">[</font>i<font color="#990000">],</font> i<font color="#990000">,</font>
-                <b><font color="#000000">decodeIBCMInstruction</font></b><font color="#990000">(</font>mem<font color="#990000">[</font>i<font color="#990000">]));</font>
-    <font color="#FF0000">}</font>
-<font color="#FF0000">}</font>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Usage: "</span> <span style="color:#990000">&lt;&lt;</span> name <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" [option] ..."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Options:"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">[-comp &lt;inputfile&gt;]</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Signals the program to compile the IBCM file speicfied by &lt;inputfile&gt;"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">[-sim &lt;inputfile&gt;]</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Signals the program to simulate the IBCM program specified by &lt;inputfile&gt;"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">[-o &lt;outfile&gt;]</span><span style="color:#CC33CC">\t\t</span><span style="color:#FF0000">Specify the name of the outfile produced by compiling &lt;inputfile&gt;"</span> <span style="color:#990000">&lt;&lt;</span> endl
+         <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t\t\t\t</span><span style="color:#FF0000">The defaut value for &lt;outfile&gt; is </span><span style="color:#CC33CC">\"</span><span style="color:#FF0000">ibcm.bin.</span><span style="color:#CC33CC">\"</span><span style="color:#FF0000">"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">[-verbose]</span><span style="color:#CC33CC">\t\t</span><span style="color:#FF0000">Prints useful debugging information while compiling and emulating"</span> <span style="color:#990000">&lt;&lt;</span> endl
+         <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t\t\t\t</span><span style="color:#FF0000">he specified IBCM program."</span><span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" Specify twice for more output."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">[-dump &lt;inputfile&gt;]</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Outputs a binary IBCM file in text format."</span><span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" Also specify -verbose for decompilation."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">[-print]</span><span style="color:#CC33CC">\t\t</span><span style="color:#FF0000">Prints a listing of the program before and after the simulation."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">[-maxticks &lt;n&gt;]</span><span style="color:#CC33CC">\t\t</span><span style="color:#FF0000">Set the maximum number of ticks."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">[-stats]</span><span style="color:#CC33CC">\t\t</span><span style="color:#FF0000">Prints stats of the executed program, including the number of ticks."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">[-help]</span><span style="color:#CC33CC">\t\t\t</span><span style="color:#FF0000">Prints this help message."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
 
+<span style="color:#009900">void</span> <b><span style="color:#000000">checkEndian</span></b><span style="color:#990000">(</span><span style="color:#009900">void</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">static</span></b> <span style="color:#009900">int</span> firsttime <span style="color:#990000">=</span> <span style="color:#993399">1</span><span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>firsttime<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        <b><span style="color:#0000FF">union</span></b> <span style="color:#FF0000">{</span>
+            <span style="color:#009900">char</span> charword<span style="color:#990000">[</span><span style="color:#993399">4</span><span style="color:#990000">];</span>
+            <span style="color:#009900">unsigned</span> <span style="color:#009900">int</span> intword<span style="color:#990000">;</span>
+        <span style="color:#FF0000">}</span> check<span style="color:#990000">;</span>
+        check<span style="color:#990000">.</span>charword<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">=</span> <span style="color:#993399">1</span><span style="color:#990000">;</span>
+        check<span style="color:#990000">.</span>charword<span style="color:#990000">[</span><span style="color:#993399">1</span><span style="color:#990000">]</span> <span style="color:#990000">=</span> <span style="color:#993399">2</span><span style="color:#990000">;</span>
+        check<span style="color:#990000">.</span>charword<span style="color:#990000">[</span><span style="color:#993399">2</span><span style="color:#990000">]</span> <span style="color:#990000">=</span> <span style="color:#993399">3</span><span style="color:#990000">;</span>
+        check<span style="color:#990000">.</span>charword<span style="color:#990000">[</span><span style="color:#993399">3</span><span style="color:#990000">]</span> <span style="color:#990000">=</span> <span style="color:#993399">4</span><span style="color:#990000">;</span>
+<b><span style="color:#000080">#ifdef</span></b> IS_BIG_ENDIAN
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>check<span style="color:#990000">.</span>intword <span style="color:#990000">!=</span> <span style="color:#993399">0x01020304</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>  <i><span style="color:#9A1900">/* big */</span></i>
+            cerr <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"ERROR: Host machine is not Big Endian.</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">Exiting."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+            <b><span style="color:#000000">exit</span></b><span style="color:#990000">(</span><span style="color:#993399">205</span><span style="color:#990000">);</span>
+        <span style="color:#FF0000">}</span>
+<b><span style="color:#000080">#else</span></b>
+<b><span style="color:#000080">#ifdef</span></b> IS_LITTLE_ENDIAN
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>check<span style="color:#990000">.</span>intword <span style="color:#990000">!=</span> <span style="color:#993399">0x04030201</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>  <i><span style="color:#9A1900">/* little */</span></i>
+            cerr <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"ERROR: Host machine is not Little Endian.</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">Exiting."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+            <b><span style="color:#000000">exit</span></b><span style="color:#990000">(</span><span style="color:#993399">206</span><span style="color:#990000">);</span>
+        <span style="color:#FF0000">}</span>
+<b><span style="color:#000080">#else</span></b>
+<b><span style="color:#000080">#error</span></b> ERROR<span style="color:#990000">:</span> must define <span style="color:#008080">either</span> IS_LITTLE_ENDIAN <span style="color:#008080">or</span> IS_BIG_ENDIAN
+<b><span style="color:#000080">#endif</span></b> <i><span style="color:#9A1900">// IS_LITTLE_ENDIAN</span></i>
+<b><span style="color:#000080">#endif</span></b> <i><span style="color:#9A1900">// IS_BIG_ENDIAN</span></i>
+        firsttime <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
+<span style="color:#FF0000">}</span>
 
-<font color="#009900">void</font> <b><font color="#000000">compileCode</font></b> <font color="#990000">(</font><font color="#008080">string</font> infilename<font color="#990000">,</font> <font color="#008080">string</font> outfilename<font color="#990000">)</font> <font color="#FF0000">{</font>
-    <font color="#008080">string</font> line<font color="#990000">;</font>
-    <font color="#009900">int</font> linenum <font color="#990000">=</font> <font color="#990000">-</font><font color="#993399">1</font><font color="#990000">,</font> outputlines <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
-    <i><font color="#9A1900">// open input file</font></i>
-    <font color="#008080">ifstream</font> <b><font color="#000000">infile</font></b><font color="#990000">(</font>infilename<font color="#990000">.</font><b><font color="#000000">c_str</font></b><font color="#990000">());</font>
-    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">!</font>infile<font color="#990000">.</font><b><font color="#000000">is_open</font></b><font color="#990000">()</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
-        cerr <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Error: unable to open input file."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-        <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">200</font><font color="#990000">);</font>
-    <font color="#FF0000">}</font>
-    <i><font color="#9A1900">// open output file</font></i>
-    <font color="#008080">ofstream</font> <b><font color="#000000">outfile</font></b><font color="#990000">(</font>outfilename<font color="#990000">.</font><b><font color="#000000">c_str</font></b><font color="#990000">());</font>
-    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">!</font>outfile<font color="#990000">.</font><b><font color="#000000">is_open</font></b><font color="#990000">()</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
-        cerr <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Error: unable to open output file."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-        <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">201</font><font color="#990000">);</font>
-    <font color="#FF0000">}</font>
-    <i><font color="#9A1900">// read input file, write to output file</font></i>
-    <b><font color="#0000FF">while</font></b> <font color="#990000">(!</font>infile<font color="#990000">.</font><b><font color="#000000">eof</font></b><font color="#990000">())</font> <font color="#FF0000">{</font>
-        linenum<font color="#990000">++;</font>
-        <b><font color="#000000">getline</font></b> <font color="#990000">(</font>infile<font color="#990000">,</font>line<font color="#990000">);</font>
-        <i><font color="#9A1900">// skip blank lines</font></i>
-        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> line<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">()</font> <font color="#990000">==</font> <font color="#993399">0</font> <font color="#990000">)</font>
-            <b><font color="#0000FF">continue</font></b><font color="#990000">;</font>
-        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>line<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">'/'</font><font color="#990000">)</font> <font color="#990000">&amp;&amp;</font> <font color="#990000">(</font>line<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">'/'</font><font color="#990000">)</font> <font color="#990000">)</font>
-            <b><font color="#0000FF">continue</font></b><font color="#990000">;</font>
-        <i><font color="#9A1900">// sanity check</font></i>
-        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">!</font><b><font color="#000000">ishexdigit</font></b><font color="#990000">(</font>line<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">])</font> <font color="#990000">||</font> <font color="#990000">!</font><b><font color="#000000">ishexdigit</font></b><font color="#990000">(</font>line<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">])</font> <font color="#990000">||</font>
-                <font color="#990000">!</font><b><font color="#000000">ishexdigit</font></b><font color="#990000">(</font>line<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">])</font> <font color="#990000">||</font> <font color="#990000">!</font><b><font color="#000000">ishexdigit</font></b><font color="#990000">(</font>line<font color="#990000">[</font><font color="#993399">3</font><font color="#990000">])</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
-            cerr <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Error on line "</font> <font color="#990000">&lt;&lt;</font> linenum <font color="#990000">&lt;&lt;</font> <font color="#FF0000">": invalid hex digits"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-        <font color="#FF0000">}</font>
-        line<font color="#990000">[</font><font color="#993399">4</font><font color="#990000">]</font> <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
-        <font color="#009900">int</font> hex<font color="#990000">;</font>
-        <b><font color="#000000">sscanf</font></b> <font color="#990000">(</font>line<font color="#990000">.</font><b><font color="#000000">c_str</font></b><font color="#990000">(),</font> <font color="#FF0000">"%x"</font><font color="#990000">,</font> <font color="#990000">&amp;</font>hex<font color="#990000">);</font>
-<b><font color="#000080">#ifdef</font></b> IS_LITTLE_ENDIAN
-        <font color="#009900">char</font> g <font color="#990000">=</font> hex <font color="#990000">%</font> <font color="#993399">256</font><font color="#990000">;</font>
-        outfile<font color="#990000">.</font><b><font color="#000000">write</font></b><font color="#990000">(&amp;</font>g<font color="#990000">,</font><font color="#993399">1</font><font color="#990000">);</font>
-        g <font color="#990000">=</font> hex <font color="#990000">/</font> <font color="#993399">256</font><font color="#990000">;</font>
-        outfile<font color="#990000">.</font><b><font color="#000000">write</font></b><font color="#990000">(&amp;</font>g<font color="#990000">,</font><font color="#993399">1</font><font color="#990000">);</font>
-<b><font color="#000080">#else</font></b>
-<b><font color="#000080">#error</font></b> Not yet working <font color="#008080">for</font> non<font color="#990000">-</font>little<font color="#990000">-</font>endian machines
-<b><font color="#000080">#endif</font></b>
-        <i><font color="#9A1900">//cout &lt;&lt; line[0] &lt;&lt; line[1] &lt;&lt; line[2] &lt;&lt; line[3] &lt;&lt; endl;</font></i>
-        outputlines<font color="#990000">++;</font>
-    <font color="#FF0000">}</font>
-    infile<font color="#990000">.</font><b><font color="#000000">close</font></b><font color="#990000">();</font>
-    <i><font color="#9A1900">// fill remaining space with 0's</font></i>
-    <b><font color="#0000FF">for</font></b> <font color="#990000">(;</font> outputlines <font color="#990000">&lt;</font> <font color="#993399">4096</font><font color="#990000">;</font> outputlines<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
-        <font color="#009900">char</font> x <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
-        <i><font color="#9A1900">//cout &lt;&lt; "0000" &lt;&lt; endl;</font></i>
-        outfile<font color="#990000">.</font><b><font color="#000000">write</font></b> <font color="#990000">(&amp;</font>x<font color="#990000">,</font><font color="#993399">1</font><font color="#990000">);</font>
-        outfile<font color="#990000">.</font><b><font color="#000000">write</font></b> <font color="#990000">(&amp;</font>x<font color="#990000">,</font><font color="#993399">1</font><font color="#990000">);</font>
-    <font color="#FF0000">}</font>
-    outfile<font color="#990000">.</font><b><font color="#000000">close</font></b><font color="#990000">();</font>
-<font color="#FF0000">}</font>
+<span style="color:#009900">bool</span> <b><span style="color:#000000">ishexdigit</span></b> <span style="color:#990000">(</span><span style="color:#009900">int</span> c<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> <b><span style="color:#000000">isdigit</span></b><span style="color:#990000">(</span>c<span style="color:#990000">)</span> <span style="color:#990000">)</span>
+        <b><span style="color:#0000FF">return</span></b> <b><span style="color:#0000FF">true</span></b><span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> <span style="color:#990000">(</span>c <span style="color:#990000">&gt;=</span> <span style="color:#FF0000">'a'</span><span style="color:#990000">)</span> <span style="color:#990000">&amp;&amp;</span> <span style="color:#990000">(</span>c <span style="color:#990000">&lt;=</span> <span style="color:#FF0000">'f'</span><span style="color:#990000">)</span> <span style="color:#990000">)</span>
+        <b><span style="color:#0000FF">return</span></b> <b><span style="color:#0000FF">true</span></b><span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> <span style="color:#990000">(</span>c <span style="color:#990000">&gt;=</span> <span style="color:#FF0000">'A'</span><span style="color:#990000">)</span> <span style="color:#990000">&amp;&amp;</span> <span style="color:#990000">(</span>c <span style="color:#990000">&lt;=</span> <span style="color:#FF0000">'F'</span><span style="color:#990000">)</span> <span style="color:#990000">)</span>
+        <b><span style="color:#0000FF">return</span></b> <b><span style="color:#0000FF">true</span></b><span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">return</span></b> <b><span style="color:#0000FF">false</span></b><span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
 
-<font color="#009900">void</font> <b><font color="#000000">readBinaryIBCMFile</font></b> <font color="#990000">(</font><font color="#008080">string</font> infilename<font color="#990000">)</font> <font color="#FF0000">{</font>
-    <font color="#009900">int</font> cmdnum <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
-    <i><font color="#9A1900">// open input file</font></i>
-    <font color="#008080">ifstream</font> <b><font color="#000000">infile</font></b><font color="#990000">(</font>infilename<font color="#990000">.</font><b><font color="#000000">c_str</font></b><font color="#990000">());</font>
-    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">!</font>infile<font color="#990000">.</font><b><font color="#000000">is_open</font></b><font color="#990000">()</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
-        cerr <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Error: unable to open input file."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-        <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">202</font><font color="#990000">);</font>
-    <font color="#FF0000">}</font>
-    <i><font color="#9A1900">// load up file into array</font></i>
-    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> <font color="#993399">4096</font><font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font>
-        mem<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
-    <font color="#009900">char</font> buf<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">];</font>
-    <b><font color="#0000FF">while</font></b> <font color="#990000">(!</font>infile<font color="#990000">.</font><b><font color="#000000">eof</font></b><font color="#990000">())</font> <font color="#FF0000">{</font>
-        infile<font color="#990000">.</font><b><font color="#000000">read</font></b><font color="#990000">(</font>buf<font color="#990000">,</font><font color="#993399">2</font><font color="#990000">);</font>
-<b><font color="#000080">#ifdef</font></b> IS_LITTLE_ENDIAN
-        mem<font color="#990000">[</font>cmdnum<font color="#990000">]</font> <font color="#990000">=</font> <font color="#990000">(</font>buf<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">]</font> <font color="#990000">&amp;</font> <font color="#993399">0x000000ff</font><font color="#990000">)</font> <font color="#990000">*</font> <font color="#993399">256</font> <font color="#990000">+</font> <font color="#990000">(</font>buf<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">&amp;</font> <font color="#993399">0x000000ff</font><font color="#990000">);</font>
-<b><font color="#000080">#else</font></b>
-<b><font color="#000080">#error</font></b> Not yet working <font color="#008080">for</font> non<font color="#990000">-</font>little<font color="#990000">-</font>endian machines
-<b><font color="#000080">#endif</font></b>
-        cmdnum<font color="#990000">++;</font>
-    <font color="#FF0000">}</font>
-    <i><font color="#9A1900">//for ( int i = 0; i &lt; 4096; i++ ) printf ("%.4x\n", mem[i] &amp; 0x0000ffff);</font></i>
-<font color="#FF0000">}</font>
+<span style="color:#009900">void</span> <b><span style="color:#000000">dumpIBCMFile</span></b> <span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    <i><span style="color:#9A1900">// find last command to not print</span></i>
+    <span style="color:#009900">int</span> end<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span> end <span style="color:#990000">=</span> <span style="color:#993399">4095</span><span style="color:#990000">;</span> end <span style="color:#990000">&gt;=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span> end<span style="color:#990000">--</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> mem<span style="color:#990000">[</span>end<span style="color:#990000">]</span> <span style="color:#990000">!=</span> <span style="color:#993399">0</span> <span style="color:#990000">)</span>
+            <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
+    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span> <span style="color:#009900">int</span> i <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span> i <span style="color:#990000">&lt;=</span> end<span style="color:#990000">;</span> i<span style="color:#990000">++</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"%.4x</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">pc = %.4x</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">%s</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">,</span> mem<span style="color:#990000">[</span>i<span style="color:#990000">],</span> i<span style="color:#990000">,</span>
+                <b><span style="color:#000000">decodeIBCMInstruction</span></b><span style="color:#990000">(</span>mem<span style="color:#990000">[</span>i<span style="color:#990000">]));</span>
+    <span style="color:#FF0000">}</span>
+<span style="color:#FF0000">}</span>
 
 
+<span style="color:#009900">void</span> <b><span style="color:#000000">compileCode</span></b> <span style="color:#990000">(</span><span style="color:#008080">string</span> infilename<span style="color:#990000">,</span> <span style="color:#008080">string</span> outfilename<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <span style="color:#008080">string</span> line<span style="color:#990000">;</span>
+    <span style="color:#009900">int</span> linenum <span style="color:#990000">=</span> <span style="color:#990000">-</span><span style="color:#993399">1</span><span style="color:#990000">,</span> outputlines <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+    <i><span style="color:#9A1900">// open input file</span></i>
+    <span style="color:#008080">ifstream</span> <b><span style="color:#000000">infile</span></b><span style="color:#990000">(</span>infilename<span style="color:#990000">.</span><b><span style="color:#000000">c_str</span></b><span style="color:#990000">());</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> <span style="color:#990000">!</span>infile<span style="color:#990000">.</span><b><span style="color:#000000">is_open</span></b><span style="color:#990000">()</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        cerr <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Error: unable to open input file."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+        <b><span style="color:#000000">exit</span></b><span style="color:#990000">(</span><span style="color:#993399">200</span><span style="color:#990000">);</span>
+    <span style="color:#FF0000">}</span>
+    <i><span style="color:#9A1900">// open output file</span></i>
+    <span style="color:#008080">ofstream</span> <b><span style="color:#000000">outfile</span></b><span style="color:#990000">(</span>outfilename<span style="color:#990000">.</span><b><span style="color:#000000">c_str</span></b><span style="color:#990000">());</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> <span style="color:#990000">!</span>outfile<span style="color:#990000">.</span><b><span style="color:#000000">is_open</span></b><span style="color:#990000">()</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        cerr <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Error: unable to open output file."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+        <b><span style="color:#000000">exit</span></b><span style="color:#990000">(</span><span style="color:#993399">201</span><span style="color:#990000">);</span>
+    <span style="color:#FF0000">}</span>
+    <i><span style="color:#9A1900">// read input file, write to output file</span></i>
+    <b><span style="color:#0000FF">while</span></b> <span style="color:#990000">(!</span>infile<span style="color:#990000">.</span><b><span style="color:#000000">eof</span></b><span style="color:#990000">())</span> <span style="color:#FF0000">{</span>
+        linenum<span style="color:#990000">++;</span>
+        <b><span style="color:#000000">getline</span></b> <span style="color:#990000">(</span>infile<span style="color:#990000">,</span>line<span style="color:#990000">);</span>
+        <i><span style="color:#9A1900">// skip blank lines</span></i>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> line<span style="color:#990000">.</span><b><span style="color:#000000">size</span></b><span style="color:#990000">()</span> <span style="color:#990000">==</span> <span style="color:#993399">0</span> <span style="color:#990000">)</span>
+            <b><span style="color:#0000FF">continue</span></b><span style="color:#990000">;</span>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> <span style="color:#990000">(</span>line<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">==</span> <span style="color:#FF0000">'/'</span><span style="color:#990000">)</span> <span style="color:#990000">&amp;&amp;</span> <span style="color:#990000">(</span>line<span style="color:#990000">[</span><span style="color:#993399">1</span><span style="color:#990000">]</span> <span style="color:#990000">==</span> <span style="color:#FF0000">'/'</span><span style="color:#990000">)</span> <span style="color:#990000">)</span>
+            <b><span style="color:#0000FF">continue</span></b><span style="color:#990000">;</span>
+        <i><span style="color:#9A1900">// sanity check</span></i>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> <span style="color:#990000">!</span><b><span style="color:#000000">ishexdigit</span></b><span style="color:#990000">(</span>line<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">])</span> <span style="color:#990000">||</span> <span style="color:#990000">!</span><b><span style="color:#000000">ishexdigit</span></b><span style="color:#990000">(</span>line<span style="color:#990000">[</span><span style="color:#993399">1</span><span style="color:#990000">])</span> <span style="color:#990000">||</span>
+                <span style="color:#990000">!</span><b><span style="color:#000000">ishexdigit</span></b><span style="color:#990000">(</span>line<span style="color:#990000">[</span><span style="color:#993399">2</span><span style="color:#990000">])</span> <span style="color:#990000">||</span> <span style="color:#990000">!</span><b><span style="color:#000000">ishexdigit</span></b><span style="color:#990000">(</span>line<span style="color:#990000">[</span><span style="color:#993399">3</span><span style="color:#990000">])</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            cerr <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Error on line "</span> <span style="color:#990000">&lt;&lt;</span> linenum <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">": invalid hex digits"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+        <span style="color:#FF0000">}</span>
+        line<span style="color:#990000">[</span><span style="color:#993399">4</span><span style="color:#990000">]</span> <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+        <span style="color:#009900">int</span> hex<span style="color:#990000">;</span>
+        <b><span style="color:#000000">sscanf</span></b> <span style="color:#990000">(</span>line<span style="color:#990000">.</span><b><span style="color:#000000">c_str</span></b><span style="color:#990000">(),</span> <span style="color:#FF0000">"%x"</span><span style="color:#990000">,</span> <span style="color:#990000">&amp;</span>hex<span style="color:#990000">);</span>
+<b><span style="color:#000080">#ifdef</span></b> IS_LITTLE_ENDIAN
+        <span style="color:#009900">char</span> g <span style="color:#990000">=</span> hex <span style="color:#990000">%</span> <span style="color:#993399">256</span><span style="color:#990000">;</span>
+        outfile<span style="color:#990000">.</span><b><span style="color:#000000">write</span></b><span style="color:#990000">(&amp;</span>g<span style="color:#990000">,</span><span style="color:#993399">1</span><span style="color:#990000">);</span>
+        g <span style="color:#990000">=</span> hex <span style="color:#990000">/</span> <span style="color:#993399">256</span><span style="color:#990000">;</span>
+        outfile<span style="color:#990000">.</span><b><span style="color:#000000">write</span></b><span style="color:#990000">(&amp;</span>g<span style="color:#990000">,</span><span style="color:#993399">1</span><span style="color:#990000">);</span>
+<b><span style="color:#000080">#else</span></b>
+<b><span style="color:#000080">#error</span></b> Not yet working <span style="color:#008080">for</span> non<span style="color:#990000">-</span>little<span style="color:#990000">-</span>endian machines
+<b><span style="color:#000080">#endif</span></b>
+        <i><span style="color:#9A1900">//cout &lt;&lt; line[0] &lt;&lt; line[1] &lt;&lt; line[2] &lt;&lt; line[3] &lt;&lt; endl;</span></i>
+        outputlines<span style="color:#990000">++;</span>
+    <span style="color:#FF0000">}</span>
+    infile<span style="color:#990000">.</span><b><span style="color:#000000">close</span></b><span style="color:#990000">();</span>
+    <i><span style="color:#9A1900">// fill remaining space with 0's</span></i>
+    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(;</span> outputlines <span style="color:#990000">&lt;</span> <span style="color:#993399">4096</span><span style="color:#990000">;</span> outputlines<span style="color:#990000">++</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        <span style="color:#009900">char</span> x <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+        <i><span style="color:#9A1900">//cout &lt;&lt; "0000" &lt;&lt; endl;</span></i>
+        outfile<span style="color:#990000">.</span><b><span style="color:#000000">write</span></b> <span style="color:#990000">(&amp;</span>x<span style="color:#990000">,</span><span style="color:#993399">1</span><span style="color:#990000">);</span>
+        outfile<span style="color:#990000">.</span><b><span style="color:#000000">write</span></b> <span style="color:#990000">(&amp;</span>x<span style="color:#990000">,</span><span style="color:#993399">1</span><span style="color:#990000">);</span>
+    <span style="color:#FF0000">}</span>
+    outfile<span style="color:#990000">.</span><b><span style="color:#000000">close</span></b><span style="color:#990000">();</span>
+<span style="color:#FF0000">}</span>
 
-<b><font color="#0000FF">union</font></b> ibcm_instruction <font color="#FF0000">{</font>
-    <font color="#009900">unsigned</font> <font color="#009900">short</font> buf<font color="#990000">;</font>
-<b><font color="#000080">#ifdef</font></b> IS_BIG_ENDIAN <i><font color="#9A1900">//The IBCM is big endian</font></i>
-    <b><font color="#0000FF">struct</font></b> <font color="#FF0000">{</font>
-        <font color="#009900">unsigned</font> <font color="#009900">char</font> high<font color="#990000">,</font> low<font color="#990000">;</font>
-    <font color="#FF0000">}</font> bytes<font color="#990000">;</font>
-    <b><font color="#0000FF">struct</font></b> <font color="#FF0000">{</font>
-        <font color="#009900">unsigned</font> <font color="#009900">int</font> op<font color="#990000">:</font><font color="#993399">4</font><font color="#990000">,</font> unused<font color="#990000">:</font><font color="#993399">12</font><font color="#990000">;</font>
-    <font color="#FF0000">}</font> halt<font color="#990000">;</font>
-    <b><font color="#0000FF">struct</font></b> <font color="#FF0000">{</font>
-        <font color="#009900">unsigned</font> <font color="#009900">int</font> op<font color="#990000">:</font><font color="#993399">4</font><font color="#990000">,</font> ioopt<font color="#990000">:</font><font color="#993399">2</font><font color="#990000">,</font> unused<font color="#990000">:</font><font color="#993399">10</font><font color="#990000">;</font>
-    <font color="#FF0000">}</font> io<font color="#990000">;</font>
-    <b><font color="#0000FF">struct</font></b> <font color="#FF0000">{</font>
-        <font color="#009900">unsigned</font> <font color="#009900">int</font> op<font color="#990000">:</font><font color="#993399">4</font><font color="#990000">,</font> shiftop<font color="#990000">:</font><font color="#993399">2</font><font color="#990000">,</font> unused<font color="#990000">:</font><font color="#993399">5</font><font color="#990000">,</font> shiftcount<font color="#990000">:</font><font color="#993399">5</font><font color="#990000">;</font>
-    <font color="#FF0000">}</font> shifts<font color="#990000">;</font>
-    <b><font color="#0000FF">struct</font></b> <font color="#FF0000">{</font>
-        <font color="#009900">unsigned</font> <font color="#009900">int</font> op<font color="#990000">:</font><font color="#993399">4</font><font color="#990000">,</font> address<font color="#990000">:</font><font color="#993399">12</font><font color="#990000">;</font>
-    <font color="#FF0000">}</font> others<font color="#990000">;</font>
-<b><font color="#000080">#else</font></b>
-<b><font color="#000080">#ifdef</font></b> IS_LITTLE_ENDIAN <i><font color="#9A1900">//The IBCM is little endian</font></i>
-    <b><font color="#0000FF">struct</font></b> <font color="#FF0000">{</font>
-        <font color="#009900">unsigned</font> <font color="#009900">char</font> low<font color="#990000">,</font> high<font color="#990000">;</font>
-    <font color="#FF0000">}</font> bytes<font color="#990000">;</font>
-    <b><font color="#0000FF">struct</font></b> <font color="#FF0000">{</font>
-        <font color="#009900">unsigned</font> <font color="#009900">int</font> unused<font color="#990000">:</font><font color="#993399">12</font><font color="#990000">,</font> op<font color="#990000">:</font><font color="#993399">4</font><font color="#990000">;</font>
-    <font color="#FF0000">}</font> halt<font color="#990000">;</font>
-    <b><font color="#0000FF">struct</font></b> <font color="#FF0000">{</font>
-        <font color="#009900">unsigned</font> <font color="#009900">int</font> unused<font color="#990000">:</font><font color="#993399">10</font><font color="#990000">,</font> ioopt<font color="#990000">:</font><font color="#993399">2</font><font color="#990000">,</font> op<font color="#990000">:</font><font color="#993399">4</font><font color="#990000">;</font>
-    <font color="#FF0000">}</font> io<font color="#990000">;</font>
-    <b><font color="#0000FF">struct</font></b> <font color="#FF0000">{</font>
-        <font color="#009900">unsigned</font> <font color="#009900">int</font> shiftcount<font color="#990000">:</font><font color="#993399">5</font><font color="#990000">,</font> unused<font color="#990000">:</font><font color="#993399">5</font><font color="#990000">,</font> shiftop<font color="#990000">:</font><font color="#993399">2</font><font color="#990000">,</font> op<font color="#990000">:</font><font color="#993399">4</font><font color="#990000">;</font>
-    <font color="#FF0000">}</font> shifts<font color="#990000">;</font>
-    <b><font color="#0000FF">struct</font></b> <font color="#FF0000">{</font>
-        <font color="#009900">unsigned</font> <font color="#009900">int</font> address<font color="#990000">:</font><font color="#993399">12</font><font color="#990000">,</font> op<font color="#990000">:</font><font color="#993399">4</font><font color="#990000">;</font>
-    <font color="#FF0000">}</font> others<font color="#990000">;</font>
-<b><font color="#000080">#else</font></b>
-<b><font color="#000080">#error</font></b> Must <font color="#008080">define</font> BIG_ENDIAN <font color="#008080">or</font> LITTLE_ENDIAN
-<b><font color="#000080">#endif</font></b> <i><font color="#9A1900">// LITTLE_ENDIAN</font></i>
-<b><font color="#000080">#endif</font></b> <i><font color="#9A1900">// BIG_ENDIAN</font></i>
-<font color="#FF0000">}</font> ir<font color="#990000">,</font> ir2<font color="#990000">;</font>
+<span style="color:#009900">void</span> <b><span style="color:#000000">readBinaryIBCMFile</span></b> <span style="color:#990000">(</span><span style="color:#008080">string</span> infilename<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <span style="color:#009900">int</span> cmdnum <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+    <i><span style="color:#9A1900">// open input file</span></i>
+    <span style="color:#008080">ifstream</span> <b><span style="color:#000000">infile</span></b><span style="color:#990000">(</span>infilename<span style="color:#990000">.</span><b><span style="color:#000000">c_str</span></b><span style="color:#990000">());</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> <span style="color:#990000">!</span>infile<span style="color:#990000">.</span><b><span style="color:#000000">is_open</span></b><span style="color:#990000">()</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        cerr <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Error: unable to open input file."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+        <b><span style="color:#000000">exit</span></b><span style="color:#990000">(</span><span style="color:#993399">202</span><span style="color:#990000">);</span>
+    <span style="color:#FF0000">}</span>
+    <i><span style="color:#9A1900">// load up file into array</span></i>
+    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span> <span style="color:#009900">int</span> i <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span> i <span style="color:#990000">&lt;</span> <span style="color:#993399">4096</span><span style="color:#990000">;</span> i<span style="color:#990000">++</span> <span style="color:#990000">)</span>
+        mem<span style="color:#990000">[</span>i<span style="color:#990000">]</span> <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+    <span style="color:#009900">char</span> buf<span style="color:#990000">[</span><span style="color:#993399">2</span><span style="color:#990000">];</span>
+    <b><span style="color:#0000FF">while</span></b> <span style="color:#990000">(!</span>infile<span style="color:#990000">.</span><b><span style="color:#000000">eof</span></b><span style="color:#990000">())</span> <span style="color:#FF0000">{</span>
+        infile<span style="color:#990000">.</span><b><span style="color:#000000">read</span></b><span style="color:#990000">(</span>buf<span style="color:#990000">,</span><span style="color:#993399">2</span><span style="color:#990000">);</span>
+<b><span style="color:#000080">#ifdef</span></b> IS_LITTLE_ENDIAN
+        mem<span style="color:#990000">[</span>cmdnum<span style="color:#990000">]</span> <span style="color:#990000">=</span> <span style="color:#990000">(</span>buf<span style="color:#990000">[</span><span style="color:#993399">1</span><span style="color:#990000">]</span> <span style="color:#990000">&amp;</span> <span style="color:#993399">0x000000ff</span><span style="color:#990000">)</span> <span style="color:#990000">*</span> <span style="color:#993399">256</span> <span style="color:#990000">+</span> <span style="color:#990000">(</span>buf<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">&amp;</span> <span style="color:#993399">0x000000ff</span><span style="color:#990000">);</span>
+<b><span style="color:#000080">#else</span></b>
+<b><span style="color:#000080">#error</span></b> Not yet working <span style="color:#008080">for</span> non<span style="color:#990000">-</span>little<span style="color:#990000">-</span>endian machines
+<b><span style="color:#000080">#endif</span></b>
+        cmdnum<span style="color:#990000">++;</span>
+    <span style="color:#FF0000">}</span>
+    <i><span style="color:#9A1900">//for ( int i = 0; i &lt; 4096; i++ ) printf ("%.4x\n", mem[i] &amp; 0x0000ffff);</span></i>
+<span style="color:#FF0000">}</span>
 
 
-<font color="#009900">char</font><font color="#990000">*</font> <b><font color="#000000">decodeIBCMInstruction</font></b><font color="#990000">(</font><font color="#009900">unsigned</font> <font color="#009900">short</font> inst<font color="#990000">)</font> <font color="#FF0000">{</font>
-    <b><font color="#0000FF">static</font></b> <font color="#008080">string</font> instnames<font color="#990000">[]</font> <font color="#990000">=</font> <font color="#FF0000">{</font><font color="#FF0000">"halt"</font><font color="#990000">,</font> <font color="#FF0000">"I/O"</font><font color="#990000">,</font> <font color="#FF0000">"shifts"</font><font color="#990000">,</font> <font color="#FF0000">"load"</font><font color="#990000">,</font> <font color="#FF0000">"store"</font><font color="#990000">,</font> <font color="#FF0000">"add"</font><font color="#990000">,</font> <font color="#FF0000">"sub"</font><font color="#990000">,</font> <font color="#FF0000">"and"</font><font color="#990000">,</font>
-                                 <font color="#FF0000">"or"</font><font color="#990000">,</font> <font color="#FF0000">"xor"</font><font color="#990000">,</font> <font color="#FF0000">"not"</font><font color="#990000">,</font> <font color="#FF0000">"nop"</font><font color="#990000">,</font> <font color="#FF0000">"jmp"</font><font color="#990000">,</font> <font color="#FF0000">"jmpe"</font><font color="#990000">,</font> <font color="#FF0000">"jmpl"</font><font color="#990000">,</font> <font color="#FF0000">"brl"</font>
-                                <font color="#FF0000">}</font><font color="#990000">;</font>
-    <b><font color="#0000FF">static</font></b> <font color="#009900">char</font> buf<font color="#990000">[</font><font color="#993399">256</font><font color="#990000">],</font> buf2<font color="#990000">[</font><font color="#993399">8</font><font color="#990000">];</font>
-    ir2<font color="#990000">.</font>buf <font color="#990000">=</font> inst<font color="#990000">;</font>
-    <font color="#009900">int</font> op <font color="#990000">=</font> ir2<font color="#990000">.</font>others<font color="#990000">.</font>op<font color="#990000">;</font>
-    buf<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
-    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>op <font color="#990000">&lt;=</font> <font color="#993399">2</font><font color="#990000">)</font> <font color="#990000">||</font> <font color="#990000">(</font>op <font color="#990000">==</font> <font color="#993399">10</font><font color="#990000">)</font> <font color="#990000">||</font> <font color="#990000">(</font>op <font color="#990000">==</font> <font color="#993399">11</font><font color="#990000">)</font> <font color="#990000">)</font> <i><font color="#9A1900">// halt, not, nop, I/O, and shift</font></i>
-        <b><font color="#000000">strcpy</font></b> <font color="#990000">(</font>buf<font color="#990000">,</font> instnames<font color="#990000">[</font>op<font color="#990000">].</font><b><font color="#000000">c_str</font></b><font color="#990000">());</font>
-    <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> op <font color="#990000">&gt;=</font> <font color="#993399">3</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
-        <b><font color="#000000">strcpy</font></b> <font color="#990000">(</font>buf<font color="#990000">,</font> instnames<font color="#990000">[</font>ir2<font color="#990000">.</font>others<font color="#990000">.</font>op<font color="#990000">].</font><b><font color="#000000">c_str</font></b><font color="#990000">());</font>
-        <b><font color="#000000">strcat</font></b> <font color="#990000">(</font>buf<font color="#990000">,</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">"</font><font color="#990000">);</font>
-        <b><font color="#000000">sprintf</font></b> <font color="#990000">(</font>buf2<font color="#990000">,</font> <font color="#FF0000">"%.3x"</font><font color="#990000">,</font> ir2<font color="#990000">.</font>others<font color="#990000">.</font>address<font color="#990000">);</font>
-        <b><font color="#000000">strcat</font></b> <font color="#990000">(</font>buf<font color="#990000">,</font> buf2<font color="#990000">);</font>
-    <font color="#FF0000">}</font>
-    <b><font color="#0000FF">return</font></b> buf<font color="#990000">;</font>
-<font color="#FF0000">}</font>
+
+<b><span style="color:#0000FF">union</span></b> ibcm_instruction <span style="color:#FF0000">{</span>
+    <span style="color:#008080">uint16_t</span> buf<span style="color:#990000">;</span>
+<b><span style="color:#000080">#ifdef</span></b> IS_BIG_ENDIAN <i><span style="color:#9A1900">//The IBCM is big endian</span></i>
+    <b><span style="color:#0000FF">struct</span></b> <span style="color:#FF0000">{</span>
+        <span style="color:#009900">unsigned</span> <span style="color:#009900">char</span> high<span style="color:#990000">,</span> low<span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span> bytes<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">struct</span></b> <span style="color:#FF0000">{</span>
+        <span style="color:#009900">unsigned</span> <span style="color:#009900">int</span> op<span style="color:#990000">:</span><span style="color:#993399">4</span><span style="color:#990000">,</span> unused<span style="color:#990000">:</span><span style="color:#993399">12</span><span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span> halt<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">struct</span></b> <span style="color:#FF0000">{</span>
+        <span style="color:#009900">unsigned</span> <span style="color:#009900">int</span> op<span style="color:#990000">:</span><span style="color:#993399">4</span><span style="color:#990000">,</span> ioopt<span style="color:#990000">:</span><span style="color:#993399">2</span><span style="color:#990000">,</span> unused<span style="color:#990000">:</span><span style="color:#993399">10</span><span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span> io<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">struct</span></b> <span style="color:#FF0000">{</span>
+        <span style="color:#009900">unsigned</span> <span style="color:#009900">int</span> op<span style="color:#990000">:</span><span style="color:#993399">4</span><span style="color:#990000">,</span> shiftop<span style="color:#990000">:</span><span style="color:#993399">2</span><span style="color:#990000">,</span> unused<span style="color:#990000">:</span><span style="color:#993399">5</span><span style="color:#990000">,</span> shiftcount<span style="color:#990000">:</span><span style="color:#993399">5</span><span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span> shifts<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">struct</span></b> <span style="color:#FF0000">{</span>
+        <span style="color:#009900">unsigned</span> <span style="color:#009900">int</span> op<span style="color:#990000">:</span><span style="color:#993399">4</span><span style="color:#990000">,</span> address<span style="color:#990000">:</span><span style="color:#993399">12</span><span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span> others<span style="color:#990000">;</span>
+<b><span style="color:#000080">#else</span></b>
+<b><span style="color:#000080">#ifdef</span></b> IS_LITTLE_ENDIAN <i><span style="color:#9A1900">//The IBCM is little endian</span></i>
+    <b><span style="color:#0000FF">struct</span></b> <span style="color:#FF0000">{</span>
+        <span style="color:#009900">unsigned</span> <span style="color:#009900">char</span> low<span style="color:#990000">,</span> high<span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span> bytes<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">struct</span></b> <span style="color:#FF0000">{</span>
+        <span style="color:#009900">unsigned</span> <span style="color:#009900">int</span> unused<span style="color:#990000">:</span><span style="color:#993399">12</span><span style="color:#990000">,</span> op<span style="color:#990000">:</span><span style="color:#993399">4</span><span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span> halt<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">struct</span></b> <span style="color:#FF0000">{</span>
+        <span style="color:#009900">unsigned</span> <span style="color:#009900">int</span> unused<span style="color:#990000">:</span><span style="color:#993399">10</span><span style="color:#990000">,</span> ioopt<span style="color:#990000">:</span><span style="color:#993399">2</span><span style="color:#990000">,</span> op<span style="color:#990000">:</span><span style="color:#993399">4</span><span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span> io<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">struct</span></b> <span style="color:#FF0000">{</span>
+        <span style="color:#009900">unsigned</span> <span style="color:#009900">int</span> shiftcount<span style="color:#990000">:</span><span style="color:#993399">5</span><span style="color:#990000">,</span> unused<span style="color:#990000">:</span><span style="color:#993399">5</span><span style="color:#990000">,</span> shiftop<span style="color:#990000">:</span><span style="color:#993399">2</span><span style="color:#990000">,</span> op<span style="color:#990000">:</span><span style="color:#993399">4</span><span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span> shifts<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">struct</span></b> <span style="color:#FF0000">{</span>
+        <span style="color:#009900">unsigned</span> <span style="color:#009900">int</span> address<span style="color:#990000">:</span><span style="color:#993399">12</span><span style="color:#990000">,</span> op<span style="color:#990000">:</span><span style="color:#993399">4</span><span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span> others<span style="color:#990000">;</span>
+<b><span style="color:#000080">#else</span></b>
+<b><span style="color:#000080">#error</span></b> Must <span style="color:#008080">define</span> BIG_ENDIAN <span style="color:#008080">or</span> LITTLE_ENDIAN
+<b><span style="color:#000080">#endif</span></b> <i><span style="color:#9A1900">// LITTLE_ENDIAN</span></i>
+<b><span style="color:#000080">#endif</span></b> <i><span style="color:#9A1900">// BIG_ENDIAN</span></i>
+<span style="color:#FF0000">}</span> ir<span style="color:#990000">,</span> ir2<span style="color:#990000">;</span>
 
 
-<font color="#009900">void</font> <b><font color="#000000">simulateIBCM</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
-    <font color="#009900">int</font> acc <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">,</font> pc <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">,</font> incpc<font color="#990000">;</font>
-    <font color="#008080">string</font> buf<font color="#990000">;</font>
-    <b><font color="#0000FF">while</font></b> <font color="#990000">(</font><font color="#993399">1</font><font color="#990000">)</font> <font color="#FF0000">{</font>
-        acc <font color="#990000">&amp;=</font> <font color="#993399">0x0000ffff</font><font color="#990000">;</font>
-        incpc <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font>
-        ir<font color="#990000">.</font>buf <font color="#990000">=</font> mem<font color="#990000">[</font>pc<font color="#990000">];</font>
-        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> verbose <font color="#990000">&gt;=</font> <font color="#993399">2</font> <font color="#990000">)</font>
-            <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">pc = %.3x: ir = %.4x, ibcm = '%s'</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> pc<font color="#990000">,</font> ir<font color="#990000">.</font>buf<font color="#990000">,</font> <b><font color="#000000">decodeIBCMInstruction</font></b><font color="#990000">(</font>ir<font color="#990000">.</font>buf<font color="#990000">));</font>
-        numinst<font color="#990000">++;</font>
-        <b><font color="#0000FF">switch</font></b> <font color="#990000">(</font>ir<font color="#990000">.</font>others<font color="#990000">.</font>op<font color="#990000">)</font> <font color="#FF0000">{</font>
-            <b><font color="#0000FF">case</font></b> <font color="#993399">0</font><font color="#990000">:</font> <i><font color="#9A1900">// halt</font></i>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> verbose <font color="#990000">&gt;=</font> <font color="#993399">1</font> <font color="#990000">)</font> <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"pc = %.3x: halt</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> pc<font color="#990000">);</font>
-                <b><font color="#0000FF">return</font></b><font color="#990000">;</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-            <b><font color="#0000FF">case</font></b> <font color="#993399">1</font><font color="#990000">:</font> <i><font color="#9A1900">// I/O</font></i>
-                <b><font color="#0000FF">switch</font></b> <font color="#990000">(</font> ir<font color="#990000">.</font>io<font color="#990000">.</font>ioopt <font color="#990000">)</font> <font color="#FF0000">{</font>
-                    <b><font color="#0000FF">case</font></b> <font color="#993399">0</font><font color="#990000">:</font> <i><font color="#9A1900">// read hex</font></i>
-                        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> verbose <font color="#990000">&gt;=</font> <font color="#993399">1</font> <font color="#990000">)</font> <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"pc = %.3x: I/O: read hex</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> pc<font color="#990000">);</font>
-                        <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"Enter hex input: "</font><font color="#990000">);</font>
-                        <b><font color="#000000">fflush</font></b> <font color="#990000">(</font>stdout<font color="#990000">);</font>
-                        cin <font color="#990000">&gt;&gt;</font> buf<font color="#990000">;</font>
-                        <b><font color="#000000">sscanf</font></b> <font color="#990000">(</font>buf<font color="#990000">.</font><b><font color="#000000">c_str</font></b><font color="#990000">(),</font> <font color="#FF0000">"%x"</font><font color="#990000">,</font> <font color="#990000">&amp;</font>acc<font color="#990000">);</font>
-                        acc <font color="#990000">&amp;=</font> <font color="#993399">0x0000ffff</font><font color="#990000">;</font>
-                        <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">);</font>
-                        <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-                    <b><font color="#0000FF">case</font></b> <font color="#993399">1</font><font color="#990000">:</font> <i><font color="#9A1900">// read ascii</font></i>
-                        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> verbose <font color="#990000">&gt;=</font> <font color="#993399">1</font> <font color="#990000">)</font> <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"pc = %.3x: I/O: read ascii</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> pc<font color="#990000">);</font>
-                        <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"Enter ascii input: "</font><font color="#990000">);</font>
-                        <b><font color="#000000">fflush</font></b> <font color="#990000">(</font>stdout<font color="#990000">);</font>
-                        cin <font color="#990000">&gt;&gt;</font> buf<font color="#990000">;</font>
-                        acc <font color="#990000">=</font> buf<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">];</font>
-                        acc <font color="#990000">&amp;=</font> <font color="#993399">0x0000ffff</font><font color="#990000">;</font>
-                        <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">);</font>
-                        <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-                    <b><font color="#0000FF">case</font></b> <font color="#993399">2</font><font color="#990000">:</font> <i><font color="#9A1900">// write hex</font></i>
-                        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> verbose <font color="#990000">&gt;=</font> <font color="#993399">1</font> <font color="#990000">)</font> <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"pc = %.3x: I/O: write hex</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> pc<font color="#990000">);</font>
-                        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> verbose <font color="#990000">&gt;=</font> <font color="#993399">1</font> <font color="#990000">)</font> <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"Hex output: "</font><font color="#990000">);</font>
-                        <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"%.4x</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> acc<font color="#990000">);</font>
-                        <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-                    <b><font color="#0000FF">case</font></b> <font color="#993399">3</font><font color="#990000">:</font> <i><font color="#9A1900">// write ascii</font></i>
-                        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> verbose <font color="#990000">&gt;=</font> <font color="#993399">1</font> <font color="#990000">)</font> <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"pc = %.3x: I/O: write ascii</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> pc<font color="#990000">);</font>
-                        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> verbose <font color="#990000">&gt;=</font> <font color="#993399">1</font> <font color="#990000">)</font> <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"Ascii output: "</font><font color="#990000">);</font>
-                        <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"%c</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> acc <font color="#990000">&amp;</font> <font color="#993399">0xff</font><font color="#990000">);</font>
-                        <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-                <font color="#FF0000">}</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-            <b><font color="#0000FF">case</font></b> <font color="#993399">2</font><font color="#990000">:</font> <i><font color="#9A1900">// shifts</font></i>
-                <b><font color="#0000FF">switch</font></b> <font color="#990000">(</font> ir<font color="#990000">.</font>shifts<font color="#990000">.</font>shiftop <font color="#990000">)</font> <font color="#FF0000">{</font>
-                    <b><font color="#0000FF">case</font></b> <font color="#993399">0</font><font color="#990000">:</font> <i><font color="#9A1900">// shift left</font></i>
-                        acc <font color="#990000">=</font> <font color="#990000">(</font>acc <font color="#990000">&lt;&lt;</font> ir<font color="#990000">.</font>shifts<font color="#990000">.</font>shiftcount<font color="#990000">)</font> <font color="#990000">&amp;</font> <font color="#993399">0xffff</font><font color="#990000">;</font>
-                        acc <font color="#990000">&amp;=</font> <font color="#993399">0x0000ffff</font><font color="#990000">;</font>
-                        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> verbose <font color="#990000">&gt;=</font> <font color="#993399">1</font> <font color="#990000">)</font> <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"pc = %.3x: shift left by %d; result is %.4x</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> pc<font color="#990000">,</font> ir<font color="#990000">.</font>shifts<font color="#990000">.</font>shiftop<font color="#990000">,</font> acc<font color="#990000">);</font>
-                        <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-                    <b><font color="#0000FF">case</font></b> <font color="#993399">1</font><font color="#990000">:</font> <i><font color="#9A1900">// shift right</font></i>
-                        acc <font color="#990000">=</font> <font color="#990000">(</font>acc <font color="#990000">&gt;&gt;</font> ir<font color="#990000">.</font>shifts<font color="#990000">.</font>shiftcount<font color="#990000">)</font> <font color="#990000">&amp;</font> <font color="#990000">(</font><font color="#993399">0xffff</font> <font color="#990000">&gt;&gt;</font> ir<font color="#990000">.</font>shifts<font color="#990000">.</font>shiftcount<font color="#990000">);</font>
-                        acc <font color="#990000">&amp;=</font> <font color="#993399">0x0000ffff</font><font color="#990000">;</font>
-                        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> verbose <font color="#990000">&gt;=</font> <font color="#993399">1</font> <font color="#990000">)</font> <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"pc = %.3x: shift right by %d; result is %.4x</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> pc<font color="#990000">,</font> ir<font color="#990000">.</font>shifts<font color="#990000">.</font>shiftop<font color="#990000">,</font> acc<font color="#990000">);</font>
-                        <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-                    <b><font color="#0000FF">case</font></b> <font color="#993399">2</font><font color="#990000">:</font> <i><font color="#9A1900">// rotate left</font></i>
-                        acc <font color="#990000">=</font> <font color="#990000">((</font>acc <font color="#990000">&lt;&lt;</font> ir<font color="#990000">.</font>shifts<font color="#990000">.</font>shiftcount<font color="#990000">)</font> <font color="#990000">&amp;</font> <font color="#993399">0xffff</font><font color="#990000">)</font> <font color="#990000">|</font>
-                              <font color="#990000">((</font>acc <font color="#990000">&gt;&gt;</font> <font color="#990000">(</font><font color="#993399">16</font><font color="#990000">-</font>ir<font color="#990000">.</font>shifts<font color="#990000">.</font>shiftcount<font color="#990000">))</font> <font color="#990000">&amp;</font> <font color="#990000">(</font><font color="#993399">0xffff</font> <font color="#990000">&gt;&gt;</font> <font color="#990000">(</font><font color="#993399">16</font><font color="#990000">-</font>ir<font color="#990000">.</font>shifts<font color="#990000">.</font>shiftcount<font color="#990000">)));</font>
-                        acc <font color="#990000">&amp;=</font> <font color="#993399">0x0000ffff</font><font color="#990000">;</font>
-                        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> verbose <font color="#990000">&gt;=</font> <font color="#993399">1</font> <font color="#990000">)</font> <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"pc = %.3x: rotate left by %d; result is %.4x</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> pc<font color="#990000">,</font> ir<font color="#990000">.</font>shifts<font color="#990000">.</font>shiftop<font color="#990000">,</font> acc<font color="#990000">);</font>
-                        <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-                    <b><font color="#0000FF">case</font></b> <font color="#993399">3</font><font color="#990000">:</font> <i><font color="#9A1900">// rotate right</font></i>
-                        acc <font color="#990000">=</font> <font color="#990000">((</font>acc <font color="#990000">&gt;&gt;</font> ir<font color="#990000">.</font>shifts<font color="#990000">.</font>shiftcount<font color="#990000">)</font> <font color="#990000">&amp;</font> <font color="#990000">(</font><font color="#993399">0xffff</font> <font color="#990000">&gt;&gt;</font> ir<font color="#990000">.</font>shifts<font color="#990000">.</font>shiftcount<font color="#990000">))</font> <font color="#990000">|</font>
-                              <font color="#990000">((</font>acc <font color="#990000">&lt;&lt;</font> <font color="#990000">(</font><font color="#993399">16</font><font color="#990000">-</font>ir<font color="#990000">.</font>shifts<font color="#990000">.</font>shiftcount<font color="#990000">))</font> <font color="#990000">&amp;</font> <font color="#993399">0xffff</font><font color="#990000">);</font>
-                        acc <font color="#990000">&amp;=</font> <font color="#993399">0x0000ffff</font><font color="#990000">;</font>
-                        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> verbose <font color="#990000">&gt;=</font> <font color="#993399">1</font> <font color="#990000">)</font> <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"pc = %.3x: rotate right by %d; result is %.4x</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> pc<font color="#990000">,</font> ir<font color="#990000">.</font>shifts<font color="#990000">.</font>shiftop<font color="#990000">,</font> acc<font color="#990000">);</font>
-                        <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-                <font color="#FF0000">}</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-            <b><font color="#0000FF">case</font></b> <font color="#993399">3</font><font color="#990000">:</font> <i><font color="#9A1900">// load</font></i>
-                acc <font color="#990000">=</font> mem<font color="#990000">[</font>ir<font color="#990000">.</font>others<font color="#990000">.</font>address<font color="#990000">];</font>
-                acc <font color="#990000">&amp;=</font> <font color="#993399">0x0000ffff</font><font color="#990000">;</font>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> verbose <font color="#990000">&gt;=</font> <font color="#993399">1</font> <font color="#990000">)</font> <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"pc = %.3x: load result (@ %.3x) is %.4x</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> pc<font color="#990000">,</font> ir<font color="#990000">.</font>others<font color="#990000">.</font>address<font color="#990000">,</font> acc<font color="#990000">);</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-            <b><font color="#0000FF">case</font></b> <font color="#993399">4</font><font color="#990000">:</font> <i><font color="#9A1900">// store</font></i>
-                acc <font color="#990000">&amp;=</font> <font color="#993399">0x0000ffff</font><font color="#990000">;</font>
-                mem<font color="#990000">[</font>ir<font color="#990000">.</font>others<font color="#990000">.</font>address<font color="#990000">]</font> <font color="#990000">=</font> acc<font color="#990000">;</font>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> verbose <font color="#990000">&gt;=</font> <font color="#993399">1</font> <font color="#990000">)</font> <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"pc = %.3x: store result (@ %.3x) is %.4x</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> pc<font color="#990000">,</font> ir<font color="#990000">.</font>others<font color="#990000">.</font>address<font color="#990000">,</font> mem<font color="#990000">[</font>ir<font color="#990000">.</font>others<font color="#990000">.</font>address<font color="#990000">]);</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-            <b><font color="#0000FF">case</font></b> <font color="#993399">5</font><font color="#990000">:</font> <i><font color="#9A1900">// add</font></i>
-                acc <font color="#990000">+=</font> mem<font color="#990000">[</font>ir<font color="#990000">.</font>others<font color="#990000">.</font>address<font color="#990000">];</font>
-                acc <font color="#990000">&amp;=</font> <font color="#993399">0x0000ffff</font><font color="#990000">;</font>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> verbose <font color="#990000">&gt;=</font> <font color="#993399">1</font> <font color="#990000">)</font> <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"pc = %.3x: add result is %.4x</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> pc<font color="#990000">,</font> acc<font color="#990000">);</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-            <b><font color="#0000FF">case</font></b> <font color="#993399">6</font><font color="#990000">:</font> <i><font color="#9A1900">// sub</font></i>
-                acc <font color="#990000">-=</font> mem<font color="#990000">[</font>ir<font color="#990000">.</font>others<font color="#990000">.</font>address<font color="#990000">];</font>
-                acc <font color="#990000">&amp;=</font> <font color="#993399">0x0000ffff</font><font color="#990000">;</font>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> verbose <font color="#990000">&gt;=</font> <font color="#993399">1</font> <font color="#990000">)</font> <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"pc = %.3x: sub result is %.4x</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> pc<font color="#990000">,</font> acc<font color="#990000">);</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-            <b><font color="#0000FF">case</font></b> <font color="#993399">7</font><font color="#990000">:</font> <i><font color="#9A1900">// and</font></i>
-                acc <font color="#990000">&amp;=</font> mem<font color="#990000">[</font>ir<font color="#990000">.</font>others<font color="#990000">.</font>address<font color="#990000">];</font>
-                acc <font color="#990000">&amp;=</font> <font color="#993399">0x0000ffff</font><font color="#990000">;</font>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> verbose <font color="#990000">&gt;=</font> <font color="#993399">1</font> <font color="#990000">)</font> <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"pc = %.3x: and result is %.4x</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> pc<font color="#990000">,</font> acc<font color="#990000">);</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-            <b><font color="#0000FF">case</font></b> <font color="#993399">8</font><font color="#990000">:</font> <i><font color="#9A1900">// or</font></i>
-                acc <font color="#990000">|=</font> mem<font color="#990000">[</font>ir<font color="#990000">.</font>others<font color="#990000">.</font>address<font color="#990000">];</font>
-                acc <font color="#990000">&amp;=</font> <font color="#993399">0x0000ffff</font><font color="#990000">;</font>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> verbose <font color="#990000">&gt;=</font> <font color="#993399">1</font> <font color="#990000">)</font> <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"pc = %.3x: or result is %.4x</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> pc<font color="#990000">,</font> acc<font color="#990000">);</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-            <b><font color="#0000FF">case</font></b> <font color="#993399">9</font><font color="#990000">:</font> <i><font color="#9A1900">// xor</font></i>
-                acc <font color="#990000">^=</font> mem<font color="#990000">[</font>ir<font color="#990000">.</font>others<font color="#990000">.</font>address<font color="#990000">];</font>
-                acc <font color="#990000">&amp;=</font> <font color="#993399">0x0000ffff</font><font color="#990000">;</font>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> verbose <font color="#990000">&gt;=</font> <font color="#993399">1</font> <font color="#990000">)</font> <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"pc = %.3x: xor result is %.4x</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> pc<font color="#990000">,</font> acc<font color="#990000">);</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-            <b><font color="#0000FF">case</font></b> <font color="#993399">10</font><font color="#990000">:</font> <i><font color="#9A1900">// not</font></i>
-                acc <font color="#990000">=</font> <font color="#990000">~</font>acc<font color="#990000">;</font>
-                acc <font color="#990000">&amp;=</font> <font color="#993399">0x0000ffff</font><font color="#990000">;</font>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> verbose <font color="#990000">&gt;=</font> <font color="#993399">1</font> <font color="#990000">)</font> <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"pc = %.3x: not result is %.4x</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> pc<font color="#990000">,</font> acc<font color="#990000">);</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-            <b><font color="#0000FF">case</font></b> <font color="#993399">11</font><font color="#990000">:</font> <i><font color="#9A1900">// nop</font></i>
-                <i><font color="#9A1900">// do nothing</font></i>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> verbose <font color="#990000">&gt;=</font> <font color="#993399">1</font> <font color="#990000">)</font> <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"pc = %.3x:  nop</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> pc<font color="#990000">);</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-            <b><font color="#0000FF">case</font></b> <font color="#993399">12</font><font color="#990000">:</font> <i><font color="#9A1900">// jmp</font></i>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> verbose <font color="#990000">&gt;=</font> <font color="#993399">1</font> <font color="#990000">)</font> <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"pc = %.3x: jmp to %.4x</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> pc<font color="#990000">,</font> ir<font color="#990000">.</font>others<font color="#990000">.</font>address<font color="#990000">);</font>
-                pc <font color="#990000">=</font> ir<font color="#990000">.</font>others<font color="#990000">.</font>address<font color="#990000">;</font>
-                incpc <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-            <b><font color="#0000FF">case</font></b> <font color="#993399">13</font><font color="#990000">:</font> <i><font color="#9A1900">// jmpe</font></i>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> verbose <font color="#990000">&gt;=</font> <font color="#993399">1</font> <font color="#990000">)</font> <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"pc = %.3x: jmpe to %.4x</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> pc<font color="#990000">,</font> ir<font color="#990000">.</font>others<font color="#990000">.</font>address<font color="#990000">);</font>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>acc <font color="#990000">&amp;</font> <font color="#993399">0x0000ffff</font><font color="#990000">)</font> <font color="#990000">==</font> <font color="#993399">0</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
-                    pc <font color="#990000">=</font> ir<font color="#990000">.</font>others<font color="#990000">.</font>address<font color="#990000">;</font>
-                    incpc <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
-                <font color="#FF0000">}</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-            <b><font color="#0000FF">case</font></b> <font color="#993399">14</font><font color="#990000">:</font> <i><font color="#9A1900">// jmpl</font></i>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> verbose <font color="#990000">&gt;=</font> <font color="#993399">1</font> <font color="#990000">)</font> <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"pc = %.3x: jmpl to %.3x</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> pc<font color="#990000">,</font> ir<font color="#990000">.</font>others<font color="#990000">.</font>address<font color="#990000">);</font>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>acc <font color="#990000">&amp;</font> <font color="#993399">0x00008000</font><font color="#990000">)</font> <font color="#990000">!=</font> <font color="#993399">0</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
-                    pc <font color="#990000">=</font> ir<font color="#990000">.</font>others<font color="#990000">.</font>address<font color="#990000">;</font>
-                    incpc <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
-                <font color="#FF0000">}</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-            <b><font color="#0000FF">case</font></b> <font color="#993399">15</font><font color="#990000">:</font> <i><font color="#9A1900">// brl</font></i>
-                acc <font color="#990000">=</font> pc<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">;</font>
-                acc <font color="#990000">&amp;=</font> <font color="#993399">0x0000ffff</font><font color="#990000">;</font>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> verbose <font color="#990000">&gt;=</font> <font color="#993399">1</font> <font color="#990000">)</font> <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"pc = %.3x: brl from %.3x to %.4x</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> pc<font color="#990000">,</font> acc<font color="#990000">,</font> ir<font color="#990000">.</font>others<font color="#990000">.</font>address<font color="#990000">);</font>
-                pc <font color="#990000">=</font> ir<font color="#990000">.</font>others<font color="#990000">.</font>address<font color="#990000">;</font>
-                incpc <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-        <font color="#FF0000">}</font>
-        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> incpc <font color="#990000">)</font>
-            pc<font color="#990000">++;</font>
-        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> maxticks <font color="#990000">&amp;&amp;</font> <font color="#990000">(</font>numinst <font color="#990000">&gt;=</font> maxticks<font color="#990000">)</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
-            cerr <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Simulation reached the maximum number of "</font> <font color="#990000">&lt;&lt;</font> maxticks <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" instructions to execute."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-            cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Simulation reached the maximum number of "</font> <font color="#990000">&lt;&lt;</font> maxticks <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" instructions to execute."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-            <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-        <font color="#FF0000">}</font>
-    <font color="#FF0000">}</font>
-<font color="#FF0000">}</font>
-</tt></pre>
+<span style="color:#009900">char</span><span style="color:#990000">*</span> <b><span style="color:#000000">decodeIBCMInstruction</span></b><span style="color:#990000">(</span><span style="color:#008080">uint16_t</span> inst<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">static</span></b> <span style="color:#008080">string</span> instnames<span style="color:#990000">[]</span> <span style="color:#990000">=</span> <span style="color:#FF0000">{</span><span style="color:#FF0000">"halt"</span><span style="color:#990000">,</span> <span style="color:#FF0000">"I/O"</span><span style="color:#990000">,</span> <span style="color:#FF0000">"shifts"</span><span style="color:#990000">,</span> <span style="color:#FF0000">"load"</span><span style="color:#990000">,</span> <span style="color:#FF0000">"store"</span><span style="color:#990000">,</span> <span style="color:#FF0000">"add"</span><span style="color:#990000">,</span> <span style="color:#FF0000">"sub"</span><span style="color:#990000">,</span> <span style="color:#FF0000">"and"</span><span style="color:#990000">,</span>
+                                 <span style="color:#FF0000">"or"</span><span style="color:#990000">,</span> <span style="color:#FF0000">"xor"</span><span style="color:#990000">,</span> <span style="color:#FF0000">"not"</span><span style="color:#990000">,</span> <span style="color:#FF0000">"nop"</span><span style="color:#990000">,</span> <span style="color:#FF0000">"jmp"</span><span style="color:#990000">,</span> <span style="color:#FF0000">"jmpe"</span><span style="color:#990000">,</span> <span style="color:#FF0000">"jmpl"</span><span style="color:#990000">,</span> <span style="color:#FF0000">"brl"</span>
+                                <span style="color:#FF0000">}</span><span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">static</span></b> <span style="color:#009900">char</span> buf<span style="color:#990000">[</span><span style="color:#993399">256</span><span style="color:#990000">],</span> buf2<span style="color:#990000">[</span><span style="color:#993399">8</span><span style="color:#990000">];</span>
+    ir2<span style="color:#990000">.</span>buf <span style="color:#990000">=</span> inst<span style="color:#990000">;</span>
+    <span style="color:#009900">int</span> op <span style="color:#990000">=</span> ir2<span style="color:#990000">.</span>others<span style="color:#990000">.</span>op<span style="color:#990000">;</span>
+    buf<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> <span style="color:#990000">(</span>op <span style="color:#990000">&lt;=</span> <span style="color:#993399">2</span><span style="color:#990000">)</span> <span style="color:#990000">||</span> <span style="color:#990000">(</span>op <span style="color:#990000">==</span> <span style="color:#993399">10</span><span style="color:#990000">)</span> <span style="color:#990000">||</span> <span style="color:#990000">(</span>op <span style="color:#990000">==</span> <span style="color:#993399">11</span><span style="color:#990000">)</span> <span style="color:#990000">)</span> <i><span style="color:#9A1900">// halt, not, nop, I/O, and shift</span></i>
+        <b><span style="color:#000000">strcpy</span></b> <span style="color:#990000">(</span>buf<span style="color:#990000">,</span> instnames<span style="color:#990000">[</span>op<span style="color:#990000">].</span><b><span style="color:#000000">c_str</span></b><span style="color:#990000">());</span>
+    <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> op <span style="color:#990000">&gt;=</span> <span style="color:#993399">3</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        <b><span style="color:#000000">strcpy</span></b> <span style="color:#990000">(</span>buf<span style="color:#990000">,</span> instnames<span style="color:#990000">[</span>ir2<span style="color:#990000">.</span>others<span style="color:#990000">.</span>op<span style="color:#990000">].</span><b><span style="color:#000000">c_str</span></b><span style="color:#990000">());</span>
+        <b><span style="color:#000000">strcat</span></b> <span style="color:#990000">(</span>buf<span style="color:#990000">,</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">"</span><span style="color:#990000">);</span>
+        <b><span style="color:#000000">sprintf</span></b> <span style="color:#990000">(</span>buf2<span style="color:#990000">,</span> <span style="color:#FF0000">"%.3x"</span><span style="color:#990000">,</span> ir2<span style="color:#990000">.</span>others<span style="color:#990000">.</span>address<span style="color:#990000">);</span>
+        <b><span style="color:#000000">strcat</span></b> <span style="color:#990000">(</span>buf<span style="color:#990000">,</span> buf2<span style="color:#990000">);</span>
+    <span style="color:#FF0000">}</span>
+    <b><span style="color:#0000FF">return</span></b> buf<span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+
+
+<span style="color:#009900">void</span> <b><span style="color:#000000">simulateIBCM</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    <span style="color:#009900">int</span> acc <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">,</span> pc <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">,</span> incpc<span style="color:#990000">;</span>
+    <span style="color:#008080">string</span> buf<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">while</span></b> <span style="color:#990000">(</span><span style="color:#993399">1</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        acc <span style="color:#990000">&amp;=</span> <span style="color:#993399">0x0000ffff</span><span style="color:#990000">;</span>
+        incpc <span style="color:#990000">=</span> <span style="color:#993399">1</span><span style="color:#990000">;</span>
+        ir<span style="color:#990000">.</span>buf <span style="color:#990000">=</span> mem<span style="color:#990000">[</span>pc<span style="color:#990000">];</span>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> verbose <span style="color:#990000">&gt;=</span> <span style="color:#993399">2</span> <span style="color:#990000">)</span>
+            <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">pc = %.3x: ir = %.4x, ibcm = '%s'</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">,</span> pc<span style="color:#990000">,</span> ir<span style="color:#990000">.</span>buf<span style="color:#990000">,</span> <b><span style="color:#000000">decodeIBCMInstruction</span></b><span style="color:#990000">(</span>ir<span style="color:#990000">.</span>buf<span style="color:#990000">));</span>
+        numinst<span style="color:#990000">++;</span>
+        <b><span style="color:#0000FF">switch</span></b> <span style="color:#990000">(</span>ir<span style="color:#990000">.</span>others<span style="color:#990000">.</span>op<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">0</span><span style="color:#990000">:</span> <i><span style="color:#9A1900">// halt</span></i>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> verbose <span style="color:#990000">&gt;=</span> <span style="color:#993399">1</span> <span style="color:#990000">)</span> <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"pc = %.3x: halt</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">,</span> pc<span style="color:#990000">);</span>
+                <b><span style="color:#0000FF">return</span></b><span style="color:#990000">;</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">1</span><span style="color:#990000">:</span> <i><span style="color:#9A1900">// I/O</span></i>
+                <b><span style="color:#0000FF">switch</span></b> <span style="color:#990000">(</span> ir<span style="color:#990000">.</span>io<span style="color:#990000">.</span>ioopt <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+                    <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">0</span><span style="color:#990000">:</span> <i><span style="color:#9A1900">// read hex</span></i>
+                        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> verbose <span style="color:#990000">&gt;=</span> <span style="color:#993399">1</span> <span style="color:#990000">)</span> <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"pc = %.3x: I/O: read hex</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">,</span> pc<span style="color:#990000">);</span>
+                        <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"Enter hex input: "</span><span style="color:#990000">);</span>
+                        <b><span style="color:#000000">fflush</span></b> <span style="color:#990000">(</span>stdout<span style="color:#990000">);</span>
+                        cin <span style="color:#990000">&gt;&gt;</span> buf<span style="color:#990000">;</span>
+                        <b><span style="color:#000000">sscanf</span></b> <span style="color:#990000">(</span>buf<span style="color:#990000">.</span><b><span style="color:#000000">c_str</span></b><span style="color:#990000">(),</span> <span style="color:#FF0000">"%x"</span><span style="color:#990000">,</span> <span style="color:#990000">&amp;</span>acc<span style="color:#990000">);</span>
+                        acc <span style="color:#990000">&amp;=</span> <span style="color:#993399">0x0000ffff</span><span style="color:#990000">;</span>
+                        <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">);</span>
+                        <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+                    <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">1</span><span style="color:#990000">:</span> <i><span style="color:#9A1900">// read ascii</span></i>
+                        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> verbose <span style="color:#990000">&gt;=</span> <span style="color:#993399">1</span> <span style="color:#990000">)</span> <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"pc = %.3x: I/O: read ascii</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">,</span> pc<span style="color:#990000">);</span>
+                        <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"Enter ascii input: "</span><span style="color:#990000">);</span>
+                        <b><span style="color:#000000">fflush</span></b> <span style="color:#990000">(</span>stdout<span style="color:#990000">);</span>
+                        cin <span style="color:#990000">&gt;&gt;</span> buf<span style="color:#990000">;</span>
+                        acc <span style="color:#990000">=</span> buf<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">];</span>
+                        acc <span style="color:#990000">&amp;=</span> <span style="color:#993399">0x0000ffff</span><span style="color:#990000">;</span>
+                        <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">);</span>
+                        <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+                    <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">2</span><span style="color:#990000">:</span> <i><span style="color:#9A1900">// write hex</span></i>
+                        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> verbose <span style="color:#990000">&gt;=</span> <span style="color:#993399">1</span> <span style="color:#990000">)</span> <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"pc = %.3x: I/O: write hex</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">,</span> pc<span style="color:#990000">);</span>
+                        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> verbose <span style="color:#990000">&gt;=</span> <span style="color:#993399">1</span> <span style="color:#990000">)</span> <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"Hex output: "</span><span style="color:#990000">);</span>
+                        <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"%.4x</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">,</span> acc<span style="color:#990000">);</span>
+                        <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+                    <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">3</span><span style="color:#990000">:</span> <i><span style="color:#9A1900">// write ascii</span></i>
+                        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> verbose <span style="color:#990000">&gt;=</span> <span style="color:#993399">1</span> <span style="color:#990000">)</span> <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"pc = %.3x: I/O: write ascii</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">,</span> pc<span style="color:#990000">);</span>
+                        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> verbose <span style="color:#990000">&gt;=</span> <span style="color:#993399">1</span> <span style="color:#990000">)</span> <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"Ascii output: "</span><span style="color:#990000">);</span>
+                        <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"%c</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">,</span> acc <span style="color:#990000">&amp;</span> <span style="color:#993399">0xff</span><span style="color:#990000">);</span>
+                        <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">2</span><span style="color:#990000">:</span> <i><span style="color:#9A1900">// shifts</span></i>
+                <b><span style="color:#0000FF">switch</span></b> <span style="color:#990000">(</span> ir<span style="color:#990000">.</span>shifts<span style="color:#990000">.</span>shiftop <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+                    <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">0</span><span style="color:#990000">:</span> <i><span style="color:#9A1900">// shift left</span></i>
+                        acc <span style="color:#990000">=</span> <span style="color:#990000">(</span>acc <span style="color:#990000">&lt;&lt;</span> ir<span style="color:#990000">.</span>shifts<span style="color:#990000">.</span>shiftcount<span style="color:#990000">)</span> <span style="color:#990000">&amp;</span> <span style="color:#993399">0xffff</span><span style="color:#990000">;</span>
+                        acc <span style="color:#990000">&amp;=</span> <span style="color:#993399">0x0000ffff</span><span style="color:#990000">;</span>
+                        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> verbose <span style="color:#990000">&gt;=</span> <span style="color:#993399">1</span> <span style="color:#990000">)</span> <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"pc = %.3x: shift left by %d; result is %.4x</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">,</span> pc<span style="color:#990000">,</span> ir<span style="color:#990000">.</span>shifts<span style="color:#990000">.</span>shiftop<span style="color:#990000">,</span> acc<span style="color:#990000">);</span>
+                        <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+                    <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">1</span><span style="color:#990000">:</span> <i><span style="color:#9A1900">// shift right</span></i>
+                        acc <span style="color:#990000">=</span> <span style="color:#990000">(</span>acc <span style="color:#990000">&gt;&gt;</span> ir<span style="color:#990000">.</span>shifts<span style="color:#990000">.</span>shiftcount<span style="color:#990000">)</span> <span style="color:#990000">&amp;</span> <span style="color:#990000">(</span><span style="color:#993399">0xffff</span> <span style="color:#990000">&gt;&gt;</span> ir<span style="color:#990000">.</span>shifts<span style="color:#990000">.</span>shiftcount<span style="color:#990000">);</span>
+                        acc <span style="color:#990000">&amp;=</span> <span style="color:#993399">0x0000ffff</span><span style="color:#990000">;</span>
+                        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> verbose <span style="color:#990000">&gt;=</span> <span style="color:#993399">1</span> <span style="color:#990000">)</span> <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"pc = %.3x: shift right by %d; result is %.4x</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">,</span> pc<span style="color:#990000">,</span> ir<span style="color:#990000">.</span>shifts<span style="color:#990000">.</span>shiftop<span style="color:#990000">,</span> acc<span style="color:#990000">);</span>
+                        <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+                    <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">2</span><span style="color:#990000">:</span> <i><span style="color:#9A1900">// rotate left</span></i>
+                        acc <span style="color:#990000">=</span> <span style="color:#990000">((</span>acc <span style="color:#990000">&lt;&lt;</span> ir<span style="color:#990000">.</span>shifts<span style="color:#990000">.</span>shiftcount<span style="color:#990000">)</span> <span style="color:#990000">&amp;</span> <span style="color:#993399">0xffff</span><span style="color:#990000">)</span> <span style="color:#990000">|</span>
+                              <span style="color:#990000">((</span>acc <span style="color:#990000">&gt;&gt;</span> <span style="color:#990000">(</span><span style="color:#993399">16</span><span style="color:#990000">-</span>ir<span style="color:#990000">.</span>shifts<span style="color:#990000">.</span>shiftcount<span style="color:#990000">))</span> <span style="color:#990000">&amp;</span> <span style="color:#990000">(</span><span style="color:#993399">0xffff</span> <span style="color:#990000">&gt;&gt;</span> <span style="color:#990000">(</span><span style="color:#993399">16</span><span style="color:#990000">-</span>ir<span style="color:#990000">.</span>shifts<span style="color:#990000">.</span>shiftcount<span style="color:#990000">)));</span>
+                        acc <span style="color:#990000">&amp;=</span> <span style="color:#993399">0x0000ffff</span><span style="color:#990000">;</span>
+                        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> verbose <span style="color:#990000">&gt;=</span> <span style="color:#993399">1</span> <span style="color:#990000">)</span> <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"pc = %.3x: rotate left by %d; result is %.4x</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">,</span> pc<span style="color:#990000">,</span> ir<span style="color:#990000">.</span>shifts<span style="color:#990000">.</span>shiftop<span style="color:#990000">,</span> acc<span style="color:#990000">);</span>
+                        <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+                    <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">3</span><span style="color:#990000">:</span> <i><span style="color:#9A1900">// rotate right</span></i>
+                        acc <span style="color:#990000">=</span> <span style="color:#990000">((</span>acc <span style="color:#990000">&gt;&gt;</span> ir<span style="color:#990000">.</span>shifts<span style="color:#990000">.</span>shiftcount<span style="color:#990000">)</span> <span style="color:#990000">&amp;</span> <span style="color:#990000">(</span><span style="color:#993399">0xffff</span> <span style="color:#990000">&gt;&gt;</span> ir<span style="color:#990000">.</span>shifts<span style="color:#990000">.</span>shiftcount<span style="color:#990000">))</span> <span style="color:#990000">|</span>
+                              <span style="color:#990000">((</span>acc <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">(</span><span style="color:#993399">16</span><span style="color:#990000">-</span>ir<span style="color:#990000">.</span>shifts<span style="color:#990000">.</span>shiftcount<span style="color:#990000">))</span> <span style="color:#990000">&amp;</span> <span style="color:#993399">0xffff</span><span style="color:#990000">);</span>
+                        acc <span style="color:#990000">&amp;=</span> <span style="color:#993399">0x0000ffff</span><span style="color:#990000">;</span>
+                        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> verbose <span style="color:#990000">&gt;=</span> <span style="color:#993399">1</span> <span style="color:#990000">)</span> <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"pc = %.3x: rotate right by %d; result is %.4x</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">,</span> pc<span style="color:#990000">,</span> ir<span style="color:#990000">.</span>shifts<span style="color:#990000">.</span>shiftop<span style="color:#990000">,</span> acc<span style="color:#990000">);</span>
+                        <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">3</span><span style="color:#990000">:</span> <i><span style="color:#9A1900">// load</span></i>
+                acc <span style="color:#990000">=</span> mem<span style="color:#990000">[</span>ir<span style="color:#990000">.</span>others<span style="color:#990000">.</span>address<span style="color:#990000">];</span>
+                acc <span style="color:#990000">&amp;=</span> <span style="color:#993399">0x0000ffff</span><span style="color:#990000">;</span>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> verbose <span style="color:#990000">&gt;=</span> <span style="color:#993399">1</span> <span style="color:#990000">)</span> <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"pc = %.3x: load result (@ %.3x) is %.4x</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">,</span> pc<span style="color:#990000">,</span> ir<span style="color:#990000">.</span>others<span style="color:#990000">.</span>address<span style="color:#990000">,</span> acc<span style="color:#990000">);</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">4</span><span style="color:#990000">:</span> <i><span style="color:#9A1900">// store</span></i>
+                acc <span style="color:#990000">&amp;=</span> <span style="color:#993399">0x0000ffff</span><span style="color:#990000">;</span>
+                mem<span style="color:#990000">[</span>ir<span style="color:#990000">.</span>others<span style="color:#990000">.</span>address<span style="color:#990000">]</span> <span style="color:#990000">=</span> acc<span style="color:#990000">;</span>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> verbose <span style="color:#990000">&gt;=</span> <span style="color:#993399">1</span> <span style="color:#990000">)</span> <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"pc = %.3x: store result (@ %.3x) is %.4x</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">,</span> pc<span style="color:#990000">,</span> ir<span style="color:#990000">.</span>others<span style="color:#990000">.</span>address<span style="color:#990000">,</span> mem<span style="color:#990000">[</span>ir<span style="color:#990000">.</span>others<span style="color:#990000">.</span>address<span style="color:#990000">]);</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">5</span><span style="color:#990000">:</span> <i><span style="color:#9A1900">// add</span></i>
+                acc <span style="color:#990000">+=</span> mem<span style="color:#990000">[</span>ir<span style="color:#990000">.</span>others<span style="color:#990000">.</span>address<span style="color:#990000">];</span>
+                acc <span style="color:#990000">&amp;=</span> <span style="color:#993399">0x0000ffff</span><span style="color:#990000">;</span>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> verbose <span style="color:#990000">&gt;=</span> <span style="color:#993399">1</span> <span style="color:#990000">)</span> <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"pc = %.3x: add result is %.4x</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">,</span> pc<span style="color:#990000">,</span> acc<span style="color:#990000">);</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">6</span><span style="color:#990000">:</span> <i><span style="color:#9A1900">// sub</span></i>
+                acc <span style="color:#990000">-=</span> mem<span style="color:#990000">[</span>ir<span style="color:#990000">.</span>others<span style="color:#990000">.</span>address<span style="color:#990000">];</span>
+                acc <span style="color:#990000">&amp;=</span> <span style="color:#993399">0x0000ffff</span><span style="color:#990000">;</span>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> verbose <span style="color:#990000">&gt;=</span> <span style="color:#993399">1</span> <span style="color:#990000">)</span> <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"pc = %.3x: sub result is %.4x</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">,</span> pc<span style="color:#990000">,</span> acc<span style="color:#990000">);</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">7</span><span style="color:#990000">:</span> <i><span style="color:#9A1900">// and</span></i>
+                acc <span style="color:#990000">&amp;=</span> mem<span style="color:#990000">[</span>ir<span style="color:#990000">.</span>others<span style="color:#990000">.</span>address<span style="color:#990000">];</span>
+                acc <span style="color:#990000">&amp;=</span> <span style="color:#993399">0x0000ffff</span><span style="color:#990000">;</span>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> verbose <span style="color:#990000">&gt;=</span> <span style="color:#993399">1</span> <span style="color:#990000">)</span> <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"pc = %.3x: and result is %.4x</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">,</span> pc<span style="color:#990000">,</span> acc<span style="color:#990000">);</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">8</span><span style="color:#990000">:</span> <i><span style="color:#9A1900">// or</span></i>
+                acc <span style="color:#990000">|=</span> mem<span style="color:#990000">[</span>ir<span style="color:#990000">.</span>others<span style="color:#990000">.</span>address<span style="color:#990000">];</span>
+                acc <span style="color:#990000">&amp;=</span> <span style="color:#993399">0x0000ffff</span><span style="color:#990000">;</span>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> verbose <span style="color:#990000">&gt;=</span> <span style="color:#993399">1</span> <span style="color:#990000">)</span> <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"pc = %.3x: or result is %.4x</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">,</span> pc<span style="color:#990000">,</span> acc<span style="color:#990000">);</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">9</span><span style="color:#990000">:</span> <i><span style="color:#9A1900">// xor</span></i>
+                acc <span style="color:#990000">^=</span> mem<span style="color:#990000">[</span>ir<span style="color:#990000">.</span>others<span style="color:#990000">.</span>address<span style="color:#990000">];</span>
+                acc <span style="color:#990000">&amp;=</span> <span style="color:#993399">0x0000ffff</span><span style="color:#990000">;</span>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> verbose <span style="color:#990000">&gt;=</span> <span style="color:#993399">1</span> <span style="color:#990000">)</span> <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"pc = %.3x: xor result is %.4x</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">,</span> pc<span style="color:#990000">,</span> acc<span style="color:#990000">);</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">10</span><span style="color:#990000">:</span> <i><span style="color:#9A1900">// not</span></i>
+                acc <span style="color:#990000">=</span> <span style="color:#990000">~</span>acc<span style="color:#990000">;</span>
+                acc <span style="color:#990000">&amp;=</span> <span style="color:#993399">0x0000ffff</span><span style="color:#990000">;</span>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> verbose <span style="color:#990000">&gt;=</span> <span style="color:#993399">1</span> <span style="color:#990000">)</span> <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"pc = %.3x: not result is %.4x</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">,</span> pc<span style="color:#990000">,</span> acc<span style="color:#990000">);</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">11</span><span style="color:#990000">:</span> <i><span style="color:#9A1900">// nop</span></i>
+                <i><span style="color:#9A1900">// do nothing</span></i>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> verbose <span style="color:#990000">&gt;=</span> <span style="color:#993399">1</span> <span style="color:#990000">)</span> <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"pc = %.3x:  nop</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">,</span> pc<span style="color:#990000">);</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">12</span><span style="color:#990000">:</span> <i><span style="color:#9A1900">// jmp</span></i>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> verbose <span style="color:#990000">&gt;=</span> <span style="color:#993399">1</span> <span style="color:#990000">)</span> <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"pc = %.3x: jmp to %.4x</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">,</span> pc<span style="color:#990000">,</span> ir<span style="color:#990000">.</span>others<span style="color:#990000">.</span>address<span style="color:#990000">);</span>
+                pc <span style="color:#990000">=</span> ir<span style="color:#990000">.</span>others<span style="color:#990000">.</span>address<span style="color:#990000">;</span>
+                incpc <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">13</span><span style="color:#990000">:</span> <i><span style="color:#9A1900">// jmpe</span></i>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> verbose <span style="color:#990000">&gt;=</span> <span style="color:#993399">1</span> <span style="color:#990000">)</span> <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"pc = %.3x: jmpe to %.4x</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">,</span> pc<span style="color:#990000">,</span> ir<span style="color:#990000">.</span>others<span style="color:#990000">.</span>address<span style="color:#990000">);</span>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> <span style="color:#990000">(</span>acc <span style="color:#990000">&amp;</span> <span style="color:#993399">0x0000ffff</span><span style="color:#990000">)</span> <span style="color:#990000">==</span> <span style="color:#993399">0</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+                    pc <span style="color:#990000">=</span> ir<span style="color:#990000">.</span>others<span style="color:#990000">.</span>address<span style="color:#990000">;</span>
+                    incpc <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">14</span><span style="color:#990000">:</span> <i><span style="color:#9A1900">// jmpl</span></i>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> verbose <span style="color:#990000">&gt;=</span> <span style="color:#993399">1</span> <span style="color:#990000">)</span> <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"pc = %.3x: jmpl to %.3x</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">,</span> pc<span style="color:#990000">,</span> ir<span style="color:#990000">.</span>others<span style="color:#990000">.</span>address<span style="color:#990000">);</span>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> <span style="color:#990000">(</span>acc <span style="color:#990000">&amp;</span> <span style="color:#993399">0x00008000</span><span style="color:#990000">)</span> <span style="color:#990000">!=</span> <span style="color:#993399">0</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+                    pc <span style="color:#990000">=</span> ir<span style="color:#990000">.</span>others<span style="color:#990000">.</span>address<span style="color:#990000">;</span>
+                    incpc <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">15</span><span style="color:#990000">:</span> <i><span style="color:#9A1900">// brl</span></i>
+                acc <span style="color:#990000">=</span> pc<span style="color:#990000">+</span><span style="color:#993399">1</span><span style="color:#990000">;</span>
+                acc <span style="color:#990000">&amp;=</span> <span style="color:#993399">0x0000ffff</span><span style="color:#990000">;</span>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> verbose <span style="color:#990000">&gt;=</span> <span style="color:#993399">1</span> <span style="color:#990000">)</span> <b><span style="color:#000000">printf</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">"pc = %.3x: brl from %.3x to %.4x</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">,</span> pc<span style="color:#990000">,</span> acc<span style="color:#990000">,</span> ir<span style="color:#990000">.</span>others<span style="color:#990000">.</span>address<span style="color:#990000">);</span>
+                pc <span style="color:#990000">=</span> ir<span style="color:#990000">.</span>others<span style="color:#990000">.</span>address<span style="color:#990000">;</span>
+                incpc <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+        <span style="color:#FF0000">}</span>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> incpc <span style="color:#990000">)</span>
+            pc<span style="color:#990000">++;</span>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> maxticks <span style="color:#990000">&amp;&amp;</span> <span style="color:#990000">(</span>numinst <span style="color:#990000">&gt;=</span> maxticks<span style="color:#990000">)</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            cerr <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Simulation reached the maximum number of "</span> <span style="color:#990000">&lt;&lt;</span> maxticks <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" instructions to execute."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+            cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Simulation reached the maximum number of "</span> <span style="color:#990000">&lt;&lt;</span> maxticks <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" instructions to execute."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+            <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+        <span style="color:#FF0000">}</span>
+    <span style="color:#FF0000">}</span>
+<span style="color:#FF0000">}</span>
+</pre>
 </body>
 </html>

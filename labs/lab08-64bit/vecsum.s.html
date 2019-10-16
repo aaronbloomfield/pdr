@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -8,41 +8,41 @@ http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
 <title>vecsum.s</title>
 </head>
-<body bgcolor="white">
-<pre><tt><i><font color="#9A1900">; vecsum.s</font></i>
-<i><font color="#9A1900">;</font></i>
-<i><font color="#9A1900">; Purpose : This file contains the implementation of the function</font></i>
-<i><font color="#9A1900">;           vecsum, which adds up a vector of integers.</font></i>
-<i><font color="#9A1900">;</font></i>
-<i><font color="#9A1900">; Parameter 1 (in rdi) is the starting address of a sequence of 64-bit longs</font></i>
-<i><font color="#9A1900">; Parameter 2 (in rsi) is the number of integers in the sequence</font></i>
-<i><font color="#9A1900">; Return value is a long that is the sum of the integers in the sequence</font></i>
-<i><font color="#9A1900">;</font></i>
+<body style="background-color:white">
+<pre><i><span style="color:#9A1900">; vecsum.s</span></i>
+<i><span style="color:#9A1900">;</span></i>
+<i><span style="color:#9A1900">; Purpose : This file contains the implementation of the function</span></i>
+<i><span style="color:#9A1900">;           vecsum, which adds up a vector of integers.</span></i>
+<i><span style="color:#9A1900">;</span></i>
+<i><span style="color:#9A1900">; Parameter 1 (in rdi) is the starting address of a sequence of 64-bit longs</span></i>
+<i><span style="color:#9A1900">; Parameter 2 (in rsi) is the number of integers in the sequence</span></i>
+<i><span style="color:#9A1900">; Return value is a long that is the sum of the integers in the sequence</span></i>
+<i><span style="color:#9A1900">;</span></i>
 
 	global vecsum
 
-	section <font color="#990000">.</font>text
+	section <span style="color:#990000">.</span>text
 
-<b><font color="#000080">vecsum:</font></b>
-	<i><font color="#9A1900">; Standard prologue: we do not have to create any local</font></i>
-	<i><font color="#9A1900">; variables (those values will be kept in registers), and </font></i>
-	<i><font color="#9A1900">; we are not using any callee-saved registers.</font></i>
+<b><span style="color:#000080">vecsum:</span></b>
+	<i><span style="color:#9A1900">; Standard prologue: we do not have to create any local</span></i>
+	<i><span style="color:#9A1900">; variables (those values will be kept in registers), and </span></i>
+	<i><span style="color:#9A1900">; we are not using any callee-saved registers.</span></i>
 
-	<i><font color="#9A1900">; Subroutine body:</font></i>
-	<b><font color="#0000FF">xor</font></b>	rax<font color="#990000">,</font> rax	 <i><font color="#9A1900">; zero out the return register</font></i>
-	<b><font color="#0000FF">xor</font></b>	r<font color="#993399">10</font><font color="#990000">,</font> r<font color="#993399">10</font>	 <i><font color="#9A1900">; zero out the counter i</font></i>
-<b><font color="#000080">start:</font></b>	
-	<b><font color="#0000FF">cmp</font></b>	r<font color="#993399">10</font><font color="#990000">,</font> rsi	 <i><font color="#9A1900">; does i == n?</font></i>
-	<b><font color="#0000FF">je</font></b>	done		 <i><font color="#9A1900">; if so, we are done with the loop</font></i>
-	<b><font color="#0000FF">add</font></b>	rax<font color="#990000">,</font> <font color="#990000">[</font>rdi<font color="#990000">+</font><font color="#993399">8</font><font color="#990000">*</font>r<font color="#993399">10</font><font color="#990000">]</font> <i><font color="#9A1900">; add a[i] to rax</font></i>
-	<b><font color="#0000FF">inc</font></b>	r<font color="#993399">10</font>		 <i><font color="#9A1900">; increment our counter i</font></i>
-	<b><font color="#0000FF">jmp</font></b>	start		 <i><font color="#9A1900">; we are done with this loop iteration</font></i>
-<b><font color="#000080">done:</font></b>	
+	<i><span style="color:#9A1900">; Subroutine body:</span></i>
+	<b><span style="color:#0000FF">xor</span></b>	rax<span style="color:#990000">,</span> rax	 <i><span style="color:#9A1900">; zero out the return register</span></i>
+	<b><span style="color:#0000FF">xor</span></b>	r<span style="color:#993399">10</span><span style="color:#990000">,</span> r<span style="color:#993399">10</span>	 <i><span style="color:#9A1900">; zero out the counter i</span></i>
+<b><span style="color:#000080">start:</span></b>	
+	<b><span style="color:#0000FF">cmp</span></b>	r<span style="color:#993399">10</span><span style="color:#990000">,</span> rsi	 <i><span style="color:#9A1900">; does i == n?</span></i>
+	<b><span style="color:#0000FF">je</span></b>	done		 <i><span style="color:#9A1900">; if so, we are done with the loop</span></i>
+	<b><span style="color:#0000FF">add</span></b>	rax<span style="color:#990000">,</span> <span style="color:#990000">[</span>rdi<span style="color:#990000">+</span><span style="color:#993399">8</span><span style="color:#990000">*</span>r<span style="color:#993399">10</span><span style="color:#990000">]</span> <i><span style="color:#9A1900">; add a[i] to rax</span></i>
+	<b><span style="color:#0000FF">inc</span></b>	r<span style="color:#993399">10</span>		 <i><span style="color:#9A1900">; increment our counter i</span></i>
+	<b><span style="color:#0000FF">jmp</span></b>	start		 <i><span style="color:#9A1900">; we are done with this loop iteration</span></i>
+<b><span style="color:#000080">done:</span></b>	
 
-	<i><font color="#9A1900">; Standard epilogue: the return value is already in rax, we</font></i>
-	<i><font color="#9A1900">; do not have any callee-saved registers to restore, and we do not</font></i>
-	<i><font color="#9A1900">; have any local variables to deallocate, so all we do is return</font></i>
-	<b><font color="#0000FF">ret</font></b>
-</tt></pre>
+	<i><span style="color:#9A1900">; Standard epilogue: the return value is already in rax, we</span></i>
+	<i><span style="color:#9A1900">; do not have any callee-saved registers to restore, and we do not</span></i>
+	<i><span style="color:#9A1900">; have any local variables to deallocate, so all we do is return</span></i>
+	<b><span style="color:#0000FF">ret</span></b>
+</pre>
 </body>
 </html>

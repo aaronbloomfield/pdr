@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>Makefile</title>
+</head>
+<body style="background-color:white">
+<pre><span style="color:#990000">graphs:</span>
+	@echo Making all graphs into .svg files<span style="color:#990000">...</span>
+	@ls <span style="color:#990000">*</span>.dot <span style="color:#990000">|</span> grep -v Red-black <span style="color:#990000">|</span> grep -v graph <span style="color:#990000">|</span> sed s<span style="color:#990000">/</span>.dot//g <span style="color:#990000">|</span> awk <span style="color:#FF0000">'{print "dot -Tsvg "$$1".dot -o "$$1".svg"}'</span> <span style="color:#990000">|</span> bash
+	@ls <span style="color:#990000">*</span>.dot <span style="color:#990000">|</span> grep -v Red-black <span style="color:#990000">|</span> grep -v graph <span style="color:#990000">|</span> sed s<span style="color:#990000">/</span>.dot//g <span style="color:#990000">|</span> awk <span style="color:#FF0000">'{print "dot -Tps "$$1".dot -o "$$1".ps"}'</span> <span style="color:#990000">|</span> bash
+	@ls <span style="color:#990000">*</span>.dot <span style="color:#990000">|</span> grep -v Red-black <span style="color:#990000">|</span> grep -v graph <span style="color:#990000">|</span> sed s<span style="color:#990000">/</span>.dot//g <span style="color:#990000">|</span> awk <span style="color:#FF0000">'{print "dot -Tpng "$$1".dot -o "$$1".png"}'</span> <span style="color:#990000">|</span> bash
+	@ls <span style="color:#990000">*</span>.dot <span style="color:#990000">|</span> grep Red-black <span style="color:#990000">|</span> sed s<span style="color:#990000">/</span>.dot//g <span style="color:#990000">|</span> awk <span style="color:#FF0000">'{print "dot -Tsvg -Kneato "$$1".dot -o "$$1".svg"}'</span> <span style="color:#990000">|</span> bash
+	@ls <span style="color:#990000">*</span>.dot <span style="color:#990000">|</span> grep Red-black <span style="color:#990000">|</span> sed s<span style="color:#990000">/</span>.dot//g <span style="color:#990000">|</span> awk <span style="color:#FF0000">'{print "dot -Tps -Kneato "$$1".dot -o "$$1".ps"}'</span> <span style="color:#990000">|</span> bash
+	@ls <span style="color:#990000">*</span>.dot <span style="color:#990000">|</span> grep Red-black <span style="color:#990000">|</span> sed s<span style="color:#990000">/</span>.dot//g <span style="color:#990000">|</span> awk <span style="color:#FF0000">'{print "dot -Tpng -Kneato "$$1".dot -o "$$1".png"}'</span> <span style="color:#990000">|</span> bash
+	@ls graph-<span style="color:#990000">*</span>.dot <span style="color:#990000">|</span> sed s<span style="color:#990000">/</span>.dot//g <span style="color:#990000">|</span> awk <span style="color:#FF0000">'{print "dot -Tsvg -Kneato "$$1".dot -o "$$1".svg"}'</span> <span style="color:#990000">|</span> bash
+	@ls graph-<span style="color:#990000">*</span>.dot <span style="color:#990000">|</span> sed s<span style="color:#990000">/</span>.dot//g <span style="color:#990000">|</span> awk <span style="color:#FF0000">'{print "dot -Tps -Kneato "$$1".dot -o "$$1".ps"}'</span> <span style="color:#990000">|</span> bash
+	@ls graph-<span style="color:#990000">*</span>.dot <span style="color:#990000">|</span> sed s<span style="color:#990000">/</span>.dot//g <span style="color:#990000">|</span> awk <span style="color:#FF0000">'{print "dot -Tpng -Kneato "$$1".dot -o "$$1".png"}'</span> <span style="color:#990000">|</span> bash
+	@ls graph-<span style="color:#990000">[</span><span style="color:#993399">56</span><span style="color:#990000">]</span>.dot <span style="color:#990000">|</span> sed s<span style="color:#990000">/</span>.dot//g <span style="color:#990000">|</span> awk <span style="color:#FF0000">'{print "dot -Tsvg "$$1".dot -o "$$1".svg"}'</span> <span style="color:#990000">|</span> bash
+	@ls graph-<span style="color:#990000">[</span><span style="color:#993399">56</span><span style="color:#990000">]</span>.dot <span style="color:#990000">|</span> sed s<span style="color:#990000">/</span>.dot//g <span style="color:#990000">|</span> awk <span style="color:#FF0000">'{print "dot -Tps "$$1".dot -o "$$1".ps"}'</span> <span style="color:#990000">|</span> bash
+	@ls graph-<span style="color:#990000">[</span><span style="color:#993399">56</span><span style="color:#990000">]</span>.dot <span style="color:#990000">|</span> sed s<span style="color:#990000">/</span>.dot//g <span style="color:#990000">|</span> awk <span style="color:#FF0000">'{print "dot -Tpng "$$1".dot -o "$$1".png"}'</span> <span style="color:#990000">|</span> bash
+	@ls graph-<span style="color:#990000">[</span><span style="color:#993399">4</span><span style="color:#990000">]</span>.dot <span style="color:#990000">|</span> sed s<span style="color:#990000">/</span>.dot//g <span style="color:#990000">|</span> awk <span style="color:#FF0000">'{print "dot -Tsvg -Kneato -Gstart=5 "$$1".dot -o "$$1".svg"}'</span> <span style="color:#990000">|</span> bash
+	@ls graph-<span style="color:#990000">[</span><span style="color:#993399">4</span><span style="color:#990000">]</span>.dot <span style="color:#990000">|</span> sed s<span style="color:#990000">/</span>.dot//g <span style="color:#990000">|</span> awk <span style="color:#FF0000">'{print "dot -Tps -Kneato -Gstart=5 "$$1".dot -o "$$1".ps"}'</span> <span style="color:#990000">|</span> bash
+	@ls graph-<span style="color:#990000">[</span><span style="color:#993399">4</span><span style="color:#990000">]</span>.dot <span style="color:#990000">|</span> sed s<span style="color:#990000">/</span>.dot//g <span style="color:#990000">|</span> awk <span style="color:#FF0000">'{print "dot -Tpng -Kneato -Gstart=5 "$$1".dot -o "$$1".png"}'</span> <span style="color:#990000">|</span> bash
+	@ls graph-<span style="color:#990000">[</span><span style="color:#993399">8</span><span style="color:#990000">]</span>.dot graph-<span style="color:#993399">13</span><span style="color:#990000">?</span>.dot <span style="color:#990000">|</span> sed s<span style="color:#990000">/</span>.dot//g <span style="color:#990000">|</span> awk <span style="color:#FF0000">'{print "dot -Tsvg -Kfdp "$$1".dot -o "$$1".svg"}'</span> <span style="color:#990000">|</span> bash
+	@ls graph-<span style="color:#990000">[</span><span style="color:#993399">8</span><span style="color:#990000">]</span>.dot graph-<span style="color:#993399">13</span><span style="color:#990000">?</span>.dot <span style="color:#990000">|</span> sed s<span style="color:#990000">/</span>.dot//g <span style="color:#990000">|</span> awk <span style="color:#FF0000">'{print "dot -Tps -Kfdp "$$1".dot -o "$$1".ps"}'</span> <span style="color:#990000">|</span> bash
+	@ls graph-<span style="color:#990000">[</span><span style="color:#993399">8</span><span style="color:#990000">]</span>.dot graph-<span style="color:#993399">13</span><span style="color:#990000">?</span>.dot <span style="color:#990000">|</span> sed s<span style="color:#990000">/</span>.dot//g <span style="color:#990000">|</span> awk <span style="color:#FF0000">'{print "dot -Tpng -Kfdp "$$1".dot -o "$$1".png"}'</span> <span style="color:#990000">|</span> bash
+
+<span style="color:#990000">graphpngs:</span>
+	@ls graph-<span style="color:#990000">*</span>.dot <span style="color:#990000">|</span> sed s<span style="color:#990000">/</span>.dot//g <span style="color:#990000">|</span> awk <span style="color:#FF0000">'{print "dot -Tpng -Kneato "$$1".dot -o "$$1".png"}'</span> <span style="color:#990000">|</span> bash
+	@ls graph-<span style="color:#990000">[</span><span style="color:#993399">56</span><span style="color:#990000">]</span>.dot <span style="color:#990000">|</span> sed s<span style="color:#990000">/</span>.dot//g <span style="color:#990000">|</span> awk <span style="color:#FF0000">'{print "dot -Tpng "$$1".dot -o "$$1".png"}'</span> <span style="color:#990000">|</span> bash
+	@ls graph-<span style="color:#990000">[</span><span style="color:#993399">4</span><span style="color:#990000">]</span>.dot <span style="color:#990000">|</span> sed s<span style="color:#990000">/</span>.dot//g <span style="color:#990000">|</span> awk <span style="color:#FF0000">'{print "dot -Tpng -Kneato -Gstart=5 "$$1".dot -o "$$1".png"}'</span> <span style="color:#990000">|</span> bash
+	@ls graph-<span style="color:#990000">[</span><span style="color:#993399">8</span><span style="color:#990000">]</span>.dot graph-<span style="color:#993399">13</span><span style="color:#990000">?</span>.dot <span style="color:#990000">|</span> sed s<span style="color:#990000">/</span>.dot//g <span style="color:#990000">|</span> awk <span style="color:#FF0000">'{print "dot -Tpng -Kfdp "$$1".dot -o "$$1".png"}'</span> <span style="color:#990000">|</span> bash
+
+<span style="color:#990000">markdown:</span>
+	@ls <span style="color:#990000">*</span>.svg <span style="color:#990000">|</span> awk <span style="color:#FF0000">'{print "["$$1"]("$$1"), "}'</span>
+
+<span style="color:#990000">clean:</span>
+	/bin/rm -f <span style="color:#990000">*</span>.ps <span style="color:#990000">*</span>.png <span style="color:#990000">*~</span>
+</pre>
+</body>
+</html>

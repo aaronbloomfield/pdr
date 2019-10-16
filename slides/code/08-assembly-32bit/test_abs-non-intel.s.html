@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -8,172 +8,172 @@ http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
 <title>test_abs-non-intel.s</title>
 </head>
-<body bgcolor="white">
-<pre><tt>	.file	<font color="#FF0000">"test_abs.cpp"</font>
-	.local	_ZStL8__ioinit
-	.comm	_ZStL8__ioinit,1,1
-	.text
-	.globl	absolute_value
-	.type	absolute_value, @function
-absolute_value:
-.LFB1021:
-	.cfi_startproc
-	pushl	%ebp
-	.cfi_def_cfa_offset 8
-	.cfi_offset 5, -8
-	movl	<font color="#990000">%esp, %</font>ebp
-	.cfi_def_cfa_register 5
-	cmpl	$0, 8(%ebp)
-	jns	.L2
-	negl	8(%ebp)
-.L2:
-	movl	8(<font color="#990000">%ebp), %</font>eax
-	popl	%ebp
-	.cfi_restore 5
-	.cfi_def_cfa 4, 4
-	ret
-	.cfi_endproc
-.LFE1021:
-	.size	absolute_value, .-absolute_value
-	.section	.rodata
-.LC0:
-	.string	<font color="#FF0000">"Enter a value: "</font>
-.LC1:
-	.string	<font color="#FF0000">"The result is: "</font>
-	.text
-	.globl	main
-	.type	main, @function
-main:
-.LFB1022:
-	.cfi_startproc
-	leal	4(<font color="#990000">%esp), %</font>ecx
-	.cfi_def_cfa 1, 0
-	andl	$-16, %esp
-	pushl	-4(%ecx)
-	pushl	%ebp
-	.cfi_escape 0x10,0x5,0x2,0x75,0
-	movl	<font color="#990000">%esp, %</font>ebp
-	pushl	%ecx
-	.cfi_escape 0xf,0x3,0x75,0x7c,0x6
-	subl	$20, %esp
-	movl	<font color="#990000">%gs:20, %</font>eax
-	movl	<font color="#990000">%eax, -12(%</font>ebp)
-	xorl	<font color="#990000">%eax, %</font>eax
-	movl	$0, -20(%ebp)
-	subl	$8, %esp
-	pushl	$.LC0
-	pushl	$_ZSt4cout
-	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
-	addl	$16, %esp
-	subl	$8, %esp
-	pushl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
-	pushl	%eax
-	call	_ZNSolsEPFRSoS_E
-	addl	$16, %esp
-	subl	$8, %esp
-	leal	-20(<font color="#990000">%ebp), %</font>eax
-	pushl	%eax
-	pushl	$_ZSt3cin
-	call	_ZNSirsERi
-	addl	$16, %esp
-	movl	-20(<font color="#990000">%ebp), %</font>eax
-	subl	$12, %esp
-	pushl	%eax
-	call	absolute_value
-	addl	$16, %esp
-	movl	<font color="#990000">%eax, -16(%</font>ebp)
-	subl	$8, %esp
-	pushl	$.LC1
-	pushl	$_ZSt4cout
-	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
-	addl	$16, %esp
-	subl	$8, %esp
-	pushl	-16(%ebp)
-	pushl	%eax
-	call	_ZNSolsEi
-	addl	$16, %esp
-	subl	$8, %esp
-	pushl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
-	pushl	%eax
-	call	_ZNSolsEPFRSoS_E
-	addl	$16, %esp
-	movl	$0, %eax
-	movl	-12(<font color="#990000">%ebp), %</font>edx
-	xorl	<font color="#990000">%gs:20, %</font>edx
-	je	.L6
-	call	__stack_chk_fail
-.L6:
-	movl	-4(<font color="#990000">%ebp), %</font>ecx
-	.cfi_def_cfa 1, 0
-	leave
-	.cfi_restore 5
-	leal	-4(<font color="#990000">%ecx), %</font>esp
-	.cfi_def_cfa 4, 4
-	ret
-	.cfi_endproc
-.LFE1022:
-	.size	main, .-main
-	.type	_Z41__static_initialization_and_destruction_0ii, @function
-_Z41__static_initialization_and_destruction_0ii:
-.LFB1031:
-	.cfi_startproc
-	pushl	%ebp
-	.cfi_def_cfa_offset 8
-	.cfi_offset 5, -8
-	movl	<font color="#990000">%esp, %</font>ebp
-	.cfi_def_cfa_register 5
-	subl	$8, %esp
-	cmpl	$1, 8(%ebp)
-	jne	.L9
-	cmpl	$65535, 12(%ebp)
-	jne	.L9
-	subl	$12, %esp
-	pushl	$_ZStL8__ioinit
-	call	_ZNSt8ios_base4InitC1Ev
-	addl	$16, %esp
-	subl	$4, %esp
+<body style="background-color:white">
+<pre><b><span style="color:#000080">	.file</span></b>	<span style="color:#FF0000">"test_abs.cpp"</span>
+<b><span style="color:#000080">	.local</span></b>	_ZStL<span style="color:#993399">8</span>__ioinit
+<b><span style="color:#000080">	.comm</span></b>	_ZStL<span style="color:#993399">8</span>__ioinit<span style="color:#990000">,</span><span style="color:#993399">1</span><span style="color:#990000">,</span><span style="color:#993399">1</span>
+<b><span style="color:#000080">	.text</span></b>
+<b><span style="color:#000080">	.globl</span></b>	absolute_value
+<b><span style="color:#000080">	.type</span></b>	absolute_value<span style="color:#990000">,</span> @function
+absolute_value<span style="color:#990000">:</span>
+<b><span style="color:#000080">.LFB1021</span></b><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.cfi</span></b>_startproc
+	pushl	<span style="color:#990000">%</span><span style="color:#009900">ebp</span>
+<b><span style="color:#000080">	.cfi</span></b>_def_cfa_offset <span style="color:#993399">8</span>
+<b><span style="color:#000080">	.cfi</span></b>_offset <span style="color:#993399">5</span><span style="color:#990000">,</span> <span style="color:#990000">-</span><span style="color:#993399">8</span>
+	movl	<span style="color:#990000">%</span><span style="color:#009900">esp</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">ebp</span>
+<b><span style="color:#000080">	.cfi</span></b>_def_cfa_register <span style="color:#993399">5</span>
+	cmpl	$<span style="color:#993399">0</span><span style="color:#990000">,</span> <span style="color:#993399">8</span><span style="color:#990000">(%</span><span style="color:#009900">ebp</span><span style="color:#990000">)</span>
+	<b><span style="color:#0000FF">jns</span></b>	<span style="color:#990000">.</span>L<span style="color:#993399">2</span>
+	negl	<span style="color:#993399">8</span><span style="color:#990000">(%</span><span style="color:#009900">ebp</span><span style="color:#990000">)</span>
+<b><span style="color:#000080">.L2</span></b><span style="color:#990000">:</span>
+	movl	<span style="color:#993399">8</span><span style="color:#990000">(%</span><span style="color:#009900">ebp</span><span style="color:#990000">),</span> <span style="color:#990000">%</span><span style="color:#009900">eax</span>
+	popl	<span style="color:#990000">%</span><span style="color:#009900">ebp</span>
+<b><span style="color:#000080">	.cfi</span></b>_restore <span style="color:#993399">5</span>
+<b><span style="color:#000080">	.cfi</span></b>_def_cfa <span style="color:#993399">4</span><span style="color:#990000">,</span> <span style="color:#993399">4</span>
+	<b><span style="color:#0000FF">ret</span></b>
+<b><span style="color:#000080">	.cfi</span></b>_endproc
+<b><span style="color:#000080">.LFE1021</span></b><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.size</span></b>	absolute_value<span style="color:#990000">,</span> <span style="color:#990000">.-</span>absolute_value
+<b><span style="color:#000080">	.section</span></b>	<span style="color:#990000">.</span>rodata
+<b><span style="color:#000080">.LC0</span></b><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.string</span></b>	<span style="color:#FF0000">"Enter a value: "</span>
+<b><span style="color:#000080">.LC1</span></b><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.string</span></b>	<span style="color:#FF0000">"The result is: "</span>
+<b><span style="color:#000080">	.text</span></b>
+<b><span style="color:#000080">	.globl</span></b>	main
+<b><span style="color:#000080">	.type</span></b>	main<span style="color:#990000">,</span> @function
+<b><span style="color:#000080">main:</span></b>
+<b><span style="color:#000080">.LFB1022</span></b><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.cfi</span></b>_startproc
+	leal	<span style="color:#993399">4</span><span style="color:#990000">(%</span><span style="color:#009900">esp</span><span style="color:#990000">),</span> <span style="color:#990000">%</span><span style="color:#009900">ecx</span>
+<b><span style="color:#000080">	.cfi</span></b>_def_cfa <span style="color:#993399">1</span><span style="color:#990000">,</span> <span style="color:#993399">0</span>
+	andl	$<span style="color:#990000">-</span><span style="color:#993399">16</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">esp</span>
+	pushl	<span style="color:#990000">-</span><span style="color:#993399">4</span><span style="color:#990000">(%</span><span style="color:#009900">ecx</span><span style="color:#990000">)</span>
+	pushl	<span style="color:#990000">%</span><span style="color:#009900">ebp</span>
+<b><span style="color:#000080">	.cfi</span></b>_escape <span style="color:#993399">0x10</span><span style="color:#990000">,</span><span style="color:#993399">0x5</span><span style="color:#990000">,</span><span style="color:#993399">0x2</span><span style="color:#990000">,</span><span style="color:#993399">0x75</span><span style="color:#990000">,</span><span style="color:#993399">0</span>
+	movl	<span style="color:#990000">%</span><span style="color:#009900">esp</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">ebp</span>
+	pushl	<span style="color:#990000">%</span><span style="color:#009900">ecx</span>
+<b><span style="color:#000080">	.cfi</span></b>_escape <span style="color:#993399">0xf</span><span style="color:#990000">,</span><span style="color:#993399">0x3</span><span style="color:#990000">,</span><span style="color:#993399">0x75</span><span style="color:#990000">,</span><span style="color:#993399">0x7c</span><span style="color:#990000">,</span><span style="color:#993399">0x6</span>
+	subl	$<span style="color:#993399">20</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">esp</span>
+	movl	<span style="color:#990000">%</span><span style="color:#009900">gs</span><span style="color:#990000">:</span><span style="color:#993399">20</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">eax</span>
+	movl	<span style="color:#990000">%</span><span style="color:#009900">eax</span><span style="color:#990000">,</span> <span style="color:#990000">-</span><span style="color:#993399">12</span><span style="color:#990000">(%</span><span style="color:#009900">ebp</span><span style="color:#990000">)</span>
+	xorl	<span style="color:#990000">%</span><span style="color:#009900">eax</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">eax</span>
+	movl	$<span style="color:#993399">0</span><span style="color:#990000">,</span> <span style="color:#990000">-</span><span style="color:#993399">20</span><span style="color:#990000">(%</span><span style="color:#009900">ebp</span><span style="color:#990000">)</span>
+	subl	$<span style="color:#993399">8</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">esp</span>
+	pushl	$<span style="color:#990000">.</span>LC<span style="color:#993399">0</span>
+	pushl	$_ZSt<span style="color:#993399">4</span>cout
+	<b><span style="color:#0000FF">call</span></b>	_ZStlsISt<span style="color:#993399">11</span>char_traitsIcEERSt<span style="color:#993399">13</span>basic_ostreamIcT_ES<span style="color:#993399">5</span>_PKc
+	addl	$<span style="color:#993399">16</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">esp</span>
+	subl	$<span style="color:#993399">8</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">esp</span>
+	pushl	$_ZSt<span style="color:#993399">4</span>endlIcSt<span style="color:#993399">11</span>char_traitsIcEERSt<span style="color:#993399">13</span>basic_ostreamIT_T<span style="color:#993399">0</span>_ES<span style="color:#993399">6</span>_
+	pushl	<span style="color:#990000">%</span><span style="color:#009900">eax</span>
+	<b><span style="color:#0000FF">call</span></b>	_ZNSolsEPFRSoS_E
+	addl	$<span style="color:#993399">16</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">esp</span>
+	subl	$<span style="color:#993399">8</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">esp</span>
+	leal	<span style="color:#990000">-</span><span style="color:#993399">20</span><span style="color:#990000">(%</span><span style="color:#009900">ebp</span><span style="color:#990000">),</span> <span style="color:#990000">%</span><span style="color:#009900">eax</span>
+	pushl	<span style="color:#990000">%</span><span style="color:#009900">eax</span>
+	pushl	$_ZSt<span style="color:#993399">3</span>cin
+	<b><span style="color:#0000FF">call</span></b>	_ZNSirsERi
+	addl	$<span style="color:#993399">16</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">esp</span>
+	movl	<span style="color:#990000">-</span><span style="color:#993399">20</span><span style="color:#990000">(%</span><span style="color:#009900">ebp</span><span style="color:#990000">),</span> <span style="color:#990000">%</span><span style="color:#009900">eax</span>
+	subl	$<span style="color:#993399">12</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">esp</span>
+	pushl	<span style="color:#990000">%</span><span style="color:#009900">eax</span>
+	<b><span style="color:#0000FF">call</span></b>	absolute_value
+	addl	$<span style="color:#993399">16</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">esp</span>
+	movl	<span style="color:#990000">%</span><span style="color:#009900">eax</span><span style="color:#990000">,</span> <span style="color:#990000">-</span><span style="color:#993399">16</span><span style="color:#990000">(%</span><span style="color:#009900">ebp</span><span style="color:#990000">)</span>
+	subl	$<span style="color:#993399">8</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">esp</span>
+	pushl	$<span style="color:#990000">.</span>LC<span style="color:#993399">1</span>
+	pushl	$_ZSt<span style="color:#993399">4</span>cout
+	<b><span style="color:#0000FF">call</span></b>	_ZStlsISt<span style="color:#993399">11</span>char_traitsIcEERSt<span style="color:#993399">13</span>basic_ostreamIcT_ES<span style="color:#993399">5</span>_PKc
+	addl	$<span style="color:#993399">16</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">esp</span>
+	subl	$<span style="color:#993399">8</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">esp</span>
+	pushl	<span style="color:#990000">-</span><span style="color:#993399">16</span><span style="color:#990000">(%</span><span style="color:#009900">ebp</span><span style="color:#990000">)</span>
+	pushl	<span style="color:#990000">%</span><span style="color:#009900">eax</span>
+	<b><span style="color:#0000FF">call</span></b>	_ZNSolsEi
+	addl	$<span style="color:#993399">16</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">esp</span>
+	subl	$<span style="color:#993399">8</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">esp</span>
+	pushl	$_ZSt<span style="color:#993399">4</span>endlIcSt<span style="color:#993399">11</span>char_traitsIcEERSt<span style="color:#993399">13</span>basic_ostreamIT_T<span style="color:#993399">0</span>_ES<span style="color:#993399">6</span>_
+	pushl	<span style="color:#990000">%</span><span style="color:#009900">eax</span>
+	<b><span style="color:#0000FF">call</span></b>	_ZNSolsEPFRSoS_E
+	addl	$<span style="color:#993399">16</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">esp</span>
+	movl	$<span style="color:#993399">0</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">eax</span>
+	movl	<span style="color:#990000">-</span><span style="color:#993399">12</span><span style="color:#990000">(%</span><span style="color:#009900">ebp</span><span style="color:#990000">),</span> <span style="color:#990000">%</span><span style="color:#009900">edx</span>
+	xorl	<span style="color:#990000">%</span><span style="color:#009900">gs</span><span style="color:#990000">:</span><span style="color:#993399">20</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">edx</span>
+	<b><span style="color:#0000FF">je</span></b>	<span style="color:#990000">.</span>L<span style="color:#993399">6</span>
+	<b><span style="color:#0000FF">call</span></b>	__stack_chk_fail
+<b><span style="color:#000080">.L6</span></b><span style="color:#990000">:</span>
+	movl	<span style="color:#990000">-</span><span style="color:#993399">4</span><span style="color:#990000">(%</span><span style="color:#009900">ebp</span><span style="color:#990000">),</span> <span style="color:#990000">%</span><span style="color:#009900">ecx</span>
+<b><span style="color:#000080">	.cfi</span></b>_def_cfa <span style="color:#993399">1</span><span style="color:#990000">,</span> <span style="color:#993399">0</span>
+	<b><span style="color:#0000FF">leave</span></b>
+<b><span style="color:#000080">	.cfi</span></b>_restore <span style="color:#993399">5</span>
+	leal	<span style="color:#990000">-</span><span style="color:#993399">4</span><span style="color:#990000">(%</span><span style="color:#009900">ecx</span><span style="color:#990000">),</span> <span style="color:#990000">%</span><span style="color:#009900">esp</span>
+<b><span style="color:#000080">	.cfi</span></b>_def_cfa <span style="color:#993399">4</span><span style="color:#990000">,</span> <span style="color:#993399">4</span>
+	<b><span style="color:#0000FF">ret</span></b>
+<b><span style="color:#000080">	.cfi</span></b>_endproc
+<b><span style="color:#000080">.LFE1022</span></b><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.size</span></b>	main<span style="color:#990000">,</span> <span style="color:#990000">.-</span>main
+<b><span style="color:#000080">	.type</span></b>	_Z<span style="color:#993399">41</span>__static_initialization_and_destruction<span style="color:#993399">_0</span>ii<span style="color:#990000">,</span> @function
+_Z<span style="color:#993399">41</span>__static_initialization_and_destruction<span style="color:#993399">_0</span>ii<span style="color:#990000">:</span>
+<b><span style="color:#000080">.LFB1031</span></b><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.cfi</span></b>_startproc
+	pushl	<span style="color:#990000">%</span><span style="color:#009900">ebp</span>
+<b><span style="color:#000080">	.cfi</span></b>_def_cfa_offset <span style="color:#993399">8</span>
+<b><span style="color:#000080">	.cfi</span></b>_offset <span style="color:#993399">5</span><span style="color:#990000">,</span> <span style="color:#990000">-</span><span style="color:#993399">8</span>
+	movl	<span style="color:#990000">%</span><span style="color:#009900">esp</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">ebp</span>
+<b><span style="color:#000080">	.cfi</span></b>_def_cfa_register <span style="color:#993399">5</span>
+	subl	$<span style="color:#993399">8</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">esp</span>
+	cmpl	$<span style="color:#993399">1</span><span style="color:#990000">,</span> <span style="color:#993399">8</span><span style="color:#990000">(%</span><span style="color:#009900">ebp</span><span style="color:#990000">)</span>
+	<b><span style="color:#0000FF">jne</span></b>	<span style="color:#990000">.</span>L<span style="color:#993399">9</span>
+	cmpl	$<span style="color:#993399">65535</span><span style="color:#990000">,</span> <span style="color:#993399">12</span><span style="color:#990000">(%</span><span style="color:#009900">ebp</span><span style="color:#990000">)</span>
+	<b><span style="color:#0000FF">jne</span></b>	<span style="color:#990000">.</span>L<span style="color:#993399">9</span>
+	subl	$<span style="color:#993399">12</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">esp</span>
+	pushl	$_ZStL<span style="color:#993399">8</span>__ioinit
+	<b><span style="color:#0000FF">call</span></b>	_ZNSt<span style="color:#993399">8</span>ios_base<span style="color:#993399">4</span>InitC<span style="color:#993399">1</span>Ev
+	addl	$<span style="color:#993399">16</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">esp</span>
+	subl	$<span style="color:#993399">4</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">esp</span>
 	pushl	$__dso_handle
-	pushl	$_ZStL8__ioinit
-	pushl	$_ZNSt8ios_base4InitD1Ev
-	call	__cxa_atexit
-	addl	$16, %esp
-.L9:
-	nop
-	leave
-	.cfi_restore 5
-	.cfi_def_cfa 4, 4
-	ret
-	.cfi_endproc
-.LFE1031:
-	.size	_Z41__static_initialization_and_destruction_0ii, .-_Z41__static_initialization_and_destruction_0ii
-	.type	_GLOBAL__sub_I_absolute_value, @function
-_GLOBAL__sub_I_absolute_value:
-.LFB1032:
-	.cfi_startproc
-	pushl	%ebp
-	.cfi_def_cfa_offset 8
-	.cfi_offset 5, -8
-	movl	<font color="#990000">%esp, %</font>ebp
-	.cfi_def_cfa_register 5
-	subl	$8, %esp
-	subl	$8, %esp
-	pushl	$65535
-	pushl	$1
-	call	_Z41__static_initialization_and_destruction_0ii
-	addl	$16, %esp
-	leave
-	.cfi_restore 5
-	.cfi_def_cfa 4, 4
-	ret
-	.cfi_endproc
-.LFE1032:
-	.size	_GLOBAL__sub_I_absolute_value, .-_GLOBAL__sub_I_absolute_value
-	.section	.init_array,<font color="#FF0000">"aw"</font>
-	.align 4
-	.long	_GLOBAL__sub_I_absolute_value
-	.hidden	__dso_handle
-	.ident	<font color="#FF0000">"GCC: (Ubuntu 5.4.0-6ubuntu1~16.04.2) 5.4.0 20160609"</font>
-	.section	.note.GNU-stack,<font color="#FF0000">""</font>,@progbits
-</tt></pre>
+	pushl	$_ZStL<span style="color:#993399">8</span>__ioinit
+	pushl	$_ZNSt<span style="color:#993399">8</span>ios_base<span style="color:#993399">4</span>InitD<span style="color:#993399">1</span>Ev
+	<b><span style="color:#0000FF">call</span></b>	__cxa_atexit
+	addl	$<span style="color:#993399">16</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">esp</span>
+<b><span style="color:#000080">.L9</span></b><span style="color:#990000">:</span>
+	<b><span style="color:#0000FF">nop</span></b>
+	<b><span style="color:#0000FF">leave</span></b>
+<b><span style="color:#000080">	.cfi</span></b>_restore <span style="color:#993399">5</span>
+<b><span style="color:#000080">	.cfi</span></b>_def_cfa <span style="color:#993399">4</span><span style="color:#990000">,</span> <span style="color:#993399">4</span>
+	<b><span style="color:#0000FF">ret</span></b>
+<b><span style="color:#000080">	.cfi</span></b>_endproc
+<b><span style="color:#000080">.LFE1031</span></b><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.size</span></b>	_Z<span style="color:#993399">41</span>__static_initialization_and_destruction<span style="color:#993399">_0</span>ii<span style="color:#990000">,</span> <span style="color:#990000">.-</span>_Z<span style="color:#993399">41</span>__static_initialization_and_destruction<span style="color:#993399">_0</span>ii
+<b><span style="color:#000080">	.type</span></b>	_GLOBAL__sub_I_absolute_value<span style="color:#990000">,</span> @function
+_GLOBAL__sub_I_absolute_value<span style="color:#990000">:</span>
+<b><span style="color:#000080">.LFB1032</span></b><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.cfi</span></b>_startproc
+	pushl	<span style="color:#990000">%</span><span style="color:#009900">ebp</span>
+<b><span style="color:#000080">	.cfi</span></b>_def_cfa_offset <span style="color:#993399">8</span>
+<b><span style="color:#000080">	.cfi</span></b>_offset <span style="color:#993399">5</span><span style="color:#990000">,</span> <span style="color:#990000">-</span><span style="color:#993399">8</span>
+	movl	<span style="color:#990000">%</span><span style="color:#009900">esp</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">ebp</span>
+<b><span style="color:#000080">	.cfi</span></b>_def_cfa_register <span style="color:#993399">5</span>
+	subl	$<span style="color:#993399">8</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">esp</span>
+	subl	$<span style="color:#993399">8</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">esp</span>
+	pushl	$<span style="color:#993399">65535</span>
+	pushl	$<span style="color:#993399">1</span>
+	<b><span style="color:#0000FF">call</span></b>	_Z<span style="color:#993399">41</span>__static_initialization_and_destruction<span style="color:#993399">_0</span>ii
+	addl	$<span style="color:#993399">16</span><span style="color:#990000">,</span> <span style="color:#990000">%</span><span style="color:#009900">esp</span>
+	<b><span style="color:#0000FF">leave</span></b>
+<b><span style="color:#000080">	.cfi</span></b>_restore <span style="color:#993399">5</span>
+<b><span style="color:#000080">	.cfi</span></b>_def_cfa <span style="color:#993399">4</span><span style="color:#990000">,</span> <span style="color:#993399">4</span>
+	<b><span style="color:#0000FF">ret</span></b>
+<b><span style="color:#000080">	.cfi</span></b>_endproc
+<b><span style="color:#000080">.LFE1032</span></b><span style="color:#990000">:</span>
+<b><span style="color:#000080">	.size</span></b>	_GLOBAL__sub_I_absolute_value<span style="color:#990000">,</span> <span style="color:#990000">.-</span>_GLOBAL__sub_I_absolute_value
+<b><span style="color:#000080">	.section</span></b>	<span style="color:#990000">.</span>init_array<span style="color:#990000">,</span><span style="color:#FF0000">"aw"</span>
+<b><span style="color:#000080">	.align</span></b> <span style="color:#993399">4</span>
+<b><span style="color:#000080">	.long</span></b>	_GLOBAL__sub_I_absolute_value
+<b><span style="color:#000080">	.hidden</span></b>	__dso_handle
+<b><span style="color:#000080">	.ident</span></b>	<span style="color:#FF0000">"GCC: (Ubuntu 5.4.0-6ubuntu1~16.04.2) 5.4.0 20160609"</span>
+<b><span style="color:#000080">	.section</span></b>	<span style="color:#990000">.</span>note<span style="color:#990000">.</span>GNU<span style="color:#990000">-</span>stack<span style="color:#990000">,</span><span style="color:#FF0000">""</span><span style="color:#990000">,</span>@progbits
+</pre>
 </body>
 </html>

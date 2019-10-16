@@ -1,30 +1,30 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta name="GENERATOR" content="GNU source-highlight 3.1.6
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
 <title>float_to_hex.cpp</title>
 </head>
-<body bgcolor="white">
-<pre><tt><i><font color="#9A1900">// This should be compiled with the -m32 flag, so as to make the</font></i>
-<i><font color="#9A1900">// pointer a 32-bit memory address.</font></i>
+<body style="background-color:white">
+<pre><i><span style="color:#9A1900">// This should be compiled with the -m32 flag, so as to make the</span></i>
+<i><span style="color:#9A1900">// pointer a 32-bit memory address.</span></i>
 
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
-<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;iostream&gt;</span>
+<b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
-<b><font color="#0000FF">union</font></b> foo <font color="#FF0000">{</font>
-    <font color="#009900">float</font> f<font color="#990000">;</font>
-    <font color="#009900">int</font> <font color="#990000">*</font>x<font color="#990000">;</font>
-<font color="#FF0000">}</font> bar<font color="#990000">;</font>
+<b><span style="color:#0000FF">union</span></b> foo <span style="color:#FF0000">{</span>
+    <span style="color:#009900">float</span> f<span style="color:#990000">;</span>
+    <span style="color:#009900">int</span> <span style="color:#990000">*</span>x<span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span> bar<span style="color:#990000">;</span>
 
-<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
-    bar<font color="#990000">.</font>f <font color="#990000">=</font> <font color="#993399">42.125</font><font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> bar<font color="#990000">.</font>x <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font> <i><font color="#9A1900">// prints in big-endian</font></i>
-    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
-<font color="#FF0000">}</font>
-</tt></pre>
+<span style="color:#009900">int</span> <b><span style="color:#000000">main</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    bar<span style="color:#990000">.</span>f <span style="color:#990000">=</span> <span style="color:#993399">42.125</span><span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> bar<span style="color:#990000">.</span>x <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span> <i><span style="color:#9A1900">// prints in big-endian</span></i>
+    <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+</pre>
 </body>
 </html>

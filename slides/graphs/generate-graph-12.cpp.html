@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>generate-graph-12.cpp</title>
+</head>
+<body style="background-color:white">
+<pre><b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;iostream&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;stdlib.h&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;stdio.h&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;math.h&gt;</span>
+
+<b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
+
+<span style="color:#009900">int</span> <b><span style="color:#000000">main</span></b><span style="color:#990000">(</span><span style="color:#009900">int</span> argc<span style="color:#990000">,</span> <span style="color:#009900">char</span> <span style="color:#990000">**</span>argv<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <span style="color:#009900">int</span> num<span style="color:#990000">,</span> ret<span style="color:#990000">;</span>
+    <span style="color:#009900">float</span> radius <span style="color:#990000">=</span> <span style="color:#993399">5.0</span><span style="color:#990000">;</span>
+    <i><span style="color:#9A1900">// error checks</span></i>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> <span style="color:#990000">(</span>argc <span style="color:#990000">!=</span> <span style="color:#993399">2</span><span style="color:#990000">)</span> <span style="color:#990000">&amp;&amp;</span> <span style="color:#990000">(</span>argc <span style="color:#990000">!=</span> <span style="color:#993399">3</span><span style="color:#990000">)</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        cerr <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Usage: "</span> <span style="color:#990000">&lt;&lt;</span> argv<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" &lt;num&gt; [&lt;radius&gt;]"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+        <b><span style="color:#000000">exit</span></b><span style="color:#990000">(</span><span style="color:#993399">0</span><span style="color:#990000">);</span>
+    <span style="color:#FF0000">}</span>
+    ret <span style="color:#990000">=</span> <b><span style="color:#000000">sscanf</span></b> <span style="color:#990000">(</span>argv<span style="color:#990000">[</span><span style="color:#993399">1</span><span style="color:#990000">],</span> <span style="color:#FF0000">"%d"</span><span style="color:#990000">,</span> <span style="color:#990000">&amp;</span>num<span style="color:#990000">);</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> ret <span style="color:#990000">!=</span> <span style="color:#993399">1</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        cerr <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Bad number format: '"</span> <span style="color:#990000">&lt;&lt;</span> argv<span style="color:#990000">[</span><span style="color:#993399">1</span><span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"'"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+        <b><span style="color:#000000">exit</span></b><span style="color:#990000">(</span><span style="color:#993399">0</span><span style="color:#990000">);</span>
+    <span style="color:#FF0000">}</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> argc <span style="color:#990000">==</span> <span style="color:#993399">3</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        ret <span style="color:#990000">=</span> <b><span style="color:#000000">sscanf</span></b> <span style="color:#990000">(</span>argv<span style="color:#990000">[</span><span style="color:#993399">2</span><span style="color:#990000">],</span> <span style="color:#FF0000">"%f"</span><span style="color:#990000">,</span> <span style="color:#990000">&amp;</span>radius<span style="color:#990000">);</span>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> ret <span style="color:#990000">!=</span> <span style="color:#993399">1</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            cerr <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Bad radius format: '"</span> <span style="color:#990000">&lt;&lt;</span> argv<span style="color:#990000">[</span><span style="color:#993399">1</span><span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"'"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+            <b><span style="color:#000000">exit</span></b><span style="color:#990000">(</span><span style="color:#993399">0</span><span style="color:#990000">);</span>
+        <span style="color:#FF0000">}</span>
+    <span style="color:#FF0000">}</span>
+    <i><span style="color:#9A1900">// print header</span></i>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"# This graph generated with "</span> <span style="color:#990000">&lt;&lt;</span> num <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" nodes"</span><span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> argc <span style="color:#990000">==</span> <span style="color:#993399">2</span> <span style="color:#990000">)</span>
+        cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" and the radius set to the default of 5.0"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">else</span></b>
+        cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" and a radius of "</span> <span style="color:#990000">&lt;&lt;</span> radius <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"digraph G {"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">graph [fontname = </span><span style="color:#CC33CC">\"</span><span style="color:#FF0000">Helvetica</span><span style="color:#CC33CC">\"</span><span style="color:#FF0000">];"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">node [fontname = </span><span style="color:#CC33CC">\"</span><span style="color:#FF0000">Helvetica</span><span style="color:#CC33CC">\"</span><span style="color:#FF0000">,shape=circle,width=0.6];"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">edge [fontname = </span><span style="color:#CC33CC">\"</span><span style="color:#FF0000">Helvetica</span><span style="color:#CC33CC">\"</span><span style="color:#FF0000">,dir=none];"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    <i><span style="color:#9A1900">// generate node positions</span></i>
+    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span> <span style="color:#009900">int</span> i <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span> i <span style="color:#990000">&lt;</span> num<span style="color:#990000">;</span> i<span style="color:#990000">++</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        <span style="color:#009900">double</span> angle <span style="color:#990000">=</span> <span style="color:#993399">360.0</span><span style="color:#990000">/((</span><span style="color:#009900">double</span><span style="color:#990000">)</span>num<span style="color:#990000">)</span> <span style="color:#990000">*</span> i <span style="color:#990000">*</span> <span style="color:#990000">(</span>M_PI<span style="color:#990000">/</span><span style="color:#993399">180.0</span><span style="color:#990000">);</span>
+        cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">v"</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">(</span>i<span style="color:#990000">+</span><span style="color:#993399">1</span><span style="color:#990000">)</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" [pin=true,pos=</span><span style="color:#CC33CC">\"</span><span style="color:#FF0000">"</span> <span style="color:#990000">&lt;&lt;</span> <b><span style="color:#000000">sin</span></b><span style="color:#990000">(</span>angle<span style="color:#990000">)*</span>radius <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">","</span> <span style="color:#990000">&lt;&lt;</span> <b><span style="color:#000000">cos</span></b><span style="color:#990000">(</span>angle<span style="color:#990000">)*</span>radius <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\"</span><span style="color:#FF0000">];"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
+    <i><span style="color:#9A1900">// generate edges</span></i>
+    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span> <span style="color:#009900">int</span> i <span style="color:#990000">=</span> <span style="color:#993399">1</span><span style="color:#990000">;</span> i <span style="color:#990000">&lt;=</span> num<span style="color:#990000">;</span> i<span style="color:#990000">++</span> <span style="color:#990000">)</span>
+        <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span> <span style="color:#009900">int</span> j <span style="color:#990000">=</span> <span style="color:#993399">1</span><span style="color:#990000">;</span> j <span style="color:#990000">&lt;=</span> num<span style="color:#990000">;</span> j<span style="color:#990000">++</span> <span style="color:#990000">)</span>
+            <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> i <span style="color:#990000">&lt;</span> j <span style="color:#990000">)</span>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">v"</span> <span style="color:#990000">&lt;&lt;</span> i <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" -&gt; "</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"v"</span> <span style="color:#990000">&lt;&lt;</span> j <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">";"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"}"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+</pre>
+</body>
+</html>

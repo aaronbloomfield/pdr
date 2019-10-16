@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>Makefile</title>
+</head>
+<body style="background-color:white">
+<pre><span style="color:#990000">markdown:</span>
+	@echo Converting markdown files to html format<span style="color:#990000">...</span>
+	@chmod <span style="color:#993399">755</span> utils/convert-markdown-to-html
+	@utils/convert-markdown-to-html
+	@git checkout uva/old<span style="color:#990000">/*</span>.html
+	@echo <b><span style="color:#0000FF">done</span></b><span style="color:#990000">!</span>
+
+<span style="color:#990000">highlight:</span>
+	@echo Highlighting <b><span style="color:#0000FF">source</span></b> files<span style="color:#990000">...</span>
+	@chmod <span style="color:#993399">755</span> utils/highlight-source-files
+	@utils/highlight-source-files
+	@git checkout uva/old<span style="color:#990000">/*</span>.html
+	@echo <b><span style="color:#0000FF">done</span></b><span style="color:#990000">!</span>
+
+<span style="color:#990000">clean:</span>
+	/bin/rm -rf <span style="color:#990000">*~</span> <span style="color:#990000">*/*~</span> <span style="color:#990000">*/*/*~</span> <span style="color:#990000">*/*/*/*~</span>
+	/bin/rm -f uva<span style="color:#990000">/*</span>.aux uva<span style="color:#990000">/*</span>.log
+</pre>
+</body>
+</html>

@@ -1,124 +1,124 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta name="GENERATOR" content="GNU source-highlight 3.1.6
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
 <title>binary_heap.cpp</title>
 </head>
-<body bgcolor="white">
-<pre><tt><i><font color="#9A1900">// Code written by Aaron Bloomfield, 2014</font></i>
-<i><font color="#9A1900">// Released under a CC BY-SA license</font></i>
-<i><font color="#9A1900">// This code is part of the https://github.com/aaronbloomfield/pdr repository</font></i>
+<body style="background-color:white">
+<pre><i><span style="color:#9A1900">// Code written by Aaron Bloomfield, 2014</span></i>
+<i><span style="color:#9A1900">// Released under a CC BY-SA license</span></i>
+<i><span style="color:#9A1900">// This code is part of the https://github.com/aaronbloomfield/pdr repository</span></i>
 
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
-<b><font color="#000080">#include</font></b> <font color="#FF0000">"binary_heap.h"</font>
-<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;iostream&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">"binary_heap.h"</span>
+<b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
-<i><font color="#9A1900">// default constructor</font></i>
-binary_heap<font color="#990000">::</font><b><font color="#000000">binary_heap</font></b><font color="#990000">()</font> <font color="#990000">:</font> <b><font color="#000000">heap_size</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">)</font> <font color="#FF0000">{</font>
-    heap<font color="#990000">.</font><b><font color="#000000">push_back</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font>
-<font color="#FF0000">}</font>
+<i><span style="color:#9A1900">// default constructor</span></i>
+binary_heap<span style="color:#990000">::</span><b><span style="color:#000000">binary_heap</span></b><span style="color:#990000">()</span> <span style="color:#990000">:</span> <b><span style="color:#000000">heap_size</span></b><span style="color:#990000">(</span><span style="color:#993399">0</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    heap<span style="color:#990000">.</span><b><span style="color:#000000">push_back</span></b><span style="color:#990000">(</span><span style="color:#993399">0</span><span style="color:#990000">);</span>
+<span style="color:#FF0000">}</span>
 
-<i><font color="#9A1900">// builds a heap from an unsorted vector</font></i>
-binary_heap<font color="#990000">::</font><b><font color="#000000">binary_heap</font></b><font color="#990000">(</font><font color="#008080">vector&lt;int&gt;</font> vec<font color="#990000">)</font> <font color="#990000">:</font> <b><font color="#000000">heap_size</font></b><font color="#990000">(</font>vec<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">())</font> <font color="#FF0000">{</font>
-    heap <font color="#990000">=</font> vec<font color="#990000">;</font>
-    heap<font color="#990000">.</font><b><font color="#000000">push_back</font></b><font color="#990000">(</font>heap<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]);</font>
-    heap<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
-    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> heap_size<font color="#990000">/</font><font color="#993399">2</font><font color="#990000">;</font> i <font color="#990000">&gt;</font> <font color="#993399">0</font><font color="#990000">;</font> i<font color="#990000">--</font> <font color="#990000">)</font>
-        <b><font color="#000000">percolateDown</font></b><font color="#990000">(</font>i<font color="#990000">);</font>
-<font color="#FF0000">}</font>
+<i><span style="color:#9A1900">// builds a heap from an unsorted vector</span></i>
+binary_heap<span style="color:#990000">::</span><b><span style="color:#000000">binary_heap</span></b><span style="color:#990000">(</span><span style="color:#008080">vector&lt;int&gt;</span> vec<span style="color:#990000">)</span> <span style="color:#990000">:</span> <b><span style="color:#000000">heap_size</span></b><span style="color:#990000">(</span>vec<span style="color:#990000">.</span><b><span style="color:#000000">size</span></b><span style="color:#990000">())</span> <span style="color:#FF0000">{</span>
+    heap <span style="color:#990000">=</span> vec<span style="color:#990000">;</span>
+    heap<span style="color:#990000">.</span><b><span style="color:#000000">push_back</span></b><span style="color:#990000">(</span>heap<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]);</span>
+    heap<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span> <span style="color:#009900">int</span> i <span style="color:#990000">=</span> heap_size<span style="color:#990000">/</span><span style="color:#993399">2</span><span style="color:#990000">;</span> i <span style="color:#990000">&gt;</span> <span style="color:#993399">0</span><span style="color:#990000">;</span> i<span style="color:#990000">--</span> <span style="color:#990000">)</span>
+        <b><span style="color:#000000">percolateDown</span></b><span style="color:#990000">(</span>i<span style="color:#990000">);</span>
+<span style="color:#FF0000">}</span>
 
-<i><font color="#9A1900">// the destructor doesn't need to do much</font></i>
-binary_heap<font color="#990000">::~</font><b><font color="#000000">binary_heap</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
-<font color="#FF0000">}</font>
+<i><span style="color:#9A1900">// the destructor doesn't need to do much</span></i>
+binary_heap<span style="color:#990000">::~</span><b><span style="color:#000000">binary_heap</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+<span style="color:#FF0000">}</span>
 
-<font color="#009900">void</font> binary_heap<font color="#990000">::</font><b><font color="#000000">insert</font></b><font color="#990000">(</font><font color="#009900">int</font> x<font color="#990000">)</font> <font color="#FF0000">{</font>
-    <i><font color="#9A1900">// a vector push_back will resize as necessary</font></i>
-    heap<font color="#990000">.</font><b><font color="#000000">push_back</font></b><font color="#990000">(</font>x<font color="#990000">);</font>
-    <i><font color="#9A1900">// move it up into the right position</font></i>
-    <b><font color="#000000">percolateUp</font></b><font color="#990000">(++</font>heap_size<font color="#990000">);</font>
-<font color="#FF0000">}</font>
+<span style="color:#009900">void</span> binary_heap<span style="color:#990000">::</span><b><span style="color:#000000">insert</span></b><span style="color:#990000">(</span><span style="color:#009900">int</span> x<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <i><span style="color:#9A1900">// a vector push_back will resize as necessary</span></i>
+    heap<span style="color:#990000">.</span><b><span style="color:#000000">push_back</span></b><span style="color:#990000">(</span>x<span style="color:#990000">);</span>
+    <i><span style="color:#9A1900">// move it up into the right position</span></i>
+    <b><span style="color:#000000">percolateUp</span></b><span style="color:#990000">(++</span>heap_size<span style="color:#990000">);</span>
+<span style="color:#FF0000">}</span>
 
-<font color="#009900">void</font> binary_heap<font color="#990000">::</font><b><font color="#000000">percolateUp</font></b><font color="#990000">(</font><font color="#009900">int</font> hole<font color="#990000">)</font> <font color="#FF0000">{</font>
-    <i><font color="#9A1900">// get the value just inserted</font></i>
-    <font color="#009900">int</font> x <font color="#990000">=</font> heap<font color="#990000">[</font>hole<font color="#990000">];</font>
-    <i><font color="#9A1900">// while we haven't run off the top and while the</font></i>
-    <i><font color="#9A1900">// value is less than the parent...</font></i>
-    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#990000">;</font> <font color="#990000">(</font>hole <font color="#990000">&gt;</font> <font color="#993399">1</font><font color="#990000">)</font> <font color="#990000">&amp;&amp;</font> <font color="#990000">(</font>x <font color="#990000">&lt;</font> heap<font color="#990000">[</font>hole<font color="#990000">/</font><font color="#993399">2</font><font color="#990000">]);</font> hole <font color="#990000">/=</font> <font color="#993399">2</font> <font color="#990000">)</font>
-        heap<font color="#990000">[</font>hole<font color="#990000">]</font> <font color="#990000">=</font> heap<font color="#990000">[</font>hole<font color="#990000">/</font><font color="#993399">2</font><font color="#990000">];</font> <i><font color="#9A1900">// move the parent down</font></i>
-    <i><font color="#9A1900">// correct position found!  insert at that spot</font></i>
-    heap<font color="#990000">[</font>hole<font color="#990000">]</font> <font color="#990000">=</font> x<font color="#990000">;</font>
-<font color="#FF0000">}</font>
+<span style="color:#009900">void</span> binary_heap<span style="color:#990000">::</span><b><span style="color:#000000">percolateUp</span></b><span style="color:#990000">(</span><span style="color:#009900">int</span> hole<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <i><span style="color:#9A1900">// get the value just inserted</span></i>
+    <span style="color:#009900">int</span> x <span style="color:#990000">=</span> heap<span style="color:#990000">[</span>hole<span style="color:#990000">];</span>
+    <i><span style="color:#9A1900">// while we haven't run off the top and while the</span></i>
+    <i><span style="color:#9A1900">// value is less than the parent...</span></i>
+    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span> <span style="color:#990000">;</span> <span style="color:#990000">(</span>hole <span style="color:#990000">&gt;</span> <span style="color:#993399">1</span><span style="color:#990000">)</span> <span style="color:#990000">&amp;&amp;</span> <span style="color:#990000">(</span>x <span style="color:#990000">&lt;</span> heap<span style="color:#990000">[</span>hole<span style="color:#990000">/</span><span style="color:#993399">2</span><span style="color:#990000">]);</span> hole <span style="color:#990000">/=</span> <span style="color:#993399">2</span> <span style="color:#990000">)</span>
+        heap<span style="color:#990000">[</span>hole<span style="color:#990000">]</span> <span style="color:#990000">=</span> heap<span style="color:#990000">[</span>hole<span style="color:#990000">/</span><span style="color:#993399">2</span><span style="color:#990000">];</span> <i><span style="color:#9A1900">// move the parent down</span></i>
+    <i><span style="color:#9A1900">// correct position found!  insert at that spot</span></i>
+    heap<span style="color:#990000">[</span>hole<span style="color:#990000">]</span> <span style="color:#990000">=</span> x<span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
 
-<font color="#009900">int</font> binary_heap<font color="#990000">::</font><b><font color="#000000">deleteMin</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
-    <i><font color="#9A1900">// make sure the heap is not empty</font></i>
-    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> heap_size <font color="#990000">==</font> <font color="#993399">0</font> <font color="#990000">)</font>
-        <b><font color="#0000FF">throw</font></b> <font color="#FF0000">"deleteMin() called on empty heap"</font><font color="#990000">;</font>
-    <i><font color="#9A1900">// save the value to be returned</font></i>
-    <font color="#009900">int</font> ret <font color="#990000">=</font> heap<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">];</font>
-    <i><font color="#9A1900">// move the last inserted position into the root</font></i>
-    heap<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">]</font> <font color="#990000">=</font> heap<font color="#990000">[</font>heap_size<font color="#990000">--];</font>
-    <i><font color="#9A1900">// make sure the vector knows that there is one less element</font></i>
-    heap<font color="#990000">.</font><b><font color="#000000">pop_back</font></b><font color="#990000">();</font>
-    <i><font color="#9A1900">// percolate the root down to the proper position</font></i>
-    <b><font color="#000000">percolateDown</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">);</font>
-    <i><font color="#9A1900">// return the old root node</font></i>
-    <b><font color="#0000FF">return</font></b> ret<font color="#990000">;</font>
-<font color="#FF0000">}</font>
+<span style="color:#009900">int</span> binary_heap<span style="color:#990000">::</span><b><span style="color:#000000">deleteMin</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    <i><span style="color:#9A1900">// make sure the heap is not empty</span></i>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> heap_size <span style="color:#990000">==</span> <span style="color:#993399">0</span> <span style="color:#990000">)</span>
+        <b><span style="color:#0000FF">throw</span></b> <span style="color:#FF0000">"deleteMin() called on empty heap"</span><span style="color:#990000">;</span>
+    <i><span style="color:#9A1900">// save the value to be returned</span></i>
+    <span style="color:#009900">int</span> ret <span style="color:#990000">=</span> heap<span style="color:#990000">[</span><span style="color:#993399">1</span><span style="color:#990000">];</span>
+    <i><span style="color:#9A1900">// move the last inserted position into the root</span></i>
+    heap<span style="color:#990000">[</span><span style="color:#993399">1</span><span style="color:#990000">]</span> <span style="color:#990000">=</span> heap<span style="color:#990000">[</span>heap_size<span style="color:#990000">--];</span>
+    <i><span style="color:#9A1900">// make sure the vector knows that there is one less element</span></i>
+    heap<span style="color:#990000">.</span><b><span style="color:#000000">pop_back</span></b><span style="color:#990000">();</span>
+    <i><span style="color:#9A1900">// percolate the root down to the proper position</span></i>
+    <b><span style="color:#000000">percolateDown</span></b><span style="color:#990000">(</span><span style="color:#993399">1</span><span style="color:#990000">);</span>
+    <i><span style="color:#9A1900">// return the old root node</span></i>
+    <b><span style="color:#0000FF">return</span></b> ret<span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
 
-<font color="#009900">void</font> binary_heap<font color="#990000">::</font><b><font color="#000000">percolateDown</font></b><font color="#990000">(</font><font color="#009900">int</font> hole<font color="#990000">)</font> <font color="#FF0000">{</font>
-    <i><font color="#9A1900">// get the value to percolate down</font></i>
-    <font color="#009900">int</font> x <font color="#990000">=</font> heap<font color="#990000">[</font>hole<font color="#990000">];</font>
-    <i><font color="#9A1900">// while there is a left child...</font></i>
-    <b><font color="#0000FF">while</font></b> <font color="#990000">(</font> hole<font color="#990000">*</font><font color="#993399">2</font> <font color="#990000">&lt;=</font> heap_size <font color="#990000">)</font> <font color="#FF0000">{</font>
-        <font color="#009900">int</font> child <font color="#990000">=</font> hole<font color="#990000">*</font><font color="#993399">2</font><font color="#990000">;</font> <i><font color="#9A1900">// the left child</font></i>
-        <i><font color="#9A1900">// is there a right child?  if so, is it lesser?</font></i>
-        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>child<font color="#990000">+</font><font color="#993399">1</font> <font color="#990000">&lt;=</font> heap_size<font color="#990000">)</font> <font color="#990000">&amp;&amp;</font> <font color="#990000">(</font>heap<font color="#990000">[</font>child<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">]</font> <font color="#990000">&lt;</font> heap<font color="#990000">[</font>child<font color="#990000">])</font> <font color="#990000">)</font>
-            child<font color="#990000">++;</font>
-        <i><font color="#9A1900">// if the child is greater than the node...</font></i>
-        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> x <font color="#990000">&gt;</font> heap<font color="#990000">[</font>child<font color="#990000">]</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
-            heap<font color="#990000">[</font>hole<font color="#990000">]</font> <font color="#990000">=</font> heap<font color="#990000">[</font>child<font color="#990000">];</font> <i><font color="#9A1900">// move child up</font></i>
-            hole <font color="#990000">=</font> child<font color="#990000">;</font>             <i><font color="#9A1900">// move hole down</font></i>
-        <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b>
-            <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-    <font color="#FF0000">}</font>
-    <i><font color="#9A1900">// correct position found!  insert at that spot</font></i>
-    heap<font color="#990000">[</font>hole<font color="#990000">]</font> <font color="#990000">=</font> x<font color="#990000">;</font>
-<font color="#FF0000">}</font>
+<span style="color:#009900">void</span> binary_heap<span style="color:#990000">::</span><b><span style="color:#000000">percolateDown</span></b><span style="color:#990000">(</span><span style="color:#009900">int</span> hole<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <i><span style="color:#9A1900">// get the value to percolate down</span></i>
+    <span style="color:#009900">int</span> x <span style="color:#990000">=</span> heap<span style="color:#990000">[</span>hole<span style="color:#990000">];</span>
+    <i><span style="color:#9A1900">// while there is a left child...</span></i>
+    <b><span style="color:#0000FF">while</span></b> <span style="color:#990000">(</span> hole<span style="color:#990000">*</span><span style="color:#993399">2</span> <span style="color:#990000">&lt;=</span> heap_size <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        <span style="color:#009900">int</span> child <span style="color:#990000">=</span> hole<span style="color:#990000">*</span><span style="color:#993399">2</span><span style="color:#990000">;</span> <i><span style="color:#9A1900">// the left child</span></i>
+        <i><span style="color:#9A1900">// is there a right child?  if so, is it lesser?</span></i>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> <span style="color:#990000">(</span>child<span style="color:#990000">+</span><span style="color:#993399">1</span> <span style="color:#990000">&lt;=</span> heap_size<span style="color:#990000">)</span> <span style="color:#990000">&amp;&amp;</span> <span style="color:#990000">(</span>heap<span style="color:#990000">[</span>child<span style="color:#990000">+</span><span style="color:#993399">1</span><span style="color:#990000">]</span> <span style="color:#990000">&lt;</span> heap<span style="color:#990000">[</span>child<span style="color:#990000">])</span> <span style="color:#990000">)</span>
+            child<span style="color:#990000">++;</span>
+        <i><span style="color:#9A1900">// if the child is greater than the node...</span></i>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> x <span style="color:#990000">&gt;</span> heap<span style="color:#990000">[</span>child<span style="color:#990000">]</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            heap<span style="color:#990000">[</span>hole<span style="color:#990000">]</span> <span style="color:#990000">=</span> heap<span style="color:#990000">[</span>child<span style="color:#990000">];</span> <i><span style="color:#9A1900">// move child up</span></i>
+            hole <span style="color:#990000">=</span> child<span style="color:#990000">;</span>             <i><span style="color:#9A1900">// move hole down</span></i>
+        <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b>
+            <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
+    <i><span style="color:#9A1900">// correct position found!  insert at that spot</span></i>
+    heap<span style="color:#990000">[</span>hole<span style="color:#990000">]</span> <span style="color:#990000">=</span> x<span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
 
-<font color="#009900">int</font> binary_heap<font color="#990000">::</font><b><font color="#000000">findMin</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
-    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> heap_size <font color="#990000">==</font> <font color="#993399">0</font> <font color="#990000">)</font>
-        <b><font color="#0000FF">throw</font></b> <font color="#FF0000">"findMin() called on empty heap"</font><font color="#990000">;</font>
-    <b><font color="#0000FF">return</font></b> heap<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">];</font>
-<font color="#FF0000">}</font>
+<span style="color:#009900">int</span> binary_heap<span style="color:#990000">::</span><b><span style="color:#000000">findMin</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> heap_size <span style="color:#990000">==</span> <span style="color:#993399">0</span> <span style="color:#990000">)</span>
+        <b><span style="color:#0000FF">throw</span></b> <span style="color:#FF0000">"findMin() called on empty heap"</span><span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">return</span></b> heap<span style="color:#990000">[</span><span style="color:#993399">1</span><span style="color:#990000">];</span>
+<span style="color:#FF0000">}</span>
 
-<font color="#009900">unsigned</font> <font color="#009900">int</font> binary_heap<font color="#990000">::</font><b><font color="#000000">size</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
-    <b><font color="#0000FF">return</font></b> heap_size<font color="#990000">;</font>
-<font color="#FF0000">}</font>
+<span style="color:#009900">unsigned</span> <span style="color:#009900">int</span> binary_heap<span style="color:#990000">::</span><b><span style="color:#000000">size</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">return</span></b> heap_size<span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
 
-<font color="#009900">void</font> binary_heap<font color="#990000">::</font><b><font color="#000000">makeEmpty</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
-    heap_size <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
-    heap<font color="#990000">.</font><b><font color="#000000">resize</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">);</font>
-<font color="#FF0000">}</font>
+<span style="color:#009900">void</span> binary_heap<span style="color:#990000">::</span><b><span style="color:#000000">makeEmpty</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    heap_size <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+    heap<span style="color:#990000">.</span><b><span style="color:#000000">resize</span></b><span style="color:#990000">(</span><span style="color:#993399">1</span><span style="color:#990000">);</span>
+<span style="color:#FF0000">}</span>
 
-<font color="#009900">bool</font> binary_heap<font color="#990000">::</font><b><font color="#000000">isEmpty</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
-    <b><font color="#0000FF">return</font></b> heap_size <font color="#990000">==</font> <font color="#993399">0</font><font color="#990000">;</font>
-<font color="#FF0000">}</font>
+<span style="color:#009900">bool</span> binary_heap<span style="color:#990000">::</span><b><span style="color:#000000">isEmpty</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">return</span></b> heap_size <span style="color:#990000">==</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
 
-<font color="#009900">void</font> binary_heap<font color="#990000">::</font><b><font color="#000000">print</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"("</font> <font color="#990000">&lt;&lt;</font> heap<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">") "</font><font color="#990000">;</font>
-    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font> i <font color="#990000">&lt;=</font> heap_size<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
-        cout <font color="#990000">&lt;&lt;</font> heap<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" "</font><font color="#990000">;</font>
-        <i><font color="#9A1900">// next line from http://tinyurl.com/mf9tbgm</font></i>
-        <font color="#009900">bool</font> isPow2 <font color="#990000">=</font> <font color="#990000">(((</font>i<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">)</font> <font color="#990000">&amp;</font> <font color="#990000">~(</font>i<font color="#990000">))==(</font>i<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">))?</font> i<font color="#990000">+</font><font color="#993399">1</font> <font color="#990000">:</font> <font color="#993399">0</font><font color="#990000">;</font>
-        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> isPow2 <font color="#990000">)</font>
-            cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">"</font><font color="#990000">;</font>
-    <font color="#FF0000">}</font>
-    cout <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-<font color="#FF0000">}</font>
-</tt></pre>
+<span style="color:#009900">void</span> binary_heap<span style="color:#990000">::</span><b><span style="color:#000000">print</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"("</span> <span style="color:#990000">&lt;&lt;</span> heap<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">") "</span><span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span> <span style="color:#009900">int</span> i <span style="color:#990000">=</span> <span style="color:#993399">1</span><span style="color:#990000">;</span> i <span style="color:#990000">&lt;=</span> heap_size<span style="color:#990000">;</span> i<span style="color:#990000">++</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        cout <span style="color:#990000">&lt;&lt;</span> heap<span style="color:#990000">[</span>i<span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" "</span><span style="color:#990000">;</span>
+        <i><span style="color:#9A1900">// next line from http://tinyurl.com/mf9tbgm</span></i>
+        <span style="color:#009900">bool</span> isPow2 <span style="color:#990000">=</span> <span style="color:#990000">(((</span>i<span style="color:#990000">+</span><span style="color:#993399">1</span><span style="color:#990000">)</span> <span style="color:#990000">&amp;</span> <span style="color:#990000">~(</span>i<span style="color:#990000">))==(</span>i<span style="color:#990000">+</span><span style="color:#993399">1</span><span style="color:#990000">))?</span> i<span style="color:#990000">+</span><span style="color:#993399">1</span> <span style="color:#990000">:</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> isPow2 <span style="color:#990000">)</span>
+            cout <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">"</span><span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
+    cout <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+</pre>
 </body>
 </html>

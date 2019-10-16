@@ -1,41 +1,41 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta name="GENERATOR" content="GNU source-highlight 3.1.5
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
 <title>evenodd.cpp</title>
 </head>
-<body bgcolor="white">
-<pre><tt><b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
-<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+<body style="background-color:white">
+<pre><b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;iostream&gt;</span>
+<b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
-<font color="#009900">bool</font> <b><font color="#000000">even</font></b> <font color="#990000">(</font><font color="#009900">int</font> x<font color="#990000">);</font>
+<span style="color:#009900">bool</span> <b><span style="color:#000000">even</span></b> <span style="color:#990000">(</span><span style="color:#009900">int</span> x<span style="color:#990000">);</span>
 
-<font color="#009900">bool</font> <b><font color="#000000">odd</font></b> <font color="#990000">(</font><font color="#009900">int</font> x<font color="#990000">)</font> <font color="#FF0000">{</font>
-    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> x <font color="#990000">==</font> <font color="#993399">0</font> <font color="#990000">)</font>
-        <b><font color="#0000FF">return</font></b> <b><font color="#0000FF">false</font></b><font color="#990000">;</font>
-    <b><font color="#0000FF">else</font></b>
-        <b><font color="#0000FF">return</font></b> <b><font color="#000000">even</font></b> <font color="#990000">(</font>x<font color="#990000">-</font><font color="#993399">1</font><font color="#990000">);</font>
-<font color="#FF0000">}</font>
+<span style="color:#009900">bool</span> <b><span style="color:#000000">odd</span></b> <span style="color:#990000">(</span><span style="color:#009900">int</span> x<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> x <span style="color:#990000">==</span> <span style="color:#993399">0</span> <span style="color:#990000">)</span>
+        <b><span style="color:#0000FF">return</span></b> <b><span style="color:#0000FF">false</span></b><span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">else</span></b>
+        <b><span style="color:#0000FF">return</span></b> <b><span style="color:#000000">even</span></b> <span style="color:#990000">(</span>x<span style="color:#990000">-</span><span style="color:#993399">1</span><span style="color:#990000">);</span>
+<span style="color:#FF0000">}</span>
 
-<font color="#009900">bool</font> <b><font color="#000000">even</font></b> <font color="#990000">(</font><font color="#009900">int</font> x<font color="#990000">)</font> <font color="#FF0000">{</font>
-    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> x <font color="#990000">==</font> <font color="#993399">0</font> <font color="#990000">)</font>
-        <b><font color="#0000FF">return</font></b> <b><font color="#0000FF">true</font></b><font color="#990000">;</font>
-    <b><font color="#0000FF">else</font></b>
-        <b><font color="#0000FF">return</font></b> <b><font color="#000000">odd</font></b> <font color="#990000">(</font>x<font color="#990000">-</font><font color="#993399">1</font><font color="#990000">);</font>
-<font color="#FF0000">}</font>
+<span style="color:#009900">bool</span> <b><span style="color:#000000">even</span></b> <span style="color:#990000">(</span><span style="color:#009900">int</span> x<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> x <span style="color:#990000">==</span> <span style="color:#993399">0</span> <span style="color:#990000">)</span>
+        <b><span style="color:#0000FF">return</span></b> <b><span style="color:#0000FF">true</span></b><span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">else</span></b>
+        <b><span style="color:#0000FF">return</span></b> <b><span style="color:#000000">odd</span></b> <span style="color:#990000">(</span>x<span style="color:#990000">-</span><span style="color:#993399">1</span><span style="color:#990000">);</span>
+<span style="color:#FF0000">}</span>
 
-<font color="#009900">int</font> <b><font color="#000000">main</font></b> <font color="#990000">()</font> <font color="#FF0000">{</font>
-    <font color="#009900">int</font> x<font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Enter a non-zero integer: "</font><font color="#990000">;</font>
-    cin <font color="#990000">&gt;&gt;</font> x<font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"This number is even: "</font> <font color="#990000">&lt;&lt;</font> <b><font color="#000000">even</font></b><font color="#990000">(</font>x<font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"This number is odd: "</font> <font color="#990000">&lt;&lt;</font> <b><font color="#000000">odd</font></b><font color="#990000">(</font>x<font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
-<font color="#FF0000">}</font>
-</tt></pre>
+<span style="color:#009900">int</span> <b><span style="color:#000000">main</span></b> <span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    <span style="color:#009900">int</span> x<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Enter a non-zero integer: "</span><span style="color:#990000">;</span>
+    cin <span style="color:#990000">&gt;&gt;</span> x<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"This number is even: "</span> <span style="color:#990000">&lt;&lt;</span> <b><span style="color:#000000">even</span></b><span style="color:#990000">(</span>x<span style="color:#990000">)</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"This number is odd: "</span> <span style="color:#990000">&lt;&lt;</span> <b><span style="color:#000000">odd</span></b><span style="color:#990000">(</span>x<span style="color:#990000">)</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+</pre>
 </body>
 </html>
