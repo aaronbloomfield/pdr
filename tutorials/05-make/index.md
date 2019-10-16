@@ -79,9 +79,7 @@ But why did it recompile toppings.cpp?  It makes sense that it recompiled pepper
 
 Note that the default name for a Makefile is just 'Makefile' (note the capitalization).  You can name it something else (how to do this is at the very end of this tutorial), but it's easier to keep this naming convention.  If you name it something else, you will need to call make with the -f flag: `make -f Makefile-by-any-other-name`.
 
-### Editing the Makefile ###
-
-Comments in a Makefile must begin with '#', and should generally start in the left-most column of a given line.  Edit the pizza Makefile, and put your name and lab section at the top of the Makefile.
+### Macros ###
 
 Macros allow a programmer to easily specify the compiler used, compiler arguments, file paths, targets, and pretty much anything else that one may need to specify when compiling a file.  For example, you can specify that you will always compile with the '-Wall' option (which will list all warnings while compiling).  make already comes with a default list of predefined macros, but it is good practice to define them even if they are the same as the default definition.  You can also define your own macros, as we'll see in a moment.  Note that if you define a predefined macro, your definition will override the default definition.
 
@@ -95,8 +93,6 @@ The following is a list of some predefined macros in make (taken from the [GNU M
 | CFLAGS | Options provided to the C compiler |
 | AS | Program for compiling assembly code; this will be needed in lab 8 |
 
-Note that in the pizza Makefile, the `CXX` macro is defined as `clang++`.  Whenever a macro is *used*, it appears surrounded by $ and parentheses.  For example, `clang++ project.cpp` would be entered as `$(CXX) project.cpp`.  However, whenever a macro is *defined*, the $ and parentheses are not needed as in `CXX=clang++`.
-
 In the pizza Makefile, the first macro in the file is:
 
 ```
@@ -104,6 +100,8 @@ CXX=clang++ $(CXXFLAGS)
 ```
 
 This line defines the C++ compiler to be clang++.  It also specifies to put any clang++ flags after the compiler command -- so if we defined the flags to be '-Wall', then each compilation by clang++ would include that option.  We don't define CXXFLAGS in that file, but it's a good idea to put CXXFLAGS there, so that if we do add a CXXFLAGS variable, we won't have to make any other changes.
+
+To use a macro, surround it by $ and parentheses.  For example, `$(CXX) project.cpp` would substitute the value of the `CXX` macro and result in `clang++ project.cpp`.
 
 ### Target rules ###
 
