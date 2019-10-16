@@ -292,7 +292,7 @@ Makefiles may also have a "debug" and "optimized" target.  These targets will ge
 We have seen a number of ways to improve the provided pizza Makefile.  We'll put them together into a single, well-formed, Makefile.  Below are the steps to do so; each of these steps are described in more detail above.
 
 - Comments!  This Makefile will be submitted as part of [lab 5](../../labs/lab05/index.html) (see below), so you will need to put in your name and userid at the top of the file.
-- We will want to declare the pre-defined macros, CXX and CXXFLAGS.  CXX is going to be clang++, and we can define CXXFLAGS to be `-Wall -O2` (give all warnings and optimize the code).
+- We will want to declare the pre-defined macros, CXX and CXXFLAGS.  CXX is going to be clang++, and we can define CXXFLAGS to be `-Wall -O2 -std=c++11` (give all warnings, optimize the code, and use the C++11 standard).
 - We'll want to define a macro, probably called OFILES, that will list all of the .o files that we are compiling into our target executable.
 - A suffix rule that will tell make to compile all .o files from the corresponding .cpp files.
 - Our first rule -- probably called 'pizza' -- will be for compiling the program.  It will depend on all of the .o files (defined in the OFILES macro), and will define how to compile the program executable.
