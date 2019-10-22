@@ -1,6 +1,3 @@
-// NOTE: in order to compile this system on Linux (and most Unix
-// systems) you will have to include the -lrt flag to your compiler.
-//
 // This timer typically has 1/1000000 second (1 micro-second) accuracy
 // under most Linux distributions
 

@@ -1,6 +1,3 @@
-// NOTE: in order to compile this system on Linux (and most Unix
-// systems) you will have to include the -lrt flag to your compiler.
-
 #include <sstream>
 #include <math.h>
 #include <cstring>
