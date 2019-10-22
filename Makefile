@@ -9,3 +9,5 @@ clean:
 	/bin/rm -rf *~ */*~ */*/*~ */*/*/*~
 	/bin/rm -f uva/*.aux uva/*.log
 
+source-highlight:
+	source-highlight -d labs/*/*.cpp labs/*/*.h labs/*/*/*.cpp labs/*/*/*.h labs/*/*/*/*.cpp labs/*/*/*/*.h tutorials/*/*.cpp

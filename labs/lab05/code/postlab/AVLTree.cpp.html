@@ -6,7 +6,7 @@
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
-<title>AVLTree.cpp</title>
+<title>labs/lab05/code/postlab/AVLTree.cpp</title>
 </head>
 <body bgcolor="white">
 <pre><tt><b><font color="#000080">#include</font></b> <font color="#FF0000">"AVLTree.h"</font>
@@ -142,17 +142,17 @@ AVLNode<font color="#990000">*</font> AVLTree<font color="#990000">::</font><b><
 
 <i><font color="#9A1900">// Recursive function to print binary tree</font></i>
 <i><font color="#9A1900">// It uses inorder traversal</font></i>
-<font color="#009900">void</font> AVLTree<font color="#990000">::</font><b><font color="#000000">printTree</font></b><font color="#990000">(</font>AVLNode<font color="#990000">*</font> root<font color="#990000">,</font> Trunk<font color="#990000">*</font> prev<font color="#990000">,</font> <font color="#009900">bool</font> isLeft<font color="#990000">)</font> <font color="#FF0000">{</font>
+<font color="#009900">void</font> AVLTree<font color="#990000">::</font><b><font color="#000000">printTree</font></b><font color="#990000">(</font>AVLNode<font color="#990000">*</font> root<font color="#990000">,</font> Trunk<font color="#990000">*</font> prev<font color="#990000">,</font> <font color="#009900">bool</font> isRight<font color="#990000">)</font> <font color="#FF0000">{</font>
   <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>root <font color="#990000">==</font> NULL<font color="#990000">)</font> <b><font color="#0000FF">return</font></b><font color="#990000">;</font>
 
   <font color="#008080">string</font> prev_str <font color="#990000">=</font> <font color="#FF0000">"    "</font><font color="#990000">;</font>
   Trunk<font color="#990000">*</font> trunk <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Trunk</font></b><font color="#990000">(</font>prev<font color="#990000">,</font> prev_str<font color="#990000">);</font>
 
-  <b><font color="#000000">printTree</font></b><font color="#990000">(</font>root<font color="#990000">-&gt;</font>left<font color="#990000">,</font> trunk<font color="#990000">,</font> <b><font color="#0000FF">true</font></b><font color="#990000">);</font>
+  <b><font color="#000000">printTree</font></b><font color="#990000">(</font>root<font color="#990000">-&gt;</font>right<font color="#990000">,</font> trunk<font color="#990000">,</font> <b><font color="#0000FF">true</font></b><font color="#990000">);</font>
 
   <b><font color="#0000FF">if</font></b> <font color="#990000">(!</font>prev<font color="#990000">)</font>
     trunk<font color="#990000">-&gt;</font>str <font color="#990000">=</font> <font color="#FF0000">"---"</font><font color="#990000">;</font>
-  <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>isLeft<font color="#990000">)</font> <font color="#FF0000">{</font>
+  <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>isRight<font color="#990000">)</font> <font color="#FF0000">{</font> <i><font color="#9A1900">// github user @willzhang05 pointed out that I forgot to change this from isLeft to isRight on my first commit</font></i>
     trunk<font color="#990000">-&gt;</font>str <font color="#990000">=</font> <font color="#FF0000">".---"</font><font color="#990000">;</font>
     prev_str <font color="#990000">=</font> <font color="#FF0000">"   |"</font><font color="#990000">;</font>
   <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
@@ -166,7 +166,7 @@ AVLNode<font color="#990000">*</font> AVLTree<font color="#990000">::</font><b><
   <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>prev<font color="#990000">)</font> prev<font color="#990000">-&gt;</font>str <font color="#990000">=</font> prev_str<font color="#990000">;</font>
   trunk<font color="#990000">-&gt;</font>str <font color="#990000">=</font> <font color="#FF0000">"   |"</font><font color="#990000">;</font>
 
-  <b><font color="#000000">printTree</font></b><font color="#990000">(</font>root<font color="#990000">-&gt;</font>right<font color="#990000">,</font> trunk<font color="#990000">,</font> <b><font color="#0000FF">false</font></b><font color="#990000">);</font>
+  <b><font color="#000000">printTree</font></b><font color="#990000">(</font>root<font color="#990000">-&gt;</font>left<font color="#990000">,</font> trunk<font color="#990000">,</font> <b><font color="#0000FF">false</font></b><font color="#990000">);</font>
 <font color="#FF0000">}</font>
 
 <font color="#009900">void</font> AVLTree<font color="#990000">::</font><b><font color="#000000">printTree</font></b><font color="#990000">()</font> <font color="#FF0000">{</font> <b><font color="#000000">printTree</font></b><font color="#990000">(</font>root<font color="#990000">,</font> NULL<font color="#990000">,</font> <b><font color="#0000FF">false</font></b><font color="#990000">);</font> <font color="#FF0000">}</font></tt></pre>

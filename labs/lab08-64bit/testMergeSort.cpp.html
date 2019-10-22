@@ -1,56 +1,60 @@
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
 <html>
 <head>
-<title>testMergeSort.cpp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>labs/lab08-64bit/testMergeSort.cpp</title>
 </head>
 <body bgcolor="white">
-<pre>
-<font style="color: #9A1900">/*</font>
-<font style="color: #9A1900">University of Virginia</font>
-<font style="color: #9A1900">CS 2150 In-Lab 8</font>
-<font style="color: #9A1900">Spring 2018 </font>
-<font style="color: #9A1900">Test file for mergeSort</font>
-<font style="color: #9A1900">*/</font>
+<pre><tt><i><font color="#9A1900">/*</font></i>
+<i><font color="#9A1900">University of Virginia</font></i>
+<i><font color="#9A1900">CS 2150 In-Lab 8</font></i>
+<i><font color="#9A1900">Spring 2018 </font></i>
+<i><font color="#9A1900">Test file for mergeSort</font></i>
+<i><font color="#9A1900">*/</font></i>
 
 <b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
 <b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
 
-<b><font style="color: #0000ff">extern</font></b> <font style="color: #FF0000">&quot;C&quot;</font> <font style="color: #009900">void</font> <b><font color="#000000">mergeSort</font></b><font style="color: #9A1900">(</font><font style="color: #009900">int</font> * arr, <font style="color: #009900">int</font> left, <font style="color: #009900">int</font> right<font style="color: #9A1900">);</font>
-<b><font style="color: #0000ff">extern</font></b> <font style="color: #FF0000">&quot;C&quot;</font> <font style="color: #009900">void</font> <b><font style="color: #000000">merge</font></b><font style="color: #9A1900">(</font><font style="color: #009900">int</font> * arr, <font style="color: #009900">int</font> left, <font style="color: #009900">int</font> mid, <font style="color: #009900">int</font> right<font style="color: #9A1900">);</font>
-      
-<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+<b><font color="#0000FF">extern</font></b> <font color="#FF0000">"C"</font> <font color="#009900">void</font> <b><font color="#000000">mergeSort</font></b><font color="#990000">(</font><font color="#009900">int</font> <font color="#990000">*</font> arr<font color="#990000">,</font> <font color="#009900">int</font> left<font color="#990000">,</font> <font color="#009900">int</font> right<font color="#990000">);</font>
+<b><font color="#0000FF">extern</font></b> <font color="#FF0000">"C"</font> <font color="#009900">void</font> <b><font color="#000000">merge</font></b><font color="#990000">(</font><font color="#009900">int</font> <font color="#990000">*</font> arr<font color="#990000">,</font> <font color="#009900">int</font> left<font color="#990000">,</font> <font color="#009900">int</font> mid<font color="#990000">,</font> <font color="#009900">int</font> right<font color="#990000">);</font>
+ 
+<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font><font color="#FF0000">{</font>
 
-    <font style="color: #009900">int</font> size;
-    <font style='color:#9A1900; '>// prompt for array size</font>
-    <font style='color:#7f0055; font-weight:bold; '>cout</font> &lt;&lt; <font style='color:#FF0000; '>&quot;</font><font style='color:#FF0000; '>Enter the array size: </font><font style='color:#FF0000; '>&quot;</font><font style='color:#9A1900; '>;</font>
-    <font style='color:#7f0055; font-weight:bold; '>cin</font> >> size<font style='color:#9A1900; '>;</font>
-    <font style='color:#009900; '>int</font> * arr = <font style='color:#7f0055; font-weight:bold; '>new</font> <font style='color:#009900;'>int</font>[size]<font style='color:#9A1900; '>;</font>
-    
-    <font style='color:#9A1900; '>// read in array values </font>
-    <font style='color:#0000FF; font-weight:bold; '>for</font>(<font style='color:#009900; '>int</font> i = 0; i &lt; size; i++){
-        <font style='color:#7f0055; font-weight:bold; '>cout</font> &lt;&lt; <font style='color:#FF0000; '>&quot;</font><font style='color:#FF0000; '>Enter value </font><font style='color:#FF0000; '>&quot;</font> &lt;&lt; i &lt;&lt; <font style='color:#FF0000; '>&quot;</font><font style='color:#FF0000; '>: </font><font style='color:#FF0000; '>&quot;</font><font style='color:#9A1900; '>;</font>
-        <b><font style='color:#7f0055;'>cin</font></b> >> arr[i]<font style='color:#9A1900; '>;</font>
-    }
-    
-    <font style='color:#9A1900; '>// print unsorted array</font>
-    <font style='color:#7f0055; font-weight:bold; '>cout</font> &lt;&lt; <font style='color:#FF0000; '>&quot;</font><font style='color:#FF0000; '>Unsorted array: </font><font style='color:#FF0000; '>&quot;</font><font style='color:#9A1900; '>;</font>
-    <font style='color:#0000FF; font-weight:bold; '>for</font>(<font style='color:#009900; '>int</font> i = 0; i &lt; size; i++){
-        <font style='color:#7f0055; font-weight:bold; '>cout</font> &lt;&lt; arr[i] &lt;&lt; <font style='color:#FF0000; '>&quot;</font><font style='color:#FF0000; '> </font><font style='color:#FF0000; '>&quot;</font><font style='color:#9A1900; '>;</font>
-    }
-    <font style='color:#7f0055; font-weight:bold; '>cout</font> &lt;&lt; <font style='color:#7f0055; font-weight:bold; '>endl</font><font style='color:#9A1900; '>;</font>
-    
-    <b>mergeSort</b><font style="color: #9A1900;">(</font>arr, 0, size-1<font style="color: #9A1900;">);</font>
-    
-    <font style='color:#9A1900; '>// print sorted array</font>
-    <font style='color:#7f0055; font-weight:bold; '>cout</font> &lt;&lt; <font style='color:#FF0000; '>&quot;</font><font style='color:#FF0000; '>Sorted array: </font><font style='color:#FF0000; '>&quot;</font><font style='color:#9A1900; '>;</font>
-    <font style='color:#0000FF; font-weight:bold; '>for</font>(<font style='color:#009900; '>int</font> i = 0; i &lt; size; i++){
-        <font style='color:#7f0055; font-weight:bold; '>cout</font> &lt;&lt; arr[i] &lt;&lt; <font style='color:#FF0000; '>&quot;</font><font style='color:#FF0000; '> </font><font style='color:#FF0000; '>&quot;</font><font style='color:#9A1900; '>;</font>
-    }
-    <b><font style='color:#7f0055; '>cout</font></b> &lt;&lt; <font style='color:#7f0055; font-weight:bold; '>endl</font><font style='color:#9A1900; '>;</font>
-    
-    <b><font style="color: #0000ff">return</font></b> 0<font style="color: #9A1900">;</font>
+  <font color="#009900">int</font> size<font color="#990000">;</font>
+  <i><font color="#9A1900">// prompt for array size</font></i>
+  cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Enter the array size: "</font><font color="#990000">;</font>
+  cin <font color="#990000">&gt;&gt;</font> size<font color="#990000">;</font>
+  <font color="#009900">int</font> <font color="#990000">*</font> arr <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">int</font><font color="#990000">[</font>size<font color="#990000">];</font>
 
-<font style="color: #FF0000">}</font>
-</pre>
+  <i><font color="#9A1900">// read in array values </font></i>
+  <b><font color="#0000FF">for</font></b><font color="#990000">(</font><font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> size<font color="#990000">;</font> i<font color="#990000">++)</font><font color="#FF0000">{</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Enter value "</font> <font color="#990000">&lt;&lt;</font> i <font color="#990000">&lt;&lt;</font> <font color="#FF0000">": "</font><font color="#990000">;</font>
+    cin <font color="#990000">&gt;&gt;</font> arr<font color="#990000">[</font>i<font color="#990000">];</font>
+  <font color="#FF0000">}</font>
+
+  <i><font color="#9A1900">// print unsorted array</font></i>
+  cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Unsorted array: "</font><font color="#990000">;</font>
+  <b><font color="#0000FF">for</font></b><font color="#990000">(</font><font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> size<font color="#990000">;</font> i<font color="#990000">++)</font><font color="#FF0000">{</font>
+    cout <font color="#990000">&lt;&lt;</font> arr<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" "</font><font color="#990000">;</font>
+  <font color="#FF0000">}</font>
+  cout <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+
+  <b><font color="#000000">mergeSort</font></b><font color="#990000">(</font>arr<font color="#990000">,</font> <font color="#993399">0</font><font color="#990000">,</font> size<font color="#990000">-</font><font color="#993399">1</font><font color="#990000">);</font>
+
+  <i><font color="#9A1900">// print sorted array</font></i>
+  cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Sorted array: "</font><font color="#990000">;</font>
+  <b><font color="#0000FF">for</font></b><font color="#990000">(</font><font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> size<font color="#990000">;</font> i<font color="#990000">++)</font><font color="#FF0000">{</font>
+    cout <font color="#990000">&lt;&lt;</font> arr<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" "</font><font color="#990000">;</font>
+  <font color="#FF0000">}</font>
+  cout <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+
+  <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+
+<font color="#FF0000">}</font>
+</tt></pre>
 </body>
 </html>
