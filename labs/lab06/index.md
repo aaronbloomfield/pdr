@@ -75,7 +75,7 @@ A string of letters from the grid will depend on four values:
 
 - The *x* value of the starting letter
 - The *y* value of the starting letter
-- The direciton, *d*, of the word (directions can be represented as integers 1-8, if that is easier)
+- The direction, *d*, of the word (directions can be represented as integers 1-8, if that is easier)
 - The length, *l*, of the string
 
 This implies that your code will have quad-nested `for` loops.
@@ -88,7 +88,7 @@ There are a number of optimizations that one can implement, a few of which are m
 
 - Choose a good load factor, &lambda;, for your hash table
 - Implement a reasonable collision resolution strategy
-- In addition to storing each word, *W*, you can also store the *prefixes* of that word.  So if the word is "amazing", you would store "ama", "amaz", "amazi", "amazin", and "amazing" in the hash table.  There would need to be some way to differntiate between prefixes ("amaz") and the actual words ("amazing").  This way if you are working in a given direction, and the particualr string you are generating is not a prefix, then you know there are no further words in the dictionary in the given direction.
+- In addition to storing each word, *W*, you can also store the *prefixes* of that word.  So if the word is "amazing", you would store "ama", "amaz", "amazi", "amazin", and "amazing" in the hash table.  There would need to be some way to differentiate between prefixes ("amaz") and the actual words ("amazing").  This way if you are working in a given direction, and the particular string you are generating is not a prefix, then you know there are no further words in the dictionary in the given direction.
 - You can keep track of a previous hash to help compute the next one faster.  For example, if you have just computed the hash for "foo", then you can keep that hash value on hand to compute the hash for "food" faster.
 
 ------------------------------------------------------------
@@ -108,7 +108,7 @@ We are not as interested in how fast this runs for the pre-lab; the fast impleme
 
 Your program **MUST** take in the file names as command-line parameters, not as inputs to the program.  The first is the dictionary file, the second is the grid file.  Indeed, the program will ask for NO input, as the two inputs necessary (the two file names) are passed in as command-line parameters.  See the [slide set on arrays](../../slides/04-arrays-bigoh.html) if you need a refresher on command-line parameters; you can also see the [cmdlineparams.cpp](../../slides/code/04-arrays-bigoh/cmdlineparams.cpp.html) ([src](../../slides/code/04-arrays-bigoh/cmdlineparams.cpp)) file.
 
-The task for the pre-lab is to get the code working.  Optimization (reducing memory use, choosing the right collision resolution method, the right secondary data structure, different hash functions, etc.) is left to the post-lab.  You should have a fully function program when you come to lab on Tuesday.
+The task for the pre-lab is to get the code working.  Optimization (reducing memory use, choosing the right collision resolution method, the right secondary data structure, different hash functions, etc.) is left to the post-lab.  You should have a fully functional program when you come to lab on Tuesday.
 
 As discussed in lecture, a hash table needs to be a prime number in size in order to work.  You can adapt the code in the [primenumber.cpp](code/primenumber.cpp.html) ([src](code/primenumber.cpp)) file to determine the next highest prime number (of course, the next highest prime number is determined after you double the size of your original hash table).
 
