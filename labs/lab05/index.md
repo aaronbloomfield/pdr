@@ -157,7 +157,7 @@ To recap, submit the following files:
 - BSTPathTest.cpp: Do NOT modify, contains `main()`.
 - BinaryNode.h, BinarySearchTree.h: class declarations the test program requires.
 - BinaryNode.cpp: contains the implementation of BinaryNode.
-- BinarySearchTree.cpp: contains the implemention of BinarySearchTree.
+- BinarySearchTree.cpp: contains the implementation of BinarySearchTree.
 - Any other .cpp files required to make your program compile.
 - Makefile: compiles your program and produces the a.out executable.
 
