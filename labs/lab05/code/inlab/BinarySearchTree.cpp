@@ -1,5 +1,6 @@
 #include "BinarySearchTree.h"
 #include <string>
+#include <iostream>
 #include "BinaryNode.h"
 using namespace std;
 
@@ -17,22 +18,6 @@ void BinarySearchTree::insert(const string& x) {
 
 // remove finds x's position in the tree and removes it.
 void BinarySearchTree::remove(const string& x) { root = remove(root, x); }
-
-// pathTo finds x in the tree and returns a string representing the path it
-// took to get there.
-string BinarySearchTree::pathTo(const string& x) const {
-  // YOUR IMPLEMENTATION GOES HERE
-}
-
-// find determines whether or not x exists in the tree.
-bool BinarySearchTree::find(const string& x) const {
-  // YOUR IMPLEMENTATION GOES HERE
-}
-
-// numNodes returns the total number of nodes in the tree.
-int BinarySearchTree::numNodes() const {
-  // YOUR IMPLEMENTATION GOES HERE
-}
 
 // private helper for remove to allow recursion over different nodes. returns
 // a BinaryNode* that is assigned to the original node.
@@ -76,6 +61,22 @@ BinaryNode* BinarySearchTree::remove(BinaryNode*& n, const string& x) {
   return n;
 }
 
+// pathTo finds x in the tree and returns a string representing the path it
+// took to get there.
+string BinarySearchTree::pathTo(const string& x) const {
+  // YOUR IMPLEMENTATION GOES HERE
+}
+
+// find determines whether or not x exists in the tree.
+bool BinarySearchTree::find(const string& x) const {
+  // YOUR IMPLEMENTATION GOES HERE
+}
+
+// numNodes returns the total number of nodes in the tree.
+int BinarySearchTree::numNodes() const {
+  // YOUR IMPLEMENTATION GOES HERE
+}
+
 // min finds the string with the smallest value in a subtree.
 string BinarySearchTree::min(BinaryNode* node) const {
   // go to bottom-left node
@@ -91,6 +92,8 @@ void showTrunks(Trunk* p) {
   showTrunks(p->prev);
   cout << p->str;
 }
+
+void BinarySearchTree::printTree() { printTree(root, NULL, false); }
 
 // Recursive function to print binary tree
 // It uses inorder traversal
@@ -120,5 +123,3 @@ void BinarySearchTree::printTree(BinaryNode* root, Trunk* prev, bool isRight) {
 
   printTree(root->left, trunk, false);
 }
-
-void BinarySearchTree::printTree() { printTree(root, NULL, false); }
