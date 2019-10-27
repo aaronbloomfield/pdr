@@ -79,8 +79,6 @@ The simulator will only read the first 4 character on each line of a file.  So y
 
 Even though you will have your program well-thought out and written out in symbolic IBCM before you start typing it in, alas you may still find that you have forgotten an extra variable or an extra instruction or two that you need to add in.  To make these corrections easier, be sure to leave a bit of extra space for variables at the top of your program.  You may also want to leave extra nop (opcode: B) instructions in your code that could be replaced later with actual instructions if needed.  Make use of labels in your symbolic IBCM code to aid readability.
 
-Note that under Windows, Alt-PrintScrn will copy a screen shot, which can then be pasted into Word or another editor for printing.  Most Linux distributions use the PrintScreen button.  Under Mac OS X, it's Apple-Shift-4.
-
 ### The IBCM Simulator ###
 
 For the pre-lab, you will need to write two IBCM programs, as described below.  Note that the programs will need to have an .ibcm extension when submitting, but they are text files, so you can still edit them in Emacs.
