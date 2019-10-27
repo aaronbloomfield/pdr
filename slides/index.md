@@ -41,7 +41,7 @@ Program and Data Representation: Slides
 
 [Slide set 7: IBCM (machine language)](07-ibcm.html#/)
 
-- The online simulator is [here](http://pegasus.cs.virginia.edu/ibcm/) (with a mirror [here](http://people.virginia.edu/~asb2t/ibcm/))
+- The online simulator is [here](http://pegasus.cs.virginia.edu/ibcm/)
 - Source code: [summation.ibcm](../ibcm/summation.ibcm), [array-summation.ibcm](../ibcm/array-summation.ibcm)
 - [IBCM book chapter](../book/ibcm-chapter.pdf) as the reading
 - There is a separate [IBCM section](../ibcm/index.html) of this repository with more IBCM information, although that additional information will not be needed in this course

@@ -22,7 +22,7 @@ Procedure
 
 ### Pre-lab ###
 
-1. The online IBCM simulator is available online [here](http://pegasus.cs.virginia.edu/ibcm/).  If that site is down, mirror websites are listed in the pre-lab section.
+1. The online IBCM simulator is available online [here](http://pegasus.cs.virginia.edu/ibcm/).
 2. Write the two IBCM programs described in the pre-lab section: addition.ibcm and array.ibcm.
 3. Note that some browsers have problems with the online simulator.  If in doubt, try Firefox or Chrome.
 4. Your submitted files MUST have an .ibcm extension (not .ibcm.txt), and can NOT have any blank lines!
@@ -44,7 +44,7 @@ Procedure
 3. Your shell script MUST use `a.out` as the executable name
 4. Implement a *quine* in IBCM (see "What is a Quine?" section, below) into a quine.ibcm file.
 5. You may discuss this question with your classmates, as long as it is high-level design issues, not IBCM-specific implementation issues (i.e. what you turn in should be your own work).
-6. Submit a report, called postlab7.pdf (see the post-lab section for formatting details), that contains your thoughts on IBCM.  What did you think?  How easy was it to use?  Would modifications to the simulator make life easier for you?  How confident do you feel in writing IBCM code?  
+6. Submit a report, called postlab7.pdf (see the post-lab section for formatting details), that contains your thoughts on IBCM.  What did you think?  How easy was it to use?  Would modifications to the simulator make life easier for you?  How confident do you feel in writing IBCM code?
 7. Your submitted files MUST have an .ibcm extension (not .ibcm.txt), and can NOT have any blank lines!
 8. Files to download: [counter.cpp](counter.cpp.html) ([src](counter.cpp))
 9. Files to submit: averagetime.sh, quine.ibcm (don't name it quine.ibcm.txt!), postlab7.pdf
@@ -56,12 +56,7 @@ Pre-lab
 
 ### Using the IBCM Simulator ###
 
-The easiest way to use the simulator is via the online version, available at [http://pegasus.cs.virginia.edu/ibcm/](http://pegasus.cs.virginia.edu/ibcm/).  There are a number of mirrors of this website available (all are identical):
-
-- [http://pegasus.cs.virginia.edu/ibcm/](http://pegasus.cs.virginia.edu/ibcm/)
-- [http://people.virginia.edu/~asb2t/ibcm/](http://people.virginia.edu/~asb2t/ibcm/)
-
-We request that you use the first URL ([http://pegasus.cs.virginia.edu/ibcm/](http://pegasus.cs.virginia.edu/ibcm/)), and use the others if that one is not available.
+The easiest way to use the simulator is via the online version, available at [http://pegasus.cs.virginia.edu/ibcm/](http://pegasus.cs.virginia.edu/ibcm/).
 
 There are pros and cons to the online version of the emulator.  The online version does not require installation, allows for inline memory modification, but will hang your browser if it gets stuck in an infinite loop.  Also, the online simulator gets rather unhappy if there are extra blank lines at the end of your input file.
 
@@ -163,7 +158,7 @@ We will test your program by running it, recording the output, and running that 
 
 The tutorial for this lab is the remainder of the [Wikibooks article on Bash Shell Scripting](http://en.wikibooks.org/wiki/Bash_Shell_Scripting).
 
-For this lab, you will need to work a bit more on the shell script that you wrote for the last lab.  The shell script will also compute the average running time for 5 executions of a program.  The difference is that you will be using control structures, such as conditionals (if-then-else) and loops (for or while) in this shell script.  
+For this lab, you will need to work a bit more on the shell script that you wrote for the last lab.  The shell script will also compute the average running time for 5 executions of a program.  The difference is that you will be using control structures, such as conditionals (if-then-else) and loops (for or while) in this shell script.
 
 First, download the [counter.cpp](counter.cpp.html) ([src](counter.cpp)) file.  This program contains the timer code from lab 6, although it has been modified to print out the time in milliseconds.  Note that the program doesn't actually do anything useful; it just takes in a numeric command line parameter, and runs through an idle loop many times.  We'll call the command line parameter taken in *e* -- given an input of *e*, the program will run through the idle loop 10^*e*^ times.  Thus, you should not enter a value for *e* greater than 9 (as 10^9^ (1 billion) is the largest power of 10 that an `int` value can hold).  On a modern computer, entering 9 as the parameter should take between 1 and 5 seconds to run, but keep in mind that the output is in milliseconds.  Note that if you compile it with `-O2`, some compilers (including clang++ on Linux systems) will recognize that there is an idle loop (i.e. a loop that does nothing), and will remove that code from the final binary; thus, your time will report as zero.  If this is the case, lower the optimization level so that you get a non-zero value when you run it with a high number of iterations.
 
