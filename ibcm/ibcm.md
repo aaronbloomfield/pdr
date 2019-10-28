@@ -17,10 +17,7 @@ The IBCM is utilized through an online series of webpages.  The IBCM simulator n
 
 The primary file for the website is [index.html](index.html), and the directions are on the [directions.html](directions.html) page.  The simulator itself is on the [simulator.php](simulator.php) page -- but as described above, this must be run on an actual web server.  Two supporting files ([simulator.js](simulator.js) and [ibcm.css](ibcm.css)) and the entire img/ directory are needed as well.  Note that two of the programs listed below ([summation.ibcm](summation.ibcm) and [array-summation.ibcm](array-summation.ibcm)) are linked to from the various website pages.
 
-The mirrors are:
-
-- [http://pegasus.cs.virginia.edu/ibcm/](http://pegasus.cs.virginia.edu/ibcm/)
-- [http://people.virginia.edu/~asb2t/ibcm/](http://people.virginia.edu/~asb2t/ibcm/)
+The simulator can be accessed via [http://pegasus.cs.virginia.edu/ibcm/](http://pegasus.cs.virginia.edu/ibcm/).
 
 
 Sample IBCM code

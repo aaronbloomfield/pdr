@@ -27,7 +27,7 @@
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
 <ol type="1">
-<li>The online IBCM simulator is available online <a href="http://pegasus.cs.virginia.edu/ibcm/">here</a>. If that site is down, mirror websites are listed in the pre-lab section.</li>
+<li>The online IBCM simulator is available online <a href="http://pegasus.cs.virginia.edu/ibcm/">here</a>.</li>
 <li>Write the two IBCM programs described in the pre-lab section: addition.ibcm and array.ibcm.</li>
 <li>Note that some browsers have problems with the online simulator. If in doubt, try Firefox or Chrome.</li>
 <li>Your submitted files MUST have an .ibcm extension (not .ibcm.txt), and can NOT have any blank lines!</li>
@@ -49,8 +49,7 @@
 <li>Your shell script MUST use <code>a.out</code> as the executable name</li>
 <li>Implement a <em>quine</em> in IBCM (see &quot;What is a Quine?&quot; section, below) into a quine.ibcm file.</li>
 <li>You may discuss this question with your classmates, as long as it is high-level design issues, not IBCM-specific implementation issues (i.e. what you turn in should be your own work).</li>
-<li>Submit a report, called postlab7.pdf (see the post-lab section for formatting details), that contains your thoughts on IBCM. What did you think? How easy was it to use? Would modifications to the simulator make life easier for you? How confident do you feel in writing IBCM code?<br />
-</li>
+<li>Submit a report, called postlab7.pdf (see the post-lab section for formatting details), that contains your thoughts on IBCM. What did you think? How easy was it to use? Would modifications to the simulator make life easier for you? How confident do you feel in writing IBCM code?</li>
 <li>Your submitted files MUST have an .ibcm extension (not .ibcm.txt), and can NOT have any blank lines!</li>
 <li>Files to download: <a href="counter.cpp.html">counter.cpp</a> (<a href="counter.cpp">src</a>)</li>
 <li>Files to submit: averagetime.sh, quine.ibcm (don't name it quine.ibcm.txt!), postlab7.pdf</li>
@@ -58,12 +57,7 @@
 <hr />
 <h2 id="pre-lab-1">Pre-lab</h2>
 <h3 id="using-the-ibcm-simulator">Using the IBCM Simulator</h3>
-<p>The easiest way to use the simulator is via the online version, available at <a href="http://pegasus.cs.virginia.edu/ibcm/" class="uri">http://pegasus.cs.virginia.edu/ibcm/</a>. There are a number of mirrors of this website available (all are identical):</p>
-<ul>
-<li><a href="http://pegasus.cs.virginia.edu/ibcm/" class="uri">http://pegasus.cs.virginia.edu/ibcm/</a></li>
-<li><a href="http://people.virginia.edu/~asb2t/ibcm/" class="uri">http://people.virginia.edu/~asb2t/ibcm/</a></li>
-</ul>
-<p>We request that you use the first URL (<a href="http://pegasus.cs.virginia.edu/ibcm/" class="uri">http://pegasus.cs.virginia.edu/ibcm/</a>), and use the others if that one is not available.</p>
+<p>The easiest way to use the simulator is via the online version, available at <a href="http://pegasus.cs.virginia.edu/ibcm/" class="uri">http://pegasus.cs.virginia.edu/ibcm/</a>.</p>
 <p>There are pros and cons to the online version of the emulator. The online version does not require installation, allows for inline memory modification, but will hang your browser if it gets stuck in an infinite loop. Also, the online simulator gets rather unhappy if there are extra blank lines at the end of your input file.</p>
 <p>You will be developing a somewhat more complicated IBCM program in the in-lab. So, as preparation, study the IBCM documentation and lecture notes. Additionally, you will be expected to come to the in-lab with two working IBCM programs. You will not get much from the lab unless you are thoroughly familiar with the documentation and lecture notes, so make sure you are familiar with the material!</p>
 <h3 id="writing-ibcm-code">Writing IBCM Code</h3>
@@ -79,7 +73,6 @@
 <p>Note that together the operation name and the address are sort of an assembly language version of the hexadecimal version of the operations in the first column. You probably want to write those first, and then turn these into the hex instruction that will go into column 1.</p>
 <p>The simulator will only read the first 4 character on each line of a file. So you can't have entire lines with comments, or blank lines. The simulator can't handle these (and doesn't check for this), and you will get a strange error.</p>
 <p>Even though you will have your program well-thought out and written out in symbolic IBCM before you start typing it in, alas you may still find that you have forgotten an extra variable or an extra instruction or two that you need to add in. To make these corrections easier, be sure to leave a bit of extra space for variables at the top of your program. You may also want to leave extra nop (opcode: B) instructions in your code that could be replaced later with actual instructions if needed. Make use of labels in your symbolic IBCM code to aid readability.</p>
-<p>Note that under Windows, Alt-PrintScrn will copy a screen shot, which can then be pasted into Word or another editor for printing. Most Linux distributions use the PrintScreen button. Under Mac OS X, it's Apple-Shift-4.</p>
 <h3 id="the-ibcm-simulator">The IBCM Simulator</h3>
 <p>For the pre-lab, you will need to write two IBCM programs, as described below. Note that the programs will need to have an .ibcm extension when submitting, but they are text files, so you can still edit them in Emacs.</p>
 <h3 id="addition.ibcm">addition.ibcm</h3>
