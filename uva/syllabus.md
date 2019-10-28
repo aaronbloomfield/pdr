@@ -104,6 +104,8 @@ Alternatively, there are also other University of Virginia resources available. 
 
 If you or someone you know is struggling with gender, sexual, or domestic violence, there are many community and University of Virginia resources available. The Office of the Dean of Students, Sexual Assault Resource Agency (SARA), Shelter for Help in Emergency (SHE), and UVA Women's Center are ready and eager to help. Contact the Director of Sexual and Domestic Violence Services at 434-982-2774.
 
+**Reasonable Modifications:** Try as we might, we cannot predict the future.  There may be situations that arise during the semester that are not adequately covered by this syllabus, and which will require us to make adaptations or modifications during the semester.  We do not expect this to happen often.  And if we knew what types of situations these would be, we would change professions to fortune telling...
+
 [1]: index.html
 [2]: index.md
 [3]: frivolous-regrades.html
