@@ -18,7 +18,7 @@
  * The resulting document is a full HTML document -- meaning it adds
  * the <doctype>, <html>, <head>, and <body> tags to the document.
  *
- * To compile: "gcc markdown.c -o markdown -lmarkdown"
+ * To compile: "g++ markdown.cpp -o markdown -lmarkdown"
  *
  * To use, specify the input file name, and optionally an output file
  * name.
