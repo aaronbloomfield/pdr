@@ -69,7 +69,7 @@ There are two different platforms that students are potentially developing their
 
 There are three changes that will have to be made to compile your program (and thus to the Makefile) depending on your own development platform:
 
-- You will have to determine whether to name your function `vecsum` instead of `_vecsum` (note the lack of underscore in the former) in vecsum.s (this file is described more below).  In the final linking step, if you get a message such as, `main.cpp:(.text+0x12): undefined reference to 'vecsum'`, then you should change the name of the function.  
+- You will have to determine whether to name your function `vecsum` instead of `_vecsum` (note the lack of underscore in the former) in vecsum.s (this file is described more below).  In the final linking step, if you get a message such as, `main.cpp:(.text+0x12): undefined reference to 'vecsum'`, then you should change the name of the function.
 - Some systems will have to supply a command-line parameter to clang++; this can be put on the `CXX` or `CXXFLAGS` macro(s) line in your Makefile
 - All systems will have a specific nasm file format option (via `-f`) that will need to be specified.
 
@@ -85,7 +85,7 @@ If you plan to develop this lab in Mac OS X, we suggest that you develop it norm
 
 Each of these different platforms has different compilation lines to allow it to compile.  Some of them require changing the assembly files as well.  You only need to read the line(s) pertaining to the platform(s) you are developing on.
 
-**64-bit Linux:** You have to explicitly tell clang++ to compile in 64-bit mode by passing in the `-m64` parameter.  All assembly subroutine names must **NOT** have a leading underscore (i.e. they should be `vecsum` and not `_vecsum`).  nasm is invoked with the `-f elf64` option.  If you are using your own Linux installation (not the course VirtualBox image), and you run into compilation issues, try installing the g++-multilib package - we realize that we are not using the g++ compiler, but this installs the correct library in the correct place (if this differs with your version of Linux, then please let us know!). 
+**64-bit Linux:** You have to explicitly tell clang++ to compile in 64-bit mode by passing in the `-m64` parameter.  All assembly subroutine names must **NOT** have a leading underscore (i.e. they should be `vecsum` and not `_vecsum`).  nasm is invoked with the `-f elf64` option.  If you are using your own Linux installation (not the course VirtualBox image), and you run into compilation issues, try installing the g++-multilib package - we realize that we are not using the g++ compiler, but this installs the correct library in the correct place (if this differs with your version of Linux, then please let us know!).
 
 **64-bit Mac OS X:** To run the code, will need to rename all the assembly function names with a leading underscore (i.e. `_vecsum` not `vecsum`).  You will also have to use the `-f macho64` format for nasm, and tell clang++ to generate the correct architecture code.  In the provided Makefile, change the `ASFLAGS` macro line to `-f macho64` (instead of the default `-f elf64`).  You will probably want to remove the `-m64` flag on the `CXX` macro line, but be sure to put that back in before you resubmit.  Note that you **MUST** change all of this back in order for it to compile via the submission system!  Also note that some versions of Mac OS X do not support the format of assembly that we use in this course, which means that you will be stuck reading the assembly in the other format we discussed in class.
 
@@ -149,14 +149,14 @@ Examine the vecsum subroutine in [vecsum.s](vecsum.s.html) ([src](vecsum.s)).  U
 Compile and run the vecsum program:
 
 - Use the tutorial as a guide, but see the instructions above.
-- If you forget the gdb commands described below, see the [GDB command summary](../../docs/gdb_summary.html), which has a summary of all of these commands.
-- You can find the assembly and C++ source code in the repository ([vecsum.s](vecsum.s.html) ([src](vecsum.s)), [main.cpp](main.cpp.html) ([src](main.cpp)), [Makefile](Makefile.html) ([src](Makefile))).  For the C++ code compilation (i.e. main.cpp) and the final link, use the `-g` flag, which allows the program to work well with the gdb debugger.
+- If you forget the lldb commands described below, see the [LLDB command summary](../../docs/lldb_summary.html), which has a summary of all of these commands.
+- You can find the assembly and C++ source code in the repository ([vecsum.s](vecsum.s.html) ([src](vecsum.s)), [main.cpp](main.cpp.html) ([src](main.cpp)), [Makefile](Makefile.html) ([src](Makefile))).  For the C++ code compilation (i.e. main.cpp) and the final link, use the `-g` flag, which allows the program to work well with the lldb debugger.
 - Use the debugger to step through the assembly code, view the register contents, and view the computer's memory.
 - Set a breakpoint at the line in the main.cpp where the vecsum() function is called (probably line 38).
 - Normally, you would use the `step` function to step into the next instruction.  However, since no debugging information was included with the assembler (a shortcoming of nasm), we can't use `step` -- it will just move to the next C++ instruction (the `cout`).  Instead, we will use `stepi`, which will step exactly one *assembly instruction*, which is what we want.
 - To display the assembly code that is currently being executed, enter `disassemble`.  This is just like `list`, but it displays the assembly code instead of the C++ code.
-- Note that this prints things in a different assembly format.  To set the format to the style we are used to (and the style we are programming in with nasm), enter `set disassembly-flavor intel`.  Now enter `disassemble` again -- the format should look more familiar.  You only have to enter that set command once (unless you exit and re-enter gdb).
-- To see the vecsum function, enter `disassemble vecsum`.  Note that this only lists the first third (or so) of the routine -- up until the `vecsum_loop` label.  To see the rest of the code, enter `disassemble vecsum_loop`, `disassemble vecsum_done`, etc.
+- Note that this prints things in a different assembly format.  To set the format to the style we are used to (and the style we are programming in with nasm), enter `settings set target.x86-disassembly-flavor intel`.  Now enter `disassemble` again -- the format should look more familiar.  You only have to enter that set command once (unless you exit and re-enter lldb).
+- To see the vecsum function, enter `disassemble vecsum`.  Note that this only lists the first third (or so) of the routine -- up until the `start` label.  To see the rest of the code, enter `disassemble start`, `disassemble done`, etc.
 - To show the contents of the registers, use the `info registers` command.
 
 ### Pre-lab program: mathlib.s ###
@@ -198,7 +198,7 @@ Below is a sample execution run to show you the input and output format we are l
     Enter value 2: -39
     Enter value 3: 12
     Enter value 4: 8
-    Unsorted array: -7 2 -39 12 8 
+    Unsorted array: -7 2 -39 12 8
     Sorted array: -39 -7 2 8 12
 
 The following resource explains the merge sort algorithm. This is what you need to implement in x86 assembly: [www.hackerearth.com/practice/algorithms/sorting/merge-sort/tutorial/](https://www.hackerearth.com/practice/algorithms/sorting/merge-sort/tutorial/)
