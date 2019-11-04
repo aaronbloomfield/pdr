@@ -27,6 +27,7 @@ The parts of this course that are in this repo are:
 - [Daily announcements slide set][102]
 - [Course introduction slide set][80]
 - [Course syllabus][103] ([md][104]): the course syllabus
+- [Teaching assistants][117]: get to know your TAs
 - [Lab due dates][105] ([md][106]): When the various lab parts are due
 - [UNIX honor pledge][172], which needs to be signed by all the students in the course (it is created from a [.tex][114] file)
 - [Generic review session slide set][113], which is really just a blank set of slides
@@ -206,6 +207,7 @@ Grading Concerns
 [114]: unix-honor-pledge.tex
 [115]: grades.md
 [116]: grades.html
+[117]: tas.html
 
 [150]: https://calendar.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&ctz=America%2FNew_York
 [151]: http://twitter.com/UVaCS2150
@@ -633,4 +635,3 @@ Grading Concerns
 [12009]: course-conclusion.html#/9
 [12010]: course-conclusion.html#/10
 [12011]: course-conclusion.html#/11
-
