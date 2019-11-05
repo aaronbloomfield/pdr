@@ -6,7 +6,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Teaching Assistants</title>
   <link rel="stylesheet" href="../markdown.css">
-  <style type="text/css">code{white-space: pre;}img{max-width: 50%; max-height: 400px;}.container{display: grid; grid-template-columns: 1fr 1fr; row-gap: 3em; column-gap: 3em;}.bio img{float: left; padding-right: 1em;}</style>
+  <style type="text/css">
+    .container {
+      display: grid;
+      row-gap: 3em;
+      column-gap: 3em;
+    }
+
+    @media screen {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media screen and (min-width: 1366px) {
+      .container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media screen and (min-width: 2560px) {
+      .container {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+    /* Scale down images so they're not humongous */
+    .bio img {
+      max-height: 400px;
+    }
+
+    /* Float images left on big-enough screens */
+    @media screen and (min-width: 768px) {
+      .bio img {
+        max-width: 50%;
+        float: left;
+        padding-right: 1em;
+      }
+    }
+  </style>
 </head>
 <body>
 <h1 id="teaching-assistants">Teaching Assistants</h1>
