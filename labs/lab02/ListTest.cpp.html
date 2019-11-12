@@ -101,7 +101,7 @@ http://www.gnu.org/software/src-highlite">
 
             <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">2</span><span style="color:#990000">:</span>                        <i><span style="color:#9A1900">// New list</span></i>
                 <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>list <span style="color:#990000">!=</span> NULL<span style="color:#990000">)</span>
-		  <b><span style="color:#0000FF">delete</span></b> list<span style="color:#990000">;</span>
+                    <b><span style="color:#0000FF">delete</span></b> list<span style="color:#990000">;</span>
                 list <span style="color:#990000">=</span> <b><span style="color:#0000FF">new</span></b> List<span style="color:#990000">;</span>
 
                 cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">You have created an empty list</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">;</span>
@@ -153,8 +153,8 @@ http://www.gnu.org/software/src-highlite">
                     <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
                 <span style="color:#FF0000">}</span>
                 cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Setting the ListItr to the first element..."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-		<b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> itr <span style="color:#990000">!=</span> NULL <span style="color:#990000">)</span>
-		  <b><span style="color:#0000FF">delete</span></b> itr<span style="color:#990000">;</span>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> itr <span style="color:#990000">!=</span> NULL <span style="color:#990000">)</span>
+                    <b><span style="color:#0000FF">delete</span></b> itr<span style="color:#990000">;</span>
                 itr <span style="color:#990000">=</span> <b><span style="color:#0000FF">new</span></b> <b><span style="color:#000000">ListItr</span></b><span style="color:#990000">((</span>list<span style="color:#990000">-&gt;</span><b><span style="color:#000000">first</span></b><span style="color:#990000">()));</span>
                 <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
 
@@ -168,8 +168,8 @@ http://www.gnu.org/software/src-highlite">
 
                 <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span><b><span style="color:#000000">isdigit</span></b><span style="color:#990000">(</span>response<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]))</span> <span style="color:#FF0000">{</span>
                     <span style="color:#009900">int</span> element <span style="color:#990000">=</span> <b><span style="color:#000000">atoi</span></b><span style="color:#990000">(</span>response<span style="color:#990000">.</span><b><span style="color:#000000">c_str</span></b><span style="color:#990000">());</span>
-		    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> itr <span style="color:#990000">!=</span> NULL <span style="color:#990000">)</span>
-		      <b><span style="color:#0000FF">delete</span></b> itr<span style="color:#990000">;</span>
+                    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> itr <span style="color:#990000">!=</span> NULL <span style="color:#990000">)</span>
+                        <b><span style="color:#0000FF">delete</span></b> itr<span style="color:#990000">;</span>
                     itr <span style="color:#990000">=</span> <b><span style="color:#0000FF">new</span></b> <b><span style="color:#000000">ListItr</span></b><span style="color:#990000">((</span>list<span style="color:#990000">-&gt;</span><b><span style="color:#000000">find</span></b><span style="color:#990000">(</span>element<span style="color:#990000">)));</span>
                     cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Setting the ListItr to find("</span>
                          <span style="color:#990000">&lt;&lt;</span> element <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">")..."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
@@ -184,8 +184,8 @@ http://www.gnu.org/software/src-highlite">
                     <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
                 <span style="color:#FF0000">}</span>
                 cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Setting the ListItr to the last element..."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-		<b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> itr <span style="color:#990000">!=</span> NULL <span style="color:#990000">)</span>
-		  <b><span style="color:#0000FF">delete</span></b> itr<span style="color:#990000">;</span>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> itr <span style="color:#990000">!=</span> NULL <span style="color:#990000">)</span>
+                    <b><span style="color:#0000FF">delete</span></b> itr<span style="color:#990000">;</span>
                 itr <span style="color:#990000">=</span> <b><span style="color:#0000FF">new</span></b> <b><span style="color:#000000">ListItr</span></b><span style="color:#990000">((</span>list<span style="color:#990000">-&gt;</span><b><span style="color:#000000">last</span></b><span style="color:#990000">()));</span>
                 <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
 
@@ -328,8 +328,8 @@ http://www.gnu.org/software/src-highlite">
                     <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
                 <span style="color:#FF0000">}</span>
                 List<span style="color:#990000">*</span> old_list<span style="color:#990000">=</span>list<span style="color:#990000">;</span>
-		<b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> list <span style="color:#990000">!=</span> NULL <span style="color:#990000">)</span>
-		  <b><span style="color:#0000FF">delete</span></b> list<span style="color:#990000">;</span>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> list <span style="color:#990000">!=</span> NULL <span style="color:#990000">)</span>
+                    <b><span style="color:#0000FF">delete</span></b> list<span style="color:#990000">;</span>
                 list<span style="color:#990000">=</span><b><span style="color:#0000FF">new</span></b> <b><span style="color:#000000">List</span></b><span style="color:#990000">(*</span>old_list<span style="color:#990000">);</span>
                 old_list<span style="color:#990000">-&gt;</span><b><span style="color:#000000">makeEmpty</span></b><span style="color:#990000">();</span>
 
@@ -343,10 +343,10 @@ http://www.gnu.org/software/src-highlite">
                 <b><span style="color:#000000">printList</span></b><span style="color:#990000">(*</span>old_list<span style="color:#990000">,</span> <b><span style="color:#0000FF">false</span></b><span style="color:#990000">);</span>
                 cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"The old list should be destroyed now."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
                 <b><span style="color:#0000FF">delete</span></b> old_list<span style="color:#990000">;</span>
-		<b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> itr <span style="color:#990000">!=</span> NULL <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-		  <b><span style="color:#0000FF">delete</span></b> itr<span style="color:#990000">;</span>
-		  itr <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
-		<span style="color:#FF0000">}</span>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> itr <span style="color:#990000">!=</span> NULL <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+                    <b><span style="color:#0000FF">delete</span></b> itr<span style="color:#990000">;</span>
+                    itr <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
                 <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
             <span style="color:#FF0000">}</span>
             <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">16</span><span style="color:#990000">:</span> <span style="color:#FF0000">{</span>                    <i><span style="color:#9A1900">// test equals operator</span></i>
@@ -355,8 +355,8 @@ http://www.gnu.org/software/src-highlite">
                     <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
                 <span style="color:#FF0000">}</span>
                 List<span style="color:#990000">*</span> old_list<span style="color:#990000">=</span>list<span style="color:#990000">;</span>
-		<b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> list <span style="color:#990000">!=</span> NULL <span style="color:#990000">)</span>
-		  <b><span style="color:#0000FF">delete</span></b> list<span style="color:#990000">;</span>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> list <span style="color:#990000">!=</span> NULL <span style="color:#990000">)</span>
+                    <b><span style="color:#0000FF">delete</span></b> list<span style="color:#990000">;</span>
                 list<span style="color:#990000">=</span><b><span style="color:#0000FF">new</span></b> <b><span style="color:#000000">List</span></b><span style="color:#990000">();</span>
                 <span style="color:#990000">*</span>list<span style="color:#990000">=*</span>old_list<span style="color:#990000">;</span>
                 old_list<span style="color:#990000">-&gt;</span><b><span style="color:#000000">makeEmpty</span></b><span style="color:#990000">();</span>
@@ -369,13 +369,13 @@ http://www.gnu.org/software/src-highlite">
                 <b><span style="color:#000000">printList</span></b><span style="color:#990000">(*</span>old_list<span style="color:#990000">,</span><b><span style="color:#0000FF">true</span></b><span style="color:#990000">);</span>
                 cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"The old list was made empty (backward): "</span><span style="color:#990000">;</span>
                 <b><span style="color:#000000">printList</span></b><span style="color:#990000">(*</span>old_list<span style="color:#990000">,</span><b><span style="color:#0000FF">false</span></b><span style="color:#990000">);</span>
-                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"The old list should be destroyed now."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>                
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"The old list should be destroyed now."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
 
                 <b><span style="color:#0000FF">delete</span></b> old_list<span style="color:#990000">;</span>
-		<b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> itr <span style="color:#990000">!=</span> NULL <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-		  <b><span style="color:#0000FF">delete</span></b> itr<span style="color:#990000">;</span>
-		  itr <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
-		<span style="color:#FF0000">}</span>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> itr <span style="color:#990000">!=</span> NULL <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+                    <b><span style="color:#0000FF">delete</span></b> itr<span style="color:#990000">;</span>
+                    itr <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
                 <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
             <span style="color:#FF0000">}</span>
 
@@ -390,10 +390,10 @@ http://www.gnu.org/software/src-highlite">
                 cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"The list is (backward): "</span><span style="color:#990000">;</span>
                 <b><span style="color:#000000">printList</span></b><span style="color:#990000">(*</span>list<span style="color:#990000">,</span><b><span style="color:#0000FF">false</span></b><span style="color:#990000">);</span>
                 list<span style="color:#990000">-&gt;</span><b><span style="color:#000000">makeEmpty</span></b><span style="color:#990000">();</span>
-		<b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> itr <span style="color:#990000">!=</span> NULL <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-		  <b><span style="color:#0000FF">delete</span></b> itr<span style="color:#990000">;</span>
-		  itr <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
-		<span style="color:#FF0000">}</span>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> itr <span style="color:#990000">!=</span> NULL <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+                    <b><span style="color:#0000FF">delete</span></b> itr<span style="color:#990000">;</span>
+                    itr <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
                 cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"The list was made empty (forward): "</span><span style="color:#990000">;</span>
                 <b><span style="color:#000000">printList</span></b><span style="color:#990000">(*</span>list<span style="color:#990000">,</span><b><span style="color:#0000FF">true</span></b><span style="color:#990000">);</span>
                 cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"The list was made empty (backward): "</span><span style="color:#990000">;</span>

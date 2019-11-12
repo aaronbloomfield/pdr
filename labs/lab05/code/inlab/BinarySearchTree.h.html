@@ -18,49 +18,49 @@ http://www.gnu.org/software/src-highlite">
 <b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
 <b><span style="color:#0000FF">struct</span></b> <span style="color:#008080">Trunk</span> <span style="color:#FF0000">{</span>
-  Trunk<span style="color:#990000">*</span> prev<span style="color:#990000">;</span>
-  <span style="color:#008080">string</span> str<span style="color:#990000">;</span>
+    Trunk<span style="color:#990000">*</span> prev<span style="color:#990000">;</span>
+    <span style="color:#008080">string</span> str<span style="color:#990000">;</span>
 
-  <b><span style="color:#000000">Trunk</span></b><span style="color:#990000">(</span>Trunk<span style="color:#990000">*</span> prev<span style="color:#990000">,</span> <span style="color:#008080">string</span> str<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-    <b><span style="color:#0000FF">this</span></b><span style="color:#990000">-&gt;</span>prev <span style="color:#990000">=</span> prev<span style="color:#990000">;</span>
-    <b><span style="color:#0000FF">this</span></b><span style="color:#990000">-&gt;</span>str <span style="color:#990000">=</span> str<span style="color:#990000">;</span>
-  <span style="color:#FF0000">}</span>
+    <b><span style="color:#000000">Trunk</span></b><span style="color:#990000">(</span>Trunk<span style="color:#990000">*</span> prev<span style="color:#990000">,</span> <span style="color:#008080">string</span> str<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        <b><span style="color:#0000FF">this</span></b><span style="color:#990000">-&gt;</span>prev <span style="color:#990000">=</span> prev<span style="color:#990000">;</span>
+        <b><span style="color:#0000FF">this</span></b><span style="color:#990000">-&gt;</span>str <span style="color:#990000">=</span> str<span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
 <span style="color:#FF0000">}</span><span style="color:#990000">;</span>
 
 <b><span style="color:#0000FF">class</span></b> <span style="color:#008080">BinarySearchTree</span> <span style="color:#FF0000">{</span>
- <b><span style="color:#0000FF">public</span></b><span style="color:#990000">:</span>
-  <b><span style="color:#000000">BinarySearchTree</span></b><span style="color:#990000">();</span>
-  <span style="color:#990000">~</span><b><span style="color:#000000">BinarySearchTree</span></b><span style="color:#990000">();</span>
+<b><span style="color:#0000FF">public</span></b><span style="color:#990000">:</span>
+    <b><span style="color:#000000">BinarySearchTree</span></b><span style="color:#990000">();</span>
+    <span style="color:#990000">~</span><b><span style="color:#000000">BinarySearchTree</span></b><span style="color:#990000">();</span>
 
-  <i><span style="color:#9A1900">// insert finds a position for x in the tree and places it there.</span></i>
-  <span style="color:#009900">void</span> <b><span style="color:#000000">insert</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> string<span style="color:#990000">&amp;</span> x<span style="color:#990000">);</span>
-  <i><span style="color:#9A1900">// remove finds x's position in the tree and removes it.</span></i>
-  <span style="color:#009900">void</span> <b><span style="color:#000000">remove</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> string<span style="color:#990000">&amp;</span> x<span style="color:#990000">);</span>
-  <i><span style="color:#9A1900">// printTree pretty-prints the tree to aid debugging.</span></i>
-  <span style="color:#009900">void</span> <b><span style="color:#000000">printTree</span></b><span style="color:#990000">();</span>
+    <i><span style="color:#9A1900">// insert finds a position for x in the tree and places it there.</span></i>
+    <span style="color:#009900">void</span> <b><span style="color:#000000">insert</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> string<span style="color:#990000">&amp;</span> x<span style="color:#990000">);</span>
+    <i><span style="color:#9A1900">// remove finds x's position in the tree and removes it.</span></i>
+    <span style="color:#009900">void</span> <b><span style="color:#000000">remove</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> string<span style="color:#990000">&amp;</span> x<span style="color:#990000">);</span>
+    <i><span style="color:#9A1900">// printTree pretty-prints the tree to aid debugging.</span></i>
+    <span style="color:#009900">void</span> <b><span style="color:#000000">printTree</span></b><span style="color:#990000">();</span>
 
-  <i><span style="color:#9A1900">// pathTo finds x in the tree and returns a string representing the path it</span></i>
-  <i><span style="color:#9A1900">// took to get there.</span></i>
-  <span style="color:#008080">string</span> <b><span style="color:#000000">pathTo</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> string<span style="color:#990000">&amp;</span> x<span style="color:#990000">)</span> <b><span style="color:#0000FF">const</span></b><span style="color:#990000">;</span>
-  <i><span style="color:#9A1900">// find determines whether or not x exists in the tree.</span></i>
-  <span style="color:#009900">bool</span> <b><span style="color:#000000">find</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> string<span style="color:#990000">&amp;</span> x<span style="color:#990000">)</span> <b><span style="color:#0000FF">const</span></b><span style="color:#990000">;</span>
-  <i><span style="color:#9A1900">// numNodes returns the total number of nodes in the tree.</span></i>
-  <span style="color:#009900">int</span> <b><span style="color:#000000">numNodes</span></b><span style="color:#990000">()</span> <b><span style="color:#0000FF">const</span></b><span style="color:#990000">;</span>
+    <i><span style="color:#9A1900">// pathTo finds x in the tree and returns a string representing the path it</span></i>
+    <i><span style="color:#9A1900">// took to get there.</span></i>
+    <span style="color:#008080">string</span> <b><span style="color:#000000">pathTo</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> string<span style="color:#990000">&amp;</span> x<span style="color:#990000">)</span> <b><span style="color:#0000FF">const</span></b><span style="color:#990000">;</span>
+    <i><span style="color:#9A1900">// find determines whether or not x exists in the tree.</span></i>
+    <span style="color:#009900">bool</span> <b><span style="color:#000000">find</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> string<span style="color:#990000">&amp;</span> x<span style="color:#990000">)</span> <b><span style="color:#0000FF">const</span></b><span style="color:#990000">;</span>
+    <i><span style="color:#9A1900">// numNodes returns the total number of nodes in the tree.</span></i>
+    <span style="color:#009900">int</span> <b><span style="color:#000000">numNodes</span></b><span style="color:#990000">()</span> <b><span style="color:#0000FF">const</span></b><span style="color:#990000">;</span>
 
- <b><span style="color:#0000FF">private</span></b><span style="color:#990000">:</span>
-  <i><span style="color:#9A1900">// Declare a root node</span></i>
-  BinaryNode<span style="color:#990000">*</span> root<span style="color:#990000">;</span>
+<b><span style="color:#0000FF">private</span></b><span style="color:#990000">:</span>
+    <i><span style="color:#9A1900">// Declare a root node</span></i>
+    BinaryNode<span style="color:#990000">*</span> root<span style="color:#990000">;</span>
 
-  <i><span style="color:#9A1900">// private helper for remove to allow recursion over different nodes. returns</span></i>
-  <i><span style="color:#9A1900">// a BinaryNode* that is assigned to the original node.</span></i>
-  BinaryNode<span style="color:#990000">*</span> <b><span style="color:#000000">remove</span></b><span style="color:#990000">(</span>BinaryNode<span style="color:#990000">*&amp;</span> n<span style="color:#990000">,</span> <b><span style="color:#0000FF">const</span></b> string<span style="color:#990000">&amp;</span> x<span style="color:#990000">);</span>
-  <i><span style="color:#9A1900">// min finds the string with the smallest value in a subtree.</span></i>
-  <span style="color:#008080">string</span> <b><span style="color:#000000">min</span></b><span style="color:#990000">(</span>BinaryNode<span style="color:#990000">*</span> node<span style="color:#990000">)</span> <b><span style="color:#0000FF">const</span></b><span style="color:#990000">;</span>
+    <i><span style="color:#9A1900">// private helper for remove to allow recursion over different nodes. returns</span></i>
+    <i><span style="color:#9A1900">// a BinaryNode* that is assigned to the original node.</span></i>
+    BinaryNode<span style="color:#990000">*</span> <b><span style="color:#000000">remove</span></b><span style="color:#990000">(</span>BinaryNode<span style="color:#990000">*&amp;</span> n<span style="color:#990000">,</span> <b><span style="color:#0000FF">const</span></b> string<span style="color:#990000">&amp;</span> x<span style="color:#990000">);</span>
+    <i><span style="color:#9A1900">// min finds the string with the smallest value in a subtree.</span></i>
+    <span style="color:#008080">string</span> <b><span style="color:#000000">min</span></b><span style="color:#990000">(</span>BinaryNode<span style="color:#990000">*</span> node<span style="color:#990000">)</span> <b><span style="color:#0000FF">const</span></b><span style="color:#990000">;</span>
 
-  <i><span style="color:#9A1900">// private helper for printTree to allow recursion over different nodes.</span></i>
-  <span style="color:#009900">void</span> <b><span style="color:#000000">printTree</span></b><span style="color:#990000">(</span>BinaryNode<span style="color:#990000">*</span> root<span style="color:#990000">,</span> Trunk<span style="color:#990000">*</span> prev<span style="color:#990000">,</span> <span style="color:#009900">bool</span> isRight<span style="color:#990000">);</span>
+    <i><span style="color:#9A1900">// private helper for printTree to allow recursion over different nodes.</span></i>
+    <span style="color:#009900">void</span> <b><span style="color:#000000">printTree</span></b><span style="color:#990000">(</span>BinaryNode<span style="color:#990000">*</span> root<span style="color:#990000">,</span> Trunk<span style="color:#990000">*</span> prev<span style="color:#990000">,</span> <span style="color:#009900">bool</span> isRight<span style="color:#990000">);</span>
 
-  <i><span style="color:#9A1900">// Any other methods you need...</span></i>
+    <i><span style="color:#9A1900">// Any other methods you need...</span></i>
 <span style="color:#FF0000">}</span><span style="color:#990000">;</span>
 
 <b><span style="color:#000080">#endif</span></b></pre>

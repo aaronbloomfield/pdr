@@ -15,20 +15,20 @@ http://www.gnu.org/software/src-highlite">
 <b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
 <span style="color:#009900">int</span> <b><span style="color:#000000">main</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
-  <span style="color:#008080">AVLTree</span> avl<span style="color:#990000">;</span>
-  <b><span style="color:#0000FF">while</span></b> <span style="color:#990000">(</span>cin<span style="color:#990000">.</span><b><span style="color:#000000">good</span></b><span style="color:#990000">())</span> <span style="color:#FF0000">{</span>
-    <span style="color:#008080">string</span> instr<span style="color:#990000">,</span> word<span style="color:#990000">;</span>
-    cin <span style="color:#990000">&gt;&gt;</span> instr<span style="color:#990000">;</span>
-    cin <span style="color:#990000">&gt;&gt;</span> word<span style="color:#990000">;</span>
-    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>instr <span style="color:#990000">==</span> <span style="color:#FF0000">"I"</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-      avl<span style="color:#990000">.</span><b><span style="color:#000000">insert</span></b><span style="color:#990000">(</span>word<span style="color:#990000">);</span>
-    <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>instr <span style="color:#990000">==</span> <span style="color:#FF0000">"R"</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-      avl<span style="color:#990000">.</span><b><span style="color:#000000">remove</span></b><span style="color:#990000">(</span>word<span style="color:#990000">);</span>
-    <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>instr <span style="color:#990000">==</span> <span style="color:#FF0000">"L"</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-      cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"AVL path: "</span> <span style="color:#990000">&lt;&lt;</span> avl<span style="color:#990000">.</span><b><span style="color:#000000">pathTo</span></b><span style="color:#990000">(</span>word<span style="color:#990000">)</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    <span style="color:#008080">AVLTree</span> avl<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">while</span></b> <span style="color:#990000">(</span>cin<span style="color:#990000">.</span><b><span style="color:#000000">good</span></b><span style="color:#990000">())</span> <span style="color:#FF0000">{</span>
+        <span style="color:#008080">string</span> instr<span style="color:#990000">,</span> word<span style="color:#990000">;</span>
+        cin <span style="color:#990000">&gt;&gt;</span> instr<span style="color:#990000">;</span>
+        cin <span style="color:#990000">&gt;&gt;</span> word<span style="color:#990000">;</span>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>instr <span style="color:#990000">==</span> <span style="color:#FF0000">"I"</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            avl<span style="color:#990000">.</span><b><span style="color:#000000">insert</span></b><span style="color:#990000">(</span>word<span style="color:#990000">);</span>
+        <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>instr <span style="color:#990000">==</span> <span style="color:#FF0000">"R"</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            avl<span style="color:#990000">.</span><b><span style="color:#000000">remove</span></b><span style="color:#990000">(</span>word<span style="color:#990000">);</span>
+        <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>instr <span style="color:#990000">==</span> <span style="color:#FF0000">"L"</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"AVL path: "</span> <span style="color:#990000">&lt;&lt;</span> avl<span style="color:#990000">.</span><b><span style="color:#000000">pathTo</span></b><span style="color:#990000">(</span>word<span style="color:#990000">)</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+        <span style="color:#FF0000">}</span>
     <span style="color:#FF0000">}</span>
-  <span style="color:#FF0000">}</span>
-  cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"AVL numNodes: "</span> <span style="color:#990000">&lt;&lt;</span> avl<span style="color:#990000">.</span><b><span style="color:#000000">numNodes</span></b><span style="color:#990000">()</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"AVL numNodes: "</span> <span style="color:#990000">&lt;&lt;</span> avl<span style="color:#990000">.</span><b><span style="color:#000000">numNodes</span></b><span style="color:#990000">()</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
 <span style="color:#FF0000">}</span></pre>
 </body>
 </html>

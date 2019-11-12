@@ -14,161 +14,167 @@ http://www.gnu.org/software/src-highlite">
 <b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">"AVLNode.h"</span>
 <b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
-AVLTree<span style="color:#990000">::</span><b><span style="color:#000000">AVLTree</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span> root <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span> <span style="color:#FF0000">}</span>
+AVLTree<span style="color:#990000">::</span><b><span style="color:#000000">AVLTree</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    root <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
 
 AVLTree<span style="color:#990000">::~</span><b><span style="color:#000000">AVLTree</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
-  <b><span style="color:#0000FF">delete</span></b> root<span style="color:#990000">;</span>
-  root <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">delete</span></b> root<span style="color:#990000">;</span>
+    root <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
 <span style="color:#FF0000">}</span>
 
 <i><span style="color:#9A1900">// insert finds a position for x in the tree and places it there, rebalancing</span></i>
 <i><span style="color:#9A1900">// as necessary.</span></i>
 <span style="color:#009900">void</span> AVLTree<span style="color:#990000">::</span><b><span style="color:#000000">insert</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> string<span style="color:#990000">&amp;</span> x<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-  <i><span style="color:#9A1900">// YOUR IMPLEMENTATION GOES HERE</span></i>
+    <i><span style="color:#9A1900">// YOUR IMPLEMENTATION GOES HERE</span></i>
 <span style="color:#FF0000">}</span>
 
 <i><span style="color:#9A1900">// remove finds x's position in the tree and removes it, rebalancing as</span></i>
 <i><span style="color:#9A1900">// necessary.</span></i>
-<span style="color:#009900">void</span> AVLTree<span style="color:#990000">::</span><b><span style="color:#000000">remove</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> string<span style="color:#990000">&amp;</span> x<span style="color:#990000">)</span> <span style="color:#FF0000">{</span> root <span style="color:#990000">=</span> <b><span style="color:#000000">remove</span></b><span style="color:#990000">(</span>root<span style="color:#990000">,</span> x<span style="color:#990000">);</span> <span style="color:#FF0000">}</span>
+<span style="color:#009900">void</span> AVLTree<span style="color:#990000">::</span><b><span style="color:#000000">remove</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> string<span style="color:#990000">&amp;</span> x<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    root <span style="color:#990000">=</span> <b><span style="color:#000000">remove</span></b><span style="color:#990000">(</span>root<span style="color:#990000">,</span> x<span style="color:#990000">);</span>
+<span style="color:#FF0000">}</span>
 
 <i><span style="color:#9A1900">// pathTo finds x in the tree and returns a string representing the path it</span></i>
 <i><span style="color:#9A1900">// took to get there.</span></i>
 <span style="color:#008080">string</span> AVLTree<span style="color:#990000">::</span><b><span style="color:#000000">pathTo</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> string<span style="color:#990000">&amp;</span> x<span style="color:#990000">)</span> <b><span style="color:#0000FF">const</span></b> <span style="color:#FF0000">{</span>
-  <i><span style="color:#9A1900">// YOUR IMPLEMENTATION GOES HERE</span></i>
+    <i><span style="color:#9A1900">// YOUR IMPLEMENTATION GOES HERE</span></i>
 <span style="color:#FF0000">}</span>
 
 <i><span style="color:#9A1900">// find determines whether or not x exists in the tree.</span></i>
 <span style="color:#009900">bool</span> AVLTree<span style="color:#990000">::</span><b><span style="color:#000000">find</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> string<span style="color:#990000">&amp;</span> x<span style="color:#990000">)</span> <b><span style="color:#0000FF">const</span></b> <span style="color:#FF0000">{</span>
-  <i><span style="color:#9A1900">// YOUR IMPLEMENTATION GOES HERE</span></i>
+    <i><span style="color:#9A1900">// YOUR IMPLEMENTATION GOES HERE</span></i>
 <span style="color:#FF0000">}</span>
 
 <i><span style="color:#9A1900">// numNodes returns the total number of nodes in the tree.</span></i>
 <span style="color:#009900">int</span> AVLTree<span style="color:#990000">::</span><b><span style="color:#000000">numNodes</span></b><span style="color:#990000">()</span> <b><span style="color:#0000FF">const</span></b> <span style="color:#FF0000">{</span>
-  <i><span style="color:#9A1900">// YOUR IMPLEMENTATION GOES HERE</span></i>
+    <i><span style="color:#9A1900">// YOUR IMPLEMENTATION GOES HERE</span></i>
 <span style="color:#FF0000">}</span>
 
 <i><span style="color:#9A1900">// balance makes sure that the subtree with root n maintains the AVL tree</span></i>
 <i><span style="color:#9A1900">// property, namely that the balance factor of n is either -1, 0, or 1.</span></i>
 <span style="color:#009900">void</span> AVLTree<span style="color:#990000">::</span><b><span style="color:#000000">balance</span></b><span style="color:#990000">(</span>AVLNode<span style="color:#990000">*&amp;</span> n<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-  <i><span style="color:#9A1900">// YOUR IMPLEMENTATION GOES HERE</span></i>
+    <i><span style="color:#9A1900">// YOUR IMPLEMENTATION GOES HERE</span></i>
 <span style="color:#FF0000">}</span>
 
 <i><span style="color:#9A1900">// rotateLeft performs a single rotation on node n with its right child.</span></i>
 AVLNode<span style="color:#990000">*</span> AVLTree<span style="color:#990000">::</span><b><span style="color:#000000">rotateLeft</span></b><span style="color:#990000">(</span>AVLNode<span style="color:#990000">*&amp;</span> n<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-  <i><span style="color:#9A1900">// YOUR IMPLEMENTATION GOES HERE</span></i>
+    <i><span style="color:#9A1900">// YOUR IMPLEMENTATION GOES HERE</span></i>
 <span style="color:#FF0000">}</span>
 
 <i><span style="color:#9A1900">// rotateRight performs a single rotation on node n with its left child.</span></i>
 AVLNode<span style="color:#990000">*</span> AVLTree<span style="color:#990000">::</span><b><span style="color:#000000">rotateRight</span></b><span style="color:#990000">(</span>AVLNode<span style="color:#990000">*&amp;</span> n<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-  <i><span style="color:#9A1900">// YOUR IMPLEMENTATION GOES HERE</span></i>
+    <i><span style="color:#9A1900">// YOUR IMPLEMENTATION GOES HERE</span></i>
 <span style="color:#FF0000">}</span>
 
 <i><span style="color:#9A1900">// private helper for remove to allow recursion over different nodes. returns</span></i>
 <i><span style="color:#9A1900">// an AVLNode* that is assigned to the original node.</span></i>
 AVLNode<span style="color:#990000">*</span> AVLTree<span style="color:#990000">::</span><b><span style="color:#000000">remove</span></b><span style="color:#990000">(</span>AVLNode<span style="color:#990000">*&amp;</span> n<span style="color:#990000">,</span> <b><span style="color:#0000FF">const</span></b> string<span style="color:#990000">&amp;</span> x<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-  <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>n <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-    <b><span style="color:#0000FF">return</span></b> NULL<span style="color:#990000">;</span>
-  <span style="color:#FF0000">}</span>
-  <i><span style="color:#9A1900">// first look for x</span></i>
-  <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>x <span style="color:#990000">==</span> n<span style="color:#990000">-&gt;</span>value<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-    <i><span style="color:#9A1900">// found</span></i>
-    <i><span style="color:#9A1900">// no children</span></i>
-    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>left <span style="color:#990000">==</span> NULL <span style="color:#990000">&amp;&amp;</span> n<span style="color:#990000">-&gt;</span>right <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-      <b><span style="color:#0000FF">delete</span></b> n<span style="color:#990000">;</span>
-      n <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
-      <b><span style="color:#0000FF">return</span></b> NULL<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>n <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        <b><span style="color:#0000FF">return</span></b> NULL<span style="color:#990000">;</span>
     <span style="color:#FF0000">}</span>
-    <i><span style="color:#9A1900">// single child</span></i>
-    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>left <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-      AVLNode<span style="color:#990000">*</span> temp <span style="color:#990000">=</span> n<span style="color:#990000">-&gt;</span>right<span style="color:#990000">;</span>
-      n<span style="color:#990000">-&gt;</span>right <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
-      <b><span style="color:#0000FF">delete</span></b> n<span style="color:#990000">;</span>
-      n <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
-      <b><span style="color:#0000FF">return</span></b> temp<span style="color:#990000">;</span>
+    <i><span style="color:#9A1900">// first look for x</span></i>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>x <span style="color:#990000">==</span> n<span style="color:#990000">-&gt;</span>value<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        <i><span style="color:#9A1900">// found</span></i>
+        <i><span style="color:#9A1900">// no children</span></i>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>left <span style="color:#990000">==</span> NULL <span style="color:#990000">&amp;&amp;</span> n<span style="color:#990000">-&gt;</span>right <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            <b><span style="color:#0000FF">delete</span></b> n<span style="color:#990000">;</span>
+            n <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
+            <b><span style="color:#0000FF">return</span></b> NULL<span style="color:#990000">;</span>
+        <span style="color:#FF0000">}</span>
+        <i><span style="color:#9A1900">// single child</span></i>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>left <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            AVLNode<span style="color:#990000">*</span> temp <span style="color:#990000">=</span> n<span style="color:#990000">-&gt;</span>right<span style="color:#990000">;</span>
+            n<span style="color:#990000">-&gt;</span>right <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
+            <b><span style="color:#0000FF">delete</span></b> n<span style="color:#990000">;</span>
+            n <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
+            <b><span style="color:#0000FF">return</span></b> temp<span style="color:#990000">;</span>
+        <span style="color:#FF0000">}</span>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>right <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            AVLNode<span style="color:#990000">*</span> temp <span style="color:#990000">=</span> n<span style="color:#990000">-&gt;</span>left<span style="color:#990000">;</span>
+            n<span style="color:#990000">-&gt;</span>left <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
+            <b><span style="color:#0000FF">delete</span></b> n<span style="color:#990000">;</span>
+            n <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
+            <b><span style="color:#0000FF">return</span></b> temp<span style="color:#990000">;</span>
+        <span style="color:#FF0000">}</span>
+        <i><span style="color:#9A1900">// two children -- tree may become unbalanced after deleting n</span></i>
+        <span style="color:#008080">string</span> sr <span style="color:#990000">=</span> <b><span style="color:#000000">min</span></b><span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>right<span style="color:#990000">);</span>
+        n<span style="color:#990000">-&gt;</span>value <span style="color:#990000">=</span> sr<span style="color:#990000">;</span>
+        n<span style="color:#990000">-&gt;</span>right <span style="color:#990000">=</span> <b><span style="color:#000000">remove</span></b><span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>right<span style="color:#990000">,</span> sr<span style="color:#990000">);</span>
+    <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>x <span style="color:#990000">&lt;</span> n<span style="color:#990000">-&gt;</span>value<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        n<span style="color:#990000">-&gt;</span>left <span style="color:#990000">=</span> <b><span style="color:#000000">remove</span></b><span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>left<span style="color:#990000">,</span> x<span style="color:#990000">);</span>
+    <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <span style="color:#FF0000">{</span>
+        n<span style="color:#990000">-&gt;</span>right <span style="color:#990000">=</span> <b><span style="color:#000000">remove</span></b><span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>right<span style="color:#990000">,</span> x<span style="color:#990000">);</span>
     <span style="color:#FF0000">}</span>
-    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>right <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-      AVLNode<span style="color:#990000">*</span> temp <span style="color:#990000">=</span> n<span style="color:#990000">-&gt;</span>left<span style="color:#990000">;</span>
-      n<span style="color:#990000">-&gt;</span>left <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
-      <b><span style="color:#0000FF">delete</span></b> n<span style="color:#990000">;</span>
-      n <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
-      <b><span style="color:#0000FF">return</span></b> temp<span style="color:#990000">;</span>
-    <span style="color:#FF0000">}</span>
-    <i><span style="color:#9A1900">// two children -- tree may become unbalanced after deleting n</span></i>
-    <span style="color:#008080">string</span> sr <span style="color:#990000">=</span> <b><span style="color:#000000">min</span></b><span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>right<span style="color:#990000">);</span>
-    n<span style="color:#990000">-&gt;</span>value <span style="color:#990000">=</span> sr<span style="color:#990000">;</span>
-    n<span style="color:#990000">-&gt;</span>right <span style="color:#990000">=</span> <b><span style="color:#000000">remove</span></b><span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>right<span style="color:#990000">,</span> sr<span style="color:#990000">);</span>
-  <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>x <span style="color:#990000">&lt;</span> n<span style="color:#990000">-&gt;</span>value<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-    n<span style="color:#990000">-&gt;</span>left <span style="color:#990000">=</span> <b><span style="color:#000000">remove</span></b><span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>left<span style="color:#990000">,</span> x<span style="color:#990000">);</span>
-  <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <span style="color:#FF0000">{</span>
-    n<span style="color:#990000">-&gt;</span>right <span style="color:#990000">=</span> <b><span style="color:#000000">remove</span></b><span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>right<span style="color:#990000">,</span> x<span style="color:#990000">);</span>
-  <span style="color:#FF0000">}</span>
-  n<span style="color:#990000">-&gt;</span>height <span style="color:#990000">=</span> <span style="color:#993399">1</span> <span style="color:#990000">+</span> <b><span style="color:#000000">max</span></b><span style="color:#990000">(</span><b><span style="color:#000000">height</span></b><span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>left<span style="color:#990000">),</span> <b><span style="color:#000000">height</span></b><span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>right<span style="color:#990000">));</span>
-  <b><span style="color:#000000">balance</span></b><span style="color:#990000">(</span>n<span style="color:#990000">);</span>
-  <b><span style="color:#0000FF">return</span></b> n<span style="color:#990000">;</span>
+    n<span style="color:#990000">-&gt;</span>height <span style="color:#990000">=</span> <span style="color:#993399">1</span> <span style="color:#990000">+</span> <b><span style="color:#000000">max</span></b><span style="color:#990000">(</span><b><span style="color:#000000">height</span></b><span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>left<span style="color:#990000">),</span> <b><span style="color:#000000">height</span></b><span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>right<span style="color:#990000">));</span>
+    <b><span style="color:#000000">balance</span></b><span style="color:#990000">(</span>n<span style="color:#990000">);</span>
+    <b><span style="color:#0000FF">return</span></b> n<span style="color:#990000">;</span>
 <span style="color:#FF0000">}</span>
 
 <i><span style="color:#9A1900">// min finds the string with the smallest value in a subtree.</span></i>
 <span style="color:#008080">string</span> AVLTree<span style="color:#990000">::</span><b><span style="color:#000000">min</span></b><span style="color:#990000">(</span>AVLNode<span style="color:#990000">*</span> node<span style="color:#990000">)</span> <b><span style="color:#0000FF">const</span></b> <span style="color:#FF0000">{</span>
-  <i><span style="color:#9A1900">// go to bottom-left node</span></i>
-  <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>node<span style="color:#990000">-&gt;</span>left <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-    <b><span style="color:#0000FF">return</span></b> node<span style="color:#990000">-&gt;</span>value<span style="color:#990000">;</span>
-  <span style="color:#FF0000">}</span>
-  <b><span style="color:#0000FF">return</span></b> <b><span style="color:#000000">min</span></b><span style="color:#990000">(</span>node<span style="color:#990000">-&gt;</span>left<span style="color:#990000">);</span>
+    <i><span style="color:#9A1900">// go to bottom-left node</span></i>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>node<span style="color:#990000">-&gt;</span>left <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        <b><span style="color:#0000FF">return</span></b> node<span style="color:#990000">-&gt;</span>value<span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
+    <b><span style="color:#0000FF">return</span></b> <b><span style="color:#000000">min</span></b><span style="color:#990000">(</span>node<span style="color:#990000">-&gt;</span>left<span style="color:#990000">);</span>
 <span style="color:#FF0000">}</span>
 
 <i><span style="color:#9A1900">// height returns the value of the height field in a node. If the node is</span></i>
 <i><span style="color:#9A1900">// null, it returns -1.</span></i>
 <span style="color:#009900">int</span> AVLTree<span style="color:#990000">::</span><b><span style="color:#000000">height</span></b><span style="color:#990000">(</span>AVLNode<span style="color:#990000">*</span> node<span style="color:#990000">)</span> <b><span style="color:#0000FF">const</span></b> <span style="color:#FF0000">{</span>
-  <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>node <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-    <b><span style="color:#0000FF">return</span></b> <span style="color:#990000">-</span><span style="color:#993399">1</span><span style="color:#990000">;</span>
-  <span style="color:#FF0000">}</span>
-  <b><span style="color:#0000FF">return</span></b> node<span style="color:#990000">-&gt;</span>height<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>node <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        <b><span style="color:#0000FF">return</span></b> <span style="color:#990000">-</span><span style="color:#993399">1</span><span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
+    <b><span style="color:#0000FF">return</span></b> node<span style="color:#990000">-&gt;</span>height<span style="color:#990000">;</span>
 <span style="color:#FF0000">}</span>
 
 <i><span style="color:#9A1900">// max returns the greater of two integers.</span></i>
 <span style="color:#009900">int</span> <b><span style="color:#000000">max</span></b><span style="color:#990000">(</span><span style="color:#009900">int</span> a<span style="color:#990000">,</span> <span style="color:#009900">int</span> b<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-  <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>a <span style="color:#990000">&gt;</span> b<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-    <b><span style="color:#0000FF">return</span></b> a<span style="color:#990000">;</span>
-  <span style="color:#FF0000">}</span>
-  <b><span style="color:#0000FF">return</span></b> b<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>a <span style="color:#990000">&gt;</span> b<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        <b><span style="color:#0000FF">return</span></b> a<span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
+    <b><span style="color:#0000FF">return</span></b> b<span style="color:#990000">;</span>
 <span style="color:#FF0000">}</span>
 
 <i><span style="color:#9A1900">// Helper function to print branches of the binary tree</span></i>
 <span style="color:#009900">void</span> <b><span style="color:#000000">showTrunks</span></b><span style="color:#990000">(</span>Trunk<span style="color:#990000">*</span> p<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-  <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>p <span style="color:#990000">==</span> nullptr<span style="color:#990000">)</span> <b><span style="color:#0000FF">return</span></b><span style="color:#990000">;</span>
-  <b><span style="color:#000000">showTrunks</span></b><span style="color:#990000">(</span>p<span style="color:#990000">-&gt;</span>prev<span style="color:#990000">);</span>
-  cout <span style="color:#990000">&lt;&lt;</span> p<span style="color:#990000">-&gt;</span>str<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>p <span style="color:#990000">==</span> nullptr<span style="color:#990000">)</span> <b><span style="color:#0000FF">return</span></b><span style="color:#990000">;</span>
+    <b><span style="color:#000000">showTrunks</span></b><span style="color:#990000">(</span>p<span style="color:#990000">-&gt;</span>prev<span style="color:#990000">);</span>
+    cout <span style="color:#990000">&lt;&lt;</span> p<span style="color:#990000">-&gt;</span>str<span style="color:#990000">;</span>
 <span style="color:#FF0000">}</span>
 
 <i><span style="color:#9A1900">// Recursive function to print binary tree</span></i>
 <i><span style="color:#9A1900">// It uses inorder traversal</span></i>
 <span style="color:#009900">void</span> AVLTree<span style="color:#990000">::</span><b><span style="color:#000000">printTree</span></b><span style="color:#990000">(</span>AVLNode<span style="color:#990000">*</span> root<span style="color:#990000">,</span> Trunk<span style="color:#990000">*</span> prev<span style="color:#990000">,</span> <span style="color:#009900">bool</span> isRight<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-  <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>root <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <b><span style="color:#0000FF">return</span></b><span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>root <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <b><span style="color:#0000FF">return</span></b><span style="color:#990000">;</span>
 
-  <span style="color:#008080">string</span> prev_str <span style="color:#990000">=</span> <span style="color:#FF0000">"    "</span><span style="color:#990000">;</span>
-  Trunk<span style="color:#990000">*</span> trunk <span style="color:#990000">=</span> <b><span style="color:#0000FF">new</span></b> <b><span style="color:#000000">Trunk</span></b><span style="color:#990000">(</span>prev<span style="color:#990000">,</span> prev_str<span style="color:#990000">);</span>
+    <span style="color:#008080">string</span> prev_str <span style="color:#990000">=</span> <span style="color:#FF0000">"    "</span><span style="color:#990000">;</span>
+    Trunk<span style="color:#990000">*</span> trunk <span style="color:#990000">=</span> <b><span style="color:#0000FF">new</span></b> <b><span style="color:#000000">Trunk</span></b><span style="color:#990000">(</span>prev<span style="color:#990000">,</span> prev_str<span style="color:#990000">);</span>
 
-  <b><span style="color:#000000">printTree</span></b><span style="color:#990000">(</span>root<span style="color:#990000">-&gt;</span>right<span style="color:#990000">,</span> trunk<span style="color:#990000">,</span> <b><span style="color:#0000FF">true</span></b><span style="color:#990000">);</span>
+    <b><span style="color:#000000">printTree</span></b><span style="color:#990000">(</span>root<span style="color:#990000">-&gt;</span>right<span style="color:#990000">,</span> trunk<span style="color:#990000">,</span> <b><span style="color:#0000FF">true</span></b><span style="color:#990000">);</span>
 
-  <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(!</span>prev<span style="color:#990000">)</span>
-    trunk<span style="color:#990000">-&gt;</span>str <span style="color:#990000">=</span> <span style="color:#FF0000">"---"</span><span style="color:#990000">;</span>
-  <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>isRight<span style="color:#990000">)</span> <span style="color:#FF0000">{</span> <i><span style="color:#9A1900">// github user @willzhang05 pointed out that I forgot to change this from isLeft to isRight on my first commit</span></i>
-    trunk<span style="color:#990000">-&gt;</span>str <span style="color:#990000">=</span> <span style="color:#FF0000">".---"</span><span style="color:#990000">;</span>
-    prev_str <span style="color:#990000">=</span> <span style="color:#FF0000">"   |"</span><span style="color:#990000">;</span>
-  <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <span style="color:#FF0000">{</span>
-    trunk<span style="color:#990000">-&gt;</span>str <span style="color:#990000">=</span> <span style="color:#FF0000">"`---"</span><span style="color:#990000">;</span>
-    prev<span style="color:#990000">-&gt;</span>str <span style="color:#990000">=</span> prev_str<span style="color:#990000">;</span>
-  <span style="color:#FF0000">}</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(!</span>prev<span style="color:#990000">)</span>
+        trunk<span style="color:#990000">-&gt;</span>str <span style="color:#990000">=</span> <span style="color:#FF0000">"---"</span><span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>isRight<span style="color:#990000">)</span> <span style="color:#FF0000">{</span> <i><span style="color:#9A1900">// github user @willzhang05 pointed out that I forgot to change this from isLeft to isRight on my first commit</span></i>
+        trunk<span style="color:#990000">-&gt;</span>str <span style="color:#990000">=</span> <span style="color:#FF0000">".---"</span><span style="color:#990000">;</span>
+        prev_str <span style="color:#990000">=</span> <span style="color:#FF0000">"   |"</span><span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <span style="color:#FF0000">{</span>
+        trunk<span style="color:#990000">-&gt;</span>str <span style="color:#990000">=</span> <span style="color:#FF0000">"`---"</span><span style="color:#990000">;</span>
+        prev<span style="color:#990000">-&gt;</span>str <span style="color:#990000">=</span> prev_str<span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
 
-  <b><span style="color:#000000">showTrunks</span></b><span style="color:#990000">(</span>trunk<span style="color:#990000">);</span>
-  cout <span style="color:#990000">&lt;&lt;</span> root<span style="color:#990000">-&gt;</span>value <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    <b><span style="color:#000000">showTrunks</span></b><span style="color:#990000">(</span>trunk<span style="color:#990000">);</span>
+    cout <span style="color:#990000">&lt;&lt;</span> root<span style="color:#990000">-&gt;</span>value <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
 
-  <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>prev<span style="color:#990000">)</span> prev<span style="color:#990000">-&gt;</span>str <span style="color:#990000">=</span> prev_str<span style="color:#990000">;</span>
-  trunk<span style="color:#990000">-&gt;</span>str <span style="color:#990000">=</span> <span style="color:#FF0000">"   |"</span><span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>prev<span style="color:#990000">)</span> prev<span style="color:#990000">-&gt;</span>str <span style="color:#990000">=</span> prev_str<span style="color:#990000">;</span>
+    trunk<span style="color:#990000">-&gt;</span>str <span style="color:#990000">=</span> <span style="color:#FF0000">"   |"</span><span style="color:#990000">;</span>
 
-  <b><span style="color:#000000">printTree</span></b><span style="color:#990000">(</span>root<span style="color:#990000">-&gt;</span>left<span style="color:#990000">,</span> trunk<span style="color:#990000">,</span> <b><span style="color:#0000FF">false</span></b><span style="color:#990000">);</span>
+    <b><span style="color:#000000">printTree</span></b><span style="color:#990000">(</span>root<span style="color:#990000">-&gt;</span>left<span style="color:#990000">,</span> trunk<span style="color:#990000">,</span> <b><span style="color:#0000FF">false</span></b><span style="color:#990000">);</span>
 <span style="color:#FF0000">}</span>
 
-<span style="color:#009900">void</span> AVLTree<span style="color:#990000">::</span><b><span style="color:#000000">printTree</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span> <b><span style="color:#000000">printTree</span></b><span style="color:#990000">(</span>root<span style="color:#990000">,</span> NULL<span style="color:#990000">,</span> <b><span style="color:#0000FF">false</span></b><span style="color:#990000">);</span> <span style="color:#FF0000">}</span></pre>
+<span style="color:#009900">void</span> AVLTree<span style="color:#990000">::</span><b><span style="color:#000000">printTree</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#000000">printTree</span></b><span style="color:#990000">(</span>root<span style="color:#990000">,</span> NULL<span style="color:#990000">,</span> <b><span style="color:#0000FF">false</span></b><span style="color:#990000">);</span>
+<span style="color:#FF0000">}</span></pre>
 </body>
 </html>
