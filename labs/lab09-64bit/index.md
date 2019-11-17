@@ -97,7 +97,7 @@ What optimizations do you use?
 - In some cases, you can use bit shifts instead of multiplication and divide.  Computing `5*x` might be more quickly done as `4*x+x`, as the latter can use a shift.  But you can use the `lea` instruction for that one anyway.
 - Branching is bad, in that it slows down the execution speed of a program.  As much as possible, eliminate branching (if/else statements, loops, etc.).  For loops, consider [loop unrolling](http://en.wikipedia.org/wiki/Loop_unrolling).
 - Consider the [memory Hierarchy](http://en.wikipedia.org/wiki/Memory_hierarchy) and try to reduce memory accesses (this includes `push` and `pop`).
-- Reduce the number of instructions used to create (and remove) the activation record; this was done in a few x86 examples we studied: [max](../../slides/08-x86.html#/max) and [fib](../../slides/08-x86.html#/fib)
+- Reduce the number of instructions used to create (and remove) the activation record; this was done in a few x86 examples we studied: [max](../../slides/08-assembly-64bit.html#/max) and [fib](../../slides/08-assembly-64bit.html#/fact)
 - Reduce the registers that are backed up to the stack in the calling convention
 - Many optimizations are listed [here](http://en.wikipedia.org/wiki/Category:Compiler_optimizations), but most would not apply to this one program.
 
