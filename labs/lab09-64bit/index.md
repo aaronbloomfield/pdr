@@ -99,10 +99,9 @@ What optimizations do you use?
 - Consider the [memory Hierarchy](http://en.wikipedia.org/wiki/Memory_hierarchy) and try to reduce memory accesses (this includes `push` and `pop`).
 - Reduce the number of instructions used to create (and remove) the activation record; this was done in a few x86 examples we studied: [max](../../slides/08-x86.html#/max) and [fib](../../slides/08-x86.html#/fib)
 - Reduce the registers that are backed up to the stack in the calling convention
-- Can you offset things from `esp` instead of `ebp`?  If so, then you don't have to set up the base pointer.
 - Many optimizations are listed [here](http://en.wikipedia.org/wiki/Category:Compiler_optimizations), but most would not apply to this one program.
 
-You will need to include at least one optimization beyond just figuring out how to write your subroutine with fewer instructions.  You should put the optimizations used as a comment in the beginning of your assembly file.  
+You will need to include at least one optimization beyond just figuring out how to write your subroutine with fewer instructions.  You should put the optimizations used as a comment in the beginning of your assembly file.
 
 Note that we, too, can write the function in C++ and compile it with `clang++ -O2 -m64 -S -mllvm --x86-asm-syntax=intel`.  And we will be looking at that assembly code when we grade the pre-lab.  If you write your program this way, it constitutes an honor violation, so please hand-code the assembly yourself.
 
@@ -118,7 +117,7 @@ You may find the `cdq` instruction useful -- do a Google search for 'cdq x86' or
 
 **You must list, as comments in your assembly file, the optimizations that you used!**  Just a brief description of what optimizations you used is fine.
 
-### Different Architecutres ###
+### Different Architectures ###
 
 See the [last lab](../lab08/index.html) for details, but all code must be submitted to run under Linux, which is the platform that does the compilation on the submission system.
 
@@ -161,7 +160,7 @@ For the in-lab, you have to address one topic; either the required one or an opt
 
 2. Optimized code: Compare code generated normally to optimized code.  To create optimized code, you will need to use the `-O2` compiler flag.  Can you make any guesses as to why the optimized code looks as it does?  What is being optimized?  Be sure to show your original sample code as well as the optimized version.  Try loops and function calls to see what "optimizing" does. Be aware that if instructions are "not necessary" to the final output of the program then they may be optimized away completely!  This does not lead to very interesting comparisons.  Describe at least four (non-trivial) differences you see between 'normal' code and optimized code.
 
-3. Templates:  What does the code look like for the instantiation of a simple templated class you wrote?  What if you instantiate the class for different data types, what code is generated then?  Is it the same or different?  If the same, why? If different, why?  Compare code for a user-defined templated class or function to a templated class from the STL (e.g. classes such as vectors or functions such as sort). 
+3. Templates:  What does the code look like for the instantiation of a simple templated class you wrote?  What if you instantiate the class for different data types, what code is generated then?  Is it the same or different?  If the same, why? If different, why?  Compare code for a user-defined templated class or function to a templated class from the STL (e.g. classes such as vectors or functions such as sort).
 
 ------------------------------------------------------------
 
@@ -199,4 +198,3 @@ This is somewhat vague, and purposely so -- research is often vague.  If we told
 **We are not looking for you to spend hours and hours and hours on this!**  A *page or two* per list item (and you have to do two of them) - which means your final report needs to be 2-4 pages long.  Keep in mind if you have a lot of screenshots, that doesn't count much towards that page limit.
 
 The grading will be based on a set of points that we would expect you to discover when investigating a given topic.  Your grade will be based mostly on how well you hit those points.  A small portion of your grade will be based on the overall report presentation and written ability (while we are a computer science class, we expect you to be able to write in English to some extent!).
-

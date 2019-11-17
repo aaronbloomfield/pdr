@@ -91,7 +91,6 @@
 <li>Consider the <a href="http://en.wikipedia.org/wiki/Memory_hierarchy">memory Hierarchy</a> and try to reduce memory accesses (this includes <code>push</code> and <code>pop</code>).</li>
 <li>Reduce the number of instructions used to create (and remove) the activation record; this was done in a few x86 examples we studied: <a href="../../slides/08-x86.html#/max">max</a> and <a href="../../slides/08-x86.html#/fib">fib</a></li>
 <li>Reduce the registers that are backed up to the stack in the calling convention</li>
-<li>Can you offset things from <code>esp</code> instead of <code>ebp</code>? If so, then you don't have to set up the base pointer.</li>
 <li>Many optimizations are listed <a href="http://en.wikipedia.org/wiki/Category:Compiler_optimizations">here</a>, but most would not apply to this one program.</li>
 </ul>
 <p>You will need to include at least one optimization beyond just figuring out how to write your subroutine with fewer instructions. You should put the optimizations used as a comment in the beginning of your assembly file.</p>
@@ -105,7 +104,7 @@
 <p>You can assume that both <em>x</em> and <em>n</em> are positive integers. See the <a href="../lab06/index.html">hash lab (lab 6)</a> for details as to how to use the timer code. Your program should print out the number of steps for the given input, and the average time taken per function call. You should use an appropriate precision number to make sure you don't report zero when you divide the total time by the number of runs. Your timer code should only include the loop of <em>n</em> times that calls the routine with <em>x</em> as the parameter. Nothing else (including the print statement) should be inside the timer code.</p>
 <p>You may find the <code>cdq</code> instruction useful -- do a Google search for 'cdq x86' or 'cdq intel'.</p>
 <p><strong>You must list, as comments in your assembly file, the optimizations that you used!</strong> Just a brief description of what optimizations you used is fine.</p>
-<h3 id="different-architecutres">Different Architecutres</h3>
+<h3 id="different-architectures">Different Architectures</h3>
 <p>See the <a href="../lab08/index.html">last lab</a> for details, but all code must be submitted to run under Linux, which is the platform that does the compilation on the submission system.</p>
 <h3 id="read-the-c-tutorial">Read the C tutorial</h3>
 <p>Read the <a href="../../tutorials/09-c/index.html">C tutorial</a>. You will need to implement the linkedlist.c program for the post-lab, not for the pre-lab.</p>
