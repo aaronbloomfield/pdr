@@ -26,6 +26,7 @@ The parts of this course that are in this repo are:
 
 - [Daily announcements slide set][102]
 - [Course introduction slide set][80]
+- [Course conclusion slide set][94]
 - [Course syllabus][103] ([md][104]): the course syllabus
 - [Teaching assistants][117]: get to know your TAs
 - [Lab due dates][105] ([md][106]): When the various lab parts are due
