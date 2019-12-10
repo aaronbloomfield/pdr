@@ -1,452 +1,452 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta name="GENERATOR" content="GNU source-highlight 3.1.8
+<meta name="GENERATOR" content="GNU source-highlight 
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
-<title>labs/lab02/ListTest.cpp</title>
+<title>ListTest.cpp</title>
 </head>
-<body bgcolor="white">
-<pre><tt><i><font color="#9A1900">//	Modified: 8/30/2006: mc2zk</font></i>
-<i><font color="#9A1900">//  CS216 Lab 1 - Test Harness</font></i>
-<i><font color="#9A1900">//   by Michael Crane</font></i>
-<i><font color="#9A1900">//</font></i>
-<i><font color="#9A1900">//  Integrate this test harness with your List implementation to</font></i>
-<i><font color="#9A1900">//  thoroughly test your design.  I have only used functions that were</font></i>
-<i><font color="#9A1900">//  explicitly defined in the specification, with one exception:</font></i>
-<i><font color="#9A1900">//</font></i>
-<i><font color="#9A1900">//  I have assumed a global print function whose prototype is</font></i>
-<i><font color="#9A1900">//      void printList(List l, bool forward);</font></i>
-<i><font color="#9A1900">//</font></i>
-<i><font color="#9A1900">//  If the 'forward' parameter is true,</font></i>
-<i><font color="#9A1900">//      the list is printed in forward order</font></i>
-<i><font color="#9A1900">//  if the 'forward' parameter is false,</font></i>
-<i><font color="#9A1900">//      the list is printed in reverse order</font></i>
+<body style="background-color:white">
+<pre><i><span style="color:#9A1900">//	Modified: 8/30/2006: mc2zk</span></i>
+<i><span style="color:#9A1900">//  CS216 Lab 1 - Test Harness</span></i>
+<i><span style="color:#9A1900">//   by Michael Crane</span></i>
+<i><span style="color:#9A1900">//</span></i>
+<i><span style="color:#9A1900">//  Integrate this test harness with your List implementation to</span></i>
+<i><span style="color:#9A1900">//  thoroughly test your design.  I have only used functions that were</span></i>
+<i><span style="color:#9A1900">//  explicitly defined in the specification, with one exception:</span></i>
+<i><span style="color:#9A1900">//</span></i>
+<i><span style="color:#9A1900">//  I have assumed a global print function whose prototype is</span></i>
+<i><span style="color:#9A1900">//      void printList(List l, bool forward);</span></i>
+<i><span style="color:#9A1900">//</span></i>
+<i><span style="color:#9A1900">//  If the 'forward' parameter is true,</span></i>
+<i><span style="color:#9A1900">//      the list is printed in forward order</span></i>
+<i><span style="color:#9A1900">//  if the 'forward' parameter is false,</span></i>
+<i><span style="color:#9A1900">//      the list is printed in reverse order</span></i>
 
 
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;string&gt;</font>
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;ctype.h&gt;</font>
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdlib.h&gt;</font>
-<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;iostream&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;string&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;ctype.h&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;stdlib.h&gt;</span>
+<b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
-<i><font color="#9A1900">//Make sure your own files for the List and ListItr</font></i>
-<i><font color="#9A1900">//classes are included here.  These are the names I used.</font></i>
-<b><font color="#000080">#include</font></b> <font color="#FF0000">"List.h"</font>
-<b><font color="#000080">#include</font></b> <font color="#FF0000">"ListItr.h"</font>
+<i><span style="color:#9A1900">//Make sure your own files for the List and ListItr</span></i>
+<i><span style="color:#9A1900">//classes are included here.  These are the names I used.</span></i>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">"List.h"</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">"ListItr.h"</span>
 
 
-<font color="#009900">int</font>      <b><font color="#000000">menu</font></b> <font color="#990000">(</font><font color="#008080">string</font> option<font color="#990000">[],</font> <font color="#009900">int</font> n_opt<font color="#990000">);</font>
+<span style="color:#009900">int</span>      <b><span style="color:#000000">menu</span></b> <span style="color:#990000">(</span><span style="color:#008080">string</span> option<span style="color:#990000">[],</span> <span style="color:#009900">int</span> n_opt<span style="color:#990000">);</span>
 
-<i><font color="#9A1900">//set up menu options</font></i>
-<font color="#008080">string</font>   option<font color="#990000">[]</font> <font color="#990000">=</font>   <font color="#FF0000">{</font> <font color="#FF0000">"Quit"</font><font color="#990000">,</font>
-                        <font color="#FF0000">"New List"</font><font color="#990000">,</font>
-                        <font color="#FF0000">"Show List elements"</font><font color="#990000">,</font>
-                        <font color="#FF0000">"Set ListItr with first()"</font><font color="#990000">,</font>
-                        <font color="#FF0000">"Set ListItr with find()"</font><font color="#990000">,</font>
-                        <font color="#FF0000">"Set ListItr with last()"</font><font color="#990000">,</font>
-                        <font color="#FF0000">"Move ListItr forward"</font><font color="#990000">,</font>
-                        <font color="#FF0000">"Move ListItr backward"</font><font color="#990000">,</font>
-                        <font color="#FF0000">"Retrieve element at ListItr"</font><font color="#990000">,</font>
-                        <font color="#FF0000">"Insert element before"</font><font color="#990000">,</font>
-                        <font color="#FF0000">"Insert element after"</font><font color="#990000">,</font>
-                        <font color="#FF0000">"Insert element at tail"</font><font color="#990000">,</font>
-                        <font color="#FF0000">"Remove element"</font><font color="#990000">,</font>
-                        <font color="#FF0000">"Cardinality (size)"</font><font color="#990000">,</font>
-                        <font color="#FF0000">"Copy list w/copy constructor"</font><font color="#990000">,</font>
-                        <font color="#FF0000">"Copy list with operator="</font><font color="#990000">,</font>
-                        <font color="#FF0000">"Make list empty"</font><font color="#990000">,</font>
-                      <font color="#FF0000">}</font><font color="#990000">;</font>
-<font color="#009900">int</font>      <b><font color="#0000FF">const</font></b> n_choice <font color="#990000">=</font> <font color="#993399">17</font><font color="#990000">;</font>
+<i><span style="color:#9A1900">//set up menu options</span></i>
+<span style="color:#008080">string</span>   option<span style="color:#990000">[]</span> <span style="color:#990000">=</span>   <span style="color:#FF0000">{</span> <span style="color:#FF0000">"Quit"</span><span style="color:#990000">,</span>
+                        <span style="color:#FF0000">"New List"</span><span style="color:#990000">,</span>
+                        <span style="color:#FF0000">"Show List elements"</span><span style="color:#990000">,</span>
+                        <span style="color:#FF0000">"Set ListItr with first()"</span><span style="color:#990000">,</span>
+                        <span style="color:#FF0000">"Set ListItr with find()"</span><span style="color:#990000">,</span>
+                        <span style="color:#FF0000">"Set ListItr with last()"</span><span style="color:#990000">,</span>
+                        <span style="color:#FF0000">"Move ListItr forward"</span><span style="color:#990000">,</span>
+                        <span style="color:#FF0000">"Move ListItr backward"</span><span style="color:#990000">,</span>
+                        <span style="color:#FF0000">"Retrieve element at ListItr"</span><span style="color:#990000">,</span>
+                        <span style="color:#FF0000">"Insert element before"</span><span style="color:#990000">,</span>
+                        <span style="color:#FF0000">"Insert element after"</span><span style="color:#990000">,</span>
+                        <span style="color:#FF0000">"Insert element at tail"</span><span style="color:#990000">,</span>
+                        <span style="color:#FF0000">"Remove element"</span><span style="color:#990000">,</span>
+                        <span style="color:#FF0000">"Cardinality (size)"</span><span style="color:#990000">,</span>
+                        <span style="color:#FF0000">"Copy list w/copy constructor"</span><span style="color:#990000">,</span>
+                        <span style="color:#FF0000">"Copy list with operator="</span><span style="color:#990000">,</span>
+                        <span style="color:#FF0000">"Make list empty"</span><span style="color:#990000">,</span>
+                      <span style="color:#FF0000">}</span><span style="color:#990000">;</span>
+<span style="color:#009900">int</span>      <b><span style="color:#0000FF">const</span></b> n_choice <span style="color:#990000">=</span> <span style="color:#993399">17</span><span style="color:#990000">;</span>
 
-<font color="#009900">int</font>   <b><font color="#000000">main</font></b> <font color="#990000">()</font>
-<i><font color="#9A1900">/*</font></i>
-<i><font color="#9A1900">**  This main driver program interactively exercises a</font></i>
-<i><font color="#9A1900">**   list package.</font></i>
-<i><font color="#9A1900">**  It assumes a linked list implementation, and its real</font></i>
-<i><font color="#9A1900">**   purpose is to exercise the underlying list manipulation</font></i>
-<i><font color="#9A1900">**   procedures.</font></i>
-<i><font color="#9A1900">**  It uses a menu to accept commands from the terminal,</font></i>
-<i><font color="#9A1900">**   then performs the indicated command.</font></i>
-<i><font color="#9A1900">*/</font></i>
-<font color="#FF0000">{</font>
-    <font color="#009900">int</font>      command<font color="#990000">;</font>
-    <font color="#008080">string</font>   response<font color="#990000">;</font>
-    <font color="#008080">List</font>     <font color="#990000">*</font>list <font color="#990000">=</font> NULL<font color="#990000">;</font>
-    <font color="#008080">ListItr</font>  <font color="#990000">*</font>itr <font color="#990000">=</font> NULL<font color="#990000">;</font>
-    <i><font color="#9A1900">// Initialize this run</font></i>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"--------------------------------------------------</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">This test harness operates with one List</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
-         <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">object and one ListItr object.</font><font color="#CC33CC">\n\n</font><font color="#FF0000">"</font>
-         <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Use the menu options to manipulate these</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
-         <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">objects.</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+<span style="color:#009900">int</span>   <b><span style="color:#000000">main</span></b> <span style="color:#990000">()</span>
+<i><span style="color:#9A1900">/*</span></i>
+<i><span style="color:#9A1900">**  This main driver program interactively exercises a</span></i>
+<i><span style="color:#9A1900">**   list package.</span></i>
+<i><span style="color:#9A1900">**  It assumes a linked list implementation, and its real</span></i>
+<i><span style="color:#9A1900">**   purpose is to exercise the underlying list manipulation</span></i>
+<i><span style="color:#9A1900">**   procedures.</span></i>
+<i><span style="color:#9A1900">**  It uses a menu to accept commands from the terminal,</span></i>
+<i><span style="color:#9A1900">**   then performs the indicated command.</span></i>
+<i><span style="color:#9A1900">*/</span></i>
+<span style="color:#FF0000">{</span>
+    <span style="color:#009900">int</span>      command<span style="color:#990000">;</span>
+    <span style="color:#008080">string</span>   response<span style="color:#990000">;</span>
+    <span style="color:#008080">List</span>     <span style="color:#990000">*</span>list <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
+    <span style="color:#008080">ListItr</span>  <span style="color:#990000">*</span>itr <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
+    <i><span style="color:#9A1900">// Initialize this run</span></i>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"--------------------------------------------------</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">This test harness operates with one List</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span>
+         <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">object and one ListItr object.</span><span style="color:#CC33CC">\n\n</span><span style="color:#FF0000">"</span>
+         <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Use the menu options to manipulate these</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span>
+         <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">objects.</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">;</span>
 
-    <b><font color="#0000FF">while</font></b> <font color="#990000">(</font><font color="#993399">1</font><font color="#990000">)</font> <font color="#FF0000">{</font>
-        command <font color="#990000">=</font> <b><font color="#000000">menu</font></b><font color="#990000">(</font>option<font color="#990000">,</font> n_choice<font color="#990000">);</font>
+    <b><span style="color:#0000FF">while</span></b> <span style="color:#990000">(</span><span style="color:#993399">1</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        command <span style="color:#990000">=</span> <b><span style="color:#000000">menu</span></b><span style="color:#990000">(</span>option<span style="color:#990000">,</span> n_choice<span style="color:#990000">);</span>
 
-        <b><font color="#0000FF">switch</font></b> <font color="#990000">(</font>command<font color="#990000">)</font> <font color="#FF0000">{</font>
-            <b><font color="#0000FF">case</font></b> <font color="#993399">1</font><font color="#990000">:</font>                        <i><font color="#9A1900">// Quit</font></i>
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Do you really want to quit? (y/n) &gt; "</font><font color="#990000">;</font>
-                cin  <font color="#990000">&gt;&gt;</font> response<font color="#990000">;</font>
+        <b><span style="color:#0000FF">switch</span></b> <span style="color:#990000">(</span>command<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">1</span><span style="color:#990000">:</span>                        <i><span style="color:#9A1900">// Quit</span></i>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Do you really want to quit? (y/n) &gt; "</span><span style="color:#990000">;</span>
+                cin  <span style="color:#990000">&gt;&gt;</span> response<span style="color:#990000">;</span>
 
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>response<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">'y'</font> <font color="#990000">||</font> response<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">'Y'</font><font color="#990000">)</font> <font color="#FF0000">{</font>                 <i><font color="#9A1900">// Normal Exit</font></i>
-                    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>list <font color="#990000">!=</font> NULL<font color="#990000">)</font> <b><font color="#0000FF">delete</font></b> list<font color="#990000">;</font>
-                    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>itr <font color="#990000">!=</font> NULL<font color="#990000">)</font> <b><font color="#0000FF">delete</font></b> itr<font color="#990000">;</font>
-                    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
-                <font color="#FF0000">}</font>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>response<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">==</span> <span style="color:#FF0000">'y'</span> <span style="color:#990000">||</span> response<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">==</span> <span style="color:#FF0000">'Y'</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>                 <i><span style="color:#9A1900">// Normal Exit</span></i>
+                    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>list <span style="color:#990000">!=</span> NULL<span style="color:#990000">)</span> <b><span style="color:#0000FF">delete</span></b> list<span style="color:#990000">;</span>
+                    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>itr <span style="color:#990000">!=</span> NULL<span style="color:#990000">)</span> <b><span style="color:#0000FF">delete</span></b> itr<span style="color:#990000">;</span>
+                    <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
 
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
 
-            <b><font color="#0000FF">case</font></b> <font color="#993399">2</font><font color="#990000">:</font>                        <i><font color="#9A1900">// New list</font></i>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>list <font color="#990000">!=</font> NULL<font color="#990000">)</font>
-		  <b><font color="#0000FF">delete</font></b> list<font color="#990000">;</font>
-                list <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> List<font color="#990000">;</font>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">2</span><span style="color:#990000">:</span>                        <i><span style="color:#9A1900">// New list</span></i>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>list <span style="color:#990000">!=</span> NULL<span style="color:#990000">)</span>
+                    <b><span style="color:#0000FF">delete</span></b> list<span style="color:#990000">;</span>
+                list <span style="color:#990000">=</span> <b><span style="color:#0000FF">new</span></b> List<span style="color:#990000">;</span>
 
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">You have created an empty list</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Do you want to initialize it with elements? (y/n) &gt; "</font><font color="#990000">;</font>
-                cin  <font color="#990000">&gt;&gt;</font> response<font color="#990000">;</font>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">You have created an empty list</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">;</span>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Do you want to initialize it with elements? (y/n) &gt; "</span><span style="color:#990000">;</span>
+                cin  <span style="color:#990000">&gt;&gt;</span> response<span style="color:#990000">;</span>
 
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>response<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">!=</font> <font color="#FF0000">'y'</font> <font color="#990000">&amp;&amp;</font> response<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">!=</font> <font color="#FF0000">'Y'</font><font color="#990000">)</font>
-                    <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-                <i><font color="#9A1900">// accept elements</font></i>
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t\t</font><font color="#FF0000">Enter elements one by one as integers.</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t\t</font><font color="#FF0000">Any non-numeric character, e.g. #, "</font><font color="#990000">;</font>
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"will terminate input</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>response<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">!=</span> <span style="color:#FF0000">'y'</span> <span style="color:#990000">&amp;&amp;</span> response<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">!=</span> <span style="color:#FF0000">'Y'</span><span style="color:#990000">)</span>
+                    <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+                <i><span style="color:#9A1900">// accept elements</span></i>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t\t</span><span style="color:#FF0000">Enter elements one by one as integers.</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">;</span>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t\t</span><span style="color:#FF0000">Any non-numeric character, e.g. #, "</span><span style="color:#990000">;</span>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"will terminate input</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">;</span>
 
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Enter first element: "</font><font color="#990000">;</font>
-                cin <font color="#990000">&gt;&gt;</font> response<font color="#990000">;</font>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Enter first element: "</span><span style="color:#990000">;</span>
+                cin <span style="color:#990000">&gt;&gt;</span> response<span style="color:#990000">;</span>
 
-                <b><font color="#0000FF">while</font></b> <font color="#990000">(</font><b><font color="#000000">isdigit</font></b><font color="#990000">(</font>response<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]))</font> <font color="#FF0000">{</font>
-                    <font color="#009900">int</font> element <font color="#990000">=</font> <b><font color="#000000">atoi</font></b><font color="#990000">(</font>response<font color="#990000">.</font><b><font color="#000000">c_str</font></b><font color="#990000">());</font>
-                    list<font color="#990000">-&gt;</font><b><font color="#000000">insertAtTail</font></b><font color="#990000">(</font>element<font color="#990000">);</font>
+                <b><span style="color:#0000FF">while</span></b> <span style="color:#990000">(</span><b><span style="color:#000000">isdigit</span></b><span style="color:#990000">(</span>response<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]))</span> <span style="color:#FF0000">{</span>
+                    <span style="color:#009900">int</span> element <span style="color:#990000">=</span> <b><span style="color:#000000">atoi</span></b><span style="color:#990000">(</span>response<span style="color:#990000">.</span><b><span style="color:#000000">c_str</span></b><span style="color:#990000">());</span>
+                    list<span style="color:#990000">-&gt;</span><b><span style="color:#000000">insertAtTail</span></b><span style="color:#990000">(</span>element<span style="color:#990000">);</span>
 
-                    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Enter next element: "</font><font color="#990000">;</font>
-                    cin <font color="#990000">&gt;&gt;</font> response<font color="#990000">;</font>
-                <font color="#FF0000">}</font>
+                    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Enter next element: "</span><span style="color:#990000">;</span>
+                    cin <span style="color:#990000">&gt;&gt;</span> response<span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
 
-                cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The elements in forward order: "</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                <b><font color="#000000">printList</font></b><font color="#990000">(*</font>list<font color="#990000">,</font> <b><font color="#0000FF">true</font></b><font color="#990000">);</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
+                cout <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"The elements in forward order: "</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                <b><span style="color:#000000">printList</span></b><span style="color:#990000">(*</span>list<span style="color:#990000">,</span> <b><span style="color:#0000FF">true</span></b><span style="color:#990000">);</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
 
-            <b><font color="#0000FF">case</font></b> <font color="#993399">3</font><font color="#990000">:</font>                      <i><font color="#9A1900">// show elements</font></i>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>list <font color="#990000">==</font> NULL<font color="#990000">)</font> <font color="#FF0000">{</font>
-                    cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Create a List first."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                    <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-                <font color="#FF0000">}</font>
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Print the list forwards or backwards? (f/b) &gt; "</font><font color="#990000">;</font>
-                cin  <font color="#990000">&gt;&gt;</font> response<font color="#990000">;</font>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">3</span><span style="color:#990000">:</span>                      <i><span style="color:#9A1900">// show elements</span></i>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>list <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Create a List first."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                    <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Print the list forwards or backwards? (f/b) &gt; "</span><span style="color:#990000">;</span>
+                cin  <span style="color:#990000">&gt;&gt;</span> response<span style="color:#990000">;</span>
 
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>response<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">'b'</font> <font color="#990000">||</font> response<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">'B'</font><font color="#990000">)</font> <font color="#FF0000">{</font>
-                    cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The elements in reverse order:"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                    <b><font color="#000000">printList</font></b><font color="#990000">(*</font>list<font color="#990000">,</font> <b><font color="#0000FF">false</font></b><font color="#990000">);</font>
-                <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
-                    cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The elements in forward order:"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                    <b><font color="#000000">printList</font></b><font color="#990000">(*</font>list<font color="#990000">,</font> <b><font color="#0000FF">true</font></b><font color="#990000">);</font>
-                <font color="#FF0000">}</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>response<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">==</span> <span style="color:#FF0000">'b'</span> <span style="color:#990000">||</span> response<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">==</span> <span style="color:#FF0000">'B'</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"The elements in reverse order:"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                    <b><span style="color:#000000">printList</span></b><span style="color:#990000">(*</span>list<span style="color:#990000">,</span> <b><span style="color:#0000FF">false</span></b><span style="color:#990000">);</span>
+                <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <span style="color:#FF0000">{</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"The elements in forward order:"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                    <b><span style="color:#000000">printList</span></b><span style="color:#990000">(*</span>list<span style="color:#990000">,</span> <b><span style="color:#0000FF">true</span></b><span style="color:#990000">);</span>
+                <span style="color:#FF0000">}</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
 
-            <b><font color="#0000FF">case</font></b> <font color="#993399">4</font><font color="#990000">:</font>                      <i><font color="#9A1900">// test first()</font></i>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>list <font color="#990000">==</font> NULL<font color="#990000">)</font> <font color="#FF0000">{</font>
-                    cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Create a List first."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                    <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-                <font color="#FF0000">}</font>
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Setting the ListItr to the first element..."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-		<b><font color="#0000FF">if</font></b> <font color="#990000">(</font> itr <font color="#990000">!=</font> NULL <font color="#990000">)</font>
-		  <b><font color="#0000FF">delete</font></b> itr<font color="#990000">;</font>
-                itr <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">ListItr</font></b><font color="#990000">((</font>list<font color="#990000">-&gt;</font><b><font color="#000000">first</font></b><font color="#990000">()));</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">4</span><span style="color:#990000">:</span>                      <i><span style="color:#9A1900">// test first()</span></i>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>list <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Create a List first."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                    <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Setting the ListItr to the first element..."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> itr <span style="color:#990000">!=</span> NULL <span style="color:#990000">)</span>
+                    <b><span style="color:#0000FF">delete</span></b> itr<span style="color:#990000">;</span>
+                itr <span style="color:#990000">=</span> <b><span style="color:#0000FF">new</span></b> <b><span style="color:#000000">ListItr</span></b><span style="color:#990000">((</span>list<span style="color:#990000">-&gt;</span><b><span style="color:#000000">first</span></b><span style="color:#990000">()));</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
 
-            <b><font color="#0000FF">case</font></b> <font color="#993399">5</font><font color="#990000">:</font>                      <i><font color="#9A1900">// test find()</font></i>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>list <font color="#990000">==</font> NULL<font color="#990000">)</font> <font color="#FF0000">{</font>
-                    cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Create a List first."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                    <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-                <font color="#FF0000">}</font>
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Enter element to find: "</font><font color="#990000">;</font>
-                cin <font color="#990000">&gt;&gt;</font> response<font color="#990000">;</font>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">5</span><span style="color:#990000">:</span>                      <i><span style="color:#9A1900">// test find()</span></i>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>list <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Create a List first."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                    <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Enter element to find: "</span><span style="color:#990000">;</span>
+                cin <span style="color:#990000">&gt;&gt;</span> response<span style="color:#990000">;</span>
 
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font><b><font color="#000000">isdigit</font></b><font color="#990000">(</font>response<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]))</font> <font color="#FF0000">{</font>
-                    <font color="#009900">int</font> element <font color="#990000">=</font> <b><font color="#000000">atoi</font></b><font color="#990000">(</font>response<font color="#990000">.</font><b><font color="#000000">c_str</font></b><font color="#990000">());</font>
-		    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> itr <font color="#990000">!=</font> NULL <font color="#990000">)</font>
-		      <b><font color="#0000FF">delete</font></b> itr<font color="#990000">;</font>
-                    itr <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">ListItr</font></b><font color="#990000">((</font>list<font color="#990000">-&gt;</font><b><font color="#000000">find</font></b><font color="#990000">(</font>element<font color="#990000">)));</font>
-                    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Setting the ListItr to find("</font>
-                         <font color="#990000">&lt;&lt;</font> element <font color="#990000">&lt;&lt;</font> <font color="#FF0000">")..."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
-                    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Please enter an integer."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                <font color="#FF0000">}</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span><b><span style="color:#000000">isdigit</span></b><span style="color:#990000">(</span>response<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]))</span> <span style="color:#FF0000">{</span>
+                    <span style="color:#009900">int</span> element <span style="color:#990000">=</span> <b><span style="color:#000000">atoi</span></b><span style="color:#990000">(</span>response<span style="color:#990000">.</span><b><span style="color:#000000">c_str</span></b><span style="color:#990000">());</span>
+                    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> itr <span style="color:#990000">!=</span> NULL <span style="color:#990000">)</span>
+                        <b><span style="color:#0000FF">delete</span></b> itr<span style="color:#990000">;</span>
+                    itr <span style="color:#990000">=</span> <b><span style="color:#0000FF">new</span></b> <b><span style="color:#000000">ListItr</span></b><span style="color:#990000">((</span>list<span style="color:#990000">-&gt;</span><b><span style="color:#000000">find</span></b><span style="color:#990000">(</span>element<span style="color:#990000">)));</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Setting the ListItr to find("</span>
+                         <span style="color:#990000">&lt;&lt;</span> element <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">")..."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <span style="color:#FF0000">{</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Please enter an integer."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
 
-            <b><font color="#0000FF">case</font></b> <font color="#993399">6</font><font color="#990000">:</font>                      <i><font color="#9A1900">// test last()</font></i>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>list <font color="#990000">==</font> NULL<font color="#990000">)</font> <font color="#FF0000">{</font>
-                    cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Create a List first."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                    <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-                <font color="#FF0000">}</font>
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Setting the ListItr to the last element..."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-		<b><font color="#0000FF">if</font></b> <font color="#990000">(</font> itr <font color="#990000">!=</font> NULL <font color="#990000">)</font>
-		  <b><font color="#0000FF">delete</font></b> itr<font color="#990000">;</font>
-                itr <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">ListItr</font></b><font color="#990000">((</font>list<font color="#990000">-&gt;</font><b><font color="#000000">last</font></b><font color="#990000">()));</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">6</span><span style="color:#990000">:</span>                      <i><span style="color:#9A1900">// test last()</span></i>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>list <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Create a List first."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                    <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Setting the ListItr to the last element..."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> itr <span style="color:#990000">!=</span> NULL <span style="color:#990000">)</span>
+                    <b><span style="color:#0000FF">delete</span></b> itr<span style="color:#990000">;</span>
+                itr <span style="color:#990000">=</span> <b><span style="color:#0000FF">new</span></b> <b><span style="color:#000000">ListItr</span></b><span style="color:#990000">((</span>list<span style="color:#990000">-&gt;</span><b><span style="color:#000000">last</span></b><span style="color:#990000">()));</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
 
-            <b><font color="#0000FF">case</font></b> <font color="#993399">7</font><font color="#990000">:</font>                      <i><font color="#9A1900">// test moveForwards()</font></i>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>itr <font color="#990000">==</font> NULL<font color="#990000">)</font> <font color="#FF0000">{</font>
-                    cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Create a ListItr first."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                    <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-                <font color="#FF0000">}</font>
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Moving the ListItr forwards..."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                itr<font color="#990000">-&gt;</font><b><font color="#000000">moveForward</font></b><font color="#990000">();</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">7</span><span style="color:#990000">:</span>                      <i><span style="color:#9A1900">// test moveForwards()</span></i>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>itr <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Create a ListItr first."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                    <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Moving the ListItr forwards..."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                itr<span style="color:#990000">-&gt;</span><b><span style="color:#000000">moveForward</span></b><span style="color:#990000">();</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
 
-            <b><font color="#0000FF">case</font></b> <font color="#993399">8</font><font color="#990000">:</font>                      <i><font color="#9A1900">// test move_backwards()</font></i>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>itr <font color="#990000">==</font> NULL<font color="#990000">)</font> <font color="#FF0000">{</font>
-                    cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Create a ListItr first."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                    <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-                <font color="#FF0000">}</font>
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Moving the ListItr backwards..."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                itr<font color="#990000">-&gt;</font><b><font color="#000000">moveBackward</font></b><font color="#990000">();</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">8</span><span style="color:#990000">:</span>                      <i><span style="color:#9A1900">// test move_backwards()</span></i>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>itr <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Create a ListItr first."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                    <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Moving the ListItr backwards..."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                itr<span style="color:#990000">-&gt;</span><b><span style="color:#000000">moveBackward</span></b><span style="color:#990000">();</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
 
-            <b><font color="#0000FF">case</font></b> <font color="#993399">9</font><font color="#990000">:</font>                      <i><font color="#9A1900">// test retrieve()</font></i>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>itr <font color="#990000">==</font> NULL<font color="#990000">)</font> <font color="#FF0000">{</font>
-                    cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Create a ListItr first."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                    <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-                <font color="#FF0000">}</font>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">9</span><span style="color:#990000">:</span>                      <i><span style="color:#9A1900">// test retrieve()</span></i>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>itr <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Create a ListItr first."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                    <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
 
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>itr<font color="#990000">-&gt;</font><b><font color="#000000">isPastBeginning</font></b><font color="#990000">())</font>
-                    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">The ListItr is past the beginning."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>itr<font color="#990000">-&gt;</font><b><font color="#000000">isPastEnd</font></b><font color="#990000">())</font>
-                    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">The ListItr is past the end."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                <b><font color="#0000FF">else</font></b>
-                    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Element retrieved: "</font> <font color="#990000">&lt;&lt;</font> itr<font color="#990000">-&gt;</font><b><font color="#000000">retrieve</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>itr<span style="color:#990000">-&gt;</span><b><span style="color:#000000">isPastBeginning</span></b><span style="color:#990000">())</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">The ListItr is past the beginning."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>itr<span style="color:#990000">-&gt;</span><b><span style="color:#000000">isPastEnd</span></b><span style="color:#990000">())</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">The ListItr is past the end."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                <b><span style="color:#0000FF">else</span></b>
+                    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Element retrieved: "</span> <span style="color:#990000">&lt;&lt;</span> itr<span style="color:#990000">-&gt;</span><b><span style="color:#000000">retrieve</span></b><span style="color:#990000">()</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
 
-            <b><font color="#0000FF">case</font></b> <font color="#993399">10</font><font color="#990000">:</font>                        <i><font color="#9A1900">// Insert element before</font></i>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>list <font color="#990000">==</font> NULL <font color="#990000">||</font> itr <font color="#990000">==</font> NULL<font color="#990000">)</font> <font color="#FF0000">{</font>
-                    cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Create a List and ListItr first."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                    <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-                <font color="#FF0000">}</font>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">10</span><span style="color:#990000">:</span>                        <i><span style="color:#9A1900">// Insert element before</span></i>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>list <span style="color:#990000">==</span> NULL <span style="color:#990000">||</span> itr <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Create a List and ListItr first."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                    <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
 
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Enter element to insert: "</font><font color="#990000">;</font>
-                cin <font color="#990000">&gt;&gt;</font> response<font color="#990000">;</font>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Enter element to insert: "</span><span style="color:#990000">;</span>
+                cin <span style="color:#990000">&gt;&gt;</span> response<span style="color:#990000">;</span>
 
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font><b><font color="#000000">isdigit</font></b><font color="#990000">(</font>response<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]))</font> <font color="#FF0000">{</font>
-                    <font color="#009900">int</font> element <font color="#990000">=</font> <b><font color="#000000">atoi</font></b><font color="#990000">(</font>response<font color="#990000">.</font><b><font color="#000000">c_str</font></b><font color="#990000">());</font>
-                    list<font color="#990000">-&gt;</font><b><font color="#000000">insertBefore</font></b><font color="#990000">(</font>element<font color="#990000">,</font> <font color="#990000">*</font>itr<font color="#990000">);</font>
-                    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Inserting "</font> <font color="#990000">&lt;&lt;</font> element
-                         <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" before the current ListItr"</font> <font color="#990000">&lt;&lt;</font>endl<font color="#990000">;</font>
-                <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
-                    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Please enter an integer."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                    <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-                <font color="#FF0000">}</font>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span><b><span style="color:#000000">isdigit</span></b><span style="color:#990000">(</span>response<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]))</span> <span style="color:#FF0000">{</span>
+                    <span style="color:#009900">int</span> element <span style="color:#990000">=</span> <b><span style="color:#000000">atoi</span></b><span style="color:#990000">(</span>response<span style="color:#990000">.</span><b><span style="color:#000000">c_str</span></b><span style="color:#990000">());</span>
+                    list<span style="color:#990000">-&gt;</span><b><span style="color:#000000">insertBefore</span></b><span style="color:#990000">(</span>element<span style="color:#990000">,</span> <span style="color:#990000">*</span>itr<span style="color:#990000">);</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Inserting "</span> <span style="color:#990000">&lt;&lt;</span> element
+                         <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" before the current ListItr"</span> <span style="color:#990000">&lt;&lt;</span>endl<span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <span style="color:#FF0000">{</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Please enter an integer."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                    <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
 
-                cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The elements in forward order: "</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                <b><font color="#000000">printList</font></b><font color="#990000">(*</font>list<font color="#990000">,</font> <b><font color="#0000FF">true</font></b><font color="#990000">);</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
+                cout <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"The elements in forward order: "</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                <b><span style="color:#000000">printList</span></b><span style="color:#990000">(*</span>list<span style="color:#990000">,</span> <b><span style="color:#0000FF">true</span></b><span style="color:#990000">);</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
 
-            <b><font color="#0000FF">case</font></b> <font color="#993399">11</font><font color="#990000">:</font>                        <i><font color="#9A1900">// Insert element after</font></i>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>list <font color="#990000">==</font> NULL <font color="#990000">||</font> itr <font color="#990000">==</font> NULL<font color="#990000">)</font> <font color="#FF0000">{</font>
-                    cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Create a List and ListItr first."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                    <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-                <font color="#FF0000">}</font>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">11</span><span style="color:#990000">:</span>                        <i><span style="color:#9A1900">// Insert element after</span></i>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>list <span style="color:#990000">==</span> NULL <span style="color:#990000">||</span> itr <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Create a List and ListItr first."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                    <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
 
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Enter element to insert: "</font><font color="#990000">;</font>
-                cin <font color="#990000">&gt;&gt;</font> response<font color="#990000">;</font>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Enter element to insert: "</span><span style="color:#990000">;</span>
+                cin <span style="color:#990000">&gt;&gt;</span> response<span style="color:#990000">;</span>
 
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font><b><font color="#000000">isdigit</font></b><font color="#990000">(</font>response<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]))</font> <font color="#FF0000">{</font>
-                    <font color="#009900">int</font> element <font color="#990000">=</font> <b><font color="#000000">atoi</font></b><font color="#990000">(</font>response<font color="#990000">.</font><b><font color="#000000">c_str</font></b><font color="#990000">());</font>
-                    list<font color="#990000">-&gt;</font><b><font color="#000000">insertAfter</font></b><font color="#990000">(</font>element<font color="#990000">,</font> <font color="#990000">*</font>itr<font color="#990000">);</font>
-                    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Inserting "</font> <font color="#990000">&lt;&lt;</font> element
-                         <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" after the current ListItr"</font> <font color="#990000">&lt;&lt;</font>endl<font color="#990000">;</font>
-                <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
-                    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Please enter an integer."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                    <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-                <font color="#FF0000">}</font>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span><b><span style="color:#000000">isdigit</span></b><span style="color:#990000">(</span>response<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]))</span> <span style="color:#FF0000">{</span>
+                    <span style="color:#009900">int</span> element <span style="color:#990000">=</span> <b><span style="color:#000000">atoi</span></b><span style="color:#990000">(</span>response<span style="color:#990000">.</span><b><span style="color:#000000">c_str</span></b><span style="color:#990000">());</span>
+                    list<span style="color:#990000">-&gt;</span><b><span style="color:#000000">insertAfter</span></b><span style="color:#990000">(</span>element<span style="color:#990000">,</span> <span style="color:#990000">*</span>itr<span style="color:#990000">);</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Inserting "</span> <span style="color:#990000">&lt;&lt;</span> element
+                         <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" after the current ListItr"</span> <span style="color:#990000">&lt;&lt;</span>endl<span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <span style="color:#FF0000">{</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Please enter an integer."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                    <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
 
-                cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The elements in forward order: "</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                <b><font color="#000000">printList</font></b><font color="#990000">(*</font>list<font color="#990000">,</font> <b><font color="#0000FF">true</font></b><font color="#990000">);</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
+                cout <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"The elements in forward order: "</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                <b><span style="color:#000000">printList</span></b><span style="color:#990000">(*</span>list<span style="color:#990000">,</span> <b><span style="color:#0000FF">true</span></b><span style="color:#990000">);</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
 
-            <b><font color="#0000FF">case</font></b> <font color="#993399">12</font><font color="#990000">:</font>                        <i><font color="#9A1900">// Insert element at tail</font></i>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>list <font color="#990000">==</font> NULL<font color="#990000">)</font> <font color="#FF0000">{</font>
-                    cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Create a List first."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                    <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-                <font color="#FF0000">}</font>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">12</span><span style="color:#990000">:</span>                        <i><span style="color:#9A1900">// Insert element at tail</span></i>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>list <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Create a List first."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                    <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
 
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Enter element to insert: "</font><font color="#990000">;</font>
-                cin <font color="#990000">&gt;&gt;</font> response<font color="#990000">;</font>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Enter element to insert: "</span><span style="color:#990000">;</span>
+                cin <span style="color:#990000">&gt;&gt;</span> response<span style="color:#990000">;</span>
 
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font><b><font color="#000000">isdigit</font></b><font color="#990000">(</font>response<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]))</font> <font color="#FF0000">{</font>
-                    <font color="#009900">int</font> element <font color="#990000">=</font> <b><font color="#000000">atoi</font></b><font color="#990000">(</font>response<font color="#990000">.</font><b><font color="#000000">c_str</font></b><font color="#990000">());</font>
-                    list<font color="#990000">-&gt;</font><b><font color="#000000">insertAtTail</font></b><font color="#990000">(</font>element<font color="#990000">);</font>
-                    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Inserting "</font> <font color="#990000">&lt;&lt;</font> element
-                         <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" at the tail of the list"</font> <font color="#990000">&lt;&lt;</font>endl<font color="#990000">;</font>
-                <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
-                    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Please enter an integer."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                    <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-                <font color="#FF0000">}</font>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span><b><span style="color:#000000">isdigit</span></b><span style="color:#990000">(</span>response<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]))</span> <span style="color:#FF0000">{</span>
+                    <span style="color:#009900">int</span> element <span style="color:#990000">=</span> <b><span style="color:#000000">atoi</span></b><span style="color:#990000">(</span>response<span style="color:#990000">.</span><b><span style="color:#000000">c_str</span></b><span style="color:#990000">());</span>
+                    list<span style="color:#990000">-&gt;</span><b><span style="color:#000000">insertAtTail</span></b><span style="color:#990000">(</span>element<span style="color:#990000">);</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Inserting "</span> <span style="color:#990000">&lt;&lt;</span> element
+                         <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" at the tail of the list"</span> <span style="color:#990000">&lt;&lt;</span>endl<span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <span style="color:#FF0000">{</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Please enter an integer."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                    <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
 
-                cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The elements in forward order: "</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                <b><font color="#000000">printList</font></b><font color="#990000">(*</font>list<font color="#990000">,</font> <b><font color="#0000FF">true</font></b><font color="#990000">);</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
+                cout <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"The elements in forward order: "</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                <b><span style="color:#000000">printList</span></b><span style="color:#990000">(*</span>list<span style="color:#990000">,</span> <b><span style="color:#0000FF">true</span></b><span style="color:#990000">);</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
 
-            <b><font color="#0000FF">case</font></b> <font color="#993399">13</font><font color="#990000">:</font>                        <i><font color="#9A1900">// Remove element</font></i>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>list <font color="#990000">==</font> NULL<font color="#990000">)</font> <font color="#FF0000">{</font>
-                    cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Create a List first."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                    <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-                <font color="#FF0000">}</font>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">13</span><span style="color:#990000">:</span>                        <i><span style="color:#9A1900">// Remove element</span></i>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>list <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Create a List first."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                    <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
 
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Enter element to remove: "</font><font color="#990000">;</font>
-                cin <font color="#990000">&gt;&gt;</font> response<font color="#990000">;</font>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Enter element to remove: "</span><span style="color:#990000">;</span>
+                cin <span style="color:#990000">&gt;&gt;</span> response<span style="color:#990000">;</span>
 
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font><b><font color="#000000">isdigit</font></b><font color="#990000">(</font>response<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]))</font> <font color="#FF0000">{</font>
-                    <font color="#009900">int</font> element <font color="#990000">=</font> <b><font color="#000000">atoi</font></b><font color="#990000">(</font>response<font color="#990000">.</font><b><font color="#000000">c_str</font></b><font color="#990000">());</font>
-                    list<font color="#990000">-&gt;</font><b><font color="#000000">remove</font></b><font color="#990000">(</font>element<font color="#990000">);</font>
-                    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Removing "</font> <font color="#990000">&lt;&lt;</font> element
-                         <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" from list"</font> <font color="#990000">&lt;&lt;</font>endl<font color="#990000">;</font>
-                <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
-                    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Please enter an integer."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                    <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-                <font color="#FF0000">}</font>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span><b><span style="color:#000000">isdigit</span></b><span style="color:#990000">(</span>response<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]))</span> <span style="color:#FF0000">{</span>
+                    <span style="color:#009900">int</span> element <span style="color:#990000">=</span> <b><span style="color:#000000">atoi</span></b><span style="color:#990000">(</span>response<span style="color:#990000">.</span><b><span style="color:#000000">c_str</span></b><span style="color:#990000">());</span>
+                    list<span style="color:#990000">-&gt;</span><b><span style="color:#000000">remove</span></b><span style="color:#990000">(</span>element<span style="color:#990000">);</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Removing "</span> <span style="color:#990000">&lt;&lt;</span> element
+                         <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" from list"</span> <span style="color:#990000">&lt;&lt;</span>endl<span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <span style="color:#FF0000">{</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Please enter an integer."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                    <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
 
-                cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The elements in forward order: "</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                <b><font color="#000000">printList</font></b><font color="#990000">(*</font>list<font color="#990000">,</font> <b><font color="#0000FF">true</font></b><font color="#990000">);</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
+                cout <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"The elements in forward order: "</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                <b><span style="color:#000000">printList</span></b><span style="color:#990000">(*</span>list<span style="color:#990000">,</span> <b><span style="color:#0000FF">true</span></b><span style="color:#990000">);</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
 
-            <b><font color="#0000FF">case</font></b> <font color="#993399">14</font><font color="#990000">:</font>                      <i><font color="#9A1900">// test size()</font></i>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>list <font color="#990000">==</font> NULL<font color="#990000">)</font> <font color="#FF0000">{</font>
-                    cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Create a List first."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                    <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-                <font color="#FF0000">}</font>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">14</span><span style="color:#990000">:</span>                      <i><span style="color:#9A1900">// test size()</span></i>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>list <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Create a List first."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                    <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
 
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Size of list: "</font> <font color="#990000">&lt;&lt;</font> list<font color="#990000">-&gt;</font><b><font color="#000000">size</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Size of list: "</span> <span style="color:#990000">&lt;&lt;</span> list<span style="color:#990000">-&gt;</span><b><span style="color:#000000">size</span></b><span style="color:#990000">()</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
 
-            <b><font color="#0000FF">case</font></b> <font color="#993399">15</font><font color="#990000">:</font> <font color="#FF0000">{</font>                    <i><font color="#9A1900">// test copy constructor</font></i>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>list <font color="#990000">==</font> NULL<font color="#990000">)</font> <font color="#FF0000">{</font>
-                    cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Create a List first."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                    <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-                <font color="#FF0000">}</font>
-                List<font color="#990000">*</font> old_list<font color="#990000">=</font>list<font color="#990000">;</font>
-		<b><font color="#0000FF">if</font></b> <font color="#990000">(</font> list <font color="#990000">!=</font> NULL <font color="#990000">)</font>
-		  <b><font color="#0000FF">delete</font></b> list<font color="#990000">;</font>
-                list<font color="#990000">=</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">List</font></b><font color="#990000">(*</font>old_list<font color="#990000">);</font>
-                old_list<font color="#990000">-&gt;</font><b><font color="#000000">makeEmpty</font></b><font color="#990000">();</font>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">15</span><span style="color:#990000">:</span> <span style="color:#FF0000">{</span>                    <i><span style="color:#9A1900">// test copy constructor</span></i>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>list <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Create a List first."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                    <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
+                List<span style="color:#990000">*</span> old_list<span style="color:#990000">=</span>list<span style="color:#990000">;</span>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> list <span style="color:#990000">!=</span> NULL <span style="color:#990000">)</span>
+                    <b><span style="color:#0000FF">delete</span></b> list<span style="color:#990000">;</span>
+                list<span style="color:#990000">=</span><b><span style="color:#0000FF">new</span></b> <b><span style="color:#000000">List</span></b><span style="color:#990000">(*</span>old_list<span style="color:#990000">);</span>
+                old_list<span style="color:#990000">-&gt;</span><b><span style="color:#000000">makeEmpty</span></b><span style="color:#990000">();</span>
 
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The new list is (forward ): "</font><font color="#990000">;</font>
-                <b><font color="#000000">printList</font></b><font color="#990000">(*</font>list<font color="#990000">,</font> <b><font color="#0000FF">true</font></b><font color="#990000">);</font>
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The new list is (backward): "</font><font color="#990000">;</font>
-                <b><font color="#000000">printList</font></b><font color="#990000">(*</font>list<font color="#990000">,</font> <b><font color="#0000FF">false</font></b><font color="#990000">);</font>
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The old list was made empty (forward ): "</font><font color="#990000">;</font>
-                <b><font color="#000000">printList</font></b><font color="#990000">(*</font>old_list<font color="#990000">,</font> <b><font color="#0000FF">true</font></b><font color="#990000">);</font>
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The old list was made empty (backward): "</font><font color="#990000">;</font>
-                <b><font color="#000000">printList</font></b><font color="#990000">(*</font>old_list<font color="#990000">,</font> <b><font color="#0000FF">false</font></b><font color="#990000">);</font>
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The old list should be destroyed now."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                <b><font color="#0000FF">delete</font></b> old_list<font color="#990000">;</font>
-		<b><font color="#0000FF">if</font></b> <font color="#990000">(</font> itr <font color="#990000">!=</font> NULL <font color="#990000">)</font> <font color="#FF0000">{</font>
-		  <b><font color="#0000FF">delete</font></b> itr<font color="#990000">;</font>
-		  itr <font color="#990000">=</font> NULL<font color="#990000">;</font>
-		<font color="#FF0000">}</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-            <font color="#FF0000">}</font>
-            <b><font color="#0000FF">case</font></b> <font color="#993399">16</font><font color="#990000">:</font> <font color="#FF0000">{</font>                    <i><font color="#9A1900">// test equals operator</font></i>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>list <font color="#990000">==</font> NULL<font color="#990000">)</font> <font color="#FF0000">{</font>
-                    cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Create a List first."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                    <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-                <font color="#FF0000">}</font>
-                List<font color="#990000">*</font> old_list<font color="#990000">=</font>list<font color="#990000">;</font>
-		<b><font color="#0000FF">if</font></b> <font color="#990000">(</font> list <font color="#990000">!=</font> NULL <font color="#990000">)</font>
-		  <b><font color="#0000FF">delete</font></b> list<font color="#990000">;</font>
-                list<font color="#990000">=</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">List</font></b><font color="#990000">();</font>
-                <font color="#990000">*</font>list<font color="#990000">=*</font>old_list<font color="#990000">;</font>
-                old_list<font color="#990000">-&gt;</font><b><font color="#000000">makeEmpty</font></b><font color="#990000">();</font>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"The new list is (forward ): "</span><span style="color:#990000">;</span>
+                <b><span style="color:#000000">printList</span></b><span style="color:#990000">(*</span>list<span style="color:#990000">,</span> <b><span style="color:#0000FF">true</span></b><span style="color:#990000">);</span>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"The new list is (backward): "</span><span style="color:#990000">;</span>
+                <b><span style="color:#000000">printList</span></b><span style="color:#990000">(*</span>list<span style="color:#990000">,</span> <b><span style="color:#0000FF">false</span></b><span style="color:#990000">);</span>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"The old list was made empty (forward ): "</span><span style="color:#990000">;</span>
+                <b><span style="color:#000000">printList</span></b><span style="color:#990000">(*</span>old_list<span style="color:#990000">,</span> <b><span style="color:#0000FF">true</span></b><span style="color:#990000">);</span>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"The old list was made empty (backward): "</span><span style="color:#990000">;</span>
+                <b><span style="color:#000000">printList</span></b><span style="color:#990000">(*</span>old_list<span style="color:#990000">,</span> <b><span style="color:#0000FF">false</span></b><span style="color:#990000">);</span>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"The old list should be destroyed now."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                <b><span style="color:#0000FF">delete</span></b> old_list<span style="color:#990000">;</span>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> itr <span style="color:#990000">!=</span> NULL <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+                    <b><span style="color:#0000FF">delete</span></b> itr<span style="color:#990000">;</span>
+                    itr <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+            <span style="color:#FF0000">}</span>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">16</span><span style="color:#990000">:</span> <span style="color:#FF0000">{</span>                    <i><span style="color:#9A1900">// test equals operator</span></i>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>list <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Create a List first."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                    <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
+                List<span style="color:#990000">*</span> old_list<span style="color:#990000">=</span>list<span style="color:#990000">;</span>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> list <span style="color:#990000">!=</span> NULL <span style="color:#990000">)</span>
+                    <b><span style="color:#0000FF">delete</span></b> list<span style="color:#990000">;</span>
+                list<span style="color:#990000">=</span><b><span style="color:#0000FF">new</span></b> <b><span style="color:#000000">List</span></b><span style="color:#990000">();</span>
+                <span style="color:#990000">*</span>list<span style="color:#990000">=*</span>old_list<span style="color:#990000">;</span>
+                old_list<span style="color:#990000">-&gt;</span><b><span style="color:#000000">makeEmpty</span></b><span style="color:#990000">();</span>
 
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The new list is (forward ): "</font><font color="#990000">;</font>
-                <b><font color="#000000">printList</font></b><font color="#990000">(*</font>list<font color="#990000">,</font><b><font color="#0000FF">true</font></b><font color="#990000">);</font>
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The new list is (backward): "</font><font color="#990000">;</font>
-                <b><font color="#000000">printList</font></b><font color="#990000">(*</font>list<font color="#990000">,</font><b><font color="#0000FF">false</font></b><font color="#990000">);</font>
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The old list was made empty (forward ): "</font><font color="#990000">;</font>
-                <b><font color="#000000">printList</font></b><font color="#990000">(*</font>old_list<font color="#990000">,</font><b><font color="#0000FF">true</font></b><font color="#990000">);</font>
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The old list was made empty (backward): "</font><font color="#990000">;</font>
-                <b><font color="#000000">printList</font></b><font color="#990000">(*</font>old_list<font color="#990000">,</font><b><font color="#0000FF">false</font></b><font color="#990000">);</font>
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The old list should be destroyed now."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>                
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"The new list is (forward ): "</span><span style="color:#990000">;</span>
+                <b><span style="color:#000000">printList</span></b><span style="color:#990000">(*</span>list<span style="color:#990000">,</span><b><span style="color:#0000FF">true</span></b><span style="color:#990000">);</span>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"The new list is (backward): "</span><span style="color:#990000">;</span>
+                <b><span style="color:#000000">printList</span></b><span style="color:#990000">(*</span>list<span style="color:#990000">,</span><b><span style="color:#0000FF">false</span></b><span style="color:#990000">);</span>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"The old list was made empty (forward ): "</span><span style="color:#990000">;</span>
+                <b><span style="color:#000000">printList</span></b><span style="color:#990000">(*</span>old_list<span style="color:#990000">,</span><b><span style="color:#0000FF">true</span></b><span style="color:#990000">);</span>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"The old list was made empty (backward): "</span><span style="color:#990000">;</span>
+                <b><span style="color:#000000">printList</span></b><span style="color:#990000">(*</span>old_list<span style="color:#990000">,</span><b><span style="color:#0000FF">false</span></b><span style="color:#990000">);</span>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"The old list should be destroyed now."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
 
-                <b><font color="#0000FF">delete</font></b> old_list<font color="#990000">;</font>
-		<b><font color="#0000FF">if</font></b> <font color="#990000">(</font> itr <font color="#990000">!=</font> NULL <font color="#990000">)</font> <font color="#FF0000">{</font>
-		  <b><font color="#0000FF">delete</font></b> itr<font color="#990000">;</font>
-		  itr <font color="#990000">=</font> NULL<font color="#990000">;</font>
-		<font color="#FF0000">}</font>
-                <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-            <font color="#FF0000">}</font>
+                <b><span style="color:#0000FF">delete</span></b> old_list<span style="color:#990000">;</span>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> itr <span style="color:#990000">!=</span> NULL <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+                    <b><span style="color:#0000FF">delete</span></b> itr<span style="color:#990000">;</span>
+                    itr <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
+                <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+            <span style="color:#FF0000">}</span>
 
-            <b><font color="#0000FF">case</font></b> <font color="#993399">17</font><font color="#990000">:</font>                      <i><font color="#9A1900">// test makeEmpty()</font></i>
-                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>list <font color="#990000">==</font> NULL<font color="#990000">)</font> <font color="#FF0000">{</font>
-                    cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Create a List first."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                    <b><font color="#0000FF">break</font></b><font color="#990000">;</font>
-                <font color="#FF0000">}</font>
+            <b><span style="color:#0000FF">case</span></b> <span style="color:#993399">17</span><span style="color:#990000">:</span>                      <i><span style="color:#9A1900">// test makeEmpty()</span></i>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>list <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Create a List first."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                    <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
 
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The list is (forward): "</font><font color="#990000">;</font>
-                <b><font color="#000000">printList</font></b><font color="#990000">(*</font>list<font color="#990000">,</font><b><font color="#0000FF">true</font></b><font color="#990000">);</font>
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The list is (backward): "</font><font color="#990000">;</font>
-                <b><font color="#000000">printList</font></b><font color="#990000">(*</font>list<font color="#990000">,</font><b><font color="#0000FF">false</font></b><font color="#990000">);</font>
-                list<font color="#990000">-&gt;</font><b><font color="#000000">makeEmpty</font></b><font color="#990000">();</font>
-		<b><font color="#0000FF">if</font></b> <font color="#990000">(</font> itr <font color="#990000">!=</font> NULL <font color="#990000">)</font> <font color="#FF0000">{</font>
-		  <b><font color="#0000FF">delete</font></b> itr<font color="#990000">;</font>
-		  itr <font color="#990000">=</font> NULL<font color="#990000">;</font>
-		<font color="#FF0000">}</font>
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The list was made empty (forward): "</font><font color="#990000">;</font>
-                <b><font color="#000000">printList</font></b><font color="#990000">(*</font>list<font color="#990000">,</font><b><font color="#0000FF">true</font></b><font color="#990000">);</font>
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The list was made empty (backward): "</font><font color="#990000">;</font>
-                <b><font color="#000000">printList</font></b><font color="#990000">(*</font>list<font color="#990000">,</font><b><font color="#0000FF">false</font></b><font color="#990000">);</font>
-        <font color="#FF0000">}</font>               <i><font color="#9A1900">// end of switch (command)</font></i>
-    <font color="#FF0000">}</font>            <i><font color="#9A1900">// end of while (1)</font></i>
-<font color="#FF0000">}</font>     <i><font color="#9A1900">// end of main()</font></i>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"The list is (forward): "</span><span style="color:#990000">;</span>
+                <b><span style="color:#000000">printList</span></b><span style="color:#990000">(*</span>list<span style="color:#990000">,</span><b><span style="color:#0000FF">true</span></b><span style="color:#990000">);</span>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"The list is (backward): "</span><span style="color:#990000">;</span>
+                <b><span style="color:#000000">printList</span></b><span style="color:#990000">(*</span>list<span style="color:#990000">,</span><b><span style="color:#0000FF">false</span></b><span style="color:#990000">);</span>
+                list<span style="color:#990000">-&gt;</span><b><span style="color:#000000">makeEmpty</span></b><span style="color:#990000">();</span>
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> itr <span style="color:#990000">!=</span> NULL <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+                    <b><span style="color:#0000FF">delete</span></b> itr<span style="color:#990000">;</span>
+                    itr <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"The list was made empty (forward): "</span><span style="color:#990000">;</span>
+                <b><span style="color:#000000">printList</span></b><span style="color:#990000">(*</span>list<span style="color:#990000">,</span><b><span style="color:#0000FF">true</span></b><span style="color:#990000">);</span>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"The list was made empty (backward): "</span><span style="color:#990000">;</span>
+                <b><span style="color:#000000">printList</span></b><span style="color:#990000">(*</span>list<span style="color:#990000">,</span><b><span style="color:#0000FF">false</span></b><span style="color:#990000">);</span>
+        <span style="color:#FF0000">}</span>               <i><span style="color:#9A1900">// end of switch (command)</span></i>
+    <span style="color:#FF0000">}</span>            <i><span style="color:#9A1900">// end of while (1)</span></i>
+<span style="color:#FF0000">}</span>     <i><span style="color:#9A1900">// end of main()</span></i>
 
-<font color="#009900">int</font>   <b><font color="#000000">menu</font></b> <font color="#990000">(</font><font color="#008080">string</font> option<font color="#990000">[],</font> <font color="#009900">int</font> n_opt<font color="#990000">)</font>
-<i><font color="#9A1900">/*</font></i>
-<i><font color="#9A1900">**  This simple routine takes an array of 'n_opt' options</font></i>
-<i><font color="#9A1900">**  (pointers to strings, describing the 'option')</font></i>
-<i><font color="#9A1900">**  displays these options on the screen,</font></i>
-<i><font color="#9A1900">**  and requests a choice on the part of the user</font></i>
-<i><font color="#9A1900">**  It returns the integer number (position in the list)</font></i>
-<i><font color="#9A1900">**  of the chosen option.</font></i>
-<i><font color="#9A1900">**</font></i>
-<i><font color="#9A1900">**  NOTE, all input and output uses 'stdin' and 'stdout'</font></i>
-<i><font color="#9A1900">*/</font></i>
-<font color="#FF0000">{</font>
-    <font color="#009900">int</font>      choice<font color="#990000">,</font> i<font color="#990000">;</font>
-    <font color="#008080">string</font>   input<font color="#990000">;</font>
+<span style="color:#009900">int</span>   <b><span style="color:#000000">menu</span></b> <span style="color:#990000">(</span><span style="color:#008080">string</span> option<span style="color:#990000">[],</span> <span style="color:#009900">int</span> n_opt<span style="color:#990000">)</span>
+<i><span style="color:#9A1900">/*</span></i>
+<i><span style="color:#9A1900">**  This simple routine takes an array of 'n_opt' options</span></i>
+<i><span style="color:#9A1900">**  (pointers to strings, describing the 'option')</span></i>
+<i><span style="color:#9A1900">**  displays these options on the screen,</span></i>
+<i><span style="color:#9A1900">**  and requests a choice on the part of the user</span></i>
+<i><span style="color:#9A1900">**  It returns the integer number (position in the list)</span></i>
+<i><span style="color:#9A1900">**  of the chosen option.</span></i>
+<i><span style="color:#9A1900">**</span></i>
+<i><span style="color:#9A1900">**  NOTE, all input and output uses 'stdin' and 'stdout'</span></i>
+<i><span style="color:#9A1900">*/</span></i>
+<span style="color:#FF0000">{</span>
+    <span style="color:#009900">int</span>      choice<span style="color:#990000">,</span> i<span style="color:#990000">;</span>
+    <span style="color:#008080">string</span>   input<span style="color:#990000">;</span>
 
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"     - - - - - -  MENU - - - - - -</font><font color="#CC33CC">\n\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"     - - - - - -  MENU - - - - - -</span><span style="color:#CC33CC">\n\n</span><span style="color:#FF0000">"</span><span style="color:#990000">;</span>
 
-    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font>i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> n_opt<font color="#990000">;</font> <font color="#990000">++</font>i<font color="#990000">)</font>
-        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">"</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">(</font>i<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" - "</font> <font color="#990000">&lt;&lt;</font> option<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span>i <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span> i <span style="color:#990000">&lt;</span> n_opt<span style="color:#990000">;</span> <span style="color:#990000">++</span>i<span style="color:#990000">)</span>
+        cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">"</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">(</span>i<span style="color:#990000">+</span><span style="color:#993399">1</span><span style="color:#990000">)</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" - "</span> <span style="color:#990000">&lt;&lt;</span> option<span style="color:#990000">[</span>i<span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
 
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"     - - - - - - - - - - - - - - -</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"     - - - - - - - - - - - - - - -</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">;</span>
 
-    <b><font color="#0000FF">while</font></b> <font color="#990000">(</font>input<font color="#990000">.</font><b><font color="#000000">empty</font></b><font color="#990000">())</font> <font color="#FF0000">{</font>
-        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"     Enter number of choice &gt; "</font><font color="#990000">;</font>
-        cin <font color="#990000">&gt;&gt;</font> input<font color="#990000">;</font>
+    <b><span style="color:#0000FF">while</span></b> <span style="color:#990000">(</span>input<span style="color:#990000">.</span><b><span style="color:#000000">empty</span></b><span style="color:#990000">())</span> <span style="color:#FF0000">{</span>
+        cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"     Enter number of choice &gt; "</span><span style="color:#990000">;</span>
+        cin <span style="color:#990000">&gt;&gt;</span> input<span style="color:#990000">;</span>
 
-        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font><b><font color="#000000">isdigit</font></b><font color="#990000">(</font>input<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]))</font> <font color="#FF0000">{</font>
-            choice <font color="#990000">=</font> <b><font color="#000000">atoi</font></b><font color="#990000">(</font>input<font color="#990000">.</font><b><font color="#000000">c_str</font></b><font color="#990000">());</font>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span><b><span style="color:#000000">isdigit</span></b><span style="color:#990000">(</span>input<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]))</span> <span style="color:#FF0000">{</span>
+            choice <span style="color:#990000">=</span> <b><span style="color:#000000">atoi</span></b><span style="color:#990000">(</span>input<span style="color:#990000">.</span><b><span style="color:#000000">c_str</span></b><span style="color:#990000">());</span>
 
-            <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>choice <font color="#990000">&lt;=</font> n_opt <font color="#990000">&amp;&amp;</font> choice <font color="#990000">&gt;</font> <font color="#993399">0</font><font color="#990000">)</font> <font color="#FF0000">{</font>
-                <b><font color="#0000FF">return</font></b> choice<font color="#990000">;</font>
-            <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>          <i><font color="#9A1900">/* choice out of range */</font></i>
-                cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Your response MUST be between 1 and "</font>
-                     <font color="#990000">&lt;&lt;</font> n_opt <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-                input <font color="#990000">=</font> <font color="#FF0000">""</font><font color="#990000">;</font>
-            <font color="#FF0000">}</font>
-        <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>                <i><font color="#9A1900">/* Non-numeric input, ignore */</font></i>
-            cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">Your response MUST be a number!</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
-            input <font color="#990000">=</font> <font color="#FF0000">""</font><font color="#990000">;</font>
-        <font color="#FF0000">}</font>
-    <font color="#FF0000">}</font>
+            <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>choice <span style="color:#990000">&lt;=</span> n_opt <span style="color:#990000">&amp;&amp;</span> choice <span style="color:#990000">&gt;</span> <span style="color:#993399">0</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+                <b><span style="color:#0000FF">return</span></b> choice<span style="color:#990000">;</span>
+            <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <span style="color:#FF0000">{</span>          <i><span style="color:#9A1900">/* choice out of range */</span></i>
+                cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Your response MUST be between 1 and "</span>
+                     <span style="color:#990000">&lt;&lt;</span> n_opt <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                input <span style="color:#990000">=</span> <span style="color:#FF0000">""</span><span style="color:#990000">;</span>
+            <span style="color:#FF0000">}</span>
+        <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <span style="color:#FF0000">{</span>                <i><span style="color:#9A1900">/* Non-numeric input, ignore */</span></i>
+            cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Your response MUST be a number!</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">;</span>
+            input <span style="color:#990000">=</span> <span style="color:#FF0000">""</span><span style="color:#990000">;</span>
+        <span style="color:#FF0000">}</span>
+    <span style="color:#FF0000">}</span>
 
-    <b><font color="#0000FF">return</font></b> <font color="#993399">1</font><font color="#990000">;</font>
-<font color="#FF0000">}</font>          <i><font color="#9A1900">// end of menu()</font></i>
-</tt></pre>
+    <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">1</span><span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>          <i><span style="color:#9A1900">// end of menu()</span></i>
+</pre>
 </body>
 </html>

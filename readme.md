@@ -40,8 +40,10 @@ Updates to the repository are restricted to approved individuals only, to preven
 1. Create a github account, if you do not have one
 2. Fork this repository: you can click on the "Fork" link in the upper right, or just click [here](https://github.com/uva-cs/pdr/fork)
 3. Clone your forked repository on to your local machine
-4. Make any changes you want to your forked version, then commit and push your changes back to your forked repository
-5. Create a pull request, following the instructions [here](https://help.github.com/articles/creating-a-pull-request)
+4. Make any changes you want to your forked version
+5. Run `make` - note that you will need [pandoc](http://johnmacfarlane.net/pandoc/), [astyle](http://astyle.sourceforge.net/), and [source-highlight](http://www.gnu.org/software/src-highlite/source-highlight.html) installed
+6. Commit and push your changes back to your forked repository
+7. Create a pull request, following the instructions [here](https://help.github.com/articles/creating-a-pull-request)
 
 At that point, I will receive a notice that a change has been submitted, and I'll look at it and hopefully accept it into the main repository.
 
@@ -65,7 +67,7 @@ The [ABET](http://www.abet.org) course objects are as follows:
 <a name="markdown"></a>Markdown
 -------------------------------
 
-The majority of the content in this repository was created using [Markdown](http://daringfireball.net/projects/markdown/).  Unfortunately, the only standardized Markdown is very old (2004), and has limited support for many HTML features, such as tables.  A simple conversion script in a Makefile is in the [utils](utils/index.html) ([md](tutorials/index.md)) directory, which uses [pandoc](http://johnmacfarlane.net/pandoc/).  Assuming pandoc is installed, run `make` in the root repo directory to re-create all the .html files from their associated .md files.
+The majority of the content in this repository was created using [Markdown](http://daringfireball.net/projects/markdown/).  Unfortunately, the only standardized Markdown is very old (2004), and has limited support for many HTML features, such as tables.  A simple conversion script in a Makefile is in the [utils](utils/index.html) ([md](tutorials/index.md)) directory, which uses [pandoc](http://johnmacfarlane.net/pandoc/).  Assuming pandoc is installed, run `make markdown` in the root repo directory to re-create all the .html files from their associated .md files.
 
 For all the Markdown files in this repository, both the original (.md) file and the HTML version (.html) are added to the repository, so that people who do not have Markdown installed can still view the contents of this repository.
 
@@ -75,10 +77,7 @@ Note that Github supports an enhanced version of Markdown, called [Github Flavor
 <a name="sourcecode"></a>Source code
 ------------------------------------
 
-All source code is formatted via [astyle](http://astyle.sourceforge.net/) and then highlighted via [source-highlight](http://www.gnu.org/software/src-highlite/source-highlight.html).  Both the original file (foo.cpp) and the highlighted version (foo.cpp.html) are included in the repository.  All links to source code will like to the .html, with a "([src](README.md))" after it to link to the original source code.
-
-- astyle options: `-A2 -s4 -S`
-- source-highlight options: `-d`
+All source code is formatted via [astyle](http://astyle.sourceforge.net/) and then highlighted via [source-highlight](http://www.gnu.org/software/src-highlite/source-highlight.html).  Both the original file (foo.cpp) and the highlighted version (foo.cpp.html) are included in the repository.  All links to source code will like to the .html, with a "([src](README.md))" after it to link to the original source code.  Utility scripts are provided to convert all the files in the [utils](utils/index.html) ([md](tutorials/index.md)) directory.  `make format` and `make highlight` can also be run to invoke the scripts.
 
 
 <a name="license"></a>License

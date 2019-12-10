@@ -38,7 +38,9 @@
 <li>Create a github account, if you do not have one</li>
 <li>Fork this repository: you can click on the &quot;Fork&quot; link in the upper right, or just click <a href="https://github.com/uva-cs/pdr/fork">here</a></li>
 <li>Clone your forked repository on to your local machine</li>
-<li>Make any changes you want to your forked version, then commit and push your changes back to your forked repository</li>
+<li>Make any changes you want to your forked version</li>
+<li>Run <code>make</code> - note that you will need <a href="http://johnmacfarlane.net/pandoc/">pandoc</a>, <a href="http://astyle.sourceforge.net/">astyle</a>, and <a href="http://www.gnu.org/software/src-highlite/source-highlight.html">source-highlight</a> installed</li>
+<li>Commit and push your changes back to your forked repository</li>
 <li>Create a pull request, following the instructions <a href="https://help.github.com/articles/creating-a-pull-request">here</a></li>
 </ol>
 <p>At that point, I will receive a notice that a change has been submitted, and I'll look at it and hopefully accept it into the main repository.</p>
@@ -54,15 +56,11 @@
 <li>Be able to implement basic program control and data structures in an assembly language (loops, conditionals, subroutines and parameter passing modes, arrays)</li>
 </ul>
 <h2 id="markdown"><a name="markdown"></a>Markdown</h2>
-<p>The majority of the content in this repository was created using <a href="http://daringfireball.net/projects/markdown/">Markdown</a>. Unfortunately, the only standardized Markdown is very old (2004), and has limited support for many HTML features, such as tables. A simple conversion script in a Makefile is in the <a href="utils/index.html">utils</a> (<a href="tutorials/index.md">md</a>) directory, which uses <a href="http://johnmacfarlane.net/pandoc/">pandoc</a>. Assuming pandoc is installed, run <code>make</code> in the root repo directory to re-create all the .html files from their associated .md files.</p>
+<p>The majority of the content in this repository was created using <a href="http://daringfireball.net/projects/markdown/">Markdown</a>. Unfortunately, the only standardized Markdown is very old (2004), and has limited support for many HTML features, such as tables. A simple conversion script in a Makefile is in the <a href="utils/index.html">utils</a> (<a href="tutorials/index.md">md</a>) directory, which uses <a href="http://johnmacfarlane.net/pandoc/">pandoc</a>. Assuming pandoc is installed, run <code>make markdown</code> in the root repo directory to re-create all the .html files from their associated .md files.</p>
 <p>For all the Markdown files in this repository, both the original (.md) file and the HTML version (.html) are added to the repository, so that people who do not have Markdown installed can still view the contents of this repository.</p>
 <p>Note that Github supports an enhanced version of Markdown, called <a href="https://help.github.com/articles/github-flavored-markdown">Github Flavored Markdown</a>, or GFM. This mostly pertains to this README file. In an effort to ensure compatibility with other Markdown programs (such as the one described here and what reveal.js uses), GFM specific features are generally avoided. One example is the use of anchors in this document -- the HTML tags are included instead of using GFM's version.</p>
 <h2 id="source-code"><a name="sourcecode"></a>Source code</h2>
-<p>All source code is formatted via <a href="http://astyle.sourceforge.net/">astyle</a> and then highlighted via <a href="http://www.gnu.org/software/src-highlite/source-highlight.html">source-highlight</a>. Both the original file (foo.cpp) and the highlighted version (foo.cpp.html) are included in the repository. All links to source code will like to the .html, with a &quot;(<a href="README.md">src</a>)&quot; after it to link to the original source code.</p>
-<ul>
-<li>astyle options: <code>-A2 -s4 -S</code></li>
-<li>source-highlight options: <code>-d</code></li>
-</ul>
+<p>All source code is formatted via <a href="http://astyle.sourceforge.net/">astyle</a> and then highlighted via <a href="http://www.gnu.org/software/src-highlite/source-highlight.html">source-highlight</a>. Both the original file (foo.cpp) and the highlighted version (foo.cpp.html) are included in the repository. All links to source code will like to the .html, with a &quot;(<a href="README.md">src</a>)&quot; after it to link to the original source code. Utility scripts are provided to convert all the files in the <a href="utils/index.html">utils</a> (<a href="tutorials/index.md">md</a>) directory. <code>make format</code> and <code>make highlight</code> can also be run to invoke the scripts.</p>
 <h2 id="license"><a name="license"></a>License</h2>
 <p>The material in this repository is released under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> (CC BY-SA).</p>
 <p>Copyright (c) 2017-2018 by Mark Floryan Copyright (c) 2013-2017 by Aaron Bloomfield.</p>

@@ -1,60 +1,60 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta name="GENERATOR" content="GNU source-highlight 3.1.8
+<meta name="GENERATOR" content="GNU source-highlight 
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
-<title>labs/lab08-64bit/testMergeSort.cpp</title>
+<title>testMergeSort.cpp</title>
 </head>
-<body bgcolor="white">
-<pre><tt><i><font color="#9A1900">/*</font></i>
-<i><font color="#9A1900">University of Virginia</font></i>
-<i><font color="#9A1900">CS 2150 In-Lab 8</font></i>
-<i><font color="#9A1900">Spring 2018 </font></i>
-<i><font color="#9A1900">Test file for mergeSort</font></i>
-<i><font color="#9A1900">*/</font></i>
+<body style="background-color:white">
+<pre><i><span style="color:#9A1900">/*</span></i>
+<i><span style="color:#9A1900">University of Virginia</span></i>
+<i><span style="color:#9A1900">CS 2150 In-Lab 8</span></i>
+<i><span style="color:#9A1900">Spring 2018</span></i>
+<i><span style="color:#9A1900">Test file for mergeSort</span></i>
+<i><span style="color:#9A1900">*/</span></i>
 
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
-<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;iostream&gt;</span>
+<b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
-<b><font color="#0000FF">extern</font></b> <font color="#FF0000">"C"</font> <font color="#009900">void</font> <b><font color="#000000">mergeSort</font></b><font color="#990000">(</font><font color="#009900">int</font> <font color="#990000">*</font> arr<font color="#990000">,</font> <font color="#009900">int</font> left<font color="#990000">,</font> <font color="#009900">int</font> right<font color="#990000">);</font>
-<b><font color="#0000FF">extern</font></b> <font color="#FF0000">"C"</font> <font color="#009900">void</font> <b><font color="#000000">merge</font></b><font color="#990000">(</font><font color="#009900">int</font> <font color="#990000">*</font> arr<font color="#990000">,</font> <font color="#009900">int</font> left<font color="#990000">,</font> <font color="#009900">int</font> mid<font color="#990000">,</font> <font color="#009900">int</font> right<font color="#990000">);</font>
- 
-<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font><font color="#FF0000">{</font>
+<b><span style="color:#0000FF">extern</span></b> <span style="color:#FF0000">"C"</span> <span style="color:#009900">void</span> <b><span style="color:#000000">mergeSort</span></b><span style="color:#990000">(</span><span style="color:#009900">int</span> <span style="color:#990000">*</span> arr<span style="color:#990000">,</span> <span style="color:#009900">int</span> left<span style="color:#990000">,</span> <span style="color:#009900">int</span> right<span style="color:#990000">);</span>
+<b><span style="color:#0000FF">extern</span></b> <span style="color:#FF0000">"C"</span> <span style="color:#009900">void</span> <b><span style="color:#000000">merge</span></b><span style="color:#990000">(</span><span style="color:#009900">int</span> <span style="color:#990000">*</span> arr<span style="color:#990000">,</span> <span style="color:#009900">int</span> left<span style="color:#990000">,</span> <span style="color:#009900">int</span> mid<span style="color:#990000">,</span> <span style="color:#009900">int</span> right<span style="color:#990000">);</span>
 
-  <font color="#009900">int</font> size<font color="#990000">;</font>
-  <i><font color="#9A1900">// prompt for array size</font></i>
-  cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Enter the array size: "</font><font color="#990000">;</font>
-  cin <font color="#990000">&gt;&gt;</font> size<font color="#990000">;</font>
-  <font color="#009900">int</font> <font color="#990000">*</font> arr <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">int</font><font color="#990000">[</font>size<font color="#990000">];</font>
+<span style="color:#009900">int</span> <b><span style="color:#000000">main</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
 
-  <i><font color="#9A1900">// read in array values </font></i>
-  <b><font color="#0000FF">for</font></b><font color="#990000">(</font><font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> size<font color="#990000">;</font> i<font color="#990000">++)</font><font color="#FF0000">{</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Enter value "</font> <font color="#990000">&lt;&lt;</font> i <font color="#990000">&lt;&lt;</font> <font color="#FF0000">": "</font><font color="#990000">;</font>
-    cin <font color="#990000">&gt;&gt;</font> arr<font color="#990000">[</font>i<font color="#990000">];</font>
-  <font color="#FF0000">}</font>
+    <span style="color:#009900">int</span> size<span style="color:#990000">;</span>
+    <i><span style="color:#9A1900">// prompt for array size</span></i>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Enter the array size: "</span><span style="color:#990000">;</span>
+    cin <span style="color:#990000">&gt;&gt;</span> size<span style="color:#990000">;</span>
+    <span style="color:#009900">int</span> <span style="color:#990000">*</span> arr <span style="color:#990000">=</span> <b><span style="color:#0000FF">new</span></b> <span style="color:#009900">int</span><span style="color:#990000">[</span>size<span style="color:#990000">];</span>
 
-  <i><font color="#9A1900">// print unsorted array</font></i>
-  cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Unsorted array: "</font><font color="#990000">;</font>
-  <b><font color="#0000FF">for</font></b><font color="#990000">(</font><font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> size<font color="#990000">;</font> i<font color="#990000">++)</font><font color="#FF0000">{</font>
-    cout <font color="#990000">&lt;&lt;</font> arr<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" "</font><font color="#990000">;</font>
-  <font color="#FF0000">}</font>
-  cout <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <i><span style="color:#9A1900">// read in array values</span></i>
+    <b><span style="color:#0000FF">for</span></b><span style="color:#990000">(</span><span style="color:#009900">int</span> i <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span> i <span style="color:#990000">&lt;</span> size<span style="color:#990000">;</span> i<span style="color:#990000">++)</span> <span style="color:#FF0000">{</span>
+        cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Enter value "</span> <span style="color:#990000">&lt;&lt;</span> i <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">": "</span><span style="color:#990000">;</span>
+        cin <span style="color:#990000">&gt;&gt;</span> arr<span style="color:#990000">[</span>i<span style="color:#990000">];</span>
+    <span style="color:#FF0000">}</span>
 
-  <b><font color="#000000">mergeSort</font></b><font color="#990000">(</font>arr<font color="#990000">,</font> <font color="#993399">0</font><font color="#990000">,</font> size<font color="#990000">-</font><font color="#993399">1</font><font color="#990000">);</font>
+    <i><span style="color:#9A1900">// print unsorted array</span></i>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Unsorted array: "</span><span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">for</span></b><span style="color:#990000">(</span><span style="color:#009900">int</span> i <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span> i <span style="color:#990000">&lt;</span> size<span style="color:#990000">;</span> i<span style="color:#990000">++)</span> <span style="color:#FF0000">{</span>
+        cout <span style="color:#990000">&lt;&lt;</span> arr<span style="color:#990000">[</span>i<span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" "</span><span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
+    cout <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
 
-  <i><font color="#9A1900">// print sorted array</font></i>
-  cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Sorted array: "</font><font color="#990000">;</font>
-  <b><font color="#0000FF">for</font></b><font color="#990000">(</font><font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> size<font color="#990000">;</font> i<font color="#990000">++)</font><font color="#FF0000">{</font>
-    cout <font color="#990000">&lt;&lt;</font> arr<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" "</font><font color="#990000">;</font>
-  <font color="#FF0000">}</font>
-  cout <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <b><span style="color:#000000">mergeSort</span></b><span style="color:#990000">(</span>arr<span style="color:#990000">,</span> <span style="color:#993399">0</span><span style="color:#990000">,</span> size<span style="color:#990000">-</span><span style="color:#993399">1</span><span style="color:#990000">);</span>
 
-  <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+    <i><span style="color:#9A1900">// print sorted array</span></i>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Sorted array: "</span><span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">for</span></b><span style="color:#990000">(</span><span style="color:#009900">int</span> i <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span> i <span style="color:#990000">&lt;</span> size<span style="color:#990000">;</span> i<span style="color:#990000">++)</span> <span style="color:#FF0000">{</span>
+        cout <span style="color:#990000">&lt;&lt;</span> arr<span style="color:#990000">[</span>i<span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" "</span><span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
+    cout <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
 
-<font color="#FF0000">}</font>
-</tt></pre>
+    <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+
+<span style="color:#FF0000">}</span>
+</pre>
 </body>
 </html>

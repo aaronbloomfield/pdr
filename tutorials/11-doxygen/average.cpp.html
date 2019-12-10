@@ -1,42 +1,42 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta name="GENERATOR" content="GNU source-highlight 3.1.8
+<meta name="GENERATOR" content="GNU source-highlight 
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
-<title>tutorials/11-doxygen/average.cpp</title>
+<title>average.cpp</title>
 </head>
-<body bgcolor="white">
-<pre><tt><b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<body style="background-color:white">
+<pre><b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;iostream&gt;</span>
 
-<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+<b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
-<i><font color="#9A1900">/** </font></i><font color="#009900">@brief</font><i><font color="#9A1900"> Computes the average of the two passed values.</font></i>
-<i><font color="#9A1900"> *</font></i>
-<i><font color="#9A1900"> * This function computes the average using the standard accepted</font></i>
-<i><font color="#9A1900"> * formula for doing so.</font></i>
-<i><font color="#9A1900"> * </font></i><font color="#009900">@return</font><i><font color="#9A1900"> The average of the two passed values.</font></i>
-<i><font color="#9A1900"> * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> x The first value to average.</font></i>
-<i><font color="#9A1900"> * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> y The second value to average.</font></i>
-<i><font color="#9A1900"> * </font></i><font color="#009900">@todo</font><i><font color="#9A1900"> Need to write acceptance tests for this function</font></i>
-<i><font color="#9A1900"> */</font></i>
+<i><span style="color:#9A1900">/** </span></i><span style="color:#009900">@brief</span><i><span style="color:#9A1900"> Computes the average of the two passed values.</span></i>
+<i><span style="color:#9A1900"> *</span></i>
+<i><span style="color:#9A1900"> * This function computes the average using the standard accepted</span></i>
+<i><span style="color:#9A1900"> * formula for doing so.</span></i>
+<i><span style="color:#9A1900"> * </span></i><span style="color:#009900">@return</span><i><span style="color:#9A1900"> The average of the two passed values.</span></i>
+<i><span style="color:#9A1900"> * </span></i><span style="color:#009900">@param</span><i><span style="color:#9A1900"> x The first value to average.</span></i>
+<i><span style="color:#9A1900"> * </span></i><span style="color:#009900">@param</span><i><span style="color:#9A1900"> y The second value to average.</span></i>
+<i><span style="color:#9A1900"> * </span></i><span style="color:#009900">@todo</span><i><span style="color:#9A1900"> Need to write acceptance tests for this function</span></i>
+<i><span style="color:#9A1900"> */</span></i>
 
-<font color="#009900">double</font> <b><font color="#000000">average</font></b> <font color="#990000">(</font><font color="#009900">double</font> x<font color="#990000">,</font> <font color="#009900">double</font> y<font color="#990000">)</font> <font color="#FF0000">{</font>
-    <b><font color="#0000FF">return</font></b> <font color="#990000">(</font>x<font color="#990000">+</font>y<font color="#990000">)/</font><font color="#993399">2.0</font><font color="#990000">;</font>
-<font color="#FF0000">}</font>
+<span style="color:#009900">double</span> <b><span style="color:#000000">average</span></b> <span style="color:#990000">(</span><span style="color:#009900">double</span> x<span style="color:#990000">,</span> <span style="color:#009900">double</span> y<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">return</span></b> <span style="color:#990000">(</span>x<span style="color:#990000">+</span>y<span style="color:#990000">)/</span><span style="color:#993399">2.0</span><span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
 
-<font color="#009900">int</font> <b><font color="#000000">main</font></b> <font color="#990000">()</font> <font color="#FF0000">{</font>
-    <font color="#009900">double</font> a<font color="#990000">,</font> b<font color="#990000">,</font> c<font color="#990000">;</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Enter two different floating point numbers: "</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    cin <font color="#990000">&gt;&gt;</font> a <font color="#990000">&gt;&gt;</font> b<font color="#990000">;</font>
-    c <font color="#990000">=</font> <b><font color="#000000">average</font></b><font color="#990000">(</font>a<font color="#990000">,</font>b<font color="#990000">);</font>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The average of those numbers is "</font> <font color="#990000">&lt;&lt;</font> c <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
-<font color="#FF0000">}</font>
+<span style="color:#009900">int</span> <b><span style="color:#000000">main</span></b> <span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    <span style="color:#009900">double</span> a<span style="color:#990000">,</span> b<span style="color:#990000">,</span> c<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Enter two different floating point numbers: "</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cin <span style="color:#990000">&gt;&gt;</span> a <span style="color:#990000">&gt;&gt;</span> b<span style="color:#990000">;</span>
+    c <span style="color:#990000">=</span> <b><span style="color:#000000">average</span></b><span style="color:#990000">(</span>a<span style="color:#990000">,</span>b<span style="color:#990000">);</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"The average of those numbers is "</span> <span style="color:#990000">&lt;&lt;</span> c <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
 
 
-</tt></pre>
+</pre>
 </body>
 </html>

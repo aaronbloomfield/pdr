@@ -1,137 +1,145 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta name="GENERATOR" content="GNU source-highlight 3.1.8
+<meta name="GENERATOR" content="GNU source-highlight 
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
-<title>labs/lab05/code/inlab/BinarySearchTree.cpp</title>
+<title>BinarySearchTree.cpp</title>
 </head>
-<body bgcolor="white">
-<pre><tt><b><font color="#000080">#include</font></b> <font color="#FF0000">"BinarySearchTree.h"</font>
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;string&gt;</font>
-<b><font color="#000080">#include</font></b> <font color="#FF0000">"BinaryNode.h"</font>
-<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+<body style="background-color:white">
+<pre><b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">"BinarySearchTree.h"</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;string&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;iostream&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">"BinaryNode.h"</span>
+<b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
-BinarySearchTree<font color="#990000">::</font><b><font color="#000000">BinarySearchTree</font></b><font color="#990000">()</font> <font color="#FF0000">{</font> root <font color="#990000">=</font> NULL<font color="#990000">;</font> <font color="#FF0000">}</font>
+BinarySearchTree<span style="color:#990000">::</span><b><span style="color:#000000">BinarySearchTree</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    root <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
 
-BinarySearchTree<font color="#990000">::~</font><b><font color="#000000">BinarySearchTree</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
-  <b><font color="#0000FF">delete</font></b> root<font color="#990000">;</font>
-  root <font color="#990000">=</font> NULL<font color="#990000">;</font>
-<font color="#FF0000">}</font>
+BinarySearchTree<span style="color:#990000">::~</span><b><span style="color:#000000">BinarySearchTree</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">delete</span></b> root<span style="color:#990000">;</span>
+    root <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
 
-<i><font color="#9A1900">// insert finds a position for x in the tree and places it there.</font></i>
-<font color="#009900">void</font> BinarySearchTree<font color="#990000">::</font><b><font color="#000000">insert</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> string<font color="#990000">&amp;</font> x<font color="#990000">)</font> <font color="#FF0000">{</font>
-  <i><font color="#9A1900">// YOUR IMPLEMENTATION GOES HERE</font></i>
-<font color="#FF0000">}</font>
+<i><span style="color:#9A1900">// insert finds a position for x in the tree and places it there.</span></i>
+<span style="color:#009900">void</span> BinarySearchTree<span style="color:#990000">::</span><b><span style="color:#000000">insert</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> string<span style="color:#990000">&amp;</span> x<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <i><span style="color:#9A1900">// YOUR IMPLEMENTATION GOES HERE</span></i>
+<span style="color:#FF0000">}</span>
 
-<i><font color="#9A1900">// remove finds x's position in the tree and removes it.</font></i>
-<font color="#009900">void</font> BinarySearchTree<font color="#990000">::</font><b><font color="#000000">remove</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> string<font color="#990000">&amp;</font> x<font color="#990000">)</font> <font color="#FF0000">{</font> root <font color="#990000">=</font> <b><font color="#000000">remove</font></b><font color="#990000">(</font>root<font color="#990000">,</font> x<font color="#990000">);</font> <font color="#FF0000">}</font>
+<i><span style="color:#9A1900">// remove finds x's position in the tree and removes it.</span></i>
+<span style="color:#009900">void</span> BinarySearchTree<span style="color:#990000">::</span><b><span style="color:#000000">remove</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> string<span style="color:#990000">&amp;</span> x<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    root <span style="color:#990000">=</span> <b><span style="color:#000000">remove</span></b><span style="color:#990000">(</span>root<span style="color:#990000">,</span> x<span style="color:#990000">);</span>
+<span style="color:#FF0000">}</span>
 
-<i><font color="#9A1900">// pathTo finds x in the tree and returns a string representing the path it</font></i>
-<i><font color="#9A1900">// took to get there.</font></i>
-<font color="#008080">string</font> BinarySearchTree<font color="#990000">::</font><b><font color="#000000">pathTo</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> string<font color="#990000">&amp;</font> x<font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
-  <i><font color="#9A1900">// YOUR IMPLEMENTATION GOES HERE</font></i>
-<font color="#FF0000">}</font>
+<i><span style="color:#9A1900">// private helper for remove to allow recursion over different nodes. returns</span></i>
+<i><span style="color:#9A1900">// a BinaryNode* that is assigned to the original node.</span></i>
+BinaryNode<span style="color:#990000">*</span> BinarySearchTree<span style="color:#990000">::</span><b><span style="color:#000000">remove</span></b><span style="color:#990000">(</span>BinaryNode<span style="color:#990000">*&amp;</span> n<span style="color:#990000">,</span> <b><span style="color:#0000FF">const</span></b> string<span style="color:#990000">&amp;</span> x<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>n <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        <b><span style="color:#0000FF">return</span></b> NULL<span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
+    <i><span style="color:#9A1900">// first look for x</span></i>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>x <span style="color:#990000">==</span> n<span style="color:#990000">-&gt;</span>value<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        <i><span style="color:#9A1900">// found</span></i>
+        <i><span style="color:#9A1900">// no children</span></i>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>left <span style="color:#990000">==</span> NULL <span style="color:#990000">&amp;&amp;</span> n<span style="color:#990000">-&gt;</span>right <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            <b><span style="color:#0000FF">delete</span></b> n<span style="color:#990000">;</span>
+            n <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
+            <b><span style="color:#0000FF">return</span></b> NULL<span style="color:#990000">;</span>
+        <span style="color:#FF0000">}</span>
+        <i><span style="color:#9A1900">// single child</span></i>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>left <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            BinaryNode<span style="color:#990000">*</span> temp <span style="color:#990000">=</span> n<span style="color:#990000">-&gt;</span>right<span style="color:#990000">;</span>
+            n<span style="color:#990000">-&gt;</span>right <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
+            <b><span style="color:#0000FF">delete</span></b> n<span style="color:#990000">;</span>
+            n <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
+            <b><span style="color:#0000FF">return</span></b> temp<span style="color:#990000">;</span>
+        <span style="color:#FF0000">}</span>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>right <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            BinaryNode<span style="color:#990000">*</span> temp <span style="color:#990000">=</span> n<span style="color:#990000">-&gt;</span>left<span style="color:#990000">;</span>
+            n<span style="color:#990000">-&gt;</span>left <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
+            <b><span style="color:#0000FF">delete</span></b> n<span style="color:#990000">;</span>
+            n <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
+            <b><span style="color:#0000FF">return</span></b> temp<span style="color:#990000">;</span>
+        <span style="color:#FF0000">}</span>
+        <i><span style="color:#9A1900">// two children</span></i>
+        <span style="color:#008080">string</span> sr <span style="color:#990000">=</span> <b><span style="color:#000000">min</span></b><span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>right<span style="color:#990000">);</span>
+        n<span style="color:#990000">-&gt;</span>value <span style="color:#990000">=</span> sr<span style="color:#990000">;</span>
+        n<span style="color:#990000">-&gt;</span>right <span style="color:#990000">=</span> <b><span style="color:#000000">remove</span></b><span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>right<span style="color:#990000">,</span> sr<span style="color:#990000">);</span>
+    <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>x <span style="color:#990000">&lt;</span> n<span style="color:#990000">-&gt;</span>value<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        n<span style="color:#990000">-&gt;</span>left <span style="color:#990000">=</span> <b><span style="color:#000000">remove</span></b><span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>left<span style="color:#990000">,</span> x<span style="color:#990000">);</span>
+    <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <span style="color:#FF0000">{</span>
+        n<span style="color:#990000">-&gt;</span>right <span style="color:#990000">=</span> <b><span style="color:#000000">remove</span></b><span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>right<span style="color:#990000">,</span> x<span style="color:#990000">);</span>
+    <span style="color:#FF0000">}</span>
+    <b><span style="color:#0000FF">return</span></b> n<span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
 
-<i><font color="#9A1900">// find determines whether or not x exists in the tree.</font></i>
-<font color="#009900">bool</font> BinarySearchTree<font color="#990000">::</font><b><font color="#000000">find</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> string<font color="#990000">&amp;</font> x<font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
-  <i><font color="#9A1900">// YOUR IMPLEMENTATION GOES HERE</font></i>
-<font color="#FF0000">}</font>
+<i><span style="color:#9A1900">// pathTo finds x in the tree and returns a string representing the path it</span></i>
+<i><span style="color:#9A1900">// took to get there.</span></i>
+<span style="color:#008080">string</span> BinarySearchTree<span style="color:#990000">::</span><b><span style="color:#000000">pathTo</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> string<span style="color:#990000">&amp;</span> x<span style="color:#990000">)</span> <b><span style="color:#0000FF">const</span></b> <span style="color:#FF0000">{</span>
+    <i><span style="color:#9A1900">// YOUR IMPLEMENTATION GOES HERE</span></i>
+<span style="color:#FF0000">}</span>
 
-<i><font color="#9A1900">// numNodes returns the total number of nodes in the tree.</font></i>
-<font color="#009900">int</font> BinarySearchTree<font color="#990000">::</font><b><font color="#000000">numNodes</font></b><font color="#990000">()</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
-  <i><font color="#9A1900">// YOUR IMPLEMENTATION GOES HERE</font></i>
-<font color="#FF0000">}</font>
+<i><span style="color:#9A1900">// find determines whether or not x exists in the tree.</span></i>
+<span style="color:#009900">bool</span> BinarySearchTree<span style="color:#990000">::</span><b><span style="color:#000000">find</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> string<span style="color:#990000">&amp;</span> x<span style="color:#990000">)</span> <b><span style="color:#0000FF">const</span></b> <span style="color:#FF0000">{</span>
+    <i><span style="color:#9A1900">// YOUR IMPLEMENTATION GOES HERE</span></i>
+<span style="color:#FF0000">}</span>
 
-<i><font color="#9A1900">// private helper for remove to allow recursion over different nodes. returns</font></i>
-<i><font color="#9A1900">// a BinaryNode* that is assigned to the original node.</font></i>
-BinaryNode<font color="#990000">*</font> BinarySearchTree<font color="#990000">::</font><b><font color="#000000">remove</font></b><font color="#990000">(</font>BinaryNode<font color="#990000">*&amp;</font> n<font color="#990000">,</font> <b><font color="#0000FF">const</font></b> string<font color="#990000">&amp;</font> x<font color="#990000">)</font> <font color="#FF0000">{</font>
-  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>n <font color="#990000">==</font> NULL<font color="#990000">)</font> <font color="#FF0000">{</font>
-    <b><font color="#0000FF">return</font></b> NULL<font color="#990000">;</font>
-  <font color="#FF0000">}</font>
-  <i><font color="#9A1900">// first look for x</font></i>
-  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>x <font color="#990000">==</font> n<font color="#990000">-&gt;</font>value<font color="#990000">)</font> <font color="#FF0000">{</font>
-    <i><font color="#9A1900">// found</font></i>
-    <i><font color="#9A1900">// no children</font></i>
-    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>n<font color="#990000">-&gt;</font>left <font color="#990000">==</font> NULL <font color="#990000">&amp;&amp;</font> n<font color="#990000">-&gt;</font>right <font color="#990000">==</font> NULL<font color="#990000">)</font> <font color="#FF0000">{</font>
-      <b><font color="#0000FF">delete</font></b> n<font color="#990000">;</font>
-      n <font color="#990000">=</font> NULL<font color="#990000">;</font>
-      <b><font color="#0000FF">return</font></b> NULL<font color="#990000">;</font>
-    <font color="#FF0000">}</font>
-    <i><font color="#9A1900">// single child</font></i>
-    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>n<font color="#990000">-&gt;</font>left <font color="#990000">==</font> NULL<font color="#990000">)</font> <font color="#FF0000">{</font>
-      BinaryNode<font color="#990000">*</font> temp <font color="#990000">=</font> n<font color="#990000">-&gt;</font>right<font color="#990000">;</font>
-      n<font color="#990000">-&gt;</font>right <font color="#990000">=</font> NULL<font color="#990000">;</font>
-      <b><font color="#0000FF">delete</font></b> n<font color="#990000">;</font>
-      n <font color="#990000">=</font> NULL<font color="#990000">;</font>
-      <b><font color="#0000FF">return</font></b> temp<font color="#990000">;</font>
-    <font color="#FF0000">}</font>
-    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>n<font color="#990000">-&gt;</font>right <font color="#990000">==</font> NULL<font color="#990000">)</font> <font color="#FF0000">{</font>
-      BinaryNode<font color="#990000">*</font> temp <font color="#990000">=</font> n<font color="#990000">-&gt;</font>left<font color="#990000">;</font>
-      n<font color="#990000">-&gt;</font>left <font color="#990000">=</font> NULL<font color="#990000">;</font>
-      <b><font color="#0000FF">delete</font></b> n<font color="#990000">;</font>
-      n <font color="#990000">=</font> NULL<font color="#990000">;</font>
-      <b><font color="#0000FF">return</font></b> temp<font color="#990000">;</font>
-    <font color="#FF0000">}</font>
-    <i><font color="#9A1900">// two children</font></i>
-    <font color="#008080">string</font> sr <font color="#990000">=</font> <b><font color="#000000">min</font></b><font color="#990000">(</font>n<font color="#990000">-&gt;</font>right<font color="#990000">);</font>
-    n<font color="#990000">-&gt;</font>value <font color="#990000">=</font> sr<font color="#990000">;</font>
-    n<font color="#990000">-&gt;</font>right <font color="#990000">=</font> <b><font color="#000000">remove</font></b><font color="#990000">(</font>n<font color="#990000">-&gt;</font>right<font color="#990000">,</font> sr<font color="#990000">);</font>
-  <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>x <font color="#990000">&lt;</font> n<font color="#990000">-&gt;</font>value<font color="#990000">)</font> <font color="#FF0000">{</font>
-    n<font color="#990000">-&gt;</font>left <font color="#990000">=</font> <b><font color="#000000">remove</font></b><font color="#990000">(</font>n<font color="#990000">-&gt;</font>left<font color="#990000">,</font> x<font color="#990000">);</font>
-  <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
-    n<font color="#990000">-&gt;</font>right <font color="#990000">=</font> <b><font color="#000000">remove</font></b><font color="#990000">(</font>n<font color="#990000">-&gt;</font>right<font color="#990000">,</font> x<font color="#990000">);</font>
-  <font color="#FF0000">}</font>
-  <b><font color="#0000FF">return</font></b> n<font color="#990000">;</font>
-<font color="#FF0000">}</font>
+<i><span style="color:#9A1900">// numNodes returns the total number of nodes in the tree.</span></i>
+<span style="color:#009900">int</span> BinarySearchTree<span style="color:#990000">::</span><b><span style="color:#000000">numNodes</span></b><span style="color:#990000">()</span> <b><span style="color:#0000FF">const</span></b> <span style="color:#FF0000">{</span>
+    <i><span style="color:#9A1900">// YOUR IMPLEMENTATION GOES HERE</span></i>
+<span style="color:#FF0000">}</span>
 
-<i><font color="#9A1900">// min finds the string with the smallest value in a subtree.</font></i>
-<font color="#008080">string</font> BinarySearchTree<font color="#990000">::</font><b><font color="#000000">min</font></b><font color="#990000">(</font>BinaryNode<font color="#990000">*</font> node<font color="#990000">)</font> <b><font color="#0000FF">const</font></b> <font color="#FF0000">{</font>
-  <i><font color="#9A1900">// go to bottom-left node</font></i>
-  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>node<font color="#990000">-&gt;</font>left <font color="#990000">==</font> NULL<font color="#990000">)</font> <font color="#FF0000">{</font>
-    <b><font color="#0000FF">return</font></b> node<font color="#990000">-&gt;</font>value<font color="#990000">;</font>
-  <font color="#FF0000">}</font>
-  <b><font color="#0000FF">return</font></b> <b><font color="#000000">min</font></b><font color="#990000">(</font>node<font color="#990000">-&gt;</font>left<font color="#990000">);</font>
-<font color="#FF0000">}</font>
+<i><span style="color:#9A1900">// min finds the string with the smallest value in a subtree.</span></i>
+<span style="color:#008080">string</span> BinarySearchTree<span style="color:#990000">::</span><b><span style="color:#000000">min</span></b><span style="color:#990000">(</span>BinaryNode<span style="color:#990000">*</span> node<span style="color:#990000">)</span> <b><span style="color:#0000FF">const</span></b> <span style="color:#FF0000">{</span>
+    <i><span style="color:#9A1900">// go to bottom-left node</span></i>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>node<span style="color:#990000">-&gt;</span>left <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        <b><span style="color:#0000FF">return</span></b> node<span style="color:#990000">-&gt;</span>value<span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
+    <b><span style="color:#0000FF">return</span></b> <b><span style="color:#000000">min</span></b><span style="color:#990000">(</span>node<span style="color:#990000">-&gt;</span>left<span style="color:#990000">);</span>
+<span style="color:#FF0000">}</span>
 
-<i><font color="#9A1900">// Helper function to print branches of the binary tree</font></i>
-<font color="#009900">void</font> <b><font color="#000000">showTrunks</font></b><font color="#990000">(</font>Trunk<font color="#990000">*</font> p<font color="#990000">)</font> <font color="#FF0000">{</font>
-  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>p <font color="#990000">==</font> nullptr<font color="#990000">)</font> <b><font color="#0000FF">return</font></b><font color="#990000">;</font>
-  <b><font color="#000000">showTrunks</font></b><font color="#990000">(</font>p<font color="#990000">-&gt;</font>prev<font color="#990000">);</font>
-  cout <font color="#990000">&lt;&lt;</font> p<font color="#990000">-&gt;</font>str<font color="#990000">;</font>
-<font color="#FF0000">}</font>
+<i><span style="color:#9A1900">// Helper function to print branches of the binary tree</span></i>
+<span style="color:#009900">void</span> <b><span style="color:#000000">showTrunks</span></b><span style="color:#990000">(</span>Trunk<span style="color:#990000">*</span> p<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>p <span style="color:#990000">==</span> nullptr<span style="color:#990000">)</span> <b><span style="color:#0000FF">return</span></b><span style="color:#990000">;</span>
+    <b><span style="color:#000000">showTrunks</span></b><span style="color:#990000">(</span>p<span style="color:#990000">-&gt;</span>prev<span style="color:#990000">);</span>
+    cout <span style="color:#990000">&lt;&lt;</span> p<span style="color:#990000">-&gt;</span>str<span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
 
-<i><font color="#9A1900">// Recursive function to print binary tree</font></i>
-<i><font color="#9A1900">// It uses inorder traversal</font></i>
-<font color="#009900">void</font> BinarySearchTree<font color="#990000">::</font><b><font color="#000000">printTree</font></b><font color="#990000">(</font>BinaryNode<font color="#990000">*</font> root<font color="#990000">,</font> Trunk<font color="#990000">*</font> prev<font color="#990000">,</font> <font color="#009900">bool</font> isRight<font color="#990000">)</font> <font color="#FF0000">{</font>
-  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>root <font color="#990000">==</font> NULL<font color="#990000">)</font> <b><font color="#0000FF">return</font></b><font color="#990000">;</font>
+<span style="color:#009900">void</span> BinarySearchTree<span style="color:#990000">::</span><b><span style="color:#000000">printTree</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#000000">printTree</span></b><span style="color:#990000">(</span>root<span style="color:#990000">,</span> NULL<span style="color:#990000">,</span> <b><span style="color:#0000FF">false</span></b><span style="color:#990000">);</span>
+<span style="color:#FF0000">}</span>
 
-  <font color="#008080">string</font> prev_str <font color="#990000">=</font> <font color="#FF0000">"    "</font><font color="#990000">;</font>
-  Trunk<font color="#990000">*</font> trunk <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Trunk</font></b><font color="#990000">(</font>prev<font color="#990000">,</font> prev_str<font color="#990000">);</font>
+<i><span style="color:#9A1900">// Recursive function to print binary tree</span></i>
+<i><span style="color:#9A1900">// It uses inorder traversal</span></i>
+<span style="color:#009900">void</span> BinarySearchTree<span style="color:#990000">::</span><b><span style="color:#000000">printTree</span></b><span style="color:#990000">(</span>BinaryNode<span style="color:#990000">*</span> root<span style="color:#990000">,</span> Trunk<span style="color:#990000">*</span> prev<span style="color:#990000">,</span> <span style="color:#009900">bool</span> isRight<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>root <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <b><span style="color:#0000FF">return</span></b><span style="color:#990000">;</span>
 
-  <b><font color="#000000">printTree</font></b><font color="#990000">(</font>root<font color="#990000">-&gt;</font>right<font color="#990000">,</font> trunk<font color="#990000">,</font> <b><font color="#0000FF">true</font></b><font color="#990000">);</font>
+    <span style="color:#008080">string</span> prev_str <span style="color:#990000">=</span> <span style="color:#FF0000">"    "</span><span style="color:#990000">;</span>
+    Trunk<span style="color:#990000">*</span> trunk <span style="color:#990000">=</span> <b><span style="color:#0000FF">new</span></b> <b><span style="color:#000000">Trunk</span></b><span style="color:#990000">(</span>prev<span style="color:#990000">,</span> prev_str<span style="color:#990000">);</span>
 
-  <b><font color="#0000FF">if</font></b> <font color="#990000">(!</font>prev<font color="#990000">)</font>
-    trunk<font color="#990000">-&gt;</font>str <font color="#990000">=</font> <font color="#FF0000">"---"</font><font color="#990000">;</font>
-  <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>isRight<font color="#990000">)</font> <font color="#FF0000">{</font> <i><font color="#9A1900">// github user @willzhang05 pointed out that I forgot to change this from isLeft to isRight on my first commit</font></i>
-    trunk<font color="#990000">-&gt;</font>str <font color="#990000">=</font> <font color="#FF0000">".---"</font><font color="#990000">;</font>
-    prev_str <font color="#990000">=</font> <font color="#FF0000">"   |"</font><font color="#990000">;</font>
-  <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
-    trunk<font color="#990000">-&gt;</font>str <font color="#990000">=</font> <font color="#FF0000">"`---"</font><font color="#990000">;</font>
-    prev<font color="#990000">-&gt;</font>str <font color="#990000">=</font> prev_str<font color="#990000">;</font>
-  <font color="#FF0000">}</font>
+    <b><span style="color:#000000">printTree</span></b><span style="color:#990000">(</span>root<span style="color:#990000">-&gt;</span>right<span style="color:#990000">,</span> trunk<span style="color:#990000">,</span> <b><span style="color:#0000FF">true</span></b><span style="color:#990000">);</span>
 
-  <b><font color="#000000">showTrunks</font></b><font color="#990000">(</font>trunk<font color="#990000">);</font>
-  cout <font color="#990000">&lt;&lt;</font> root<font color="#990000">-&gt;</font>value <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(!</span>prev<span style="color:#990000">)</span>
+        trunk<span style="color:#990000">-&gt;</span>str <span style="color:#990000">=</span> <span style="color:#FF0000">"---"</span><span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>isRight<span style="color:#990000">)</span> <span style="color:#FF0000">{</span> <i><span style="color:#9A1900">// github user @willzhang05 pointed out that I forgot to change this from isLeft to isRight on my first commit</span></i>
+        trunk<span style="color:#990000">-&gt;</span>str <span style="color:#990000">=</span> <span style="color:#FF0000">".---"</span><span style="color:#990000">;</span>
+        prev_str <span style="color:#990000">=</span> <span style="color:#FF0000">"   |"</span><span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <span style="color:#FF0000">{</span>
+        trunk<span style="color:#990000">-&gt;</span>str <span style="color:#990000">=</span> <span style="color:#FF0000">"`---"</span><span style="color:#990000">;</span>
+        prev<span style="color:#990000">-&gt;</span>str <span style="color:#990000">=</span> prev_str<span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
 
-  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>prev<font color="#990000">)</font> prev<font color="#990000">-&gt;</font>str <font color="#990000">=</font> prev_str<font color="#990000">;</font>
-  trunk<font color="#990000">-&gt;</font>str <font color="#990000">=</font> <font color="#FF0000">"   |"</font><font color="#990000">;</font>
+    <b><span style="color:#000000">showTrunks</span></b><span style="color:#990000">(</span>trunk<span style="color:#990000">);</span>
+    cout <span style="color:#990000">&lt;&lt;</span> root<span style="color:#990000">-&gt;</span>value <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
 
-  <b><font color="#000000">printTree</font></b><font color="#990000">(</font>root<font color="#990000">-&gt;</font>left<font color="#990000">,</font> trunk<font color="#990000">,</font> <b><font color="#0000FF">false</font></b><font color="#990000">);</font>
-<font color="#FF0000">}</font>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>prev<span style="color:#990000">)</span> prev<span style="color:#990000">-&gt;</span>str <span style="color:#990000">=</span> prev_str<span style="color:#990000">;</span>
+    trunk<span style="color:#990000">-&gt;</span>str <span style="color:#990000">=</span> <span style="color:#FF0000">"   |"</span><span style="color:#990000">;</span>
 
-<font color="#009900">void</font> BinarySearchTree<font color="#990000">::</font><b><font color="#000000">printTree</font></b><font color="#990000">()</font> <font color="#FF0000">{</font> <b><font color="#000000">printTree</font></b><font color="#990000">(</font>root<font color="#990000">,</font> NULL<font color="#990000">,</font> <b><font color="#0000FF">false</font></b><font color="#990000">);</font> <font color="#FF0000">}</font></tt></pre>
+    <b><span style="color:#000000">printTree</span></b><span style="color:#990000">(</span>root<span style="color:#990000">-&gt;</span>left<span style="color:#990000">,</span> trunk<span style="color:#990000">,</span> <b><span style="color:#0000FF">false</span></b><span style="color:#990000">);</span>
+<span style="color:#FF0000">}</span>
+</pre>
 </body>
 </html>
