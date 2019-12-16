@@ -1,11 +1,11 @@
-publish: markdown format highlight
-
 markdown:
 	@echo Converting markdown files to html format...
 	@chmod 755 utils/convert-markdown-to-html.sh
 	@utils/convert-markdown-to-html.sh
 	@git checkout uva/old/*.html
 	@echo done!
+
+all: markdown format highlight
 
 format:
 	@echo Formatting source files...

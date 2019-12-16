@@ -24,6 +24,7 @@ There are a number of links and other parts of this course that are **NOT** incl
 
 The parts of this course that are in this repo are:
 
+- [Coruse grade determinations][116] ([md][115])
 - [Daily announcements slide set][102]
 - [Course introduction slide set][80]
 - [Course conclusion slide set][94]
