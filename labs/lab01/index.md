@@ -100,39 +100,6 @@ The purpose of the labs is to allow you to work through the lab activity, and if
 
 All of the files required for this lab are listed above (in the Procedure section), and are also listed below.
 
-### Cloning the github repo ###
-
-The first thing you need to do is clone the github repo onto your computer.  This was already done on the VirtualBox image.  So if you are doing this on VirtualBox, skip to the `git pull` step, below.
-
-To copy the github repo onto your machine, enter:
-
-```
-git clone https://github.com/uva-cs/pdr.git
-```
-
-This will create a 'pdr' directory, which is the copy of the repo.
-
-Each week, you will need to update the repo with the current contents.  To do so, cd into that 'pdr' directory, and enter:
-
-```
-git pull
-```
-
-To view the contents in a web browser, you should enter a URL similar to the following.  Note that there are three slashes after the `file:` part.  Be sure to replace 'mst3k' with your userid, and change the path if you have the file somewhere else.
-
-```
-file:///home/mst3k/pdr/readme.html
-```
-
-Note that there are three forward slashes there! On the VirtualBox image, it would be:
-
-```
-file:///home/student/pdr/readme.html
-```
-
-We realize that you cannot view these directions until after you have the github repo cloned locally.  So hopefully you read these ahead of time.  Otherwise, the TAs will be able to help you with this part.  The lab can also be viewed online at [http://uva-cs.github.io/pdr/labs/lab01/index.html](http://uva-cs.github.io/pdr/labs/lab01/index.html).
-
-
 ### Understanding C++ ###
 
 1. Ask the TAs if you have questions about your *x^n* function.
@@ -140,7 +107,7 @@ We realize that you cannot view these directions until after you have the github
 3. Object Lifecycle Program
      - Download the [lifecycle.cpp](lifecycle.cpp.html) ([src](lifecycle.cpp)) file
      - Compile with clang++ (i.e., `clang++ lifecycle.cpp`) and execute the program.
-     - Break lifecycle.cpp into multiple files.  It may be helpful to look at [class slides from this repo](../../slides/01-cpp.html).  Compile and run this program.  Note that to compile a C++ program with multiple files, just put them on the same line: `clang++ LifeCycle.cpp TestLifeCycle.cpp` (you usually leave out the .h files when compiling).  Add the descriptive header at the top of the file containing your identifying information, and name them as follows:
+     - Break lifecycle.cpp into multiple files.  It may be helpful to look at the [class slides](../../slides/01-cpp.html).  Compile and run this program.  Note that to compile a C++ program with multiple files, just put them on the same line: `clang++ LifeCycle.cpp TestLifeCycle.cpp` (you usually leave out the .h files when compiling).  Add the descriptive header at the top of the file containing your identifying information, and name them as follows:
          - LifeCycle.h
          - LifeCycle.cpp
          - TestLifeCycle.cpp
