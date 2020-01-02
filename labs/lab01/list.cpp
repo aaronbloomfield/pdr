@@ -21,8 +21,7 @@ int main() {
 
     l->display();
 
-    i = l->size();
-    cout << "size(): returned " << i << endl;
+    cout << "size(): returned " << l->size() << endl;
 
     n = l->head();
     if ( n == NULL )
@@ -38,8 +37,7 @@ int main() {
 
     cout << "empty() called, returned " << l->empty() << endl;
 
-    i = l->element(2);
-    cout << "element(): '" << 2 << "' returned: " << i << endl;
+    cout << "element(): '" << 2 << "' returned: " << l->element(2) << endl;
 
     l->push(2);
     l->display();
@@ -58,19 +56,6 @@ int main() {
         cout << "tail(): returned " << *n << endl;
 
     l->push(3);
-
-    n = l->head();
-    if ( n == NULL )
-        cout << "head(): returned NULL.\n";
-    else
-        cout << "head(): returned " << *n << endl;
-
-    n = l->tail();
-    if ( n == NULL )
-        cout << "tail(): returned NULL.\n";
-    else
-        cout << "tail(): returned " << *n << endl;
-
     l->display();
 
     n = l->head();
@@ -85,11 +70,8 @@ int main() {
     else
         cout << "tail(): returned " << *n << endl;
 
-    i = l->element(2);
-    cout << "element(): '" << 2 << "' returned: " << i << endl;
-
-    i = l->element(4);
-    cout << "element(): '" << 4 << "' returned: " << i << endl;
+    cout << "element(): '" << 2 << "' returned: " << l->element(2) << endl;
+    cout << "element(): '" << 4 << "' returned: " << l->element(4) << endl;
 
     cout << "empty() called, returned " << l->empty() << endl;
 
@@ -125,22 +107,6 @@ int main() {
     else
         cout << "tail(): returned " << *n << endl;
 
-    l->display();
-
-    n = l->head();
-    if ( n == NULL )
-        cout << "head(): returned NULL.\n";
-    else
-        cout << "head(): returned " << *n << endl;
-
-    n = l->tail();
-    if ( n == NULL )
-        cout << "tail(): returned NULL.\n";
-    else
-        cout << "tail(): returned " << *n << endl;
-
-    l->display();
-
     cout << "empty() called, returned " << l->empty() << endl;
 
     cout << endl;
@@ -151,7 +117,6 @@ int main() {
     else
         cout << "pop(): returning " << *n << "\n";
 
-    i = l->size();
     l->display();
 
     n = l->head();
@@ -166,7 +131,7 @@ int main() {
     else
         cout << "tail(): returned " << *n << endl;
 
-    cout << "size(): returned " << i << endl;
+    cout << "size(): returned " << l->size() << endl;
 
     n = l->pop();
     if ( n == NULL )
@@ -238,9 +203,6 @@ int main() {
     cout << "clear() called.\n";
 
     l->display();
-
-    cout << "empty() called, returned " << l->empty() << endl;
-
     cout << "empty() called, returned " << l->empty() << endl;
 
     l->remove(1);
