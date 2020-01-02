@@ -15,7 +15,7 @@
 using namespace std;
 
 int main() {
-    cout << "main(): started.\n";
+    cout << "main(): started." << endl;
     List<int> *l = new List<int>();
     int *n, i;
 
@@ -25,13 +25,13 @@ int main() {
 
     n = l->head();
     if ( n == NULL )
-        cout << "head(): returned NULL.\n";
+        cout << "head(): returned NULL." << endl;
     else
         cout << "head(): returned " << *n << endl;
 
     n = l->tail();
     if ( n == NULL )
-        cout << "tail(): returned NULL.\n";
+        cout << "tail(): returned NULL." << endl;
     else
         cout << "tail(): returned " << *n << endl;
 
@@ -45,13 +45,13 @@ int main() {
 
     n = l->head();
     if ( n == NULL )
-        cout << "head(): returned NULL.\n";
+        cout << "head(): returned NULL." << endl;
     else
         cout << "head(): returned " << *n << endl;
 
     n = l->tail();
     if ( n == NULL )
-        cout << "tail(): returned NULL.\n";
+        cout << "tail(): returned NULL." << endl;
     else
         cout << "tail(): returned " << *n << endl;
 
@@ -60,13 +60,13 @@ int main() {
 
     n = l->head();
     if ( n == NULL )
-        cout << "head(): returned NULL.\n";
+        cout << "head(): returned NULL." << endl;
     else
         cout << "head(): returned " << *n << endl;
 
     n = l->tail();
     if ( n == NULL )
-        cout << "tail(): returned NULL.\n";
+        cout << "tail(): returned NULL." << endl;
     else
         cout << "tail(): returned " << *n << endl;
 
@@ -82,13 +82,13 @@ int main() {
 
     n = l->head();
     if ( n == NULL )
-        cout << "head(): returned NULL.\n";
+        cout << "head(): returned NULL." << endl;
     else
         cout << "head(): returned " << *n << endl;
 
     n = l->tail();
     if ( n == NULL )
-        cout << "tail(): returned NULL.\n";
+        cout << "tail(): returned NULL." << endl;
     else
         cout << "tail(): returned " << *n << endl;
 
@@ -97,13 +97,13 @@ int main() {
 
     n = l->head();
     if ( n == NULL )
-        cout << "head(): returned NULL.\n";
+        cout << "head(): returned NULL." << endl;
     else
         cout << "head(): returned " << *n << endl;
 
     n = l->tail();
     if ( n == NULL )
-        cout << "tail(): returned NULL.\n";
+        cout << "tail(): returned NULL." << endl;
     else
         cout << "tail(): returned " << *n << endl;
 
@@ -113,21 +113,21 @@ int main() {
 
     n = l->pop();
     if ( n == NULL )
-        cout << "pop(): list is empty, pop(): returning NULL\n";
+        cout << "pop(): list is empty, pop(): returned NULL." << endl;
     else
-        cout << "pop(): returning " << *n << "\n";
+        cout << "pop(): returned " << *n << endl;
 
     l->display();
 
     n = l->head();
     if ( n == NULL )
-        cout << "head(): returned NULL.\n";
+        cout << "head(): returned NULL." << endl;
     else
         cout << "head(): returned " << *n << endl;
 
     n = l->tail();
     if ( n == NULL )
-        cout << "tail(): returned NULL.\n";
+        cout << "tail(): returned NULL." << endl;
     else
         cout << "tail(): returned " << *n << endl;
 
@@ -135,33 +135,33 @@ int main() {
 
     n = l->pop();
     if ( n == NULL )
-        cout << "pop(): list is empty, pop(): returning NULL\n";
+        cout << "pop(): list is empty, pop(): returned NULL." << endl;
     else
-        cout << "pop(): returning " << *n << "\n";
+        cout << "pop(): returned " << *n << endl;
 
     l->display();
 
     n = l->pop();
     if ( n == NULL )
-        cout << "pop(): list is empty, pop(): returning NULL\n";
+        cout << "pop(): list is empty, pop(): returned NULL." << endl;
     else
-        cout << "pop(): returning " << *n << "\n";
+        cout << "pop(): returned " << *n << endl;
 
     l->display();
 
     n = l->pop();
     if ( n == NULL )
-        cout << "pop(): list is empty, pop(): returning NULL\n";
+        cout << "pop(): list is empty, pop(): returned NULL." << endl;
     else
-        cout << "pop(): returning " << *n << "\n";
+        cout << "pop(): returned " << *n << endl;
 
     l->display();
 
     n = l->pop();
     if ( n == NULL )
-        cout << "pop(): list is empty, pop(): returning NULL\n";
+        cout << "pop(): list is empty, pop(): returned NULL." << endl;
     else
-        cout << "pop(): returning " << *n << "\n";
+        cout << "pop(): returned " << *n << endl;
 
     l->display();
 
@@ -183,24 +183,24 @@ int main() {
 
     n = l->pop();
     if ( n == NULL )
-        cout << "pop(): list is empty, pop(): returning NULL\n";
+        cout << "pop(): list is empty, pop(): returned NULL." << endl;
     else
-        cout << "pop(): returning " << *n << "\n";
+        cout << "pop(): returned " << *n << endl;
 
     l->display();
 
     n = l->pop_head();
     if ( n == NULL )
-        cout << "pop_head(): list is empty, pop_head(): returning NULL\n";
+        cout << "pop_head(): list is empty, pop_head(): returned NULL." << endl;
     else
-        cout << "pop_head(): returning " << *n << "\n";
+        cout << "pop_head(): returned " << *n << endl;
 
     l->display();
 
     cout << "empty() called, returned " << l->empty() << endl;
 
     l->clear();
-    cout << "clear() called.\n";
+    cout << "clear() called." << endl;
 
     l->display();
     cout << "empty() called, returned " << l->empty() << endl;
@@ -229,7 +229,7 @@ int main() {
 
     cout << endl;
 
-    cout << "main(): Goodbye.\n";
+    cout << "main(): Goodbye." << endl;
 
     return 0;
 }
