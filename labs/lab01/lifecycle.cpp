@@ -2,6 +2,7 @@
 #include <string>
 using namespace std;
 
+// Declare the MyObject class
 class MyObject {
 public:
     static int numObjs;
@@ -20,7 +21,13 @@ private:
     int id;
 };
 
+// Define the member functions we declared above
+// Remember: member functions are defined as Class::method()
+
+// Constructors and destructors - no return types
 MyObject::MyObject() {
+    // Important: notice how we don't define 'name' or 'id' here
+    // Instead, we're setting the variables that we declared in MyObject
     name = "--default--";
     id = ++numObjs;
     cout << "MyObject Default constructor:   " << *this << endl;
@@ -42,6 +49,7 @@ MyObject::~MyObject() {
     cout << "MyObject Destructor:            " << *this << endl;
 }
 
+// Regular methods, with return types
 string MyObject::getName() const {
     return name;
 }
@@ -56,7 +64,8 @@ ostream& operator<<(ostream& output, const MyObject& obj) {
     return output << "(\"" << obj.name << "\", " << obj.id << ")";
 }
 
-// Prototypes for functions we define later on
+// Prototypes for non-member functions we define later on
+// These are *non-member* functions because we didn't declare them as part of the MyObject class
 MyObject getMaxMyObj(const MyObject o1, const MyObject o2);
 int cmpMyObj(const MyObject o1, const MyObject o2);
 void swapMyObj(MyObject& o1, MyObject& o2);
