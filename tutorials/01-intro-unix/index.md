@@ -41,28 +41,27 @@ Part III: A (brief!) Unix tutorial
 
 Unix is a very powerful operating system that has been around, in one form or another, for almost 40 years.  The fact that it still exists attests to how powerful it can be for completing tasks on a computer.  The reason it is not more widely adopted is because it is not very easy to use or intuitive -- it was written by computer programmers for computer programmers.  While the people in this course are certainly capable of learning it, many people just want a computer to work, and to run an Office suite and a set of Internet programs such as a browser.  For those users, an easier to use operating system (such as Windows or macOS) is often better.  Unix is coming more into the mainstream lately with the increased popularity of Linux, as well as the fact that macOS is built upon a Unix operating system (FreeBSD, in particular).
 
-The word "Unix" can mean any Unix-like operating system.  There are many available -- Linux, FreeBSD, Solaris, Mac OSX, etc.  We will be using the word Unix in this class to mean whichever Unix-like environment we are using for this course.
+The word "Unix" can mean any Unix-like operating system.  There are many available -- Linux, FreeBSD, Solaris, macOS, etc.  We will be using the word Unix in this class to mean whichever Unix-like environment we are using for this course.
 
 A quick note: Unix IS CASE SENSITIVE.  Thus, foo, Foo, FOO, and FoO are all different, and allowable, file names.  This causes problems with Windows, which sees all those names as the same thing.  So be careful about your cases!
 
 ### Loading a command shell ###
 
-First, you need to load up a command shell.  For those who have used DOS, or the Windows command prompt, it is a somewhat similar interface.
+First, you need to load up a command shell.  For those who have used the Windows command prompt, it is a somewhat similar interface.
 
 - With VirtualBox and Gnome, it's an icon on the toolbar on the left-hand side of the desktop
 - With Virtualbox and KDE, it's the black icon with a greater-than sign in it on the bottom-left
+- On macOS, open Spotlight and search for Terminal
 
 
 ### The Unix Tutorial ###
 
 Here is a quick primer of basic Unix commands.  Try each of these out.  The idea is for you to be able to manipulate files and directories -- the full Unix tutorial starts next week.
 
-- `ls` will show the contents of the current directory (similar to `dir` in DOS).  'ls' stands for 'list', but without the 'i' and the 't'.
-- `pwd` (for print working directory) shows the current directory.  If you enter it now, it will print something like '/home/Yourname'.  Like Windows Explorer, you are always in a given directory at any given time -- if you modify files or create directories, for example, it will occur in the current working directory.  The current directory ('/home/Yourname') is called your home directory.
-- `cd foo` will change to the foo directory -- in other words, it changes the current working directory.  As there are no directories in '/home/Yourname', you can enter `cd ..` (notice the one space and then two periods) -- this will move you up one directory (to '/home').  Also, you can enter `cd -` to jump to the previous directory you were in (the Ctrl-Z of directory hopping).
-- If you didn't already, change to the directory above your home directory (by entering `cd ..`).  If you do an `ls`, you will probably see only one entry: 'Yourname'.  Move up one more directory (`cd ..`), and do an `ls` -- there should be a dozen or so directory entries.  At this point, it's hard to see what is a directory and what is not -- you can do an `ls -F`, which will put a single character after most files to let you know what they are -- for example, 'home/' shows up, and the slash tells you that 'home' is a directory.
-- To get back to your home directory, just enter `cd`.  The current working directory is changed to your home directory.
-- You can make directories by `mkdir` (note that 'md' will not work), and remove them by `rmdir` (not 'rd').  This is the same as creating a folder in Windows Explorer.  A directory that is not empty cannot be removed.  For now, we recommend that any directory names (or file names) only have letters, digits, or the underscore in their names (there are ways around that, but they are complicated).
+- `ls` will show the contents of the current directory.  'ls' stands for 'list', but without the 'i' and the 't'.
+- `cd pdr` will change to the `pdr` directory -- in other words, it changes the current working directory to whatever you specify.  You should notice the text at the beginning of the line change: the _prompt_ will help you keep track of which directory you are in.  To go up a directory, you can enter `cd ..` (notice the one space and then two periods).  Also, you can enter `cd -` to jump to the previous directory you were in (the Ctrl-Z of directory hopping).  Finally, typing `cd` with nothing after it will move you back to your home directory.
+- You can make directories by `mkdir` and remove them by `rmdir`.  This is the same as creating a folder in Windows Explorer.  A directory that is not empty cannot be removed.  For now, we recommend that any directory names (or file names) only have letters, digits, or the underscore in their names (there are ways around that, but they are complicated).
+- Remove individual files with `rm`.
 - Once we start saving files, we will want them to be somewhere easily accessible from Windows.  With VirtualBox, the [Tutorial 1\: Introduction to UNIX\: VirtualBox use] page discusses how to transfer files back and forth to the virtual machine.
 
 That's it for the Unix tutorial for now.  There are many further tutorials online, feel free to read those.  You can do all your editing in your desktop folder -- this way, if you want to rename or move your files, you can use Windows Explorer to do so (there are Unix ways to do it, and we'll get to those later).
