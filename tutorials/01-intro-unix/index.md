@@ -80,9 +80,9 @@ You should now have Emacs loaded and running -- if not, then something is wrong.
 
 ![Emacs on open](emacs-on-open.png)
 
-All of the mouse commands in Emacs have keyboard shortcuts.  Eventually, you will want to learn the shortcuts, as they are much faster to enter once they are known.  For the commands below, the keyboard shortcut commands are listed -- partly so you can get used to seeing and using them, and partly because for those using SecureCRT, they cannot use the mouse.
+All of the mouse commands in Emacs have keyboard shortcuts.  Eventually, you will want to learn the shortcuts, as they are much faster to enter once they are known.  To help you with getting used to them, we have provided the shortcuts for the commands below.
 
-The first commands in Emacs that we will learn will use the control key.  For example, the save command is listed as `C-x C-s`.  This means hit Control-x then Control-s.  We will be going over Emacs command in more detail later.  For now, remember that if you get stuck, hit `C-g` (Control-g) a few times, and that should un-stick it.
+The first commands in Emacs that we will learn will use the control key (even on macOS!).  For example, the save command is listed as `C-x C-s`.  This means hit Control-x then Control-s.  We will be going over Emacs command in more detail later.  For now, remember that if you get stuck, hit `C-g` (Control-g) a few times, and that should un-stick it.
 
 We recommend you create a new directory for the rest of this tutorial (`mkdir tutorial`).  `cd` into that directory.
 
@@ -104,7 +104,7 @@ Save the file (File->Save or `C-x C-s`).  If you switch back to the shell, and d
 
 Next, we need to compile that file.  To do so, switch to the shell, and enter the command: `clang++ helloworld.cpp`.  It will compile, and if successful, the command prompt will be displayed after a brief pause.  If there were errors, then the it will list them to the screen.
 
-After a successful compilation, do an `ls` -- you will see a second file, called `a.exe` (`a.out` if you are using Linux, OS X, or one of the lava machines).  This is the compiled version of that program.  To run it, enter `./a.exe` (or `./a.out`).  Note the period and slash before the `a.exe` -- why this is there (and how to get rid of it) we will see later in the semester.
+After a successful compilation, do an `ls` -- you will see a second file, called `a.out`.  This is the compiled version of that program.  To run it, enter `./a.out`.  Note the period and slash before the `a.out` -- why this is there (and how to get rid of it) we will see later in the semester.
 
 Another useful command is the undo command: `C-_` (Control-underscore).
 
