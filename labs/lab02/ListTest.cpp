@@ -1,4 +1,4 @@
-//	Modified: 8/30/2006: mc2zk
+//  Modified: 8/30/2006: mc2zk
 //  CS216 Lab 1 - Test Harness
 //   by Michael Crane
 //
@@ -14,95 +14,104 @@
 //  if the 'forward' parameter is false,
 //      the list is printed in reverse order
 
-
 #include <iostream>
 #include <string>
-#include <ctype.h>
-#include <stdlib.h>
+#include <cctype>
+#include <cstdlib>
 using namespace std;
 
-//Make sure your own files for the List and ListItr
-//classes are included here.  These are the names I used.
 #include "List.h"
 #include "ListItr.h"
 
-
-int      menu (string option[], int n_opt);
+int menu (string option[], int n_opt);
 
 //set up menu options
-string   option[] =   { "Quit",
-                        "New List",
-                        "Show List elements",
-                        "Set ListItr with first()",
-                        "Set ListItr with find()",
-                        "Set ListItr with last()",
-                        "Move ListItr forward",
-                        "Move ListItr backward",
-                        "Retrieve element at ListItr",
-                        "Insert element before",
-                        "Insert element after",
-                        "Insert element at tail",
-                        "Remove element",
-                        "Cardinality (size)",
-                        "Copy list w/copy constructor",
-                        "Copy list with operator=",
-                        "Make list empty",
-                      };
-int      const n_choice = 17;
+string option[] = {
+    "Quit",
+    "New List",
+    "Show List elements",
+    "Set ListItr with first()",
+    "Set ListItr with find()",
+    "Set ListItr with last()",
+    "Move ListItr forward",
+    "Move ListItr backward",
+    "Retrieve element at ListItr",
+    "Insert element before",
+    "Insert element after",
+    "Insert element at tail",
+    "Remove element",
+    "Cardinality (size)",
+    "Copy list w/copy constructor",
+    "Copy list with operator=",
+    "Make list empty",
+};
 
-int   main ()
+int const n_choice = 17;
+
 /*
-**  This main driver program interactively exercises a
-**   list package.
-**  It assumes a linked list implementation, and its real
-**   purpose is to exercise the underlying list manipulation
-**   procedures.
-**  It uses a menu to accept commands from the terminal,
-**   then performs the indicated command.
-*/
-{
-    int      command;
-    string   response;
-    List     *list = NULL;
-    ListItr  *itr = NULL;
-    // Initialize this run
-    cout << "--------------------------------------------------\n";
-    cout << "\tThis test harness operates with one List\n"
-         << "\tobject and one ListItr object.\n\n"
-         << "\tUse the menu options to manipulate these\n"
-         << "\tobjects.\n";
+ *  This main driver program interactively exercises a
+ *   list package.
+ *  It assumes a linked list implementation, and its real
+ *   purpose is to exercise the underlying list manipulation
+ *   procedures.
+ *  It uses a menu to accept commands from the terminal,
+ *   then performs the indicated command.
+ */
+int main () {
+    int command;
+    string response;
+    List *list = NULL;
+    ListItr *itr = NULL;
 
-    while (1) {
+    // Initialize this run
+    cout << "--------------------------------------------------" << endl;
+    cout << "\tThis test harness operates with one List" << endl;
+    cout << "\tobject and one ListItr object." << endl;
+    cout << endl;
+    cout << "\tUse the menu options to manipulate these" << endl;
+    cout << "\tobjects." << endl;
+
+    while (true) {
         command = menu(option, n_choice);
 
         switch (command) {
-            case 1:                        // Quit
+            // Quit
+            case 1:
                 cout << "\tDo you really want to quit? (y/n) > ";
-                cin  >> response;
+                cin >> response;
 
-                if (response[0] == 'y' || response[0] == 'Y') {                 // Normal Exit
-                    if (list != NULL) delete list;
-                    if (itr != NULL) delete itr;
+                // Exit normally
+                if (response[0] == 'y' || response[0] == 'Y') {
+                    if (list != NULL) {
+                        delete list;
+                    }
+
+                    if (itr != NULL) {
+                        delete itr;
+                    }
                     return 0;
                 }
 
                 break;
 
-            case 2:                        // New list
-                if (list != NULL)
+            // New list
+            case 2:
+                if (list != NULL) {
                     delete list;
-                list = new List;
+                }
+                list = new List();
 
-                cout << "\tYou have created an empty list\n";
+                cout << "\tYou have created an empty list" << endl;
                 cout << "\tDo you want to initialize it with elements? (y/n) > ";
-                cin  >> response;
+                cin >> response;
 
-                if (response[0] != 'y' && response[0] != 'Y')
+                if (response[0] != 'y' && response[0] != 'Y') {
                     break;
+                }
+
                 // accept elements
-                cout << "\t\tEnter elements one by one as integers.\n";
-                cout << "\t\tAny non-numeric character, e.g. #, ";
-                cout << "will terminate input\n";
+                cout << "\t\tEnter elements one by one as integers." << endl;
+                cout << "\t\tAny non-numeric character, e.g. #, will terminate input" << endl;
 
                 cout << "\tEnter first element: ";
                 cin >> response;
@@ -115,104 +124,134 @@ int   main ()
                     cin >> response;
                 }
 
-                cout << endl << "The elements in forward order: " << endl;
+                cout << endl;
+                cout << "The elements in forward order: " << endl;
                 printList(*list, true);
                 break;
 
-            case 3:                      // show elements
+            // Show elements
+            case 3:
                 if (list == NULL) {
-                    cout << endl << "\tCreate a List first." << endl;
+                    cout << endl;
+                    cout << "\tCreate a List first." << endl;
                     break;
                 }
+
                 cout << "\tPrint the list forwards or backwards? (f/b) > ";
-                cin  >> response;
+                cin >> response;
 
                 if (response[0] == 'b' || response[0] == 'B') {
-                    cout << endl << "The elements in reverse order:" << endl;
+                    cout << endl;
+                    cout << "The elements in reverse order:" << endl;
                     printList(*list, false);
                 } else {
-                    cout << endl << "The elements in forward order:" << endl;
+                    cout << endl;
+                    cout << "The elements in forward order:" << endl;
                     printList(*list, true);
                 }
                 break;
 
-            case 4:                      // test first()
+            // first()
+            case 4:
                 if (list == NULL) {
-                    cout << endl << "\tCreate a List first." << endl;
+                    cout << endl;
+                    cout << "\tCreate a List first." << endl;
                     break;
                 }
+
                 cout << "\tSetting the ListItr to the first element..." << endl;
-                if ( itr != NULL )
+                if (itr != NULL) {
                     delete itr;
-                itr = new ListItr((list->first()));
+                }
+                itr = new ListItr(list->first());
                 break;
 
-            case 5:                      // test find()
+            // find()
+            case 5:
                 if (list == NULL) {
-                    cout << endl << "\tCreate a List first." << endl;
+                    cout << endl;
+                    cout << "\tCreate a List first." << endl;
                     break;
                 }
+
                 cout << "\tEnter element to find: ";
                 cin >> response;
 
                 if (isdigit(response[0])) {
                     int element = atoi(response.c_str());
-                    if ( itr != NULL )
+                    if (itr != NULL) {
                         delete itr;
-                    itr = new ListItr((list->find(element)));
-                    cout << "\tSetting the ListItr to find("
-                         << element << ")..." << endl;
+                    }
+
+                    itr = new ListItr(list->find(element));
+                    cout << "\tSetting the ListItr to find(" << element << ")..." << endl;
                 } else {
                     cout << "\tPlease enter an integer." << endl;
                 }
                 break;
 
-            case 6:                      // test last()
+            // last()
+            case 6:
                 if (list == NULL) {
-                    cout << endl << "\tCreate a List first." << endl;
+                    cout << endl;
+                    cout << "\tCreate a List first." << endl;
                     break;
                 }
+
                 cout << "\tSetting the ListItr to the last element..." << endl;
-                if ( itr != NULL )
+                if (itr != NULL) {
                     delete itr;
-                itr = new ListItr((list->last()));
+                }
+
+                itr = new ListItr(list->last());
                 break;
 
-            case 7:                      // test moveForwards()
+            // moveForwards()
+            case 7:
                 if (itr == NULL) {
-                    cout << endl << "\tCreate a ListItr first." << endl;
+                    cout << endl;
+                    cout << "\tCreate a ListItr first." << endl;
                     break;
                 }
+
                 cout << "\tMoving the ListItr forwards..." << endl;
                 itr->moveForward();
                 break;
 
-            case 8:                      // test move_backwards()
+            // moveBackwards()
+            case 8:
                 if (itr == NULL) {
-                    cout << endl << "\tCreate a ListItr first." << endl;
+                    cout << endl;
+                    cout << "\tCreate a ListItr first." << endl;
                     break;
                 }
+
                 cout << "\tMoving the ListItr backwards..." << endl;
                 itr->moveBackward();
                 break;
 
-            case 9:                      // test retrieve()
+            // retrieve()
+            case 9:
                 if (itr == NULL) {
-                    cout << endl << "\tCreate a ListItr first." << endl;
+                    cout << endl;
+                    cout << "\tCreate a ListItr first." << endl;
                     break;
                 }
 
-                if (itr->isPastBeginning())
+                if (itr->isPastBeginning()) {
                     cout << "\tThe ListItr is past the beginning." << endl;
-                else if (itr->isPastEnd())
+                } else if (itr->isPastEnd()) {
                     cout << "\tThe ListItr is past the end." << endl;
-                else
+                } else {
                     cout << "\tElement retrieved: " << itr->retrieve() << endl;
+                }
                 break;
 
-            case 10:                        // Insert element before
+            // insertBefore()
+            case 10:
                 if (list == NULL || itr == NULL) {
-                    cout << endl << "\tCreate a List and ListItr first." << endl;
+                    cout << endl;
+                    cout << "\tCreate a List and ListItr first." << endl;
                     break;
                 }
 
@@ -222,20 +261,22 @@ int   main ()
                 if (isdigit(response[0])) {
                     int element = atoi(response.c_str());
                     list->insertBefore(element, *itr);
-                    cout << "\tInserting " << element
-                         << " before the current ListItr" <<endl;
+                    cout << "\tInserting " << element << " before the current ListItr" << endl;
                 } else {
                     cout << "\tPlease enter an integer." << endl;
                     break;
                 }
 
-                cout << endl << "The elements in forward order: " << endl;
+                cout << endl;
+                cout << "The elements in forward order: " << endl;
                 printList(*list, true);
                 break;
 
-            case 11:                        // Insert element after
+            // insertAfter()
+            case 11:
                 if (list == NULL || itr == NULL) {
-                    cout << endl << "\tCreate a List and ListItr first." << endl;
+                    cout << endl;
+                    cout << "\tCreate a List and ListItr first." << endl;
                     break;
                 }
 
@@ -245,20 +286,22 @@ int   main ()
                 if (isdigit(response[0])) {
                     int element = atoi(response.c_str());
                     list->insertAfter(element, *itr);
-                    cout << "\tInserting " << element
-                         << " after the current ListItr" <<endl;
+                    cout << "\tInserting " << element << " after the current ListItr" <<endl;
                 } else {
                     cout << "\tPlease enter an integer." << endl;
                     break;
                 }
 
-                cout << endl << "The elements in forward order: " << endl;
+                cout << endl;
+                cout << "The elements in forward order: " << endl;
                 printList(*list, true);
                 break;
 
-            case 12:                        // Insert element at tail
+            // insertAtTail()
+            case 12:
                 if (list == NULL) {
-                    cout << endl << "\tCreate a List first." << endl;
+                    cout << endl;
+                    cout << "\tCreate a List first." << endl;
                     break;
                 }
 
@@ -268,20 +311,22 @@ int   main ()
                 if (isdigit(response[0])) {
                     int element = atoi(response.c_str());
                     list->insertAtTail(element);
-                    cout << "\tInserting " << element
-                         << " at the tail of the list" <<endl;
+                    cout << "\tInserting " << element << " at the tail of the list" << endl;
                 } else {
                     cout << "\tPlease enter an integer." << endl;
                     break;
                 }
 
-                cout << endl << "The elements in forward order: " << endl;
+                cout << endl;
+                cout << "The elements in forward order: " << endl;
                 printList(*list, true);
                 break;
 
-            case 13:                        // Remove element
+            // remove()
+            case 13:
                 if (list == NULL) {
-                    cout << endl << "\tCreate a List first." << endl;
+                    cout << endl;
+                    cout << "\tCreate a List first." << endl;
                     break;
                 }
 
@@ -291,128 +336,157 @@ int   main ()
                 if (isdigit(response[0])) {
                     int element = atoi(response.c_str());
                     list->remove(element);
-                    cout << "\tRemoving " << element
-                         << " from list" <<endl;
+                    cout << "\tRemoving " << element << " from list" <<endl;
                 } else {
                     cout << "\tPlease enter an integer." << endl;
                     break;
                 }
 
-                cout << endl << "The elements in forward order: " << endl;
+                cout << endl;
+                cout << "The elements in forward order: " << endl;
                 printList(*list, true);
                 break;
 
-            case 14:                      // test size()
+            // size()
+            case 14:
                 if (list == NULL) {
-                    cout << endl << "\tCreate a List first." << endl;
+                    cout << endl;
+                    cout << "\tCreate a List first." << endl;
                     break;
                 }
 
                 cout << "\tSize of list: " << list->size() << endl;
                 break;
 
-            case 15: {                    // test copy constructor
+            // Copy constructor
+            case 15: {
                 if (list == NULL) {
-                    cout << endl << "\tCreate a List first." << endl;
+                    cout << endl;
+                    cout << "\tCreate a List first." << endl;
                     break;
                 }
-                List* old_list=list;
-                if ( list != NULL )
+
+                List* old_list = list;
+                if (list != NULL) {
                     delete list;
-                list=new List(*old_list);
+                }
+
+                list = new List(*old_list);
                 old_list->makeEmpty();
 
-                cout << "The new list is (forward ): ";
+                cout << "The new list is (forward): ";
                 printList(*list, true);
+
                 cout << "The new list is (backward): ";
                 printList(*list, false);
-                cout << "The old list was made empty (forward ): ";
+
+                cout << "The old list was made empty (forward): ";
                 printList(*old_list, true);
+
                 cout << "The old list was made empty (backward): ";
                 printList(*old_list, false);
+
                 cout << "The old list should be destroyed now." << endl;
                 delete old_list;
-                if ( itr != NULL ) {
+
+                if (itr != NULL) {
                     delete itr;
                     itr = NULL;
                 }
                 break;
             }
-            case 16: {                    // test equals operator
+
+            // operator=
+            case 16: {
                 if (list == NULL) {
-                    cout << endl << "\tCreate a List first." << endl;
+                    cout << endl;
+                    cout << "\tCreate a List first." << endl;
                     break;
                 }
-                List* old_list=list;
-                if ( list != NULL )
+
+                List* old_list = list;
+                if (list != NULL) {
                     delete list;
-                list=new List();
-                *list=*old_list;
+                }
+
+                list = new List();
+                *list = *old_list;
                 old_list->makeEmpty();
 
-                cout << "The new list is (forward ): ";
-                printList(*list,true);
+                cout << "The new list is (forward): ";
+                printList(*list, true);
+
                 cout << "The new list is (backward): ";
-                printList(*list,false);
-                cout << "The old list was made empty (forward ): ";
-                printList(*old_list,true);
+                printList(*list, false);
+
+                cout << "The old list was made empty (forward): ";
+                printList(*old_list, true);
+
                 cout << "The old list was made empty (backward): ";
-                printList(*old_list,false);
+                printList(*old_list, false);
+
                 cout << "The old list should be destroyed now." << endl;
 
                 delete old_list;
-                if ( itr != NULL ) {
+                if (itr != NULL) {
                     delete itr;
                     itr = NULL;
                 }
                 break;
             }
 
-            case 17:                      // test makeEmpty()
+            // makeEmpty()
+            case 17:
                 if (list == NULL) {
-                    cout << endl << "\tCreate a List first." << endl;
+                    cout << endl;
+                    cout << "\tCreate a List first." << endl;
                     break;
                 }
 
                 cout << "The list is (forward): ";
-                printList(*list,true);
+                printList(*list, true);
+
                 cout << "The list is (backward): ";
-                printList(*list,false);
+                printList(*list, false);
+
                 list->makeEmpty();
-                if ( itr != NULL ) {
+                if (itr != NULL) {
                     delete itr;
                     itr = NULL;
                 }
+
                 cout << "The list was made empty (forward): ";
-                printList(*list,true);
+                printList(*list, true);
+
                 cout << "The list was made empty (backward): ";
-                printList(*list,false);
-        }               // end of switch (command)
-    }            // end of while (1)
-}     // end of main()
+                printList(*list, false);
+        }
+    }
+}
 
-int   menu (string option[], int n_opt)
 /*
-**  This simple routine takes an array of 'n_opt' options
-**  (pointers to strings, describing the 'option')
-**  displays these options on the screen,
-**  and requests a choice on the part of the user
-**  It returns the integer number (position in the list)
-**  of the chosen option.
-**
-**  NOTE, all input and output uses 'stdin' and 'stdout'
+ *  This simple routine takes an array of 'n_opt' options
+ *  (pointers to strings, describing the 'option')
+ *  displays these options on the screen,
+ *  and requests a choice on the part of the user
+ *  It returns the integer number (position in the list)
+ *  of the chosen option.
+ *
+ *  NOTE, all input and output uses 'stdin' and 'stdout'
 */
-{
-    int      choice, i;
-    string   input;
+int menu (string option[], int n_opt) {
+    int choice, i;
+    string input;
 
-    cout << "     - - - - - -  MENU - - - - - -\n\n";
+    cout << "     - - - - - -  MENU - - - - - -" << endl;
+    cout << endl;
 
-    for (i = 0; i < n_opt; ++i)
-        cout << "\t" << (i+1) << " - " << option[i] << endl;
+    for (i = 0; i < n_opt; i++) {
+        cout << "\t" << i + 1 << " - " << option[i] << endl;
+    }
 
-    cout << "\n";
-    cout << "     - - - - - - - - - - - - - - -\n";
+    cout << endl;
+    cout << "     - - - - - - - - - - - - - - -" << endl;
 
     while (input.empty()) {
         cout << "     Enter number of choice > ";
@@ -423,16 +497,17 @@ int   menu (string option[], int n_opt)
 
             if (choice <= n_opt && choice > 0) {
                 return choice;
-            } else {          /* choice out of range */
-                cout << "\tYour response MUST be between 1 and "
-                     << n_opt << endl;
-                input = "";
+            } else {
+                /* choice out of range */
+                cout << "\tYour response MUST be between 1 and " << n_opt << endl;
+                input.clear();
             }
-        } else {                /* Non-numeric input, ignore */
-            cout << "\tYour response MUST be a number!\n";
-            input = "";
+        } else {
+            /* Non-numeric input, ignore */
+            cout << "\tYour response MUST be a number!" << endl;
+            input.clear();
         }
     }
 
     return 1;
-}          // end of menu()
+}
