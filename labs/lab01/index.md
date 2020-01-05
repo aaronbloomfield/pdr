@@ -87,7 +87,7 @@ Lastly, take a look at the object life-cycle code ([lifecycle.cpp](lifecycle.cpp
 
 ### Assignment submission ###
 
-All assignments will be submitted through our custom submission tool.  These can be accessed through Collab, or directly at [https://libra.cs.virginia.edu/~pedagogy](https://libra.cs.virginia.edu/~pedagogy).
+All assignments will be submitted through our custom submission tool which can be accessed through Collab's Course Tools link or directly at [https://libra.cs.virginia.edu/~pedagogy](https://libra.cs.virginia.edu/~pedagogy).
 
 Each assignment has 3 dates: an open date (when you can start submitting the assignment), a due date (when it's due), and a close date (the last point that you can submit the assignment).  The dates are listed for the week of the lab -- the lab week starts on a Sunday and ends on a Saturday.  In particular, the due date for the pre-labs, as well as the open date for the in-labs and post-labs is when the first lab section starts.  The close date for the post-labs is the start of Friday's lecture (the first lecture, if there are multiple lecture periods).
 
