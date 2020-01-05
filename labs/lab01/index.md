@@ -122,7 +122,7 @@ In-lab
 
 ### General In-lab Procedure ###
 
-The purpose of the labs is to allow you to work through the lab activity, and if you encounter questions or problems, ask for TA assistance.  Note that each file you electronically submit (including text files!) should contain a header containing your name, email ID, file name, and the date.
+The purpose of the labs is to allow you to work through the lab activity, and if you encounter questions or problems, ask for TA assistance.  Be sure to include your name, email ID, the date, and the name of the file in a banner comment at the beginning of each file you submit.
 
 All of the files required for this lab are listed above (in the Procedure section), and are also listed below.
 
