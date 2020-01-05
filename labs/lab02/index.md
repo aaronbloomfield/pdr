@@ -72,6 +72,10 @@ Procedure
 Pre-lab
 -------
 
+There is a lot of information provided in this pre-lab, and it might appear overwhelming at first.
+Don't let that discourage you -- read through it slowly and try to get the big picture.
+We have also provided a number of hints at the end of this section, which we recommend reading before starting to code.
+
 ### Code Description ###
 
 Linked lists are described in the online [Readings](../../docs/readings.html).
@@ -187,21 +191,8 @@ Your ListItr class should implement at least the following public methods:
 
 There are a few things that always cause students some headache.  We've tried to explain some of them here, in an effort to lessen the frustration it causes.
 
-When compiling your code, you must remember to compile all of your .cpp files in one line:
-
-```
-clang++ List.cpp ListItr.cpp ListNode.cpp ListTest.cpp
-```
-
-There are ways to compile these programs in pieces, but we will see this later in the semester.
-
-Linker errors are commonly caused by one of two problems:
-- `Undefined symbols for architecture...` means that you forgot to implement the functions listed below that line, or that you forgot to compile all four files together.
-- `Duplicate symbol...` means that you have defined the same function more than once. Make sure you're only including `.h` files and that you haven't accidentally redefined a function somewhere.
-
-Some students have had problems with the copy constructor and `operator=()` methods defined above -- they would cause a crash (segmentation fault).  The methods above work fine in our solution, but require that all the called functionality work properly as well.  If it is causing a crash in your code, run it through the debugger to see where it crashes -- it's probably a problem with one of your other methods.
-
-To start, create the .cpp file (List.cpp, ListNode.cpp, ListItr.cpp) that just have empty method bodies (with a dummy return value for non-`void` methods), and get that to compile.  Then start implementing one method at a time, testing as you go.
+#### Getting started ####
+To start, create all three .cpp files (List.cpp, ListNode.cpp, ListItr.cpp) and include the relevant .h files. Fill the files with empty method bodies (with a dummy return value for non-`void` methods) and get that to compile.  Then start implementing one method at a time, testing as you go.
 
 Here is the minimum amount of functions you need to have implemented in order to start using the ListTest harness, as well as suggested implementation order:
 
@@ -211,6 +202,55 @@ Here is the minimum amount of functions you need to have implemented in order to
 4. All of ListItr
 5. `List::first`
 6. `printList`
+
+#### Segmentation faults ####
+When beginning to test your code, chances are your program will crash unexpectedly with a message similar to `Segmentation fault (core dumped)`, commonly referred to as a _segfault_.
+Get prepared to see these often throughout the course, as unlike other programming languages like Java, C++ does not give any extra debugging information on a crash.
+In order to determine where and why your program is crashing, run your code through the debugger and look at the backtrace.
+Segfaults generally indicate that you are trying to dereference a NULL or invalid pointer, so those are good things to look out for.
+
+#### The constructor ####
+By the time the constructor finishes, we should have a functioning (but empty) list.
+This means that `head` and `tail` need to be set appropriately!  What should they point to if the list is empty?
+
+Make sure you are initializing the variables that are specified in the .h file and **not** declaring new variables that have the same name as those in the header file.
+Take a look back at lifecycle.cpp's constructors from Lab 1 if you need a refresher.
+
+#### Insert methods ####
+When implementing the three insert functions, we have found it helpful to draw out the pointers on paper and determine the order in which to update the pointers _before_ beginning to code the function itself.
+
+For `insertAfter` and `insertBefore`, the ListItr you are given is already pointing to a ListNode.
+You should insert the new ListNode after or before that ListNode, respectively.
+If you find yourself thinking about loops or iteration, that is unnecessary!  Double-check the ListItr header file.
+
+#### Find and remove ####
+Since `find` needs to return a ListItr, it might make sense to also implement it using iterators, though that is not required.
+As `remove` takes in an integer rather than a ListItr, we first need to determine whether or not that integer exists in our list.
+
+#### makeEmpty and the destructor ####
+`makeEmpty` should clear the list of all elements (`isEmpty` should return true after calling `makeEmpty`).
+Since we have been dynamically allocating ListNodes, we must also be responsible for deleting them to ensure we do not leak memory.
+There are multiple ways to iterate through the list and `delete` each ListNode -- experiment and see what makes the most sense to you.\
+**Important:** once you delete a ListNode, you can no longer reliably access any of its data, such as its `next` or `previous` pointers!
+To make sure you don't do this accidentally, we recommend setting each ListNode to NULL as soon as you delete it.
+
+The destructor should delete _all_ dynamically-allocated memory, as we no longer need this List instance.
+Thus, it makes sense that we should delete all the elements we inserted (hint: do we already have a method for that?).
+However, what else do we dynamically allocate that we need to delete?
+
+#### Compiling ####
+When compiling your code, you must remember to compile all of your .cpp files in one line:
+
+```
+clang++ List.cpp ListItr.cpp ListNode.cpp ListTest.cpp
+```
+
+There are ways to compile these programs in pieces, but we will see this later in the semester.
+
+Linker errors are commonly caused by one of two problems:
+
+- `Undefined symbols for architecture...` means that you forgot to implement the functions listed below that line, or that you forgot to compile all four files together.
+- `Duplicate symbol...` means that you have defined the same function more than once. Make sure you're only including `.h` files and that you haven't accidentally redefined a function somewhere.
 
 ------------------------------------------------------------
 
