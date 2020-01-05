@@ -13,6 +13,7 @@ http://www.gnu.org/software/src-highlite">
 <b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;string&gt;</span>
 <b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
+<i><span style="color:#9A1900">// Declare the MyObject class</span></i>
 <b><span style="color:#0000FF">class</span></b> <span style="color:#008080">MyObject</span> <span style="color:#FF0000">{</span>
 <b><span style="color:#0000FF">public</span></b><span style="color:#990000">:</span>
     <b><span style="color:#0000FF">static</span></b> <span style="color:#009900">int</span> numObjs<span style="color:#990000">;</span>
@@ -31,7 +32,13 @@ http://www.gnu.org/software/src-highlite">
     <span style="color:#009900">int</span> id<span style="color:#990000">;</span>
 <span style="color:#FF0000">}</span><span style="color:#990000">;</span>
 
+<i><span style="color:#9A1900">// Define the member functions we declared above</span></i>
+<i><span style="color:#9A1900">// Remember: member functions are defined as Class::method()</span></i>
+
+<i><span style="color:#9A1900">// Constructors and destructors - no return types</span></i>
 MyObject<span style="color:#990000">::</span><b><span style="color:#000000">MyObject</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    <i><span style="color:#9A1900">// Important: notice how we don't define 'name' or 'id' here</span></i>
+    <i><span style="color:#9A1900">// Instead, we're setting the variables that we declared in MyObject</span></i>
     name <span style="color:#990000">=</span> <span style="color:#FF0000">"--default--"</span><span style="color:#990000">;</span>
     id <span style="color:#990000">=</span> <span style="color:#990000">++</span>numObjs<span style="color:#990000">;</span>
     cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"MyObject Default constructor:   "</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">*</span><b><span style="color:#0000FF">this</span></b> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
@@ -53,6 +60,7 @@ MyObject<span style="color:#990000">::~</span><b><span style="color:#000000">MyO
     cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"MyObject Destructor:            "</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">*</span><b><span style="color:#0000FF">this</span></b> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
 <span style="color:#FF0000">}</span>
 
+<i><span style="color:#9A1900">// Regular methods, with return types</span></i>
 <span style="color:#008080">string</span> MyObject<span style="color:#990000">::</span><b><span style="color:#000000">getName</span></b><span style="color:#990000">()</span> <b><span style="color:#0000FF">const</span></b> <span style="color:#FF0000">{</span>
     <b><span style="color:#0000FF">return</span></b> name<span style="color:#990000">;</span>
 <span style="color:#FF0000">}</span>
@@ -67,7 +75,8 @@ ostream<span style="color:#990000">&amp;</span> <b><span style="color:#0000FF">o
     <b><span style="color:#0000FF">return</span></b> output <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"(</span><span style="color:#CC33CC">\"</span><span style="color:#FF0000">"</span> <span style="color:#990000">&lt;&lt;</span> obj<span style="color:#990000">.</span>name <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\"</span><span style="color:#FF0000">, "</span> <span style="color:#990000">&lt;&lt;</span> obj<span style="color:#990000">.</span>id <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">")"</span><span style="color:#990000">;</span>
 <span style="color:#FF0000">}</span>
 
-<i><span style="color:#9A1900">// Prototypes for functions we define later on</span></i>
+<i><span style="color:#9A1900">// Prototypes for non-member functions we define later on</span></i>
+<i><span style="color:#9A1900">// These are *non-member* functions because we didn't declare them as part of the MyObject class</span></i>
 <span style="color:#008080">MyObject</span> <b><span style="color:#000000">getMaxMyObj</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> <span style="color:#008080">MyObject</span> o1<span style="color:#990000">,</span> <b><span style="color:#0000FF">const</span></b> <span style="color:#008080">MyObject</span> o2<span style="color:#990000">);</span>
 <span style="color:#009900">int</span> <b><span style="color:#000000">cmpMyObj</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> <span style="color:#008080">MyObject</span> o1<span style="color:#990000">,</span> <b><span style="color:#0000FF">const</span></b> <span style="color:#008080">MyObject</span> o2<span style="color:#990000">);</span>
 <span style="color:#009900">void</span> <b><span style="color:#000000">swapMyObj</span></b><span style="color:#990000">(</span>MyObject<span style="color:#990000">&amp;</span> o1<span style="color:#990000">,</span> MyObject<span style="color:#990000">&amp;</span> o2<span style="color:#990000">);</span>
