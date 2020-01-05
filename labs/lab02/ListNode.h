@@ -13,22 +13,21 @@ using namespace std;
 
 class ListNode {
 public:
-    ListNode();                 // Constructor
+    ListNode();                // Constructor
 
 private:
-    int value;
-    ListNode *next, *previous;	// for doubly linked lists
+    int value;                 // The value of the node!
+    ListNode *next, *previous; // For doubly linked lists
 
     // List needs to be able to access/change ListNode's next and
     // previous pointers
     friend class List;
 
-    // ListItr needs to access/change ListNode as well
+    // ListItr needs access to value
     friend class ListItr;
 
     // Not writing a destructor is fine in this case since there is no
-    // dynamically allocated memory in this class.  No constructor is
-    // necessary, as an object will be set up by the List class.
+    // dynamically allocated memory in this class.
 };
 
 #endif
