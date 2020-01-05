@@ -72,7 +72,7 @@ That's it for the Unix tutorial for now.  There are many further tutorials onlin
 Part IV: Editing, compiling, and running a C++ program
 -------------------------------------------------------
 
-First, you will need to open a terminal (as in the previous section), from which we will load up an editor.  We will be using the Emacs editor for all our examples, but you are welcome to use any editor that is not an IDE (Integrated Development Environment).  Whatever you decide to use, know that you will be expected to be familiar with it! This includes keyboard shortcuts.
+First, you will need to open a terminal (as in the previous section), from which we will load up an editor.  We will be using the Emacs editor for all our examples, but you are welcome to use any editor that is not an integrated development environment (IDE).  Whatever you decide to use, know that you will be expected to be familiar with it! This includes keyboard shortcuts.
 
 To load up the editor, enter `emacs &` into the terminal.  The ampersand (`&`) at the end is very imporant!  This tells the terminal to start the `emacs` process in the background, which means you can continue to use the terminal while emacs is open.
 

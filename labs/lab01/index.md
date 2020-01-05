@@ -53,9 +53,7 @@ Lab submission can be found through the Course Tools tab on Collab or directly a
 Pre-lab
 -------
 
-Complete [Tutorial 1: Introduction to UNIX](../../tutorials/01-intro-unix/index.html). For this course, you will need to be familiar with Emacs.  You are welcome to use any editor that is not an IDE (Integrated Development Environment), such as emacs, nano, or vim; you may be tested on the key bindings of your preferred editor. (Notepad doesn't count.)
-
-For those who are using VirtualBox, you will need to decide which GUI to use.  See the details in [Tutorial 1: Introduction to UNIX](../../tutorials/01-intro-unix/index.html), specifically in part 2.
+Complete [Tutorial 1: Introduction to UNIX](../../tutorials/01-intro-unix/index.html) before proceeding.
 
 Below is a sample function with a `main()` function that calls it.  You may find this example helpful in writing your function to compute *x^n* and the `main()` function to call it.
 
