@@ -55,7 +55,7 @@ Pre-lab
 
 Complete [Tutorial 1: Introduction to UNIX](../../tutorials/01-intro-unix/index.html) before proceeding.
 
-For the pre-lab, you will need to write a **recursive** function called `xton()` to compute *x^n* for non-negative integers *n*.  Assume that *x^0=1*.  Put this function in a program with a `main()` function.  Your program should prompt the user for two integer values, and raise the first to the power of the second by calling your `xton()` function.
+For the pre-lab, you will need to write a **recursive** function called `xton()` to compute *x^n* for non-negative integers *n*.  Assume that *x^0=1*.  Put this function in a program with a `main()` function.  Your program should prompt the user for two integer values, and raise the first to the power of the second by calling your `xton()` function.  You do not need to handle any edge cases (e.g. integer overflow), as that is not the purpose of this lab.
 
 The file should be called xToN.cpp, and should be submitted to the pre-lab 1 assignment in the submission system -- more details below.
 
