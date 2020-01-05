@@ -55,33 +55,33 @@ Pre-lab
 
 Complete [Tutorial 1: Introduction to UNIX](../../tutorials/01-intro-unix/index.html) before proceeding.
 
-Below is a sample function with a `main()` function that calls it.  You may find this example helpful in writing your function to compute *x^n* and the `main()` function to call it.
-
-```
-#include <iostream>
-using namespace std;
-
-int foo (int a, int b) {
-    int tmp = a;
-    tmp += b;
-    return tmp;
-}
-
-int main( ) {
-    int x, y, z;
-    cin >> x;
-    cin >> y;
-    z = foo (x, y);
-    cout << x << " + " << y << " = " << z << endl;
-    return 0;
-}
-```
-
 For the pre-lab, you will need to write a **recursive** function called `xton()` to compute *x^n* for non-negative integers *n*.  Assume that *x^0=1*.  Put this function in a program with a `main()` function.  Your program should prompt the user for two integer values, and raise the first to the power of the second by calling your `xton()` function.
 
 The file should be called xToN.cpp, and should be submitted to the pre-lab 1 assignment in the submission system -- more details below.
 
 Note that your program should take in **exactly two inputs and nothing else**.  We are going to run it through an automated grading script prior to the TAs grading it -- if your program takes in a different number of inputs, you will receive points off.
+
+To help you out, we have provided an example C++ file below.  You may find this example helpful in writing your function to compute *x^n* and the `main()` function to call it.
+
+```
+#include <iostream>
+using namespace std;
+
+int sum (int a, int b) {
+    int tmp = a;
+    tmp += b;
+    return tmp;
+}
+
+int main () {
+    int x, y, z;
+    cin >> x;
+    cin >> y;
+    z = sum (x, y);
+    cout << x << " + " << y << " = " << z << endl;
+    return 0;
+}
+```
 
 Lastly, take a look at the object life-cycle code ([lifecycle.cpp](lifecycle.cpp.html) ([src](lifecycle.cpp))).  Use it as a mechanism for understanding how various aspects of C++ work and try stepping through it by hand.  Use the [readings](../../docs/readings.html), the web, and any other C++ references to help you look up parts of the program you do not understand.
 
