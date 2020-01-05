@@ -25,9 +25,9 @@ Part II: A Tale of Two GUIs
 
 When you install Linux, there are a number of graphical user interfaces -- or window managers -- that one can use.  Think of how MS Windows is different than macOS, and you get the idea.  There are two relevant ones here.
 
-*KDE* is designed to be similar to Microsoft Windows -- it has the equivalent of the start button in the lower left, which pulls up a menu just like in Windows.  People who are both familiar with, prefer, the Windows interface often also prefer this interface.  You can see a screen shot of it [here](https://www.kde.org/announcements/4.2/screenshots/desktop.png).
+*KDE* is designed to be similar to Microsoft Windows -- it has the equivalent of the start button in the lower left, which pulls up a menu just like in Windows.  People who are both familiar with, and prefer, the Windows interface often also prefer this interface.  You can see a screen shot of it [here](https://kde.org/announcements/plasma-5.12/window-shadows.png).
 
-*Gnome* (pronounced guh-NOME) is a user interface that is specific to UNIX machines.  The interactions with the GUI are a bit different, but the same concepts.  One can interact with Gnome really quickly once one gets used to the new interface.  You can see a screen shot of it [here](https://www.distroscreens.com/2017/03/manjaro-170-gellivara-gnome-screenshots.html).
+*Gnome* (pronounced guh-NOME) is a user interface that is specific to UNIX machines.  The interactions with the GUI are a bit different, but the same concepts.  One can interact with Gnome really quickly once one gets used to the new interface.  You can see a screen shot of it [here](https://149366088.v2.pressablecdn.com/wp-content/uploads/2018/04/ubuntu-1804-desktop-screenshot.jpg).
 
 The reason this is relevant is that your choice of how you will use a UNIX environment will determine which interface you use.  The VirtualBox image has *both* Gnome and KDE (see below for how to switch between them).  KDE is more similar to the Windows interface (a "start" menu in the lower-left, etc.), but many people find Gnome more productive once they get used to it.
 
