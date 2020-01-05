@@ -114,20 +114,20 @@ This class represents the list data structure containing ListNodes.  It has a po
 
 - `List()` is the default constructor.  It should initialize all private data members and set up the basic list structure with the dummy head and tail nodes.
 - `~List()` is the destructor.  It should make the list empty and reclaim the memory allocated in the constructor for head and tail.
-- `List& operator=(const List& source)` is the **copy assignment operator**.  It is called when code such as the following is encountered: lhs = rhs.  The copy assignment operator that you implement will copy the contents of every ListNode in source into this (the reference to the calling List object itself).
-- `List(const List& source)` is the **copy constructor**.  This will create a new list of ListNodes whose contents are the same values as the ListNodes in source.
+- `List(const List& source)` is the **copy constructor**.  It is called when code such as the following is encountered: `List list2 = list1`.  This will create a **new** list of ListNodes whose contents are the same values as the ListNodes in `source`.
+- `List& operator=(const List& source)` is the **copy assignment operator**.  It is called when code such as the following is encountered: `list2 = list1`.  The copy assignment operator that you implement will copy the contents of every ListNode in `source` into an **existing** list (the reference to the calling List object itself).
 - `bool isEmpty()` returns true if the list is empty and false otherwise.
 - `void makeEmpty()` removes/reclaims all items from a list, except the dummy head and tail nodes.
-- `ListItr first()` returns an iterator that points to the ListNode in the first position.  This is the element **after** the head ListNode (even on an empty list!).
-- `ListItr last()` returns an iterator that points to the ListNode in the last position.  This is the element **before** the tail node (even on an empty list!).
-- `void insertAfter(int x, ListItr position)` inserts x **after** the current iterator position position.
-- `void insertBefore(int x, ListItr position)` inserts x **before** the current iterator position position.
+- `ListItr first()` returns an iterator that points to the first ListNode **after** the dummy head node (even on an empty list!).
+- `ListItr last()` returns an iterator that points to the last ListNode **before** the dummy tail node (even on an empty list!).
+- `void insertAfter(int x, ListItr position)` inserts x **after** the current iterator position.
+- `void insertBefore(int x, ListItr position)` inserts x **before** the current iterator position.
 - `void insertAtTail(int x)` inserts x at the tail of the list.
-- `ListItr find(int x)` returns an iterator that points to the first occurrence of x.  When the parameter is not in the list, return a ListItr object, where the current pointer points to the dummy tail node.  This makes sense because you can test the return from find() to see if isPastEnd() is true.
+- `ListItr find(int x)` returns an iterator that points to the first occurrence of x.  When the parameter is not in the list, return a ListItr object that points to the dummy tail node.  This makes sense because you can test the return from find() to see if isPastEnd() is true.
 - `void remove(int x)` removes the first occurrence of x.
 - `int size()` returns the number of elements in the list.
 
-In addition, you must implement this non-List member function: void `printList(List& theList, bool forward)` is a **non-member function** that prints a list either forwards (by default -- from head to tail) when forward is true, or backwards (from tail to head) when forward is false.  *You must use your ListItr class to implement this function.*
+In addition, you must implement this non-List member function: void `printList(List& theList, bool forward)` is a **non-member function** that prints a list either forwards (by default -- from head to tail) when `forward` is true, or backwards (from tail to head) when `forward` is false.  *You must use your ListItr class to implement this function.*
 
 ### Some of the harder methods... ###
 
@@ -135,23 +135,30 @@ The code for the copy constructor and the `operator=()` method in the List class
 
 ```
 List::List(const List& source) {      // Copy Constructor
-    head=new ListNode;
-    tail=new ListNode;
+    head=new ListNode();
+    tail=new ListNode();
     head->next=tail;
     tail->previous=head;
     count=0;
+
+    // Make a deep copy of the list
     ListItr iter(source.head->next);
-    while (!iter.isPastEnd()) {       // deep copy of the list
+    while (!iter.isPastEnd()) {
         insertAtTail(iter.retrieve());
         iter.moveForward();
     }
 }
 
-List& List::operator=(const List& source) { //Equals operator
-    if (this == &source)
+List& List::operator=(const List& source) { // Copy assignment operator
+    if (this == &source) {
+        // The two are the same list; no need to do anything
         return *this;
-    else {
+    } else {
+        // Clear out anything this list contained
+        // before copying over the items from the other list
         makeEmpty();
+
+        // Make a deep copy of the list
         ListItr iter(source.head->next);
         while (!iter.isPastEnd()) {
             insertAtTail(iter.retrieve());
