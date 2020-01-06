@@ -114,78 +114,9 @@ A ListNode contains an integer value, as well as next and previous pointers to o
 
 This class represents the list data structure containing ListNodes.  It has a pointer to the first (head) and last (tail) ListNodes of the list, as well as a count of the number of ListNodes in the List.  View the [List.h](List.h.html) ([src](List.h)) code for details.
 
-### Explanations: ###
-
-- `List()` is the default constructor.  It should initialize all private data members and set up the basic list structure with the dummy head and tail nodes.
-- `~List()` is the destructor.  It should make the list empty and reclaim the memory allocated in the constructor for head and tail.
-- `List(const List& source)` is the **copy constructor**.  It is called when code such as the following is encountered: `List list2 = list1`.  This will create a **new** list of ListNodes whose contents are the same values as the ListNodes in `source`.
-- `List& operator=(const List& source)` is the **copy assignment operator**.  It is called when code such as the following is encountered: `list2 = list1`.  The copy assignment operator that you implement will copy the contents of every ListNode in `source` into an **existing** list (the reference to the calling List object itself).
-- `bool isEmpty()` returns true if the list is empty and false otherwise.
-- `void makeEmpty()` removes/reclaims all items from a list, except the dummy head and tail nodes.
-- `ListItr first()` returns an iterator that points to the first ListNode **after** the dummy head node (even on an empty list!).
-- `ListItr last()` returns an iterator that points to the last ListNode **before** the dummy tail node (even on an empty list!).
-- `void insertAfter(int x, ListItr position)` inserts x **after** the current iterator position.
-- `void insertBefore(int x, ListItr position)` inserts x **before** the current iterator position.
-- `void insertAtTail(int x)` inserts x at the tail of the list.
-- `ListItr find(int x)` returns an iterator that points to the first occurrence of x.  When the parameter is not in the list, return a ListItr object that points to the dummy tail node.  This makes sense because you can test the return from find() to see if isPastEnd() is true.
-- `void remove(int x)` removes the first occurrence of x.
-- `int size()` returns the number of elements in the list.
-
-In addition, you must implement this non-List member function: void `printList(List& theList, bool forward)` is a **non-member function** that prints a list either forwards (by default -- from head to tail) when `forward` is true, or backwards (from tail to head) when `forward` is false.  *You must use your ListItr class to implement this function.*
-
-### Some of the harder methods... ###
-
-The code for the copy constructor and the `operator=()` method in the List class are shown below.  Although we are providing you with this code, you must understand how it works by the end of the lab, as you will have to implement these types of methods on future labs and exams.
-
-```
-List::List(const List& source) {      // Copy Constructor
-    head=new ListNode();
-    tail=new ListNode();
-    head->next=tail;
-    tail->previous=head;
-    count=0;
-
-    // Make a deep copy of the list
-    ListItr iter(source.head->next);
-    while (!iter.isPastEnd()) {
-        insertAtTail(iter.retrieve());
-        iter.moveForward();
-    }
-}
-
-List& List::operator=(const List& source) { // Copy assignment operator
-    if (this == &source) {
-        // The two are the same list; no need to do anything
-        return *this;
-    } else {
-        // Clear out anything this list contained
-        // before copying over the items from the other list
-        makeEmpty();
-
-        // Make a deep copy of the list
-        ListItr iter(source.head->next);
-        while (!iter.isPastEnd()) {
-            insertAtTail(iter.retrieve());
-            iter.moveForward();
-        }
-    }
-    return *this;
-}
-```
-
-Note that these two methods are correctly implemented.  However, they depend on the other methods working properly.  If you are seeing crashes in these methods, it is likely because some of the other supporting methods are not working properly.  One common issue is to ensure that `makeEmpty()` has `head->next` pointing to tail, and `tail->previous` pointing to head.  If they are causing a crash in your program, then it is likely being caused by one of the methods that they invoke.
-
 ### ListItr ###
 
 Your ListItr should maintain a pointer to a current position in a List.  Your iterator class should look like the class definition in the source code.  See the [ListItr.h](ListItr.h.html) ([src](ListItr.h)) code for details.
-
-Your ListItr class should implement at least the following public methods:
-
-- `bool isPastEnd()`: Returns true if the iterator is currently pointing past the end position in the list (i.e., it's pointing to the dummy tail)
-- `bool isPastBeginning()`: Returns true if the iterator is currently pointing past(before) the first position in list (i.e., it's pointing to the dummy head)
-- `void moveForward()`: Advances the current pointer to the next position in the list (unless already past the end of the list)
-- `void moveBackward()`: Move current back to the previous position in the list (unless already past the beginning of the list)
-- `int retrieve()`: Returns the value of the item in the current position of the list
 
 ### Hints ###
 
@@ -216,6 +147,58 @@ This means that `head` and `tail` need to be set appropriately!  What should the
 Make sure you are initializing the variables that are specified in the .h file and **not** declaring new variables that have the same name as those in the header file.
 Take a look back at lifecycle.cpp's constructors from Lab 1 if you need a refresher.
 
+#### The copy constructor and the copy assignment operator ####
+
+The code for the copy constructor and the `operator=()` method in the List class are shown below.
+Although we are providing you with this code, you must understand how it works by the end of the lab,
+as you will have to implement these types of methods on future labs and exams.
+It also might help you with some of the other methods! (Hint hint.)
+
+```
+// Copy constructor
+// Called when the code looks something like List list2 = list1;
+// (In other words, it is called when you are trying to construct a **new** list from an existing one)
+List::List(const List& source) {
+    head=new ListNode();
+    tail=new ListNode();
+    head->next=tail;
+    tail->previous=head;
+    count=0;
+
+    // Make a deep copy of the list
+    ListItr iter(source.head->next);
+    while (!iter.isPastEnd()) {
+        insertAtTail(iter.retrieve());
+        iter.moveForward();
+    }
+}
+
+// Copy assignment operator
+// Called when the code looks something like list2 = list1;
+// (In other words, it is called when you are trying to set an **existing** list equal to another one)
+List& List::operator=(const List& source) {
+    if (this == &source) {
+        // The two are the same list; no need to do anything
+        return *this;
+    } else {
+        // Clear out anything this list contained
+        // before copying over the items from the other list
+        makeEmpty();
+
+        // Make a deep copy of the list
+        ListItr iter(source.head->next);
+        while (!iter.isPastEnd()) {
+            insertAtTail(iter.retrieve());
+            iter.moveForward();
+        }
+    }
+    return *this;
+}
+```
+
+Note that these two methods are correctly implemented.  However, they depend on the other methods working properly.
+If you are seeing crashes in these methods, it is likely because some of the other supporting methods are not working properly.
+
 #### Insert methods ####
 When implementing the three insert functions, we have found it helpful to draw out the pointers on paper and determine the order in which to update the pointers _before_ beginning to code the function itself.
 
@@ -225,10 +208,12 @@ If you find yourself thinking about loops or iteration, that is unnecessary!  Do
 
 #### Find and remove ####
 Since `find` needs to return a ListItr, it might make sense to also implement it using iterators, though that is not required.
+
 As `remove` takes in an integer rather than a ListItr, we first need to determine whether or not that integer exists in our list.
 
 #### makeEmpty and the destructor ####
 `makeEmpty` should clear the list of all elements (`isEmpty` should return true after calling `makeEmpty`).
+It should also make sure that `head` and `tail` no longer point to those deleted elements (what should they point to instead in an empty list?).\
 Since we have been dynamically allocating ListNodes, we must also be responsible for deleting them to ensure we do not leak memory.
 There are multiple ways to iterate through the list and `delete` each ListNode -- experiment and see what makes the most sense to you.\
 **Important:** once you delete a ListNode, you can no longer reliably access any of its data, such as its `next` or `previous` pointers!

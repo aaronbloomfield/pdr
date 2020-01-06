@@ -21,13 +21,26 @@ http://www.gnu.org/software/src-highlite">
 
 <b><span style="color:#0000FF">class</span></b> <span style="color:#008080">ListItr</span> <span style="color:#FF0000">{</span>
 <b><span style="color:#0000FF">public</span></b><span style="color:#990000">:</span>
-    <b><span style="color:#000000">ListItr</span></b><span style="color:#990000">();</span>                    <i><span style="color:#9A1900">// Constructor</span></i>
-    <b><span style="color:#000000">ListItr</span></b><span style="color:#990000">(</span>ListNode<span style="color:#990000">*</span> theNode<span style="color:#990000">);</span>   <i><span style="color:#9A1900">// One parameter constructor</span></i>
-    <span style="color:#009900">bool</span> <b><span style="color:#000000">isPastEnd</span></b><span style="color:#990000">()</span> <b><span style="color:#0000FF">const</span></b><span style="color:#990000">;</span>       <i><span style="color:#9A1900">// Returns true if past end position in list, else false</span></i>
-    <span style="color:#009900">bool</span> <b><span style="color:#000000">isPastBeginning</span></b><span style="color:#990000">()</span> <b><span style="color:#0000FF">const</span></b><span style="color:#990000">;</span> <i><span style="color:#9A1900">// Returns true if past first position in list, else false</span></i>
-    <span style="color:#009900">void</span> <b><span style="color:#000000">moveForward</span></b><span style="color:#990000">();</span>           <i><span style="color:#9A1900">// Advances current to next position in list (unless already past end of list)</span></i>
-    <span style="color:#009900">void</span> <b><span style="color:#000000">moveBackward</span></b><span style="color:#990000">();</span>          <i><span style="color:#9A1900">// Moves current back to previous position in list (unless already past beginning of list)</span></i>
-    <span style="color:#009900">int</span> <b><span style="color:#000000">retrieve</span></b><span style="color:#990000">()</span> <b><span style="color:#0000FF">const</span></b><span style="color:#990000">;</span>         <i><span style="color:#9A1900">// Returns item in current position</span></i>
+    <i><span style="color:#9A1900">// Constructors</span></i>
+    <b><span style="color:#000000">ListItr</span></b><span style="color:#990000">();</span>
+    <b><span style="color:#000000">ListItr</span></b><span style="color:#990000">(</span>ListNode<span style="color:#990000">*</span> theNode<span style="color:#990000">);</span>
+
+    <i><span style="color:#9A1900">// Returns true if the iterator is currently pointing past the end position</span></i>
+    <i><span style="color:#9A1900">// in the list (i.e., it's pointing to the dummy tail), else false</span></i>
+    <span style="color:#009900">bool</span> <b><span style="color:#000000">isPastEnd</span></b><span style="color:#990000">()</span> <b><span style="color:#0000FF">const</span></b><span style="color:#990000">;</span>
+
+    <i><span style="color:#9A1900">// Returns true if the iterator is currently pointing past (before) the first position</span></i>
+    <i><span style="color:#9A1900">// in list (i.e., it's pointing to the dummy head), else false</span></i>
+    <span style="color:#009900">bool</span> <b><span style="color:#000000">isPastBeginning</span></b><span style="color:#990000">()</span> <b><span style="color:#0000FF">const</span></b><span style="color:#990000">;</span>
+
+    <i><span style="color:#9A1900">// Advances `current` to the next position in the list (unless already past the end of the list)</span></i>
+    <span style="color:#009900">void</span> <b><span style="color:#000000">moveForward</span></b><span style="color:#990000">();</span>
+
+    <i><span style="color:#9A1900">// Moves `current` back to the previous position in the list (unless already past the beginning of the list)</span></i>
+    <span style="color:#009900">void</span> <b><span style="color:#000000">moveBackward</span></b><span style="color:#990000">();</span>
+
+    <i><span style="color:#9A1900">// Returns the value of the item in the current position of the list</span></i>
+    <span style="color:#009900">int</span> <b><span style="color:#000000">retrieve</span></b><span style="color:#990000">()</span> <b><span style="color:#0000FF">const</span></b><span style="color:#990000">;</span>
 
 <b><span style="color:#0000FF">private</span></b><span style="color:#990000">:</span>
     ListNode<span style="color:#990000">*</span> current<span style="color:#990000">;</span> <i><span style="color:#9A1900">// Holds the position in the list</span></i>

@@ -22,20 +22,57 @@ class ListItr;
 
 class List {
 public:
-    List();                                     // Constructor
-    List(const List& source);                   // Copy constructor
-    ~List();                                    // Destructor
-    List& operator=(const List& source);        // Copy assignment operator
-    bool isEmpty() const;                       // Returns true if empty; else false
-    void makeEmpty();                           // Removes all items except blank head and tail
-    ListItr first();                            // Returns an iterator that points to the ListNode in the first position
-    ListItr last();                             // Returns an iterator that points to the ListNode in the last position
-    void insertAfter(int x, ListItr position);  // Inserts x after current iterator position
-    void insertBefore(int x, ListItr position); // Inserts x before current iterator position
-    void insertAtTail(int x);                   // Inserts x at tail of list
-    ListItr find(int x);                        // Returns an iterator that points to the first occurrence of x or the dummy tail if not found
-    void remove(int x);                         // Removes the first occurrence of x
-    int size() const;                           // Returns the number of elements in the list
+    // The default constructor.
+    // It should initialize all private data members
+    // and set up the basic list structure with the dummy head and tail nodes.
+    List();
+
+    // The copy constructor.
+    // It should create a **new** list of ListNodes whose contents
+    // are the same values as the ListNodes in `source`.
+    List(const List& source);
+
+    // The destructor.
+    // It should empty the list and reclaim the memory allocated in the constructor for head and tail.
+    ~List();
+
+    // The copy assignment operator.
+    // It should copy the contents of every ListNode in `source`
+    // into an **existing** list (the reference to the calling List object itself).
+    List& operator=(const List& source);
+
+    // Returns true if empty, else false
+    bool isEmpty() const;
+
+    // Removes (deletes) all items except the dummy head/tail.
+    // The list should be a working empty list after this.
+    void makeEmpty();
+
+    // Returns an iterator that points to the first ListNode **after** the dummy head node (even on an empty list!)
+    ListItr first();
+
+    // Returns an iterator that points to the last ListNode **before** the dummy tail node (even on an empty list!)
+    ListItr last();
+
+    // Inserts x after current iterator position
+    void insertAfter(int x, ListItr position);
+
+    // Inserts x before current iterator position
+    void insertBefore(int x, ListItr position);
+
+    // Inserts x at tail of list
+    void insertAtTail(int x);
+
+    // Returns an iterator that points to the first occurrence of x.
+    // When the parameter is not in the list, return a ListItr object that points to the dummy tail node.
+    // This makes sense because you can test the return from find() to see if isPastEnd() is true.
+    ListItr find(int x);
+
+    // Removes the first occurrence of x
+    void remove(int x);
+
+    // Returns the number of elements in the list
+    int size() const;
 
 private:
     ListNode *head, *tail; // Dummy nodes for beginning and end of the list
@@ -44,8 +81,9 @@ private:
 };
 
 // printList: non-member function prototype
-// prints list forwards when forward is true
-// or backwards when forward is false
+// prints list forwards (head -> tail) when forward is true
+// or backwards (tail -> head) when forward is false
+// You **must** use your ListItr class to implement this function!
 void printList(List& source, bool forward);
 
 #endif

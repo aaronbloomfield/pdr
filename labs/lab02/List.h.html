@@ -33,20 +33,57 @@ http://www.gnu.org/software/src-highlite">
 
 <b><span style="color:#0000FF">class</span></b> <span style="color:#008080">List</span> <span style="color:#FF0000">{</span>
 <b><span style="color:#0000FF">public</span></b><span style="color:#990000">:</span>
-    <b><span style="color:#000000">List</span></b><span style="color:#990000">();</span>                                     <i><span style="color:#9A1900">// Constructor</span></i>
-    <b><span style="color:#000000">List</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> List<span style="color:#990000">&amp;</span> source<span style="color:#990000">);</span>                   <i><span style="color:#9A1900">// Copy constructor</span></i>
-    <span style="color:#990000">~</span><b><span style="color:#000000">List</span></b><span style="color:#990000">();</span>                                    <i><span style="color:#9A1900">// Destructor</span></i>
-    List<span style="color:#990000">&amp;</span> <b><span style="color:#0000FF">operator</span></b><span style="color:#990000">=(</span><b><span style="color:#0000FF">const</span></b> List<span style="color:#990000">&amp;</span> source<span style="color:#990000">);</span>        <i><span style="color:#9A1900">// Copy assignment operator</span></i>
-    <span style="color:#009900">bool</span> <b><span style="color:#000000">isEmpty</span></b><span style="color:#990000">()</span> <b><span style="color:#0000FF">const</span></b><span style="color:#990000">;</span>                       <i><span style="color:#9A1900">// Returns true if empty; else false</span></i>
-    <span style="color:#009900">void</span> <b><span style="color:#000000">makeEmpty</span></b><span style="color:#990000">();</span>                           <i><span style="color:#9A1900">// Removes all items except blank head and tail</span></i>
-    <span style="color:#008080">ListItr</span> <b><span style="color:#000000">first</span></b><span style="color:#990000">();</span>                            <i><span style="color:#9A1900">// Returns an iterator that points to the ListNode in the first position</span></i>
-    <span style="color:#008080">ListItr</span> <b><span style="color:#000000">last</span></b><span style="color:#990000">();</span>                             <i><span style="color:#9A1900">// Returns an iterator that points to the ListNode in the last position</span></i>
-    <span style="color:#009900">void</span> <b><span style="color:#000000">insertAfter</span></b><span style="color:#990000">(</span><span style="color:#009900">int</span> x<span style="color:#990000">,</span> <span style="color:#008080">ListItr</span> position<span style="color:#990000">);</span>  <i><span style="color:#9A1900">// Inserts x after current iterator position</span></i>
-    <span style="color:#009900">void</span> <b><span style="color:#000000">insertBefore</span></b><span style="color:#990000">(</span><span style="color:#009900">int</span> x<span style="color:#990000">,</span> <span style="color:#008080">ListItr</span> position<span style="color:#990000">);</span> <i><span style="color:#9A1900">// Inserts x before current iterator position</span></i>
-    <span style="color:#009900">void</span> <b><span style="color:#000000">insertAtTail</span></b><span style="color:#990000">(</span><span style="color:#009900">int</span> x<span style="color:#990000">);</span>                   <i><span style="color:#9A1900">// Inserts x at tail of list</span></i>
-    <span style="color:#008080">ListItr</span> <b><span style="color:#000000">find</span></b><span style="color:#990000">(</span><span style="color:#009900">int</span> x<span style="color:#990000">);</span>                        <i><span style="color:#9A1900">// Returns an iterator that points to the first occurrence of x or the dummy tail if not found</span></i>
-    <span style="color:#009900">void</span> <b><span style="color:#000000">remove</span></b><span style="color:#990000">(</span><span style="color:#009900">int</span> x<span style="color:#990000">);</span>                         <i><span style="color:#9A1900">// Removes the first occurrence of x</span></i>
-    <span style="color:#009900">int</span> <b><span style="color:#000000">size</span></b><span style="color:#990000">()</span> <b><span style="color:#0000FF">const</span></b><span style="color:#990000">;</span>                           <i><span style="color:#9A1900">// Returns the number of elements in the list</span></i>
+    <i><span style="color:#9A1900">// The default constructor.</span></i>
+    <i><span style="color:#9A1900">// It should initialize all private data members</span></i>
+    <i><span style="color:#9A1900">// and set up the basic list structure with the dummy head and tail nodes.</span></i>
+    <b><span style="color:#000000">List</span></b><span style="color:#990000">();</span>
+
+    <i><span style="color:#9A1900">// The copy constructor.</span></i>
+    <i><span style="color:#9A1900">// It should create a **new** list of ListNodes whose contents</span></i>
+    <i><span style="color:#9A1900">// are the same values as the ListNodes in `source`.</span></i>
+    <b><span style="color:#000000">List</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> List<span style="color:#990000">&amp;</span> source<span style="color:#990000">);</span>
+
+    <i><span style="color:#9A1900">// The destructor.</span></i>
+    <i><span style="color:#9A1900">// It should empty the list and reclaim the memory allocated in the constructor for head and tail.</span></i>
+    <span style="color:#990000">~</span><b><span style="color:#000000">List</span></b><span style="color:#990000">();</span>
+
+    <i><span style="color:#9A1900">// The copy assignment operator.</span></i>
+    <i><span style="color:#9A1900">// It should copy the contents of every ListNode in `source`</span></i>
+    <i><span style="color:#9A1900">// into an **existing** list (the reference to the calling List object itself).</span></i>
+    List<span style="color:#990000">&amp;</span> <b><span style="color:#0000FF">operator</span></b><span style="color:#990000">=(</span><b><span style="color:#0000FF">const</span></b> List<span style="color:#990000">&amp;</span> source<span style="color:#990000">);</span>
+
+    <i><span style="color:#9A1900">// Returns true if empty, else false</span></i>
+    <span style="color:#009900">bool</span> <b><span style="color:#000000">isEmpty</span></b><span style="color:#990000">()</span> <b><span style="color:#0000FF">const</span></b><span style="color:#990000">;</span>
+
+    <i><span style="color:#9A1900">// Removes (deletes) all items except the dummy head/tail.</span></i>
+    <i><span style="color:#9A1900">// The list should be a working empty list after this.</span></i>
+    <span style="color:#009900">void</span> <b><span style="color:#000000">makeEmpty</span></b><span style="color:#990000">();</span>
+
+    <i><span style="color:#9A1900">// Returns an iterator that points to the first ListNode **after** the dummy head node (even on an empty list!)</span></i>
+    <span style="color:#008080">ListItr</span> <b><span style="color:#000000">first</span></b><span style="color:#990000">();</span>
+
+    <i><span style="color:#9A1900">// Returns an iterator that points to the last ListNode **before** the dummy tail node (even on an empty list!)</span></i>
+    <span style="color:#008080">ListItr</span> <b><span style="color:#000000">last</span></b><span style="color:#990000">();</span>
+
+    <i><span style="color:#9A1900">// Inserts x after current iterator position</span></i>
+    <span style="color:#009900">void</span> <b><span style="color:#000000">insertAfter</span></b><span style="color:#990000">(</span><span style="color:#009900">int</span> x<span style="color:#990000">,</span> <span style="color:#008080">ListItr</span> position<span style="color:#990000">);</span>
+
+    <i><span style="color:#9A1900">// Inserts x before current iterator position</span></i>
+    <span style="color:#009900">void</span> <b><span style="color:#000000">insertBefore</span></b><span style="color:#990000">(</span><span style="color:#009900">int</span> x<span style="color:#990000">,</span> <span style="color:#008080">ListItr</span> position<span style="color:#990000">);</span>
+
+    <i><span style="color:#9A1900">// Inserts x at tail of list</span></i>
+    <span style="color:#009900">void</span> <b><span style="color:#000000">insertAtTail</span></b><span style="color:#990000">(</span><span style="color:#009900">int</span> x<span style="color:#990000">);</span>
+
+    <i><span style="color:#9A1900">// Returns an iterator that points to the first occurrence of x.</span></i>
+    <i><span style="color:#9A1900">// When the parameter is not in the list, return a ListItr object that points to the dummy tail node.</span></i>
+    <i><span style="color:#9A1900">// This makes sense because you can test the return from find() to see if isPastEnd() is true.</span></i>
+    <span style="color:#008080">ListItr</span> <b><span style="color:#000000">find</span></b><span style="color:#990000">(</span><span style="color:#009900">int</span> x<span style="color:#990000">);</span>
+
+    <i><span style="color:#9A1900">// Removes the first occurrence of x</span></i>
+    <span style="color:#009900">void</span> <b><span style="color:#000000">remove</span></b><span style="color:#990000">(</span><span style="color:#009900">int</span> x<span style="color:#990000">);</span>
+
+    <i><span style="color:#9A1900">// Returns the number of elements in the list</span></i>
+    <span style="color:#009900">int</span> <b><span style="color:#000000">size</span></b><span style="color:#990000">()</span> <b><span style="color:#0000FF">const</span></b><span style="color:#990000">;</span>
 
 <b><span style="color:#0000FF">private</span></b><span style="color:#990000">:</span>
     <span style="color:#008080">ListNode</span> <span style="color:#990000">*</span>head<span style="color:#990000">,</span> <span style="color:#990000">*</span>tail<span style="color:#990000">;</span> <i><span style="color:#9A1900">// Dummy nodes for beginning and end of the list</span></i>
@@ -55,8 +92,9 @@ http://www.gnu.org/software/src-highlite">
 <span style="color:#FF0000">}</span><span style="color:#990000">;</span>
 
 <i><span style="color:#9A1900">// printList: non-member function prototype</span></i>
-<i><span style="color:#9A1900">// prints list forwards when forward is true</span></i>
-<i><span style="color:#9A1900">// or backwards when forward is false</span></i>
+<i><span style="color:#9A1900">// prints list forwards (head -&gt; tail) when forward is true</span></i>
+<i><span style="color:#9A1900">// or backwards (tail -&gt; head) when forward is false</span></i>
+<i><span style="color:#9A1900">// You **must** use your ListItr class to implement this function!</span></i>
 <span style="color:#009900">void</span> <b><span style="color:#000000">printList</span></b><span style="color:#990000">(</span>List<span style="color:#990000">&amp;</span> source<span style="color:#990000">,</span> <span style="color:#009900">bool</span> forward<span style="color:#990000">);</span>
 
 <b><span style="color:#000080">#endif</span></b>

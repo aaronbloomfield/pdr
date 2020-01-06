@@ -10,13 +10,26 @@
 
 class ListItr {
 public:
-    ListItr();                    // Constructor
-    ListItr(ListNode* theNode);   // One parameter constructor
-    bool isPastEnd() const;       // Returns true if past end position in list, else false
-    bool isPastBeginning() const; // Returns true if past first position in list, else false
-    void moveForward();           // Advances current to next position in list (unless already past end of list)
-    void moveBackward();          // Moves current back to previous position in list (unless already past beginning of list)
-    int retrieve() const;         // Returns item in current position
+    // Constructors
+    ListItr();
+    ListItr(ListNode* theNode);
+
+    // Returns true if the iterator is currently pointing past the end position
+    // in the list (i.e., it's pointing to the dummy tail), else false
+    bool isPastEnd() const;
+
+    // Returns true if the iterator is currently pointing past (before) the first position
+    // in list (i.e., it's pointing to the dummy head), else false
+    bool isPastBeginning() const;
+
+    // Advances `current` to the next position in the list (unless already past the end of the list)
+    void moveForward();
+
+    // Moves `current` back to the previous position in the list (unless already past the beginning of the list)
+    void moveBackward();
+
+    // Returns the value of the item in the current position of the list
+    int retrieve() const;
 
 private:
     ListNode* current; // Holds the position in the list
