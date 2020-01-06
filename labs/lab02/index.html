@@ -176,8 +176,19 @@ Since we have been dynamically allocating ListNodes, we must also be responsible
 <p>There are ways to compile these programs in pieces, but we will see this later in the semester.</p>
 <p>Linker errors are commonly caused by one of two problems:</p>
 <ul>
-<li><code>Undefined symbols for architecture...</code> means that you forgot to implement the functions listed below that line, or that you forgot to compile all four files together.</li>
-<li><code>Duplicate symbol...</code> means that you have defined the same function more than once. Make sure you're only including <code>.h</code> files and that you haven't accidentally redefined a function somewhere.</li>
+<li><p><code>Undefined symbols for architecture...</code> or <code>Undefined reference to...</code> means that you forgot to implement some functions, or that you forgot to compile all four files together. Here's an example:</p>
+<pre><code>/tmp/ListTest-8ea7aa.o: In function `main&#39;:
+ListTest.cpp:(.text+0x37c): undefined reference to `List::List()&#39;
+ListTest.cpp:(.text+0x116d): undefined reference to `List::insertBefore(int, ListItr)&#39;
+ListTest.cpp:(.text+0x1d34): undefined reference to `List::List()&#39;
+clang: error: linker command failed with exit code 1 (use -v to see invocation)</code></pre>
+<p>Looks like we forgot to implement the List constructor and insertBefore!</p></li>
+<li><p><code>Duplicate symbol...</code> or <code>Multiple definition of...</code> means that you have defined the same function more than once. Make sure you're only including <code>.h</code> files and that you haven't accidentally redefined a function somewhere. Here's an example:</p>
+<pre><code>/tmp/ListItr-6e3849.o: In function `List::insertBefore(int, ListItr)&#39;:
+ListItr.cpp:(.text+0x120): multiple definition of `List::insertBefore(int, ListItr)&#39;
+/tmp/List-2e4fcd.o:List.cpp:(.text+0x5d0): first defined here
+clang: error: linker command failed with exit code 1 (use -v to see invocation)</code></pre>
+<p>This time, we defined insertBefore twice -- once in ListItr, and once in List. The one in ListItr must be a mistake!</p></li>
 </ul>
 <hr />
 <h2 id="in-lab-1">In-lab</h2>

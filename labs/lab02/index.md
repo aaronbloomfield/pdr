@@ -229,8 +229,25 @@ There are ways to compile these programs in pieces, but we will see this later i
 
 Linker errors are commonly caused by one of two problems:
 
-- `Undefined symbols for architecture...` means that you forgot to implement the functions listed below that line, or that you forgot to compile all four files together.
-- `Duplicate symbol...` means that you have defined the same function more than once. Make sure you're only including `.h` files and that you haven't accidentally redefined a function somewhere.
+- `Undefined symbols for architecture...` or `Undefined reference to...` means that you forgot to implement some functions, or that you forgot to compile all four files together. Here's an example:
+```
+/tmp/ListTest-8ea7aa.o: In function `main':
+ListTest.cpp:(.text+0x37c): undefined reference to `List::List()'
+ListTest.cpp:(.text+0x116d): undefined reference to `List::insertBefore(int, ListItr)'
+ListTest.cpp:(.text+0x1d34): undefined reference to `List::List()'
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+```
+Looks like we forgot to implement the List constructor and insertBefore!
+
+- `Duplicate symbol...` or `Multiple definition of...` means that you have defined the same function more than once. Make sure you're only including `.h` files and that you haven't accidentally redefined a function somewhere. Here's an example:
+```
+/tmp/ListItr-6e3849.o: In function `List::insertBefore(int, ListItr)':
+ListItr.cpp:(.text+0x120): multiple definition of `List::insertBefore(int, ListItr)'
+/tmp/List-2e4fcd.o:List.cpp:(.text+0x5d0): first defined here
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+```
+This time, we defined insertBefore twice -- once in ListItr, and once in List.
+The one in ListItr must be a mistake!
 
 ------------------------------------------------------------
 
