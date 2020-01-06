@@ -26,7 +26,7 @@ Procedure
 3. Write up at least one question that you still have on Unix (or things you are still confused about) into unix.questions.txt.
 4. Your code for the pre-lab will use the pre-existing standard library `stack` class.  The standard library includes a collection of useful routines analogous to the routines in Java's SDK, albeit much smaller (it contains a vector class, for example).
     - To use the stack class, just put `#include <stack>` at the top of your C++ file.
-    - Documentation on the standard library routines can be found at [https://en.cppreference.com](https://en.cppreference.com). The stack class's documentation can be found at [here](https://en.cppreference.com/w/cpp/container/stack).
+    - Documentation on the standard library routines can be found at [https://en.cppreference.com](https://en.cppreference.com). The stack class's documentation can be found [here](https://en.cppreference.com/w/cpp/container/stack).
 5. Implement a simple postfix stack calculator for integers using your stack.
     - **You should use the standard library stack class**, rather than implement your own.
     - An online description of postfix calculators can be found [on Wikipedia](https://en.wikipedia.org/wiki/Reverse_Polish_notation) -- you will need to implement this into postfixCalculator.h and postfixCalculator.cpp
