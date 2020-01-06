@@ -74,7 +74,7 @@ Pre-lab
 In this lab, you will:
 
 - Implement a stack class that handles a stack of integer numbers.  This stack implementation is done for the post-lab; for the pre-lab and the in-lab, you will be using a pre-existing stack class from C++'s standard library.
-    - Documentation on the standard library routines can be found at [http://en.cppreference.com](https://en.cppreference.com). The stack class's documentation can be found at [here](https://en.cppreference.com/w/cpp/container/stack).
+    - Documentation on the standard library routines can be found at [https://en.cppreference.com](https://en.cppreference.com). The stack class's documentation can be found [here](https://en.cppreference.com/w/cpp/container/stack).
 - Write a program that uses this class to implement a postfix calculator. This will include the following files:
     - postfixCalculator.h, which is the class declaration of the postfix calculator
     - postfixCalculator.cpp, which is the implementation of the postfix calculator
@@ -141,7 +141,7 @@ Your calculator must implement the following arithmetic operations:
 Notes: 
 
   - We use the tilde (~) as the unary negation operator -- this negates the top element of the stack, and (unlike the other four operators) does not use a second number from the stack.  Do not confuse this operator with the tilde operator in C++, which performs bitwise negation.  Negative numbers still use a regular minus sign (i.e. '-3') and just pushes the negative number on the stack.  But, if you want to do negation (which involves popping the top value, negating it, and pushing that new value back on the stack), then you would use the tilde.  
-  - For the non-commutative operators (operators where the order of the numbers matters, such as minus and divide), the first value you pop we'll call x, the second value you pop we'll call y; the result should be *y-x* or *y/x*, NOT *x-y* (or *x/y*) -- in other words, the "lower" value in the stack minus/divided by the "higher" one in the stack).
+  - For the non-commutative operators (operators where the order of the numbers matters, such as minus and divide), the first value you pop we'll call x, the second value you pop we'll call y; the result **must** be *y-x* or *y/x* -- in other words, the "lower" value in the stack minus/divided by the "higher" one in the stack.
 
 ### Useful Information ###
 
@@ -150,14 +150,30 @@ Postfix notation (also known as reverse Polish notation) involves writing the op
 - Infix: ( 3  +  6 )  -  ( 8  /  4 )
 - Postfix: 3  6  +  8  4  /  -
 
-An online description of postfix calculators can be found [on Wikipedia](http://en.wikipedia.org/wiki/Reverse_Polish_notation) - note that you do **NOT** need to print out the infix form of the postfix expression; you only need to print the final answer.  See the end of this lab for example input and expected output.
+An online description of postfix calculators can be found [on Wikipedia](http://en.wikipedia.org/wiki/Reverse_Polish_notation).
 
 ### Hints ###
 
 In the past, students have run into a few problems with this lab.  We list them here in an effort to prevent these particular problems from being encountered again.
 
-- When compiling your code, remember to compile ALL of your cpp files in the compile command: `clang++ postfixCalculator.cpp testPostfixCalc.cpp`.  Or you can use `clang++ *.cpp`
-- Remember to put `using namespace std;` at the top of EACH file you write.  Even if you don't use anything from the standard namespace, putting that at the top of the file will not hurt.
+#### Templates ####
+The C++ `stack` class is templated,
+which means it can hold whatever type you specify (think back to ArrayLists in Java).
+Since we will be using `int`s for our postfix calculator,
+we can specify that by saying `stack<int>` when declaring our stack.
+
+#### Checking if the stack is empty ####
+Given that you will need to check if the stack is empty before every `top` and `pop` call,
+it may be worth it to add helper methods to your postfix calculator that, when called,
+will perform the necessary checks before top/pop.
+
+#### Compiling ####
+When compiling your code, remember to compile ALL of your cpp files in the compile command:
+```
+clang++ postfixCalculator.cpp testPostfixCalc.cpp
+```
+
+You can also use `clang++ *.cpp` if there are no other C++ files in your directory.
 
 
 ------------------------------------------------------------
@@ -165,92 +181,65 @@ In the past, students have run into a few problems with this lab.  We list them 
 In-lab
 ------
 
-The purpose of the in-lab is first to ensure that your pre-lab code (the postfix calculator) is working properly.  Then, you will need to add keyboard input to your lab.  For the post-lab, you will be implementing your own stack.  It will be much easier to debug if you know that your calculator code works -- then, you'll know that your bugs (if any) are in your input routines or your stack code.
-
-If you finish your in-lab before the end of the lab session, start working on your post-lab.
+The purpose of the in-lab is first to ensure that your pre-lab code (the postfix calculator) is working properly.  Then, you will need to add keyboard input to your lab.  By the end of the in-lab, your postfix calculator should be able to read in a single line of space-delimited tokens representing a postfix expression and print out the result of the expression before exiting.
 
 ### Input ###
 
-For your keyboard input, your program should read in just a single line.  You should read this in using `string`s (if you are looking at building a tokenizer, then you are making it much more difficult than it need be).  Once you encounter the end of a line, you can assume that there is no more input to read in.  Your program should read in a single line, compute the result, and exit (i.e. don't prompt the user for more input).  When processing input, you can't know before you read something if it will be an operand (a numeric value) or an operator (a character), so you must read in each space-separated part into a string variable, and analyze that.
+For your keyboard input, your program should read in a single line of space-delimited tokens from standard input.  You should read this in using `string`s (if you are looking at building a tokenizer, then you are making it much more difficult than it need be).  When processing input, you can't know before you read something if it will be an operand (a numeric value) or an operator (a character), so you must read in each space-separated part into a string variable before parsing it.
 
-All input is read from standard input (i.e. `cin`)!  You should not be dealing with files for this lab.  Once you read in a line, your program should exit.  When we test your program, we will only be providing it with one line of input, so if your program is waiting for more, that will be a problem.
+You will need to accept both negative numbers (-5 for example) and numbers with multiple digits (34 is the number thirty-four, not the separate numbers three and four) -- and thus negative numbers with multiple digits (-34, for example).  No values, nor intermediate computational results, will exceed what can be stored in an `int`.
 
-You need to accept both negative numbers (-5 for example), and numbers with multiple digits (34 is the number thirty-four, not the separate numbers three and four) -- and thus negative numbers with multiple digits (-34, for example).  No values, nor intermediate computational results, will exceed what can be stored in an `int`.
-
-We provide you with a number of input files that match the input shown at the end of this lab document.  Recall that you can supply the contents of a file as input to your program (as described in the Unix tutorial):
+We provide you with a number of input files that match the input shown at the end of this lab document.  Recall that you can supply the contents of a file as input to your program via input redirection (as described in the Unix tutorial):
 
 ```
 ./a.out < addition.txt
 ```
 
-### Reading in Tokens ###
-
-A token is a single 'thing' passed to the postfix calculator.  It can be an operator or a number, but is always separated by spaces.  Thus, it is an entire number that is passed to the calculator, and not part of a number.  The following code will read in the tokens for this program.
-
-```
-#include <iostream>
-using namespace std;
-
-int main() {
-    string s;
-    while (cin >> s) {
-        cout << s << endl;
-    }
-    return 0;
-}
-```
-For the postfix calculator, each string `s` that is read in must then be processed to determine if it's a number or an operator.  The difficult part is if a minus sign is the first character of the token -- it could be a subtraction sign or the beginning of a negative number (recall that the unary negation operator is the tilde).
-
-You may find it useful to use the `isdigit()` or `atoi()` functions provided in `<cstdlib>` in this lab.  Try searching on the web for info on these routines.  The `atoi()` function operates on a C-style string, which is an array of characters. You can convert a C++ string to one of these by calling the `c_str()` method of the C++ string object.  More string methods can be found at [http://en.cppreference.com/w/cpp/string/basic_string](http://en.cppreference.com/w/cpp/string/basic_string).
-
-The following illustrates the execution of the previous code.  Recall that this program reads in strings from the keyboard and prints them back out to the screen.  Let's assume we have a file `random-tokens.txt`, which contains:
-
-```
-+ 2 3 isn't 2150 great??
-```
-
-When run, it looks like the following:
-
-```
-$ ./a.out < random-words.txt
-+
-2
-3
-isn't
-2150
-great??
-```
-Note, as stated above, that this code reads in each space-delimited *token*. Another way this code can be run is by directly typing into `stdin`:
-
-```
-$ ./a.out
-+ 2 3 isn't 2150 great??
-+
-2
-3
-isn't
-2150
-great??
-^D
-```
-In the above execution, what was typed in was `+ 2 3 isn't 2150 great??` (the second line). After the end of the line (i.e., after the Enter key was pressed), the program reads in that, and prints each token on a separate line.  Since there was no more into to provide, Control-D (shown as `^D`) was then pressed (the last line in that execution run).  Control-D closes the stdin pipe by providing the EOF flag.
-
-***NOTE:*** When hitting Control-D, you have to enter it *on it's own line*.  This means that you first have to hit Enter, then Control-D.
-
-### Assumptions: ###
-
-1. Assume that the input, i.e. the postfix expression, is entered in on one line and that all numbers and operators are separated by a single space.  We will only provide you with valid input.
-2. You can assume that users will enter the proper number of operands/operators. In other words, if an invalid postfix expression is entered, your program can do anything (including crashing) and we won't take off points.
-
 ### Terminating Input ###
 
 How should the program know when you are finished providing input?  There are a couple of ways to do this.
 
+- Continuously read in input with `cin`. **This will require entering a Control-D at the end of the provided input** (i.e., enter the postfix expression, hit Enter, and then hit Control-D).  The input we provide during the execution will provide the Control-D at the end of said input.
 - Only read in one line, and not accept any more input -- if you handle it this way, you will have to use the `getline()` method, but this is likely the harder way to deal with it.
-- Read in input using the while(cin >> s) like loop shown above. **this will require entering a Control-D at the end of the provided input** (i.e., enter a line of the postfix expression, hit Enter, and then hit Control-D).  The input we provide during the execution will provide the Control-D at the end of said input.
 
-Either way is fine.  Our test scripts will send in all the input *on a single line*, followed by the Enter key; we will also provide a Control-D if necessary.  So whichever means you use to determine the end of your input is fine.
+As mentioned in the Unix tutorial, Control-D stands for "end of file", which lets `cin` know that there is no more input to read.
 
+***NOTE:*** When hitting Control-D, you have to enter it *on its own line*.  This means that you first have to hit Enter, then Control-D.
+
+### Assumptions ###
+
+1. The input, i.e. the postfix expression, will be entered on one line and that all numbers and operators will be separated by a single space.
+2. The input will contain a valid postfix expression, a newline, and a Control-D if necessary.
+
+### Hints ###
+
+#### Reading input ####
+`cin` is the opposite of `cout` -- rather than printing to standard output, it reads from standard input.
+When you type a line and press enter, that entire line gets sent to `cin`,
+which then automatically splits on whitespace to produce multiple _tokens_.
+Therefore, if we were to supply `+ 2 3 isn't 2150 great??` as input, we would get six tokens back.
+This is very helpful as the postfix expressions are already space-delimited.
+
+A sample code snippet to continuously read from standard input would look something like this:
+```
+string token;
+while (cin >> token) {
+    // Do stuff with `token`!
+    // For example, we can print each token back out on its own line:
+    cout << token << endl;
+}
+```
+
+#### Parsing tokens ####
+There are two cases you will need to handle when parsing each token: operators and numbers.
+
+C++ allows you to compare strings for equality with `==`.
+For example, you can check if `s` is the division operator with `if (s == "/")`.\
+Hint: we can check for all the operators, since there are only five of them.  If all the checks fail, what does that mean the token has to be?
+
+To convert input that represents numbers into their integer form, `<cstdlib>` provides the `int atoi(char* s)` function.
+Unfortunately, `atoi` requires C-style strings -- perhaps you should take a look at
+[the `string` documentation](https://en.cppreference.com/w/cpp/string/basic_string) to see if anything can help you out.
 
 ------------------------------------------------------------
 
