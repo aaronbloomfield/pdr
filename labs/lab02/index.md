@@ -144,7 +144,6 @@ Make sure you are initializing the variables that are specified in the .h file a
 Take a look back at lifecycle.cpp's constructors from Lab 1 if you need a refresher.
 
 #### The copy constructor and the copy assignment operator ####
-
 The code for the copy constructor and the `operator=()` method in the List class are shown below.
 Although we are providing you with this code, you must understand how it works by the end of the lab,
 as you will have to implement these types of methods on future labs and exams.
@@ -252,14 +251,102 @@ These are the same steps from the lab procedure section, above.
 Post-lab
 --------
 
-These are the same steps from the lab procedure section, above.
+For the post-lab, your goal is to submit a fully-functional version of your doubly-linked list.
+Finish any methods that you haven't completed yet, and then move on to checking for memory errors.
 
-1. For this lab you will be submitting your code electronically via online grading system to postlab2.  Your fully functional code must contain the following 7 files:
-    1. List.h and List.cpp
-    2. ListNode.h and ListNode.cpp
-    3. ListItr.h and ListItr.cpp
-    4. and the test harness, ListTest.cpp
-2. *Be sure you submit all 7 files!* If you don't, then your code will not compile properly, and you will lose points!
-3. It is due on the Friday of the week of the lab, at the time listed on the [Lab due dates page](https://uva-cs.github.io/pdr/uva/labduedates.html).  Be sure to include: your name, the date, and the name of the file in a banner comment at the beginning of each file you submit.
-4. Files to download: no additional files beyond the pre-lab and in-lab
-5. Files to submit: ListNode.h/cpp, ListItr.h/cpp, List.h/cpp, ListTest.cpp
+### Memory Leaks and Corruption ###
+
+Even though your code might appear to work correctly, it might still be leaking or corrupting memory!
+
+- A _memory leak_ occurs when you forget to deallocate some memory that you dynamically allocated earlier,
+which causes your program to hold onto that memory forever until it exits!
+- _Memory corruption_ occurs when your code attempts to access some memory address that it does not have access to,
+for example, attempting to read or write to a previously-deleted pointer.
+C++ will blindly dereference a pointer without checking its validity.
+Clearly, this can cause your program to do unexpected things!
+
+These types of errors can cause your host machine to run out of memory and crash,
+or edit some other file that your program shouldn't have access to!
+We will be checking that your code does not contain any memory errors because of their potential severity.
+
+You can test for memory errors by compiling your code with special _sanitizers_ enabled:
+
+```
+clang++ List.cpp ListItr.cpp ListNode.cpp ListTest.cpp -fsanitize=address,leak -fno-omit-frame-pointer -g
+```
+
+`-fsanitize=address,leak` turns on two sanitizers: [AddressSanitizer](https://clang.llvm.org/docs/AddressSanitizer.html) and [LeakSanitizer](https://clang.llvm.org/docs/LeakSanitizer.html).
+AddressSanitizer ensures that your code never attempts to
+reference deleted memory or memory that you do not have access to (i.e., it checks for invalid addresses).
+LeakSanitizer ensures that anything that is dynamically allocated is also deallocated.
+
+`-fno-omit-frame-pointer` helps us obtain better stack traces, so we include it just in case.
+
+We use the `-g` flag from earlier to indicate that we want to include debugging information such as line numbers.
+
+Now, when we run the executable, AddressSanitizer will **immediately crash upon any invalid behavior**.
+This is helpful because AddressSanitizer detects when we try to use addresses that we do not control,
+and thus, we have no idea what will happen when we use them!
+AddressSanitizer crashes the program because there is no guarantee of what will happen next.
+If this happens, carefully inspect the stack trace, attempt to fix the error, and recompile.
+
+Here's an example of an AddressSanitizer crash:
+```
+==28315==ERROR: AddressSanitizer: heap-use-after-free on address 0x6030000003a8 at pc 0x000000519188 bp 0x7ffff83e7910 sp 0x7ffff83e7908
+READ of size 8 at 0x6030000003a8 thread T0
+    #0 0x519187 in List::makeEmpty() /home/winston/github/computer-science/cs2150/labs/lab-2/postlab/List.cpp:68:20
+    #1 0x51db77 in main /home/winston/github/computer-science/cs2150/labs/lab-2/postlab/ListTest.cpp:446:23
+    #2 0x7f07bba91b96 in __libc_start_main /build/glibc-OTsEL5/glibc-2.27/csu/../csu/libc-start.c:310
+    #3 0x41bbe9 in _start (/mnt/c/Users/Winston/Documents/GitHub/computer-science/cs2150/labs/lab-2/postlab/a.out+0x41bbe9)
+
+0x6030000003a8 is located 8 bytes inside of 24-byte region [0x6030000003a0,0x6030000003b8) freed by thread T0 here:
+    #0 0x514dc8 in operator delete(void*) (/mnt/c/Users/Winston/Documents/GitHub/computer-science/cs2150/labs/lab-2/postlab/a.out+0x514dc8)
+    #1 0x51915e in List::makeEmpty() /home/winston/github/computer-science/cs2150/labs/lab-2/postlab/List.cpp:67:3
+    #2 0x51db77 in main /home/winston/github/computer-science/cs2150/labs/lab-2/postlab/ListTest.cpp:446:23
+    #3 0x7f07bba91b96 in __libc_start_main /build/glibc-OTsEL5/glibc-2.27/csu/../csu/libc-start.c:310
+
+previously allocated by thread T0 here:
+    #0 0x514050 in operator new(unsigned long) (/mnt/c/Users/Winston/Documents/GitHub/computer-science/cs2150/labs/lab-2/postlab/a.out+0x514050)
+    #1 0x518bf8 in List::insertAtTail(int) /home/winston/github/computer-science/cs2150/labs/lab-2/postlab/List.cpp:111:22
+    #2 0x51bc1d in main /home/winston/github/computer-science/cs2150/labs/lab-2/postlab/ListTest.cpp:121:27
+    #3 0x7f07bba91b96 in __libc_start_main /build/glibc-OTsEL5/glibc-2.27/csu/../csu/libc-start.c:310
+
+---snip---
+```
+
+Here, we are trying to use a pointer after it has been deleted.\
+The first stack trace shows where we try to use it -- in this case, in `List::makeEmpty()` on line 68, column 20.\
+The second stack trace shows where we deleted the pointer -- right before we used it, on line 67.\
+The third stack trace is generally less useful, but shows where we allocated memory in the first place.
+
+After fixing all of the bugs AddressSanitizer caught, we can move on to LeakSanitizer,
+which will print out any leaks that it detected when the program exits.
+If you exit and there is no extra output, congratulations!  That means your program is leak-free.
+
+Otherwise, you can look at the stack trace to see what memory you are leaking.
+Here is an example of a List implementation that forgets to delete `head` and `tail` in the destructor:
+```
+==28454==ERROR: LeakSanitizer: detected memory leaks
+
+Indirect leak of 48 byte(s) in 2 object(s) allocated from:
+    #0 0x514050 in operator new(unsigned long) (/mnt/c/Users/Winston/Documents/GitHub/computer-science/cs2150/labs/lab-2/postlab/a.out+0x514050)
+    #1 0x5184b5 in List::List() /home/winston/github/computer-science/cs2150/labs/lab-2/postlab/List.cpp:11:15
+    #2 0x51b777 in main /home/winston/github/computer-science/cs2150/labs/lab-2/postlab/ListTest.cpp:102:28
+    #3 0x7f7c97c91b96 in __libc_start_main /build/glibc-OTsEL5/glibc-2.27/csu/../csu/libc-start.c:310
+
+Indirect leak of 48 byte(s) in 2 object(s) allocated from:
+    #0 0x514050 in operator new(unsigned long) (/mnt/c/Users/Winston/Documents/GitHub/computer-science/cs2150/labs/lab-2/postlab/a.out+0x514050)
+    #1 0x518465 in List::List() /home/winston/github/computer-science/cs2150/labs/lab-2/postlab/List.cpp:10:15
+    #2 0x51b777 in main /home/winston/github/computer-science/cs2150/labs/lab-2/postlab/ListTest.cpp:102:28
+    #3 0x7f7c97c91b96 in __libc_start_main /build/glibc-OTsEL5/glibc-2.27/csu/../csu/libc-start.c:310
+
+SUMMARY: AddressSanitizer: 96 byte(s) leaked in 4 allocation(s).
+```
+
+LeakSanitizer will print out where the leaking memory was allocated so that you can figure out what you forgot to delete.
+In this case, we can see we forgot to delete the objects we created on lines 11 and 10 in the constructor,
+which just happen to be `tail` and `head`, respectively.
+Now that we know _what_ we are leaking, we can start to think about _where_ in our program we should delete those objects.
+
+Having a program run successfully under AddressSanitizer and LeakSanitizer adds strong assurances
+towards code correctness!
