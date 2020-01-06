@@ -72,10 +72,6 @@ Procedure
 Pre-lab
 -------
 
-There is a lot of information provided in this pre-lab, and it might appear overwhelming at first.
-Don't let that discourage you -- read through it slowly and try to get the big picture.
-We have also provided a number of hints at the end of this section, which we recommend reading before starting to code.
-
 ### Code Description ###
 
 Linked lists are described in the online [Readings](../../docs/readings.html).
