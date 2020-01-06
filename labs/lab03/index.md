@@ -264,7 +264,7 @@ Most of you will implement your stack in one of the following ways:
 Depending on how you implement the stack class, you may just need the stack.h/cpp files, in addition to the three postfix calculator files (postfixCalculator.h/cpp and testPostfixCalc.cpp).  Or you may need stack.h/cpp and stacknode.h/cpp in addition to the three postfix calculator files.  Or you may want to include the six List/ListItr/ListNode files from lab 2 as well as stack.h/cpp and the three postfix calculator files.  How you do this is up to you - as long as it works, we don't really care, provided that:
 
 1. It compiles with `clang++ *.cpp`
-2. The total number of C++ files you submit is 11 or fewer (you can submit 12 files total, but you need to submit a the text file called difficulties.txt as well)
+2. The total number of C++ files you submit is 11 or fewer (you can submit 12 files total, but you need to submit a text file called difficulties.txt as well)
 
 
 ------------------------------------------------------------
