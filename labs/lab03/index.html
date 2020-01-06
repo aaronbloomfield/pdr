@@ -111,7 +111,7 @@
 <p>If <code>pop()</code> or <code>top()</code> are called on an empty stack, terminate the program with the function call <code>exit(-1)</code>, which is from the <code>&lt;cstdlib&gt;</code> library.</p>
 <p>For this lab, you will use a stack of <code>int</code> values.</p>
 <h3 id="input">Input</h3>
-<p>For this part of the lab, you will not deal with keyboard input (that's in the in-lab) -- thus, your submitted program will always compute the exact same value each time it is run. You will need to hard-code, into the <code>main()</code> method, the values to be operated on by your calculator. Make sure the test(s) in main demonstrates the functionality of all operators!</p>
+<p>For this part of the lab, you will not deal with keyboard input (that's in the in-lab) -- thus, your submitted program will always compute the exact same value each time it is run. You will need to hard-code your postfix expressions into the <code>main()</code> method. Make sure your tests in main demonstrate the functionality of all operators!</p>
 <p>A sample <code>main()</code> function that might work is as follows -- this should be modified for your particular situation (i.e. how you declare your class, your method names, etc.). This <code>main()</code> function uses the first sample input given at the very end of this document.</p>
 <pre><code>int main() {
     PostfixCalculator p;
@@ -128,7 +128,7 @@
     return 0;
 }</code></pre>
 <p>Keep in mind that you can type up a few of the blocks, and comment them out with the <code>/* ... */</code> comment syntax that you are familiar with from Java -- this will allow you to easily switch between the different hard-coded input test cases.</p>
-<h3 id="stack-calculator-implementation">Stack Calculator Implementation:</h3>
+<h3 id="stack-calculator-implementation">Stack Calculator Implementation</h3>
 <p>Your calculator must implement the following arithmetic operations:</p>
 <ul>
 <li><code>+</code> : addition</li>
@@ -143,7 +143,7 @@
 </li>
 <li>For the non-commutative operators (operators where the order of the numbers matters, such as minus and divide), the first value you pop we'll call x, the second value you pop we'll call y; the result <strong>must</strong> be <em>y-x</em> or <em>y/x</em> -- in other words, the &quot;lower&quot; value in the stack minus/divided by the &quot;higher&quot; one in the stack.</li>
 </ul>
-<h3 id="useful-information">Useful Information</h3>
+<h3 id="postfix-notation">Postfix Notation</h3>
 <p>Postfix notation (also known as reverse Polish notation) involves writing the operators after the operands. Note how parentheses are unnecessary in postfix notation.</p>
 <ul>
 <li>Infix: ( 3 + 6 ) - ( 8 / 4 )</li>

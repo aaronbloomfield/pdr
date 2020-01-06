@@ -105,7 +105,7 @@ For this lab, you will use a stack of `int` values.
 
 ### Input ###
 
-For this part of the lab, you will not deal with keyboard input (that's in the in-lab) -- thus, your submitted program will always compute the exact same value each time it is run.  You will need to hard-code, into the `main()` method, the values to be operated on by your calculator. Make sure the test(s) in main demonstrates the functionality of all operators!
+For this part of the lab, you will not deal with keyboard input (that's in the in-lab) -- thus, your submitted program will always compute the exact same value each time it is run.  You will need to hard-code your postfix expressions into the `main()` method. Make sure your tests in main demonstrate the functionality of all operators!
 
 A sample `main()` function that might work is as follows -- this should be modified for your particular situation (i.e. how you declare your class, your method names, etc.).  This `main()` function uses the first sample input given at the very end of this document.
 
@@ -128,7 +128,7 @@ int main() {
 
 Keep in mind that you can type up a few of the blocks, and comment them out with the `/* ... */` comment syntax that you are familiar with from Java -- this will allow you to easily switch between the different hard-coded input test cases.
 
-### Stack Calculator Implementation: ###
+### Stack Calculator Implementation ###
 
 Your calculator must implement the following arithmetic operations: 
 
@@ -143,7 +143,7 @@ Notes:
   - We use the tilde (~) as the unary negation operator -- this negates the top element of the stack, and (unlike the other four operators) does not use a second number from the stack.  Do not confuse this operator with the tilde operator in C++, which performs bitwise negation.  Negative numbers still use a regular minus sign (i.e. '-3') and just pushes the negative number on the stack.  But, if you want to do negation (which involves popping the top value, negating it, and pushing that new value back on the stack), then you would use the tilde.  
   - For the non-commutative operators (operators where the order of the numbers matters, such as minus and divide), the first value you pop we'll call x, the second value you pop we'll call y; the result **must** be *y-x* or *y/x* -- in other words, the "lower" value in the stack minus/divided by the "higher" one in the stack.
 
-### Useful Information ###
+### Postfix Notation ###
 
 Postfix notation (also known as reverse Polish notation) involves writing the operators after the operands.  Note how parentheses are unnecessary in postfix notation.
 
