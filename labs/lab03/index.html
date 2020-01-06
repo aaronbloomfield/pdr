@@ -15,7 +15,7 @@
 <h1 id="pdr-laboratory-3-stacks">PDR: Laboratory 3: Stacks</h1>
 <p><a href="../index.html">Go up to the Labs table of contents page</a></p>
 <h3 id="objective">Objective:</h3>
-<p>To understand the workings of a stack as well as postfix notation, and to be introduced to the STL library</p>
+<p>To understand the workings of a stack as well as postfix notation, and to be introduced to the C++ Standard Template Library (STL).</p>
 <h3 id="background">Background:</h3>
 <p>A stack is a basic data structure similar in use to a physical stack of papers. You can add to the top (push) and take from the top (pop), but you are not allowed to access the middle or bottom. A stack adheres to the <a href="http://en.wikipedia.org/wiki/LIFO_%28computing%29">LIFO</a> property.</p>
 <h3 id="readings">Reading(s):</h3>
@@ -31,15 +31,15 @@
 <li>Write up at least one question that you still have on Unix (or things you are still confused about) into unix.questions.txt.</li>
 <li>Your code for the pre-lab will use the pre-existing standard library <code>stack</code> class. The standard library includes a collection of useful routines analogous to the routines in Java's SDK, albeit much smaller (it contains a vector class, for example).
 <ul>
-<li>To use the stack class, just put <code>#include &lt;stack&gt;</code> at the top of your C++ file. A standard clang++ installation should automatically find the standard stack class (this works in Linux).</li>
-<li>Documentation on the standard library routines can be found at <a href="http://en.cppreference.com" class="uri">http://en.cppreference.com</a>. The stack class's documentation can be found at <a href="https://en.cppreference.com/w/cpp/container/stack">here</a>.</li>
+<li>To use the stack class, just put <code>#include &lt;stack&gt;</code> at the top of your C++ file.</li>
+<li>Documentation on the standard library routines can be found at <a href="https://en.cppreference.com" class="uri">https://en.cppreference.com</a>. The stack class's documentation can be found at <a href="https://en.cppreference.com/w/cpp/container/stack">here</a>.</li>
 </ul></li>
 <li>Implement a simple postfix stack calculator for integers using your stack.
 <ul>
 <li><strong>You should use the standard library stack class</strong>, rather than implement your own.</li>
-<li>An online description of postfix calculators can be found <a href="http://en.wikipedia.org/wiki/Reverse_Polish_notation">on Wikipedia</a> -- you will need to implement this into postfixCalculator.h and postfixCalculator.cpp</li>
+<li>An online description of postfix calculators can be found <a href="https://en.wikipedia.org/wiki/Reverse_Polish_notation">on Wikipedia</a> -- you will need to implement this into postfixCalculator.h and postfixCalculator.cpp</li>
 <li>Create a simple test driver, testPostfixCalc.cpp, which will be used to demonstrate your calculator (i.e., it will have the <code>main()</code> function). This file should have hard-coded values for input; handling keyboard input is the in-lab.</li>
-<li>The last page of this document has some sample test cases you can use.</li>
+<li>The bottom of this document has some sample test cases you can use.</li>
 </ul></li>
 <li>Your code must compile!</li>
 <li>Be sure to include: your name, the date, and the name of the file in a banner comment at the beginning of each file you submit.</li>
@@ -49,7 +49,7 @@
 <h3 id="in-lab">In-lab</h3>
 <ol type="1">
 <li>Come to class with a <em>working prelab</em>.</li>
-<li>Run your postfix calculator on the test sequences posted on the board by the TAs. (These test sequences are also at the very bottom of this page.) Since your code only can handle hard-coded values, this will require a code modification and a recompilation to test each case. If your program does not calculate the correct result, use the debugger to find the errors and correct them. These modifications will be submitted to the in-lab.
+<li>Run your postfix calculator on the test sequences at the very bottom of this page. Since your code only can handle hard-coded values, this will require a code modification and a recompilation to test each case. If your program does not calculate the correct result, use the debugger to find the errors and correct them. These modifications will be submitted to the in-lab.
 <ul>
 <li>Be sure you are able to explain how all parts your code work. You will be responsible for this material for the midterms and final exam.</li>
 </ul></li>
@@ -83,7 +83,7 @@
 <ul>
 <li>Implement a stack class that handles a stack of integer numbers. This stack implementation is done for the post-lab; for the pre-lab and the in-lab, you will be using a pre-existing stack class from C++'s standard library.
 <ul>
-<li>Documentation on the standard library routines can be found at <a href="http://en.cppreference.com" class="uri">http://en.cppreference.com</a>. The stack class's documentation can be found at <a href="https://en.cppreference.com/w/cpp/container/stack">here</a>.</li>
+<li>Documentation on the standard library routines can be found at <a href="https://en.cppreference.com">http://en.cppreference.com</a>. The stack class's documentation can be found at <a href="https://en.cppreference.com/w/cpp/container/stack">here</a>.</li>
 </ul></li>
 <li>Write a program that uses this class to implement a postfix calculator. This will include the following files:
 <ul>
@@ -98,7 +98,7 @@
 <li>The in-lab develops the user input routines</li>
 <li>The post-lab develops the stack class that your calculator uses</li>
 </ul>
-<p>Note that the program is fully able to be run after each lab portion.</p>
+<p>Note that the program should be able to fully run after each lab portion.</p>
 <h3 id="stacks">Stacks</h3>
 <p>A stack is a container that implements the LIFO (last in, first out) property. Often it internally uses a linked list, array, vector, or a doubly-linked list to contain the elements. In general, a stack needs to implement the following interface and functionality:</p>
 <ul>
@@ -107,8 +107,8 @@
 <li><code>void pop()</code>: This removes the element on the top of the stack, but does not return it. If the stack is empty, then somehow an error must be indicated -- for this lab, you can just print out an error message and then exit.</li>
 <li><code>bool empty()</code>: This tells whether there are any elements left in the stack (false) or not (true).</li>
 </ul>
-<p>Often, the <code>top()</code> and <code>pop()</code> functionality are joined as an <code>int pop()</code> function, but in this lab, it is beneficial to separate them.</p>
-<p>For this lab, you must implement the stack so there is no maximum capacity (reminder: that implementation is in the post-lab)! For now if <code>pop()</code> or <code>top()</code> are called on an empty stack, terminate the program with the function call <code>exit(-1)</code>, which is from the <code>&lt;cstdlib&gt;</code> library.</p>
+<p>Often, the <code>top()</code> and <code>pop()</code> functionality are joined as an <code>int pop()</code> function, but in this lab, it is beneficial to separate them, as that is what the STL stack does.</p>
+<p>If <code>pop()</code> or <code>top()</code> are called on an empty stack, terminate the program with the function call <code>exit(-1)</code>, which is from the <code>&lt;cstdlib&gt;</code> library.</p>
 <p>For this lab, you will use a stack of <code>int</code> values.</p>
 <h3 id="input">Input</h3>
 <p>For this part of the lab, you will not deal with keyboard input (that's in the in-lab) -- thus, your submitted program will always compute the exact same value each time it is run. You will need to hard-code, into the <code>main()</code> method, the values to be operated on by your calculator. Make sure the test(s) in main demonstrates the functionality of all operators!</p>
@@ -150,8 +150,6 @@
 <li>Postfix: 3 6 + 8 4 / -</li>
 </ul>
 <p>An online description of postfix calculators can be found <a href="http://en.wikipedia.org/wiki/Reverse_Polish_notation">on Wikipedia</a> - note that you do <strong>NOT</strong> need to print out the infix form of the postfix expression; you only need to print the final answer. See the end of this lab for example input and expected output.</p>
-<p>When you start handling input (in the in-lab), you will want to store your read-in values into strings. You can use <code>==</code> to compare <code>string</code>s. Alternatively, you can use the <a href="http://www.cplusplus.com/reference/string/string/compare/">string compare()</a> method to compare them, but realize that it returns 0 if they are <em>equal</em>, and non-zero if they are not equal. The <code>==</code> operator on strings works as expected (returns true if they are the same).</p>
-<p>If you want to see some quick code for converting a string to an int, see the <code>StringToInt()</code> function at the bottom of <a href="http://faq.cprogramming.com/cgi-bin/smartfaq.cgi?answer=1046996179&amp;id=1043284385">this page</a>. Warning: just copying that function without understanding it will only make your life more difficult.</p>
 <h3 id="hints">Hints</h3>
 <p>In the past, students have run into a few problems with this lab. We list them here in an effort to prevent these particular problems from being encountered again.</p>
 <ul>
@@ -220,11 +218,11 @@ great??
 <h2 id="post-lab-1">Post-lab</h2>
 <p>For the post-lab, you will be implementing your own stack. This can be code that you write yourself, or you can re-use your List code from lab 2 (make sure it works before you re-use it, though!).</p>
 <p>You will also have to write up the difficulties.txt file, as described above in the lab procedure section.</p>
-<p>Note that you only have to implement the four stack methods described in the pre-lab section (and the constructor, of course): <code>push()</code>, <code>pop()</code>, <code>top()</code>, and <code>empty()</code>. The other methods (copy constructor, <code>operator=()</code>, etc.) do not need to be implemented for this lab.</p>
+<p>Your stack is only required to implement the four methods as described in the prelab: <code>push()</code>, <code>pop()</code>, <code>top()</code>, and <code>empty()</code>. It must also have no maximum capacity -- in other words, we should be able to push as many elements as we'd like.</p>
 <p>Most of you will implement your stack in one of the following ways:</p>
 <ol type="1">
 <li>Re-use your list class from lab 2. You may need to add one or two methods to it for extra convenience.</li>
-<li>Build a linked-list / pointer based stack as discussed in lecture. Your stack class would contain a pointer to the head node of the stack, and push and pop would modify the singly-linked list accordingly.</li>
+<li>Build a linked-list / pointer-based stack as discussed in lecture. Your stack class would contain a pointer to the head node of the stack, and push and pop would modify the singly-linked list accordingly.</li>
 <li>Manually implement an array-based stack. If you choose this method, your array must be able to automatically resize if the stack grows large enough to sufficiently fill the array. This is probably the most difficult of the three options.</li>
 </ol>
 <h3 id="submitting-the-stack-list-files">Submitting the stack / list files</h3>

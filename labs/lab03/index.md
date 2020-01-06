@@ -5,7 +5,7 @@ PDR: Laboratory 3: Stacks
 
 ### Objective: ###
 
-To understand the workings of a stack as well as postfix notation, and to be introduced to the STL library
+To understand the workings of a stack as well as postfix notation, and to be introduced to the C++ Standard Template Library (STL).
 
 ### Background: ###
 
@@ -25,13 +25,13 @@ Procedure
 2. Go through [Tutorial 3: Unix, part 1](../../tutorials/03-04-more-unix/index.html), which is the introduction and sections 1-4.  This tutorial is originally from the department of Electrical Engineering at the University of Surrey, and is available online [here](http://www.ee.surrey.ac.uk/Teaching/Unix/).  You should complete the introductory part and sections 1-4.  You should already be somewhat familiar with some of the materials in the first few of these tutorials, as it was in the [Unix tutorial from the first lab](../../tutorials/01-intro-unix/index.html).  The rest of the tutorial (sections 5-8) are for next week's lab, but feel free to go through it this week, if you are interested.
 3. Write up at least one question that you still have on Unix (or things you are still confused about) into unix.questions.txt.
 4. Your code for the pre-lab will use the pre-existing standard library `stack` class.  The standard library includes a collection of useful routines analogous to the routines in Java's SDK, albeit much smaller (it contains a vector class, for example).
-    - To use the stack class, just put `#include <stack>` at the top of your C++ file.  A standard clang++ installation should automatically find the standard stack class (this works in Linux).
-    - Documentation on the standard library routines can be found at [http://en.cppreference.com](http://en.cppreference.com). The stack class's documentation can be found at [here](https://en.cppreference.com/w/cpp/container/stack).
+    - To use the stack class, just put `#include <stack>` at the top of your C++ file.
+    - Documentation on the standard library routines can be found at [https://en.cppreference.com](https://en.cppreference.com). The stack class's documentation can be found at [here](https://en.cppreference.com/w/cpp/container/stack).
 5. Implement a simple postfix stack calculator for integers using your stack.
     - **You should use the standard library stack class**, rather than implement your own.
-    - An online description of postfix calculators can be found [on Wikipedia](http://en.wikipedia.org/wiki/Reverse_Polish_notation) -- you will need to implement this into postfixCalculator.h and postfixCalculator.cpp
+    - An online description of postfix calculators can be found [on Wikipedia](https://en.wikipedia.org/wiki/Reverse_Polish_notation) -- you will need to implement this into postfixCalculator.h and postfixCalculator.cpp
     - Create a simple test driver, testPostfixCalc.cpp, which will be used to demonstrate your calculator (i.e., it will have the `main()` function).  This file should have hard-coded values for input; handling keyboard input is the in-lab.
-    - The last page of this document has some sample test cases you can use.
+    - The bottom of this document has some sample test cases you can use.
 6. Your code must compile!
 7. Be sure to include: your name, the date, and the name of the file in a banner comment at the beginning of each file you submit.
 7. Files to download: none
@@ -42,7 +42,7 @@ Procedure
 ### In-lab ###
 
 1. Come to class with a *working prelab*.
-2. Run your postfix calculator on the test sequences posted on the board by the TAs.  (These test sequences are also at the very bottom of this page.)  Since your code only can handle hard-coded values, this will require a code modification and a recompilation to test each case.  If your program does not calculate the correct result, use the debugger to find the errors and correct them.  These modifications will be submitted to the in-lab.
+2. Run your postfix calculator on the test sequences at the very bottom of this page.  Since your code only can handle hard-coded values, this will require a code modification and a recompilation to test each case.  If your program does not calculate the correct result, use the debugger to find the errors and correct them.  These modifications will be submitted to the in-lab.
     - Be sure you are able to explain how all parts your code work. You will be responsible for this material for the midterms and final exam.
 3. You need to expand your pre-lab code to handle keyboard input.  See the specifications in the in-lab section for how to handle the input.
 4. The files you submit should be a FULLY WORKING postfix calculator, which still uses the standard library's stack class.
@@ -74,7 +74,7 @@ Pre-lab
 In this lab, you will:
 
 - Implement a stack class that handles a stack of integer numbers.  This stack implementation is done for the post-lab; for the pre-lab and the in-lab, you will be using a pre-existing stack class from C++'s standard library.
-    - Documentation on the standard library routines can be found at [http://en.cppreference.com](http://en.cppreference.com). The stack class's documentation can be found at [here](https://en.cppreference.com/w/cpp/container/stack).
+    - Documentation on the standard library routines can be found at [http://en.cppreference.com](https://en.cppreference.com). The stack class's documentation can be found at [here](https://en.cppreference.com/w/cpp/container/stack).
 - Write a program that uses this class to implement a postfix calculator. This will include the following files:
     - postfixCalculator.h, which is the class declaration of the postfix calculator
     - postfixCalculator.cpp, which is the implementation of the postfix calculator
@@ -86,7 +86,7 @@ The various parts of this lab develop the entire program:
 - The in-lab develops the user input routines
 - The post-lab develops the stack class that your calculator uses
 
-Note that the program is fully able to be run after each lab portion.
+Note that the program should be able to fully run after each lab portion.
 
 ### Stacks ###
 
@@ -97,9 +97,9 @@ A stack is a container that implements the LIFO (last in, first out) property.  
 - `void pop()`: This removes the element on the top of the stack, but does not return it.  If the stack is empty, then somehow an error must be indicated -- for this lab, you can just print out an error message and then exit.
 - `bool empty()`: This tells whether there are any elements left in the stack (false) or not (true).
 
-Often, the `top()` and `pop()` functionality are joined as an `int pop()` function, but in this lab, it is beneficial to separate them.
+Often, the `top()` and `pop()` functionality are joined as an `int pop()` function, but in this lab, it is beneficial to separate them, as that is what the STL stack does.
 
-For this lab, you must implement the stack so there is no maximum capacity (reminder: that implementation is in the post-lab)!  For now if `pop()` or `top()` are called on an empty stack, terminate the program with the function call `exit(-1)`, which is from the `<cstdlib>` library.
+If `pop()` or `top()` are called on an empty stack, terminate the program with the function call `exit(-1)`, which is from the `<cstdlib>` library.
 
 For this lab, you will use a stack of `int` values.
 
@@ -151,10 +151,6 @@ Postfix notation (also known as reverse Polish notation) involves writing the op
 - Postfix: 3  6  +  8  4  /  -
 
 An online description of postfix calculators can be found [on Wikipedia](http://en.wikipedia.org/wiki/Reverse_Polish_notation) - note that you do **NOT** need to print out the infix form of the postfix expression; you only need to print the final answer.  See the end of this lab for example input and expected output.
-
-When you start handling input (in the in-lab), you will want to store your read-in values into strings. You can use `==` to compare `string`s. Alternatively, you can use the [string compare()](http://www.cplusplus.com/reference/string/string/compare/) method to compare them, but realize that it returns 0 if they are *equal*, and non-zero if they are not equal.  The `==` operator on strings works as expected (returns true if they are the same).
-
-If you want to see some quick code for converting a string to an int, see the `StringToInt()` function at the bottom of [this page](http://faq.cprogramming.com/cgi-bin/smartfaq.cgi?answer=1046996179&id=1043284385).  Warning: just copying that function without understanding it will only make your life more difficult.
 
 ### Hints ###
 
@@ -265,12 +261,13 @@ For the post-lab, you will be implementing your own stack.  This can be code tha
 
 You will also have to write up the difficulties.txt file, as described above in the lab procedure section.
 
-Note that you only have to implement the four stack methods described in the pre-lab section (and the constructor, of course): `push()`, `pop()`, `top()`, and `empty()`.  The other methods (copy constructor, `operator=()`, etc.) do not need to be implemented for this lab.
+Your stack is only required to implement the four methods as described in the prelab: `push()`, `pop()`, `top()`, and `empty()`.
+It must also have no maximum capacity -- in other words, we should be able to push as many elements as we'd like.
 
 Most of you will implement your stack in one of the following ways:
 
 1. Re-use your list class from lab 2. You may need to add one or two methods to it for extra convenience.
-2. Build a linked-list / pointer based stack as discussed in lecture. Your stack class would contain a pointer to the head node of the stack, and push and pop would modify the singly-linked list accordingly.
+2. Build a linked-list / pointer-based stack as discussed in lecture. Your stack class would contain a pointer to the head node of the stack, and push and pop would modify the singly-linked list accordingly.
 3. Manually implement an array-based stack. If you choose this method, your array must be able to automatically resize if the stack grows large enough to sufficiently fill the array. This is probably the most difficult of the three options.
 
 ### Submitting the stack / list files ###
