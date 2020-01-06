@@ -189,12 +189,12 @@ http://www.gnu.org/software/src-highlite">
 
                 <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span><b><span style="color:#000000">isdigit</span></b><span style="color:#990000">(</span>response<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]))</span> <span style="color:#FF0000">{</span>
                     <span style="color:#009900">int</span> element <span style="color:#990000">=</span> <b><span style="color:#000000">atoi</span></b><span style="color:#990000">(</span>response<span style="color:#990000">.</span><b><span style="color:#000000">c_str</span></b><span style="color:#990000">());</span>
+
+                    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Setting the ListItr to find("</span> <span style="color:#990000">&lt;&lt;</span> element <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">")..."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
                     <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>itr <span style="color:#990000">!=</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
                         <b><span style="color:#0000FF">delete</span></b> itr<span style="color:#990000">;</span>
                     <span style="color:#FF0000">}</span>
-
                     itr <span style="color:#990000">=</span> <b><span style="color:#0000FF">new</span></b> <b><span style="color:#000000">ListItr</span></b><span style="color:#990000">(</span>list<span style="color:#990000">-&gt;</span><b><span style="color:#000000">find</span></b><span style="color:#990000">(</span>element<span style="color:#990000">));</span>
-                    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Setting the ListItr to find("</span> <span style="color:#990000">&lt;&lt;</span> element <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">")..."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
                 <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <span style="color:#FF0000">{</span>
                     cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Please enter an integer."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
                 <span style="color:#FF0000">}</span>
@@ -212,7 +212,6 @@ http://www.gnu.org/software/src-highlite">
                 <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>itr <span style="color:#990000">!=</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
                     <b><span style="color:#0000FF">delete</span></b> itr<span style="color:#990000">;</span>
                 <span style="color:#FF0000">}</span>
-
                 itr <span style="color:#990000">=</span> <b><span style="color:#0000FF">new</span></b> <b><span style="color:#000000">ListItr</span></b><span style="color:#990000">(</span>list<span style="color:#990000">-&gt;</span><b><span style="color:#000000">last</span></b><span style="color:#990000">());</span>
                 <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
 

@@ -178,12 +178,12 @@ int main () {
 
                 if (isdigit(response[0])) {
                     int element = atoi(response.c_str());
+
+                    cout << "\tSetting the ListItr to find(" << element << ")..." << endl;
                     if (itr != NULL) {
                         delete itr;
                     }
-
                     itr = new ListItr(list->find(element));
-                    cout << "\tSetting the ListItr to find(" << element << ")..." << endl;
                 } else {
                     cout << "\tPlease enter an integer." << endl;
                 }
@@ -201,7 +201,6 @@ int main () {
                 if (itr != NULL) {
                     delete itr;
                 }
-
                 itr = new ListItr(list->last());
                 break;
 
