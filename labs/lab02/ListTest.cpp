@@ -367,9 +367,6 @@ int main () {
                 }
 
                 List* old_list = list;
-                if (list != NULL) {
-                    delete list;
-                }
 
                 list = new List(*old_list);
                 old_list->makeEmpty();
@@ -405,9 +402,6 @@ int main () {
                 }
 
                 List* old_list = list;
-                if (list != NULL) {
-                    delete list;
-                }
 
                 list = new List();
                 *list = *old_list;
