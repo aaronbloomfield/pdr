@@ -3,18 +3,20 @@ CS 2150: Program and Data Representation: Course Syllabus
 
 [Go up to the CS 2150 page][1] ([md][2])
 
-## Spring 2020
+## Fall 2019
 
-### Instructor ###
+### Instructors ###
 
+- [Mark Floryan][31] / [mrf8t@virginia.edu][39].  Office: Rice Hall, room 203.  Office hours T/W 1:00 - 2:30.
+- [Rich Nguyen][38] / [nn4pj@virginia.edu](mailto:nn4pj@virginia.edu).  Office: Rice Hall, room 202.  Office hours M/F 2:00 - 3:30.
 - [Aaron Bloomfield][33] / [aaron@virginia.edu](mailto:aaron@virginia.edu).  Office: Rice Hall, room 402.  Office hours W 9:00 - noon.
 
 ### Course Info ###
 
-- Lectures: M/W/F 10:00-10:50 (CHM 402) or 1:00-1:50 (Minor 125)
+- Lectures: M/W/F 11:00-11:50 (Olsson 120), 12:00-12:50 (Gilmer 130), or 1:00-1:50 (Olsson 120)
 - Email: none; fill out a [support request][42] instead
 - Announcement feed: [\@UVaCS2150][34]
-- TA office hours are 6-10 on Sundays, Mondays, Wednesdays, and Thursdays in the Thornton stacks; faculty office hours are listed [here](course-introduction.html#/profoh); all office hours start the Sunday after classes start
+- TAs and their office hours will be posted on the [CS 2150 Google Calendar][35] (which is also linked to via Collab); all office hours start the Sunday after classes start
 - Laboratory Meetings (in Olsson 009 or MEC 213): all on Tuesdays
 
 **Course Description:** This course will introduce you to program and data representation from high level concepts to machine level implementation. Data structuring techniques and the representation of data structures during program execution are discussed, as are operations and control structures and their representation during program execution. Representations of numbers, arithmetic operations, arrays, records, recursion, hashing, stacks, queues, trees, graphs, and related concepts are also covered.
@@ -49,15 +51,15 @@ We expect that grades will follow the standard decade curve: 90 and above is an 
 
 **Exams:** There will be two midterm exams held during laboratory sessions (combined worth 30% of the final grade) and one final exam (worth 25% of the final grade). Note that we hope (but do not guarantee!) to have the first exam returned before the SEAS drop date.
 
-- Midterm Exam 1: Tuesday, February 18th, during lab session
-- Midterm Exam 2: Tuesday, March 31st, during lab session
-- Final Exam: Thursday, April 30th from 7 p.m. to 10 p.m.
+- Midterm Exam 1: Tuesday, October 1, during lab session
+- Midterm Exam 2: Tuesday, November 12, during lab session
+- Final Exam: Monday, December 9 from 7 p.m. to 10 p.m.
     - This is a common exam time, and conflicts with other courses (BIOL 2100, CS 2110, KOR 1010, KOR 2010, KOR 3010, STAT 2120, and STAT 3120)
     - Let us know by the end of January if you have a conflict (via a support request); we will deal with scheduling conflicts later in the semester
 
 ***YOU WILL HAVE TO BRING YOUR UVA ID TO ALL EXAMS!!!***
 
-Under **NO** circumstances will anybody be allowed to take the final exam early.  You may **ONLY** request to take the final exam at a different time if you have a final exam **CONFLICT**, not a busy final exam schedule.  However, that request ***MUST*** be submitted by the end of January.  Since it is a common exam time, the only conflicts are the courses listed on UVa official exam schedule.  For Spring 2020, they are: APMA 3110, APMA 3140, and ECON 2020 (sections 001 and 002)
+Under **NO** circumstances will anybody be allowed to take the final exam early.  You may **ONLY** request to take the final exam at a different time if you have a final exam **CONFLICT**, not a busy final exam schedule.  Since it is a common exam time, the only conflicts are the courses listed on UVa official exam schedule.  For Fall 2019, they are: BIOL 2100; CS2110; KOR 1010, 2010, 3010; STAT 2120, 3120.
 
 You may submit lab questions for regrading within 10 days of when they are returned to you (less time for the final due to the end of the semester); this is done via the [course tools][41].  However, you MUST be aware of the [Frivolous regrade policy][3] ([md][4]), which will be strictly enforced.
 
@@ -83,7 +85,7 @@ The assignments tool does not display due dates such as "at the end of your lab 
 
 **Attendance:** Attendance is highly recommended but not required in either lecture or lab. Unless you have received special permission, you cannot attend labs that you are not enrolled in due to space constraints.  Please see the [first set of lecture slides][11] for more information about the lab schedule, in particular with regards to the fact that there is a lab the week of Thanksgiving break (in fall semesters) or the weeks before and after spring break (in spring semesters).
 
-**Professionalism:** We are all adults, and should act like such.  Acting in an unprofessional manner that disrupts the class will first incur a stern talking-to.  After that, a grade penalty may be assessed.  Examples include: disrupting class, trolling people on Piazza, abusing the support request system, etc.  This is meant to keep people from repeatedly disrupting class; we are not trying to be super strict on this.  While we generally expect to give a warning prior to any other action, infractions that go well beyond unprofessional may incr penalties with no warning.
+**Professionalism:** We are all adults, and should act like such.  Acting in an unprofessional manner that disrupts the class will first incur a stern talking-to.  After that, a grade penalty may be assessed.  Examples include: disrupting class, trolling people on Piazza, abusing the support request system, etc.  This is meant to keep people from repeatedly disrupting class; we are not trying to be super strict on this.  While we generally expect to give a warning prior to any other action, infractions that go well beyond unprofessional may incur other penalties.
 
 **Honor Policy:** There have been a large number of honor violations in this class and other low-level CS courses recently.  Outside the normal UVa honor policy rules, we have these additional rules:
 

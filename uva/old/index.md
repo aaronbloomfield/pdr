@@ -5,6 +5,13 @@ Program and Data Representation: Old CS 2150 Specific Content
 
 This page contains the CS 2150 specific content from previous semesters.  This information can also be found by viewing the appropriate tag in the git repository.
 
+- Fall 2019
+    - The git tag is `2019-fall`; the direct link to the github repo is [here](https://github.com/uva-cs/pdr/tree/2019-fall)
+    - [Main CS 2150 page](index-fall-2019.html) ([md](index-fall-2019.md))
+    - [Daily announcements](daily-announcements-fall-2019.html)
+    - [Syllabus](syllabus-fall-2019.html) ([md](syllabus-fall-2019.md))
+    - [Course grade explanations](grades-fall-2019.html) ([md](grades-fall-2019.md))
+
 - Spring 2019
     - The git tag is `2019-spring`; the direct link to the github repo is [here](https://github.com/uva-cs/pdr/tree/2019-spring)
     - [Main CS 2150 page](index-spring-2019.html) ([md](index-spring-2019.md))
