@@ -13,123 +13,162 @@ http://www.gnu.org/software/src-highlite">
 <b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;string&gt;</span>
 <b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
-<i><span style="color:#9A1900">// ---------------------------------------------------  class definition</span></i>
+<i><span style="color:#9A1900">// Declare the MyObject class</span></i>
 <b><span style="color:#0000FF">class</span></b> <span style="color:#008080">MyObject</span> <span style="color:#FF0000">{</span>
 <b><span style="color:#0000FF">public</span></b><span style="color:#990000">:</span>
     <b><span style="color:#0000FF">static</span></b> <span style="color:#009900">int</span> numObjs<span style="color:#990000">;</span>
-    <b><span style="color:#000000">MyObject</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> <span style="color:#009900">char</span> <span style="color:#990000">*</span>n <span style="color:#990000">=</span> <span style="color:#FF0000">"--default--"</span><span style="color:#990000">);</span>      <i><span style="color:#9A1900">// default constructor</span></i>
-    <b><span style="color:#000000">MyObject</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> MyObject<span style="color:#990000">&amp;</span> rhs<span style="color:#990000">);</span>                <i><span style="color:#9A1900">// copy constructor</span></i>
-    <span style="color:#990000">~</span><b><span style="color:#000000">MyObject</span></b><span style="color:#990000">();</span>                                  <i><span style="color:#9A1900">// destructor</span></i>
-    <span style="color:#008080">string</span> <b><span style="color:#000000">getName</span></b><span style="color:#990000">()</span> <b><span style="color:#0000FF">const</span></b> <span style="color:#FF0000">{</span>
-        <b><span style="color:#0000FF">return</span></b> name<span style="color:#990000">;</span>
-    <span style="color:#FF0000">}</span>
-    <span style="color:#009900">void</span> <b><span style="color:#000000">setName</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> <span style="color:#008080">string</span> newName<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-        name <span style="color:#990000">=</span> newName<span style="color:#990000">;</span>
-    <span style="color:#FF0000">}</span>
+
+    <b><span style="color:#000000">MyObject</span></b><span style="color:#990000">();</span>                    <i><span style="color:#9A1900">// default constructor</span></i>
+    <b><span style="color:#000000">MyObject</span></b><span style="color:#990000">(</span><span style="color:#008080">string</span> n<span style="color:#990000">);</span>            <i><span style="color:#9A1900">// constructor with name parameter</span></i>
+    <b><span style="color:#000000">MyObject</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> MyObject<span style="color:#990000">&amp;</span> rhs<span style="color:#990000">);</span> <i><span style="color:#9A1900">// copy constructor</span></i>
+    <span style="color:#990000">~</span><b><span style="color:#000000">MyObject</span></b><span style="color:#990000">();</span>                   <i><span style="color:#9A1900">// destructor</span></i>
+
+    <span style="color:#008080">string</span> <b><span style="color:#000000">getName</span></b><span style="color:#990000">()</span> <b><span style="color:#0000FF">const</span></b><span style="color:#990000">;</span>
+    <span style="color:#009900">void</span> <b><span style="color:#000000">setName</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> string<span style="color:#990000">&amp;</span> newName<span style="color:#990000">);</span>
+
     <b><span style="color:#0000FF">friend</span></b> ostream<span style="color:#990000">&amp;</span> <b><span style="color:#0000FF">operator</span></b><span style="color:#990000">&lt;&lt;(</span>ostream<span style="color:#990000">&amp;</span> output<span style="color:#990000">,</span> <b><span style="color:#0000FF">const</span></b> MyObject<span style="color:#990000">&amp;</span> obj<span style="color:#990000">);</span>
 <b><span style="color:#0000FF">private</span></b><span style="color:#990000">:</span>
     <span style="color:#008080">string</span> name<span style="color:#990000">;</span>
     <span style="color:#009900">int</span> id<span style="color:#990000">;</span>
 <span style="color:#FF0000">}</span><span style="color:#990000">;</span>
 
-<i><span style="color:#9A1900">// ------------------------------------------------  default constructor</span></i>
-MyObject<span style="color:#990000">::</span><b><span style="color:#000000">MyObject</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> <span style="color:#009900">char</span> <span style="color:#990000">*</span>n<span style="color:#990000">)</span> <span style="color:#990000">:</span> <b><span style="color:#000000">name</span></b><span style="color:#990000">(</span>n<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+<i><span style="color:#9A1900">// Define the member functions we declared above</span></i>
+<i><span style="color:#9A1900">// Remember: member functions are defined as Class::method()</span></i>
+
+<i><span style="color:#9A1900">// Constructors and destructors - no return types</span></i>
+MyObject<span style="color:#990000">::</span><b><span style="color:#000000">MyObject</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    <i><span style="color:#9A1900">// Important: notice how we don't define 'name' or 'id' here</span></i>
+    <i><span style="color:#9A1900">// Instead, we're setting the variables that we declared in MyObject</span></i>
+    name <span style="color:#990000">=</span> <span style="color:#FF0000">"--default--"</span><span style="color:#990000">;</span>
     id <span style="color:#990000">=</span> <span style="color:#990000">++</span>numObjs<span style="color:#990000">;</span>
-    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"MyObject Default constructor: "</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">*</span><b><span style="color:#0000FF">this</span></b> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"MyObject Default constructor:   "</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">*</span><b><span style="color:#0000FF">this</span></b> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
 <span style="color:#FF0000">}</span>
 
-<i><span style="color:#9A1900">// ---------------------------------------------------  copy constructor</span></i>
-MyObject<span style="color:#990000">::</span><b><span style="color:#000000">MyObject</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> MyObject<span style="color:#990000">&amp;</span> rhs<span style="color:#990000">)</span> <span style="color:#990000">:</span> <b><span style="color:#000000">name</span></b><span style="color:#990000">(</span>rhs<span style="color:#990000">.</span>name<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+MyObject<span style="color:#990000">::</span><b><span style="color:#000000">MyObject</span></b><span style="color:#990000">(</span><span style="color:#008080">string</span> n<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    name <span style="color:#990000">=</span> n<span style="color:#990000">;</span>
     id <span style="color:#990000">=</span> <span style="color:#990000">++</span>numObjs<span style="color:#990000">;</span>
-    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"MyObject Copy constructor:    "</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">*</span><b><span style="color:#0000FF">this</span></b> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"MyObject Parameter constructor: "</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">*</span><b><span style="color:#0000FF">this</span></b> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
 <span style="color:#FF0000">}</span>
 
-<i><span style="color:#9A1900">// --------------------------------------------------------  destructor</span></i>
+MyObject<span style="color:#990000">::</span><b><span style="color:#000000">MyObject</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> MyObject<span style="color:#990000">&amp;</span> rhs<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    name <span style="color:#990000">=</span> rhs<span style="color:#990000">.</span>name<span style="color:#990000">;</span>
+    id <span style="color:#990000">=</span> <span style="color:#990000">++</span>numObjs<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"MyObject Copy constructor:      "</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">*</span><b><span style="color:#0000FF">this</span></b> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+
 MyObject<span style="color:#990000">::~</span><b><span style="color:#000000">MyObject</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
-    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"MyObject Destructor:          "</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">*</span><b><span style="color:#0000FF">this</span></b> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"MyObject Destructor:            "</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">*</span><b><span style="color:#0000FF">this</span></b> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
 <span style="color:#FF0000">}</span>
 
-<i><span style="color:#9A1900">// ----------------------------------------------------------  print out</span></i>
+<i><span style="color:#9A1900">// Regular methods, with return types</span></i>
+<span style="color:#008080">string</span> MyObject<span style="color:#990000">::</span><b><span style="color:#000000">getName</span></b><span style="color:#990000">()</span> <b><span style="color:#0000FF">const</span></b> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">return</span></b> name<span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+
+<span style="color:#009900">void</span> MyObject<span style="color:#990000">::</span><b><span style="color:#000000">setName</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> string<span style="color:#990000">&amp;</span> newName<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    name <span style="color:#990000">=</span> newName<span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+
+<i><span style="color:#9A1900">// Let cout know how to print MyObjects</span></i>
 ostream<span style="color:#990000">&amp;</span> <b><span style="color:#0000FF">operator</span></b><span style="color:#990000">&lt;&lt;(</span>ostream<span style="color:#990000">&amp;</span> output<span style="color:#990000">,</span> <b><span style="color:#0000FF">const</span></b> MyObject<span style="color:#990000">&amp;</span> obj<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-    <i><span style="color:#9A1900">// output in format:  ("object name",id)</span></i>
-    <b><span style="color:#0000FF">return</span></b> output <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"(</span><span style="color:#CC33CC">\"</span><span style="color:#FF0000">"</span> <span style="color:#990000">&lt;&lt;</span> obj<span style="color:#990000">.</span>name <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\"</span><span style="color:#FF0000">,"</span> <span style="color:#990000">&lt;&lt;</span> obj<span style="color:#990000">.</span>id <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">")"</span><span style="color:#990000">;</span>
+    <i><span style="color:#9A1900">// output in format: ("object name", id)</span></i>
+    <b><span style="color:#0000FF">return</span></b> output <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"(</span><span style="color:#CC33CC">\"</span><span style="color:#FF0000">"</span> <span style="color:#990000">&lt;&lt;</span> obj<span style="color:#990000">.</span>name <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\"</span><span style="color:#FF0000">, "</span> <span style="color:#990000">&lt;&lt;</span> obj<span style="color:#990000">.</span>id <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">")"</span><span style="color:#990000">;</span>
 <span style="color:#FF0000">}</span>
 
-<i><span style="color:#9A1900">//---------------------------------------------------- static variables</span></i>
-<span style="color:#009900">int</span> MyObject<span style="color:#990000">::</span>numObjs <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>  <i><span style="color:#9A1900">// static member for all objects in class</span></i>
-<b><span style="color:#0000FF">static</span></b> <span style="color:#008080">MyObject</span> <b><span style="color:#000000">staticObj</span></b><span style="color:#990000">(</span><span style="color:#FF0000">"I'm static, outside of main"</span><span style="color:#990000">);</span>
-
-<i><span style="color:#9A1900">//---------------------------------------------------------- prototypes</span></i>
+<i><span style="color:#9A1900">// Prototypes for non-member functions we define later on</span></i>
+<i><span style="color:#9A1900">// These are *non-member* functions because we didn't declare them as part of the MyObject class</span></i>
 <span style="color:#008080">MyObject</span> <b><span style="color:#000000">getMaxMyObj</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> <span style="color:#008080">MyObject</span> o1<span style="color:#990000">,</span> <b><span style="color:#0000FF">const</span></b> <span style="color:#008080">MyObject</span> o2<span style="color:#990000">);</span>
 <span style="color:#009900">int</span> <b><span style="color:#000000">cmpMyObj</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> <span style="color:#008080">MyObject</span> o1<span style="color:#990000">,</span> <b><span style="color:#0000FF">const</span></b> <span style="color:#008080">MyObject</span> o2<span style="color:#990000">);</span>
 <span style="color:#009900">void</span> <b><span style="color:#000000">swapMyObj</span></b><span style="color:#990000">(</span>MyObject<span style="color:#990000">&amp;</span> o1<span style="color:#990000">,</span> MyObject<span style="color:#990000">&amp;</span> o2<span style="color:#990000">);</span>
 
-<i><span style="color:#9A1900">//--------------------------------------------------------------- main</span></i>
+<i><span style="color:#9A1900">// Static variables</span></i>
+<span style="color:#009900">int</span> MyObject<span style="color:#990000">::</span>numObjs <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>  <i><span style="color:#9A1900">// static member for all objects in class</span></i>
+<b><span style="color:#0000FF">static</span></b> <span style="color:#008080">MyObject</span> <b><span style="color:#000000">staticObj</span></b><span style="color:#990000">(</span><span style="color:#FF0000">"I'm static, outside of main"</span><span style="color:#990000">);</span>
+
 <span style="color:#009900">int</span> <b><span style="color:#000000">main</span></b> <span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
     cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"--PART 1: Start of main--"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"--Defining o1, o2(Bob)--"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"--Defining o1, o2(</span><span style="color:#CC33CC">\"</span><span style="color:#FF0000">Bob</span><span style="color:#CC33CC">\"</span><span style="color:#FF0000">)--"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
     <span style="color:#008080">MyObject</span> o1<span style="color:#990000">,</span> <b><span style="color:#000000">o2</span></b><span style="color:#990000">(</span><span style="color:#FF0000">"Bob"</span><span style="color:#990000">);</span>
+
     cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"--Defining o3(o2)--"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
     <span style="color:#008080">MyObject</span> <b><span style="color:#000000">o3</span></b><span style="color:#990000">(</span>o2<span style="color:#990000">);</span>
+
     cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"--Defining array of 3 objects--"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
     <span style="color:#008080">MyObject</span> array<span style="color:#990000">[</span><span style="color:#993399">3</span><span style="color:#990000">];</span>
-    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">--PART 2: call function using call-by-value,"</span>
-         <span style="color:#FF0000">" return int--"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+
+    cout <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"--PART 2: call function using call-by-value, return int--"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
     <b><span style="color:#000000">cmpMyObj</span></b><span style="color:#990000">(</span>o1<span style="color:#990000">,</span> o3<span style="color:#990000">);</span>
+
     cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"--call function using call-by-value, return MyObject--"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
     <b><span style="color:#000000">getMaxMyObj</span></b><span style="color:#990000">(</span>o1<span style="color:#990000">,</span> o3<span style="color:#990000">);</span>
-    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">--PART 3:  o1: "</span> <span style="color:#990000">&lt;&lt;</span> o1 <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+
+    cout <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"--PART 3:  o1: "</span> <span style="color:#990000">&lt;&lt;</span> o1 <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
     <span style="color:#FF0000">{</span>
         cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"  --entering new block, define new o1(Sally)--"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
         <span style="color:#008080">MyObject</span> <b><span style="color:#000000">o1</span></b><span style="color:#990000">(</span><span style="color:#FF0000">"Sally"</span><span style="color:#990000">);</span>
         o1<span style="color:#990000">.</span><b><span style="color:#000000">setName</span></b><span style="color:#990000">(</span><span style="color:#FF0000">"Sally"</span><span style="color:#990000">);</span>
         cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"  o1: "</span> <span style="color:#990000">&lt;&lt;</span> o1 <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">o2: "</span> <span style="color:#990000">&lt;&lt;</span> o2 <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+
         cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"  --call swap function using call-by-reference--"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
         <b><span style="color:#000000">swapMyObj</span></b><span style="color:#990000">(</span>o1<span style="color:#990000">,</span> o2<span style="color:#990000">);</span>
+
         cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"  --were their values swapped?--"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
         cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"  o1: "</span> <span style="color:#990000">&lt;&lt;</span> o1 <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">o2: "</span> <span style="color:#990000">&lt;&lt;</span> o2 <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
         cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"  --leaving new block--"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
     <span style="color:#FF0000">}</span>
     cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"o1: "</span> <span style="color:#990000">&lt;&lt;</span> o1 <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">--PART 4: Define reference var.: { MyObject&amp; oref=o1; } --"</span>
-         <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+
+    cout <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"--PART 4: Define reference var: { MyObject&amp; oref=o1; } --"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
     <span style="color:#FF0000">{</span>
         MyObject<span style="color:#990000">&amp;</span> oref<span style="color:#990000">=</span>o1<span style="color:#990000">;</span>
     <span style="color:#FF0000">}</span>
     cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"-- was anything constructed/destructed?--"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">--PART 5: new and delete--"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"--use new to create one object, then array of 2 objects--"</span>
-         <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+
+    cout <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"--PART 5: new and delete--"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"--use new to create one object, then array of 2 objects--"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
     <span style="color:#008080">MyObject</span> <span style="color:#990000">*</span>op1 <span style="color:#990000">=</span> <b><span style="color:#0000FF">new</span></b> MyObject<span style="color:#990000">,</span> <span style="color:#990000">*</span>op2 <span style="color:#990000">=</span> <b><span style="color:#0000FF">new</span></b> MyObject<span style="color:#990000">[</span><span style="color:#993399">2</span><span style="color:#990000">];</span>
+
     cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"--use delete to remove that one object--"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
     <b><span style="color:#0000FF">delete</span></b> op1<span style="color:#990000">;</span>
+
     cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"--use delete [] to remove that array of 2 objects --"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-    <b><span style="color:#0000FF">delete</span></b> <span style="color:#990000">[]</span> op2<span style="color:#990000">;</span>
-    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">--LAST PART:  End of main--"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">delete</span></b><span style="color:#990000">[]</span> op2<span style="color:#990000">;</span>
+
+    cout <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"--LAST PART:  End of main--"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
     <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
 <span style="color:#FF0000">}</span>
 
-<i><span style="color:#9A1900">//---------------------------------------------------------- cmpMyObj</span></i>
+<i><span style="color:#9A1900">// Define the functions we declared earlier</span></i>
 <span style="color:#009900">int</span> <b><span style="color:#000000">cmpMyObj</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> <span style="color:#008080">MyObject</span> o1<span style="color:#990000">,</span> <b><span style="color:#0000FF">const</span></b> <span style="color:#008080">MyObject</span> o2<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
     <span style="color:#008080">string</span> name1 <span style="color:#990000">=</span> o1<span style="color:#990000">.</span><b><span style="color:#000000">getName</span></b><span style="color:#990000">(),</span> name2 <span style="color:#990000">=</span> o2<span style="color:#990000">.</span><b><span style="color:#000000">getName</span></b><span style="color:#990000">();</span>
-    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> name1 <span style="color:#990000">==</span> name2 <span style="color:#990000">)</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>name1 <span style="color:#990000">==</span> name2<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
         <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
-    <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> name1 <span style="color:#990000">&lt;</span> name2 <span style="color:#990000">)</span>
+    <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>name1 <span style="color:#990000">&lt;</span> name2<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
         <b><span style="color:#0000FF">return</span></b> <span style="color:#990000">-</span><span style="color:#993399">1</span><span style="color:#990000">;</span>
-    <b><span style="color:#0000FF">else</span></b>
+    <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <span style="color:#FF0000">{</span>
         <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">1</span><span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
 <span style="color:#FF0000">}</span>
 
-<i><span style="color:#9A1900">//---------------------------------------------------------- getMaxMyObj</span></i>
 <span style="color:#008080">MyObject</span> <b><span style="color:#000000">getMaxMyObj</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> <span style="color:#008080">MyObject</span> o1<span style="color:#990000">,</span> <b><span style="color:#0000FF">const</span></b> <span style="color:#008080">MyObject</span> o2<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
     <span style="color:#008080">string</span> name1 <span style="color:#990000">=</span> o1<span style="color:#990000">.</span><b><span style="color:#000000">getName</span></b><span style="color:#990000">(),</span> name2 <span style="color:#990000">=</span> o2<span style="color:#990000">.</span><b><span style="color:#000000">getName</span></b><span style="color:#990000">();</span>
-    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> name1 <span style="color:#990000">&gt;=</span> name2 <span style="color:#990000">)</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>name1 <span style="color:#990000">&gt;=</span> name2<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
         <b><span style="color:#0000FF">return</span></b> o1<span style="color:#990000">;</span>
-    <b><span style="color:#0000FF">else</span></b>
+    <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <span style="color:#FF0000">{</span>
         <b><span style="color:#0000FF">return</span></b> o2<span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
 <span style="color:#FF0000">}</span>
 
-<i><span style="color:#9A1900">//---------------------------------------------------------- swapMyObj</span></i>
 <span style="color:#009900">void</span> <b><span style="color:#000000">swapMyObj</span></b><span style="color:#990000">(</span>MyObject<span style="color:#990000">&amp;</span> o1<span style="color:#990000">,</span> MyObject<span style="color:#990000">&amp;</span> o2<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
     <span style="color:#008080">MyObject</span> <b><span style="color:#000000">tmp</span></b><span style="color:#990000">(</span>o1<span style="color:#990000">);</span>
     o1<span style="color:#990000">.</span><b><span style="color:#000000">setName</span></b><span style="color:#990000">(</span>o2<span style="color:#990000">.</span><b><span style="color:#000000">getName</span></b><span style="color:#990000">());</span>
