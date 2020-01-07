@@ -110,48 +110,77 @@ A ListNode contains an integer value, as well as next and previous pointers to o
 
 This class represents the list data structure containing ListNodes.  It has a pointer to the first (head) and last (tail) ListNodes of the list, as well as a count of the number of ListNodes in the List.  View the [List.h](List.h.html) ([src](List.h)) code for details.
 
-### Explanations: ###
+### ListItr ###
 
-- `List()` is the default constructor.  It should initialize all private data members and set up the basic list structure with the dummy head and tail nodes.
-- `~List()` is the destructor.  It should make the list empty and reclaim the memory allocated in the constructor for head and tail.
-- `List& operator=(const List& source)` is the **copy assignment operator**.  It is called when code such as the following is encountered: lhs = rhs.  The copy assignment operator that you implement will copy the contents of every ListNode in source into this (the reference to the calling List object itself).
-- `List(const List& source)` is the **copy constructor**.  This will create a new list of ListNodes whose contents are the same values as the ListNodes in source.
-- `bool isEmpty()` returns true if the list is empty and false otherwise.
-- `void makeEmpty()` removes/reclaims all items from a list, except the dummy head and tail nodes.
-- `ListItr first()` returns an iterator that points to the ListNode in the first position.  This is the element **after** the head ListNode (even on an empty list!).
-- `ListItr last()` returns an iterator that points to the ListNode in the last position.  This is the element **before** the tail node (even on an empty list!).
-- `void insertAfter(int x, ListItr position)` inserts x **after** the current iterator position position.
-- `void insertBefore(int x, ListItr position)` inserts x **before** the current iterator position position.
-- `void insertAtTail(int x)` inserts x at the tail of the list.
-- `ListItr find(int x)` returns an iterator that points to the first occurrence of x.  When the parameter is not in the list, return a ListItr object, where the current pointer points to the dummy tail node.  This makes sense because you can test the return from find() to see if isPastEnd() is true.
-- `void remove(int x)` removes the first occurrence of x.
-- `int size()` returns the number of elements in the list.
+Your ListItr should maintain a pointer to a current position in a List.  Your iterator class should look like the class definition in the source code.  See the [ListItr.h](ListItr.h.html) ([src](ListItr.h)) code for details.
 
-In addition, you must implement this non-List member function: void `printList(List& theList, bool forward)` is a **non-member function** that prints a list either forwards (by default -- from head to tail) when forward is true, or backwards (from tail to head) when forward is false.  *You must use your ListItr class to implement this function.*
+### Hints ###
 
-### Some of the harder methods... ###
+There are a few things that always cause students some headache.  We've tried to explain some of them here, in an effort to lessen the frustration it causes.
 
-The code for the copy constructor and the `operator=()` method in the List class are shown below.  Although we are providing you with this code, you must understand how it works by the end of the lab, as you will have to implement these types of methods on future labs and exams.
+#### Getting started ####
+To start, create all three .cpp files (List.cpp, ListNode.cpp, ListItr.cpp) and include the relevant .h files. Fill the files with empty method bodies (with a dummy return value for non-`void` methods) and get that to compile.  Then start implementing one method at a time, testing as you go.
+
+Here is the minimum amount of functions you need to have implemented in order to start using the ListTest harness, as well as suggested implementation order:
+
+1. All of ListNode (so...the constructor)
+2. List constructor
+3. `List::insertAtTail`
+4. All of ListItr
+5. `List::first`
+6. `printList`
+
+#### Segmentation faults ####
+When beginning to test your code, chances are your program will crash unexpectedly with a message similar to `Segmentation fault (core dumped)`, commonly referred to as a _segfault_.
+Get prepared to see these often throughout the course, as unlike other programming languages like Java, C++ does not give any extra debugging information on a crash.
+In order to determine where and why your program is crashing, run your code through the debugger and look at the backtrace.
+Segfaults generally indicate that you are trying to dereference a NULL or invalid pointer, so those are good things to look out for.
+
+#### The constructor ####
+By the time the constructor finishes, we should have a functioning (but empty) list.
+This means that `head` and `tail` need to be set appropriately!  What should they point to if the list is empty?
+
+Make sure you are initializing the variables that are specified in the .h file and **not** declaring new variables that have the same name as those in the header file.
+Take a look back at lifecycle.cpp's constructors from Lab 1 if you need a refresher.
+
+#### The copy constructor and the copy assignment operator ####
+The code for the copy constructor and the `operator=()` method in the List class are shown below.
+Although we are providing you with this code, you must understand how it works by the end of the lab,
+as you will have to implement these types of methods on future labs and exams.
+It also might help you with some of the other methods! (Hint hint.)
 
 ```
-List::List(const List& source) {      // Copy Constructor
-    head=new ListNode;
-    tail=new ListNode;
+// Copy constructor
+// Called when the code looks something like List list2 = list1;
+// (In other words, it is called when you are trying to construct a **new** list from an existing one)
+List::List(const List& source) {
+    head=new ListNode();
+    tail=new ListNode();
     head->next=tail;
     tail->previous=head;
     count=0;
+
+    // Make a deep copy of the list
     ListItr iter(source.head->next);
-    while (!iter.isPastEnd()) {       // deep copy of the list
+    while (!iter.isPastEnd()) {
         insertAtTail(iter.retrieve());
         iter.moveForward();
     }
 }
 
-List& List::operator=(const List& source) { //Equals operator
-    if (this == &source)
+// Copy assignment operator
+// Called when the code looks something like list2 = list1;
+// (In other words, it is called when you are trying to set an **existing** list equal to another one)
+List& List::operator=(const List& source) {
+    if (this == &source) {
+        // The two are the same list; no need to do anything
         return *this;
-    else {
+    } else {
+        // Clear out anything this list contained
+        // before copying over the items from the other list
         makeEmpty();
+
+        // Make a deep copy of the list
         ListItr iter(source.head->next);
         while (!iter.isPastEnd()) {
             insertAtTail(iter.retrieve());
@@ -162,24 +191,34 @@ List& List::operator=(const List& source) { //Equals operator
 }
 ```
 
-Note that these two methods are correctly implemented.  However, they depend on the other methods working properly.  If you are seeing crashes in these methods, it is likely because some of the other supporting methods are not working properly.  One common issue is to ensure that `makeEmpty()` has `head->next` pointing to tail, and `tail->previous` pointing to head.  If they are causing a crash in your program, then it is likely being caused by one of the methods that they invoke.
+Note that these two methods are correctly implemented.  However, they depend on the other methods working properly.
+If you are seeing crashes in these methods, it is likely because some of the other supporting methods are not working properly.
 
-### ListItr ###
+#### Insert methods ####
+When implementing the three insert functions, we have found it helpful to draw out the pointers on paper and determine the order in which to update the pointers _before_ beginning to code the function itself.
 
-Your ListItr should maintain a pointer to a current position in a List.  Your iterator class should look like the class definition in the source code.  See the [ListItr.h](ListItr.h.html) ([src](ListItr.h)) code for details.
+For `insertAfter` and `insertBefore`, the ListItr you are given is already pointing to a ListNode.
+You should insert the new ListNode after or before that ListNode, respectively.
+If you find yourself thinking about loops or iteration, that is unnecessary!  Double-check the ListItr header file.
 
-Your ListItr class should implement at least the following public methods:
+#### Find and remove ####
+Since `find` needs to return a ListItr, it might make sense to also implement it using iterators, though that is not required.
 
-- `bool isPastEnd()`: Returns true if the iterator is currently pointing past the end position in the list (i.e., it's pointing to the dummy tail)
-- `bool isPastBeginning()`: Returns true if the iterator is currently pointing past(before) the first position in list (i.e., it's pointing to the dummy head)
-- `void moveForward()`: Advances the current pointer to the next position in the list (unless already past the end of the list)
-- `void moveBackward()`: Move current back to the previous position in the list (unless already past the beginning of the list)
-- `int retrieve()`: Returns the value of the item in the current position of the list
+As `remove` takes in an integer rather than a ListItr, we first need to determine whether or not that integer exists in our list.
 
-### Hints ###
+#### makeEmpty and the destructor ####
+`makeEmpty` should clear the list of all elements (`isEmpty` should return true after calling `makeEmpty`).
+It should also make sure that `head` and `tail` no longer point to those deleted elements (what should they point to instead in an empty list?).\
+Since we have been dynamically allocating ListNodes, we must also be responsible for deleting them to ensure we do not leak memory.
+There are multiple ways to iterate through the list and `delete` each ListNode -- experiment and see what makes the most sense to you.\
+**Important:** once you delete a ListNode, you can no longer reliably access any of its data, such as its `next` or `previous` pointers!
+To make sure you don't do this accidentally, we recommend setting each ListNode to NULL as soon as you delete it.
 
-There are a few things that always cause students some headache.  We've tried to explain some of them here, in an effort to lessen the frustration it causes.
+The destructor should delete _all_ dynamically-allocated memory, as we no longer need this List instance.
+Thus, it makes sense that we should delete all the elements we inserted (hint: do we already have a method for that?).
+However, what else do we dynamically allocate that we need to delete?
 
+#### Compiling ####
 When compiling your code, you must remember to compile all of your .cpp files in one line:
 
 ```
@@ -189,21 +228,26 @@ clang++ List.cpp ListItr.cpp ListNode.cpp ListTest.cpp
 There are ways to compile these programs in pieces, but we will see this later in the semester.
 
 Linker errors are commonly caused by one of two problems:
-- `Undefined symbols for architecture...` means that you forgot to implement the functions listed below that line, or that you forgot to compile all four files together.
-- `Duplicate symbol...` means that you have defined the same function more than once. Make sure you're only including `.h` files and that you haven't accidentally redefined a function somewhere.
 
-Some students have had problems with the copy constructor and `operator=()` methods defined above -- they would cause a crash (segmentation fault).  The methods above work fine in our solution, but require that all the called functionality work properly as well.  If it is causing a crash in your code, run it through the debugger to see where it crashes -- it's probably a problem with one of your other methods.
+- `Undefined symbols for architecture...` or `Undefined reference to...` means that you forgot to implement some functions, or that you forgot to compile all four files together. Here's an example:
+```
+/tmp/ListTest-8ea7aa.o: In function `main':
+ListTest.cpp:(.text+0x37c): undefined reference to `List::List()'
+ListTest.cpp:(.text+0x116d): undefined reference to `List::insertBefore(int, ListItr)'
+ListTest.cpp:(.text+0x1d34): undefined reference to `List::List()'
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+```
+Looks like we forgot to implement the List constructor and insertBefore!
 
-To start, create the .cpp file (List.cpp, ListNode.cpp, ListItr.cpp) that just have empty method bodies (with a dummy return value for non-`void` methods), and get that to compile.  Then start implementing one method at a time, testing as you go.
-
-Here is the minimum amount of functions you need to have implemented in order to start using the ListTest harness, as well as suggested implementation order:
-
-1. All of ListNode (so...the constructor)
-2. List constructor
-3. `List::insertAtTail`
-4. All of ListItr
-5. `List::first`
-6. `printList`
+- `Duplicate symbol...` or `Multiple definition of...` means that you have defined the same function more than once. Make sure you're only including `.h` files and that you haven't accidentally redefined a function somewhere. Here's an example:
+```
+/tmp/ListItr-6e3849.o: In function `List::insertBefore(int, ListItr)':
+ListItr.cpp:(.text+0x120): multiple definition of `List::insertBefore(int, ListItr)'
+/tmp/List-2e4fcd.o:List.cpp:(.text+0x5d0): first defined here
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+```
+This time, we defined insertBefore twice -- once in ListItr, and once in List.
+The one in ListItr must be a mistake!
 
 ------------------------------------------------------------
 
@@ -224,14 +268,102 @@ These are the same steps from the lab procedure section, above.
 Post-lab
 --------
 
-These are the same steps from the lab procedure section, above.
+For the post-lab, your goal is to submit a fully-functional version of your doubly-linked list.
+Finish any methods that you haven't completed yet, and then move on to checking for memory errors.
 
-1. For this lab you will be submitting your code electronically via online grading system to postlab2.  Your fully functional code must contain the following 7 files:
-    1. List.h and List.cpp
-    2. ListNode.h and ListNode.cpp
-    3. ListItr.h and ListItr.cpp
-    4. and the test harness, ListTest.cpp
-2. *Be sure you submit all 7 files!* If you don't, then your code will not compile properly, and you will lose points!
-3. It is due on the Friday of the week of the lab, at the time listed on the [Lab due dates page](https://uva-cs.github.io/pdr/uva/labduedates.html).  Be sure to include: your name, the date, and the name of the file in a banner comment at the beginning of each file you submit.
-4. Files to download: no additional files beyond the pre-lab and in-lab
-5. Files to submit: ListNode.h/cpp, ListItr.h/cpp, List.h/cpp, ListTest.cpp
+### Memory Leaks and Corruption ###
+
+Even though your code might appear to work correctly, it might still be leaking or corrupting memory!
+
+- A _memory leak_ occurs when you forget to deallocate some memory that you dynamically allocated earlier,
+which causes your program to hold onto that memory forever until it exits!
+- _Memory corruption_ occurs when your code attempts to access some memory address that it does not have access to,
+for example, attempting to read or write to a previously-deleted pointer.
+C++ will blindly dereference a pointer without checking its validity.
+Clearly, this can cause your program to do unexpected things!
+
+These types of errors can cause your host machine to run out of memory and crash,
+or edit some other file that your program shouldn't have access to!
+We will be checking that your code does not contain any memory errors because of their potential severity.
+
+You can test for memory errors by compiling your code with special _sanitizers_ enabled:
+
+```
+clang++ List.cpp ListItr.cpp ListNode.cpp ListTest.cpp -fsanitize=address,leak -fno-omit-frame-pointer -g
+```
+
+`-fsanitize=address,leak` turns on two sanitizers: [AddressSanitizer](https://clang.llvm.org/docs/AddressSanitizer.html) and [LeakSanitizer](https://clang.llvm.org/docs/LeakSanitizer.html).
+AddressSanitizer ensures that your code never attempts to
+reference deleted memory or memory that you do not have access to (i.e., it checks for invalid addresses).
+LeakSanitizer ensures that anything that is dynamically allocated is also deallocated.
+
+`-fno-omit-frame-pointer` helps us obtain better stack traces, so we include it just in case.
+
+We use the `-g` flag from earlier to indicate that we want to include debugging information such as line numbers.
+
+Now, when we run the executable, AddressSanitizer will **immediately crash upon any invalid behavior**.
+This is helpful because AddressSanitizer detects when we try to use addresses that we do not control,
+and thus, we have no idea what will happen when we use them!
+AddressSanitizer crashes the program because there is no guarantee of what will happen next.
+If this happens, carefully inspect the stack trace, attempt to fix the error, and recompile.
+
+Here's an example of an AddressSanitizer crash:
+```
+==28315==ERROR: AddressSanitizer: heap-use-after-free on address 0x6030000003a8 at pc 0x000000519188 bp 0x7ffff83e7910 sp 0x7ffff83e7908
+READ of size 8 at 0x6030000003a8 thread T0
+    #0 0x519187 in List::makeEmpty() /home/winston/github/computer-science/cs2150/labs/lab-2/postlab/List.cpp:68:20
+    #1 0x51db77 in main /home/winston/github/computer-science/cs2150/labs/lab-2/postlab/ListTest.cpp:446:23
+    #2 0x7f07bba91b96 in __libc_start_main /build/glibc-OTsEL5/glibc-2.27/csu/../csu/libc-start.c:310
+    #3 0x41bbe9 in _start (/mnt/c/Users/Winston/Documents/GitHub/computer-science/cs2150/labs/lab-2/postlab/a.out+0x41bbe9)
+
+0x6030000003a8 is located 8 bytes inside of 24-byte region [0x6030000003a0,0x6030000003b8) freed by thread T0 here:
+    #0 0x514dc8 in operator delete(void*) (/mnt/c/Users/Winston/Documents/GitHub/computer-science/cs2150/labs/lab-2/postlab/a.out+0x514dc8)
+    #1 0x51915e in List::makeEmpty() /home/winston/github/computer-science/cs2150/labs/lab-2/postlab/List.cpp:67:3
+    #2 0x51db77 in main /home/winston/github/computer-science/cs2150/labs/lab-2/postlab/ListTest.cpp:446:23
+    #3 0x7f07bba91b96 in __libc_start_main /build/glibc-OTsEL5/glibc-2.27/csu/../csu/libc-start.c:310
+
+previously allocated by thread T0 here:
+    #0 0x514050 in operator new(unsigned long) (/mnt/c/Users/Winston/Documents/GitHub/computer-science/cs2150/labs/lab-2/postlab/a.out+0x514050)
+    #1 0x518bf8 in List::insertAtTail(int) /home/winston/github/computer-science/cs2150/labs/lab-2/postlab/List.cpp:111:22
+    #2 0x51bc1d in main /home/winston/github/computer-science/cs2150/labs/lab-2/postlab/ListTest.cpp:121:27
+    #3 0x7f07bba91b96 in __libc_start_main /build/glibc-OTsEL5/glibc-2.27/csu/../csu/libc-start.c:310
+
+---snip---
+```
+
+Here, we are trying to use a pointer after it has been deleted.\
+The first stack trace shows where we try to use it -- in this case, in `List::makeEmpty()` on line 68, column 20.\
+The second stack trace shows where we deleted the pointer -- right before we used it, on line 67.\
+The third stack trace is generally less useful, but shows where we allocated memory in the first place.
+
+After fixing all of the bugs AddressSanitizer caught, we can move on to LeakSanitizer,
+which will print out any leaks that it detected when the program exits.
+If you exit and there is no extra output, congratulations!  That means your program is leak-free.
+
+Otherwise, you can look at the stack trace to see what memory you are leaking.
+Here is an example of a List implementation that forgets to delete `head` and `tail` in the destructor:
+```
+==28454==ERROR: LeakSanitizer: detected memory leaks
+
+Indirect leak of 48 byte(s) in 2 object(s) allocated from:
+    #0 0x514050 in operator new(unsigned long) (/mnt/c/Users/Winston/Documents/GitHub/computer-science/cs2150/labs/lab-2/postlab/a.out+0x514050)
+    #1 0x5184b5 in List::List() /home/winston/github/computer-science/cs2150/labs/lab-2/postlab/List.cpp:11:15
+    #2 0x51b777 in main /home/winston/github/computer-science/cs2150/labs/lab-2/postlab/ListTest.cpp:102:28
+    #3 0x7f7c97c91b96 in __libc_start_main /build/glibc-OTsEL5/glibc-2.27/csu/../csu/libc-start.c:310
+
+Indirect leak of 48 byte(s) in 2 object(s) allocated from:
+    #0 0x514050 in operator new(unsigned long) (/mnt/c/Users/Winston/Documents/GitHub/computer-science/cs2150/labs/lab-2/postlab/a.out+0x514050)
+    #1 0x518465 in List::List() /home/winston/github/computer-science/cs2150/labs/lab-2/postlab/List.cpp:10:15
+    #2 0x51b777 in main /home/winston/github/computer-science/cs2150/labs/lab-2/postlab/ListTest.cpp:102:28
+    #3 0x7f7c97c91b96 in __libc_start_main /build/glibc-OTsEL5/glibc-2.27/csu/../csu/libc-start.c:310
+
+SUMMARY: AddressSanitizer: 96 byte(s) leaked in 4 allocation(s).
+```
+
+LeakSanitizer will print out where the leaking memory was allocated so that you can figure out what you forgot to delete.
+In this case, we can see we forgot to delete the objects we created on lines 11 and 10 in the constructor,
+which just happen to be `tail` and `head`, respectively.
+Now that we know _what_ we are leaking, we can start to think about _where_ in our program we should delete those objects.
+
+Having a program run successfully under AddressSanitizer and LeakSanitizer adds strong assurances
+towards code correctness!

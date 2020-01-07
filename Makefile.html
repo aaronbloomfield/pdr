@@ -9,14 +9,14 @@ http://www.gnu.org/software/src-highlite">
 <title>Makefile</title>
 </head>
 <body style="background-color:white">
-<pre><span style="color:#990000">publish:</span> markdown format highlight
-
-<span style="color:#990000">markdown:</span>
+<pre><span style="color:#990000">markdown:</span>
 	@echo Converting markdown files to html format<span style="color:#990000">...</span>
 	@chmod <span style="color:#993399">755</span> utils/convert-markdown-to-html.sh
 	@utils/convert-markdown-to-html.sh
 	@git checkout uva/old<span style="color:#990000">/*</span>.html
 	@echo <b><span style="color:#0000FF">done</span></b><span style="color:#990000">!</span>
+
+<span style="color:#990000">all:</span> markdown format highlight
 
 <span style="color:#990000">format:</span>
 	@echo Formatting <b><span style="color:#0000FF">source</span></b> files<span style="color:#990000">...</span>
