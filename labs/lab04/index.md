@@ -22,7 +22,7 @@ Procedure
 
 1. Any of the optional readings on the [Readings](../../docs/readings.html) page, in particular, those on arrays and unions, if you feel you need a bit more background.
 2. Go through [Tutorial 4: Unix, part 2](../../tutorials/03-04-more-unix/index.html), which is sections 5-8.  This tutorial is originally from the department of Electrical Engineering at the University of Surrey, and is available online [here](http://www.ee.surrey.ac.uk/Teaching/Unix/).  You went through sections 1-4 in the last tutorial; this lab has you completing sections 5-8.
-3. Get your floating point number [here](http://libra.cs.virginia.edu/getfloat.php), and then complete your floating point conversion, as described in the pre-lab section, into a file called floatingpoint.pdf; you can convert a file into a PDF via the directions on the [How to convert a file to PDF](../../docs/convert_to_pdf.html) page. **Note: Many students will submit a text file that happens to be called floatingpoint.pdf. Make sure to check for this before submitting!**
+3. Get your floating point number [here](https://libra.cs.virginia.edu/getfloat.php), and then complete your floating point conversion, as described in the pre-lab section, into a file called floatingpoint.pdf; you can convert a file into a PDF via the directions on the [How to convert a file to PDF](../../docs/convert_to_pdf.html) page. **Note: Many students will submit a text file that happens to be called floatingpoint.pdf. Make sure to check for this before submitting!**
     - Note that this must be typed up in a document; you cannot do this by hand and scan it in (or take a photo of it)
     - Make sure you read the part, in the pre-lab section below, about the maximum file size!  Otherwise your submission will not be accepted.
 4. Write the `sizeOfTest()` function (note the capitalization!), as described in the pre-lab section.
@@ -64,7 +64,7 @@ You should see the [Readings](../../docs/readings.html) on [arrays](../../docs/r
 
 For the last part of the in-lab, you will need to convert a floating point number to binary representation, and another number from binary representation to a floating point number.  You should do this by hand (i.e. not in a computer program), and have the worked-out solution (similar to the lecture notes) be in a floatingpoint.pdf file -- you can use any editor you would like to generate the file, as long as what you submit is a PDF file.
 
-First, you will need to determine what your floating point numbers are going to be -- these numbers will be different for each student.  To do so, visit [http://libra.cs.virginia.edu/getfloat.php](http://libra.cs.virginia.edu/getfloat.php) and enter your UVa userid.  Each floating point number is unique to the userid entered.  Note that the hexadecimal number printed is in **little Endian** format.
+First, you will need to determine what your floating point numbers are going to be -- these numbers will be different for each student.  To do so, visit [https://libra.cs.virginia.edu/getfloat.php](https://libra.cs.virginia.edu/getfloat.php) and enter your UVa userid.  Each floating point number is unique to the userid entered.  Note that the hexadecimal number printed is in **little Endian** format.
 
 The first number must be converted into (little-Endian) format -- you should leave your answer in hexadecimal, as that will be an easier way (versus binary) to represent the number.  The second number (the one in hexadecimal) needs to be converted to a base 10 real number as per the algorithm for converting IEEE 754 single-precision (i.e. 32-bit) floating point numbers.
 
@@ -87,7 +87,7 @@ Note: during the conversion, the numbers provided do not have any 1 bits in the 
 
 Your conversion should be in a PDF file called floatingpoint.pdf.  The idea is to show the math behind the conversion (similar to how was done in class), not to write a program to do it.
 
-You must actually type up your work in a word editor (Word is fine, as is Mac Pages; [LibreOffice](http://www.libreoffice.org/) is a free alternative).  You can ***NOT*** do the assignment by hand, then scan it in (or take a photo of it).  It must actually be typeset in your favorite editor of choice.  Note that the Unix honor pledge only applies to development, so you are free to use anything to type up the file.
+You must actually type up your work in a word editor (Word is fine, as is Mac Pages; [LibreOffice](https://www.libreoffice.org/) is a free alternative).  You can ***NOT*** do the assignment by hand, then scan it in (or take a photo of it).  Note that the Unix honor pledge only applies to development, so you are free to use anything to type up the file.
 
 ### sizeOfTest() ###
 
@@ -127,8 +127,6 @@ Your three functions, `sizeOfTest()`, `outputBinary()`, and `overflow()` should 
 
 **Your program should ask for a single integer value for input**, which we will call *x*.  The program will call the three functions in order: `sizeOfTest()`, `outputBinary(x)`, and then `overflow()`.  Note that only `outputBinary()` takes in *x* as the parameter.  The program should take in no further input.
 
-**File size:** the submission server will only accept files of up to a certain size, and your file must be less than this size.  If you properly type set your document, then this will not be a problem.  But if you write out your assignment by hand, then scan (or take a picture of) it, then it will be too big to submit.  And note that you have to actually type set it, as mentioned above, so you should be doing this anyway.
-
 ------------------------------------------------------------
 
 In-Lab
@@ -164,7 +162,7 @@ Suggestions to get started:
 
   - For the "Size in Bytes" column, consider using the `sizeof` operator you learned about in the pre-lab.
   - The values for the "Zero" and "One" columns should interpreted appropriately for the data type. For example, "zero" is 0 for an `int`, 0.0 for a `float`, `false` for a bool, the character `'0'` for a `char`, etc.  
-  - The header [`climits`](http://en.cppreference.com/w/cpp/header/climits) has constants containing the max values of many types.
+  - The header [`climits`](https://en.cppreference.com/w/cpp/header/climits) has constants containing the max values of many types.
   - For types not in `climits` header, you should reason about how the data is stored (this may involve doing some math on paper).
   - For pointers, the highest memory address that can be described is the "max value." For `char`s, we want the maximum integer value that may be stored therein.  Finally, booleans only have two possible values, so choose the max and min from these two. 
   - Hex values should be given in **big-endian**.
@@ -192,10 +190,7 @@ Also, note that `char`, `short`, `int`, and `long` are all integral (i.e. intege
 
 For various optimization reasons, when you declare a variable with an initialization value in C++ (e.g. `int x = 17`), it does not actually immediately initialize it.  In fact, it can initialize it right before it is first used.  Thus, if you set a breakpoint after you declare and initialize a variable, but before it is used, the variable will have a random value in it.  You can solve this by printing out the variable via `cout` -- this causes C++ to initialize the variable for the output statement.  You can then set your breakpoint after this `cout` statement.
 
-To convert binary into hex, see the [03-numbers slide set](../../slides/03-numbers.html).  You can also assign variables in C++ directly using hex by prefacing numeric constants with `0x`.  For example, instead of `int x = 17`, you can write `int x = 0x11`.  
-
-### A legacy note on 32-bit machines ###
-In the past, we accepted answers to this lab for either 32-bit or 64-bit computers; as we have transitioned the entire course to 64-bit systems, this is no longer the case.
+To convert binary into hex, see the [03-numbers slide set](../../slides/03-numbers.html).  You can also assign variables in C++ directly using hex by prefacing numeric constants with `0x`.  For example, instead of `int x = 17`, you can write `int x = 0x11`.
 
 ### <a name="memory">Representation in memory</a> ###
 
@@ -285,5 +280,3 @@ Your task is to implement the binary bit counter function that takes in a single
 ### Converting between number systems ###
 
 Complete and submit the [radixWorksheet.doc](radixWorksheet.doc) file as a PDF file called radixWorksheet.pdf.  It must be in PDF format!  See [How To Convert A File To PDF](../../docs/convert_to_pdf.html) for details.
-
-
