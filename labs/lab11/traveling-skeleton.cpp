@@ -36,6 +36,7 @@ int main (int argc, char **argv) {
 // vector IN ORDER, and ends back at the 'start' parameter.
 float computeDistance (MiddleEarth &me, string start, vector<string> dests) {
     // YOUR CODE HERE
+    return 0;
 }
 
 // This method will print the entire route, starting and ending at the
