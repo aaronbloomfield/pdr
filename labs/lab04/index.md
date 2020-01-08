@@ -13,7 +13,7 @@ In class we discussed how various data types -- integers, characters, and floati
 
 ### Reading(s) ###
 
-1. Any of the optional readings on the [Readings](../../docs/readings.html) page, in particular, those on arrays and unions, if you feel you need a bit more background.  If you are a bit confused about unions, you might want to read about them prior to the in-lab.  Do a Google search for 'C++ unions'.
+1. Any of the optional readings on the [Readings](../../docs/readings.html) page, in particular, those on arrays and unions, if you feel you need a bit more background.
 
 Procedure
 ---------
@@ -24,7 +24,6 @@ Procedure
 2. Go through [Tutorial 4: Unix, part 2](../../tutorials/03-04-more-unix/index.html), which is sections 5-8.  This tutorial is originally from the department of Electrical Engineering at the University of Surrey, and is available online [here](http://www.ee.surrey.ac.uk/Teaching/Unix/).  You went through sections 1-4 in the last tutorial; this lab has you completing sections 5-8.
 3. Get your floating point number [here](https://libra.cs.virginia.edu/getfloat.php), and then complete your floating point conversion, as described in the pre-lab section, into a file called floatingpoint.pdf; you can convert a file into a PDF via the directions on the [How to convert a file to PDF](../../docs/convert_to_pdf.html) page. **Note: Many students will submit a text file that happens to be called floatingpoint.pdf. Make sure to check for this before submitting!**
     - Note that this must be typed up in a document; you cannot do this by hand and scan it in (or take a photo of it)
-    - Make sure you read the part, in the pre-lab section below, about the maximum file size!  Otherwise your submission will not be accepted.
 4. Write the `sizeOfTest()` function (note the capitalization!), as described in the pre-lab section.
 5. Write the `outputBinary()` function, as described in the pre-lab section.
     - You cannot use the `bitset` class (or anything similar) for this!
@@ -56,19 +55,11 @@ Procedure
 Pre-lab
 -------
 
-### Reading ###
-
-You should see the [Readings](../../docs/readings.html) on [arrays](../../docs/readings.html#arrays) -- that will be needed in the in-lab.  Also, the [Readings](../../docs/readings.html) on [unions](../../docs/readings.html#structsunions).
-
 ### Floating point conversion ###
 
-For the last part of the in-lab, you will need to convert a floating point number to binary representation, and another number from binary representation to a floating point number.  You should do this by hand (i.e. not in a computer program), and have the worked-out solution (similar to the lecture notes) be in a floatingpoint.pdf file -- you can use any editor you would like to generate the file, as long as what you submit is a PDF file.
+To reinforce what we went over in class, you will be converting a floating point number to binary representation, and another number from its binary representation to a floating point number.
 
-First, you will need to determine what your floating point numbers are going to be -- these numbers will be different for each student.  To do so, visit [https://libra.cs.virginia.edu/getfloat.php](https://libra.cs.virginia.edu/getfloat.php) and enter your UVa userid.  Each floating point number is unique to the userid entered.  Note that the hexadecimal number printed is in **little Endian** format.
-
-The first number must be converted into (little-Endian) format -- you should leave your answer in hexadecimal, as that will be an easier way (versus binary) to represent the number.  The second number (the one in hexadecimal) needs to be converted to a base 10 real number as per the algorithm for converting IEEE 754 single-precision (i.e. 32-bit) floating point numbers.
-
-Note that a '0x' before a number means that the number is in hexadecimal.  Thus, 0x11 has decimal value 17, as that is what 11 is in hexadecimal.  The '0x' part is not part of the value.
+First, you will need to determine what your floating point numbers are going to be -- these numbers will be different for each student.  To do so, visit [https://libra.cs.virginia.edu/getfloat.php](https://libra.cs.virginia.edu/getfloat.php) and enter your UVa userid.
 
 For example, if you entered 'asb2t', you would get:
 
@@ -87,7 +78,9 @@ Note: during the conversion, the numbers provided do not have any 1 bits in the 
 
 Your conversion should be in a PDF file called floatingpoint.pdf.  The idea is to show the math behind the conversion (similar to how was done in class), not to write a program to do it.
 
-You must actually type up your work in a word editor (Word is fine, as is Mac Pages; [LibreOffice](https://www.libreoffice.org/) is a free alternative).  You can ***NOT*** do the assignment by hand, then scan it in (or take a photo of it).  Note that the Unix honor pledge only applies to development, so you are free to use anything to type up the file.
+You must actually type up your work in a word editor (Word is fine, as is Mac Pages; [LibreOffice](https://www.libreoffice.org/) is a free alternative) and convert it to PDF by following [these instructions](../../docs/convert_to_pdf.html).  You can ***NOT*** do the assignment by hand, then scan it in (or take a photo of it).  The Unix honor pledge only applies to development, so you are free to use anything to type up the file.
+
+**Note: Many students will submit a text file that happens to be called floatingpoint.pdf. Make sure to check for this before submitting!**
 
 ### sizeOfTest() ###
 
@@ -196,7 +189,7 @@ To convert binary into hex, see the [03-numbers slide set](../../slides/03-numbe
 
 This exercise will show you how to read the contents of a particular memory address.  This will be useful for debugging code and for understanding the underlying data representation of abstract data types.
 
-Recall that all Intel 80x86 machines (i.e. all Pentium-class machines) are little-Endian.  Thus, 0xd97c34a2 is stored as: a2 34 7c d9, with the least significant byte listed first.  However, when you examine the value in gdb (using the `x/x` command), it will display it in big-endian format, as that is how humans typically think of numbers.
+Recall that almost all computers use little-Endian processors.  Thus, 0xd97c34a2 is stored as: `a2 34 7c d9`, with the least significant byte listed first.  However, when you examine the value in LLDB (using the `x/x` command), it will display it in big-endian format, as that is how humans typically think of numbers.
 
 Write a C++ program, called inlab4.cpp, where you consecutively declare variables of these types: `bool`, `char`, `int`, `double`, `int*`, and assign a value to each of them.  The last line(s) of the program should print out the values.  Put a breakpoint near the end of the program, but before the last print statement(s).  Once the breakpoint is hit, type expressions to examine the addresses of all of these variables (e.g. `&i`).  Then for each of these variables, view the contents of their addresses (via the `x/x` command from above).
 
@@ -212,7 +205,7 @@ After completing this section of the lab, you will be expected to understand how
 
 ### <a name="arrays">Primitive Arrays in C++</a> ###
 
-For the pre-lab, you should have read the [Readings](../../docs/readings.html) on arrays, if you feel you need a bit more background.  Note how two (or higher) dimensional arrays are stored in row-major order (as described in the [04-arrays-bigoh slide set](../../slides/04-arrays-bigoh.html)) in C++, as opposed to being stored as arrays of arrays in Java.
+If you feel you need a bit more background on arrays, there are [readings](../../docs/readings.html#arrays) available.  Note how two (or higher) dimensional arrays are stored in row-major order (as described in the [04-arrays-bigoh slide set](../../slides/04-arrays-bigoh.html)) in C++, as opposed to being stored as arrays of arrays in Java.
 
 For this part, you will need to add a bit of code to your inlab4.cpp file.  You program should show a clear separator where the previous section's part of inlab4.cpp ends and where this section's part of inlab4.cpp begins.  The additional code should declare a one dimensional array of chars and a one dimensional array of ints:
 
