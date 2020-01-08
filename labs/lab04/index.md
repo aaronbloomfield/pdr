@@ -155,7 +155,7 @@ Notes:
 
 There are two parts to the C++ file you will be submitting as a part of the in-lab.
 
-All your code may be written in a single `main()` function that needs no input to run.
+All your code may be written in a single `main()` function that must not require input to run.
 
 #### <a name="memory">Representation in memory</a> ####
 This exercise will show you how to read the contents of a particular memory address.  This will be useful for debugging code and for understanding the underlying data representation of abstract data types.

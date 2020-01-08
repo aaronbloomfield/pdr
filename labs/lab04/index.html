@@ -209,7 +209,7 @@ outputBinary(1000000) //=&gt; 0000 0000 0000 1111 0100 0010 0100 0000</code></pr
 </ul>
 <h3 id="inlab4.cpp">inlab4.cpp</h3>
 <p>There are two parts to the C++ file you will be submitting as a part of the in-lab.</p>
-<p>All your code may be written in a single <code>main()</code> function that needs no input to run.</p>
+<p>All your code may be written in a single <code>main()</code> function that must not require input to run.</p>
 <h4 id="representation-in-memory"><a name="memory">Representation in memory</a></h4>
 <p>This exercise will show you how to read the contents of a particular memory address. This will be useful for debugging code and for understanding the underlying data representation of abstract data types.</p>
 <p>Recall that almost all computers use little-Endian processors. Thus, 0xd97c34a2 is stored as: <code>a2 34 7c d9</code>, with the least significant byte listed first. However, when you examine the value in LLDB (using the <code>x/x</code> command), it will display it in big-endian format, as that is how humans typically think of numbers.</p>
