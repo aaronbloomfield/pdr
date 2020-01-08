@@ -267,5 +267,11 @@ char CharArray2D[6][5];</code></pre>
 <p>Command-line parameters are discussed in more detail in the <a href="../../slides/04-arrays-bigoh.html">04-arrays-bigoh slide set</a>, along with a source code example showing how to use them.</p>
 <h3 id="converting-between-number-systems">Converting between number systems</h3>
 <p>Complete and submit the <a href="radixWorksheet.doc" class="uri">radixWorksheet.doc</a> file as a PDF file called radixWorksheet.pdf. It must be in PDF format! See <a href="../../docs/convert_to_pdf.html">How To Convert A File To PDF</a> for details.</p>
+<h3 id="hints-1">Hints</h3>
+<h4 id="working-with-command-line-parameters">Working with command-line parameters</h4>
+<p>Since <code>argv</code> is a <code>char**</code>, all parameters are stored as C-style strings. You will need some method of converting your string parameter to an integer that can be passed to your bit-counter function. Not sure what to do? Look back at Lab 3 for some clues.</p>
+<h4 id="flooring-values">Flooring values</h4>
+<p>In the real world, <code>5 / 2 = 2.5</code>. In most programming languages, including C++, dividing two integers will also yield an integer with the fractional portion removed (which is the same thing as flooring).<br />
+Hence, in C++, <code>5 / 2 = 2</code>, as division implicitly floors the result.</p>
 </body>
 </html>

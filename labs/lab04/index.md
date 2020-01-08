@@ -268,3 +268,16 @@ Command-line parameters are discussed in more detail in the [04-arrays-bigoh sli
 ### Converting between number systems ###
 
 Complete and submit the [radixWorksheet.doc](radixWorksheet.doc) file as a PDF file called radixWorksheet.pdf.  It must be in PDF format!  See [How To Convert A File To PDF](../../docs/convert_to_pdf.html) for details.
+
+### Hints ###
+
+#### Working with command-line parameters ####
+Since `argv` is a `char**`, all parameters are stored as C-style strings.
+You will need some method of converting your string parameter to an integer that can be passed to your bit-counter function.
+Not sure what to do? Look back at Lab 3 for some clues.
+
+#### Flooring values ####
+In the real world, `5 / 2 = 2.5`.
+In most programming languages, including C++, dividing two integers will also yield an integer
+with the fractional portion removed (which is the same thing as flooring).\
+Hence, in C++, `5 / 2 = 2`, as division implicitly floors the result.
