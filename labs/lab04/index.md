@@ -22,23 +22,21 @@ Procedure
 
 1. Go through [Tutorial 4: Unix, part 2](../../tutorials/03-04-more-unix/index.html), which is sections 5-8.  This tutorial is originally from the department of Electrical Engineering at the University of Surrey, and is available online [here](http://www.ee.surrey.ac.uk/Teaching/Unix/).  You went through sections 1-4 in the last tutorial; this lab has you completing sections 5-8.
 2. Convert a floating point number to binary, and a binary number to floating point
-3. Write a `sizeOfTest()` function to view the sizes of various types
-4. Write an `outputBinary()` function to display the binary representation of integers
-5. Write an `overflow()` function to investigate how C++ handles integer overflow
-6. Combine these functions into a prelab4.cpp file
-7. Files to download: none
-8. Files to submit: prelab4.cpp, floatingpoint.pdf
+3. In prelab4.cpp:
+  - Write a `sizeOfTest()` function to view the sizes of various types
+  - Write an `outputBinary()` function to display the binary representation of integers
+  - Write an `overflow()` function to investigate how C++ handles integer overflow
+4. Files to download: none
+5. Files to submit: floatingpoint.pdf, prelab4.cpp
 
 ### In-lab ###
 
-1. Work through the steps in the in-lab one a time.  Be sure that you understand what is happening at each step.
-2. The three parts of the in-lab, described below, have you editing both [inlab4.doc](inlab4.doc) and inlab4.cpp.
-    1. Size of C++ data types
-    2. Representations in memory
-    3. Primitive arrays in C++
+1. Complete the inlab4 worksheet
+2. In inlab4.cpp:
+  - Investigate how variables are represented in memory
+  - Investigate how arrays are represented in memory
 3. Files to download: [inlab4.doc](inlab4.doc)
-4. Convert inlab4.doc to a PDF via the directions on the [How to convert a file to PDF](../../docs/convert_to_pdf.html) page. **Note: Many students will submit a text file that happens to be called floatingpoint.pdf. Make sure to check for this before submitting!**
-5. Files to submit: inlab4.pdf (the PDF version of inlab4.doc), inlab4.cpp
+4. Files to submit: inlab4.pdf, inlab4.cpp
 
 ### Post-lab ###
 
@@ -126,7 +124,6 @@ For the in-lab, you will complete the [inlab4.doc](inlab4.doc) worksheet and sub
 
 ### Worksheet ###
 
-
 The [inlab4.doc](inlab4.doc) worksheet asks you to fill in two tables describing certain features of primitive types in C++.  The two tables are reproduced below:
 
 | C++ Type | Size in bytes? | Max value? (base 10) | Zero is stored as (in hex)? | One is stored as (in hex)? |
@@ -146,41 +143,13 @@ The [inlab4.doc](inlab4.doc) worksheet asks you to fill in two tables describing
 | char\* | | | |
 | double\* | | | |
 
-To fill in this table, we recommend using a combination of short "test" programs, the debugger, a header file containing max and min values of certain types, the [Number Representation slides](../../slides/03-numbers.html), and deductive reasoning.  
+To fill in this table, we recommend using a combination of short "test" programs, the debugger, a header file containing max and min values of certain types, the [Number Representation slides](../../slides/03-numbers.html), and deductive reasoning.
 
-Suggestions to get started:
+Notes:
 
-  - For the "Size in Bytes" column, consider using the `sizeof` operator you learned about in the pre-lab.
-  - The values for the "Zero" and "One" columns should interpreted appropriately for the data type. For example, "zero" is 0 for an `int`, 0.0 for a `float`, `false` for a bool, the character `'0'` for a `char`, etc.  
-  - The header [`climits`](https://en.cppreference.com/w/cpp/header/climits) has constants containing the max values of many types.
-  - For types not in `climits` header, you should reason about how the data is stored (this may involve doing some math on paper).
-  - For pointers, the highest memory address that can be described is the "max value." For `char`s, we want the maximum integer value that may be stored therein.  Finally, booleans only have two possible values, so choose the max and min from these two. 
-  - Hex values should be given in **big-endian**.
-
-### Using the Debugger ###
-
-For some parts of this lab, it is helpful to assign a value to a variable, then inspect that variable's contents using a debugger.  You can write a simple C++ program that creates the variables, and stores the appropriate value (zero, one, or NULL) into them.  Compile (remember the `-g` flag!), load the debugger, set a breakpoint, and start the program execution.  
-
-When using GDB, you can use the 'x' (for 'eXamine') command to print out the pointee of an address.  Consider the C++ program that has two variables defined, `int i` and `int *p`.  To print out the int variable `i`, you would enter `x &i` (as you have to enter the address of the data).  If `p` is a pointer to a value, you would enter `x p` to print out the *pointee*.  This may print it using many more hexadecimal digits than you wanted, so you can add a parameter to the 'x' command to have it print only a certain amount:
-
-- `x/xb p`: this will print the one byte at the address that is pointed to by p
-- `x/xh &i`: this will print the two bytes (short) of int variable i
-- `x/xw p`: this will print the four bytes at the address that is pointed to by p
-- `x/xg &i`: this will print the eight bytes of int variable i
-
-Note that this is only really useful when printing out a **smaller** size than really exists.  If your variable is 4 bytes, and you print out 8 bytes, then the other 4 bytes will be whatever arbitrary values are adjacent in memory.
-
-So, to find out how the value is stored in hex, first find out the address of where the variable is in memory (`print &i`, for example).  Then, using that address, you can use the examine command: `x/x 0xbf8cd9ac`.  The first 'x' is telling gdb to eXamine a location in memory.  The second 'x', after the forward slash, is telling GDB to print out that result in hex, and the address is the output from the previous print command.  This will print the 4 bytes (32 bits) of memory at that location, in hex.  If you want to print 8 bytes (64 bits), use `x/xg` (the 'g' tells GDB to print 8 bytes instead of 4).  You can also combine these commands by entering `x/x &i`.  The `x/x` part works as above; the `&i` tells it to print the value in memory at the address ('&') of the `i` variable.
-
-### Size of C++ data types ###
-
-The size of C++ data types is dependent on the underlying hardware on which you are running.  A programmer may determine the size of various data types by using the `sizeof()` operator, discussed in the pre-lab.  Note that, unlike a function, you can supply a type to the `sizeof()` operator (i.e., `sizeof(int)`) -- you can't do this with a function.
-
-Also, note that `char`, `short`, `int`, and `long` are all integral (i.e. integer) types.  Integral types may be either signed or unsigned.  Signed types have a different range of values than their unsigned counterpart.  A 32-bit `int` can have 2<sup>32</sup> = 4,294,967,296 values.  An `unsigned int` can range from 0 to 4,294,967,295, and a regular (i.e. signed) `int` can range from -2,147,483,648 to 2,147,483,647.  Unless specified as `unsigned` (as in: `unsigned long`), then all integral types in C++ are signed.
-
-For various optimization reasons, when you declare a variable with an initialization value in C++ (e.g. `int x = 17`), it does not actually immediately initialize it.  In fact, it can initialize it right before it is first used.  Thus, if you set a breakpoint after you declare and initialize a variable, but before it is used, the variable will have a random value in it.  You can solve this by printing out the variable via `cout` -- this causes C++ to initialize the variable for the output statement.  You can then set your breakpoint after this `cout` statement.
-
-To convert binary into hex, see the [03-numbers slide set](../../slides/03-numbers.html).  You can also assign variables in C++ directly using hex by prefacing numeric constants with `0x`.  For example, instead of `int x = 17`, you can write `int x = 0x11`.
+- The values for the "Zero" and "One" columns should interpreted appropriately for the data type. For example, "zero" is 0 for an `int`, 0.0 for a `float`, `false` for a bool, the character `'0'` for a `char`, etc.
+- For pointers, the highest memory address that can be described is the "max value." For `char`s, we want the maximum integer value that may be stored therein.  Finally, booleans only have two possible values, so choose the max and min from these two.
+- All hex values should be given in **big-endian**.
 
 ### <a name="memory">Representation in memory</a> ###
 
@@ -188,11 +157,9 @@ This exercise will show you how to read the contents of a particular memory addr
 
 Recall that almost all computers use little-Endian processors.  Thus, 0xd97c34a2 is stored as: `a2 34 7c d9`, with the least significant byte listed first.  However, when you examine the value in LLDB (using the `x/x` command), it will display it in big-endian format, as that is how humans typically think of numbers.
 
-Write a C++ program, called inlab4.cpp, where you consecutively declare variables of these types: `bool`, `char`, `int`, `double`, `int*`, and assign a value to each of them.  The last line(s) of the program should print out the values.  Put a breakpoint near the end of the program, but before the last print statement(s).  Once the breakpoint is hit, type expressions to examine the addresses of all of these variables (e.g. `&i`).  Then for each of these variables, view the contents of their addresses (via the `x/x` command from above).
+Write a C++ program, called inlab4.cpp, where you consecutively declare variables of these types: `bool`, `char`, `int`, `double`, `int*`, and assign a value of your choosing to each of them.  The last line(s) of the program should print out the values.  Put a breakpoint near the end of the program, but before the last print statement(s).  Once the breakpoint is hit, type expressions to examine the addresses of all of these variables (e.g. `&i`).  Then for each of these variables, view the contents of their addresses (via the `x/x` command from above).
 
 Find one of your `int` variables in memory.  Change its value via the `set variable <var> = <value>` command.  Examine the new variable's contents in memory.  Is it what you expected?  Continue the program execution -- did it properly print the changed value?
-
-**This program should take in no input.**
 
 After completing this section of the lab, you will be expected to understand how to use the debugger to:
 
@@ -204,35 +171,57 @@ After completing this section of the lab, you will be expected to understand how
 
 If you feel you need a bit more background on arrays, there are [readings](../../docs/readings.html#arrays) available.  Note how two (or higher) dimensional arrays are stored in row-major order (as described in the [04-arrays-bigoh slide set](../../slides/04-arrays-bigoh.html)) in C++, as opposed to being stored as arrays of arrays in Java.
 
-For this part, you will need to add a bit of code to your inlab4.cpp file.  You program should show a clear separator where the previous section's part of inlab4.cpp ends and where this section's part of inlab4.cpp begins.  The additional code should declare a one dimensional array of chars and a one dimensional array of ints:
+For this part, you will need to add a bit of code to your inlab4.cpp file.  You program should show a clear separator where the previous section's part of inlab4.cpp ends and where this section's part of inlab4.cpp begins.  The additional code should declare a one dimensional array of ints and a one dimensional array of chars, as well as two-dimensional versions of each:
 
 ```
 int IntArray[10];
 char CharArray[10];
-```
 
-In your program you should also declare a two dimensional array of chars and a two dimensional array of ints:
-
-```
 int IntArray2D[6][5];
 char CharArray2D[6][5];
 ```
 
-Assign different values into each element of all four arrays.  As above, put a breakpoint in your program after the four arrays have been assigned values.  Find the address of the first element of each array, and type that address into gdb (via the 'p' command).
-
-**This program should take in no input.**
+Assign different values of your choosing into each element of all four arrays.  As above, put a breakpoint in your program after the four arrays have been assigned values.  Find the address of the first element of each array, and type that address into LLDB (via the 'p' command).
 
 Examine where the elements of the four arrays are in memory. You will be expected to understand and be able to explain this representation for the exams.
 
-The final part of the inlab4.doc worksheet involves writing an expression for the address of the (i,j)th element of `IntArray2D` as declared above.
-
-The base address of the array is the identifier (IntArray2D), and the expression should be in terms of that, as well as `i`, `j`, and the size of the `int` type.  You can assume that: (0 &le; *i* < 6), and (0 &le; *j* < 5 ).  Note: '&' here means "the address of", you may use '&' in your answer.  
+The final part of the inlab4.doc worksheet involves writing an expression for the address of the (i,j)th element of `IntArray2D` as declared above.  You can assume that (0 &le; *i* < 6), (0 &le; *j* < 5), and an int is 4 bytes.
 
 ```
 &(IntArray2D[i][j]) = _______________________________________________
 ```
 
 Remember to include the standard identifying header at the top of all your files (name, date, etc.).  The inlab4.doc worksheet should be converted to PDF and submitted, along with the inlab4.cpp file.
+
+### Hints ###
+
+#### sizeof ####
+For the size in bytes of each type, we can easily use the `sizeof` operator or the `sizeOfTest` function from the pre-lab.
+
+#### Max values ####
+The header [`climits`](https://en.cppreference.com/w/cpp/header/climits) has constants containing the max values of many types.
+For types not in `climits`, you should reason about how the data is stored and the size of that type.
+
+#### Viewing values ####
+For some parts of this lab, it is helpful to assign a value to a variable, then inspect that variable's contents using a debugger.
+You can write a simple C++ program that creates the variables, and stores the appropriate value (zero, one, or NULL) into them.
+Compile (remember the `-g` flag!), load the debugger, set a breakpoint, and start the program execution.
+
+When using LLDB, you can use the 'x' (for 'eXamine') command to print out the pointee of an address.
+Consider the C++ program that has two variables defined, `int i` and `int *p`.
+To print out the int variable `i`, you would enter `x &i` (as you have to enter the address of where the data is located).
+If `p` is a pointer to a value, you would enter `x p` to print out the *pointee*.
+This may print it using many more hexadecimal digits than you wanted,
+so you can add a parameter to the 'x' command to have it print only a certain amount:
+
+- `x/xb p`: this will print the one byte at the address that is pointed to by p
+- `x/xh &i`: this will print the two bytes of int variable i
+- `x/xw p`: this will print the four bytes at the address that is pointed to by p
+- `x/xg &i`: this will print the eight bytes of int variable i
+
+Note that you don't want to print out more bytes than the size of the type itself.
+If your int is 4 bytes, and you print out 8 bytes,
+then the other 4 bytes will be whatever arbitrary values are adjacent in memory.
 
 ------------------------------------------------------------
 
