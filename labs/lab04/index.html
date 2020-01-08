@@ -82,10 +82,6 @@ Note that the hexadecimal printed above is in little-endian format!</code></pre>
 <pre><code>outputBinary(1) //=&gt; 0000 0000 0000 0000 0000 0000 0000 0001
 outputBinary(5) //=&gt; 0000 0000 0000 0000 0000 0000 0000 0101
 outputBinary(1000000) //=&gt; 0000 0000 0000 1111 0100 0010 0100 0000</code></pre>
-<ul>
-<li>If you do use for loops to do this, become familiar with the left shift operator (&lt;&lt;) and what it does to (unsigned) ints, and the binary and/or operators (&amp; and |).</li>
-<li>You can also use a calculator program (including one in Windows) to convert numbers to binary (select View-&gt;Scientific), as that is not the coding part of this lab.</li>
-</ul>
 <p>You can <strong><em>NOT</em></strong> use the <code>bitset</code> class for this, or any other class that does the work for you. You have to program this yourself.</p>
 <h4 id="the-limits-of-representation">The Limits of Representation</h4>
 <p>What do you think will happen when you add 1 to a variable containing the maximum value of a type? Write a function called <code>overflow()</code> to answer the following questions:</p>
@@ -96,6 +92,13 @@ outputBinary(1000000) //=&gt; 0000 0000 0000 1111 0100 0010 0100 0000</code></pr
 <li>Why does this happen?</li>
 </ul>
 <p>Your function should create an <code>unsigned int</code>, give it the max value, and add 1 to that. By printing out the result, you will effectively answer the first 3 of the 4 questions. Answer the last question in a <code>cout</code> statement (NOT as a comment!). The function takes in no parameters.</p>
+<h3 id="hints">Hints</h3>
+<h4 id="converting-to-binary">Converting to binary</h4>
+<p>Consider first how you might convert a number to binary using pencil and paper, and develop an algorithm. Next, take a look at left-shifts (<code>&lt;&lt;</code>) as well as right-shifts (<code>&gt;&gt;</code>) and see if they would be helpful in implementing your algorithm.</p>
+<h4 id="storing-as-binary">Storing as binary</h4>
+<p>Remember how we discussed that little-endian often makes more sense to represent numbers. Even though your function must print the final result out in big-endian, that does not prevent you from using little-endian for the conversion itself if you find that to be easier to reason about.</p>
+<h4 id="finding-the-max-value">Finding the max value</h4>
+<p>The header <a href="https://en.cppreference.com/w/cpp/header/climits"><code>climits</code></a> has constants containing the max values of many types.</p>
 <hr />
 <h2 id="in-lab-1">In-Lab</h2>
 <p>For the in-lab, you will complete the <a href="inlab4.doc" class="uri">inlab4.doc</a> worksheet and submit it (in PDF format - see <a href="../../docs/convert_to_pdf.html">How To Convert A File To PDF</a> for details). To complete this in-lab, you will write a few small functions to help fill in <em>some</em> of the values in the inlab4.doc worksheet; you will combine the functions (and some others) into an inlab4.cpp file. The sections below named <a href="#memory">Representation in memory</a> and <a href="#arrays">Primitive Arrays in C++</a> describe what should be in this file. It should not take in any input, and should just print out the necessary values.</p>
@@ -234,11 +237,11 @@ char CharArray2D[6][5];</code></pre>
 <p>The final part of the inlab4.doc worksheet involves writing an expression for the address of the (i,j)th element of <code>IntArray2D</code> as declared above. You can assume that (0 ≤ <em>i</em> &lt; 6), (0 ≤ <em>j</em> &lt; 5), and an int is 4 bytes.</p>
 <pre><code>&amp;(IntArray2D[i][j]) = _______________________________________________</code></pre>
 <p>After you are done, <a href="../../docs/convert_to_pdf.html">convert the worksheet to a PDF</a>. Remember to include the standard identifying header at the top of all your files (name, date, etc.). Submit both the worksheet PDF as well as inlab4.cpp.</p>
-<h3 id="hints">Hints</h3>
+<h3 id="hints-1">Hints</h3>
 <h4 id="sizeof">sizeof</h4>
 <p>For the size in bytes of each type, we can easily use the <code>sizeof</code> operator or the <code>sizeOfTest</code> function from the pre-lab.</p>
 <h4 id="max-values">Max values</h4>
-<p>The header <a href="https://en.cppreference.com/w/cpp/header/climits"><code>climits</code></a> has constants containing the max values of many types. For types not in <code>climits</code>, you should reason about how the data is stored and the size of that type.</p>
+<p><code>climits</code> will come in handy here again. For types not in <code>climits</code>, you should reason about how the data is stored and the size of that type.</p>
 <h4 id="viewing-values">Viewing values</h4>
 <p>For some parts of this lab, it is helpful to assign a value to a variable, then inspect that variable's contents using a debugger. You can write a simple C++ program that creates the variables, and stores the appropriate value (zero, one, or NULL) into them. Compile (remember the <code>-g</code> flag!), load the debugger, set a breakpoint, and start the program execution.</p>
 <p>When using LLDB, you can use the 'x' (for 'eXamine') command to print out the pointee of an address. Consider the C++ program that has two variables defined, <code>int i</code> and <code>int *p</code>. To print out the int variable <code>i</code>, you would enter <code>x &amp;i</code> (as you have to enter the address of where the data is located). If <code>p</code> is a pointer to a value, you would enter <code>x p</code> to print out the <em>pointee</em>. This may print it using many more hexadecimal digits than you wanted, so you can add a parameter to the 'x' command to have it print only a certain amount:</p>
@@ -267,7 +270,7 @@ char CharArray2D[6][5];</code></pre>
 <p>Command-line parameters are discussed in more detail in the <a href="../../slides/04-arrays-bigoh.html">04-arrays-bigoh slide set</a>, along with a source code example showing how to use them.</p>
 <h3 id="converting-between-number-systems">Converting between number systems</h3>
 <p>Complete and submit the <a href="radixWorksheet.doc" class="uri">radixWorksheet.doc</a> file as a PDF file called radixWorksheet.pdf. It must be in PDF format! See <a href="../../docs/convert_to_pdf.html">How To Convert A File To PDF</a> for details.</p>
-<h3 id="hints-1">Hints</h3>
+<h3 id="hints-2">Hints</h3>
 <h4 id="working-with-command-line-parameters">Working with command-line parameters</h4>
 <p>Since <code>argv</code> is a <code>char**</code>, all parameters are stored as C-style strings. You will need some method of converting your string parameter to an integer that can be passed to your bit-counter function. Not sure what to do? Look back at Lab 3 for some clues.</p>
 <h4 id="flooring-values">Flooring values</h4>

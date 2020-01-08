@@ -99,9 +99,6 @@ outputBinary(5) //=> 0000 0000 0000 0000 0000 0000 0000 0101
 outputBinary(1000000) //=> 0000 0000 0000 1111 0100 0010 0100 0000
 ```
 
-- If you do use for loops to do this, become familiar with the left shift operator (<<) and what it does to (unsigned) ints, and the binary and/or operators (& and |).
-- You can also use a calculator program (including one in Windows) to convert numbers to binary (select View->Scientific), as that is not the coding part of this lab.
-
 You can ***NOT*** use the `bitset` class for this, or any other class that does the work for you.  You have to program this yourself.
 
 #### The Limits of Representation ####
@@ -114,6 +111,20 @@ What do you think will happen when you add 1 to a variable containing the maximu
 - Why does this happen?
 
 Your function should create an `unsigned int`, give it the max value, and add 1 to that.  By printing out the result, you will effectively answer the first 3 of the 4 questions.  Answer the last question in a `cout` statement (NOT as a comment!).  The function takes in no parameters.
+
+### Hints ###
+
+#### Converting to binary ####
+Consider first how you might convert a number to binary using pencil and paper, and develop an algorithm.
+Next, take a look at left-shifts (`<<`) as well as right-shifts (`>>`) and see if they would be helpful in implementing your algorithm.
+
+#### Storing as binary ####
+Remember how we discussed that little-endian often makes more sense to represent numbers.
+Even though your function must print the final result out in big-endian,
+that does not prevent you from using little-endian for the conversion itself if you find that to be easier to reason about.
+
+#### Finding the max value ####
+The header [`climits`](https://en.cppreference.com/w/cpp/header/climits) has constants containing the max values of many types.
 
 ------------------------------------------------------------
 
@@ -203,7 +214,7 @@ After you are done, [convert the worksheet to a PDF](../../docs/convert_to_pdf.h
 For the size in bytes of each type, we can easily use the `sizeof` operator or the `sizeOfTest` function from the pre-lab.
 
 #### Max values ####
-The header [`climits`](https://en.cppreference.com/w/cpp/header/climits) has constants containing the max values of many types.
+`climits` will come in handy here again.
 For types not in `climits`, you should reason about how the data is stored and the size of that type.
 
 #### Viewing values ####
