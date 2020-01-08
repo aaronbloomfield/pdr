@@ -234,13 +234,13 @@ Post-Lab
 
 ### Binary bit counter ###
 
-Write a ***recursive*** function that returns the number of 1's in the binary representation of *n*.  Use the following fact: if *n* is even, the number of 1's in the representation of *n* is the same as that in *n/2*; if *n* is odd, the number of 1's is the same as that in *floor(n/2)* plus 1.
+In bitCounter.cpp, create a ***recursive*** function that returns the number of 1s in the binary representation of *n*, which will be passed in as a command-line parameter.  Use the following fact: if *n* is even, the number of 1s in the representation of *n* is the same as that in *n/2*; if *n* is odd, the number of 1s is one more than that in *floor(n/2)*.
 
 You may assume that *n* is a non-negative integer that will be stored in two's complement.  However, *n* will be passed in the standard decimal (i.e. base-10) format.  This should be a rather simple function that uses what you've learned about integer representation.  If you find you need things like global variables or the `pow()` function to implement this then you are going too far.
 
-This program, called bitCounter.cpp should take in a value as a command-line parameter (no input!).  See below for how to handle command-line parameters.  Note that if the program is run without any command-line parameters, your program should gracefully exit with an appropriate error message.  Your program need not handle an invalid number for the command-line parameter.  And any additional command-line parameters beyond the first can be (and should be) ignored.
+If your program is run without any command-line parameters, your program should gracefully exit with an appropriate error message.  Your program need not handle an invalid number for the command-line parameter.  Any additional command-line parameters beyond the first should be ignored.
 
-**This program should take in no input, only one command-line parameter.** Command line parameters are discussed in more detail in the [04-arrays-bigoh slide set](../../slides/04-arrays-bigoh.html), along with a source code example showing how to use them.
+### Command-line parameters ###
 
 So far, our `main()` method has had the following prototype:
 
@@ -254,11 +254,16 @@ We will now change that prototype to the following:
 int main (int argc, char **argv)
 ```
 
-These two parameters are providing you with the command-line parameters.  The first parameter, `argc`, is the number of parameters plus one.  The second parameter, `argv`, is an array of C-style strings (some people list the type as `char *argv[]` to make this more clear -- either way is fine).
+These two parameters provide you with the command-line parameters.  The first parameter, `argc`, is the number of parameters plus one -- the 0th parameter is always the name of the executable itself (`a.out`, for example).  The second parameter, `argv`, is an array of C-style strings (some people list the type as `char *argv[]` to make this more clear -- either way is fine).
 
-Thus, if you supply the program with 3 command-line parameters, then argc would be set to 4, `argv[0]` would be the C-string that contains the program name ('a.out', for example'), and `argv[1]`, `argv[2]`, and `argv[3]` are the 3 supplied command line parameters.
+Command-line parameters are passed in as space-delimited values after the executable name:
+```
+./a.out 3 hi example.txt
+```
 
-Your task is to implement the binary bit counter function that takes in a single command-line value (which is a standard base-10 integer) and prints out the number of ones contained therein.
+Here, `argc` would be set to 4, `argv[0]` would be `a.out`, and `argv[1]`, `argv[2]`, and `argv[3]` would be the strings `3`, `hi`, and `example.txt`, respectively.
+
+Command-line parameters are discussed in more detail in the [04-arrays-bigoh slide set](../../slides/04-arrays-bigoh.html), along with a source code example showing how to use them.
 
 ### Converting between number systems ###
 

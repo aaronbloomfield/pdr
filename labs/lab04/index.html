@@ -252,17 +252,19 @@ char CharArray2D[6][5];</code></pre>
 <hr />
 <h2 id="post-lab-1">Post-Lab</h2>
 <h3 id="binary-bit-counter">Binary bit counter</h3>
-<p>Write a <strong><em>recursive</em></strong> function that returns the number of 1's in the binary representation of <em>n</em>. Use the following fact: if <em>n</em> is even, the number of 1's in the representation of <em>n</em> is the same as that in <em>n/2</em>; if <em>n</em> is odd, the number of 1's is the same as that in <em>floor(n/2)</em> plus 1.</p>
+<p>In bitCounter.cpp, create a <strong><em>recursive</em></strong> function that returns the number of 1s in the binary representation of <em>n</em>, which will be passed in as a command-line parameter. Use the following fact: if <em>n</em> is even, the number of 1s in the representation of <em>n</em> is the same as that in <em>n/2</em>; if <em>n</em> is odd, the number of 1s is one more than that in <em>floor(n/2)</em>.</p>
 <p>You may assume that <em>n</em> is a non-negative integer that will be stored in two's complement. However, <em>n</em> will be passed in the standard decimal (i.e. base-10) format. This should be a rather simple function that uses what you've learned about integer representation. If you find you need things like global variables or the <code>pow()</code> function to implement this then you are going too far.</p>
-<p>This program, called bitCounter.cpp should take in a value as a command-line parameter (no input!). See below for how to handle command-line parameters. Note that if the program is run without any command-line parameters, your program should gracefully exit with an appropriate error message. Your program need not handle an invalid number for the command-line parameter. And any additional command-line parameters beyond the first can be (and should be) ignored.</p>
-<p><strong>This program should take in no input, only one command-line parameter.</strong> Command line parameters are discussed in more detail in the <a href="../../slides/04-arrays-bigoh.html">04-arrays-bigoh slide set</a>, along with a source code example showing how to use them.</p>
+<p>If your program is run without any command-line parameters, your program should gracefully exit with an appropriate error message. Your program need not handle an invalid number for the command-line parameter. Any additional command-line parameters beyond the first should be ignored.</p>
+<h3 id="command-line-parameters">Command-line parameters</h3>
 <p>So far, our <code>main()</code> method has had the following prototype:</p>
 <pre><code>int main()</code></pre>
 <p>We will now change that prototype to the following:</p>
 <pre><code>int main (int argc, char **argv)</code></pre>
-<p>These two parameters are providing you with the command-line parameters. The first parameter, <code>argc</code>, is the number of parameters plus one. The second parameter, <code>argv</code>, is an array of C-style strings (some people list the type as <code>char *argv[]</code> to make this more clear -- either way is fine).</p>
-<p>Thus, if you supply the program with 3 command-line parameters, then argc would be set to 4, <code>argv[0]</code> would be the C-string that contains the program name ('a.out', for example'), and <code>argv[1]</code>, <code>argv[2]</code>, and <code>argv[3]</code> are the 3 supplied command line parameters.</p>
-<p>Your task is to implement the binary bit counter function that takes in a single command-line value (which is a standard base-10 integer) and prints out the number of ones contained therein.</p>
+<p>These two parameters provide you with the command-line parameters. The first parameter, <code>argc</code>, is the number of parameters plus one -- the 0th parameter is always the name of the executable itself (<code>a.out</code>, for example). The second parameter, <code>argv</code>, is an array of C-style strings (some people list the type as <code>char *argv[]</code> to make this more clear -- either way is fine).</p>
+<p>Command-line parameters are passed in as space-delimited values after the executable name:</p>
+<pre><code>./a.out 3 hi example.txt</code></pre>
+<p>Here, <code>argc</code> would be set to 4, <code>argv[0]</code> would be <code>a.out</code>, and <code>argv[1]</code>, <code>argv[2]</code>, and <code>argv[3]</code> would be the strings <code>3</code>, <code>hi</code>, and <code>example.txt</code>, respectively.</p>
+<p>Command-line parameters are discussed in more detail in the <a href="../../slides/04-arrays-bigoh.html">04-arrays-bigoh slide set</a>, along with a source code example showing how to use them.</p>
 <h3 id="converting-between-number-systems">Converting between number systems</h3>
 <p>Complete and submit the <a href="radixWorksheet.doc" class="uri">radixWorksheet.doc</a> file as a PDF file called radixWorksheet.pdf. It must be in PDF format! See <a href="../../docs/convert_to_pdf.html">How To Convert A File To PDF</a> for details.</p>
 </body>
