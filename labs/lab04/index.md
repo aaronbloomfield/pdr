@@ -20,17 +20,14 @@ Procedure
 
 ### Pre-lab ###
 
-1. Any of the optional readings on the [Readings](../../docs/readings.html) page, in particular, those on arrays and unions, if you feel you need a bit more background.
-2. Go through [Tutorial 4: Unix, part 2](../../tutorials/03-04-more-unix/index.html), which is sections 5-8.  This tutorial is originally from the department of Electrical Engineering at the University of Surrey, and is available online [here](http://www.ee.surrey.ac.uk/Teaching/Unix/).  You went through sections 1-4 in the last tutorial; this lab has you completing sections 5-8.
-3. Get your floating point number [here](https://libra.cs.virginia.edu/getfloat.php), and then complete your floating point conversion, as described in the pre-lab section, into a file called floatingpoint.pdf; you can convert a file into a PDF via the directions on the [How to convert a file to PDF](../../docs/convert_to_pdf.html) page. **Note: Many students will submit a text file that happens to be called floatingpoint.pdf. Make sure to check for this before submitting!**
-    - Note that this must be typed up in a document; you cannot do this by hand and scan it in (or take a photo of it)
-4. Write the `sizeOfTest()` function (note the capitalization!), as described in the pre-lab section.
-5. Write the `outputBinary()` function, as described in the pre-lab section.
-    - You cannot use the `bitset` class (or anything similar) for this!
-6. Write the `overflow()` function, as described in the pre-lab section.
-7. Combine these functions into a prelab4.cpp file, as described in the pre-lab section.  This program should only take in a *single* `int` value as input!
-8. Files to download: none
-9. Files to submit: prelab4.cpp, floatingpoint.pdf
+1. Go through [Tutorial 4: Unix, part 2](../../tutorials/03-04-more-unix/index.html), which is sections 5-8.  This tutorial is originally from the department of Electrical Engineering at the University of Surrey, and is available online [here](http://www.ee.surrey.ac.uk/Teaching/Unix/).  You went through sections 1-4 in the last tutorial; this lab has you completing sections 5-8.
+2. Convert a floating point number to binary, and a binary number to floating point
+3. Write a `sizeOfTest()` function to view the sizes of various types
+4. Write an `outputBinary()` function to display the binary representation of integers
+5. Write an `overflow()` function to investigate how C++ handles integer overflow
+6. Combine these functions into a prelab4.cpp file
+7. Files to download: none
+8. Files to submit: prelab4.cpp, floatingpoint.pdf
 
 ### In-lab ###
 
