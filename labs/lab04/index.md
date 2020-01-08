@@ -40,8 +40,8 @@ Procedure
 
 ### Post-lab ###
 
-1. Write the recursive bit counter, in bitCounter.cpp, as described in the post-lab section.
-2. Complete the radix worksheet -- this worksheet is in the [radixWorksheet.doc](radixWorksheet.doc) file.  This will be converted to PDF and called radixWorksheet.pdf.
+1. Write a recursive bit counter to count the number of 1s in the binary representation of an integer
+2. Complete the radix worksheet
 3. Files to download: [radixWorksheet.doc](radixWorksheet.doc)
 4. Files to submit: bitCounter.cpp, radixWorksheet.pdf
 
