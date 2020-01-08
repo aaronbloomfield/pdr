@@ -23,9 +23,9 @@ Procedure
 1. Go through [Tutorial 4: Unix, part 2](../../tutorials/03-04-more-unix/index.html), which is sections 5-8.  This tutorial is originally from the department of Electrical Engineering at the University of Surrey, and is available online [here](http://www.ee.surrey.ac.uk/Teaching/Unix/).  You went through sections 1-4 in the last tutorial; this lab has you completing sections 5-8.
 2. Convert a floating point number to binary, and a binary number to floating point
 3. In prelab4.cpp:
-  - Write a `sizeOfTest()` function to view the sizes of various types
-  - Write an `outputBinary()` function to display the binary representation of integers
-  - Write an `overflow()` function to investigate how C++ handles integer overflow
+    - Write a `sizeOfTest()` function to view the sizes of various types
+    - Write an `outputBinary()` function to display the binary representation of integers
+    - Write an `overflow()` function to investigate how C++ handles integer overflow
 4. Files to download: none
 5. Files to submit: floatingpoint.pdf, prelab4.cpp
 
@@ -33,8 +33,8 @@ Procedure
 
 1. Complete the inlab4 worksheet
 2. In inlab4.cpp:
-  - Investigate how variables are represented in memory
-  - Investigate how arrays are represented in memory
+    - Investigate how variables are represented in memory
+    - Investigate how arrays are represented in memory
 3. Files to download: [inlab4.doc](inlab4.doc)
 4. Files to submit: inlab4.pdf, inlab4.cpp
 
