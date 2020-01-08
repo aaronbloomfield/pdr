@@ -115,12 +115,6 @@ What do you think will happen when you add 1 to a variable containing the maximu
 
 Your function should create an `unsigned int`, give it the max value, and add 1 to that.  By printing out the result, you will effectively answer the first 3 of the 4 questions.  Answer the last question in a `cout` statement (NOT as a comment!).  The function takes in no parameters.
 
-### prelab4.cpp ###
-
-Your three functions, `sizeOfTest()`, `outputBinary()`, and `overflow()` should be combined into a prelab4.cpp file.  This is the one C++ source code file that you will submit for the pre-lab.  The input requirements for this program are fairly strict, so as to allow automated execution of your programs.
-
-**Your program should ask for a single integer value for input**, which we will call *x*.  The program will call the three functions in order: `sizeOfTest()`, `outputBinary(x)`, and then `overflow()`.  Note that only `outputBinary()` takes in *x* as the parameter.  The program should take in no further input.
-
 ------------------------------------------------------------
 
 In-Lab
