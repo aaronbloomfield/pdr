@@ -77,13 +77,19 @@ You must actually type up your work in a word editor (Word is fine, as is Mac Pa
 
 **Note: Many students will submit a text file that happens to be called floatingpoint.pdf. Make sure to check for this before submitting!**
 
-### sizeOfTest() ###
+### prelab4.cpp ###
+
+There are three parts to the C++ file you will be submitting as a part of the pre-lab.
+
+**Your program should ask for a single integer value for input**, which we will call *x*.  The program will call the three functions below in order: `sizeOfTest()`, `outputBinary(x)`, and then `overflow()`.  Note that only `outputBinary()` takes in *x* as the parameter.
+
+#### sizeOfTest() ####
 
 The size of C++ data types is dependent on the underlying hardware on which you are running.  A programmer may determine the size of various data types by using the `sizeof()` operator.  Although it looks like a function, it's a language construct -- somewhat like `while()` or `if()` -- so it's technically an operator.  `sizeof()` returns the size, in bytes, of a given variable or data type.  Note that you can use `sizeof()` with types, variables, pointers, classes, and objects.
 
 Write a small C++ function that demonstrates the use of `sizeof()` with the following types: `int`, `unsigned int`, `float`, `double`, `char`, `bool`, `int*`, `char*`, and `double*`.  Your function should print out all the types and their respective sizes.  You will use the values outputted by your program to fill in the table in the in-lab section.  The function should be called `sizeOfTest()` (note the capitalization!), so as not to confuse C++ with the `sizeof()` operator.  This function should not take in any parameters.
 
-### Binary number output ###
+#### Binary number output ####
 
 The second coding exercise for the pre-lab is a binary output program.  The function to write is called `outputBinary()`, and it will take in one parameter, an `unsigned int`.  It must be unsigned, or else your code may not work!  You should then print out the 32-bit binary representation (this includes the leading 0s!) of the passed parameters in **big Endian** format. For example:
 
@@ -98,7 +104,7 @@ outputBinary(1000000) //=> 0000 0000 0000 1111 0100 0010 0100 0000
 
 You can ***NOT*** use the `bitset` class for this, or any other class that does the work for you.  You have to program this yourself.
 
-### The Limits of Representation ###
+#### The Limits of Representation ####
 
 What do you think will happen when you add 1 to a variable containing the maximum value of a type?  Write a function called `overflow()` to answer the following questions:
 
@@ -151,8 +157,13 @@ Notes:
 - For pointers, the highest memory address that can be described is the "max value." For `char`s, we want the maximum integer value that may be stored therein.  Finally, booleans only have two possible values, so choose the max and min from these two.
 - All hex values should be given in **big-endian**.
 
-### <a name="memory">Representation in memory</a> ###
+### inlab4.cpp ###
 
+There are two parts to the C++ file you will be submitting as a part of the in-lab.
+
+All your code may be written in a single `main()` function that needs no input to run.
+
+#### <a name="memory">Representation in memory</a> ####
 This exercise will show you how to read the contents of a particular memory address.  This will be useful for debugging code and for understanding the underlying data representation of abstract data types.
 
 Recall that almost all computers use little-Endian processors.  Thus, 0xd97c34a2 is stored as: `a2 34 7c d9`, with the least significant byte listed first.  However, when you examine the value in LLDB (using the `x/x` command), it will display it in big-endian format, as that is how humans typically think of numbers.
@@ -167,8 +178,7 @@ After completing this section of the lab, you will be expected to understand how
 - Change an int value from positive to negative.
 - Observe interesting/different features in memory (e.g. skipped memory) and be able to explain it.
 
-### <a name="arrays">Primitive Arrays in C++</a> ###
-
+#### <a name="arrays">Primitive Arrays in C++</a> ####
 If you feel you need a bit more background on arrays, there are [readings](../../docs/readings.html#arrays) available.  Note how two (or higher) dimensional arrays are stored in row-major order (as described in the [04-arrays-bigoh slide set](../../slides/04-arrays-bigoh.html)) in C++, as opposed to being stored as arrays of arrays in Java.
 
 For this part, you will need to add a bit of code to your inlab4.cpp file.  You program should show a clear separator where the previous section's part of inlab4.cpp ends and where this section's part of inlab4.cpp begins.  The additional code should declare a one dimensional array of ints and a one dimensional array of chars, as well as two-dimensional versions of each:
@@ -191,7 +201,7 @@ The final part of the inlab4.doc worksheet involves writing an expression for th
 &(IntArray2D[i][j]) = _______________________________________________
 ```
 
-Remember to include the standard identifying header at the top of all your files (name, date, etc.).  The inlab4.doc worksheet should be converted to PDF and submitted, along with the inlab4.cpp file.
+After you are done, [convert the worksheet to a PDF](../../docs/convert_to_pdf.html).  Remember to include the standard identifying header at the top of all your files (name, date, etc.).  Submit both the worksheet PDF as well as inlab4.cpp.
 
 ### Hints ###
 
