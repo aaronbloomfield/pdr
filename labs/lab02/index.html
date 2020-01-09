@@ -18,30 +18,26 @@
 <p>This laboratory introduces you to some advanced class development in C++, creating and using iterators, manipulating pointers, and linked data structures. It also addresses some issues involving testing and software development.</p>
 <h3 id="background">Background</h3>
 <p>The linked list is a basic data structure from which one can implement stacks, queues, sets, and many other data structures. Lists may be singly- or doubly-linked. In this lab we will implement a doubly-linked list.</p>
-<h3 id="readings">Reading(s)</h3>
-<ol type="1">
-<li>Readings on <a href="../../docs/readings.html">Readings</a> page.</li>
-<li><a href="../../tutorials/02-lldb/index.html">Tutorial 2: LLDB</a> <strong><em>OR</em></strong> <a href="../../tutorials/02-gdb/index.html">Tutorial 2: GDB</a>; see below as to which one to choose.</li>
-<li>For the in-lab, some articles on debugging</li>
-</ol>
-<h3 id="debugger-choice">Debugger Choice</h3>
-<p>In this lab, you will have to make a choice as to which debugger to use; this will affect which tutorial you carry out. You can choose the lldb debugger (you would then complete <a href="../../tutorials/02-lldb/index.html">Tutorial 2: LLDB</a>) or the gdb debugger (you would then complete <a href="../../tutorials/02-gdb/index.html">Tutorial 2: GDB</a>). The source code provided for each tutorial is exactly the same, and the deliverable (i.e., what you turn in) is likewise the exact same.</p>
-<p>The lldb debugger is preferred as it was built with the <code>clang++</code> compiler that we are using; however, the gdb tutorial is offered if lldb doesn't work for you.</p>
+<h3 id="tutorial">Tutorial</h3>
+<p>In this lab, you will have to make a choice as to which debugger to use; this will affect which tutorial you carry out. You can choose the LLDB debugger (you would then complete <a href="../../tutorials/02-lldb/index.html">Tutorial 2: LLDB</a>) or the GDB debugger (you would then complete <a href="../../tutorials/02-gdb/index.html">Tutorial 2: GDB</a>). The source code provided for each tutorial is exactly the same, and the deliverable (i.e., what you turn in) is likewise the exact same.</p>
+<p>The LLDB debugger is preferred as it was built with the <code>clang++</code> compiler that we are using; however, the GDB tutorial is offered if LLDB doesn't work for you.</p>
 <p>Just remember which one you choose, as you will end up using that debugger throughout this course. And if you ever have to switch between them, you can use our <a href="../../docs/gdb_vs_lldb.html">GDB vs LLDB</a> page to see the (relatively few) commands that are different between the two.</p>
-<p>Ultimately, this is a low stress choice. Choose lldb, and only switch over to gdb if you run into issues.</p>
+<p>Ultimately, this is a low stress choice. Choose LLDB, and only switch over to GDB if you run into issues.</p>
+<h3 id="recommend-readings">Recommend Readings</h3>
+<ul>
+<li>Pointers and Linked Lists sections on the <a href="../../docs/readings.html">Readings</a> page</li>
+<li>The <a href="http://umich.edu/~eecs381/generalFAQ/Debugging.html">Debugging FAQ from UMich</a></li>
+</ul>
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
 <ol type="1">
-<li>Consider one of the online alternative readings shown on the <a href="../../docs/readings.html">Readings</a> page</li>
 <li>Make significant progress on implementing a doubly-linked linked list</li>
 <li>Files to download: <a href="List.h.html">List.h</a> (<a href="List.h">src</a>), <a href="ListNode.h.html">ListNode.h</a> (<a href="ListNode.h">src</a>), <a href="ListItr.h.html">ListItr.h</a> (<a href="ListItr.h">src</a>), <a href="ListTest.cpp.html">ListTest.cpp</a> (<a href="ListTest.cpp">src</a>)</li>
 <li>Files to submit: ListNode.h/cpp, ListItr.h/cpp, List.h/cpp, ListTest.cpp</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
 <ol type="1">
-<li>Ensure you are familiar with debugging. You should look over the <a href="http://umich.edu/~eecs381/generalFAQ/Debugging.html">Debugging FAQ from UMich</a>, which is a good introduction</li>
-<li>Carry out <a href="../../tutorials/02-lldb/index.html">Tutorial 2: LLDB</a> OR <a href="../../tutorials/02-gdb/index.html">Tutorial 2: GDB</a> on how to use Unix debuggers</li>
-<li>Use the debugger to find and correct the errors in debug.cpp in the debugger tutorial</li>
+<li>Use the debugger to find and correct the errors in debug.cpp in part II of the debugger tutorial</li>
 <li>Continue to work on your List and debug any issues with the debugger as necessary</li>
 <li>Files to download: <a href="../../tutorials/02-lldb/prog1.cpp.html">prog1.cpp</a> (<a href="../../tutorials/02-lldb/prog1.cpp">src</a>), <a href="../../tutorials/02-lldb/debug.cpp.html">debug.cpp</a> (<a href="../../tutorials/02-lldb/debug.cpp">src</a>)</li>
 <li>Files to submit: debug.cpp</li>
@@ -69,7 +65,7 @@
 <figure>
 <img src="list-diagram.png" alt="UML diagram" /><figcaption>UML diagram</figcaption>
 </figure>
-<p>This diagram shows a list containing two elements, the integers 3 and 7. Note that there are more methods in the List and ListItr classes than what is shown above. The head and tail pointers in the List class point to dummy nodes -- they are put there to make inserting elements into the list easier. It doesn't matter what the value of the dummy notes is set to, as it won't be used. Each ListNode points to the nodes before and after it (although the dummy nodes each have one pointer pointing to NULL).</p>
+<p>This diagram shows a list containing two elements, the integers 3 and 7. Note that there are more methods in the List and ListItr classes than what is shown above. The head and tail pointers in the List class point to dummy nodes -- they are put there to make inserting elements into the list easier. It doesn't matter what the value of the dummy nodes is set to, as it won't be used. Each ListNode points to the nodes before and after it (although the dummy nodes each have one pointer pointing to NULL).</p>
 <p>Thus, our doubly linked list will have only one List object and many ListNode objects (2 more than the number of elements in the list). A ListItr is a separate object, which points to one element in the list (possibly a dummy node). As you call the various methods in ListItr to move the iterator forward and backward, the node that it points to will change.</p>
 <h3 id="listnode">ListNode</h3>
 <p>A ListNode contains an integer value, as well as next and previous pointers to other ListNodes. View the <a href="ListNode.h.html">ListNode.h</a> (<a href="ListNode.h">src</a>) code for details.</p>
@@ -172,9 +168,8 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)<
 </ul>
 <hr />
 <h2 id="in-lab-1">In-lab</h2>
-<p>Carry out <a href="../../tutorials/02-lldb/index.html">Tutorial 2: LLDB</a> OR <a href="../../tutorials/02-gdb/index.html">Tutorial 2: GDB</a> on how to use Unix debuggers. The debugger is an important tool that you will use extensively throughout the semester to debug your code. You will need to download the prog1.cpp and debug.cpp files for the tutorial.</p>
-<p>In the future, if you have a post-compilation problem with your program (crash, etc.), the TAs will not help you until you have run it through the debugger and learned all that can be learned from this. So make sure you understand the tutorial!</p>
-<p>Submit your debugged version of debug.cpp to inlab2; we are not submitting prog1.cpp. Remember the standard identifying header information.</p>
+<p>Complete Part II of the tutorial for this lab and submit your debugged version of debug.cpp; we are not submitting prog1.cpp. Remember the standard identifying header information.</p>
+<p>Going forward, if you have a post-compilation problem with your program (crash, etc.), the TAs will not help you until you have run it through the debugger and learned all that can be learned from this. So make sure you understand the tutorial!</p>
 <p>Verify to yourself that your methods are working properly with your linked list code using the debugger that you just learned about. If you have not yet completed your linked list implementation, use the debugger to help you identify the issues/problems with parts of your current implementation. Consult with a TA if you have questions.</p>
 <hr />
 <h2 id="post-lab-1">Post-lab</h2>

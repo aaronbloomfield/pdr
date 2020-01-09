@@ -389,7 +389,10 @@ in the future.
 ------------------------------------------------------------
 
 Part II: LLDB Lab Exercise
--------------------------
+--------------------------
+
+Part II of this tutorial is designed to complement Lab 2's in-lab.
+You can stop here for now and return when you are working on the in-lab.
 
 ### The Source Code ###
 

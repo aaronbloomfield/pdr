@@ -11,23 +11,35 @@ This is laboratory is intended to get you up to speed quickly with both C++ and 
 
 There will be a lab every week, which consists of three parts: a pre-lab, an in-lab, and a post-lab.  The due dates are all listed on the [lab due dates](../../uva/labduedates.html) page. This will all be discussed in this lab.
 
-### Reading(s) ###
+### Tutorial ###
 
-1. [Tutorial 1: Introduction to UNIX](../../tutorials/01-intro-unix/index.html)
-2. Optional: online sources as posted on the [Readings page](../../docs/readings.html)
+Most labs will have a tutorial.
+You are expected to complete this tutorial before beginning the lab,
+as the lab will use concepts from each tutorial.
+
+The tutorial for this lab is [Tutorial 1: Introduction to UNIX](../../tutorials/01-intro-unix/index.html),
+which will help you set up your UNIX environment.
+
+### Recommended Readings ###
+
+We have attempted to compile a collection of readings that go over topics covered in this course.
+Readings are always optional and are there for you to use as you see fit.
+
+- Introduction to C++ section on the [Readings page](../../docs/readings.html)
 
 Procedure
 ---------
 
 ### Pre-lab ###
-1. Complete [Tutorial 1: Introduction to UNIX](../../tutorials/01-intro-unix/index.html)
-2. Write a recursive function to compute exponentiation
-3. Investigate the C++ object lifecycle
-4. Learn about the submission system
-5. Files to download: [lifecycle.cpp](lifecycle.cpp.html) ([src](lifecycle.cpp))
-6. Files to submit: xToN.cpp
+
+1. Write a recursive function to compute exponentiation
+2. Investigate the C++ object lifecycle
+3. Learn about the submission system
+4. Files to download: [lifecycle.cpp](lifecycle.cpp.html) ([src](lifecycle.cpp))
+5. Files to submit: xToN.cpp
 
 ### In-lab ###
+
 1. Ask the TAs if you have any questions about the pre-lab code or Unix
 2. Separate the object lifecycle code to better follow C++ conventions
 3. Investigate an example program and ask questions about it
@@ -35,6 +47,7 @@ Procedure
 5. Files to submit: lifecycle.questions.txt, vector.questions.txt, LifeCycle.cpp, LifeCycle.h, and TestLifeCycle.cpp
 
 ### Post-lab ###
+
 1. Investigate a more complicated example program and ask questions about it
 2. Files to download: [list.h](list.h.html) ([src](list.h)), [list.cpp](list.cpp.html) ([src](list.cpp))
 3. Files to submit: postlab1.question.txt
@@ -45,6 +58,7 @@ Pre-lab
 -------
 
 Complete [Tutorial 1: Introduction to UNIX](../../tutorials/01-intro-unix/index.html) before proceeding.
+Remember that you should always complete the tutorial before starting the lab.
 
 For the pre-lab, you will need to write a **recursive** function called `xton()` to compute *x^n* for non-negative integers *n*.  Assume that *x^0=1*.  Put this function in a program with a `main()` function.  Your program should prompt the user for two integer values, and raise the first to the power of the second by calling your `xton()` function.  To keep the code simple, you can assume that your program will only be called with valid inputs.
 

@@ -11,22 +11,24 @@ To understand the workings of a stack as well as postfix notation, and to be int
 
 A stack is a basic data structure similar in use to a physical stack of papers.  You can add to the top (push) and take from the top (pop), but you are not allowed to access the middle or bottom.  A stack adheres to the [LIFO](http://en.wikipedia.org/wiki/LIFO_%28computing%29) property.
 
-### Reading(s) ###
+### Tutorial ###
 
-1. Readings can be found online on the [Readings](../../docs/readings.html) page
-2. The [Wikipedia article on Reverse Polish notation](http://en.wikipedia.org/wiki/Reverse_Polish_notation), which is another name for postfix notation, has a good description along with a sample calculation.
+Go through [Tutorial 3: Unix, part 1](../../tutorials/03-04-more-unix/index.html), which is the introduction and sections 1-4.  This tutorial is originally from the department of Electrical Engineering at the University of Surrey, and is available online [here](http://www.ee.surrey.ac.uk/Teaching/Unix/).  You should complete the introductory part and sections 1-4.  You should already be somewhat familiar with some of the materials in the first few of these tutorials, as they were covered in the [Unix tutorial from the first lab](../../tutorials/01-intro-unix/index.html).  The rest of the tutorial (sections 5-8) are for next week's lab, but feel free to go through it this week, if you are interested.
+
+### Recommended Readings ###
+
+- Postfix Calculation and Stacks and Queues sections on the [Readings](../../docs/readings.html) page
 
 Procedure
 ---------
 
 ### Pre-lab ###
 
-1. Go through [Tutorial 3: Unix, part 1](../../tutorials/03-04-more-unix/index.html), which is the introduction and sections 1-4.  This tutorial is originally from the department of Electrical Engineering at the University of Surrey, and is available online [here](http://www.ee.surrey.ac.uk/Teaching/Unix/).  You should complete the introductory part and sections 1-4.  You should already be somewhat familiar with some of the materials in the first few of these tutorials, as it was in the [Unix tutorial from the first lab](../../tutorials/01-intro-unix/index.html).  The rest of the tutorial (sections 5-8) are for next week's lab, but feel free to go through it this week, if you are interested
-2. Write up at least one question that you still have on Unix (or things you are still confused about)
-3. Implement a postfix stack calculator for integers using the C++ STL stack
-4. Create a simple program to test your calculator
-5. Files to download: none
-6. Files to submit: postfixCalculator.h, postfixCalculator.cpp, testPostfixCalc.cpp, unix.questions.txt
+1. Write up at least one question that you still have on Unix (or things you are still confused about)
+2. Implement a postfix stack calculator for integers using the C++ STL stack
+3. Create a simple program to test your calculator
+4. Files to download: none
+5. Files to submit: postfixCalculator.h, postfixCalculator.cpp, testPostfixCalc.cpp, unix.questions.txt
 
 ### In-lab ###
 
@@ -40,8 +42,8 @@ Procedure
 1. Implement a stack class
 2. Modify your postfix calculator to use your stack rather than the STL stack
 3. Describe any difficulties you encountered getting your code working and what you did to solve them
-6. Files to download: none (just your in-lab source code)
-7. Files to submit: stack.h, stack.cpp, postfixCalculator.h, postfixCalculator.cpp, testPostfixCalc.cpp, difficulties.txt - You may submit additional stack/list files as well, if you want
+4. Files to download: none (just your in-lab source code)
+5. Files to submit: stack.h, stack.cpp, postfixCalculator.h, postfixCalculator.cpp, testPostfixCalc.cpp, difficulties.txt - You may submit additional stack/list files as well, if you want
 
 ------------------------------------------------------------
 

@@ -11,40 +11,36 @@ This laboratory introduces you to some advanced class development in C++, creati
 
 The linked list is a basic data structure from which one can implement stacks, queues, sets, and many other data structures.  Lists may be singly- or doubly-linked.  In this lab we will implement a doubly-linked list.
 
-### Reading(s) ###
+### Tutorial ###
 
-1. Readings on [Readings](../../docs/readings.html) page.
-2. [Tutorial 2: LLDB](../../tutorials/02-lldb/index.html) ***OR*** [Tutorial 2: GDB](../../tutorials/02-gdb/index.html); see below as to which one to choose.
-3. For the in-lab, some articles on debugging
+In this lab, you will have to make a choice as to which debugger to use; this will affect which tutorial you carry out.  You can choose the LLDB debugger (you would then complete [Tutorial 2: LLDB](../../tutorials/02-lldb/index.html)) or the GDB debugger (you would then complete [Tutorial 2: GDB](../../tutorials/02-gdb/index.html)).  The source code provided for each tutorial is exactly the same, and the deliverable (i.e., what you turn in) is likewise the exact same.
 
-### Debugger Choice ###
-
-In this lab, you will have to make a choice as to which debugger to use; this will affect which tutorial you carry out.  You can choose the lldb debugger (you would then complete [Tutorial 2: LLDB](../../tutorials/02-lldb/index.html)) or the gdb debugger (you would then complete [Tutorial 2: GDB](../../tutorials/02-gdb/index.html)).  The source code provided for each tutorial is exactly the same, and the deliverable (i.e., what you turn in) is likewise the exact same.
-
-The lldb debugger is preferred as it was built with the `clang++` compiler that we are using; however, the gdb tutorial is offered if lldb doesn't work for you.
+The LLDB debugger is preferred as it was built with the `clang++` compiler that we are using; however, the GDB tutorial is offered if LLDB doesn't work for you.
 
 Just remember which one you choose, as you will end up using that debugger throughout this course.  And if you ever have to switch between them, you can use our [GDB vs LLDB](../../docs/gdb_vs_lldb.html) page to see the (relatively few) commands that are different between the two.
 
-Ultimately, this is a low stress choice.  Choose lldb, and only switch over to gdb if you run into issues.
+Ultimately, this is a low stress choice.  Choose LLDB, and only switch over to GDB if you run into issues.
+
+### Recommend Readings ###
+
+- Pointers and Linked Lists sections on the [Readings](../../docs/readings.html) page
+- The [Debugging FAQ from UMich](http://umich.edu/~eecs381/generalFAQ/Debugging.html)
 
 Procedure
 ---------
 
 ### Pre-lab ###
 
-1. Consider one of the online alternative readings shown on the [Readings](../../docs/readings.html) page
-2. Make significant progress on implementing a doubly-linked linked list
-3. Files to download: [List.h](List.h.html) ([src](List.h)), [ListNode.h](ListNode.h.html) ([src](ListNode.h)), [ListItr.h](ListItr.h.html) ([src](ListItr.h)), [ListTest.cpp](ListTest.cpp.html) ([src](ListTest.cpp))
-4. Files to submit: ListNode.h/cpp, ListItr.h/cpp, List.h/cpp, ListTest.cpp
+1. Make significant progress on implementing a doubly-linked linked list
+2. Files to download: [List.h](List.h.html) ([src](List.h)), [ListNode.h](ListNode.h.html) ([src](ListNode.h)), [ListItr.h](ListItr.h.html) ([src](ListItr.h)), [ListTest.cpp](ListTest.cpp.html) ([src](ListTest.cpp))
+3. Files to submit: ListNode.h/cpp, ListItr.h/cpp, List.h/cpp, ListTest.cpp
 
 ### In-lab ###
 
-1. Ensure you are familiar with debugging.  You should look over the [Debugging FAQ from UMich](http://umich.edu/~eecs381/generalFAQ/Debugging.html), which is a good introduction
-2. Carry out [Tutorial 2: LLDB](../../tutorials/02-lldb/index.html) OR [Tutorial 2: GDB](../../tutorials/02-gdb/index.html) on how to use Unix debuggers
-3. Use the debugger to find and correct the errors in debug.cpp in the debugger tutorial
-4. Continue to work on your List and debug any issues with the debugger as necessary
-5. Files to download: [prog1.cpp](../../tutorials/02-lldb/prog1.cpp.html) ([src](../../tutorials/02-lldb/prog1.cpp)), [debug.cpp](../../tutorials/02-lldb/debug.cpp.html) ([src](../../tutorials/02-lldb/debug.cpp))
-6. Files to submit: debug.cpp
+1. Use the debugger to find and correct the errors in debug.cpp in part II of the debugger tutorial
+2. Continue to work on your List and debug any issues with the debugger as necessary
+3. Files to download: [prog1.cpp](../../tutorials/02-lldb/prog1.cpp.html) ([src](../../tutorials/02-lldb/prog1.cpp)), [debug.cpp](../../tutorials/02-lldb/debug.cpp.html) ([src](../../tutorials/02-lldb/debug.cpp))
+4. Files to submit: debug.cpp
 
 ### Post-lab ###
 
@@ -77,7 +73,7 @@ Below is a UML diagram showing how these classes interact with each other.
 
 ![UML diagram](list-diagram.png)
 
-This diagram shows a list containing two elements, the integers 3 and 7.  Note that there are more methods in the List and ListItr classes than what is shown above.  The head and tail pointers in the List class point to dummy nodes -- they are put there to make inserting elements into the list easier.  It doesn't matter what the value of the dummy notes is set to, as it won't be used.  Each ListNode points to the nodes before and after it (although the dummy nodes each have one pointer pointing to NULL).
+This diagram shows a list containing two elements, the integers 3 and 7.  Note that there are more methods in the List and ListItr classes than what is shown above.  The head and tail pointers in the List class point to dummy nodes -- they are put there to make inserting elements into the list easier.  It doesn't matter what the value of the dummy nodes is set to, as it won't be used.  Each ListNode points to the nodes before and after it (although the dummy nodes each have one pointer pointing to NULL).
 
 Thus, our doubly linked list will have only one List object and many ListNode objects (2 more than the number of elements in the list).  A ListItr is a separate object, which points to one element in the list (possibly a dummy node).  As you call the various methods in ListItr to move the iterator forward and backward, the node that it points to will change.
 
@@ -240,11 +236,9 @@ The one in ListItr must be a mistake!
 In-lab
 ------
 
-Carry out [Tutorial 2: LLDB](../../tutorials/02-lldb/index.html) OR [Tutorial 2: GDB](../../tutorials/02-gdb/index.html) on how to use Unix debuggers.  The debugger is an important tool that you will use extensively throughout the semester to debug your code.  You will need to download the prog1.cpp and debug.cpp files for the tutorial.
+Complete Part II of the tutorial for this lab and submit your debugged version of debug.cpp; we are not submitting prog1.cpp.  Remember the standard identifying header information.
 
-In the future, if you have a post-compilation problem with your program (crash, etc.), the TAs will not help you until you have run it through the debugger and learned all that can be learned from this.  So make sure you understand the tutorial!
-
-Submit your debugged version of debug.cpp to inlab2; we are not submitting prog1.cpp.  Remember the standard identifying header information.
+Going forward, if you have a post-compilation problem with your program (crash, etc.), the TAs will not help you until you have run it through the debugger and learned all that can be learned from this.  So make sure you understand the tutorial!
 
 Verify to yourself that your methods are working properly with your linked list code using the debugger that you just learned about.  If you have not yet completed your linked list implementation, use the debugger to help you identify the issues/problems with parts of your current implementation.  Consult with a TA if you have questions.
 
