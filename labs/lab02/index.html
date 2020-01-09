@@ -14,11 +14,11 @@
 <body>
 <h1 id="pdr-laboratory-2-linked-lists">PDR: Laboratory 2: Linked Lists</h1>
 <p><a href="../index.html">Go up to the Labs table of contents page</a></p>
-<h3 id="objective">Objective:</h3>
+<h3 id="objective">Objective</h3>
 <p>This laboratory introduces you to some advanced class development in C++, creating and using iterators, manipulating pointers, and linked data structures. It also addresses some issues involving testing and software development.</p>
-<h3 id="background">Background:</h3>
+<h3 id="background">Background</h3>
 <p>The linked list is a basic data structure from which one can implement stacks, queues, sets, and many other data structures. Lists may be singly- or doubly-linked. In this lab we will implement a doubly-linked list.</p>
-<h3 id="readings">Reading(s):</h3>
+<h3 id="readings">Reading(s)</h3>
 <ol type="1">
 <li>Readings on <a href="../../docs/readings.html">Readings</a> page.</li>
 <li><a href="../../tutorials/02-lldb/index.html">Tutorial 2: LLDB</a> <strong><em>OR</em></strong> <a href="../../tutorials/02-gdb/index.html">Tutorial 2: GDB</a>; see below as to which one to choose.</li>
@@ -32,42 +32,23 @@
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
 <ol type="1">
-<li>Consider one of the online alternative readings shown on the <a href="../../docs/readings.html">Readings</a> page.</li>
-<li>Implement the three classes as described below: ListNode, TestListNode, and ListItr. You should have most, if not all, of the code working <strong><em>before</em></strong> coming to lab. TAs will be available to help in lab if you still have questions. Note that it is okay to not have the code perfectly working prior to lab -- for the pre-lab grade, we are going to be looking to see if you have made significant progress, not that it is fully working (that's the post-lab).</li>
-<li>If there is a particular method that is causing you a lot of trouble (i.e. you can't get it working), don't spend inordinate amounts of time on it -- move on, and come back to that one during the in-lab.</li>
-<li><strong>Making the implementation phase less frustrating:</strong> develop in small chunks, then <strong>test/debug incrementally. It is much easier to debug this way!</strong> (And also less frustrating and confusing.) Here is a sample process for implementing ListNode.cpp:
-<ol type="1">
-<li>Implement the ListNode constructor in ListNode.cpp</li>
-<li>Write a short test harness, TestListNode.cpp, which has a main(). The body of main should test the ListNode constructor. In other words, create some ListNodes in main() using the constructor.</li>
-<li>Build and run the test program you just wrote to see if it produces the results you expect. Some items you will want to check are the initialization of the next and previous pointers and the initial value of value</li>
-<li>Use this same general process for List and for ListItr. For List and ListItr, implement the member functions one at a time and test. To do this, you will still need to provide &quot;dummy&quot; versions of the other member functions in your .cpp file as placeholders so that the code will build. <strong>You will need to create a list of test cases to use to test your classes.</strong> The TAs may ask you to test more cases during lab.</li>
-</ol></li>
-<li>Read through the remainder of this document before coming to lab. Also read the tutorial on Unix debugging, as we will be using that during the in-lab.</li>
-<li>Make sure you submit all 7 files listed below! Your code will not compile unless all 7 files are submitted. Also, if your code does not compile, and you cannot figure out why, comment out the erroneous code until it does compile. And make sure you have the right file name capitalization!</li>
+<li>Consider one of the online alternative readings shown on the <a href="../../docs/readings.html">Readings</a> page</li>
+<li>Make significant progress on implementing a doubly-linked linked list</li>
 <li>Files to download: <a href="List.h.html">List.h</a> (<a href="List.h">src</a>), <a href="ListNode.h.html">ListNode.h</a> (<a href="ListNode.h">src</a>), <a href="ListItr.h.html">ListItr.h</a> (<a href="ListItr.h">src</a>), <a href="ListTest.cpp.html">ListTest.cpp</a> (<a href="ListTest.cpp">src</a>)</li>
 <li>Files to submit: ListNode.h/cpp, ListItr.h/cpp, List.h/cpp, ListTest.cpp</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
 <ol type="1">
-<li>Ensure you are familiar with debugging. You should look over the <a href="http://umich.edu/~eecs381/generalFAQ/Debugging.html">Debugging FAQ from UMich</a>, which is a good introduction.</li>
-<li>Carry out <a href="../../tutorials/02-lldb/index.html">Tutorial 2: LLDB</a> OR <a href="../../tutorials/02-gdb/index.html">Tutorial 2: GDB</a> on how to use Unix debuggers. The debugger is an important tool that you will use extensively throughout the semester to debug your code. You will need to download the prog1.cpp and debug.cpp files for the tutorial.</li>
-<li>In the future, if you have a post-compilation problem with your program (crash, etc.), the TAs will not help you until you have run it through the debugger and learned all that can be learned from this. So make sure you understand the tutorial!</li>
-<li>Submit your debugged version of debug.cpp to inlab2; we are not submitting prog1.cpp. Remember the standard identifying header information.</li>
-<li>Verify to yourself that your methods are working properly with your linked list code using the debugger that you just learned about. If you have not yet completed your linked list implementation, use the debugger to help you identify the issues/problems with parts of your current implementation. You should do this by using the simple test cases that you used in the pre-lab. Consult with a TA if you have questions.</li>
+<li>Ensure you are familiar with debugging. You should look over the <a href="http://umich.edu/~eecs381/generalFAQ/Debugging.html">Debugging FAQ from UMich</a>, which is a good introduction</li>
+<li>Carry out <a href="../../tutorials/02-lldb/index.html">Tutorial 2: LLDB</a> OR <a href="../../tutorials/02-gdb/index.html">Tutorial 2: GDB</a> on how to use Unix debuggers</li>
+<li>Use the debugger to find and correct the errors in debug.cpp in the debugger tutorial</li>
+<li>Continue to work on your List and debug any issues with the debugger as necessary</li>
 <li>Files to download: <a href="../../tutorials/02-lldb/prog1.cpp.html">prog1.cpp</a> (<a href="../../tutorials/02-lldb/prog1.cpp">src</a>), <a href="../../tutorials/02-lldb/debug.cpp.html">debug.cpp</a> (<a href="../../tutorials/02-lldb/debug.cpp">src</a>)</li>
 <li>Files to submit: debug.cpp</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
 <ol type="1">
-<li>For this lab you will be submitting your code electronically via online grading system to postlab2. Your fully functional code must contain the following 7 files:
-<ol type="1">
-<li>List.h and List.cpp</li>
-<li>ListNode.h and ListNode.cpp</li>
-<li>ListItr.h and ListItr.cpp</li>
-<li>and the test harness, ListTest.cpp</li>
-</ol></li>
-<li><em>Be sure you submit all 7 files!</em> If you don't, then your code will not compile properly, and you will lose points!</li>
-<li>It is due on the Friday of the week of the lab, at the time listed on the <a href="../../uva/labduedates.html">Lab due dates page</a>. Be sure to include: your name, the date, and the name of the file in a banner comment at the beginning of each file you submit.</li>
+<li>Finish the implementation of your List and ensure it is free of any memory errors</li>
 <li>Files to download: no additional files beyond the pre-lab and in-lab</li>
 <li>Files to submit: ListNode.h/cpp, ListItr.h/cpp, List.h/cpp, ListTest.cpp</li>
 </ol>
@@ -82,10 +63,7 @@
 <li>List</li>
 <li>ListItr</li>
 </ul>
-<p>For simplicity we will just create a list that holds integers (your code could easily later be templated (i.e. made generic) to allow it to contain objects of other types). <strong><em>You must use the method names listed below in your code.</em></strong></p>
-<p>Below are the class definitions for each, which should be kept in header files with the respective file names.</p>
-<h3 id="test-harness">Test Harness</h3>
-<p>We have provided a test harness for testing your whole implementation: <a href="ListTest.cpp.html">ListTest.cpp</a> (<a href="ListTest.cpp">src</a>) <strong><em>The classes you implement must work with this test harness.</em></strong></p>
+<p>For simplicity we will just create a list that holds integers (your code could easily later be templated (i.e. made generic) to allow it to contain objects of other types). You must not modify any of the provided declarations in the header files, though you may add onto the header files as you see fit.</p>
 <h3 id="uml-diagram">UML Diagram</h3>
 <p>Below is a UML diagram showing how these classes interact with each other.</p>
 <figure>
@@ -98,11 +76,13 @@
 <h3 id="list">List</h3>
 <p>This class represents the list data structure containing ListNodes. It has a pointer to the first (head) and last (tail) ListNodes of the list, as well as a count of the number of ListNodes in the List. View the <a href="List.h.html">List.h</a> (<a href="List.h">src</a>) code for details.</p>
 <h3 id="listitr">ListItr</h3>
-<p>Your ListItr should maintain a pointer to a current position in a List. Your iterator class should look like the class definition in the source code. See the <a href="ListItr.h.html">ListItr.h</a> (<a href="ListItr.h">src</a>) code for details.</p>
+<p>A ListItr maintains a pointer to a current position in a List to allow for easy traversal through the List. View the <a href="ListItr.h.html">ListItr.h</a> (<a href="ListItr.h">src</a>) code for details.</p>
+<h3 id="test-harness">Test Harness</h3>
+<p>We have provided a test harness for testing your whole implementation: <a href="ListTest.cpp.html">ListTest.cpp</a> (<a href="ListTest.cpp">src</a>) <strong><em>Your List must work with this test harness.</em></strong></p>
 <h3 id="hints">Hints</h3>
 <p>There are a few things that always cause students some headache. We've tried to explain some of them here, in an effort to lessen the frustration it causes.</p>
 <h4 id="getting-started">Getting started</h4>
-<p>To start, create all three .cpp files (List.cpp, ListNode.cpp, ListItr.cpp) and include the relevant .h files. Fill the files with empty method bodies (with a dummy return value for non-<code>void</code> methods) and get that to compile. Then start implementing one method at a time, testing as you go.</p>
+<p>To start, create all three .cpp files (List.cpp, ListNode.cpp, ListItr.cpp) and include the relevant .h files. Fill the files with empty method bodies (with a dummy return value for non-<code>void</code> methods) and get that to compile. Then start implementing <em>one method at a time, testing as you go</em>.</p>
 <p>Here is the minimum amount of functions you need to have implemented in order to start using the ListTest harness, as well as suggested implementation order:</p>
 <ol type="1">
 <li>All of ListNode (so...the constructor)</li>
@@ -192,15 +172,10 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)<
 </ul>
 <hr />
 <h2 id="in-lab-1">In-lab</h2>
-<p>These are the same steps from the lab procedure section, above.</p>
-<ol type="1">
-<li>Carry out <a href="../../tutorials/02-lldb/index.html">Tutorial 2: LLDB</a> OR <a href="../../tutorials/02-gdb/index.html">Tutorial 2: GDB</a> on how to use Unix debuggers. The debugger is an important tool that you will use extensively throughout the semester to debug your code. You will need to download the prog1.cpp and debug.cpp files for the tutorial.</li>
-<li>In the future, if you have a post-compilation problem with your program (crash, etc.), the TAs will not help you until you have run it through the debugger and learned all that can be learned from this. So make sure you understand the tutorial!</li>
-<li>Submit your debugged version of debug.cpp to inlab2; we are not submitting prog1.cpp. Remember the standard identifying header information.</li>
-<li>Verify to yourself that your methods are working properly with your linked list code using the debugger that you just learned about. If you have not yet completed your linked list implementation, use the debugger to help you identify the issues/problems with parts of your current implementation. You should do this by using the simple test cases that you used in the pre-lab. Consult with a TA if you have questions.</li>
-<li>Files to download: <a href="../../tutorials/02-lldb/prog1.cpp.html">prog1.cpp</a> (<a href="../../tutorials/02-lldb/prog1.cpp">src</a>), <a href="../../tutorials/02-lldb/debug.cpp.html">debug.cpp</a> (<a href="../../tutorials/02-lldb/debug.cpp">src</a>)</li>
-<li>Files to submit: debug.cpp</li>
-</ol>
+<p>Carry out <a href="../../tutorials/02-lldb/index.html">Tutorial 2: LLDB</a> OR <a href="../../tutorials/02-gdb/index.html">Tutorial 2: GDB</a> on how to use Unix debuggers. The debugger is an important tool that you will use extensively throughout the semester to debug your code. You will need to download the prog1.cpp and debug.cpp files for the tutorial.</p>
+<p>In the future, if you have a post-compilation problem with your program (crash, etc.), the TAs will not help you until you have run it through the debugger and learned all that can be learned from this. So make sure you understand the tutorial!</p>
+<p>Submit your debugged version of debug.cpp to inlab2; we are not submitting prog1.cpp. Remember the standard identifying header information.</p>
+<p>Verify to yourself that your methods are working properly with your linked list code using the debugger that you just learned about. If you have not yet completed your linked list implementation, use the debugger to help you identify the issues/problems with parts of your current implementation. Consult with a TA if you have questions.</p>
 <hr />
 <h2 id="post-lab-1">Post-lab</h2>
 <p>For the post-lab, your goal is to submit a fully-functional version of your doubly-linked list. Finish any methods that you haven't completed yet, and then move on to checking for memory errors.</p>
