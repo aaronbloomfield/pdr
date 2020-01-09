@@ -87,7 +87,7 @@ The labs for this course:
         - Binary heap code from the [Heaps and Huffman slide set](../slides/10-heaps-huffman.html): [binary_heap.cpp](../slides/code/10-heaps-huffman/binary_heap.cpp.html) ([src](../slides/code/10-heaps-huffman/binary_heap.cpp)), [binary_heap.h](../slides/code/10-heaps-huffman/binary_heap.h.html) ([src](../slides/code/10-heaps-huffman/binary_heap.h)), [heap-test.cpp](../slides/code/10-heaps-huffman/heap-test.cpp.html) ([src](../slides/code/10-heaps-huffman/heap-test.cpp))
       - File I/O example: [fileio.cpp](lab10/fileio.cpp.html) ([src](lab10/fileio.cpp))
       - In-lab skeleton code: [inlab-skeleton.cpp](lab10/inlab-skeleton.cpp.html) ([src](lab10/inlab-skeleton.cpp))
-      - Example encoded and decoded files are in the [labs/lab10/examples/ directory](lab10/examples/), or as one [examples.zip](lab10/examples.zip) file
+      - Example encoded and decoded files are in the labs/lab10/examples/ directory, or as one [examples.zip](lab10/examples.zip) file
 
 &nbsp;
 

@@ -28,7 +28,7 @@ Lab Procedure
 3. Implement the Huffman encoding routine discussed in the pre-lab section.
 4. Your program must compile with make!
 5. Your program should only take in one command-line parameter!
-6. Files to download: [fileio.cpp](fileio.cpp.html) ([src](fileio.cpp)), and the example files (in the [labs/lab10/examples/ directory](examples/), or as one [examples.zip](examples.zip) file)
+6. Files to download: [fileio.cpp](fileio.cpp.html) ([src](fileio.cpp)), and the example files (in the labs/lab10/examples/ directory), or as one [examples.zip](examples.zip) file)
 7. Files to submit: heap.cpp, heap.h, huffmanenc.cpp, Makefile (you can submit additional .cpp/.h files, if needed, as long as it compiles with `make`)
 
 ### In-lab ###
@@ -106,7 +106,7 @@ Pre-lab
 
 For the pre-lab, you will implement the Huffman encoding algorithm using a binary heap.  In particular, you will need to implement all of the basic compression steps described later in this document. You may use and modify code from the lecture notes, any code you generated, but you may NOT use the STL heap class (called priority_queue) -- you can use other (non-heap related) classes from the STL.
 
-Your program must take in a single command-line parameter, which is the name of the file whose contents will be encoded.  We have some sample plain text and encoded text files (in the [labs/lab10/examples/ directory](examples/)) -- a description of these files is in the in-lab section.  Keep in mind that, as described below, your program will need to ignore newlines and non-printable characters in the input file.
+Your program must take in a single command-line parameter, which is the name of the file whose contents will be encoded.  We have some sample plain text and encoded text files (in the labs/lab10/examples/ directory) -- a description of these files is in the in-lab section.  Keep in mind that, as described below, your program will need to ignore newlines and non-printable characters in the input file.
 
 Your program should output to the standard output (i.e. `cout`) the exact file format described below, and nothing else.  It should ***NOT*** output to a file!
 
@@ -132,7 +132,7 @@ The next line is a separator, and is also a single line containing 40 dashes and
 
 The last section of the file are English text, which displays the compression ratio and the cost of the Huffman tree.  This does not need to be read in by the decompression routines.  As long as you output the required information, and it is easily understandable by a human, it can be in a format similar to (but not necessarily the same as) what is shown below.  You can have additional information as well, as long as we can easily find what we are looking for (compression ratio and Huffman tree cost).
 
-For the in-lab, you can assume that we will not provide you with invalid Huffman file formats.  You can safely assume that we will provide you with a few different valid file formats (a few such examples are available in the [labs/lab10/examples/ directory](examples/)).
+For the in-lab, you can assume that we will not provide you with invalid Huffman file formats.  You can safely assume that we will provide you with a few different valid file formats (a few such examples are available in the labs/lab10/examples/ directory).
 
 The following is the Huffman file format for example in the slide set that has the characers 'a', 'b', 'c', and 'd'.
 
@@ -156,7 +156,7 @@ The Huffman tree that this forms is the same as the one shown in the slide set (
 
 ![](prelab-tree.png)
 
-Below is an equivalent version of the same file.  Note that the characters are not in the same order in the previous example, the whitespace for the middle part is quite different, the English explanation in the third part says the same thing but in a different format, and the particular prefix codes are different (but note that the lengths are the same).  Your in-lab code will need to be able to read in both of these files (as well as others in the [labs/lab10/examples/ directory](examples/)).  For writing your pre-lab, you should consider having a space or a newline between the Huffman encoded characters, as that will make your code easier to check and debug.
+Below is an equivalent version of the same file.  Note that the characters are not in the same order in the previous example, the whitespace for the middle part is quite different, the English explanation in the third part says the same thing but in a different format, and the particular prefix codes are different (but note that the lengths are the same).  Your in-lab code will need to be able to read in both of these files (as well as others in the labs/lab10/examples/ directory).  For writing your pre-lab, you should consider having a space or a newline between the Huffman encoded characters, as that will make your code easier to check and debug.
 
 ```
 d 11
@@ -192,7 +192,7 @@ Make sure your pre-lab code can read in any printable ASCII character, including
 
 Your program should output to the standard output (i.e. `cout`) the *exact* file format described above, and nothing else.
 
-There are additional examples of encodings in the [labs/lab10/examples/ directory](examples/).  Keep in mind that the bits that your code generates for a given character do not have to match the bits that are shown in the examples (as this will depend on the implementation of your heap), but the number of bits per character DOES have to match.
+There are additional examples of encodings in the labs/lab10/examples/ directory.  Keep in mind that the bits that your code generates for a given character do not have to match the bits that are shown in the examples (as this will depend on the implementation of your heap), but the number of bits per character DOES have to match.
 
 We provide a number of sample files for you to test your code with.  A brief description of each is described here.  The "normal" files are the English input.  The "encoded" files are the Huffman encoded files, following the file format described above.  Except where indicated, the middle part of each encoded file (the digits `0` and `1`) has a space inserted between each letter from the original file, so that you can see which letter is encoded as which bitcode.
 
