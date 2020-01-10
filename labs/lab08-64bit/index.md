@@ -16,7 +16,7 @@ The Intel x86 assembly language is currently one of the most popular assembly la
 ### Reading(s) ###
 
 1. Read the [slides on 64 bit x86](../../slides/08-assembly-64bit.html)
-2. The x86 book chapters on [x86](../../book/x86-64bit-asm-chapter.pdf) and the [C calling convention](../../book/x86-64bit-ccc-chapter.pdf) as the reading
+2. The x86 book chapters on [x86](../../book/x86-64bit-asm-chapter.pdf) and the [C calling convention](../../book/x86-64bit-ccc-chapter.pdf)
 3. An optional online reading is [x86-64 Machine-Level Programming](https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf) from CMU, although they use the other assembly language format
 
 
@@ -26,7 +26,7 @@ Procedure
 ### Pre-lab ###
 
 1. You should be familiar with the readings described above.  They detail the x86 material that this lab requires.
-2. Complete the tutorial, which consists of reading [x86-64 Machine-Level Programming](https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf) from CMU
+2. Complete the tutorial, which consists of reading the x86 book chapters on [x86](../../book/x86-64bit-asm-chapter.pdf) and the [C calling convention](../../book/x86-64bit-ccc-chapter.pdf).
 3. Read through the section, below, on compiling C++ with assembly on different architectures, as well as the vecsum program.
 4. There are different program formats for different architectures, and this pre-lab **must** be submitted in the submission format for this lab (see the next section, below).  If you do not submit it in the required format (64-bit Linux), you will not receive credit for the lab, as it will not compile.
 5. Follow the pre-lab instructions in this document.  They require you to write a program in x86 assembly called mathlib.s.  To see other examples of nasm code, you should look at the vecsum.s program, as well as the code in the nasm tutorial.
@@ -165,7 +165,7 @@ You will need to write two routines in assembly, one that computes the product o
 
 The first subroutine will compute the product of the two integer parameters passed in.  The restrictions are that it **can only use addition**, and thus cannot use a multiplication operation.  We will assume that both of the parameters are positive integers.  It must compute this **iteratively**, not recursively.  The resulting product is then returned to the calling routine.  This subroutine should be called `product`.  We will assume that values will not be provided to the subroutine that will cause an overflow, nor will negative (or zero) parameters be passed in.
 
-The second subroutine will compute the power of the two integer parameters passed in.  We will assume that the first parameter is the base, and the second parameter is the exponent.  Again, both are integers.  The restrictions on this routine are that it **can only use the multiplication** routine described above -- it cannot call any exponentiation routine. Furthermore, it must be defined **recursively**, not iteratively.  This routine should be called `power`.
+The second subroutine will compute the power of the two integer parameters passed in.  We will assume that the first parameter is the base, and the second parameter is the exponent.  Again, both are integers.  The restrictions on this routine are that it **can only use the multiplication** routine described above -- it cannot use `imul` or call any exponentiation routine. Furthermore, it must be defined **recursively**, not iteratively.  This routine should be called `power`.
 
 You can assume that the numbers passed into both routines will both be positive, so you need not consider negative numbers or zero.  Furthermore, as described above, no values will be used on your program that could cause an integer overflow.
 

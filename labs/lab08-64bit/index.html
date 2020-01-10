@@ -22,14 +22,14 @@
 <h3 id="readings">Reading(s)</h3>
 <ol type="1">
 <li>Read the <a href="../../slides/08-assembly-64bit.html">slides on 64 bit x86</a></li>
-<li>The x86 book chapters on <a href="../../book/x86-64bit-asm-chapter.pdf">x86</a> and the <a href="../../book/x86-64bit-ccc-chapter.pdf">C calling convention</a> as the reading</li>
+<li>The x86 book chapters on <a href="../../book/x86-64bit-asm-chapter.pdf">x86</a> and the <a href="../../book/x86-64bit-ccc-chapter.pdf">C calling convention</a></li>
 <li>An optional online reading is <a href="https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf">x86-64 Machine-Level Programming</a> from CMU, although they use the other assembly language format</li>
 </ol>
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
 <ol type="1">
 <li>You should be familiar with the readings described above. They detail the x86 material that this lab requires.</li>
-<li>Complete the tutorial, which consists of reading <a href="https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf">x86-64 Machine-Level Programming</a> from CMU</li>
+<li>Complete the tutorial, which consists of reading the x86 book chapters on <a href="../../book/x86-64bit-asm-chapter.pdf">x86</a> and the <a href="../../book/x86-64bit-ccc-chapter.pdf">C calling convention</a>.</li>
 <li>Read through the section, below, on compiling C++ with assembly on different architectures, as well as the vecsum program.</li>
 <li>There are different program formats for different architectures, and this pre-lab <strong>must</strong> be submitted in the submission format for this lab (see the next section, below). If you do not submit it in the required format (64-bit Linux), you will not receive credit for the lab, as it will not compile.</li>
 <li>Follow the pre-lab instructions in this document. They require you to write a program in x86 assembly called mathlib.s. To see other examples of nasm code, you should look at the vecsum.s program, as well as the code in the nasm tutorial.</li>
@@ -152,7 +152,7 @@
 <h3 id="pre-lab-program-mathlib.s">Pre-lab program: mathlib.s</h3>
 <p>You will need to write two routines in assembly, one that computes the product of two numbers, and one that computes the power of two numbers.</p>
 <p>The first subroutine will compute the product of the two integer parameters passed in. The restrictions are that it <strong>can only use addition</strong>, and thus cannot use a multiplication operation. We will assume that both of the parameters are positive integers. It must compute this <strong>iteratively</strong>, not recursively. The resulting product is then returned to the calling routine. This subroutine should be called <code>product</code>. We will assume that values will not be provided to the subroutine that will cause an overflow, nor will negative (or zero) parameters be passed in.</p>
-<p>The second subroutine will compute the power of the two integer parameters passed in. We will assume that the first parameter is the base, and the second parameter is the exponent. Again, both are integers. The restrictions on this routine are that it <strong>can only use the multiplication</strong> routine described above -- it cannot call any exponentiation routine. Furthermore, it must be defined <strong>recursively</strong>, not iteratively. This routine should be called <code>power</code>.</p>
+<p>The second subroutine will compute the power of the two integer parameters passed in. We will assume that the first parameter is the base, and the second parameter is the exponent. Again, both are integers. The restrictions on this routine are that it <strong>can only use the multiplication</strong> routine described above -- it cannot use <code>imul</code> or call any exponentiation routine. Furthermore, it must be defined <strong>recursively</strong>, not iteratively. This routine should be called <code>power</code>.</p>
 <p>You can assume that the numbers passed into both routines will both be positive, so you need not consider negative numbers or zero. Furthermore, as described above, no values will be used on your program that could cause an integer overflow.</p>
 <p>Both of these routines should be in a file called mathlib.s, and must use the proper C-style calling convention. You must also provide a mathfun.cpp file, which calls both of your subroutines -- see the main.cpp file provided as a template. The program should take in ONLY two integers (we'll call them <em>x</em> and <em>y</em>). It should then print out the output of calling <code>product(x,y)</code> and <code>power(x,y)</code>. Thus, if the input is 3 and 4, it would print out 12 and 81.</p>
 <p>Input is to be read via standard input (i.e., <code>cin</code>), not through command-line parameters.</p>
