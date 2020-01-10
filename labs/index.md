@@ -70,10 +70,9 @@ The labs for this course:
 &nbsp;
 
 - Lab 9: x86 (assembly), part 2: in 32-bit and 64-bit versions
-    - ~~[32-bit version of the lab](lab09-32bit/index.html)~~
-        - ~~Readings: the two x86 book chapters: [x86 Assembly](../book/x86-32bit-asm-chapter.pdf) and [The x86 C Calling Convention](../book/x86-32bit-ccc-chapter.pdf)~~
     - [64-bit version of the lab](lab09-64bit/index.html)
         - Readings: the two x86 book chapters: [x86 Assembly](../book/x86-64bit-asm-chapter.pdf) and [The x86 C Calling Convention](../book/x86-64bit-ccc-chapter.pdf)
+    - ~~[32-bit version of the lab, from previous years](lab09-32bit/index.html)~~
     - For both labs:
         - Source code: [timer.cpp](lab06/code/timer.cpp.html) ([src](lab06/code/timer.cpp)) and  [timer.h](lab06/code/timer.h.html) ([src](lab06/code/timer.h)), both of which are from lab 6
         - The tutorial, for the post-lab, is the [C tutorial](../tutorials/09-c/index.html); you will need to implement the linkedlist.c program.
