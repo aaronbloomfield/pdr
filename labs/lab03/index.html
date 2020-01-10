@@ -14,65 +14,37 @@
 <body>
 <h1 id="pdr-laboratory-3-stacks">PDR: Laboratory 3: Stacks</h1>
 <p><a href="../index.html">Go up to the Labs table of contents page</a></p>
-<h3 id="objective">Objective:</h3>
+<h3 id="objective">Objective</h3>
 <p>To understand the workings of a stack as well as postfix notation, and to be introduced to the C++ Standard Template Library (STL).</p>
-<h3 id="background">Background:</h3>
+<h3 id="background">Background</h3>
 <p>A stack is a basic data structure similar in use to a physical stack of papers. You can add to the top (push) and take from the top (pop), but you are not allowed to access the middle or bottom. A stack adheres to the <a href="http://en.wikipedia.org/wiki/LIFO_%28computing%29">LIFO</a> property.</p>
-<h3 id="readings">Reading(s):</h3>
-<ol type="1">
-<li>Readings can be found online on the <a href="../../docs/readings.html">Readings</a> page</li>
-<li>The <a href="http://en.wikipedia.org/wiki/Reverse_Polish_notation">Wikipedia article on Reverse Polish notation</a>, which is another name for postfix notation, has a good description along with a sample calculation.</li>
-</ol>
+<h3 id="tutorial">Tutorial</h3>
+<p>Go through <a href="../../tutorials/03-04-more-unix/index.html">Tutorial 3: Unix, part 1</a>, which is the introduction and sections 1-4. This tutorial is originally from the department of Electrical Engineering at the University of Surrey, and is available online <a href="http://www.ee.surrey.ac.uk/Teaching/Unix/">here</a>. You should complete the introductory part and sections 1-4. You should already be somewhat familiar with some of the materials in the first few of these tutorials, as they were covered in the <a href="../../tutorials/01-intro-unix/index.html">Unix tutorial from the first lab</a>. The rest of the tutorial (sections 5-8) are for next week's lab, but feel free to go through it this week, if you are interested.</p>
+<h3 id="recommended-readings">Recommended Readings</h3>
+<ul>
+<li>Postfix Calculation and Stacks and Queues sections on the <a href="../../docs/readings.html">Readings</a> page</li>
+</ul>
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
 <ol type="1">
-<li>Read this entire lab document before coming to lab.</li>
-<li>Go through <a href="../../tutorials/03-04-more-unix/index.html">Tutorial 3: Unix, part 1</a>, which is the introduction and sections 1-4. This tutorial is originally from the department of Electrical Engineering at the University of Surrey, and is available online <a href="http://www.ee.surrey.ac.uk/Teaching/Unix/">here</a>. You should complete the introductory part and sections 1-4. You should already be somewhat familiar with some of the materials in the first few of these tutorials, as it was in the <a href="../../tutorials/01-intro-unix/index.html">Unix tutorial from the first lab</a>. The rest of the tutorial (sections 5-8) are for next week's lab, but feel free to go through it this week, if you are interested.</li>
-<li>Write up at least one question that you still have on Unix (or things you are still confused about) into unix.questions.txt.</li>
-<li>Your code for the pre-lab will use the pre-existing standard library <code>stack</code> class. The standard library includes a collection of useful routines analogous to the routines in Java's SDK, albeit much smaller (it contains a vector class, for example).
-<ul>
-<li>To use the stack class, just put <code>#include &lt;stack&gt;</code> at the top of your C++ file.</li>
-<li>Documentation on the standard library routines can be found at <a href="https://en.cppreference.com" class="uri">https://en.cppreference.com</a>. The stack class's documentation can be found <a href="https://en.cppreference.com/w/cpp/container/stack">here</a>.</li>
-</ul></li>
-<li>Implement a simple postfix stack calculator for integers using your stack.
-<ul>
-<li><strong>You should use the standard library stack class</strong>, rather than implement your own.</li>
-<li>An online description of postfix calculators can be found <a href="https://en.wikipedia.org/wiki/Reverse_Polish_notation">on Wikipedia</a> -- you will need to implement this into postfixCalculator.h and postfixCalculator.cpp</li>
-<li>Create a simple test driver, testPostfixCalc.cpp, which will be used to demonstrate your calculator (i.e., it will have the <code>main()</code> function). This file should have hard-coded values for input; handling keyboard input is the in-lab.</li>
-<li>The bottom of this document has some sample test cases you can use.</li>
-</ul></li>
-<li>Your code must compile!</li>
-<li>Be sure to include: your name, the date, and the name of the file in a banner comment at the beginning of each file you submit.</li>
+<li>Write up at least one question that you still have on Unix (or things you are still confused about)</li>
+<li>Implement a postfix stack calculator for integers using the C++ STL stack</li>
+<li>Create a simple program to test your calculator</li>
 <li>Files to download: none</li>
 <li>Files to submit: postfixCalculator.h, postfixCalculator.cpp, testPostfixCalc.cpp, unix.questions.txt</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
 <ol type="1">
-<li>Come to class with a <em>working prelab</em>.</li>
-<li>Run your postfix calculator on the test sequences at the very bottom of this page. Since your code only can handle hard-coded values, this will require a code modification and a recompilation to test each case. If your program does not calculate the correct result, use the debugger to find the errors and correct them. These modifications will be submitted to the in-lab.
-<ul>
-<li>Be sure you are able to explain how all parts your code work. You will be responsible for this material for the midterms and final exam.</li>
-</ul></li>
-<li>You need to expand your pre-lab code to handle keyboard input. See the specifications in the in-lab section for how to handle the input.</li>
-<li>The files you submit should be a FULLY WORKING postfix calculator, which still uses the standard library's stack class.</li>
-<li>Start working on the post-lab (implementing your own stack class) if you get your calculator fully working before lab ends.</li>
+<li>Ensure your postfix calculator works on all the provided test cases</li>
+<li>Expand your test program to handle keyboard input</li>
 <li>Files to download: none (just your pre-lab source code)</li>
 <li>Files to submit: postfixCalculator.h, postfixCalculator.cpp, testPostfixCalc.cpp</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
 <ol type="1">
-<li>Implement a stack class (into files stack.h and stack.cpp). <strong>You can NOT use a standard library container class (<code>list</code>, <code>vector</code>, <code>stack</code>, etc.) for this</strong>, but you can use the standard library's <code>string</code> class. You should use either your List class from the last lab (if it works), or write up new stack class based on either the lecture notes or the textbook pages on stacks. Your stack class can use a linked-list/pointer-based implementation, or an array-based implementation. Note that your stack class can contain a LinkedList object, and a stack class method can just pass the value onto the appropriate method in the LinkedList class. You don't need to implement all possible stack methods (in particular, you can ignore the copy constructor, <code>operator=()</code>, etc.) -- just the four mentioned in the pre-lab (push(), top(), pop(), and empty()). After this lab, it is expected that you will be able to implement a stack class in C++.</li>
-<li>Modify your postfix calculator to use the stack class that you have implemented.</li>
-<li>Be sure to include: your name, the date, and the name of the file in a banner comment at the beginning of each file you submit. Your submission must contain the following code:
-<ol type="1">
-<li>Your stack code. This will likely be stack.h/cpp, and may (or may not; your choice) include all of the List.h/cpp, ListItr.h/cpp, ListNode.h/cpp files from lab 2
-<ul>
-<li>For your stack code, you are welcome to submit it in many files, as long as it will compile with <code>clang++ *.cpp</code>, and as long as the total number of files submitted does not exceed 11 files (you can submit 12 files total, but you need to submit a text file, described below, as well)</li>
-</ul></li>
-<li>A listing of your in-lab calculator code and your calculator test code: postfixCalculator.h/cpp, testPostfixCalc.cpp</li>
-</ol></li>
-<li>Submit, in addition to your code, a paragraph (in a file called difficulties.txt) describing what difficulties you encountered getting your code working and what you did to solve them.</li>
-<li>The files you submit should be a FULLY WORKING postfix calculator. Your code must compile! Even if it doesn't work perfectly, make sure it compiles. In particular, make sure that the capitalization case of the #includes (i.e. <code>#include &quot;Stack.h&quot;</code> versus <code>#include &quot;stack.h&quot;</code>) is correct.</li>
+<li>Implement a stack class</li>
+<li>Modify your postfix calculator to use your stack rather than the STL stack</li>
+<li>Describe any difficulties you encountered getting your code working and what you did to solve them</li>
 <li>Files to download: none (just your in-lab source code)</li>
 <li>Files to submit: stack.h, stack.cpp, postfixCalculator.h, postfixCalculator.cpp, testPostfixCalc.cpp, difficulties.txt - You may submit additional stack/list files as well, if you want</li>
 </ol>
@@ -110,6 +82,21 @@
 <p>Often, the <code>top()</code> and <code>pop()</code> functionality are joined as an <code>int pop()</code> function, but in this lab, it is beneficial to separate them, as that is what the STL stack does.</p>
 <p>If <code>pop()</code> or <code>top()</code> are called on an empty stack, terminate the program with the function call <code>exit(-1)</code>, which is from the <code>&lt;cstdlib&gt;</code> library.</p>
 <p>For this lab, you will use a stack of <code>int</code> values.</p>
+<h3 id="stack-calculator-implementation">Stack Calculator Implementation</h3>
+<p>We will be using the C++ STL stack to implement our postfix calculator. The stack class's documentation can be found <a href="https://en.cppreference.com/w/cpp/container/stack">here</a>.</p>
+<p>Your calculator must implement the following arithmetic operations:</p>
+<ul>
+<li><code>+</code> : addition</li>
+<li><code>-</code> : subtraction</li>
+<li><code>*</code> : multiplication</li>
+<li><code>/</code> : division</li>
+<li><code>~</code> : unary negation</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>We use the tilde (~) as the unary negation operator -- this negates the top element of the stack, and (unlike the other four operators) does not use a second number from the stack. Do not confuse this operator with the tilde operator in C++, which performs bitwise negation. Negative numbers still use a regular minus sign (i.e. '-3') and just pushes the negative number on the stack. But, if you want to do negation (which involves popping the top value, negating it, and pushing that new value back on the stack), then you would use the tilde.</li>
+<li>For the non-commutative operators (operators where the order of the numbers matters, such as minus and divide), the first value you pop we'll call x, the second value you pop we'll call y; the result <strong>must</strong> be <em>y-x</em> or <em>y/x</em> -- in other words, the &quot;lower&quot; value in the stack minus/divided by the &quot;higher&quot; one in the stack.</li>
+</ul>
 <h3 id="input">Input</h3>
 <p>For this part of the lab, you will not deal with keyboard input (that's in the in-lab) -- thus, your submitted program will always compute the exact same value each time it is run. You will need to hard-code your postfix expressions into the <code>main()</code> method. Make sure your tests in main demonstrate the functionality of all operators!</p>
 <p>A sample <code>main()</code> function that might work is as follows -- this should be modified for your particular situation (i.e. how you declare your class, your method names, etc.). This <code>main()</code> function uses the first sample input given at the very end of this document.</p>
@@ -128,21 +115,6 @@
     return 0;
 }</code></pre>
 <p>Keep in mind that you can type up a few of the blocks, and comment them out with the <code>/* ... */</code> comment syntax that you are familiar with from Java -- this will allow you to easily switch between the different hard-coded input test cases.</p>
-<h3 id="stack-calculator-implementation">Stack Calculator Implementation</h3>
-<p>Your calculator must implement the following arithmetic operations:</p>
-<ul>
-<li><code>+</code> : addition</li>
-<li><code>-</code> : subtraction</li>
-<li><code>*</code> : multiplication</li>
-<li><code>/</code> : division</li>
-<li><code>~</code> : unary negation</li>
-</ul>
-<p>Notes:</p>
-<ul>
-<li>We use the tilde (~) as the unary negation operator -- this negates the top element of the stack, and (unlike the other four operators) does not use a second number from the stack. Do not confuse this operator with the tilde operator in C++, which performs bitwise negation. Negative numbers still use a regular minus sign (i.e. '-3') and just pushes the negative number on the stack. But, if you want to do negation (which involves popping the top value, negating it, and pushing that new value back on the stack), then you would use the tilde.<br />
-</li>
-<li>For the non-commutative operators (operators where the order of the numbers matters, such as minus and divide), the first value you pop we'll call x, the second value you pop we'll call y; the result <strong>must</strong> be <em>y-x</em> or <em>y/x</em> -- in other words, the &quot;lower&quot; value in the stack minus/divided by the &quot;higher&quot; one in the stack.</li>
-</ul>
 <h3 id="postfix-notation">Postfix Notation</h3>
 <p>Postfix notation (also known as reverse Polish notation) involves writing the operators after the operands. Note how parentheses are unnecessary in postfix notation.</p>
 <ul>
@@ -198,8 +170,8 @@ Hint: we can check for all the operators, since there are only five of them. If 
 <p>To convert input that represents numbers into their integer form, <code>&lt;cstdlib&gt;</code> provides the <code>int atoi(char* s)</code> function. Unfortunately, <code>atoi</code> requires C-style strings -- perhaps you should take a look at <a href="https://en.cppreference.com/w/cpp/string/basic_string">the <code>string</code> documentation</a> to see if anything can help you out.</p>
 <hr />
 <h2 id="post-lab-1">Post-lab</h2>
-<p>For the post-lab, you will be implementing your own stack. This can be code that you write yourself, or you can re-use your List code from lab 2 (make sure it works before you re-use it, though!).</p>
-<p>You will also have to write up the difficulties.txt file, as described above in the lab procedure section.</p>
+<p>For the post-lab, you will be implementing your own stack and then modifying your postfix calculator to use that stack instead of the STL stack. This can be code that you write yourself, or you can re-use your List code from lab 2 (make sure it works before you re-use it, though!).</p>
+<p>You will also need to write up a difficulties.txt file which contains a paragraph describing any difficulties you encountered getting your code working and what you did to solve them.</p>
 <p>Your stack is only required to implement the four methods as described in the prelab: <code>push()</code>, <code>pop()</code>, <code>top()</code>, and <code>empty()</code>. It must also have no maximum capacity -- in other words, we should be able to push as many elements as we'd like.</p>
 <p>Most of you will implement your stack in one of the following ways:</p>
 <ol type="1">

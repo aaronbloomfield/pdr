@@ -23,7 +23,7 @@ Procedure
 1. Implement a solution to the word puzzle problem described below.
 2. Your program should take in two file names as command-line arguments, and should NOT ask for any input.  The command-line arguments are the dictionary filename and the grid filename, in that order.
 3. Place the timer calls before and after your code.  Note that the time you spend building the hash table should not be inside the timer calls -- only the code that finds the words in the grid.  An actual time from a running of your program should be listed as a comment at the top of wordPuzzle.cpp.
-4. The output you produce should match the format of the sample output files given in the [labs/lab06/data/ directory](data/), and should be printed to standard output.  In other words, your results should be printed using `cout` statements.  Your output **must** conform to the output format described below!
+4. The output you produce should match the format of the sample output files given in the labs/lab06/data/ directory, and should be printed to standard output.  In other words, your results should be printed using `cout` statements.  Your output **must** conform to the output format described below!
 5. Calculate the big-theta running time of the word-search portion of your application (the file-reading and hash table creation time complexity should not be included in this expression).  This should be listed as a comment at the top of wordPuzzle.cpp.
 6. You will need to create a Makefile for this lab.  Your executable that `make` creates **MUST** be called a.out.  This means that you must NOT specify a -o flag to clang++, otherwise it will not work on the grading server!  Just let clang++ name it the default without specifying a -o flag.
 7. Because the pre-lab in this assignment is a bit long, this week's Unix tutorial is part of the in-lab.
@@ -32,14 +32,14 @@ Procedure
 10. Don't forget to put your name, date, and lab section at the top of each of your source code files!
 11. Files to download: 
      - The 5 provided code files: [getWordInGrid.cpp](code/getWordInGrid.cpp.html) ([src](code/getWordInGrid.cpp)), [primenumber.cpp](code/primenumber.cpp.html) ([src](code/primenumber.cpp)), [timer.cpp](code/timer.cpp.html) ([src](code/timer.cpp)), [timer.h](code/timer.h.html) ([src](code/timer.h)), [timer_test.cpp](code/timer_test.cpp.html) ([src](code/timer_test.cpp)).  These can also be downloaded all at once via the [code.zip](code.zip) file.
-     - The data files in the [labs/lab06/data/ directory](data/).  These can also be downloaded all at once via the [data.zip](data.zip) file.
+     - The data files in the labs/lab06/data/ directory.  These can also be downloaded all at once via the [data.zip](data.zip) file.
 11. Files to submit: Makefile, wordPuzzle.cpp, timer.h/cpp, hashTable.h/cpp (see below for details)
 
 ### In-lab ###
 
 1. Read through the in-lab section below.  Make sure you understand what the new clang++ flag (-O2) does, and how to handle input and output.
 2. Verify with the TA the correct placement of the timer calls.
-3. Verify that your program gets the correct solution for the 250x250 grid using words.txt as the dictionary, and the 300x300 grid using words2.txt as the dictionary.  The output files for these runs are in the [labs/lab06/data/ directory](data/).
+3. Verify that your program gets the correct solution for the 250x250 grid using words.txt as the dictionary, and the 300x300 grid using words2.txt as the dictionary.  The output files for these runs are in the labs/lab06/data/ directory.
 4. Read the shell script tutorial for this lab, which part of the [Wikibooks article on Bash Shell Scripting](http://en.wikibooks.org/wiki/Bash_Shell_Scripting); the specific sections are mentioned on the [tutorials page](../../tutorials/index.html) ([md](../../tutorials/index.md))
 5. Write the shell script described in the in-lab section (averagetime.sh).
 6. Your shell script *must* call a.out!  Otherwise it will not work, and will receive points off.
@@ -50,7 +50,7 @@ Procedure
 
 ### Post-lab ###
 
-1. Optimize your implementation of the word puzzle solver.  Your program should produce the same output as the sample output files in the [labs/lab06/data/ directory](data/) (your program can contain output such as timer results, as described in the in-lab section).  The input (i.e., the command-line parameters) is the exact same as for the pre-lab.
+1. Optimize your implementation of the word puzzle solver.  Your program should produce the same output as the sample output files in the labs/lab06/data/ directory (your program can contain output such as timer results, as described in the in-lab section).  The input (i.e., the command-line parameters) is the exact same as for the pre-lab.
 2. The various optimizations allowed are listed in the description of the word puzzle problem as well as the post-lab section.  You will have to include a description of the optimization methods used in the post-lab report.  Your Makefile should be modified for the post-lab (probably just adding -O2).
 3. Create postlab6.pdf file (see the post-lab section for formatting details), containing the post-lab report (see below).
 4. Don't forget to put your name, date, and lab section at the top of each of your source code files!
@@ -138,7 +138,7 @@ You can submit other files, if you want, up to the maximum allowed by the submis
 
 ### Program Details ###
 
-**Input grids:** You can expect an input grid file in which the first line is the number of rows, and the second is the number of columns, both as ASCII text digits in unsigned decimal integers.  The third line is the grid data, with no spaces (i.e. it will be rows X cols number of characters).  Several example grids available in the [labs/lab06/data/ directory](data/).  Grids will not include whitespace, numbers, punctuation, or special characters.
+**Input grids:** You can expect an input grid file in which the first line is the number of rows, and the second is the number of columns, both as ASCII text digits in unsigned decimal integers.  The third line is the grid data, with no spaces (i.e. it will be rows X cols number of characters).  Several example grids available in the labs/lab06/data/ directory.  Grids will not include whitespace, numbers, punctuation, or special characters.
 
 **Dictionary files:** The dictionary can be assumed to contain one word per line. The longest word in our data files is 22 letters. Words which contain a space or other special character (& or ' or -) or number may occur in the dictionary, but would never appear in a valid grid.  Your program should be able to handle dictionaries with such words, although you are not required to put them into the hash table. 
 

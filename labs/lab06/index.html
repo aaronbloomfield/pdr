@@ -28,7 +28,7 @@
 <li>Implement a solution to the word puzzle problem described below.</li>
 <li>Your program should take in two file names as command-line arguments, and should NOT ask for any input. The command-line arguments are the dictionary filename and the grid filename, in that order.</li>
 <li>Place the timer calls before and after your code. Note that the time you spend building the hash table should not be inside the timer calls -- only the code that finds the words in the grid. An actual time from a running of your program should be listed as a comment at the top of wordPuzzle.cpp.</li>
-<li>The output you produce should match the format of the sample output files given in the <a href="data/">labs/lab06/data/ directory</a>, and should be printed to standard output. In other words, your results should be printed using <code>cout</code> statements. Your output <strong>must</strong> conform to the output format described below!</li>
+<li>The output you produce should match the format of the sample output files given in the labs/lab06/data/ directory, and should be printed to standard output. In other words, your results should be printed using <code>cout</code> statements. Your output <strong>must</strong> conform to the output format described below!</li>
 <li>Calculate the big-theta running time of the word-search portion of your application (the file-reading and hash table creation time complexity should not be included in this expression). This should be listed as a comment at the top of wordPuzzle.cpp.</li>
 <li>You will need to create a Makefile for this lab. Your executable that <code>make</code> creates <strong>MUST</strong> be called a.out. This means that you must NOT specify a -o flag to clang++, otherwise it will not work on the grading server! Just let clang++ name it the default without specifying a -o flag.</li>
 <li>Because the pre-lab in this assignment is a bit long, this week's Unix tutorial is part of the in-lab.</li>
@@ -38,7 +38,7 @@
 <li>Files to download:
 <ul>
 <li>The 5 provided code files: <a href="code/getWordInGrid.cpp.html">getWordInGrid.cpp</a> (<a href="code/getWordInGrid.cpp">src</a>), <a href="code/primenumber.cpp.html">primenumber.cpp</a> (<a href="code/primenumber.cpp">src</a>), <a href="code/timer.cpp.html">timer.cpp</a> (<a href="code/timer.cpp">src</a>), <a href="code/timer.h.html">timer.h</a> (<a href="code/timer.h">src</a>), <a href="code/timer_test.cpp.html">timer_test.cpp</a> (<a href="code/timer_test.cpp">src</a>). These can also be downloaded all at once via the <a href="code.zip" class="uri">code.zip</a> file.</li>
-<li>The data files in the <a href="data/">labs/lab06/data/ directory</a>. These can also be downloaded all at once via the <a href="data.zip" class="uri">data.zip</a> file.</li>
+<li>The data files in the labs/lab06/data/ directory. These can also be downloaded all at once via the <a href="data.zip" class="uri">data.zip</a> file.</li>
 </ul></li>
 <li>Files to submit: Makefile, wordPuzzle.cpp, timer.h/cpp, hashTable.h/cpp (see below for details)</li>
 </ol>
@@ -46,7 +46,7 @@
 <ol type="1">
 <li>Read through the in-lab section below. Make sure you understand what the new clang++ flag (-O2) does, and how to handle input and output.</li>
 <li>Verify with the TA the correct placement of the timer calls.</li>
-<li>Verify that your program gets the correct solution for the 250x250 grid using words.txt as the dictionary, and the 300x300 grid using words2.txt as the dictionary. The output files for these runs are in the <a href="data/">labs/lab06/data/ directory</a>.</li>
+<li>Verify that your program gets the correct solution for the 250x250 grid using words.txt as the dictionary, and the 300x300 grid using words2.txt as the dictionary. The output files for these runs are in the labs/lab06/data/ directory.
 <li>Read the shell script tutorial for this lab, which part of the <a href="http://en.wikibooks.org/wiki/Bash_Shell_Scripting">Wikibooks article on Bash Shell Scripting</a>; the specific sections are mentioned on the <a href="../../tutorials/index.html">tutorials page</a> (<a href="../../tutorials/index.md">md</a>)</li>
 <li>Write the shell script described in the in-lab section (averagetime.sh).</li>
 <li>Your shell script <em>must</em> call a.out! Otherwise it will not work, and will receive points off.</li>
@@ -57,7 +57,7 @@
 </ol>
 <h3 id="post-lab">Post-lab</h3>
 <ol type="1">
-<li>Optimize your implementation of the word puzzle solver. Your program should produce the same output as the sample output files in the <a href="data/">labs/lab06/data/ directory</a> (your program can contain output such as timer results, as described in the in-lab section). The input (i.e., the command-line parameters) is the exact same as for the pre-lab.</li>
+<li>Optimize your implementation of the word puzzle solver. Your program should produce the same output as the sample output files in the labs/lab06/data/ directory (your program can contain output such as timer results, as described in the in-lab section). The input (i.e., the command-line parameters) is the exact same as for the pre-lab.</li>
 <li>The various optimizations allowed are listed in the description of the word puzzle problem as well as the post-lab section. You will have to include a description of the optimization methods used in the post-lab report. Your Makefile should be modified for the post-lab (probably just adding -O2).</li>
 <li>Create postlab6.pdf file (see the post-lab section for formatting details), containing the post-lab report (see below).</li>
 <li>Don't forget to put your name, date, and lab section at the top of each of your source code files!</li>
@@ -116,7 +116,7 @@
 </ul>
 <p>You can submit other files, if you want, up to the maximum allowed by the submission system. We are going to compile your code with <code>make</code>. Your program must compile! And it must compile with just the <code>make</code> command! <strong>Don't specify a -o option with clang++, so that it will default to a.out.</strong> Your program should also conform to the input and output requirements listed in the pre-lab procedure, discussed below, as that is how it will be tested. If it doesn't conform to these guidelines, you will receive points off!</p>
 <h3 id="program-details">Program Details</h3>
-<p><strong>Input grids:</strong> You can expect an input grid file in which the first line is the number of rows, and the second is the number of columns, both as ASCII text digits in unsigned decimal integers. The third line is the grid data, with no spaces (i.e. it will be rows X cols number of characters). Several example grids available in the <a href="data/">labs/lab06/data/ directory</a>. Grids will not include whitespace, numbers, punctuation, or special characters.</p>
+<p><strong>Input grids:</strong> You can expect an input grid file in which the first line is the number of rows, and the second is the number of columns, both as ASCII text digits in unsigned decimal integers. The third line is the grid data, with no spaces (i.e. it will be rows X cols number of characters). Several example grids available in the labs/lab06/data/ directory. Grids will not include whitespace, numbers, punctuation, or special characters.</p>
 <p><strong>Dictionary files:</strong> The dictionary can be assumed to contain one word per line. The longest word in our data files is 22 letters. Words which contain a space or other special character (&amp; or ' or -) or number may occur in the dictionary, but would never appear in a valid grid. Your program should be able to handle dictionaries with such words, although you are not required to put them into the hash table.</p>
 <p><strong>Timing:</strong> Timer routines are available in the provided source code (<a href="code/timer.cpp.html">timer.cpp</a> (<a href="code/timer.cpp">src</a>), <a href="code/timer.h.html">timer.h</a> (<a href="code/timer.h">src</a>), and <a href="code/timer_test.cpp.html">timer_test.cpp</a> (<a href="code/timer_test.cpp">src</a>)). We are interested in timing how long it takes to find all valid words in a grid. We are NOT interested in how long it takes to fill up the hash table initially. Therefore you need to place your timing calls around the outermost loop that contains code in which the grid is actually searched.</p>
 <p><strong>Valid words:</strong> Your program should <em>only</em> report words with three or more letters -- there are simply too many hits if one and two letter words are allowed, and it's difficult to judge correctness, even on very small word searches. This size (i.e. 3) can be hard-coded into your program. Depending on how you've implemented your loop, this could be something as simple as a single test and a <code>continue</code> statement. One and two letter words may occur in the dictionary file, but you are not required to put them in your hash table (although it is fine to do so).</p>

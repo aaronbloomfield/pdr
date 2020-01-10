@@ -9,44 +9,48 @@ This is laboratory is intended to get you up to speed quickly with both C++ and 
 
 ### Background ###
 
-Every week we will have a lab meeting.  Each lab will consist of three parts: a pre-lab (to be completed by Tuesday at the due time listed on the [lab due dates](../../uva/labduedates.html) page, an in-lab (activity to be done during lab), and a post-lab.  The pre-lab will typically also include a tutorial.  Parts of all three of these may be required to turned in.  The due dates are all listed on the [lab due dates](../../uva/labduedates.html) page. This will all be discussed in this lab.
+There will be a lab every week, which consists of three parts: a pre-lab, an in-lab, and a post-lab.  The due dates are all listed on the [lab due dates](../../uva/labduedates.html) page. This will all be discussed in this lab.
 
-### Reading(s) ###
+### Tutorial ###
 
-1. [Tutorial 1: Introduction to UNIX](../../tutorials/01-intro-unix/index.html)
-2. Optional: online sources as posted on the [Readings page](../../docs/readings.html)
+Most labs will have a tutorial.
+You are expected to complete this tutorial before beginning the lab,
+as the lab will use concepts from each tutorial.
+
+The tutorial for this lab is [Tutorial 1: Introduction to UNIX](../../tutorials/01-intro-unix/index.html),
+which will help you set up your UNIX environment.
+
+### Recommended Readings ###
+
+We have attempted to compile a collection of readings that go over topics covered in this course.
+Readings are always optional and are there for you to use as you see fit.
+
+- Introduction to C++ section on the [Readings page](../../docs/readings.html)
 
 Procedure
 ---------
 
 ### Pre-lab ###
-1. If desired, the alternative readings are available on the [Readings page](../../docs/readings.html)
-2. Complete [Tutorial 1: Introduction to UNIX](../../tutorials/01-intro-unix/index.html)
-    a. As part of this tutorial, you will need to decide how you want to develop in a Unix environment -- we recommend [VirtualBox](../../tutorials/01-intro-unix/virtual-box.html), but there are other options available
-    b. If you are using VirtualBox, you will have to decide on which display manager to use
-3. Be sure to include your name, email ID, the date, and the name of the file in a header comment at the beginning of each file you submit (including text files!)
-4. Write the xToN.cpp file, as described in the pre-lab section, and submit it through the submission system.
-5. Examine the Object life-cycle code ([lifecycle.cpp](lifecycle.cpp.html) ([src](lifecycle.cpp))).  You may not understand everything in this program by the beginning of lab, but you should by the end of next week.  We will be using this program during the in-lab activity.
-6. The due date for this lab is listed on the [lab due dates](../../uva/labduedates.html) page -- see the pre-lab section for more details about submission deadlines.
-7. Files to download: [lifecycle.cpp](lifecycle.cpp.html) ([src](lifecycle.cpp))
-8. Files to submit: xToN.cpp
+
+1. Write a recursive function to compute exponentiation
+2. Investigate the C++ object lifecycle
+3. Learn about the submission system
+4. Files to download: [lifecycle.cpp](lifecycle.cpp.html) ([src](lifecycle.cpp))
+5. Files to submit: xToN.cpp
 
 ### In-lab ###
-1. Read through the in-lab section of this document.  You should be sure to be familiar with the submission system.
-2. Clone the github repo into your lab account
-3. Complete the in-lab requirements as described in the in-lab section, below.
-5. Did you understand the part on capitalization in the in-lab section of this document?
-6. Files to download: [svtest.cpp](svtest.cpp.html) ([src](svtest.cpp)), [svutil.cpp](svutil.cpp.html) ([src](svutil.cpp)), [svutil.h](svutil.h.html) ([src](svutil.h)), and [lifecycle.cpp](lifecycle.cpp.html) ([src](lifecycle.cpp))
-7. Files to submit: lifecycle.questions.txt, vector.questions.txt, LifeCycle.cpp, LifeCycle.h, and TestLifeCycle.cpp
+
+1. Ask the TAs if you have any questions about the pre-lab code or Unix
+2. Separate the object lifecycle code to better follow C++ conventions
+3. Investigate an example program and ask questions about it
+4. Files to download: [svtest.cpp](svtest.cpp.html) ([src](svtest.cpp)), [svutil.cpp](svutil.cpp.html) ([src](svutil.cpp)), [svutil.h](svutil.h.html) ([src](svutil.h)), and [lifecycle.cpp](lifecycle.cpp.html) ([src](lifecycle.cpp))
+5. Files to submit: lifecycle.questions.txt, vector.questions.txt, LifeCycle.cpp, LifeCycle.h, and TestLifeCycle.cpp
 
 ### Post-lab ###
-1. See details in the postlab section, below
-2. For this lab you will be submitting your code electronically. Your submission is due on the Friday of the week of the lab; the exact due time is listed on the [lab due dates](../../uva/labduedates.html) page.  Be sure to include your name, email ID, the date, and the name of the file in a header comment at the beginning of each file you submit (including text files!).
-3. Files to download: [list.h](list.h.html) ([src](list.h)), [list.cpp](list.cpp.html) ([src](list.cpp))
-4. Files to submit: postlab1.question.txt
 
-### Course Tools ###
-Lab submission can be found through the Course Tools tab on Collab or directly at this link: [https://libra.cs.virginia.edu/~pedagogy](https://libra.cs.virginia.edu/~pedagogy)
+1. Investigate a more complicated example program and ask questions about it
+2. Files to download: [list.h](list.h.html) ([src](list.h)), [list.cpp](list.cpp.html) ([src](list.cpp))
+3. Files to submit: postlab1.question.txt
 
 ------------------------------------------------------------
 
@@ -54,6 +58,7 @@ Pre-lab
 -------
 
 Complete [Tutorial 1: Introduction to UNIX](../../tutorials/01-intro-unix/index.html) before proceeding.
+Remember that you should always complete the tutorial before starting the lab.
 
 For the pre-lab, you will need to write a **recursive** function called `xton()` to compute *x^n* for non-negative integers *n*.  Assume that *x^0=1*.  Put this function in a program with a `main()` function.  Your program should prompt the user for two integer values, and raise the first to the power of the second by calling your `xton()` function.  To keep the code simple, you can assume that your program will only be called with valid inputs.
 
@@ -89,25 +94,20 @@ Lastly, take a look at the object life-cycle code ([lifecycle.cpp](lifecycle.cpp
 
 All assignments will be submitted through our custom submission tool which can be accessed through Collab's Course Tools link or directly at [https://libra.cs.virginia.edu/~pedagogy](https://libra.cs.virginia.edu/~pedagogy).
 
-Each assignment has 3 dates: an open date (when you can start submitting the assignment), a due date (when it's due), and a close date (the last point that you can submit the assignment).  The dates are listed for the week of the lab -- the lab week starts on a Sunday and ends on a Saturday.  In particular, the due date for the pre-labs, as well as the open date for the in-labs and post-labs is when the first lab section starts.  The close date for the post-labs is the start of Friday's lecture (the first lecture, if there are multiple lecture periods).
+Every file submitted, including text files, should include your name, email ID, the date, and the name of the file in a header comment at the beginning of the file.
 
-The various dates: open dates, due dates, and close dates, are listed on the [lab due dates](../../uva/labduedates.html) page.
+There is no check to make sure you have submitted all of the correct files -- on the 'Procedure' page (always at the top of the lab document), we clearly state which files should be submitted for each lab part.  For example, for this pre-lab, you should submit just the following file for pre-lab 1: xToN.cpp.
 
-Please note, however, that there are a number of rules that we will strictly follow:
+Each assignment has 3 dates: an open date (when you can start submitting the assignment), a due date (when it's due), and a close date (the last point that you can submit the assignment).  The dates are listed for the week of the lab -- the lab week starts on a Sunday and ends on a Saturday.  In particular, the due date for the pre-labs, as well as the open date for the in-labs and post-labs is when the first lab section starts.  The due date for the post-labs is the start of Friday's first lecture.
+
+More information on open dates, due dates, and close dates can be found on the [lab due dates](../../uva/labduedates.html) page.
+
+There are a number of rules that we will strictly follow:
 
 - Pre-labs are due at the same time for everybody, regardless of your lab section; that time is the beginning of the FIRST Tuesday lab.
 - In-labs are due at the end of the day on Tuesday.
 - Any late lab part will receive 25% off (for just that part) for the first 24 hours (or part thereof) that it is late, after which no credit will be given.  Note that a computer program does this deduction -- so if your lab is 1 second late, it still receives 25% off.
-
-### Submitting your files ###
-
-All assignments for this course will be submitted through the lab submission tool, which is accessible either via Collab or through the link in the Procedure section above.  There is no check to make sure you have submitted all of the correct files -- on the 'Procedure' page (always at the top of the lab document), we clearly state which files should be submitted for each lab part.  For example, for this pre-lab, you should submit just the following file for pre-lab 1: xToN.cpp.
-
-Every file (including text files!) should include your name, email ID, the date, and the name of the file in a header comment at the beginning of the file.
-
-Lastly, you should ensure that your program compiles before you submit it.  This is an advanced programming class, and there is no reason why you should submit a program that does not compile.  If you are having problems with your code, you should comment out parts so that it does compile -- you will receive more credit for a compilable program that has part of the code commented out than you would for a program that does not compile.  See the [compilation](../../docs/compilation.html) for hints as to how to get your code to compile.
-
-Just to be clear: **you will receive zero credit for a lab component which does not compile.**
+- **No credit will be given for a lab component which does not compile.**  If you are having problems with your code, you should comment out parts so that it does compile -- you will receive more credit for a compilable program that has part of the code commented out than you would for a program that does not compile.  See the [compilation](../../docs/compilation.html) for hints as to how to get your code to compile.
 
 ### Resubmitting your assignment ###
 
@@ -123,8 +123,6 @@ In-lab
 ### General In-lab Procedure ###
 
 The purpose of the labs is to allow you to work through the lab activity, and if you encounter questions or problems, ask for TA assistance.  Be sure to include your name, email ID, the date, and the name of the file in a banner comment at the beginning of each file you submit.
-
-All of the files required for this lab are listed above (in the Procedure section), and are also listed below.
 
 ### Understanding C++ ###
 
@@ -145,6 +143,10 @@ All of the files required for this lab are listed above (in the Procedure sectio
      - Now undo what you did in the previous step, but now comment out the `using namespace std;` in svutil.h, and rebuild the program. Was there an error?  What objects are now undeclared and why?
      - Write at least one question about something in this program.  This question might be about something that you don't understand completely. Write your questions in a file named vector.questions.txt.
 
+### Capitalization ###
+
+Under Windows, the case of a file name is ignored -- thus, lifecycle.cpp, LifeCycle.cpp, and LIFECYCLE.CPP all refer to the same file.  However, it is **NOT** true for Linux, which is what we will use to test and grade your code.  Thus, if your file is called 'LifeCycle.h', and you have (in your TestLifeCycle.cpp file) a line that states: `#include "lifecycle.h"`, then your program will NOT work under Linux (since case DOES matter with file names).  Since your code does not compile, you will get zero credit.  So make sure your file names match!
+
 ### Troubleshooting ###
 
 Does your program not compile?  Here are a few things to try -- these are problems that previous students have encountered.
@@ -155,18 +157,12 @@ Does your program not compile?  Here are a few things to try -- these are proble
 - Make sure that your subroutine names (whether they be function names or method names) are consistent between the .h files and the .cpp files
 - Have a compiler error that you don't understand?  We have the translation!  See the [compilation](../../docs/compilation.html) page, which lists common compiler error messages, what they mean, and how to solve them.  If you don't see yours listed there, let us know, and we'll add it.
 
-### Capitalization ###
-
-Under Windows, the case of a file name is ignored -- thus, lifecycle.cpp, LifeCycle.cpp, and LIFECYCLE.CPP all refer to the same file.  However, it is **NOT** true for Linux, which is what we will use to test and grade your code.  Thus, if your file is called 'LifeCycle.h', and you have (in your TestLifeCycle.cpp file) a line that states: `#include "lifecycle.h"`, then your program will NOT work under Linux (since case DOES matter with file names).  Since your code does not compile, you will get zero credit.  So make sure your file names match!
-
 ------------------------------------------------------------
 
 Post-lab
 --------
 
 Complete the exercise below, and submit the text file described there to the submission system.
-
-For this lab you will be submitting your assignment electronically.  Your submission is on the Friday of the week of the lab; the exact time is listed on the [lab due dates](../../uva/labduedates.html) page.  Be sure to include your name, email ID, the date, and the name of the file in a banner comment at the beginning of each file you submit.
 
 ### Linked List Template code ###
 

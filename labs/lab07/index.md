@@ -127,6 +127,8 @@ To encode this program, follow these steps:
 
 The file should be called bubblesort.ibcm.  It **MUST** have comments in the file so that the TAs can grade it.  No comments will earn a zero for the grade.
 
+**NOTE:** Just like for the pre-lab array.ibcm file, you must create an array load instruction. If your program has separate instructions for loading separate values from the array, you will receive zero credit for this in-lab.
+
 ------------------------------------------------------------
 
 Post-lab
