@@ -47,7 +47,7 @@ The labs for this course:
 - [Lab 6: Hashing](lab06/index.html)
     - Source code: [getWordInGrid.cpp](lab06/code/getWordInGrid.cpp.html) ([src](lab06/code/getWordInGrid.cpp)), [primenumber.cpp](lab06/code/primenumber.cpp.html) ([src](lab06/code/primenumber.cpp)), [timer.cpp](lab06/code/timer.cpp.html) ([src](lab06/code/timer.cpp)), [timer.h](lab06/code/timer.h.html) ([src](lab06/code/timer.h)), [timer_test.cpp](lab06/code/timer_test.cpp.html) ([src](lab06/code/timer_test.cpp))
         - These can also be downloaded all at once via the [code.zip](lab06/code.zip) file
-    - The data files in the [labs/lab06/data/ directory](lab06/data/)
+    - The data files in the labs/lab06/data/ directory
         - These can also be downloaded all at once via the [data.zip](lab06/data.zip) file
     - The tutorial, for the in-lab, is the first 6 sections (through and including 'exit status') of the [Wikibooks article on Bash Shell Scripting](http://en.wikibooks.org/wiki/Bash_Shell_Scripting)
 
