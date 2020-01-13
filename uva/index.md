@@ -19,7 +19,7 @@ There are a number of links and other parts of this course that are **NOT** incl
 - The announcements, which are posted to the CS 2150 twitter feed: [\@UVaCS2150][151]
 - Grading guidelines, which are available in the Collab wiki ([here][171] is the direct link, although Collab login is required)
 - Email list archive, which is a Collab tool ([here][170] is the direct link, although Collab login is required)
-- [Piazza][152]; Collab can log you in directly; the Collab tool link is [here][173] (again, Collab login required)
+- [Piazza][152], and our specific class is [here][175]; Collab can (maybe?) log you in directly; the Collab tool link is [here][173] (again, Collab login required)
 - [Anonymous feedback][174]
 
 The parts of this course that are in this repo are:
@@ -214,7 +214,7 @@ Grading Concerns
 
 [150]: https://calendar.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&ctz=America%2FNew_York
 [151]: http://twitter.com/UVaCS2150
-[152]: https://piazza.com/class/jzlal4jb58v4kr
+[152]: https://piazza.com/
 
 [160]: https://libra.cs.virginia.edu/~pedagogy/
 [161]: https://libra.cs.virginia.edu/~pedagogy/support.php
@@ -224,12 +224,12 @@ Grading Concerns
 [165]: https://libra.cs.virginia.edu/~pedagogy/labextension.php
 [166]: https://libra.cs.virginia.edu/~pedagogy/queue.php
 
-[170]: https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/37e25893-5de7-4fad-b2de-0d2a21016c54
-[171]: https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/a6457023-b1ef-4bcc-805a-328514d87ce2
+[170]: https://collab.its.virginia.edu/portal/site/c7acc486-f2bd-418a-ad92-c91ae5e03503/tool/173f8c93-fe5c-4418-a7f5-48aebe888647
+[171]: https://collab.its.virginia.edu/portal/site/c7acc486-f2bd-418a-ad92-c91ae5e03503/tool/5463997f-35c8-4a6b-b3a4-53770055154d
 [172]: unix-honor-pledge-s20.pdf
-[173]: https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/page/003e4025-b9b4-4c37-8ee4-aed84eb97498
-[174]: https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool-reset/495df88d-2624-46bf-872f-db154dd6048e
-[175]: https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/page/589de229-4eb8-48f5-843a-36440dee5f11
+[173]: https://collab.its.virginia.edu/portal/site/c7acc486-f2bd-418a-ad92-c91ae5e03503/page/53d60f3e-dc1e-45b0-b132-8c660541e4ea
+[174]: https://collab.its.virginia.edu/portal/site/c7acc486-f2bd-418a-ad92-c91ae5e03503/tool/3756aebf-1299-4343-809a-7cf9e58a8d48/main
+[175]: https://piazza.com/class/k5bqcfbzltk49c
 
 [201]: https://collab.itc.virginia.edu/access/content/group/41174582-53b0-472a-a22c-f466f2aa653a/lectures/course-introduction-1/course-introduction-1.htm
 [202]: https://collab.itc.virginia.edu/access/content/group/41174582-53b0-472a-a22c-f466f2aa653a/lectures/01-cpp-1/01-cpp-1.htm
