@@ -14,3 +14,5 @@ for infile in `find . -type f -name '*.md' | grep -v 'reveal\.js'`; do
     sed -i s/'<td align="left">'/'<td>'/g $outfile
     sed -i s/'<th align="left">'/'<th>'/g $outfile
 done
+
+pandoc -V"Teaching Assistants" -f markdown -c ../markdown.css -c tas.css -t html5 -o uva/tas.html uva/tas.md
