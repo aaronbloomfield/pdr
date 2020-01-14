@@ -85,12 +85,10 @@ Hi! I'm a third year majoring in computer science and statistics and this is my 
 <br clear="all">
 
 <!--
-
 ## Nace Plesko
 ![](https://user-images.githubusercontent.com/2766036/67354425-0b138580-f523-11e9-92ea-8bf7a0ec9f25.jpg)
 I am fourth year student-athlete double majoring in CS and Math. In my free time I like to play League of Legends. Fun fact: Instant Pot changed my life
 <br clear="all">
-
 -->
 
 ## Nate Strawser
@@ -119,14 +117,12 @@ I am a third year BSCS and Physics major and this is my third semester as a TA f
 <br clear="all">
 
 <!--
-
 ## Sam Spelsberg
 ![](https://user-images.githubusercontent.com/2766036/67354423-0a7aef00-f523-11e9-9a75-06e110ea4243.jpg)
 I am Sam Spelsberg, third year in e-school CS, with a focus in Cyber Security. 2150 is one of my favorite classes in the CS major, and I believe that the concepts I learned in this class have been foundational to the rest of my computer science experience. I now strive to help other students learn, and get as much as possible from this course.<p>
 I love traveling, and experiencing other cultures, and I hope to travel to each continent some day. I was born in Seattle and I will always love the west coast. Social Psychology is my favorite course I've taken outside of the engineering school, and I find the studies of human behavior, philosophy, ethics, and history fascinating.<p>
 Hit me up if you ever have any questions about cyber security!
 <br clear="all">
-
 -->
 
 ## Sandy Gould
@@ -135,19 +131,16 @@ Hi everyone, my name is Sandy Gould! I am a 4th year BSCS major, and I am from L
 <br clear="all">
 
 ## Trent Ballard
-
 ![](https://user-images.githubusercontent.com/2766036/67354404-0949c200-f523-11e9-92ce-a3c9b58cf183.PNG)
 Hey! I'm a second year studying Computer Science and pursuing a minor in Engineering Business. I am from northern Virginia and am on the club Ultimate Frisbee team here at UVA. Some fun facts about me is that I have eaten the hottest pepper in the world, am a loyal DC sports fan (sadly), and just got 20+ stitches in my right eyebrow!
 <br clear="all">
 
 ## Wade Hisiro
-
 ![](https://user-images.githubusercontent.com/2766036/68238067-6428f200-ffd6-11e9-8041-4e9d79193422.jpg)
 Hey! I'm a fourth-year majoring in Computer Engineering from Harrisburg, PA. This will be my third semester TAing CS 2150. In my free time, you can catch me rock climbing, running, or playing intramurals like football. A fun fact about me is that I have an 18-year-old cat named Oreo.
 <br clear="all">
 
 ## Winston Liu
-
 ![](https://user-images.githubusercontent.com/2766036/67355401-37c89c80-f525-11e9-87cf-c4c9601998d5.jpg)
 Hey hey! I'm from Morris Plains, New Jersey and majoring in Computer Science with a minor in Spanish. I like to stay active - I absolutely love rock climbing, and I also dabble with volleyball, badminton, soccer, basketball, hiking, running, and ballroom dancing. Need a rock-climbing partner or want to learn more about it? Look no further 😁. I'm here if you want to talk about the CS curriculum, interviews and internships, TAing, residential colleges (go Hereford!), life, or anything, really :).<p>
 Fun facts! I'm ambidextrous, am weirdly good at remembering computing IDs, and have walked the last 200km of the Camino de Santiago!
