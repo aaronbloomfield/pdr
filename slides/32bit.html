@@ -1,17 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>32-bit Assembly Materials</title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../markdown.css">
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-</head>
-<body>
 <h1 id="bit-assembly-materials">32-bit Assembly Materials</h1>
 <p>The assembly materials in this repo used to be taught in 32-bit assembly. This is not used anymore (we use 64-bit), but it is included here for historical purposes.</p>
 <ul>
@@ -20,19 +6,17 @@
 <li>The x86 book chapters on <a href="../book/x86-32bit-asm-chapter.pdf">x86</a> and the <a href="../book/x86-32bit-ccc-chapter.pdf">C calling convention</a> as the reading</li>
 <li>Source code
 <ul>
-<li>The generated assembly was generated using <code>make asm</code>, which uses gcc/g++; to generate it using clang/clang++, use the 'asmclang' target</li>
+<li>The generated assembly was generated using <code>make asm</code>, which uses gcc/g++; to generate it using clang/clang++, use the ‘asmclang’ target</li>
 <li><a href="code/08-assembly-32bit/Makefile.html">Makefile</a> (<a href="code/08-assembly-32bit/Makefile">src</a>)</li>
 <li>Absolute value example: <a href="code/08-assembly-32bit/test_abs.cpp.html">test_abs.cpp</a> (<a href="code/08-assembly-32bit/test_abs.cpp">src</a>), <a href="code/08-assembly-32bit/test_abs_c.c.html">test_abs_c.c</a> (<a href="code/08-assembly-32bit/test_abs_c.c">src</a>), <a href="code/08-assembly-32bit/test_abs.s.html">test_abs.s</a> (<a href="code/08-assembly-32bit/test_abs.s">src</a>), <a href="code/08-assembly-32bit/test_abs_c.s.html">test_abs_c.s</a> (<a href="code/08-assembly-32bit/test_abs_c.s">src</a>), <a href="code/08-assembly-32bit/test_abs-non-intel.s.html">test_abs-non-intel.s</a> (<a href="code/08-assembly-32bit/test_abs-non-intel.s">src</a>)</li>
 <li>Fibonacci example: <a href="code/08-assembly-32bit/test_fib.cpp.html">test_fib.cpp</a> (<a href="code/08-assembly-32bit/test_fib.cpp">src</a>), <a href="code/08-assembly-32bit/test_fib.s.html">test_fib.s</a> (<a href="code/08-assembly-32bit/test_fib.s">src</a>)</li>
 <li>Max example: <a href="code/08-assembly-32bit/test_max.cpp.html">test_max.cpp</a> (<a href="code/08-assembly-32bit/test_max.cpp">src</a>), <a href="code/08-assembly-32bit/test_max.s.html">test_max.s</a> (<a href="code/08-assembly-32bit/test_max.s">src</a>), <a href="code/08-assembly-32bit/test_max-O2.s.html">test_max-O2.s</a> (<a href="code/08-assembly-32bit/test_max-O2.s">src</a>), <a href="code/08-assembly-32bit/test_max-noextern.s.html">test_max-noextern.s</a> (<a href="code/08-assembly-32bit/test_max-noextern.s">src</a>)</li>
 <li>String compare example: <a href="code/08-assembly-32bit/test_string_compare.cpp.html">test_string_compare.cpp</a> (<a href="code/08-assembly-32bit/test_string_compare.cpp">src</a>), <a href="code/08-assembly-32bit/test_string_compare.s.html">test_string_compare.s</a> (<a href="code/08-assembly-32bit/test_string_compare.s">src</a>)</li>
 </ul></li>
-<li>The tutorial for <a href="../labs/lab08/index.html">lab 8</a> (<a href="../labs/lab08/index.md">md</a>)</li>
-<li>Tutorial 8 is nasm, which consists of two PDF book chapters that are contained in this repository: <a href="../book/x86-32bit-asm-chapter.pdf">x86 Assembly</a> and <a href="../book/x86-32bit-ccc-chapter.pdf">The x86 C Calling Convention</a>; the contain more examples of assembly code
+<li>The tutorial for <a href="../labs/lab08/index.html">lab 8</a> (<a href="../labs/lab08/index.md">md</a>)
 <ul>
+<li>Tutorial 8 is nasm, which consists of two PDF book chapters that are contained in this repository: <a href="../book/x86-32bit-asm-chapter.pdf">x86 Assembly</a> and <a href="../book/x86-32bit-ccc-chapter.pdf">The x86 C Calling Convention</a>; the contain more examples of assembly code</li>
 <li>You can skip a few of the sections (feel free to look at them if interested, but they are not needed): Floating Point Instructions, SIMD Parallelism, Saturated Arithmetic, and Graphics.</li>
 </ul></li>
 </ul></li>
 </ul>
-</body>
-</html>

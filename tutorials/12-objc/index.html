@@ -1,34 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>PDR: Objective C Tutorial</title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../../markdown.css">
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-</head>
-<body>
 <h1 id="pdr-objective-c-tutorial">PDR: Objective C Tutorial</h1>
 <p><a href="../index.html">Go up to the Tutorials table of contents page</a></p>
 <p>Throughout this semester, we have studied C++, which was one way to add object oriented programming capability to the C programming language. There are other languages that also do that: the one that we will study in this pre-lab is Objective C. The others are described <a href="http://en.wikipedia.org/wiki/C_programming_language#Related_languages">here</a>. Objective C had mostly died out as a language that was widely used until Apple decided to use it for their iPhone (and now iPad) application development. We want you to be familiar with it, so that you can see a different way to allow for object oriented programming using a C-like language.</p>
 <h3 id="but-why">But, why?</h3>
-<p>Wait a minute -- isn't Objective C a <a href="http://www.infoworld.com/article/2935995/application-development/objective-c-spirals-downward-in-language-popularity.html">dying programming language</a>?</p>
+<p>Wait a minute – isn’t Objective C a <a href="http://www.infoworld.com/article/2935995/application-development/objective-c-spirals-downward-in-language-popularity.html">dying programming language</a>?</p>
 <p>Well, yes and no. Objective C was exclusively used to implement iOS apps (i.e., iPad, iPhone, and iPod) . But with the recent advent of <a href="https://developer.apple.com/swift/">Swift</a>, more people are moving toward that and away from Objective C. So while Objective C is seeing a decline in how much it is used, it is <a href="http://www.huffingtonpost.com/ahmed-eid/apples-swift-is-great-but_b_5492239.html">not going anywhere anytime soon</a>.</p>
-<p>However, the point of having this tutorial is not about being an iOS developer -- instead, it's to show you that there is another way to add objects to C other than C++.</p>
+<p>However, the point of having this tutorial is not about being an iOS developer – instead, it’s to show you that there is another way to add objects to C other than C++.</p>
 <h3 id="objective-c-installation">Objective C Installation</h3>
 <p>The first part of the pre-lab is to make sure you have access to a compilation environment for Objective C.</p>
 <p>The course VirtualBox image has Objective C properly installed. The lab machines in 001 have Objective C installed. If you are familiar with ssh (or SecureCRT), you can remotely log in to labunix01.cs.virginia.edu, and write your program there (the login is the same as your 001 Linux login).</p>
-<p>First, we need to see if we can compile a <a href="helloworld.m.html">helloworld.m</a> (<a href="helloworld.m">src</a>) program. The compilation line is <code>clang helloworld.m -lobjc</code> (that command will change later on, but for now it's fine).</p>
+<p>First, we need to see if we can compile a <a href="helloworld.m.html">helloworld.m</a> (<a href="helloworld.m">src</a>) program. The compilation line is <code>clang helloworld.m -lobjc</code> (that command will change later on, but for now it’s fine).</p>
 <p><strong>Linux:</strong> Install the gobjc package (and any dependencies), which should allow Objective C compilation.</p>
-<p><strong>Mac OS X:</strong> Try it out from the command line, as it may just work. If it doesn't work, then you may have to install a bunch of developer packages. It would likely be far easier to boot up the VirtualBox image for this one tutorial. Note that some students reported that they needed to include the <code>-arch i386</code> flag to the compiler, but we did not need it on our Mac OS X test systems.</p>
-<p>If you are having problems getting the compilation to work for you, come speak to us! Don't spend hours and hours banging your head against the wall. And you probably shouldn't wait until the last minute to try out the compilation commands...</p>
+<p><strong>Mac OS X:</strong> Try it out from the command line, as it may just work. If it doesn’t work, then you may have to install a bunch of developer packages. It would likely be far easier to boot up the VirtualBox image for this one tutorial. Note that some students reported that they needed to include the <code>-arch i386</code> flag to the compiler, but we did not need it on our Mac OS X test systems.</p>
+<p>If you are having problems getting the compilation to work for you, come speak to us! Don’t spend hours and hours banging your head against the wall. And you probably shouldn’t wait until the last minute to try out the compilation commands…</p>
 <h3 id="compiling-an-objective-c-program">Compiling an Objective C program</h3>
-<p>To compile your code on either Mac OS X or Linux, enter <code>clang *.m -lobjc</code>. With C++, you would compile all of your .cpp files (<code>*.cpp</code>); with Objective C, you compile all of your .m files (hence, <code>*.m</code>). Note that you will use a longer compilation command later, which is described below. Since this is not Objective C++ (which <a href="http://en.wikipedia.org/wiki/Objective-C#Objective-C.2B.2B">does exist</a>), we are using <code>clang</code> instead of <code>clang++</code>. You should put the <code>-lobjc</code> part in there -- that tells clang to link your code to the Objective C library to allow your program to run. Note that some platforms will not need the <code>-lobjc</code> line, but others will, and it doesn't hurt to put it in anyway.</p>
-<p>Enter the following hello world program into a <a href="helloworld.m.html">helloworld.m</a> (<a href="helloworld.m">src</a>) file -- Objective C uses .h files for the interfaces (i.e., header files), just like C++ does. For the implementation files, however, Objective C uses a .m extension instead of the .cpp extension that C++ uses.</p>
+<p>To compile your code on either Mac OS X or Linux, enter <code>clang *.m -lobjc</code>. With C++, you would compile all of your .cpp files (<code>*.cpp</code>); with Objective C, you compile all of your .m files (hence, <code>*.m</code>). Note that you will use a longer compilation command later, which is described below. Since this is not Objective C++ (which <a href="http://en.wikipedia.org/wiki/Objective-C#Objective-C.2B.2B">does exist</a>), we are using <code>clang</code> instead of <code>clang++</code>. You should put the <code>-lobjc</code> part in there – that tells clang to link your code to the Objective C library to allow your program to run. Note that some platforms will not need the <code>-lobjc</code> line, but others will, and it doesn’t hurt to put it in anyway.</p>
+<p>Enter the following hello world program into a <a href="helloworld.m.html">helloworld.m</a> (<a href="helloworld.m">src</a>) file – Objective C uses .h files for the interfaces (i.e., header files), just like C++ does. For the implementation files, however, Objective C uses a .m extension instead of the .cpp extension that C++ uses.</p>
 <pre><code>#import &lt;stdio.h&gt;
 int main (void) {
     printf (&quot;Hello world!\n&quot;);
@@ -36,9 +22,9 @@ int main (void) {
 <p>The only difference between that program and a normal C program is the use of <code>#import</code> instead of <code>#include</code>. The compilation command is <code>clang helloworld.m -lobjc</code>.</p>
 <h3 id="learn-objective-c">Learn Objective C</h3>
 <p>READ THROUGH THE NEXT SECTION BEFORE YOU START READING THESE TUTORIAL LINKS!</p>
-<p>The tutorials that we will be using come from Wikibooks, and can be found <a href="http://en.wikibooks.org/wiki/Objective-C_Programming">here</a>. The first section (&quot;Objective-C concepts&quot;) discusses such things as what is OOP, and what is an object. You can probably skip that part. The second section (&quot;Getting Started&quot;) talks about how to compile a hello world program, which we have done above, so you can skip that part as well.</p>
-<p>The tutorial for this week is the following two sections: <a href="http://en.wikibooks.org/wiki/Objective-C_Programming/syntax">Objective C Syntax</a> and <a href="http://en.wikibooks.org/wiki/Objective-C_Programming/in_depth">Objective C: In Depth</a>. While we won't expect you to be experts on Objective C after this lab, we will expect you to be familiar with the material at those two URLs. The first one is what is necessary to write the program for this tutorial; the second is good information to know (i.e. makes a great final exam question), but probably not necessary for the pre-lab program. Our solution code for this pre-lab did not use any of the material from the in-depth tutorial.</p>
-<p>If you are interested in the history of Objective C, and why it's used on the Apple platforms (including the iPhone and iPad), see the <a href="http://en.wikipedia.org/wiki/Objective_c#History">History section</a> of the <a href="http://en.wikipedia.org/wiki/Objective_c">Wikipedia article on Objective C</a> (this is not required reading).</p>
+<p>The tutorials that we will be using come from Wikibooks, and can be found <a href="http://en.wikibooks.org/wiki/Objective-C_Programming">here</a>. The first section (“Objective-C concepts”) discusses such things as what is OOP, and what is an object. You can probably skip that part. The second section (“Getting Started”) talks about how to compile a hello world program, which we have done above, so you can skip that part as well.</p>
+<p>The tutorial for this week is the following two sections: <a href="http://en.wikibooks.org/wiki/Objective-C_Programming/syntax">Objective C Syntax</a> and <a href="http://en.wikibooks.org/wiki/Objective-C_Programming/in_depth">Objective C: In Depth</a>. While we won’t expect you to be experts on Objective C after this lab, we will expect you to be familiar with the material at those two URLs. The first one is what is necessary to write the program for this tutorial; the second is good information to know (i.e. makes a great final exam question), but probably not necessary for the pre-lab program. Our solution code for this pre-lab did not use any of the material from the in-depth tutorial.</p>
+<p>If you are interested in the history of Objective C, and why it’s used on the Apple platforms (including the iPhone and iPad), see the <a href="http://en.wikipedia.org/wiki/Objective_c#History">History section</a> of the <a href="http://en.wikipedia.org/wiki/Objective_c">Wikipedia article on Objective C</a> (this is not required reading).</p>
 <h3 id="differences-with-the-wikibooks-tutorials">Differences with the Wikibooks Tutorials</h3>
 <p>The tutorials on Wikibooks are sufficient for this tutorial. However, there are a few changes that <strong>MUST</strong> be made for your program to compile and run properly! There are five differences to keep in mind. The rest of the tutorials are valid, but the changes mentioned here will need to always differ from what the tutorial states.</p>
 <p><strong>Difference 1: the <code>#import</code> line</strong></p>
@@ -49,7 +35,7 @@ int main (void) {
 <p><strong>Difference 2: the super-class</strong></p>
 <p>We have included (well, imported) a different file, and thus can no longer subclass from <code>Object</code>. Thus, we must change the super class name from <code>Object</code> to <code>NSObject</code>. This is line 3 of the Point.h class in the <a href="http://en.wikibooks.org/wiki/Objective-C_Programming/syntax">Objective C Syntax</a> tutorial on Wikibooks.</p>
 <p><strong>Difference 3: compilation command</strong></p>
-<p>As our programs are now more complicated than just a &quot;hello world&quot;, the compilation line is longer as well. The compilation command for Linux machines (such as VirtualBox image) is:</p>
+<p>As our programs are now more complicated than just a “hello world”, the compilation line is longer as well. The compilation command for Linux machines (such as VirtualBox image) is:</p>
 <pre><code>clang -I /usr/include/GNUstep/ -I /usr/lib/gcc/x86_64-linux-gnu/7/include/ *.m -lobjc -lgnustep-base</code></pre>
 <p>The command above was tested on the provided Virtual Box image and works. If you are on another Linux system, you can try one of the following similar commands to see if they work:</p>
 <pre><code>clang -I /usr/include/GNUstep/ *.m -lobjc -lgnustep-base
@@ -60,19 +46,19 @@ clang -I /usr/include/GNUstep/ -I /usr/lib/gcc/x86_64-linux-gnu/5/include/ *.m -
 <p>On Mac OS X, the compilation command is much simpler, and is what was previously shown. Here it is again for your convenience:</p>
 <pre><code>clang *.m -lobjc</code></pre>
 <p><strong>Difference 4: other libraries to use</strong></p>
-<p>If you are compiling the Point class, described in the <a href="http://en.wikibooks.org/wiki/Objective-C_Programming/syntax">Objective C Syntax</a> tutorial on Wikibooks, the compiler will need to know what the <code>sqrt()</code> function is. Thus, you will have to link it to the math library: put <code>-lm</code> at the end of the compilation command, otherwise it will tell you that it cannot find the <code>sqrt()</code> implementation. This likely won't be necessary for the program you have to do below, but it will be necessary for the Point class program.</p>
+<p>If you are compiling the Point class, described in the <a href="http://en.wikibooks.org/wiki/Objective-C_Programming/syntax">Objective C Syntax</a> tutorial on Wikibooks, the compiler will need to know what the <code>sqrt()</code> function is. Thus, you will have to link it to the math library: put <code>-lm</code> at the end of the compilation command, otherwise it will tell you that it cannot find the <code>sqrt()</code> implementation. This likely won’t be necessary for the program you have to do below, but it will be necessary for the Point class program.</p>
 <p><strong>Difference 5: use <code>release</code> instead of <code>free</code></strong></p>
 <p>To deallocate an object, use release instead of free. In other words, <code>[temp free];</code> will <strong>not</strong> work (which is what the tutorial states), but <code>[temp release];</code> will work properly.</p>
 <h3 id="hack-some-objective-c-code">Hack some Objective C code</h3>
 <p>What tutorial would be complete without a data structure to implement?</p>
-<p>Your task is to implement a data structure in Objective C -- a <strong>very simple singly</strong> linked list for integers. The program is basically the same as that which was required in the <a href="../09-c/index.html">C tutorial</a>. The requirements for the program are:</p>
+<p>Your task is to implement a data structure in Objective C – a <strong>very simple singly</strong> linked list for integers. The program is basically the same as that which was required in the <a href="../09-c/index.html">C tutorial</a>. The requirements for the program are:</p>
 <ol type="1">
-<li>Read in an integer, which we'll call <em>n</em></li>
+<li>Read in an integer, which we’ll call <em>n</em></li>
 <li>Read in <em>n</em> more ints, and put those into a linked list
 <ul>
 <li>The linked list must be dynamically allocated</li>
 </ul></li>
-<li>Print out that linked list (we don't care the order)</li>
+<li>Print out that linked list (we don’t care the order)</li>
 <li>Properly deallocate the linked list</li>
 </ol>
 <p>The program should be in a file called linkedlist.m (although see the note about the filenames, below). A sample execution run might look like the following:</p>
@@ -86,14 +72,14 @@ Enter value 4: 8
 4
 2</code></pre>
 <p>You will need to implement <strong>ONE</strong> class, ListNode (or whatever you would like to call it). And a <code>main()</code> method, of course. You can put all of your code in one file (put the interface first, then the implementation, then the <code>main()</code>), or you can separate it out into separate files (such as listnode.m, listnode.h, and main.m).</p>
-<p>The linked list program will need to be submitted as part of the lab; no Makefile is being submitted. As long as it compiles with the following compilation command, we really don't care what the files are named (within reason). The compile command that we will use to compile your code on Linux is <code>clang -I /usr/include/GNUstep/ *.m -lobjc -lgnustep-base</code>; this is equivalent to <code>clang *.m -lobjc</code> on Mac OS X.</p>
-<p>This is not meant to be a complicated program! We don't care about the order that the list is printed (forward or reverse is fine); you don't need to implement iterators, or anything too complicated. Our code had just <code>main()</code> method, and a ListNode class with a handful of methods. Your <code>insert()</code> code should be in <code>main()</code>, not in your class. Likewise your code to remove the elements, and to print the list should be in <code>main()</code>.</p>
+<p>The linked list program will need to be submitted as part of the lab; no Makefile is being submitted. As long as it compiles with the following compilation command, we really don’t care what the files are named (within reason). The compile command that we will use to compile your code on Linux is <code>clang -I /usr/include/GNUstep/ *.m -lobjc -lgnustep-base</code>; this is equivalent to <code>clang *.m -lobjc</code> on Mac OS X.</p>
+<p>This is not meant to be a complicated program! We don’t care about the order that the list is printed (forward or reverse is fine); you don’t need to implement iterators, or anything too complicated. Our code had just <code>main()</code> method, and a ListNode class with a handful of methods. Your <code>insert()</code> code should be in <code>main()</code>, not in your class. Likewise your code to remove the elements, and to print the list should be in <code>main()</code>.</p>
 <p>A few requirements for the program:</p>
 <ol type="1">
 <li>It must have a ListNode (or whatever you want to call it) class, which <strong>must have some basic methods</strong>: getters, setters, that sort of thing.</li>
 <li>You do not need to implement a List class; you can directly create (and destroy) ListNode objects right from your <code>main()</code> function.</li>
 <li>Since this is not Objective C++, it will need to use C input and output, so <code>printf()</code> and <code>scanf()</code> are your friends</li>
-<li>You are welcome to have a default constructor, and call two separate setter method (to set, presumably, the value and the next fields of the ListNode). Or you can call a constructor with two parameters; it's your choice (the former is a bit easier). The Point class in the Wikibooks tutorial does the former.</li>
+<li>You are welcome to have a default constructor, and call two separate setter method (to set, presumably, the value and the next fields of the ListNode). Or you can call a constructor with two parameters; it’s your choice (the former is a bit easier). The Point class in the Wikibooks tutorial does the former.</li>
 <li>It must print out what it is doing, and show the resulting list (or return value), so that we can follow what is going on. See the sample output, above, for an example. Your output need not match ours, but we must be able to tell what is going on from the output.</li>
 <li>The point of this pre-lab is to work with calling various methods in Objective C (getters, setters, etc.). Directly accessing the fields is not what we are looking for.</li>
 </ol>
@@ -103,20 +89,18 @@ Enter value 4: 8
 <li>See the <a href="http://en.wikibooks.org/wiki/Objective-C_Programming/syntax#The_interface">Point class</a>, in the <a href="http://en.wikibooks.org/wiki/Objective-C_Programming/syntax">Wikibooks syntax tutorial</a>, for a code class example.</li>
 <li>The <code>this</code> pointer in Objective C is called <code>self</code></li>
 <li>The <code>NULL</code> pointer in C++ is called <code>nil</code> in Objective C</li>
-<li>Be careful about naming your list class &quot;List&quot; if you are using Mac OS X, as it will conflict with the List class already declared in an existing library. Name it something else.</li>
-<li>An object is deleted by calling the <code>dealloc</code> method, which is automatically inherited by all classes. You should NOT call <code>dealloc</code> anywhere in your code -- <code>dealloc</code> is called by the Objective C runtime (in a similar way the destructor is called when an object goes out of scope in C++). To create a custom destructor, override the <code>dealloc</code> method, and just call <code>super dealloc</code> as the last command of that destructor. But you probably don't need a custom constructor for this program. To indicate to the runtime that you are no longer using the object, call <code>release</code> on that object (e.g., <code>[myObj release]</code>).</li>
+<li>Be careful about naming your list class “List” if you are using Mac OS X, as it will conflict with the List class already declared in an existing library. Name it something else.</li>
+<li>An object is deleted by calling the <code>dealloc</code> method, which is automatically inherited by all classes. You should NOT call <code>dealloc</code> anywhere in your code – <code>dealloc</code> is called by the Objective C runtime (in a similar way the destructor is called when an object goes out of scope in C++). To create a custom destructor, override the <code>dealloc</code> method, and just call <code>super dealloc</code> as the last command of that destructor. But you probably don’t need a custom constructor for this program. To indicate to the runtime that you are no longer using the object, call <code>release</code> on that object (e.g., <code>[myObj release]</code>).</li>
 </ol>
 <h3 id="constructors">Constructors</h3>
 <p>Constructors are not explained very well in the tutorial, so we describe them a bit here.</p>
-<p>For complicated classes, you definitely are going to want a constructor. But for a simple class -- and your ListNode class is certainly simple -- you can just use the default constructor. It doesn't set the fields, but you can promptly set them once the object has been created. Like C++, if you don't declare any constructors, then the default one is automatically included.</p>
-<p>In Objective C, constructors are just functions that start with &quot;init&quot; (for convenience sake), and return a pointer to the type we are constructing. Typically, the first line in constructor is <code>[super init];</code>, which will call the parent's constructor. The last line is typically <code>return self;</code>. There is no special handling for constructors as there is in Java or C++.</p>
+<p>For complicated classes, you definitely are going to want a constructor. But for a simple class – and your ListNode class is certainly simple – you can just use the default constructor. It doesn’t set the fields, but you can promptly set them once the object has been created. Like C++, if you don’t declare any constructors, then the default one is automatically included.</p>
+<p>In Objective C, constructors are just functions that start with “init” (for convenience sake), and return a pointer to the type we are constructing. Typically, the first line in constructor is <code>[super init];</code>, which will call the parent’s constructor. The last line is typically <code>return self;</code>. There is no special handling for constructors as there is in Java or C++.</p>
 <p>You call the default constructor (<code>init()</code>) by the syntax:</p>
 <pre><code>ListNode *node = [[ListNode alloc] init];</code></pre>
 <p>Note that this can be shortened to:</p>
 <pre><code>ListNode *node = [ListNode new];</code></pre>
 <p>This is how it is declared in the tutorials on Wikibooks, but this is just a shorthand for the alloc/init version shown first. Note that you do not need to declare a default constructor - one is provided for you automatically, just like C++.</p>
-<p>To create a specific constructor, you create it as you would any other method with parameters, and it is typically named starting with &quot;init&quot;. It is called similar to the alloc/init format described above:</p>
+<p>To create a specific constructor, you create it as you would any other method with parameters, and it is typically named starting with “init”. It is called similar to the alloc/init format described above:</p>
 <pre><code>ListNode *node = [[ListNode alloc] initWithValue: v];</code></pre>
 <p>The <code>WithValue: v</code> is the new part in the calling of the specific constructor.</p>
-</body>
-</html>

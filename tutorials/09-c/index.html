@@ -1,17 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>PDR: C Tutorial for C++ programmers</title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../../markdown.css">
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-</head>
-<body>
 <h1 id="pdr-c-tutorial-for-c-programmers">PDR: C Tutorial for C++ programmers</h1>
 <p><a href="../index.html">Go up to the Tutorials table of contents page</a></p>
 <h3 id="originally-by-jeremy-w.-sheaffer">Originally by Jeremy W. Sheaffer</h3>
@@ -33,7 +19,7 @@ int main() {
 <hr />
 <h2 id="input-and-output">Input and Output</h2>
 <p>C does not have <em>iostreams</em> or <em>stream operators</em>, such as <code>&lt;&lt;</code> (for cout) and <code>&gt;&gt;</code> (for cin). For most I/O, we use the <code>printf()</code> family of functions (for output) and the <code>scanf()</code> family (for input).</p>
-<h3 id="int-printfconst-char-format-...">int printf(const char *format, ...)</h3>
+<h3 id="int-printfconst-char-format">int printf(const char *format, …)</h3>
 <p><code>printf()</code> takes a <em>format string</em>, containing verbatim text that you want to display and <em>conversion specifiers</em> which describe to <code>printf()</code> how to interpret and display the remaining arguments. The conversion specifiers may contain <em>flags</em>, which control such things as field width, precision, and format. All conversion specifiers begin with a <code>%</code>. To print a <code>%</code>, your format string must contain <code>%%</code>. Other special characters will have to be escaped with a backslash (i.e., to do a return, we enter <code>\n</code>; for a backslash, we enter <code>\\</code>).</p>
 <p>For example, to print an integer, we would enter:</p>
 <pre><code>printf (&quot;this is an int: %d\n&quot;, x);</code></pre>
@@ -70,10 +56,10 @@ int main() {
 </tbody>
 </table>
 <p>and flags:</p>
-<table style="width:6%;">
+<table>
 <colgroup>
-<col style="width: 2%" />
-<col style="width: 2%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -83,12 +69,12 @@ int main() {
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>l</code> (a lower-case 'L')</td>
+<td><code>l</code> (a lower-case ‘L’)</td>
 <td>Instead of an int or float, convert a long int or double</td>
 </tr>
 <tr class="even">
-<td><code>ll</code> (two lower-case 'L's)</td>
-<td>..., convert a long long int or long double</td>
+<td><code>ll</code> (two lower-case ’L’s)</td>
+<td>…, convert a long long int or long double</td>
 </tr>
 <tr class="odd">
 <td><code>0</code> (zero)</td>
@@ -99,12 +85,12 @@ int main() {
 <td>Left justify the field</td>
 </tr>
 <tr class="odd">
-<td>' ' (a space)</td>
-<td>Leave a blank space where an omitted '+' would go</td>
+<td>’ ’ (a space)</td>
+<td>Leave a blank space where an omitted ‘+’ would go</td>
 </tr>
 <tr class="even">
 <td><code>+</code></td>
-<td>Display a '+' for positive numbers</td>
+<td>Display a ‘+’ for positive numbers</td>
 </tr>
 <tr class="odd">
 <td>Non-zero integer</td>
@@ -120,18 +106,18 @@ int main() {
 <pre><code>printf(&quot;pi = %.0f\n&quot;, pi);         /* output: pi = 3    */
 printf(&quot;pi = &#39;%+10.4f&#39;\n&quot;, pi);    /* pi = &#39;   +3.1416&#39; */
 printf(&quot;Hello from %s, which begins at %p!\n&quot;,  __PRETTY_FUNCTION__, main);  /* Hello from main, which begins at 0x4004f4! */</code></pre>
-<p>This last one uses the <code>__PRETTY_FUNCTION__</code> macro, which is a string representation of the function name. And the 'main' in there is printing out the hexadecimal address of where the <code>main()</code> function begins in the x86 code section.</p>
+<p>This last one uses the <code>__PRETTY_FUNCTION__</code> macro, which is a string representation of the function name. And the ‘main’ in there is printing out the hexadecimal address of where the <code>main()</code> function begins in the x86 code section.</p>
 <h3 id="variable-argument-lists">Variable argument lists</h3>
-<p>We've seen variable argument lists in the context of the C calling convention (that's why the parameters are pushed onto the stack in reverse order). The <code>...</code> portion of the <code>printf()</code> function signature signifies that it take a variable number of arguments. I/O functions in C commonly combine this notation with a format string. Any use of variable argument lists must include clues so that the callee can correctly identify the number and type of its arguments. An interesting example of a function which uses variable argument lists in a less obvious way is open():</p>
+<p>We’ve seen variable argument lists in the context of the C calling convention (that’s why the parameters are pushed onto the stack in reverse order). The <code>...</code> portion of the <code>printf()</code> function signature signifies that it take a variable number of arguments. I/O functions in C commonly combine this notation with a format string. Any use of variable argument lists must include clues so that the callee can correctly identify the number and type of its arguments. An interesting example of a function which uses variable argument lists in a less obvious way is open():</p>
 <pre><code>int open(const char *pathname, int flags);
 int open(const char *pathname, int flags, mode_t mode);</code></pre>
 <p>but C does not support function overloading! While the <code>open()</code> manual page displays the two prototypes above, the actual signature of <code>open()</code> is:</p>
 <pre><code>int open(const char *pathname, int flags, ...);</code></pre>
 <p>The variable argument list (mode) is only used if flags includes the bit <code>O_CREAT</code>, giving <code>open()</code> the information it needs to decide whether or not to access arguments beyond flags.</p>
-<h3 id="int-scanfconst-char-format-...">int scanf(const char *format, ...)</h3>
+<h3 id="int-scanfconst-char-format">int scanf(const char *format, …)</h3>
 <p><code>scanf()</code> converts input, rather than output. Its format strings look very similar to those of <code>printf()</code>, with a few more complex conversions, which we will not cover in this tutorial as they are not often used. The key point to remember to differentiate usage of <code>scanf()</code> and <code>printf()</code> is that while <code>printf()</code> converts values (as in <em>pass-by-value</em>), <code>scanf()</code> converts input and thus needs a place to store it (<em>pass-by-address</em>, which is really passing a pointer by value; C does not have <em>pass-by-reference</em>, only C++ does).</p>
 <p><code>scanf()</code> will precisely match all non-whitespace characters in the format string. Whitespace is handled specially, in that each individual instance of whitespace in the format string is treated like a single space, and a single space in the format string matches one or more whitespace characters in the input. Conversion usually stops at the first whitespace character. All matched input is discarded, save that which is converted.</p>
-<p>Be careful of buffer overflow! <code>scanf()</code> doesn't know how large your buffer is. If you don't know either, don't use <code>scanf()</code>. We prefer to use <code>fgets()</code> followed by <code>sscanf()</code> for this reason.</p>
+<p>Be careful of buffer overflow! <code>scanf()</code> doesn’t know how large your buffer is. If you don’t know either, don’t use <code>scanf()</code>. We prefer to use <code>fgets()</code> followed by <code>sscanf()</code> for this reason.</p>
 <p>Some examples:</p>
 <pre><code>int age;
 char grade;
@@ -145,7 +131,7 @@ scanf(&quot;%c&quot;, &amp;grade);  /* Converts input to a letter grade (probabl
 
 printf(&quot;SCHOOL: &quot;);
 scanf(&quot;%s&quot;, school);  /* Converts input to a string and stores it in school */</code></pre>
-<p>The third example above almost certainly overflows the buffer. <code>scanf()</code> will copy input into <code>school</code> until it sees the next whitespace character. If the input is &quot;The University of Virginia&quot;, it will save &quot;The&quot;, and overflow the buffer by one byte (due to the fact that all C-style strings have a zero byte that terminates the string). If the input is &quot;UVA&quot;, it will save &quot;UVA&quot;, but still overflow the buffer. Using the field width flag <code>%2s</code> can solve this buffer overflow problem, but then we will only save &quot;Th&quot; or &quot;UV&quot;. In order to convert whitespace, you must use the more complex conversion. It's more common to use <code>fgets()</code> for this type of input.</p>
+<p>The third example above almost certainly overflows the buffer. <code>scanf()</code> will copy input into <code>school</code> until it sees the next whitespace character. If the input is “The University of Virginia”, it will save “The”, and overflow the buffer by one byte (due to the fact that all C-style strings have a zero byte that terminates the string). If the input is “UVA”, it will save “UVA”, but still overflow the buffer. Using the field width flag <code>%2s</code> can solve this buffer overflow problem, but then we will only save “Th” or “UV”. In order to convert whitespace, you must use the more complex conversion. It’s more common to use <code>fgets()</code> for this type of input.</p>
 <hr />
 <h2 id="pointers">Pointers</h2>
 <p>Most data is passed by address in C, so you need to be comfortable with pointer syntax.</p>
@@ -161,7 +147,7 @@ scanf(&quot;%s&quot;, school);  /* Converts input to a string and stores it in s
 <p><code>free()</code> is used to deallocate storage originally allocated with <code>malloc()</code>, <code>calloc()</code>, or <code>realloc()</code>. <code>free()</code> in C is analgous to <code>delete</code> in C++. Its prototype is:</p>
 <pre><code>void free(void* ptr)</code></pre>
 <p>It is an error to call <code>free()</code> with any address that was not returned by one of the <code>malloc()</code> family functions above. It is an error to call <code>free()</code> on a <code>NULL</code> pointer. It is also an error to call <code>free()</code> twice on the same address. Any one of these errors will corrupt your heap. This corruption will manifest in unusual ways which will be very difficult to debug and which will not have any obvious relationship with the root cause (if you are lucky, it will cause a segmentation fault).</p>
-<p>The easiest way to debug a memory error is not to make it in the first place. With care, this is easier than it sounds. Firstly, know when you need dynamic allocation; don't use it if you don't have to. Secondly, as you would do in C++, write constructors and destructors for all of your data structures, and be consistent about using them. These functions should handle your heap control and error checking explicitly, so that they are implicit in the code that uses the storage.</p>
+<p>The easiest way to debug a memory error is not to make it in the first place. With care, this is easier than it sounds. Firstly, know when you need dynamic allocation; don’t use it if you don’t have to. Secondly, as you would do in C++, write constructors and destructors for all of your data structures, and be consistent about using them. These functions should handle your heap control and error checking explicitly, so that they are implicit in the code that uses the storage.</p>
 <p>If you do manage to develop memory errors, the <code>MALLOC_CHECK_</code> environment variable may be helpful (see the <code>malloc()</code> manual page), as may the <a href="http://en.wikipedia.org/wiki/Electric_Fence">Electric Fence library</a>.</p>
 <h3 id="examples">Examples</h3>
 <pre><code>#include &lt;stdio.h&gt;
@@ -192,7 +178,7 @@ void main() {
 <h2 id="derived-types">Derived types</h2>
 <p>Like C++, C allows programmers to derive types from existing types. There are several kinds of derived types, including <em>structures</em>, <em>unions</em>, and <em>enumerated types</em>.</p>
 <h3 id="struct">struct</h3>
-<p>C does not have classes, but it does have structures. Early versions of C++ were called <em>C with Classes</em>; the C++ &quot;compiler&quot; was little more than a preprocessor, and <em>class</em> syntactical constructs were converted to structures so that the output could be compiled by a C compiler.</p>
+<p>C does not have classes, but it does have structures. Early versions of C++ were called <em>C with Classes</em>; the C++ “compiler” was little more than a preprocessor, and <em>class</em> syntactical constructs were converted to structures so that the output could be compiled by a C compiler.</p>
 <p>A structure definition has the following format:</p>
 <pre><code>struct name {
   type1 member1;
@@ -200,21 +186,21 @@ void main() {
   ...
   typen membern;
 };</code></pre>
-<p>In the above, <em>name</em> is optional. If omitted, the structure is said to be <em>anonymous</em>; in general, you probably don't want that. Within the curly braces, <em>struct name</em> is an incomplete type or <em>forward reference</em> and can be used to build recursive structures. <em>struct name</em> is fully defined after the closing curly brace, and instances can be declared at that point.</p>
-<p>The following might be a good definition for a list item data structure. We'll look at more of the list class further on:</p>
+<p>In the above, <em>name</em> is optional. If omitted, the structure is said to be <em>anonymous</em>; in general, you probably don’t want that. Within the curly braces, <em>struct name</em> is an incomplete type or <em>forward reference</em> and can be used to build recursive structures. <em>struct name</em> is fully defined after the closing curly brace, and instances can be declared at that point.</p>
+<p>The following might be a good definition for a list item data structure. We’ll look at more of the list class further on:</p>
 <pre><code>struct list_item {
   struct list_item *prev, *next;
   void *datum;
 };</code></pre>
-<p>Now whenever you want a variable of type <code>list_item</code>, you declare it using <code>struct list_item</code> - for example, <code>struct list_item my_item</code>. If the extra <code>struct</code> doesn't look right to you, this is where the <code>typedef</code> keyword can come in handy.</p>
+<p>Now whenever you want a variable of type <code>list_item</code>, you declare it using <code>struct list_item</code> - for example, <code>struct list_item my_item</code>. If the extra <code>struct</code> doesn’t look right to you, this is where the <code>typedef</code> keyword can come in handy.</p>
 <pre><code>/* typedef comes before struct */
 typedef struct list_item {
   struct list_item *prev, *next;
   void *datum;
 } list_item_t; /* what you want to call your struct goes after the closing brace */</code></pre>
-<p>With the typedef, we can now refer to our struct as simply <code>list_item_t</code>. Therefore, variable declarations become <code>list_item_t my_item</code>. Note that the <code>struct list_item *prev, *next</code> inside of the struct declaration cannot be replaced with <code>list_item_t *prev, *next</code>, as the typedef hasn't been finished by that point! We don't know the name of the typedef until after the closing brace.</p>
+<p>With the typedef, we can now refer to our struct as simply <code>list_item_t</code>. Therefore, variable declarations become <code>list_item_t my_item</code>. Note that the <code>struct list_item *prev, *next</code> inside of the struct declaration cannot be replaced with <code>list_item_t *prev, *next</code>, as the typedef hasn’t been finished by that point! We don’t know the name of the typedef until after the closing brace.</p>
 <h3 id="union">union</h3>
-<p>A union is a type for which the compiler allocates space sufficient only for the largest member, not for all members. At any moment in a union instance's lifetime, only one member is valid. It is the responsibility of the programmer to ensure that the data is accessed correctly. The syntax of a union declaration is identical to that of a struct declaration, save the keyword.</p>
+<p>A union is a type for which the compiler allocates space sufficient only for the largest member, not for all members. At any moment in a union instance’s lifetime, only one member is valid. It is the responsibility of the programmer to ensure that the data is accessed correctly. The syntax of a union declaration is identical to that of a struct declaration, save the keyword.</p>
 <p>An anonymous union provides useful syntactic sugar as a structure member. Take the following example:</p>
 <pre><code>struct example_struct {
   int type;
@@ -268,9 +254,9 @@ case 2:
 <p><em>C with Classes</em> used unions and function pointers to implement <a href="http://en.wikipedia.org/wiki/Polymorphism_%28computer_science%29">polymorphism</a>.</p>
 <h3 id="function-pointers">Function pointers</h3>
 <p>Function pointers are useful in many instances. The most common of those include function tables (arrays of function pointers), implementation of code in which you may not statically know what function will be called (like <code>qsort()</code> and <code>bsearch()</code>; technically <em>all</em> instances in which you should use function pointers fall under this heading), and implementation of object oriented code in C.</p>
-<p>Syntactically, a function pointer looks like a function prototype, except that the &quot;function name&quot; (actually the name of the pointer) is wrapped in parenthesis with a pointer star at the beginning. For example:</p>
+<p>Syntactically, a function pointer looks like a function prototype, except that the “function name” (actually the name of the pointer) is wrapped in parenthesis with a pointer star at the beginning. For example:</p>
 <pre><code>int (*pprintf)(const char *format, ...)</code></pre>
-<p>defines a pointer that can point to <code>printf()</code> (not particularly useful). A function's name, without parenthesis, evaluates to its address, thus we can assign the address of <code>printf()</code> to <code>pprintf</code> with the statement:</p>
+<p>defines a pointer that can point to <code>printf()</code> (not particularly useful). A function’s name, without parenthesis, evaluates to its address, thus we can assign the address of <code>printf()</code> to <code>pprintf</code> with the statement:</p>
 <pre><code>pprintf = printf;</code></pre>
 <p>and you can call <code>printf()</code> through the <code>pprintf</code> pointer with:</p>
 <pre><code>pprintf(&quot;Hello, World!\n&quot;);</code></pre>
@@ -292,15 +278,15 @@ case 2:
 <h2 id="exercise">Exercise</h2>
 <p>This exercise is to be developed in C, and compiled using clang (NOT clang++!). The exercise is to implement a <strong><em>very simple</em></strong> linked list. Your program should do the following:</p>
 <ol type="1">
-<li>Read in an integer, which we'll call <em>n</em></li>
+<li>Read in an integer, which we’ll call <em>n</em></li>
 <li>Read in <em>n</em> more ints, and put those into a linked list
 <ul>
 <li>The linked list must be dynamically allocated</li>
 </ul></li>
-<li>Print out that linked list (we don't care about the order!)</li>
+<li>Print out that linked list (we don’t care about the order!)</li>
 <li>Properly deallocate the linked list</li>
 </ol>
-<p>That's it - the point is to have you use many of the features of C discussed here (<code>printf()</code>, <code>scanf()</code>, structs, <code>malloc()</code>, and <code>free()</code>). We aren't looking for multiple subroutines, a full list class, etc. - a long <code>main()</code> function is just fine. Don't make this more complicated than necessary!</p>
+<p>That’s it - the point is to have you use many of the features of C discussed here (<code>printf()</code>, <code>scanf()</code>, structs, <code>malloc()</code>, and <code>free()</code>). We aren’t looking for multiple subroutines, a full list class, etc. - a long <code>main()</code> function is just fine. Don’t make this more complicated than necessary!</p>
 <p>The program should be in a file called <code>linkedlist.c</code>. A sample execution run might look like the following:</p>
 <pre><code>Enter how many values to input: 4
 Enter value 1: 2
@@ -311,5 +297,3 @@ Enter value 4: 8
 6
 4
 2</code></pre>
-</body>
-</html>

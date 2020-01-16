@@ -1,24 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>PDR: Doxygen Tutorial</title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../../markdown.css">
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-</head>
-<body>
 <h1 id="pdr-doxygen-tutorial">PDR: Doxygen Tutorial</h1>
 <p><a href="../index.html">Go up to the Tutorials table of contents page</a></p>
 <p>A Mac OS X note: doxygen on a Mac is very hard to install and configure. It will likely be easier to run doxygen through VirtualBox. But see the very last paragraph of this lab for Mac-specific details.</p>
 <p>Note that the current version of doxygen, as of the writing of this lab (released June 2015, and current as of late 2015), is 1.8.10. The version currently installing on Ubuntu Linux (both in the lab and on Virtual Box) may be a different version. These differences should not make any difference for the tags we are using.</p>
 <p>A note about line numbers: the line numbers shown throughout this document are for Doxygen version 1.8.6 (not the most recent version!); to find out what version you have installed, run <code>doxygen -v</code>. If it is a different version, then the line numbers will likely change, although they should be somewhat similar.</p>
 <h3 id="getting-started">Getting Started</h3>
-<p>When writing large amounts of code, it is important to document it, both for your understanding later, as well as for other people's understanding (such as the graders). So far, all of our documentation has been via regular comments. However, there exist a number of documentation tools that allow us to do a lot more with our comments. Consider the Java SDK source code. If you look at the code itself, there are a lot of comments with special &quot;tags&quot; in the source code. A tag is a special command that denotes the comment is about some specific aspect, such as the parameter type or return value. The source code is then run through a program called javadoc (which comes with the Java SDK), and the full online HTML documentation pages that we are familiar with are then created.</p>
+<p>When writing large amounts of code, it is important to document it, both for your understanding later, as well as for other people’s understanding (such as the graders). So far, all of our documentation has been via regular comments. However, there exist a number of documentation tools that allow us to do a lot more with our comments. Consider the Java SDK source code. If you look at the code itself, there are a lot of comments with special “tags” in the source code. A tag is a special command that denotes the comment is about some specific aspect, such as the parameter type or return value. The source code is then run through a program called javadoc (which comes with the Java SDK), and the full online HTML documentation pages that we are familiar with are then created.</p>
 <p>Javadoc is great for Java code, but does not work for C++ code. Thus, we are going to use a program called doxygen, which works on a dozen different languages, including C++. The homepage for doxygen is <a href="http://www.doxygen.org">here</a>. A function might be commented as follows. Note that, like Javadoc, the doxygen comments come <em>before</em> the code block to be documented.</p>
 <pre><code>/** @brief Computes the average of the two passed values.
  *
@@ -36,50 +22,40 @@ double average (double x, double y) {
 <p>This is much more documentation than is probably necessary for the <code>average()</code> function, but the point is to show the functionality of doxygen. Note that five of the lines have tags, such as <code>@return</code>, which means that the following comment is specifically about the return value. Some tags, such as the <code>@param</code> tag, require a parameter.</p>
 <p>Save the above code as a file called <a href="average.cpp.html">average.cpp</a> (<a href="average.cpp">src</a>). There is also a <code>main()</code> function in that file that reads in two doubles, calls <code>average()</code>, and prints out the result; that function is not commented.</p>
 <h3 id="creating-a-doxyfile">Creating a Doxyfile</h3>
-<p>We need to tell doxygen what files to process, and a large number of other options. These are all kept in a file called <code>Doxyfile</code>. To generate that file, run <code>doxygen -g</code> (the <code>-g</code> means &quot;generate&quot;). Make sure you run this from the same directory that your average.cpp file is in! This will create a Doxyfile with the default options. We will need to edit it to set a few things. The line numbers provided are for version 1.8.6 of Doxygen; if you are using a different version, then your line numbers may vary.</p>
+<p>We need to tell doxygen what files to process, and a large number of other options. These are all kept in a file called <code>Doxyfile</code>. To generate that file, run <code>doxygen -g</code> (the <code>-g</code> means “generate”). Make sure you run this from the same directory that your average.cpp file is in! This will create a Doxyfile with the default options. We will need to edit it to set a few things. The line numbers provided are for version 1.8.6 of Doxygen; if you are using a different version, then your line numbers may vary.</p>
 <ul>
-<li>The <code>INPUT</code> option (line 746): put &quot;average.cpp&quot; as the input (put it, without the quotes, after the equals sign). This tells Doxygen which files to process.</li>
-<li>The <code>GENERATE_LATEX</code> option (line 1,543): change &quot;YES&quot; to &quot;NO&quot;. We want HTML output (which is already set to yes), but we don't want LaTeX output.</li>
-<li>The <code>EXTRACT_ALL</code> option (line 401): set to &quot;YES&quot;. This will cause Doxygen to create documentation for <em>all</em> the members in our file, including our <code>average()</code> function.</li>
-<li>The <code>PAPER_TYPE</code> option (line 1,586): set to &quot;letter&quot;. We don't use A4 paper size.</li>
-<li>The <code>GENERATE_RTF</code> option (line 1,690): set to &quot;YES&quot;. This will generate a rich text format (rtf) version of the documentation, which we can load into our favorite word processor.</li>
-<li>The <code>OUTPUT_DIRECTORY</code> option (line 61): set to &quot;doc/&quot;. This will cause all the created files to be in the doc/ sub-directory, and this is <em>necessary</em> for us to find your files.</li>
-<li>The <code>PROJECT_NAME</code> option (line 35): set to &quot;PDR Lab 11&quot;; note that this is the only option (of the ones we are seeing here) that <em>should</em> have double quotes around it. This creates the appropriate title for the created documentation.</li>
-<li>You may want to set the <code>QUIET</code> option (line 686) to &quot;YES&quot;</li>
+<li>The <code>INPUT</code> option (line 746): put “average.cpp” as the input (put it, without the quotes, after the equals sign). This tells Doxygen which files to process.</li>
+<li>The <code>GENERATE_LATEX</code> option (line 1,543): change “YES” to “NO”. We want HTML output (which is already set to yes), but we don’t want LaTeX output.</li>
+<li>The <code>EXTRACT_ALL</code> option (line 401): set to “YES”. This will cause Doxygen to create documentation for <em>all</em> the members in our file, including our <code>average()</code> function.</li>
+<li>The <code>PAPER_TYPE</code> option (line 1,586): set to “letter”. We don’t use A4 paper size.</li>
+<li>The <code>GENERATE_RTF</code> option (line 1,690): set to “YES”. This will generate a rich text format (rtf) version of the documentation, which we can load into our favorite word processor.</li>
+<li>The <code>OUTPUT_DIRECTORY</code> option (line 61): set to “doc/”. This will cause all the created files to be in the doc/ sub-directory, and this is <em>necessary</em> for us to find your files.</li>
+<li>The <code>PROJECT_NAME</code> option (line 35): set to “PDR Lab 11”; note that this is the only option (of the ones we are seeing here) that <em>should</em> have double quotes around it. This creates the appropriate title for the created documentation.</li>
+<li>You may want to set the <code>QUIET</code> option (line 686) to “YES”</li>
 </ul>
 <h3 id="running-doxygen">Running Doxygen</h3>
-<p>We run doxygen via the <code>doxygen</code> command -- no command line parameters are needed (assuming the <code>Doxyfile</code> file is in the same directory, which it is in this case). The configuration file you created above produces documentation in two forms -- HTML and RTF. With a modification to the configuration file (which we won't see here), it can produce documentation in other formats as well (LaTeX, man pages, XML, etc.).</p>
-<p>RTF (rich text format) is a file type that can be loaded up into your favorite word processing program. Once you have run doxygen, the comments are formatted into a file called <code>doc/rtf/refman.rtf</code> -- try loading up that file. Note that a number of the fields in the file (such as &quot;Title&quot; and &quot;Author&quot;) are not yet filled in -- this is addressed below. If you were to print the documentation, such as a programming reference, then you might use this format.</p>
-<p>The other version, and the one we are going to look at, is the HTML documentation. This is the most convenient for viewing online. After you run doxygen, these files are in the <code>doc/html</code> directory -- view the <code>doc/html/index.html</code> file. If you look at the documentation for this function (from the main page, follow the &quot;Files&quot; link on the title bar, and then the &quot;average.cpp&quot; link), you will see what is below. Note that there is more to that page than this image; what is below just shows the extracted documentation for <code>average()</code>.</p>
-<figure>
-<img src="screenshot.png" />
-</figure>
+<p>We run doxygen via the <code>doxygen</code> command – no command line parameters are needed (assuming the <code>Doxyfile</code> file is in the same directory, which it is in this case). The configuration file you created above produces documentation in two forms – HTML and RTF. With a modification to the configuration file (which we won’t see here), it can produce documentation in other formats as well (LaTeX, man pages, XML, etc.).</p>
+<p>RTF (rich text format) is a file type that can be loaded up into your favorite word processing program. Once you have run doxygen, the comments are formatted into a file called <code>doc/rtf/refman.rtf</code> – try loading up that file. Note that a number of the fields in the file (such as “Title” and “Author”) are not yet filled in – this is addressed below. If you were to print the documentation, such as a programming reference, then you might use this format.</p>
+<p>The other version, and the one we are going to look at, is the HTML documentation. This is the most convenient for viewing online. After you run doxygen, these files are in the <code>doc/html</code> directory – view the <code>doc/html/index.html</code> file. If you look at the documentation for this function (from the main page, follow the “Files” link on the title bar, and then the “average.cpp” link), you will see what is below. Note that there is more to that page than this image; what is below just shows the extracted documentation for <code>average()</code>.</p>
+<p><img src="screenshot.png" /></p>
 <p>Do you see how the tags are separated into the different parts of this comment block?</p>
 <h3 id="call-graphs">Call Graphs</h3>
-<p>Doxygen can create call graphs for your code. We are going to change three options to &quot;YES&quot;: <code>HAVE_DOT</code> (line 2,052), <code>CALL_GRAPH</code> (line 2,168), and <code>CALLER_GRAPH</code> (line 2,179). The first one turns on graph creation (&quot;dot&quot; is the command-line for the graphviz package); the second and third turn on specific types of graphs.</p>
+<p>Doxygen can create call graphs for your code. We are going to change three options to “YES”: <code>HAVE_DOT</code> (line 2,052), <code>CALL_GRAPH</code> (line 2,168), and <code>CALLER_GRAPH</code> (line 2,179). The first one turns on graph creation (“dot” is the command-line for the graphviz package); the second and third turn on specific types of graphs.</p>
 <p>Now, run <code>doxygen</code> again, and view the page describe above (the one that shows the contents of average.cpp). You will see a few new graphs added. Keep in mind that, as the input source code (average.cpp) was rather small, these graphs are not going to be particularly all that large, either.</p>
 <p>The first graph is a dependency graph:</p>
-<figure>
-<img src="graph-1.png" />
-</figure>
+<p><img src="graph-1.png" /></p>
 <p>This shows what the average.cpp file depends on. Specifically, this is what <code>#include</code> lines it has, which is only iostream in this case.</p>
 <p>The second graph is a callee graph for <code>average()</code>:</p>
-<figure>
-<img src="graph-2.png" />
-</figure>
-<p>This shows that functions and methods call <code>average()</code> -- in this case, it's only <code>main()</code>.</p>
+<p><img src="graph-2.png" /></p>
+<p>This shows that functions and methods call <code>average()</code> – in this case, it’s only <code>main()</code>.</p>
 <p>The third graph is a caller graph for <code>main()</code>:</p>
-<figure>
-<img src="graph-3.png" />
-</figure>
-<p>This shows the functions that <code>main()</code> calls -- in this case, it's only <code>average()</code>.</p>
-<p>As the source code gets larger, so do the graphs. In fact, there is a maximum limit as to how big the graphs are. Specifically, the <code>DOT_GRAPH_MAX_NODES</code> option in the Doxyfile (initial value of 50) limits how many nodes can be represented in a single graph. In all the three examples shown above, there are only two nodes. After you start getting toward 100 nodes, the graph starts becoming too large to see on a screen, and it's utility as a visualization tool is lost.</p>
+<p><img src="graph-3.png" /></p>
+<p>This shows the functions that <code>main()</code> calls – in this case, it’s only <code>average()</code>.</p>
+<p>As the source code gets larger, so do the graphs. In fact, there is a maximum limit as to how big the graphs are. Specifically, the <code>DOT_GRAPH_MAX_NODES</code> option in the Doxyfile (initial value of 50) limits how many nodes can be represented in a single graph. In all the three examples shown above, there are only two nodes. After you start getting toward 100 nodes, the graph starts becoming too large to see on a screen, and it’s utility as a visualization tool is lost.</p>
 <h3 id="continuing-onward">Continuing Onward</h3>
-<p>To create the documentation for your code (beyond the average.cpp provided), you will need to create the <code>Doxyfile</code> file through the process described above. Note that it's a text file, even though it does not have a .txt extension -- thus, Emacs is a good editor to use to edit the file. We won't get into most of the details of the file. Be sure to edit the options mentioned above. Other fields will allow you to specify such things as the title, author, etc. (these are the things that were missing in the RTF file).</p>
-<p>Next, look at the doxygen manual. You can view it <a href="http://www.doxygen.nl/manual/index.html">here</a>. Start with the <a href="http://www.doxygen.nl/manual/docblocks.html">&quot;Documenting the code&quot; chapter</a>, as the previous chapters were covered by the description above.</p>
+<p>To create the documentation for your code (beyond the average.cpp provided), you will need to create the <code>Doxyfile</code> file through the process described above. Note that it’s a text file, even though it does not have a .txt extension – thus, Emacs is a good editor to use to edit the file. We won’t get into most of the details of the file. Be sure to edit the options mentioned above. Other fields will allow you to specify such things as the title, author, etc. (these are the things that were missing in the RTF file).</p>
+<p>Next, look at the doxygen manual. You can view it <a href="http://www.doxygen.nl/manual/index.html">here</a>. Start with the <a href="http://www.doxygen.nl/manual/docblocks.html">“Documenting the code” chapter</a>, as the previous chapters were covered by the description above.</p>
 <h3 id="important-notes">Important Notes</h3>
-<p>Private members are not documented in Doxygen by default. To change this (i.e. to document private members), you will want to change the <code>EXTRACT_PRIVATE</code> flag in Doxyfile to <code>YES</code>.</p>
-<p>You may have to include all of your comments in your .h file. Whether you have to do this depends on how you structure your code and the code comments. If you are making changes to your doxygen comments and are not seeing the results, try moving them to the .h file. As long as the documentation is created when <code>doxygen</code> is run, we don't really care where your doxygen comments are in your source code.</p>
+<p>Private members are not documented in Doxygen by default. To change this (i.e. to document private members), you will want to change the <code>EXTRACT_PRIVATE</code> flag in Doxyfile to <code>YES</code>.</p>
+<p>You may have to include all of your comments in your .h file. Whether you have to do this depends on how you structure your code and the code comments. If you are making changes to your doxygen comments and are not seeing the results, try moving them to the .h file. As long as the documentation is created when <code>doxygen</code> is run, we don’t really care where your doxygen comments are in your source code.</p>
 <p>To get doxygen working on the Mac, you will have to copy two binaries in /Applications/Doxgyen.app/Contents/Resources/ (or similar) to /usr/bin if you want to run it via the Makefile. Alternatively, if you have <a href="http://brew.sh/">homebrew</a> installed on your Mac, you can brew install doxygen from the command line with the command found <a href="http://brewformulas.org/Doxygen">here</a>.</p>
-</body>
-</html>
