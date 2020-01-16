@@ -1,8 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>PDR: Docs: LLDB Command Summary</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../markdown.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
 <h1 id="pdr-docs-lldb-command-summary">PDR: Docs: LLDB Command Summary</h1>
 <p><a href="index.html">Go up to the main documents page</a> (<a href="index.md">md</a>)</p>
 <p>Assembly-specific commands</p>
 <ul>
-<li><code>stepi</code>: step one MACHINE instruction (i.e. assembly instruction), instead of one C++ instruction (which is what <code>step</code> does)</li>
+<li><code>stepi</code>: step one MACHINE instruction (i.e. assembly instruction), instead of one C++ instruction (which is what <code>step</code> does)</li>
 <li><code>registers read</code>: display the values in the registers</li>
 <li><code>settings set target.x86-disassembly-flavor intel</code>: set the assembly output format to what we are used to in class (and what we are programming in)</li>
 <li><code>disassemble</code>: like list, but displays the lines of assembly code currently being executed.</li>
@@ -35,12 +49,14 @@
 <li><code>print (var)</code> (or <code>p</code>): print the value in the given variable</li>
 <li><code>print &amp;(var)</code>: print the address that the given variable is located</li>
 <li><code>print *(ptr)</code>: print the destination of a pointer</li>
-<li><code>x/(format) (var/address)</code>: format controls how the memory should be displayed, and consists of (up to) 3 components: a numeric count of how many elements to display; a single-character format, indicating how to interpret and display each element – e.g. a few of the flags are <code>x/x</code> displays in hex, <code>x/d</code> displays in signed decimals, <code>x/c</code> displays in characters, <code>x/i</code> displays in instructions, and <code>x/s</code> displays in C strings; and a single-character size, indicating the size of each element to display – e.g. b, h, w, and g, for one-, two-, four-, and eight-byte blocks, respectively. You can have multiple at a time, e.g. <code>x/30x (var/address)</code> will display 30 elements in hexidecimal from the provided <code>var/address</code> OR if no <code>var/address</code> is provided, from the top of the stack.</li>
+<li><code>x/(format) (var/address)</code>: format controls how the memory should be displayed, and consists of (up to) 3 components: a numeric count of how many elements to display; a single-character format, indicating how to interpret and display each element -- e.g. a few of the flags are <code>x/x</code> displays in hex, <code>x/d</code> displays in signed decimals, <code>x/c</code> displays in characters, <code>x/i</code> displays in instructions, and <code>x/s</code> displays in C strings; and a single-character size, indicating the size of each element to display -- e.g. b, h, w, and g, for one-, two-, four-, and eight-byte blocks, respectively. You can have multiple at a time, e.g. <code>x/30x (var/address)</code> will display 30 elements in hexidecimal from the provided <code>var/address</code> OR if no <code>var/address</code> is provided, from the top of the stack.</li>
 <li><code>frame variable</code>: display all the args and the local variables and their values for their current frame</li>
 <li><code>display (var)</code>: always display the value in (var) whenever the program pauses</li>
 <li><code>display</code>: show the variables that have been entered with <code>display</code> and their numeric IDs</li>
 <li><code>undisplay (num)</code>: stop displaying the variable with numeric ID num</li>
 <li><code>print function_call(params)</code>: execute the function, and print the result</li>
-<li><code>expr (var) = (value)</code>: set the variable (var) to the value (value) – e.g. <code>expr foo = 5</code></li>
+<li><code>expr (var) = (value)</code>: set the variable (var) to the value (value) -- e.g. <code>expr foo = 5</code></li>
 <li><code>up</code> and <code>down</code>: moves up a frame or down a frame in the backtrace (<code>bt</code>) of a crashed or paused program</li>
 </ul>
+</body>
+</html>

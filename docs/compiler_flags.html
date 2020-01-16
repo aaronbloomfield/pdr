@@ -1,15 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>PDR: Docs: Useful Compiler Flags</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../markdown.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
 <h1 id="pdr-docs-useful-compiler-flags">PDR: Docs: Useful Compiler Flags</h1>
 <p><a href="index.html">Go up to the main documents page</a> (<a href="index.md">md</a>)</p>
-<p>This page is intended to summarize the various compiler flags that we will be learning throughout the semester. There are hundreds (if not thousands!) of such options; we’ll only be dealing with a few of them.</p>
+<p>This page is intended to summarize the various compiler flags that we will be learning throughout the semester. There are hundreds (if not thousands!) of such options; we'll only be dealing with a few of them.</p>
 <p>These flags are for the clang compiler, but the are mostly the same for the g++ compiler (the only difference, of the ones listed below, are the flags to generate the particualr assembly flavor).</p>
 <ul>
 <li><code>-O2</code>: Creates an optimized executable. Note that if you are using the -c command (below), then you should call -O2 for those as well as the final linker call.</li>
 <li><code>-c &lt;filename.cpp&gt;</code>: This flag will compile BUT NOT LINK the passed .cpp file. It will create a filename.o file. To create the executable, you must call the compiler with all the .o files (i.e. <code>clang *.o</code>)</li>
-<li><code>-o &lt;filename&gt;</code>: This will save the output executable into <filename>.exe (or, in Linux/Unix, just <filename>). For example, <code>clang -o foo foo.cpp</code> will compile the foo.cpp file and name the executable ‘foo’. If you do out specify this flag, the output is saved to a.exe (or a.out in Linux/Unix). The ‘o’ in <code>-o</code> stands for output (as in output file).</li>
+<li><code>-o &lt;filename&gt;</code>: This will save the output executable into <filename>.exe (or, in Linux/Unix, just <filename>). For example, <code>clang -o foo foo.cpp</code> will compile the foo.cpp file and name the executable 'foo'. If you do out specify this flag, the output is saved to a.exe (or a.out in Linux/Unix). The 'o' in <code>-o</code> stands for output (as in output file).</li>
 <li><code>-g</code>: Include debugging information in the executable file. This is needed to debug the file in gdb.</li>
-<li><code>-Wall</code>: Display all warning messages. An error will prevent the program from being compiled, whereas a warning will not. There are many types of warnings that can be displayed, some of which are rather obscure. The ‘all’ part means to display all of them. It is a good idea to use this, as warnings are often bugs in your program.</li>
-<li><code>-S</code>: generate assembly output, and then stop (i.e. does not compile the program beyond the x86 assembly). Note that the assembly format that is created as a result of this flag has a different format than what we have seen in lecture – the idea is the same, but the register specification is different, and the destination/source order is reversed for the commands.</li>
+<li><code>-Wall</code>: Display all warning messages. An error will prevent the program from being compiled, whereas a warning will not. There are many types of warnings that can be displayed, some of which are rather obscure. The 'all' part means to display all of them. It is a good idea to use this, as warnings are often bugs in your program.</li>
+<li><code>-S</code>: generate assembly output, and then stop (i.e. does not compile the program beyond the x86 assembly). Note that the assembly format that is created as a result of this flag has a different format than what we have seen in lecture -- the idea is the same, but the register specification is different, and the destination/source order is reversed for the commands.</li>
 <li><code>-mllvm --x86-asm-syntax=intel</code>: sets the assembly output format to the flavor that we are used to in (this is the only flag on this list that is not the same in g++)</li>
 <li><code>-MM</code>: generates dependencies in the format used in Makefiles</li>
 </ul>
-<p>If you want to see all of the clang options, enter <code>man clang</code> at the Linux prompt. It’s quite a list!</p>
+<p>If you want to see all of the clang options, enter <code>man clang</code> at the Linux prompt. It's quite a list!</p>
+</body>
+</html>
