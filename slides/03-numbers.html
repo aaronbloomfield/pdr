@@ -754,62 +754,26 @@ Output: 0x42288000
 ## Converting a float<br>from decimal to binary
 - Take 42.125 (see [float_to_hex.cpp](code/03-numbers/float_to_hex.cpp.html) ([src](code/03-numbers/float_to_hex.cpp)))
   - Sign is 0 (it's positive)
-  - Exponent: 42.125/2<sup>5</sup> = 42.125/32 = 1.31640625 (exactly)
-    - Exponent is 5+127 = 132 (1000 0100<sub>b</sub>)
-  - Mantissa: encode it using powers of 1/2
-    - 1.31640625-1 = 0.31640625
-    - 0.31640625 = 1/4 + 1/16 + 1/256
-    - = 0101 0001 0000 0000 0000 000
+  - Convert the float to a sum of powers of 2
+    - 42.125 = 32 + 8 + 2 + 1/8
+    -  = 2<sup>5</sup> + 2<sup>3</sup> + 2<sup>1</sup> + 2<sup>-3</sup>
+  - Convert to binary (base 2)
+    - 2<sup>5</sup> + 2<sup>3</sup> + 2<sup>1</sup> + 2<sup>-3</sup> = 101010.001<sub>b</sub>
+  - Move the decimal to put in scientific notation
+    - 101010.001<sub>b</sub> = 1.01010001<sub>b</sub> * 2<sup>5</sup>
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Converting a float<br>from decimal to binary
+- Take 1.<span class='skyblue'>01010001</span><sub>b</sub> * 2<sup><span class='red'>5</span></sup>
+  - Mantissa is the bits after the decimal
+    - Ignore the leading 1. Why?
+    - Append as many trailing zeros as necessary
+  - Exponent is <span class='red'>5</span>+bias = <span class='red'>5</span>+127 = 132 (<span class='green'>1000 0100</span><sub>b</sub>)
   - In binary, then, it's:
     - <span class='pink'>0</span><span class='green'>100 0010 0</span><span class="skyblue">010 1000 1000 0000 0000 0000</span>
       - The <span class='pink'>sign</span>, <span class='green'>exponent</span> and <span class='skyblue'>mantissa</span> are colored differently for clarity
 	  </script></section>
-
-	  <section>
-<h2>Doing the last example by hand</h2>
-<ul>
-<li>Convert  42.125 to rational form: 42 1/8 = 337/8<ul>
-  <li>Everything stays in rational form for the entire conversion process</li>
-</ul></li>
-<li>Sign is 0 (it's positive)</li>
-<li>Exponent: <ul>
-  <li>Divide by the highest power of 2 that's <i>less</i> than num</li>
-  <li>In this case, that is 2<sup>5</sup> = 32</li>
-  <li>\( \frac{\frac{337}{8}}{2^5} = \frac{337}{8*2^5} = \frac{337}{256} \)</li>
-  <li>Exponent is 5+127 = 132 (1000 0100<sub>b</sub>)</li>
-</ul></li>
-<li>Mantissa<ul>
-  <li>First subtract 1: 337/256 - 1 = 337/256 - 256/256 = 81/256; we then encode 81/256 using powers of 1/2</li>
-</ul></li>
-</ul>
-	  </section>
-
-	  <section>
-<h2>Doing the last example by hand</h2>
-<ul>
-<li>Mantissa: encode it using powers of 1/2<ul>
-  <li>To do this, we try to subtract increasing powers of 1/2 until we hit zero<ul>
-    <li>From 81/256 we cannot subtract 1/2 (128/256)</li>
-    <li>From 81/256 we <i>can</i> sub 1/4 (64/256), yielding 17/256</li>
-    <li>From 17/256 we cannot subtract 1/8 (32/256)</li>
-    <li>From 17/256 we <i>can</i> sub 1/16 (16/256), yielding 1/256</li>
-    <li>From 1/256 we cannot subtract 1/32 (8/256)</li>
-    <li>From 1/256 we cannot subtract 1/64 (4/256)</li>
-    <li>From 1/256 we cannot subtract 1/128 (2/256)</li>
-    <li>From 1/256 we <i>can</i> sub 1/256 (1/256), yielding zero</li>
-  </ul></li>
-  <li>Thus, the parts of the mantissa are 1/4 + 1/16 + 1/256</li>
-  <li>Encoded: 0101 0001 0000 0000 0000 000</li>
-</ul></li>
-</ul>
-	  </section>
-
-	  <section>
-<h2>Doing the last example by hand</h2>
-<ul>
-<li>The final encoded number in binary is: <span class='pink'>0</span><span class='green'>100 0010 0</span><span class="skyblue">010 1000 1000 0000 0000 0000</span><ul>
-  <li>The <span class='pink'>sign</span>, <span class='green'>exponent</span> and <span class='skyblue'>mantissa</span> are colored differently for clarity</li></ul></li>
-	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## Example
