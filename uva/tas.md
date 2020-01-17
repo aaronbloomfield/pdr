@@ -15,7 +15,7 @@ Hey Friends! My name is Anna Cuddeback and I'm a second year from Medford, Massa
 
 ## Austin Sullivan
 ![](https://user-images.githubusercontent.com/2766036/67354415-0a7aef00-f523-11e9-99c0-e987eb45e575.JPG)
-Hello hello! I'm a fourth year in the E-School studying Computer Science with an Engineering Business minor. I grew up in the town of Swanton, Vermont and studied abroad in Auckland, New Zealand for a semester my second year. My hobbies include being an Engineering Guide, hiking, climbing, and playing basically any sport I can get my hands on, though I particularly love basketball and throwing the football on the Hereford lawn. I'm also genuinely curious to know how many people actually read these bios, so if you see me at office hours (Mondays 8-10pm), tell me a fun fact about yourself and I'll give you a special surprise!
+Hello hello! I'm a fourth year in the E-School studying Computer Science with an Engineering Business minor. I grew up in the town of Swanton, Vermont and studied abroad in Auckland, New Zealand for a semester my second year. My hobbies include being an Engineering Guide, hiking, climbing, and playing basically any sport I can get my hands on, though I particularly love basketball and throwing the football on the Hereford lawn. I'm also genuinely curious to know how many people actually read these bios, so if you see me at office hours (Wednesdays 8-10pm), tell me a fun fact about yourself and I'll give you a special surprise!
 <br clear="all">
 
 ## Bill Zhang
