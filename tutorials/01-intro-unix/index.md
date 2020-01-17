@@ -6,7 +6,7 @@ PDR: Tutorial 1: Introduction to UNIX
 Part I: Introduction and setting up your UNIX environment
 ---------------------------------------------------------
 
-This tutorial is meant to get you up and running with editing, compiling, and executing a program in a Unix-like environment.  There are a number of options that you can use to do this, depending on if you have your own PC, and how much time you want to spend installing software.  We recommend the first of the options listed if you are using Windows; macOS users should use the second option listed.
+This tutorial is meant to get you up and running with editing, compiling, and executing a program in a Unix-like environment.  There are a number of options that you can use to do this, depending on what operating system you are using and how much time you want to spend installing software.
 
 We recommended using VirtualBox, a free virtual machine software package.  This will allow you to run Linux on your home machine without needing to re-install anything.  Directions for setting up and how to use VirtualBox can be found at [Tutorial 1: Introduction to UNIX: VirtualBox use](virtual-box.html).  This will require downloading a hard drive image that we provide.
 
