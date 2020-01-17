@@ -4,6 +4,7 @@ VirtualBox image creation details
 [Go up to the main directory page](index.html) ([md](index.md))
 
 For those who are interested, this is how the VirtualBox image was created.
+It is not necessary to complete Tutorial 1.
 
 # Introduction
 
