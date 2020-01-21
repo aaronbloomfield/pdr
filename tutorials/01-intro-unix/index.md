@@ -78,7 +78,7 @@ To load up the editor, enter `emacs &` into the terminal.  The ampersand (`&`) a
 
 If you are using macOS, you can open Emacs from the Dock or Spotlight if the above instructions do not work.
 
-You should now have Emacs loaded and running -- if not, then something is wrong.  If you are using the VirtualBox image, it will look like the following.  Other systems will look similar.
+You should now have Emacs loaded and running -- it should look something like the following.
 
 ![Emacs on open](emacs-on-open.png)
 
