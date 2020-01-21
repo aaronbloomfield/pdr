@@ -12,7 +12,7 @@ We recommended using VirtualBox, a free virtual machine software package.  This 
 
 There are other options available:
 
-- macOS users are already running UNIX, as macOS runs on top of FreeBSD (a version of UNIX).  So you can just use the computer you have.  HOWEVER, note that you still can't use an IDE (Eclipse, Xcode, etc.).  You can download Emacs (an editor) from [here](http://emacsformacosx.com/).  From a terminal window, try typing in `clang++` - if you get "Command not found", you will need to install Xcode from the App Store, and then install the Command Line Tools (under Preferences - Downloads).  In newer versions of macOS, after typing `clang++`, a pop-up should appear asking if you would like to install command line developer tools.  Also note that you cannot load up Emacs easily from a command line, but you can load it up as you would any other application.
+- macOS users are already running UNIX, as macOS runs on top of FreeBSD (a version of UNIX).  So you can just use the computer you have.  HOWEVER, note that you still can't use an IDE (Eclipse, Xcode, etc.).  You can download Emacs (an editor) from [here](http://emacsformacosx.com/).  From a terminal window, try typing in `clang++ --version` - if you get "Command not found", you will need to install Xcode from the App Store, and then install the Command Line Tools (under Preferences - Downloads).  In newer versions of macOS, after typing `clang++ --version`, a pop-up should appear asking if you would like to install command line developer tools.  Also note that you cannot load up Emacs easily from a command line, but you can load it up as you would any other application.
     - You will need to install Xcode and the command line tools (with the latest version of Xcode, you have to download and install the command-line tools separately)
     - Note that some software that you will need for this course (in particular, doxygen and x86 code creation) does NOT work well on a Mac, and you will likely need the VirtualBox image for that
 - Install a Unix variant on your home machine.  There are a number of options: Linux, FreeBSD, Solaris, etc.  We use Linux (specifically, the Ubuntu distribution), as it has a large user community, both at the University and outside.  Thus, if you run into a problem, the course staff might be able to help you.  This will require repartitioning your hard drive, and thus there is a chance of data loss.  **THUS YOU NEED TO BACK UP YOUR DATA FIRST!!!** You will have to choose a distribution of Linux to install -- as mentioned above, we use Ubuntu.  You can find install guides on the web.  Be sure to install the development environments with Linux -- pretty much all of the required software will be included in that.
@@ -76,7 +76,9 @@ First, you will need to open a terminal (as in the previous section), from which
 
 To load up the editor, enter `emacs &` into the terminal.  The ampersand (`&`) at the end is very imporant!  This tells the terminal to start the `emacs` process in the background, which means you can continue to use the terminal while emacs is open.
 
-You should now have Emacs loaded and running -- if not, then something is wrong.  If you are using the VirtualBox image, it will look like the following.  Other systems will look similar.
+If you are using macOS, you can open Emacs from the Dock or Spotlight if the above instructions do not work.
+
+You should now have Emacs loaded and running -- it should look something like the following.
 
 ![Emacs on open](emacs-on-open.png)
 
