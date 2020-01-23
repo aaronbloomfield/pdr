@@ -265,7 +265,22 @@ These types of errors can cause your host machine to run out of memory and crash
 or edit some other file that your program shouldn't have access to!
 We will be checking that your code does not contain any memory errors because of their potential severity.
 
-You can test for memory errors by compiling your code with special _sanitizers_ enabled:
+To be able to test for memory errors, there are a few things you need to do first depending on your platform.
+
+- Linux
+```
+sudo update-alternatives --install /usr/bin/llvm-symbolizer llvm-symbolizer /usr/bin/llvm-symbolizer-6.0 1000
+```
+
+- macOS
+```
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew install llvm
+echo -e "/usr/local/opt/llvm/bin\n$(cat /etc/path)" > /etc/path
+# Finally, close and reopen your terminal
+```
+
+Now you can compile your code with special _sanitizers_ enabled:
 
 ```
 clang++ List.cpp ListItr.cpp ListNode.cpp ListTest.cpp -fsanitize=address,leak -fno-omit-frame-pointer -g
