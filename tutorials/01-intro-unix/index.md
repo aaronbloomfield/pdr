@@ -23,16 +23,7 @@ There are other options available:
 Part II: A Tale of Two GUIs
 ---------------------------
 
-When you install Linux, there are a number of graphical user interfaces -- or window managers -- that one can use.  Think of how MS Windows is different than macOS, and you get the idea.  There are two relevant ones here.
-
-*KDE* is designed to be similar to Microsoft Windows -- it has the equivalent of the start button in the lower left, which pulls up a menu just like in Windows.  People who are both familiar with, and prefer, the Windows interface often also prefer this interface.  You can see a screen shot of it [here](https://kde.org/announcements/plasma-5.12/window-shadows.png).
-
-*Gnome* (pronounced guh-NOME) is a user interface that is specific to UNIX machines.  The interactions with the GUI are a bit different, but the same concepts.  One can interact with Gnome really quickly once one gets used to the new interface.  You can see a screen shot of it [here](https://149366088.v2.pressablecdn.com/wp-content/uploads/2018/04/ubuntu-1804-desktop-screenshot.jpg).
-
-The reason this is relevant is that your choice of how you will use a UNIX environment will determine which interface you use.  The VirtualBox image has *both* Gnome and KDE (see below for how to switch between them).  KDE is more similar to the Windows interface (a "start" menu in the lower-left, etc.), but many people find Gnome more productive once they get used to it.
-
-With VirtualBox, as was mentioned, you can choose which interface.  When you log in, after you click the user name and are about to enter your password, there is a gear icon beneath the password field, and you can use that to select which interface -- the Gnome interface is called "Ubuntu", and the KDE interface is called "Plasma".  It will remember that choice, so you don't have to enter it again unless you want to change to another interface.
-
+When you install Linux, there are a number of graphical user interfaces -- or window managers -- that one can use.  Think of how MS Windows is different than macOS, and you get the idea.  The one we are using is *Gnome*.  Gnome (pronounced guh-NOME) is a user interface that is specific to UNIX machines.  The interactions with the GUI are a bit different, but the same concepts.  One can interact with Gnome really quickly once one gets used to the new interface.  You can see a screen shot of it [here](https://149366088.v2.pressablecdn.com/wp-content/uploads/2018/04/ubuntu-1804-desktop-screenshot.jpg).
 
 ----
 
@@ -50,7 +41,6 @@ A quick note: Unix IS CASE SENSITIVE.  Thus, foo, Foo, FOO, and FoO are all diff
 First, you need to load up a terminal.  For those who have used the Windows command prompt, it is a somewhat similar interface.
 
 - With VirtualBox and Gnome, it's an icon on the toolbar on the left-hand side of the desktop
-- With Virtualbox and KDE, it's the black icon with a greater-than sign in it on the bottom-left
 - On macOS, open Spotlight and search for Terminal
 
 

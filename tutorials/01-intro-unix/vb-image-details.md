@@ -137,4 +137,5 @@ The hard drive size was set at 40 Gb, and about 27 Gb is available; the rest is 
 
 **Changes for the future**
 
-- none, yet
+- Run the `sudo update-alternatives --install /usr/bin/llvm-symbolizer llvm-symbolizer /usr/bin/llvm-symbolizer-6.0 1000` line from the post-lab 2 description (and remove that from the description)
+

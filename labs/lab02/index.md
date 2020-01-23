@@ -44,9 +44,10 @@ Procedure
 
 ### Post-lab ###
 
-1. Finish the implementation of your List and ensure it is free of any memory errors
-2. Files to download: no additional files beyond the pre-lab and in-lab
-3. Files to submit: ListNode.h/cpp, ListItr.h/cpp, List.h/cpp, ListTest.cpp
+1. Make sure your development environment is set up to be able to test for memory leaks, as described in the post-lab section
+2. Finish the implementation of your List and ensure it is free of any memory errors
+3. Files to download: no additional files beyond the pre-lab and in-lab
+4. Files to submit: ListNode.h/cpp, ListItr.h/cpp, List.h/cpp, ListTest.cpp
 
 ------------------------------------------------------------
 
@@ -248,7 +249,11 @@ Post-lab
 --------
 
 For the post-lab, your goal is to submit a fully-functional version of your doubly-linked list.
+
+### Complete the LinkedList code ###
+
 Finish any methods that you haven't completed yet, and then move on to checking for memory errors.
+
 
 ### Memory Leaks and Corruption ###
 
