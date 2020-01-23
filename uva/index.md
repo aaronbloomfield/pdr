@@ -62,9 +62,9 @@ The links in the right-most column link directly to the lecture recording on Col
 |-----|------|-------------|-------------------------|---------------|------------------|
 | 1 | Jan 13 | Monday | no lab this week | [Course introduction][80] | course intro to slide 4.6 |
 | 2 | Jan 15 | Wednesday | | [Course introduction][80], [01: C++][81] | finished course intro; C++ to slide 5.5 |
-| 3 | Jan 17 | Friday | | [01: C++][81] | |
+| 3 | Jan 17 | Friday | | [01: C++][81] | C++ to slide 7.9 |
 | | Jan 20 | Monday | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | No class due to MLK day | No class due to MLK day |
-| 4 | Jan 22 | Wednesday | | [01: C++][81] | |
+| 4 | Jan 22 | Wednesday | | [01: C++][81] | C++ to slide 9.19 |
 | 5 | Jan 24 | Friday | | [01: C++][81] | |
 | 6 | Jan 27 | Monday | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: LLDB][42] ([md][62]) *OR* [Tutorial 2: GDB][52] ([md][72]) (see [lab 2][2] for which one to pick) | [01: C++][81] | |
 | 7 | Jan 29 | Wednesday | | [01: C++][81], [02: Lists][82] | |
