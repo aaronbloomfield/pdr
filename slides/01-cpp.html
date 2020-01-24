@@ -1160,10 +1160,10 @@ private:
 
 <section data-markdown><script type="text/template">
 ## Common mistake 1
-- Consider a class Foo with an uninitialized `ListNode*` field `head` that needs to be initialized in the constructor.
+- Consider a class List with an uninitialized `ListNode*` field `head` that needs to be initialized in the constructor.
 - What is wrong with this constructor?  It compiles fine!
 ```
-Foo() {
+List() {
     ListNode* head = new ListNode();
 }
 ```
@@ -1172,10 +1172,10 @@ Foo() {
 
 <section data-markdown><script type="text/template">
 ## Common mistake 2
-- Consider a class Foo with an uninitialized `ListNode*` field `head` that needs to be initialized in the constructor.
+- Consider a class List with an uninitialized `ListNode*` field `head` that needs to be initialized in the constructor.
 - What is wrong with this constructor?  It compiles fine!
 ```
-Foo() {
+List() {
     ListNode temp;
     head = &temp;
 }
