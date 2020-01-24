@@ -272,29 +272,13 @@ To be able to test for memory errors, there are a few things you need to do firs
 sudo update-alternatives --install /usr/bin/llvm-symbolizer llvm-symbolizer /usr/bin/llvm-symbolizer-6.0 1000
 ```
 
-- macOS (Mojave and earlier)
+- macOS
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install llvm
-vim ~<USERNAME>/.bash_profile
-# Type i
-# Paste (command + v) the following above the 'export PATH' line
-PATH="/usr/local/opt/llvm/bin:${PATH}"
-# Escape, type :wq
-# Finally, close and reopen your terminal
-```
-
-- macOS (Catalina)
-```
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew install llvm
-cd
-vim .zsh
-# Type i
-# Paste (command + v) the following at the bottom of the file
-export PATH="/usr/local/opt/llvm/bin:${PATH}"
-# Escape, type :wq
-# Finally, close and reopen your terminal
+PROFILE_FILE=$(if [[ -n $ZSH_VERSION ]]; then echo ~/.zshrc; else echo ~/.bash_profile; fi)
+echo 'export PATH="/usr/local/opt/llvm/bin:${PATH}"' >> $PROFILE_FILE
+source $PROFILE_FILE
 ```
 
 Now you can compile your code with special _sanitizers_ enabled:
