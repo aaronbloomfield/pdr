@@ -272,11 +272,28 @@ To be able to test for memory errors, there are a few things you need to do firs
 sudo update-alternatives --install /usr/bin/llvm-symbolizer llvm-symbolizer /usr/bin/llvm-symbolizer-6.0 1000
 ```
 
-- macOS
+- macOS (Mojave and earlier)
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install llvm
-echo -e "/usr/local/opt/llvm/bin\n$(cat /etc/path)" > /etc/path
+vim ~<USERNAME>/.bash_profile
+# Type i
+# Paste (command + v) the following above the 'export PATH' line
+PATH="/usr/local/opt/llvm/bin:${PATH}"
+# Escape, type :wq
+# Finally, close and reopen your terminal
+```
+
+- macOS (Catalina)
+```
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew install llvm
+cd
+vim .zsh
+# Type i
+# Paste (command + v) the following at the bottom of the file
+export PATH="/usr/local/opt/llvm/bin:${PATH}"
+# Escape, type :wq
 # Finally, close and reopen your terminal
 ```
 
