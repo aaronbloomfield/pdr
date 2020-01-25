@@ -157,7 +157,7 @@ More usefully, you can see a list of the function calls that led you
 to this point in your program.  Your program may have died deep inside
 a function that is called many times in your program, and you need to
 know which sequence of nested functions calls led to the failure.  In
-the command-line mode, type `backtrace` or `bt` to show this list.\
+the command-line mode, type `bt` to show this list.\
 **IMPORTANT:** this command is one of the most important and useful
 debugging commands you'll see in this lesson!
 
