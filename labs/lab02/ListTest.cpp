@@ -253,6 +253,12 @@ int main () {
                     break;
                 }
 
+                if (itr->isPastBeginning()) {
+                    cout << endl;
+                    cout << "\tCannot insert past the beginning of the list." << endl;
+                    break;
+                }
+
                 cout << "\tEnter element to insert: ";
                 cin >> response;
 
@@ -275,6 +281,12 @@ int main () {
                 if (list == NULL || itr == NULL) {
                     cout << endl;
                     cout << "\tCreate a List and ListItr first." << endl;
+                    break;
+                }
+
+                if (itr->isPastEnd()) {
+                    cout << endl;
+                    cout << "\tCannot insert past the end of the list." << endl;
                     break;
                 }
 
