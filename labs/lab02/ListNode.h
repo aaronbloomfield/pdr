@@ -13,14 +13,14 @@ using namespace std;
 
 class ListNode {
 public:
-    ListNode();                // Constructor
+    ListNode();         // Constructor
 
 private:
-    int value;                 // The value of the node!
-    ListNode *next, *previous; // For doubly linked lists
+    int value;          // The value of the node!
+    ListNode* next;     // The next ListNode in the List
+    ListNode* previous; // The previous ListNode in the list
 
-    // List needs to be able to access/change ListNode's next and
-    // previous pointers
+    // List needs access to value, next, and previous
     friend class List;
 
     // ListItr needs access to value

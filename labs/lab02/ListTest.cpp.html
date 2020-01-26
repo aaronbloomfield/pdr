@@ -264,6 +264,12 @@ http://www.gnu.org/software/src-highlite">
                     <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
                 <span style="color:#FF0000">}</span>
 
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>itr<span style="color:#990000">-&gt;</span><b><span style="color:#000000">isPastBeginning</span></b><span style="color:#990000">())</span> <span style="color:#FF0000">{</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Cannot insert past the beginning of the list."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                    <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
+
                 cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Enter element to insert: "</span><span style="color:#990000">;</span>
                 cin <span style="color:#990000">&gt;&gt;</span> response<span style="color:#990000">;</span>
 
@@ -286,6 +292,12 @@ http://www.gnu.org/software/src-highlite">
                 <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>list <span style="color:#990000">==</span> NULL <span style="color:#990000">||</span> itr <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
                     cout <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
                     cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Create a List and ListItr first."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                    <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+                <span style="color:#FF0000">}</span>
+
+                <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>itr<span style="color:#990000">-&gt;</span><b><span style="color:#000000">isPastEnd</span></b><span style="color:#990000">())</span> <span style="color:#FF0000">{</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+                    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">Cannot insert past the end of the list."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
                     <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
                 <span style="color:#FF0000">}</span>
 

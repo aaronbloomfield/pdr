@@ -24,14 +24,14 @@ http://www.gnu.org/software/src-highlite">
 
 <b><span style="color:#0000FF">class</span></b> <span style="color:#008080">ListNode</span> <span style="color:#FF0000">{</span>
 <b><span style="color:#0000FF">public</span></b><span style="color:#990000">:</span>
-    <b><span style="color:#000000">ListNode</span></b><span style="color:#990000">();</span>                <i><span style="color:#9A1900">// Constructor</span></i>
+    <b><span style="color:#000000">ListNode</span></b><span style="color:#990000">();</span>         <i><span style="color:#9A1900">// Constructor</span></i>
 
 <b><span style="color:#0000FF">private</span></b><span style="color:#990000">:</span>
-    <span style="color:#009900">int</span> value<span style="color:#990000">;</span>                 <i><span style="color:#9A1900">// The value of the node!</span></i>
-    <span style="color:#008080">ListNode</span> <span style="color:#990000">*</span>next<span style="color:#990000">,</span> <span style="color:#990000">*</span>previous<span style="color:#990000">;</span> <i><span style="color:#9A1900">// For doubly linked lists</span></i>
+    <span style="color:#009900">int</span> value<span style="color:#990000">;</span>          <i><span style="color:#9A1900">// The value of the node!</span></i>
+    ListNode<span style="color:#990000">*</span> next<span style="color:#990000">;</span>     <i><span style="color:#9A1900">// The next ListNode in the List</span></i>
+    ListNode<span style="color:#990000">*</span> previous<span style="color:#990000">;</span> <i><span style="color:#9A1900">// The previous ListNode in the list</span></i>
 
-    <i><span style="color:#9A1900">// List needs to be able to access/change ListNode's next and</span></i>
-    <i><span style="color:#9A1900">// previous pointers</span></i>
+    <i><span style="color:#9A1900">// List needs access to value, next, and previous</span></i>
     <b><span style="color:#0000FF">friend</span></b> <b><span style="color:#0000FF">class</span></b> <span style="color:#008080">List</span><span style="color:#990000">;</span>
 
     <i><span style="color:#9A1900">// ListItr needs access to value</span></i>
