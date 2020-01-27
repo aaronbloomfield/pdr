@@ -191,8 +191,9 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)<
 <li><p>macOS</p>
 <pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
 brew install llvm
-echo -e &quot;/usr/local/opt/llvm/bin\n$(cat /etc/path)&quot; &gt; /etc/path
-# Finally, close and reopen your terminal</code></pre></li>
+PROFILE_FILE=$(if [[ -n $ZSH_VERSION ]]; then echo ~/.zshrc; else echo ~/.bash_profile; fi)
+echo &#39;export PATH=&quot;/usr/local/opt/llvm/bin:${PATH}&quot;&#39; &gt;&gt; $PROFILE_FILE
+source $PROFILE_FILE</code></pre></li>
 </ul>
 <p>Now you can compile your code with special <em>sanitizers</em> enabled:</p>
 <pre><code>clang++ List.cpp ListItr.cpp ListNode.cpp ListTest.cpp -fsanitize=address,leak -fno-omit-frame-pointer -g</code></pre>

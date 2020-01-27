@@ -281,8 +281,9 @@ sudo update-alternatives --install /usr/bin/llvm-symbolizer llvm-symbolizer /usr
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install llvm
-echo -e "/usr/local/opt/llvm/bin\n$(cat /etc/path)" > /etc/path
-# Finally, close and reopen your terminal
+PROFILE_FILE=$(if [[ -n $ZSH_VERSION ]]; then echo ~/.zshrc; else echo ~/.bash_profile; fi)
+echo 'export PATH="/usr/local/opt/llvm/bin:${PATH}"' >> $PROFILE_FILE
+source $PROFILE_FILE
 ```
 
 Now you can compile your code with special _sanitizers_ enabled:
