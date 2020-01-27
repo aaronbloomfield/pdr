@@ -34,6 +34,15 @@ The parts of this course that are in this repo are:
 - [Frivolous regrade policy][109] ([md][110]) for exams
 - The [final course grading metrics][116] ([md][115])
 
+The [Documents page](../docs/index.html) ([md](../docs/index.md)) has a number of useful parts:
+
+- [Useful compiler flags](../docs/compiler_flags.html) ([md](../docs/compiler_flags.md))
+- [GDB command summary](../docs/gdb_summary.html) ([md](../docs/gdb_summary.md))
+- [LLDB command summary](../docs/lldb_summary.html) ([md](../docs/lldb_summary.md))
+- [GDB vs LLDB](../docs/gdb_vs_lldb.html) ([md](../docs/gdb_vs_lldb.md))
+- [Compilation issues](../docs/compilation.html) ([md](../docs/compilation.md))
+- [Readings](../docs/readings.html) ([md](../docs/readings.md)) in lieu of a textbook
+
 ------------------------------------------------------------
 
 Labs and Tutorials
@@ -65,7 +74,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 3 | Jan 17 | Friday | | [01: C++][81] | C++ to slide 7.9 |
 | | Jan 20 | Monday | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | No class due to MLK day | No class due to MLK day |
 | 4 | Jan 22 | Wednesday | | [01: C++][81] | C++ to slide 9.19 |
-| 5 | Jan 24 | Friday | | [01: C++][81] | |
+| 5 | Jan 24 | Friday | | [01: C++][81] | C++ to slide 10.17 |
 | 6 | Jan 27 | Monday | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: LLDB][42] ([md][62]) *OR* [Tutorial 2: GDB][52] ([md][72]) (see [lab 2][2] for which one to pick) | [01: C++][81] | |
 | 7 | Jan 29 | Wednesday | | [01: C++][81], [02: Lists][82] | |
 | 8 | Jan 31 | Friday | | [02: Lists][82] | |
