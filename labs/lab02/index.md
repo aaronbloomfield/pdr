@@ -179,6 +179,7 @@ If you are seeing crashes in these methods, it is likely because some of the oth
 
 #### Insert methods ####
 When implementing the three insert functions, we have found it helpful to draw out the pointers on paper and determine the order in which to update the pointers _before_ beginning to code the function itself.
+Take the time to reason about how many next and previous pointers you should be updating!
 
 For `insertAfter` and `insertBefore`, the ListItr you are given is already pointing to a ListNode.
 You should insert the new ListNode after or before that ListNode, respectively.

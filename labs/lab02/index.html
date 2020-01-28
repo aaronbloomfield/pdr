@@ -137,7 +137,7 @@ List&amp; List::operator=(const List&amp; source) {
 }</code></pre>
 <p>Note that these two methods are correctly implemented. However, they depend on the other methods working properly. If you are seeing crashes in these methods, it is likely because some of the other supporting methods are not working properly.</p>
 <h4 id="insert-methods">Insert methods</h4>
-<p>When implementing the three insert functions, we have found it helpful to draw out the pointers on paper and determine the order in which to update the pointers <em>before</em> beginning to code the function itself.</p>
+<p>When implementing the three insert functions, we have found it helpful to draw out the pointers on paper and determine the order in which to update the pointers <em>before</em> beginning to code the function itself. Take the time to reason about how many next and previous pointers you should be updating!</p>
 <p>For <code>insertAfter</code> and <code>insertBefore</code>, the ListItr you are given is already pointing to a ListNode. You should insert the new ListNode after or before that ListNode, respectively. If you find yourself thinking about loops or iteration, that is unnecessary! Double-check the ListItr header file.</p>
 <h4 id="find-and-remove">Find and remove</h4>
 <p>Since <code>find</code> needs to return a ListItr, it might make sense to also implement it using iterators, though that is not required.</p>
