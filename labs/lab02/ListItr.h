@@ -33,6 +33,7 @@ public:
 
 private:
     ListNode* current; // Holds the position in the list
+
     friend class List; // List class needs access to "current"
 };
 
