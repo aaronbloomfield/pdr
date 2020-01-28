@@ -179,6 +179,7 @@ If you are seeing crashes in these methods, it is likely because some of the oth
 
 #### Insert methods ####
 When implementing the three insert functions, we have found it helpful to draw out the pointers on paper and determine the order in which to update the pointers _before_ beginning to code the function itself.
+Take the time to reason about how many next and previous pointers you should be updating!
 
 For `insertAfter` and `insertBefore`, the ListItr you are given is already pointing to a ListNode.
 You should insert the new ListNode after or before that ListNode, respectively.
@@ -200,6 +201,15 @@ To make sure you don't do this accidentally, we recommend setting each ListNode 
 The destructor should delete _all_ dynamically-allocated memory, as we no longer need this List instance.
 Thus, it makes sense that we should delete all the elements we inserted (hint: do we already have a method for that?).
 However, what else do we dynamically allocate that we need to delete?
+
+#### printList ####
+This one's interesting becaus it's a _non-member_ function, which means it doesn't have access to any private variables.
+
+As we've been using private variables heavily up until this point, try taking a step back and looking at the bigger picture.
+If you can't use anything private, that means you're limited to only public methods.
+
+Is there anything that helps you create a ListItr that points to the first or last node in the List?
+What about a way to retrieve each node's value from the iterator?
 
 #### Compiling ####
 When compiling your code, you must remember to compile all of your .cpp files in one line:

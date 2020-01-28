@@ -137,7 +137,7 @@ List&amp; List::operator=(const List&amp; source) {
 }</code></pre>
 <p>Note that these two methods are correctly implemented. However, they depend on the other methods working properly. If you are seeing crashes in these methods, it is likely because some of the other supporting methods are not working properly.</p>
 <h4 id="insert-methods">Insert methods</h4>
-<p>When implementing the three insert functions, we have found it helpful to draw out the pointers on paper and determine the order in which to update the pointers <em>before</em> beginning to code the function itself.</p>
+<p>When implementing the three insert functions, we have found it helpful to draw out the pointers on paper and determine the order in which to update the pointers <em>before</em> beginning to code the function itself. Take the time to reason about how many next and previous pointers you should be updating!</p>
 <p>For <code>insertAfter</code> and <code>insertBefore</code>, the ListItr you are given is already pointing to a ListNode. You should insert the new ListNode after or before that ListNode, respectively. If you find yourself thinking about loops or iteration, that is unnecessary! Double-check the ListItr header file.</p>
 <h4 id="find-and-remove">Find and remove</h4>
 <p>Since <code>find</code> needs to return a ListItr, it might make sense to also implement it using iterators, though that is not required.</p>
@@ -147,6 +147,10 @@ List&amp; List::operator=(const List&amp; source) {
 Since we have been dynamically allocating ListNodes, we must also be responsible for deleting them to ensure we do not leak memory. There are multiple ways to iterate through the list and <code>delete</code> each ListNode -- experiment and see what makes the most sense to you.<br />
 <strong>Important:</strong> once you delete a ListNode, you can no longer reliably access any of its data, such as its <code>next</code> or <code>previous</code> pointers! To make sure you don't do this accidentally, we recommend setting each ListNode to NULL as soon as you delete it.</p>
 <p>The destructor should delete <em>all</em> dynamically-allocated memory, as we no longer need this List instance. Thus, it makes sense that we should delete all the elements we inserted (hint: do we already have a method for that?). However, what else do we dynamically allocate that we need to delete?</p>
+<h4 id="printlist">printList</h4>
+<p>This one's interesting becaus it's a <em>non-member</em> function, which means it doesn't have access to any private variables.</p>
+<p>As we've been using private variables heavily up until this point, try taking a step back and looking at the bigger picture. If you can't use anything private, that means you're limited to only public methods.</p>
+<p>Is there anything that helps you create a ListItr that points to the first or last node in the List? What about a way to retrieve each node's value from the iterator?</p>
 <h4 id="compiling">Compiling</h4>
 <p>When compiling your code, you must remember to compile all of your .cpp files in one line:</p>
 <pre><code>clang++ List.cpp ListItr.cpp ListNode.cpp ListTest.cpp</code></pre>
