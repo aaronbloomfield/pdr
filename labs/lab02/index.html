@@ -147,6 +147,10 @@ List&amp; List::operator=(const List&amp; source) {
 Since we have been dynamically allocating ListNodes, we must also be responsible for deleting them to ensure we do not leak memory. There are multiple ways to iterate through the list and <code>delete</code> each ListNode -- experiment and see what makes the most sense to you.<br />
 <strong>Important:</strong> once you delete a ListNode, you can no longer reliably access any of its data, such as its <code>next</code> or <code>previous</code> pointers! To make sure you don't do this accidentally, we recommend setting each ListNode to NULL as soon as you delete it.</p>
 <p>The destructor should delete <em>all</em> dynamically-allocated memory, as we no longer need this List instance. Thus, it makes sense that we should delete all the elements we inserted (hint: do we already have a method for that?). However, what else do we dynamically allocate that we need to delete?</p>
+<h4 id="printlist">printList</h4>
+<p>This one's interesting becaus it's a <em>non-member</em> function, which means it doesn't have access to any private variables.</p>
+<p>As we've been using private variables heavily up until this point, try taking a step back and looking at the bigger picture. If you can't use anything private, that means you're limited to only public methods.</p>
+<p>Is there anything that helps you create a ListItr that points to the first or last node in the List? What about a way to retrieve each node's value from the iterator?</p>
 <h4 id="compiling">Compiling</h4>
 <p>When compiling your code, you must remember to compile all of your .cpp files in one line:</p>
 <pre><code>clang++ List.cpp ListItr.cpp ListNode.cpp ListTest.cpp</code></pre>
