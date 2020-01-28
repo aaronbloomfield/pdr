@@ -15,7 +15,7 @@ Links
 There are a number of links and other parts of this course that are **NOT** included in this repository.  They are:
 
 - The set of online tools, which can be accessed through Collab or [here][160].
-    - These tools are: [support requests][161], [lab submission][162], [regrades][163], [gradebook][164], [lab extensions][165], and the [office hours queue][166]
+    - These tools are: [support requests][161], [lab submission][162], [regrades][163], [gradebook][164], and the [office hours queue][166]
 - The announcements, which are posted to the CS 2150 twitter feed: [\@UVaCS2150][151]
 - Grading guidelines, which are available in the Collab wiki ([here][171] is the direct link, although Collab login is required)
 - Email list archive, which is a Collab tool ([here][170] is the direct link, although Collab login is required)
@@ -75,7 +75,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | | Jan 20 | Monday | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | No class due to MLK day | No class due to MLK day |
 | 4 | Jan 22 | Wednesday | | [01: C++][81] | C++ to slide 9.19 |
 | 5 | Jan 24 | Friday | | [01: C++][81] | C++ to slide 10.17 |
-| 6 | Jan 27 | Monday | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: LLDB][42] ([md][62]) *OR* [Tutorial 2: GDB][52] ([md][72]) (see [lab 2][2] for which one to pick) | [01: C++][81] | |
+| 6 | Jan 27 | Monday | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: LLDB][42] ([md][62]) *OR* [Tutorial 2: GDB][52] ([md][72]) (see [lab 2][2] for which one to pick) | [01: C++][81] | C++ to slide 12.10 |
 | 7 | Jan 29 | Wednesday | | [01: C++][81], [02: Lists][82] | |
 | 8 | Jan 31 | Friday | | [02: Lists][82] | |
 | 9 | Feb 3 | Monday | [Lab 3: Stacks][3] ([md][23]) / [Tutorial 3: More UNIX, part 1][63], introduction and sections 1-4 | [02: Lists][82], [03: Numbers][83] | |
