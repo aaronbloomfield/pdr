@@ -78,8 +78,6 @@ private:
     ListNode* head;       // Dummy node representing the beginning of the list
     ListNode* tail;       // Dummy node representing the end of the list
     int count;            // Number of elements in the list
-
-    friend class ListItr; // Allow ListItr to access head and tail
 };
 
 // printList: non-member function prototype
