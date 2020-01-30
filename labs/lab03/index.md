@@ -90,16 +90,16 @@ We will be using the C++ STL stack to implement our postfix calculator.  The sta
 
 Your calculator must implement the following arithmetic operations:
 
-  - `+` : addition
-  - `-` : subtraction
-  - `*` : multiplication
-  - `/` : division
-  - `~` : unary negation
+- `+`: addition
+- `-`: subtraction
+- `*`: multiplication
+- `/`: division
+- `~`: unary negation
 
 Notes:
 
-  - We use the tilde (~) as the unary negation operator -- this negates the top element of the stack, and (unlike the other four operators) does not use a second number from the stack.  Do not confuse this operator with the tilde operator in C++, which performs bitwise negation.  Negative numbers still use a regular minus sign (i.e. '-3') and just pushes the negative number on the stack.  But, if you want to do negation (which involves popping the top value, negating it, and pushing that new value back on the stack), then you would use the tilde.
-  - For the non-commutative operators (operators where the order of the numbers matters, such as minus and divide), the first value you pop we'll call x, the second value you pop we'll call y; the result **must** be *y-x* or *y/x* -- in other words, the "lower" value in the stack minus/divided by the "higher" one in the stack.
+- We use the tilde (~) as the unary negation operator -- this negates the top element of the stack, and (unlike the other four operators) does not use a second number from the stack.  Do not confuse this operator with the tilde operator in C++, which performs bitwise negation.  Negative numbers still use a regular minus sign (i.e. '-3') and just pushes the negative number on the stack.  But, if you want to do negation (which involves popping the top value, negating it, and pushing that new value back on the stack), then you would use the tilde.
+- Each binary operation follows the format `left_operand right_operand operator`.  For example, `1 2 -` translates to `1 - 2`.
 
 ### Input ###
 
