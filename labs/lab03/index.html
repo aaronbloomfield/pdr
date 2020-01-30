@@ -82,6 +82,13 @@
 <p>Often, the <code>top()</code> and <code>pop()</code> functionality are joined as an <code>int pop()</code> function, but in this lab, it is beneficial to separate them, as that is what the STL stack does.</p>
 <p>If <code>pop()</code> or <code>top()</code> are called on an empty stack, terminate the program with the function call <code>exit(-1)</code>, which is from the <code>&lt;cstdlib&gt;</code> library.</p>
 <p>For this lab, you will use a stack of <code>int</code> values.</p>
+<h3 id="postfix-notation">Postfix Notation</h3>
+<p>Postfix notation (also known as reverse Polish notation) involves writing the operators after the operands. Note how parentheses are unnecessary in postfix notation.</p>
+<ul>
+<li>Infix: ( 3 + 6 ) - ( 8 / 4 )</li>
+<li>Postfix: 3 6 + 8 4 / -</li>
+</ul>
+<p>An online description of postfix calculators can be found <a href="http://en.wikipedia.org/wiki/Reverse_Polish_notation">on Wikipedia</a>.</p>
 <h3 id="stack-calculator-implementation">Stack Calculator Implementation</h3>
 <p>We will be using the C++ STL stack to implement our postfix calculator. The stack class's documentation can be found <a href="https://en.cppreference.com/w/cpp/container/stack">here</a>.</p>
 <p>Your calculator must implement the following arithmetic operations:</p>
@@ -102,11 +109,11 @@
 <p>A sample <code>main()</code> function that might work is as follows -- this should be modified for your particular situation (i.e. how you declare your class, your method names, etc.). This <code>main()</code> function uses the first sample input given at the very end of this document.</p>
 <pre><code>int main() {
     PostfixCalculator p;
-    p.pushNum (1);
-    p.pushNum (2);
-    p.pushNum (3);
-    p.pushNum (4);
-    p.pushNum (5);
+    p.pushNum(1);
+    p.pushNum(2);
+    p.pushNum(3);
+    p.pushNum(4);
+    p.pushNum(5);
     p.add();
     p.add();
     p.add();
@@ -115,13 +122,6 @@
     return 0;
 }</code></pre>
 <p>Keep in mind that you can type up a few of the blocks, and comment them out with the <code>/* ... */</code> comment syntax that you are familiar with from Java -- this will allow you to easily switch between the different hard-coded input test cases.</p>
-<h3 id="postfix-notation">Postfix Notation</h3>
-<p>Postfix notation (also known as reverse Polish notation) involves writing the operators after the operands. Note how parentheses are unnecessary in postfix notation.</p>
-<ul>
-<li>Infix: ( 3 + 6 ) - ( 8 / 4 )</li>
-<li>Postfix: 3 6 + 8 4 / -</li>
-</ul>
-<p>An online description of postfix calculators can be found <a href="http://en.wikipedia.org/wiki/Reverse_Polish_notation">on Wikipedia</a>.</p>
 <h3 id="hints">Hints</h3>
 <p>In the past, students have run into a few problems with this lab. We list them here in an effort to prevent these particular problems from being encountered again.</p>
 <h4 id="templates">Templates</h4>

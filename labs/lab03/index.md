@@ -84,6 +84,15 @@ If `pop()` or `top()` are called on an empty stack, terminate the program with t
 
 For this lab, you will use a stack of `int` values.
 
+### Postfix Notation ###
+
+Postfix notation (also known as reverse Polish notation) involves writing the operators after the operands.  Note how parentheses are unnecessary in postfix notation.
+
+- Infix: ( 3  +  6 )  -  ( 8  /  4 )
+- Postfix: 3  6  +  8  4  /  -
+
+An online description of postfix calculators can be found [on Wikipedia](http://en.wikipedia.org/wiki/Reverse_Polish_notation).
+
 ### Stack Calculator Implementation ###
 
 We will be using the C++ STL stack to implement our postfix calculator.  The stack class's documentation can be found [here](https://en.cppreference.com/w/cpp/container/stack).
@@ -110,11 +119,11 @@ A sample `main()` function that might work is as follows -- this should be modif
 ```
 int main() {
     PostfixCalculator p;
-    p.pushNum (1);
-    p.pushNum (2);
-    p.pushNum (3);
-    p.pushNum (4);
-    p.pushNum (5);
+    p.pushNum(1);
+    p.pushNum(2);
+    p.pushNum(3);
+    p.pushNum(4);
+    p.pushNum(5);
     p.add();
     p.add();
     p.add();
@@ -125,15 +134,6 @@ int main() {
 ```
 
 Keep in mind that you can type up a few of the blocks, and comment them out with the `/* ... */` comment syntax that you are familiar with from Java -- this will allow you to easily switch between the different hard-coded input test cases.
-
-### Postfix Notation ###
-
-Postfix notation (also known as reverse Polish notation) involves writing the operators after the operands.  Note how parentheses are unnecessary in postfix notation.
-
-- Infix: ( 3  +  6 )  -  ( 8  /  4 )
-- Postfix: 3  6  +  8  4  /  -
-
-An online description of postfix calculators can be found [on Wikipedia](http://en.wikipedia.org/wiki/Reverse_Polish_notation).
 
 ### Hints ###
 
