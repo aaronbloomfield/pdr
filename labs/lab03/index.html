@@ -167,7 +167,7 @@ while (cin &gt;&gt; token) {
 <p>There are two cases you will need to handle when parsing each token: operators and numbers.</p>
 <p>C++ allows you to compare strings for equality with <code>==</code>. For example, you can check if <code>s</code> is the division operator with <code>if (s == &quot;/&quot;)</code>.<br />
 Hint: we can check for all the operators, since there are only five of them. If all the checks fail, what does that mean the token has to be?</p>
-<p>To convert input that represents numbers into their integer form, <code>&lt;cstdlib&gt;</code> provides the <code>int atoi(char* s)</code> function. Unfortunately, <code>atoi</code> requires C-style strings -- perhaps you should take a look at <a href="https://en.cppreference.com/w/cpp/string/basic_string">the <code>string</code> documentation</a> to see if anything can help you out.</p>
+<p>cin takes in all input as strings, but we need to convert those to strings so that we can push them into the stack. Perhaps you should take a look at <a href="https://en.cppreference.com/w/cpp/string/basic_string">the <code>string</code> documentation</a> to see if anything can help you out.</p>
 <hr />
 <h2 id="post-lab-1">Post-lab</h2>
 <p>For the post-lab, you will be implementing your own stack and then modifying your postfix calculator to use that stack instead of the STL stack. This can be code that you write yourself, or you can re-use your List code from lab 2 (make sure it works before you re-use it, though!).</p>
