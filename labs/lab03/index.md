@@ -84,22 +84,31 @@ If `pop()` or `top()` are called on an empty stack, terminate the program with t
 
 For this lab, you will use a stack of `int` values.
 
+### Postfix Notation ###
+
+Postfix notation (also known as reverse Polish notation) involves writing the operators after the operands.  Note how parentheses are unnecessary in postfix notation.
+
+- Infix: ( 3  +  6 )  -  ( 8  /  4 )
+- Postfix: 3  6  +  8  4  /  -
+
+An online description of postfix calculators can be found [on Wikipedia](http://en.wikipedia.org/wiki/Reverse_Polish_notation).
+
 ### Stack Calculator Implementation ###
 
 We will be using the C++ STL stack to implement our postfix calculator.  The stack class's documentation can be found [here](https://en.cppreference.com/w/cpp/container/stack).
 
 Your calculator must implement the following arithmetic operations:
 
-  - `+` : addition
-  - `-` : subtraction
-  - `*` : multiplication
-  - `/` : division
-  - `~` : unary negation
+- `+`: addition
+- `-`: subtraction
+- `*`: multiplication
+- `/`: division
+- `~`: unary negation
 
 Notes:
 
-  - We use the tilde (~) as the unary negation operator -- this negates the top element of the stack, and (unlike the other four operators) does not use a second number from the stack.  Do not confuse this operator with the tilde operator in C++, which performs bitwise negation.  Negative numbers still use a regular minus sign (i.e. '-3') and just pushes the negative number on the stack.  But, if you want to do negation (which involves popping the top value, negating it, and pushing that new value back on the stack), then you would use the tilde.
-  - For the non-commutative operators (operators where the order of the numbers matters, such as minus and divide), the first value you pop we'll call x, the second value you pop we'll call y; the result **must** be *y-x* or *y/x* -- in other words, the "lower" value in the stack minus/divided by the "higher" one in the stack.
+- We use the tilde (~) as the unary negation operator -- this negates the top element of the stack, and (unlike the other four operators) does not use a second number from the stack.  Do not confuse this operator with the tilde operator in C++, which performs bitwise negation.  Negative numbers still use a regular minus sign (i.e. '-3') and just pushes the negative number on the stack.  But, if you want to do negation (which involves popping the top value, negating it, and pushing that new value back on the stack), then you would use the tilde.
+- Each binary operation follows the format `left_operand right_operand operator`.  For example, `1 2 -` translates to `1 - 2`.
 
 ### Input ###
 
@@ -110,11 +119,11 @@ A sample `main()` function that might work is as follows -- this should be modif
 ```
 int main() {
     PostfixCalculator p;
-    p.pushNum (1);
-    p.pushNum (2);
-    p.pushNum (3);
-    p.pushNum (4);
-    p.pushNum (5);
+    p.pushNum(1);
+    p.pushNum(2);
+    p.pushNum(3);
+    p.pushNum(4);
+    p.pushNum(5);
     p.add();
     p.add();
     p.add();
@@ -125,15 +134,6 @@ int main() {
 ```
 
 Keep in mind that you can type up a few of the blocks, and comment them out with the `/* ... */` comment syntax that you are familiar with from Java -- this will allow you to easily switch between the different hard-coded input test cases.
-
-### Postfix Notation ###
-
-Postfix notation (also known as reverse Polish notation) involves writing the operators after the operands.  Note how parentheses are unnecessary in postfix notation.
-
-- Infix: ( 3  +  6 )  -  ( 8  /  4 )
-- Postfix: 3  6  +  8  4  /  -
-
-An online description of postfix calculators can be found [on Wikipedia](http://en.wikipedia.org/wiki/Reverse_Polish_notation).
 
 ### Hints ###
 
@@ -220,9 +220,8 @@ C++ allows you to compare strings for equality with `==`.
 For example, you can check if `s` is the division operator with `if (s == "/")`.\
 Hint: we can check for all the operators, since there are only five of them.  If all the checks fail, what does that mean the token has to be?
 
-To convert input that represents numbers into their integer form, `<cstdlib>` provides the `int atoi(char* s)` function.
-Unfortunately, `atoi` requires C-style strings -- perhaps you should take a look at
-[the `string` documentation](https://en.cppreference.com/w/cpp/string/basic_string) to see if anything can help you out.
+cin takes in all input as strings, but we need to convert those to strings so that we can push them into the stack.
+Perhaps you should take a look at [the `string` documentation](https://en.cppreference.com/w/cpp/string/basic_string) to see if anything can help you out.
 
 ------------------------------------------------------------
 
