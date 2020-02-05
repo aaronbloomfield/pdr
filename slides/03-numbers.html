@@ -185,8 +185,7 @@
   - 0x73 = 73<sub>16</sub> = 115<sub>10</sub>
   - 0x3f = 3f<sub>16</sub> = 63<sub>10</sub>
   - Case does not matter (0xFF == 0xff)
-- There is no (convenient) way to specify a number in binary
-  - They are almost always specified in hex anyway
+- There is no (convenient) way to specify a number in binary (they are almost always done in hex)
 	    </script></section>
 
 	    <section data-markdown><script type="text/template">
@@ -256,7 +255,6 @@
 	    <section>
 <h2>Binary Representation</h2>
 <p><i>n</i>-bit binary number: \( b_{n-1} b_{n-2} b_{n-3} \ldots b_2 b_1 b_0 \)</p>
-<p>&nbsp;</p>
 <p>Value = \( \sum_{i=0}^{n-1} b_i \cdot 2^i \)</p>
 <p>&nbsp;</p>
 <p>Boolean arithmetic:</p>
@@ -279,7 +277,7 @@
 - C: implementation-defined
   - `unsigned int`: can hold between 0 and `UINT_MAX`
     - `UINT_MAX` must be at least 65535
-      - You must `#include <climits>` to access `UINT_MAX`
+      - `UINT_MAX` is in `<climits>`
       - n >= 16, typical current machines *n* = 32 or 64
     - `sizeof(int)` will evaluate to the byte size of an int in C/C++
 	    </script></section>
@@ -508,14 +506,13 @@ void Image::WriteInt (int value, FILE * fp) {
 ## Integer overflow
 - Given a signed 8-bit integer: 127 = 0111 1111
   - The maximum value for that data type
-- If you add 1 to that, you get 1000 0000
-  - Which is -128
+- If you add 1 to that, you get 1000 0000 (= -128<sub>d</sub>)
 - This is called *overflow* (or *integer overflow*)
 - Other common overflows:
   - 16-bits: 32,767 + 1 = -32,768
   - 32-bits: 2,147,483,647 + 1 = -2,147,483,648
   - 64-bits: 9,223,372,036,854,775,807 + 1 = -9,223,372,036,854,775,808
-- This has real-word applications: [*Gangnam Style* overflows INT_MAX, forces YouTube to go 64-bit](http://arstechnica.com/business/2014/12/gangnam-style-overflows-int_max-forces-youtube-to-go-64-bit/) (Dec 3, 2014)
+- A real-word application: [*Gangnam Style* overflows INT_MAX, forces YouTube to go 64-bit](http://arstechnica.com/business/2014/12/gangnam-style-overflows-int_max-forces-youtube-to-go-64-bit/) (Dec 3, 2014)
   - If you care, it's now at 3.2 billion views (as of Sep 2018)
 	  </script></section>
 
