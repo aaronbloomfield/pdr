@@ -228,18 +228,18 @@ Perhaps you should take a look at [the `string` documentation](https://en.cppref
 Post-lab
 --------
 
-For the post-lab, you will be implementing your own stack and then modifying your postfix calculator to use that stack instead of the STL stack.  This can be code that you write yourself, or you can re-use your List code from lab 2 (make sure it works before you re-use it, though!).
+For the post-lab, you will be implementing your own stack and then modifying your postfix calculator to use that stack instead of the STL stack.
+
+Your stack class must:
+
+- Implement the `void push(int e)`, `void pop()`, `int top()`, and `bool empty()` methods to perform the same functionality as the STL stack
+- Internally use a linked list
+- Have no maximum capacity (we should be able to push as many elements as we'd like)
+- Not use any STL containers
+
+You may modify and re-use your LinkedList code from Lab 2, or you may write your own code, as long as you satisfy the above requirements.
 
 You will also need to write up a difficulties.txt file which contains a paragraph describing any difficulties you encountered getting your code working and what you did to solve them.
-
-Your stack is only required to implement the four methods as described in the prelab: `push()`, `pop()`, `top()`, and `empty()`.
-It must also have no maximum capacity -- in other words, we should be able to push as many elements as we'd like.
-
-Most of you will implement your stack in one of the following ways:
-
-1. Re-use your list class from lab 2. You may need to add one or two methods to it for extra convenience.
-2. Build a linked-list / pointer-based stack as discussed in lecture. Your stack class would contain a pointer to the head node of the stack, and push and pop would modify the singly-linked list accordingly.
-3. Manually implement an array-based stack. If you choose this method, your array must be able to automatically resize if the stack grows large enough to sufficiently fill the array. This is probably the most difficult of the three options.
 
 ### Submitting the stack / list files ###
 
