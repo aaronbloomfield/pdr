@@ -656,8 +656,7 @@ void Image::WriteInt (int value, FILE * fp) {
   - This mantissa has the first and fourth bits set
   - The '1' bits in positions 1 and 4 represent (1/2)<sup>1</sup> and (1/2)<sup>4</sup>
     - That's 0.5 + 0.0625 = 0.5625
-  - Then add 1 to that
-    - Yields 1.5625
+  - Then add 1 to that to yield 1.5625
 - Now multiply by 2<sup>*exponent*</sup>
   - 1.5625 \* 2<sup>4</sup> = 1.5625 \* 16 = 25
 - Thus, 0x41c80000 = 25.0<sub>d</sub>
@@ -806,6 +805,7 @@ Output: 0x42288000
   - In binary, then, it's:
     - <span class='pink'>0</span><span class='green'>100 0010 0</span><span class="skyblue">010 1000 1000 0000 0000 0000</span>
       - The <span class='pink'>sign</span>, <span class='green'>exponent</span> and <span class='skyblue'>mantissa</span> are colored differently for clarity
+  - In hex: 0x42288000
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">

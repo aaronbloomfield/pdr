@@ -80,7 +80,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 8 | Jan 31 | Friday | | [02: Lists][82] | lists to slide 6.16 |
 | 9 | Feb 3 | Monday | [Lab 3: Stacks][3] ([md][23]) / [Tutorial 3: More UNIX, part 1][63], introduction and sections 1-4 | [02: Lists][82], [03: Numbers][83] | finished lists; numbers to slide 5.3 |
 | 10 | Feb 5 | Wednesday | | [03: Numbers][83] | numbers to slide 8.10 |
-| 11 | Feb 7 | Friday | | [03: Numbers][83] | |
+| 11 | Feb 7 | Friday | | [03: Numbers][83] | numbers to slide 9.21 |
 | 12 | Feb 10 | Monday | [Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8 | [03: Numbers][83] | |
 | 13 | Feb 12 | Wednesday | | [04: Arrays &amp; big-Oh][84] | |
 | 14 | Feb 14 | Friday | | [04: Arrays &amp; big-Oh][84] | |
