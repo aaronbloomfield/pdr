@@ -611,7 +611,8 @@ void Image::WriteInt (int value, FILE * fp) {
 <li>Exponent values:
 <ul>
   <li>0: zeros</li>
-  <li>1-254: exponent-127</li>
+  <li>1-254: exponent-127<ul>
+    <li>The value of 127 is called the <i>exponent offset</i> or the <i>bias</i></li></ul></li>
   <li>255: infinities, overflow, underflow, NaN</li>
 </ul>
 </li>
@@ -641,7 +642,7 @@ void Image::WriteInt (int value, FILE * fp) {
 - 0x41c80000 (big-endian) = 0100 0001 1100 1000 0000 0000 0000 0000
   - Sign bit: 0 (means it's positive)
   - Exponent: 1000 0011<sub>b</sub> = 0x83 = 131<sub>d</sub>
-    - Exponent offset: 2<sup>n-1</sup>-1 = 2<sup>(8-1)</sup>-1 = 127
+    - Exponent offset (aka bias): 2<sup>n-1</sup>-1 = 2<sup>(8-1)</sup>-1 = 127
     - Subtract 127 from exponent value yields 4
     - Which means multiply the mantissa by 2<sup>4</sup>=16
   - Mantissa: 100 1000 0000 0000 0000 0000
@@ -725,9 +726,7 @@ void Image::WriteInt (int value, FILE * fp) {
 
 	  <section data-markdown><script type="text/template">
 ## Converting a float
-Source code: [float_to_hex.cpp](code/03-numbers/float_to_hex.cpp.html) ([src](code/03-numbers/float_to_hex.cpp))
-
-Because we want this to be a 32-bit pointer, we must compile it with `-m32`
+Source code: [float_to_hex.cpp](code/03-numbers/float_to_hex.cpp.html) ([src](code/03-numbers/float_to_hex.cpp)) (we want 32-bit pointers, so we compile with `-m32`)
 
 ```
 #include <iostream>
@@ -754,11 +753,48 @@ Output: 0x42288000
   - Convert the float to a sum of powers of 2
     - 42.125 = 32 + 8 + 2 + 1/8
     -  = 2<sup>5</sup> + 2<sup>3</sup> + 2<sup>1</sup> + 2<sup>-3</sup>
+    - (details on the next slides)
   - Convert to binary (base 2)
     - 2<sup>5</sup> + 2<sup>3</sup> + 2<sup>1</sup> + 2<sup>-3</sup> = 101010.001<sub>b</sub>
   - Move the decimal to put in scientific notation
     - 101010.001<sub>b</sub> = 1.01010001<sub>b</sub> * 2<sup>5</sup>
-	  </script></section>
+    - It slides over 5 spots, so the exponent is 5
+</script></section>
+
+	  <section data-markdown><script type="text/template">
+## Converting a number to powers of 2
+- Consider 42.125
+- For the integer portion (42):
+  - Repeatedly subtract the highest power of 2 that is less than the number
+  - 42 - 32 => 10 - 8 => 2 - 2 => 0
+  - Thus, 42 = 32 + 8 + 2 = 2<sup>5</sup> + 2<sup>3</sup> + 2<sup>1</sup>
+</script></section>
+
+	  <section data-markdown><script type="text/template">
+## Converting a number to powers of 2
+- Consider 42.65625 (NOT the number on the previous slide)
+- For the decimal portion (0.65625):
+  - Repeatedly subtract the *lowest* power of 1/2 that is less than the number
+  - Often easist done in rational form: 0.65625 = 21/32
+  - 21/32 - 16/32 (aka 1/2) => 5/32 - 4/32 (aka 1/8) => 1/32 - 1/32 => 0
+  - Thus, 0.65625 = 1/2 + 1/8 + 1/32 = 2<sup>-1</sup> + 2<sup>-3</sup> + 2<sup>-5</sup>
+- If we consider 42.125 (the number on the previous slide), the decimal portion is just 0.125 = 1/8 = 2<sup>-3</sup>
+</script></section>
+
+	  <section data-markdown><script type="text/template">
+## Converting a float<br>from decimal to binary (again)
+- Take 42.125 (see [float_to_hex.cpp](code/03-numbers/float_to_hex.cpp.html) ([src](code/03-numbers/float_to_hex.cpp)))
+  - Sign is 0 (it's positive)
+  - Convert the float to a sum of powers of 2
+    - 42.125 = 32 + 8 + 2 + 1/8
+    -  = 2<sup>5</sup> + 2<sup>3</sup> + 2<sup>1</sup> + 2<sup>-3</sup>
+    - (details on the next slide)
+  - Convert to binary (base 2)
+    - 2<sup>5</sup> + 2<sup>3</sup> + 2<sup>1</sup> + 2<sup>-3</sup> = 101010.001<sub>b</sub>
+  - Move the decimal to put in scientific notation
+    - 101010.001<sub>b</sub> = 1.01010001<sub>b</sub> * 2<sup>5</sup>
+    - It slides over 5 spots, so the exponent is 5
+</script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Converting a float<br>from decimal to binary
@@ -938,7 +974,7 @@ bool foo = fabs (a-b) < EPSILON;
   - bit 1: sign bit, 1 means negative (1 bit)
   - bits 2-12: exponent (11 bits)
   - bits 13-64: mantissa (52 bits)
-  - Exponent offset is 2<sup>*e*-1</sup>-1 = 1023
+  - Exponent offset (aka bias) is 2<sup>*e*-1</sup>-1 = 1023
 - Single precision: 0.1 = 209715 / 2097152
   - Error = 9.5 \* 10<sup>-8</sup>  (at least 20 hours to miss target)
 - Double precision: 
