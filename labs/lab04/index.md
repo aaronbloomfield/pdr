@@ -178,7 +178,7 @@ Recall that almost all computers use little-Endian processors.  Thus, 0xd97c34a2
 
 Write a C++ program, called inlab4.cpp, where you consecutively declare variables of these types: `bool`, `char`, `int`, `double`, `int*`, and assign a value of your choosing to each of them.  The last line(s) of the program should print out the values.  Put a breakpoint near the end of the program, but before the last print statement(s).  Once the breakpoint is hit, type expressions to examine the addresses of all of these variables (e.g. `&i`).  Then for each of these variables, view the contents of their addresses (via the `x/x` command from above).
 
-Find one of your `int` variables in memory.  Change its value via the `expr (var) = (value)`(LLDB) or `set variable <var> = <value>`(GDB) command.  Examine the new variable's contents in memory.  Is it what you expected?  Continue the program execution -- did it properly print the changed value?
+Find one of your `int` variables in memory.  Change its value via the `expr (var) = (value)` (LLDB) or `set variable <var> = <value>` (GDB) command.  Examine the new variable's contents in memory.  Is it what you expected?  Continue the program execution -- did it properly print the changed value?
 
 After completing this section of the lab, you will be expected to understand how to use the debugger to:
 
