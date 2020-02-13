@@ -82,7 +82,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 10 | Feb 5 | Wednesday | | [03: Numbers][83] | numbers to slide 8.10 |
 | 11 | Feb 7 | Friday | | [03: Numbers][83] | numbers to slide 9.21 |
 | 12 | Feb 10 | Monday | [Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8 | [03: Numbers][83] | finished numbers; arrays & big-oh to slide 4.4 |
-| 13 | Feb 12 | Wednesday | | [04: Arrays &amp; big-Oh][84] | |
+| 13 | Feb 12 | Wednesday | | [04: Arrays &amp; big-Oh][84] | arrays & big-oh to slide 5.8 ([image](https://www.cs.virginia.edu/~asb/cs2150/chalkboard-2020-02-12.jpg)) |
 | 14 | Feb 14 | Friday | | [04: Arrays &amp; big-Oh][84] | |
 | | Feb 16 | Sunday | | Exam 1 review session | |
 | 15 | Feb 17 | Monday | Exam 1 instead during Tuesday's lab | [04: Arrays &amp; big-Oh][84], [05: Trees][85] | |
