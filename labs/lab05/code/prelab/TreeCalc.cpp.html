@@ -17,19 +17,20 @@ http://www.gnu.org/software/src-highlite">
 
 <b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
-<i><span style="color:#9A1900">//Constructor</span></i>
+<i><span style="color:#9A1900">// Constructor</span></i>
 TreeCalc<span style="color:#990000">::</span><b><span style="color:#000000">TreeCalc</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
 <span style="color:#FF0000">}</span>
 
-<i><span style="color:#9A1900">//Destructor- frees memory</span></i>
+<i><span style="color:#9A1900">// Destructor - frees memory</span></i>
 TreeCalc<span style="color:#990000">::~</span><b><span style="color:#000000">TreeCalc</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
 <span style="color:#FF0000">}</span>
 
-<i><span style="color:#9A1900">//Deletes tree/frees memory</span></i>
-<span style="color:#009900">void</span> TreeCalc<span style="color:#990000">::</span><b><span style="color:#000000">cleanTree</span></b><span style="color:#990000">(</span>TreeNode<span style="color:#990000">*</span> ptr<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+<i><span style="color:#9A1900">// Deletes tree/frees memory</span></i>
+<span style="color:#009900">void</span> TreeCalc<span style="color:#990000">::</span><b><span style="color:#000000">cleanTree</span></b><span style="color:#990000">(</span>TreeNode<span style="color:#990000">*</span> tree<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
 <span style="color:#FF0000">}</span>
 
-<i><span style="color:#9A1900">//Gets data from user</span></i>
+<i><span style="color:#9A1900">// Gets data from user</span></i>
+<i><span style="color:#9A1900">// DO NOT MODIFY</span></i>
 <span style="color:#009900">void</span> TreeCalc<span style="color:#990000">::</span><b><span style="color:#000000">readInput</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
     <span style="color:#008080">string</span> response<span style="color:#990000">;</span>
     cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Enter elements one by one in postfix notation"</span> <span style="color:#990000">&lt;&lt;</span> endl
@@ -38,63 +39,67 @@ TreeCalc<span style="color:#990000">::~</span><b><span style="color:#000000">Tre
     cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Enter first element: "</span><span style="color:#990000">;</span>
     cin <span style="color:#990000">&gt;&gt;</span> response<span style="color:#990000">;</span>
     <i><span style="color:#9A1900">//while input is legal</span></i>
-    <b><span style="color:#0000FF">while</span></b> <span style="color:#990000">(</span><b><span style="color:#000000">isdigit</span></b><span style="color:#990000">(</span>response<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">])</span> <span style="color:#990000">||</span> response<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]==</span><span style="color:#FF0000">'/'</span> <span style="color:#990000">||</span> response<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]==</span><span style="color:#FF0000">'*'</span>
-            <span style="color:#990000">||</span> response<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]==</span><span style="color:#FF0000">'-'</span> <span style="color:#990000">||</span> response<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]==</span><span style="color:#FF0000">'+'</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">while</span></b> <span style="color:#990000">(</span><b><span style="color:#000000">isdigit</span></b><span style="color:#990000">(</span>response<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">])</span> <span style="color:#990000">||</span> response<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">==</span> <span style="color:#FF0000">'/'</span> <span style="color:#990000">||</span> response<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">==</span> <span style="color:#FF0000">'*'</span>
+            <span style="color:#990000">||</span> response<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">==</span> <span style="color:#FF0000">'-'</span> <span style="color:#990000">||</span> response<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">==</span> <span style="color:#FF0000">'+'</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
         <b><span style="color:#000000">insert</span></b><span style="color:#990000">(</span>response<span style="color:#990000">);</span>
         cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Enter next element: "</span><span style="color:#990000">;</span>
         cin <span style="color:#990000">&gt;&gt;</span> response<span style="color:#990000">;</span>
     <span style="color:#FF0000">}</span>
 <span style="color:#FF0000">}</span>
 
-<i><span style="color:#9A1900">//Puts value in tree stack</span></i>
+<i><span style="color:#9A1900">// Puts value in tree stack</span></i>
 <span style="color:#009900">void</span> TreeCalc<span style="color:#990000">::</span><b><span style="color:#000000">insert</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> string<span style="color:#990000">&amp;</span> val<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
     <i><span style="color:#9A1900">// insert a value into the tree</span></i>
 <span style="color:#FF0000">}</span>
 
-<i><span style="color:#9A1900">//Prints data in prefix form</span></i>
-<span style="color:#009900">void</span> TreeCalc<span style="color:#990000">::</span><b><span style="color:#000000">printPrefix</span></b><span style="color:#990000">(</span>TreeNode<span style="color:#990000">*</span> ptr<span style="color:#990000">)</span> <b><span style="color:#0000FF">const</span></b> <span style="color:#FF0000">{</span>
+<i><span style="color:#9A1900">// Prints data in prefix form</span></i>
+<span style="color:#009900">void</span> TreeCalc<span style="color:#990000">::</span><b><span style="color:#000000">printPrefix</span></b><span style="color:#990000">(</span>TreeNode<span style="color:#990000">*</span> tree<span style="color:#990000">)</span> <b><span style="color:#0000FF">const</span></b> <span style="color:#FF0000">{</span>
     <i><span style="color:#9A1900">// print the tree in prefix format</span></i>
 <span style="color:#FF0000">}</span>
 
-<i><span style="color:#9A1900">//Prints data in infix form</span></i>
-<span style="color:#009900">void</span> TreeCalc<span style="color:#990000">::</span><b><span style="color:#000000">printInfix</span></b><span style="color:#990000">(</span>TreeNode<span style="color:#990000">*</span> ptr<span style="color:#990000">)</span> <b><span style="color:#0000FF">const</span></b> <span style="color:#FF0000">{</span>
+<i><span style="color:#9A1900">// Prints data in infix form</span></i>
+<span style="color:#009900">void</span> TreeCalc<span style="color:#990000">::</span><b><span style="color:#000000">printInfix</span></b><span style="color:#990000">(</span>TreeNode<span style="color:#990000">*</span> tree<span style="color:#990000">)</span> <b><span style="color:#0000FF">const</span></b> <span style="color:#FF0000">{</span>
     <i><span style="color:#9A1900">// print tree in infix format with appropriate parentheses</span></i>
 <span style="color:#FF0000">}</span>
 
 <i><span style="color:#9A1900">//Prints data in postfix form</span></i>
-<span style="color:#009900">void</span> TreeCalc<span style="color:#990000">::</span><b><span style="color:#000000">printPostfix</span></b><span style="color:#990000">(</span>TreeNode<span style="color:#990000">*</span> ptr<span style="color:#990000">)</span> <b><span style="color:#0000FF">const</span></b> <span style="color:#FF0000">{</span>
+<span style="color:#009900">void</span> TreeCalc<span style="color:#990000">::</span><b><span style="color:#000000">printPostfix</span></b><span style="color:#990000">(</span>TreeNode<span style="color:#990000">*</span> tree<span style="color:#990000">)</span> <b><span style="color:#0000FF">const</span></b> <span style="color:#FF0000">{</span>
     <i><span style="color:#9A1900">// print the tree in postfix form</span></i>
 <span style="color:#FF0000">}</span>
 
-<i><span style="color:#9A1900">// Prints tree in all 3 (pre,in,post) forms</span></i>
-
+<i><span style="color:#9A1900">// Prints tree in all 3 (post, in, pre) forms</span></i>
+<i><span style="color:#9A1900">// DO NOT MODIFY</span></i>
 <span style="color:#009900">void</span> TreeCalc<span style="color:#990000">::</span><b><span style="color:#000000">printOutput</span></b><span style="color:#990000">()</span> <b><span style="color:#0000FF">const</span></b> <span style="color:#FF0000">{</span>
-    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>mystack<span style="color:#990000">.</span><b><span style="color:#000000">size</span></b><span style="color:#990000">()!=</span><span style="color:#993399">0</span> <span style="color:#990000">&amp;&amp;</span> mystack<span style="color:#990000">.</span><b><span style="color:#000000">top</span></b><span style="color:#990000">()!=</span>NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>expressionStack<span style="color:#990000">.</span><b><span style="color:#000000">size</span></b><span style="color:#990000">()</span> <span style="color:#990000">!=</span> <span style="color:#993399">0</span> <span style="color:#990000">&amp;&amp;</span> expressionStack<span style="color:#990000">.</span><b><span style="color:#000000">top</span></b><span style="color:#990000">()</span> <span style="color:#990000">!=</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        TreeNode<span style="color:#990000">*</span> tree <span style="color:#990000">=</span> expressionStack<span style="color:#990000">.</span><b><span style="color:#000000">top</span></b><span style="color:#990000">();</span>
         cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Expression tree in postfix expression: "</span><span style="color:#990000">;</span>
-        <i><span style="color:#9A1900">// call your implementation of printPostfix()</span></i>
+        <b><span style="color:#000000">printPostfix</span></b><span style="color:#990000">(</span>tree<span style="color:#990000">);</span>
         cout <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+
         cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Expression tree in infix expression: "</span><span style="color:#990000">;</span>
-        <i><span style="color:#9A1900">// call your implementation of printInfix()</span></i>
+        <b><span style="color:#000000">printInfix</span></b><span style="color:#990000">(</span>tree<span style="color:#990000">);</span>
         cout <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+
         cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Expression tree in prefix expression: "</span><span style="color:#990000">;</span>
-        <i><span style="color:#9A1900">// call your implementation of printPrefix()</span></i>
+        <b><span style="color:#000000">printPrefix</span></b><span style="color:#990000">(</span>tree<span style="color:#990000">);</span>
         cout <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-    <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b>
-        cout<span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Size is 0."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <span style="color:#FF0000">{</span>
+        cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Size is 0."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
 <span style="color:#FF0000">}</span>
 
-<i><span style="color:#9A1900">//Evaluates tree, returns value</span></i>
+<i><span style="color:#9A1900">// Evaluates tree, returns value</span></i>
 <i><span style="color:#9A1900">// private calculate() method</span></i>
-<span style="color:#009900">int</span> TreeCalc<span style="color:#990000">::</span><b><span style="color:#000000">calculate</span></b><span style="color:#990000">(</span>TreeNode<span style="color:#990000">*</span> ptr<span style="color:#990000">)</span> <b><span style="color:#0000FF">const</span></b> <span style="color:#FF0000">{</span>
+<span style="color:#009900">int</span> TreeCalc<span style="color:#990000">::</span><b><span style="color:#000000">calculate</span></b><span style="color:#990000">(</span>TreeNode<span style="color:#990000">*</span> tree<span style="color:#990000">)</span> <b><span style="color:#0000FF">const</span></b> <span style="color:#FF0000">{</span>
     <i><span style="color:#9A1900">// Traverse the tree and calculates the result</span></i>
+    <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
 <span style="color:#FF0000">}</span>
 
 <i><span style="color:#9A1900">//Calls calculate, sets the stack back to a blank stack</span></i>
 <i><span style="color:#9A1900">// public calculate() method. Hides private data from user</span></i>
 <span style="color:#009900">int</span> TreeCalc<span style="color:#990000">::</span><b><span style="color:#000000">calculate</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
-    <span style="color:#009900">int</span> i <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
     <i><span style="color:#9A1900">// call private calculate method here</span></i>
-    <b><span style="color:#0000FF">return</span></b> i<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
 <span style="color:#FF0000">}</span>
 </pre>
 </body>

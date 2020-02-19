@@ -14,7 +14,7 @@ pizzadough.o: pizzadough.cpp pizzadough.h
 tomatosauce.o: tomatosauce.cpp tomatosauce.h
 
 toppings.o: pepperoni.cpp peppers.cpp mushrooms.cpp cheese.cpp toppings.cpp \
-			pepperoni.h peppers.h mushrooms.h cheese.h toppings.h
+            pepperoni.h peppers.h mushrooms.h cheese.h toppings.h
 
 pepperoni.o: pepperoni.cpp pepperoni.h
 

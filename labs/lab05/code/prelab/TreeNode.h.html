@@ -21,13 +21,14 @@ http://www.gnu.org/software/src-highlite">
 
 <b><span style="color:#0000FF">class</span></b> <span style="color:#008080">TreeNode</span> <span style="color:#FF0000">{</span>
 <b><span style="color:#0000FF">public</span></b><span style="color:#990000">:</span>
-    <b><span style="color:#000000">TreeNode</span></b><span style="color:#990000">();</span>						<i><span style="color:#9A1900">//Default Constructor</span></i>
-    <b><span style="color:#000000">TreeNode</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> string <span style="color:#990000">&amp;</span> val<span style="color:#990000">);</span>	<i><span style="color:#9A1900">//Constructor</span></i>
+    <b><span style="color:#000000">TreeNode</span></b><span style="color:#990000">();</span>                  <i><span style="color:#9A1900">// Default Constructor</span></i>
+    <b><span style="color:#000000">TreeNode</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> string<span style="color:#990000">&amp;</span> val<span style="color:#990000">);</span> <i><span style="color:#9A1900">// Constructor</span></i>
 
 <b><span style="color:#0000FF">private</span></b><span style="color:#990000">:</span>
     <span style="color:#008080">string</span> value<span style="color:#990000">;</span>
-    <span style="color:#008080">TreeNode</span> <span style="color:#990000">*</span>left<span style="color:#990000">,</span> <span style="color:#990000">*</span>right<span style="color:#990000">;</span>			<i><span style="color:#9A1900">// for trees</span></i>
-    <b><span style="color:#0000FF">friend</span></b> <b><span style="color:#0000FF">class</span></b> <span style="color:#008080">TreeCalc</span><span style="color:#990000">;</span>			<i><span style="color:#9A1900">//gives TreeCalc access to private data</span></i>
+    TreeNode<span style="color:#990000">*</span> left<span style="color:#990000">;</span>
+    TreeNode<span style="color:#990000">*</span> right<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">friend</span></b> <b><span style="color:#0000FF">class</span></b> <span style="color:#008080">TreeCalc</span><span style="color:#990000">;</span>       <i><span style="color:#9A1900">// gives TreeCalc access to private data</span></i>
 <span style="color:#FF0000">}</span><span style="color:#990000">;</span>
 
 <b><span style="color:#000080">#endif</span></b>

@@ -9,10 +9,10 @@ http://www.gnu.org/software/src-highlite">
 <title>BinarySearchTree.cpp</title>
 </head>
 <body style="background-color:white">
-<pre><b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">"BinarySearchTree.h"</span>
-<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;string&gt;</span>
+<pre><b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">"BinaryNode.h"</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">"BinarySearchTree.h"</span>
 <b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;iostream&gt;</span>
-<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">"BinaryNode.h"</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;string&gt;</span>
 <b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
 BinarySearchTree<span style="color:#990000">::</span><b><span style="color:#000000">BinarySearchTree</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
@@ -40,34 +40,39 @@ BinaryNode<span style="color:#990000">*</span> BinarySearchTree<span style="colo
     <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>n <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
         <b><span style="color:#0000FF">return</span></b> NULL<span style="color:#990000">;</span>
     <span style="color:#FF0000">}</span>
+
     <i><span style="color:#9A1900">// first look for x</span></i>
     <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>x <span style="color:#990000">==</span> n<span style="color:#990000">-&gt;</span>value<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
         <i><span style="color:#9A1900">// found</span></i>
-        <i><span style="color:#9A1900">// no children</span></i>
         <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>left <span style="color:#990000">==</span> NULL <span style="color:#990000">&amp;&amp;</span> n<span style="color:#990000">-&gt;</span>right <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            <i><span style="color:#9A1900">// no children</span></i>
+            <i><span style="color:#9A1900">// just delete it :)</span></i>
             <b><span style="color:#0000FF">delete</span></b> n<span style="color:#990000">;</span>
             n <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
             <b><span style="color:#0000FF">return</span></b> NULL<span style="color:#990000">;</span>
-        <span style="color:#FF0000">}</span>
-        <i><span style="color:#9A1900">// single child</span></i>
-        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>left <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>left <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            <i><span style="color:#9A1900">// single child (left)</span></i>
+            <i><span style="color:#9A1900">// remove current node and return right child node for parent</span></i>
             BinaryNode<span style="color:#990000">*</span> temp <span style="color:#990000">=</span> n<span style="color:#990000">-&gt;</span>right<span style="color:#990000">;</span>
             n<span style="color:#990000">-&gt;</span>right <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
             <b><span style="color:#0000FF">delete</span></b> n<span style="color:#990000">;</span>
             n <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
             <b><span style="color:#0000FF">return</span></b> temp<span style="color:#990000">;</span>
-        <span style="color:#FF0000">}</span>
-        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>right <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>right <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            <i><span style="color:#9A1900">// single child (right)</span></i>
+            <i><span style="color:#9A1900">// remove current node and return left child node for parent</span></i>
             BinaryNode<span style="color:#990000">*</span> temp <span style="color:#990000">=</span> n<span style="color:#990000">-&gt;</span>left<span style="color:#990000">;</span>
             n<span style="color:#990000">-&gt;</span>left <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
             <b><span style="color:#0000FF">delete</span></b> n<span style="color:#990000">;</span>
             n <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
             <b><span style="color:#0000FF">return</span></b> temp<span style="color:#990000">;</span>
+        <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <span style="color:#FF0000">{</span>
+            <i><span style="color:#9A1900">// two children</span></i>
+            <i><span style="color:#9A1900">// replace current node with right child node's minimum, then remove that node</span></i>
+            <span style="color:#008080">string</span> value <span style="color:#990000">=</span> <b><span style="color:#000000">min</span></b><span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>right<span style="color:#990000">);</span>
+            n<span style="color:#990000">-&gt;</span>value <span style="color:#990000">=</span> value<span style="color:#990000">;</span>
+            n<span style="color:#990000">-&gt;</span>right <span style="color:#990000">=</span> <b><span style="color:#000000">remove</span></b><span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>right<span style="color:#990000">,</span> value<span style="color:#990000">);</span>
         <span style="color:#FF0000">}</span>
-        <i><span style="color:#9A1900">// two children</span></i>
-        <span style="color:#008080">string</span> sr <span style="color:#990000">=</span> <b><span style="color:#000000">min</span></b><span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>right<span style="color:#990000">);</span>
-        n<span style="color:#990000">-&gt;</span>value <span style="color:#990000">=</span> sr<span style="color:#990000">;</span>
-        n<span style="color:#990000">-&gt;</span>right <span style="color:#990000">=</span> <b><span style="color:#000000">remove</span></b><span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>right<span style="color:#990000">,</span> sr<span style="color:#990000">);</span>
     <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>x <span style="color:#990000">&lt;</span> n<span style="color:#990000">-&gt;</span>value<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
         n<span style="color:#990000">-&gt;</span>left <span style="color:#990000">=</span> <b><span style="color:#000000">remove</span></b><span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>left<span style="color:#990000">,</span> x<span style="color:#990000">);</span>
     <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <span style="color:#FF0000">{</span>
@@ -102,8 +107,9 @@ BinaryNode<span style="color:#990000">*</span> BinarySearchTree<span style="colo
 <span style="color:#FF0000">}</span>
 
 <i><span style="color:#9A1900">// Helper function to print branches of the binary tree</span></i>
+<i><span style="color:#9A1900">// You do not need to know how this function works.</span></i>
 <span style="color:#009900">void</span> <b><span style="color:#000000">showTrunks</span></b><span style="color:#990000">(</span>Trunk<span style="color:#990000">*</span> p<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>p <span style="color:#990000">==</span> nullptr<span style="color:#990000">)</span> <b><span style="color:#0000FF">return</span></b><span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>p <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <b><span style="color:#0000FF">return</span></b><span style="color:#990000">;</span>
     <b><span style="color:#000000">showTrunks</span></b><span style="color:#990000">(</span>p<span style="color:#990000">-&gt;</span>prev<span style="color:#990000">);</span>
     cout <span style="color:#990000">&lt;&lt;</span> p<span style="color:#990000">-&gt;</span>str<span style="color:#990000">;</span>
 <span style="color:#FF0000">}</span>
@@ -124,7 +130,7 @@ BinaryNode<span style="color:#990000">*</span> BinarySearchTree<span style="colo
 
     <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(!</span>prev<span style="color:#990000">)</span>
         trunk<span style="color:#990000">-&gt;</span>str <span style="color:#990000">=</span> <span style="color:#FF0000">"---"</span><span style="color:#990000">;</span>
-    <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>isRight<span style="color:#990000">)</span> <span style="color:#FF0000">{</span> <i><span style="color:#9A1900">// github user @willzhang05 pointed out that I forgot to change this from isLeft to isRight on my first commit</span></i>
+    <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>isRight<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
         trunk<span style="color:#990000">-&gt;</span>str <span style="color:#990000">=</span> <span style="color:#FF0000">".---"</span><span style="color:#990000">;</span>
         prev_str <span style="color:#990000">=</span> <span style="color:#FF0000">"   |"</span><span style="color:#990000">;</span>
     <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <span style="color:#FF0000">{</span>
