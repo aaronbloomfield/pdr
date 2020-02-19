@@ -76,7 +76,7 @@ Your fully functional tree calculator must:
 - Print the result to the screen
 - Have no memory leaks
 
-Additionally, you should use the skeleton source files as a basis for your tree calculator.
+Additionally, you should use the skeleton source files in the prelab directory of [code.zip](code.zip) as a basis for your tree calculator.
 You may modify and add to the skeleton code as you see fit, but TreeCalcTest, TreeNode, `readInput()`, and `printOutput()` must NOT be modified.
 
 ### Sample Execution Run ###
@@ -123,9 +123,11 @@ For this in-lab, you will implement a binary search tree.
 
 ### BST Implementation ###
 
-The required class declarations are located in [BinaryNode.h](code/inlab/BinaryNode.h) and [BinarySearchTree.h](code/inlab/BinarySearchTree.h). You may want to create private helper methods for BinarySearchTree, as done for the implementation of `remove`, which is already provided for you. The private methods take BinaryNodes as parameters which allow them to recurse over a subtree, a common implementation technique.
+The necessary files are in the inlab directory of [code.zip](code.zip).
 
-You should use [BSTPathTest.cpp](code/inlab/BSTPathTest.cpp) to test your implementation, but you may NOT change it.
+The required class declarations are located in [BinaryNode.h](code/inlab/BinaryNode.h.html) ([src](code/inlab/BinaryNode.h)) and [BinarySearchTree.h](code/inlab/BinarySearchTree.h.html) ([src](code/inlab/BinarySearchTree.h)). You may want to create private helper methods for BinarySearchTree, as done for the implementation of `remove`, which is already provided for you. The private methods take BinaryNodes as parameters which allow them to recurse over a subtree, a common implementation technique.
+
+You should use [BSTPathTest.cpp](code/inlab/BSTPathTest.cpp.html) ([src](code/inlab/BSTPathTest.cpp)) to test your implementation, but you may NOT change it.
 
 ### Test Files ###
 
@@ -170,6 +172,7 @@ The objective of this post-lab is to understand the runtime characteristics and 
 ### AVL Implementation ###
 
 The structure of the provided AVL starter code is analogous to that of the BST, and is not discussed in further detail here.
+The starter files are in the postlab directory of [code.zip](code.zip).
 
 You may test your implementation with the same test files as before, though the expected output will be different ([output of testfile1](code/postlab/testfile1.out.txt), [output of testfile2](code/postlab/testfile2.out.txt), [output of testfile3](code/postlab/testfile3.out.txt)).
 
