@@ -59,16 +59,16 @@ make allows a programmer and the users of their program to be able to easily com
 
 ### What's inside a Makefile? ###
 
-A typical Makefile consists of comments, macro (variable) definitions, rules, and prerequisites.  We'll get to each of these in turn.  First, though, we need to obtain the code used in this tutorial.
+A typical Makefile consists of comments, variables, rules, and prerequisites.  We'll get to each of these in turn.  First, though, we need to obtain the code used in this tutorial.
 
 - Download the zip file for this tutorial called [pizza.zip](pizza.zip)
 - Unzip the files with the command: `unzip pizza.zip`
 
 To compile your program, just type `make` from the pizza/ directory.  Notice that it will go through each of the individual .cpp files, and compile each one (with the -c option).  Once that is done, it will link all of the .o files to create the 'pizza' executable.
 
-Try typing 'make' again.  Notice that it will not recompile anything, as none of the source code has changed.  Indeed, it responds with, `make: 'pizza' is up to date`.
+Try running `make` again.  Notice that it will not recompile anything, as none of the source code has changed.  Indeed, it responds with, `make: 'pizza' is up to date`.
 
-Edit the 'peppers.cpp' file.  Nothing complicated -- just put in a comment (such as your name) at the top.  Specifically, we don't want to change any of the source code, only the comments.  Save the file, and type 'make' again.  Notice that it recompiled two files (peppers.cpp and toppings.cpp), and then re-linked the program.  In particular, it did not need to recompile the other files.
+Edit the 'peppers.cpp' file.  Nothing complicated -- just put in a comment (such as your name) at the top.  Specifically, we don't want to change any of the source code, only the comments.  Save the file, and run `make` again.  Notice that it recompiled two files (peppers.cpp and toppings.cpp), and then re-linked the program.  In particular, it did not need to recompile the other files.
 
 But why did it recompile toppings.cpp?  It makes sense that it recompiled peppers.cpp, as that file was modified (note that a computer can't easily tell that only the comments were modified).  As we'll see in a bit, there was a *prerequisite* -- meaning that the Makefile specifically stated that when peppers.cpp is modified, then toppings.cpp should also be recompiled (into toppings.o).
 
@@ -79,13 +79,13 @@ The default name for a Makefile is just 'Makefile' (note the capitalization).  Y
 Comments in a Makefile must begin with `#`, and should generally start in the left-most column of a given line.
 Put your name and lab section as a comment at the top of the Makefile.
 
-### Macros ###
+### Variables ###
 
-Macros allow a programmer to easily specify the compiler used, compiler arguments, file paths, targets, and pretty much anything else that one may need to specify when compiling a file.  For example, you can specify that you will always compile with the '-Wall' option (which will list all warnings while compiling).  make already comes with a default list of predefined macros, but it is good practice to define them even if they are the same as the default definition.  You can also define your own macros, as we'll see in a moment.  Note that if you define a predefined macro, your definition will override the default definition.
+Variables allow a programmer to easily specify the compiler used, compiler arguments, file paths, targets, and pretty much anything else that one may need to specify when compiling a file.  For example, you can specify to always compile with the '-Wall' option (which will list all warnings while compiling), or use a variable to store all the object files your program needs.
 
-The following is a list of some predefined macros in make (taken from the [GNU make Manual](http://www.gnu.org/software/make/manual/), specifically [section 10.3](http://www.gnu.org/software/make/manual/html_node/Implicit-Variables.html#Implicit-Variables)):
+The following is a list of some predefined variables in make (taken from the [GNU make Manual](http://www.gnu.org/software/make/manual/), specifically [section 10.3](http://www.gnu.org/software/make/manual/html_node/Implicit-Variables.html#Implicit-Variables)):
 
-| Macro name | Meaning |
+| Variable | Meaning |
 |------------|---------|
 | CXX | Program for compiling C++ programs |
 | CXXFLAGS | Options provided to the C++ compiler |
@@ -93,15 +93,15 @@ The following is a list of some predefined macros in make (taken from the [GNU m
 | CFLAGS | Options provided to the C compiler |
 | AS | Program for compiling assembly code; this will be needed in lab 8 |
 
-In the pizza Makefile, the first macro in the file is:
+In the pizza Makefile, the first variable in the file is:
 
 ```
 CXX=clang++ $(CXXFLAGS)
 ```
 
-This line defines the C++ compiler to be clang++.  It also specifies to put any clang++ flags after the compiler command -- so if we defined the flags to be '-Wall', then each compilation by clang++ would include that option.  We don't define CXXFLAGS in that file, but it's a good idea to put CXXFLAGS there, so that if we do add a CXXFLAGS variable, we won't have to make any other changes.
+This line defines the C++ compiler to be 'clang++'.  It also specifies to put any clang++ flags after the compiler command -- so if we defined the flags to be '-Wall', then each compilation by `$(CXX)` would include that option.  We don't define CXXFLAGS in that file, but it's a good idea to put CXXFLAGS there, so that if we do add a CXXFLAGS variable, we won't have to make any other changes.
 
-To use a macro, surround it by $ and parentheses.  For example, `$(CXX) project.cpp` would substitute the value of the `CXX` macro and result in `clang++ project.cpp`.
+To use a variable, surround it by $ and parentheses.  For example, `$(CXX) project.cpp` would substitute the value of the `CXX` variable and result in `clang++ project.cpp`.
 
 ### Rules ###
 
@@ -135,6 +135,12 @@ Targets always have colons after them, and any prerequisite rules are separated 
 Spacing in Makefiles is ***VERY*** specific.  Any target must start at the left-most column in a given line.  Each command in the recipe must start a single tab (not spaces!).  make is very unforgiving if you do not have your spacing exactly correct.
 
 The provided pizza Makefile has a number of rules.  One of them is 'pizza' -- this will create the entire pizza program.  Calling `make` by itself will always run the first rule listed in the Makefile, in this case the 'pizza' rule.  Alternatively, you can invoke a specific rule by providing its target name.  If we wanted to run the 'clean' rule, we would call `make clean`.
+
+### Targets ###
+
+Generally speaking, targets specify the name of the file that should be created after the rule is run.
+If the target file doesn't exist, make will always execute the rule to create it.
+If the target file does exist, make then looks at that target's prerequisites to determine whether to execute the rule.
 
 ### Prerequisites ###
 
@@ -202,9 +208,9 @@ pizza: pizza.o pizzadough.o tomatosauce.o toppings.o \
 	@echo "Pizza is Hot and Ready!"
 ```
 
-The line spacing is odd here because three of the lines wrap around to the next line.  We snuck in a `$(DEBUG)` macro usage here, which could have been a user-defined macro at the top of the Makefile.
+The line spacing is odd here because three of the lines wrap around to the next line.  We snuck in a `$(DEBUG)` variable usage here, which could have been a user-defined variable at the top of the Makefile.
 
-Notice, though, that we have to repeat all the .o files in this target rule.  We can avoid this by creating a macro:
+Notice, though, that we have to repeat all the .o files in this target rule.  We can avoid this by creating a variable:
 
 ```
 OBJECTS = pizza.o pizzadough.o tomatosauce.o toppings.o \
@@ -219,7 +225,7 @@ pizza: $(OBJECTS)
 	@echo "Pizza is Hot and Ready!"
 ```
 
-If we set up our CXX macro to include the C++ flags macro (i.e., `CXX = clang++ $(CXXFLAGS)` at the top of the Makefile), then we do not need to include CXXFLAGS in the above line.  Otherwise, we will want to replace that line with, `$(CXX) $(CXXFLAGS) $(DEBUG) $(OBJECTS) -o pizza`.  This will allow any clang++ compiler options to be included also.
+If we set up our CXX variable to include the C++ flags variable (i.e., `CXX = clang++ $(CXXFLAGS)` at the top of the Makefile), then we do not need to include CXXFLAGS in the above line.  Otherwise, we will want to replace that line with, `$(CXX) $(CXXFLAGS) $(DEBUG) $(OBJECTS) -o pizza`.  This will allow any clang++ compiler options to be included also.
 
 What happens when make is run is that it knows it has to create eight .o files (pizza.o, toppings.o, etc.), and looks at the various .o rules to figure out how to do that.  After that, make will then create the final executable, and the print out the 'Pizza is Hot and Ready' line.  'echo' is just a normal Unix command -- it prints out what is on the rest of the line.  If you are going to use punctuation, it is best to put it in quotes (many characters have special meanings, such as !).
 
@@ -246,16 +252,16 @@ clean:
 
 The above clean rule does not depend on anything, and its action will not be performed unless directly invoked by calling 'make clean'.  The above rule removes all files ending in .o, all files ending in `~` (backup files created by emacs), and a file called outputfile.  The '-' in front of rm means that it does not matter if rm was unsuccessful in removing a .o file (if a command fails, make normally thinks that it should abort due to the error, but the '-' here tells make to ignore it if this command fails).  The '-f' option does a few things, one of which is to prevent printing of error messages if the files do not exist (i.e. if you run 'make clean' twice in a row).
 
-Makefiles may also have a "debug" and "optimized" target.  These targets will generate a version of the output file for debugging (through LLDB, for example) and a version of the output file with optimization flags.  Another way to do this is to edit the Makefile, enter '-g' or '-O2' in the CXXFLAGS macro, then do a 'make clean' and then 'make'.
+Makefiles may also have a "debug" and "optimized" target.  These targets will generate a version of the output file for debugging (through LLDB, for example) and a version of the output file with optimization flags.  Another way to do this is to edit the Makefile, enter '-g' or '-O2' in the CXXFLAGS variable, then do a 'make clean' and then 'make'.
 
 ### Creating a new Makefile ###
 
 We have seen a number of ways to improve the provided pizza Makefile.  We'll put them together into a single, well-formed, Makefile.  Below are the steps to do so; each of these steps are described in more detail above.
 
 - Comments!  This Makefile will be submitted as part of [lab 5](../../labs/lab05/index.html) (see below), so you will need to put in your name and userid at the top of the file.
-- We will want to declare the pre-defined macros, CXX and CXXFLAGS.  CXX is going to be `clang++`, and we can define CXXFLAGS to be `-Wall -O2 -std=c++11` (give all warnings, optimize the code, and use the C++11 standard).
-- We'll want to define a macro, probably called OBJECTS, that will list all of the .o files that we are compiling into our target executable.
-- Our first rule -- probably called 'pizza' -- will be for compiling the program.  It will depend on all of the .o files (defined in the OBJECTS macro), and will define how to compile the program executable.
+- We will want to declare the pre-defined variables, CXX and CXXFLAGS.  CXX is going to be `clang++`, and we can define CXXFLAGS to be `-Wall -O2 -std=c++11` (give all warnings, optimize the code, and use the C++11 standard).
+- We'll want to define a variable, probably called OBJECTS, that will list all of the .o files that we are compiling into our target executable.
+- Our first rule -- probably called 'pizza' -- will be for compiling the program.  It will depend on all of the .o files (defined in the OBJECTS variable), and will define how to compile the program executable.
 - Our second rule we'll call 'clean', and it will remove the executable itself, all the .o files, and all files that end in the tilde (i.e., *~, the backup files that Emacs creates).
 - Lastly, we will need to have clang++ create all the prerequisite rules, which we will copy-and-paste into the bottom of the Makefile.
 
