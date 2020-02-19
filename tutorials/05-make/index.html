@@ -52,7 +52,7 @@ clang++ -c testPostfixCalc.cpp</code></pre>
 <p>Comments in a Makefile must begin with <code>#</code>, and should generally start in the left-most column of a given line. Put your name and lab section as a comment at the top of the Makefile.</p>
 <h3 id="variables">Variables</h3>
 <p>Variables allow a programmer to easily specify the compiler used, compiler arguments, file paths, targets, and pretty much anything else that one may need to specify when compiling a file. For example, you can specify to always compile with the '-Wall' option (which will list all warnings while compiling), or use a variable to store all the object files your program needs.</p>
-<p>The following is a list of some predefined variables in make (taken from the <a href="http://www.gnu.org/software/make/manual/">GNU make Manual</a>, specifically <a href="http://www.gnu.org/software/make/manual/html_node/Implicit-Variables.html#Implicit-Variables">section 10.3</a>):</p>
+<p>The following is a list of some predefined variables in make (taken from the <a href="https://www.gnu.org/software/make/manual/">GNU make Manual</a>, specifically <a href="https://www.gnu.org/software/make/manual/html_node/Implicit-Variables.html#Implicit-Variables">section 10.3</a>):</p>
 <table>
 <thead>
 <tr class="header">
@@ -116,7 +116,7 @@ target2.o: target2.cpp
 <h3 id="targets">Targets</h3>
 <p>Generally speaking, targets specify the name of the file that should be created after the rule is run. If the target file doesn't exist, make will always execute the rule to create it. If the target file does exist, make then looks at that target's prerequisites to determine whether to execute the rule.</p>
 <h3 id="prerequisites">Prerequisites</h3>
-<p>Rules only run if they have no prerequisites, or if any of their prerequisites had to be run. How does make determine if it needs to run a prerequisite rule? Why, by looking at <em>that</em> rule's prerequisites, of course.</p>
+<p>Rules only run if the target file does not exist or of their prerequisites had to be run. How does make determine if it needs to run a prerequisite rule? Why, by looking at <em>that</em> rule's prerequisites, of course.</p>
 <p>When we run the 'target' rule, it checks the 'target1.o' rule to see if it should be run. That rule in turn depends on its respective C++ file. Since there is no explicit rule for target1.cpp, make will look for a file called 'target1.cpp', and see if it has been updated/modified since the last time the 'target1.o' rule was run. If it has been modified, or if target1.o does not exist, then make will run the recipe for 'target1.o'.</p>
 <p>Now that we have finished looking at the first prerequisite, make will do the same thing for the next prerequisite, 'target2.o'.</p>
 <p>Finally, after checking all prerequisite rules, make will use the same logic to determine whether to run the recipe for 'target' itself (were both 'target1.o' and 'target2.o' up to date, and does 'target' already exist?).</p>
@@ -125,7 +125,7 @@ target2.o: target2.cpp
 <pre><code>toppings.o: toppings.cpp toppings.h cheese.h mushrooms.h \
   peppers.h pepperoni.h</code></pre>
 <p>The backslash at the end of the first line tells make that the prerequisite line continues on the next line. This entire statement will cause a recompilation of toppings.o if any of the listed files are modified. Notice that a number of .h files (such as pizzadough.h) are not included, as toppings.o does not depend on them.</p>
-<p>You may notice that each .o target does not have any rules defined! This is because make contains some implicit rules and knows to convert <em>.cpp files to </em>.o files using <code>$(CXX) $(CXXFLAGS) -c filename.cpp</code>.</p>
+<p>You may notice that each .o target does not have any rules defined! This is because make contains some <a href="https://www.gnu.org/software/make/manual/make.html#Catalogue-of-Rules">implicit rules</a> and knows to convert <em>.cpp files to </em>.o files using <code>$(CXX) $(CXXFLAGS) -c filename.cpp</code>.</p>
 <h3 id="automatically-generating-prerequisites">Automatically generating prerequisites</h3>
 <p>Creating these prerequisite liss is essential for a properly functioning Makefile, but they are tedious to create. If you wrote another file that included toppings.h (anchovies.cpp, for example), you would have to remember that toppings.h included four other .h files, and should thus include anchovies.h. Fortunately, we can use clang++ to generate all the prerequisites for us by entering the following command:</p>
 <pre><code>clang++ -MM *.cpp</code></pre>
@@ -143,7 +143,7 @@ toppings.o: toppings.cpp toppings.h cheese.h mushrooms.h peppers.h \
 <p>We can cut-and-paste these rules directly into the Makefile, to tell make what the prerequisites for each file are. We will do this in a bit.</p>
 <p>You will notice that the lines in the provided Makefile (purposely) do not exactly mimic the lines above -- for example, toppings.o in the Makefile depends on a few .cpp files, and not what is listed just above. We will get to fixing this shortly.</p>
 <p>Once again, we see that implicit rules are being used here for the <em>.cpp to </em>.o conversion, which helps us cut down on a lot of unnecessary repitition.</p>
-<p>In order to compile our final program, we would still need to utilize the pizza rule in the Makefile:</p>
+<p>In order to compile our final program, we would still need to utilize the 'pizza' rule in the Makefile:</p>
 <pre><code>pizza: pizza.o pizzadough.o tomatosauce.o toppings.o \
        mushrooms.o peppers.o cheese.o pepperoni.o
     $(CXX) $(DEBUG) pizza.o pizzadough.o tomatosauce.o toppings.o \
@@ -185,6 +185,6 @@ project: project1.o project2.o project3.o
 </ul>
 <p>Test out the Makefile to make sure it works. You will need to rename it to ', and submit it as part of pre-lab 5 (we can't name it 'Makefile', as you are submitting a Makefile for the other parts of the lab already). To force make to use a different Makefile, you can use the <code>-f</code> flag: <code>make -f Makefile.foo</code>. To specify a different target, the target name goes after the file name: <code>make -f Makefile.foo clean</code>.</p>
 <h3 id="further-information">Further information</h3>
-<p>For more information, consult the man page for make and/or go to the <a href="http://www.gnu.org/software/make/manual/">GNU website for make</a>. Google searches will also turn up lots of good resources.</p>
+<p>For more information, consult the man page for make and/or go to the <a href="https://www.gnu.org/software/make/manual/">GNU website for make</a>. Google searches will also turn up lots of good resources.</p>
 </body>
 </html>

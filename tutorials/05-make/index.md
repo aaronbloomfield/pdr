@@ -83,7 +83,7 @@ Put your name and lab section as a comment at the top of the Makefile.
 
 Variables allow a programmer to easily specify the compiler used, compiler arguments, file paths, targets, and pretty much anything else that one may need to specify when compiling a file.  For example, you can specify to always compile with the '-Wall' option (which will list all warnings while compiling), or use a variable to store all the object files your program needs.
 
-The following is a list of some predefined variables in make (taken from the [GNU make Manual](http://www.gnu.org/software/make/manual/), specifically [section 10.3](http://www.gnu.org/software/make/manual/html_node/Implicit-Variables.html#Implicit-Variables)):
+The following is a list of some predefined variables in make (taken from the [GNU make Manual](https://www.gnu.org/software/make/manual/), specifically [section 10.3](https://www.gnu.org/software/make/manual/html_node/Implicit-Variables.html#Implicit-Variables)):
 
 | Variable | Meaning |
 |------------|---------|
@@ -144,7 +144,7 @@ If the target file does exist, make then looks at that target's prerequisites to
 
 ### Prerequisites ###
 
-Rules only run if they have no prerequisites, or if any of their prerequisites had to be run.
+Rules only run if the target file does not exist or of their prerequisites had to be run.
 How does make determine if it needs to run a prerequisite rule?  Why, by looking at _that_ rule's prerequisites, of course.
 
 When we run the 'target' rule, it checks the 'target1.o' rule to see if it should be run.
@@ -166,7 +166,7 @@ toppings.o: toppings.cpp toppings.h cheese.h mushrooms.h \
 
 The backslash at the end of the first line tells make that the prerequisite line continues on the next line.  This entire statement will cause a recompilation of toppings.o if any of the listed files are modified.  Notice that a number of .h files (such as pizzadough.h) are not included, as toppings.o does not depend on them.
 
-You may notice that each .o target does not have any rules defined!  This is because make contains some implicit rules and knows to convert *.cpp files to *.o files using `$(CXX) $(CXXFLAGS) -c filename.cpp`.
+You may notice that each .o target does not have any rules defined!  This is because make contains some [implicit rules](https://www.gnu.org/software/make/manual/make.html#Catalogue-of-Rules) and knows to convert *.cpp files to *.o files using `$(CXX) $(CXXFLAGS) -c filename.cpp`.
 
 ### Automatically generating prerequisites ###
 
@@ -197,7 +197,7 @@ You will notice that the lines in the provided Makefile (purposely) do not exact
 
 Once again, we see that implicit rules are being used here for the *.cpp to *.o conversion, which helps us cut down on a lot of unnecessary repitition.
 
-In order to compile our final program, we would still need to utilize the pizza rule in the Makefile:
+In order to compile our final program, we would still need to utilize the 'pizza' rule in the Makefile:
 
 ```
 pizza: pizza.o pizzadough.o tomatosauce.o toppings.o \
@@ -269,4 +269,4 @@ Test out the Makefile to make sure it works.  You will need to rename it to ', a
 
 ### Further information ###
 
-For more information, consult the man page for make and/or go to the [GNU website for make](http://www.gnu.org/software/make/manual/).  Google searches will also turn up lots of good resources.
+For more information, consult the man page for make and/or go to the [GNU website for make](https://www.gnu.org/software/make/manual/).  Google searches will also turn up lots of good resources.
