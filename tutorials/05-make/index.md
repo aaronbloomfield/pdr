@@ -144,8 +144,7 @@ If the target file does exist, make then looks at that target's prerequisites to
 
 ### Prerequisites ###
 
-Rules only run if the target file does not exist or of their prerequisites had to be run.
-How does make determine if it needs to run a prerequisite rule?  Why, by looking at _that_ rule's prerequisites, of course.
+As mentioned above, rules only run if the target file does not exist or of their prerequisites had to be run.
 
 When we run the 'target' rule, it checks the 'target1.o' rule to see if it should be run.
 That rule in turn depends on its respective C++ file.  Since there is no explicit rule for target1.cpp, make will look for a file called 'target1.cpp', and see if it has been updated/modified since the last time the 'target1.o' rule was run.
@@ -170,7 +169,7 @@ You may notice that each .o target does not have any rules defined!  This is bec
 
 ### Automatically generating prerequisites ###
 
-Creating these prerequisite liss is essential for a properly functioning Makefile, but they are tedious to create.  If you wrote another file that included toppings.h (anchovies.cpp, for example), you would have to remember that toppings.h included four other .h files, and should thus include anchovies.h.  Fortunately, we can use clang++ to generate all the prerequisites for us by entering the following command:
+Creating these prerequisite lists are essential for a properly functioning Makefile, but they are tedious to create.  If you wrote another file that included toppings.h (anchovies.cpp, for example), you would have to remember that toppings.h included four other .h files, and should thus include anchovies.h.  Fortunately, we can use clang++ to generate all the prerequisites for us by entering the following command:
 
 ```
 clang++ -MM *.cpp

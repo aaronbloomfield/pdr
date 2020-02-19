@@ -116,7 +116,7 @@ target2.o: target2.cpp
 <h3 id="targets">Targets</h3>
 <p>Generally speaking, targets specify the name of the file that should be created after the rule is run. If the target file doesn't exist, make will always execute the rule to create it. If the target file does exist, make then looks at that target's prerequisites to determine whether to execute the rule.</p>
 <h3 id="prerequisites">Prerequisites</h3>
-<p>Rules only run if the target file does not exist or of their prerequisites had to be run. How does make determine if it needs to run a prerequisite rule? Why, by looking at <em>that</em> rule's prerequisites, of course.</p>
+<p>As mentioned above, rules only run if the target file does not exist or of their prerequisites had to be run.</p>
 <p>When we run the 'target' rule, it checks the 'target1.o' rule to see if it should be run. That rule in turn depends on its respective C++ file. Since there is no explicit rule for target1.cpp, make will look for a file called 'target1.cpp', and see if it has been updated/modified since the last time the 'target1.o' rule was run. If it has been modified, or if target1.o does not exist, then make will run the recipe for 'target1.o'.</p>
 <p>Now that we have finished looking at the first prerequisite, make will do the same thing for the next prerequisite, 'target2.o'.</p>
 <p>Finally, after checking all prerequisite rules, make will use the same logic to determine whether to run the recipe for 'target' itself (were both 'target1.o' and 'target2.o' up to date, and does 'target' already exist?).</p>
@@ -127,7 +127,7 @@ target2.o: target2.cpp
 <p>The backslash at the end of the first line tells make that the prerequisite line continues on the next line. This entire statement will cause a recompilation of toppings.o if any of the listed files are modified. Notice that a number of .h files (such as pizzadough.h) are not included, as toppings.o does not depend on them.</p>
 <p>You may notice that each .o target does not have any rules defined! This is because make contains some <a href="https://www.gnu.org/software/make/manual/make.html#Catalogue-of-Rules">implicit rules</a> and knows to convert <em>.cpp files to </em>.o files using <code>$(CXX) $(CXXFLAGS) -c filename.cpp</code>.</p>
 <h3 id="automatically-generating-prerequisites">Automatically generating prerequisites</h3>
-<p>Creating these prerequisite liss is essential for a properly functioning Makefile, but they are tedious to create. If you wrote another file that included toppings.h (anchovies.cpp, for example), you would have to remember that toppings.h included four other .h files, and should thus include anchovies.h. Fortunately, we can use clang++ to generate all the prerequisites for us by entering the following command:</p>
+<p>Creating these prerequisite lists are essential for a properly functioning Makefile, but they are tedious to create. If you wrote another file that included toppings.h (anchovies.cpp, for example), you would have to remember that toppings.h included four other .h files, and should thus include anchovies.h. Fortunately, we can use clang++ to generate all the prerequisites for us by entering the following command:</p>
 <pre><code>clang++ -MM *.cpp</code></pre>
 <p>The '-MM' switch tells clang++ to look through each of the files that end in .cpp, and generate Makefile-style prerequisites. The output would be the following:</p>
 <pre><code>cheese.o: cheese.cpp cheese.h
