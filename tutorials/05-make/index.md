@@ -165,7 +165,7 @@ toppings.o: toppings.cpp toppings.h cheese.h mushrooms.h \
 
 The backslash at the end of the first line tells make that the prerequisite line continues on the next line.  This entire statement will cause a recompilation of toppings.o if any of the listed files are modified.  Notice that a number of .h files (such as pizzadough.h) are not included, as toppings.o does not depend on them.
 
-You may notice that each .o target does not have any rules defined!  This is because make contains some [implicit rules](https://www.gnu.org/software/make/manual/make.html#Catalogue-of-Rules) and knows to convert *.cpp files to *.o files using `$(CXX) $(CXXFLAGS) -c filename.cpp`.
+You may notice that each .o target does not have a recipe attached to it!  This is because make contains some [implicit rules](https://www.gnu.org/software/make/manual/make.html#Catalogue-of-Rules) and knows to convert *.cpp files to *.o files using `$(CXX) $(CXXFLAGS) -c filename.cpp`.
 
 ### Automatically generating prerequisites ###
 
@@ -260,11 +260,11 @@ We have seen a number of ways to improve the provided pizza Makefile.  We'll put
 - Comments!  This Makefile will be submitted as part of [lab 5](../../labs/lab05/index.html) (see below), so you will need to put in your name and userid at the top of the file.
 - We will want to declare the pre-defined variables, CXX and CXXFLAGS.  CXX is going to be `clang++`, and we can define CXXFLAGS to be `-Wall -O2 -std=c++11` (give all warnings, optimize the code, and use the C++11 standard).
 - We'll want to define a variable, probably called OBJECTS, that will list all of the .o files that we are compiling into our target executable.
-- Our first rule -- probably called 'pizza' -- will be for compiling the program.  It will depend on all of the .o files (defined in the OBJECTS variable), and will define how to compile the program executable.
+- Our first rule -- which must be called 'pizza' -- will be for compiling the program.  It will depend on all of the .o files (defined in the OBJECTS variable), and will define how to compile the program executable.
 - Our second rule we'll call 'clean', and it will remove the executable itself, all the .o files, and all files that end in the tilde (i.e., *~, the backup files that Emacs creates).
 - Lastly, we will need to have clang++ create all the prerequisite rules, which we will copy-and-paste into the bottom of the Makefile.
 
-Test out the Makefile to make sure it works.  You will need to rename it to ', and submit it as part of pre-lab 5 (we can't name it 'Makefile', as you are submitting a Makefile for the other parts of the lab already).  To force make to use a different Makefile, you can use the `-f` flag: `make -f Makefile.foo`.  To specify a different target, the target name goes after the file name: `make -f Makefile.foo clean`.
+Test out the Makefile to make sure it works.  You will need to rename it to 'Makefile-pizza', and submit it as part of pre-lab 5 (we can't name it 'Makefile', as you are submitting a Makefile for the other parts of the lab already).  To force make to use a different Makefile, you can use the `-f` flag: `make -f Makefile.foo`.  To specify a different target, the target name goes after the file name: `make -f Makefile.foo clean`.
 
 ### Further information ###
 

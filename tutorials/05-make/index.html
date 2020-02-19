@@ -125,7 +125,7 @@ target2.o: target2.cpp
 <pre><code>toppings.o: toppings.cpp toppings.h cheese.h mushrooms.h \
   peppers.h pepperoni.h</code></pre>
 <p>The backslash at the end of the first line tells make that the prerequisite line continues on the next line. This entire statement will cause a recompilation of toppings.o if any of the listed files are modified. Notice that a number of .h files (such as pizzadough.h) are not included, as toppings.o does not depend on them.</p>
-<p>You may notice that each .o target does not have any rules defined! This is because make contains some <a href="https://www.gnu.org/software/make/manual/make.html#Catalogue-of-Rules">implicit rules</a> and knows to convert <em>.cpp files to </em>.o files using <code>$(CXX) $(CXXFLAGS) -c filename.cpp</code>.</p>
+<p>You may notice that each .o target does not have a recipe attached to it! This is because make contains some <a href="https://www.gnu.org/software/make/manual/make.html#Catalogue-of-Rules">implicit rules</a> and knows to convert <em>.cpp files to </em>.o files using <code>$(CXX) $(CXXFLAGS) -c filename.cpp</code>.</p>
 <h3 id="automatically-generating-prerequisites">Automatically generating prerequisites</h3>
 <p>Creating these prerequisite lists are essential for a properly functioning Makefile, but they are tedious to create. If you wrote another file that included toppings.h (anchovies.cpp, for example), you would have to remember that toppings.h included four other .h files, and should thus include anchovies.h. Fortunately, we can use clang++ to generate all the prerequisites for us by entering the following command:</p>
 <pre><code>clang++ -MM *.cpp</code></pre>
@@ -179,11 +179,11 @@ project: project1.o project2.o project3.o
 <li>Comments! This Makefile will be submitted as part of <a href="../../labs/lab05/index.html">lab 5</a> (see below), so you will need to put in your name and userid at the top of the file.</li>
 <li>We will want to declare the pre-defined variables, CXX and CXXFLAGS. CXX is going to be <code>clang++</code>, and we can define CXXFLAGS to be <code>-Wall -O2 -std=c++11</code> (give all warnings, optimize the code, and use the C++11 standard).</li>
 <li>We'll want to define a variable, probably called OBJECTS, that will list all of the .o files that we are compiling into our target executable.</li>
-<li>Our first rule -- probably called 'pizza' -- will be for compiling the program. It will depend on all of the .o files (defined in the OBJECTS variable), and will define how to compile the program executable.</li>
+<li>Our first rule -- which must be called 'pizza' -- will be for compiling the program. It will depend on all of the .o files (defined in the OBJECTS variable), and will define how to compile the program executable.</li>
 <li>Our second rule we'll call 'clean', and it will remove the executable itself, all the .o files, and all files that end in the tilde (i.e., *~, the backup files that Emacs creates).</li>
 <li>Lastly, we will need to have clang++ create all the prerequisite rules, which we will copy-and-paste into the bottom of the Makefile.</li>
 </ul>
-<p>Test out the Makefile to make sure it works. You will need to rename it to ', and submit it as part of pre-lab 5 (we can't name it 'Makefile', as you are submitting a Makefile for the other parts of the lab already). To force make to use a different Makefile, you can use the <code>-f</code> flag: <code>make -f Makefile.foo</code>. To specify a different target, the target name goes after the file name: <code>make -f Makefile.foo clean</code>.</p>
+<p>Test out the Makefile to make sure it works. You will need to rename it to 'Makefile-pizza', and submit it as part of pre-lab 5 (we can't name it 'Makefile', as you are submitting a Makefile for the other parts of the lab already). To force make to use a different Makefile, you can use the <code>-f</code> flag: <code>make -f Makefile.foo</code>. To specify a different target, the target name goes after the file name: <code>make -f Makefile.foo clean</code>.</p>
 <h3 id="further-information">Further information</h3>
 <p>For more information, consult the man page for make and/or go to the <a href="https://www.gnu.org/software/make/manual/">GNU website for make</a>. Google searches will also turn up lots of good resources.</p>
 </body>
