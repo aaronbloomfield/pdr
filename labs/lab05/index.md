@@ -171,7 +171,7 @@ The objective of this post-lab is to understand the runtime characteristics and 
 
 The structure of the provided AVL starter code is analogous to that of the BST, and is not discussed in further detail here.
 
-You may test your implementation using [testfile1.txt](code/postlab/testfile1.txt) ([output](code/postlab/testfile1.out.txt)), [testfile2.txt](code/postlab/testfile2.txt) ([output](code/postlab/testfile2.out.txt)), and [testfile3.txt](code/postlab/testfile3.txt) ([output](code/postlab/testfile3.out.txt)) (note: these testfiles are different than the ones used in the in-lab).
+You may test your implementation with the same test files as before, though the expected output will be different ([output of testfile1](code/postlab/testfile1.out.txt), [output of testfile2](code/postlab/testfile2.out.txt), [output of testfile3](code/postlab/testfile3.out.txt)).
 
 ### Performance Report ###
 
