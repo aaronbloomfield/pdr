@@ -230,16 +230,20 @@ What happens when `make` is run is that it knows it has to create eight .o files
 
 ### Other targets ###
 
-Makefiles usually have a 'clean' target that has no dependencies, but will remove any unwanted files produced.  It will usually look something like this:
+Occasionally, we may want rules whose targets are not associated with specific filenames.  For example, most Makefiles have a 'clean' target that has no prerequisites and will remove any unwanted files produced.  It will usually look something like this:
 
 ```
+.PHONY: clean
 clean:
 	-rm -f *.o *~ a.out
 ```
 
-The above clean rule does not depend on anything, and its action will not be performed unless directly invoked by calling `make clean`.  The above rule removes all files ending in .o, all files ending in `~` (backup files created by emacs), and a file called 'a.out'.  The '-' in front of rm means that it does not matter if rm was unsuccessful in removing a .o file (if a command fails, `make` normally thinks that it should abort due to the error, but the '-' here tells `make` to ignore it if this command fails).  The '-f' option does a few things, one of which is to prevent printing of error messages if the files do not exist (i.e. if you run `make clean` twice in a row).
+The `.PHONY` target tells `make` to _always_ execute the 'clean' target, even if there happens to be a file named 'clean'.
+You should specify any rules that are not associated with filenames as 'prerequisites' of the `.PHONY` target.
 
-Makefiles may also have a "debug" and "optimized" target.  These targets will generate a version of the output file for debugging (through LLDB, for example) and a version of the output file with optimization flags.  Another way to do this is to edit the Makefile, enter '-g' or '-O2' in the CXXFLAGS variable, then do a `make clean` and then `make`.
+With this rule, `make clean` will remove all files ending in .o, all files ending in `~` (backup files created by emacs), and a file called 'a.out'.  The '-' in front of rm means that it does not matter if rm was unsuccessful in removing a .o file (if a command fails, `make` normally thinks that it should abort due to the error, but the '-' here tells `make` to ignore it if this command fails).  The '-f' option does a few things, one of which is to prevent printing of error messages if the files do not exist (i.e. if you run `make clean` twice in a row).
+
+Makefiles may also have "debug" and "release" targets.  These targets will generate a version of the output file for debugging (through LLDB, for example) and a version of the output file with optimization flags.  Another way to do this is to edit the Makefile, enter '-g' or '-O2' in the CXXFLAGS variable, then do a `make clean` and then `make`.
 
 ### Creating a new Makefile ###
 

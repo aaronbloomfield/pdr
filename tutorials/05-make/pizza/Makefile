@@ -25,5 +25,6 @@ peppers.o: peppers.cpp peppers.h
 
 cheese.o: cheese.cpp cheese.h
 
+.PHONY: clean
 clean:
 	-rm -f *.o pizza
