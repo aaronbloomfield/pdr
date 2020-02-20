@@ -1,7 +1,7 @@
-#include "BinarySearchTree.h"
-#include <string>
-#include <iostream>
 #include "BinaryNode.h"
+#include "BinarySearchTree.h"
+#include <iostream>
+#include <string>
 using namespace std;
 
 BinarySearchTree::BinarySearchTree() {
@@ -29,34 +29,39 @@ BinaryNode* BinarySearchTree::remove(BinaryNode*& n, const string& x) {
     if (n == NULL) {
         return NULL;
     }
+
     // first look for x
     if (x == n->value) {
         // found
-        // no children
         if (n->left == NULL && n->right == NULL) {
+            // no children
+            // just delete it :)
             delete n;
             n = NULL;
             return NULL;
-        }
-        // single child
-        if (n->left == NULL) {
+        } else if (n->left == NULL) {
+            // single child (left)
+            // remove current node and return right child node for parent
             BinaryNode* temp = n->right;
             n->right = NULL;
             delete n;
             n = NULL;
             return temp;
-        }
-        if (n->right == NULL) {
+        } else if (n->right == NULL) {
+            // single child (right)
+            // remove current node and return left child node for parent
             BinaryNode* temp = n->left;
             n->left = NULL;
             delete n;
             n = NULL;
             return temp;
+        } else {
+            // two children
+            // replace current node with right child node's minimum, then remove that node
+            string value = min(n->right);
+            n->value = value;
+            n->right = remove(n->right, value);
         }
-        // two children
-        string sr = min(n->right);
-        n->value = sr;
-        n->right = remove(n->right, sr);
     } else if (x < n->value) {
         n->left = remove(n->left, x);
     } else {
@@ -91,8 +96,9 @@ string BinarySearchTree::min(BinaryNode* node) const {
 }
 
 // Helper function to print branches of the binary tree
+// You do not need to know how this function works.
 void showTrunks(Trunk* p) {
-    if (p == nullptr) return;
+    if (p == NULL) return;
     showTrunks(p->prev);
     cout << p->str;
 }
@@ -113,7 +119,7 @@ void BinarySearchTree::printTree(BinaryNode* root, Trunk* prev, bool isRight) {
 
     if (!prev)
         trunk->str = "---";
-    else if (isRight) { // github user @willzhang05 pointed out that I forgot to change this from isLeft to isRight on my first commit
+    else if (isRight) {
         trunk->str = ".---";
         prev_str = "   |";
     } else {

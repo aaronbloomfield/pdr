@@ -12,38 +12,37 @@ http://www.gnu.org/software/src-highlite">
 <pre><i><span style="color:#9A1900">// Add your header information here</span></i>
 <i><span style="color:#9A1900">// TreeCalc.h: Tree Calculator class definition</span></i>
 <i><span style="color:#9A1900">// CS 2150: Lab 5</span></i>
-<i><span style="color:#9A1900">// NOTE: You may use any stack implementation that you wish</span></i>
 <i><span style="color:#9A1900">// You must submit ALL code to make your project build correctly</span></i>
 
 
 <b><span style="color:#000080">#ifndef</span></b> TREECALC_H
 <b><span style="color:#000080">#define</span></b> TREECALC_H
 
-<i><span style="color:#9A1900">// include your stack implementation here</span></i>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;stack&gt;</span>
 
 <b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">"TreeNode.h"</span>
 <b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
 <b><span style="color:#0000FF">class</span></b> <span style="color:#008080">TreeCalc</span> <span style="color:#FF0000">{</span>
 <b><span style="color:#0000FF">public</span></b><span style="color:#990000">:</span>
+    <b><span style="color:#000000">TreeCalc</span></b><span style="color:#990000">();</span>                     <i><span style="color:#9A1900">// Constructor</span></i>
+    <span style="color:#990000">~</span><b><span style="color:#000000">TreeCalc</span></b><span style="color:#990000">();</span>                    <i><span style="color:#9A1900">// Destructor</span></i>
 
-    <b><span style="color:#000000">TreeCalc</span></b><span style="color:#990000">();</span>						<i><span style="color:#9A1900">//Constructor</span></i>
-    <span style="color:#990000">~</span><b><span style="color:#000000">TreeCalc</span></b><span style="color:#990000">();</span>					<i><span style="color:#9A1900">//Destructor</span></i>
-
-    <span style="color:#009900">void</span> <b><span style="color:#000000">cleanTree</span></b><span style="color:#990000">(</span>TreeNode <span style="color:#990000">*</span> ptr<span style="color:#990000">);</span>	<i><span style="color:#9A1900">//Deletes tree/frees memory</span></i>
-    <span style="color:#009900">void</span> <b><span style="color:#000000">readInput</span></b><span style="color:#990000">();</span>				<i><span style="color:#9A1900">//gets data from user</span></i>
-    <span style="color:#009900">void</span> <b><span style="color:#000000">insert</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> string <span style="color:#990000">&amp;</span> val<span style="color:#990000">);</span>	<i><span style="color:#9A1900">//puts value in tree</span></i>
+    <span style="color:#009900">void</span> <b><span style="color:#000000">cleanTree</span></b><span style="color:#990000">(</span>TreeNode<span style="color:#990000">*</span> tree<span style="color:#990000">);</span>  <i><span style="color:#9A1900">// Deletes tree/frees memory</span></i>
+    <span style="color:#009900">void</span> <b><span style="color:#000000">readInput</span></b><span style="color:#990000">();</span>               <i><span style="color:#9A1900">// Gets data from user</span></i>
+    <span style="color:#009900">void</span> <b><span style="color:#000000">insert</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> string<span style="color:#990000">&amp;</span> val<span style="color:#990000">);</span> <i><span style="color:#9A1900">// Puts value in tree</span></i>
 
     <i><span style="color:#9A1900">// print methods</span></i>
-    <span style="color:#009900">void</span> <b><span style="color:#000000">printPrefix</span></b><span style="color:#990000">(</span>TreeNode <span style="color:#990000">*</span> curNode<span style="color:#990000">)</span> <b><span style="color:#0000FF">const</span></b><span style="color:#990000">;</span>	<i><span style="color:#9A1900">//prints data in prefix form</span></i>
-    <span style="color:#009900">void</span> <b><span style="color:#000000">printInfix</span></b><span style="color:#990000">(</span>TreeNode <span style="color:#990000">*</span> curNode<span style="color:#990000">)</span> <b><span style="color:#0000FF">const</span></b><span style="color:#990000">;</span>	<i><span style="color:#9A1900">//prints data in infix form</span></i>
-    <span style="color:#009900">void</span> <b><span style="color:#000000">printPostfix</span></b><span style="color:#990000">(</span>TreeNode <span style="color:#990000">*</span> curNode<span style="color:#990000">)</span> <b><span style="color:#0000FF">const</span></b><span style="color:#990000">;</span><i><span style="color:#9A1900">//prints data in postfix form</span></i>
-    <span style="color:#009900">void</span> <b><span style="color:#000000">printOutput</span></b><span style="color:#990000">()</span> <b><span style="color:#0000FF">const</span></b><span style="color:#990000">;</span>				<i><span style="color:#9A1900">//prints in pre,in,post form</span></i>
-    <span style="color:#009900">int</span> <b><span style="color:#000000">calculate</span></b><span style="color:#990000">();</span>					<i><span style="color:#9A1900">//calls private calculate method</span></i>
+    <span style="color:#009900">void</span> <b><span style="color:#000000">printPrefix</span></b><span style="color:#990000">(</span>TreeNode<span style="color:#990000">*</span> tree<span style="color:#990000">)</span> <b><span style="color:#0000FF">const</span></b><span style="color:#990000">;</span>  <i><span style="color:#9A1900">// Prints data in prefix form</span></i>
+    <span style="color:#009900">void</span> <b><span style="color:#000000">printInfix</span></b><span style="color:#990000">(</span>TreeNode<span style="color:#990000">*</span> tree<span style="color:#990000">)</span> <b><span style="color:#0000FF">const</span></b><span style="color:#990000">;</span>   <i><span style="color:#9A1900">// Prints data in infix form</span></i>
+    <span style="color:#009900">void</span> <b><span style="color:#000000">printPostfix</span></b><span style="color:#990000">(</span>TreeNode<span style="color:#990000">*</span> tree<span style="color:#990000">)</span> <b><span style="color:#0000FF">const</span></b><span style="color:#990000">;</span> <i><span style="color:#9A1900">// Prints data in postfix form</span></i>
+    <span style="color:#009900">void</span> <b><span style="color:#000000">printOutput</span></b><span style="color:#990000">()</span> <b><span style="color:#0000FF">const</span></b><span style="color:#990000">;</span>                <i><span style="color:#9A1900">// Prints in post, in, pre form</span></i>
+    <span style="color:#009900">int</span> <b><span style="color:#000000">calculate</span></b><span style="color:#990000">();</span>                         <i><span style="color:#9A1900">// Calls private calculate method</span></i>
 
 <b><span style="color:#0000FF">private</span></b><span style="color:#990000">:</span>
-    <i><span style="color:#9A1900">// declare a stack to hold your expression tree</span></i>
-    <span style="color:#009900">int</span> <b><span style="color:#000000">calculate</span></b><span style="color:#990000">(</span>TreeNode<span style="color:#990000">*</span> ptr<span style="color:#990000">)</span> <b><span style="color:#0000FF">const</span></b><span style="color:#990000">;</span>		<i><span style="color:#9A1900">//Evaluates tree, returns value</span></i>
+    <span style="color:#008080">stack&lt;TreeNode*&gt;</span> expressionStack<span style="color:#990000">;</span>   <i><span style="color:#9A1900">// Stack to hold the expression</span></i>
+
+    <span style="color:#009900">int</span> <b><span style="color:#000000">calculate</span></b><span style="color:#990000">(</span>TreeNode<span style="color:#990000">*</span> tree<span style="color:#990000">)</span> <b><span style="color:#0000FF">const</span></b><span style="color:#990000">;</span> <i><span style="color:#9A1900">// Evaluates tree, returns value</span></i>
 
 <span style="color:#FF0000">}</span><span style="color:#990000">;</span>
 

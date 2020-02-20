@@ -1,6 +1,7 @@
-#include "AVLTree.h"
-#include <string>
 #include "AVLNode.h"
+#include "AVLTree.h"
+#include <iostream>
+#include <string>
 using namespace std;
 
 AVLTree::AVLTree() {
@@ -56,47 +57,51 @@ AVLNode* AVLTree::rotateRight(AVLNode*& n) {
     // YOUR IMPLEMENTATION GOES HERE
 }
 
-// private helper for remove to allow recursion over different nodes. returns
-// an AVLNode* that is assigned to the original node.
+// private helper for remove to allow recursion over different nodes.
+// Returns an AVLNode* that is assigned to the original node.
 AVLNode* AVLTree::remove(AVLNode*& n, const string& x) {
     if (n == NULL) {
         return NULL;
     }
+
     // first look for x
     if (x == n->value) {
         // found
-        // no children
         if (n->left == NULL && n->right == NULL) {
+            // no children
             delete n;
             n = NULL;
             return NULL;
-        }
-        // single child
-        if (n->left == NULL) {
+        } else if (n->left == NULL) {
+            // Single child (left)
             AVLNode* temp = n->right;
             n->right = NULL;
             delete n;
             n = NULL;
             return temp;
-        }
-        if (n->right == NULL) {
+        } else if (n->right == NULL) {
+            // Single child (right)
             AVLNode* temp = n->left;
             n->left = NULL;
             delete n;
             n = NULL;
             return temp;
+        } else {
+            // two children -- tree may become unbalanced after deleting n
+            string sr = min(n->right);
+            n->value = sr;
+            n->right = remove(n->right, sr);
         }
-        // two children -- tree may become unbalanced after deleting n
-        string sr = min(n->right);
-        n->value = sr;
-        n->right = remove(n->right, sr);
     } else if (x < n->value) {
         n->left = remove(n->left, x);
     } else {
         n->right = remove(n->right, x);
     }
+
+    // Recalculate heights and balance this subtree
     n->height = 1 + max(height(n->left), height(n->right));
     balance(n);
+
     return n;
 }
 
@@ -109,8 +114,8 @@ string AVLTree::min(AVLNode* node) const {
     return min(node->left);
 }
 
-// height returns the value of the height field in a node. If the node is
-// null, it returns -1.
+// height returns the value of the height field in a node.
+// If the node is null, it returns -1.
 int AVLTree::height(AVLNode* node) const {
     if (node == NULL) {
         return -1;
@@ -127,8 +132,9 @@ int max(int a, int b) {
 }
 
 // Helper function to print branches of the binary tree
+// You do not need to know how this function works.
 void showTrunks(Trunk* p) {
-    if (p == nullptr) return;
+    if (p == NULL) return;
     showTrunks(p->prev);
     cout << p->str;
 }
@@ -145,7 +151,7 @@ void AVLTree::printTree(AVLNode* root, Trunk* prev, bool isRight) {
 
     if (!prev)
         trunk->str = "---";
-    else if (isRight) { // github user @willzhang05 pointed out that I forgot to change this from isLeft to isRight on my first commit
+    else if (isRight) {
         trunk->str = ".---";
         prev_str = "   |";
     } else {
