@@ -165,7 +165,7 @@ toppings.o: toppings.cpp toppings.h cheese.h mushrooms.h \
 
 The backslash at the end of the first line tells `make` that the prerequisite line continues on the next line.  This entire statement will cause a recompilation of toppings.o if any of the listed files are modified.  Notice that a number of .h files (such as pizzadough.h) are not included, as toppings.o does not depend on them.
 
-You may notice that each .o target does not have a recipe attached to it!  This is because `make` contains some [implicit rules](https://www.gnu.org/software/make/manual/make.html#Catalogue-of-Rules) and knows to convert *.cpp files to *.o files using `$(CXX) $(CXXFLAGS) -c filename.cpp`.
+You may notice that each .o target does not have a recipe attached to it!  This is because `make` contains some [implicit rules](https://www.gnu.org/software/make/manual/make.html#Catalogue-of-Rules) and knows to convert `*.cpp` files to `*.o` files using `$(CXX) $(CXXFLAGS) -c filename.cpp`.
 
 ### Automatically generating prerequisites ###
 
@@ -194,7 +194,7 @@ We can cut-and-paste these rules directly into the Makefile, to tell `make` what
 
 You will notice that the lines in the provided Makefile (purposely) do not exactly mimic the lines above -- for example, toppings.o in the Makefile depends on a few .cpp files, and not what is listed just above.  We will get to fixing this shortly.
 
-Once again, we see that implicit rules are being used here for the *.cpp to *.o conversion, which helps us cut down on a lot of unnecessary repitition.
+Once again, we see that implicit rules are being used here for the `*.cpp` to `*.o` conversion, which helps us cut down on a lot of unnecessary repitition.
 
 In order to compile our final program, we would still need to utilize the 'pizza' rule in the Makefile:
 
