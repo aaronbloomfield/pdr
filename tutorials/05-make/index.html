@@ -165,7 +165,7 @@ toppings.o: toppings.cpp toppings.h cheese.h mushrooms.h peppers.h \
 <pre><code>.PHONY: clean
 clean:
     -rm -f *.o *~ a.out</code></pre>
-<p>The <code>.PHONY</code> target tells <code>make</code> to <em>always</em> execute the 'clean' target, even if there happens to be a file named 'clean'. You should specify any rules that are not associated with filenames as 'prerequisites' of the <code>.PHONY</code> target.</p>
+<p>The <code>.PHONY</code> target tells <code>make</code> to <em>always</em> execute the 'clean' target, even if there happens to be a file named 'clean'. You should specify any rules that are not associated with filenames as prerequisites of the <code>.PHONY</code> target.</p>
 <p>With this rule, <code>make clean</code> will remove all files ending in .o, all files ending in <code>~</code> (backup files created by emacs), and a file called 'a.out'. The '-' in front of rm means that it does not matter if rm was unsuccessful in removing a .o file (if a command fails, <code>make</code> normally thinks that it should abort due to the error, but the '-' here tells <code>make</code> to ignore it if this command fails). The '-f' option does a few things, one of which is to prevent printing of error messages if the files do not exist (i.e. if you run <code>make clean</code> twice in a row).</p>
 <p>Makefiles may also have &quot;debug&quot; and &quot;release&quot; targets. These targets will generate a version of the output file for debugging (through LLDB, for example) and a version of the output file with optimization flags. Another way to do this is to edit the Makefile, enter '-g' or '-O2' in the CXXFLAGS variable, then do a <code>make clean</code> and then <code>make</code>.</p>
 <h3 id="creating-a-new-makefile">Creating a new Makefile</h3>
@@ -180,6 +180,6 @@ clean:
 </ul>
 <p>Test out the Makefile to ensure it works. You will need to rename it to 'Makefile-pizza', and submit it as part of pre-lab 5 (we can't name it 'Makefile', as you are submitting a Makefile for the other parts of the lab already). To force <code>make</code> to use a different Makefile, you can use the <code>-f</code> flag: <code>make -f Makefile-pizza</code>. To specify a different target, the target name goes after the file name: <code>make -f Makefile-pizza clean</code>.</p>
 <h3 id="further-information">Further information</h3>
-<p>For more information, consult the man page for <code>make</code> and/or go to the <a href="https://www.gnu.org/software/make/manual/">GNU website for <code>make</code></a>. Google searches will also turn up lots of good resources.</p>
+<p>This tutorial only scratches the surface of what <code>make</code> can do! There are many more powerful concepts that can be very useful for larger projects. For more information, consult the man page for <code>make</code> and/or go to the <a href="https://www.gnu.org/software/make/manual/">GNU website for <code>make</code></a>. Google searches will also turn up lots of good resources.</p>
 </body>
 </html>

@@ -239,7 +239,7 @@ clean:
 ```
 
 The `.PHONY` target tells `make` to _always_ execute the 'clean' target, even if there happens to be a file named 'clean'.
-You should specify any rules that are not associated with filenames as 'prerequisites' of the `.PHONY` target.
+You should specify any rules that are not associated with filenames as prerequisites of the `.PHONY` target.
 
 With this rule, `make clean` will remove all files ending in .o, all files ending in `~` (backup files created by emacs), and a file called 'a.out'.  The '-' in front of rm means that it does not matter if rm was unsuccessful in removing a .o file (if a command fails, `make` normally thinks that it should abort due to the error, but the '-' here tells `make` to ignore it if this command fails).  The '-f' option does a few things, one of which is to prevent printing of error messages if the files do not exist (i.e. if you run `make clean` twice in a row).
 
@@ -260,4 +260,5 @@ Test out the Makefile to ensure it works.  You will need to rename it to 'Makefi
 
 ### Further information ###
 
+This tutorial only scratches the surface of what `make` can do!  There are many more powerful concepts that can be very useful for larger projects.
 For more information, consult the man page for `make` and/or go to the [GNU website for `make`](https://www.gnu.org/software/make/manual/).  Google searches will also turn up lots of good resources.
