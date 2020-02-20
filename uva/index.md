@@ -86,7 +86,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 14 | Feb 14 | Friday | | [04: Arrays &amp; big-Oh][84] | finished arrays & big-Oh |
 | | Feb 16 | Sunday | | Exam 1 review session | |
 | 15 | Feb 17 | Monday | Exam 1 instead during Tuesday's lab | [04: Arrays &amp; big-Oh][84], [05: Trees][85] | trees through slide 5.11 |
-| 16 | Feb 19 | Wednesday | | [05: Trees][85] | |
+| 16 | Feb 19 | Wednesday | | [05: Trees][85] | trees to slide 7.9 |
 | 17 | Feb 21 | Friday | | [05: Trees][85] | |
 | 18 | Feb 24 | Monday | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [05: Trees][85] | |
 | 19 | Feb 26 | Wednesday | | [05: Trees][85] | |

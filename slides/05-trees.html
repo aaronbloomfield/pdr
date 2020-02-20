@@ -437,12 +437,12 @@ Similarly down the left subttree links for `findMin()`
 
       <section data-markdown><script type="text/template">
 ## Proof by Induction on *h*
-- Claim: the maximum number nodes in a  binary tree of height *h* is 2<sup>*h*+1</sup>-1
+- Claim: max nodes in a  binary tree of height *h* is 2<sup>*h*+1</sup>-1
   - Or: *n* &le; 2<sup>*h*+1</sup>-1
-- For *h*=0, tree has one node, which yields 2<sup>0+1</sup>-1 = 1 nodes
+- For *h*=0: number of nodes is 2<sup>0+1</sup>-1 = 1
 - Assume the claim is true for any tree of height *h*
   - This would mean *n* &le; 2<sup>*h*+2</sup>-1 for a tree of height *h*+1
-- Any tree of height *h*+1 has at most 2 subtrees of height *h*; each subtree has 2<sup>*h*+1</sup>-1 nodes; add one more for the root
+- A tree of height *h*+1 can have 2 subtrees of height *h*; each subtree has 2<sup>*h*+1</sup>-1 nodes; add one for the root
 - Thus, our new tree of height *h*+1 has:
   - 2(2<sup>*h*+1</sup>-1)+1 = 2<sup>*h*+2</sup>-1 nodes
 - If we put *h*+1 into our inductive hypothesis (instead of *h*), we get the same value; thus, it is proven
@@ -467,8 +467,8 @@ Similarly down the left subttree links for `findMin()`
   - And all nodes have zero or two children, but not one
 - Number of leaves: 2<sup>*h*</sup>
 - Number of nodes: 1 + 2 + 2<sup>2</sup> + 2<sup>3</sup> + ... + 2<sup>*h*</sup> = 2<sup>*h*+1</sup>-1
-- Problem: a perfect binary tree can only hold *n* values where *n* = 2<sup>*h*+1</sup>-1
-  - So you can't have, say, 5 values in a perfect binary tree!
+- Problem: a perfect binary only holds 2<sup>*h*+1</sup>-1 values
+  - So you can't have 5 values in a perfect binary tree!
       </script></section>
 
 	</section>
@@ -486,8 +486,7 @@ Similarly down the left subttree links for `findMin()`
   - This allows a computer to compute the value of each node
 - You will have to do this for [lab 5](../labs/lab05/index.html)
  - The lab expression tree only takes in integers as input; the more generalized version presented here includes variables as well
-- See the [Wikipedia article on Expression trees](http://en.wikipedia.org/wiki/Expression_tree), specifically the [section on construction of expression trees](http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_Expression_Tree)
-  - That example is the same as the one here
+- See the [Wikipedia article on Expression trees](http://en.wikipedia.org/wiki/Expression_tree), specifically the [section on construction of expression trees](http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_Expression_Tree) (same example as this one)
   - Uses a stack!
 	  </script></section>
 
