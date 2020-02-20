@@ -1,7 +1,7 @@
 # This is a comment
 
 CXX=clang++ $(CXXFLAGS)
-CXXFLAGS=-std=c++11 -Wall # Compile using the C++11 standard and enable all warnings
+CXXFLAGS=-Wall # Enable all warnings
 DEBUG=-g
 
 pizza: pizza.o pizzadough.o tomatosauce.o toppings.o mushrooms.o peppers.o cheese.o pepperoni.o
