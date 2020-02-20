@@ -228,28 +228,16 @@ If we set up our CXX variable to include the C++ flags variable (i.e., `CXX = cl
 
 What happens when `make` is run is that it knows it has to create eight .o files (pizza.o, toppings.o, etc.), and looks at the various .o rules to figure out how to do that.  After that, `make` will then create the final executable, and the print out the 'Pizza is Hot and Ready' line.  'echo' is just a normal Unix command -- it prints out what is on the rest of the line.  If you are going to use punctuation, it is best to put it in quotes (many characters have special meanings, such as !).
 
-### Automatic variables ###
-
-A Makefile may also have a feature called automatic variables which have a value depending on where and when it is used.  There two useful automatic variables that we'll study here: $@, which is the file name of the target, and $?, which is the names of all the changed dependents.  Examples of their use are below.
-
-```
-project.o: project.cpp
-	clang++ -c $@.cpp -o $@
-
-project: project1.o project2.o project3.o
-	clang++ $? -o $@
-```
-
 ### Other targets ###
 
 Makefiles usually have a 'clean' target that has no dependencies, but will remove any unwanted files produced.  It will usually look something like this:
 
 ```
 clean:
-	-rm -f *.o *~ outputfile
+	-rm -f *.o *~ a.out
 ```
 
-The above clean rule does not depend on anything, and its action will not be performed unless directly invoked by calling `make clean`.  The above rule removes all files ending in .o, all files ending in `~` (backup files created by emacs), and a file called outputfile.  The '-' in front of rm means that it does not matter if rm was unsuccessful in removing a .o file (if a command fails, `make` normally thinks that it should abort due to the error, but the '-' here tells `make` to ignore it if this command fails).  The '-f' option does a few things, one of which is to prevent printing of error messages if the files do not exist (i.e. if you run `make clean` twice in a row).
+The above clean rule does not depend on anything, and its action will not be performed unless directly invoked by calling `make clean`.  The above rule removes all files ending in .o, all files ending in `~` (backup files created by emacs), and a file called 'a.out'.  The '-' in front of rm means that it does not matter if rm was unsuccessful in removing a .o file (if a command fails, `make` normally thinks that it should abort due to the error, but the '-' here tells `make` to ignore it if this command fails).  The '-f' option does a few things, one of which is to prevent printing of error messages if the files do not exist (i.e. if you run `make clean` twice in a row).
 
 Makefiles may also have a "debug" and "optimized" target.  These targets will generate a version of the output file for debugging (through LLDB, for example) and a version of the output file with optimization flags.  Another way to do this is to edit the Makefile, enter '-g' or '-O2' in the CXXFLAGS variable, then do a `make clean` and then `make`.
 
@@ -261,10 +249,10 @@ We have seen a number of ways to improve the provided pizza Makefile.  We'll put
 - We will want to declare the pre-defined variables, CXX and CXXFLAGS.  CXX is going to be `clang++`, and we can define CXXFLAGS to be `-Wall -O2 -std=c++11` (give all warnings, optimize the code, and use the C++11 standard).
 - We'll want to define a variable, probably called OBJECTS, that will list all of the .o files that we are compiling into our target executable.
 - Our first rule -- which must be called 'pizza' -- will be for compiling the program.  It will depend on all of the .o files (defined in the OBJECTS variable), and will define how to compile the program executable.
-- Our second rule we'll call 'clean', and it will remove the executable itself, all the .o files, and all files that end in the tilde (i.e., *~, the backup files that Emacs creates).
+- Our second rule, 'clean', will remove the executable itself, all the .o files, and all files that end in the tilde (`*~`, the backup files that Emacs creates).
 - Lastly, we will need to have clang++ create all the prerequisite rules, which we will copy-and-paste into the bottom of the Makefile.
 
-Test out the Makefile to ensure it works.  You will need to rename it to 'Makefile-pizza', and submit it as part of pre-lab 5 (we can't name it 'Makefile', as you are submitting a Makefile for the other parts of the lab already).  To force `make` to use a different Makefile, you can use the `-f` flag: `make -f Makefile.foo`.  To specify a different target, the target name goes after the file name: `make -f Makefile.foo clean`.
+Test out the Makefile to ensure it works.  You will need to rename it to 'Makefile-pizza', and submit it as part of pre-lab 5 (we can't name it 'Makefile', as you are submitting a Makefile for the other parts of the lab already).  To force `make` to use a different Makefile, you can use the `-f` flag: `make -f Makefile-pizza`.  To specify a different target, the target name goes after the file name: `make -f Makefile-pizza clean`.
 
 ### Further information ###
 

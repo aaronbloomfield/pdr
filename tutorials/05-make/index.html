@@ -160,18 +160,11 @@ toppings.o: toppings.cpp toppings.h cheese.h mushrooms.h peppers.h \
     @echo &quot;Pizza is Hot and Ready!&quot;</code></pre>
 <p>If we set up our CXX variable to include the C++ flags variable (i.e., <code>CXX = clang++ $(CXXFLAGS)</code> at the top of the Makefile), then we do not need to include CXXFLAGS in the above line. Otherwise, we will want to replace that line with, <code>$(CXX) $(CXXFLAGS) $(DEBUG) $(OBJECTS) -o pizza</code>. This will allow any clang++ compiler options to be included also.</p>
 <p>What happens when <code>make</code> is run is that it knows it has to create eight .o files (pizza.o, toppings.o, etc.), and looks at the various .o rules to figure out how to do that. After that, <code>make</code> will then create the final executable, and the print out the 'Pizza is Hot and Ready' line. 'echo' is just a normal Unix command -- it prints out what is on the rest of the line. If you are going to use punctuation, it is best to put it in quotes (many characters have special meanings, such as !).</p>
-<h3 id="automatic-variables">Automatic variables</h3>
-<p>A Makefile may also have a feature called automatic variables which have a value depending on where and when it is used. There two useful automatic variables that we'll study here: $@, which is the file name of the target, and $?, which is the names of all the changed dependents. Examples of their use are below.</p>
-<pre><code>project.o: project.cpp
-    clang++ -c $@.cpp -o $@
-
-project: project1.o project2.o project3.o
-    clang++ $? -o $@</code></pre>
 <h3 id="other-targets">Other targets</h3>
 <p>Makefiles usually have a 'clean' target that has no dependencies, but will remove any unwanted files produced. It will usually look something like this:</p>
 <pre><code>clean:
-    -rm -f *.o *~ outputfile</code></pre>
-<p>The above clean rule does not depend on anything, and its action will not be performed unless directly invoked by calling <code>make clean</code>. The above rule removes all files ending in .o, all files ending in <code>~</code> (backup files created by emacs), and a file called outputfile. The '-' in front of rm means that it does not matter if rm was unsuccessful in removing a .o file (if a command fails, <code>make</code> normally thinks that it should abort due to the error, but the '-' here tells <code>make</code> to ignore it if this command fails). The '-f' option does a few things, one of which is to prevent printing of error messages if the files do not exist (i.e. if you run <code>make clean</code> twice in a row).</p>
+    -rm -f *.o *~ a.out</code></pre>
+<p>The above clean rule does not depend on anything, and its action will not be performed unless directly invoked by calling <code>make clean</code>. The above rule removes all files ending in .o, all files ending in <code>~</code> (backup files created by emacs), and a file called 'a.out'. The '-' in front of rm means that it does not matter if rm was unsuccessful in removing a .o file (if a command fails, <code>make</code> normally thinks that it should abort due to the error, but the '-' here tells <code>make</code> to ignore it if this command fails). The '-f' option does a few things, one of which is to prevent printing of error messages if the files do not exist (i.e. if you run <code>make clean</code> twice in a row).</p>
 <p>Makefiles may also have a &quot;debug&quot; and &quot;optimized&quot; target. These targets will generate a version of the output file for debugging (through LLDB, for example) and a version of the output file with optimization flags. Another way to do this is to edit the Makefile, enter '-g' or '-O2' in the CXXFLAGS variable, then do a <code>make clean</code> and then <code>make</code>.</p>
 <h3 id="creating-a-new-makefile">Creating a new Makefile</h3>
 <p>We have seen a number of ways to improve the provided pizza Makefile. We'll put them together into a single, well-formed, Makefile. Below are the steps to do so; each of these steps are described in more detail above.</p>
@@ -180,10 +173,10 @@ project: project1.o project2.o project3.o
 <li>We will want to declare the pre-defined variables, CXX and CXXFLAGS. CXX is going to be <code>clang++</code>, and we can define CXXFLAGS to be <code>-Wall -O2 -std=c++11</code> (give all warnings, optimize the code, and use the C++11 standard).</li>
 <li>We'll want to define a variable, probably called OBJECTS, that will list all of the .o files that we are compiling into our target executable.</li>
 <li>Our first rule -- which must be called 'pizza' -- will be for compiling the program. It will depend on all of the .o files (defined in the OBJECTS variable), and will define how to compile the program executable.</li>
-<li>Our second rule we'll call 'clean', and it will remove the executable itself, all the .o files, and all files that end in the tilde (i.e., *~, the backup files that Emacs creates).</li>
+<li>Our second rule, 'clean', will remove the executable itself, all the .o files, and all files that end in the tilde (<code>*~</code>, the backup files that Emacs creates).</li>
 <li>Lastly, we will need to have clang++ create all the prerequisite rules, which we will copy-and-paste into the bottom of the Makefile.</li>
 </ul>
-<p>Test out the Makefile to ensure it works. You will need to rename it to 'Makefile-pizza', and submit it as part of pre-lab 5 (we can't name it 'Makefile', as you are submitting a Makefile for the other parts of the lab already). To force <code>make</code> to use a different Makefile, you can use the <code>-f</code> flag: <code>make -f Makefile.foo</code>. To specify a different target, the target name goes after the file name: <code>make -f Makefile.foo clean</code>.</p>
+<p>Test out the Makefile to ensure it works. You will need to rename it to 'Makefile-pizza', and submit it as part of pre-lab 5 (we can't name it 'Makefile', as you are submitting a Makefile for the other parts of the lab already). To force <code>make</code> to use a different Makefile, you can use the <code>-f</code> flag: <code>make -f Makefile-pizza</code>. To specify a different target, the target name goes after the file name: <code>make -f Makefile-pizza clean</code>.</p>
 <h3 id="further-information">Further information</h3>
 <p>For more information, consult the man page for <code>make</code> and/or go to the <a href="https://www.gnu.org/software/make/manual/">GNU website for <code>make</code></a>. Google searches will also turn up lots of good resources.</p>
 </body>

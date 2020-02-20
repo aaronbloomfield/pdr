@@ -26,4 +26,4 @@ peppers.o: peppers.cpp peppers.h
 cheese.o: cheese.cpp cheese.h
 
 clean:
-	-rm *.o pizza
+	-rm -f *.o pizza
