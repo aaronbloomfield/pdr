@@ -20,7 +20,7 @@ A binary search tree is a binary tree that imposes an ordering on its nodes. A n
 
 ### Recommended Readings ###
 
-The [Wikipedia article on Expression trees](http://en.wikipedia.org/wiki/Expression_tree), especially the [section on construction of expression trees](http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_expression_tree).  Also the [05: Trees](../../slides/05-trees.html) slide set.
+The [Wikipedia article on Expression trees](https://en.wikipedia.org/wiki/Expression_tree), especially the [section on construction of expression trees](https://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_expression_tree).  Also the [05: Trees](../../slides/05-trees.html) slide set.
 
 
 Procedure
@@ -55,7 +55,7 @@ For the pre-lab you will be using a stack to help you read in a postfix expressi
 
 ### Implementation ###
 
-Your tree calculator will read in well-formed expressions in postfix notation.  You will need to build an expression tree using the algorithm described in the [Wikipedia article on Expression trees](http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_expression_tree) and the [trees slide set](../../slides/05-trees.html).  Trees similar to this type of expression tree are used extensively in compilers.
+Your tree calculator will read in well-formed expressions in postfix notation.  You will need to build an expression tree using the algorithm described in the [Wikipedia article on Expression trees](https://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_expression_tree) and the [trees slide set](../../slides/05-trees.html).  Trees similar to this type of expression tree are used extensively in compilers.
 
 Your fully functional tree calculator must:
 
@@ -110,7 +110,7 @@ TreeCalc methods.
 
 **Printing in the right order:** Draw a simple tree and see how you
 should recurse in order to hit each node in the correct order.  Need
-more help? Check the [Wikipedia article](http://en.wikipedia.org/wiki/Expression_tree)!
+more help? Check the [Wikipedia article](https://en.wikipedia.org/wiki/Expression_tree)!
 
 ------------------------------------------------------------
 
