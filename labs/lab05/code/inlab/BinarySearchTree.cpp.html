@@ -51,7 +51,7 @@ BinaryNode<span style="color:#990000">*</span> BinarySearchTree<span style="colo
             n <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
             <b><span style="color:#0000FF">return</span></b> NULL<span style="color:#990000">;</span>
         <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>left <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-            <i><span style="color:#9A1900">// single child (left)</span></i>
+            <i><span style="color:#9A1900">// single child (right)</span></i>
             <i><span style="color:#9A1900">// remove current node and return right child node for parent</span></i>
             BinaryNode<span style="color:#990000">*</span> temp <span style="color:#990000">=</span> n<span style="color:#990000">-&gt;</span>right<span style="color:#990000">;</span>
             n<span style="color:#990000">-&gt;</span>right <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
@@ -59,7 +59,7 @@ BinaryNode<span style="color:#990000">*</span> BinarySearchTree<span style="colo
             n <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>
             <b><span style="color:#0000FF">return</span></b> temp<span style="color:#990000">;</span>
         <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>n<span style="color:#990000">-&gt;</span>right <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-            <i><span style="color:#9A1900">// single child (right)</span></i>
+            <i><span style="color:#9A1900">// single child (left)</span></i>
             <i><span style="color:#9A1900">// remove current node and return left child node for parent</span></i>
             BinaryNode<span style="color:#990000">*</span> temp <span style="color:#990000">=</span> n<span style="color:#990000">-&gt;</span>left<span style="color:#990000">;</span>
             n<span style="color:#990000">-&gt;</span>left <span style="color:#990000">=</span> NULL<span style="color:#990000">;</span>

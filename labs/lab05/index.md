@@ -17,9 +17,6 @@ A binary tree is a tree with a maximum of two children per node.  Tree traversal
 
 A binary search tree is a binary tree that imposes an ordering on its nodes. A node's left child has a lesser value, while its right child has a greater value. Binary search trees are useful for efficient insertion, deletion, and lookup of items with a certain key. As we'll see in this lab, variations of binary search trees offer different performance characteristics.
 
-### Tutorial ###
-
-Complete the [Makefile tutorial](../../tutorials/05-make/index.html).  You will need to know how to write one for the in-lab and post-lab, since all the following labs will be compiled via Makefiles. There is one file that needs to be submitted from the tutorial -- you must name this file `Makefile-pizza`.
 
 ### Recommended Readings ###
 
@@ -31,22 +28,23 @@ Procedure
 
 ### Pre-lab ###
 
-1. Create a postfix tree calculator
+1. Create a postfix tree calculator, as described below
+2. Complete the [Makefile tutorial](../../tutorials/05-make/index.html).  You will need to know how to write one for the in-lab and post-lab, since all the following labs will be compiled via Makefiles. There is one file that needs to be submitted from the tutorial -- you must name this file `Makefile-pizza`.
 5. Files to download: [TreeCalc.h](code/prelab/TreeCalc.h.html) ([src](code/prelab/TreeCalc.h)), [TreeCalc.cpp](code/prelab/TreeCalc.cpp.html) ([src](code/prelab/TreeCalc.cpp)), [TreeNode.h](code/prelab/TreeNode.h.html) ([src](code/prelab/TreeNode.h)), [TreeNode.cpp](code/prelab/TreeNode.cpp.html) ([src](code/prelab/TreeNode.cpp)), and  [TreeCalcTest.cpp](code/prelab/TreeCalcTest.cpp.html) ([src](code/prelab/TreeCalcTest.cpp)).  These files are contained in the prelab/ directory of the [code.zip](code.zip) file.
 6. Files to submit: TreeCalc.h/cpp, TreeCalcTest.cpp, TreeNode.h/cpp, Makefile-pizza
 
 ### In-lab ###
 
-1. Implement a binary search tree
+1. Implement a binary search tree, as described below
 3. Files to download: [BinaryNode.h](code/inlab/BinaryNode.h.html) ([src](code/inlab/BinaryNode.h)), [BinaryNode.cpp](code/inlab/BinaryNode.cpp.html) ([src](code/inlab/BinaryNode.cpp)), [BinarySearchTree.h](code/inlab/BinarySearchTree.h.html) ([src](code/inlab/BinarySearchTree.h)), [BinarySearchTree.cpp](code/inlab/BinarySearchTree.cpp.html) ([src](code/inlab/BinarySearchTree.cpp)), [BSTPathTest.cpp](code/inlab/BSTPathTest.cpp.html) ([src](code/inlab/BSTPathTest.cpp)), [testfile1.txt](code/inlab/testfile1.txt) ([output](code/inlab/testfile1.out.txt)), [testfile2.txt](code/inlab/testfile2.txt) ([output](code/inlab/testfile2.out.txt)), [testfile3.txt](code/inlab/testfile3.txt) ([output](code/inlab/testfile3.out.txt)). These files are contained in the inlab/ directory of the [code.zip](code.zip) file.
 4. Files to submit: BinarySearchTree.h, BinarySearchTree.cpp, BinaryNode.h, BinaryNode.cpp, BSTPathTest.cpp, Makefile, and any other files needed to make your code compile.
 
 ### Post-lab ###
 
-1. Implement an AVL tree
+1. Implement an AVL tree, as described below
 2. Write a PDF report describing the performance of BSTs and AVL trees
 3. Files to download: [AVLNode.h](code/postlab/AVLNode.h.html) ([src](code/postlab/AVLNode.h)), [AVLNode.cpp](code/postlab/AVLNode.cpp.html) ([src](code/postlab/AVLNode.cpp)), [AVLTree.h](code/postlab/AVLTree.h.html) ([src](code/postlab/AVLTree.h)), [AVLTree.cpp](code/postlab/AVLTree.cpp.html) ([src](code/postlab/AVLTree.cpp)), [AVLPathTest.cpp](code/postlab/AVLPathTest.cpp.html) ([src](code/postlab/AVLPathTest.cpp)), [testfile1.txt](code/postlab/testfile1.txt) ([output](code/postlab/testfile1.out.txt)), [testfile2.txt](code/postlab/testfile2.txt) ([output](code/postlab/testfile2.out.txt)), [testfile3.txt](code/postlab/testfile3.txt) ([output](code/postlab/testfile3.out.txt)). These files are contained in the postlab/ directory of the [code.zip](code.zip) file.
-4. Files to submit: AVLTree.h, AVLTree.cpp, AVLNode.h, AVLNode.cpp, AVLPathTest.cpp, Makefile, any other files needed to make your code compile, analysis.pdf (see the post-lab section for formatting details)
+4. Files to submit: AVLTree.h, AVLTree.cpp, AVLNode.h, AVLNode.cpp, AVLPathTest.cpp, Makefile, analysis.pdf, and any other files needed to make your code compile (see the post-lab section for formatting details)
 
 ------------------------------------------------------------
 
@@ -57,7 +55,7 @@ For the pre-lab you will be using a stack to help you read in a postfix expressi
 
 ### Implementation ###
 
-Your tree calculator will read in well-formed expressions in postfix notation.  You will need to build an expression tree using the algorithm described in the [Wikipedia article on Expression trees](http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_expression_tree).  Trees similar to this type of expression tree are used extensively in compilers.
+Your tree calculator will read in well-formed expressions in postfix notation.  You will need to build an expression tree using the algorithm described in the [Wikipedia article on Expression trees](http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_expression_tree) and the [trees slide set](../../slides/05-trees.html).  Trees similar to this type of expression tree are used extensively in compilers.
 
 Your fully functional tree calculator must:
 
@@ -76,7 +74,7 @@ Your fully functional tree calculator must:
 - Print the result to the screen
 - Have no memory leaks
 
-Additionally, you should use the skeleton source files in the prelab directory of [code.zip](code.zip) as a basis for your tree calculator.
+Additionally, you should use the skeleton source files in the prelab/ directory of [code.zip](code.zip) as a basis for your tree calculator.
 You may modify and add to the skeleton code as you see fit, but TreeCalcTest, TreeNode, `readInput()`, and `printOutput()` must NOT be modified.
 
 ### Sample Execution Run ###
@@ -106,13 +104,13 @@ You should submit any files required for your tree calculator to run as well as 
 
 ### Hints ###
 
-#### Recursion is the way to go ####
-Recursion is very useful in traversing the expression tree.
-You'll need to use recursion for many of the TreeCalc methods.
+**Recursion is the way to go:** Recursion is very useful in traversing
+the expression tree.  You'll need to use recursion for many of the
+TreeCalc methods.
 
-#### Printing in the right order ####
-Draw a simple tree and see how you should recurse in order to hit each node in the correct order.
-Need more help? Check the Wikipedia article linked in the Readings section!
+**Printing in the right order:** Draw a simple tree and see how you
+should recurse in order to hit each node in the correct order.  Need
+more help? Check the Wikipedia article linked in the Readings section!
 
 ------------------------------------------------------------
 
@@ -123,9 +121,9 @@ For this in-lab, you will implement a binary search tree.
 
 ### BST Implementation ###
 
-The necessary files are in the inlab directory of [code.zip](code.zip).
+The necessary files are in the inlab/ directory of [code.zip](code.zip).
 
-The required class declarations are located in [BinaryNode.h](code/inlab/BinaryNode.h.html) ([src](code/inlab/BinaryNode.h)) and [BinarySearchTree.h](code/inlab/BinarySearchTree.h.html) ([src](code/inlab/BinarySearchTree.h)). You may want to create private helper methods for BinarySearchTree, as done for the implementation of `remove`, which is already provided for you. The private methods take BinaryNodes as parameters which allow them to recurse over a subtree, a common implementation technique.
+The required class declarations are located in [BinaryNode.h](code/inlab/BinaryNode.h.html) ([src](code/inlab/BinaryNode.h)) and [BinarySearchTree.h](code/inlab/BinarySearchTree.h.html) ([src](code/inlab/BinarySearchTree.h)). You may want to create private helper methods for BinarySearchTree, as done for the implementation of `remove()`, which is already provided for you. The private methods take BinaryNodes as parameters which allow them to recurse over a subtree, a common implementation technique.
 
 You should use [BSTPathTest.cpp](code/inlab/BSTPathTest.cpp.html) ([src](code/inlab/BSTPathTest.cpp)) to test your implementation, but you may NOT change it.
 
@@ -141,7 +139,7 @@ The test program reads a sequence of instruction/word pairs and attempts to oper
 
 The Lookup instruction will call the `pathTo()` method defined on your tree. `pathTo()` must return a string representing the nodes encountered when finding an element. For instance in the following image, the bold lines indicate the path taken for locating element W.
 
-![avl-tree-pic-1](avl-tree-pic-1.png)
+![](avl-tree-pic-1.png)
 
 `pathTo("W")` would then return the string `"M P Z W"`. Calling `pathTo()` on an element that doesn't exist would result in an empty string `""`.
 
@@ -149,30 +147,32 @@ The Lookup instruction will call the `pathTo()` method defined on your tree. `pa
 
 You should submit your BST, any supporting C++ files, as well as a Makefile to compile everything into an `a.out` executable.
 
-**IMPORTANT NOTE:** You need to add the following flag as an option to your CXXFLAGS variable in your makefile: **-std=c++11**. WHY? The code we are providing uses some "newer" features of C++ that the grading server won't compile with by default. If you don't add this, your code might compile on your laptop but not the grading server when you submit.
-
 ### Hints ###
 
-#### Private methods ####
-Following the suggestion to implement private versions of all the public methods that take in BinaryNodes will help considerably.
+**Private methods:** Following the suggestion to implement private
+versions of all the public methods that take in BinaryNodes will help
+considerably.  How should your public method interact with the private
+version? In other words, what node should the public method pass in?
 
-How should your public method interact with the private version? In other words, what node should the public method pass in?
-
-#### Passing pointers by reference ####
-When a pointer is passed by reference, that allows us to change not only the data that the pointer is pointing to, but also _what the pointer is pointing to in the first place_.
-This is one option that allows you to change the structure of your tree without having to use parent pointers.
+**Passing pointers by reference:** When a pointer is passed by
+reference, that allows us to change not only the data that the pointer
+is pointing to, but also _what the pointer is pointing to in the first
+place_.  This is one option that allows you to change the structure of
+your tree without having to use parent pointers.
 
 ------------------------------------------------------------
 
 Post-lab
 --------
 
-The objective of this post-lab is to understand the runtime characteristics and trade-offs between normal Binary search trees and AVL trees. You will have to implement an AVL tree and write a brief report to compare its performance with the Binary search tree implemented for the in-lab.
+The objective of this post-lab is to understand the run-time characteristics and trade-offs between normal Binary search trees and AVL trees. You will have to implement an AVL tree and write a brief report to compare its performance with the Binary search tree implemented for the in-lab.
 
 ### AVL Implementation ###
 
-The structure of the provided AVL starter code is analogous to that of the BST, and is not discussed in further detail here.
-The starter files are in the postlab directory of [code.zip](code.zip).
+The structure of the provided AVL starter code is analogous to that of
+the BST, and is not discussed in further detail here.  The starter
+files are in the postlab/ directory of [code.zip](code.zip).  The
+comments in the code of the starter files help explain where to start.
 
 You may test your implementation with the same test files as before, though the expected output will be different ([output of testfile1](code/postlab/testfile1.out.txt), [output of testfile2](code/postlab/testfile2.out.txt), [output of testfile3](code/postlab/testfile3.out.txt)).
 
