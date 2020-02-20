@@ -67,7 +67,7 @@ Your fully functional tree calculator must:
     - `/`: integer division
 - Build an expression tree using the items in the stack
 - Print the resulting expression tree as a postfix, infix, and prefix expression, in the following format:
-    - One space between each value (leading and trailing spaces are acceptable)
+    - One space between each value, excluding parentheses (leading and trailing spaces are acceptable)
     - Parentheses around every infix operation, regardless of operator precedence
     - A single line that terminates with a newline character
 - Calculate the result of your expression using the expression tree
@@ -110,7 +110,7 @@ TreeCalc methods.
 
 **Printing in the right order:** Draw a simple tree and see how you
 should recurse in order to hit each node in the correct order.  Need
-more help? Check the Wikipedia article linked in the Readings section!
+more help? Check the [Wikipedia article](http://en.wikipedia.org/wiki/Expression_tree)!
 
 ------------------------------------------------------------
 
