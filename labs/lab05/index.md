@@ -17,6 +17,9 @@ A binary tree is a tree with a maximum of two children per node.  Tree traversal
 
 A binary search tree is a binary tree that imposes an ordering on its nodes. A node's left child has a lesser value, while its right child has a greater value. Binary search trees are useful for efficient insertion, deletion, and lookup of items with a certain key. As we'll see in this lab, variations of binary search trees offer different performance characteristics.
 
+### Tutorial ###
+
+Complete the [Makefile tutorial](../../tutorials/05-make/index.html).  You will need to know how to write one for the in-lab and post-lab, since all the following labs will be compiled via Makefiles. There is one file that needs to be submitted from the tutorial -- you must name this file `Makefile-pizza`.
 
 ### Recommended Readings ###
 
@@ -28,20 +31,19 @@ Procedure
 
 ### Pre-lab ###
 
-1. Create a postfix tree calculator, as described below
-2. Complete the [Makefile tutorial](../../tutorials/05-make/index.html).  You will need to know how to write one for the in-lab and post-lab, since all the following labs will be compiled via Makefiles. There is one file that needs to be submitted from the tutorial -- you must name this file `Makefile-pizza`.
+1. Create a postfix tree calculator
 5. Files to download: [TreeCalc.h](code/prelab/TreeCalc.h.html) ([src](code/prelab/TreeCalc.h)), [TreeCalc.cpp](code/prelab/TreeCalc.cpp.html) ([src](code/prelab/TreeCalc.cpp)), [TreeNode.h](code/prelab/TreeNode.h.html) ([src](code/prelab/TreeNode.h)), [TreeNode.cpp](code/prelab/TreeNode.cpp.html) ([src](code/prelab/TreeNode.cpp)), and  [TreeCalcTest.cpp](code/prelab/TreeCalcTest.cpp.html) ([src](code/prelab/TreeCalcTest.cpp)).  These files are contained in the prelab/ directory of the [code.zip](code.zip) file.
 6. Files to submit: TreeCalc.h/cpp, TreeCalcTest.cpp, TreeNode.h/cpp, Makefile-pizza
 
 ### In-lab ###
 
-1. Implement a binary search tree, as described below
+1. Implement a binary search tree
 3. Files to download: [BinaryNode.h](code/inlab/BinaryNode.h.html) ([src](code/inlab/BinaryNode.h)), [BinaryNode.cpp](code/inlab/BinaryNode.cpp.html) ([src](code/inlab/BinaryNode.cpp)), [BinarySearchTree.h](code/inlab/BinarySearchTree.h.html) ([src](code/inlab/BinarySearchTree.h)), [BinarySearchTree.cpp](code/inlab/BinarySearchTree.cpp.html) ([src](code/inlab/BinarySearchTree.cpp)), [BSTPathTest.cpp](code/inlab/BSTPathTest.cpp.html) ([src](code/inlab/BSTPathTest.cpp)), [testfile1.txt](code/inlab/testfile1.txt) ([output](code/inlab/testfile1.out.txt)), [testfile2.txt](code/inlab/testfile2.txt) ([output](code/inlab/testfile2.out.txt)), [testfile3.txt](code/inlab/testfile3.txt) ([output](code/inlab/testfile3.out.txt)). These files are contained in the inlab/ directory of the [code.zip](code.zip) file.
 4. Files to submit: BinarySearchTree.h, BinarySearchTree.cpp, BinaryNode.h, BinaryNode.cpp, BSTPathTest.cpp, Makefile, and any other files needed to make your code compile.
 
 ### Post-lab ###
 
-1. Implement an AVL tree, as described below
+1. Implement an AVL tree
 2. Write a PDF report describing the performance of BSTs and AVL trees
 3. Files to download: [AVLNode.h](code/postlab/AVLNode.h.html) ([src](code/postlab/AVLNode.h)), [AVLNode.cpp](code/postlab/AVLNode.cpp.html) ([src](code/postlab/AVLNode.cpp)), [AVLTree.h](code/postlab/AVLTree.h.html) ([src](code/postlab/AVLTree.h)), [AVLTree.cpp](code/postlab/AVLTree.cpp.html) ([src](code/postlab/AVLTree.cpp)), [AVLPathTest.cpp](code/postlab/AVLPathTest.cpp.html) ([src](code/postlab/AVLPathTest.cpp)), [testfile1.txt](code/postlab/testfile1.txt) ([output](code/postlab/testfile1.out.txt)), [testfile2.txt](code/postlab/testfile2.txt) ([output](code/postlab/testfile2.out.txt)), [testfile3.txt](code/postlab/testfile3.txt) ([output](code/postlab/testfile3.out.txt)). These files are contained in the postlab/ directory of the [code.zip](code.zip) file.
 4. Files to submit: AVLTree.h, AVLTree.cpp, AVLNode.h, AVLNode.cpp, AVLPathTest.cpp, Makefile, analysis.pdf, and any other files needed to make your code compile (see the post-lab section for formatting details)
