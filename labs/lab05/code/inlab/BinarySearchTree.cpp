@@ -40,7 +40,7 @@ BinaryNode* BinarySearchTree::remove(BinaryNode*& n, const string& x) {
             n = NULL;
             return NULL;
         } else if (n->left == NULL) {
-            // single child (left)
+            // single child (right)
             // remove current node and return right child node for parent
             BinaryNode* temp = n->right;
             n->right = NULL;
@@ -48,7 +48,7 @@ BinaryNode* BinarySearchTree::remove(BinaryNode*& n, const string& x) {
             n = NULL;
             return temp;
         } else if (n->right == NULL) {
-            // single child (right)
+            // single child (left)
             // remove current node and return left child node for parent
             BinaryNode* temp = n->left;
             n->left = NULL;
