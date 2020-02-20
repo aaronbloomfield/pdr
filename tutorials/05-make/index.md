@@ -25,7 +25,7 @@ There are a number of things going on here.  First, clang++ will *compile* each 
 
 While it may seem a bit more complicated to do this in two separate steps, it turns out to be very useful if you have a very large program -- such as hundreds (or thousands) of .cpp files.  If you modify only one file, you just have to compile that single file, and then link everything together.  Specifically, you don't have to compile all the other files again.  So far, we have been telling the compiler to do these two commands at the same time (i.e., `clang++ postfixCalculator.cpp stack.cpp testPostfixCalc.cpp` or `clang++ *.cpp`).  This tells clang++ to compile each file separately, and then link them together to create the executable a.out.
 
-If you specify the -c option to clang++, it tells the compiler to just compile the file, but do not link it.  The result of this compilation is called an *object file*, and has a .o extension.  This, if you call `clang++ -c postfixCalculator.cpp`, the compiler will create a foo.o file.  You will need to compile each .cpp file in this way.
+If you specify the -c option to clang++, it tells the compiler to just compile the file, but do not link it.  The result of this compilation is called an *object file*, and has a .o extension.  Thus, if you call `clang++ -c postfixCalculator.cpp`, the compiler will create a postfixCalculator.o file.  You will need to compile each .cpp file in this way.
 
 ```
 clang++ -c postfixCalculator.cpp
@@ -70,7 +70,7 @@ Try running `make` again.  Notice that it will not recompile anything, as none o
 
 Edit the 'peppers.cpp' file.  Nothing complicated -- just put in a comment (such as your name) at the top.  Specifically, we don't want to change any of the source code, only the comments.  Save the file, and run `make` again.  Notice that it recompiled two files (peppers.cpp and toppings.cpp), and then re-linked the program.  In particular, it did not need to recompile the other files.
 
-But why did it recompile toppings.cpp?  It makes sense that it recompiled peppers.cpp, as that file was modified (note that a computer can't easily tell that only the comments were modified).  As we'll see in a bit, there was a *prerequisite* -- meaning that the Makefile specifically stated that when peppers.cpp is modified, then toppings.cpp should also be recompiled (into toppings.o).
+But why did it recompile toppings.cpp?  It makes sense that it recompiled peppers.cpp, as that file was modified (note that a computer can't easily tell that only the comments were modified).  As we'll see in a bit, there was a *prerequisite* -- meaning that the Makefile specifically stated that when peppers.cpp is modified, toppings.cpp should also be recompiled (into toppings.o).
 
 The default name for a Makefile is just 'Makefile' (note the capitalization).  You can name it something else (how to do this is at the very end of this tutorial), but it's easier to keep this naming convention.  If you name it something else, you will need to call make with the -f flag: `make -f Makefile-by-any-other-name`.
 
@@ -81,7 +81,7 @@ Put your name and lab section as a comment at the top of the Makefile.
 
 ### Variables ###
 
-Variables allow a programmer to easily specify the compiler used, compiler arguments, file paths, targets, and pretty much anything else that one may need to specify when compiling a file.  For example, you can specify to always compile with the '-Wall' option (which will list all warnings while compiling), or use a variable to store all the object files your program needs.
+Variables allow a programmer to easily specify the compiler used, compiler arguments, file paths, targets, and pretty much anything else that one may need to specify when compiling a file.  For example, you can specify to always compile with the '-Wall' option (which will list all warnings while compiling), and/or use a variable to store all the object files your program needs.
 
 The following is a list of some predefined variables in make (taken from the [GNU make Manual](https://www.gnu.org/software/make/manual/), specifically [section 10.3](https://www.gnu.org/software/make/manual/html_node/Implicit-Variables.html#Implicit-Variables)):
 
@@ -99,7 +99,7 @@ In the pizza Makefile, the first variable in the file is:
 CXX=clang++ $(CXXFLAGS)
 ```
 
-This line defines the C++ compiler to be 'clang++'.  It also specifies to put any clang++ flags after the compiler command -- so if we defined the flags to be '-Wall', then each compilation by `$(CXX)` would include that option.  We don't define CXXFLAGS in that file, but it's a good idea to put CXXFLAGS there, so that if we do add a CXXFLAGS variable, we won't have to make any other changes.
+This line defines the C++ compiler to be 'clang++'.  It also specifies to put any clang++ flags after the compiler command -- so if we defined the flags to be '-Wall', then each compilation by `$(CXX)` would include that option.
 
 To use a variable, surround it by $ and parentheses.  For example, `$(CXX) project.cpp` would substitute the value of the `CXX` variable and result in `clang++ project.cpp`.
 
@@ -175,7 +175,7 @@ Creating these prerequisite lists are essential for a properly functioning Makef
 clang++ -MM *.cpp
 ```
 
-The '-MM' switch tells clang++ to look through each of the files that end in .cpp, and generate Makefile-style prerequisites.  The output would be the following:
+The '-MM' flag tells clang++ to look through each of the files that end in .cpp, and generate Makefile-style prerequisites.  The output would be the following:
 
 ```
 cheese.o: cheese.cpp cheese.h

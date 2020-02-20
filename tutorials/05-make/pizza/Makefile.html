@@ -12,7 +12,8 @@ http://www.gnu.org/software/src-highlite">
 <pre><i><span style="color:#9A1900"># This is a comment</span></i>
 
 <span style="color:#009900">CXX=</span>clang<span style="color:#990000">++</span> <span style="color:#009900">$(CXXFLAGS)</span>
-<span style="color:#009900">DEBUG=</span>-Wall -g
+<span style="color:#009900">CXXFLAGS=</span>-std<span style="color:#990000">=</span>c<span style="color:#990000">++</span><span style="color:#993399">11</span> -Wall <i><span style="color:#9A1900"># Compile using the C++11 standard and enable all warnings</span></i>
+<span style="color:#009900">DEBUG=</span>-g
 
 <span style="color:#990000">pizza:</span> pizza.o pizzadough.o tomatosauce.o toppings.o mushrooms.o peppers.o cheese.o pepperoni.o
 	<span style="color:#009900">$(CXX)</span> <span style="color:#009900">$(DEBUG)</span> pizza.o pizzadough.o tomatosauce.o toppings.o mushrooms.o peppers.o cheese.o pepperoni.o -o pizza
