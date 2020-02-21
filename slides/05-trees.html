@@ -71,6 +71,7 @@
 [Binary Search Trees](#/bsts)  
 [Expression Trees](#/exptrees)  
 [AVL Trees](#/avltrees)  
+[Recursion](#/recursion)  
 [Red-black Trees](#/redblacktrees)  
 [Splay Trees](#/splaytrees)  
 [Applications](#/applications)  
@@ -908,6 +909,208 @@ Note that the trees shown are not necessarily AVL trees, but the rotations are c
 
 
 	<section>
+
+	  <section id="recursion" data-markdown><script type="text/template">
+# Recursion
+	  </script></section>
+
+
+<section data-markdown><script type="text/template">
+## Sum the numbers from 1 to n
+
+- We can do it iteratively:
+```
+int sum (int n) {
+    int s = 0;
+    for ( int i = 1; i <= n; i++ )
+        s += i;
+	return s;
+}
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Sum the numbers from 1 to n
+
+- We can do it *recursively*:
+```
+int sum (int n) {
+    return n + sum (n-1);
+}
+```
+What problems arise?
+</script></section>
+
+	  <section data-markdown><script type="text/template">
+## Recursion
+- Recursion always needs three things to work:
+  - A way to make the problem *simpler* or smaller
+  - A way to *detect* when it should terminate or end
+  - A way to *terminate* or end
+- The last example didn't end (among other issues)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Sum the numbers from 1 to n
+
+- We can do it *recursively*, but right this time:
+```
+unsigned int sum (unsigned int n) {
+    if ( n == 0 )
+	    return 0;
+	else
+        return n + sum (n-1);
+}
+```
+- Making the problem simpler is the `sum(n-1)`
+- Detecting when to end is the `if (n==0)`
+- Termination is the `return 0`
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Factorial via recursion
+
+- We can do factorial recursively also:
+```
+unsigned long fact (unsigned long n) {
+    if ( n == 0 )
+	    return 1;
+	else
+        return n * fact (n-1);
+}
+```
+- Making the problem simpler is the `fact(n-1)`
+- Detecting when to end is the `if (n==0)`
+- Termination is the `return 1`
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Recursion: pros and cons
+- Pros
+  - It's a more natural way to think of the problem, as you only focus on that one "instance"
+  - Some problems work well with recursion, but not with iteration (such as tree traversals)
+- Cons
+  - Invoking a subroutine at each step slows performance
+    - We'll see a way to solve that shortly...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Recursion: Fibonacci sequence
+```
+unsigned int fib (unsigned int n) {
+    if ( n <= 1 )
+	    return 1;
+	else
+	    return fib(n-1) + fib(n-2);
+}
+```
+- Making the problem simpler is the `fib(n-1)` and the `fib(n-2)`
+- Detecting when to end is the `if (n<=1)`
+- Termination is the `return 1`
+
+(this one example is horrendously inefficient, and there are many better ways to handle this, but we won't see them here)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Recursion on trees
+```
+void func (BinaryeNode *node) {
+    if ( node == NULL )
+	    return;
+    func (node->left);
+    do_something_with_node_value (node);
+    func (node->right);
+}
+```
+- Making the problem simpler is the `func(node->left)` and the `func(node->right)`
+- Detecting when to end is the `if (node==NULL)`
+- Termination is the `return`
+
+You cannot traverse a tree via iteration!  (at least not easily)
+</script></section>
+
+	  <section data-markdown><script type="text/template">
+## Recursion on lists
+- Yes, you can do recursion on lists:
+```
+bool is_in_list (int x, ListNode *l) {
+    if ( l == NULL )
+	    return false;
+    else if ( x == l->value )
+	    return true;
+	else
+	    return is_in_list (x, l->next);
+}
+```
+- We are ignoring `private` visibility concerns here
+- And yes, this example probably would be better with iteration
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Tail recursion
+In the non-tail recursive version of `sum()`:
+```
+unsigned int sum (unsigned int n) {
+    if ( n == 0 )
+	    return 0;
+	else
+        return n + sum (n-1);
+}
+```
+Note that after the recursive call returns, we have to do something to it (add n) and then return that value
+	  </script></section>
+	  <section data-markdown><script type="text/template">
+## Tail recursion
+In the tail recursive version of `sum()`:
+```
+unsigned int sum (unsigned int n, unsigned int s) {
+    if ( n == 0 )
+	    return s;
+	else
+        return sum (n-1, n+s);
+}
+```
+- We invoke it with `sum(n,0)`
+- Note that the return value of the recursive call is the *only* thing returned by this call
+- In effect, the return of the recursive call can *replace* the return of the one-level-up call
+	</script></section>
+
+	  <section data-markdown><script type="text/template">
+## Why tail recursion
+- Compilers recognize tail recursion, and convert it into a `for` loop
+  - And then optimize it, so there is no subroutine invocation penalty
+- So we get to write it (tail) recursively, and still get the speed benefits of iteration
+- Note that not all problems can be solved with tail recursion
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Factorial via tail recursion
+```
+unsigned long fact_tr (unsigned int n, unsigned long s) {
+    if ( n == 0 )
+	    return s;
+	else
+	    return fact (n-1, n*s);
+}
+
+unsigned long fact (unsigned int n) {
+    return fact_tr (n,1);
+}
+```
+</script></section>
+
+	  <section data-markdown><script type="text/template">
+## Recursion
+> recursion: n.
+> See recursion. See also tail recursion.
+      </script></section>
+
+	</section>
+
+
+
+
+	  <section>
 
 	  <section id="redblacktrees" data-markdown><script type="text/template">
 # Red-black Trees
