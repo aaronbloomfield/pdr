@@ -11,7 +11,11 @@ The purpose of this lab is to gain experience using hash tables by building an i
 
 A [hash table](https://en.wikipedia.org/wiki/Hash_table) is a dictionary in which keys are mapped to array positions by a *hash function*. Having more than one key map to the same position is called a *collision*. There are many ways to resolve collisions, but they may be divided into two primary strategies: separate chaining and open addressing.
 
-### Reading(s): ###
+### Tutorial ###
+
+Look over the first 6 sections (through and including 'exit status') of the [Wikibooks article on Bash Shell Scripting](https://en.wikibooks.org/wiki/Bash_Shell_Scripting).  You will be writing a shell script during the in-lab, but you should probably start reading it before then.  The remaining sections of that article will be the tutorial for the next lab, so feel free to read on, if you are interested.
+
+### Recommended Readings ###
 
 1. Learn how to use C++ file streams to read from data files. See the [Input/output with files article](http://www.cplusplus.com/doc/tutorial/files/) on [cplusplus.com](http://www.cplusplus.com/).  You can also see the code in the provided [getWordInGrid.cpp](code/getWordInGrid.cpp.html) ([src](code/getWordInGrid.cpp)) file which uses streams as well.  You may want to use the [good()](http://www.cplusplus.com/reference/fstream/ifstream/) method in the ifstream class -- you can put it in a `while` loop: `while (foo.good())`.
 
@@ -20,42 +24,30 @@ Procedure
 
 ### Pre-lab ###
 
-1. Implement a solution to the word puzzle problem described below.
-2. Your program should take in two file names as command-line arguments, and should NOT ask for any input.  The command-line arguments are the dictionary filename and the grid filename, in that order.
-3. Place the timer calls before and after your code.  Note that the time you spend building the hash table should not be inside the timer calls -- only the code that finds the words in the grid.  An actual time from a running of your program should be listed as a comment at the top of wordPuzzle.cpp.
-4. The output you produce should match the format of the sample output files given in the labs/lab06/data/ directory, and should be printed to standard output.  In other words, your results should be printed using `cout` statements.  Your output **must** conform to the output format described below!
-5. Calculate the big-theta running time of the word-search portion of your application (the file-reading and hash table creation time complexity should not be included in this expression).  This should be listed as a comment at the top of wordPuzzle.cpp.
-6. You will need to create a Makefile for this lab.  Your executable that `make` creates **MUST** be called a.out.  This means that you must NOT specify a -o flag to clang++, otherwise it will not work on the grading server!  Just let clang++ name it the default without specifying a -o flag.
-7. Because the pre-lab in this assignment is a bit long, this week's Unix tutorial is part of the in-lab.
-8. Note that you will be submitting different word puzzle code during the post-lab, so your pre-lab code must still work.  But it need not be efficient -- that's for the post-lab.
-9. Look over the shell script tutorial for this lab, which is the first 6 sections (through and including 'exit status') of the [Wikibooks article on Bash Shell Scripting](http://en.wikibooks.org/wiki/Bash_Shell_Scripting).  You will be writing a shell script during the in-lab, but you should probably start reading it before then.  The remaining sections of that article will be the tutorial for the next lab, so feel free to read on, if you are interested.
-10. Don't forget to put your name, date, and lab section at the top of each of your source code files!
-11. Files to download: 
-     - The 5 provided code files: [getWordInGrid.cpp](code/getWordInGrid.cpp.html) ([src](code/getWordInGrid.cpp)), [primenumber.cpp](code/primenumber.cpp.html) ([src](code/primenumber.cpp)), [timer.cpp](code/timer.cpp.html) ([src](code/timer.cpp)), [timer.h](code/timer.h.html) ([src](code/timer.h)), [timer_test.cpp](code/timer_test.cpp.html) ([src](code/timer_test.cpp)).  These can also be downloaded all at once via the [code.zip](code.zip) file.
-     - The data files in the labs/lab06/data/ directory.  These can also be downloaded all at once via the [data.zip](data.zip) file.
-11. Files to submit: Makefile, wordPuzzle.cpp, timer.h/cpp, hashTable.h/cpp (see below for details)
+1. Create a word puzzle solver
+2. Programmatically time how fast your program takes to run
+3. Calculate the big-theta running time of the word-search portion of your solver
+4. Files to download: 
+    - The 5 provided code files: [getWordInGrid.cpp](code/getWordInGrid.cpp.html) ([src](code/getWordInGrid.cpp)), [primenumber.cpp](code/primenumber.cpp.html) ([src](code/primenumber.cpp)), [timer.cpp](code/timer.cpp.html) ([src](code/timer.cpp)), [timer.h](code/timer.h.html) ([src](code/timer.h)), [timer_test.cpp](code/timer_test.cpp.html) ([src](code/timer_test.cpp)).  These can also be downloaded all at once via the [code.zip](code.zip) file.
+    - The data files in the labs/lab06/data/ directory.  These can also be downloaded all at once via the [data.zip](data.zip) file.
+5. Files to submit: Makefile, wordPuzzle.cpp, timer.h/cpp, hashTable.h/cpp
 
 ### In-lab ###
 
-1. Read through the in-lab section below.  Make sure you understand what the new clang++ flag (-O2) does, and how to handle input and output.
-2. Verify with the TA the correct placement of the timer calls.
-3. Verify that your program gets the correct solution for the 250x250 grid using words.txt as the dictionary, and the 300x300 grid using words2.txt as the dictionary.  The output files for these runs are in the labs/lab06/data/ directory.
-4. Read the shell script tutorial for this lab, which part of the [Wikibooks article on Bash Shell Scripting](http://en.wikibooks.org/wiki/Bash_Shell_Scripting); the specific sections are mentioned on the [tutorials page](../../tutorials/index.html) ([md](../../tutorials/index.md))
-5. Write the shell script described in the in-lab section (averagetime.sh).
-6. Your shell script *must* call a.out!  Otherwise it will not work, and will receive points off.
-7. Create inlab6.pdf (see the in-lab section for formatting details), containing the complexity evaluation and the results of your program executions.  See the in-lab section for details about what to include therein.
-8. If you finish the in-lab early, you should start on the post-lab optimizations.
-9. Files to download: just your pre-lab files
-10. Files to submit: averagetime.sh, inlab6.pdf
+1. Learn about the `-O2` clang++ optimization flag
+2. Compare your output with the expected output using output redirection, pipes, and Unix commands
+3. Test your program with the 250x250 grid using words.txt, and the 300x300 grid using words2.txt
+4. Create a shell script to calculate the average running time of your program
+5. Write a report on the time complexity of your program and the results of its execution
+6. Files to download: none
+7. Files to submit: averagetime.sh, inlab6.pdf
 
 ### Post-lab ###
 
-1. Optimize your implementation of the word puzzle solver.  Your program should produce the same output as the sample output files in the labs/lab06/data/ directory (your program can contain output such as timer results, as described in the in-lab section).  The input (i.e., the command-line parameters) is the exact same as for the pre-lab.
-2. The various optimizations allowed are listed in the description of the word puzzle problem as well as the post-lab section.  You will have to include a description of the optimization methods used in the post-lab report.  Your Makefile should be modified for the post-lab (probably just adding -O2).
-3. Create postlab6.pdf file (see the post-lab section for formatting details), containing the post-lab report (see below).
-4. Don't forget to put your name, date, and lab section at the top of each of your source code files!
-5. Files to download: none beyond what has already been downloaded
-6. Files to submit: the files containing your post-lab code (Makefile, wordPuzzle.cpp, timer.h/cpp, hashTable.h/cpp), the post-lab report (postlab6.pdf -- see the post-lab section for formatting details)
+1. Optimize your implementation of the word puzzle solver
+2. Write a report on the running time of your program and the optimizations you applied
+3. Files to download: none
+4. Files to submit: Makefile, wordPuzzle.cpp, timer.h/cpp, hashTable.h/cpp, postlab6.pdf
 
 ------------------------------------------------------------
 
@@ -80,9 +72,9 @@ A string of letters from the grid will depend on four values:
 
 This implies that your code will have quad-nested `for` loops.
 
-The goal for the pre-lab is to get your puzzle solver working, using a hash table that you write, without worrying about efficiency.  The goal of the post-lab is to increase it's efficiency.
+The goal for the pre-lab is to get your puzzle solver working, using a hash table that you write, without worrying about efficiency.  The goal of the post-lab is to increase its efficiency.
 
-A few notes about the length of the words: the program to implement will not consider words of length less than 3, and the maximum word length is a constant (which is defined as the longest word in the input dictionary file provided to the program at run-time).
+A few notes about the length of the words: your solver should not consider words of length less than 3, and the maximum word length is a constant (which is defined as the longest word in the input dictionary file provided to the program at run-time).
 
 There are a number of optimizations that one can implement, a few of which are mentioned here.  Depending on how you implement them, they may not work all that well, of course.
 
@@ -100,30 +92,30 @@ Pre-lab
 
 For this lab you need to implement a solution to the word puzzle problem described above.
 
-The basic idea is that given a dictionary of words, we want to write a program that finds all instances of those words in a grid of letters.  This is similar to  the [word search](https://en.wikipedia.org/wiki/Word_search) puzzles where you circle the words, horizontally, vertically or diagonally in the grid.  As specified above, words can appear in any order (including backwards) in the puzzle.  However, in our case you are not given the list of words to find, you are merely given the grid and told to find all the English words in the grid.  You will be given a dictionary (list) of English words, but you should expect this to be very large.  You will want to put this list of words into a hash table to facilitate quickly checking if a particular combination of letters is a word in the dictionary.
+The basic idea is that given a dictionary of words, we want to write a program that finds all instances of those words in a grid of letters.  This is similar to the [word search](https://en.wikipedia.org/wiki/Word_search) puzzles where you circle the words, horizontally, vertically or diagonally in the grid.  As specified above, words can appear in any order (including backwards) in the puzzle.  However, in our case you are not given the list of words to find, you are merely given the grid and told to find all the English words in the grid.  You will be given a dictionary (set) of English words, but you should expect this to be very large.  You will want to put this list of words into a hash table to facilitate quickly checking if a particular combination of letters is a word in the dictionary.
 
 You **must** write your own hash table for this lab.  You will be expected to be able to implement a hash table after completing the lab.  You should definitely stay away from templates for your implementation.  You may use separate chaining with buckets of any type you wish (linked list, etc., but **not** vectors) or open addressing with any collision resolution strategy you wish (linear probing, quadratic probing, double hashing).  The hash table itself will need to be an array or vector (you may use the STL vector for this); your separate chaining secondary data structure may also be from the STL.  Thus, you may use any data structures that you want EXCEPT a vector of vectors, which is specifically forbidden.  You can use a vector of linked lists, however.  Obviously, you cannot use any STL hash table implementation.
 
 We are not as interested in how fast this runs for the pre-lab; the fast implementation is for the post-lab.  
 
-Your program **MUST** take in the file names as command-line parameters, not as inputs to the program.  The first is the dictionary file, the second is the grid file.  Indeed, the program will ask for NO input, as the two inputs necessary (the two file names) are passed in as command-line parameters.  See the [slide set on arrays](../../slides/04-arrays-bigoh.html) if you need a refresher on command-line parameters; you can also see the [cmdlineparams.cpp](../../slides/code/04-arrays-bigoh/cmdlineparams.cpp.html) ([src](../../slides/code/04-arrays-bigoh/cmdlineparams.cpp)) file.
+Your program **MUST** take in the file names as command-line parameters and ask for no input.  The first parameter should be the dictionary file and the second should be the grid file.  See the [slide set on arrays](../../slides/04-arrays-bigoh.html) if you need a refresher on command-line parameters; you can also see the [cmdlineparams.cpp](../../slides/code/04-arrays-bigoh/cmdlineparams.cpp.html) ([src](../../slides/code/04-arrays-bigoh/cmdlineparams.cpp)) file.  We will be running your code using `./a.out <dictionary_file> <grid_file>`.
 
-The task for the pre-lab is to get the code working.  Optimization (reducing memory use, choosing the right collision resolution method, the right secondary data structure, different hash functions, etc.) is left to the post-lab.  You should have a fully functional program when you come to lab on Tuesday.
+The task for the pre-lab is to get the code working without regards to speed or efficiency.  You should have a fully functional program when you come to lab on Tuesday.
 
 As discussed in lecture, a hash table needs to be a prime number in size in order to work.  You can adapt the code in the [primenumber.cpp](code/primenumber.cpp.html) ([src](code/primenumber.cpp)) file to determine the next highest prime number (of course, the next highest prime number is determined after you double the size of your original hash table).
 
-Creating a dynamic 2-D array in C++ is more difficult than it should be -- one solution is to create a vector of vectors, but that is not the most efficient means to do it.  For this lab, you can just create a 500x500 static array, and can assume that you will not have your program run on larger input grids.  This is not very elegant, but it will work until we go over dynamic array creation in lecture.
+Creating a dynamic 2D array in C++ is more difficult than it should be -- one solution is to create a vector of vectors, but that is not the most efficient means to do it.  For this lab, you can just create a 500x500 static array, and can assume that you will not have your program run on larger input grids.  This is not very elegant, but it will work until we go over dynamic array creation in lecture.
 
-We provide you with a second C++ file, [getWordInGrid.cpp](code/getWordInGrid.cpp.html) ([src](code/getWordInGrid.cpp)), that provides two useful functions.  The first is `readInGrid()`, which will read in a grid file using C++ streams.  The grid file format (specified below) is very specific, and this code follows that specification.  Note that the `open()` method to `ifstream` (and `ofstream`) takes in a C-style string, NOT a C++-style string (you can convert use the `string::c_str()` method to convert a C++ string to a C string).  The second function, `getWordInGrid()`, will return a word in a 2-D grid of letters in a given direction.  Extensive comments in the getWordInGrid.cpp file explain how to use these functions.  Note that a couple of the items in that file require different `#include` headers, as mentioned in the comments.
+We provide you with a second C++ file, [getWordInGrid.cpp](code/getWordInGrid.cpp.html) ([src](code/getWordInGrid.cpp)), that provides two useful functions.  The first is `readInGrid()`, which will read in a grid file using C++ streams.  The grid file format (specified below) is very specific, and this code follows that specification.  The second function, `getWordInGrid()`, will return a word in a 2D grid of letters in a given direction.  Extensive comments in the getWordInGrid.cpp file explain how to use these functions.
 
-You must understand the concepts in the getWordInGrid.cpp file!  In particular, you will be expected to be able to program C++ streams for file input in future labs and exams.  And you will need to write your own C++ stream input routines to read in the dictionary file.  If there is anything there that you are confused about, see the Reading links at the beginning of this lab document.
+You must understand the concepts in the getWordInGrid.cpp file!  In particular, you will be expected to be able to program C++ streams for file input in future labs and exams.  You will also need to write your own C++ stream input routines to read in the dictionary file.  If there is anything there that you are confused about, see the Reading links at the beginning of this lab document.
 
-Somehow your program will need to handle input dictionaries of various sizes, and creating the appropriate size hash table.  To get the program working the first time, you can just hard code a prime number table size.  But at some point, you will have to handle different size hash tables.
+Your program will need to handle input dictionaries of various sizes and create hash tables of the appropriate size.  To get the program working the first time, you can just hard code a prime number table size.  But at some point, you will have to handle different size hash tables.
 
 - One option is to implement a `rehash()` function that will double the size of the array, hash all the old values into the new table, and then remove the old table.
 - A second option is to do two passes through the dictionary file.  The first time you count the number of elements, use that to create an appropriate sized hash table, and the second time through the dictionary file you insert all the words into the table itself.
 
-Note that you do not have to implement `delete()` functionality for your hash table.
+For this lab, your program is not required to be leak-free (though it would be good practice to make it so!).
 
 ### Submission requirements ###
 
@@ -144,9 +136,9 @@ You can submit other files, if you want, up to the maximum allowed by the submis
 
 **Timing:** Timer routines are available in the provided source code ([timer.cpp](code/timer.cpp.html) ([src](code/timer.cpp)), [timer.h](code/timer.h.html) ([src](code/timer.h)), and [timer_test.cpp](code/timer_test.cpp.html) ([src](code/timer_test.cpp))).  We are interested in timing how long it takes to find all valid words in a grid.  We are NOT interested in how long it takes to fill up the hash table initially.  Therefore you need to place your timing calls around the outermost loop that contains code in which the grid is actually searched.  
 
-**Valid words:** Your program should *only* report words with three or more letters -- there are simply too many hits if one and two letter words are allowed, and it's difficult to judge correctness, even on very small word searches.  This size (i.e. 3) can be hard-coded into your program.  Depending on how you've implemented your loop, this could be something as simple as a single test and a `continue` statement.  One and two letter words may occur in the dictionary file, but you are not required to put them in your hash table (although it is fine to do so). 
+**Valid words:** Your program should *only* report words with three or more letters -- there are simply too many hits if one and two letter words are allowed, and it's difficult to judge correctness, even on very small word searches.
 
-**Upper case / lower case:** You should be prepared for any English language alphabet characters of both cases.  Searches are *case-sensitive*.  Thus, if the word in the dictionary is 'Foo', it should not register a match to the text 'foo' in the grid.
+**Case sensitivity:** Searches are *case-sensitive*.  Thus, if the word in the dictionary is 'Foo', it should not register a match to the text 'foo' in the grid.
 
 **Duplicates:** If a word occurs more than once in a grid, then each instance should be treated as a separate word.
 
@@ -168,39 +160,19 @@ SW(0, 6):       tat
 Found all words in 0.000835 seconds
 ```
 
-We aren't so worried about the exact spacing, as we can easily (and automatically) ignore that when comparing your output to the desired output.  But the characters and punctuation should all be the same.  Note that the **order** the words are found does not matter, although they should all be listed before the last 2 summary lines at the bottom.  The in-lab discusses how to directly compare your output to the expected output (while ignoring spaces and word order) - see the "Input and Output" section of the in-lab.
-
-### Execution ###
-
-We are going to execute your code as follows:
-
-```
-./a.out <dictionary_file> <grid_file>
-```
-
-If your program attempts to get the dictionary file and grid file through standard input, it will not work properly and you will lose all credit.  So be sure to use command-line parameters!  See the section on handling command-line parameters, above.
+The exact spacing and order that the words are found in does not matter, as we can easily (and automatically) ignore that when comparing your output to the desired output.  Everything else should all be the same.  The in-lab discusses how to directly compare your output to the expected output (while ignoring spaces and word order) - see the "Input and Output" section of the in-lab.
 
 ------------------------------------------------------------
 
 In-lab
 ------
 
-### clang++ flags ###
+### The -O2 flag ###
 
-So far, we have learned a number of clang++ flags (-o, -g, -Wall, -c, -MM).  If you forget what these do, look at the [compilation flags](../../docs/compiler_flags.html) page.  We'll learn one other flag today: -O2.
-
-### clang++: -O2 ###
-
-There are many times when we want our executable program to run as fast as possible.  An example of this is the current lab -- as we are testing our programs for speed (and we want them to run fast), we want to tell the compiler to write an optimized executable.  To do this, we specify the -O2 flag (notice that the 'O' is capitalized).  The 'O' part stands for optimization level.  There are multiple optimization levels that clang++ provides, each with benefits and drawbacks.  The only allowable optimization level for this lab is 2 (i.e. '-O2', not any other number after the 'O').  For example, to compile this program, we would enter:
+There are many times when we want our executable program to run as fast as possible.  An example of this is the current lab -- as we are testing our programs for speed (and we want them to run fast), we want to tell the compiler to write an optimized executable.  To do this, we specify the '-O2' flag, short for "optimization level 2" (capital O).  There are multiple optimization levels that clang++ provides, each with benefits and drawbacks.  The only allowable optimization level for this lab is 2 (i.e. '-O2', not any other number after the 'O').  For example, to compile this program, we would enter:
 
 ```
 clang++ -O2 -Wall wordPuzzle.cpp timer.cpp hashTable.cpp
-```
-
-If the only files with a .cpp extension in the current directory are those three files, then we could also enter:
-
-```
-clang++ -O2 -Wall *.cpp
 ```
 
 If we wanted to use the -c flag (such as through a Makefile), then the commands would be:
@@ -212,17 +184,17 @@ clang++ -O2 -c hashTable.cpp
 clang++ -O2 wordPuzzle.o timer.o hashTable.o
 ```
 
-Note that on this last one, that the -O2 flag must be used on each of the individual compilations as well as the final link.  Thus, when put into a Makefile, you can make the CXX macro be `clang++ -O2`, so it will apply to all of the compilations.
+Note that on this last one, that the -O2 flag must be used on each of the individual compilations as well as the final link.  Thus, when put into a Makefile, you should make your CXXFLAGS variable include '-O2' so that it applies to all compilations.
 
-We could always tell the compiler to create an optimized executable file by always using the -O2 flag.  But there are some disadvantages to doing so.  Debugging the program in gdb is much harder (if not impossible) with an optimized executable -- much of the debugging information is stripped out of the executable to improve the speed.  Thus, if you want to debug your program, you will have to remove the -O2 flag (and put in the -g flag, of course).  Also, the compiler takes longer to compile the program when optimizing.  For these reasons (and others), programmers usually don't use the -O2 flag until they know the program works, and thus want the additional speed improvement.
+We could always tell the compiler to create an optimized executable file by always using the -O2 flag.  But there are some disadvantages to doing so.  Debugging the program is much harder (if not impossible) with an optimized executable -- much of the debugging information is stripped out of the executable to improve the speed.  So if you want to debug your program, you will have to remove the -O2 flag (and put in the -g flag, of course).  Also, the compiler takes longer to compile the program when optimizing.  These are some reasons programmers usually don't use the -O2 flag until they know the program works, and thus want the additional speed improvement.
 
 Try compiling your program both with and without the -O2 flag.  Run the program both times.  Do you notice a difference in the timed speed of the program?  Our test program decreased in execution time from about 15 seconds to 12 seconds with the -O2 flag.
 
 ### Input and Output ###
 
-When we are running the programs, we will need to make sure that they are reporting the same results.  To do so, we will need to save the output into a file, and then make sure that file matches the sample input file.
+When we are running the programs, we will want to make sure that they are reporting the same results.  To do so, we will need to save the output into a file, and then make sure that file matches the sample input file.
 
-To redirect output to a file, we enter the following command (we've seen pipes before -- in [section 3 of the first Unix tutorial](../../tutorials/03-04-more-unix/unix3.html) -- so this should be familiar material).
+To redirect output to a file, we enter the following command (we've seen output redirection before -- in [section 3 of the first Unix tutorial](../../tutorials/03-04-more-unix/unix3.html) -- so this should be familiar material).
 
 ```
 ./a.out words2.txt 300x300.grid.txt > output.txt
@@ -243,6 +215,7 @@ Keep in mind that your program execution may include a bit of additional output 
 If the files are not sorted the same -- meaning that the words listed are the same, but in a different order -- then diff will report differences between the files.  You can use the Unix 'sort' command to sort BOTH files before comparison to fix this:
 
 ```
+# Pipe the result of your program execution to `sort`, and then redirect that to output.txt
 ./a.out words2.txt 300x300.grid.txt | sort > output.txt
 sort 300x300.words2.out.txt > words2.sorted.out.txt
 diff output.txt words2.sorted.out.txt
@@ -252,23 +225,23 @@ If there are a lot of differences, then you should run your program on a small g
 
 Lastly, you can provide the `-w` flag to diff to have it ignore all whitespace on the lines it is comparing.
 
-### Shell Scripting  ###
+### Shell Scripting ###
 
 Through the various programming languages we've seen (Java, C++, etc.), we can make a computer do many things.  Yet there are still limitations to what we can do in these languages.  How could you get a directory listing in Java, for example?  Or easily invoke Unix commands from C++?  While these are certainly possible, they are often difficult to accomplish.  
 
 Yet programmers often have a need to do these sorts of things.  For example, a script that we wrote takes all the submissions made to the submission server, compiles and executes them, and saves the execution output to various files.  This allows the compilation and execution to be automated, and thus saves the graders a lot of time.
 
-The *shell* is the command-line interface that you use when you are interactively using Unix (i.e. the Linux command line).  There are many shells out there, some of the more popular being bash, csh, and ksh.  Bash is the standard shell, that the vast majority of system scripts are written in (such as for Linux).  Csh (and tcsh, its successor) is a shell with C-like syntax.  Ksh is a more advanced shell that has greater capabilities, but has a steep learning curve.  We'll be using bash for this tutorial, as it is the default on most systems, including Linux.
+The *shell* is the command-line interface that you use when you are interactively using Unix (i.e. the Linux command line).  There are many shells out there, some of the more popular being bash, csh, and ksh.  Bash is the standard shell that the vast majority of shell scripts are written in, and is the shell we'll be using for this tutorial.
 
 The original Unix shell was written by Stephen Bourne and released 1978.  It was just called 'sh', which is short for 'shell'.  In 1987, Brian Fox updated the shell, and decided to name it 'Bourne-again shell', a play on the original author's name.  Hence the name of 'bash'.
 
-A *shell script*, then, is a series of commands for the shell to execute.  Shell scripts started off, many years ago, as just a way to have a series of simple commands in one place.  Indeed, this is largely what batch files are in Windows and DOS (remember autoexec.bat?).  Over time, additional functionality was added to these scripts, mostly the things we are used to in programming languages, such as variables and control structures (`for` and `while` loops, `if` and `case` conditionals, etc.).  Today, shell scripts are a very powerful programming language that one can use to do many things.
+A *shell script*, then, is a series of commands for the shell to execute.  Shell scripts started off as just a way to have a series of simple commands in one place.  Over time, additional functionality was added to these scripts, mostly the things we are used to in programming languages, such as variables and control structures (`for` and `while` loops, `if` and `case` conditionals, etc.).  Today, shell scripts are a very powerful programming language that one can use to do many things.
 
 Shell scripts are useful when one needs to call a large number of Unix commands (such as the aforementioned compilation/execution example).  Significant computation, such as finding words in a word puzzle, or a lot of arithmetic, are not well suited to shell scripts.
 
-In this lab, we will be learning about shell scripts.  Read the shell script tutorial for this lab, which is the first 6 sections (through and including 'exit status') of the [Wikibooks article on Bash Shell Scripting](http://en.wikibooks.org/wiki/Bash_Shell_Scripting).  Much of the earlier material in this article should be familiar to you from the Unix tutorials that you did for labs 3 and 4. The remaining sections of that article will be the tutorial for the next lab, so feel free to read on, if you are interested.
+### Average Running Time ###
 
-Once you have read the tutorial, you will need to write a shell script that will prompt the user for the dictionary and grid file names used by your word puzzle executable.  It will the run the program five times using those parameters.  Note that it is running the same program five times with the same parameters.  It will record the time of each execution run, and, once the runs are completed, print out the average run time.  Note that you have not yet seen conditions (`if` or `case`) or loops (`for` or `while`) in shell scripts, so we do not expect your script to have either of these -- you should just have 5 separate commands without a loop.
+Write a shell script `averagetime.sh` that will prompt the user for the dictionary and grid file names used by your word puzzle executable.  It will then run the program five times using those parameters.  It will record the time of each execution run, and, once the runs are completed, print out the average run time.  Note that you have not yet seen conditions (`if` or `case`) or loops (`for` or `while`) in shell scripts, so we do not expect your script to have either of these -- you should just have 5 separate commands without a loop.
 
 To make your life easier, you can modify your word puzzle program to print out the total time taken as the last line of output.  **THIS MUST BE AN INTEGER VALUE!**  Otherwise else the shell script will have problems (floating point arithmetic in bash is viable, but more complicated, so we'll stick with integer arithmetic).  Thus, you should multiply the timing result by 1000, and then print it out (hence you are printing out the number of milliseconds that the program took).  You should use the timer's `getTime()` method for this.  You can then capture that line by piping it through the `tail -1` command -- a brief introduction on how to do all of this is presented here.  The back quote (on the same key as the tilde (~), which is usually to the left of the digit 1) tells a shell script to run the program, and use the output for something else (as opposed to displaying the output to the screen).  For example, the following line would run the program (called a.out), only keep the last line, and save that output to a variable.
 
@@ -276,9 +249,9 @@ To make your life easier, you can modify your word puzzle program to print out t
 RUNNING_TIME=`./a.out | tail -1`
 ```
 
-**Important note:** your shell script MUST call a.out, and not anything else.  We are going to test it on a Linux box, and if it calls anything else, it won't work, and you won't get credit.
+**Note:** your shell script MUST call a.out, and not anything else.
 
-Armed with this, the rest of the required concepts for the shell script are in first six sections of the article.  This script should be named `averagetime.sh`.
+Armed with this, the rest of the required concepts for the shell script are in first six sections of the article.
 
 As you are going through the tutorial, if there is a Unix command that you do not know (or you once knew and have since forgotten), you can find out more information about that command by entering `man command` at the Unix prompt.  This brings up the manual for that command, including all of the command-line parameters.
 
@@ -297,15 +270,14 @@ Below are a few notes to keep in mind when writing your shell script.  Bash is a
 
 ### In-lab Report ###
 
-One of the deliverables for the in-lab is a PDF document named inlab6.pdf.  It must be in PDF format!  See [How to convert a file to PDF](../../docs/convert_to_pdf.html) for details about creating a PDF file.
+One of the deliverables for the in-lab is a PDF document named inlab6.pdf.
 
 This report should contain items such as:
 
 - Did your implementation produce the correct results?  Did you have to reformat your output?
 - How much faster was your program with the -O2 flag?
 - What was the speed of your implementation?  How fast did it run on the 250x250 grid using words.txt as the dictionary file?  What about words2.txt and the 300x300 grid?
--- If you ran it on a different machine other than the ones in Olsson 001, specify so.
-- What is the big-Theta running speed of your program?  We are really only interested in the word search part, not the part where you populate the hash table.  Please do this in terms of *r* (rows), *c* (columns), and *w* (words).  You can assume that the maximum word size is some small constant.  Only consider the word-search component of the program, and not the file reading or hash table creation time.
+- What is the big-Theta running speed of the word-search component of your program? Please do this in terms of *r* (rows), *c* (columns), and *w* (words).  You can assume that the maximum word size is some small constant.  Do not take into consideration the file reading or hash table creation time, neither of which are part of the actual word searching.
 - What problems did you encounter when implementing this lab?
 - How did your shell scripting writing go?  What do you think of shell scripts so far?
 
@@ -322,7 +294,7 @@ You will need to optimize your code for the solution to the word puzzle, as well
 
 Your coding task for the post-lab is to optimize your program.  At this point, your timing code should be in place, and your in-lab shell script should be able to automate the running and timing of your program.
 
-First, record how long it takes to run your un-optimized program.  We will need this value later.  All these values should be recorded when the executable being run was compiled with the -O2 flag.
+First, record how long it takes to run your program as-is.  We will need this value later.  All these values should be recorded when the executable being run was compiled with the -O2 flag.
 
 You will need to implement optimizations to your program.  In addition to the optimizations described above (in the section that describes the word puzzle problem), some other possible optimizations include:
 
@@ -345,7 +317,7 @@ Feel free to experiment with different hash functions and different implementati
 
 ### Post-lab report ###
 
-One of the deliverables for the post-lab is a PDF document named postlab6.pdf.  It must be in PDF format! See [How to convert a file to PDF](../../docs/convert_to_pdf.html) for details about creating a PDF file.
+One of the deliverables for the post-lab is a PDF document named postlab6.pdf.
 
 If you single-space your report, you can divide the page lengths listed below by a factor of 2.  If you single space your report and include a lot of blank space with tables, that's not what we are looking for here.
 
