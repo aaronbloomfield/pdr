@@ -87,8 +87,8 @@ The links in the right-most column link directly to the lecture recording on Col
 | | Feb 16 | Sunday | | Exam 1 review session | |
 | 15 | Feb 17 | Monday | Exam 1 instead during Tuesday's lab | [04: Arrays &amp; big-Oh][84], [05: Trees][85] | trees through slide 5.11 |
 | 16 | Feb 19 | Wednesday | | [05: Trees][85] | trees to slide 7.9 |
-| 17 | Feb 21 | Friday | | [05: Trees][85] | |
-| 18 | Feb 24 | Monday | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [05: Trees][85] | |
+| 17 | Feb 21 | Friday | | [05: Trees][85] | trees to slide 7.31 |
+| 18 | Feb 24 | Monday | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [05: Trees][85] | trees to slide 9.12; hashes to slide 5.5 |
 | 19 | Feb 26 | Wednesday | | [05: Trees][85] | |
 | 20 | Feb 28 | Friday | | [05: Trees][85], [06: Hashes][86] | |
 | 21 | Mar 2 | Monday | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [06: Hashes][86] | |

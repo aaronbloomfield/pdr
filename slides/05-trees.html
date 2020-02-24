@@ -1090,7 +1090,7 @@ unsigned long fact_tr (unsigned int n, unsigned long s) {
     if ( n == 0 )
 	    return s;
 	else
-	    return fact (n-1, n*s);
+	    return fact_tr (n-1, n*s);
 }
 
 unsigned long fact (unsigned int n) {
