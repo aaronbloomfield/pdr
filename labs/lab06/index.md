@@ -67,21 +67,10 @@ A string of letters from the grid will depend on four values:
 
 - The *x* value of the starting letter
 - The *y* value of the starting letter
-- The direction, *d*, of the word (directions can be represented as integers 1-8, if that is easier)
+- The direction, *d*, of the word
 - The length, *l*, of the string
 
 This implies that your code will have quad-nested `for` loops.
-
-The goal for the pre-lab is to get your puzzle solver working, using a hash table that you write, without worrying about efficiency.  The goal of the post-lab is to increase its efficiency.
-
-A few notes about the length of the words: your solver should not consider words of length less than 3, and the maximum word length is a constant (which is defined as the longest word in the input dictionary file provided to the program at run-time).
-
-There are a number of optimizations that one can implement, a few of which are mentioned here.  Depending on how you implement them, they may not work all that well, of course.
-
-- Choose a good load factor, &lambda;, for your hash table
-- Implement a reasonable collision resolution strategy
-- In addition to storing each word, *W*, you can also store the *prefixes* of that word.  So if the word is "amazing", you would store "ama", "amaz", "amazi", "amazin", and "amazing" in the hash table.  There would need to be some way to differentiate between prefixes ("amaz") and the actual words ("amazing").  This way if you are working in a given direction, and the particular string you are generating is not a prefix, then you know there are no further words in the dictionary in the given direction.
-- You can keep track of a previous hash to help compute the next one faster.  For example, if you have just computed the hash for "foo", then you can keep that hash value on hand to compute the hash for "food" faster.
 
 ------------------------------------------------------------
 
@@ -92,7 +81,7 @@ Pre-lab
 
 For this lab you need to implement a solution to the word puzzle problem described above.
 
-The basic idea is that given a dictionary of words, we want to write a program that finds all instances of those words in a grid of letters.  This is similar to the [word search](https://en.wikipedia.org/wiki/Word_search) puzzles where you circle the words, horizontally, vertically or diagonally in the grid.  As specified above, words can appear in any order (including backwards) in the puzzle.  However, in our case you are not given the list of words to find, you are merely given the grid and told to find all the English words in the grid.  You will be given a dictionary (set) of English words, but you should expect this to be very large.  You will want to put this list of words into a hash table to facilitate quickly checking if a particular combination of letters is a word in the dictionary.
+The basic idea is that given a dictionary of words, we want to write a program that finds all instances of those words in a grid of letters.  However, in our case, rather than being given the list of words to find, you are instead given the grid and told to find all the words in the grid.  You will be given a dictionary (set) of English words, but you should expect this to be very large.  You will want to put this list of words into a hash table to facilitate quickly checking if a particular combination of letters is a word in the dictionary.
 
 You **must** write your own hash table for this lab.  You will be expected to be able to implement a hash table after completing the lab.  You should definitely stay away from templates for your implementation.  You may use separate chaining with buckets of any type you wish (linked list, etc., but **not** vectors) or open addressing with any collision resolution strategy you wish (linear probing, quadratic probing, double hashing).  The hash table itself will need to be an array or vector (you may use the STL vector for this); your separate chaining secondary data structure may also be from the STL.  Thus, you may use any data structures that you want EXCEPT a vector of vectors, which is specifically forbidden.  You can use a vector of linked lists, however.  Obviously, you cannot use any STL hash table implementation.
 
@@ -117,24 +106,17 @@ Your program will need to handle input dictionaries of various sizes and create 
 
 For this lab, your program is not required to be leak-free (though it would be good practice to make it so!).
 
-### Submission requirements ###
+### Submission ###
 
-In an effort to make this program work with the grading system, you should submit the following files:
-
-- wordPuzzle.cpp: contains the main() method
-- timer.h/cpp: the code you downloaded for this lab; these files do not need any modifications
-- hashTable.h/cpp: the code for your hash table
-- Makefile: this will compile the program, and create an a.out executable.
-
-You can submit other files, if you want, up to the maximum allowed by the submission system.  We are going to compile your code with `make`.  Your program must compile!  And it must compile with just the `make` command!  **Don't specify a -o option with clang++, so that it will default to a.out.**  Your program should also conform to the input and output requirements listed in the pre-lab procedure, discussed below, as that is how it will be tested.  If it doesn't conform to these guidelines, you will receive points off!
+You should submit any files required for your word puzzle solver to run as well as a Makefile that produces an `a.out` executable.
 
 ### Program Details ###
 
-**Input grids:** You can expect an input grid file in which the first line is the number of rows, and the second is the number of columns, both as ASCII text digits in unsigned decimal integers.  The third line is the grid data, with no spaces (i.e. it will be rows X cols number of characters).  Several example grids available in the labs/lab06/data/ directory.  Grids will not include whitespace, numbers, punctuation, or special characters.
+**Input grids:** Each input grid file has three lines.  The first line is the number of rows, and the second is the number of columns, both representable using integers.  The third line is the grid data, represented by strictly alphabetical characters with no spaces (i.e. it will contain `rows * cols` characters).  Example grids are available in the labs/lab06/data/ directory.
 
-**Dictionary files:** The dictionary can be assumed to contain one word per line. The longest word in our data files is 22 letters. Words which contain a space or other special character (& or ' or -) or number may occur in the dictionary, but would never appear in a valid grid.  Your program should be able to handle dictionaries with such words, although you are not required to put them into the hash table. 
+**Dictionary files:** Dictionaries contain one word per line. The longest word in our data files is 22 letters. Words which contain non-alphabetical characters may occur in the dictionary, but would never appear in a valid grid.  Your program should be able to handle dictionaries with such words, although you are not required to put them into the hash table. 
 
-**Timing:** Timer routines are available in the provided source code ([timer.cpp](code/timer.cpp.html) ([src](code/timer.cpp)), [timer.h](code/timer.h.html) ([src](code/timer.h)), and [timer_test.cpp](code/timer_test.cpp.html) ([src](code/timer_test.cpp))).  We are interested in timing how long it takes to find all valid words in a grid.  We are NOT interested in how long it takes to fill up the hash table initially.  Therefore you need to place your timing calls around the outermost loop that contains code in which the grid is actually searched.  
+**Timing:** Timer routines are available in the provided source code ([timer.cpp](code/timer.cpp.html) ([src](code/timer.cpp)), [timer.h](code/timer.h.html) ([src](code/timer.h)), and [timer_test.cpp](code/timer_test.cpp.html) ([src](code/timer_test.cpp))).  We are interested in timing how long it takes to find all valid words in a grid.  We are NOT interested in how long it takes to fill up the hash table initially.  Therefore you need to place your timing calls around the outermost loop that contains code in which the grid is actually searched.
 
 **Valid words:** Your program should *only* report words with three or more letters -- there are simply too many hits if one and two letter words are allowed, and it's difficult to judge correctness, even on very small word searches.
 
@@ -296,13 +278,15 @@ Your coding task for the post-lab is to optimize your program.  At this point, y
 
 First, record how long it takes to run your program as-is.  We will need this value later.  All these values should be recorded when the executable being run was compiled with the -O2 flag.
 
-You will need to implement optimizations to your program.  In addition to the optimizations described above (in the section that describes the word puzzle problem), some other possible optimizations include:
+You will need to optimize your word search.  There are plenty of optimizations you can try to implement, some of which may work better with your code than others. Here are some ideas:
 
-- A better hash functions on the strings.
-- Trying the various collision resolution strategies to find the fastest one.
-- If you are using separate chaining, trying different data structures for the buckets.
+- Choose a good load factor, &lambda;, for your hash table
+- Implement a reasonable collision resolution strategy
 - Output to the screen (or redirected into a file) is very slow.  Buffering the input (keeping it in memory in some data structure), and then printing it out after the timing code is finished, may greatly improve performance.
-- Any of the optimizations suggested in the description of the word puzzle, above.
+- In addition to storing each word, *W*, you can also store the *prefixes* of that word.  So if the word is "amazing", you would store "ama", "amaz", "amazi", "amazin", and "amazing" in the hash table.  There would need to be some way to differentiate between prefixes ("amaz") and the actual words ("amazing").  This way if you are working in a given direction, and the particular string you are generating is not a prefix, then you know there are no further words in the dictionary in the given direction.
+- You can keep track of a previous hash to help compute the next one faster.  For example, if you have just computed the hash for "foo", then you can keep that hash value on hand to compute the hash for "food" faster.
+- A better hash functions on the strings.
+- If you are using separate chaining, trying different data structures for the buckets.
 - Any others that you can think of?
 
 Keep track of what you tried -- if you try each of the collision resolution strategies, and find that the original one you used is faster, record all of this in the post-lab report, along with the times from the other strategies.
