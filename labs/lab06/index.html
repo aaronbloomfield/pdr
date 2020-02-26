@@ -215,11 +215,12 @@ diff output.txt words2.sorted.out.txt</code></pre>
 <ul>
 <li>Choose a good load factor, λ, for your hash table</li>
 <li>Implement a reasonable collision resolution strategy</li>
+<li>Try different collision resolution strategies to find the fastest one</li>
 <li>Output to the screen (or redirected into a file) is very slow. Buffering the input (keeping it in memory in some data structure), and then printing it out after the timing code is finished, may greatly improve performance.</li>
 <li>In addition to storing each word, <em>W</em>, you can also store the <em>prefixes</em> of that word. So if the word is &quot;amazing&quot;, you would store &quot;ama&quot;, &quot;amaz&quot;, &quot;amazi&quot;, &quot;amazin&quot;, and &quot;amazing&quot; in the hash table. There would need to be some way to differentiate between prefixes (&quot;amaz&quot;) and the actual words (&quot;amazing&quot;). This way if you are working in a given direction, and the particular string you are generating is not a prefix, then you know there are no further words in the dictionary in the given direction.</li>
-<li>You can keep track of a previous hash to help compute the next one faster. For example, if you have just computed the hash for &quot;foo&quot;, then you can keep that hash value on hand to compute the hash for &quot;food&quot; faster.</li>
-<li>A better hash functions on the strings.</li>
-<li>If you are using separate chaining, trying different data structures for the buckets.</li>
+<li>Keep track of a previous hash to help compute the next one faster. For example, if you have just computed the hash for &quot;foo&quot;, then you can keep that hash value on hand to compute the hash for &quot;food&quot; faster.</li>
+<li>A better hash functions on the strings</li>
+<li>If you are using separate chaining, try different data structures for the buckets</li>
 <li>Any others that you can think of?</li>
 </ul>
 <p>Keep track of what you tried -- if you try each of the collision resolution strategies, and find that the original one you used is faster, record all of this in the post-lab report, along with the times from the other strategies.</p>

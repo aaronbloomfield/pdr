@@ -330,11 +330,12 @@ You will need to optimize your word search.  There are plenty of optimizations y
 
 - Choose a good load factor, &lambda;, for your hash table
 - Implement a reasonable collision resolution strategy
+- Try different collision resolution strategies to find the fastest one
 - Output to the screen (or redirected into a file) is very slow.  Buffering the input (keeping it in memory in some data structure), and then printing it out after the timing code is finished, may greatly improve performance.
 - In addition to storing each word, *W*, you can also store the *prefixes* of that word.  So if the word is "amazing", you would store "ama", "amaz", "amazi", "amazin", and "amazing" in the hash table.  There would need to be some way to differentiate between prefixes ("amaz") and the actual words ("amazing").  This way if you are working in a given direction, and the particular string you are generating is not a prefix, then you know there are no further words in the dictionary in the given direction.
-- You can keep track of a previous hash to help compute the next one faster.  For example, if you have just computed the hash for "foo", then you can keep that hash value on hand to compute the hash for "food" faster.
-- A better hash functions on the strings.
-- If you are using separate chaining, trying different data structures for the buckets.
+- Keep track of a previous hash to help compute the next one faster.  For example, if you have just computed the hash for "foo", then you can keep that hash value on hand to compute the hash for "food" faster.
+- A better hash functions on the strings
+- If you are using separate chaining, try different data structures for the buckets
 - Any others that you can think of?
 
 Keep track of what you tried -- if you try each of the collision resolution strategies, and find that the original one you used is faster, record all of this in the post-lab report, along with the times from the other strategies.
