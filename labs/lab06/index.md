@@ -61,62 +61,59 @@ Consider the problem called [word search](https://en.wikipedia.org/wiki/Word_sea
 
 In this 10x10 grid of letters, the goal is to find words in the puzzle in any of the eight directions.  The word circled in red is in the south-east direction.  Words can go backward (although none do in this example), but they cannot "wrap around" from one side to the other (or from top to bottom, etc.).
 
-For the purposes of this lab, your program will be presented with a grid of letters and a dictionary of words.  All words in the dictionary that are in the grid, in any of the 8 directions, are to be outputted.
-
-A string of letters from the grid will depend on four values:
+A string of letters from the grid depends on four values:
 
 - The *x* value of the starting letter
 - The *y* value of the starting letter
 - The direction, *d*, of the word
 - The length, *l*, of the string
 
-This implies that your code will have quad-nested `for` loops.
-
 ------------------------------------------------------------
 
 Pre-lab
 -------
 
-### Lab information ###
+### Overview ###
 
-For this lab you need to implement a solution to the word puzzle problem described above.
+For this lab you need to implement a solution to the word puzzle problem described above: given a dictionary and word search grid, your program should output all the words in the grid that are in the dictionary.
 
-The basic idea is that given a dictionary of words, we want to write a program that finds all instances of those words in a grid of letters.  However, in our case, rather than being given the list of words to find, you are instead given the grid and told to find all the words in the grid.  You will be given a dictionary (set) of English words, but you should expect this to be very large.  You will want to put this list of words into a hash table to facilitate quickly checking if a particular combination of letters is a word in the dictionary.
+There are two main parts to this lab: creating a hash table and writing a word search solver.  A high-level specification is provided for the word search solver and the hash table it must use; more details are available in the rest of the pre-lab section.
 
-You **must** write your own hash table for this lab.  You will be expected to be able to implement a hash table after completing the lab.  You should definitely stay away from templates for your implementation.  You may use separate chaining with buckets of any type you wish (linked list, etc., but **not** vectors) or open addressing with any collision resolution strategy you wish (linear probing, quadratic probing, double hashing).  The hash table itself will need to be an array or vector (you may use the STL vector for this); your separate chaining secondary data structure may also be from the STL.  Thus, you may use any data structures that you want EXCEPT a vector of vectors, which is specifically forbidden.  You can use a vector of linked lists, however.  Obviously, you cannot use any STL hash table implementation.
+Your word search solver, implemented in `wordPuzzle.cpp`, should:
 
-We are not as interested in how fast this runs for the pre-lab; the fast implementation is for the post-lab.  
+- Take in a dictionary file and grid file, in that order, using command line parameters
+- Read in a dictionary and store its words in a hash table
+    - Which is implemented without using a vector of vectors or any STL hash table
+- Read in a word search grid no larger than 500x500 and store it in an appropriate data structure
+- Output every word of length three or greater and its location in the grid
+    - The required output format is described below
+- Output the time it took to find all the words
 
-Your program **MUST** take in the file names as command-line parameters and ask for no input.  The first parameter should be the dictionary file and the second should be the grid file.  See the [slide set on arrays](../../slides/04-arrays-bigoh.html) if you need a refresher on command-line parameters; you can also see the [cmdlineparams.cpp](../../slides/code/04-arrays-bigoh/cmdlineparams.cpp.html) ([src](../../slides/code/04-arrays-bigoh/cmdlineparams.cpp)) file.  We will be running your code using `./a.out <dictionary_file> <grid_file>`.
+We are not as interested in how fast your program runs for the pre-lab; leave any optimizations for the post-lab.
 
-The task for the pre-lab is to get the code working without regards to speed or efficiency.  You should have a fully functional program when you come to lab on Tuesday.
+### Storing the dictionary ###
 
-As discussed in lecture, a hash table needs to be a prime number in size in order to work.  You can adapt the code in the [primenumber.cpp](code/primenumber.cpp.html) ([src](code/primenumber.cpp)) file to determine the next highest prime number (of course, the next highest prime number is determined after you double the size of your original hash table).
+As there may be a large number of words in the dictionary, you will have to store those words in a hash table to facilitate efficient lookup.
 
-Creating a dynamic 2D array in C++ is more difficult than it should be -- one solution is to create a vector of vectors, but that is not the most efficient means to do it.  For this lab, you can just create a 500x500 static array, and can assume that you will not have your program run on larger input grids.  This is not very elegant, but it will work until we go over dynamic array creation in lecture.
+You **must** write your own hash table for this lab.
+We leave the implementation up to you, as long as you do not use a vector of vectors or any STL hash table.
 
-We provide you with a second C++ file, [getWordInGrid.cpp](code/getWordInGrid.cpp.html) ([src](code/getWordInGrid.cpp)), that provides two useful functions.  The first is `readInGrid()`, which will read in a grid file using C++ streams.  The grid file format (specified below) is very specific, and this code follows that specification.  The second function, `getWordInGrid()`, will return a word in a 2D grid of letters in a given direction.  Extensive comments in the getWordInGrid.cpp file explain how to use these functions.
+### Manipulating the grid ###
 
-You must understand the concepts in the getWordInGrid.cpp file!  In particular, you will be expected to be able to program C++ streams for file input in future labs and exams.  You will also need to write your own C++ stream input routines to read in the dictionary file.  If there is anything there that you are confused about, see the Reading links at the beginning of this lab document.
+[getWordInGrid.cpp](code/getWordInGrid.cpp.html) ([src](code/getWordInGrid.cpp)) provides two useful functions: `readInGrid()` and `getWordInGrid()`. The former reads in a grid file using C++ streams; the latter returns a word in a 2D grid of letters in a given direction.
 
-Your program will need to handle input dictionaries of various sizes and create hash tables of the appropriate size.  To get the program working the first time, you can just hard code a prime number table size.  But at some point, you will have to handle different size hash tables.
+You should make sure you understand how these functions work, as you will most likely be using them in your final program.
 
-- One option is to implement a `rehash()` function that will double the size of the array, hash all the old values into the new table, and then remove the old table.
-- A second option is to do two passes through the dictionary file.  The first time you count the number of elements, use that to create an appropriate sized hash table, and the second time through the dictionary file you insert all the words into the table itself.
+### Timing ###
 
-For this lab, your program is not required to be leak-free (though it would be good practice to make it so!).
+We are interested in timing how long it takes to find all the valid words in a grid, not including the time it took to read in the dictionary and grid files or perform any other sort of pre-processing.
+You can use the code provided in [timer.cpp](code/timer.cpp.html) ([src](code/timer.cpp)), [timer.h](code/timer.h.html) ([src](code/timer.h)), and [timer_test.cpp](code/timer_test.cpp.html) ([src](code/timer_test.cpp)) to time the relevant portion of your program.
 
-### Submission ###
-
-You should submit any files required for your word puzzle solver to run as well as a Makefile that produces an `a.out` executable.
-
-### Program Details ###
+### Other details ###
 
 **Input grids:** Each input grid file has three lines.  The first line is the number of rows, and the second is the number of columns, both representable using integers.  The third line is the grid data, represented by strictly alphabetical characters with no spaces (i.e. it will contain `rows * cols` characters).  Example grids are available in the labs/lab06/data/ directory.
 
-**Dictionary files:** Dictionaries contain one word per line. The longest word in our data files is 22 letters. Words which contain non-alphabetical characters may occur in the dictionary, but would never appear in a valid grid.  Your program should be able to handle dictionaries with such words, although you are not required to put them into the hash table. 
-
-**Timing:** Timer routines are available in the provided source code ([timer.cpp](code/timer.cpp.html) ([src](code/timer.cpp)), [timer.h](code/timer.h.html) ([src](code/timer.h)), and [timer_test.cpp](code/timer_test.cpp.html) ([src](code/timer_test.cpp))).  We are interested in timing how long it takes to find all valid words in a grid.  We are NOT interested in how long it takes to fill up the hash table initially.  Therefore you need to place your timing calls around the outermost loop that contains code in which the grid is actually searched.
+**Dictionary files:** Dictionaries contain one word per line. The longest word in our data files is 22 letters. Words which contain non-alphabetical characters may occur in the dictionary, but would never appear in a valid grid.  Your program should be able to handle dictionaries with such words, although you are not required to put them into the hash table.
 
 **Valid words:** Your program should *only* report words with three or more letters -- there are simply too many hits if one and two letter words are allowed, and it's difficult to judge correctness, even on very small word searches.
 
@@ -124,9 +121,7 @@ You should submit any files required for your word puzzle solver to run as well 
 
 **Duplicates:** If a word occurs more than once in a grid, then each instance should be treated as a separate word.
 
-### Output format ###
-
-In an effort to make it easier to determine if the program is working properly or not, we want to standardize the output format.  Below is the [4x7.out.txt](data/4x7.out.txt) file:
+**Output format:** In an effort to make it easier to determine if the program is working properly or not, we want to standardize the output format.  Below is the [4x7.out.txt](data/4x7.out.txt) file:
 
 ```
 N (3, 2):       text
@@ -143,6 +138,52 @@ Found all words in 0.000835 seconds
 ```
 
 The exact spacing and order that the words are found in does not matter, as we can easily (and automatically) ignore that when comparing your output to the desired output.  Everything else should all be the same.  The in-lab discusses how to directly compare your output to the expected output (while ignoring spaces and word order) - see the "Input and Output" section of the in-lab.
+
+### Submission ###
+
+You should submit any files required for your word puzzle solver to run as well as a Makefile that produces an `a.out` executable.
+
+### Hints ###
+
+#### Separation of concerns ####
+Given the multi-faceted nature of this lab, it is helpful to only focus on one portion at the time.
+Start out by using the STL hashtable [unordered_set](https://en.cppreference.com/w/cpp/container/unordered_set) to verify that your word search works, and then work on writing your own hash table implementation to replace it.
+
+The last thing you want is to be staring at incorrect output and not knowing whether that's because of your solver or your hashtable!
+
+#### That hint didn't help, I still have no clue how to start ####
+Take it one step at a time.
+
+Start off by reading in the dictionary and printing out all of its words.
+Then store those words in a hashtable (probably the STL one for now).
+Great, you have a dictionary now.
+
+Next, read in the grid (use the functions in `getWordInGrid.cpp` to help you!).
+Plan out how to use the dictionary to find all the valid words in the grid.
+There are four variables that control what word is returned -- what does that imply in terms of loops?
+
+At this point, hopefully you have enough to get you going.
+
+#### Storing the grid ####
+Creating a dynamic 2D array in C++ is more difficult than it should be -- one solution is to create a vector of vectors, but that is not the most efficient means to do it.
+For this lab, you can just create a 500x500 static array, and can assume that you will not have your program run on larger input grids.
+This is not very elegant, but it will work until we go over dynamic array creation in lecture.
+
+#### Command-line parameters ####
+Your program must be able to run successfully if started with `./a.out <dictionary_file> <grid_file>` and no input.
+
+See the [slide set on arrays](../../slides/04-arrays-bigoh.html) if you need a refresher on command-line parameters; you can also see the [cmdlineparams.cpp](../../slides/code/04-arrays-bigoh/cmdlineparams.cpp.html) ([src](../../slides/code/04-arrays-bigoh/cmdlineparams.cpp)) file.
+
+#### Hash table sizes ####
+As discussed in lecture, a hash table needs to be a prime number in size in order to work.
+You can adapt the code in the [primenumber.cpp](code/primenumber.cpp.html) ([src](code/primenumber.cpp)) file to determine the next highest prime number (of course, the next highest prime number is determined after you double the size of your original hash table).
+
+Your program will need to handle input dictionaries of various sizes and create hash tables of the appropriate size.
+To get the program working the first time, you can just hard code a prime number table size.
+But at some point, you will have to handle different size hash tables.
+
+- One option is to implement a `rehash()` function that will double the size of the array, hash all the old values into the new table, and then remove the old table.
+- A second option is to do two passes through the dictionary file.  The first time you count the number of elements, use that to create an appropriate sized hash table, and the second time through the dictionary file you insert all the words into the table itself.
 
 ------------------------------------------------------------
 
