@@ -13,7 +13,7 @@ using namespace std::chrono;
 
 class timer {
 public:
-    timer() : running(false) {}
+    timer();
     timer(timer& myTimer);
     void start();
     void stop();

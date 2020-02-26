@@ -11,7 +11,12 @@ http://www.gnu.org/software/src-highlite">
 <body style="background-color:white">
 <pre><b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">"timer.h"</span>
 
-timer<span style="color:#990000">::</span><b><span style="color:#000000">timer</span></b><span style="color:#990000">(</span>timer<span style="color:#990000">&amp;</span> t<span style="color:#990000">)</span> <span style="color:#990000">:</span> <b><span style="color:#000000">running</span></b><span style="color:#990000">(</span>t<span style="color:#990000">.</span>running<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+timer<span style="color:#990000">::</span><b><span style="color:#000000">timer</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    running <span style="color:#990000">=</span> <b><span style="color:#0000FF">false</span></b><span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+
+timer<span style="color:#990000">::</span><b><span style="color:#000000">timer</span></b><span style="color:#990000">(</span>timer<span style="color:#990000">&amp;</span> t<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    running <span style="color:#990000">=</span> t<span style="color:#990000">.</span>running<span style="color:#990000">;</span>
     start_time <span style="color:#990000">=</span> t<span style="color:#990000">.</span>start_time<span style="color:#990000">;</span>
     stop_time <span style="color:#990000">=</span> t<span style="color:#990000">.</span>stop_time<span style="color:#990000">;</span>
 <span style="color:#FF0000">}</span>

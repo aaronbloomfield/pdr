@@ -1,6 +1,11 @@
 #include "timer.h"
 
-timer::timer(timer& t) : running(t.running) {
+timer::timer() {
+    running = false;
+}
+
+timer::timer(timer& t) {
+    running = t.running;
     start_time = t.start_time;
     stop_time = t.stop_time;
 }
