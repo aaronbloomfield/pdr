@@ -292,26 +292,28 @@ sudo update-alternatives --install /usr/bin/llvm-symbolizer llvm-symbolizer /usr
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install llvm
 PROFILE_FILE=$(if [[ -n $ZSH_VERSION ]]; then echo ~/.zshrc; else echo ~/.bash_profile; fi)
-echo 'export PATH="/usr/local/opt/llvm/bin:${PATH}"' >> $PROFILE_FILE
+echo 'ASAN_OPTIONS=detect_leaks=1\nexport PATH="/usr/local/opt/llvm/bin:${PATH}"' >> $PROFILE_FILE
 source $PROFILE_FILE
 ```
 
-Now you can compile your code with special _sanitizers_ enabled:
+Now you can compile your code with [AddressSanitizer](https://clang.llvm.org/docs/AddressSanitizer.html) enabled:
 
 ```
-clang++ List.cpp ListItr.cpp ListNode.cpp ListTest.cpp -fsanitize=address,leak -fno-omit-frame-pointer -g
+clang++ List.cpp ListItr.cpp ListNode.cpp ListTest.cpp -fsanitize=address -fno-omit-frame-pointer -g
 ```
 
-`-fsanitize=address,leak` turns on two sanitizers: [AddressSanitizer](https://clang.llvm.org/docs/AddressSanitizer.html) and [LeakSanitizer](https://clang.llvm.org/docs/LeakSanitizer.html).
-AddressSanitizer ensures that your code never attempts to
+`-fsanitize=address` turns on AddressSanitizer, which ensures that your code never attempts to
 reference deleted memory or memory that you do not have access to (i.e., it checks for invalid addresses).
-LeakSanitizer ensures that anything that is dynamically allocated is also deallocated.
+It also enables LeakSanitizer, which ensures that anything that is dynamically allocated is also deallocated.
 
 `-fno-omit-frame-pointer` helps us obtain better stack traces, so we include it just in case.
 
 We use the `-g` flag from earlier to indicate that we want to include debugging information such as line numbers.
 
-Now, when we run the executable, AddressSanitizer will **immediately crash upon any invalid behavior**.
+Run the executable with `./a.out` as usual, but make sure you are not running it in the debugger --
+AddressSanitizer is incompatible with debuggers.
+
+AddressSanitizer will **immediately crash upon any invalid behavior**.
 This is helpful because AddressSanitizer detects when we try to use addresses that we do not control,
 and thus, we have no idea what will happen when we use them!
 AddressSanitizer crashes the program because there is no guarantee of what will happen next.

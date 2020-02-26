@@ -134,4 +134,6 @@ void BinarySearchTree::printTree(BinaryNode* root, Trunk* prev, bool isRight) {
     trunk->str = "   |";
 
     printTree(root->left, trunk, false);
+
+    delete trunk;
 }

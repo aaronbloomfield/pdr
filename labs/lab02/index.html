@@ -196,15 +196,16 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)<
 <pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
 brew install llvm
 PROFILE_FILE=$(if [[ -n $ZSH_VERSION ]]; then echo ~/.zshrc; else echo ~/.bash_profile; fi)
-echo &#39;export PATH=&quot;/usr/local/opt/llvm/bin:${PATH}&quot;&#39; &gt;&gt; $PROFILE_FILE
+echo &#39;ASAN_OPTIONS=detect_leaks=1\nexport PATH=&quot;/usr/local/opt/llvm/bin:${PATH}&quot;&#39; &gt;&gt; $PROFILE_FILE
 source $PROFILE_FILE</code></pre></li>
 </ul>
-<p>Now you can compile your code with special <em>sanitizers</em> enabled:</p>
-<pre><code>clang++ List.cpp ListItr.cpp ListNode.cpp ListTest.cpp -fsanitize=address,leak -fno-omit-frame-pointer -g</code></pre>
-<p><code>-fsanitize=address,leak</code> turns on two sanitizers: <a href="https://clang.llvm.org/docs/AddressSanitizer.html">AddressSanitizer</a> and <a href="https://clang.llvm.org/docs/LeakSanitizer.html">LeakSanitizer</a>. AddressSanitizer ensures that your code never attempts to reference deleted memory or memory that you do not have access to (i.e., it checks for invalid addresses). LeakSanitizer ensures that anything that is dynamically allocated is also deallocated.</p>
+<p>Now you can compile your code with <a href="https://clang.llvm.org/docs/AddressSanitizer.html">AddressSanitizer</a> enabled:</p>
+<pre><code>clang++ List.cpp ListItr.cpp ListNode.cpp ListTest.cpp -fsanitize=address -fno-omit-frame-pointer -g</code></pre>
+<p><code>-fsanitize=address</code> turns on AddressSanitizer, which ensures that your code never attempts to reference deleted memory or memory that you do not have access to (i.e., it checks for invalid addresses). It also enables LeakSanitizer, which ensures that anything that is dynamically allocated is also deallocated.</p>
 <p><code>-fno-omit-frame-pointer</code> helps us obtain better stack traces, so we include it just in case.</p>
 <p>We use the <code>-g</code> flag from earlier to indicate that we want to include debugging information such as line numbers.</p>
-<p>Now, when we run the executable, AddressSanitizer will <strong>immediately crash upon any invalid behavior</strong>. This is helpful because AddressSanitizer detects when we try to use addresses that we do not control, and thus, we have no idea what will happen when we use them! AddressSanitizer crashes the program because there is no guarantee of what will happen next. If this happens, carefully inspect the stack trace, attempt to fix the error, and recompile.</p>
+<p>Run the executable with <code>./a.out</code> as usual, but make sure you are not running it in the debugger -- AddressSanitizer is incompatible with debuggers.</p>
+<p>AddressSanitizer will <strong>immediately crash upon any invalid behavior</strong>. This is helpful because AddressSanitizer detects when we try to use addresses that we do not control, and thus, we have no idea what will happen when we use them! AddressSanitizer crashes the program because there is no guarantee of what will happen next. If this happens, carefully inspect the stack trace, attempt to fix the error, and recompile.</p>
 <p>Here's an example of an AddressSanitizer crash:</p>
 <pre><code>==28315==ERROR: AddressSanitizer: heap-use-after-free on address 0x6030000003a8 at pc 0x000000519188 bp 0x7ffff83e7910 sp 0x7ffff83e7908
 READ of size 8 at 0x6030000003a8 thread T0
