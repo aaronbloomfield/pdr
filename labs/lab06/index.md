@@ -100,7 +100,8 @@ We leave the implementation up to you, as long as you do not use a vector of vec
 
 ### Manipulating the grid ###
 
-[getWordInGrid.cpp](code/getWordInGrid.cpp.html) ([src](code/getWordInGrid.cpp)) provides two useful functions: `readInGrid()` and `getWordInGrid()`. The former reads in a grid file using C++ streams; the latter returns a word in a 2D grid of letters in a given direction.
+[getWordInGrid.cpp](code/getWordInGrid.cpp.html) ([src](code/getWordInGrid.cpp)) provides two useful functions: `readInGrid()` and `getWordInGrid()`.
+The former reads in a grid file using C++ streams; the latter returns a word in a 2D grid of letters in a given direction.
 
 You should make sure you understand how these functions work, as you will most likely be using them in your final program.
 
@@ -108,6 +109,10 @@ You should make sure you understand how these functions work, as you will most l
 
 We are interested in timing how long it takes to find all the valid words in a grid, not including the time it took to read in the dictionary and grid files or perform any other sort of pre-processing.
 You can use the code provided in [timer.cpp](code/timer.cpp.html) ([src](code/timer.cpp)), [timer.h](code/timer.h.html) ([src](code/timer.h)), and [timer_test.cpp](code/timer_test.cpp.html) ([src](code/timer_test.cpp)) to time the relevant portion of your program.
+
+In addition to having raw times, you should also calculate the big-theta running time of the portion that you are timing.
+
+Add a comment at the top of wordPuzzle.cpp listing an actual running time along with the big-theta running time.
 
 ### Other details ###
 
@@ -142,6 +147,8 @@ The exact spacing and order that the words are found in does not matter, as we c
 ### Submission ###
 
 You should submit any files required for your word puzzle solver to run as well as a Makefile that produces an `a.out` executable.
+
+Make sure you have added the required timing comments to the top of wordPuzzle.cpp.
 
 ### Hints ###
 
