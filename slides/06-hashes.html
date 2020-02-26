@@ -276,7 +276,7 @@
 <table class="wide">
   <tr>
     <td class="top">
-<div style="font-size:130%;line-height:110%">
+<div style="width:400px;font-size:130%;line-height:110%">
 <ul>
 <li>How can we hash the keys if the keys can be anything?</li>
 <li>Best one binary comparison can do is eliminate one half of the elements &Theta;(log <i>n</i>)</li>
@@ -288,7 +288,7 @@
 <td class="top">
 &nbsp;<br><small>&quot;Hello&quot;</small><br>&nbsp;<br><small>['H','i',\0]</small><br>&nbsp;<br><small>3.14</small><br>&nbsp;<br><small>'x'</small><br>&nbsp;<br><small>0x42381a</small><br>&nbsp;<br><small>01001010</small></td>
     <!-- image adapted from http://openclipart.org/detail/3677/arrow-left-right-by-torfnase -->
-    <td style="width:150px"><img class="noborder" src="images/red-double-arrow.png" height="500" alt="vertical red double arrow"></td>
+    <td style="width:150px;vertical-align:top"><img class="noborder" src="images/red-double-arrow.png" height="500" alt="vertical red double arrow"></td>
     <td class="top">&nbsp;<br>&nbsp;<br><small>Objects</small><br>&nbsp;<br><small>Arrays</small><br>&nbsp;<br><small>Primitive types</small><br>&nbsp;<br><small>Addresses</small><br>&nbsp;<br><small>bits</small></td>
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
   </tr>
@@ -304,9 +304,9 @@
 | 000010 | "blue" |
 | 000011 | `null` |
 | 000100 | "green" |
-| 000101 | "white" |
-| 000110 | ... |
+| 000101 | ... |
 &nbsp;  
+
 This can work, unless the key space is sparse, or we don't know the keys ahead of time.  But it's slow to look up a value in a table!
 	  </script></section>
 
