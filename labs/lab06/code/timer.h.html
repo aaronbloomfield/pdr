@@ -17,28 +17,27 @@ http://www.gnu.org/software/src-highlite">
 
 <b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;iostream&gt;</span>
 <b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;string&gt;</span>
-<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;time.h&gt;</span>
-<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;sys/time.h&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;chrono&gt;</span>
 
 <b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
+<b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">::</span>chrono<span style="color:#990000">;</span>
 
 <b><span style="color:#0000FF">class</span></b> <span style="color:#008080">timer</span> <span style="color:#FF0000">{</span>
+<b><span style="color:#0000FF">public</span></b><span style="color:#990000">:</span>
+    <b><span style="color:#000000">timer</span></b><span style="color:#990000">();</span>
+    <b><span style="color:#000000">timer</span></b><span style="color:#990000">(</span>timer<span style="color:#990000">&amp;</span> myTimer<span style="color:#990000">);</span>
+    <span style="color:#009900">void</span> <b><span style="color:#000000">start</span></b><span style="color:#990000">();</span>
+    <span style="color:#009900">void</span> <b><span style="color:#000000">stop</span></b><span style="color:#990000">();</span>
+
+    <i><span style="color:#9A1900">// Returns the time elapsed, in seconds</span></i>
+    <span style="color:#009900">double</span> <b><span style="color:#000000">getTime</span></b><span style="color:#990000">();</span>
 <b><span style="color:#0000FF">private</span></b><span style="color:#990000">:</span>
-    <span style="color:#008080">timeval</span> startVar<span style="color:#990000">,</span> stopVar<span style="color:#990000">;</span>
+    steady_clock<span style="color:#990000">::</span><span style="color:#008080">time_point</span> start_time<span style="color:#990000">,</span> stop_time<span style="color:#990000">;</span>
     <span style="color:#009900">bool</span> running<span style="color:#990000">;</span>
 
-<b><span style="color:#0000FF">public</span></b><span style="color:#990000">:</span>
-    <b><span style="color:#000000">timer</span></b><span style="color:#990000">()</span> <span style="color:#990000">:</span> <b><span style="color:#000000">running</span></b><span style="color:#990000">(</span><span style="color:#993399">0</span><span style="color:#990000">)</span> <span style="color:#FF0000">{}</span>
-    <span style="color:#990000">~</span><b><span style="color:#000000">timer</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{}</span>
-    <b><span style="color:#000000">timer</span></b><span style="color:#990000">(</span>timer <span style="color:#990000">&amp;</span> myTimer<span style="color:#990000">);</span>
-    <span style="color:#009900">int</span> <b><span style="color:#000000">start</span></b><span style="color:#990000">();</span>
-    <span style="color:#009900">int</span> <b><span style="color:#000000">stop</span></b><span style="color:#990000">();</span>
-    <span style="color:#008080">string</span> <b><span style="color:#000000">toString</span></b><span style="color:#990000">();</span>
-    ostream <span style="color:#990000">&amp;</span> <b><span style="color:#000000">print</span></b><span style="color:#990000">(</span><span style="color:#008080">ostream</span> <span style="color:#990000">&amp;</span>theStream<span style="color:#990000">);</span>
-    <span style="color:#009900">double</span> <b><span style="color:#000000">getTime</span></b><span style="color:#990000">();</span>
 <span style="color:#FF0000">}</span><span style="color:#990000">;</span>
 
-ostream <span style="color:#990000">&amp;</span> <b><span style="color:#0000FF">operator</span></b><span style="color:#990000">&lt;&lt;(</span>ostream <span style="color:#990000">&amp;</span> theStream<span style="color:#990000">,</span> timer <span style="color:#990000">&amp;</span> theTimer<span style="color:#990000">);</span>
+ostream<span style="color:#990000">&amp;</span> <b><span style="color:#0000FF">operator</span></b><span style="color:#990000">&lt;&lt;(</span>ostream<span style="color:#990000">&amp;</span> theStream<span style="color:#990000">,</span> timer<span style="color:#990000">&amp;</span> theTimer<span style="color:#990000">);</span>
 
 <b><span style="color:#000080">#endif</span></b>
 </pre>

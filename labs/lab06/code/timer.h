@@ -6,27 +6,26 @@
 
 #include <iostream>
 #include <string>
-#include <time.h>
-#include <sys/time.h>
+#include <chrono>
 
 using namespace std;
+using namespace std::chrono;
 
 class timer {
+public:
+    timer();
+    timer(timer& myTimer);
+    void start();
+    void stop();
+
+    // Returns the time elapsed, in seconds
+    double getTime();
 private:
-    timeval startVar, stopVar;
+    steady_clock::time_point start_time, stop_time;
     bool running;
 
-public:
-    timer() : running(0) {}
-    ~timer() {}
-    timer(timer & myTimer);
-    int start();
-    int stop();
-    string toString();
-    ostream & print(ostream &theStream);
-    double getTime();
 };
 
-ostream & operator<<(ostream & theStream, timer & theTimer);
+ostream& operator<<(ostream& theStream, timer& theTimer);
 
 #endif
