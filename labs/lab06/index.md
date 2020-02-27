@@ -197,9 +197,9 @@ But at some point, you will have to handle different size hash tables.
 In-lab
 ------
 
-### The -O2 flag ###
+### The `-O2` flag ###
 
-There are many times when we want our executable program to run as fast as possible.  An example of this is the current lab -- as we are testing our programs for speed (and we want them to run fast), we want to tell the compiler to write an optimized executable.  To do this, we specify the '-O2' flag, short for "optimization level 2" (capital O).  There are multiple optimization levels that clang++ provides, each with benefits and drawbacks.  The only allowable optimization level for this lab is 2 (i.e. '-O2', not any other number after the 'O').  For example, to compile this program, we would enter:
+There are many times when we want our executable program to run as fast as possible.  An example of this is the current lab -- as we are testing our programs for speed (and we want them to run fast), we want to tell the compiler to write an optimized executable.  To do this, we specify the '-O2' flag, short for "optimization level 2" (capital O).  There are multiple optimization levels that clang++ provides, each with benefits and drawbacks, but we will be using '-O2' for this lab.  To compile a program with this optimization level, we would enter:
 
 ```
 clang++ -O2 -Wall wordPuzzle.cpp timer.cpp hashTable.cpp
@@ -216,7 +216,7 @@ clang++ -O2 wordPuzzle.o timer.o hashTable.o
 
 Note that on this last one, that the -O2 flag must be used on each of the individual compilations as well as the final link.  Thus, when put into a Makefile, you should make your CXXFLAGS variable include '-O2' so that it applies to all compilations.
 
-We could always tell the compiler to create an optimized executable file by always using the -O2 flag.  But there are some disadvantages to doing so.  Debugging the program is much harder (if not impossible) with an optimized executable -- much of the debugging information is stripped out of the executable to improve the speed.  So if you want to debug your program, you will have to remove the -O2 flag (and put in the -g flag, of course).  Also, the compiler takes longer to compile the program when optimizing.  These are some reasons programmers usually don't use the -O2 flag until they know the program works, and thus want the additional speed improvement.
+We could always tell the compiler to create an optimized executable file by always using the -O2 flag, but there are some disadvantages to doing so.  Debugging the program is much harder with an optimized executable -- much of the debugging information is stripped out of the executable to improve the speed.  So if you want to debug your program, you will have to remove the -O2 flag (and put in the -g flag, of course).  The compiler also takes longer to compile the program when optimizing.  Thus, programmers usually don't use the -O2 flag until they know the program works and want to start focusing on performance.
 
 Try compiling your program both with and without the -O2 flag.  Run the program both times.  Do you notice a difference in the timed speed of the program?  Our test program decreased in execution time from about 15 seconds to 12 seconds with the -O2 flag.
 
@@ -235,14 +235,17 @@ Recall that this command will **OVERWRITE** output.txt (if it exists), and save 
 Once the program is completed, we will need to see if that file is the same as the sample input.  To do so, enter the following command.  We'll assume, for this example, that we are using the 300x300 grid, and words2.txt.
 
 ```
+# Use `man diff` to learn more about the diff command
 diff output.txt 300x300.words2.out.txt
 ```
 
-This will examine the two files byte-by-byte, and look for differences.  If there are no differences, then diff will not print out ANY output.  If there are differences, then they will be printed to the screen.  This means that if diff prints anything, then your program is NOT producing the same results as we are expecting.  All hope is not lost, though!  If you look at the two files (you can load them up both in Emacs), it may very well be that the difference is in formatting -- you use two spaces, we use one space, for example.
+This will examine the two files byte-by-byte, and look for differences.  If there are no differences, then `diff` will not print out ANY output.  If there are differences, then they will be printed to the screen.  This means that if `diff` prints anything, then your program is NOT producing the same results as we are expecting.  All hope is not lost, though!  If you look at the two files (you can load them up both in Emacs), it may very well be that the difference is in formatting -- you use two spaces, we use one space, for example.
+
+You can provide the `-w` flag to `diff` to have it ignore all whitespace on the lines it is comparing.
 
 Keep in mind that your program execution may include a bit of additional output -- such as the prompts for the filenames, the timing information, etc.  If that is the only difference between output.txt and the sample output, then that's fine.
 
-If the files are not sorted the same -- meaning that the words listed are the same, but in a different order -- then diff will report differences between the files.  You can use the Unix 'sort' command to sort BOTH files before comparison to fix this:
+If the files are not sorted the same -- meaning that the words listed are the same, but in a different order -- then diff will report differences between the files.  You can use the Unix `sort` command to sort BOTH files before comparison to fix this:
 
 ```
 # Pipe the result of your program execution to `sort`, and then redirect that to output.txt
@@ -253,15 +256,13 @@ diff output.txt words2.sorted.out.txt
 
 If there are a lot of differences, then you should run your program on a small grid with the smaller word file (i.e. words2.txt).  Once you solve the differences with the smaller grid file and word file, most of the differences with the larger grid/word files should disappear.
 
-Lastly, you can provide the `-w` flag to diff to have it ignore all whitespace on the lines it is comparing.
-
 ### Shell Scripting ###
 
 Through the various programming languages we've seen (Java, C++, etc.), we can make a computer do many things.  Yet there are still limitations to what we can do in these languages.  How could you get a directory listing in Java, for example?  Or easily invoke Unix commands from C++?  While these are certainly possible, they are often difficult to accomplish.  
 
-Yet programmers often have a need to do these sorts of things.  For example, a script that we wrote takes all the submissions made to the submission server, compiles and executes them, and saves the execution output to various files.  This allows the compilation and execution to be automated, and thus saves the graders a lot of time.
+Programmers often have a need to do these sorts of things.  For example, a script that we wrote takes all the submissions made to the submission server, compiles and executes them, and saves the execution output to various files.  This allows the compilation and execution to be automated, and saves the graders a lot of time.
 
-The *shell* is the command-line interface that you use when you are interactively using Unix (i.e. the Linux command line).  There are many shells out there, some of the more popular being bash, csh, and ksh.  Bash is the standard shell that the vast majority of shell scripts are written in, and is the shell we'll be using for this tutorial.
+The *shell* is the command-line interface that you use when you are interactively using Unix (i.e. the Linux command line).  There are many shells out there, some of the more popular being bash, zsh, and csh.  Bash is the standard shell that the vast majority of shell scripts are written in, and is the shell we'll be using for this tutorial.
 
 The original Unix shell was written by Stephen Bourne and released 1978.  It was just called 'sh', which is short for 'shell'.  In 1987, Brian Fox updated the shell, and decided to name it 'Bourne-again shell', a play on the original author's name.  Hence the name of 'bash'.
 
@@ -273,11 +274,16 @@ Shell scripts are useful when one needs to call a large number of Unix commands 
 
 Write a shell script `averagetime.sh` that will prompt the user for the dictionary and grid file names used by your word puzzle executable.  It will then run the program five times using those parameters.  It will record the time of each execution run, and, once the runs are completed, print out the average run time.  Note that you have not yet seen conditions (`if` or `case`) or loops (`for` or `while`) in shell scripts, so we do not expect your script to have either of these -- you should just have 5 separate commands without a loop.
 
-To make your life easier, you can modify your word puzzle program to print out the total time taken as the last line of output.  **THIS MUST BE AN INTEGER VALUE!**  Otherwise else the shell script will have problems (floating point arithmetic in bash is viable, but more complicated, so we'll stick with integer arithmetic).  Thus, you should multiply the timing result by 1000, and then print it out (hence you are printing out the number of milliseconds that the program took).  You should use the timer's `getTime()` method for this.  You can then capture that line by piping it through the `tail -1` command -- a brief introduction on how to do all of this is presented here.  The back quote (on the same key as the tilde (~), which is usually to the left of the digit 1) tells a shell script to run the program, and use the output for something else (as opposed to displaying the output to the screen).  For example, the following line would run the program (called a.out), only keep the last line, and save that output to a variable.
+To make your life easier, you can modify your word puzzle program to print out the total time taken **as an integer value** as the last line of output.  Floating point arithmetic in bash is quite complicated, so try to use integers when possible -- you may want to use the `Timer::getTime()` method, which returns milliseconds.
+
+You can then capture that line by piping it through the `tail -1` command -- the following line would run the program (called a.out), only keep the last line, and save that output to a variable.
 
 ```
 RUNNING_TIME=`./a.out | tail -1`
 ```
+
+The back quote <code>`</code> tells bash to execute whatever is in between the quotes rather than treating it as a string.
+It is usually located right below the Escape key on a keyboard.
 
 **Note:** your shell script MUST call a.out, and not anything else.
 
@@ -285,9 +291,7 @@ Armed with this, the rest of the required concepts for the shell script are in f
 
 As you are going through the tutorial, if there is a Unix command that you do not know (or you once knew and have since forgotten), you can find out more information about that command by entering `man command` at the Unix prompt.  This brings up the manual for that command, including all of the command-line parameters.
 
-A few thoughts to help you with your shell script.  If you are unsure if something is working, you can always print out the value of the variable through the `echo` command.  And you need not worry about the decimal precision of the average -- the result of using arithmetic expansion `$(( ... ))` with the sum over the number of runs is fine -- recall that the script has been modified to only print out an integer value (using arithmetic expansion `$(( ... ))` with floating point values will have issues).
-
-Your script should have comments (anything on a line after a '#' is a comment).  Our solution was 10-15 lines, not counting comments.
+Your script should have comments (anything on a line after a '#' is a comment).
 
 Below are a few notes to keep in mind when writing your shell script.  Bash is a very powerful language, but it can be rather finicky and unforgiving with syntax.
 
@@ -296,7 +300,7 @@ Below are a few notes to keep in mind when writing your shell script.  Bash is a
   - If you don't put the `#!/bin/bash`, it will use the wrong shell, and your program won't work properly!
 - When setting variables, do not have spaces around the equals sign
 - Keep in mind that to grab program output (such as the output of the binary program), you use back quotes (i.e. \`)
-- To execute your script, you can just enter, `./averagetime.sh`.  If you get a complaint about that ('permission denied', for example), enter this command: `chmod 755 averagetime.sh`.  This tells your Unix system that averagetime.sh is a program that can be executed (remember chmod?).
+- To execute your script, you can just enter `./averagetime.sh`.  If you get a complaint about that ('permission denied', for example), enter this command: `chmod +x averagetime.sh`.  This tells your Unix system that averagetime.sh is a program that can be executed (remember chmod?).
 
 ### In-lab Report ###
 
@@ -311,7 +315,15 @@ This report should contain items such as:
 - What problems did you encounter when implementing this lab?
 - How did your shell scripting writing go?  What do you think of shell scripts so far?
 
-Basically, we want a summary of your thoughts and experiences with the lab at this point, as well as the results from your timed runs.  As this is an in-lab report, we don't expect it to be very long winded -- just enough to answer those questions is sufficient. 
+Basically, we want a summary of your thoughts and experiences with the lab at this point, as well as the results from your timed runs.  As this is an in-lab report, we don't expect it to be very long winded -- just enough to answer those questions is sufficient.
+
+### Hints ###
+
+#### Debugging shell scripts ####
+Shell scripts don't have debuggers, but we can use old-style printing instead: you can always print out the value of the variable through the `echo` command, such as `echo ${variable}`.
+
+#### Integer division ####
+Bash's arithmetic expansion `$(( ... ))` performs integer division, so as long as you are using integers in the expression itself, you shouldn't run into any issues.
 
 ------------------------------------------------------------
 
@@ -325,7 +337,7 @@ To standardize timings, you should run all of your tests on words2.txt and 300x3
 ### Code optimization ###
 
 Your coding task for the post-lab is to optimize your program.
-Try to get your solver running as fast as possible -- 3 seconds is a good starting point, though regardless of how fast your program runs pre-optimizations you should still try to optimize it further.
+Try to get your solver running as fast as possible -- 3 seconds is a good starting point, though you should still try to optimize it further regardless of how fast your program already runs.
 
 First, record how long it takes to run your program with the `-O2` flag but no other optimizations.  We will need this value later.
 
