@@ -110,10 +110,6 @@ You should make sure you understand how these functions work, as you will most l
 We are interested in timing how long it takes to find all the valid words in a grid, not including the time it took to read in the dictionary and grid files or perform any other sort of pre-processing.
 You can use the code provided in [timer.cpp](code/timer.cpp.html) ([src](code/timer.cpp)), [timer.h](code/timer.h.html) ([src](code/timer.h)), and [timer_test.cpp](code/timer_test.cpp.html) ([src](code/timer_test.cpp)) to time the relevant portion of your program.
 
-In addition to having raw times, you should also calculate the big-theta running time of the portion that you are timing.
-
-Add a comment at the top of wordPuzzle.cpp listing an actual running time along with the big-theta running time.
-
 ### Other details ###
 
 **Input grids:** Each input grid file has three lines.  The first line is the number of rows, and the second is the number of columns, both representable using integers.  The third line is the grid data, represented by strictly alphabetical characters with no spaces (i.e. it will contain `rows * cols` characters).  Example grids are available in the labs/lab06/data/ directory.
