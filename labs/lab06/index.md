@@ -320,31 +320,41 @@ Post-lab
 
 You will need to optimize your code for the solution to the word puzzle, as well as write a post-lab report on those optimizations.
 
+To standardize timings, you should run all of your tests on words2.txt and 300x300.grid.txt.
+
 ### Code optimization ###
 
-Your coding task for the post-lab is to optimize your program.  At this point, your timing code should be in place, and your in-lab shell script should be able to automate the running and timing of your program.
+Your coding task for the post-lab is to optimize your program.
+Try to get your solver running as fast as possible -- 3 seconds is a good starting point, though regardless of how fast your program runs pre-optimizations you should still try to optimize it further.
 
-First, record how long it takes to run your program as-is.  We will need this value later.  All these values should be recorded when the executable being run was compiled with the -O2 flag.
+First, record how long it takes to run your program with the `-O2` flag but no other optimizations.  We will need this value later.
 
-You will need to optimize your word search.  There are plenty of optimizations you can try to implement, some of which may work better with your code than others. Here are some ideas:
+There are plenty of optimizations you can try to implement, some of which may work better with your code than others.
+Here are some ideas:
 
-- Choose a good load factor, &lambda;, for your hash table
-- Implement a reasonable collision resolution strategy
-- Try different collision resolution strategies to find the fastest one
-- Output to the screen (or redirected into a file) is very slow.  Buffering the input (keeping it in memory in some data structure), and then printing it out after the timing code is finished, may greatly improve performance.
-- In addition to storing each word, *W*, you can also store the *prefixes* of that word.  So if the word is "amazing", you would store "ama", "amaz", "amazi", "amazin", and "amazing" in the hash table.  There would need to be some way to differentiate between prefixes ("amaz") and the actual words ("amazing").  This way if you are working in a given direction, and the particular string you are generating is not a prefix, then you know there are no further words in the dictionary in the given direction.
-- Keep track of a previous hash to help compute the next one faster.  For example, if you have just computed the hash for "foo", then you can keep that hash value on hand to compute the hash for "food" faster.
-- A better hash functions on the strings
-- If you are using separate chaining, try different data structures for the buckets
+- Experiment with different hash functions and different implementations of hash tables
+    - Choose a good load factor, &lambda;, for your hash table
+    - Implement a reasonable collision resolution strategy
+    - Try different collision resolution strategies to find the fastest one
+    - Try different data structures for the buckets if you are using separate chaining
+    - Look up better hash functions for strings
+- Buffer the output (keep it in some data structure) and print it out once after the timing code has finished, rather than every time a word is found
+- Store *prefixes* of each word in the dictionary in addition to the word itself
+    - If the word is "amazing", you would store "ama", "amaz", "amazi", "amazin", and "amazing" in the hash table.  There would need to be some way to differentiate between prefixes ("amaz") and the actual words ("amazing").  This way if you are working in a given direction, and the particular string you are generating is not a prefix, then you know there are no further words in the dictionary in the given direction.
+- Keep track of a previous hash to help compute the next one faster.
+    - If you have just computed the hash for "foo", then you can keep that hash value on hand to compute the hash for "food" faster.
 - Any others that you can think of?
 
 Keep track of what you tried -- if you try each of the collision resolution strategies, and find that the original one you used is faster, record all of this in the post-lab report, along with the times from the other strategies.
 
-There are a couple of restrictions as to what optimizations you may use.  You may not write assembly code for your solution; it must be valid C++ code.  You may not use an optimization level beyond -O2.  You may use other clang++ flags, if that helps, but you can't use -O3, -O4, etc.  The reason for this last one is that a program is not guaranteed to function the same when using optimizations beyond -O2.  Note that although we are trying to get you to think at least a little bit about making your program fast, keep in mind that we still want clean, correct, readable code.  Your solutions will be judged on style and correctness.
+There are two restrictions on what optimizations you may attempt.  You may not:
 
-How much time and effort should you put into the optimizations?  We want to see (by looking at your code and the post-lab report) that you have spent thought, time, and effort on the optimizations.  If you can get your code to run in under 2-3 seconds (this has been done), then there probably aren't many more optimizations that you can perform.  However, if your pre-lab code already runs that fast, you still need to add some additional optimizations.  But this gives you a rough idea of what to shoot for in terms of execution time.
+- Write assembly code or any other non-C++ code
+    - The point of this lab is to exercise your knowledge of C++
+- Use any optimization level other than `-O2`
+    - `-O2` provides a baseline for all the solutions, and your program is not guaranteed to function the same when using higher optimization levels
 
-Feel free to experiment with different hash functions and different implementations of hash tables.  Part of the assignment is to combine what you have learned about picking a good hash function and appropriate table size with big-theta evaluations of running times of your algorithm.
+Additionally, although we are trying to get you to think about how to make your program faster, we still want clean, correct, and readable code.  Your solutions will be judged on correctness and style.
 
 ### Post-lab report ###
 
