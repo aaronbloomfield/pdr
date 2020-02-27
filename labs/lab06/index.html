@@ -176,8 +176,8 @@ diff output.txt words2.sorted.out.txt</code></pre>
 <p>Shell scripts are useful when one needs to call a large number of Unix commands (such as the aforementioned compilation/execution example). Significant computation, such as finding words in a word puzzle, or a lot of arithmetic, are not well suited to shell scripts.</p>
 <h3 id="average-running-time">Average Running Time</h3>
 <p>Write a shell script <code>averagetime.sh</code> that will prompt the user for the dictionary and grid file names used by your word puzzle executable, which must be called <code>a.out</code>. It will then run the program five times using those parameters. It will record the time of each execution run, and, once the runs are completed, print out the average run time. Note that you have not yet seen conditions (<code>if</code> or <code>case</code>) or loops (<code>for</code> or <code>while</code>) in shell scripts, so we do not expect your script to have either of these -- you should just have 5 separate commands without a loop.</p>
-<p>To make your life easier, you can modify your word puzzle program to print out the total time taken <strong>as an integer value</strong> as the last line of output. Floating point arithmetic in bash is quite complicated, so try to use integers when possible -- you may want to use the <code>Timer::getTime()</code> method, which returns milliseconds.</p>
-<p>You can then capture that line by piping it through the <code>tail -1</code> command -- the following line would run the program (called a.out), only keep the last line, and save that output to a variable.</p>
+<p>Modify your word puzzle program to print out the total time taken as the last line of output. Floating point arithmetic in bash is quite complicated, so try to use integers when possible -- you may want to use the <code>Timer::getTime()</code> method, which returns milliseconds.</p>
+<p>You can then capture that line by piping it through the <code>tail -1</code> command -- the following line would run the program, only keep the last line, and save that output to a variable.</p>
 <pre><code>RUNNING_TIME=`./a.out | tail -1`</code></pre>
 <p>The back quote <code>`</code> tells bash to execute whatever is in between the quotes rather than treating it as a string. It is usually located right below the Escape key on a keyboard.</p>
 <p>Armed with this, the rest of the required concepts for the shell script are in first six sections of the article.</p>
@@ -191,8 +191,8 @@ diff output.txt words2.sorted.out.txt</code></pre>
 <li>If you don't put the <code>#!/bin/bash</code>, it will use the wrong shell, and your program won't work properly!</li>
 </ul></li>
 <li>When setting variables, do not have spaces around the equals sign</li>
-<li>Keep in mind that to grab program output (such as the output of the binary program), you use back quotes (i.e. `)</li>
-<li>To execute your script, you can just enter <code>./averagetime.sh</code>. If you get a complaint about that ('permission denied', for example), enter this command: <code>chmod +x averagetime.sh</code>. This tells your Unix system that averagetime.sh is a program that can be executed (remember chmod?).</li>
+<li>Keep in mind that to grab program output (such as the output of the binary program), you use back quotes (`)</li>
+<li>To execute your script, you can just enter <code>./averagetime.sh</code>. If your computer denies you permission, remind it who's boss and put it in its place with <code>chmod +x averagetime.sh</code>. This tells your Unix system that averagetime.sh is a program that can be executed (remember chmod?).</li>
 </ul>
 <h3 id="in-lab-report">In-lab Report</h3>
 <p>One of the deliverables for the in-lab is a PDF document named inlab6.pdf.</p>
