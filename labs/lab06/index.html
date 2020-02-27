@@ -207,7 +207,7 @@ diff output.txt words2.sorted.out.txt</code></pre>
 <p>Basically, we want a summary of your thoughts and experiences with the lab at this point, as well as the results from your timed runs. As this is an in-lab report, we don't expect it to be very long winded -- just enough to answer those questions is sufficient.</p>
 <hr />
 <h2 id="post-lab-1">Post-lab</h2>
-<p>You will need to optimize your code for the solution to the word puzzle, as well as the post-lab report described below.</p>
+<p>You will need to optimize your code for the solution to the word puzzle, as well as write a post-lab report on those optimizations.</p>
 <h3 id="code-optimization">Code optimization</h3>
 <p>Your coding task for the post-lab is to optimize your program. At this point, your timing code should be in place, and your in-lab shell script should be able to automate the running and timing of your program.</p>
 <p>First, record how long it takes to run your program as-is. We will need this value later. All these values should be recorded when the executable being run was compiled with the -O2 flag.</p>
@@ -226,18 +226,38 @@ diff output.txt words2.sorted.out.txt</code></pre>
 <p>Keep track of what you tried -- if you try each of the collision resolution strategies, and find that the original one you used is faster, record all of this in the post-lab report, along with the times from the other strategies.</p>
 <p>There are a couple of restrictions as to what optimizations you may use. You may not write assembly code for your solution; it must be valid C++ code. You may not use an optimization level beyond -O2. You may use other clang++ flags, if that helps, but you can't use -O3, -O4, etc. The reason for this last one is that a program is not guaranteed to function the same when using optimizations beyond -O2. Note that although we are trying to get you to think at least a little bit about making your program fast, keep in mind that we still want clean, correct, readable code. Your solutions will be judged on style and correctness.</p>
 <p>How much time and effort should you put into the optimizations? We want to see (by looking at your code and the post-lab report) that you have spent thought, time, and effort on the optimizations. If you can get your code to run in under 2-3 seconds (this has been done), then there probably aren't many more optimizations that you can perform. However, if your pre-lab code already runs that fast, you still need to add some additional optimizations. But this gives you a rough idea of what to shoot for in terms of execution time.</p>
-<p>When reporting times for the post-lab report, all times must be with the words2.txt and 300x300.grid.txt files as the input. All programs must be compiled with -O2. You can do this on any computer, but make sure all your times are done on the same computer for comparison consistency. The timing code must be as specified in the pre-lab section (i.e. around the hash table usage, not the hash table creation).</p>
 <p>Feel free to experiment with different hash functions and different implementations of hash tables. Part of the assignment is to combine what you have learned about picking a good hash function and appropriate table size with big-theta evaluations of running times of your algorithm.</p>
 <h3 id="post-lab-report">Post-lab report</h3>
 <p>One of the deliverables for the post-lab is a PDF document named postlab6.pdf.</p>
-<p>If you single-space your report, you can divide the page lengths listed below by a factor of 2. If you single space your report and include a lot of blank space with tables, that's not what we are looking for here.</p>
-<p>Include the big-theta running time of your application, and a full explanation as to why. This should be half a page or so. This should address only the word-search portion of your application -- not the reading of input files, hash table creation, etc. This big-Theta runtime should take into account any and all optimizations that you made. Please do this in terms of <em>r</em> (rows), <em>c</em> (columns), and <em>w</em> (words). You can assume that the maximum word size is some small constant.</p>
-<p>Include the timing information for your application (as described at the end of the in-lab section). This should also be half a page or more. You can do this on any machine and data files, just use the same machine and files for all tests. Be sure to specify which files and machine you used. Show timing results (use the timer placement as we used in lab) for:</p>
-<ol type="1">
-<li>Your original application</li>
-<li>Pick a new hash function designed to make performance worse in terms of time. What new hash function did you choose and why was your performance worse?</li>
-<li>Pick a new hash table size designed to make performance worse in terms of time. What hash table size did you choose and why was your performance worse?</li>
-</ol>
-<p>Describe the optimizations you used, and the times that resulted. You should also include the overall speedup of your optimizations. If your original running time (unoptimized) was <em>x</em>, and your final running time was <em>y</em>, then the speedup is just <em>x</em>/<em>y</em>. For example, if your program took 10 seconds to run unoptimized, and 5 seconds after optimizations, you have a speedup of 2.0. You should have a lot to talk about in this section -- the optimizations you tried, why they worked (or didn't work), problems you encountered, numbered results, etc -- two pages or so is what we are looking for here.</p>
+<p>Here is what should be covered in your report:</p>
+<ul>
+<li>An explanation of the big-theta running time of the word-search portion of your program
+<ul>
+<li>You already figured this out in the pre-lab, but now we want to know why</li>
+<li>Your running time should be in terms of <em>r</em> (rows), <em>c</em> (columns), and <em>w</em> (words) -- you can assume that the maximum word size is some small constant</li>
+</ul></li>
+<li>Timing results for words2.txt and 300x300.grid.txt
+<ul>
+<li>You should provide three different timings:
+<ul>
+<li>Your program, post-optimizations</li>
+<li>Your program with a hash function designed to perform slower, including what hash function you chose and why it was slower</li>
+<li>Your program with a hash table size designed to perform slower, including what table size you chose and why it was slower</li>
+</ul></li>
+<li>Include details of the computer you were using</li>
+</ul></li>
+<li>The optimizations you attempted
+<ul>
+<li>Include the running time that resulted from each optimization</li>
+<li>Why did you try each optimization? Did it work (why/why not)?</li>
+<li>Did you encounter problems with any of the optimizations?</li>
+</ul></li>
+<li>The overall speedup of your program after applying the optimizations
+<ul>
+<li>If your original running time was <em>x</em> and your optimized running time was <em>y</em>, then the speedup is <em>x</em>/<em>y</em></li>
+<li>For example, if your original program took 10 seconds and you optimized it down to 5 seconds, your speedup is 2.0</li>
+</ul></li>
+</ul>
+<p>We are looking for a thoughtful but concise analysis in this report. As a general benchmark, most reports come out to be around 1.5 pages single-spaced, but ultimately the final length depends on what you have to say.</p>
 </body>
 </html>
