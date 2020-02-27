@@ -150,8 +150,8 @@ clang++ -O2 -c timer.cpp
 clang++ -O2 -c hashTable.cpp
 clang++ -O2 wordPuzzle.o timer.o hashTable.o</code></pre>
 <p>Note that on this last one, that the -O2 flag must be used on each of the individual compilations as well as the final link. Thus, when put into a Makefile, you should make your CXXFLAGS variable include '-O2' so that it applies to all compilations.</p>
-<p>We could always tell the compiler to create an optimized executable file by always using the -O2 flag, but there are some disadvantages to doing so. Debugging the program is much harder with an optimized executable -- much of the debugging information is stripped out of the executable to improve the speed. So if you want to debug your program, you will have to remove the -O2 flag (and put in the -g flag, of course). The compiler also takes longer to compile the program when optimizing. Thus, programmers usually don't use the -O2 flag until they know the program works and want to start focusing on performance.</p>
-<p>Try compiling your program both with and without the -O2 flag. Run the program both times. Do you notice a difference in the timed speed of the program? Our test program decreased in execution time from about 15 seconds to 12 seconds with the -O2 flag.</p>
+<p>We could tell the compiler to always use the -O2 flag, but there are some disadvantages to doing so. Debugging the program is much harder with an optimized executable -- much of the debugging information is removed to improve the speed. The compiler also takes longer to compile the program when optimizing. Thus, programmers usually don't use the -O2 flag until they know the program works and want to start focusing on performance.</p>
+<p>Try running your program both with and without the -O2 flag. Do you notice a difference in the timed speed of the program? Our test program decreased in execution time from about 15 seconds to 12 seconds with the -O2 flag.</p>
 <h3 id="input-and-output">Input and Output</h3>
 <p>When we are running the programs, we will want to make sure that they are reporting the same results. To do so, we will need to save the output into a file, and then make sure that file matches the sample input file.</p>
 <p>To redirect output to a file, we enter the following command (we've seen output redirection before -- in <a href="../../tutorials/03-04-more-unix/unix3.html">section 3 of the first Unix tutorial</a> -- so this should be familiar material).</p>
@@ -161,36 +161,37 @@ clang++ -O2 wordPuzzle.o timer.o hashTable.o</code></pre>
 <pre><code># Use `man diff` to learn more about the diff command
 diff output.txt 300x300.words2.out.txt</code></pre>
 <p>This will examine the two files byte-by-byte, and look for differences. If there are no differences, then <code>diff</code> will not print out ANY output. If there are differences, then they will be printed to the screen. This means that if <code>diff</code> prints anything, then your program is NOT producing the same results as we are expecting. All hope is not lost, though! If you look at the two files (you can load them up both in Emacs), it may very well be that the difference is in formatting -- you use two spaces, we use one space, for example.</p>
-<p>You can provide the <code>-w</code> flag to <code>diff</code> to have it ignore all whitespace on the lines it is comparing.</p>
+<p>Since we don't care about spacing, you can provide the <code>-w</code> flag to <code>diff</code> to have it ignore all whitespace.</p>
 <p>Keep in mind that your program execution may include a bit of additional output -- such as the prompts for the filenames, the timing information, etc. If that is the only difference between output.txt and the sample output, then that's fine.</p>
 <p>If the files are not sorted the same -- meaning that the words listed are the same, but in a different order -- then diff will report differences between the files. You can use the Unix <code>sort</code> command to sort BOTH files before comparison to fix this:</p>
 <pre><code># Pipe the result of your program execution to `sort`, and then redirect that to output.txt
 ./a.out words2.txt 300x300.grid.txt | sort &gt; output.txt
 sort 300x300.words2.out.txt &gt; words2.sorted.out.txt
 diff output.txt words2.sorted.out.txt</code></pre>
-<p>If there are a lot of differences, then you should run your program on a small grid with the smaller word file (i.e. words2.txt). Once you solve the differences with the smaller grid file and word file, most of the differences with the larger grid/word files should disappear.</p>
+<p>If there are a lot of differences, then you should run your program on a small grid with the smaller word file (words2.txt). Once you solve the differences with the smaller grid file and word file, most of the differences with the larger grid/word files should disappear.</p>
 <h3 id="shell-scripting">Shell Scripting</h3>
 <p>Through the various programming languages we've seen (Java, C++, etc.), we can make a computer do many things. Yet there are still limitations to what we can do in these languages. How could you get a directory listing in Java, for example? Or easily invoke Unix commands from C++? While these are certainly possible, they are often difficult to accomplish.</p>
 <p>Programmers often have a need to do these sorts of things. For example, a script that we wrote takes all the submissions made to the submission server, compiles and executes them, and saves the execution output to various files. This allows the compilation and execution to be automated, and saves the graders a lot of time.</p>
-<p>The <em>shell</em> is the command-line interface that you use when you are interactively using Unix (i.e. the Linux command line). There are many shells out there, some of the more popular being bash, zsh, and csh. Bash is the standard shell that the vast majority of shell scripts are written in, and is the shell we'll be using for this tutorial.</p>
-<p>The original Unix shell was written by Stephen Bourne and released 1978. It was just called 'sh', which is short for 'shell'. In 1987, Brian Fox updated the shell, and decided to name it 'Bourne-again shell', a play on the original author's name. Hence the name of 'bash'.</p>
+<p>The <em>shell</em> is the command-line interface that you use in the terminal. There are many shells out there, some of the more popular being bash, zsh, and csh. Bash is the standard shell that the vast majority of shell scripts are written in, and is the shell we'll be using for this tutorial.</p>
+<p>The original Unix shell was written by Stephen Bourne and released in 1978. It was just called 'sh', which is short for 'shell'. In 1987, Brian Fox updated the shell, and decided to name it 'Bourne-again shell', a play on the original author's name. Hence the name of 'bash'.</p>
 <p>A <em>shell script</em>, then, is a series of commands for the shell to execute. Shell scripts started off as just a way to have a series of simple commands in one place. Over time, additional functionality was added to these scripts, mostly the things we are used to in programming languages, such as variables and control structures (<code>for</code> and <code>while</code> loops, <code>if</code> and <code>case</code> conditionals, etc.). Today, shell scripts are a very powerful programming language that one can use to do many things.</p>
 <p>Shell scripts are useful when one needs to call a large number of Unix commands (such as the aforementioned compilation/execution example). Significant computation, such as finding words in a word puzzle, or a lot of arithmetic, are not well suited to shell scripts.</p>
 <h3 id="average-running-time">Average Running Time</h3>
-<p>Write a shell script <code>averagetime.sh</code> that will prompt the user for the dictionary and grid file names used by your word puzzle executable. It will then run the program five times using those parameters. It will record the time of each execution run, and, once the runs are completed, print out the average run time. Note that you have not yet seen conditions (<code>if</code> or <code>case</code>) or loops (<code>for</code> or <code>while</code>) in shell scripts, so we do not expect your script to have either of these -- you should just have 5 separate commands without a loop.</p>
+<p>Write a shell script <code>averagetime.sh</code> that will prompt the user for the dictionary and grid file names used by your word puzzle executable, which must be called <code>a.out</code>. It will then run the program five times using those parameters. It will record the time of each execution run, and, once the runs are completed, print out the average run time. Note that you have not yet seen conditions (<code>if</code> or <code>case</code>) or loops (<code>for</code> or <code>while</code>) in shell scripts, so we do not expect your script to have either of these -- you should just have 5 separate commands without a loop.</p>
 <p>To make your life easier, you can modify your word puzzle program to print out the total time taken <strong>as an integer value</strong> as the last line of output. Floating point arithmetic in bash is quite complicated, so try to use integers when possible -- you may want to use the <code>Timer::getTime()</code> method, which returns milliseconds.</p>
 <p>You can then capture that line by piping it through the <code>tail -1</code> command -- the following line would run the program (called a.out), only keep the last line, and save that output to a variable.</p>
 <pre><code>RUNNING_TIME=`./a.out | tail -1`</code></pre>
 <p>The back quote <code>`</code> tells bash to execute whatever is in between the quotes rather than treating it as a string. It is usually located right below the Escape key on a keyboard.</p>
-<p><strong>Note:</strong> your shell script MUST call a.out, and not anything else.</p>
 <p>Armed with this, the rest of the required concepts for the shell script are in first six sections of the article.</p>
 <p>As you are going through the tutorial, if there is a Unix command that you do not know (or you once knew and have since forgotten), you can find out more information about that command by entering <code>man command</code> at the Unix prompt. This brings up the manual for that command, including all of the command-line parameters.</p>
 <p>Your script should have comments (anything on a line after a '#' is a comment).</p>
 <p>Below are a few notes to keep in mind when writing your shell script. Bash is a very powerful language, but it can be rather finicky and unforgiving with syntax.</p>
 <ul>
 <li>The shell script takes two inputs (dictionary file and grid file), in that order; no command-line parameters.</li>
-<li>Your program should be called <code>averagetime.sh</code>, and should have <code>#!/bin/bash</code> as the very first line of the script</li>
+<li>Your program should be called <code>averagetime.sh</code>, and should have <code>#!/bin/bash</code> as the very first line of the script
+<ul>
 <li>If you don't put the <code>#!/bin/bash</code>, it will use the wrong shell, and your program won't work properly!</li>
+</ul></li>
 <li>When setting variables, do not have spaces around the equals sign</li>
 <li>Keep in mind that to grab program output (such as the output of the binary program), you use back quotes (i.e. `)</li>
 <li>To execute your script, you can just enter <code>./averagetime.sh</code>. If you get a complaint about that ('permission denied', for example), enter this command: <code>chmod +x averagetime.sh</code>. This tells your Unix system that averagetime.sh is a program that can be executed (remember chmod?).</li>
@@ -202,7 +203,7 @@ diff output.txt words2.sorted.out.txt</code></pre>
 <li>Did your implementation produce the correct results? Did you have to reformat your output?</li>
 <li>How much faster was your program with the -O2 flag?</li>
 <li>What was the speed of your implementation? How fast did it run on the 250x250 grid using words.txt as the dictionary file? What about words2.txt and the 300x300 grid?</li>
-<li>What is the big-Theta running speed of the word-search component of your program? Please do this in terms of <em>r</em> (rows), <em>c</em> (columns), and <em>w</em> (words). You can assume that the maximum word size is some small constant. Do not take into consideration the file reading or hash table creation time, neither of which are part of the actual word searching.</li>
+<li>What is the big-theta running speed of the word-search component of your program? Please do this in terms of <em>r</em> (rows), <em>c</em> (columns), and <em>w</em> (words). You can assume that the maximum word size is some small constant. Do not take into consideration the file reading or hash table creation time, neither of which are part of the actual word searching.</li>
 <li>What problems did you encounter when implementing this lab?</li>
 <li>How did your shell scripting writing go? What do you think of shell scripts so far?</li>
 </ul>
@@ -259,7 +260,7 @@ diff output.txt words2.sorted.out.txt</code></pre>
 <ul>
 <li>An explanation of the big-theta running time of the word-search portion of your program
 <ul>
-<li>You already figured this out in the pre-lab, but now we want to know why</li>
+<li>You already figured this out in the in-lab, but now we want to know why</li>
 <li>Your running time should be in terms of <em>r</em> (rows), <em>c</em> (columns), and <em>w</em> (words) -- you can assume that the maximum word size is some small constant</li>
 </ul></li>
 <li>Timing results for words2.txt and 300x300.grid.txt
