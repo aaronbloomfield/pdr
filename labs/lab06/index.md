@@ -26,11 +26,10 @@ Procedure
 
 1. Create a word puzzle solver
 2. Programmatically time how fast your program takes to run
-3. Calculate the big-theta running time of the word-search portion of your solver
-4. Files to download: 
+3. Files to download: 
     - The 5 provided code files: [getWordInGrid.cpp](code/getWordInGrid.cpp.html) ([src](code/getWordInGrid.cpp)), [primenumber.cpp](code/primenumber.cpp.html) ([src](code/primenumber.cpp)), [timer.cpp](code/timer.cpp.html) ([src](code/timer.cpp)), [timer.h](code/timer.h.html) ([src](code/timer.h)), [timer_test.cpp](code/timer_test.cpp.html) ([src](code/timer_test.cpp)).  These can also be downloaded all at once via the [code.zip](code.zip) file.
     - The data files in the labs/lab06/data/ directory.  These can also be downloaded all at once via the [data.zip](data.zip) file.
-5. Files to submit: Makefile, wordPuzzle.cpp, timer.h/cpp, hashTable.h/cpp
+4. Files to submit: Makefile, wordPuzzle.cpp, timer.h/cpp, hashTable.h/cpp
 
 ### In-lab ###
 
@@ -143,8 +142,6 @@ The exact spacing and order that the words are found in does not matter, as we c
 ### Submission ###
 
 You should submit any files required for your word puzzle solver to run as well as a Makefile that produces an `a.out` executable.
-
-Make sure you have added the required timing comments to the top of wordPuzzle.cpp.
 
 ### Hints ###
 

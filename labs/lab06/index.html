@@ -29,7 +29,6 @@
 <ol type="1">
 <li>Create a word puzzle solver</li>
 <li>Programmatically time how fast your program takes to run</li>
-<li>Calculate the big-theta running time of the word-search portion of your solver</li>
 <li>Files to download:
 <ul>
 <li>The 5 provided code files: <a href="code/getWordInGrid.cpp.html">getWordInGrid.cpp</a> (<a href="code/getWordInGrid.cpp">src</a>), <a href="code/primenumber.cpp.html">primenumber.cpp</a> (<a href="code/primenumber.cpp">src</a>), <a href="code/timer.cpp.html">timer.cpp</a> (<a href="code/timer.cpp">src</a>), <a href="code/timer.h.html">timer.h</a> (<a href="code/timer.h">src</a>), <a href="code/timer_test.cpp.html">timer_test.cpp</a> (<a href="code/timer_test.cpp">src</a>). These can also be downloaded all at once via the <a href="code.zip" class="uri">code.zip</a> file.</li>
@@ -115,7 +114,6 @@ Found all words in 0.000835 seconds</code></pre>
 <p>The exact spacing and order that the words are found in does not matter, as we can easily (and automatically) ignore that when comparing your output to the desired output. Everything else should all be the same. The in-lab discusses how to directly compare your output to the expected output (while ignoring spaces and word order) - see the &quot;Input and Output&quot; section of the in-lab.</p>
 <h3 id="submission">Submission</h3>
 <p>You should submit any files required for your word puzzle solver to run as well as a Makefile that produces an <code>a.out</code> executable.</p>
-<p>Make sure you have added the required timing comments to the top of wordPuzzle.cpp.</p>
 <h3 id="hints">Hints</h3>
 <h4 id="separation-of-concerns">Separation of concerns</h4>
 <p>Given the multi-faceted nature of this lab, it is helpful to only focus on one portion at the time. Start out by using the STL hashtable <a href="https://en.cppreference.com/w/cpp/container/unordered_set">unordered_set</a> to verify that your word search works, and then work on writing your own hash table implementation to replace it.</p>
