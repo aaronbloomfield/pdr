@@ -268,7 +268,7 @@ Shell scripts are useful when one needs to call a large number of Unix commands 
 Write a shell script `averagetime.sh` that will prompt the user for the dictionary and grid file names used by your word puzzle executable, which must be called `a.out`.  It will then run the program five times using those parameters.  It will record the time of each execution run, and, once the runs are completed, print out the average run time.  Note that you have not yet seen conditions (`if` or `case`) or loops (`for` or `while`) in shell scripts, so we do not expect your script to have either of these -- you should just have 5 separate commands without a loop.
 
 Modify your word puzzle program to print out the total time taken as the last line of output.
-Floating point arithmetic in bash is quite complicated, so try to use integers when possible -- you may want to use the `Timer::getTime()` method, which returns milliseconds.
+Floating point arithmetic in bash is quite complicated, so try to use integers when possible -- you may want to use the `Timer::getTime()` method, which includes milliseconds in its return value.
 
 You can then capture that line by piping it through the `tail -1` command -- the following line would run the program, only keep the last line, and save that output to a variable.
 
