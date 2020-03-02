@@ -20,7 +20,7 @@ The tutorial will be necessary for the post-lab, though you may read through it 
 
 1. Read the [slides on IBCM](../../slides/07-ibcm.html)
 2. Read [IBCM book chapter](../../book/ibcm-chapter.pdf) (PDF)
-3. Run IBCM code online [here](http://pegasus.cs.virginia.edu/ibcm/).  The sample code in the book chapter is also in the repo: [summation.ibcm](../../ibcm/summation.ibcm) and [array-summation.ibcm](../../ibcm/array-summation.ibcm)
+3. Run IBCM code online [here](https://pegasus.cs.virginia.edu/ibcm/).  The sample code in the book chapter is also in the repo: [summation.ibcm](../../ibcm/summation.ibcm) and [array-summation.ibcm](../../ibcm/array-summation.ibcm)
 
 Procedure
 ---------
@@ -50,17 +50,32 @@ Procedure
 Pre-lab
 -------
 
-### Using the IBCM Simulator ###
+For the pre-lab, you will need to write two IBCM programs.
+The programs will need to have an .ibcm extension when submitting, but they are text files, so you can still edit them in Emacs.
 
-The easiest way to use the simulator is via the online version, available at [http://pegasus.cs.virginia.edu/ibcm/](http://pegasus.cs.virginia.edu/ibcm/).
+### addition.ibcm ###
 
-There are pros and cons to the online version of the emulator.  The online version does not require installation, allows for inline memory modification, but will hang your browser if it gets stuck in an infinite loop.  Also, the online simulator gets rather unhappy if there are extra blank lines at the end of your input file.
+Write an IBCM program that:
 
-You will be developing a somewhat more complicated IBCM program in the in-lab. So, as preparation, study the IBCM documentation and lecture notes. Additionally, you will be expected to come to the in-lab with two working IBCM programs.  You will not get much from the lab unless you are thoroughly familiar with the documentation and lecture notes, so make sure you are familiar with the material!
+- Gets three values from user input
+- Stores the values into three variables
+- Adds the variables together, and prints the sum (you may use additional memory if you wish)
+- If the sum is zero, prints the three values and stops
+- If the sum is not zero, starts over (tries to get three values, etc.)
+
+### array.ibcm ###
+
+Write another IBCM program that finds the maximum value in a hardcoded array of values.
+
+- The array base address is hard-coded into memory, meaning it's a pre-set value that isn't obtained by user input.  You can have the array be all or part of the IBCM program, or a section of memory after the program with values that you have selected.
+- You should also hard-code other values, such as the number of elements in the array and the array elements themselves, into your program.  The program should not need any user input.
+- Before your program halts, it prints out the maximum value of the array
+
+You ***MUST*** iterate through the array by creating the array load instruction, similarly as was done in lecture in the [array-simulation.ibcm](../../ibcm/array-summation.ibcm) program.  You may ***NOT*** have a series of separate instructions to each load a separate value from the array -- such a program will receive zero credit.
 
 ### Writing IBCM Code ###
 
-You **MUST** comment your IBCM code copiously.  This means (practically) every line should have a comment describing what you are doing.  Note that you cannot have a line that is only comments, as the emulator will have trouble reading that line!  The examples provided in the handouts posted on the course website and discussed in class illustrate a good way of doing this, where there are columns for each of the following:
+You **MUST** comment your IBCM code copiously.  This means (practically) every line should have a comment describing what you are doing.  However, you cannot have a line that is only comments, as the emulator will have trouble reading that line!  The examples provided in the handouts posted on the course website and discussed in class illustrate a good way of doing this, where there are columns for each of the following:
 
 1. the hexadecimal values that will go into that memory location
 2. the address of that memory location
@@ -73,35 +88,23 @@ Note that together the operation name and the address are sort of an assembly la
 
 The simulator will only read the first 4 character on each line of a file.  So you can't have entire lines with comments, or blank lines.  The simulator can't handle these (and doesn't check for this), and you will get a strange error.
 
-Even though you will have your program well-thought out and written out in symbolic IBCM before you start typing it in, alas you may still find that you have forgotten an extra variable or an extra instruction or two that you need to add in.  To make these corrections easier, be sure to leave a bit of extra space for variables at the top of your program.  You may also want to leave extra nop (opcode: B) instructions in your code that could be replaced later with actual instructions if needed.  Make use of labels in your symbolic IBCM code to aid readability.
+### Running IBCM Code ###
 
-### The IBCM Simulator ###
+You may run your IBCM code via the online simulator at [https://pegasus.cs.virginia.edu/ibcm/](https://pegasus.cs.virginia.edu/ibcm/).
 
-For the pre-lab, you will need to write two IBCM programs, as described below.  Note that the programs will need to have an .ibcm extension when submitting, but they are text files, so you can still edit them in Emacs.
+Beware of the following quirks of the simulator:
 
-### addition.ibcm ###
-
-Write a *single* IBCM program that does the following:
-
-- Gets three values from user input
-- Stores the values into three variables
-- Adds the variables together, and prints the sum (you may use additional memory if you wish)
-- If the sum is zero, it prints the three values and stops
-- If the sum is not zero, it starts over (tries to get three values, etc.)
-
-### array.ibcm ###
-
-Write a second IBCM program that finds the maximum value in an array of values.
-
-- The array base address is hard-coded into memory, meaning it's a pre-set value that isn't obtained by user input.  You can have the array be all or part of the IBCM program, or a section of memory after the program with values that you have selected.
-- You should also hard-code other values, such as the number of elements in the array and the array elements themselves, into your program.  The program should not need any user input.
-- Before your program halts, it prints out the maximum value of the array
-
-You ***MUST*** iterate through the array by creating the array load instruction, similarly as was done in lecture in the [array-simulation.ibcm](../../ibcm/array-summation.ibcm) program.  You may ***NOT*** have a series of separate instructions to each load a separate value from the array -- such a program will receive zero credit.
+- If your code contains an infinite loop, the simulator will hang your browser
+- The simulator will not work if there are blank lines at the end of the file
 
 ### Submitting your code ###
 
-Your code ***MUST*** have comments in the file so that the TAs can grade it.  No comments will earn a zero for the grade.
+Submit addition.ibcm and array.ibcm with comments explaining your code.
+
+### Hints ###
+
+#### Leave room for mistakes ####
+Sprinkle some nop (opcode: B) instructions throughout your program that can be replaced later in case you realize that you need some extra variables or are missing some instructions.
 
 ------------------------------------------------------------
 

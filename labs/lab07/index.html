@@ -24,7 +24,7 @@
 <ol type="1">
 <li>Read the <a href="../../slides/07-ibcm.html">slides on IBCM</a></li>
 <li>Read <a href="../../book/ibcm-chapter.pdf">IBCM book chapter</a> (PDF)</li>
-<li>Run IBCM code online <a href="http://pegasus.cs.virginia.edu/ibcm/">here</a>. The sample code in the book chapter is also in the repo: <a href="../../ibcm/summation.ibcm">summation.ibcm</a> and <a href="../../ibcm/array-summation.ibcm">array-summation.ibcm</a></li>
+<li>Run IBCM code online <a href="https://pegasus.cs.virginia.edu/ibcm/">here</a>. The sample code in the book chapter is also in the repo: <a href="../../ibcm/summation.ibcm">summation.ibcm</a> and <a href="../../ibcm/array-summation.ibcm">array-summation.ibcm</a></li>
 </ol>
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
@@ -49,12 +49,26 @@
 </ol>
 <hr />
 <h2 id="pre-lab-1">Pre-lab</h2>
-<h3 id="using-the-ibcm-simulator">Using the IBCM Simulator</h3>
-<p>The easiest way to use the simulator is via the online version, available at <a href="http://pegasus.cs.virginia.edu/ibcm/" class="uri">http://pegasus.cs.virginia.edu/ibcm/</a>.</p>
-<p>There are pros and cons to the online version of the emulator. The online version does not require installation, allows for inline memory modification, but will hang your browser if it gets stuck in an infinite loop. Also, the online simulator gets rather unhappy if there are extra blank lines at the end of your input file.</p>
-<p>You will be developing a somewhat more complicated IBCM program in the in-lab. So, as preparation, study the IBCM documentation and lecture notes. Additionally, you will be expected to come to the in-lab with two working IBCM programs. You will not get much from the lab unless you are thoroughly familiar with the documentation and lecture notes, so make sure you are familiar with the material!</p>
+<p>For the pre-lab, you will need to write two IBCM programs. The programs will need to have an .ibcm extension when submitting, but they are text files, so you can still edit them in Emacs.</p>
+<h3 id="addition.ibcm">addition.ibcm</h3>
+<p>Write an IBCM program that:</p>
+<ul>
+<li>Gets three values from user input</li>
+<li>Stores the values into three variables</li>
+<li>Adds the variables together, and prints the sum (you may use additional memory if you wish)</li>
+<li>If the sum is zero, prints the three values and stops</li>
+<li>If the sum is not zero, starts over (tries to get three values, etc.)</li>
+</ul>
+<h3 id="array.ibcm">array.ibcm</h3>
+<p>Write another IBCM program that finds the maximum value in a hardcoded array of values.</p>
+<ul>
+<li>The array base address is hard-coded into memory, meaning it's a pre-set value that isn't obtained by user input. You can have the array be all or part of the IBCM program, or a section of memory after the program with values that you have selected.</li>
+<li>You should also hard-code other values, such as the number of elements in the array and the array elements themselves, into your program. The program should not need any user input.</li>
+<li>Before your program halts, it prints out the maximum value of the array</li>
+</ul>
+<p>You <strong><em>MUST</em></strong> iterate through the array by creating the array load instruction, similarly as was done in lecture in the <a href="../../ibcm/array-summation.ibcm">array-simulation.ibcm</a> program. You may <strong><em>NOT</em></strong> have a series of separate instructions to each load a separate value from the array -- such a program will receive zero credit.</p>
 <h3 id="writing-ibcm-code">Writing IBCM Code</h3>
-<p>You <strong>MUST</strong> comment your IBCM code copiously. This means (practically) every line should have a comment describing what you are doing. Note that you cannot have a line that is only comments, as the emulator will have trouble reading that line! The examples provided in the handouts posted on the course website and discussed in class illustrate a good way of doing this, where there are columns for each of the following:</p>
+<p>You <strong>MUST</strong> comment your IBCM code copiously. This means (practically) every line should have a comment describing what you are doing. However, you cannot have a line that is only comments, as the emulator will have trouble reading that line! The examples provided in the handouts posted on the course website and discussed in class illustrate a good way of doing this, where there are columns for each of the following:</p>
 <ol type="1">
 <li>the hexadecimal values that will go into that memory location</li>
 <li>the address of that memory location</li>
@@ -65,28 +79,18 @@
 </ol>
 <p>Note that together the operation name and the address are sort of an assembly language version of the hexadecimal version of the operations in the first column. You probably want to write those first, and then turn these into the hex instruction that will go into column 1.</p>
 <p>The simulator will only read the first 4 character on each line of a file. So you can't have entire lines with comments, or blank lines. The simulator can't handle these (and doesn't check for this), and you will get a strange error.</p>
-<p>Even though you will have your program well-thought out and written out in symbolic IBCM before you start typing it in, alas you may still find that you have forgotten an extra variable or an extra instruction or two that you need to add in. To make these corrections easier, be sure to leave a bit of extra space for variables at the top of your program. You may also want to leave extra nop (opcode: B) instructions in your code that could be replaced later with actual instructions if needed. Make use of labels in your symbolic IBCM code to aid readability.</p>
-<h3 id="the-ibcm-simulator">The IBCM Simulator</h3>
-<p>For the pre-lab, you will need to write two IBCM programs, as described below. Note that the programs will need to have an .ibcm extension when submitting, but they are text files, so you can still edit them in Emacs.</p>
-<h3 id="addition.ibcm">addition.ibcm</h3>
-<p>Write a <em>single</em> IBCM program that does the following:</p>
+<h3 id="running-ibcm-code">Running IBCM Code</h3>
+<p>You may run your IBCM code via the online simulator at <a href="https://pegasus.cs.virginia.edu/ibcm/" class="uri">https://pegasus.cs.virginia.edu/ibcm/</a>.</p>
+<p>Beware of the following quirks of the simulator:</p>
 <ul>
-<li>Gets three values from user input</li>
-<li>Stores the values into three variables</li>
-<li>Adds the variables together, and prints the sum (you may use additional memory if you wish)</li>
-<li>If the sum is zero, it prints the three values and stops</li>
-<li>If the sum is not zero, it starts over (tries to get three values, etc.)</li>
+<li>If your code contains an infinite loop, the simulator will hang your browser</li>
+<li>The simulator will not work if there are blank lines at the end of the file</li>
 </ul>
-<h3 id="array.ibcm">array.ibcm</h3>
-<p>Write a second IBCM program that finds the maximum value in an array of values.</p>
-<ul>
-<li>The array base address is hard-coded into memory, meaning it's a pre-set value that isn't obtained by user input. You can have the array be all or part of the IBCM program, or a section of memory after the program with values that you have selected.</li>
-<li>You should also hard-code other values, such as the number of elements in the array and the array elements themselves, into your program. The program should not need any user input.</li>
-<li>Before your program halts, it prints out the maximum value of the array</li>
-</ul>
-<p>You <strong><em>MUST</em></strong> iterate through the array by creating the array load instruction, similarly as was done in lecture in the <a href="../../ibcm/array-summation.ibcm">array-simulation.ibcm</a> program. You may <strong><em>NOT</em></strong> have a series of separate instructions to each load a separate value from the array -- such a program will receive zero credit.</p>
 <h3 id="submitting-your-code">Submitting your code</h3>
-<p>Your code <strong><em>MUST</em></strong> have comments in the file so that the TAs can grade it. No comments will earn a zero for the grade.</p>
+<p>Submit addition.ibcm and array.ibcm with comments explaining your code.</p>
+<h3 id="hints">Hints</h3>
+<h4 id="leave-room-for-mistakes">Leave room for mistakes</h4>
+<p>Sprinkle some nop (opcode: B) instructions throughout your program that can be replaced later in case you realize that you need some extra variables or are missing some instructions.</p>
 <hr />
 <h2 id="in-lab-1">In-lab</h2>
 <h3 id="bubble-sort">Bubble sort</h3>
