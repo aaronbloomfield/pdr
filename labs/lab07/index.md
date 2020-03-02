@@ -7,11 +7,16 @@ PDR: Laboratory 7: IBCM Programming
 
 To become familiar with programming with IBCM, and understand how high-level language programs are represented at the machine level.
 
-### Background: ###
+### Background ###
 
-IBCM (Itty Bitty Computing Machine) is a simulated computer with a minimal instruction set.  Despite its tiny small instruction set, the IBCM can compute anything that a modern 'powerful' computer can compute.
+IBCM (Itty Bitty Computing Machine) is a simulated computer with a minimal instruction set.  Despite its tiny instruction set, IBCM can compute anything that a modern computer can.
 
-### Reading(s): ###
+### Tutorial ###
+
+The tutorial for this lab is the remainder of the [Wikibooks article on Bash Shell Scripting](https://en.wikibooks.org/wiki/Bash_Shell_Scripting).
+The tutorial will be necessary for the post-lab, though you may read through it earlier if you'd like.
+
+### Recommended Readings ###
 
 1. Read the [slides on IBCM](../../slides/07-ibcm.html)
 2. Read [IBCM book chapter](../../book/ibcm-chapter.pdf) (PDF)
@@ -22,32 +27,23 @@ Procedure
 
 ### Pre-lab ###
 
-1. The online IBCM simulator is available online [here](http://pegasus.cs.virginia.edu/ibcm/).
-2. Write the two IBCM programs described in the pre-lab section: addition.ibcm and array.ibcm.
-3. Note that some browsers have problems with the online simulator.  If in doubt, try Firefox or Chrome.
-4. Your submitted files MUST have an .ibcm extension (not .ibcm.txt), and can NOT have any blank lines!
-5. Files to download: IBCM reference files (sample programs, documentation, etc.) listed in the Readings section, above
-6. Files to submit: addition.ibcm, array.ibcm.  Make sure they are not named addition.ibcm.txt and array.ibcm.txt!
+1. Write two IBCM programs to familiarize yourself with IBCM
+2. Files to download: None
+3. Files to submit: addition.ibcm, array.ibcm
 
 ### In-lab ###
 
-1. Implement the bubble sort algorithm in IBCM from the C++ code.  See the in-lab section for details.
-2. Discuss any problems getting your programs to work with a TA.
-3. Your submitted files MUST have an .ibcm extension (not .ibcm.txt), and can NOT have any blank lines!
-4. Files to download: [bubblesort.cpp](bubblesort.cpp.html) ([src](bubblesort.cpp))
-5. Files to submit: bubblesort.ibcm.  Make sure it's not named bubblesort.ibcm.txt!
+1. Implement bubble sort in IBCM
+2. Files to download: [bubblesort.cpp](bubblesort.cpp.html) ([src](bubblesort.cpp))
+3. Files to submit: bubblesort.ibcm
 
 ### Post-lab ###
 
-1. The tutorial for this lab is the remainder of the [Wikibooks article on Bash Shell Scripting](http://en.wikibooks.org/wiki/Bash_Shell_Scripting).
-2. Complete the shell script described in the post-lab section.
-3. Your shell script MUST use `a.out` as the executable name
-4. Implement a *quine* in IBCM (see "What is a Quine?" section, below) into a quine.ibcm file.
-5. You may discuss this question with your classmates, as long as it is high-level design issues, not IBCM-specific implementation issues (i.e. what you turn in should be your own work).
-6. Submit a report, called postlab7.pdf (see the post-lab section for formatting details), that contains your thoughts on IBCM.  What did you think?  How easy was it to use?  Would modifications to the simulator make life easier for you?  How confident do you feel in writing IBCM code?
-7. Your submitted files MUST have an .ibcm extension (not .ibcm.txt), and can NOT have any blank lines!
-8. Files to download: [counter.cpp](counter.cpp.html) ([src](counter.cpp))
-9. Files to submit: averagetime.sh, quine.ibcm (don't name it quine.ibcm.txt!), postlab7.pdf
+1. Improve your `averagetime.sh` shell script using what you learned in the tutorial
+2. Implement a quine in IBCM
+3. Write a report on your experience with IBCM
+4. Files to download: [counter.cpp](counter.cpp.html) ([src](counter.cpp))
+5. Files to submit: averagetime.sh, quine.ibcm, postlab7.pdf
 
 ------------------------------------------------------------
 
