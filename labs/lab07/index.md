@@ -5,7 +5,7 @@ PDR: Laboratory 7: IBCM Programming
 
 ### Objective ###
 
-To become familiar with programming with IBCM, and understand how high-level language programs are represented at the machine level.
+To become familiar with programming with IBCM and understand how high-level language programs are represented at the machine level.
 
 ### Background ###
 
@@ -39,11 +39,11 @@ Procedure
 
 ### Post-lab ###
 
-1. Improve your `averagetime.sh` shell script using what you learned in the tutorial
-2. Implement a quine in IBCM
-3. Write a report on your experience with IBCM
+1. Implement a quine in IBCM
+2. Write a report on your experience with IBCM
+3. Improve your `averagetime.sh` shell script by adding control structures
 4. Files to download: [counter.cpp](counter.cpp.html) ([src](counter.cpp)), [timer.cpp](timer.cpp.html) ([src](timer.cpp)), [timer.h](timer.h.html) ([src](timer.h))
-5. Files to submit: averagetime.sh, quine.ibcm, postlab7.pdf
+5. Files to submit: quine.ibcm, postlab7.pdf, averagetime.sh
 
 ------------------------------------------------------------
 
