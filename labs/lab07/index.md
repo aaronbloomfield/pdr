@@ -42,7 +42,7 @@ Procedure
 1. Improve your `averagetime.sh` shell script using what you learned in the tutorial
 2. Implement a quine in IBCM
 3. Write a report on your experience with IBCM
-4. Files to download: [counter.cpp](counter.cpp.html) ([src](counter.cpp))
+4. Files to download: [counter.cpp](counter.cpp.html) ([src](counter.cpp)), [timer.cpp](timer.cpp.html) ([src](timer.cpp)), [timer.h](timer.h.html) ([src](timer.h))
 5. Files to submit: averagetime.sh, quine.ibcm, postlab7.pdf
 
 ------------------------------------------------------------
@@ -159,21 +159,16 @@ The tutorial for this lab is the remainder of the [Wikibooks article on Bash She
 
 For this lab, you will need to work a bit more on the shell script that you wrote for the last lab.  The shell script will also compute the average running time for 5 executions of a program.  The difference is that you will be using control structures, such as conditionals (if-then-else) and loops (for or while) in this shell script.
 
-First, download the [counter.cpp](counter.cpp.html) ([src](counter.cpp)) file.  This program contains the timer code from lab 6, although it has been modified to print out the time in milliseconds.  Note that the program doesn't actually do anything useful; it just takes in a numeric command line parameter, and runs through an idle loop many times.  We'll call the command line parameter taken in *e* -- given an input of *e*, the program will run through the idle loop 10^*e*^ times.  Thus, you should not enter a value for *e* greater than 9 (as 10^9^ (1 billion) is the largest power of 10 that an `int` value can hold).  On a modern computer, entering 9 as the parameter should take between 1 and 5 seconds to run, but keep in mind that the output is in milliseconds.  Note that if you compile it with `-O2`, some compilers (including clang++ on Linux systems) will recognize that there is an idle loop (i.e. a loop that does nothing), and will remove that code from the final binary; thus, your time will report as zero.  If this is the case, lower the optimization level so that you get a non-zero value when you run it with a high number of iterations.
+First, download the [counter.cpp](counter.cpp.html) ([src](counter.cpp)), [timer.cpp](timer.cpp.html) ([src](timer.cpp)), and [timer.h](timer.h.html) ([src](timer.h)) files.  The timer program has been modified from lab 6 to print out the time in milliseconds.  counter.cpp doesn't actually do anything useful; it just takes in a numeric command line parameter, and runs through an idle loop many times.  We'll call the command line parameter taken in *e* -- given an input of *e*, the program should run through the idle loop 10^*e*^ times.  Thus, you should not enter a value for *e* greater than 9 (as 10^9^ (1 billion) is the largest power of 10 that an `int` value can hold).  On a modern computer, entering 9 as the parameter should take between 1 and 5 seconds to run, but keep in mind that the output is in milliseconds.
 
-Your shell script should take in a single input value (as regular input, not as a command line parameter), which will be the number of iterations (i.e. the command-line parameter to pass to the binary program).  If that input is `quit`, then the script should exit.  Otherwise, you execute the program a total of 5 times, printing and keeping track of the execution time taken for each one.  Your script should then print the average time taken for each execution.  **You MUST call your executable program `a.out` in your shell script.**
+Do not compile your program with `-O2`, as clang++ is smart enough to recognize that your for loop is not doing any work and will thus remove it from the compiled binary!
 
-Your shell script **MUST** have an `if` statement (to see if it should exit), and **MUST** have a `for` or `while` loop.  The number of times to iterate through the `for` or `while` loop (initially set to 5) should be a variable set previously in the script.  Math in bash can be done with arithmetic expansion `$(( ... ))`, as discussed in the tutorial from the last lab.  Integer division is fine when computing the average.
+Your `averagetime.sh` shell script should take in the number of iterations as a single input value (not as a command line parameter).  If that input is `quit`, then the script should exit.  Otherwise, execute the program a total of 5 times, printing and keeping track of the execution time taken for each one.  Your script should then print the average time taken for each execution.  **You MUST call your executable program `a.out` in your shell script.**
 
-Recall that the back quote (on the same key as the tilde (~), which is usually to the left of the digit 1) tells a shell script to run the program, and use the output for something else (as opposed to displaying the output to the screen).  For example, the following line would run the program (called a.out), only keep the last line, and save that output to a variable called `RUNNING_TIME`.
+Your shell script **MUST** have an `if` statement (to see if it should exit), and **MUST** have a `for` or `while` loop.  The number of times to iterate through the `for` or `while` loop (initially set to 5) should be a variable set previously in the script.
 
-```
-RUNNING_TIME=`./a.out | tail -1`
-```
+If you want to compare values in a while expression (such as the bash equivalent of `while ( i < s )`), you should see [here](https://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-7.html).  In particular, you need to use `-lt` for the less than operator, and square brackets instead of the parenthesis.
 
-If you want to compare values in a while expression (such as the bash equivalent of `while ( i < s )`), you should see [here](http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-7.html).  In particular, you need to use `-lt` for the less than operator, and square brackets instead of the parenthesis.
-
-With the two things described above, the rest of the required concepts for the shell script are in the online tutorial.  This script should be named averagetime.sh.
 Below are a few notes to keep in mind when writing your shell script.  Bash is a very powerful language, but it can be rather finicky and unforgiving with syntax.
 
 - Your program should be called `averagetime.sh`, and should have `#!/bin/bash` as the very first line of the script
@@ -181,8 +176,8 @@ Below are a few notes to keep in mind when writing your shell script.  Bash is a
 - When setting variables, do **NOT** have spaces around the equals sign
 - When adding up values (using arithmetic expansion `$(( ... ))`), there **SHOULD** be spaces around the arithmetic operators as well as an equals sign within the parentheses.
 - A `for` loop requires a `do` keyword before the for loop body; likewise, an `if` statement has a `then` before the body.  Either these words must be on the next line, or a semi-colon must be there before the `do` or `then`
-- Keep in mind that to grab program output (such as the output of the binary program), you use back quotes (i.e. \`)
-- To execute your script, you can just enter, `./averagetime.sh`.  If you get a complaint about that ("permission denied", for example), enter this command: `chmod 755 averagetime.sh`.  This tells your Unix system that averagetime.sh is a program that can be executed (remember chmod?).
+- To grab program output (such as the output of the binary program), you use back quotes (i.e. \`)
+- To execute your script, you can just enter `./averagetime.sh`.  If your computer denies you permission, remind it who's boss and put it in its place with `chmod +x averagetime.sh`.  This tells your Unix system that averagetime.sh is a program that can be executed (remember chmod?).
 
 Below is the output when we wrote this shell script.  Obviously, your times may vary.
 

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>timer.cpp</title>
+</head>
+<body style="background-color:white">
+<pre><b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">"timer.h"</span>
+
+timer<span style="color:#990000">::</span><b><span style="color:#000000">timer</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    running <span style="color:#990000">=</span> <b><span style="color:#0000FF">false</span></b><span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+
+timer<span style="color:#990000">::</span><b><span style="color:#000000">timer</span></b><span style="color:#990000">(</span>timer<span style="color:#990000">&amp;</span> t<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    running <span style="color:#990000">=</span> t<span style="color:#990000">.</span>running<span style="color:#990000">;</span>
+    start_time <span style="color:#990000">=</span> t<span style="color:#990000">.</span>start_time<span style="color:#990000">;</span>
+    stop_time <span style="color:#990000">=</span> t<span style="color:#990000">.</span>stop_time<span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+
+<span style="color:#009900">void</span> timer<span style="color:#990000">::</span><b><span style="color:#000000">start</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(!</span>running<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        running <span style="color:#990000">=</span> <b><span style="color:#0000FF">true</span></b><span style="color:#990000">;</span>
+        start_time <span style="color:#990000">=</span> steady_clock<span style="color:#990000">::</span><b><span style="color:#000000">now</span></b><span style="color:#990000">();</span>
+    <span style="color:#FF0000">}</span>
+<span style="color:#FF0000">}</span>
+
+<span style="color:#009900">void</span> timer<span style="color:#990000">::</span><b><span style="color:#000000">stop</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>running<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        running <span style="color:#990000">=</span> <b><span style="color:#0000FF">false</span></b><span style="color:#990000">;</span>
+        stop_time <span style="color:#990000">=</span> steady_clock<span style="color:#990000">::</span><b><span style="color:#000000">now</span></b><span style="color:#990000">();</span>
+    <span style="color:#FF0000">}</span>
+<span style="color:#FF0000">}</span>
+
+<i><span style="color:#9A1900">// Returns the time elapsed, in seconds</span></i>
+<span style="color:#009900">double</span> timer<span style="color:#990000">::</span><b><span style="color:#000000">getTime</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    <i><span style="color:#9A1900">// Cast the intrinsic duration to seconds, but use a double so that we can</span></i>
+    <i><span style="color:#9A1900">// have fractional seconds to represent anything more precise (i.e. microseconds)</span></i>
+    <b><span style="color:#0000FF">return</span></b> duration_cast<span style="color:#990000">&lt;</span>duration<span style="color:#990000">&lt;</span><span style="color:#009900">double</span><span style="color:#990000">&gt;&gt;(</span>stop_time <span style="color:#990000">-</span> start_time<span style="color:#990000">).</span><b><span style="color:#000000">count</span></b><span style="color:#990000">();</span>
+<span style="color:#FF0000">}</span>
+
+<i><span style="color:#9A1900">// Prints the time elapsed, in milliseconds</span></i>
+ostream<span style="color:#990000">&amp;</span> <b><span style="color:#0000FF">operator</span></b><span style="color:#990000">&lt;&lt;(</span>ostream<span style="color:#990000">&amp;</span> out<span style="color:#990000">,</span> timer<span style="color:#990000">&amp;</span> t<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">return</span></b> out <span style="color:#990000">&lt;&lt;</span> <b><span style="color:#000000">to_string</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">static_cast</span></b><span style="color:#990000">&lt;</span><span style="color:#009900">int</span><span style="color:#990000">&gt;(</span>t<span style="color:#990000">.</span><b><span style="color:#000000">getTime</span></b><span style="color:#990000">()</span> <span style="color:#990000">*</span> <span style="color:#993399">1000</span><span style="color:#990000">));</span>
+<span style="color:#FF0000">}</span>
+</pre>
+</body>
+</html>
