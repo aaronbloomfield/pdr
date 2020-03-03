@@ -133,33 +133,33 @@ The file should be called bubblesort.ibcm.  It **MUST** have comments in the fil
 Post-lab
 --------
 
-### Post-lab report ###
+### Quines ###
 
-One of the deliverables for the post-lab is a PDF document named postlab7.pdf.  It must be in PDF format!  See [How to convert a file to PDF](../../docs/convert_to_pdf.html) for details about creating a PDF file.
-
-Submit a report, called postlab7.pdf, that contains your thoughts on IBCM.  What did you think?  How easy was it to use?  Would modifications to the simulator make life easier for you?  How confident do you feel in writing IBCM code?  A (single-spaced) quarter to half a page is fine.
-
-### What is a quine ###
-
-Based on the experience from the in-lab, you should now be able to write an IBCM program on your own. For the postlab, you should individually write an IBCM program that prints itself.  This type of program is known as a *quine*.
+For the postlab, you will be writing an IBCM program that prints itself.  This type of program is known as a *quine*.
 
 > quine: /kwi:n/ /n./ [from the name of the logician Willard van Orman Quine, via Douglas Hofstadter] A program that generates a copy of its own source text as its complete output. Devising the shortest possible quine in some given programming language is a common hackish amusement.
 
-Wikipedia has a good [article about quines](http://en.wikipedia.org/wiki/Quine_%28computing%29), including examples in a few programming languages.  The smallest C/C++ quine is described [here](http://www.ioccc.org/1994/smr.hint) (that is not needed for this lab).
+Wikipedia has a good [article about quines](https://en.wikipedia.org/wiki/Quine_%28computing%29), including examples in a few programming languages.  The smallest C/C++ quine is described [here](https://www.ioccc.org/1994/smr.hint) for your enjoyment.
 
-While at first this idea may sound like a serious mind-bender, in reality it is a rather short program that is not too tough to do in IBCM.  This is not a fully general program, it is a carefully crafted program that will only print itself out. The program may contain very specific information such as a variable that is initialized to contain the length of the program.  For example, if your quine is 25 lines long (data and instructions), then when it runs, it will print out 25 lines where each line consists of four hex digits.  The 25 lines you print out may differ from the original file read into the IBCM simulator in a couple of places; these may be variables and instructions which you have modified between the time the program was loaded and the time that particular line is printed.  It is possible to write this program in as few as 8 lines of IBCM code, but most likely you will have closer to 15-20 lines.
+While at first this idea may sound like a serious mind-bender, in reality it is a rather short program that is not too tough to do in IBCM.  Your program will be carefully crafted to only print itself out and will most likely contain very specific information such as a variable that holds the length of the program.
+
+The lines you print out may differ from the original file read into the IBCM simulator in a couple of places; as long as your output is still a valid quine that can be executed to output itself yet again, you do not have to worry about those differences.  It is possible to write this program in as few as 8 lines of IBCM code, but most likely you will have closer to 15-20 lines.
 
 You may ***NOT*** submit a zero line quine!  Even though this is technically valid, it will not earn credit for this lab.
 
 We will test your program by running it, recording the output, and running that output as a program.  You should do the same.
 
+### Post-lab report ###
+
+Submit a report, called postlab7.pdf, that contains your thoughts on IBCM.  What did you think?  How easy was it to use?  Would modifications to the simulator make life easier for you?  How confident do you feel in writing IBCM code?  A (single-spaced) quarter to half a page is fine.
+
 ### Bash shell script ###
 
-The tutorial for this lab is the remainder of the [Wikibooks article on Bash Shell Scripting](http://en.wikibooks.org/wiki/Bash_Shell_Scripting).
+The tutorial for this lab is the remainder of the [Wikibooks article on Bash Shell Scripting](https://en.wikibooks.org/wiki/Bash_Shell_Scripting).
 
 For this lab, you will need to work a bit more on the shell script that you wrote for the last lab.  The shell script will also compute the average running time for 5 executions of a program.  The difference is that you will be using control structures, such as conditionals (if-then-else) and loops (for or while) in this shell script.
 
-First, download the [counter.cpp](counter.cpp.html) ([src](counter.cpp)), [timer.cpp](timer.cpp.html) ([src](timer.cpp)), and [timer.h](timer.h.html) ([src](timer.h)) files.  The timer program has been modified from lab 6 to print out the time in milliseconds.  counter.cpp doesn't actually do anything useful; it just takes in a numeric command line parameter, and runs through an idle loop many times.  We'll call the command line parameter taken in *e* -- given an input of *e*, the program should run through the idle loop 10^*e*^ times.  Thus, you should not enter a value for *e* greater than 9 (as 10^9^ (1 billion) is the largest power of 10 that an `int` value can hold).  On a modern computer, entering 9 as the parameter should take between 1 and 5 seconds to run, but keep in mind that the output is in milliseconds.
+First, download the [counter.cpp](counter.cpp.html) ([src](counter.cpp)), [timer.cpp](timer.cpp.html) ([src](timer.cpp)), and [timer.h](timer.h.html) ([src](timer.h)) files.  The timer program has been modified from lab 6 to print out the time in milliseconds.  counter.cpp doesn't actually do anything useful; it just takes in a numeric command line parameter and runs through an idle loop many times.  We'll call the command line parameter taken in *e* -- given an input of *e*, the program should run through the idle loop 10^*e*^ times.  Thus, you should not enter a value for *e* greater than 9 (as 10^9^ (1 billion) is the largest power of 10 that an `int` value can hold).  On a modern computer, entering 9 as the parameter should take between 1 and 5 seconds to run.
 
 Do not compile your program with `-O2`, as clang++ is smart enough to recognize that your for loop is not doing any work and will thus remove it from the compiled binary!
 
