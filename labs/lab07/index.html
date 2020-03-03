@@ -119,19 +119,18 @@
 <p>You may <strong><em>NOT</em></strong> submit a zero line quine! Even though this is technically valid, it will not earn credit for this lab.</p>
 <p>We will test your program by running it, recording the output, and running that output as a program. You should do the same.</p>
 <h3 id="post-lab-report">Post-lab report</h3>
-<p>Submit a report, called postlab7.pdf, that contains your thoughts on IBCM. What did you think? How easy was it to use? Would modifications to the simulator make life easier for you? How confident do you feel in writing IBCM code? A (single-spaced) quarter to half a page is fine.</p>
-<h3 id="bash-shell-script">Bash shell script</h3>
+<p>Submit a PDF report, called postlab7.pdf, that contains your thoughts on IBCM. What did you think? How easy was it to use? Would modifications to the simulator make life easier for you? How confident do you feel in writing IBCM code? A (single-spaced) quarter to half a page is fine.</p>
+<h3 id="more-shell-scripting">More shell scripting</h3>
 <p>The tutorial for this lab is the remainder of the <a href="https://en.wikibooks.org/wiki/Bash_Shell_Scripting">Wikibooks article on Bash Shell Scripting</a>.</p>
 <p>For this lab, you will need to work a bit more on the shell script that you wrote for the last lab. The shell script will also compute the average running time for 5 executions of a program. The difference is that you will be using control structures, such as conditionals (if-then-else) and loops (for or while) in this shell script.</p>
-<p>First, download the <a href="counter.cpp.html">counter.cpp</a> (<a href="counter.cpp">src</a>), <a href="timer.cpp.html">timer.cpp</a> (<a href="timer.cpp">src</a>), and <a href="timer.h.html">timer.h</a> (<a href="timer.h">src</a>) files. The timer program has been modified from lab 6 to print out the time in milliseconds. counter.cpp doesn't actually do anything useful; it just takes in a numeric command line parameter and runs through an idle loop many times. We'll call the command line parameter taken in <em>e</em> -- given an input of <em>e</em>, the program should run through the idle loop 10<sup><em>e</em></sup> times. Thus, you should not enter a value for <em>e</em> greater than 9 (as 10<sup>9</sup> (1 billion) is the largest power of 10 that an <code>int</code> value can hold). On a modern computer, entering 9 as the parameter should take between 1 and 5 seconds to run.</p>
-<p>Do not compile your program with <code>-O2</code>, as clang++ is smart enough to recognize that your for loop is not doing any work and will thus remove it from the compiled binary!</p>
+<p>First, download the <a href="counter.cpp.html">counter.cpp</a> (<a href="counter.cpp">src</a>), <a href="timer.cpp.html">timer.cpp</a> (<a href="timer.cpp">src</a>), and <a href="timer.h.html">timer.h</a> (<a href="timer.h">src</a>) files. The timer program has been modified from lab 6 to print out the time in milliseconds. counter.cpp doesn't actually do anything useful; it just takes in a numeric command line parameter <em>e</em> and runs through an idle loop many times.</p>
+<p>Modify counter.cpp to run through the idle loop 10<sup><em>e</em></sup> times. Thus, you should not enter a value for <em>e</em> greater than 9 (as 10<sup>9</sup> (1 billion) is the largest power of 10 that an <code>int</code> value can hold). On a modern computer, entering 9 as the parameter should take between 1 and 5 seconds to run.</p>
+<p>Do not compile your program with <code>-O2</code>, as clang++ is smart enough to recognize that your for loop is not doing any work and will remove it from the optimized binary!</p>
 <p>Your <code>averagetime.sh</code> shell script should take in the number of iterations as a single input value (not as a command line parameter). If that input is <code>quit</code>, then the script should exit. Otherwise, execute the program a total of 5 times, printing and keeping track of the execution time taken for each one. Your script should then print the average time taken for each execution. <strong>You MUST call your executable program <code>a.out</code> in your shell script.</strong></p>
 <p>Your shell script <strong>MUST</strong> have an <code>if</code> statement (to see if it should exit), and <strong>MUST</strong> have a <code>for</code> or <code>while</code> loop. The number of times to iterate through the <code>for</code> or <code>while</code> loop (initially set to 5) should be a variable set previously in the script.</p>
-<p>If you want to compare values in a while expression (such as the bash equivalent of <code>while ( i &lt; s )</code>), you should see <a href="https://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-7.html">here</a>. In particular, you need to use <code>-lt</code> for the less than operator, and square brackets instead of the parenthesis.</p>
 <p>Below are a few notes to keep in mind when writing your shell script. Bash is a very powerful language, but it can be rather finicky and unforgiving with syntax.</p>
 <ul>
 <li>Your program should be called <code>averagetime.sh</code>, and should have <code>#!/bin/bash</code> as the very first line of the script</li>
-<li>Bash is a bit finicky with having Boolean operators within an <code>if</code> clause, so try to avoid that (it can do it, but the syntax is very particular)</li>
 <li>When setting variables, do <strong>NOT</strong> have spaces around the equals sign</li>
 <li>When adding up values (using arithmetic expansion <code>$(( ... ))</code>), there <strong>SHOULD</strong> be spaces around the arithmetic operators as well as an equals sign within the parentheses.</li>
 <li>A <code>for</code> loop requires a <code>do</code> keyword before the for loop body; likewise, an <code>if</code> statement has a <code>then</code> before the body. Either these words must be on the next line, or a semi-colon must be there before the <code>do</code> or <code>then</code></li>
@@ -153,5 +152,12 @@ Running iteration 5...
 time taken: 1256 ms
 5 iterations took 6222 ms
 Average time was 1244 ms</code></pre>
+<h3 id="hints-1">Hints</h3>
+<h4 id="thinking-about-the-quine-is-hurting-my-head">Thinking about the quine is hurting my head :(</h4>
+<p>The most important thing to remember is that there is no distinction between instructions and variables in IBCM!</p>
+<p>What is one way you can figure out what instructions your program contains?<br />
+Hint: You know how to iterate through arrays; is there any way you could apply that concept here?</p>
+<h4 id="comparing-values-in-bash">Comparing values in Bash</h4>
+<p>If you want to compare values in an if or while expression (such as the bash equivalent of <code>while (i &lt; s)</code>), you should see <a href="https://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-7.html">here</a>. In particular, you need to use <code>-lt</code> for the less than operator, and square brackets instead of the parentheses.</p>
 </body>
 </html>

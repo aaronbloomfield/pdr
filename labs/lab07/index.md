@@ -151,28 +151,27 @@ We will test your program by running it, recording the output, and running that 
 
 ### Post-lab report ###
 
-Submit a report, called postlab7.pdf, that contains your thoughts on IBCM.  What did you think?  How easy was it to use?  Would modifications to the simulator make life easier for you?  How confident do you feel in writing IBCM code?  A (single-spaced) quarter to half a page is fine.
+Submit a PDF report, called postlab7.pdf, that contains your thoughts on IBCM.  What did you think?  How easy was it to use?  Would modifications to the simulator make life easier for you?  How confident do you feel in writing IBCM code?  A (single-spaced) quarter to half a page is fine.
 
-### Bash shell script ###
+### More shell scripting ###
 
 The tutorial for this lab is the remainder of the [Wikibooks article on Bash Shell Scripting](https://en.wikibooks.org/wiki/Bash_Shell_Scripting).
 
 For this lab, you will need to work a bit more on the shell script that you wrote for the last lab.  The shell script will also compute the average running time for 5 executions of a program.  The difference is that you will be using control structures, such as conditionals (if-then-else) and loops (for or while) in this shell script.
 
-First, download the [counter.cpp](counter.cpp.html) ([src](counter.cpp)), [timer.cpp](timer.cpp.html) ([src](timer.cpp)), and [timer.h](timer.h.html) ([src](timer.h)) files.  The timer program has been modified from lab 6 to print out the time in milliseconds.  counter.cpp doesn't actually do anything useful; it just takes in a numeric command line parameter and runs through an idle loop many times.  We'll call the command line parameter taken in *e* -- given an input of *e*, the program should run through the idle loop 10^*e*^ times.  Thus, you should not enter a value for *e* greater than 9 (as 10^9^ (1 billion) is the largest power of 10 that an `int` value can hold).  On a modern computer, entering 9 as the parameter should take between 1 and 5 seconds to run.
+First, download the [counter.cpp](counter.cpp.html) ([src](counter.cpp)), [timer.cpp](timer.cpp.html) ([src](timer.cpp)), and [timer.h](timer.h.html) ([src](timer.h)) files.  The timer program has been modified from lab 6 to print out the time in milliseconds.  counter.cpp doesn't actually do anything useful; it just takes in a numeric command line parameter *e* and runs through an idle loop many times.
 
-Do not compile your program with `-O2`, as clang++ is smart enough to recognize that your for loop is not doing any work and will thus remove it from the compiled binary!
+Modify counter.cpp to run through the idle loop 10^*e*^ times.  Thus, you should not enter a value for *e* greater than 9 (as 10^9^ (1 billion) is the largest power of 10 that an `int` value can hold).  On a modern computer, entering 9 as the parameter should take between 1 and 5 seconds to run.
+
+Do not compile your program with `-O2`, as clang++ is smart enough to recognize that your for loop is not doing any work and will remove it from the optimized binary!
 
 Your `averagetime.sh` shell script should take in the number of iterations as a single input value (not as a command line parameter).  If that input is `quit`, then the script should exit.  Otherwise, execute the program a total of 5 times, printing and keeping track of the execution time taken for each one.  Your script should then print the average time taken for each execution.  **You MUST call your executable program `a.out` in your shell script.**
 
 Your shell script **MUST** have an `if` statement (to see if it should exit), and **MUST** have a `for` or `while` loop.  The number of times to iterate through the `for` or `while` loop (initially set to 5) should be a variable set previously in the script.
 
-If you want to compare values in a while expression (such as the bash equivalent of `while ( i < s )`), you should see [here](https://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-7.html).  In particular, you need to use `-lt` for the less than operator, and square brackets instead of the parenthesis.
-
 Below are a few notes to keep in mind when writing your shell script.  Bash is a very powerful language, but it can be rather finicky and unforgiving with syntax.
 
 - Your program should be called `averagetime.sh`, and should have `#!/bin/bash` as the very first line of the script
-- Bash is a bit finicky with having Boolean operators within an `if` clause, so try to avoid that (it can do it, but the syntax is very particular)
 - When setting variables, do **NOT** have spaces around the equals sign
 - When adding up values (using arithmetic expansion `$(( ... ))`), there **SHOULD** be spaces around the arithmetic operators as well as an equals sign within the parentheses.
 - A `for` loop requires a `do` keyword before the for loop body; likewise, an `if` statement has a `then` before the body.  Either these words must be on the next line, or a semi-colon must be there before the `do` or `then`
@@ -197,3 +196,14 @@ time taken: 1256 ms
 5 iterations took 6222 ms
 Average time was 1244 ms
 ```
+
+### Hints ###
+
+#### Thinking about the quine is hurting my head :( ####
+The most important thing to remember is that there is no distinction between instructions and variables in IBCM!
+
+What is one way you can figure out what instructions your program contains?\
+Hint: You know how to iterate through arrays; is there any way you could apply that concept here?
+
+#### Comparing values in Bash ####
+If you want to compare values in an if or while expression (such as the bash equivalent of `while (i < s)`), you should see [here](https://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-7.html).  In particular, you need to use `-lt` for the less than operator, and square brackets instead of the parentheses.
