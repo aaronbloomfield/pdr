@@ -17,7 +17,9 @@ The Intel x86 assembly language is currently one of the most popular assembly la
 
 1. Read the [slides on 64 bit x86](../../slides/08-assembly-64bit.html)
 2. The x86 book chapters on [x86](../../book/x86-64bit-asm-chapter.pdf) and the [C calling convention](../../book/x86-64bit-ccc-chapter.pdf)
-3. An optional online reading is [x86-64 Machine-Level Programming](https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf) from CMU, although they use the other assembly language format
+3. The [x86 Call Stack](https://www.youtube.com/watch?v=XbZQ-EonR_I) introduction from the University of Washington
+4. An optional online reading is [x86-64 Machine-Level Programming](https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf) from CMU, although they use the other assembly language format
+5. An optional [Medium article](https://medium.com/@connorstack/a-guide-to-x86-calling-convention-824a3236ed65) stepping through the calling convention once again.
 
 
 Procedure
