@@ -66,7 +66,7 @@
 <li>You should also hard-code other values, such as the number of elements in the array and the array elements themselves, into your program. The program should not need any user input.</li>
 <li>Before your program halts, it prints out the maximum value of the array</li>
 </ul>
-<p>You <strong><em>MUST</em></strong> iterate through the array by creating the array load instruction, similarly as was done in lecture in the <a href="../../ibcm/array-summation.ibcm">array-simulation.ibcm</a> program. You may <strong><em>NOT</em></strong> have a series of separate instructions to each load a separate value from the array -- such a program will receive zero credit.</p>
+<p>You <strong><em>MUST</em></strong> iterate through the array by creating the array load instruction, similarly as was done in lecture in the <a href="../../ibcm/array-summation.ibcm">array-ssummation.ibcm</a> program. You may <strong><em>NOT</em></strong> have a series of separate instructions to each load a separate value from the array -- such a program will receive zero credit.</p>
 <h3 id="writing-ibcm-code">Writing IBCM Code</h3>
 <p>You <strong>MUST</strong> comment your IBCM code copiously. This means (practically) every line should have a comment describing what you are doing. However, you cannot have a line that is only comments, as the emulator will have trouble reading that line! The examples provided in the handouts posted on the course website and discussed in class illustrate a good way of doing this, where there are columns for each of the following:</p>
 <ol type="1">
@@ -86,11 +86,11 @@
 <li>If your code contains an infinite loop, the simulator will hang your browser</li>
 <li>The simulator will not work if there are blank lines at the end of the file</li>
 </ul>
-<h3 id="submitting-your-code">Submitting your code</h3>
+<h3 id="submission">Submission</h3>
 <p>Submit addition.ibcm and array.ibcm with comments explaining your code.</p>
 <h3 id="hints">Hints</h3>
 <h4 id="leave-room-for-mistakes">Leave room for mistakes</h4>
-<p>Sprinkle some nop (opcode: B) instructions throughout your program that can be replaced later in case you realize that you need some extra variables or are missing some instructions.</p>
+<p>Sprinkle some <code>nop</code> (opcode: B) instructions throughout your program that can be replaced later in case you realize that you need some extra variables or are missing some instructions.</p>
 <h4 id="working-with-arrays">Working with arrays</h4>
 <p>Arrays can be difficult to work with in IBCM given the extremely limited instruction set. We'll walk through the array summation example again from the slides to point out some helpful concepts.</p>
 <p>How do you add variables in IBCM? Why, with the <code>add</code> instruction, of course.<br />

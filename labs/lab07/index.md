@@ -71,7 +71,7 @@ Write another IBCM program that finds the maximum value in a hardcoded array of 
 - You should also hard-code other values, such as the number of elements in the array and the array elements themselves, into your program.  The program should not need any user input.
 - Before your program halts, it prints out the maximum value of the array
 
-You ***MUST*** iterate through the array by creating the array load instruction, similarly as was done in lecture in the [array-simulation.ibcm](../../ibcm/array-summation.ibcm) program.  You may ***NOT*** have a series of separate instructions to each load a separate value from the array -- such a program will receive zero credit.
+You ***MUST*** iterate through the array by creating the array load instruction, similarly as was done in lecture in the [array-ssummation.ibcm](../../ibcm/array-summation.ibcm) program.  You may ***NOT*** have a series of separate instructions to each load a separate value from the array -- such a program will receive zero credit.
 
 ### Writing IBCM Code ###
 
@@ -97,14 +97,14 @@ Beware of the following quirks of the simulator:
 - If your code contains an infinite loop, the simulator will hang your browser
 - The simulator will not work if there are blank lines at the end of the file
 
-### Submitting your code ###
+### Submission ###
 
 Submit addition.ibcm and array.ibcm with comments explaining your code.
 
 ### Hints ###
 
 #### Leave room for mistakes ####
-Sprinkle some nop (opcode: B) instructions throughout your program that can be replaced later in case you realize that you need some extra variables or are missing some instructions.
+Sprinkle some `nop` (opcode: B) instructions throughout your program that can be replaced later in case you realize that you need some extra variables or are missing some instructions.
 
 #### Working with arrays ####
 Arrays can be difficult to work with in IBCM given the extremely limited instruction set.  We'll walk through the array summation example again from the slides to point out some helpful concepts.
