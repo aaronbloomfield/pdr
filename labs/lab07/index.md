@@ -106,6 +106,30 @@ Submit addition.ibcm and array.ibcm with comments explaining your code.
 #### Leave room for mistakes ####
 Sprinkle some nop (opcode: B) instructions throughout your program that can be replaced later in case you realize that you need some extra variables or are missing some instructions.
 
+#### Working with arrays ####
+Arrays can be difficult to work with in IBCM given the extremely limited instruction set.  We'll walk through the array summation example again from the slides to point out some helpful concepts.
+
+How do you add variables in IBCM?  Why, with the `add` instruction, of course.\
+However, for arrays, the address you want to `add` from changes every time!  How do we account for that?
+
+We need to dynamically change the `add` instruction before executing it to make it point to the right address.
+If we can generate the appropriate instruction based off of the starting address of the array and the index we want (hint: look back to lab 4), we can then `store` that later on in our program to execute automatically!
+
+Thus, if we wanted to sum an array, we would:
+
+1. Create a variable set to `5000` -- notice how it's just an `add` instruction without an address.  This is `adit` in the slides.
+2. Load that instruction into the accumulator
+3. Use actual `add` instructions to add the base array address `a` and the current array index `i` to the accumulator
+    * The accumulator should now contain something like `5xyz`, where `xyz` is the location of `a[i]` in your program.
+    * The accumulator now contains a valid `add` instruction!
+4. Store that instruction in the line where step 6 would be running
+5. Load your accumulated sum
+6. Whatever was here previously was overwritten by step 4, and so now we execute the instruction `5xyz` to add the value of `a[i]` to the sum.  This is `doit` in the slides.
+7. Store the sum!
+8. Repeat steps 2-7 until the end of the array
+
+While this deals specifically with the example in the slides, it will hopefully clarify the general approach of iterating through arrays and give you more insight into how to find the max of an array.
+
 ------------------------------------------------------------
 
 In-lab
