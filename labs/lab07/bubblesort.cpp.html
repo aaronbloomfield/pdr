@@ -9,8 +9,7 @@ http://www.gnu.org/software/src-highlite">
 <title>bubblesort.cpp</title>
 </head>
 <body style="background-color:white">
-<pre><i><span style="color:#9A1900">//</span></i>
-<i><span style="color:#9A1900">// Bubblesort of an array of 5 integers.</span></i>
+<pre><i><span style="color:#9A1900">// Bubblesort of an array of 5 integers.</span></i>
 <i><span style="color:#9A1900">//</span></i>
 <i><span style="color:#9A1900">// Pass through the array right to left.  On each pass through the</span></i>
 <i><span style="color:#9A1900">// outer loop, the smallest remaining value will "bubble" over to its</span></i>
@@ -20,52 +19,59 @@ http://www.gnu.org/software/src-highlite">
 
 <b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
-<b><span style="color:#0000FF">const</span></b> <span style="color:#009900">int</span> MAX<span style="color:#990000">=</span><span style="color:#993399">5</span><span style="color:#990000">;</span>
+<b><span style="color:#0000FF">const</span></b> <span style="color:#009900">int</span> MAX <span style="color:#990000">=</span> <span style="color:#993399">5</span><span style="color:#990000">;</span>
 
 <span style="color:#009900">int</span> <b><span style="color:#000000">main</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
     <span style="color:#009900">int</span> A<span style="color:#990000">[</span>MAX<span style="color:#990000">];</span>
-    <span style="color:#009900">int</span> temp<span style="color:#990000">;</span>
-    <span style="color:#009900">int</span> k<span style="color:#990000">;</span>
+
     <i><span style="color:#9A1900">// The following output line should NOT be encoded into IBCM -- it</span></i>
     <i><span style="color:#9A1900">// is just to make the C++ implementation easier to understand</span></i>
     <i><span style="color:#9A1900">// when run</span></i>
     cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Enter "</span> <span style="color:#990000">&lt;&lt;</span> MAX <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" numbers to sort, one per line."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-    <i><span style="color:#9A1900">// read in the array values.  For IBCM implementation, assume that</span></i>
+
+    <i><span style="color:#9A1900">// Read in the array values.  For IBCM implementation, assume that</span></i>
     <i><span style="color:#9A1900">// array is hard coded AFTER the end of the program to perform</span></i>
     <i><span style="color:#9A1900">// bubblesort</span></i>
-    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span>k <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span> k <span style="color:#990000">&lt;</span> MAX<span style="color:#990000">;</span> <span style="color:#990000">++</span>k<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span><span style="color:#009900">int</span> k <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span> k <span style="color:#990000">&lt;</span> MAX<span style="color:#990000">;</span> k<span style="color:#990000">++)</span> <span style="color:#FF0000">{</span>
         cin <span style="color:#990000">&gt;&gt;</span> A<span style="color:#990000">[</span>k<span style="color:#990000">];</span>
     <span style="color:#FF0000">}</span>
+
     <i><span style="color:#9A1900">// print out the user input to the screen</span></i>
-    cout <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Original: "</span><span style="color:#990000">;</span>
-    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span>k <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span> k <span style="color:#990000">&lt;</span> MAX<span style="color:#990000">;</span> <span style="color:#990000">++</span>k<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-        cout <span style="color:#990000">&lt;&lt;</span> A<span style="color:#990000">[</span>k<span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" "</span><span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Original:"</span><span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span><span style="color:#009900">int</span> k <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span> k <span style="color:#990000">&lt;</span> MAX<span style="color:#990000">;</span> k<span style="color:#990000">++)</span> <span style="color:#FF0000">{</span>
+        cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" "</span> <span style="color:#990000">&lt;&lt;</span> A<span style="color:#990000">[</span>k<span style="color:#990000">];</span>
     <span style="color:#FF0000">}</span>
+    cout <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+
     <i><span style="color:#9A1900">// Your IBCM program should be these 2 nested for loops plus some</span></i>
     <i><span style="color:#9A1900">// additional variable declarations to store the information you</span></i>
     <i><span style="color:#9A1900">// need.  This is what you have to implement in IBCM.</span></i>
-    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span><span style="color:#009900">int</span> i <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span> i <span style="color:#990000">&lt;</span> MAX<span style="color:#990000">;</span> <span style="color:#990000">++</span>i<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-        <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span><span style="color:#009900">int</span> j <span style="color:#990000">=</span> MAX<span style="color:#990000">-</span><span style="color:#993399">1</span><span style="color:#990000">;</span> j <span style="color:#990000">&gt;</span> i<span style="color:#990000">;</span> <span style="color:#990000">--</span>j<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-            <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>A<span style="color:#990000">[</span>j<span style="color:#990000">]</span> <span style="color:#990000">&lt;</span> A<span style="color:#990000">[</span>j<span style="color:#990000">-</span><span style="color:#993399">1</span><span style="color:#990000">])</span> <span style="color:#FF0000">{</span>
-                <i><span style="color:#9A1900">//	swap(A[j], A[j-1]);</span></i>
-                temp <span style="color:#990000">=</span> A<span style="color:#990000">[</span>j<span style="color:#990000">];</span>
-                A<span style="color:#990000">[</span>j<span style="color:#990000">]</span> <span style="color:#990000">=</span> A<span style="color:#990000">[</span>j<span style="color:#990000">-</span><span style="color:#993399">1</span><span style="color:#990000">];</span>
-                A<span style="color:#990000">[</span>j<span style="color:#990000">-</span><span style="color:#993399">1</span><span style="color:#990000">]</span> <span style="color:#990000">=</span> temp<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span><span style="color:#009900">int</span> i <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span> i <span style="color:#990000">&lt;</span> MAX<span style="color:#990000">;</span> i<span style="color:#990000">++)</span> <span style="color:#FF0000">{</span>
+        <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span><span style="color:#009900">int</span> j <span style="color:#990000">=</span> MAX <span style="color:#990000">-</span> <span style="color:#993399">1</span><span style="color:#990000">;</span> j <span style="color:#990000">&gt;</span> i<span style="color:#990000">;</span> j<span style="color:#990000">--)</span> <span style="color:#FF0000">{</span>
+            <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>A<span style="color:#990000">[</span>j<span style="color:#990000">]</span> <span style="color:#990000">&lt;</span> A<span style="color:#990000">[</span>j <span style="color:#990000">-</span> <span style="color:#993399">1</span><span style="color:#990000">])</span> <span style="color:#FF0000">{</span>
+                <i><span style="color:#9A1900">// swap A[j] and A[j-1]</span></i>
+                <span style="color:#009900">int</span> temp <span style="color:#990000">=</span> A<span style="color:#990000">[</span>j<span style="color:#990000">];</span>
+                A<span style="color:#990000">[</span>j<span style="color:#990000">]</span> <span style="color:#990000">=</span> A<span style="color:#990000">[</span>j <span style="color:#990000">-</span> <span style="color:#993399">1</span><span style="color:#990000">];</span>
+                A<span style="color:#990000">[</span>j <span style="color:#990000">-</span> <span style="color:#993399">1</span><span style="color:#990000">]</span> <span style="color:#990000">=</span> temp<span style="color:#990000">;</span>
             <span style="color:#FF0000">}</span>
         <span style="color:#FF0000">}</span>
-        <i><span style="color:#9A1900">// You don't have to worry about all this output for the IBCM</span></i>
-        <i><span style="color:#9A1900">// version.</span></i>
-        cout <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"After Pass "</span><span style="color:#990000">&lt;&lt;</span> i <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"  "</span><span style="color:#990000">;</span>
-        <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span>k <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span> k <span style="color:#990000">&lt;</span> MAX<span style="color:#990000">;</span> <span style="color:#990000">++</span>k<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-            cout <span style="color:#990000">&lt;&lt;</span> A<span style="color:#990000">[</span>k<span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" "</span><span style="color:#990000">;</span>
+
+        <i><span style="color:#9A1900">// You don't have to worry about all this output for the IBCM version.</span></i>
+        cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"After Pass "</span> <span style="color:#990000">&lt;&lt;</span> i <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">":"</span><span style="color:#990000">;</span>
+        <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span><span style="color:#009900">int</span> k <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span> k <span style="color:#990000">&lt;</span> MAX<span style="color:#990000">;</span> k<span style="color:#990000">++)</span> <span style="color:#FF0000">{</span>
+            cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" "</span> <span style="color:#990000">&lt;&lt;</span> A<span style="color:#990000">[</span>k<span style="color:#990000">];</span>
         <span style="color:#FF0000">}</span>
+        cout <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
     <span style="color:#FF0000">}</span>
+    cout <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+
     <i><span style="color:#9A1900">// You DO NOT have to implement this. It is only provided so that</span></i>
-    <i><span style="color:#9A1900">// You may build and run the program via g++ to understand how the</span></i>
+    <i><span style="color:#9A1900">// you may compile and run your program to understand how the</span></i>
     <i><span style="color:#9A1900">// algorithm works.</span></i>
-    cout <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Sorted: "</span><span style="color:#990000">;</span>
-    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span>k <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span> k <span style="color:#990000">&lt;</span> MAX<span style="color:#990000">;</span> <span style="color:#990000">++</span>k<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-        cout <span style="color:#990000">&lt;&lt;</span> A<span style="color:#990000">[</span>k<span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" "</span><span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Sorted:"</span><span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span><span style="color:#009900">int</span> k <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span> k <span style="color:#990000">&lt;</span> MAX<span style="color:#990000">;</span> k<span style="color:#990000">++)</span> <span style="color:#FF0000">{</span>
+        cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" "</span> <span style="color:#990000">&lt;&lt;</span> A<span style="color:#990000">[</span>k<span style="color:#990000">];</span>
     <span style="color:#FF0000">}</span>
     cout <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
 <span style="color:#FF0000">}</span>
