@@ -89,9 +89,9 @@ The links in the right-most column link directly to the lecture recording on Col
 | 16 | Feb 19 | Wednesday | | [05: Trees][85] | trees to slide 7.9 |
 | 17 | Feb 21 | Friday | | [05: Trees][85] | trees to slide 7.31 |
 | 18 | Feb 24 | Monday | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [05: Trees][85] | trees to slide 9.12; hashes to slide 5.5 |
-| 19 | Feb 26 | Wednesday | | [05: Trees][85] | hashes to slide 7.4 |
-| 20 | Feb 28 | Friday | | [05: Trees][85], [06: Hashes][86] | |
-| 21 | Mar 2 | Monday | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [06: Hashes][86] | |
+| 19 | Feb 26 | Wednesday | | [05: Trees][85] | hashes to slide 7.4 ([image](https://www.cs.virginia.edu/~asb/cs2150/chalkboard-2020-02-26.jpg)) |
+| 20 | Feb 28 | Friday | | [05: Trees][85], [06: Hashes][86] | finished hashes |
+| 21 | Mar 2 | Monday | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | [06: Hashes][86] | IBCM to slide 5.15 |
 | 22 | Mar 4 | Wednesday | | [06: Hashes][86] | |
 | 23 | Mar 6 | Friday | | [06: Hashes][86] | |
 | | Mar 9 | Monday | no lab this week due to spring break | No class due to spring break | No class due to spring break |

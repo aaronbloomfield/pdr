@@ -204,7 +204,7 @@ store 300
 	  </script></section>
 
 	  <section>
-<h2>IBCM Machine Description: Memory</h2>
+<h2>IBCM Machine: Memory</h2>
 <table class="transparent">
 <tr><td class="middle"><ul>
 <li>4096 16-bit words<ul>
@@ -345,9 +345,9 @@ store 300
 <tr><td>A</td><td>not</td><td><code>a := ~a</code></td><td>logical complement of accumulator</td></tr>
 <tr><td>B</td><td>nop</td><td><code>/* */</code></td><td>do nothing (no operation)</td></tr>
 <tr><td>C</td><td>jmp</td><td><code>goto addr</code></td><td>jump to 'addr'</td></tr>
-<tr><td>D</td><td>jmpe</td><td><code>if a == 0 goto addr</code></td><td>jump to 'addr' if accumulator equals zero</td></tr>
-<tr><td>E</td><td>jmpl</td><td><code>if a &lt; 0 goto addr</code></td><td>jump to 'addr' if accum. is less than zero</td></tr>
-<tr><td>F</td><td>brl</td><td><code>a := PC+1; goto addr</code></td><td>jump (branch) to 'addr'; set accum. to<br>the value of the PC just before the jump<br>(i.e., to the address following the `brl`)</td></tr>
+<tr><td>D</td><td>jmpe</td><td><code>if a == 0 goto addr</code></td><td>jump to 'addr' if accumulator == zero</td></tr>
+<tr><td>E</td><td>jmpl</td><td><code>if a &lt; 0 goto addr</code></td><td>jump to 'addr' if accum. is < zero</td></tr>
+<tr><td>F</td><td>brl</td><td><code>a := PC+1; goto addr</code></td><td>jump (branch) to 'addr'; set accum. to<br>PC+1 (next inst) and jump</td></tr>
 </table>
 	  </section>
 
@@ -398,7 +398,6 @@ xit     load	s
       <tr><td>Accum</td><td class="border" style="border-bottom:medium solid;"></td></tr>
     </table>
 </td></tr></table>
-<script type="text/javascript">insertCanvas();</script>
 	  </section>
 
 	  <section>
@@ -426,7 +425,6 @@ xit     load	s
       <tr><td>Accum</td><td class="border" style="border-bottom:medium solid;"></td></tr>
     </table>
 </td></tr></table>
-<script type="text/javascript">insertCanvas();</script>
 	  </section>
 
 	  <section data-markdown><script type="text/template">
@@ -583,7 +581,6 @@ C010 019         jmp     loop      goto loop
 else
     S2;
 </code></pre>
-<script type="text/javascript">insertCanvas();</script>
       </section>
 
       <section>
@@ -591,7 +588,6 @@ else
 <pre><code>while(B >= 5)
     S;
 </code></pre>
-<script type="text/javascript">insertCanvas();</script>
       </section>
 
       <section data-markdown><script type="text/template">

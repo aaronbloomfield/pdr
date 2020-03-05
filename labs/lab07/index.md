@@ -19,7 +19,7 @@ The tutorial will be necessary for the post-lab, though you may read through it 
 ### Recommended Readings ###
 
 1. Read the [slides on IBCM](../../slides/07-ibcm.html)
-2. Read [IBCM book chapter](../../book/ibcm-chapter.pdf) (PDF)
+2. Read [IBCM book chapter](../../book/ibcm-chapter.pdf) (PDF), especially sections 1.6 (Writing IBCM Programs) and 1.7 (Example Programs)
 3. Run IBCM code online [here](https://pegasus.cs.virginia.edu/ibcm/).  The sample code in the book chapter is also in the repo: [summation.ibcm](../../ibcm/summation.ibcm) and [array-summation.ibcm](../../ibcm/array-summation.ibcm)
 
 Procedure
