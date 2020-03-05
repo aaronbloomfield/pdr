@@ -183,9 +183,7 @@ The tutorial for this lab is the remainder of the [Wikibooks article on Bash She
 
 For this lab, you will need to work a bit more on the shell script that you wrote for the last lab.  The shell script will also compute the average running time for 5 executions of a program.  The difference is that you will be using control structures, such as conditionals (if-then-else) and loops (for or while) in this shell script.
 
-First, download the [counter.cpp](counter.cpp.html) ([src](counter.cpp)), [timer.cpp](timer.cpp.html) ([src](timer.cpp)), and [timer.h](timer.h.html) ([src](timer.h)) files.  The timer program has been modified from lab 6 to print out the time in milliseconds.  counter.cpp doesn't actually do anything useful; it just takes in a numeric command line parameter *e* and runs through an idle loop many times.
-
-Modify counter.cpp to run through the idle loop 10^*e*^ times.  Thus, you should not enter a value for *e* greater than 9 (as 10^9^ (1 billion) is the largest power of 10 that an `int` value can hold).  On a modern computer, entering 9 as the parameter should take between 1 and 5 seconds to run.
+First, download the [counter.cpp](counter.cpp.html) ([src](counter.cpp)), [timer.cpp](timer.cpp.html) ([src](timer.cpp)), and [timer.h](timer.h.html) ([src](timer.h)) files.  The timer program has been modified from lab 6 to print out the time in milliseconds.  counter.cpp doesn't actually do anything useful; it just takes in a numeric command line parameter *e* and runs through an idle loop 10^*e*^ times.  You should not enter a value for *e* greater than 9, as 10^9^ (1 billion) is the largest power of 10 that an `int` value can hold.  On a modern computer, entering 9 as the parameter should take between 1 and 5 seconds to run.
 
 Do not compile your program with `-O2`, as clang++ is smart enough to recognize that your for loop is not doing any work and will remove it from the optimized binary!
 
