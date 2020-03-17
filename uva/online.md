@@ -17,7 +17,7 @@ The quick details (read below for detailed information):
 - Lectures will be recorded and available via [Collab's Lecture Capture](https://collab.its.virginia.edu/portal/site/c7acc486-f2bd-418a-ad92-c91ae5e03503/page/b4106bc2-7a67-4670-bd1b-56737d16b601); students can watch them at any time
 - Professor Bloomfield will be on [Zoom](https://zoom.us) during the lecture periods (M/W/F 10-11 and 1-2) to answer questions about the lecture content
 - Labs on Tuesdays will basically become extended office hours
-- The TAs will be on Slack during the office hours to answer questions about the labs; you still register via the office hours queue, and they will contact you via [Slack](https://slack.com) or [Zoom](https://zoom.us), depending on what type of help is needed
+- The TAs will be online during the office hours (and lab times) to answer questions about the labs; you still register via the office hours queue, and they will contact you via [Slack](https://slack.com) or [Zoom](https://zoom.us), depending on what type of help is needed
 - See the [Collab main page](https://collab.its.virginia.edu/portal/site/c7acc486-f2bd-418a-ad92-c91ae5e03503/page/077f787c-07f6-47b5-818d-13beb2387ec4) for how to join the Slack workspace and the Zoom channel (information on the latter will be available soon)
 
 ***If you don't have broadband at home,*** please email me (Professor Bloomfield at aaron@virginia.edu) with your mailing address, and I will mail you the necessary course materials on a USB key.  (Those materials will be: the pre-recorded lectures, the git repo, and the VirtualBox image).
