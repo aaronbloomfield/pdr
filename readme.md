@@ -3,6 +3,8 @@ Program and Data Representation
 
 [Introduction](#introduction) | [Repository contents](#contents) | [Contributing to this repository](#contributing) | [Course description](#description) | [Markdown](#markdown) | [Source code](#sourcecode) | [License](#license)
 
+**See the [CS 2150 online course structure page](uva/online.html) ([md](uva/online.md))**
+
 <a name="introduction"></a>Introduction
 ---------------------------------------
 
