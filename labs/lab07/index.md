@@ -137,7 +137,8 @@ In-lab
 
 ### Bubble sort ###
 
-Download and look at the [bubblesort.cpp](bubblesort.cpp.html) ([src](bubblesort.cpp)) algorithm.  This algorithm is what needs to be implemented in IBCM, although you should **NOT** implement the output in the IBCM version.
+Download and look at the [bubblesort.cpp](bubblesort.cpp.html) ([src](bubblesort.cpp)) algorithm.  This algorithm is what needs to be implemented in IBCM.
+You should hardcode the array after the end of your IBCM program and **NOT** implement any sort of input/output.
 
 To encode this program, follow these steps:
 
