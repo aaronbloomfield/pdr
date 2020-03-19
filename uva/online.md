@@ -18,7 +18,7 @@ The quick details (read below for detailed information):
 - Professor Bloomfield will be on [Zoom](https://zoom.us) during the lecture periods (M/W/F 10-11 and 1-2) to answer questions about the lecture content
 - Labs on Tuesdays will basically become extended office hours
 - The TAs will be online during the office hours (and lab times) to answer questions about the labs; you still register via the office hours queue, and they will contact you via [Slack](https://slack.com) or [Zoom](https://zoom.us), depending on what type of help is needed
-- See the [Collab main page](https://collab.its.virginia.edu/portal/site/c7acc486-f2bd-418a-ad92-c91ae5e03503/page/077f787c-07f6-47b5-818d-13beb2387ec4) for how to join the Slack workspace and the Zoom channel (information on the latter will be available soon)
+- See the [Collab main page](https://collab.its.virginia.edu/portal/site/c7acc486-f2bd-418a-ad92-c91ae5e03503/page/077f787c-07f6-47b5-818d-13beb2387ec4) on the right hand side for how to join the Slack workspace and the Zoom channel (information on the latter will be available soon)
 
 ***If you don't have broadband at home,*** please email me (Professor Bloomfield at aaron@virginia.edu) with your mailing address, and I will mail you the necessary course materials on a USB key.  (Those materials will be: the pre-recorded lectures, the git repo, and the VirtualBox image).
 
@@ -28,7 +28,7 @@ The quick details (read below for detailed information):
 
 Any updates will be posted here so that people know what has changed in this document.
 
-- none yet!
+- Wed, 3/18 @ 8 pm: updated the "TA office hours" section
 
 
 ----
@@ -55,7 +55,7 @@ And now for the detailed version...
 
 **Due dates:** To adapt to the new online course structure, all pre-labs and in-labs will be due at 8 a.m. on Wednesday morning.  This will allow students to get help both via the regular office hours (Sunday and Monday nights) as well as during the day on Tuesday.  Post-labs will still be due at 10 a.m. on Friday.
 
-**TA office hours:** The TAs will still "staff" office hours, but virtually.  TA office hours will focus on helping with the labs.  Students who want help will register in the [office hours queue](https://libra.cs.virginia.edu/~pedagogy/queue.php), just as before.  When a TA is ready to help a student, the TA will contact the student via the [Slack](https://slack.com) workspace -- so the students will have to already be on the Slack workspace.  The contact will be via a direct (private) message.  If necessary, the TAs may start up a [Zoom](https://zoom.us) session, in particular if the TAs needs to be able to chat by voice and/or see the student's code.  Under no circumstances are students to initiate this contact -- unfortunately, we just don't have the staffing levels required for the TAs to be able to handle everybody contacting them at the same time.
+**TA office hours:** The TAs will still "staff" office hours, but virtually.  TA office hours will focus on helping with the labs.  Students will need to be using three separate systems to utilize office hours (sorry we couldn't lower it): (1) the [office hours queue](https://libra.cs.virginia.edu/~pedagogy/queue.php) just as before, (2) the [Slack workspace](https://uvacs2150.slack.com) (if you need to get an invite, see the [Collab main page](https://collab.its.virginia.edu/portal/site/c7acc486-f2bd-418a-ad92-c91ae5e03503/page/077f787c-07f6-47b5-818d-13beb2387ec4) on the right hand side), and [Zoom](https://zoom.us) (you just have to have it set up; the TAs will provide the links to join).  Students who want help will register in the [office hours queue], just as before.  When a TA is ready to help a student, the TA will contact the student via a direct (private) message in the Slack workspace -- so the students will have to already be on the Slack workspace.  The TAs may or may not chat via Slack, depending on their preference and the type of help needed.  The TAs may also start up a Zoom session, in particular if the TAs needs to be able to chat by voice and/or see the student's code; the TAs will send the link (via Slack direct message) to join their Zoom session.  The students will likely want to share their computer screen so that the TAs can look at their code.  If the student has low bandwidth, there are a few options: (1) chat via Slack, possibly by uploading a screenshot or two, or (2) use zoom, but no video.  Under no circumstances are students to initiate this contact -- unfortunately, we just don't have the staffing levels required for the TAs to be able to handle everybody contacting them at the same time.
 
 **Professor office hours:** These will be replaced by the online lecture discussions (M/W/F 10-11 and 1-2).  With the relative size of the class (370 students) and one professor, it is not likely that I will be able to help debug a significant amount of students' code.  Individual issues will have to be via [support request](https://libra.cs.virginia.edu/~pedagogy/support.php).
 
@@ -70,7 +70,7 @@ And now for the detailed version...
 - Questions about the exam(s), specifically regarding reviewing material for it, will either be during TA office hours or during an exam review session (details on the latter to follow once the exam details are known).
 - Questions related to how this semester is all going to work out should be directed towards a [crystal ball](https://www.crystalballfree.com/) or a [tarot deck](https://www.free-tarot-reading.net/free).  If you are joining the Zoom meetings, you can click on the "Online Meetings" tool in the Collab workspace.
 
-**Private contact info:** This repo is public, and I don't want any online troll joining the Slack workspace or the Zoom meetings.  You can find the information for joining those on the [Collab main page](https://collab.its.virginia.edu/portal/site/c7acc486-f2bd-418a-ad92-c91ae5e03503/page/077f787c-07f6-47b5-818d-13beb2387ec4) (Collab login required).  Note that you can download the Zoom client for your computer [here](https://zoom.us/support/download).
+**Private contact info:** This repo is public, and I don't want any online troll joining the Slack workspace or the Zoom meetings.  You can find the information for joining those on the [Collab main page](https://collab.its.virginia.edu/portal/site/c7acc486-f2bd-418a-ad92-c91ae5e03503/page/077f787c-07f6-47b5-818d-13beb2387ec4) on the right hand side (Collab login required).  Note that you can download the Zoom client for your computer [here](https://zoom.us/support/download).
 
 **Lectures, redux:** The lecture recordings for the remaining part of the semester will have to be from last semester.  The only difference you will notice is that I will occasionally answer a question asked by a student (I'm always careful to either repeat the question for the recording or answer it in such a way that one can tell what the question was).  There are a number of reasons for using last semester's recordings:
 
