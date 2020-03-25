@@ -100,10 +100,10 @@ The links in the right-most column link directly to the lecture recording on Col
 | | Mar 13 | Friday | | No class due to spring break | No class due to spring break | 
 || Mar 16 | Monday | No lab due to UVa’s closure due to the Covid-19 outbreak | No class due to UVa’s closure due to the Covid-19 outbreak | No class due to UVa’s closure due to the Covid-19 outbreak | 
 || Mar 18 | Wednesday | | No class due to UVa’s closure due to the Covid-19 outbreak | No class due to UVa’s closure due to the Covid-19 outbreak | 
-|24| Mar 20 | Friday | | [08: Assembly][88] | | 
-|25| Mar 23 | Monday | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [08: Assembly][88] || 
-|26| Mar 25 | Wednesday | | [08: Assembly][88] | | 
-|27| Mar 27 | Friday | | [08: Assembly][88] | | 
+|24| Mar 20 | Friday | | [08: Assembly][88] | assembly, slides 1 to 5.6 | 
+|25| Mar 23 | Monday | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [08: Assembly][88] | assembly, slides 5.6 to 7.3 | 
+|26| Mar 25 | Wednesday | | [08: Assembly][88] | assembly, slides 7.1 to 8.15 | 
+|27| Mar 27 | Friday | | [08: Assembly][88] | assembly, slides 8.15 to 10.12 | 
 |28| Mar 30 | Monday | [Lab 8: assembly, part 1][8] ([md][28]) / Tutorial 8: see the information on the [tutorials page](../tutorials/index.html) ([md](../tutorials.md)) | [08: Assembly][88], [09: Advanced C++][89] | | 
 |29| Apr 1 | Wednesday | | [09: Advanced C++][89] | | 
 |30| Apr 3 | Friday | | [09: Advanced C++][89], [10: Heaps and Huffman coding][90] | | 
