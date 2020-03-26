@@ -9,6 +9,17 @@ This lab is one of two labs meant to familiarize you with the process of writing
 
 There are both [32 bit](../lab08-32bit/index.html) ([md](../lab08-32bit/index.md)) and [64 bit](../lab08-64bit/index.html) ([md](../lab08-64bit/index.md)) versions of this lab.  This is the ***64 bit version***.
 
+<h3 style="color:red"><b>Changes for the spring 2020 semester</b></h3>
+
+<p style="color:red">Due to this course being <a href="../../uva/online.html">taught online</a> (<a href="../../uva/online.md">md</a>) in the spring of 2020, we are making the following changes for this semester, in an effort to make the workload more manageable since we are all working from home.</p>
+
+<ul style="color:red">
+<li>Pre-lab: the mathlib.s program only needs to contain just the <code>product()</code> function, as described in the pre-lab section, below.  The <code>power()</code> function will be done in the post-lab.  The rest of the pre-lab is as described in the pre-lab section; just omit the <code>power()</code> function.  Note that if you do do both functions for the pre-lab, that's fine -- but only <code>product()</code> will be graded, so you still have to submit the same code for the post-lab where <code>power()</code> will be graded.</li>
+<li>In-lab: it is the same as described in the in-lab section below.</li>
+<li>Post-lab: the post-lab section below is not to be done; instead, finish the <code>power()</code> function from the pre-lab.  Thus, the post-lab submission is to be what is described in the pre-lab section, below (i.e., both <code>product()</code> and <code>power()</code>).</li>
+</ul>
+
+
 ### Background ###
 
 The Intel x86 assembly language is currently one of the most popular assembly languages and runs on many architectures from the x86 line through the Pentium 4.  It is a [CISC](http://en.wikipedia.org/wiki/Complex_instruction_set_computing) instruction set that has been extended multiple times (e.g. [MMX](http://en.wikipedia.org/wiki/MMX_%28instruction_set%29)) into a larger instruction set.  In 2004 it was extended to allow for a 64 bit memory space.

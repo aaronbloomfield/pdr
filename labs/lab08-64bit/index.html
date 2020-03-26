@@ -17,6 +17,23 @@
 <h3 id="objective">Objective</h3>
 <p>This lab is one of two labs meant to familiarize you with the process of writing, assembling, and linking assembly language code. The purposes of the in-lab and post-lab activities are to investigate how various C++ language features are implemented at the assembly level.</p>
 <p>There are both <a href="../lab08-32bit/index.html">32 bit</a> (<a href="../lab08-32bit/index.md">md</a>) and <a href="../lab08-64bit/index.html">64 bit</a> (<a href="../lab08-64bit/index.md">md</a>) versions of this lab. This is the <strong><em>64 bit version</em></strong>.</p>
+<h3 style="color:red">
+<b>Changes for the spring 2020 semester</b>
+</h3>
+<p style="color:red">
+Due to this course being <a href="../../uva/online.html">taught online</a> (<a href="../../uva/online.md">md</a>) in the spring of 2020, we are making the following changes for this semester, in an effort to make the workload more manageable since we are all working from home.
+</p>
+<ul style="color:red">
+<li>
+Pre-lab: the mathlib.s program only needs to contain just the <code>product()</code> function, as described in the pre-lab section, below. The <code>power()</code> function will be done in the post-lab. The rest of the pre-lab is as described in the pre-lab section; just omit the <code>power()</code> function. Note that if you do do both functions for the pre-lab, that's fine -- but only <code>product()</code> will be graded, so you still have to submit the same code for the post-lab where <code>power()</code> will be graded.
+</li>
+<li>
+In-lab: it is the same as described in the in-lab section below.
+</li>
+<li>
+Post-lab: the post-lab section below is not to be done; instead, finish the <code>power()</code> function from the pre-lab. Thus, the post-lab submission is to be what is described in the pre-lab section, below (i.e., both <code>product()</code> and <code>power()</code>).
+</li>
+</ul>
 <h3 id="background">Background</h3>
 <p>The Intel x86 assembly language is currently one of the most popular assembly languages and runs on many architectures from the x86 line through the Pentium 4. It is a <a href="http://en.wikipedia.org/wiki/Complex_instruction_set_computing">CISC</a> instruction set that has been extended multiple times (e.g. <a href="http://en.wikipedia.org/wiki/MMX_%28instruction_set%29">MMX</a>) into a larger instruction set. In 2004 it was extended to allow for a 64 bit memory space.</p>
 <h3 id="tutorial">Tutorial</h3>
