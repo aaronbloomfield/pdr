@@ -66,6 +66,7 @@ The instructions in this lab will assume the use of Linux -- if you are using ma
 | 64 bit macOS | -f macho64 | `_vecsum` |
 
 Some additional notes:
+
 - The subroutine name must be changed everywhere it appears in the assembly file, including in `global`
 - On Linux, you may need to install the `g++-multilib` command for compilation to succeed
 
