@@ -36,7 +36,7 @@ int main() {
 <p><code>printf()</code> takes a <em>format string</em>, containing verbatim text that you want to display and <em>conversion specifiers</em> which describe to <code>printf()</code> how to interpret and display the remaining arguments. The conversion specifiers may contain <em>flags</em>, which control such things as field width, precision, and format. All conversion specifiers begin with a <code>%</code>. To print an actual <code>%</code>, your format string must contain <code>%%</code>. Other special characters will have to be escaped with a backslash (i.e., to print a newline, we enter <code>\n</code>; for a backslash, we enter <code>\\</code>).</p>
 <p>For example, to print an integer, we would enter:</p>
 <pre><code>int x = 3;
-printf (&quot;this is an int: %d\n&quot;, x);</code></pre>
+printf(&quot;this is an int: %d\n&quot;, x);</code></pre>
 <p>The <code>%d</code> part tells printf to format the appropriate parameter (x, in this case) as an integer, and insert it at that spot in the string.</p>
 <p>Commonly used conversion specifiers are:</p>
 <table>
@@ -167,22 +167,13 @@ scanf(&quot;%s&quot;, school);  /* Converts input to a string and stores it in s
 <pre><code>#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 
-/* A struct is like a class, but without methods */
-struct foo {
-    int x;
-    struct foo* next;
-};
-
 void main() {
-    struct foo* list;
-    struct foo* tmp;
-
-    /* dynamically allocate an array of ints */
-    int* p = (int*) malloc(sizeof (int) * 5);
+    // dynamically allocate an array of ints
+    int* p = (int*) malloc(sizeof(int) * 5);
     p[1] = 10;
     printf(&quot;%d\n&quot;, p[1]);
 
-    /* free up that array */
+    // free up that array
     free(p);
 }</code></pre>
 <hr />

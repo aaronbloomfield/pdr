@@ -46,7 +46,7 @@ For example, to print an integer, we would enter:
 
 ```
 int x = 3;
-printf ("this is an int: %d\n", x);
+printf("this is an int: %d\n", x);
 ```
 
 The `%d` part tells printf to format the appropriate parameter (x, in this case) as an integer, and insert it at that spot in the string.
@@ -174,22 +174,13 @@ If you do manage to develop memory errors, the `MALLOC_CHECK_` environment varia
 #include <stdio.h>
 #include <stdlib.h>
 
-/* A struct is like a class, but without methods */
-struct foo {
-    int x;
-    struct foo* next;
-};
-
 void main() {
-    struct foo* list;
-    struct foo* tmp;
-
-    /* dynamically allocate an array of ints */
-    int* p = (int*) malloc(sizeof (int) * 5);
+    // dynamically allocate an array of ints
+    int* p = (int*) malloc(sizeof(int) * 5);
     p[1] = 10;
     printf("%d\n", p[1]);
 
-    /* free up that array */
+    // free up that array
     free(p);
 }
 ```
