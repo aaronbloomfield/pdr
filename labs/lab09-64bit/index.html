@@ -19,7 +19,9 @@
 <p>There are both <a href="../lab09-32bit/index.html">32 bit</a> (<a href="../lab09-32bit/index.md">md</a>) and <a href="../lab09-64bit/index.html">64 bit</a> (<a href="../lab09-64bit/index.md">md</a>) versions of this lab. This is the <strong><em>64 bit version</em></strong>.</p>
 <h3 id="background">Background</h3>
 <p>The Intel x86 assembly language is currently one of the most popular assembly languages and runs on many architectures from the x86 line through the Pentium 4. It is a CISC instruction set that has been extended multiple times (e.g. MMX) into a larger instruction set.</p>
-<h3 id="readings">Reading(s)</h3>
+<h3 id="tutorial">Tutorial</h3>
+<p>Read the <a href="../../tutorials/09-c/index.html">C tutorial</a> for the post-lab.</p>
+<h3 id="recommended-readings">Recommended Readings</h3>
 <ol type="1">
 <li>Read the <a href="../../slides/08-x86.html">slides on x86</a></li>
 <li>The two book chapters on x86: <a href="../../book/x86-64bit-asm-chapter.pdf">x86 Assembly</a> and <a href="../../book/x86-64bit-ccc-chapter.pdf">The x86 C Calling Convention</a>.</li>
@@ -28,30 +30,21 @@
 <h2 id="lab-procedure">Lab Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
 <ol type="1">
-<li>If you need to, read through the pre-lab pages from the previous lab on compiling C++ with assembly, as well as the vecsum program.</li>
-<li>In particular, you should be familiar with the differences between the various platforms, and the required submission format (it's Linux), as described in the pre-lab section.</li>
-<li>Follow the pre-lab instructions in this document. They require you to write a program in x86 assembly called threexplusone.s.</li>
-<li>List, as comments in that assembly file, the optimizations that you used</li>
-<li>Read the <a href="../../tutorials/09-c/index.html">C tutorial</a>. You will need to implement the linkedlist.c program for the post-lab, not for the pre-lab.</li>
-<li>Make sure your Makefile compiles your code, and that it compiles it in Linux format! This means elf as the nasm format, and no underscore for the subroutine name (both on the 'global' line and on the line label itself).</li>
-<li>Also note that your timer.h file you should have an <code>#include &lt;string.h&gt;</code>.</li>
+<li>Create an assembly program to demonstrate the Collatz conjecture</li>
+<li>Optimize your program and list all optimizations used</li>
 <li>Files to download: <a href="../lab06/code/timer.cpp.html">timer.cpp</a> (<a href="../lab06/code/timer.cpp">src</a>), <a href="../lab06/code/timer.h.html">timer.h</a> (<a href="../lab06/code/timer.h">src</a>) (from the lab 6 directory)</li>
 <li>Files to submit: threexplusone.s, threexinput.cpp, timer.cpp, timer.h, Makefile</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
 <ol type="1">
-<li>Address one of the topics in the list of the in-lab section. Be sure to address all the issues in that topic! You will have to complete two (total) of these topics for the post-lab report.</li>
-<li>We are looking for a brief write-up indicating that you addressed one of the topics, and the results that you found. You do not need to make it a full fledged report yet (that's the post-lab).</li>
+<li>Write a report that addresses one of the topics listed in the in-lab section</li>
 <li>Files to download: none (other than the results of your pre-lab)</li>
 <li>Files to submit: inlab9.pdf</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
 <ol type="1">
-<li>Finish addressing two of the topics listed in the in-lab section (the first topic is the one you started in the in-lab; the second one is new for the post-lab). We are looking for a quality write-up here, as detailed below.</li>
-<li>You must complete two total topics; the first one is what you started (and possibly finished) from the in-lab; the second one is new for the post-lab</li>
-<li>While this seems like a long post-lab, these list items should have been worked on during the pre-lab and the in-lab, which makes the post-lab much shorter.</li>
-<li>Implement the linkedlist.c program from the <a href="../../tutorials/09-c/index.html">Tutorial 9: C</a> (<a href="../../tutorials/09-c/index.md">md</a>)</li>
-<li>Make sure your Makefile compiles your code!</li>
+<li>Implement the linkedlist.c program from <a href="../../tutorials/09-c/index.html">Tutorial 9: C</a> (<a href="../../tutorials/09-c/index.md">md</a>)</li>
+<li>Write another report that addresses two topics listed in the in-lab section (the first topic is the one you started in the in-lab; the second one is new for the post-lab)</li>
 <li>Files to download: none (other than the results of your pre-lab and in-lab)</li>
 <li>Files to submit: postlab9.pdf, linkedlist.c, Makefile</li>
 </ol>
@@ -107,8 +100,6 @@
 <p><strong>You must list, as comments in your assembly file, the optimizations that you used!</strong> Just a brief description of what optimizations you used is fine.</p>
 <h3 id="different-architectures">Different Architectures</h3>
 <p>See the <a href="../lab08/index.html">last lab</a> for details, but all code must be submitted to run under Linux, which is the platform that does the compilation on the submission system.</p>
-<h3 id="read-the-c-tutorial">Read the C tutorial</h3>
-<p>Read the <a href="../../tutorials/09-c/index.html">C tutorial</a>. You will need to implement the linkedlist.c program for the post-lab, not for the pre-lab.</p>
 <h3 id="compiling-with-make">Compiling with make</h3>
 <p>Your code will be compiled with make. See the last lab for a sample Makefile that will compile assembly.</p>
 <hr />
