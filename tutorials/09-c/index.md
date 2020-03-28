@@ -176,21 +176,21 @@ If you do manage to develop memory errors, the `MALLOC_CHECK_` environment varia
 
 /* A struct is like a class, but without methods */
 struct foo {
-  int x;
-  struct foo* next;
+    int x;
+    struct foo* next;
 };
 
 void main() {
-  struct foo* list;
-  struct foo* tmp;
+    struct foo* list;
+    struct foo* tmp;
 
-  /* dynamically allocate an array of ints */
-  int* p = (int*) malloc(sizeof (int) * 5);
-  p[1] = 10;
-  printf("%d\n", p[1]);
+    /* dynamically allocate an array of ints */
+    int* p = (int*) malloc(sizeof (int) * 5);
+    p[1] = 10;
+    printf("%d\n", p[1]);
 
-  /* free up that array */
-  free(p);
+    /* free up that array */
+    free(p);
 }
 ```
 
@@ -209,10 +209,10 @@ A structure definition has the following format:
 
 ```
 struct name {
-  type1 member1;
-  type2 member2;
-  ...
-  typen membern;
+    type1 member1;
+    type2 member2;
+    ...
+    typen membern;
 };
 ```
 
@@ -222,9 +222,9 @@ The following might be a good definition for a list item data structure.  We'll 
 
 ```
 struct list_item {
-  struct list_item* prev
-  struct list_item* next;
-  void* datum;
+    struct list_item* prev
+    struct list_item* next;
+    void* datum;
 };
 ```
 
@@ -234,9 +234,9 @@ If the extra `struct` doesn't look right to you, this is where the `typedef` key
 ```
 // typedef comes before struct
 typedef struct list_item {
-  struct list_item* prev;
-  struct list_item* next;
-  void* datum;
+    struct list_item* prev;
+    struct list_item* next;
+    void* datum;
 } list_item_t; // what you want to call your struct goes after the closing brace
 ```
 
@@ -251,12 +251,12 @@ An anonymous union provides useful syntactic sugar as a structure member.  Take 
 
 ```
 struct example_struct {
-  int type;
-  union {
-    int i;
-    float f;
-    double d;
-  };
+    int type;
+    union {
+        int i;
+        float f;
+        double d;
+    };
 };
 
 struct example_struct s;
@@ -264,14 +264,14 @@ s.type = 1;
 
 switch (s.type) {
 case 0:
-  printf("%d\n", s.i);
-  break;
+    printf("%d\n", s.i);
+    break;
 case 1:
-  printf("%+2.3f\n", s.f);
-  break;
+    printf("%+2.3f\n", s.f);
+    break;
 case 2:
-  scanf("%lf", &s.d);
-  break;
+    scanf("%lf", &s.d);
+    break;
 }
 ```
 
@@ -279,14 +279,14 @@ and compare with:
 
 ```
 union ifd_t {
-  int i;
-  float f;
-  double d;
+    int i;
+    float f;
+    double d;
 };
 
 struct example_struct {
-  int type;
-  union ifd_t u;
+    int type;
+    union ifd_t u;
 };
 
 struct example_struct s;
@@ -294,14 +294,14 @@ s.type = 1;
 
 switch (s.type) {
 case 0:
-  printf("%d\n", s.u.i);
-  break;
+    printf("%d\n", s.u.i);
+    break;
 case 1:
-  printf("%+2.3f\n", s.u.f);
-  break;
+    printf("%+2.3f\n", s.u.f);
+    break;
 case 2:
-  scanf("%lf", &s.u.d);
-  break;
+    scanf("%lf", &s.u.d);
+    break;
 }
 ```
 
@@ -345,11 +345,11 @@ With `list_item_t` defined as above, consider the following:
 
 ```
 struct list {
-  list_item_t* head;
-  list_item_t* tail;
-  unsigned int length;
-  int (*compare)(const void* key, const void* with);
-  void (*datum_delete)(void*);
+    list_item_t* head;
+    list_item_t* tail;
+    unsigned int length;
+    int (*compare)(const void* key, const void* with);
+    void (*datum_delete)(void*);
 };
 ```
 
@@ -366,7 +366,7 @@ This exercise is to be developed in C, and compiled using clang (NOT clang++!). 
 
 1. Read in an integer, which we'll call *n*
 2. Read in *n* more ints, and put those into a linked list
-     - The linked list must be dynamically allocated
+    - The linked list must be dynamically allocated
 3. Print out that linked list (we don't care about the order!)
 4. Properly deallocate the linked list
 

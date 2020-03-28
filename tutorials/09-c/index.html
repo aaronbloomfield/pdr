@@ -169,21 +169,21 @@ scanf(&quot;%s&quot;, school);  /* Converts input to a string and stores it in s
 
 /* A struct is like a class, but without methods */
 struct foo {
-  int x;
-  struct foo* next;
+    int x;
+    struct foo* next;
 };
 
 void main() {
-  struct foo* list;
-  struct foo* tmp;
+    struct foo* list;
+    struct foo* tmp;
 
-  /* dynamically allocate an array of ints */
-  int* p = (int*) malloc(sizeof (int) * 5);
-  p[1] = 10;
-  printf(&quot;%d\n&quot;, p[1]);
+    /* dynamically allocate an array of ints */
+    int* p = (int*) malloc(sizeof (int) * 5);
+    p[1] = 10;
+    printf(&quot;%d\n&quot;, p[1]);
 
-  /* free up that array */
-  free(p);
+    /* free up that array */
+    free(p);
 }</code></pre>
 <hr />
 <h2 id="derived-types">Derived types</h2>
@@ -192,36 +192,36 @@ void main() {
 <p>C does not have classes, but it does have structures. Early versions of C++ were called <em>C with Classes</em>; the C++ &quot;compiler&quot; was little more than a preprocessor, and <em>class</em> syntactical constructs were converted to structures so that the output could be compiled by a C compiler.</p>
 <p>A structure definition has the following format:</p>
 <pre><code>struct name {
-  type1 member1;
-  type2 member2;
-  ...
-  typen membern;
+    type1 member1;
+    type2 member2;
+    ...
+    typen membern;
 };</code></pre>
 <p>In the above, <em>name</em> is optional. If omitted, the structure is said to be <em>anonymous</em>; in general, you probably don't want that. Within the curly braces, <em>struct name</em> is an incomplete type or <em>forward reference</em> and can be used to build recursive structures. <em>struct name</em> is fully defined after the closing curly brace, and instances can be declared at that point.</p>
 <p>The following might be a good definition for a list item data structure. We'll look at more of the list class further on:</p>
 <pre><code>struct list_item {
-  struct list_item* prev
-  struct list_item* next;
-  void* datum;
+    struct list_item* prev
+    struct list_item* next;
+    void* datum;
 };</code></pre>
 <p>Now whenever you want a variable of type <code>list_item</code>, you declare it using <code>struct list_item</code> - for example, <code>struct list_item my_item</code>. If the extra <code>struct</code> doesn't look right to you, this is where the <code>typedef</code> keyword can come in handy.</p>
 <pre><code>// typedef comes before struct
 typedef struct list_item {
-  struct list_item* prev;
-  struct list_item* next;
-  void* datum;
+    struct list_item* prev;
+    struct list_item* next;
+    void* datum;
 } list_item_t; // what you want to call your struct goes after the closing brace</code></pre>
 <p>With the typedef, we can now refer to our struct as simply <code>list_item_t</code>. Therefore, variable declarations become <code>list_item_t my_item</code>. Note that the <code>struct list_item* prev</code> inside of the struct declaration cannot be replaced with <code>list_item_t* prev</code>, as the typedef hasn't been finished by that point! We don't know the name of the typedef until after the closing brace.</p>
 <h3 id="union">union</h3>
 <p>A union is a type for which the compiler allocates space sufficient only for the largest member, not for all members. At any moment in a union instance's lifetime, only one member is valid. It is the responsibility of the programmer to ensure that the data is accessed correctly. The syntax of a union declaration is identical to that of a struct declaration, save the keyword.</p>
 <p>An anonymous union provides useful syntactic sugar as a structure member. Take the following example:</p>
 <pre><code>struct example_struct {
-  int type;
-  union {
-    int i;
-    float f;
-    double d;
-  };
+    int type;
+    union {
+        int i;
+        float f;
+        double d;
+    };
 };
 
 struct example_struct s;
@@ -229,25 +229,25 @@ s.type = 1;
 
 switch (s.type) {
 case 0:
-  printf(&quot;%d\n&quot;, s.i);
-  break;
+    printf(&quot;%d\n&quot;, s.i);
+    break;
 case 1:
-  printf(&quot;%+2.3f\n&quot;, s.f);
-  break;
+    printf(&quot;%+2.3f\n&quot;, s.f);
+    break;
 case 2:
-  scanf(&quot;%lf&quot;, &amp;s.d);
-  break;
+    scanf(&quot;%lf&quot;, &amp;s.d);
+    break;
 }</code></pre>
 <p>and compare with:</p>
 <pre><code>union ifd_t {
-  int i;
-  float f;
-  double d;
+    int i;
+    float f;
+    double d;
 };
 
 struct example_struct {
-  int type;
-  union ifd_t u;
+    int type;
+    union ifd_t u;
 };
 
 struct example_struct s;
@@ -255,14 +255,14 @@ s.type = 1;
 
 switch (s.type) {
 case 0:
-  printf(&quot;%d\n&quot;, s.u.i);
-  break;
+    printf(&quot;%d\n&quot;, s.u.i);
+    break;
 case 1:
-  printf(&quot;%+2.3f\n&quot;, s.u.f);
-  break;
+    printf(&quot;%+2.3f\n&quot;, s.u.f);
+    break;
 case 2:
-  scanf(&quot;%lf&quot;, &amp;s.u.d);
-  break;
+    scanf(&quot;%lf&quot;, &amp;s.u.d);
+    break;
 }</code></pre>
 <p><em>C with Classes</em> used unions and function pointers to implement <a href="http://en.wikipedia.org/wiki/Polymorphism_%28computer_science%29">polymorphism</a>.</p>
 <h3 id="function-pointers">Function pointers</h3>
@@ -280,11 +280,11 @@ case 2:
 <h3 id="object-oriented-c">Object-Oriented C</h3>
 <p>With <code>list_item_t</code> defined as above, consider the following:</p>
 <pre><code>struct list {
-  list_item_t* head;
-  list_item_t* tail;
-  unsigned int length;
-  int (*compare)(const void* key, const void* with);
-  void (*datum_delete)(void*);
+    list_item_t* head;
+    list_item_t* tail;
+    unsigned int length;
+    int (*compare)(const void* key, const void* with);
+    void (*datum_delete)(void*);
 };</code></pre>
 <p>This is a type definition for an object-oriented doubly-linked list class in C. <code>list_item_t</code> contains a pointer to a <code>void</code> type. In other words, it can point to anything, so if we want to do sorted insert, we need a comparison function, just as in <code>qsort()</code>. Furthermore, if we destroy the list, we probably want the data contained in it to be returned to the heap. If that requires a only shallow delete, <code>free()</code> can be passed to the constructor, otherwise, a destructor for the stored type must be passed. If the list is not to be sorted, or if the data is not to be destroyed with the list, one or both of compare and delete_datum can be <code>NULL</code>.</p>
 <p>Note that, for the exercise below, you need not implement object-oriented C code; your code can be pure C.</p>
