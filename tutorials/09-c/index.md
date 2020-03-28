@@ -15,12 +15,11 @@ Hello World, Hello World, Hello World!
 A basic C program looks like the following:
 
 ```
-/* hello world x3 */
+// hello world x3
 #include <stdio.h>
 int main() {
-    int i;
-    for (i = 0; i < 3; i++) {
-        printf ("hello world!\n");
+    for (int i = 0; i < 3; i++) {
+        printf("hello world!\n");
     }
     return 0;
 }
@@ -29,8 +28,6 @@ int main() {
 A few things to note about this program:
 - The `<stdio.h>` was `#include`d (stdio stands for Standard I/O library), which is where `printf()` (and, later, `scanf()`) live.  These are the basic input and output routines in C, analogous to cout and cin in C++.  More on these functions are below
 - There are no namespaces in C
-- Comments are enclosed in `/*` and `*/`.  The `//` notation does not work in pure C, but most C compilers will allow it anyway
-- The iterating variable `i` is not declared within the `for` statement in pure C, but most C compilers will allow it anyway.
 
 To use `malloc()`, which is the C version of `new`, you will need to include the `<stdlib.h>` file (stdlib is the standard library) - more on `malloc()` is also below.
 
@@ -43,33 +40,31 @@ C does not have *iostreams* or *stream operators*, such as `<<` (for cout) and `
 
 ### int printf(const char \*format, ...) ###
 
-`printf()` takes a *format string*, containing verbatim text that you want to display and *conversion specifiers* which describe to `printf()` how to interpret and display the remaining arguments.  The conversion specifiers may contain *flags*, which control such things as field width, precision, and format.  All conversion specifiers begin with a `%`.  To print a `%`, your format string must contain `%%`.  Other special characters will have to be escaped with a backslash (i.e., to do a return, we enter `\n`; for a backslash, we enter `\\`).
+`printf()` takes a *format string*, containing verbatim text that you want to display and *conversion specifiers* which describe to `printf()` how to interpret and display the remaining arguments.  The conversion specifiers may contain *flags*, which control such things as field width, precision, and format.  All conversion specifiers begin with a `%`.  To print an actual `%`, your format string must contain `%%`.  Other special characters will have to be escaped with a backslash (i.e., to print a newline, we enter `\n`; for a backslash, we enter `\\`).
 
 For example, to print an integer, we would enter:
 
 ```
+int x = 3;
 printf ("this is an int: %d\n", x);
 ```
 
 The `%d` part tells printf to format the appropriate parameter (x, in this case) as an integer, and insert it at that spot in the string.
 
-
 Commonly used conversion specifiers are:
 
-
 | Specifier | Meaning |
-|-|-|
+| --------- | ------- |
 | d | converts an int |
 | f | converts a float |
 | c | converts a char |
 | s | converts a string |
 | p | converts a pointer |
 
-
 and flags:
 
 | Flag | Meaning |
-|-|-|
+| ---- | ------- |
 | `l`	(a lower-case 'L') | Instead of an int or float, convert a long int or double |
 | `ll` (two lower-case 'L's) | ..., convert a long long int or long double |
 | `0` (zero) | Zero pad the conversion to fill the field width |
@@ -182,23 +177,20 @@ If you do manage to develop memory errors, the `MALLOC_CHECK_` environment varia
 /* A struct is like a class, but without methods */
 struct foo {
   int x;
-  struct foo *next;
+  struct foo* next;
 };
 
-
 void main() {
-  int *p;
-  struct foo *list, *tmp;
+  struct foo* list;
+  struct foo* tmp;
 
   /* dynamically allocate an array of ints */
-  p = (int *) malloc(sizeof (int) * 5);
+  int* p = (int*) malloc(sizeof (int) * 5);
   p[1] = 10;
-  printf ("%d\n", p[1]);
+  printf("%d\n", p[1]);
 
   /* free up that array */
   free(p);
-
-  /* calling free(p) again is an error, and will crash the program */
 }
 ```
 
@@ -230,8 +222,9 @@ The following might be a good definition for a list item data structure.  We'll 
 
 ```
 struct list_item {
-  struct list_item *prev, *next;
-  void *datum;
+  struct list_item* prev
+  struct list_item* next;
+  void* datum;
 };
 ```
 
@@ -239,15 +232,16 @@ Now whenever you want a variable of type `list_item`, you declare it using `stru
 If the extra `struct` doesn't look right to you, this is where the `typedef` keyword can come in handy.
 
 ```
-/* typedef comes before struct */
+// typedef comes before struct
 typedef struct list_item {
-  struct list_item *prev, *next;
-  void *datum;
-} list_item_t; /* what you want to call your struct goes after the closing brace */
+  struct list_item* prev;
+  struct list_item* next;
+  void* datum;
+} list_item_t; // what you want to call your struct goes after the closing brace
 ```
 
 With the typedef, we can now refer to our struct as simply `list_item_t`. Therefore, variable declarations become `list_item_t my_item`.
-Note that the `struct list_item *prev, *next` inside of the struct declaration cannot be replaced with `list_item_t *prev, *next`, as the typedef hasn't been finished by that point! We don't know the name of the typedef until after the closing brace.
+Note that the `struct list_item* prev` inside of the struct declaration cannot be replaced with `list_item_t* prev`, as the typedef hasn't been finished by that point! We don't know the name of the typedef until after the closing brace.
 
 ### union ###
 
@@ -320,7 +314,7 @@ Function pointers are useful in many instances.  The most common of those includ
 Syntactically, a function pointer looks like a function prototype, except that the "function name" (actually the name of the pointer) is wrapped in parenthesis with a pointer star at the beginning.  For example:
 
 ```
-int (*pprintf)(const char *format, ...)
+int (*pprintf)(const char* format, ...)
 ```
 
 defines a pointer that can point to `printf()` (not particularly useful).  A function's name, without parenthesis, evaluates to its address, thus we can assign the address of `printf()` to `pprintf` with the statement:
@@ -340,7 +334,7 @@ pprintf("Hello, World!\n");
 `qsort()`, short for quick sort, can sort arrays of data of arbitrary type.  In implementing `qsort()`, the subroutine has no knowledge of how to compare the arbitrary elements being sorted, thus `qsort()` takes a pointer to a comparison function.  Its full prototype looks like this:
 
 ```
-void qsort(void *base, size_t nmemb, size_t size, int (*compar)(const void *, const void *));
+void qsort(void* base, size_t nmemb, size_t size, int (*compare)(const void*, const void*));
 ```
 
 The comparison function takes pointers to two elements of the array starting at base and returns negative, zero, or positive if the first is smaller than, equal to, or larger than the second, respectively.  The array starting at base has nmemb elements of size size.
@@ -351,10 +345,11 @@ With `list_item_t` defined as above, consider the following:
 
 ```
 struct list {
-  list_item_t *head, *tail;
-  unsigned length;
-  int (*compare)(const void *key, const void *with);
-  void (*datum_delete)(void *);
+  list_item_t* head;
+  list_item_t* tail;
+  unsigned int length;
+  int (*compare)(const void* key, const void* with);
+  void (*datum_delete)(void*);
 };
 ```
 
