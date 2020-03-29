@@ -147,17 +147,15 @@ printf(&quot;SCHOOL: &quot;);
 scanf(&quot;%s&quot;, school);  /* Converts input to a string and stores it in school */</code></pre>
 <p>The third example above almost certainly overflows the buffer. <code>scanf()</code> will copy input into <code>school</code> until it sees the next whitespace character. If the input is &quot;The University of Virginia&quot;, it will save &quot;The&quot;, and overflow the buffer by one byte (due to the fact that all C-style strings have a zero byte that terminates the string). If the input is &quot;UVA&quot;, it will save &quot;UVA&quot;, but still overflow the buffer. Using the field width flag <code>%2s</code> can solve this buffer overflow problem, but then we will only save &quot;Th&quot; or &quot;UV&quot;. In order to convert whitespace, you must use the more complex conversion. It's more common to use <code>fgets()</code> for this type of input.</p>
 <hr />
-<h2 id="pointers">Pointers</h2>
-<p>Most data is passed by address in C, so you need to be comfortable with pointer syntax.</p>
-<h3 id="pointer-syntax">Pointer Syntax</h3>
-<p>As mentioned above, C does not have <em>pass-by-reference</em>; in fact, C has no reference types at all. The pointer syntax in C, including the <em>address</em> (<code>&amp;</code>), <em>dereference</em> (<code>*</code>), and <em>structure-</em> or <em>union-pointer</em> (<code>-&gt;</code>, an implicit dereference) operators, is exactly the same as in C++.</p>
-<p>References in C++ provide <em>syntactic sugar</em> abstracting away from the programmer the need to explicitly dereference pointers. A C++ programmer transitioning to C must keep straight exactly what type a variable represents and access its data accordingly. From the perspective of the compiler developer, there is little difference between references and pointers, and it would seem that Kernighan and Ritchie (the creators of the C programming language) made a conscious decision to require the more explicit syntax of C, probably because it forces programmers to understand their data.</p>
-<h3 id="malloc-and-free">malloc() and free()</h3>
+<h2 id="dynamic-memory-management">Dynamic memory management</h2>
 <p>In C++ you allocate storage from the heap with <code>new</code>, and you return it to the heap with <code>delete</code>. <code>new</code> and <code>delete</code> are operators, which can even be overloaded, and which, by default, automatically call constructors or destructors for you.</p>
-<p>Heap control in C is a bit lower level. Allocation from the heap is achieved through a call to <code>malloc()</code>, which returns a pointer to the newly allocated space on success or <code>NULL</code> on failure (i.e., if you are out of memory). It is important to check the return value of <code>malloc()</code> before attempting to access the returned storage. The storage allocated by <code>malloc()</code> is <strong>not</strong> initialized in any way! You will need to explicitly run initialization subroutines on data structures that you allocate in C.</p>
+<p>Heap control in C is a bit lower level, and is done primarily through two functions: <code>malloc()</code> and <code>free()</code>.</p>
+<h3 id="malloc">malloc()</h3>
+<p>Allocation from the heap is achieved through a call to <code>malloc()</code>, which returns a pointer to the newly allocated space on success or <code>NULL</code> on failure (i.e., if you are out of memory). It is important to check the return value of <code>malloc()</code> before attempting to access the returned storage. The storage allocated by <code>malloc()</code> is <strong>not</strong> initialized in any way! You will need to explicitly run initialization subroutines on data structures that you allocate in C.</p>
 <p><code>malloc()</code> has the prototype:</p>
 <pre><code>void* malloc(size_t size)</code></pre>
 <p>You must explicitly tell it how much storage you require. The <code>sizeof</code> operator is useful here.</p>
+<h3 id="free">free()</h3>
 <p><code>free()</code> is used to deallocate storage originally allocated with <code>malloc()</code>, <code>calloc()</code>, or <code>realloc()</code>. <code>free()</code> in C is analgous to <code>delete</code> in C++. Its prototype is:</p>
 <pre><code>void free(void* ptr)</code></pre>
 <p>It is an error to call <code>free()</code>:</p>

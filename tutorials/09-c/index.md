@@ -131,22 +131,16 @@ The third example above almost certainly overflows the buffer.  `scanf()` will c
 
 ------------------------------------------------------------
 
-Pointers
---------
-
-Most data is passed by address in C, so you need to be comfortable with pointer syntax.
-
-### Pointer Syntax ###
-
-As mentioned above, C does not have *pass-by-reference*; in fact, C has no reference types at all. The pointer syntax in C, including the *address* (`&`), *dereference* (`*`), and *structure-* or *union-pointer* (`->`, an implicit dereference) operators, is exactly the same as in C++.
-
-References in C++ provide *syntactic sugar* abstracting away from the programmer the need to explicitly dereference pointers.  A C++ programmer transitioning to C must keep straight exactly what type a variable represents and access its data accordingly.  From the perspective of the compiler developer, there is little difference between references and pointers, and it would seem that Kernighan and Ritchie (the creators of the C programming language) made a conscious decision to require the more explicit syntax of C, probably because it forces programmers to understand their data.
-
-### malloc() and free() ###
+Dynamic memory management
+-------------------------
 
 In C++ you allocate storage from the heap with `new`, and you return it to the heap with `delete`.  `new` and `delete` are operators, which can even be overloaded, and which, by default, automatically call constructors or destructors for you.
 
-Heap control in C is a bit lower level.  Allocation from the heap is achieved through a call to `malloc()`, which returns a pointer to the newly allocated space on success or `NULL` on failure (i.e., if you are out of memory).  It is important to check the return value of `malloc()` before attempting to access the returned storage.  The storage allocated by `malloc()` is **not** initialized in any way!  You will need to explicitly run initialization subroutines on data structures that you allocate in C.
+Heap control in C is a bit lower level, and is done primarily through two functions: `malloc()` and `free()`.
+
+### malloc() ###
+
+Allocation from the heap is achieved through a call to `malloc()`, which returns a pointer to the newly allocated space on success or `NULL` on failure (i.e., if you are out of memory).  It is important to check the return value of `malloc()` before attempting to access the returned storage.  The storage allocated by `malloc()` is **not** initialized in any way!  You will need to explicitly run initialization subroutines on data structures that you allocate in C.
 
 `malloc()` has the prototype:
 
@@ -155,6 +149,8 @@ void* malloc(size_t size)
 ```
 
 You must explicitly tell it how much storage you require.  The `sizeof` operator is useful here.
+
+### free() ###
 
 `free()` is used to deallocate storage originally allocated with `malloc()`, `calloc()`, or `realloc()`.  `free()` in C is analgous to `delete` in C++.  Its prototype is:
 
