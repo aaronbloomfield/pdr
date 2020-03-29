@@ -118,8 +118,6 @@ You will need to include at least one optimization beyond just figuring out how 
 
 Note that we, too, can write the function in C++ and compile it with `clang++ -O2 -S -mllvm --x86-asm-syntax=intel`.  And we will be looking at that assembly code when we grade the pre-lab.  If you write your program this way, it constitutes an honor violation, so please hand-code the assembly yourself.
 
-You may find the `cdq` instruction useful -- do a Google search for 'cdq x86' or 'cdq intel'.
-
 **You must list, as comments in your assembly file, the optimizations that you used!**  Just a brief description of what optimizations you used is fine.
 
 ### Different Architectures ###
