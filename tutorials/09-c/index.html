@@ -253,7 +253,7 @@ case 2:
 <pre><code>pprintf(&quot;Hello, World!\n&quot;);</code></pre>
 <h3 id="qsort">qsort()</h3>
 <p><code>qsort()</code>, short for quick sort, can sort arrays of data of arbitrary type. In implementing <code>qsort()</code>, the subroutine has no knowledge of how to compare the arbitrary elements being sorted, thus <code>qsort()</code> takes a pointer to a comparison function. Its full prototype looks like this:</p>
-<pre><code>void qsort(void* base, size_t nmemb, size_t size, int (*compare)(const void*, const void*));</code></pre>
+<pre><code>void qsort(void* base, size_t nmemb, size_t size, int (*compar)(const void*, const void*));</code></pre>
 <p>The comparison function takes pointers to two elements of the array starting at base and returns negative, zero, or positive if the first is smaller than, equal to, or larger than the second, respectively. The array starting at base has nmemb elements of size size.</p>
 <h3 id="object-oriented-c">Object-Oriented C</h3>
 <p>With <code>list_item_t</code> defined as above, consider the following:</p>

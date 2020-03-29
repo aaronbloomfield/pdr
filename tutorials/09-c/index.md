@@ -306,7 +306,7 @@ pprintf("Hello, World!\n");
 `qsort()`, short for quick sort, can sort arrays of data of arbitrary type.  In implementing `qsort()`, the subroutine has no knowledge of how to compare the arbitrary elements being sorted, thus `qsort()` takes a pointer to a comparison function.  Its full prototype looks like this:
 
 ```
-void qsort(void* base, size_t nmemb, size_t size, int (*compare)(const void*, const void*));
+void qsort(void* base, size_t nmemb, size_t size, int (*compar)(const void*, const void*));
 ```
 
 The comparison function takes pointers to two elements of the array starting at base and returns negative, zero, or positive if the first is smaller than, equal to, or larger than the second, respectively.  The array starting at base has nmemb elements of size size.
