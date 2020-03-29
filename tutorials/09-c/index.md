@@ -213,7 +213,7 @@ A structure definition has the following format:
 struct name {
     type1 member1;
     type2 member2;
-    ...
+    /* ... */
     typen membern;
 };
 ```
@@ -230,7 +230,7 @@ struct list_item {
 };
 ```
 
-Now whenever you want a variable of type `list_item`, you declare it using `struct list_item` - for example, `struct list_item my_item`.
+Now whenever you want a variable of type `list_item`, you declare it using `struct list_item` -- for example, `struct list_item my_item`.
 If the extra `struct` doesn't look right to you, this is where the `typedef` keyword can come in handy.
 
 ```
@@ -273,36 +273,6 @@ case 1:
     break;
 case 2:
     scanf("%lf", &s.d);
-    break;
-}
-```
-
-and compare with:
-
-```
-union ifd_t {
-    int i;
-    float f;
-    double d;
-};
-
-struct example_struct {
-    int type;
-    union ifd_t u;
-};
-
-struct example_struct s;
-s.type = 1;
-
-switch (s.type) {
-case 0:
-    printf("%d\n", s.u.i);
-    break;
-case 1:
-    printf("%+2.3f\n", s.u.f);
-    break;
-case 2:
-    scanf("%lf", &s.u.d);
     break;
 }
 ```
@@ -372,7 +342,7 @@ This exercise is to be developed in C, and compiled using clang (NOT clang++!). 
 3. Print out that linked list (we don't care about the order!)
 4. Properly deallocate the linked list
 
-That's it - the point is to have you use many of the features of C discussed here (`printf()`, `scanf()`, structs, `malloc()`, and `free()`).  We aren't looking for multiple subroutines, a full list class, etc. - a long `main()` function is just fine.  Don't make this more complicated than necessary!
+That's it - the point is to have you use many of the features of C discussed here (`printf()`, `scanf()`, structs, `malloc()`, and `free()`).  We aren't looking for multiple subroutines, a full list class, etc. -- a long `main()` function is just fine.  Don't make this more complicated than necessary!
 
 The program should be in a file called `linkedlist.c`.  A sample execution run might look like the following:
 
