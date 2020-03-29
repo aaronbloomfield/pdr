@@ -28,9 +28,10 @@ Lab Procedure
 
 ### Pre-lab ###
 1. Create an assembly program to demonstrate the Collatz conjecture
-2. Optimize your program and list all optimizations used
-3. Files to download: [timer.cpp](../lab06/code/timer.cpp.html) ([src](../lab06/code/timer.cpp)), [timer.h](../lab06/code/timer.h.html) ([src](../lab06/code/timer.h)) (from the lab 6 directory)
-4. Files to submit: threexplusone.s, threexinput.cpp, timer.cpp, timer.h, Makefile
+2. Time your program using a helper C++ file
+3. Optimize your program and list all optimizations used
+4. Files to download: [timer.cpp](../lab06/code/timer.cpp.html) ([src](../lab06/code/timer.cpp)), [timer.h](../lab06/code/timer.h.html) ([src](../lab06/code/timer.h)) (from the lab 6 directory)
+5. Files to submit: threexplusone.s, threexinput.cpp, timer.cpp, timer.h, Makefile
 
 ### In-lab ###
 
@@ -52,7 +53,7 @@ Pre-lab
 
 You may want to reference the "Compiling Assembly With C++" and "Vecsum" sections from the [previous x86 lab](../lab08-64bit/index.html).
 
-### Pre-lab program: threexplusone.s ###
+### The Collatz Conjecture ###
 
 The 3x+1 conjecture (also called the Collatz conjecture) is an open problem in mathematics, meaning that it has not yet been proven to be true.  The conjecture states that if you take any positive integer, you can repeatedly apply the following function to it:
 
@@ -60,54 +61,62 @@ The 3x+1 conjecture (also called the Collatz conjecture) is an open problem in m
 
 The conjecture is that eventually, the result will reach 1.  For example, consider *x* = 13:
 
-- *f*(13) = 3 \* 13 + 1 = 40
-- *f*(40) = 40 / 2 = 20
-- *f*(20) = 20 / 2 = 10
-- *f*(10) = 10 / 2 = 5
-- *f*(5) = 3 \* 5 + 1 = 16
-- *f*(16) = 16 / 2 = 8
-- *f*(8) = 8 / 2 = 4
-- *f*(4) = 4 / 2 = 2
-- *f*(2) = 2 / 2 = 1
+1. *f*(13) = 3 \* 13 + 1 = 40
+2. *f*(40) = 40 / 2 = 20
+3. *f*(20) = 20 / 2 = 10
+4. *f*(10) = 10 / 2 = 5
+5. *f*(5) = 3 \* 5 + 1 = 16
+6. *f*(16) = 16 / 2 = 8
+7. *f*(8) = 8 / 2 = 4
+8. *f*(4) = 4 / 2 = 2
+9. *f*(2) = 2 / 2 = 1
 
 Note that this took 9 steps to reach the value 1.  And it also shows that this conjecture is true for a number of other values (2, 4, 5, 8, 10, 16, 20, and 40).
 
 [An image](Collatz-graph-all-30-no27.png) (from Wikipedia) shows how paths of most integers less than 50 converge to 1.
 
-This conjecture has been proven for all integers up to at least 5.6 * 10^13, but has not yet been proven for all (positive) integers.  It is widely believed to be true, however.  If you are interested, more information on this conjecture can be found [here](http://en.wikipedia.org/wiki/Collatz_conjecture).
+While this conjecture has been proven only up to at least 5.6 * 10^13, it is widely believed to be true for all positive integers.  If you are interested, more information on this conjecture can be found [here](http://en.wikipedia.org/wiki/Collatz_conjecture).
 
-The conjecture has been proven for numbers up to 5.6 \* 10^13, and our 64-bit machines can count as high as 1.8 \* 10^19 (that's 2^64).  However, we aren't going to be testing it with values above 10^13, so we can safely assume that it is true for all of the input values that we will use.
+We won't be testing with any values above 10^13, so you can safely assume that the Collatz conjecture holds true for all of the input values that we will use.
 
-Your task is to write a routine, called `threexplusone`, that will return the number of steps required to reach 1.  An input of 13 takes 9 steps, as shown above.  The Wikipedia page shows a few other input sizes and the number of steps: an input of 6 takes 8 steps; an input of 14 takes 17 steps; an input of 27 takes 111 steps.  If the input is 1, the output should be zero.  Your program need not consider values of zero or -1 (we will never test those values, as the conjecture does not apply in those cases).
+Your task is to write a routine, called `threexplusone`, that takes in a positive integer and returns the number of steps required for that integer to reach 1 by following the Collatz conjecture.  An input of 13 takes 9 steps, as shown above.  The Wikipedia page shows a few other input sizes and the number of steps: an input of 6 takes 8 steps; an input of 14 takes 17 steps; an input of 27 takes 111 steps.  If the input is 1, the output should be zero.
 
-This routine ***MUST*** call itself recursively using the proper C-style calling convention.  The assembly code should be in a threexplusone.s file.  You will need to write a C++ file that (called threexinput.cpp) that calls the subroutine and prints out the result.  **If you write your function so that it is an iterative solution, you will not receive credit for this pre-lab.**
+This routine ***MUST*** call itself recursively using the proper C-style calling convention.  The assembly code should be in a threexplusone.s file.  **If you write your function so that it is an iterative solution, you will not receive credit for this pre-lab.**
 
-The routine MUST take only ONE parameter -- the number that you are inputting into the conjecture (13, in the example above), and must return the count of the number of steps taken, as per the C calling convention.
+### Testing and timing ###
 
-Once the subroutine is done, you will need to optimize it as much as possible.  With the exceptions listed below, any optimization is valid, as long as it computes the correct result.  The grade on this pre-lab will be based both on the correctness of the subroutine and the optimizations included.  The only exceptions to the optimizations are that it must still be a recursive subroutine, and must still follow the proper C style calling conventions.
+You will need to write a C++ file called threexinput.cpp that allows you to test your subroutine.
+This input file should:
+
+1. Ask for an input value, *x*, which is the positive integer to pass to the subroutine
+2. Ask for an input value, *n*, which is the number of times to call the subroutine
+3. Run the subroutine once and print out the result
+4. Run the subroutine *n* times with the parameter *x* as the input
+
+You can assume that both *x* and *n* are positive integers.
+
+We can now time the subroutine to see how fast it runs.  Download the timer code from the hash table lab (lab 6: [timer.cpp](../lab06/code/timer.cpp.html) ([src](../lab06/code/timer.cpp)) and [timer.h](../lab06/code/timer.h.html) ([src](../lab06/code/timer.h))) and use it to print out the average time it took for each function call in step 4 to run.
+
+You should use an appropriate precision number to make sure you don't report zero when you divide the total time by the number of runs.  Your timer code should only include the loop of *n* times that calls the routine with *x* as the parameter.  Nothing else (including the print statement) should be inside the timer code.
+
+### Optimization ###
+
+Now that you can time your program, you will need to optimize it as much as possible.  Any optimization is valid, as long as it computes the correct result, is still a recursive subroutine, and follows the C calling convention.  The grade on this pre-lab will be based both on the correctness of the subroutine and the optimizations included.
 
 What optimizations do you use?
 
 - First, try to figure out how you can write the same routine using fewer x86 instructions.  x86 has lots of complex instructions that can be used for this purpose -- Google is your friend, here.
-- Some optimizations, such as using the `lea` instruction (which can do addition and multiplication in one instruction) to quickly add or multiply numbers, are specific to the x86 architecture.
-- In some cases, you can use bit shifts instead of multiplication and divide.  Computing `5*x` might be more quickly done as `4*x+x`, as the latter can use a shift.  But you can use the `lea` instruction for that one anyway.
-- Branching is bad, in that it slows down the execution speed of a program.  As much as possible, eliminate branching (if/else statements, loops, etc.).  For loops, consider [loop unrolling](http://en.wikipedia.org/wiki/Loop_unrolling).
-- Consider the [memory Hierarchy](http://en.wikipedia.org/wiki/Memory_hierarchy) and try to reduce memory accesses (this includes `push` and `pop`).
-- Reduce the number of instructions used to create (and remove) the activation record; this was done in a few x86 examples we studied: [max](../../slides/08-assembly-64bit.html#/max) and [fib](../../slides/08-assembly-64bit.html#/fact)
+- `lea` can quickly add and multiply numbers in one instruction.
+- Multiplication and division are expensive.  Try to use bit shifts whenever possible -- `4*x+x` is likely to be faster than `5*x`, as the former can be optimized to `x << 2 + x`.
+- Branching slows down the execution speed of a program as the branch condition must be checked every iteration.  As much as possible, eliminate branching (if/else statements, loops, etc.).  For loops, consider [loop unrolling](http://en.wikipedia.org/wiki/Loop_unrolling).
+- Consider the [memory hierarchy](http://en.wikipedia.org/wiki/Memory_hierarchy) and try to reduce memory accesses (this includes `push` and `pop`).
+- Reduce the number of instructions used to create (and remove) the activation record; this was done in a few x86 examples we studied: [max](../../slides/08-assembly-64bit.html#/max) and [fact](../../slides/08-assembly-64bit.html#/fact)
 - Reduce the registers that are backed up to the stack in the calling convention
 - Many optimizations are listed [here](http://en.wikipedia.org/wiki/Category:Compiler_optimizations), but most would not apply to this one program.
 
 You will need to include at least one optimization beyond just figuring out how to write your subroutine with fewer instructions.  You should put the optimizations used as a comment in the beginning of your assembly file.
 
-Note that we, too, can write the function in C++ and compile it with `clang++ -O2 -m64 -S -mllvm --x86-asm-syntax=intel`.  And we will be looking at that assembly code when we grade the pre-lab.  If you write your program this way, it constitutes an honor violation, so please hand-code the assembly yourself.
-
-In an effort to time how fast your assembly routine runs, you should download the timer code from the hash table lab (lab 6: [timer.cpp](../lab06/code/timer.cpp.html) ([src](../lab06/code/timer.cpp)) and [timer.h](../lab06/code/timer.h.html) ([src](../lab06/code/timer.h))).  In your threexinput.cpp file, you will need to perform the following steps:
-
-1. Asks the user for an input value, *x*, which is the parameter to pass to the subroutine.
-2. Asks the user for an input value, *n*, which is the number of times to call the subroutine.
-3. Runs the subroutine *n* times with the parameter *x* as the input.
-
-You can assume that both *x* and *n* are positive integers.  See the [hash lab (lab 6)](../lab06/index.html) for details as to how to use the timer code.   Your program should print out the number of steps for the given input, and the average time taken per function call.  You should use an appropriate precision number to make sure you don't report zero when you divide the total time by the number of runs.  Your timer code should only include the loop of *n* times that calls the routine with *x* as the parameter.  Nothing else (including the print statement) should be inside the timer code.
+Note that we, too, can write the function in C++ and compile it with `clang++ -O2 -S -mllvm --x86-asm-syntax=intel`.  And we will be looking at that assembly code when we grade the pre-lab.  If you write your program this way, it constitutes an honor violation, so please hand-code the assembly yourself.
 
 You may find the `cdq` instruction useful -- do a Google search for 'cdq x86' or 'cdq intel'.
 
@@ -116,10 +125,6 @@ You may find the `cdq` instruction useful -- do a Google search for 'cdq x86' or
 ### Different Architectures ###
 
 See the [last lab](../lab08/index.html) for details, but all code must be submitted to run under Linux, which is the platform that does the compilation on the submission system.
-
-### Compiling with make ###
-
-Your code will be compiled with make.  See the last lab for a sample Makefile that will compile assembly.
 
 ------------------------------------------------------------
 
