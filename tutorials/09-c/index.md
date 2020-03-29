@@ -146,7 +146,7 @@ References in C++ provide *syntactic sugar* abstracting away from the programmer
 
 In C++ you allocate storage from the heap with `new`, and you return it to the heap with `delete`.  `new` and `delete` are operators, which can even be overloaded, and which, by default, automatically call constructors or destructors for you.
 
-Heap control in C is a bit lower level.  Allocation from the heap is achieved through a call to `malloc()`, which returns a pointer to the newly allocated space on success or `NULL` on failure (i.e., if you are out of memory).  It is important to check the return value of `malloc()` before attempting to access the returned storage.  The storage allocated by `malloc()` is not initialized in any way, though the related functions `calloc()` and `realloc()` (which we will see a bit later in the course) do perform some specific initializations.  You will need to explicitly run initialization subroutines on data structures that you allocate in C.
+Heap control in C is a bit lower level.  Allocation from the heap is achieved through a call to `malloc()`, which returns a pointer to the newly allocated space on success or `NULL` on failure (i.e., if you are out of memory).  It is important to check the return value of `malloc()` before attempting to access the returned storage.  The storage allocated by `malloc()` is **not** initialized in any way!  You will need to explicitly run initialization subroutines on data structures that you allocate in C.
 
 `malloc()` has the prototype:
 
@@ -162,11 +162,17 @@ You must explicitly tell it how much storage you require.  The `sizeof` operator
 void free(void* ptr)
 ```
 
-It is an error to call `free()` with any address that was not returned by one of the `malloc()` family functions above.  It is an error to call `free()` on a `NULL` pointer.  It is also an error to call `free()` twice on the same address.  Any one of these errors will corrupt your heap. This corruption will manifest in unusual ways which will be very difficult to debug and which will not have any obvious relationship with the root cause (if you are lucky, it will cause a segmentation fault).
+It is an error to call `free()`:
+
+- on any address that was not returned by one of the `malloc()` family functions above
+- on a `NULL` pointer
+- twice on the same address
+
+Any one of these errors will corrupt your heap. This corruption will manifest in unusual ways which will be very difficult to debug and which will not have any obvious relationship with the root cause (if you are lucky, it will cause a segmentation fault).
 
 The easiest way to debug a memory error is not to make it in the first place. With care, this is easier than it sounds.  Firstly, know when you need dynamic allocation; don't use it if you don't have to.  Secondly, as you would do in C++, write constructors and destructors for all of your data structures, and be consistent about using them.  These functions should handle your heap control and error checking explicitly, so that they are implicit in the code that uses the storage.
 
-If you do manage to develop memory errors, the `MALLOC_CHECK_` environment variable may be helpful (see the `malloc()` manual page), as may the [Electric Fence library](http://en.wikipedia.org/wiki/Electric_Fence).
+If you do manage to develop memory errors, AddressSanitizer and LeakSanitizer work just as they did in C++.
 
 ### Examples ###
 
@@ -174,14 +180,23 @@ If you do manage to develop memory errors, the `MALLOC_CHECK_` environment varia
 #include <stdio.h>
 #include <stdlib.h>
 
-void main() {
+int main() {
     // dynamically allocate an array of ints
     int* p = (int*) malloc(sizeof(int) * 5);
+    if (p == NULL) {
+        // memory allocation failed; handle the error somehow
+        return 1;
+    }
+
+    // Initialize p[1] to 10. Everything else is still uninitialized.
+    // Trying to access any other index without first initializing it is undefined behavior!
     p[1] = 10;
     printf("%d\n", p[1]);
 
     // free up that array
     free(p);
+
+    return 0;
 }
 ```
 

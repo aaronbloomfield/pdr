@@ -154,27 +154,42 @@ scanf(&quot;%s&quot;, school);  /* Converts input to a string and stores it in s
 <p>References in C++ provide <em>syntactic sugar</em> abstracting away from the programmer the need to explicitly dereference pointers. A C++ programmer transitioning to C must keep straight exactly what type a variable represents and access its data accordingly. From the perspective of the compiler developer, there is little difference between references and pointers, and it would seem that Kernighan and Ritchie (the creators of the C programming language) made a conscious decision to require the more explicit syntax of C, probably because it forces programmers to understand their data.</p>
 <h3 id="malloc-and-free">malloc() and free()</h3>
 <p>In C++ you allocate storage from the heap with <code>new</code>, and you return it to the heap with <code>delete</code>. <code>new</code> and <code>delete</code> are operators, which can even be overloaded, and which, by default, automatically call constructors or destructors for you.</p>
-<p>Heap control in C is a bit lower level. Allocation from the heap is achieved through a call to <code>malloc()</code>, which returns a pointer to the newly allocated space on success or <code>NULL</code> on failure (i.e., if you are out of memory). It is important to check the return value of <code>malloc()</code> before attempting to access the returned storage. The storage allocated by <code>malloc()</code> is not initialized in any way, though the related functions <code>calloc()</code> and <code>realloc()</code> (which we will see a bit later in the course) do perform some specific initializations. You will need to explicitly run initialization subroutines on data structures that you allocate in C.</p>
+<p>Heap control in C is a bit lower level. Allocation from the heap is achieved through a call to <code>malloc()</code>, which returns a pointer to the newly allocated space on success or <code>NULL</code> on failure (i.e., if you are out of memory). It is important to check the return value of <code>malloc()</code> before attempting to access the returned storage. The storage allocated by <code>malloc()</code> is <strong>not</strong> initialized in any way! You will need to explicitly run initialization subroutines on data structures that you allocate in C.</p>
 <p><code>malloc()</code> has the prototype:</p>
 <pre><code>void* malloc(size_t size)</code></pre>
 <p>You must explicitly tell it how much storage you require. The <code>sizeof</code> operator is useful here.</p>
 <p><code>free()</code> is used to deallocate storage originally allocated with <code>malloc()</code>, <code>calloc()</code>, or <code>realloc()</code>. <code>free()</code> in C is analgous to <code>delete</code> in C++. Its prototype is:</p>
 <pre><code>void free(void* ptr)</code></pre>
-<p>It is an error to call <code>free()</code> with any address that was not returned by one of the <code>malloc()</code> family functions above. It is an error to call <code>free()</code> on a <code>NULL</code> pointer. It is also an error to call <code>free()</code> twice on the same address. Any one of these errors will corrupt your heap. This corruption will manifest in unusual ways which will be very difficult to debug and which will not have any obvious relationship with the root cause (if you are lucky, it will cause a segmentation fault).</p>
+<p>It is an error to call <code>free()</code>:</p>
+<ul>
+<li>on any address that was not returned by one of the <code>malloc()</code> family functions above</li>
+<li>on a <code>NULL</code> pointer</li>
+<li>twice on the same address</li>
+</ul>
+<p>Any one of these errors will corrupt your heap. This corruption will manifest in unusual ways which will be very difficult to debug and which will not have any obvious relationship with the root cause (if you are lucky, it will cause a segmentation fault).</p>
 <p>The easiest way to debug a memory error is not to make it in the first place. With care, this is easier than it sounds. Firstly, know when you need dynamic allocation; don't use it if you don't have to. Secondly, as you would do in C++, write constructors and destructors for all of your data structures, and be consistent about using them. These functions should handle your heap control and error checking explicitly, so that they are implicit in the code that uses the storage.</p>
-<p>If you do manage to develop memory errors, the <code>MALLOC_CHECK_</code> environment variable may be helpful (see the <code>malloc()</code> manual page), as may the <a href="http://en.wikipedia.org/wiki/Electric_Fence">Electric Fence library</a>.</p>
+<p>If you do manage to develop memory errors, AddressSanitizer and LeakSanitizer work just as they did in C++.</p>
 <h3 id="examples">Examples</h3>
 <pre><code>#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 
-void main() {
+int main() {
     // dynamically allocate an array of ints
     int* p = (int*) malloc(sizeof(int) * 5);
+    if (p == NULL) {
+        // memory allocation failed; handle the error somehow
+        return 1;
+    }
+
+    // Initialize p[1] to 10. Everything else is still uninitialized.
+    // Trying to access any other index without first initializing it is undefined behavior!
     p[1] = 10;
     printf(&quot;%d\n&quot;, p[1]);
 
     // free up that array
     free(p);
+
+    return 0;
 }</code></pre>
 <hr />
 <h2 id="derived-types">Derived types</h2>
