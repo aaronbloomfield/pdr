@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta charset="utf-8">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>PDR: Makefile Tutorial</title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../../markdown.css">
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="../../markdown.css" />
 </head>
 <body>
 <h1 id="pdr-makefile-tutorial">PDR: Makefile Tutorial</h1>
@@ -21,37 +23,37 @@
 <pre><code>clang++ postfixCalculator.cpp stack.cpp testPostfixCalc.cpp</code></pre>
 <p>Or, if there are only those three .cpp files in the current directory:</p>
 <pre><code>clang++ *.cpp</code></pre>
-<p>There are a number of things going on here. First, clang++ will <em>compile</em> each file separately. Compiling by itself does not create an executable -- it just creates a part of the final executable program. After compiling the three files, clang++ has three program parts (called postfixCalculator.o, stack.o, and testPostfixCalc.o), but no complete program. It will then <em>link</em> the three parts to create the final executable. Although we see it as one command, it is in fact two separate and distinct stages.</p>
-<p>While it may seem a bit more complicated to do this in two separate steps, it turns out to be very useful if you have a very large program -- such as hundreds (or thousands) of .cpp files. If you modify only one file, you just have to compile that single file, and then link everything together. Specifically, you don't have to compile all the other files again. So far, we have been telling the compiler to do these two commands at the same time (i.e., <code>clang++ postfixCalculator.cpp stack.cpp testPostfixCalc.cpp</code> or <code>clang++ *.cpp</code>). This tells clang++ to compile each file separately, and then link them together to create the executable a.out.</p>
+<p>There are a number of things going on here. First, clang++ will <em>compile</em> each file separately. Compiling by itself does not create an executable – it just creates a part of the final executable program. After compiling the three files, clang++ has three program parts (called postfixCalculator.o, stack.o, and testPostfixCalc.o), but no complete program. It will then <em>link</em> the three parts to create the final executable. Although we see it as one command, it is in fact two separate and distinct stages.</p>
+<p>While it may seem a bit more complicated to do this in two separate steps, it turns out to be very useful if you have a very large program – such as hundreds (or thousands) of .cpp files. If you modify only one file, you just have to compile that single file, and then link everything together. Specifically, you don’t have to compile all the other files again. So far, we have been telling the compiler to do these two commands at the same time (i.e., <code>clang++ postfixCalculator.cpp stack.cpp testPostfixCalc.cpp</code> or <code>clang++ *.cpp</code>). This tells clang++ to compile each file separately, and then link them together to create the executable a.out.</p>
 <p>If you specify the -c option to clang++, it tells the compiler to just compile the file, but do not link it. The result of this compilation is called an <em>object file</em>, and has a .o extension. Thus, if you call <code>clang++ -c postfixCalculator.cpp</code>, the compiler will create a postfixCalculator.o file. You will need to compile each .cpp file in this way.</p>
 <pre><code>clang++ -c postfixCalculator.cpp
 clang++ -c stack.cpp
 clang++ -c testPostfixCalc.cpp</code></pre>
-<p>At this point, you will have 3 new files on your computer: postfixCalculator.o, stack.o, and testPostfixCalc.o. These files contain <em>object code</em>, which is essentially compiled (but not linked) C++ code (the .o extension is for 'object'). The 'object' part of 'object code' has nothing to do with object oriented programming -- you can compile C code (which is not object oriented code) into .o files as well.</p>
+<p>At this point, you will have 3 new files on your computer: postfixCalculator.o, stack.o, and testPostfixCalc.o. These files contain <em>object code</em>, which is essentially compiled (but not linked) C++ code (the .o extension is for ‘object’). The ‘object’ part of ‘object code’ has nothing to do with object oriented programming – you can compile C code (which is not object oriented code) into .o files as well.</p>
 <p>The second step is to link these three files together to create the executable:</p>
 <pre><code>clang++ postfixCalculator.o stack.o testPostfixCalc.o</code></pre>
-<p>Note on this line we specified the .o files, not the .cpp files. The three .o files that you specify tell clang++ to link them into a single executable file -- clang++ knows that any file with a .o extension is already compiled, so it will just link the files rather than trying to compile them. Note that we could also have written that last line as follows if those are the only three .o files in the current directory.</p>
+<p>Note on this line we specified the .o files, not the .cpp files. The three .o files that you specify tell clang++ to link them into a single executable file – clang++ knows that any file with a .o extension is already compiled, so it will just link the files rather than trying to compile them. Note that we could also have written that last line as follows if those are the only three .o files in the current directory.</p>
 <pre><code>clang++ *.o</code></pre>
-<p>Try compiling your program this way. We certainly aren't requiring you to always compile your programs in this manner, as we know it's rather tedious. Makefiles, the subject of this tutorial, provide a shortcut to compile programs, and they use the -c flag, which is why we are learning about it now.</p>
+<p>Try compiling your program this way. We certainly aren’t requiring you to always compile your programs in this manner, as we know it’s rather tedious. Makefiles, the subject of this tutorial, provide a shortcut to compile programs, and they use the -c flag, which is why we are learning about it now.</p>
 <h3 id="introduction-to-make">Introduction to <code>make</code></h3>
 <p>Object code, which is what is in the .o files, is advantageous if we have a large project, because making a change after a compile will only require re-compiling the files that have changed, and then linking it with the rest of the object files. A lot of time can be saved using this recompilation procedure. However, it can be tedious for a programmer to keep track of all of the dependencies and type in the commands to efficiently recompile a large project. This is where <code>make</code> and Makefiles help. <code>make</code> is a Unix utility and a Makefile is a file that <code>make</code> reads in, and that file tells <code>make</code> what to do.</p>
-<p>Note that the 'object' of 'object code' has nothing to do with object-oriented programming. Non-OO programming languages (such as C) still produce 'object' code when compiled with the -c option.</p>
+<p>Note that the ‘object’ of ‘object code’ has nothing to do with object-oriented programming. Non-OO programming languages (such as C) still produce ‘object’ code when compiled with the -c option.</p>
 <p><code>make</code> allows a programmer and the users of their program to be able to easily compile and manage their program without a lot of typing. It recompiles only the minimal number of files required to generate an updated executable file.</p>
-<h3 id="whats-inside-a-makefile">What's inside a Makefile?</h3>
-<p>A typical Makefile consists of comments, variables, rules, and prerequisites. We'll get to each of these in turn. First, though, we need to obtain the code used in this tutorial.</p>
+<h3 id="whats-inside-a-makefile">What’s inside a Makefile?</h3>
+<p>A typical Makefile consists of comments, variables, rules, and prerequisites. We’ll get to each of these in turn. First, though, we need to obtain the code used in this tutorial.</p>
 <ul>
 <li>Download the zip file for this tutorial called <a href="pizza.zip" class="uri">pizza.zip</a></li>
 <li>Unzip the files with the command: <code>unzip pizza.zip</code></li>
 </ul>
-<p>To compile your program, just type <code>make</code> from the pizza/ directory. Notice that it will go through each of the individual .cpp files, and compile each one (with the -c option). Once that is done, it will link all of the .o files to create the 'pizza' executable.</p>
+<p>To compile your program, just type <code>make</code> from the pizza/ directory. Notice that it will go through each of the individual .cpp files, and compile each one (with the -c option). Once that is done, it will link all of the .o files to create the ‘pizza’ executable.</p>
 <p>Try running <code>make</code> again. Notice that it will not recompile anything, as none of the source code has changed. Indeed, it responds with, <code>make: 'pizza' is up to date</code>.</p>
-<p>Edit the 'peppers.cpp' file. Nothing complicated -- just put in a comment (such as your name) at the top. Specifically, we don't want to change any of the source code, only the comments. Save the file, and run <code>make</code> again. Notice that it recompiled two files (peppers.cpp and toppings.cpp), and then re-linked the program. In particular, it did not need to recompile the other files.</p>
-<p>But why did it recompile toppings.cpp? It makes sense that it recompiled peppers.cpp, as that file was modified (note that a computer can't easily tell that only the comments were modified). As we'll see in a bit, there was a <em>prerequisite</em> -- meaning that the Makefile specifically stated that when peppers.cpp is modified, toppings.cpp should also be recompiled (into toppings.o).</p>
-<p>The default name for a Makefile is just 'Makefile' (note the capitalization). You can name it something else (how to do this is at the very end of this tutorial), but it's easier to keep this naming convention. If you name it something else, you will need to call <code>make</code> with the -f flag: <code>make -f Makefile-by-any-other-name</code>.</p>
+<p>Edit the ‘peppers.cpp’ file. Nothing complicated – just put in a comment (such as your name) at the top. Specifically, we don’t want to change any of the source code, only the comments. Save the file, and run <code>make</code> again. Notice that it recompiled two files (peppers.cpp and toppings.cpp), and then re-linked the program. In particular, it did not need to recompile the other files.</p>
+<p>But why did it recompile toppings.cpp? It makes sense that it recompiled peppers.cpp, as that file was modified (note that a computer can’t easily tell that only the comments were modified). As we’ll see in a bit, there was a <em>prerequisite</em> – meaning that the Makefile specifically stated that when peppers.cpp is modified, toppings.cpp should also be recompiled (into toppings.o).</p>
+<p>The default name for a Makefile is just ‘Makefile’ (note the capitalization). You can name it something else (how to do this is at the very end of this tutorial), but it’s easier to keep this naming convention. If you name it something else, you will need to call <code>make</code> with the -f flag: <code>make -f Makefile-by-any-other-name</code>.</p>
 <h3 id="comments">Comments</h3>
 <p>Comments in a Makefile must begin with <code>#</code>, and should generally start in the left-most column of a given line. Put your name and lab section as a comment at the top of the Makefile.</p>
 <h3 id="variables">Variables</h3>
-<p>Variables allow a programmer to easily specify the compiler used, compiler arguments, file paths, targets, and pretty much anything else that one may need to specify when compiling a file. For example, you can specify to always compile with the '-Wall' option (which will list all warnings while compiling), and/or use a variable to store all the object files your program needs.</p>
+<p>Variables allow a programmer to easily specify the compiler used, compiler arguments, file paths, targets, and pretty much anything else that one may need to specify when compiling a file. For example, you can specify to always compile with the ‘-Wall’ option (which will list all warnings while compiling), and/or use a variable to store all the object files your program needs.</p>
 <p>The following is a list of some predefined variables in <code>make</code> (taken from the <a href="https://www.gnu.org/software/make/manual/">GNU <code>make</code> Manual</a>, specifically <a href="https://www.gnu.org/software/make/manual/html_node/Implicit-Variables.html#Implicit-Variables">section 10.3</a>):</p>
 <table>
 <thead>
@@ -85,13 +87,13 @@ clang++ -c testPostfixCalc.cpp</code></pre>
 </table>
 <p>In the pizza Makefile, the first variable in the file is:</p>
 <pre><code>CXX=clang++ $(CXXFLAGS)</code></pre>
-<p>This line defines the C++ compiler to be 'clang++'. It also specifies to put any clang++ flags after the compiler command -- so if we defined the flags to be '-Wall', then each compilation by <code>$(CXX)</code> would include that option.</p>
+<p>This line defines the C++ compiler to be ‘clang++’. It also specifies to put any clang++ flags after the compiler command – so if we defined the flags to be ‘-Wall’, then each compilation by <code>$(CXX)</code> would include that option.</p>
 <p>To use a variable, surround it by $ and parentheses. For example, <code>$(CXX) project.cpp</code> would substitute the value of the <code>CXX</code> variable and result in <code>clang++ project.cpp</code>.</p>
 <h3 id="rules">Rules</h3>
 <p>Rules dictate what Makefiles can do, and each one is composed of a <em>target</em> (the name of the rule), <em>prerequisites</em> (any rules that this one depends on), and the <em>recipe</em> (a series of commands for <code>make</code> to execute).</p>
 <p>Rules can:</p>
 <ul>
-<li>create programs (such as the 'pizza' rule in the provided Makefile)
+<li>create programs (such as the ‘pizza’ rule in the provided Makefile)
 <ul>
 <li>including variants optimized for debugging or speed</li>
 </ul></li>
@@ -110,18 +112,18 @@ target1.o: target1.cpp
 # Ditto, for target2.cpp
 target2.o: target2.cpp
     $(CXX) -c target2.cpp</code></pre>
-<p>Targets always have colons after them, and any prerequisite rules are separated by spaces after the colon. The rule here in this example is that <code>make target</code> will compile 'target1.o' and 'target2.o' into an executable called 'target', but only after making sure the 'target1.o' and 'target2.o' rules have run.</p>
+<p>Targets always have colons after them, and any prerequisite rules are separated by spaces after the colon. The rule here in this example is that <code>make target</code> will compile ‘target1.o’ and ‘target2.o’ into an executable called ‘target’, but only after making sure the ‘target1.o’ and ‘target2.o’ rules have run.</p>
 <p>Spacing in Makefiles is <strong><em>VERY</em></strong> specific. Any target must start at the left-most column in a given line. Each command in the recipe must start a single tab (not spaces!). <code>make</code> is very unforgiving if you do not have your spacing exactly correct.</p>
-<p>The provided pizza Makefile has a number of rules. One of them is 'pizza' -- this will create the entire pizza program. Calling <code>make</code> by itself will always run the first rule listed in the Makefile, in this case the 'pizza' rule. Alternatively, you can invoke a specific rule by providing its target name. If we wanted to run the 'clean' rule, we would call <code>make clean</code>.</p>
+<p>The provided pizza Makefile has a number of rules. One of them is ‘pizza’ – this will create the entire pizza program. Calling <code>make</code> by itself will always run the first rule listed in the Makefile, in this case the ‘pizza’ rule. Alternatively, you can invoke a specific rule by providing its target name. If we wanted to run the ‘clean’ rule, we would call <code>make clean</code>.</p>
 <h3 id="targets">Targets</h3>
-<p>Generally speaking, targets specify the name of the file that should be created after the rule is run. If the target file doesn't exist, <code>make</code> will always execute the rule to create it. If the target file does exist, <code>make</code> then looks at that target's prerequisites to determine whether to execute the rule.</p>
+<p>Generally speaking, targets specify the name of the file that should be created after the rule is run. If the target file doesn’t exist, <code>make</code> will always execute the rule to create it. If the target file does exist, <code>make</code> then looks at that target’s prerequisites to determine whether to execute the rule.</p>
 <h3 id="prerequisites">Prerequisites</h3>
 <p>As mentioned above, rules only run if the target file does not exist or of their prerequisites had to be run.</p>
-<p>When we run the 'target' rule, it checks the 'target1.o' rule to see if it should be run. That rule in turn depends on its respective C++ file. Since there is no explicit rule for target1.cpp, <code>make</code> will look for a file called 'target1.cpp', and see if it has been updated/modified since the last time the 'target1.o' rule was run. If it has been modified, or if target1.o does not exist, then <code>make</code> will run the recipe for 'target1.o'.</p>
-<p>Now that we have finished looking at the first prerequisite, <code>make</code> will do the same thing for the next prerequisite, 'target2.o'.</p>
-<p>Finally, after checking all prerequisite rules, <code>make</code> will use the same logic to determine whether to run the recipe for 'target' itself (were both 'target1.o' and 'target2.o' up to date, and does 'target' already exist?).</p>
+<p>When we run the ‘target’ rule, it checks the ‘target1.o’ rule to see if it should be run. That rule in turn depends on its respective C++ file. Since there is no explicit rule for target1.cpp, <code>make</code> will look for a file called ‘target1.cpp’, and see if it has been updated/modified since the last time the ‘target1.o’ rule was run. If it has been modified, or if target1.o does not exist, then <code>make</code> will run the recipe for ‘target1.o’.</p>
+<p>Now that we have finished looking at the first prerequisite, <code>make</code> will do the same thing for the next prerequisite, ‘target2.o’.</p>
+<p>Finally, after checking all prerequisite rules, <code>make</code> will use the same logic to determine whether to run the recipe for ‘target’ itself (were both ‘target1.o’ and ‘target2.o’ up to date, and does ‘target’ already exist?).</p>
 <h3 id="determining-prerequisites">Determining prerequisites</h3>
-<p>As we have seen, a Makefile determines which files to compile based on the specified prerequisites. For example, the toppings.cpp file depends on a number of files: toppings.cpp, toppings.h, cheese.h, mushrooms.h, peppers.h, and pepperoni.h. A prerequisite, then, is a file that is either the source code (such as toppings.cpp), directly included (such as toppings.h), or indirectly included (such as cheese.h, mushrooms.h, peppers.h, and pepperoni.h). Note that this list of prerequisites does not match what is in the predefined Makefile -- more on this later. The first .h file (toppings.h) is included by toppings.cpp, whereas the rest are included by toppings.h. Thus, at the end of our Makefile, we could have the following line:</p>
+<p>As we have seen, a Makefile determines which files to compile based on the specified prerequisites. For example, the toppings.cpp file depends on a number of files: toppings.cpp, toppings.h, cheese.h, mushrooms.h, peppers.h, and pepperoni.h. A prerequisite, then, is a file that is either the source code (such as toppings.cpp), directly included (such as toppings.h), or indirectly included (such as cheese.h, mushrooms.h, peppers.h, and pepperoni.h). Note that this list of prerequisites does not match what is in the predefined Makefile – more on this later. The first .h file (toppings.h) is included by toppings.cpp, whereas the rest are included by toppings.h. Thus, at the end of our Makefile, we could have the following line:</p>
 <pre><code>toppings.o: toppings.cpp toppings.h cheese.h mushrooms.h \
   peppers.h pepperoni.h</code></pre>
 <p>The backslash at the end of the first line tells <code>make</code> that the prerequisite line continues on the next line. This entire statement will cause a recompilation of toppings.o if any of the listed files are modified. Notice that a number of .h files (such as pizzadough.h) are not included, as toppings.o does not depend on them.</p>
@@ -129,7 +131,7 @@ target2.o: target2.cpp
 <h3 id="automatically-generating-prerequisites">Automatically generating prerequisites</h3>
 <p>Creating these prerequisite lists are essential for a properly functioning Makefile, but they are tedious to create. If you wrote another file that included toppings.h (anchovies.cpp, for example), you would have to remember that toppings.h included four other .h files, and should thus include anchovies.h. Fortunately, we can use clang++ to generate all the prerequisites for us by entering the following command:</p>
 <pre><code>clang++ -MM *.cpp</code></pre>
-<p>The '-MM' flag tells clang++ to look through each of the files that end in .cpp, and generate Makefile-style prerequisites. The output would be the following:</p>
+<p>The ‘-MM’ flag tells clang++ to look through each of the files that end in .cpp, and generate Makefile-style prerequisites. The output would be the following:</p>
 <pre><code>cheese.o: cheese.cpp cheese.h
 mushrooms.o: mushrooms.cpp mushrooms.h
 pepperoni.o: pepperoni.cpp pepperoni.h
@@ -141,9 +143,9 @@ tomatosauce.o: tomatosauce.cpp tomatosauce.h
 toppings.o: toppings.cpp toppings.h cheese.h mushrooms.h peppers.h \
   pepperoni.h</code></pre>
 <p>We can cut-and-paste these rules directly into the Makefile, to tell <code>make</code> what the prerequisites for each file are. We will do this in a bit.</p>
-<p>You will notice that the lines in the provided Makefile (purposely) do not exactly mimic the lines above -- for example, toppings.o in the Makefile depends on a few .cpp files, and not what is listed just above. We will get to fixing this shortly.</p>
+<p>You will notice that the lines in the provided Makefile (purposely) do not exactly mimic the lines above – for example, toppings.o in the Makefile depends on a few .cpp files, and not what is listed just above. We will get to fixing this shortly.</p>
 <p>Once again, we see that implicit rules are being used here for the <code>*.cpp</code> to <code>*.o</code> conversion, which helps us cut down on a lot of unnecessary repitition.</p>
-<p>In order to compile our final program, we would still need to utilize the 'pizza' rule in the Makefile:</p>
+<p>In order to compile our final program, we would still need to utilize the ‘pizza’ rule in the Makefile:</p>
 <pre><code>pizza: pizza.o pizzadough.o tomatosauce.o toppings.o \
        mushrooms.o peppers.o cheese.o pepperoni.o
     $(CXX) $(DEBUG) pizza.o pizzadough.o tomatosauce.o toppings.o \
@@ -159,26 +161,26 @@ toppings.o: toppings.cpp toppings.h cheese.h mushrooms.h peppers.h \
     $(CXX) $(DEBUG) $(OBJECTS) -o pizza
     @echo &quot;Pizza is Hot and Ready!&quot;</code></pre>
 <p>If we set up our CXX variable to include the C++ flags variable (i.e., <code>CXX = clang++ $(CXXFLAGS)</code> at the top of the Makefile), then we do not need to include CXXFLAGS in the above line. Otherwise, we will want to replace that line with, <code>$(CXX) $(CXXFLAGS) $(DEBUG) $(OBJECTS) -o pizza</code>. This will allow any clang++ compiler options to be included also.</p>
-<p>What happens when <code>make</code> is run is that it knows it has to create eight .o files (pizza.o, toppings.o, etc.), and looks at the various .o rules to figure out how to do that. After that, <code>make</code> will then create the final executable, and the print out the 'Pizza is Hot and Ready' line. 'echo' is just a normal Unix command -- it prints out what is on the rest of the line. If you are going to use punctuation, it is best to put it in quotes (many characters have special meanings, such as !).</p>
+<p>What happens when <code>make</code> is run is that it knows it has to create eight .o files (pizza.o, toppings.o, etc.), and looks at the various .o rules to figure out how to do that. After that, <code>make</code> will then create the final executable, and the print out the ‘Pizza is Hot and Ready’ line. ‘echo’ is just a normal Unix command – it prints out what is on the rest of the line. If you are going to use punctuation, it is best to put it in quotes (many characters have special meanings, such as !).</p>
 <h3 id="other-targets">Other targets</h3>
-<p>Occasionally, we may want rules whose targets are not associated with specific filenames. For example, most Makefiles have a 'clean' target that has no prerequisites and will remove any unwanted files produced. It will usually look something like this:</p>
+<p>Occasionally, we may want rules whose targets are not associated with specific filenames. For example, most Makefiles have a ‘clean’ target that has no prerequisites and will remove any unwanted files produced. It will usually look something like this:</p>
 <pre><code>.PHONY: clean
 clean:
     -rm -f *.o *~ a.out</code></pre>
-<p>The <code>.PHONY</code> target tells <code>make</code> to <em>always</em> execute the 'clean' target, even if there happens to be a file named 'clean'. You should specify any rules that are not associated with filenames as prerequisites of the <code>.PHONY</code> target.</p>
-<p>With this rule, <code>make clean</code> will remove all files ending in .o, all files ending in <code>~</code> (backup files created by emacs), and a file called 'a.out'. The '-' in front of rm means that it does not matter if rm was unsuccessful in removing a .o file (if a command fails, <code>make</code> normally thinks that it should abort due to the error, but the '-' here tells <code>make</code> to ignore it if this command fails). The '-f' option does a few things, one of which is to prevent printing of error messages if the files do not exist (i.e. if you run <code>make clean</code> twice in a row).</p>
-<p>Makefiles may also have &quot;debug&quot; and &quot;release&quot; targets. These targets will generate a version of the output file for debugging (through LLDB, for example) and a version of the output file with optimization flags. Another way to do this is to edit the Makefile, enter '-g' or '-O2' in the CXXFLAGS variable, then do a <code>make clean</code> and then <code>make</code>.</p>
+<p>The <code>.PHONY</code> target tells <code>make</code> to <em>always</em> execute the ‘clean’ target, even if there happens to be a file named ‘clean’. You should specify any rules that are not associated with filenames as prerequisites of the <code>.PHONY</code> target.</p>
+<p>With this rule, <code>make clean</code> will remove all files ending in .o, all files ending in <code>~</code> (backup files created by emacs), and a file called ‘a.out’. The ‘-’ in front of rm means that it does not matter if rm was unsuccessful in removing a .o file (if a command fails, <code>make</code> normally thinks that it should abort due to the error, but the ‘-’ here tells <code>make</code> to ignore it if this command fails). The ‘-f’ option does a few things, one of which is to prevent printing of error messages if the files do not exist (i.e. if you run <code>make clean</code> twice in a row).</p>
+<p>Makefiles may also have “debug” and “release” targets. These targets will generate a version of the output file for debugging (through LLDB, for example) and a version of the output file with optimization flags. Another way to do this is to edit the Makefile, enter ‘-g’ or ‘-O2’ in the CXXFLAGS variable, then do a <code>make clean</code> and then <code>make</code>.</p>
 <h3 id="creating-a-new-makefile">Creating a new Makefile</h3>
-<p>We have seen a number of ways to improve the provided pizza Makefile. We'll put them together into a single, well-formed, Makefile. Below are the steps to do so; each of these steps are described in more detail above.</p>
+<p>We have seen a number of ways to improve the provided pizza Makefile. We’ll put them together into a single, well-formed, Makefile. Below are the steps to do so; each of these steps are described in more detail above.</p>
 <ul>
 <li>Comments! This Makefile will be submitted as part of <a href="../../labs/lab05/index.html">lab 5</a> (see below), so you will need to put in your name and userid at the top of the file.</li>
 <li>We will want to declare the pre-defined variables, CXX and CXXFLAGS. CXX is going to be <code>clang++</code>, and we can define CXXFLAGS to be <code>-Wall -O2</code> (give all warnings and optimize the code).</li>
-<li>We'll want to define a variable, probably called OBJECTS, that will list all of the .o files that we are compiling into our target executable.</li>
-<li>Our first rule -- which must be called 'pizza' -- will be for compiling the program. It will depend on all of the .o files (defined in the OBJECTS variable), and will define how to compile the program executable.</li>
-<li>Our second rule, 'clean', will remove the executable itself, all the .o files, and all files that end in the tilde (<code>*~</code>, the backup files that Emacs creates).</li>
+<li>We’ll want to define a variable, probably called OBJECTS, that will list all of the .o files that we are compiling into our target executable.</li>
+<li>Our first rule – which must be called ‘pizza’ – will be for compiling the program. It will depend on all of the .o files (defined in the OBJECTS variable), and will define how to compile the program executable.</li>
+<li>Our second rule, ‘clean’, will remove the executable itself, all the .o files, and all files that end in the tilde (<code>*~</code>, the backup files that Emacs creates).</li>
 <li>Lastly, we will need to have clang++ create all the prerequisite rules, which we will copy-and-paste into the bottom of the Makefile.</li>
 </ul>
-<p>Test out the Makefile to ensure it works. You will need to rename it to 'Makefile-pizza', and submit it as part of pre-lab 5 (we can't name it 'Makefile', as you are submitting a Makefile for the other parts of the lab already). To force <code>make</code> to use a different Makefile, you can use the <code>-f</code> flag: <code>make -f Makefile-pizza</code>. To specify a different target, the target name goes after the file name: <code>make -f Makefile-pizza clean</code>.</p>
+<p>Test out the Makefile to ensure it works. You will need to rename it to ‘Makefile-pizza’, and submit it as part of pre-lab 5 (we can’t name it ‘Makefile’, as you are submitting a Makefile for the other parts of the lab already). To force <code>make</code> to use a different Makefile, you can use the <code>-f</code> flag: <code>make -f Makefile-pizza</code>. To specify a different target, the target name goes after the file name: <code>make -f Makefile-pizza clean</code>.</p>
 <h3 id="further-information">Further information</h3>
 <p>This tutorial only scratches the surface of what <code>make</code> can do! There are many more powerful concepts that can be very useful for larger projects. For more information, consult the man page for <code>make</code> and/or go to the <a href="https://www.gnu.org/software/make/manual/">GNU website for <code>make</code></a>. Google searches will also turn up lots of good resources.</p>
 </body>

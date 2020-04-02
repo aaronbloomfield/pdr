@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta charset="utf-8">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>PDR: Slides: Slide Graph Diagrams</title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../../markdown.css">
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="../../markdown.css" />
 </head>
 <body>
 <h1 id="pdr-slides-slide-graph-diagrams">PDR: Slides: Slide Graph Diagrams</h1>
 <p><a href="../index.html">Go up to the main slides table of contents page</a> (<a href="../index.md">md</a>)</p>
 <p>The files in this directory use <a href="http://www.graphviz.org/">GraphViz</a> to generate the images. To run GraphViz:</p>
 <pre><code>dot -Tsvg filename.dot -o outname.svg</code></pre>
-<p>The three Red-black tree insertion case images need the <code>-Kneato</code> flag for proper layout. You can also just run <code>make</code> in the slides/graphs/ directory to convert all of the .dot files in this repository to .svg files. This also creates .png and .ps versions of the graphs, which can be removed via <code>make clean</code>. A fairly recent version of GraphViz is needed for 'rarrow' shape.</p>
+<p>The three Red-black tree insertion case images need the <code>-Kneato</code> flag for proper layout. You can also just run <code>make</code> in the slides/graphs/ directory to convert all of the .dot files in this repository to .svg files. This also creates .png and .ps versions of the graphs, which can be removed via <code>make clean</code>. A fairly recent version of GraphViz is needed for ‘rarrow’ shape.</p>
 <p>Both the original .dot files, as well as the .svg files (which are what are used in the slides) are include in this repository.</p>
 <p>Some of these images (the expression trees and the red-black insertion cases) were added the the appropriate Wikiedpia pages as well.</p>
 <h2 id="references">References</h2>
