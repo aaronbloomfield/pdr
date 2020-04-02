@@ -15,12 +15,11 @@ Hello World, Hello World, Hello World!
 A basic C program looks like the following:
 
 ```
-/* hello world x3 */
+// hello world x3
 #include <stdio.h>
 int main() {
-    int i;
-    for (i = 0; i < 3; i++) {
-        printf ("hello world!\n");
+    for (int i = 0; i < 3; i++) {
+        printf("hello world!\n");
     }
     return 0;
 }
@@ -29,8 +28,6 @@ int main() {
 A few things to note about this program:
 - The `<stdio.h>` was `#include`d (stdio stands for Standard I/O library), which is where `printf()` (and, later, `scanf()`) live.  These are the basic input and output routines in C, analogous to cout and cin in C++.  More on these functions are below
 - There are no namespaces in C
-- Comments are enclosed in `/*` and `*/`.  The `//` notation does not work in pure C, but most C compilers will allow it anyway
-- The iterating variable `i` is not declared within the `for` statement in pure C, but most C compilers will allow it anyway.
 
 To use `malloc()`, which is the C version of `new`, you will need to include the `<stdlib.h>` file (stdlib is the standard library) - more on `malloc()` is also below.
 
@@ -43,33 +40,31 @@ C does not have *iostreams* or *stream operators*, such as `<<` (for cout) and `
 
 ### int printf(const char \*format, ...) ###
 
-`printf()` takes a *format string*, containing verbatim text that you want to display and *conversion specifiers* which describe to `printf()` how to interpret and display the remaining arguments.  The conversion specifiers may contain *flags*, which control such things as field width, precision, and format.  All conversion specifiers begin with a `%`.  To print a `%`, your format string must contain `%%`.  Other special characters will have to be escaped with a backslash (i.e., to do a return, we enter `\n`; for a backslash, we enter `\\`).
+`printf()` takes a *format string*, containing verbatim text that you want to display and *conversion specifiers* which describe to `printf()` how to interpret and display the remaining arguments.  The conversion specifiers may contain *flags*, which control such things as field width, precision, and format.  All conversion specifiers begin with a `%`.  To print an actual `%`, your format string must contain `%%`.  Other special characters will have to be escaped with a backslash (i.e., to print a newline, we enter `\n`; for a backslash, we enter `\\`).
 
 For example, to print an integer, we would enter:
 
 ```
-printf ("this is an int: %d\n", x);
+int x = 3;
+printf("this is an int: %d\n", x);
 ```
 
 The `%d` part tells printf to format the appropriate parameter (x, in this case) as an integer, and insert it at that spot in the string.
 
-
 Commonly used conversion specifiers are:
 
-
 | Specifier | Meaning |
-|-|-|
+| --------- | ------- |
 | d | converts an int |
 | f | converts a float |
 | c | converts a char |
 | s | converts a string |
 | p | converts a pointer |
 
-
 and flags:
 
 | Flag | Meaning |
-|-|-|
+| ---- | ------- |
 | `l`	(a lower-case 'L') | Instead of an int or float, convert a long int or double |
 | `ll` (two lower-case 'L's) | ..., convert a long long int or long double |
 | `0` (zero) | Zero pad the conversion to fill the field width |
@@ -136,22 +131,16 @@ The third example above almost certainly overflows the buffer.  `scanf()` will c
 
 ------------------------------------------------------------
 
-Pointers
---------
-
-Most data is passed by address in C, so you need to be comfortable with pointer syntax.
-
-### Pointer Syntax ###
-
-As mentioned above, C does not have *pass-by-reference*; in fact, C has no reference types at all. The pointer syntax in C, including the *address* (`&`), *dereference* (`*`), and *structure-* or *union-pointer* (`->`, an implicit dereference) operators, is exactly the same as in C++.
-
-References in C++ provide *syntactic sugar* abstracting away from the programmer the need to explicitly dereference pointers.  A C++ programmer transitioning to C must keep straight exactly what type a variable represents and access its data accordingly.  From the perspective of the compiler developer, there is little difference between references and pointers, and it would seem that Kernighan and Ritchie (the creators of the C programming language) made a conscious decision to require the more explicit syntax of C, probably because it forces programmers to understand their data.
-
-### malloc() and free() ###
+Dynamic memory management
+-------------------------
 
 In C++ you allocate storage from the heap with `new`, and you return it to the heap with `delete`.  `new` and `delete` are operators, which can even be overloaded, and which, by default, automatically call constructors or destructors for you.
 
-Heap control in C is a bit lower level.  Allocation from the heap is achieved through a call to `malloc()`, which returns a pointer to the newly allocated space on success or `NULL` on failure (i.e., if you are out of memory).  It is important to check the return value of `malloc()` before attempting to access the returned storage.  The storage allocated by `malloc()` is not initialized in any way, though the related functions `calloc()` and `realloc()` (which we will see a bit later in the course) do perform some specific initializations.  You will need to explicitly run initialization subroutines on data structures that you allocate in C.
+Heap control in C is a bit lower level, and is done primarily through two functions: `malloc()` and `free()`.
+
+### malloc() ###
+
+Allocation from the heap is achieved through a call to `malloc()`, which returns a pointer to the newly allocated space on success or `NULL` on failure (i.e., if you are out of memory).  It is important to check the return value of `malloc()` before attempting to access the returned storage.  The storage allocated by `malloc()` is **not** initialized in any way!  You will need to explicitly run initialization subroutines on data structures that you allocate in C.
 
 `malloc()` has the prototype:
 
@@ -161,17 +150,25 @@ void* malloc(size_t size)
 
 You must explicitly tell it how much storage you require.  The `sizeof` operator is useful here.
 
+### free() ###
+
 `free()` is used to deallocate storage originally allocated with `malloc()`, `calloc()`, or `realloc()`.  `free()` in C is analgous to `delete` in C++.  Its prototype is:
 
 ```
 void free(void* ptr)
 ```
 
-It is an error to call `free()` with any address that was not returned by one of the `malloc()` family functions above.  It is an error to call `free()` on a `NULL` pointer.  It is also an error to call `free()` twice on the same address.  Any one of these errors will corrupt your heap. This corruption will manifest in unusual ways which will be very difficult to debug and which will not have any obvious relationship with the root cause (if you are lucky, it will cause a segmentation fault).
+It is an error to call `free()`:
+
+- on any address that was not returned by one of the `malloc()` family functions above
+- on a `NULL` pointer
+- twice on the same address
+
+Any one of these errors will corrupt your heap. This corruption will manifest in unusual ways which will be very difficult to debug and which will not have any obvious relationship with the root cause (if you are lucky, it will cause a segmentation fault).
 
 The easiest way to debug a memory error is not to make it in the first place. With care, this is easier than it sounds.  Firstly, know when you need dynamic allocation; don't use it if you don't have to.  Secondly, as you would do in C++, write constructors and destructors for all of your data structures, and be consistent about using them.  These functions should handle your heap control and error checking explicitly, so that they are implicit in the code that uses the storage.
 
-If you do manage to develop memory errors, the `MALLOC_CHECK_` environment variable may be helpful (see the `malloc()` manual page), as may the [Electric Fence library](http://en.wikipedia.org/wiki/Electric_Fence).
+If you do manage to develop memory errors, AddressSanitizer and LeakSanitizer work just as they did in C++.
 
 ### Examples ###
 
@@ -179,26 +176,23 @@ If you do manage to develop memory errors, the `MALLOC_CHECK_` environment varia
 #include <stdio.h>
 #include <stdlib.h>
 
-/* A struct is like a class, but without methods */
-struct foo {
-  int x;
-  struct foo *next;
-};
+int main() {
+    // dynamically allocate an array of ints
+    int* p = (int*) malloc(sizeof(int) * 5);
+    if (p == NULL) {
+        // memory allocation failed; handle the error somehow
+        return 1;
+    }
 
+    // Initialize p[1] to 10. Everything else is still uninitialized.
+    // Trying to access any other index without first initializing it is undefined behavior!
+    p[1] = 10;
+    printf("%d\n", p[1]);
 
-void main() {
-  int *p;
-  struct foo *list, *tmp;
+    // free up that array
+    free(p);
 
-  /* dynamically allocate an array of ints */
-  p = (int *) malloc(sizeof (int) * 5);
-  p[1] = 10;
-  printf ("%d\n", p[1]);
-
-  /* free up that array */
-  free(p);
-
-  /* calling free(p) again is an error, and will crash the program */
+    return 0;
 }
 ```
 
@@ -217,10 +211,10 @@ A structure definition has the following format:
 
 ```
 struct name {
-  type1 member1;
-  type2 member2;
-  ...
-  typen membern;
+    type1 member1;
+    type2 member2;
+    /* ... */
+    typen membern;
 };
 ```
 
@@ -230,24 +224,26 @@ The following might be a good definition for a list item data structure.  We'll 
 
 ```
 struct list_item {
-  struct list_item *prev, *next;
-  void *datum;
+    struct list_item* prev
+    struct list_item* next;
+    void* datum;
 };
 ```
 
-Now whenever you want a variable of type `list_item`, you declare it using `struct list_item` - for example, `struct list_item my_item`.
+Now whenever you want a variable of type `list_item`, you declare it using `struct list_item` -- for example, `struct list_item my_item`.
 If the extra `struct` doesn't look right to you, this is where the `typedef` keyword can come in handy.
 
 ```
-/* typedef comes before struct */
+// typedef comes before struct
 typedef struct list_item {
-  struct list_item *prev, *next;
-  void *datum;
-} list_item_t; /* what you want to call your struct goes after the closing brace */
+    struct list_item* prev;
+    struct list_item* next;
+    void* datum;
+} list_item_t; // what you want to call your struct goes after the closing brace
 ```
 
 With the typedef, we can now refer to our struct as simply `list_item_t`. Therefore, variable declarations become `list_item_t my_item`.
-Note that the `struct list_item *prev, *next` inside of the struct declaration cannot be replaced with `list_item_t *prev, *next`, as the typedef hasn't been finished by that point! We don't know the name of the typedef until after the closing brace.
+Note that the `struct list_item* prev` inside of the struct declaration cannot be replaced with `list_item_t* prev`, as the typedef hasn't been finished by that point! We don't know the name of the typedef until after the closing brace.
 
 ### union ###
 
@@ -257,12 +253,12 @@ An anonymous union provides useful syntactic sugar as a structure member.  Take 
 
 ```
 struct example_struct {
-  int type;
-  union {
-    int i;
-    float f;
-    double d;
-  };
+    int type;
+    union {
+        int i;
+        float f;
+        double d;
+    };
 };
 
 struct example_struct s;
@@ -270,44 +266,14 @@ s.type = 1;
 
 switch (s.type) {
 case 0:
-  printf("%d\n", s.i);
-  break;
+    printf("%d\n", s.i);
+    break;
 case 1:
-  printf("%+2.3f\n", s.f);
-  break;
+    printf("%+2.3f\n", s.f);
+    break;
 case 2:
-  scanf("%lf", &s.d);
-  break;
-}
-```
-
-and compare with:
-
-```
-union ifd_t {
-  int i;
-  float f;
-  double d;
-};
-
-struct example_struct {
-  int type;
-  union ifd_t u;
-};
-
-struct example_struct s;
-s.type = 1;
-
-switch (s.type) {
-case 0:
-  printf("%d\n", s.u.i);
-  break;
-case 1:
-  printf("%+2.3f\n", s.u.f);
-  break;
-case 2:
-  scanf("%lf", &s.u.d);
-  break;
+    scanf("%lf", &s.d);
+    break;
 }
 ```
 
@@ -320,7 +286,7 @@ Function pointers are useful in many instances.  The most common of those includ
 Syntactically, a function pointer looks like a function prototype, except that the "function name" (actually the name of the pointer) is wrapped in parenthesis with a pointer star at the beginning.  For example:
 
 ```
-int (*pprintf)(const char *format, ...)
+int (*pprintf)(const char* format, ...)
 ```
 
 defines a pointer that can point to `printf()` (not particularly useful).  A function's name, without parenthesis, evaluates to its address, thus we can assign the address of `printf()` to `pprintf` with the statement:
@@ -340,7 +306,7 @@ pprintf("Hello, World!\n");
 `qsort()`, short for quick sort, can sort arrays of data of arbitrary type.  In implementing `qsort()`, the subroutine has no knowledge of how to compare the arbitrary elements being sorted, thus `qsort()` takes a pointer to a comparison function.  Its full prototype looks like this:
 
 ```
-void qsort(void *base, size_t nmemb, size_t size, int (*compar)(const void *, const void *));
+void qsort(void* base, size_t nmemb, size_t size, int (*compar)(const void*, const void*));
 ```
 
 The comparison function takes pointers to two elements of the array starting at base and returns negative, zero, or positive if the first is smaller than, equal to, or larger than the second, respectively.  The array starting at base has nmemb elements of size size.
@@ -351,10 +317,11 @@ With `list_item_t` defined as above, consider the following:
 
 ```
 struct list {
-  list_item_t *head, *tail;
-  unsigned length;
-  int (*compare)(const void *key, const void *with);
-  void (*datum_delete)(void *);
+    list_item_t* head;
+    list_item_t* tail;
+    unsigned int length;
+    int (*compare)(const void* key, const void* with);
+    void (*datum_delete)(void*);
 };
 ```
 
@@ -371,11 +338,11 @@ This exercise is to be developed in C, and compiled using clang (NOT clang++!). 
 
 1. Read in an integer, which we'll call *n*
 2. Read in *n* more ints, and put those into a linked list
-     - The linked list must be dynamically allocated
+    - The linked list must be dynamically allocated
 3. Print out that linked list (we don't care about the order!)
 4. Properly deallocate the linked list
 
-That's it - the point is to have you use many of the features of C discussed here (`printf()`, `scanf()`, structs, `malloc()`, and `free()`).  We aren't looking for multiple subroutines, a full list class, etc. - a long `main()` function is just fine.  Don't make this more complicated than necessary!
+That's it - the point is to have you use many of the features of C discussed here (`printf()`, `scanf()`, structs, `malloc()`, and `free()`).  We aren't looking for multiple subroutines, a full list class, etc. -- a long `main()` function is just fine.  Don't make this more complicated than necessary!
 
 The program should be in a file called `linkedlist.c`.  A sample execution run might look like the following:
 
