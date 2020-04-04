@@ -9,6 +9,17 @@ This lab is one of two labs meant to familiarize you with the process of writing
 
 There are both [32 bit](../lab09-32bit/index.html) ([md](../lab09-32bit/index.md)) and [64 bit](../lab09-64bit/index.html) ([md](../lab09-64bit/index.md)) versions of this lab.  This is the ***64 bit version***.
 
+<h3 style="color:red"><b>Changes for the spring 2020 semester</b></h3>
+
+<p style="color:red">Due to this course being <a href="../../uva/online.html">taught online</a> (<a href="../../uva/online.md">md</a>) in the spring of 2020, we are making the following changes for this semester, in an effort to make the workload more manageable since we are all working from home.</p>
+
+<ul style="color:red">
+<li>Pre-lab: no change to the pre-lab; it's still the Collatz conjecture program; keep in mind this is due Wednesday at 8 a.m.</li>
+<li>In-lab: none -- the report (the only part of the in-lab) is not to be done.  Instead, use this time to get help with the pre-lab or the post-lab.  Because of this, the in-lab will not be graded this semester.</li>
+<li>Post-lab: the C tutorial is still to be done, but the report is not to be done.</li>
+</ul>
+
+
 ### Background ###
 
 The Intel x86 assembly language is currently one of the most popular assembly languages and runs on many architectures from the x86 line through the Pentium 4.  It is a CISC instruction set that has been extended multiple times (e.g. MMX) into a larger instruction set.
