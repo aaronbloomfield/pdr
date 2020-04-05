@@ -7,13 +7,17 @@ PDR: Laboratory 10: Huffman Coding
 
 1. To become familiar with prefix codes
 2. To implement a useful application using a variety of data structures
-3. To analyze the efficiency of your implementation.
+3. To analyze the efficiency of your implementation
 
 ### Background ###
 
 In lecture we discussed Huffman coding and the construction of prefix code trees.  We have also covered a variety of data structures this semester: lists, trees, hash tables, and heaps.  Several of these may be useful for this lab.  In addition, in this lab you are required to think about the underlying representation and efficiency of these structures.
 
-### Reading(s): ###
+### Tutorial ###
+
+There is no tutorial for this lab.
+
+### Recommended Readings ###
 
 - The [Heaps and Huffman slide set](../../slides/10-heaps-huffman.html) are available in the repository, and that covers Huffman compression and decompression.
 - Code for binary heaps is also available from that slide set: [binary_heap.cpp](../../slides/code/10-heaps-huffman/binary_heap.cpp.html) ([src](../../slides/code/10-heaps-huffman/binary_heap.cpp)), [binary_heap.h](../../slides/code/10-heaps-huffman/binary_heap.h.html) ([src](../../slides/code/10-heaps-huffman/binary_heap.h)), [heap-test.cpp](../../slides/code/10-heaps-huffman/heap-test.cpp.html) ([src](../../slides/code/10-heaps-huffman/heap-test.cpp)).  You may use/modify this code if you wish, or implement your own heaps, but you may NOT use the STL priority_queue class (you can use other STL classes -- i.e. non-heap related classes).
@@ -23,29 +27,22 @@ Lab Procedure
 
 ### Pre-lab ###
 
-1. The pre-lab is the compression phase of the Huffman coding.
-2. You may NOT use a STL class for the heap (such as priority_queue), but you may use other STL classes (i.e. non-heap related classes).
-3. Implement the Huffman encoding routine discussed in the pre-lab section.
-4. Your program must compile with make!
-5. Your program should only take in one command-line parameter!
-6. Files to download: [fileio.cpp](fileio.cpp.html) ([src](fileio.cpp)), and the example files (in the labs/lab10/examples/ directory), or as one [examples.zip](examples.zip) file)
-7. Files to submit: heap.cpp, heap.h, huffmanenc.cpp, Makefile (you can submit additional .cpp/.h files, if needed, as long as it compiles with `make`)
+1. Create a heap
+2. Implement the Huffman encoding (compression) routine using your heap
+3. Files to download: [fileio.cpp](fileio.cpp.html) ([src](fileio.cpp)), and the example files (in the labs/lab10/examples/ directory), or as one [examples.zip](examples.zip) file)
+4. Files to submit: heap.cpp, heap.h, huffmanenc.cpp, Makefile (you can submit additional .cpp/.h files, if needed, as long as it compiles with `make`)
 
 ### In-lab ###
 
-1. The in-lab is the decompression phase of the Huffman coding.
-2. Implement the Huffman decoding routine discussed in the in-lab section.
-3. Your program must compile with make!
-4. Your program should only take in one command-line parameter!
-5. Files to download: [inlab-skeleton.cpp](inlab-skeleton.cpp.html) ([src](inlab-skeleton.cpp)), and your pre-lab files
-6. Files to submit: huffmandec.cpp, Makefile (you can submit additional .cpp/.h files, if needed, as long as it compiles with `make`)
+1. Implement the Huffman decoding (decompression) routine discussed in the in-lab section
+2. Files to download: [inlab-skeleton.cpp](inlab-skeleton.cpp.html) ([src](inlab-skeleton.cpp)), and your pre-lab files
+3. Files to submit: huffmandec.cpp, Makefile (you can submit additional .cpp/.h files, if needed, as long as it compiles with `make`)
 
 ### Post-lab ###
 
-1. Complete the post-lab report, as described in the post-lab section.
-2. Ensure that the pre-lab code (compression) and post-lab code (decompression) work properly, as they will be submitted again
-3. Create a new Makefile, as specified in the post-lab section
-4. Files to submit: postlab10.pdf, Makefile, all necessary source code files
+1. In a report, analyze the time and space complexity of your encoding and decoding code
+2. Create a Makefile to compile both the encoding and decoding portions of your Huffman routine in one step
+3. Files to submit: postlab10.pdf, Makefile, all necessary source code files
 
 
 ------------------------------------------------------------
