@@ -106,9 +106,9 @@ The links in the right-most column link directly to the lecture recording on Col
 |27| Mar 27 | Friday | | [08: Assembly][88] | assembly, slides 8.15 to 10.12 | 
 |28| Mar 30 | Monday | [Lab 8: assembly, part 1][8] ([md][28]) / Tutorial 8: see the information on the [tutorials page](../tutorials/index.html) ([md](../tutorials.md)) | [08: Assembly][88], [09: Advanced C++][89] | finished assembly; advanced C++ to slide 6.11 | 
 |29| Apr 1 | Wednesday | | [09: Advanced C++][89] | advanced C++ to slide 8.5 | 
-|30| Apr 3 | Friday | | [09: Advanced C++][89], [10: Heaps and Huffman coding][90] | finished advanced C++; heaps & Huffman to slide 5.9 | 
-|31| Apr 6 | Monday | [Lab 9: assembly, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [10: Heaps and Huffman coding][90] | | 
-|32| Apr 8 | Wednesday | | [10: Heaps and Huffman coding][90] | | 
+|30| Apr 3 | Friday | | [09: Advanced C++][89], [10: Heaps and Huffman coding][90] | finished advanced C++; heaps & Huffman to slide 6.2 | 
+|31| Apr 6 | Monday | [Lab 9: assembly, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [10: Heaps and Huffman coding][90] | heaps & Huffman, slides 6.2 to 6.16 | 
+|32| Apr 8 | Wednesday | | [10: Heaps and Huffman coding][90] | heaps & Huffman, slides 7.1 to 8.19 | 
 |33| Apr 10 | Friday | | [10: Heaps and Huffman coding][90] | | 
 |34| Apr 13 | Monday | [Lab 10: Huffman coding][10] ([md][30]) / (no tutorial) | [10: Heaps and Huffman coding][90], [11: Graphs][91] | | 
 |35| Apr 15 | Wednesday | | [11: Graphs][91] | | 
