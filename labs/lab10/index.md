@@ -216,22 +216,22 @@ There are two parts to this post-lab: the time and space complexity analysis and
 
 For the post-lab, we want you to do a time and space complexity analysis of your compression and decompression code.  You'll submit a written report that describes your implementation choices, and also documents your analysis of time and space complexity.  See below for a discussion about the space/time complexity.
 
-The deliverable for the post-lab is a PDF document named postlab10.pdf.  It must be in PDF format!  See [How to convert a file to PDF](../../docs/convert_to_pdf.html) for details.
+The deliverable for this part of the post-lab is a PDF document named postlab10.pdf that includes:
 
-A written post-lab report (a page is fine) that includes the following.  You can double-space your report, but no funky stuff with the formatting (standard size fonts, standard margins, etc.).  And if you double-space your report, you need to increase the number of pages appropriately.
-
-1. A description of your implementation.  Describe the data structures used in your implementation and *why* you selected them.
-2. An efficiency analysis of *all steps* in Huffman encoding/decoding. 
-     - For each of the steps of compression and decompression (see "Huffman Encoding and Decoding"), give the worst case running time of your implementation.  
-     - In addition, give the worst case *space complexity* (i.e. how many bytes of memory are used in each data structure) of your implementation.
+- A description of your implementation: describe the data structures used in your implementation and *why* you selected them.
+- An efficiency analysis of *all steps* in Huffman encoding/decoding. For each of the steps of compression and decompression (see "Huffman Encoding and Decoding"), give:
+    - The worst case running time of your implementation
+    - The worst case space complexity of your implementation
 
 Worst case running time -- for this be sure to include all steps of the compression and decompression.  You can leave off the cost of calculating the compression ratio, printing the cost of the tree, and printing a listing of the bit code for each character that was asked for in the pre-lab.  Refer to the list of steps given earlier in the lab.
 
 Space complexity -- for this, you should calculate the number of bytes that are used by each data structure in your implementation.  The easiest way to do this is to step through your code, just as you have done for the worst case running time, and make a note each time you use a new data structure.  You do not need to take into account scalar variables (loop counters, other singleton variables), focus on the data structures whose size depends on values such as the total number of characters and the total number of unique characters, and use those values in your answer.
 
+As usual, we expect a thought-out explanation of both parts.  Most reports end up approximately one page in length, single-spaced.
+
 ### Huffman Encoding and Decoding ###
 
-For the post-lab, the purpose is to clean up your code from the pre-lab and in-lab, and submit all of it together.  If your pre-lab and in-lab code work properly, then there is no futher clean-up to do; however, you must still submit the files along with a *new* Makefile.
+The purpose of this part of the post-lab is to clean up your code from the pre-lab and in-lab, and submit all of it together.  If your pre-lab and in-lab code work properly, then there is no futher clean-up to do; however, you must still submit the files along with a *new* Makefile.
 
 When we run `make`, the code should be compiled into two executables: `encoder` and `decoder`, which are the pre-lab and in-lab code bases, respectively. Unlike the pre-lab and in-lab, you should ***NOT*** name your executables `a.out`!  After compiling your code with `make`, we will test it as such:
 
@@ -241,4 +241,4 @@ When we run `make`, the code should be compiled into two executables: `encoder` 
 diff testfile.txt output.txt
 ```
 
-This encodes a sample text file, then decodes it.  Both the original file (`testfile.txt`) and the final file (`output.txt`) should be the same, which is what the `diff` command does.  Note that, if there are no differences between the two files, then `diff` does not print any output.
+This encodes a sample text file, then decodes it.  Both the original file (`testfile.txt`) and the final file (`output.txt`) should be the same, which is what the `diff` command checks.  If there are no differences between the two files, then `diff` will not print any output.
