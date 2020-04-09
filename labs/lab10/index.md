@@ -50,33 +50,38 @@ Lab Procedure
 Huffman Encoding and Decoding
 ---------------
 
-The basic steps in compression (for the pre-lab) are:
+The basic steps for compression are:
 
-1. Read the source file and determine the frequencies of the characters in the file.
-2. Store the character frequencies in a heap (priority queue).
-3. Build a tree of prefix codes (a Huffman code) that determines the unique bit codes for each character.
-4. Write the prefix codes to the output file, following the file format above.
-5. Re-read the source file and for each character read, write its prefix code to the output, following the file format described herein.
+1. Read the source file and determine the frequencies of the characters in the file
+2. Store the character frequencies in a heap (priority queue)
+3. Build a tree of prefix codes (a Huffman code) that determines the unique bit codes for each character
+4. Write the prefix codes to the output file, following the file format above
+5. Re-read the source file and for each character read, write its prefix code to the output, following the file format described below
 
 We are also writing additional information to the file (compression ratio and tree cost), as described herein.
 
-The basic steps in decompression (for the in-lab) are:
+The basic steps for decompression are:
 
-1. Read in the prefix code structure from the compressed file.  You can NOT assume that you can re-use the tree currently in memory, as we will be testing your in-lab code on files that you have not encoded.
-2. Re-create the Huffman tree from the code structure read in from the file.
-3. Read in one bit at a time from the compressed file and move through the prefix code tree until a leaf node is reached.
-4. Output the character stored at the leaf node.
-5. Repeat the last two steps until the encoded file is finished.
+1. Read in the prefix code structure from the compressed file
+2. Re-create the Huffman tree from the code structure read in from the file
+3. Read in one bit at a time from the compressed file and move through the prefix code tree until a leaf node is reached
+4. Output the character stored at the leaf node
+5. Repeat the last two steps until the encoded file is finished
 
 Huffman compression and decompression are both covered in the [Heaps and Huffman slide set](../../slides/10-heaps-huffman.html).
 
 ### Requirements ###
 
-Assume that only printable ASCII characters will occur in the source (original, uncompressed) text file.  That is, your program should ignore newlines and tabs, but should not ignore spaces -- thus, spaces need to be encoded, just like with other (printable) characters (note, however, that spaces are encoded differently; see the input format for details).  Your program should be case-sensitive (count upper-case and lower-case versions of the same letter as different characters).  The lecture notes describe [which characters are to be encoded](../../slides/10-heaps-huffman.html#asciiset).
+Your Huffman implementation should:
 
-You ***must*** use a heap (priority queue) data structure to receive full credit on this pre-lab.  You may use heap code from the slides (give said credit if you do so), or you may implement your own.  You may NOT use the priority_queue class from the STL, but you may use other classes from the STL (i.e. non-heap related classes).
-
-Real Huffman encoding involves writing bit codes to the compressed file.  To simplify things in your implementation, you will only be reading and writing whole ASCII characters the entire time.  To represent the zeroes and ones of the bit codes you will write the characters `0` and `1`  to your output file.  Yes, this means that the actual size of our compressed file will be larger than our original file  (terrific, you "compressed" the character`t` into the five characters `01011`), but it will simplify the lab considerably.
+- Case-sensitively encode and decode _only_ printable ASCII characters
+    - Newlines, tabs, etc. are not printable, while spaces are
+    - The lecture notes describe [which characters are to be encoded](../../slides/10-heaps-huffman.html#asciiset)
+- Read and write ASCII characters rather than individual bits
+    - Yes, this means that the actual size of our compressed file will be larger than our original file (terrific, you "compressed" the character `t` into the five characters `01011`), but it will simplify the lab considerably
+- Use a heap (priority queue) data structure
+    - You may NOT use the STL `priority_queue`
+    - You may use the heap code from the slides as long as you cite it
 
 ### Hints and Common Mistakes ###
 
