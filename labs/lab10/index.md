@@ -187,31 +187,23 @@ A few hints from experience with this in previous semesters.
 In-lab
 ------
 
-Make sure your pre-lab code can read in any printable ASCII character, including spaces (which are encoded differently!), but not newlines or tabs.  If you look at the ASCII table in the Huffman coding lecture notes, you want to be able to handle all of the characters in the red box.  Keep in mind that text files will always have a newline character (`\n`) at the end of each line.  Some text files might also have the carriage return character (`\r`) at the end of each line as well.  This is from the difference in text file formats between Windows and Unix.
+For the in-lab, you will implement, in huffmandec.cpp, the Huffman decoding algorithm.
 
-Your program should output to the standard output (i.e. `cout`) the *exact* file format described above, and nothing else.
-
-There are additional examples of encodings in the labs/lab10/examples/ directory.  Keep in mind that the bits that your code generates for a given character do not have to match the bits that are shown in the examples (as this will depend on the implementation of your heap), but the number of bits per character DOES have to match.
-
-We provide a number of sample files for you to test your code with.  A brief description of each is described here.  The "normal" files are the English input.  The "encoded" files are the Huffman encoded files, following the file format described above.  Except where indicated, the middle part of each encoded file (the digits `0` and `1`) has a space inserted between each letter from the original file, so that you can see which letter is encoded as which bitcode.
-
-- [normal1.txt](examples/normal1.txt) / [encoded1.txt](examples/encoded1.txt): This is the first example from the lecture slides (`dbacaad`).  The Huffman tree can be viewed [here](prelab-tree.png).
-- [normal2.txt](examples/normal2.txt) / [encoded2.txt](examples/encoded2.txt): This is the second example from the lecture slides, in the "Huffman Encoding" section.  This is the example that we built up the Huffman tree from.  The Huffman tree can be viewed [here](inlab-tree-2.png).
-- [normal3.txt](examples/normal3.txt) / [encoded3.txt](examples/encoded3.txt): This is a paragraph from [Gadsby](http://en.wikipedia.org/wiki/ Gadsby_%28novel%29), which is a novel that does not ever use the letter 'e'.
-- [normal4.txt](examples/normal4.txt) / [encoded4.txt](examples/encoded4.txt): The first paragraph from a [front page story in the 27 November 2007 edition of the Cavalier Daily](http://www.cavalierdaily.com/CVArticle.asp?ID=31789&pid=1656).
-    - [encoded4a.txt](examples/encoded4a.txt): This is the same encoding as the previous file ([encoded4.txt](examples/encoded4.txt)), but with all spaces in the middle section of the file removed, so that it's just a very long string of `0`s and `1`s.
-
-During in-lab, you will implement the decompression steps for the Huffman encoding.  These steps are listed at the beginning of this lab document.
-
-First, make sure that your code can read in the file -- you can download the [inlab-skeleton.cpp](inlab-skeleton.cpp) file, which can properly read in the encoded input files.
+First, make sure that your code can read in encoded files -- you can download the [inlab-skeleton.cpp](inlab-skeleton.cpp) file, which can properly read in the encoded input files.
 
 Next, focus on creating the Huffman coding tree.  There are a number of ways to go about doing this -- we present one such algorithm here.  As you are (recursively) creating each node in the tree, you know the bitcode code so far to get to that node (remember that following a left child pointer generates a `0`, and following a right child pointer generates a `1`).  We'll call this bitcode-so-far the "prefix" (as it is the prefix for all bitcodes below this node).  If that prefix is one of the listed bitcodes in the first part of the file, then we are at a leaf (remember that all characters in a Huffman tree are leaves), and the node will not have any children.  Otherwise, we are dealing with an internal node -- and you will have to create left and right child nodes, calling yourself recursively on each one.  Keep in mind that when you call yourself recursively on the left child, you have to add `0` to the end of the prefix; likewise, you have to add `1` to the prefix for the right child.  This algorithm will require you to search through the bit codes that were read in from the first part of the file.  Also keep in mind that the size of the input here (the number of characters) is very small (only 80 or so) -- which means that if you choose a linear time complexity data structure (vector, for example), your code will run just fine.
 
 Not creating a Huffman tree from the file will result in zero credit for the in-lab.  The whole point of this part is to create the tree!
 
-Lastly, read in the second part of the file, transverse your Huffman tree, and output a character when you reach a leaf node.  You can output as much text as you would like, such as status updates as to how the program is progressing.  The only caveat is that the decoded file must be the last thing printed, and it must be clear where the other text ends and the decoded message that you are decoding begins (a separator of dashes would be fine for this).  Of course, you are more than welcome to just print out the decoded message and nothing else.
+Lastly, read in the second part of the file, traverse your Huffman tree, and output a character whenever you reach a leaf node.  You can output as much text as you would like, such as status updates as to how the program is progressing.  The only caveat is that the decoded file must be the last thing printed, and it must be clear where the other text ends and the decoded message that you are decoding begins (a separator of dashes would be fine for this).  Of course, you are more than welcome to just print out the decoded message and nothing else.
 
-As with the pre-lab, you should ensure that those files compile successfully with `make`.
+We provide a number of sample files for you to test your code with.  A brief description of each is described here.  The "normal" files are the English input.  The "encoded" files are the Huffman encoded files, following the file format described above.  Except where indicated, the second section of each encoded file (the digits `0` and `1`) has a space inserted between each letter from the original file, so that you can see which letter is encoded as which bitcode.
+
+- [normal1.txt](examples/normal1.txt) / [encoded1.txt](examples/encoded1.txt): This is the first example from the lecture slides (`dbacaad`).  The Huffman tree can be viewed [here](prelab-tree.png).
+- [normal2.txt](examples/normal2.txt) / [encoded2.txt](examples/encoded2.txt): This is the second example from the lecture slides, in the "Huffman Encoding" section.  This is the example that we built up the Huffman tree from.  The Huffman tree can be viewed [here](inlab-tree-2.png).
+- [normal3.txt](examples/normal3.txt) / [encoded3.txt](examples/encoded3.txt): This is a paragraph from [Gadsby](http://en.wikipedia.org/wiki/Gadsby_%28novel%29), which is a novel that does not ever use the letter 'e'.
+- [normal4.txt](examples/normal4.txt) / [encoded4.txt](examples/encoded4.txt): The first paragraph from a [front page story in the 27 November 2007 edition of the Cavalier Daily](http://www.cavalierdaily.com/CVArticle.asp?ID=31789&pid=1656).
+    - [encoded4a.txt](examples/encoded4a.txt): This is the same encoding as [encoded4.txt](examples/encoded4.txt), but with all spaces in the second section of the file removed, so that it's just a very long string of `0`s and `1`s.
 
 ------------------------------------------------------------
 
