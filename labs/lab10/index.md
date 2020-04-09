@@ -106,37 +106,36 @@ Whatever your implementation, you should be able to accurately describe its wors
 Pre-lab
 -------
 
-For the pre-lab, you will implement the Huffman encoding algorithm using a binary heap.  In particular, you will need to implement all of the basic compression steps described later in this document. You may use and modify code from the lecture notes, any code you generated, but you may NOT use the STL heap class (called priority_queue) -- you can use other (non-heap related) classes from the STL.
+For the pre-lab, you will implement, in huffmanenc.cpp, the Huffman encoding algorithm using a binary heap that you implement in heap.cpp/h.
 
-Your program must take in a single command-line parameter, which is the name of the file whose contents will be encoded.  We have some sample plain text and encoded text files (in the labs/lab10/examples/ directory) -- a description of these files is in the in-lab section.  Keep in mind that, as described below, your program will need to ignore newlines and non-printable characters in the input file.
+Your program must take in a single command-line parameter, which is the name of the file whose contents will be encoded.  We have some sample plain text and encoded text files (in the labs/lab10/examples/ directory) -- a description of these files is in the in-lab section.
 
-Your program should output to the standard output (i.e. `cout`) the exact file format described below, and nothing else.  It should ***NOT*** output to a file!
+Your program should output to the standard output (i.e. `cout`) the exact file format described below, and nothing else.
 
 As part of the file format described below, your program will need to print out the compression ratio and the Huffman tree cost.  The compression ratio is defined, in bits, as: (size of the original file)/(size of compressed file).  You should exclude the size of the prefix code tree in the compression ratio, and assume that the 0's and 1's you generated for the compressed file count as one bit each (rather than an 8-bit character).  The Huffman tree cost is the same as described in lecture.
-
-Your program should be in at least three files: heap.h, heap.cpp, and huffmanenc.cpp; it may contain more, depending on your implementation.  The heap.h and heap.cpp will contain the heap implementation, and the huffmanenc.cpp will contain the `main()` method and the other Huffman encoding methods needed by your program.  We'll be calling `make` to compile your program, so make sure your Makefile works as well.
 
 To read in the input file character by character, see the [fileio.cpp](fileio.cpp.html) ([src](fileio.cpp)) file.
 
 ### File Format ###
 
-In an effort to both ease the in-lab implementation (as we can thus provide examples) as well as ease the grading, there is a very strict file format for a Huffman encoded message for this lab.  This allows the two parts to be developed, implemented, and tested separately.  Although real Huffman encoding uses bits, we will write these bits to a file using the characters `0` and `1`, as that will make it easier to check and debug our code.  The challenging part of reading in a file (which is done during the in-lab) is re-creating the Huffman coding tree.  This is discussed in detail in the in-lab section.
+In an effort to simplify both the in-lab implementation and the grading, there is a very strict file format for a Huffman encoded message for this lab.  This allows the two parts to be developed, implemented, and tested separately.  Although real Huffman encoding uses bits, we will write these bits to a file using the characters `0` and `1`, as that will make it easier to check and debug our code.
 
-The file format is as follows.  There are three sections to an encoded file, each separated by a specific separator.
+There are three sections to an encoded file, each separated by a specific separator.
 
-The first section of the file are the ASCII characters that are encoded, followed by their bit encoding.  Only one such encoding per line, with no blank lines allowed.  The format for a line is the ASCII character, a single space, and then the `1` and `0` characters that are the encoding for that character, followed by a newline.  The order of the characters does not matter.  However, your code to read in the file must be able to handle the characters in any order.  If the character being written is the space character itself, you should write `space` instead of " "; thus a line for the space character might look like: `space 101010`.  Keep in mind that the first character on this type of line cannot be a newline, tab, or a non-printable character.  No line in this part can be more than 256 characters.  You can safely assume that the data provided will be a valid Huffman coding tree (i.e. there won't be an internal node with one child, etc.).
+#### Section 1 ####
+The first section of the file are the ASCII characters that are encoded, followed by their bit encoding.  Only one such encoding per line, with no blank lines allowed.  The format for a line is the ASCII character, a single space, and then the `1` and `0` characters that are the encoding for that character, followed by a newline.  The order of the lines does not matter.  If the character being written is the space character itself, you should write `space` instead of " "; thus a line for the space character might look like: `space 101010`.  Keep in mind that the first character on this type of line cannot be a newline, tab, or a non-printable character.  No line in this part can be more than 256 characters.  You can safely assume that the data provided will be a valid Huffman coding tree (i.e. there won't be an internal node with one child, etc.).
 
 Following that is a separator line, and is a single line containing 40 dashes and no spaces.
 
-The second section is the encoded message, using the characters `0` and `1`.  You may separate these any way you would like using whitespace (space, tab, return) -- thus, you can have one per line, if you would like.  The only valid characters in this section, therefore, are the two digits (`0` and `1`), as well as the three whitespace characters (space, tab, and newline).  For the pre-lab, separating the encodings by spaces or newlines will make checking and debugging your code easier: having a space between each encoded letter, and a return between each encoded word, will help considerably.  However, when the file is read in, your code MUST be able to read in a Huffman encoded message regardless of the whitespace formatting.
+#### Section 2 ####
+The second section is the encoded message, using the characters `0` and `1`.  You may optionally separate each encoded character by any form of whitespace.  For example, to help debugging, you might want to separate each encoded letter by a space and place each encoded word on its own line.
 
 The next line is a separator, and is also a single line containing 40 dashes and no spaces.
 
-The last section of the file are English text, which displays the compression ratio and the cost of the Huffman tree.  This does not need to be read in by the decompression routines.  As long as you output the required information, and it is easily understandable by a human, it can be in a format similar to (but not necessarily the same as) what is shown below.  You can have additional information as well, as long as we can easily find what we are looking for (compression ratio and Huffman tree cost).
+#### Section 3 ####
+The last section of the file displays the compression ratio and the cost of the Huffman tree.  This does not need to be read in by the decompression routines.  As long as you output the required information, and it is easily understandable by a human, it can be in a format similar to (but not necessarily the same as) what is shown below.  You can have additional information as well, as long as we can easily find what we are looking for (compression ratio and Huffman tree cost).
 
-For the in-lab, you can assume that we will not provide you with invalid Huffman file formats.  You can safely assume that we will provide you with a few different valid file formats (a few such examples are available in the labs/lab10/examples/ directory).
-
-The following is the Huffman file format for example in the slide set that has the characers 'a', 'b', 'c', and 'd'.
+The following is the Huffman file format for the example in the slide set that has the characers 'a', 'b', 'c', and 'd'.
 
 ```
 a 0
@@ -154,11 +153,11 @@ This gives a compression ratio of 4.30769.
 The cost of the Huffman tree is 1.85714 bits per character.
 ```
 
-The Huffman tree that this forms is the same as the one shown in the slide set (specifically, [here](../../slides/10-heaps-huffman.html#/lab10tree)), and is dupliated below.
+The Huffman tree that this forms is the same as the one shown in [the slide set](../../slides/10-heaps-huffman.html#/lab10tree)), and is duplicated below.
 
 ![](prelab-tree.png)
 
-Below is an equivalent version of the same file.  Note that the characters are not in the same order in the previous example, the whitespace for the middle part is quite different, the English explanation in the third part says the same thing but in a different format, and the particular prefix codes are different (but note that the lengths are the same).  Your in-lab code will need to be able to read in both of these files (as well as others in the labs/lab10/examples/ directory).  For writing your pre-lab, you should consider having a space or a newline between the Huffman encoded characters, as that will make your code easier to check and debug.
+Below is an equivalent version of the same file.  Note that the characters are not in the same order in the previous example, the whitespace for the middle part is quite different, the English explanation in the third part says the same thing but in a different format, and the particular prefix codes are different (but note that the lengths are the same).
 
 ```
 d 11
@@ -166,17 +165,15 @@ c 101
 b 100
 a 0
 ----------------------------------------
-11
-100
-0 1 0 1 0 0 1 1
+1           1
+10001
+0 1 0 0 1 1
 ----------------------------------------
 Compression ratio: 4.31
 The Huffman tree cost: 1.85 bits per character
 ```
 
 Note that your encoding does not have to exactly match -- in particular, the bits that your program uses to encode it will depend on the implementation of your heap.  So while your bits can be off, the number of bits for each character should NOT be different than the examples given.
-
-To read in the input file character by character, see the [fileio.cpp](fileio.cpp.html) ([src](fileio.cpp)) file.
 
 ### Hints ###
 
@@ -188,7 +185,7 @@ A few hints from experience with this in previous semesters.
 ------------------------------------------------------------
 
 In-lab
----------------
+------
 
 Make sure your pre-lab code can read in any printable ASCII character, including spaces (which are encoded differently!), but not newlines or tabs.  If you look at the ASCII table in the Huffman coding lecture notes, you want to be able to handle all of the characters in the red box.  Keep in mind that text files will always have a newline character (`\n`) at the end of each line.  Some text files might also have the carriage return character (`\r`) at the end of each line as well.  This is from the difference in text file formats between Windows and Unix.
 
