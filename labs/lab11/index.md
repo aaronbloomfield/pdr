@@ -9,9 +9,13 @@ To become familiar with representing directed acyclic graphs (DAGs), topological
 
 ### Background ###
 
-A graph is a set of vertices connected by edges.  In a directed graph, an edge is an ordered pair of vertices, where you can follow an edge from one vertex to another.  In a directed acyclic graph (DAG), no path starts and ends at the same vertex.  A topological sort orders the vertices in a DAG such that any edge from vertex i to vertex j satisfies i < j.  
+A graph is a set of vertices connected by edges.  In a directed graph, an edge is an ordered pair of vertices, where you can follow an edge from one vertex to another.  In a directed acyclic graph (DAG), no path starts and ends at the same vertex.  A topological sort orders the vertices in a DAG such that any edge from vertex i to vertex j satisfies i < j.
 
-### Reading(s) ###
+### Tutorial ###
+
+Go through the [Doxygen tutorial](../../tutorials/11-doxygen/index.html), which is a program that allows you to generate documentation for your code.
+
+### Recommended Readings ###
 
 1. The [Wikipedia page on Topological sort](http://en.wikipedia.org/wiki/Topological_sort)
 2. The [Wikipedia page on the Traveling Salesperson problem](http://en.wikipedia.org/wiki/Travelling_salesman_problem)
@@ -22,33 +26,25 @@ Procedure
 
 ### Pre-lab ###
 
-1. Go through the [Doxygen tutorial](../../tutorials/11-doxygen/index.html), as described in the pre-lab section.
-2. Study the topological sort algorithm described in the readings
-3. Look at the [middleearth.h](middleearth.h.html) ([src](middleearth.h)) and [middleearth.cpp](middleearth.cpp.html) ([src](middleearth.cpp)) files.  You should understand **AND DOCUMENT** both of these two files.  See the comments in the middleearth.cpp file, as well as the in-lab section, for details as to what these methods do.  You should not modify any of the code in this file; only the comments.
-    - You will have to create a Doxyfile, as described in the [Doxygen tutorial](../../tutorials/11-doxygen/index.html)
-    - That Doxyfile should *only* generate HTML output (thus, set `GENERATE_LATEX` and `GENERATE_RTF` to "NO")
-    - That Doxyfile *should* generate graphs (thus, set `HAVE_DOT`, `CALL_GRAPH`, and `CALLER_GRAPH` all to "YES")
-	- Be sure to change the other options of the Doxyfile as described in the tutorial (don't forget `INPUT` and `EXTRACT_ALL`!)
-	- Your `INPUT` tag should include the two middleearth files, as well as the topological sort files
-4. Write a program to compute a topological sort of a graph, as described in the pre-lab section; name it `topological.cpp`.
-5. Document your topological.cpp with doxygen commands.
-6. Your code should compile with `make`!  It should do ***TWO*** tasks: compile your code, and call `doxygen`.  See the pre-lab section for more information about required make target.
-7. Files to download: [prelab-test-full.txt](prelab-test-full.txt), [prelab-test-small.txt](prelab-test-small.txt), [middleearth.h](middleearth.h.html) ([src](middleearth.h)), [middleearth.cpp](middleearth.cpp.html) ([src](middleearth.cpp)), [fileio2.cpp](fileio2.cpp.html) ([src](fileio2.cpp))
-8. Files to submit: topological.cpp, middleearth.h/cpp, Makefile, Doxyfile
+1. Understand and document the [middleearth.h](middleearth.h.html) ([src](middleearth.h)) and [middleearth.cpp](middleearth.cpp.html) ([src](middleearth.cpp)) files
+2. Write a program to compute a topological sort of a graph
+3. Document your topological.cpp with doxygen comments
+4. Write a Makefile to compile your code and generate documentation
+5. Files to download: [prelab-test-full.txt](prelab-test-full.txt), [prelab-test-small.txt](prelab-test-small.txt), [middleearth.h](middleearth.h.html) ([src](middleearth.h)), [middleearth.cpp](middleearth.cpp.html) ([src](middleearth.cpp)), [fileio2.cpp](fileio2.cpp.html) ([src](fileio2.cpp))
+6. Files to submit: topological.cpp, middleearth.h/cpp, Makefile, Doxyfile
 
 ### In-lab ###
 
-1. Implement a brute-force traveling salesperson solution, as described in the in-lab section.
-2. Create a Makefile that will fully compile your code.  You should not specify the resulting executable name (i.e., no `-o` output for the final link step).  It will default to a.out, which is what is desired.
-3. Document your C++ files with doxygen commands.  You must **ALSO** include commented middleearth.h and middleearth.cpp (this should have been done in the pre-lab).
-4. Your code should compile with `make`!  It should do ***TWO*** tasks: compile your code, and call `doxygen`.  See the pre-lab section for more information about required make target.
-5. Files to download: [traveling-skeleton.cpp](traveling-skeleton.cpp.html) ([src](traveling-skeleton.cpp)) (which you'll have to rename to traveling.cpp), and your commented middleearth.h / middleearth.cpp code from the pre-lab
-6. Files to submit: traveling.cpp, middleearth.h, middleearth.cpp, Makefile, Doxyfile
+1. Implement a brute-force traveling salesperson solution
+2. Document your C++ files with doxygen commands
+3. Write a Makefile to compile your code and generate documentation
+4. Files to download: [traveling-skeleton.cpp](traveling-skeleton.cpp.html) ([src](traveling-skeleton.cpp)) (which you'll have to rename to traveling.cpp), and your commented middleearth.h / middleearth.cpp code from the pre-lab
+5. Files to submit: traveling.cpp, middleearth.h, middleearth.cpp, Makefile, Doxyfile
 
 ### Post-lab ###
 
-1. Complete the post-lab report, as described in the post-lab section.
-2. Files to download: none (other than your pre-lab and in-lab files)
+1. Write a report on the time and space complexity of your pre-lab and in-lab code, and discuss ways to accelerate the travelling salesperson algorithm
+2. Files to download: none
 3. Files to submit: postlab11.pdf
 
 ------------------------------------------------------------
