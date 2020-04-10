@@ -13,10 +13,12 @@ http://www.gnu.org/software/src-highlite">
 
 <b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
-<i><span style="color:#9A1900">/** </span></i><span style="color:#009900">@brief</span><i><span style="color:#9A1900"> Computes the average of the two passed values.</span></i>
+<i><span style="color:#9A1900">/**</span></i>
+<i><span style="color:#9A1900"> * </span></i><span style="color:#009900">@brief</span><i><span style="color:#9A1900"> Computes the average of the two passed values.</span></i>
 <i><span style="color:#9A1900"> *</span></i>
 <i><span style="color:#9A1900"> * This function computes the average using the standard accepted</span></i>
 <i><span style="color:#9A1900"> * formula for doing so.</span></i>
+<i><span style="color:#9A1900"> *</span></i>
 <i><span style="color:#9A1900"> * </span></i><span style="color:#009900">@return</span><i><span style="color:#9A1900"> The average of the two passed values.</span></i>
 <i><span style="color:#9A1900"> * </span></i><span style="color:#009900">@param</span><i><span style="color:#9A1900"> x The first value to average.</span></i>
 <i><span style="color:#9A1900"> * </span></i><span style="color:#009900">@param</span><i><span style="color:#9A1900"> y The second value to average.</span></i>
@@ -24,19 +26,17 @@ http://www.gnu.org/software/src-highlite">
 <i><span style="color:#9A1900"> */</span></i>
 
 <span style="color:#009900">double</span> <b><span style="color:#000000">average</span></b> <span style="color:#990000">(</span><span style="color:#009900">double</span> x<span style="color:#990000">,</span> <span style="color:#009900">double</span> y<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-    <b><span style="color:#0000FF">return</span></b> <span style="color:#990000">(</span>x<span style="color:#990000">+</span>y<span style="color:#990000">)/</span><span style="color:#993399">2.0</span><span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">return</span></b> <span style="color:#990000">(</span>x <span style="color:#990000">+</span> y<span style="color:#990000">)</span> <span style="color:#990000">/</span> <span style="color:#993399">2.0</span><span style="color:#990000">;</span>
 <span style="color:#FF0000">}</span>
 
-<span style="color:#009900">int</span> <b><span style="color:#000000">main</span></b> <span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+<span style="color:#009900">int</span> <b><span style="color:#000000">main</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
     <span style="color:#009900">double</span> a<span style="color:#990000">,</span> b<span style="color:#990000">,</span> c<span style="color:#990000">;</span>
     cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Enter two different floating point numbers: "</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
     cin <span style="color:#990000">&gt;&gt;</span> a <span style="color:#990000">&gt;&gt;</span> b<span style="color:#990000">;</span>
-    c <span style="color:#990000">=</span> <b><span style="color:#000000">average</span></b><span style="color:#990000">(</span>a<span style="color:#990000">,</span>b<span style="color:#990000">);</span>
+    c <span style="color:#990000">=</span> <b><span style="color:#000000">average</span></b><span style="color:#990000">(</span>a<span style="color:#990000">,</span> b<span style="color:#990000">);</span>
     cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"The average of those numbers is "</span> <span style="color:#990000">&lt;&lt;</span> c <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
     <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
 <span style="color:#FF0000">}</span>
-
-
 </pre>
 </body>
 </html>
