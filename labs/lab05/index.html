@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>PDR: Laboratory 5: Trees</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-  <link rel="stylesheet" href="../../markdown.css" />
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../../markdown.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-laboratory-5-trees">PDR: Laboratory 5: Trees</h1>
@@ -25,10 +23,10 @@
 <li>Evaluate the performance of binary search trees and AVL trees</li>
 </ol>
 <h3 id="background">Background</h3>
-<p>A binary tree is a tree with a maximum of two children per node. Tree traversals are commonly associated with binary trees. A pre-order traversal processes the given node first and then processes its left and then right subtrees. In an in-order traversal, first the node’s left subtree is processed, followed by the node itself, and finally its right subtree. A post-order traversal operates on the left subtree, followed by the right subtree, and finally on the node itself.</p>
-<p>A binary search tree is a binary tree that imposes an ordering on its nodes. A node’s left child has a lesser value, while its right child has a greater value. Binary search trees are useful for efficient insertion, deletion, and lookup of items with a certain key. As we’ll see in this lab, variations of binary search trees offer different performance characteristics.</p>
+<p>A binary tree is a tree with a maximum of two children per node. Tree traversals are commonly associated with binary trees. A pre-order traversal processes the given node first and then processes its left and then right subtrees. In an in-order traversal, first the node's left subtree is processed, followed by the node itself, and finally its right subtree. A post-order traversal operates on the left subtree, followed by the right subtree, and finally on the node itself.</p>
+<p>A binary search tree is a binary tree that imposes an ordering on its nodes. A node's left child has a lesser value, while its right child has a greater value. Binary search trees are useful for efficient insertion, deletion, and lookup of items with a certain key. As we'll see in this lab, variations of binary search trees offer different performance characteristics.</p>
 <h3 id="tutorial">Tutorial</h3>
-<p>Complete the <a href="../../tutorials/05-make/index.html">Makefile tutorial</a>. You will need to know how to write one for the in-lab and post-lab, since all the following labs will be compiled via Makefiles. There is one file that needs to be submitted from the tutorial – you must name this file <code>Makefile-pizza</code>.</p>
+<p>Complete the <a href="../../tutorials/05-make/index.html">Makefile tutorial</a>. You will need to know how to write one for the in-lab and post-lab, since all the following labs will be compiled via Makefiles. There is one file that needs to be submitted from the tutorial -- you must name this file <code>Makefile-pizza</code>.</p>
 <h3 id="recommended-readings">Recommended Readings</h3>
 <p>The <a href="https://en.wikipedia.org/wiki/Expression_tree">Wikipedia article on Expression trees</a>, especially the <a href="https://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_expression_tree">section on construction of expression trees</a>. Also the <a href="../../slides/05-trees.html">05: Trees</a> slide set.</p>
 <h2 id="procedure">Procedure</h2>
@@ -97,7 +95,7 @@ The result of the expression tree is 42</code></pre>
 <h3 id="submission">Submission</h3>
 <p>You should submit any files required for your tree calculator to run as well as Makefile-pizza from the tutorial. TreeCalcTest.cpp, TreeNode.h, and TreeNode.cpp should not be modified.</p>
 <h3 id="hints">Hints</h3>
-<p><strong>Recursion is the way to go:</strong> Recursion is very useful in traversing the expression tree. You’ll need to use recursion for many of the TreeCalc methods.</p>
+<p><strong>Recursion is the way to go:</strong> Recursion is very useful in traversing the expression tree. You'll need to use recursion for many of the TreeCalc methods.</p>
 <p><strong>Printing in the right order:</strong> Draw a simple tree and see how you should recurse in order to hit each node in the correct order. Need more help? Check the <a href="https://en.wikipedia.org/wiki/Expression_tree">Wikipedia article</a>!</p>
 <hr />
 <h2 id="in-lab-1">In-lab</h2>
@@ -115,8 +113,10 @@ The result of the expression tree is 42</code></pre>
 <li>Lookup <word>: <code>L &lt;word&gt;</code></li>
 </ul>
 <p>The Lookup instruction will call the <code>pathTo()</code> method defined on your tree. <code>pathTo()</code> must return a string representing the nodes encountered when finding an element. For instance in the following image, the bold lines indicate the path taken for locating element W.</p>
-<p><img src="avl-tree-pic-1.png" /></p>
-<p><code>pathTo(&quot;W&quot;)</code> would then return the string <code>&quot;M P Z W&quot;</code>. Calling <code>pathTo()</code> on an element that doesn’t exist would result in an empty string <code>&quot;&quot;</code>.</p>
+<figure>
+<img src="avl-tree-pic-1.png" />
+</figure>
+<p><code>pathTo(&quot;W&quot;)</code> would then return the string <code>&quot;M P Z W&quot;</code>. Calling <code>pathTo()</code> on an element that doesn't exist would result in an empty string <code>&quot;&quot;</code>.</p>
 <h3 id="submission-1">Submission</h3>
 <p>You should submit your BST, any supporting C++ files, as well as a Makefile to compile everything into an <code>a.out</code> executable.</p>
 <h3 id="hints-1">Hints</h3>

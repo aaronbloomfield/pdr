@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>PDR: Laboratory 7: IBCM Programming</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-  <link rel="stylesheet" href="../../markdown.css" />
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../../markdown.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-laboratory-7-ibcm-programming">PDR: Laboratory 7: IBCM Programming</h1>
@@ -21,7 +19,7 @@
 <h3 id="background">Background</h3>
 <p>IBCM (Itty Bitty Computing Machine) is a simulated computer with a minimal instruction set. Despite its tiny instruction set, IBCM can compute anything that a modern computer can.</p>
 <h3 id="tutorial">Tutorial</h3>
-<p>The tutorial for this lab is the remainder of the <a href="https://en.wikibooks.org/wiki/Bash_Shell_Scripting">Wikibooks article on Bash Shell Scripting</a>. The tutorial will be necessary for the post-lab, though you may read through it earlier if you’d like.</p>
+<p>The tutorial for this lab is the remainder of the <a href="https://en.wikibooks.org/wiki/Bash_Shell_Scripting">Wikibooks article on Bash Shell Scripting</a>. The tutorial will be necessary for the post-lab, though you may read through it earlier if you'd like.</p>
 <h3 id="recommended-readings">Recommended Readings</h3>
 <ol type="1">
 <li>Read the <a href="../../slides/07-ibcm.html">slides on IBCM</a></li>
@@ -64,11 +62,11 @@
 <h3 id="array.ibcm">array.ibcm</h3>
 <p>Write another IBCM program that finds the maximum value in a hardcoded array of values.</p>
 <ul>
-<li>The array base address is hard-coded into memory, meaning it’s a pre-set value that isn’t obtained by user input. You can have the array be all or part of the IBCM program, or a section of memory after the program with values that you have selected.</li>
+<li>The array base address is hard-coded into memory, meaning it's a pre-set value that isn't obtained by user input. You can have the array be all or part of the IBCM program, or a section of memory after the program with values that you have selected.</li>
 <li>You should also hard-code other values, such as the number of elements in the array and the array elements themselves, into your program. The program should not need any user input.</li>
 <li>Before your program halts, it prints out the maximum value of the array</li>
 </ul>
-<p>You <strong><em>MUST</em></strong> iterate through the array by creating the array load instruction, similarly as was done in lecture in the <a href="../../ibcm/array-summation.ibcm">array-ssummation.ibcm</a> program. You may <strong><em>NOT</em></strong> have a series of separate instructions to each load a separate value from the array – such a program will receive zero credit.</p>
+<p>You <strong><em>MUST</em></strong> iterate through the array by creating the array load instruction, similarly as was done in lecture in the <a href="../../ibcm/array-summation.ibcm">array-ssummation.ibcm</a> program. You may <strong><em>NOT</em></strong> have a series of separate instructions to each load a separate value from the array -- such a program will receive zero credit.</p>
 <h3 id="writing-ibcm-code">Writing IBCM Code</h3>
 <p>You <strong>MUST</strong> comment your IBCM code copiously. This means (practically) every line should have a comment describing what you are doing. However, you cannot have a line that is only comments, as the emulator will have trouble reading that line! The examples provided in the handouts posted on the course website and discussed in class illustrate a good way of doing this, where there are columns for each of the following:</p>
 <ol type="1">
@@ -77,10 +75,10 @@
 <li>labels for jumps or variable names</li>
 <li>the operation-name for the instruction on that line</li>
 <li>a symbolic name for the address the instruction references</li>
-<li>comments (that explain what’s happening in a higher-level form)</li>
+<li>comments (that explain what's happening in a higher-level form)</li>
 </ol>
 <p>Note that together the operation name and the address are sort of an assembly language version of the hexadecimal version of the operations in the first column. You probably want to write those first, and then turn these into the hex instruction that will go into column 1.</p>
-<p>The simulator will only read the first 4 character on each line of a file. So you can’t have entire lines with comments, or blank lines. The simulator can’t handle these (and doesn’t check for this), and you will get a strange error.</p>
+<p>The simulator will only read the first 4 character on each line of a file. So you can't have entire lines with comments, or blank lines. The simulator can't handle these (and doesn't check for this), and you will get a strange error.</p>
 <h3 id="running-ibcm-code">Running IBCM Code</h3>
 <p>You may run your IBCM code via the online simulator at <a href="https://pegasus.cs.virginia.edu/ibcm/" class="uri">https://pegasus.cs.virginia.edu/ibcm/</a>.</p>
 <p>Beware of the following quirks of the simulator:</p>
@@ -94,13 +92,13 @@
 <h4 id="leave-room-for-mistakes">Leave room for mistakes</h4>
 <p>Sprinkle some <code>nop</code> (opcode: B) instructions throughout your program that can be replaced later in case you realize that you need some extra variables or are missing some instructions.</p>
 <h4 id="working-with-arrays">Working with arrays</h4>
-<p>Arrays can be difficult to work with in IBCM given the extremely limited instruction set. We’ll walk through the array summation example again from the slides to point out some helpful concepts.</p>
+<p>Arrays can be difficult to work with in IBCM given the extremely limited instruction set. We'll walk through the array summation example again from the slides to point out some helpful concepts.</p>
 <p>How do you add variables in IBCM? Why, with the <code>add</code> instruction, of course.<br />
 However, for arrays, the address you want to <code>add</code> from changes every time! How do we account for that?</p>
 <p>We need to dynamically change the <code>add</code> instruction before executing it to make it point to the right address. If we can generate the appropriate instruction based off of the starting address of the array and the index we want (hint: look back to lab 4), we can then <code>store</code> that later on in our program to execute automatically!</p>
 <p>Thus, if we wanted to sum an array, we would:</p>
 <ol type="1">
-<li>Create a variable set to <code>5000</code> – notice how it’s just an <code>add</code> instruction without an address. This is <code>adit</code> in the slides.</li>
+<li>Create a variable set to <code>5000</code> -- notice how it's just an <code>add</code> instruction without an address. This is <code>adit</code> in the slides.</li>
 <li>Load that instruction into the accumulator</li>
 <li>Use actual <code>add</code> instructions to add the base array address <code>a</code> and the current array index <code>i</code> to the accumulator
 <ul>
@@ -146,7 +144,7 @@ However, for arrays, the address you want to <code>add</code> from changes every
 <h3 id="more-shell-scripting">More shell scripting</h3>
 <p>The tutorial for this lab is the remainder of the <a href="https://en.wikibooks.org/wiki/Bash_Shell_Scripting">Wikibooks article on Bash Shell Scripting</a>.</p>
 <p>For this lab, you will need to work a bit more on the shell script that you wrote for the last lab. The shell script will also compute the average running time for 5 executions of a program. The difference is that you will be using control structures, such as conditionals (if-then-else) and loops (for or while) in this shell script.</p>
-<p>First, download the <a href="counter.cpp.html">counter.cpp</a> (<a href="counter.cpp">src</a>), <a href="timer.cpp.html">timer.cpp</a> (<a href="timer.cpp">src</a>), and <a href="timer.h.html">timer.h</a> (<a href="timer.h">src</a>) files. The timer program has been modified from lab 6 to print out the time in milliseconds. counter.cpp doesn’t actually do anything useful; it just takes in a numeric command line parameter <em>e</em> and runs through an idle loop 10<sup><em>e</em></sup> times. You should not enter a value for <em>e</em> greater than 9, as 10<sup>9</sup> (1 billion) is the largest power of 10 that an <code>int</code> value can hold. On a modern computer, entering 9 as the parameter should take between 1 and 5 seconds to run.</p>
+<p>First, download the <a href="counter.cpp.html">counter.cpp</a> (<a href="counter.cpp">src</a>), <a href="timer.cpp.html">timer.cpp</a> (<a href="timer.cpp">src</a>), and <a href="timer.h.html">timer.h</a> (<a href="timer.h">src</a>) files. The timer program has been modified from lab 6 to print out the time in milliseconds. counter.cpp doesn't actually do anything useful; it just takes in a numeric command line parameter <em>e</em> and runs through an idle loop 10<sup><em>e</em></sup> times. You should not enter a value for <em>e</em> greater than 9, as 10<sup>9</sup> (1 billion) is the largest power of 10 that an <code>int</code> value can hold. On a modern computer, entering 9 as the parameter should take between 1 and 5 seconds to run.</p>
 <p>Do not compile your program with <code>-O2</code>, as clang++ is smart enough to recognize that your for loop is not doing any work and will remove it from the optimized binary!</p>
 <p>Your <code>averagetime.sh</code> shell script should take in the number of iterations as a single input value (not as a command line parameter). If that input is <code>quit</code>, then the script should exit. Otherwise, execute the program a total of 5 times, printing and keeping track of the execution time taken for each one. Your script should then print the average time taken for each execution. <strong>You MUST call your executable program <code>a.out</code> in your shell script.</strong></p>
 <p>Your shell script <strong>MUST</strong> have an <code>if</code> statement (to see if it should exit), and <strong>MUST</strong> have a <code>for</code> or <code>while</code> loop. The number of times to iterate through the <code>for</code> or <code>while</code> loop (initially set to 5) should be a variable set previously in the script.</p>
@@ -157,7 +155,7 @@ However, for arrays, the address you want to <code>add</code> from changes every
 <li>When adding up values (using arithmetic expansion <code>$(( ... ))</code>), there <strong>SHOULD</strong> be spaces around the arithmetic operators as well as an equals sign within the parentheses.</li>
 <li>A <code>for</code> loop requires a <code>do</code> keyword before the for loop body; likewise, an <code>if</code> statement has a <code>then</code> before the body. Either these words must be on the next line, or a semi-colon must be there before the <code>do</code> or <code>then</code></li>
 <li>To grab program output (such as the output of the binary program), you use back quotes (i.e. `)</li>
-<li>To execute your script, you can just enter <code>./averagetime.sh</code>. If your computer denies you permission, remind it who’s boss and put it in its place with <code>chmod +x averagetime.sh</code>. This tells your Unix system that averagetime.sh is a program that can be executed (remember chmod?).</li>
+<li>To execute your script, you can just enter <code>./averagetime.sh</code>. If your computer denies you permission, remind it who's boss and put it in its place with <code>chmod +x averagetime.sh</code>. This tells your Unix system that averagetime.sh is a program that can be executed (remember chmod?).</li>
 </ul>
 <p>Below is the output when we wrote this shell script. Obviously, your times may vary.</p>
 <pre><code>enter the exponent for counter.cpp:

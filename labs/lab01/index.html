@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>PDR: Laboratory 1: Introduction to C++</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-  <link rel="stylesheet" href="../../markdown.css" />
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../../markdown.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-laboratory-1-introduction-to-c">PDR: Laboratory 1: Introduction to C++</h1>
@@ -55,8 +53,8 @@
 <h2 id="pre-lab-1">Pre-lab</h2>
 <p>Complete <a href="../../tutorials/01-intro-unix/index.html">Tutorial 1: Introduction to UNIX</a> before proceeding. Remember that you should always complete the tutorial before starting the lab.</p>
 <p>For the pre-lab, you will need to write a <strong>recursive</strong> function called <code>xton()</code> to compute <em>x^n</em> for non-negative integers <em>n</em>. Assume that <em>x^0=1</em>. Put this function in a program with a <code>main()</code> function. Your program should prompt the user for two integer values, and raise the first to the power of the second by calling your <code>xton()</code> function. To keep the code simple, you can assume that your program will only be called with valid inputs.</p>
-<p>The file should be called xToN.cpp, and should be submitted to the pre-lab 1 assignment in the submission system – more details below.</p>
-<p>Note that your program should take in <strong>exactly two inputs and nothing else</strong>. We are going to run it through an automated grading script prior to the TAs grading it – if your program takes in a different number of inputs, you will receive points off.</p>
+<p>The file should be called xToN.cpp, and should be submitted to the pre-lab 1 assignment in the submission system -- more details below.</p>
+<p>Note that your program should take in <strong>exactly two inputs and nothing else</strong>. We are going to run it through an automated grading script prior to the TAs grading it -- if your program takes in a different number of inputs, you will receive points off.</p>
 <p>To help you out, we have provided an example C++ file below. You may find this example helpful in writing your function to compute <em>x^n</em> and the <code>main()</code> function to call it.</p>
 <pre><code>#include &lt;iostream&gt;
 using namespace std;
@@ -77,20 +75,20 @@ int main () {
 }</code></pre>
 <p>Lastly, take a look at the object life-cycle code (<a href="lifecycle.cpp.html">lifecycle.cpp</a> (<a href="lifecycle.cpp">src</a>)). Use it as a mechanism for understanding how various aspects of C++ work and try stepping through it by hand. Use the <a href="../../docs/readings.html">readings</a>, the web, and any other C++ references to help you look up parts of the program you do not understand.</p>
 <h3 id="assignment-submission">Assignment submission</h3>
-<p>All assignments will be submitted through our custom submission tool which can be accessed through Collab’s Course Tools link or directly at <a href="https://libra.cs.virginia.edu/~pedagogy" class="uri">https://libra.cs.virginia.edu/~pedagogy</a>.</p>
+<p>All assignments will be submitted through our custom submission tool which can be accessed through Collab's Course Tools link or directly at <a href="https://libra.cs.virginia.edu/~pedagogy" class="uri">https://libra.cs.virginia.edu/~pedagogy</a>.</p>
 <p>Every file submitted, including text files, should include your name, email ID, the date, and the name of the file in a header comment at the beginning of the file.</p>
-<p>There is no check to make sure you have submitted all of the correct files – on the ‘Procedure’ page (always at the top of the lab document), we clearly state which files should be submitted for each lab part. For example, for this pre-lab, you should submit just the following file for pre-lab 1: xToN.cpp.</p>
-<p>Each assignment has 3 dates: an open date (when you can start submitting the assignment), a due date (when it’s due), and a close date (the last point that you can submit the assignment). The dates are listed for the week of the lab – the lab week starts on a Sunday and ends on a Saturday. In particular, the due date for the pre-labs, as well as the open date for the in-labs and post-labs is when the first lab section starts. The due date for the post-labs is the start of Friday’s first lecture.</p>
+<p>There is no check to make sure you have submitted all of the correct files -- on the 'Procedure' page (always at the top of the lab document), we clearly state which files should be submitted for each lab part. For example, for this pre-lab, you should submit just the following file for pre-lab 1: xToN.cpp.</p>
+<p>Each assignment has 3 dates: an open date (when you can start submitting the assignment), a due date (when it's due), and a close date (the last point that you can submit the assignment). The dates are listed for the week of the lab -- the lab week starts on a Sunday and ends on a Saturday. In particular, the due date for the pre-labs, as well as the open date for the in-labs and post-labs is when the first lab section starts. The due date for the post-labs is the start of Friday's first lecture.</p>
 <p>More information on open dates, due dates, and close dates can be found on the <a href="../../uva/labduedates.html">lab due dates</a> page.</p>
 <p>There are a number of rules that we will strictly follow:</p>
 <ul>
 <li>Pre-labs are due at the same time for everybody, regardless of your lab section; that time is the beginning of the FIRST Tuesday lab.</li>
 <li>In-labs are due at the end of the day on Tuesday.</li>
-<li>Any late lab part will receive 25% off (for just that part) for the first 24 hours (or part thereof) that it is late, after which no credit will be given. Note that a computer program does this deduction – so if your lab is 1 second late, it still receives 25% off.</li>
-<li><strong>No credit will be given for a lab component which does not compile.</strong> If you are having problems with your code, you should comment out parts so that it does compile – you will receive more credit for a compilable program that has part of the code commented out than you would for a program that does not compile. See the <a href="../../docs/compilation.html">compilation</a> for hints as to how to get your code to compile.</li>
+<li>Any late lab part will receive 25% off (for just that part) for the first 24 hours (or part thereof) that it is late, after which no credit will be given. Note that a computer program does this deduction -- so if your lab is 1 second late, it still receives 25% off.</li>
+<li><strong>No credit will be given for a lab component which does not compile.</strong> If you are having problems with your code, you should comment out parts so that it does compile -- you will receive more credit for a compilable program that has part of the code commented out than you would for a program that does not compile. See the <a href="../../docs/compilation.html">compilation</a> for hints as to how to get your code to compile.</li>
 </ul>
 <h3 id="resubmitting-your-assignment">Resubmitting your assignment</h3>
-<p>If you submit your assignment, and you realize you made a mistake (didn’t submit all the files, etc.), you can resubmit your assignment as many times as you want. The date of submission is the date you re-submitted your assignment – so if you resubmit your assignment after the due date to add one more file, the <strong>ENTIRE</strong> assignment will have the late submission date. We only look at the most recent submission.</p>
+<p>If you submit your assignment, and you realize you made a mistake (didn't submit all the files, etc.), you can resubmit your assignment as many times as you want. The date of submission is the date you re-submitted your assignment -- so if you resubmit your assignment after the due date to add one more file, the <strong>ENTIRE</strong> assignment will have the late submission date. We only look at the most recent submission.</p>
 <p><strong><em>Note that you have to bring your computer to in-lab!</em></strong></p>
 <hr />
 <h2 id="in-lab-1">In-lab</h2>
@@ -115,34 +113,34 @@ int main () {
 </ul></li>
 <li>Using C++ vector container class with strings
 <ul>
-<li>There are 3 files on this repo that demonstrate the use of multi-file programs and the use of the vector collection class in C++: <a href="svtest.cpp.html">svtest.cpp</a> (<a href="svtest.cpp">src</a>), <a href="svutil.cpp.html">svutil.cpp</a> (<a href="svutil.cpp">src</a>), and <a href="svutil.h.html">svutil.h</a> (<a href="svutil.h">src</a>). The class in those files is similar to the ArrayList class in the Java standard library (or Java’s own Vector class). Compile the program in Unix and run it. The command <code>clang++ svutil.cpp svtest.cpp</code> will compile the program.</li>
+<li>There are 3 files on this repo that demonstrate the use of multi-file programs and the use of the vector collection class in C++: <a href="svtest.cpp.html">svtest.cpp</a> (<a href="svtest.cpp">src</a>), <a href="svutil.cpp.html">svutil.cpp</a> (<a href="svutil.cpp">src</a>), and <a href="svutil.h.html">svutil.h</a> (<a href="svutil.h">src</a>). The class in those files is similar to the ArrayList class in the Java standard library (or Java's own Vector class). Compile the program in Unix and run it. The command <code>clang++ svutil.cpp svtest.cpp</code> will compile the program.</li>
 <li>Comment out the <code>#include &lt;iostream&gt;</code> preprocessor directive in the file svtest.cpp, and then rebuild the program. Was there an error?</li>
 <li>Now undo what you did in the previous step, but now comment out the <code>using namespace std;</code> in svutil.h, and rebuild the program. Was there an error? What objects are now undeclared and why?</li>
-<li>Write at least one question about something in this program. This question might be about something that you don’t understand completely. Write your questions in a file named vector.questions.txt.</li>
+<li>Write at least one question about something in this program. This question might be about something that you don't understand completely. Write your questions in a file named vector.questions.txt.</li>
 </ul></li>
 </ol>
 <h3 id="capitalization">Capitalization</h3>
-<p>Under Windows, the case of a file name is ignored – thus, lifecycle.cpp, LifeCycle.cpp, and LIFECYCLE.CPP all refer to the same file. However, it is <strong>NOT</strong> true for Linux, which is what we will use to test and grade your code. Thus, if your file is called ‘LifeCycle.h’, and you have (in your TestLifeCycle.cpp file) a line that states: <code>#include &quot;lifecycle.h&quot;</code>, then your program will NOT work under Linux (since case DOES matter with file names). Since your code does not compile, you will get zero credit. So make sure your file names match!</p>
+<p>Under Windows, the case of a file name is ignored -- thus, lifecycle.cpp, LifeCycle.cpp, and LIFECYCLE.CPP all refer to the same file. However, it is <strong>NOT</strong> true for Linux, which is what we will use to test and grade your code. Thus, if your file is called 'LifeCycle.h', and you have (in your TestLifeCycle.cpp file) a line that states: <code>#include &quot;lifecycle.h&quot;</code>, then your program will NOT work under Linux (since case DOES matter with file names). Since your code does not compile, you will get zero credit. So make sure your file names match!</p>
 <h3 id="troubleshooting">Troubleshooting</h3>
-<p>Does your program not compile? Here are a few things to try – these are problems that previous students have encountered.</p>
+<p>Does your program not compile? Here are a few things to try -- these are problems that previous students have encountered.</p>
 <ul>
-<li>You must have <code>#include &lt;iostream&gt;</code> at the beginning of each file (well, really each file that uses <code>cin</code> and <code>cout</code>, but it doesn’t hurt to have it at the beginning of each file).</li>
+<li>You must have <code>#include &lt;iostream&gt;</code> at the beginning of each file (well, really each file that uses <code>cin</code> and <code>cout</code>, but it doesn't hurt to have it at the beginning of each file).</li>
 <li>Likewise, you will need <code>using namespace std;</code> at the beginning of each file.</li>
-<li>Is your subroutine a method (i.e. part of a class) or a function (i.e. not part of a class)? Make sure you know which is which! A method has its name in the form classname::methodname, whereas a function doesn’t have a class name or the double-colon.</li>
+<li>Is your subroutine a method (i.e. part of a class) or a function (i.e. not part of a class)? Make sure you know which is which! A method has its name in the form classname::methodname, whereas a function doesn't have a class name or the double-colon.</li>
 <li>Make sure that your subroutine names (whether they be function names or method names) are consistent between the .h files and the .cpp files</li>
-<li>Have a compiler error that you don’t understand? We have the translation! See the <a href="../../docs/compilation.html">compilation</a> page, which lists common compiler error messages, what they mean, and how to solve them. If you don’t see yours listed there, let us know, and we’ll add it.</li>
+<li>Have a compiler error that you don't understand? We have the translation! See the <a href="../../docs/compilation.html">compilation</a> page, which lists common compiler error messages, what they mean, and how to solve them. If you don't see yours listed there, let us know, and we'll add it.</li>
 </ul>
 <hr />
 <h2 id="post-lab-1">Post-lab</h2>
 <p>Complete the exercise below, and submit the text file described there to the submission system.</p>
 <h3 id="linked-list-template-code">Linked List Template code</h3>
-<p>Download the two linked list files (<a href="list.h.html">list.h</a> (<a href="list.h">src</a>) and <a href="list.cpp.html">list.cpp</a> (<a href="list.cpp">src</a>)). Compile and run the program. The compile command is <code>clang++ list.cpp</code>. If you try to compile the list.h file, it won’t work correctly.</p>
-<p>Look at list.h, which is #include’d from list.cpp – it contains the <strong>bodies</strong> of the methods, which is not the way that it is usually done (the bodies are typically in the .cpp file only). We normally only include in .h files just the declarations (i.e., prototypes) of classes, constants, function, etc., but not definitions of C++ methods (i.e. the bodies of the methods). However, when implementing template classes, this is something that is necessary to make the class compile successfully.</p>
+<p>Download the two linked list files (<a href="list.h.html">list.h</a> (<a href="list.h">src</a>) and <a href="list.cpp.html">list.cpp</a> (<a href="list.cpp">src</a>)). Compile and run the program. The compile command is <code>clang++ list.cpp</code>. If you try to compile the list.h file, it won't work correctly.</p>
+<p>Look at list.h, which is #include'd from list.cpp -- it contains the <strong>bodies</strong> of the methods, which is not the way that it is usually done (the bodies are typically in the .cpp file only). We normally only include in .h files just the declarations (i.e., prototypes) of classes, constants, function, etc., but not definitions of C++ methods (i.e. the bodies of the methods). However, when implementing template classes, this is something that is necessary to make the class compile successfully.</p>
 <p>Look more closely at list.cpp. The line:</p>
 <pre><code>List&lt;int&gt; *l = new List&lt;int&gt;();</code></pre>
 <p>declares (a pointer to) a List of integers, called <code>l</code>. A similar line, but with a different type, would create a list of something else. For example, consider the following line:</p>
 <pre><code>List&lt;char&gt; list2;</code></pre>
 <p>This declares a (non-pointer) list of characters (this is not in the list.cpp file, by the way). Now all the methods in the List class will be available to both <code>l</code> and <code>list2</code>.</p>
-<p>Write at least one question about something in this program. Put your question(s) in a text file called “postlab1.question.txt” and submit this to the submission system to the post-lab 1 assignment.</p>
+<p>Write at least one question about something in this program. Put your question(s) in a text file called &quot;postlab1.question.txt&quot; and submit this to the submission system to the post-lab 1 assignment.</p>
 </body>
 </html>
