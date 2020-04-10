@@ -37,7 +37,7 @@ Save the above code as a file called [average.cpp](average.cpp.html) ([src](aver
 
 We need to tell doxygen what files to process, and a large number of other options.  These are all kept in a file called `Doxyfile`.  To generate that file, run `doxygen -g` in the same directory as the files you want to document (the `-g` means "generate").  This will create a Doxyfile with the default options.  We will need to edit it to set a few things.  The line numbers provided are for version 1.8.6 of Doxygen; if you are using a different version, then your line numbers may vary.
 
-- The `INPUT` option (line 746): put `average.cpp` as the input.  This tells Doxygen which files to process.
+- The `FILE_PATTERNS` option (line 766): put `*.cpp, *.h` to document all files that end in .cpp or .h.
 - The `GENERATE_LATEX` option (line 1,543): change `YES` to `NO`.  We want HTML output (which is already set to yes), but we don't want LaTeX output.
 - The `EXTRACT_ALL` option (line 401): set to `YES`.  This will cause Doxygen to create documentation for *all* the members in our file, including our `average()` function.
 - The `PAPER_TYPE` option (line 1,586): set to `letter`.  We don't use A4 paper size.
@@ -86,7 +86,7 @@ As the source code gets larger, so do the graphs.  In fact, there is a maximum l
 
 ### Continuing Onward ###
 
-To create the documentation for your code (beyond the average.cpp provided), you will need to create the `Doxyfile` file through the process described above.  Note that it's a text file, even though it does not have a .txt extension -- thus, Emacs is a good editor to use to edit the file.  We won't get into most of the details of the file. Be sure to edit the options mentioned above.  Other fields will allow you to specify such things as the title, author, etc. (these are the things that were missing in the RTF file).
+To create the documentation for your code, you will need to create the `Doxyfile` file through the process described above.  You can investigate all the other options available, such as a title and author for the RTF file.
 
 Next, look at the [doxygen manual](http://www.doxygen.nl/manual/index.html).  You'll probably find the [Documenting the code](http://www.doxygen.nl/manual/docblocks.html) and [Special Commands](http://www.doxygen.nl/manual/commands.html) chapters to be the most useful.
 
