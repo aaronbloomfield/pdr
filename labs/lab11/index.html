@@ -52,18 +52,8 @@
 </ol>
 <hr />
 <h2 id="pre-lab-1">Pre-lab</h2>
-<h3 id="doxygen-tutorial">Doxygen tutorial</h3>
-<p>First, read through the <a href="../../tutorials/11-doxygen/index.html">Doxygen tutorial</a>. That tutorial then directs you to look though the doxygen manual, which you can <a href="http:www.doxygen.nl/download.html#dlmanual">download in PDF form</a> (you have to extract the PDF file) or <a href="http://www.doxygen.nl/manual/index.html">browse it online</a> (which is easier to view). Start with the <a href="http://www.doxygen.nl/manual/docblocks.html">&quot;Documenting the code&quot; chapter</a>, as the previous chapters are covered in the tutorial.</p>
-<p>For all the code deliverables in this lab, you will need to document all of your code <strong><em>as well as the code that we provide</em></strong> using doxygen. You will also need to create and submit a Doxyfile that properly generates the documentation. We are not expecting you to have read through the entire user manual. <strong>But we are expecting you to document your code beyond the example provided. Just putting in those tags is not what we are looking for.</strong> Thus, you should read some of the user manual to get an idea of what you can do with Doxygen, and you should do some of these things in your code.</p>
-<p>As described above, the changes to the default Doxyfile that must be made include, <em>but are not limited to</em>:</p>
-<ul>
-<li>You will have to create a Doxyfile, as described in the <a href="../../tutorials/11-doxygen/index.html">Doxygen tutorial</a></li>
-<li>That Doxyfile should <em>only</em> generate HTML output (thus, set <code>GENERATE_LATEX</code> and <code>GENERATE_RTF</code> to &quot;NO&quot;)</li>
-<li>That Doxyfile <em>should</em> generate graphs (thus, set <code>HAVE_DOT</code>, <code>CALL_GRAPH</code>, and <code>CALLER_GRAPH</code> all to &quot;YES&quot;)</li>
-<li>Be sure to change the other options of the Doxyfile as described in the tutorial (don't forget <code>INPUT</code> and <code>EXTRACT_ALL</code>!)</li>
-<li>Your <code>INPUT</code> tag should include the two middleearth files, as well as the topological sort files</li>
-</ul>
-<p>See the full <a href="../../tutorials/11-doxygen/index.html">Doxygen tutorial</a> for the other options to set. You should not have to set any options in the Doxyfile that are not described in the tutorial.</p>
+<h3 id="good-code-documentation">Good code documentation</h3>
+<p>For this lab, any code you submit must be properly documented using doxygen. There are many doxygen commands, and we expect for you to use more than just those that were provided in the tutorial.</p>
 <h3 id="topological-sort">Topological sort</h3>
 <p>Recall from lecture that given a graph <em>G</em> = (<em>V</em>,<em>E</em>), a topological sort of a directed acyclic graph is a linear listing of the vertices such that, for all pairs of vertices <em>v</em>,<em>w</em> ∈ <em>V</em>, <em>v</em> is listed before <em>w</em> in the topological sort if (<em>v</em>,<em>w</em>) ∈ <em>E</em> (i.e. if there is an edge from <em>v</em> to <em>w</em> in the graph, then <em>v</em> must be listed before <em>w</em> in the topological sort). This implies that if there is a <em>path</em> from <em>v</em> to <em>w</em> (not just an edge), then <em>v</em> must still list before <em>w</em> in the topological sort.</p>
 <p>For the programming part of this lab, you will need to write a program that can perform a topological sort. This problem is specified in the next section. The specification is similar to that found in the <a href="http://acmicpc.org">International Collegiate Programming Contests</a> -- a problem description, followed by a detailed explanation of the input and the output.</p>

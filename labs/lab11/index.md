@@ -52,21 +52,10 @@ Procedure
 Pre-lab
 -------
 
-### Doxygen tutorial ###
+### Good code documentation ###
 
-First, read through the [Doxygen tutorial](../../tutorials/11-doxygen/index.html).  That tutorial then directs you to look though the doxygen manual, which you can [download in PDF form](http:www.doxygen.nl/download.html#dlmanual) (you have to extract the PDF file) or [browse it online](http://www.doxygen.nl/manual/index.html) (which is easier to view).  Start with the ["Documenting the code" chapter](http://www.doxygen.nl/manual/docblocks.html), as the previous chapters are covered in the tutorial.
-
-For all the code deliverables in this lab, you will need to document all of your code ***as well as the code that we provide*** using doxygen.  You will also need to create and submit a Doxyfile that properly generates the documentation.  We are not expecting you to have read through the entire user manual.  **But we are expecting you to document your code beyond the example provided.  Just putting in those tags is not what we are looking for.**  Thus, you should read some of the user manual to get an idea of what you can do with Doxygen, and you should do some of these things in your code.
-
-As described above, the changes to the default Doxyfile that must be made include, *but are not limited to*:
-
-- You will have to create a Doxyfile, as described in the [Doxygen tutorial](../../tutorials/11-doxygen/index.html)
-- That Doxyfile should *only* generate HTML output (thus, set `GENERATE_LATEX` and `GENERATE_RTF` to "NO")
-- That Doxyfile *should* generate graphs (thus, set `HAVE_DOT`, `CALL_GRAPH`, and `CALLER_GRAPH` all to "YES")
-- Be sure to change the other options of the Doxyfile as described in the tutorial (don't forget `INPUT` and `EXTRACT_ALL`!)
-- Your `INPUT` tag should include the two middleearth files, as well as the topological sort files
-
-See the full [Doxygen tutorial](../../tutorials/11-doxygen/index.html) for the other options to set.  You should not have to set any options in the Doxyfile that are not described in the tutorial.
+For this lab, any code you submit must be properly documented using doxygen.
+There are many doxygen commands, and we expect for you to use more than just those that were provided in the tutorial.
 
 ### Topological sort ###
 
