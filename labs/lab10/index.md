@@ -222,9 +222,6 @@ Otherwise, we are dealing with an internal node and you will have to create left
 This algorithm will require you to search through the bit codes that were read in from the first part of the file.
 Also keep in mind that the size of the input here (the number of characters) is very small (only 80 or so) -- which means that if you choose a linear time complexity data structure (vector, for example), your code will run just fine.
 
-#### Are we there yet? ####
-To check if we've reached the separator indicating the end of the encoded message, we can check for a single `-` rather than the whole separator, as the encoded message will only contain 0s, 1s, and whitespace.
-
 ------------------------------------------------------------
 
 Post-lab
