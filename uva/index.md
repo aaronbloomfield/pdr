@@ -109,10 +109,10 @@ The links in the right-most column link directly to the lecture recording on Col
 |30| Apr 3 | Friday | | [09: Advanced C++][89], [10: Heaps and Huffman coding][90] | finished advanced C++; heaps & Huffman to slide 6.2 | 
 |31| Apr 6 | Monday | [Lab 9: assembly, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [10: Heaps and Huffman coding][90] | heaps & Huffman, slides 6.2 to 6.16 | 
 |32| Apr 8 | Wednesday | | [10: Heaps and Huffman coding][90] | heaps & Huffman, slides 7.1 to 8.19 | 
-|33| Apr 10 | Friday | | [10: Heaps and Huffman coding][90] | | 
-|34| Apr 13 | Monday | [Lab 10: Huffman coding][10] ([md][30]) / (no tutorial) | [10: Heaps and Huffman coding][90], [11: Graphs][91] | | 
-|35| Apr 15 | Wednesday | | [11: Graphs][91] | | 
-|36| Apr 17 | Friday | | [11: Graphs][91] | | 
+|33| Apr 10 | Friday | | [10: Heaps and Huffman coding][90] | heaps & Huffman, slides 8.11 to 8.31 | 
+|34| Apr 13 | Monday | [Lab 10: Huffman coding][10] ([md][30]) / (no tutorial) | [10: Heaps and Huffman coding][90], [11: Graphs][91] | finished heaps & Huffman; graphs to slide 5.2 | 
+|35| Apr 15 | Wednesday | | [11: Graphs][91] | graphs to slide 6.9 | 
+|36| Apr 17 | Friday | | [11: Graphs][91] | graphs to slide 8.9 | 
 |37| Apr 20 | Monday | [Lab 11: Graphs][11] ([md][31]) | [11: Graphs][91], [12: Memory][92] | | 
 |38| Apr 22 | Wednesday | | [12: Memory][92] | | 
 |39| Apr 24 | Friday | | [13: Esoteric PLs][93], [Course conclusion][94] | | 
