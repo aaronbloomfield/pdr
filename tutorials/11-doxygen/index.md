@@ -40,19 +40,15 @@ We need to tell doxygen what files to process, and a large number of other optio
 - The `FILE_PATTERNS` option (line 766): put `*.cpp, *.h` to document all files that end in .cpp or .h.
 - The `GENERATE_LATEX` option (line 1,543): change `YES` to `NO`.  We want HTML output (which is already set to yes), but we don't want LaTeX output.
 - The `EXTRACT_ALL` option (line 401): set to `YES`.  This will cause Doxygen to create documentation for *all* the members in our file, including our `average()` function.
-- The `PAPER_TYPE` option (line 1,586): set to `letter`.  We don't use A4 paper size.
-- The `GENERATE_RTF` option (line 1,690): set to `YES`.  This will generate a rich text format (rtf) version of the documentation, which we can load into our favorite word processor.
 - The `OUTPUT_DIRECTORY` option (line 61): set to `doc/`.  This will cause all the created files to be in the doc/ sub-directory, and this is *necessary* for us to find your files.
 - The `PROJECT_NAME` option (line 35): set to `"PDR Lab 11"`.  This creates the appropriate title for the created documentation.
 - You may want to set the `QUIET` option (line 686) to `YES`.
 
 ### Running Doxygen ###
 
-We run doxygen via the `doxygen` command.  The configuration file you created above produces documentation in two forms -- HTML and RTF.  With a modification to the configuration file (which we won't see here), it can produce documentation in other formats as well (LaTeX, man pages, XML, etc.).
+We run doxygen via the `doxygen` command.  The configuration file you created above produces documentation in just one form, HTML.  With a modification to the configuration file (which we won't see here), it can produce documentation in other formats as well (LaTeX, man pages, XML, RTF, etc).
 
-RTF (rich text format) is a file type that can be loaded up into your favorite word processing program.  Once you have run doxygen, the comments are formatted into a file called `doc/rtf/refman.rtf` -- try loading up that file.  Note that a number of the fields in the file (such as "Title" and "Author") are not yet filled in -- this is addressed below.  If you were to print the documentation, such as a programming reference, then you might use this format.
-
-The other version, and the one we are going to look at, is the HTML documentation.  This is the most convenient for viewing online.  After you run doxygen, these files are in the `doc/html` directory -- view the `doc/html/index.html` file.  If you look at the documentation for this function (from the main page, follow the "Files" link on the title bar, and then the "average.cpp" link), you will see what is below.  Note that there is more to that page than this image; what is below just shows the extracted documentation for `average()`.
+To see the documentation you generated, go to the `doc/html` directory and view `doc/html/index.html`.  If you look at the documentation for this function (from the main page, follow the "Files" link on the title bar, and then the "average.cpp" link), you will see what is below.  Note that there is more to that page than this image; what is below just shows the extracted documentation for `average()`.
 
 ![](screenshot.png)
 
@@ -86,9 +82,7 @@ As the source code gets larger, so do the graphs.  In fact, there is a maximum l
 
 ### Continuing Onward ###
 
-To create the documentation for your code, you will need to create the `Doxyfile` file through the process described above.  You can investigate all the other options available, such as a title and author for the RTF file.
-
-Next, look at the [doxygen manual](http://www.doxygen.nl/manual/index.html).  You'll probably find the [Documenting the code](http://www.doxygen.nl/manual/docblocks.html) and [Special Commands](http://www.doxygen.nl/manual/commands.html) chapters to be the most useful.
+The [doxygen manual](http://www.doxygen.nl/manual/index.html) has plenty of information on how to use doxygen.  You'll probably find the [Documenting the code](http://www.doxygen.nl/manual/docblocks.html) and [Special Commands](http://www.doxygen.nl/manual/commands.html) chapters to be the most useful.
 
 ### Important Notes ###
 
