@@ -44,31 +44,12 @@ Lab Procedure
 2. Create a Makefile to compile both the encoding and decoding portions of your Huffman routine in one step
 3. Files to submit: postlab10.pdf, Makefile, all necessary source code files
 
-
 ------------------------------------------------------------
 
 Huffman Encoding and Decoding
----------------
+-----------------------------
 
-The basic steps for compression are:
-
-1. Read the source file and determine the frequencies of the characters in the file
-2. Store the character frequencies in a heap (priority queue)
-3. Build a tree of prefix codes (a Huffman code) that determines the unique bit codes for each character
-4. Write the prefix codes to the output file, following the file format above
-5. Re-read the source file and for each character read, write its prefix code to the output, following the file format described below
-
-We are also writing additional information to the file (compression ratio and tree cost), as described herein.
-
-The basic steps for decompression are:
-
-1. Read in the prefix code structure from the compressed file
-2. Re-create the Huffman tree from the code structure read in from the file
-3. Read in one bit at a time from the compressed file and move through the prefix code tree until a leaf node is reached
-4. Output the character stored at the leaf node
-5. Repeat the last two steps until the encoded file is finished
-
-Huffman compression and decompression are both covered in the [Heaps and Huffman slide set](../../slides/10-heaps-huffman.html).
+There are a few points that apply to the Huffman implementation as a whole that are important to keep in mind.
 
 ### Requirements ###
 
@@ -83,12 +64,12 @@ Your Huffman implementation should:
     - You may NOT use the STL `priority_queue`
     - You may use the heap code from the slides as long as you cite it
 
-### Hints and Common Mistakes ###
+### Efficiency ###
 
-**Implementation.**  You will need to select several different data structures to implement Huffman compression and decompression.  Don't get more complicated than is necessary, but do keep efficiency in mind.  Consider the following questions:
+You will need to select several different data structures to implement Huffman compression and decompression.  Don't get more complicated than is necessary, but do keep efficiency in mind.  Consider the following questions:
 
-- What will be the most common operations required on each data structure?  
-- How much time and space will be required?  
+- What will be the most common operations required on each data structure?
+- How much time and space will be required?
 
 Use the answers to these questions to guide your selection.  Your solution will be judged slightly on how efficient it is (both in terms of time and space).  Very inefficient solutions will lose a few points.  Be sure you have a good explanation for your implementation choices:
 
@@ -97,9 +78,7 @@ Use the answers to these questions to guide your selection.  Your solution will 
 
 Whatever your implementation, you should be able to accurately describe its worst case Big-Theta performance both in running time and space (memory) usage.
 
-**Serializing Data Structures.**  One thing we have not dealt with in previous labs is serializing various data structures (writing them to a file or standard output, and reading them back in).  You will need to do this with your prefix code tree.  The fact that you must read this data structure from a file and write to standard output may affect how you choose to represent it in your program.  Keep in mind that the format for how to write it to a file is fixed, as described below (in the pre-lab section).  You will need to re-create your Huffman coding tree from the first part of the file format described below.
-
-**operator<():** If you are creating a `HuffmanNode` (or similar) with an `operator<()` method, make sure that method is `const` (both in the .h file and in the .cpp file).
+One thing we have not dealt with in previous labs is serializing various data structures (writing them to a file or standard output, and reading them back in).  You will need to do this with your prefix code tree.  The fact that you must read this data structure from a file and write to standard output may affect how you choose to represent it in your program.  Keep in mind that the format for how to write it to a file is fixed, as described in the pre-lab section.  You will need to re-create your Huffman coding tree from the first part of that file format.
 
 ------------------------------------------------------------
 
@@ -107,6 +86,14 @@ Pre-lab
 -------
 
 For the pre-lab, you will implement, in huffmanenc.cpp, the Huffman encoding algorithm using a binary heap that you implement in heap.cpp/h.
+
+The basic steps for compression are:
+
+1. Read the source file and determine the frequencies of the characters in the file
+2. Store the character frequencies in a heap (priority queue)
+3. Build a tree of prefix codes (a Huffman code) that determines the unique bit codes for each character
+4. Write the prefix codes to the output file, following the file format above
+5. Re-read the source file and for each character read, write its prefix code to the output, following the file format described below
 
 Your program must take in a single command-line parameter, which is the name of the file whose contents will be encoded.  We have some sample plain text and encoded text files (in the labs/lab10/examples/ directory) -- a description of these files is in the in-lab section.
 
@@ -157,17 +144,17 @@ The Huffman tree that this forms is the same as the one shown in [the slide set]
 
 ![](prelab-tree.png)
 
-Below is an equivalent version of the same file.  Note that the characters are not in the same order in the previous example, the whitespace for the middle part is quite different, the English explanation in the third part says the same thing but in a different format, and the particular prefix codes are different (but note that the lengths are the same).
+Below is an equivalent version of the same file.  Note that the characters are not in the same order in the previous example, the whitespace for the middle part is quite different, the English explanation in the third part says the same thing but in a different format, and the particular prefix codes are different (but their lengths are the same).
 
 ```
 d 11
-c 101
-b 100
+c 100
+b 101
 a 0
 ----------------------------------------
 1           1
-10001
-0 1 0 0 1 1
+10101
+0 0 0 0 1 1
 ----------------------------------------
 Compression ratio: 4.31
 The Huffman tree cost: 1.85 bits per character
@@ -179,8 +166,19 @@ Note that your encoding does not have to exactly match -- in particular, the bit
 
 A few hints from experience with this in previous semesters.
 
-- Just copying the supplied code verbatim will not help you, as you need to *understand* what is going on - the code does not work "out of the box."  Either make sure you understand it, or write your own code.
-- It will be **far** easier to put HuffmanNode pointers in your heap, rather than HuffmanNode objects (or whatever your Huffman tree nodes are called).  If you put the actual objects in, then you are going to be running into problems with scoping issues, inadvertent calls to `operator=()`, etc.  Stay with the pointers, as it will save you time in the long run.
+#### Take the time to understand the code ####
+Just copying the supplied code verbatim will not help you, as you need to *understand* what is going on -- the code does not work "out of the box."  Either make sure you understand it, or write your own code.
+
+#### Need a pointer or two? ####
+It will be **far** easier to put HuffmanNode pointers in your heap, rather than HuffmanNode objects (or whatever your Huffman tree nodes are called).  If you put the actual objects in, then you are going to run into problems with scoping issues, inadvertent calls to `operator=()`, etc.  Trust us, stick with the pointers.
+
+#### Okay but actually ####
+You will need some secondary data structures in order to hold all the information necessary for compression.
+You'll need some way of holding the frequencies of each character, as well as each character's prefix codes -- what would be efficient data structures to store and retrieve that information?
+
+#### Getting the prefix codes ####
+The best way to do this is recursively.
+Once you have your Huffman tree, you can recurse down both sides of your tree to grab every prefix code and print them out.
 
 ------------------------------------------------------------
 
@@ -189,11 +187,17 @@ In-lab
 
 For the in-lab, you will implement, in huffmandec.cpp, the Huffman decoding algorithm.
 
+The basic steps for decompression are:
+
+1. Read in the prefix code structure from the compressed file
+2. Re-create the Huffman tree from the code structure read in from the file
+3. Read in one bit at a time from the compressed file and move through the prefix code tree until a leaf node is reached
+4. Output the character stored at the leaf node
+5. Repeat the last two steps until the encoded file is finished
+
 First, make sure that your code can read in encoded files -- you can download the [inlab-skeleton.cpp](inlab-skeleton.cpp) file, which can properly read in the encoded input files.
 
-Next, focus on creating the Huffman coding tree.  There are a number of ways to go about doing this -- we present one such algorithm here.  As you are (recursively) creating each node in the tree, you know the bitcode code so far to get to that node (remember that following a left child pointer generates a `0`, and following a right child pointer generates a `1`).  We'll call this bitcode-so-far the "prefix" (as it is the prefix for all bitcodes below this node).  If that prefix is one of the listed bitcodes in the first part of the file, then we are at a leaf (remember that all characters in a Huffman tree are leaves), and the node will not have any children.  Otherwise, we are dealing with an internal node -- and you will have to create left and right child nodes, calling yourself recursively on each one.  Keep in mind that when you call yourself recursively on the left child, you have to add `0` to the end of the prefix; likewise, you have to add `1` to the prefix for the right child.  This algorithm will require you to search through the bit codes that were read in from the first part of the file.  Also keep in mind that the size of the input here (the number of characters) is very small (only 80 or so) -- which means that if you choose a linear time complexity data structure (vector, for example), your code will run just fine.
-
-Not creating a Huffman tree from the file will result in zero credit for the in-lab.  The whole point of this part is to create the tree!
+Next, create the Huffman coding tree from the prefix codes you read in from the input file.  Not creating a Huffman tree from the file will result in zero credit for the in-lab.  The whole point of this part is to create the tree!
 
 Lastly, read in the second part of the file, traverse your Huffman tree, and output a character whenever you reach a leaf node.  You can output as much text as you would like, such as status updates as to how the program is progressing.  The only caveat is that the decoded file must be the last thing printed, and it must be clear where the other text ends and the decoded message that you are decoding begins (a separator of dashes would be fine for this).  Of course, you are more than welcome to just print out the decoded message and nothing else.
 
@@ -204,6 +208,22 @@ We provide a number of sample files for you to test your code with.  A brief des
 - [normal3.txt](examples/normal3.txt) / [encoded3.txt](examples/encoded3.txt): This is a paragraph from [Gadsby](http://en.wikipedia.org/wiki/Gadsby_%28novel%29), which is a novel that does not ever use the letter 'e'.
 - [normal4.txt](examples/normal4.txt) / [encoded4.txt](examples/encoded4.txt): The first paragraph from a [front page story in the 27 November 2007 edition of the Cavalier Daily](http://www.cavalierdaily.com/CVArticle.asp?ID=31789&pid=1656).
     - [encoded4a.txt](examples/encoded4a.txt): This is the same encoding as [encoded4.txt](examples/encoded4.txt), but with all spaces in the second section of the file removed, so that it's just a very long string of `0`s and `1`s.
+
+### Hints ###
+
+#### More data structures ####
+Like the pre-lab, you'll need some way to store the prefix codes for each character.
+Unlike the pre-lab, though, you don't need to deal with frequencies anymore.  The prefix codes is enough to generate the Huffman tree, which you can then use to decode the input file.
+
+#### Creating the Huffman tree ####
+As you are (recursively) creating each node in the tree, you know the _prefix_ code to get to that node (remember that following a left child pointer generates a `0`, and following a right child pointer generates a `1`).
+If that prefix is one of the listed bitcodes in the first part of the file, then we know we are at a leaf (remember that all characters in a Huffman tree are leaves).
+Otherwise, we are dealing with an internal node and you will have to create left and right child nodes, calling yourself recursively on each one.  Keep in mind that when you call yourself recursively on the left child, you have to add `0` to the end of the prefix; likewise, you have to add `1` to the prefix for the right child.
+This algorithm will require you to search through the bit codes that were read in from the first part of the file.
+Also keep in mind that the size of the input here (the number of characters) is very small (only 80 or so) -- which means that if you choose a linear time complexity data structure (vector, for example), your code will run just fine.
+
+#### Are we there yet? ####
+To check if we've reached the separator indicating the end of the encoded message, we can check for a single `-` rather than the whole separator, as the encoded message will only contain 0s, 1s, and whitespace.
 
 ------------------------------------------------------------
 
@@ -229,7 +249,7 @@ Space complexity -- for this, you should calculate the number of bytes that are 
 
 As usual, we expect a thought-out explanation of both parts.  Most reports end up approximately one page in length, single-spaced.
 
-### Huffman Encoding and Decoding ###
+### Bringing it all together ###
 
 The purpose of this part of the post-lab is to clean up your code from the pre-lab and in-lab, and submit all of it together.  If your pre-lab and in-lab code work properly, then there is no futher clean-up to do; however, you must still submit the files along with a *new* Makefile.
 
@@ -242,3 +262,12 @@ diff testfile.txt output.txt
 ```
 
 This encodes a sample text file, then decodes it.  Both the original file (`testfile.txt`) and the final file (`output.txt`) should be the same, which is what the `diff` command checks.  If there are no differences between the two files, then `diff` will not print any output.
+
+### Hints ###
+
+#### Two executables??? ####
+Up until now, all of our Makefiles have generated a single `a.out` from the inputs given through `OBJECTS`.
+Now that we have two separate executables we need to create, you may need some way to differentiate between the object files for each one...
+
+#### Naming the executables ####
+Remember the `-o` flag for clang++? :)
