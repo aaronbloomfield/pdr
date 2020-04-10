@@ -9,6 +9,17 @@ PDR: Laboratory 10: Huffman Coding
 2. To implement a useful application using a variety of data structures
 3. To analyze the efficiency of your implementation
 
+<h3 style="color:red"><b>Changes for the spring 2020 semester</b></h3>
+
+<p style="color:red">Due to this course being <a href="../../uva/online.html">taught online</a> (<a href="../../uva/online.md">md</a>) in the spring of 2020, we are making the following changes for this semester, in an effort to make the workload more manageable since we are all working from home.</p>
+
+<ul style="color:red">
+<li>Pre-lab: no change to the pre-lab; it's still the encoder.  However, since there is no in-lab this week, and because the pre-labs are due Wednesday mornings, you can continue to work on the encoder during labs on Tuesday.</li>
+<li>In-lab: nothing to submit. However, the in-lab work (i.e., the decoder) is to be submitted for the post-lab.  Thus, there is nothing to submit for the in-lab and it will not be graded this semester.</li>
+<li>Post-lab: submit <b>ONLY</b> the decoder part of this lab -- so basically, submit the in-lab work to the post-lab.</li>
+</ul>
+
+
 ### Background ###
 
 In lecture we discussed Huffman coding and the construction of prefix code trees.  We have also covered a variety of data structures this semester: lists, trees, hash tables, and heaps.  Several of these may be useful for this lab.  In addition, in this lab you are required to think about the underlying representation and efficiency of these structures.
