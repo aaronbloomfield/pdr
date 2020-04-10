@@ -205,8 +205,8 @@ We provide a number of sample files for you to test your code with.  A brief des
 
 - [normal1.txt](examples/normal1.txt) / [encoded1.txt](examples/encoded1.txt): This is the first example from the lecture slides (`dbacaad`).  The Huffman tree can be viewed [here](prelab-tree.png).
 - [normal2.txt](examples/normal2.txt) / [encoded2.txt](examples/encoded2.txt): This is the second example from the lecture slides, in the "Huffman Encoding" section.  This is the example that we built up the Huffman tree from.  The Huffman tree can be viewed [here](inlab-tree-2.png).
-- [normal3.txt](examples/normal3.txt) / [encoded3.txt](examples/encoded3.txt): This is a paragraph from [Gadsby](http://en.wikipedia.org/wiki/Gadsby_%28novel%29), which is a novel that does not ever use the letter 'e'.
-- [normal4.txt](examples/normal4.txt) / [encoded4.txt](examples/encoded4.txt): The first paragraph from a [front page story in the 27 November 2007 edition of the Cavalier Daily](http://www.cavalierdaily.com/CVArticle.asp?ID=31789&pid=1656).
+- [normal3.txt](examples/normal3.txt) / [encoded3.txt](examples/encoded3.txt): This is a paragraph from [Gadsby](https://en.wikipedia.org/wiki/Gadsby_%28novel%29), which is a novel that does not ever use the letter 'e'.
+- [normal4.txt](examples/normal4.txt) / [encoded4.txt](examples/encoded4.txt): The first paragraph from a [front page story in the 27 November 2007 edition of the Cavalier Daily](https://www.cavalierdaily.com/article/2007/11/rolls-royce-partners-with-va-universities).
     - [encoded4a.txt](examples/encoded4a.txt): This is the same encoding as [encoded4.txt](examples/encoded4.txt), but with all spaces in the second section of the file removed, so that it's just a very long string of `0`s and `1`s.
 
 ### Hints ###
