@@ -9,41 +9,42 @@ http://www.gnu.org/software/src-highlite">
 <title>fileio2.cpp</title>
 </head>
 <body style="background-color:white">
-<pre><i><span style="color:#9A1900">// This program shows how C-based file I/O works.  It will open a</span></i>
-<i><span style="color:#9A1900">// file, read in the first two strings, and print them to the screen.</span></i>
+<pre><i><span style="color:#9A1900">// This program shows how C++-based file I/O works.</span></i>
+<i><span style="color:#9A1900">// It will open a file, read in the first two strings, and print them to the screen.</span></i>
 
-<i><span style="color:#9A1900">// included so we can use cout</span></i>
 <b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;iostream&gt;</span>
 <b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;fstream&gt;</span>
-<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;stdlib.h&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;cstdlib&gt;</span>
 <b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
 <i><span style="color:#9A1900">// we want to use parameters</span></i>
-<span style="color:#009900">int</span> <b><span style="color:#000000">main</span></b> <span style="color:#990000">(</span><span style="color:#009900">int</span> argc<span style="color:#990000">,</span> <span style="color:#009900">char</span> <span style="color:#990000">**</span>argv<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+<span style="color:#009900">int</span> <b><span style="color:#000000">main</span></b><span style="color:#990000">(</span><span style="color:#009900">int</span> argc<span style="color:#990000">,</span> <span style="color:#009900">char</span><span style="color:#990000">**</span> argv<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
     <i><span style="color:#9A1900">// verify the correct number of parameters</span></i>
-    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> argc <span style="color:#990000">!=</span> <span style="color:#993399">2</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>argc <span style="color:#990000">!=</span> <span style="color:#993399">2</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
         cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Must supply the input file name as the one and only parameter"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
         <b><span style="color:#000000">exit</span></b><span style="color:#990000">(</span><span style="color:#993399">1</span><span style="color:#990000">);</span>
     <span style="color:#FF0000">}</span>
+
     <i><span style="color:#9A1900">// attempt to open the supplied file</span></i>
     <span style="color:#008080">ifstream</span> <b><span style="color:#000000">file</span></b><span style="color:#990000">(</span>argv<span style="color:#990000">[</span><span style="color:#993399">1</span><span style="color:#990000">],</span> ifstream<span style="color:#990000">::</span>binary<span style="color:#990000">);</span>
     <i><span style="color:#9A1900">// report any problems opening the file and then exit</span></i>
-    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> <span style="color:#990000">!</span>file<span style="color:#990000">.</span><b><span style="color:#000000">is_open</span></b><span style="color:#990000">()</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(!</span>file<span style="color:#990000">.</span><b><span style="color:#000000">is_open</span></b><span style="color:#990000">())</span> <span style="color:#FF0000">{</span>
         cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Unable to open file '"</span> <span style="color:#990000">&lt;&lt;</span> argv<span style="color:#990000">[</span><span style="color:#993399">1</span><span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"'."</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
         <b><span style="color:#000000">exit</span></b><span style="color:#990000">(</span><span style="color:#993399">2</span><span style="color:#990000">);</span>
     <span style="color:#FF0000">}</span>
+
     <i><span style="color:#9A1900">// read in two strings</span></i>
     <span style="color:#008080">string</span> s1<span style="color:#990000">,</span> s2<span style="color:#990000">;</span>
     file <span style="color:#990000">&gt;&gt;</span> s1<span style="color:#990000">;</span>
     file <span style="color:#990000">&gt;&gt;</span> s2<span style="color:#990000">;</span>
+
     <i><span style="color:#9A1900">// output those strings</span></i>
     cout <span style="color:#990000">&lt;&lt;</span> s1 <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
     cout <span style="color:#990000">&lt;&lt;</span> s2 <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-    <i><span style="color:#9A1900">// string comparison done with ==, but not shown here</span></i>
+
     <i><span style="color:#9A1900">// close the file before exiting</span></i>
     file<span style="color:#990000">.</span><b><span style="color:#000000">close</span></b><span style="color:#990000">();</span>
 <span style="color:#FF0000">}</span>
-
 </pre>
 </body>
 </html>
