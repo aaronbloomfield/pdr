@@ -5,6 +5,7 @@
 #include <vector>
 #include <string>
 #include <unordered_map>
+#include <random>
 
 using namespace std;
 
@@ -23,6 +24,8 @@ private:
     unordered_map<string, float> xpos, ypos;
     vector<string> cities;
     unordered_map<string, unordered_map<string, float>> distances;
+
+    mt19937 gen; // Mersenne-Twister random number engine
 };
 
 #endif

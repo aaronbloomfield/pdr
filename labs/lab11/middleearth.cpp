@@ -4,7 +4,6 @@
 #include <array>
 #include <cstdlib>
 #include <cmath>
-#include <ctime>
 
 // The list of all the place names that we'll be using
 const array<string, 40> all_city_names{
@@ -62,8 +61,9 @@ MiddleEarth::MiddleEarth(int xsize, int ysize, int num_cities, int seed) {
     this->xsize = xsize;
     this->ysize = ysize;
 
-    // set up the random number seed
-    srand(seed == -1 ? time(NULL) : seed);
+    // set up the random number generator
+    random_device rd;
+    gen.seed(seed == -1 ? rd() : seed);
 
     // count the number of cities in the array
     this->num_city_names = all_city_names.size();
@@ -81,13 +81,13 @@ MiddleEarth::MiddleEarth(int xsize, int ysize, int num_cities, int seed) {
     // copy all the cities into a mutable vector
     this->cities = vector<string>(all_city_names.begin(), all_city_names.end());
 
-    random_shuffle(cities.begin(), cities.end()); // shuffle all the cities
+    shuffle(cities.begin(), cities.end(), gen); // shuffle all the cities
     cities.erase(cities.begin() + num_cities, cities.end()); // then remove the ones we won't be using
 
     // compute random city positions
     for (auto city : cities) {
-        xpos.emplace(city, (rand() / (float) RAND_MAX) * xsize);
-        ypos.emplace(city, (rand() / (float) RAND_MAX) * ysize);
+        xpos.emplace(city, (gen() / (double) gen.max()) * xsize);
+        ypos.emplace(city, (gen() / (double) gen.max()) * ysize);
     }
 
     // compute the 2-d distance array
@@ -156,7 +156,7 @@ vector<string> MiddleEarth::getItinerary(unsigned int length) {
     vector<string> itinerary(cities.begin(), cities.end());
 
     // shuffle, erase unneeded ones, and return the itinerary
-    random_shuffle(itinerary.begin(), itinerary.end());
+    shuffle(itinerary.begin(), itinerary.end(), gen);
     itinerary.erase(itinerary.begin() + length, itinerary.end());
     return itinerary;
 }

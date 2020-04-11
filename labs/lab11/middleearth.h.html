@@ -16,6 +16,7 @@ http://www.gnu.org/software/src-highlite">
 <b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;vector&gt;</span>
 <b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;string&gt;</span>
 <b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;unordered_map&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;random&gt;</span>
 
 <b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
@@ -34,6 +35,8 @@ http://www.gnu.org/software/src-highlite">
     <span style="color:#008080">unordered_map&lt;string, float&gt;</span> xpos<span style="color:#990000">,</span> ypos<span style="color:#990000">;</span>
     <span style="color:#008080">vector&lt;string&gt;</span> cities<span style="color:#990000">;</span>
     <span style="color:#008080">unordered_map&lt;string, unordered_map&lt;string, float&gt;&gt;</span> distances<span style="color:#990000">;</span>
+
+    <span style="color:#008080">mt19937</span> gen<span style="color:#990000">;</span> <i><span style="color:#9A1900">// Mersenne-Twister random number engine</span></i>
 <span style="color:#FF0000">}</span><span style="color:#990000">;</span>
 
 <b><span style="color:#000080">#endif</span></b>
