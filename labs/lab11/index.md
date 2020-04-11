@@ -154,17 +154,17 @@ The skeleton code provided ([traveling-skeleton.cpp](traveling-skeleton.cpp.html
 
 There are a number of STL functions that will help you in writing this program.  All of these algorithms (and more!) are provided in the `<algorithms>` header file.  This file is already included by traveling-skeleton.cpp.
 
-First, take a look at the `random_shuffle()` method in middleearth.cpp:
+First, take a look at the `shuffle()` method in middleearth.cpp:
 
 ```
-random_shuffle(cities.begin(), cities.end());
+shuffle(cities.begin(), cities.end(), gen);
 ```
 
-This method takes a vector, and will randomly shuffle it, similar to Java's `Collections.shuffle()`.  The parameters specify the amount of the vector that we want to shuffle.  Because we want to shuffle the entire vector, we specify the beginning and end of the list.
+This method takes a vector and a random number generator, and will randomly shuffle the vector, similar to Java's `Collections.shuffle()`.  The parameters specify the amount of the vector that we want to shuffle.  Because we want to shuffle the entire vector, we specify the beginning and end of the list.
 
-The `sort()` method has the same parameters as shuffle, and sorts the list.  It is similar to Java's `Collections.sort()` method.  It returns no value.
+The `sort()` method takes in vector iterators as well, and sorts the list.  It is similar to Java's `Collections.sort()` method.  It returns no value.
 
-The `next_permutation()` method will cycle through each and every permutation of the passed vector.  ***It must start out with a sorted vector***, and will move through each and every possible list ordering until the vector ends up in reverse sorted order.  It takes the same parameters as `random_shuffle()` and `sort()`.  Note that it does not return a new permutation, but instead modifies the vector that is passed in.  It returns `true` if it found another permutation and `false` if there are no more permutations to provide.  Thus, it is often put into a `while` loop.  For an example of using `next_permutation()` in a while loop, see [here](https://en.cppreference.com/w/cpp/algorithm/next_permutation).  This is a good way to iterate through each possible combination of cities to travel to.
+The `next_permutation()` method will cycle through each and every permutation of the passed vector.  ***It must start out with a sorted vector***, and will move through each and every possible list ordering until the vector ends up in reverse sorted order.  It takes the same parameters as `sort()`.  Note that it does not return a new permutation, but instead modifies the vector that is passed in.  It returns `true` if it found another permutation and `false` if there are no more permutations to provide.  Thus, it is often put into a do-while loop.  For an example of using `next_permutation()` in a while loop, see [here](https://en.cppreference.com/w/cpp/algorithm/next_permutation).  This is a good way to iterate through each possible combination of cities to travel to.
 
 ### Middle-Earth methods ###
 
