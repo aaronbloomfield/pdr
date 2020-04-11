@@ -98,12 +98,6 @@ MiddleEarth::MiddleEarth(int xsize, int ysize, int num_cities, int seed) {
                                                  (ypos[city2] - ypos[city1]) * (ypos[city2] - ypos[city1])));
         }
     }
-
-    // create hash of indices so we don't have to do a linear search
-    // each time we want to find a city name to index mapping
-    for (auto i = 0; i < cities.size(); i++) {
-        indices[cities[i]] = i;
-    }
 }
 
 // The Mouth of Sauron!

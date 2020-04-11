@@ -4,7 +4,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <map>
 #include <unordered_map>
 
 using namespace std;
@@ -24,7 +23,6 @@ private:
     unordered_map<string, float> xpos, ypos;
     vector<string> cities;
     unordered_map<string, unordered_map<string, float>> distances;
-    map<string, int> indices;
 };
 
 #endif
