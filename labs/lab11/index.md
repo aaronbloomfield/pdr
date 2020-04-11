@@ -248,9 +248,9 @@ Your Makefile should have **only one** target, which you can name anything you w
 Post-lab
 --------
 
-There are two parts to the post-lab: a complexity analysis of your code, as well as investigating acceleration techniques for the traveling salesperson problem.  
+There are two parts to the post-lab: a complexity analysis of your code, as well as an investigation into acceleration techniques for the traveling salesperson problem.  
 
-The deliverable for the post-lab is a PDF document named postlab11.pdf.  It must be in PDF format!  See [How to convert a file to PDF](../../docs/convert_to_pdf.html) for details.
+The deliverable for the post-lab is a PDF document named postlab11.pdf.
 
 ### Complexity analysis ###
 
@@ -258,7 +258,7 @@ For this part of the post-lab, we want you to do a time and space complexity ana
 
 ### Acceleration techniques ###
 
-We all know that the solution for the traveling salesperson is inefficient.  So inefficient that a 20 route tour through Middle Earth (i.e. using the command-line parameters `20 20 20 14 20`) would take over 3 hundred thousand years when running on Linux, assuming the computer can check about 200,000 paths per second.  We could run it on a more efficient computer -- this would help, but not much.  If you are trying to compute a [61-route tour](https://www.google.com/search?q=61!), then there are more possibilities than there are [atoms in the known universe](http://www.universetoday.com/36302/atoms-in-the-universe/).  So it's not likely that you will be able to push that many electrons through your computer, even if you could wait the [10<sup>70</sup>](https://www.google.com/search?q=61!%2F(200000*60*60*24*365.25)) years required.  You might be able to lower that somewhat if you used a more efficient computer -- perhaps to 10<sup>69</sup> years.  That's still longer than the expected life of the universe.
+We all know that the solution for the traveling salesperson is inefficient.  So inefficient that a 20 route tour through Middle Earth (i.e. using the command-line parameters `20 20 20 14 20`) would take over 3 hundred thousand years, assuming the computer can check about 200,000 paths per second.  We could run it on a more efficient computer -- this would help, but not much.  If you are trying to compute a [61-route tour](https://www.google.com/search?q=61!), then there are more possibilities than there are [atoms in the known universe](http://www.universetoday.com/36302/atoms-in-the-universe/).  So it's not likely that you will be able to push that many electrons through your computer, even if you could wait the [10<sup>70</sup>](https://www.google.com/search?q=61!%2F(200000*60*60*24*365.25)) years required.  You might be able to lower that somewhat if you used a more efficient computer -- perhaps to 10<sup>69</sup> years.  That's still longer than the expected life of the universe.
 
 It's safe to say that we can all agree that this problem is very inefficient.  Yet the world record for the longest traveling salesperson solution is a whopping 85,900 cities!  See the [here](http://en.wikipedia.org/wiki/Traveling_salesman_problem#Exact_algorithms) for details.
 
@@ -268,7 +268,7 @@ The people who computed the 85,900 city traveling salesperson problem obviously 
 
 To accomplish this, they had to use a number of acceleration techniques.
 
-The second part of the post-lab is for you to research other acceleration techniques that can be used to speed up the traveling salesperson problem.  You are welcome to view the Wikipedia page -- however, we also know what's on the Wikipedia page.  So just copying that information down will get you no credit -- you need to understand the acceleration techniques, and write them in your *OWN* words.  Basically, we want you to investigate and understand this, and not just paraphrase what Wikipedia says.  We are going to read the Wikipedia page (and other similar pages) before we grade the post-lab.
+The second part of the post-lab is for you to research other acceleration techniques that can be used to speed up the traveling salesperson problem.  You are welcome to view the Wikipedia page -- however, we also know what's on the Wikipedia page.  So just copying that information down will get you no credit -- you need to understand the acceleration techniques, and write them in your *OWN* words.
 
 Your report should include information on 3 such techniques (again, feel free to start with the 3 that Wikipedia mentions).  You should write sufficient text on each to explain how it would work, the running time, and an estimate of how much faster it would make your code.  You don't need to implement any of these techniques -- just understand (at a high level) how they work.
 
