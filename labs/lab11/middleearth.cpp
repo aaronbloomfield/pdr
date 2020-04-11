@@ -59,6 +59,9 @@ const array<string, 40> all_city_names{
 
 // Iluvatar, the creator of Middle-Earth
 MiddleEarth::MiddleEarth(int xsize, int ysize, int num_cities, int seed) {
+    this->xsize = xsize;
+    this->ysize = ysize;
+
     // set up the random number seed
     srand(seed == -1 ? time(NULL) : seed);
 
@@ -82,21 +85,17 @@ MiddleEarth::MiddleEarth(int xsize, int ysize, int num_cities, int seed) {
     cities.erase(cities.begin() + num_cities, cities.end()); // then remove the ones we won't be using
 
     // compute random city positions
-    for (auto _ : cities) {
-        xpos.push_back((rand() / (float) RAND_MAX) * xsize);
-        ypos.push_back((rand() / (float) RAND_MAX) * ysize);
+    for (auto city : cities) {
+        xpos.emplace(city, (rand() / (float) RAND_MAX) * xsize);
+        ypos.emplace(city, (rand() / (float) RAND_MAX) * ysize);
     }
 
     // compute the 2-d distance array
-    this->xsize = xsize;
-    this->ysize = ysize;
-
     // we assume that num_cities < xsize * ysize
-    distances = new float[num_cities * num_cities]; // row-major order
-    for (int r = 0; r < num_cities; r++) {
-        for (int c = 0; c < num_cities; c++) {
-            distances[r * num_cities + c] = sqrt((xpos[c] - xpos[r]) * (xpos[c] - xpos[r]) +
-                                                 (ypos[c] - ypos[r]) * (ypos[c] - ypos[r]));
+    for (auto city1 : cities) {
+        for (auto city2 : cities) {
+            distances[city1].emplace(city2, sqrt((xpos[city2] - xpos[city1]) * (xpos[city2] - xpos[city1]) +
+                                                 (ypos[city2] - ypos[city1]) * (ypos[city2] - ypos[city1])));
         }
     }
 
@@ -107,19 +106,14 @@ MiddleEarth::MiddleEarth(int xsize, int ysize, int num_cities, int seed) {
     }
 }
 
-// Sauron, the destructor of Middle-Earth.
-MiddleEarth::~MiddleEarth() {
-    delete[] distances;
-}
-
 // The Mouth of Sauron!
 // Prints out info on the created 'world'
 void MiddleEarth::print() {
     cout << "there are " << num_city_names
          << " locations to choose from; we are using " << cities.size() << endl;
     cout << "they are: " << endl;
-    for (auto i = 0; i < cities.size(); i++) {
-        cout << "\t" << cities[i] << " @ (" << xpos[i] << ", " << ypos[i]
+    for (auto city : cities) {
+        cout << "\t" << city << " @ (" << xpos[city] << ", " << ypos[city]
              << ")" << endl;
     }
 }
@@ -133,10 +127,10 @@ void MiddleEarth::printTable() {
     }
     cout << endl;
 
-    for (auto r = 0; r < cities.size(); r++) {
-        cout << cities[r] << "\t" << xpos[r] << "\t" << ypos[r] << "\t";
-        for (auto c = 0; c < cities.size(); c++) {
-            cout << distances[r * cities.size() + c] << "\t";
+    for (auto city1 : cities) {
+        cout << city1 << "\t" << xpos[city1] << "\t" << ypos[city1] << "\t";
+        for (auto city2 : cities) {
+            cout << distances[city1][city2] << "\t";
         }
         cout << endl;
     }
@@ -145,8 +139,8 @@ void MiddleEarth::printTable() {
 // This method returns the distance between the two passed cities.
 // If we assume that the hash table (i.e. the map) is O(1),
 // then this method call is also O(1)
-float MiddleEarth::getDistance(string city1, string city2) {
-    return distances[indices[city1] * cities.size() + indices[city2]];
+float MiddleEarth::getDistance(const string& city1, const string& city2) {
+    return distances[city1][city2];
 }
 
 // Returns the list of cities to travel to.
@@ -164,12 +158,8 @@ vector<string> MiddleEarth::getItinerary(unsigned int length) {
 
     length++; // to account for the start point
 
-    // we need to make a deep copy of the cities vector.  itinerary is a
-    // pointer so that it doesn't get deleted when it goes out of scope.
-    vector<string> itinerary;
-    for (auto city : cities) {
-        itinerary.push_back(cities[i]);
-    }
+    // we need to make a deep copy of the cities vector
+    vector<string> itinerary(cities.begin(), cities.end());
 
     // shuffle, erase unneeded ones, and return the itinerary
     random_shuffle(itinerary.begin(), itinerary.end());

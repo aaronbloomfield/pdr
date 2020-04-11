@@ -16,6 +16,7 @@ http://www.gnu.org/software/src-highlite">
 <b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;vector&gt;</span>
 <b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;string&gt;</span>
 <b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;map&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;unordered_map&gt;</span>
 
 <b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
@@ -23,18 +24,17 @@ http://www.gnu.org/software/src-highlite">
 
 <b><span style="color:#0000FF">class</span></b> <span style="color:#008080">MiddleEarth</span> <span style="color:#FF0000">{</span>
 <b><span style="color:#0000FF">public</span></b><span style="color:#990000">:</span>
-    <b><span style="color:#000000">MiddleEarth</span></b><span style="color:#990000">(</span><span style="color:#009900">int</span> xsize<span style="color:#990000">,</span> <span style="color:#009900">int</span> ysize<span style="color:#990000">,</span> <span style="color:#009900">int</span> numcities<span style="color:#990000">,</span> <span style="color:#009900">int</span> seed<span style="color:#990000">);</span>
-    <span style="color:#990000">~</span><b><span style="color:#000000">MiddleEarth</span></b><span style="color:#990000">();</span>
+    <b><span style="color:#000000">MiddleEarth</span></b><span style="color:#990000">(</span><span style="color:#009900">int</span> xsize<span style="color:#990000">,</span> <span style="color:#009900">int</span> ysize<span style="color:#990000">,</span> <span style="color:#009900">int</span> num_cities<span style="color:#990000">,</span> <span style="color:#009900">int</span> seed<span style="color:#990000">);</span>
     <span style="color:#009900">void</span> <b><span style="color:#000000">print</span></b><span style="color:#990000">();</span>
     <span style="color:#009900">void</span> <b><span style="color:#000000">printTable</span></b><span style="color:#990000">();</span>
-    <span style="color:#009900">float</span> <b><span style="color:#000000">getDistance</span></b><span style="color:#990000">(</span><span style="color:#008080">string</span> city1<span style="color:#990000">,</span> <span style="color:#008080">string</span> city2<span style="color:#990000">);</span>
+    <span style="color:#009900">float</span> <b><span style="color:#000000">getDistance</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> string<span style="color:#990000">&amp;</span> city1<span style="color:#990000">,</span> <b><span style="color:#0000FF">const</span></b> string<span style="color:#990000">&amp;</span> city2<span style="color:#990000">);</span>
     <span style="color:#008080">vector&lt;string&gt;</span> <b><span style="color:#000000">getItinerary</span></b><span style="color:#990000">(</span><span style="color:#009900">unsigned</span> <span style="color:#009900">int</span> length<span style="color:#990000">);</span>
 
 <b><span style="color:#0000FF">private</span></b><span style="color:#990000">:</span>
     <span style="color:#009900">int</span> num_city_names<span style="color:#990000">,</span> xsize<span style="color:#990000">,</span> ysize<span style="color:#990000">;</span>
-    <span style="color:#008080">vector&lt;float&gt;</span> xpos<span style="color:#990000">,</span> ypos<span style="color:#990000">;</span>
+    <span style="color:#008080">unordered_map&lt;string, float&gt;</span> xpos<span style="color:#990000">,</span> ypos<span style="color:#990000">;</span>
     <span style="color:#008080">vector&lt;string&gt;</span> cities<span style="color:#990000">;</span>
-    <span style="color:#009900">float</span><span style="color:#990000">*</span> distances<span style="color:#990000">;</span>
+    <span style="color:#008080">unordered_map&lt;string, unordered_map&lt;string, float&gt;&gt;</span> distances<span style="color:#990000">;</span>
     <span style="color:#008080">map&lt;string, int&gt;</span> indices<span style="color:#990000">;</span>
 <span style="color:#FF0000">}</span><span style="color:#990000">;</span>
 

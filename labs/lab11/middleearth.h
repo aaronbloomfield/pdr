@@ -5,6 +5,7 @@
 #include <vector>
 #include <string>
 #include <map>
+#include <unordered_map>
 
 using namespace std;
 
@@ -12,18 +13,17 @@ using namespace std;
 
 class MiddleEarth {
 public:
-    MiddleEarth(int xsize, int ysize, int numcities, int seed);
-    ~MiddleEarth();
+    MiddleEarth(int xsize, int ysize, int num_cities, int seed);
     void print();
     void printTable();
-    float getDistance(string city1, string city2);
+    float getDistance(const string& city1, const string& city2);
     vector<string> getItinerary(unsigned int length);
 
 private:
     int num_city_names, xsize, ysize;
-    vector<float> xpos, ypos;
+    unordered_map<string, float> xpos, ypos;
     vector<string> cities;
-    float* distances;
+    unordered_map<string, unordered_map<string, float>> distances;
     map<string, int> indices;
 };
 
