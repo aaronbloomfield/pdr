@@ -152,7 +152,7 @@ The skeleton code provided ([traveling-skeleton.cpp](traveling-skeleton.cpp.html
 
 ### STL Helper Functions ###
 
-There are a number of STL functions that will help you in writing this program.  All of these algorithms (and more!) are provided in the `<algorithms>` header file.  This file is already included by traveling-skeleton.cpp.
+There are a number of STL functions that will help you in writing this program.  All of these algorithms (and more!) are provided in the `<algorithm>` header file.  This file is already included by traveling-skeleton.cpp.
 
 First, take a look at the `shuffle()` method in middleearth.cpp:
 
