@@ -70,7 +70,8 @@ MiddleEarth::MiddleEarth(int xsize, int ysize, int num_cities, int seed) {
 
     if (num_cities > num_city_names) {
         cout << "There are only " << num_city_names << " city names, so "
-             << num_cities << " cities cannot be created.\nExiting." << endl;
+             << num_cities << " cities cannot be created." << endl;
+        cout << "Exiting." << endl;
         exit(0);
     }
 
