@@ -132,15 +132,13 @@ cs1110 cs2110 cs2102 cs3330 cs2150 cs4414
 In-lab
 ------
 
-### Introduction ###
+### The Traveling Salesperson ###
 
-You are going to implement a program that will find a solution to the traveling salesperson problem.  This problem is known to be [NP-complete](http://en.wikipedia.org/wiki/Np-complete), which means that there is no known efficient solution to the problem, and it is believed that an efficient solution does not exist.  Thus, we will be implementing a rather inefficient solution -- a brute-force method that tries every possible path combination.
+You are going to implement a program that will find a solution to the [traveling salesperson problem](http://www-e.uni-magdeburg.de/mertens/TSP/TSP.html).  This problem is known to be [NP-complete](http://en.wikipedia.org/wiki/Np-complete), which means that there is no known efficient solution to the problem.  Thus, we will be implementing a rather inefficient solution -- a brute-force method that tries every possible path combination.
 
-The traveling salesperson problem is as described in lecture.  In brief, you start from a given city (your "home" city), and have to travel to a number of other cities before returning home.  There is a fixed cost between any two cities (miles traveled, dollars spent, time taken, etc.).  The goal of this algorithm is to find the path that travels to each of the cities, in any order, and that has the minimum cost.  Note that it is really a cycle, as you have to start and end in the same city.  Also note that the direction you travel in the cycle does not matter, as the distance is the same.
+The traveling salesperson problem is as described in lecture.  In brief, you start from a given city (your "home" city), and have to travel to a number of other cities before returning home.  There is a fixed cost between any two cities (miles traveled, dollars spent, time taken, etc).  The goal of this algorithm is to find the least costly path that travels to each of the cities, in any order.
 
-If you want more background on the Traveling Salesperson problem, you can see [here](http://www-e.uni-magdeburg.de/mertens/TSP/TSP.html).
-
-The world we have chosen is [Middle-Earth](http://en.wikipedia.org/wiki/Middle-earth), the location of J.R.R. Tolkien's Hobbit and Lord of the Rings books and movies.  The middleearth.h and middleearth.cpp files, that you commented in the pre-lab, contain a class that will create a random 2-dimensional world.  The "randomness" means that it will pick a given number of cities (or places), and randomly place them in the "world".  You can travel from any city to any other city, for a given cost (the distance).  The city names are all from the books and movies, and can be seen at the beginning of the middleearth.cpp file -- there is a textual description in the code as to what all the places are.  The randomness of the world means that cities that are nowhere near each other in the books/movies might be right next to each other in the random world.
+The world we have chosen is [Middle-Earth](http://en.wikipedia.org/wiki/Middle-earth), the location of J.R.R. Tolkien's Hobbit and Lord of the Rings books and movies.  The middleearth.h and middleearth.cpp files contain a class that will create a random 2-dimensional world.  The "randomness" means that it will pick a given number of cities (or places), and randomly place them in the "world".  You can travel from any city to any other city, for a given cost (the distance).  The city names are all from the books and movies, and can be seen at the beginning of the middleearth.cpp file -- there is a textual description in the code as to what all the places are.  The randomness of the world means that cities that are nowhere near each other in the books/movies might be right next to each other in the random world.
 
 When your program is completed, you will need to specify five command-line parameters to execute the traveling salesperson problem.  The parameters are, in order:
 
@@ -162,40 +160,40 @@ First, take a look at the `random_shuffle()` method in middleearth.cpp:
 random_shuffle(cities.begin(), cities.end());
 ```
 
-This method takes a vector, and will randomly shuffle it, similar to Java's `Collections.shuffle()`.  The parameters specify the amount of the vector that we want to shuffle.  Because we want to shuffle the entire vector, we specify the beginning and end of the list, as shown.  What we are actually doing is supplying two iterators which specify the range to shuffle.  The `.begin()` and `.end()` methods provide iterators set to the beginning and end of the vector, respectively.
+This method takes a vector, and will randomly shuffle it, similar to Java's `Collections.shuffle()`.  The parameters specify the amount of the vector that we want to shuffle.  Because we want to shuffle the entire vector, we specify the beginning and end of the list.
 
 The `sort()` method has the same parameters as shuffle, and sorts the list.  It is similar to Java's `Collections.sort()` method.  It returns no value.
 
-The `next_permutation()` method will cycle through each and every permutation of the passed vector.  ***It must start out with a sorted vector***, and will move through each and every possible list ordering until the vector ends up in reverse sorted order.  It takes the same parameters as `random_shuffle()` and `sort()`.  Note that it does not return a new permutation, but instead modifies the vector that is passed in (via the two iterators).  It returns a bool -- `true` if it found another permutation, or `false` if there are no more permutations to provide.  Thus, it is often put into a `while` loop.  For an example of using `next_permutation()` in a while loop, see [here](http://www.cplusplus.com/reference/algorithm/next_permutation/).  This is a good way to iterate through each possible combination of cities to travel to.
+The `next_permutation()` method will cycle through each and every permutation of the passed vector.  ***It must start out with a sorted vector***, and will move through each and every possible list ordering until the vector ends up in reverse sorted order.  It takes the same parameters as `random_shuffle()` and `sort()`.  Note that it does not return a new permutation, but instead modifies the vector that is passed in.  It returns `true` if it found another permutation and `false` if there are no more permutations to provide.  Thus, it is often put into a `while` loop.  For an example of using `next_permutation()` in a while loop, see [here](http://www.cplusplus.com/reference/algorithm/next_permutation/).  This is a good way to iterate through each possible combination of cities to travel to.
 
 ### Middle-Earth methods ###
 
-The MiddleEarth class provides a number of methods to help you write your brute-force solution.  You should be familiar with these from the pre-lab.  The constructor is called by the skeleton code, and uses the parameters read in from the command line.  The `print()` method will print out statistics of the world.  
+The MiddleEarth class provides a number of methods to help you write your brute-force solution.  The constructor is called by the skeleton code, and uses the parameters read in from the command line.  The `print()` method will print out statistics of the world.
 
 The `printTable()` method will print out a table of the distances between all cities.  Different random seeds will produce different tables, obviously.  This will be useful to help you debug your program.  Redirect it to a file, and then load it up in a spreadsheet program (Excel may not like tab-separated values, but OpenOffice will be fine with it). We used to provide an Excel-ready format of this, but each of the different platforms (Mac OS X, Linux, Windows, as well as 32-bit versus 64-bit) will produce slightly different random worlds.
 
-The `getDistance()` method will return the distance, as a float, between the two provided cities.  In an effort to make your code as efficient as possible, `getDistance()` has the same running time as a hash table (usually &Theta;(1)).  Lastly, `getItinerary()` will return a vector of the cities that you must visit.  Note that the first city provided is the start (and thus end) city -- you should remove this from the vector before you consider all possible cycles through the graph.
+The `getDistance()` method will return the distance, as a float, between the two provided cities.  In an effort to make your code as efficient as possible, `getDistance()` has the same expected running time as a hash table.  Lastly, `getItinerary()` will return a vector of the cities that you must visit.  The first city provided is the start (and thus end) city -- you should remove this from the vector before you consider all possible cycles through the graph.
 
 ### How to proceed ###
 
 We provide the skeleton code for the algorithm -- your job is to complete traveling.cpp.
 
 1. First complete `printRoute()`, as that will be useful when debugging your code.  It should print a route in the form: `Dunharrow -> Cirith Ungol -> Hobbiton -> Grey Havens -> Lothlorien -> Dunharrow`.  Note that we aren't picky about exactly how it's printed, as long as it prints all the cities.
-2. Next, complete `computeDistance()`.  You can create a sample string vector to test it, and verify it against the distances in the output of `printTable()` (see above).
+2. Next, complete `computeDistance()`.  You can create a sample string vector to test it, and verify it against the distances in the output of `printTable()`.
 3. Start on the `main()` method.  Make sure that you can print out all the permutations of the list of destinations.  Note that for n cities, there are n! possible permutations.  Remember that the start city should not be permuted!
 4. At this point, you can now compute the distance and keep track of the minimum cycle length.
 
-Your final program should not print out every path tried, as there will be way too many of them.  It should print out the shortest path as the last thing printed.  You may print out a few paths (i.e. successively shorter paths), if that's easier.
+Your final program should should print out the shortest path as the last thing printed.  You can print out multiple paths as you find the shortest one, but you should **NOT** print out _every_ path you try.
 
 Note that you are determining a cycle of cities to visit.  So if your cycle has the cities in reverse, then it's still a valid solution.
 
 ### Getting your itinerary correct ###
 
-Note that you already know your start city (if you don't know how to determine this, you should really read the comments in middleearth.cpp, specifically for `getItinerary()`).  This city is **not to be permuted**, as you will always start (and end) at that city.  It's the *other* cities that are going to be permuted through the calls to `next_permutation()`.
+The starting city is **not to be permuted**, as you will always start (and end) at that city.  It's the *other* cities that are going to be permuted through the calls to `next_permutation()`.
 
 ### Timing your code ###
 
-Keep in mind that as you increase the size of the city tour, the running time increases exponentially.  The computers in the Olsson 001 lab can probably compute about 200,000 routes per second in Linux (with well written and optimized code).  Our 10-route cycle took 18 seconds under Linux.  A 15 route cycle would take 2.5 months under Linux.  A 20 route cycle would take 385,734 years under Linux!  Realistically, you shouldn't be trying anything with an itinerary greater than 9 or 10.
+Keep in mind that as you increase the size of the city tour, the running time increases exponentially.  Modern-day computers can probably compute about 200,000 routes per second (with well written and optimized code).  Our 10-route cycle took 18 seconds.  A 15 route cycle would take 2.5 months.  A 20 route cycle would take 385,734 years!  Realistically, you shouldn't be trying anything with an itinerary greater than 9 or 10.
 
 And when you are planning on testing long paths, you should really compile your code with the `-O2` compiler option.  It can speed up the program by a factor of two.  
 
@@ -214,15 +212,15 @@ sys	0m0.020s
 student@cassiopeia:~/labs/lab11$ 
 ```
 
-The time we are looking at is the "user" time; this is how long it took to run the user's program.  The "sys" line is how much time the system was doing things during the program execution, such as I/O.  The "real" time is the "wall time" -- meaning if you had a stop watch, it would report the "real" time.  The "real" time includes many other things, such as other tasks you are doing on the computer -- if you have an animation running in a web browser, for example, it will increase the "real" time, as the system is spending some effort rendering those animations.  We'll only use the "user" time for this lab.  Note that you should **NOT** print out every path -- you can print out some, as described above.  But printing out every path will cause the computer to spend a lot of time on I/O, which will increase all of the times.
+The time we are looking at is the "user" time; this is how long it took to run the user's program.  The "sys" line is how much time the system was doing things during the program execution, such as I/O.  The "real" time is the "wall time" -- meaning if you had a stop watch, it would report the "real" time.  The "real" time includes many other things, such as other tasks you are doing on the computer -- if you have an animation running in a web browser, for example, it will increase the "real" time, as the system is spending some effort rendering those animations.  We'll only use the "user" time for this lab.
 
 ### Sample output ###
 
 For this lab, we will keep the size of the 2-D world fixed at (20,20).  These are the first two command line parameters.  We'll also create a world of 20 cities (chosen from the 40 names in middleearth.cpp) -- this is the third command line parameter.
 
-If the random seed (the fourth parameter) is 14, then the path lengths and paths for the various itinerary lengths are listed below.  Because we are explicitly setting the random seed, it should produce the exact same results each time -- and thus your code should also produce the same results.  
+If the random seed (the fourth parameter) is 14, then the path lengths and paths for the various itinerary lengths are listed below.  Because we are explicitly setting the random seed, it should produce the exact same results each time -- and thus your code should also produce the same results.
 
-**Important note:** The method for determining the random seed is different on different systems.  So using a random seed of 14 (which is what we used), you may get different results on different systems.  We provide the Virtual Box results here, and other 32-bit and 64-bit Linux installations *should* be similar.  But your results may differ!  In particular, if you have a different flavor of Linux installed, use a Mac, etc.  The machines in Olsson 001 have the same results as shown below.  Also note that the direction of your path can be reversed -- it's the same distance (and thus still the shortest path), even if the path order is reversed.  You should use the output of your `printTable()` over what is listed below.
+**Important note:** The method for determining the random seed is different on different systems.  So using a random seed of 14 (which is what we used), you may get different results on different systems.  We provide the VirtualBox results here, and other Linux installations *should* be similar.  But your results may differ!  In particular, if you have a different flavor of Linux installed, use a Mac, etc.  You should use the output of your `printTable()` over what is listed below.
 
 The Linux results for a random seed of 14, world size of 20x20 with 20 cities, and various path lengths:
 
@@ -237,9 +235,7 @@ The Linux results for a random seed of 14, world size of 20x20 with 20 cities, a
 9. Minimum path has distance 55.6973: Dunharrow -> Edoras -> Cirith Ungol -> Dagorlad -> Hobbiton -> Weathertop -> Minas Tirith -> The Grey Havens -> Mirkwood -> Lothlorien -> Dunharrow
 10. Minimum path has distance 55.7040: Dunharrow -> Lothlorien -> Mirkwood -> Orodruin -> The Grey Havens -> Minas Tirith -> Weathertop -> Hobbiton -> Dagorlad -> Cirith Ungol -> Edoras -> Dunharrow
 
-Note that your cycle may be the same cities but in reverse; this is perfectly acceptable.
-
-When compiled with `-O2`, the computation of a path of length 10 took 18 seconds on Linux.
+Your cycle may be the same cities but in reverse; this is perfectly acceptable.
 
 Your final program needs to both be able to compile and run with the specified command-line parameters.
 
