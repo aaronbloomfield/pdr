@@ -63,19 +63,13 @@ Recall from lecture that given a graph *G* = (*V*,*E*), a topological sort of a 
 
 For the programming part of this lab, you will need to write a program that can perform a topological sort.  This problem is specified in the next section.  The specification is similar to that found in the [International Collegiate Programming Contests](http://acmicpc.org) -- a problem description, followed by a detailed explanation of the input and the output.
 
-How you represent your graph is up to you -- choices include: node-with-pointers, adjacency list, adjacency matrix, and others.  Just keep in mind that you will have to do a topological sort on this graph.  The program must read in a list of directed edges from a file and (internally) generate the graph from it.  
+How you represent your graph is up to you -- choices include: node-with-pointers, adjacency list, adjacency matrix, and others.  Just keep in mind that you will have to do a topological sort on this graph.  The program must read in a list of directed edges from a file and (internally) generate the graph from it.
 
-You don't need to print out the graph.  The algorithm for a topological sort can be found in the slides and lecture recordings, as well as in the readings.  
-
-Your program must be *completely contained* in a single file named topological.cpp, and must take in the input file name as a single command-line parameter.  There is no limit (other than the memory size) to the number of nodes that we may provide (i.e. it could be very large, not just 7, as in the example here).
-
-To read in strings from a file in the C++ manner, see the [fileio2.cpp](fileio2.cpp.html) ([src](fileio2.cpp)) file.  
-
-To test your code with a larger input, see the prelab-test-full.txt file; the prelab-test-small.txt is what is described in the problem below.
+To read in strings from a file in the C++ manner, see the [fileio2.cpp](fileio2.cpp.html) ([src](fileio2.cpp)) file.
 
 ### Makefile ###
 
-The first target in your Makefile can be named anything you want, but should do **two** things: compile your code, and run doxygen.  You can have two tabbed lines after the target specifier, which is the easiest way to accomplish this.  In other words, we are just going to call `make`, and we want it to both compile your code and create your doxygen documentation.  You are welcome to have additional targets, such as `clean`, if you would like.  The in-lab Makefile should have the same dual-purpose target.
+The first target in your Makefile can be named anything you want, but should do **two** things: compile your code, and run doxygen.  You can have two tabbed lines after the target specifier, which is the easiest way to accomplish this.  In other words, we are just going to call `make`, and we want it to both compile your code and create your doxygen documentation.  You are welcome to have additional targets, such as `clean`, if you would like.
 
 ------------------------------------------------------------
 
@@ -88,7 +82,7 @@ Given the following course pre-requisite graph:
 
 ![pre-reqs.svg](pre-reqs.svg)
 
-There are multiple valid orders that the courses can be taken in; each is a valid topological sorts:
+There are multiple valid orders that the courses can be taken in; each is a valid topological sort:
 
 - cs1110 cs2110 cs2102 cs3330 cs2150 cs4414
 - cs1110 cs2110 cs2102 cs2150 cs3330 cs4414
@@ -100,11 +94,11 @@ Any one of these topological sorts is sufficient.
 
 ### Input ###
 
-The program will take a single command-line parameter.  This parameter will specify the file name that contains the input.
+The program will consist of a single file, `topological.cpp`, and take a single command-line parameter.  This parameter will specify the file name that contains the input.
 
 The input file will consist of a series of lines that each designate a directed edge.  Each line will have two vertex names, separated by a single space; the edge is directed from the first to the second listed vertex name on a given line.  Every vertex name is a series of alphanumeric characters only (a-z, A-Z, 0-9) without any spaces or punctuation.  Note that case is relevant, so vertex `abc` is distinct from vertex `ABC`.  The edges can be listed in any order.
 
-The end of the input file is signified by two 0's on the same line, separated by a single space.
+The end of the input file is signified by two 0s on the same line, separated by a single space.
 
 You can assume that the provided graph is a directed acyclic graph, that it is weakly connected, and thus that there is at least one valid topological sort.  You can further assume that there will not be more than 100 vertices in the graph.
 

@@ -58,12 +58,9 @@
 <p>Recall from lecture that given a graph <em>G</em> = (<em>V</em>,<em>E</em>), a topological sort of a directed acyclic graph is a linear listing of the vertices such that, for all pairs of vertices <em>v</em>,<em>w</em> ∈ <em>V</em>, <em>v</em> is listed before <em>w</em> in the topological sort if (<em>v</em>,<em>w</em>) ∈ <em>E</em> (i.e. if there is an edge from <em>v</em> to <em>w</em> in the graph, then <em>v</em> must be listed before <em>w</em> in the topological sort). This implies that if there is a <em>path</em> from <em>v</em> to <em>w</em> (not just an edge), then <em>v</em> must still list before <em>w</em> in the topological sort.</p>
 <p>For the programming part of this lab, you will need to write a program that can perform a topological sort. This problem is specified in the next section. The specification is similar to that found in the <a href="http://acmicpc.org">International Collegiate Programming Contests</a> -- a problem description, followed by a detailed explanation of the input and the output.</p>
 <p>How you represent your graph is up to you -- choices include: node-with-pointers, adjacency list, adjacency matrix, and others. Just keep in mind that you will have to do a topological sort on this graph. The program must read in a list of directed edges from a file and (internally) generate the graph from it.</p>
-<p>You don't need to print out the graph. The algorithm for a topological sort can be found in the slides and lecture recordings, as well as in the readings.</p>
-<p>Your program must be <em>completely contained</em> in a single file named topological.cpp, and must take in the input file name as a single command-line parameter. There is no limit (other than the memory size) to the number of nodes that we may provide (i.e. it could be very large, not just 7, as in the example here).</p>
 <p>To read in strings from a file in the C++ manner, see the <a href="fileio2.cpp.html">fileio2.cpp</a> (<a href="fileio2.cpp">src</a>) file.</p>
-<p>To test your code with a larger input, see the prelab-test-full.txt file; the prelab-test-small.txt is what is described in the problem below.</p>
 <h3 id="makefile">Makefile</h3>
-<p>The first target in your Makefile can be named anything you want, but should do <strong>two</strong> things: compile your code, and run doxygen. You can have two tabbed lines after the target specifier, which is the easiest way to accomplish this. In other words, we are just going to call <code>make</code>, and we want it to both compile your code and create your doxygen documentation. You are welcome to have additional targets, such as <code>clean</code>, if you would like. The in-lab Makefile should have the same dual-purpose target.</p>
+<p>The first target in your Makefile can be named anything you want, but should do <strong>two</strong> things: compile your code, and run doxygen. You can have two tabbed lines after the target specifier, which is the easiest way to accomplish this. In other words, we are just going to call <code>make</code>, and we want it to both compile your code and create your doxygen documentation. You are welcome to have additional targets, such as <code>clean</code>, if you would like.</p>
 <hr />
 <h2 id="pre-lab-problem-topological-sort">Pre-lab Problem: Topological Sort</h2>
 <p>It turns out that one of our teaching assistants did not take all of the pre-requisite computer science courses! That TA is all ready to graduate, but it turns that CS 1110 was never taken. The department came down hard, and decided to make that TA take all of the courses over again, to have the proper pre-requisite classes completed for each successive class. But the TA just got a job at Microsoft, and can only take one course a semester while working full time. In what order should the teaching assistant take the list of required courses to properly fulfill the pre-requisites this time around?</p>
@@ -71,7 +68,7 @@
 <figure>
 <img src="pre-reqs.svg" alt="pre-reqs.svg" /><figcaption>pre-reqs.svg</figcaption>
 </figure>
-<p>There are multiple valid orders that the courses can be taken in; each is a valid topological sorts:</p>
+<p>There are multiple valid orders that the courses can be taken in; each is a valid topological sort:</p>
 <ul>
 <li>cs1110 cs2110 cs2102 cs3330 cs2150 cs4414</li>
 <li>cs1110 cs2110 cs2102 cs2150 cs3330 cs4414</li>
@@ -81,9 +78,9 @@
 </ul>
 <p>Any one of these topological sorts is sufficient.</p>
 <h3 id="input">Input</h3>
-<p>The program will take a single command-line parameter. This parameter will specify the file name that contains the input.</p>
+<p>The program will consist of a single file, <code>topological.cpp</code>, and take a single command-line parameter. This parameter will specify the file name that contains the input.</p>
 <p>The input file will consist of a series of lines that each designate a directed edge. Each line will have two vertex names, separated by a single space; the edge is directed from the first to the second listed vertex name on a given line. Every vertex name is a series of alphanumeric characters only (a-z, A-Z, 0-9) without any spaces or punctuation. Note that case is relevant, so vertex <code>abc</code> is distinct from vertex <code>ABC</code>. The edges can be listed in any order.</p>
-<p>The end of the input file is signified by two 0's on the same line, separated by a single space.</p>
+<p>The end of the input file is signified by two 0s on the same line, separated by a single space.</p>
 <p>You can assume that the provided graph is a directed acyclic graph, that it is weakly connected, and thus that there is at least one valid topological sort. You can further assume that there will not be more than 100 vertices in the graph.</p>
 <h3 id="output">Output</h3>
 <p>The output is a valid topological sort of the vertices, each separated by one space, and all on one line. If there are multiple topological sorts, then any valid one is acceptable. No additional output!</p>
