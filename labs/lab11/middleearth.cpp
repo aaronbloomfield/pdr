@@ -1,12 +1,13 @@
 #include "middleearth.h"
 
 #include <algorithm>
+#include <array>
 #include <cstdlib>
 #include <cmath>
 #include <ctime>
 
 // The list of all the place names that we'll be using
-string all_city_names[] = {
+const array<string, 40> all_city_names{
     // human towns, cities and strongholds
     "Bree",             // a human and hobbit town between the Shire and Rivendell
     "Isengard",         // the tower fortress where Saruman resided; Gandalf was imprisoned there.
@@ -54,8 +55,6 @@ string all_city_names[] = {
     "Erebor",           // the Elvish name for the Lonely Mountain, where the dwarves had their fortress
     "Beorn's House",    // Beorn is the shape-shifter who shelters the dwarf party
     "Dol Guldur",       // fortress in Mirkwood where Sauron, as the Necromancer, hid during most of the Hobbit
-    // END marker
-    "END"
 };
 
 // Iluvatar, the creator of Middle-Earth
@@ -64,10 +63,7 @@ MiddleEarth::MiddleEarth(int xsize, int ysize, int num_cities, int seed) {
     srand(seed == -1 ? time(NULL) : seed);
 
     // count the number of cities in the array
-    this->num_city_names = 0;
-    while (all_city_names[num_city_names] != "END") {
-        num_city_names++;
-    }
+    this->num_city_names = all_city_names.size();
 
     if (num_cities > num_city_names) {
         cout << "There are only " << num_city_names << " city names, so "
@@ -79,16 +75,14 @@ MiddleEarth::MiddleEarth(int xsize, int ysize, int num_cities, int seed) {
         num_cities = 5;
     }
 
-    // add all the cities into a vector
-    for (int i = 0; all_city_names[i] != "END"; i++) {
-        cities.push_back(all_city_names[i]);
-    }
+    // copy all the cities into a mutable vector
+    this->cities = vector<string>(all_city_names.begin(), all_city_names.end());
 
     random_shuffle(cities.begin(), cities.end()); // shuffle all the cities
     cities.erase(cities.begin() + num_cities, cities.end()); // then remove the ones we won't be using
 
     // compute random city positions
-    for (auto i = 0; i < cities.size(); i++) {
+    for (auto _ : cities) {
         xpos.push_back((rand() / (float) RAND_MAX) * xsize);
         ypos.push_back((rand() / (float) RAND_MAX) * ysize);
     }
@@ -134,8 +128,8 @@ void MiddleEarth::print() {
 // which can be loaded into Excel or similar
 void MiddleEarth::printTable() {
     cout << "Table: " << endl << endl << "Location\txpos\typos\t";
-    for (auto r = 0; r < cities.size(); r++) {
-        cout << cities[r] << "\t";
+    for (auto city : cities) {
+        cout << city << "\t";
     }
     cout << endl;
 
@@ -173,7 +167,7 @@ vector<string> MiddleEarth::getItinerary(unsigned int length) {
     // we need to make a deep copy of the cities vector.  itinerary is a
     // pointer so that it doesn't get deleted when it goes out of scope.
     vector<string> itinerary;
-    for (auto i = 0; i < cities.size(); i++) {
+    for (auto city : cities) {
         itinerary.push_back(cities[i]);
     }
 

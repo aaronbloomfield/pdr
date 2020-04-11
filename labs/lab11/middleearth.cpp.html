@@ -12,12 +12,13 @@ http://www.gnu.org/software/src-highlite">
 <pre><b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">"middleearth.h"</span>
 
 <b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;algorithm&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;array&gt;</span>
 <b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;cstdlib&gt;</span>
 <b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;cmath&gt;</span>
 <b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;ctime&gt;</span>
 
 <i><span style="color:#9A1900">// The list of all the place names that we'll be using</span></i>
-<span style="color:#008080">string</span> all_city_names<span style="color:#990000">[]</span> <span style="color:#990000">=</span> <span style="color:#FF0000">{</span>
+<b><span style="color:#0000FF">const</span></b> <span style="color:#008080">array&lt;string, 40&gt;</span> all_city_names<span style="color:#FF0000">{</span>
     <i><span style="color:#9A1900">// human towns, cities and strongholds</span></i>
     <span style="color:#FF0000">"Bree"</span><span style="color:#990000">,</span>             <i><span style="color:#9A1900">// a human and hobbit town between the Shire and Rivendell</span></i>
     <span style="color:#FF0000">"Isengard"</span><span style="color:#990000">,</span>         <i><span style="color:#9A1900">// the tower fortress where Saruman resided; Gandalf was imprisoned there.</span></i>
@@ -65,8 +66,6 @@ http://www.gnu.org/software/src-highlite">
     <span style="color:#FF0000">"Erebor"</span><span style="color:#990000">,</span>           <i><span style="color:#9A1900">// the Elvish name for the Lonely Mountain, where the dwarves had their fortress</span></i>
     <span style="color:#FF0000">"Beorn's House"</span><span style="color:#990000">,</span>    <i><span style="color:#9A1900">// Beorn is the shape-shifter who shelters the dwarf party</span></i>
     <span style="color:#FF0000">"Dol Guldur"</span><span style="color:#990000">,</span>       <i><span style="color:#9A1900">// fortress in Mirkwood where Sauron, as the Necromancer, hid during most of the Hobbit</span></i>
-    <i><span style="color:#9A1900">// END marker</span></i>
-    <span style="color:#FF0000">"END"</span>
 <span style="color:#FF0000">}</span><span style="color:#990000">;</span>
 
 <i><span style="color:#9A1900">// Iluvatar, the creator of Middle-Earth</span></i>
@@ -75,10 +74,7 @@ MiddleEarth<span style="color:#990000">::</span><b><span style="color:#000000">M
     <b><span style="color:#000000">srand</span></b><span style="color:#990000">(</span>seed <span style="color:#990000">==</span> <span style="color:#990000">-</span><span style="color:#993399">1</span> <span style="color:#990000">?</span> <b><span style="color:#000000">time</span></b><span style="color:#990000">(</span>NULL<span style="color:#990000">)</span> <span style="color:#990000">:</span> seed<span style="color:#990000">);</span>
 
     <i><span style="color:#9A1900">// count the number of cities in the array</span></i>
-    <b><span style="color:#0000FF">this</span></b><span style="color:#990000">-&gt;</span>num_city_names <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
-    <b><span style="color:#0000FF">while</span></b> <span style="color:#990000">(</span>all_city_names<span style="color:#990000">[</span>num_city_names<span style="color:#990000">]</span> <span style="color:#990000">!=</span> <span style="color:#FF0000">"END"</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-        num_city_names<span style="color:#990000">++;</span>
-    <span style="color:#FF0000">}</span>
+    <b><span style="color:#0000FF">this</span></b><span style="color:#990000">-&gt;</span>num_city_names <span style="color:#990000">=</span> all_city_names<span style="color:#990000">.</span><b><span style="color:#000000">size</span></b><span style="color:#990000">();</span>
 
     <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>num_cities <span style="color:#990000">&gt;</span> num_city_names<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
         cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"There are only "</span> <span style="color:#990000">&lt;&lt;</span> num_city_names <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" city names, so "</span>
@@ -90,16 +86,14 @@ MiddleEarth<span style="color:#990000">::</span><b><span style="color:#000000">M
         num_cities <span style="color:#990000">=</span> <span style="color:#993399">5</span><span style="color:#990000">;</span>
     <span style="color:#FF0000">}</span>
 
-    <i><span style="color:#9A1900">// add all the cities into a vector</span></i>
-    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span><span style="color:#009900">int</span> i <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span> all_city_names<span style="color:#990000">[</span>i<span style="color:#990000">]</span> <span style="color:#990000">!=</span> <span style="color:#FF0000">"END"</span><span style="color:#990000">;</span> i<span style="color:#990000">++)</span> <span style="color:#FF0000">{</span>
-        cities<span style="color:#990000">.</span><b><span style="color:#000000">push_back</span></b><span style="color:#990000">(</span>all_city_names<span style="color:#990000">[</span>i<span style="color:#990000">]);</span>
-    <span style="color:#FF0000">}</span>
+    <i><span style="color:#9A1900">// copy all the cities into a mutable vector</span></i>
+    <b><span style="color:#0000FF">this</span></b><span style="color:#990000">-&gt;</span>cities <span style="color:#990000">=</span> vector<span style="color:#990000">&lt;</span>string<span style="color:#990000">&gt;(</span>all_city_names<span style="color:#990000">.</span><b><span style="color:#000000">begin</span></b><span style="color:#990000">(),</span> all_city_names<span style="color:#990000">.</span><b><span style="color:#000000">end</span></b><span style="color:#990000">());</span>
 
     <b><span style="color:#000000">random_shuffle</span></b><span style="color:#990000">(</span>cities<span style="color:#990000">.</span><b><span style="color:#000000">begin</span></b><span style="color:#990000">(),</span> cities<span style="color:#990000">.</span><b><span style="color:#000000">end</span></b><span style="color:#990000">());</span> <i><span style="color:#9A1900">// shuffle all the cities</span></i>
     cities<span style="color:#990000">.</span><b><span style="color:#000000">erase</span></b><span style="color:#990000">(</span>cities<span style="color:#990000">.</span><b><span style="color:#000000">begin</span></b><span style="color:#990000">()</span> <span style="color:#990000">+</span> num_cities<span style="color:#990000">,</span> cities<span style="color:#990000">.</span><b><span style="color:#000000">end</span></b><span style="color:#990000">());</span> <i><span style="color:#9A1900">// then remove the ones we won't be using</span></i>
 
     <i><span style="color:#9A1900">// compute random city positions</span></i>
-    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span><b><span style="color:#0000FF">auto</span></b> i <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span> i <span style="color:#990000">&lt;</span> cities<span style="color:#990000">.</span><b><span style="color:#000000">size</span></b><span style="color:#990000">();</span> i<span style="color:#990000">++)</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span><b><span style="color:#0000FF">auto</span></b> _ <span style="color:#990000">:</span> cities<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
         xpos<span style="color:#990000">.</span><b><span style="color:#000000">push_back</span></b><span style="color:#990000">((</span><b><span style="color:#000000">rand</span></b><span style="color:#990000">()</span> <span style="color:#990000">/</span> <span style="color:#990000">(</span><span style="color:#009900">float</span><span style="color:#990000">)</span> RAND_MAX<span style="color:#990000">)</span> <span style="color:#990000">*</span> xsize<span style="color:#990000">);</span>
         ypos<span style="color:#990000">.</span><b><span style="color:#000000">push_back</span></b><span style="color:#990000">((</span><b><span style="color:#000000">rand</span></b><span style="color:#990000">()</span> <span style="color:#990000">/</span> <span style="color:#990000">(</span><span style="color:#009900">float</span><span style="color:#990000">)</span> RAND_MAX<span style="color:#990000">)</span> <span style="color:#990000">*</span> ysize<span style="color:#990000">);</span>
     <span style="color:#FF0000">}</span>
@@ -145,8 +139,8 @@ MiddleEarth<span style="color:#990000">::~</span><b><span style="color:#000000">
 <i><span style="color:#9A1900">// which can be loaded into Excel or similar</span></i>
 <span style="color:#009900">void</span> MiddleEarth<span style="color:#990000">::</span><b><span style="color:#000000">printTable</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
     cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Table: "</span> <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Location</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">xpos</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">ypos</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">"</span><span style="color:#990000">;</span>
-    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span><b><span style="color:#0000FF">auto</span></b> r <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span> r <span style="color:#990000">&lt;</span> cities<span style="color:#990000">.</span><b><span style="color:#000000">size</span></b><span style="color:#990000">();</span> r<span style="color:#990000">++)</span> <span style="color:#FF0000">{</span>
-        cout <span style="color:#990000">&lt;&lt;</span> cities<span style="color:#990000">[</span>r<span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">"</span><span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span><b><span style="color:#0000FF">auto</span></b> city <span style="color:#990000">:</span> cities<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        cout <span style="color:#990000">&lt;&lt;</span> city <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">"</span><span style="color:#990000">;</span>
     <span style="color:#FF0000">}</span>
     cout <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
 
@@ -184,7 +178,7 @@ MiddleEarth<span style="color:#990000">::~</span><b><span style="color:#000000">
     <i><span style="color:#9A1900">// we need to make a deep copy of the cities vector.  itinerary is a</span></i>
     <i><span style="color:#9A1900">// pointer so that it doesn't get deleted when it goes out of scope.</span></i>
     <span style="color:#008080">vector&lt;string&gt;</span> itinerary<span style="color:#990000">;</span>
-    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span><b><span style="color:#0000FF">auto</span></b> i <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span> i <span style="color:#990000">&lt;</span> cities<span style="color:#990000">.</span><b><span style="color:#000000">size</span></b><span style="color:#990000">();</span> i<span style="color:#990000">++)</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span><b><span style="color:#0000FF">auto</span></b> city <span style="color:#990000">:</span> cities<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
         itinerary<span style="color:#990000">.</span><b><span style="color:#000000">push_back</span></b><span style="color:#990000">(</span>cities<span style="color:#990000">[</span>i<span style="color:#990000">]);</span>
     <span style="color:#FF0000">}</span>
 
