@@ -170,7 +170,7 @@ The `next_permutation()` method will cycle through each and every permutation of
 
 The MiddleEarth class provides a number of methods to help you write your brute-force solution.  The constructor is called by the skeleton code, and uses the parameters read in from the command line.  The `print()` method will print out statistics of the world.
 
-The `printTable()` method will print out a table of the distances between all cities.  Different random seeds will produce different tables, obviously.  This will be useful to help you debug your program.  Redirect it to a file, and then load it up in a spreadsheet program (Excel may not like tab-separated values, but OpenOffice will be fine with it). We used to provide an Excel-ready format of this, but each of the different platforms (Mac OS X, Linux, Windows, as well as 32-bit versus 64-bit) will produce slightly different random worlds.
+The `printTable()` method will print out a table of the distances between all cities.  Different random seeds will produce different tables, obviously.  This will be useful to help you debug your program.  Redirect it to a file, and then load it up in a spreadsheet program.
 
 The `getDistance()` method will return the distance, as a float, between the two provided cities.  In an effort to make your code as efficient as possible, `getDistance()` has the same expected running time as a hash table.  Lastly, `getItinerary()` will return a vector of the cities that you must visit.  The first city provided is the start (and thus end) city -- you should remove this from the vector before you consider all possible cycles through the graph.
 
