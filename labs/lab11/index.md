@@ -17,8 +17,8 @@ Go through the [Doxygen tutorial](../../tutorials/11-doxygen/index.html), which 
 
 ### Recommended Readings ###
 
-1. The [Wikipedia page on Topological sort](http://en.wikipedia.org/wiki/Topological_sort)
-2. The [Wikipedia page on the Traveling Salesperson problem](http://en.wikipedia.org/wiki/Travelling_salesman_problem)
+1. The [Wikipedia page on Topological sort](https://en.wikipedia.org/wiki/Topological_sorting)
+2. The [Wikipedia page on the Traveling Salesperson problem](https://en.wikipedia.org/wiki/Travelling_salesman_problem)
 3. [The slides on graphs](../../slides/11-graphs.html)
 
 Procedure
@@ -61,7 +61,7 @@ There are many doxygen commands, and we expect for you to use more than just tho
 
 Recall from lecture that given a graph *G* = (*V*,*E*), a topological sort of a directed acyclic graph is a linear listing of the vertices such that, for all pairs of vertices *v*,*w* &isin; *V*, *v* is listed before *w* in the topological sort if (*v*,*w*) &isin; *E* (i.e. if there is an edge from *v* to *w* in the graph, then *v* must be listed before *w* in the topological sort).  This implies that if there is a *path* from *v* to *w* (not just an edge), then *v* must still list before *w* in the topological sort.
 
-For the programming part of this lab, you will need to write a program that can perform a topological sort.  This problem is specified in the next section.  The specification is similar to that found in the [International Collegiate Programming Contests](http://acmicpc.org) -- a problem description, followed by a detailed explanation of the input and the output.
+For the programming part of this lab, you will need to write a program that can perform a topological sort.  This problem is specified in the next section.  The specification is similar to that found in the [International Collegiate Programming Contests](https://icpc.baylor.edu/) -- a problem description, followed by a detailed explanation of the input and the output.
 
 How you represent your graph is up to you -- choices include: node-with-pointers, adjacency list, adjacency matrix, and others.  Just keep in mind that you will have to do a topological sort on this graph.  The program must read in a list of directed edges from a file and (internally) generate the graph from it.
 
@@ -134,11 +134,11 @@ In-lab
 
 ### The Traveling Salesperson ###
 
-You are going to implement a program that will find a solution to the [traveling salesperson problem](http://www-e.uni-magdeburg.de/mertens/TSP/TSP.html).  This problem is known to be [NP-complete](http://en.wikipedia.org/wiki/Np-complete), which means that there is no known efficient solution to the problem.  Thus, we will be implementing a rather inefficient solution -- a brute-force method that tries every possible path combination.
+You are going to implement a program that will find a solution to the [traveling salesperson problem](https://www-e.ovgu.de/mertens/TSP/TSP.html).  This problem is known to be [NP-complete](https://en.wikipedia.org/wiki/NP-completeness), which means that there is no known efficient solution to the problem.  Thus, we will be implementing a rather inefficient solution -- a brute-force method that tries every possible path combination.
 
 The traveling salesperson problem is as described in lecture.  In brief, you start from a given city (your "home" city), and have to travel to a number of other cities before returning home.  There is a fixed cost between any two cities (miles traveled, dollars spent, time taken, etc).  The goal of this algorithm is to find the least costly path that travels to each of the cities, in any order.
 
-The world we have chosen is [Middle-Earth](http://en.wikipedia.org/wiki/Middle-earth), the location of J.R.R. Tolkien's Hobbit and Lord of the Rings books and movies.  The middleearth.h and middleearth.cpp files contain a class that will create a random 2-dimensional world.  The "randomness" means that it will pick a given number of cities (or places), and randomly place them in the "world".  You can travel from any city to any other city, for a given cost (the distance).  The city names are all from the books and movies, and can be seen at the beginning of the middleearth.cpp file -- there is a textual description in the code as to what all the places are.  The randomness of the world means that cities that are nowhere near each other in the books/movies might be right next to each other in the random world.
+The world we have chosen is [Middle-Earth](https://en.wikipedia.org/wiki/Middle-earth), the location of J.R.R. Tolkien's Hobbit and Lord of the Rings books and movies.  The middleearth.h and middleearth.cpp files contain a class that will create a random 2-dimensional world.  The "randomness" means that it will pick a given number of cities (or places), and randomly place them in the "world".  You can travel from any city to any other city, for a given cost (the distance).  The city names are all from the books and movies, and can be seen at the beginning of the middleearth.cpp file -- there is a textual description in the code as to what all the places are.  The randomness of the world means that cities that are nowhere near each other in the books/movies might be right next to each other in the random world.
 
 When your program is completed, you will need to specify five command-line parameters to execute the traveling salesperson problem.  The parameters are, in order:
 
@@ -164,7 +164,7 @@ This method takes a vector, and will randomly shuffle it, similar to Java's `Col
 
 The `sort()` method has the same parameters as shuffle, and sorts the list.  It is similar to Java's `Collections.sort()` method.  It returns no value.
 
-The `next_permutation()` method will cycle through each and every permutation of the passed vector.  ***It must start out with a sorted vector***, and will move through each and every possible list ordering until the vector ends up in reverse sorted order.  It takes the same parameters as `random_shuffle()` and `sort()`.  Note that it does not return a new permutation, but instead modifies the vector that is passed in.  It returns `true` if it found another permutation and `false` if there are no more permutations to provide.  Thus, it is often put into a `while` loop.  For an example of using `next_permutation()` in a while loop, see [here](http://www.cplusplus.com/reference/algorithm/next_permutation/).  This is a good way to iterate through each possible combination of cities to travel to.
+The `next_permutation()` method will cycle through each and every permutation of the passed vector.  ***It must start out with a sorted vector***, and will move through each and every possible list ordering until the vector ends up in reverse sorted order.  It takes the same parameters as `random_shuffle()` and `sort()`.  Note that it does not return a new permutation, but instead modifies the vector that is passed in.  It returns `true` if it found another permutation and `false` if there are no more permutations to provide.  Thus, it is often put into a `while` loop.  For an example of using `next_permutation()` in a while loop, see [here](https://en.cppreference.com/w/cpp/algorithm/next_permutation).  This is a good way to iterate through each possible combination of cities to travel to.
 
 ### Middle-Earth methods ###
 
@@ -258,9 +258,9 @@ For this part of the post-lab, we want you to do a time and space complexity ana
 
 ### Acceleration techniques ###
 
-We all know that the solution for the traveling salesperson is inefficient.  So inefficient that a 20 route tour through Middle Earth (i.e. using the command-line parameters `20 20 20 14 20`) would take over 3 hundred thousand years, assuming the computer can check about 200,000 paths per second.  We could run it on a more efficient computer -- this would help, but not much.  If you are trying to compute a [61-route tour](https://www.google.com/search?q=61!), then there are more possibilities than there are [atoms in the known universe](http://www.universetoday.com/36302/atoms-in-the-universe/).  So it's not likely that you will be able to push that many electrons through your computer, even if you could wait the [10<sup>70</sup>](https://www.google.com/search?q=61!%2F(200000*60*60*24*365.25)) years required.  You might be able to lower that somewhat if you used a more efficient computer -- perhaps to 10<sup>69</sup> years.  That's still longer than the expected life of the universe.
+We all know that the solution for the traveling salesperson is inefficient.  So inefficient that a 20 route tour through Middle Earth (i.e. using the command-line parameters `20 20 20 14 20`) would take over 3 hundred thousand years, assuming the computer can check about 200,000 paths per second.  We could run it on a more efficient computer -- this would help, but not much.  If you are trying to compute a [61-route tour](https://www.google.com/search?q=61!), then there are more possibilities than there are [atoms in the known universe](https://www.universetoday.com/36302/atoms-in-the-universe/).  So it's not likely that you will be able to push that many electrons through your computer, even if you could wait the [10<sup>70</sup>](https://www.google.com/search?q=61!%2F(200000*60*60*24*365.25)) years required.  You might be able to lower that somewhat if you used a more efficient computer -- perhaps to 10<sup>69</sup> years.  That's still longer than the expected life of the universe.
 
-It's safe to say that we can all agree that this problem is very inefficient.  Yet the world record for the longest traveling salesperson solution is a whopping 85,900 cities!  See the [here](http://en.wikipedia.org/wiki/Traveling_salesman_problem#Exact_algorithms) for details.
+It's safe to say that we can all agree that this problem is very inefficient.  Yet the world record for the longest traveling salesperson solution is a whopping 85,900 cities!  See the [here](https://en.wikipedia.org/wiki/Travelling_salesman_problem#Exact_algorithms) for details.
 
 Let's do a bit of math.  If we assume that a properly coded solution runs in &Theta;(*n*!) time (yours may be different, by the way, but probably not by much), then this size input set would take 85960! steps.  That's 9.61 * 10<sup>386,526</sup> (yes, there are more than 1/3 of a million digits in this number).  Let's assume we could get a fast program to compute 1 million possible paths per second.  With 60 seconds per minute, 60 minutes per hour, 24 hours per day, and 365.25 days per year, that will take 3.04 * 10<sup>386,516</sup> years (the exponent lowered by 10).  With a number this big, a faster computer will not make much of a difference.
 
