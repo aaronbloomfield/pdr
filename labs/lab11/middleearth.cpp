@@ -62,8 +62,7 @@ MiddleEarth::MiddleEarth(int xsize, int ysize, int num_cities, int seed) {
     this->ysize = ysize;
 
     // set up the random number generator
-    random_device rd;
-    gen.seed(seed == -1 ? rd() : seed);
+    gen.seed(seed == -1 ? random_device{}() : seed);
 
     // count the number of cities in the array
     this->num_city_names = all_city_names.size();

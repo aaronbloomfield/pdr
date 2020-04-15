@@ -73,8 +73,7 @@ MiddleEarth<span style="color:#990000">::</span><b><span style="color:#000000">M
     <b><span style="color:#0000FF">this</span></b><span style="color:#990000">-&gt;</span>ysize <span style="color:#990000">=</span> ysize<span style="color:#990000">;</span>
 
     <i><span style="color:#9A1900">// set up the random number generator</span></i>
-    <span style="color:#008080">random_device</span> rd<span style="color:#990000">;</span>
-    gen<span style="color:#990000">.</span><b><span style="color:#000000">seed</span></b><span style="color:#990000">(</span>seed <span style="color:#990000">==</span> <span style="color:#990000">-</span><span style="color:#993399">1</span> <span style="color:#990000">?</span> <b><span style="color:#000000">rd</span></b><span style="color:#990000">()</span> <span style="color:#990000">:</span> seed<span style="color:#990000">);</span>
+    gen<span style="color:#990000">.</span><b><span style="color:#000000">seed</span></b><span style="color:#990000">(</span>seed <span style="color:#990000">==</span> <span style="color:#990000">-</span><span style="color:#993399">1</span> <span style="color:#990000">?</span> random_device<span style="color:#FF0000">{}</span><span style="color:#990000">()</span> <span style="color:#990000">:</span> seed<span style="color:#990000">);</span>
 
     <i><span style="color:#9A1900">// count the number of cities in the array</span></i>
     <b><span style="color:#0000FF">this</span></b><span style="color:#990000">-&gt;</span>num_city_names <span style="color:#990000">=</span> all_city_names<span style="color:#990000">.</span><b><span style="color:#000000">size</span></b><span style="color:#990000">();</span>
