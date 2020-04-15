@@ -109,7 +109,6 @@ Post-lab: submit <b>ONLY</b> the decoder part of this lab -- so basically, submi
 <li>Read the source file and determine the frequencies of the characters in the file</li>
 <li>Store the character frequencies in a heap (priority queue)</li>
 <li>Build a tree of prefix codes (a Huffman code) that determines the unique bit codes for each character</li>
-<li>Write the prefix codes to the output file, following the file format above</li>
 <li>Re-read the source file and for each character read, write its prefix code to the output, following the file format described below</li>
 </ol>
 <p>Your program must take in a single command-line parameter, which is the name of the file whose contents will be encoded. We have some sample plain text and encoded text files (in the labs/lab10/examples/ directory) -- a description of these files is in the in-lab section.</p>
@@ -173,11 +172,11 @@ The Huffman tree cost: 1.85 bits per character</code></pre>
 <p>For the in-lab, you will implement, in huffmandec.cpp, the Huffman decoding algorithm.</p>
 <p>The basic steps for decompression are:</p>
 <ol type="1">
-<li>Read in the prefix code structure from the compressed file</li>
+<li>Read in the prefix code structure from the encoded file</li>
 <li>Re-create the Huffman tree from the code structure read in from the file</li>
-<li>Read in one bit at a time from the compressed file and move through the prefix code tree until a leaf node is reached</li>
+<li>Read in one bit at a time from the encoded file and move through the prefix code tree until a leaf node is reached</li>
 <li>Output the character stored at the leaf node</li>
-<li>Repeat the last two steps until the encoded file is finished</li>
+<li>Repeat the last two steps until the encoded file has been entirely decoded</li>
 </ol>
 <p>First, make sure that your code can read in encoded files -- you can download the <a href="inlab-skeleton.cpp" class="uri">inlab-skeleton.cpp</a> file, which can properly read in the encoded input files.</p>
 <p>Next, create the Huffman coding tree from the prefix codes you read in from the input file. Not creating a Huffman tree from the file will result in zero credit for the in-lab. The whole point of this part is to create the tree!</p>

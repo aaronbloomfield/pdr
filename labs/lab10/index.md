@@ -103,8 +103,7 @@ The basic steps for compression are:
 1. Read the source file and determine the frequencies of the characters in the file
 2. Store the character frequencies in a heap (priority queue)
 3. Build a tree of prefix codes (a Huffman code) that determines the unique bit codes for each character
-4. Write the prefix codes to the output file, following the file format above
-5. Re-read the source file and for each character read, write its prefix code to the output, following the file format described below
+4. Re-read the source file and for each character read, write its prefix code to the output, following the file format described below
 
 Your program must take in a single command-line parameter, which is the name of the file whose contents will be encoded.  We have some sample plain text and encoded text files (in the labs/lab10/examples/ directory) -- a description of these files is in the in-lab section.
 
@@ -200,11 +199,11 @@ For the in-lab, you will implement, in huffmandec.cpp, the Huffman decoding algo
 
 The basic steps for decompression are:
 
-1. Read in the prefix code structure from the compressed file
+1. Read in the prefix code structure from the encoded file
 2. Re-create the Huffman tree from the code structure read in from the file
-3. Read in one bit at a time from the compressed file and move through the prefix code tree until a leaf node is reached
+3. Read in one bit at a time from the encoded file and move through the prefix code tree until a leaf node is reached
 4. Output the character stored at the leaf node
-5. Repeat the last two steps until the encoded file is finished
+5. Repeat the last two steps until the encoded file has been entirely decoded
 
 First, make sure that your code can read in encoded files -- you can download the [inlab-skeleton.cpp](inlab-skeleton.cpp) file, which can properly read in the encoded input files.
 
