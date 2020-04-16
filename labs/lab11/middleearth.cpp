@@ -5,6 +5,15 @@
 #include <cstdlib>
 #include <cmath>
 
+// New shuffle method that uses the Marsenne Twister engine
+void shuffle (vector<string>::iterator first, vector<string>::iterator last, mt19937& g)
+{
+  for (auto i=(last-first)-1; i>0; --i) {
+    unsigned int n = (g() / (double) g.max())*distance(first,last);
+    swap (first[i], first[n]);
+  }
+}
+
 // The list of all the place names that we'll be using
 const array<string, 40> all_city_names{
     // human towns, cities and strongholds
