@@ -161,6 +161,7 @@ shuffle(cities.begin(), cities.end(), gen);
 ```
 
 This method takes a vector and a random number generator, and will randomly shuffle the vector, similar to Java's `Collections.shuffle()`.  The parameters specify the amount of the vector that we want to shuffle.  Because we want to shuffle the entire vector, we specify the beginning and end of the list.
+We define our own custom `shuffle` implementation rather than using the STL's to provide the same results regardless of what OS you are using.
 
 The `sort()` method takes in vector iterators as well, and sorts the list.  It is similar to Java's `Collections.sort()` method.  It returns no value.
 
@@ -202,8 +203,8 @@ To time your code, enter `time` before the command on the command-line.  For exa
 ```
 student@cassiopeia:~/labs/lab11$ time ./a.out 20 20 20 14 8
 ./a.out 20 20 20 14 8
-Minimum path has distance 53.2757: Gladden Fields -> Dagorlad -> Cirith Ungol -> Pelennor Fields ->
-                                   Mirkwood -> Minas Morgul -> Dale -> Bywater -> Weathertop -> Gladden Fields
+Minimum path has distance 62.9931: Barad-Dur -> Helm's Deep -> Minas Tirith -> The Old Forest -> Dagorlad ->
+                                   Dunharrow -> Rivendell -> Entwash River -> Trollshaws -> Barad-Dur
 
 real    0m0.105s
 user    0m0.076s
@@ -221,16 +222,16 @@ If the random seed (the fourth parameter) is 14, then the path lengths and paths
 
 The results for a random seed of 14, world size of 20x20 with 20 cities, and various path lengths:
 
-1. Minimum path has distance 26.1857: Gladden Fields -> Pelennor Fields -> Gladden Fields
-2. Minimum path has distance 26.4977: Gladden Fields -> Dagorlad -> Pelennor Fields -> Gladden Fields
-3. Minimum path has distance 29.7681: Gladden Fields -> Cirith Ungol -> Pelennor Fields -> Dagorlad -> Gladden Fields
-4. Minimum path has distance 43.7977: Gladden Fields -> Bywater -> Dagorlad -> Pelennor Fields -> Cirith Ungol -> Gladden Fields
-5. Minimum path has distance 48.3503: Gladden Fields -> Cirith Ungol -> Pelennor Fields -> Dagorlad -> Bywater -> Weathertop -> Gladden Fields
-6. Minimum path has distance 52.5048: Gladden Fields -> Dagorlad -> Cirith Ungol -> Pelennor Fields -> Dale -> Bywater -> Weathertop -> Gladden Fields
-7. Minimum path has distance 52.7636: Gladden Fields -> Dagorlad -> Cirith Ungol -> Pelennor Fields -> Mirkwood -> Dale -> Bywater -> Weathertop -> Gladden Fields
-8. Minimum path has distance 53.2757: Gladden Fields -> Dagorlad -> Cirith Ungol -> Pelennor Fields -> Mirkwood -> Minas Morgul -> Dale -> Bywater -> Weathertop -> Gladden Fields
-9. Minimum path has distance 53.3647: Gladden Fields -> Dagorlad -> Cirith Ungol -> Pelennor Fields -> Hobbiton -> Mirkwood -> Minas Morgul -> Dale -> Bywater -> Weathertop -> Gladden Fields
-10. Minimum path has distance 55.9726: Gladden Fields -> Dagorlad -> Cirith Ungol -> Pelennor Fields -> Hobbiton -> Mirkwood -> Minas Morgul -> Dale -> Trollshaws -> Bywater -> Weathertop -> Gladden Fields
+1. Minimum path has distance 19.2463: Barad-Dur -> Trollshaws -> Barad-Dur
+2. Minimum path has distance 47.0356: Barad-Dur -> Dagorlad -> Trollshaws -> Barad-Dur
+3. Minimum path has distance 47.73: Barad-Dur -> Helm's Deep -> Dagorlad -> Trollshaws -> Barad-Dur
+4. Minimum path has distance 61.1471: Barad-Dur -> Helm's Deep -> Dagorlad -> Entwash River -> Trollshaws -> Barad-Dur
+5. Minimum path has distance 61.1496: Barad-Dur -> Helm's Deep -> The Old Forest -> Dagorlad -> Entwash River -> Trollshaws -> Barad-Dur
+6. Minimum path has distance 62.0552: Barad-Dur -> Helm's Deep -> The Old Forest -> Dagorlad -> Dunharrow -> Entwash River -> Trollshaws -> Barad-Dur
+7. Minimum path has distance 62.2792: Barad-Dur -> Helm's Deep -> The Old Forest -> Dagorlad -> Dunharrow -> Rivendell -> Entwash River -> Trollshaws -> Barad-Dur
+8. Minimum path has distance 62.9931: Barad-Dur -> Helm's Deep -> Minas Tirith -> The Old Forest -> Dagorlad -> Dunharrow -> Rivendell -> Entwash River -> Trollshaws -> Barad-Dur
+9. Minimum path has distance 71.335: Barad-Dur -> Helm's Deep -> Emyn Muil -> Dagorlad -> Dunharrow -> Rivendell -> Entwash River -> Trollshaws -> The Old Forest -> Minas Tirith -> Barad-Dur
+10. Minimum path has distance 72.0124: Barad-Dur -> Helm's Deep -> Emyn Muil -> Dagorlad -> Dunharrow -> Misty Mountains -> Rivendell -> Entwash River -> Trollshaws -> The Old Forest -> Minas Tirith -> Barad-Dur
 
 Your cycle may be the same cities but in reverse; this is perfectly acceptable.
 

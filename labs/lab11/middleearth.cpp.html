@@ -16,6 +16,14 @@ http://www.gnu.org/software/src-highlite">
 <b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;cstdlib&gt;</span>
 <b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;cmath&gt;</span>
 
+<i><span style="color:#9A1900">// New shuffle method that uses the Marsenne Twister engine</span></i>
+<span style="color:#009900">void</span> <b><span style="color:#000000">shuffle</span></b> <span style="color:#990000">(</span>vector<span style="color:#990000">&lt;</span>string<span style="color:#990000">&gt;::</span><span style="color:#008080">iterator</span> first<span style="color:#990000">,</span> vector<span style="color:#990000">&lt;</span>string<span style="color:#990000">&gt;::</span><span style="color:#008080">iterator</span> last<span style="color:#990000">,</span> mt19937<span style="color:#990000">&amp;</span> g<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span><b><span style="color:#0000FF">auto</span></b> i<span style="color:#990000">=(</span>last<span style="color:#990000">-</span>first<span style="color:#990000">)-</span><span style="color:#993399">1</span><span style="color:#990000">;</span> i<span style="color:#990000">&gt;</span><span style="color:#993399">0</span><span style="color:#990000">;</span> <span style="color:#990000">--</span>i<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        <span style="color:#009900">unsigned</span> <span style="color:#009900">int</span> n <span style="color:#990000">=</span> <span style="color:#990000">(</span><b><span style="color:#000000">g</span></b><span style="color:#990000">()</span> <span style="color:#990000">/</span> <span style="color:#990000">(</span><span style="color:#009900">double</span><span style="color:#990000">)</span> g<span style="color:#990000">.</span><b><span style="color:#000000">max</span></b><span style="color:#990000">())*</span><b><span style="color:#000000">distance</span></b><span style="color:#990000">(</span>first<span style="color:#990000">,</span>last<span style="color:#990000">);</span>
+        <b><span style="color:#000000">swap</span></b> <span style="color:#990000">(</span>first<span style="color:#990000">[</span>i<span style="color:#990000">],</span> first<span style="color:#990000">[</span>n<span style="color:#990000">]);</span>
+    <span style="color:#FF0000">}</span>
+<span style="color:#FF0000">}</span>
+
 <i><span style="color:#9A1900">// The list of all the place names that we'll be using</span></i>
 <b><span style="color:#0000FF">const</span></b> <span style="color:#008080">array&lt;string, 40&gt;</span> all_city_names<span style="color:#FF0000">{</span>
     <i><span style="color:#9A1900">// human towns, cities and strongholds</span></i>

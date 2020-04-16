@@ -115,7 +115,7 @@ cs1110 cs2102
 <p>There are a number of STL functions that will help you in writing this program. All of these algorithms (and more!) are provided in the <code>&lt;algorithm&gt;</code> header file. This file is already included by traveling-skeleton.cpp.</p>
 <p>First, take a look at the <code>shuffle()</code> method in middleearth.cpp:</p>
 <pre><code>shuffle(cities.begin(), cities.end(), gen);</code></pre>
-<p>This method takes a vector and a random number generator, and will randomly shuffle the vector, similar to Java's <code>Collections.shuffle()</code>. The parameters specify the amount of the vector that we want to shuffle. Because we want to shuffle the entire vector, we specify the beginning and end of the list.</p>
+<p>This method takes a vector and a random number generator, and will randomly shuffle the vector, similar to Java's <code>Collections.shuffle()</code>. The parameters specify the amount of the vector that we want to shuffle. Because we want to shuffle the entire vector, we specify the beginning and end of the list. We define our own custom <code>shuffle</code> implementation rather than using the STL's to provide the same results regardless of what OS you are using.</p>
 <p>The <code>sort()</code> method takes in vector iterators as well, and sorts the list. It is similar to Java's <code>Collections.sort()</code> method. It returns no value.</p>
 <p>The <code>next_permutation()</code> method will cycle through each and every permutation of the passed vector. <strong><em>It must start out with a sorted vector</em></strong>, and will move through each and every possible list ordering until the vector ends up in reverse sorted order. It takes the same parameters as <code>sort()</code>. Note that it does not return a new permutation, but instead modifies the vector that is passed in. It returns <code>true</code> if it found another permutation and <code>false</code> if there are no more permutations to provide. Thus, it is often put into a do-while loop. For an example of using <code>next_permutation()</code> in a while loop, see <a href="https://en.cppreference.com/w/cpp/algorithm/next_permutation">here</a>. This is a good way to iterate through each possible combination of cities to travel to.</p>
 <h3 id="middle-earth-methods">Middle-Earth methods</h3>
@@ -140,8 +140,8 @@ cs1110 cs2102
 <p>To time your code, enter <code>time</code> before the command on the command-line. For example:</p>
 <pre><code>student@cassiopeia:~/labs/lab11$ time ./a.out 20 20 20 14 8
 ./a.out 20 20 20 14 8
-Minimum path has distance 53.2757: Gladden Fields -&gt; Dagorlad -&gt; Cirith Ungol -&gt; Pelennor Fields -&gt;
-                                   Mirkwood -&gt; Minas Morgul -&gt; Dale -&gt; Bywater -&gt; Weathertop -&gt; Gladden Fields
+Minimum path has distance 62.9931: Barad-Dur -&gt; Helm&#39;s Deep -&gt; Minas Tirith -&gt; The Old Forest -&gt; Dagorlad -&gt;
+                                   Dunharrow -&gt; Rivendell -&gt; Entwash River -&gt; Trollshaws -&gt; Barad-Dur
 
 real    0m0.105s
 user    0m0.076s
@@ -153,16 +153,16 @@ student@cassiopeia:~/labs/lab11$ </code></pre>
 <p>If the random seed (the fourth parameter) is 14, then the path lengths and paths for the various itinerary lengths are listed below. Because we are explicitly setting the random seed, it should produce the exact same results each time -- and thus your code should also produce the same results.</p>
 <p>The results for a random seed of 14, world size of 20x20 with 20 cities, and various path lengths:</p>
 <ol type="1">
-<li>Minimum path has distance 26.1857: Gladden Fields -&gt; Pelennor Fields -&gt; Gladden Fields</li>
-<li>Minimum path has distance 26.4977: Gladden Fields -&gt; Dagorlad -&gt; Pelennor Fields -&gt; Gladden Fields</li>
-<li>Minimum path has distance 29.7681: Gladden Fields -&gt; Cirith Ungol -&gt; Pelennor Fields -&gt; Dagorlad -&gt; Gladden Fields</li>
-<li>Minimum path has distance 43.7977: Gladden Fields -&gt; Bywater -&gt; Dagorlad -&gt; Pelennor Fields -&gt; Cirith Ungol -&gt; Gladden Fields</li>
-<li>Minimum path has distance 48.3503: Gladden Fields -&gt; Cirith Ungol -&gt; Pelennor Fields -&gt; Dagorlad -&gt; Bywater -&gt; Weathertop -&gt; Gladden Fields</li>
-<li>Minimum path has distance 52.5048: Gladden Fields -&gt; Dagorlad -&gt; Cirith Ungol -&gt; Pelennor Fields -&gt; Dale -&gt; Bywater -&gt; Weathertop -&gt; Gladden Fields</li>
-<li>Minimum path has distance 52.7636: Gladden Fields -&gt; Dagorlad -&gt; Cirith Ungol -&gt; Pelennor Fields -&gt; Mirkwood -&gt; Dale -&gt; Bywater -&gt; Weathertop -&gt; Gladden Fields</li>
-<li>Minimum path has distance 53.2757: Gladden Fields -&gt; Dagorlad -&gt; Cirith Ungol -&gt; Pelennor Fields -&gt; Mirkwood -&gt; Minas Morgul -&gt; Dale -&gt; Bywater -&gt; Weathertop -&gt; Gladden Fields</li>
-<li>Minimum path has distance 53.3647: Gladden Fields -&gt; Dagorlad -&gt; Cirith Ungol -&gt; Pelennor Fields -&gt; Hobbiton -&gt; Mirkwood -&gt; Minas Morgul -&gt; Dale -&gt; Bywater -&gt; Weathertop -&gt; Gladden Fields</li>
-<li>Minimum path has distance 55.9726: Gladden Fields -&gt; Dagorlad -&gt; Cirith Ungol -&gt; Pelennor Fields -&gt; Hobbiton -&gt; Mirkwood -&gt; Minas Morgul -&gt; Dale -&gt; Trollshaws -&gt; Bywater -&gt; Weathertop -&gt; Gladden Fields</li>
+<li>Minimum path has distance 19.2463: Barad-Dur -&gt; Trollshaws -&gt; Barad-Dur</li>
+<li>Minimum path has distance 47.0356: Barad-Dur -&gt; Dagorlad -&gt; Trollshaws -&gt; Barad-Dur</li>
+<li>Minimum path has distance 47.73: Barad-Dur -&gt; Helm's Deep -&gt; Dagorlad -&gt; Trollshaws -&gt; Barad-Dur</li>
+<li>Minimum path has distance 61.1471: Barad-Dur -&gt; Helm's Deep -&gt; Dagorlad -&gt; Entwash River -&gt; Trollshaws -&gt; Barad-Dur</li>
+<li>Minimum path has distance 61.1496: Barad-Dur -&gt; Helm's Deep -&gt; The Old Forest -&gt; Dagorlad -&gt; Entwash River -&gt; Trollshaws -&gt; Barad-Dur</li>
+<li>Minimum path has distance 62.0552: Barad-Dur -&gt; Helm's Deep -&gt; The Old Forest -&gt; Dagorlad -&gt; Dunharrow -&gt; Entwash River -&gt; Trollshaws -&gt; Barad-Dur</li>
+<li>Minimum path has distance 62.2792: Barad-Dur -&gt; Helm's Deep -&gt; The Old Forest -&gt; Dagorlad -&gt; Dunharrow -&gt; Rivendell -&gt; Entwash River -&gt; Trollshaws -&gt; Barad-Dur</li>
+<li>Minimum path has distance 62.9931: Barad-Dur -&gt; Helm's Deep -&gt; Minas Tirith -&gt; The Old Forest -&gt; Dagorlad -&gt; Dunharrow -&gt; Rivendell -&gt; Entwash River -&gt; Trollshaws -&gt; Barad-Dur</li>
+<li>Minimum path has distance 71.335: Barad-Dur -&gt; Helm's Deep -&gt; Emyn Muil -&gt; Dagorlad -&gt; Dunharrow -&gt; Rivendell -&gt; Entwash River -&gt; Trollshaws -&gt; The Old Forest -&gt; Minas Tirith -&gt; Barad-Dur</li>
+<li>Minimum path has distance 72.0124: Barad-Dur -&gt; Helm's Deep -&gt; Emyn Muil -&gt; Dagorlad -&gt; Dunharrow -&gt; Misty Mountains -&gt; Rivendell -&gt; Entwash River -&gt; Trollshaws -&gt; The Old Forest -&gt; Minas Tirith -&gt; Barad-Dur</li>
 </ol>
 <p>Your cycle may be the same cities but in reverse; this is perfectly acceptable.</p>
 <p>Your final program needs to both be able to compile and run with the specified command-line parameters.</p>
