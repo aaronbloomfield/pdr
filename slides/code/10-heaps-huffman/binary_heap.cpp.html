@@ -27,8 +27,9 @@ binary_heap<span style="color:#990000">::</span><b><span style="color:#000000">b
     heap <span style="color:#990000">=</span> vec<span style="color:#990000">;</span>
     heap<span style="color:#990000">.</span><b><span style="color:#000000">push_back</span></b><span style="color:#990000">(</span>heap<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]);</span>
     heap<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
-    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span> <span style="color:#009900">int</span> i <span style="color:#990000">=</span> heap_size<span style="color:#990000">/</span><span style="color:#993399">2</span><span style="color:#990000">;</span> i <span style="color:#990000">&gt;</span> <span style="color:#993399">0</span><span style="color:#990000">;</span> i<span style="color:#990000">--</span> <span style="color:#990000">)</span>
+    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span><span style="color:#009900">int</span> i <span style="color:#990000">=</span> heap_size<span style="color:#990000">/</span><span style="color:#993399">2</span><span style="color:#990000">;</span> i <span style="color:#990000">&gt;</span> <span style="color:#993399">0</span><span style="color:#990000">;</span> i<span style="color:#990000">--)</span> <span style="color:#FF0000">{</span>
         <b><span style="color:#000000">percolateDown</span></b><span style="color:#990000">(</span>i<span style="color:#990000">);</span>
+    <span style="color:#FF0000">}</span>
 <span style="color:#FF0000">}</span>
 
 <i><span style="color:#9A1900">// the destructor doesn't need to do much</span></i>
@@ -47,16 +48,19 @@ binary_heap<span style="color:#990000">::~</span><b><span style="color:#000000">
     <span style="color:#009900">int</span> x <span style="color:#990000">=</span> heap<span style="color:#990000">[</span>hole<span style="color:#990000">];</span>
     <i><span style="color:#9A1900">// while we haven't run off the top and while the</span></i>
     <i><span style="color:#9A1900">// value is less than the parent...</span></i>
-    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span> <span style="color:#990000">;</span> <span style="color:#990000">(</span>hole <span style="color:#990000">&gt;</span> <span style="color:#993399">1</span><span style="color:#990000">)</span> <span style="color:#990000">&amp;&amp;</span> <span style="color:#990000">(</span>x <span style="color:#990000">&lt;</span> heap<span style="color:#990000">[</span>hole<span style="color:#990000">/</span><span style="color:#993399">2</span><span style="color:#990000">]);</span> hole <span style="color:#990000">/=</span> <span style="color:#993399">2</span> <span style="color:#990000">)</span>
+    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span> <span style="color:#990000">;</span> <span style="color:#990000">(</span>hole <span style="color:#990000">&gt;</span> <span style="color:#993399">1</span><span style="color:#990000">)</span> <span style="color:#990000">&amp;&amp;</span> <span style="color:#990000">(</span>x <span style="color:#990000">&lt;</span> heap<span style="color:#990000">[</span>hole<span style="color:#990000">/</span><span style="color:#993399">2</span><span style="color:#990000">]);</span> hole <span style="color:#990000">/=</span> <span style="color:#993399">2</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
         heap<span style="color:#990000">[</span>hole<span style="color:#990000">]</span> <span style="color:#990000">=</span> heap<span style="color:#990000">[</span>hole<span style="color:#990000">/</span><span style="color:#993399">2</span><span style="color:#990000">];</span> <i><span style="color:#9A1900">// move the parent down</span></i>
+    <span style="color:#FF0000">}</span>
     <i><span style="color:#9A1900">// correct position found!  insert at that spot</span></i>
     heap<span style="color:#990000">[</span>hole<span style="color:#990000">]</span> <span style="color:#990000">=</span> x<span style="color:#990000">;</span>
 <span style="color:#FF0000">}</span>
 
 <span style="color:#009900">int</span> binary_heap<span style="color:#990000">::</span><b><span style="color:#000000">deleteMin</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
     <i><span style="color:#9A1900">// make sure the heap is not empty</span></i>
-    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> heap_size <span style="color:#990000">==</span> <span style="color:#993399">0</span> <span style="color:#990000">)</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>heap_size <span style="color:#990000">==</span> <span style="color:#993399">0</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
         <b><span style="color:#0000FF">throw</span></b> <span style="color:#FF0000">"deleteMin() called on empty heap"</span><span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
+
     <i><span style="color:#9A1900">// save the value to be returned</span></i>
     <span style="color:#009900">int</span> ret <span style="color:#990000">=</span> heap<span style="color:#990000">[</span><span style="color:#993399">1</span><span style="color:#990000">];</span>
     <i><span style="color:#9A1900">// move the last inserted position into the root</span></i>
@@ -73,25 +77,28 @@ binary_heap<span style="color:#990000">::~</span><b><span style="color:#000000">
     <i><span style="color:#9A1900">// get the value to percolate down</span></i>
     <span style="color:#009900">int</span> x <span style="color:#990000">=</span> heap<span style="color:#990000">[</span>hole<span style="color:#990000">];</span>
     <i><span style="color:#9A1900">// while there is a left child...</span></i>
-    <b><span style="color:#0000FF">while</span></b> <span style="color:#990000">(</span> hole<span style="color:#990000">*</span><span style="color:#993399">2</span> <span style="color:#990000">&lt;=</span> heap_size <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">while</span></b> <span style="color:#990000">(</span>hole<span style="color:#990000">*</span><span style="color:#993399">2</span> <span style="color:#990000">&lt;=</span> heap_size<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
         <span style="color:#009900">int</span> child <span style="color:#990000">=</span> hole<span style="color:#990000">*</span><span style="color:#993399">2</span><span style="color:#990000">;</span> <i><span style="color:#9A1900">// the left child</span></i>
         <i><span style="color:#9A1900">// is there a right child?  if so, is it lesser?</span></i>
-        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> <span style="color:#990000">(</span>child<span style="color:#990000">+</span><span style="color:#993399">1</span> <span style="color:#990000">&lt;=</span> heap_size<span style="color:#990000">)</span> <span style="color:#990000">&amp;&amp;</span> <span style="color:#990000">(</span>heap<span style="color:#990000">[</span>child<span style="color:#990000">+</span><span style="color:#993399">1</span><span style="color:#990000">]</span> <span style="color:#990000">&lt;</span> heap<span style="color:#990000">[</span>child<span style="color:#990000">])</span> <span style="color:#990000">)</span>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">((</span>child<span style="color:#990000">+</span><span style="color:#993399">1</span> <span style="color:#990000">&lt;=</span> heap_size<span style="color:#990000">)</span> <span style="color:#990000">&amp;&amp;</span> <span style="color:#990000">(</span>heap<span style="color:#990000">[</span>child<span style="color:#990000">+</span><span style="color:#993399">1</span><span style="color:#990000">]</span> <span style="color:#990000">&lt;</span> heap<span style="color:#990000">[</span>child<span style="color:#990000">]))</span> <span style="color:#FF0000">{</span>
             child<span style="color:#990000">++;</span>
+        <span style="color:#FF0000">}</span>
         <i><span style="color:#9A1900">// if the child is greater than the node...</span></i>
-        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> x <span style="color:#990000">&gt;</span> heap<span style="color:#990000">[</span>child<span style="color:#990000">]</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>x <span style="color:#990000">&gt;</span> heap<span style="color:#990000">[</span>child<span style="color:#990000">])</span> <span style="color:#FF0000">{</span>
             heap<span style="color:#990000">[</span>hole<span style="color:#990000">]</span> <span style="color:#990000">=</span> heap<span style="color:#990000">[</span>child<span style="color:#990000">];</span> <i><span style="color:#9A1900">// move child up</span></i>
             hole <span style="color:#990000">=</span> child<span style="color:#990000">;</span>             <i><span style="color:#9A1900">// move hole down</span></i>
-        <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b>
+        <span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <span style="color:#FF0000">{</span>
             <b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+        <span style="color:#FF0000">}</span>
     <span style="color:#FF0000">}</span>
     <i><span style="color:#9A1900">// correct position found!  insert at that spot</span></i>
     heap<span style="color:#990000">[</span>hole<span style="color:#990000">]</span> <span style="color:#990000">=</span> x<span style="color:#990000">;</span>
 <span style="color:#FF0000">}</span>
 
 <span style="color:#009900">int</span> binary_heap<span style="color:#990000">::</span><b><span style="color:#000000">findMin</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
-    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> heap_size <span style="color:#990000">==</span> <span style="color:#993399">0</span> <span style="color:#990000">)</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>heap_size <span style="color:#990000">==</span> <span style="color:#993399">0</span><span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
         <b><span style="color:#0000FF">throw</span></b> <span style="color:#FF0000">"findMin() called on empty heap"</span><span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
     <b><span style="color:#0000FF">return</span></b> heap<span style="color:#990000">[</span><span style="color:#993399">1</span><span style="color:#990000">];</span>
 <span style="color:#FF0000">}</span>
 
@@ -110,12 +117,13 @@ binary_heap<span style="color:#990000">::~</span><b><span style="color:#000000">
 
 <span style="color:#009900">void</span> binary_heap<span style="color:#990000">::</span><b><span style="color:#000000">print</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
     cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"("</span> <span style="color:#990000">&lt;&lt;</span> heap<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">") "</span><span style="color:#990000">;</span>
-    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span> <span style="color:#009900">int</span> i <span style="color:#990000">=</span> <span style="color:#993399">1</span><span style="color:#990000">;</span> i <span style="color:#990000">&lt;=</span> heap_size<span style="color:#990000">;</span> i<span style="color:#990000">++</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span><span style="color:#009900">int</span> i <span style="color:#990000">=</span> <span style="color:#993399">1</span><span style="color:#990000">;</span> i <span style="color:#990000">&lt;=</span> heap_size<span style="color:#990000">;</span> i<span style="color:#990000">++)</span> <span style="color:#FF0000">{</span>
         cout <span style="color:#990000">&lt;&lt;</span> heap<span style="color:#990000">[</span>i<span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">" "</span><span style="color:#990000">;</span>
         <i><span style="color:#9A1900">// next line from http://tinyurl.com/mf9tbgm</span></i>
         <span style="color:#009900">bool</span> isPow2 <span style="color:#990000">=</span> <span style="color:#990000">(((</span>i<span style="color:#990000">+</span><span style="color:#993399">1</span><span style="color:#990000">)</span> <span style="color:#990000">&amp;</span> <span style="color:#990000">~(</span>i<span style="color:#990000">))==(</span>i<span style="color:#990000">+</span><span style="color:#993399">1</span><span style="color:#990000">))?</span> i<span style="color:#990000">+</span><span style="color:#993399">1</span> <span style="color:#990000">:</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
-        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> isPow2 <span style="color:#990000">)</span>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>isPow2<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
             cout <span style="color:#990000">&lt;&lt;</span> endl <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">"</span><span style="color:#990000">;</span>
+        <span style="color:#FF0000">}</span>
     <span style="color:#FF0000">}</span>
     cout <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
 <span style="color:#FF0000">}</span>
