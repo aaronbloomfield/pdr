@@ -57,7 +57,9 @@ int binary_heap::deleteMin() {
     // make sure the vector knows that there is one less element
     heap.pop_back();
     // percolate the root down to the proper position
-    percolateDown(1);
+    if (!isEmpty()) {
+        percolateDown(1);
+    }
     // return the old root node
     return ret;
 }

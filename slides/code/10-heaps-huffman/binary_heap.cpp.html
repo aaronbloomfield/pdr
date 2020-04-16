@@ -68,7 +68,9 @@ binary_heap<span style="color:#990000">::~</span><b><span style="color:#000000">
     <i><span style="color:#9A1900">// make sure the vector knows that there is one less element</span></i>
     heap<span style="color:#990000">.</span><b><span style="color:#000000">pop_back</span></b><span style="color:#990000">();</span>
     <i><span style="color:#9A1900">// percolate the root down to the proper position</span></i>
-    <b><span style="color:#000000">percolateDown</span></b><span style="color:#990000">(</span><span style="color:#993399">1</span><span style="color:#990000">);</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(!</span><b><span style="color:#000000">isEmpty</span></b><span style="color:#990000">())</span> <span style="color:#FF0000">{</span>
+        <b><span style="color:#000000">percolateDown</span></b><span style="color:#990000">(</span><span style="color:#993399">1</span><span style="color:#990000">);</span>
+    <span style="color:#FF0000">}</span>
     <i><span style="color:#9A1900">// return the old root node</span></i>
     <b><span style="color:#0000FF">return</span></b> ret<span style="color:#990000">;</span>
 <span style="color:#FF0000">}</span>
