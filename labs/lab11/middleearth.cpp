@@ -1,12 +1,20 @@
 #include "middleearth.h"
 
 #include <algorithm>
-#include <stdlib.h>
-#include <math.h>
-#include <time.h>
+#include <array>
+#include <cstdlib>
+#include <cmath>
+
+// New shuffle method that uses the Marsenne Twister engine
+void shuffle (vector<string>::iterator first, vector<string>::iterator last, mt19937& g) {
+    for (auto i=(last-first)-1; i>0; --i) {
+        unsigned int n = (g() / (double) g.max())*distance(first,last);
+        swap (first[i], first[n]);
+    }
+}
 
 // The list of all the place names that we'll be using
-string all_city_names[] = {
+const array<string, 40> all_city_names{
     // human towns, cities and strongholds
     "Bree",             // a human and hobbit town between the Shire and Rivendell
     "Isengard",         // the tower fortress where Saruman resided; Gandalf was imprisoned there.
@@ -54,107 +62,109 @@ string all_city_names[] = {
     "Erebor",           // the Elvish name for the Lonely Mountain, where the dwarves had their fortress
     "Beorn's House",    // Beorn is the shape-shifter who shelters the dwarf party
     "Dol Guldur",       // fortress in Mirkwood where Sauron, as the Necromancer, hid during most of the Hobbit
-    // END marker
-    "END"
 };
 
 // Iluvatar, the creator of Middle-Earth
-MiddleEarth::MiddleEarth (int xsize, int ysize, int num_cities, int seed) {
-    // set up the random number seed
-    srand( (seed==-1) ? time(NULL) : seed );
-    // count the number of cities in the array
-    for ( num_city_names = 0; all_city_names[num_city_names] != "END";
-            num_city_names++ );
-    if ( num_cities > num_city_names ) {
-        cout << "There are only " << num_city_names << " city names, so "
-             << num_cities << " cities cannot be created.\nExiting." << endl;
-        exit(0);
-    }
-    if ( num_cities < 5 )
-        num_cities = 5;
-    // select the num_cities names of the cities that we'll be using
-    for ( int i = 0; all_city_names[i] != "END"; i++ )
-        cities.push_back(string(all_city_names[i]));
-    random_shuffle(cities.begin(), cities.end());
-    cities.erase(cities.begin()+num_cities,cities.end());
-    // compute random city positions
-    for ( unsigned int i = 0; i < cities.size(); i++ ) {
-        xpos.push_back((rand()/((float)RAND_MAX)) * xsize);
-        ypos.push_back((rand()/((float)RAND_MAX)) * ysize);
-    }
-    // compute the 2-d distance array
+MiddleEarth::MiddleEarth(int xsize, int ysize, int num_cities, int seed) {
     this->xsize = xsize;
     this->ysize = ysize;
-    // we assume that num_cities < xsize*ysize
-    distances = new float[num_cities*num_cities]; // row-major order
-    for ( int r = 0; r < num_cities; r++ )
-        for ( int c = 0; c < num_cities; c++ ) {
-            distances[r*num_cities+c] = sqrt((xpos[c]-xpos[r])*(xpos[c]-xpos[r]) +
-                                             (ypos[c]-ypos[r])*(ypos[c]-ypos[r]));
+
+    // set up the random number generator
+    gen.seed(seed == -1 ? random_device{}() : seed);
+
+    // count the number of cities in the array
+    this->num_city_names = all_city_names.size();
+
+    if (num_cities > num_city_names) {
+        cout << "There are only " << num_city_names << " city names, so "
+             << num_cities << " cities cannot be created." << endl;
+        cout << "Exiting." << endl;
+        exit(0);
+    }
+
+    if (num_cities < 5) {
+        num_cities = 5;
+    }
+
+    // copy all the cities into a mutable vector
+    this->cities = vector<string>(all_city_names.begin(), all_city_names.end());
+
+    shuffle(cities.begin(), cities.end(), gen); // shuffle all the cities
+    cities.erase(cities.begin() + num_cities, cities.end()); // then remove the ones we won't be using
+
+    // compute random city positions
+    for (auto city : cities) {
+        xpos.emplace(city, (gen() / (double) gen.max()) * xsize);
+        ypos.emplace(city, (gen() / (double) gen.max()) * ysize);
+    }
+
+    // compute the 2-d distance array
+    // we assume that num_cities < xsize * ysize
+    for (auto city1 : cities) {
+        for (auto city2 : cities) {
+            distances[city1].emplace(city2, sqrt((xpos[city2] - xpos[city1]) * (xpos[city2] - xpos[city1]) +
+                                                 (ypos[city2] - ypos[city1]) * (ypos[city2] - ypos[city1])));
         }
-    // create hash of indices so we don't have to do a linear search
-    // each time we want to find a city name to index mapping
-    for ( unsigned int i = 0; i < cities.size(); i++ )
-        indices[cities[i]] = i;
+    }
 }
 
-// Sauron, the destructor of Middle-Earth.
-MiddleEarth::~MiddleEarth () {
-    delete[] distances;
-}
-
-// The Mouth of Sauron!  (prints out info on the created 'world')
+// The Mouth of Sauron!
+// Prints out info on the created 'world'
 void MiddleEarth::print() {
     cout << "there are " << num_city_names
          << " locations to choose from; we are using " << cities.size() << endl;
     cout << "they are: " << endl;
-    for ( unsigned int i = 0; i < cities.size(); i++ )
-        cout << "\t" << cities[i] << " @ (" << xpos[i] << ", " << ypos[i]
+    for (auto city : cities) {
+        cout << "\t" << city << " @ (" << xpos[city] << ", " << ypos[city]
              << ")" << endl;
+    }
 }
 
-// prints a tab-separated table of the distances (this can be loaded
-// into Excel or similar)
+// Prints a tab-separated table of the distances,
+// which can be loaded into Excel or similar
 void MiddleEarth::printTable() {
     cout << "Table: " << endl << endl << "Location\txpos\typos\t";
-    for ( unsigned int r = 0; r < cities.size(); r++ )
-        cout << cities[r] << "\t";
+    for (auto city : cities) {
+        cout << city << "\t";
+    }
     cout << endl;
-    for ( unsigned int r = 0; r < cities.size(); r++ ) {
-        cout << cities[r] << "\t" << xpos[r] << "\t" << ypos[r] << "\t";
-        for ( unsigned int c = 0; c < cities.size(); c++ )
-            cout << distances[r*cities.size()+c] << "\t";
+
+    for (auto city1 : cities) {
+        cout << city1 << "\t" << xpos[city1] << "\t" << ypos[city1] << "\t";
+        for (auto city2 : cities) {
+            cout << distances[city1][city2] << "\t";
+        }
         cout << endl;
     }
 }
 
-// This method returns the distance between the two passed cities.  If
-// we assume that the hash table (i.e. the map) is O(1), then this
-// method call is also O(1)
-float MiddleEarth::getDistance (string city1, string city2) {
-    return distances[indices[city1]*cities.size()+indices[city2]];
+// This method returns the distance between the two passed cities.
+// If we assume that the hash table (i.e. the map) is O(1),
+// then this method call is also O(1)
+float MiddleEarth::getDistance(const string& city1, const string& city2) {
+    return distances[city1][city2];
 }
 
-// Returns the list of cities to travel to.  The first city is the
-// original start point as well as the end point.  The number of
-// cities passed in does not include this start/end point (so there
-// will be length+1 entries in the returned vector).
-vector<string> MiddleEarth::getItinerary (unsigned int length) {
-    length++; // to account for the start point
+// Returns the list of cities to travel to.
+// The first city is the original start point as well as the end point.
+// The number of cities passed in does not include this start/end point
+// (so there will be length+1 entries in the returned vector).
+vector<string> MiddleEarth::getItinerary(unsigned int length) {
     // check parameter
-    if ( length > cities.size() ) {
-        cout << "You have requested an itinerary of " << length-1
+    if (length >= cities.size()) {
+        cout << "You have requested an itinerary of " << length
              << " cities; you cannot ask for an itinerary of more than length "
-             << cities.size()-1 << endl;
+             << cities.size() - 1 << endl;
         exit(0);
     }
-    // we need to make a deep copy of the cities vector.  itinerary is a
-    // pointer so that it doesn't get deleted when it goes out of scope.
-    vector<string> itinerary;
-    for ( unsigned int i = 0; i < cities.size(); i++ )
-        itinerary.push_back(cities[i]);
+
+    length++; // to account for the start point
+
+    // we need to make a deep copy of the cities vector
+    vector<string> itinerary(cities.begin(), cities.end());
+
     // shuffle, erase unneeded ones, and return the itinerary
-    random_shuffle(itinerary.begin(), itinerary.end());
-    itinerary.erase(itinerary.begin()+length,itinerary.end());
+    shuffle(itinerary.begin(), itinerary.end(), gen);
+    itinerary.erase(itinerary.begin() + length, itinerary.end());
     return itinerary;
 }
