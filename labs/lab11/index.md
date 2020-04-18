@@ -65,7 +65,9 @@ Pre-lab
 
 ### Good code documentation ###
 
-For this lab, any code you submit must be properly documented using doxygen.
+For this lab, any code you submit must be properly documented using doxygen.\
+This includes the [middleearth.h](middleearth.h.html) ([src](middleearth.h)) and [middleearth.cpp](middleearth.cpp.html) ([src](middleearth.cpp)) files, which you should understand and document as part of the pre-lab.
+
 There are many doxygen commands, and we expect for you to use more than just those that were provided in the tutorial.
 
 ### Topological sort ###
