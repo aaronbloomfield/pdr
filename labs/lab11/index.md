@@ -12,7 +12,7 @@ To become familiar with representing directed acyclic graphs (DAGs), topological
 <p style="color:red">Due to this course being <a href="../../uva/online.html">taught online</a> (<a href="../../uva/online.md">md</a>) in the spring of 2020, we are making the following changes for this semester, in an effort to make the workload more manageable since we are all working from home.</p>
 
 <ul style="color:red">
-<li>Pre-lab: no change to the pre-lab; it's still the topological sort.  However, since there is no in-lab this week, and because the pre-labs are due Wednesday mornings, you can continue to work on the encoder during labs on Tuesday.</li>
+<li>Pre-lab: no change to the pre-lab; it's still the topological sort.  However, since there is no in-lab this week, and because the pre-labs are due Wednesday mornings, you can continue to work on the topological sort during labs on Tuesday.</li>
 <li>In-lab: nothing to submit. However, the in-lab work (i.e., the traveling salesperson) is to be submitted for the post-lab.  Thus, there is nothing to submit for the in-lab and it will not be graded this semester.</li>
 <li>Post-lab: the traveling salesperson, as described in the in-lab section, is to be done for the post-lab.</li>
 </ul>
