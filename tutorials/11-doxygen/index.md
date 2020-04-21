@@ -37,7 +37,6 @@ Save the above code as a file called [average.cpp](average.cpp.html) ([src](aver
 
 We need to tell doxygen what files to process, and a large number of other options.  These are all kept in a file called `Doxyfile`.  To generate that file, run `doxygen -g` in the same directory as the files you want to document (the `-g` means "generate").  This will create a Doxyfile with the default options.  We will need to edit it to set a few things.  The line numbers provided are for version 1.8.6 of Doxygen; if you are using a different version, then your line numbers may vary.
 
-- The `FILE_PATTERNS` option (line 766): put `*.cpp, *.h` to document all files that end in .cpp or .h.
 - The `GENERATE_LATEX` option (line 1,543): change `YES` to `NO`.  We want HTML output (which is already set to yes), but we don't want LaTeX output.
 - The `EXTRACT_ALL` option (line 401): set to `YES`.  This will cause Doxygen to create documentation for *all* the members in our file, including our `average()` function.
 - The `OUTPUT_DIRECTORY` option (line 61): set to `doc/`.  This will cause all the created files to be in the doc/ sub-directory, and this is *necessary* for us to find your files.

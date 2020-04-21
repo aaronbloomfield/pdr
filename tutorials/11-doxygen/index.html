@@ -38,7 +38,6 @@ double average(double x, double y) {
 <h3 id="creating-a-doxyfile">Creating a Doxyfile</h3>
 <p>We need to tell doxygen what files to process, and a large number of other options. These are all kept in a file called <code>Doxyfile</code>. To generate that file, run <code>doxygen -g</code> in the same directory as the files you want to document (the <code>-g</code> means &quot;generate&quot;). This will create a Doxyfile with the default options. We will need to edit it to set a few things. The line numbers provided are for version 1.8.6 of Doxygen; if you are using a different version, then your line numbers may vary.</p>
 <ul>
-<li>The <code>FILE_PATTERNS</code> option (line 766): put <code>*.cpp, *.h</code> to document all files that end in .cpp or .h.</li>
 <li>The <code>GENERATE_LATEX</code> option (line 1,543): change <code>YES</code> to <code>NO</code>. We want HTML output (which is already set to yes), but we don't want LaTeX output.</li>
 <li>The <code>EXTRACT_ALL</code> option (line 401): set to <code>YES</code>. This will cause Doxygen to create documentation for <em>all</em> the members in our file, including our <code>average()</code> function.</li>
 <li>The <code>OUTPUT_DIRECTORY</code> option (line 61): set to <code>doc/</code>. This will cause all the created files to be in the doc/ sub-directory, and this is <em>necessary</em> for us to find your files.</li>
