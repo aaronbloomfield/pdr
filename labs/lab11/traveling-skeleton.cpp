@@ -6,7 +6,7 @@ using namespace std;
 
 #include "middleearth.h"
 
-float computeDistance(const MiddleEarth& me, const string& start, vector<string> dests);
+float computeDistance(MiddleEarth me, const string& start, vector<string> dests);
 void printRoute(const string& start, const vector<string>& dests);
 
 int main(int argc, char** argv) {
@@ -35,7 +35,7 @@ int main(int argc, char** argv) {
 // This method will compute the full distance of the cycle that starts
 // at the 'start' parameter, goes to each of the cities in the dests
 // vector IN ORDER, and ends back at the 'start' parameter.
-float computeDistance(const MiddleEarth& me, const string& start, vector<string> dests) {
+float computeDistance(MiddleEarth me, const string& start, vector<string> dests) {
     // TODO: YOUR CODE HERE
     return 0;
 }
