@@ -116,7 +116,7 @@ The links in the right-most column link directly to the lecture recording on Col
 |37| Apr 20 | Monday | [Lab 11: Graphs][11] ([md][31]) | [11: Graphs][91], [12: Memory][92] | finished graphs; memory to slide 4.9 | 
 |38| Apr 22 | Wednesday | | [12: Memory][92] | finished memory | 
 |39| Apr 24 | Friday | | (no recorded lecture) | (no recorded lecture) | |
-|40| Apr 27 | Monday | [Lab 12: Objective C][12] ([md][32]) |  [13: Esoteric PLs][93], [Course conclusion][94] | finished esoteric PLs; finished course conclusion | 
+|40| Apr 27 | Monday | (no lab this week) |  [13: Esoteric PLs][93], [Course conclusion][94] | finished esoteric PLs; finished course conclusion | 
 || Apr 28? | Tuesday? | | Final exam review session | | 
 || Apr 30 | Thursday | Final exam from 7:00 p.m. - 10:00 p.m. | Final exam from 7:00 p.m. - 10:00 p.m. | | 
 
