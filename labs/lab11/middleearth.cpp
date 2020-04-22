@@ -5,7 +5,7 @@
 #include <cstdlib>
 #include <cmath>
 
-// New shuffle method that uses the Marsenne Twister engine
+// New shuffle method that uses the Mersenne Twister engine
 void shuffle (vector<string>::iterator first, vector<string>::iterator last, mt19937& g) {
     for (auto i=(last-first)-1; i>0; --i) {
         unsigned int n = (g() / (double) g.max())*distance(first,last);
