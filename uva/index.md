@@ -5,7 +5,7 @@ Program and Data Representation: CS 2150 Specific Content
 
 [Go up to the main README file][111] ([md][112])
 
-**See the [CS 2150 online course structure page](online.html) ([md](online.md))**
+**See the [CS 2150 online course structure page](online.html) ([md](online.md))** and also the **[Spring 2020 Final Exam Information page](s20-final.html) ([md](s20-final.md))**.
 
 Much of the rest of this git repo is meant to be generic to anybody who has a class such as this one.  But this page contains details specific to the CS 2150 version of the course at the University of Virginia.
 
