@@ -1,12 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
-  <meta name="generator" content="pandoc" />
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>PDR: Laboratory 9: x86 Assembly Language, part 2</title>
   <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../../../markdown.css" type="text/css" />
+  <link rel="stylesheet" href="../../../markdown.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-laboratory-9-x86-assembly-language-part-2">PDR: Laboratory 9: x86 Assembly Language, part 2</h1>
@@ -16,13 +19,13 @@
 <h3 id="background">Background</h3>
 <p>The Intel x86 assembly language is currently one of the most popular assembly languages and runs on many architectures from the x86 line through the Pentium 4. It is a CISC instruction set that has been extended multiple times (e.g. MMX) into a larger instruction set.</p>
 <h3 id="readings">Reading(s)</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Read the <a href="../../slides/08-x86.html">slides on x86</a></li>
 <li>The two book chapters on x86: <a href="../../book/x86-asm-chapter.pdf">x86 Assembly</a> and <a href="../../book/x86-ccc-chapter.pdf">The x86 C Calling Convention</a>.</li>
 </ol>
 <h2 id="lab-procedure">Lab Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>If you need to, read through the pre-lab pages from the previous lab on compiling C++ with assembly, as well as the vecsum program.</li>
 <li>In particular, you should be familiar with the differences between the various platforms, and the required submission format (it's Linux), as described in the pre-lab section.</li>
 <li>Follow the pre-lab instructions in this document. They require you to write a program in x86 assembly called threexplusone.s.</li>
@@ -34,14 +37,14 @@
 <li>Files to submit: threexplusone.s, threexinput.cpp, timer.cpp, timer.h, Makefile</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Address one of the topics in the list of the in-lab section. Be sure to address all the issues in that topic! You will have to complete two (total) of these topics for the post-lab report.</li>
 <li>We are looking for a brief write-up indicating that you addressed one of the topics, and the results that you found. You do not need to make it a full fledged report yet (that's the post-lab).</li>
 <li>Files to download: none (other than the results of your pre-lab)</li>
 <li>Files to submit: inlab9.pdf</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Finish addressing two of the topics listed in the in-lab section (the first topic is the one you started in the in-lab; the second one is new for the post-lab). We are looking for a quality write-up here, as detailed below.</li>
 <li>You must complete two total topics; the first one is what you started (and possibly finished) from the in-lab; the second one is new for the post-lab</li>
 <li>While this seems like a long post-lab, these list items should have been worked on during the pre-lab and the in-lab, which makes the post-lab much shorter.</li>
@@ -55,10 +58,9 @@
 <p>You may want to reference the &quot;Compiling Assembly With C++&quot; and &quot;Vecsum&quot; sections from the <a href="../lab08/index.html">previous x86 lab</a>.</p>
 <h3 id="pre-lab-program-threexplusone.s">Pre-lab program: threexplusone.s</h3>
 <p>The 3x+1 conjecture (also called the Collatz conjecture) is an open problem in mathematics, meaning that it has not yet been proven to be true. The conjecture states that if you take any positive integer, you can repeatedly apply the following function to it:</p>
-<div class="figure">
-<img src="formula.png" alt="formula.png" />
-<p class="caption">formula.png</p>
-</div>
+<figure>
+<img src="formula.png" alt="formula.png" /><figcaption>formula.png</figcaption>
+</figure>
 <p>The conjecture is that eventually, the result will reach 1. For example, consider <em>x</em> = 13:</p>
 <ul>
 <li><em>f</em>(13) = 3 * 13 + 1 = 40</li>
@@ -94,7 +96,7 @@
 <p>You will need to include at least one optimization beyond just figuring out how to write your subroutine with fewer instructions. You should put the optimizations used as a comment in the beginning of your assembly file.</p>
 <p>Note that we, too, can write the function in C++ and compile it with <code>-O2 --S --masm=intel</code>. And we will be looking at that assembly code when we grade the pre-lab. If you write your program this way, it constitutes an honor violation, so please hand-code the assembly yourself.</p>
 <p>In an effort to time how fast your assembly routine runs, you should download the timer code from the hash table lab (lab 6: <a href="../lab06/code/timer.cpp.html">timer.cpp</a> (<a href="../lab06/code/timer.cpp">src</a>) and <a href="../lab06/code/timer.h.html">timer.h</a> (<a href="../lab06/code/timer.h">src</a>)). In your threexinput.cpp file, you will need to perform the following steps:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Asks the user for an input value, <em>x</em>, which is the parameter to pass to the subroutine.</li>
 <li>Asks the user for an input value, <em>n</em>, which is the number of times to call the subroutine.</li>
 <li>Runs the subroutine <em>n</em> times with the parameter <em>x</em> as the input.</li>
@@ -120,11 +122,11 @@
 <h3 id="topic-list">Topic List</h3>
 <p>For the in-lab, you have to address one topic; either the required one or an optional one. For the post-lab, you will have to address two total topics: the one you addressed from the in-lab, and one additional one for the post-lab. Note that everybody has to address the dynamic dispatch one, but it is your call whether you do that for the in-lab or the post-lab.</p>
 <h4 id="required">Required</h4>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Dynamic dispatch: Describe how dynamic dispatch is implemented. Note that dynamic dispatch is NOT the same thing as dynamic memory! Show this using a simple class hierarchy that includes virtual functions. Use more than one virtual function per class.</li>
 </ol>
 <h4 id="optional">Optional</h4>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>Inheritance (data layout, construction, and destruction): Create an instance of an object that inherits data members from another class, and also includes data members of its own. Show in memory where data members are laid out in that object. Then explain how construction and destruction happens in this class hierarchy. Explain what happens when a user-defined object is instantiated and what happens when it goes out of scope. What if anything is &quot;destroyed&quot; by the destructor? Show this process happening in the assembly code using a simple class hierarchy. Point out in the assembly code exactly where the destructors and constructors are getting called.</p></li>
 <li><p>Optimized code: Compare code generated normally to optimized code. To create optimized code, you will need to use the <code>-O2</code> compiler flag. Can you make any guesses as to why the optimized code looks as it does? What is being optimized? Be sure to show your original sample code as well as the optimized version. Try loops and function calls to see what &quot;optimizing&quot; does. Be aware that if instructions are &quot;not necessary&quot; to the final output of the program then they may be optimized away completely! This does not lead to very interesting comparisons. Describe at least four (non-trivial) differences you see between 'normal' code and optimized code.</p></li>
 <li><p>Templates: What does the code look like for the instantiation of a simple templated class you wrote? What if you instantiate the class for different data types, what code is generated then? Is it the same or different? If the same, why? If different, why? Compare code for a user-defined templated class or function to a templated class from the STL (e.g. classes such as vectors or functions such as sort).</p></li>

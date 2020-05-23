@@ -1,12 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
-  <meta name="generator" content="pandoc" />
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Program and Data Representation</title>
   <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="markdown.css" type="text/css" />
+  <link rel="stylesheet" href="markdown.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="program-and-data-representation">Program and Data Representation</h1>
@@ -31,7 +34,7 @@
 </ul>
 <h2 id="contributing-to-this-repository"><a name="contributing"></a>Contributing to this Repository</h2>
 <p>Updates to the repository are restricted to approved individuals only, to prevent anybody from messing with the slides right before a lecture. However, others can still contribute to this repository -- to do so, take the following steps:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Create a github account, if you do not have one</li>
 <li>Fork this repository: you can click on the &quot;Fork&quot; link in the upper right, or just click <a href="https://github.com/markfloryan/pdr/fork">here</a></li>
 <li>Clone your forked repository on to your local machine</li>
@@ -62,19 +65,19 @@
 </ul>
 <h2 id="canvas-notes"><a name="canvasnotes"></a>Canvas notes</h2>
 <p>Some of the slides allow pen-based markup of the slides. To add a canvas to a slide (to allow drawing with a mouse or a stylus), you must do a few things:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>The slide can NOT be Markdown, it must be all pure HTML</p></li>
 <li><p>Include the js/canvas.js and css/dhtmlwindow.js scripts, as well as the dhtmlwindow.css CSS file (the two dhtmlwindow.* files are for the calibration feature):</p></li>
 </ol>
 <pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;js/dhtmlwindow.js&quot;&gt;&lt;/script&gt;
 &lt;script type=&quot;text/javascript&quot; src=&quot;js/canvas.js&quot;&gt;&lt;/script&gt;
 &lt;link rel=&quot;stylesheet&quot; href=&quot;css/dhtmlwindow.css&quot; type=&quot;text/css&quot;&gt;</code></pre>
-<ol start="3" style="list-style-type: decimal">
+<ol start="3" type="1">
 <li><p>Add an <code>onload=&quot;canvasinit()&quot;</code> to the <code>&lt;body&gt;</code> tag: <code>&lt;body onload=&quot;canvasinit()&quot;&gt;</code></p></li>
 <li><p>Add the following immediately after the <code>&lt;body&gt;</code> tag (this is for the calibration feature):</p></li>
 </ol>
 <pre><code>&lt;div id=&quot;dhtmlwindowholder&quot;&gt;&lt;span style=&quot;display:none&quot;&gt;&lt;/span&gt;&lt;/div&gt;</code></pre>
-<ol start="5" style="list-style-type: decimal">
+<ol start="5" type="1">
 <li>Add the following code at the end of the .html file (just before the three script tags):</li>
 </ol>
 <pre><code>&lt;div id=&quot;calibratediv&quot; style=&quot;display:none&quot;&gt;
@@ -85,7 +88,7 @@
    &lt;p style=&quot;text-align:center&quot;&gt;Click the center of the target&lt;br&gt;&lt;a href=&quot;#&quot; 
        onClick=&quot;calibratewin.close(); return false&quot;&gt;Close window&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;</code></pre>
-<ol start="6" style="list-style-type: decimal">
+<ol start="6" type="1">
 <li>Then, on each slide that you want a canvas on, you add the following:</li>
 </ol>
 <pre><code>&lt;script type=&quot;text/javascript&quot;&gt;insertCanvas();&lt;/script&gt;</code></pre>

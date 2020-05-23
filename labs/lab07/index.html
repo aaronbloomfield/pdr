@@ -1,73 +1,75 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
-  <meta name="generator" content="pandoc" />
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>PDR: Laboratory 7: IBCM Programming</title>
   <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../../markdown.css" type="text/css" />
+  <link rel="stylesheet" href="../../markdown.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-laboratory-7-ibcm-programming">PDR: Laboratory 7: IBCM Programming</h1>
 <p><a href="../index.html">Go up to the Labs table of contents page</a></p>
 <h3 id="objective">Objective</h3>
-<p>To become familiar with programming with IBCM, and understand how high-level language programs are represented at the machine level.</p>
-<h3 id="background">Background:</h3>
-<p>IBCM (Itty Bitty Computing Machine) is a simulated computer with a minimal instruction set. Despite its tiny small instruction set, the IBCM can compute anything that a modern 'powerful' computer can compute.</p>
-<h3 id="readings">Reading(s):</h3>
-<ol style="list-style-type: decimal">
+<p>To become familiar with programming with IBCM and understand how high-level language programs are represented at the machine level.</p>
+<h3 id="background">Background</h3>
+<p>IBCM (Itty Bitty Computing Machine) is a simulated computer with a minimal instruction set. Despite its tiny instruction set, IBCM can compute anything that a modern computer can.</p>
+<h3 id="tutorial">Tutorial</h3>
+<p>The tutorial for this lab is the remainder of the <a href="https://en.wikibooks.org/wiki/Bash_Shell_Scripting">Wikibooks article on Bash Shell Scripting</a>. The tutorial will be necessary for the post-lab, though you may read through it earlier if you'd like.</p>
+<h3 id="recommended-readings">Recommended Readings</h3>
+<ol type="1">
 <li>Read the <a href="../../slides/07-ibcm.html">slides on IBCM</a></li>
-<li>Read <a href="../../book/ibcm-chapter.pdf">IBCM book chapter</a> (PDF)</li>
-<li>Run IBCM code online <a href="http://www.cs.virginia.edu/~cs216/ibcm/">here</a>. The sample code in the book chapter is also in the repo: <a href="../../ibcm/summation.ibcm">summation.ibcm</a> and <a href="../../ibcm/array-summation.ibcm">array-summation.ibcm</a></li>
+<li>Read <a href="../../book/ibcm-chapter.pdf">IBCM book chapter</a> (PDF), especially sections 1.6 (Writing IBCM Programs) and 1.7 (Example Programs)</li>
+<li>Run IBCM code online <a href="https://pegasus.cs.virginia.edu/ibcm/">here</a>. The sample code in the book chapter is also in the repo: <a href="../../ibcm/summation.ibcm">summation.ibcm</a> and <a href="../../ibcm/array-summation.ibcm">array-summation.ibcm</a></li>
 </ol>
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
-<ol style="list-style-type: decimal">
-<li>The online IBCM simulator is available online <a href="http://www.cs.virginia.edu/~cs216/ibcm">here</a>. If that site is down, mirror websites are listed in the pre-lab section.</li>
-<li>Write the two IBCM programs described in the pre-lab section: addition.ibcm and array.ibcm.</li>
-<li>Note that some browsers have problems with the online simulator. If in doubt, try Firefox or Chrome.</li>
-<li>Your submitted files MUST have an .ibcm extension (not .ibcm.txt), and can NOT have any blank lines!</li>
-<li>Files to download: IBCM reference files (sample programs, documentation, etc.) listed in the Readings section, above</li>
-<li>Files to submit: addition.ibcm, array.ibcm. Make sure they are not named addition.ibcm.txt and array.ibcm.txt!</li>
+<ol type="1">
+<li>Write two IBCM programs to familiarize yourself with IBCM</li>
+<li>Files to download: None</li>
+<li>Files to submit: addition.ibcm, array.ibcm</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
-<ol style="list-style-type: decimal">
-<li>Implement the bubble sort algorithm in IBCM from the C++ code. See the in-lab section for details.</li>
-<li>Discuss any problems getting your programs to work with a TA.</li>
-<li>If you are unable to finish the lab during the in-lab time, submit an extension request.</li>
-<li>Your submitted files MUST have an .ibcm extension (not .ibcm.txt), and can NOT have any blank lines!</li>
+<ol type="1">
+<li>Implement bubble sort in IBCM</li>
 <li>Files to download: <a href="bubblesort.cpp.html">bubblesort.cpp</a> (<a href="bubblesort.cpp">src</a>)</li>
-<li>Files to submit: bubblesort.ibcm. Make sure it's not named bubblesort.ibcm.txt!</li>
+<li>Files to submit: bubblesort.ibcm</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
-<ol style="list-style-type: decimal">
-<li>The tutorial for this lab is the remainder of the <a href="http://en.wikibooks.org/wiki/Bash_Shell_Scripting">Wikibooks article on Bash Shell Scripting</a>.</li>
-<li>Complete the shell script described in the post-lab section.</li>
-<li>Your shell script MUST use <code>a.out</code> as the executable name</li>
-<li>Implement a <em>quine</em> in IBCM (see &quot;What is a Quine?&quot; section, below) into a quine.ibcm file.</li>
-<li>You may discuss this question with your classmates, as long as it is high-level design issues, not IBCM-specific implementation issues (i.e. what you turn in should be your own work).</li>
-<li>Submit a report, called postlab7.pdf (see the post-lab section for formatting details), that contains your thoughts on IBCM. What did you think? How easy was it to use? Would modifications to the simulator make life easier for you? How confident do you feel in writing IBCM code?<br />
-</li>
-<li>Your submitted files MUST have an .ibcm extension (not .ibcm.txt), and can NOT have any blank lines!</li>
-<li>Files to download: <a href="counter.cpp.html">counter.cpp</a> (<a href="counter.cpp">src</a>)</li>
-<li>Files to submit: averagetime.sh, quine.ibcm (don't name it quine.ibcm.txt!), postlab7.pdf</li>
+<ol type="1">
+<li>Implement a quine in IBCM</li>
+<li>Write a report on your experience with IBCM</li>
+<li>Improve your <code>averagetime.sh</code> shell script by adding control structures</li>
+<li>Files to download: <a href="counter.cpp.html">counter.cpp</a> (<a href="counter.cpp">src</a>), <a href="timer.cpp.html">timer.cpp</a> (<a href="timer.cpp">src</a>), <a href="timer.h.html">timer.h</a> (<a href="timer.h">src</a>)</li>
+<li>Files to submit: quine.ibcm, postlab7.pdf, averagetime.sh</li>
 </ol>
 <hr />
 <h2 id="pre-lab-1">Pre-lab</h2>
-<h3 id="using-the-ibcm-simulator">Using the IBCM Simulator</h3>
-<p>The easiest way to use the simulator is via the online version, available at <a href="http://www.cs.virginia.edu/~cs216/ibcm" class="uri">http://www.cs.virginia.edu/~cs216/ibcm</a>. There are a number of mirrors of this website available (all are identical):</p>
+<p>For the pre-lab, you will need to write two IBCM programs. The programs will need to have an .ibcm extension when submitting, but they are text files, so you can still edit them in Emacs.</p>
+<h3 id="addition.ibcm">addition.ibcm</h3>
+<p>Write an IBCM program that:</p>
 <ul>
-<li><a href="http://www.cs.virginia.edu/~cs216/ibcm" class="uri">http://www.cs.virginia.edu/~cs216/ibcm</a></li>
-<li><a href="http://pegasus.cs.virginia.edu/ibcm/" class="uri">http://pegasus.cs.virginia.edu/ibcm/</a></li>
-<li><a href="http://people.virginia.edu/~asb2t/ibcm/" class="uri">http://people.virginia.edu/~asb2t/ibcm/</a></li>
+<li>Gets three values from user input</li>
+<li>Stores the values into three variables</li>
+<li>Adds the variables together, and prints the sum (you may use additional memory if you wish)</li>
+<li>If the sum is zero, prints the three values and stops</li>
+<li>If the sum is not zero, starts over (tries to get three values, etc.)</li>
 </ul>
-<p>We request that you use the first URL (<a href="http://www.cs.virginia.edu/~cs216/ibcm" class="uri">http://www.cs.virginia.edu/~cs216/ibcm</a>), and use the others if that one is not available.</p>
-<p>There are pros and cons to the online version of the emulator. The online version does not require installation, allows for inline memory modification, but will hang your browser if it gets stuck in an infinite loop. Also, the online simulator gets rather unhappy if there are extra blank lines at the end of your input file.</p>
-<p>You will be developing a somewhat more complicated IBCM program in the in-lab. So, as preparation, study the IBCM documentation and lecture notes. Additionally, you will be expected to come to the in-lab with two working IBCM programs. You will not get much from the lab unless you are thoroughly familiar with the documentation and lecture notes, so make sure you are familiar with the material!</p>
+<h3 id="array.ibcm">array.ibcm</h3>
+<p>Write another IBCM program that finds the maximum value in a hardcoded array of values.</p>
+<ul>
+<li>The array base address is hard-coded into memory, meaning it's a pre-set value that isn't obtained by user input. You can have the array be all or part of the IBCM program, or a section of memory after the program with values that you have selected.</li>
+<li>You should also hard-code other values, such as the number of elements in the array and the array elements themselves, into your program. The program should not need any user input.</li>
+<li>Before your program halts, it prints out the maximum value of the array</li>
+</ul>
+<p>You <strong><em>MUST</em></strong> iterate through the array by creating the array load instruction, similarly as was done in lecture in the <a href="../../ibcm/array-summation.ibcm">array-ssummation.ibcm</a> program. You may <strong><em>NOT</em></strong> have a series of separate instructions to each load a separate value from the array -- such a program will receive zero credit.</p>
 <h3 id="writing-ibcm-code">Writing IBCM Code</h3>
-<p>You <strong>MUST</strong> comment your IBCM code copiously. This means (practically) every line should have a comment describing what you are doing. Note that you cannot have a line that is only comments, as the emulator will have trouble reading that line! The examples provided in the handouts posted on the course website and discussed in class illustrate a good way of doing this, where there are columns for each of the following:</p>
-<ol style="list-style-type: decimal">
+<p>You <strong>MUST</strong> comment your IBCM code copiously. This means (practically) every line should have a comment describing what you are doing. However, you cannot have a line that is only comments, as the emulator will have trouble reading that line! The examples provided in the handouts posted on the course website and discussed in class illustrate a good way of doing this, where there are columns for each of the following:</p>
+<ol type="1">
 <li>the hexadecimal values that will go into that memory location</li>
 <li>the address of that memory location</li>
 <li>labels for jumps or variable names</li>
@@ -77,35 +79,45 @@
 </ol>
 <p>Note that together the operation name and the address are sort of an assembly language version of the hexadecimal version of the operations in the first column. You probably want to write those first, and then turn these into the hex instruction that will go into column 1.</p>
 <p>The simulator will only read the first 4 character on each line of a file. So you can't have entire lines with comments, or blank lines. The simulator can't handle these (and doesn't check for this), and you will get a strange error.</p>
-<p>Even though you will have your program well-thought out and written out in symbolic IBCM before you start typing it in, alas you may still find that you have forgotten an extra variable or an extra instruction or two that you need to add in. To make these corrections easier, be sure to leave a bit of extra space for variables at the top of your program. You may also want to leave extra nop (opcode: B) instructions in your code that could be replaced later with actual instructions if needed. Make use of labels in your symbolic IBCM code to aid readability.</p>
-<p>Note that under Windows, Alt-PrintScrn will copy a screen shot, which can then be pasted into Word or another editor for printing. Most Linux distributions use the PrintScreen button. Under Mac OS X, it's Apple-Shift-4.</p>
-<h3 id="the-ibcm-simulator">The IBCM Simulator</h3>
-<p>For the pre-lab, you will need to write two IBCM programs, as described below. Note that the programs will need to have an .ibcm extension when submitting, but they are text files, so you can still edit them in Emacs.</p>
-<h3 id="addition.ibcm">addition.ibcm</h3>
-<p>Write a <em>single</em> IBCM program that does the following:</p>
+<h3 id="running-ibcm-code">Running IBCM Code</h3>
+<p>You may run your IBCM code via the online simulator at <a href="https://pegasus.cs.virginia.edu/ibcm/" class="uri">https://pegasus.cs.virginia.edu/ibcm/</a>.</p>
+<p>Beware of the following quirks of the simulator:</p>
 <ul>
-<li>Gets three values from user input</li>
-<li>Stores the values into three variables</li>
-<li>Adds the variables together, and prints the sum (you may use additional memory if you wish)</li>
-<li>If the sum is zero, it prints the three values and stops</li>
-<li>If the sum is not zero, it starts over (tries to get three values, etc.)</li>
+<li>If your code contains an infinite loop, the simulator will hang your browser</li>
+<li>The simulator will not work if there are blank lines at the end of the file</li>
 </ul>
-<h3 id="array.ibcm">array.ibcm</h3>
-<p>Write a second IBCM program that finds the maximum value in an array of values.</p>
+<h3 id="submission">Submission</h3>
+<p>Submit addition.ibcm and array.ibcm with comments explaining your code.</p>
+<h3 id="hints">Hints</h3>
+<h4 id="leave-room-for-mistakes">Leave room for mistakes</h4>
+<p>Sprinkle some <code>nop</code> (opcode: B) instructions throughout your program that can be replaced later in case you realize that you need some extra variables or are missing some instructions.</p>
+<h4 id="working-with-arrays">Working with arrays</h4>
+<p>Arrays can be difficult to work with in IBCM given the extremely limited instruction set. We'll walk through the array summation example again from the slides to point out some helpful concepts.</p>
+<p>How do you add variables in IBCM? Why, with the <code>add</code> instruction, of course.<br />
+However, for arrays, the address you want to <code>add</code> from changes every time! How do we account for that?</p>
+<p>We need to dynamically change the <code>add</code> instruction before executing it to make it point to the right address. If we can generate the appropriate instruction based off of the starting address of the array and the index we want (hint: look back to lab 4), we can then <code>store</code> that later on in our program to execute automatically!</p>
+<p>Thus, if we wanted to sum an array, we would:</p>
+<ol type="1">
+<li>Create a variable set to <code>5000</code> -- notice how it's just an <code>add</code> instruction without an address. This is <code>adit</code> in the slides.</li>
+<li>Load that instruction into the accumulator</li>
+<li>Use actual <code>add</code> instructions to add the base array address <code>a</code> and the current array index <code>i</code> to the accumulator
 <ul>
-<li>The array base address is hard-coded into memory, meaning it's a pre-set value that isn't obtained by user input. You can have the array be all or part of the IBCM program, or a section of memory after the program with values that you have selected.</li>
-<li>You should also hard-code other values, such as the number of elements in the array and the array elements themselves, into your program. The program should not need any user input.</li>
-<li>Before your program halts, it prints out the maximum value of the array</li>
-</ul>
-<p>You <strong><em>MUST</em></strong> iterate through the array by creating the array load instruction, similarly as was done in lecture in the <a href="../../ibcm/array-summation.ibcm">array-simulation.ibcm</a> program. You may <strong><em>NOT</em></strong> have a series of separate instructions to each load a separate value from the array -- such a program will receive zero credit.</p>
-<h3 id="submitting-your-code">Submitting your code</h3>
-<p>Your code <strong><em>MUST</em></strong> have comments in the file so that the TAs can grade it. No comments will earn a zero for the grade.</p>
+<li>The accumulator should now contain something like <code>5xyz</code>, where <code>xyz</code> is the location of <code>a[i]</code> in your program.</li>
+<li>The accumulator now contains a valid <code>add</code> instruction!</li>
+</ul></li>
+<li>Store that instruction in the line where step 6 would be running</li>
+<li>Load your accumulated sum</li>
+<li>Whatever was here previously was overwritten by step 4, and so now we execute the instruction <code>5xyz</code> to add the value of <code>a[i]</code> to the sum. This is <code>doit</code> in the slides.</li>
+<li>Store the sum!</li>
+<li>Repeat steps 2-7 until the end of the array</li>
+</ol>
+<p>While this deals specifically with the example in the slides, it will hopefully clarify the general approach of iterating through arrays and give you more insight into how to find the max of an array.</p>
 <hr />
 <h2 id="in-lab-1">In-lab</h2>
 <h3 id="bubble-sort">Bubble sort</h3>
-<p>Download and look at the <a href="bubblesort.cpp.html">bubblesort.cpp</a> (<a href="bubblesort.cpp">src</a>) algorithm. This algorithm is what needs to be implemented in IBCM, although you should <strong>NOT</strong> implement the output in the IBCM version.</p>
+<p>Download and look at the <a href="bubblesort.cpp.html">bubblesort.cpp</a> (<a href="bubblesort.cpp">src</a>) algorithm. This algorithm is what needs to be implemented in IBCM. You should hardcode the array after the end of your IBCM program and <strong>NOT</strong> implement any sort of input/output.</p>
 <p>To encode this program, follow these steps:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Write up high-level pseudo-code for your design on paper (make sure that it is absolutely correct, or you will probably regret it later)</li>
 <li>Refine this pseudo-code, making it closer to the assembly code level</li>
 <li>Alter your code into IBCM assembly code with labels instead of addresses</li>
@@ -114,38 +126,36 @@
 <li>Identify and fix the errors that you did not pick up in the previous steps</li>
 </ol>
 <p>The file should be called bubblesort.ibcm. It <strong>MUST</strong> have comments in the file so that the TAs can grade it. No comments will earn a zero for the grade.</p>
+<p><strong>NOTE:</strong> Just like for the pre-lab array.ibcm file, you must create an array load instruction. If your program has separate instructions for loading separate values from the array, you will receive zero credit for this in-lab.</p>
 <hr />
 <h2 id="post-lab-1">Post-lab</h2>
-<h3 id="post-lab-report">Post-lab report</h3>
-<p>One of the deliverables for the post-lab is a PDF document named postlab7.pdf. It must be in PDF format! See <a href="../../docs/convert_to_pdf.html">How to convert a file to PDF</a> for details about creating a PDF file.</p>
-<p>Submit a report, called postlab7.pdf, that contains your thoughts on IBCM. What did you think? How easy was it to use? Would modifications to the simulator make life easier for you? How confident do you feel in writing IBCM code? A (single-spaced) quarter to half a page is fine.</p>
-<h3 id="what-is-a-quine">What is a quine</h3>
-<p>Based on the experience from the in-lab, you should now be able to write an IBCM program on your own. For the postlab, you should individually write an IBCM program that prints itself. This type of program is known as a <em>quine</em>.</p>
+<h3 id="quines">Quines</h3>
+<p>For the postlab, you will be writing an IBCM program that prints itself. This type of program is known as a <em>quine</em>.</p>
 <blockquote>
 <p>quine: /kwi:n/ /n./ [from the name of the logician Willard van Orman Quine, via Douglas Hofstadter] A program that generates a copy of its own source text as its complete output. Devising the shortest possible quine in some given programming language is a common hackish amusement.</p>
 </blockquote>
-<p>Wikipedia has a good <a href="http://en.wikipedia.org/wiki/Quine_%28computing%29">article about quines</a>, including examples in a few programming languages. The smallest C/C++ quine is described <a href="http://www.ioccc.org/1994/smr.hint">here</a> (that is not needed for this lab).</p>
-<p>While at first this idea may sound like a serious mind-bender, in reality it is a rather short program that is not too tough to do in IBCM. This is not a fully general program, it is a carefully crafted program that will only print itself out. The program may contain very specific information such as a variable that is initialized to contain the length of the program. For example, if your quine is 25 lines long (data and instructions), then when it runs, it will print out 25 lines where each line consists of four hex digits. The 25 lines you print out may differ from the original file read into the IBCM simulator in a couple of places; these may be variables and instructions which you have modified between the time the program was loaded and the time that particular line is printed. It is possible to write this program in as few as 8 lines of IBCM code, but most likely you will have closer to 15-20 lines.</p>
+<p>Wikipedia has a good <a href="https://en.wikipedia.org/wiki/Quine_%28computing%29">article about quines</a>, including examples in a few programming languages. The smallest C/C++ quine is described <a href="https://www.ioccc.org/1994/smr.hint">here</a> for your enjoyment.</p>
+<p>While at first this idea may sound like a serious mind-bender, in reality it is a rather short program that is not too tough to do in IBCM. Your program will be carefully crafted to only print itself out and will most likely contain very specific information such as a variable that holds the length of the program.</p>
+<p>The lines you print out may differ from the original file read into the IBCM simulator in a couple of places; as long as your output is still a valid quine that can be executed to output itself yet again, you do not have to worry about those differences. It is possible to write this program in as few as 8 lines of IBCM code, but most likely you will have closer to 15-20 lines.</p>
 <p>You may <strong><em>NOT</em></strong> submit a zero line quine! Even though this is technically valid, it will not earn credit for this lab.</p>
 <p>We will test your program by running it, recording the output, and running that output as a program. You should do the same.</p>
-<h3 id="bash-shell-script">Bash shell script</h3>
-<p>The tutorial for this lab is the remainder of the <a href="http://en.wikibooks.org/wiki/Bash_Shell_Scripting">Wikibooks article on Bash Shell Scripting</a>.</p>
+<h3 id="post-lab-report">Post-lab report</h3>
+<p>Submit a PDF report, called postlab7.pdf, that contains your thoughts on IBCM. What did you think? How easy was it to use? Would modifications to the simulator make life easier for you? How confident do you feel in writing IBCM code? A (single-spaced) quarter to half a page is fine.</p>
+<h3 id="more-shell-scripting">More shell scripting</h3>
+<p>The tutorial for this lab is the remainder of the <a href="https://en.wikibooks.org/wiki/Bash_Shell_Scripting">Wikibooks article on Bash Shell Scripting</a>.</p>
 <p>For this lab, you will need to work a bit more on the shell script that you wrote for the last lab. The shell script will also compute the average running time for 5 executions of a program. The difference is that you will be using control structures, such as conditionals (if-then-else) and loops (for or while) in this shell script.</p>
-<p>First, download the <a href="counter.cpp.html">counter.cpp</a> (<a href="counter.cpp">src</a>) file. This program contains the timer code from lab 6, although it has been modified to print out the time in milliseconds. Note that the program doesn't actually do anything useful; it just takes in a numeric command line parameter, and runs through an idle loop many times. We'll call the command line parameter taken in <em>e</em> -- given an input of <em>e</em>, the program will run through the idle loop 10<sup><em>e</em></sup> times. Thus, you should not enter a value for <em>e</em> greater than 9 (as 10<sup>9</sup> (1 billion) is the largest power of 10 that an <code>int</code> value can hold). On a modern computer, entering 9 as the parameter should take between 1 and 5 seconds to run, but keep in mind that the output is in milliseconds. Note that if you compile it with <code>-O2</code>, some compilers (including clang++ on Linux systems) will recognize that there is an idle loop (i.e. a loop that does nothing), and will remove that code from the final binary; thus, your time will report as zero. If this is the case, lower the optimization level so that you get a non-zero value when you run it with a high number of iterations.</p>
-<p>Your shell script should take in a single input value (as regular input, not as a command line parameter), which will be the number of iterations (i.e. the command-line parameter to pass to the binary program). If that input is <code>quit</code>, then the script should exit. Otherwise, you execute the program a total of 5 times, printing and keeping track of the execution time taken for each one. Your script should then print the average time taken for each execution. <strong>You MUST call your executable program <code>a.out</code> in your shell script.</strong></p>
-<p>Your shell script <strong>MUST</strong> have an <code>if</code> statement (to see if it should exit), and <strong>MUST</strong> have a <code>for</code> or <code>while</code> loop. The number of times to iterate through the <code>for</code> or <code>while</code> loop (initially set to 5) should be a variable set previously in the script. Math in bash can be done with arithmetic expansion <code>$(( ... ))</code>, as discussed in the tutorial from the last lab. Integer division is fine when computing the average.</p>
-<p>Recall that the back quote (on the same key as the tilde (~), which is usually to the left of the digit 1) tells a shell script to run the program, and use the output for something else (as opposed to displaying the output to the screen). For example, the following line would run the program (called a.out), only keep the last line, and save that output to a variable called <code>RUNNING_TIME</code>.</p>
-<pre><code>RUNNING_TIME=`./a.out | tail -1`</code></pre>
-<p>If you want to compare values in a while expression (such as the bash equivalent of <code>while ( i &lt; s )</code>), you should see <a href="http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-7.html">here</a>. In particular, you need to use <code>-lt</code> for the less than operator, and square brackets instead of the parenthesis.</p>
-<p>With the two things described above, the rest of the required concepts for the shell script are in the online tutorial. This script should be named averagetime.sh. Below are a few notes to keep in mind when writing your shell script. Bash is a very powerful language, but it can be rather finicky and unforgiving with syntax.</p>
+<p>First, download the <a href="counter.cpp.html">counter.cpp</a> (<a href="counter.cpp">src</a>), <a href="timer.cpp.html">timer.cpp</a> (<a href="timer.cpp">src</a>), and <a href="timer.h.html">timer.h</a> (<a href="timer.h">src</a>) files. The timer program has been modified from lab 6 to print out the time in milliseconds. counter.cpp doesn't actually do anything useful; it just takes in a numeric command line parameter <em>e</em> and runs through an idle loop 10<sup><em>e</em></sup> times. You should not enter a value for <em>e</em> greater than 9, as 10<sup>9</sup> (1 billion) is the largest power of 10 that an <code>int</code> value can hold. On a modern computer, entering 9 as the parameter should take between 1 and 5 seconds to run.</p>
+<p>Do not compile your program with <code>-O2</code>, as clang++ is smart enough to recognize that your for loop is not doing any work and will remove it from the optimized binary!</p>
+<p>Your <code>averagetime.sh</code> shell script should take in the number of iterations as a single input value (not as a command line parameter). If that input is <code>quit</code>, then the script should exit. Otherwise, execute the program a total of 5 times, printing and keeping track of the execution time taken for each one. Your script should then print the average time taken for each execution. <strong>You MUST call your executable program <code>a.out</code> in your shell script.</strong></p>
+<p>Your shell script <strong>MUST</strong> have an <code>if</code> statement (to see if it should exit), and <strong>MUST</strong> have a <code>for</code> or <code>while</code> loop. The number of times to iterate through the <code>for</code> or <code>while</code> loop (initially set to 5) should be a variable set previously in the script.</p>
+<p>Below are a few notes to keep in mind when writing your shell script. Bash is a very powerful language, but it can be rather finicky and unforgiving with syntax.</p>
 <ul>
 <li>Your program should be called <code>averagetime.sh</code>, and should have <code>#!/bin/bash</code> as the very first line of the script</li>
-<li>Bash is a bit finicky with having Boolean operators within an <code>if</code> clause, so try to avoid that (it can do it, but the syntax is very particular)</li>
 <li>When setting variables, do <strong>NOT</strong> have spaces around the equals sign</li>
 <li>When adding up values (using arithmetic expansion <code>$(( ... ))</code>), there <strong>SHOULD</strong> be spaces around the arithmetic operators as well as an equals sign within the parentheses.</li>
 <li>A <code>for</code> loop requires a <code>do</code> keyword before the for loop body; likewise, an <code>if</code> statement has a <code>then</code> before the body. Either these words must be on the next line, or a semi-colon must be there before the <code>do</code> or <code>then</code></li>
-<li>Keep in mind that to grab program output (such as the output of the binary program), you use back quotes (i.e. `)</li>
-<li>To execute your script, you can just enter, <code>./averagetime.sh</code>. If you get a complaint about that (&quot;permission denied&quot;, for example), enter this command: <code>chmod 755 averagetime.sh</code>. This tells your Unix system that averagetime.sh is a program that can be executed (remember chmod?).</li>
+<li>To grab program output (such as the output of the binary program), you use back quotes (i.e. `)</li>
+<li>To execute your script, you can just enter <code>./averagetime.sh</code>. If your computer denies you permission, remind it who's boss and put it in its place with <code>chmod +x averagetime.sh</code>. This tells your Unix system that averagetime.sh is a program that can be executed (remember chmod?).</li>
 </ul>
 <p>Below is the output when we wrote this shell script. Obviously, your times may vary.</p>
 <pre><code>enter the exponent for counter.cpp:
@@ -162,5 +172,12 @@ Running iteration 5...
 time taken: 1256 ms
 5 iterations took 6222 ms
 Average time was 1244 ms</code></pre>
+<h3 id="hints-1">Hints</h3>
+<h4 id="thinking-about-the-quine-is-hurting-my-head">Thinking about the quine is hurting my head :(</h4>
+<p>The most important thing to remember is that there is no distinction between instructions and variables in IBCM!</p>
+<p>What is one way you can figure out what instructions your program contains?<br />
+Hint: You know how to iterate through arrays; is there any way you could apply that concept here?</p>
+<h4 id="comparing-values-in-bash">Comparing values in Bash</h4>
+<p>If you want to compare values in an if or while expression (such as the bash equivalent of <code>while (i &lt; s)</code>), you should see <a href="https://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-7.html">here</a>. In particular, you need to use <code>-lt</code> for the less than operator, and square brackets instead of the parentheses.</p>
 </body>
 </html>

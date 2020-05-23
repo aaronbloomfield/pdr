@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>CS 2150: 01-cpp slide set</title>
     <meta name="description" content="A set of slides for a course on Program and Data Representation">
-    <meta name="author" content="Mark Floryan">
+    
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -27,6 +27,7 @@
     <script type="text/javascript" src="../slides/js/dhtmlwindow.js"></script>
     <script type="text/javascript" src="../slides/js/canvas.js"></script>
     <link rel="stylesheet" href="../slides/css/dhtmlwindow.css" type="text/css">
+    <style>.reveal li { font-size:93%; line-height:120%; }</style>
   </head>
 
   <body onload="canvasinit()">
@@ -42,8 +43,9 @@
 &nbsp;
 ### Program and Data Representation
 &nbsp;
-<center><small>[Mark Floryan](http://www.cs.virginia.edu/~mrf8t) / [mrf8t@virginia.edu](mailto:mrf8t@virginia.edu)</small></center>
-<center><small>Repository: [github.com/markfloryan/pdr](http://github.com/markfloryan/pdr) / [&uarr;](index.html) / <a href="01-cpp.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
+<center><small><a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)</small></center>
+<center><small><a href="http://@github/uva-cs/pdr">@github</a> | <a href="index.html">&uarr;</a> | <a href="daily-announcements.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png"></a></small></center>
+
 &nbsp;  
 &nbsp;
 ## C++
@@ -108,7 +110,7 @@
 
 <section data-markdown><script type="text/template">
 ## Hello World: Java vs. C++
-```
+```java
 // Java
 public class HelloWorld {
     public static void main(String [] args) {
@@ -175,12 +177,12 @@ int main() {
 		</ul>
     </li>
   </ul>
-  <table class="transparent">
+  <table class="transparent" style="margin-left:0">
     <tbody>
       <tr>
 	<td>&nbsp;</td>
         <td>
-	  <pre><code data-trim>// C++
+	  <pre style="margin-left:0"><code data-trim>// C++
 #include &lt;iostream&gt;
 using namespace std;
 int main() {
@@ -258,6 +260,7 @@ int main() {
   - It has *MUCH* better error messages
 - Consider:
 ```
+#include <iostream>
 using namespace std;
 int main() {
     // note the spelling mistake on the next
@@ -725,9 +728,10 @@ area = PI * r * r;
 ```
 #define FOO
 #ifdef FOO   // is true!
-#ifndef FOO  // is false!
 // ...
 #endif
+#ifndef FOO  // is false!
+// ...
 #endif
 ```
 </script></section>
@@ -824,7 +828,6 @@ bool even (int x);
 <section>
 <h2>Pointer Variables</h2>
 <p>Source code: <a href="code/01-cpp/pointers.cpp.html">pointers.cpp</a> (<a href="code/01-cpp/pointers.cpp">src</a>)</p>
-<p>&nbsp;</p>
 <table class="transparent"><tr><td>
 <table class="transparent">
 <tr><th>Variable</th><th>Address</th><th>Memory</th></tr>
@@ -854,7 +857,6 @@ cout &lt;&lt; *x_pointer;
 ## Dereferencing and Assigning
 Source code: [pointers.cpp](code/01-cpp/pointers.cpp.html) ([src](code/01-cpp/pointers.cpp))
 
-<p>&nbsp;</p>
 <table class="transparent"><tr><td>
 <table class="transparent">
 <tr><th>Variable</th><th>Address</th><th>Memory</th></tr>
@@ -881,7 +883,6 @@ Source code: [pointers.cpp](code/01-cpp/pointers.cpp.html) ([src](code/01-cpp/po
 ## x_pointer = &y
 Source code: [pointers.cpp](code/01-cpp/pointers.cpp.html) ([src](code/01-cpp/pointers.cpp))
   
-<p>&nbsp;</p>
 <table class="transparent"><tr><td>
 <table class="transparent">
 <tr><th>Variable</th><th>Address</th><th>Memory</th></tr>
@@ -908,7 +909,6 @@ Source code: [pointers.cpp](code/01-cpp/pointers.cpp.html) ([src](code/01-cpp/po
 ## *x_pointer = 3
 Source code: [pointers.cpp](code/01-cpp/pointers.cpp.html) ([src](code/01-cpp/pointers.cpp))
   
-<p>&nbsp;</p>
 <table class="transparent"><tr><td>
 <table class="transparent">
 <tr><th>Variable</th><th>Address</th><th>Memory</th></tr>
@@ -933,7 +933,7 @@ Source code: [pointers.cpp](code/01-cpp/pointers.cpp.html) ([src](code/01-cpp/po
 <section data-markdown><script type="text/template">
 ## Binky's Pointer Fun
   
-<iframe width="720" height="540" src="http://www.youtube.com/embed/UvoHwFvAvQE" frameborder="0" allowfullscreen></iframe>
+<iframe width="720" height="540" src="http://www.youtube.com/embed/UvoHwFvAvQE?rel=0" frameborder="0" allowfullscreen></iframe>
 
 If that doesn't work, try the [direct Youtube link](http://www.youtube.com/watch?v=UvoHwFvAvQE) (Firefox with Flash enabled doesn't work, in particular)
 </script></section>
@@ -1129,7 +1129,7 @@ Rational *r = new Rational();
 ```
 r->num = 4;
 ```    
-- References (which we haven't seen yet) work like regular objects (i.e., the period syntax)
+- References (coming soon) use a period like regular objects
 </script></section>
 
 <section data-markdown><script type="text/template">
@@ -1160,10 +1160,10 @@ private:
 
 <section data-markdown><script type="text/template">
 ## Common mistake 1
-- Consider a class Foo with an uninitialized `ListNode*` field `head` that needs to be initialized in the constructor.
+- Consider a class List with an uninitialized `ListNode*` field `head` that needs to be initialized in the constructor.
 - What is wrong with this constructor?  It compiles fine!
 ```
-Foo() {
+List() {
     ListNode* head = new ListNode();
 }
 ```
@@ -1172,10 +1172,10 @@ Foo() {
 
 <section data-markdown><script type="text/template">
 ## Common mistake 2
-- Consider a class Foo with an uninitialized `ListNode*` field `head` that needs to be initialized in the constructor.
+- Consider a class List with an uninitialized `ListNode*` field `head` that needs to be initialized in the constructor.
 - What is wrong with this constructor?  It compiles fine!
 ```
-Foo() {
+List() {
     ListNode temp;
     head = &temp;
 }
@@ -1236,7 +1236,7 @@ int main() {
 <section data-markdown><script type="text/template">
 ## C++ and memory allocation
 Source code: [memory.cpp](code/01-cpp/memory.cpp.html) ([src](code/01-cpp/memory.cpp))  
-&nbsp;  
+
 Result:
 ```
     sizeof(long): 8
@@ -1246,7 +1246,7 @@ Result:
     Difference: 32
 ```
   
-Why the extra space?  If only 16 bytes are needed for each `Foo`, then why is the second `Foo` 32 bytes beyond the first one?
+Why the extra space?  If only 16 bytes are needed for a `Foo`, then why is the 2nd `Foo` 32 bytes beyond the 1st?
 
 - Keep track of how much space was allocated
 - Dynamic memory allocation is not so "efficient" at storing data
@@ -1496,7 +1496,7 @@ delete ptrToAnotherSquare;
 - Frees up any resources allocated during the use of an object
 - Example (only prototype shown): `~IntCell();`
 - The purpose is to free up any resources that the object reserved
-  - Tyipcally things are allocated via `new`
+  - Typically things are allocated via `new`
     - Example: the destructor in List would delete all the ListNodes
   - Can also free up: files, network sockets, etc.
 </script></section>
@@ -1827,7 +1827,6 @@ cout << "about to leave main..." << endl;
       <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
     </div>
 
-    <script src="reveal.js/lib/js/head.min.js"></script>
     <script src="reveal.js/js/reveal.js"></script>
     <script src="js/settings.js"></script>
 

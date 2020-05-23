@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>CS 2150: 08-x86 (64 bit) slide set</title>
     <meta name="description" content="A set of slides for a course on Program and Data Representation">
-    <meta name="author" content="Mark Floryan">
+    
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -27,6 +27,7 @@
     <script type="text/javascript" src="../slides/js/dhtmlwindow.js"></script>
     <script type="text/javascript" src="../slides/js/canvas.js"></script>
     <link rel="stylesheet" href="../slides/css/dhtmlwindow.css" type="text/css">
+    <style>.reveal li { font-size:93%; line-height:120%; }</style>
   </head>
 
   <body onload="canvasinit()">
@@ -42,8 +43,9 @@
 &nbsp;
 ### Program and Data Representation
 &nbsp;
-<center><small>[Mark Floryan](http://www.cs.virginia.edu/~mrf8t) / [mrf8t@virginia.edu](mailto:mrf8t@virginia.edu)</small></center>
-<center><small>Repository: [github.com/markfloryan/pdr](http://github.com/markfloryan/pdr) / [&uarr;](index.html) / <a href="08-assembly-64bit.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
+<center><small><a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)</small></center>
+<center><small><a href="http://@github/uva-cs/pdr">@github</a> | <a href="index.html">&uarr;</a> | <a href="daily-announcements.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png"></a></small></center>
+
 &nbsp;  
 &nbsp;  
 ## 64 bit x86 (assembly language)
@@ -587,7 +589,7 @@ int main() {
   - Actually, these two have specific uses depending on the language, so are often not used for this reason.
 - Six registers may not be modified by a subroutine callee:
 	- rbx, rbp, r12-r15
-        - If it wans to use them, the subroutine must back them up (onto the stack) and restore them later
+        - If it wants to use them, the subroutine must back them up (onto the stack) and restore them later
 - rsp should almost never be modified directly, as it points to the top of the stack
 	  </script></section>
 
@@ -1223,7 +1225,7 @@ Code we'll see:
 - int absolute_value(int x)
 - int max(int x, int y)
 - bool compare_string(const char \*theStr1, const char \*theStr2)
-- int fib(unsigned int n)
+- int fact(unsigned int n)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -1632,39 +1634,39 @@ Source code: [test_string_compare.s](code/08-assembly-64bit/test_string_compare.
 	  </script></section>
 
 
-	  <section data-markdown id="fib"><script type="text/template">
-## int fib
+	  <section data-markdown id="fact"><script type="text/template">
+## int fact()
 (see next slide for the source code link)
 ```
-long fib(unsigned int n) {
-    if ((n==0) || (n==1))
+long fact(unsigned int n) {
+    if ( n==0 )
         return 1;
-    return fib(n-1) + fib(n-2);
+    return n * fact(n-1);
 }
 ```
 Note that the parameter is `unsigned int` (32-bit), but the return type is `long` (64-bit)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## test_fib.cpp
-Source code: [test_fib.cpp](code/08-assembly-64bit/test_fib.cpp.html) ([src](code/08-assembly-64bit/test_fib.cpp))
+## test_fact.cpp
+Source code: [test_fact.cpp](code/08-assembly-64bit/test_fact.cpp.html) ([src](code/08-assembly-64bit/test_fact.cpp))
 ```
 #include <iostream>
 using namespace std;
 
-extern "C" long fib(unsigned int n);
+extern "C" long fact(unsigned int n);
 
-long fib(unsigned int n) {
-    if ((n==0) || (n==1))
+long fact(unsigned int n) {
+    if ( n==0 )
         return 1;
-    return fib(n-1) + fib(n-2);
+    return n * fact(n-1);
 }
 
 int main() {
     unsigned int theValue = 0;
-    cout << "Enter value for fib(): " << endl;
+    cout << "Enter value for fact(): " << endl;
     cin >> theValue;
-    long theResult = fib(theValue);
+    long theResult = fact(theValue);
     cout << "The result is: " << theResult << endl;
     return 0;
 }
@@ -1672,52 +1674,43 @@ int main() {
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## x86 assembly for fib(), 1/2
-Compiled like the previous, but with `-O2`
+## x86 assembly for fact(), 1/2
+Compiled like the previous.
 
-Source code: [test_fib.s](code/08-assembly-64bit/test_fib.s.html) ([src](code/08-assembly-64bit/test_fib.s))
+Source code: [test_fact.s](code/08-assembly-64bit/test_fact.s.html) ([src](code/08-assembly-64bit/test_fact.s))
 ```
-fib:
-    push    r14
-    push    rbx
-    push    rax
-    mov     ebx, edi
-    mov     eax, ebx
-    or      eax, 1
-    mov     r14d, 1
-    cmp     eax, 1
-    je      .LBB0_3
-    add     ebx, -2
-    mov     r14d, 1
-    ...
+fact:
+	sub	rsp, 24
+	mov	dword ptr [rsp + 12], edi
+	cmp	dword ptr [rsp + 12], 0
+	jne	.LBB1_2
+	mov	qword ptr [rsp + 16], 1
+	jmp	.LBB1_3
+        ...
 ```
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## x86 assembly for fib(), 2/2
-Compiled like the previous, but with `-O2`
-
-Source code: [test_fib.s](code/08-assembly-64bit/test_fib.s.html) ([src](code/08-assembly-64bit/test_fib.s))
+## x86 assembly for fact(), 2/2
+Source code: [test_fact.s](code/08-assembly-64bit/test_fact.s.html) ([src](code/08-assembly-64bit/test_fact.s))
 ```
-.LBB0_2:
-    lea     edi, [rbx + 1]
-    call    fib
-    add     r14, rax
-    mov     eax, ebx
-    or      eax, 1
-    add     ebx, -2
-    cmp     eax, 1
-    jne     .LBB0_2
-.LBB0_3:
-    mov     rax, r14
-    add     rsp, 8
-    pop     rbx
-    pop     r14
-    ret
+.LBB1_2:
+	mov	eax, dword ptr [rsp + 12]
+	mov	ecx, eax
+	mov	eax, dword ptr [rsp + 12]
+	sub	eax, 1
+	mov	edi, eax
+	mov	qword ptr [rsp], rcx
+	call   fact
+	mov	rcx, qword ptr [rsp]
+	imul   rcx, rax
+	mov	qword ptr [rsp + 16], rcx
+.LBB1_3:
+	mov	rax, qword ptr [rsp + 16]
+	add	rsp, 24
+	ret
 ```
 	  </script></section>
-
-
 
 	  <section data-markdown><script type="text/template">
 ## An aside: An advantage of little-Endian
@@ -1739,7 +1732,7 @@ Source code: [test_fib.s](code/08-assembly-64bit/test_fib.s.html) ([src](code/08
   - If you called `movb`, that instruction moves the *least* significant 8 bits of the 32-bit quantity
 - Thus, if you are doing one of those moves, the address is the *same*, which makes the CPU addressing routines simpler
 - This means integer *casts* are a essentially a no-op
-  - To cast an `int` to a `short`, you just tke lowest 16 bits, which means you use a `movw` instead of a `movl`
+  - To cast an `int` to a `short`, you just take lowest 16 bits, which means you use a `movw` instead of a `movl`
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -1769,7 +1762,6 @@ Source code: [test_fib.s](code/08-assembly-64bit/test_fib.s.html) ([src](code/08
       <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
     </div>
 
-    <script src="reveal.js/lib/js/head.min.js"></script>
     <script src="reveal.js/js/reveal.js"></script>
     <script src="js/settings.js"></script>
 

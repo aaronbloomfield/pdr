@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>CS 2150: 11-graphs slide set</title>
     <meta name="description" content="A set of slides for a course on Program and Data Representation">
-    <meta name="author" content="Mark Floryan">
+    
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -27,6 +27,7 @@
     <script type="text/javascript" src="../slides/js/dhtmlwindow.js"></script>
     <script type="text/javascript" src="../slides/js/canvas.js"></script>
     <link rel="stylesheet" href="../slides/css/dhtmlwindow.css" type="text/css">
+    <style>.reveal li { font-size:93%; line-height:120%; }</style>
   </head>
 
   <body onload="canvasinit()">
@@ -42,8 +43,9 @@
 &nbsp;
 ### Program and Data Representation
 &nbsp;
-<center><small>[Mark Floryan](http://www.cs.virginia.edu/~mrf8t) / [mrf8t@virginia.edu](mailto:mrf8t@virginia.edu)</small></center>
-<center><small>Repository: [github.com/markfloryan/pdr](http://github.com/markfloryan/pdr) / [&uarr;](index.html) / <a href="11-graphs.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
+<center><small><a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)</small></center>
+<center><small><a href="http://@github/uva-cs/pdr">@github</a> | <a href="index.html">&uarr;</a> | <a href="daily-announcements.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png"></a></small></center>
+
 &nbsp;  
 &nbsp;  
 ## Graphs
@@ -746,7 +748,7 @@ Idea: Grow a forest out of edges that do not create a cycle.  Pick an edge with 
 <tr><td><img alt="graph" src="graphs/graph-14.svg"></td><td style="width:50px"></td><td><img class="fragment" data-fragment-index="1" alt="graph" src="graphs/graph-15.svg"></td></tr>
 </table>
 <p>&nbsp;</p>
-<p class="fragment" data-fragment-index="1" style="text-align:center">Edges: (v1,v2), (v1,v4), (v3,v4), (v4,v7), (v5,v7), (v6,v7)</p>
+<p class="fragment" data-fragment-index="1" style="text-align:center">Edges: (v1,v4), (v6,v7), (v1,v2), (v3,v4), (v4,v7), (v5,v7) </p>
 <script type="text/javascript">insertCanvas();</script>
 	  </section>
 
@@ -791,7 +793,6 @@ When optimized, it has the same running time as Prim's and Dijkstra's: &Theta;(*
       <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
     </div>
 
-    <script src="reveal.js/lib/js/head.min.js"></script>
     <script src="reveal.js/js/reveal.js"></script>
     <script src="js/settings.js"></script>
 

@@ -1,4 +1,4 @@
-/* This file is part of the http://github.com/aaronbloomfield/pdr
+/* This file is part of the http://github.com/uva-cs/pdr
  * repo, and has the same license as the rest of the repo (CC BY-SA)
  *
  * The formatting is loosely based on that of github.com's README.md
@@ -10,7 +10,7 @@ body {
 }
 
 a {
-    text-decoration: none;
+    /* text-decoration: none; */
 }
 
 h1 {
@@ -27,18 +27,32 @@ code {
     background-color: rgb(248, 248, 248);
     border: 1px solid rgb(221, 221, 221);
     font-size: 13px;
-    line-height: 19px;
     padding: 0px 5px;
-}
-
-pre code {
-    border: 0px solid;
 }
 
 pre {
     background-color: rgb(248, 248, 248);
     border: 1px solid rgb(221, 221, 221);
     padding: 6px 10px;
+    /* Make the pre box scrollable rather than scrolling the whole page */
+    overflow: auto;
+}
+
+pre code {
+    border: none;
+    padding: 0;
+}
+
+img {
+    /* Prevent image from scrolling off the page on mobile */
+    max-width: 100%;
+}
+
+blockquote {
+    background: #f9f9f9;
+    border-left: 5px solid #cccccc;
+    margin: 1em 10px;
+    padding: 0.25em 10px;
 }
 
 /* table formatting */

@@ -1,7 +1,7 @@
 PDR: Exams
 ==========
 
-[Go up to the main README file](../readme-old.html) ([md](../readme-old.md))
+[Go up to the main README file](../readme.html) ([md](../readme.md))
 
 These are all the exams from the previous semesters of the course.  No solutions are provided, nor are the grading guidelines.  Currently they are all in PDF format, but that may change in the future.  The more recent ones were developed using LaTeX, the earlier ones using Word.
 
@@ -25,4 +25,9 @@ These are all the exams from the previous semesters of the course.  No solutions
 - Spring 2016: [midterm 1](exam1-s16.pdf), [midterm 2](exam2-s16.pdf), [final exam](final-s16.pdf)
 - Fall 2016: [midterm 1](exam1-f16.pdf), [midterm 2](exam2-f16.pdf), [final exam](final-f16.pdf)
 - Spring 2017: [midterm 1](exam1-s17.pdf), [midterm 2](exam2-s17.pdf), [final exam](final-s17.pdf)
-- Fall 2018: [midterm 1](exam1-f17.pdf), [midterm 2](exam2-f17.pdf), [final exam](final-f17.pdf)
+- Fall 2017: [midterm 1](exam1-f17.pdf), [midterm 2](exam2-f17.pdf), [final exam](final-f17.pdf)
+- Spring 2018: [midterm 1](exam1-s18.pdf), [midterm 2](exam2-s18.pdf), [final exam](final-s18.pdf)
+- Fall 2018: [midterm 1](exam1-f18.pdf), [midterm 2](exam2-f18.pdf), [final exam](final-f18.pdf)
+- Spring 2019: [midterm 1](exam1-s19.pdf), [midterm 2](exam2-s19.pdf), [final exam](final-s19.pdf)
+- Fall 2019: [midterm 1](exam1-f19.pdf), [midterm 2](exam2-f19.pdf), [final exam](final-f19.pdf)
+- Spring 2020: [midterm 1](exam1-s20.pdf)
