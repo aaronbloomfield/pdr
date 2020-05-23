@@ -6,6 +6,7 @@ PDR: Doxygen Tutorial
 ### What is Doxygen? ###
 
 **macOS only:** ensure you have [Homebrew](https://brew.sh/) installed and then install Doxygen and Graphviz using `brew install doxygen graphviz`.
+**Windows Subsytem for Linux only:** install graphviz using `sudo apt install graphviz`.
 
 When writing large amounts of code, it is important to document it, both for your understanding later, as well as for other people's understanding (such as the graders).  So far, all of our documentation has been via regular comments.  However, there exist a number of documentation tools that allow us to do a lot more with our comments.  Consider the Java SDK source code.  If you look at the code itself, there are a lot of comments with special "tags" in the source code.  A tag is a special command that denotes the comment is about some specific aspect, such as the parameter type or return value.  The source code is then run through a program called javadoc (which comes with the Java SDK), and the full online HTML documentation pages that we are familiar with are then created.
 

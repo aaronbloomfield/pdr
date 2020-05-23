@@ -125,7 +125,7 @@ printf(&quot;Hello from %s, which begins at %p!\n&quot;,  __PRETTY_FUNCTION__, m
 <p>We've seen variable argument lists in the context of the C calling convention (that's why the parameters are pushed onto the stack in reverse order). The <code>...</code> portion of the <code>printf()</code> function signature signifies that it take a variable number of arguments. I/O functions in C commonly combine this notation with a format string. Any use of variable argument lists must include clues so that the callee can correctly identify the number and type of its arguments. An interesting example of a function which uses variable argument lists in a less obvious way is open():</p>
 <pre><code>int open(const char *pathname, int flags);
 int open(const char *pathname, int flags, mode_t mode);</code></pre>
-<p>but C does not support function overloading! While the <code>open()</code> manual page displays the two prototypes above, the actual signature of <code>open()</code> is:</p>
+<p>but C does not support <a href="https://en.wikipedia.org/wiki/Function_overloading">function overloading</a>! While the <code>open()</code> manual page displays the two prototypes above, the actual signature of <code>open()</code> is:</p>
 <pre><code>int open(const char *pathname, int flags, ...);</code></pre>
 <p>The variable argument list (mode) is only used if flags includes the bit <code>O_CREAT</code>, giving <code>open()</code> the information it needs to decide whether or not to access arguments beyond flags.</p>
 <h3 id="int-scanfconst-char-format-...">int scanf(const char *format, ...)</h3>

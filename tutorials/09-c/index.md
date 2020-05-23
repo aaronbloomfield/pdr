@@ -94,7 +94,7 @@ int open(const char *pathname, int flags);
 int open(const char *pathname, int flags, mode_t mode);
 ```
 
-but C does not support function overloading!  While the `open()` manual page displays the two prototypes above, the actual signature of `open()` is:
+but C does not support [function overloading](https://en.wikipedia.org/wiki/Function_overloading)!  While the `open()` manual page displays the two prototypes above, the actual signature of `open()` is:
 
 ```
 int open(const char *pathname, int flags, ...);
