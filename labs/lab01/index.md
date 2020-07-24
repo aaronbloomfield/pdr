@@ -49,7 +49,7 @@ Procedure
 ### Post-lab ###
 
 1. Write a simple bank account class
-2. Files to download: [bankAccount.h](bankAccount.h.html) ([src](bankAccount.h)), [bankAccount.cpp](bankAccount.cpp.html) ([src](bankAccount.cpp)), [TestBankAccount.cpp](TestBankAccount.cpp.html) ([src](TestBankAccount.cpp))
+2. Files to download: [TestBankAccount.cpp](TestBankAccount.cpp.html) ([src](TestBankAccount.cpp))
 3. Files to submit: bankAccount.h, bankAccount.cpp, TestBankAccount.cpp
 
 ------------------------------------------------------------
