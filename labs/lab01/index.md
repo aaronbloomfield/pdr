@@ -103,7 +103,7 @@ Lastly, take a look at the object life-cycle code ([lifecycle.cpp](lifecycle.cpp
 
 ### Assignment submission ###
 
-All assignments will be submitted through our custom submission tool which can be accessed through Collab's Course Tools link or directly at [https://libra.cs.virginia.edu/~pedagogy](https://libra.cs.virginia.edu/~pedagogy).
+All assignments will be submitted through the CS2150 class page on gradescope, which can be found [here](https://www.gradescope.com/courses/138861).
 
 Every file submitted, including text files, should include your name, email ID, the date, and the name of the file in a header comment at the beginning of the file.
 
