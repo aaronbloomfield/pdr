@@ -83,7 +83,6 @@ Your word search solver, implemented in `wordPuzzle.cpp`, should:
 - Read in a word search grid no larger than 500x500 and store it in an appropriate data structure
 - Output every word of length three or greater and its location in the grid
     - The required output format is described below
-- Output the time it took to find all the words
 
 We are not as interested in how fast your program runs for the pre-lab; leave any optimizations for the post-lab.
 
