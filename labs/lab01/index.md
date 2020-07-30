@@ -87,9 +87,9 @@ int main () {
     return 0;
 }
 ```
-### Output ###
+### Sample Execution Run ###
 
-In order to make autograding easier, we expect you to follow the output formats specified in these write-ups. If you don't follow these format specifications, your submission may not be graded correctly becase the autograder won't be able to locate your answers. Some assignments use test harnesses and provided code that take care of the output format for you, so you won't see an output section for them.
+In order to make autograding easier, we expect you to follow the output and output formats specified in these write-ups. If you don't follow these format specifications, your submission may not be graded correctly becase the autograder won't be able to locate your answers. Some assignments use test harnesses and provided code that take care of the output format for you, so you need to worry about handling the I/O for those.
 
 For this lab, only print out the result of your power function on the last line. **Do not** include any cout statements prompting the user for input. An example I/O for your program is shown below.
 
