@@ -51,9 +51,9 @@ Lab Procedure
 
 ### Post-lab ###
 
-1. In a report, analyze the time and space complexity of your encoding and decoding code
+1. Analyze the time and space complexity of your encoding and decoding code
 2. Create a Makefile to compile both the encoding and decoding portions of your Huffman routine in one step
-3. Files to submit: postlab10.pdf, Makefile, all necessary source code files
+3. Files to submit: Makefile, all necessary source code files
 
 ------------------------------------------------------------
 
@@ -130,7 +130,7 @@ The second section is the encoded message, using the characters `0` and `1`.  Yo
 The next line is a separator, and is also a single line containing 40 dashes and no spaces.
 
 #### Section 3 ####
-The last section of the file displays the compression ratio and the cost of the Huffman tree.  This does not need to be read in by the decompression routines.  As long as you output the required information, and it is easily understandable by a human, it can be in a format similar to (but not necessarily the same as) what is shown below.  You can have additional information as well, as long as we can easily find what we are looking for (compression ratio and Huffman tree cost).
+The last section of the file displays the compression ratio and the cost of the Huffman tree.  This does not need to be read in by the decompression routines.  The information is required as we will be grading your submissions with these results. All floating point results must be reported to **at least** 2 decimal places. 
 
 The following is the Huffman file format for the example in the slide set that has the characers 'a', 'b', 'c', and 'd'.
 
@@ -209,7 +209,7 @@ First, make sure that your code can read in encoded files -- you can download th
 
 Next, create the Huffman coding tree from the prefix codes you read in from the input file.  Not creating a Huffman tree from the file will result in zero credit for the in-lab.  The whole point of this part is to create the tree!
 
-Lastly, read in the second part of the file, traverse your Huffman tree, and output a character whenever you reach a leaf node.  You can output as much text as you would like, such as status updates as to how the program is progressing.  The only caveat is that the decoded file must be the last thing printed, and it must be clear where the other text ends and the decoded message that you are decoding begins (a separator of dashes would be fine for this).  Of course, you are more than welcome to just print out the decoded message and nothing else.
+Lastly, read in the second part of the file, traverse your Huffman tree, and output a character whenever you reach a leaf node.  For this lab, you must only print out the decoded message and nothing else.
 
 We provide a number of sample files for you to test your code with.  A brief description of each is described here.  The "normal" files are the English input.  The "encoded" files are the Huffman encoded files, following the file format described above.  Except where indicated, the second section of each encoded file (the digits `0` and `1`) has a space inserted between each letter from the original file, so that you can see which letter is encoded as which bitcode.
 
@@ -241,20 +241,18 @@ There are two parts to this post-lab: the time and space complexity analysis and
 
 ### Time and Space Complexity ###
 
-For the post-lab, we want you to do a time and space complexity analysis of your compression and decompression code.  You'll submit a written report that describes your implementation choices, and also documents your analysis of time and space complexity.  See below for a discussion about the space/time complexity.
+For the post-lab, we want you to think about the time and space complexity analysis of your compression and decompression code.  You aren't required to submit anything for this part, but you should think carefully about the following points, as you may need to know them on exams.  See below for a discussion about the space/time complexity.
 
-The deliverable for this part of the post-lab is a PDF document named postlab10.pdf that includes:
-
-- A description of your implementation: describe the data structures used in your implementation and *why* you selected them.
-- An efficiency analysis of *all steps* in Huffman encoding/decoding. For each of the steps of compression and decompression (see "Huffman Encoding and Decoding"), give:
+- Think about your implmentation: what data structures did you use in your implementation and *why* did you selected them.
+- Analyze the efficiency of *all steps* in Huffman encoding/decoding. For each of the steps of compression and decompression (see "Huffman Encoding and Decoding"), what is:
     - The worst case running time of your implementation
     - The worst case space complexity of your implementation
 
-Worst case running time -- for this be sure to include all steps of the compression and decompression.  You can leave off the cost of calculating the compression ratio, printing the cost of the tree, and printing a listing of the bit code for each character that was asked for in the pre-lab.  Refer to the list of steps given earlier in the lab.
+Worst case running time -- for this be sure to consider all steps of the compression and decompression.  You can leave off the cost of calculating the compression ratio, printing the cost of the tree, and printing a listing of the bit code for each character that was asked for in the pre-lab.  Refer to the list of steps given earlier in the lab.
 
 Space complexity -- for this, you should calculate the number of bytes that are used by each data structure in your implementation.  The easiest way to do this is to step through your code, just as you have done for the worst case running time, and make a note each time you use a new data structure.  You do not need to take into account scalar variables (loop counters, other singleton variables), focus on the data structures whose size depends on values such as the total number of characters and the total number of unique characters, and use those values in your answer.
 
-As usual, we expect a thought-out explanation of both parts.  Most reports end up approximately one page in length, single-spaced.
+Again, you aren't required to submit anything for this section, but you should use these points as a way to reflect on the work you have done for the pre-lab and in-lab.
 
 ### Bringing it all together ###
 
