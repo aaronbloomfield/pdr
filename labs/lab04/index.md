@@ -90,11 +90,15 @@ outputBinary(1000000) //=> 0000 0000 0000 1111 0100 0010 0100 0000
 
 You can ***NOT*** use the `bitset` class for this, or any other class that does the work for you.  You have to program this yourself.
 
-### Output ###
-Your program will have the printout of three separate methods, and the ordering of these printouts are very important: `sizeOfTest()` --> `overflow()` --> `outputBinary()`. **Do not** include any output that prompts the user for input. An example output that we expect you to follow is shown below.
+### Sample Execution Run ###
+Your program will have the printout of three separate methods, and the ordering of these printouts are very important: `sizeOfTest()` --> `overflow()` --> `outputBinary()`. **Do not** include any output that prompts the user for input. Below is a sample execution run to show you the input and output format we are looking for.
 
+Input
 ```
-// the following output is produced by inputting 1 to the cin of the program
+1
+```
+Output
+```
 Size of int: 4
 Size of unsigned int: 4
 Size of float: 4
@@ -257,7 +261,7 @@ In bitCounter.cpp, create a function that takes a number *n* from *startBase* an
 
 Notice that the number we are converting will be passed in as a string; this is because many bases (like hexidecimal) require non-numeric characters for their representations (e.g. A, B, ...). To make things simpler, you may assume that all characters are capitalized. For example, when we input our numbers for you to convert, we will input them as `DEADBEAF123` instead of `deadbeaf123` or `deADbEAf123`. Furthermore, we will not provide any bases less than 1 or greater than 36. 
 
-### Output ###
+### Sample Execution Run ###
 Your output will be split into two sections, the bit counter and the converter. You can run your methods in any order you please, but your program must print the results of the bit counter **before** the results of the converter. An example I/O when running `./a.out 1 ABCD 16 10`
 
 ```

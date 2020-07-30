@@ -78,10 +78,12 @@
 outputBinary(5) //=&gt; 0000 0000 0000 0000 0000 0000 0000 0101
 outputBinary(1000000) //=&gt; 0000 0000 0000 1111 0100 0010 0100 0000</code></pre>
 <p>You can <strong><em>NOT</em></strong> use the <code>bitset</code> class for this, or any other class that does the work for you. You have to program this yourself.</p>
-<h3 id="output">Output</h3>
-<p>Your program will have the printout of three separate methods, and the ordering of these printouts are very important: <code>sizeOfTest()</code> --&gt; <code>overflow()</code> --&gt; <code>outputBinary()</code>. <strong>Do not</strong> include any output that prompts the user for input. An example output that we expect you to follow is shown below.</p>
-<pre><code>// the following output is produced by inputting 1 to the cin of the program
-Size of int: 4
+<h3 id="sample-execution-run">Sample Execution Run</h3>
+<p>Your program will have the printout of three separate methods, and the ordering of these printouts are very important: <code>sizeOfTest()</code> --&gt; <code>overflow()</code> --&gt; <code>outputBinary()</code>. <strong>Do not</strong> include any output that prompts the user for input. Below is a sample execution run to show you the input and output format we are looking for.</p>
+<p>Input</p>
+<pre><code>1</code></pre>
+<p>Output</p>
+<pre><code>Size of int: 4
 Size of unsigned int: 4
 Size of float: 4
 Size of double: 8
@@ -283,7 +285,7 @@ then the other 4 bytes will be whatever arbitrary values are adjacent in memory.
 <li>end base (int)</li>
 </ol>
 <p>Notice that the number we are converting will be passed in as a string; this is because many bases (like hexidecimal) require non-numeric characters for their representations (e.g. A, B, ...). To make things simpler, you may assume that all characters are capitalized. For example, when we input our numbers for you to convert, we will input them as <code>DEADBEAF123</code> instead of <code>deadbeaf123</code> or <code>deADbEAf123</code>. Furthermore, we will not provide any bases less than 1 or greater than 36.</p>
-<h3 id="output-1">Output</h3>
+<h3 id="sample-execution-run-1">Sample Execution Run</h3>
 <p>Your output will be split into two sections, the bit counter and the converter. You can run your methods in any order you please, but your program must print the results of the bit counter <strong>before</strong> the results of the converter. An example I/O when running <code>./a.out 1 ABCD 16 10</code></p>
 <pre><code>1 has 1 bit(s)
 ABCD (base 16) = 43981 (base 10)</code></pre>
