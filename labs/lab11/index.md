@@ -54,9 +54,9 @@ Procedure
 
 ### Post-lab ###
 
-1. Write a report on the time and space complexity of your pre-lab and in-lab code, and discuss ways to accelerate the travelling salesperson algorithm
+1. Write an 8-Puzzle solver using an [A\* search](https://en.wikipedia.org/wiki/A*_search_algorithm).
 2. Files to download: none
-3. Files to submit: postlab11.pdf
+3. Files to submit: Makefile, any source code required to run the solver. 
 
 ------------------------------------------------------------
 
@@ -103,7 +103,16 @@ There are multiple valid orders that the courses can be taken in; each is a vali
 - cs1110 cs2102 cs2110 cs2150 cs3330 cs4414
 - cs1110 cs2110 cs3330 cs2102 cs2150 cs4414
 
-Any one of these topological sorts is sufficient.
+However, for this lab we want you to output the valid order that comes first lexicographically for grading sake.
+
+### Lexicographically Ordered Output ###
+For this lab, there will be many cases where several nodes can be travelled to in any order. When this happens, it means that there are many possible different valid topological sorts that differ from when each node is travelled to. Rather than everyone having potentially different sorts for this lab, we want you to output the topological sort that comes first lexicographically. This means that, when you have several nodes that can be traversed in any order, do so in alphabetical order.
+
+Consider the following two topological sorts from the example above:
+1. cs1110 cs2110 cs2102 cs3330 cs2150 cs4414
+2. cs1110 cs2102 cs2110 cs2150 cs3330 cs4414
+
+While the first one is a valid topological sort for the given graph, it is **not** in lexicographical order. This is because cs2110 comes after cs2102 alphabetically. Since a student can take cs2110 and cs2102 in either order, we want your program to visit those nodes alphabetically (first cs2102, then cs2110). The same situation appears for cs3330 and cs2150, the classes can be taken in either order, but the first topological sort does not display them alphabetically. The second sort, however, puts cs2102 before cs2110, and cs2150 before cs3330, and is thus the solution we are looking for. 
 
 ### Input ###
 
@@ -117,9 +126,11 @@ You can assume that the provided graph is a directed acyclic graph, that it is w
 
 ### Output ###
 
-The output is a valid topological sort of the vertices, each separated by one space, and all on one line.  If there are multiple topological sorts, then any valid one is acceptable.  No additional output!
+The output is a valid topological sort of the vertices, each separated by one space, and all on one line.  If there are multiple topological sorts, only the one that comes first lexicographically is acceptable.
 
-### Example ###
+### Sample Execution Run ###
+
+Below is a sample execution run to show you the input and output format we are looking for.
 
 Given the input file:
 
@@ -134,10 +145,10 @@ cs1110 cs2102
 0 0
 ```
 
-A valid topological sort would be
+Output:
 
 ```
-cs1110 cs2110 cs2102 cs3330 cs2150 cs4414
+cs1110 cs2102 cs2110 cs2150 cs3330 cs4414
 ```
 
 ------------------------------------------------------------
@@ -246,8 +257,6 @@ The results for a random seed of 14, world size of 20x20 with 20 cities, and var
 9. Minimum path has distance 71.335: Barad-Dur -> Helm's Deep -> Emyn Muil -> Dagorlad -> Dunharrow -> Rivendell -> Entwash River -> Trollshaws -> The Old Forest -> Minas Tirith -> Barad-Dur
 10. Minimum path has distance 72.0124: Barad-Dur -> Helm's Deep -> Emyn Muil -> Dagorlad -> Dunharrow -> Misty Mountains -> Rivendell -> Entwash River -> Trollshaws -> The Old Forest -> Minas Tirith -> Barad-Dur
 
-Your cycle may be the same cities but in reverse; this is perfectly acceptable.
-
 Your final program needs to both be able to compile and run with the specified command-line parameters.
 
 ### Makefile ###
@@ -259,28 +268,71 @@ Your Makefile should have **only one** target, which you can name anything you w
 Post-lab
 --------
 
-There are two parts to the post-lab: a complexity analysis of your code, as well as an investigation into acceleration techniques for the traveling salesperson problem.  
+Consider the [Sliding 8-Puzzle](https://en.wikipedia.org/wiki/15_puzzle) game, depicted in the image below.
 
-The deliverable for the post-lab is a PDF document named postlab11.pdf.
+![8-puzzle](8Puzzle.png)
 
-### Complexity analysis ###
+In this 3x3 grid of numbers, the goal is to move the empty square through adjacent grid cells until the end game state is reached. As can be seen above, our end game state is a sorted board. The hole in the board can move in any direction, but cannot "wrap around" from one side to the other (or from top to bottom, etc.).
 
-For this part of the post-lab, we want you to do a time and space complexity analysis of both of your pre-lab code and your in-lab code.  How long is your algorithm?  In addition to a big-Theta notation, give an explanation as to why.
+Your task for this lab is to implement a solution to the 8 puzzle problem described above: given an input board, find the minimum number of moves required to reach the end state, or if it is impossible to reach it.
 
-### Acceleration techniques ###
+### Storing the Puzzle ###
 
-We all know that the solution for the traveling salesperson is inefficient.  So inefficient that a 20 route tour through Middle Earth (i.e. using the command-line parameters `20 20 20 14 20`) would take over 3 hundred thousand years, assuming the computer can check about 200,000 paths per second.  We could run it on a more efficient computer -- this would help, but not much.  If you are trying to compute a [61-route tour](https://www.google.com/search?q=61!), then there are more possibilities than there are [atoms in the known universe](https://www.universetoday.com/36302/atoms-in-the-universe/).  So it's not likely that you will be able to push that many electrons through your computer, even if you could wait the [10<sup>70</sup>](https://www.google.com/search?q=61!%2F(200000*60*60*24*365.25)) years required.  You might be able to lower that somewhat if you used a more efficient computer -- perhaps to 10<sup>69</sup> years.  That's still longer than the expected life of the universe.
+The simplest way to store the puzzle would be with either a 1D or 2D array, where the hole is represented by a 0 (zero). Then, if you wanted to move the hole around the "board", you would simply swap its position in the array with an adjacent tile.
 
-It's safe to say that we can all agree that this problem is very inefficient.  Yet the world record for the longest traveling salesperson solution is a whopping 85,900 cities!  See the [here](https://en.wikipedia.org/wiki/Travelling_salesman_problem#Exact_algorithms) for details.
+### Testing for Solvability ###
 
-Let's do a bit of math.  If we assume that a properly coded solution runs in &Theta;(*n*!) time (yours may be different, by the way, but probably not by much), then this size input set would take 85960! steps.  That's 9.61 * 10<sup>386,526</sup> (yes, there are more than 1/3 of a million digits in this number).  Let's assume we could get a fast program to compute 1 million possible paths per second.  With 60 seconds per minute, 60 minutes per hour, 24 hours per day, and 365.25 days per year, that will take 3.04 * 10<sup>386,516</sup> years (the exponent lowered by 10).  With a number this big, a faster computer will not make much of a difference.
+There is an easy way to check if an 8-puzzle is solvable or not by using inversions. An inversion is a pair of tiles that are in reverse order to their appearance in the goal state. If an 8-puzzle has an **even** number of inversions, then the puzzle is **solvable**. If an 8-puzzle has an **odd** number of inversions, then the puzzle is **unsolvable**.  For example, the following 8-puzzle has 3 inversions, and is thus impossible to solve.
 
-The people who computed the 85,900 city traveling salesperson problem obviously did not wait forever for it to compute.  In fact, they managed to compute it in 136 CPU years!  It took far less time to complete (say, 6 months or so), as it ran in parallel on multiple computers.
+```
+2 1 3
+4 0 5
+8 6 7
+```
 
-To accomplish this, they had to use a number of acceleration techniques.
+The inversions in this example are (2,1), (8,6), and (8,7).
 
-The second part of the post-lab is for you to research other acceleration techniques that can be used to speed up the traveling salesperson problem.  You are welcome to view the Wikipedia page -- however, we also know what's on the Wikipedia page.  So just copying that information down will get you no credit -- you need to understand the acceleration techniques, and write them in your *OWN* words.
+### Input ###
 
-Your report should include information on 3 such techniques (again, feel free to start with the 3 that Wikipedia mentions).  You should write sufficient text on each to explain how it would work, the running time, and an estimate of how much faster it would make your code.  You don't need to implement any of these techniques -- just understand (at a high level) how they work.
+The input to this program will be three lines of three numbers, each representing a tile of the 8-puzzle.
 
-You should discuss at least one approximation technique (ones that get a reasonable answer, but not necessarily an exact answer) and at least one exact acceleration technique.  Your third one can be either.
+### Sample Execution Run ###
+
+Below is a sample execution run to show you the input and output format we are looking for.
+
+```
+Enter puzzle
+3 6 4
+1 2 5
+7 8 0
+Solving puzzle
+18
+```
+
+Here is another example showing how your output should look for an impossible puzzle.
+
+```
+Enter puzzle
+2 1 3
+4 0 5
+8 6 7
+Solving puzzle
+IMPOSSIBLE
+```
+
+### Submission ###
+
+You should submit any files required for your 8 puzzle solver to run as well as a Makefile that prodcues an `a.out` executable.
+
+### Hints ###
+
+#### Where do I get Started? ####
+There are a lot of steps to this lab, and it is important to partition the work and only focus on one component at a time. Start out by working on how you will represent a puzzle: as a class, an array with helper methods, etc. Once you can read in a puzzle and manipulate it at will, you are ready to move on to the actual solving portion of the lab.
+
+#### Too Many Permutations! Which Ones Should I Look at First? ####
+To solve this problem, you will need to implement a type of [best-first search](https://en.wikipedia.org/wiki/Best-first_search) algorithm called an [A\* search](https://en.wikipedia.org/wiki/A*_search_algorithm). With this type of algorithm, you give a score to each permutation or "node" of the graph, and you traverse the nodes that have the best score. 
+
+In your solution, we recommend using a scoring system that is broken into the following two components:
+- The distance from your starting board to the next board your program will choose to look at. This is also a count of how many total moves you had to make to get to this specific board.
+- A heuristic function that **estimates** the number of moves it would take that board to reach the end state. This means that you should come up with a function that can estimate how many moves away any given board is from being solved. In order for your solver to work correctly, meaning it is guarenteed to find a minimal solution, this function **must** never overestimate the number of moves to reach the goal state. This property is known as [admissibility](https://en.wikipedia.org/wiki/Admissible_heuristic).
+	- For this assignment, we recommend that you base this heuristic off [manhattan distance](https://en.wikipedia.org/wiki/Manhattan_distance).
