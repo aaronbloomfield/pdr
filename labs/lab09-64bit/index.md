@@ -220,5 +220,4 @@ Found 30 at index 4
 Took 0.007ms
 ```
 
-The following resource explains the merge sort algorithm. This is what you need to implement in x86 assembly: [https://www.hackerearth.com/practice/algorithms/searching/binary-search/tutorial/](https://www.hackerearth.com/practice/algorithms/searching/binary-search/tutorial/)
-
+The following resource explains the binary search algorithm. This is what you need to implement in x86 assembly: [https://www.hackerearth.com/practice/algorithms/searching/binary-search/tutorial/](https://www.hackerearth.com/practice/algorithms/searching/binary-search/tutorial/)
