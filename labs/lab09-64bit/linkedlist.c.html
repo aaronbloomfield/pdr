@@ -1,0 +1,210 @@
+<HTML>
+<HEAD>
+</HEAD>
+<BODY>
+<CODE>
+<PRE>
+<FONT COLOR="#0000ff">#include</FONT> &lt;stdio.h&gt;
+<FONT COLOR="#0000ff">#include</FONT> &lt;ctype.h&gt;
+<FONT COLOR="#0000ff">#include</FONT> &lt;stdlib.h&gt;
+<FONT COLOR="#0000ff">#include</FONT> &lt;string.h&gt;
+
+<FONT COLOR="#0000ff">#define</FONT> PUSH_FRONT &nbsp;&nbsp;&nbsp;&nbsp; 0
+<FONT COLOR="#0000ff">#define</FONT> PUSH_BACK &nbsp;&nbsp;&nbsp;&nbsp; 1
+<FONT COLOR="#0000ff">#define</FONT> POP_FRONT &nbsp;&nbsp;&nbsp;&nbsp; 2
+<FONT COLOR="#0000ff">#define</FONT> POP_BACK &nbsp;&nbsp;&nbsp;&nbsp; 3
+<FONT COLOR="#0000ff">#define</FONT> PRINT_LIST &nbsp;&nbsp;&nbsp;&nbsp; 4
+<FONT COLOR="#0000ff">#define</FONT> HELP &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 5
+<FONT COLOR="#0000ff">#define</FONT> QUIT &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 6
+<FONT COLOR="#0000ff">#define</FONT> INVALID &nbsp;&nbsp;&nbsp;&nbsp; 7
+
+<FONT COLOR="#0000ff">#define</FONT> BUFFER_SIZE 20
+
+<FONT COLOR="#0000ff">void</FONT> printOptions();
+<FONT COLOR="#0000ff">int</FONT> readInput(<FONT COLOR="#0000ff">int</FONT>* val);
+<FONT COLOR="#0000ff">int</FONT> isNumber(<FONT COLOR="#0000ff">const</FONT> <FONT COLOR="#0000ff">char</FONT>* token);
+<FONT COLOR="#0000ff">int</FONT> isEmpty(<FONT COLOR="#0000ff">const</FONT> <FONT COLOR="#0000ff">char</FONT>* input);
+
+<FONT COLOR="#0000ff">int</FONT> main(){
+
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#008000">// TODO: Implement your linked list here.</FONT>
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">struct</FONT> list_item{
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">int</FONT> val;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">struct</FONT> list_item *next, *prev;
+&nbsp;&nbsp;&nbsp;&nbsp; } list_item_t;
+
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">struct</FONT> list{
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">struct</FONT> list_item* head, *tail;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">unsigned</FONT> <FONT COLOR="#0000ff">int</FONT> length;
+&nbsp;&nbsp;&nbsp;&nbsp; } list_t;
+
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#008000">// TODO: Instantiate your linked list here.</FONT>
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">struct</FONT> list* l = malloc(<FONT COLOR="#0000ff">sizeof</FONT>(list_t));
+&nbsp;&nbsp;&nbsp;&nbsp; l-&gt;length = 0;
+&nbsp;&nbsp;&nbsp;&nbsp; l-&gt;head = malloc(<FONT COLOR="#0000ff">sizeof</FONT>(list_item_t));
+&nbsp;&nbsp;&nbsp;&nbsp; l-&gt;tail = malloc(<FONT COLOR="#0000ff">sizeof</FONT>(list_item_t));
+&nbsp;&nbsp;&nbsp;&nbsp; l-&gt;head-&gt;next = l-&gt;tail;
+&nbsp;&nbsp;&nbsp;&nbsp; l-&gt;tail-&gt;prev = l-&gt;head;
+
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">int</FONT> option, val;
+&nbsp;&nbsp;&nbsp;&nbsp; printOptions();
+
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">do</FONT> {
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; option = readInput(&amp;val);
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">struct</FONT> list_item* node;
+
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">switch</FONT>(option){
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">case</FONT> PUSH_FRONT:&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#008000">// push onto front of list</FONT>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#008000">// TODO: Insert code to push val onto front of linked list here.</FONT>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; node = malloc(<FONT COLOR="#0000ff">sizeof</FONT>(list_item_t));
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; node-&gt;next = l-&gt;head;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; l-&gt;head-&gt;prev = node;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; l-&gt;head-&gt;val = val;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; l-&gt;head = node;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; l-&gt;length++;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">break</FONT>;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">case</FONT> PUSH_BACK: &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#008000">// push onto back of list</FONT>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#008000">// TODO: Insert code to push val onto back of linked list here.</FONT>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; node = malloc(<FONT COLOR="#0000ff">sizeof</FONT>(list_item_t));
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; l-&gt;tail-&gt;next = node;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; node-&gt;prev = l-&gt;tail;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; l-&gt;tail-&gt;val = val;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; l-&gt;tail = node;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; l-&gt;length++;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">break</FONT>;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">case</FONT> POP_FRONT: &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#008000">// remove from front of list</FONT>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#008000">// TODO: Insert code to remove from front of linked list here.</FONT>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#008000">// If list is empty, do nothing.</FONT>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">if</FONT>(l-&gt;length &gt; 0){
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; node = l-&gt;head;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; l-&gt;head = l-&gt;head-&gt;next;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; free(node);
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; l-&gt;length--;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">break</FONT>;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">case</FONT> POP_BACK:&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#008000">// remove from back of list</FONT>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#008000">// TODO: Insert code to remove from back of linked list here.</FONT>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#008000">// If list is empty, do nothing.</FONT>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">if</FONT>(l-&gt;length &gt; 0){
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; node = l-&gt;tail;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; l-&gt;tail = l-&gt;tail-&gt;prev;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; free(node);
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; l-&gt;length--;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">break</FONT>;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">case</FONT> PRINT_LIST:&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#008000">// print list</FONT>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#008000">// TODO: Insert code to print list forwards here.</FONT>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#008000">// Simply print each element separated by a space as shown below:</FONT>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#008000">// Elements: 1 2 3 4 5 </FONT>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; printf(<FONT COLOR="#ff0000">"Elements: "</FONT>);
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; node = l-&gt;head-&gt;next;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">while</FONT>(node != l-&gt;tail){
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; printf(<FONT COLOR="#ff0000">"%d "</FONT>, node-&gt;val);
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; node = node-&gt;next;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; printf(<FONT COLOR="#ff0000">"\n"</FONT>);
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">break</FONT>;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">case</FONT> HELP: &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#008000">// print menu</FONT>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; printOptions();
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">break</FONT>;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">case</FONT> QUIT: &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#008000">// quit</FONT>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">break</FONT>;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">case</FONT> INVALID: &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#008000">// bad input</FONT>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; fprintf(stderr,<FONT COLOR="#ff0000">"Invalid command or operand, please input a valid command or help to see the list again.\n"</FONT>);
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">break</FONT>;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; }
+
+&nbsp;&nbsp;&nbsp;&nbsp; } <FONT COLOR="#0000ff">while</FONT>(option != QUIT);
+
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#008000">// TODO: free any memory used by your linked list here</FONT>
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">struct</FONT> list_item* temp;
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">struct</FONT> list_item* node = l-&gt;head;
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">while</FONT> (1){
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; temp = node-&gt;next;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; free(node);
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; node = temp;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">if</FONT>(node == l-&gt;tail)
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">break</FONT>;
+&nbsp;&nbsp;&nbsp;&nbsp; }
+
+&nbsp;&nbsp;&nbsp;&nbsp; free(l-&gt;tail);
+&nbsp;&nbsp;&nbsp;&nbsp; free(l);
+
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">return</FONT> 0;
+}
+
+<FONT COLOR="#0000ff">int</FONT> readInput(<FONT COLOR="#0000ff">int</FONT>* val){
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">char</FONT> input[BUFFER_SIZE]=<FONT COLOR="#ff0000">""</FONT>;
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">while</FONT>(isEmpty(input)){
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; printf(<FONT COLOR="#ff0000">"Enter command: "</FONT>);
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; fgets(input, BUFFER_SIZE, stdin);
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; input[strcspn(input, <FONT COLOR="#ff0000">"\n"</FONT>)] = 0;
+&nbsp;&nbsp;&nbsp;&nbsp; }
+
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">char</FONT>* token = strtok(input, <FONT COLOR="#ff0000">" "</FONT>);
+&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">if</FONT> ((strcmp(token, <FONT COLOR="#ff0000">"af"</FONT>)) == 0){
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; token = strtok(NULL, <FONT COLOR="#ff0000">" "</FONT>);
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">if</FONT> (isNumber(token)){
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; *val = atoi(token);
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">return</FONT> PUSH_FRONT;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; } <FONT COLOR="#0000ff">else</FONT> <FONT COLOR="#0000ff">return</FONT> INVALID;
+&nbsp;&nbsp;&nbsp;&nbsp; } <FONT COLOR="#0000ff">else</FONT> <FONT COLOR="#0000ff">if</FONT> ((strcmp(token, <FONT COLOR="#ff0000">"ab"</FONT>)) == 0){
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; token = strtok(NULL, <FONT COLOR="#ff0000">" "</FONT>);
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">if</FONT> (isNumber(token)){
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; *val = atoi(token);
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">return</FONT> PUSH_BACK;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; } <FONT COLOR="#0000ff">else</FONT> <FONT COLOR="#0000ff">return</FONT> INVALID;
+&nbsp;&nbsp;&nbsp;&nbsp; } <FONT COLOR="#0000ff">else</FONT> <FONT COLOR="#0000ff">if</FONT> ((strcmp(token, <FONT COLOR="#ff0000">"rf"</FONT>)) == 0){
+&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">return</FONT> POP_FRONT;
+&nbsp;&nbsp;&nbsp;&nbsp; } <FONT COLOR="#0000ff">else</FONT> <FONT COLOR="#0000ff">if</FONT> ((strcmp(token, <FONT COLOR="#ff0000">"rb"</FONT>)) == 0){
+&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">return</FONT> POP_BACK;
+&nbsp;&nbsp;&nbsp;&nbsp; } <FONT COLOR="#0000ff">else</FONT> <FONT COLOR="#0000ff">if</FONT> ((strcmp(token, <FONT COLOR="#ff0000">"p"</FONT>)) == 0){
+&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">return</FONT> PRINT_LIST;
+&nbsp;&nbsp;&nbsp;&nbsp; } <FONT COLOR="#0000ff">else</FONT> <FONT COLOR="#0000ff">if</FONT>((strcmp(token, <FONT COLOR="#ff0000">"help"</FONT>)) == 0){
+&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">return</FONT> HELP;
+&nbsp;&nbsp;&nbsp;&nbsp; } <FONT COLOR="#0000ff">else</FONT> <FONT COLOR="#0000ff">if</FONT>((strcmp(token, <FONT COLOR="#ff0000">"-1"</FONT>)) == 0){
+&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">return</FONT> QUIT;
+&nbsp;&nbsp;&nbsp;&nbsp; } <FONT COLOR="#0000ff">else</FONT> {
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">return</FONT> INVALID;
+&nbsp;&nbsp;&nbsp;&nbsp; }
+}
+
+<FONT COLOR="#0000ff">void</FONT> printOptions(){
+&nbsp;&nbsp;&nbsp;&nbsp; printf(<FONT COLOR="#ff0000">"----------------------------------------------------\n"</FONT>);
+&nbsp;&nbsp;&nbsp;&nbsp; printf(<FONT COLOR="#ff0000">"This test harness operates with one linked list.\n"</FONT>);
+&nbsp;&nbsp;&nbsp;&nbsp; printf(<FONT COLOR="#ff0000">"Use any of the following options to manipulate it:\n"</FONT>);
+&nbsp;&nbsp;&nbsp;&nbsp; printf(<FONT COLOR="#ff0000">"\t* af <num> --- add integer to front\n"</FONT>);
+&nbsp;&nbsp;&nbsp;&nbsp; printf(<FONT COLOR="#ff0000">"\t* ab <num> --- add integer to back\n"</FONT>);
+&nbsp;&nbsp;&nbsp;&nbsp; printf(<FONT COLOR="#ff0000">"\t* rf       --- remove front element\n"</FONT>);
+&nbsp;&nbsp;&nbsp;&nbsp; printf(<FONT COLOR="#ff0000">"\t* rb       --- remove back element\n"</FONT>);
+&nbsp;&nbsp;&nbsp;&nbsp; printf(<FONT COLOR="#ff0000">"\t* p        --- print list forward\n"</FONT>);
+&nbsp;&nbsp;&nbsp;&nbsp; printf(<FONT COLOR="#ff0000">"\t* help     --- print off this list\n"</FONT>);
+&nbsp;&nbsp;&nbsp;&nbsp; printf(<FONT COLOR="#ff0000">"\t* -1       --- exit harness\n\n"</FONT>);
+}
+
+<FONT COLOR="#0000ff">int</FONT> isNumber(<FONT COLOR="#0000ff">const</FONT> <FONT COLOR="#0000ff">char</FONT>* token){
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">int</FONT> length, i = 0;
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">if</FONT> (token == NULL)&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">return</FONT> 0;
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">if</FONT>(token[0] == '-') &nbsp;&nbsp;&nbsp;&nbsp; i = 1;
+&nbsp;&nbsp;&nbsp;&nbsp; length = strlen(token);
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">for</FONT> (; i &lt; length; i++){
+&nbsp;&nbsp;&nbsp;&nbsp;     <FONT COLOR="#0000ff">if</FONT> (!isdigit(token[i]))
+&nbsp;&nbsp;&nbsp;&nbsp;     &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">return</FONT> 0;
+&nbsp;&nbsp;&nbsp;&nbsp; }
+
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">return</FONT> 1;
+}
+
+<FONT COLOR="#0000ff">int</FONT> isEmpty(<FONT COLOR="#0000ff">const</FONT> <FONT COLOR="#0000ff">char</FONT>* input){
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">while</FONT> (*input != '\0'){
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">if</FONT> (!isspace((<FONT COLOR="#0000ff">unsigned</FONT> <FONT COLOR="#0000ff">char</FONT>)*input))
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">return</FONT> 0;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; input++;
+&nbsp;&nbsp;&nbsp;&nbsp; }
+
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">return</FONT> 1;
+}</PRE>
+</CODE>
+</BODY>
+</HTML>

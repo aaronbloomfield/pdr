@@ -1,0 +1,83 @@
+<HTML>
+<HEAD>
+</HEAD>
+<BODY>
+<CODE>
+<PRE>
+<FONT COLOR="#008000">// NOTE: in order to compile this system on Linux (and most Unix</FONT>
+<FONT COLOR="#008000">// systems) you will have to include the -lrt flag to your compiler.</FONT>
+
+<FONT COLOR="#008000">/*Nicholas Mohammad
+&nbsp;&nbsp; nm9ur
+&nbsp;&nbsp; timer.cpp
+&nbsp;&nbsp; 10/19/2017
+*/</FONT>
+
+<FONT COLOR="#0000ff">#include</FONT> &lt;sstream&gt;
+<FONT COLOR="#0000ff">#include</FONT> &lt;math.h&gt;
+<FONT COLOR="#0000ff">#include</FONT> &lt;cstring&gt;
+
+<FONT COLOR="#0000ff">#include</FONT> <FONT COLOR="#ff0000">"timer.h"</FONT>
+
+timer::timer(timer &amp; t) : running(t.running) {
+&nbsp;&nbsp;&nbsp;&nbsp; memcpy(&amp;startVar, &amp;(t.startVar), <FONT COLOR="#0000ff">sizeof</FONT> (timeval));
+&nbsp;&nbsp;&nbsp;&nbsp; memcpy(&amp;stopVar,  &amp;(t.stopVar),  <FONT COLOR="#0000ff">sizeof</FONT> (timeval));
+}
+
+<FONT COLOR="#0000ff">int</FONT> timer::start() {
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">if</FONT> (!running) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; running = <FONT COLOR="#0000ff">true</FONT>;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gettimeofday(&amp;startVar,NULL);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">return</FONT> 0;
+&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">return</FONT> 1;
+}
+
+<FONT COLOR="#0000ff">int</FONT> timer::stop() {
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">if</FONT> (running) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; running = 0;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gettimeofday(&amp;stopVar,NULL);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">return</FONT> 0;
+&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">return</FONT> 1;
+}
+
+ostream &amp; timer::print(ostream &amp; out) {
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">return</FONT> (out &lt;&lt; toString());
+}
+
+<FONT COLOR="#0000ff">double</FONT> timer::getTime() {
+&nbsp;&nbsp;&nbsp;&nbsp; time_t sec = stopVar.tv_sec - startVar.tv_sec;
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">long</FONT> usec = stopVar.tv_usec - startVar.tv_usec;
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">return</FONT> sec + usec/1000000.0;
+}
+
+string timer::toString() {
+&nbsp;&nbsp;&nbsp;&nbsp; ostringstream out;
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">if</FONT> (running)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; out &lt;&lt; <FONT COLOR="#ff0000">"Timer still running\n"</FONT>;
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">else</FONT> {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; time_t sec = stopVar.tv_sec - startVar.tv_sec;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">long</FONT> usec = stopVar.tv_usec - startVar.tv_usec;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">if</FONT> ( usec &lt; 0 ) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sec--;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; usec += 1000000;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; out &lt;&lt; sec &lt;&lt; <FONT COLOR="#ff0000">"."</FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;&lt; ((usec&lt;100000)?<FONT COLOR="#ff0000">"0"</FONT>:<FONT COLOR="#ff0000">""</FONT>)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;&lt; ((usec&lt;10000)?<FONT COLOR="#ff0000">"0"</FONT>:<FONT COLOR="#ff0000">""</FONT>)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;&lt; ((usec&lt;1000)?<FONT COLOR="#ff0000">"0"</FONT>:<FONT COLOR="#ff0000">""</FONT>)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;&lt; ((usec&lt;100)?<FONT COLOR="#ff0000">"0"</FONT>:<FONT COLOR="#ff0000">""</FONT>)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;&lt; ((usec&lt;10)?<FONT COLOR="#ff0000">"0"</FONT>:<FONT COLOR="#ff0000">""</FONT>)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;&lt; usec;
+&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">return</FONT> out.str();
+}
+
+ostream &amp; <FONT COLOR="#0000ff">operator</FONT>&lt;&lt;(ostream &amp;out, timer &amp;t) {
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">return</FONT> t.print(out);
+}
+</PRE>
+</CODE>
+</BODY>
+</HTML>

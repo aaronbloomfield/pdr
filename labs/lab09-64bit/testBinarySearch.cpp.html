@@ -1,0 +1,67 @@
+<HTML>
+<HEAD>
+</HEAD>
+<BODY>
+<CODE>
+<PRE>
+<FONT COLOR="#0000ff">#include</FONT> &lt;iostream&gt;
+<FONT COLOR="#0000ff">#include</FONT> &lt;cstring&gt;
+<FONT COLOR="#0000ff">#include</FONT> <FONT COLOR="#ff0000">"timer.h"</FONT>
+<FONT COLOR="#0000ff">using</FONT> <FONT COLOR="#0000ff">namespace</FONT> std;
+
+<FONT COLOR="#0000ff">extern</FONT> <FONT COLOR="#ff0000">"C"</FONT> <FONT COLOR="#0000ff">int</FONT> binarySearch(<FONT COLOR="#0000ff">int</FONT> * arr, <FONT COLOR="#0000ff">int</FONT> left, <FONT COLOR="#0000ff">int</FONT> right, <FONT COLOR="#0000ff">int</FONT> target);
+
+<FONT COLOR="#0000ff">int</FONT> main(<FONT COLOR="#0000ff">int</FONT> argc, <FONT COLOR="#0000ff">char</FONT>** argv){
+
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#008000">// Check if silent cmd line param was passed in</FONT>
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#008000">// This is used for autograding purposes but can be ignored otherwise</FONT>
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">bool</FONT> print = <FONT COLOR="#0000ff">true</FONT>;
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">if</FONT> (argc &gt; 1){
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string opt = <FONT COLOR="#ff0000">"-s"</FONT>;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print = (strcmp(opt.c_str(), argv[1]) != 0);
+&nbsp;&nbsp;&nbsp;&nbsp; }
+
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#008000">// prompt for array size</FONT>
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">int</FONT> size;
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">if</FONT> (print)
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; cout &lt;&lt; <FONT COLOR="#ff0000">"Enter the array size: "</FONT>;
+&nbsp;&nbsp;&nbsp;&nbsp; cin &gt;&gt; size;
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">int</FONT> * arr = <FONT COLOR="#0000ff">new</FONT> <FONT COLOR="#0000ff">int</FONT>[size];
+
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#008000">// read in array values</FONT>
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">for</FONT>(<FONT COLOR="#0000ff">int</FONT> i = 0; i &lt; size; i++) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">if</FONT>(print)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cout &lt;&lt; <FONT COLOR="#ff0000">"Enter value "</FONT> &lt;&lt; i &lt;&lt; <FONT COLOR="#ff0000">": "</FONT>;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cin &gt;&gt; arr[i];
+&nbsp;&nbsp;&nbsp;&nbsp; }
+
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#008000">// prompt for target</FONT>
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">int</FONT> target;
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">if</FONT>(print)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cout &lt;&lt; <FONT COLOR="#ff0000">"Enter target to search for: "</FONT>;
+&nbsp;&nbsp;&nbsp;&nbsp; cin &gt;&gt; target;
+
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">int</FONT> ind = binarySearch(arr, 0, size-1, target);
+
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">if</FONT> (ind &gt; -1)
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; cout &lt;&lt; <FONT COLOR="#ff0000">"\nFound "</FONT> &lt;&lt; target &lt;&lt; <FONT COLOR="#ff0000">" at index "</FONT> &lt;&lt; ind &lt;&lt; endl;
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">else</FONT>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; cout &lt;&lt; <FONT COLOR="#ff0000">"\nDid not find "</FONT> &lt;&lt; target &lt;&lt; endl;
+
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#008000">// timing tests</FONT>
+&nbsp;&nbsp;&nbsp;&nbsp; timer t;
+&nbsp;&nbsp;&nbsp;&nbsp; t.start();
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">for</FONT>(<FONT COLOR="#0000ff">int</FONT> i = 0; i &lt; 1000; i++){
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; binarySearch(arr, 0, size-1, target);
+&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp; t.stop();
+
+&nbsp;&nbsp;&nbsp;&nbsp; cout &lt;&lt; <FONT COLOR="#ff0000">"Took "</FONT> &lt;&lt; t.getTime()*1000 &lt;&lt; <FONT COLOR="#ff0000">"ms"</FONT> &lt;&lt; endl;
+
+&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">return</FONT> 0;
+
+}
+</PRE>
+</CODE>
+</BODY>
+</HTML>
