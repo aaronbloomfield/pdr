@@ -54,7 +54,7 @@ Procedure
 
 ### Post-lab ###
 
-1. Write an 8-Puzzle solver using an A* search.
+1. Write an 8-Puzzle solver using an [A\* search](https://en.wikipedia.org/wiki/A*_search_algorithm).
 2. Files to download: none
 3. Files to submit: Makefile, any source code required to run the solver. 
 
@@ -270,7 +270,7 @@ Post-lab
 
 Consider the [Sliding 8-Puzzle](https://en.wikipedia.org/wiki/15_puzzle) game, depicted in the image below.
 
-![8-puzzle](8-puzzle.png)
+![8-puzzle](8Puzzle.png)
 
 In this 3x3 grid of numbers, the goal is to move the empty square through adjacent grid cells until the end game state is reached. As can be seen above, our end game state is a sorted board. The hole in the board can move in any direction, but cannot "wrap around" from one side to the other (or from top to bottom, etc.).
 
