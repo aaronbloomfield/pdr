@@ -16,36 +16,26 @@
 <p><a href="../index.html">Go up to the Labs table of contents page</a></p>
 <h3 id="objective">Objective</h3>
 <p>To become familiar with representing directed acyclic graphs (DAGs), topological sorting, and the traveling salesperson problem.</p>
-<h3 style="color:red">
-<b>Changes for the spring 2020 semester</b>
-</h3>
-<p style="color:red">
-Due to this course being <a href="../../uva/online.html">taught online</a> (<a href="../../uva/online.md">md</a>) in the spring of 2020, we are making the following changes for this semester, in an effort to make the workload more manageable since we are all working from home.
-</p>
+<h3 style="color:red"><b>Changes for the spring 2020 semester</b></h3>
+<p style="color:red">Due to this course being <a href="../../uva/online.html">taught online</a> (<a href="../../uva/online.md">md</a>) in the spring of 2020, we are making the following changes for this semester, in an effort to make the workload more manageable since we are all working from home.</p>
 <ul style="color:red">
-<li>
-Pre-lab: no change to the pre-lab; it's still the topological sort. However, since there is no in-lab this week, and because the pre-labs are due Wednesday mornings, you can continue to work on the topological sort during labs on Tuesday.
-</li>
-<li>
-In-lab: nothing to submit. However, the in-lab work (i.e., the traveling salesperson) is to be submitted for the post-lab. Thus, there is nothing to submit for the in-lab and it will not be graded this semester.
-</li>
-<li>
-Post-lab: the traveling salesperson, as described in the in-lab section, is to be done for the post-lab.
-</li>
+<li>Pre-lab: no change to the pre-lab; it's still the topological sort.  However, since there is no in-lab this week, and because the pre-labs are due Wednesday mornings, you can continue to work on the topological sort during labs on Tuesday.</li>
+<li>In-lab: nothing to submit. However, the in-lab work (i.e., the traveling salesperson) is to be submitted for the post-lab.  Thus, there is nothing to submit for the in-lab and it will not be graded this semester.</li>
+<li>Post-lab: the traveling salesperson, as described in the in-lab section, is to be done for the post-lab.</li>
 </ul>
 <h3 id="background">Background</h3>
 <p>A graph is a set of vertices connected by edges. In a directed graph, an edge is an ordered pair of vertices, where you can follow an edge from one vertex to another. In a directed acyclic graph (DAG), no path starts and ends at the same vertex. A topological sort orders the vertices in a DAG such that any edge from vertex i to vertex j satisfies i &lt; j.</p>
 <h3 id="tutorial">Tutorial</h3>
 <p>Go through the <a href="../../tutorials/11-doxygen/index.html">Doxygen tutorial</a>, which is a program that allows you to generate documentation for your code.</p>
 <h3 id="recommended-readings">Recommended Readings</h3>
-<ol type="1">
+<ol>
 <li>The <a href="https://en.wikipedia.org/wiki/Topological_sorting">Wikipedia page on Topological sort</a></li>
 <li>The <a href="https://en.wikipedia.org/wiki/Travelling_salesman_problem">Wikipedia page on the Traveling Salesperson problem</a></li>
 <li><a href="../../slides/11-graphs.html">The slides on graphs</a></li>
 </ol>
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
-<ol type="1">
+<ol>
 <li>Understand and document the <a href="middleearth.h.html">middleearth.h</a> (<a href="middleearth.h">src</a>) and <a href="middleearth.cpp.html">middleearth.cpp</a> (<a href="middleearth.cpp">src</a>) files</li>
 <li>Write a program to compute a topological sort of a graph</li>
 <li>Document your topological.cpp with doxygen comments</li>
@@ -54,7 +44,7 @@ Post-lab: the traveling salesperson, as described in the in-lab section, is to b
 <li>Files to submit: topological.cpp, middleearth.h/cpp, Makefile, Doxyfile</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
-<ol type="1">
+<ol>
 <li>Implement a brute-force traveling salesperson solution</li>
 <li>Document your C++ files with doxygen commands</li>
 <li>Write a Makefile to compile your code and generate documentation</li>
@@ -62,15 +52,15 @@ Post-lab: the traveling salesperson, as described in the in-lab section, is to b
 <li>Files to submit: traveling.cpp, middleearth.h, middleearth.cpp, Makefile, Doxyfile</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
-<ol type="1">
-<li>Write a report on the time and space complexity of your pre-lab and in-lab code, and discuss ways to accelerate the travelling salesperson algorithm</li>
+<ol>
+<li>Write an 8-Puzzle solver using an A* search.</li>
 <li>Files to download: none</li>
-<li>Files to submit: postlab11.pdf</li>
+<li>Files to submit: Makefile, any source code required to run the solver.</li>
 </ol>
 <hr />
 <h2 id="pre-lab-1">Pre-lab</h2>
 <h3 id="good-code-documentation">Good code documentation</h3>
-<p>For this lab, any code you submit must be properly documented using doxygen.<br />
+<p>For this lab, any code you submit must be properly documented using doxygen.\<br />
 This includes the <a href="middleearth.h.html">middleearth.h</a> (<a href="middleearth.h">src</a>) and <a href="middleearth.cpp.html">middleearth.cpp</a> (<a href="middleearth.cpp">src</a>) files, which you should understand and document as part of the pre-lab.</p>
 <p>There are many doxygen commands, and we expect for you to use more than just those that were provided in the tutorial.</p>
 <h3 id="topological-sort">Topological sort</h3>
@@ -84,9 +74,7 @@ This includes the <a href="middleearth.h.html">middleearth.h</a> (<a href="middl
 <h2 id="pre-lab-problem-topological-sort">Pre-lab Problem: Topological Sort</h2>
 <p>It turns out that one of our teaching assistants did not take all of the pre-requisite computer science courses! That TA is all ready to graduate, but it turns that CS 1110 was never taken. The department came down hard, and decided to make that TA take all of the courses over again, to have the proper pre-requisite classes completed for each successive class. But the TA just got a job at Microsoft, and can only take one course a semester while working full time. In what order should the teaching assistant take the list of required courses to properly fulfill the pre-requisites this time around?</p>
 <p>Given the following course pre-requisite graph:</p>
-<figure>
-<img src="pre-reqs.svg" alt="pre-reqs.svg" /><figcaption>pre-reqs.svg</figcaption>
-</figure>
+<p><img src="pre-reqs.svg" alt="pre-reqs.svg" /></p>
 <p>There are multiple valid orders that the courses can be taken in; each is a valid topological sort:</p>
 <ul>
 <li>cs1110 cs2110 cs2102 cs3330 cs2150 cs4414</li>
@@ -95,15 +83,24 @@ This includes the <a href="middleearth.h.html">middleearth.h</a> (<a href="middl
 <li>cs1110 cs2102 cs2110 cs2150 cs3330 cs4414</li>
 <li>cs1110 cs2110 cs3330 cs2102 cs2150 cs4414</li>
 </ul>
-<p>Any one of these topological sorts is sufficient.</p>
+<p>However, for this lab we want you to output the valid order that comes first lexicographically for grading sake.</p>
+<h3 id="lexicographically-ordered-output">Lexicographically Ordered Output</h3>
+<p>For this lab, there will be many cases where several nodes can be travelled to in any order. When this happens, it means that there are many possible different valid topological sorts that differ from when each node is travelled to. Rather than everyone having potentially different sorts for this lab, we want you to output the topological sort that comes first lexicographically. This means that, when you have several nodes that can be traversed in any order, do so in alphabetical order.</p>
+<p>Consider the following two topological sorts from the example above:</p>
+<ol>
+<li>cs1110 cs2110 cs2102 cs3330 cs2150 cs4414</li>
+<li>cs1110 cs2102 cs2110 cs2150 cs3330 cs4414</li>
+</ol>
+<p>While the first one is a valid topological sort for the given graph, it is <strong>not</strong> in lexicographical order. This is because cs2110 comes after cs2102 alphabetically. Since a student can take cs2110 and cs2102 in either order, we want your program to visit those nodes alphabetically (first cs2102, then cs2110). The same situation appears for cs3330 and cs2150, the classes can be taken in either order, but the first topological sort does not display them alphabetically. The second sort, however, puts cs2102 before cs2110, and cs2150 before cs3330, and is thus the solution we are looking for.</p>
 <h3 id="input">Input</h3>
 <p>The program will consist of a single file, <code>topological.cpp</code>, and take a single command-line parameter. This parameter will specify the file name that contains the input.</p>
 <p>The input file will consist of a series of lines that each designate a directed edge. Each line will have two vertex names, separated by a single space; the edge is directed from the first to the second listed vertex name on a given line. Every vertex name is a series of alphanumeric characters only (a-z, A-Z, 0-9) without any spaces or punctuation. Note that case is relevant, so vertex <code>abc</code> is distinct from vertex <code>ABC</code>. The edges can be listed in any order.</p>
 <p>The end of the input file is signified by two 0s on the same line, separated by a single space.</p>
 <p>You can assume that the provided graph is a directed acyclic graph, that it is weakly connected, and thus that there is at least one valid topological sort. You can further assume that there will not be more than 100 vertices in the graph.</p>
 <h3 id="output">Output</h3>
-<p>The output is a valid topological sort of the vertices, each separated by one space, and all on one line. If there are multiple topological sorts, then any valid one is acceptable. No additional output!</p>
-<h3 id="example">Example</h3>
+<p>The output is a valid topological sort of the vertices, each separated by one space, and all on one line. If there are multiple topological sorts, only the one that comes first lexicographically is acceptable.</p>
+<h3 id="sample-execution-run">Sample Execution Run</h3>
+<p>Below is a sample execution run to show you the input and output format we are looking for.</p>
 <p>Given the input file:</p>
 <pre><code>cs2110 cs2150
 cs2102 cs2150
@@ -113,8 +110,8 @@ cs2150 cs4414
 cs2110 cs3330
 cs1110 cs2102
 0 0</code></pre>
-<p>A valid topological sort would be</p>
-<pre><code>cs1110 cs2110 cs2102 cs3330 cs2150 cs4414</code></pre>
+<p>Output:</p>
+<pre><code>cs1110 cs2102 cs2110 cs2150 cs3330 cs4414</code></pre>
 <hr />
 <h2 id="in-lab-1">In-lab</h2>
 <h3 id="the-traveling-salesperson">The Traveling Salesperson</h3>
@@ -122,7 +119,7 @@ cs1110 cs2102
 <p>The traveling salesperson problem is as described in lecture. In brief, you start from a given city (your &quot;home&quot; city), and have to travel to a number of other cities before returning home. There is a fixed cost between any two cities (miles traveled, dollars spent, time taken, etc). The goal of this algorithm is to find the least costly path that travels to each of the cities, in any order.</p>
 <p>The world we have chosen is <a href="https://en.wikipedia.org/wiki/Middle-earth">Middle-Earth</a>, the location of J.R.R. Tolkien's Hobbit and Lord of the Rings books and movies. The middleearth.h and middleearth.cpp files contain a class that will create a random 2-dimensional world. The &quot;randomness&quot; means that it will pick a given number of cities (or places), and randomly place them in the &quot;world&quot;. You can travel from any city to any other city, for a given cost (the distance). The city names are all from the books and movies, and can be seen at the beginning of the middleearth.cpp file -- there is a textual description in the code as to what all the places are. The randomness of the world means that cities that are nowhere near each other in the books/movies might be right next to each other in the random world.</p>
 <p>When your program is completed, you will need to specify five command-line parameters to execute the traveling salesperson problem. The parameters are, in order:</p>
-<ol type="1">
+<ol>
 <li>The x-size (i.e. width) of the world. We'll use 20 throughout this lab.</li>
 <li>The y-size (i.e. height) of the world. We'll use 20 throughout this lab.</li>
 <li>The number of cities in the world. There are currently 40 names specified at the top of middleearth.cpp, so you can't specify more than 40 cities.</li>
@@ -134,7 +131,8 @@ cs1110 cs2102
 <p>There are a number of STL functions that will help you in writing this program. All of these algorithms (and more!) are provided in the <code>&lt;algorithm&gt;</code> header file. This file is already included by traveling-skeleton.cpp.</p>
 <p>First, take a look at the <code>shuffle()</code> method in middleearth.cpp:</p>
 <pre><code>shuffle(cities.begin(), cities.end(), gen);</code></pre>
-<p>This method takes a vector and a random number generator, and will randomly shuffle the vector, similar to Java's <code>Collections.shuffle()</code>. The parameters specify the amount of the vector that we want to shuffle. Because we want to shuffle the entire vector, we specify the beginning and end of the list. We define our own custom <code>shuffle</code> implementation rather than using the STL's to provide the same results regardless of what OS you are using.</p>
+<p>This method takes a vector and a random number generator, and will randomly shuffle the vector, similar to Java's <code>Collections.shuffle()</code>. The parameters specify the amount of the vector that we want to shuffle. Because we want to shuffle the entire vector, we specify the beginning and end of the list.<br />
+We define our own custom <code>shuffle</code> implementation rather than using the STL's to provide the same results regardless of what OS you are using.</p>
 <p>The <code>sort()</code> method takes in vector iterators as well, and sorts the list. It is similar to Java's <code>Collections.sort()</code> method. It returns no value.</p>
 <p>The <code>next_permutation()</code> method will cycle through each and every permutation of the passed vector. <strong><em>It must start out with a sorted vector</em></strong>, and will move through each and every possible list ordering until the vector ends up in reverse sorted order. It takes the same parameters as <code>sort()</code>. Note that it does not return a new permutation, but instead modifies the vector that is passed in. It returns <code>true</code> if it found another permutation and <code>false</code> if there are no more permutations to provide. Thus, it is often put into a do-while loop. For an example of using <code>next_permutation()</code> in a while loop, see <a href="https://en.cppreference.com/w/cpp/algorithm/next_permutation">here</a>. This is a good way to iterate through each possible combination of cities to travel to.</p>
 <h3 id="middle-earth-methods">Middle-Earth methods</h3>
@@ -143,7 +141,7 @@ cs1110 cs2102
 <p>The <code>getDistance()</code> method will return the distance, as a float, between the two provided cities. In an effort to make your code as efficient as possible, <code>getDistance()</code> has the same expected running time as a hash table. Lastly, <code>getItinerary()</code> will return a vector of the cities that you must visit. The first city provided is the start (and thus end) city -- you should remove this from the vector before you consider all possible cycles through the graph.</p>
 <h3 id="how-to-proceed">How to proceed</h3>
 <p>We provide the skeleton code for the algorithm -- your job is to complete traveling.cpp.</p>
-<ol type="1">
+<ol>
 <li>First complete <code>printRoute()</code>, as that will be useful when debugging your code. It should print a route in the form: <code>Gladden Fields -&gt; Bywater -&gt; Dagorlad -&gt; Pelennor Fields -&gt; Cirith Ungol -&gt; Gladden Fields</code>. Note that we aren't picky about exactly how it's printed, as long as it prints all the cities.</li>
 <li>Next, complete <code>computeDistance()</code>. You can create a sample string vector to test it, and verify it against the distances in the output of <code>printTable()</code>.</li>
 <li>Start on the <code>main()</code> method. Make sure that you can print out all the permutations of the list of destinations. Note that for n cities, there are n! possible permutations. Remember that the start city should not be permuted!</li>
@@ -171,7 +169,7 @@ student@cassiopeia:~/labs/lab11$ </code></pre>
 <p>For this lab, we will keep the size of the 2-D world fixed at (20,20). These are the first two command line parameters. We'll also create a world of 20 cities (chosen from the 40 names in middleearth.cpp) -- this is the third command line parameter.</p>
 <p>If the random seed (the fourth parameter) is 14, then the path lengths and paths for the various itinerary lengths are listed below. Because we are explicitly setting the random seed, it should produce the exact same results each time -- and thus your code should also produce the same results.</p>
 <p>The results for a random seed of 14, world size of 20x20 with 20 cities, and various path lengths:</p>
-<ol type="1">
+<ol>
 <li>Minimum path has distance 19.2463: Barad-Dur -&gt; Trollshaws -&gt; Barad-Dur</li>
 <li>Minimum path has distance 47.0356: Barad-Dur -&gt; Dagorlad -&gt; Trollshaws -&gt; Barad-Dur</li>
 <li>Minimum path has distance 47.73: Barad-Dur -&gt; Helm's Deep -&gt; Dagorlad -&gt; Trollshaws -&gt; Barad-Dur</li>
@@ -183,24 +181,54 @@ student@cassiopeia:~/labs/lab11$ </code></pre>
 <li>Minimum path has distance 71.335: Barad-Dur -&gt; Helm's Deep -&gt; Emyn Muil -&gt; Dagorlad -&gt; Dunharrow -&gt; Rivendell -&gt; Entwash River -&gt; Trollshaws -&gt; The Old Forest -&gt; Minas Tirith -&gt; Barad-Dur</li>
 <li>Minimum path has distance 72.0124: Barad-Dur -&gt; Helm's Deep -&gt; Emyn Muil -&gt; Dagorlad -&gt; Dunharrow -&gt; Misty Mountains -&gt; Rivendell -&gt; Entwash River -&gt; Trollshaws -&gt; The Old Forest -&gt; Minas Tirith -&gt; Barad-Dur</li>
 </ol>
-<p>Your cycle may be the same cities but in reverse; this is perfectly acceptable.</p>
 <p>Your final program needs to both be able to compile and run with the specified command-line parameters.</p>
 <h3 id="makefile-1">Makefile</h3>
 <p>Your Makefile should have <strong>only one</strong> target, which you can name anything you want. This target should do <strong>two</strong> things: compile your code, and run doxygen. You can have two tabbed lines after the target specifier, which is the easiest way to accomplish this. In other words, we are just going to call <code>make</code>, and we want it to both compile your code and create your doxygen documentation. The in-lab Makefile should have the same dual-purpose target.</p>
 <hr />
 <h2 id="post-lab-1">Post-lab</h2>
-<p>There are two parts to the post-lab: a complexity analysis of your code, as well as an investigation into acceleration techniques for the traveling salesperson problem.</p>
-<p>The deliverable for the post-lab is a PDF document named postlab11.pdf.</p>
-<h3 id="complexity-analysis">Complexity analysis</h3>
-<p>For this part of the post-lab, we want you to do a time and space complexity analysis of both of your pre-lab code and your in-lab code. How long is your algorithm? In addition to a big-Theta notation, give an explanation as to why.</p>
-<h3 id="acceleration-techniques">Acceleration techniques</h3>
-<p>We all know that the solution for the traveling salesperson is inefficient. So inefficient that a 20 route tour through Middle Earth (i.e. using the command-line parameters <code>20 20 20 14 20</code>) would take over 3 hundred thousand years, assuming the computer can check about 200,000 paths per second. We could run it on a more efficient computer -- this would help, but not much. If you are trying to compute a <a href="https://www.google.com/search?q=61!">61-route tour</a>, then there are more possibilities than there are <a href="https://www.universetoday.com/36302/atoms-in-the-universe/">atoms in the known universe</a>. So it's not likely that you will be able to push that many electrons through your computer, even if you could wait the <a href="https://www.google.com/search?q=61!%2F(200000*60*60*24*365.25)">10<sup>70</sup></a> years required. You might be able to lower that somewhat if you used a more efficient computer -- perhaps to 10<sup>69</sup> years. That's still longer than the expected life of the universe.</p>
-<p>It's safe to say that we can all agree that this problem is very inefficient. Yet the world record for the longest traveling salesperson solution is a whopping 85,900 cities! See the <a href="https://en.wikipedia.org/wiki/Travelling_salesman_problem#Exact_algorithms">here</a> for details.</p>
-<p>Let's do a bit of math. If we assume that a properly coded solution runs in Θ(<em>n</em>!) time (yours may be different, by the way, but probably not by much), then this size input set would take 85960! steps. That's 9.61 * 10<sup>386,526</sup> (yes, there are more than 1/3 of a million digits in this number). Let's assume we could get a fast program to compute 1 million possible paths per second. With 60 seconds per minute, 60 minutes per hour, 24 hours per day, and 365.25 days per year, that will take 3.04 * 10<sup>386,516</sup> years (the exponent lowered by 10). With a number this big, a faster computer will not make much of a difference.</p>
-<p>The people who computed the 85,900 city traveling salesperson problem obviously did not wait forever for it to compute. In fact, they managed to compute it in 136 CPU years! It took far less time to complete (say, 6 months or so), as it ran in parallel on multiple computers.</p>
-<p>To accomplish this, they had to use a number of acceleration techniques.</p>
-<p>The second part of the post-lab is for you to research other acceleration techniques that can be used to speed up the traveling salesperson problem. You are welcome to view the Wikipedia page -- however, we also know what's on the Wikipedia page. So just copying that information down will get you no credit -- you need to understand the acceleration techniques, and write them in your <em>OWN</em> words.</p>
-<p>Your report should include information on 3 such techniques (again, feel free to start with the 3 that Wikipedia mentions). You should write sufficient text on each to explain how it would work, the running time, and an estimate of how much faster it would make your code. You don't need to implement any of these techniques -- just understand (at a high level) how they work.</p>
-<p>You should discuss at least one approximation technique (ones that get a reasonable answer, but not necessarily an exact answer) and at least one exact acceleration technique. Your third one can be either.</p>
+<p>Consider the <a href="https://en.wikipedia.org/wiki/15_puzzle">Sliding 8-Puzzle</a> game, depicted in the image below.</p>
+<p><img src="8-puzzle.png" alt="8-puzzle" /></p>
+<p>In this 3x3 grid of numbers, the goal is to move the empty square through adjacent grid cells until the end game state is reached. As can be seen above, our end game state is a sorted board. The hole in the board can move in any direction, but cannot &quot;wrap around&quot; from one side to the other (or from top to bottom, etc.).</p>
+<p>Your task for this lab is to implement a solution to the 8 puzzle problem described above: given an input board, find the minimum number of moves required to reach the end state, or if it is impossible to reach it.</p>
+<h3 id="storing-the-puzzle">Storing the Puzzle</h3>
+<p>The simplest way to store the puzzle would be with either a 1D or 2D array, where the hole is represented by a 0 (zero). Then, if you wanted to move the hole around the &quot;board&quot;, you would simply swap its position in the array with an adjacent tile.</p>
+<h3 id="testing-for-solvability">Testing for Solvability</h3>
+<p>There is an easy way to check if an 8-puzzle is solvable or not by using inversions. An inversion is a pair of tiles that are in reverse order to their appearance in the goal state. If an 8-puzzle has an <strong>even</strong> number of inversions, then the puzzle is <strong>solvable</strong>. If an 8-puzzle has an <strong>odd</strong> number of inversions, then the puzzle is <strong>unsolvable</strong>. For example, the following 8-puzzle has 3 inversions, and is thus impossible to solve.</p>
+<pre><code>2 1 3
+4 0 5
+8 6 7</code></pre>
+<p>The inversions in this example are (2,1), (8,6), and (8,7).</p>
+<h3 id="input-1">Input</h3>
+<p>The input to this program will be three lines of three numbers, each representing a tile of the 8-puzzle.</p>
+<h3 id="sample-execution-run-1">Sample Execution Run</h3>
+<p>Below is a sample execution run to show you the input and output format we are looking for.</p>
+<pre><code>Enter puzzle
+3 6 4
+1 2 5
+7 8 0
+Solving puzzle
+18</code></pre>
+<p>Here is another example showing how your output should look for an impossible puzzle.</p>
+<pre><code>Enter puzzle
+2 1 3
+4 0 5
+8 6 7
+Solving puzzle
+IMPOSSIBLE</code></pre>
+<h3 id="submission">Submission</h3>
+<p>You should submit any files required for your 8 puzzle solver to run as well as a Makefile that prodcues an <code>a.out</code> executable.</p>
+<h3 id="hints">Hints</h3>
+<h4 id="where-do-i-get-started">Where do I get Started?</h4>
+<p>There are a lot of steps to this lab, and it is important to partition the work and only focus on one component at a time. Start out by working on how you will represent a puzzle: as a class, an array with helper methods, etc. Once you can read in a puzzle and manipulate it at will, you are ready to move on to the actual solving portion of the lab.</p>
+<h4 id="too-many-permutations-which-ones-should-i-look-at-first">Too Many Permutations! Which Ones Should I Look at First?</h4>
+<p>To solve this problem, you will need to implement a type of <a href="https://en.wikipedia.org/wiki/Best-first_search">best-first search</a> algorithm called an <a href="https://en.wikipedia.org/wiki/A*_search_algorithm">A* search</a>. With this type of algorithm, you give a score to each permutation or &quot;node&quot; of the graph, and you traverse the nodes that have the best score.</p>
+<p>In your solution, we recommend using a scoring system that is broken into the following two components:</p>
+<ul>
+<li>The distance from your starting board to the next board your program will choose to look at. This is also a count of how many total moves you had to make to get to this specific board.</li>
+<li>A heuristic function that <strong>estimates</strong> the number of moves it would take that board to reach the end state. This means that you should come up with a function that can estimate how many moves away any given board is from being solved. In order for your solver to work correctly, meaning it is guarenteed to find a minimal solution, this function <strong>must</strong> never overestimate the number of moves to reach the goal state. This property is known as <a href="https://en.wikipedia.org/wiki/Admissible_heuristic">admissibility</a>.
+<ul>
+<li>For this assignment, we recommend that you base this heuristic off <a href="https://en.wikipedia.org/wiki/Manhattan_distance">manhattan distance</a>.</li>
+</ul></li>
+</ul>
 </body>
 </html>
