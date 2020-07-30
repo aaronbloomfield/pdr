@@ -93,9 +93,13 @@ In order to make autograding easier, we expect you to follow the output and outp
 
 For this lab, only print out the result of your power function on the last line. **Do not** include any cout statements prompting the user for input. An example I/O for your program is shown below.
 
+Input
 ```
 2
 3
+```
+Output
+```
 9
 ```
 
