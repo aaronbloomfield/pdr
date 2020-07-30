@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>PDR: Laboratory 9: x86 Assembly Language, part 2 (64 bit)</title>
+  <title>PDR: Laboratory 9: x86 Assembly Language, part 2 (64 bit) – </title>
   <style type="text/css">code{white-space: pre;}</style>
   <link rel="stylesheet" href="../../markdown.css">
   <!--[if lt IE 9]>
@@ -15,38 +15,28 @@
 <h1 id="pdr-laboratory-9-x86-assembly-language-part-2-64-bit">PDR: Laboratory 9: x86 Assembly Language, part 2 (64 bit)</h1>
 <p><a href="../index.html">Go up to the Labs table of contents page</a></p>
 <h3 id="objective">Objective</h3>
-<p>This lab is one of two labs meant to familiarize you with the process of writing, assembling, and linking assembly language code. The purposes of the in-lab and post-lab activities are to investigate how various C++ language features are implemented at the assembly level.</p>
+<p>This lab is one of two labs meant to familiarize you with the process of writing, assembling, and linking assembly language code. The purposes of the in-lab and in-lab activities are to investigate how various C++ language features are implemented at the assembly level.</p>
 <p>There are both <a href="../lab09-32bit/index.html">32 bit</a> (<a href="../lab09-32bit/index.md">md</a>) and <a href="../lab09-64bit/index.html">64 bit</a> (<a href="../lab09-64bit/index.md">md</a>) versions of this lab. This is the <strong><em>64 bit version</em></strong>.</p>
-<h3 style="color:red">
-<b>Changes for the spring 2020 semester</b>
-</h3>
-<p style="color:red">
-Due to this course being <a href="../../uva/online.html">taught online</a> (<a href="../../uva/online.md">md</a>) in the spring of 2020, we are making the following changes for this semester, in an effort to make the workload more manageable since we are all working from home.
-</p>
+<h3 style="color:red"><b>Changes for the spring 2020 semester</b></h3>
+<p style="color:red">Due to this course being <a href="../../uva/online.html">taught online</a> (<a href="../../uva/online.md">md</a>) in the spring of 2020, we are making the following changes for this semester, in an effort to make the workload more manageable since we are all working from home.</p>
 <ul style="color:red">
-<li>
-Pre-lab: no change to the pre-lab; it's still the Collatz conjecture program; keep in mind this is due Wednesday at 8 a.m.
-</li>
-<li>
-In-lab: none -- the report (the only part of the in-lab) is not to be done. Instead, use this time to get help with the pre-lab or the post-lab. Because of this, the in-lab will not be graded this semester.
-</li>
-<li>
-Post-lab: the C tutorial is still to be done, but the report is not to be done.
-</li>
+<li>Pre-lab: no change to the pre-lab; it's still the Collatz conjecture program; keep in mind this is due Wednesday at 8 a.m.</li>
+<li>In-lab: none -- the report (the only part of the in-lab) is not to be done.  Instead, use this time to get help with the pre-lab or the in-lab.  Because of this, the in-lab will not be graded this semester.</li>
+<li>in-lab: the C tutorial is still to be done, but the report is not to be done.</li>
 </ul>
 <h3 id="background">Background</h3>
 <p>The Intel x86 assembly language is currently one of the most popular assembly languages and runs on many architectures from the x86 line through the Pentium 4. It is a CISC instruction set that has been extended multiple times (e.g. MMX) into a larger instruction set.</p>
 <h3 id="tutorial">Tutorial</h3>
-<p>Read the <a href="../../tutorials/09-c/index.html">C tutorial</a> for the post-lab.</p>
+<p>Read the <a href="../../tutorials/09-c/index.html">C tutorial</a> for the in-lab.</p>
 <h3 id="recommended-readings">Recommended Readings</h3>
-<ol type="1">
+<ol>
 <li>Read the <a href="../../slides/08-x86.html">slides on x86</a></li>
 <li>The two book chapters on x86: <a href="../../book/x86-64bit-asm-chapter.pdf">x86 Assembly</a> and <a href="../../book/x86-64bit-ccc-chapter.pdf">The x86 C Calling Convention</a>.</li>
 <li>The <a href="http://www.cs.virginia.edu/~evans/cs216/guides/x86.html">x86 Assembly Guide</a> from an older course at UVA (ignore the section on Calling Convention)</li>
 </ol>
 <h2 id="lab-procedure">Lab Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
-<ol type="1">
+<ol>
 <li>Create an assembly program to demonstrate the Collatz conjecture</li>
 <li>Time your program using a helper C++ file</li>
 <li>Optimize your program and list all optimizations used</li>
@@ -54,28 +44,25 @@ Post-lab: the C tutorial is still to be done, but the report is not to be done.
 <li>Files to submit: threexplusone.s, threexinput.cpp, timer.cpp, timer.h, Makefile</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
-<ol type="1">
-<li>Write a report that addresses one of the topics listed in the in-lab section</li>
-<li>Files to download: none (other than the results of your pre-lab)</li>
-<li>Files to submit: inlab9.pdf</li>
+<ol>
+<li>Complete the provided linkedlist.c program by going through <a href="../../tutorials/09-c/index.html">Tutorial 9: C</a> (<a href="../../tutorials/09-c/index.md">md</a>)</li>
+<li>Files to download: <a href="linkedlist.c.html">linkedlist.c</a> (<a href="linkedlist.c">src</a>)</li>
+<li>Files to submit: linkedlist.c, Makefile</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
-<ol type="1">
-<li>Implement the linkedlist.c program from <a href="../../tutorials/09-c/index.html">Tutorial 9: C</a> (<a href="../../tutorials/09-c/index.md">md</a>)</li>
-<li>Write another report that addresses two topics listed in the in-lab section (the first topic is the one you started in the in-lab; the second one is new for the post-lab)</li>
-<li>Files to download: none (other than the results of your pre-lab and in-lab)</li>
-<li>Files to submit: postlab9.pdf, linkedlist.c, Makefile</li>
+<ol>
+<li>Write an x86 function to perform a binary search</li>
+<li>Files to download: <a href="testLinearSearch.cpp.html">testLinearSearch.cpp</a> (<a href="testLinearSearch.cpp">src</a>), <a href="timer.cpp.html">timer.cpp</a> (<a href="timer.cpp">src</a>), and <a href="timer.h" class="uri">timer.h</a> (<a href="timer.h" class="uri">timer.h</a>)</li>
+<li>Files to submit: testBinarySearch.cpp, binarySearch.s, timer.cpp, timer.h, Makefile</li>
 </ol>
 <hr />
 <h2 id="pre-lab-1">Pre-lab</h2>
 <p>You may want to reference the &quot;Compiling Assembly With C++&quot; and &quot;Vecsum&quot; sections from the <a href="../lab08-64bit/index.html">previous x86 lab</a>.</p>
 <h3 id="the-collatz-conjecture">The Collatz Conjecture</h3>
 <p>The 3x+1 conjecture (also called the Collatz conjecture) is an open problem in mathematics, meaning that it has not yet been proven to be true. The conjecture states that if you take any positive integer, you can repeatedly apply the following function to it:</p>
-<figure>
-<img src="formula.png" />
-</figure>
+<p><img src="formula.png" /></p>
 <p>The conjecture is that eventually, the result will reach 1. For example, consider <em>x</em> = 13:</p>
-<ol type="1">
+<ol>
 <li><em>f</em>(13) = 3 * 13 + 1 = 40</li>
 <li><em>f</em>(40) = 40 / 2 = 20</li>
 <li><em>f</em>(20) = 20 / 2 = 10</li>
@@ -93,15 +80,17 @@ Post-lab: the C tutorial is still to be done, but the report is not to be done.
 <p>Your task is to write a routine, called <code>threexplusone</code>, that takes in a positive integer and returns the number of steps required for that integer to reach 1 by following the Collatz conjecture. An input of 13 takes 9 steps, as shown above. The Wikipedia page shows a few other input sizes and the number of steps: an input of 6 takes 8 steps; an input of 14 takes 17 steps; an input of 27 takes 111 steps. If the input is 1, the output should be zero.</p>
 <p>This routine <strong><em>MUST</em></strong> call itself recursively using the proper C-style calling convention. The assembly code should be in a threexplusone.s file. <strong>If you write your function so that it is an iterative solution, you will not receive credit for this pre-lab.</strong></p>
 <h3 id="testing-and-timing">Testing and timing</h3>
-<p>You will need to write a C++ file called threexinput.cpp that allows you to test your subroutine. This input file should:</p>
-<ol type="1">
+<p>You will need to write a C++ file called threexinput.cpp that allows you to test your subroutine.<br />
+This input file should:</p>
+<ol>
 <li>Ask for an input value, <em>x</em>, which is the positive integer to pass to the subroutine</li>
 <li>Ask for an input value, <em>n</em>, which is the number of times to call the subroutine</li>
-<li>Run the subroutine once and print out the result</li>
+<li>Run the subroutine once and store the result</li>
 <li>Run the subroutine <em>n</em> times with the parameter <em>x</em> as the input</li>
+<li>Print out the number of iterations it took for the integer to converge to 1.</li>
 </ol>
 <p>You can assume that both <em>x</em> and <em>n</em> are positive integers.</p>
-<p>We can now time the subroutine to see how fast it runs. Download the timer code from the hash table lab (lab 6: <a href="../lab06/code/timer.cpp.html">timer.cpp</a> (<a href="../lab06/code/timer.cpp">src</a>) and <a href="../lab06/code/timer.h.html">timer.h</a> (<a href="../lab06/code/timer.h">src</a>)) and use it to print out the average time it took for each function call in step 4 to run.</p>
+<p>We can now time the subroutine to see how fast it runs. Download the timer code from the hash table lab (lab 6: <a href="../lab06/code/timer.cpp.html">timer.cpp</a> (<a href="../lab06/code/timer.cpp">src</a>) and <a href="../lab06/code/timer.h.html">timer.h</a> (<a href="../lab06/code/timer.h">src</a>)) and use it to guage the average time it took to run each subroutine call in step 4.</p>
 <p>You should use an appropriate precision number to make sure you don't report zero when you divide the total time by the number of runs. Your timer code should only include the loop of <em>n</em> times that calls the routine with <em>x</em> as the parameter. Nothing else (including the print statement) should be inside the timer code.</p>
 <h3 id="optimization">Optimization</h3>
 <p>Now that you can time your program, you will need to optimize it as much as possible. Any optimization is valid, as long as it computes the correct result, is still a recursive subroutine, and follows the C calling convention. The grade on this pre-lab will be based both on the correctness of the subroutine and the optimizations included.</p>
@@ -119,44 +108,68 @@ Post-lab: the C tutorial is still to be done, but the report is not to be done.
 <p>You will need to include at least one optimization beyond just figuring out how to write your subroutine with fewer instructions. You should put the optimizations used as a comment in the beginning of your assembly file.</p>
 <p>Note that we, too, can write the function in C++ and compile it with <code>clang++ -O2 -S -mllvm --x86-asm-syntax=intel</code>. And we will be looking at that assembly code when we grade the pre-lab. If you write your program this way, it constitutes an honor violation, so please hand-code the assembly yourself.</p>
 <p><strong>You must list, as comments in your assembly file, the optimizations that you used!</strong> Just a brief description of what optimizations you used is fine.</p>
+<h3 id="sample-execution-run">Sample Execution Run</h3>
+<p>Below is a sample execution run to show you the input and output format we are looking for.</p>
+<pre><code>Enter a number: 100
+Enter iterations of subroutine: 30
+Iterations: 25</code></pre>
 <h3 id="different-architectures">Different Architectures</h3>
 <p>See the <a href="../lab08/index.html">last lab</a> for details, but all code must be submitted to run under Linux, which is the platform that does the compilation on the submission system.</p>
 <hr />
 <h2 id="in-lab-1">In-lab</h2>
-<p>The general activity of this in-lab will be to write small snippets of C++ code, compile them so that you can look at the generated assembly code, then make modifications and recompile as needed in order to deduce the representation of a number of C++ constructs, listed below. Remember that we are compiling using <code>clang++ -S -m64 -mllvm --x86-asm-syntax=intel</code>.</p>
-<p>For the in-lab, you will need to work on one of the items in the list below -- note that this is a different list than the previous lab. You will do a second topic for the post-lab.</p>
-<p>The deliverable for the in-lab is a PDF document named inlab9.pdf.</p>
-<p>In your report, you should explain something from one item in the list below. Note that for the post-lab, you will have to have two of the items fully explained, but you need only get through one for the in-lab. Your report would presumably include the code snippets (both C++ and assembly) that you generated during lab, images, screen shots, results, etc.</p>
-<p>Recall that using the <code>-S</code> flag with clang++ will generate the assembly code. You will also want to use the <code>-S -mllvm --x86-asm-syntax=intel</code> flags.</p>
-<h3 id="topic-list">Topic List</h3>
-<p>For the in-lab, you have to address one topic; either the required one or an optional one. For the post-lab, you will have to address two total topics: the one you addressed from the in-lab, and one additional one for the post-lab.</p>
-<h4 id="required">Required</h4>
-<ul>
-<li>Dynamic dispatch: Describe how dynamic dispatch is implemented. Note that dynamic dispatch is NOT the same thing as dynamic memory! Show this using a simple class hierarchy that includes virtual functions. Use more than one virtual function per class.</li>
-</ul>
-<h4 id="optional">Optional</h4>
-<ul>
-<li><p>Inheritance (data layout, construction, and destruction): Create an instance of an object that inherits data members from another class, and also includes data members of its own. Show in memory where data members are laid out in that object. Then explain how construction and destruction happens in this class hierarchy. Explain what happens when a user-defined object is instantiated and what happens when it goes out of scope. What if anything is &quot;destroyed&quot; by the destructor? Show this process happening in the assembly code using a simple class hierarchy. Point out in the assembly code exactly where the destructors and constructors are getting called.</p></li>
-<li><p>Optimized code: Compare code generated normally to optimized code. To create optimized code, you will need to use the <code>-O2</code> compiler flag. Can you make any guesses as to why the optimized code looks as it does? What is being optimized? Be sure to show your original sample code as well as the optimized version. Try loops and function calls to see what &quot;optimizing&quot; does. Be aware that if instructions are &quot;not necessary&quot; to the final output of the program then they may be optimized away completely! This does not lead to very interesting comparisons. Describe at least four (non-trivial) differences you see between 'normal' code and optimized code.</p></li>
-<li><p>Templates: What does the code look like for the instantiation of a simple templated class you wrote? What if you instantiate the class for different data types, what code is generated then? Is it the same or different? If the same, why? If different, why? Compare code for a user-defined templated class or function to a templated class from the STL (e.g. classes such as vectors or functions such as sort).</p></li>
-</ul>
-<hr />
-<h3 id="post-lab-1">Post-lab</h3>
 <h3 id="complete-the-c-tutorials-exercise-program">Complete the C tutorial's exercise program</h3>
-<p>Read the <a href="../../tutorials/09-c/index.html">C tutorial</a>. You will need to implement the linkedlist.c program.</p>
-<h3 id="report">Report!</h3>
-<p>Explore, investigate, and understand two of the four topics from the topic list shown in the in-lab section. The topic addressed during the in-lab is one of these; for the post-lab, you have to address one other. Be able to answer &quot;how&quot; and possibly &quot;why&quot; for each item. Use test cases and the debugger as resources. Additionally, use resources other than yourself (e.g. books, reputable websites) and external to the course (i.e. &quot;the TAs&quot; or &quot;lecture&quot; don't count towards these sources). Be sure to credit these sources. <strong><em>You must use (and cite!) additional resources for this post-lab!</em></strong></p>
-<p>Prepare a report that explains your findings. Follow the guidelines in the Post-lab Report Guidelines section from the previous lab. Address the following: How the compiler implements the construct at the machine and assembly levels. What leads you to this conclusion? You must show evidence of this behavior in the form of assembly code, C++, screenshots, memory dumps, manual quotations, output, etc. Also include where you found the information that lead to your conclusion. (i.e. your sources).</p>
-<p>The deliverable for the post-lab is a PDF document named postlab9.pdf.</p>
-<h3 id="tips-for-getting-started-on-the-post-lab">Tips for Getting Started on the Post-lab</h3>
-<p>See the section in the previous lab for these tips.</p>
-<h3 id="post-lab-report-guidelines">Post-lab Report Guidelines</h3>
-<p>See the section in the previous lab for these guidelines.</p>
-<h3 id="how-much-are-we-looking-for">How much are we looking for?</h3>
-<p>We want you to investigate the particular topic area from the given list, write code to discover the answers, and learn about this topic on your own. The questions that we pose are just meant to get you thinking about the possible ramifications of a given question. They aren't meant to be specific questions that necessarily need answering one at a time.</p>
-<p>As with the previous lab, we expect that you adequately explain both items and include embedded code snippets and/or screenshots. Did you investigate the topic? Did you write code to discover what you didn't know? Was this written in a reasonably readable format? This is what we are looking for.</p>
-<p>This is somewhat vague, and purposely so -- research is often vague. If we told you exactly what to write, then there wouldn't be much discovery of that on your part, which would defeat the whole point of this lab.</p>
-<p><strong>We are not looking for you to spend hours and hours and hours on this!</strong> We find that most lab reports end up being around 2-4 pages, single-spaced, which should give you an idea of when you're performed enough research.</p>
-<p>The grading will be based on a set of points that we would expect you to discover when investigating a given topic. Your grade will be based mostly on how well you hit those points. A small portion of your grade will be based on the overall report presentation and written ability (while we are a computer science class, we expect you to be able to write in English to some extent!).</p>
+<p>Download the <a href="linkedlist.c.html">linkedlist.c</a> (<a href="linkedlist.c">src</a>) test harness, your task is to implement a simple doubly-linked list in C. Read the <a href="../../tutorials/09-c/index.html">C tutorial</a> to help familiarize yourself with the C language. This linked list is meant to be simple, and can be implemented however you'd like in linkedlist.c. We don't really care how you implement the linked list, whether it be with structs, arrays, etc. so long as it works with the provided harness. However, the assignment is considerably easier to do by using an actual linked list solution rather than an array-based solution. Your linked list will need to be able to do the following:</p>
+<ul>
+<li>Insert at head -- Push an integer onto the front of the linked list</li>
+<li>Insert at tail -- Push an integer onto the back of the linked list</li>
+<li>Remove at head -- Remove an integer from the front of the linked list</li>
+<li>Remove at tail -- Remove an integer from the back of the linked list</li>
+<li>Print forward -- Print the elements in forward order, delimited by a space</li>
+</ul>
+<h3 id="sample-execution-run-1">Sample Execution Run</h3>
+<p>Below is a sample execution run to show you the input and output format we are looking for.</p>
+<pre><code>----------------------------------------------------
+This test harness operates with one linked list.
+Use any of the following options to manipulate it:
+        * af &lt;num&gt; --- add integer to front
+        * ab &lt;num&gt; --- add integer to back
+        * rf       --- remove front element
+        * rb       --- remove back element
+        * p        --- print list forward
+        * help     --- print off this list
+        * -1       --- exit harness
+
+Enter command: af 1
+Enter command: af
+Invalid command or operand, please input a valid command or help to see the list again.
+Enter command: af 2
+Enter command: ab 3
+Enter command: p
+Elements: 2 1 3
+Enter command: rf
+Enter command: p
+Elements: 1 3
+Enter command: rb
+Enter command: p
+Elements: 1
+Enter command: -1</code></pre>
+<hr />
+<h2 id="post-lab-1">Post-Lab</h2>
+<p>Download <a href="testBinarySearch.cpp.html">testBinarySearch.cpp</a> (<a href="testBinarySearch.cpp">src</a>), <a href="timer.cpp.html">timer.cpp</a> (<a href="timer.cpp">src</a>), and <a href="timer.h" class="uri">timer.h</a> (<a href="timer.h" class="uri">timer.h</a>), which you will use to test your code. Make sure you do not alter any of these files, as your must include the original files in your submission.</p>
+<p>Your task for the post-lab is to implement the <code>binarySearch</code> function in assembly. This function will begin at the middle of a sorted array, and continuously split the search space in half until it finds the target element or reaches a point where it knows the target is not in the array. The function takes in four parameters. The first parameter is a pointer to an int array. The second parameter is an integer representing the beginning of the array. The fourth parameter is an integer representing the end of the array. The fourth parameter is an integer representing the target element to find in the array. The return type of this function is int, and will be the index into the array that the target was found, or -1 if it wasn't. Just like with the <code>linearSearch</code> from Post-Lab 8, <code>testBinarySearch</code> will take input from std and pass it on to your <code>binarySearch</code> routine. Make sure you test your function on various sized arrays, both sorted and unsorted.</p>
+<p>To make sure your function is efficient enough, the testBinarySearch.cpp file will call your function 1000 times and record the overall time taken via timer.cpp.</p>
+<h3 id="sample-execution-run-2">Sample Execution Run</h3>
+<p>Below is a sample execution run to show you the input and output format we are looking for.</p>
+<pre><code>Enter the array size: 5
+Enter value 0: -30
+Enter value 1: -15
+Enter value 2: 0
+Enter value 3: 15
+Enter value 4: 30
+Enter target to search for: 30
+
+Found 30 at index 4
+Took 0.007ms</code></pre>
+<p>The following resource explains the binary search algorithm. This is what you need to implement in x86 assembly: <a href="https://www.hackerearth.com/practice/algorithms/searching/binary-search/tutorial/" class="uri">https://www.hackerearth.com/practice/algorithms/searching/binary-search/tutorial/</a></p>
 </body>
 </html>
