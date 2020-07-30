@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>PDR: Laboratory 8: x86 Assembly Language, part 1 (64 bit)</title>
+  <title>PDR: Laboratory 8: x86 Assembly Language, part 1 (64 bit) – </title>
   <style type="text/css">code{white-space: pre;}</style>
   <link rel="stylesheet" href="../../markdown.css">
   <!--[if lt IE 9]>
@@ -156,7 +156,7 @@ Sorted array: -39 -7 2 8 12</code></pre>
 <hr />
 <h2 id="post-lab-1">Post-lab</h2>
 <p>Download <a href="testLinearSearch.cpp.html">testLinearSearch.cpp</a> (<a href="testLinearSearch.cpp">src</a>), which you will use to test your code. Make sure you do not alter testLinearSearch.cpp, as you must include the original file in your submission.</p>
-<p>Your task for the post-lab is to implement the <code>linearSearch</code> function in assembly. This funciton will scan through an array iteratively until it finds the target element or reaches the end of the array. The function takes in three parameters. The first parameter is a pointer to an int array. The second parameter is an integer representing the size of the array. The third parameter is an integer representing the target element to find in the array. The return type of this fuction is int, and will be the index into the array that the target was found. Just like with the <code>testMergeSort</code> program in the in-lab, <code>testLinearSearch</code> will take input from std and pass it on to your <code>linearSearch</code> routine. Make sure you test your function on various sized arrays, both sorted and unsorted.</p>
+<p>Your task for the post-lab is to implement the <code>linearSearch</code> function in assembly. This function will scan through an array iteratively until it finds the target element or reaches the end of the array. The function takes in three parameters. The first parameter is a pointer to an int array. The second parameter is an integer representing the size of the array. The third parameter is an integer representing the target element to find in the array. The return type of this fuction is int, and will be the index into the array that the target was found, or -1 if it wasn't. Just like with the <code>testMergeSort</code> program in the in-lab, <code>testLinearSearch</code> will take input from std and pass it on to your <code>linearSearch</code> routine. Make sure you test your function on various sized arrays, both sorted and unsorted.</p>
 <h3 id="sample-execution-run-2">Sample Execution Run</h3>
 <p>Below is a sample execution run to show you the input and output format we are looking for.</p>
 <pre><code>Enter the array size: 5
