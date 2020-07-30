@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>PDR: Laboratory 3: Stacksclear – </title>
+  <title>PDR: Laboratory 3: Stacks</title>
   <style type="text/css">code{white-space: pre;}</style>
   <link rel="stylesheet" href="../../markdown.css">
   <!--[if lt IE 9]>
@@ -114,10 +114,13 @@
 </ul>
 <p>As mentioned in the Unix tutorial, Control-D stands for &quot;end of file&quot;, which lets <code>cin</code> know that there is no more input to read.</p>
 <p><strong><em>NOTE:</em></strong> When hitting Control-D, you have to enter it <em>on its own line</em>. This means that you first have to hit Enter, then Control-D.</p>
-<h3 id="output">Output</h3>
-<p>The only output your program should have is the result of the calculation. This means that you should not have <strong>any</strong> print out statements that prompt the user for input. An example I/O for your calculator is shown below.</p>
-<pre><code>1 2 + 3 -
-0</code></pre>
+<h3 id="sample-execution-run">Sample Execution Run</h3>
+<p>Below is a sample execution run to show you the input and output format we are looking for.</p>
+<p>Input</p>
+<pre><code>1 2 + 3 -</code></pre>
+<p>Output</p>
+<pre><code>0</code></pre>
+<p>You do not need to supply any input prompting for this assignment. When the program runs, nothing should print out to the terminal and the user should be able to input a postfix expression.</p>
 <h3 id="assumptions">Assumptions</h3>
 <ol>
 <li>The input, i.e. the postfix expression, will be entered on one line and that all numbers and operators will be separated by a single space.</li>
@@ -162,6 +165,8 @@ will perform the necessary checks before top/pop.</p>
 <p>The purpose of the in-lab is first to ensure that your pre-lab code (the postfix calculator) is working properly. Then, you will need to handle negative integer inputs and add the remaining three operators: multiplication, division, negation. By the end of the in-lab, your postfix calculator should be able to read in a single line of space-delimited tokens representing a postfix expression and print out the result of the expression before exiting.</p>
 <h3 id="input-1">Input</h3>
 <p>The core functionality of user input should be completed in the pre-lab. For this section, you must add code that allows the program to accept negative numbers (e.g -1, -10) for use with the calculator. In addition to handling negative numbers, you must also add functionality that allows the user to enter the symbols for multiplication, division, and negation, which are respectively: <code>*</code>, <code>/</code>, <code>~</code></p>
+<h3 id="output">Output</h3>
+<p>See the Sample Execution Run section of the pre-lab for specifications.</p>
 <h3 id="hints-1">Hints</h3>
 <p>By expanding the integer input to also include negative numbers, you must be careful not to accidentally parse a negative number as the subtraction operator. For example, if your code were to only check the first character of every token, then it may mistake a number like <code>-5</code> as the subtraction operator <code>-</code>. To handle this, your code should check the length of tokens and their first character in order to determine exactly what the user has just input to your calculator.</p>
 <hr />

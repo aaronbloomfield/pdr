@@ -129,13 +129,20 @@ As mentioned in the Unix tutorial, Control-D stands for "end of file", which let
 
 ***NOTE:*** When hitting Control-D, you have to enter it *on its own line*.  This means that you first have to hit Enter, then Control-D.
 
-### Output ###
-The only output your program should have is the result of the calculation. This means that you should not have **any** print out statements that prompt the user for input. An example I/O for your calculator is shown below.
+### Sample Execution Run ###
 
+Below is a sample execution run to show you the input and output format we are looking for.
+
+Input
 ```
 1 2 + 3 -
+```
+Output
+```
 0
 ```
+
+You do not need to supply any input prompting for this assignment. When the program runs, nothing should print out to the terminal and the user should be able to input a postfix expression.
 
 ### Assumptions ###
 
@@ -200,6 +207,10 @@ The purpose of the in-lab is first to ensure that your pre-lab code (the postfix
 ### Input ###
 
 The core functionality of user input should be completed in the pre-lab. For this section, you must add code that allows the program to accept negative numbers (e.g -1, -10) for use with the calculator.  In addition to handling negative numbers, you must also add functionality that allows the user to enter the symbols for multiplication, division, and negation, which are respectively: `*`, `/`, `~` 
+
+### Output ###
+
+See the Sample Execution Run section of the pre-lab for specifications.
 
 ### Hints ###
 By expanding the integer input to also include negative numbers, you must be careful not to accidentally parse a negative number as the subtraction operator. For example, if your code were to only check the first character of every token, then it may mistake a number like `-5` as the subtraction operator `-`. To handle this, your code should check the length of tokens and their first character in order to determine exactly what the user has just input to your calculator.
