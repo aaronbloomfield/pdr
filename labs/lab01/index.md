@@ -42,9 +42,8 @@ Procedure
 
 1. Ask the TAs if you have any questions about the pre-lab code or Unix
 2. Separate the object lifecycle code to better follow C++ conventions
-3. Investigate an example program and ask questions about it
-4. Files to download: [svtest.cpp](svtest.cpp.html) ([src](svtest.cpp)), [svutil.cpp](svutil.cpp.html) ([src](svutil.cpp)), [svutil.h](svutil.h.html) ([src](svutil.h)), and [lifecycle.cpp](lifecycle.cpp.html) ([src](lifecycle.cpp))
-5. Files to submit: LifeCycle.cpp, LifeCycle.h, and TestLifeCycle.cpp
+3. Files to download: [svtest.cpp](svtest.cpp.html) ([src](svtest.cpp)), [svutil.cpp](svutil.cpp.html) ([src](svutil.cpp)), [svutil.h](svutil.h.html) ([src](svutil.h)), and [lifecycle.cpp](lifecycle.cpp.html) ([src](lifecycle.cpp))
+4. Files to submit: LifeCycle.cpp, LifeCycle.h, and TestLifeCycle.cpp
 
 ### Post-lab ###
 
