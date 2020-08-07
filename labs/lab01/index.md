@@ -100,7 +100,7 @@ Input
 ```
 Output
 ```
-9
+8
 ```
 
 Lastly, take a look at the object life-cycle code ([lifecycle.cpp](lifecycle.cpp.html) ([src](lifecycle.cpp))).  Use it as a mechanism for understanding how various aspects of C++ work and try stepping through it by hand.  Use the [readings](../../docs/readings.html), the web, and any other C++ references to help you look up parts of the program you do not understand.
