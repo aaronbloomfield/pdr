@@ -43,8 +43,9 @@
 &nbsp;
 ### Program and Data Representation
 &nbsp;
-<center><small>[Mark Floryan](http://www.cs.virginia.edu/~mrf8t) ([email](mailto:mrf8t@virginia.edu)), [Rich Nguyen](http://www.cs.virginia.edu/~nn4pj) ([email](mailto:nn4pj@virginia.edu)) &amp; [Aaron Bloomfield](http://www.cs.virginia.edu/~asb) ([email](mailto:aaron@virginia.edu))</small></center>
-<center><small>Repository: [github.com/uva-cs/pdr](http://github.com/uva-cs/pdr) / [&uarr;](index.html) / <a href="04-arrays-bigoh.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
+<center><small><a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)</small></center>
+<center><small><a href="http://@github/uva-cs/pdr">@github</a> | <a href="index.html">&uarr;</a> | <a href="daily-announcements.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png"></a></small></center>
+
 &nbsp;  
 &nbsp;
 ## Arrays & Big-Oh
@@ -124,8 +125,7 @@ someInts[0], someInts[1], someInts[2]
   <li>Local constant that cannot be changed</li></ul></li>
 <li>Note that the previous declaration is almost the same as:
 <pre><code>int* someInts = new int[3];</code></pre><ul>
-  <li>But since this second declaration is declared with <code>new</code>, the programmer must delete it with <code>delete</code></li></ul></li>
-<script type="text/javascript">insertCanvas();</script>
+  <li>But since this second declaration is declared with <code>new</code>, the programmer must delete it: <code>delete []</code></li></ul></li>
 </ul>
 	  </section>
 
@@ -337,7 +337,7 @@ int main (int argc, char* argv[]) {
     <li><i>f</i> &isin; &Theta;(<i>g</i>) read as &quot;<i>f</i> is asymptotic order <i>g</i>&quot; or &quot;<i>f</i> is order <i>g</i>&quot;</li></ul></li>
 </ul></li>
 </ul>
-<script type="text/javascript">insertCanvas();</script>
+<!-- <script type="text/javascript">insertCanvas();</script> -->
 	  </section>
 
 	  <section data-markdown><script type="text/template">
@@ -683,7 +683,6 @@ int main (int argc, char* argv[]) {
       <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
     </div>
 
-    <script src="reveal.js/lib/js/head.min.js"></script>
     <script src="reveal.js/js/reveal.js"></script>
     <script src="js/settings.js"></script>
 

@@ -9,8 +9,9 @@ for infile in `find . -type f -name '*.md' | grep -v 'reveal\.js'`; do
     # calculate relative path from any file in a subdirectory to another (CSS) in the root directory
     pathprefix=`echo ${infile:2} | tr -d -c '/' | sed -r 's/\//..\//g'`
     # perform the conversion from MD to HTML, linking CSS in the process
-    pandoc -V "pagetitle:$lineone" -f markdown -c ${pathprefix}markdown.css -t html5 -o $outfile $infile
-    # remove the 'align="left"' tags that some versions of pandoc add to the <td> and <th> tags
-    sed -i s/'<td align="left">'/'<td>'/g $outfile
-    sed -i s/'<th align="left">'/'<th>'/g $outfile
+    pandoc --standalone --variable "pagetitle:$lineone" --css ${pathprefix}markdown.css\
+           --from markdown --to html5 --output $outfile $infile
 done
+
+pandoc --standalone --variable "pagetitle:Teaching Assistants" --css ../markdown.css --css tas.css\
+       --from markdown --to html5 --output uva/tas.html uva/tas.md

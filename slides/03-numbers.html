@@ -43,8 +43,9 @@
 &nbsp;
 ### Program and Data Representation
 &nbsp;
-<center><small>[Mark Floryan](http://www.cs.virginia.edu/~mrf8t) ([email](mailto:mrf8t@virginia.edu)), [Rich Nguyen](http://www.cs.virginia.edu/~nn4pj) ([email](mailto:nn4pj@virginia.edu)) &amp; [Aaron Bloomfield](http://www.cs.virginia.edu/~asb) ([email](mailto:aaron@virginia.edu))</small></center>
-<center><small>Repository: [github.com/uva-cs/pdr](http://github.com/uva-cs/pdr) / [&uarr;](index.html) / <a href="03-numbers.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
+<center><small><a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)</small></center>
+<center><small><a href="http://@github/uva-cs/pdr">@github</a> | <a href="index.html">&uarr;</a> | <a href="daily-announcements.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png"></a></small></center>
+
 &nbsp;  
 &nbsp;  
 ## Number Representation
@@ -184,8 +185,7 @@
   - 0x73 = 73<sub>16</sub> = 115<sub>10</sub>
   - 0x3f = 3f<sub>16</sub> = 63<sub>10</sub>
   - Case does not matter (0xFF == 0xff)
-- There is no (convenient) way to specify a number in binary
-  - They are almost always specified in hex anyway
+- There is no (convenient) way to specify a number in binary (they are almost always done in hex)
 	    </script></section>
 
 	    <section data-markdown><script type="text/template">
@@ -255,7 +255,6 @@
 	    <section>
 <h2>Binary Representation</h2>
 <p><i>n</i>-bit binary number: \( b_{n-1} b_{n-2} b_{n-3} \ldots b_2 b_1 b_0 \)</p>
-<p>&nbsp;</p>
 <p>Value = \( \sum_{i=0}^{n-1} b_i \cdot 2^i \)</p>
 <p>&nbsp;</p>
 <p>Boolean arithmetic:</p>
@@ -278,7 +277,7 @@
 - C: implementation-defined
   - `unsigned int`: can hold between 0 and `UINT_MAX`
     - `UINT_MAX` must be at least 65535
-      - You must `#include <climits>` to access `UINT_MAX`
+      - `UINT_MAX` is in `<climits>`
       - n >= 16, typical current machines *n* = 32 or 64
     - `sizeof(int)` will evaluate to the byte size of an int in C/C++
 	    </script></section>
@@ -507,14 +506,13 @@ void Image::WriteInt (int value, FILE * fp) {
 ## Integer overflow
 - Given a signed 8-bit integer: 127 = 0111 1111
   - The maximum value for that data type
-- If you add 1 to that, you get 1000 0000
-  - Which is -128
+- If you add 1 to that, you get 1000 0000 (= -128<sub>d</sub>)
 - This is called *overflow* (or *integer overflow*)
 - Other common overflows:
   - 16-bits: 32,767 + 1 = -32,768
   - 32-bits: 2,147,483,647 + 1 = -2,147,483,648
   - 64-bits: 9,223,372,036,854,775,807 + 1 = -9,223,372,036,854,775,808
-- This has real-word applications: [*Gangnam Style* overflows INT_MAX, forces YouTube to go 64-bit](http://arstechnica.com/business/2014/12/gangnam-style-overflows-int_max-forces-youtube-to-go-64-bit/) (Dec 3, 2014)
+- A real-word application: [*Gangnam Style* overflows INT_MAX, forces YouTube to go 64-bit](http://arstechnica.com/business/2014/12/gangnam-style-overflows-int_max-forces-youtube-to-go-64-bit/) (Dec 3, 2014)
   - If you care, it's now at 3.2 billion views (as of Sep 2018)
 	  </script></section>
 
@@ -613,7 +611,8 @@ void Image::WriteInt (int value, FILE * fp) {
 <li>Exponent values:
 <ul>
   <li>0: zeros</li>
-  <li>1-254: exponent-127</li>
+  <li>1-254: exponent+127<ul>
+    <li>The value of 127 is called the <i>exponent offset</i> or the <i>bias</i></li></ul></li>
   <li>255: infinities, overflow, underflow, NaN</li>
 </ul>
 </li>
@@ -643,7 +642,7 @@ void Image::WriteInt (int value, FILE * fp) {
 - 0x41c80000 (big-endian) = 0100 0001 1100 1000 0000 0000 0000 0000
   - Sign bit: 0 (means it's positive)
   - Exponent: 1000 0011<sub>b</sub> = 0x83 = 131<sub>d</sub>
-    - Exponent offset: 2<sup>n-1</sup>-1 = 2<sup>(8-1)</sup>-1 = 127
+    - Exponent offset (aka bias): 2<sup>n-1</sup>-1 = 2<sup>(8-1)</sup>-1 = 127
     - Subtract 127 from exponent value yields 4
     - Which means multiply the mantissa by 2<sup>4</sup>=16
   - Mantissa: 100 1000 0000 0000 0000 0000
@@ -657,8 +656,7 @@ void Image::WriteInt (int value, FILE * fp) {
   - This mantissa has the first and fourth bits set
   - The '1' bits in positions 1 and 4 represent (1/2)<sup>1</sup> and (1/2)<sup>4</sup>
     - That's 0.5 + 0.0625 = 0.5625
-  - Then add 1 to that
-    - Yields 1.5625
+  - Then add 1 to that to yield 1.5625
 - Now multiply by 2<sup>*exponent*</sup>
   - 1.5625 \* 2<sup>4</sup> = 1.5625 \* 16 = 25
 - Thus, 0x41c80000 = 25.0<sub>d</sub>
@@ -727,9 +725,7 @@ void Image::WriteInt (int value, FILE * fp) {
 
 	  <section data-markdown><script type="text/template">
 ## Converting a float
-Source code: [float_to_hex.cpp](code/03-numbers/float_to_hex.cpp.html) ([src](code/03-numbers/float_to_hex.cpp))
-
-Because we want this to be a 32-bit pointer, we must compile it with `-m32`
+Source code: [float_to_hex.cpp](code/03-numbers/float_to_hex.cpp.html) ([src](code/03-numbers/float_to_hex.cpp)) (we want 32-bit pointers, so we compile with `-m32`)
 
 ```
 #include <iostream>
@@ -753,62 +749,64 @@ Output: 0x42288000
 ## Converting a float<br>from decimal to binary
 - Take 42.125 (see [float_to_hex.cpp](code/03-numbers/float_to_hex.cpp.html) ([src](code/03-numbers/float_to_hex.cpp)))
   - Sign is 0 (it's positive)
-  - Exponent: 42.125/2<sup>5</sup> = 42.125/32 = 1.31640625 (exactly)
-    - Exponent is 5+127 = 132 (1000 0100<sub>b</sub>)
-  - Mantissa: encode it using powers of 1/2
-    - 1.31640625-1 = 0.31640625
-    - 0.31640625 = 1/4 + 1/16 + 1/256
-    - = 0101 0001 0000 0000 0000 000
+  - Convert the float to a sum of powers of 2
+    - 42.125 = 32 + 8 + 2 + 1/8
+    -  = 2<sup>5</sup> + 2<sup>3</sup> + 2<sup>1</sup> + 2<sup>-3</sup>
+    - (details on the next slides)
+  - Convert to binary (base 2)
+    - 2<sup>5</sup> + 2<sup>3</sup> + 2<sup>1</sup> + 2<sup>-3</sup> = 101010.001<sub>b</sub>
+  - Move the decimal to put in scientific notation
+    - 101010.001<sub>b</sub> = 1.01010001<sub>b</sub> * 2<sup>5</sup>
+    - It slides over 5 spots, so the exponent is 5
+</script></section>
+
+	  <section data-markdown><script type="text/template">
+## Converting a number to powers of 2
+- Consider 42.125
+- For the integer portion (42):
+  - Repeatedly subtract the highest power of 2 that is less than or equal to the number
+  - 42 - 32 => 10 - 8 => 2 - 2 => 0
+  - Thus, 42 = 32 + 8 + 2 = 2<sup>5</sup> + 2<sup>3</sup> + 2<sup>1</sup>
+</script></section>
+
+	  <section data-markdown><script type="text/template">
+## Converting a number to powers of 2
+- Consider 42.65625 (NOT the number on the previous slide)
+- For the decimal portion (0.65625):
+  - Repeatedly subtract the *lowest* power of 1/2 that is less than or equal to the number
+  - Often easist done in rational form: 0.65625 = 21/32
+  - 21/32 - 16/32 (aka 1/2) => 5/32 - 4/32 (aka 1/8) => 1/32 - 1/32 => 0
+  - Thus, 0.65625 = 21/32 = 1/2 + 1/8 + 1/32 = 2<sup>-1</sup> + 2<sup>-3</sup> + 2<sup>-5</sup>
+- If we consider 42.125 (the number on the previous slide), the decimal portion is just 0.125 = 1/8 = 2<sup>-3</sup>
+</script></section>
+
+	  <section data-markdown><script type="text/template">
+## Converting a float<br>from decimal to binary (again)
+- Take 42.125 (see [float_to_hex.cpp](code/03-numbers/float_to_hex.cpp.html) ([src](code/03-numbers/float_to_hex.cpp)))
+  - Sign is 0 (it's positive)
+  - Convert the float to a sum of powers of 2
+    - 42.125 = 32 + 8 + 2 + 1/8
+    -  = 2<sup>5</sup> + 2<sup>3</sup> + 2<sup>1</sup> + 2<sup>-3</sup>
+    - (details on the next slide)
+  - Convert to binary (base 2)
+    - 2<sup>5</sup> + 2<sup>3</sup> + 2<sup>1</sup> + 2<sup>-3</sup> = 101010.001<sub>b</sub>
+  - Move the decimal to put in scientific notation
+    - 101010.001<sub>b</sub> = 1.01010001<sub>b</sub> * 2<sup>5</sup>
+    - It slides over 5 spots, so the exponent is 5
+</script></section>
+
+	  <section data-markdown><script type="text/template">
+## Converting a float<br>from decimal to binary
+- Take 1.<span class='skyblue'>01010001</span><sub>b</sub> * 2<sup><span class='red'>5</span></sup>
+  - Mantissa is the bits after the decimal
+    - Ignore the leading 1. Why?
+    - Append as many trailing zeros as necessary
+  - Exponent is <span class='red'>5</span>+bias = <span class='red'>5</span>+127 = 132 (<span class='green'>1000 0100</span><sub>b</sub>)
   - In binary, then, it's:
     - <span class='pink'>0</span><span class='green'>100 0010 0</span><span class="skyblue">010 1000 1000 0000 0000 0000</span>
       - The <span class='pink'>sign</span>, <span class='green'>exponent</span> and <span class='skyblue'>mantissa</span> are colored differently for clarity
+  - In hex: 0x42288000
 	  </script></section>
-
-	  <section>
-<h2>Doing the last example by hand</h2>
-<ul>
-<li>Convert  42.125 to rational form: 42 1/8 = 337/8<ul>
-  <li>Everything stays in rational form for the entire conversion process</li>
-</ul></li>
-<li>Sign is 0 (it's positive)</li>
-<li>Exponent: <ul>
-  <li>Divide by the highest power of 2 that's <i>less</i> than num</li>
-  <li>In this case, that is 2<sup>5</sup> = 32</li>
-  <li>\( \frac{\frac{337}{8}}{2^5} = \frac{337}{8*2^5} = \frac{337}{256} \)</li>
-  <li>Exponent is 5+127 = 132 (1000 0100<sub>b</sub>)</li>
-</ul></li>
-<li>Mantissa<ul>
-  <li>First subtract 1: 337/256 - 1 = 337/256 - 256/256 = 81/256; we then encode 81/256 using powers of 1/2</li>
-</ul></li>
-</ul>
-	  </section>
-
-	  <section>
-<h2>Doing the last example by hand</h2>
-<ul>
-<li>Mantissa: encode it using powers of 1/2<ul>
-  <li>To do this, we try to subtract increasing powers of 1/2 until we hit zero<ul>
-    <li>From 81/256 we cannot subtract 1/2 (128/256)</li>
-    <li>From 81/256 we <i>can</i> sub 1/4 (64/256), yielding 17/256</li>
-    <li>From 17/256 we cannot subtract 1/8 (32/256)</li>
-    <li>From 17/256 we <i>can</i> sub 1/16 (16/256), yielding 1/256</li>
-    <li>From 1/256 we cannot subtract 1/32 (8/256)</li>
-    <li>From 1/256 we cannot subtract 1/64 (4/256)</li>
-    <li>From 1/256 we cannot subtract 1/128 (2/256)</li>
-    <li>From 1/256 we <i>can</i> sub 1/256 (1/256), yielding zero</li>
-  </ul></li>
-  <li>Thus, the parts of the mantissa are 1/4 + 1/16 + 1/256</li>
-  <li>Encoded: 0101 0001 0000 0000 0000 000</li>
-</ul></li>
-</ul>
-	  </section>
-
-	  <section>
-<h2>Doing the last example by hand</h2>
-<ul>
-<li>The final encoded number in binary is: <span class='pink'>0</span><span class='green'>100 0010 0</span><span class="skyblue">010 1000 1000 0000 0000 0000</span><ul>
-  <li>The <span class='pink'>sign</span>, <span class='green'>exponent</span> and <span class='skyblue'>mantissa</span> are colored differently for clarity</li></ul></li>
-	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## Example
@@ -859,7 +857,7 @@ double c = .9999999999999999;
 - Two false expressions!
   - `a == b`
   - `b != c`
-- Problem is with the finite precision of floating-point types
+- Problem is the finite precision of floating-point types
   - Instead with the ordering operators for closeness
 	  </script></section>
 
@@ -874,19 +872,19 @@ final double EPSILON = 0.000001;
 boolean foo = Math.abs (a-b) < EPSILON;
 ```
 ```
-// C++ (need to #include <math.h> and compile with -lm)
+// C++: #include <math.h> & compile with -lm
 #define EPSILON 0.000001
 bool foo = fabs (a-b) < EPSILON;
 ```
-- Note that a float has 7 decimal places of (printed) accuracy
+- A float has 7 decimal places of (printed) accuracy
   - And two floats may differ by a value that is at 8 decimal places
   - It prints as 1.0, but is really 0.9999999999
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Floating point rounding errors
-- Add 0.333333333333333333 a total of 3 times, and you don't get 1.0
-  - As 1/3 cannot be represented via a (finite) decimal num
+- Add 0.33333333333 three times, and you don't get 1.0
+  - 1/3 cannot be represented via a (finite) decimal num
     - Any denominator that has factors that are not factors of the radix
     - Decimal radix factors: 2 an 5
     - Good: 25 (factors: 5, 5), 10 (factors: 2, 2, 5, 5), etc.
@@ -900,7 +898,7 @@ bool foo = fabs (a-b) < EPSILON;
 <h2>Floating point rounding errors</h2>
 <ul>
 <li>0.1 is stored (as a 32 bit float) as
-<ul><li>mantissa = 100 1100 1100 1100 1100 1101</li></ul><br>&nbsp;</li>
+<ul><li>mantissa = 100 1100 1100 1100 1100 1101</li></ul></li>
 <li>Or: \( \frac{1+\frac{1}{2^1}+\frac{1}{2^4}+\frac{1}{2^5}+\frac{1}{2^8}+\frac{1}{2^9}+\frac{1}{2^{12}}+\frac{1}{2^{13}}+\frac{1}{2^{16}}+\frac{1}{2^{17}}+\frac{1}{2^{20}}+\frac{1}{2^{21}}+\frac{1}{2^{23}}}{2^4} \)<br>&nbsp;</li>
 <li>Which is exactly equal to:
 <ul><li> 0.100000001490116119384765625</li>
@@ -934,7 +932,7 @@ bool foo = fabs (a-b) < EPSILON;
   - But was left running for ~100 hours prior to incident
   - Designed to defend Europe from Soviet weapons
 - Four 24 bit fixed-point registers (1970s design)
-  - Meaning there were only 24 bits of precision after the decimal place
+  - Meaning there were about 6 digits of precision after the decimal place
   - Although a `float` has somewhat similar precision
 - Kept time with integer counter: incremented every 1/10 sec
 - To calculate speed of incoming missile to predict future positions:
@@ -976,7 +974,7 @@ bool foo = fabs (a-b) < EPSILON;
   - bit 1: sign bit, 1 means negative (1 bit)
   - bits 2-12: exponent (11 bits)
   - bits 13-64: mantissa (52 bits)
-  - Exponent offset is 2<sup>*e*-1</sup>-1 = 1023
+  - Exponent offset (aka bias) is 2<sup>*e*-1</sup>-1 = 1023
 - Single precision: 0.1 = 209715 / 2097152
   - Error = 9.5 \* 10<sup>-8</sup>  (at least 20 hours to miss target)
 - Double precision: 
@@ -998,20 +996,15 @@ bool foo = fabs (a-b) < EPSILON;
     - 3 decimal digits (0-999) into 10 binary digits (0-1023) (24 wasted out of 1024)
 	  </script></section>
 
-	  <section>
-<h2>Smaller Floating Point</h2>
-<ul>
-  <li>16-bit floating point representations
-    <ul>
-      <li>Minifloat: 1 sign, 5-bit exponent, 10-bit mantissa</li>
-      <li>Range from 2.98 * 10<sup>-8</sup> to 65504</li>
-      <li>Your graphics card uses this (if you have a good one)</li>
-      <li>40 billion floating point operations per second (3 Ghz Pentium = 12 billion)</li>
-    </ul>
-  </li>
-</ul>
-<img src='images/03-numbers/nvidia.png' alt='nvidia logo' style="background-color:white">
-	  </section>
+	  <section data-markdown><script type="text/template">
+## Smaller Floating Point
+- 16-bit floating point representations
+  - Minifloat: 1 sign, 5-bit exponent, 10-bit mantissa
+  - Range from 2.98 * 10<sup>-8</sup> to 65504
+  - Your graphics card uses this (if you have a good one)
+
+![nvidia logo](images/03-numbers/nvidia.png)
+	  </script></section>
 
 	</section>
 
@@ -1027,7 +1020,6 @@ bool foo = fabs (a-b) < EPSILON;
       <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
     </div>
 
-    <script src="reveal.js/lib/js/head.min.js"></script>
     <script src="reveal.js/js/reveal.js"></script>
     <script src="js/settings.js"></script>
 

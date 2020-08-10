@@ -43,8 +43,9 @@
 &nbsp;
 ### Program and Data Representation
 &nbsp;
-<center><small>[Mark Floryan](http://www.cs.virginia.edu/~mrf8t) ([email](mailto:mrf8t@virginia.edu)), [Rich Nguyen](http://www.cs.virginia.edu/~nn4pj) ([email](mailto:nn4pj@virginia.edu)) &amp; [Aaron Bloomfield](http://www.cs.virginia.edu/~asb) ([email](mailto:aaron@virginia.edu))</small></center>
-<center><small>Repository: [github.com/uva-cs/pdr](http://github.com/uva-cs/pdr) / [&uarr;](index.html) / <a href="07-ibcm.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
+<center><small><a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)</small></center>
+<center><small><a href="http://@github/uva-cs/pdr">@github</a> | <a href="index.html">&uarr;</a> | <a href="daily-announcements.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png"></a></small></center>
+
 &nbsp;
 &nbsp;
 ## IBCM (machine language)
@@ -184,10 +185,8 @@ store 300
 	  <section data-markdown><script type="text/template">
 ## Running IBCM programs
 - Online IBCM simulator
-  - http://pegasus.cs.virginia.edu/ibcm/
-- Mirrors (best to use in this order):
-  - http://people.virginia.edu/~asb2t/ibcm/
-  - http://libra.cs.virginia.edu/ibcm/
+  - https://pegasus.cs.virginia.edu/ibcm/
+  - https://libra.cs.virginia.edu/ibcm/
 - This program will hang your browser if it gets stuck in an infinite loop, due to how web browsers (don't) handle Javascript threads and polling of web pages
 	  </script></section>
 
@@ -203,7 +202,7 @@ store 300
 	  </script></section>
 
 	  <section>
-<h2>IBCM Machine Description: Memory</h2>
+<h2>IBCM Machine: Memory</h2>
 <table class="transparent">
 <tr><td class="middle"><ul>
 <li>4096 16-bit words<ul>
@@ -282,7 +281,7 @@ store 300
 - Shifts
   - Opcode is 2
   - next 2 bits specify shift type
-  - last 5 bits specify shift amount
+  - last 4 bits specify shift amount
 - Others
   - Opcode is 3 to F (15)
   - Last 12 bits specify the address for the instruction
@@ -344,9 +343,9 @@ store 300
 <tr><td>A</td><td>not</td><td><code>a := ~a</code></td><td>logical complement of accumulator</td></tr>
 <tr><td>B</td><td>nop</td><td><code>/* */</code></td><td>do nothing (no operation)</td></tr>
 <tr><td>C</td><td>jmp</td><td><code>goto addr</code></td><td>jump to 'addr'</td></tr>
-<tr><td>D</td><td>jmpe</td><td><code>if a == 0 goto addr</code></td><td>jump to 'addr' if accumulator equals zero</td></tr>
-<tr><td>E</td><td>jmpl</td><td><code>if a &lt; 0 goto addr</code></td><td>jump to 'addr' if accum. is less than zero</td></tr>
-<tr><td>F</td><td>brl</td><td><code>a := PC+1; goto addr</code></td><td>jump (branch) to 'addr'; set accum. to<br>the value of the PC just before the jump<br>(i.e., to the address following the `brl`)</td></tr>
+<tr><td>D</td><td>jmpe</td><td><code>if a == 0 goto addr</code></td><td>jump to 'addr' if accumulator == zero</td></tr>
+<tr><td>E</td><td>jmpl</td><td><code>if a &lt; 0 goto addr</code></td><td>jump to 'addr' if accum. is < zero</td></tr>
+<tr><td>F</td><td>brl</td><td><code>a := PC+1; goto addr</code></td><td>jump (branch) to 'addr'; set accum. to<br>PC+1 (next inst) and jump</td></tr>
 </table>
 	  </section>
 
@@ -397,7 +396,6 @@ xit     load	s
       <tr><td>Accum</td><td class="border" style="border-bottom:medium solid;"></td></tr>
     </table>
 </td></tr></table>
-<script type="text/javascript">insertCanvas();</script>
 	  </section>
 
 	  <section>
@@ -425,7 +423,6 @@ xit     load	s
       <tr><td>Accum</td><td class="border" style="border-bottom:medium solid;"></td></tr>
     </table>
 </td></tr></table>
-<script type="text/javascript">insertCanvas();</script>
 	  </section>
 
 	  <section data-markdown><script type="text/template">
@@ -582,7 +579,6 @@ C010 019         jmp     loop      goto loop
 else
     S2;
 </code></pre>
-<script type="text/javascript">insertCanvas();</script>
       </section>
 
       <section>
@@ -590,7 +586,6 @@ else
 <pre><code>while(B >= 5)
     S;
 </code></pre>
-<script type="text/javascript">insertCanvas();</script>
       </section>
 
       <section data-markdown><script type="text/template">
@@ -847,7 +842,6 @@ if ( inst.halt.op == 0 ) { // halt
       <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
     </div>
 
-    <script src="reveal.js/lib/js/head.min.js"></script>
     <script src="reveal.js/js/reveal.js"></script>
     <script src="js/settings.js"></script>
 

@@ -17,90 +17,83 @@
 <h3 id="objective">Objective</h3>
 <p>This is laboratory is intended to get you up to speed quickly with both C++ and Unix.</p>
 <h3 id="background">Background</h3>
-<p>Every week we will have a lab meeting. Each lab will consist of three parts: a pre-lab (to be completed by Tuesday at the due time listed on the <a href="../../uva/labduedates.html">lab due dates</a> page, an in-lab (activity to be done during lab), and a post-lab. The pre-lab will typically also include a tutorial. Parts of all three of these may be required to turned in. The due dates are all listed on the <a href="../../uva/labduedates.html">lab due dates</a> page. This will all be discussed in this lab.</p>
-<h3 id="readings">Reading(s)</h3>
-<ol type="1">
-<li><a href="../../tutorials/01-intro-unix/index.html">Tutorial 1: Introduction to UNIX</a></li>
-<li>Optional: online sources as posted on the <a href="../../docs/readings.html">Readings page</a></li>
-</ol>
+<p>There will be a lab every week, which consists of three parts: a pre-lab, an in-lab, and a post-lab. The due dates are all listed on the <a href="../../uva/labduedates.html">lab due dates</a> page. This will all be discussed in this lab.</p>
+<h3 id="tutorial">Tutorial</h3>
+<p>Most labs will have a tutorial. You are expected to complete this tutorial before beginning the lab, as the lab will use concepts from each tutorial.</p>
+<p>The tutorial for this lab is <a href="../../tutorials/01-intro-unix/index.html">Tutorial 1: Introduction to UNIX</a>, which will help you set up your UNIX environment.</p>
+<h3 id="recommended-readings">Recommended Readings</h3>
+<p>We have attempted to compile a collection of readings that go over topics covered in this course. Readings are always optional and are there for you to use as you see fit.</p>
+<ul>
+<li>Introduction to C++ section on the <a href="../../docs/readings.html">Readings page</a></li>
+</ul>
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
 <ol type="1">
-<li>If desired, the alternative readings are available on the <a href="../../docs/readings.html">Readings page</a></li>
-<li>Complete <a href="../../tutorials/01-intro-unix/index.html">Tutorial 1: Introduction to UNIX</a>
-<ol type="a">
-<li>As part of this tutorial, you will need to decide how you want to develop in a Unix environment -- we recommend <a href="../../tutorials/01-intro-unix/virtual-box.html">VirtualBox</a>, but there are other options available</li>
-<li>If you are using VirtualBox, you will have to decide on which display manager to use</li>
-</ol></li>
-<li>Write the xToN.cpp file, as described in the pre-lab section. Since you are unfamiliar with the submission system, you should read through the in-lab section of the document, which describes the submission process. Submit the xToN.cpp file.</li>
-<li>Examine the Object life-cycle code (<a href="lifecycle.cpp.html">lifecycle.cpp</a> (<a href="lifecycle.cpp">src</a>)). You may not understand everything in this program by the beginning of lab, but you should by the end of next week. We will be using this program during the in-lab activity.</li>
-<li>The due date for this lab is listed on the <a href="../../uva/labduedates.html">lab due dates</a> page -- see the in-lab section for more details about submission deadlines.</li>
+<li>Write a recursive function to compute exponentiation</li>
+<li>Investigate the C++ object lifecycle</li>
+<li>Learn about the submission system</li>
 <li>Files to download: <a href="lifecycle.cpp.html">lifecycle.cpp</a> (<a href="lifecycle.cpp">src</a>)</li>
 <li>Files to submit: xToN.cpp</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
 <ol type="1">
-<li>Read through the in-lab section of this document. You should be sure to be familiar with the submission system.</li>
-<li>Clone the github repo into your lab account</li>
-<li>Complete the in-lab requirements as described in the in-lab section, below.</li>
-<li>Be sure to include your name, email ID, the date, and the name of the file in a header comment at the beginning of each file you submit (including text files!)</li>
-<li>Did you understand the part on capitalization in the in-lab section of this document?</li>
+<li>Ask the TAs if you have any questions about the pre-lab code or Unix</li>
+<li>Separate the object lifecycle code to better follow C++ conventions</li>
+<li>Investigate an example program and ask questions about it</li>
 <li>Files to download: <a href="svtest.cpp.html">svtest.cpp</a> (<a href="svtest.cpp">src</a>), <a href="svutil.cpp.html">svutil.cpp</a> (<a href="svutil.cpp">src</a>), <a href="svutil.h.html">svutil.h</a> (<a href="svutil.h">src</a>), and <a href="lifecycle.cpp.html">lifecycle.cpp</a> (<a href="lifecycle.cpp">src</a>)</li>
 <li>Files to submit: lifecycle.questions.txt, vector.questions.txt, LifeCycle.cpp, LifeCycle.h, and TestLifeCycle.cpp</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
 <ol type="1">
-<li>See details in the postlab section, below</li>
-<li>For this lab you will be submitting your code electronically. Your submission is due on the Friday of the week of the lab; the exact due time is listed on the <a href="../../uva/labduedates.html">lab due dates</a> page. Be sure to include your name, email ID, the date, and the name of the file in a header comment at the beginning of each file you submit (including text files!).</li>
+<li>Investigate a more complicated example program and ask questions about it</li>
 <li>Files to download: <a href="list.h.html">list.h</a> (<a href="list.h">src</a>), <a href="list.cpp.html">list.cpp</a> (<a href="list.cpp">src</a>)</li>
 <li>Files to submit: postlab1.question.txt</li>
 </ol>
-<h3 id="course-tools">Course Tools</h3>
-<p>Lab submission can be found through the Course Tools tab on Collab or directly at this link: <a href="https://libra.cs.virginia.edu/~pedagogy" class="uri">https://libra.cs.virginia.edu/~pedagogy</a></p>
 <hr />
 <h2 id="pre-lab-1">Pre-lab</h2>
-<p>Complete <a href="../../tutorials/01-intro-unix/index.html">Tutorial 1: Introduction to UNIX</a>. For this course, you will need to be familiar with Emacs. You are welcome to use any editor that is not an IDE (Integrated Development Environment), such as emacs, nano, or vim; you may be tested on the key bindings of your preferred editor. (Notepad doesn't count.)</p>
-<p>For those who are using VirtualBox, you will need to decide which GUI to use. See the details in <a href="../../tutorials/01-intro-unix/index.html">Tutorial 1: Introduction to UNIX</a>, specifically in part 2.</p>
-<p>Below is a sample function with a <code>main()</code> function that calls it. You may find this example helpful in writing your function to compute <em>x^n</em> and the <code>main()</code> function to call it.</p>
+<p>Complete <a href="../../tutorials/01-intro-unix/index.html">Tutorial 1: Introduction to UNIX</a> before proceeding. Remember that you should always complete the tutorial before starting the lab.</p>
+<p>For the pre-lab, you will need to write a <strong>recursive</strong> function called <code>xton()</code> to compute <em>x^n</em> for non-negative integers <em>n</em>. Assume that <em>x^0=1</em>. Put this function in a program with a <code>main()</code> function. Your program should prompt the user for two integer values, and raise the first to the power of the second by calling your <code>xton()</code> function. To keep the code simple, you can assume that your program will only be called with valid inputs.</p>
+<p>The file should be called xToN.cpp, and should be submitted to the pre-lab 1 assignment in the submission system -- more details below.</p>
+<p>Note that your program should take in <strong>exactly two inputs and nothing else</strong>. We are going to run it through an automated grading script prior to the TAs grading it -- if your program takes in a different number of inputs, you will receive points off.</p>
+<p>To help you out, we have provided an example C++ file below. You may find this example helpful in writing your function to compute <em>x^n</em> and the <code>main()</code> function to call it.</p>
 <pre><code>#include &lt;iostream&gt;
 using namespace std;
 
-int foo (int a, int b) {
+int sum (int a, int b) {
     int tmp = a;
     tmp += b;
     return tmp;
 }
 
-int main( ) {
+int main () {
     int x, y, z;
     cin &gt;&gt; x;
     cin &gt;&gt; y;
-    z = foo (x, y);
+    z = sum (x, y);
     cout &lt;&lt; x &lt;&lt; &quot; + &quot; &lt;&lt; y &lt;&lt; &quot; = &quot; &lt;&lt; z &lt;&lt; endl;
     return 0;
 }</code></pre>
-<p>For the pre-lab, you will need to write a <strong>recursive</strong> function called <code>xton()</code> to compute <em>x^n</em> for non-negative integers <em>n</em>. Assume that <em>x^0=1</em>. Put this function in a program with a <code>main()</code> function. Your program should prompt the user for two integer values, and raise the first to the power of the second by calling your <code>xton()</code> function.</p>
-<p>The file should be called xToN.cpp, and should be submitted to the pre-lab 1 assignment in the submission system.</p>
-<p>Note that your program should take in <strong>exactly two inputs and nothing else</strong>. We are going to run it through an automated grading script prior to the TAs grading it -- if your program takes in a different number of inputs, you will receive points off.</p>
-<p>Lastly, take a look at the object life-cycle code (<a href="lifecycle.cpp.html">lifecycle.cpp</a> (<a href="lifecycle.cpp">src</a>)). Use it as a mechanism for understanding how various aspects of C++ work. Compile and run the program (see part III of the <a href="../../tutorials/01-intro-unix/index.html">tutorial</a>). Try stepping through it by hand. Use the <a href="../../docs/readings.html">readings</a>, the web, and any other C++ references to help you look up parts of the program you do not understand.</p>
+<p>Lastly, take a look at the object life-cycle code (<a href="lifecycle.cpp.html">lifecycle.cpp</a> (<a href="lifecycle.cpp">src</a>)). Use it as a mechanism for understanding how various aspects of C++ work and try stepping through it by hand. Use the <a href="../../docs/readings.html">readings</a>, the web, and any other C++ references to help you look up parts of the program you do not understand.</p>
+<h3 id="assignment-submission">Assignment submission</h3>
+<p>All assignments will be submitted through our custom submission tool which can be accessed through Collab's Course Tools link or directly at <a href="https://libra.cs.virginia.edu/~pedagogy" class="uri">https://libra.cs.virginia.edu/~pedagogy</a>.</p>
+<p>Every file submitted, including text files, should include your name, email ID, the date, and the name of the file in a header comment at the beginning of the file.</p>
+<p>There is no check to make sure you have submitted all of the correct files -- on the 'Procedure' page (always at the top of the lab document), we clearly state which files should be submitted for each lab part. For example, for this pre-lab, you should submit just the following file for pre-lab 1: xToN.cpp.</p>
+<p>Each assignment has 3 dates: an open date (when you can start submitting the assignment), a due date (when it's due), and a close date (the last point that you can submit the assignment). The dates are listed for the week of the lab -- the lab week starts on a Sunday and ends on a Saturday. In particular, the due date for the pre-labs, as well as the open date for the in-labs and post-labs is when the first lab section starts. The due date for the post-labs is the start of Friday's first lecture.</p>
+<p>More information on open dates, due dates, and close dates can be found on the <a href="../../uva/labduedates.html">lab due dates</a> page.</p>
+<p>There are a number of rules that we will strictly follow:</p>
+<ul>
+<li>Pre-labs are due at the same time for everybody, regardless of your lab section; that time is the beginning of the FIRST Tuesday lab.</li>
+<li>In-labs are due at the end of the day on Tuesday.</li>
+<li>Any late lab part will receive 25% off (for just that part) for the first 24 hours (or part thereof) that it is late, after which no credit will be given. Note that a computer program does this deduction -- so if your lab is 1 second late, it still receives 25% off.</li>
+<li><strong>No credit will be given for a lab component which does not compile.</strong> If you are having problems with your code, you should comment out parts so that it does compile -- you will receive more credit for a compilable program that has part of the code commented out than you would for a program that does not compile. See the <a href="../../docs/compilation.html">compilation</a> for hints as to how to get your code to compile.</li>
+</ul>
+<h3 id="resubmitting-your-assignment">Resubmitting your assignment</h3>
+<p>If you submit your assignment, and you realize you made a mistake (didn't submit all the files, etc.), you can resubmit your assignment as many times as you want. The date of submission is the date you re-submitted your assignment -- so if you resubmit your assignment after the due date to add one more file, the <strong>ENTIRE</strong> assignment will have the late submission date. We only look at the most recent submission.</p>
 <p><strong><em>Note that you have to bring your computer to in-lab!</em></strong></p>
 <hr />
 <h2 id="in-lab-1">In-lab</h2>
 <h3 id="general-in-lab-procedure">General In-lab Procedure</h3>
-<p>The purpose of the labs is to allow you to work through the lab activity, and if you encounter questions or problems, ask for TA assistance. Note that each file you electronically submit (including text files!) should contain a header containing your name, email ID, file name, and the date.</p>
-<p>All of the files required for this lab are listed above (in the Procedure section), and are also listed below.</p>
-<h3 id="cloning-the-github-repo">Cloning the github repo</h3>
-<p>The first thing you need to do is clone the github repo onto your computer. This was already done on the VirtualBox image. So if you are doing this on VirtualBox, skip to the <code>git pull</code> step, below.</p>
-<p>To copy the github repo onto your machine, enter:</p>
-<pre><code>git clone https://github.com/uva-cs/pdr.git</code></pre>
-<p>This will create a 'pdr' directory, which is the copy of the repo.</p>
-<p>Each week, you will need to update the repo with the current contents. To do so, cd into that 'pdr' directory, and enter:</p>
-<pre><code>git pull</code></pre>
-<p>To view the contents in a web browser, you should enter a URL similar to the following. Note that there are three slashes after the <code>file:</code> part. Be sure to replace 'mst3k' with your userid, and change the path if you have the file somewhere else.</p>
-<pre><code>file:///home/mst3k/pdr/readme.html</code></pre>
-<p>Note that there are three forward slashes there! On the VirtualBox image, it would be:</p>
-<pre><code>file:///home/student/pdr/readme.html</code></pre>
-<p>We realize that you cannot view these directions until after you have the github repo cloned locally. So hopefully you read these ahead of time. Otherwise, the TAs will be able to help you with this part. The lab can also be viewed online at <a href="http://uva-cs.github.io/pdr/labs/lab01/index.html" class="uri">http://uva-cs.github.io/pdr/labs/lab01/index.html</a>.</p>
+<p>The purpose of the labs is to allow you to work through the lab activity, and if you encounter questions or problems, ask for TA assistance. Be sure to include your name, email ID, the date, and the name of the file in a banner comment at the beginning of each file you submit.</p>
 <h3 id="understanding-c">Understanding C++</h3>
 <ol type="1">
 <li>Ask the TAs if you have questions about your <em>x^n</em> function.</li>
@@ -109,7 +102,7 @@ int main( ) {
 <ul>
 <li>Download the <a href="lifecycle.cpp.html">lifecycle.cpp</a> (<a href="lifecycle.cpp">src</a>) file</li>
 <li>Compile with clang++ (i.e., <code>clang++ lifecycle.cpp</code>) and execute the program.</li>
-<li>Break lifecycle.cpp into multiple files. It may be helpful to look at <a href="../../slides/01-cpp.html">class slides from this repo</a>. Compile and run this program. Note that to compile a C++ program with multiple files, just put them on the same line: <code>clang++ LifeCycle.cpp TestLifeCycle.cpp</code> (you usually leave out the .h files when compiling). Add the descriptive header at the top of the file containing your identifying information, and name them as follows:
+<li>Break lifecycle.cpp into multiple files. It may be helpful to look at the <a href="../../slides/01-cpp.html">class slides</a>. Compile and run this program. Note that to compile a C++ program with multiple files, just put them on the same line: <code>clang++ LifeCycle.cpp TestLifeCycle.cpp</code> (you usually leave out the .h files when compiling). Add the descriptive header at the top of the file containing your identifying information, and name them as follows:
 <ul>
 <li>LifeCycle.h</li>
 <li>LifeCycle.cpp</li>
@@ -126,6 +119,8 @@ int main( ) {
 <li>Write at least one question about something in this program. This question might be about something that you don't understand completely. Write your questions in a file named vector.questions.txt.</li>
 </ul></li>
 </ol>
+<h3 id="capitalization">Capitalization</h3>
+<p>Under Windows, the case of a file name is ignored -- thus, lifecycle.cpp, LifeCycle.cpp, and LIFECYCLE.CPP all refer to the same file. However, it is <strong>NOT</strong> true for Linux, which is what we will use to test and grade your code. Thus, if your file is called 'LifeCycle.h', and you have (in your TestLifeCycle.cpp file) a line that states: <code>#include &quot;lifecycle.h&quot;</code>, then your program will NOT work under Linux (since case DOES matter with file names). Since your code does not compile, you will get zero credit. So make sure your file names match!</p>
 <h3 id="troubleshooting">Troubleshooting</h3>
 <p>Does your program not compile? Here are a few things to try -- these are problems that previous students have encountered.</p>
 <ul>
@@ -135,28 +130,9 @@ int main( ) {
 <li>Make sure that your subroutine names (whether they be function names or method names) are consistent between the .h files and the .cpp files</li>
 <li>Have a compiler error that you don't understand? We have the translation! See the <a href="../../docs/compilation.html">compilation</a> page, which lists common compiler error messages, what they mean, and how to solve them. If you don't see yours listed there, let us know, and we'll add it.</li>
 </ul>
-<h3 id="capitalization">Capitalization</h3>
-<p>Under Windows, the case of a file name is ignored -- thus, lifecycle.cpp, LifeCycle.cpp, and LIFECYCLE.CPP all refer to the same file. However, it is <strong>NOT</strong> true for Linux, which is what we will use to test and grade your code. Thus, if your file is called 'LifeCycle.h', and you have (in your TestLifeCycle.cpp file) a line that states: <code>#include &quot;lifecycle.h&quot;</code>, then your program will NOT work under Linux (since case DOES matter with file names). Since your code does not compile, you will get zero credit. So make sure your file names match!</p>
-<h3 id="assignment-submission">Assignment submission</h3>
-<p>All assignments will be submitted through our custom submission tool. These can be accessed through Collab, or directly at the link in the Procedure section of this lab.</p>
-<p>Each assignment has 3 dates: an open date (when you can start submitting the assignment), a due date (when it's due), and a close date (the last point that you can submit the assignment). The dates are listed for the week of the lab -- the lab week starts on a Sunday and ends on a Saturday. In particular, the due date for the pre-labs, as well as the open date for the in-labs and post-labs is when the first lab section starts. The close date for the post-labs is the start of Friday's lecture (the first lecture, if there are multiple lecture periods).</p>
-<p>The various dates: open dates, due dates, and close dates, are listed on the <a href="../../uva/labduedates.html">lab due dates</a> page.</p>
-<p>Please note, however, that there are a number of rules that we will strictly follow:</p>
-<ul>
-<li>Pre-labs are due at the same time for everybody, regardless of your lab section; that time is the beginning of the FIRST Tuesday lab.</li>
-<li>In-labs are due at the end of the day on Tuesday.</li>
-<li>Any late lab part will receive 25% off (for just that part) for the first 24 hours (or part thereof) that it is late, after which no credit will be given. Note that a computer program does this deduction -- so if your lab is 1 second late, it still receives 25% off.</li>
-</ul>
-<h3 id="submitting-your-files">Submitting your files</h3>
-<p>All assignments for this course will be submitted through the lab submission tool, which is accessible either via Collab or through the link in the Procedure section above. There is no check to make sure you have submitted all of the correct files -- on the 'Procedure' page (always at the top of the lab document), we clearly state which files should be submitted for each lab part. For example, for this in-lab, you should submit the following files for in-lab 1: lifecycle.questions.txt, vector.questions.txt, LifeCycle.h, LifeCycle.cpp, and TestLifeCycle.cpp.</p>
-<p>Lastly, you should ensure that your program compiles before you submit it. This is an advanced programming class, and there is no reason why you should submit a program that does not compile. If you are having problems with your code, you should comment out parts so that it does compile -- you will receive more credit for a compilable program that has part of the code commented out than you would for a program that does not compile. See the <a href="../../docs/compilation.html">compilation</a> for hints as to how to get your code to compile.</p>
-<p>Just to be clear: <strong>you will receive zero credit for a lab component which does not compile.</strong></p>
-<h3 id="resubmitting-your-assignment">Resubmitting your assignment</h3>
-<p>If you submit your assignment, and you realize you made a mistake (didn't submit all the files, etc.), you can resubmit your assignment. The date of submission is the date you re-submitted your assignment -- so if you resubmit your assignment after the due date to add one more file, the <strong>ENTIRE</strong> assignment will have the late submission date. We only look at the most recent submission. There is no penalty for a reasonable number of submissions (i.e., if you hit 100 or so, we will think you are hacking our servers).</p>
 <hr />
 <h2 id="post-lab-1">Post-lab</h2>
 <p>Complete the exercise below, and submit the text file described there to the submission system.</p>
-<p>For this lab you will be submitting your assignment electronically. Your submission is on the Friday of the week of the lab; the exact time is listed on the <a href="../../uva/labduedates.html">lab due dates</a> page. Be sure to include your name, email ID, the date, and the name of the file in a banner comment at the beginning of each file you submit.</p>
 <h3 id="linked-list-template-code">Linked List Template code</h3>
 <p>Download the two linked list files (<a href="list.h.html">list.h</a> (<a href="list.h">src</a>) and <a href="list.cpp.html">list.cpp</a> (<a href="list.cpp">src</a>)). Compile and run the program. The compile command is <code>clang++ list.cpp</code>. If you try to compile the list.h file, it won't work correctly.</p>
 <p>Look at list.h, which is #include'd from list.cpp -- it contains the <strong>bodies</strong> of the methods, which is not the way that it is usually done (the bodies are typically in the .cpp file only). We normally only include in .h files just the declarations (i.e., prototypes) of classes, constants, function, etc., but not definitions of C++ methods (i.e. the bodies of the methods). However, when implementing template classes, this is something that is necessary to make the class compile successfully.</p>

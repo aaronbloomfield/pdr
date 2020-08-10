@@ -3,25 +3,23 @@ CS 2150: Program and Data Representation: Course Syllabus
 
 [Go up to the CS 2150 page][1] ([md][2])
 
-## Fall 2019
+## Spring 2020
 
-### Instructors ###
+### Instructor ###
 
-- [Mark Floryan][31] / [mrf8t@virginia.edu][39].  Office: Rice Hall, room 203.  Office hours T/W 1:00 - 2:30.
-- [Rich Nguyen][38] / [nn4pj@virginia.edu](mailto:nn4pj@virginia.edu).  Office: Rice Hall, room 202.  Office hours M/F 2:00 - 3:30.
-- [Aaron Bloomfield][33] / [aaron@virginia.edu](mailto:aaron@virginia.edu).  Office: Rice Hall, room 402.  Office hours W 9:00 - noon.
+- [Aaron Bloomfield][33] / [aaron@virginia.edu](mailto:aaron@virginia.edu).  Office: Rice Hall, room 402.  Office hours: M 11-12, W 12-1, F 9-10
 
 ### Course Info ###
 
-- Lectures: M/W/F 11:00-11:50 (Olsson 120), 12:00-12:50 (Gilmer 130), or 1:00-1:50 (Olsson 120)
+- Lectures: M/W/F 10:00-10:50 (CHM 402) or 1:00-1:50 (Minor 125)
 - Email: none; fill out a [support request][42] instead
-- Announcement feed: [\@UVaCS2150][34]
-- TAs and their office hours will be posted on the [CS 2150 Google Calendar][35] (which is also linked to via Collab); all office hours start the Sunday after classes start
-- Laboratory Meetings (in Olsson 009 or MEC 213): all on Tuesdays
+- Announcement feed: [\@UVaCS2150][34] and the [daily announcements slide set][15]; you are responsible for checking both
+- TA office hours are 6-10 on Sundays, Mondays, Wednesdays, and Thursdays in the Thornton stacks; faculty office hours are listed [here](course-introduction.html#/profoh); all office hours start the Sunday after classes start
+- Laboratory Meetings (in Olsson 001): all on Tuesdays
 
 **Course Description:** This course will introduce you to program and data representation from high level concepts to machine level implementation. Data structuring techniques and the representation of data structures during program execution are discussed, as are operations and control structures and their representation during program execution. Representations of numbers, arithmetic operations, arrays, records, recursion, hashing, stacks, queues, trees, graphs, and related concepts are also covered.
 
-**Availability:** It is important to us to be available to our students, and to address their concerns. If you cannot meet with us during office hours, e-mail and we will try to find the time to meet. That being said, like everybody else we are quite busy, so it may take a day or more to find a time to meet. And if you have any comments on the course - what is working, what is not working, what can be done better, etc. - we are very interested in hearing about them. There is an [anonymous feedback tool through Collab][37], or you can send an e-mail (please do NOT email the TAs directly). We tend to get bogged down by e-mail as the semester progresses, so seeing us in person (right after lecture, during office hours, etc.) is often a good way to get a more immediate response.
+**Availability:** It is important to me to be available to my students, and to address your concerns. If you cannot meet with me during office hours, e-mail and I will try to find the time to meet. That being said, like everybody else I get quite busy, so it may take a day or more to find a time to meet. And if you have any comments on the course - what is working, what is not working, what can be done better, etc. - I are very interested in hearing about them. There is an [anonymous feedback tool through Collab][37], or you can send an e-mail (please do NOT email the TAs directly). I tend to get bogged down by e-mail as the semester progresses, so seeing me in person (right after lecture, during office hours, etc.) is often a good way to get a more immediate response.
 
 **Prerequisites:** CS 2110 (Software Development Methods) or CS 2220 (Engineering Software); and CS 2102 (Discrete Math), all with grades of C- or above.  Note that CS 2102 is allowed as a co-requisite, but see the details for this in the [first slide set][11] (specifically, [here][12]).
 
@@ -39,29 +37,29 @@ CS 2150: Program and Data Representation: Course Syllabus
 - 30%: Two midterm exams
 - 25%: Final exam
 
-We expect that grades will follow the standard decade curve: 90 and above is an A of some sort (A-, A, or A+), 80 and above is some sort of a B, etc.  **Note:** We reserve the right to modify the weighting (changing the curve, adding pop quizzes, etc.), especially if attendance drops off significantly.  If this does happen, it will be clearly announced in lecture.
+The course grades will follow the standard decade curve: 90 and above is an A of some sort (A-, A, or A+), 80 and above is some sort of a B, etc.  **Note:** We reserve the right to modify the weighting (changing the curve, adding pop quizzes, etc.), especially if attendance drops off significantly.  If this does happen, it will be clearly announced in lecture.
 
-**Development Environment:** In this class, you may NOT use Microsoft Visual Studio, any other Microsoft Windows-based development environment, or any IDE (Integrated Development Environment), for any reason.  This includes, among others, Eclipse, Netbeans, Xcode, Geany, Visual Studio, and Atom. This applies to program development - obviously, you can use MS Office to edit text documents. The purpose behind this rule is to introduce you to the Unix environment - thus, all course work in this class is to be done in a Unix environment (Solaris, Linux, FreeBSD, Cygwin, etc.). We will discuss how to access and/or install these environments in the beginning of the course. **In order to take this course, you agree to sign an honor pledge that states that you will NOT use a Microsoft Windows-based development environment or IDE for any course work.**
+**Development Environment:** In this class, you may NOT use Microsoft Visual Studio, any other Microsoft Windows-based development environment, or any IDE (Integrated Development Environment), for any reason.  This includes, among others, Eclipse, Netbeans, Xcode, Geany, Visual Studio, and Atom. This applies to program development - obviously, you can use MS Office to edit text documents. The purpose behind this rule is to introduce you to the Unix environment - thus, all course work in this class is to be done in a Unix environment (typically Linux or FreeBSD). We will discuss how to access and/or install these environments in the beginning of the course. **In order to take this course, you agree to sign an honor pledge that states that you will NOT use a Microsoft Windows-based development environment or IDE for any course work.**
 
 **Disabilities:**  The University of Virginia strives to provide accessibility to all students. If you require an accommodation to fully access this course, please contact the Student Disability Access Center (SDAC) at (434) 243-5180 or sdac@virginia.edu. If you are unsure if you require an accommodation, or to learn more about their services, you may contact the SDAC at the number above or by visiting their website at http://studenthealth.virginia.edu/student-disability-access-center/faculty-staff.
 
-**Special Circumstances:** Students with special circumstances (athletics, extra time required on exams, final exam conflicts, LNEC considerations, etc.) need to let one of us know during the **first week of class**.
-
+**Special Circumstances:** Students with special circumstances (athletics, extra time required on exams, final exam conflicts, LNEC considerations, etc.) need to let me know at least **one week** prior to when said accommodation will be needed.
+ 
 **Textbooks:** Due to the high cost of textbooks, and their relative low quality, there will be no recommended nor required textbooks this semester.  Instead, there will be selected [Readings][9] ([md][10]) that can be used in lieu of a recommended textbook.
 
-**Exams:** There will be two midterm exams held during laboratory sessions (combined worth 30% of the final grade) and one final exam (worth 25% of the final grade). Note that we hope (but do not guarantee!) to have the first exam returned before the SEAS drop date.
+**Exams:** There will be two midterm exams held during laboratory sessions (combined worth 30% of the final grade) and one final exam (worth 25% of the final grade). Note that we hope (but do not guarantee!) to have the first exam graded and returned before the SEAS drop date.
 
-- Midterm Exam 1: Tuesday, October 1, during lab session
-- Midterm Exam 2: Tuesday, November 12, during lab session
-- Final Exam: Monday, December 9 from 7 p.m. to 10 p.m.
+- Midterm Exam 1: Tuesday, February 18th, during lab session
+- Midterm Exam 2: Tuesday, March 31st, during lab session
+- Final Exam: Thursday, April 30th from 7 p.m. to 10 p.m.
     - This is a common exam time, and conflicts with other courses (BIOL 2100, CS 2110, KOR 1010, KOR 2010, KOR 3010, STAT 2120, and STAT 3120)
     - Let us know by the end of January if you have a conflict (via a support request); we will deal with scheduling conflicts later in the semester
 
 ***YOU WILL HAVE TO BRING YOUR UVA ID TO ALL EXAMS!!!***
 
-Under **NO** circumstances will anybody be allowed to take the final exam early.  You may **ONLY** request to take the final exam at a different time if you have a final exam **CONFLICT**, not a busy final exam schedule.  Since it is a common exam time, the only conflicts are the courses listed on UVa official exam schedule.  For Fall 2019, they are: BIOL 2100; CS2110; KOR 1010, 2010, 3010; STAT 2120, 3120.
+Under **NO** circumstances will anybody be allowed to take the final exam early.  You may **ONLY** request to take the final exam at a different time if you have a final exam **CONFLICT**, not a busy final exam schedule.  However, that request ***MUST*** be submitted by the end of January.  Since it is a common exam time, the only conflicts are the courses listed on UVa official exam schedule.  For Spring 2020, they are: APMA 3110, APMA 3140, and ECON 2020 (sections 001 and 002)
 
-You may submit lab questions for regrading within 10 days of when they are returned to you (less time for the final due to the end of the semester); this is done via the [course tools][41].  However, you MUST be aware of the [Frivolous regrade policy][3] ([md][4]), which will be strictly enforced.
+You may submit exam questions for regrading within 10 days of when they are returned to you (less time for the final due to the end of the semester); this is done via the [course tools][41].  However, you MUST be aware of the [Frivolous regrade policy][3] ([md][4]), which will be strictly enforced.
 
 **Laboratories:** There will be 11 or 12 programming labs this semester, and they constitute 45% of your grade (roughly 4% per lab, although some labs may be weighted more than others).  Note that if the number of labs changes, the respective weights for each lab will also be adjusted and announced in class.  The total weight of the labs for the final grade will remain 45%, unless a change in the course grading criteria (as above) is announced in class.  The majority of the work in this class is through the labs -- there are no separate homework assignments.  The labs have different late policies, which will be specified in more detail in the first lab.  **Your lab submission must compile for you to receive *any* credit** -- this is an advanced programming class, and under no circumstances should you be submitting code that does not compile - we have a page on [compilation issues][5] ([md][6]) to help you if you cannot get your code to compile.  Note that the *entire* assignment will receive zero credit if even *one* part of it does not compile.
 
@@ -76,16 +74,15 @@ Please note, however, that there are a number of rules that we will strictly fol
 - Post-labs are due at the start of the *first* lecture on Friday, regardless of which lecture section you are registered for; the exact time is on the [lab due dates page][7]
 - Any late lab part will receive 25% off (for just that part) for the first 24 hours (or part thereof) that it is late, after which no credit will be given. Note that a computer program does this deduction -- so if your lab is 1 second late, it still receives 25% off.
 
-The assignments tool does not display due dates such as "at the end of your lab session" very well - indeed, the due date is listed as 10 p.m. on Tuesdays.  Note that we have a script that will test the assignment due date against your lab date, so please be sure to follow the above due dates.
-
 **Computing resources:** There are two specific computer resources needed for this course:
 
 - You need to have a working computer that can run a recent build of [VirtualBox][36], with enough hard drive space (and memory) to use a course VirtualBox image (about 15 Gb will be needed for the install, and then 10 Gb  will be used once the installation files are deleted).  Any computer made in the last 3 years will suffice for these requirements (and many older ones will as well).  It does not matter if it is a desktop or notebook; nor does the speed matter.
+    - If your computer breaks, you can contact the CS systems staff for a loaner laptop -- they are in the basement of Rice hall, in rooms ?? and ??.  Tell them you are in my class, and they will provide you with a machine to borrow.
 - There are a few documents that you will have to print (the UNIX honor pledge, etc.).  We will attempt to provide copies for you.  The total printing load will be under 5 pages for the entire semester.  You will need to obtain access to a printer for those pages.
 
 **Attendance:** Attendance is highly recommended but not required in either lecture or lab. Unless you have received special permission, you cannot attend labs that you are not enrolled in due to space constraints.  Please see the [first set of lecture slides][11] for more information about the lab schedule, in particular with regards to the fact that there is a lab the week of Thanksgiving break (in fall semesters) or the weeks before and after spring break (in spring semesters).
 
-**Professionalism:** We are all adults, and should act like such.  Acting in an unprofessional manner that disrupts the class will first incur a stern talking-to.  After that, a grade penalty may be assessed.  Examples include: disrupting class, trolling people on Piazza, abusing the support request system, etc.  This is meant to keep people from repeatedly disrupting class; we are not trying to be super strict on this.  And yes, a warning will first be given prior to any other action.
+**Professionalism:** We are all adults, and should act like such.  Acting in an unprofessional manner that disrupts the class will first incur a stern talking-to.  After that, a grade penalty may be assessed.  Examples include: disrupting class, trolling people on Piazza, abusing the support request system, etc.  This is meant to keep people from repeatedly disrupting class; we are not trying to be super strict on this.  While we generally expect to give a warning prior to any other action, infractions that go well beyond unprofessional may incr penalties with no warning.
 
 **Honor Policy:** There have been a large number of honor violations in this class and other low-level CS courses recently.  Outside the normal UVa honor policy rules, we have these additional rules:
 
@@ -104,6 +101,8 @@ Alternatively, there are also other University of Virginia resources available. 
 
 If you or someone you know is struggling with gender, sexual, or domestic violence, there are many community and University of Virginia resources available. The Office of the Dean of Students, Sexual Assault Resource Agency (SARA), Shelter for Help in Emergency (SHE), and UVA Women's Center are ready and eager to help. Contact the Director of Sexual and Domestic Violence Services at 434-982-2774.
 
+**Reasonable Modifications:** Try as we might, we cannot predict the future.  There may be situations that arise during the semester that are not adequately covered by this syllabus, and which will require us to make adaptations or modifications during the semester.  We do not expect this to happen often.  And if we knew what types of situations these would be, we would change professions to fortune telling...
+
 [1]: index.html
 [2]: index.md
 [3]: frivolous-regrades.html
@@ -118,6 +117,7 @@ If you or someone you know is struggling with gender, sexual, or domestic violen
 [12]: course-introduction.html#/cs2102
 [13]: ../labs/lab01/index.html
 [14]: ../labs/lab01/index.md
+[15]: daily-announcements.html#/
 
 [31]: http://www.cs.virginia.edu/~mrf8t
 [32]: mailto:mrf8t@virginia.edu

@@ -43,8 +43,9 @@
 &nbsp;
 ### Program and Data Representation
 &nbsp;
-<center><small>[Mark Floryan](http://www.cs.virginia.edu/~mrf8t) ([email](mailto:mrf8t@virginia.edu)), [Rich Nguyen](http://www.cs.virginia.edu/~nn4pj) ([email](mailto:nn4pj@virginia.edu)) &amp; [Aaron Bloomfield](http://www.cs.virginia.edu/~asb) ([email](mailto:aaron@virginia.edu))</small></center>
-<center><small>Repository: [github.com/uva-cs/pdr](http://github.com/uva-cs/pdr) / [&uarr;](index.html) / <a href="06-hashes.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
+<center><small><a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)</small></center>
+<center><small><a href="http://@github/uva-cs/pdr">@github</a> | <a href="index.html">&uarr;</a> | <a href="daily-announcements.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png"></a></small></center>
+
 &nbsp;  
 &nbsp;  
 ## Hash Tables
@@ -103,7 +104,8 @@
 | insert | &Theta;(*n*) worst case,<br>but often &Theta;(1) | &Theta;(1) |
 | remove | &Theta;(*n*) | &Theta;(*n*) |
 | findKth | &Theta;(1) | &Theta;(*n*) |
-<center>The operations are *generally* linear-time operations</center>
+
+<center>The operations are <i>generally</i> linear-time operations</center>
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -125,7 +127,8 @@
 | push | &Theta;(*n*) worst case,<br>but often &Theta;(1) | &Theta;(1) |
 | pop | &Theta;(1) | &Theta;(1) |
 | top | &Theta;(1) | &Theta;(1) |
-<center>The operations are *generally* constant-time operations</center>
+
+<center>The operations are <i>generally</i> constant-time operations</center>
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -145,7 +148,8 @@
 |-|-|-|
 | enqueue | &Theta;(*n*) worst case,<br>but often &Theta;(1) | &Theta;(1) |
 | dequeue | &Theta;(1) | &Theta;(1) |
-<center>The operations are *generally* constant-time operations</center>
+
+<center>The operations are <i>generally</i> constant-time operations</center>
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -164,7 +168,8 @@
 | find | &Theta;(*h*), where<br>log *n* < *h* &le; *n*-1;<br>worst case is &Theta;(*n*) | &Theta;(log *n*) | &Theta;(log *n*) | &Theta;(log *n*)<br>amortized |
 | insert | &Theta;(*h*), where<br>log *n* < *h* &le; *n*-1;<br>worst case is &Theta;(*n*) | &Theta;(log *n*) | &Theta;(log *n*) | &Theta;(log *n*)<br>amortized |
 | remove | &Theta;(*h*), where<br>log *n* < *h* &le; *n*-1;<br>worst case is &Theta;(*n*) | &Theta;(log *n*) | &Theta;(log *n*) | &Theta;(log *n*)<br>amortized |
-<center>Balanced trees are *generally* logarithmic-time operations</center>
+
+<center>Balanced trees are <i>generally</i> logarithmic-time operations</center>
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -271,7 +276,7 @@
 <table class="wide">
   <tr>
     <td class="top">
-<div style="font-size:130%;line-height:110%">
+<div style="width:400px;font-size:130%;line-height:110%">
 <ul>
 <li>How can we hash the keys if the keys can be anything?</li>
 <li>Best one binary comparison can do is eliminate one half of the elements &Theta;(log <i>n</i>)</li>
@@ -283,7 +288,7 @@
 <td class="top">
 &nbsp;<br><small>&quot;Hello&quot;</small><br>&nbsp;<br><small>['H','i',\0]</small><br>&nbsp;<br><small>3.14</small><br>&nbsp;<br><small>'x'</small><br>&nbsp;<br><small>0x42381a</small><br>&nbsp;<br><small>01001010</small></td>
     <!-- image adapted from http://openclipart.org/detail/3677/arrow-left-right-by-torfnase -->
-    <td style="width:150px"><img class="noborder" src="images/red-double-arrow.png" height="500" alt="vertical red double arrow"></td>
+    <td style="width:150px;vertical-align:top"><img class="noborder" src="images/red-double-arrow.png" height="500" alt="vertical red double arrow"></td>
     <td class="top">&nbsp;<br>&nbsp;<br><small>Objects</small><br>&nbsp;<br><small>Arrays</small><br>&nbsp;<br><small>Primitive types</small><br>&nbsp;<br><small>Addresses</small><br>&nbsp;<br><small>bits</small></td>
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
   </tr>
@@ -299,9 +304,9 @@
 | 000010 | "blue" |
 | 000011 | `null` |
 | 000100 | "green" |
-| 000101 | "white" |
-| 000110 | ... |
+| 000101 | ... |
 &nbsp;  
+
 This can work, unless the key space is sparse, or we don't know the keys ahead of time.  But it's slow to look up a value in a table!
 	  </script></section>
 
@@ -842,7 +847,6 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
       <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
     </div>
 
-    <script src="reveal.js/lib/js/head.min.js"></script>
     <script src="reveal.js/js/reveal.js"></script>
     <script src="js/settings.js"></script>
 

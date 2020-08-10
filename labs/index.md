@@ -47,7 +47,7 @@ The labs for this course:
 - [Lab 6: Hashing](lab06/index.html)
     - Source code: [getWordInGrid.cpp](lab06/code/getWordInGrid.cpp.html) ([src](lab06/code/getWordInGrid.cpp)), [primenumber.cpp](lab06/code/primenumber.cpp.html) ([src](lab06/code/primenumber.cpp)), [timer.cpp](lab06/code/timer.cpp.html) ([src](lab06/code/timer.cpp)), [timer.h](lab06/code/timer.h.html) ([src](lab06/code/timer.h)), [timer_test.cpp](lab06/code/timer_test.cpp.html) ([src](lab06/code/timer_test.cpp))
         - These can also be downloaded all at once via the [code.zip](lab06/code.zip) file
-    - The data files in the [labs/lab06/data/ directory](lab06/data/)
+    - The data files in the labs/lab06/data/ directory
         - These can also be downloaded all at once via the [data.zip](lab06/data.zip) file
     - The tutorial, for the in-lab, is the first 6 sections (through and including 'exit status') of the [Wikibooks article on Bash Shell Scripting](http://en.wikibooks.org/wiki/Bash_Shell_Scripting)
 
@@ -56,26 +56,23 @@ The labs for this course:
 - [Lab 7: IBCM](lab07/index.html) (machine language)
     - C++ Source code: [bubblesort.cpp](lab07/bubblesort.cpp.html) ([src](lab07/bubblesort.cpp)), [counter.cpp](lab07/counter.cpp.html) ([src](lab07/counter.cpp))
     - IBCM source code: [summation.ibcm](../ibcm/summation.ibcm) and [array-summation.ibcm](../ibcm/array-summation.ibcm)
-    - The online emulator is [here](http://pegasus.cs.virginia.edu/ibcm/), with a mirror [here](http://people.virginia.edu/~asb2t/ibcm/)
+    - The online emulator is [here](http://pegasus.cs.virginia.edu/ibcm/)
     - The [IBCM book chapter](../book/ibcm-chapter.pdf) (PDF)
 
 &nbsp;
 
 - Lab 8: x86 (assembly), part 1: in 32-bit and 64-bit versions
-    - ~~[32-bit version of the lab](lab08-32bit/index.html)~~
-        - ~~Source code: [vecsum.s](lab08-32bit/vecsum.s.html) ([src](lab08-32bit/vecsum.s)), [main.cpp](lab08-32bit/main.cpp.html) ([src](lab08-32bit/main.cpp)), [Makefile](lab08-32bit/Makefile.html) ([src](lab08-32bit/Makefile))~~
-        - ~~Readings (which is also the tutorial): the two x86 book chapters: [x86 Assembly](../book/x86-32bit-asm-chapter.pdf) and [The x86 C Calling Convention](../book/x86-32bit-ccc-chapter.pdf)~~
     - [64-bit version of the lab](lab08-64bit/index.html)
         - Source code: [vecsum.s](lab08-64bit/vecsum.s.html) ([src](lab08-64bit/vecsum.s)), [main.cpp](lab08-64bit/main.cpp.html) ([src](lab08-64bit/main.cpp)), [Makefile](lab08-64bit/Makefile.html) ([src](lab08-64bit/Makefile)), [mergeSort.s](lab08-64bit/mergeSort.s.html) ([src](lab08-64bit/mergeSort.s)), [testMergeSort.cpp](lab08-64bit/testMergeSort.cpp.html) ([src](lab08-64bit/testMergeSort.cpp))
         - Readings (which is also the tutorial): the C++/assembly tutorial, which consists of reading [x86-64 Machine-Level Programming](https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf) from CMU
+    - ~~[32-bit version of the lab, from previous years](lab08-32bit/index.html)~~
 
 &nbsp;
 
 - Lab 9: x86 (assembly), part 2: in 32-bit and 64-bit versions
-    - ~~[32-bit version of the lab](lab09-32bit/index.html)~~
-        - ~~Readings: the two x86 book chapters: [x86 Assembly](../book/x86-32bit-asm-chapter.pdf) and [The x86 C Calling Convention](../book/x86-32bit-ccc-chapter.pdf)~~
     - [64-bit version of the lab](lab09-64bit/index.html)
         - Readings: the two x86 book chapters: [x86 Assembly](../book/x86-64bit-asm-chapter.pdf) and [The x86 C Calling Convention](../book/x86-64bit-ccc-chapter.pdf)
+    - ~~[32-bit version of the lab, from previous years](lab09-32bit/index.html)~~
     - For both labs:
         - Source code: [timer.cpp](lab06/code/timer.cpp.html) ([src](lab06/code/timer.cpp)) and  [timer.h](lab06/code/timer.h.html) ([src](lab06/code/timer.h)), both of which are from lab 6
         - The tutorial, for the post-lab, is the [C tutorial](../tutorials/09-c/index.html); you will need to implement the linkedlist.c program.
@@ -87,7 +84,7 @@ The labs for this course:
         - Binary heap code from the [Heaps and Huffman slide set](../slides/10-heaps-huffman.html): [binary_heap.cpp](../slides/code/10-heaps-huffman/binary_heap.cpp.html) ([src](../slides/code/10-heaps-huffman/binary_heap.cpp)), [binary_heap.h](../slides/code/10-heaps-huffman/binary_heap.h.html) ([src](../slides/code/10-heaps-huffman/binary_heap.h)), [heap-test.cpp](../slides/code/10-heaps-huffman/heap-test.cpp.html) ([src](../slides/code/10-heaps-huffman/heap-test.cpp))
       - File I/O example: [fileio.cpp](lab10/fileio.cpp.html) ([src](lab10/fileio.cpp))
       - In-lab skeleton code: [inlab-skeleton.cpp](lab10/inlab-skeleton.cpp.html) ([src](lab10/inlab-skeleton.cpp))
-      - Example encoded and decoded files are in the [labs/lab10/examples/ directory](lab10/examples/), or as one [examples.zip](lab10/examples.zip) file
+      - Example encoded and decoded files are in the labs/lab10/examples/ directory, or as one [examples.zip](lab10/examples.zip) file
 
 &nbsp;
 

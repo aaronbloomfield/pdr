@@ -6,14 +6,12 @@ Program and Data Representation: Tutorials
 The tutorials for this course are listed below.
 
 - [Tutorial 1: Introduction to Unix](01-intro-unix/index.html)
-    - And [Tutorial 1: Introduction to Unix: VirtualBox use](01-intro-unix/virtual-box.html)
-    - And [Tutorial 1: Introduction to Unix: VirtualBox image creation details](01-intro-unix/vb-image-details.html)
 - Tutorial 2: Debugger
-    - There are *two* different tutorials, depending on whether you want to use gdb or lldb; only one is required.  Pick the one that works best in your environment (lldb is preferred, but that does not work in the Ubuntu VirtualBox image).  The source code provided is the same.
-    - [Tutorial 2: GDB](02-gdb/index.html)
-        - Source code: [prog1.cpp](02-gdb/prog1.cpp.html) ([src](02-gdb/prog1.cpp)), [debug.cpp](02-gdb/debug.cpp.html) ([src](02-gdb/debug.cpp))
+    - There are *two* different tutorials, depending on whether you want to use LLDB or GDB; only one is required.  GDB is listed as a backup in case LLDB doesn't work on your machine.
     - [Tutorial 2: LLDB](02-lldb/index.html)
         - Source code: [prog1.cpp](02-lldb/prog1.cpp.html) ([src](02-lldb/prog1.cpp)), [debug.cpp](02-lldb/debug.cpp.html) ([src](02-lldb/debug.cpp))
+    - [Tutorial 2: GDB](02-gdb/index.html)
+        - Source code: [prog1.cpp](02-gdb/prog1.cpp.html) ([src](02-gdb/prog1.cpp)), [debug.cpp](02-gdb/debug.cpp.html) ([src](02-gdb/debug.cpp))
 - [Tutorial 3: More Unix, part 1](03-04-more-unix/index.html), which is sections 1-4; this tutorial is originally from [here](http://www.ee.surrey.ac.uk/Teaching/Unix/)
 - [Tutorial 4: More Unix, part 2](03-04-more-unix/index.html), which is sections 5-8; this tutorial is originally from [here](http://www.ee.surrey.ac.uk/Teaching/Unix/)
 - [Tutorial 5: make](05-make/index.html), and the necessary [pizza.zip](05-make/pizza.zip)
