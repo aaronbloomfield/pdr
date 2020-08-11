@@ -55,7 +55,7 @@ Pre-lab
 
 There are three parts to the C++ file you will be submitting as a part of the pre-lab.
 
-**Your program should ask for a single integer value for input**, which we will call *x*.  The program will call the three functions below in order: `sizeOfTest()`, `overflow()`, and then `outputBinary(x)`.  Note that only `outputBinary()` takes in *x* as the parameter.
+**Your program should ask for a single integer value for input (via cin)**, which we will call *x*.  The program will call the three functions below in order: `sizeOfTest()`, `overflow()`, and then `outputBinary(x)`.  Note that only `outputBinary()` takes in *x* as the parameter.
 
 #### sizeOfTest() ####
 

@@ -21,12 +21,12 @@
 <h3 id="tutorial">Tutorial</h3>
 <p>Look over the first 6 sections (through and including 'exit status') of the <a href="https://en.wikibooks.org/wiki/Bash_Shell_Scripting">Wikibooks article on Bash Shell Scripting</a>. You will be writing a shell script during the in-lab, but you should probably start reading it before then. The remaining sections of that article will be the tutorial for the next lab, so feel free to read on, if you are interested.</p>
 <h3 id="recommended-readings">Recommended Readings</h3>
-<ol>
+<ol type="1">
 <li>Learn how to use C++ file streams to read from data files. See the <a href="http://www.cplusplus.com/doc/tutorial/files/">Input/output with files article</a> on <a href="http://www.cplusplus.com/">cplusplus.com</a>. You can also see the code in the provided <a href="code/getWordInGrid.cpp.html">getWordInGrid.cpp</a> (<a href="code/getWordInGrid.cpp">src</a>) file which uses streams as well. You may want to use the <a href="http://www.cplusplus.com/reference/fstream/ifstream/">good()</a> method in the ifstream class -- you can put it in a <code>while</code> loop: <code>while (foo.good())</code>.</li>
 </ol>
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
-<ol>
+<ol type="1">
 <li>Create a word puzzle solver</li>
 <li>Files to download:
 <ul>
@@ -36,7 +36,7 @@
 <li>Files to submit: Makefile, wordPuzzle.cpp, timer.h/cpp, hashTable.h/cpp</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
-<ol>
+<ol type="1">
 <li>Learn about the <code>-O2</code> clang++ optimization flag</li>
 <li>Compare your output with the expected output using output redirection, pipes, and Unix commands</li>
 <li>Test your program with the 250x250 grid using words.txt, and the 300x300 grid using words2.txt</li>
@@ -45,7 +45,7 @@
 <li>Files to submit: averagetime.sh</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
-<ol>
+<ol type="1">
 <li>Optimize your implementation of the word puzzle solver</li>
 <li>Files to download: none</li>
 <li>Files to submit: Makefile, wordPuzzle.cpp, timer.h/cpp, hashTable.h/cpp</li>
@@ -83,15 +83,12 @@
 <p>We are not as interested in how fast your program runs for the pre-lab; leave any optimizations for the post-lab.</p>
 <h3 id="storing-the-dictionary">Storing the dictionary</h3>
 <p>As there may be a large number of words in the dictionary, you will have to store those words in a hash table to facilitate efficient lookup.</p>
-<p>You <strong>must</strong> write your own hash table for this lab.<br />
-We leave the implementation up to you, as long as you do not use a vector of vectors or any STL hash table.</p>
+<p>You <strong>must</strong> write your own hash table for this lab. We leave the implementation up to you, as long as you do not use a vector of vectors or any STL hash table.</p>
 <h3 id="manipulating-the-grid">Manipulating the grid</h3>
-<p><a href="code/getWordInGrid.cpp.html">getWordInGrid.cpp</a> (<a href="code/getWordInGrid.cpp">src</a>) provides two useful functions: <code>readInGrid()</code> and <code>getWordInGrid()</code>.<br />
-The former reads in a grid file using C++ streams; the latter returns a word in a 2D grid of letters in a given direction.</p>
+<p><a href="code/getWordInGrid.cpp.html">getWordInGrid.cpp</a> (<a href="code/getWordInGrid.cpp">src</a>) provides two useful functions: <code>readInGrid()</code> and <code>getWordInGrid()</code>. The former reads in a grid file using C++ streams; the latter returns a word in a 2D grid of letters in a given direction.</p>
 <p>You should make sure you understand how these functions work, as you will most likely be using them in your final program.</p>
 <h3 id="timing">Timing</h3>
-<p>We are interested in timing how long it takes to find all the valid words in a grid, not including the time it took to read in the dictionary and grid files or perform any other sort of pre-processing.<br />
-You can use the code provided in <a href="code/timer.cpp.html">timer.cpp</a> (<a href="code/timer.cpp">src</a>), <a href="code/timer.h.html">timer.h</a> (<a href="code/timer.h">src</a>), and <a href="code/timer_test.cpp.html">timer_test.cpp</a> (<a href="code/timer_test.cpp">src</a>) to time the relevant portion of your program. Although you don't need to print out the timing for the pre and post-labs, it is still helpful to time your solver to help measure the effectiveness of any optimizations you may implement.</p>
+<p>We are interested in timing how long it takes to find all the valid words in a grid, not including the time it took to read in the dictionary and grid files or perform any other sort of pre-processing. You can use the code provided in <a href="code/timer.cpp.html">timer.cpp</a> (<a href="code/timer.cpp">src</a>), <a href="code/timer.h.html">timer.h</a> (<a href="code/timer.h">src</a>), and <a href="code/timer_test.cpp.html">timer_test.cpp</a> (<a href="code/timer_test.cpp">src</a>) to time the relevant portion of your program. Although you don't need to print out the timing for the pre and post-labs, it is still helpful to time your solver to help measure the effectiveness of any optimizations you may implement.</p>
 <h3 id="other-details">Other details</h3>
 <p><strong>Input grids:</strong> Each input grid file has three lines. The first line is the number of rows, and the second is the number of columns, both representable using integers. The third line is the grid data, represented by strictly alphabetical characters with no spaces (i.e. it will contain <code>rows * cols</code> characters). Example grids are available in the labs/lab06/data/ directory.</p>
 <p><strong>Dictionary files:</strong> Dictionaries contain one word per line. The longest word in our data files is 22 letters. Words which contain non-alphabetical characters may occur in the dictionary, but would never appear in a valid grid. Your program should be able to handle dictionaries with such words, although you are not required to put them into the hash table.</p>
@@ -115,31 +112,21 @@ SW(0, 6):       tat
 <p>You should submit any files required for your word puzzle solver to run as well as a Makefile that produces an <code>a.out</code> executable.</p>
 <h3 id="hints">Hints</h3>
 <h4 id="separation-of-concerns">Separation of concerns</h4>
-<p>Given the multi-faceted nature of this lab, it is helpful to only focus on one portion at the time.<br />
-Start out by using the STL hashtable <a href="https://en.cppreference.com/w/cpp/container/unordered_set">unordered_set</a> to verify that your word search works, and then work on writing your own hash table implementation to replace it.</p>
+<p>Given the multi-faceted nature of this lab, it is helpful to only focus on one portion at the time. Start out by using the STL hashtable <a href="https://en.cppreference.com/w/cpp/container/unordered_set">unordered_set</a> to verify that your word search works, and then work on writing your own hash table implementation to replace it.</p>
 <p>The last thing you want is to be staring at incorrect output and not knowing whether that's because of your solver or your hashtable!</p>
 <h4 id="that-hint-didnt-help-i-still-have-no-clue-how-to-start">That hint didn't help, I still have no clue how to start</h4>
 <p>Take it one step at a time.</p>
-<p>Start off by reading in the dictionary and printing out all of its words.<br />
-Then store those words in a hashtable (probably the STL one for now).<br />
-Great, you have a dictionary now.</p>
-<p>Next, read in the grid (use the functions in <code>getWordInGrid.cpp</code> to help you!).<br />
-Plan out how to use the dictionary to find all the valid words in the grid.<br />
-There are four variables that control what word is returned -- what does that imply in terms of loops?</p>
+<p>Start off by reading in the dictionary and printing out all of its words. Then store those words in a hashtable (probably the STL one for now). Great, you have a dictionary now.</p>
+<p>Next, read in the grid (use the functions in <code>getWordInGrid.cpp</code> to help you!). Plan out how to use the dictionary to find all the valid words in the grid. There are four variables that control what word is returned -- what does that imply in terms of loops?</p>
 <p>At this point, hopefully you have enough to get you going.</p>
 <h4 id="storing-the-grid">Storing the grid</h4>
-<p>Creating a dynamic 2D array in C++ is more difficult than it should be -- one solution is to create a vector of vectors, but that is not the most efficient means to do it.<br />
-For this lab, you can just create a 500x500 static array, and can assume that you will not have your program run on larger input grids.<br />
-This is not very elegant, but it will work until we go over dynamic array creation in lecture.</p>
+<p>Creating a dynamic 2D array in C++ is more difficult than it should be -- one solution is to create a vector of vectors, but that is not the most efficient means to do it. For this lab, you can just create a 500x500 static array, and can assume that you will not have your program run on larger input grids. This is not very elegant, but it will work until we go over dynamic array creation in lecture.</p>
 <h4 id="command-line-parameters">Command-line parameters</h4>
 <p>Your program must be able to run successfully if started with <code>./a.out &lt;dictionary_file&gt; &lt;grid_file&gt;</code> and no input.</p>
 <p>See the <a href="../../slides/04-arrays-bigoh.html">slide set on arrays</a> if you need a refresher on command-line parameters; you can also see the <a href="../../slides/code/04-arrays-bigoh/cmdlineparams.cpp.html">cmdlineparams.cpp</a> (<a href="../../slides/code/04-arrays-bigoh/cmdlineparams.cpp">src</a>) file.</p>
 <h4 id="hash-table-sizes">Hash table sizes</h4>
-<p>As discussed in lecture, a hash table needs to be a prime number in size in order to work.<br />
-You can adapt the code in the <a href="code/primenumber.cpp.html">primenumber.cpp</a> (<a href="code/primenumber.cpp">src</a>) file to determine the next highest prime number (of course, the next highest prime number is determined after you double the size of your original hash table).</p>
-<p>Your program will need to handle input dictionaries of various sizes and create hash tables of the appropriate size.<br />
-To get the program working the first time, you can just hard code a prime number table size.<br />
-But at some point, you will have to handle different size hash tables.</p>
+<p>As discussed in lecture, a hash table needs to be a prime number in size in order to work. You can adapt the code in the <a href="code/primenumber.cpp.html">primenumber.cpp</a> (<a href="code/primenumber.cpp">src</a>) file to determine the next highest prime number (of course, the next highest prime number is determined after you double the size of your original hash table).</p>
+<p>Your program will need to handle input dictionaries of various sizes and create hash tables of the appropriate size. To get the program working the first time, you can just hard code a prime number table size. But at some point, you will have to handle different size hash tables.</p>
 <ul>
 <li>One option is to implement a <code>rehash()</code> function that will double the size of the array, hash all the old values into the new table, and then remove the old table.</li>
 <li>A second option is to do two passes through the dictionary file. The first time you count the number of elements, use that to create an appropriate sized hash table, and the second time through the dictionary file you insert all the words into the table itself.</li>
@@ -182,12 +169,10 @@ diff output.txt words2.sorted.out.txt</code></pre>
 <p>Shell scripts are useful when one needs to call a large number of Unix commands (such as the aforementioned compilation/execution example). Significant computation, such as finding words in a word puzzle, or a lot of arithmetic, are not well suited to shell scripts.</p>
 <h3 id="average-running-time">Average Running Time</h3>
 <p>Write a shell script <code>averagetime.sh</code> that will prompt the user for the dictionary and grid file names used by your word puzzle executable, which must be called <code>a.out</code>. It will then run the program five times using those parameters. It will record the time of each execution run, and, once the runs are completed, print out the average run time. Note that you have not yet seen conditions (<code>if</code> or <code>case</code>) or loops (<code>for</code> or <code>while</code>) in shell scripts, so we do not expect your script to have either of these -- you should just have 5 separate commands without a loop.</p>
-<p>Modify your word puzzle program to print out the total time taken as the last line of output.<br />
-Floating point arithmetic in bash is quite complicated, so try to use integers when possible -- you may want to multiply the result from <code>Timer::getTime()</code> by 1000 to obtain the number of milliseconds taken.</p>
+<p>Modify your word puzzle program to print out the total time taken as the last line of output. Floating point arithmetic in bash is quite complicated, so try to use integers when possible -- you may want to multiply the result from <code>Timer::getTime()</code> by 1000 to obtain the number of milliseconds taken.</p>
 <p>You can then capture that line by piping it through the <code>tail -1</code> command -- the following line would run the program, only keep the last line, and save that output to a variable.</p>
 <pre><code>RUNNING_TIME=`./a.out | tail -1`</code></pre>
-<p>The back quote <code>`</code> tells bash to execute whatever is in between the quotes rather than treating it as a string.<br />
-It is usually located right below the Escape key on a keyboard.</p>
+<p>The back quote <code>`</code> tells bash to execute whatever is in between the quotes rather than treating it as a string. It is usually located right below the Escape key on a keyboard.</p>
 <p>Armed with this, the rest of the required concepts for the shell script are in first six sections of the article.</p>
 <p>As you are going through the tutorial, if there is a Unix command that you do not know (or you once knew and have since forgotten), you can find out more information about that command by entering <code>man command</code> at the Unix prompt. This brings up the manual for that command, including all of the command-line parameters.</p>
 <p>Your script should have comments (anything on a line after a '#' is a comment).</p>
@@ -209,14 +194,12 @@ It is usually located right below the Escape key on a keyboard.</p>
 <p>Bash's arithmetic expansion <code>$(( ... ))</code> performs integer division, so as long as you are using integers in the expression itself, you shouldn't run into any issues.</p>
 <hr />
 <h2 id="post-lab-1">Post-lab</h2>
-<p>You will need to optimize your code for the solution to the word puzzle.</p>
+<p>You will need to optimize your code for the solution to the word puzzle. The auto-grader for this assignment will be running your code on larger dictionaries / word grids. In addition to this, your code will be given less time to execute.</p>
 <p>To standardize timings, you should run all of your tests on words2.txt and 300x300.grid.txt.</p>
 <h3 id="code-optimization">Code optimization</h3>
-<p>Your coding task for the post-lab is to optimize your program.<br />
-Try to get your solver running as fast as possible -- 3 seconds is a good starting point, though you should still try to optimize it further regardless of how fast your program already runs.</p>
+<p>Your coding task for the post-lab is to optimize your program. Try to get your solver running as fast as possible -- 3 seconds is a good starting point, though you should still try to optimize it further regardless of how fast your program already runs.</p>
 <p>First, record how long it takes to run your program with the <code>-O2</code> flag but no other optimizations. We will need this value later.</p>
-<p>There are plenty of optimizations you can try to implement, some of which may work better with your code than others.<br />
-Here are some ideas:</p>
+<p>There are plenty of optimizations you can try to implement, some of which may work better with your code than others. Here are some ideas:</p>
 <ul>
 <li>Experiment with different hash functions and different implementations of hash tables
 <ul>

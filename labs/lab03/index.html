@@ -26,21 +26,21 @@
 </ul>
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
-<ol>
+<ol type="1">
 <li>Implement a postfix stack calculator for integers using the C++ STL stack. For this prelab you are only required to implement addition and subtraction</li>
 <li>Create a simple program that takes in keyboard input to test your calculator</li>
 <li>Files to download: none</li>
 <li>Files to submit: postfixCalculator.h, postfixCalculator.cpp, testPostfixCalc.cpp</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
-<ol>
+<ol type="1">
 <li>Expand your test program to handle negative numbers, multiplication, division, and negation</li>
 <li>Ensure your postfix calculator works on all the provided test cases</li>
 <li>Files to download: none (just your pre-lab source code)</li>
 <li>Files to submit: postfixCalculator.h, postfixCalculator.cpp, testPostfixCalc.cpp</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
-<ol>
+<ol type="1">
 <li>Implement a stack class</li>
 <li>Modify your postfix calculator to use your stack rather than the STL stack</li>
 <li>Files to download: none (just your in-lab source code)</li>
@@ -122,17 +122,13 @@
 <pre><code>0</code></pre>
 <p>You do not need to supply any input prompting for this assignment. When the program runs, nothing should print out to the terminal and the user should be able to input a postfix expression.</p>
 <h3 id="assumptions">Assumptions</h3>
-<ol>
+<ol type="1">
 <li>The input, i.e. the postfix expression, will be entered on one line and that all numbers and operators will be separated by a single space.</li>
 <li>The input will contain a valid postfix expression, a newline, and a Control-D if necessary.</li>
 </ol>
 <h3 id="hints">Hints</h3>
 <h4 id="reading-input">Reading input</h4>
-<p><code>cin</code> is the opposite of <code>cout</code> -- rather than printing to standard output, it reads from standard input.<br />
-When you type a line and press enter, that entire line gets sent to <code>cin</code>,<br />
-which then automatically splits on whitespace to produce multiple <em>tokens</em>.<br />
-Therefore, if we were to supply <code>+ 2 3 isn't 2150 great??</code> as input, we would get six tokens back.<br />
-This is very helpful as the postfix expressions are already space-delimited.</p>
+<p><code>cin</code> is the opposite of <code>cout</code> -- rather than printing to standard output, it reads from standard input. When you type a line and press enter, that entire line gets sent to <code>cin</code>, which then automatically splits on whitespace to produce multiple <em>tokens</em>. Therefore, if we were to supply <code>+ 2 3 isn't 2150 great??</code> as input, we would get six tokens back. This is very helpful as the postfix expressions are already space-delimited.</p>
 <p>A sample code snippet to continuously read from standard input would look something like this:</p>
 <pre><code>string token;
 while (cin &gt;&gt; token) {
@@ -142,20 +138,13 @@ while (cin &gt;&gt; token) {
 }</code></pre>
 <h4 id="parsing-tokens">Parsing tokens</h4>
 <p>There are two cases you will need to handle when parsing each token: operators and numbers.</p>
-<p>C++ allows you to compare strings for equality with <code>==</code>.<br />
-For example, you can check if <code>s</code> is the division operator with <code>if (s == &quot;/&quot;)</code>.\<br />
+<p>C++ allows you to compare strings for equality with <code>==</code>. For example, you can check if <code>s</code> is the division operator with <code>if (s == &quot;/&quot;)</code>.<br />
 Hint: we can check for all the operators, since there are only five of them. If all the checks fail, what does that mean the token has to be?</p>
-<p>cin takes in all input as strings, but we need to convert those to strings so that we can push them into the stack.<br />
-Perhaps you should take a look at <a href="https://en.cppreference.com/w/cpp/string/basic_string">the <code>string</code> documentation</a> to see if anything can help you out.</p>
+<p>cin takes in all input as strings, but we need to convert those to strings so that we can push them into the stack. Perhaps you should take a look at <a href="https://en.cppreference.com/w/cpp/string/basic_string">the <code>string</code> documentation</a> to see if anything can help you out.</p>
 <h4 id="templates">Templates</h4>
-<p>The C++ <code>stack</code> class is templated,<br />
-which means it can hold whatever type you specify (think back to ArrayLists in Java).<br />
-Since we will be using <code>int</code>s for our postfix calculator,<br />
-we can specify that by saying <code>stack&lt;int&gt;</code> when declaring our stack.</p>
+<p>The C++ <code>stack</code> class is templated, which means it can hold whatever type you specify (think back to ArrayLists in Java). Since we will be using <code>int</code>s for our postfix calculator, we can specify that by saying <code>stack&lt;int&gt;</code> when declaring our stack.</p>
 <h4 id="checking-if-the-stack-is-empty">Checking if the stack is empty</h4>
-<p>Given that you will need to check if the stack is empty before every <code>top</code> and <code>pop</code> call,<br />
-it may be worth it to add helper methods to your postfix calculator that, when called,<br />
-will perform the necessary checks before top/pop.</p>
+<p>Given that you will need to check if the stack is empty before every <code>top</code> and <code>pop</code> call, it may be worth it to add helper methods to your postfix calculator that, when called, will perform the necessary checks before top/pop.</p>
 <h4 id="compiling">Compiling</h4>
 <p>When compiling your code, remember to compile ALL of your cpp files in the compile command:</p>
 <pre><code>clang++ postfixCalculator.cpp testPostfixCalc.cpp</code></pre>

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>PDR: Laboratory 9: x86 Assembly Language, part 2 (64 bit) – </title>
+  <title>PDR: Laboratory 9: x86 Assembly Language, part 2 (64 bit)</title>
   <style type="text/css">code{white-space: pre;}</style>
   <link rel="stylesheet" href="../../markdown.css">
   <!--[if lt IE 9]>
@@ -17,26 +17,36 @@
 <h3 id="objective">Objective</h3>
 <p>This lab is one of two labs meant to familiarize you with the process of writing, assembling, and linking assembly language code. The purposes of the in-lab and in-lab activities are to investigate how various C++ language features are implemented at the assembly level.</p>
 <p>There are both <a href="../lab09-32bit/index.html">32 bit</a> (<a href="../lab09-32bit/index.md">md</a>) and <a href="../lab09-64bit/index.html">64 bit</a> (<a href="../lab09-64bit/index.md">md</a>) versions of this lab. This is the <strong><em>64 bit version</em></strong>.</p>
-<h3 style="color:red"><b>Changes for the spring 2020 semester</b></h3>
-<p style="color:red">Due to this course being <a href="../../uva/online.html">taught online</a> (<a href="../../uva/online.md">md</a>) in the spring of 2020, we are making the following changes for this semester, in an effort to make the workload more manageable since we are all working from home.</p>
+<h3 style="color:red">
+<b>Changes for the spring 2020 semester</b>
+</h3>
+<p style="color:red">
+Due to this course being <a href="../../uva/online.html">taught online</a> (<a href="../../uva/online.md">md</a>) in the spring of 2020, we are making the following changes for this semester, in an effort to make the workload more manageable since we are all working from home.
+</p>
 <ul style="color:red">
-<li>Pre-lab: no change to the pre-lab; it's still the Collatz conjecture program; keep in mind this is due Wednesday at 8 a.m.</li>
-<li>In-lab: none -- the report (the only part of the in-lab) is not to be done.  Instead, use this time to get help with the pre-lab or the in-lab.  Because of this, the in-lab will not be graded this semester.</li>
-<li>in-lab: the C tutorial is still to be done, but the report is not to be done.</li>
+<li>
+Pre-lab: no change to the pre-lab; it's still the Collatz conjecture program; keep in mind this is due Wednesday at 8 a.m.
+</li>
+<li>
+In-lab: none -- the report (the only part of the in-lab) is not to be done. Instead, use this time to get help with the pre-lab or the in-lab. Because of this, the in-lab will not be graded this semester.
+</li>
+<li>
+in-lab: the C tutorial is still to be done, but the report is not to be done.
+</li>
 </ul>
 <h3 id="background">Background</h3>
 <p>The Intel x86 assembly language is currently one of the most popular assembly languages and runs on many architectures from the x86 line through the Pentium 4. It is a CISC instruction set that has been extended multiple times (e.g. MMX) into a larger instruction set.</p>
 <h3 id="tutorial">Tutorial</h3>
 <p>Read the <a href="../../tutorials/09-c/index.html">C tutorial</a> for the in-lab.</p>
 <h3 id="recommended-readings">Recommended Readings</h3>
-<ol>
+<ol type="1">
 <li>Read the <a href="../../slides/08-x86.html">slides on x86</a></li>
 <li>The two book chapters on x86: <a href="../../book/x86-64bit-asm-chapter.pdf">x86 Assembly</a> and <a href="../../book/x86-64bit-ccc-chapter.pdf">The x86 C Calling Convention</a>.</li>
 <li>The <a href="http://www.cs.virginia.edu/~evans/cs216/guides/x86.html">x86 Assembly Guide</a> from an older course at UVA (ignore the section on Calling Convention)</li>
 </ol>
 <h2 id="lab-procedure">Lab Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
-<ol>
+<ol type="1">
 <li>Create an assembly program to demonstrate the Collatz conjecture</li>
 <li>Time your program using a helper C++ file</li>
 <li>Optimize your program and list all optimizations used</li>
@@ -44,13 +54,13 @@
 <li>Files to submit: threexplusone.s, threexinput.cpp, timer.cpp, timer.h, Makefile</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
-<ol>
+<ol type="1">
 <li>Complete the provided linkedlist.c program by going through <a href="../../tutorials/09-c/index.html">Tutorial 9: C</a> (<a href="../../tutorials/09-c/index.md">md</a>)</li>
 <li>Files to download: <a href="linkedlist.c.html">linkedlist.c</a> (<a href="linkedlist.c">src</a>)</li>
 <li>Files to submit: linkedlist.c, Makefile</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
-<ol>
+<ol type="1">
 <li>Write an x86 function to perform a binary search</li>
 <li>Files to download: <a href="testLinearSearch.cpp.html">testLinearSearch.cpp</a> (<a href="testLinearSearch.cpp">src</a>), <a href="timer.cpp.html">timer.cpp</a> (<a href="timer.cpp">src</a>), and <a href="timer.h" class="uri">timer.h</a> (<a href="timer.h" class="uri">timer.h</a>)</li>
 <li>Files to submit: testBinarySearch.cpp, binarySearch.s, timer.cpp, timer.h, Makefile</li>
@@ -60,9 +70,11 @@
 <p>You may want to reference the &quot;Compiling Assembly With C++&quot; and &quot;Vecsum&quot; sections from the <a href="../lab08-64bit/index.html">previous x86 lab</a>.</p>
 <h3 id="the-collatz-conjecture">The Collatz Conjecture</h3>
 <p>The 3x+1 conjecture (also called the Collatz conjecture) is an open problem in mathematics, meaning that it has not yet been proven to be true. The conjecture states that if you take any positive integer, you can repeatedly apply the following function to it:</p>
-<p><img src="formula.png" /></p>
+<figure>
+<img src="formula.png" />
+</figure>
 <p>The conjecture is that eventually, the result will reach 1. For example, consider <em>x</em> = 13:</p>
-<ol>
+<ol type="1">
 <li><em>f</em>(13) = 3 * 13 + 1 = 40</li>
 <li><em>f</em>(40) = 40 / 2 = 20</li>
 <li><em>f</em>(20) = 20 / 2 = 10</li>
@@ -80,9 +92,8 @@
 <p>Your task is to write a routine, called <code>threexplusone</code>, that takes in a positive integer and returns the number of steps required for that integer to reach 1 by following the Collatz conjecture. An input of 13 takes 9 steps, as shown above. The Wikipedia page shows a few other input sizes and the number of steps: an input of 6 takes 8 steps; an input of 14 takes 17 steps; an input of 27 takes 111 steps. If the input is 1, the output should be zero.</p>
 <p>This routine <strong><em>MUST</em></strong> call itself recursively using the proper C-style calling convention. The assembly code should be in a threexplusone.s file. <strong>If you write your function so that it is an iterative solution, you will not receive credit for this pre-lab.</strong></p>
 <h3 id="testing-and-timing">Testing and timing</h3>
-<p>You will need to write a C++ file called threexinput.cpp that allows you to test your subroutine.<br />
-This input file should:</p>
-<ol>
+<p>You will need to write a C++ file called threexinput.cpp that allows you to test your subroutine. This input file should:</p>
+<ol type="1">
 <li>Ask for an input value, <em>x</em>, which is the positive integer to pass to the subroutine</li>
 <li>Ask for an input value, <em>n</em>, which is the number of times to call the subroutine</li>
 <li>Run the subroutine once and store the result</li>

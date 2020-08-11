@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>PDR: Laboratory 8: x86 Assembly Language, part 1 (64 bit) – </title>
+  <title>PDR: Laboratory 8: x86 Assembly Language, part 1 (64 bit)</title>
   <style type="text/css">code{white-space: pre;}</style>
   <link rel="stylesheet" href="../../markdown.css">
   <!--[if lt IE 9]>
@@ -17,19 +17,29 @@
 <h3 id="objective">Objective</h3>
 <p>This lab is one of two labs meant to familiarize you with the process of writing, assembling, and linking assembly language code. The purposes of the in-lab and post-lab activities are to investigate how various C++ language features are implemented at the assembly level.</p>
 <p>There are both <a href="../lab08-32bit/index.html">32 bit</a> (<a href="../lab08-32bit/index.md">md</a>) and <a href="../lab08-64bit/index.html">64 bit</a> (<a href="../lab08-64bit/index.md">md</a>) versions of this lab. This is the <strong><em>64 bit version</em></strong>.</p>
-<h3 style="color:red"><b>Changes for the spring 2020 semester</b></h3>
-<p style="color:red">Due to this course being <a href="../../uva/online.html">taught online</a> (<a href="../../uva/online.md">md</a>) in the spring of 2020, we are making the following changes for this semester, in an effort to make the workload more manageable since we are all working from home.</p>
+<h3 style="color:red">
+<b>Changes for the spring 2020 semester</b>
+</h3>
+<p style="color:red">
+Due to this course being <a href="../../uva/online.html">taught online</a> (<a href="../../uva/online.md">md</a>) in the spring of 2020, we are making the following changes for this semester, in an effort to make the workload more manageable since we are all working from home.
+</p>
 <ul style="color:red">
-<li>Pre-lab: the mathlib.s program only needs to contain just the <code>product()</code> function, as described in the pre-lab section, below.  The <code>power()</code> function will be done in the post-lab.  The rest of the pre-lab is as described in the pre-lab section; just omit the <code>power()</code> function.  Note that if you do do both functions for the pre-lab, that's fine -- but only <code>product()</code> will be graded, so you still have to submit the same code for the post-lab where <code>power()</code> will be graded.</li>
-<li>In-lab: it is the same as described in the in-lab section below.</li>
-<li>Post-lab: the post-lab section below is not to be done; instead, finish the <code>power()</code> function from the pre-lab.  Thus, the post-lab submission is to be what is described in the pre-lab section, below (i.e., both <code>product()</code> and <code>power()</code>).</li>
+<li>
+Pre-lab: the mathlib.s program only needs to contain just the <code>product()</code> function, as described in the pre-lab section, below. The <code>power()</code> function will be done in the post-lab. The rest of the pre-lab is as described in the pre-lab section; just omit the <code>power()</code> function. Note that if you do do both functions for the pre-lab, that's fine -- but only <code>product()</code> will be graded, so you still have to submit the same code for the post-lab where <code>power()</code> will be graded.
+</li>
+<li>
+In-lab: it is the same as described in the in-lab section below.
+</li>
+<li>
+Post-lab: the post-lab section below is not to be done; instead, finish the <code>power()</code> function from the pre-lab. Thus, the post-lab submission is to be what is described in the pre-lab section, below (i.e., both <code>product()</code> and <code>power()</code>).
+</li>
 </ul>
 <h3 id="background">Background</h3>
 <p>The Intel x86 assembly language is currently one of the most popular assembly languages and runs on many architectures from the x86 line through the Pentium 4. It is a <a href="http://en.wikipedia.org/wiki/Complex_instruction_set_computing">CISC</a> instruction set that has been extended multiple times (e.g. <a href="http://en.wikipedia.org/wiki/MMX_%28instruction_set%29">MMX</a>) into a larger instruction set. In 2004 it was extended to allow for a 64 bit memory space.</p>
 <h3 id="tutorial">Tutorial</h3>
 <p>The tutorial for this lab is the following two readings on <a href="../../book/x86-64bit-asm-chapter.pdf">x86</a> and the <a href="../../book/x86-64bit-ccc-chapter.pdf">C Calling convention</a>.</p>
 <h3 id="recommended-readings">Recommended Readings</h3>
-<ol>
+<ol type="1">
 <li>Read the <a href="../../slides/08-assembly-64bit.html">slides on 64 bit x86</a></li>
 <li>The x86 book chapters on <a href="../../book/x86-64bit-asm-chapter.pdf">x86</a> and the <a href="../../book/x86-64bit-ccc-chapter.pdf">C calling convention</a></li>
 <li>The <a href="https://www.youtube.com/watch?v=XbZQ-EonR_I">x86 Call Stack</a> introduction from the University of Washington</li>
@@ -38,7 +48,7 @@
 </ol>
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
-<ol>
+<ol type="1">
 <li>Understand how to compile x86 assembly code</li>
 <li>Review the sample <code>vecsum.s</code> program</li>
 <li>Write a program in x86, <code>mathlib.s</code>, to compute the product of two numbers and power of two numbers</li>
@@ -48,40 +58,38 @@
 <li>Files to submit mathlib.s, mathfun.cpp, Makefile</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
-<ol>
+<ol start="2" type="1">
 <li>Write an x86 function to perform merge sort</li>
 <li>Files to download: <a href="mergeSort.s.html">mergeSort.s</a> (<a href="mergeSort.s">src</a>), <a href="testMergeSort.cpp.html">testMergeSort.cpp</a> (<a href="testMergeSort.cpp">src</a>)</li>
 <li>Files to submit: mergeSort.s, testMergeSort.cpp, Makefile</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
-<ol>
+<ol type="1">
 <li>Write an x86 function to perform a linear search</li>
 <li>Files to download: <a href="testLinearSearch.cpp.html">testLinearSearch.cpp</a> (<a href="testLinearSearch.cpp">src</a>)</li>
 <li>Files to submit: testLinearSearch.cpp, linearSearch.s</li>
 </ol>
 <hr />
 <h2 id="platform-architectures">Platform Architectures</h2>
-<p>There are a few differences when writing x86 assembly code, depending on whether you are using Linux or macOS.<br />
-Specifically, the object file format for nasm will differ, as well as the subroutine name itself.<br />
-The instructions in this lab will assume the use of Linux -- if you are using macOS, use the table below for the correct instructions.</p>
+<p>There are a few differences when writing x86 assembly code, depending on whether you are using Linux or macOS. Specifically, the object file format for nasm will differ, as well as the subroutine name itself. The instructions in this lab will assume the use of Linux -- if you are using macOS, use the table below for the correct instructions.</p>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Platform</th>
-<th style="text-align: left;">nasm flag</th>
-<th style="text-align: left;">x86 subroutine name</th>
+<th>Platform</th>
+<th>nasm flag</th>
+<th>x86 subroutine name</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">64-bit Linux</td>
-<td style="text-align: left;">-f elf64</td>
-<td style="text-align: left;"><code>vecsum</code></td>
+<td>64-bit Linux</td>
+<td>-f elf64</td>
+<td><code>vecsum</code></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">64 bit macOS</td>
-<td style="text-align: left;">-f macho64</td>
-<td style="text-align: left;"><code>_vecsum</code></td>
+<td>64 bit macOS</td>
+<td>-f macho64</td>
+<td><code>_vecsum</code></td>
 </tr>
 </tbody>
 </table>

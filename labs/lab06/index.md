@@ -302,7 +302,7 @@ Bash's arithmetic expansion `$(( ... ))` performs integer division, so as long a
 Post-lab
 --------
 
-You will need to optimize your code for the solution to the word puzzle.
+You will need to optimize your code for the solution to the word puzzle. The auto-grader for this assignment will be running your code on larger dictionaries / word grids. In addition to this, your code will be given less time to execute.
 
 To standardize timings, you should run all of your tests on words2.txt and 300x300.grid.txt.
 

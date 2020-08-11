@@ -19,20 +19,16 @@
 <h3 id="background">Background</h3>
 <p>There will be a lab every week, which consists of three parts: a pre-lab, an in-lab, and a post-lab. The due dates are all listed on the <a href="../../uva/labduedates.html">lab due dates</a> page. This will all be discussed in this lab.</p>
 <h3 id="tutorial">Tutorial</h3>
-<p>Most labs will have a tutorial.<br />
-You are expected to complete this tutorial before beginning the lab,<br />
-as the lab will use concepts from each tutorial.</p>
-<p>The tutorial for this lab is <a href="../../tutorials/01-intro-unix/index.html">Tutorial 1: Introduction to UNIX</a>,<br />
-which will help you set up your UNIX environment.</p>
+<p>Most labs will have a tutorial. You are expected to complete this tutorial before beginning the lab, as the lab will use concepts from each tutorial.</p>
+<p>The tutorial for this lab is <a href="../../tutorials/01-intro-unix/index.html">Tutorial 1: Introduction to UNIX</a>, which will help you set up your UNIX environment.</p>
 <h3 id="recommended-readings">Recommended Readings</h3>
-<p>We have attempted to compile a collection of readings that go over topics covered in this course.<br />
-Readings are always optional and are there for you to use as you see fit.</p>
+<p>We have attempted to compile a collection of readings that go over topics covered in this course. Readings are always optional and are there for you to use as you see fit.</p>
 <ul>
 <li>Introduction to C++ section on the <a href="../../docs/readings.html">Readings page</a></li>
 </ul>
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
-<ol>
+<ol type="1">
 <li>Write a recursive function to compute exponentiation</li>
 <li>Investigate the C++ object lifecycle</li>
 <li>Learn about the submission system</li>
@@ -40,23 +36,21 @@ Readings are always optional and are there for you to use as you see fit.</p>
 <li>Files to submit: xToN.cpp</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
-<ol>
+<ol type="1">
 <li>Ask the TAs if you have any questions about the pre-lab code or Unix</li>
 <li>Separate the object lifecycle code to better follow C++ conventions</li>
-<li>Investigate an example program and ask questions about it</li>
 <li>Files to download: <a href="svtest.cpp.html">svtest.cpp</a> (<a href="svtest.cpp">src</a>), <a href="svutil.cpp.html">svutil.cpp</a> (<a href="svutil.cpp">src</a>), <a href="svutil.h.html">svutil.h</a> (<a href="svutil.h">src</a>), and <a href="lifecycle.cpp.html">lifecycle.cpp</a> (<a href="lifecycle.cpp">src</a>)</li>
 <li>Files to submit: LifeCycle.cpp, LifeCycle.h, and TestLifeCycle.cpp</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
-<ol>
+<ol type="1">
 <li>Write a simple bank account class</li>
 <li>Files to download: <a href="TestBankAccount.cpp.html">TestBankAccount.cpp</a> (<a href="TestBankAccount.cpp">src</a>)</li>
 <li>Files to submit: bankAccount.h, bankAccount.cpp, TestBankAccount.cpp</li>
 </ol>
 <hr />
 <h2 id="pre-lab-1">Pre-lab</h2>
-<p>Complete <a href="../../tutorials/01-intro-unix/index.html">Tutorial 1: Introduction to UNIX</a> before proceeding.<br />
-Remember that you should always complete the tutorial before starting the lab.</p>
+<p>Complete <a href="../../tutorials/01-intro-unix/index.html">Tutorial 1: Introduction to UNIX</a> before proceeding. Remember that you should always complete the tutorial before starting the lab.</p>
 <p>For the pre-lab, you will need to write a <strong>recursive</strong> function called <code>xton()</code> to compute <em>x^n</em> for non-negative integers <em>n</em>. Assume that <em>x^0=1</em>. Put this function in a program with a <code>main()</code> function. Your program should prompt the user for two integer values, and raise the first to the power of the second by calling your <code>xton()</code> function. To keep the code simple, you can assume that your program will only be called with valid inputs.</p>
 <p>The file should be called xToN.cpp, and should be submitted to the pre-lab 1 assignment in the submission system -- more details below.</p>
 <p>Note that your program should take in <strong>exactly two inputs and nothing else</strong>. We are going to run it through an automated grading script prior to the TAs grading it -- if your program takes in a different number of inputs, you will receive points off.</p>
@@ -85,7 +79,7 @@ int main () {
 <pre><code>2
 3</code></pre>
 <p>Output</p>
-<pre><code>9</code></pre>
+<pre><code>8</code></pre>
 <p>Lastly, take a look at the object life-cycle code (<a href="lifecycle.cpp.html">lifecycle.cpp</a> (<a href="lifecycle.cpp">src</a>)). Use it as a mechanism for understanding how various aspects of C++ work and try stepping through it by hand. Use the <a href="../../docs/readings.html">readings</a>, the web, and any other C++ references to help you look up parts of the program you do not understand.</p>
 <h3 id="assignment-submission">Assignment submission</h3>
 <p>All assignments will be submitted through the CS2150 class page on gradescope, which can be found <a href="https://www.gradescope.com/courses/138861">here</a>.</p>
@@ -108,7 +102,7 @@ int main () {
 <h3 id="general-in-lab-procedure">General In-lab Procedure</h3>
 <p>The purpose of the labs is to allow you to work through the lab activity, and if you encounter questions or problems, ask for TA assistance. Be sure to include your name, email ID, the date, and the name of the file in a banner comment at the beginning of each file you submit.</p>
 <h3 id="understanding-c">Understanding C++</h3>
-<ol>
+<ol type="1">
 <li>Ask the TAs if you have questions about your <em>x^n</em> function.</li>
 <li>Ask the TAs if you have questions about using Unix.</li>
 <li>Object Lifecycle Program
@@ -147,16 +141,7 @@ int main () {
 <p>Your task for this postlab is to create a bank account class using C++. To begin, download <a href="TestBankAccount.cpp.html">TestBankAccount.cpp</a> (<a href="TestBankAccount.cpp">src</a>), then create two files, <code>bankAccount.cpp</code> and <code>bankAccount.h</code>.</p>
 <h4 id="bankaccount.h">bankAccount.h</h4>
 <p>bankAccount.h will contain the <strong>headers</strong> of the methods that will be implemented in bankAccount.cpp. We normally include in .h files just the declarations (i.e., prototypes) of classes, constants, function, etc., but not definitions of C++ methods (i.e. the bodies of the methods). However, when implementing template classes, this is something that is necessary to make the class compile successfully.</p>
-<p>Your bank account class will have the following methods and fields that you will need to implement:</p>
-<ul>
-<li><code>bankAccount();</code> -- A default constructor that will be called when a program creates a bankAccount object. This constructor should set the bankAccount balance to $0.00;</li>
-<li><code>bankAccount(double amount);</code> -- A constructor that will be called when a program creates a bankAccount object with an initial balance.</li>
-<li><code>~balance();</code> -- A destructor that will be called when a an object is deleted from program memory. You must have this in your .h and .cpp file, but you can leave the implementation empty</li>
-<li><code>double withdraw(double amount);</code> -- A method that withdraws the specified amount of money from your bank account. The method will return the new amount in the bank account after the withdraw goes through. If the withdraw amount is too high, don't withdraw any amount and return the current balance in the account. You can assume that <code>amount &gt;= 0</code>.</li>
-<li><code>double deposit(double amount);</code> -- A method that deposits the specified amount of money from your bank account. The method will return the new amount in the bank account after the deposit goes through. You can assume that <code>amount &gt;= 0</code>.</li>
-<li><code>double getBalance()</code> -- A method that will return the balance currently in the bank account.</li>
-<li><code>double balance;</code> -- A private <strong>variable</strong> that will hold the amount of money in the bank account.</li>
-</ul>
+<p>Your bank account class will have the following methods and fields that you will need to implement: - <code>bankAccount();</code> -- A default constructor that will be called when a program creates a bankAccount object. This constructor should set the bankAccount balance to $0.00; - <code>bankAccount(double amount);</code> -- A constructor that will be called when a program creates a bankAccount object with an initial balance. - <code>~balance();</code> -- A destructor that will be called when a an object is deleted from program memory. You must have this in your .h and .cpp file, but you can leave the implementation empty - <code>double withdraw(double amount);</code> -- A method that withdraws the specified amount of money from your bank account. The method will return the new amount in the bank account after the withdraw goes through. If the withdraw amount is too high, don't withdraw any amount and return the current balance in the account. You can assume that <code>amount &gt;= 0</code>. - <code>double deposit(double amount);</code> -- A method that deposits the specified amount of money from your bank account. The method will return the new amount in the bank account after the deposit goes through. You can assume that <code>amount &gt;= 0</code>. - <code>double getBalance()</code> -- A method that will return the balance currently in the bank account. - <code>double balance;</code> -- A private <strong>variable</strong> that will hold the amount of money in the bank account.</p>
 <h4 id="bankaccount.cpp">bankAccount.cpp</h4>
 <p>bankAccount.cpp will contain the <strong>bodies</strong> of the methods that were declared in bankAccount.h. In order to do so, you must <code>#include &quot;bankAccount.h&quot;</code> in order to gain access to the method headers.</p>
 <p>Complete the code in <code>bankAccount.h</code> and <code>bankAccount.cpp</code>, then test your code with test harness provided in <code>TestBankAccount.cpp</code>.</p>

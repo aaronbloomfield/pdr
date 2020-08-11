@@ -19,29 +19,28 @@
 <h3 id="background">Background</h3>
 <p>IBCM (Itty Bitty Computing Machine) is a simulated computer with a minimal instruction set. Despite its tiny instruction set, IBCM can compute anything that a modern computer can.</p>
 <h3 id="tutorial">Tutorial</h3>
-<p>The tutorial for this lab is the remainder of the <a href="https://en.wikibooks.org/wiki/Bash_Shell_Scripting">Wikibooks article on Bash Shell Scripting</a>.<br />
-The tutorial will be necessary for the post-lab, though you may read through it earlier if you'd like.</p>
+<p>The tutorial for this lab is the remainder of the <a href="https://en.wikibooks.org/wiki/Bash_Shell_Scripting">Wikibooks article on Bash Shell Scripting</a>. The tutorial will be necessary for the post-lab, though you may read through it earlier if you'd like.</p>
 <h3 id="recommended-readings">Recommended Readings</h3>
-<ol>
+<ol type="1">
 <li>Read the <a href="../../slides/07-ibcm.html">slides on IBCM</a></li>
 <li>Read <a href="../../book/ibcm-chapter.pdf">IBCM book chapter</a> (PDF), especially sections 1.6 (Writing IBCM Programs) and 1.7 (Example Programs)</li>
 <li>Run IBCM code online <a href="https://pegasus.cs.virginia.edu/ibcm/">here</a>. The sample code in the book chapter is also in the repo: <a href="../../ibcm/summation.ibcm">summation.ibcm</a> and <a href="../../ibcm/array-summation.ibcm">array-summation.ibcm</a></li>
 </ol>
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
-<ol>
+<ol type="1">
 <li>Write two IBCM programs to familiarize yourself with IBCM</li>
 <li>Files to download: None</li>
 <li>Files to submit: addition.ibcm, array.ibcm</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
-<ol>
+<ol type="1">
 <li>Implement bubble sort in IBCM</li>
 <li>Files to download: <a href="bubblesort.cpp.html">bubblesort.cpp</a> (<a href="bubblesort.cpp">src</a>)</li>
 <li>Files to submit: bubblesort.ibcm</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
-<ol>
+<ol type="1">
 <li>Implement a quine in IBCM</li>
 <li>Improve your <code>averagetime.sh</code> shell script by adding control structures</li>
 <li>Files to download: <a href="counter.cpp.html">counter.cpp</a> (<a href="counter.cpp">src</a>), <a href="timer.cpp.html">timer.cpp</a> (<a href="timer.cpp">src</a>), <a href="timer.h.html">timer.h</a> (<a href="timer.h">src</a>)</li>
@@ -49,8 +48,7 @@ The tutorial will be necessary for the post-lab, though you may read through it 
 </ol>
 <hr />
 <h2 id="pre-lab-1">Pre-lab</h2>
-<p>For the pre-lab, you will need to write two IBCM programs.<br />
-The programs will need to have an .ibcm extension when submitting, but they are text files, so you can still edit them in Emacs.</p>
+<p>For the pre-lab, you will need to write two IBCM programs. The programs will need to have an .ibcm extension when submitting, but they are text files, so you can still edit them in Emacs.</p>
 <h3 id="addition.ibcm">addition.ibcm</h3>
 <p>Write an IBCM program that:</p>
 <ul>
@@ -98,7 +96,7 @@ fffe
 0001</code></pre>
 <h3 id="writing-ibcm-code">Writing IBCM Code</h3>
 <p>You <strong>MUST</strong> comment your IBCM code copiously. This means (practically) every line should have a comment describing what you are doing. However, you cannot have a line that is only comments, as the emulator will have trouble reading that line! The examples provided in the handouts posted on the course website and discussed in class illustrate a good way of doing this, where there are columns for each of the following:</p>
-<ol>
+<ol type="1">
 <li>the hexadecimal values that will go into that memory location</li>
 <li>the address of that memory location</li>
 <li>labels for jumps or variable names</li>
@@ -122,12 +120,11 @@ fffe
 <p>Sprinkle some <code>nop</code> (opcode: B) instructions throughout your program that can be replaced later in case you realize that you need some extra variables or are missing some instructions.</p>
 <h4 id="working-with-arrays">Working with arrays</h4>
 <p>Arrays can be difficult to work with in IBCM given the extremely limited instruction set. We'll walk through the array summation example again from the slides to point out some helpful concepts.</p>
-<p>How do you add variables in IBCM? Why, with the <code>add</code> instruction, of course.\<br />
+<p>How do you add variables in IBCM? Why, with the <code>add</code> instruction, of course.<br />
 However, for arrays, the address you want to <code>add</code> from changes every time! How do we account for that?</p>
-<p>We need to dynamically change the <code>add</code> instruction before executing it to make it point to the right address.<br />
-If we can generate the appropriate instruction based off of the starting address of the array and the index we want (hint: look back to lab 4), we can then <code>store</code> that later on in our program to execute automatically!</p>
+<p>We need to dynamically change the <code>add</code> instruction before executing it to make it point to the right address. If we can generate the appropriate instruction based off of the starting address of the array and the index we want (hint: look back to lab 4), we can then <code>store</code> that later on in our program to execute automatically!</p>
 <p>Thus, if we wanted to sum an array, we would:</p>
-<ol>
+<ol type="1">
 <li>Create a variable set to <code>5000</code> -- notice how it's just an <code>add</code> instruction without an address. This is <code>adit</code> in the slides.</li>
 <li>Load that instruction into the accumulator</li>
 <li>Use actual <code>add</code> instructions to add the base array address <code>a</code> and the current array index <code>i</code> to the accumulator
@@ -147,7 +144,7 @@ If we can generate the appropriate instruction based off of the starting address
 <h3 id="bubble-sort">Bubble sort</h3>
 <p>Download and look at the <a href="bubblesort.cpp.html">bubblesort.cpp</a> (<a href="bubblesort.cpp">src</a>) algorithm. You will need to read in 10 array elements and sort them with this algorithm in IBCM.</p>
 <p>To encode this program, follow these steps:</p>
-<ol>
+<ol type="1">
 <li>Write up high-level pseudo-code for your design on paper (make sure that it is absolutely correct, or you will probably regret it later)</li>
 <li>Refine this pseudo-code, making it closer to the assembly code level</li>
 <li>Alter your code into IBCM assembly code with labels instead of addresses</li>
@@ -196,7 +193,7 @@ If we can generate the appropriate instruction based off of the starting address
 <h3 id="more-shell-scripting">More shell scripting</h3>
 <p>The tutorial for this lab is the remainder of the <a href="https://en.wikibooks.org/wiki/Bash_Shell_Scripting">Wikibooks article on Bash Shell Scripting</a>.</p>
 <p>For this lab, you will need to work a bit more on the shell script that you wrote for the last lab. The shell script will also compute the average running time for 5 executions of a program. The difference is that you will be using control structures, such as conditionals (if-then-else) and loops (for or while) in this shell script.</p>
-<p>First, download the <a href="counter.cpp.html">counter.cpp</a> (<a href="counter.cpp">src</a>), <a href="timer.cpp.html">timer.cpp</a> (<a href="timer.cpp">src</a>), and <a href="timer.h.html">timer.h</a> (<a href="timer.h">src</a>) files. The timer program has been modified from lab 6 to print out the time in milliseconds. counter.cpp doesn't actually do anything useful; it just takes in a numeric command line parameter <em>e</em> and runs through an idle loop 10^<em>e</em>^ times. You should not enter a value for <em>e</em> greater than 9, as 10^9^ (1 billion) is the largest power of 10 that an <code>int</code> value can hold. On a modern computer, entering 9 as the parameter should take between 1 and 5 seconds to run.</p>
+<p>First, download the <a href="counter.cpp.html">counter.cpp</a> (<a href="counter.cpp">src</a>), <a href="timer.cpp.html">timer.cpp</a> (<a href="timer.cpp">src</a>), and <a href="timer.h.html">timer.h</a> (<a href="timer.h">src</a>) files. The timer program has been modified from lab 6 to print out the time in milliseconds. counter.cpp doesn't actually do anything useful; it just takes in a numeric command line parameter <em>e</em> and runs through an idle loop 10<sup><em>e</em></sup> times. You should not enter a value for <em>e</em> greater than 9, as 10<sup>9</sup> (1 billion) is the largest power of 10 that an <code>int</code> value can hold. On a modern computer, entering 9 as the parameter should take between 1 and 5 seconds to run.</p>
 <p>Do not compile your program with <code>-O2</code>, as clang++ is smart enough to recognize that your for loop is not doing any work and will remove it from the optimized binary!</p>
 <p>Your <code>averagetime.sh</code> shell script should take in the number of iterations as a single input value (not as a command line parameter). If that input is <code>quit</code>, then the script should exit. Otherwise, execute the program a total of 5 times, printing and keeping track of the execution time taken for each one. Your script should then print the average time taken for each execution. <strong>You MUST call your executable program <code>a.out</code> in your shell script.</strong></p>
 <p>Your shell script <strong>MUST</strong> have an <code>if</code> statement (to see if it should exit), and <strong>MUST</strong> have a <code>for</code> or <code>while</code> loop. The number of times to iterate through the <code>for</code> or <code>while</code> loop (initially set to 5) should be a variable set previously in the script.</p>
@@ -227,7 +224,7 @@ Average time was 1244 ms</code></pre>
 <h3 id="hints-1">Hints</h3>
 <h4 id="thinking-about-the-quine-is-hurting-my-head">Thinking about the quine is hurting my head :(</h4>
 <p>The most important thing to remember is that there is no distinction between instructions and variables in IBCM!</p>
-<p>What is one way you can figure out what instructions your program contains?\<br />
+<p>What is one way you can figure out what instructions your program contains?<br />
 Hint: You know how to iterate through arrays; is there any way you could apply that concept here?</p>
 <h4 id="comparing-values-in-bash">Comparing values in Bash</h4>
 <p>If you want to compare values in an if or while expression (such as the bash equivalent of <code>while (i &lt; s)</code>), you should see <a href="https://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-7.html">here</a>. In particular, you need to use <code>-lt</code> for the less than operator, and square brackets instead of the parentheses.</p>

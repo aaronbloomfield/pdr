@@ -15,17 +15,27 @@
 <h1 id="pdr-laboratory-10-huffman-coding">PDR: Laboratory 10: Huffman Coding</h1>
 <p><a href="../index.html">Go up to the Labs table of contents page</a></p>
 <h3 id="objective">Objective</h3>
-<ol>
+<ol type="1">
 <li>To become familiar with prefix codes</li>
 <li>To implement a useful application using a variety of data structures</li>
 <li>To analyze the efficiency of your implementation</li>
 </ol>
-<h3 style="color:red"><b>Changes for the spring 2020 semester</b></h3>
-<p style="color:red">Due to this course being <a href="../../uva/online.html">taught online</a> (<a href="../../uva/online.md">md</a>) in the spring of 2020, we are making the following changes for this semester, in an effort to make the workload more manageable since we are all working from home.</p>
+<h3 style="color:red">
+<b>Changes for the spring 2020 semester</b>
+</h3>
+<p style="color:red">
+Due to this course being <a href="../../uva/online.html">taught online</a> (<a href="../../uva/online.md">md</a>) in the spring of 2020, we are making the following changes for this semester, in an effort to make the workload more manageable since we are all working from home.
+</p>
 <ul style="color:red">
-<li>Pre-lab: no change to the pre-lab; it's still the encoder.  However, since there is no in-lab this week, and because the pre-labs are due Wednesday mornings, you can continue to work on the encoder during labs on Tuesday.</li>
-<li>In-lab: nothing to submit. However, the in-lab work (i.e., the decoder) is to be submitted for the post-lab.  Thus, there is nothing to submit for the in-lab and it will not be graded this semester.</li>
-<li>Post-lab: submit <b>ONLY</b> the decoder part of this lab -- so basically, submit the in-lab work to the post-lab.</li>
+<li>
+Pre-lab: no change to the pre-lab; it's still the encoder. However, since there is no in-lab this week, and because the pre-labs are due Wednesday mornings, you can continue to work on the encoder during labs on Tuesday.
+</li>
+<li>
+In-lab: nothing to submit. However, the in-lab work (i.e., the decoder) is to be submitted for the post-lab. Thus, there is nothing to submit for the in-lab and it will not be graded this semester.
+</li>
+<li>
+Post-lab: submit <b>ONLY</b> the decoder part of this lab -- so basically, submit the in-lab work to the post-lab.
+</li>
 </ul>
 <h3 id="background">Background</h3>
 <p>In lecture we discussed Huffman coding and the construction of prefix code trees. We have also covered a variety of data structures this semester: lists, trees, hash tables, and heaps. Several of these may be useful for this lab. In addition, in this lab you are required to think about the underlying representation and efficiency of these structures.</p>
@@ -38,20 +48,20 @@
 </ul>
 <h2 id="lab-procedure">Lab Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
-<ol>
+<ol type="1">
 <li>Create a heap</li>
 <li>Implement the Huffman encoding (compression) routine using your heap</li>
 <li>Files to download: <a href="fileio.cpp.html">fileio.cpp</a> (<a href="fileio.cpp">src</a>), and the example files (in the labs/lab10/examples/ directory), or as one <a href="examples.zip" class="uri">examples.zip</a> file)</li>
 <li>Files to submit: heap.cpp, heap.h, huffmanenc.cpp, Makefile (you can submit additional .cpp/.h files, if needed, as long as it compiles with <code>make</code>)</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
-<ol>
+<ol type="1">
 <li>Implement the Huffman decoding (decompression) routine discussed in the in-lab section</li>
 <li>Files to download: <a href="inlab-skeleton.cpp.html">inlab-skeleton.cpp</a> (<a href="inlab-skeleton.cpp">src</a>), and your pre-lab files</li>
 <li>Files to submit: huffmandec.cpp, Makefile (you can submit additional .cpp/.h files, if needed, as long as it compiles with <code>make</code>)</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
-<ol>
+<ol type="1">
 <li>Analyze the time and space complexity of your encoding and decoding code</li>
 <li>Create a Makefile to compile both the encoding and decoding portions of your Huffman routine in one step</li>
 <li>Files to submit: Makefile, all necessary source code files</li>
@@ -95,7 +105,7 @@
 <h2 id="pre-lab-1">Pre-lab</h2>
 <p>For the pre-lab, you will implement, in huffmanenc.cpp, the Huffman encoding algorithm using a binary heap that you implement in heap.cpp/h.</p>
 <p>The basic steps for compression are:</p>
-<ol>
+<ol type="1">
 <li>Read the source file and determine the frequencies of the characters in the file</li>
 <li>Store the character frequencies in a heap (priority queue)</li>
 <li>Build a tree of prefix codes (a Huffman code) that determines the unique bit codes for each character</li>
@@ -131,7 +141,9 @@ There were 13 bits in the compressed file.
 This gives a compression ratio of 4.30769.
 The cost of the Huffman tree is 1.85714 bits per character.</code></pre>
 <p>The Huffman tree that this forms is the same as the one shown in <a href="../../slides/10-heaps-huffman.html#/lab10tree">the slide set</a>), and is duplicated below.</p>
-<p><img src="prelab-tree.png" /></p>
+<figure>
+<img src="prelab-tree.png" />
+</figure>
 <p>Below is an equivalent version of the same file. Note that the characters are not in the same order in the previous example, the whitespace for the middle part is quite different, the English explanation in the third part says the same thing but in a different format, and the particular prefix codes are different (but their lengths are the same).</p>
 <pre><code>d 11
 c 100
@@ -152,16 +164,14 @@ The Huffman tree cost: 1.85 bits per character</code></pre>
 <h4 id="need-a-pointer-or-two">Need a pointer or two?</h4>
 <p>It will be <strong>far</strong> easier to put HuffmanNode pointers in your heap, rather than HuffmanNode objects (or whatever your Huffman tree nodes are called). If you put the actual objects in, then you are going to run into problems with scoping issues, inadvertent calls to <code>operator=()</code>, etc. Trust us, stick with the pointers.</p>
 <h4 id="okay-but-actually">Okay but actually</h4>
-<p>You will need some secondary data structures in order to hold all the information necessary for compression.<br />
-You'll need some way of holding the frequencies of each character, as well as each character's prefix codes -- what would be efficient data structures to store and retrieve that information?</p>
+<p>You will need some secondary data structures in order to hold all the information necessary for compression. You'll need some way of holding the frequencies of each character, as well as each character's prefix codes -- what would be efficient data structures to store and retrieve that information?</p>
 <h4 id="getting-the-prefix-codes">Getting the prefix codes</h4>
-<p>The best way to do this is recursively.<br />
-Once you have your Huffman tree, you can recurse down both sides of your tree to grab every prefix code and print them out.</p>
+<p>The best way to do this is recursively. Once you have your Huffman tree, you can recurse down both sides of your tree to grab every prefix code and print them out.</p>
 <hr />
 <h2 id="in-lab-1">In-lab</h2>
 <p>For the in-lab, you will implement, in huffmandec.cpp, the Huffman decoding algorithm.</p>
 <p>The basic steps for decompression are:</p>
-<ol>
+<ol type="1">
 <li>Read in the prefix code structure from the encoded file</li>
 <li>Re-create the Huffman tree from the code structure read in from the file</li>
 <li>Read in one bit at a time from the encoded file and move through the prefix code tree until a leaf node is reached</li>
@@ -183,14 +193,9 @@ Once you have your Huffman tree, you can recurse down both sides of your tree to
 </ul>
 <h3 id="hints-1">Hints</h3>
 <h4 id="more-data-structures">More data structures</h4>
-<p>Like the pre-lab, you'll need some way to store the prefix codes for each character.<br />
-Unlike the pre-lab, though, you don't need to deal with frequencies anymore. The prefix codes is enough to generate the Huffman tree, which you can then use to decode the input file.</p>
+<p>Like the pre-lab, you'll need some way to store the prefix codes for each character. Unlike the pre-lab, though, you don't need to deal with frequencies anymore. The prefix codes is enough to generate the Huffman tree, which you can then use to decode the input file.</p>
 <h4 id="creating-the-huffman-tree">Creating the Huffman tree</h4>
-<p>As you are (recursively) creating each node in the tree, you know the <em>prefix</em> code to get to that node (remember that following a left child pointer generates a <code>0</code>, and following a right child pointer generates a <code>1</code>).<br />
-If that prefix is one of the listed bitcodes in the first part of the file, then we know we are at a leaf (remember that all characters in a Huffman tree are leaves).<br />
-Otherwise, we are dealing with an internal node and you will have to create left and right child nodes, calling yourself recursively on each one. Keep in mind that when you call yourself recursively on the left child, you have to add <code>0</code> to the end of the prefix; likewise, you have to add <code>1</code> to the prefix for the right child.<br />
-This algorithm will require you to search through the bit codes that were read in from the first part of the file.<br />
-Also keep in mind that the size of the input here (the number of characters) is very small (only 80 or so) -- which means that if you choose a linear time complexity data structure (vector, for example), your code will run just fine.</p>
+<p>As you are (recursively) creating each node in the tree, you know the <em>prefix</em> code to get to that node (remember that following a left child pointer generates a <code>0</code>, and following a right child pointer generates a <code>1</code>). If that prefix is one of the listed bitcodes in the first part of the file, then we know we are at a leaf (remember that all characters in a Huffman tree are leaves). Otherwise, we are dealing with an internal node and you will have to create left and right child nodes, calling yourself recursively on each one. Keep in mind that when you call yourself recursively on the left child, you have to add <code>0</code> to the end of the prefix; likewise, you have to add <code>1</code> to the prefix for the right child. This algorithm will require you to search through the bit codes that were read in from the first part of the file. Also keep in mind that the size of the input here (the number of characters) is very small (only 80 or so) -- which means that if you choose a linear time complexity data structure (vector, for example), your code will run just fine.</p>
 <hr />
 <h2 id="post-lab-1">Post-lab</h2>
 <p>There are two parts to this post-lab: the time and space complexity analysis and submitting all your (working) code again.</p>
@@ -216,8 +221,7 @@ diff testfile.txt output.txt</code></pre>
 <p>This encodes a sample text file, then decodes it. Both the original file (<code>testfile.txt</code>) and the final file (<code>output.txt</code>) should be the same, which is what the <code>diff</code> command checks. If there are no differences between the two files, then <code>diff</code> will not print any output.</p>
 <h3 id="hints-2">Hints</h3>
 <h4 id="two-executables">Two executables???</h4>
-<p>Up until now, all of our Makefiles have generated a single <code>a.out</code> from the inputs given through <code>OBJECTS</code>.<br />
-Now that we have two separate executables we need to create, you may need some way to differentiate between the object files for each one...</p>
+<p>Up until now, all of our Makefiles have generated a single <code>a.out</code> from the inputs given through <code>OBJECTS</code>. Now that we have two separate executables we need to create, you may need some way to differentiate between the object files for each one...</p>
 <h4 id="naming-the-executables">Naming the executables</h4>
 <p>Remember the <code>-o</code> flag for clang++? :)</p>
 </body>
