@@ -23,7 +23,7 @@
 <p>The LLDB debugger is preferred as it was built with the <code>clang++</code> compiler that we are using; however, the GDB tutorial is offered if LLDB doesn't work for you.</p>
 <p>Just remember which one you choose, as you will end up using that debugger throughout this course. And if you ever have to switch between them, you can use our <a href="../../docs/gdb_vs_lldb.html">GDB vs LLDB</a> page to see the (relatively few) commands that are different between the two.</p>
 <p>Ultimately, this is a low stress choice. Choose LLDB, and only switch over to GDB if you run into issues.</p>
-<h3 id="recommend-readings">Recommend Readings</h3>
+<h3 id="recommended-readings">Recommended Readings</h3>
 <ul>
 <li>Pointers and Linked Lists sections on the <a href="../../docs/readings.html">Readings</a> page</li>
 <li>The <a href="http://umich.edu/~eecs381/generalFAQ/Debugging.html">Debugging FAQ from UMich</a></li>
@@ -31,7 +31,7 @@
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
 <ol type="1">
-<li>Make significant progress on implementing a doubly-linked linked list</li>
+<li>Finish the subset of methods that allow you to use the test harness (see requirements in detailed write-up below).</li>
 <li>Files to download: <a href="List.h.html">List.h</a> (<a href="List.h">src</a>), <a href="ListNode.h.html">ListNode.h</a> (<a href="ListNode.h">src</a>), <a href="ListItr.h.html">ListItr.h</a> (<a href="ListItr.h">src</a>), <a href="ListTest.cpp.html">ListTest.cpp</a> (<a href="ListTest.cpp">src</a>)</li>
 <li>Files to submit: ListNode.h/cpp, ListItr.h/cpp, List.h/cpp, ListTest.cpp</li>
 </ol>
@@ -60,6 +60,16 @@
 <li>List</li>
 <li>ListItr</li>
 </ul>
+<p>For the pre-lab however, you are only required to implement a subset of the required methods. For your pre-lab to get full credit, the following methods must be working:</p>
+<ol type="1">
+<li>All of ListNode (so...the constructor)</li>
+<li>List constructor</li>
+<li><code>List::insertAtTail</code></li>
+<li>All of ListItr</li>
+<li><code>List::first</code></li>
+<li><code>List::size</code></li>
+<li><code>printList</code> (forward, not backward)</li>
+</ol>
 <p>For simplicity we will just create a list that holds integers (your code could easily later be templated (i.e. made generic) to allow it to contain objects of other types). You must not modify any of the provided declarations in the header files, though you may add onto the header files as you see fit.</p>
 <h3 id="uml-diagram">UML Diagram</h3>
 <p>Below is a UML diagram showing how these classes interact with each other.</p>
@@ -80,14 +90,15 @@
 <p>There are a few things that always cause students some headache. We've tried to explain some of them here, in an effort to lessen the frustration it causes.</p>
 <h4 id="getting-started">Getting started</h4>
 <p>To start, create all three .cpp files (List.cpp, ListNode.cpp, ListItr.cpp) and include the relevant .h files. Fill the files with empty method bodies (with a dummy return value for non-<code>void</code> methods) and get that to compile. Then start implementing <em>one method at a time, testing as you go</em>.</p>
-<p>Here is the minimum amount of functions you need to have implemented in order to start using the ListTest harness, as well as suggested implementation order:</p>
+<p>Here are the functions you need to have implemented for this pre-lab, which will allow you to start using the ListTest harness (listed in suggested implementation order):</p>
 <ol type="1">
 <li>All of ListNode (so...the constructor)</li>
 <li>List constructor</li>
 <li><code>List::insertAtTail</code></li>
 <li>All of ListItr</li>
 <li><code>List::first</code></li>
-<li><code>printList</code></li>
+<li><code>List::size</code></li>
+<li><code>printList</code> (forward, not backward)</li>
 </ol>
 <h4 id="segmentation-faults">Segmentation faults</h4>
 <p>When beginning to test your code, chances are your program will crash unexpectedly with a message similar to <code>Segmentation fault (core dumped)</code>, commonly referred to as a <em>segfault</em>. Get prepared to see these often throughout the course, as unlike other programming languages like Java, C++ does not give any extra debugging information on a crash. In order to determine where and why your program is crashing, run your code through the debugger and look at the backtrace. Segfaults generally indicate that you are trying to dereference a NULL or invalid pointer, so those are good things to look out for.</p>

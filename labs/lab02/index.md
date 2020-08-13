@@ -21,7 +21,7 @@ Just remember which one you choose, as you will end up using that debugger throu
 
 Ultimately, this is a low stress choice.  Choose LLDB, and only switch over to GDB if you run into issues.
 
-### Recommend Readings ###
+### Recommended Readings ###
 
 - Pointers and Linked Lists sections on the [Readings](../../docs/readings.html) page
 - The [Debugging FAQ from UMich](http://umich.edu/~eecs381/generalFAQ/Debugging.html)
@@ -31,7 +31,7 @@ Procedure
 
 ### Pre-lab ###
 
-1. Make significant progress on implementing a doubly-linked linked list
+1. Finish the subset of methods that allow you to use the test harness (see requirements in detailed write-up below).
 2. Files to download: [List.h](List.h.html) ([src](List.h)), [ListNode.h](ListNode.h.html) ([src](ListNode.h)), [ListItr.h](ListItr.h.html) ([src](ListItr.h)), [ListTest.cpp](ListTest.cpp.html) ([src](ListTest.cpp))
 3. Files to submit: ListNode.h/cpp, ListItr.h/cpp, List.h/cpp, ListTest.cpp
 
@@ -66,6 +66,16 @@ For this lab you will need to implement three classes:
 - List
 - ListItr
 
+For the pre-lab however, you are only required to implement a subset of the required methods. For your pre-lab to get full credit, the following methods must be working:
+
+1. All of ListNode (so...the constructor)
+2. List constructor
+3. `List::insertAtTail`
+4. All of ListItr
+5. `List::first`
+6. `List::size`
+7. `printList` (forward, not backward)
+
 For simplicity we will just create a list that holds integers (your code could easily later be templated (i.e. made generic) to allow it to contain objects of other types).  You must not modify any of the provided declarations in the header files, though you may add onto the header files as you see fit.
 
 ### UML Diagram ###
@@ -99,19 +109,18 @@ We have provided a test harness for testing your whole implementation: [ListTest
 There are a few things that always cause students some headache.  We've tried to explain some of them here, in an effort to lessen the frustration it causes.
 
 #### Getting started ####
-To start, create all three .cpp files (List.cpp, ListNode.cpp, ListItr.cpp) and include the relevant .h files.
-Fill the files with empty method bodies (with a dummy return value for non-`void` methods) and get that to compile.
-Then start implementing _one method at a time, testing as you go_.
+To start, create all three .cpp files (List.cpp, ListNode.cpp, ListItr.cpp) and include the relevant .h files. Fill the files with empty method bodies (with a dummy return value for non-`void` methods) and get that to compile. Then start implementing _one method at a time, testing as you go_.
 
-Here is the minimum amount of functions you need to have implemented in order to start using the ListTest harness,
-as well as suggested implementation order:
+Here are the functions you need to have implemented for this pre-lab, which will allow you to start using the ListTest harness
+(listed in suggested implementation order):
 
 1. All of ListNode (so...the constructor)
 2. List constructor
 3. `List::insertAtTail`
 4. All of ListItr
 5. `List::first`
-6. `printList`
+6. `List::size`
+7. `printList` (forward, not backward)
 
 #### Segmentation faults ####
 When beginning to test your code, chances are your program will crash unexpectedly with a message similar to `Segmentation fault (core dumped)`, commonly referred to as a _segfault_.

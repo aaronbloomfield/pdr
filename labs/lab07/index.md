@@ -40,10 +40,9 @@ Procedure
 ### Post-lab ###
 
 1. Implement a quine in IBCM
-2. Write a report on your experience with IBCM
-3. Improve your `averagetime.sh` shell script by adding control structures
-4. Files to download: [counter.cpp](counter.cpp.html) ([src](counter.cpp)), [timer.cpp](timer.cpp.html) ([src](timer.cpp)), [timer.h](timer.h.html) ([src](timer.h))
-5. Files to submit: quine.ibcm, postlab7.pdf, averagetime.sh
+2. Improve your `averagetime.sh` shell script by adding control structures
+3. Files to download: [counter.cpp](counter.cpp.html) ([src](counter.cpp)), [timer.cpp](timer.cpp.html) ([src](timer.cpp)), [timer.h](timer.h.html) ([src](timer.h))
+4. Files to submit: quine.ibcm, averagetime.sh
 
 ------------------------------------------------------------
 
@@ -63,15 +62,55 @@ Write an IBCM program that:
 - If the sum is zero, prints the three values and stops
 - If the sum is not zero, starts over (tries to get three values, etc.)
 
+### Sample addition.ibcm Run ###
+
+Below is a sample execution run to show you the input and output format we are looking for. The output shown is a result of running addition.ibcm in the ibcm simulator.
+
+```
+# input
+1
+2
+3
+-1
+-2
+3
+# output
+0006
+0000
+ffff
+fffe
+0003
+```
+
 ### array.ibcm ###
 
-Write another IBCM program that finds the maximum value in a hardcoded array of values.
+Write another IBCM program that reads in an array and prints its elements forwards and backwards. Your program will first be given the **array size** *n* as input. The next *n* lines of input will contain the contents of the array.
 
-- The array base address is hard-coded into memory, meaning it's a pre-set value that isn't obtained by user input.  You can have the array be all or part of the IBCM program, or a section of memory after the program with values that you have selected.
-- You should also hard-code other values, such as the number of elements in the array and the array elements themselves, into your program.  The program should not need any user input.
-- Before your program halts, it prints out the maximum value of the array
+- The array base address is hard-coded into memory, meaning it's a pre-set value that isn't obtained by user input.  We will be inputting arrays of many different sizes into your program, so make sure you carefully choose where to store your array in memory. 
+- Before your program halts, it should print out the array both forwards and backwards. 
 
 You ***MUST*** iterate through the array by creating the array load instruction, similarly as was done in lecture in the [array-ssummation.ibcm](../../ibcm/array-summation.ibcm) program.  You may ***NOT*** have a series of separate instructions to each load a separate value from the array -- such a program will receive zero credit.
+
+### Sample array.ibcm Run ###
+
+Below is a sample execution run to show you the output we are looking for. The output shown is a result of running array.ibcm in the ibcm simulator.
+
+```
+# input
+# First input is size of the array (3)
+# Next inputs are the array contents (1,2,3)
+3
+1
+2
+3
+# output
+0001
+0002
+0003
+0003
+0002
+0001
+```
 
 ### Writing IBCM Code ###
 
@@ -86,7 +125,7 @@ You **MUST** comment your IBCM code copiously.  This means (practically) every l
 
 Note that together the operation name and the address are sort of an assembly language version of the hexadecimal version of the operations in the first column. You probably want to write those first, and then turn these into the hex instruction that will go into column 1.
 
-The simulator will only read the first 4 character on each line of a file.  So you can't have entire lines with comments, or blank lines.  The simulator can't handle these (and doesn't check for this), and you will get a strange error.
+The simulator will only read the first 4 characters on each line of a file.  So you can't have entire lines with comments, or blank lines.  The simulator can't handle these (and doesn't check for this), and you will get a strange error.
 
 ### Running IBCM Code ###
 
@@ -99,7 +138,7 @@ Beware of the following quirks of the simulator:
 
 ### Submission ###
 
-Submit addition.ibcm and array.ibcm with comments explaining your code.
+Submit addition.ibcm and array.ibcm with comments explaining your code. **Your files MUST be called addition.ibcm and array.ibcm exactly**.
 
 ### Hints ###
 
@@ -128,7 +167,7 @@ Thus, if we wanted to sum an array, we would:
 7. Store the sum!
 8. Repeat steps 2-7 until the end of the array
 
-While this deals specifically with the example in the slides, it will hopefully clarify the general approach of iterating through arrays and give you more insight into how to find the max of an array.
+While this deals specifically with the example in the slides, it will hopefully clarify the general approach of iterating through arrays and give you more insight into how to print them out.
 
 ------------------------------------------------------------
 
@@ -137,8 +176,7 @@ In-lab
 
 ### Bubble sort ###
 
-Download and look at the [bubblesort.cpp](bubblesort.cpp.html) ([src](bubblesort.cpp)) algorithm.  This algorithm is what needs to be implemented in IBCM.
-You should hardcode the array after the end of your IBCM program and **NOT** implement any sort of input/output.
+Download and look at the [bubblesort.cpp](bubblesort.cpp.html) ([src](bubblesort.cpp)) algorithm.  You will need to read in 10 array elements and sort them with this algorithm in IBCM.
 
 To encode this program, follow these steps:
 
@@ -149,9 +187,40 @@ To encode this program, follow these steps:
 5. Encode into actual hex IBCM code and addresses, and test it using the simulator
 6. Identify and fix the errors that you did not pick up in the previous steps
 
-The file should be called bubblesort.ibcm.  It **MUST** have comments in the file so that the TAs can grade it.  No comments will earn a zero for the grade.
+The file should be called bubblesort.ibcm.  As with the last assignment, you *MUST* comment your code.
 
 **NOTE:** Just like for the pre-lab array.ibcm file, you must create an array load instruction. If your program has separate instructions for loading separate values from the array, you will receive zero credit for this in-lab.
+
+### Sample Execution Run ###
+
+Below is a sample execution run to show you the output we are looking for. The output shown is a result of running array.ibcm in the ibcm simulator.
+
+```
+# input
+# Note that we are NOT providing the array size as input
+# because it always 10. Input is the 10 array elements unsorted.
+2
+3
+4
+8
+1
+5
+9
+0
+6
+7
+# output
+0000
+0001
+0002
+0003
+0004
+0005
+0006
+0007
+0008
+0009
+```
 
 ------------------------------------------------------------
 
@@ -173,10 +242,6 @@ The lines you print out may differ from the original file read into the IBCM sim
 You may ***NOT*** submit a zero line quine!  Even though this is technically valid, it will not earn credit for this lab.
 
 We will test your program by running it, recording the output, and running that output as a program.  You should do the same.
-
-### Post-lab report ###
-
-Submit a PDF report, called postlab7.pdf, that contains your thoughts on IBCM.  What did you think?  How easy was it to use?  Would modifications to the simulator make life easier for you?  How confident do you feel in writing IBCM code?  A (single-spaced) quarter to half a page is fine.
 
 ### More shell scripting ###
 

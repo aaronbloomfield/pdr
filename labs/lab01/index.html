@@ -15,7 +15,7 @@
 <h1 id="pdr-laboratory-1-introduction-to-c">PDR: Laboratory 1: Introduction to C++</h1>
 <p><a href="../index.html">Go up to the Labs table of contents page</a></p>
 <h3 id="objective">Objective</h3>
-<p>This is laboratory is intended to get you up to speed quickly with both C++ and Unix.</p>
+<p>This laboratory is intended to get you up to speed quickly with both C++ and Unix.</p>
 <h3 id="background">Background</h3>
 <p>There will be a lab every week, which consists of three parts: a pre-lab, an in-lab, and a post-lab. The due dates are all listed on the <a href="../../uva/labduedates.html">lab due dates</a> page. This will all be discussed in this lab.</p>
 <h3 id="tutorial">Tutorial</h3>
@@ -39,15 +39,14 @@
 <ol type="1">
 <li>Ask the TAs if you have any questions about the pre-lab code or Unix</li>
 <li>Separate the object lifecycle code to better follow C++ conventions</li>
-<li>Investigate an example program and ask questions about it</li>
 <li>Files to download: <a href="svtest.cpp.html">svtest.cpp</a> (<a href="svtest.cpp">src</a>), <a href="svutil.cpp.html">svutil.cpp</a> (<a href="svutil.cpp">src</a>), <a href="svutil.h.html">svutil.h</a> (<a href="svutil.h">src</a>), and <a href="lifecycle.cpp.html">lifecycle.cpp</a> (<a href="lifecycle.cpp">src</a>)</li>
-<li>Files to submit: lifecycle.questions.txt, vector.questions.txt, LifeCycle.cpp, LifeCycle.h, and TestLifeCycle.cpp</li>
+<li>Files to submit: LifeCycle.cpp, LifeCycle.h, and TestLifeCycle.cpp</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
 <ol type="1">
-<li>Investigate a more complicated example program and ask questions about it</li>
-<li>Files to download: <a href="list.h.html">list.h</a> (<a href="list.h">src</a>), <a href="list.cpp.html">list.cpp</a> (<a href="list.cpp">src</a>)</li>
-<li>Files to submit: postlab1.question.txt</li>
+<li>Write a simple bank account class</li>
+<li>Files to download: <a href="TestBankAccount.cpp.html">TestBankAccount.cpp</a> (<a href="TestBankAccount.cpp">src</a>)</li>
+<li>Files to submit: bankAccount.h, bankAccount.cpp, TestBankAccount.cpp</li>
 </ol>
 <hr />
 <h2 id="pre-lab-1">Pre-lab</h2>
@@ -73,9 +72,17 @@ int main () {
     cout &lt;&lt; x &lt;&lt; &quot; + &quot; &lt;&lt; y &lt;&lt; &quot; = &quot; &lt;&lt; z &lt;&lt; endl;
     return 0;
 }</code></pre>
+<h3 id="sample-execution-run">Sample Execution Run</h3>
+<p>In order to make autograding easier, we expect you to follow the output and output formats specified in these write-ups. If you don't follow these format specifications, your submission may not be graded correctly becase the autograder won't be able to locate your answers. Some assignments use test harnesses and provided code that take care of the output format for you, so you need to worry about handling the I/O for those.</p>
+<p>For this lab, only print out the result of your power function on the last line. <strong>Do not</strong> include any cout statements prompting the user for input. An example I/O for your program is shown below.</p>
+<p>Input</p>
+<pre><code>2
+3</code></pre>
+<p>Output</p>
+<pre><code>8</code></pre>
 <p>Lastly, take a look at the object life-cycle code (<a href="lifecycle.cpp.html">lifecycle.cpp</a> (<a href="lifecycle.cpp">src</a>)). Use it as a mechanism for understanding how various aspects of C++ work and try stepping through it by hand. Use the <a href="../../docs/readings.html">readings</a>, the web, and any other C++ references to help you look up parts of the program you do not understand.</p>
 <h3 id="assignment-submission">Assignment submission</h3>
-<p>All assignments will be submitted through our custom submission tool which can be accessed through Collab's Course Tools link or directly at <a href="https://libra.cs.virginia.edu/~pedagogy" class="uri">https://libra.cs.virginia.edu/~pedagogy</a>.</p>
+<p>All assignments will be submitted through the CS2150 class page on gradescope, which can be found <a href="https://www.gradescope.com/courses/138861">here</a>.</p>
 <p>Every file submitted, including text files, should include your name, email ID, the date, and the name of the file in a header comment at the beginning of the file.</p>
 <p>There is no check to make sure you have submitted all of the correct files -- on the 'Procedure' page (always at the top of the lab document), we clearly state which files should be submitted for each lab part. For example, for this pre-lab, you should submit just the following file for pre-lab 1: xToN.cpp.</p>
 <p>Each assignment has 3 dates: an open date (when you can start submitting the assignment), a due date (when it's due), and a close date (the last point that you can submit the assignment). The dates are listed for the week of the lab -- the lab week starts on a Sunday and ends on a Saturday. In particular, the due date for the pre-labs, as well as the open date for the in-labs and post-labs is when the first lab section starts. The due date for the post-labs is the start of Friday's first lecture.</p>
@@ -116,7 +123,6 @@ int main () {
 <li>There are 3 files on this repo that demonstrate the use of multi-file programs and the use of the vector collection class in C++: <a href="svtest.cpp.html">svtest.cpp</a> (<a href="svtest.cpp">src</a>), <a href="svutil.cpp.html">svutil.cpp</a> (<a href="svutil.cpp">src</a>), and <a href="svutil.h.html">svutil.h</a> (<a href="svutil.h">src</a>). The class in those files is similar to the ArrayList class in the Java standard library (or Java's own Vector class). Compile the program in Unix and run it. The command <code>clang++ svutil.cpp svtest.cpp</code> will compile the program.</li>
 <li>Comment out the <code>#include &lt;iostream&gt;</code> preprocessor directive in the file svtest.cpp, and then rebuild the program. Was there an error?</li>
 <li>Now undo what you did in the previous step, but now comment out the <code>using namespace std;</code> in svutil.h, and rebuild the program. Was there an error? What objects are now undeclared and why?</li>
-<li>Write at least one question about something in this program. This question might be about something that you don't understand completely. Write your questions in a file named vector.questions.txt.</li>
 </ul></li>
 </ol>
 <h3 id="capitalization">Capitalization</h3>
@@ -132,15 +138,13 @@ int main () {
 </ul>
 <hr />
 <h2 id="post-lab-1">Post-lab</h2>
-<p>Complete the exercise below, and submit the text file described there to the submission system.</p>
-<h3 id="linked-list-template-code">Linked List Template code</h3>
-<p>Download the two linked list files (<a href="list.h.html">list.h</a> (<a href="list.h">src</a>) and <a href="list.cpp.html">list.cpp</a> (<a href="list.cpp">src</a>)). Compile and run the program. The compile command is <code>clang++ list.cpp</code>. If you try to compile the list.h file, it won't work correctly.</p>
-<p>Look at list.h, which is #include'd from list.cpp -- it contains the <strong>bodies</strong> of the methods, which is not the way that it is usually done (the bodies are typically in the .cpp file only). We normally only include in .h files just the declarations (i.e., prototypes) of classes, constants, function, etc., but not definitions of C++ methods (i.e. the bodies of the methods). However, when implementing template classes, this is something that is necessary to make the class compile successfully.</p>
-<p>Look more closely at list.cpp. The line:</p>
-<pre><code>List&lt;int&gt; *l = new List&lt;int&gt;();</code></pre>
-<p>declares (a pointer to) a List of integers, called <code>l</code>. A similar line, but with a different type, would create a list of something else. For example, consider the following line:</p>
-<pre><code>List&lt;char&gt; list2;</code></pre>
-<p>This declares a (non-pointer) list of characters (this is not in the list.cpp file, by the way). Now all the methods in the List class will be available to both <code>l</code> and <code>list2</code>.</p>
-<p>Write at least one question about something in this program. Put your question(s) in a text file called &quot;postlab1.question.txt&quot; and submit this to the submission system to the post-lab 1 assignment.</p>
+<p>Your task for this postlab is to create a bank account class using C++. To begin, download <a href="TestBankAccount.cpp.html">TestBankAccount.cpp</a> (<a href="TestBankAccount.cpp">src</a>), then create two files, <code>bankAccount.cpp</code> and <code>bankAccount.h</code>.</p>
+<h4 id="bankaccount.h">bankAccount.h</h4>
+<p>bankAccount.h will contain the <strong>headers</strong> of the methods that will be implemented in bankAccount.cpp. We normally include in .h files just the declarations (i.e., prototypes) of classes, constants, function, etc., but not definitions of C++ methods (i.e. the bodies of the methods). However, when implementing template classes, this is something that is necessary to make the class compile successfully.</p>
+<p>Your bank account class will have the following methods and fields that you will need to implement: - <code>bankAccount();</code> -- A default constructor that will be called when a program creates a bankAccount object. This constructor should set the bankAccount balance to $0.00; - <code>bankAccount(double amount);</code> -- A constructor that will be called when a program creates a bankAccount object with an initial balance. - <code>~balance();</code> -- A destructor that will be called when a an object is deleted from program memory. You must have this in your .h and .cpp file, but you can leave the implementation empty - <code>double withdraw(double amount);</code> -- A method that withdraws the specified amount of money from your bank account. The method will return the new amount in the bank account after the withdraw goes through. If the withdraw amount is too high, don't withdraw any amount and return the current balance in the account. You can assume that <code>amount &gt;= 0</code>. - <code>double deposit(double amount);</code> -- A method that deposits the specified amount of money from your bank account. The method will return the new amount in the bank account after the deposit goes through. You can assume that <code>amount &gt;= 0</code>. - <code>double getBalance()</code> -- A method that will return the balance currently in the bank account. - <code>double balance;</code> -- A private <strong>variable</strong> that will hold the amount of money in the bank account.</p>
+<h4 id="bankaccount.cpp">bankAccount.cpp</h4>
+<p>bankAccount.cpp will contain the <strong>bodies</strong> of the methods that were declared in bankAccount.h. In order to do so, you must <code>#include &quot;bankAccount.h&quot;</code> in order to gain access to the method headers.</p>
+<p>Complete the code in <code>bankAccount.h</code> and <code>bankAccount.cpp</code>, then test your code with test harness provided in <code>TestBankAccount.cpp</code>.</p>
+<p>You can compile your bank account with <code>clang++ bankAccount.cpp TestBankAccount.cpp</code>. If you try to compile the bankAccount.h file, it won't work correctly.</p>
 </body>
 </html>

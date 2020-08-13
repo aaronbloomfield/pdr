@@ -5,20 +5,9 @@ PDR: Laboratory 9: x86 Assembly Language, part 2 (64 bit)
 
 ### Objective ###
 
-This lab is one of two labs meant to familiarize you with the process of writing, assembling, and linking assembly language code. The purposes of the in-lab and post-lab activities are to investigate how various C++ language features are implemented at the assembly level.
+This lab is one of two labs meant to familiarize you with the process of writing, assembling, and linking assembly language code. The purposes of the in-lab and in-lab activities are to investigate how various C++ language features are implemented at the assembly level.
 
 There are both [32 bit](../lab09-32bit/index.html) ([md](../lab09-32bit/index.md)) and [64 bit](../lab09-64bit/index.html) ([md](../lab09-64bit/index.md)) versions of this lab.  This is the ***64 bit version***.
-
-<h3 style="color:red"><b>Changes for the spring 2020 semester</b></h3>
-
-<p style="color:red">Due to this course being <a href="../../uva/online.html">taught online</a> (<a href="../../uva/online.md">md</a>) in the spring of 2020, we are making the following changes for this semester, in an effort to make the workload more manageable since we are all working from home.</p>
-
-<ul style="color:red">
-<li>Pre-lab: no change to the pre-lab; it's still the Collatz conjecture program; keep in mind this is due Wednesday at 8 a.m.</li>
-<li>In-lab: none -- the report (the only part of the in-lab) is not to be done.  Instead, use this time to get help with the pre-lab or the post-lab.  Because of this, the in-lab will not be graded this semester.</li>
-<li>Post-lab: the C tutorial is still to be done, but the report is not to be done.</li>
-</ul>
-
 
 ### Background ###
 
@@ -26,7 +15,7 @@ The Intel x86 assembly language is currently one of the most popular assembly la
 
 ### Tutorial ###
 
-Read the [C tutorial](../../tutorials/09-c/index.html) for the post-lab.
+Read the [C tutorial](../../tutorials/09-c/index.html) for the in-lab.
 
 ### Recommended Readings ###
 
@@ -46,16 +35,15 @@ Lab Procedure
 
 ### In-lab ###
 
-1. Write a report that addresses one of the topics listed in the in-lab section
-2. Files to download: none (other than the results of your pre-lab)
-3. Files to submit: inlab9.pdf
+1. Complete the provided linkedlist.c program by going through [Tutorial 9: C](../../tutorials/09-c/index.html) ([md](../../tutorials/09-c/index.md))
+3. Files to download: [linkedlist.c](linkedlist.c.html) ([src](linkedlist.c))
+4. Files to submit: linkedlist.c, Makefile
 
 ### Post-lab ###
 
-1. Implement the linkedlist.c program from [Tutorial 9: C](../../tutorials/09-c/index.html) ([md](../../tutorials/09-c/index.md))
-2. Write another report that addresses two topics listed in the in-lab section (the first topic is the one you started in the in-lab; the second one is new for the post-lab)
-3. Files to download: none (other than the results of your pre-lab and in-lab)
-4. Files to submit: postlab9.pdf, linkedlist.c, Makefile
+1. Write an x86 function to perform a binary search
+2. Files to download: [testLinearSearch.cpp](testLinearSearch.cpp.html) ([src](testLinearSearch.cpp)), [timer.cpp](timer.cpp.html) ([src](timer.cpp)), and [timer.h](timer.h) ([timer.h](timer.h))
+3. Files to submit: testBinarySearch.cpp, binarySearch.s, timer.cpp, timer.h, Makefile
 
 ----
 
@@ -101,12 +89,13 @@ This input file should:
 
 1. Ask for an input value, *x*, which is the positive integer to pass to the subroutine
 2. Ask for an input value, *n*, which is the number of times to call the subroutine
-3. Run the subroutine once and print out the result
+3. Run the subroutine once and store the result
 4. Run the subroutine *n* times with the parameter *x* as the input
+5. Print out the number of iterations it took for the integer to converge to 1.
 
 You can assume that both *x* and *n* are positive integers.
 
-We can now time the subroutine to see how fast it runs.  Download the timer code from the hash table lab (lab 6: [timer.cpp](../lab06/code/timer.cpp.html) ([src](../lab06/code/timer.cpp)) and [timer.h](../lab06/code/timer.h.html) ([src](../lab06/code/timer.h))) and use it to print out the average time it took for each function call in step 4 to run.
+We can now time the subroutine to see how fast it runs.  Download the timer code from the hash table lab (lab 6: [timer.cpp](../lab06/code/timer.cpp.html) ([src](../lab06/code/timer.cpp)) and [timer.h](../lab06/code/timer.h.html) ([src](../lab06/code/timer.h))) and use it to guage the average time it took to run each subroutine call in step 4.
 
 You should use an appropriate precision number to make sure you don't report zero when you divide the total time by the number of runs.  Your timer code should only include the loop of *n* times that calls the routine with *x* as the parameter.  Nothing else (including the print statement) should be inside the timer code.
 
@@ -131,6 +120,16 @@ Note that we, too, can write the function in C++ and compile it with `clang++ -O
 
 **You must list, as comments in your assembly file, the optimizations that you used!**  Just a brief description of what optimizations you used is fine.
 
+### Sample Execution Run ###
+
+Below is a sample execution run to show you the input and output format we are looking for.
+
+```
+Enter a number: 100
+Enter iterations of subroutine: 30
+Iterations: 25
+```
+
 ### Different Architectures ###
 
 See the [last lab](../lab08/index.html) for details, but all code must be submitted to run under Linux, which is the platform that does the compilation on the submission system.
@@ -140,62 +139,74 @@ See the [last lab](../lab08/index.html) for details, but all code must be submit
 In-lab
 ------
 
-The general activity of this in-lab will be to write small snippets of C++ code, compile them so that you can look at the generated assembly code, then make modifications and recompile as needed in order to deduce the representation of a number of C++ constructs, listed below.  Remember that we are compiling using `clang++ -S -m64 -mllvm --x86-asm-syntax=intel`.
+### Complete the C tutorial's exercise program ###
 
-For the in-lab, you will need to work on one of the items in the list below -- note that this is a different list than the previous lab.  You will do a second topic for the post-lab.
+Download the [linkedlist.c](linkedlist.c.html) ([src](linkedlist.c)) test harness, your task is to implement a simple doubly-linked list in C. Read the [C tutorial](../../tutorials/09-c/index.html) to help familiarize yourself with the C language. This linked list is meant to be simple, and can be implemented however you'd like in linkedlist.c. We don't really care how you implement the linked list, whether it be with structs, arrays, etc. so long as it works with the provided harness. However, the assignment is considerably easier to do by using an actual linked list solution rather than an array-based solution. Your linked list will need to be able to do the following:
 
-The deliverable for the in-lab is a PDF document named inlab9.pdf.
+- Insert at head -- Push an integer onto the front of the linked list
+- Insert at tail -- Push an integer onto the back of the linked list
+- Remove at head -- Remove an integer from the front of the linked list
+- Remove at tail -- Remove an integer from the back of the linked list
+- Print forward -- Print the elements in forward order, delimited by a space
 
-In your report, you should explain something from one item in the list below.  Note that for the post-lab, you will have to have two of the items fully explained, but you need only get through one for the in-lab.  Your report would presumably include the code snippets (both C++ and assembly) that you generated during lab, images, screen shots, results, etc.
+### Sample Execution Run ###
 
-Recall that using the `-S` flag with clang++ will generate the assembly code.  You will also want to use the `-S -mllvm --x86-asm-syntax=intel` flags.
+Below is a sample execution run to show you the input and output format we are looking for. 
 
-### Topic List
+```
+----------------------------------------------------
+This test harness operates with one linked list.
+Use any of the following options to manipulate it:
+        * af <num> --- add integer to front
+        * ab <num> --- add integer to back
+        * rf       --- remove front element
+        * rb       --- remove back element
+        * p        --- print list forward
+        * help     --- print off this list
+        * -1       --- exit harness
 
-For the in-lab, you have to address one topic; either the required one or an optional one.  For the post-lab, you will have to address two total topics: the one you addressed from the in-lab, and one additional one for the post-lab.
-
-#### Required ####
-- Dynamic dispatch: Describe how dynamic dispatch is implemented.  Note that dynamic dispatch is NOT the same thing as dynamic memory!  Show this using a simple class hierarchy that includes virtual functions.  Use more than one virtual function per class.
-
-#### Optional ####
-- Inheritance (data layout, construction, and destruction): Create an instance of an object that inherits data members from another class, and also includes data members of its own.  Show in memory where data members are laid out in that object.  Then explain how construction and destruction happens in this class hierarchy.  Explain what happens when a user-defined object is instantiated and what happens when it goes out of scope.  What if anything is "destroyed" by the destructor?  Show this process happening in the assembly code using a simple class hierarchy.  Point out in the assembly code exactly where the destructors and constructors are getting called.
-
-- Optimized code: Compare code generated normally to optimized code.  To create optimized code, you will need to use the `-O2` compiler flag.  Can you make any guesses as to why the optimized code looks as it does?  What is being optimized?  Be sure to show your original sample code as well as the optimized version.  Try loops and function calls to see what "optimizing" does. Be aware that if instructions are "not necessary" to the final output of the program then they may be optimized away completely!  This does not lead to very interesting comparisons.  Describe at least four (non-trivial) differences you see between 'normal' code and optimized code.
-
-- Templates:  What does the code look like for the instantiation of a simple templated class you wrote?  What if you instantiate the class for different data types, what code is generated then?  Is it the same or different?  If the same, why? If different, why?  Compare code for a user-defined templated class or function to a templated class from the STL (e.g. classes such as vectors or functions such as sort).
+Enter command: af 1
+Enter command: af
+Invalid command or operand, please input a valid command or help to see the list again.
+Enter command: af 2
+Enter command: ab 3
+Enter command: p
+Elements: 2 1 3
+Enter command: rf
+Enter command: p
+Elements: 1 3
+Enter command: rb
+Enter command: p
+Elements: 1
+Enter command: -1
+```
 
 ------------------------------------------------------------
 
-### Post-lab ###
+Post-Lab
+------
 
-### Complete the C tutorial's exercise program ###
+Download [testBinarySearch.cpp](testBinarySearch.cpp.html) ([src](testBinarySearch.cpp)), [timer.cpp](timer.cpp.html) ([src](timer.cpp)), and [timer.h](timer.h) ([timer.h](timer.h)), which you will use to test your code. Make sure you do not alter any of these files, as your must include the original files in your submission.
 
-Read the [C tutorial](../../tutorials/09-c/index.html).  You will need to implement the linkedlist.c program.
+Your task for the post-lab is to implement the `binarySearch` function in assembly. This function will begin at the middle of a sorted array, and continuously split the search space in half until it finds the target element or reaches a point where it knows the target is not in the array. The function takes in four parameters. The first parameter is a pointer to an int array. The second parameter is an integer representing the beginning of the array. The fourth parameter is an integer representing the end of the array. The fourth parameter is an integer representing the target element to find in the array. The return type of this function is int, and will be the index into the array that the target was found, or -1 if it wasn't. Just like with the `linearSearch` from Post-Lab 8, `testBinarySearch` will take input from std and pass it on to your `binarySearch` routine. Make sure you test your function on various sized arrays, both sorted and unsorted.
 
-### Report! ###
+To make sure your function is efficient enough, the testBinarySearch.cpp file will call your function 1000 times and record the overall time taken via timer.cpp. 
 
-Explore, investigate, and understand two of the four topics from the topic list shown in the in-lab section.  The topic addressed during the in-lab is one of these; for the post-lab, you have to address one other.  Be able to answer "how" and possibly "why" for each item.  Use test cases and the debugger as resources.  Additionally, use resources other than yourself (e.g. books, reputable websites) and external to the course (i.e. "the TAs" or "lecture" don't count towards these sources). Be sure to credit these sources.  ***You must use (and cite!) additional resources for this post-lab!***
+### Sample Execution Run ###
 
-Prepare a report that explains your findings.  Follow the guidelines in the Post-lab Report Guidelines section from the previous lab.  Address the following: How the compiler implements the construct at the machine and assembly levels.  What leads you to this conclusion?  You must show evidence of this behavior in the form of assembly code, C++, screenshots, memory dumps, manual quotations, output, etc.  Also include where you found the information that lead to your conclusion. (i.e. your sources).
+Below is a sample execution run to show you the input and output format we are looking for. 
 
-The deliverable for the post-lab is a PDF document named postlab9.pdf.
+```
+Enter the array size: 5
+Enter value 0: -30
+Enter value 1: -15
+Enter value 2: 0
+Enter value 3: 15
+Enter value 4: 30
+Enter target to search for: 30
 
-### Tips for Getting Started on the Post-lab ###
+Found 30 at index 4
+Took 0.007ms
+```
 
-See the section in the previous lab for these tips.
-
-### Post-lab Report Guidelines ###
-
-See the section in the previous lab for these guidelines.
-
-### How much are we looking for? ###
-
-We want you to investigate the particular topic area from the given list, write code to discover the answers, and learn about this topic on your own.  The questions that we pose are just meant to get you thinking about the possible ramifications of a given question.  They aren't meant to be specific questions that necessarily need answering one at a time.
-
-As with the previous lab, we expect that you adequately explain both items and include embedded code snippets and/or screenshots.  Did you investigate the topic?  Did you write code to discover what you didn't know?  Was this written in a reasonably readable format?  This is what we are looking for.
-
-This is somewhat vague, and purposely so -- research is often vague.  If we told you exactly what to write, then there wouldn't be much discovery of that on your part, which would defeat the whole point of this lab.
-
-**We are not looking for you to spend hours and hours and hours on this!**  We find that most lab reports end up being around 2-4 pages, single-spaced, which should give you an idea of when you're performed enough research.
-
-The grading will be based on a set of points that we would expect you to discover when investigating a given topic.  Your grade will be based mostly on how well you hit those points.  A small portion of your grade will be based on the overall report presentation and written ability (while we are a computer science class, we expect you to be able to write in English to some extent!).
+The following resource explains the binary search algorithm. This is what you need to implement in x86 assembly: [https://www.hackerearth.com/practice/algorithms/searching/binary-search/tutorial/](https://www.hackerearth.com/practice/algorithms/searching/binary-search/tutorial/)

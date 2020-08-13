@@ -25,11 +25,10 @@ Procedure
 ### Pre-lab ###
 
 1. Create a word puzzle solver
-2. Programmatically time how fast your program takes to run
-3. Files to download: 
+2. Files to download: 
     - The 5 provided code files: [getWordInGrid.cpp](code/getWordInGrid.cpp.html) ([src](code/getWordInGrid.cpp)), [primenumber.cpp](code/primenumber.cpp.html) ([src](code/primenumber.cpp)), [timer.cpp](code/timer.cpp.html) ([src](code/timer.cpp)), [timer.h](code/timer.h.html) ([src](code/timer.h)), [timer_test.cpp](code/timer_test.cpp.html) ([src](code/timer_test.cpp)).  These can also be downloaded all at once via the [code.zip](code.zip) file.
     - The data files in the labs/lab06/data/ directory.  These can also be downloaded all at once via the [data.zip](data.zip) file.
-4. Files to submit: Makefile, wordPuzzle.cpp, timer.h/cpp, hashTable.h/cpp
+3. Files to submit: Makefile, wordPuzzle.cpp, timer.h/cpp, hashTable.h/cpp
 
 ### In-lab ###
 
@@ -37,16 +36,14 @@ Procedure
 2. Compare your output with the expected output using output redirection, pipes, and Unix commands
 3. Test your program with the 250x250 grid using words.txt, and the 300x300 grid using words2.txt
 4. Create a shell script to calculate the average running time of your program
-5. Write a report on the time complexity of your program and the results of its execution
-6. Files to download: none
-7. Files to submit: averagetime.sh, inlab6.pdf
+5. Files to download: none
+6. Files to submit: averagetime.sh
 
 ### Post-lab ###
 
 1. Optimize your implementation of the word puzzle solver
-2. Write a report on the running time of your program and the optimizations you applied
-3. Files to download: none
-4. Files to submit: Makefile, wordPuzzle.cpp, timer.h/cpp, hashTable.h/cpp, postlab6.pdf
+2. Files to download: none
+3. Files to submit: Makefile, wordPuzzle.cpp, timer.h/cpp, hashTable.h/cpp
 
 ------------------------------------------------------------
 
@@ -86,7 +83,6 @@ Your word search solver, implemented in `wordPuzzle.cpp`, should:
 - Read in a word search grid no larger than 500x500 and store it in an appropriate data structure
 - Output every word of length three or greater and its location in the grid
     - The required output format is described below
-- Output the time it took to find all the words
 
 We are not as interested in how fast your program runs for the pre-lab; leave any optimizations for the post-lab.
 
@@ -107,7 +103,7 @@ You should make sure you understand how these functions work, as you will most l
 ### Timing ###
 
 We are interested in timing how long it takes to find all the valid words in a grid, not including the time it took to read in the dictionary and grid files or perform any other sort of pre-processing.
-You can use the code provided in [timer.cpp](code/timer.cpp.html) ([src](code/timer.cpp)), [timer.h](code/timer.h.html) ([src](code/timer.h)), and [timer_test.cpp](code/timer_test.cpp.html) ([src](code/timer_test.cpp)) to time the relevant portion of your program.
+You can use the code provided in [timer.cpp](code/timer.cpp.html) ([src](code/timer.cpp)), [timer.h](code/timer.h.html) ([src](code/timer.h)), and [timer_test.cpp](code/timer_test.cpp.html) ([src](code/timer_test.cpp)) to time the relevant portion of your program. Although you don't need to print out the timing for the pre and post-labs, it is still helpful to time your solver to help measure the effectiveness of any optimizations you may implement.
 
 ### Other details ###
 
@@ -121,7 +117,9 @@ You can use the code provided in [timer.cpp](code/timer.cpp.html) ([src](code/ti
 
 **Duplicates:** If a word occurs more than once in a grid, then each instance should be treated as a separate word.
 
-**Output format:** In an effort to make it easier to determine if the program is working properly or not, we want to standardize the output format.  Below is the [4x7.out.txt](data/4x7.out.txt) file:
+### Sample Execution Run ###
+
+Below is a sample execution run to show you the input and output format we are looking for. The output shown is a result of running `./a.out words.txt 4x7.in.txt`
 
 ```
 N (3, 2):       text
@@ -134,7 +132,6 @@ W (2, 4):       tee
 NE(2, 4):       tat
 SW(0, 6):       tat
 9 words found
-Found all words in 0.000835 seconds
 ```
 
 The exact spacing and order that the words are found in does not matter, as we can easily (and automatically) ignore that when comparing your output to the desired output.  Everything else should all be the same.  The in-lab discusses how to directly compare your output to the expected output (while ignoring spaces and word order) - see the "Input and Output" section of the in-lab.
@@ -236,8 +233,6 @@ This will examine the two files byte-by-byte, and look for differences.  If ther
 
 Since we don't care about spacing, you can provide the `-w` flag to `diff` to have it ignore all whitespace.
 
-Keep in mind that your program execution may include a bit of additional output -- such as the prompts for the filenames, the timing information, etc.  If that is the only difference between output.txt and the sample output, then that's fine.
-
 If the files are not sorted the same -- meaning that the words listed are the same, but in a different order -- then diff will report differences between the files.  You can use the Unix `sort` command to sort BOTH files before comparison to fix this:
 
 ```
@@ -253,7 +248,7 @@ If there are a lot of differences, then you should run your program on a small g
 
 Through the various programming languages we've seen (Java, C++, etc.), we can make a computer do many things.  Yet there are still limitations to what we can do in these languages.  How could you get a directory listing in Java, for example?  Or easily invoke Unix commands from C++?  While these are certainly possible, they are often difficult to accomplish.  
 
-Programmers often have a need to do these sorts of things.  For example, a script that we wrote takes all the submissions made to the submission server, compiles and executes them, and saves the execution output to various files.  This allows the compilation and execution to be automated, and saves the graders a lot of time.
+Programmers often have a need to do these sorts of things.  For example, a script that we wrote takes all the submissions made to gradescope, compiles and executes them, saves the execution output to various files and checks the results for correctness.  This allows the compilation, execution, and grading of your submissions to be automated.
 
 The *shell* is the command-line interface that you use in the terminal.  There are many shells out there, some of the more popular being bash, zsh, and csh.  Bash is the standard shell that the vast majority of shell scripts are written in, and is the shell we'll be using for this tutorial.
 
@@ -294,21 +289,6 @@ Below are a few notes to keep in mind when writing your shell script.  Bash is a
 - Keep in mind that to grab program output (such as the output of the binary program), you use back quotes (\`)
 - To execute your script, you can just enter `./averagetime.sh`.  If your computer denies you permission, remind it who's boss and put it in its place with `chmod +x averagetime.sh`.  This tells your Unix system that averagetime.sh is a program that can be executed (remember chmod?).
 
-### In-lab Report ###
-
-One of the deliverables for the in-lab is a PDF document named inlab6.pdf.
-
-This report should contain items such as:
-
-- Did your implementation produce the correct results?  Did you have to reformat your output?
-- How much faster was your program with the -O2 flag?
-- What was the speed of your implementation?  How fast did it run on the 250x250 grid using words.txt as the dictionary file?  What about words2.txt and the 300x300 grid?
-- What is the big-theta running speed of the word-search component of your program?  Please do this in terms of *r* (rows), *c* (columns), and *w* (words).  You can assume that the maximum word size is some small constant.  Do not take into consideration the file reading or hash table creation time, neither of which are part of the actual word searching.
-- What problems did you encounter when implementing this lab?
-- How did your shell scripting writing go?  What do you think of shell scripts so far?
-
-Basically, we want a summary of your thoughts and experiences with the lab at this point, as well as the results from your timed runs.  As this is an in-lab report, we don't expect it to be very long winded -- just enough to answer those questions is sufficient.
-
 ### Hints ###
 
 #### Debugging shell scripts ####
@@ -322,7 +302,7 @@ Bash's arithmetic expansion `$(( ... ))` performs integer division, so as long a
 Post-lab
 --------
 
-You will need to optimize your code for the solution to the word puzzle, as well as write a post-lab report on those optimizations.
+You will need to optimize your code for the solution to the word puzzle. The auto-grader for this assignment will be running your code on larger dictionaries / word grids. In addition to this, your code will be given less time to execute.
 
 To standardize timings, you should run all of your tests on words2.txt and 300x300.grid.txt.
 
@@ -349,7 +329,7 @@ Here are some ideas:
     - If you have just computed the hash for "foo", then you can keep that hash value on hand to compute the hash for "food" faster.
 - Any others that you can think of?
 
-Keep track of what you tried -- if you try each of the collision resolution strategies, and find that the original one you used is faster, record all of this in the post-lab report, along with the times from the other strategies.
+Keep track of what you tried -- if you try each of the collision resolution strategies, and find that the original one you used is faster, make note of your findings and try to figure out why that is.
 
 There are two restrictions on what optimizations you may attempt.  You may not:
 
@@ -360,28 +340,18 @@ There are two restrictions on what optimizations you may attempt.  You may not:
 
 Additionally, although we are trying to get you to think about how to make your program faster, we still want clean, correct, and readable code.  Your solutions will be judged on correctness and style.
 
-### Post-lab report ###
+### Post-lab Reflection ###
 
-One of the deliverables for the post-lab is a PDF document named postlab6.pdf.
+As you finish up the lab, consider the following questions:
 
-Here is what should be covered in your report:
-
-- An explanation of the big-theta running time of the word-search portion of your program
-    - You already figured this out in the in-lab, but now we want to know why
-    - Your running time should be in terms of *r* (rows), *c* (columns), and *w* (words) -- you can assume that the maximum word size is some small constant
-- Timing results for words2.txt and 300x300.grid.txt
-    - You should provide three different timings:
-        - Your program, post-optimizations
-        - Your program with a hash function designed to perform slower, including what hash function you chose and why it was slower
-        - Your program with a hash table size designed to perform slower, including what table size you chose and why it was slower
-    - Include details of the computer you were using
-- The optimizations you attempted
-    - Include the running time that resulted from each optimization
+- What is the big-theta running time of the word-search portion of your program?
+    - Your running time will be in terms of *r* (rows), *c* (columns), and *w* (words) -- you can assume that the maximum word size is some small constant
+- What kind of optimizations did you attempt?
+    - Can you provide a runtime for each of those optimizations?
     - Why did you try each optimization? Did it work (why/why not)?
     - Did you encounter problems with any of the optimizations?
-- The overall speedup of your program after applying the optimizations
+- What was the overall speedup due to your optimizations?
     - If your original running time was *x* and your optimized running time was *y*, then the speedup is *x*/*y*
     - For example, if your original program took 10 seconds and you optimized it down to 5 seconds, your speedup is 2.0
 
-We are looking for a thoughtful but concise analysis in this report.
-As a general benchmark, most reports are around 1.5 pages single-spaced, but ultimately the final length depends on what you have to say.
+You do not need to submit anything for these questions, but they are a good way to look back on the assignment and test your knowledge of hashtables and runtime analysis.

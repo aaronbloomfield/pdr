@@ -9,17 +9,6 @@ This lab is one of two labs meant to familiarize you with the process of writing
 
 There are both [32 bit](../lab08-32bit/index.html) ([md](../lab08-32bit/index.md)) and [64 bit](../lab08-64bit/index.html) ([md](../lab08-64bit/index.md)) versions of this lab.  This is the ***64 bit version***.
 
-<h3 style="color:red"><b>Changes for the spring 2020 semester</b></h3>
-
-<p style="color:red">Due to this course being <a href="../../uva/online.html">taught online</a> (<a href="../../uva/online.md">md</a>) in the spring of 2020, we are making the following changes for this semester, in an effort to make the workload more manageable since we are all working from home.</p>
-
-<ul style="color:red">
-<li>Pre-lab: the mathlib.s program only needs to contain just the <code>product()</code> function, as described in the pre-lab section, below.  The <code>power()</code> function will be done in the post-lab.  The rest of the pre-lab is as described in the pre-lab section; just omit the <code>power()</code> function.  Note that if you do do both functions for the pre-lab, that's fine -- but only <code>product()</code> will be graded, so you still have to submit the same code for the post-lab where <code>power()</code> will be graded.</li>
-<li>In-lab: it is the same as described in the in-lab section below.</li>
-<li>Post-lab: the post-lab section below is not to be done; instead, finish the <code>power()</code> function from the pre-lab.  Thus, the post-lab submission is to be what is described in the pre-lab section, below (i.e., both <code>product()</code> and <code>power()</code>).</li>
-</ul>
-
-
 ### Background ###
 
 The Intel x86 assembly language is currently one of the most popular assembly languages and runs on many architectures from the x86 line through the Pentium 4.  It is a [CISC](http://en.wikipedia.org/wiki/Complex_instruction_set_computing) instruction set that has been extended multiple times (e.g. [MMX](http://en.wikipedia.org/wiki/MMX_%28instruction_set%29)) into a larger instruction set.  In 2004 it was extended to allow for a 64 bit memory space.
@@ -58,9 +47,9 @@ Procedure
 
 ### Post-lab ###
 
-1. Write a report that explains how parameter passing occurs and how objects are represented in x86
-2. Files to download: none
-3. Files to submit: postlab8.pdf
+1. Write an x86 function to perform a linear search
+2. Files to download: [testLinearSearch.cpp](testLinearSearch.cpp.html) ([src](testLinearSearch.cpp))
+3. Files to submit: testLinearSearch.cpp, linearSearch.s
 
 ------------------------------------------------------------
 
@@ -150,6 +139,19 @@ Input is to be read via standard input (i.e., `cin`), not through command-line p
 
 In order for routines in an assembly file to be callable from C/C++, you need to declare them with `global`, like is done in `vecsum.s`.  To have multiple routines in a single assembly file (as is needed for mathlib.s), you should have multiple `global` lines, one for each subroutine that you plan on calling from your C/C++ code.
 
+### Sample Execution Run ###
+
+Below is a sample execution run to show you the input and output format we are looking for.
+
+```
+Enter integer 1: 3
+Enter integer 2: 2
+Product: 6
+Power: 9
+```
+
+Once you have completed the pre-lab, submit mathlib.s, mathfun.cpp, and your Makefile
+
 ------------------------------------------------------------
 
 In-lab
@@ -185,40 +187,30 @@ Once you have completed the in-lab, submit mergeSort.s, testMergeSort.cpp, and y
 Post-lab
 --------
 
-For the post-lab, you should investigate and understand the topics below, and prepare a report that explains your findings. Follow the guidelines in the Post-lab Report Guideline section. You must show evidence of your conclusions in the form of assembly code, C++, screenshots, memory dumps, manual quotations, output, etc. Use test cases and the debugger as resources. Additionally, use resources other than yourself (e.g. books, reputable websites) and external to the course (i.e. "the TAs" or "lecture" don't count). ***You must use (and cite!) at least TWO additional resources for this post-lab!***
+Download [testLinearSearch.cpp](testLinearSearch.cpp.html) ([src](testLinearSearch.cpp)), which you will use to test your code. Make sure you do not alter testLinearSearch.cpp, as you must include the original file in your submission.
 
+Your task for the post-lab is to implement the `linearSearch` function in assembly. This function will scan through an array iteratively until it finds the target element or reaches the end of the array. The function takes in three parameters. The first parameter is a pointer to an int array. The second parameter is an integer representing the size of the array. The third parameter is an integer representing the target element to find in the array. The return type of this fuction is int, and will be the index into the array that the target was found, or -1 if it wasn't. Just like with the `testMergeSort` program in the in-lab, `testLinearSearch` will take input from std and pass it on to your `linearSearch` routine. Make sure you test your function on various sized arrays, both sorted and unsorted.
 
-### Post-lab 8 topics ###
+### Sample Execution Run ###
 
-The questions below are what you must address in your post-lab report. Make sure you answer each part and include sufficient evidence. You should create a simple class to help you answer the following questions. In your class, be sure to include several methods and at least 5 data members of different types and access levels (public and private).
+Below is a sample execution run to show you the input and output format we are looking for.
 
-### Parameter passing ###
+```
+Enter the array size: 5
+Enter value 0: -7
+Enter value 1: 2
+Enter value 2: -39
+Enter value 3: 12
+Enter value 4: 8
+Enter target to search for: 2
 
-Show and explain assembly code generated by the compiler for a simple function and function call that passes parameters by a variety of means. Show what is happening both in the caller and in the callee. You do not need to describe parts of the C calling convention we described in class (e.g. saving registers, saving the base pointer, how the call instruction works). The focus here is on examining in detail what happens when parameters are passed.
+Found 2 at index 1
+```
 
-1.  How are variables (ints, chars, pointers, floats, etc.) passed by value? How are they passed by reference? Create several functions and examine the parameter registers to help you answer this question.
-2.  Create a simple function that takes in an object. How are objects passed by value? How are they passed by reference? Specifically, what is contained in the parameter registers in each case?
-3.  Create an array in your main method, and write a function that takes it in as a parameter. How are arrays passed into functions? How does the callee access the parameters? Where are the data values placed? Hint: you will need to determine at least a register-relative address.
-4.  Is passing values by reference different than passing by pointer? If they are the same, what exactly is passed in the parameter register? If they are different, how so?
+Once you have completed the in-lab, submit linearSearch.s, testLinearSearch.cpp, and your Makefile
 
-### Objects ###
+### Hints ###
 
-1.  How is object data laid out in memory? Create an object in your main method, and view where each data member is located in memory. How does C++ keep different fields of an object "together"?
-2.  Explain how data member access works for objects. How does the assembly know which data member to access? We know how local variables and parameters are accessed (offsets from the base pointer) -- describe how this is done for data fields.
-3.  How does method invocation work for objects? Specifically, how does the assembly know which object it is being called out of? Remember that assembly is not object oriented.
-4.  How are data members accessed both from inside a member function and from outside? In other words, describe what the assembly code does to access data members in both of these situations.
-5.  How are public member functions accessed for your class? Call some of the public member functions for your class and examine the parameters. How is the "this" pointer implemented? Where is it stored? When is it accessed? How is it passed to member functions?
+#### Accessing Array Elements in Assembly ####
 
-### Tips for Getting Started on the Post-lab ###
-
-Think about how best to investigate the issues you choose. A good starting point is to write a small C++ program that illustrates one of the issues. This program should be as simple as possible.
-
-Look at the assembly code associated with your C++ code. To examine the disassembled code you have three options. First, you can step through the code in the debugger using the disassembly view. You can also have the C++ code output to an assembly file using `clang++ -S -mllvm --x86-asm-syntax=intel -fomit-frame-pointer fileName.cpp`, which can be viewed in emacs. Lastly, you may use the site [www.godbolt.org](https://www.godbolt.org) to view the assembly code. You can paste your C++ code directly into the editor, or upload a file. Choose either clang or gcc as your compiler.
-
-Focus on devising experiments that will help you learn more about the particular issues. By tracing though some parts of the code, modifying your C++ code, and comparing the generated assembly for the two different versions, you should be able to come up with some reasonably good hypotheses about what is happening. Seek out resources that explain the issue. Keep in mind that you are required to list your sources in your post-lab report.
-
-### Post-lab Report Guidelines ###
-
-The report should be a PDF file called postlab8.pdf. In your report, label the items according to which list item they came from (parameter passing or objects), and their item number within that list. Your evidence should be embedded into the document. Highlighting portions of code or drawing arrows between things may help make your explanations clearer. For each item, you should include a short explanation (1-2 paragraphs maximum) and at least one piece of evidence. Don't forget to include at least two external resources. Other than your own experiments, feel free to use online x86 assembly references, C++ books, and resources you may find on the Internet or elsewhere. **Discussing these issues is allowed, however, remember that your code and final report must be your own work and that you must credit ANY resources used.**
-
-We want you to investigate the particular topic area from the given list, write code to discover the answers, and learn about this topic on your own.
+Recall that C++ arrays are stored contiguously in memory. This means that if you know the start address of the array `&a`, and the size of the elements that are being stored, you can find the address of an element at any index `i` with `&a[i] = &a + <size_of_elements>*i` (if the array is one-dimensional). Use this fact along with [the memory addressing slide](../slides/08-assembly-64bit.html#/3/8) from lecture to access array elements in assembly.

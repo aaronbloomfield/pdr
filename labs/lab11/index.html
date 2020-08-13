@@ -15,24 +15,7 @@
 <h1 id="pdr-laboratory-11-graphs">PDR: Laboratory 11: Graphs</h1>
 <p><a href="../index.html">Go up to the Labs table of contents page</a></p>
 <h3 id="objective">Objective</h3>
-<p>To become familiar with representing directed acyclic graphs (DAGs), topological sorting, and the traveling salesperson problem.</p>
-<h3 style="color:red">
-<b>Changes for the spring 2020 semester</b>
-</h3>
-<p style="color:red">
-Due to this course being <a href="../../uva/online.html">taught online</a> (<a href="../../uva/online.md">md</a>) in the spring of 2020, we are making the following changes for this semester, in an effort to make the workload more manageable since we are all working from home.
-</p>
-<ul style="color:red">
-<li>
-Pre-lab: no change to the pre-lab; it's still the topological sort. However, since there is no in-lab this week, and because the pre-labs are due Wednesday mornings, you can continue to work on the topological sort during labs on Tuesday.
-</li>
-<li>
-In-lab: nothing to submit. However, the in-lab work (i.e., the traveling salesperson) is to be submitted for the post-lab. Thus, there is nothing to submit for the in-lab and it will not be graded this semester.
-</li>
-<li>
-Post-lab: the traveling salesperson, as described in the in-lab section, is to be done for the post-lab.
-</li>
-</ul>
+<p>To become familiar with representing graphs in general, directed acyclic graphs (DAGs), topological sorting, traveling salesperson problem, and other related algorithms.</p>
 <h3 id="background">Background</h3>
 <p>A graph is a set of vertices connected by edges. In a directed graph, an edge is an ordered pair of vertices, where you can follow an edge from one vertex to another. In a directed acyclic graph (DAG), no path starts and ends at the same vertex. A topological sort orders the vertices in a DAG such that any edge from vertex i to vertex j satisfies i &lt; j.</p>
 <h3 id="tutorial">Tutorial</h3>
@@ -63,16 +46,16 @@ Post-lab: the traveling salesperson, as described in the in-lab section, is to b
 </ol>
 <h3 id="post-lab">Post-lab</h3>
 <ol type="1">
-<li>Write a report on the time and space complexity of your pre-lab and in-lab code, and discuss ways to accelerate the travelling salesperson algorithm</li>
+<li>Write an 8-Puzzle solver using an <a href="https://en.wikipedia.org/wiki/A*_search_algorithm">A* search</a>.</li>
 <li>Files to download: none</li>
-<li>Files to submit: postlab11.pdf</li>
+<li>Files to submit: Makefile, any source code required to run the solver.</li>
 </ol>
 <hr />
 <h2 id="pre-lab-1">Pre-lab</h2>
 <h3 id="good-code-documentation">Good code documentation</h3>
 <p>For this lab, any code you submit must be properly documented using doxygen.<br />
 This includes the <a href="middleearth.h.html">middleearth.h</a> (<a href="middleearth.h">src</a>) and <a href="middleearth.cpp.html">middleearth.cpp</a> (<a href="middleearth.cpp">src</a>) files, which you should understand and document as part of the pre-lab.</p>
-<p>There are many doxygen commands, and we expect for you to use more than just those that were provided in the tutorial.</p>
+<p>There are many doxygen commands, and we expect for you to use more than just those that were provided in the tutorial. <strong>Specifically, the grader will look that you've incorporated at least two additional doxygen tags that are NOT in the tutorial.</strong></p>
 <h3 id="topological-sort">Topological sort</h3>
 <p>Recall from lecture that given a graph <em>G</em> = (<em>V</em>,<em>E</em>), a topological sort of a directed acyclic graph is a linear listing of the vertices such that, for all pairs of vertices <em>v</em>,<em>w</em> ∈ <em>V</em>, <em>v</em> is listed before <em>w</em> in the topological sort if (<em>v</em>,<em>w</em>) ∈ <em>E</em> (i.e. if there is an edge from <em>v</em> to <em>w</em> in the graph, then <em>v</em> must be listed before <em>w</em> in the topological sort). This implies that if there is a <em>path</em> from <em>v</em> to <em>w</em> (not just an edge), then <em>v</em> must still list before <em>w</em> in the topological sort.</p>
 <p>For the programming part of this lab, you will need to write a program that can perform a topological sort. This problem is specified in the next section. The specification is similar to that found in the <a href="https://icpc.baylor.edu/">International Collegiate Programming Contests</a> -- a problem description, followed by a detailed explanation of the input and the output.</p>
@@ -95,15 +78,20 @@ This includes the <a href="middleearth.h.html">middleearth.h</a> (<a href="middl
 <li>cs1110 cs2102 cs2110 cs2150 cs3330 cs4414</li>
 <li>cs1110 cs2110 cs3330 cs2102 cs2150 cs4414</li>
 </ul>
-<p>Any one of these topological sorts is sufficient.</p>
+<p>However, for this lab we want you to output the valid order that comes first lexicographically for grading sake.</p>
+<h3 id="lexicographically-ordered-output">Lexicographically Ordered Output</h3>
+<p>For this lab, there will be many cases where several nodes can be travelled to in any order. When this happens, it means that there are many possible different valid topological sorts that differ from when each node is travelled to. Rather than everyone having potentially different sorts for this lab, we want you to output the topological sort that comes first lexicographically. This means that, when you have several nodes that can be traversed in any order, do so in alphabetical order.</p>
+<p>Consider the following two topological sorts from the example above: 1. cs1110 cs2110 cs2102 cs3330 cs2150 cs4414 2. cs1110 cs2102 cs2110 cs2150 cs3330 cs4414</p>
+<p>While the first one is a valid topological sort for the given graph, it is <strong>not</strong> in lexicographical order. This is because cs2110 comes after cs2102 alphabetically. Since a student can take cs2110 and cs2102 in either order, we want your program to visit those nodes alphabetically (first cs2102, then cs2110). The same situation appears for cs3330 and cs2150, the classes can be taken in either order, but the first topological sort does not display them alphabetically. The second sort, however, puts cs2102 before cs2110, and cs2150 before cs3330, and is thus the solution we are looking for.</p>
 <h3 id="input">Input</h3>
 <p>The program will consist of a single file, <code>topological.cpp</code>, and take a single command-line parameter. This parameter will specify the file name that contains the input.</p>
 <p>The input file will consist of a series of lines that each designate a directed edge. Each line will have two vertex names, separated by a single space; the edge is directed from the first to the second listed vertex name on a given line. Every vertex name is a series of alphanumeric characters only (a-z, A-Z, 0-9) without any spaces or punctuation. Note that case is relevant, so vertex <code>abc</code> is distinct from vertex <code>ABC</code>. The edges can be listed in any order.</p>
 <p>The end of the input file is signified by two 0s on the same line, separated by a single space.</p>
 <p>You can assume that the provided graph is a directed acyclic graph, that it is weakly connected, and thus that there is at least one valid topological sort. You can further assume that there will not be more than 100 vertices in the graph.</p>
 <h3 id="output">Output</h3>
-<p>The output is a valid topological sort of the vertices, each separated by one space, and all on one line. If there are multiple topological sorts, then any valid one is acceptable. No additional output!</p>
-<h3 id="example">Example</h3>
+<p>The output is a valid topological sort of the vertices, each separated by one space, and all on one line. If there are multiple topological sorts, only the one that comes first lexicographically is acceptable.</p>
+<h3 id="sample-execution-run">Sample Execution Run</h3>
+<p>Below is a sample execution run to show you the input and output format we are looking for.</p>
 <p>Given the input file:</p>
 <pre><code>cs2110 cs2150
 cs2102 cs2150
@@ -113,8 +101,8 @@ cs2150 cs4414
 cs2110 cs3330
 cs1110 cs2102
 0 0</code></pre>
-<p>A valid topological sort would be</p>
-<pre><code>cs1110 cs2110 cs2102 cs3330 cs2150 cs4414</code></pre>
+<p>Output (<em>NOTE: This one comes first lexicographically</em>):</p>
+<pre><code>cs1110 cs2102 cs2110 cs2150 cs3330 cs4414</code></pre>
 <hr />
 <h2 id="in-lab-1">In-lab</h2>
 <h3 id="the-traveling-salesperson">The Traveling Salesperson</h3>
@@ -183,24 +171,62 @@ student@cassiopeia:~/labs/lab11$ </code></pre>
 <li>Minimum path has distance 71.335: Barad-Dur -&gt; Helm's Deep -&gt; Emyn Muil -&gt; Dagorlad -&gt; Dunharrow -&gt; Rivendell -&gt; Entwash River -&gt; Trollshaws -&gt; The Old Forest -&gt; Minas Tirith -&gt; Barad-Dur</li>
 <li>Minimum path has distance 72.0124: Barad-Dur -&gt; Helm's Deep -&gt; Emyn Muil -&gt; Dagorlad -&gt; Dunharrow -&gt; Misty Mountains -&gt; Rivendell -&gt; Entwash River -&gt; Trollshaws -&gt; The Old Forest -&gt; Minas Tirith -&gt; Barad-Dur</li>
 </ol>
-<p>Your cycle may be the same cities but in reverse; this is perfectly acceptable.</p>
 <p>Your final program needs to both be able to compile and run with the specified command-line parameters.</p>
 <h3 id="makefile-1">Makefile</h3>
 <p>Your Makefile should have <strong>only one</strong> target, which you can name anything you want. This target should do <strong>two</strong> things: compile your code, and run doxygen. You can have two tabbed lines after the target specifier, which is the easiest way to accomplish this. In other words, we are just going to call <code>make</code>, and we want it to both compile your code and create your doxygen documentation. The in-lab Makefile should have the same dual-purpose target.</p>
 <hr />
 <h2 id="post-lab-1">Post-lab</h2>
-<p>There are two parts to the post-lab: a complexity analysis of your code, as well as an investigation into acceleration techniques for the traveling salesperson problem.</p>
-<p>The deliverable for the post-lab is a PDF document named postlab11.pdf.</p>
-<h3 id="complexity-analysis">Complexity analysis</h3>
-<p>For this part of the post-lab, we want you to do a time and space complexity analysis of both of your pre-lab code and your in-lab code. How long is your algorithm? In addition to a big-Theta notation, give an explanation as to why.</p>
-<h3 id="acceleration-techniques">Acceleration techniques</h3>
-<p>We all know that the solution for the traveling salesperson is inefficient. So inefficient that a 20 route tour through Middle Earth (i.e. using the command-line parameters <code>20 20 20 14 20</code>) would take over 3 hundred thousand years, assuming the computer can check about 200,000 paths per second. We could run it on a more efficient computer -- this would help, but not much. If you are trying to compute a <a href="https://www.google.com/search?q=61!">61-route tour</a>, then there are more possibilities than there are <a href="https://www.universetoday.com/36302/atoms-in-the-universe/">atoms in the known universe</a>. So it's not likely that you will be able to push that many electrons through your computer, even if you could wait the <a href="https://www.google.com/search?q=61!%2F(200000*60*60*24*365.25)">10<sup>70</sup></a> years required. You might be able to lower that somewhat if you used a more efficient computer -- perhaps to 10<sup>69</sup> years. That's still longer than the expected life of the universe.</p>
-<p>It's safe to say that we can all agree that this problem is very inefficient. Yet the world record for the longest traveling salesperson solution is a whopping 85,900 cities! See the <a href="https://en.wikipedia.org/wiki/Travelling_salesman_problem#Exact_algorithms">here</a> for details.</p>
-<p>Let's do a bit of math. If we assume that a properly coded solution runs in Θ(<em>n</em>!) time (yours may be different, by the way, but probably not by much), then this size input set would take 85960! steps. That's 9.61 * 10<sup>386,526</sup> (yes, there are more than 1/3 of a million digits in this number). Let's assume we could get a fast program to compute 1 million possible paths per second. With 60 seconds per minute, 60 minutes per hour, 24 hours per day, and 365.25 days per year, that will take 3.04 * 10<sup>386,516</sup> years (the exponent lowered by 10). With a number this big, a faster computer will not make much of a difference.</p>
-<p>The people who computed the 85,900 city traveling salesperson problem obviously did not wait forever for it to compute. In fact, they managed to compute it in 136 CPU years! It took far less time to complete (say, 6 months or so), as it ran in parallel on multiple computers.</p>
-<p>To accomplish this, they had to use a number of acceleration techniques.</p>
-<p>The second part of the post-lab is for you to research other acceleration techniques that can be used to speed up the traveling salesperson problem. You are welcome to view the Wikipedia page -- however, we also know what's on the Wikipedia page. So just copying that information down will get you no credit -- you need to understand the acceleration techniques, and write them in your <em>OWN</em> words.</p>
-<p>Your report should include information on 3 such techniques (again, feel free to start with the 3 that Wikipedia mentions). You should write sufficient text on each to explain how it would work, the running time, and an estimate of how much faster it would make your code. You don't need to implement any of these techniques -- just understand (at a high level) how they work.</p>
-<p>You should discuss at least one approximation technique (ones that get a reasonable answer, but not necessarily an exact answer) and at least one exact acceleration technique. Your third one can be either.</p>
+<p>Consider the <a href="https://en.wikipedia.org/wiki/15_puzzle">Sliding 8-Puzzle</a> game, depicted in the image below. If you'd like, you can play the puzzle <a href="http://www.artbylogic.com/puzzles/numSlider/numberShuffle.htm?rows=3&amp;cols=3&amp;sqr=1">HERE</a> to get a better sense for how the game works.</p>
+<figure>
+<img src="8Puzzle.png" alt="8-puzzle" /><figcaption>8-puzzle</figcaption>
+</figure>
+<p>In this 3x3 grid of numbers, the goal is to slide numbers into the empty square until the end game state is reached. As can be seen above, our end game state is a sorted board. The hole in the board can move in any direction, but cannot &quot;wrap around&quot; from one side to the other (or from top to bottom, etc.).</p>
+<p>Your task for this lab is to implement a solution to the 8 puzzle problem described above: given an input board, find the minimum number of moves required to reach the end state, or if it is impossible to reach it.</p>
+<h3 id="storing-the-puzzle">Storing the Puzzle</h3>
+<p>The simplest way to store the puzzle would be with either a 1D or 2D array, where the hole is represented by a 0 (zero). Then, if you wanted to move the hole around the &quot;board&quot;, you would simply swap its position in the array with an adjacent tile. Consider making an object (or struct) that stores a single configuration of the board.</p>
+<h3 id="solving-the-puzzle">Solving the Puzzle</h3>
+<p>Once you have an object for storing a single configuration of the puzzle, you can start thinking about this as a graph problem. Consider each unique configuration (one instance of your object) to be a node in the graph. There exists an edge between two configurations in the graph if you can reach configuration <em>B</em> from configuration <em>A</em> by only sliding one tile.</p>
+<p>Once you have represented this problem as a start state (input that is given to you) and goal state (the final solved puzzle) with edges (moves) in between, you can solve this problem by finding the <strong>shortest path</strong> between the start state and the solved state. Use one of the algorithms from class to find the shortest path. You should probably choose <strong>breadth-first search</strong>...you can use <em>Dijkstra's Algorithm</em>, but because edge weights are all <em>1</em> here, it is pointless to add the extra complexity.</p>
+<h3 id="testing-for-solvability">Testing for Solvability</h3>
+<p>If your search algorithm goes through all configurations of the possible without ever reaching the goal state, than that starting configuration is impossible to solve.</p>
+<p>There is an easy way to check if an 8-puzzle is solvable or not by using inversions. An inversion is a pair of tiles that are in reverse order to their appearance in the goal state. If an 8-puzzle has an <strong>even</strong> number of inversions, then the puzzle is <strong>solvable</strong>. If an 8-puzzle has an <strong>odd</strong> number of inversions, then the puzzle is <strong>unsolvable</strong>. For example, the following 8-puzzle has 3 inversions, and is thus impossible to solve. You can watch <a href="https://www.youtube.com/watch?v=YI1WqYKHi78">this video</a> for a slightly more detailed description if you are interested.</p>
+<p>Another, but less elegant, way of testing for impossibility</p>
+<pre><code>2 1 3
+4 0 5
+8 6 7</code></pre>
+<p>The inversions in this example are (2,1), (8,6), and (8,7).</p>
+<h3 id="input-1">Input</h3>
+<p>The input to this program will be three lines of three numbers, each representing a tile of the 8-puzzle.</p>
+<h3 id="sample-execution-run-1">Sample Execution Run</h3>
+<p>Below is a sample execution run to show you the input and output format we are looking for.</p>
+<pre><code>Enter puzzle
+3 6 4
+1 2 5
+7 8 0
+Solving puzzle
+18</code></pre>
+<p>Here is another example showing how your output should look for an impossible puzzle.</p>
+<pre><code>Enter puzzle
+2 1 3
+4 0 5
+8 6 7
+Solving puzzle
+IMPOSSIBLE</code></pre>
+<h3 id="submission">Submission</h3>
+<p>You should submit any files required for your 8 puzzle solver to run as well as a Makefile that prodcues an <code>a.out</code> executable.</p>
+<h3 id="hints">Hints</h3>
+<h4 id="where-do-i-get-started">Where do I get Started?</h4>
+<p>There are a lot of steps to this lab, and it is important to partition the work and only focus on one component at a time. Start out by working on how you will represent a puzzle: as a class, an array with helper methods, etc. Once you can read in a puzzle and manipulate it at will, you are ready to move on to the actual solving portion of the lab.</p>
+<h4 id="too-many-permutations-which-ones-should-i-look-at-first">Too Many Permutations! Which Ones Should I Look at First?</h4>
+<p>There aren't <strong>that</strong> many permutations of this puzzle (there are 9! = 362,880). However, it is beneficial to only create / store the nodes that you are actually using as you go. For example: suppose I have the following starting grid:</p>
+<pre><code>2 1 0
+4 3 5
+8 6 7</code></pre>
+<p>When the code begins, this will be the <strong>only</strong> node in the graph. As I begin my breadth-first search, we can generate neighboring nodes on the fly. For example, when I do the next step of search, I can call a method called <em>generateNeighbors()</em>, that given the node above as input, returns the following states that can be reached by a single move (sliding the 1 to the right or sliding the 5 up):</p>
+<pre><code>2 0 1       2 1 5
+4 3 5       4 3 0
+8 6 7       8 6 7</code></pre>
+<p>Now, my graph has 3 total nodes. As I continue my search, I can do the following: for a given node I'm searching, generate the neighbors of that node, check if the neighbor has already been search (a hash table is useful here). If the neighbor has already been searched, discard it (don't want to duplicate work over and over). If it has not been seen, add it to my BFS queue and continue.</p>
+<p>Good luck!!</p>
 </body>
 </html>

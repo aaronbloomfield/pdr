@@ -20,23 +20,6 @@
 <li>To implement a useful application using a variety of data structures</li>
 <li>To analyze the efficiency of your implementation</li>
 </ol>
-<h3 style="color:red">
-<b>Changes for the spring 2020 semester</b>
-</h3>
-<p style="color:red">
-Due to this course being <a href="../../uva/online.html">taught online</a> (<a href="../../uva/online.md">md</a>) in the spring of 2020, we are making the following changes for this semester, in an effort to make the workload more manageable since we are all working from home.
-</p>
-<ul style="color:red">
-<li>
-Pre-lab: no change to the pre-lab; it's still the encoder. However, since there is no in-lab this week, and because the pre-labs are due Wednesday mornings, you can continue to work on the encoder during labs on Tuesday.
-</li>
-<li>
-In-lab: nothing to submit. However, the in-lab work (i.e., the decoder) is to be submitted for the post-lab. Thus, there is nothing to submit for the in-lab and it will not be graded this semester.
-</li>
-<li>
-Post-lab: submit <b>ONLY</b> the decoder part of this lab -- so basically, submit the in-lab work to the post-lab.
-</li>
-</ul>
 <h3 id="background">Background</h3>
 <p>In lecture we discussed Huffman coding and the construction of prefix code trees. We have also covered a variety of data structures this semester: lists, trees, hash tables, and heaps. Several of these may be useful for this lab. In addition, in this lab you are required to think about the underlying representation and efficiency of these structures.</p>
 <h3 id="tutorial">Tutorial</h3>
@@ -62,9 +45,9 @@ Post-lab: submit <b>ONLY</b> the decoder part of this lab -- so basically, submi
 </ol>
 <h3 id="post-lab">Post-lab</h3>
 <ol type="1">
-<li>In a report, analyze the time and space complexity of your encoding and decoding code</li>
+<li>Analyze the time and space complexity of your encoding and decoding code</li>
 <li>Create a Makefile to compile both the encoding and decoding portions of your Huffman routine in one step</li>
-<li>Files to submit: postlab10.pdf, Makefile, all necessary source code files</li>
+<li>Files to submit: Makefile, all necessary source code files</li>
 </ol>
 <hr />
 <h2 id="huffman-encoding-and-decoding">Huffman Encoding and Decoding</h2>
@@ -125,7 +108,7 @@ Post-lab: submit <b>ONLY</b> the decoder part of this lab -- so basically, submi
 <p>The second section is the encoded message, using the characters <code>0</code> and <code>1</code>. You may optionally separate each encoded character by any form of whitespace. For example, to help debugging, you might want to separate each encoded letter by a space and place each encoded word on its own line.</p>
 <p>The next line is a separator, and is also a single line containing 40 dashes and no spaces.</p>
 <h4 id="section-3">Section 3</h4>
-<p>The last section of the file displays the compression ratio and the cost of the Huffman tree. This does not need to be read in by the decompression routines. As long as you output the required information, and it is easily understandable by a human, it can be in a format similar to (but not necessarily the same as) what is shown below. You can have additional information as well, as long as we can easily find what we are looking for (compression ratio and Huffman tree cost).</p>
+<p>The last section of the file displays several stats about the compression. You should output the total number of symbols encoded, how many unique symbols are used, the number of bits in the original and compressed files, the compression ratio to five decimal places, and the cost of the huffman tree to five decimal places. The output format should look exactly as shown below. The information is required as we will be grading your submissions with these results. All floating point results must be reported to <strong>5 decimal places</strong>.</p>
 <p>The following is the Huffman file format for the example in the slide set that has the characers 'a', 'b', 'c', and 'd'.</p>
 <pre><code>a 0
 b 100
@@ -144,19 +127,7 @@ The cost of the Huffman tree is 1.85714 bits per character.</code></pre>
 <figure>
 <img src="prelab-tree.png" />
 </figure>
-<p>Below is an equivalent version of the same file. Note that the characters are not in the same order in the previous example, the whitespace for the middle part is quite different, the English explanation in the third part says the same thing but in a different format, and the particular prefix codes are different (but their lengths are the same).</p>
-<pre><code>d 11
-c 100
-b 101
-a 0
-----------------------------------------
-1           1
-10101
-0 0 0 0 1 1
-----------------------------------------
-Compression ratio: 4.31
-The Huffman tree cost: 1.85 bits per character</code></pre>
-<p>Note that your encoding does not have to exactly match -- in particular, the bits that your program uses to encode it will depend on the implementation of your heap. So while your bits can be off, the number of bits for each character should NOT be different than the examples given.</p>
+<p>Note that your encoding does not have to exactly match -- in particular, the bits that your program uses to encode it will depend on the implementation of your heap. So while your bits can be off, the number of bits for each character should <strong>NOT</strong> be different than the examples given. For example, in the output above, if <em>b</em> was given the prefix code <em>101</em> and <em>c</em> was given <em>100</em> (i.e., <em>b</em> and <em>c</em> have their codes swapped), then that is ok. The statistics in section 3 of the output will be the same.</p>
 <h3 id="hints">Hints</h3>
 <p>A few hints from experience with this in previous semesters.</p>
 <h4 id="take-the-time-to-understand-the-code">Take the time to understand the code</h4>
@@ -180,7 +151,7 @@ The Huffman tree cost: 1.85 bits per character</code></pre>
 </ol>
 <p>First, make sure that your code can read in encoded files -- you can download the <a href="inlab-skeleton.cpp" class="uri">inlab-skeleton.cpp</a> file, which can properly read in the encoded input files.</p>
 <p>Next, create the Huffman coding tree from the prefix codes you read in from the input file. Not creating a Huffman tree from the file will result in zero credit for the in-lab. The whole point of this part is to create the tree!</p>
-<p>Lastly, read in the second part of the file, traverse your Huffman tree, and output a character whenever you reach a leaf node. You can output as much text as you would like, such as status updates as to how the program is progressing. The only caveat is that the decoded file must be the last thing printed, and it must be clear where the other text ends and the decoded message that you are decoding begins (a separator of dashes would be fine for this). Of course, you are more than welcome to just print out the decoded message and nothing else.</p>
+<p>Lastly, read in the second part of the file, traverse your Huffman tree, and output a character whenever you reach a leaf node. For this lab, you must only print out the decoded message and nothing else.</p>
 <p>We provide a number of sample files for you to test your code with. A brief description of each is described here. The &quot;normal&quot; files are the English input. The &quot;encoded&quot; files are the Huffman encoded files, following the file format described above. Except where indicated, the second section of each encoded file (the digits <code>0</code> and <code>1</code>) has a space inserted between each letter from the original file, so that you can see which letter is encoded as which bitcode.</p>
 <ul>
 <li><a href="examples/normal1.txt">normal1.txt</a> / <a href="examples/encoded1.txt">encoded1.txt</a>: This is the first example from the lecture slides (<code>dbacaad</code>). The Huffman tree can be viewed <a href="prelab-tree.png">here</a>.</li>
@@ -200,19 +171,18 @@ The Huffman tree cost: 1.85 bits per character</code></pre>
 <h2 id="post-lab-1">Post-lab</h2>
 <p>There are two parts to this post-lab: the time and space complexity analysis and submitting all your (working) code again.</p>
 <h3 id="time-and-space-complexity">Time and Space Complexity</h3>
-<p>For the post-lab, we want you to do a time and space complexity analysis of your compression and decompression code. You'll submit a written report that describes your implementation choices, and also documents your analysis of time and space complexity. See below for a discussion about the space/time complexity.</p>
-<p>The deliverable for this part of the post-lab is a PDF document named postlab10.pdf that includes:</p>
+<p>For the post-lab, we want you to think about the time and space complexity analysis of your compression and decompression code. You aren't required to submit anything for this part, but you should think carefully about the following points, as you may need to know them on exams. See below for a discussion about the space/time complexity.</p>
 <ul>
-<li>A description of your implementation: describe the data structures used in your implementation and <em>why</em> you selected them.</li>
-<li>An efficiency analysis of <em>all steps</em> in Huffman encoding/decoding. For each of the steps of compression and decompression (see &quot;Huffman Encoding and Decoding&quot;), give:
+<li>Think about your implmentation: what data structures did you use in your implementation and <em>why</em> did you selected them.</li>
+<li>Analyze the efficiency of <em>all steps</em> in Huffman encoding/decoding. For each of the steps of compression and decompression (see &quot;Huffman Encoding and Decoding&quot;), what is:
 <ul>
 <li>The worst case running time of your implementation</li>
 <li>The worst case space complexity of your implementation</li>
 </ul></li>
 </ul>
-<p>Worst case running time -- for this be sure to include all steps of the compression and decompression. You can leave off the cost of calculating the compression ratio, printing the cost of the tree, and printing a listing of the bit code for each character that was asked for in the pre-lab. Refer to the list of steps given earlier in the lab.</p>
+<p>Worst case running time -- for this be sure to consider all steps of the compression and decompression. You can leave off the cost of calculating the compression ratio, printing the cost of the tree, and printing a listing of the bit code for each character that was asked for in the pre-lab. Refer to the list of steps given earlier in the lab.</p>
 <p>Space complexity -- for this, you should calculate the number of bytes that are used by each data structure in your implementation. The easiest way to do this is to step through your code, just as you have done for the worst case running time, and make a note each time you use a new data structure. You do not need to take into account scalar variables (loop counters, other singleton variables), focus on the data structures whose size depends on values such as the total number of characters and the total number of unique characters, and use those values in your answer.</p>
-<p>As usual, we expect a thought-out explanation of both parts. Most reports end up approximately one page in length, single-spaced.</p>
+<p>Again, you aren't required to submit anything for this section, but you should use these points as a way to reflect on the work you have done for the pre-lab and in-lab.</p>
 <h3 id="bringing-it-all-together">Bringing it all together</h3>
 <p>The purpose of this part of the post-lab is to clean up your code from the pre-lab and in-lab, and submit all of it together. If your pre-lab and in-lab code work properly, then there is no futher clean-up to do; however, you must still submit the files along with a <em>new</em> Makefile.</p>
 <p>When we run <code>make</code>, the code should be compiled into two executables: <code>encoder</code> and <code>decoder</code>, which are the pre-lab and in-lab code bases, respectively. Unlike the pre-lab and in-lab, you should <strong><em>NOT</em></strong> name your executables <code>a.out</code>! After compiling your code with <code>make</code>, we will test it as such:</p>

@@ -27,63 +27,40 @@
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
 <ol type="1">
-<li>Convert a floating point number to binary, and a binary number to floating point</li>
 <li>In prelab4.cpp:
 <ul>
 <li>Write a <code>sizeOfTest()</code> function to view the sizes of various types</li>
-<li>Write an <code>outputBinary()</code> function to display the binary representation of integers</li>
 <li>Write an <code>overflow()</code> function to investigate how C++ handles integer overflow</li>
+<li>Write an <code>outputBinary()</code> function to display the binary representation of integers</li>
 </ul></li>
 <li>Files to download: none</li>
-<li>Files to submit: floatingpoint.pdf, prelab4.cpp</li>
+<li>Files to submit: prelab4.cpp</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
 <ol type="1">
-<li>Complete the inlab4 worksheet</li>
 <li>In inlab4.cpp:
 <ul>
 <li>Investigate how variables are represented in memory</li>
 <li>Investigate how arrays are represented in memory</li>
 </ul></li>
-<li>Files to download: <a href="inlab4.doc" class="uri">inlab4.doc</a></li>
-<li>Files to submit: inlab4.pdf, inlab4.cpp</li>
+<li>Files to download: <a href="inlab4.cpp.html">inlab4.cpp</a> (<a href="inlab4.cpp">src</a>)</li>
+<li>Files to submit: inlab4.cpp</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
 <ol type="1">
 <li>Write a recursive bit counter to count the number of 1s in the binary representation of an integer</li>
-<li>Complete the radix worksheet</li>
-<li>Files to download: <a href="radixWorksheet.doc" class="uri">radixWorksheet.doc</a></li>
-<li>Files to submit: bitCounter.cpp, radixWorksheet.pdf</li>
+<li>Write a converter to convert integers from one base to another.</li>
+<li>Files to download: none</li>
+<li>Files to submit: bitCounter.cpp</li>
 </ol>
 <hr />
 <h2 id="pre-lab-1">Pre-lab</h2>
-<h3 id="floating-point-conversion">Floating point conversion</h3>
-<p>To reinforce what we went over in class, you will be converting a floating point number to binary representation, and another number from its binary representation to a floating point number.</p>
-<p>First, you will need to determine what your floating point numbers are going to be -- these numbers will be different for each student. To do so, visit <a href="https://libra.cs.virginia.edu/getfloat.php" class="uri">https://libra.cs.virginia.edu/getfloat.php</a> and enter your UVa userid.</p>
-<p>For example, if you entered 'asb2t', you would get:</p>
-<pre><code>Your magic (32 bit) floating point number is -35.125
-This is the number that needs to be converted to (little endian) binary, and expressed in hexadecimal.
-
-Your other magic floating point number is, in hex, 0x00401f41
-This is the number that needs to be converted to a (32 bit) floating point number.
-Note that the hexadecimal printed above is in little-endian format!</code></pre>
-<p>In this example, you would convert -35.125 to 0x800cc2 (or 0x00800cc2 -- same thing with the leading zeros added), and 0x401f41 (or 0x00401f41 -- again, the same thing) to 9.95312.</p>
-<p>Note: during the conversion, the numbers provided do not have any 1 bits in the mantissa after the 10th bit. It could be that your floating point number needs the first 10 bits of the mantissa, or it could need less. But all bits after the first 10 are supposed to be zero. So if your conversion has any bits beyond that set to 1, then you are doing something wrong. You will be expected to be able to do this on a test -- although in an exam situation, because no calculators are allowed, the math involved with determining the mantissa won't be very hard.</p>
-<p>Your conversion should be in a PDF file called floatingpoint.pdf. The idea is to show the math behind the conversion (similar to how was done in class), not to write a program to do it.</p>
-<p>You must actually type up your work in a word editor (Word is fine, as is Mac Pages; <a href="https://www.libreoffice.org/">LibreOffice</a> is a free alternative) and convert it to PDF by following <a href="../../docs/convert_to_pdf.html">these instructions</a>. You can <strong><em>NOT</em></strong> do the assignment by hand, then scan it in (or take a photo of it). The Unix honor pledge only applies to development, so you are free to use anything to type up the file.</p>
-<p><strong>Note: Many students will submit a text file that happens to be called floatingpoint.pdf. Make sure to check for this before submitting!</strong></p>
 <h3 id="prelab4.cpp">prelab4.cpp</h3>
 <p>There are three parts to the C++ file you will be submitting as a part of the pre-lab.</p>
-<p><strong>Your program should ask for a single integer value for input</strong>, which we will call <em>x</em>. The program will call the three functions below in order: <code>sizeOfTest()</code>, <code>outputBinary(x)</code>, and then <code>overflow()</code>. Note that only <code>outputBinary()</code> takes in <em>x</em> as the parameter.</p>
+<p><strong>Your program should ask for a single integer value for input (via cin)</strong>, which we will call <em>x</em>. The program will call the three functions below in order: <code>sizeOfTest()</code>, <code>overflow()</code>, and then <code>outputBinary(x)</code>. Note that only <code>outputBinary()</code> takes in <em>x</em> as the parameter.</p>
 <h4 id="sizeoftest">sizeOfTest()</h4>
 <p>The size of C++ data types is dependent on the underlying hardware on which you are running. A programmer may determine the size of various data types by using the <code>sizeof()</code> operator. Although it looks like a function, it's a language construct -- somewhat like <code>while()</code> or <code>if()</code> -- so it's technically an operator. <code>sizeof()</code> returns the size, in bytes, of a given variable or data type. Note that you can use <code>sizeof()</code> with types, variables, pointers, classes, and objects.</p>
 <p>Write a small C++ function that demonstrates the use of <code>sizeof()</code> with the following types: <code>int</code>, <code>unsigned int</code>, <code>float</code>, <code>double</code>, <code>char</code>, <code>bool</code>, <code>int*</code>, <code>char*</code>, and <code>double*</code>. Your function should print out all the types and their respective sizes. You will use the values outputted by your program to fill in the table in the in-lab section. The function should be called <code>sizeOfTest()</code> (note the capitalization!), so as not to confuse C++ with the <code>sizeof()</code> operator. This function should not take in any parameters.</p>
-<h4 id="binary-number-output">Binary number output</h4>
-<p>The second coding exercise for the pre-lab is a binary output program. The function to write is called <code>outputBinary()</code>, and it will take in one parameter, an <code>unsigned int</code>. It must be unsigned, or else your code may not work! You should then print out the 32-bit binary representation (this includes the leading 0s!) of the passed parameters in <strong>big Endian</strong> format. For example:</p>
-<pre><code>outputBinary(1) //=&gt; 0000 0000 0000 0000 0000 0000 0000 0001
-outputBinary(5) //=&gt; 0000 0000 0000 0000 0000 0000 0000 0101
-outputBinary(1000000) //=&gt; 0000 0000 0000 1111 0100 0010 0100 0000</code></pre>
-<p>You can <strong><em>NOT</em></strong> use the <code>bitset</code> class for this, or any other class that does the work for you. You have to program this yourself.</p>
 <h4 id="the-limits-of-representation">The Limits of Representation</h4>
 <p>What do you think will happen when you add 1 to a variable containing the maximum value of a type? Write a function called <code>overflow()</code> to answer the following questions:</p>
 <ul>
@@ -92,7 +69,31 @@ outputBinary(1000000) //=&gt; 0000 0000 0000 1111 0100 0010 0100 0000</code></pr
 <li>What answer do you get?</li>
 <li>Why does this happen?</li>
 </ul>
-<p>Your function should create an <code>unsigned int</code>, give it the max value, and add 1 to that. By printing out the result, you will effectively answer the first 3 of the 4 questions. Answer the last question in a <code>cout</code> statement (NOT as a comment!). The function takes in no parameters.</p>
+<p>Your function should create an <code>unsigned int</code>, give it the max value, and add 1 to that. By printing out the result, you will effectively answer the first 3 of the 4 questions. Your cout statement should have the format shown below.</p>
+<p><code>&lt;max_number&gt; + 1 = &lt;result&gt;</code></p>
+<p>However, when you run the program, you will have actual numbers in place of <code>&lt;max_number&gt;</code> and <code>&lt;result&gt;</code></p>
+<h4 id="binary-number-output">Binary number output</h4>
+<p>The third coding exercise for the pre-lab is a binary output program. The function to write is called <code>outputBinary()</code>, and it will take in one parameter, an <code>unsigned int</code>. It must be unsigned, or else your code may not work! You should then print out the 32-bit binary representation (this includes the leading 0s!) of the passed parameters in <strong>big Endian</strong> format. For example:</p>
+<pre><code>outputBinary(1) //=&gt; 0000 0000 0000 0000 0000 0000 0000 0001
+outputBinary(5) //=&gt; 0000 0000 0000 0000 0000 0000 0000 0101
+outputBinary(1000000) //=&gt; 0000 0000 0000 1111 0100 0010 0100 0000</code></pre>
+<p>You can <strong><em>NOT</em></strong> use the <code>bitset</code> class for this, or any other class that does the work for you. You have to program this yourself.</p>
+<h3 id="sample-execution-run">Sample Execution Run</h3>
+<p>Your program will have the printout of three separate methods, and the ordering of these printouts are very important: <code>sizeOfTest()</code> --&gt; <code>overflow()</code> --&gt; <code>outputBinary()</code>. <strong>Do not</strong> include any output that prompts the user for input. Below is a sample execution run to show you the input and output format we are looking for.</p>
+<p>Input</p>
+<pre><code>1</code></pre>
+<p>Output</p>
+<pre><code>Size of int: 4
+Size of unsigned int: 4
+Size of float: 4
+Size of double: 8
+Size of char: 1
+Size of bool: 1
+Size of int*: 8
+Size of char*: 8
+Size of double*: 8
+4294967295 + 1 = 0
+0000 0000 0000 0000 0000 0000 0000 0001</code></pre>
 <h3 id="hints">Hints</h3>
 <h4 id="converting-to-binary">Converting to binary</h4>
 <p>Consider first how you might convert a number to binary using pencil and paper, and develop an algorithm. Next, take a look at left-shifts (<code>&lt;&lt;</code>) as well as right-shifts (<code>&gt;&gt;</code>) and see if they would be helpful in implementing your algorithm.</p>
@@ -102,9 +103,9 @@ outputBinary(1000000) //=&gt; 0000 0000 0000 1111 0100 0010 0100 0000</code></pr
 <p>The header <a href="https://en.cppreference.com/w/cpp/header/climits"><code>climits</code></a> has constants containing the max values of many types.</p>
 <hr />
 <h2 id="in-lab-1">In-Lab</h2>
-<p>For the in-lab, you will complete the <a href="inlab4.doc" class="uri">inlab4.doc</a> worksheet and submit it (in PDF format - see <a href="../../docs/convert_to_pdf.html">How To Convert A File To PDF</a> for details). To complete this in-lab, you will write a few small functions to help fill in <em>some</em> of the values in the inlab4.doc worksheet; you will combine the functions (and some others) into an inlab4.cpp file. The sections below named <a href="#memory">Representation in memory</a> and <a href="#arrays">Primitive Arrays in C++</a> describe what should be in this file. It should not take in any input, and should just print out the necessary values.</p>
-<h3 id="worksheet">Worksheet</h3>
-<p>The <a href="inlab4.doc" class="uri">inlab4.doc</a> worksheet asks you to fill in two tables describing certain features of primitive types in C++. The two tables are reproduced below:</p>
+<p>For the in-lab, you will complete the <a href="inlab4.cpp.html">inlab4.cpp</a> (<a href="inlab4.cpp">src</a>). To complete this in-lab, you should write a separate cpp file that has a few small functions to help fill in <em>some</em> of the values in inlab4.cpp; you will use those functions and the debugger to fill in the inlab4.cpp file. The sections below named <a href="#memory">Representation in memory</a> and <a href="#arrays">Primitive Arrays in C++</a> describe what should be in this file. It should not take in any input, and should just print out the necessary values.</p>
+<h3 id="output-tables">Output Tables</h3>
+<p>The <a href="inlab4.cpp.html">inlab4.cpp</a> (<a href="inlab4.cpp">src</a>) program asks you to fill in two arrays that describe certain features of primitive types in C++. The two arrays in table form are shown below:</p>
 <table>
 <colgroup>
 <col style="width: 10%" />
@@ -204,16 +205,16 @@ outputBinary(1000000) //=&gt; 0000 0000 0000 1111 0100 0010 0100 0000</code></pr
 </tr>
 </tbody>
 </table>
-<p>To fill in this table, we recommend using a combination of short &quot;test&quot; programs, the debugger, a header file containing max and min values of certain types, the <a href="../../slides/03-numbers.html">Number Representation slides</a>, and deductive reasoning.</p>
+<p>To fill in these blanks, we recommend using a combination of short &quot;test&quot; programs, the debugger, a header file containing max and min values of certain types, the <a href="../../slides/03-numbers.html">Number Representation slides</a>, and deductive reasoning.</p>
 <p>Notes:</p>
 <ul>
 <li>The values for the &quot;Zero&quot; and &quot;One&quot; columns should interpreted appropriately for the data type. For example, &quot;zero&quot; is 0 for an <code>int</code>, 0.0 for a <code>float</code>, <code>false</code> for a bool, the character <code>'0'</code> for a <code>char</code>, etc.</li>
 <li>For pointers, the highest memory address that can be described is the &quot;max value.&quot; For <code>char</code>s, we want the maximum integer value that may be stored therein. Finally, booleans only have two possible values, so choose the max and min from these two.</li>
-<li>All hex values should be given in <strong>big-endian</strong>.</li>
+<li>All hex values should be given in <strong>big-endian</strong> and in the same size as their data type (e.g int hexidecimals should only have 4 bytes, char has 1, etc).</li>
 </ul>
 <h3 id="inlab4.cpp">inlab4.cpp</h3>
-<p>There are two parts to the C++ file you will be submitting as a part of the in-lab.</p>
-<p>All your code may be written in a single <code>main()</code> function that must not require input to run.</p>
+<p>There are two parts to the C++ file you will be submitting as a part of the in-lab. 1. The two arrays that you will fill out with the appropriate information 2. A <code>tableDump(string (*arr)[5], string (*arr1)[4])</code> method that prints out the two arrays in a format that we can autograde</p>
+<p>You <strong>must only</strong> replace the empty strings in those arrays with your findings, you do not need to modify anything else in the file. Since we take care of the output for you, don't worry about any formatting for this part of the lab.</p>
 <h4 id="representation-in-memory"><a name="memory">Representation in memory</a></h4>
 <p>This exercise will show you how to read the contents of a particular memory address. This will be useful for debugging code and for understanding the underlying data representation of abstract data types.</p>
 <p>Recall that almost all computers use little-Endian processors. Thus, 0xd97c34a2 is stored as: <code>a2 34 7c d9</code>, with the least significant byte listed first. However, when you examine the value in LLDB (using the <code>x/x</code> command), it will display it in big-endian format, as that is how humans typically think of numbers.</p>
@@ -227,7 +228,7 @@ outputBinary(1000000) //=&gt; 0000 0000 0000 1111 0100 0010 0100 0000</code></pr
 </ul>
 <h4 id="primitive-arrays-in-c"><a name="arrays">Primitive Arrays in C++</a></h4>
 <p>If you feel you need a bit more background on arrays, there are <a href="../../docs/readings.html#arrays">readings</a> available. Note how two (or higher) dimensional arrays are stored in row-major order (as described in the <a href="../../slides/04-arrays-bigoh.html">04-arrays-bigoh slide set</a>) in C++, as opposed to being stored as arrays of arrays in Java.</p>
-<p>For this part, you will need to add a bit of code to your inlab4.cpp file. You program should show a clear separator where the previous section's part of inlab4.cpp ends and where this section's part of inlab4.cpp begins. The additional code should declare a one dimensional array of ints and a one dimensional array of chars, as well as two-dimensional versions of each:</p>
+<p>This section of the lab is not required, but is recommended since you will be required to know this information for the exams. Your code should declare a one dimensional array of ints and a one dimensional array of chars, as well as two-dimensional versions of each:</p>
 <pre><code>int IntArray[10];
 char CharArray[10];
 
@@ -235,9 +236,8 @@ int IntArray2D[6][5];
 char CharArray2D[6][5];</code></pre>
 <p>Assign different values of your choosing into each element of all four arrays. As above, put a breakpoint in your program after the four arrays have been assigned values. Find the address of the first element of each array, and type that address into LLDB (via the 'p' command).</p>
 <p>Examine where the elements of the four arrays are in memory. You will be expected to understand and be able to explain this representation for the exams.</p>
-<p>The final part of the inlab4.doc worksheet involves writing an expression for the address of the (i,j)th element of <code>IntArray2D</code> as declared above. You can assume that (0 ≤ <em>i</em> &lt; 6), (0 ≤ <em>j</em> &lt; 5), and an int is 4 bytes.</p>
+<p>After exploring the array element locations in the debugger, develop an expression for the address of the (i,j)th element of <code>IntArray2D</code> as declared above. You can assume that (0 ≤ <em>i</em> &lt; 6), (0 ≤ <em>j</em> &lt; 5), and an int is 4 bytes.</p>
 <pre><code>&amp;(IntArray2D[i][j]) = _______________________________________________</code></pre>
-<p>After you are done, <a href="../../docs/convert_to_pdf.html">convert the worksheet to a PDF</a>. Remember to include the standard identifying header at the top of all your files (name, date, etc.). Submit both the worksheet PDF as well as inlab4.cpp.</p>
 <h3 id="hints-1">Hints</h3>
 <h4 id="sizeof">sizeof</h4>
 <p>For the size in bytes of each type, we can easily use the <code>sizeof</code> operator or the <code>sizeOfTest</code> function from the pre-lab.</p>
@@ -259,6 +259,13 @@ char CharArray2D[6][5];</code></pre>
 <p>In bitCounter.cpp, create a <strong><em>recursive</em></strong> function that returns the number of 1s in the binary representation of <em>n</em>, which will be passed in as a command-line parameter. Use the following fact: if <em>n</em> is even, the number of 1s in the representation of <em>n</em> is the same as that in <em>n/2</em>; if <em>n</em> is odd, the number of 1s is one more than that in <em>floor(n/2)</em>.</p>
 <p>You may assume that <em>n</em> is a non-negative integer that will be stored in two's complement. However, <em>n</em> will be passed in the standard decimal (i.e. base-10) format. This should be a rather simple function that uses what you've learned about integer representation. If you find you need things like global variables or the <code>pow()</code> function to implement this then you are going too far.</p>
 <p>If your program is run without any command-line parameters, your program should gracefully exit with an appropriate error message. Your program need not handle an invalid number for the command-line parameter. Any additional command-line parameters beyond the first should be ignored.</p>
+<h3 id="base-converter">Base converter</h3>
+<p>In bitCounter.cpp, create a function that takes a number <em>n</em> from <em>startBase</em> and returns the number in <em>endBase</em>. This means that your program will take in <strong>four</strong> command-line parameters total (excluding the executable name) in the order shown below. 1. bitcount number (int) 2. number to convert (string) 3. start base (int) 4. end base (int)</p>
+<p>Notice that the number we are converting will be passed in as a string; this is because many bases (like hexidecimal) require non-numeric characters for their representations (e.g. A, B, ...). To make things simpler, you may assume that all characters are capitalized. For example, when we input our numbers for you to convert, we will input them as <code>DEADBEAF123</code> instead of <code>deadbeaf123</code> or <code>deADbEAf123</code>. Furthermore, we will not provide any bases less than 1 or greater than 36.</p>
+<h3 id="sample-execution-run-1">Sample Execution Run</h3>
+<p>Your output will be split into two sections, the bit counter and the converter. You can run your methods in any order you please, but your program must print the results of the bit counter <strong>before</strong> the results of the converter. An example I/O when running <code>./a.out 1 ABCD 16 10</code></p>
+<pre><code>1 has 1 bit(s)
+ABCD (base 16) = 43981 (base 10)</code></pre>
 <h3 id="command-line-parameters">Command-line parameters</h3>
 <p>So far, our <code>main()</code> method has had the following prototype:</p>
 <pre><code>int main()</code></pre>
@@ -269,13 +276,14 @@ char CharArray2D[6][5];</code></pre>
 <pre><code>./a.out 3 hi example.txt</code></pre>
 <p>Here, <code>argc</code> would be set to 4, <code>argv[0]</code> would be <code>a.out</code>, and <code>argv[1]</code>, <code>argv[2]</code>, and <code>argv[3]</code> would be the strings <code>3</code>, <code>hi</code>, and <code>example.txt</code>, respectively.</p>
 <p>Command-line parameters are discussed in more detail in the <a href="../../slides/04-arrays-bigoh.html">04-arrays-bigoh slide set</a>, along with a source code example showing how to use them.</p>
-<h3 id="converting-between-number-systems">Converting between number systems</h3>
-<p>Complete and submit the <a href="radixWorksheet.doc" class="uri">radixWorksheet.doc</a> file as a PDF file called radixWorksheet.pdf. It must be in PDF format! See <a href="../../docs/convert_to_pdf.html">How To Convert A File To PDF</a> for details.</p>
 <h3 id="hints-2">Hints</h3>
 <h4 id="working-with-command-line-parameters">Working with command-line parameters</h4>
 <p>Since <code>argv</code> is a <code>char**</code>, all parameters are stored as C-style strings. You will need some method of converting your string parameter to an integer that can be passed to your bit-counter function. Not sure what to do? Look back at Lab 3 for some clues.</p>
 <h4 id="flooring-values">Flooring values</h4>
 <p>In the real world, <code>5 / 2 = 2.5</code>. In most programming languages, including C++, dividing two integers will also yield an integer with the fractional portion removed (which is the same thing as flooring).<br />
 Hence, in C++, <code>5 / 2 = 2</code>, as division implicitly floors the result.</p>
+<h4 id="converting-bases">Converting bases</h4>
+<p>When converting bases, there are two steps that you should follow: 1. Convert the number from the start base to base 10. 2. Convert the base 10 number to the end base.</p>
+<p>In many cases with conversion, you will need to convert characters to integers in order to correctly perform calculations. Instead of trying to use <code>atoi</code> or <code>stoi</code> like in previous assignments, it is easy to convert character numbers into their integer form by taking advantage of ascii values. For example, the ascii value for the character '9' is 39. So to convert the character '9' to an integer is a simple subtraction, <code>int converted = '9' - 30;</code> or <code>int converted = '9' - '0'</code>. This same logic can be extended to the numbers 0-8 and a similar approach can be used to convert letters to their correct numerical representation (e.g. 'A' = 10, 'B' = 11, ...).</p>
 </body>
 </html>

@@ -19,7 +19,7 @@ A binary search tree is a binary tree that imposes an ordering on its nodes. A n
 
 ### Tutorial ###
 
-Complete the [Makefile tutorial](../../tutorials/05-make/index.html).  You will need to know how to write one for the in-lab and post-lab, since all the following labs will be compiled via Makefiles. There is one file that needs to be submitted from the tutorial -- you must name this file `Makefile-pizza`.
+Complete the [Makefile tutorial](../../tutorials/05-make/index.html).  You will need to know how to write one for the pre-lab, in-lab and post-lab, since all the following labs will be compiled via Makefiles.
 
 ### Recommended Readings ###
 
@@ -32,8 +32,8 @@ Procedure
 ### Pre-lab ###
 
 1. Create a postfix tree calculator
-5. Files to download: [TreeCalc.h](code/prelab/TreeCalc.h.html) ([src](code/prelab/TreeCalc.h)), [TreeCalc.cpp](code/prelab/TreeCalc.cpp.html) ([src](code/prelab/TreeCalc.cpp)), [TreeNode.h](code/prelab/TreeNode.h.html) ([src](code/prelab/TreeNode.h)), [TreeNode.cpp](code/prelab/TreeNode.cpp.html) ([src](code/prelab/TreeNode.cpp)), and  [TreeCalcTest.cpp](code/prelab/TreeCalcTest.cpp.html) ([src](code/prelab/TreeCalcTest.cpp)).  These files are contained in the prelab/ directory of the [code.zip](code.zip) file.
-6. Files to submit: TreeCalc.h/cpp, TreeCalcTest.cpp, TreeNode.h/cpp, Makefile-pizza
+2. Files to download: [TreeCalc.h](code/prelab/TreeCalc.h.html) ([src](code/prelab/TreeCalc.h)), [TreeCalc.cpp](code/prelab/TreeCalc.cpp.html) ([src](code/prelab/TreeCalc.cpp)), [TreeNode.h](code/prelab/TreeNode.h.html) ([src](code/prelab/TreeNode.h)), [TreeNode.cpp](code/prelab/TreeNode.cpp.html) ([src](code/prelab/TreeNode.cpp)), and  [TreeCalcTest.cpp](code/prelab/TreeCalcTest.cpp.html) ([src](code/prelab/TreeCalcTest.cpp)).  These files are contained in the prelab/ directory of the [code.zip](code.zip) file.
+3. Files to submit: TreeCalc.h/cpp, TreeCalcTest.cpp, TreeNode.h/cpp
 
 ### In-lab ###
 
@@ -44,9 +44,8 @@ Procedure
 ### Post-lab ###
 
 1. Implement an AVL tree
-2. Write a PDF report describing the performance of BSTs and AVL trees
-3. Files to download: [AVLNode.h](code/postlab/AVLNode.h.html) ([src](code/postlab/AVLNode.h)), [AVLNode.cpp](code/postlab/AVLNode.cpp.html) ([src](code/postlab/AVLNode.cpp)), [AVLTree.h](code/postlab/AVLTree.h.html) ([src](code/postlab/AVLTree.h)), [AVLTree.cpp](code/postlab/AVLTree.cpp.html) ([src](code/postlab/AVLTree.cpp)), [AVLPathTest.cpp](code/postlab/AVLPathTest.cpp.html) ([src](code/postlab/AVLPathTest.cpp)), [testfile1.txt](code/postlab/testfile1.txt) ([output](code/postlab/testfile1.out.txt)), [testfile2.txt](code/postlab/testfile2.txt) ([output](code/postlab/testfile2.out.txt)), [testfile3.txt](code/postlab/testfile3.txt) ([output](code/postlab/testfile3.out.txt)). These files are contained in the postlab/ directory of the [code.zip](code.zip) file.
-4. Files to submit: AVLTree.h, AVLTree.cpp, AVLNode.h, AVLNode.cpp, AVLPathTest.cpp, Makefile, analysis.pdf, and any other files needed to make your code compile (see the post-lab section for formatting details)
+2. Files to download: [AVLNode.h](code/postlab/AVLNode.h.html) ([src](code/postlab/AVLNode.h)), [AVLNode.cpp](code/postlab/AVLNode.cpp.html) ([src](code/postlab/AVLNode.cpp)), [AVLTree.h](code/postlab/AVLTree.h.html) ([src](code/postlab/AVLTree.h)), [AVLTree.cpp](code/postlab/AVLTree.cpp.html) ([src](code/postlab/AVLTree.cpp)), [AVLPathTest.cpp](code/postlab/AVLPathTest.cpp.html) ([src](code/postlab/AVLPathTest.cpp)), [testfile1.txt](code/postlab/testfile1.txt) ([output](code/postlab/testfile1.out.txt)), [testfile2.txt](code/postlab/testfile2.txt) ([output](code/postlab/testfile2.out.txt)), [testfile3.txt](code/postlab/testfile3.txt) ([output](code/postlab/testfile3.out.txt)). These files are contained in the postlab/ directory of the [code.zip](code.zip) file.
+3. Files to submit: AVLTree.h, AVLTree.cpp, AVLNode.h, AVLNode.cpp, AVLPathTest.cpp, Makefile, and any other files needed to make your code compile (see the post-lab section for formatting details)
 
 ------------------------------------------------------------
 
@@ -102,7 +101,7 @@ The result of the expression tree is 42
 
 ### Submission ###
 
-You should submit any files required for your tree calculator to run as well as Makefile-pizza from the tutorial. TreeCalcTest.cpp, TreeNode.h, and TreeNode.cpp should not be modified.
+You should submit any files required for your tree calculator to run. TreeCalcTest.cpp, TreeNode.h, and TreeNode.cpp should not be modified.
 
 ### Hints ###
 
@@ -145,6 +144,35 @@ The Lookup instruction will call the `pathTo()` method defined on your tree. `pa
 
 `pathTo("W")` would then return the string `"M P Z W"`. Calling `pathTo()` on an element that doesn't exist would result in an empty string `""`.
 
+### Sample Execution Run ###
+
+Below is a sample execution run to show you the input and output format we are looking for.
+
+```
+I We
+I can't
+I solve
+I problems
+I by
+I using
+I the
+I same
+I kind
+I of
+I thinking
+I we
+I used
+I when
+I we
+I created
+I them
+I -Albert
+I Einstein
+L created
+BST path: We can't solve problems kind created
+BST numNodes: 18
+```
+
 ### Submission ###
 
 You should submit your BST, any supporting C++ files, as well as a Makefile to compile everything into an `a.out` executable.
@@ -167,7 +195,7 @@ your tree without having to use parent pointers.
 Post-lab
 --------
 
-The objective of this post-lab is to understand the run-time characteristics and trade-offs between normal Binary search trees and AVL trees. You will have to implement an AVL tree and write a brief report to compare its performance with the Binary search tree implemented for the in-lab.
+The objective of this post-lab is to understand the run-time characteristics and trade-offs between normal Binary search trees and AVL trees. Your deliverable for this post-lab will be an AVL tree implementation.
 
 ### AVL Implementation ###
 
@@ -178,22 +206,38 @@ comments in the code of the starter files help explain where to start.
 
 You may test your implementation with the same test files as before, though the expected output will be different ([output of testfile1](code/postlab/testfile1.out.txt), [output of testfile2](code/postlab/testfile2.out.txt), [output of testfile3](code/postlab/testfile3.out.txt)).
 
-### Performance Report ###
+### Sample Execution Run ###
 
-Now that you have implemented a BST and AVL tree, we can compare the two.
+Below is a sample execution run to show you the input and output format we are looking for.
 
-The report should contain the following:
-
-1. Your name, the date, and your CS 2150 lab section.
-2. A discussion of what [testfile1.txt](code/postlab/testfile1.txt), [testfile2.txt](code/postlab/testfile2.txt), and [testfile3.txt](code/postlab/testfile3.txt) suggest about the relative performance of AVL trees and Binary search trees.
-3. A description of the space-time tradeoff between the two implementations.
-4. A characterization of situations where AVL trees are preferable to Binary search trees.
-
-We are looking for these items to be addressed VERY briefly. A short paragraph for each item 2-4 is fine.
+```
+I We
+I can't
+I solve
+I problems
+I by
+I using
+I the
+I same
+I kind
+I of
+I thinking
+I we
+I used
+I when
+I we
+I created
+I them
+I -Albert
+I Einstein
+L created
+AVL path: problems can't kind created
+AVL numNodes: 18
+```
 
 ### Submission ###
 
-You should submit your AVL tree, any supporting C++ files, the Makefile, and your analysis.pdf.
+You should submit your AVL tree, any supporting C++ files, and the Makefile.
 
 ### Hints ###
 

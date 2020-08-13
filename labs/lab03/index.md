@@ -24,16 +24,15 @@ Procedure
 
 ### Pre-lab ###
 
-1. Write up at least one question that you still have on Unix (or things you are still confused about)
-2. Implement a postfix stack calculator for integers using the C++ STL stack
-3. Create a simple program to test your calculator
-4. Files to download: none
-5. Files to submit: postfixCalculator.h, postfixCalculator.cpp, testPostfixCalc.cpp, unix.questions.txt
+1. Implement a postfix stack calculator for integers using the C++ STL stack. For this prelab you are only required to implement addition and subtraction
+2. Create a simple program that takes in keyboard input to test your calculator
+3. Files to download: none
+4. Files to submit: postfixCalculator.h, postfixCalculator.cpp, testPostfixCalc.cpp
 
 ### In-lab ###
 
-1. Ensure your postfix calculator works on all the provided test cases
-2. Expand your test program to handle keyboard input
+1. Expand your test program to handle negative numbers, multiplication, division, and negation
+2. Ensure your postfix calculator works on all the provided test cases
 3. Files to download: none (just your pre-lab source code)
 4. Files to submit: postfixCalculator.h, postfixCalculator.cpp, testPostfixCalc.cpp
 
@@ -41,9 +40,8 @@ Procedure
 
 1. Implement a stack class
 2. Modify your postfix calculator to use your stack rather than the STL stack
-3. Describe any difficulties you encountered getting your code working and what you did to solve them
-4. Files to download: none (just your in-lab source code)
-5. Files to submit: stack.h, stack.cpp, postfixCalculator.h, postfixCalculator.cpp, testPostfixCalc.cpp, difficulties.txt - You may submit additional stack/list files as well, if you want
+3. Files to download: none (just your in-lab source code)
+4. Files to submit: stack.h, stack.cpp, postfixCalculator.h, postfixCalculator.cpp, testPostfixCalc.cpp - You may submit additional stack/list files as well, if you want
 
 ------------------------------------------------------------
 
@@ -63,8 +61,8 @@ In this lab, you will:
 
 The various parts of this lab develop the entire program:
 
-- The pre-lab develops the calculator itself, without dealing with user input or the stack class
-- The in-lab develops the user input routines
+- The pre-lab develops the calculator with only addition and subtraction, and also deals with user input (excluding negative numbers)
+- The in-lab adds multiplication, division, and negation to the calculator, and also handles negative numbers from user input
 - The post-lab develops the stack class that your calculator uses
 
 Note that the program should be able to fully run after each lab portion.
@@ -99,11 +97,11 @@ We will be using the C++ STL stack to implement our postfix calculator.  The sta
 
 Your calculator must implement the following arithmetic operations:
 
-- `+`: addition
-- `-`: subtraction
-- `*`: multiplication
-- `/`: division
-- `~`: unary negation
+- `+`: addition (prelab)
+- `-`: subtraction (prelab)
+- `*`: multiplication (inlab)
+- `/`: division (inlab)
+- `~`: unary negation (inlab)
 
 Notes:
 
@@ -112,65 +110,7 @@ Notes:
 
 ### Input ###
 
-For this part of the lab, you will not deal with keyboard input (that's in the in-lab) -- thus, your submitted program will always compute the exact same value each time it is run.  You will need to hard-code your postfix expressions into the `main()` method. Make sure your tests in main demonstrate the functionality of all operators!
-
-A sample `main()` function that might work is as follows -- this should be modified for your particular situation (i.e. how you declare your class, your method names, etc.).  This `main()` function uses the first sample input given at the very end of this document.
-
-```
-int main() {
-    PostfixCalculator p;
-    p.pushNum(1);
-    p.pushNum(2);
-    p.pushNum(3);
-    p.pushNum(4);
-    p.pushNum(5);
-    p.add();
-    p.add();
-    p.add();
-    p.add();
-    cout << "Result is: " << p.getTopValue() << endl;
-    return 0;
-}
-```
-
-Keep in mind that you can type up a few of the blocks, and comment them out with the `/* ... */` comment syntax that you are familiar with from Java -- this will allow you to easily switch between the different hard-coded input test cases.
-
-### Hints ###
-
-In the past, students have run into a few problems with this lab.  We list them here in an effort to prevent these particular problems from being encountered again.
-
-#### Templates ####
-The C++ `stack` class is templated,
-which means it can hold whatever type you specify (think back to ArrayLists in Java).
-Since we will be using `int`s for our postfix calculator,
-we can specify that by saying `stack<int>` when declaring our stack.
-
-#### Checking if the stack is empty ####
-Given that you will need to check if the stack is empty before every `top` and `pop` call,
-it may be worth it to add helper methods to your postfix calculator that, when called,
-will perform the necessary checks before top/pop.
-
-#### Compiling ####
-When compiling your code, remember to compile ALL of your cpp files in the compile command:
-```
-clang++ postfixCalculator.cpp testPostfixCalc.cpp
-```
-
-You can also use `clang++ *.cpp` if there are no other C++ files in your directory.
-
-
-------------------------------------------------------------
-
-In-lab
-------
-
-The purpose of the in-lab is first to ensure that your pre-lab code (the postfix calculator) is working properly.  Then, you will need to add keyboard input to your lab.  By the end of the in-lab, your postfix calculator should be able to read in a single line of space-delimited tokens representing a postfix expression and print out the result of the expression before exiting.
-
-### Input ###
-
-For your keyboard input, your program should read in a single line of space-delimited tokens from standard input.  You should read this in using `string`s (if you are looking at building a tokenizer, then you are making it much more difficult than it need be).  When processing input, you can't know before you read something if it will be an operand (a numeric value) or an operator (a character), so you must read in each space-separated part into a string variable before parsing it.
-
-You will need to accept both negative numbers (-5 for example) and numbers with multiple digits (34 is the number thirty-four, not the separate numbers three and four) -- and thus negative numbers with multiple digits (-34, for example).  No values, nor intermediate computational results, will exceed what can be stored in an `int`.
+For your keyboard input, your program should read in a single line of space-delimited tokens from standard input.  You should read this in using `string`s (if you are looking at building a tokenizer, then you are making it much more difficult than it need be).  When processing input, you can't know before you read something if it will be an operand (a numeric value) or an operator (a character), so you must read in each space-separated part into a string variable before parsing it. No values, nor intermediate computational results, will exceed what can be stored in an `int`.
 
 We provide you with a number of input files that match the input shown at the end of this lab document.  Recall that you can supply the contents of a file as input to your program via input redirection (as described in the Unix tutorial):
 
@@ -188,6 +128,21 @@ How should the program know when you are finished providing input?  There are a 
 As mentioned in the Unix tutorial, Control-D stands for "end of file", which lets `cin` know that there is no more input to read.
 
 ***NOTE:*** When hitting Control-D, you have to enter it *on its own line*.  This means that you first have to hit Enter, then Control-D.
+
+### Sample Execution Run ###
+
+Below is a sample execution run to show you the input and output format we are looking for.
+
+Input
+```
+1 2 + 3 -
+```
+Output
+```
+0
+```
+
+You do not need to supply any input prompting for this assignment. When the program runs, nothing should print out to the terminal and the user should be able to input a postfix expression.
 
 ### Assumptions ###
 
@@ -223,6 +178,43 @@ Hint: we can check for all the operators, since there are only five of them.  If
 cin takes in all input as strings, but we need to convert those to strings so that we can push them into the stack.
 Perhaps you should take a look at [the `string` documentation](https://en.cppreference.com/w/cpp/string/basic_string) to see if anything can help you out.
 
+#### Templates ####
+The C++ `stack` class is templated,
+which means it can hold whatever type you specify (think back to ArrayLists in Java).
+Since we will be using `int`s for our postfix calculator,
+we can specify that by saying `stack<int>` when declaring our stack.
+
+#### Checking if the stack is empty ####
+Given that you will need to check if the stack is empty before every `top` and `pop` call,
+it may be worth it to add helper methods to your postfix calculator that, when called,
+will perform the necessary checks before top/pop.
+
+#### Compiling ####
+When compiling your code, remember to compile ALL of your cpp files in the compile command:
+```
+clang++ postfixCalculator.cpp testPostfixCalc.cpp
+```
+
+You can also use `clang++ *.cpp` if there are no other C++ files in your directory.
+
+------------------------------------------------------------
+
+In-lab
+------
+
+The purpose of the in-lab is first to ensure that your pre-lab code (the postfix calculator) is working properly.  Then, you will need to handle negative integer inputs and add the remaining three operators: multiplication, division, negation.  By the end of the in-lab, your postfix calculator should be able to read in a single line of space-delimited tokens representing a postfix expression and print out the result of the expression before exiting.
+
+### Input ###
+
+The core functionality of user input should be completed in the pre-lab. For this section, you must add code that allows the program to accept negative numbers (e.g -1, -10) for use with the calculator.  In addition to handling negative numbers, you must also add functionality that allows the user to enter the symbols for multiplication, division, and negation, which are respectively: `*`, `/`, `~` 
+
+### Output ###
+
+See the Sample Execution Run section of the pre-lab for specifications.
+
+### Hints ###
+By expanding the integer input to also include negative numbers, you must be careful not to accidentally parse a negative number as the subtraction operator. For example, if your code were to only check the first character of every token, then it may mistake a number like `-5` as the subtraction operator `-`. To handle this, your code should check the length of tokens and their first character in order to determine exactly what the user has just input to your calculator.
+
 ------------------------------------------------------------
 
 Post-lab
@@ -239,15 +231,9 @@ Your stack class must:
 
 You may modify and re-use your LinkedList code from Lab 2, or you may write your own code, as long as you satisfy the above requirements.
 
-You will also need to write up a difficulties.txt file which contains a paragraph describing any difficulties you encountered getting your code working and what you did to solve them.
-
 ### Submitting the stack / list files ###
 
-Depending on how you implement the stack class, you may just need the stack.h/cpp files, in addition to the three postfix calculator files (postfixCalculator.h/cpp and testPostfixCalc.cpp).  Or you may need stack.h/cpp and stacknode.h/cpp in addition to the three postfix calculator files.  Or you may want to include the six List/ListItr/ListNode files from lab 2 as well as stack.h/cpp and the three postfix calculator files.  How you do this is up to you - as long as it works, we don't really care, provided that:
-
-1. It compiles with `clang++ *.cpp`
-2. The total number of C++ files you submit is 11 or fewer (you can submit 12 files total, but you need to submit a text file called difficulties.txt as well)
-
+Depending on how you implement the stack class, you may just need the stack.h/cpp files, in addition to the three postfix calculator files (postfixCalculator.h/cpp and testPostfixCalc.cpp).  Or you may need stack.h/cpp and stacknode.h/cpp in addition to the three postfix calculator files.  Or you may want to include the six List/ListItr/ListNode files from lab 2 as well as stack.h/cpp and the three postfix calculator files.  How you do this is up to you - as long as it works, we don't really care, provided that is compiles with `clang++ *.cpp`
 
 ------------------------------------------------------------
 

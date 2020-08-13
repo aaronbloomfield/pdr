@@ -5,7 +5,7 @@ PDR: Laboratory 1: Introduction to C++
 
 ### Objective ###
 
-This is laboratory is intended to get you up to speed quickly with both C++ and Unix.
+This laboratory is intended to get you up to speed quickly with both C++ and Unix.
 
 ### Background ###
 
@@ -42,15 +42,14 @@ Procedure
 
 1. Ask the TAs if you have any questions about the pre-lab code or Unix
 2. Separate the object lifecycle code to better follow C++ conventions
-3. Investigate an example program and ask questions about it
-4. Files to download: [svtest.cpp](svtest.cpp.html) ([src](svtest.cpp)), [svutil.cpp](svutil.cpp.html) ([src](svutil.cpp)), [svutil.h](svutil.h.html) ([src](svutil.h)), and [lifecycle.cpp](lifecycle.cpp.html) ([src](lifecycle.cpp))
-5. Files to submit: lifecycle.questions.txt, vector.questions.txt, LifeCycle.cpp, LifeCycle.h, and TestLifeCycle.cpp
+3. Files to download: [svtest.cpp](svtest.cpp.html) ([src](svtest.cpp)), [svutil.cpp](svutil.cpp.html) ([src](svutil.cpp)), [svutil.h](svutil.h.html) ([src](svutil.h)), and [lifecycle.cpp](lifecycle.cpp.html) ([src](lifecycle.cpp))
+4. Files to submit: LifeCycle.cpp, LifeCycle.h, and TestLifeCycle.cpp
 
 ### Post-lab ###
 
-1. Investigate a more complicated example program and ask questions about it
-2. Files to download: [list.h](list.h.html) ([src](list.h)), [list.cpp](list.cpp.html) ([src](list.cpp))
-3. Files to submit: postlab1.question.txt
+1. Write a simple bank account class
+2. Files to download: [TestBankAccount.cpp](TestBankAccount.cpp.html) ([src](TestBankAccount.cpp))
+3. Files to submit: bankAccount.h, bankAccount.cpp, TestBankAccount.cpp
 
 ------------------------------------------------------------
 
@@ -87,12 +86,27 @@ int main () {
     return 0;
 }
 ```
+### Sample Execution Run ###
+
+In order to make autograding easier, we expect you to follow the output and output formats specified in these write-ups. If you don't follow these format specifications, your submission may not be graded correctly becase the autograder won't be able to locate your answers. Some assignments use test harnesses and provided code that take care of the output format for you, so you need to worry about handling the I/O for those.
+
+For this lab, only print out the result of your power function on the last line. **Do not** include any cout statements prompting the user for input. An example I/O for your program is shown below.
+
+Input
+```
+2
+3
+```
+Output
+```
+8
+```
 
 Lastly, take a look at the object life-cycle code ([lifecycle.cpp](lifecycle.cpp.html) ([src](lifecycle.cpp))).  Use it as a mechanism for understanding how various aspects of C++ work and try stepping through it by hand.  Use the [readings](../../docs/readings.html), the web, and any other C++ references to help you look up parts of the program you do not understand.
 
 ### Assignment submission ###
 
-All assignments will be submitted through our custom submission tool which can be accessed through Collab's Course Tools link or directly at [https://libra.cs.virginia.edu/~pedagogy](https://libra.cs.virginia.edu/~pedagogy).
+All assignments will be submitted through the CS2150 class page on gradescope, which can be found [here](https://www.gradescope.com/courses/138861).
 
 Every file submitted, including text files, should include your name, email ID, the date, and the name of the file in a header comment at the beginning of the file.
 
@@ -141,7 +155,6 @@ The purpose of the labs is to allow you to work through the lab activity, and if
      - There are 3 files on this repo that demonstrate the use of multi-file programs and the use of the vector collection class in C++: [svtest.cpp](svtest.cpp.html) ([src](svtest.cpp)), [svutil.cpp](svutil.cpp.html) ([src](svutil.cpp)), and [svutil.h](svutil.h.html) ([src](svutil.h)).  The class in those files is similar to the ArrayList class in the Java standard library (or Java's own Vector class).  Compile the program in Unix and run it.  The command `clang++ svutil.cpp svtest.cpp` will compile the program.
      - Comment out the `#include <iostream>` preprocessor directive in the file svtest.cpp, and then rebuild the program.  Was there an error?
      - Now undo what you did in the previous step, but now comment out the `using namespace std;` in svutil.h, and rebuild the program. Was there an error?  What objects are now undeclared and why?
-     - Write at least one question about something in this program.  This question might be about something that you don't understand completely. Write your questions in a file named vector.questions.txt.
 
 ### Capitalization ###
 
@@ -162,26 +175,25 @@ Does your program not compile?  Here are a few things to try -- these are proble
 Post-lab
 --------
 
-Complete the exercise below, and submit the text file described there to the submission system.
+Your task for this postlab is to create a bank account class using C++. To begin, download [TestBankAccount.cpp](TestBankAccount.cpp.html) ([src](TestBankAccount.cpp)), then create two files, `bankAccount.cpp` and `bankAccount.h`.
 
-### Linked List Template code ###
+#### bankAccount.h ####
 
-Download the two linked list files ([list.h](list.h.html) ([src](list.h)) and [list.cpp](list.cpp.html) ([src](list.cpp))). Compile and run the program. The compile command is `clang++ list.cpp`.  If you try to compile the list.h file, it won't work correctly.
+bankAccount.h will contain the **headers** of the methods that will be implemented in bankAccount.cpp. We normally include in .h files just the declarations (i.e., prototypes) of classes, constants, function, etc., but not definitions of C++ methods (i.e. the bodies of the methods). However, when implementing template classes, this is something that is necessary to make the class compile successfully.
 
-Look at list.h, which is #include'd from list.cpp -- it contains the **bodies** of the methods, which is not the way that it is usually done (the bodies are typically in the .cpp file only).  We normally only include in .h files just the declarations (i.e., prototypes) of classes, constants, function, etc., but not definitions of C++ methods (i.e. the bodies of the methods). However, when implementing template classes, this is something that is necessary to make the class compile successfully.
+Your bank account class will have the following methods and fields that you will need to implement:
+- `bankAccount();` -- A default constructor that will be called when a program creates a bankAccount object. This constructor should set the bankAccount balance to $0.00;
+- `bankAccount(double amount);` -- A constructor that will be called when a program creates a bankAccount object with an initial balance.
+- `~balance();` -- A destructor that will be called when a an object is deleted from program memory. You must have this in your .h and .cpp file, but you can leave the implementation empty
+- `double withdraw(double amount);` -- A method that withdraws the specified amount of money from your bank account. The method will return the new amount in the bank account after the withdraw goes through. If the withdraw amount is too high, don't withdraw any amount and return the current balance in the account. You can assume that `amount >= 0`. 
+- `double deposit(double amount);` -- A method that deposits the specified amount of money from your bank account. The method will return the new amount in the bank account after the deposit goes through. You can assume that `amount >= 0`. 
+- `double getBalance()` -- A method that will return the balance currently in the bank account. 
+- `double balance;` -- A private **variable** that will hold the amount of money in the bank account.
 
-Look more closely at list.cpp. The line:
+#### bankAccount.cpp ####
 
-```
-List<int> *l = new List<int>();
-```
+bankAccount.cpp will contain the **bodies** of the methods that were declared in bankAccount.h. In order to do so, you must `#include "bankAccount.h"` in order to gain access to the method headers.
 
-declares (a pointer to) a List of integers, called `l`. A similar line, but with a different type, would create a list of something else.  For example, consider the following line:
+Complete the code in `bankAccount.h` and `bankAccount.cpp`, then test your code with test harness provided in `TestBankAccount.cpp`.
 
-```
-List<char> list2;
-```
-
-This declares a (non-pointer) list of characters (this is not in the list.cpp file, by the way).  Now all the methods in the List class will be available to both `l` and `list2`.
-
-Write at least one question about something in this program.  Put your question(s) in a text file called "postlab1.question.txt" and submit this to the submission system to the post-lab 1 assignment.
+You can compile your bank account with `clang++ bankAccount.cpp TestBankAccount.cpp`.  If you try to compile the bankAccount.h file, it won't work correctly.
