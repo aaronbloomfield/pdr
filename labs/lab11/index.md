@@ -5,17 +5,7 @@ PDR: Laboratory 11: Graphs
 
 ### Objective ###
 
-To become familiar with representing directed acyclic graphs (DAGs), topological sorting, and the traveling salesperson problem.
-
-<h3 style="color:red"><b>Changes for the spring 2020 semester</b></h3>
-
-<p style="color:red">Due to this course being <a href="../../uva/online.html">taught online</a> (<a href="../../uva/online.md">md</a>) in the spring of 2020, we are making the following changes for this semester, in an effort to make the workload more manageable since we are all working from home.</p>
-
-<ul style="color:red">
-<li>Pre-lab: no change to the pre-lab; it's still the topological sort.  However, since there is no in-lab this week, and because the pre-labs are due Wednesday mornings, you can continue to work on the topological sort during labs on Tuesday.</li>
-<li>In-lab: nothing to submit. However, the in-lab work (i.e., the traveling salesperson) is to be submitted for the post-lab.  Thus, there is nothing to submit for the in-lab and it will not be graded this semester.</li>
-<li>Post-lab: the traveling salesperson, as described in the in-lab section, is to be done for the post-lab.</li>
-</ul>
+To become familiar with representing graphs in general, directed acyclic graphs (DAGs), topological sorting, traveling salesperson problem, and other related algorithms.
 
 
 ### Background ###
@@ -68,7 +58,7 @@ Pre-lab
 For this lab, any code you submit must be properly documented using doxygen.\
 This includes the [middleearth.h](middleearth.h.html) ([src](middleearth.h)) and [middleearth.cpp](middleearth.cpp.html) ([src](middleearth.cpp)) files, which you should understand and document as part of the pre-lab.
 
-There are many doxygen commands, and we expect for you to use more than just those that were provided in the tutorial.
+There are many doxygen commands, and we expect for you to use more than just those that were provided in the tutorial. **Specifically, the grader will look that you've incorporated at least two additional doxygen tags that are NOT in the tutorial.**
 
 ### Topological sort ###
 
@@ -145,7 +135,7 @@ cs1110 cs2102
 0 0
 ```
 
-Output:
+Output (*NOTE: This one comes first lexicographically*):
 
 ```
 cs1110 cs2102 cs2110 cs2150 cs3330 cs4414
@@ -268,21 +258,32 @@ Your Makefile should have **only one** target, which you can name anything you w
 Post-lab
 --------
 
-Consider the [Sliding 8-Puzzle](https://en.wikipedia.org/wiki/15_puzzle) game, depicted in the image below.
+Consider the [Sliding 8-Puzzle](https://en.wikipedia.org/wiki/15_puzzle) game, depicted in the image below. If you'd like, you can play the puzzle [HERE](http://www.artbylogic.com/puzzles/numSlider/numberShuffle.htm?rows=3&cols=3&sqr=1) to get a better sense for how the game works.
 
 ![8-puzzle](8Puzzle.png)
 
-In this 3x3 grid of numbers, the goal is to move the empty square through adjacent grid cells until the end game state is reached. As can be seen above, our end game state is a sorted board. The hole in the board can move in any direction, but cannot "wrap around" from one side to the other (or from top to bottom, etc.).
+In this 3x3 grid of numbers, the goal is to slide numbers into the empty square until the end game state is reached. As can be seen above, our end game state is a sorted board. The hole in the board can move in any direction, but cannot "wrap around" from one side to the other (or from top to bottom, etc.).
 
 Your task for this lab is to implement a solution to the 8 puzzle problem described above: given an input board, find the minimum number of moves required to reach the end state, or if it is impossible to reach it.
 
 ### Storing the Puzzle ###
 
-The simplest way to store the puzzle would be with either a 1D or 2D array, where the hole is represented by a 0 (zero). Then, if you wanted to move the hole around the "board", you would simply swap its position in the array with an adjacent tile.
+The simplest way to store the puzzle would be with either a 1D or 2D array, where the hole is represented by a 0 (zero). Then, if you wanted to move the hole around the "board", you would simply swap its position in the array with an adjacent tile. Consider making an object (or struct) that stores a single configuration of the board.
+
+### Solving the Puzzle ###
+
+Once you have an object for storing a single configuration of the puzzle, you can start thinking about this as a graph problem. Consider each unique configuration (one instance of your object) to be a node in the graph. There exists an edge between two configurations in the graph if you can reach configuration *B* from configuration *A* by only sliding one tile. 
+
+Once you have represented this problem as a start state (input that is given to you) and goal state (the final solved puzzle) with edges (moves) in between, you can solve this problem by finding the **shortest path** between the start state and the solved state. Use one of the algorithms from class to find the shortest path. You should probably choose **breadth-first search**...you can use *Dijkstra's Algorithm*, but because edge weights are all *1* here, it is pointless to add the extra complexity.
+
 
 ### Testing for Solvability ###
 
-There is an easy way to check if an 8-puzzle is solvable or not by using inversions. An inversion is a pair of tiles that are in reverse order to their appearance in the goal state. If an 8-puzzle has an **even** number of inversions, then the puzzle is **solvable**. If an 8-puzzle has an **odd** number of inversions, then the puzzle is **unsolvable**.  For example, the following 8-puzzle has 3 inversions, and is thus impossible to solve.
+If your search algorithm goes through all configurations of the possible without ever reaching the goal state, than that starting configuration is impossible to solve.
+
+There is an easy way to check if an 8-puzzle is solvable or not by using inversions. An inversion is a pair of tiles that are in reverse order to their appearance in the goal state. If an 8-puzzle has an **even** number of inversions, then the puzzle is **solvable**. If an 8-puzzle has an **odd** number of inversions, then the puzzle is **unsolvable**.  For example, the following 8-puzzle has 3 inversions, and is thus impossible to solve. You can watch [this video](https://www.youtube.com/watch?v=YI1WqYKHi78) for a slightly more detailed description if you are interested.
+
+Another, but less elegant, way of testing for impossibility
 
 ```
 2 1 3
@@ -330,9 +331,22 @@ You should submit any files required for your 8 puzzle solver to run as well as 
 There are a lot of steps to this lab, and it is important to partition the work and only focus on one component at a time. Start out by working on how you will represent a puzzle: as a class, an array with helper methods, etc. Once you can read in a puzzle and manipulate it at will, you are ready to move on to the actual solving portion of the lab.
 
 #### Too Many Permutations! Which Ones Should I Look at First? ####
-To solve this problem, you will need to implement a type of [best-first search](https://en.wikipedia.org/wiki/Best-first_search) algorithm called an [A\* search](https://en.wikipedia.org/wiki/A*_search_algorithm). With this type of algorithm, you give a score to each permutation or "node" of the graph, and you traverse the nodes that have the best score. 
+There aren't **that** many permutations of this puzzle (there are 9! = 362,880). However, it is beneficial to only create / store the nodes that you are actually using as you go. For example: suppose I have the following starting grid:
 
-In your solution, we recommend using a scoring system that is broken into the following two components:
-- The distance from your starting board to the next board your program will choose to look at. This is also a count of how many total moves you had to make to get to this specific board.
-- A heuristic function that **estimates** the number of moves it would take that board to reach the end state. This means that you should come up with a function that can estimate how many moves away any given board is from being solved. In order for your solver to work correctly, meaning it is guarenteed to find a minimal solution, this function **must** never overestimate the number of moves to reach the goal state. This property is known as [admissibility](https://en.wikipedia.org/wiki/Admissible_heuristic).
-	- For this assignment, we recommend that you base this heuristic off [manhattan distance](https://en.wikipedia.org/wiki/Manhattan_distance).
+```
+2 1 0
+4 3 5
+8 6 7
+```
+
+When the code begins, this will be the **only** node in the graph. As I begin my breadth-first search, we can generate neighboring nodes on the fly. For example, when I do the next step of search, I can call a method called *generateNeighbors()*, that given the node above as input, returns the following states that can be reached by a single move (sliding the 1 to the right or sliding the 5 up):
+
+```
+2 0 1		2 1 5
+4 3 5		4 3 0
+8 6 7		8 6 7
+```
+
+Now, my graph has 3 total nodes. As I continue my search, I can do the following: for a given node I'm searching, generate the neighbors of that node, check if the neighbor has already been search (a hash table is useful here). If the neighbor has already been searched, discard it (don't want to duplicate work over and over). If it has not been seen, add it to my BFS queue and continue.
+
+Good luck!!

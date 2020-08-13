@@ -84,7 +84,7 @@ fffe
 
 ### array.ibcm ###
 
-Write another IBCM program that reads in an array and prints its elements forwards and backwards.
+Write another IBCM program that reads in an array and prints its elements forwards and backwards. Your program will first be given the **array size** *n* as input. The next *n* lines of input will contain the contents of the array.
 
 - The array base address is hard-coded into memory, meaning it's a pre-set value that isn't obtained by user input.  We will be inputting arrays of many different sizes into your program, so make sure you carefully choose where to store your array in memory. 
 - Before your program halts, it should print out the array both forwards and backwards. 
@@ -97,6 +97,8 @@ Below is a sample execution run to show you the output we are looking for. The o
 
 ```
 # input
+# First input is size of the array (3)
+# Next inputs are the array contents (1,2,3)
 3
 1
 2
@@ -136,7 +138,7 @@ Beware of the following quirks of the simulator:
 
 ### Submission ###
 
-Submit addition.ibcm and array.ibcm with comments explaining your code.
+Submit addition.ibcm and array.ibcm with comments explaining your code. **Your files MUST be called addition.ibcm and array.ibcm exactly**.
 
 ### Hints ###
 
@@ -195,6 +197,8 @@ Below is a sample execution run to show you the output we are looking for. The o
 
 ```
 # input
+# Note that we are NOT providing the array size as input
+# because it always 10. Input is the 10 array elements unsorted.
 2
 3
 4

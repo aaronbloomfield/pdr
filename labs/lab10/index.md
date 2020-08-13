@@ -9,17 +9,6 @@ PDR: Laboratory 10: Huffman Coding
 2. To implement a useful application using a variety of data structures
 3. To analyze the efficiency of your implementation
 
-<h3 style="color:red"><b>Changes for the spring 2020 semester</b></h3>
-
-<p style="color:red">Due to this course being <a href="../../uva/online.html">taught online</a> (<a href="../../uva/online.md">md</a>) in the spring of 2020, we are making the following changes for this semester, in an effort to make the workload more manageable since we are all working from home.</p>
-
-<ul style="color:red">
-<li>Pre-lab: no change to the pre-lab; it's still the encoder.  However, since there is no in-lab this week, and because the pre-labs are due Wednesday mornings, you can continue to work on the encoder during labs on Tuesday.</li>
-<li>In-lab: nothing to submit. However, the in-lab work (i.e., the decoder) is to be submitted for the post-lab.  Thus, there is nothing to submit for the in-lab and it will not be graded this semester.</li>
-<li>Post-lab: submit <b>ONLY</b> the decoder part of this lab -- so basically, submit the in-lab work to the post-lab.</li>
-</ul>
-
-
 ### Background ###
 
 In lecture we discussed Huffman coding and the construction of prefix code trees.  We have also covered a variety of data structures this semester: lists, trees, hash tables, and heaps.  Several of these may be useful for this lab.  In addition, in this lab you are required to think about the underlying representation and efficiency of these structures.
@@ -130,7 +119,7 @@ The second section is the encoded message, using the characters `0` and `1`.  Yo
 The next line is a separator, and is also a single line containing 40 dashes and no spaces.
 
 #### Section 3 ####
-The last section of the file displays the compression ratio and the cost of the Huffman tree.  This does not need to be read in by the decompression routines.  The information is required as we will be grading your submissions with these results. All floating point results must be reported to **at least** 2 decimal places. 
+The last section of the file displays several stats about the compression. You should output the total number of symbols encoded, how many unique symbols are used, the number of bits in the original and compressed files, the compression ratio to five decimal places, and the cost of the huffman tree to five decimal places. The output format should look exactly as shown below. The information is required as we will be grading your submissions with these results. All floating point results must be reported to **5 decimal places**. 
 
 The following is the Huffman file format for the example in the slide set that has the characers 'a', 'b', 'c', and 'd'.
 
@@ -154,23 +143,7 @@ The Huffman tree that this forms is the same as the one shown in [the slide set]
 
 ![](prelab-tree.png)
 
-Below is an equivalent version of the same file.  Note that the characters are not in the same order in the previous example, the whitespace for the middle part is quite different, the English explanation in the third part says the same thing but in a different format, and the particular prefix codes are different (but their lengths are the same).
-
-```
-d 11
-c 100
-b 101
-a 0
-----------------------------------------
-1           1
-10101
-0 0 0 0 1 1
-----------------------------------------
-Compression ratio: 4.31
-The Huffman tree cost: 1.85 bits per character
-```
-
-Note that your encoding does not have to exactly match -- in particular, the bits that your program uses to encode it will depend on the implementation of your heap.  So while your bits can be off, the number of bits for each character should NOT be different than the examples given.
+Note that your encoding does not have to exactly match -- in particular, the bits that your program uses to encode it will depend on the implementation of your heap.  So while your bits can be off, the number of bits for each character should **NOT** be different than the examples given. For example, in the output above, if *b* was given the prefix code *101* and *c* was given *100* (i.e., *b* and *c* have their codes swapped), then that is ok. The statistics in section 3 of the output will be the same.
 
 ### Hints ###
 
