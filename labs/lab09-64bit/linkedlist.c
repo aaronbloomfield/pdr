@@ -21,24 +21,13 @@ int isEmpty(const char* input);
 
 int main(){
 
-	// TODO: Implement your linked list here.
-	struct list_item{
-		int val;
-		struct list_item *next, *prev;
-	} list_item_t;
+	// TODO: INSTANTIATE YOUR LINKED LIST HERE.
 
-	struct list{
-		struct list_item* head, *tail;
-		unsigned int length;
-	} list_t;
 
-	// TODO: Instantiate your linked list here.
-	struct list* l = malloc(sizeof(list_t));
-	l->length = 0;
-	l->head = malloc(sizeof(list_item_t));
-	l->tail = malloc(sizeof(list_item_t));
-	l->head->next = l->tail;
-	l->tail->prev = l->head;
+
+
+	//----END----
+	
 
 	int option, val;
 	printOptions();
@@ -50,53 +39,38 @@ int main(){
 		switch(option){
 			case PUSH_FRONT:				// push onto front of list
 				// TODO: Insert code to push val onto front of linked list here.
-				node = malloc(sizeof(list_item_t));
-				node->next = l->head;
-				l->head->prev = node;
-				l->head->val = val;
-				l->head = node;
-				l->length++;
+
+
+				//----END----
 				break;
 			case PUSH_BACK: 				// push onto back of list
 				// TODO: Insert code to push val onto back of linked list here.
-				node = malloc(sizeof(list_item_t));
-				l->tail->next = node;
-				node->prev = l->tail;
-				l->tail->val = val;
-				l->tail = node;
-				l->length++;
+				
+
+				//----END----
 				break;
 			case POP_FRONT: 				// remove from front of list
 				// TODO: Insert code to remove from front of linked list here.
 				// If list is empty, do nothing.
-				if(l->length > 0){
-					node = l->head;
-					l->head = l->head->next;
-					free(node);
-					l->length--;
-				}
+
+
+				//----END----
 				break;
 			case POP_BACK:					// remove from back of list
 				// TODO: Insert code to remove from back of linked list here.
 				// If list is empty, do nothing.
-				if(l->length > 0){
-					node = l->tail;
-					l->tail = l->tail->prev;
-					free(node);
-					l->length--;
-				}
+				
+
+				//----END----
 				break;
 			case PRINT_LIST:				// print list
 				// TODO: Insert code to print list forwards here.
 				// Simply print each element separated by a space as shown below:
 				// Elements: 1 2 3 4 5 
 				printf("Elements: ");
-				node = l->head->next;
-				while(node != l->tail){
-					printf("%d ", node->val);
-					node = node->next;
-				}
-				printf("\n");
+
+
+				//----END----
 				break;
 			case HELP: 						// print menu
 				printOptions();
@@ -111,21 +85,18 @@ int main(){
 	} while(option != QUIT);
 
 	// TODO: free any memory used by your linked list here
-	struct list_item* temp;
-	struct list_item* node = l->head;
-	while (1){
-		temp = node->next;
-		free(node);
-		node = temp;
-		if(node == l->tail)
-			break;
-	}
+	
 
-	free(l->tail);
-	free(l);
+	//----END----
 
 	return 0;
 }
+
+
+
+//---------------------------------------
+//NOTE: EVERYTHING BELOW THIS LINE SHOULD NOT BE TOUCHED. IT HANDLES INPUT AND SUCH FOR YOU
+//---------------------------------------
 
 int readInput(int* val){
 	char input[BUFFER_SIZE]="";
