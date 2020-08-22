@@ -3,11 +3,6 @@ CS 2150 Teaching Assistants
 
 [Go up to the CS 2150 page](index.html) ([md](index.md))
 
-## Trent Ballard
-[![Trent Ballard](//libra.cs.virginia.edu/tas/tpb5fe.jpg)](//libra.cs.virginia.edu/tas/full/tpb5fe.jpg)
-Hey! I'm a second year studying Computer Science and pursuing a minor in Engineering Business. I am from northern Virginia and am on the club Ultimate Frisbee team here at UVA. Some fun facts about me is that I have eaten the hottest pepper in the world, am a loyal DC sports fan (sadly), and just got 20+ stitches in my right eyebrow!
-<br clear="all">
-
 ## Ramya Bhaskara
 [![Ramya Bhaskara](//libra.cs.virginia.edu/tas/rsb4zm.jpg)](//libra.cs.virginia.edu/tas/full/rsb4zm.jpg)
 I'm a second year Computer Science major and this is my first semester TAing this class! I'm really interested in data science, cooking/eating, and art. I'm also a part of SWE, A.O.E., and WiCS. I'm a TA because it can be really rewarding, and I loved CS 2150 as a student.
@@ -21,26 +16,6 @@ Hey Friends! My name is Anna Cuddeback and I'm a second year from Medford, Massa
 ## Madi Flynn
 [![Madison Flynn](//libra.cs.virginia.edu/tas/mrf7pc.jpg)](//libra.cs.virginia.edu/tas/full/mrf7pc.jpg)
 Hi, I'm a 3rd year majoring in CS in the E-School! I am interested in cybersecurity and back-end development, and I want to learn more about ML and cloud. I'm a TA for 2150 because I really like helping people (especially with code) and since I used OH a lot when I took the course, I wanted to give back a little bit.
-<br clear="all">
-
-## Aman Garg
-[![Aman Garg](//libra.cs.virginia.edu/tas/ag7vd.jpg)](//libra.cs.virginia.edu/tas/full/ag7vd.jpg)
-Hi everyone! I am currently a 4th year computer science major and I am from the NOVA area. In my free time I am usually eating, sleeping, procrastinating or some combination of the three.
-<br clear="all">
-
-## Sandy Gould
-[![Sandy Gould](//libra.cs.virginia.edu/tas/sjg5rv.jpg)](//libra.cs.virginia.edu/tas/full/sjg5rv.jpg)
-Hi everyone, my name is Sandy Gould! I am a 4th year BSCS major, and I am from Leesburg, VA. I am also involved with Women in Computing Sciences (WiCS) and CSA. If you ever want to talk to me about CS, life at UVA, or anything really I'd love to chat! A fun fact about me is that I have done four Humpback sunrise hikes and one Humpback sunset hike since coming to UVA (and I plan on doing more this year!).
-<br clear="all">
-
-## Wade Hisiro
-[![Wade Hisiro](//libra.cs.virginia.edu/tas/wsh5wb.jpg)](//libra.cs.virginia.edu/tas/full/wsh5wb.jpg)
-Hey! I'm a fourth-year majoring in Computer Engineering from Harrisburg, PA. This will be my third semester TAing CS 2150. In my free time, you can catch me rock climbing, running, or playing intramurals like football. A fun fact about me is that I have an 18-year-old cat named Oreo.
-<br clear="all">
-
-## Disha Jain
-[![Disha Jain](//libra.cs.virginia.edu/tas/dj9am.jpg)](//libra.cs.virginia.edu/tas/full/dj9am.jpg)
-Hey! I'm a 4th-year BSCS major, minoring in Entrepreneurship. I dance, sing, and read in my free time, and I'm co-captain of a Bollywood dance team! I'm also co-President of HooHacks, UVA largest annual hackathon. A fun fact about me is that I saw Jimmy Fallon, Seth Meyers, John Oliver, Jake Gyllenhaal, and the Jonas Brothers this summer! I love talking to people, so hmu if you have any questions about anything or just want to chat :)
 <br clear="all">
 
 ## Courtney Jacobs
@@ -61,11 +36,6 @@ Hey! I'm a 3rd year in the engineering school studying computer science. This is
 ## Charles Lim
 [![Charles Lim](//libra.cs.virginia.edu/tas/csl4wd.jpg)](//libra.cs.virginia.edu/tas/full/csl4wd.jpg)
 I would like to become a CS professor one day! I really enjoy leading other into understanding, and honestly, I live for those &quot;???...OHHH&quot; moments that we all have when we finally understand something we thought was impossible a second earlier! I will try my best to <em>point</em> you in the right direction!
-<br clear="all">
-
-## Winston Liu
-[![Winston Liu](//libra.cs.virginia.edu/tas/wl4ej.jpg)](//libra.cs.virginia.edu/tas/full/wl4ej.jpg)
-Hey hey! I'm from Morris Plains, New Jersey and majoring in Computer Science with a minor in Spanish. I like to stay active - I absolutely love rock climbing, and I also dabble with volleyball, badminton, soccer, basketball, hiking, running, and ballroom dancing. Need a rock-climbing partner or want to learn more about it? Look no further 😁. I'm here if you want to talk about the CS curriculum, interviews and internships, TAing, residential colleges (go Hereford!), life, or anything, really :).<p>Fun facts! I'm ambidextrous, am weirdly good at remembering computing IDs, and have walked the last 200km of the Camino de Santiago!
 <br clear="all">
 
 ## Megan Marshall
@@ -91,6 +61,61 @@ Hey! I am a third-year computer science and statistics major from Richmond, Virg
 ## John Saunders
 [![John Saunders](//libra.cs.virginia.edu/tas/js8ra.jpg)](//libra.cs.virginia.edu/tas/full/js8ra.jpg)
 Hey guys! I am a third year B.S. CS major. I love coding and problem solving which is what this class is all about. I ta for this class because I enjoyed this class and how challenging it was. It is also great because you learn so many fundamental ideas of CS. A fun fact about me is that I grew up on an Apple farm in Southern Virginia, and I used to spend my summers helping out on the farm.
+<br clear="all">
+
+## Sam Spelsberg
+[![Sam Spelsberg](//libra.cs.virginia.edu/tas/sws5sc.jpg)](//libra.cs.virginia.edu/tas/full/sws5sc.jpg)
+I am Sam Spelsberg, third year in e-school CS, with a focus in Cyber Security. 2150 is one of my favorite classes in the CS major, and I believe that the concepts I learned in this class have been foundational to the rest of my computer science experience. I now strive to help other students learn, and get as much as possible from this course.<p>I love traveling, and experiencing other cultures, and I hope to travel to each continent some day. I was born in Seattle and I will always love the west coast. Social Psychology is my favorite course I've taken outside of the engineering school, and I find the studies of human behavior, philosophy, ethics, and history fascinating.<p>Hit me up if you ever have any questions about cyber security!
+<br clear="all">
+
+## Steven Yi
+[![Steven Yi](//libra.cs.virginia.edu/tas/scy9vs.jpg)](//libra.cs.virginia.edu/tas/full/scy9vs.jpg)
+Hi everyone! I'm Steven Yi, a third-year CS major in the engineering school. I became a TA because I really enjoyed taking this course and really like helping explain CS concepts to people. Outside of CS, I am also heavily involved in the music department (I almost always have a concert coming up…tickets are free 😊) and participate in UVA's Aero Design Team, where we design, build, and fly remote-control aircraft. In my free time, you can often find me playing my violin at Old Cabell, or climbing at Slaughter if I'm feeling athletic.<p>Fun fact: I love carrying fruit snacks in my backpack, and usually carry a handful of packs with me. If you ever need a sugar boost, hit me up! Hopefully I'll still have a few left by the end of the day...
+<br clear="all">
+
+<!-- For spring 2020, still need: Lada, Jelena, Aditi, Vibha, Daniel, Viviana -->
+<!--
+
+## Nace Plesko
+![](https://user-images.githubusercontent.com/2766036/67354425-0b138580-f523-11e9-92ea-8bf7a0ec9f25.jpg)
+I am fourth year student-athlete double majoring in CS and Math. In my free time I like to play League of Legends. Fun fact: Instant Pot changed my life
+<br clear="all">
+
+
+-->
+
+<!-- last TA'ed in spring 2020 -->
+
+<!--
+
+## Trent Ballard
+[![Trent Ballard](//libra.cs.virginia.edu/tas/tpb5fe.jpg)](//libra.cs.virginia.edu/tas/full/tpb5fe.jpg)
+Hey! I'm a second year studying Computer Science and pursuing a minor in Engineering Business. I am from northern Virginia and am on the club Ultimate Frisbee team here at UVA. Some fun facts about me is that I have eaten the hottest pepper in the world, am a loyal DC sports fan (sadly), and just got 20+ stitches in my right eyebrow!
+<br clear="all">
+
+## Aman Garg
+[![Aman Garg](//libra.cs.virginia.edu/tas/ag7vd.jpg)](//libra.cs.virginia.edu/tas/full/ag7vd.jpg)
+Hi everyone! I am currently a 4th year computer science major and I am from the NOVA area. In my free time I am usually eating, sleeping, procrastinating or some combination of the three.
+<br clear="all">
+
+## Sandy Gould
+[![Sandy Gould](//libra.cs.virginia.edu/tas/sjg5rv.jpg)](//libra.cs.virginia.edu/tas/full/sjg5rv.jpg)
+Hi everyone, my name is Sandy Gould! I am a 4th year BSCS major, and I am from Leesburg, VA. I am also involved with Women in Computing Sciences (WiCS) and CSA. If you ever want to talk to me about CS, life at UVA, or anything really I'd love to chat! A fun fact about me is that I have done four Humpback sunrise hikes and one Humpback sunset hike since coming to UVA (and I plan on doing more this year!).
+<br clear="all">
+
+## Wade Hisiro
+[![Wade Hisiro](//libra.cs.virginia.edu/tas/wsh5wb.jpg)](//libra.cs.virginia.edu/tas/full/wsh5wb.jpg)
+Hey! I'm a fourth-year majoring in Computer Engineering from Harrisburg, PA. This will be my third semester TAing CS 2150. In my free time, you can catch me rock climbing, running, or playing intramurals like football. A fun fact about me is that I have an 18-year-old cat named Oreo.
+<br clear="all">
+
+## Disha Jain
+[![Disha Jain](//libra.cs.virginia.edu/tas/dj9am.jpg)](//libra.cs.virginia.edu/tas/full/dj9am.jpg)
+Hey! I'm a 4th-year BSCS major, minoring in Entrepreneurship. I dance, sing, and read in my free time, and I'm co-captain of a Bollywood dance team! I'm also co-President of HooHacks, UVA largest annual hackathon. A fun fact about me is that I saw Jimmy Fallon, Seth Meyers, John Oliver, Jake Gyllenhaal, and the Jonas Brothers this summer! I love talking to people, so hmu if you have any questions about anything or just want to chat :)
+<br clear="all">
+
+## Winston Liu
+[![Winston Liu](//libra.cs.virginia.edu/tas/wl4ej.jpg)](//libra.cs.virginia.edu/tas/full/wl4ej.jpg)
+Hey hey! I'm from Morris Plains, New Jersey and majoring in Computer Science with a minor in Spanish. I like to stay active - I absolutely love rock climbing, and I also dabble with volleyball, badminton, soccer, basketball, hiking, running, and ballroom dancing. Need a rock-climbing partner or want to learn more about it? Look no further 😁. I'm here if you want to talk about the CS curriculum, interviews and internships, TAing, residential colleges (go Hereford!), life, or anything, really :).<p>Fun facts! I'm ambidextrous, am weirdly good at remembering computing IDs, and have walked the last 200km of the Camino de Santiago!
 <br clear="all">
 
 ## Jack Schefer
@@ -133,29 +158,10 @@ Hi! I'm a fourth year double majoring in CS and Commerce with a minor in Technol
 Hi, I'm a fourth year CS (BS) and Econ major with a Engineering Business minor. This is my 3rd semester TAing for 2150 and before that I was a TA for 1110. I got interested in programming to automate simple tasks such as alerting me when people get on the 2150 queue or getting basketball tickets to UVA games.<p>Outside of school I like to stay active (running, tennis, basketball, pretty much anything). Sadly, I also waste a lot of time playing video games (mostly PUBG and CSGO).
 <br clear="all">
 
-## Steven Yi
-[![Steven Yi](//libra.cs.virginia.edu/tas/scy9vs.jpg)](//libra.cs.virginia.edu/tas/full/scy9vs.jpg)
-Hi everyone! I'm Steven Yi, a third-year CS major in the engineering school. I became a TA because I really enjoyed taking this course and really like helping explain CS concepts to people. Outside of CS, I am also heavily involved in the music department (I almost always have a concert coming up…tickets are free 😊) and participate in UVA's Aero Design Team, where we design, build, and fly remote-control aircraft. In my free time, you can often find me playing my violin at Old Cabell, or climbing at Slaughter if I'm feeling athletic.<p>Fun fact: I love carrying fruit snacks in my backpack, and usually carry a handful of packs with me. If you ever need a sugar boost, hit me up! Hopefully I'll still have a few left by the end of the day...
-<br clear="all">
-
 ## Bill Zhang
 [![Bill Zhang](//libra.cs.virginia.edu/tas/wtz5pp.jpg)](//libra.cs.virginia.edu/tas/full/wtz5pp.jpg)
 Hi everyone! I am currently a 4th year Computer Engineering and Math double major. This is my 3rd semester TAing for this class. CS 2150 was honestly one of my favorite courses at UVa, so I hope I can help make the course just as enjoyable for all of you! Other than TAing, I also work as a research assistant and recently joined CSO. Fun fact about me is that I went axe throwing for the first time this last summer. I also have a pet cat at home!
 <br clear="all">
 
-<!-- For spring 2020, still need: Lada, Jelena, Aditi, Vibha, Daniel, Viviana -->
-<!--
-
-## Nace Plesko
-![](https://user-images.githubusercontent.com/2766036/67354425-0b138580-f523-11e9-92ea-8bf7a0ec9f25.jpg)
-I am fourth year student-athlete double majoring in CS and Math. In my free time I like to play League of Legends. Fun fact: Instant Pot changed my life
-<br clear="all">
-
-## Sam Spelsberg
-![](https://user-images.githubusercontent.com/2766036/67354423-0a7aef00-f523-11e9-9a75-06e110ea4243.jpg)
-I am Sam Spelsberg, third year in e-school CS, with a focus in Cyber Security. 2150 is one of my favorite classes in the CS major, and I believe that the concepts I learned in this class have been foundational to the rest of my computer science experience. I now strive to help other students learn, and get as much as possible from this course.<p>
-I love traveling, and experiencing other cultures, and I hope to travel to each continent some day. I was born in Seattle and I will always love the west coast. Social Psychology is my favorite course I've taken outside of the engineering school, and I find the studies of human behavior, philosophy, ethics, and history fascinating.<p>
-Hit me up if you ever have any questions about cyber security!
-<br clear="all">
-
 -->
+
