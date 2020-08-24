@@ -54,9 +54,7 @@ The course grades will follow the standard decade curve: 90 and above is an A of
     - This is a common exam time, and conflicts with other courses (BIOL 2100, CS 2110, KOR 1010, KOR 2010, KOR 3010, STAT 2120, and STAT 3120)
     - Let us know by the end of September if you have a conflict (via a support request); we will deal with scheduling conflicts later in the semester
 
-***YOU WILL HAVE TO BRING YOUR UVA ID TO ALL EXAMS!!!***
-
-Under **NO** circumstances will anybody be allowed to take the final exam early.  You may **ONLY** request to take the final exam at a different time if you have a final exam **CONFLICT**, not a busy final exam schedule.  However, that request ***MUST*** be submitted by the end of January.  Since it is a common exam time, the only conflicts are the courses listed on UVa official exam schedule.  For Fall 2020, they are: BIOL 2100, KOR 1010 2010 3010, STAT 2120 3120, CS 2110 4102 (you should NOT be in those CS classes though).
+Under **NO** circumstances will anybody be allowed to take the final exam outside of the scheduled exam time. Since it is a common exam time, the only conflicts are the courses listed on UVa official exam schedule.  For Fall 2020, they are: BIOL 2100, KOR 1010 2010 3010, STAT 2120 3120, CS 2110 4102 (you should NOT be in those CS classes though). You need to ask the instructors of those courses to move their exam.
 
 You may submit exam questions for regrading within 10 days of when they are returned to you (less time for the final due to the end of the semester); this is done via the [course tools][41].  However, you MUST be aware of the [Frivolous regrade policy][3] ([md][4]), which will be strictly enforced.
 
