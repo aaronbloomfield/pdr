@@ -35,8 +35,8 @@ CS 2150: Program and Data Representation: Course Syllabus
 
 **Grades:** Grades will be calculated by the following formula:
 
-- ??%: Laboratories
-- ??%: Final exam
+- 70%: Laboratories
+- 30%: Final exam
 
 The course grades will follow the standard decade curve: 90 and above is an A of some sort (A-, A, or A+), 80 and above is some sort of a B, etc.  **Note:** We reserve the right to modify the weighting (changing the curve, adding pop quizzes, etc.), especially if attendance drops off significantly.  If this does happen, it will be clearly announced in lecture.
 
@@ -48,7 +48,7 @@ The course grades will follow the standard decade curve: 90 and above is an A of
  
 **Textbooks:** Due to the high cost of textbooks, and their relative low quality, there will be no recommended nor required textbooks this semester.  Instead, there will be selected [Readings][9] ([md][10]) that can be used in lieu of a recommended textbook.
 
-**Exams:** There will be one final exam (worth ??% of the final grade).
+**Exams:** There will be one final exam (worth 30% of the final grade).
 
 - Final Exam: Friday, December 4th from 7 p.m. to 10 p.m.
     - This is a common exam time, and conflicts with other courses (BIOL 2100, CS 2110, KOR 1010, KOR 2010, KOR 3010, STAT 2120, and STAT 3120)
@@ -60,7 +60,7 @@ Under **NO** circumstances will anybody be allowed to take the final exam early.
 
 You may submit exam questions for regrading within 10 days of when they are returned to you (less time for the final due to the end of the semester); this is done via the [course tools][41].  However, you MUST be aware of the [Frivolous regrade policy][3] ([md][4]), which will be strictly enforced.
 
-**Laboratories:** There will be 11 or 12 programming labs this semester, and they constitute ??% of your grade (roughly ??% per lab, although some labs may be weighted more than others).  Note that if the number of labs changes, the respective weights for each lab will also be adjusted and announced in class.  The total weight of the labs for the final grade will remain ??%, unless a change in the course grading criteria (as above) is announced in class.  The majority of the work in this class is through the labs -- there are no separate homework assignments.  The labs have different late policies, which will be specified in more detail in the first lab.  **Your lab submission must compile for you to receive *any* credit** -- this is an advanced programming class, and under no circumstances should you be submitting code that does not compile - we have a page on [compilation issues][5] ([md][6]) to help you if you cannot get your code to compile.  Note that the *entire* assignment will receive zero credit if even *one* part of it does not compile.
+**Laboratories:** There will be 11 or 12 programming labs this semester, and they constitute 70% of your grade.  Note that if the number of labs changes, the respective weights for each lab will also be adjusted and announced in class.  The total weight of the labs for the final grade will remain 70%, unless a change in the course grading criteria (as above) is announced in class.  The majority of the work in this class is through the labs -- there are no separate homework assignments.  The labs have different late policies, which will be specified in more detail in the first lab.  **Your lab submission must compile for you to receive *any* credit** -- this is an advanced programming class, and under no circumstances should you be submitting code that does not compile - we have a page on [compilation issues][5] ([md][6]) to help you if you cannot get your code to compile.  Note that the *entire* assignment will receive zero credit if even *one* part of it does not compile.
 
 All assignments will be submitted through our custom assignments tool, which can be accessed through Collab or [here][41] (Netbadge login required).  Each assignment has 3 dates: an open date (when you can start submitting the assignment), a due date (when it is due), and a close date (the last point that you can submit the assignment); the close date is 24 hours after the due date, due to the late policy (which is explained in [lab 1][13] ([md][14])).  Note that the assignment will be available much earlier, typically Wednesday or Thursday of the week before it is due.  The dates are listed for the week of the lab - the lab week starts on a Sunday and ends on a Saturday.
 
