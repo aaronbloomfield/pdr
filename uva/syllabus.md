@@ -3,19 +3,21 @@ CS 2150: Program and Data Representation: Course Syllabus
 
 [Go up to the CS 2150 page][1] ([md][2])
 
-## Spring 2020
+## Fall 2020
 
 ### Instructor ###
 
-- [Aaron Bloomfield][33] / [aaron@virginia.edu](mailto:aaron@virginia.edu).  Office: Rice Hall, room 402.  Office hours: M 11-12, W 12-1, F 9-10
+- [Aaron Bloomfield][33] / [aaron@virginia.edu](mailto:aaron@virginia.edu).  Office: Rice Hall, room 402
+- [Mark Floryan][31] / [mrf8t@virginia.edu](mailto:mrf8t@virginia.edu).  Office: Rice Hall, room 203
+- [Rich Nguyen](http://cs.virginia.edu/~nn4pj/) / [aaron@virginia.edu](mailto:aaron@virginia.edu).  Office: Rice Hall, room 202
 
 ### Course Info ###
 
-- Lectures: M/W/F 10:00-10:50 (CHM 402) or 1:00-1:50 (Minor 125)
+- Lectures: M/W/F 11:00-11:50, 1:00-1:50, 2:00-2:50
 - Email: none; fill out a [support request][42] instead
 - Announcement feed: [\@UVaCS2150][34] and the [daily announcements slide set][15]; you are responsible for checking both
-- TA office hours are 6-10 on Sundays, Mondays, Wednesdays, and Thursdays in the Thornton stacks; faculty office hours are listed [here](course-introduction.html#/profoh); all office hours start the Sunday after classes start
-- Laboratory Meetings (in Olsson 001): all on Tuesdays
+- TA office hours are 5pm-11pm on Sundays, Mondays, Wednesdays, and Thursdays on Zoom; All office hours start the Sunday after classes start
+- Laboratory Meetings (on Zoom): all on Tuesdays
 
 **Course Description:** This course will introduce you to program and data representation from high level concepts to machine level implementation. Data structuring techniques and the representation of data structures during program execution are discussed, as are operations and control structures and their representation during program execution. Representations of numbers, arithmetic operations, arrays, records, recursion, hashing, stacks, queues, trees, graphs, and related concepts are also covered.
 
@@ -33,9 +35,8 @@ CS 2150: Program and Data Representation: Course Syllabus
 
 **Grades:** Grades will be calculated by the following formula:
 
-- 45%: Laboratories
-- 30%: Two midterm exams
-- 25%: Final exam
+- ??%: Laboratories
+- ??%: Final exam
 
 The course grades will follow the standard decade curve: 90 and above is an A of some sort (A-, A, or A+), 80 and above is some sort of a B, etc.  **Note:** We reserve the right to modify the weighting (changing the curve, adding pop quizzes, etc.), especially if attendance drops off significantly.  If this does happen, it will be clearly announced in lecture.
 
@@ -47,21 +48,19 @@ The course grades will follow the standard decade curve: 90 and above is an A of
  
 **Textbooks:** Due to the high cost of textbooks, and their relative low quality, there will be no recommended nor required textbooks this semester.  Instead, there will be selected [Readings][9] ([md][10]) that can be used in lieu of a recommended textbook.
 
-**Exams:** There will be two midterm exams held during laboratory sessions (combined worth 30% of the final grade) and one final exam (worth 25% of the final grade). Note that we hope (but do not guarantee!) to have the first exam graded and returned before the SEAS drop date.
+**Exams:** There will be one final exam (worth ??% of the final grade).
 
-- Midterm Exam 1: Tuesday, February 18th, during lab session
-- Midterm Exam 2: Tuesday, March 31st, during lab session
-- Final Exam: Thursday, April 30th from 7 p.m. to 10 p.m.
+- Final Exam: Friday, December 4th from 7 p.m. to 10 p.m.
     - This is a common exam time, and conflicts with other courses (BIOL 2100, CS 2110, KOR 1010, KOR 2010, KOR 3010, STAT 2120, and STAT 3120)
-    - Let us know by the end of January if you have a conflict (via a support request); we will deal with scheduling conflicts later in the semester
+    - Let us know by the end of September if you have a conflict (via a support request); we will deal with scheduling conflicts later in the semester
 
 ***YOU WILL HAVE TO BRING YOUR UVA ID TO ALL EXAMS!!!***
 
-Under **NO** circumstances will anybody be allowed to take the final exam early.  You may **ONLY** request to take the final exam at a different time if you have a final exam **CONFLICT**, not a busy final exam schedule.  However, that request ***MUST*** be submitted by the end of January.  Since it is a common exam time, the only conflicts are the courses listed on UVa official exam schedule.  For Spring 2020, they are: APMA 3110, APMA 3140, and ECON 2020 (sections 001 and 002)
+Under **NO** circumstances will anybody be allowed to take the final exam early.  You may **ONLY** request to take the final exam at a different time if you have a final exam **CONFLICT**, not a busy final exam schedule.  However, that request ***MUST*** be submitted by the end of January.  Since it is a common exam time, the only conflicts are the courses listed on UVa official exam schedule.  For Fall 2020, they are: BIOL 2100, KOR 1010 2010 3010, STAT 2120 3120, CS 2110 4102 (you should NOT be in those CS classes though).
 
 You may submit exam questions for regrading within 10 days of when they are returned to you (less time for the final due to the end of the semester); this is done via the [course tools][41].  However, you MUST be aware of the [Frivolous regrade policy][3] ([md][4]), which will be strictly enforced.
 
-**Laboratories:** There will be 11 or 12 programming labs this semester, and they constitute 45% of your grade (roughly 4% per lab, although some labs may be weighted more than others).  Note that if the number of labs changes, the respective weights for each lab will also be adjusted and announced in class.  The total weight of the labs for the final grade will remain 45%, unless a change in the course grading criteria (as above) is announced in class.  The majority of the work in this class is through the labs -- there are no separate homework assignments.  The labs have different late policies, which will be specified in more detail in the first lab.  **Your lab submission must compile for you to receive *any* credit** -- this is an advanced programming class, and under no circumstances should you be submitting code that does not compile - we have a page on [compilation issues][5] ([md][6]) to help you if you cannot get your code to compile.  Note that the *entire* assignment will receive zero credit if even *one* part of it does not compile.
+**Laboratories:** There will be 11 or 12 programming labs this semester, and they constitute ??% of your grade (roughly ??% per lab, although some labs may be weighted more than others).  Note that if the number of labs changes, the respective weights for each lab will also be adjusted and announced in class.  The total weight of the labs for the final grade will remain ??%, unless a change in the course grading criteria (as above) is announced in class.  The majority of the work in this class is through the labs -- there are no separate homework assignments.  The labs have different late policies, which will be specified in more detail in the first lab.  **Your lab submission must compile for you to receive *any* credit** -- this is an advanced programming class, and under no circumstances should you be submitting code that does not compile - we have a page on [compilation issues][5] ([md][6]) to help you if you cannot get your code to compile.  Note that the *entire* assignment will receive zero credit if even *one* part of it does not compile.
 
 All assignments will be submitted through our custom assignments tool, which can be accessed through Collab or [here][41] (Netbadge login required).  Each assignment has 3 dates: an open date (when you can start submitting the assignment), a due date (when it is due), and a close date (the last point that you can submit the assignment); the close date is 24 hours after the due date, due to the late policy (which is explained in [lab 1][13] ([md][14])).  Note that the assignment will be available much earlier, typically Wednesday or Thursday of the week before it is due.  The dates are listed for the week of the lab - the lab week starts on a Sunday and ends on a Saturday.
 
