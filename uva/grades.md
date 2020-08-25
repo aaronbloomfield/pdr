@@ -8,9 +8,8 @@ Grading Explanations, Spring 2020
 
 As per the [syllabus](syllabus.html) ([md](syllabus.md)), the grades were computed by:
 
-- Laboratories (45%)
-- Two midterms (15% each)
-- Final exam (25%)
+- Laboratories (70%)
+- Final exam (30%)
 
 ## The Process of Grade Determination
 
