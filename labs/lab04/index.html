@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta charset="utf-8">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>PDR: Laboratory 4: Number Representation</title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../../markdown.css">
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="../../markdown.css" />
 </head>
 <body>
 <h1 id="pdr-laboratory-4-number-representation">PDR: Laboratory 4: Number Representation</h1>
@@ -17,7 +19,7 @@
 <h3 id="objective">Objective</h3>
 <p>To become familiar with the underlying representation of various data types, and to learn how to examine these representations in the debugger.</p>
 <h3 id="background">Background</h3>
-<p>In class we discussed how various data types -- integers, characters, and floating point numbers -- were represented in computers. In this lab we will use the debugger to examine some of these representations.</p>
+<p>In class we discussed how various data types – integers, characters, and floating point numbers – were represented in computers. In this lab we will use the debugger to examine some of these representations.</p>
 <h3 id="tutorial">Tutorial</h3>
 <p>Go through <a href="../../tutorials/03-04-more-unix/index.html">Tutorial 4: Unix, part 2</a>, which is sections 5-8. This tutorial is originally from the department of Electrical Engineering at the University of Surrey, and is available online <a href="http://www.ee.surrey.ac.uk/Teaching/Unix/">here</a>. You went through sections 1-4 in the last tutorial; this lab has you completing sections 5-8.</p>
 <h3 id="recommended-readings">Recommended Readings</h3>
@@ -59,7 +61,7 @@
 <p>There are three parts to the C++ file you will be submitting as a part of the pre-lab.</p>
 <p><strong>Your program should ask for a single integer value for input (via cin)</strong>, which we will call <em>x</em>. The program will call the three functions below in order: <code>sizeOfTest()</code>, <code>overflow()</code>, and then <code>outputBinary(x)</code>. Note that only <code>outputBinary()</code> takes in <em>x</em> as the parameter.</p>
 <h4 id="sizeoftest">sizeOfTest()</h4>
-<p>The size of C++ data types is dependent on the underlying hardware on which you are running. A programmer may determine the size of various data types by using the <code>sizeof()</code> operator. Although it looks like a function, it's a language construct -- somewhat like <code>while()</code> or <code>if()</code> -- so it's technically an operator. <code>sizeof()</code> returns the size, in bytes, of a given variable or data type. Note that you can use <code>sizeof()</code> with types, variables, pointers, classes, and objects.</p>
+<p>The size of C++ data types is dependent on the underlying hardware on which you are running. A programmer may determine the size of various data types by using the <code>sizeof()</code> operator. Although it looks like a function, it’s a language construct – somewhat like <code>while()</code> or <code>if()</code> – so it’s technically an operator. <code>sizeof()</code> returns the size, in bytes, of a given variable or data type. Note that you can use <code>sizeof()</code> with types, variables, pointers, classes, and objects.</p>
 <p>Write a small C++ function that demonstrates the use of <code>sizeof()</code> with the following types: <code>int</code>, <code>unsigned int</code>, <code>float</code>, <code>double</code>, <code>char</code>, <code>bool</code>, <code>int*</code>, <code>char*</code>, and <code>double*</code>. Your function should print out all the types and their respective sizes. You will use the values outputted by your program to fill in the table in the in-lab section. The function should be called <code>sizeOfTest()</code> (note the capitalization!), so as not to confuse C++ with the <code>sizeof()</code> operator. This function should not take in any parameters.</p>
 <h4 id="the-limits-of-representation">The Limits of Representation</h4>
 <p>What do you think will happen when you add 1 to a variable containing the maximum value of a type? Write a function called <code>overflow()</code> to answer the following questions:</p>
@@ -79,7 +81,7 @@ outputBinary(5) //=&gt; 0000 0000 0000 0000 0000 0000 0000 0101
 outputBinary(1000000) //=&gt; 0000 0000 0000 1111 0100 0010 0100 0000</code></pre>
 <p>You can <strong><em>NOT</em></strong> use the <code>bitset</code> class for this, or any other class that does the work for you. You have to program this yourself.</p>
 <h3 id="sample-execution-run">Sample Execution Run</h3>
-<p>Your program will have the printout of three separate methods, and the ordering of these printouts are very important: <code>sizeOfTest()</code> --&gt; <code>overflow()</code> --&gt; <code>outputBinary()</code>. <strong>Do not</strong> include any output that prompts the user for input. Below is a sample execution run to show you the input and output format we are looking for.</p>
+<p>Your program will have the printout of three separate methods, and the ordering of these printouts are very important: <code>sizeOfTest()</code> –&gt; <code>overflow()</code> –&gt; <code>outputBinary()</code>. <strong>Do not</strong> include any output that prompts the user for input. Below is a sample execution run to show you the input and output format we are looking for.</p>
 <p>Input</p>
 <pre><code>1</code></pre>
 <p>Output</p>
@@ -108,7 +110,7 @@ Size of double*: 8
 <p>The <a href="inlab4.cpp.html">inlab4.cpp</a> (<a href="inlab4.cpp">src</a>) program asks you to fill in two arrays that describe certain features of primitive types in C++. The two arrays in table form are shown below:</p>
 <table>
 <colgroup>
-<col style="width: 10%" />
+<col style="width: 9%" />
 <col style="width: 15%" />
 <col style="width: 20%" />
 <col style="width: 27%" />
@@ -171,7 +173,7 @@ Size of double*: 8
 <p> </p>
 <table>
 <colgroup>
-<col style="width: 13%" />
+<col style="width: 12%" />
 <col style="width: 20%" />
 <col style="width: 28%" />
 <col style="width: 37%" />
@@ -205,26 +207,26 @@ Size of double*: 8
 </tr>
 </tbody>
 </table>
-<p>To fill in these blanks, we recommend using a combination of short &quot;test&quot; programs, the debugger, a header file containing max and min values of certain types, the <a href="../../slides/03-numbers.html">Number Representation slides</a>, and deductive reasoning.</p>
+<p>To fill in these blanks, we recommend using a combination of short “test” programs, the debugger, a header file containing max and min values of certain types, the <a href="../../slides/03-numbers.html">Number Representation slides</a>, and deductive reasoning.</p>
 <p>Notes:</p>
 <ul>
-<li>The values for the &quot;Zero&quot; and &quot;One&quot; columns should interpreted appropriately for the data type. For example, &quot;zero&quot; is 0 for an <code>int</code>, 0.0 for a <code>float</code>, <code>false</code> for a bool, the character <code>'0'</code> for a <code>char</code>, etc.</li>
-<li>For pointers, the highest memory address that can be described is the &quot;max value.&quot; For <code>char</code>s, we want the maximum integer value that may be stored therein. Finally, booleans only have two possible values, so choose the max and min from these two.</li>
+<li>The values for the “Zero” and “One” columns should interpreted appropriately for the data type. For example, “zero” is 0 for an <code>int</code>, 0.0 for a <code>float</code>, <code>false</code> for a bool, the character <code>'0'</code> for a <code>char</code>, etc.</li>
+<li>For pointers, the highest memory address that can be described is the “max value.” For <code>char</code>s, we want the maximum integer value that may be stored therein. Finally, booleans only have two possible values, so choose the max and min from these two.</li>
 <li>All hex values should be given in <strong>big-endian</strong> and in the same size as their data type (e.g int hexidecimals should only have 4 bytes, char has 1, etc).</li>
 </ul>
 <h3 id="inlab4.cpp">inlab4.cpp</h3>
 <p>There are two parts to the C++ file you will be submitting as a part of the in-lab. 1. The two arrays that you will fill out with the appropriate information 2. A <code>tableDump(string (*arr)[5], string (*arr1)[4])</code> method that prints out the two arrays in a format that we can autograde</p>
-<p>You <strong>must only</strong> replace the empty strings in those arrays with your findings, you do not need to modify anything else in the file. Since we take care of the output for you, don't worry about any formatting for this part of the lab.</p>
+<p>You <strong>must only</strong> replace the empty strings in those arrays with your findings, you do not need to modify anything else in the file. Since we take care of the output for you, don’t worry about any formatting for this part of the lab.</p>
 <h4 id="representation-in-memory"><a name="memory">Representation in memory</a></h4>
 <p>This exercise will show you how to read the contents of a particular memory address. This will be useful for debugging code and for understanding the underlying data representation of abstract data types.</p>
 <p>Recall that almost all computers use little-Endian processors. Thus, 0xd97c34a2 is stored as: <code>a2 34 7c d9</code>, with the least significant byte listed first. However, when you examine the value in LLDB (using the <code>x/x</code> command), it will display it in big-endian format, as that is how humans typically think of numbers.</p>
-<p>Write a C++ program, called inlab4.cpp, where you consecutively declare variables of these types: <code>bool</code>, <code>char</code>, <code>int</code>, <code>double</code>, <code>int*</code>, and assign a value of your choosing to each of them. The last line(s) of the program should print out the values. Put a breakpoint near the end of the program, but before the last print statement(s). Once the breakpoint is hit, type expressions to examine the addresses of all of these variables (e.g. <code>&amp;i</code>). Then for each of these variables, view the contents of their addresses (via the <code>x/x</code> command from above).</p>
-<p>Find one of your <code>int</code> variables in memory. Change its value via the <code>expr (var) = (value)</code> (LLDB) or <code>set variable &lt;var&gt; = &lt;value&gt;</code> (GDB) command. Examine the new variable's contents in memory. Is it what you expected? Continue the program execution -- did it properly print the changed value?</p>
+<p>Write a C++ program, called inlab4.cpp, where you consecutively declare variables of these types: <code>bool</code>, <code>char</code>, <code>int</code>, <code>double</code>, <code>int*</code>, and assign a value of your choosing to each of them. The last line(s) of the program should print out the values. Put a breakpoint near the end of the program, but before the last print statement(s). Once the breakpoint is hit, type expressions to examine the addresses of all of these variables (e.g. <code>&amp;i</code>). Then for each of these variables, view the contents of their addresses (via the <code>x/x</code> command from above).</p>
+<p>Find one of your <code>int</code> variables in memory. Change its value via the <code>expr (var) = (value)</code> (LLDB) or <code>set variable &lt;var&gt; = &lt;value&gt;</code> (GDB) command. Examine the new variable’s contents in memory. Is it what you expected? Continue the program execution – did it properly print the changed value?</p>
 <p>After completing this section of the lab, you will be expected to understand how to use the debugger to:</p>
 <ul>
 <li>View variables in memory.</li>
 <li>Change an int value from positive to negative.</li>
-<li>Observe interesting/different features in memory (e.g. skipped memory) and be able to explain it.</li>
+<li>Observe interesting/different features in memory (e.g. skipped memory) and be able to explain it.</li>
 </ul>
 <h4 id="primitive-arrays-in-c"><a name="arrays">Primitive Arrays in C++</a></h4>
 <p>If you feel you need a bit more background on arrays, there are <a href="../../docs/readings.html#arrays">readings</a> available. Note how two (or higher) dimensional arrays are stored in row-major order (as described in the <a href="../../slides/04-arrays-bigoh.html">04-arrays-bigoh slide set</a>) in C++, as opposed to being stored as arrays of arrays in Java.</p>
@@ -234,7 +236,7 @@ char CharArray[10];
 
 int IntArray2D[6][5];
 char CharArray2D[6][5];</code></pre>
-<p>Assign different values of your choosing into each element of all four arrays. As above, put a breakpoint in your program after the four arrays have been assigned values. Find the address of the first element of each array, and type that address into LLDB (via the 'p' command).</p>
+<p>Assign different values of your choosing into each element of all four arrays. As above, put a breakpoint in your program after the four arrays have been assigned values. Find the address of the first element of each array, and type that address into LLDB (via the ‘p’ command).</p>
 <p>Examine where the elements of the four arrays are in memory. You will be expected to understand and be able to explain this representation for the exams.</p>
 <p>After exploring the array element locations in the debugger, develop an expression for the address of the (i,j)th element of <code>IntArray2D</code> as declared above. You can assume that (0 ≤ <em>i</em> &lt; 6), (0 ≤ <em>j</em> &lt; 5), and an int is 4 bytes.</p>
 <pre><code>&amp;(IntArray2D[i][j]) = _______________________________________________</code></pre>
@@ -244,24 +246,24 @@ char CharArray2D[6][5];</code></pre>
 <h4 id="max-values">Max values</h4>
 <p><code>climits</code> will come in handy here again. For types not in <code>climits</code>, you should reason about how the data is stored and the size of that type.</p>
 <h4 id="viewing-values">Viewing values</h4>
-<p>For some parts of this lab, it is helpful to assign a value to a variable, then inspect that variable's contents using a debugger. You can write a simple C++ program that creates the variables, and stores the appropriate value (zero, one, or NULL) into them. Compile (remember the <code>-g</code> flag!), load the debugger, set a breakpoint, and start the program execution.</p>
-<p>When using LLDB, you can use the 'x' (for 'eXamine') command to print out the pointee of an address. Consider the C++ program that has two variables defined, <code>int i</code> and <code>int *p</code>. To print out the int variable <code>i</code>, you would enter <code>x &amp;i</code> (as you have to enter the address of where the data is located). If <code>p</code> is a pointer to a value, you would enter <code>x p</code> to print out the <em>pointee</em>. This may print it using many more hexadecimal digits than you wanted, so you can add a parameter to the 'x' command to have it print only a certain amount:</p>
+<p>For some parts of this lab, it is helpful to assign a value to a variable, then inspect that variable’s contents using a debugger. You can write a simple C++ program that creates the variables, and stores the appropriate value (zero, one, or NULL) into them. Compile (remember the <code>-g</code> flag!), load the debugger, set a breakpoint, and start the program execution.</p>
+<p>When using LLDB, you can use the ‘x’ (for ‘eXamine’) command to print out the pointee of an address. Consider the C++ program that has two variables defined, <code>int i</code> and <code>int *p</code>. To print out the int variable <code>i</code>, you would enter <code>x &amp;i</code> (as you have to enter the address of where the data is located). If <code>p</code> is a pointer to a value, you would enter <code>x p</code> to print out the <em>pointee</em>. This may print it using many more hexadecimal digits than you wanted, so you can add a parameter to the ‘x’ command to have it print only a certain amount:</p>
 <ul>
 <li><code>x/xb p</code>: this will print the one byte at the address that is pointed to by p</li>
 <li><code>x/xh &amp;i</code>: this will print the two bytes of int variable i</li>
 <li><code>x/xw p</code>: this will print the four bytes at the address that is pointed to by p</li>
 <li><code>x/xg &amp;i</code>: this will print the eight bytes of int variable i</li>
 </ul>
-<p>Note that you don't want to print out more bytes than the size of the type itself. If your int is 4 bytes, and you print out 8 bytes, then the other 4 bytes will be whatever arbitrary values are adjacent in memory.</p>
+<p>Note that you don’t want to print out more bytes than the size of the type itself. If your int is 4 bytes, and you print out 8 bytes, then the other 4 bytes will be whatever arbitrary values are adjacent in memory.</p>
 <hr />
 <h2 id="post-lab-1">Post-Lab</h2>
 <h3 id="binary-bit-counter">Binary bit counter</h3>
 <p>In bitCounter.cpp, create a <strong><em>recursive</em></strong> function that returns the number of 1s in the binary representation of <em>n</em>, which will be passed in as a command-line parameter. Use the following fact: if <em>n</em> is even, the number of 1s in the representation of <em>n</em> is the same as that in <em>n/2</em>; if <em>n</em> is odd, the number of 1s is one more than that in <em>floor(n/2)</em>.</p>
-<p>You may assume that <em>n</em> is a non-negative integer that will be stored in two's complement. However, <em>n</em> will be passed in the standard decimal (i.e. base-10) format. This should be a rather simple function that uses what you've learned about integer representation. If you find you need things like global variables or the <code>pow()</code> function to implement this then you are going too far.</p>
+<p>You may assume that <em>n</em> is a non-negative integer that will be stored in two’s complement. However, <em>n</em> will be passed in the standard decimal (i.e. base-10) format. This should be a rather simple function that uses what you’ve learned about integer representation. If you find you need things like global variables or the <code>pow()</code> function to implement this then you are going too far.</p>
 <p>If your program is run without any command-line parameters, your program should gracefully exit with an appropriate error message. Your program need not handle an invalid number for the command-line parameter. Any additional command-line parameters beyond the first should be ignored.</p>
 <h3 id="base-converter">Base converter</h3>
 <p>In bitCounter.cpp, create a function that takes a number <em>n</em> from <em>startBase</em> and returns the number in <em>endBase</em>. This means that your program will take in <strong>four</strong> command-line parameters total (excluding the executable name) in the order shown below. 1. bitcount number (int) 2. number to convert (string) 3. start base (int) 4. end base (int)</p>
-<p>Notice that the number we are converting will be passed in as a string; this is because many bases (like hexidecimal) require non-numeric characters for their representations (e.g. A, B, ...). To make things simpler, you may assume that all characters are capitalized. For example, when we input our numbers for you to convert, we will input them as <code>DEADBEAF123</code> instead of <code>deadbeaf123</code> or <code>deADbEAf123</code>. Furthermore, we will not provide any bases less than 1 or greater than 36.</p>
+<p>Notice that the number we are converting will be passed in as a string; this is because many bases (like hexidecimal) require non-numeric characters for their representations (e.g. A, B, …). To make things simpler, you may assume that all characters are capitalized. For example, when we input our numbers for you to convert, we will input them as <code>DEADBEAF123</code> instead of <code>deadbeaf123</code> or <code>deADbEAf123</code>. Furthermore, we will not provide any bases less than 1 or greater than 36.</p>
 <h3 id="sample-execution-run-1">Sample Execution Run</h3>
 <p>Your output will be split into two sections, the bit counter and the converter. You can run your methods in any order you please, but your program must print the results of the bit counter <strong>before</strong> the results of the converter. An example I/O when running <code>./a.out 1 ABCD 16 10</code></p>
 <pre><code>1 has 1 bit(s)
@@ -271,7 +273,7 @@ ABCD (base 16) = 43981 (base 10)</code></pre>
 <pre><code>int main()</code></pre>
 <p>We will now change that prototype to the following:</p>
 <pre><code>int main (int argc, char **argv)</code></pre>
-<p>These two parameters provide you with the command-line parameters. The first parameter, <code>argc</code>, is the number of parameters plus one -- the 0th parameter is always the name of the executable itself (<code>a.out</code>, for example). The second parameter, <code>argv</code>, is an array of C-style strings (some people list the type as <code>char *argv[]</code> to make this more clear -- either way is fine).</p>
+<p>These two parameters provide you with the command-line parameters. The first parameter, <code>argc</code>, is the number of parameters plus one – the 0th parameter is always the name of the executable itself (<code>a.out</code>, for example). The second parameter, <code>argv</code>, is an array of C-style strings (some people list the type as <code>char *argv[]</code> to make this more clear – either way is fine).</p>
 <p>Command-line parameters are passed in as space-delimited values after the executable name:</p>
 <pre><code>./a.out 3 hi example.txt</code></pre>
 <p>Here, <code>argc</code> would be set to 4, <code>argv[0]</code> would be <code>a.out</code>, and <code>argv[1]</code>, <code>argv[2]</code>, and <code>argv[3]</code> would be the strings <code>3</code>, <code>hi</code>, and <code>example.txt</code>, respectively.</p>
@@ -284,6 +286,6 @@ ABCD (base 16) = 43981 (base 10)</code></pre>
 Hence, in C++, <code>5 / 2 = 2</code>, as division implicitly floors the result.</p>
 <h4 id="converting-bases">Converting bases</h4>
 <p>When converting bases, there are two steps that you should follow: 1. Convert the number from the start base to base 10. 2. Convert the base 10 number to the end base.</p>
-<p>In many cases with conversion, you will need to convert characters to integers in order to correctly perform calculations. Instead of trying to use <code>atoi</code> or <code>stoi</code> like in previous assignments, it is easy to convert character numbers into their integer form by taking advantage of ascii values. For example, the ascii value for the character '9' is 39. So to convert the character '9' to an integer is a simple subtraction, <code>int converted = '9' - 30;</code> or <code>int converted = '9' - '0'</code>. This same logic can be extended to the numbers 0-8 and a similar approach can be used to convert letters to their correct numerical representation (e.g. 'A' = 10, 'B' = 11, ...).</p>
+<p>In many cases with conversion, you will need to convert characters to integers in order to correctly perform calculations. Instead of trying to use <code>atoi</code> or <code>stoi</code> like in previous assignments, it is easy to convert character numbers into their integer form by taking advantage of ascii values. For example, the ascii value for the character ‘9’ is 39. So to convert the character ‘9’ to an integer is a simple subtraction, <code>int converted = '9' - 30;</code> or <code>int converted = '9' - '0'</code>. This same logic can be extended to the numbers 0-8 and a similar approach can be used to convert letters to their correct numerical representation (e.g. ‘A’ = 10, ‘B’ = 11, …).</p>
 </body>
 </html>

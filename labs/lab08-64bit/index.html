@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta charset="utf-8">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>PDR: Laboratory 8: x86 Assembly Language, part 1 (64 bit)</title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../../markdown.css">
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="../../markdown.css" />
 </head>
 <body>
 <h1 id="pdr-laboratory-8-x86-assembly-language-part-1-64-bit">PDR: Laboratory 8: x86 Assembly Language, part 1 (64 bit)</h1>
@@ -18,7 +20,7 @@
 <p>This lab is one of two labs meant to familiarize you with the process of writing, assembling, and linking assembly language code. The purposes of the in-lab and post-lab activities are to investigate how various C++ language features are implemented at the assembly level.</p>
 <p>There are both <a href="../lab08-32bit/index.html">32 bit</a> (<a href="../lab08-32bit/index.md">md</a>) and <a href="../lab08-64bit/index.html">64 bit</a> (<a href="../lab08-64bit/index.md">md</a>) versions of this lab. This is the <strong><em>64 bit version</em></strong>.</p>
 <h3 id="background">Background</h3>
-<p>The Intel x86 assembly language is currently one of the most popular assembly languages and runs on many architectures from the x86 line through the Pentium 4. It is a <a href="http://en.wikipedia.org/wiki/Complex_instruction_set_computing">CISC</a> instruction set that has been extended multiple times (e.g. <a href="http://en.wikipedia.org/wiki/MMX_%28instruction_set%29">MMX</a>) into a larger instruction set. In 2004 it was extended to allow for a 64 bit memory space.</p>
+<p>The Intel x86 assembly language is currently one of the most popular assembly languages and runs on many architectures from the x86 line through the Pentium 4. It is a <a href="http://en.wikipedia.org/wiki/Complex_instruction_set_computing">CISC</a> instruction set that has been extended multiple times (e.g. <a href="http://en.wikipedia.org/wiki/MMX_%28instruction_set%29">MMX</a>) into a larger instruction set. In 2004 it was extended to allow for a 64 bit memory space.</p>
 <h3 id="tutorial">Tutorial</h3>
 <p>The tutorial for this lab is the following two readings on <a href="../../book/x86-64bit-asm-chapter.pdf">x86</a> and the <a href="../../book/x86-64bit-ccc-chapter.pdf">C Calling convention</a>.</p>
 <h3 id="recommended-readings">Recommended Readings</h3>
@@ -54,7 +56,7 @@
 </ol>
 <hr />
 <h2 id="platform-architectures">Platform Architectures</h2>
-<p>There are a few differences when writing x86 assembly code, depending on whether you are using Linux or macOS. Specifically, the object file format for nasm will differ, as well as the subroutine name itself. The instructions in this lab will assume the use of Linux -- if you are using macOS, use the table below for the correct instructions.</p>
+<p>There are a few differences when writing x86 assembly code, depending on whether you are using Linux or macOS. Specifically, the object file format for nasm will differ, as well as the subroutine name itself. The instructions in this lab will assume the use of Linux – if you are using macOS, use the table below for the correct instructions.</p>
 <table>
 <thead>
 <tr class="header">
@@ -89,34 +91,34 @@
 <p>To compile a program written partly in x86 assembly and partly in C++, we have to build the program in parts. We build the C++ file as we have in the past:</p>
 <pre><code>clang++ -Wall -g -c main.cpp
 </code></pre>
-<p>Note that we used the -c flag, which tells the compiler to compile but not link the program. Linking it will create the final executable -- but as there is not a <code>vecsum()</code> function defined (yet), the compiler will report an error stating that it does not know what the vecsum() function is. We also added a few more flags (<code>-Wall -g</code>) to print all warnings and compile debugging symbols into the program.</p>
+<p>Note that we used the -c flag, which tells the compiler to compile but not link the program. Linking it will create the final executable – but as there is not a <code>vecsum()</code> function defined (yet), the compiler will report an error stating that it does not know what the vecsum() function is. We also added a few more flags (<code>-Wall -g</code>) to print all warnings and compile debugging symbols into the program.</p>
 <p>Next, we need to compile the assembly file. To do this, we enter the following:</p>
 <pre><code>nasm -f elf64 -g vecsum.s</code></pre>
 <p>This invokes <code>nasm</code>, which is the assembler that we are using for this course. <code>-f elf64</code> tells nasm to output the object file using the ELF 64-bit format, which is specific to Linux (and would need to be changed to <code>-f macho64</code> for macOS as detailed above). We also tell it to include debugging symbols via <code>-g</code>. The assembly file name is specified by the <code>vecsum.s</code> at the end of the command line.</p>
 <p>Finally, we have to link the two files into the final executable. We do this as before:</p>
 <pre><code>clang++ -Wall -g vecsum.o main.o</code></pre>
-<p>This tells clang++ to link both of the .o files created above into an executable, which it called <code>a.out</code>. There isn't any compiling done at this stage -- this just links the two object files into the final executable.</p>
+<p>This tells clang++ to link both of the .o files created above into an executable, which it called <code>a.out</code>. There isn’t any compiling done at this stage – this just links the two object files into the final executable.</p>
 <h3 id="vecsum">Vecsum</h3>
 <p>Examine the vecsum subroutine in <a href="vecsum.s.html">vecsum.s</a> (<a href="vecsum.s">src</a>). Use the slides and readings to help understand what is happening in vecsum.s. Make sure you understand the prologue and epilogue implementation, as well as the instructions used in the subroutine.</p>
 <p>Compile and run the vecsum program:</p>
 <ul>
 <li>Use the tutorial as a guide, but see the instructions above.</li>
 <li>If you forget the lldb commands described below, see the <a href="../../docs/lldb_summary.html">LLDB command summary</a>, which has a summary of all of these commands.</li>
-<li>You can find the assembly and C++ source code in the repository (<a href="vecsum.s.html">vecsum.s</a> (<a href="vecsum.s">src</a>), <a href="main.cpp.html">main.cpp</a> (<a href="main.cpp">src</a>), <a href="Makefile.html">Makefile</a> (<a href="Makefile">src</a>)). For the C++ code compilation (i.e. main.cpp) and the final link, use the <code>-g</code> flag, which allows the program to work well with the lldb debugger.</li>
-<li>Use the debugger to step through the assembly code, view the register contents, and view the computer's memory.</li>
+<li>You can find the assembly and C++ source code in the repository (<a href="vecsum.s.html">vecsum.s</a> (<a href="vecsum.s">src</a>), <a href="main.cpp.html">main.cpp</a> (<a href="main.cpp">src</a>), <a href="Makefile.html">Makefile</a> (<a href="Makefile">src</a>)). For the C++ code compilation (i.e. main.cpp) and the final link, use the <code>-g</code> flag, which allows the program to work well with the lldb debugger.</li>
+<li>Use the debugger to step through the assembly code, view the register contents, and view the computer’s memory.</li>
 <li>Set a breakpoint at the line in the main.cpp where the vecsum() function is called (probably line 38).</li>
-<li>Normally, you would use the <code>step</code> function to step into the next instruction. However, since no debugging information was included with the assembler (a shortcoming of nasm), we can't use <code>step</code> -- it will just move to the next C++ instruction (the <code>cout</code>). Instead, we will use <code>stepi</code>, which will step exactly one <em>assembly instruction</em>, which is what we want.</li>
+<li>Normally, you would use the <code>step</code> function to step into the next instruction. However, since no debugging information was included with the assembler (a shortcoming of nasm), we can’t use <code>step</code> – it will just move to the next C++ instruction (the <code>cout</code>). Instead, we will use <code>stepi</code>, which will step exactly one <em>assembly instruction</em>, which is what we want.</li>
 <li>To display the assembly code that is currently being executed, enter <code>disassemble</code>. This is just like <code>list</code>, but it displays the assembly code instead of the C++ code.</li>
-<li>Note that this prints things in a different assembly format. To set the format to the style we are used to (and the style we are programming in with nasm), enter <code>settings set target.x86-disassembly-flavor intel</code>. Now enter <code>disassemble</code> again -- the format should look more familiar. You only have to enter that set command once (unless you exit and re-enter lldb).</li>
-<li>To see the vecsum function, enter <code>disassemble --name vecsum</code>. Note that this only lists the first third (or so) of the routine -- up until the <code>start</code> label. To see the rest of the code, enter <code>disassemble --name start</code>, <code>disassemble --name done</code>, etc.</li>
+<li>Note that this prints things in a different assembly format. To set the format to the style we are used to (and the style we are programming in with nasm), enter <code>settings set target.x86-disassembly-flavor intel</code>. Now enter <code>disassemble</code> again – the format should look more familiar. You only have to enter that set command once (unless you exit and re-enter lldb).</li>
+<li>To see the vecsum function, enter <code>disassemble --name vecsum</code>. Note that this only lists the first third (or so) of the routine – up until the <code>start</code> label. To see the rest of the code, enter <code>disassemble --name start</code>, <code>disassemble --name done</code>, etc.</li>
 <li>To show the contents of the registers, use the <code>register read</code> command.</li>
 </ul>
 <h3 id="pre-lab-program-mathlib.s">Pre-lab program: mathlib.s</h3>
 <p>You will need to write two routines in assembly, one that computes the product of two numbers, and one that computes the power of two numbers.</p>
 <p>The first subroutine will compute the product of the two integer parameters passed in. The restrictions are that it <strong>can only use addition</strong>, and thus cannot use a multiplication operation. We will assume that both of the parameters are positive integers. It must compute this <strong>iteratively</strong>, not recursively. The resulting product is then returned to the calling routine. This subroutine should be called <code>product</code>. We will assume that values will not be provided to the subroutine that will cause an overflow, nor will negative (or zero) parameters be passed in.</p>
-<p>The second subroutine will compute the power of the two integer parameters passed in. We will assume that the first parameter is the base, and the second parameter is the exponent. Again, both are integers. The restrictions on this routine are that it <strong>can only use the multiplication</strong> routine described above -- it cannot use <code>imul</code> or call any exponentiation routine. Furthermore, it must be defined <strong>recursively</strong>, not iteratively. This routine should be called <code>power</code>.</p>
+<p>The second subroutine will compute the power of the two integer parameters passed in. We will assume that the first parameter is the base, and the second parameter is the exponent. Again, both are integers. The restrictions on this routine are that it <strong>can only use the multiplication</strong> routine described above – it cannot use <code>imul</code> or call any exponentiation routine. Furthermore, it must be defined <strong>recursively</strong>, not iteratively. This routine should be called <code>power</code>.</p>
 <p>You can assume that the numbers passed into both routines will both be positive, so you need not consider negative numbers or zero. Furthermore, as described above, no values will be used on your program that could cause an integer overflow.</p>
-<p>Both of these routines should be in a file called mathlib.s, and must use the proper C-style calling convention. You must also provide a mathfun.cpp file, which calls both of your subroutines -- see the main.cpp file provided as a template. The program should take in ONLY two integers (we'll call them <em>x</em> and <em>y</em>). It should then print out the output of calling <code>product(x,y)</code> and <code>power(x,y)</code>. Thus, if the input is 3 and 4, it would print out 12 and 81.</p>
+<p>Both of these routines should be in a file called mathlib.s, and must use the proper C-style calling convention. You must also provide a mathfun.cpp file, which calls both of your subroutines – see the main.cpp file provided as a template. The program should take in ONLY two integers (we’ll call them <em>x</em> and <em>y</em>). It should then print out the output of calling <code>product(x,y)</code> and <code>power(x,y)</code>. Thus, if the input is 3 and 4, it would print out 12 and 81.</p>
 <p>Input is to be read via standard input (i.e., <code>cin</code>), not through command-line parameters.</p>
 <p>In order for routines in an assembly file to be callable from C/C++, you need to declare them with <code>global</code>, like is done in <code>vecsum.s</code>. To have multiple routines in a single assembly file (as is needed for mathlib.s), you should have multiple <code>global</code> lines, one for each subroutine that you plan on calling from your C/C++ code.</p>
 <h3 id="sample-execution-run">Sample Execution Run</h3>
@@ -147,7 +149,7 @@ Sorted array: -39 -7 2 8 12</code></pre>
 <hr />
 <h2 id="post-lab-1">Post-lab</h2>
 <p>Download <a href="testLinearSearch.cpp.html">testLinearSearch.cpp</a> (<a href="testLinearSearch.cpp">src</a>), which you will use to test your code. Make sure you do not alter testLinearSearch.cpp, as you must include the original file in your submission.</p>
-<p>Your task for the post-lab is to implement the <code>linearSearch</code> function in assembly. This function will scan through an array iteratively until it finds the target element or reaches the end of the array. The function takes in three parameters. The first parameter is a pointer to an int array. The second parameter is an integer representing the size of the array. The third parameter is an integer representing the target element to find in the array. The return type of this fuction is int, and will be the index into the array that the target was found, or -1 if it wasn't. Just like with the <code>testMergeSort</code> program in the in-lab, <code>testLinearSearch</code> will take input from std and pass it on to your <code>linearSearch</code> routine. Make sure you test your function on various sized arrays, both sorted and unsorted.</p>
+<p>Your task for the post-lab is to implement the <code>linearSearch</code> function in assembly. This function will scan through an array iteratively until it finds the target element or reaches the end of the array. The function takes in three parameters. The first parameter is a pointer to an int array. The second parameter is an integer representing the size of the array. The third parameter is an integer representing the target element to find in the array. The return type of this fuction is int, and will be the index into the array that the target was found, or -1 if it wasn’t. Just like with the <code>testMergeSort</code> program in the in-lab, <code>testLinearSearch</code> will take input from std and pass it on to your <code>linearSearch</code> routine. Make sure you test your function on various sized arrays, both sorted and unsorted.</p>
 <h3 id="sample-execution-run-2">Sample Execution Run</h3>
 <p>Below is a sample execution run to show you the input and output format we are looking for.</p>
 <pre><code>Enter the array size: 5

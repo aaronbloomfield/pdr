@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta charset="utf-8">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>PDR: Slides: Slide Graph Diagrams</title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../../markdown.css">
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="../../markdown.css" />
 </head>
 <body>
 <h1 id="pdr-slides-slide-graph-diagrams">PDR: Slides: Slide Graph Diagrams</h1>
 <p><a href="../index.html">Go up to the main slides table of contents page</a> (<a href="../index.md">md</a>)</p>
 <p>The files in this directory use <a href="http://www.graphviz.org/">GraphViz</a> to generate the images. To run GraphViz:</p>
 <pre><code>dot -Tsvg filename.dot -o outname.svg</code></pre>
-<p>The three Red-black tree insertion case images need the <code>-Kneato</code> flag for proper layout. You can also just run <code>make</code> in the slides/graphs/ directory to convert all of the .dot files in this repository to .svg files. This also creates .png and .ps versions of the graphs, which can be removed via <code>make clean</code>. A fairly recent version of GraphViz is needed for 'rarrow' shape.</p>
+<p>The three Red-black tree insertion case images need the <code>-Kneato</code> flag for proper layout. You can also just run <code>make</code> in the slides/graphs/ directory to convert all of the .dot files in this repository to .svg files. This also creates .png and .ps versions of the graphs, which can be removed via <code>make clean</code>. A fairly recent version of GraphViz is needed for ‘rarrow’ shape.</p>
 <p>Both the original .dot files, as well as the .svg files (which are what are used in the slides) are include in this repository.</p>
 <p>Some of these images (the expression trees and the red-black insertion cases) were added the the appropriate Wikiedpia pages as well.</p>
 <h2 id="references">References</h2>
@@ -27,28 +29,28 @@
 </ul>
 <h2 id="images">Images</h2>
 <ul>
-<li>High-level diagrams: <a href="list-diagram-1.svg" class="uri">list-diagram-1.svg</a>, <a href="list-diagram-2.svg" class="uri">list-diagram-2.svg</a>, <a href="tree-diagram.svg" class="uri">tree-diagram.svg</a></li>
+<li>High-level diagrams: <a href="list-diagram-1.svg">list-diagram-1.svg</a>, <a href="list-diagram-2.svg">list-diagram-2.svg</a>, <a href="tree-diagram.svg">tree-diagram.svg</a></li>
 <li>Expression trees
 <ul>
-<li>Expression tree images: <a href="exp-tree-1.svg" class="uri">exp-tree-1.svg</a>, <a href="exp-tree-2.svg" class="uri">exp-tree-2.svg</a>, <a href="exp-tree-3.svg" class="uri">exp-tree-3.svg</a></li>
-<li>Expression tree formation images: <a href="exp-tree-ex-1.svg" class="uri">exp-tree-ex-1.svg</a>, <a href="exp-tree-ex-2.svg" class="uri">exp-tree-ex-2.svg</a>, <a href="exp-tree-ex-3.svg" class="uri">exp-tree-ex-3.svg</a>, <a href="exp-tree-ex-4.svg" class="uri">exp-tree-ex-4.svg</a>, <a href="exp-tree-ex-5.svg" class="uri">exp-tree-ex-5.svg</a>, <a href="exp-tree-ex-6.svg" class="uri">exp-tree-ex-6.svg</a>, <a href="exp-tree-ex-7.svg" class="uri">exp-tree-ex-7.svg</a>, <a href="exp-tree-ex-8.svg" class="uri">exp-tree-ex-8.svg</a>, <a href="exp-tree-ex-9.svg" class="uri">exp-tree-ex-9.svg</a>, <a href="exp-tree-ex-10.svg" class="uri">exp-tree-ex-10.svg</a></li>
+<li>Expression tree images: <a href="exp-tree-1.svg">exp-tree-1.svg</a>, <a href="exp-tree-2.svg">exp-tree-2.svg</a>, <a href="exp-tree-3.svg">exp-tree-3.svg</a></li>
+<li>Expression tree formation images: <a href="exp-tree-ex-1.svg">exp-tree-ex-1.svg</a>, <a href="exp-tree-ex-2.svg">exp-tree-ex-2.svg</a>, <a href="exp-tree-ex-3.svg">exp-tree-ex-3.svg</a>, <a href="exp-tree-ex-4.svg">exp-tree-ex-4.svg</a>, <a href="exp-tree-ex-5.svg">exp-tree-ex-5.svg</a>, <a href="exp-tree-ex-6.svg">exp-tree-ex-6.svg</a>, <a href="exp-tree-ex-7.svg">exp-tree-ex-7.svg</a>, <a href="exp-tree-ex-8.svg">exp-tree-ex-8.svg</a>, <a href="exp-tree-ex-9.svg">exp-tree-ex-9.svg</a>, <a href="exp-tree-ex-10.svg">exp-tree-ex-10.svg</a></li>
 </ul></li>
 <li>Binary trees
 <ul>
-<li>Binary search tree images: <a href="bst-1.svg" class="uri">bst-1.svg</a>, <a href="bst-2.svg" class="uri">bst-2.svg</a>, <a href="bst-3.svg" class="uri">bst-3.svg</a>, <a href="bst-4.svg" class="uri">bst-4.svg</a>, <a href="bst-5.svg" class="uri">bst-5.svg</a>, <a href="bst-6.svg" class="uri">bst-6.svg</a>, <a href="bst-7.svg" class="uri">bst-7.svg</a>, <a href="bst-8.svg" class="uri">bst-8.svg</a>, <a href="bst-9.svg" class="uri">bst-9.svg</a>, <a href="bst-10.svg" class="uri">bst-10.svg</a>, <a href="bst-11.svg" class="uri">bst-11.svg</a>, <a href="bst-12.svg" class="uri">bst-12.svg</a>, <a href="bst-13.svg" class="uri">bst-13.svg</a></li>
-<li>AVL tree images: <a href="avl-tree-1.svg" class="uri">avl-tree-1.svg</a>, <a href="avl-tree-2.svg" class="uri">avl-tree-2.svg</a>, <a href="avl-tree-3.svg" class="uri">avl-tree-3.svg</a>, <a href="avl-tree-4.svg" class="uri">avl-tree-4.svg</a>, <a href="avl-tree-5.svg" class="uri">avl-tree-5.svg</a>, <a href="avl-tree-6.svg" class="uri">avl-tree-6.svg</a>, <a href="avl-tree-7.svg" class="uri">avl-tree-7.svg</a>, <a href="avl-tree-8.svg" class="uri">avl-tree-8.svg</a>, <a href="avl-tree-9.svg" class="uri">avl-tree-9.svg</a>, <a href="avl-tree-10.svg" class="uri">avl-tree-10.svg</a>, <a href="avl-tree-11.svg" class="uri">avl-tree-11.svg</a>, <a href="avl-tree-12.svg" class="uri">avl-tree-12.svg</a>, <a href="avl-tree-13.svg" class="uri">avl-tree-13.svg</a>, <a href="avl-tree-14.svg" class="uri">avl-tree-14.svg</a>, <a href="avl-tree-15.svg" class="uri">avl-tree-15.svg</a>, <a href="avl-tree-16.svg" class="uri">avl-tree-16.svg</a>, <a href="avl-tree-17.svg" class="uri">avl-tree-17.svg</a>, <a href="avl-tree-18.svg" class="uri">avl-tree-18.svg</a>, <a href="avl-tree-19.svg" class="uri">avl-tree-19.svg</a>, <a href="avl-tree-20.svg" class="uri">avl-tree-20.svg</a>, <a href="avl-tree-21.svg" class="uri">avl-tree-21.svg</a>, <a href="avl-tree-22.svg" class="uri">avl-tree-22.svg</a>, <a href="avl-tree-23.svg" class="uri">avl-tree-23.svg</a>, <a href="avl-tree-24.svg" class="uri">avl-tree-24.svg</a></li>
-<li>Red-black tree images: <a href="rb-tree-1.svg" class="uri">rb-tree-1.svg</a>, <a href="Red-black_tree_insert_case_3.svg" class="uri">Red-black_tree_insert_case_3.svg</a>, <a href="Red-black_tree_insert_case_4.svg" class="uri">Red-black_tree_insert_case_4.svg</a>, <a href="Red-black_tree_insert_case_5.svg" class="uri">Red-black_tree_insert_case_5.svg</a></li>
+<li>Binary search tree images: <a href="bst-1.svg">bst-1.svg</a>, <a href="bst-2.svg">bst-2.svg</a>, <a href="bst-3.svg">bst-3.svg</a>, <a href="bst-4.svg">bst-4.svg</a>, <a href="bst-5.svg">bst-5.svg</a>, <a href="bst-6.svg">bst-6.svg</a>, <a href="bst-7.svg">bst-7.svg</a>, <a href="bst-8.svg">bst-8.svg</a>, <a href="bst-9.svg">bst-9.svg</a>, <a href="bst-10.svg">bst-10.svg</a>, <a href="bst-11.svg">bst-11.svg</a>, <a href="bst-12.svg">bst-12.svg</a>, <a href="bst-13.svg">bst-13.svg</a></li>
+<li>AVL tree images: <a href="avl-tree-1.svg">avl-tree-1.svg</a>, <a href="avl-tree-2.svg">avl-tree-2.svg</a>, <a href="avl-tree-3.svg">avl-tree-3.svg</a>, <a href="avl-tree-4.svg">avl-tree-4.svg</a>, <a href="avl-tree-5.svg">avl-tree-5.svg</a>, <a href="avl-tree-6.svg">avl-tree-6.svg</a>, <a href="avl-tree-7.svg">avl-tree-7.svg</a>, <a href="avl-tree-8.svg">avl-tree-8.svg</a>, <a href="avl-tree-9.svg">avl-tree-9.svg</a>, <a href="avl-tree-10.svg">avl-tree-10.svg</a>, <a href="avl-tree-11.svg">avl-tree-11.svg</a>, <a href="avl-tree-12.svg">avl-tree-12.svg</a>, <a href="avl-tree-13.svg">avl-tree-13.svg</a>, <a href="avl-tree-14.svg">avl-tree-14.svg</a>, <a href="avl-tree-15.svg">avl-tree-15.svg</a>, <a href="avl-tree-16.svg">avl-tree-16.svg</a>, <a href="avl-tree-17.svg">avl-tree-17.svg</a>, <a href="avl-tree-18.svg">avl-tree-18.svg</a>, <a href="avl-tree-19.svg">avl-tree-19.svg</a>, <a href="avl-tree-20.svg">avl-tree-20.svg</a>, <a href="avl-tree-21.svg">avl-tree-21.svg</a>, <a href="avl-tree-22.svg">avl-tree-22.svg</a>, <a href="avl-tree-23.svg">avl-tree-23.svg</a>, <a href="avl-tree-24.svg">avl-tree-24.svg</a></li>
+<li>Red-black tree images: <a href="rb-tree-1.svg">rb-tree-1.svg</a>, <a href="Red-black_tree_insert_case_3.svg">Red-black_tree_insert_case_3.svg</a>, <a href="Red-black_tree_insert_case_4.svg">Red-black_tree_insert_case_4.svg</a>, <a href="Red-black_tree_insert_case_5.svg">Red-black_tree_insert_case_5.svg</a></li>
 <li>Additional red-black tree images, specifically the removal cases, are not included in this repository but can be found <a href="https://github.com/aaronbloomfield/wikipedia">here</a></li>
 </ul></li>
 <li>Miscellaneous trees
 <ul>
-<li>File tree images: <a href="file-tree-1.svg" class="uri">file-tree-1.svg</a></li>
-<li>Program tree images: <a href="program-tree-1.svg" class="uri">program-tree-1.svg</a></li>
+<li>File tree images: <a href="file-tree-1.svg">file-tree-1.svg</a></li>
+<li>Program tree images: <a href="program-tree-1.svg">program-tree-1.svg</a></li>
 </ul></li>
-<li>Heap images: <a href="heap-1.svg" class="uri">heap-1.svg</a>, <a href="heap-2.svg" class="uri">heap-2.svg</a>, <a href="heap-3.svg" class="uri">heap-3.svg</a>, <a href="heap-4.svg" class="uri">heap-4.svg</a>, <a href="heap-5.svg" class="uri">heap-5.svg</a>, <a href="heap-6.svg" class="uri">heap-6.svg</a>, <a href="heap-7.svg" class="uri">heap-7.svg</a>, <a href="heap-8.svg" class="uri">heap-8.svg</a>, <a href="heap-9.svg" class="uri">heap-9.svg</a>, <a href="heap-10.svg" class="uri">heap-10.svg</a>, <a href="heap-11.svg" class="uri">heap-11.svg</a>, <a href="heap-12.svg" class="uri">heap-12.svg</a>, <a href="heap-13.svg" class="uri">heap-13.svg</a>, <a href="heap-14.svg" class="uri">heap-14.svg</a>, <a href="heap-15.svg" class="uri">heap-15.svg</a>, <a href="heap-16.svg" class="uri">heap-16.svg</a>, <a href="heap-17.svg" class="uri">heap-17.svg</a>, <a href="heap-18.svg" class="uri">heap-18.svg</a></li>
-<li>Huffman tree images: <a href="huffman-1.svg" class="uri">huffman-1.svg</a>, <a href="huffman-2.svg" class="uri">huffman-2.svg</a>, <a href="huffman-3.svg" class="uri">huffman-3.svg</a>, <a href="huffman-4.svg" class="uri">huffman-4.svg</a>, <a href="huffman-5.svg" class="uri">huffman-5.svg</a>, <a href="huffman-6.svg" class="uri">huffman-6.svg</a>, <a href="huffman-7.svg" class="uri">huffman-7.svg</a>, <a href="huffman-8.svg" class="uri">huffman-8.svg</a>, <a href="huffman-9.svg" class="uri">huffman-9.svg</a>, <a href="huffman-10.svg" class="uri">huffman-10.svg</a>, <a href="huffman-11.svg" class="uri">huffman-11.svg</a>, <a href="huffman-12.svg" class="uri">huffman-12.svg</a>, <a href="huffman-13.svg" class="uri">huffman-13.svg</a>, <a href="huffman-14.svg" class="uri">huffman-14.svg</a></li>
-<li>Graph images: <a href="graph-1.svg" class="uri">graph-1.svg</a>, <a href="graph-2.svg" class="uri">graph-2.svg</a>, <a href="graph-3.svg" class="uri">graph-3.svg</a>, <a href="graph-4.svg" class="uri">graph-4.svg</a>, <a href="graph-5.svg" class="uri">graph-5.svg</a>, <a href="graph-6.svg" class="uri">graph-6.svg</a>, <a href="graph-7.svg" class="uri">graph-7.svg</a>, <a href="graph-8.svg" class="uri">graph-8.svg</a>, <a href="graph-9.svg" class="uri">graph-9.svg</a>, <a href="graph-10.svg" class="uri">graph-10.svg</a>, <a href="graph-11.svg" class="uri">graph-11.svg</a>, <a href="graph-12.svg" class="uri">graph-12.svg</a>, <a href="graph-13a.svg" class="uri">graph-13a.svg</a>, <a href="graph-13b.svg" class="uri">graph-13b.svg</a>, <a href="graph-13c.svg" class="uri">graph-13c.svg</a>, <a href="graph-13d.svg" class="uri">graph-13d.svg</a>, <a href="graph-13e.svg" class="uri">graph-13e.svg</a>, <a href="graph-14.svg" class="uri">graph-14.svg</a>, <a href="graph-15.svg" class="uri">graph-15.svg</a></li>
-<li>Other: <a href="c-string-1.svg" class="uri">c-string-1.svg</a></li>
+<li>Heap images: <a href="heap-1.svg">heap-1.svg</a>, <a href="heap-2.svg">heap-2.svg</a>, <a href="heap-3.svg">heap-3.svg</a>, <a href="heap-4.svg">heap-4.svg</a>, <a href="heap-5.svg">heap-5.svg</a>, <a href="heap-6.svg">heap-6.svg</a>, <a href="heap-7.svg">heap-7.svg</a>, <a href="heap-8.svg">heap-8.svg</a>, <a href="heap-9.svg">heap-9.svg</a>, <a href="heap-10.svg">heap-10.svg</a>, <a href="heap-11.svg">heap-11.svg</a>, <a href="heap-12.svg">heap-12.svg</a>, <a href="heap-13.svg">heap-13.svg</a>, <a href="heap-14.svg">heap-14.svg</a>, <a href="heap-15.svg">heap-15.svg</a>, <a href="heap-16.svg">heap-16.svg</a>, <a href="heap-17.svg">heap-17.svg</a>, <a href="heap-18.svg">heap-18.svg</a></li>
+<li>Huffman tree images: <a href="huffman-1.svg">huffman-1.svg</a>, <a href="huffman-2.svg">huffman-2.svg</a>, <a href="huffman-3.svg">huffman-3.svg</a>, <a href="huffman-4.svg">huffman-4.svg</a>, <a href="huffman-5.svg">huffman-5.svg</a>, <a href="huffman-6.svg">huffman-6.svg</a>, <a href="huffman-7.svg">huffman-7.svg</a>, <a href="huffman-8.svg">huffman-8.svg</a>, <a href="huffman-9.svg">huffman-9.svg</a>, <a href="huffman-10.svg">huffman-10.svg</a>, <a href="huffman-11.svg">huffman-11.svg</a>, <a href="huffman-12.svg">huffman-12.svg</a>, <a href="huffman-13.svg">huffman-13.svg</a>, <a href="huffman-14.svg">huffman-14.svg</a></li>
+<li>Graph images: <a href="graph-1.svg">graph-1.svg</a>, <a href="graph-2.svg">graph-2.svg</a>, <a href="graph-3.svg">graph-3.svg</a>, <a href="graph-4.svg">graph-4.svg</a>, <a href="graph-5.svg">graph-5.svg</a>, <a href="graph-6.svg">graph-6.svg</a>, <a href="graph-7.svg">graph-7.svg</a>, <a href="graph-8.svg">graph-8.svg</a>, <a href="graph-9.svg">graph-9.svg</a>, <a href="graph-10.svg">graph-10.svg</a>, <a href="graph-11.svg">graph-11.svg</a>, <a href="graph-12.svg">graph-12.svg</a>, <a href="graph-13a.svg">graph-13a.svg</a>, <a href="graph-13b.svg">graph-13b.svg</a>, <a href="graph-13c.svg">graph-13c.svg</a>, <a href="graph-13d.svg">graph-13d.svg</a>, <a href="graph-13e.svg">graph-13e.svg</a>, <a href="graph-14.svg">graph-14.svg</a>, <a href="graph-15.svg">graph-15.svg</a></li>
+<li>Other: <a href="c-string-1.svg">c-string-1.svg</a></li>
 </ul>
 </body>
 </html>

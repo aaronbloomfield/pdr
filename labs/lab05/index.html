@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta charset="utf-8">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>PDR: Laboratory 5: Trees</title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../../markdown.css">
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="../../markdown.css" />
 </head>
 <body>
 <h1 id="pdr-laboratory-5-trees">PDR: Laboratory 5: Trees</h1>
@@ -23,8 +25,8 @@
 <li>Evaluate the performance of binary search trees and AVL trees</li>
 </ol>
 <h3 id="background">Background</h3>
-<p>A binary tree is a tree with a maximum of two children per node. Tree traversals are commonly associated with binary trees. A pre-order traversal processes the given node first and then processes its left and then right subtrees. In an in-order traversal, first the node's left subtree is processed, followed by the node itself, and finally its right subtree. A post-order traversal operates on the left subtree, followed by the right subtree, and finally on the node itself.</p>
-<p>A binary search tree is a binary tree that imposes an ordering on its nodes. A node's left child has a lesser value, while its right child has a greater value. Binary search trees are useful for efficient insertion, deletion, and lookup of items with a certain key. As we'll see in this lab, variations of binary search trees offer different performance characteristics.</p>
+<p>A binary tree is a tree with a maximum of two children per node. Tree traversals are commonly associated with binary trees. A pre-order traversal processes the given node first and then processes its left and then right subtrees. In an in-order traversal, first the node’s left subtree is processed, followed by the node itself, and finally its right subtree. A post-order traversal operates on the left subtree, followed by the right subtree, and finally on the node itself.</p>
+<p>A binary search tree is a binary tree that imposes an ordering on its nodes. A node’s left child has a lesser value, while its right child has a greater value. Binary search trees are useful for efficient insertion, deletion, and lookup of items with a certain key. As we’ll see in this lab, variations of binary search trees offer different performance characteristics.</p>
 <h3 id="tutorial">Tutorial</h3>
 <p>Complete the <a href="../../tutorials/05-make/index.html">Makefile tutorial</a>. You will need to know how to write one for the pre-lab, in-lab and post-lab, since all the following labs will be compiled via Makefiles.</p>
 <h3 id="recommended-readings">Recommended Readings</h3>
@@ -33,19 +35,19 @@
 <h3 id="pre-lab">Pre-lab</h3>
 <ol type="1">
 <li>Create a postfix tree calculator</li>
-<li>Files to download: <a href="code/prelab/TreeCalc.h.html">TreeCalc.h</a> (<a href="code/prelab/TreeCalc.h">src</a>), <a href="code/prelab/TreeCalc.cpp.html">TreeCalc.cpp</a> (<a href="code/prelab/TreeCalc.cpp">src</a>), <a href="code/prelab/TreeNode.h.html">TreeNode.h</a> (<a href="code/prelab/TreeNode.h">src</a>), <a href="code/prelab/TreeNode.cpp.html">TreeNode.cpp</a> (<a href="code/prelab/TreeNode.cpp">src</a>), and <a href="code/prelab/TreeCalcTest.cpp.html">TreeCalcTest.cpp</a> (<a href="code/prelab/TreeCalcTest.cpp">src</a>). These files are contained in the prelab/ directory of the <a href="code.zip" class="uri">code.zip</a> file.</li>
+<li>Files to download: <a href="code/prelab/TreeCalc.h.html">TreeCalc.h</a> (<a href="code/prelab/TreeCalc.h">src</a>), <a href="code/prelab/TreeCalc.cpp.html">TreeCalc.cpp</a> (<a href="code/prelab/TreeCalc.cpp">src</a>), <a href="code/prelab/TreeNode.h.html">TreeNode.h</a> (<a href="code/prelab/TreeNode.h">src</a>), <a href="code/prelab/TreeNode.cpp.html">TreeNode.cpp</a> (<a href="code/prelab/TreeNode.cpp">src</a>), and <a href="code/prelab/TreeCalcTest.cpp.html">TreeCalcTest.cpp</a> (<a href="code/prelab/TreeCalcTest.cpp">src</a>). These files are contained in the prelab/ directory of the <a href="code.zip">code.zip</a> file.</li>
 <li>Files to submit: TreeCalc.h/cpp, TreeCalcTest.cpp, TreeNode.h/cpp</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
 <ol type="1">
 <li>Implement a binary search tree</li>
-<li>Files to download: <a href="code/inlab/BinaryNode.h.html">BinaryNode.h</a> (<a href="code/inlab/BinaryNode.h">src</a>), <a href="code/inlab/BinaryNode.cpp.html">BinaryNode.cpp</a> (<a href="code/inlab/BinaryNode.cpp">src</a>), <a href="code/inlab/BinarySearchTree.h.html">BinarySearchTree.h</a> (<a href="code/inlab/BinarySearchTree.h">src</a>), <a href="code/inlab/BinarySearchTree.cpp.html">BinarySearchTree.cpp</a> (<a href="code/inlab/BinarySearchTree.cpp">src</a>), <a href="code/inlab/BSTPathTest.cpp.html">BSTPathTest.cpp</a> (<a href="code/inlab/BSTPathTest.cpp">src</a>), <a href="code/inlab/testfile1.txt">testfile1.txt</a> (<a href="code/inlab/testfile1.out.txt">output</a>), <a href="code/inlab/testfile2.txt">testfile2.txt</a> (<a href="code/inlab/testfile2.out.txt">output</a>), <a href="code/inlab/testfile3.txt">testfile3.txt</a> (<a href="code/inlab/testfile3.out.txt">output</a>). These files are contained in the inlab/ directory of the <a href="code.zip" class="uri">code.zip</a> file.</li>
+<li>Files to download: <a href="code/inlab/BinaryNode.h.html">BinaryNode.h</a> (<a href="code/inlab/BinaryNode.h">src</a>), <a href="code/inlab/BinaryNode.cpp.html">BinaryNode.cpp</a> (<a href="code/inlab/BinaryNode.cpp">src</a>), <a href="code/inlab/BinarySearchTree.h.html">BinarySearchTree.h</a> (<a href="code/inlab/BinarySearchTree.h">src</a>), <a href="code/inlab/BinarySearchTree.cpp.html">BinarySearchTree.cpp</a> (<a href="code/inlab/BinarySearchTree.cpp">src</a>), <a href="code/inlab/BSTPathTest.cpp.html">BSTPathTest.cpp</a> (<a href="code/inlab/BSTPathTest.cpp">src</a>), <a href="code/inlab/testfile1.txt">testfile1.txt</a> (<a href="code/inlab/testfile1.out.txt">output</a>), <a href="code/inlab/testfile2.txt">testfile2.txt</a> (<a href="code/inlab/testfile2.out.txt">output</a>), <a href="code/inlab/testfile3.txt">testfile3.txt</a> (<a href="code/inlab/testfile3.out.txt">output</a>). These files are contained in the inlab/ directory of the <a href="code.zip">code.zip</a> file.</li>
 <li>Files to submit: BinarySearchTree.h, BinarySearchTree.cpp, BinaryNode.h, BinaryNode.cpp, BSTPathTest.cpp, Makefile, and any other files needed to make your code compile.</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
 <ol type="1">
 <li>Implement an AVL tree</li>
-<li>Files to download: <a href="code/postlab/AVLNode.h.html">AVLNode.h</a> (<a href="code/postlab/AVLNode.h">src</a>), <a href="code/postlab/AVLNode.cpp.html">AVLNode.cpp</a> (<a href="code/postlab/AVLNode.cpp">src</a>), <a href="code/postlab/AVLTree.h.html">AVLTree.h</a> (<a href="code/postlab/AVLTree.h">src</a>), <a href="code/postlab/AVLTree.cpp.html">AVLTree.cpp</a> (<a href="code/postlab/AVLTree.cpp">src</a>), <a href="code/postlab/AVLPathTest.cpp.html">AVLPathTest.cpp</a> (<a href="code/postlab/AVLPathTest.cpp">src</a>), <a href="code/postlab/testfile1.txt">testfile1.txt</a> (<a href="code/postlab/testfile1.out.txt">output</a>), <a href="code/postlab/testfile2.txt">testfile2.txt</a> (<a href="code/postlab/testfile2.out.txt">output</a>), <a href="code/postlab/testfile3.txt">testfile3.txt</a> (<a href="code/postlab/testfile3.out.txt">output</a>). These files are contained in the postlab/ directory of the <a href="code.zip" class="uri">code.zip</a> file.</li>
+<li>Files to download: <a href="code/postlab/AVLNode.h.html">AVLNode.h</a> (<a href="code/postlab/AVLNode.h">src</a>), <a href="code/postlab/AVLNode.cpp.html">AVLNode.cpp</a> (<a href="code/postlab/AVLNode.cpp">src</a>), <a href="code/postlab/AVLTree.h.html">AVLTree.h</a> (<a href="code/postlab/AVLTree.h">src</a>), <a href="code/postlab/AVLTree.cpp.html">AVLTree.cpp</a> (<a href="code/postlab/AVLTree.cpp">src</a>), <a href="code/postlab/AVLPathTest.cpp.html">AVLPathTest.cpp</a> (<a href="code/postlab/AVLPathTest.cpp">src</a>), <a href="code/postlab/testfile1.txt">testfile1.txt</a> (<a href="code/postlab/testfile1.out.txt">output</a>), <a href="code/postlab/testfile2.txt">testfile2.txt</a> (<a href="code/postlab/testfile2.out.txt">output</a>), <a href="code/postlab/testfile3.txt">testfile3.txt</a> (<a href="code/postlab/testfile3.out.txt">output</a>). These files are contained in the postlab/ directory of the <a href="code.zip">code.zip</a> file.</li>
 <li>Files to submit: AVLTree.h, AVLTree.cpp, AVLNode.h, AVLNode.cpp, AVLPathTest.cpp, Makefile, and any other files needed to make your code compile (see the post-lab section for formatting details)</li>
 </ol>
 <hr />
@@ -74,7 +76,7 @@
 <li>Print the result to the screen</li>
 <li>Have no memory leaks</li>
 </ul>
-<p>Additionally, you should use the skeleton source files in the prelab/ directory of <a href="code.zip" class="uri">code.zip</a> as a basis for your tree calculator. You may modify and add to the skeleton code as you see fit, but TreeCalcTest, TreeNode, <code>readInput()</code>, and <code>printOutput()</code> must NOT be modified.</p>
+<p>Additionally, you should use the skeleton source files in the prelab/ directory of <a href="code.zip">code.zip</a> as a basis for your tree calculator. You may modify and add to the skeleton code as you see fit, but TreeCalcTest, TreeNode, <code>readInput()</code>, and <code>printOutput()</code> must NOT be modified.</p>
 <h3 id="sample-execution-run">Sample Execution Run</h3>
 <p>Below is a sample execution run to show you the input and output format we are looking for.</p>
 <pre><code>Enter elements one by one in postfix notation
@@ -94,13 +96,13 @@ The result of the expression tree is 42</code></pre>
 <h3 id="submission">Submission</h3>
 <p>You should submit any files required for your tree calculator to run. TreeCalcTest.cpp, TreeNode.h, and TreeNode.cpp should not be modified.</p>
 <h3 id="hints">Hints</h3>
-<p><strong>Recursion is the way to go:</strong> Recursion is very useful in traversing the expression tree. You'll need to use recursion for many of the TreeCalc methods.</p>
+<p><strong>Recursion is the way to go:</strong> Recursion is very useful in traversing the expression tree. You’ll need to use recursion for many of the TreeCalc methods.</p>
 <p><strong>Printing in the right order:</strong> Draw a simple tree and see how you should recurse in order to hit each node in the correct order. Need more help? Check the <a href="https://en.wikipedia.org/wiki/Expression_tree">Wikipedia article</a>!</p>
 <hr />
 <h2 id="in-lab-1">In-lab</h2>
 <p>For this in-lab, you will implement a binary search tree.</p>
 <h3 id="bst-implementation">BST Implementation</h3>
-<p>The necessary files are in the inlab/ directory of <a href="code.zip" class="uri">code.zip</a>.</p>
+<p>The necessary files are in the inlab/ directory of <a href="code.zip">code.zip</a>.</p>
 <p>The required class declarations are located in <a href="code/inlab/BinaryNode.h.html">BinaryNode.h</a> (<a href="code/inlab/BinaryNode.h">src</a>) and <a href="code/inlab/BinarySearchTree.h.html">BinarySearchTree.h</a> (<a href="code/inlab/BinarySearchTree.h">src</a>). You may want to create private helper methods for BinarySearchTree, as done for the implementation of <code>remove()</code>, which is already provided for you. The private methods take BinaryNodes as parameters which allow them to recurse over a subtree, a common implementation technique.</p>
 <p>You should use <a href="code/inlab/BSTPathTest.cpp.html">BSTPathTest.cpp</a> (<a href="code/inlab/BSTPathTest.cpp">src</a>) to test your implementation, but you may NOT change it.</p>
 <h3 id="test-files">Test Files</h3>
@@ -112,10 +114,8 @@ The result of the expression tree is 42</code></pre>
 <li>Lookup <word>: <code>L &lt;word&gt;</code></li>
 </ul>
 <p>The Lookup instruction will call the <code>pathTo()</code> method defined on your tree. <code>pathTo()</code> must return a string representing the nodes encountered when finding an element. For instance in the following image, the bold lines indicate the path taken for locating element W.</p>
-<figure>
-<img src="avl-tree-pic-1.png" />
-</figure>
-<p><code>pathTo(&quot;W&quot;)</code> would then return the string <code>&quot;M P Z W&quot;</code>. Calling <code>pathTo()</code> on an element that doesn't exist would result in an empty string <code>&quot;&quot;</code>.</p>
+<p><img src="avl-tree-pic-1.png" /></p>
+<p><code>pathTo("W")</code> would then return the string <code>"M P Z W"</code>. Calling <code>pathTo()</code> on an element that doesn’t exist would result in an empty string <code>""</code>.</p>
 <h3 id="sample-execution-run-1">Sample Execution Run</h3>
 <p>Below is a sample execution run to show you the input and output format we are looking for.</p>
 <pre><code>I We
@@ -149,7 +149,7 @@ BST numNodes: 18</code></pre>
 <h2 id="post-lab-1">Post-lab</h2>
 <p>The objective of this post-lab is to understand the run-time characteristics and trade-offs between normal Binary search trees and AVL trees. Your deliverable for this post-lab will be an AVL tree implementation.</p>
 <h3 id="avl-implementation">AVL Implementation</h3>
-<p>The structure of the provided AVL starter code is analogous to that of the BST, and is not discussed in further detail here. The starter files are in the postlab/ directory of <a href="code.zip" class="uri">code.zip</a>. The comments in the code of the starter files help explain where to start.</p>
+<p>The structure of the provided AVL starter code is analogous to that of the BST, and is not discussed in further detail here. The starter files are in the postlab/ directory of <a href="code.zip">code.zip</a>. The comments in the code of the starter files help explain where to start.</p>
 <p>You may test your implementation with the same test files as before, though the expected output will be different (<a href="code/postlab/testfile1.out.txt">output of testfile1</a>, <a href="code/postlab/testfile2.out.txt">output of testfile2</a>, <a href="code/postlab/testfile3.out.txt">output of testfile3</a>).</p>
 <h3 id="sample-execution-run-2">Sample Execution Run</h3>
 <p>Below is a sample execution run to show you the input and output format we are looking for.</p>
