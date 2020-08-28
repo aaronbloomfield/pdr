@@ -3,6 +3,11 @@ CS 2150 Teaching Assistants
 
 [Go up to the CS 2150 page](index.html) ([md](index.md))
 
+## Pragun Ananda
+[![Pragun Ananda](//libra.cs.virginia.edu/tas/pba4bd.jpg)](//libra.cs.virginia.edu/tas/full/pba4bd.jpg)
+Hi! I’m Pragun, a third year majoring in Computer Science and Statistics in the college. I’m really excited to TA for CS 2150 this semester (for my first time), because it’s been one of my favorite classes and, more importantly, because I know firsthand that this class can be overwhelming at times. I love meeting new people so definitely don’t hesitate to reach out if you want someone to talk to about navigating this class or about something totally random. In my free time, I enjoy dancing salsa/bachata in the University Salsa Club (albeit a little hard to do that this semester) and adding to my many Spotify playlists. Excited to meet you guys and I’m looking forward to a fun semester!
+<br clear="all">
+
 ## Ramya Bhaskara
 [![Ramya Bhaskara](//libra.cs.virginia.edu/tas/rsb4zm.jpg)](//libra.cs.virginia.edu/tas/full/rsb4zm.jpg)
 I'm a second year Computer Science major and this is my first semester TAing this class! I'm really interested in data science, cooking/eating, and art. I'm also a part of SWE, A.O.E., and WiCS. I'm a TA because it can be really rewarding, and I loved CS 2150 as a student.
@@ -11,6 +16,11 @@ I'm a second year Computer Science major and this is my first semester TAing thi
 ## Anna Cuddeback
 [![Anna Cuddeback ](//libra.cs.virginia.edu/tas/atc4yk.jpg)](//libra.cs.virginia.edu/tas/full/atc4yk.jpg)
 Hey Friends! My name is Anna Cuddeback and I'm a third year from Medford, Massachusetts studying electrical engineering and physics. <p> Outside of TAing and classes, I resident-advise a first year dorm, wait for COVID to be over so I can give tours with the University Guide Service, and do officer-y things for Outdoors at UVA. I am also an expert at Photoshop. <p> I'm really into my chacos, and my diet primarily consists of cool mint chocolate Clif bars and Dunks iced coffee. I am also emotionally attached to my water bottle. If you're not sure where I am, you can probably find me climbing at Slaughter or scooping up deals at the local Goodwill. Like Dwight Schrute, I always keep an extra set of Birkenstocks in the car for special occasions.
+<br clear="all">
+
+## Katherine Fogarty
+[![Katherine Fogarty](//libra.cs.virginia.edu/tas/kmf4zd.jpg)](//libra.cs.virginia.edu/tas/full/kmf4zd.jpg)
+Hi! I'm a fourth year majoring in Systems Engineering and minoring in Computer Science and Engineering Business. I'm from Seattle, Washington. Outside of class, I'm involved in Engineering Student Council, A.O.E., and SWE! I also enjoy cooking and reading.
 <br clear="all">
 
 ## Madi Flynn
@@ -46,7 +56,7 @@ Hi! I'm Alex Li, a 2nd year CS major in the College from Wilton, CT. This is my 
 
 ## Marina Kun
 [![Marina Kun](//libra.cs.virginia.edu/tas/mk3qa.jpg)](//libra.cs.virginia.edu/tas/full/mk3qa.jpg)
-Hey! I'm a 3rd year in the engineering school studying computer science. This is my 2nd semester TA-ing this course. I also teach a web development course at HackCville. When I actually have free time :( I like to draw and paint! Fun fact about me is I'm really, reallyyy good at this board game called Pucket. I'm always up for a good talk about anything, and I'm definitely down for a Pucket match!
+Hi everyone! I’m a 4th year in the engineering school studying computer science. This is my 3rd-semester TA-ing this course. I'm a part of HooThinks, a consulting club. In my free time, I like playing video games including Animal Crossing and League. I really enjoy helping with coding and concept problems, so don't hesitate to reach out. I'm excited to work with you all this semester! 
 <br clear="all">
 
 ## Charles Lim
@@ -108,6 +118,11 @@ I am fourth year student-athlete double majoring in CS and Math. In my free time
 <!-- old descriptions that have since been updated -->
 
 <!-- 
+
+## Marina Kun
+[![Marina Kun](//libra.cs.virginia.edu/tas/mk3qa.jpg)](//libra.cs.virginia.edu/tas/full/mk3qa.jpg)
+Hey! I'm a 3rd year in the engineering school studying computer science. This is my 2nd semester TA-ing this course. I also teach a web development course at HackCville. When I actually have free time :( I like to draw and paint! Fun fact about me is I'm really, reallyyy good at this board game called Pucket. I'm always up for a good talk about anything, and I'm definitely down for a Pucket match!
+<br clear="all">
 
 ## Anna Cuddeback
 [![Anna Cuddeback ](//libra.cs.virginia.edu/tas/atc4yk.jpg)](//libra.cs.virginia.edu/tas/full/atc4yk.jpg)
