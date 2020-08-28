@@ -10,7 +10,7 @@ I'm a second year Computer Science major and this is my first semester TAing thi
 
 ## Anna Cuddeback
 [![Anna Cuddeback ](//libra.cs.virginia.edu/tas/atc4yk.jpg)](//libra.cs.virginia.edu/tas/full/atc4yk.jpg)
-Hey Friends! My name is Anna Cuddeback and I'm a second year from Medford, Massachusetts studying computer engineering and physics. Outside of TAing and classes, I do physics research, resident-advise a first year dorm, and an officer in Outdoors at UVa. I'm really into my chacos, and my diet primarily subsets of peanut butter Clif bars and Dunkin Donuts iced coffee. I am also emotionally attached to my Nalgene. If you're not sure where I am, you can probably find me climbing at Slaughter or scooping up deals at the local Goodwill. Like Dwight Schrute, I always keep an extra set of Birkenstocks in the car for special occasions.
+Hey Friends! My name is Anna Cuddeback and I'm a third year from Medford, Massachusetts studying electrical engineering and physics. <p> Outside of TAing and classes, I resident-advise a first year dorm, wait for COVID to be over so I can give tours with the University Guide Service, and do officer-y things for Outdoors at UVA. I am also an expert at Photoshop. <p> I'm really into my chacos, and my diet primarily consists of cool mint chocolate Clif bars and Dunks iced coffee. I am also emotionally attached to my water bottle. If you're not sure where I am, you can probably find me climbing at Slaughter or scooping up deals at the local Goodwill. Like Dwight Schrute, I always keep an extra set of Birkenstocks in the car for special occasions.
 <br clear="all">
 
 ## Madi Flynn
@@ -18,14 +18,30 @@ Hey Friends! My name is Anna Cuddeback and I'm a second year from Medford, Massa
 Hi, I'm a 3rd year majoring in CS in the E-School! I am interested in cybersecurity and back-end development, and I want to learn more about ML and cloud. I'm a TA for 2150 because I really like helping people (especially with code) and since I used OH a lot when I took the course, I wanted to give back a little bit.
 <br clear="all">
 
+## Justin Gou
+[![Justin Gou](//libra.cs.virginia.edu/tas/jyg2qhc.jpg)](//libra.cs.virginia.edu/tas/full/jyg2qhc.jpg)
+Hey guys! I am a second year BSCS major. I am TAing for 2150 because I understand that this course can be difficult at times, and I love helping people with CS problems and also just really enjoyed the course in general. In my free time, I enjoy solving Rubik's cubes, listening to music, etc. I'm excited to work with you all this semester!
+<br clear="all">
+
+
+## Mara Hart
+[![Mara Hart](//libra.cs.virginia.edu/tas/mlh4xc.jpg)](//libra.cs.virginia.edu/tas/full/mlh4xc.jpg)
+Hi! I'm Mara Hart, a third year studying BSCS. This is my first semester TAing 2150 and I practically lived in office hours last semester. I love traveling and just started last year in Asia -- my next country will be Europe! I'm also a part of Girls Who Code at UVA (instagram: @gwcuva)! This photo is from when I went to Disneyland for the first time in Shanghai, China!
+<br clear="all">
+
 ## Courtney Jacobs
 [![Courtney Jacobs](//libra.cs.virginia.edu/tas/cj5he.jpg)](//libra.cs.virginia.edu/tas/full/cj5he.jpg)
-I'm a third year BSCS major, and this is my first semester as a CS 2150 TA. In my free time, I do research in the Link Lab, and I'm also involved in the Flying V's a cappella group, Veggies of Virginia, and my rock band, Silver Retriever.
+ I’m a fourth year BSCS major, and this is my second year as a CS 2150 TA. In my free time, I make pop music (look me up on Spotify!) and sing in my rock band, Silver Retriever. I also did undergraduate research in the Link Lab for my first 3 years here, so feel free to ask me about it.
 <br clear="all">
 
 ## Harish Karumuri
 [![Harish Karumuri](//libra.cs.virginia.edu/tas/hsk5pa.jpg)](//libra.cs.virginia.edu/tas/full/hsk5pa.jpg)
 YO! I'm Harish Karumuri and I'm a 2nd year Systems Engineering major. This is my 2nd-semester TAing for this class. Few things to note – I'm a huge freaking nerd so if you want to talk to me about video games (I love Nintendo stuff, especially Smash Bros and Legend of Zelda) or Dungeons and Dragons, just say hi to me and start going off. I also love cooking so tell me how you chef it up. I'm also always looking for new music to listen to, so please give me recommendations!
+<br clear="all">
+
+## Alex Li
+[![Alex Li](//libra.cs.virginia.edu/tas/aml7hqv.jpg)](//libra.cs.virginia.edu/tas/full/aml7hqv.jpg)
+Hi! I'm Alex Li, a 2nd year CS major in the College from Wilton, CT. This is my first semester being a TA, so I'm excited to help (through the exposure-free medium of Zoom of course). Outside of school, I'm part of Flux, a UVA poetry and spoken word club, and the Mcintire Investment Institute. I like Avatar the Last Airbender, the Fallout games, jogging, and most of all, Spikeball! A fun fact about me is that I built a folding table over the summer. Hit me up if you wanna talk about literally anything and lets have a great semester!
 <br clear="all">
 
 ## Marina Kun
@@ -46,6 +62,11 @@ Hi! I'm a third year majoring in computer science and statistics and this is my 
 ## Sam McBroom
 [![Sam McBroom](//libra.cs.virginia.edu/tas/scm3vr.jpg)](//libra.cs.virginia.edu/tas/full/scm3vr.jpg)
 I am a third year BSCS and Physics major and this is my third semester as a TA for CS 2150. I am involved in Veggies of Virginia and swing dancing. In my free time, I like to work on side projects, cook, run, and hike.
+<br clear="all">
+
+## Keerthi Medicherla
+[![Keerthi Medicherla](//libra.cs.virginia.edu/tas/khm4zf.jpg)](//libra.cs.virginia.edu/tas/full/khm4zf.jpg)
+Hi guys, I'm Keerthi! I'm a third year double majoring in Computer Science and Global Studies: Security and Justice, and this will be my first time TAing! CS 2150 was one of the most challenging and rewarding classes I have taken at UVA, so I'm excited to work with you all this semester. :)
 <br clear="all">
 
 ## Nick Mohammad
@@ -81,6 +102,22 @@ Hi everyone! I'm Steven Yi, a third-year CS major in the engineering school. I b
 I am fourth year student-athlete double majoring in CS and Math. In my free time I like to play League of Legends. Fun fact: Instant Pot changed my life
 <br clear="all">
 
+
+-->
+
+<!-- old descriptions that have since been updated -->
+
+<!-- 
+
+## Anna Cuddeback
+[![Anna Cuddeback ](//libra.cs.virginia.edu/tas/atc4yk.jpg)](//libra.cs.virginia.edu/tas/full/atc4yk.jpg)
+Hey Friends! My name is Anna Cuddeback and I'm a second year from Medford, Massachusetts studying computer engineering and physics. Outside of TAing and classes, I do physics research, resident-advise a first year dorm, and an officer in Outdoors at UVa. I'm really into my chacos, and my diet primarily subsets of peanut butter Clif bars and Dunkin Donuts iced coffee. I am also emotionally attached to my Nalgene. If you're not sure where I am, you can probably find me climbing at Slaughter or scooping up deals at the local Goodwill. Like Dwight Schrute, I always keep an extra set of Birkenstocks in the car for special occasions.
+<br clear="all">
+
+## Courtney Jacobs
+[![Courtney Jacobs](//libra.cs.virginia.edu/tas/cj5he.jpg)](//libra.cs.virginia.edu/tas/full/cj5he.jpg)
+I'm a third year BSCS major, and this is my first semester as a CS 2150 TA. In my free time, I do research in the Link Lab, and I'm also involved in the Flying V's a cappella group, Veggies of Virginia, and my rock band, Silver Retriever.
+<br clear="all">
 
 -->
 
