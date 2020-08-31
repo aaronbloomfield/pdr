@@ -13,6 +13,11 @@ Hi! I’m Pragun, a third year majoring in Computer Science and Statistics in th
 I'm a second year Computer Science major and this is my first semester TAing this class! I'm really interested in data science, cooking/eating, and art. I'm also a part of SWE, A.O.E., and WiCS. I'm a TA because it can be really rewarding, and I loved CS 2150 as a student.
 <br clear="all">
 
+## Annie Chapman
+[![Annie Chapman](//libra.cs.virginia.edu/tas/amc6wf.jpg)](//libra.cs.virginia.edu/tas/full/amc6wf.jpg)
+My name is Annie and I'm a 4th year BA computer science and math double major and I'm from Charleston, SC. Outside of classes, I like to be outside! I love to climb and bike and hike, but when I'm inside, I like to read and watch movies. This summer after job prospects fell through, I drove from Charlottesville to Seattle by myself camping and hiking along the way, so hit me up if you want to hear some funny stories about that. This is my first semester as a TA for 2150, but I've been a TA for CS 1110 and DSA I&II. Looking forward to working with you all!
+<br clear="all">
+
 ## John Chrosniak
 [![John Chrosniak](//libra.cs.virginia.edu/tas/jlc9wr.jpg)](//libra.cs.virginia.edu/tas/full/jlc9wr.jpg)
 Hi! I'm John, a 3rd year majoring in computer engineering from the small town of Olney, MD. This is my first semester TA-ing for the course and I'm super excited to meet as many of you as I can. Outside of class I really enjoy snowboarding, cooking, and hiking. Feel free to reach out whenever you need help with something or if you just want to chat!
