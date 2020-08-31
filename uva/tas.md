@@ -13,8 +13,13 @@ Hi! I’m Pragun, a third year majoring in Computer Science and Statistics in th
 I'm a second year Computer Science major and this is my first semester TAing this class! I'm really interested in data science, cooking/eating, and art. I'm also a part of SWE, A.O.E., and WiCS. I'm a TA because it can be really rewarding, and I loved CS 2150 as a student.
 <br clear="all">
 
+## John Chrosniak
+[![John Chrosniak](//libra.cs.virginia.edu/tas/jlc9wr.jpg)](//libra.cs.virginia.edu/tas/full/jlc9wr.jpg)
+Hi! I'm John, a 3rd year majoring in computer engineering from the small town of Olney, MD. This is my first semester TA-ing for the course and I'm super excited to meet as many of you as I can. Outside of class I really enjoy snowboarding, cooking, and hiking. Feel free to reach out whenever you need help with something or if you just want to chat!
+<br clear="all">
+
 ## Anna Cuddeback
-[![Anna Cuddeback ](//libra.cs.virginia.edu/tas/atc4yk.jpg)](//libra.cs.virginia.edu/tas/full/atc4yk.jpg)
+[![Anna Cuddeback](//libra.cs.virginia.edu/tas/atc4yk.jpg)](//libra.cs.virginia.edu/tas/full/atc4yk.jpg)
 Hey Friends! My name is Anna Cuddeback and I'm a third year from Medford, Massachusetts studying electrical engineering and physics. <p> Outside of TAing and classes, I resident-advise a first year dorm, wait for COVID to be over so I can give tours with the University Guide Service, and do officer-y things for Outdoors at UVA. I am also an expert at Photoshop. <p> I'm really into my chacos, and my diet primarily consists of cool mint chocolate Clif bars and Dunks iced coffee. I am also emotionally attached to my water bottle. If you're not sure where I am, you can probably find me climbing at Slaughter or scooping up deals at the local Goodwill. Like Dwight Schrute, I always keep an extra set of Birkenstocks in the car for special occasions.
 <br clear="all">
 
@@ -101,6 +106,11 @@ Hey Guys! I'm a fourth year from Bristow, Virginia, majoring in computer enginee
 ## Neal Patel
 [![Neal Patel](//libra.cs.virginia.edu/tas/np5dr.jpg)](//libra.cs.virginia.edu/tas/full/np5dr.jpg)
 Hey! I am a third-year computer science and statistics major from Richmond, Virginia. This is my first semester as a TA for 2150, and I am looking forward to working with you all! On Grounds, I am involved in CS research, the organizing team for HooHacks, and the developer team for theCourseForum.
+<br clear="all">
+
+## Cassie Quach
+[![Cassie Quach](//libra.cs.virginia.edu/tas/cq5yc.jpg)](//libra.cs.virginia.edu/tas/full/cq5yc.jpg)
+Hey everyone! I'm Cassie Quach, a third year BACS major, who's graduating this fall. I'm from and will be TAing from northern Virginia. This is my first time TAing for 2150, but I TA'ed DSA1 and DSA2 last year. I'm excited to help students learn and use the foundational concepts for a successful career in CS. In my free time, I like to learn foreign languages, sew, and re-organize/change up my room. I’m excited to work with you all this semester!
 <br clear="all">
 
 ## John Saunders
