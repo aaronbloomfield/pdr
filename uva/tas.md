@@ -3,24 +3,64 @@ CS 2150 Teaching Assistants
 
 [Go up to the CS 2150 page](index.html) ([md](index.md))
 
+## Pragun Ananda
+[![Pragun Ananda](//libra.cs.virginia.edu/tas/pba4bd.jpg)](//libra.cs.virginia.edu/tas/full/pba4bd.jpg)
+Hi! I’m Pragun, a third year majoring in Computer Science and Statistics in the college. I’m really excited to TA for CS 2150 this semester (for my first time), because it’s been one of my favorite classes and, more importantly, because I know firsthand that this class can be overwhelming at times. I love meeting new people so definitely don’t hesitate to reach out if you want someone to talk to about navigating this class or about something totally random. In my free time, I enjoy dancing salsa/bachata in the University Salsa Club (albeit a little hard to do that this semester) and adding to my many Spotify playlists. Excited to meet you guys and I’m looking forward to a fun semester!
+<br clear="all">
+
 ## Ramya Bhaskara
 [![Ramya Bhaskara](//libra.cs.virginia.edu/tas/rsb4zm.jpg)](//libra.cs.virginia.edu/tas/full/rsb4zm.jpg)
 I'm a second year Computer Science major and this is my first semester TAing this class! I'm really interested in data science, cooking/eating, and art. I'm also a part of SWE, A.O.E., and WiCS. I'm a TA because it can be really rewarding, and I loved CS 2150 as a student.
 <br clear="all">
 
+## Annie Chapman
+[![Annie Chapman](//libra.cs.virginia.edu/tas/amc6wf.jpg)](//libra.cs.virginia.edu/tas/full/amc6wf.jpg)
+My name is Annie and I'm a 4th year BA computer science and math double major and I'm from Charleston, SC. Outside of classes, I like to be outside! I love to climb and bike and hike, but when I'm inside, I like to read and watch movies. This summer after job prospects fell through, I drove from Charlottesville to Seattle by myself camping and hiking along the way, so hit me up if you want to hear some funny stories about that. This is my first semester as a TA for 2150, but I've been a TA for CS 1110 and DSA I&II. Looking forward to working with you all!
+<br clear="all">
+
+## John Chrosniak
+[![John Chrosniak](//libra.cs.virginia.edu/tas/jlc9wr.jpg)](//libra.cs.virginia.edu/tas/full/jlc9wr.jpg)
+Hi! I'm John, a 3rd year majoring in computer engineering from the small town of Olney, MD. This is my first semester TA-ing for the course and I'm super excited to meet as many of you as I can. Outside of class I really enjoy snowboarding, cooking, and hiking. Feel free to reach out whenever you need help with something or if you just want to chat!
+<br clear="all">
+
 ## Anna Cuddeback
-[![Anna Cuddeback ](//libra.cs.virginia.edu/tas/atc4yk.jpg)](//libra.cs.virginia.edu/tas/full/atc4yk.jpg)
-Hey Friends! My name is Anna Cuddeback and I'm a second year from Medford, Massachusetts studying computer engineering and physics. Outside of TAing and classes, I do physics research, resident-advise a first year dorm, and an officer in Outdoors at UVa. I'm really into my chacos, and my diet primarily subsets of peanut butter Clif bars and Dunkin Donuts iced coffee. I am also emotionally attached to my Nalgene. If you're not sure where I am, you can probably find me climbing at Slaughter or scooping up deals at the local Goodwill. Like Dwight Schrute, I always keep an extra set of Birkenstocks in the car for special occasions.
+[![Anna Cuddeback](//libra.cs.virginia.edu/tas/atc4yk.jpg)](//libra.cs.virginia.edu/tas/full/atc4yk.jpg)
+Hey Friends! My name is Anna Cuddeback and I'm a third year from Medford, Massachusetts studying electrical engineering and physics. <p> Outside of TAing and classes, I resident-advise a first year dorm, wait for COVID to be over so I can give tours with the University Guide Service, and do officer-y things for Outdoors at UVA. I am also an expert at Photoshop. <p> I'm really into my chacos, and my diet primarily consists of cool mint chocolate Clif bars and Dunks iced coffee. I am also emotionally attached to my water bottle. If you're not sure where I am, you can probably find me climbing at Slaughter or scooping up deals at the local Goodwill. Like Dwight Schrute, I always keep an extra set of Birkenstocks in the car for special occasions.
+<br clear="all">
+
+## Katherine Fogarty
+[![Katherine Fogarty](//libra.cs.virginia.edu/tas/kmf4zd.jpg)](//libra.cs.virginia.edu/tas/full/kmf4zd.jpg)
+Hi! I'm a fourth year majoring in Systems Engineering and minoring in Computer Science and Engineering Business. I'm from Seattle, Washington. Outside of class, I'm involved in Engineering Student Council, A.O.E., and SWE! I also enjoy cooking and reading.
 <br clear="all">
 
 ## Madi Flynn
 [![Madison Flynn](//libra.cs.virginia.edu/tas/mrf7pc.jpg)](//libra.cs.virginia.edu/tas/full/mrf7pc.jpg)
-Hi, I'm a 3rd year majoring in CS in the E-School! I am interested in cybersecurity and back-end development, and I want to learn more about ML and cloud. I'm a TA for 2150 because I really like helping people (especially with code) and since I used OH a lot when I took the course, I wanted to give back a little bit.
+Hi, I'm a 4th year majoring in CS in the E-School! I am interested in cybersecurity and back-end development, and I want to learn more about ML and cloud. I'm a TA for 2150 because I really like helping people (especially with code) and since I used OH a lot when I took the course, I wanted to give back a little bit.
+<br clear="all">
+
+## Justin Gou
+[![Justin Gou](//libra.cs.virginia.edu/tas/jyg2qhc.jpg)](//libra.cs.virginia.edu/tas/full/jyg2qhc.jpg)
+Hey guys! I am a second year BSCS major. I am TAing for 2150 because I understand that this course can be difficult at times, and I love helping people with CS problems and also just really enjoyed the course in general. In my free time, I enjoy solving Rubik's cubes, listening to music, etc. I'm excited to work with you all this semester!
+<br clear="all">
+
+## Mara Hart
+[![Mara Hart](//libra.cs.virginia.edu/tas/mlh4xc.jpg)](//libra.cs.virginia.edu/tas/full/mlh4xc.jpg)
+Hi! I'm Mara Hart, a third year studying BSCS. This is my first semester TAing 2150 and I practically lived in office hours last semester. I love traveling and just started last year in Asia -- my next country will be Europe! I'm also a part of Girls Who Code at UVA (instagram: @gwcuva)! This photo is from when I went to Disneyland for the first time in Shanghai, China!
+<br clear="all">
+
+## Akshitha Indoori
+[![Akshitha Indoori](//libra.cs.virginia.edu/tas/aai2ge.jpg)](//libra.cs.virginia.edu/tas/full/aai2ge.jpg)
+Hi! I'm Akshitha, a 4th year majoring in Computer Science and minoring in Technology Entrepreneurship. This is my first semester TAing CS 2150 and I'm super excited to be a TA as I know the course can be challenging but I want to help you guys as much as possible! A few facts about me: I love exploring anything new, especially languages/cultures. I also like making art, listening to music(K-Pop!!), hiking, and cooking/baking. Hmu if you want to talk about basically anything! :)
 <br clear="all">
 
 ## Courtney Jacobs
 [![Courtney Jacobs](//libra.cs.virginia.edu/tas/cj5he.jpg)](//libra.cs.virginia.edu/tas/full/cj5he.jpg)
-I'm a third year BSCS major, and this is my first semester as a CS 2150 TA. In my free time, I do research in the Link Lab, and I'm also involved in the Flying V's a cappella group, Veggies of Virginia, and my rock band, Silver Retriever.
+ I’m a fourth year BSCS major, and this is my second year as a CS 2150 TA. In my free time, I make pop music (look me up on Spotify!) and sing in my rock band, Silver Retriever. I also did undergraduate research in the Link Lab for my first 3 years here, so feel free to ask me about it.
+<br clear="all">
+
+## Srujan Joshi
+[![Srujan Joshi](//libra.cs.virginia.edu/tas/sj7sf.jpg)](//libra.cs.virginia.edu/tas/full/sj7sf.jpg)
+Hey! I'm a third year Computer Science major in the E-School. I'm from Reston, Virginia (although I lived in Bangalore, India for the last 8 years before college). It's my first semester as a TA and I'm really looking forward to working with you guys! I personally really enjoyed the class even though it was challenging. In my down time I like playing video games, reading books, meditating, goofing around with my cat and learning how to fly airplanes (virtually) in Microsoft Flight Simulator.
 <br clear="all">
 
 ## Harish Karumuri
@@ -28,9 +68,19 @@ I'm a third year BSCS major, and this is my first semester as a CS 2150 TA. In m
 YO! I'm Harish Karumuri and I'm a 2nd year Systems Engineering major. This is my 2nd-semester TAing for this class. Few things to note – I'm a huge freaking nerd so if you want to talk to me about video games (I love Nintendo stuff, especially Smash Bros and Legend of Zelda) or Dungeons and Dragons, just say hi to me and start going off. I also love cooking so tell me how you chef it up. I'm also always looking for new music to listen to, so please give me recommendations!
 <br clear="all">
 
+## Alex Li
+[![Alex Li](//libra.cs.virginia.edu/tas/aml7hqv.jpg)](//libra.cs.virginia.edu/tas/full/aml7hqv.jpg)
+Hi! I'm Alex Li, a 2nd year CS major in the College from Wilton, CT. This is my first semester being a TA, so I'm excited to help (through the exposure-free medium of Zoom of course). Outside of school, I'm part of Flux, a UVA poetry and spoken word club, and the Mcintire Investment Institute. I like Avatar the Last Airbender, the Fallout games, jogging, and most of all, Spikeball! A fun fact about me is that I built a folding table over the summer. Hit me up if you wanna talk about literally anything and lets have a great semester!
+<br clear="all">
+
+## Josh Mehr
+[![Josh Mehr](//libra.cs.virginia.edu/tas/jmm3vn.jpg)](//libra.cs.virginia.edu/tas/full/jmm3vn.jpg)
+What's up! I'm a second-year BSCS major from Woodbridge Virginia (place in NOVA that has an Ikea). I doubt anyone that reads this cares about me liking dogs so I won't bother talking about stuff like that. This will be my first time TAing for any class. I'm incredibly excited to help you work your way through this class. It can be daunting sometimes but as long as you don't give up and are willing to ask for help you'll be just fine! Let me just assure you that if you need any help I'll try my best to help you in whatever way I possibly can because I remember how grateful I was to have such helpful TAs when I took 2150. I hope we have a fantastic semester together!
+<br clear="all">
+
 ## Marina Kun
 [![Marina Kun](//libra.cs.virginia.edu/tas/mk3qa.jpg)](//libra.cs.virginia.edu/tas/full/mk3qa.jpg)
-Hey! I'm a 3rd year in the engineering school studying computer science. This is my 2nd semester TA-ing this course. I also teach a web development course at HackCville. When I actually have free time :( I like to draw and paint! Fun fact about me is I'm really, reallyyy good at this board game called Pucket. I'm always up for a good talk about anything, and I'm definitely down for a Pucket match!
+Hi everyone! I’m a 4th year in the engineering school studying computer science. This is my 3rd-semester TA-ing this course. I'm a part of HooThinks, a consulting club. In my free time, I like playing video games including Animal Crossing and League. I really enjoy helping with coding and concept problems, so don't hesitate to reach out. I'm excited to work with you all this semester! 
 <br clear="all">
 
 ## Charles Lim
@@ -48,6 +98,11 @@ Hi! I'm a third year majoring in computer science and statistics and this is my 
 I am a third year BSCS and Physics major and this is my third semester as a TA for CS 2150. I am involved in Veggies of Virginia and swing dancing. In my free time, I like to work on side projects, cook, run, and hike.
 <br clear="all">
 
+## Keerthi Medicherla
+[![Keerthi Medicherla](//libra.cs.virginia.edu/tas/khm4zf.jpg)](//libra.cs.virginia.edu/tas/full/khm4zf.jpg)
+Hi guys, I'm Keerthi! I'm a third year double majoring in Computer Science and Global Studies: Security and Justice, and this will be my first time TAing! CS 2150 was one of the most challenging and rewarding classes I have taken at UVA, so I'm excited to work with you all this semester. :)
+<br clear="all">
+
 ## Nick Mohammad
 [![Nicholas Mohammad](//libra.cs.virginia.edu/tas/nm9ur.jpg)](//libra.cs.virginia.edu/tas/full/nm9ur.jpg)
 Hey Guys! I'm a fourth year from Bristow, Virginia, majoring in computer engineering. This is my third semester TAing for 2150, and I hope to keep my record of &quot;&quot;making 0 students cry in office hours&quot;&quot; alive. If you see me around outside of lab / office hours, I'll most likely be in the NI lab at Thornton or the Dell playing basketball. I'm always down to play so if anyone ever needs a shooting partner I'm down!<p>Some fun facts about me: 1) I don't have a single photo of myself on my phone, 2) I can solve a Rubiks cube in &lt; 30 seconds, 3) I love collecting sneakers.
@@ -58,14 +113,29 @@ Hey Guys! I'm a fourth year from Bristow, Virginia, majoring in computer enginee
 Hey! I am a third-year computer science and statistics major from Richmond, Virginia. This is my first semester as a TA for 2150, and I am looking forward to working with you all! On Grounds, I am involved in CS research, the organizing team for HooHacks, and the developer team for theCourseForum.
 <br clear="all">
 
+## Cassie Quach
+[![Cassie Quach](//libra.cs.virginia.edu/tas/cq5yc.jpg)](//libra.cs.virginia.edu/tas/full/cq5yc.jpg)
+Hey everyone! I'm Cassie Quach, a third year BACS major, who's graduating this fall. I'm from and will be TAing from northern Virginia. This is my first time TAing for 2150, but I TA'ed DSA1 and DSA2 last year. I'm excited to help students learn and use the foundational concepts for a successful career in CS. In my free time, I like to learn foreign languages, sew, and re-organize/change up my room. I’m excited to work with you all this semester!
+<br clear="all">
+
 ## John Saunders
 [![John Saunders](//libra.cs.virginia.edu/tas/js8ra.jpg)](//libra.cs.virginia.edu/tas/full/js8ra.jpg)
 Hey guys! I am a third year B.S. CS major. I love coding and problem solving which is what this class is all about. I ta for this class because I enjoyed this class and how challenging it was. It is also great because you learn so many fundamental ideas of CS. A fun fact about me is that I grew up on an Apple farm in Southern Virginia, and I used to spend my summers helping out on the farm.
 <br clear="all">
 
+## Cris Scruggs
+[![Cris Scruggs](//libra.cs.virginia.edu/tas/cms3zd.jpg)](//libra.cs.virginia.edu/tas/full/cms3zd.jpg)
+Hey, my name is Cris Scruggs, I’m a third year CS major and this is my first semester being a TA. I’m really excited to help in this class as it’s my favorite CS course so far and it is definitely critical to master going forward. Outside of CS, I enjoy most every sport, especially NBA and College Basketball and I love talking about most every Nintendo game ever made. 
+<br clear="all">
+
 ## Sam Spelsberg
 [![Sam Spelsberg](//libra.cs.virginia.edu/tas/sws5sc.jpg)](//libra.cs.virginia.edu/tas/full/sws5sc.jpg)
 I am Sam Spelsberg, third year in e-school CS, with a focus in Cyber Security. 2150 is one of my favorite classes in the CS major, and I believe that the concepts I learned in this class have been foundational to the rest of my computer science experience. I now strive to help other students learn, and get as much as possible from this course.<p>I love traveling, and experiencing other cultures, and I hope to travel to each continent some day. I was born in Seattle and I will always love the west coast. Social Psychology is my favorite course I've taken outside of the engineering school, and I find the studies of human behavior, philosophy, ethics, and history fascinating.<p>Hit me up if you ever have any questions about cyber security!
+<br clear="all">
+
+## George Taliaferro
+[![George Taliaferro](//libra.cs.virginia.edu/tas/wgt7xp.jpg)](//libra.cs.virginia.edu/tas/full/wgt7xp.jpg)
+Hey everyone! My name is George and I am t.hird-year CS major in the E-School! I have a passion for teacihng (this is the 5th class I'll be a TA for) and I'm particularly excited to TA 2150 this year as I believe the content of this class is the core of Computer Science.<p>Outside the classroom I play the trumpet in the Cavalier Marching Band, which has given me so many amazing experiences, like watching Mamadi Diakite sink the game tying buzzer beater against Purdue! I also enjoy the outdoors and am part of the Rock Climbing Team. I hope I get to meet many of you guys this year!
 <br clear="all">
 
 ## Steven Yi
@@ -81,6 +151,27 @@ Hi everyone! I'm Steven Yi, a third-year CS major in the engineering school. I b
 I am fourth year student-athlete double majoring in CS and Math. In my free time I like to play League of Legends. Fun fact: Instant Pot changed my life
 <br clear="all">
 
+
+-->
+
+<!-- old descriptions that have since been updated -->
+
+<!-- 
+
+## Marina Kun
+[![Marina Kun](//libra.cs.virginia.edu/tas/mk3qa.jpg)](//libra.cs.virginia.edu/tas/full/mk3qa.jpg)
+Hey! I'm a 3rd year in the engineering school studying computer science. This is my 2nd semester TA-ing this course. I also teach a web development course at HackCville. When I actually have free time :( I like to draw and paint! Fun fact about me is I'm really, reallyyy good at this board game called Pucket. I'm always up for a good talk about anything, and I'm definitely down for a Pucket match!
+<br clear="all">
+
+## Anna Cuddeback
+[![Anna Cuddeback ](//libra.cs.virginia.edu/tas/atc4yk.jpg)](//libra.cs.virginia.edu/tas/full/atc4yk.jpg)
+Hey Friends! My name is Anna Cuddeback and I'm a second year from Medford, Massachusetts studying computer engineering and physics. Outside of TAing and classes, I do physics research, resident-advise a first year dorm, and an officer in Outdoors at UVa. I'm really into my chacos, and my diet primarily subsets of peanut butter Clif bars and Dunkin Donuts iced coffee. I am also emotionally attached to my Nalgene. If you're not sure where I am, you can probably find me climbing at Slaughter or scooping up deals at the local Goodwill. Like Dwight Schrute, I always keep an extra set of Birkenstocks in the car for special occasions.
+<br clear="all">
+
+## Courtney Jacobs
+[![Courtney Jacobs](//libra.cs.virginia.edu/tas/cj5he.jpg)](//libra.cs.virginia.edu/tas/full/cj5he.jpg)
+I'm a third year BSCS major, and this is my first semester as a CS 2150 TA. In my free time, I do research in the Link Lab, and I'm also involved in the Flying V's a cappella group, Veggies of Virginia, and my rock band, Silver Retriever.
+<br clear="all">
 
 -->
 
