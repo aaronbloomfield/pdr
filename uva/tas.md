@@ -105,7 +105,7 @@ Hi guys, I'm Keerthi! I'm a third year double majoring in Computer Science and G
 
 ## Nick Mohammad
 [![Nicholas Mohammad](//libra.cs.virginia.edu/tas/nm9ur.jpg)](//libra.cs.virginia.edu/tas/full/nm9ur.jpg)
-Hey Guys! I'm a fourth year from Bristow, Virginia, majoring in computer engineering. This is my third semester TAing for 2150, and I hope to keep my record of &quot;&quot;making 0 students cry in office hours&quot;&quot; alive. If you see me around outside of lab / office hours, I'll most likely be in the NI lab at Thornton or the Dell playing basketball. I'm always down to play so if anyone ever needs a shooting partner I'm down!<p>Some fun facts about me: 1) I don't have a single photo of myself on my phone, 2) I can solve a Rubiks cube in &lt; 30 seconds, 3) I love collecting sneakers.
+Hey everyone! I’m a graduate student in Computer Science from Bristow, VA. My main areas of interest are in computer vision and computer graphics. I'm excited to work with you guys this semester and I hope you enjoy your time in this class! :)
 <br clear="all">
 
 ## Neal Patel
@@ -157,6 +157,11 @@ I am fourth year student-athlete double majoring in CS and Math. In my free time
 <!-- old descriptions that have since been updated -->
 
 <!-- 
+
+## Nick Mohammad
+[![Nicholas Mohammad](//libra.cs.virginia.edu/tas/nm9ur.jpg)](//libra.cs.virginia.edu/tas/full/nm9ur.jpg)
+Hey Guys! I'm a fourth year from Bristow, Virginia, majoring in computer engineering. This is my third semester TAing for 2150, and I hope to keep my record of &quot;&quot;making 0 students cry in office hours&quot;&quot; alive. If you see me around outside of lab / office hours, I'll most likely be in the NI lab at Thornton or the Dell playing basketball. I'm always down to play so if anyone ever needs a shooting partner I'm down!<p>Some fun facts about me: 1) I don't have a single photo of myself on my phone, 2) I can solve a Rubiks cube in &lt; 30 seconds, 3) I love collecting sneakers.
+<br clear="all">
 
 ## Marina Kun
 [![Marina Kun](//libra.cs.virginia.edu/tas/mk3qa.jpg)](//libra.cs.virginia.edu/tas/full/mk3qa.jpg)
