@@ -8,6 +8,10 @@ CS 2150 Teaching Assistants
 Hi! I’m Pragun, a third year majoring in Computer Science and Statistics in the college. I’m really excited to TA for CS 2150 this semester (for my first time), because it’s been one of my favorite classes and, more importantly, because I know firsthand that this class can be overwhelming at times. I love meeting new people so definitely don’t hesitate to reach out if you want someone to talk to about navigating this class or about something totally random. In my free time, I enjoy dancing salsa/bachata in the University Salsa Club (albeit a little hard to do that this semester) and adding to my many Spotify playlists. Excited to meet you guys and I’m looking forward to a fun semester!
 <br clear="all">
 
+## Penn Bauman
+No bio yet...
+<br clear="all">
+
 ## Ramya Bhaskara
 [![Ramya Bhaskara](//libra.cs.virginia.edu/tas/rsb4zm.jpg)](//libra.cs.virginia.edu/tas/full/rsb4zm.jpg)
 I'm a second year Computer Science major and this is my first semester TAing this class! I'm really interested in data science, cooking/eating, and art. I'm also a part of SWE, A.O.E., and WiCS. I'm a TA because it can be really rewarding, and I loved CS 2150 as a student.
@@ -36,6 +40,10 @@ Hi, I'm a 4th year majoring in CS in the E-School! I am interested in cybersecur
 ## Katherine Fogarty
 [![Katherine Fogarty](//libra.cs.virginia.edu/tas/kmf4zd.jpg)](//libra.cs.virginia.edu/tas/full/kmf4zd.jpg)
 Hi! I'm a fourth year majoring in Systems Engineering and minoring in Computer Science and Engineering Business. I'm from Seattle, Washington. Outside of class, I'm involved in Engineering Student Council, A.O.E., and SWE! I also enjoy cooking and reading.
+<br clear="all">
+
+## Amrit Gorle
+No bio yet...
 <br clear="all">
 
 ## Justin Gou
@@ -68,6 +76,10 @@ Hey! I'm a third year Computer Science major in the E-School. I'm from Reston, V
 YO! I'm Harish Karumuri and I'm a 2nd year Systems Engineering major. This is my 2nd-semester TAing for this class. Few things to note – I'm a huge freaking nerd so if you want to talk to me about video games (I love Nintendo stuff, especially Smash Bros and Legend of Zelda) or Dungeons and Dragons, just say hi to me and start going off. I also love cooking so tell me how you chef it up. I'm also always looking for new music to listen to, so please give me recommendations!
 <br clear="all">
 
+## Clara Kim
+No bio yet...
+<br clear="all">
+
 ## Marina Kun
 [![Marina Kun](//libra.cs.virginia.edu/tas/mk3qa.jpg)](//libra.cs.virginia.edu/tas/full/mk3qa.jpg)
 Hi everyone! I’m a 4th year in the engineering school studying computer science. This is my 3rd-semester TA-ing this course. I'm a part of HooThinks, a consulting club. In my free time, I like playing video games including Animal Crossing and League. I really enjoy helping with coding and concept problems, so don't hesitate to reach out. I'm excited to work with you all this semester! 
@@ -81,6 +93,10 @@ Hi! I'm Alex Li, a 2nd year CS major in the College from Wilton, CT. This is my 
 ## Charles Lim
 [![Charles Lim](//libra.cs.virginia.edu/tas/csl4wd.jpg)](//libra.cs.virginia.edu/tas/full/csl4wd.jpg)
 I would like to become a CS professor one day! I really enjoy leading other into understanding, and honestly, I live for those &quot;???...OHHH&quot; moments that we all have when we finally understand something we thought was impossible a second earlier! I will try my best to <em>point</em> you in the right direction!
+<br clear="all">
+
+## Jelena Liu
+No bio yet...
 <br clear="all">
 
 ## Megan Marshall
@@ -108,6 +124,14 @@ What's up! I'm a second-year BSCS major from Woodbridge Virginia (place in NOVA 
 Hey everyone! I’m a graduate student in Computer Science from Bristow, VA. My main areas of interest are in computer vision and computer graphics. I'm excited to work with you guys this semester and I hope you enjoy your time in this class! :)
 <br clear="all">
 
+## Sindhura Mente
+No bio yet...
+<br clear="all">
+
+## Daniel Mizrahi
+No bio yet...
+<br clear="all">
+
 ## Neal Patel
 [![Neal Patel](//libra.cs.virginia.edu/tas/np5dr.jpg)](//libra.cs.virginia.edu/tas/full/np5dr.jpg)
 Hey! I am a third-year computer science and statistics major from Richmond, Virginia. This is my first semester as a TA for 2150, and I am looking forward to working with you all! On Grounds, I am involved in CS research, the organizing team for HooHacks, and the developer team for theCourseForum.
@@ -118,6 +142,10 @@ Hey! I am a third-year computer science and statistics major from Richmond, Virg
 Hey everyone! I'm Cassie Quach, a third year BACS major, who's graduating this fall. I'm from and will be TAing from northern Virginia. This is my first time TAing for 2150, but I TA'ed DSA1 and DSA2 last year. I'm excited to help students learn and use the foundational concepts for a successful career in CS. In my free time, I like to learn foreign languages, sew, and re-organize/change up my room. I’m excited to work with you all this semester!
 <br clear="all">
 
+## Viviana Rosas
+No bio yet...
+<br clear="all">
+
 ## John Saunders
 [![John Saunders](//libra.cs.virginia.edu/tas/js8ra.jpg)](//libra.cs.virginia.edu/tas/full/js8ra.jpg)
 Hey guys! I am a third year B.S. CS major. I love coding and problem solving which is what this class is all about. I ta for this class because I enjoyed this class and how challenging it was. It is also great because you learn so many fundamental ideas of CS. A fun fact about me is that I grew up on an Apple farm in Southern Virginia, and I used to spend my summers helping out on the farm.
@@ -126,6 +154,14 @@ Hey guys! I am a third year B.S. CS major. I love coding and problem solving whi
 ## Cris Scruggs
 [![Cris Scruggs](//libra.cs.virginia.edu/tas/cms3zd.jpg)](//libra.cs.virginia.edu/tas/full/cms3zd.jpg)
 Hey, my name is Cris Scruggs, I’m a third year CS major and this is my first semester being a TA. I’m really excited to help in this class as it’s my favorite CS course so far and it is definitely critical to master going forward. Outside of CS, I enjoy most every sport, especially NBA and College Basketball and I love talking about most every Nintendo game ever made. 
+<br clear="all">
+
+## Lada Semicheva
+No bio yet...
+<br clear="all">
+
+## Bhaskar Singhvi
+No bio yet...
 <br clear="all">
 
 ## Sam Spelsberg
