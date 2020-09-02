@@ -77,7 +77,8 @@ YO! I'm Harish Karumuri and I'm a 2nd year Systems Engineering major. This is my
 <br clear="all">
 
 ## Clara Kim
-No bio yet...
+[![Clara Kim](//libra.cs.virginia.edu/tas/cjk8ad.jpg)](//libra.cs.virginia.edu/tas/full/cjk8ad.jpg)
+Hi! I'm a third year CS major from northern Virginia. This is my first semester being a TA for 2150, and I'm excited to help with this class! Although I won't deny that I found 2150 challenging, I also really enjoyed it, and I hope you will as well! When I have any free time (and also sometimes when I don't), I like to draw, read, watch movies, and attempt to keep my plants alive. I'm looking forward to meeting you all!
 <br clear="all">
 
 ## Marina Kun
@@ -161,7 +162,9 @@ No bio yet...
 <br clear="all">
 
 ## Bhaskar Singhvi
-No bio yet...
+[![Bhaskar Singhvi](//libra.cs.virginia.edu/tas/bs3tu.jpg)](//libra.cs.virginia.edu/tas/full/bs3tu.jpg)
+Sam Spelsberg
+Hey I'm Bhaskar! I'm a 4th year majoring in Computer Science, and this is my first semester as a TA. I became a TA for 2150 because I want to give back to a course that's helped me a lot. It's also a great opportunity to not only share a bit of my knowledge and experience, but also solidify my own fundamentals as well so I look forward to it.<p>As a TA, I hope to guide you as well as I can, and I'll always be rooting for ya. (As a side note, I know academics and "career building" endeavors are important, but please remember to take a step back and relax. Nothing is more important than your mental and physical well-being, especially now.)<p>I'm excited to work with you all this semester!<p>Here's one of my favorite quotes I keep in mind:  <i>"..we can't concern ourselves with what was. We must act on what is."</i> - Monk Gyatso (Avatar the Last Airbender)
 <br clear="all">
 
 ## Sam Spelsberg
