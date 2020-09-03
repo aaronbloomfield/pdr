@@ -32,11 +32,12 @@ Procedure
 
 ### Pre-lab ###
 
-1. Write a recursive function to compute exponentiation
-2. Investigate the C++ object lifecycle
-3. Learn about the submission system
-4. Files to download: [lifecycle.cpp](lifecycle.cpp.html) ([src](lifecycle.cpp))
-5. Files to submit: xToN.cpp
+1. Complete [Tutorial 1: Introduction to UNIX](../../tutorials/01-intro-unix/index.html)
+2. Write a recursive function to compute exponentiation
+3. Investigate the C++ object lifecycle
+4. Learn about the submission system
+5. Files to download: [lifecycle.cpp](lifecycle.cpp.html) ([src](lifecycle.cpp))
+6. Files to submit: xToN.cpp
 
 ### In-lab ###
 
@@ -182,12 +183,13 @@ Your task for this postlab is to create a bank account class using C++. To begin
 bankAccount.h will contain the **headers** of the methods that will be implemented in bankAccount.cpp. We normally include in .h files just the declarations (i.e., prototypes) of classes, constants, function, etc., but not definitions of C++ methods (i.e. the bodies of the methods). However, when implementing template classes, this is something that is necessary to make the class compile successfully.
 
 Your bank account class will have the following methods and fields that you will need to implement:
+
 - `bankAccount();` -- A default constructor that will be called when a program creates a bankAccount object. This constructor should set the bankAccount balance to $0.00;
 - `bankAccount(double amount);` -- A constructor that will be called when a program creates a bankAccount object with an initial balance.
-- `~balance();` -- A destructor that will be called when a an object is deleted from program memory. You must have this in your .h and .cpp file, but you can leave the implementation empty
+- `~bankAccount();` -- A destructor that will be called when a an object is deleted from program memory. You must have this in your .h and .cpp file, but you can leave the implementation empty
 - `double withdraw(double amount);` -- A method that withdraws the specified amount of money from your bank account. The method will return the new amount in the bank account after the withdraw goes through. If the withdraw amount is too high, don't withdraw any amount and return the current balance in the account. You can assume that `amount >= 0`. 
 - `double deposit(double amount);` -- A method that deposits the specified amount of money from your bank account. The method will return the new amount in the bank account after the deposit goes through. You can assume that `amount >= 0`. 
-- `double getBalance()` -- A method that will return the balance currently in the bank account. 
+- `double getBalance();` -- A method that will return the balance currently in the bank account. 
 - `double balance;` -- A private **variable** that will hold the amount of money in the bank account.
 
 #### bankAccount.cpp ####

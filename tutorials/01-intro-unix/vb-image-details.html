@@ -16,21 +16,21 @@
 <body>
 <h1 id="virtualbox-image-creation-details">VirtualBox image creation details</h1>
 <p><a href="index.html">Go up to the main directory page</a> (<a href="index.md">md</a>)</p>
-<p>For those who are interested, this is how the VirtualBox image was created. It is not necessary to complete Tutorial 1.</p>
+<p>For those who are interested, this is how the VirtualBox image was created.</p>
 <h1 id="introduction">Introduction</h1>
 <p>This page has a number of different sections, and the sections you need to install will vary depending on what course you are using this image for. The top of each section describes which of the sub-sections need to be installed for what.</p>
 <p><strong>Software Versions</strong></p>
 <p>This installation document installs the following versions:</p>
 <ul>
-<li><a href="http://ubuntu.com">Ubuntu 18.04, 64-bit</a></li>
-<li>Clang++ version 6.0.0</li>
-<li>g++ version 7.4.0</li>
-<li>Python <a href="http://packages.ubuntu.com/xenial/python3">3.6.8</a></li>
+<li><a href="http://ubuntu.com">Ubuntu 20.04.1, 64-bit</a></li>
+<li>Clang++ version 10.0.0</li>
+<li>g++ version 9.3.0</li>
+<li>Python <a href="http://packages.ubuntu.com/xenial/python3">3.8.2</a></li>
 </ul>
-<p>Newer versions of the above may have since come out, but at the time of the last update of this document (August 2019), they the latest versions installed via apt-get.</p>
+<p>Newer versions of the above may have since come out, but at the time of the last update of this document (September 2020), they the latest versions installed via <code>apt</code> (the package installation program).</p>
 <p><strong>Notes</strong></p>
 <ul>
-<li>The guest hard drive reported 27 Gb of space available, prior to distribution of the image. The disk image itself was, after compaction, 10 Gb. When compressed via zip, it was 4.3 Gb in size.</li>
+<li>With just the basic and development installations, below, The guest hard drive reported 8.5 Gb used and 29 Gb of space available, prior to distribution of the image. The disk image itself was, after compaction, 10 Gb. When compressed via zip, it was 3.9 Gb in size.</li>
 <li>You will likely need to use a different unzip program to extract the image; the ones that come bundled with most operating systems can not handle archives of that size. We have used <a href="http://www.7-zip.org/">7-zip</a> with success.</li>
 <li>Video and sound (via youtube) worked fine with both Chrome and Firefox (although it may a bit slow depending on your computer’s speed)</li>
 <li>The VM may capture the mouse - to uncapture it, you press the “host key”, (which is the right Control key on Linux and Windows hosts, and the left Command key on Mac hosts). To have it warn you about what this is, you can reset all warnings via the VirtualBox help menu, and it will warn you about this at boot-up</li>
@@ -42,56 +42,59 @@
 <ul>
 <li>Created a new VirtualBox image
 <ul>
-<li>I named it “Ubuntu 18.04” or similar; this automatically selected Linux as the OS type; I manually selected “Ubuntu (64 bit)” as the version</li>
-<li>I set the memory at 4096 Mb (instead of the default of 512 Mb), ensured that the disk size was “dynamically allocated” and was set to 40 Gb (instead of the default 8 Gb); everything else was set at the default</li>
+<li>I named it “Ubuntu 20.04” or similar; this automatically selected Linux as the OS type; I manually selected “Ubuntu (64 bit)” as the version</li>
+<li>I set the memory at 4096 Mb (instead of the default of 1024 Mb), ensured that the disk size was “dynamically allocated” and was set to 40 Gb (instead of the default 10 Gb); everything else was set at the default</li>
 </ul></li>
-<li>I installed Ubuntu 18.04.3 LTS (64 bit), desktop edition, from the DVD image downloaded from <a href="https://www.ubuntu.com">ubuntu.com</a>
+<li>I installed Ubuntu 20.04.1 LTS (64 bit), desktop edition, from the DVD image downloaded from <a href="https://www.ubuntu.com">ubuntu.com</a>
 <ul>
 <li>When prompted, I clicked on ‘download updates’ and ‘install 3rd party software’ when the options were given</li>
 <li>For hard drive, I used the default option that was already selected</li>
 <li>The computer name is cassiopeia, the login name is ‘student’, full name is ‘l33t h4x0r’, and the password is ‘password’</li>
 <li>This account can run root (system) commands via ‘sudo’ - if you don’t know what this means, you can safely ignore it</li>
 </ul></li>
-<li>Once it was finished, I rebooted, and logged in</li>
-<li>Via a Konsole, ran <code>sudo apt-get update</code> then <code>sudo apt-get dist-upgrade</code></li>
+<li>Once it was finished, I rebooted, and logged in; I skipped the online account creation, did not send usage staistics back to Ubuntu, and ensured that location services were turned off</li>
+<li>Via a Konsole, ran <code>sudo apt update</code> then <code>sudo apt dist-upgrade</code></li>
 <li>Reboot!</li>
-<li>Ran <code>apt-get autoremove</code> (which didn’t have to remove anything)</li>
+<li>Ran <code>sudo apt autoremove</code> (which didn’t have to remove much)</li>
 <li>VirtualBox guest additions
 <ul>
 <li>These are the utilities so that VirtualBox will work correctly with the host computer (proper full screen, etc.)</li>
-<li>The menu option to “Insert Guest Additions CD Image” downloads a version that will not work with the current Linux kernel version, so the ISO must be manually downloaded from <a href="http://download.virtualbox.org/virtualbox/">http://download.virtualbox.org/virtualbox/</a></li>
-<li>Installing these requires the <code>gcc make perl</code> packages to be installed first</li>
-<li>Once done, run <code>autorun.sh</code> from <code>/media/student/VBOXADDITIONS_4.3.36_105129</code> (or similar), and follow the prompts. Alternatively, if that does not work, try running <code>sudo bash VBoxLinuxAdditions.run</code> from that same directory.</li>
-</ul></li>
+<li>I clicked on the menu option to “Insert Guest Additions CD Image”, which downloaded it, and then cliked “Run” when prompted</li>
 <li>Reboot!</li>
-<li>As per <a href="https://askubuntu.com/questions/973017/wrong-nameserver-set-by-resolvconf-and-networkmanager">here</a> to fix an issue with /etc/resolv.conf, edited /etc/systemd/resolved.conf to put 8.8.8.8 as the DNS line, and then ran the commands from the second answer: <code>sudo rm -f /etc/resolv.conf</code> followed by <code>sudo ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf</code>, and then rebooted</li>
-<li>Ran <code>apt-get remove thunderbird</code></li>
+<li>It should now resize the screen properly and full-screen properly</li>
+<li>Ran <code>umount /media/student/VBox_GAs_6.1.10</code> to umount the guest additions ISO image</li>
+<li>From the VB menu, I removed the image via Devices -&gt; Optical Drives -&gt; Remove disk from virtual drive</li>
+</ul></li>
+<li><del>As per <a href="https://askubuntu.com/questions/973017/wrong-nameserver-set-by-resolvconf-and-networkmanager">here</a> to fix an issue with /etc/resolv.conf, edited /etc/systemd/resolved.conf to put 8.8.8.8 as the DNS line, and then ran the commands from the second answer: <code>sudo rm -f /etc/resolv.conf</code> followed by <code>sudo ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf</code>, and then rebooted</del></li>
+<li>Ran <code>sudo apt remove thunderbird</code></li>
 <li>Disable the KDE wallet system (if using KDE)</li>
 </ul>
 <h1 id="development-installation">Development installation</h1>
 <p>The “Program and Data Representation configuration” section is for the <a href="http://uva-cs.github.io/pdr">Program and Data Representation</a> course, and it includes all of the compilers and editors needed. The “Python/Django” section installs the files needed to run Python 3 and the Django framework.</p>
 <h3 id="program-and-data-representation-configuration">Program and Data Representation configuration</h3>
 <ul>
-<li>Installed the other packages: <code>sudo apt-get install clang emacs25 vim nasm astyle tofrodos source-highlight gdb lldb doxygen doxygen-doc graphviz ddd git g++ gobjc gnustep gnustep-make gnustep-common libgnustep-base-dev evince g++-multilib libc6-dev-i386 libc6-dev:i386 flex</code>
+<li>Installed the other packages: <code>sudo apt install clang llvm emacs vim nasm astyle tofrodos source-highlight gdb lldb doxygen doxygen-doc graphviz ddd git g++ gobjc gnustep gnustep-make gnustep-common libgnustep-base-dev evince g++-multilib libc6-dev-i386 libc6-dev:i386 flex</code>
 <ul>
-<li>Note that there are two other <code>apt-get install</code> lines to be run, below</li>
-<li>The last 5 packages are for Objective C, based on the instructions <a href="http://www.fatvat.co.uk/2010/04/getting-started-with-objective-c-on.html">here</a> (it may be that only a subset of those packages are actually necessary)</li>
+<li>Note that there are other <code>apt install</code> lines to be run, below, depending on what else you are installing</li>
+<li>The last 5 packages are for Objective C, based on the instructions <a href="http://www.fatvat.co.uk/2010/04/getting-started-with-objective-c-on.html">here</a> (it may be that only a subset of those packages are actually necessary); this is not currently installed with this section, however</li>
 </ul></li>
 <li>Ran the following two commands to change the default C/C++ compiler to clang:</li>
 </ul>
 <pre><code>sudo update-alternatives --set cc /usr/bin/clang
-sudo update-alternatives --set c++ /usr/bin/clang++</code></pre>
+sudo update-alternatives --set c++ /usr/bin/clang++
+sudo update-alternatives --install /usr/bin/llvm-symbolizer llvm-symbolizer /usr/bin/llvm-symbolizer-10 1000</code></pre>
 <ul>
 <li>Downloaded Google Chrome from <a href="https://www.google.com/chrome/browser/desktop/index.html">here</a>, and installed it via <code>sudo dpkg -i google-chrome-stable_current_i386.deb</code>
 <ul>
-<li>If that installation does not work perfectly, run <code>sudo apt-get -f install</code></li>
+<li>If that installation does not work perfectly, run <code>sudo apt install -f</code> (although it worked fine for this install)</li>
 <li>Then the .deb file was removed</li>
+<li>When Chrome was loaded, it was made the default browser and sending usage statistics were deselected</li>
 </ul></li>
 <li>GNOME customization
 <ul>
-<li>Removed RhythmBox, Ubuntu Software, and Amazon from the favorites bar on the left-hand side</li>
-<li>Added Terminal, Emacs, and Chrome to the favorites on the left-hand side</li>
-<li>Disabled the screen saver lock, as detailed in the first answer <a href="https://stackoverflow.com/questions/28281077/how-do-i-disable-the-gnome-desktop-screen-lock">here</a></li>
+<li>Removed RhythmBox and Ubuntu Software from the favorites bar on the left-hand side</li>
+<li>Added Terminal, Emacs, and Chrome to the favorites on the left-hand side – this was done by loading them up, and the clicking on the icon and selecting “add to favorites”</li>
+<li>Disabled the screen saver lock, as detailed in the first answer <a href="https://stackoverflow.com/questions/28281077/how-do-i-disable-the-gnome-desktop-screen-lock">here</a> (this meant running <code>gsettings set org.gnome.desktop.session idle-delay 0</code> from the terminal)</li>
 </ul></li>
 <li>Browser customization
 <ul>
@@ -120,32 +123,16 @@ alias xemacs=&#39;emacs&#39;</code></pre>
 <p><strong>Image finalization</strong></p>
 <ul>
 <li>Reboot (rebooting also clears out /tmp)</li>
-<li>Run <code>apt-get autoremove</code> and <code>apt-get clean</code></li>
-<li>Cleared browser history</li>
-<li>Removed the apt-get proxy, if present: <code>sudo /bin/rm -f /etc/apt/apt.conf.d/02proxy</code></li>
+<li>Run <code>sudo apt autoremove</code> and <code>sudo apt clean</code></li>
+<li>Cleared browser history (for both browsers)</li>
+<li>Removed the apt proxy, if present: <code>sudo /bin/rm -f /etc/apt/apt.conf.d/02proxy</code></li>
 <li>To reduce the size of the hard disk (since I have to host it for people to download), I ran <code>sudo cat /dev/zero &gt; zero; sudo /bin/rm -f zero</code>. This creates a large file of all 0’s until it runs out of space, then removes that file.</li>
 <li>Ran <code>history -c</code> to remove the history of the commands entered on the command line</li>
-<li>Logged out then shut down the guest, and ran: <code>VBoxManage modifyhd disk.vdi --compact</code> (using the real image file name instead of “disk.vdi”). A better way would be to load up into recovery mode and run zerofill, but the grub menu does not seem to be easily available to load into recovery mode, so I didn’t pursue it any further.</li>
+<li>Logged out then shut down the guest, and ran: <code>VBoxManage modifyhd disk.vdi --compact</code> (using the real image file name instead of “disk.vdi”). This required me to remove it from the list of known hard drive images via VB’s File -&gt; Virtual Media Manager menu option. Note that there are other ways to do this, but that command worked just fine.</li>
 </ul>
 <p><strong>Increasing the disk size</strong></p>
-<p>The hard drive size was set at 40 Gb, and about 27 Gb is available; the rest is used by the operating system (and the swap partition). If you need more space than this, you will have to expand the hard drive. Be careful – it is easy to accidentally erase the entire hard drive while doing this!</p>
-<ul>
-<li>The process has two steps: increase the VirtualBox disk image itself, then increase the partition of the guest OS.</li>
-<li>To increase the VirtualBox disk image, power it down, and then run the following command. The size listed is the size in Mb, so 40960 Mb is 40 Gb. The command is: <code>VBoxManage modifyhd &lt;imagefile&gt; --resize 40960</code> – but you will want to use a larger value if you are increasing the size.
-<ul>
-<li>Note that <code>&lt;imagefile&gt;</code> is the .vdi disk image, and should be the absolute path including the name and extension</li>
-</ul></li>
-<li>The second step is to resize the guest OS partition. The easiest way to do this is to download a bootable disk image for this purpose. You can use <a href="http://sourceforge.net/projects/gparted/files/gparted-live-stable/">Gparted</a>, which is free. Keep in mind that your guest OS is 64-bit, so you will want the “amd64” version.</li>
-<li>To boot up via the Gparted image, Go to Settings -&gt; Storage. In the “Storage Tree” box, there will be a “Controller: IDE” entry, with an “Empty” line below that; click on the “Empty” line, and select the Gparted disk image (using the blue DVD icon on the right). Click Okay, then start the image. It should start the Gparted disk.</li>
-<li>When Gparted boots, selected the default boot option. In the text-based menus, hit Enter to select the defaults.</li>
-<li>From the GUI, resize your partition. Hit “Apply” when done.</li>
-<li>Double click on the red “Exit” icon, and select shutdown.</li>
-<li>Back in Settings -&gt; Storage -&gt; Controller: IDE -&gt; Empty, remove that disk from the virtual CD/DVD drive (under the blue DVD icon, select the last option to remove the image) – it should not be there by default at this point. Click OK.</li>
-<li>Boot into Kubuntu normally.</li>
-</ul>
+<p>With the current selected size of the image, this is no longer necessary. However, if you are interested in seeing how this is done, you can view it <a href="https://github.com/uva-cs/pdr/blob/2020-spring/tutorials/01-intro-unix/vb-image-details.md">here</a> (at the very bottom of that page)</p>
 <p><strong>Changes for the future</strong></p>
-<ul>
-<li>Run the <code>sudo update-alternatives --install /usr/bin/llvm-symbolizer llvm-symbolizer /usr/bin/llvm-symbolizer-6.0 1000</code> line from the post-lab 2 description (and remove that from the description)</li>
-</ul>
+<p>None yet!</p>
 </body>
 </html>

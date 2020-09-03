@@ -43,7 +43,8 @@ Hi! I'm a fourth year majoring in Systems Engineering and minoring in Computer S
 <br clear="all">
 
 ## Amrit Gorle
-No bio yet...
+[![Amrit Gorle](//libra.cs.virginia.edu/tas/ang6ve.jpg)](//libra.cs.virginia.edu/tas/full/ang6ve.jpg)
+Hey everyone! My name is Amrit Gorle and I am a second year CS major in the Engineering School. I am super excited to be a TA for CS 2150 because I absolutely loved the class. I know the course can be a bit challenging at times but I want to help as much as possible so feel free to reach out! In my free time, I try to explore new interests (recently picked up penny boarding) so if you have any recommendations for new activities let me know.
 <br clear="all">
 
 ## Justin Gou
