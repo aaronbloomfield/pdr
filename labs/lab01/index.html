@@ -91,7 +91,7 @@ int main () {
 <pre><code>8</code></pre>
 <p>Lastly, take a look at the object life-cycle code (<a href="lifecycle.cpp.html">lifecycle.cpp</a> (<a href="lifecycle.cpp">src</a>)). Use it as a mechanism for understanding how various aspects of C++ work and try stepping through it by hand. Use the <a href="../../docs/readings.html">readings</a>, the web, and any other C++ references to help you look up parts of the program you do not understand.</p>
 <h3 id="assignment-submission">Assignment submission</h3>
-<p>All assignments will be submitted through the CS2150 class page on gradescope, which can be found <a href="https://www.gradescope.com/courses/138861">here</a>.</p>
+<p>All assignments will be submitted through the CS2150 class page on gradescope, which can be found <a href="https://www.gradescope.com/courses/138861">here</a> or login through Collab.</p>
 <p>Every file submitted, including text files, should include your name, email ID, the date, and the name of the file in a header comment at the beginning of the file.</p>
 <p>There is no check to make sure you have submitted all of the correct files – on the ‘Procedure’ page (always at the top of the lab document), we clearly state which files should be submitted for each lab part. For example, for this pre-lab, you should submit just the following file for pre-lab 1: xToN.cpp.</p>
 <p>Each assignment has 3 dates: an open date (when you can start submitting the assignment), a due date (when it’s due), and a close date (the last point that you can submit the assignment). The dates are listed for the week of the lab – the lab week starts on a Sunday and ends on a Saturday. In particular, the due date for the pre-labs, as well as the open date for the in-labs and post-labs is when the first lab section starts. The due date for the post-labs is the start of Friday’s first lecture.</p>
@@ -154,11 +154,11 @@ int main () {
 <ul>
 <li><code>bankAccount();</code> – A default constructor that will be called when a program creates a bankAccount object. This constructor should set the bankAccount balance to $0.00;</li>
 <li><code>bankAccount(double amount);</code> – A constructor that will be called when a program creates a bankAccount object with an initial balance.</li>
-<li><code>~bankAccount();</code> – A destructor that will be called when a an object is deleted from program memory. You must have this in your .h and .cpp file, but you can leave the implementation empty</li>
+<li><code>~bankAccount();</code> – A destructor that will be called when an object is deleted from program memory. You must have this in your .h and .cpp file, but you can leave the implementation empty</li>
 <li><code>double withdraw(double amount);</code> – A method that withdraws the specified amount of money from your bank account. The method will return the new amount in the bank account after the withdraw goes through. If the withdraw amount is too high, don’t withdraw any amount and return the current balance in the account. You can assume that <code>amount &gt;= 0</code>.</li>
 <li><code>double deposit(double amount);</code> – A method that deposits the specified amount of money from your bank account. The method will return the new amount in the bank account after the deposit goes through. You can assume that <code>amount &gt;= 0</code>.</li>
 <li><code>double getBalance();</code> – A method that will return the balance currently in the bank account.</li>
-<li><code>double balance;</code> – A private <strong>variable</strong> that will hold the amount of money in the bank account.</li>
+<li><code>double balance;</code> – A <strong>private</strong> variable that will hold the amount of money in the bank account.</li>
 </ul>
 <h4 id="bankaccount.cpp">bankAccount.cpp</h4>
 <p>bankAccount.cpp will contain the <strong>bodies</strong> of the methods that were declared in bankAccount.h. In order to do so, you must <code>#include "bankAccount.h"</code> in order to gain access to the method headers.</p>

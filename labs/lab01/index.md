@@ -107,7 +107,7 @@ Lastly, take a look at the object life-cycle code ([lifecycle.cpp](lifecycle.cpp
 
 ### Assignment submission ###
 
-All assignments will be submitted through the CS2150 class page on gradescope, which can be found [here](https://www.gradescope.com/courses/138861).
+All assignments will be submitted through the CS2150 class page on gradescope, which can be found [here](https://www.gradescope.com/courses/138861) or login through Collab.
 
 Every file submitted, including text files, should include your name, email ID, the date, and the name of the file in a header comment at the beginning of the file.
 
@@ -186,11 +186,11 @@ Your bank account class will have the following methods and fields that you will
 
 - `bankAccount();` -- A default constructor that will be called when a program creates a bankAccount object. This constructor should set the bankAccount balance to $0.00;
 - `bankAccount(double amount);` -- A constructor that will be called when a program creates a bankAccount object with an initial balance.
-- `~bankAccount();` -- A destructor that will be called when a an object is deleted from program memory. You must have this in your .h and .cpp file, but you can leave the implementation empty
+- `~bankAccount();` -- A destructor that will be called when an object is deleted from program memory. You must have this in your .h and .cpp file, but you can leave the implementation empty
 - `double withdraw(double amount);` -- A method that withdraws the specified amount of money from your bank account. The method will return the new amount in the bank account after the withdraw goes through. If the withdraw amount is too high, don't withdraw any amount and return the current balance in the account. You can assume that `amount >= 0`. 
 - `double deposit(double amount);` -- A method that deposits the specified amount of money from your bank account. The method will return the new amount in the bank account after the deposit goes through. You can assume that `amount >= 0`. 
 - `double getBalance();` -- A method that will return the balance currently in the bank account. 
-- `double balance;` -- A private **variable** that will hold the amount of money in the bank account.
+- `double balance;` -- A **private** variable that will hold the amount of money in the bank account.
 
 #### bankAccount.cpp ####
 
