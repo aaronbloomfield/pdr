@@ -209,14 +209,7 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)<
 <li><em>Memory corruption</em> occurs when your code attempts to access some memory address that it does not have access to, for example, attempting to read or write to a previously-deleted pointer. C++ will blindly dereference a pointer without checking its validity. Clearly, this can cause your program to do unexpected things!</li>
 </ul>
 <p>These types of errors can cause your host machine to run out of memory and crash, or edit some other file that your program shouldn’t have access to! We will be checking that your code does not contain any memory errors because of their potential severity.</p>
-<p>To be able to test for memory errors, there are a few things you need to do first depending on your platform.</p>
-<ul>
-<li>Linux</li>
-</ul>
-<pre><code>sudo update-alternatives --install /usr/bin/llvm-symbolizer llvm-symbolizer /usr/bin/llvm-symbolizer-6.0 1000</code></pre>
-<ul>
-<li>macOS</li>
-</ul>
+<p>If you are using Mac OS X (and ONLY if you are using Mac OS X), then you will need to run the following commands (the Linux VirtualBox image is all set up to do this properly):</p>
 <pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
 brew install llvm
 PROFILE_FILE=$(if [[ -n $ZSH_VERSION ]]; then echo ~/.zshrc; else echo ~/.bash_profile; fi)
@@ -224,9 +217,12 @@ echo &#39;ASAN_OPTIONS=detect_leaks=1\nexport PATH=&quot;/usr/local/opt/llvm/bin
 source $PROFILE_FILE</code></pre>
 <p>Now you can compile your code with <a href="https://clang.llvm.org/docs/AddressSanitizer.html">AddressSanitizer</a> enabled:</p>
 <pre><code>clang++ List.cpp ListItr.cpp ListNode.cpp ListTest.cpp -fsanitize=address -fno-omit-frame-pointer -g</code></pre>
-<p><code>-fsanitize=address</code> turns on AddressSanitizer, which ensures that your code never attempts to reference deleted memory or memory that you do not have access to (i.e., it checks for invalid addresses). It also enables LeakSanitizer, which ensures that anything that is dynamically allocated is also deallocated.</p>
-<p><code>-fno-omit-frame-pointer</code> helps us obtain better stack traces, so we include it just in case.</p>
-<p>We use the <code>-g</code> flag from earlier to indicate that we want to include debugging information such as line numbers.</p>
+<p>The flags are the following:</p>
+<ul>
+<li><code>-fsanitize=address</code> turns on AddressSanitizer, which ensures that your code never attempts to reference deleted memory or memory that you do not have access to (i.e., it checks for invalid addresses). It also enables LeakSanitizer, which ensures that anything that is dynamically allocated is also deallocated.</li>
+<li><code>-fno-omit-frame-pointer</code> helps us obtain better stack traces, so we include it just in case.</li>
+<li>We use the <code>-g</code> flag from earlier to indicate that we want to include debugging information such as line numbers.</li>
+</ul>
 <p>Run the executable with <code>./a.out</code> as usual, but make sure you are not running it in the debugger – AddressSanitizer is incompatible with debuggers.</p>
 <p>AddressSanitizer will <strong>immediately crash upon any invalid behavior</strong>. This is helpful because AddressSanitizer detects when we try to use addresses that we do not control, and thus, we have no idea what will happen when we use them! AddressSanitizer crashes the program because there is no guarantee of what will happen next. If this happens, carefully inspect the stack trace, attempt to fix the error, and recompile.</p>
 <p>Here’s an example of an AddressSanitizer crash:</p>

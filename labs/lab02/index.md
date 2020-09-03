@@ -289,14 +289,8 @@ These types of errors can cause your host machine to run out of memory and crash
 or edit some other file that your program shouldn't have access to!
 We will be checking that your code does not contain any memory errors because of their potential severity.
 
-To be able to test for memory errors, there are a few things you need to do first depending on your platform.
+If you are using Mac OS X (and ONLY if you are using Mac OS X), then you will need to run the following commands (the Linux VirtualBox image is all set up to do this properly):
 
-- Linux
-```
-sudo update-alternatives --install /usr/bin/llvm-symbolizer llvm-symbolizer /usr/bin/llvm-symbolizer-6.0 1000
-```
-
-- macOS
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install llvm
@@ -311,13 +305,11 @@ Now you can compile your code with [AddressSanitizer](https://clang.llvm.org/doc
 clang++ List.cpp ListItr.cpp ListNode.cpp ListTest.cpp -fsanitize=address -fno-omit-frame-pointer -g
 ```
 
-`-fsanitize=address` turns on AddressSanitizer, which ensures that your code never attempts to
-reference deleted memory or memory that you do not have access to (i.e., it checks for invalid addresses).
-It also enables LeakSanitizer, which ensures that anything that is dynamically allocated is also deallocated.
+The flags are the following:
 
-`-fno-omit-frame-pointer` helps us obtain better stack traces, so we include it just in case.
-
-We use the `-g` flag from earlier to indicate that we want to include debugging information such as line numbers.
+- `-fsanitize=address` turns on AddressSanitizer, which ensures that your code never attempts to reference deleted memory or memory that you do not have access to (i.e., it checks for invalid addresses). It also enables LeakSanitizer, which ensures that anything that is dynamically allocated is also deallocated.
+- `-fno-omit-frame-pointer` helps us obtain better stack traces, so we include it just in case.
+- We use the `-g` flag from earlier to indicate that we want to include debugging information such as line numbers.
 
 Run the executable with `./a.out` as usual, but make sure you are not running it in the debugger --
 AddressSanitizer is incompatible with debuggers.

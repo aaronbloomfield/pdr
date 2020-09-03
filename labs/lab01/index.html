@@ -37,6 +37,7 @@
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
 <ol type="1">
+<li>Complete <a href="../../tutorials/01-intro-unix/index.html">Tutorial 1: Introduction to UNIX</a></li>
 <li>Write a recursive function to compute exponentiation</li>
 <li>Investigate the C++ object lifecycle</li>
 <li>Learn about the submission system</li>
@@ -149,7 +150,16 @@ int main () {
 <p>Your task for this postlab is to create a bank account class using C++. To begin, download <a href="TestBankAccount.cpp.html">TestBankAccount.cpp</a> (<a href="TestBankAccount.cpp">src</a>), then create two files, <code>bankAccount.cpp</code> and <code>bankAccount.h</code>.</p>
 <h4 id="bankaccount.h">bankAccount.h</h4>
 <p>bankAccount.h will contain the <strong>headers</strong> of the methods that will be implemented in bankAccount.cpp. We normally include in .h files just the declarations (i.e., prototypes) of classes, constants, function, etc., but not definitions of C++ methods (i.e. the bodies of the methods). However, when implementing template classes, this is something that is necessary to make the class compile successfully.</p>
-<p>Your bank account class will have the following methods and fields that you will need to implement: - <code>bankAccount();</code> – A default constructor that will be called when a program creates a bankAccount object. This constructor should set the bankAccount balance to $0.00; - <code>bankAccount(double amount);</code> – A constructor that will be called when a program creates a bankAccount object with an initial balance. - <code>~balance();</code> – A destructor that will be called when a an object is deleted from program memory. You must have this in your .h and .cpp file, but you can leave the implementation empty - <code>double withdraw(double amount);</code> – A method that withdraws the specified amount of money from your bank account. The method will return the new amount in the bank account after the withdraw goes through. If the withdraw amount is too high, don’t withdraw any amount and return the current balance in the account. You can assume that <code>amount &gt;= 0</code>. - <code>double deposit(double amount);</code> – A method that deposits the specified amount of money from your bank account. The method will return the new amount in the bank account after the deposit goes through. You can assume that <code>amount &gt;= 0</code>. - <code>double getBalance()</code> – A method that will return the balance currently in the bank account. - <code>double balance;</code> – A private <strong>variable</strong> that will hold the amount of money in the bank account.</p>
+<p>Your bank account class will have the following methods and fields that you will need to implement:</p>
+<ul>
+<li><code>bankAccount();</code> – A default constructor that will be called when a program creates a bankAccount object. This constructor should set the bankAccount balance to $0.00;</li>
+<li><code>bankAccount(double amount);</code> – A constructor that will be called when a program creates a bankAccount object with an initial balance.</li>
+<li><code>~bankAccount();</code> – A destructor that will be called when a an object is deleted from program memory. You must have this in your .h and .cpp file, but you can leave the implementation empty</li>
+<li><code>double withdraw(double amount);</code> – A method that withdraws the specified amount of money from your bank account. The method will return the new amount in the bank account after the withdraw goes through. If the withdraw amount is too high, don’t withdraw any amount and return the current balance in the account. You can assume that <code>amount &gt;= 0</code>.</li>
+<li><code>double deposit(double amount);</code> – A method that deposits the specified amount of money from your bank account. The method will return the new amount in the bank account after the deposit goes through. You can assume that <code>amount &gt;= 0</code>.</li>
+<li><code>double getBalance();</code> – A method that will return the balance currently in the bank account.</li>
+<li><code>double balance;</code> – A private <strong>variable</strong> that will hold the amount of money in the bank account.</li>
+</ul>
 <h4 id="bankaccount.cpp">bankAccount.cpp</h4>
 <p>bankAccount.cpp will contain the <strong>bodies</strong> of the methods that were declared in bankAccount.h. In order to do so, you must <code>#include "bankAccount.h"</code> in order to gain access to the method headers.</p>
 <p>Complete the code in <code>bankAccount.h</code> and <code>bankAccount.cpp</code>, then test your code with test harness provided in <code>TestBankAccount.cpp</code>.</p>

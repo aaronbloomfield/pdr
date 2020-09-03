@@ -6,6 +6,7 @@ Program and Data Representation: Tutorials
 The tutorials for this course are listed below.
 
 - [Tutorial 1: Introduction to Unix](01-intro-unix/index.html)
+    - If you are installing VirtualBox, see the [Introduction to UNIX: VirtualBox Use](virtual-box.html) page
 - Tutorial 2: Debugger
     - There are *two* different tutorials, depending on whether you want to use LLDB or GDB; only one is required.  GDB is listed as a backup in case LLDB doesn't work on your machine.
     - [Tutorial 2: LLDB](02-lldb/index.html)
