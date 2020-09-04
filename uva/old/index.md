@@ -11,6 +11,7 @@ This page contains the CS 2150 specific content from previous semesters.  This i
     - [Daily announcements](daily-announcements-spring-2020.html)
     - [Syllabus](syllabus-spring-2020.html) ([md](syllabus-spring-2020.md))
     - [Course grade explanations](grades-spring-2020.html) ([md](grades-spring-2020.md))
+    - [Online course structure](online-spring-2020.html) ([md](online-spring-2020.md))
 
 - Fall 2019
     - The git tag is `2019-fall`; the direct link to the github repo is [here](https://github.com/uva-cs/pdr/tree/2019-fall)
