@@ -104,7 +104,7 @@ No bio yet...
 
 ## Megan Marshall
 [![Megan Marshall](//libra.cs.virginia.edu/tas/mem5ak.jpg)](//libra.cs.virginia.edu/tas/full/mem5ak.jpg)
-Hi! I'm a third year majoring in computer science and statistics and this is my first semester as a TA. I'm from Nova and have a little sister. I am a huge (and very optimistic) college sports fan, primarily for football and basketball, and love hiking, playing various IM sports, and just being outside in general. Another fun fact is I have a cactus named Bob and I know how to knit.
+Hi! I’m a fourth year majoring in computer science and statistics. I’m from Nova and have a little sister. I am a huge (and very optimistic) college sports fan, primarily football and basketball, and love hiking, playing various IM sports, and just being outside in general. I really enjoyed this class because it helps you understand how to solve so many types of problems. Have a great semester!
 <br clear="all">
 
 ## Sam McBroom
