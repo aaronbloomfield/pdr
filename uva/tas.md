@@ -9,7 +9,8 @@ Hi! I’m Pragun, a third year majoring in Computer Science and Statistics in th
 <br clear="all">
 
 ## Penn Bauman
-No bio yet...
+[![Penn Bauman](//libra.cs.virginia.edu/tas/pcb8gb.jpg)](//libra.cs.virginia.edu/tas/full/pcb8gb.jpg)
+Hello, my name is Penn Bauman and this is my first semester TAing 2150. I'm a 3rd year Computer Science major and Physics minor. In my free time I've experimented with many Linux distros and desktop environments. So if you need tips on setting up a Linux dual boot I can help.
 <br clear="all">
 
 ## Ramya Bhaskara
@@ -127,7 +128,8 @@ Hey everyone! I’m a graduate student in Computer Science from Bristow, VA. My 
 <br clear="all">
 
 ## Sindhura Mente
-No bio yet...
+[![Sindhura Mente](//libra.cs.virginia.edu/tas/snm6dhh.jpg)](//libra.cs.virginia.edu/tas/full/snm6dhh.jpg)
+Hi guys! My name is Sindhu, and I'm a second-year BSCS major. This my first semester TA' ing this class and I can't wait to get to know you all. I decided to TA for 2150 since I love helping people, and I really enjoyed the course. Outside of classes I play the piano and sing, and I'm also a huge Harry Potter nerd!
 <br clear="all">
 
 ## Daniel Mizrahi
