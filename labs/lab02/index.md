@@ -256,7 +256,7 @@ The one in ListItr must be a mistake!
 In-lab
 ------
 
-Complete Part II of the tutorial for this lab and submit your debugged version of debug.cpp; we are not submitting prog1.cpp.  Remember the standard identifying header information.
+Complete Part II of [the tutorial](../../tutorials/02-lldb/index.html) for this lab and submit your debugged version of debug.cpp; we are not submitting prog1.cpp.  Remember the standard identifying header information.
 
 Going forward, if you have a post-compilation problem with your program (crash, etc.), the TAs will not help you until you have run it through the debugger and learned all that can be learned from this.  So make sure you understand the tutorial!
 
