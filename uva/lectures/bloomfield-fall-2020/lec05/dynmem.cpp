@@ -5,6 +5,7 @@ int main() {
     int x[6];
     int i;
 
+    cout << "enter 6 integer values:" << endl;
     for ( i = 0; i <  6; i++ )
         cin >> x[i];
 
