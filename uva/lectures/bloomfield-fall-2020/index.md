@@ -13,6 +13,10 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 11: Fri, Sep 18 (numbers through 9.21)
+    - [Fall 2019, exam 1, question 10](lec11/img1.svg) ([exam PDF](../../../exams/exam1-f19.pdf))
+    - [Spring 2019, exam 1, question 9, parts 1 and 2](lec11/img2.svg) ([exam PDF](../../../exams/exam1-s19.pdf))
+    - [Spring 2019, exam 1, question 9, part 3](lec11/img3.svg) ([exam PDF](../../../exams/exam1-s19.pdf))
 - Lecture 10: Wed, Sep 16 (numbers through slide 8.10)
     - [textual notes](lec10/notes.txt) as my Wacom tablet decided not to work that day
 - Lecture 9: Mon, Sep 14 (finished lists; numbers through slide 5.2)
