@@ -13,6 +13,10 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 12: Mon, Sep 21 (finished numbers, arrays & big-Oh to 4.4)
+    - [arrays.cpp](lec12/arrays.cpp.html) ([raw code](lec12/arrays.cpp))
+	- compile with: `clang++ -Wall arrays.cpp`
+    - [sketched image](lec12/lec12.svg)
 - Lecture 11: Fri, Sep 18 (numbers through 9.21)
     - [Fall 2019, exam 1, question 10](lec11/img1.svg) ([exam PDF](../../../exams/exam1-f19.pdf))
     - [Spring 2019, exam 1, question 9, parts 1 and 2](lec11/img2.svg) ([exam PDF](../../../exams/exam1-s19.pdf))

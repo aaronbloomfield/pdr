@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>lec12/arrays.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">// compile with:</font></i>
+<i><font color="#9A1900">// clang++ -Wall arrays.cpp</font></i>
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<font color="#009900">void</font> <b><font color="#000000">subroutine</font></b><font color="#990000">(</font><font color="#009900">int</font> a<font color="#990000">[],</font> <font color="#009900">int</font> s<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <i><font color="#9A1900">//cout &lt;&lt; a[1000000] &lt;&lt; endl;</font></i>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> s<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> a<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> a<font color="#990000">[</font><font color="#993399">100</font><font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    a<font color="#990000">[</font><font color="#993399">100</font><font color="#990000">]</font> <font color="#990000">=</font> <font color="#993399">10</font><font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> a<font color="#990000">[</font><font color="#993399">100</font><font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+    <font color="#009900">int</font> a1<font color="#990000">[</font><font color="#993399">3</font><font color="#990000">];</font>
+    <font color="#009900">int</font> a2<font color="#990000">[]</font> <font color="#990000">=</font> <font color="#FF0000">{</font> <font color="#993399">1</font><font color="#990000">,</font> <font color="#993399">3</font><font color="#990000">,</font> <font color="#993399">5</font> <font color="#FF0000">}</font><font color="#990000">;</font>
+    <font color="#009900">int</font> <font color="#990000">*</font>a3 <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">int</font><font color="#990000">[</font><font color="#993399">3</font><font color="#990000">];</font>
+
+    a1<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font>
+    a1<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">]</font> <font color="#990000">=</font> <font color="#993399">3</font><font color="#990000">;</font>
+    a1<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">]</font> <font color="#990000">=</font> <font color="#993399">5</font><font color="#990000">;</font>
+
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Hello world"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"a1: "</font> <font color="#990000">&lt;&lt;</font> a1<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">", "</font> <font color="#990000">&lt;&lt;</font> a1<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">", "</font> <font color="#990000">&lt;&lt;</font> a1<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"a2: "</font> <font color="#990000">&lt;&lt;</font> a2<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">", "</font> <font color="#990000">&lt;&lt;</font> a2<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">", "</font> <font color="#990000">&lt;&lt;</font> a2<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"a3: "</font> <font color="#990000">&lt;&lt;</font> a3<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">", "</font> <font color="#990000">&lt;&lt;</font> a3<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">", "</font> <font color="#990000">&lt;&lt;</font> a3<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> a1 <font color="#990000">==</font> a2 <font color="#990000">)</font> <i><font color="#9A1900">// generates warning</font></i>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"same"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+
+    <b><font color="#000000">subroutine</font></b><font color="#990000">(</font>a1<font color="#990000">,</font> <font color="#993399">4</font><font color="#990000">);</font> <i><font color="#9A1900">// we are intentionally passing the wrong array size</font></i>
+
+    <i><font color="#9A1900">//a3 = nullptr; // allowed, but causes a memory leak</font></i>
+    <i><font color="#9A1900">//a1 = nullptr; // not allowed -- compile error</font></i>
+    <i><font color="#9A1900">//a3 = a2;      // not allowed -- compile error</font></i>
+
+    <b><font color="#0000FF">delete</font></b> <font color="#990000">[]</font> a3<font color="#990000">;</font>
+
+    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>
