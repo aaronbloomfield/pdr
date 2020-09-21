@@ -5,13 +5,19 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>PDR: Laboratory 11: Graphs</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../../markdown.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-laboratory-11-graphs">PDR: Laboratory 11: Graphs</h1>
@@ -70,7 +76,7 @@ This includes the <a href="middleearth.h.html">middleearth.h</a> (<a href="middl
 <p>It turns out that one of our teaching assistants did not take all of the pre-requisite computer science courses! That TA is all ready to graduate, but it turns that CS 1110 was never taken. The department came down hard, and decided to make that TA take all of the courses over again, to have the proper pre-requisite classes completed for each successive class. But the TA just got a job at Microsoft, and can only take one course a semester while working full time. In what order should the teaching assistant take the list of required courses to properly fulfill the pre-requisites this time around?</p>
 <p>Given the following course pre-requisite graph:</p>
 <figure>
-<img src="pre-reqs.svg" alt="pre-reqs.svg" /><figcaption>pre-reqs.svg</figcaption>
+<img src="pre-reqs.svg" alt="pre-reqs.svg" /><figcaption aria-hidden="true">pre-reqs.svg</figcaption>
 </figure>
 <p>There are multiple valid orders that the courses can be taken in; each is a valid topological sort:</p>
 <ul>
@@ -180,7 +186,7 @@ student@cassiopeia:~/labs/lab11$ </code></pre>
 <h2 id="post-lab-1">Post-lab</h2>
 <p>Consider the <a href="https://en.wikipedia.org/wiki/15_puzzle">Sliding 8-Puzzle</a> game, depicted in the image below. If you’d like, you can play the puzzle <a href="http://www.artbylogic.com/puzzles/numSlider/numberShuffle.htm?rows=3&amp;cols=3&amp;sqr=1">HERE</a> to get a better sense for how the game works.</p>
 <figure>
-<img src="8Puzzle.png" alt="8-puzzle" /><figcaption>8-puzzle</figcaption>
+<img src="8Puzzle.png" alt="8-puzzle" /><figcaption aria-hidden="true">8-puzzle</figcaption>
 </figure>
 <p>In this 3x3 grid of numbers, the goal is to slide numbers into the empty square until the end game state is reached. As can be seen above, our end game state is a sorted board. The hole in the board can move in any direction, but cannot “wrap around” from one side to the other (or from top to bottom, etc.).</p>
 <p>Your task for this lab is to implement a solution to the 8 puzzle problem described above: given an input board, find the minimum number of moves required to reach the end state, or if it is impossible to reach it.</p>
