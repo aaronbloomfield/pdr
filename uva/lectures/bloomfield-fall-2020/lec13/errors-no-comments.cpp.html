@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>lec13/errors-no-comments.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<i><font color="#9A1900">// can you find the 12 errors in this program?</font></i>
+
+<i><font color="#9A1900">// there are multiple ways to compile this:</font></i>
+<i><font color="#9A1900">// - `clang++ -Wno-everything errors.cpp` to generate no warnings so you can try to find the errors</font></i>
+<i><font color="#9A1900">// - `clang++ -Wall errors.cpp` to generate lots of warnings</font></i>
+<i><font color="#9A1900">// - `clang++ -fsanitize=address -fno-omit-frame-pointer -g errors.cpp` to run the address sanitizer</font></i>
+
+
+<font color="#009900">int</font> n <font color="#990000">=</font> <font color="#993399">7</font><font color="#990000">;</font>
+
+<b><font color="#0000FF">class</font></b> <font color="#008080">foo</font> <font color="#FF0000">{</font>
+    <font color="#009900">int</font> <font color="#990000">*</font>k<font color="#990000">,</font> <font color="#990000">*</font>m<font color="#990000">,</font> <font color="#990000">*</font>p<font color="#990000">;</font>
+
+<b><font color="#0000FF">public</font></b><font color="#990000">:</font>
+    <b><font color="#000000">foo</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+        m <font color="#990000">=</font> <font color="#990000">&amp;</font>n<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+    <font color="#990000">~</font><b><font color="#000000">foo</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+        <b><font color="#0000FF">delete</font></b> p<font color="#990000">;</font>
+        <b><font color="#0000FF">delete</font></b> m<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+    <font color="#009900">void</font> <b><font color="#000000">what</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+        <font color="#009900">long</font> a <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+        k <font color="#990000">=</font> <font color="#990000">(</font><font color="#009900">int</font><font color="#990000">*)</font> a<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+    <font color="#009900">void</font> <b><font color="#000000">huh</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+        <font color="#009900">int</font> <font color="#990000">*</font>b<font color="#990000">;</font>
+        <b><font color="#0000FF">delete</font></b> b<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+<font color="#FF0000">}</font><font color="#990000">;</font>
+
+
+<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+    <font color="#008080">foo</font> x<font color="#990000">;</font>
+    <font color="#009900">int</font> <font color="#990000">*</font>i <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">int</font><font color="#990000">(</font><font color="#993399">5</font><font color="#990000">);</font>
+    <font color="#009900">int</font> <font color="#990000">*</font>q <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">int</font><font color="#990000">(</font><font color="#993399">7</font><font color="#990000">);</font>
+    <font color="#009900">int</font> <font color="#990000">*</font>j <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">int</font><font color="#990000">[</font><font color="#993399">4</font><font color="#990000">];</font>
+    <font color="#009900">int</font> <font color="#990000">*</font>l <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">int</font><font color="#990000">(</font><font color="#993399">7</font><font color="#990000">);</font>
+    <font color="#009900">int</font> <font color="#990000">*</font>o<font color="#990000">;</font>
+
+    <b><font color="#0000FF">delete</font></b> j<font color="#990000">;</font>
+
+    <b><font color="#0000FF">delete</font></b> l<font color="#990000">;</font>
+    <font color="#990000">*</font>l <font color="#990000">=</font> n<font color="#990000">;</font>
+    <b><font color="#0000FF">delete</font></b> i<font color="#990000">;</font>
+    <b><font color="#0000FF">delete</font></b> l<font color="#990000">;</font>
+
+    i <font color="#990000">=</font> nullptr<font color="#990000">;</font>
+    <b><font color="#0000FF">delete</font></b> i<font color="#990000">;</font>
+
+    n <font color="#990000">=</font> <font color="#990000">*</font>i<font color="#990000">;</font>
+    n <font color="#990000">=</font> <font color="#990000">*</font>o<font color="#990000">;</font>
+
+    x<font color="#990000">.</font><b><font color="#000000">what</font></b><font color="#990000">();</font>
+    x<font color="#990000">.</font><b><font color="#000000">huh</font></b><font color="#990000">();</font>
+
+    <b><font color="#0000FF">return</font></b> <font color="#993399">1</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

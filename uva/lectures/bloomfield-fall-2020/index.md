@@ -13,6 +13,8 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 13: Wed, Sep 23 (arrays & big-Oh to 5.8)
+    - [errors-no-comments.cpp](lec13/errors-no-comments.cpp.html) ([raw code](lec13/errors-no-comments.cpp))
 - Lecture 12: Mon, Sep 21 (finished numbers, arrays & big-Oh to 4.4)
     - [arrays.cpp](lec12/arrays.cpp.html) ([raw code](lec12/arrays.cpp))
 	- compile with: `clang++ -Wall arrays.cpp`
