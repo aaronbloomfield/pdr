@@ -12,13 +12,13 @@ code:
 markdown:
 	@make clean
 	@make code
-	@for dir in `ls | sort -r | grep lec`; do \
+	@for dir in `ls | sort | grep lec`; do \
 		title=`echo $$dir | sed s/lec/Lecture\ /g | sed s/Lecture\ 0/Lecture\ /g`; \
 		/bin/echo "- $$title: (date)"; \
 		for file in `ls $$dir/ | grep -v html | grep -v svg`; do \
 			/bin/echo "    - [$$file]($$dir/$$file.html) ([raw code]($$dir/$$file))" ; \
 		done ; \
-		if [ -e "$$dir/$$dir.svg" ] ; then \
-			/bin/echo "    - [sketched image]($$dir/$$dir.svg)" ; \
-		fi ; \
+		for file in `ls */*.svg | grep $$dir`; do \
+			/bin/echo "    - [sketched image]($$file)" ; \
+		done ; \
 	done

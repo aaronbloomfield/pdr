@@ -19,9 +19,9 @@ public:
         m = &n;
     }
     ~foo() {
-      //delete p; // NO: uninitialized pointer deletion
-      //delete m; // NO: delete statically declared variable
-      // no delete k
+        //delete p; // NO: uninitialized pointer deletion
+        //delete m; // NO: delete statically declared variable
+        // no delete k
     }
     void what() {
         long a = 0;
@@ -50,7 +50,7 @@ int main() {
     //delete l; // YES: double free()
 
     cout << *q << endl;
-    
+
     i = nullptr;
     delete i; // not an error: delete nullptr
 
@@ -59,7 +59,7 @@ int main() {
 
     // q is not deleted
     delete q;
-    
+
     x.what();
     x.huh();
 
