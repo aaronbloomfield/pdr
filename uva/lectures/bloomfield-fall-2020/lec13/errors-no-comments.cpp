@@ -19,16 +19,17 @@ public:
         m = &n;
     }
     ~foo() {
-        delete p;
-        delete m;
+      //delete p; // NO: uninitialized pointer deletion
+      //delete m; // NO: delete statically declared variable
+      // no delete k
     }
     void what() {
         long a = 0;
-        k = (int*) a;
+        k = (int*) a; // not a good idea
     }
     void huh() {
-        int *b;
-        delete b;
+        //int *b; // has value nullptr
+        //delete b; // YES: bad delete
     }
 };
 
@@ -41,21 +42,26 @@ int main() {
     int *l = new int(7);
     int *o;
 
-    delete j;
+    delete[] j; // YES: should be delete[]
 
     delete l;
-    *l = n;
+    //*l = n; // YES: access after delete
     delete i;
-    delete l;
+    //delete l; // YES: double free()
 
+    cout << *q << endl;
+    
     i = nullptr;
-    delete i;
+    delete i; // not an error: delete nullptr
 
-    n = *i;
-    n = *o;
+    //n = *i; // YES: null pointer access
+    //n = *o; // NO: accessing uninitialized variable
 
+    // q is not deleted
+    delete q;
+    
     x.what();
     x.huh();
 
-    return 1;
+    return 1; // error
 }
