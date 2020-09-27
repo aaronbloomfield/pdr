@@ -1,81 +1,81 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta name="GENERATOR" content="GNU source-highlight 3.1.8
+<meta name="GENERATOR" content="GNU source-highlight 
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
-<title>lec13/errors-no-comments.cpp</title>
+<title>errors-no-comments.cpp</title>
 </head>
-<body bgcolor="white">
-<pre><tt><b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
-<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+<body style="background-color:white">
+<pre><b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;iostream&gt;</span>
+<b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
-<i><font color="#9A1900">// can you find the 12 errors in this program?</font></i>
+<i><span style="color:#9A1900">// can you find the 12 errors in this program?</span></i>
 
-<i><font color="#9A1900">// there are multiple ways to compile this:</font></i>
-<i><font color="#9A1900">// - `clang++ -Wno-everything errors.cpp` to generate no warnings so you can try to find the errors</font></i>
-<i><font color="#9A1900">// - `clang++ -Wall errors.cpp` to generate lots of warnings</font></i>
-<i><font color="#9A1900">// - `clang++ -fsanitize=address -fno-omit-frame-pointer -g errors.cpp` to run the address sanitizer</font></i>
-
-
-<font color="#009900">int</font> n <font color="#990000">=</font> <font color="#993399">7</font><font color="#990000">;</font>
-
-<b><font color="#0000FF">class</font></b> <font color="#008080">foo</font> <font color="#FF0000">{</font>
-    <font color="#009900">int</font> <font color="#990000">*</font>k<font color="#990000">,</font> <font color="#990000">*</font>m<font color="#990000">,</font> <font color="#990000">*</font>p<font color="#990000">;</font>
-
-<b><font color="#0000FF">public</font></b><font color="#990000">:</font>
-    <b><font color="#000000">foo</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
-        m <font color="#990000">=</font> <font color="#990000">&amp;</font>n<font color="#990000">;</font>
-    <font color="#FF0000">}</font>
-    <font color="#990000">~</font><b><font color="#000000">foo</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
-        <i><font color="#9A1900">//delete p; // NO: uninitialized pointer deletion</font></i>
-        <i><font color="#9A1900">//delete m; // NO: delete statically declared variable</font></i>
-        <i><font color="#9A1900">// no delete k</font></i>
-    <font color="#FF0000">}</font>
-    <font color="#009900">void</font> <b><font color="#000000">what</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
-        <font color="#009900">long</font> a <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
-        k <font color="#990000">=</font> <font color="#990000">(</font><font color="#009900">int</font><font color="#990000">*)</font> a<font color="#990000">;</font> <i><font color="#9A1900">// not a good idea</font></i>
-    <font color="#FF0000">}</font>
-    <font color="#009900">void</font> <b><font color="#000000">huh</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
-        <i><font color="#9A1900">//int *b; // has value nullptr</font></i>
-        <i><font color="#9A1900">//delete b; // YES: bad delete</font></i>
-    <font color="#FF0000">}</font>
-<font color="#FF0000">}</font><font color="#990000">;</font>
+<i><span style="color:#9A1900">// there are multiple ways to compile this:</span></i>
+<i><span style="color:#9A1900">// - `clang++ -Wno-everything errors.cpp` to generate no warnings so you can try to find the errors</span></i>
+<i><span style="color:#9A1900">// - `clang++ -Wall errors.cpp` to generate lots of warnings</span></i>
+<i><span style="color:#9A1900">// - `clang++ -fsanitize=address -fno-omit-frame-pointer -g errors.cpp` to run the address sanitizer</span></i>
 
 
-<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
-    <font color="#008080">foo</font> x<font color="#990000">;</font>
-    <font color="#009900">int</font> <font color="#990000">*</font>i <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">int</font><font color="#990000">(</font><font color="#993399">5</font><font color="#990000">);</font>
-    <font color="#009900">int</font> <font color="#990000">*</font>q <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">int</font><font color="#990000">(</font><font color="#993399">7</font><font color="#990000">);</font>
-    <font color="#009900">int</font> <font color="#990000">*</font>j <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">int</font><font color="#990000">[</font><font color="#993399">4</font><font color="#990000">];</font>
-    <font color="#009900">int</font> <font color="#990000">*</font>l <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">int</font><font color="#990000">(</font><font color="#993399">7</font><font color="#990000">);</font>
-    <font color="#009900">int</font> <font color="#990000">*</font>o<font color="#990000">;</font>
+<span style="color:#009900">int</span> n <span style="color:#990000">=</span> <span style="color:#993399">7</span><span style="color:#990000">;</span>
 
-    <b><font color="#0000FF">delete</font></b><font color="#990000">[]</font> j<font color="#990000">;</font> <i><font color="#9A1900">// YES: should be delete[]</font></i>
+<b><span style="color:#0000FF">class</span></b> <span style="color:#008080">foo</span> <span style="color:#FF0000">{</span>
+    <span style="color:#009900">int</span> <span style="color:#990000">*</span>k<span style="color:#990000">,</span> <span style="color:#990000">*</span>m<span style="color:#990000">,</span> <span style="color:#990000">*</span>p<span style="color:#990000">;</span>
 
-    <b><font color="#0000FF">delete</font></b> l<font color="#990000">;</font>
-    <i><font color="#9A1900">//*l = n; // YES: access after delete</font></i>
-    <b><font color="#0000FF">delete</font></b> i<font color="#990000">;</font>
-    <i><font color="#9A1900">//delete l; // YES: double free()</font></i>
+<b><span style="color:#0000FF">public</span></b><span style="color:#990000">:</span>
+    <b><span style="color:#000000">foo</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+        m <span style="color:#990000">=</span> <span style="color:#990000">&amp;</span>n<span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
+    <span style="color:#990000">~</span><b><span style="color:#000000">foo</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+        <i><span style="color:#9A1900">//delete p; // NO: uninitialized pointer deletion</span></i>
+        <i><span style="color:#9A1900">//delete m; // NO: delete statically declared variable</span></i>
+        <i><span style="color:#9A1900">// no delete k</span></i>
+    <span style="color:#FF0000">}</span>
+    <span style="color:#009900">void</span> <b><span style="color:#000000">what</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+        <span style="color:#009900">long</span> a <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+        k <span style="color:#990000">=</span> <span style="color:#990000">(</span><span style="color:#009900">int</span><span style="color:#990000">*)</span> a<span style="color:#990000">;</span> <i><span style="color:#9A1900">// not a good idea</span></i>
+    <span style="color:#FF0000">}</span>
+    <span style="color:#009900">void</span> <b><span style="color:#000000">huh</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+        <i><span style="color:#9A1900">//int *b; // has value nullptr</span></i>
+        <i><span style="color:#9A1900">//delete b; // YES: bad delete</span></i>
+    <span style="color:#FF0000">}</span>
+<span style="color:#FF0000">}</span><span style="color:#990000">;</span>
 
-    cout <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>q <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
 
-    i <font color="#990000">=</font> nullptr<font color="#990000">;</font>
-    <b><font color="#0000FF">delete</font></b> i<font color="#990000">;</font> <i><font color="#9A1900">// not an error: delete nullptr</font></i>
+<span style="color:#009900">int</span> <b><span style="color:#000000">main</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    <span style="color:#008080">foo</span> x<span style="color:#990000">;</span>
+    <span style="color:#009900">int</span> <span style="color:#990000">*</span>i <span style="color:#990000">=</span> <b><span style="color:#0000FF">new</span></b> <span style="color:#009900">int</span><span style="color:#990000">(</span><span style="color:#993399">5</span><span style="color:#990000">);</span>
+    <span style="color:#009900">int</span> <span style="color:#990000">*</span>q <span style="color:#990000">=</span> <b><span style="color:#0000FF">new</span></b> <span style="color:#009900">int</span><span style="color:#990000">(</span><span style="color:#993399">7</span><span style="color:#990000">);</span>
+    <span style="color:#009900">int</span> <span style="color:#990000">*</span>j <span style="color:#990000">=</span> <b><span style="color:#0000FF">new</span></b> <span style="color:#009900">int</span><span style="color:#990000">[</span><span style="color:#993399">4</span><span style="color:#990000">];</span>
+    <span style="color:#009900">int</span> <span style="color:#990000">*</span>l <span style="color:#990000">=</span> <b><span style="color:#0000FF">new</span></b> <span style="color:#009900">int</span><span style="color:#990000">(</span><span style="color:#993399">7</span><span style="color:#990000">);</span>
+    <span style="color:#009900">int</span> <span style="color:#990000">*</span>o<span style="color:#990000">;</span>
 
-    <i><font color="#9A1900">//n = *i; // YES: null pointer access</font></i>
-    <i><font color="#9A1900">//n = *o; // NO: accessing uninitialized variable</font></i>
+    <b><span style="color:#0000FF">delete</span></b><span style="color:#990000">[]</span> j<span style="color:#990000">;</span> <i><span style="color:#9A1900">// YES: should be delete[]</span></i>
 
-    <i><font color="#9A1900">// q is not deleted</font></i>
-    <b><font color="#0000FF">delete</font></b> q<font color="#990000">;</font>
+    <b><span style="color:#0000FF">delete</span></b> l<span style="color:#990000">;</span>
+    <i><span style="color:#9A1900">//*l = n; // YES: access after delete</span></i>
+    <b><span style="color:#0000FF">delete</span></b> i<span style="color:#990000">;</span>
+    <i><span style="color:#9A1900">//delete l; // YES: double free()</span></i>
 
-    x<font color="#990000">.</font><b><font color="#000000">what</font></b><font color="#990000">();</font>
-    x<font color="#990000">.</font><b><font color="#000000">huh</font></b><font color="#990000">();</font>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">*</span>q <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
 
-    <b><font color="#0000FF">return</font></b> <font color="#993399">1</font><font color="#990000">;</font> <i><font color="#9A1900">// error</font></i>
-<font color="#FF0000">}</font>
-</tt></pre>
+    i <span style="color:#990000">=</span> nullptr<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">delete</span></b> i<span style="color:#990000">;</span> <i><span style="color:#9A1900">// not an error: delete nullptr</span></i>
+
+    <i><span style="color:#9A1900">//n = *i; // YES: null pointer access</span></i>
+    <i><span style="color:#9A1900">//n = *o; // NO: accessing uninitialized variable</span></i>
+
+    <i><span style="color:#9A1900">// q is not deleted</span></i>
+    <b><span style="color:#0000FF">delete</span></b> q<span style="color:#990000">;</span>
+
+    x<span style="color:#990000">.</span><b><span style="color:#000000">what</span></b><span style="color:#990000">();</span>
+    x<span style="color:#990000">.</span><b><span style="color:#000000">huh</span></b><span style="color:#990000">();</span>
+
+    <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">1</span><span style="color:#990000">;</span> <i><span style="color:#9A1900">// error</span></i>
+<span style="color:#FF0000">}</span>
+</pre>
 </body>
 </html>
