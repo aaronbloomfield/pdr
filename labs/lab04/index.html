@@ -105,7 +105,7 @@ Size of double*: 8
 <p>The header <a href="https://en.cppreference.com/w/cpp/header/climits"><code>climits</code></a> has constants containing the max values of many types.</p>
 <hr />
 <h2 id="in-lab-1">In-Lab</h2>
-<p>For the in-lab, you will complete the <a href="inlab4.cpp.html">inlab4.cpp</a> (<a href="inlab4.cpp">src</a>). To complete this in-lab, you should write a separate cpp file that has a few small functions to help fill in <em>some</em> of the values in inlab4.cpp; you will use those functions and the debugger to fill in the inlab4.cpp file. The sections below named <a href="#memory">Representation in memory</a> and <a href="#arrays">Primitive Arrays in C++</a> describe what should be in this file. It should not take in any input, and should just print out the necessary values.</p>
+<p>For the in-lab, you will complete the <a href="inlab4.cpp.html">inlab4.cpp</a> (<a href="inlab4.cpp">src</a>). To complete this in-lab, you should write (but not submit) a separate cpp file that has a few small functions to help fill in <em>some</em> of the values in inlab4.cpp; you will use those functions and the debugger to fill in the inlab4.cpp file. The sections below named <a href="#memory">Representation in memory</a> and <a href="#arrays">Primitive Arrays in C++</a> describe what should be in this file. It should not take in any input, and should just print out the necessary values.</p>
 <h3 id="output-tables">Output Tables</h3>
 <p>The <a href="inlab4.cpp.html">inlab4.cpp</a> (<a href="inlab4.cpp">src</a>) program asks you to fill in two arrays that describe certain features of primitive types in C++. The two arrays in table form are shown below:</p>
 <table>
@@ -212,7 +212,8 @@ Size of double*: 8
 <ul>
 <li>The values for the “Zero” and “One” columns should interpreted appropriately for the data type. For example, “zero” is 0 for an <code>int</code>, 0.0 for a <code>float</code>, <code>false</code> for a bool, the character <code>'0'</code> for a <code>char</code>, etc.</li>
 <li>For pointers, the highest memory address that can be described is the “max value.” For <code>char</code>s, we want the maximum integer value that may be stored therein. Finally, booleans only have two possible values, so choose the max and min from these two.</li>
-<li>All hex values should be given in <strong>big-endian</strong> and in the same size as their data type (e.g int hexidecimals should only have 4 bytes, char has 1, etc).</li>
+<li>All hex values should be given in <strong>big-endian</strong> and in the same size as their data type (e.g int hexidecimals should only have 4 bytes, char has 1, etc). <strong>For the max value field of float and double, represent the value as the closest power of 2</strong>. The format will be exactly as follows: 2^exponent, but replace exponent with the appropriate number in each case. We want you to do it this way because it would be inconvenient for you to type out all of the whole number.
+</li>
 </ul>
 <h3 id="inlab4.cpp">inlab4.cpp</h3>
 <p>There are two parts to the C++ file you will be submitting as a part of the in-lab. 1. The two arrays that you will fill out with the appropriate information 2. A <code>tableDump(string (*arr)[5], string (*arr1)[4])</code> method that prints out the two arrays in a format that we can autograde</p>
