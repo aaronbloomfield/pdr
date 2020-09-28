@@ -5,13 +5,19 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>PDR: Laboratory 2: Linked Lists</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../../markdown.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-laboratory-2-linked-lists">PDR: Laboratory 2: Linked Lists</h1>
@@ -76,7 +82,7 @@
 <h3 id="uml-diagram">UML Diagram</h3>
 <p>Below is a UML diagram showing how these classes interact with each other.</p>
 <figure>
-<img src="list-diagram.png" alt="UML diagram" /><figcaption>UML diagram</figcaption>
+<img src="list-diagram.png" alt="UML diagram" /><figcaption aria-hidden="true">UML diagram</figcaption>
 </figure>
 <p>This diagram shows a list containing two elements, the integers 3 and 7. Note that there are more methods in the List and ListItr classes than what is shown above. The head and tail pointers in the List class point to dummy nodes – they are put there to make inserting elements into the list easier. It doesn’t matter what the value of the dummy nodes is set to, as it won’t be used. Each ListNode points to the nodes before and after it (although the dummy nodes each have one pointer pointing to NULL).</p>
 <p>Thus, our doubly linked list will have only one List object and many ListNode objects (2 more than the number of elements in the list). A ListItr is a separate object, which points to one element in the list (possibly a dummy node). As you call the various methods in ListItr to move the iterator forward and backward, the node that it points to will change.</p>

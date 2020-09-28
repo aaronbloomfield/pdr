@@ -5,13 +5,19 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>Program and Data Representation: Itty Bitty Computing Machine (IBCM)</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../markdown.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="program-and-data-representation-itty-bitty-computing-machine-ibcm">Program and Data Representation: Itty Bitty Computing Machine (IBCM)</h1>
@@ -32,7 +38,7 @@
 <li><a href="turing.ibcm">turing.ibcm</a>: a Turing machine simulator. The automaton simulated is a four state <a href="http://en.wikipedia.org/wiki/Busy_beaver">Busy Beaver</a> automaton, shown below. Details about the Turing completeness can be found in the <a href="http://dl.acm.org/citation.cfm?id=1953273">IBCM article</a>.</li>
 </ul>
 <figure>
-<img src="busy-beaver.png" alt="Busy Beaver automaton" /><figcaption>Busy Beaver automaton</figcaption>
+<img src="busy-beaver.png" alt="Busy Beaver automaton" /><figcaption aria-hidden="true">Busy Beaver automaton</figcaption>
 </figure>
 <h2 id="c-utilities">C++ Utilities</h2>
 <p>There are two C++ utility programs included, which are primarly useful for grading. In particular, they allow the programs to be run through a series of scripts (or other automated grading system).</p>

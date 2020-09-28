@@ -1,45 +1,45 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta name="GENERATOR" content="GNU source-highlight 3.1.8
+<meta name="GENERATOR" content="GNU source-highlight 
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
-<title>lec06/danglingptrs.cpp</title>
+<title>danglingptrs.cpp</title>
 </head>
-<body bgcolor="white">
-<pre><tt><b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
-<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+<body style="background-color:white">
+<pre><b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;iostream&gt;</span>
+<b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
 
-<b><font color="#0000FF">class</font></b> <font color="#008080">ListNode</font> <font color="#FF0000">{</font>
-<b><font color="#0000FF">public</font></b><font color="#990000">:</font>
-    <font color="#008080">ListNode</font> <font color="#990000">*</font>next<font color="#990000">,</font> <font color="#990000">*</font>prev<font color="#990000">;</font>
-    <font color="#009900">int</font> value<font color="#990000">;</font>
-<font color="#FF0000">}</font><font color="#990000">;</font>
+<b><span style="color:#0000FF">class</span></b> <span style="color:#008080">ListNode</span> <span style="color:#FF0000">{</span>
+<b><span style="color:#0000FF">public</span></b><span style="color:#990000">:</span>
+    <span style="color:#008080">ListNode</span> <span style="color:#990000">*</span>next<span style="color:#990000">,</span> <span style="color:#990000">*</span>prev<span style="color:#990000">;</span>
+    <span style="color:#009900">int</span> value<span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span><span style="color:#990000">;</span>
 
-<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+<span style="color:#009900">int</span> <b><span style="color:#000000">main</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
 
-    <font color="#008080">ListNode</font> l<font color="#990000">;</font>
-    <font color="#008080">ListNode</font> <font color="#990000">*</font>n <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">ListNode</font></b><font color="#990000">();</font>
+    <span style="color:#008080">ListNode</span> l<span style="color:#990000">;</span>
+    <span style="color:#008080">ListNode</span> <span style="color:#990000">*</span>n <span style="color:#990000">=</span> <b><span style="color:#0000FF">new</span></b> <b><span style="color:#000000">ListNode</span></b><span style="color:#990000">();</span>
 
-    l<font color="#990000">.</font>value <font color="#990000">=</font> <font color="#993399">100</font><font color="#990000">;</font>
-    <font color="#990000">(*</font>n<font color="#990000">).</font>value <font color="#990000">=</font> <font color="#993399">200</font><font color="#990000">;</font>
-    n<font color="#990000">-&gt;</font>value <font color="#990000">=</font> <font color="#993399">200</font><font color="#990000">;</font>
+    l<span style="color:#990000">.</span>value <span style="color:#990000">=</span> <span style="color:#993399">100</span><span style="color:#990000">;</span>
+    <span style="color:#990000">(*</span>n<span style="color:#990000">).</span>value <span style="color:#990000">=</span> <span style="color:#993399">200</span><span style="color:#990000">;</span>
+    n<span style="color:#990000">-&gt;</span>value <span style="color:#990000">=</span> <span style="color:#993399">200</span><span style="color:#990000">;</span>
 
-    cout <font color="#990000">&lt;&lt;</font> n<font color="#990000">-&gt;</font>value <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <span style="color:#990000">&lt;&lt;</span> n<span style="color:#990000">-&gt;</span>value <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
 
-    <b><font color="#0000FF">delete</font></b> n<font color="#990000">;</font>
+    <b><span style="color:#0000FF">delete</span></b> n<span style="color:#990000">;</span>
 
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"dangling pointer: "</font> <font color="#990000">&lt;&lt;</font> n<font color="#990000">-&gt;</font>value <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"dangling pointer: "</span> <span style="color:#990000">&lt;&lt;</span> n<span style="color:#990000">-&gt;</span>value <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
 
-    n <font color="#990000">=</font> nullptr<font color="#990000">;</font>
-    n <font color="#990000">=</font> <font color="#990000">&amp;</font>l<font color="#990000">;</font>
+    n <span style="color:#990000">=</span> nullptr<span style="color:#990000">;</span>
+    n <span style="color:#990000">=</span> <span style="color:#990000">&amp;</span>l<span style="color:#990000">;</span>
 
-    cout <font color="#990000">&lt;&lt;</font> n<font color="#990000">-&gt;</font>value <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <span style="color:#990000">&lt;&lt;</span> n<span style="color:#990000">-&gt;</span>value <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
 
-    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
-<font color="#FF0000">}</font>
-</tt></pre>
+    <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+</pre>
 </body>
 </html>
