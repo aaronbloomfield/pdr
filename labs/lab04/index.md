@@ -131,7 +131,7 @@ The header [`climits`](https://en.cppreference.com/w/cpp/header/climits) has con
 In-Lab
 ------
 
-For the in-lab, you will complete the [inlab4.cpp](inlab4.cpp.html) ([src](inlab4.cpp)).  To complete this in-lab, you should write a separate cpp file that has a few small functions to help fill in *some* of the values in inlab4.cpp; you will use those functions and the debugger to fill in the inlab4.cpp file.  The sections below named [Representation in memory](#memory) and [Primitive Arrays in C++](#arrays) describe what should be in this file.  It should not take in any input, and should just print out the necessary values.
+For the in-lab, you will complete the [inlab4.cpp](inlab4.cpp.html) ([src](inlab4.cpp)).  To complete this in-lab, you should write (but not submit) a separate cpp file that has a few small functions to help fill in *some* of the values in inlab4.cpp; you will use those functions and the debugger to fill in the inlab4.cpp file.  The sections below named [Representation in memory](#memory) and [Primitive Arrays in C++](#arrays) describe what should be in this file.  It should not take in any input, and should just print out the necessary values.
 
 ### Output Tables ###
 
@@ -160,7 +160,7 @@ Notes:
 
 - The values for the "Zero" and "One" columns should interpreted appropriately for the data type. For example, "zero" is 0 for an `int`, 0.0 for a `float`, `false` for a bool, the character `'0'` for a `char`, etc.
 - For pointers, the highest memory address that can be described is the "max value." For `char`s, we want the maximum integer value that may be stored therein.  Finally, booleans only have two possible values, so choose the max and min from these two.
-- All hex values should be given in **big-endian** and in the same size as their data type (e.g int hexidecimals should only have 4 bytes, char has 1, etc).
+- All hex values should be given in **big-endian** and in the same size as their data type (e.g int hexidecimals should only have 4 bytes, char has 1, etc). **For the max value field of float and double, represent the value as the closest power of 2**. The format will be exactly as follows: 2^exponent, but replace exponent with the appropriate number in each case. We want you to do it this way because it would be inconvenient for you to type out all of the whole number.
 
 ### inlab4.cpp ###
 
@@ -312,4 +312,4 @@ When converting bases, there are two steps that you should follow:
 1. Convert the number from the start base to base 10.
 2. Convert the base 10 number to the end base. 
 
-In many cases with conversion, you will need to convert characters to integers in order to correctly perform calculations. Instead of trying to use `atoi` or `stoi` like in previous assignments, it is easy to convert character numbers into their integer form by taking advantage of ascii values. For example, the ascii value for the character '9' is 39. So to convert the character '9' to an integer is a simple subtraction, `int converted = '9' - 30;` or `int converted = '9' - '0'`. This same logic can be extended to the numbers 0-8 and a similar approach can be used to convert letters to their correct numerical representation (e.g. 'A' = 10, 'B' = 11, ...). 
+In many cases with conversion, you will need to convert characters to integers in order to correctly perform calculations. Instead of trying to use `atoi` or `stoi` like in previous assignments, it is easy to convert character numbers into their integer form by taking advantage of ascii values. For example, the ascii value for the character '9' is 57. So to convert the character '9' to an integer is a simple subtraction, `int converted = '9' - 48;` or `int converted = '9' - '0'`. This same logic can be extended to the numbers 0-8 and a similar approach can be used to convert letters to their correct numerical representation (e.g. 'A' = 10, 'B' = 11, ...). 
