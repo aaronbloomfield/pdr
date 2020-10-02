@@ -13,6 +13,9 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 17: Fri, Oct 2 (trees through slide 7.31)
+    - Animations are at [https://www.cs.usfca.edu/~galles/visualization/](https://www.cs.usfca.edu/~galles/visualization/)
+    - [rotation before](lec17/after.svg), [rotation after](lec17/before.svg)
 - Lecture 16: Wed, Sep 30 (trees through slide 7.9)
     - [Pseudo code for tree algorithm](lec16/pseudo-code.txt)
 - Lecture 15: Mon, Sep 28 (trees through slide 5.11)
