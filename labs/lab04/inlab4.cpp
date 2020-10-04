@@ -41,9 +41,9 @@ void tableDump(string (*arr)[5], string (*arr1)[4]){
 
 	printf("-----------------------------------------------------------------------------\n");
 
-	for(int i = 0; i < 4; i++){
-		printf("Size of %s: %s\n", arr[i][0].c_str(), arr[i][1].c_str());
-		printf("Max value of %s: %s\n", arr[i][0].c_str(), arr[i][2].c_str());
-		printf("NULL of type %s is stored as: %s\n", arr[i][0].c_str(), arr[i][1].c_str());
+	for(int i = 0; i < 3; i++){
+		printf("Size of %s: %s\n", arr1[i][0].c_str(), arr1[i][1].c_str());
+		printf("Max value of %s: %s\n", arr1[i][0].c_str(), arr1[i][2].c_str());
+		printf("NULL of type %s is stored as: %s\n", arr1[i][0].c_str(), arr1[i][3].c_str());
 	}
 }

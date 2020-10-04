@@ -57,7 +57,7 @@ In this lab, you will:
 - Write a program that uses this class to implement a postfix calculator. This will include the following files:
     - postfixCalculator.h, which is the class declaration of the postfix calculator
     - postfixCalculator.cpp, which is the implementation of the postfix calculator
-    - testPostfixCalc.cpp that has a hard-coded expression (see below) and evaluates that expression.
+    - testPostfixCalc.cpp that accepts user-input (see below) and evaluates that expression.
 
 The various parts of this lab develop the entire program:
 

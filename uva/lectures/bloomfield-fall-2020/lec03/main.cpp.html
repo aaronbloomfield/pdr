@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>main.cpp</title>
+</head>
+<body style="background-color:white">
+<pre><b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;iostream&gt;</span>
+
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">"item.h"</span>
+
+<b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
+
+
+<span style="color:#009900">int</span> <b><span style="color:#000000">main</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Hello world"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    <span style="color:#008080">Item</span> i<span style="color:#990000">;</span> <i><span style="color:#9A1900">// = new Item();</span></i>
+    i<span style="color:#990000">.</span><b><span style="color:#000000">setID</span></b><span style="color:#990000">(</span><span style="color:#993399">1234</span><span style="color:#990000">);</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"ID of i: "</span> <span style="color:#990000">&lt;&lt;</span> i<span style="color:#990000">.</span><b><span style="color:#000000">getID</span></b><span style="color:#990000">()</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    <span style="color:#008080">Item</span> j <span style="color:#990000">=</span> i<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"ID of i: "</span> <span style="color:#990000">&lt;&lt;</span> i<span style="color:#990000">.</span><b><span style="color:#000000">getID</span></b><span style="color:#990000">()</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"ID of j: "</span> <span style="color:#990000">&lt;&lt;</span> j<span style="color:#990000">.</span><b><span style="color:#000000">getID</span></b><span style="color:#990000">()</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    j<span style="color:#990000">.</span><b><span style="color:#000000">setID</span></b><span style="color:#990000">(</span><span style="color:#993399">7</span><span style="color:#990000">);</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"ID of i: "</span> <span style="color:#990000">&lt;&lt;</span> i<span style="color:#990000">.</span><b><span style="color:#000000">getID</span></b><span style="color:#990000">()</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"ID of j: "</span> <span style="color:#990000">&lt;&lt;</span> j<span style="color:#990000">.</span><b><span style="color:#000000">getID</span></b><span style="color:#990000">()</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+</pre>
+</body>
+</html>

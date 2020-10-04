@@ -146,6 +146,10 @@ Hey! I am a third-year computer science and statistics major from Richmond, Virg
 Hey everyone! I'm Cassie Quach, a third year BACS major, who's graduating this fall. I'm from and will be TAing from northern Virginia. This is my first time TAing for 2150, but I TA'ed DSA1 and DSA2 last year. I'm excited to help students learn and use the foundational concepts for a successful career in CS. In my free time, I like to learn foreign languages, sew, and re-organize/change up my room. I’m excited to work with you all this semester!
 <br clear="all">
 
+## Maya Ramani
+No bio yet...
+<br clear="all">
+
 ## Viviana Rosas
 No bio yet...
 <br clear="all">

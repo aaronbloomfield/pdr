@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>arrays.cpp</title>
+</head>
+<body style="background-color:white">
+<pre><i><span style="color:#9A1900">// compile with:</span></i>
+<i><span style="color:#9A1900">// clang++ -Wall arrays.cpp</span></i>
+
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;iostream&gt;</span>
+<b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
+
+<span style="color:#009900">void</span> <b><span style="color:#000000">subroutine</span></b><span style="color:#990000">(</span><span style="color:#009900">int</span> a<span style="color:#990000">[],</span> <span style="color:#009900">int</span> s<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <i><span style="color:#9A1900">//cout &lt;&lt; a[1000000] &lt;&lt; endl;</span></i>
+    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span> <span style="color:#009900">int</span> i <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span> i <span style="color:#990000">&lt;</span> s<span style="color:#990000">;</span> i<span style="color:#990000">++</span> <span style="color:#990000">)</span>
+        cout <span style="color:#990000">&lt;&lt;</span> a<span style="color:#990000">[</span>i<span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> a<span style="color:#990000">[</span><span style="color:#993399">100</span><span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    a<span style="color:#990000">[</span><span style="color:#993399">100</span><span style="color:#990000">]</span> <span style="color:#990000">=</span> <span style="color:#993399">10</span><span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> a<span style="color:#990000">[</span><span style="color:#993399">100</span><span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+
+<span style="color:#009900">int</span> <b><span style="color:#000000">main</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    <span style="color:#009900">int</span> a1<span style="color:#990000">[</span><span style="color:#993399">3</span><span style="color:#990000">];</span>
+    <span style="color:#009900">int</span> a2<span style="color:#990000">[]</span> <span style="color:#990000">=</span> <span style="color:#FF0000">{</span> <span style="color:#993399">1</span><span style="color:#990000">,</span> <span style="color:#993399">3</span><span style="color:#990000">,</span> <span style="color:#993399">5</span> <span style="color:#FF0000">}</span><span style="color:#990000">;</span>
+    <span style="color:#009900">int</span> <span style="color:#990000">*</span>a3 <span style="color:#990000">=</span> <b><span style="color:#0000FF">new</span></b> <span style="color:#009900">int</span><span style="color:#990000">[</span><span style="color:#993399">3</span><span style="color:#990000">];</span>
+
+    a1<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">=</span> <span style="color:#993399">1</span><span style="color:#990000">;</span>
+    a1<span style="color:#990000">[</span><span style="color:#993399">1</span><span style="color:#990000">]</span> <span style="color:#990000">=</span> <span style="color:#993399">3</span><span style="color:#990000">;</span>
+    a1<span style="color:#990000">[</span><span style="color:#993399">2</span><span style="color:#990000">]</span> <span style="color:#990000">=</span> <span style="color:#993399">5</span><span style="color:#990000">;</span>
+
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Hello world"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"a1: "</span> <span style="color:#990000">&lt;&lt;</span> a1<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">", "</span> <span style="color:#990000">&lt;&lt;</span> a1<span style="color:#990000">[</span><span style="color:#993399">1</span><span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">", "</span> <span style="color:#990000">&lt;&lt;</span> a1<span style="color:#990000">[</span><span style="color:#993399">2</span><span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"a2: "</span> <span style="color:#990000">&lt;&lt;</span> a2<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">", "</span> <span style="color:#990000">&lt;&lt;</span> a2<span style="color:#990000">[</span><span style="color:#993399">1</span><span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">", "</span> <span style="color:#990000">&lt;&lt;</span> a2<span style="color:#990000">[</span><span style="color:#993399">2</span><span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"a3: "</span> <span style="color:#990000">&lt;&lt;</span> a3<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">", "</span> <span style="color:#990000">&lt;&lt;</span> a3<span style="color:#990000">[</span><span style="color:#993399">1</span><span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">", "</span> <span style="color:#990000">&lt;&lt;</span> a3<span style="color:#990000">[</span><span style="color:#993399">2</span><span style="color:#990000">]</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> a1 <span style="color:#990000">==</span> a2 <span style="color:#990000">)</span> <i><span style="color:#9A1900">// generates warning</span></i>
+        cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"same"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+
+    <b><span style="color:#000000">subroutine</span></b><span style="color:#990000">(</span>a1<span style="color:#990000">,</span> <span style="color:#993399">4</span><span style="color:#990000">);</span> <i><span style="color:#9A1900">// we are intentionally passing the wrong array size</span></i>
+
+    <i><span style="color:#9A1900">//a3 = nullptr; // allowed, but causes a memory leak</span></i>
+    <i><span style="color:#9A1900">//a1 = nullptr; // not allowed -- compile error</span></i>
+    <i><span style="color:#9A1900">//a3 = a2;      // not allowed -- compile error</span></i>
+
+    <b><span style="color:#0000FF">delete</span></b> <span style="color:#990000">[]</span> a3<span style="color:#990000">;</span>
+
+    <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+</pre>
+</body>
+</html>

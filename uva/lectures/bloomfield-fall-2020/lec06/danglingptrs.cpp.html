@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>danglingptrs.cpp</title>
+</head>
+<body style="background-color:white">
+<pre><b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;iostream&gt;</span>
+<b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
+
+<b><span style="color:#0000FF">class</span></b> <span style="color:#008080">ListNode</span> <span style="color:#FF0000">{</span>
+<b><span style="color:#0000FF">public</span></b><span style="color:#990000">:</span>
+    <span style="color:#008080">ListNode</span> <span style="color:#990000">*</span>next<span style="color:#990000">,</span> <span style="color:#990000">*</span>prev<span style="color:#990000">;</span>
+    <span style="color:#009900">int</span> value<span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span><span style="color:#990000">;</span>
+
+<span style="color:#009900">int</span> <b><span style="color:#000000">main</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+
+    <span style="color:#008080">ListNode</span> l<span style="color:#990000">;</span>
+    <span style="color:#008080">ListNode</span> <span style="color:#990000">*</span>n <span style="color:#990000">=</span> <b><span style="color:#0000FF">new</span></b> <b><span style="color:#000000">ListNode</span></b><span style="color:#990000">();</span>
+
+    l<span style="color:#990000">.</span>value <span style="color:#990000">=</span> <span style="color:#993399">100</span><span style="color:#990000">;</span>
+    <span style="color:#990000">(*</span>n<span style="color:#990000">).</span>value <span style="color:#990000">=</span> <span style="color:#993399">200</span><span style="color:#990000">;</span>
+    n<span style="color:#990000">-&gt;</span>value <span style="color:#990000">=</span> <span style="color:#993399">200</span><span style="color:#990000">;</span>
+
+    cout <span style="color:#990000">&lt;&lt;</span> n<span style="color:#990000">-&gt;</span>value <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+
+    <b><span style="color:#0000FF">delete</span></b> n<span style="color:#990000">;</span>
+
+    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"dangling pointer: "</span> <span style="color:#990000">&lt;&lt;</span> n<span style="color:#990000">-&gt;</span>value <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+
+    n <span style="color:#990000">=</span> nullptr<span style="color:#990000">;</span>
+    n <span style="color:#990000">=</span> <span style="color:#990000">&amp;</span>l<span style="color:#990000">;</span>
+
+    cout <span style="color:#990000">&lt;&lt;</span> n<span style="color:#990000">-&gt;</span>value <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+
+    <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+</pre>
+</body>
+</html>
