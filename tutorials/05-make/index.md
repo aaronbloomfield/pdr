@@ -249,7 +249,6 @@ Makefiles may also have "debug" and "release" targets.  These targets will gener
 
 We have seen a number of ways to improve the provided pizza Makefile.  We'll put them together into a single, well-formed, Makefile.  Below are the steps to do so; each of these steps are described in more detail above.
 
-- Comments!  This Makefile will be submitted as part of [lab 5](../../labs/lab05/index.html) (see below), so you will need to put in your name and userid at the top of the file.
 - We will want to declare the pre-defined variables, CXX and CXXFLAGS.  CXX is going to be `clang++`, and we can define CXXFLAGS to be `-Wall -O2` (give all warnings and optimize the code).
 - We'll want to define a variable, probably called OBJECTS, that will list all of the .o files that we are compiling into our target executable.
 - Our first rule -- which must be called 'pizza' -- will be for compiling the program.  It will depend on all of the .o files (defined in the OBJECTS variable), and will define how to compile the program executable.
