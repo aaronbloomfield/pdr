@@ -12,7 +12,8 @@ The code, images, and notes linked to from this page is what was discussed durin
 - The material gone over will have already been covered in the lecture recordings, but not necessarily that day's lecture recordings -- sometimes the review covers material from a past recording.
 
 ### Lecture period content
-
+- Lecture 17: Fri, Oct 2 (trees through slide 9.12; hashes through slide 5.5)
+    - [code.txt](lec18/code.txt)
 - Lecture 17: Fri, Oct 2 (trees through slide 7.31)
     - Animations are at [https://www.cs.usfca.edu/~galles/visualization/](https://www.cs.usfca.edu/~galles/visualization/)
     - [rotation before](lec17/after.svg), [rotation after](lec17/before.svg)
