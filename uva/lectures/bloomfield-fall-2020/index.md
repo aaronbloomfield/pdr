@@ -12,7 +12,12 @@ The code, images, and notes linked to from this page is what was discussed durin
 - The material gone over will have already been covered in the lecture recordings, but not necessarily that day's lecture recordings -- sometimes the review covers material from a past recording.
 
 ### Lecture period content
-- Lecture 17: Fri, Oct 2 (trees through slide 9.12; hashes through slide 5.5)
+- Lecture 20: Fri, Oct 9 (finished hashes)
+	- [Fall 2017, exam 2, question 5](lec20/f17-ex2-q5.svg)
+    - [Fall 2017, exam 2, question 6](lec20/f17-ex2-q6.svg)
+- Lecture 19: Wed, Oct 7 (hashes through slide 7.4)
+    - [separate chaining diagram](lec19/lec19.svg)
+- Lecture 18: Mon, Oct 5 (trees through slide 9.12; hashes through slide 5.5)
     - [code.txt](lec18/code.txt)
 - Lecture 17: Fri, Oct 2 (trees through slide 7.31)
     - Animations are at [https://www.cs.usfca.edu/~galles/visualization/](https://www.cs.usfca.edu/~galles/visualization/)
