@@ -119,7 +119,7 @@ You can use the code provided in [timer.cpp](code/timer.cpp.html) ([src](code/ti
 
 ### Sample Execution Run ###
 
-Below is a sample execution run to show you the input and output format we are looking for. The output shown is a result of running `./a.out words.txt 4x7.in.txt`
+Below is a sample execution run to show you the input and output format we are looking for. The output shown is a result of running `./a.out words.txt 4x7.grid.txt`
 
 ```
 N (3, 2):       text
