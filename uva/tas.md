@@ -128,8 +128,7 @@ Hey everyone! I’m a graduate student in Computer Science from Bristow, VA. My 
 <br clear="all">
 
 ## Sindhura Mente
-[![Sindhura Mente](//libra.cs.virginia.edu/tas/snm6dhh.jpg)](//libra.cs.virginia.edu/tas/full/snm6dhh.jpg)
-Hi guys! My name is Sindhu, and I'm a second-year BSCS major. This my first semester TA' ing this class and I can't wait to get to know you all. I decided to TA for 2150 since I love helping people, and I really enjoyed the course. Outside of classes I play the piano and sing, and I'm also a huge Harry Potter nerd!
+No bio yet...
 <br clear="all">
 
 ## Daniel Mizrahi
