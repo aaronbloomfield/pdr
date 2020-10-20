@@ -193,7 +193,7 @@ The file should be called bubblesort.ibcm.  As with the last assignment, you *MU
 
 ### Sample Execution Run ###
 
-Below is a sample execution run to show you the output we are looking for. The output shown is a result of running array.ibcm in the ibcm simulator.
+Below is a sample execution run to show you the output we are looking for. The output shown is a result of running bubblesort.ibcm in the ibcm simulator.
 
 ```
 # input
