@@ -12,6 +12,20 @@ The code, images, and notes linked to from this page is what was discussed durin
 - The material gone over will have already been covered in the lecture recordings, but not necessarily that day's lecture recordings -- sometimes the review covers material from a past recording.
 
 ### Lecture period content
+
+- Lecture 25: Wed, Oct 21 (assembly through slide 7.3)
+	- [assembly.s](lec25/assembly.s.html) ([raw code](lec25/assembly.s))
+	- [main.cpp](lec25/main.cpp.html) ([raw code](lec25/main.cpp))
+	- [Makefile](lec25/Makefile.html) ([raw code](lec25/Makefile))
+	- If you want to compile this on a Mac, you need to change the nasm output type from `elf64` to `macho64`, and change the name of the `addOrMult` subroutine to `_addOrMult` (note the initial underscore; this is twice in the program, on lines 9 and 13)
+- Lecture 24: Mon, Oct 19 (assembly through slide 5.6)
+    - As the lecture recording was posted late, this lecture period went over the content of that recording
+- Lecture 23: Fri, Oct 16 (finished IBCM; finished the last two columns of trees)
+	- No additional media; it was a Q&A on the IBCM lecture set and review of amortized analysis
+- Lecture 22: Wed, Oct 14 (IBCM through slide 6.12)
+    - [sketched image](lec22/lec22.svg)
+- Lecture 21: Mon, Oct 12 (IBCM through slide 5.15)
+	- No additional media; it was a Q&A on hashes and the hash lab
 - Lecture 20: Fri, Oct 9 (finished hashes)
 	- [Fall 2017, exam 2, question 5](lec20/f17-ex2-q5.svg)
     - [Fall 2017, exam 2, question 6](lec20/f17-ex2-q6.svg)

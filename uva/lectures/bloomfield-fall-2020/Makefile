@@ -7,7 +7,7 @@ clean:
 code:
 	@astyle --style=attach --indent=spaces=4 --indent-switches \
 		--suffix=none --formatted */*.cpp */*.h
-	@source-highlight -d */*.cpp */*.h
+	@source-highlight -d */*.cpp */*.h */*.s */Makefile
 
 markdown:
 	@make clean
