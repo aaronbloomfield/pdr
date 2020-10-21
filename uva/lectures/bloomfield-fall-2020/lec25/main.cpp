@@ -3,6 +3,7 @@
 #include <iostream>
 #include <time.h>
 #include <cstdlib>
+#include <assert.h>
 
 using namespace std;
 
@@ -12,6 +13,9 @@ int  main () {
 
     // delcare the local variables
     long  n, *vec;
+
+    // make sure longs are 8 bytes in size, else this program won't work right
+    assert(sizeof(long)==8);
 
     // how big is the array we want to use?
     cout << "Please enter a array size:  ";

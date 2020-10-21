@@ -18,7 +18,6 @@ addOrMult:
 
 	; see if boolean is true or false
 	; boolean is in lowest 1 byte of rdi (dil)
-	and 	dil, 0xff
 	cmp 	dil, 0
 	je 	_mult
 

@@ -14,6 +14,7 @@ http://www.gnu.org/software/src-highlite">
 <b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
 <b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;time.h&gt;</font>
 <b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;cstdlib&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;assert.h&gt;</font>
 
 <b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
 
@@ -23,6 +24,9 @@ http://www.gnu.org/software/src-highlite">
 
     <i><font color="#9A1900">// delcare the local variables</font></i>
     <font color="#009900">long</font>  n<font color="#990000">,</font> <font color="#990000">*</font>vec<font color="#990000">;</font>
+
+    <i><font color="#9A1900">// make sure longs are 8 bytes in size, else this program won't work right</font></i>
+    <b><font color="#000000">assert</font></b><font color="#990000">(</font><b><font color="#0000FF">sizeof</font></b><font color="#990000">(</font><font color="#009900">long</font><font color="#990000">)==</font><font color="#993399">8</font><font color="#990000">);</font>
 
     <i><font color="#9A1900">// how big is the array we want to use?</font></i>
     cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Please enter a array size:  "</font><font color="#990000">;</font>
