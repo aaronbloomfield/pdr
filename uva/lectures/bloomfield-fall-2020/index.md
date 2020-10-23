@@ -13,6 +13,11 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 26: Fri, Oct 23 (assembly through slide 8.15)
+    - [assembly.s](lec26/assembly.s.html) ([raw code](lec26/assembly.s))
+    - [main.cpp](lec26/main.cpp.html) ([raw code](lec26/main.cpp))
+    - [Makefile](lec26/Makefile.html) ([raw code](lec26/Makefile))
+	- If you want to compile this on a Mac, you need to change the nasm output type from `elf64` to `macho64`, and change the name of the `factArray` and `factorial` subroutines to `_factArray` and `_factorial` (note the initial underscore; this is twice in the program for each name)
 - Lecture 25: Wed, Oct 21 (assembly through slide 7.3)
 	- [assembly.s](lec25/assembly.s.html) ([raw code](lec25/assembly.s))
 	- [main.cpp](lec25/main.cpp.html) ([raw code](lec25/main.cpp))
