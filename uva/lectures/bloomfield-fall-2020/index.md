@@ -13,6 +13,8 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 27: Mon, Oct 26 (assembly through slide 10.12)
+    - [fib.s](lec27/fib.s.html) ([raw code](lec27/fib.s))
 - Lecture 26: Fri, Oct 23 (assembly through slide 8.15)
     - [assembly.s](lec26/assembly.s.html) ([raw code](lec26/assembly.s))
     - [main.cpp](lec26/main.cpp.html) ([raw code](lec26/main.cpp))
