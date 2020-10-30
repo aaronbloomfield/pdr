@@ -42,7 +42,7 @@ Lab Procedure
 ### Post-lab ###
 
 1. Write an x86 function to perform a binary search
-2. Files to download: [testLinearSearch.cpp](testLinearSearch.cpp.html) ([src](testLinearSearch.cpp)), [timer.cpp](timer.cpp.html) ([src](timer.cpp)), and [timer.h](timer.h) ([timer.h](timer.h))
+2. Files to download: [testBinarySearch.cpp](testBinarySearch.cpp.html) ([src](testBinarySearch.cpp)), [timer.cpp](timer.cpp.html) ([src](timer.cpp)), and [timer.h](timer.h) ([timer.h](timer.h))
 3. Files to submit: testBinarySearch.cpp, binarySearch.s, timer.cpp, timer.h, Makefile
 
 ----
