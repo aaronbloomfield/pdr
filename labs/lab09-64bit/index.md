@@ -124,10 +124,17 @@ Note that we, too, can write the function in C++ and compile it with `clang++ -O
 
 Below is a sample execution run to show you the input and output format we are looking for.
 
+Input
+
 ```
 Enter a number: 100
 Enter iterations of subroutine: 30
-Iterations: 25
+```
+
+Output
+
+```
+Steps: 25
 ```
 
 ### Different Architectures ###
