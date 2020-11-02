@@ -13,6 +13,8 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 30: Mon, Nov 2 (finished advanced C++; heaps & Huffman to slide 6.2)
+    - We went over the heap operations at [this animation site](https://www.cs.usfca.edu/~galles/visualization/Heap.html)
 - Lecture 29: Fri, Oct 30 (advanced C++ to 8.5) 
     - [main.cpp](lec29/main.cpp.html) ([raw code](lec29/main.cpp))
 - Lecture 28: Wed, Oct 28 (finished assembly; advanced C++ to slide 6.11)
