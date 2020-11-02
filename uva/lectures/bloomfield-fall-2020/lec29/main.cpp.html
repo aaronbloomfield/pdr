@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>lec29/main.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;string&gt;</font>
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<b><font color="#0000FF">class</font></b> <font color="#008080">gplistnode</font> <font color="#FF0000">{</font>
+<b><font color="#0000FF">public</font></b><font color="#990000">:</font>
+    <font color="#008080">gplistnode</font> <font color="#990000">*</font>prev<font color="#990000">,</font> <font color="#990000">*</font>next<font color="#990000">;</font>
+    <font color="#009900">int</font> id<font color="#990000">;</font>
+    <b><font color="#000000">gplistnode</font></b><font color="#990000">()</font> <font color="#990000">:</font> <b><font color="#000000">prev</font></b><font color="#990000">(</font>nullptr<font color="#990000">),</font> <b><font color="#000000">next</font></b><font color="#990000">(</font>nullptr<font color="#990000">)</font> <font color="#FF0000">{</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"In gplistnode::constructor()"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+        id <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+    <b><font color="#0000FF">virtual</font></b> <font color="#990000">~</font><b><font color="#000000">gplistnode</font></b><font color="#990000">()</font> <font color="#FF0000">{</font> <font color="#FF0000">}</font>
+    <b><font color="#0000FF">virtual</font></b> <font color="#009900">int</font> <b><font color="#000000">getID</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+        <b><font color="#0000FF">return</font></b> id<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+<font color="#FF0000">}</font><font color="#990000">;</font>
+
+<b><font color="#0000FF">class</font></b> <font color="#008080">person</font> <font color="#FF0000">{</font>
+<b><font color="#0000FF">public</font></b><font color="#990000">:</font>
+    <font color="#009900">int</font> id<font color="#990000">;</font>
+    <font color="#008080">string</font> name<font color="#990000">;</font>
+    <b><font color="#000000">person</font></b><font color="#990000">(</font><font color="#008080">string</font> n<font color="#990000">)</font> <font color="#990000">:</font> <b><font color="#000000">name</font></b><font color="#990000">(</font>n<font color="#990000">)</font> <font color="#FF0000">{</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"In person::constructor(string)"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+        id <font color="#990000">=</font> <font color="#993399">2</font><font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+    <b><font color="#0000FF">virtual</font></b> <font color="#990000">~</font><b><font color="#000000">person</font></b><font color="#990000">()</font> <font color="#FF0000">{</font> <font color="#FF0000">}</font>
+    <b><font color="#0000FF">virtual</font></b> <font color="#009900">int</font> <b><font color="#000000">getID</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+        <b><font color="#0000FF">return</font></b> id<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+<font color="#FF0000">}</font><font color="#990000">;</font>
+
+<b><font color="#0000FF">class</font></b> <font color="#008080">student</font> <font color="#990000">:</font> <b><font color="#0000FF">public</font></b> gplistnode<font color="#990000">,</font> <b><font color="#0000FF">public</font></b> person <font color="#FF0000">{</font>
+<b><font color="#0000FF">public</font></b><font color="#990000">:</font>
+    <font color="#009900">int</font> id<font color="#990000">;</font>
+    <b><font color="#000000">student</font></b><font color="#990000">(</font><font color="#008080">string</font> n<font color="#990000">)</font> <font color="#990000">:</font> <b><font color="#000000">person</font></b><font color="#990000">(</font>n<font color="#990000">),</font> <b><font color="#000000">gplistnode</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"In student::constructor(string)"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+        person<font color="#990000">::</font>id <font color="#990000">=</font> <font color="#993399">3</font><font color="#990000">;</font>
+        <b><font color="#0000FF">this</font></b><font color="#990000">-&gt;</font>gplistnode<font color="#990000">::</font>id <font color="#990000">=</font> <font color="#993399">4</font><font color="#990000">;</font>
+        id <font color="#990000">=</font> <font color="#993399">5</font><font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+    <b><font color="#0000FF">virtual</font></b> <font color="#990000">~</font><b><font color="#000000">student</font></b><font color="#990000">()</font> <font color="#FF0000">{</font> <font color="#FF0000">}</font>
+    <b><font color="#0000FF">virtual</font></b> <font color="#009900">int</font> <b><font color="#000000">getID</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+        <b><font color="#0000FF">return</font></b> id<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+<font color="#FF0000">}</font><font color="#990000">;</font>
+
+<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"hello, world"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"sizeof(pointer): "</font> <font color="#990000">&lt;&lt;</font> <b><font color="#0000FF">sizeof</font></b><font color="#990000">(</font><font color="#009900">void</font><font color="#990000">*)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"sizeof(int): "</font> <font color="#990000">&lt;&lt;</font> <b><font color="#0000FF">sizeof</font></b><font color="#990000">(</font><font color="#009900">int</font><font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"sizeof(string): "</font> <font color="#990000">&lt;&lt;</font> <b><font color="#0000FF">sizeof</font></b><font color="#990000">(</font>string<font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"sizeof(gplistnode): "</font> <font color="#990000">&lt;&lt;</font> <b><font color="#0000FF">sizeof</font></b><font color="#990000">(</font>gplistnode<font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"sizeof(person): "</font> <font color="#990000">&lt;&lt;</font> <b><font color="#0000FF">sizeof</font></b><font color="#990000">(</font>person<font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+
+    <font color="#008080">person</font> <font color="#990000">*</font>p <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">person</font></b><font color="#990000">(</font><font color="#FF0000">"Jane Doe"</font><font color="#990000">);</font>
+    cout <font color="#990000">&lt;&lt;</font> p<font color="#990000">-&gt;</font>id <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> p<font color="#990000">-&gt;</font><b><font color="#000000">getID</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font>endl<font color="#990000">;</font>
+
+    <font color="#008080">student</font> <b><font color="#000000">s</font></b><font color="#990000">(</font><font color="#FF0000">"John Doe"</font><font color="#990000">);</font>
+    cout <font color="#990000">&lt;&lt;</font> s<font color="#990000">.</font>person<font color="#990000">::</font><b><font color="#000000">getID</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> s<font color="#990000">.</font>gplistnode<font color="#990000">::</font><b><font color="#000000">getID</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+
+    <font color="#008080">person</font> <font color="#990000">*</font>q <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">student</font></b><font color="#990000">(</font><font color="#FF0000">"Chris Doe"</font><font color="#990000">);</font>
+    cout <font color="#990000">&lt;&lt;</font> q<font color="#990000">-&gt;</font><b><font color="#000000">getID</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"about to seg fault..."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <b><font color="#0000FF">delete</font></b> q<font color="#990000">;</font>
+    <b><font color="#0000FF">delete</font></b> p<font color="#990000">;</font>
+    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+
+
+
+<i><font color="#9A1900">/*</font></i>
+
+<i><font color="#9A1900">class shape {</font></i>
+<i><font color="#9A1900">  // ...</font></i>
+<i><font color="#9A1900">  virtual draw() = 0;</font></i>
+<i><font color="#9A1900">};</font></i>
+
+<i><font color="#9A1900">class circle : public shape {</font></i>
+<i><font color="#9A1900">};</font></i>
+<i><font color="#9A1900">class triangle : public shape {</font></i>
+<i><font color="#9A1900">};</font></i>
+<i><font color="#9A1900">// ...</font></i>
+
+<i><font color="#9A1900">void foo() {</font></i>
+<i><font color="#9A1900">  vector&lt;shape&gt; v;</font></i>
+
+<i><font color="#9A1900">  for ( all elements in vector )</font></i>
+<i><font color="#9A1900">    v.draw();</font></i>
+
+<i><font color="#9A1900">*/</font></i>
+</tt></pre>
+</body>
+</html>
