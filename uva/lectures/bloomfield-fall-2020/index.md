@@ -13,6 +13,13 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 29: Fri, Oct 30 (advanced C++ to 8.5) 
+    - [main.cpp](lec29/main.cpp.html) ([raw code](lec29/main.cpp))
+- Lecture 28: Wed, Oct 28 (finished assembly; advanced C++ to slide 6.11)
+    - Went over a number of exam questions:
+        - [fall 2019 final](https://uva-cs.github.io/pdr/exams/final-f19.pdf), question 6 and 7
+	    - [spring 2019 final](https://uva-cs.github.io/pdr/exams/final-s19.pdf), question 7
+        - [fall 2018 final](https://uva-cs.github.io/pdr/exams/final-f18.pdf), question 13
 - Lecture 27: Mon, Oct 26 (assembly through slide 10.12)
     - [fib.s](lec27/fib.s.html) ([raw code](lec27/fib.s))
 - Lecture 26: Fri, Oct 23 (assembly through slide 8.15)
