@@ -131,7 +131,7 @@ The first subroutine will compute the product of the two integer parameters pass
 
 The second subroutine will compute the power of the two integer parameters passed in.  We will assume that the first parameter is the base, and the second parameter is the exponent.  Again, both are integers.  The restrictions on this routine are that it **can only use the multiplication** routine described above -- it cannot use `imul` or call any exponentiation routine. Furthermore, it must be defined **recursively**, not iteratively.  This routine should be called `power`.
 
-You can assume that the numbers passed into both routines will both be positive, so you need not consider negative numbers or zero.  Furthermore, as described above, no values will be used on your program that could cause an integer overflow.
+You can assume that the numbers passed into both routines will be non-negative.  Furthermore, as described above, no values will be used on your program that could cause an integer overflow.
 
 Both of these routines should be in a file called mathlib.s, and must use the proper C-style calling convention.  You must also provide a mathfun.cpp file, which calls both of your subroutines -- see the main.cpp file provided as a template.  The program should take in ONLY two integers (we'll call them *x* and *y*).  It should then print out the output of calling `product(x,y)` and `power(x,y)`.  Thus, if the input is 3 and 4, it would print out 12 and 81.
 
@@ -189,7 +189,7 @@ Post-lab
 
 Download [testLinearSearch.cpp](testLinearSearch.cpp.html) ([src](testLinearSearch.cpp)), which you will use to test your code. Make sure you do not alter testLinearSearch.cpp, as you must include the original file in your submission.
 
-Your task for the post-lab is to implement the `linearSearch` function in assembly. This function will scan through an array iteratively until it finds the target element or reaches the end of the array. The function takes in three parameters. The first parameter is a pointer to an int array. The second parameter is an integer representing the size of the array. The third parameter is an integer representing the target element to find in the array. The return type of this fuction is int, and will be the index into the array that the target was found, or -1 if it wasn't. Just like with the `testMergeSort` program in the in-lab, `testLinearSearch` will take input from std and pass it on to your `linearSearch` routine. Make sure you test your function on various sized arrays, both sorted and unsorted.
+Your task for the post-lab is to implement the `linearSearch` function in assembly. This function will scan through an array from left to right iteratively until it finds the target element or reaches the end of the array. The function takes in three parameters. The first parameter is a pointer to an int array. The second parameter is an integer representing the size of the array. The third parameter is an integer representing the target element to find in the array. The return type of this fuction is int, and will be the index into the array that the target was found, or -1 if it wasn't. Just like with the `testMergeSort` program in the in-lab, `testLinearSearch` will take input from std and pass it on to your `linearSearch` routine. Make sure you test your function on various sized arrays, both sorted and unsorted.
 
 ### Sample Execution Run ###
 
