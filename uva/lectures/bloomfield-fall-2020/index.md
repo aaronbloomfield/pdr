@@ -13,6 +13,11 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 32: Fri, Nov 6 (heaps & Huffman to slide 8.19)
+    - [lec32.cpp](lec32/lec32.cpp.html) ([raw code](lec32/lec32.cpp))
+    - [sketched image](lec32/lec32.svg)
+- Lecture 31: Wed, Nov 4 (heaps & Huffman to slide 6.16)
+    - [test.cpp](lec31/test.cpp.html) ([raw code](lec31/test.cpp))
 - Lecture 30: Mon, Nov 2 (finished advanced C++; heaps & Huffman to slide 6.2)
     - We went over the heap operations at [this animation site](https://www.cs.usfca.edu/~galles/visualization/Heap.html)
 - Lecture 29: Fri, Oct 30 (advanced C++ to 8.5) 
