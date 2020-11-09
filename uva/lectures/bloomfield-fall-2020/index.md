@@ -13,6 +13,9 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 33: Mon, Nov 9 (heaps & Huffman to slide 8.31)
+    - [create_tree.cpp](lec33/create_tree.cpp.html) ([raw code](lec33/create_tree.cpp))
+    - [sketched image](lec33/lec33.svg)
 - Lecture 32: Fri, Nov 6 (heaps & Huffman to slide 8.19)
     - [lec32.cpp](lec32/lec32.cpp.html) ([raw code](lec32/lec32.cpp))
     - [sketched image](lec32/lec32.svg)
