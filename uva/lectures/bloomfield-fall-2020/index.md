@@ -13,6 +13,11 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 34: Wed, Nov 11 (finished heaps & Huffman; graphs to slide 5.3)
+    - [fall 2019 final question # 9](lec34/f19-final-q9.svg)
+    - [fall 2019 final question # 10](lec34/f19-final-q10.svg)
+    - [spring 2019 final question # 8](lec34/s19-final-q8.svg)
+    - [spring 2019 final question # 9](lec34/s19-final-q9.svg)
 - Lecture 33: Mon, Nov 9 (heaps & Huffman to slide 8.31)
     - [create_tree.cpp](lec33/create_tree.cpp.html) ([raw code](lec33/create_tree.cpp))
     - [sketched image](lec33/lec33.svg)
