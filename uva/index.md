@@ -1,7 +1,7 @@
 Program and Data Representation: CS 2150 Specific Content
 =========================================================
 
-## Fall 2020
+## Spring 2021
 
 [Go up to the main README file][111] ([md][112])
 
@@ -66,47 +66,49 @@ Semester Schedule
 
 The links in the right-most column link directly to the lecture recording on Collab, and you have to be logged into Collab first before the link will work. Some plugins (such as NoScript) will block that link from working.
 
-|Num|Date|Day of week|Lab & Tutorial (on Tue)|Planned topic|
-|-----|------|-------------|-------------------------|---------------|
-|1|Aug 26|Wednesday|no lab this week|[Course introduction][80]|
-|2|Aug 28|Friday||[Course introduction][80], [01: C++][81]|
-|3|Aug 31|Monday|no lab this week|[01: C++][81]|
-|4|Sep 2|Wednesday||[01: C++][81]|
-|5|Sep 4|Friday||[01: C++][81]|
-|6|Sep 7|Monday|[Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61])|[01: C++][81]|
-|7|Sep 9|Wednesday||[01: C++][81], [02: Lists][82]|
-|8|Sep 11|Friday||[02: Lists][82]|
-|9|Sep 14|Monday|[Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: LLDB][42] ([md][62]) *OR* [Tutorial 2: GDB][52] ([md][72]) (see [lab 2][2] for which one to pick)|[02: Lists][82], [03: Numbers][83]|
-|10|Sep 16|Wednesday||[03: Numbers][83]|
-|11|Sep 18|Friday||[03: Numbers][83]|
-|12|Sep 21|Monday|[Lab 3: Stacks][3] ([md][23]) / [Tutorial 3: More UNIX, part 1][63], introduction and sections 1-4|[03: Numbers][83];  [04: Arrays &amp; big-Oh][84]|
-|13|Sep 23|Wednesday||[04: Arrays &amp; big-Oh][84]|
-|14|Sep 25|Friday||[04: Arrays &amp; big-Oh][84]|
-|15|Sep 28|Monday|[Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8|[05: Trees][85]|
-|16|Sep 30|Wednesday||[05: Trees][85]|
-|17|Oct 2|Friday||[05: Trees][85]|
-|18|Oct 5|Monday|[Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65])|[05: Trees][85], [06: Hashes][86]|
-|19|Oct 7|Wednesday||[06: Hashes][86]|
-|20|Oct 9|Friday||[06: Hashes][86]|
-|21|Oct 12|Monday|[Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40])|[07: IBCM][87] (machine language)|
-|22|Oct 14|Wednesday||[07: IBCM][87] (machine language)|
-|23|Oct 16|Friday||[07: IBCM][87] (machine language)|
-|24|Oct 19|Monday|[Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40])|[08: Assembly][88]|
-|25|Oct 21|Wednesday||[08: Assembly][88]|
-|26|Oct 23|Friday||[08: Assembly][88]|
-|27|Oct 26|Monday|[Lab 8: assembly, part 1][8] ([md][28]) / Tutorial 8: see the information on the [tutorials page](../tutorials/index.html) ([md](../tutorials.md))|[08: Assembly][88]|
-|28|Oct 28|Wednesday||[08: Assembly][88], [09: Advanced C++][89]|
-|29|Oct 30|Friday||[09: Advanced C++][89]|
-|30|Nov 2|Monday|[Lab 9: assembly, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69])|[09: Advanced C++][89], [10: Heaps and Huffman coding][90]|
-|31|Nov 4|Wednesday||[10: Heaps and Huffman coding][90]|
-|32|Nov 6|Friday||[10: Heaps and Huffman coding][90]|
-|33|Nov 9|Monday|[Lab 10: Huffman coding][10] ([md][30]) / (no tutorial)|[10: Heaps and Huffman coding][90]|
-|34|Nov 11|Wednesday||[10: Heaps and Huffman coding][90], [11: Graphs][91]|
-|35|Nov 13|Friday||[11: Graphs][91]|
-|36|Nov 16|Monday|[Lab 11: Graphs][11] ([md][31])|[11: Graphs][91]|
-|37|Nov 18|Wednesday||[11: Graphs][91], [12: Memory][92]|
-|38|Nov 20|Friday||[12: Memory][92]|
-|39|Nov 23|Monday|no lab this week| [13: Esoteric PLs][93], [Course conclusion][94]|
+| Num | Date | Day of week | Lab & Tutorial (on Tue) | Posted lecture |
+|--|----|-------|-------------------------|---------------|
+| 1 | Feb 1 | Monday | | [Course introduction][80] to ??? |
+| 2 | Feb 3 | Wednesday | | [Course introduction][80] to end, [01: C++][81] to slide 5.5 |
+| 3 | Feb 5 | Friday | no lab this week | [01: C++][81] to slide 8.1 |
+| 4 | Feb 8 | Monday | | [01: C++][81] to slide 9.19 |
+| 5 | Feb 10 | Wednesday | | [01: C++][81] to slide 10.17 |
+| 6 | Feb 12 | Friday | | [01: C++][81] to slide 12.10 |
+| 7 | Feb 15 | Monday | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | [01: C++][81] to end, [02: Lists][82] to slide 4.6 |
+| | Feb 17 | Wednesday | Break day | Break day |
+| 8 | Feb 19 | Friday | | [02: Lists][82] to slide 6.11 |
+| 9 | Feb 22 | Monday | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: LLDB][42] ([md][62]) *OR* [Tutorial 2: GDB][52] ([md][72]) (see [lab 2][2] for which one to pick) | [02: Lists][82] to end, [03: Numbers][83] to slide 5.2 |
+| 10 | Feb 24 | Wednesday | | [03: Numbers][83] to slide 8.10 |
+| 11 | Feb 26 | Friday | | [03: Numbers][83] to slide 9.21 |
+| 12 | Mar 1 | Monday | [Lab 3: Stacks][3] ([md][23]) / [Tutorial 3: More UNIX, part 1][63], introduction and sections 1-4 | [03: Numbers][83] to end; [04: Arrays & big-Oh][84] to slide 4.4 |
+| 13 | Mar 3 | Wednesday | | [04: Arrays & big-Oh][84] to slide 5.8 |
+| 14 | Mar 5 | Friday | | [04: Arrays & big-Oh][84] to end |
+| 15 | Mar 8 | Monday | | [05: Trees][85] to slide 5.11 |
+| 16 | Mar 10 | Wednesday | | [05: Trees][85] to slide 7.9 |
+| 17 | Mar 12 | Friday | | [05: Trees][85] to slide 7.31 |
+| 18 | Mar 15 | Monday | [Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8 | [05: Trees][85] to slide 9.12, [06: Hashes][86] to slide 5.5 |
+| 19 | Mar 17 | Wednesday | | [06: Hashes][86] to slide 7.4 |
+| 20 | Mar 19 | Friday | | [06: Hashes][86] to end |
+| 21 | Mar 22 | Monday | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [07: IBCM][87] (machine language) to slide 5.15 |
+| 22 | Mar 24 | Wednesday | | [07: IBCM][87] (machine language) to slide 6.12 |
+| 23 | Mar 26 | Friday | | [07: IBCM][87] (machine language) to end; [05: Trees][85] to end |
+| | Mar 29 | Monday | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | Break day |
+| 24 | Mar 31 | Wednesday | | [08: Assembly][88] to slide 5.6 |
+| 25 | Apr 2 | Friday | | [08: Assembly][88] to slide 7.3 |
+| 26 | Apr 5 | Monday | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [08: Assembly][88] to slide 8.15 |
+| 27 | Apr 7 | Wednesday | | [08: Assembly][88] to slide 10.12 |
+| 28 | Apr 9 | Friday | | [08: Assembly][88] to end, [09: Advanced C++][89] to slide 6.11 |
+| 29 | Apr 12 | Monday | [Lab 8: assembly, part 1][8] ([md][28]) / Tutorial 8: see the information on the [tutorials page](../tutorials/index.html) ([md](../tutorials.md)) | [09: Advanced C++][89]to slide 8.5 |
+| 30 | Apr 14 | Wednesday | | [09: Advanced C++][89] to end, [10: Heaps and Huffman coding][90] to slide 6.2 |
+| 31 | Apr 16 | Friday | | [10: Heaps and Huffman coding][90] to slide 6.16 |
+| 32 | Apr 19 | Monday |  [Lab 9: assembly, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [10: Heaps and Huffman coding][90] to slide 8.19 |
+| 33 | Apr 21 | Wednesday | | [10: Heaps and Huffman coding][90] to slide 8.31 |
+| 34 | Apr 23 | Friday | | [10: Heaps and Huffman coding][90], [11: Graphs][91] |
+| 35 | Apr 26 | Monday | [Lab 10: Huffman coding][10] ([md][30]) / (no tutorial) | [11: Graphs][91] |
+| 36 | Apr 28 | Wednesday | | [11: Graphs][91] |
+| 37 | Apr 30 | Friday | | [11: Graphs][91], [12: Memory][92] |
+| 38 | May 3 | Monday | [Lab 11: Graphs][11] ([md][31]) / [Tutorial 11: Doxygen](../tutorials/11-doxygen/index.html) | [12: Memory][92] |
+| 39 | May 5 | Wednesday | | [13: Esoteric PLs][93], [Course conclusion][94] |
 
 #### Recording notes
 
@@ -118,6 +120,7 @@ Grading Concerns
 ----------------
 
 - None yet!
+
 
 [1]: ../labs/lab01/index.html
 [2]: ../labs/lab02/index.html
