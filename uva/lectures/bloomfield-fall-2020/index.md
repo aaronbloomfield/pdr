@@ -13,6 +13,11 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 35: Fri, Nov 13 (graphs to slide 6.9)
+    - [sketched image 1](lec35/lec35-1.svg)
+    - [sketched image 2](lec35/lec35-2.svg)
+    - [sketched image 3](lec35/lec35-3.svg)
+    - [sketched image 4](lec35/lec35-4.svg)
 - Lecture 34: Wed, Nov 11 (finished heaps & Huffman; graphs to slide 5.3)
     - [fall 2019 final question # 9](lec34/f19-final-q9.svg)
     - [fall 2019 final question # 10](lec34/f19-final-q10.svg)
