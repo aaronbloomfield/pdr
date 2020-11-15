@@ -44,7 +44,7 @@ Procedure
 
 ### Post-lab ###
 
-1. Write an 8-Puzzle solver using an [A\* search](https://en.wikipedia.org/wiki/A*_search_algorithm).
+1. Write an 8-Puzzle solver using BFS
 2. Files to download: none
 3. Files to submit: Makefile, any source code required to run the solver. 
 
