@@ -48,7 +48,7 @@
 <ol type="1">
 <li>Write an 8-Puzzle solver using BFS</li>
 <li>Files to download: none</li>
-<li>Files to submit: Makefile, any source code required to run the solver.</li>
+<li>Files to submit: Makefile, Doxyfile, and any source code required to run the solver.</li>
 </ol>
 <hr />
 <h2 id="pre-lab-1">Pre-lab</h2>
@@ -214,6 +214,8 @@ Solving puzzle
 IMPOSSIBLE</code></pre>
 <h3 id="submission">Submission</h3>
 <p>You should submit any files required for your 8 puzzle solver to run as well as a Makefile that prodcues an <code>a.out</code> executable.</p>
+<h3 id="makefile-2">Makefile</h3>
+<p>Your Makefile should have <strong>only one</strong> target, which you can name anything you want. This target should do <strong>two</strong> things: compile your code, and run doxygen. You can have two tabbed lines after the target specifier, which is the easiest way to accomplish this. In other words, we are just going to call <code>make</code>, and we want it to both compile your code and create your doxygen documentation. The post-lab Makefile should have the same dual-purpose target.</p>
 <h3 id="hints">Hints</h3>
 <h4 id="where-do-i-get-started">Where do I get Started?</h4>
 <p>There are a lot of steps to this lab, and it is important to partition the work and only focus on one component at a time. Start out by working on how you will represent a puzzle: as a class, an array with helper methods, etc. Once you can read in a puzzle and manipulate it at will, you are ready to move on to the actual solving portion of the lab.</p>
