@@ -13,6 +13,10 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 36: Mon, Nov 16 (graphs to slide 8.9)
+    - [bfs.cpp](lec36/bfs.cpp.html) ([raw code](lec36/bfs.cpp))
+    - [bfs.in](lec36/bfs.in)
+    - [Makefile](lec36/Makefile.html) ([raw code](lec36/Makefile))
 - Lecture 35: Fri, Nov 13 (graphs to slide 6.9)
     - [sketched image 1](lec35/lec35-1.svg)
     - [sketched image 2](lec35/lec35-2.svg)

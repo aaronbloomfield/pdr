@@ -1,3 +1,7 @@
+ASTYLEOPTS	= --align-pointer=type --align-reference=type --pad-oper \
+		  --remove-braces --style=attach --indent=spaces=4 \
+		  --pad-paren-out --indent-switches --suffix=none --formatted 
+
 default:
 	make -C ../../..
 
@@ -5,8 +9,7 @@ clean:
 	/bin/rm -f *~ */*~ */a.out
 
 code:
-	@astyle --style=attach --indent=spaces=4 --indent-switches \
-		--suffix=none --formatted */*.cpp */*.h
+	@astyle $(ASTYLEOPTS) */*.cpp */*.h
 	@source-highlight -d */*.cpp */*.h */*.s */Makefile
 
 markdown:

@@ -12,7 +12,7 @@ int main() {
     for ( i = 0; i <  6; i++ )
         cout << x[i] << endl;
 
-    int *ages = new int[5];
+    int* ages = new int[5];
     int a[10];
 
     return 0;

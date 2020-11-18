@@ -4,9 +4,9 @@ using namespace std;
 
 class gplistnode {
 public:
-    gplistnode *prev, *next;
+    gplistnode* prev, *next;
     int id;
-    gplistnode() : prev(nullptr), next(nullptr) {
+    gplistnode() : prev (nullptr), next (nullptr) {
         cout << "In gplistnode::constructor()" << endl;
         id = 1;
     }
@@ -20,7 +20,7 @@ class person {
 public:
     int id;
     string name;
-    person(string n) : name(n) {
+    person (string n) : name (n) {
         cout << "In person::constructor(string)" << endl;
         id = 2;
     }
@@ -33,7 +33,7 @@ public:
 class student : public gplistnode, public person {
 public:
     int id;
-    student(string n) : person(n), gplistnode() {
+    student (string n) : person (n), gplistnode() {
         cout << "In student::constructor(string)" << endl;
         person::id = 3;
         this->gplistnode::id = 4;
@@ -47,21 +47,21 @@ public:
 
 int main() {
     cout << "hello, world" << endl;
-    cout << "sizeof(pointer): " << sizeof(void*) << endl;
-    cout << "sizeof(int): " << sizeof(int) << endl;
-    cout << "sizeof(string): " << sizeof(string) << endl;
-    cout << "sizeof(gplistnode): " << sizeof(gplistnode) << endl;
-    cout << "sizeof(person): " << sizeof(person) << endl;
+    cout << "sizeof(pointer): " << sizeof (void*) << endl;
+    cout << "sizeof(int): " << sizeof (int) << endl;
+    cout << "sizeof(string): " << sizeof (string) << endl;
+    cout << "sizeof(gplistnode): " << sizeof (gplistnode) << endl;
+    cout << "sizeof(person): " << sizeof (person) << endl;
 
-    person *p = new person("Jane Doe");
+    person* p = new person ("Jane Doe");
     cout << p->id << endl;
-    cout << p->getID() <<endl;
+    cout << p->getID() << endl;
 
-    student s("John Doe");
+    student s ("John Doe");
     cout << s.person::getID() << endl;
     cout << s.gplistnode::getID() << endl;
 
-    person *q = new student("Chris Doe");
+    person* q = new student ("Chris Doe");
     cout << q->getID() << endl;
 
     cout << "about to seg fault..." << endl;

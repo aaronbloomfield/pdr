@@ -9,8 +9,8 @@ class Item {
 public:
 
     Item() {
-        id = new int(global_id++);
-        price = new double(0);
+        id = new int (global_id++);
+        price = new double (0);
         cout << "Item default constructor called for id " << *id << endl;
     }
 
@@ -20,9 +20,9 @@ public:
         delete price;
     }
 
-    Item(const Item &source) {
-        id = new int(global_id++);
-        price = new double ( *(source.price) );
+    Item (const Item& source) {
+        id = new int (global_id++);
+        price = new double ( * (source.price) );
         cout << "Item copy constructor called with id " << *id << endl;
     }
 
@@ -30,10 +30,10 @@ public:
         // ...
     }
 
-    Item& operator=(const Item &source) {
+    Item& operator= (const Item& source) {
         id = new int;
-        *id = *(source.id);
-        price = new double ( *(source.price) );
+        *id = * (source.id);
+        price = new double ( * (source.price) );
         cout << "Item operator=() called with id " << *id << endl;
         return *this;
     }
@@ -41,19 +41,19 @@ public:
     int getID() const {
         return *id;
     }
-    void setID(int i) {
+    void setID (int i) {
         *id = i;
     }
     int getPrice() const {
         return *price;
     }
-    void setPrice(double p) {
+    void setPrice (double p) {
         *price = p;
     }
 
 private:
-    int *id;
-    double *price;
+    int* id;
+    double* price;
 };
 
 
@@ -65,9 +65,9 @@ void foo (Item x) {
 int main() {
     cout << "Hello, world!" << endl;
     Item i; // = new Item();
-    i.setPrice(5);
-    Item *j = new Item();
-    j->setPrice(10);
+    i.setPrice (5);
+    Item* j = new Item();
+    j->setPrice (10);
     cout << "ID of i: " << i.getID() << "; price of i: " << i.getPrice() << endl;
     cout << "ID of j: " << j->getID() << "; price of j: " << j->getPrice() << endl;
 
@@ -79,7 +79,7 @@ int main() {
     cout << "ID of l: " << l.getID() << "; price of l: " << l.getPrice() << endl;
 
     cout << "About to call foo()" << endl;
-    foo(i);
+    foo (i);
 
     delete j; // j's destructor called here upon the delete call
     return 0;

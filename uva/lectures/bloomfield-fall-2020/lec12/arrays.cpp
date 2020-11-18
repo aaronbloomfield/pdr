@@ -4,7 +4,7 @@
 #include <iostream>
 using namespace std;
 
-void subroutine(int a[], int s) {
+void subroutine (int a[], int s) {
     //cout << a[1000000] << endl;
     for ( int i = 0; i < s; i++ )
         cout << a[i] << endl;
@@ -16,7 +16,7 @@ void subroutine(int a[], int s) {
 int main() {
     int a1[3];
     int a2[] = { 1, 3, 5 };
-    int *a3 = new int[3];
+    int* a3 = new int[3];
 
     a1[0] = 1;
     a1[1] = 3;
@@ -30,7 +30,7 @@ int main() {
     if ( a1 == a2 ) // generates warning
         cout << "same" << endl;
 
-    subroutine(a1, 4); // we are intentionally passing the wrong array size
+    subroutine (a1, 4); // we are intentionally passing the wrong array size
 
     //a3 = nullptr; // allowed, but causes a memory leak
     //a1 = nullptr; // not allowed -- compile error

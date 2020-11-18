@@ -31,7 +31,7 @@ public:
 };
 
 int main() {
-    thud *x = new bletch();
+    thud* x = new bletch();
     x->bar();
     return 0;
 }

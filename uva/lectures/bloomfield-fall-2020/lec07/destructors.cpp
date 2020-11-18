@@ -9,7 +9,7 @@ public:
         //cout << "Item constructor called" << endl;
         id = new int;
         *id = 7;
-        price = new double(3.14);
+        price = new double (3.14);
     }
 
     ~Item() {
@@ -23,25 +23,25 @@ public:
         return *id;
     }
 
-    void setID(int i) {
+    void setID (int i) {
         *id = i;
     }
 
 private:
-    int *id;
-    double *price;
+    int* id;
+    double* price;
 };
 
 
 int main() {
     cout << "hello, world!" << endl;
     Item i; // = new Item();
-    i.setID(1234);
-    Item *j = new Item();
+    i.setID (1234);
+    Item* j = new Item();
 
-    j->setID(10);
+    j->setID (10);
 
-    (*j).setID(10);
+    (*j).setID (10);
 
 
     cout << "ID of i: " << i.getID() << endl;

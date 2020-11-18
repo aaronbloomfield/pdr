@@ -14,7 +14,7 @@ http://www.gnu.org/software/src-highlite">
 <b><font color="#0000FF">class</font></b> <font color="#008080">huffman_node</font> <font color="#FF0000">{</font>
     <font color="#009900">int</font> frequency<font color="#990000">;</font>
     <font color="#009900">unsigned</font> <font color="#009900">char</font> c<font color="#990000">;</font>
-    <font color="#008080">huffman_node</font> <font color="#990000">*</font>left<font color="#990000">,</font> <font color="#990000">*</font>right<font color="#990000">;</font>
+    huffman_node<font color="#990000">*</font> left<font color="#990000">,</font> <font color="#990000">*</font>right<font color="#990000">;</font>
 <font color="#FF0000">}</font><font color="#990000">;</font>
 
 
@@ -27,7 +27,7 @@ http://www.gnu.org/software/src-highlite">
 
     <b><font color="#0000FF">while</font></b> <font color="#990000">(</font> <b><font color="#000000">file_still_has_stuff_for_us_to_read</font></b><font color="#990000">()</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
         <font color="#009900">unsigned</font> <font color="#009900">char</font> c <font color="#990000">=</font> <b><font color="#000000">get_next_character</font></b><font color="#990000">();</font>
-        cout <font color="#990000">&lt;&lt;</font> <font color="#990000">(</font><font color="#009900">int</font><font color="#990000">)</font>c <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#990000">(</font><font color="#009900">int</font><font color="#990000">)</font> c <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
         <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>c <font color="#990000">&lt;</font> <font color="#993399">0x20</font><font color="#990000">)</font> <font color="#990000">||</font> <font color="#990000">(</font>c <font color="#990000">&gt;</font> <font color="#993399">0x7e</font><font color="#990000">)</font> <font color="#990000">)</font>
             <b><font color="#0000FF">continue</font></b><font color="#990000">;</font>
         <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>c <font color="#990000">&lt;</font> <font color="#993399">32</font><font color="#990000">)</font> <font color="#990000">||</font> <font color="#990000">(</font>c <font color="#990000">&gt;</font> <font color="#993399">126</font><font color="#990000">)</font> <font color="#990000">)</font>
@@ -39,7 +39,7 @@ http://www.gnu.org/software/src-highlite">
 <font color="#FF0000">}</font>
 
 
-<font color="#009900">void</font> <b><font color="#000000">determine_prefix_codes</font></b><font color="#990000">(</font><font color="#008080">huffman_node</font> <font color="#990000">*</font>node<font color="#990000">,</font> <font color="#008080">string</font> path_taken<font color="#990000">)</font> <font color="#FF0000">{</font>
+<font color="#009900">void</font> <b><font color="#000000">determine_prefix_codes</font></b> <font color="#990000">(</font>huffman_node<font color="#990000">*</font> node<font color="#990000">,</font> <font color="#008080">string</font> path_taken<font color="#990000">)</font> <font color="#FF0000">{</font>
 
     <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <b><font color="#000000">node_has_no_children</font></b><font color="#990000">()</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
         <i><font color="#9A1900">// recursion ends</font></i>
@@ -47,15 +47,15 @@ http://www.gnu.org/software/src-highlite">
 
     <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font> <i><font color="#9A1900">// node must have 2 children</font></i>
         <i><font color="#9A1900">// recursion continues</font></i>
-        <b><font color="#000000">determine_prefix_nodes</font></b><font color="#990000">(</font>node<font color="#990000">-&gt;</font>right<font color="#990000">,</font> path_taken<font color="#990000">+</font><font color="#FF0000">"1"</font><font color="#990000">);</font>
-        <b><font color="#000000">determine_prefix_nodes</font></b><font color="#990000">(</font>node<font color="#990000">-&gt;</font>left<font color="#990000">,</font>  path_taken<font color="#990000">+</font><font color="#FF0000">"0"</font><font color="#990000">);</font>
+        <b><font color="#000000">determine_prefix_nodes</font></b> <font color="#990000">(</font>node<font color="#990000">-&gt;</font>right<font color="#990000">,</font> path_taken <font color="#990000">+</font> <font color="#FF0000">"1"</font><font color="#990000">);</font>
+        <b><font color="#000000">determine_prefix_nodes</font></b> <font color="#990000">(</font>node<font color="#990000">-&gt;</font>left<font color="#990000">,</font>  path_taken <font color="#990000">+</font> <font color="#FF0000">"0"</font><font color="#990000">);</font>
 
 
     <font color="#FF0000">}</font>
 
 <font color="#FF0000">}</font>
 
-<b><font color="#000000">determine_prefix_nodes</font></b><font color="#990000">(</font>root<font color="#990000">,</font><font color="#FF0000">""</font><font color="#990000">);</font>
+<b><font color="#000000">determine_prefix_nodes</font></b> <font color="#990000">(</font>root<font color="#990000">,</font> <font color="#FF0000">""</font><font color="#990000">);</font>
 </tt></pre>
 </body>
 </html>

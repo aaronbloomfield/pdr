@@ -1,80 +1,80 @@
-<!DOCTYPE HTML>
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta name="GENERATOR" content="GNU source-highlight 
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
-<title>pointers.cpp</title>
+<title>lec04/pointers.cpp</title>
 </head>
-<body style="background-color:white">
-<pre><b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;iostream&gt;</span>
-<b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
+<body bgcolor="white">
+<pre><tt><b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
 
-<span style="color:#009900">int</span> <b><span style="color:#000000">main</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
-    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Hello world"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Hello world"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
 
-    <span style="color:#009900">int</span> i <span style="color:#990000">=</span> <span style="color:#993399">1</span><span style="color:#990000">;</span>
-    <span style="color:#009900">float</span> f <span style="color:#990000">=</span> <span style="color:#993399">2.0</span><span style="color:#990000">;</span>
-    <span style="color:#009900">double</span> d <span style="color:#990000">=</span> <span style="color:#993399">3.0</span><span style="color:#990000">;</span>
+    <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font>
+    <font color="#009900">float</font> f <font color="#990000">=</font> <font color="#993399">2.0</font><font color="#990000">;</font>
+    <font color="#009900">double</font> d <font color="#990000">=</font> <font color="#993399">3.0</font><font color="#990000">;</font>
 
-    <span style="color:#009900">int</span><span style="color:#990000">*</span> ip <span style="color:#990000">=</span> nullptr<span style="color:#990000">;</span>
-    <span style="color:#009900">float</span><span style="color:#990000">*</span> fp <span style="color:#990000">=</span> <span style="color:#990000">&amp;</span>f<span style="color:#990000">;</span>
-    <span style="color:#009900">double</span><span style="color:#990000">*</span> dp<span style="color:#990000">;</span>
+    <font color="#009900">int</font><font color="#990000">*</font> ip <font color="#990000">=</font> nullptr<font color="#990000">;</font>
+    <font color="#009900">float</font><font color="#990000">*</font> fp <font color="#990000">=</font> <font color="#990000">&amp;</font>f<font color="#990000">;</font>
+    <font color="#009900">double</font><font color="#990000">*</font> dp<font color="#990000">;</font>
 
-    <i><span style="color:#9A1900">//cout &lt;&lt; *ip &lt;&lt; endl; // seg fault</span></i>
+    <i><font color="#9A1900">//cout &lt;&lt; *ip &lt;&lt; endl; // seg fault</font></i>
 
-    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"uninitialized pointer addresses:"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-    cout <span style="color:#990000">&lt;&lt;</span> ip <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-    cout <span style="color:#990000">&lt;&lt;</span> fp <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-    cout <span style="color:#990000">&lt;&lt;</span> dp <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"uninitialized pointer addresses:"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> ip <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> fp <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> dp <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
 
-    <i><span style="color:#9A1900">//*ip = i;</span></i>
-    ip <span style="color:#990000">=</span> <span style="color:#990000">&amp;</span>i<span style="color:#990000">;</span>
-    fp <span style="color:#990000">=</span> <span style="color:#990000">&amp;</span>f<span style="color:#990000">;</span>
-    dp <span style="color:#990000">=</span> <span style="color:#990000">&amp;</span>d<span style="color:#990000">;</span>
+    <i><font color="#9A1900">//*ip = i;</font></i>
+    ip <font color="#990000">=</font> <font color="#990000">&amp;</font>i<font color="#990000">;</font>
+    fp <font color="#990000">=</font> <font color="#990000">&amp;</font>f<font color="#990000">;</font>
+    dp <font color="#990000">=</font> <font color="#990000">&amp;</font>d<font color="#990000">;</font>
 
-    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"variable &amp; addresses:"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">&amp;</span>i <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">&amp;</span>f <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">&amp;</span>d <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"variable &amp; addresses:"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#990000">&amp;</font>i <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#990000">&amp;</font>f <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#990000">&amp;</font>d <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
 
-    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"pointer derefences:"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">*</span>ip <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">*</span>fp <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">*</span>dp <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"pointer derefences:"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>ip <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>fp <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>dp <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
 
-    <span style="color:#990000">*</span>ip <span style="color:#990000">=</span> <span style="color:#993399">10</span><span style="color:#990000">;</span>
-    <span style="color:#990000">*</span>fp <span style="color:#990000">=</span> <span style="color:#993399">20</span><span style="color:#990000">;</span>
-    <span style="color:#990000">*</span>dp <span style="color:#990000">=</span> <span style="color:#993399">30</span><span style="color:#990000">;</span>
+    <font color="#990000">*</font>ip <font color="#990000">=</font> <font color="#993399">10</font><font color="#990000">;</font>
+    <font color="#990000">*</font>fp <font color="#990000">=</font> <font color="#993399">20</font><font color="#990000">;</font>
+    <font color="#990000">*</font>dp <font color="#990000">=</font> <font color="#993399">30</font><font color="#990000">;</font>
 
-    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"pointer derefences after:"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">*</span>ip <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">*</span>fp <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">*</span>dp <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"pointer derefences after:"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>ip <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>fp <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#990000">*</font>dp <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
 
-    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"variable values:"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-    cout <span style="color:#990000">&lt;&lt;</span> i <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-    cout <span style="color:#990000">&lt;&lt;</span> f <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-    cout <span style="color:#990000">&lt;&lt;</span> d <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"variable values:"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> i <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> f <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> d <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
 
-    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"sizeof the variables:"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-    cout <span style="color:#990000">&lt;&lt;</span> <b><span style="color:#0000FF">sizeof</span></b><span style="color:#990000">(</span>i<span style="color:#990000">)</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-    cout <span style="color:#990000">&lt;&lt;</span> <b><span style="color:#0000FF">sizeof</span></b><span style="color:#990000">(</span>f<span style="color:#990000">)</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-    cout <span style="color:#990000">&lt;&lt;</span> <b><span style="color:#0000FF">sizeof</span></b><span style="color:#990000">(</span><span style="color:#009900">double</span><span style="color:#990000">)</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"sizeof the variables:"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <b><font color="#0000FF">sizeof</font></b> <font color="#990000">(</font>i<font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <b><font color="#0000FF">sizeof</font></b> <font color="#990000">(</font>f<font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <b><font color="#0000FF">sizeof</font></b> <font color="#990000">(</font><font color="#009900">double</font><font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
 
-    i <span style="color:#990000">=</span> <span style="color:#993399">1</span><span style="color:#990000">;</span>
-    <span style="color:#009900">int</span> j <span style="color:#990000">=</span> <span style="color:#993399">1</span><span style="color:#990000">;</span>
-    ip <span style="color:#990000">=</span> <span style="color:#990000">&amp;</span>i<span style="color:#990000">;</span>
-    <span style="color:#009900">int</span> <span style="color:#990000">*</span>jp <span style="color:#990000">=</span> <span style="color:#990000">&amp;</span>i<span style="color:#990000">;</span>
-    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> ip <span style="color:#990000">==</span> jp <span style="color:#990000">)</span>
-        cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"equal"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-    <b><span style="color:#0000FF">else</span></b>
-        cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"not equal"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    i <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font>
+    <font color="#009900">int</font> j <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font>
+    ip <font color="#990000">=</font> <font color="#990000">&amp;</font>i<font color="#990000">;</font>
+    <font color="#009900">int</font><font color="#990000">*</font> jp <font color="#990000">=</font> <font color="#990000">&amp;</font>i<font color="#990000">;</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> ip <font color="#990000">==</font> jp <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"equal"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <b><font color="#0000FF">else</font></b>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"not equal"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
 
-    <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
-<span style="color:#FF0000">}</span>
-</pre>
+    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+</tt></pre>
 </body>
 </html>

@@ -3,14 +3,14 @@ using namespace std;
 
 class ListNode {
 public:
-    ListNode *next, *prev;
+    ListNode* next, *prev;
     int value;
 };
 
 int main() {
 
     ListNode l;
-    ListNode *n = new ListNode();
+    ListNode* n = new ListNode();
 
     l.value = 100;
     (*n).value = 200;

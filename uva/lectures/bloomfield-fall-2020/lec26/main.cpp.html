@@ -27,7 +27,7 @@ http://www.gnu.org/software/src-highlite">
     <font color="#009900">long</font>  n<font color="#990000">,</font> <font color="#990000">*</font>vec<font color="#990000">;</font>
 
     <i><font color="#9A1900">// make sure longs are 8 bytes in size, else this program won't work right</font></i>
-    <b><font color="#000000">assert</font></b><font color="#990000">(</font><b><font color="#0000FF">sizeof</font></b><font color="#990000">(</font><font color="#009900">long</font><font color="#990000">)==</font><font color="#993399">8</font><font color="#990000">);</font>
+    <b><font color="#000000">assert</font></b> <font color="#990000">(</font><b><font color="#0000FF">sizeof</font></b> <font color="#990000">(</font><font color="#009900">long</font><font color="#990000">)</font> <font color="#990000">==</font> <font color="#993399">8</font><font color="#990000">);</font>
 
     <i><font color="#9A1900">// how big is the array we want to use?</font></i>
     cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Please enter a array size:  "</font><font color="#990000">;</font>
@@ -43,7 +43,7 @@ http://www.gnu.org/software/src-highlite">
     vec <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">long</font><font color="#990000">[</font>n<font color="#990000">];</font>
 
     <i><font color="#9A1900">// use current time as random seed</font></i>
-    <b><font color="#000000">srand</font></b><font color="#990000">((</font><font color="#009900">unsigned</font><font color="#990000">)</font> <b><font color="#000000">time</font></b><font color="#990000">(</font>NULL<font color="#990000">));</font>
+    <b><font color="#000000">srand</font></b> <font color="#990000">(</font> <font color="#990000">(</font><font color="#009900">unsigned</font><font color="#990000">)</font> <b><font color="#000000">time</font></b> <font color="#990000">(</font>NULL<font color="#990000">)</font> <font color="#990000">);</font>
 
     <i><font color="#9A1900">// fill the array with random values</font></i>
     <b><font color="#0000FF">for</font></b> <font color="#990000">(</font><font color="#009900">long</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> n<font color="#990000">;</font> <font color="#990000">++</font>i<font color="#990000">)</font> <font color="#FF0000">{</font>
@@ -52,16 +52,15 @@ http://www.gnu.org/software/src-highlite">
     <font color="#FF0000">}</font>
 
     <i><font color="#9A1900">// call the assembly routine</font></i>
-    <b><font color="#000000">factArray</font></b><font color="#990000">(</font>vec<font color="#990000">,</font> n<font color="#990000">);</font>
+    <b><font color="#000000">factArray</font></b> <font color="#990000">(</font>vec<font color="#990000">,</font> n<font color="#990000">);</font>
 
     <i><font color="#9A1900">// print out the results of the array</font></i>
     cout <font color="#990000">&lt;&lt;</font> endl <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"factorialized array is: "</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font><font color="#009900">long</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> n<font color="#990000">;</font> <font color="#990000">++</font>i<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font><font color="#009900">long</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> n<font color="#990000">;</font> <font color="#990000">++</font>i<font color="#990000">)</font>
         cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">vec["</font> <font color="#990000">&lt;&lt;</font> i <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"] = "</font> <font color="#990000">&lt;&lt;</font> vec<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-    <font color="#FF0000">}</font>
 
     <i><font color="#9A1900">// a call to factorial() as well</font></i>
-    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">And the factorial of 10 is: "</font> <font color="#990000">&lt;&lt;</font> <b><font color="#000000">factorial</font></b><font color="#990000">(</font><font color="#993399">10</font><font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">And the factorial of 10 is: "</font> <font color="#990000">&lt;&lt;</font> <b><font color="#000000">factorial</font></b> <font color="#990000">(</font><font color="#993399">10</font><font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
 
     <i><font color="#9A1900">// properly deallocate the array</font></i>
     <b><font color="#0000FF">delete</font></b> <font color="#990000">[]</font> vec<font color="#990000">;</font>

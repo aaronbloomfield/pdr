@@ -8,7 +8,7 @@ class Item {
 
 public:
     int getID() const;
-    void setID(int i);
+    void setID (int i);
 
 
 private:

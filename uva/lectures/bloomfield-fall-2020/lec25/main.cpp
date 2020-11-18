@@ -15,7 +15,7 @@ int  main () {
     long  n, *vec;
 
     // make sure longs are 8 bytes in size, else this program won't work right
-    assert(sizeof(long)==8);
+    assert (sizeof (long) == 8);
 
     // how big is the array we want to use?
     cout << "Please enter a array size:  ";
@@ -31,7 +31,7 @@ int  main () {
     vec = new long[n];
 
     // use current time as random seed
-    srand((unsigned) time(NULL));
+    srand ( (unsigned) time (NULL) );
 
     // fill the array with random values
     for (long i = 0; i < n; ++i) {
@@ -41,14 +41,14 @@ int  main () {
 
     bool which = rand() % 2;
 
-    if(which) {
+    if (which) {
         // sum up the array and print out results
         cout << "boolean is true, summing array" << endl;
-        long sum = addOrMult(true, vec, n);
+        long sum = addOrMult (true, vec, n);
         cout << "The sum of all array elements is " << sum << endl;
     } else {
         cout << "boolean is false, multiplying array" << endl;
-        long prod = addOrMult(false, vec, n);
+        long prod = addOrMult (false, vec, n);
         cout << "The product of all array elements is " << prod << endl;
     }
 

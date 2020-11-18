@@ -12,7 +12,7 @@ using namespace std;
 int n = 7;
 
 class foo {
-    int *k, *m, *p;
+    int* k, *m, *p;
 
 public:
     foo() {
@@ -36,11 +36,11 @@ public:
 
 int main() {
     foo x;
-    int *i = new int(5);
-    int *q = new int(7);
-    int *j = new int[4];
-    int *l = new int(7);
-    int *o;
+    int* i = new int (5);
+    int* q = new int (7);
+    int* j = new int[4];
+    int* l = new int (7);
+    int* o;
 
     delete[] j; // YES: should be delete[]
 

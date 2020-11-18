@@ -16,7 +16,7 @@ int  main () {
     long  n, *vec;
 
     // make sure longs are 8 bytes in size, else this program won't work right
-    assert(sizeof(long)==8);
+    assert (sizeof (long) == 8);
 
     // how big is the array we want to use?
     cout << "Please enter a array size:  ";
@@ -32,7 +32,7 @@ int  main () {
     vec = new long[n];
 
     // use current time as random seed
-    srand((unsigned) time(NULL));
+    srand ( (unsigned) time (NULL) );
 
     // fill the array with random values
     for (long i = 0; i < n; ++i) {
@@ -41,16 +41,15 @@ int  main () {
     }
 
     // call the assembly routine
-    factArray(vec, n);
+    factArray (vec, n);
 
     // print out the results of the array
     cout << endl << "factorialized array is: " << endl;
-    for (long i = 0; i < n; ++i) {
+    for (long i = 0; i < n; ++i)
         cout << "\tvec[" << i << "] = " << vec[i] << endl;
-    }
 
     // a call to factorial() as well
-    cout << "\nAnd the factorial of 10 is: " << factorial(10) << endl;
+    cout << "\nAnd the factorial of 10 is: " << factorial (10) << endl;
 
     // properly deallocate the array
     delete [] vec;

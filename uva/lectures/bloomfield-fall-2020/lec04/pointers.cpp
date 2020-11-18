@@ -49,14 +49,14 @@ int main() {
     cout << d << endl;
 
     cout << "sizeof the variables:" << endl;
-    cout << sizeof(i) << endl;
-    cout << sizeof(f) << endl;
-    cout << sizeof(double) << endl;
+    cout << sizeof (i) << endl;
+    cout << sizeof (f) << endl;
+    cout << sizeof (double) << endl;
 
     i = 1;
     int j = 1;
     ip = &i;
-    int *jp = &i;
+    int* jp = &i;
     if ( ip == jp )
         cout << "equal" << endl;
     else

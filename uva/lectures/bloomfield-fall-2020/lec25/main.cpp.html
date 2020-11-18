@@ -26,7 +26,7 @@ http://www.gnu.org/software/src-highlite">
     <font color="#009900">long</font>  n<font color="#990000">,</font> <font color="#990000">*</font>vec<font color="#990000">;</font>
 
     <i><font color="#9A1900">// make sure longs are 8 bytes in size, else this program won't work right</font></i>
-    <b><font color="#000000">assert</font></b><font color="#990000">(</font><b><font color="#0000FF">sizeof</font></b><font color="#990000">(</font><font color="#009900">long</font><font color="#990000">)==</font><font color="#993399">8</font><font color="#990000">);</font>
+    <b><font color="#000000">assert</font></b> <font color="#990000">(</font><b><font color="#0000FF">sizeof</font></b> <font color="#990000">(</font><font color="#009900">long</font><font color="#990000">)</font> <font color="#990000">==</font> <font color="#993399">8</font><font color="#990000">);</font>
 
     <i><font color="#9A1900">// how big is the array we want to use?</font></i>
     cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Please enter a array size:  "</font><font color="#990000">;</font>
@@ -42,7 +42,7 @@ http://www.gnu.org/software/src-highlite">
     vec <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">long</font><font color="#990000">[</font>n<font color="#990000">];</font>
 
     <i><font color="#9A1900">// use current time as random seed</font></i>
-    <b><font color="#000000">srand</font></b><font color="#990000">((</font><font color="#009900">unsigned</font><font color="#990000">)</font> <b><font color="#000000">time</font></b><font color="#990000">(</font>NULL<font color="#990000">));</font>
+    <b><font color="#000000">srand</font></b> <font color="#990000">(</font> <font color="#990000">(</font><font color="#009900">unsigned</font><font color="#990000">)</font> <b><font color="#000000">time</font></b> <font color="#990000">(</font>NULL<font color="#990000">)</font> <font color="#990000">);</font>
 
     <i><font color="#9A1900">// fill the array with random values</font></i>
     <b><font color="#0000FF">for</font></b> <font color="#990000">(</font><font color="#009900">long</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> n<font color="#990000">;</font> <font color="#990000">++</font>i<font color="#990000">)</font> <font color="#FF0000">{</font>
@@ -52,14 +52,14 @@ http://www.gnu.org/software/src-highlite">
 
     <font color="#009900">bool</font> which <font color="#990000">=</font> <b><font color="#000000">rand</font></b><font color="#990000">()</font> <font color="#990000">%</font> <font color="#993399">2</font><font color="#990000">;</font>
 
-    <b><font color="#0000FF">if</font></b><font color="#990000">(</font>which<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>which<font color="#990000">)</font> <font color="#FF0000">{</font>
         <i><font color="#9A1900">// sum up the array and print out results</font></i>
         cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"boolean is true, summing array"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-        <font color="#009900">long</font> sum <font color="#990000">=</font> <b><font color="#000000">addOrMult</font></b><font color="#990000">(</font><b><font color="#0000FF">true</font></b><font color="#990000">,</font> vec<font color="#990000">,</font> n<font color="#990000">);</font>
+        <font color="#009900">long</font> sum <font color="#990000">=</font> <b><font color="#000000">addOrMult</font></b> <font color="#990000">(</font><b><font color="#0000FF">true</font></b><font color="#990000">,</font> vec<font color="#990000">,</font> n<font color="#990000">);</font>
         cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The sum of all array elements is "</font> <font color="#990000">&lt;&lt;</font> sum <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
     <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
         cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"boolean is false, multiplying array"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
-        <font color="#009900">long</font> prod <font color="#990000">=</font> <b><font color="#000000">addOrMult</font></b><font color="#990000">(</font><b><font color="#0000FF">false</font></b><font color="#990000">,</font> vec<font color="#990000">,</font> n<font color="#990000">);</font>
+        <font color="#009900">long</font> prod <font color="#990000">=</font> <b><font color="#000000">addOrMult</font></b> <font color="#990000">(</font><b><font color="#0000FF">false</font></b><font color="#990000">,</font> vec<font color="#990000">,</font> n<font color="#990000">);</font>
         cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"The product of all array elements is "</font> <font color="#990000">&lt;&lt;</font> prod <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
     <font color="#FF0000">}</font>
 

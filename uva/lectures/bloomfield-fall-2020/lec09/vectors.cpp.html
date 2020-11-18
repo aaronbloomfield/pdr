@@ -1,37 +1,37 @@
-<!DOCTYPE HTML>
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta name="GENERATOR" content="GNU source-highlight 
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
-<title>vectors.cpp</title>
+<title>lec09/vectors.cpp</title>
 </head>
-<body style="background-color:white">
-<pre><b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;iostream&gt;</span>
-<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;vector&gt;</span>
-<b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
+<body bgcolor="white">
+<pre><tt><b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;vector&gt;</font>
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
 
-<span style="color:#009900">int</span> <b><span style="color:#000000">main</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
-    <span style="color:#008080">vector&lt;int&gt;</span> vi<span style="color:#990000">;</span>
-    <span style="color:#008080">vector&lt;char&gt;</span> vc<span style="color:#990000">;</span>
+<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+    <font color="#008080">vector&lt;int&gt;</font> vi<font color="#990000">;</font>
+    <font color="#008080">vector&lt;char&gt;</font> vc<font color="#990000">;</font>
 
-    <i><span style="color:#9A1900">//vi.reserve(17);</span></i>
+    <i><font color="#9A1900">//vi.reserve(17);</font></i>
 
-    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"hello, world!"</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"sizeof vector&lt;int&gt;: "</span> <span style="color:#990000">&lt;&lt;</span> <b><span style="color:#0000FF">sizeof</span></b><span style="color:#990000">(</span>vi<span style="color:#990000">)</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"sizeof vector&lt;char&gt;: "</span> <span style="color:#990000">&lt;&lt;</span> <b><span style="color:#0000FF">sizeof</span></b><span style="color:#990000">(</span>vector<span style="color:#990000">&lt;</span><span style="color:#009900">char</span><span style="color:#990000">&gt;)</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"hello, world!"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"sizeof vector&lt;int&gt;: "</font> <font color="#990000">&lt;&lt;</font> <b><font color="#0000FF">sizeof</font></b> <font color="#990000">(</font>vi<font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"sizeof vector&lt;char&gt;: "</font> <font color="#990000">&lt;&lt;</font> <b><font color="#0000FF">sizeof</font></b> <font color="#990000">(</font>vector<font color="#990000">&lt;</font><font color="#009900">char</font><font color="#990000">&gt;)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
 
-    cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"size and capacity of int vector at start: "</span> <span style="color:#990000">&lt;&lt;</span> vi<span style="color:#990000">.</span><b><span style="color:#000000">size</span></b><span style="color:#990000">()</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">", "</span> <span style="color:#990000">&lt;&lt;</span> vi<span style="color:#990000">.</span><b><span style="color:#000000">capacity</span></b><span style="color:#990000">()</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"size and capacity of int vector at start: "</font> <font color="#990000">&lt;&lt;</font> vi<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">", "</font> <font color="#990000">&lt;&lt;</font> vi<font color="#990000">.</font><b><font color="#000000">capacity</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
 
-    <b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(</span> <span style="color:#009900">int</span> i <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span> i <span style="color:#990000">&lt;</span> <span style="color:#993399">20</span><span style="color:#990000">;</span> i<span style="color:#990000">++</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
-        vi<span style="color:#990000">.</span><b><span style="color:#000000">push_back</span></b><span style="color:#990000">(</span>i<span style="color:#990000">*</span><span style="color:#993399">10</span><span style="color:#990000">);</span>
-        cout <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"added one element; size and capacity of int vector afterward: "</span> <span style="color:#990000">&lt;&lt;</span> vi<span style="color:#990000">.</span><b><span style="color:#000000">size</span></b><span style="color:#990000">()</span> <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">", "</span> <span style="color:#990000">&lt;&lt;</span> vi<span style="color:#990000">.</span><b><span style="color:#000000">capacity</span></b><span style="color:#990000">()</span> <span style="color:#990000">&lt;&lt;</span> endl<span style="color:#990000">;</span>
-    <span style="color:#FF0000">}</span>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> <font color="#993399">20</font><font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+        vi<font color="#990000">.</font><b><font color="#000000">push_back</font></b> <font color="#990000">(</font>i <font color="#990000">*</font> <font color="#993399">10</font><font color="#990000">);</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"added one element; size and capacity of int vector afterward: "</font> <font color="#990000">&lt;&lt;</font> vi<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">", "</font> <font color="#990000">&lt;&lt;</font> vi<font color="#990000">.</font><b><font color="#000000">capacity</font></b><font color="#990000">()</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
 
-    <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
-<span style="color:#FF0000">}</span>
-</pre>
+    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+</tt></pre>
 </body>
 </html>

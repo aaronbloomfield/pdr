@@ -10,6 +10,6 @@ int Item::getID() const {
 }
 
 
-void Item::setID(int i) {
+void Item::setID (int i) {
     id = i;
 }
