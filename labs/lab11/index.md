@@ -46,7 +46,7 @@ Procedure
 
 1. Write an 8-Puzzle solver using BFS
 2. Files to download: none
-3. Files to submit: Makefile, any source code required to run the solver. 
+3. Files to submit: Makefile, Doxyfile, and any source code required to run the solver. 
 
 ------------------------------------------------------------
 
@@ -324,6 +324,10 @@ IMPOSSIBLE
 ### Submission ###
 
 You should submit any files required for your 8 puzzle solver to run as well as a Makefile that prodcues an `a.out` executable.
+
+### Makefile ###
+
+Your Makefile should have **only one** target, which you can name anything you want.  This target should do **two** things: compile your code, and run doxygen.  You can have two tabbed lines after the target specifier, which is the easiest way to accomplish this.  In other words, we are just going to call `make`, and we want it to both compile your code and create your doxygen documentation.  The post-lab Makefile should have the same dual-purpose target.
 
 ### Hints ###
 
