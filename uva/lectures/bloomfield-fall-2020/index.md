@@ -13,6 +13,10 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 38: Fri, Nov 20 (finished memory)
+    - [overlay image 1](lec38/overlay1.html)
+    - [overlay image 2](lec38/overlay2.html)
+    - [overlay image 3](lec38/overlay3.html)
 - Lecture 37: Wed, Nov 18 (finished graphs, memory to slide 4.8)
     - [development steps](lec37/steps.html)
     - [overlay image](lec37/overlay.html)
