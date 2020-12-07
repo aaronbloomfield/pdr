@@ -19,7 +19,7 @@ As per the [syllabus](syllabus.html) ([md](syllabus.md)), the grades were comput
 
 Due to the very high course average, there was no additional course curve, although we did round up if necessary.
 
-For a given decade, 80 to just under 83 was a B-, 83 to just under 87 was  B, and 87 to just under 90 was a B+; similarly for the other decades.  The D- range was extended down a bit to a 55 or above, and the A+ range is based on a percentage of students in the course -- and was a 99.  We did not give C- grades, due to how the C- grade interacts with the C/GC/NC scoring and pre-reqs, so anybody would would have gotten a C- instead got a C.  Note that for all these scores, we rounded up your final course average if necessary.
+For a given decade, 80 to just under 83 was a B-, 83 to just under 87 was  B, and 87 to just under 90 was a B+; similarly for the other decades.  The D- range was extended down a bit to a 55 or above, the A range was set at 94 (not 93), and the A+ range is based on a percentage of students in the course -- and was a 99.  We did not give C- grades, due to how the C- grade interacts with the C/GC/NC scoring and pre-reqs, so anybody would would have gotten a C- instead got a C.  Note that for all these scores, we rounded up your final course average if necessary.
 
 
 ## Final exam grading
