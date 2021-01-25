@@ -5,19 +5,13 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>PDR: Laboratory 4: Number Representation</title>
-  <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
   <link rel="stylesheet" href="../../markdown.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-laboratory-4-number-representation">PDR: Laboratory 4: Number Representation</h1>
@@ -218,8 +212,7 @@ Size of double*: 8
 <ul>
 <li>The values for the “Zero” and “One” columns should interpreted appropriately for the data type. For example, “zero” is 0 for an <code>int</code>, 0.0 for a <code>float</code>, <code>false</code> for a bool, the character <code>'0'</code> for a <code>char</code>, etc.</li>
 <li>For pointers, the highest memory address that can be described is the “max value.” For <code>char</code>s, we want the maximum integer value that may be stored therein. Finally, booleans only have two possible values, so choose the max and min from these two.</li>
-<li>All hex values should be given in <strong>big-endian</strong> and in the same size as their data type (e.g int hexidecimals should only have 4 bytes, char has 1, etc). <strong>For the max value field of float and double, represent the value as the closest power of 2</strong>. The format will be exactly as follows: 2^exponent, but replace exponent with the appropriate number in each case. We want you to do it this way because it would be inconvenient for you to type out all of the whole number.
-</li>
+<li>All hex values should be given in <strong>big-endian</strong> and in the same size as their data type (e.g int hexidecimals should only have 4 bytes, char has 1, etc). <strong>For the max value field of float and double, represent the value as the closest power of 2</strong>. The format will be exactly as follows: 2^exponent, but replace exponent with the appropriate number in each case. We want you to do it this way because it would be inconvenient for you to type out all of the whole number.</li>
 </ul>
 <h3 id="inlab4.cpp">inlab4.cpp</h3>
 <p>There are two parts to the C++ file you will be submitting as a part of the in-lab. 1. The two arrays that you will fill out with the appropriate information 2. A <code>tableDump(string (*arr)[5], string (*arr1)[4])</code> method that prints out the two arrays in a format that we can autograde</p>
