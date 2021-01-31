@@ -28,6 +28,7 @@ The parts of this course that are in this repo are:
 - [Course introduction slide set][80]
 - [Lecture period content][118] ([md][119]) which is the material used during the lecture periods
 - [Course syllabus][103] ([md][104]): the course syllabus
+- [Gradescope FAQ](gradescope-faq.html) ([md](gradescope-faq.md)) for submission questions and answers
 - [Teaching assistants][117]: get to know your TAs!
 - [Lab due dates][105] ([md][106]): When the various lab parts are due
 - [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform), signed via Google Forms, will need to be signed by all the students in the course
