@@ -15,23 +15,22 @@ Links
 There are a number of links and other parts of this course that are **NOT** included in this repository.  They are:
 
 - The set of online tools, which can be accessed through Collab or [here][160].
-    - These tools are: [support requests][161], [lab submission][162], [regrades][163], [gradebook][164], and the [office hours queue][166]
+    - These tools are the [support requests][161] tool and the [office hours queue][166]
 - The announcements, which are posted to the CS 2150 twitter feed: [\@UVaCS2150][151]
-- Grading guidelines, which will be available in the Collab wiki ([here][171] is the direct link, although Collab login is required)
 - Email list archive, which is a Collab tool ([here][170] is the direct link, although Collab login is required)
 - [Piazza][152], and our specific class is [here][175]; Collab can (maybe?) log you in directly; the Collab tool link is [here][173] (again, Collab login required)
 - [Anonymous feedback][174]
+- All submission of assignments is via Gradescope, which can be accessed through Collab
 
 The parts of this course that are in this repo are:
 
 - [Daily announcements slide set][102]
 - [Course introduction slide set][80]
+- [Lecture period content][118] ([md][119]) which is the material used during the lecture periods
 - [Course syllabus][103] ([md][104]): the course syllabus
-- [Teaching assistants][117]: get to know your TAs
+- [Teaching assistants][117]: get to know your TAs!
 - [Lab due dates][105] ([md][106]): When the various lab parts are due
-- [UNIX honor pledge][172], which needs to be signed by all the students in the course (it is created from a [.tex][114] file)
-- [Generic review session slide set][113], which is really just a blank set of slides
-- [Frivolous regrade policy][109] ([md][110]) for exams (note: it's unclear how this will apply with online exams; more info on that later)
+- [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform), signed via Google Forms, will need to be signed by all the students in the course
 - The [final course grading metrics][116] ([md][115])
 
 The [Documents page](../docs/index.html) ([md](../docs/index.md)) has a number of useful parts:
@@ -68,14 +67,14 @@ The links in the right-most column link directly to the lecture recording on Col
 
 | Num | Date | Day of week | Lab & Tutorial (on Tue) | Posted lecture |
 |--|----|-------|-------------------------|---------------|
-| 1 | Feb 1 | Monday | | [Course introduction][80] to ??? |
+| 1 | Feb 1 | Monday | No lab this week | [Course introduction][80] to ??? |
 | 2 | Feb 3 | Wednesday | | [Course introduction][80] to end, [01: C++][81] to slide 5.5 |
-| 3 | Feb 5 | Friday | no lab this week | [01: C++][81] to slide 8.1 |
-| 4 | Feb 8 | Monday | | [01: C++][81] to slide 9.19 |
+| 3 | Feb 5 | Friday | | [01: C++][81] to slide 8.1 |
+| 4 | Feb 8 | Monday | No lab this week | [01: C++][81] to slide 9.19 |
 | 5 | Feb 10 | Wednesday | | [01: C++][81] to slide 10.17 |
 | 6 | Feb 12 | Friday | | [01: C++][81] to slide 12.10 |
 | 7 | Feb 15 | Monday | [Lab 1: Intro to C++][1] ([md][21]) / [Tutorial 1: Intro to UNIX][41] ([md][61]) | [01: C++][81] to end, [02: Lists][82] to slide 4.6 |
-| | Feb 17 | Wednesday | Break day | Break day |
+| | Feb 17 | Wednesday | | Break day, so no lecture |
 | 8 | Feb 19 | Friday | | [02: Lists][82] to slide 6.11 |
 | 9 | Feb 22 | Monday | [Lab 2: Linked lists][2] ([md][22]) / [Tutorial 2: LLDB][42] ([md][62]) *OR* [Tutorial 2: GDB][52] ([md][72]) (see [lab 2][2] for which one to pick) | [02: Lists][82] to end, [03: Numbers][83] to slide 5.2 |
 | 10 | Feb 24 | Wednesday | | [03: Numbers][83] to slide 8.10 |
@@ -83,7 +82,7 @@ The links in the right-most column link directly to the lecture recording on Col
 | 12 | Mar 1 | Monday | [Lab 3: Stacks][3] ([md][23]) / [Tutorial 3: More UNIX, part 1][63], introduction and sections 1-4 | [03: Numbers][83] to end; [04: Arrays & big-Oh][84] to slide 4.4 |
 | 13 | Mar 3 | Wednesday | | [04: Arrays & big-Oh][84] to slide 5.8 |
 | 14 | Mar 5 | Friday | | [04: Arrays & big-Oh][84] to end |
-| 15 | Mar 8 | Monday | | [05: Trees][85] to slide 5.11 |
+| 15 | Mar 8 | Monday | No lab this week because Tuesday is the break day | [05: Trees][85] to slide 5.11 |
 | 16 | Mar 10 | Wednesday | | [05: Trees][85] to slide 7.9 |
 | 17 | Mar 12 | Friday | | [05: Trees][85] to slide 7.31 |
 | 18 | Mar 15 | Monday | [Lab 4: Numbers][4] ([md][24]) / [Tutorial 4: More UNIX, part 2][64], sections 5-8 | [05: Trees][85] to slide 9.12, [06: Hashes][86] to slide 5.5 |
@@ -92,13 +91,13 @@ The links in the right-most column link directly to the lecture recording on Col
 | 21 | Mar 22 | Monday | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [07: IBCM][87] (machine language) to slide 5.15 |
 | 22 | Mar 24 | Wednesday | | [07: IBCM][87] (machine language) to slide 6.12 |
 | 23 | Mar 26 | Friday | | [07: IBCM][87] (machine language) to end; [05: Trees][85] to end |
-| | Mar 29 | Monday | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | Break day |
+| | Mar 29 | Monday | [Lab 6: Hashes][6] ([md][26]) / Tutorial 6: Shell scripting, part 1 (part of [this link][46]; the specific sections are mentioned on the [tutorials page][40]) | Break day, so no lecture |
 | 24 | Mar 31 | Wednesday | | [08: Assembly][88] to slide 5.6 |
 | 25 | Apr 2 | Friday | | [08: Assembly][88] to slide 7.3 |
 | 26 | Apr 5 | Monday | [Lab 7: IBCM][7] ([md][27]) / Tutorial 7: Shell scripting, part 2 (remainder of [here][47], as described on the [tutorials page][40]) | [08: Assembly][88] to slide 8.15 |
 | 27 | Apr 7 | Wednesday | | [08: Assembly][88] to slide 10.12 |
 | 28 | Apr 9 | Friday | | [08: Assembly][88] to end, [09: Advanced C++][89] to slide 6.11 |
-| 29 | Apr 12 | Monday | [Lab 8: assembly, part 1][8] ([md][28]) / Tutorial 8: see the information on the [tutorials page](../tutorials/index.html) ([md](../tutorials.md)) | [09: Advanced C++][89]to slide 8.5 |
+| 29 | Apr 12 | Monday | [Lab 8: assembly, part 1][8] ([md][28]) / Tutorial 8: assembly (see the information on the [tutorials page](../tutorials/index.html) ([md](../tutorials.md))) | [09: Advanced C++][89]to slide 8.5 |
 | 30 | Apr 14 | Wednesday | | [09: Advanced C++][89] to end, [10: Heaps and Huffman coding][90] to slide 6.2 |
 | 31 | Apr 16 | Friday | | [10: Heaps and Huffman coding][90] to slide 6.16 |
 | 32 | Apr 19 | Monday |  [Lab 9: assembly, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [10: Heaps and Huffman coding][90] to slide 8.19 |
@@ -210,6 +209,8 @@ Grading Concerns
 [115]: grades.md
 [116]: grades.html
 [117]: tas.html
+[118]: lectures/index.html
+[119]: lectures/index.md
 
 [150]: https://calendar.google.com/calendar/embed?src=1ea0dfillqvhlop8d7t0m8afuo%40group.calendar.google.com&ctz=America%2FNew_York
 [151]: http://twitter.com/UVaCS2150

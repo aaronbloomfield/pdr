@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0">
+  <meta http-equiv="content-type" content=
+  "text/html; charset=utf-8">
+  <title>Exam for mst3k</title>
+  <script src="final-f20_files/jquery.js"></script>
+  <script>
+  console.log("loaded previous responses")
+  </script>
+  <script>
+  var num_questions=27;
+  var saved_color='lightblue';
+  var modified_color='lightgoldenrodyellow';
+  var error_color='red';
+  </script>
+  <script>
+  valStrs=["","","^[0-9]+$","^[0-9]+(\ [0-9]+)*$","^(no output|[0-9]+(\ [0-9]+)*(\ )?)$","","","^-?\\d+(\\.\\d+)?$","^-?\\d+(\\.\\d+)?$","^0x[0-9a-zA-Z][0-9a-zA-Z][0-9a-zA-Z][0-9a-zA-Z][0-9a-zA-Z][0-9a-zA-Z][0-9a-zA-Z][0-9a-zA-Z]$","","","","","","^[A-Z]( [A-Z])+$","^((#|\\d) )+(#|\\d)$","","","^[0-9]+(\ [0-9]+)*$","","^[01]+$","","^[A-L]( [A-L])+$","","",""];
+  </script>
+  <link rel="stylesheet" type="text/css" href=
+  "final-f20_files/examstyle.css">
+</head>
+<body onload="fill_in_answers();">
+  <div class="javascript_test" id="javascript_test" style=
+  "background-color: red; width: 100%; display: none;">
+    <h1>Javascript is disabled!</h1>
+    <p>This exam will <b>NOT</b> work unless you enable
+    Javascript.</p>
+    <p>&nbsp;</p>
+  </div>
+  <div class="navbar">
+    <table class="navbar">
+      <tbody>
+        <tr>
+          <td>
+            <h2>CS 2150 Final Exam, fall 2020 for mst3k (27
+            questions, 102 total points)</h2>
+          </td>
+          <td class="right">
+            <table class="subnavbar">
+              <tbody>
+                <tr>
+                  <td>Exam time has ended; no answer changes will
+                  be recorded.<br></td>
+                </tr>
+                <tr>
+                  <td>Progress: <span id="progress">N/A</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="main">
+    <div class='score'>
+      <p><b>READ THIS:</b> This page is an example of a final exam given at the end of the fall 2020 semester.  Students had different questions -- either different values for some of them (the coding questions or graph questions), entirely different questions entirely (for the multiple choice questions), etc. It's not feasible to provide all 500 exams given in the fall 2020 semester, and what is here is meant to give students an idea of the format that the current semester's final exam will be in, and an example of the types of questions that might be asked. There will be all different questions this semester, though. <br>&nbsp;<br>A week or two before the final exam, all students will be provided with a sample exam to test out this exam system.  In particular, all the questions are auto-graded, and if the formatting the fill-in answers is not <i>exactly</i> what is expected, it will be marked wrong.  To help with this, the exam system provides the answer validation -- it ensures that the answer is in the right format; whether the answer is correct or not is a separate issue.  This validation is what the 'answer color codes' box, below, is referring to.  Students will be able to test-drive this exam system, and understand the the answer validation aspect, about a week or two prior to taking the actual final exam.  More explanation about the answer formats and answer validation will be available then.</p>
+    </div>
+    <table class="toptable">
+      <tbody>
+        <tr class="toptable">
+          <td class="toptable">
+            <div class="toptablediv">
+              <table class="questionstable">
+                <tbody>
+                  <tr>
+                    <td colspan="9">
+                      <h2>Question types</h2>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <table class="onequestable">
+                        <tbody>
+                          <tr>
+                            <td class="questionsampletop">
+                            Multiple&nbsp;choice</td>
+                          </tr>
+                          <tr>
+                            <td class="questionsamplemid">
+                            <input type="radio" disabled=
+                            "disabled">A<br>
+                            <input type="radio" disabled=
+                            "disabled">B<br>
+                            <input type="radio" disabled=
+                            "disabled">C<br>
+                            <input type="radio" disabled=
+                            "disabled">D<br>
+                            <input type="radio" disabled=
+                            "disabled">E</td>
+                          </tr>
+                          <tr>
+                            <td class="questionsamplebot">1
+                            correct<br>
+                            answer</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                    <td class="questionspacer"></td>
+                    <td>
+                      <table class="onequestable">
+                        <tbody>
+                          <tr>
+                            <td class="questionsampletop">
+                            True/false</td>
+                          </tr>
+                          <tr>
+                            <td class="questionsamplemid">
+                            <input type="radio" disabled=
+                            "disabled">True<br>
+                            <input type="radio" disabled=
+                            "disabled">False</td>
+                          </tr>
+                          <tr>
+                            <td class="questionsamplebot">1
+                            correct<br>
+                            answer</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                    <td class="questionspacer"></td>
+                    <td>
+                      <table class="onequestable">
+                        <tbody>
+                          <tr>
+                            <td class="questionsampletop">
+                            Multiple&nbsp;answer</td>
+                          </tr>
+                          <tr>
+                            <td class="questionsamplemid">
+                            <input type="checkbox" disabled=
+                            "disabled">A<br>
+                            <input type="checkbox" disabled=
+                            "disabled">B<br>
+                            <input type="checkbox" disabled=
+                            "disabled">C<br>
+                            <input type="checkbox" disabled=
+                            "disabled">D<br>
+                            <input type="checkbox" disabled=
+                            "disabled">E</td>
+                          </tr>
+                          <tr>
+                            <td class="questionsamplebot">2+
+                            correct<br>
+                            answers</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                    <td class="questionspacer"></td>
+                    <td>
+                      <table class="onequestable">
+                        <tbody>
+                          <tr>
+                            <td class="questionsampletop">
+                            Numerical&nbsp;fill-in</td>
+                          </tr>
+                          <tr>
+                            <td class="questionsamplemid">
+                            <input type="text" disabled=
+                            "disabled"></td>
+                          </tr>
+                          <tr>
+                            <td class="questionsamplebot">Must be
+                            a<br>
+                            number</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                    <td class="questionspacer"></td>
+                    <td>
+                      <table class="onequestable">
+                        <tbody>
+                          <tr>
+                            <td class="questionsampletop">
+                            Text&nbsp;fill-in</td>
+                          </tr>
+                          <tr>
+                            <td class="questionsamplemid">
+                            <input type="text" disabled=
+                            "disabled"></td>
+                          </tr>
+                          <tr>
+                            <td class="questionsamplebot">Question
+                            specific<br>
+                            format</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </td>
+          <td class="toptable">
+            <div class="toptablediv">
+              <table class="colorcodes">
+                <tbody>
+                  <tr>
+                    <td colspan="3">
+                      <h2>Answer color codes</h2>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" style="text-align:center">The
+                    answer is bordered by a black line for each
+                    question.</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" style="text-align:center">The
+                    background color of the answer indicates it's
+                    status:</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td class="colorblock" id="whitespan">
+                    White</td>
+                    <td class="questionspacer"></td>
+                    <td>means an answer has not yet been entered or
+                    it is blank</td>
+                  </tr>
+                  <tr>
+                    <td class="colorblock" id="modified_span"
+                    style="background-color: lightgoldenrodyellow;">
+                    Yellow</td>
+                    <td class="questionspacer"></td>
+                    <td>means an answer has been entered but
+                    <i>not</i> yet auto-saved</td>
+                  </tr>
+                  <tr>
+                    <td class="colorblock" id="saved_span" style=
+                    "background-color: lightblue;">Blue</td>
+                    <td class="questionspacer"></td>
+                    <td>means the answer has been entered <i>and
+                    also</i> auto-saved</td>
+                  </tr>
+                  <tr>
+                    <td class="colorblock" id="error_span" style=
+                    "background-color: red;">Red</td>
+                    <td class="questionspacer"></td>
+                    <td>means there is an error with the formatting
+                    of the answer</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 class="maintitle">CS 2150 Final Exam, fall 2020 for mst3k
+    (27 questions, 102 total points)</h2>
+    <div class="intro">
+      <h3 id="introduction">Introduction</h3>
+      <p>This is the final exam for CS 2150, fall 2020. The
+      question types are shown above. Note that you can tell
+      multiple choice from multiple answer based on the shape of
+      the buttons (circles or squares), as shown above. The
+      background color of the answers will color themselves to
+      indicate the saved or error status; these colors are
+      described above. Note that fill-in questions, both numeric
+      and text, have very specific formats that the exam will
+      check.</p>
+      <p>There is a save button at the bottom of this page, and it
+      auto-saves every 30 seconds.</p>
+      <p>Good luck on the exam!</p>
+    </div>
+    <form name="examForm" id="examForm" action=
+    "./php/SaveAnswers.php" method="post">
+      <div class="question">
+        <table class="questiontitletable">
+          <tbody>
+            <tr>
+              <td>
+                <div class="questiontitle">
+                  Question 1. (3 points): C++ question
+                </div>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Where in your C++ code would you see <code>int*
+        num</code>?</p>
+        <div class="answer" id="div_answer1" style=
+        "background-color:white">
+          <div class="choice_container" id="choice_container1">
+            <p><input type="checkbox" id="question1.0" name=
+            "question1[]" onchange="writeMCStatus(1);" value=
+            "in a variable declaration">in a variable declaration
+            </p>
+            <p><input type="checkbox" id="question1.1" name=
+            "question1[]" onchange="writeMCStatus(1);" value=
+            "when dereferencing a pointer">when dereferencing a
+            pointer</p>
+            <p><input type="checkbox" id="question1.2" name=
+            "question1[]" onchange="writeMCStatus(1);" value=
+            "in a function header / prototype">in a function header
+            / prototype </p>
+            <p><input type="checkbox" id="question1.3" name=
+            "question1[]" onchange="writeMCStatus(1);" value=
+            "in a mathematical formula">in a mathematical
+            formula</p>
+          </div>
+          <div class="status_div" id="question1_status_div">
+            <p id="question1_status" style="text-align: center;">
+            </p>
+          </div>
+        </div><br>
+      </div>
+      <div class="question">
+        <table class="questiontitletable">
+          <tbody>
+            <tr>
+              <td>
+                <div class="questiontitle">
+                  Question 2. (3 points): C++ question
+                </div>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Suppose we have come up with a new data type called:
+        <code>mint</code> (short for mini int). Mints represent 24
+        bit signed integers. Perfect for those moments when ints
+        are too long are shorts are too short. What would the
+        following theoretical code snippet print out to the
+        console? (You may use a calculator -- online or otherwise
+        -- to determine a power of 2 for this question)</p>
+        <p><img src="final-f20_files/pdr_exam_f20_2.jpg" alt="Q6"
+        class="inlineimage"></p>
+        <div class="answer" id="div_answer2" style=
+        "background-color:white">
+          <div class="choice_container" id="choice_container2">
+            <p><input type="radio" id="question2.0" name=
+            "question2[]" onchange="writeMCStatus(2);" value=
+            "-8388602">-8388602 </p>
+            <p><input type="radio" id="question2.1" name=
+            "question2[]" onchange="writeMCStatus(2);" value=
+            "8388602">8388602</p>
+            <p><input type="radio" id="question2.2" name=
+            "question2[]" onchange="writeMCStatus(2);" value=
+            "8388604">8388604</p>
+            <p><input type="radio" id="question2.3" name=
+            "question2[]" onchange="writeMCStatus(2);" value=
+            "-8388604">-8388604</p>
+          </div>
+          <div class="status_div" id="question2_status_div">
+            <p id="question2_status" style="text-align: center;">
+            </p>
+          </div>
+        </div><br>
+      </div>
+      <div class="question">
+        <table class="questiontitletable">
+          <tbody>
+            <tr>
+              <td>
+                <div class="questiontitle">
+                  Question 3. (3 points): C++ question -- swap.cpp
+                </div>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Consider the swap function below. If <code>a</code> and
+        <code>b</code> are both passed to <code>swap()</code>, what
+        will the contents of the variable that <code>a</code>
+        points to be after the function returns? The answer is an
+        integer.</p>
+        <p><img alt="code" src=
+        "final-f20_files/visible_003.jpg"></p>
+        <div class="answer" id="div_answer3" style=
+        "background-color:white">
+          <div class="choice_container" id="choice_container3">
+            <input type="text" id="question3" name="question3"
+            oninput=
+            "document.getElementById('div_answer3').style.backgroundColor=modified_color;"
+            onfocusout="validateEntry('question3','^[0-9]+$');">
+            <br>
+          </div>
+          <div class="status_div" id="question3_status_div">
+            <p id="question3_status" style="text-align: center;">
+            </p>
+          </div>
+        </div><br>
+      </div>
+      <div class="question">
+        <table class="questiontitletable">
+          <tbody>
+            <tr>
+              <td>
+                <div class="questiontitle">
+                  Question 4. (6 points): C++ question --
+                  VectorResize.cpp
+                </div>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Consider the custom vector shown below (not everything
+        is shown to you) with the resize method provided. If the
+        code segment at the bottom is executed, list out the size,
+        capacity, and value at index size/2 of this vector (space
+        separated, see example in comments below).</p>
+        <p><img alt="code" src=
+        "final-f20_files/visible_004.jpg"></p>
+        <div class="answer" id="div_answer4" style=
+        "background-color:white">
+          <div class="choice_container" id="choice_container4">
+            <input type="text" id="question4" name="question4"
+            oninput=
+            "document.getElementById('div_answer4').style.backgroundColor=modified_color;"
+            onfocusout=
+            "validateEntry('question4','^[0-9]+(\ [0-9]+)*$');"><br>
+          </div>
+          <div class="status_div" id="question4_status_div">
+            <p id="question4_status" style="text-align: center;">
+            </p>
+          </div>
+        </div><br>
+      </div>
+      <div class="question">
+        <table class="questiontitletable">
+          <tbody>
+            <tr>
+              <td>
+                <div class="questiontitle">
+                  Question 5. (6 points): C++ question --
+                  LLInsert.cpp
+                </div>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Consider a singly-linked list with a pointer to a head
+        node (NO dummy node); the head node is initially set to
+        <code>nullptr</code>. Given the <code>insertAtHead()</code>
+        method below (which may contain bugs), what would the
+        following code segment print? If the program produces no
+        output, write "no output" (without the quotes).</p>
+        <p><img alt="code" src="final-f20_files/visible.jpg"></p>
+        <div class="answer" id="div_answer5" style=
+        "background-color:white">
+          <div class="choice_container" id="choice_container5">
+            <input type="text" id="question5" name="question5"
+            oninput=
+            "document.getElementById('div_answer5').style.backgroundColor=modified_color;"
+            onfocusout=
+            "validateEntry('question5','^(no output|[0-9]+(\ [0-9]+)*(\ )?)$');">
+            <br>
+          </div>
+          <div class="status_div" id="question5_status_div">
+            <p id="question5_status" style="text-align: center;">
+            </p>
+          </div>
+        </div><br>
+      </div>
+      <div class="question">
+        <table class="questiontitletable">
+          <tbody>
+            <tr>
+              <td>
+                <div class="questiontitle">
+                  Question 6. (3 points): List question
+                </div>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Why would you ever want to use a singly linked list over
+        a doubly linked list?</p>
+        <div class="answer" id="div_answer6" style=
+        "background-color:white">
+          <div class="choice_container" id="choice_container6">
+            <p><input type="checkbox" id="question6.0" name=
+            "question6[]" onchange="writeMCStatus(6);" value=
+            "Faster look-up times">Faster look-up times</p>
+            <p><input type="checkbox" id="question6.1" name=
+            "question6[]" onchange="writeMCStatus(6);" value=
+            "Doubly linked lists are always better">Doubly linked
+            lists are always better</p>
+            <p><input type="checkbox" id="question6.2" name=
+            "question6[]" onchange="writeMCStatus(6);" value=
+            "When you are heavily constrained for memory">When you
+            are heavily constrained for memory </p>
+            <p><input type="checkbox" id="question6.3" name=
+            "question6[]" onchange="writeMCStatus(6);" value=
+            "When you are implementing a Huffman tree">When you are
+            implementing a Huffman tree</p>
+            <p><input type="checkbox" id="question6.4" name=
+            "question6[]" onchange="writeMCStatus(6);" value=
+            "When you only need to access one end of the list">When
+            you only need to access one end of the list</p>
+            <p><input type="checkbox" id="question6.5" name=
+            "question6[]" onchange="writeMCStatus(6);" value=
+            "When you are implementing a postfix tree">When you are
+            implementing a postfix tree</p>
+          </div>
+          <div class="status_div" id="question6_status_div">
+            <p id="question6_status" style="text-align: center;">
+            </p>
+          </div>
+        </div><br>
+      </div>
+      <div class="question">
+        <table class="questiontitletable">
+          <tbody>
+            <tr>
+              <td>
+                <div class="questiontitle">
+                  Question 7. (3 points): List question
+                </div>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Assume a linked list implementation the same as Lab 2.
+        What is wrong with this implementation of
+        <code>insertAtTail()</code>?</p>
+        <p><img src="final-f20_files/pdr_exam_f20_4.jpg" alt="Q13"
+        class="inlineimage"></p>
+        <div class="answer" id="div_answer7" style=
+        "background-color:white">
+          <div class="choice_container" id="choice_container7">
+            <p><input type="radio" id="question7.0" name=
+            "question7[]" onchange="writeMCStatus(7);" value=
+            "The pointers are set incorrectly">The pointers are set
+            incorrectly</p>
+            <p><input type="radio" id="question7.1" name=
+            "question7[]" onchange="writeMCStatus(7);" value=
+            "The new node is statically allocated, possibly causing future errors">The
+            new node is statically allocated, possibly causing
+            future errors </p>
+            <p><input type="radio" id="question7.2" name=
+            "question7[]" onchange="writeMCStatus(7);" value=
+            "There is nothing wrong">There is nothing wrong</p>
+            <p><input type="radio" id="question7.3" name=
+            "question7[]" onchange="writeMCStatus(7);" value=
+            "The the node is missing &quot;this&quot; before &quot;tail&quot;">The
+            the node is missing "this" before "tail"</p>
+            <p><input type="radio" id="question7.4" name=
+            "question7[]" onchange="writeMCStatus(7);" value=
+            "The pointers are set in the wrong order, causing some to be set incorrectly">The
+            pointers are set in the wrong order, causing some to be
+            set incorrectly</p>
+          </div>
+          <div class="status_div" id="question7_status_div">
+            <p id="question7_status" style="text-align: center;">
+            </p>
+          </div>
+        </div><br>
+      </div>
+      <div class="question">
+        <table class="questiontitletable">
+          <tbody>
+            <tr>
+              <td>
+                <div class="questiontitle">
+                  Question 8. (3 points): Numbers question binary
+                  -&gt; octal
+                </div>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Consider the two binary values 011010 and 110010 (these
+        are just regular binary values, not two's complement binary
+        values). Add them together, and convert the result to octal
+        (base 8). Your answer should just be the octal digits of
+        the number; no leading '0' digits.</p>
+        <div class="answer" id="div_answer8" style=
+        "background-color:white">
+          <div class="choice_container" id="choice_container8">
+            <input type="text" id="question8" name="question8"
+            oninput=
+            "document.getElementById('div_answer8').style.backgroundColor=modified_color;"
+            onfocusout=
+            "validateEntry('question8','^-?\\d+(\\.\\d+)?$');">
+            <br>
+          </div>
+          <div class="status_div" id="question8_status_div">
+            <p id="question8_status" style="text-align: center;">
+            </p>
+          </div>
+        </div><br>
+      </div>
+      <div class="question">
+        <table class="questiontitletable">
+          <tbody>
+            <tr>
+              <td>
+                <div class="questiontitle">
+                  Question 9. (3 points): Numbers question --
+                  largest value in a base
+                </div>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>What is the largest possible value that a 3 digit number
+        in base 7 can hold? Put your answer in base 10.</p>
+        <div class="answer" id="div_answer9" style=
+        "background-color:white">
+          <div class="choice_container" id="choice_container9">
+            <input type="text" id="question9" name="question9"
+            oninput=
+            "document.getElementById('div_answer9').style.backgroundColor=modified_color;"
+            onfocusout=
+            "validateEntry('question9','^-?\\d+(\\.\\d+)?$');">
+            <br>
+          </div>
+          <div class="status_div" id="question9_status_div">
+            <p id="question9_status" style="text-align: center;">
+            </p>
+          </div>
+        </div><br>
+      </div>
+      <div class="question">
+        <table class="questiontitletable">
+          <tbody>
+            <tr>
+              <td>
+                <div class="questiontitle">
+                  Question 10. (6 points): Numbers question --
+                  minimum negative float
+                </div>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Consider a new floating point format with 14 mantissa
+        bits, 7 exponent bits, and 1 sign bit, for a total of 22
+        bits. The 10 remaining bits (the least significant bits) in
+        the 32-bit word should all be 0 bits. Other than the size
+        of the exponent and mantissa, it encodes the same way as
+        what we studied in class (although with a different
+        exponent offset (aka exponent bias)). Find the big-Endian
+        32-bit hex corresponding to the <strong>minimum negative
+        value</strong> (meaning the negative value with the
+        smallest absolute value). Your answer should be in the
+        format "0x12345678"; use lower case for hex digits a-f.</p>
+        <div class="answer" id="div_answer10" style=
+        "background-color:white">
+          <div class="choice_container" id="choice_container10">
+            <input type="text" id="question10" name="question10"
+            oninput=
+            "document.getElementById('div_answer10').style.backgroundColor=modified_color;"
+            onfocusout=
+            "validateEntry('question10','^0x[0-9a-zA-Z][0-9a-zA-Z][0-9a-zA-Z][0-9a-zA-Z][0-9a-zA-Z][0-9a-zA-Z][0-9a-zA-Z][0-9a-zA-Z]$');">
+	    <br>
+          </div>
+          <div class="status_div" id="question10_status_div">
+            <p id="question10_status" style="text-align: center;">
+            </p>
+          </div>
+        </div><br>
+      </div>
+      <div class="question">
+        <table class="questiontitletable">
+          <tbody>
+            <tr>
+              <td>
+                <div class="questiontitle">
+                  Question 11. (3 points): Numbers question --
+                  valid number in base
+                </div>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Is 111 a valid number in base 6?</p>
+        <div class="answer" id="div_answer11" style=
+        "background-color:white">
+          <div class="choice_container" id="choice_container11">
+            <p><input type="radio" id="question11.0" name=
+            "question11[]" onchange="writeMCStatus(11);" value=
+            "True">True </p>
+            <p><input type="radio" id="question11.1" name=
+            "question11[]" onchange="writeMCStatus(11);" value=
+            "False">False</p>
+          </div>
+          <div class="status_div" id="question11_status_div">
+            <p id="question11_status" style="text-align: center;">
+            </p>
+          </div>
+        </div><br>
+      </div>
+      <div class="question">
+        <table class="questiontitletable">
+          <tbody>
+            <tr>
+              <td>
+                <div class="questiontitle">
+                  Question 12. (3 points): Arrays question --
+                  integer memory location
+                </div>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>The following (4 byte) 2-D integer array starts at 0x30:
+        {{77, 98, 51, 1}, {81, 29, 20, 15}, {14, 68, 6, 32}, {58,
+        11, 8, 69}}. What is the memory address of the value 32?
+        (if 32 appears multiple times, then the address of the
+        first occurrence)</p>
+        <div class="answer" id="div_answer12" style=
+        "background-color:white">
+          <div class="choice_container" id="choice_container12">
+            <p><input type="radio" id="question12.0" name=
+            "question12[]" onchange="writeMCStatus(12);" value=
+            "0x58">0x58</p>
+            <p><input type="radio" id="question12.1" name=
+            "question12[]" onchange="writeMCStatus(12);" value=
+            "0x60">0x60</p>
+            <p><input type="radio" id="question12.2" name=
+            "question12[]" onchange="writeMCStatus(12);" value=
+            "0x54">0x54</p>
+            <p><input type="radio" id="question12.3" name=
+            "question12[]" onchange="writeMCStatus(12);" value=
+            "0x50">0x50</p>
+            <p><input type="radio" id="question12.4" name=
+            "question12[]" onchange="writeMCStatus(12);" value=
+            "0x5c">0x5c </p>
+          </div>
+          <div class="status_div" id="question12_status_div">
+            <p id="question12_status" style="text-align: center;">
+            </p>
+          </div>
+        </div><br>
+      </div>
+      <div class="question">
+        <table class="questiontitletable">
+          <tbody>
+            <tr>
+              <td>
+                <div class="questiontitle">
+                  Question 13. (3 points): big-Oh question -- is F
+                  big-Oh of G
+                </div>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Is f(n) = <img src="final-f20_files/equation_143.png"
+        alt="equation" class="equation"> big-OH of g(n) = <img src=
+        "final-f20_files/equation_144.png" alt="equation" class=
+        "equation">?</p>
+        <div class="answer" id="div_answer13" style=
+        "background-color:white">
+          <div class="choice_container" id="choice_container13">
+            <p><input type="radio" id="question13.0" name=
+            "question13[]" onchange="writeMCStatus(13);" value=
+            "True">True </p>
+            <p><input type="radio" id="question13.1" name=
+            "question13[]" onchange="writeMCStatus(13);" value=
+            "False">False</p>
+          </div>
+          <div class="status_div" id="question13_status_div">
+            <p id="question13_status" style="text-align: center;">
+            </p>
+          </div>
+        </div><br>
+      </div>
+      <div class="question">
+        <table class="questiontitletable">
+          <tbody>
+            <tr>
+              <td>
+                <div class="questiontitle">
+                  Question 14. (3 points): Big-Oh question
+                </div>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>What is the runtime of the x86 code snippet below?
+        Assume the input is passed into <code>rdi</code> and
+        <code>rsi</code>.</p>
+        <p><img src="final-f20_files/pdr_exam_f20_7.jpg" alt="Q7"
+        class="inlineimage"></p>
+        <div class="answer" id="div_answer14" style=
+        "background-color:white">
+          <div class="choice_container" id="choice_container14">
+            <p><input type="radio" id="question14.0" name=
+            "question14[]" onchange="writeMCStatus(14);" value=
+            "Linear">Linear</p>
+            <p><input type="radio" id="question14.1" name=
+            "question14[]" onchange="writeMCStatus(14);" value=
+            "Logarithmic">Logarithmic </p>
+            <p><input type="radio" id="question14.2" name=
+            "question14[]" onchange="writeMCStatus(14);" value=
+            "LogLinear">LogLinear</p>
+            <p><input type="radio" id="question14.3" name=
+            "question14[]" onchange="writeMCStatus(14);" value=
+            "Quadratic">Quadratic</p>
+          </div>
+          <div class="status_div" id="question14_status_div">
+            <p id="question14_status" style="text-align: center;">
+            </p>
+          </div>
+        </div><br>
+      </div>
+      <div class="question">
+        <table class="questiontitletable">
+          <tbody>
+            <tr>
+              <td>
+                <div class="questiontitle">
+                  Question 15. (3 points): Trees question -- AVL
+                  tree rotations
+                </div>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Consider the following AVL tree:</p>
+        <p><img src="final-f20_files/tree_792.jpg" class=
+        "inlineimage" alt="avl tree"></p>
+        <p>What type of rotation would be performed, if any, when
+        14 is inserted?</p>
+        <div class="answer" id="div_answer15" style=
+        "background-color:white">
+          <div class="choice_container" id="choice_container15">
+            <p><input type="radio" id="question15.0" name=
+            "question15[]" onchange="writeMCStatus(15);" value=
+            "Single left">Single left</p>
+            <p><input type="radio" id="question15.1" name=
+            "question15[]" onchange="writeMCStatus(15);" value=
+            "Single right">Single right</p>
+            <p><input type="radio" id="question15.2" name=
+            "question15[]" onchange="writeMCStatus(15);" value=
+            "Double (right first, then left)">Double (right first,
+            then left) </p>
+            <p><input type="radio" id="question15.3" name=
+            "question15[]" onchange="writeMCStatus(15);" value=
+            "Double (left first, then right)">Double (left first,
+            then right)</p>
+            <p><input type="radio" id="question15.4" name=
+            "question15[]" onchange="writeMCStatus(15);" value=
+            "None">None</p>
+          </div>
+          <div class="status_div" id="question15_status_div">
+            <p id="question15_status" style="text-align: center;">
+            </p>
+          </div>
+        </div><br>
+      </div>
+      <div class="question">
+        <table class="questiontitletable">
+          <tbody>
+            <tr>
+              <td>
+                <div class="questiontitle">
+                  Question 16. (3 points): Trees question --
+                  traversals
+                </div>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Given the following tree:</p><img src=
+        "final-f20_files/tree_19983.jpg" class="inlineimage">
+        <p>What is the postorder traversal of this tree? Your
+        answer must be in a space-separated list of the values,
+        such as "A B C D E F G H I J". The letters must be
+        capitalized.</p>
+        <div class="answer" id="div_answer16" style=
+        "background-color:white">
+          <div class="choice_container" id="choice_container16">
+            <input type="text" id="question16" name="question16"
+            oninput=
+            "document.getElementById('div_answer16').style.backgroundColor=modified_color;"
+            onfocusout=
+            "validateEntry('question16','^[A-Z]( [A-Z])+$');"><br>
+          </div>
+          <div class="status_div" id="question16_status_div">
+            <p id="question16_status" style="text-align: center;">
+            </p>
+          </div>
+        </div><br>
+      </div>
+      <div class="question">
+        <table class="questiontitletable">
+          <tbody>
+            <tr>
+              <td>
+                <div class="questiontitle">
+                  Question 17. (6 points): Hashes question --
+                  insertion
+                </div>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Assume a hash table that uses quadratic probing has a
+        size of 10 with the hash funtion of h(x) = x * 6 + 3. What
+        is the resultant hash table after inserting the following
+        integer values: [4, 9, 3, 7, 0, 6, 2]? There will not be
+        any rehashing with the inserting of those values. Your
+        answer must be in a space-separated list of the values in
+        the hash table array of size 10 with '#' for an empty cell.
+        For example: "1 # 2 # 3 # 4 # 5 # 6" (without the quotes,
+        of course).</p>
+        <div class="answer" id="div_answer17" style=
+        "background-color:white">
+          <div class="choice_container" id="choice_container17">
+            <input type="text" id="question17" name="question17"
+            oninput=
+            "document.getElementById('div_answer17').style.backgroundColor=modified_color;"
+            onfocusout=
+            "validateEntry('question17','^((#|\\d) )+(#|\\d)$');"><br>
+          </div>
+          <div class="status_div" id="question17_status_div">
+            <p id="question17_status" style="text-align: center;">
+            </p>
+          </div>
+        </div><br>
+      </div>
+      <div class="question">
+        <table class="questiontitletable">
+          <tbody>
+            <tr>
+              <td>
+                <div class="questiontitle">
+                  Question 18. (3 points): Assembly question
+                </div>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>What is the result of the recursive code shown below?
+        Assume the function prototype is <code>int recur(int
+        x);</code>? Note that the formuals in the answers use the
+        floor (<code>⌊⌋</code>) and ceiling (<code>⌈⌉</code>)
+        functions, and the log functions in the answers are all
+        base 2..</p>
+        <p><img src="final-f20_files/pdr_exam_f20_13.jpg" alt="Q12"
+        class="inlineimage"></p>
+        <div class="answer" id="div_answer18" style=
+        "background-color:white">
+          <div class="choice_container" id="choice_container18">
+            <p><input type="radio" id="question18.0" name=
+            "question18[]" onchange="writeMCStatus(18);" value=
+            "⌊ log (x) ⌋">⌊ log (x) ⌋</p>
+            <p><input type="radio" id="question18.1" name=
+            "question18[]" onchange="writeMCStatus(18);" value=
+            "⌈ log (x) ⌉">⌈ log (x) ⌉ </p>
+            <p><input type="radio" id="question18.2" name=
+            "question18[]" onchange="writeMCStatus(18);" value=
+            "⌈ x / 2 ⌉">⌈ x / 2 ⌉</p>
+            <p><input type="radio" id="question18.3" name=
+            "question18[]" onchange="writeMCStatus(18);" value=
+            "1 + x / 2">1 + x / 2</p>
+            <p><input type="radio" id="question18.4" name=
+            "question18[]" onchange="writeMCStatus(18);" value=
+            "None of the above">None of the above</p>
+          </div>
+          <div class="status_div" id="question18_status_div">
+            <p id="question18_status" style="text-align: center;">
+            </p>
+          </div>
+        </div><br>
+      </div>
+      <div class="question">
+        <table class="questiontitletable">
+          <tbody>
+            <tr>
+              <td>
+                <div class="questiontitle">
+                  Question 19. (3 points): Assembly question
+                </div>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Which of the following properly reads a value from an
+        array with the base address in <code>rdx</code> and the
+        index in <code>rcx</code> into the register
+        <code>rax</code>? Assume the array elements are 8 bytes in
+        size.</p>
+        <div class="answer" id="div_answer19" style=
+        "background-color:white">
+          <div class="choice_container" id="choice_container19">
+            <p><input type="radio" id="question19.0" name=
+            "question19[]" onchange="writeMCStatus(19);" value=
+            "`mov rax, [rdx + rcx*4]`"><code>mov rax, [rdx +
+            rcx*4]</code></p>
+            <p><input type="radio" id="question19.1" name=
+            "question19[]" onchange="writeMCStatus(19);" value=
+            "`mov rax, [rdx*rcx + 4]`"><code>mov rax, [rdx*rcx +
+            4]</code></p>
+            <p><input type="radio" id="question19.2" name=
+            "question19[]" onchange="writeMCStatus(19);" value=
+            "`mov rax, [edx + rcx*4]`"><code>mov rax, [edx +
+            rcx*4]</code></p>
+            <p><input type="radio" id="question19.3" name=
+            "question19[]" onchange="writeMCStatus(19);" value=
+            "`mov rax, [rdx + rcx*4]`"><code>mov rax, [rdx +
+            rcx*4]</code></p>
+            <p><input type="radio" id="question19.4" name=
+            "question19[]" onchange="writeMCStatus(19);" value=
+            "`mov rax, [rdx + rcx*8]`"><code>mov rax, [rdx +
+            rcx*8]</code> </p>
+          </div>
+          <div class="status_div" id="question19_status_div">
+            <p id="question19_status" style="text-align: center;">
+            </p>
+          </div>
+        </div><br>
+      </div>
+      <div class="question">
+        <table class="questiontitletable">
+          <tbody>
+            <tr>
+              <td>
+                <div class="questiontitle">
+                  Question 20. (6 points): Assembly question --
+                  <code>mysteryFunc()</code>
+                </div>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Consider the _mysteryFunc assembly function below. This
+        function takes in an array and a size of that array as
+        parameters. List the contents of the array (space
+        separated) after the function returns on the input below.
+        The input below is the size of the array, followed by the
+        initial contents of the array.</p>
+        <p>Array: 3 2 6 4 6 (size: 5)</p><img src=
+        "final-f20_files/visible_002.jpg" alt="Code" class=
+        "inlineimage">
+        <div class="answer" id="div_answer20" style=
+        "background-color:white">
+          <div class="choice_container" id="choice_container20">
+            <input type="text" id="question20" name="question20"
+            oninput=
+            "document.getElementById('div_answer20').style.backgroundColor=modified_color;"
+            onfocusout=
+            "validateEntry('question20','^[0-9]+(\ [0-9]+)*$');"><br>
+          </div>
+          <div class="status_div" id="question20_status_div">
+            <p id="question20_status" style="text-align: center;">
+            </p>
+          </div>
+        </div><br>
+      </div>
+      <div class="question">
+        <table class="questiontitletable">
+          <tbody>
+            <tr>
+              <td>
+                <div class="questiontitle">
+                  Question 21. (3 points): Heaps / Huffman question
+                </div>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>How does the asymptotic complexity analysis (i.e.,
+        big-Theta analysis) change in a min heap if it is
+        implemented via an array versus using dynamic memory with
+        HeapNodes (or equivalent)? Consider the operations
+        <code>insert()</code>, 'findMin()<code>,
+        and</code>deleteMin()`.</p>
+        <div class="answer" id="div_answer21" style=
+        "background-color:white">
+          <div class="choice_container" id="choice_container21">
+            <p><input type="radio" id="question21.0" name=
+            "question21[]" onchange="writeMCStatus(21);" value=
+            "all array-based operations are slower than node-based operations">all
+            array-based operations are slower than node-based
+            operations</p>
+            <p><input type="radio" id="question21.1" name=
+            "question21[]" onchange="writeMCStatus(21);" value=
+            "all operations have the same runtime">all operations
+            have the same runtime </p>
+            <p><input type="radio" id="question21.2" name=
+            "question21[]" onchange="writeMCStatus(21);" value=
+            "all array-based operations are faster than node-based operations">all
+            array-based operations are faster than node-based
+            operations</p>
+            <p><input type="radio" id="question21.3" name=
+            "question21[]" onchange="writeMCStatus(21);" value=
+            "some array-based operations are faster as node-based, while other array-based operations are slower than node-based operations">some
+            array-based operations are faster as node-based, while
+            other array-based operations are slower than node-based
+            operations</p>
+            <p><input type="radio" id="question21.4" name=
+            "question21[]" onchange="writeMCStatus(21);" value=
+            "some array-based operations have the same runtime as node-based, while some array-based operations others are slower than the node-based operations">some
+            array-based operations have the same runtime as
+            node-based, while some array-based operations others
+            are slower than the node-based operations</p>
+            <p><input type="radio" id="question21.5" name=
+            "question21[]" onchange="writeMCStatus(21);" value=
+            "some array-based operations have the same runtime as node-based, while some array-based operations others are faster than the node-based operations">some
+            array-based operations have the same runtime as
+            node-based, while some array-based operations others
+            are faster than the node-based operations</p>
+          </div>
+          <div class="status_div" id="question21_status_div">
+            <p id="question21_status" style="text-align: center;">
+            </p>
+          </div>
+        </div><br>
+      </div>
+      <div class="question">
+        <table class="questiontitletable">
+          <tbody>
+            <tr>
+              <td>
+                <div class="questiontitle">
+                  Question 22. (6 points): Heaps / Huffman question
+                  -- encoding
+                </div>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Consider the following Huffman coding tree:</p><img src=
+        "final-f20_files/hufftree_450.jpg" class="inlineimage" alt=
+        "huffman tree">
+        <p>Encode 'baby yoda' using this tree. Note that left is 0
+        and right is 1. Your answer should only include the digits
+        0 and 1; do NOT include any other characters, such as
+        spaces. Note that each node in the tree shows the character
+        (if not an internal node) and the frequency.</p>
+        <div class="answer" id="div_answer22" style=
+        "background-color:white">
+          <div class="choice_container" id="choice_container22">
+            <input type="text" id="question22" name="question22"
+            oninput=
+            "document.getElementById('div_answer22').style.backgroundColor=modified_color;"
+            onfocusout="validateEntry('question22','^[01]+$');"><br>
+          </div>
+          <div class="status_div" id="question22_status_div">
+            <p id="question22_status" style="text-align: center;">
+            </p>
+          </div>
+        </div><br>
+      </div>
+      <div class="question">
+        <table class="questiontitletable">
+          <tbody>
+            <tr>
+              <td>
+                <div class="questiontitle">
+                  Question 23. (3 points): Heaps / Huffman question
+                  -- is heap valid
+                </div>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Heaps are typically stored in arrays or vectors, with
+        the 0th index discarded. Is the following vector
+        representation a valid min-heap stored this way? ['-', 5,
+        7, 18, 9, 16, 16]</p>
+        <div class="answer" id="div_answer23" style=
+        "background-color:white">
+          <div class="choice_container" id="choice_container23">
+            <p><input type="radio" id="question23.0" name=
+            "question23[]" onchange="writeMCStatus(23);" value=
+            "True">True</p>
+            <p><input type="radio" id="question23.1" name=
+            "question23[]" onchange="writeMCStatus(23);" value=
+            "False">False </p>
+          </div>
+          <div class="status_div" id="question23_status_div">
+            <p id="question23_status" style="text-align: center;">
+            </p>
+          </div>
+        </div><br>
+      </div>
+      <div class="question">
+        <table class="questiontitletable">
+          <tbody>
+            <tr>
+              <td>
+                <div class="questiontitle">
+                  Question 24. (6 points): Graphs question -- MST
+                </div>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Consider the graph shown in the two images
+        below:</p><img src="final-f20_files/diagram_44.jpg" class=
+        "inlineimage" alt="graph"> <img src=
+        "final-f20_files/mst.jpg" class="inlineimage" alt="graph">
+        <p>The first image shows the weights of the edges, and the
+        second image shows the letter names of the edges. The
+        answer will need to use the letter names of the edges
+        (i.e., the letters A-L).</p>
+        <p>Compute the minimum spanning tree using either algorithm
+        discussed in class. Your answer is to be a space-separated
+        list of the edges in the MST, and must a be of the form "A
+        B C D" (without the quotes); edge letters should be
+        captialized. However, the order of your edges in the
+        minimum spanning tree MUST BE SORTED alphabetically (so "A
+        C B" would not be the correct format, but "A B C" would
+        be).</p>
+        <div class="answer" id="div_answer24" style=
+        "background-color:white">
+          <div class="choice_container" id="choice_container24">
+            <input type="text" id="question24" name="question24"
+            oninput=
+            "document.getElementById('div_answer24').style.backgroundColor=modified_color;"
+            onfocusout=
+            "validateEntry('question24','^[A-L]( [A-L])+$');"><br>
+          </div>
+          <div class="status_div" id="question24_status_div">
+            <p id="question24_status" style="text-align: center;">
+            </p>
+          </div>
+        </div><br>
+      </div>
+      <div class="question">
+        <table class="questiontitletable">
+          <tbody>
+            <tr>
+              <td>
+                <div class="questiontitle">
+                  Question 25. (6 points): Graphs question --
+                  Dijkstra's
+                </div>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Consider the following graph:</p><img src=
+        "final-f20_files/diagram_96.jpg" alt="graph" class=
+        "inlineimage">
+        <p>Perform Dijkstra's shortest path algorithm on this
+        graph, starting at vertex 1. In Dijkstra's, all vertices
+        start with infinite distance, and are updated throughout
+        the running of the algorithm; all vertices are updated at
+        least once (from infinity to a finite value). Which of the
+        vertices has their shortest distances updated <i>more</i>
+        than once during the running Dijkstra's algorithm?</p>
+        <div class="answer" id="div_answer25" style=
+        "background-color:white">
+          <div class="choice_container" id="choice_container25">
+            <p><input type="checkbox" id="question25.0" name=
+            "question25[]" onchange="writeMCStatus(25);" value=
+            "vertex v0">vertex v0</p>
+            <p><input type="checkbox" id="question25.1" name=
+            "question25[]" onchange="writeMCStatus(25);" value=
+            "vertex v1">vertex v1</p>
+            <p><input type="checkbox" id="question25.2" name=
+            "question25[]" onchange="writeMCStatus(25);" value=
+            "vertex v2">vertex v2</p>
+            <p><input type="checkbox" id="question25.3" name=
+            "question25[]" onchange="writeMCStatus(25);" value=
+            "vertex v3">vertex v3 </p>
+            <p><input type="checkbox" id="question25.4" name=
+            "question25[]" onchange="writeMCStatus(25);" value=
+            "vertex v4">vertex v4 </p>
+            <p><input type="checkbox" id="question25.5" name=
+            "question25[]" onchange="writeMCStatus(25);" value=
+            "vertex v5">vertex v5</p>
+            <p><input type="checkbox" id="question25.6" name=
+            "question25[]" onchange="writeMCStatus(25);" value=
+            "vertex v6">vertex v6 </p>
+          </div>
+          <div class="status_div" id="question25_status_div">
+            <p id="question25_status" style="text-align: center;">
+            </p>
+          </div>
+        </div><br>
+      </div>
+      <div class="question">
+        <table class="questiontitletable">
+          <tbody>
+            <tr>
+              <td>
+                <div class="questiontitle">
+                  Question 26. (3 points): Memory question
+                </div>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>There are multiple variables in a program that are never
+        used. What will likely happen when the compiler compiles
+        the code?</p>
+        <div class="answer" id="div_answer26" style=
+        "background-color:white">
+          <div class="choice_container" id="choice_container26">
+            <p><input type="radio" id="question26.0" name=
+            "question26[]" onchange="writeMCStatus(26);" value=
+            "The compiler optimizes out the unused variables and will not compile">The
+            compiler optimizes out the unused variables and will
+            not compile</p>
+            <p><input type="radio" id="question26.1" name=
+            "question26[]" onchange="writeMCStatus(26);" value=
+            "The compiler optimizes out the unused variables and will compile">The
+            compiler optimizes out the unused variables and will
+            compile </p>
+            <p><input type="radio" id="question26.2" name=
+            "question26[]" onchange="writeMCStatus(26);" value=
+            "The compiler will compile the code without modification and will compile">The
+            compiler will compile the code without modification and
+            will compile</p>
+            <p><input type="radio" id="question26.3" name=
+            "question26[]" onchange="writeMCStatus(26);" value=
+            "The compiler will compile the code without modification and will compile">The
+            compiler will compile the code without modification and
+            will compile</p>
+          </div>
+          <div class="status_div" id="question26_status_div">
+            <p id="question26_status" style="text-align: center;">
+            </p>
+          </div>
+        </div><br>
+      </div>
+      <div class="question">
+        <table class="questiontitletable">
+          <tbody>
+            <tr>
+              <td>
+                <div class="questiontitle">
+                  Question 27. (0 points): Comments
+                </div>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Any other comments or issues with this exam? Such as
+        unreadable diagrams, problems you encountered, etc. If
+        none, just put "none" or "N/A" in the box below.</p>
+        <div class="answer" id="div_answer27" style=
+        "background-color:white">
+          <div class="choice_container" id="choice_container27">
+            <input type="text" id="question27" name="question27"
+            oninput=
+            "document.getElementById('div_answer27').style.backgroundColor=modified_color;"
+            onfocusout="validateEntry('question27','');"><br>
+          </div>
+          <div class="status_div" id="question27_status_div">
+            <p id="question27_status" style="text-align: center;">
+            </p>
+          </div>
+        </div><br>
+      </div>
+      <p>&nbsp;</p>
+    </form>
+  </div>
+  <script>
+  document.getElementById('javascript_test').style.display = 'none';
+  document.getElementById('modified_span').style.backgroundColor=modified_color;
+  document.getElementById('error_span').style.backgroundColor=error_color;
+  document.getElementById('saved_span').style.backgroundColor=saved_color;
+  </script>
+</body>
+</html>

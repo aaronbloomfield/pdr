@@ -3,27 +3,29 @@ CS 2150: Program and Data Representation: Course Syllabus
 
 [Go up to the CS 2150 page][1] ([md][2])
 
-## Fall 2020
+## Spring 2021
 
 ### Instructor ###
 
-- [Aaron Bloomfield][33] / [aaron@virginia.edu](mailto:aaron@virginia.edu).  Office: Rice Hall, room 402
-- [Mark Floryan][31] / [mrf8t@virginia.edu](mailto:mrf8t@virginia.edu).  Office: Rice Hall, room 203
-- [Rich Nguyen](http://cs.virginia.edu/~nn4pj/) / [aaron@virginia.edu](mailto:aaron@virginia.edu).  Office: Rice Hall, room 202
+- [Aaron Bloomfield][33] / [aaron@virginia.edu](mailto:aaron@virginia.edu).  Office: Rice Hall, room 402.  This course, and all office hours and lecture times, will be done virtually due to the Covid-19 pandemic.
 
 ### Course Info ###
 
-- Lectures: M/W/F 11:00-11:50, 1:00-1:50, 2:00-2:50
+- Lectures: M/W/F 10:00-10:50 and 1:00-1:50
+    - All lectures are via Zoom, and the link can be found in the Collab workspace
 - Email: none; fill out a [support request][42] instead
+- Office hours: these are incorporated into the lecture times (10-11 and 1-2 on M/W/F).  Any concerns that are not appropriate to be addressed then should be submitted via a [support request][42].
 - Announcement feed: [\@UVaCS2150][34] and the [daily announcements slide set][15]; you are responsible for checking both
-- TA office hours are 5pm-11pm on Sundays, Mondays, Wednesdays, and Thursdays on Zoom; All office hours start the Sunday after classes start
+- TA office hours are 5pm-11pm on Sundays, Mondays, Wednesdays, and Thursdays on Zoom; All office hours start the Sunday after classes start.
 - Laboratory Meetings (on Zoom): all on Tuesdays
 
 **Course Description:** This course will introduce you to program and data representation from high level concepts to machine level implementation. Data structuring techniques and the representation of data structures during program execution are discussed, as are operations and control structures and their representation during program execution. Representations of numbers, arithmetic operations, arrays, records, recursion, hashing, stacks, queues, trees, graphs, and related concepts are also covered.
 
-**Availability:** It is important to me to be available to my students, and to address your concerns. If you cannot meet with me during office hours, e-mail and I will try to find the time to meet. That being said, like everybody else I get quite busy, so it may take a day or more to find a time to meet. And if you have any comments on the course - what is working, what is not working, what can be done better, etc. - I are very interested in hearing about them. There is an [anonymous feedback tool through Collab][37], or you can send an e-mail (please do NOT email the TAs directly). I tend to get bogged down by e-mail as the semester progresses, so seeing me in person (right after lecture, during office hours, etc.) is often a good way to get a more immediate response.
+**Availability:** It is important to me to be available to my students, and to address your concerns. If your concern can't be addressed during the lecture periods or via a [support request][42], then please fill out a [support request][42] to find a time to (virtually) meet.  But with 500 students in the class, and only one instructor, I will not be able to manage everybody emailing their concerns -- hence the use of the [support request][42] system.
 
-**Prerequisites:** CS 2110 (Software Development Methods) or CS 2220 (Engineering Software); and CS 2102 (Discrete Math), all with grades of C- or above.  Note that CS 2102 is allowed as a co-requisite, but see the details for this in the [first slide set][11] (specifically, [here][12]).
+If you have any comments on the course - what is working, what is not working, what can be done better, etc. - I are very interested in hearing about them. There is an [anonymous feedback tool through Collab][37] that you can use, or e-mail.
+
+**Prerequisites:** CS 2110 (Software Development Methods) or CS 2220 (Engineering Software); and CS 2102 (Discrete Math), all with grades of C- or above.  CS 2110 is a strict pre-req, and no execptions are ever allowed for not having taken that course.  CS 2102 is allowed as a co-requisite, but see the details for this in the [first slide set][11] (specifically, [here][12]).
 
 **Course Objectives:** Students who complete the course will:
 
@@ -38,9 +40,15 @@ CS 2150: Program and Data Representation: Course Syllabus
 - 70%: Laboratories
 - 30%: Final exam
 
-The course grades will follow the standard decade curve: 90 and above is an A of some sort (A-, A, or A+), 80 and above is some sort of a B, etc.  **Note:** We reserve the right to modify the weighting (changing the curve, adding pop quizzes, etc.), especially if attendance drops off significantly.  If this does happen, it will be clearly announced in lecture.
+The course grades are ***LIKELY*** to follow the standard decade curve: 90 and above is an A of some sort (A-, A, or A+), 80 and above is some sort of a B, etc.  This is not a guarantee, as the final determination of the course grades is goign to depend on how the grading works out.
 
 **Class recordings:** Class sessions for this course will be recorded. Recordings will be available only to the instructor(s) and students enrolled in the class, including those who cannot attend the live sessions. Recordings will be deleted when no longer necessary. Recordings may not be reproduced, shared with those not enrolled in the class, or uploaded to other online environments. Students who are not comfortable with participating in a recorded discussion session should contact the instructor to request an alternate assessment activity. Students in a class are prohibited from recording of any kind unless authorization is obtained from the instructor.
+
+**Learning the material:** We provide a number of ways for you to learn the material.  You do not need to utilize all of them -- and, quite frankly, we don't expect you to use all of them, as that would take up way too much time.  You should figure out what works best for you, and then utilize those.
+
+- Lecture recordings: via the "Lecture capture" tool on Collab, these are pre-recorded lectures that go through the slides one by one.  They don't show the board when diagrams are being written, though.  For reasons explained in the first lecture, they have to all be recorded when classes start, so we are using a set from a previous semester.
+- Reading through the slides on your own: this will be the quickest, and likely will not teach you the material nearly as well.  Keep in mind that you still need to know the material, so if you skip all the live or recorded video sessions, and just read the slides, you are going to be in trouble for the labs and the final exam.
+- Lecture periods: at 10 am or 1 pm.  These go over some of the more challenging concepts discussed in the lecture recordings, and delve a bit deeper into some topics.  This is NOT a review of all the slides that were in the recording.  And if a question is asked that is directly addressed in the lecture recordings, you will likely be referred there.
 
 **Development Environment:** In this class, you may NOT use Microsoft Visual Studio, any other Microsoft Windows-based development environment, or any IDE (Integrated Development Environment), for any reason.  This includes, among others, Eclipse, Netbeans, Xcode, Geany, Visual Studio, and Atom. This applies to program development - obviously, you can use MS Office to edit text documents. The purpose behind this rule is to introduce you to the Unix environment - thus, all course work in this class is to be done in a Unix environment (typically Linux or FreeBSD). We will discuss how to access and/or install these environments in the beginning of the course. **In order to take this course, you agree to sign an honor pledge that states that you will NOT use a Microsoft Windows-based development environment or IDE for any course work.**
 
@@ -52,13 +60,11 @@ The course grades will follow the standard decade curve: 90 and above is an A of
 
 **Exams:** There will be one final exam (worth 30% of the final grade).
 
-- Final Exam: Friday, December 4th from 7 p.m. to 10 p.m.
-    - This is a common exam time, and conflicts with other courses (BIOL 2100, CS 2110, KOR 1010, KOR 2010, KOR 3010, STAT 2120, and STAT 3120)
-    - Let us know by the end of September if you have a conflict (via a support request); we will deal with scheduling conflicts later in the semester
+- Final Exam: Saturday, May 8th, from 7 p.m. to 10 p.m.
+    - This is a common exam time, and conflicts with other courses (APMA 3110, APMA 3140, and ECON 2020 (sections 001 and 002)
+    - Let us know by the end of February if you have a conflict (via a [support request][42]); we will deal with scheduling conflicts later in the semester.  We will not be able to accommodate anybody who does not let us know prior to the end of February due to the planning involved.
 
-Under **NO** circumstances will anybody be allowed to take the final exam outside of the scheduled exam time. Since it is a common exam time, the only conflicts are the courses listed on UVa official exam schedule.  For Fall 2020, they are: BIOL 2100, KOR 1010 2010 3010, STAT 2120 3120, CS 2110 4102 (you should NOT be in those CS classes though). You need to ask the instructors of those courses to move their exam.
-
-You may submit exam questions for regrading within 10 days of when they are returned to you (less time for the final due to the end of the semester); this is done via the [course tools][41].  However, you MUST be aware of the [Frivolous regrade policy][3] ([md][4]), which will be strictly enforced.
+Under **NO** circumstances will anybody be allowed to take the final exam outside of the scheduled exam time. Since it is a common exam time, the only conflicts are the courses listed on UVa official exam schedule, and are listed above.  You will likely need to ask the instructors of those courses to move their exam, but this will be discussed once we have the list of conflicts at the end of February.
 
 **Laboratories:** There will be 11 or 12 programming labs this semester, and they constitute 70% of your grade.  Note that if the number of labs changes, the respective weights for each lab will also be adjusted and announced in class.  The total weight of the labs for the final grade will remain 70%, unless a change in the course grading criteria (as above) is announced in class.  The majority of the work in this class is through the labs -- there are no separate homework assignments.  The labs have different late policies, which will be specified in more detail in the first lab.  **Your lab submission must compile for you to receive *any* credit** -- this is an advanced programming class, and under no circumstances should you be submitting code that does not compile - we have a page on [compilation issues][5] ([md][6]) to help you if you cannot get your code to compile.  Note that the *entire* assignment will receive zero credit if even *one* part of it does not compile.
 
@@ -76,12 +82,12 @@ Please note, however, that there are a number of rules that we will strictly fol
 **Computing resources:** There are two specific computer resources needed for this course:
 
 - You need to have a working computer that can run a recent build of [VirtualBox][36], with enough hard drive space (and memory) to use a course VirtualBox image (about 15 Gb will be needed for the install, and then 10 Gb  will be used once the installation files are deleted).  Any computer made in the last 3 years will suffice for these requirements (and many older ones will as well).  It does not matter if it is a desktop or notebook; nor does the speed matter.
-    - If your computer breaks, you can contact the CS systems staff for a loaner laptop -- they are in the basement of Rice hall, in rooms ?? and ??.  Tell them you are in my class, and they will provide you with a machine to borrow.
-- There are a few documents that you will have to print (the UNIX honor pledge, etc.).  We will attempt to provide copies for you.  The total printing load will be under 5 pages for the entire semester.  You will need to obtain access to a printer for those pages.
+    - ~~If your computer breaks, you can contact the CS systems staff for a loaner laptop -- they are in the basement of Rice hall, in rooms ?? and ??.  Tell them you are in my class, and they will provide you with a machine to borrow.~~
+	- If your computer breaks, please submit a [support request][42].  If you are on grounds, we may be able to provide you with a loaner machine.
 
-**Attendance:** Attendance is highly recommended but not required in either lecture or lab. Unless you have received special permission, you cannot attend labs that you are not enrolled in due to space constraints.  Please see the [first set of lecture slides][11] for more information about the lab schedule, in particular with regards to the fact that there is a lab the week of Thanksgiving break (in fall semesters) or the weeks before and after spring break (in spring semesters).
+**Attendance:** Attendance is highly recommended but not required in either lecture or lab. Unless you have received special permission, you cannot attend labs that you are not enrolled in due to space constraints.  Please see the [first set of lecture slides][11] for more information about the lab schedule.  ~~In particular with regards to the fact that there is a lab the week of Thanksgiving break (in fall semesters) or the weeks before and after spring break (in spring semesters).~~
 
-**Professionalism:** We are all adults, and should act like such.  Acting in an unprofessional manner that disrupts the class will first incur a stern talking-to.  After that, a grade penalty may be assessed.  Examples include: disrupting class, trolling people on Piazza, abusing the support request system, etc.  This is meant to keep people from repeatedly disrupting class; we are not trying to be super strict on this.  While we generally expect to give a warning prior to any other action, infractions that go well beyond unprofessional may incr penalties with no warning.
+**Professionalism:** We are all adults, and should act like such.  Acting in an unprofessional manner that disrupts the class will first incur a stern talking-to.  After that, a grade penalty may be assessed.  Examples include: disrupting class, trolling people on Piazza, abusing the [support request][42] system, etc.  This is meant to keep people from repeatedly disrupting class; we are not trying to be super strict on this.  While we generally expect to give a warning prior to any other action, infractions that go well beyond unprofessional may incr penalties with no warning.
 
 **Honor Policy:** There have been a large number of honor violations in this class and other low-level CS courses recently.  Outside the normal UVa honor policy rules, we have these additional rules:
 
@@ -91,6 +97,8 @@ Please note, however, that there are a number of rules that we will strictly fol
 4. Releasing your homework online, including a public github repository, is an honor violation
 5. Using a computer to generate your *assembly* code, instead of writing yourself, is an honor violation (this includes using the compiler to generate assembly code for submission, although not for including in a report)
 6. We realize we should have to say this, but we will not sign more than one conscientious retraction for a given student within one semester.
+7. We thought this was obvious also, but apparently we have to say it: you can't submit somebody else's code as the main part of the assignment and claim it is valid because you cited that code.  The point of the labs is for *you* to do the work, not for you to do a Google search.
+
 
 Any honor violation or cheating will be referred to the honor committee, **and will result in an immediate failure for the course**, regardless of the outcome of the honor trial or your other grades.  No exceptions!  I am very strict on this, and one have successfully raised honor charges against students in the past due to violations of this policy.
 
