@@ -16,4 +16,11 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
-- Lecture 1: Mon, Feb 1: this lecture discussed the class structure, so no code was developed
+- Lecture 3: Fri, Feb 5 (c++ through slide 8.1)
+    - [item.cpp](lec03/item.cpp.html) ([raw code](lec03/item.cpp))
+    - [item.h](lec03/item.h.html) ([raw code](lec03/item.h))
+    - [main.cpp](lec03/main.cpp.html) ([raw code](lec03/main.cpp))
+- Lecture 2: Wed, Feb 3 (finished course intro; c++ through slide 5.5)
+    - [helloworld.cpp](lec02/helloworld.cpp.html) ([raw code](lec02/helloworld.cpp))
+- Lecture 1: Mon, Feb 1 (course intro to slide 3.40)
+    - This lecture discussed the class structure, so no code was developed
