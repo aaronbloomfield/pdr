@@ -81,9 +81,10 @@ int main(){
                     cin >> response;
                 }
 
+                previousAmount = account->getBalance();
                 account->deposit(sanitize(response));
                 if(previousAmount == account->getBalance()){
-                	cout << endl << "\tDeposit failed, not enough money in your account.";
+                	cout << endl << "\tNo money deposited into your account.";
                 }
                 cout << endl << "\tThe new balance is: $" << account->getBalance() << endl;
                 break;
@@ -105,7 +106,7 @@ int main(){
                 previousAmount = account->getBalance();
                 account->withdraw(sanitize(response));
                 if (previousAmount == account->getBalance()){
-                	cout << endl << "\tWithdraw failed, not enough money in your account.";
+                	cout << endl << "\tNo money was taken out of your account.";
                 }
                 cout << endl << "\tThe new balance is: $" << account->getBalance() << endl;
                 break;
@@ -170,5 +171,6 @@ double sanitize(const string& s){
 	char* end;
 	double amount = strtod(s.c_str(), &end);
 	amount = round(amount * 100.0) / 100.0;
+    if (amount < 0) amount = 0;
 	return amount;
 }
