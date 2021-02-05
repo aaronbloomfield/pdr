@@ -3,14 +3,14 @@ ASTYLEOPTS	= --align-pointer=type --align-reference=type --pad-oper \
 		  --pad-paren-out --indent-switches --suffix=none --formatted 
 
 default:
-	make -C ../../..
+	make -C ../..
 
 clean:
 	/bin/rm -f *~ */*~ */a.out
 
 code:
-	@astyle $(ASTYLEOPTS) */*.cpp # */*.h
-	@source-highlight -d */*.cpp #*/*.h */*.s */Makefile
+	@astyle $(ASTYLEOPTS) */*.cpp */*.h
+	@source-highlight -d */*.cpp */*.h # */*.s */Makefile
 
 markdown:
 	@make clean
