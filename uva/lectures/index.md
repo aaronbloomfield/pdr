@@ -16,6 +16,9 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 4: Mon, Feb 8 (c++ through slide 9.19)
+    - [pointers.cpp](lec04/pointers.cpp.html) ([raw code](lec04/pointers.cpp))
+    - [sketched image](lec04/lec04.svg)
 - Lecture 3: Fri, Feb 5 (c++ through slide 8.1)
     - [item.cpp](lec03/item.cpp.html) ([raw code](lec03/item.cpp))
     - [item.h](lec03/item.h.html) ([raw code](lec03/item.h))
