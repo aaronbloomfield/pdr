@@ -16,7 +16,7 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
-- Lecture 4: Wed, Feb 10 (c++ through slide 10.17)
+- Lecture 5: Wed, Feb 10 (c++ through slide 10.17)
     - [swap sketched image](lec05/swap.svg)
     - [notswap.cpp](lec05/notswap.cpp.html) ([raw code](lec05/notswap.cpp))
     - [mistakes.cpp](lec05/mistakes.cpp.html) ([raw code](lec05/mistakes.cpp)) and the [mistakes sketched image](lec05/mistakes.svg)
