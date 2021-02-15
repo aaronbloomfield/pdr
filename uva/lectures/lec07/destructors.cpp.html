@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>lec07/destructors.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">// Must compile with the -m32 compiler flag</font></i>
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<font color="#009900">long</font> count <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+<font color="#009900">int</font> space <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+
+
+<b><font color="#0000FF">class</font></b> <font color="#008080">Item</font> <font color="#FF0000">{</font>
+<b><font color="#0000FF">private</font></b><font color="#990000">:</font>
+    <font color="#009900">int</font><font color="#990000">*</font> id<font color="#990000">;</font>
+    <font color="#009900">double</font> price <font color="#990000">=</font> <font color="#993399">0.0</font><font color="#990000">;</font>
+
+<b><font color="#0000FF">public</font></b><font color="#990000">:</font>
+    <b><font color="#000000">Item</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+        <b><font color="#0000FF">try</font></b> <font color="#FF0000">{</font>
+            cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Constructor called"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+            id <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">int</font> <font color="#990000">(</font><font color="#993399">7</font><font color="#990000">);</font>
+            count<font color="#990000">++;</font>
+        <font color="#FF0000">}</font> <b><font color="#0000FF">catch</font></b> <font color="#990000">(</font>bad_alloc<font color="#990000">&amp;</font> x<font color="#990000">)</font> <font color="#FF0000">{</font>
+            cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"out of memory at allocation # "</font> <font color="#990000">&lt;&lt;</font> count <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+            <font color="#009900">double</font> mem <font color="#990000">=</font> <font color="#990000">(</font> <font color="#990000">(</font><font color="#009900">double</font><font color="#990000">)</font> count <font color="#990000">*</font> <font color="#990000">(</font><font color="#009900">double</font><font color="#990000">)</font> space <font color="#990000">)</font> <font color="#990000">/</font> <font color="#990000">(</font> <font color="#993399">1024.0</font> <font color="#990000">*</font> <font color="#993399">1024.0</font> <font color="#990000">*</font> <font color="#993399">1024.0</font> <font color="#990000">);</font>
+            cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Used memory: "</font> <font color="#990000">&lt;&lt;</font> mem <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" Gb"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+            cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Remaining memory is about: "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">(</font><font color="#993399">4.0</font> <font color="#990000">-</font> mem<font color="#990000">)</font> <font color="#990000">*</font> <font color="#993399">1024.0</font> <font color="#990000">*</font> <font color="#993399">1024.0</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" Kb"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+            <b><font color="#000000">exit</font></b> <font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font>
+        <font color="#FF0000">}</font>
+    <font color="#FF0000">}</font>
+
+    <font color="#990000">~</font><b><font color="#000000">Item</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+        <b><font color="#0000FF">delete</font></b> id<font color="#990000">;</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Destructor called"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
+<font color="#FF0000">}</font><font color="#990000">;</font>
+
+<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+    <font color="#008080">Item</font> i<font color="#990000">;</font>
+    Item<font color="#990000">*</font> j <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Item</font></b><font color="#990000">();</font>
+    <font color="#009900">int</font><font color="#990000">*</font> n <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">int</font><font color="#990000">,</font> <font color="#990000">*</font>m <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">int</font><font color="#990000">;</font>
+
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"First allocated int: "</font> <font color="#990000">&lt;&lt;</font> n <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Second allocated int: "</font> <font color="#990000">&lt;&lt;</font> m <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    space <font color="#990000">=</font> <font color="#990000">(</font><font color="#009900">int</font><font color="#990000">)</font> m <font color="#990000">-</font> <font color="#990000">(</font><font color="#009900">int</font><font color="#990000">)</font> n<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"sizeof(int): "</font> <font color="#990000">&lt;&lt;</font> <b><font color="#0000FF">sizeof</font></b> <font color="#990000">(</font><font color="#009900">int</font><font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"space allocated between ints: "</font> <font color="#990000">&lt;&lt;</font> space <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+
+    <b><font color="#0000FF">delete</font></b> n<font color="#990000">;</font>
+    <b><font color="#0000FF">delete</font></b> m<font color="#990000">;</font>
+
+    <i><font color="#9A1900">// to run out of memory, uncomment the next three lines</font></i>
+    <i><font color="#9A1900">//while ( count &lt; 300000000 ) {</font></i>
+    <i><font color="#9A1900">//Item i;</font></i>
+    <i><font color="#9A1900">//}</font></i>
+
+    <b><font color="#0000FF">delete</font></b> j<font color="#990000">;</font>
+    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+    <i><font color="#9A1900">// destructor for i called here</font></i>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

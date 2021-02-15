@@ -16,6 +16,9 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 7: Mon, Feb 15: finished C++; lists to 4.6
+    - [destructors.cpp](lec07/destructors.cpp.html) ([raw code](lec07/destructors.cpp))
+    - [sketched image](lec07/lec07.svg)
 - Lecture 6: Fri, Feb 12 (c++ through slide 12.10)
     - [stuff.cpp](lec06/stuff.cpp.html) ([raw code](lec06/stuff.cpp))
     - [moreswap.cpp](lec06/moreswap.cpp.html) ([raw code](lec06/moreswap.cpp)) ([swap sketched image](lec05/swap.svg))
