@@ -220,6 +220,8 @@ If you can't use anything private, that means you're limited to only public meth
 Is there anything that helps you create a ListItr that points to the first or last node in the List?
 What about a way to retrieve each node's value from the iterator?
 
+**When printing out the elements of the list, separate them with a space and use a newline after the last element. If the list happens to be empty, just print out a newline.** See the sample output section for an example of the formatting.
+
 #### Compiling ####
 When compiling your code, you must remember to compile all of your .cpp files in one line:
 
@@ -250,6 +252,79 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)
 ```
 This time, we defined insertBefore twice -- once in ListItr, and once in List.
 The one in ListItr must be a mistake!
+
+### Sample Execution Run ###
+In order to make autograding easier, we expect you to follow the output formats specified in these write-ups. Although the test harness handles most of the output formatting for you, the `printList()` method output must be written by you, and as was mentioned above, you should print the list elements separated with a space, following with a newline after the last element. If the list is empty, only print out a newline. An example run is shown below to demonstrate how your output should look. This sample output applies to all sections of this lab.
+
+```
+--------------------------------------------------
+    This test harness operates with one List
+    object and one ListItr object.
+
+    Use the menu options to manipulate these
+    objects.
+     - - - - - -  MENU - - - - - -
+
+        1 - Quit
+        2 - New List
+        3 - Show List elements
+        4 - Set ListItr with first()
+        5 - Set ListItr with find()
+        6 - Set ListItr with last()
+        7 - Move ListItr forward
+        8 - Move ListItr backward
+        9 - Retrieve element at ListItr
+        10 - Insert element before
+        11 - Insert element after
+        12 - Insert element at tail
+        13 - Remove element
+        14 - Cardinality (size)
+        15 - Copy list w/copy constructor
+        16 - Copy list with operator=
+        17 - Make list empty
+
+     - - - - - - - - - - - - - - -
+     Enter number of choice > 2
+        You have created an empty list
+        Do you want to initialize it with elements? (y/n) > y
+            Enter elements one by one as integers.
+            Any non-numeric character, e.g. #, will terminate input
+    Enter first element: 1
+    Enter next element: 2
+    Enter next element: q
+
+The elements in forward order: 
+1 2 
+     - - - - - -  MENU - - - - - -
+
+        1 - Quit
+        2 - New List
+        3 - Show List elements
+        4 - Set ListItr with first()
+        5 - Set ListItr with find()
+        6 - Set ListItr with last()
+        7 - Move ListItr forward
+        8 - Move ListItr backward
+        9 - Retrieve element at ListItr
+        10 - Insert element before
+        11 - Insert element after
+        12 - Insert element at tail
+        13 - Remove element
+        14 - Cardinality (size)
+        15 - Copy list w/copy constructor
+        16 - Copy list with operator=
+        17 - Make list empty
+
+     - - - - - - - - - - - - - - -
+     Enter number of choice > 17
+The list is (forward): 1 2 
+The list is (backward): 2 1 
+The list was made empty (forward): 
+
+The list was made empty (backward): 
+
+```
+In the example output, you can see that the list elements are printed out separated by a space: 1 2. After the last element (2 in this case), a newline was printed. Furthermore, when the list was made empty, only a newline was printed out. Make sure to follow these two formatting constrains when implementing the `printList` method, otherwise Gradescope will not give you any credit.
 
 ------------------------------------------------------------
 
