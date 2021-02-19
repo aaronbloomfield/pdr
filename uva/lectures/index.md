@@ -16,6 +16,9 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 8: Fri, Feb 19: lists to 6.11
+    - [copying.cpp](lec08/copying.cpp.html) ([raw code](lec08/copying.cpp))
+    - [sketched image](lec08/lec08.svg)
 - (Wed, Feb 17 was a UVA break day, so no lecture materials from that day)
 - Lecture 7: Mon, Feb 15: finished C++; lists to 4.6
     - [destructors.cpp](lec07/destructors.cpp.html) ([raw code](lec07/destructors.cpp))
