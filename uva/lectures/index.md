@@ -16,6 +16,7 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- (Wed, Feb 17 was a UVA break day, so no lecture materials from that day)
 - Lecture 7: Mon, Feb 15: finished C++; lists to 4.6
     - [destructors.cpp](lec07/destructors.cpp.html) ([raw code](lec07/destructors.cpp))
     - [sketched image](lec07/lec07.svg)
