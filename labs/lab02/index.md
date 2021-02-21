@@ -320,9 +320,7 @@ The elements in forward order:
 The list is (forward): 1 2 
 The list is (backward): 2 1 
 The list was made empty (forward): 
-
 The list was made empty (backward): 
-
 ```
 In the example output, you can see that the list elements are printed out separated by a space: 1 2. After the last element (2 in this case), a newline was printed. Furthermore, when the list was made empty, only a newline was printed out. Make sure to follow these two formatting constrains when implementing the `printList` method, otherwise Gradescope will not give you any credit.
 
