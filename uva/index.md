@@ -15,7 +15,7 @@ Links
 There are a number of links and other parts of this course that are **NOT** included in this repository.  They are:
 
 - The set of online tools, which can be accessed through Collab or [here][160].
-    - These tools are the [support requests][161] tool and the [office hours queue][166]
+    - These tools are the [support requests][161] tool and the [office hours queue][167]
 - The announcements, which are posted to the CS 2150 twitter feed: [\@UVaCS2150][151]
 - Email list archive, which is a Collab tool ([here][170] is the direct link, although Collab login is required)
 - [Piazza][152], and our specific class is [here][175]; Collab can (maybe?) log you in directly; the Collab tool link is [here][173] (again, Collab login required)
@@ -224,6 +224,7 @@ Grading Concerns
 [164]: https://libra.cs.virginia.edu/~pedagogy/gradebook.php
 [165]: https://libra.cs.virginia.edu/~pedagogy/labextension.php
 [166]: https://libra.cs.virginia.edu/~pedagogy/queue.php
+[167]: https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/queue/
 
 [170]: https://collab.its.virginia.edu/portal/site/a25f92a0-ff43-4cdb-a402-07f5f65467c1/tool-reset/7b7966a1-6a85-490e-a7b7-78e620fc662e
 [171]: https://collab.its.virginia.edu/portal/site/a25f92a0-ff43-4cdb-a402-07f5f65467c1/tool-reset/07422072-bfac-4b3d-97e7-528c76195860
