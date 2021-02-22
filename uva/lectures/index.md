@@ -16,6 +16,9 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 9: Mon, Feb 22 (finished lists; numbers through slide 5.2)
+    - [vectors.cpp](lec09/vectors.cpp.html) ([raw code](lec09/vectors.cpp))
+    - [sketched image](lec09/lec09.svg)
 - Lecture 8: Fri, Feb 19: lists to 6.11
     - [copying.cpp](lec08/copying.cpp.html) ([raw code](lec08/copying.cpp))
     - [sketched image](lec08/lec08.svg)
