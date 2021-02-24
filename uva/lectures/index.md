@@ -16,6 +16,11 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 10: Wed, Feb 24 (numbers through slide 8.10)
+    - [Radix conversion image](lec10/lec10-a.svg)
+    - [Base 2 <-> base 16 conversion image](lec10/lec10-b.svg)
+    - [Endian-ness conversion image](lec10/lec10-c.svg)
+    - [Two's complement conversion image](lec10/lec10-d.svg)
 - Lecture 9: Mon, Feb 22 (finished lists; numbers through slide 5.2)
     - [vectors.cpp](lec09/vectors.cpp.html) ([raw code](lec09/vectors.cpp))
     - [sketched image](lec09/lec09.svg)
