@@ -16,6 +16,10 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 11: Fri, Feb 26 (numbers through 9.21)
+    - [Fall 2019, exam 1, question 10](lec11/lec11-a.svg) ([exam PDF](../../exams/exam1-f19.pdf))
+    - [Spring 2019, exam 1, question 9, part a](lec11/lec11-b.svg) ([exam PDF](../../exams/exam1-s19.pdf))
+    - [Spring 2019, exam 1, question 9, part b & c](lec11/lec11-c.svg) ([exam PDF](../../exams/exam1-s19.pdf))
 - Lecture 10: Wed, Feb 24 (numbers through slide 8.10)
     - [Radix conversion image](lec10/lec10-a.svg)
     - [Base 2 <-> base 16 conversion image](lec10/lec10-b.svg)
