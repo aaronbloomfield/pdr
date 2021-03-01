@@ -16,6 +16,9 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 12: Mon, Mar 1 (finished numbers, arrays & big-Oh to 4.4)
+    - [arrays.cpp](lec12/arrays.cpp.html) ([raw code](lec12/arrays.cpp))
+    - [sketched image](lec12/lec12.svg)
 - Lecture 11: Fri, Feb 26 (numbers through 9.21)
     - [Fall 2019, exam 1, question 10](lec11/lec11-a.svg) ([exam PDF](../../exams/exam1-f19.pdf))
     - [Spring 2019, exam 1, question 9, part a](lec11/lec11-b.svg) ([exam PDF](../../exams/exam1-s19.pdf))
