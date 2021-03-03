@@ -9,6 +9,7 @@ using namespace std;
 // category C: those that will not cause the program to crash and that the address sanitizer will NOT find
 // category D: these are logical, bad prgramming, or other errors, but will not cause a run-time or compile-time error
 // category E: those that compiling with -Wall will find
+// category F: warnings only
 
 // there are multiple ways to compile this:
 // - `clang++ -Wno-everything errors.cpp` to generate no warnings so you can try to find the errors
