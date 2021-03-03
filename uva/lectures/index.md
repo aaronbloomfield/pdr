@@ -1,5 +1,5 @@
-Lecture content
-===============
+Lecture content, Spring 2021
+============================
 
 [Go up to the CS 2150 page](../index.html) ([md](../index.md))
 
@@ -16,6 +16,8 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 13: Wed, Mar 3 (arrays & big-Oh to 5.8)
+    - [errors-no-comments.cpp](lec13/errors-no-comments.cpp.html) ([raw code](lec13/errors-no-comments.cpp))
 - Lecture 12: Mon, Mar 1 (finished numbers, arrays & big-Oh to 4.4)
     - [arrays.cpp](lec12/arrays.cpp.html) ([raw code](lec12/arrays.cpp))
     - [sketched image](lec12/lec12.svg)
