@@ -175,7 +175,7 @@ C++ allows you to compare strings for equality with `==`.
 For example, you can check if `s` is the division operator with `if (s == "/")`.\
 Hint: we can check for all the operators, since there are only five of them.  If all the checks fail, what does that mean the token has to be?
 
-cin takes in all input as strings, but we need to convert those to strings so that we can push them into the stack.
+cin takes in all input as strings, but we need to convert those to ints so that we can push them into the stack.
 Perhaps you should take a look at [the `string` documentation](https://en.cppreference.com/w/cpp/string/basic_string) to see if anything can help you out.
 
 #### Templates ####

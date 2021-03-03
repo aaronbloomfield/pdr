@@ -142,7 +142,7 @@ while (cin &gt;&gt; token) {
 <p>There are two cases you will need to handle when parsing each token: operators and numbers.</p>
 <p>C++ allows you to compare strings for equality with <code>==</code>. For example, you can check if <code>s</code> is the division operator with <code>if (s == "/")</code>.<br />
 Hint: we can check for all the operators, since there are only five of them. If all the checks fail, what does that mean the token has to be?</p>
-<p>cin takes in all input as strings, but we need to convert those to strings so that we can push them into the stack. Perhaps you should take a look at <a href="https://en.cppreference.com/w/cpp/string/basic_string">the <code>string</code> documentation</a> to see if anything can help you out.</p>
+<p>cin takes in all input as strings, but we need to convert those to ints so that we can push them into the stack. Perhaps you should take a look at <a href="https://en.cppreference.com/w/cpp/string/basic_string">the <code>string</code> documentation</a> to see if anything can help you out.</p>
 <h4 id="templates">Templates</h4>
 <p>The C++ <code>stack</code> class is templated, which means it can hold whatever type you specify (think back to ArrayLists in Java). Since we will be using <code>int</code>s for our postfix calculator, we can specify that by saying <code>stack&lt;int&gt;</code> when declaring our stack.</p>
 <h4 id="checking-if-the-stack-is-empty">Checking if the stack is empty</h4>
