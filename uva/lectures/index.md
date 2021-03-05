@@ -1,4 +1,4 @@
-Lecture content, Spring 2021
+Lecture content, spring 2021
 ============================
 
 [Go up to the CS 2150 page](../index.html) ([md](../index.md))
