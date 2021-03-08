@@ -16,6 +16,9 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 14: Fri, Sep 25 (finished arrays arrays & big-Oh)
+    - [comparison graph image](lec14/lec14-graph.svg)
+    - [big-Oh proof image](lec14/lec14-proof.svg)
 - Lecture 13: Wed, Mar 3 (arrays & big-Oh to 5.8)
     - [errors-no-comments.cpp](lec13/errors-no-comments.cpp.html) ([raw code](lec13/errors-no-comments.cpp))
     - [errors-fixed.cpp](lec13/errors-fixed.cpp.html) ([raw code](lec13/errors-fixed.cpp))
