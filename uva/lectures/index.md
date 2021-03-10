@@ -16,6 +16,9 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 15: Mon, Mar 8 (trees through slide 5.11)
+    - Animations are at [https://www.cs.usfca.edu/~galles/visualization/](https://www.cs.usfca.edu/~galles/visualization/), specifically the [one for BSTs](https://www.cs.usfca.edu/~galles/visualization/BST.html)
+    - [sketched image](lec15/lec15.svg)
 - Lecture 14: Fri, Sep 25 (finished arrays arrays & big-Oh)
     - [comparison graph image](lec14/lec14-graph.svg)
     - [big-Oh proof image](lec14/lec14-proof.svg)
