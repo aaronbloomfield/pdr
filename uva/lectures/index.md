@@ -16,6 +16,9 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 17: Fri, Mar 12 (trees through slide 7.31)
+    - Animations are at [https://www.cs.usfca.edu/~galles/visualization/](https://www.cs.usfca.edu/~galles/visualization/)
+    - [rotation before](lec17/after.svg), [rotation after](lec17/before.svg)
 - Lecture 16: Wed, Mar 10 (trees through slide 7.9)
     - Animations are at [https://www.cs.usfca.edu/~galles/visualization/](https://www.cs.usfca.edu/~galles/visualization/), specifically the [one for BSTs](https://www.cs.usfca.edu/~galles/visualization/BST.html)
     - [Exam 2, fall 2018](../../exams/exam2-f18.pdf): the [answer to question 8](lec16/exam2-f18-q8.txt)
