@@ -28,7 +28,7 @@ The labs for this course:
 
 - [Lab 4: Number Representation](lab04/index.html)
     - No source code for this lab!
-    - You can get your floating point number, needed for the pre-lab, [here](http://libra.cs.virginia.edu/getfloat.php)
+    - ~~You can get your floating point number, needed for the pre-lab, [here](http://libra.cs.virginia.edu/getfloat.php)~~
     - Necessary files: [inlab4.doc](lab04/inlab4.doc), [radixWorksheet.doc](lab04/radixWorksheet.doc)
         - These will have to be submitted as PDF files; see [How To Convert A File To PDF](../docs/convert_to_pdf.html) for details.
     - [Tutorial 4: More Unix, part 2](../tutorials/03-04-more-unix/index.html), which is sections 5-8; this tutorial is originally from [here](http://www.ee.surrey.ac.uk/Teaching/Unix/)

@@ -16,8 +16,11 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 18: Mon, Mar 15 (trees through slide 9.12; hashes through slide 5.5)
+    - Animations are at [https://www.cs.usfca.edu/~galles/visualization/](https://www.cs.usfca.edu/~galles/visualization/), specifically the ones for [AVL trees](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html) and [Red-Black trees](https://www.cs.usfca.edu/~galles/visualization/RedBlack.html)
+    - [Tree exam questions](lec18/code.txt) from page 3 of [fall 2019 exam 2](../../exams/exam2-f19.pdf) and page 3 of [spring 2019 exam 2](../../exams/exam2-s19.pdf)
 - Lecture 17: Fri, Mar 12 (trees through slide 7.31)
-    - Animations are at [https://www.cs.usfca.edu/~galles/visualization/](https://www.cs.usfca.edu/~galles/visualization/)
+    - Animations are at [https://www.cs.usfca.edu/~galles/visualization/](https://www.cs.usfca.edu/~galles/visualization/), specifically the one for [AVL trees](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html)
     - [rotation before](lec17/after.svg), [rotation after](lec17/before.svg)
 - Lecture 16: Wed, Mar 10 (trees through slide 7.9)
     - Animations are at [https://www.cs.usfca.edu/~galles/visualization/](https://www.cs.usfca.edu/~galles/visualization/), specifically the [one for BSTs](https://www.cs.usfca.edu/~galles/visualization/BST.html)
