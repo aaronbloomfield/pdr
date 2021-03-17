@@ -16,6 +16,8 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 19: Wed, Mar 17 (hashes through slide 7.4)
+    - We went over collision resolution algorithms via the animation sites at [Open hashing a.k.a. Separate Chaining](https://www.cs.usfca.edu/~galles/visualization/OpenHash.html) and [Closed hashing a.k.a. Open Addressing](https://www.cs.usfca.edu/~galles/visualization/ClosedHash.html)
 - Lecture 18: Mon, Mar 15 (trees through slide 9.12; hashes through slide 5.5)
     - Animations are at [https://www.cs.usfca.edu/~galles/visualization/](https://www.cs.usfca.edu/~galles/visualization/), specifically the ones for [AVL trees](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html) and [Red-Black trees](https://www.cs.usfca.edu/~galles/visualization/RedBlack.html)
     - [Tree exam questions](lec18/code.txt) from page 3 of [fall 2019 exam 2](../../exams/exam2-f19.pdf) and page 3 of [spring 2019 exam 2](../../exams/exam2-s19.pdf)
