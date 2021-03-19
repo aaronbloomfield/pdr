@@ -10,7 +10,8 @@ clean:
 
 code:
 	@astyle $(ASTYLEOPTS) */*.cpp */*.h
-	@source-highlight -d */*.cpp */*.h # */*.s */Makefile
+	@source-highlight -d */*.cpp */*.h */Makefile # */*.s
+	@/bin/rm -f bloomfield-fall-2020/Makefile.html
 
 markdown:
 	@make clean

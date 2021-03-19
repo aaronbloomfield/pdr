@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>lec20/Makefile</title>
+</head>
+<body bgcolor="white">
+<pre><tt><font color="#009900">CXX =</font> clang<font color="#990000">++</font> -Wall -Wno-unused-private-field
+<font color="#009900">OFILES =</font> List.o ListItr.o ListNode.o ListTest.o
+
+<b><font color="#000080">.PHONY:</font></b> clean
+
+<font color="#990000">main:</font> <font color="#009900">$(OFILES)</font>
+	<font color="#009900">$(CXX)</font> <font color="#009900">$(OFILES)</font>
+
+<font color="#990000">clean:</font>
+	/bin/rm -f <font color="#990000">*</font>.o <font color="#990000">*~</font> a.out
+
+<i><font color="#9A1900"># output from `clang++ -MM *.cpp`</font></i>
+<font color="#990000">List.o:</font> List.cpp List.h ListNode.h ListItr.h
+<font color="#990000">ListItr.o:</font> ListItr.cpp ListItr.h ListNode.h List.h
+<font color="#990000">ListNode.o:</font> ListNode.cpp ListNode.h
+<font color="#990000">ListTest.o:</font> ListTest.cpp List.h ListNode.h ListItr.h
+</tt></pre>
+</body>
+</html>

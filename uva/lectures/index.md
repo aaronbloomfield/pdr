@@ -16,6 +16,9 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 20: Fri, Mar 19 (finished hashes)
+    - [Makefile](lec20/Makefile.html) ([raw code](lec20/Makefile)) for lab 2
+    - [sketched image](lec20/lec20.svg) which is the solutions to questions 5 and 6 on [midterm 2 from fall 2017](../../exams/exam2-f17.pdf)
 - Lecture 19: Wed, Mar 17 (hashes through slide 7.4)
     - We went over collision resolution algorithms via the animation sites at [Open hashing a.k.a. Separate Chaining](https://www.cs.usfca.edu/~galles/visualization/OpenHash.html) and [Closed hashing a.k.a. Open Addressing](https://www.cs.usfca.edu/~galles/visualization/ClosedHash.html)
 - Lecture 18: Mon, Mar 15 (trees through slide 9.12; hashes through slide 5.5)
