@@ -63,7 +63,7 @@ The "Program and Data Representation configuration" section is for the [Program 
 
 ### Program and Data Representation configuration
 
-- Installed the other packages: `sudo apt install clang llvm emacs vim nasm astyle tofrodos source-highlight gdb lldb doxygen doxygen-doc graphviz ddd git g++ gobjc gnustep gnustep-make gnustep-common libgnustep-base-dev evince g++-multilib libc6-dev-i386 libc6-dev:i386 flex`
+- Installed the other packages: `sudo apt install clang llvm emacs vim nasm astyle tofrodos source-highlight gdb lldb doxygen doxygen-doc graphviz ddd git g++ gobjc gnustep gnustep-make gnustep-common libgnustep-base-dev evince g++-multilib libc6-dev-i386 libc6-dev:i386 flex make`
     - Note that there are other `apt install` lines to be run, below, depending on what else you are installing
 	- The last 5 packages are for Objective C, based on the instructions [here](http://www.fatvat.co.uk/2010/04/getting-started-with-objective-c-on.html) (it may be that only a subset of those packages are actually necessary); this is not currently installed with this section, however
 - Ran the following two commands to change the default C/C++ compiler to clang:

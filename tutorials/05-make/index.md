@@ -255,7 +255,7 @@ We have seen a number of ways to improve the provided pizza Makefile.  We'll put
 - Our second rule, 'clean', will remove the executable itself, all the .o files, and all files that end in the tilde (`*~`, the backup files that Emacs creates).
 - Lastly, we will need to have clang++ create all the prerequisite rules, which we will copy-and-paste into the bottom of the Makefile.
 
-Test out the Makefile to ensure it works.  You will need to rename it to 'Makefile-pizza', and submit it as part of pre-lab 5 (we can't name it 'Makefile', as you are submitting a Makefile for the other parts of the lab already).  To force `make` to use a different Makefile, you can use the `-f` flag: `make -f Makefile-pizza`.  To specify a different target, the target name goes after the file name: `make -f Makefile-pizza clean`.
+Test out the Makefile to ensure it works.  You will need to rename it to 'Makefile-pizza', ~~and submit it as part of pre-lab 5 (we can't name it 'Makefile', as you are submitting a Makefile for the other parts of the lab already)~~.  To force `make` to use a different Makefile, you can use the `-f` flag: `make -f Makefile-pizza`.  To specify a different target, the target name goes after the file name: `make -f Makefile-pizza clean`.
 
 ### Further information ###
 

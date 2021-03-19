@@ -179,7 +179,7 @@ clean:
 <li>Our second rule, ‘clean’, will remove the executable itself, all the .o files, and all files that end in the tilde (<code>*~</code>, the backup files that Emacs creates).</li>
 <li>Lastly, we will need to have clang++ create all the prerequisite rules, which we will copy-and-paste into the bottom of the Makefile.</li>
 </ul>
-<p>Test out the Makefile to ensure it works. You will need to rename it to ‘Makefile-pizza’, and submit it as part of pre-lab 5 (we can’t name it ‘Makefile’, as you are submitting a Makefile for the other parts of the lab already). To force <code>make</code> to use a different Makefile, you can use the <code>-f</code> flag: <code>make -f Makefile-pizza</code>. To specify a different target, the target name goes after the file name: <code>make -f Makefile-pizza clean</code>.</p>
+<p>Test out the Makefile to ensure it works. You will need to rename it to ‘Makefile-pizza’, <del>and submit it as part of pre-lab 5 (we can’t name it ‘Makefile’, as you are submitting a Makefile for the other parts of the lab already)</del>. To force <code>make</code> to use a different Makefile, you can use the <code>-f</code> flag: <code>make -f Makefile-pizza</code>. To specify a different target, the target name goes after the file name: <code>make -f Makefile-pizza clean</code>.</p>
 <h3 id="further-information">Further information</h3>
 <p>This tutorial only scratches the surface of what <code>make</code> can do! There are many more powerful concepts that can be very useful for larger projects. For more information, consult the man page for <code>make</code> and/or go to the <a href="https://www.gnu.org/software/make/manual/">GNU website for <code>make</code></a>. Google searches will also turn up lots of good resources.</p>
 </body>
