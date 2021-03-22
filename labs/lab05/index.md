@@ -128,6 +128,8 @@ The required class declarations are located in [BinaryNode.h](code/inlab/BinaryN
 
 You should use [BSTPathTest.cpp](code/inlab/BSTPathTest.cpp.html) ([src](code/inlab/BSTPathTest.cpp)) to test your implementation, but you may NOT change it.
 
+Unlike the pre-lab, you *can* modify the various files provided EXCEPT for BSTPathTest.cpp and AVLPathTest.cpp.
+
 ### Test Files ###
 
 We provide a number of test files that you can use as input: [testfile1.txt](code/inlab/testfile1.txt) ([output](code/inlab/testfile1.out.txt)), [testfile2.txt](code/inlab/testfile2.txt) ([output](code/inlab/testfile2.out.txt)), and [testfile3.txt](code/inlab/testfile3.txt) ([output](code/inlab/testfile3.out.txt))
@@ -205,6 +207,8 @@ files are in the postlab/ directory of [code.zip](code.zip).  The
 comments in the code of the starter files help explain where to start.
 
 You may test your implementation with the same test files as before, though the expected output will be different ([output of testfile1](code/postlab/testfile1.out.txt), [output of testfile2](code/postlab/testfile2.out.txt), [output of testfile3](code/postlab/testfile3.out.txt)).
+
+Unlike the pre-lab, you *can* modify the various files provided EXCEPT for BSTPathTest.cpp and AVLPathTest.cpp.
 
 ### Sample Execution Run ###
 
