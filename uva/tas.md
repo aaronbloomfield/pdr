@@ -121,7 +121,7 @@ I am a third year BSCS and Physics major and this is my third semester as a TA f
 
 ## Keerthi Medicherla
 [![Keerthi Medicherla](//libra.cs.virginia.edu/tas/khm4zf.jpg)](//libra.cs.virginia.edu/tas/full/khm4zf.jpg)
-Hi guys, I'm Keerthi! I'm a third year double majoring in Computer Science and Global Studies: Security and Justice, and this will be my first time TAing! CS 2150 was one of the most challenging and rewarding classes I have taken at UVA, so I'm excited to work with you all this semester. :)
+Hi guys, I'm Keerthi! I'm a third year double majoring in Computer Science and Global Studies: Security and Justice, and this will be my second semester TAing! CS 2150 was one of the most challenging and rewarding classes I have taken at UVA, so I'm excited to work with you all this semester. :)
 <br clear="all">
 
 ## Josh Mehr
@@ -192,7 +192,6 @@ No bio yet...
 
 ## Bhaskar Singhvi
 [![Bhaskar Singhvi](//libra.cs.virginia.edu/tas/bs3tu.jpg)](//libra.cs.virginia.edu/tas/full/bs3tu.jpg)
-Sam Spelsberg
 Hey I'm Bhaskar! I'm a 4th year majoring in Computer Science, and this is my first semester as a TA. I became a TA for 2150 because I want to give back to a course that's helped me a lot. It's also a great opportunity to not only share a bit of my knowledge and experience, but also solidify my own fundamentals as well so I look forward to it.<p>As a TA, I hope to guide you as well as I can, and I'll always be rooting for ya. (As a side note, I know academics and "career building" endeavors are important, but please remember to take a step back and relax. Nothing is more important than your mental and physical well-being, especially now.)<p>I'm excited to work with you all this semester!<p>Here's one of my favorite quotes I keep in mind:  <i>"..we can't concern ourselves with what was. We must act on what is."</i> - Monk Gyatso (Avatar the Last Airbender)
 <br clear="all">
 
