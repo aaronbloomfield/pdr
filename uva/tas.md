@@ -64,7 +64,8 @@ Hey guys! I am a second year BSCS major. I am TAing for 2150 because I understan
 <br clear="all">
 
 ## Jade heilemann
-No bio yet...
+[![Jade heilemann](//libra.cs.virginia.edu/tas/jh2sp.jpg)](//libra.cs.virginia.edu/tas/full/jh2sp.jpg)
+Hi all! I'm Jade, I'm a second year Computer Science major and Data Analytics minor. Outside of classes I'm primarily involved in HooHacks and WiCS, please ask me about either club if you have questions! I also love to play video games, cook (and especially eat!) exciting food, and explore new places. I have two cats named Nala and Eva (Nala is pictured here with me) and a dog named Rocky. Good luck in your 2150 endeavors, you're all going to do great, I believe in you!
 <br clear="all">
 
 ## Courtney Jacobs
@@ -196,7 +197,8 @@ Hey I'm Bhaskar! I'm a 4th year majoring in Computer Science, and this is my fir
 <br clear="all">
 
 ## Yuvraj Sreepathi
-No bio yet...
+[![Yuvraj Sreepathi](//libra.cs.virginia.edu/tas/ys3mnq.jpg)](//libra.cs.virginia.edu/tas/full/ys3mnq.jpg)
+Hey everyone! I'm a second-year pursuing a double major in BACS and Statistics. This is my first-semester TA'ing 2150 and I can't wait to meet all of you. I know firsthand that 2150 is a challenging class so I want to be able to help as much as possible. Outside of school, I spend a lot of time dancing on HooRaas, gaming (basically just COD), or watching anime. I'm excited to work with all of you this semester so hit me up for anything you need!
 <br clear="all">
 
 ## George Taliaferro

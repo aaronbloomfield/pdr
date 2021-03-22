@@ -16,6 +16,8 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 21: Mon, Mar 22 (IBCM through slide 5.15)
+    - Today was a Q&A period, and thus there was no material prepared in advance
 - Lecture 20: Fri, Mar 19 (finished hashes)
     - [Makefile](lec20/Makefile.html) ([raw code](lec20/Makefile)) for lab 2
     - [sketched image](lec20/lec20.svg) which is the solutions to questions 5 and 6 on [midterm 2 from fall 2017](../../exams/exam2-f17.pdf)
