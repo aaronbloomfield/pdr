@@ -4,7 +4,8 @@ CS 2150 Teaching Assistants
 [Go up to the CS 2150 page](index.html) ([md](index.md))
 
 ## Ayushi Ambhore
-No bio yet...
+[![Ayushi Ambhore](//libra.cs.virginia.edu/tas/ara7ke.jpg)](//libra.cs.virginia.edu/tas/full/ara7ke.jpg)
+Hi guys! My name is Ayushi and I’m a second year CS major in the College. This is my first semester TAing 2150. When I took this course I probably attended OH more than 100 times, so I’m excited to help you all the same way other TA’s helped me! When I’m not in office hours, I’m either participating in WiCS & GWC here on grounds or reading conspiracy theories and visiting new places. Really looking forward to meeting you guys this semester :)
 <br clear="all">
 
 ## Penn Bauman
@@ -63,7 +64,7 @@ Hey everyone! My name is Amrit Gorle and I am a second year CS major in the Engi
 Hey guys! I am a second year BSCS major. I am TAing for 2150 because I understand that this course can be difficult at times, and I love helping people with CS problems and also just really enjoyed the course in general. In my free time, I enjoy solving Rubik's cubes, listening to music, etc. I'm excited to work with you all this semester!
 <br clear="all">
 
-## Jade heilemann
+## Jade Heilemann
 [![Jade heilemann](//libra.cs.virginia.edu/tas/jh2sp.jpg)](//libra.cs.virginia.edu/tas/full/jh2sp.jpg)
 Hi all! I'm Jade, I'm a second year Computer Science major and Data Analytics minor. Outside of classes I'm primarily involved in HooHacks and WiCS, please ask me about either club if you have questions! I also love to play video games, cook (and especially eat!) exciting food, and explore new places. I have two cats named Nala and Eva (Nala is pictured here with me) and a dog named Rocky. Good luck in your 2150 endeavors, you're all going to do great, I believe in you!
 <br clear="all">
@@ -228,7 +229,8 @@ Hello! I’m Lucy, and I am a second year CS and statistics major from NOVA. 215
 <br clear="all">
 
 ## Zach Yahn
-No bio yet...
+[![Zach Yahn](//libra.cs.virginia.edu/tas/zry2yz.jpg)](//libra.cs.virginia.edu/tas/full/zry2yz.jpg)
+Hi everyone! I'm a second-year CS/CpE double major. I knew I wanted to TA CS 2150 the moment I was inspired by Binky's Pointer Fun, and I guess I really like helping people too.<p>I play club water polo here for fun, so if you're ever looking for a new activity to try let me know! My favorite movie is Inception, and my favorite jelly bean flavor is anything but buttered popcorn. I'm excited to work with you all and hope you have a great semester!"
 <br clear="all">
 
 ## Steven Yi
