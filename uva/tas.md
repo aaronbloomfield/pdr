@@ -208,7 +208,8 @@ Hey everyone! My name is George and I am a third-year CS major in the E-School! 
 <br clear="all">
 
 ## Raneem Tarfa
-No bio yet...
+[![Raneem Tarfa](//libra.cs.virginia.edu/tas/rt8fsn.jpg)](//libra.cs.virginia.edu/tas/full/rt8fsn.jpg)
+"Hello! I’m a 2nd year CS major and French minor and this is my first semester TA-ing for 2150. I really enjoyed this course so I thought it would be nice to revisit it and help others in the same way TA's have helped me. In the realm of CS, I’m really interested in learning more about AI and ML but ultimately I want to work in game design! I’m also an artist who loves learning languages. I look forward to meeting you all!
 <br clear="all">
 
 ## Natasha Tchir

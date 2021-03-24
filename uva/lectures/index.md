@@ -16,6 +16,8 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 22: Wed, Mar 24 (IBCM through slide 6.12)
+    - We discussed the array-summation program in IBCM, and [the memory diagram for such](lec22/lec22.svg)
 - Lecture 21: Mon, Mar 22 (IBCM through slide 5.15)
     - Today was a Q&A period, and thus there was no material prepared in advance
 - Lecture 20: Fri, Mar 19 (finished hashes)
