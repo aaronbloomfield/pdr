@@ -16,6 +16,8 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 23: Fri, Mar 26 (finished IBCM; finished trees)
+    - This was a Q&A about IBCM (not many questions asked about that) and a review of amortized analysis from the trees slide set
 - Lecture 22: Wed, Mar 24 (IBCM through slide 6.12)
     - We discussed the array-summation program in IBCM, and [the memory diagram for such](lec22/lec22.svg)
 - Lecture 21: Mon, Mar 22 (IBCM through slide 5.15)
