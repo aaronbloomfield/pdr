@@ -16,6 +16,14 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 25: Fri, April 2 (assembly through slide 7.3)
+	- [assembly.s](lec25/assembly.s.html) ([raw code](lec25/assembly.s))
+	- [main.cpp](lec25/main.cpp.html) ([raw code](lec25/main.cpp))
+	- [Makefile](lec25/Makefile.html) ([raw code](lec25/Makefile))
+	- If you want to compile this on a Mac, you need to change the nasm output type from `elf64` to `macho64` in the Makefile, and change the name of the `addOrMult` subroutine to `_addOrMult` (note the initial underscore; this is twice in the program, on lines 9 and 13)
+- Lecture 24: Wed, Mar 31 (assembly through slide 5.6)
+    - This was a Q&A about hash lab and a review of the x86 addressing scheme
+- (Mon, Mar 29 was a UVA break day, so no lecture materials from that day)
 - Lecture 23: Fri, Mar 26 (finished IBCM; finished trees)
     - This was a Q&A about IBCM (not many questions asked about that) and a review of amortized analysis from the trees slide set
 - Lecture 22: Wed, Mar 24 (IBCM through slide 6.12)
