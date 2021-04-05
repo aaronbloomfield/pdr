@@ -9,8 +9,8 @@ clean:
 	/bin/rm -f *~ */*~ */a.out
 
 code:
-	@astyle $(ASTYLEOPTS) */*.cpp */*.h
-	@source-highlight -d */*.cpp */*.h */Makefile # */*.s
+	@astyle $(ASTYLEOPTS) */*.cpp */*.h # */*.s
+	@source-highlight -d */*.cpp */*.h */Makefile */*.s
 	@/bin/rm -f bloomfield-fall-2020/Makefile.html
 
 markdown:
