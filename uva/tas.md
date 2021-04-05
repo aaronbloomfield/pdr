@@ -85,7 +85,8 @@ Hi! I'm a third year CS major from northern Virginia. This is my first semester 
 <br clear="all">
 
 ## Kedar Kulkarni
-No bio yet...
+[![Kedar Kulkarni](//libra.cs.virginia.edu/tas/ksk6rz.jpg)](//libra.cs.virginia.edu/tas/full/ksk6rz.jpg)
+Hey everyone! I am a second-year CS major in the E-School. CS 2150 was definitely challenging but also one of my favorite classes. I want to help each and every one of you in any way, so please do not hesitate to reach out! Some of my hobbies are playing tennis, biking, video games (Rocket League), and hiking.
 <br clear="all">
 
 ## Marina Kun
@@ -189,7 +190,9 @@ No bio yet...
 <br clear="all">
 
 ## Hafsah Shamsie
-No bio yet...
+[![Hafsah Shamsie](//libra.cs.virginia.edu/tas/his3uh.jpg)](//libra.cs.virginia.edu/tas/full/his3uh.jpg)
+Hi everyone! I’m a third year computer engineering major and this is my first semester TAing 2150. I became a TA for this class because it’s my favorite class I have taken and I love helping people. Outside of class I’m involved in A.O.E., SWE, and Madison House. In my free time I love baking, watching TV (my favorite show ever is Avatar: The Last Airbender) and, more recently, buying/taking care of plants. I look forward to working with you all this semester!
+
 <br clear="all">
 
 ## Bhaskar Singhvi
