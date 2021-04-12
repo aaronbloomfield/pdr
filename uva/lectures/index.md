@@ -16,6 +16,18 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 29: Mon, Apr 12 (advanced C++ to 8.5) 
+- ...
+- Lecture 28: Fri, Apr 9 (finished assembly; advanced C++ to slide 6.11)
+    - Went over a number of exam questions:
+        - [fall 2019 final](https://uva-cs.github.io/pdr/exams/final-f19.pdf), questions 6 and 7
+	    - [spring 2019 final](https://uva-cs.github.io/pdr/exams/final-s19.pdf), question 7
+        - [fall 2018 final](https://uva-cs.github.io/pdr/exams/final-f18.pdf), question 13
+- Lecture 27: Wed, Apr 7 (assembly through slide 10.12)
+    - Went over a number of exam questions:
+        - [fall 2019 exam 2](https://uva-cs.github.io/pdr/exams/exam2-f19.pdf), question 11
+	    - [spring 2019 exam 2](https://uva-cs.github.io/pdr/exams/exam2-s19.pdf), questions 11 & 12
+        - [fall 2018 exam 2](https://uva-cs.github.io/pdr/exams/exam2-f18.pdf), questions 14 & 15
 - Lecture 26: Mon, Apr 5 (assembly through slide 8.15)
     - [assembly.s](lec26/assembly.s.html) ([raw code](lec26/assembly.s))
     - [main.cpp](lec26/main.cpp.html) ([raw code](lec26/main.cpp))
