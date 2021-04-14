@@ -17,7 +17,7 @@ The code, images, and notes linked to from this page is what was discussed durin
 ### Lecture period content
 
 - Lecture 29: Mon, Apr 12 (advanced C++ to 8.5) 
-- ...
+    - [classes.cpp](lec29/classes.cpp.html) ([raw code](lec29/classes.cpp))
 - Lecture 28: Fri, Apr 9 (finished assembly; advanced C++ to slide 6.11)
     - Went over a number of exam questions:
         - [fall 2019 final](https://uva-cs.github.io/pdr/exams/final-f19.pdf), questions 6 and 7
