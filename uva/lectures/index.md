@@ -16,6 +16,10 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 31: Fri, Apr 16 (heaps & Huffman to slide 6.16)
+    - Today was a general Q&A period
+- Lecture 30: Wed, Apr 14 (finished advanced C++; heaps & Huffman to slide 6.2)
+    - We reviewed heap operations and viewed animations on [this site](https://www.cs.usfca.edu/~galles/visualization/Heap.html)
 - Lecture 29: Mon, Apr 12 (advanced C++ to 8.5) 
     - [classes.cpp](lec29/classes.cpp.html) ([raw code](lec29/classes.cpp))
 - Lecture 28: Fri, Apr 9 (finished assembly; advanced C++ to slide 6.11)

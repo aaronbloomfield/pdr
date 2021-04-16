@@ -137,7 +137,7 @@ If you or someone you know is struggling with gender, sexual, or domestic violen
 [39]: mailto:mrf8t@virginia.edu
 
 
-[41]: https://libra.cs.virginia.edu/~pedagogy/
-[42]: https://libra.cs.virginia.edu/~pedagogy/support.php
+[41]: https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/
+[42]: https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/tickets/
 [43]: https://www.cs.virginia.edu/~cr4bd/
 [44]: mailto:creiss@virginia.edu

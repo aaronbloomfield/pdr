@@ -217,13 +217,8 @@ Grading Concerns
 [151]: http://twitter.com/UVaCS2150
 [152]: https://piazza.com/
 
-[160]: https://libra.cs.virginia.edu/~pedagogy/
-[161]: https://libra.cs.virginia.edu/~pedagogy/support.php
-[162]: https://libra.cs.virginia.edu/~pedagogy/submit.php
-[163]: https://libra.cs.virginia.edu/~pedagogy/regrades.php
-[164]: https://libra.cs.virginia.edu/~pedagogy/gradebook.php
-[165]: https://libra.cs.virginia.edu/~pedagogy/labextension.php
-[166]: https://libra.cs.virginia.edu/~pedagogy/queue.php
+[160]: https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/
+[161]: https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/tickets/
 [167]: https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/queue/
 
 [170]: https://collab.its.virginia.edu/portal/site/a25f92a0-ff43-4cdb-a402-07f5f65467c1/tool-reset/7b7966a1-6a85-490e-a7b7-78e620fc662e
