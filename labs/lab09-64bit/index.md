@@ -76,7 +76,7 @@ Note that this took 9 steps to reach the value 1.  And it also shows that this c
 
 While this conjecture has been proven only up to at least 5.6 * 10^13, it is widely believed to be true for all positive integers.  If you are interested, more information on this conjecture can be found [here](http://en.wikipedia.org/wiki/Collatz_conjecture).
 
-We won't be testing with any values above 10^13, so you can safely assume that the Collatz conjecture holds true for all of the input values that we will use.
+We won't be testing with any values above 10^6, so you can safely assume that the Collatz conjecture holds true for all of the input values that we will use. That is, you won't have to worry about integer overflow.
 
 Your task is to write a routine, called `threexplusone`, that takes in a positive integer and returns the number of steps required for that integer to reach 1 by following the Collatz conjecture.  An input of 13 takes 9 steps, as shown above.  The Wikipedia page shows a few other input sizes and the number of steps: an input of 6 takes 8 steps; an input of 14 takes 17 steps; an input of 27 takes 111 steps.  If the input is 1, the output should be zero.
 
