@@ -16,6 +16,8 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 32: Mon, Apr 19 (heaps & Huffman to slide 8.19)
+    - [lec32.cpp](lec32/lec32.cpp.html) ([raw code](lec32/lec32.cpp))
 - Lecture 31: Fri, Apr 16 (heaps & Huffman to slide 6.16)
     - Today was a general Q&A period
 - Lecture 30: Wed, Apr 14 (finished advanced C++; heaps & Huffman to slide 6.2)
