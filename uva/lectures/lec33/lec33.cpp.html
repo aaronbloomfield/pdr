@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>lec33/lec33.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><b><font color="#0000FF">class</font></b> <font color="#008080">huffman_node</font> <font color="#FF0000">{</font>
+    <font color="#009900">int</font> frequency<font color="#990000">;</font>
+    <font color="#009900">unsigned</font> <font color="#009900">char</font> c<font color="#990000">;</font>
+    huffman_node<font color="#990000">*</font> left<font color="#990000">,</font> <font color="#990000">*</font>right<font color="#990000">;</font>
+<font color="#FF0000">}</font><font color="#990000">;</font>
+
+
+<font color="#009900">void</font> <b><font color="#000000">create_path</font></b> <font color="#990000">(</font>huffman_node<font color="#990000">*</font> node<font color="#990000">,</font> <font color="#009900">char</font> leaf<font color="#990000">,</font> <font color="#008080">string</font> prefix_code<font color="#990000">)</font> <font color="#FF0000">{</font>
+
+    <i><font color="#9A1900">// how recursion stops</font></i>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> prefix_code <font color="#990000">==</font> <font color="#FF0000">""</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+        node<font color="#990000">-&gt;</font>c <font color="#990000">=</font> leaf<font color="#990000">;</font>
+        <b><font color="#0000FF">return</font></b><font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
+    <i><font color="#9A1900">// make the problem simpler (i.e., the actual recursion)</font></i>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> prefix_code<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">'0'</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+        <i><font color="#9A1900">// go to the left</font></i>
+        <b><font color="#000000">ensure_there_is_a_left_child_of_node</font></b><font color="#990000">();</font>
+        <b><font color="#000000">create_path</font></b> <font color="#990000">(</font>node<font color="#990000">-&gt;</font>left<font color="#990000">,</font> leaf<font color="#990000">,</font> prefix_code_minus_first_character<font color="#990000">);</font>
+    <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font> <i><font color="#9A1900">// first character is a '1'</font></i>
+        <i><font color="#9A1900">// go to the right</font></i>
+        <b><font color="#000000">ensure_there_is_a_right_child_of_node</font></b><font color="#990000">();</font>
+        <b><font color="#000000">create_path</font></b> <font color="#990000">(</font>node<font color="#990000">-&gt;</font>right<font color="#990000">,</font> leaf<font color="#990000">,</font> prefix_code_minus_first_character<font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+<font color="#FF0000">}</font>
+
+<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+    huffman_node<font color="#990000">*</font> root <font color="#990000">=</font> <b><font color="#000000">create_new_node</font></b><font color="#990000">();</font>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#008080">each</font> character <font color="#990000">/</font> <font color="#008080">prefix_code</font> pair <font color="#990000">)</font>
+        <b><font color="#000000">create_path</font></b> <font color="#990000">(</font>root<font color="#990000">,</font> character<font color="#990000">,</font> prefix_code<font color="#990000">);</font>
+</tt></pre>
+</body>
+</html>

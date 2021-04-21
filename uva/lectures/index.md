@@ -16,6 +16,10 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 33: Wed, Apr 21 (heaps & Huffman to slide 8.31)
+    - [lec33.cpp](lec33/lec33.cpp.html) ([raw code](lec33/lec33.cpp))
+    - [sketched image 1](lec33/lec32-a.svg)
+    - [sketched image 2](lec33/lec32-b.svg)
 - Lecture 32: Mon, Apr 19 (heaps & Huffman to slide 8.19)
     - [lec32.cpp](lec32/lec32.cpp.html) ([raw code](lec32/lec32.cpp))
 - Lecture 31: Fri, Apr 16 (heaps & Huffman to slide 6.16)
