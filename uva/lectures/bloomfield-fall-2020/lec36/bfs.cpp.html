@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>lec36/bfs.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;string&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;limits.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;queue&gt;</font>
+
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<i><font color="#9A1900">//assumes 0 is start node always</font></i>
+<font color="#009900">void</font> <b><font color="#000000">bfs</font></b> <font color="#990000">(</font><font color="#009900">int</font><font color="#990000">**</font> g<font color="#990000">,</font> <font color="#009900">int</font><font color="#990000">*</font> dist<font color="#990000">,</font> <font color="#009900">int</font> n<font color="#990000">)</font> <font color="#FF0000">{</font>
+
+    <font color="#008080">queue&lt;int&gt;</font> q<font color="#990000">;</font>
+    dist<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+    q<font color="#990000">.</font><b><font color="#000000">push</font></b> <font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font>
+
+    <b><font color="#0000FF">while</font></b> <font color="#990000">(</font> q<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">()</font> <font color="#990000">&gt;</font> <font color="#993399">0</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+        <font color="#009900">int</font> curNode <font color="#990000">=</font> q<font color="#990000">.</font><b><font color="#000000">front</font></b><font color="#990000">();</font>
+        q<font color="#990000">.</font><b><font color="#000000">pop</font></b><font color="#990000">();</font>
+
+        <i><font color="#9A1900">//look at all neighbors</font></i>
+        <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> n<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font>
+            <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> g<font color="#990000">[</font>curNode<font color="#990000">][</font>i<font color="#990000">]</font> <font color="#990000">==</font> <font color="#993399">1</font> <font color="#990000">&amp;&amp;</font> dist<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">==</font> INT_MAX <font color="#990000">)</font> <font color="#FF0000">{</font>
+                dist<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">=</font> dist<font color="#990000">[</font>curNode<font color="#990000">]</font> <font color="#990000">+</font> <font color="#993399">1</font><font color="#990000">;</font>
+                q<font color="#990000">.</font><b><font color="#000000">push</font></b> <font color="#990000">(</font>i<font color="#990000">);</font>
+            <font color="#FF0000">}</font>
+    <font color="#FF0000">}</font>
+<font color="#FF0000">}</font>
+
+
+<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+
+    <i><font color="#9A1900">//read in n (number of nodes) and e (number of edges)</font></i>
+    <font color="#009900">int</font> n<font color="#990000">,</font> e<font color="#990000">;</font>
+    cin <font color="#990000">&gt;&gt;</font> n <font color="#990000">&gt;&gt;</font> e<font color="#990000">;</font>
+
+    <i><font color="#9A1900">//initialize the matrix of the graph to all 0s</font></i>
+    <font color="#009900">int</font><font color="#990000">**</font> g <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">int</font><font color="#990000">*</font> <font color="#990000">[</font>n<font color="#990000">];</font>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> n<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+        g<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">int</font><font color="#990000">[</font>n<font color="#990000">];</font>
+        <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> j <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> j <font color="#990000">&lt;</font> n<font color="#990000">;</font> j<font color="#990000">++</font> <font color="#990000">)</font>
+            g<font color="#990000">[</font>i<font color="#990000">][</font>j<font color="#990000">]</font> <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
+    <i><font color="#9A1900">//setup edges by changing some values in matrix to 1</font></i>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> e<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+        <font color="#009900">int</font> u<font color="#990000">,</font> v<font color="#990000">;</font>
+        cin <font color="#990000">&gt;&gt;</font> u <font color="#990000">&gt;&gt;</font> v<font color="#990000">;</font>
+        g<font color="#990000">[</font>u<font color="#990000">][</font>v<font color="#990000">]</font> <font color="#990000">=</font> g<font color="#990000">[</font>v<font color="#990000">][</font>u<font color="#990000">]</font> <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
+    <i><font color="#9A1900">//take in the number of "bad" nodes that cannot be traveled</font></i>
+    <font color="#009900">int</font> numBad<font color="#990000">;</font>
+    cin <font color="#990000">&gt;&gt;</font> numBad<font color="#990000">;</font>
+
+    <i><font color="#9A1900">//remove any edges connected to bad nodes</font></i>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> numBad<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+        <font color="#009900">int</font> bad<font color="#990000">;</font>
+        cin <font color="#990000">&gt;&gt;</font> bad<font color="#990000">;</font>
+        <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> j <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> j <font color="#990000">&lt;</font> n<font color="#990000">;</font> j<font color="#990000">++</font> <font color="#990000">)</font>
+            g<font color="#990000">[</font>bad<font color="#990000">][</font>j<font color="#990000">]</font> <font color="#990000">=</font> g<font color="#990000">[</font>j<font color="#990000">][</font>bad<font color="#990000">]</font> <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
+    <i><font color="#9A1900">//setup array of distances to all be infinity</font></i>
+    <font color="#009900">int</font><font color="#990000">*</font> dist <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">int</font><font color="#990000">[</font>n<font color="#990000">];</font>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> n<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font>
+        dist<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">=</font> INT_MAX<font color="#990000">;</font>
+
+    <i><font color="#9A1900">//run bfs on the graph</font></i>
+    <b><font color="#000000">bfs</font></b> <font color="#990000">(</font>g<font color="#990000">,</font> dist<font color="#990000">,</font> n<font color="#990000">);</font>
+
+    <i><font color="#9A1900">//print out the distances</font></i>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> n<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font>
+        cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Dist to node "</font> <font color="#990000">&lt;&lt;</font> i <font color="#990000">&lt;&lt;</font> <font color="#FF0000">": "</font> <font color="#990000">&lt;&lt;</font> dist<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+
+    <i><font color="#9A1900">// deallocation</font></i>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> n<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font>
+        <b><font color="#0000FF">delete</font></b> <font color="#990000">[]</font> g<font color="#990000">[</font>i<font color="#990000">];</font>
+    <b><font color="#0000FF">delete</font></b> <font color="#990000">[]</font> g<font color="#990000">;</font>
+    <b><font color="#0000FF">delete</font></b> <font color="#990000">[]</font> dist<font color="#990000">;</font>
+
+    <i><font color="#9A1900">// all done!</font></i>
+    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

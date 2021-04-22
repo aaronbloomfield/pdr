@@ -7,12 +7,10 @@ All assignments will be submitted through our custom assignments tool, which can
 
 Any late lab part will receive 25% off (for that lab part) for the first 24 hours (or part thereof) that it is late, after which no credit will be given. Note that a computer program does this deduction -- so if your lab is 1 second late, it still receives 25% off.  Beyond 24 hours late, that lab part will receive zero credit.
 
-A lab extension for an in-lab will extend the due date until the end of the day on Wednesday; lab extensions are discussed in [Lab 1](../labs/lab01/index.html).  For the pre-labs and post-labs, the close date is exactly 24 hours after the due date, due to the above mentioned late policy.
-
 Below are the dates when the various assignment *submissions* for the lab parts open, are due, and close.
 
 | Lab part | | Open date          | | Due date               | | Close date                 |
 |----------|-|--------------------|-|------------------------|-|----------------------------|
 | Pre-lab  | | Sunday at 12 noon  | | Tuesday at 8 am        | | Wednesday at 8 am          |
-| In-lab   | | Tuesday at 8 am    | | At the end of your lab | | Wednesday at 11:59:59 p.m. |
-| Post-lab | | Tuesday at 8 am    | | Friday at 12 noon      | | Saturday at 12 noon        |
+| In-lab   | | Tuesday at 8 am    | | Tuesday at 11:59:00 pm | | Wednesday at 11:59:00 p.m. |
+| Post-lab | | Tuesday at 8 am    | | Friday at 10 a.m.       | | Saturday at 10 a.m.         |

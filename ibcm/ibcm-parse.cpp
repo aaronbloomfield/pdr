@@ -39,7 +39,7 @@ int main (int argc, char *argv[]) {
             allowComments = true;
             continue;
         }
-        
+
         if ( argv[i][0] == '-' ) {
             cout << argv[0] << ": " << argv[i] << ": no such argument" << endl;
             printHelp(argv[0]);
@@ -65,11 +65,11 @@ int main (int argc, char *argv[]) {
                 continue;
             // is it a `//` comment?
             else if ( allowComments && (line.size() >= 2) &&
-                    (line[0] == '/') && (line[1] == '/') )
+                      (line[0] == '/') && (line[1] == '/') )
                 continue;
             // is it a `#` comment?
             else if ( allowComments && (line.size() >= 1) &&
-                    (line[0] == '#') )
+                      (line[0] == '#') )
                 continue;
             // is the line too short?
             else if ( line.size() < 4 ) {
@@ -110,7 +110,7 @@ bool isEmpty(string& line) {
 
     // does the line contain spaces or carriage returns?
     else if ( line.find_first_not_of(' ') != line.npos &&
-              line.find_first_not_of('\n') != line.npos && 
+              line.find_first_not_of('\n') != line.npos &&
               line.find_first_not_of('\r') != line.npos) {
         return false;
     }

@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>timer.cpp</title>
+</head>
+<body style="background-color:white">
+<pre><i><span style="color:#9A1900">// NOTE: in order to compile this system on Linux (and most Unix</span></i>
+<i><span style="color:#9A1900">// systems) you will have to include the -lrt flag to your compiler.</span></i>
+
+<i><span style="color:#9A1900">/*Nicholas Mohammad</span></i>
+<i><span style="color:#9A1900">  nm9ur</span></i>
+<i><span style="color:#9A1900">  timer.cpp</span></i>
+<i><span style="color:#9A1900">  10/19/2017</span></i>
+<i><span style="color:#9A1900">*/</span></i>
+
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;sstream&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;math.h&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;cstring&gt;</span>
+
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">"timer.h"</span>
+
+timer<span style="color:#990000">::</span><b><span style="color:#000000">timer</span></b><span style="color:#990000">(</span>timer <span style="color:#990000">&amp;</span> t<span style="color:#990000">)</span> <span style="color:#990000">:</span> <b><span style="color:#000000">running</span></b><span style="color:#990000">(</span>t<span style="color:#990000">.</span>running<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#000000">memcpy</span></b><span style="color:#990000">(&amp;</span>startVar<span style="color:#990000">,</span> <span style="color:#990000">&amp;(</span>t<span style="color:#990000">.</span>startVar<span style="color:#990000">),</span> <b><span style="color:#0000FF">sizeof</span></b> <span style="color:#990000">(</span>timeval<span style="color:#990000">));</span>
+    <b><span style="color:#000000">memcpy</span></b><span style="color:#990000">(&amp;</span>stopVar<span style="color:#990000">,</span>  <span style="color:#990000">&amp;(</span>t<span style="color:#990000">.</span>stopVar<span style="color:#990000">),</span>  <b><span style="color:#0000FF">sizeof</span></b> <span style="color:#990000">(</span>timeval<span style="color:#990000">));</span>
+<span style="color:#FF0000">}</span>
+
+<span style="color:#009900">int</span> timer<span style="color:#990000">::</span><b><span style="color:#000000">start</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(!</span>running<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        running <span style="color:#990000">=</span> <b><span style="color:#0000FF">true</span></b><span style="color:#990000">;</span>
+        <b><span style="color:#000000">gettimeofday</span></b><span style="color:#990000">(&amp;</span>startVar<span style="color:#990000">,</span>NULL<span style="color:#990000">);</span>
+        <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
+    <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">1</span><span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+
+<span style="color:#009900">int</span> timer<span style="color:#990000">::</span><b><span style="color:#000000">stop</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>running<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+        running <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+        <b><span style="color:#000000">gettimeofday</span></b><span style="color:#990000">(&amp;</span>stopVar<span style="color:#990000">,</span>NULL<span style="color:#990000">);</span>
+        <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
+    <b><span style="color:#0000FF">return</span></b> <span style="color:#993399">1</span><span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+
+ostream <span style="color:#990000">&amp;</span> timer<span style="color:#990000">::</span><b><span style="color:#000000">print</span></b><span style="color:#990000">(</span>ostream <span style="color:#990000">&amp;</span> out<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">return</span></b> <span style="color:#990000">(</span>out <span style="color:#990000">&lt;&lt;</span> <b><span style="color:#000000">toString</span></b><span style="color:#990000">());</span>
+<span style="color:#FF0000">}</span>
+
+<span style="color:#009900">double</span> timer<span style="color:#990000">::</span><b><span style="color:#000000">getTime</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    <span style="color:#008080">time_t</span> sec <span style="color:#990000">=</span> stopVar<span style="color:#990000">.</span>tv_sec <span style="color:#990000">-</span> startVar<span style="color:#990000">.</span>tv_sec<span style="color:#990000">;</span>
+    <span style="color:#009900">long</span> usec <span style="color:#990000">=</span> stopVar<span style="color:#990000">.</span>tv_usec <span style="color:#990000">-</span> startVar<span style="color:#990000">.</span>tv_usec<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">return</span></b> sec <span style="color:#990000">+</span> usec<span style="color:#990000">/</span><span style="color:#993399">1000000.0</span><span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+
+<span style="color:#008080">string</span> timer<span style="color:#990000">::</span><b><span style="color:#000000">toString</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{</span>
+    <span style="color:#008080">ostringstream</span> out<span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>running<span style="color:#990000">)</span>
+        out <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"Timer still running</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">;</span>
+    <b><span style="color:#0000FF">else</span></b> <span style="color:#FF0000">{</span>
+        <span style="color:#008080">time_t</span> sec <span style="color:#990000">=</span> stopVar<span style="color:#990000">.</span>tv_sec <span style="color:#990000">-</span> startVar<span style="color:#990000">.</span>tv_sec<span style="color:#990000">;</span>
+        <span style="color:#009900">long</span> usec <span style="color:#990000">=</span> stopVar<span style="color:#990000">.</span>tv_usec <span style="color:#990000">-</span> startVar<span style="color:#990000">.</span>tv_usec<span style="color:#990000">;</span>
+        <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span> usec <span style="color:#990000">&lt;</span> <span style="color:#993399">0</span> <span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+            sec<span style="color:#990000">--;</span>
+            usec <span style="color:#990000">+=</span> <span style="color:#993399">1000000</span><span style="color:#990000">;</span>
+        <span style="color:#FF0000">}</span>
+        out <span style="color:#990000">&lt;&lt;</span> sec <span style="color:#990000">&lt;&lt;</span> <span style="color:#FF0000">"."</span>
+            <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">((</span>usec<span style="color:#990000">&lt;</span><span style="color:#993399">100000</span><span style="color:#990000">)?</span><span style="color:#FF0000">"0"</span><span style="color:#990000">:</span><span style="color:#FF0000">""</span><span style="color:#990000">)</span>
+            <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">((</span>usec<span style="color:#990000">&lt;</span><span style="color:#993399">10000</span><span style="color:#990000">)?</span><span style="color:#FF0000">"0"</span><span style="color:#990000">:</span><span style="color:#FF0000">""</span><span style="color:#990000">)</span>
+            <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">((</span>usec<span style="color:#990000">&lt;</span><span style="color:#993399">1000</span><span style="color:#990000">)?</span><span style="color:#FF0000">"0"</span><span style="color:#990000">:</span><span style="color:#FF0000">""</span><span style="color:#990000">)</span>
+            <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">((</span>usec<span style="color:#990000">&lt;</span><span style="color:#993399">100</span><span style="color:#990000">)?</span><span style="color:#FF0000">"0"</span><span style="color:#990000">:</span><span style="color:#FF0000">""</span><span style="color:#990000">)</span>
+            <span style="color:#990000">&lt;&lt;</span> <span style="color:#990000">((</span>usec<span style="color:#990000">&lt;</span><span style="color:#993399">10</span><span style="color:#990000">)?</span><span style="color:#FF0000">"0"</span><span style="color:#990000">:</span><span style="color:#FF0000">""</span><span style="color:#990000">)</span>
+            <span style="color:#990000">&lt;&lt;</span> usec<span style="color:#990000">;</span>
+    <span style="color:#FF0000">}</span>
+    <b><span style="color:#0000FF">return</span></b> out<span style="color:#990000">.</span><b><span style="color:#000000">str</span></b><span style="color:#990000">();</span>
+<span style="color:#FF0000">}</span>
+
+ostream <span style="color:#990000">&amp;</span> <b><span style="color:#0000FF">operator</span></b><span style="color:#990000">&lt;&lt;(</span><span style="color:#008080">ostream</span> <span style="color:#990000">&amp;</span>out<span style="color:#990000">,</span> <span style="color:#008080">timer</span> <span style="color:#990000">&amp;</span>t<span style="color:#990000">)</span> <span style="color:#FF0000">{</span>
+    <b><span style="color:#0000FF">return</span></b> t<span style="color:#990000">.</span><b><span style="color:#000000">print</span></b><span style="color:#990000">(</span>out<span style="color:#990000">);</span>
+<span style="color:#FF0000">}</span>
+</pre>
+</body>
+</html>

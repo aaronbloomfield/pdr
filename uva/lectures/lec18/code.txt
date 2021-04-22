@@ -1,0 +1,65 @@
+// spring 2019, exam 2, page 3 questions
+
+int AVLTree::findMaxRecursive(TreeNode* curNode) {
+  if ( node->right != nullptr )
+    return findMaxRecursive(curNode->right);
+  else // node->right == nullptr
+    return node->value;
+    
+  // one-line version:
+  //return ( node->right ) ? findMaxRecursive(curNode->right) : node->value;
+}
+
+
+
+
+
+int AVLTree::findMaxIterative() {
+  TreeNode* curNode = this->root;
+  
+  while ( curNode->right != nullptr ) // or just: while ( curNode->right )
+    curNode = curNode->right;
+
+  // one-line version of the loop:
+  //for ( ; curNode->right != nullptr; curNode = curNode->right );
+  
+  return curNode->value;
+}
+
+
+
+
+// fall 2019, exam 2, page 3 questions
+
+getCommonAncestor()
+
+- parameters are root, a, b
+- find path from root -> a, save in a list (log(n) length; modified BST find)
+- find path from root -> b, save in a list (log(n) length; modified BST find)
+- lenghts of the paths are log(n)
+- starting at the root node in the paths, progress down the paths until they diverge
+- node right before they diverge is the least common ancestor
+- (we could eliminate the lists, and progress down the tree with pointers)
+
+
+
+int sumLeaves(BSTNode *node) {
+  if ( node == nullptr )
+    return 0;
+  if ( node->left == nullptr && node->right == nullptr )
+    return node->value;
+  else
+    return sumLeaves(node->right) + sumLeaves(node-left);
+
+  // or...
+
+  if ( node->left == nullptr && node->right == nullptr ) // is a leaf!
+    return node->value;
+  else if ( node->left == nullptr )
+    return sumLeaves(node->right);
+  else if ( node->right == nullptr )
+    return sumLeaves(node->left);
+  else
+    return sumLeaves(node->left) + sumLeaves(node->right);
+}
+    

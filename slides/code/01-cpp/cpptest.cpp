@@ -64,6 +64,7 @@ test& test::operator=(const test& other) {
 
 ostream& operator<<(ostream& out, const test& f) {
     out << "test[id=" << f.id << ",v=" << f.value << "]";
+    return out;
 }
 
 

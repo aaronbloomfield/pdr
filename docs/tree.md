@@ -2,8 +2,8 @@
 
 [Go up to the main documents page](index.html) ([md](index.md))
 
-- [README](../readme-old.html) ([md](../readme-old.md))
-- [LICENSE](../LICENSE.html) ([md](../LICENSE.md))
+- [README](../readme.html) ([md](../readme.md))
+- [LICENSE](../license.html) ([md](../license.md))
 - [CS 2150 Specific Content](../uva/index.html) ([md](../uva/index.md))
     - [Lab due dates](../uva/labduedates.html) ([md](../uva/labduedates.md))
     - [Course syllabus](../uva/syllabus.html) ([md](../uva/syllabus.md))

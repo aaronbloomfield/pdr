@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>linkedlist.c</title>
+</head>
+<body style="background-color:white">
+<pre><b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;stdio.h&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;ctype.h&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;stdlib.h&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;string.h&gt;</span>
+
+<b><span style="color:#000080">#define</span></b> PUSH_FRONT 	<span style="color:#993399">0</span>
+<b><span style="color:#000080">#define</span></b> PUSH_BACK 	<span style="color:#993399">1</span>
+<b><span style="color:#000080">#define</span></b> POP_FRONT 	<span style="color:#993399">2</span>
+<b><span style="color:#000080">#define</span></b> POP_BACK 	<span style="color:#993399">3</span>
+<b><span style="color:#000080">#define</span></b> PRINT_LIST 	<span style="color:#993399">4</span>
+<b><span style="color:#000080">#define</span></b> HELP 		<span style="color:#993399">5</span>
+<b><span style="color:#000080">#define</span></b> QUIT 		<span style="color:#993399">6</span>
+<b><span style="color:#000080">#define</span></b> INVALID 	<span style="color:#993399">7</span>
+
+<b><span style="color:#000080">#define</span></b> BUFFER_SIZE <span style="color:#993399">20</span>
+
+<span style="color:#009900">void</span> <b><span style="color:#000000">printOptions</span></b><span style="color:#990000">();</span>
+<span style="color:#009900">int</span> <b><span style="color:#000000">readInput</span></b><span style="color:#990000">(</span><span style="color:#009900">int</span><span style="color:#990000">*</span> val<span style="color:#990000">);</span>
+<span style="color:#009900">int</span> <b><span style="color:#000000">isNumber</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> <span style="color:#009900">char</span><span style="color:#990000">*</span> token<span style="color:#990000">);</span>
+<span style="color:#009900">int</span> <b><span style="color:#000000">isEmpty</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> <span style="color:#009900">char</span><span style="color:#990000">*</span> input<span style="color:#990000">);</span>
+
+<span style="color:#009900">int</span> <b><span style="color:#000000">main</span></b><span style="color:#990000">()</span><span style="color:#FF0000">{</span>
+
+	<i><span style="color:#9A1900">// TODO: INSTANTIATE YOUR LINKED LIST HERE.</span></i>
+
+
+
+
+	<i><span style="color:#9A1900">//----END----</span></i>
+	
+
+	<span style="color:#009900">int</span> option<span style="color:#990000">,</span> val<span style="color:#990000">;</span>
+	<b><span style="color:#000000">printOptions</span></b><span style="color:#990000">();</span>
+
+	<b><span style="color:#0000FF">do</span></b> <span style="color:#FF0000">{</span>
+		option <span style="color:#990000">=</span> <b><span style="color:#000000">readInput</span></b><span style="color:#990000">(&amp;</span>val<span style="color:#990000">);</span>
+		<b><span style="color:#0000FF">struct</span></b> <span style="color:#008080">list_item</span><span style="color:#990000">*</span> node<span style="color:#990000">;</span>
+
+		<b><span style="color:#0000FF">switch</span></b><span style="color:#990000">(</span>option<span style="color:#990000">)</span><span style="color:#FF0000">{</span>
+			<b><span style="color:#0000FF">case</span></b> PUSH_FRONT<span style="color:#990000">:</span>				<i><span style="color:#9A1900">// push onto front of list</span></i>
+				<i><span style="color:#9A1900">// TODO: Insert code to push val onto front of linked list here.</span></i>
+
+
+				<i><span style="color:#9A1900">//----END----</span></i>
+				<b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+			<b><span style="color:#0000FF">case</span></b> PUSH_BACK<span style="color:#990000">:</span> 				<i><span style="color:#9A1900">// push onto back of list</span></i>
+				<i><span style="color:#9A1900">// TODO: Insert code to push val onto back of linked list here.</span></i>
+				
+
+				<i><span style="color:#9A1900">//----END----</span></i>
+				<b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+			<b><span style="color:#0000FF">case</span></b> POP_FRONT<span style="color:#990000">:</span> 				<i><span style="color:#9A1900">// remove from front of list</span></i>
+				<i><span style="color:#9A1900">// TODO: Insert code to remove from front of linked list here.</span></i>
+				<i><span style="color:#9A1900">// If list is empty, do nothing.</span></i>
+
+
+				<i><span style="color:#9A1900">//----END----</span></i>
+				<b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+			<b><span style="color:#0000FF">case</span></b> POP_BACK<span style="color:#990000">:</span>					<i><span style="color:#9A1900">// remove from back of list</span></i>
+				<i><span style="color:#9A1900">// TODO: Insert code to remove from back of linked list here.</span></i>
+				<i><span style="color:#9A1900">// If list is empty, do nothing.</span></i>
+				
+
+				<i><span style="color:#9A1900">//----END----</span></i>
+				<b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+			<b><span style="color:#0000FF">case</span></b> PRINT_LIST<span style="color:#990000">:</span>				<i><span style="color:#9A1900">// print list</span></i>
+				<i><span style="color:#9A1900">// TODO: Insert code to print list forwards here.</span></i>
+				<i><span style="color:#9A1900">// Simply print each element separated by a space as shown below:</span></i>
+				<i><span style="color:#9A1900">// Elements: 1 2 3 4 5 </span></i>
+				<b><span style="color:#000000">printf</span></b><span style="color:#990000">(</span><span style="color:#FF0000">"Elements: "</span><span style="color:#990000">);</span>
+
+
+				<i><span style="color:#9A1900">//----END----</span></i>
+				<b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+			<b><span style="color:#0000FF">case</span></b> HELP<span style="color:#990000">:</span> 						<i><span style="color:#9A1900">// print menu</span></i>
+				<b><span style="color:#000000">printOptions</span></b><span style="color:#990000">();</span>
+				<b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+			<b><span style="color:#0000FF">case</span></b> QUIT<span style="color:#990000">:</span> 						<i><span style="color:#9A1900">// quit</span></i>
+				<b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+			<b><span style="color:#0000FF">case</span></b> INVALID<span style="color:#990000">:</span> 					<i><span style="color:#9A1900">// bad input</span></i>
+				<b><span style="color:#000000">fprintf</span></b><span style="color:#990000">(</span>stderr<span style="color:#990000">,</span><span style="color:#FF0000">"Invalid command or operand, please input a valid command or help to see the list again.</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">);</span>
+				<b><span style="color:#0000FF">break</span></b><span style="color:#990000">;</span>
+		<span style="color:#FF0000">}</span>
+
+	<span style="color:#FF0000">}</span> <b><span style="color:#0000FF">while</span></b><span style="color:#990000">(</span>option <span style="color:#990000">!=</span> QUIT<span style="color:#990000">);</span>
+
+	<i><span style="color:#9A1900">// TODO: free any memory used by your linked list here</span></i>
+	
+
+	<i><span style="color:#9A1900">//----END----</span></i>
+
+	<b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+
+
+
+<i><span style="color:#9A1900">//---------------------------------------</span></i>
+<i><span style="color:#9A1900">//NOTE: EVERYTHING BELOW THIS LINE SHOULD NOT BE TOUCHED. IT HANDLES INPUT AND SUCH FOR YOU</span></i>
+<i><span style="color:#9A1900">//---------------------------------------</span></i>
+
+<span style="color:#009900">int</span> <b><span style="color:#000000">readInput</span></b><span style="color:#990000">(</span><span style="color:#009900">int</span><span style="color:#990000">*</span> val<span style="color:#990000">)</span><span style="color:#FF0000">{</span>
+	<span style="color:#009900">char</span> input<span style="color:#990000">[</span>BUFFER_SIZE<span style="color:#990000">]=</span><span style="color:#FF0000">""</span><span style="color:#990000">;</span>
+	<b><span style="color:#0000FF">while</span></b><span style="color:#990000">(</span><b><span style="color:#000000">isEmpty</span></b><span style="color:#990000">(</span>input<span style="color:#990000">))</span><span style="color:#FF0000">{</span>
+		<b><span style="color:#000000">printf</span></b><span style="color:#990000">(</span><span style="color:#FF0000">"Enter command: "</span><span style="color:#990000">);</span>
+		<b><span style="color:#000000">fgets</span></b><span style="color:#990000">(</span>input<span style="color:#990000">,</span> BUFFER_SIZE<span style="color:#990000">,</span> stdin<span style="color:#990000">);</span>
+		input<span style="color:#990000">[</span><b><span style="color:#000000">strcspn</span></b><span style="color:#990000">(</span>input<span style="color:#990000">,</span> <span style="color:#FF0000">"</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">)]</span> <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+	<span style="color:#FF0000">}</span>
+
+	<span style="color:#009900">char</span><span style="color:#990000">*</span> token <span style="color:#990000">=</span> <b><span style="color:#000000">strtok</span></b><span style="color:#990000">(</span>input<span style="color:#990000">,</span> <span style="color:#FF0000">" "</span><span style="color:#990000">);</span>
+	
+	<b><span style="color:#0000FF">if</span></b> <span style="color:#990000">((</span><b><span style="color:#000000">strcmp</span></b><span style="color:#990000">(</span>token<span style="color:#990000">,</span> <span style="color:#FF0000">"af"</span><span style="color:#990000">))</span> <span style="color:#990000">==</span> <span style="color:#993399">0</span><span style="color:#990000">)</span><span style="color:#FF0000">{</span>
+		token <span style="color:#990000">=</span> <b><span style="color:#000000">strtok</span></b><span style="color:#990000">(</span>NULL<span style="color:#990000">,</span> <span style="color:#FF0000">" "</span><span style="color:#990000">);</span>
+		<b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span><b><span style="color:#000000">isNumber</span></b><span style="color:#990000">(</span>token<span style="color:#990000">))</span><span style="color:#FF0000">{</span>
+			<span style="color:#990000">*</span>val <span style="color:#990000">=</span> <b><span style="color:#000000">atoi</span></b><span style="color:#990000">(</span>token<span style="color:#990000">);</span>
+			<b><span style="color:#0000FF">return</span></b> PUSH_FRONT<span style="color:#990000">;</span>
+		<span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">return</span></b> INVALID<span style="color:#990000">;</span>
+	<span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">((</span><b><span style="color:#000000">strcmp</span></b><span style="color:#990000">(</span>token<span style="color:#990000">,</span> <span style="color:#FF0000">"ab"</span><span style="color:#990000">))</span> <span style="color:#990000">==</span> <span style="color:#993399">0</span><span style="color:#990000">)</span><span style="color:#FF0000">{</span>
+		token <span style="color:#990000">=</span> <b><span style="color:#000000">strtok</span></b><span style="color:#990000">(</span>NULL<span style="color:#990000">,</span> <span style="color:#FF0000">" "</span><span style="color:#990000">);</span>
+		<b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span><b><span style="color:#000000">isNumber</span></b><span style="color:#990000">(</span>token<span style="color:#990000">))</span><span style="color:#FF0000">{</span>
+			<span style="color:#990000">*</span>val <span style="color:#990000">=</span> <b><span style="color:#000000">atoi</span></b><span style="color:#990000">(</span>token<span style="color:#990000">);</span>
+			<b><span style="color:#0000FF">return</span></b> PUSH_BACK<span style="color:#990000">;</span>
+		<span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">return</span></b> INVALID<span style="color:#990000">;</span>
+	<span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">((</span><b><span style="color:#000000">strcmp</span></b><span style="color:#990000">(</span>token<span style="color:#990000">,</span> <span style="color:#FF0000">"rf"</span><span style="color:#990000">))</span> <span style="color:#990000">==</span> <span style="color:#993399">0</span><span style="color:#990000">)</span><span style="color:#FF0000">{</span>
+	 	<b><span style="color:#0000FF">return</span></b> POP_FRONT<span style="color:#990000">;</span>
+	<span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">((</span><b><span style="color:#000000">strcmp</span></b><span style="color:#990000">(</span>token<span style="color:#990000">,</span> <span style="color:#FF0000">"rb"</span><span style="color:#990000">))</span> <span style="color:#990000">==</span> <span style="color:#993399">0</span><span style="color:#990000">)</span><span style="color:#FF0000">{</span>
+	 	<b><span style="color:#0000FF">return</span></b> POP_BACK<span style="color:#990000">;</span>
+	<span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">((</span><b><span style="color:#000000">strcmp</span></b><span style="color:#990000">(</span>token<span style="color:#990000">,</span> <span style="color:#FF0000">"p"</span><span style="color:#990000">))</span> <span style="color:#990000">==</span> <span style="color:#993399">0</span><span style="color:#990000">)</span><span style="color:#FF0000">{</span>
+	 	<b><span style="color:#0000FF">return</span></b> PRINT_LIST<span style="color:#990000">;</span>
+	<span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b><span style="color:#990000">((</span><b><span style="color:#000000">strcmp</span></b><span style="color:#990000">(</span>token<span style="color:#990000">,</span> <span style="color:#FF0000">"help"</span><span style="color:#990000">))</span> <span style="color:#990000">==</span> <span style="color:#993399">0</span><span style="color:#990000">)</span><span style="color:#FF0000">{</span>
+	 	<b><span style="color:#0000FF">return</span></b> HELP<span style="color:#990000">;</span>
+	<span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <b><span style="color:#0000FF">if</span></b><span style="color:#990000">((</span><b><span style="color:#000000">strcmp</span></b><span style="color:#990000">(</span>token<span style="color:#990000">,</span> <span style="color:#FF0000">"-1"</span><span style="color:#990000">))</span> <span style="color:#990000">==</span> <span style="color:#993399">0</span><span style="color:#990000">)</span><span style="color:#FF0000">{</span>
+	 	<b><span style="color:#0000FF">return</span></b> QUIT<span style="color:#990000">;</span>
+	<span style="color:#FF0000">}</span> <b><span style="color:#0000FF">else</span></b> <span style="color:#FF0000">{</span>
+		<b><span style="color:#0000FF">return</span></b> INVALID<span style="color:#990000">;</span>
+	<span style="color:#FF0000">}</span>
+<span style="color:#FF0000">}</span>
+
+<span style="color:#009900">void</span> <b><span style="color:#000000">printOptions</span></b><span style="color:#990000">()</span><span style="color:#FF0000">{</span>
+	<b><span style="color:#000000">printf</span></b><span style="color:#990000">(</span><span style="color:#FF0000">"----------------------------------------------------</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">);</span>
+	<b><span style="color:#000000">printf</span></b><span style="color:#990000">(</span><span style="color:#FF0000">"This test harness operates with one linked list.</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">);</span>
+	<b><span style="color:#000000">printf</span></b><span style="color:#990000">(</span><span style="color:#FF0000">"Use any of the following options to manipulate it:</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">);</span>
+	<b><span style="color:#000000">printf</span></b><span style="color:#990000">(</span><span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">* af &lt;num&gt; --- add integer to front</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">);</span>
+	<b><span style="color:#000000">printf</span></b><span style="color:#990000">(</span><span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">* ab &lt;num&gt; --- add integer to back</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">);</span>
+	<b><span style="color:#000000">printf</span></b><span style="color:#990000">(</span><span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">* rf       --- remove front element</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">);</span>
+	<b><span style="color:#000000">printf</span></b><span style="color:#990000">(</span><span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">* rb       --- remove back element</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">);</span>
+	<b><span style="color:#000000">printf</span></b><span style="color:#990000">(</span><span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">* p        --- print list forward</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">);</span>
+	<b><span style="color:#000000">printf</span></b><span style="color:#990000">(</span><span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">* help     --- print off this list</span><span style="color:#CC33CC">\n</span><span style="color:#FF0000">"</span><span style="color:#990000">);</span>
+	<b><span style="color:#000000">printf</span></b><span style="color:#990000">(</span><span style="color:#FF0000">"</span><span style="color:#CC33CC">\t</span><span style="color:#FF0000">* -1       --- exit harness</span><span style="color:#CC33CC">\n\n</span><span style="color:#FF0000">"</span><span style="color:#990000">);</span>
+<span style="color:#FF0000">}</span>
+
+<span style="color:#009900">int</span> <b><span style="color:#000000">isNumber</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> <span style="color:#009900">char</span><span style="color:#990000">*</span> token<span style="color:#990000">)</span><span style="color:#FF0000">{</span>
+	<span style="color:#009900">int</span> length<span style="color:#990000">,</span> i <span style="color:#990000">=</span> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+	<b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(</span>token <span style="color:#990000">==</span> NULL<span style="color:#990000">)</span>	<b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+	<b><span style="color:#0000FF">if</span></b><span style="color:#990000">(</span>token<span style="color:#990000">[</span><span style="color:#993399">0</span><span style="color:#990000">]</span> <span style="color:#990000">==</span> <span style="color:#FF0000">'-'</span><span style="color:#990000">)</span> 	i <span style="color:#990000">=</span> <span style="color:#993399">1</span><span style="color:#990000">;</span>
+	length <span style="color:#990000">=</span> <b><span style="color:#000000">strlen</span></b><span style="color:#990000">(</span>token<span style="color:#990000">);</span>
+	<b><span style="color:#0000FF">for</span></b> <span style="color:#990000">(;</span> i <span style="color:#990000">&lt;</span> length<span style="color:#990000">;</span> i<span style="color:#990000">++)</span><span style="color:#FF0000">{</span>
+	    <b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(!</span><b><span style="color:#000000">isdigit</span></b><span style="color:#990000">(</span>token<span style="color:#990000">[</span>i<span style="color:#990000">]))</span>
+	    	<b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+	<span style="color:#FF0000">}</span>
+
+	<b><span style="color:#0000FF">return</span></b> <span style="color:#993399">1</span><span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span>
+
+<span style="color:#009900">int</span> <b><span style="color:#000000">isEmpty</span></b><span style="color:#990000">(</span><b><span style="color:#0000FF">const</span></b> <span style="color:#009900">char</span><span style="color:#990000">*</span> input<span style="color:#990000">)</span><span style="color:#FF0000">{</span>
+	<b><span style="color:#0000FF">while</span></b> <span style="color:#990000">(*</span>input <span style="color:#990000">!=</span> <span style="color:#FF0000">'</span><span style="color:#CC33CC">\0</span><span style="color:#FF0000">'</span><span style="color:#990000">)</span><span style="color:#FF0000">{</span>
+		<b><span style="color:#0000FF">if</span></b> <span style="color:#990000">(!</span><b><span style="color:#000000">isspace</span></b><span style="color:#990000">((</span><span style="color:#009900">unsigned</span> <span style="color:#009900">char</span><span style="color:#990000">)*</span>input<span style="color:#990000">))</span>
+			<b><span style="color:#0000FF">return</span></b> <span style="color:#993399">0</span><span style="color:#990000">;</span>
+		input<span style="color:#990000">++;</span>
+	<span style="color:#FF0000">}</span>
+
+	<b><span style="color:#0000FF">return</span></b> <span style="color:#993399">1</span><span style="color:#990000">;</span>
+<span style="color:#FF0000">}</span></pre>
+</body>
+</html>

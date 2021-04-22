@@ -1,0 +1,38 @@
+.container {
+    display: grid;
+    row-gap: 3em;
+    column-gap: 3em;
+}
+
+@media screen {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (min-width: 1366px) {
+    .container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 2560px) {
+    .container {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+/* Scale down images so they're not humongous */
+img {
+    max-height: 400px;
+    max-width: 400px;
+}
+
+/* Float images left on big-enough screens */
+@media screen and (min-width: 768px) {
+    img {
+        max-width: 50%;
+        float: left;
+        padding-right: 1em;
+    }
+}

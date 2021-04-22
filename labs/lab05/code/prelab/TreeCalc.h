@@ -1,38 +1,37 @@
 // Add your header information here
 // TreeCalc.h: Tree Calculator class definition
 // CS 2150: Lab 5
-// NOTE: You may use any stack implementation that you wish
 // You must submit ALL code to make your project build correctly
 
 
 #ifndef TREECALC_H
 #define TREECALC_H
 
-// include your stack implementation here
+#include <stack>
 
 #include "TreeNode.h"
 using namespace std;
 
 class TreeCalc {
 public:
+    TreeCalc();                     // Constructor
+    ~TreeCalc();                    // Destructor
 
-    TreeCalc();						//Constructor
-    ~TreeCalc();					//Destructor
-
-    void cleanTree(TreeNode * ptr);	//Deletes tree/frees memory
-    void readInput();				//gets data from user
-    void insert(const string & val);	//puts value in tree
+    void cleanTree(TreeNode* tree);  // Deletes tree/frees memory
+    void readInput();               // Gets data from user
+    void insert(const string& val); // Puts value in tree
 
     // print methods
-    void printPrefix(TreeNode * curNode) const;	//prints data in prefix form
-    void printInfix(TreeNode * curNode) const;	//prints data in infix form
-    void printPostfix(TreeNode * curNode) const;//prints data in postfix form
-    void printOutput() const;				//prints in pre,in,post form
-    int calculate();					//calls private calculate method
+    void printPrefix(TreeNode* tree) const;  // Prints data in prefix form
+    void printInfix(TreeNode* tree) const;   // Prints data in infix form
+    void printPostfix(TreeNode* tree) const; // Prints data in postfix form
+    void printOutput() const;                // Prints in post, in, pre form
+    int calculate();                         // Calls private calculate method
 
 private:
-    // declare a stack to hold your expression tree
-    int calculate(TreeNode* ptr) const;		//Evaluates tree, returns value
+    stack<TreeNode*> expressionStack;   // Stack to hold the expression
+
+    int calculate(TreeNode* tree) const; // Evaluates tree, returns value
 
 };
 

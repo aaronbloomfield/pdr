@@ -1,0 +1,22 @@
+Fall 2018, exam 2, question 8
+
+
+Easier way to do this:
+
+1. find maximum element $m$
+2. remove maximum $m$
+3. find new maximum element $a$
+4. insert $m$ back into tree
+
+
+More better algorithm:
+
+if numNodes <= 1:
+    throw error
+find max value $m$
+    - two possible cases: $m$ has no children (leaf) or 1 (left) child
+if $m$ has no children (is a leaf):
+    - return parent of $m$
+if $m$ has one (left) child:
+    - return max of left subtree
+

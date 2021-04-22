@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Lab 11 post-lab development steps</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="../../../../markdown.css" />
+</head>
+<body>
+<h1 id="lab-11-post-lab-development-steps">Lab 11 post-lab development steps</h1>
+<ul>
+<li>determine how to represent each node</li>
+<li>write a determine_adjacent_nodes() function (can return <code>vector&lt;string&gt;</code>)</li>
+<li>TEST THAT FUNCTION!!!!1111oneoneONEONE</li>
+<li>determine a way to know if a node has been visited
+<ul>
+<li>keep track of it in a map&lt;string,int&gt;</li>
+<li>keep track of the path in another map&lt;string,string&gt;</li>
+</ul></li>
+<li>perform a BFS on the graph
+<ul>
+<li>will have a <code>queue&lt;string&gt;</code></li>
+<li>add the start node to the BFS queue and set distance to 0</li>
+<li>terminate once the goal (or final) state is found</li>
+</ul></li>
+</ul>
+<p>Some pseudo-code to use maps:</p>
+<pre><code>#include &lt;map&gt;
+
+// ...
+
+map&lt;string,int&gt; dist;
+map&lt;string,string&gt; path;
+string s, u, v;
+
+// ...
+
+dist[s]
+path[u]
+
+if ( dist.find(key) != dist.end() ) {
+}</code></pre>
+</body>
+</html>

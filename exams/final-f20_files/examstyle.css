@@ -1,0 +1,241 @@
+body {
+    background-color: #ddd;
+}
+
+code {
+    background-color:rgba(27,31,35,0.1);
+    border-radius:6px;
+    padding:.2em .4em;
+    margin:0;
+}
+
+table.toptable {
+    width:100%;
+    padding-right:10px;
+    padding-top:10px;
+}
+
+td.toptable {
+    margin-top:10px;
+}
+
+tr.toptable {
+}
+
+@media screen and (max-width:1200px) {
+tr.toptable {
+    display:grid;
+    margin-top:40px;
+}
+}
+
+div.toptablediv {
+    background-color:white;
+    border-radius:10px;
+    margin-left:10px;
+}
+
+div.answer, div.score, div.qscore {
+    border:1px solid black;
+    padding:10px;
+    margin:10px;
+    margin-right:20px;
+    background-color:white;
+    width:96%;
+    border-radius:10px;
+    display: inline-flex;
+    align-items: center;
+}
+
+div.score, div.qscore {
+    background-color:pink;
+    margin-bottom:0px;
+    margin-top:0px;
+}
+
+div.score {
+    margin-top:40px;
+}
+
+div.qscore {
+    display:none;
+    margin-right:0px;
+}
+
+div.answer input[type=text] {
+    width:75%;
+    margin-top:33px;
+    margin-bottom:33px;
+}
+
+div.choice_container p {
+    margin:0;
+    padding-left:1.6em;
+    text-indent:-1.6em;
+    padding-top:1px;
+    padding-bottom:1px;
+}
+
+hr {
+    height:5px;
+    color:black;
+    background-color:black;
+}
+
+div.questiontitle {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+div.intro {
+    background-color: white;
+    border-radius: 10px;
+    padding:10px;
+    margin:10px;
+}
+
+div.status_div {
+    width: 30%;
+}
+
+div.choice_container {
+    width: 70%;
+}
+
+
+/* these navbar blocks adapted from https://www.w3schools.com/howto/howto_css_fixed_menu.asp */
+
+ /* The navigation bar */
+div.navbar {
+  overflow: hidden;
+  background-color: #cbd;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+}
+
+div.navbar td.right {
+    text-align: right;
+}
+
+table.navbar {
+    width:100%;
+    padding: 14px 16px;
+}
+
+table.subnavbar td {
+    padding:0;
+}
+
+table.subnavbar {
+    margin-right:0;
+    margin-left:auto;
+}
+
+.navbar h2 {
+    margin:0;
+}
+
+table.colorcodes h2, table.questionstable h2 {
+    margin-top:0;
+    text-align:center;
+}
+
+td.colorblock {
+    background-color:white;
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-left:10px;
+    padding-right:10px;
+    margin-right:5px;
+    border:1px solid black;
+    border-radius:5px;
+    width:50px;
+    font-weight:bold;
+    text-align:center;
+}
+
+/* Main content below navbar */
+.main {
+  margin-top: 80px; /* Add a top margin to avoid content overlay */
+} 
+
+
+/* sample question tables */
+
+table.questionstable, table.colorcodes {
+    font-size:small;
+    background-color:white;
+    padding:10px;
+    border-radius:10px;
+    /* margin-right:10px; */
+    /* margin-bottom:0; */
+    /* display:inline-block; */
+    margin: 0 auto;
+    vertical-align:top;
+    /* width:100%; */
+}
+
+table.onequestable {
+    border:1px solid black;
+    border-radius:10px;
+    background-color: #ddd;
+}
+
+td.questionspacer {
+    background-color:white;
+    width:10px;
+}
+
+td.questionsampletop {
+    text-align:center;
+    text-decoration:underline;   
+    padding-left:5px;
+    padding-right:5px;
+}
+
+td.questionsamplemid input[type=text] {
+    width:100px;
+}
+
+td.questionsamplemid {
+    text-align:center;
+    vertical-align:middle;
+    height:130px;
+    padding-left:5px;
+    padding-right:5px;
+}
+
+td.questionsamplebot {
+    text-align:center;
+    padding-left:5px;
+    padding-right:5px;
+}
+
+/* question and answer formatting */
+
+div.question {
+    /* border:1px solid red; */
+    background-color:white;
+    padding:10px;
+    border-radius:10px;
+    margin:10px;
+}
+
+img.inlineimage {
+    max-width:90%;
+    border-radius:10px;
+}
+
+h2.maintitle {
+    background-color:white;
+    border-radius:10px;
+    padding:10px;
+    margin:10px;
+}
+
+img.equation {
+    vertical-align:middle;
+    padding-right:10px;
+    padding-left:10px;
+}

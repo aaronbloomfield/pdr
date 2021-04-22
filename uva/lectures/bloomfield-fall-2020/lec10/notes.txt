@@ -1,0 +1,49 @@
+Converting and arbitrary base number to another base
+====================================================
+
+144 in base 5: 144_5
+convert to base 12
+
+- step 1: convert to base 10 (144_5 = 49_10)
+- step 2: convert to base 12
+
+144_5 = 1*5^2 + 4*5^1 + 4*5^0 = 1*25 + 4*5 + 4*1 = 25 + 20 + 4 = 49_10
+
+- 49 / 12 = 4 r 1
+- 4 / 12 = 0 r 4
+- answer is 41 or 144_5 = 49_10 = 41_12
+
+
+Base conversion shortcuts
+=========================
+
+- base 2 <=> 16 (and also 8
+- base 16: 0-9, a-f
+- 0000010010011011 = 0000 0100 1001 1011 = 049b = 0x049b
+- 0xa5 = 1010 0101
+- octal: 010110 -> 010 110 -> 26: 010110_2 = 26_8; 026
+    - 001001_2 = 11_8 -> 011
+    - 11: base 10
+    - 011: base 8
+    - 0x11: base 16
+
+
+Endian-ness
+===========
+
+- 0x12345678 is big-Endian, 0x78563412 is little-Endian
+
+
+Two's complement
+================
+
+- encode -73 in two's complement
+- step 1: encode abs val: 73 = 64+8+1 = 0100 1001 = 0x49
+- step 2: flip the bits => 1011 0110 = =0xb6
+- step 3: add 1: 1011 0110 + 1 = 1011 0111 = -73
+- convert to hex: 0xb7
+- int x = 0xb4fd87ac (assumes 4-byte int) (not recommended)
+- int x = -924857894
+
+1010 + 1 = 1011
+1011 + 1 = 1100

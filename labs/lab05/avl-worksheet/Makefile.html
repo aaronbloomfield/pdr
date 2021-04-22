@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>Makefile</title>
+</head>
+<body style="background-color:white">
+<pre><span style="color:#990000">graphs:</span>
+	@echo Making all graphs into .svg files<span style="color:#990000">...</span>
+	@ls <span style="color:#990000">*</span>.dot <span style="color:#990000">|</span> sed s<span style="color:#990000">/</span>.dot//g <span style="color:#990000">|</span> awk <span style="color:#FF0000">'{print "dot -Tpdf "$$1".dot -o "$$1".pdf"}'</span> <span style="color:#990000">|</span> bash
+	pdflatex avl-worksheet.tex
+
+<span style="color:#990000">clean:</span>
+	/bin/rm -f <span style="color:#990000">*~</span> <span style="color:#990000">*</span>.log <span style="color:#990000">*</span>.aux
+</pre>
+</body>
+</html>

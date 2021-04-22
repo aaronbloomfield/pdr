@@ -1,67 +1,36 @@
-// NOTE: in order to compile this system on Linux (and most Unix
-// systems) you will have to include the -lrt flag to your compiler.
-
-#include <sstream>
-#include <math.h>
-#include <cstring>
-
 #include "timer.h"
 
-timer::timer(timer & t) : running(t.running) {
-    memcpy(&startVar, &(t.startVar), sizeof (timeval));
-    memcpy(&stopVar,  &(t.stopVar),  sizeof (timeval));
+timer::timer() {
+    running = false;
 }
 
-int timer::start() {
+timer::timer(timer& t) {
+    running = t.running;
+    start_time = t.start_time;
+    stop_time = t.stop_time;
+}
+
+void timer::start() {
     if (!running) {
         running = true;
-        gettimeofday(&startVar,NULL);
-        return 0;
+        start_time = steady_clock::now();
     }
-    return 1;
 }
 
-int timer::stop() {
+void timer::stop() {
     if (running) {
-        running = 0;
-        gettimeofday(&stopVar,NULL);
-        return 0;
+        running = false;
+        stop_time = steady_clock::now();
     }
-    return 1;
 }
 
-ostream & timer::print(ostream & out) {
-    return (out << toString());
-}
-
+// Returns the time elapsed, in seconds
 double timer::getTime() {
-    time_t sec = stopVar.tv_sec - startVar.tv_sec;
-    long usec = stopVar.tv_usec - startVar.tv_usec;
-    return sec + usec/1000000.0;
+    // Cast the intrinsic duration to seconds, but use a double so that we can
+    // have fractional seconds to represent anything more precise (i.e. microseconds)
+    return duration_cast<duration<double>>(stop_time - start_time).count();
 }
 
-string timer::toString() {
-    ostringstream out;
-    if (running)
-        out << "Timer still running\n";
-    else {
-        time_t sec = stopVar.tv_sec - startVar.tv_sec;
-        long usec = stopVar.tv_usec - startVar.tv_usec;
-        if ( usec < 0 ) {
-            sec--;
-            usec += 1000000;
-        }
-        out << sec << "."
-            << ((usec<100000)?"0":"")
-            << ((usec<10000)?"0":"")
-            << ((usec<1000)?"0":"")
-            << ((usec<100)?"0":"")
-            << ((usec<10)?"0":"")
-            << usec;
-    }
-    return out.str();
-}
-
-ostream & operator<<(ostream &out, timer &t) {
-    return t.print(out);
+ostream& operator<<(ostream& out, timer& t) {
+    return out << to_string(t.getTime());
 }

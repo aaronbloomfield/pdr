@@ -1,0 +1,21 @@
+fall 2018, exam 2, question 8
+
+
+easy, but modifies tree:
+
+1. find max of tree, put into $m$ ($m=14$)
+2. delete $m$ from tree
+3. find max of updated tree, put into $a$ ($a=12$)
+4. insert $m$ back into tree
+
+
+more better algorithm:
+
+if ( numNodes <= 1 )
+    throw error
+start at root
+find max value $m$
+if ( m has no left subtree )
+    return m's parent's value
+if ( m has a left subtree )
+    return findMax of left subtree

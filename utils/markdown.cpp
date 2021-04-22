@@ -12,13 +12,13 @@
  * for those tags, to perform a markdown conversion.  The full list of
  * additional features it supports can be found at
  * http://manpages.ubuntu.com/manpages/raring/man7/mkd-extensions.7.html.
- * It requires the libmarkdown2-dev pacakage be installed under
+ * It requires the libmarkdown2-dev package be installed under
  * Ubuntu.
  *
  * The resulting document is a full HTML document -- meaning it adds
  * the <doctype>, <html>, <head>, and <body> tags to the document.
  *
- * To compile: "gcc markdown.c -o markdown -lmarkdown"
+ * To compile: "g++ markdown.cpp -o markdown -lmarkdown"
  *
  * To use, specify the input file name, and optionally an output file
  * name.
