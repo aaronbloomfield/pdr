@@ -16,6 +16,13 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 34: Fri, Apr 23 (finished heaps & Huffman; graphs to slide 5.3)
+    - [spring 2019 final](https://uva-cs.github.io/pdr/exams/final-s19.pdf), page 6
+        - We used [this animation site](https://www.cs.usfca.edu/~galles/visualization/Heap.html) for the question 8
+        - [spring 2019 final question # 9](lec34/s19-final-q9.svg)
+    - [fall 2019 final](https://uva-cs.github.io/pdr/exams/final-f19.pdf), page 4
+        - [fall 2019 final question # 9](lec34/f19-final-q9.svg)
+        - [fall 2019 final question # 10](lec34/f19-final-q10.svg)
 - Lecture 33: Wed, Apr 21 (heaps & Huffman to slide 8.31)
     - [lec33.cpp](lec33/lec33.cpp.html) ([raw code](lec33/lec33.cpp))
     - [sketched image 1](lec33/lec32-a.svg)
