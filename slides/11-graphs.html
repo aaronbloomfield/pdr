@@ -25,12 +25,11 @@
 	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
 	<![endif]-->
     <script type="text/javascript" src="../slides/js/dhtmlwindow.js"></script>
-    <script type="text/javascript" src="../slides/js/canvas.js"></script>
     <link rel="stylesheet" href="../slides/css/dhtmlwindow.css" type="text/css">
     <style>.reveal li { font-size:93%; line-height:120%; }</style>
   </head>
 
-  <body onload="canvasinit()">
+  <body>
     <div id="dhtmlwindowholder"><span style="display:none"></span></div>
 
     <div class="reveal">
@@ -183,7 +182,6 @@
 <tr><th>4</th><td></td><td></td><td></td><td></td></tr>
 </table>
 </td><td style="width:100px"></td><td class="top"><img src="graphs/graph-3.svg" alt="graph"></td></tr></table>
-<script type="text/javascript">insertCanvas();</script>
 	  </section>
 
 	  <section>
@@ -227,7 +225,6 @@
 <h2>Topological Sort</h2>
 <img src="graphs/graph-4.svg" alt="graph">
 <p class="fragment" style="text-align:center">One valid topological sort is: v1, v6, v8, v3, v2, v7, v4, v5</p>
-<script type="text/javascript">insertCanvas();</script>
 	  </section>
 
 	  <section data-markdown><script type="text/template">
@@ -293,7 +290,6 @@ void Graph::topsort() {
 	  <section>
 <h2>Another Topological Sort Example</h2>
 <img src="graphs/graph-7.svg" alt="graph">
-<script type="text/javascript">insertCanvas();</script>
 	  </section>
 
 	</section>
@@ -345,7 +341,6 @@ void Graph::topsort() {
 <li>Solution: breadth-first search; similar to level-order traversal for trees</li>
 </ul>
 <img src="graphs/graph-8.svg" alt="graph">
-<script type="text/javascript">insertCanvas();</script>
 	  </section>
 
 	  <section data-markdown><script type="text/template">
@@ -411,7 +406,6 @@ What is the big-Theta running time?
 </table>
 </td><td style="width:50px"></td><td class="top"><img alt="graph" style="width:400px" src="graphs/graph-9.svg"></td></tr>
 </table>
-<script type="text/javascript">insertCanvas();</script>
 	  </section>
 
 	  <section data-markdown><script type="text/template">
@@ -453,7 +447,6 @@ void Graph::dijkstra(Vertex s) {
 </table>
 <p>&nbsp;</p>
 <p style="font-size:90%">This is the same graph as in the <a href="http://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Wikipedia article on Dijkstra's algorithm</a></p>
-<script type="text/javascript">insertCanvas();</script>
 	  </section>
 
 	  <section data-markdown><script type="text/template">
@@ -722,7 +715,6 @@ Idea: Grow a tree by adding an edge to the "known" vertices from the "unknown" v
 </table>
 <p>&nbsp;</p>
 <p class="fragment" data-fragment-index="1" style="text-align:center">Edges: (v1,v2), (v1,v4), (v3,v4), (v4,v7), (v5,v7), (v6,v7)</p>
-<script type="text/javascript">insertCanvas();</script>
 	  </section>
 
 	  <section data-markdown><script type="text/template">
@@ -749,7 +741,6 @@ Idea: Grow a forest out of edges that do not create a cycle.  Pick an edge with 
 </table>
 <p>&nbsp;</p>
 <p class="fragment" data-fragment-index="1" style="text-align:center">Edges: (v1,v4), (v6,v7), (v1,v2), (v3,v4), (v4,v7), (v5,v7) </p>
-<script type="text/javascript">insertCanvas();</script>
 	  </section>
 
 	  <section data-markdown><script type="text/template">
@@ -787,9 +778,6 @@ When optimized, it has the same running time as Prim's and Dijkstra's: &Theta;(*
     </div>
 
     <div id="calibratediv" style="display:none">
-      <div id="calibratecanvasdiv">
-        <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
-      </div>
       <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
     </div>
 

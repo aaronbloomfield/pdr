@@ -40,9 +40,11 @@ Lab Procedure
 
 ### Post-lab ###
 
-1. Analyze the time and space complexity of your encoding and decoding code
-2. Create a Makefile to compile both the encoding and decoding portions of your Huffman routine in one step
-3. Files to submit: Makefile, all necessary source code files
+The post-lab is cancelled for the spring 2021 semester.
+
+1. ~~Analyze the time and space complexity of your encoding and decoding code~~
+2. ~~Create a Makefile to compile both the encoding and decoding portions of your Huffman routine in one step~~
+3. ~~Files to submit: Makefile, all necessary source code files~~
 
 ------------------------------------------------------------
 
@@ -210,28 +212,30 @@ Also keep in mind that the size of the input here (the number of characters) is 
 Post-lab
 --------
 
-There are two parts to this post-lab: the time and space complexity analysis and submitting all your (working) code again.
+The post-lab is cancelled for the spring 2021 semester.
 
-### Time and Space Complexity ###
+~~There are two parts to this post-lab: the time and space complexity analysis and submitting all your (working) code again.~~
 
-For the post-lab, we want you to think about the time and space complexity analysis of your compression and decompression code.  You aren't required to submit anything for this part, but you should think carefully about the following points, as you may need to know them on exams.  See below for a discussion about the space/time complexity.
+### ~~Time and Space Complexity~~ ###
 
-- Think about your implmentation: what data structures did you use in your implementation and *why* did you selected them.
-- Analyze the efficiency of *all steps* in Huffman encoding/decoding. For each of the steps of compression and decompression (see "Huffman Encoding and Decoding"), what is:
-    - The worst case running time of your implementation
-    - The worst case space complexity of your implementation
+~~For the post-lab, we want you to think about the time and space complexity analysis of your compression and decompression code.  You aren't required to submit anything for this part, but you should think carefully about the following points, as you may need to know them on exams.  See below for a discussion about the space/time complexity.~~
 
-Worst case running time -- for this be sure to consider all steps of the compression and decompression.  You can leave off the cost of calculating the compression ratio, printing the cost of the tree, and printing a listing of the bit code for each character that was asked for in the pre-lab.  Refer to the list of steps given earlier in the lab.
+- ~~Think about your implmentation: what data structures did you use in your implementation and *why* did you selected them.~~
+- ~~Analyze the efficiency of *all steps* in Huffman encoding/decoding. For each of the steps of compression and decompression (see "Huffman Encoding and Decoding"), what is:~~
+    - ~~The worst case running time of your implementation~~
+    - ~~The worst case space complexity of your implementation~~
 
-Space complexity -- for this, you should calculate the number of bytes that are used by each data structure in your implementation.  The easiest way to do this is to step through your code, just as you have done for the worst case running time, and make a note each time you use a new data structure.  You do not need to take into account scalar variables (loop counters, other singleton variables), focus on the data structures whose size depends on values such as the total number of characters and the total number of unique characters, and use those values in your answer.
+~~Worst case running time -- for this be sure to consider all steps of the compression and decompression.  You can leave off the cost of calculating the compression ratio, printing the cost of the tree, and printing a listing of the bit code for each character that was asked for in the pre-lab.  Refer to the list of steps given earlier in the lab.~~
 
-Again, you aren't required to submit anything for this section, but you should use these points as a way to reflect on the work you have done for the pre-lab and in-lab.
+~~Space complexity -- for this, you should calculate the number of bytes that are used by each data structure in your implementation.  The easiest way to do this is to step through your code, just as you have done for the worst case running time, and make a note each time you use a new data structure.  You do not need to take into account scalar variables (loop counters, other singleton variables), focus on the data structures whose size depends on values such as the total number of characters and the total number of unique characters, and use those values in your answer.~~
 
-### Bringing it all together ###
+~~Again, you aren't required to submit anything for this section, but you should use these points as a way to reflect on the work you have done for the pre-lab and in-lab.~~
 
-The purpose of this part of the post-lab is to clean up your code from the pre-lab and in-lab, and submit all of it together.  If your pre-lab and in-lab code work properly, then there is no futher clean-up to do; however, you must still submit the files along with a *new* Makefile.
+### ~~Bringing it all together~~ ###
 
-When we run `make`, the code should be compiled into two executables: `encoder` and `decoder`, which are the pre-lab and in-lab code bases, respectively. Unlike the pre-lab and in-lab, you should ***NOT*** name your executables `a.out`!  After compiling your code with `make`, we will test it as such:
+~~The purpose of this part of the post-lab is to clean up your code from the pre-lab and in-lab, and submit all of it together.  If your pre-lab and in-lab code work properly, then there is no futher clean-up to do; however, you must still submit the files along with a *new* Makefile.~~
+
+~~When we run `make`, the code should be compiled into two executables: `encoder` and `decoder`, which are the pre-lab and in-lab code bases, respectively. Unlike the pre-lab and in-lab, you should ***NOT*** name your executables `a.out`!  After compiling your code with `make`, we will test it as such:~~
 
 ```
 ./encoder testfile.txt > encoded.txt
@@ -239,13 +243,14 @@ When we run `make`, the code should be compiled into two executables: `encoder` 
 diff testfile.txt output.txt
 ```
 
-This encodes a sample text file, then decodes it.  Both the original file (`testfile.txt`) and the final file (`output.txt`) should be the same, which is what the `diff` command checks.  If there are no differences between the two files, then `diff` will not print any output.
+~~This encodes a sample text file, then decodes it.  Both the original file (`testfile.txt`) and the final file (`output.txt`) should be the same, which is what the `diff` command checks.  If there are no differences between the two files, then `diff` will not print any output.~~
 
-### Hints ###
+### ~~Hints~~ ###
 
-#### Two executables??? ####
-Up until now, all of our Makefiles have generated a single `a.out` from the inputs given through `OBJECTS`.
-Now that we have two separate executables we need to create, you may need some way to differentiate between the object files for each one...
+#### ~~Two executables???~~ ####
 
-#### Naming the executables ####
-Remember the `-o` flag for clang++? :)
+~~Up until now, all of our Makefiles have generated a single `a.out` from the inputs given through `OBJECTS`.  Now that we have two separate executables we need to create, you may need some way to differentiate between the object files for each one...~~
+
+#### ~~Naming the executables~~ ####
+
+~~Remember the `-o` flag for clang++? :)~~

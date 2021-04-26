@@ -46,10 +46,11 @@
 <li>Files to submit: huffmandec.cpp, Makefile (you can submit additional .cpp/.h files, if needed, as long as it compiles with <code>make</code>)</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
+<p>The post-lab is cancelled for the spring 2021 semester.</p>
 <ol type="1">
-<li>Analyze the time and space complexity of your encoding and decoding code</li>
-<li>Create a Makefile to compile both the encoding and decoding portions of your Huffman routine in one step</li>
-<li>Files to submit: Makefile, all necessary source code files</li>
+<li><del>Analyze the time and space complexity of your encoding and decoding code</del></li>
+<li><del>Create a Makefile to compile both the encoding and decoding portions of your Huffman routine in one step</del></li>
+<li><del>Files to submit: Makefile, all necessary source code files</del></li>
 </ol>
 <hr />
 <h2 id="huffman-encoding-and-decoding">Huffman Encoding and Decoding</h2>
@@ -169,31 +170,32 @@ The cost of the Huffman tree is 1.85714 bits per character.</code></pre>
 <p>As you are (recursively) creating each node in the tree, you know the <em>prefix</em> code to get to that node (remember that following a left child pointer generates a <code>0</code>, and following a right child pointer generates a <code>1</code>). If that prefix is one of the listed bitcodes in the first part of the file, then we know we are at a leaf (remember that all characters in a Huffman tree are leaves). Otherwise, we are dealing with an internal node and you will have to create left and right child nodes, calling yourself recursively on each one. Keep in mind that when you call yourself recursively on the left child, you have to add <code>0</code> to the end of the prefix; likewise, you have to add <code>1</code> to the prefix for the right child. This algorithm will require you to search through the bit codes that were read in from the first part of the file. Also keep in mind that the size of the input here (the number of characters) is very small (only 80 or so) – which means that if you choose a linear time complexity data structure (vector, for example), your code will run just fine.</p>
 <hr />
 <h2 id="post-lab-1">Post-lab</h2>
-<p>There are two parts to this post-lab: the time and space complexity analysis and submitting all your (working) code again.</p>
-<h3 id="time-and-space-complexity">Time and Space Complexity</h3>
-<p>For the post-lab, we want you to think about the time and space complexity analysis of your compression and decompression code. You aren’t required to submit anything for this part, but you should think carefully about the following points, as you may need to know them on exams. See below for a discussion about the space/time complexity.</p>
+<p>The post-lab is cancelled for the spring 2021 semester.</p>
+<p><del>There are two parts to this post-lab: the time and space complexity analysis and submitting all your (working) code again.</del></p>
+<h3 id="time-and-space-complexity"><del>Time and Space Complexity</del></h3>
+<p><del>For the post-lab, we want you to think about the time and space complexity analysis of your compression and decompression code. You aren’t required to submit anything for this part, but you should think carefully about the following points, as you may need to know them on exams. See below for a discussion about the space/time complexity.</del></p>
 <ul>
-<li>Think about your implmentation: what data structures did you use in your implementation and <em>why</em> did you selected them.</li>
-<li>Analyze the efficiency of <em>all steps</em> in Huffman encoding/decoding. For each of the steps of compression and decompression (see “Huffman Encoding and Decoding”), what is:
+<li><del>Think about your implmentation: what data structures did you use in your implementation and <em>why</em> did you selected them.</del></li>
+<li><del>Analyze the efficiency of <em>all steps</em> in Huffman encoding/decoding. For each of the steps of compression and decompression (see “Huffman Encoding and Decoding”), what is:</del>
 <ul>
-<li>The worst case running time of your implementation</li>
-<li>The worst case space complexity of your implementation</li>
+<li><del>The worst case running time of your implementation</del></li>
+<li><del>The worst case space complexity of your implementation</del></li>
 </ul></li>
 </ul>
-<p>Worst case running time – for this be sure to consider all steps of the compression and decompression. You can leave off the cost of calculating the compression ratio, printing the cost of the tree, and printing a listing of the bit code for each character that was asked for in the pre-lab. Refer to the list of steps given earlier in the lab.</p>
-<p>Space complexity – for this, you should calculate the number of bytes that are used by each data structure in your implementation. The easiest way to do this is to step through your code, just as you have done for the worst case running time, and make a note each time you use a new data structure. You do not need to take into account scalar variables (loop counters, other singleton variables), focus on the data structures whose size depends on values such as the total number of characters and the total number of unique characters, and use those values in your answer.</p>
-<p>Again, you aren’t required to submit anything for this section, but you should use these points as a way to reflect on the work you have done for the pre-lab and in-lab.</p>
-<h3 id="bringing-it-all-together">Bringing it all together</h3>
-<p>The purpose of this part of the post-lab is to clean up your code from the pre-lab and in-lab, and submit all of it together. If your pre-lab and in-lab code work properly, then there is no futher clean-up to do; however, you must still submit the files along with a <em>new</em> Makefile.</p>
-<p>When we run <code>make</code>, the code should be compiled into two executables: <code>encoder</code> and <code>decoder</code>, which are the pre-lab and in-lab code bases, respectively. Unlike the pre-lab and in-lab, you should <strong><em>NOT</em></strong> name your executables <code>a.out</code>! After compiling your code with <code>make</code>, we will test it as such:</p>
+<p><del>Worst case running time – for this be sure to consider all steps of the compression and decompression. You can leave off the cost of calculating the compression ratio, printing the cost of the tree, and printing a listing of the bit code for each character that was asked for in the pre-lab. Refer to the list of steps given earlier in the lab.</del></p>
+<p><del>Space complexity – for this, you should calculate the number of bytes that are used by each data structure in your implementation. The easiest way to do this is to step through your code, just as you have done for the worst case running time, and make a note each time you use a new data structure. You do not need to take into account scalar variables (loop counters, other singleton variables), focus on the data structures whose size depends on values such as the total number of characters and the total number of unique characters, and use those values in your answer.</del></p>
+<p><del>Again, you aren’t required to submit anything for this section, but you should use these points as a way to reflect on the work you have done for the pre-lab and in-lab.</del></p>
+<h3 id="bringing-it-all-together"><del>Bringing it all together</del></h3>
+<p><del>The purpose of this part of the post-lab is to clean up your code from the pre-lab and in-lab, and submit all of it together. If your pre-lab and in-lab code work properly, then there is no futher clean-up to do; however, you must still submit the files along with a <em>new</em> Makefile.</del></p>
+<p><del>When we run <code>make</code>, the code should be compiled into two executables: <code>encoder</code> and <code>decoder</code>, which are the pre-lab and in-lab code bases, respectively. Unlike the pre-lab and in-lab, you should <strong><em>NOT</em></strong> name your executables <code>a.out</code>! After compiling your code with <code>make</code>, we will test it as such:</del></p>
 <pre><code>./encoder testfile.txt &gt; encoded.txt
 ./decoder encoded.txt &gt; output.txt
 diff testfile.txt output.txt</code></pre>
-<p>This encodes a sample text file, then decodes it. Both the original file (<code>testfile.txt</code>) and the final file (<code>output.txt</code>) should be the same, which is what the <code>diff</code> command checks. If there are no differences between the two files, then <code>diff</code> will not print any output.</p>
-<h3 id="hints-2">Hints</h3>
-<h4 id="two-executables">Two executables???</h4>
-<p>Up until now, all of our Makefiles have generated a single <code>a.out</code> from the inputs given through <code>OBJECTS</code>. Now that we have two separate executables we need to create, you may need some way to differentiate between the object files for each one…</p>
-<h4 id="naming-the-executables">Naming the executables</h4>
-<p>Remember the <code>-o</code> flag for clang++? :)</p>
+<p><del>This encodes a sample text file, then decodes it. Both the original file (<code>testfile.txt</code>) and the final file (<code>output.txt</code>) should be the same, which is what the <code>diff</code> command checks. If there are no differences between the two files, then <code>diff</code> will not print any output.</del></p>
+<h3 id="hints-2"><del>Hints</del></h3>
+<h4 id="two-executables"><del>Two executables???</del></h4>
+<p><del>Up until now, all of our Makefiles have generated a single <code>a.out</code> from the inputs given through <code>OBJECTS</code>. Now that we have two separate executables we need to create, you may need some way to differentiate between the object files for each one…</del></p>
+<h4 id="naming-the-executables"><del>Naming the executables</del></h4>
+<p><del>Remember the <code>-o</code> flag for clang++? :)</del></p>
 </body>
 </html>
