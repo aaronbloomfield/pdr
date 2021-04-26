@@ -16,6 +16,10 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 35: Mon, Apr 26 (graphs to slide 6.9)
+    - [Topological sort, version 1](lec35/overlay1.html)
+    - [Topological sort, version 2](lec35/overlay2.html)
+    - [Breadth-first search](lec35/overlay3.html)
 - Lecture 34: Fri, Apr 23 (finished heaps & Huffman; graphs to slide 5.3)
     - [spring 2019 final](https://uva-cs.github.io/pdr/exams/final-s19.pdf), page 6
         - We used [this animation site](https://www.cs.usfca.edu/~galles/visualization/Heap.html) for the question 8
