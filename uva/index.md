@@ -103,12 +103,12 @@ The links in the right-most column link directly to the lecture recording on Col
 | 31 | Apr 16 | Friday | | [10: Heaps and Huffman coding][90] to slide 6.16 |
 | 32 | Apr 19 | Monday |  [Lab 9: assembly, part 2][9] ([md][29]) / [Tutorial 9: C][49] ([md][69]) | [10: Heaps and Huffman coding][90] to slide 8.19 |
 | 33 | Apr 21 | Wednesday | | [10: Heaps and Huffman coding][90] to slide 8.31 |
-| 34 | Apr 23 | Friday | | [10: Heaps and Huffman coding][90], [11: Graphs][91] |
-| 35 | Apr 26 | Monday | [Lab 10: Huffman coding][10] ([md][30]) / (no tutorial) | [11: Graphs][91] |
-| 36 | Apr 28 | Wednesday | | [11: Graphs][91] |
-| 37 | Apr 30 | Friday | | [11: Graphs][91], [12: Memory][92] |
-| 38 | May 3 | Monday | [Lab 11: Graphs][11] ([md][31]) / [Tutorial 11: Doxygen](../tutorials/11-doxygen/index.html) | [12: Memory][92] |
-| 39 | May 5 | Wednesday | | [13: Esoteric PLs][93], [Course conclusion][94] |
+| 34 | Apr 23 | Friday | | [10: Heaps and Huffman coding][90] to end, [11: Graphs][91] to slide 5.3 |
+| 35 | Apr 26 | Monday | [Lab 10: Huffman coding][10] ([md][30]) / (no tutorial) | [11: Graphs][91] to slide 6.9 |
+| 36 | Apr 28 | Wednesday | | [11: Graphs][91] to slide 8.9 |
+| 37 | Apr 30 | Friday | | [11: Graphs][91] to end, [12: Memory][92] to slide 4.8 |
+| 38 | May 3 | Monday | [Lab 11: Graphs][11] ([md][31]) / [Tutorial 11: Doxygen](../tutorials/11-doxygen/index.html) | [12: Memory][92] to end |
+| 39 | May 5 | Wednesday | | [13: Esoteric PLs][93] to end, [Course conclusion][94] to end |
 
 #### Recording notes
 
