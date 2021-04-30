@@ -48,4 +48,6 @@ int main(int argc, char** argv) {
 
     // close the file
     file.close();
+
+    return 0;
 }

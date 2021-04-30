@@ -66,4 +66,6 @@ int main (int argc, char** argv) {
     cout << "All the bits: " << allbits << endl;
     // close the file before exiting
     file.close();
+
+    return 0
 }
