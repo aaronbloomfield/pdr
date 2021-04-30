@@ -16,6 +16,8 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 37: Fri, Apr 30 (finished graphs, memory to slide 4.8)
+    - [overlay image](lec37/overlay.html)
 - Lecture 36: Wed, Apr 28 (graphs to slide 8.9)
     - [bfs.cpp](lec36/bfs.cpp.html) ([raw code](lec36/bfs.cpp))
     - [bfs.in](lec36/bfs.in)
