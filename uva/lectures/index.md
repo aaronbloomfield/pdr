@@ -16,6 +16,12 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 36: Wed, Apr 28 (graphs to slide 8.9)
+    - [bfs.cpp](lec36/bfs.cpp.html) ([raw code](lec36/bfs.cpp))
+    - [bfs.in](lec36/bfs.in)
+    - [Makefile](lec36/Makefile.html) ([raw code](lec36/Makefile))
+	- [sketched image](lec36/lec36-1.svg)
+	- [overlay image](lec36/overlay.html)
 - Lecture 35: Mon, Apr 26 (graphs to slide 6.9)
     - [Topological sort, version 1](lec35/overlay1.html)
     - [Topological sort, version 2](lec35/overlay2.html)
