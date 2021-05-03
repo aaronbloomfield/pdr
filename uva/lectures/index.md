@@ -16,6 +16,9 @@ The code, images, and notes linked to from this page is what was discussed durin
 
 ### Lecture period content
 
+- Lecture 38: Mon, May 3 (finished memory)
+    - [Prim's algorithm](lec38/prims.html)
+    - [Kruskal's algorithm](lec38/kruskals.html)
 - Lecture 37: Fri, Apr 30 (finished graphs, memory to slide 4.8)
     - [overlay image](lec37/overlay.html)
 - Lecture 36: Wed, Apr 28 (graphs to slide 8.9)
