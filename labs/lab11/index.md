@@ -95,16 +95,8 @@ There are multiple valid orders that the courses can be taken in; each is a vali
 - cs1110 cs2102 cs2110 cs2150 cs3330 cs4414
 - cs1110 cs2110 cs3330 cs2102 cs2150 cs4414
 
-However, for this lab we want you to output the valid order that comes first lexicographically for grading sake.
+For this lab, you can print out **ANY** valid topological sort for credit.
 
-### Lexicographically Ordered Output ###
-For this lab, there will be many cases where several nodes can be travelled to in any order. When this happens, it means that there are many possible different valid topological sorts that differ from when each node is travelled to. Rather than everyone having potentially different sorts for this lab, we want you to output the topological sort that comes first lexicographically. This means that, when you have several nodes that can be traversed in any order, do so in alphabetical order.
-
-Consider the following two topological sorts from the example above:
-1. cs1110 cs2110 cs2102 cs3330 cs2150 cs4414
-2. cs1110 cs2102 cs2110 cs2150 cs3330 cs4414
-
-While the first one is a valid topological sort for the given graph, it is **not** in lexicographical order. This is because cs2110 comes after cs2102 alphabetically. Since a student can take cs2110 and cs2102 in either order, we want your program to visit those nodes alphabetically (first cs2102, then cs2110). The same situation appears for cs3330 and cs2150, the classes can be taken in either order, but the first topological sort does not display them alphabetically. The second sort, however, puts cs2102 before cs2110, and cs2150 before cs3330, and is thus the solution we are looking for. 
 
 ### Input ###
 
@@ -118,7 +110,7 @@ You can assume that the provided graph is a directed acyclic graph, that it is w
 
 ### Output ###
 
-The output is a valid topological sort of the vertices, each separated by one space, and all on one line.  If there are multiple topological sorts, only the one that comes first lexicographically is acceptable.
+The output is a valid topological sort of the vertices, each separated by one space, and all on one line.  
 
 ### Sample Execution Run ###
 
@@ -137,7 +129,7 @@ cs1110 cs2102
 0 0
 ```
 
-Output (*NOTE: This one comes first lexicographically*):
+Output (*NOTE: This is just one of many valid topological sorts*):
 
 ```
 cs1110 cs2102 cs2110 cs2150 cs3330 cs4414
