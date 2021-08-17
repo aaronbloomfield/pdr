@@ -3,21 +3,21 @@ CS 2150: Program and Data Representation: Course Syllabus
 
 [Go up to the CS 2150 page][1] ([md][2])
 
-## Spring 2021
+## Fall 2021
 
-### Instructor ###
+### Instructors ###
 
-- [Aaron Bloomfield][33] / [aaron@virginia.edu](mailto:aaron@virginia.edu).  Office: Rice Hall, room 402.  This course, and all office hours and lecture times, will be done virtually due to the Covid-19 pandemic.
+- [Mark Floryan][31] / [aaron@virginia.edu](mailto:mrft8@virginia.edu).  Office: Rice Hall, room 203.
+- [Aaron Bloomfield][33] / [aaron@virginia.edu](mailto:aaron@virginia.edu).  Office: Rice Hall, room 402.
 
 ### Course Info ###
 
-- Lectures: M/W/F 10:00-10:50 and 1:00-1:50
-    - All lectures are via Zoom, and the link can be found in the Collab workspace
+- Lectures: M/W/F 11:00-10:50 (Floryan), 1:00-1:50 (Bloomfield), and 2:00-2:50 (Bloomfield)
 - Email: none; fill out a [support request][42] instead
-- Office hours: these are incorporated into the lecture times (10-11 and 1-2 on M/W/F).  Any concerns that are not appropriate to be addressed then should be submitted via a [support request][42].
+- Office hours: schedule to be announced.  Any concerns that are not appropriate to be addressed then should be submitted via a [support request][42].
 - Announcement feed: [\@UVaCS2150][34] and the [daily announcements slide set][15]; you are responsible for checking both
 - TA office hours are 5pm-11pm on Sundays, Mondays, Wednesdays, and Thursdays on Zoom; All office hours start the Sunday after classes start.
-- Laboratory Meetings (on Zoom): all on Tuesdays
+- Laboratory Meetings: all on Tuesdays
 
 **Course Description:** This course will introduce you to program and data representation from high level concepts to machine level implementation. Data structuring techniques and the representation of data structures during program execution are discussed, as are operations and control structures and their representation during program execution. Representations of numbers, arithmetic operations, arrays, records, recursion, hashing, stacks, queues, trees, graphs, and related concepts are also covered.
 
@@ -37,7 +37,8 @@ If you have any comments on the course - what is working, what is not working, w
 
 **Grades:** Grades will be calculated by the following formula:
 
-- 70%: Laboratories
+- 40%: Laboratories
+- 30%: Two midterm exams
 - 30%: Final exam
 
 The course grades are ***LIKELY*** to follow the standard decade curve: 90 and above is an A of some sort (A-, A, or A+), 80 and above is some sort of a B, etc.  This is not a guarantee, as the final determination of the course grades is goign to depend on how the grading works out.
@@ -58,13 +59,20 @@ The course grades are ***LIKELY*** to follow the standard decade curve: 90 and a
  
 **Textbooks:** Due to the high cost of textbooks, and their relative low quality, there will be no recommended nor required textbooks this semester.  Instead, there will be selected [Readings][9] ([md][10]) that can be used in lieu of a recommended textbook.
 
-**Exams:** There will be one final exam (worth 30% of the final grade).
+**Exams:** There will be two midterm exams held during laboratory sessions (combined worth 30% of the final grade) and one final exam (worth 30% of the final grade). Note that we hope (but do not guarantee!) to have the first exam returned before the SEAS drop date.
 
-- Final Exam: Saturday, May 8th, from 7 p.m. to 10 p.m.
-    - This is a common exam time, and conflicts with other courses (APMA 3110, APMA 3140, and ECON 2020 (sections 001 and 002)
-    - Let us know by the end of February if you have a conflict (via a [support request][42]); we will deal with scheduling conflicts later in the semester.  We will not be able to accommodate anybody who does not let us know prior to the end of February due to the planning involved.
+- Midterm Exam 1: Tuesday, September 28, during lab session
+- Midterm Exam 2: Tuesday, November 9, during lab session
+- Final Exam: Tuesday, December 14 from 7 p.m. to 10 p.m.
+    - This is a common exam time, and conflicts with other courses (ARCH 3240 & 7240; BIOL 2100; KOR 1010, 2010, & 3010; STAT 2120 & 3120)
+	    - It also conflicts with two other CS courses, but one is a pre-req (CS 2110) and the other (CS 4102) requires CS 2150, so you should not be in either course...
+    - Let us know by the end of September if you have a conflict (via a support request); we will deal with scheduling conflicts later in the semester
 
-Under **NO** circumstances will anybody be allowed to take the final exam outside of the scheduled exam time. Since it is a common exam time, the only conflicts are the courses listed on UVa official exam schedule, and are listed above.  You will likely need to ask the instructors of those courses to move their exam, but this will be discussed once we have the list of conflicts at the end of February.
+***YOU WILL HAVE TO BRING YOUR UVA ID TO ALL EXAMS!!!***
+
+Under **NO** circumstances will anybody be allowed to take the final exam early.  You may **ONLY** request to take the final exam at a different time if you have a final exam **CONFLICT**, not a busy final exam schedule.  Since it is a common exam time, the only conflicts are the courses listed on UVa official exam schedule.  For Fall 2019, they are: BIOL 2100; CS2110; KOR 1010, 2010, 3010; STAT 2120, 3120.
+
+You may submit lab questions for regrading within 10 days of when they are returned to you (less time for the final due to the end of the semester); this is done via the [course tools][41].  However, you MUST be aware of the [Frivolous regrade policy][3] ([md][4]), which will be strictly enforced.
 
 **Laboratories:** There will be 11 or 12 programming labs this semester, and they constitute 70% of your grade.  Note that if the number of labs changes, the respective weights for each lab will also be adjusted and announced in class.  The total weight of the labs for the final grade will remain 70%, unless a change in the course grading criteria (as above) is announced in class.  The majority of the work in this class is through the labs -- there are no separate homework assignments.  The labs have different late policies, which will be specified in more detail in the first lab.  **Your lab submission must compile for you to receive *any* credit** -- this is an advanced programming class, and under no circumstances should you be submitting code that does not compile - we have a page on [compilation issues][5] ([md][6]) to help you if you cannot get your code to compile.  Note that the *entire* assignment will receive zero credit if even *one* part of it does not compile.
 
@@ -85,7 +93,7 @@ Please note, however, that there are a number of rules that we will strictly fol
     - ~~If your computer breaks, you can contact the CS systems staff for a loaner laptop -- they are in the basement of Rice hall, in rooms ?? and ??.  Tell them you are in my class, and they will provide you with a machine to borrow.~~
 	- If your computer breaks, please submit a [support request][42].  If you are on grounds, we may be able to provide you with a loaner machine.
 
-**Attendance:** Attendance is highly recommended but not required in either lecture or lab. Unless you have received special permission, you cannot attend labs that you are not enrolled in due to space constraints.  Please see the [first set of lecture slides][11] for more information about the lab schedule.  ~~In particular with regards to the fact that there is a lab the week of Thanksgiving break (in fall semesters) or the weeks before and after spring break (in spring semesters).~~
+**Attendance:** Attendance is highly recommended but not required in either lecture or lab. Unless you have received special permission, you cannot attend labs that you are not enrolled in due to space constraints.  Please see the [first set of lecture slides][11] for more information about the lab schedule.  In particular with regards to the fact that there is a lab the week of Thanksgiving break (in fall semesters) or the weeks before and after spring break (in spring semesters).
 
 **Professionalism:** We are all adults, and should act like such.  Acting in an unprofessional manner that disrupts the class will first incur a stern talking-to.  After that, a grade penalty may be assessed.  Examples include: disrupting class, trolling people on Piazza, abusing the [support request][42] system, etc.  This is meant to keep people from repeatedly disrupting class; we are not trying to be super strict on this.  While we generally expect to give a warning prior to any other action, infractions that go well beyond unprofessional may incr penalties with no warning.
 
