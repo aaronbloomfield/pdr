@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Program and Data Representation: CS 2150 Specific Content</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="../../markdown.css" />
+</head>
+<body>
+<h1 id="program-and-data-representation-cs-2150-specific-content">Program and Data Representation: CS 2150 Specific Content</h1>
+<h2 id="spring-2021">Spring 2021</h2>
+<p><a href="../readme.html">Go up to the main README file</a> (<a href="../readme.md">md</a>)</p>
+<p>Much of the rest of this git repo is meant to be generic to anybody who has a class such as this one. But this page contains details specific to the CS 2150 version of the course at the University of Virginia.</p>
+<hr />
+<h2 id="links">Links</h2>
+<p>There are a number of links and other parts of this course that are <strong>NOT</strong> included in this repository. They are:</p>
+<ul>
+<li>The set of online tools, which can be accessed through Collab or <a href="https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/">here</a>.
+<ul>
+<li>These tools are the <a href="https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/tickets/">support requests</a> tool and the <a href="https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/queue/">office hours queue</a></li>
+</ul></li>
+<li>The announcements, which are posted to the CS 2150 twitter feed: <a href="http://twitter.com/UVaCS2150">@UVaCS2150</a></li>
+<li>Email list archive, which is a Collab tool (<a href="https://collab.its.virginia.edu/portal/site/a25f92a0-ff43-4cdb-a402-07f5f65467c1/tool-reset/7b7966a1-6a85-490e-a7b7-78e620fc662e">here</a> is the direct link, although Collab login is required)</li>
+<li><a href="https://piazza.com/">Piazza</a>, and our specific class is <a href="https://piazza.com/class/ke4pfukrw6p443">here</a>; Collab can (maybe?) log you in directly; the Collab tool link is <a href="https://collab.its.virginia.edu/portal/site/a25f92a0-ff43-4cdb-a402-07f5f65467c1/tool-reset/460e7884-4da8-48bb-adf1-bade6f546457">here</a> (again, Collab login required)</li>
+<li><a href="https://collab.its.virginia.edu/portal/site/a25f92a0-ff43-4cdb-a402-07f5f65467c1/tool-reset/0b7f9d74-6572-4e49-a3e8-ddc15e76d1cd">Anonymous feedback</a></li>
+<li>All submission of assignments is via Gradescope, which can be accessed through Collab</li>
+</ul>
+<p>The parts of this course that are in this repo are:</p>
+<ul>
+<li><a href="daily-announcements.html#/">Daily announcements slide set</a></li>
+<li><a href="course-introduction.html#/">Course introduction slide set</a></li>
+<li><a href="lectures/index.html">Lecture period content</a> (<a href="lectures/index.md">md</a>) which is the material used during the lecture periods</li>
+<li><a href="syllabus.html">Course syllabus</a> (<a href="syllabus.md">md</a>): the course syllabus</li>
+<li><a href="gradescope-faq.html">Gradescope FAQ</a> (<a href="gradescope-faq.md">md</a>) for submission questions and answers</li>
+<li><a href="tas.html">Teaching assistants</a>: get to know your TAs!</li>
+<li><a href="labduedates.html">Lab due dates</a> (<a href="labduedates.md">md</a>): When the various lab parts are due</li>
+<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform">UNIX honor pledge</a>, signed via Google Forms, will need to be signed by all the students in the course</li>
+<li>The <a href="grades.html">final course grading metrics</a> (<a href="grades.md">md</a>)</li>
+</ul>
+<p>The <a href="../docs/index.html">Documents page</a> (<a href="../docs/index.md">md</a>) has a number of useful parts:</p>
+<ul>
+<li><a href="../docs/compiler_flags.html">Useful compiler flags</a> (<a href="../docs/compiler_flags.md">md</a>)</li>
+<li><a href="../docs/gdb_summary.html">GDB command summary</a> (<a href="../docs/gdb_summary.md">md</a>)</li>
+<li><a href="../docs/lldb_summary.html">LLDB command summary</a> (<a href="../docs/lldb_summary.md">md</a>)</li>
+<li><a href="../docs/gdb_vs_lldb.html">GDB vs LLDB</a> (<a href="../docs/gdb_vs_lldb.md">md</a>)</li>
+<li><a href="../docs/compilation.html">Compilation issues</a> (<a href="../docs/compilation.md">md</a>)</li>
+<li><a href="../docs/readings.html">Readings</a> (<a href="../docs/readings.md">md</a>) in lieu of a textbook</li>
+</ul>
+<hr />
+<h2 id="labs-and-tutorials">Labs and Tutorials</h2>
+<p>This is a series of links to the labs and tutorials that are elsewhere in this repository. A bunch of notes:</p>
+<ul>
+<li>The lab parts are all due on specific times throughout the week, as detailed on the <a href="labduedates.html">lab due dates</a> (<a href="labduedates.md">md</a>) page
+<ul>
+<li>Each lab is for a given week, which (for sake of argument) we claim starts on a Monday</li>
+<li>Which lab is done on which week is listed below in the semester schedule</li>
+</ul></li>
+<li>The lab is released the week before, typically on a Wednesday or Thursday
+<ul>
+<li>While a version of the lab will be in this github repo for some time prior, there <strong>WILL</strong> be modifications to that lab up until the “official” release, which is when it is announced as released on the twitter feed: <a href="http://twitter.com/UVaCS2150">@UVaCS2150</a></li>
+</ul></li>
+<li>All the labs and tutorials can be found on the <a href="../labs/index.html">labs page</a> (<a href="../labs/index.md">md</a>) and the <a href="../tutorials/index.html">tutorials page</a> (<a href="../tutorials/index.md">md</a>).
+<ul>
+<li>In particular, these pages have additional details and links not described here</li>
+</ul></li>
+</ul>
+<h2 id="semester-schedule">Semester Schedule</h2>
+<hr />
+<p>The links in the right-most column link directly to the lecture recording on Collab, and you have to be logged into Collab first before the link will work. Some plugins (such as NoScript) will block that link from working.</p>
+<table>
+<colgroup>
+<col style="width: 3%" />
+<col style="width: 7%" />
+<col style="width: 13%" />
+<col style="width: 47%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Num</th>
+<th>Date</th>
+<th>Day of week</th>
+<th>Lab &amp; Tutorial (on Tue)</th>
+<th>Posted lecture</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Feb 1</td>
+<td>Monday</td>
+<td>No lab this week</td>
+<td><a href="course-introduction.html#/">Course introduction</a> to ???</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Feb 3</td>
+<td>Wednesday</td>
+<td></td>
+<td><a href="course-introduction.html#/">Course introduction</a> to end, <a href="../slides/01-cpp.html#/">01: C++</a> to slide 5.5</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Feb 5</td>
+<td>Friday</td>
+<td></td>
+<td><a href="../slides/01-cpp.html#/">01: C++</a> to slide 8.1</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Feb 8</td>
+<td>Monday</td>
+<td>No lab this week</td>
+<td><a href="../slides/01-cpp.html#/">01: C++</a> to slide 9.19</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Feb 10</td>
+<td>Wednesday</td>
+<td></td>
+<td><a href="../slides/01-cpp.html#/">01: C++</a> to slide 10.17</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Feb 12</td>
+<td>Friday</td>
+<td></td>
+<td><a href="../slides/01-cpp.html#/">01: C++</a> to slide 12.10</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Feb 15</td>
+<td>Monday</td>
+<td><a href="../labs/lab01/index.html">Lab 1: Intro to C++</a> (<a href="../labs/lab01/index.md">md</a>) / <a href="../tutorials/01-intro-unix/index.html">Tutorial 1: Intro to UNIX</a> (<a href="../tutorials/01-intro-unix/index.md">md</a>)</td>
+<td><a href="../slides/01-cpp.html#/">01: C++</a> to end, <a href="../slides/02-lists.html#/">02: Lists</a> to slide 4.6</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Feb 17</td>
+<td>Wednesday</td>
+<td></td>
+<td>Break day, so no lecture</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>Feb 19</td>
+<td>Friday</td>
+<td></td>
+<td><a href="../slides/02-lists.html#/">02: Lists</a> to slide 6.11</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>Feb 22</td>
+<td>Monday</td>
+<td><a href="../labs/lab02/index.html">Lab 2: Linked lists</a> (<a href="../labs/lab02/index.md">md</a>) / <a href="../tutorials/02-lldb/index.html">Tutorial 2: LLDB</a> (<a href="../tutorials/02-lldb/index.md">md</a>) <em>OR</em> <a href="../tutorials/02-gdb/index.html">Tutorial 2: GDB</a> (<a href="../tutorials/02-gdb/index.md">md</a>) (see <a href="../labs/lab02/index.html">lab 2</a> for which one to pick)</td>
+<td><a href="../slides/02-lists.html#/">02: Lists</a> to end, <a href="../slides/03-numbers.html#/">03: Numbers</a> to slide 5.2</td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>Feb 24</td>
+<td>Wednesday</td>
+<td></td>
+<td><a href="../slides/03-numbers.html#/">03: Numbers</a> to slide 8.10</td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td>Feb 26</td>
+<td>Friday</td>
+<td></td>
+<td><a href="../slides/03-numbers.html#/">03: Numbers</a> to slide 9.21</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>Mar 1</td>
+<td>Monday</td>
+<td><a href="../labs/lab03/index.html">Lab 3: Stacks</a> (<a href="../labs/lab03/index.md">md</a>) / <a href="../tutorials/03-04-more-unix/index.html">Tutorial 3: More UNIX, part 1</a>, introduction and sections 1-4</td>
+<td><a href="../slides/03-numbers.html#/">03: Numbers</a> to end; <a href="../slides/04-arrays-bigoh.html#/">04: Arrays &amp; big-Oh</a> to slide 4.4</td>
+</tr>
+<tr class="even">
+<td>13</td>
+<td>Mar 3</td>
+<td>Wednesday</td>
+<td></td>
+<td><a href="../slides/04-arrays-bigoh.html#/">04: Arrays &amp; big-Oh</a> to slide 5.8</td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>Mar 5</td>
+<td>Friday</td>
+<td></td>
+<td><a href="../slides/04-arrays-bigoh.html#/">04: Arrays &amp; big-Oh</a> to end</td>
+</tr>
+<tr class="even">
+<td>15</td>
+<td>Mar 8</td>
+<td>Monday</td>
+<td>No lab this week because Tuesday is the break day</td>
+<td><a href="../slides/05-trees.html#/">05: Trees</a> to slide 5.11</td>
+</tr>
+<tr class="odd">
+<td>16</td>
+<td>Mar 10</td>
+<td>Wednesday</td>
+<td></td>
+<td><a href="../slides/05-trees.html#/">05: Trees</a> to slide 7.9</td>
+</tr>
+<tr class="even">
+<td>17</td>
+<td>Mar 12</td>
+<td>Friday</td>
+<td></td>
+<td><a href="../slides/05-trees.html#/">05: Trees</a> to slide 7.31</td>
+</tr>
+<tr class="odd">
+<td>18</td>
+<td>Mar 15</td>
+<td>Monday</td>
+<td><a href="../labs/lab04/index.html">Lab 4: Numbers</a> (<a href="../labs/lab04/index.md">md</a>) / <a href="../tutorials/03-04-more-unix/index.html">Tutorial 4: More UNIX, part 2</a>, sections 5-8</td>
+<td><a href="../slides/05-trees.html#/">05: Trees</a> to slide 9.12, <a href="../slides/06-hashes.html#/">06: Hashes</a> to slide 5.5</td>
+</tr>
+<tr class="even">
+<td>19</td>
+<td>Mar 17</td>
+<td>Wednesday</td>
+<td></td>
+<td><a href="../slides/06-hashes.html#/">06: Hashes</a> to slide 7.4</td>
+</tr>
+<tr class="odd">
+<td>20</td>
+<td>Mar 19</td>
+<td>Friday</td>
+<td></td>
+<td><a href="../slides/06-hashes.html#/">06: Hashes</a> to end</td>
+</tr>
+<tr class="even">
+<td>21</td>
+<td>Mar 22</td>
+<td>Monday</td>
+<td><a href="../labs/lab05/index.html">Lab 5: Trees</a> (<a href="../labs/lab05/index.md">md</a>) / <a href="../tutorials/05-make/index.html">Tutorial 5: make</a> (<a href="../tutorials/05-make/index.md">md</a>)</td>
+<td><a href="../slides/07-ibcm.html#/">07: IBCM</a> (machine language) to slide 5.15</td>
+</tr>
+<tr class="odd">
+<td>22</td>
+<td>Mar 24</td>
+<td>Wednesday</td>
+<td></td>
+<td><a href="../slides/07-ibcm.html#/">07: IBCM</a> (machine language) to slide 6.12</td>
+</tr>
+<tr class="even">
+<td>23</td>
+<td>Mar 26</td>
+<td>Friday</td>
+<td></td>
+<td><a href="../slides/07-ibcm.html#/">07: IBCM</a> (machine language) to end; <a href="../slides/05-trees.html#/">05: Trees</a> to end</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Mar 29</td>
+<td>Monday</td>
+<td><a href="../labs/lab06/index.html">Lab 6: Hashes</a> (<a href="../labs/lab06/index.md">md</a>) / Tutorial 6: Shell scripting, part 1 (part of <a href="http://en.wikibooks.org/wiki/Bash_Shell_Scripting">this link</a>; the specific sections are mentioned on the <a href="../tutorials/index.html">tutorials page</a>)</td>
+<td>Break day, so no lecture</td>
+</tr>
+<tr class="even">
+<td>24</td>
+<td>Mar 31</td>
+<td>Wednesday</td>
+<td></td>
+<td><a href="../slides/08-assembly-64bit.html#/">08: Assembly</a> to slide 5.6</td>
+</tr>
+<tr class="odd">
+<td>25</td>
+<td>Apr 2</td>
+<td>Friday</td>
+<td></td>
+<td><a href="../slides/08-assembly-64bit.html#/">08: Assembly</a> to slide 7.3</td>
+</tr>
+<tr class="even">
+<td>26</td>
+<td>Apr 5</td>
+<td>Monday</td>
+<td><a href="../labs/lab07/index.html">Lab 7: IBCM</a> (<a href="../labs/lab07/index.md">md</a>) / Tutorial 7: Shell scripting, part 2 (remainder of <a href="http://en.wikibooks.org/wiki/Bash_Shell_Scripting">here</a>, as described on the <a href="../tutorials/index.html">tutorials page</a>)</td>
+<td><a href="../slides/08-assembly-64bit.html#/">08: Assembly</a> to slide 8.15</td>
+</tr>
+<tr class="odd">
+<td>27</td>
+<td>Apr 7</td>
+<td>Wednesday</td>
+<td></td>
+<td><a href="../slides/08-assembly-64bit.html#/">08: Assembly</a> to slide 10.12</td>
+</tr>
+<tr class="even">
+<td>28</td>
+<td>Apr 9</td>
+<td>Friday</td>
+<td></td>
+<td><a href="../slides/08-assembly-64bit.html#/">08: Assembly</a> to end, <a href="../slides/09-advanced-cpp.html#/">09: Advanced C++</a> to slide 6.11</td>
+</tr>
+<tr class="odd">
+<td>29</td>
+<td>Apr 12</td>
+<td>Monday</td>
+<td><a href="../labs/lab08-64bit/index.html">Lab 8: assembly, part 1</a> (<a href="../labs/lab08-64bit/index.md">md</a>) / Tutorial 8: assembly (see the information on the <a href="../tutorials/index.html">tutorials page</a> (<a href="../tutorials.md">md</a>))</td>
+<td><a href="../slides/09-advanced-cpp.html#/">09: Advanced C++</a>to slide 8.5</td>
+</tr>
+<tr class="even">
+<td>30</td>
+<td>Apr 14</td>
+<td>Wednesday</td>
+<td></td>
+<td><a href="../slides/09-advanced-cpp.html#/">09: Advanced C++</a> to end, <a href="../slides/10-heaps-huffman.html#/">10: Heaps and Huffman coding</a> to slide 6.2</td>
+</tr>
+<tr class="odd">
+<td>31</td>
+<td>Apr 16</td>
+<td>Friday</td>
+<td></td>
+<td><a href="../slides/10-heaps-huffman.html#/">10: Heaps and Huffman coding</a> to slide 6.16</td>
+</tr>
+<tr class="even">
+<td>32</td>
+<td>Apr 19</td>
+<td>Monday</td>
+<td><a href="../labs/lab09-64bit/index.html">Lab 9: assembly, part 2</a> (<a href="../labs/lab09/index.md">md</a>) / <a href="../tutorials/09-c/index.html">Tutorial 9: C</a> (<a href="../tutorials/09-c/index.md">md</a>)</td>
+<td><a href="../slides/10-heaps-huffman.html#/">10: Heaps and Huffman coding</a> to slide 8.19</td>
+</tr>
+<tr class="odd">
+<td>33</td>
+<td>Apr 21</td>
+<td>Wednesday</td>
+<td></td>
+<td><a href="../slides/10-heaps-huffman.html#/">10: Heaps and Huffman coding</a> to slide 8.31</td>
+</tr>
+<tr class="even">
+<td>34</td>
+<td>Apr 23</td>
+<td>Friday</td>
+<td></td>
+<td><a href="../slides/10-heaps-huffman.html#/">10: Heaps and Huffman coding</a> to end, <a href="../slides/11-graphs.html#/">11: Graphs</a> to slide 5.3</td>
+</tr>
+<tr class="odd">
+<td>35</td>
+<td>Apr 26</td>
+<td>Monday</td>
+<td><a href="../labs/lab10/index.html">Lab 10: Huffman coding</a> (<a href="../labs/lab10/index.md">md</a>) / (no tutorial)</td>
+<td><a href="../slides/11-graphs.html#/">11: Graphs</a> to slide 6.9</td>
+</tr>
+<tr class="even">
+<td>36</td>
+<td>Apr 28</td>
+<td>Wednesday</td>
+<td></td>
+<td><a href="../slides/11-graphs.html#/">11: Graphs</a> to slide 8.9</td>
+</tr>
+<tr class="odd">
+<td>37</td>
+<td>Apr 30</td>
+<td>Friday</td>
+<td></td>
+<td><a href="../slides/11-graphs.html#/">11: Graphs</a> to end, <a href="../slides/12-memory.html#/">12: Memory</a> to slide 4.8</td>
+</tr>
+<tr class="even">
+<td>38</td>
+<td>May 3</td>
+<td>Monday</td>
+<td><a href="../labs/lab11/index.html">Lab 11: Graphs</a> (<a href="../labs/lab11/index.md">md</a>) / <a href="../tutorials/11-doxygen/index.html">Tutorial 11: Doxygen</a></td>
+<td><a href="../slides/12-memory.html#/">12: Memory</a> to end</td>
+</tr>
+<tr class="odd">
+<td>39</td>
+<td>May 5</td>
+<td>Wednesday</td>
+<td></td>
+<td><a href="../slides/13-esoteric-pls.html#/">13: Esoteric PLs</a> to end, <a href="course-conclusion.html#/">Course conclusion</a> to end</td>
+</tr>
+</tbody>
+</table>
+<h4 id="recording-notes">Recording notes</h4>
+<p>None, yet</p>
+<hr />
+<h2 id="grading-concerns">Grading Concerns</h2>
+<ul>
+<li>None yet!</li>
+</ul>
+</body>
+</html>
