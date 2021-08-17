@@ -6,7 +6,6 @@ Program and Data Representation: Old CS 2150 Specific Content
 This page contains the CS 2150 specific content from previous semesters.  This information can also be found by viewing the appropriate tag in the git repository.
 
 - Parts of the uva/ directory that are not currently being used:
-    - [Generic review session slide set](exam-review.html#/), which is really just a blank set of slides
     - [Frivolous regrade policy](frivolous-regrades.html) ([md](frivolous-regrades.md)) for exams (note: it's unclear how this will apply with online exams; more info on that later)
     - UNIX honor pledge, which needs to be signed by all the students in the course (it is created from a [.tex](unix-honor-pledge.tex) file)
 

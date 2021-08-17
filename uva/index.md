@@ -32,6 +32,7 @@ The parts of this course that are in this repo are:
 - [Teaching assistants][117]: get to know your TAs!
 - [Lab due dates][105] ([md][106]): When the various lab parts are due
 - [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform), signed via Google Forms, will need to be signed by all the students in the course
+- [Generic review session slide set](exam-review.html#/), which is really just a blank set of slides
 - The [final course grading metrics][116] ([md][115])
 
 The [Documents page](../docs/index.html) ([md](../docs/index.md)) has a number of useful parts:

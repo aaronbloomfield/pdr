@@ -8,17 +8,18 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
-    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/theme/black.css" id="theme">
     <link rel="stylesheet" href="../slides/css/pdr.css">
     <!-- Code syntax highlighting -->
-    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <link rel="stylesheet" href="../slides/reveal.js/plugin/highlight/zenburn.css">
     <!-- Printing and PDF exports -->
     <script>
       var link = document.createElement( 'link' );
       link.rel = 'stylesheet';
       link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.scss' : '../slides/reveal.js/css/print/paper.scss';
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
     <!--[if lt IE 9]>
@@ -43,14 +44,16 @@ line-height:120%;
 # CS 2150
 
 ### Program & Data Representation
-### Spring 2021
-&nbsp;
-<center><small>
-  <a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu) <br>
-</small></center>
-<center><small><a href="http://uva-cs.github.io/pdr">@github</a> | <a href="index.html">&uarr;</a> | <a href="daily-announcements.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png"></a></small></center>
+### Fall 2021
 
-&nbsp;    
+<p class='titlep'>&nbsp;</p>
+<div class="titlesmall"><p>
+<a href="http://www.cs.virginia.edu/~mrf8t">Mark Floryan</a> (mrf8t@virginia.edu)<br>
+<a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)<br>
+<a href="http://github.com/uva-cs/pdr">@github</a> | <a href="index.html">&uarr;</a> | <a href="./course-introduction.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png" style="top:0px;vertical-align:middle"></a>
+</p></div>
+<p class='titlep'>&nbsp;</p>
+
 ## Course Introduction
 	</script></section>
 
@@ -66,7 +69,7 @@ line-height:120%;
 
 	<section>
 
-	  <section id="course" data-markdown><script type="text/template">
+	  <section id="course" data-markdown class="center"><script type="text/template">
 # Course Structure and Logistics
 	  </script></section>
 
@@ -469,7 +472,7 @@ Don't be offended if it takes me a while -- there are almost 400 students in thi
 
 	<section>
 
-	  <section id="honor" data-markdown><script type="text/template">
+	  <section id="honor" data-markdown class="center"><script type="text/template">
 # Honor Policy
 	  </script></section>
 
@@ -528,7 +531,7 @@ The answer to all of these is yes, by the way.  And they have all happened in th
 
 	<section>
 
-	  <section id="grading" data-markdown><script type="text/template">
+	  <section id="grading" data-markdown class="center"><script type="text/template">
 # Grading Criteria
 	  </script></section>
 
@@ -564,7 +567,7 @@ The answer to all of these is yes, by the way.  And they have all happened in th
 
 	<section>
 
-	  <section id="goals" data-markdown><script type="text/template">
+	  <section id="goals" data-markdown class="center"><script type="text/template">
 # Course Goals
 	  </script></section>
 
@@ -689,7 +692,7 @@ Be able to implement basic control and data structures in assembly language (x86
 
 	<section>
 
-	  <section id="closing" data-markdown><script type="text/template">
+	  <section id="closing" data-markdown class="center"><script type="text/template">
 # Closing Thoughts
 	  </script></section>
 
@@ -714,28 +717,37 @@ Be able to implement basic control and data structures in assembly language (x86
 
     </div>
 
-    <script src="../slides/reveal.js/js/reveal.js"></script>
+<script src="../slides/reveal.js/dist/reveal.js"></script>
+<script src="../slides/reveal.js/plugin/zoom/zoom.js"></script>
+<script src="../slides/reveal.js/plugin/notes/notes.js"></script>
+<script src="../slides/reveal.js/plugin/search/search.js"></script>
+<script src="../slides/reveal.js/plugin/markdown/markdown.js"></script>
+<script src="../slides/reveal.js/plugin/highlight/highlight.js"></script>
+<script src="../slides/reveal.js/plugin/math/math.js"></script>
     <!-- You cannot, apparently, include this from another directory, hence why settings.js is reproduced here in full -->
     <script>
       // Full list of configuration options available here:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
-      controls: true,
       controlsTutorial: false,
+      controls: true,
       progress: true,
       history: true,
-      center: true,
       slideNumber: true,
       transition: 'slide', // none/fade/slide/convex/concave/zoom
-      // Optional reveal.js plugins
-      dependencies: [
-      { src: '../slides/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-      { src: '../slides/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-      { src: '../slides/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-      { src: '../slides/reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-      { src: '../slides/reveal.js/plugin/zoom-js/zoom.js', async: true },
-      { src: '../slides/reveal.js/plugin/notes/notes.js', async: true }
-      ]
+
+    hash: true,
+
+    math: {
+      mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+      config: 'TeX-AMS_HTML-full',
+      // pass other options into `MathJax.Hub.Config()`
+      TeX: { Macros: { RR: "{\\bf R}" } }
+    },
+
+    // Learn about plugins: https://revealjs.com/plugins/
+    plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ],
+
       });
     </script>
 

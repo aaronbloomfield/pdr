@@ -8,23 +8,23 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
-    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/theme/black.css" id="theme">
     <link rel="stylesheet" href="../slides/css/pdr.css">
     <!-- Code syntax highlighting -->
-    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <link rel="stylesheet" href="../slides/reveal.js/plugin/highlight/zenburn.css">
     <!-- Printing and PDF exports -->
     <script>
       var link = document.createElement( 'link' );
       link.rel = 'stylesheet';
       link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.scss' : '../slides/reveal.js/css/print/paper.scss';
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
     <!--[if lt IE 9]>
 	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
 	<![endif]-->
-    <link rel="stylesheet" href="../slides/css/dhtmlwindow.css" type="text/css">
     <style>.reveal li { font-size:93%; line-height:120%; }</style>
   </head>
 
@@ -39,12 +39,15 @@
 # CS 2150
 &nbsp;
 ### Program and Data Representation
-&nbsp;
-<center><small><a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)</small></center>
-<center><small><a href="http://@github/uva-cs/pdr">@github</a> | <a href="index.html">&uarr;</a> | <a href="./05-trees.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png"></a></small></center>
 
-&nbsp;  
-&nbsp;  
+<p class='titlep'>&nbsp;</p>
+<div class="titlesmall"><p>
+<a href="http://www.cs.virginia.edu/~mrf8t">Mark Floryan</a> (mrf8t@virginia.edu)<br>
+<a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)<br>
+<a href="http://github.com/uva-cs/pdr">@github</a> | <a href="index.html">&uarr;</a> | <a href="./05-trees.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png" style="top:0px;vertical-align:middle"></a>
+</p></div>
+<p class='titlep'>&nbsp;</p>
+
 ## Trees
 	</script></section>
     <section>
@@ -80,7 +83,7 @@
 
 	<section>
 
-	  <section id="introduction" data-markdown><script type="text/template">
+	  <section id="introduction" data-markdown class="center"><script type="text/template">
 # Introduction
 	  </script></section>
 
@@ -255,7 +258,7 @@ int TreeNode::numNodes(TreeNode *tnode) {
 
     <section>
 
-      <section id="bsts" data-markdown><script type="text/template">
+      <section id="bsts" data-markdown class="center"><script type="text/template">
 # Binary Search Trees
       </script></section>
 
@@ -477,7 +480,7 @@ Similarly down the left subttree links for `findMin()`
 
 	<section>
 
-	  <section id="exptrees" data-markdown><script type="text/template">
+	  <section id="exptrees" data-markdown class="center"><script type="text/template">
 # Expression Trees
 	  </script></section>
 
@@ -589,7 +592,7 @@ Consider the postfix expression: a b + c d e + \* \*; the final expression tree 
 
 	<section>
 
-	  <section id="avltrees" data-markdown><script type="text/template">
+	  <section id="avltrees" data-markdown class="center"><script type="text/template">
 # AVL Trees
 	  </script></section>
 
@@ -909,7 +912,7 @@ Note that the trees shown are not necessarily AVL trees, but the rotations are c
 
 	<section>
 
-	  <section id="recursion" data-markdown><script type="text/template">
+	  <section id="recursion" data-markdown class="center"><script type="text/template">
 # Recursion
 	  </script></section>
 
@@ -1111,7 +1114,7 @@ unsigned long fact (unsigned int n) {
 
 	  <section>
 
-	  <section id="redblacktrees" data-markdown><script type="text/template">
+	  <section id="redblacktrees" data-markdown class="center"><script type="text/template">
 # Red-black Trees
 	  </script></section>
 
@@ -1226,7 +1229,7 @@ All of these properties must hold for a red-black tree
 
 	<section>
 
-	  <section id="splaytrees" data-markdown><script type="text/template">
+	  <section id="splaytrees" data-markdown class="center"><script type="text/template">
 # Splay Trees
 	  </script></section>
 
@@ -1314,7 +1317,7 @@ All of these properties must hold for a red-black tree
 
 	<section>
 
-	  <section id="applications" data-markdown><script type="text/template">
+	  <section id="applications" data-markdown class="center"><script type="text/template">
 # Applications
 	  </script></section>
 
@@ -1425,7 +1428,7 @@ Because these results involve (anonymized) student work, they are not included i
 
     </div>
 
-    <script src="reveal.js/js/reveal.js"></script>
+    <script src='../slides/reveal.js/dist/reveal.js'></script><script src='../slides/reveal.js/plugin/zoom/zoom.js'></script><script src='../slides/reveal.js/plugin/notes/notes.js'></script><script src='../slides/reveal.js/plugin/search/search.js'></script><script src='../slides/reveal.js/plugin/markdown/markdown.js'></script><script src='../slides/reveal.js/plugin/highlight/highlight.js'></script><script src='../slides/reveal.js/plugin/math/math.js'></script>
     <script src="js/settings.js"></script>
 
   </body>

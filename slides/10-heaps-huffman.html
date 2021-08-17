@@ -8,30 +8,27 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
-    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/theme/black.css" id="theme">
     <link rel="stylesheet" href="../slides/css/pdr.css">
     <!-- Code syntax highlighting -->
-    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <link rel="stylesheet" href="../slides/reveal.js/plugin/highlight/zenburn.css">
     <!-- Printing and PDF exports -->
     <script>
       var link = document.createElement( 'link' );
       link.rel = 'stylesheet';
       link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.scss' : '../slides/reveal.js/css/print/paper.scss';
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
     <!--[if lt IE 9]>
 	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
 	<![endif]-->
-    <script type="text/javascript" src="../slides/js/dhtmlwindow.js"></script>
-    <script type="text/javascript" src="../slides/js/canvas.js"></script>
-    <link rel="stylesheet" href="../slides/css/dhtmlwindow.css" type="text/css">
     <style>.reveal li { font-size:93%; line-height:120%; }</style>
   </head>
 
-  <body onload="canvasinit()">
-    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+  <body>
 
     <div class="reveal">
 
@@ -42,12 +39,15 @@
 # CS 2150
 &nbsp;
 ### Program and Data Representation
-&nbsp;
-<center><small><a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)</small></center>
-<center><small><a href="http://@github/uva-cs/pdr">@github</a> | <a href="index.html">&uarr;</a> | <a href="./10-heaps-huffman.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png"></a></small></center>
 
-&nbsp;  
-&nbsp;  
+<p class='titlep'>&nbsp;</p>
+<div class="titlesmall"><p>
+<a href="http://www.cs.virginia.edu/~mrf8t">Mark Floryan</a> (mrf8t@virginia.edu)<br>
+<a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)<br>
+<a href="http://github.com/uva-cs/pdr">@github</a> | <a href="index.html">&uarr;</a> | <a href="./10-heaps-huffman.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png" style="top:0px;vertical-align:middle"></a>
+</p></div>
+<p class='titlep'>&nbsp;</p>
+
 ## Heaps (Priority Queues) & Huffman Coding
 	</script></section>
 
@@ -82,7 +82,7 @@
 
 	<section>
 
-	  <section id="priorityqueues" data-markdown><script type="text/template">
+	  <section id="priorityqueues" data-markdown class="center"><script type="text/template">
 # Priority Queues
 	  </script></section>
 
@@ -133,7 +133,7 @@
 
 	<section>
 
-	  <section id="heaps" data-markdown><script type="text/template">
+	  <section id="heaps" data-markdown class="center"><script type="text/template">
 # Binary Heaps
 	  </script></section>
 
@@ -227,7 +227,7 @@ A *perfect* (or *complete*) binary tree has all leaf nodes at the same depth; al
 
 	<section>
 
-	  <section id="heapops" data-markdown><script type="text/template">
+	  <section id="heapops" data-markdown class="center"><script type="text/template">
 # Heap Operations
 	  </script></section>
 
@@ -425,7 +425,7 @@ void binary_heap::percolateDown(int hole) {
 
 	<section>
 
-	  <section id="filecomp" data-markdown><script type="text/template">
+	  <section id="filecomp" data-markdown class="center"><script type="text/template">
 # File Compression
 	  </script></section>
 
@@ -517,7 +517,7 @@ void binary_heap::percolateDown(int hole) {
 
 	<section>
 
-	  <section id="huffman" data-markdown><script type="text/template">
+	  <section id="huffman" data-markdown class="center"><script type="text/template">
 # Huffman Coding
 	  </script></section>
 
@@ -916,7 +916,7 @@ space 01
 
 	<section>
 
-	  <section id="priorityqueueex" data-markdown><script type="text/template">
+	  <section id="priorityqueueex" data-markdown class="center"><script type="text/template">
 # Priority Queue<br>Example
 	  </script></section>
 
@@ -1058,14 +1058,7 @@ void binary_heap::print() {
 
     </div>
 
-    <div id="calibratediv" style="display:none">
-      <div id="calibratecanvasdiv">
-        <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
-      </div>
-      <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
-    </div>
-
-    <script src="reveal.js/js/reveal.js"></script>
+    <script src='../slides/reveal.js/dist/reveal.js'></script><script src='../slides/reveal.js/plugin/zoom/zoom.js'></script><script src='../slides/reveal.js/plugin/notes/notes.js'></script><script src='../slides/reveal.js/plugin/search/search.js'></script><script src='../slides/reveal.js/plugin/markdown/markdown.js'></script><script src='../slides/reveal.js/plugin/highlight/highlight.js'></script><script src='../slides/reveal.js/plugin/math/math.js'></script>
     <script src="js/settings.js"></script>
 
   </body>

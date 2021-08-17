@@ -8,46 +8,45 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
-    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/theme/black.css" id="theme">
     <link rel="stylesheet" href="../slides/css/pdr.css">
     <!-- Code syntax highlighting -->
-    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <link rel="stylesheet" href="../slides/reveal.js/plugin/highlight/zenburn.css">
     <!-- Printing and PDF exports -->
     <script>
       var link = document.createElement( 'link' );
       link.rel = 'stylesheet';
       link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.scss' : '../slides/reveal.js/css/print/paper.scss';
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
     <!--[if lt IE 9]>
 	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
 	<![endif]-->
-    <script type="text/javascript" src="../slides/js/dhtmlwindow.js"></script>
-    <script type="text/javascript" src="../slides/js/canvas.js"></script>
-    <link rel="stylesheet" href="../slides/css/dhtmlwindow.css" type="text/css">
     <style>.reveal li { font-size:93%; line-height:120%; }</style>
   </head>
 
-  <body onload="canvasinit()">
-    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+  <body>
 
     <div class="reveal">
 
-      <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
 
 	<section data-markdown><script type="text/template">
 # CS 2150
 &nbsp;
 ### Program and Data Representation
-&nbsp;
-<center><small><a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)</small></center>
-<center><small><a href="http://@github/uva-cs/pdr">@github</a> | <a href="index.html">&uarr;</a> | <a href="./01-cpp.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png"></a></small></center>
 
-&nbsp;  
-&nbsp;
+<p class='titlep'>&nbsp;</p>
+<div class="titlesmall"><p>
+<a href="http://www.cs.virginia.edu/~mrf8t">Mark Floryan</a> (mrf8t@virginia.edu)<br>
+<a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)<br>
+<a href="http://github.com/uva-cs/pdr">@github</a> | <a href="index.html">&uarr;</a> | <a href="./01-cpp.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png" style="top:0px;vertical-align:middle"></a>
+</p></div>
+<p class='titlep'>&nbsp;</p>
+
 ## C++
 	</script></section>
     <section>
@@ -84,7 +83,7 @@
 
 	<section>
 
-<section data-markdown id="intro"><script type="text/template">
+<section data-markdown id="intro" class="center"><script type="text/template">
 # Introduction to C++
 </script></section>
 
@@ -284,7 +283,7 @@ int main() {
 
 	<section>
 
-<section data-markdown id="functions"><script type="text/template">
+<section data-markdown id="functions" class="center"><script type="text/template">
 # Functions
 </script></section>
 
@@ -372,7 +371,7 @@ int max(int a, int b) {
 
 	<section>
 
-<section data-markdown id="classes"><script type="text/template">
+<section data-markdown id="classes" class="center"><script type="text/template">
 # Classes
 </script></section>
 
@@ -556,7 +555,7 @@ int main( ) {
 
 	<section>
 
-<section id="rational" data-markdown><script type="text/template">
+<section id="rational" data-markdown class="center"><script type="text/template">
 # Rational Example
 </script></section>
 
@@ -693,7 +692,7 @@ int main() {
 
 	<section>
 
-<section id="preproc" data-markdown><script type="text/template">
+<section id="preproc" data-markdown class="center"><script type="text/template">
 # Pre-processor
 </script></section>
 
@@ -774,7 +773,7 @@ bool even (int x);
 
 	<section>
 
-<section id="pointers" data-markdown><script type="text/template">
+<section id="pointers" data-markdown class="center"><script type="text/template">
 # Pointers
 </script></section>
 
@@ -995,7 +994,7 @@ int main() {
 
 	<section>
 
-<section id="dynamic" data-markdown><script type="text/template">
+<section id="dynamic" data-markdown class="center"><script type="text/template">
 # Dynamic Memory<br>Allocation
 </script></section>
 
@@ -1256,7 +1255,7 @@ Why the extra space?  If only 16 bytes are needed for a `Foo`, then why is the 2
 
 	<section>
 
-<section id="references" data-markdown><script type="text/template">
+<section id="references" data-markdown class="center"><script type="text/template">
 # References
 </script></section>
 
@@ -1400,7 +1399,7 @@ Note that `o1->method()` is the same as `(*o1).method()`
 
 	<section>
 
-<section id="parameters" data-markdown><script type="text/template">
+<section id="parameters" data-markdown class="center"><script type="text/template">
 # Parameter Passing
 </script></section>
 
@@ -1547,7 +1546,7 @@ cout << e << endl;
 
 	<section>
 
-<section id="advanced" data-markdown><script type="text/template">
+<section id="advanced" data-markdown class="center"><script type="text/template">
 # Sample (advanced) code
 </script></section>
 
@@ -1820,14 +1819,7 @@ cout << "about to leave main..." << endl;
 
     </div>
 
-    <div id="calibratediv" style="display:none">
-      <div id="calibratecanvasdiv">
-        <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
-      </div>
-      <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
-    </div>
-
-    <script src="reveal.js/js/reveal.js"></script>
+    <script src='../slides/reveal.js/dist/reveal.js'></script><script src='../slides/reveal.js/plugin/zoom/zoom.js'></script><script src='../slides/reveal.js/plugin/notes/notes.js'></script><script src='../slides/reveal.js/plugin/search/search.js'></script><script src='../slides/reveal.js/plugin/markdown/markdown.js'></script><script src='../slides/reveal.js/plugin/highlight/highlight.js'></script><script src='../slides/reveal.js/plugin/math/math.js'></script>
     <script src="js/settings.js"></script>
 
   </body>
