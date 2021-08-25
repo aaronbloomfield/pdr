@@ -14,11 +14,11 @@ Links
 
 There are a number of links and other parts of this course that are **NOT** included in this repository.  They are:
 
-- The set of online tools, which can be accessed through Collab or [here][160].
-    - These tools are the [support requests][161] tool and the [office hours queue][167]
+- The set of online tools, which can be accessed through Collab or [here][160] (not yet ready)
+    - These tools are the [support requests][161] (not yet ready) tool and the [office hours queue][167] (not yet ready)
 - The announcements, which are posted to the CS 2150 twitter feed: [\@UVaCS2150][151]
 - Email list archive, which is a Collab tool ([here][170] is the direct link, although Collab login is required)
-- [Piazza][152], and our specific class is [here][175]; Collab can (maybe?) log you in directly; the Collab tool link is [here][173] (again, Collab login required)
+- [Piazza][152]; Collab can log you in directly; the Collab tool link is [here][173] (again, Collab login required)
 - [Anonymous feedback][174]
 - All submission of assignments is via Gradescope, which can be accessed through Collab
 
@@ -26,12 +26,11 @@ The parts of this course that are in this repo are:
 
 - [Daily announcements slide set][102]
 - [Course introduction slide set][80]
-- [Lecture period content][118] ([md][119]) which is the material used during the lecture periods
 - [Course syllabus][103] ([md][104]): the course syllabus
 - [Gradescope FAQ](gradescope-faq.html) ([md](gradescope-faq.md)) for submission questions and answers
 - [Teaching assistants][117]: get to know your TAs!
 - [Lab due dates][105] ([md][106]): When the various lab parts are due
-- [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform), signed via Google Forms, will need to be signed by all the students in the course
+- [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSdBDC7EFLdG068qmyOdjJLp_YFfSIJz8YOM4gdhlyF85voQ5w/viewform), signed via Google Forms, will need to be signed by all the students in the course
 - [Generic review session slide set](exam-review.html#/), which is really just a blank set of slides
 - The [final course grading metrics][116] ([md][115])
 
@@ -234,12 +233,10 @@ Grading Concerns
 [161]: https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/tickets/
 [167]: https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/queue/
 
-[170]: https://collab.its.virginia.edu/portal/site/a25f92a0-ff43-4cdb-a402-07f5f65467c1/tool-reset/7b7966a1-6a85-490e-a7b7-78e620fc662e
-[171]: https://collab.its.virginia.edu/portal/site/a25f92a0-ff43-4cdb-a402-07f5f65467c1/tool-reset/07422072-bfac-4b3d-97e7-528c76195860
+[170]: https://collab.its.virginia.edu/x/6KjU79
 [172]: unix-honor-pledge-f20.pdf
-[173]: https://collab.its.virginia.edu/portal/site/a25f92a0-ff43-4cdb-a402-07f5f65467c1/tool-reset/460e7884-4da8-48bb-adf1-bade6f546457
-[174]: https://collab.its.virginia.edu/portal/site/a25f92a0-ff43-4cdb-a402-07f5f65467c1/tool-reset/0b7f9d74-6572-4e49-a3e8-ddc15e76d1cd
-[175]: https://piazza.com/class/ke4pfukrw6p443
+[173]: https://collab.its.virginia.edu/x/yTsZAt
+[174]: https://collab.its.virginia.edu/x/JunIx3
 
 [201]: https://collab.itc.virginia.edu/access/content/group/41174582-53b0-472a-a22c-f466f2aa653a/lectures/course-introduction-1/course-introduction-1.htm
 [202]: https://collab.itc.virginia.edu/access/content/group/41174582-53b0-472a-a22c-f466f2aa653a/lectures/01-cpp-1/01-cpp-1.htm

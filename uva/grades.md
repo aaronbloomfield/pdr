@@ -8,8 +8,9 @@ Grading Explanations, Fall 2021
 
 As per the [syllabus](syllabus.html) ([md](syllabus.md)), the grades were computed by:
 
-- Laboratories (70%)
-- Final exam (30%)
+- Laboratories (45%)
+- Two midterms (30%; 15% each)
+- Final exam (25%)
 
 ## The Process of Grade Determination
 

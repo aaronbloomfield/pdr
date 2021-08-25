@@ -13,19 +13,24 @@ CS 2150: Program and Data Representation: Course Syllabus
 ### Course Info ###
 
 - Lectures: M/W/F 11:00-10:50 (Floryan), 1:00-1:50 (Bloomfield), and 2:00-2:50 (Bloomfield)
-- Email: none; fill out a [support request][42] instead
-- Office hours: schedule to be announced.  Any concerns that are not appropriate to be addressed then should be submitted via a [support request][42].
+- Email: none; fill out a support request (not yet ready) instead
+- Office hours: schedule to be announced.  Any concerns that are not appropriate to be addressed then should be submitted via a support request (not yet ready).
 - Announcement feed: [\@UVaCS2150][34] and the [daily announcements slide set][15]; you are responsible for checking both
-- TA office hours are 5pm-11pm on Sundays, Mondays, Wednesdays, and Thursdays on Zoom; All office hours start the Sunday after classes start.
+- TA office hours are 5pm-11pm on Sundays, Mondays, Wednesdays, and Thursdays
 - Laboratory Meetings: all on Tuesdays
 
 **Course Description:** This course will introduce you to program and data representation from high level concepts to machine level implementation. Data structuring techniques and the representation of data structures during program execution are discussed, as are operations and control structures and their representation during program execution. Representations of numbers, arithmetic operations, arrays, records, recursion, hashing, stacks, queues, trees, graphs, and related concepts are also covered.
 
-**Availability:** It is important to me to be available to my students, and to address your concerns. If your concern can't be addressed during the lecture periods or via a [support request][42], then please fill out a [support request][42] to find a time to (virtually) meet.  But with 500 students in the class, and only one instructor, I will not be able to manage everybody emailing their concerns -- hence the use of the [support request][42] system.
+**Availability:** It is important to me to be available to my students, and to address your concerns. If your concern can't be addressed during the lecture periods or via a support request (not yet ready), then please fill out a support request (not yet ready) to find a time to (virtually) meet.  But with 500 students in the class, and only one instructor, I will not be able to manage everybody emailing their concerns -- hence the use of the support request (not yet ready) system.
 
 If you have any comments on the course - what is working, what is not working, what can be done better, etc. - I are very interested in hearing about them. There is an [anonymous feedback tool through Collab][37] that you can use, or e-mail.
 
-**Prerequisites:** CS 2110 (Software Development Methods) or CS 2220 (Engineering Software); and CS 2102 (Discrete Math), all with grades of C- or above.  CS 2110 is a strict pre-req, and no execptions are ever allowed for not having taken that course.  CS 2102 is allowed as a co-requisite, but see the details for this in the [first slide set][11] (specifically, [here][12]).
+**Prerequisites:** Both of:
+
+- CS 2110 (Software Development Methods) or CS 2220 (Engineering Software) with a grade of C- or higher
+    - This is a strict pre-req, and no execptions are ever allowed for not having taken that course
+- CS 2102 (Discrete Math) or CS 2120 (Discrete Mathematics and Theory 1) with a grade of C- or higher
+    - CS 2120 can be taken as a co-req; see details about this in the [first slide set][11] (specifically, [here][12]).
 
 **Course Objectives:** Students who complete the course will:
 
@@ -37,9 +42,9 @@ If you have any comments on the course - what is working, what is not working, w
 
 **Grades:** Grades will be calculated by the following formula:
 
-- 40%: Laboratories
+- 45%: Laboratories
 - 30%: Two midterm exams
-- 30%: Final exam
+- 25%: Final exam
 
 The course grades are ***LIKELY*** to follow the standard decade curve: 90 and above is an A of some sort (A-, A, or A+), 80 and above is some sort of a B, etc.  This is not a guarantee, as the final determination of the course grades is goign to depend on how the grading works out.
 
@@ -74,9 +79,9 @@ Under **NO** circumstances will anybody be allowed to take the final exam early.
 
 You may submit lab questions for regrading within 10 days of when they are returned to you (less time for the final due to the end of the semester); this is done via the [course tools][41].  However, you MUST be aware of the [Frivolous regrade policy][3] ([md][4]), which will be strictly enforced.
 
-**Laboratories:** There will be 11 or 12 programming labs this semester, and they constitute 70% of your grade.  Note that if the number of labs changes, the respective weights for each lab will also be adjusted and announced in class.  The total weight of the labs for the final grade will remain 70%, unless a change in the course grading criteria (as above) is announced in class.  The majority of the work in this class is through the labs -- there are no separate homework assignments.  The labs have different late policies, which will be specified in more detail in the first lab.  **Your lab submission must compile for you to receive *any* credit** -- this is an advanced programming class, and under no circumstances should you be submitting code that does not compile - we have a page on [compilation issues][5] ([md][6]) to help you if you cannot get your code to compile.  Note that the *entire* assignment will receive zero credit if even *one* part of it does not compile.
+**Laboratories:** There will be 11 or 12 programming labs this semester, and they constitute 45% of your grade.  Note that if the number of labs changes, the respective weights for each lab will also be adjusted and announced in class.  The total weight of the labs for the final grade will remain 45%, unless a change in the course grading criteria (as above) is announced in class.  The majority of the work in this class is through the labs -- there are no separate homework assignments.  The labs have different late policies, which will be specified in more detail in the first lab.  **Your lab submission must compile for you to receive *any* credit** -- this is an advanced programming class, and under no circumstances should you be submitting code that does not compile - we have a page on [compilation issues][5] ([md][6]) to help you if you cannot get your code to compile.  Note that the *entire* assignment will receive zero credit if even *one* part of it does not compile.
 
-All assignments will be submitted through our custom assignments tool, which can be accessed through Collab or [here][41] (Netbadge login required).  Each assignment has 3 dates: an open date (when you can start submitting the assignment), a due date (when it is due), and a close date (the last point that you can submit the assignment); the close date is 24 hours after the due date, due to the late policy (which is explained in [lab 1][13] ([md][14])).  Note that the assignment will be available much earlier, typically Wednesday or Thursday of the week before it is due.  The dates are listed for the week of the lab - the lab week starts on a Sunday and ends on a Saturday.
+All assignments will be submitted through Gradescope, which can be accessed through Collab.  Each assignment has 3 dates: an open date (when you can start submitting the assignment), a due date (when it is due), and a close date (the last point that you can submit the assignment); the close date is 24 hours after the due date, due to the late policy (which is explained in [lab 1][13] ([md][14])).  Note that the assignment will be available much earlier, typically Wednesday or Thursday of the week before it is due.  The dates are listed for the week of the lab - the lab week starts on a Sunday and ends on a Saturday.
 
 The various dates: open dates, due dates, and close dates, are listed on the [Lab due dates page][7] ([md][8])
 
@@ -84,18 +89,18 @@ Please note, however, that there are a number of rules that we will strictly fol
 
 - Pre-labs are due at the same time for everybody, regardless of your lab section; that time is the beginning of the FIRST Tuesday lab.
 - In-labs are due at the end of the day on Tuesday.
-- Post-labs are due at the start of the *first* lecture on Friday, regardless of which lecture section you are registered for; the exact time is on the [lab due dates page][7]
+- Post-labs are due at 10 am on Friday, regardless of which lecture section you are registered for; the exact time is on the [lab due dates page][7]
 - Any late lab part will receive 25% off (for just that part) for the first 24 hours (or part thereof) that it is late, after which no credit will be given. Note that a computer program does this deduction -- so if your lab is 1 second late, it still receives 25% off.
 
 **Computing resources:** There are two specific computer resources needed for this course:
 
 - You need to have a working computer that can run a recent build of [VirtualBox][36], with enough hard drive space (and memory) to use a course VirtualBox image (about 15 Gb will be needed for the install, and then 10 Gb  will be used once the installation files are deleted).  Any computer made in the last 3 years will suffice for these requirements (and many older ones will as well).  It does not matter if it is a desktop or notebook; nor does the speed matter.
-    - ~~If your computer breaks, you can contact the CS systems staff for a loaner laptop -- they are in the basement of Rice hall, in rooms ?? and ??.  Tell them you are in my class, and they will provide you with a machine to borrow.~~
-	- If your computer breaks, please submit a [support request][42].  If you are on grounds, we may be able to provide you with a loaner machine.
+    - If your computer breaks, you can contact the CS systems staff for a loaner laptop -- they are in the basement of Rice hall, in rooms ?? and ??.  Tell them you are in my class, and they will provide you with a machine to borrow.
+	- If your computer breaks, please submit a support request (not yet ready).  If you are on grounds, we may be able to provide you with a loaner machine.
 
 **Attendance:** Attendance is highly recommended but not required in either lecture or lab. Unless you have received special permission, you cannot attend labs that you are not enrolled in due to space constraints.  Please see the [first set of lecture slides][11] for more information about the lab schedule.  In particular with regards to the fact that there is a lab the week of Thanksgiving break (in fall semesters) or the weeks before and after spring break (in spring semesters).
 
-**Professionalism:** We are all adults, and should act like such.  Acting in an unprofessional manner that disrupts the class will first incur a stern talking-to.  After that, a grade penalty may be assessed.  Examples include: disrupting class, trolling people on Piazza, abusing the [support request][42] system, etc.  This is meant to keep people from repeatedly disrupting class; we are not trying to be super strict on this.  While we generally expect to give a warning prior to any other action, infractions that go well beyond unprofessional may incr penalties with no warning.
+**Professionalism:** We are all adults, and should act like such.  Acting in an unprofessional manner that disrupts the class will first incur a stern talking-to.  After that, a grade penalty may be assessed.  Examples include: disrupting class, trolling people on Piazza, abusing the support request (not yet ready) system, etc.  This is meant to keep people from repeatedly disrupting class; we are not trying to be super strict on this.  While we generally expect to give a warning prior to any other action, infractions that go well beyond unprofessional may incr penalties with no warning.
 
 **Honor Policy:** There have been a large number of honor violations in this class and other low-level CS courses recently.  Outside the normal UVa honor policy rules, we have these additional rules:
 
@@ -116,7 +121,7 @@ Alternatively, there are also other University of Virginia resources available. 
 
 If you or someone you know is struggling with gender, sexual, or domestic violence, there are many community and University of Virginia resources available. The Office of the Dean of Students, Sexual Assault Resource Agency (SARA), Shelter for Help in Emergency (SHE), and UVA Women's Center are ready and eager to help. Contact the Director of Sexual and Domestic Violence Services at 434-982-2774.
 
-**Reasonable Modifications:** Try as we might, we cannot predict the future.  There may be situations that arise during the semester that are not adequately covered by this syllabus, and which will require us to make adaptations or modifications during the semester.  We do not expect this to happen often.  And if we knew what types of situations these would be, we would change professions to fortune telling...
+**Reasonable Modifications:** Try as we might, we cannot predict the future.  Yet.  There may be situations that arise during the semester that are not adequately covered by this syllabus, and which will require us to make adaptations or modifications during the semester.  We do not expect this to happen often.  And if we knew what types of situations these would be, we would change professions to investing and fortune telling.
 
 [1]: index.html
 [2]: index.md
@@ -140,7 +145,7 @@ If you or someone you know is struggling with gender, sexual, or domestic violen
 [34]: http://twitter.com/UVaCS2150
 [35]: https://calendar.google.com/calendar/embed?src=fnt7qr3f64egh65rfe1bng8f8s%40group.calendar.google.com&ctz=America/New_York
 [36]: https://www.virtualbox.org/
-[37]: https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool-reset/495df88d-2624-46bf-872f-db154dd6048e
+[37]: https://collab.its.virginia.edu/x/JunIx3
 [38]: http://www.cs.virginia.edu/~nn4pj
 [39]: mailto:mrf8t@virginia.edu
 
