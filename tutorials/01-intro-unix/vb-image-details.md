@@ -96,7 +96,7 @@ alias xemacs='emacs'
 
 ### Introduction to Cybersecurity configuration
 
-These are not included in this repo, but can be found [in the aaronbloomfield/ics repo](https://github.com/aaronbloomfield/ics/blob/master/docs/vb-image-details.md#introduction-to-cybersecurity-configuration).  These instructiosn were last updated in August 2019.
+These are not included in this repo, but can be found [in the aaronbloomfield/ics repo](https://github.com/aaronbloomfield/ics/blob/master/docs/vb-image-details.md#introduction-to-cybersecurity-configuration).  These instructions were last updated in August 2019.
 
 ### Service Learning Practicum configuration section
 
