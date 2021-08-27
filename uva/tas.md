@@ -17,7 +17,25 @@ No bio yet...
 I'm a second year Computer Science major and this is my first semester TAing this class! I'm really interested in data science, cooking/eating, and art. I'm also a part of SWE, A.O.E., and WiCS. I'm a TA because it can be really rewarding, and I loved CS 2150 as a student.
 <br clear="all">
 
+## James Connors
+No bio yet...
+<br clear="all">
+
+## AJ Cuddeback
+[![AJ Cuddeback ](//libra.cs.virginia.edu/tas/atc4yk.jpg)](//libra.cs.virginia.edu/tas/full/atc4yk.jpg)
+Hey Friends! My name is AJ Cuddeback and I'm a second year from Medford, Massachusetts studying computer engineering and physics. Outside of TAing and classes, I do physics research, resident-advise a first year dorm, and an officer in Outdoors at UVa. I'm really into my chacos, and my diet primarily subsets of peanut butter Clif bars and Dunkin Donuts iced coffee. I am also emotionally attached to my Nalgene. If you're not sure where I am, you can probably find me climbing at Slaughter or scooping up deals at the local Goodwill. Like Dwight Schrute, I always keep an extra set of Birkenstocks in the car for special occasions.
+<br clear="all">
+
 ## Vraj Desai
+No bio yet...
+<br clear="all">
+
+## Tijana Djokic
+[![Tijana Djokic](//libra.cs.virginia.edu/tas/td4jj.jpg)](//libra.cs.virginia.edu/tas/full/td4jj.jpg)
+Hi guys! My name is Tijana, but my friends call me Tiki, and this is my first semester as a TA for CS 2150! I am a third year BACS major from NOVA, and I’m ready to help you all in any way I can. At UVA, I am involved with Madison House Tutoring and Girls Hoo Code, and in my free time I enjoy playing volleyball, reading, and watching movies with friends. I can’t wait to see you all in person this semester, and good luck in 2150!!
+<br clear="all">
+
+## Isabelle Fang
 No bio yet...
 <br clear="all">
 
@@ -31,9 +49,18 @@ Hey everyone! My name is Amrit Gorle and I am a second year CS major in the Engi
 Hey guys! I am a second year BSCS major. I am TAing for 2150 because I understand that this course can be difficult at times, and I love helping people with CS problems and also just really enjoyed the course in general. In my free time, I enjoy solving Rubik's cubes, listening to music, etc. I'm excited to work with you all this semester!
 <br clear="all">
 
+## Sarah Gould
+No bio yet...
+<br clear="all">
+
 ## Jade Heilemann
 [![Jade heilemann](//libra.cs.virginia.edu/tas/jh2sp.jpg)](//libra.cs.virginia.edu/tas/full/jh2sp.jpg)
-Hi all! I'm Jade, I'm a second year Computer Science major and Data Analytics minor. Outside of classes I'm primarily involved in HooHacks and WiCS, please ask me about either club if you have questions! I also love to play video games, cook (and especially eat!) exciting food, and explore new places. I have two cats named Nala and Eva (Nala is pictured here with me) and a dog named Rocky. Good luck in your 2150 endeavors, you're all going to do great, I believe in you!
+Hi all! I'm Jade, I'm a third year Computer Science major and Data Analytics minor. Outside of classes I'm primarily involved in HooHacks and WiCS, please ask me about either club if you have questions! I also love to play video games, cook (and especially eat!) exciting food, and explore new places. I have two cats named Nala and Eva (Nala is pictured here with me) and a dog named Rocky. Good luck in your 2150 endeavors, you're all going to do great, I believe in you!
+<br clear="all">
+
+## Srujan Joshi
+[![Srujan Joshi](//libra.cs.virginia.edu/tas/sj7sf.jpg)](//libra.cs.virginia.edu/tas/full/sj7sf.jpg)
+Hey! I'm a third year Computer Science major in the E-School. I'm from Reston, Virginia (although I lived in Bangalore, India for the last 8 years before college). It's my first semester as a TA and I'm really looking forward to working with you guys! I personally really enjoyed the class even though it was challenging. In my down time I like playing video games, reading books, meditating, goofing around with my cat and learning how to fly airplanes (virtually) in Microsoft Flight Simulator.
 <br clear="all">
 
 ## Kedar Kulkarni
@@ -41,7 +68,7 @@ Hi all! I'm Jade, I'm a second year Computer Science major and Data Analytics mi
 Hey everyone! I am a second-year CS major in the E-School. CS 2150 was definitely challenging but also one of my favorite classes. I want to help each and every one of you in any way, so please do not hesitate to reach out! Some of my hobbies are playing tennis, biking, video games (Rocket League), and hiking.
 <br clear="all">
 
-## Jules Le menestrel
+## Jules Le Menestrel
 No bio yet...
 <br clear="all">
 
@@ -50,9 +77,18 @@ No bio yet...
 Hi! I'm Alex Li, a 2nd year CS major in the College from Wilton, CT. This is my first semester being a TA, so I'm excited to help (through the exposure-free medium of Zoom of course). Outside of school, I'm part of Flux, a UVA poetry and spoken word club, and the Mcintire Investment Institute. I like Avatar the Last Airbender, the Fallout games, jogging, and most of all, Spikeball! A fun fact about me is that I built a folding table over the summer. Hit me up if you wanna talk about literally anything and lets have a great semester!
 <br clear="all">
 
+## Shiva Manandhar
+No bio yet...
+<br clear="all">
+
+## Jamie McCampbell
+[![Jamie McCampbell](//libra.cs.virginia.edu/tas/jcm2yd.jpg)](//libra.cs.virginia.edu/tas/full/jcm2yd.jpg)
+Hey guys!  My name is Jaime McCampbell and I'm a third year majoring in CS in the E-School.  This is my first semester as a TA but I am excited to help people through such a valuable class.  Some fun things about me, I love hiking, I'm in the marching band, and I go hard at Minecraft.  I look forward to meeting you all!
+<br clear="all">
+
 ## Keerthi Medicherla
 [![Keerthi Medicherla](//libra.cs.virginia.edu/tas/khm4zf.jpg)](//libra.cs.virginia.edu/tas/full/khm4zf.jpg)
-Hi guys, I'm Keerthi! I'm a third year double majoring in Computer Science and Global Studies: Security and Justice, and this will be my second semester TAing! CS 2150 was one of the most challenging and rewarding classes I have taken at UVA, so I'm excited to work with you all this semester. :)
+Hi guys, I’m Keerthi! I’m a fourth year double majoring in Computer Science and Global Studies: Security and Justice, and this will be my third semester TAing! CS 2150 was one of the most challenging and rewarding classes I have taken at UVA, so I’m excited to work with you all this semester. :) 
 <br clear="all">
 
 ## Josh Mehr
@@ -68,11 +104,31 @@ No bio yet...
 No bio yet...
 <br clear="all">
 
+## Kevin Mulliss
+No bio yet...
+<br clear="all">
+
+## Vaidic Naik
+No bio yet...
+<br clear="all">
+
+## Brian Nguyen
+No bio yet...
+<br clear="all">
+
 ## Shruthi Nyshadham
 No bio yet...
 <br clear="all">
 
-## Ashwin Pathi
+## Nathan Park
+No bio yet...
+<br clear="all">
+
+## Emily Parnell
+No bio yet...
+<br clear="all">
+
+## Vatsal Rami
 No bio yet...
 <br clear="all">
 
@@ -117,6 +173,11 @@ No bio yet...
 ## Lucy Wang
 [![Lucy Wang](//libra.cs.virginia.edu/tas/lcw2nkz.jpg)](//libra.cs.virginia.edu/tas/full/lcw2nkz.jpg)
 Hello! I'm Lucy, and I am a second year CS and statistics major from NOVA. 2150 has been my favorite class I have taken so far, and although it may be stressful and challenging at times, all of the work was very well worth the effort and I promise you will make it through and think the same  :) <p>Outside of class, I enjoy playing volleyball, ultimate frisbee, and going on walks/runs. I love cafes/bakeries and I would (ideally) like to open my own bakery one day! My favorite pastries are donuts and cinnamon rolls so let me know if you have any (easy) recipes!<p>I am excited to work with you all this semester and feel free to reach out if you have any question!
+<br clear="all">
+
+## Brandon Williams
+[![Brandon Williams](//libra.cs.virginia.edu/tas/byw3xy.jpg)](//libra.cs.virginia.edu/tas/full/byw3xy.jpg)
+Hey everyone, welcome to CS2150! I'm a 4th year CS and Econ major who's really excited to finally TA for this course - it is the one I learned the most in and will also truly prepare all of you for just about every CS course afterwards. While I don't have many extracurriculars outside of class, I'm pretty involved with different jobs across grounds. This class may seem/feel/be a bit overwhelming at times, but at the end you will realize it was all necessary. And some of you will truly appreciate C++ over other languages after this :) I look forward to helping you all this semester!
 <br clear="all">
 
 ## Zach Yahn
