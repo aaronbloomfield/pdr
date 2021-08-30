@@ -5,7 +5,7 @@ CS 2150 Teaching Assistants
 
 ## Ayushi Ambhore
 [![Ayushi Ambhore](//libra.cs.virginia.edu/tas/ara7ke.jpg)](//libra.cs.virginia.edu/tas/full/ara7ke.jpg)
-Hi guys! My name is Ayushi and I'm a second year CS major in the College. This is my first semester TAing 2150. When I took this course I probably attended OH more than 100 times, so I'm excited to help you all the same way other TA's helped me! When I'm not in office hours, I'm either participating in WiCS & GWC here on grounds or reading conspiracy theories and visiting new places. Really looking forward to meeting you guys this semester :)
+Hi guys! My name is Ayushi and I’m a third year CS major in the College. This is my second semester TAing 2150. When I took this course I probably attended OH more than 100 times, so I’m excited to help you all the same way other TA’s helped me! When I’m not in office hours, I’m either participating in WiCS & GWC here on grounds or reading conspiracy theories and visiting new coffee shops. Really looking forward to meeting you guys this semester :) 
 <br clear="all">
 
 ## Alex Becker
@@ -41,16 +41,17 @@ No bio yet...
 
 ## Amrit Gorle
 [![Amrit Gorle](//libra.cs.virginia.edu/tas/ang6ve.jpg)](//libra.cs.virginia.edu/tas/full/ang6ve.jpg)
-Hey everyone! My name is Amrit Gorle and I am a second year CS major in the Engineering School. I am super excited to be a TA for CS 2150 because I absolutely loved the class. I know the course can be a bit challenging at times but I want to help as much as possible so feel free to reach out! In my free time, I try to explore new interests (recently picked up penny boarding) so if you have any recommendations for new activities let me know.
+Hey everyone! My name is Amrit Gorle and I am a third year CS major in the Engineering School. I am super excited to be a TA for CS 2150 because I absolutely loved the class. I know the course can be a bit challenging at times but I want to help as much as possible so feel free to reach out! In my free time, I try to explore new interests (recently picked up penny boarding) so if you have any recommendations for new activities let me know.
 <br clear="all">
 
 ## Justin Gou
 [![Justin Gou](//libra.cs.virginia.edu/tas/jyg2qhc.jpg)](//libra.cs.virginia.edu/tas/full/jyg2qhc.jpg)
-Hey guys! I am a second year BSCS major. I am TAing for 2150 because I understand that this course can be difficult at times, and I love helping people with CS problems and also just really enjoyed the course in general. In my free time, I enjoy solving Rubik's cubes, listening to music, etc. I'm excited to work with you all this semester!
+Hey guys! I am a third year BSCS major. I am TAing for 2150 because I understand that this course can be difficult at times, and I love helping people with CS problems and also just really enjoyed the course in general. In my free time, I enjoy solving Rubik’s cubes, playing chess, listening to music, etc. I’m excited to work with you all this semester!
 <br clear="all">
 
 ## Sarah Gould
-No bio yet...
+[![Sarah Gould](//libra.cs.virginia.edu/tas/sg4sgz.jpg)](//libra.cs.virginia.edu/tas/full/sg4sgz.jpg)
+Hi! My name is Sarah Gould and this will be my first semester being a TA for 2150! I am a third-year CS major in the School of Engineering with a minor in Data Science. I’m really excited to be able to help all of you through this course because I found it to be one of the most beneficial and yet challenging CS courses that I’ve taken so far here. Outside of being a TA, I am involved in W.I.C.S, S.W.E., and GPLS. I’m also a part of the Chi Omega sorority here! If you have any questions regarding any of the organizations I am involved in or about CS/Data Science, please feel free to always reach out!
 <br clear="all">
 
 ## Jade Heilemann
@@ -74,7 +75,7 @@ No bio yet...
 
 ## Alex Li
 [![Alex Li](//libra.cs.virginia.edu/tas/aml7hqv.jpg)](//libra.cs.virginia.edu/tas/full/aml7hqv.jpg)
-Hi! I'm Alex Li, a 2nd year CS major in the College from Wilton, CT. This is my first semester being a TA, so I'm excited to help (through the exposure-free medium of Zoom of course). Outside of school, I'm part of Flux, a UVA poetry and spoken word club, and the Mcintire Investment Institute. I like Avatar the Last Airbender, the Fallout games, jogging, and most of all, Spikeball! A fun fact about me is that I built a folding table over the summer. Hit me up if you wanna talk about literally anything and lets have a great semester!
+ Hi! I’m Alex Li, a 3rd year Commerce student from Wilton, CT. This is my 3rd semester TAing 2150, and my first in-person semester which is really exciting! Outside of school, I’m part of Flux, a UVA poetry and spoken word club and the Mcintire Investment Institute. I like Avatar the Last Airbender, the Fallout games, hiking in Shenandoah, sand volleyball and Spikeball! A fun fact about me is that I have eaten a 16 inch pizza from Christians in 14 minutes. Hit me up if you wanna talk about literally anything and let's have a great semester!
 <br clear="all">
 
 ## Shiva Manandhar
@@ -93,7 +94,7 @@ Hi guys, I’m Keerthi! I’m a fourth year double majoring in Computer Science 
 
 ## Josh Mehr
 [![Josh Mehr](//libra.cs.virginia.edu/tas/jmm3vn.jpg)](//libra.cs.virginia.edu/tas/full/jmm3vn.jpg)
-What's up! I'm a second-year BSCS major from Woodbridge Virginia (place in NOVA that has an Ikea). I doubt anyone that reads this cares about me liking dogs so I won't bother talking about stuff like that. This will be my first time TAing for any class. I'm incredibly excited to help you work your way through this class. It can be daunting sometimes but as long as you don't give up and are willing to ask for help you'll be just fine! Let me just assure you that if you need any help I'll try my best to help you in whatever way I possibly can because I remember how grateful I was to have such helpful TAs when I took 2150. I hope we have a fantastic semester together!
+Hi everyone! I’m a third-year BSCS major from Woodbridge, Virginia. This is my third semester TAing for 2150 so I should be able to help you learn and fully comprehend the content. This class can be difficult but as long as you're willing to ask for help (which I know can be hard for some to do) and try your best you will be fine.
 <br clear="all">
 
 ## Sindhura Mente
@@ -105,7 +106,8 @@ No bio yet...
 <br clear="all">
 
 ## Kevin Mulliss
-No bio yet...
+[![Kevin Mulliss](//libra.cs.virginia.edu/tas/kam8ef.jpg)](//libra.cs.virginia.edu/tas/full/kam8ef.jpg)
+Hi everyone, I'm Kevin. I'm a fourth-year BA Computer Science major. This is my first time being a TA for CS 2150, but I was a TA for CS 2110 for the past four semesters, so you might have seen me before! In my free time, I love to watch hockey and play video games. I'm also a huge tabletop roleplaying game fan. I mostly play Pathfinder but I also love D&D and Monster of the Week. I also love to cook.
 <br clear="all">
 
 ## Vaidic Naik
@@ -139,13 +141,12 @@ Hey, my name is Cris Scruggs, I'm a third year CS major and this is my first sem
 
 ## Hafsah Shamsie
 [![Hafsah Shamsie](//libra.cs.virginia.edu/tas/his3uh.jpg)](//libra.cs.virginia.edu/tas/full/his3uh.jpg)
-Hi everyone! I'm a third year computer engineering major and this is my first semester TAing 2150. I became a TA for this class because it's my favorite class I have taken and I love helping people. Outside of class I'm involved in A.O.E., SWE, and Madison House. In my free time I love baking, watching TV (my favorite show ever is Avatar: The Last Airbender) and, more recently, buying/taking care of plants. I look forward to working with you all this semester!
-
+Hi everyone! I’m a fourth year computer engineering major and this is my first semester TAing 2150. I became a TA for this class because it’s my favorite class I have taken and I love helping people. Outside of class I’m involved in A.O.E., SWE, and Madison House. In my free time I love baking, watching TV (my favorite show ever is Avatar: The Last Airbender) and, more recently, buying/taking care of plants. I look forward to working with you all this semester!
 <br clear="all">
 
 ## Yuvraj Sreepathi
 [![Yuvraj Sreepathi](//libra.cs.virginia.edu/tas/ys3mnq.jpg)](//libra.cs.virginia.edu/tas/full/ys3mnq.jpg)
-Hey everyone! I'm a second-year pursuing a double major in BACS and Statistics. This is my first-semester TA'ing 2150 and I can't wait to meet all of you. I know firsthand that 2150 is a challenging class so I want to be able to help as much as possible. Outside of school, I spend a lot of time dancing on HooRaas, gaming (basically just COD), or watching anime. I'm excited to work with all of you this semester so hit me up for anything you need!
+Hey everyone! I’m a third-year pursuing a double major in BACS and Statistics. This is my first-semester TA’ing 2150 and I can’t wait to meet all of you. I know firsthand that 2150 is a challenging class so I want to be able to help as much as possible. Outside of school, I spend a lot of time dancing on HooRaas, gaming (basically just COD), or watching anime. I’m excited to work with all of you this semester so hit me up for anything you need!
 <br clear="all">
 
 ## George Taliaferro
@@ -182,5 +183,5 @@ Hey everyone, welcome to CS2150! I'm a 4th year CS and Econ major who's really e
 
 ## Zach Yahn
 [![Zach Yahn](//libra.cs.virginia.edu/tas/zry2yz.jpg)](//libra.cs.virginia.edu/tas/full/zry2yz.jpg)
-Hi everyone! I'm a second-year CS/CpE double major. I knew I wanted to TA CS 2150 the moment I was inspired by Binky's Pointer Fun, and I guess I really like helping people too.<p>I play club water polo here for fun, so if you're ever looking for a new activity to try let me know! My favorite movie is Inception, and my favorite jelly bean flavor is anything but buttered popcorn. I'm excited to work with you all and hope you have a great semester!"
+Hi everyone! I'm a third-year CS/CpE double major. I knew I wanted to TA CS 2150 the moment I was inspired by Binky's Pointer Fun, and I guess I really like helping people too.<p>I play club water polo here for fun, so if you're ever looking for a new activity to try let me know! My favorite movie is Inception, and my favorite jelly bean flavor is anything but buttered popcorn. I'm excited to work with you all and hope you have a great semester!"
 <br clear="all">
