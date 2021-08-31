@@ -102,7 +102,8 @@ No bio yet...
 <br clear="all">
 
 ## Talia Miller
-No bio yet...
+[![Talia Miller](//libra.cs.virginia.edu/tas/tnm6qz.jpg)](//libra.cs.virginia.edu/tas/full/tnm6qz.jpg)
+Hey everyone! I'm Talia and I'm a third year in the College studying computer science and statistics. This is my second semester TA'ing for CS 2150 (first in-person!) and I'm excited to help and get to know you all. When I'm not in class or TA'ing I'm involved in women in computing sciences and Hillel. Outside of school, I enjoy cooking, watching movies, and hanging out with my friends. 
 <br clear="all">
 
 ## Kevin Mulliss
@@ -119,7 +120,8 @@ No bio yet...
 <br clear="all">
 
 ## Shruthi Nyshadham
-No bio yet...
+[![Shruthi Nyshadham](//libra.cs.virginia.edu/tas/sn5hnj.jpg)](//libra.cs.virginia.edu/tas/full/sn5hnj.jpg)
+ Hi everyone, I’m Shruthi! I’m a third-year Computer Science major in the E-School, and this is my second semester as a TA. Although it was challenging, CS 2150 turned out to be one of the most rewarding classes I’ve ever taken, and I hope to help make it a similarly valuable experience for you! Looking forward to working with you all this semester!
 <br clear="all">
 
 ## Nathan Park
@@ -136,7 +138,7 @@ No bio yet...
 
 ## Cris Scruggs
 [![Cris Scruggs](//libra.cs.virginia.edu/tas/cms3zd.jpg)](//libra.cs.virginia.edu/tas/full/cms3zd.jpg)
-Hey, my name is Cris Scruggs, I'm a third year CS major and this is my first semester being a TA. I'm really excited to help in this class as it's my favorite CS course so far and it is definitely critical to master going forward. Outside of CS, I enjoy most every sport, especially NBA and College Basketball and I love talking about most every Nintendo game ever made. 
+Hey, my name is Cris Scruggs, I’m a fourth year CS major and this is my third semester being a TA(first in person!). I’m really excited to help out in person as this was my favorite CS course so far and it is definitely critical to master going forward. Outside of CS, I enjoy most every sport, especially NBA and College Basketball. I’m also a huge Marvel fan!
 <br clear="all">
 
 ## Hafsah Shamsie
@@ -160,7 +162,8 @@ Hey everyone! My name is George and I am a third-year CS major in the E-School! 
 <br clear="all">
 
 ## Natasha Tchir
-No bio yet...
+[![Natasha Tchir](//libra.cs.virginia.edu/tas/nt7zs.jpg)](//libra.cs.virginia.edu/tas/full/nt7zs.jpg)
+Hi! My name is Natasha Tchir and I am a 3rd year in the College of Arts and Sciences studying Computer Science and Economics with a minor in global sustainability. This is my second semester teaching this class and I'm super excited about it. In my free time, I love to go on runs and spend time with my friends watching whatever our new show obsession is that time. I can't wait to meet all of you!
 <br clear="all">
 
 ## David Tran
