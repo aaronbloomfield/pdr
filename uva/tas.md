@@ -36,7 +36,8 @@ Hi guys! My name is Tijana, but my friends call me Tiki, and this is my first se
 <br clear="all">
 
 ## Isabelle Fang
-No bio yet...
+[![Isabelle Fang](//libra.cs.virginia.edu/tas/ixf7xrb.jpg)](//libra.cs.virginia.edu/tas/full/ixf7xrb.jpg)
+Hey guys! My name is Isabelle Fang and I am currently a third year BACS and Statistics major. This is my first semester TA'ing for 2150 and I'm excited to meet y'all! Outside of class, I'm involved in Aerial Dance Club, Madison House and Sigma Psi Zeta, but I also enjoy cooking vegetarian meals and weight lifting at the gym. I am also a huge fan of reality TV. I look forward to helping y'all out this semester!
 <br clear="all">
 
 ## Amrit Gorle
@@ -61,7 +62,7 @@ Hi all! I'm Jade, I'm a third year Computer Science major and Data Analytics min
 
 ## Srujan Joshi
 [![Srujan Joshi](//libra.cs.virginia.edu/tas/sj7sf.jpg)](//libra.cs.virginia.edu/tas/full/sj7sf.jpg)
-Hey! I'm a third year Computer Science major in the E-School. I'm from Reston, Virginia (although I lived in Bangalore, India for the last 8 years before college). It's my first semester as a TA and I'm really looking forward to working with you guys! I personally really enjoyed the class even though it was challenging. In my down time I like playing video games, reading books, meditating, goofing around with my cat and learning how to fly airplanes (virtually) in Microsoft Flight Simulator.
+Hey! I’m a fourth year Computer Science major in the E-School. I’m from Reston, Virginia (although I lived in Bangalore, India for the last 8 years before college). It’s my second semester as a TA and I’m really looking forward to working with you guys! I personally really enjoyed the class even though it was challenging. In my down time I like playing video games, reading books, meditating, goofing around with my cat and learning how to fly airplanes (virtually) in Microsoft Flight Simulator.
 <br clear="all">
 
 ## Kedar Kulkarni
