@@ -36,7 +36,7 @@ Hi guys! My name is Tijana, but my friends call me Tiki, and this is my first se
 <br clear="all">
 
 ## Isabelle Fang
-[![Isabelle Fang](//andromeda.cs.virginia.edu/pdr/tas/ixf7xrb.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/ixf7xrb.jpg)
+[![Isabelle Fang](//andromeda.cs.virginia.edu/pdr/tas/ijf7xrb.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/ijf7xrb.jpg)
 Hey guys! My name is Isabelle Fang and I am currently a third year BACS and Statistics major. This is my first semester TA'ing for 2150 and I'm excited to meet y'all! Outside of class, I'm involved in Aerial Dance Club, Madison House and Sigma Psi Zeta, but I also enjoy cooking vegetarian meals and weight lifting at the gym. I am also a huge fan of reality TV. I look forward to helping y'all out this semester!
 <br clear="all">
 
