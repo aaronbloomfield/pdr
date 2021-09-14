@@ -1,6 +1,6 @@
 # Dockerfile for PDR, from https://github.com/uva-cs/pdr
 # This file can be found at:
-# https://github.com/uva-cs/pdr/blob/master/labs/lab01/Dockerfile
+# https://github.com/uva-cs/pdr/blob/master/tutorials/01-intro-unix/Dockerfile
 #
 # Run with:
 # docker build --no-cache -t pdr:latest .
