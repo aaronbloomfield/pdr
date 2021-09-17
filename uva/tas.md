@@ -14,7 +14,7 @@ No bio yet...
 
 ## Ramya Bhaskara
 [![Ramya Bhaskara](//andromeda.cs.virginia.edu/pdr/tas/rsb4zm.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/rsb4zm.jpg)
-I'm a second year Computer Science major and this is my first semester TAing this class! I'm really interested in data science, cooking/eating, and art. I'm also a part of SWE, A.O.E., and WiCS. I'm a TA because it can be really rewarding, and I loved CS 2150 as a student.
+I’m a fourth year Computer Science major and this is my third year TAing this class! I'm also a double major in statistics, so feel free to ask me about that if you're interested! I'm also involved in A.O.E, WiCS, and Remix A Capella. Outside of class I'm also really into music, trying all of the restaurants on the corner, and comparing grocery stores in Charlottesville (Lidl <3).
 <br clear="all">
 
 ## James Connors
@@ -172,7 +172,8 @@ No bio yet...
 <br clear="all">
 
 ## Brian Tufts
-No bio yet...
+[![Brian Tufts](//andromeda.cs.virginia.edu/pdr/tas/bt3qzd.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/bt3qzd.jpg)
+Hi guys, my name is Brian Tufts and this is my second semester TAing for 2150. I am a third year in the SEAS majoring in Computer Science and Physics. When I'm not TAing I work in a physics lab, play video games, and exercise. I love being a TA for 2150 because I think it is one of the most fundamental CS courses that teaches a lot of very useful skills that will be needed later on in school and in your career. I also know it is very challenging and I want to help students get as much out of this course as possible. I also enjoy talking about any other CS topics as well so feel free to ask me anything!
 <br clear="all">
 
 ## Lucy Wang
