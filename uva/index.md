@@ -87,9 +87,9 @@ The links in the right-most column link directly to the lecture recording on Col
 | 15 | Sep 27 | Monday | Exam 1 instead during Tuesday's lab | [04: Arrays &amp; big-Oh][84], [05: Trees][85] | |
 | 16 | Sep 29 | Wednesday | | [05: Trees][85] | |
 | 17 | Oct  1 | Friday | | [05: Trees][85] | |
-|    | Oct  4 | Monday | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [06: Hashes][86] | |
+|    | Oct  4 | Monday | [Lab 5: Trees][5] ([md][25]) / [Tutorial 5: make][45] ([md][65]) | [05: Trees][85] | |
 | 18 | Oct  6 | Wednesday | | [05: Trees][85] | |
-| 19 | Oct  8 | Friday | | [05: Trees][85] | |
+| 19 | Oct  8 | Friday | | [06: Hashes][86] | |
 | 20 | Oct 11 | Monday | no lab this week due to fall break | fall break | no lecture due to fall break |
 | 21 | Oct 13 | Wednesday | | [06: Hashes][86] | |
 | 22 | Oct 15 | Friday | | [06: Hashes][86] | |
