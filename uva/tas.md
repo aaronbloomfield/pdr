@@ -107,6 +107,11 @@ No bio yet...
 Hey everyone! I'm Talia and I'm a third year in the College studying computer science and statistics. This is my second semester TA'ing for CS 2150 (first in-person!) and I'm excited to help and get to know you all. When I'm not in class or TA'ing I'm involved in women in computing sciences and Hillel. Outside of school, I enjoy cooking, watching movies, and hanging out with my friends. 
 <br clear="all">
 
+## Nick Mohammad
+[![Nicholas Mohammad](//libra.cs.virginia.edu/tas/nm9ur.jpg)](//libra.cs.virginia.edu/tas/full/nm9ur.jpg)
+Hey everyone! I'm a graduate student in Computer Science from Bristow, VA. My main areas of interest are in computer vision and computer graphics. I'm excited to work with you guys this semester and I hope you enjoy your time in this class! :)
+<br clear="all">
+
 ## Kevin Mulliss
 [![Kevin Mulliss](//andromeda.cs.virginia.edu/pdr/tas/kam8ef.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/kam8ef.jpg)
 Hi everyone, I'm Kevin. I'm a fourth-year BA Computer Science major. This is my first time being a TA for CS 2150, but I was a TA for CS 2110 for the past four semesters, so you might have seen me before! In my free time, I love to watch hockey and play video games. I'm also a huge tabletop roleplaying game fan. I mostly play Pathfinder but I also love D&D and Monster of the Week. I also love to cook.
