@@ -32,3 +32,5 @@ These are all the exams from the previous semesters of the course.  No solutions
 - Fall 2019: [midterm 1](exam1-f19.pdf), [midterm 2](exam2-f19.pdf), [final exam](final-f19.pdf)
 - Spring 2020: [midterm 1](exam1-s20.pdf) (there was no midterm 2 due to the covid-19 pandemic)
 - Fall 2020: [final exam](final-f20.html) which was online; there were no midterm this semester
+- Spring 2021: this semester was also online, and we only had the final, which was very similar to the previous semester's final
+- Fall 2021: [midterm 1](exam1-f21.pdf)
