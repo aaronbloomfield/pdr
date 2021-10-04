@@ -5,6 +5,9 @@ Prior teaching assistants
 
 <!-- removed for fall 2021:
 
+## AJ's old one:
+Hey Friends! My name is AJ Cuddeback and I'm a second year from Medford, Massachusetts studying computer engineering and physics. Outside of TAing and classes, I do physics research, resident-advise a first year dorm, and an officer in Outdoors at UVa. I'm really into my chacos, and my diet primarily subsets of peanut butter Clif bars and Dunkin Donuts iced coffee. I am also emotionally attached to my Nalgene. If you're not sure where I am, you can probably find me climbing at Slaughter or scooping up deals at the local Goodwill. Like Dwight Schrute, I always keep an extra set of Birkenstocks in the car for special occasions.
+
 ## Penn Bauman
 [![Penn Bauman](//libra.cs.virginia.edu/tas/pcb8gb.jpg)](//libra.cs.virginia.edu/tas/full/pcb8gb.jpg)
 Hello, my name is Penn Bauman and this is my first semester TAing 2150. I'm a 3rd year Computer Science major and Physics minor. In my free time I've experimented with many Linux distros and desktop environments. So if you need tips on setting up a Linux dual boot I can help.

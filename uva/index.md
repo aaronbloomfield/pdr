@@ -122,16 +122,10 @@ The links in the right-most column link directly to the lecture recording on Col
 
 ------------------------------------------------------------
 
-#### Recording notes
-
-None, yet
-
-------------------------------------------------------------
-
 Grading Concerns
 ----------------
 
-- None yet!
+- There will be a 15 *percentage* point curve on exam 1
 
 
 [1]: ../labs/lab01/index.html
