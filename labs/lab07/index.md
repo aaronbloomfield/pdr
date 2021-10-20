@@ -20,7 +20,7 @@ The tutorial will be necessary for the post-lab, though you may read through it 
 
 1. Read the [slides on IBCM](../../slides/07-ibcm.html)
 2. Read [IBCM book chapter](../../book/ibcm-chapter.pdf) (PDF), especially sections 1.6 (Writing IBCM Programs) and 1.7 (Example Programs)
-3. Run IBCM code online [here](https://pegasus.cs.virginia.edu/ibcm/).  The sample code in the book chapter is also in the repo: [summation.ibcm](../../ibcm/summation.ibcm) and [array-summation.ibcm](../../ibcm/array-summation.ibcm)
+3. Run IBCM code online [here](https://andromeda.cs.virginia.edu/ibcm/).  The sample code in the book chapter is also in the repo: [summation.ibcm](../../ibcm/summation.ibcm) and [array-summation.ibcm](../../ibcm/array-summation.ibcm)
 
 Procedure
 ---------
@@ -129,7 +129,7 @@ The simulator will only read the first 4 characters on each line of a file.  So 
 
 ### Running IBCM Code ###
 
-You may run your IBCM code via the online simulator at [https://pegasus.cs.virginia.edu/ibcm/](https://pegasus.cs.virginia.edu/ibcm/).
+You may run your IBCM code via the online simulator at [https://andromeda.cs.virginia.edu/ibcm/](https://andromeda.cs.virginia.edu/ibcm/).
 
 Beware of the following quirks of the simulator:
 
