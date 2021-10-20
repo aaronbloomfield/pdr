@@ -32,6 +32,7 @@ The parts of this course that are in this repo are:
 - [Lab due dates][105] ([md][106]): When the various lab parts are due
 - [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSdBDC7EFLdG068qmyOdjJLp_YFfSIJz8YOM4gdhlyF85voQ5w/viewform), signed via Google Forms, will need to be signed by all the students in the course
 - [Generic review session slide set](exam-review.html#/), which is really just a blank set of slides
+- The [lectures page](lectures/index.html) ([md](lectures/index.md)) has a few pictures of the chalkboard from lecture
 - The [final course grading metrics][116] ([md][115])
 
 The [Documents page](../docs/index.html) ([md](../docs/index.md)) has a number of useful parts:

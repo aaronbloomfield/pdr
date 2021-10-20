@@ -1,3 +1,4 @@
+.PHONY: resize
 ASTYLEOPTS	= --align-pointer=type --align-reference=type --pad-oper \
 		  --remove-braces --style=attach --indent=spaces=4 \
 		  --pad-paren-out --indent-switches --suffix=none --formatted 
@@ -26,3 +27,7 @@ markdown:
 			/bin/echo "    - [sketched image]($$file)" ; \
 		done ; \
 	done
+
+resize:
+	mkdir -p resize
+	ls *.jpg | awk '{print "jpegtopnm '\''"$$0"'\'' | pnmscale -xsize 1000 |ppmtojpeg -quality 75 > '\''resize/"$$0"'\''"}' | bash
