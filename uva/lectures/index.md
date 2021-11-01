@@ -13,3 +13,5 @@ This page contains the material discussed during lecture times, and really just 
 - [Lecture 21 on October 13: separate chaining diagram](2021-10-13 13.57.26.jpg)
 - [Lecture 22 on October 15: open addressing hashing delete diagram](2021-10-15 14.53.43.jpg)
 - [Lecture 23 on October 18: bitwise OR'ing](2021-10-18 13.51.27.jpg)
+- [Lecture 24 on October 20: IBCM if-then-else](2021-10-20 13.53.21.jpg)
+- [Lecture 28 on October 29: memory diagram](2021-10-29 14.55.34.jpg)
