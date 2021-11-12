@@ -16,3 +16,4 @@ This page contains the material discussed during lecture times, and really just 
 - [Lecture 24 on October 20: IBCM if-then-else](2021-10-20 13.53.21.jpg)
 - [Lecture 28 on October 29: memory diagram](2021-10-29 14.55.34.jpg)
 - [Lecture 31 on November 5: public/private inheritance code](2021-11-05 13.57.59.jpg)
+- [Lecture 32 on November 8: smart pointer cycle diagram](2021-11-08 13.55.41.jpg)
