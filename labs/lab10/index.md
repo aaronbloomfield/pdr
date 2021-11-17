@@ -40,7 +40,7 @@ Lab Procedure
 
 ### Post-lab ###
 
-The post-lab is cancelled for the spring 2021 semester.
+The post-lab is cancelled for the fall 2021 semester.
 
 1. ~~Analyze the time and space complexity of your encoding and decoding code~~
 2. ~~Create a Makefile to compile both the encoding and decoding portions of your Huffman routine in one step~~
