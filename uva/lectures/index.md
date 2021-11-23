@@ -21,3 +21,5 @@ This page contains the material discussed during lecture times, and really just 
 - [Lecture 37 on November 19: first topological sort algorithm run](2021-11-19 13.09.09.jpg)
 - [Lecture 37 on November 19: second topological sort algorithm run](2021-11-19 13.28.02.jpg)
 - [Lecture 37 on November 19: breadth-first search algorithm run](2021-11-19 13.49.54.jpg)
+- [Lecture 38 on November 22: Dijsktra example graph 1](2021-11-22 14.13.47.jpg)
+- [Lecture 38 on November 22: Dijsktra example graph 2](2021-11-22 13.32.04.jpg)
