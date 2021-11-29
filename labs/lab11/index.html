@@ -49,9 +49,9 @@
 <h3 id="post-lab">Post-lab</h3>
 <p>The post-lab is cancelled for the spring 2021 semester.</p>
 <ol type="1">
-<li><del>Write an 8-Puzzle solver using BFS</del></li>
-<li><del>Files to download: none</del></li>
-<li><del>Files to submit: Makefile, Doxyfile, and any source code required to run the solver.</del></li>
+<li>Write an 8-Puzzle solver using BFS</li>
+<li>Files to download: none</li>
+<li>Files to submit: Makefile, Doxyfile, and any source code required to run the solver.</li>
 </ol>
 <hr />
 <h2 id="pre-lab-1">Pre-lab</h2>
@@ -175,60 +175,59 @@ student@cassiopeia:~/labs/lab11$ </code></pre>
 <p>Your Makefile should have <strong>only one</strong> target, which you can name anything you want. This target should do <strong>two</strong> things: compile your code, and run doxygen. You can have two tabbed lines after the target specifier, which is the easiest way to accomplish this. In other words, we are just going to call <code>make</code>, and we want it to both compile your code and create your doxygen documentation. The in-lab Makefile should have the same dual-purpose target.</p>
 <hr />
 <h2 id="post-lab-1">Post-lab</h2>
-<p>The post-lab is cancelled for the spring 2021 semester.</p>
-<p><del>Consider the <a href="https://en.wikipedia.org/wiki/15_puzzle">Sliding 8-Puzzle</a> game, depicted in the image below. If you’d like, you can play the puzzle <a href="http://www.artbylogic.com/puzzles/numSlider/numberShuffle.htm?rows=3&amp;cols=3&amp;sqr=1">HERE</a> to get a better sense for how the game works.</del></p>
+<p>Consider the <a href="https://en.wikipedia.org/wiki/15_puzzle">Sliding 8-Puzzle</a> game, depicted in the image below. If you’d like, you can play the puzzle <a href="http://www.artbylogic.com/puzzles/numSlider/numberShuffle.htm?rows=3&amp;cols=3&amp;sqr=1">HERE</a> to get a better sense for how the game works.</p>
 <figure>
 <img src="8Puzzle.png" alt="8-puzzle" /><figcaption>8-puzzle</figcaption>
 </figure>
-<p><del>In this 3x3 grid of numbers, the goal is to slide numbers into the empty square until the end game state is reached. As can be seen above, our end game state is a sorted board. The hole in the board can move in any direction, but cannot “wrap around” from one side to the other (or from top to bottom, etc.).</del></p>
-<p><del>Your task for this lab is to implement a solution to the 8 puzzle problem described above: given an input board, find the minimum number of moves required to reach the end state, or if it is impossible to reach it.</del></p>
-<h3 id="storing-the-puzzle"><del>Storing the Puzzle</del></h3>
-<p><del>The simplest way to store the puzzle would be with either a 1D or 2D array, where the hole is represented by a 0 (zero). Then, if you wanted to move the hole around the “board”, you would simply swap its position in the array with an adjacent tile. Consider making an object (or struct) that stores a single configuration of the board.</del></p>
-<h3 id="solving-the-puzzle"><del>Solving the Puzzle</del></h3>
-<p><del>Once you have an object for storing a single configuration of the puzzle, you can start thinking about this as a graph problem. Consider each unique configuration (one instance of your object) to be a node in the graph. There exists an edge between two configurations in the graph if you can reach configuration <em>B</em> from configuration <em>A</em> by only sliding one tile.</del></p>
-<p><del>Once you have represented this problem as a start state (input that is given to you) and goal state (the final solved puzzle) with edges (moves) in between, you can solve this problem by finding the <strong>shortest path</strong> between the start state and the solved state. Use one of the algorithms from class to find the shortest path. You should probably choose <strong>breadth-first search</strong>…you can use <em>Dijkstra’s Algorithm</em>, but because edge weights are all <em>1</em> here, it is pointless to add the extra complexity.</del></p>
-<h3 id="testing-for-solvability"><del>Testing for Solvability</del></h3>
-<p><del>If your search algorithm goes through all configurations of the possible without ever reaching the goal state, than that starting configuration is impossible to solve.</del></p>
-<p><del>There is an easy way to check if an 8-puzzle is solvable or not by using inversions. An inversion is a pair of tiles that are in reverse order to their appearance in the goal state. If an 8-puzzle has an <strong>even</strong> number of inversions, then the puzzle is <strong>solvable</strong>. If an 8-puzzle has an <strong>odd</strong> number of inversions, then the puzzle is <strong>unsolvable</strong>. For example, the following 8-puzzle has 3 inversions, and is thus impossible to solve. You can watch <a href="https://www.youtube.com/watch?v=YI1WqYKHi78">this video</a> for a slightly more detailed description if you are interested.</del></p>
-<p><del>Another, but less elegant, way of testing for impossibility</del></p>
+<p>In this 3x3 grid of numbers, the goal is to slide numbers into the empty square until the end game state is reached. As can be seen above, our end game state is a sorted board. The hole in the board can move in any direction, but cannot “wrap around” from one side to the other (or from top to bottom, etc.).</p>
+<p>Your task for this lab is to implement a solution to the 8 puzzle problem described above: given an input board, find the minimum number of moves required to reach the end state, or if it is impossible to reach it.</p>
+<h3 id="storing-the-puzzle">Storing the Puzzle</h3>
+<p>The simplest way to store the puzzle would be with either a 1D or 2D array, where the hole is represented by a 0 (zero). Then, if you wanted to move the hole around the “board”, you would simply swap its position in the array with an adjacent tile. Consider making an object (or struct) that stores a single configuration of the board.</p>
+<h3 id="solving-the-puzzle">Solving the Puzzle</h3>
+<p>Once you have an object for storing a single configuration of the puzzle, you can start thinking about this as a graph problem. Consider each unique configuration (one instance of your object) to be a node in the graph. There exists an edge between two configurations in the graph if you can reach configuration <em>B</em> from configuration <em>A</em> by only sliding one tile.</p>
+<p>Once you have represented this problem as a start state (input that is given to you) and goal state (the final solved puzzle) with edges (moves) in between, you can solve this problem by finding the <strong>shortest path</strong> between the start state and the solved state. Use one of the algorithms from class to find the shortest path. You should probably choose <strong>breadth-first search</strong>…you can use <em>Dijkstra’s Algorithm</em>, but because edge weights are all <em>1</em> here, it is pointless to add the extra complexity.</p>
+<h3 id="testing-for-solvability">Testing for Solvability</h3>
+<p>If your search algorithm goes through all configurations of the possible without ever reaching the goal state, than that starting configuration is impossible to solve.</p>
+<p>There is an easy way to check if an 8-puzzle is solvable or not by using inversions. An inversion is a pair of tiles that are in reverse order to their appearance in the goal state. If an 8-puzzle has an <strong>even</strong> number of inversions, then the puzzle is <strong>solvable</strong>. If an 8-puzzle has an <strong>odd</strong> number of inversions, then the puzzle is <strong>unsolvable</strong>. For example, the following 8-puzzle has 3 inversions, and is thus impossible to solve. You can watch <a href="https://www.youtube.com/watch?v=YI1WqYKHi78">this video</a> for a slightly more detailed description if you are interested.</p>
+<p>Another, but less elegant, way of testing for impossibility</p>
 <pre><code>2 1 3
 4 0 5
 8 6 7</code></pre>
-<p><del>The inversions in this example are (2,1), (8,6), and (8,7).</del></p>
-<h3 id="input-1"><del>Input</del></h3>
-<p><del>The input to this program will be three lines of three numbers, each representing a tile of the 8-puzzle.</del></p>
-<h3 id="sample-execution-run-1"><del>Sample Execution Run</del></h3>
-<p><del>Below is a sample execution run to show you the input and output format we are looking for.</del></p>
+<p>The inversions in this example are (2,1), (8,6), and (8,7).</p>
+<h3 id="input-1">Input</h3>
+<p>The input to this program will be three lines of three numbers, each representing a tile of the 8-puzzle.</p>
+<h3 id="sample-execution-run-1">Sample Execution Run</h3>
+<p>Below is a sample execution run to show you the input and output format we are looking for.</p>
 <pre><code>Enter puzzle
 3 6 4
 1 2 5
 7 8 0
 Solving puzzle
 18</code></pre>
-<p><del>Here is another example showing how your output should look for an impossible puzzle.</del></p>
+<p>Here is another example showing how your output should look for an impossible puzzle.</p>
 <pre><code>Enter puzzle
 2 1 3
 4 0 5
 8 6 7
 Solving puzzle
 IMPOSSIBLE</code></pre>
-<h3 id="submission"><del>Submission</del></h3>
-<p><del>You should submit any files required for your 8 puzzle solver to run as well as a Makefile that prodcues an <code>a.out</code> executable.</del></p>
-<h3 id="makefile-2"><del>Makefile</del></h3>
-<p><del>Your Makefile should have <strong>only one</strong> target, which you can name anything you want. This target should do <strong>two</strong> things: compile your code, and run doxygen. You can have two tabbed lines after the target specifier, which is the easiest way to accomplish this. In other words, we are just going to call <code>make</code>, and we want it to both compile your code and create your doxygen documentation. The post-lab Makefile should have the same dual-purpose target.</del></p>
-<h3 id="hints"><del>Hints</del></h3>
-<h4 id="where-do-i-get-started"><del>Where do I get Started?</del></h4>
-<p><del>There are a lot of steps to this lab, and it is important to partition the work and only focus on one component at a time. Start out by working on how you will represent a puzzle: as a class, an array with helper methods, etc. Once you can read in a puzzle and manipulate it at will, you are ready to move on to the actual solving portion of the lab.</del></p>
-<h4 id="too-many-permutations-which-ones-should-i-look-at-first"><del>Too Many Permutations! Which Ones Should I Look at First?</del></h4>
-<p><del>There aren’t <strong>that</strong> many permutations of this puzzle (there are 9! = 362,880). However, it is beneficial to only create / store the nodes that you are actually using as you go. For example: suppose I have the following starting grid:</del></p>
+<h3 id="submission">Submission</h3>
+<p>You should submit any files required for your 8 puzzle solver to run as well as a Makefile that prodcues an <code>a.out</code> executable.</p>
+<h3 id="makefile-2">Makefile</h3>
+<p>Your Makefile should have <strong>only one</strong> target, which you can name anything you want. This target should do <strong>two</strong> things: compile your code, and run doxygen. You can have two tabbed lines after the target specifier, which is the easiest way to accomplish this. In other words, we are just going to call <code>make</code>, and we want it to both compile your code and create your doxygen documentation. The post-lab Makefile should have the same dual-purpose target.</p>
+<h3 id="hints">Hints</h3>
+<h4 id="where-do-i-get-started">Where do I get Started?</h4>
+<p>There are a lot of steps to this lab, and it is important to partition the work and only focus on one component at a time. Start out by working on how you will represent a puzzle: as a class, an array with helper methods, etc. Once you can read in a puzzle and manipulate it at will, you are ready to move on to the actual solving portion of the lab.</p>
+<h4 id="too-many-permutations-which-ones-should-i-look-at-first">Too Many Permutations! Which Ones Should I Look at First?</h4>
+<p>There aren’t <strong>that</strong> many permutations of this puzzle (there are 9! = 362,880). However, it is beneficial to only create / store the nodes that you are actually using as you go. For example: suppose I have the following starting grid:</p>
 <pre><code>2 1 0
 4 3 5
 8 6 7</code></pre>
-<p><del>When the code begins, this will be the <strong>only</strong> node in the graph. As I begin my breadth-first search, we can generate neighboring nodes on the fly. For example, when I do the next step of search, I can call a method called <em>generateNeighbors()</em>, that given the node above as input, returns the following states that can be reached by a single move (sliding the 1 to the right or sliding the 5 up):</del></p>
+<p>When the code begins, this will be the <strong>only</strong> node in the graph. As I begin my breadth-first search, we can generate neighboring nodes on the fly. For example, when I do the next step of search, I can call a method called <em>generateNeighbors()</em>, that given the node above as input, returns the following states that can be reached by a single move (sliding the 1 to the right or sliding the 5 up):</p>
 <pre><code>2 0 1       2 1 5
 4 3 5       4 3 0
 8 6 7       8 6 7</code></pre>
-<p><del>Now, my graph has 3 total nodes. As I continue my search, I can do the following: for a given node I’m searching, generate the neighbors of that node, check if the neighbor has already been search (a hash table is useful here). If the neighbor has already been searched, discard it (don’t want to duplicate work over and over). If it has not been seen, add it to my BFS queue and continue.</del></p>
-<p><del>Good luck!!</del></p>
+<p>Now, my graph has 3 total nodes. As I continue my search, I can do the following: for a given node I’m searching, generate the neighbors of that node, check if the neighbor has already been search (a hash table is useful here). If the neighbor has already been searched, discard it (don’t want to duplicate work over and over). If it has not been seen, add it to my BFS queue and continue.</p>
+<p>Good luck!!</p>
 </body>
 </html>

@@ -46,9 +46,9 @@ Procedure
 
 The post-lab is cancelled for the spring 2021 semester.
 
-1. ~~Write an 8-Puzzle solver using BFS~~
-2. ~~Files to download: none~~
-3. ~~Files to submit: Makefile, Doxyfile, and any source code required to run the solver.~~
+1. Write an 8-Puzzle solver using BFS
+2. Files to download: none
+3. Files to submit: Makefile, Doxyfile, and any source code required to run the solver.
 
 ------------------------------------------------------------
 
@@ -252,34 +252,32 @@ Your Makefile should have **only one** target, which you can name anything you w
 Post-lab
 --------
 
-The post-lab is cancelled for the spring 2021 semester.
-
-~~Consider the [Sliding 8-Puzzle](https://en.wikipedia.org/wiki/15_puzzle) game, depicted in the image below. If you'd like, you can play the puzzle [HERE](http://www.artbylogic.com/puzzles/numSlider/numberShuffle.htm?rows=3&cols=3&sqr=1) to get a better sense for how the game works.~~
+Consider the [Sliding 8-Puzzle](https://en.wikipedia.org/wiki/15_puzzle) game, depicted in the image below. If you'd like, you can play the puzzle [HERE](http://www.artbylogic.com/puzzles/numSlider/numberShuffle.htm?rows=3&cols=3&sqr=1) to get a better sense for how the game works.
 
 ![8-puzzle](8Puzzle.png)
 
-~~In this 3x3 grid of numbers, the goal is to slide numbers into the empty square until the end game state is reached. As can be seen above, our end game state is a sorted board. The hole in the board can move in any direction, but cannot "wrap around" from one side to the other (or from top to bottom, etc.).~~
+In this 3x3 grid of numbers, the goal is to slide numbers into the empty square until the end game state is reached. As can be seen above, our end game state is a sorted board. The hole in the board can move in any direction, but cannot "wrap around" from one side to the other (or from top to bottom, etc.).
 
-~~Your task for this lab is to implement a solution to the 8 puzzle problem described above: given an input board, find the minimum number of moves required to reach the end state, or if it is impossible to reach it.~~
+Your task for this lab is to implement a solution to the 8 puzzle problem described above: given an input board, find the minimum number of moves required to reach the end state, or if it is impossible to reach it.
 
-### ~~Storing the Puzzle~~ ###
+### Storing the Puzzle ###
 
-~~The simplest way to store the puzzle would be with either a 1D or 2D array, where the hole is represented by a 0 (zero). Then, if you wanted to move the hole around the "board", you would simply swap its position in the array with an adjacent tile. Consider making an object (or struct) that stores a single configuration of the board.~~
+The simplest way to store the puzzle would be with either a 1D or 2D array, where the hole is represented by a 0 (zero). Then, if you wanted to move the hole around the "board", you would simply swap its position in the array with an adjacent tile. Consider making an object (or struct) that stores a single configuration of the board.
 
-### ~~Solving the Puzzle~~ ###
+### Solving the Puzzle ###
 
-~~Once you have an object for storing a single configuration of the puzzle, you can start thinking about this as a graph problem. Consider each unique configuration (one instance of your object) to be a node in the graph. There exists an edge between two configurations in the graph if you can reach configuration *B* from configuration *A* by only sliding one tile.~~
+Once you have an object for storing a single configuration of the puzzle, you can start thinking about this as a graph problem. Consider each unique configuration (one instance of your object) to be a node in the graph. There exists an edge between two configurations in the graph if you can reach configuration *B* from configuration *A* by only sliding one tile.
 
-~~Once you have represented this problem as a start state (input that is given to you) and goal state (the final solved puzzle) with edges (moves) in between, you can solve this problem by finding the **shortest path** between the start state and the solved state. Use one of the algorithms from class to find the shortest path. You should probably choose **breadth-first search**...you can use *Dijkstra's Algorithm*, but because edge weights are all *1* here, it is pointless to add the extra complexity.~~
+Once you have represented this problem as a start state (input that is given to you) and goal state (the final solved puzzle) with edges (moves) in between, you can solve this problem by finding the **shortest path** between the start state and the solved state. Use one of the algorithms from class to find the shortest path. You should probably choose **breadth-first search**...you can use *Dijkstra's Algorithm*, but because edge weights are all *1* here, it is pointless to add the extra complexity.
 
 
-### ~~Testing for Solvability~~ ###
+### Testing for Solvability ###
 
-~~If your search algorithm goes through all configurations of the possible without ever reaching the goal state, than that starting configuration is impossible to solve.~~
+If your search algorithm goes through all configurations of the possible without ever reaching the goal state, than that starting configuration is impossible to solve.
 
-~~There is an easy way to check if an 8-puzzle is solvable or not by using inversions. An inversion is a pair of tiles that are in reverse order to their appearance in the goal state. If an 8-puzzle has an **even** number of inversions, then the puzzle is **solvable**. If an 8-puzzle has an **odd** number of inversions, then the puzzle is **unsolvable**.  For example, the following 8-puzzle has 3 inversions, and is thus impossible to solve. You can watch [this video](https://www.youtube.com/watch?v=YI1WqYKHi78) for a slightly more detailed description if you are interested.~~
+There is an easy way to check if an 8-puzzle is solvable or not by using inversions. An inversion is a pair of tiles that are in reverse order to their appearance in the goal state. If an 8-puzzle has an **even** number of inversions, then the puzzle is **solvable**. If an 8-puzzle has an **odd** number of inversions, then the puzzle is **unsolvable**.  For example, the following 8-puzzle has 3 inversions, and is thus impossible to solve. You can watch [this video](https://www.youtube.com/watch?v=YI1WqYKHi78) for a slightly more detailed description if you are interested.
 
-~~Another, but less elegant, way of testing for impossibility~~
+Another, but less elegant, way of testing for impossibility
 
 ```
 2 1 3
@@ -287,15 +285,15 @@ The post-lab is cancelled for the spring 2021 semester.
 8 6 7
 ```
 
-~~The inversions in this example are (2,1), (8,6), and (8,7).~~
+The inversions in this example are (2,1), (8,6), and (8,7).
 
-### ~~Input~~ ###
+### Input ###
 
-~~The input to this program will be three lines of three numbers, each representing a tile of the 8-puzzle.~~
+The input to this program will be three lines of three numbers, each representing a tile of the 8-puzzle.
 
-### ~~Sample Execution Run~~ ###
+### Sample Execution Run ###
 
-~~Below is a sample execution run to show you the input and output format we are looking for.~~
+Below is a sample execution run to show you the input and output format we are looking for.
 
 ```
 Enter puzzle
@@ -306,7 +304,7 @@ Solving puzzle
 18
 ```
 
-~~Here is another example showing how your output should look for an impossible puzzle.~~
+Here is another example showing how your output should look for an impossible puzzle.
 
 ```
 Enter puzzle
@@ -317,23 +315,23 @@ Solving puzzle
 IMPOSSIBLE
 ```
 
-### ~~Submission~~ ###
+### Submission ###
 
-~~You should submit any files required for your 8 puzzle solver to run as well as a Makefile that prodcues an `a.out` executable.~~
+You should submit any files required for your 8 puzzle solver to run as well as a Makefile that prodcues an `a.out` executable.
 
-### ~~Makefile~~ ###
+### Makefile ###
 
-~~Your Makefile should have **only one** target, which you can name anything you want.  This target should do **two** things: compile your code, and run doxygen.  You can have two tabbed lines after the target specifier, which is the easiest way to accomplish this.  In other words, we are just going to call `make`, and we want it to both compile your code and create your doxygen documentation.  The post-lab Makefile should have the same dual-purpose target.~~
+Your Makefile should have **only one** target, which you can name anything you want.  This target should do **two** things: compile your code, and run doxygen.  You can have two tabbed lines after the target specifier, which is the easiest way to accomplish this.  In other words, we are just going to call `make`, and we want it to both compile your code and create your doxygen documentation.  The post-lab Makefile should have the same dual-purpose target.
 
-### ~~Hints~~ ###
+### Hints ###
 
-#### ~~Where do I get Started?~~ ####
+#### Where do I get Started? ####
 
-~~There are a lot of steps to this lab, and it is important to partition the work and only focus on one component at a time. Start out by working on how you will represent a puzzle: as a class, an array with helper methods, etc. Once you can read in a puzzle and manipulate it at will, you are ready to move on to the actual solving portion of the lab.~~
+There are a lot of steps to this lab, and it is important to partition the work and only focus on one component at a time. Start out by working on how you will represent a puzzle: as a class, an array with helper methods, etc. Once you can read in a puzzle and manipulate it at will, you are ready to move on to the actual solving portion of the lab.
 
-#### ~~Too Many Permutations! Which Ones Should I Look at First?~~ ####
+#### Too Many Permutations! Which Ones Should I Look at First? ####
 
-~~There aren't **that** many permutations of this puzzle (there are 9! = 362,880). However, it is beneficial to only create / store the nodes that you are actually using as you go. For example: suppose I have the following starting grid:~~
+There aren't **that** many permutations of this puzzle (there are 9! = 362,880). However, it is beneficial to only create / store the nodes that you are actually using as you go. For example: suppose I have the following starting grid:
 
 ```
 2 1 0
@@ -341,7 +339,7 @@ IMPOSSIBLE
 8 6 7
 ```
 
-~~When the code begins, this will be the **only** node in the graph. As I begin my breadth-first search, we can generate neighboring nodes on the fly. For example, when I do the next step of search, I can call a method called *generateNeighbors()*, that given the node above as input, returns the following states that can be reached by a single move (sliding the 1 to the right or sliding the 5 up):~~
+When the code begins, this will be the **only** node in the graph. As I begin my breadth-first search, we can generate neighboring nodes on the fly. For example, when I do the next step of search, I can call a method called *generateNeighbors()*, that given the node above as input, returns the following states that can be reached by a single move (sliding the 1 to the right or sliding the 5 up):
 
 ```
 2 0 1		2 1 5
@@ -349,6 +347,6 @@ IMPOSSIBLE
 8 6 7		8 6 7
 ```
 
-~~Now, my graph has 3 total nodes. As I continue my search, I can do the following: for a given node I'm searching, generate the neighbors of that node, check if the neighbor has already been search (a hash table is useful here). If the neighbor has already been searched, discard it (don't want to duplicate work over and over). If it has not been seen, add it to my BFS queue and continue.~~
+Now, my graph has 3 total nodes. As I continue my search, I can do the following: for a given node I'm searching, generate the neighbors of that node, check if the neighbor has already been search (a hash table is useful here). If the neighbor has already been searched, discard it (don't want to duplicate work over and over). If it has not been seen, add it to my BFS queue and continue.
 
-~~Good luck!!~~
+Good luck!!
