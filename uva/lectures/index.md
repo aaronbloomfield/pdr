@@ -23,3 +23,5 @@ This page contains the material discussed during lecture times, and really just 
 - [Lecture 37 on November 19: breadth-first search algorithm run](2021-11-19 13.49.54.jpg)
 - [Lecture 38 on November 22: Dijsktra example graph 1](2021-11-22 14.13.47.jpg)
 - [Lecture 38 on November 22: Dijsktra example graph 2](2021-11-22 13.32.04.jpg)
+- [Lecture 39 on November 29: Prim's MST algorithm (and Kruskal's as well)](2021-11-29 13.42.20.jpg)
+- [Lecture 40 on December 1: post-lab 11 code snippets](2021-12-01 14.51.24.jpg)
