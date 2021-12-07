@@ -96,4 +96,5 @@ The labs for this course:
 &nbsp;
 
 - [Lab 12: Conclusion](lab12/index.html)
-    - The tutorial, for the pre-lab, is the [Objective C tutorial](../tutorials/12-objc/index.html), for which you will need the [helloworld.m](../tutorials/12-objc/helloworld.m.html) ([src](../tutorials/12-objc/helloworld.m)) file, and you will need to implement the linkedlist.c program.
+    - Course wrap-up
+    - ~~The tutorial, for the pre-lab, is the [Objective C tutorial](../tutorials/12-objc/index.html), for which you will need the [helloworld.m](../tutorials/12-objc/helloworld.m.html) ([src](../tutorials/12-objc/helloworld.m)) file, and you will need to implement the linkedlist.c program.~~

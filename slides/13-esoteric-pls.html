@@ -182,11 +182,11 @@ PROGRAMMER IS OVERLY POLITE
 - Select: represented by a sqiggle [sic] (~)
   - Finds which bits are 1 in the second operand
   - Selects those bits from the first operand
-  - Consider #179~#201 (binary 10110011~11001001)
+  - Consider #179\~#201 (binary 10110011~11001001)
     - From the second operand, selects bits 1, 2, 5, and 8
     - Those bits in the first operand are 1, 0, 0, and 1, resepectively
     - Thus, the result is value #9
-  - Consider #201~#179 (binary 11001001~10110011)
+  - Consider #201\~#179 (binary 11001001~10110011)
     - From the second operand, selects bits 1, 3, 4, 7, 8
     - Those bits in the first operand are 1, 0, 0, 0, 1
     - Thus, the result is #17
@@ -588,34 +588,34 @@ IMP: [Tab][LF]
 	  <section data-markdown><script type="text/template">
 ## All 8 commands
 
-Character | Description
--|-
-\> | Increment the pointer (move to the right)
-< | Decrement the pointer (move to the left)
-\+ | Increment the byte at the pointer
-\- | Decrement the byte at the pointer
-. | Output the byte at the pointer
-, | Input one byte to the byte at the pointer
-[ | Jump to the corresponding ] if the ptr byte is 0
-] | Jump back to the open [ if the pointer byte is 0
+| Character | Description |
+|-|-|
+| \> | Increment the pointer (move to the right) |
+| < | Decrement the pointer (move to the left) |
+| \+ | Increment the byte at the pointer |
+| \- | Decrement the byte at the pointer |
+| . | Output the byte at the pointer |
+| , | Input one byte to the byte at the pointer |
+| [ | Jump to the corresponding ] if the ptr byte is 0 |
+| ] | Jump back to the open [ if the pointer byte is 0 |
 
 Is this Turing complete?
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## All 8 commands in C/C++
- Assume ptr is a `char*` to an array of zeroed bytes
+ Assume ptr is a `char*` to an array of zero'ed bytes
 
-Character | C/C++ Equivalent
--|-
-> | ++ptr;
-< | --ptr;
-+ | ++(*ptr);
-- | --(*ptr);
-. | putchar(*ptr);
-, | *ptr=getchar();
-[ | while (*ptr) {
-] | }
+| Character | C/C++ Equivalent |
+| -|-|
+| \> | ++ptr; |
+| < | --ptr; |
+| \+ | ++(*ptr); |
+| \- | --(*ptr); |
+| . | putchar(*ptr); |
+| , | *ptr=getchar(); |
+| [ | while (*ptr) { |
+| ] | } |
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
