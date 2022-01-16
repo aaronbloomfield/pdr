@@ -1,6 +1,70 @@
 Prior teaching assistants
 =========================
 
+<!-- removed for spring 2022:
+
+## David Tran
+[![David Tran](//andromeda.cs.virginia.edu/pdr/tas/dqt5vt.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/dqt5vt.jpg)
+Hi everyone! I’m David, and I’m a third-year CS major in SEAS from Florida. This is my second semester TAing for 2150, and although the class can be challenging at times, it is by far one of the most valuable classes I’ve taken at UVA. Outside of CS, I enjoy bass fishing, hiking the Shenandoah, and playing beach volleyball with my friends. Look forward to meeting you guys this semester!
+<br clear='all'>
+
+## Raneem Tarfa
+[![Raneem Tarfa](//andromeda.cs.virginia.edu/pdr/tas/rt8fsn.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/rt8fsn.jpg)
+Hello! I'm a 3rd year CS major and French minor and this is my first semester TA-ing for 2150. I really enjoyed this course so I thought it would be nice to revisit it and help others in the same way TA's have helped me. In the realm of CS, I'm really interested in learning more about AI and ML but ultimately I want to work in game design! I'm also an artist who loves learning languages. I look forward to meeting you all!
+<br clear='all'>
+
+## Shiva Manandhar
+No bio yet...
+<br clear='all'>
+
+## Talia Miller
+[![Talia Miller](//andromeda.cs.virginia.edu/pdr/tas/tnm6qz.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/tnm6qz.jpg)
+Hey everyone! I'm Talia and I'm a third year in the College studying computer science and statistics. This is my second semester TA'ing for CS 2150 (first in-person!) and I'm excited to help and get to know you all. When I'm not in class or TA'ing I'm involved in women in computing sciences and Hillel. Outside of school, I enjoy cooking, watching movies, and hanging out with my friends. 
+<br clear='all'>
+
+## Yuvraj Sreepathi
+[![Yuvraj Sreepathi](//andromeda.cs.virginia.edu/pdr/tas/ys3mnq.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/ys3mnq.jpg)
+Hey everyone! I’m a fourth-year pursuing a double major in BACS and Statistics. This is my first-semester TA’ing 2150 and I can’t wait to meet all of you. I know firsthand that 2150 is a challenging class so I want to be able to help as much as possible. Outside of school, I spend a lot of time dancing on HooRaas, gaming (basically just COD), or watching anime. I’m excited to work with all of you this semester so hit me up for anything you need!
+<br clear='all'>
+
+## Vaidic Naik
+No bio yet...
+<br clear='all'>
+
+## Brian Nguyen
+No bio yet...
+<br clear='all'>
+
+## Brian Tufts
+[![Brian Tufts](//andromeda.cs.virginia.edu/pdr/tas/bt3qzd.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/bt3qzd.jpg)
+Hi guys, my name is Brian Tufts and this is my second semester TAing for 2150. I am a third year in the SEAS majoring in Computer Science and Physics. When I'm not TAing I work in a physics lab, play video games, and exercise. I love being a TA for 2150 because I think it is one of the most fundamental CS courses that teaches a lot of very useful skills that will be needed later on in school and in your career. I also know it is very challenging and I want to help students get as much out of this course as possible. I also enjoy talking about any other CS topics as well so feel free to ask me anything!
+<br clear='all'>
+
+## George Taliaferro
+[![George Taliaferro](//andromeda.cs.virginia.edu/pdr/tas/wgt7xp.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/wgt7xp.jpg)
+Hey everyone! My name is George and I am a fourth-year CS major in the E-School! I have a passion for education (this is the 5th class I'll be a TA for) and I'm particularly excited to TA 2150 this year as I believe the content of this class is at the core of Computer Science.<p>Outside the classroom I play the trumpet in the Cavalier Marching Band, which has given me so many amazing experiences, like watching Mamadi Diakite sink the game tying buzzer beater against Purdue! I also enjoy the outdoors and am part of the Rock Climbing Team. I hope I get to meet many of you guys this year!
+<br clear='all'>
+
+## Alex Becker
+No bio yet...
+<br clear='all'>
+
+## Amrit Gorle
+[![Amrit Gorle](//andromeda.cs.virginia.edu/pdr/tas/ang6ve.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/ang6ve.jpg)
+Hey everyone! My name is Amrit Gorle and I am a third year CS major in the Engineering School. I am super excited to be a TA for CS 2150 because I absolutely loved the class. I know the course can be a bit challenging at times but I want to help as much as possible so feel free to reach out! In my free time, I try to explore new interests (recently picked up penny boarding) so if you have any recommendations for new activities let me know.
+<br clear='all'>
+
+## Vatsal Rami
+No bio yet...
+<br clear='all'>
+
+## Vraj Desai
+No bio yet...
+<br clear='all'>
+
+
+-->
+
 
 
 <!-- removed for fall 2021:

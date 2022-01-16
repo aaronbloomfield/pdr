@@ -1,0 +1,1463 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 2150: daily announcements slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../../slides/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../../slides/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../../slides/reveal.js/dist/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../../slides/css/pdr.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../../slides/reveal.js/plugin/highlight/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../slides/reveal.js/css/print/pdf.scss' : '../../slides/reveal.js/css/print/paper.scss';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+	<script src="../../slides/reveal.js/lib/js/html5shiv.js"></script>
+	<![endif]-->
+    <style>
+.reveal li {
+font-size:68%;
+line-height:115%;
+}
+    </style>
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <div class="slides">
+
+	<section data-markdown><script type="text/template">
+# CS 2150
+&nbsp;
+### Program and Data Representation
+### Fall 2021
+
+<p class='titlep'>&nbsp;</p>
+<div class="titlesmall"><p>
+<a href="http://www.cs.virginia.edu/~mrf8t">Mark Floryan</a> (mrf8t@virginia.edu)<br>
+<a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)<br>
+<a href="http://github.com/uva-cs/pdr">@github</a> | <a href="index.html">&uarr;</a> | <a href="./01-cpp.html?print-pdf"><img class="print" width="20" src="../../slides/images/print-icon.png" style="top:0px;vertical-align:middle"></a>
+</p></div>
+<p class='titlep'>&nbsp;</p>
+
+## Daily Announcements
+	</script></section>
+
+<!-- xkcd template for cut-and-paste (first two lines are the date and title)
+
+<h2></h2>
+<h4 class="xkcd"></h4>
+<img class="stretch" src="http://imgs.xkcd.com/comics/.png" title="" alt="">
+<p class="center"><a href="http://xkcd.com/2040/">xkcd # 2040</a></p>
+
+-->
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">Merlin</h4><img class="stretch" src="http://imgs.xkcd.com/comics/merlin.png" title="I mean, the black-and-white stuff was running backward, but it hardly mattered to the story." alt="Merlin"><p class="center"><a href="http://xkcd.com/270/">xkcd # 270</a></p>
+    </section>
+
+    <section data-markdown><script type="text/template">
+## Lecture 42: The End
+- [Lab 11](../../labs/lab11/index.html), on Graphs, is *mostly* done
+    - The pre-lab is open until 8 am tomorrow -- see the Piazza post for details
+- Lab 12 status:
+  - No pre-lab!
+  - The in-lab will be a survey; if you fill it out (regardless of what your answers are) you will get 10/10
+  - It will be available late tonight or early tomorrow, and is due by the end of the day on Tuesday
+  - You can use the lab time on Tuesday to also study for the final
+- Office hours are back in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+    - Faculty office hours are M/F 9:30-11 (Bloomfield @ Rice 402) and W 12-1:30 (Floryan @ Rice 203)
+    - Office hours will end next Tuesday; there will be some type of office hours during the start of finals week -- more info on that later
+- Course links are on the Collab landing page
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- The [lectures page](lectures/index.html) has pictures of the chalk board from lectures
+  - This link can be found on the [UVA page in the repo](index.html)
+- Today we start (and finish) [esoteric programming languages](../../slides/13-esoteric-pls.html#/) and then the [course conclusion](course-conclusion.html#/)
+    </script></section>
+
+
+    <section data-markdown><script type="text/template">
+## Final exam information
+- It is 7pm to 10pm on Tuesday, December 14th
+  - You cannot take it early
+  - Only those who have let us know they have conflicts can take it at an alternate time
+    - We'll get back to you in a day or two about the alternate time
+- You must bring your UVA ID to the exam!
+- Location:
+  - Floryan's section (11am) will be in the lecture classroom (Ridley G008)
+  - Both of Bloomfield's sections (1pm and 2pm) will be in Physics 203 & 204
+- We expect there to be TA office and professor hours later this week, and we will post about those once we know the details
+- There will be a (Zoom) review session -- likely Sunday evening starting at 8pm, but specifics to follow
+- We *hope* to have it graded by Wednesday evening, but no promises
+- Previous exams are in the repo on the [exams page](../../exams/index.html)
+  - We still don't have solution keys
+- Regrades will be more constrained, as it's the end of the semester
+  - We are going to have a much shorter regrade window (like 24 hours); we'll email the class when that's started
+  - We will have much less patience for frivolous regrades
+    </script></section>
+
+
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">NP-Complete</h4><img class="stretch" src="http://imgs.xkcd.com/comics/np_complete.png" title="General solutions get you a 50% tip." alt="NP-Complete"><p class="center"><a href="http://xkcd.com/287/">xkcd # 287</a></p>
+    </section>
+
+    <section data-markdown><script type="text/template">
+## Lecture 41: Fri, Dec 3rd
+- [Lab 11](../../labs/lab11/index.html), on Graphs, is *mostly* done
+    - So there was a problem with the pre-lab 11 auto-grader...
+- Lab 12 status:
+  - There will not be a pre-lab 12 at all, so use that time to study for the final
+  - Office hours Sunday & Monday can be used to ask the TAs about exam questions
+  - There *may* be an in-lab 12, but if so, it will be short (like 10 minutes)
+  - You can use the lab time on Tuesday to also study for the final
+- Office hours are back in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+    - Faculty office hours are M/F 9:30-11 (Bloomfield @ Rice 402) and W 12-1:30 (Floryan @ Rice 203)
+    - Office hours will end next Tuesday; there will be some type of office hours during the start of finals week -- more info on that later
+- Course links are on the Collab landing page
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- The [lectures page](lectures/index.html) has pictures of the chalk board from lectures
+  - This link can be found on the [UVA page in the repo](index.html)
+- Today we finish [memory](../../slides/12-memory.html#/)
+  - Next up: [esoteric programming languages](../../slides/13-esoteric-pls.html#/)
+  - After today, there is only one lectures left!
+    </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">Travelling Sales[person] Problem</h4><img class="stretch" src="http://imgs.xkcd.com/comics/travelling_salesman_problem.png" title="What&#39;s the complexity class of the best linear programming cutting-plane techniques?  I couldn&#39;t find it anywhere.  Man, the Garfield guy doesn&#39;t have these problems ..." alt="Travelling Salesman Problem"><p class="center"><a href="http://xkcd.com/399/">xkcd # 399</a></p>
+    </section>
+
+    <section data-markdown><script type="text/template">
+## Lecture 40: Wed, Dec 1st
+- [Lab 11](../../labs/lab11/index.html), on Graphs, is out
+    - There is a post-lab for this lab!
+- Lab 12 status:
+  - There will not be a pre-lab 12 at all, so use that time to study for the final
+  - Office hours Sunday & Monday can be used to ask the TAs about exam questions
+  - There *may* be an in-lab 12, but if so, it will be short (like 10 minutes)
+  - You can use the lab time on Tuesday to also study for the final
+- Office hours are back in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+    - Faculty office hours are M/F 9:30-11 (Bloomfield @ Rice 402) and W 12-1:30 (Floryan @ Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+    - Office hours will end next Tuesday; there will be some type of office hours during the start of finals week -- more info on that later
+- Course links are on the Collab landing page
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- The [lectures page](lectures/index.html) has pictures of the chalk board from lectures
+  - This link can be found on the [UVA page in the repo](index.html)
+- Today we finish [graphs](../../slides/11-graphs.html#/) and start on [memory](../../slides/12-memory.html#/)
+  - After today, there are only two lectures left!
+    </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">Pillow Talk</h4><img class="stretch" src="http://imgs.xkcd.com/comics/pillow_talk.jpg" title="Maybe I should&#39;ve tried Wexler?" alt="Pillow Talk"><p class="center"><a href="http://xkcd.com/69/">xkcd # 69</a></p>
+    </section>
+
+    <section data-markdown><script type="text/template">
+## Lecture 39: Mon, Nov 29th
+- [Lab 11](../../labs/lab11/index.html), on Graphs, is out
+    - There is a post-lab for this lab!
+- We are not sure what the status of lab 12 will be; more on that soon
+- [Exam 2](../../exams/exam2-f21.pdf) was returned last week, and regrades are open until tomorrow (Tue, Nov 30)
+- Office hours are back in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+    - Faculty office hours are M/F 9:30-11 (Bloomfield @ Rice 402) and W 12-1:30 (Floryan @ Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+- Course links are on the Collab landing page
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- The [lectures page](lectures/index.html) has pictures of the chalk board from lectures
+  - This link can be found on the [UVA page in the repo](index.html)
+- Today we continue with [graphs](../../slides/11-graphs.html#/)
+  - After today, there are only three lectures left!
+    </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h2 class='xkcd'>Google Maps</h2><img class='stretch' src="https://imgs.xkcd.com/comics/google_maps.png" title="Apparently Google assumes you&#39;re traveling during the ferry&#39;s normal operating hours.  We lost two hours circling that damn lake (to say nothing of the Straw Man)." alt="Google Maps"  style="image-orientation:none" ><p class='center'><a href='http://xkcd.com/461/'>xkcd # 461</a></p>
+    </section>
+
+    <section data-markdown><script type="text/template">
+## Lecture 38: Mon, Nov 22nd
+- [Lab 10](../../labs/lab10/index.html), on Huffman coding, is out
+    - The post-lab for lab 10 is cancelled for Thanksgiving
+    - Labs tomorrow: it may be that a few of the labs are not going to be staffed with TAs, especially the late ones
+        - We'll post this on Piazza tonight
+        - If that is the case, then we'll let you know which labs you can go early to
+- [Exam 2](../../exams/exam2-f21.pdf) was returned last week, and regrades are open until Tue, Nov 30
+- Office hours are in full swing, but will not happen Wed-Fri of this week
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+    - Faculty office hours are M/F 9:30-11 (Bloomfield @ Rice 402) and W 12-1:30 (Floryan @ Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+- Course links are on the Collab landing page
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- The [lectures page](lectures/index.html) has pictures of the chalk board from lectures
+  - This link can be found on the [UVA page in the repo](index.html)
+- Today we continue with [graphs](../../slides/11-graphs.html#/)
+  - After today, there are only four lectures left!
+    </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">Dependencies</h4><img class="stretch" src="http://imgs.xkcd.com/comics/dependencies.png" title="The prereqs for CPSC 357, the class on package management, are CPSC 432, CPSC 357, and glibc2.5 or later." alt="Dependencies"><p class="center"><a href="http://xkcd.com/754/">xkcd # 754</a></p>
+    </section>
+
+    <section data-markdown><script type="text/template">
+## Lecture 37: Fri, Nov 19th
+- [Lab 9](../../labs/lab09-64bit/index.html), on assembly, is done!
+- [Lab 10](../../labs/lab10/index.html), on Huffman coding, is ready
+    - The post-lab for lab 10 is cancelled for Thanksgiving
+- [Exam 2](../../exams/exam2-f21.pdf) was returned last week, and regrades are open until Tue, Nov 30
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+    - Faculty office hours are M/F 9:30-11 (Bloomfield @ Rice 402) and W 12-1:30 (Floryan @ Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+- Course links are on the Collab landing page
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- The [lectures page](lectures/index.html) has pictures of the chalk board from lectures
+  - This link can be found on the [UVA page in the repo](index.html)
+- Today we continue with [graphs](../../slides/11-graphs.html#/)
+  - After today, there are only five lectures left!
+    </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h2 class='xkcd'>Trochee Fixation</h2><img class='stretch' src="https://imgs.xkcd.com/comics/trochee_fixation.png" title="If you Huffman-coded all the &#39;random&#39; things everyone on the internet has said over the years, you&#39;d wind up with, like, 30 or 40 bytes *tops*." alt="Trochee Fixation"  style="image-orientation:none" ><p class='center'><a href='http://xkcd.com/856/'>xkcd # 856</a></p>
+    </section>
+
+    <section data-markdown><script type="text/template">
+## Lecture 36: Wed, Nov 17th
+- [Lab 9](../../labs/lab09-64bit/index.html), on assembly, is out
+- [Lab 10](../../labs/lab10/index.html), on Huffman coding, is ready
+    - The post-lab for lab 10 is cancelled for Thanksgiving
+- [Exam 2](../../exams/exam2-f21.pdf) was returned last week, and regrades are open for two weeks
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+    - Faculty office hours are M/F 9:30-11 (Bloomfield @ Rice 402) and W 12-1:30 (Floryan @ Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+- Course links are on the Collab landing page
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- The [lectures page](lectures/index.html) has pictures of the chalk board from lectures
+  - This link can be found on the [UVA page in the repo](index.html)
+- Today we finish [heaps and Huffman](../../slides/10-heaps-huffman.html#/), and start on [graphs](../../slides/11-graphs.html#/)
+  - After today, there are only six lectures left!
+    </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">Collatz Conjecture</h4><img class="stretch" src="http://imgs.xkcd.com/comics/collatz_conjecture.png" title="The Strong Collatz Conjecture states that this holds for any set of obsessively-hand-applied rules." alt="Collatz Conjecture"><p class="center"><a href="http://xkcd.com/710/">xkcd # 710</a></p>
+    </section>
+
+    <section data-markdown><script type="text/template">
+## Lecture 35: Mon, Nov 15th
+- [Lab 9](../../labs/lab09-64bit/index.html), on assembly, is out
+- Lab 10 (not yet ready) will have modifications for Thanksgiving
+    - We aren't sure the details yet...
+- [Exam 2](../../exams/exam2-f21.pdf) was returned last week, regrades will open soon...
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+    - Faculty office hours are M/F 9:30-11 (Bloomfield @ Rice 402) and W 12-1:30 (Floryan @ Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+- Course links are on the Collab landing page
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- The [lectures page](lectures/index.html) has pictures of the chalk board from lectures
+  - This link can be found on the [UVA page in the repo](index.html)
+- Today we continue with [heaps and Huffman](../../slides/10-heaps-huffman.html#/), which will take us through most of this week
+    - Next up: [graphs](../../slides/11-graphs.html#/)
+    </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class='xkcd'>Old Days</h4><img class='stretch' src="https://imgs.xkcd.com/comics/old_days.png" title="Lot of drama in those days, including constant efforts to force the &quot;Reflections on Trusting Trust&quot; guy into retirement so we could stop being so paranoid about compilers." alt="Old Days" srcset="https://imgs.xkcd.com/comics/old_days_2x.png 2x" style="image-orientation:none" ><p class='center'><a href='http://xkcd.com/1755/'>xkcd # 1755</a></p>
+    </section>
+
+    <section data-markdown><script type="text/template">
+## Lecture 34: Fri, Nov 12th
+- [Exam 2](../../exams/exam2-f21.pdf) was yesterday
+  - We'll go over it today
+- [Lab 9](../../labs/lab09-64bit/index.html), for next week, is ready (on assembly)
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+    - Faculty office hours are M/F 9:30-11 (Bloomfield @ Rice 402) and W 12-1:30 (Floryan @ Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+- Course links are on the Collab landing page
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- The [lectures page](lectures/index.html) has pictures of the chalk board from lectures
+  - This link can be found on the [UVA page in the repo](index.html)
+- Today we continue with [heaps and Huffman](../../slides/10-heaps-huffman.html#/), which will take us into next week
+    </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Westley's a D*ck</h4><img class="stretch" src="http://imgs.xkcd.com/comics/westleys_a_dick.png" title="Inigo/Buttercup 4eva &lt;3" alt="Westley&#39;s a Dick"><p class="center"><a href="http://xkcd.com/549/">xkcd # 549</a></p>
+	  </section>
+          <section data-markdown><script type="text/template">
+## Pop Quiz!
+
+Reflecting on Exam 2, I think:
+
+1. It was easy!
+2. It was hard, but doable
+3. It was insane!  Where do you get off giving us such a hard exam?
+4. I'm not talking to you.  Ever.  Again.
+          </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 33: Wed, Nov 10th
+- Exam 2 was yesterday
+  - We'll go over it Friday, as it should (hopefully) be graded by then
+  - No office hours today due to the exam; unclear about Thursday (will post that on the [Twitter announcement feed](https://twitter.com/UVaCS2150/) tonight)
+- [Lab 9](../../labs/lab09-64bit/index.html), for next week, is ready (on assembly)
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+    - Faculty office hours are M/F 9:30-11 (Bloomfield @ Rice 402) and W 12-1:30 (Floryan @ Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+- Course links are on the Collab landing page
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- The [lectures page](lectures/index.html) has pictures of the chalk board from lectures
+  - This link can be found on the [UVA page in the repo](index.html)
+- Today we start on [heaps and Huffman](../../slides/10-heaps-huffman.html#/), which will take us into next week
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Tabletop Roleplaying</h4><img class="stretch" src="http://imgs.xkcd.com/comics/tabletop_roleplaying.png" title="I may have also tossed one of a pair of teleportation rings into the ocean, with interesting results." alt="Tabletop Roleplaying"><p class="center"><a href="http://xkcd.com/244/">xkcd # 244</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 32: Mon, Nov 8th
+- Exam 2 this week!
+  - Review session last night was recorded (Collab -> Online Meetings -> Cloud Recordings)
+  - Previous exams are [on the exams/ page in the repo](../../exams/index.html)
+  - While cumulative, it will focus on the material since the last midterm: trees, hashes, machine language, and assembly (no advanced C++)
+  - No office hours Wednesday due to the exam; unclear about Thursday
+  - You must bring your IDs to the exam!!!
+- [Lab 9](../../labs/lab09-64bit/index.html), for NEXT week, is ready (on assembly)
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+    - Faculty office hours are M/F 9:30-11 (Bloomfield @ Rice 402) and W 12-1:30 (Floryan @ Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+- Course links are on the Collab landing page
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- The [lectures page](lectures/index.html) has pictures of the chalk board from lectures
+  - This link can be found on the [UVA page in the repo](index.html)
+- Today we continue with [advanced C++](../../slides/09-advanced-cpp.html#/)
+  - Next up: [heaps and Huffman](../../slides/10-heaps-huffman.html#/)
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Single Ladies</h4><img class="stretch" src="http://imgs.xkcd.com/comics/single_ladies.png" title="Using a ring to bind someone you covet into your dark and twisted world? Wow, just got the subtext there. Also, the apparently eager Beyonc&eacute; would&#39;ve made one badass Nazg&ucirc;l." alt="Single Ladies"><p class="center"><a href="http://xkcd.com/712/">xkcd # 712</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 31: Fri, Nov 5th
+- [Lab 8](../../labs/lab08-64bit/index.html), on assembly, is done
+- No lab next week because...
+- Exam 2 next week!
+  - We'll have a review session Sunday night, likely around 9pm; exam and review session details to follow on the Twitter feed
+  - Previous exams are [on the exams/ page in the repo](../../exams/index.html)
+  - While cumulative, it will focus on the material since the last midterm: trees, hashes, machine language, and assembly
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+    - Faculty office hours are M/F 9:30-11 (Bloomfield @ Rice 402) and W 12-1:30 (Floryan @ Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+- Course links are on the Collab landing page
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- The [lectures page](lectures/index.html) has pictures of the chalk board from lectures
+  - This link can be found on the [UVA page in the repo](index.html)
+- Today we work through [advanced C++](../../slides/09-advanced-cpp.html#/), which will take us into next week
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Abstraction</h4><img class="stretch" src="http://imgs.xkcd.com/comics/abstraction.png" title="If I&#39;m such a god, why isn&#39;t Maru *my* cat?" alt="Abstraction"><p class="center"><a href="http://xkcd.com/676/">xkcd # 676</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 30: Wed, Nov 3rd
+- [Lab 8](../../labs/lab08-64bit/index.html), on assembly, is out
+- Exam next week!
+  - We'll have a review session Sunday night, likely around 9pm; exam and review session details to follow
+  - Previous exams are [on the exams/ page in the repo](../../exams/index.html)
+  - While cumulative, it will focus on the material since the last midterm: trees, hashes, machine language, and assembly
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+    - Faculty office hours are M/F 9:30-11 (Bloomfield @ Rice 402) and W 12-1:30 (Floryan @ Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+- Course links are on the Collab landing page
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- The [lectures page](lectures/index.html) has pictures of the chalk board from lectures
+  - This link can be found on the [UVA page in the repo](index.html)
+- Today we will go back to the last two columns in the trees lecture set ([splay trees](../../slides/05-trees.html#/splaytrees) and [applications](../../slides/05-trees.html#/applications))
+    - After that is [advanced C++](../../slides/09-advanced-cpp.html#/)
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Applied Math</h4><img class="stretch" src="http://imgs.xkcd.com/comics/applied_math.png" title="Dear Reader: Enclosed is a check for ninety-eight cents. Using your work, I have proven that this equals the amount you requested." alt="Applied Math"><p class="center"><a href="http://xkcd.com/816/">xkcd # 816</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 29: Mon, Nov 1st
+- [Lab 8](../../labs/lab08-64bit/index.html), on assembly, is out
+    - Make sure you understand the vecsum example in the lab!!!
+    - In the [docs/](../../docs/index.html) page of the repo it talks about how to debug assembly routines -- you can "step into" an assembly routine and debug it line-by-line
+- Do you have an M1 Mac?  If so, let us know via [this Google form](https://docs.google.com/forms/d/e/1FAIpQLSf0bEwZUQ4UZWwPKPmT9jedQiqHMOrUYhAMYIn5AcZxy1655Q/viewform)
+- Exam next week!
+  - We'll have a review session Sunday night, likely around 9pm; exam and review session details to follow
+  - Previous exams are [on the exams/ page in the repo](../../exams/index.html)
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+    - Faculty office hours are M/F 9:30-11 (Bloomfield @ Rice 402) and W 12-1:30 (Floryan @ Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+- Course links are on the Collab landing page
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- The [lectures page](lectures/index.html) has pictures of the chalk board from lectures
+  - This link can be found on the [UVA page in the repo](index.html)
+- Today we will continue and possibly finish [assembly](../../slides/08-assembly-64bit.html#/)
+    - Next we will go back to the last two columns in the trees lecture set ([splay trees](../../slides/05-trees.html#/splaytrees) and [applications](../../slides/05-trees.html#/applications))
+    - After that is [advanced C++](../../slides/09-advanced-cpp.html#/)
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Security</h4><img class="stretch" src="http://imgs.xkcd.com/comics/security.png" title="Actual actual reality: nobody cares about his secrets.  (Also, I would be hard-pressed to find that wrench for $5.)" alt="Security"><p class="center"><a href="http://xkcd.com/538/">xkcd # 538</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 28: Fri, Oct 29th
+- [Lab 8](../../labs/lab08-64bit/index.html), on assembly, is out
+- Do you have an M1 Mac?
+    - If so, you need to let us know, as you can't compile x86 assembly on an M1 -- please fill out [this Google form](https://docs.google.com/forms/d/e/1FAIpQLSf0bEwZUQ4UZWwPKPmT9jedQiqHMOrUYhAMYIn5AcZxy1655Q/viewform)
+    - Those who filled out the form received an email from me this morning
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+    - Faculty office hours are M/F 9:30-11 (Bloomfield @ Rice 402) and W 12-1:30 (Floryan @ Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+- Course links are on the Collab landing page
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- The [lectures page](lectures/index.html) has pictures of the chalk board from lectures
+  - This link can be found on the [UVA page in the repo](index.html)
+- Today we will continue with [assembly](../../slides/08-assembly-64bit.html#/), which will take us into next week
+    - We are going to come back to the last two columns in the trees lecture set ([splay trees](../../slides/05-trees.html#/splaytrees) and [applications](../../slides/05-trees.html#/applications)) later
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Surgery</h4><img class="stretch" src="http://imgs.xkcd.com/comics/surgery.png" title="Damn. Not only did he not install it, he sutured a &#39;Vista-Ready&#39; sticker onto my arm." alt="Surgery"><p class="center"><a href="http://xkcd.com/644/">xkcd # 644</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 27: Wed, Oct 27th
+- [Lab 7](../../labs/lab07/index.html), on IBCM, is out
+  - You don't have to work on this lab in Linux
+  - Remember the 5 steps to IBCM programming success!
+- Do you have an M1 Mac?
+	- If so, you need to let us know, as you can't compile x86 assembly on an M1 -- please fill out [this Google form](https://docs.google.com/forms/d/e/1FAIpQLSf0bEwZUQ4UZWwPKPmT9jedQiqHMOrUYhAMYIn5AcZxy1655Q/viewform)
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+    - Faculty office hours are M/F 9:30-11 (Bloomfield @ Rice 402) and W 12-1:30 (Floryan @ Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+- Course links are on the Collab landing page
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- The [lectures page](lectures/index.html) has pictures of the chalk board from lectures
+  - This link can be found on the [UVA page in the repo](index.html)
+- Today we will continue with [assembly](../../slides/08-assembly-64bit.html#/), which will take us into next week
+    - We are going to come back to the last two columns in the trees lecture set ([splay trees](../../slides/05-trees.html#/splaytrees) and [applications](../../slides/05-trees.html#/applications)) later
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Science Valentine</h4><img class="stretch" src="http://imgs.xkcd.com/comics/science_valentine.png" title="You don&#39;t use science to show that you&#39;re right, you use science to become right." alt="Science Valentine"><p class="center"><a href="http://xkcd.com/701/">xkcd # 701</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 26: Mon, Oct 25th
+- [Lab 7](../../labs/lab07/index.html), on IBCM, is out
+  - You don't have to work on this lab in Linux
+  - Remember the 5 steps to IBCM programming success!
+- Do you have an M1 Mac?
+	- If so, you need to let us know, as you can't compile x86 assembly on an M1 -- please fill out [this Google form](https://docs.google.com/forms/d/e/1FAIpQLSf0bEwZUQ4UZWwPKPmT9jedQiqHMOrUYhAMYIn5AcZxy1655Q/viewform)
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+    - Faculty office hours are M/F 9:30-11 (Bloomfield @ Rice 402) and W 12-1:30 (Floryan @ Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+- Course links are on the Collab landing page
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- The [lectures page](lectures/index.html) has pictures of the chalk board from lectures
+  - This link can be found on the [UVA page in the repo](index.html)
+- Today we will continue with [assembly](../../slides/08-assembly-64bit.html#/), which will take us into next week
+    - We are going to come back to the last two columns in the trees lecture set ([splay trees](../../slides/05-trees.html#/splaytrees) and [applications](../../slides/05-trees.html#/applications)) later
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Golden Hammer</h4><img class="stretch" src="http://imgs.xkcd.com/comics/golden_hammer.png" title="Took me five tries to find the right one, but I managed to salvage our night out--if not the boat--in the end." alt="Golden Hammer"><p class="center"><a href="http://xkcd.com/801/">xkcd # 801</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 25: Fri, Oct 22nd
+- We all made it through [Lab 6](../../labs/lab06/index.html)!
+- [Lab 7](../../labs/lab07/index.html), on IBCM, is out
+  - You don't have to work on this lab in Linux
+- Do you have an M1 Mac?
+	- If so, you need to let us know, as you can't compile x86 assembly on an M1 -- please fill out [this Google form](https://docs.google.com/forms/d/e/1FAIpQLSf0bEwZUQ4UZWwPKPmT9jedQiqHMOrUYhAMYIn5AcZxy1655Q/viewform)
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+    - Faculty office hours are M/F 9:30-11 (Bloomfield @ Rice 402) and W 12-1:30 (Floryan @ Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+- Course links are on the Collab landing page
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- The [lectures page](lectures/index.html) has pictures of the chalk board from lectures
+  - This link can be found on the [UVA page in the repo](index.html)
+- Today we will finish [IBCM](../../slides/07-ibcm.html#/) (machine language) and (maybe) start [assembly](../../slides/08-assembly-64bit.html#/)
+    - We are going to come back to the last two columns in the trees lecture set ([splay trees](../../slides/05-trees.html#/splaytrees) and [applications](../../slides/05-trees.html#/applications)) later
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Git Commit</h4><img class="stretch" src="http://imgs.xkcd.com/comics/git_commit.png" title="Merge branch &#39;asdfasjkfdlas/alkdjf&#39; into sdkjfls-final" alt="Git Commit"><p class="center"><a href="http://xkcd.com/1296/">xkcd # 1296</a></p>
+	  </section>
+
+          <section data-markdown><script type="text/template">
+## Pop Quiz!
+
+After having finished [Lab 6](../../labs/lab06/index.html) (hashes), I think:
+
+1. It was easy!
+2. It was hard, but doable
+3. It was insane!  Where do you get off assigning this much work?
+4. I'm not talking to you.  Ever.  Again.
+          </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 24: Wed, Oct 20th
+- [Lab 6](../../labs/lab06/index.html), on hashes, is out
+    - Please start this one early!!! Oh, wait...
+- Do you have an M1 Mac?
+	- If so, you need to let us know, as you can't compile x86 assembly on an M1 -- please fill out [this Google form](https://docs.google.com/forms/d/e/1FAIpQLSf0bEwZUQ4UZWwPKPmT9jedQiqHMOrUYhAMYIn5AcZxy1655Q/viewform)
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+    - Faculty office hours are M/F 9:30-11 (Bloomfield @ Rice 402) and W 12-1:30 (Floryan @ Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+- Course links are on the Collab landing page
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- The [lectures page](lectures/index.html) has pictures of the chalk board from lectures
+  - This link can be found on the [UVA page in the repo](index.html)
+- Today we will continue with [IBCM](../../slides/07-ibcm.html#/) (machine language)
+    - We are going to come back to the last two columns in the trees lecture set ([splay trees](../../slides/05-trees.html#/splaytrees) and [applications](../../slides/05-trees.html#/applications)) later
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Fight</h4><img class="stretch" src="http://imgs.xkcd.com/comics/fight.png" title="And she put sweet nothings in all my .conf files.  It&#39;ll take me forever to get X working again." alt="Fight"><p class="center"><a href="http://xkcd.com/340/">xkcd # 340</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 23: Mon, Oct 18th
+- [Lab 6](../../labs/lab06/index.html), on hashes, is out
+    - Please start this one early!!! Oh, wait...
+- Do you have an M1 Mac?
+	- If so, you need to let us know, as you can't compile x86 assembly on an M1 -- please fill out [this Google form](https://docs.google.com/forms/d/e/1FAIpQLSf0bEwZUQ4UZWwPKPmT9jedQiqHMOrUYhAMYIn5AcZxy1655Q/viewform)
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+    - Faculty office hours are M/F 9:30-11 (Bloomfield @ Rice 402) and W 12-1:30 (Floryan @ Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+- Course links are on the Collab landing page
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- Today we will start / continue with [IBCM](../../slides/07-ibcm.html#/) (machine language)
+    - We are going to come back to the last two columns in the trees lecture set ([splay trees](../../slides/05-trees.html#/splaytrees) and [applications](../../slides/05-trees.html#/applications)) later
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+	    <h4 class="xkcd">Success</h4><img class="stretch" src="http://imgs.xkcd.com/comics/success.png" title="40% of OpenBSD installs lead to shark attacks.  It&#39;s their only standing security issue." alt="Success"><p class="center"><a href="http://xkcd.com/349/">xkcd # 349</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 22: Fri, Oct 15th
+- [Lab 6](../../labs/lab06/index.html), on hashes, is out
+    - Please start this one early!!!
+- Do you have an M1 Mac?
+	- If so, you need to let us know, as you can't compile x86 assembly on an M1 -- please fill out [this Google form](https://docs.google.com/forms/d/e/1FAIpQLSf0bEwZUQ4UZWwPKPmT9jedQiqHMOrUYhAMYIn5AcZxy1655Q/viewform)
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+    - Faculty office hours are M/F 9:30-11 (Bloomfield @ Rice 402) and W 12-1:30 (Floryan @ Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+- Course links are on the Collab landing page
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue, and likely finish, [hashes](../../slides/06-hashes.html#/)
+    - Next up: [IBCM](../../slides/07-ibcm.html#/) (machine language)
+    - We are going to come back to the last two columns in the trees lecture set ([splay trees](../../slides/05-trees.html#/splaytrees) and [applications](../../slides/05-trees.html#/applications)) later
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Ballmer Peak</h4><img class="stretch" src="http://imgs.xkcd.com/comics/ballmer_peak.png" title="Apple uses automated schnapps IVs." alt="Ballmer Peak"><p class="center"><a href="http://xkcd.com/323/">xkcd # 323</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 21: Wed, Oct 13th
+- [Lab 6](../../labs/lab06/index.html), on hashes, is ready (it's next week's lab)
+    - Please start this one early!!!
+- We went over the [first midterm](../../exams/exam1-f21.pdf) in lecture
+    - The exam will get a 15 *percentage* point curve -- it's applied to the course curve at the end of the semester
+    - Please see the [slide about regrades](#/regrades); they are due by the end of the day TODAY (Wednesday, October 13th)
+- Do you have an M1 Mac?
+	- If so, you need to let us know, as you can't compile x86 assembly on an M1 -- please fill out [this Google form](https://docs.google.com/forms/d/e/1FAIpQLSf0bEwZUQ4UZWwPKPmT9jedQiqHMOrUYhAMYIn5AcZxy1655Q/viewform)
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+    - Faculty office hours are M/F 9:30-11 (Bloomfield @ Rice 402) and W 12-1:30 (Floryan @ Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+- Course links are on the Collab landing page
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [hashes](../../slides/06-hashes.html#/)
+    - We are going to come back to the last two columns in the trees lecture set ([splay trees](../../slides/05-trees.html#/splaytrees) and [applications](../../slides/05-trees.html#/applications)) later
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Devotion to Duty</h4><img class="stretch" src="http://imgs.xkcd.com/comics/devotion_to_duty.png" title="The weird sense of duty really good sysadmins have can border on the sociopathic, but it&#39;s nice to know that it stands between the forces of darkness and your cat blog&#39;s servers." alt="Devotion to Duty"><p class="center"><a href="http://xkcd.com/705/">xkcd # 705</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 20: Fri, Oct 8th
+- About [lab 5](../../labs/lab05/index.html) (and the tutorial)...
+    - We didn't handle office hours last night very well, and that's my fault
+- Next week is UVA's fall break, so no lecture on Monday nor lab on Tuesday
+    - No office hours this Sunday or Monday either
+- [Lab 6](../../labs/lab06/index.html), on hashes, is ready
+- We went over the [first midterm](../../exams/exam1-f21.pdf) last Friday
+    - The exam will get a 15 *percentage* point curve -- it's applied to the course curve at the end of the semester
+    - Please see the [slide about regrades](#/regrades); they are due by the end of the day on Monday, October 11th
+- Do you have an M1 Mac?
+	- If so, you need to let us know, as you can't compile x86 assembly on an M1 -- please fill out [this Google form](https://docs.google.com/forms/d/e/1FAIpQLSf0bEwZUQ4UZWwPKPmT9jedQiqHMOrUYhAMYIn5AcZxy1655Q/viewform)
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+    - Faculty office hours are M/F 9:30-11 (Bloomfield @ Rice 402) and W 12-1:30 (Floryan @ Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+- Course links are on the Collab landing page
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- Today we will start on [hashes](../../slides/06-hashes.html#/)
+    - We are going to come back to the last two columns in the trees lecture set ([splay trees](../../slides/05-trees.html#/splaytrees) and [applications](../../slides/05-trees.html#/applications)) later
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Black Hat Support</h4><img class="stretch" src="http://imgs.xkcd.com/comics/black_hat_support.png" title="So as not to leave you hanging -- it was a problem with select() calls." alt="Black Hat Support"><p class="center"><a href="http://xkcd.com/278/">xkcd # 278</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 19: Wed, Oct 6th
+- [Lab 5](../../labs/lab05/index.html) (and the tutorial) is out
+- Next week is UVA's fall break, so no lab next week
+    - No office hours Sunday or Monday, no lecture on Monday, and no lab on Tuesday
+- [Lab 6](../../labs/lab06/index.html), on hashes, is ready
+- We went over the [first midterm](../../exams/exam1-f21.pdf) last Friday
+    - The exam will get a 15 *percentage* point curve -- it's applied to the course curve at the end of the semester
+    - Please see the [slide about regrades](#/regrades); they are due by the end of the day on Monday, October 11th
+    - About regrades that don't follow the rubrics...
+- Do you have an M1 Mac?
+	- If so, you need to let us know, as you can't compile x86 assembly on an M1 -- please fill out [this Google form](https://docs.google.com/forms/d/e/1FAIpQLSf0bEwZUQ4UZWwPKPmT9jedQiqHMOrUYhAMYIn5AcZxy1655Q/viewform)
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+    - Faculty office hours are M/F 9:30-11 (Bloomfield @ Rice 402) and W 12-1:30 (Floryan @ Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+- Course links are on the Collab landing page
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [Trees](../../slides/05-trees.html#/) and start on [hashes](../../slides/06-hashes.html#/)
+    - We are going to come back to the last two columns in the trees lecture set ([splay trees](../../slides/05-trees.html#/splaytrees) and [applications](../../slides/05-trees.html#/applications)) later in the semester
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">The Economic Argument</h4><img class="stretch" src="http://imgs.xkcd.com/comics/the_economic_argument.png" title="Not to be confused with &#39;making money selling this stuff to OTHER people who think it works&#39;, which corporate accountants and actuaries have zero problems with." alt="The Economic Argument"><p class="center"><a href="http://xkcd.com/808/">xkcd # 808</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 18: Mon, Oct 4th
+- [Lab 5](../../labs/lab05/index.html) (and the tutorial) is out
+    - Perhaps not the easiest lab this semester...
+    - Next week is UVA's fall break, so no lab then
+- We went over the [first midterm](../../exams/exam1-f21.pdf) last Friday
+    - The exam will receive a 15 *percentage* point curve -- but that's applied to the course curve at the end of the semester
+    - Please see the [slide about regrades](#/regrades); they are due by the end of the day on Monday, October 11th
+    - About regrades that don't follow the rubrics...
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+    - Faculty office hours are M/F 9:30 am - 11:00 am (Bloomfield in Rice 402) and Wed noon - 1:30 pm (Floryan in Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+- Course links are on the Collab landing page
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [Trees](../../slides/05-trees.html#/), which will take through Wednesday
+    - Next up: [hashes](../../slides/06-hashes.html#/)		       
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Academia vs. Business</h4><img class="stretch" src="http://imgs.xkcd.com/comics/academia_vs_business.png" title="Some engineer out there has solved P=NP and it&#39;s locked up in an electric eggbeater calibration routine.  For every 0x5f375a86 we learn about, there are thousands we never see." alt="Academia vs. Business"><p class="center"><a href="http://xkcd.com/664/">xkcd # 664</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 17: Fri, Oct 1st
+- [Lab 5](../../labs/lab05/index.html) (and the tutorial) is all ready
+  - The week after next is UVA's fall break, so no lab then
+- We'll go over the [first midterm](../../exams/exam1-f21.pdf) today
+  - And talk about regrades (next slide)
+  - The exam will receive a 15 *percentage* point curve -- we'll talk about how that will be applied
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+    - Faculty office hours are M/F 9:30 am - 11:00 am (Bloomfield in Rice 402) and Wed noon - 1:30 pm (Floryan in Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+- Course links are on the Collab landing page
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [Trees](../../slides/05-trees.html#/), which will take us into next week
+	  </script></section>
+
+	  <section data-markdown id='regrades'><script type="text/template">
+## Regrades
+- You can submit a regrade request if we mis-graded your exam
+  - Submission is through Gradescope
+- You need to expalin clearly (and BRIEFLY) why your answer should get more credit
+- Did you lose points because your exam was hard to read?
+    - The scanner had some issues with exam writing that wasn't dark enough
+    - Please type up what you wrote in the exam regrade, and we'll regrade it without penalty
+	- If you can't read it either, we'll look up the paper exam
+- If you submit regrades that do not get points back, we reserve the right to LOWER your overall exam grade
+    - We are trying to prevent frivolous regrades, and to prevent everybody from having us regrade their entire exam when it was graded properly the first time
+- Regrades open today (Frdiay, 10/1) at 3pm, and close about 10 days later (Monday, 10/11) at the end of the day
+    - Regrades will not be accepted outside that time window	
+	  </script></section>
+	  
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Real Programmers</h4><img class="stretch" src="http://imgs.xkcd.com/comics/real_programmers.png" title="Real programmers set the universal constants at the start such that the universe evolves to contain the disk with the data they want." alt="Real Programmers"><p class="center"><a href="http://xkcd.com/378/">xkcd # 378</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 16: Wed, Sep 29th
+- How was the first midterm?
+  - We'll go over it Friday, not today
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+    - Faculty office hours are M/F 9:30 am - 11:00 am (Bloomfield in Rice 402) and Wed noon - 1:30 pm (Floryan in Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+    - We will NOT have office hours this Wednesday (today) for sure, and likely not on Thusrday
+- Course links are on the Collab landing page
+- Everybody has to sign the UNIX honor pledge -- the link is on the Collab landing page
+- Do you have a final exam conflict?  If so, please submit a support request by the end of September letting us know!
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [Trees](../../slides/05-trees.html#/), which will take us into next week
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Sandwich</h4><img class="stretch" src="http://imgs.xkcd.com/comics/sandwich.png" title="Proper User Policy apparently means Simon Says." alt="Sandwich"><p class="center"><a href="http://xkcd.com/149/">xkcd # 149</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 15: Mon, Sep 27th
+- Tomorrow is the first midterm!  Yay!  Info on the next slide
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+      - They are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (eventually) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+      - There is an office hours queue for you to use; please be sure to enter your SPECIFIC location
+    - Faculty office hours are M/F 9:30 am - 11:00 am (Bloomfield in Rice 402) and Wed noon - 1:30 pm (Floryan in Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+	- We will NOT have office hours this Wednesday for sure, and likely not on Thusrday
+- Course links are on the Collab landing page
+  - What a pre-req topic reviewed?  Fill out the request form [here](https://forms.gle/nH34jdyTFGmmPTH6A)
+- Everybody has to sign the UNIX honor pledge -- the link is on the Collab landing page
+- Do you have a final exam conflict?  If so, please submit a support request by the end of September letting us know!
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- Today we will finish [Arrays & big-Oh](../../slides/04-arrays-bigoh.html#/) and start on [Trees](../../slides/05-trees.html#/)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## First midterm information
+- Topic coverage is through the end of the [arrays & big-Oh](../../slides/04-arrays-bigoh.html#/) slide set
+  - Big-Oh proofs will not be on the exam
+- Note that the TAs will not answer "what is the answer to this question" on Piazza
+- Review session was last night, and it was recorded (Collab -> Online Meetings -> Cloud Recordings)
+- The midterm must be taken during your *registered* lab section
+- You must bring your UVA ID!
+- We *hope* to have it graded Wednesday evening, but no promises
+- Previous exams are in the repo on the [exams page](../../exams/index.html)
+    - We don't have solution keys
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Bug</h4><img class="stretch" src="http://imgs.xkcd.com/comics/bug.png" title="The universe started in 1970.  Anyone claiming to be over 38 is lying about their age." alt="Bug"><p class="center"><a href="http://xkcd.com/376/">xkcd # 376</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 14: Fri, Sep 24th
+- [Lab 4](../../labs/lab04/index.html), is all done!
+- No lab next week, since...
+- Next week is the first midterm!  Yay!  Info on the next slide
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+      - They are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (eventually) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+      - There is an office hours queue for you to use; please be sure to enter your SPECIFIC location
+    - Faculty office hours are M/F 9:30 am - 11:00 am (Bloomfield in Rice 402) and Wed noon - 1:30 pm (Floryan in Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+- Course links are on the Collab landing page
+  - What a pre-req topic reviewed?  Fill out the request form [here](https://forms.gle/nH34jdyTFGmmPTH6A)
+- Everybody has to sign the UNIX honor pledge -- the link is on the Collab landing page
+- Do you have an exam conflict?  If so, please submit a support request by the end of September letting us know!
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [Arrays & big-Oh](../../slides/04-arrays-bigoh.html#/)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## First midterm information
+- Topic coverage is through the end of the [arrays & big-Oh](../../slides/04-arrays-bigoh.html#/) slide set
+  - Big-Oh proofs will not be on the exam
+- Note that the TAs will not answer "what is the answer to this question" on Piazza
+- Review session: most likely there will be one on Sunday evening, details TBA
+    -  This will be virtual, and anounced on the [@UVaCS2150](https://twitter.com/@UVaCS2150) Twitter feed
+- It is during your *registered* lab section
+- You must bring your ID!
+- We *hope* to have it graded Wednesday evening, but no promises
+- Previous exams are in the repo on the [exams page](../../exams/index.html)
+    - We don't have solution keys
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">e to the pi Minus pi</h4><img class="stretch" src="http://imgs.xkcd.com/comics/e_to_the_pi_minus_pi.png" title="Also, I hear the 4th root of (9^2 + 19^2/22) is pi." alt="e to the pi Minus pi"><p class="center"><a href="http://xkcd.com/217/">xkcd # 217</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 13: Wed, Sep 22nd
+- [Lab 4](../../labs/lab04/index.html), and the tutorial, are out
+- Next week is the first midterm!  Yay!
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+      - They are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (eventually) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+      - There is an office hours queue for you to use; please be sure to enter your SPECIFIC location
+    - Faculty office hours are M/F 9:30 am - 11:00 am (Bloomfield in Rice 402) and Wed noon - 1:30 pm (Floryan in Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+- Course links are on the Collab landing page
+  - What a pre-req topic reviewed?  Fill out the request form [here](https://forms.gle/nH34jdyTFGmmPTH6A)
+- Everybody has to sign the UNIX honor pledge -- the link is on the Collab landing page
+- Do you have an exam conflict?  If so, please submit a support request by the end of September letting us know!
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- Today we will start on [Arrays & big-Oh](../../slides/04-arrays-bigoh.html#/)
+	  </script></section>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2 class='xkcd'>Can't Sleep</h2><img class='stretch' src="http://imgs.xkcd.com/comics/cant_sleep.png" title="If androids someday DO dream of electric sheep, don&#39;t forget to declare sheepCount as a long int." alt="Can&#39;t Sleep" ><p class='center'><a href='http://xkcd.com/571/'>xkcd # 571</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 12: Mon, Sep 20th
+- [Lab 4](../../labs/lab04/index.html), and the tutorial, are out
+- Next week is the first midterm!  Yay!
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+      - They are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (eventually) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+      - There is an office hours queue for you to use; please be sure to enter your SPECIFIC location
+    - Faculty office hours are M/F 9:30 am - 11:00 am (Bloomfield in Rice 402) and Wed noon - 1:30 pm (Floryan in Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+- Course links are on the Collab landing page
+  - What a pre-req topic reviewed?  Fill out the request form [here](https://forms.gle/nH34jdyTFGmmPTH6A)
+- Everybody has to sign the UNIX honor pledge -- the link is on the Collab landing page
+- Do you have an exam conflict?  If so, please submit a support request by the end of September letting us know!
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- Today we will finish [Numbers](../../slides/03-numbers.html#/) and start on [Arrays & big-Oh](../../slides/04-arrays-bigoh.html#/)
+	  </script></section>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Code Talkers</h4><img class="stretch" src="http://imgs.xkcd.com/comics/code_talkers.png" title="As far as I can tell, Navajo doesn&#39;t have a common word for &#39;zero&#39;.  do-neh-lini means &#39;neutral&#39;." alt="Code Talkers"><p class="center"><a href="http://xkcd.com/257/">xkcd # 257</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 11: Fri, Sep 17th
+- [Lab 3](../../labs/lab03/index.html): how did it go?
+- [Lab 4](../../labs/lab04/index.html), and the tutorial, are out
+- The week after next is the first midterm!  Yay!
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+      - They are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (eventually) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+      - There is an office hours queue for you to use; please be sure to enter your SPECIFIC location
+    - Faculty office hours are M/F 9:30 am - 11:00 am (Bloomfield in Rice 402) and Wed noon - 1:30 pm (Floryan in Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+- Course links are on the Collab landing page
+  - What a pre-req topic reviewed?  Fill out the request form [here](https://forms.gle/nH34jdyTFGmmPTH6A)
+- Everybody has to sign the UNIX honor pledge -- the link is on the Collab landing page
+- Do you have an exam conflict?  If so, please submit a support request by the end of September letting us know!
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [Numbers](../../slides/03-numbers.html#/), which will take us into next week
+	  </script></section>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">RPS</h4><img class="stretch" src="http://imgs.xkcd.com/comics/rps.png" title="It looks good, but it needs more postfixins." alt="RPS"><p class="center"><a href="http://xkcd.com/645/">xkcd # 645</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 10: Wed, Sep 15th
+- [Lab 3](../../labs/lab03/index.html), and the tutorial, are out
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+      - They are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (eventually) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+      - There is an office hours queue for you to use; please be sure to enter your SPECIFIC location
+    - Faculty office hours are M/F 9:30 am - 11:00 am (Bloomfield in Rice 402) and Wed noon - 1:30 pm (Floryan in Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+- Course links are on the Collab landing page
+  - What a pre-req topic reviewed?  Fill out the request form [here](https://forms.gle/nH34jdyTFGmmPTH6A)
+- Everybody has to sign the UNIX honor pledge -- the link is on the Collab landing page
+- Do you have an exam conflict?  If so, please submit a support request by the end of September letting us know!
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- Today we will start on [Numbers](../../slides/03-numbers.html#/), which will take us into next week
+	  </script></section>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Forgetting</h4><img class="stretch" src="http://imgs.xkcd.com/comics/forgetting.png" title="Of course, the assert doesn&#39;t work." alt="Forgetting"><p class="center"><a href="http://xkcd.com/379/">xkcd # 379</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 9: Mon, Sep 13th
+- [Lab 3](../../labs/lab03/index.html), and the tutorial, are out
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+      - They are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (eventually) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+      - There is an office hours queue for you to use; please be sure to enter your SPECIFIC location
+    - Faculty office hours are M/F 9:30 am - 11:00 am (Bloomfield in Rice 402) and Wed noon - 1:30 pm (Floryan in Rice 203)
+    - Online office hours are ONLY for those with COVID-19 or quarantining due to a potential exposure; if this applies to you, fill out [this form](https://forms.gle/7MaZkZ3mtY8dtrpE6)
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+- Course links are on the Collab landing page
+  - What a pre-req topic reviewed?  Fill out the request form [here](https://forms.gle/nH34jdyTFGmmPTH6A)
+- Everybody has to sign the UNIX honor pledge -- the link is on the Collab landing page
+- Do you have an exam conflict?  If so, please submit a support request by the end of September letting us know!
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue (and maybe finish) with [lists](../../slides/02-lists.html#/)
+  - Up next: [Numbers](../../slides/03-numbers.html#/)
+	  </script></section>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Compiling</h4><img class="stretch" src="http://imgs.xkcd.com/comics/compiling.png" title="&#39;Are you stealing those LCDs?&#39; &#39;Yeah, but I&#39;m doing it while my code compiles.&#39;" alt="Compiling"><p class="center"><a href="http://xkcd.com/303/">xkcd # 303</a></p>
+	  </section>
+
+          <section data-markdown><script type="text/template">
+## Pop Quiz!
+
+After having finished [Lab 2](../../labs/lab02/index.html) (lists), I think:
+
+1. It was easy!
+2. It was hard, but doable
+3. It was insane!  Where do you get off assigning this much work?
+4. I'm not talking to you.  Ever.  Again.
+          </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 8: Fri, Sep 10th
+- [Lab 2](../../labs/lab02/index.html) is done!  We all survived!
+  - We realize office hours was quite busy
+- [Lab 3](../../labs/lab03/index.html), and the tutorial, are ready
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+      - They are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (eventually) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+      - There is an office hours queue for you to use; please be sure to enter your SPECIFIC location
+    - Faculty office hours are M/F 9:30 am - 11:00 am (Bloomfield in Rice 402) and Wed noon - 1:30 pm (Floryan in Rice 203)
+    - Online office hours: aiming to start next week, will require pre-approval
+    - We are going to strictly limit the TAs to 5 minutes per student for in-person office hours
+- Course links are on the Collab landing page
+- Everybody has to sign the UNIX honor pledge -- the link is on the Collab landing page
+- Do you have an exam conflict?  If so, please submit a support request by the end of September letting us know!
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue (but probably not finish) with [lists](../../slides/02-lists.html#/)
+  - Up next: [Numbers](../../slides/03-numbers.html#/)
+	  </script></section>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Cautionary</h4><img class="stretch" src="http://imgs.xkcd.com/comics/cautionary.png" title="This really is a true story, and she doesn&#39;t know I put it in my comic because her wifi hasn&#39;t worked for weeks." alt="Cautionary"><p class="center"><a href="http://xkcd.com/456/">xkcd # 456</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 7: Wed, Sep 8th
+- [Lab 2](../../labs/lab02/index.html), and the tutorial, are ready
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+      - They are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (eventually) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+      - There is an office hours queue for you to use; please be sure to enter your SPECIFIC location
+    - Faculty office hours are M/F 9:30 am - 11:00 am (Bloomfield in Rice 402) and Wed noon - 1:30 pm (Floryan in Rice 203)
+    - Online office hours: aiming to start next week, will require pre-approval
+- Course links are on the Collab landing page
+- Everybody has to sign the UNIX honor pledge -- the link is on the Collab landing page
+- Do you have an exam conflict?  If so, please submit a support request by the end of September letting us know!
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue (and possibly finish) with [C++](../../slides/01-cpp.html#/)
+  - Up next: [lists](../../slides/02-lists.html#/)
+	  </script></section>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Compiler Complaint</h4><img class="stretch" src="http://imgs.xkcd.com/comics/compiler_complaint.png" title="Checking whether build environment is sane ... build environment is grinning and holding a spatula.  Guess not." alt="Compiler Complaint"><p class="center"><a href="http://xkcd.com/371/">xkcd # 371</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 6: Mon, Sep 6th
+- [Lab 2](../../labs/lab02/index.html), and the tutorial, are ready
+    - It's not the easiest lab, so please do not wait until the last minute to start.
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+      - They are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (eventually) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+      - There is an office hours queue for you to use; please be sure to enter your SPECIFIC location
+    - Faculty office hours are M/F 9:30 am - 11:00 am (Bloomfield in Rice 402) and Wed noon - 1:30 pm (Floryan in Rice 203)
+    - We are looking into online office hours
+- Course links are on the Collab landing page
+- Everybody has to sign the UNIX honor pledge -- the link is on the Collab landing page
+- Do you have an exam conflict?  If so, please submit a support request by the end of September letting us know!
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [C++](../../slides/01-cpp.html#/) which will take us to late this week
+	  </script></section>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Pointers</h4><img class="stretch" src="http://imgs.xkcd.com/comics/pointers.png" title="Every computer, at the unreachable memory address 0x-1, stores a secret.  I found it, and it is that all humans ar-- SEGMENTATION FAULT." alt="Pointers"><p class="center"><a href="http://xkcd.com/138/">xkcd # 138</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 5: Fri, Sep 3rd
+- [Lab 1](../../labs/lab01/index.html), is done!  Thoughts?
+- [Lab 2](../../labs/lab02/index.html), and the tutorial, are ready
+    - It's not the easiest lab, so please do not wait until the last minute to start...
+- Office hours are in full swing
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+      - They are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (eventually) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+      - There is an office hours queue for you to use
+    - Faculty office hours are M/F 9:30 am - 11:00 am (Bloomfield in Rice 402) and Wed noon - 1:30 pm (Floryan in Rice 203)
+- Support requests are up and running; sorry the system is so antiquated
+- Course links are on the Collab landing page
+- Everybody has to sign the UNIX honor pledge -- the link is on the Collab landing page
+- Do you have an exam conflict?  If so, please submit a support request letting us know!
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [C++](../../slides/01-cpp.html#/) which will take us into next week
+	  </script></section>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Donald Knuth</h4><img class="stretch" src="http://imgs.xkcd.com/comics/donald_knuth.png" title="His books were kinda intimidating; rappelling down through his skylight seemed like the best option." alt="Donald Knuth"><p class="center"><a href="http://xkcd.com/163/">xkcd # 163</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 4: Wed, Sep 1st
+- [Lab 1](../../labs/lab01/index.html), and the tutorial, is out
+    - The VirtualBox image should is avilable for download
+    - Do you have an M1 Mac?  If so, you can't run VirtualBox!
+- [Lab 2](../../labs/lab02/index.html), and the tutorial, are ready
+    - We'll post it on Twitter tomorrow
+	- This is not an easy lab, so don't wait until the last minute to start it!
+- Office hours have started
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+      - They are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (eventually) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+      - There is an office hours queue for you to use
+    - Faculty office hours are M/F 9:30 am - 11:00 am (Bloomfield in Rice 402) and Wed noon - 1:30 pm (Floryan in Rice 203)
+- Support requests are up and running; sorry the system is so antiquated
+- Course links
+	- All of the relevant links and course tools are in the [Collab workspace](https://collab.its.virginia.edu/portal/site/fd627000-7840-4f46-9ef9-b7f9ad42fe22/page/0871361e-be49-48c1-986c-161f85817fef)
+	- There was a request to not make the Collab links be pop-outs, but unfortunately we have to do that, as otherwise certain browsers block them
+- Everybody has to sign the UNIX honor pledge -- the link is on the Collab landing page
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [C++](../../slides/01-cpp.html#/) which will take us into next week
+	  </script></section>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Goto</h4><img class="stretch" src="http://imgs.xkcd.com/comics/goto.png" title="Neal Stephenson thinks it&#39;s cute to name his labels &#39;dengo&#39;" alt="goto"><p class="center"><a href="http://xkcd.com/292/">xkcd # 292</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 3: Mon, Aug 30th
+- Labs start this week!
+- Office hours have started
+    - TA office hours are 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+      - They are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (eventually) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+      - There is an office hours queue for you to use
+    - Faculty office hours are M/F 9:30 am - 11:00 am (Bloomfield in Rice 402) and Wed noon - 1:30 pm (Floryan in Rice 203)
+- Support requests are up and running; sorry the system is so antiquated
+- [Lab 1](../../labs/lab01/index.html), and the tutorial, is out
+    - The VirtualBox image should is avilable for download
+    - Do you have an M1 Mac?  If so, you can't run VirtualBox!
+- Course links
+	- All of the relevant links and course tools are in the [Collab workspace](https://collab.its.virginia.edu/portal/site/fd627000-7840-4f46-9ef9-b7f9ad42fe22/page/0871361e-be49-48c1-986c-161f85817fef)
+	- There was a request to not make the Collab links be pop-outs, but unfortunately we have to do that, as otherwise certain browsers block them
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- Interested in installing Linux?  We suggest Ubuntu; as always, back up your data first!
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [C++](../../slides/01-cpp.html#/) which will take us into next week
+	  </script></section>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Good Code</h4>
+<img class="stretch" src="http://imgs.xkcd.com/comics/good_code.png" title="You can either hang out in the Android Loop or the HURD loop." alt="Good Code">
+<p class="center"><a href="http://xkcd.com/844/">xkcd # 844</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 2: Fri, Aug 27th
+- TA office hours start this Sunday (Aug 29)
+    - The are in 5pm - 11pm on Sunday, Monday, Wednesday, and Thursday
+    - They are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (eventually) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+	- Faculty office hours are M/F 9:30 am - 11:00 am (Bloomfield in Rice 402) and Wed noon - 1:30 pm (Floryan in Rice 203)
+- Support requests will be up and running this weekend
+    - The link for them will be on the Collab landing page
+- [Lab 1](../../labs/lab01/index.html), and the tutorial, is out
+    - The VirtualBox image should be (is?) avilable for download...	
+- Do you have an M1 Mac?  If so, you can't run VirtualBox...
+- Course links
+    - Our twitter announcement feed is [@UVaCS2150](https://twitter.com/@UVaCS2150)
+	- The course content is available at https://uva-cs.github.io/pdr/
+	- All of these links and the course tools are in the [Collab workspace](https://collab.its.virginia.edu/portal/site/fd627000-7840-4f46-9ef9-b7f9ad42fe22/page/0871361e-be49-48c1-986c-161f85817fef)
+- [Anonymous feedback](https://collab.its.virginia.edu/x/JunIx3)!  It's through Collab
+- Interested in installing Linux?  We suggest Ubuntu; as always, back up your data first!
+- [Readings](../../docs/readings.html) are optional, and are posted in the git repo
+- The lecture recording from Wednesday is posted in Collab
+- Today we will finish the [course introduction](course-introduction.html#/) and start on [C++](../../slides/01-cpp.html#/)
+	  </script></section>
+
+	</section>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+      </div>
+
+    </div>
+
+<script src="../../slides/reveal.js/dist/reveal.js"></script>
+<script src="../../slides/reveal.js/plugin/zoom/zoom.js"></script>
+<script src="../../slides/reveal.js/plugin/notes/notes.js"></script>
+<script src="../../slides/reveal.js/plugin/search/search.js"></script>
+<script src="../../slides/reveal.js/plugin/markdown/markdown.js"></script>
+<script src="../../slides/reveal.js/plugin/highlight/highlight.js"></script>
+<script src="../../slides/reveal.js/plugin/math/math.js"></script>
+    <!-- You cannot, apparently, include this from another directory, hence why settings.js is reproduced here in full -->
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controlsTutorial: false,
+      controls: true,
+      progress: true,
+      history: true,
+      slideNumber: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+    hash: true,
+
+    math: {
+      mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+      config: 'TeX-AMS_HTML-full',
+      // pass other options into `MathJax.Hub.Config()`
+      TeX: { Macros: { RR: "{\\bf R}" } }
+    },
+
+    // Learn about plugins: https://revealjs.com/plugins/
+    plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ],
+
+      });
+    </script>
+
+  </body>
+</html>

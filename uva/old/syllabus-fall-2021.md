@@ -3,16 +3,16 @@ CS 2150: Program and Data Representation: Course Syllabus
 
 [Go up to the CS 2150 page][1] ([md][2])
 
-## Spring 2022
+## Fall 2021
 
 ### Instructors ###
 
-- [Mark Floryan][31] / [aaron@virginia.edu](mailto:mrft8@virginia.edu).  Office: Rice Hall, room 203. Office hours are TBA.
-- [Aaron Bloomfield][33] / [aaron@virginia.edu](mailto:aaron@virginia.edu).  Office: Rice Hall, room 402. Office hours are TBA.
+- [Mark Floryan][31] / [aaron@virginia.edu](mailto:mrft8@virginia.edu).  Office: Rice Hall, room 203. Office hours are Wednesdays from noon - 1:30 pm.
+- [Aaron Bloomfield][33] / [aaron@virginia.edu](mailto:aaron@virginia.edu).  Office: Rice Hall, room 402. Office hours are Mondays and Fridays from 9:30 am - 11:00 am.
 
 ### Course Info ###
 
-- Lectures: M/W/F noon-12:50 (Bloomfield) or 1:00-11:50 (Floryan), both in Maury 209
+- Lectures: M/W/F 11:00-10:50 (Floryan), 1:00-1:50 (Bloomfield), and 2:00-2:50 (Bloomfield)
 - Email: none; fill out a support request (not yet ready) instead
 - Office hours: schedule to be announced.  Any concerns that are not appropriate to be addressed then should be submitted via a support request (not yet ready).
 - Announcement feed: [\@UVaCS2150][34] and the [daily announcements slide set][15]; you are responsible for checking both
@@ -28,7 +28,7 @@ If you have any comments on the course - what is working, what is not working, w
 **Prerequisites:** Both of:
 
 - CS 2110 (Software Development Methods) or CS 2220 (Engineering Software) with a grade of C- or higher
-    - This is a strict pre-req, and no exceptions are ever allowed for not having taken that course
+    - This is a strict pre-req, and no execptions are ever allowed for not having taken that course
 - CS 2102 (Discrete Math) or CS 2120 (Discrete Mathematics and Theory 1) with a grade of C- or higher
     - CS 2120 can be taken as a co-req; see details about this in the [first slide set][11] (specifically, [here][12]).
 
