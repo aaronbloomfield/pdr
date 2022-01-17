@@ -66,12 +66,11 @@ The course grades are ***LIKELY*** to follow the standard decade curve: 90 and a
 
 **Exams:** There will be two midterm exams held during laboratory sessions (combined worth 30% of the final grade) and one final exam (worth 30% of the final grade). Note that we hope (but do not guarantee!) to have the first exam returned before the SEAS drop date.
 
-- Midterm Exam 1: Tuesday, September 28, during lab session
-- Midterm Exam 2: Tuesday, November 9, during lab session
-- Final Exam: Tuesday, December 14 from 7 p.m. to 10 p.m.
-    - This is a common exam time, and conflicts with other courses (ARCH 3240 & 7240; BIOL 2100; KOR 1010, 2010, & 3010; STAT 2120 & 3120)
-	    - It also conflicts with two other CS courses, but one is a pre-req (CS 2110) and the other (CS 4102) requires CS 2150, so you should not be in either course...
-    - Let us know by the end of September if you have a conflict (via a support request); we will deal with scheduling conflicts later in the semester
+- Midterm Exam 1: Tuesday, February 22th, during lab session
+- Midterm Exam 2: Tuesday, April 5th, during lab session
+- Final Exam: Tuesday, May 7th from 7 p.m. to 10 p.m.
+    - This is a common exam time, and conflicts with other courses (APMA 3110 & 3140, ECON 2020 (sections 001 & 002 only))
+    - Let us know by the end of January if you have a conflict (via a support request); we will deal with scheduling conflicts later in the semester
 
 ***YOU WILL HAVE TO BRING YOUR UVA ID TO ALL EXAMS!!!***
 
