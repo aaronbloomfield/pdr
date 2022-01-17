@@ -17,7 +17,7 @@ There are a number of links and other parts of this course that are **NOT** incl
 - The set of online tools, which can be accessed through Collab or [here][160] (not yet ready)
     - These tools are the [support requests][161] (not yet ready) tool and the [office hours queue][167] (not yet ready)
 - Email list archive, which is a Collab tool ([here](https://collab.its.virginia.edu/portal/directtool/fcfc91bb-22f0-4518-b35d-243d5356a53d/) is the direct link, although Collab login is required)
-- [Piazza][152]; Collab can log you in directly; the Collab tool link is [here](https://collab.its.virginia.edu/portal/directtool/b20f7be7-c432-4fe7-a28d-4a865e45c503/) (again, Collab login required)
+- Piazza; Collab can log you in directly; the Collab tool link is [here](https://collab.its.virginia.edu/portal/directtool/b20f7be7-c432-4fe7-a28d-4a865e45c503/) (again, Collab login required)
 - [Anonymous feedback](https://collab.its.virginia.edu/portal/directtool/bcc23af7-24a4-4f5d-a984-5ccb414eb894/)
 - All submission of assignments is via Gradescope, which can be accessed through Collab
 

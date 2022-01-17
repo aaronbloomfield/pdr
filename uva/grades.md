@@ -1,4 +1,4 @@
-Grading Explanations, Fall 2021
+Grading Explanations, Spring 2022
 =================================
 
 [Go up to the CS 2150 page](index.html) ([md](index.md))
