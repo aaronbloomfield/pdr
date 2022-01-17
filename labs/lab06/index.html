@@ -5,26 +5,55 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>PDR: Laboratory 6: Hashing</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../../markdown.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-laboratory-6-hashing">PDR: Laboratory 6: Hashing</h1>
-<p><a href="../index.html">Go up to the Labs table of contents page</a></p>
+<p><a href="../index.html">Go up to the Labs table of contents
+page</a></p>
 <h3 id="objective">Objective</h3>
-<p>The purpose of this lab is to gain experience using hash tables by building an interesting application.</p>
+<p>The purpose of this lab is to gain experience using hash tables by
+building an interesting application.</p>
 <h3 id="background">Background</h3>
-<p>A <a href="https://en.wikipedia.org/wiki/Hash_table">hash table</a> is a dictionary in which keys are mapped to array positions by a <em>hash function</em>. Having more than one key map to the same position is called a <em>collision</em>. There are many ways to resolve collisions, but they may be divided into two primary strategies: separate chaining and open addressing.</p>
+<p>A <a href="https://en.wikipedia.org/wiki/Hash_table">hash table</a>
+is a dictionary in which keys are mapped to array positions by a
+<em>hash function</em>. Having more than one key map to the same
+position is called a <em>collision</em>. There are many ways to resolve
+collisions, but they may be divided into two primary strategies:
+separate chaining and open addressing.</p>
 <h3 id="tutorial">Tutorial</h3>
-<p>Look over the first 6 sections (through and including ‘exit status’) of the <a href="https://en.wikibooks.org/wiki/Bash_Shell_Scripting">Wikibooks article on Bash Shell Scripting</a>. You will be writing a shell script during the in-lab, but you should probably start reading it before then. The remaining sections of that article will be the tutorial for the next lab, so feel free to read on, if you are interested.</p>
+<p>Look over the first 6 sections (through and including ‘exit status’)
+of the <a
+href="https://en.wikibooks.org/wiki/Bash_Shell_Scripting">Wikibooks
+article on Bash Shell Scripting</a>. You will be writing a shell script
+during the in-lab, but you should probably start reading it before then.
+The remaining sections of that article will be the tutorial for the next
+lab, so feel free to read on, if you are interested.</p>
 <h3 id="recommended-readings">Recommended Readings</h3>
 <ol type="1">
-<li>Learn how to use C++ file streams to read from data files. See the <a href="http://www.cplusplus.com/doc/tutorial/files/">Input/output with files article</a> on <a href="http://www.cplusplus.com/">cplusplus.com</a>. You can also see the code in the provided <a href="code/getWordInGrid.cpp.html">getWordInGrid.cpp</a> (<a href="code/getWordInGrid.cpp">src</a>) file which uses streams as well. You may want to use the <a href="http://www.cplusplus.com/reference/fstream/ifstream/">good()</a> method in the ifstream class – you can put it in a <code>while</code> loop: <code>while (foo.good())</code>.</li>
+<li>Learn how to use C++ file streams to read from data files. See the
+<a href="http://www.cplusplus.com/doc/tutorial/files/">Input/output with
+files article</a> on <a
+href="http://www.cplusplus.com/">cplusplus.com</a>. You can also see the
+code in the provided <a
+href="code/getWordInGrid.cpp.html">getWordInGrid.cpp</a> (<a
+href="code/getWordInGrid.cpp">src</a>) file which uses streams as well.
+You may want to use the <a
+href="http://www.cplusplus.com/reference/fstream/ifstream/">good()</a>
+method in the ifstream class – you can put it in a <code>while</code>
+loop: <code>while (foo.good())</code>.</li>
 </ol>
 <h2 id="procedure">Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
@@ -32,17 +61,33 @@
 <li>Create a word puzzle solver</li>
 <li>Files to download:
 <ul>
-<li>The 5 provided code files: <a href="code/getWordInGrid.cpp.html">getWordInGrid.cpp</a> (<a href="code/getWordInGrid.cpp">src</a>), <a href="code/primenumber.cpp.html">primenumber.cpp</a> (<a href="code/primenumber.cpp">src</a>), <a href="code/timer.cpp.html">timer.cpp</a> (<a href="code/timer.cpp">src</a>), <a href="code/timer.h.html">timer.h</a> (<a href="code/timer.h">src</a>), <a href="code/timer_test.cpp.html">timer_test.cpp</a> (<a href="code/timer_test.cpp">src</a>). These can also be downloaded all at once via the <a href="code.zip">code.zip</a> file.</li>
-<li>The data files in the labs/lab06/data/ directory. These can also be downloaded all at once via the <a href="data.zip">data.zip</a> file.</li>
+<li>The 5 provided code files: <a
+href="code/getWordInGrid.cpp.html">getWordInGrid.cpp</a> (<a
+href="code/getWordInGrid.cpp">src</a>), <a
+href="code/primenumber.cpp.html">primenumber.cpp</a> (<a
+href="code/primenumber.cpp">src</a>), <a
+href="code/timer.cpp.html">timer.cpp</a> (<a
+href="code/timer.cpp">src</a>), <a href="code/timer.h.html">timer.h</a>
+(<a href="code/timer.h">src</a>), <a
+href="code/timer_test.cpp.html">timer_test.cpp</a> (<a
+href="code/timer_test.cpp">src</a>). These can also be downloaded all at
+once via the <a href="code.zip">code.zip</a> file.</li>
+<li>The data files in the labs/lab06/data/ directory. These can also be
+downloaded all at once via the <a href="data.zip">data.zip</a>
+file.</li>
 </ul></li>
-<li>Files to submit: Makefile, wordPuzzle.cpp, timer.h/cpp, hashTable.h/cpp</li>
+<li>Files to submit: Makefile, wordPuzzle.cpp, timer.h/cpp,
+hashTable.h/cpp</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
 <ol type="1">
 <li>Learn about the <code>-O2</code> clang++ optimization flag</li>
-<li>Compare your output with the expected output using output redirection, pipes, and Unix commands</li>
-<li>Test your program with the 250x250 grid using words.txt, and the 300x300 grid using words2.txt</li>
-<li>Create a shell script to calculate the average running time of your program</li>
+<li>Compare your output with the expected output using output
+redirection, pipes, and Unix commands</li>
+<li>Test your program with the 250x250 grid using words.txt, and the
+300x300 grid using words2.txt</li>
+<li>Create a shell script to calculate the average running time of your
+program</li>
 <li>Files to download: none</li>
 <li>Files to submit: averagetime.sh</li>
 </ol>
@@ -50,13 +95,21 @@
 <ol type="1">
 <li>Optimize your implementation of the word puzzle solver</li>
 <li>Files to download: none</li>
-<li>Files to submit: Makefile, wordPuzzle.cpp, timer.h/cpp, hashTable.h/cpp</li>
+<li>Files to submit: Makefile, wordPuzzle.cpp, timer.h/cpp,
+hashTable.h/cpp</li>
 </ol>
 <hr />
 <h2 id="word-puzzle-problem">Word Puzzle Problem</h2>
-<p>Consider the problem called <a href="https://en.wikipedia.org/wiki/Word_search">word search</a>, illustrated in the diagram below.</p>
-<p><a href="https://en.wikipedia.org/wiki/File:Wordsearch.svg"><img src="500px-Wordsearch.svg.png" alt="word search puzzle" /></a></p>
-<p>In this 10x10 grid of letters, the goal is to find words in the puzzle in any of the eight directions. The word circled in red is in the south-east direction. Words can go backward (although none do in this example), but they cannot “wrap around” from one side to the other (or from top to bottom, etc.).</p>
+<p>Consider the problem called <a
+href="https://en.wikipedia.org/wiki/Word_search">word search</a>,
+illustrated in the diagram below.</p>
+<p><a href="https://en.wikipedia.org/wiki/File:Wordsearch.svg"><img
+src="500px-Wordsearch.svg.png" alt="word search puzzle" /></a></p>
+<p>In this 10x10 grid of letters, the goal is to find words in the
+puzzle in any of the eight directions. The word circled in red is in the
+south-east direction. Words can go backward (although none do in this
+example), but they cannot “wrap around” from one side to the other (or
+from top to bottom, etc.).</p>
 <p>A string of letters from the grid depends on four values:</p>
 <ul>
 <li>The <em>x</em> value of the starting letter</li>
@@ -67,38 +120,88 @@
 <hr />
 <h2 id="pre-lab-1">Pre-lab</h2>
 <h3 id="overview">Overview</h3>
-<p>For this lab you need to implement a solution to the word puzzle problem described above: given a dictionary and word search grid, your program should output all the words in the grid that are in the dictionary.</p>
-<p>There are two main parts to this lab: creating a hash table and writing a word search solver. A high-level specification is provided for the word search solver and the hash table it must use; more details are available in the rest of the pre-lab section.</p>
-<p>Your word search solver, implemented in <code>wordPuzzle.cpp</code>, should:</p>
+<p>For this lab you need to implement a solution to the word puzzle
+problem described above: given a dictionary and word search grid, your
+program should output all the words in the grid that are in the
+dictionary.</p>
+<p>There are two main parts to this lab: creating a hash table and
+writing a word search solver. A high-level specification is provided for
+the word search solver and the hash table it must use; more details are
+available in the rest of the pre-lab section.</p>
+<p>Your word search solver, implemented in <code>wordPuzzle.cpp</code>,
+should:</p>
 <ul>
-<li>Take in a dictionary file and grid file, in that order, using command line parameters</li>
+<li>Take in a dictionary file and grid file, in that order, using
+command line parameters</li>
 <li>Read in a dictionary and store its words in a hash table
 <ul>
-<li>Which is implemented without using a vector of vectors or any STL hash table</li>
+<li>Which is implemented without using a vector of vectors or any STL
+hash table</li>
 </ul></li>
-<li>Read in a word search grid no larger than 500x500 and store it in an appropriate data structure</li>
-<li>Output every word of length three or greater and its location in the grid
+<li>Read in a word search grid no larger than 500x500 and store it in an
+appropriate data structure</li>
+<li>Output every word of length three or greater and its location in the
+grid
 <ul>
 <li>The required output format is described below</li>
 </ul></li>
 </ul>
-<p>We are not as interested in how fast your program runs for the pre-lab; leave any optimizations for the post-lab.</p>
+<p>We are not as interested in how fast your program runs for the
+pre-lab; leave any optimizations for the post-lab.</p>
 <h3 id="storing-the-dictionary">Storing the dictionary</h3>
-<p>As there may be a large number of words in the dictionary, you will have to store those words in a hash table to facilitate efficient lookup.</p>
-<p>You <strong>must</strong> write your own hash table for this lab. We leave the implementation up to you, as long as you do not use a vector of vectors or any STL hash table.</p>
+<p>As there may be a large number of words in the dictionary, you will
+have to store those words in a hash table to facilitate efficient
+lookup.</p>
+<p>You <strong>must</strong> write your own hash table for this lab. We
+leave the implementation up to you, as long as you do not use a vector
+of vectors or any STL hash table.</p>
 <h3 id="manipulating-the-grid">Manipulating the grid</h3>
-<p><a href="code/getWordInGrid.cpp.html">getWordInGrid.cpp</a> (<a href="code/getWordInGrid.cpp">src</a>) provides two useful functions: <code>readInGrid()</code> and <code>getWordInGrid()</code>. The former reads in a grid file using C++ streams; the latter returns a word in a 2D grid of letters in a given direction.</p>
-<p>You should make sure you understand how these functions work, as you will most likely be using them in your final program.</p>
+<p><a href="code/getWordInGrid.cpp.html">getWordInGrid.cpp</a> (<a
+href="code/getWordInGrid.cpp">src</a>) provides two useful functions:
+<code>readInGrid()</code> and <code>getWordInGrid()</code>. The former
+reads in a grid file using C++ streams; the latter returns a word in a
+2D grid of letters in a given direction.</p>
+<p>You should make sure you understand how these functions work, as you
+will most likely be using them in your final program.</p>
 <h3 id="timing">Timing</h3>
-<p>We are interested in timing how long it takes to find all the valid words in a grid, not including the time it took to read in the dictionary and grid files or perform any other sort of pre-processing. You can use the code provided in <a href="code/timer.cpp.html">timer.cpp</a> (<a href="code/timer.cpp">src</a>), <a href="code/timer.h.html">timer.h</a> (<a href="code/timer.h">src</a>), and <a href="code/timer_test.cpp.html">timer_test.cpp</a> (<a href="code/timer_test.cpp">src</a>) to time the relevant portion of your program. Although you don’t need to print out the timing for the pre and post-labs, it is still helpful to time your solver to help measure the effectiveness of any optimizations you may implement.</p>
+<p>We are interested in timing how long it takes to find all the valid
+words in a grid, not including the time it took to read in the
+dictionary and grid files or perform any other sort of pre-processing.
+You can use the code provided in <a
+href="code/timer.cpp.html">timer.cpp</a> (<a
+href="code/timer.cpp">src</a>), <a href="code/timer.h.html">timer.h</a>
+(<a href="code/timer.h">src</a>), and <a
+href="code/timer_test.cpp.html">timer_test.cpp</a> (<a
+href="code/timer_test.cpp">src</a>) to time the relevant portion of your
+program. Although you don’t need to print out the timing for the pre and
+post-labs, it is still helpful to time your solver to help measure the
+effectiveness of any optimizations you may implement.</p>
 <h3 id="other-details">Other details</h3>
-<p><strong>Input grids:</strong> Each input grid file has three lines. The first line is the number of rows, and the second is the number of columns, both representable using integers. The third line is the grid data, represented by strictly alphabetical characters with no spaces (i.e. it will contain <code>rows * cols</code> characters). Example grids are available in the labs/lab06/data/ directory.</p>
-<p><strong>Dictionary files:</strong> Dictionaries contain one word per line. The longest word in our data files is 22 letters. Words which contain non-alphabetical characters may occur in the dictionary, but would never appear in a valid grid. Your program should be able to handle dictionaries with such words, although you are not required to put them into the hash table.</p>
-<p><strong>Valid words:</strong> Your program should <em>only</em> report words with three or more letters – there are simply too many hits if one and two letter words are allowed, and it’s difficult to judge correctness, even on very small word searches.</p>
-<p><strong>Case sensitivity:</strong> Searches are <em>case-sensitive</em>. Thus, if the word in the dictionary is ‘Foo’, it should not register a match to the text ‘foo’ in the grid.</p>
-<p><strong>Duplicates:</strong> If a word occurs more than once in a grid, then each instance should be treated as a separate word.</p>
+<p><strong>Input grids:</strong> Each input grid file has three lines.
+The first line is the number of rows, and the second is the number of
+columns, both representable using integers. The third line is the grid
+data, represented by strictly alphabetical characters with no spaces
+(i.e. it will contain <code>rows * cols</code> characters). Example
+grids are available in the labs/lab06/data/ directory.</p>
+<p><strong>Dictionary files:</strong> Dictionaries contain one word per
+line. The longest word in our data files is 22 letters. Words which
+contain non-alphabetical characters may occur in the dictionary, but
+would never appear in a valid grid. Your program should be able to
+handle dictionaries with such words, although you are not required to
+put them into the hash table.</p>
+<p><strong>Valid words:</strong> Your program should <em>only</em>
+report words with three or more letters – there are simply too many hits
+if one and two letter words are allowed, and it’s difficult to judge
+correctness, even on very small word searches.</p>
+<p><strong>Case sensitivity:</strong> Searches are
+<em>case-sensitive</em>. Thus, if the word in the dictionary is ‘Foo’,
+it should not register a match to the text ‘foo’ in the grid.</p>
+<p><strong>Duplicates:</strong> If a word occurs more than once in a
+grid, then each instance should be treated as a separate word.</p>
 <h3 id="sample-execution-run">Sample Execution Run</h3>
-<p>Below is a sample execution run to show you the input and output format we are looking for. The output shown is a result of running <code>./a.out words.txt 4x7.grid.txt</code></p>
+<p>Below is a sample execution run to show you the input and output
+format we are looking for. The output shown is a result of running
+<code>./a.out words.txt 4x7.grid.txt</code></p>
 <pre><code>N (3, 2):       text
 E (0, 3):       sod
 N (2, 5):       fad
@@ -109,121 +212,311 @@ W (2, 4):       tee
 NE(2, 4):       tat
 SW(0, 6):       tat
 9 words found</code></pre>
-<p>The exact spacing and order that the words are found in does not matter, as we can easily (and automatically) ignore that when comparing your output to the desired output. Everything else should all be the same. The in-lab discusses how to directly compare your output to the expected output (while ignoring spaces and word order) - see the “Input and Output” section of the in-lab.</p>
+<p>The exact spacing and order that the words are found in does not
+matter, as we can easily (and automatically) ignore that when comparing
+your output to the desired output. Everything else should all be the
+same. The in-lab discusses how to directly compare your output to the
+expected output (while ignoring spaces and word order) - see the “Input
+and Output” section of the in-lab.</p>
 <h3 id="submission">Submission</h3>
-<p>You should submit any files required for your word puzzle solver to run as well as a Makefile that produces an <code>a.out</code> executable.</p>
+<p>You should submit any files required for your word puzzle solver to
+run as well as a Makefile that produces an <code>a.out</code>
+executable.</p>
 <h3 id="hints">Hints</h3>
 <h4 id="separation-of-concerns">Separation of concerns</h4>
-<p>Given the multi-faceted nature of this lab, it is helpful to only focus on one portion at the time. Start out by using the STL hashtable <a href="https://en.cppreference.com/w/cpp/container/unordered_set">unordered_set</a> to verify that your word search works, and then work on writing your own hash table implementation to replace it.</p>
-<p>The last thing you want is to be staring at incorrect output and not knowing whether that’s because of your solver or your hashtable!</p>
-<h4 id="that-hint-didnt-help-i-still-have-no-clue-how-to-start">That hint didn’t help, I still have no clue how to start</h4>
+<p>Given the multi-faceted nature of this lab, it is helpful to only
+focus on one portion at the time. Start out by using the STL hashtable
+<a
+href="https://en.cppreference.com/w/cpp/container/unordered_set">unordered_set</a>
+to verify that your word search works, and then work on writing your own
+hash table implementation to replace it.</p>
+<p>The last thing you want is to be staring at incorrect output and not
+knowing whether that’s because of your solver or your hashtable!</p>
+<h4 id="that-hint-didnt-help-i-still-have-no-clue-how-to-start">That
+hint didn’t help, I still have no clue how to start</h4>
 <p>Take it one step at a time.</p>
-<p>Start off by reading in the dictionary and printing out all of its words. Then store those words in a hashtable (probably the STL one for now). Great, you have a dictionary now.</p>
-<p>Next, read in the grid (use the functions in <code>getWordInGrid.cpp</code> to help you!). Plan out how to use the dictionary to find all the valid words in the grid. There are four variables that control what word is returned – what does that imply in terms of loops?</p>
+<p>Start off by reading in the dictionary and printing out all of its
+words. Then store those words in a hashtable (probably the STL one for
+now). Great, you have a dictionary now.</p>
+<p>Next, read in the grid (use the functions in
+<code>getWordInGrid.cpp</code> to help you!). Plan out how to use the
+dictionary to find all the valid words in the grid. There are four
+variables that control what word is returned – what does that imply in
+terms of loops?</p>
 <p>At this point, hopefully you have enough to get you going.</p>
 <h4 id="storing-the-grid">Storing the grid</h4>
-<p>Creating a dynamic 2D array in C++ is more difficult than it should be – one solution is to create a vector of vectors, but that is not the most efficient means to do it. For this lab, you can just create a 500x500 static array, and can assume that you will not have your program run on larger input grids. This is not very elegant, but it will work until we go over dynamic array creation in lecture.</p>
+<p>Creating a dynamic 2D array in C++ is more difficult than it should
+be – one solution is to create a vector of vectors, but that is not the
+most efficient means to do it. For this lab, you can just create a
+500x500 static array, and can assume that you will not have your program
+run on larger input grids. This is not very elegant, but it will work
+until we go over dynamic array creation in lecture.</p>
 <h4 id="command-line-parameters">Command-line parameters</h4>
-<p>Your program must be able to run successfully if started with <code>./a.out &lt;dictionary_file&gt; &lt;grid_file&gt;</code> and no input.</p>
-<p>See the <a href="../../slides/04-arrays-bigoh.html">slide set on arrays</a> if you need a refresher on command-line parameters; you can also see the <a href="../../slides/code/04-arrays-bigoh/cmdlineparams.cpp.html">cmdlineparams.cpp</a> (<a href="../../slides/code/04-arrays-bigoh/cmdlineparams.cpp">src</a>) file.</p>
+<p>Your program must be able to run successfully if started with
+<code>./a.out &lt;dictionary_file&gt; &lt;grid_file&gt;</code> and no
+input.</p>
+<p>See the <a href="../../slides/04-arrays-bigoh.html">slide set on
+arrays</a> if you need a refresher on command-line parameters; you can
+also see the <a
+href="../../slides/code/04-arrays-bigoh/cmdlineparams.cpp.html">cmdlineparams.cpp</a>
+(<a href="../../slides/code/04-arrays-bigoh/cmdlineparams.cpp">src</a>)
+file.</p>
 <h4 id="hash-table-sizes">Hash table sizes</h4>
-<p>As discussed in lecture, a hash table needs to be a prime number in size in order to work. You can adapt the code in the <a href="code/primenumber.cpp.html">primenumber.cpp</a> (<a href="code/primenumber.cpp">src</a>) file to determine the next highest prime number (of course, the next highest prime number is determined after you double the size of your original hash table).</p>
-<p>Your program will need to handle input dictionaries of various sizes and create hash tables of the appropriate size. To get the program working the first time, you can just hard code a prime number table size. But at some point, you will have to handle different size hash tables.</p>
+<p>As discussed in lecture, a hash table needs to be a prime number in
+size in order to work. You can adapt the code in the <a
+href="code/primenumber.cpp.html">primenumber.cpp</a> (<a
+href="code/primenumber.cpp">src</a>) file to determine the next highest
+prime number (of course, the next highest prime number is determined
+after you double the size of your original hash table).</p>
+<p>Your program will need to handle input dictionaries of various sizes
+and create hash tables of the appropriate size. To get the program
+working the first time, you can just hard code a prime number table
+size. But at some point, you will have to handle different size hash
+tables.</p>
 <ul>
-<li>One option is to implement a <code>rehash()</code> function that will double the size of the array, hash all the old values into the new table, and then remove the old table.</li>
-<li>A second option is to do two passes through the dictionary file. The first time you count the number of elements, use that to create an appropriate sized hash table, and the second time through the dictionary file you insert all the words into the table itself.</li>
+<li>One option is to implement a <code>rehash()</code> function that
+will double the size of the array, hash all the old values into the new
+table, and then remove the old table.</li>
+<li>A second option is to do two passes through the dictionary file. The
+first time you count the number of elements, use that to create an
+appropriate sized hash table, and the second time through the dictionary
+file you insert all the words into the table itself.</li>
 </ul>
 <hr />
 <h2 id="in-lab-1">In-lab</h2>
 <h3 id="the--o2-flag">The <code>-O2</code> flag</h3>
-<p>There are many times when we want our executable program to run as fast as possible. An example of this is the current lab – as we are testing our programs for speed (and we want them to run fast), we want to tell the compiler to write an optimized executable. To do this, we specify the ‘-O2’ flag, short for “optimization level 2” (capital O). There are multiple optimization levels that clang++ provides, each with benefits and drawbacks, but we will be using ‘-O2’ for this lab. To compile a program with this optimization level, we would enter:</p>
+<p>There are many times when we want our executable program to run as
+fast as possible. An example of this is the current lab – as we are
+testing our programs for speed (and we want them to run fast), we want
+to tell the compiler to write an optimized executable. To do this, we
+specify the ‘-O2’ flag, short for “optimization level 2” (capital O).
+There are multiple optimization levels that clang++ provides, each with
+benefits and drawbacks, but we will be using ‘-O2’ for this lab. To
+compile a program with this optimization level, we would enter:</p>
 <pre><code>clang++ -O2 -Wall wordPuzzle.cpp timer.cpp hashTable.cpp</code></pre>
-<p>If we wanted to use the -c flag (such as through a Makefile), then the commands would be:</p>
+<p>If we wanted to use the -c flag (such as through a Makefile), then
+the commands would be:</p>
 <pre><code>clang++ -O2 -c wordPuzzle.cpp
 clang++ -O2 -c timer.cpp
 clang++ -O2 -c hashTable.cpp
 clang++ -O2 wordPuzzle.o timer.o hashTable.o</code></pre>
-<p>Note that on this last one, that the -O2 flag must be used on each of the individual compilations as well as the final link. Thus, when put into a Makefile, you should make your CXXFLAGS variable include ‘-O2’ so that it applies to all compilations.</p>
-<p>We could tell the compiler to always use the -O2 flag, but there are some disadvantages to doing so. Debugging the program is much harder with an optimized executable – much of the debugging information is removed to improve the speed. The compiler also takes longer to compile the program when optimizing. Thus, programmers usually don’t use the -O2 flag until they know the program works and want to start focusing on performance.</p>
-<p>Try running your program both with and without the -O2 flag. Do you notice a difference in the timed speed of the program? Our test program decreased in execution time from about 15 seconds to 12 seconds with the -O2 flag.</p>
+<p>Note that on this last one, that the -O2 flag must be used on each of
+the individual compilations as well as the final link. Thus, when put
+into a Makefile, you should make your CXXFLAGS variable include ‘-O2’ so
+that it applies to all compilations.</p>
+<p>We could tell the compiler to always use the -O2 flag, but there are
+some disadvantages to doing so. Debugging the program is much harder
+with an optimized executable – much of the debugging information is
+removed to improve the speed. The compiler also takes longer to compile
+the program when optimizing. Thus, programmers usually don’t use the -O2
+flag until they know the program works and want to start focusing on
+performance.</p>
+<p>Try running your program both with and without the -O2 flag. Do you
+notice a difference in the timed speed of the program? Our test program
+decreased in execution time from about 15 seconds to 12 seconds with the
+-O2 flag.</p>
 <h3 id="input-and-output">Input and Output</h3>
-<p>When we are running the programs, we will want to make sure that they are reporting the same results. To do so, we will need to save the output into a file, and then make sure that file matches the sample input file.</p>
-<p>To redirect output to a file, we enter the following command (we’ve seen output redirection before – in <a href="../../tutorials/03-04-more-unix/unix3.html">section 3 of the first Unix tutorial</a> – so this should be familiar material).</p>
+<p>When we are running the programs, we will want to make sure that they
+are reporting the same results. To do so, we will need to save the
+output into a file, and then make sure that file matches the sample
+input file.</p>
+<p>To redirect output to a file, we enter the following command (we’ve
+seen output redirection before – in <a
+href="../../tutorials/03-04-more-unix/unix3.html">section 3 of the first
+Unix tutorial</a> – so this should be familiar material).</p>
 <pre><code>./a.out words2.txt 300x300.grid.txt &gt; output.txt</code></pre>
-<p>Recall that this command will <strong>OVERWRITE</strong> output.txt (if it exists), and save all the output from the executable into that file. This program does not ask for input; if it did, we would not see the prompt, but would still have to provide the input.</p>
-<p>Once the program is completed, we will need to see if that file is the same as the sample input. To do so, enter the following command. We’ll assume, for this example, that we are using the 300x300 grid, and words2.txt.</p>
+<p>Recall that this command will <strong>OVERWRITE</strong> output.txt
+(if it exists), and save all the output from the executable into that
+file. This program does not ask for input; if it did, we would not see
+the prompt, but would still have to provide the input.</p>
+<p>Once the program is completed, we will need to see if that file is
+the same as the sample input. To do so, enter the following command.
+We’ll assume, for this example, that we are using the 300x300 grid, and
+words2.txt.</p>
 <pre><code># Use `man diff` to learn more about the diff command
 diff output.txt 300x300.words2.out.txt</code></pre>
-<p>This will examine the two files byte-by-byte, and look for differences. If there are no differences, then <code>diff</code> will not print out ANY output. If there are differences, then they will be printed to the screen. This means that if <code>diff</code> prints anything, then your program is NOT producing the same results as we are expecting. All hope is not lost, though! If you look at the two files (you can load them up both in Emacs), it may very well be that the difference is in formatting – you use two spaces, we use one space, for example.</p>
-<p>Since we don’t care about spacing, you can provide the <code>-w</code> flag to <code>diff</code> to have it ignore all whitespace.</p>
-<p>If the files are not sorted the same – meaning that the words listed are the same, but in a different order – then diff will report differences between the files. You can use the Unix <code>sort</code> command to sort BOTH files before comparison to fix this:</p>
+<p>This will examine the two files byte-by-byte, and look for
+differences. If there are no differences, then <code>diff</code> will
+not print out ANY output. If there are differences, then they will be
+printed to the screen. This means that if <code>diff</code> prints
+anything, then your program is NOT producing the same results as we are
+expecting. All hope is not lost, though! If you look at the two files
+(you can load them up both in Emacs), it may very well be that the
+difference is in formatting – you use two spaces, we use one space, for
+example.</p>
+<p>Since we don’t care about spacing, you can provide the
+<code>-w</code> flag to <code>diff</code> to have it ignore all
+whitespace.</p>
+<p>If the files are not sorted the same – meaning that the words listed
+are the same, but in a different order – then diff will report
+differences between the files. You can use the Unix <code>sort</code>
+command to sort BOTH files before comparison to fix this:</p>
 <pre><code># Pipe the result of your program execution to `sort`, and then redirect that to output.txt
 ./a.out words2.txt 300x300.grid.txt | sort &gt; output.txt
 sort 300x300.words2.out.txt &gt; words2.sorted.out.txt
 diff output.txt words2.sorted.out.txt</code></pre>
-<p>If there are a lot of differences, then you should run your program on a small grid with the smaller word file (words2.txt). Once you solve the differences with the smaller grid file and word file, most of the differences with the larger grid/word files should disappear.</p>
+<p>If there are a lot of differences, then you should run your program
+on a small grid with the smaller word file (words2.txt). Once you solve
+the differences with the smaller grid file and word file, most of the
+differences with the larger grid/word files should disappear.</p>
 <h3 id="shell-scripting">Shell Scripting</h3>
-<p>Through the various programming languages we’ve seen (Java, C++, etc.), we can make a computer do many things. Yet there are still limitations to what we can do in these languages. How could you get a directory listing in Java, for example? Or easily invoke Unix commands from C++? While these are certainly possible, they are often difficult to accomplish.</p>
-<p>Programmers often have a need to do these sorts of things. For example, a script that we wrote takes all the submissions made to gradescope, compiles and executes them, saves the execution output to various files and checks the results for correctness. This allows the compilation, execution, and grading of your submissions to be automated.</p>
-<p>The <em>shell</em> is the command-line interface that you use in the terminal. There are many shells out there, some of the more popular being bash, zsh, and csh. Bash is the standard shell that the vast majority of shell scripts are written in, and is the shell we’ll be using for this tutorial.</p>
-<p>The original Unix shell was written by Stephen Bourne and released in 1978. It was just called ‘sh’, which is short for ‘shell’. In 1987, Brian Fox updated the shell, and decided to name it ‘Bourne-again shell’, a play on the original author’s name. Hence the name of ‘bash’.</p>
-<p>A <em>shell script</em>, then, is a series of commands for the shell to execute. Shell scripts started off as just a way to have a series of simple commands in one place. Over time, additional functionality was added to these scripts, mostly the things we are used to in programming languages, such as variables and control structures (<code>for</code> and <code>while</code> loops, <code>if</code> and <code>case</code> conditionals, etc.). Today, shell scripts are a very powerful programming language that one can use to do many things.</p>
-<p>Shell scripts are useful when one needs to call a large number of Unix commands (such as the aforementioned compilation/execution example). Significant computation, such as finding words in a word puzzle, or a lot of arithmetic, are not well suited to shell scripts.</p>
+<p>Through the various programming languages we’ve seen (Java, C++,
+etc.), we can make a computer do many things. Yet there are still
+limitations to what we can do in these languages. How could you get a
+directory listing in Java, for example? Or easily invoke Unix commands
+from C++? While these are certainly possible, they are often difficult
+to accomplish.</p>
+<p>Programmers often have a need to do these sorts of things. For
+example, a script that we wrote takes all the submissions made to
+gradescope, compiles and executes them, saves the execution output to
+various files and checks the results for correctness. This allows the
+compilation, execution, and grading of your submissions to be
+automated.</p>
+<p>The <em>shell</em> is the command-line interface that you use in the
+terminal. There are many shells out there, some of the more popular
+being bash, zsh, and csh. Bash is the standard shell that the vast
+majority of shell scripts are written in, and is the shell we’ll be
+using for this tutorial.</p>
+<p>The original Unix shell was written by Stephen Bourne and released in
+1978. It was just called ‘sh’, which is short for ‘shell’. In 1987,
+Brian Fox updated the shell, and decided to name it ‘Bourne-again
+shell’, a play on the original author’s name. Hence the name of
+‘bash’.</p>
+<p>A <em>shell script</em>, then, is a series of commands for the shell
+to execute. Shell scripts started off as just a way to have a series of
+simple commands in one place. Over time, additional functionality was
+added to these scripts, mostly the things we are used to in programming
+languages, such as variables and control structures (<code>for</code>
+and <code>while</code> loops, <code>if</code> and <code>case</code>
+conditionals, etc.). Today, shell scripts are a very powerful
+programming language that one can use to do many things.</p>
+<p>Shell scripts are useful when one needs to call a large number of
+Unix commands (such as the aforementioned compilation/execution
+example). Significant computation, such as finding words in a word
+puzzle, or a lot of arithmetic, are not well suited to shell
+scripts.</p>
 <h3 id="average-running-time">Average Running Time</h3>
-<p>Write a shell script <code>averagetime.sh</code> that will prompt the user for the dictionary and grid file names used by your word puzzle executable, which must be called <code>a.out</code>. It will then run the program five times using those parameters. It will record the time of each execution run, and, once the runs are completed, print out the average run time. Note that you have not yet seen conditions (<code>if</code> or <code>case</code>) or loops (<code>for</code> or <code>while</code>) in shell scripts, so we do not expect your script to have either of these – you should just have 5 separate commands without a loop.</p>
-<p>Modify your word puzzle program to print out the total time taken as the last line of output. Floating point arithmetic in bash is quite complicated, so try to use integers when possible – you may want to multiply the result from <code>Timer::getTime()</code> by 1000 to obtain the number of milliseconds taken.</p>
-<p>You can then capture that line by piping it through the <code>tail -1</code> command – the following line would run the program, only keep the last line, and save that output to a variable.</p>
+<p>Write a shell script <code>averagetime.sh</code> that will prompt the
+user for the dictionary and grid file names used by your word puzzle
+executable, which must be called <code>a.out</code>. It will then run
+the program five times using those parameters. It will record the time
+of each execution run, and, once the runs are completed, print out the
+average run time. Note that you have not yet seen conditions
+(<code>if</code> or <code>case</code>) or loops (<code>for</code> or
+<code>while</code>) in shell scripts, so we do not expect your script to
+have either of these – you should just have 5 separate commands without
+a loop.</p>
+<p>Modify your word puzzle program to print out the total time taken as
+the last line of output. Floating point arithmetic in bash is quite
+complicated, so try to use integers when possible – you may want to
+multiply the result from <code>Timer::getTime()</code> by 1000 to obtain
+the number of milliseconds taken.</p>
+<p>You can then capture that line by piping it through the <code>tail
+-1</code> command – the following line would run the program, only keep
+the last line, and save that output to a variable.</p>
 <pre><code>RUNNING_TIME=`./a.out | tail -1`</code></pre>
-<p>The back quote <code>`</code> tells bash to execute whatever is in between the quotes rather than treating it as a string. It is usually located right below the Escape key on a keyboard.</p>
-<p>Armed with this, the rest of the required concepts for the shell script are in first six sections of the article.</p>
-<p>As you are going through the tutorial, if there is a Unix command that you do not know (or you once knew and have since forgotten), you can find out more information about that command by entering <code>man command</code> at the Unix prompt. This brings up the manual for that command, including all of the command-line parameters.</p>
-<p>Your script should have comments (anything on a line after a ‘#’ is a comment).</p>
-<p>Below are a few notes to keep in mind when writing your shell script. Bash is a very powerful language, but it can be rather finicky and unforgiving with syntax.</p>
+<p>The back quote <code>`</code> tells bash to execute whatever is in
+between the quotes rather than treating it as a string. It is usually
+located right below the Escape key on a keyboard.</p>
+<p>Armed with this, the rest of the required concepts for the shell
+script are in first six sections of the article.</p>
+<p>As you are going through the tutorial, if there is a Unix command
+that you do not know (or you once knew and have since forgotten), you
+can find out more information about that command by entering <code>man
+command</code> at the Unix prompt. This brings up the manual for that
+command, including all of the command-line parameters.</p>
+<p>Your script should have comments (anything on a line after a ‘#’ is a
+comment).</p>
+<p>Below are a few notes to keep in mind when writing your shell script.
+Bash is a very powerful language, but it can be rather finicky and
+unforgiving with syntax.</p>
 <ul>
-<li>The shell script takes two inputs (dictionary file and grid file), in that order; no command-line parameters.</li>
-<li>Your program should be called <code>averagetime.sh</code>, and should have <code>#!/bin/bash</code> as the very first line of the script
+<li>The shell script takes two inputs (dictionary file and grid file),
+in that order; no command-line parameters.</li>
+<li>Your program should be called <code>averagetime.sh</code>, and
+should have <code>#!/bin/bash</code> as the very first line of the
+script
 <ul>
-<li>If you don’t put the <code>#!/bin/bash</code>, it will use the wrong shell, and your program won’t work properly!</li>
+<li>If you don’t put the <code>#!/bin/bash</code>, it will use the wrong
+shell, and your program won’t work properly!</li>
 </ul></li>
-<li>When setting variables, do not have spaces around the equals sign</li>
-<li>Keep in mind that to grab program output (such as the output of the binary program), you use back quotes (`)</li>
-<li>To execute your script, you can just enter <code>./averagetime.sh</code>. If your computer denies you permission, remind it who’s boss and put it in its place with <code>chmod +x averagetime.sh</code>. This tells your Unix system that averagetime.sh is a program that can be executed (remember chmod?).</li>
+<li>When setting variables, do not have spaces around the equals
+sign</li>
+<li>Keep in mind that to grab program output (such as the output of the
+binary program), you use back quotes (`)</li>
+<li>To execute your script, you can just enter
+<code>./averagetime.sh</code>. If your computer denies you permission,
+remind it who’s boss and put it in its place with <code>chmod +x
+averagetime.sh</code>. This tells your Unix system that averagetime.sh
+is a program that can be executed (remember chmod?).</li>
 </ul>
 <h3 id="hints-1">Hints</h3>
 <h4 id="debugging-shell-scripts">Debugging shell scripts</h4>
-<p>Shell scripts don’t have debuggers, but we can use old-style printing instead: you can always print out the value of the variable through the <code>echo</code> command, such as <code>echo ${variable}</code>.</p>
+<p>Shell scripts don’t have debuggers, but we can use old-style printing
+instead: you can always print out the value of the variable through the
+<code>echo</code> command, such as <code>echo ${variable}</code>.</p>
 <h4 id="integer-division">Integer division</h4>
-<p>Bash’s arithmetic expansion <code>$(( ... ))</code> performs integer division, so as long as you are using integers in the expression itself, you shouldn’t run into any issues.</p>
+<p>Bash’s arithmetic expansion <code>$(( ... ))</code> performs integer
+division, so as long as you are using integers in the expression itself,
+you shouldn’t run into any issues.</p>
 <hr />
 <h2 id="post-lab-1">Post-lab</h2>
-<p>You will need to optimize your code for the solution to the word puzzle. The auto-grader for this assignment will be running your code on larger dictionaries / word grids. In addition to this, your code will be given less time to execute.</p>
-<p>To standardize timings, you should run all of your tests on words2.txt and 300x300.grid.txt.</p>
+<p>You will need to optimize your code for the solution to the word
+puzzle. The auto-grader for this assignment will be running your code on
+larger dictionaries / word grids. In addition to this, your code will be
+given less time to execute.</p>
+<p>To standardize timings, you should run all of your tests on
+words2.txt and 300x300.grid.txt.</p>
 <h3 id="code-optimization">Code optimization</h3>
-<p>Your coding task for the post-lab is to optimize your program. Try to get your solver running as fast as possible – 3 seconds is a good starting point, though you should still try to optimize it further regardless of how fast your program already runs.</p>
-<p>First, record how long it takes to run your program with the <code>-O2</code> flag but no other optimizations. We will need this value later.</p>
-<p>There are plenty of optimizations you can try to implement, some of which may work better with your code than others. Here are some ideas:</p>
+<p>Your coding task for the post-lab is to optimize your program. Try to
+get your solver running as fast as possible – 3 seconds is a good
+starting point, though you should still try to optimize it further
+regardless of how fast your program already runs.</p>
+<p>First, record how long it takes to run your program with the
+<code>-O2</code> flag but no other optimizations. We will need this
+value later.</p>
+<p>There are plenty of optimizations you can try to implement, some of
+which may work better with your code than others. Here are some
+ideas:</p>
 <ul>
-<li>Experiment with different hash functions and different implementations of hash tables
+<li>Experiment with different hash functions and different
+implementations of hash tables
 <ul>
 <li>Choose a good load factor, λ, for your hash table</li>
 <li>Implement a reasonable collision resolution strategy</li>
-<li>Try different collision resolution strategies to find the fastest one</li>
-<li>Try different data structures for the buckets if you are using separate chaining</li>
+<li>Try different collision resolution strategies to find the fastest
+one</li>
+<li>Try different data structures for the buckets if you are using
+separate chaining</li>
 <li>Look up better hash functions for strings</li>
 </ul></li>
-<li>Buffer the output (keep it in some data structure) and print it out once after the timing code has finished, rather than every time a word is found</li>
-<li>Store <em>prefixes</em> of each word in the dictionary in addition to the word itself
+<li>Buffer the output (keep it in some data structure) and print it out
+once after the timing code has finished, rather than every time a word
+is found</li>
+<li>Store <em>prefixes</em> of each word in the dictionary in addition
+to the word itself
 <ul>
-<li>If the word is “amazing”, you would store “ama”, “amaz”, “amazi”, “amazin”, and “amazing” in the hash table. There would need to be some way to differentiate between prefixes (“amaz”) and the actual words (“amazing”). This way if you are working in a given direction, and the particular string you are generating is not a prefix, then you know there are no further words in the dictionary in the given direction.</li>
+<li>If the word is “amazing”, you would store “ama”, “amaz”, “amazi”,
+“amazin”, and “amazing” in the hash table. There would need to be some
+way to differentiate between prefixes (“amaz”) and the actual words
+(“amazing”). This way if you are working in a given direction, and the
+particular string you are generating is not a prefix, then you know
+there are no further words in the dictionary in the given
+direction.</li>
 </ul></li>
 <li>Keep track of a previous hash to help compute the next one faster.
 <ul>
-<li>If you have just computed the hash for “foo”, then you can keep that hash value on hand to compute the hash for “food” faster.</li>
+<li>If you have just computed the hash for “foo”, then you can keep that
+hash value on hand to compute the hash for “food” faster.</li>
 </ul></li>
 <li>Any others that you can think of?</li>
 </ul>
-<p>Keep track of what you tried – if you try each of the collision resolution strategies, and find that the original one you used is faster, make note of your findings and try to figure out why that is.</p>
-<p>There are two restrictions on what optimizations you may attempt. You may not:</p>
+<p>Keep track of what you tried – if you try each of the collision
+resolution strategies, and find that the original one you used is
+faster, make note of your findings and try to figure out why that
+is.</p>
+<p>There are two restrictions on what optimizations you may attempt. You
+may not:</p>
 <ul>
 <li>Write assembly code or any other non-C++ code
 <ul>
@@ -231,16 +524,23 @@ diff output.txt words2.sorted.out.txt</code></pre>
 </ul></li>
 <li>Use any optimization level other than <code>-O2</code>
 <ul>
-<li><code>-O2</code> provides a baseline for all the solutions, and your program is not guaranteed to function the same when using higher optimization levels</li>
+<li><code>-O2</code> provides a baseline for all the solutions, and your
+program is not guaranteed to function the same when using higher
+optimization levels</li>
 </ul></li>
 </ul>
-<p>Additionally, although we are trying to get you to think about how to make your program faster, we still want clean, correct, and readable code. Your solutions will be judged on correctness and style.</p>
+<p>Additionally, although we are trying to get you to think about how to
+make your program faster, we still want clean, correct, and readable
+code. Your solutions will be judged on correctness and style.</p>
 <h3 id="post-lab-reflection">Post-lab Reflection</h3>
 <p>As you finish up the lab, consider the following questions:</p>
 <ul>
-<li>What is the big-theta running time of the word-search portion of your program?
+<li>What is the big-theta running time of the word-search portion of
+your program?
 <ul>
-<li>Your running time will be in terms of <em>r</em> (rows), <em>c</em> (columns), and <em>w</em> (words) – you can assume that the maximum word size is some small constant</li>
+<li>Your running time will be in terms of <em>r</em> (rows), <em>c</em>
+(columns), and <em>w</em> (words) – you can assume that the maximum word
+size is some small constant</li>
 </ul></li>
 <li>What kind of optimizations did you attempt?
 <ul>
@@ -250,10 +550,15 @@ diff output.txt words2.sorted.out.txt</code></pre>
 </ul></li>
 <li>What was the overall speedup due to your optimizations?
 <ul>
-<li>If your original running time was <em>x</em> and your optimized running time was <em>y</em>, then the speedup is <em>x</em>/<em>y</em></li>
-<li>For example, if your original program took 10 seconds and you optimized it down to 5 seconds, your speedup is 2.0</li>
+<li>If your original running time was <em>x</em> and your optimized
+running time was <em>y</em>, then the speedup is
+<em>x</em>/<em>y</em></li>
+<li>For example, if your original program took 10 seconds and you
+optimized it down to 5 seconds, your speedup is 2.0</li>
 </ul></li>
 </ul>
-<p>You do not need to submit anything for these questions, but they are a good way to look back on the assignment and test your knowledge of hashtables and runtime analysis.</p>
+<p>You do not need to submit anything for these questions, but they are
+a good way to look back on the assignment and test your knowledge of
+hashtables and runtime analysis.</p>
 </body>
 </html>

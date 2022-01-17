@@ -5,57 +5,208 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>PDR: ssh and scp Tutorial</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../../markdown.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-ssh-and-scp-tutorial">PDR: ssh and scp Tutorial</h1>
-<p><a href="../index.html">Go up to the Tutorials table of contents page</a></p>
-<p>Students often need reliable access to the course lab servers in order to successfully complete the assembly language (architecture dependent) assignments, as well as to easily synchronize work done on the lab computers (e.g. source code files) with personal laptops. This tutorial should–hopefully–make it simple to navigate the process of remotely logging onto lab machines and copy files back and forth (via <code>ssh</code> and <code>scp</code> respectively).</p>
-<h2 id="what-do-ssh-and-scp-mean-and-when-would-i-want-to-use-them">What do ssh and scp mean, and when would I want to use them?</h2>
-<p><code>ssh</code> is the <a href="https://en.wikipedia.org/wiki/Secure_Shell"><strong>s</strong>ecure <strong>sh</strong>ell</a> protocol, which will allow us to remotely login to the course lab machines (yes, the same synchronized file system you have access to on any of the lab desktops during labs). <code>ssh</code> provides a way for you to use your lab account’s <code>bash</code> shell without needing to be present in the room; you can work on assignments for PDR on the lab machines from anywhere. No graphical applications/windows, including any usage of your mouse, are available via <code>ssh</code> (well, X-11 forwarding is not enabled on our servers)– so you will need to get comfortable with the keystrokes for <code>emacs</code>, <code>vim</code>, <a href="https://xkcd.com/378/">or whichever other editor you use</a> if you plan to do your work with this protocol (the editor will open within the <code>bash</code> shell). While you’re on an <code>ssh</code> session, using <code>screen</code> or <code>tmux</code> to assist with more complicated screen-splitting maneuvers is a good resource. Learn more with <code>man screen</code> or <code>man tmux</code>.</p>
-<p><code>scp</code> is the <a href="https://en.wikipedia.org/wiki/Secure_copy"><strong>s</strong>ecure <strong>c</strong>o<strong>p</strong>y</a> protocol, which will allow us to copy files back-and-forth between your local machine (e.g. laptop/VirtualBox course image) and the lab machines. How could this come in handy? If you are working on an assignment for PDR via <code>ssh</code> on a lab server and are ready to <a href="https://libra.cs.virginia.edu/~pedagogy/submit.php">submit your files</a>, you will need to first transfer them to your local machine and then upload them using the <a href="https://libra.cs.virginia.edu/~pedagogy/index.php">course tools page</a> on your web browser (we have no means for you to submit your work via <code>bash</code> at the time of writing this tutorial). Another reason why you may want to use <code>scp</code> is to keep your work on the lab computers and your local machine in sync – you could, for instance, work on an assignment during Tuesday lab, save your work, then retrieve your source code files remotely at a time convenient to you. In addition, you could send any files you worked on from your laptop to the server so that it is waiting for you on the lab desktops when you come in on Tuesday.</p>
-<p>There are Windows versions of <code>ssh</code> and <code>scp</code> as well; one set of these applications are called SecureCRT and SecureFX (UVa provides them for free in its Software Central). <a href="http://www.putty.org/">PuTTY</a> is a free and low-overhead ssh client for Windows.</p>
-<p><strong>Lastly, if your VirtualBox image/macOS/WSL/native Linux environment etc is <em>destroyed or unusable</em> by some means, using <code>ssh</code> and <code>scp</code> with the lab servers is an excellent alternative way to do your course assignments.</strong></p>
-<h2 id="using-ssh-to-login-to-a-lab-server-from-your-local-machine">Using ssh to login to a lab server from your local machine</h2>
-<p>Open the <code>bash</code> terminal on your laptop (via either the course image in VirtualBox, macOS, WSL, native Linux environment etc). Have your lab account password available (if you did not change it from the default password, it should be in email sent to <em>yourComputingID</em>@virginia.edu from root@virginia.edu). Run the command <code>ssh yourComputingID@labunix01.cs.virginia.edu</code> (you may substitute <code>01</code> with <code>02</code> or <code>03</code>, these will all work the same and are synchronized, it does not matter which number you use). You will be prompted to enter your lab account password, and as you enter it <strong>you may notice that nothing appears to happen on the screen</strong>; do not worry, this is how <code>bash</code> hides your password from being shown in plain text, rather than using the “common” practice of printing <code>*</code>s for each character you enter. When you are done entering the password, press enter and you should see the prompt on your terminal change to something along the lines of <code>yourComputingID@labunix01:~$</code>. Try running <code>ls</code> to ensure your files from the lab desktops are all present, and go ahead and run <code>clang++</code> on one of your <code>.cpp</code> files to see that you can successfully compile code while logged in (you do not <em>need</em> to do this, but it’s a good practice to ensure your environment works as you expect it to). <code>w</code> or <code>users</code> will show you who else is online…</p>
-<p>You can use <code>emacs</code>, <code>vim</code> etc to work on your course assignments while logged on. To exit the <code>ssh</code> session, simply press <code>Ctrl+D</code> or run <code>logout</code>. You should be returned to your local machine’s <code>bash</code> terminal.</p>
-<p>If you are having problems getting <code>ssh</code> to work for you, come speak to us during office hours/with Piazza/submitting a support request! Whichever means you deem appropriate.</p>
-<h2 id="using-scp-to-copy-files-back-and-forth-between-your-local-machine-and-a-lab-server">Using scp to copy files back-and-forth between your local machine and a lab server</h2>
-<p><strong>NOTE:</strong> <strong>Use <code>scp</code> <em>only on your local machine (e.g. laptop)</em> for all of your file-transferring needs, to-and-from. <code>scp</code> is more trouble than it’s worth to try to use on the lab machines themselves, so do not plan on using the commands listed here from a lab machine; if you know what you are getting into, you are welcome to try to do that on your own (<code>sftp</code> or <code>rsync</code> are the more likely commands to look into for that scenario).</strong></p>
-<p>Open the <code>bash</code> terminal on your laptop (via either the course image in VirtualBox, macOS, WSL, native Linux environment etc). Have your lab account password available (if you did not change it from the default password, it should be in email sent to <em>yourComputingID</em>@virginia.edu from root@virginia.edu).</p>
-<p>Below are 4 scenarios which most students tend to use <code>scp</code> for (remember that you can substitute <code>01</code> with <code>02</code> or <code>03</code> in specifying the lab server to use):</p>
-<p>1. Transferring a <strong>single file</strong> <strong><em>from</em></strong> the lab machine <strong><em>to</em></strong> your local machine</p>
+<p><a href="../index.html">Go up to the Tutorials table of contents
+page</a></p>
+<p>Students often need reliable access to the course lab servers in
+order to successfully complete the assembly language (architecture
+dependent) assignments, as well as to easily synchronize work done on
+the lab computers (e.g. source code files) with personal laptops. This
+tutorial should–hopefully–make it simple to navigate the process of
+remotely logging onto lab machines and copy files back and forth (via
+<code>ssh</code> and <code>scp</code> respectively).</p>
+<h2 id="what-do-ssh-and-scp-mean-and-when-would-i-want-to-use-them">What
+do ssh and scp mean, and when would I want to use them?</h2>
+<p><code>ssh</code> is the <a
+href="https://en.wikipedia.org/wiki/Secure_Shell"><strong>s</strong>ecure
+<strong>sh</strong>ell</a> protocol, which will allow us to remotely
+login to the course lab machines (yes, the same synchronized file system
+you have access to on any of the lab desktops during labs).
+<code>ssh</code> provides a way for you to use your lab account’s
+<code>bash</code> shell without needing to be present in the room; you
+can work on assignments for PDR on the lab machines from anywhere. No
+graphical applications/windows, including any usage of your mouse, are
+available via <code>ssh</code> (well, X-11 forwarding is not enabled on
+our servers)– so you will need to get comfortable with the keystrokes
+for <code>emacs</code>, <code>vim</code>, <a
+href="https://xkcd.com/378/">or whichever other editor you use</a> if
+you plan to do your work with this protocol (the editor will open within
+the <code>bash</code> shell). While you’re on an <code>ssh</code>
+session, using <code>screen</code> or <code>tmux</code> to assist with
+more complicated screen-splitting maneuvers is a good resource. Learn
+more with <code>man screen</code> or <code>man tmux</code>.</p>
+<p><code>scp</code> is the <a
+href="https://en.wikipedia.org/wiki/Secure_copy"><strong>s</strong>ecure
+<strong>c</strong>o<strong>p</strong>y</a> protocol, which will allow us
+to copy files back-and-forth between your local machine
+(e.g. laptop/VirtualBox course image) and the lab machines. How could
+this come in handy? If you are working on an assignment for PDR via
+<code>ssh</code> on a lab server and are ready to <a
+href="https://libra.cs.virginia.edu/~pedagogy/submit.php">submit your
+files</a>, you will need to first transfer them to your local machine
+and then upload them using the <a
+href="https://libra.cs.virginia.edu/~pedagogy/index.php">course tools
+page</a> on your web browser (we have no means for you to submit your
+work via <code>bash</code> at the time of writing this tutorial).
+Another reason why you may want to use <code>scp</code> is to keep your
+work on the lab computers and your local machine in sync – you could,
+for instance, work on an assignment during Tuesday lab, save your work,
+then retrieve your source code files remotely at a time convenient to
+you. In addition, you could send any files you worked on from your
+laptop to the server so that it is waiting for you on the lab desktops
+when you come in on Tuesday.</p>
+<p>There are Windows versions of <code>ssh</code> and <code>scp</code>
+as well; one set of these applications are called SecureCRT and SecureFX
+(UVa provides them for free in its Software Central). <a
+href="http://www.putty.org/">PuTTY</a> is a free and low-overhead ssh
+client for Windows.</p>
+<p><strong>Lastly, if your VirtualBox image/macOS/WSL/native Linux
+environment etc is <em>destroyed or unusable</em> by some means, using
+<code>ssh</code> and <code>scp</code> with the lab servers is an
+excellent alternative way to do your course assignments.</strong></p>
+<h2
+id="using-ssh-to-login-to-a-lab-server-from-your-local-machine">Using
+ssh to login to a lab server from your local machine</h2>
+<p>Open the <code>bash</code> terminal on your laptop (via either the
+course image in VirtualBox, macOS, WSL, native Linux environment etc).
+Have your lab account password available (if you did not change it from
+the default password, it should be in email sent to
+<em>yourComputingID</em>@virginia.edu from root@virginia.edu). Run the
+command <code>ssh yourComputingID@labunix01.cs.virginia.edu</code> (you
+may substitute <code>01</code> with <code>02</code> or <code>03</code>,
+these will all work the same and are synchronized, it does not matter
+which number you use). You will be prompted to enter your lab account
+password, and as you enter it <strong>you may notice that nothing
+appears to happen on the screen</strong>; do not worry, this is how
+<code>bash</code> hides your password from being shown in plain text,
+rather than using the “common” practice of printing <code>*</code>s for
+each character you enter. When you are done entering the password, press
+enter and you should see the prompt on your terminal change to something
+along the lines of <code>yourComputingID@labunix01:~$</code>. Try
+running <code>ls</code> to ensure your files from the lab desktops are
+all present, and go ahead and run <code>clang++</code> on one of your
+<code>.cpp</code> files to see that you can successfully compile code
+while logged in (you do not <em>need</em> to do this, but it’s a good
+practice to ensure your environment works as you expect it to).
+<code>w</code> or <code>users</code> will show you who else is
+online…</p>
+<p>You can use <code>emacs</code>, <code>vim</code> etc to work on your
+course assignments while logged on. To exit the <code>ssh</code>
+session, simply press <code>Ctrl+D</code> or run <code>logout</code>.
+You should be returned to your local machine’s <code>bash</code>
+terminal.</p>
+<p>If you are having problems getting <code>ssh</code> to work for you,
+come speak to us during office hours/with Piazza/submitting a support
+request! Whichever means you deem appropriate.</p>
+<h2
+id="using-scp-to-copy-files-back-and-forth-between-your-local-machine-and-a-lab-server">Using
+scp to copy files back-and-forth between your local machine and a lab
+server</h2>
+<p><strong>NOTE:</strong> <strong>Use <code>scp</code> <em>only on your
+local machine (e.g. laptop)</em> for all of your file-transferring
+needs, to-and-from. <code>scp</code> is more trouble than it’s worth to
+try to use on the lab machines themselves, so do not plan on using the
+commands listed here from a lab machine; if you know what you are
+getting into, you are welcome to try to do that on your own
+(<code>sftp</code> or <code>rsync</code> are the more likely commands to
+look into for that scenario).</strong></p>
+<p>Open the <code>bash</code> terminal on your laptop (via either the
+course image in VirtualBox, macOS, WSL, native Linux environment etc).
+Have your lab account password available (if you did not change it from
+the default password, it should be in email sent to
+<em>yourComputingID</em>@virginia.edu from root@virginia.edu).</p>
+<p>Below are 4 scenarios which most students tend to use
+<code>scp</code> for (remember that you can substitute <code>01</code>
+with <code>02</code> or <code>03</code> in specifying the lab server to
+use):</p>
+<p>1. Transferring a <strong>single file</strong>
+<strong><em>from</em></strong> the lab machine
+<strong><em>to</em></strong> your local machine</p>
 <p>Run the command</p>
 <pre><code>scp yourComputingID@labunix01.cs.virginia.edu:~/remote/path/to/file/ ~/local/path/to/destination/</code></pre>
-<p>Note the <code>:</code> that follows the remote machine address (and the lack of a <code>:</code> for referring to your local machine’s path). <code>~</code> means “my home directory on that machine”. If you just want the file to be put in your current local directory, <code>./</code> is the local path to use.</p>
-<p>2. Transferring a <strong>single file</strong> <strong><em>from</em></strong> your local machine <strong><em>to</em></strong> the lab machine</p>
+<p>Note the <code>:</code> that follows the remote machine address (and
+the lack of a <code>:</code> for referring to your local machine’s
+path). <code>~</code> means “my home directory on that machine”. If you
+just want the file to be put in your current local directory,
+<code>./</code> is the local path to use.</p>
+<p>2. Transferring a <strong>single file</strong>
+<strong><em>from</em></strong> your local machine
+<strong><em>to</em></strong> the lab machine</p>
 <p>Run the command</p>
 <pre><code>scp ~/local/path/to/file/ yourComputingID@labunix01.cs.virginia.edu:~/remote/path/to/destination/</code></pre>
-<p>Yes, this is exactly the same as (1), except you have switched the order of the arguments to <code>scp</code> (i.e. what was ‘to’ is now ‘from’ and what was ‘from’ is now ‘to’). Note the <code>:</code> that follows the remote machine address (and the lack of a <code>:</code> for referring to your local machine’s path). <code>~</code> means “my home directory on that machine”. If you just want the file to be put in your remote machine’s home directory, <code>~/</code> is the remote path to use.</p>
-<p>3. Transferring an <strong>entire directory or pattern</strong> (incl. sub-directories) <strong><em>from</em></strong> the lab machine <strong><em>to</em></strong> your local machine</p>
+<p>Yes, this is exactly the same as (1), except you have switched the
+order of the arguments to <code>scp</code> (i.e. what was ‘to’ is now
+‘from’ and what was ‘from’ is now ‘to’). Note the <code>:</code> that
+follows the remote machine address (and the lack of a <code>:</code> for
+referring to your local machine’s path). <code>~</code> means “my home
+directory on that machine”. If you just want the file to be put in your
+remote machine’s home directory, <code>~/</code> is the remote path to
+use.</p>
+<p>3. Transferring an <strong>entire directory or pattern</strong>
+(incl. sub-directories) <strong><em>from</em></strong> the lab machine
+<strong><em>to</em></strong> your local machine</p>
 <p>Run the command</p>
 <pre><code>scp -r yourComputingID@labunix01.cs.virginia.edu:~/remote/path/to/directory/or/pattern/ ~/local/path/to/destination/directory/ </code></pre>
-<p>Notice the <code>-r</code> flag: we are now able to <strong>r</strong>ecursively transfer files by directory and/or regex pattern. So, <code>*.cpp</code>, <code>~/lab06/*</code>, <code>myCoolFile{0-3}.*</code> etc will now work over the protocol. Note the <code>:</code> that follows the remote machine address (and the lack of a <code>:</code> for referring to your local machine’s path). <code>~</code> means “my home directory on that machine”. If you just want the files/directories to be put in your current local directory, <code>./</code> is the local path to use.</p>
-<p>4. Transferring an <strong>entire directory or pattern</strong> (incl. sub-directories) <strong><em>from</em></strong> your local machine <strong><em>to</em></strong> the lab machine</p>
+<p>Notice the <code>-r</code> flag: we are now able to
+<strong>r</strong>ecursively transfer files by directory and/or regex
+pattern. So, <code>*.cpp</code>, <code>~/lab06/*</code>,
+<code>myCoolFile{0-3}.*</code> etc will now work over the protocol. Note
+the <code>:</code> that follows the remote machine address (and the lack
+of a <code>:</code> for referring to your local machine’s path).
+<code>~</code> means “my home directory on that machine”. If you just
+want the files/directories to be put in your current local directory,
+<code>./</code> is the local path to use.</p>
+<p>4. Transferring an <strong>entire directory or pattern</strong>
+(incl. sub-directories) <strong><em>from</em></strong> your local
+machine <strong><em>to</em></strong> the lab machine</p>
 <p>Run the command</p>
 <pre><code>scp -r ~/local/path/to/directory/or/pattern/ yourComputingID@labunix01.cs.virginia.edu:~/remote/path/to/destination/directory/</code></pre>
-<p>Yes, this is exactly the same as (3), except you have switched the order of the arguments to <code>scp</code> (i.e. what was ‘to’ is now ‘from’ and what was ‘from’ is now ‘to’). Notice the <code>-r</code> flag: we are now able to <strong>r</strong>ecursively transfer files by directory and/or regex pattern. So, <code>*.cpp</code>, <code>~/lab06/*</code>, <code>myCoolFile{0-3}.*</code> etc will now work over the protocol. Note the <code>:</code> that follows the remote machine address (and the lack of a <code>:</code> for referring to your local machine’s path). <code>~</code> means “my home directory on that machine”. If you just want the files/directories to be put in your remote machine’s home directory, <code>~/</code> is the remote path to use.</p>
-<p><strong>For more complicated file moves, try <code>sftp</code> or <code>rsync</code>. Learn more with <code>man sftp</code> or <code>man rsync</code>.</strong></p>
-<h2 id="still-need-assistance-stuck-somewhere">Still need assistance? Stuck somewhere?</h2>
+<p>Yes, this is exactly the same as (3), except you have switched the
+order of the arguments to <code>scp</code> (i.e. what was ‘to’ is now
+‘from’ and what was ‘from’ is now ‘to’). Notice the <code>-r</code>
+flag: we are now able to <strong>r</strong>ecursively transfer files by
+directory and/or regex pattern. So, <code>*.cpp</code>,
+<code>~/lab06/*</code>, <code>myCoolFile{0-3}.*</code> etc will now work
+over the protocol. Note the <code>:</code> that follows the remote
+machine address (and the lack of a <code>:</code> for referring to your
+local machine’s path). <code>~</code> means “my home directory on that
+machine”. If you just want the files/directories to be put in your
+remote machine’s home directory, <code>~/</code> is the remote path to
+use.</p>
+<p><strong>For more complicated file moves, try <code>sftp</code> or
+<code>rsync</code>. Learn more with <code>man sftp</code> or <code>man
+rsync</code>.</strong></p>
+<h2 id="still-need-assistance-stuck-somewhere">Still need assistance?
+Stuck somewhere?</h2>
 <p>Here are some good ways to get any help you may need:</p>
 <ul>
-<li>see <a href="https://www.cs.virginia.edu/~lat7h/3330/F2016/sshscp.html">Luther Tychonievich’s fall 2016 <code>ssh</code>/<code>scp</code> tutorial for CS 3330 students</a></li>
+<li>see <a
+href="https://www.cs.virginia.edu/~lat7h/3330/F2016/sshscp.html">Luther
+Tychonievich’s fall 2016 <code>ssh</code>/<code>scp</code> tutorial for
+CS 3330 students</a></li>
 <li>attend office hours with questions</li>
 <li>post on the Piazza forum</li>
 <li>submit a support request</li>
-<li><a href="https://en.wikipedia.org/wiki/Man_page">reference <code>man</code> pages</a> (a manual on how to use a command you are trying to run)</li>
-<li>use a web browser + search engine to troubleshoot on your own (and then try the above suggestions again if needed)</li>
+<li><a href="https://en.wikipedia.org/wiki/Man_page">reference
+<code>man</code> pages</a> (a manual on how to use a command you are
+trying to run)</li>
+<li>use a web browser + search engine to troubleshoot on your own (and
+then try the above suggestions again if needed)</li>
 </ul>
 </body>
 </html>
