@@ -5,13 +5,19 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>PDR: Tutorial 1: Introduction to UNIX</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../../markdown.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-tutorial-1-introduction-to-unix">PDR: Tutorial 1: Introduction to UNIX</h1>
@@ -60,7 +66,7 @@
 <p>If you are using macOS, you can open Emacs from the Dock or Spotlight if the above instructions do not work.</p>
 <p>You should now have Emacs loaded and running – it should look something like the following.</p>
 <figure>
-<img src="emacs-on-open.png" alt="Emacs on open" /><figcaption>Emacs on open</figcaption>
+<img src="emacs-on-open.png" alt="Emacs on open" /><figcaption aria-hidden="true">Emacs on open</figcaption>
 </figure>
 <p>All of the mouse commands in Emacs have keyboard shortcuts. Eventually, you will want to learn the shortcuts, as they are much faster to enter once they are known. To help you with getting used to them, we have provided the shortcuts for the commands below.</p>
 <p>The first commands in Emacs that we will learn will use the control key (even on macOS!). For example, the save command is listed as <code>C-x C-s</code>. This means hit Control-x then Control-s. We will be going over Emacs command in more detail later. For now, remember that if you get stuck, hit <code>C-g</code> (Control-g) a few times, and that should un-stick it.</p>
@@ -80,11 +86,11 @@ int main () {
 <p>Another useful command is the undo command: <code>C-_</code> (Control-underscore).</p>
 <p>Right now your Emacs should look approximately like this (with the helloworld.cpp file loaded):</p>
 <figure>
-<img src="emacs-with-code.png" alt="Emacs with code" /><figcaption>Emacs with code</figcaption>
+<img src="emacs-with-code.png" alt="Emacs with code" /><figcaption aria-hidden="true">Emacs with code</figcaption>
 </figure>
 <p>Now, let’s turn on line numbers, which will be very helpful when debugging your code. We’ve seen control commands (such as <code>C-x C-s</code> for saving a file). Next up are commands called meta-commands, because they use the meta (or escape) key. A meta-command looks like <code>M-x linum-mode</code>. Thus, to enter the command, hit the escape key, RELEASE THE ESCAPE KEY, and hit <code>x</code>. Note that with the control commands, you hold down the control key while pressing the other key – with meta commands, you press and then release the escape key, and then hit <code>x</code>. At that point, the bottom of your Emacs screen will look like the following:</p>
 <figure>
-<img src="emacs-meta-command.png" alt="Emacs meta command" /><figcaption>Emacs meta command</figcaption>
+<img src="emacs-meta-command.png" alt="Emacs meta command" /><figcaption aria-hidden="true">Emacs meta command</figcaption>
 </figure>
 <p>Note the <code>M-x</code> at the bottom – Emacs is ready to receive an ‘extended’ meta command. Type in <code>linum-mode</code>, hit Enter, and the line number that the cursor is on will appear in the status bar at the bottom of the Emacs screen. Note that it is going to be annoying to have to type all of that in each time. This, if you hit the tab key after entering <code>line</code>, it will complete the rest of the command for you. While this may seem like a lot of typing, once you get used to it, these commands can be entered significantly faster than the mouse clicks needed to do this in other editors. There are ways you can have line numbers always displayed when you enter Emacs – we’ll get to these later in the semester. Note that you can enter <code>M-x linum-mode</code> as many times as you want – it will just toggle the display of the line numbers on and off.</p>
 <h2 id="summary">Summary</h2>

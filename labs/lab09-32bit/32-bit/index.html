@@ -5,13 +5,19 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>PDR: Laboratory 9: x86 Assembly Language, part 2</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../../../markdown.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-laboratory-9-x86-assembly-language-part-2">PDR: Laboratory 9: x86 Assembly Language, part 2</h1>
@@ -61,7 +67,7 @@
 <h3 id="pre-lab-program-threexplusone.s">Pre-lab program: threexplusone.s</h3>
 <p>The 3x+1 conjecture (also called the Collatz conjecture) is an open problem in mathematics, meaning that it has not yet been proven to be true. The conjecture states that if you take any positive integer, you can repeatedly apply the following function to it:</p>
 <figure>
-<img src="formula.png" alt="formula.png" /><figcaption>formula.png</figcaption>
+<img src="formula.png" alt="formula.png" /><figcaption aria-hidden="true">formula.png</figcaption>
 </figure>
 <p>The conjecture is that eventually, the result will reach 1. For example, consider <em>x</em> = 13:</p>
 <ul>
