@@ -3,6 +3,16 @@ Prior teaching assistants
 
 <!-- removed for spring 2022:
 
+## Emily Parnell
+[![Emily Parnell](//andromeda.cs.virginia.edu/pdr/tas/eap2wq.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/eap2wq.jpg)
+Hi guys! My name is Emily Parnell and I am a third year studying computer engineering and math. Outside of classes and TAing, I'm involved in Gizmologists at UVA and research with quantum microcombs. When I need a break from all that, I'll usually go swimming, play piano, or dance (before college, I danced ballet professionally for two years!). I know this course can be very demanding, but looking back, you'll be able to see how strong it makes you. And never hesitate to ask for help - I know I used office hours a lot when I was taking 2150!
+<br clear='all'>
+
+## Nick Mohammad
+[![Nicholas Mohammad](//libra.cs.virginia.edu/tas/nm9ur.jpg)](//libra.cs.virginia.edu/tas/full/nm9ur.jpg)
+Hey everyone! I'm a graduate student in Computer Science from Bristow, VA. My main areas of interest are in computer vision and computer graphics. I'm excited to work with you guys this semester and I hope you enjoy your time in this class! :)
+<br clear='all'>
+
 ## David Tran
 [![David Tran](//andromeda.cs.virginia.edu/pdr/tas/dqt5vt.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/dqt5vt.jpg)
 Hi everyone! I’m David, and I’m a third-year CS major in SEAS from Florida. This is my second semester TAing for 2150, and although the class can be challenging at times, it is by far one of the most valuable classes I’ve taken at UVA. Outside of CS, I enjoy bass fishing, hiking the Shenandoah, and playing beach volleyball with my friends. Look forward to meeting you guys this semester!
