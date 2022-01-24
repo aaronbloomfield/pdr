@@ -8,7 +8,8 @@ No bio yet...
 <br clear='all'>
 
 ## Anna Alberti
-No bio yet...
+[![Anna Alberti](//andromeda.cs.virginia.edu/pdr/tas/aca5z.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/aca5z.jpg)
+Hi everyone! My name is Anna Alberti and I am a Computer Science and Economics major from Philadelphia. This is my first semester TAing for 2150, and I’m very excited about it because TAs were a great resource for me when I took it -- let us know how we can help you! At UVA, I’m involved with HooThon, Pancakes 4 Parkinson’s, and Econ club. I love playing water polo, spikeball, traveling, and hanging out with friends. Looking forward to working with everyone this semester and don’t hesitate to reach out!
 <br clear='all'>
 
 ## Mohsen Alghannam
