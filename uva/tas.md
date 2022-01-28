@@ -60,7 +60,8 @@ Hey guys! My name is Isabelle Fang and I am currently a third year BACS and Stat
 <br clear='all'>
 
 ## Kidus Fasil
-No bio yet...
+[![Kidus Fasil](//andromeda.cs.virginia.edu/pdr/tas/kf5fr.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/kf5fr.jpg)
+Hi everyone! My name is Kidus, I am a second-year computer engineering major, and this is my first semester being a TA! This was one of my favorite classes and I learned more in this class than in any other class I have taken. Some clubs I am involved in are the Virginia Glee Club and the Mechatronics and Robotics Society. Some other things I like to do in my free time are swimming, playing video games(really into open-world games and Smash), singing. I can't wait to work with you all and hope you enjoy this class as much as I did!
 <br clear='all'>
 
 ## Justin Gou
