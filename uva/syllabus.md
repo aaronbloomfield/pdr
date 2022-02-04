@@ -68,7 +68,7 @@ The course grades are ***LIKELY*** to follow the standard decade curve: 90 and a
 
 - Midterm Exam 1: Tuesday, February 22th, during lab session
 - Midterm Exam 2: Tuesday, April 5th, during lab session
-- Final Exam: Tuesday, May 7th from 7 p.m. to 10 p.m.
+- Final Exam: Saturday, May 7th from 7 p.m. to 10 p.m.
     - This is a common exam time, and conflicts with other courses (APMA 3110 & 3140, ECON 2020 (sections 001 & 002 only))
     - Let us know by the end of January if you have a conflict (via a support request); we will deal with scheduling conflicts later in the semester
 

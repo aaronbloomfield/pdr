@@ -12,10 +12,6 @@ No bio yet...
 Hi everyone! My name is Anna Alberti and I am a Computer Science and Economics major from Philadelphia. This is my first semester TAing for 2150, and I’m very excited about it because TAs were a great resource for me when I took it -- let us know how we can help you! At UVA, I’m involved with HooThon, Pancakes 4 Parkinson’s, and Econ club. I love playing water polo, spikeball, traveling, and hanging out with friends. Looking forward to working with everyone this semester and don’t hesitate to reach out!
 <br clear='all'>
 
-## Mohsen Alghannam
-No bio yet...
-<br clear='all'>
-
 ## Ayushi Ambhore
 [![Ayushi Ambhore](//andromeda.cs.virginia.edu/pdr/tas/ara7ke.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/ara7ke.jpg)
 Hi guys! My name is Ayushi and I’m a third year CS major in the College. This is my second semester TAing 2150. When I took this course I probably attended OH more than 100 times, so I’m excited to help you all the same way other TA’s helped me! When I’m not in office hours, I’m either participating in WiCS & GWC here on grounds or reading conspiracy theories and visiting new coffee shops. Really looking forward to meeting you guys this semester :) 
@@ -32,7 +28,8 @@ Hi everyone! My name is Medha and I am a second-year in the E-School majoring in
 <br clear='all'>
 
 ## Michael Brown
-No bio yet...
+[![Michael Brown](//andromeda.cs.virginia.edu/pdr/tas/mjb4us.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/mjb4us.jpg)
+Hi everyone! I'm Michael and I'm a 3rd year Computer Science major. I'm excited to help you all out as a TA this semester! In my free time, I love doing recreational sports (like racquetball, bowling, tennis, soccer, etc...), binging good TV shows, and now I'm a big fan of Calisthenics. Feel free to reach out and ask me any questions you have!
 <br clear='all'>
 
 ## Arnav Chandra
