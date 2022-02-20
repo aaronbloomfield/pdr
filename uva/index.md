@@ -15,7 +15,7 @@ Links
 There are a number of links and other parts of this course that are **NOT** included in this repository.  They are:
 
 - The set of online tools, which can be accessed through Collab or [here][160] (not yet ready)
-    - These tools are the [support requests][161] (not yet ready) tool and the [office hours queue][167] (not yet ready)
+    - These tools are the [support requests][161] tool and the [office hours queue][167]
 - Email list archive, which is a Collab tool ([here](https://collab.its.virginia.edu/portal/directtool/fcfc91bb-22f0-4518-b35d-243d5356a53d/) is the direct link, although Collab login is required)
 - Piazza; Collab can log you in directly; the Collab tool link is [here](https://collab.its.virginia.edu/portal/directtool/b20f7be7-c432-4fe7-a28d-4a865e45c503/) (again, Collab login required)
 - [Anonymous feedback](https://collab.its.virginia.edu/portal/directtool/bcc23af7-24a4-4f5d-a984-5ccb414eb894/)
@@ -221,8 +221,9 @@ None yet!
 [152]: https://piazza.com/
 
 [160]: https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/
-[161]: https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/tickets/
-[167]: https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/queue/
+[161]: https://libra.cs.virginia.edu/~pedagogy/support.php
+[167111]: https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/queue/
+[167]: https://andromeda.cs.virginia.edu/satori/queue/program-data-representation/
 
 [170]: https://collab.its.virginia.edu/x/6KjU79
 [172]: unix-honor-pledge-f20.pdf
