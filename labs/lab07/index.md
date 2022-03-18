@@ -33,16 +33,17 @@ Procedure
 
 ### In-lab ###
 
-1. Implement bubble sort in IBCM
-2. Files to download: [bubblesort.cpp](bubblesort.cpp.html) ([src](bubblesort.cpp))
-3. Files to submit: bubblesort.ibcm
-
-### Post-lab ###
-
 1. Implement a quine in IBCM
 2. Improve your `averagetime.sh` shell script by adding control structures
 3. Files to download: [counter.cpp](counter.cpp.html) ([src](counter.cpp)), [timer.cpp](timer.cpp.html) ([src](timer.cpp)), [timer.h](timer.h.html) ([src](timer.h))
 4. Files to submit: quine.ibcm, averagetime.sh
+
+### Post-lab ###
+
+1. Implement bubble sort in IBCM
+2. Files to download: [bubblesort.cpp](bubblesort.cpp.html) ([src](bubblesort.cpp))
+3. Files to submit: bubblesort.ibcm
+
 
 ------------------------------------------------------------
 
@@ -174,59 +175,6 @@ While this deals specifically with the example in the slides, it will hopefully 
 In-lab
 ------
 
-### Bubble sort ###
-
-Download and look at the [bubblesort.cpp](bubblesort.cpp.html) ([src](bubblesort.cpp)) algorithm.  You will need to read in 10 array elements and sort them with this algorithm in IBCM.
-
-To encode this program, follow these steps:
-
-1. Write up high-level pseudo-code for your design on paper (make sure that it is absolutely correct, or you will probably regret it later)
-2. Refine this pseudo-code, making it closer to the assembly code level
-3. Alter your code into IBCM assembly code with labels instead of addresses
-4. Run through a sufficient number of test cases by hand of your IBCM code from step (3) to convince yourself that it is correct
-5. Encode into actual hex IBCM code and addresses, and test it using the simulator
-6. Identify and fix the errors that you did not pick up in the previous steps
-
-The file should be called bubblesort.ibcm.  As with the last assignment, you *MUST* comment your code.
-
-**NOTE:** Just like for the pre-lab array.ibcm file, you must create an array load instruction. If your program has separate instructions for loading separate values from the array, you will receive zero credit for this in-lab.
-
-### Sample Execution Run ###
-
-Below is a sample execution run to show you the output we are looking for. The output shown is a result of running bubblesort.ibcm in the ibcm simulator.
-
-```
-# input
-# Note that we are NOT providing the array size as input
-# because it always 10. Input is the 10 array elements unsorted.
-2
-3
-4
-8
-1
-5
-9
-0
-6
-7
-# output
-0000
-0001
-0002
-0003
-0004
-0005
-0006
-0007
-0008
-0009
-```
-
-------------------------------------------------------------
-
-Post-lab
---------
-
 ### Quines ###
 
 For the postlab, you will be writing an IBCM program that prints itself.  This type of program is known as a *quine*.
@@ -295,3 +243,56 @@ Hint: You know how to iterate through arrays; is there any way you could apply t
 
 #### Comparing values in Bash ####
 If you want to compare values in an if or while expression (such as the bash equivalent of `while (i < s)`), you should see [here](https://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-7.html).  In particular, you need to use `-lt` for the less than operator, and square brackets instead of the parentheses.
+
+------------------------------------------------------------
+
+Post-lab
+--------
+
+### Bubble sort ###
+
+Download and look at the [bubblesort.cpp](bubblesort.cpp.html) ([src](bubblesort.cpp)) algorithm.  You will need to read in 10 array elements and sort them with this algorithm in IBCM.
+
+To encode this program, follow these steps:
+
+1. Write up high-level pseudo-code for your design on paper (make sure that it is absolutely correct, or you will probably regret it later)
+2. Refine this pseudo-code, making it closer to the assembly code level
+3. Alter your code into IBCM assembly code with labels instead of addresses
+4. Run through a sufficient number of test cases by hand of your IBCM code from step (3) to convince yourself that it is correct
+5. Encode into actual hex IBCM code and addresses, and test it using the simulator
+6. Identify and fix the errors that you did not pick up in the previous steps
+
+The file should be called bubblesort.ibcm.  As with the last assignment, you *MUST* comment your code.
+
+**NOTE:** Just like for the pre-lab array.ibcm file, you must create an array load instruction. If your program has separate instructions for loading separate values from the array, you will receive zero credit for this in-lab.
+
+### Sample Execution Run ###
+
+Below is a sample execution run to show you the output we are looking for. The output shown is a result of running bubblesort.ibcm in the ibcm simulator.
+
+```
+# input
+# Note that we are NOT providing the array size as input
+# because it always 10. Input is the 10 array elements unsorted.
+2
+3
+4
+8
+1
+5
+9
+0
+6
+7
+# output
+0000
+0001
+0002
+0003
+0004
+0005
+0006
+0007
+0008
+0009
+```
