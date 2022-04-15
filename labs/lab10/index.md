@@ -34,13 +34,15 @@ Lab Procedure
 
 ### In-lab ###
 
+For spring 2022, there is an extension to the in-lab due date; see the [daily announcements](../../uva/daily-announcements.html#/) for details.
+
 1. Implement the Huffman decoding (decompression) routine discussed in the in-lab section
 2. Files to download: [inlab-skeleton.cpp](inlab-skeleton.cpp.html) ([src](inlab-skeleton.cpp)), and your pre-lab files
 3. Files to submit: huffmandec.cpp, Makefile (you can submit additional .cpp/.h files, if needed, as long as it compiles with `make`)
 
 ### Post-lab ###
 
-The post-lab is cancelled for the fall 2021 semester.
+The post-lab is cancelled for the spring 2022 semester.
 
 1. ~~Analyze the time and space complexity of your encoding and decoding code~~
 2. ~~Create a Makefile to compile both the encoding and decoding portions of your Huffman routine in one step~~
