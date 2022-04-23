@@ -44,8 +44,6 @@ Procedure
 
 ### Post-lab ###
 
-The post-lab is cancelled for the spring 2021 semester.
-
 1. Write an 8-Puzzle solver using BFS
 2. Files to download: none
 3. Files to submit: Makefile, Doxyfile, and any source code required to run the solver.
