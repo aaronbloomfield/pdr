@@ -82,8 +82,7 @@ Hi all! I'm Jade, I'm a third year Computer Science major and Data Analytics min
 <br clear='all'>
 
 ## Ellen Herrera
-No bio yet...
-<br clear='all'>
+Hi! My name is Ellen Herrera. I am a second-year with a BACS major and an intended minor in Chinese. I am from Short Pump, Virginia. In my free time I love to run, watch movies, and explore the Charlottesville area with my friends! I don't really have a favorite movie, but some movies I have watched and really liked include Free Guy, most Adam Sandler movies, Encanto, and Crazy Rich Asians. I got into CS because I love to learn coding languages in addition to my love for my English, Spanish, and Chinese skills. I am very excited to be a CS2150 TA this semester because I found the class to be very informative and essential to my computer science education. As I move forward in my CS classes, I continue to have an intense appreciation for the skills CS2150 equipped me with, and I'd like to help other students gain that same expertise.<br clear='all'>
 
 ## Srujan Joshi
 [![Srujan Joshi](//andromeda.cs.virginia.edu/pdr/tas/sj7sf.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/sj7sf.jpg)
