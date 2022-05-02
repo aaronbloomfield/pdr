@@ -28,7 +28,7 @@ There is no pre-lab for the fall 2021 semester; likewise, there is no tutorial f
 
 ### In-lab ###
 
-Complete [this survey](https://docs.google.com/forms/d/e/1FAIpQLSdZbia-DoxIj0vohNnUi05PmhczV91F6h1LrXn1P9GCUh9IdA/viewform).  As long as you complete it by the end of the Tuesday lab day, you will receive 10/10.  Note that you receive that score regardless of what you actually say, so please be honest on the survey!
+Complete [this survey](https://forms.gle/8JQ3NYEyXoR71WSR9) for spring 2022.  As long as you complete it by the end of the Tuesday lab day, you will receive 10/10.  Note that you receive that score regardless of what you actually say, so please be honest on the survey!
 
 	
 ### Post-lab ###
