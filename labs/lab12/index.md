@@ -24,7 +24,7 @@ Procedure
 
 ### Pre-lab ###
 
-There is no pre-lab for the fall 2021 semester; likewise, there is no tutorial for this lab.
+There is no pre-lab for the spring 2022 semester; likewise, there is no tutorial for this lab.
 
 ### In-lab ###
 
