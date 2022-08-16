@@ -7,43 +7,9 @@ CS 2150 Teaching Assistants
 No bio yet...
 <br clear='all'>
 
-## Anna Alberti
-[![Anna Alberti](//andromeda.cs.virginia.edu/pdr/tas/aca5z.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/aca5z.jpg)
-Hi everyone! My name is Anna Alberti and I am a Computer Science and Economics major from Philadelphia. This is my first semester TAing for 2150, and I’m very excited about it because TAs were a great resource for me when I took it -- let us know how we can help you! At UVA, I’m involved with HooThon, Pancakes 4 Parkinson’s, and Econ club. I love playing water polo, spikeball, traveling, and hanging out with friends. Looking forward to working with everyone this semester and don’t hesitate to reach out!
-<br clear='all'>
-
 ## Ayushi Ambhore
 [![Ayushi Ambhore](//andromeda.cs.virginia.edu/pdr/tas/ara7ke.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/ara7ke.jpg)
 Hi guys! My name is Ayushi and I’m a third year CS major in the College. This is my second semester TAing 2150. When I took this course I probably attended OH more than 100 times, so I’m excited to help you all the same way other TA’s helped me! When I’m not in office hours, I’m either participating in WiCS & GWC here on grounds or reading conspiracy theories and visiting new coffee shops. Really looking forward to meeting you guys this semester :) 
-<br clear='all'>
-
-## Ramya Bhaskara
-[![Ramya Bhaskara](//andromeda.cs.virginia.edu/pdr/tas/rsb4zm.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/rsb4zm.jpg)
-I’m a fourth year Computer Science major and this is my third year TAing this class! I'm also a double major in statistics, so feel free to ask me about that if you're interested! I'm also involved in A.O.E, WiCS, and Remix A Capella. Outside of class I'm also really into music, trying all of the restaurants on the corner, and comparing grocery stores in Charlottesville (Lidl <3).
-<br clear='all'>
-
-## Medha Boddu
-[![Medha Boddu](//andromeda.cs.virginia.edu/pdr/tas/msb4sf.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/msb4sf.jpg)
-Hi everyone! My name is Medha and I am a second-year in the E-School majoring in CS and minoring in Economics and Data Science. This is my first semester TA’ing for CS 2150, but I am excited to help in any way I can. In my free time, I love reading, drawing, and baking. I hope you guys enjoy the class and I am looking forward to meeting you all this semester!
-<br clear='all'>
-
-## Michael Brown
-[![Michael Brown](//andromeda.cs.virginia.edu/pdr/tas/mjb4us.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/mjb4us.jpg)
-Hi everyone! I'm Michael and I'm a 3rd year Computer Science major. I'm excited to help you all out as a TA this semester! In my free time, I love doing recreational sports (like racquetball, bowling, tennis, soccer, etc...), binging good TV shows, and now I'm a big fan of Calisthenics. Feel free to reach out and ask me any questions you have!
-<br clear='all'>
-
-## Arnav Chandra
-No bio yet...
-<br clear='all'>
-
-## James Connors
-[![James Connors](//andromeda.cs.virginia.edu/pdr/tas/jjc9bb.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/jjc9bb.jpg)
-Hi everyone! I'm James Connors, though I usually go by Jimmy, and I'm from Montclair, New Jersey. I'm a third year Computer Science major and this is my first semester as a TA for 2150. I'm really excited to help people out in 2150- this class can be tough, but you do learn a lot. Outside of class I'm a member of the Ultimate Frisbee B team, and I'm active in the Student Game Developers club. I'm also a huge fan of hot chocolate and a huge snob about bagels (mostly since I'm from New Jersey). I'm really excited to work with you all this semester!
-<br clear='all'>
-
-## AJ Cuddeback
-[![AJ Cuddeback ](//andromeda.cs.virginia.edu/pdr/tas/atc4yk.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/atc4yk.jpg)
-Hi everyone! My name is AJ Cuddeback, I use they/them pronouns, and I'm from Medford, Massachusetts. I'm currently a 4th year studying Electrical and Computer Engineering and I've been TAing 2150 since Fall 2019. Outside of school I'm involved in the University Guide Service, Outdoors Club, and I recently joined the Triathlon team. I'm passionate about memes (I did a TedxUVA talk on them my second year), Dunkin' iced coffee, and my bike, Phoebe. A fun (sad?) fact about me is that I've had more concussions than UVA has had presidents. 
 <br clear='all'>
 
 ## Tijana Djokic
@@ -51,110 +17,14 @@ Hi everyone! My name is AJ Cuddeback, I use they/them pronouns, and I'm from Med
 Hi guys! My name is Tijana, but my friends call me Tiki, and this is my first semester as a TA for CS 2150! I am a third year BACS major from NOVA, and I’m ready to help you all in any way I can. At UVA, I am involved with Madison House Tutoring and Girls Hoo Code, and in my free time I enjoy playing volleyball, reading, and watching movies with friends. I can’t wait to see you all in person this semester, and good luck in 2150!!
 <br clear='all'>
 
-## Isabelle Fang
-[![Isabelle Fang](//andromeda.cs.virginia.edu/pdr/tas/ijf7xrb.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/ijf7xrb.jpg)
-Hey guys! My name is Isabelle Fang and I am currently a third year BACS and Statistics major. This is my first semester TA'ing for 2150 and I'm excited to meet y'all! Outside of class, I'm involved in Aerial Dance Club, Madison House and Sigma Psi Zeta, but I also enjoy cooking vegetarian meals and weight lifting at the gym. I am also a huge fan of reality TV. I look forward to helping y'all out this semester!
-<br clear='all'>
-
-## Kidus Fasil
-[![Kidus Fasil](//andromeda.cs.virginia.edu/pdr/tas/kf5fr.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/kf5fr.jpg)
-Hi everyone! My name is Kidus, I am a second-year computer engineering major, and this is my first semester being a TA! This was one of my favorite classes and I learned more in this class than in any other class I have taken. Some clubs I am involved in are the Virginia Glee Club and the Mechatronics and Robotics Society. Some other things I like to do in my free time are swimming, playing video games(really into open-world games and Smash), singing. I can't wait to work with you all and hope you enjoy this class as much as I did!
-<br clear='all'>
-
-## Justin Gou
-[![Justin Gou](//andromeda.cs.virginia.edu/pdr/tas/jyg2qhc.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/jyg2qhc.jpg)
-Hey guys! I am a third year BSCS major. I am TAing for 2150 because I understand that this course can be difficult at times, and I love helping people with CS problems and also just really enjoyed the course in general. In my free time, I enjoy solving Rubik’s cubes, playing chess, listening to music, etc. I’m excited to work with you all this semester!
-<br clear='all'>
-
-## Sarah Gould
-[![Sarah Gould](//andromeda.cs.virginia.edu/pdr/tas/sg4sgz.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/sg4sgz.jpg)
-Hi! My name is Sarah Gould and this will be my first semester being a TA for 2150! I am a third-year CS major in the School of Engineering with a minor in Data Science. I’m really excited to be able to help all of you through this course because I found it to be one of the most beneficial and yet challenging CS courses that I’ve taken so far here. Outside of being a TA, I am involved in W.I.C.S, S.W.E., and GPLS. I’m also a part of the Chi Omega sorority here! If you have any questions regarding any of the organizations I am involved in or about CS/Data Science, please feel free to always reach out!
-<br clear='all'>
-
-## Morgan Hale
-[![Morgan Hale](//andromeda.cs.virginia.edu/pdr/tas/mah7ks.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/mah7ks.jpg)
-Hi everyone! My name’s Morgan and I’m a second year BACS major. This is my first semester as a TA for CS 2150 and I’m super excited to help you all out! I’m on the Virginia Riding Team and the Virginia Eventing & Dressage Team, and I’m involved in UVA’s DevHub. In my free time I love watching Marvel movies and eating lots of strawberries! I can’t wait to help you guys this semester!!
-<br clear='all'>
-
-## Jade Heilemann
-[![Jade heilemann](//andromeda.cs.virginia.edu/pdr/tas/jh2sp.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/jh2sp.jpg)
-Hi all! I'm Jade, I'm a third year Computer Science major and Data Analytics minor. Outside of classes I'm primarily involved in HooHacks and WiCS, please ask me about either club if you have questions! I also love to play video games, cook (and especially eat!) exciting food, and explore new places. I have two cats named Nala and Eva (Nala is pictured here with me) and a dog named Rocky. Good luck in your 2150 endeavors, you're all going to do great, I believe in you!
-<br clear='all'>
-
-## Ellen Herrera
-Hi! My name is Ellen Herrera. I am a second-year with a BACS major and an intended minor in Chinese. I am from Short Pump, Virginia. In my free time I love to run, watch movies, and explore the Charlottesville area with my friends! I don't really have a favorite movie, but some movies I have watched and really liked include Free Guy, most Adam Sandler movies, Encanto, and Crazy Rich Asians. I got into CS because I love to learn coding languages in addition to my love for my English, Spanish, and Chinese skills. I am very excited to be a CS2150 TA this semester because I found the class to be very informative and essential to my computer science education. As I move forward in my CS classes, I continue to have an intense appreciation for the skills CS2150 equipped me with, and I'd like to help other students gain that same expertise.<br clear='all'>
-
-## Srujan Joshi
-[![Srujan Joshi](//andromeda.cs.virginia.edu/pdr/tas/sj7sf.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/sj7sf.jpg)
-Hey! I’m a fourth year Computer Science major in the E-School. I’m from Reston, Virginia (although I lived in Bangalore, India for the last 8 years before college). It’s my second semester as a TA and I’m really looking forward to working with you guys! I personally really enjoyed the class even though it was challenging. In my down time I like playing video games, reading books, meditating, goofing around with my cat and learning how to fly airplanes (virtually) in Microsoft Flight Simulator.
-<br clear='all'>
-
-## Kedar Kulkarni
-[![Kedar Kulkarni](//andromeda.cs.virginia.edu/pdr/tas/ksk6rz.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/ksk6rz.jpg)
-Hey everyone! I am a third-year CS major in the E-School. CS 2150 was definitely challenging but also one of my favorite classes. I want to help each and every one of you in any way, so please do not hesitate to reach out! Some of my hobbies are playing tennis, biking, video games (Rocket League), and hiking.
-<br clear='all'>
-
-## Jules Le Menestrel
-[![Jules Le Menestrel](//andromeda.cs.virginia.edu/pdr/tas/jfl4kb.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/jfl4kb.jpg)
-Hi everyone! I'm Jules, a third year CS major in the E-school. This is my second semester TAing, and I came back because I love helping students out and teaching the material. Outside of TAing, I spend time outdoors (hiking, biking, camping) with the Outdoors Club, work out, and lead developers in theCourseForum. If you're interested in contributing to theCourseForum, feel free to reach out; we're always looking for new devs!
-<br clear='all'>
-
-## Alex Li
-[![Alex Li](//andromeda.cs.virginia.edu/pdr/tas/aml7hqv.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/aml7hqv.jpg)
- Hi! I’m Alex Li, a 4th year Commerce student from Wilton, CT. This is my 3rd semester TAing 2150, and my first in-person semester which is really exciting! Outside of school, I’m part of Flux, a UVA poetry and spoken word club and the Mcintire Investment Institute. I like Avatar the Last Airbender, the Fallout games, hiking in Shenandoah, sand volleyball and Spikeball! A fun fact about me is that I have eaten a 16 inch pizza from Christians in 14 minutes. Hit me up if you wanna talk about literally anything and let's have a great semester!
-<br clear='all'>
-
-## Ratik Mathur
-[![Ratik Mathur](//andromeda.cs.virginia.edu/pdr/tas/rdm7rkm.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/rdm7rkm.jpg)
-Hey guys! I'm Ratik, a second-year in the E-School and this is my first time TAing 2150! I'm from NOVA, specifically from McLean (which is next to DC). Outside of class, I'm involved in the Filmmaker's society and WUVA. An interesting fact about me is that I can bend my ring finger to resemble a Harry Potter scar.
-<br clear='all'>
-
 ## Jamie McCampbell
 [![Jamie McCampbell](//andromeda.cs.virginia.edu/pdr/tas/jcm2yd.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/jcm2yd.jpg)
 Hey guys!  My name is Jaime McCampbell and I'm a third year majoring in CS in the E-School.  This is my first semester as a TA but I am excited to help people through such a valuable class.  Some fun things about me, I love hiking, I'm in the marching band, and I go hard at Minecraft.  I look forward to meeting you all!
 <br clear='all'>
 
-## Keerthi Medicherla
-[![Keerthi Medicherla](//andromeda.cs.virginia.edu/pdr/tas/khm4zf.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/khm4zf.jpg)
-Hi guys, I’m Keerthi! I’m a fourth year double majoring in Computer Science and Global Studies: Security and Justice, and this will be my third semester TAing! CS 2150 was one of the most challenging and rewarding classes I have taken at UVA, so I’m excited to work with you all this semester. :) 
-<br clear='all'>
-
-## Josh Mehr
-[![Josh Mehr](//andromeda.cs.virginia.edu/pdr/tas/jmm3vn.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/jmm3vn.jpg)
-Hi everyone! I’m a third-year BSCS major from Woodbridge, Virginia. This is my third semester TAing for 2150 so I should be able to help you learn and fully comprehend the content. This class can be difficult but as long as you're willing to ask for help (which I know can be hard for some to do) and try your best you will be fine.
-<br clear='all'>
-
-## Sindhura Mente
-No bio yet...
-<br clear='all'>
-
-## Kevin Mulliss
-[![Kevin Mulliss](//andromeda.cs.virginia.edu/pdr/tas/kam8ef.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/kam8ef.jpg)
-Hi everyone, I'm Kevin. I'm a fourth-year BA Computer Science major. This is my first time being a TA for CS 2150, but I was a TA for CS 2110 for the past four semesters, so you might have seen me before! In my free time, I love to watch hockey and play video games. I'm also a huge tabletop roleplaying game fan. I mostly play Pathfinder but I also love D&D and Monster of the Week. I also love to cook.
-<br clear='all'>
-
-## Shruthi Nyshadham
-[![Shruthi Nyshadham](//andromeda.cs.virginia.edu/pdr/tas/sn5hnj.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/sn5hnj.jpg)
- Hi everyone, I’m Shruthi! I’m a third-year Computer Science major in the E-School, and this is my second semester as a TA. Although it was challenging, CS 2150 turned out to be one of the most rewarding classes I’ve ever taken, and I hope to help make it a similarly valuable experience for you! Looking forward to working with you all this semester!
-<br clear='all'>
-
-## Nathan Park
-No bio yet...
-<br clear='all'>
-
 ## Spencer Portuese
 [![Spencer Portuese](//andromeda.cs.virginia.edu/pdr/tas/sjp4gpa.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/sjp4gpa.jpg)
 What's up everyone? I'm Spencer Portuese, I'm a second-year majoring in Computer Science and Archaeology, interested in some of the overlap there. This is my first semester TAing and am excited to meet all of you! I enjoy a hodgepodge of things, but am active in the Student Game Developers Club, UVA Survivor, the No Tones (bad) acapella group, lifting, and watching UVA sports. I really enjoyed this class and learned so much, and hope you will too! 
-<br clear='all'>
-
-## Cris Scruggs
-[![Cris Scruggs](//andromeda.cs.virginia.edu/pdr/tas/cms3zd.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/cms3zd.jpg)
-Hey, my name is Cris Scruggs, I’m a fourth year CS major and this is my third semester being a TA(first in person!). I’m really excited to help out in person as this was my favorite CS course so far and it is definitely critical to master going forward. Outside of CS, I enjoy most every sport, especially NBA and College Basketball. I’m also a huge Marvel fan!
-<br clear='all'>
-
-## Hafsah Shamsie
-[![Hafsah Shamsie](//andromeda.cs.virginia.edu/pdr/tas/his3uh.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/his3uh.jpg)
-Hi everyone! I’m a fourth year computer engineering major and this is my first semester TAing 2150. I became a TA for this class because it’s my favorite class I have taken and I love helping people. Outside of class I’m involved in A.O.E., SWE, and Madison House. In my free time I love baking, watching TV (my favorite show ever is Avatar: The Last Airbender) and, more recently, buying/taking care of plants. I look forward to working with you all this semester!
 <br clear='all'>
 
 ## Natasha Tchir
@@ -165,11 +35,6 @@ Hi! My name is Natasha Tchir and I am a 3rd year in the College of Arts and Scie
 ## Lucy Wang
 [![Lucy Wang](//andromeda.cs.virginia.edu/pdr/tas/lcw2nkz.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/lcw2nkz.jpg)
 Hello! I'm Lucy, and I am a third year CS and statistics major from NOVA. 2150 has been my favorite class I have taken so far, and although it may be stressful and challenging at times, all of the work was very well worth the effort and I promise you will make it through and think the same  :) <p>Outside of class, I enjoy playing volleyball, ultimate frisbee, and going on walks/runs. I love cafes/bakeries and I would (ideally) like to open my own bakery one day! My favorite pastries are donuts and cinnamon rolls so let me know if you have any (easy) recipes!<p>I am excited to work with you all this semester and feel free to reach out if you have any question!
-<br clear='all'>
-
-## Brandon Williams
-[![Brandon Williams](//andromeda.cs.virginia.edu/pdr/tas/byw3xy.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/byw3xy.jpg)
-Hey everyone, welcome to CS2150! I'm a 4th year CS and Econ major who's really excited to finally TA for this course - it is the one I learned the most in and will also truly prepare all of you for just about every CS course afterwards. While I don't have many extracurriculars outside of class, I'm pretty involved with different jobs across grounds. This class may seem/feel/be a bit overwhelming at times, but at the end you will realize it was all necessary. And some of you will truly appreciate C++ over other languages after this :) I look forward to helping you all this semester!
 <br clear='all'>
 
 ## Zach Yahn
