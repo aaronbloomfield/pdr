@@ -3,21 +3,21 @@ CS 2150: Program and Data Representation: Course Syllabus
 
 [Go up to the CS 2150 page][1] ([md][2])
 
-## Spring 2022
+### Fall 2022
 
 ### Instructors ###
 
-- [Mark Floryan][31] / [aaron@virginia.edu](mailto:mrft8@virginia.edu).  Office: Rice Hall, room 203. Office hours are Tue 11-12:30pm, Wed. 10-11:30am **On Zoom (room id: markfloryan)**.
+<!-- - [Mark Floryan][31] / [aaron@virginia.edu](mailto:mrft8@virginia.edu).  Office: Rice Hall, room 203. Office hours are Tue 11-12:30pm, Wed. 10-11:30am **On Zoom (room id: markfloryan)**. -->
 - [Aaron Bloomfield][33] / [aaron@virginia.edu](mailto:aaron@virginia.edu).  Office: Rice Hall, room 402. Office hours are M/W 9-10 and F 1-2.
 
 ### Course Info ###
 
-- Lectures: M/W/F noon-12:50 (Bloomfield) or 1:00-1:50 (Floryan), both in Maury 209
+- Lectures: M/W/F 1:00-1:50 in Olsson 018
 - Email: none; fill out a support request (not yet ready) instead
 - Office hours: schedule to be announced.  Any concerns that are not appropriate to be addressed then should be submitted via a support request (not yet ready).
 - Announcement feed: [\@UVaCS2150][34] and the [daily announcements slide set][15]; you are responsible for checking both
-- TA office hours are 5pm-11pm on Sundays, Mondays, Wednesdays, and Thursdays
-- Laboratory Meetings: all on Tuesdays
+- TA office hours are evenings on Sundays, Mondays, Wednesdays, and Thursdays; see the Collab landing page for details
+- Laboratory Meetings: on Tuesdays
 
 **Course Description:** This course will introduce you to program and data representation from high level concepts to machine level implementation. Data structuring techniques and the representation of data structures during program execution are discussed, as are operations and control structures and their representation during program execution. Representations of numbers, arithmetic operations, arrays, records, recursion, hashing, stacks, queues, trees, graphs, and related concepts are also covered.
 
@@ -66,11 +66,9 @@ The course grades are ***LIKELY*** to follow the standard decade curve: 90 and a
 
 **Exams:** There will be two midterm exams held during laboratory sessions (combined worth 30% of the final grade) and one final exam (worth 30% of the final grade). Note that we hope (but do not guarantee!) to have the first exam returned before the SEAS drop date.
 
-- Midterm Exam 1: Tuesday, February 22th, during lab session
-- Midterm Exam 2: Tuesday, April 5th, during lab session
-- Final Exam: Saturday, May 7th from 7 p.m. to 10 p.m.
-    - This is a common exam time, and conflicts with other courses (APMA 3110 & 3140, ECON 2020 (sections 001 & 002 only))
-    - Let us know by the end of January if you have a conflict (via a support request); we will deal with scheduling conflicts later in the semester
+- Midterm Exam 1: Tuesday, September 27th, during lab session
+- Midterm Exam 2: Tuesday, November 8th, during lab session
+- Final Exam: Saturday, December 15th from 9 a.m. to noon
 
 ***YOU WILL HAVE TO BRING YOUR UVA ID TO ALL EXAMS!!!***
 
