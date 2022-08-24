@@ -34,14 +34,14 @@ need to be installed for what.</p>
 <p><strong>Software Versions</strong></p>
 <p>This installation document installs the following versions:</p>
 <ul>
-<li><a href="http://ubuntu.com">Ubuntu 20.04.1, 64-bit</a></li>
-<li>Clang++ version 10.0.0</li>
-<li>g++ version 9.3.0</li>
+<li><a href="http://ubuntu.com">Ubuntu 22.04.1, 64-bit</a></li>
+<li>Clang++ version 14.0.0</li>
+<li>g++ version 11.2.0</li>
 <li>Python <a
-href="http://packages.ubuntu.com/xenial/python3">3.8.2</a></li>
+href="http://packages.ubuntu.com/xenial/python3">3.10.4</a></li>
 </ul>
 <p>Newer versions of the above may have since come out, but at the time
-of the last update of this document (September 2020), they the latest
+of the last update of this document (September 2022), they the latest
 versions installed via <code>apt</code> (the package installation
 program).</p>
 <p><strong>Notes</strong></p>
@@ -145,19 +145,15 @@ gnustep-common libgnustep-base-dev evince g++-multilib libc6-dev-i386
 libc6-dev:i386 flex make</code>
 <ul>
 <li>Note that there are other <code>apt install</code> lines to be run,
-below, depending on what else you are installing</li>
-<li>The last 5 packages are for Objective C, based on the instructions
-<a
-href="http://www.fatvat.co.uk/2010/04/getting-started-with-objective-c-on.html">here</a>
-(it may be that only a subset of those packages are actually necessary);
-this is not currently installed with this section, however</li>
+below, depending on what else you are installing
+<!--    - The last 5 packages are for Objective C, based on the instructions [here](http://www.fatvat.co.uk/2010/04/getting-started-with-objective-c-on.html) (it may be that only a subset of those packages are actually necessary); this is not currently installed with this section, however --></li>
 </ul></li>
 <li>Ran the following two commands to change the default C/C++ compiler
 to clang:</li>
 </ul>
 <pre><code>sudo update-alternatives --set cc /usr/bin/clang
 sudo update-alternatives --set c++ /usr/bin/clang++
-sudo update-alternatives --install /usr/bin/llvm-symbolizer llvm-symbolizer /usr/bin/llvm-symbolizer-10 1000</code></pre>
+sudo update-alternatives --install /usr/bin/llvm-symbolizer llvm-symbolizer /usr/bin/llvm-symbolizer-14 1000</code></pre>
 <ul>
 <li>Downloaded Google Chrome from <a
 href="https://www.google.com/chrome/browser/desktop/index.html">here</a>,
@@ -169,6 +165,7 @@ install -f</code> (although it worked fine for this install)</li>
 <li>Then the .deb file was removed</li>
 <li>When Chrome was loaded, it was made the default browser and sending
 usage statistics were deselected</li>
+<li>Chrome is set as the default browser</li>
 </ul></li>
 <li>GNOME customization
 <ul>
@@ -186,7 +183,6 @@ idle-delay 0</code> from the terminal)</li>
 <ul>
 <li>Set the home pages for both Chrome and Firefox to online course repo
 site (http://uva-cs.github.io/pdr) and to Collab</li>
-<li>Chrome is set as the default browser</li>
 </ul></li>
 <li>I loaded up emacs from the command line, and then told it to disable
 showing the startup messages (this could also be accomplished by

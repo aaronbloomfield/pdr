@@ -13,12 +13,12 @@ This page has a number of different sections, and the sections you need to insta
 
 This installation document installs the following versions:
 
-- [Ubuntu 20.04.1, 64-bit](http://ubuntu.com)
-- Clang++ version 10.0.0
-- g++ version 9.3.0
-- Python [3.8.2](http://packages.ubuntu.com/xenial/python3)
+- [Ubuntu 22.04.1, 64-bit](http://ubuntu.com)
+- Clang++ version 14.0.0
+- g++ version 11.2.0
+- Python [3.10.4](http://packages.ubuntu.com/xenial/python3)
 
-Newer versions of the above may have since come out, but at the time of the last update of this document (September 2020), they the latest versions installed via `apt` (the package installation program).
+Newer versions of the above may have since come out, but at the time of the last update of this document (September 2022), they the latest versions installed via `apt` (the package installation program).
 
 **Notes**
 
@@ -64,25 +64,25 @@ The "Program and Data Representation configuration" section is for the [Program 
 ### Program and Data Representation configuration
 
 - Installed the other packages: `sudo apt install clang llvm emacs vim nasm astyle tofrodos source-highlight gdb lldb doxygen doxygen-doc graphviz ddd git g++ gobjc gnustep gnustep-make gnustep-common libgnustep-base-dev evince g++-multilib libc6-dev-i386 libc6-dev:i386 flex make`
-    - Note that there are other `apt install` lines to be run, below, depending on what else you are installing
-	- The last 5 packages are for Objective C, based on the instructions [here](http://www.fatvat.co.uk/2010/04/getting-started-with-objective-c-on.html) (it may be that only a subset of those packages are actually necessary); this is not currently installed with this section, however
+    - Note that there are other `apt install` lines to be run, below, depending on what else you are installing 
+    <!-- 	- The last 5 packages are for Objective C, based on the instructions [here](http://www.fatvat.co.uk/2010/04/getting-started-with-objective-c-on.html) (it may be that only a subset of those packages are actually necessary); this is not currently installed with this section, however -->
 - Ran the following two commands to change the default C/C++ compiler to clang:
 ```
 sudo update-alternatives --set cc /usr/bin/clang
 sudo update-alternatives --set c++ /usr/bin/clang++
-sudo update-alternatives --install /usr/bin/llvm-symbolizer llvm-symbolizer /usr/bin/llvm-symbolizer-10 1000
+sudo update-alternatives --install /usr/bin/llvm-symbolizer llvm-symbolizer /usr/bin/llvm-symbolizer-14 1000
 ```
 - Downloaded Google Chrome from [here](https://www.google.com/chrome/browser/desktop/index.html), and installed it via `sudo dpkg -i google-chrome-stable_current_i386.deb`
     - If that installation does not work perfectly, run `sudo apt install -f` (although it worked fine for this install)
     - Then the .deb file was removed
 	- When Chrome was loaded, it was made the default browser and sending usage statistics were deselected
+    - Chrome is set as the default browser
 - GNOME customization
     - Removed RhythmBox and Ubuntu Software from the favorites bar on the left-hand side
     - Added Terminal, Emacs, and Chrome to the favorites on the left-hand side -- this was done by loading them up, and the clicking on the icon and selecting "add to favorites"
 	- Disabled the screen saver lock, as detailed in the first answer [here](https://stackoverflow.com/questions/28281077/how-do-i-disable-the-gnome-desktop-screen-lock) (this meant running `gsettings set org.gnome.desktop.session idle-delay 0` from the terminal)
 - Browser customization
     - Set the home pages for both Chrome and Firefox to online course repo site (http://uva-cs.github.io/pdr) and to Collab
-    - Chrome is set as the default browser
 - I loaded up emacs from the command line, and then told it to disable showing the startup messages (this could also be accomplished by following the guidelines [here](http://xenon.stanford.edu/~manku/dotemacs.html)).
 - Added a few aliases were added (the last 4 lines of .bashrc) to help prevent people from accidentally removing files (adding -i for rm, mv, and cp; and aliasing xemacs to emacs).  This was done both in /home/student/.bashrc and /etc/skel/.bashrc.
 ```
