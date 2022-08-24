@@ -72,7 +72,7 @@ The course grades are ***LIKELY*** to follow the standard decade curve: 90 and a
 
 ***YOU WILL HAVE TO BRING YOUR UVA ID TO ALL EXAMS!!!***
 
-Under **NO** circumstances will anybody be allowed to take the final exam early.  You may **ONLY** request to take the final exam at a different time if you have a final exam **CONFLICT**, not a busy final exam schedule.  Since it is a common exam time, the only conflicts are the courses listed on UVa official exam schedule.  For Fall 2019, they are: BIOL 2100; CS2110; KOR 1010, 2010, 3010; STAT 2120, 3120.
+Under **NO** circumstances will anybody be allowed to take the final exam early.
 
 You may submit lab questions for regrading within 10 days of when they are returned to you (less time for the final due to the end of the semester); this is done via the [course tools][41].  However, you MUST be aware of the [Frivolous regrade policy][3] ([md][4]), which will be strictly enforced.
 
