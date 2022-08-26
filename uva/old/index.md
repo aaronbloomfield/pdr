@@ -9,8 +9,15 @@ This page contains the CS 2150 specific content from previous semesters.  This i
     - [Frivolous regrade policy](frivolous-regrades.html) ([md](frivolous-regrades.md)) for exams (note: it's unclear how this will apply with online exams; more info on that later)
     - UNIX honor pledge, which needs to be signed by all the students in the course (it is created from a [.tex](unix-honor-pledge.tex) file)
 
+- Spring 2022
+    - The git tag is `2022-spring`; the direct link to the github repo is [here](https://github.com/uva-cs/pdr/tree/2022-spring)
+    - [Main CS 2150 page](index-spring-2022.html) ([md](index-spring-2022.md))
+    - [Daily announcements](daily-announcements-spring-2022.html)
+    - [Syllabus](syllabus-spring-2022.html) ([md](syllabus-spring-2022.md))
+    - [Course grade explanations](grades-spring-2022.html) ([md](grades-spring-2022.md))
+
 - Fall 2021
-    - The git tag is `2022-fall`; the direct link to the github repo is [here](https://github.com/uva-cs/pdr/tree/2021-fall)
+    - The git tag is `2021-fall`; the direct link to the github repo is [here](https://github.com/uva-cs/pdr/tree/2021-fall)
     - [Main CS 2150 page](index-fall-2021.html) ([md](index-fall-2021.md))
     - [Daily announcements](daily-announcements-fall-2021.html)
     - [Syllabus](syllabus-fall-2021.html) ([md](syllabus-fall-2021.md))
