@@ -1,7 +1,9 @@
 SDAC Accommodations in CS 2150
 ==============================
 
-Some students will have SDAC ([Student Disabilities Access Center](https://www.studenthealth.virginia.edu/SDAC)) accommodations.  Below is how we handle these accommodations in this course.  Obviously, on the accommodations determined by SDAC apply to you.
+[Go up to the CS 2150 page](index.html) ([md](index.md))
+
+Some students will have SDAC ([Student Disabilities Access Center](https://www.studenthealth.virginia.edu/SDAC)) accommodations.  Below is how we handle these accommodations in this course.  Obviously, only the accommodations determined by SDAC apply to you.
 
 
 - **Extra time on exams:** the midterms are taken during your lab slot.  When your regular lab time is over, just put your pen down, tell the TA that you have extended time, and you can start up again when the next lab section starts -- this means you will have a 15 minute break in the middle.  For semesters with only one lab, you should put your pen down when stated, and when a TA comes to pick up your exam, tell him or her that you have SDAC extended time.  Note that you are also welcome to take it at SDAC.  For the final exam, you will also get the extra time -- but note that the final exam will start at the same time, and will go late.
