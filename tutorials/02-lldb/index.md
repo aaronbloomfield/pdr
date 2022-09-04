@@ -262,8 +262,8 @@ To remove a variable from the automatic display list, use the
 
 If you see that a variable has the wrong value, and you'd like to
 change that value in mid-stream before continuing execution, you can
-do this easily.  Enter `expr` followed by the type, then the variable,
-an equals symbol (`=`), and the value or expression.  It's just like a
+do this easily.  Enter `expr` followed by the variable,
+an equals symbol (`=`), and the value or expression.  It's like a
 C++ assignment statement but without the semi-colon at the end.  For
 example:
 
