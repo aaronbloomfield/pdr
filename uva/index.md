@@ -15,7 +15,7 @@ Links
 There are a number of links and other parts of this course that are **NOT** included in this repository.  They are:
 
 - The set of online tools, which can be accessed through Collab
-    - These tools are the [support requests](https://andromeda.cs.virginia.edu/satori/tickets/ticket-list/cs-2150-fall-2022/) tool and the [office hours queue](https://andromeda.cs.virginia.edu/satori/queue/program-data-representation-2/)
+    - These tools are the [support requests](https://libra.cs.virginia.edu/~pedagogy/support.php) tool and the [office hours queue](https://libra.cs.virginia.edu/~pedagogy/queue.php)
 - Email list archive, which is a Collab tool ([here](https://collab.its.virginia.edu/portal/directtool/d157dc94-8a0c-4f40-b821-08902d3bfba4/) is the direct link, although Collab login is required)
 - Piazza; Collab can log you in directly; the Collab tool link is [here](https://collab.its.virginia.edu/portal/directtool/af0175f2-1816-4d9f-ab0c-467bd092e46d/) (again, Collab login required)
 - [Anonymous feedback](https://collab.its.virginia.edu/portal/directtool/2522f349-f949-424f-98b6-a5fd744007d9/)
@@ -221,8 +221,6 @@ None yet!
 [152]: https://piazza.com/
 
 [161]: https://libra.cs.virginia.edu/~pedagogy/support.php
-[162]: https://andromeda.cs.virginia.edu/satori/tickets/ticket-list/cs-2150-sp-2022/
-[167]: https://andromeda.cs.virginia.edu/satori/
 
 [170]: https://collab.its.virginia.edu/x/6KjU79
 [172]: unix-honor-pledge-f20.pdf
