@@ -4,7 +4,10 @@ CS 2150 Teaching Assistants
 [Go up to the CS 2150 page](index.html) ([md](index.md))
 
 ## Samuel Ahn
-No bio yet...
+[![Samuel Ahn](//andromeda.cs.virginia.edu/pdr/tas/sya5jv.jpg)](//andromeda.cs.virginia.edu/pdr/tas/full/sya5jv.jpg)
+Hey! I'm Samuel Ahn, and I'm a third year in the engineering school majoring in CS. I play cello as a hobby, play chess for fun, and my favorite drink is coffee! 
+
+Although I found it a bit hard at first, 2150 ended up being the most informative and fun CS class that I have taken so far, and I am happy to be a TA again this semester for its final iteration. I'll do my best to do what my TAs did for me and make it easier to learn the contents of the class. I look forward to meeting you guys this semester!
 <br clear='all'>
 
 ## Ayushi Ambhore
