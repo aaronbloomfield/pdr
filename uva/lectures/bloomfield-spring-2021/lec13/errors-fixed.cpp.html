@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>lec13/errors-fixed.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<i><font color="#9A1900">// can you find the 12 errors in this program? // error D1: there are 16 errors, not including this one</font></i>
+
+<i><font color="#9A1900">// there are multiple categories of errors:</font></i>
+<i><font color="#9A1900">// category A: those that will cause the program to crash</font></i>
+<i><font color="#9A1900">// category B: those that will not cause the program to crash and that the address sanitizer will find</font></i>
+<i><font color="#9A1900">// category C: those that will not cause the program to crash and that the address sanitizer will NOT find</font></i>
+<i><font color="#9A1900">// category D: these are logical, bad prgramming, or other errors, but will not cause a run-time or compile-time error</font></i>
+<i><font color="#9A1900">// category E: those that compiling with -Wall will find</font></i>
+<i><font color="#9A1900">// category F: warnings only, not errors</font></i>
+
+<i><font color="#9A1900">// there are multiple ways to compile this:</font></i>
+<i><font color="#9A1900">// - `clang++ -Wno-everything errors.cpp` to generate no warnings so you can try to find the errors</font></i>
+<i><font color="#9A1900">// - `clang++ -Wall errors.cpp` to generate lots of warnings</font></i>
+<i><font color="#9A1900">// - `clang++ -fsanitize=address -fno-omit-frame-pointer -g errors.cpp` to run the address sanitizer</font></i>
+
+
+<font color="#009900">int</font> n <font color="#990000">=</font> <font color="#993399">7</font><font color="#990000">;</font>
+
+<b><font color="#0000FF">class</font></b> <font color="#008080">foo</font> <font color="#FF0000">{</font>
+    <font color="#009900">int</font><font color="#990000">*</font> k<font color="#990000">,</font> <font color="#990000">*</font>m<font color="#990000">;</font> <i><font color="#9A1900">// , *p; // error F1: unused variable warning for p once error B2 is fixed</font></i>
+
+<b><font color="#0000FF">public</font></b><font color="#990000">:</font>
+    <b><font color="#000000">foo</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+        m <font color="#990000">=</font> <font color="#990000">&amp;</font>n<font color="#990000">;</font>
+        <i><font color="#9A1900">// error D6: should initialize all fields</font></i>
+    <font color="#FF0000">}</font>
+    <font color="#990000">~</font><b><font color="#000000">foo</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+        <i><font color="#9A1900">//delete p; // error B2: delete unitialized or bad pointer</font></i>
+        <i><font color="#9A1900">//delete m; // error A1: delete global variable</font></i>
+        <i><font color="#9A1900">// error D5: k is not deleted, was this intentional?  If so, then insert a comment stating so</font></i>
+    <font color="#FF0000">}</font>
+    <font color="#009900">void</font> <b><font color="#000000">what</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+        <font color="#009900">long</font> a <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+        k <font color="#990000">=</font> <font color="#990000">(</font><font color="#009900">int</font><font color="#990000">*)</font> a<font color="#990000">;</font> <i><font color="#9A1900">// error D4: never a good practice to do this</font></i>
+    <font color="#FF0000">}</font>
+    <font color="#009900">void</font> <b><font color="#000000">huh</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+        <i><font color="#9A1900">// if huh() is called after what(), b is created in the same spot as a, and has value 0 (nullptr)</font></i>
+        <i><font color="#9A1900">//int *b../../../..error F3: unused variable warning when error E1 is resolved</font></i>
+        <i><font color="#9A1900">//delete b; // error E1: still technically unititalized, but it is likely to have value 0</font></i>
+    <font color="#FF0000">}</font>
+<font color="#FF0000">}</font><font color="#990000">;</font>
+
+
+<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+    <font color="#008080">foo</font> x<font color="#990000">;</font>
+    <font color="#009900">int</font><font color="#990000">*</font> i <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">int</font> <font color="#990000">(</font><font color="#993399">5</font><font color="#990000">);</font>
+    <font color="#009900">int</font><font color="#990000">*</font> q <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">int</font> <font color="#990000">(</font><font color="#993399">7</font><font color="#990000">);</font>
+    <font color="#009900">int</font><font color="#990000">*</font> j <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">int</font><font color="#990000">[</font><font color="#993399">4</font><font color="#990000">];</font>
+    <font color="#009900">int</font><font color="#990000">*</font> l <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">int</font> <font color="#990000">(</font><font color="#993399">7</font><font color="#990000">);</font>
+    <i><font color="#9A1900">//int *o; // error F3: unused variable warning once error E3 is fixed</font></i>
+
+    <b><font color="#0000FF">delete</font></b><font color="#990000">[]</font> j<font color="#990000">;</font> <i><font color="#9A1900">// error E2: delete[] not delete</font></i>
+
+    <b><font color="#0000FF">delete</font></b> l<font color="#990000">;</font>
+    <i><font color="#9A1900">//*l = n; // error B1: use after delete</font></i>
+    <b><font color="#0000FF">delete</font></b> i<font color="#990000">;</font>
+    <i><font color="#9A1900">//delete l; // error A2: double free</font></i>
+
+    i <font color="#990000">=</font> nullptr<font color="#990000">;</font>
+    <b><font color="#0000FF">delete</font></b> i<font color="#990000">;</font> <i><font color="#9A1900">// red herring -- this is not an error</font></i>
+
+    <b><font color="#0000FF">delete</font></b> q<font color="#990000">;</font> <i><font color="#9A1900">// error B3: no delete of q</font></i>
+    <i><font color="#9A1900">//n = *i; // error A3: null dereference</font></i>
+    <i><font color="#9A1900">//n = *o; // error E3: following unitiailized pointer</font></i>
+
+    x<font color="#990000">.</font><b><font color="#000000">what</font></b><font color="#990000">();</font>
+    x<font color="#990000">.</font><b><font color="#000000">huh</font></b><font color="#990000">();</font>
+
+    <b><font color="#0000FF">return</font></b> <font color="#993399">1</font><font color="#990000">;</font> <i><font color="#9A1900">// error D2: should return 0</font></i>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

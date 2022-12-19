@@ -1,119 +1,285 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>PDR: Tutorial 1: Introduction to UNIX</title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../../markdown.css" type="text/css" />
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../../markdown.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
-<h1 id="pdr-tutorial-1-introduction-to-unix">PDR: Tutorial 1: Introduction to UNIX</h1>
-<p><a href="../index.html">Go up to the Tutorials table of contents page</a></p>
-<h2 id="part-i-introduction-and-setting-up-your-unix-environment">Part I: Introduction and setting up your UNIX environment</h2>
-<p>This tutorial is meant to get you up and running with editing, compiling, and executing a program in a Unix-like environment. There are a number of options that you can use to do this, depending on if you have your own PC, and how much time you want to spend installing software. We recommend the first of the options listed if you are using Windows; Mac OS X users should use the second option listed.</p>
-<p>The options are:</p>
+<h1 id="pdr-tutorial-1-introduction-to-unix">PDR: Tutorial 1:
+Introduction to UNIX</h1>
+<p><a href="../index.html">Go up to the Tutorials table of contents
+page</a></p>
+<h2 id="part-i-introduction-and-setting-up-your-unix-environment">Part
+I: Introduction and setting up your UNIX environment</h2>
+<p>This tutorial is meant to get you up and running with editing,
+compiling, and executing a program in a Unix-like environment. There are
+a number of options that you can use to do this, depending on what
+operating system you are using and how much time you want to spend
+installing software.</p>
+<p>We recommended using VirtualBox, a free virtual machine software
+package. This will allow you to run Linux on your home machine without
+needing to re-install anything. Directions for setting up and how to use
+VirtualBox can be found at <a href="virtual-box.html">Tutorial 1:
+Introduction to UNIX: VirtualBox use</a>. This will require downloading
+a hard drive image that we provide.</p>
+<p>There are other options available:</p>
 <ul>
-<li>Use VirtualBox, a free virtual machine software package. This will allow you to run Linux on your home machine without needing to re-install anything. Directions for setting up and how to use VirtualBox can be found at <a href="virtual-box.html">Tutorial 1: Introduction to UNIX: VirtualBox use</a></li>
-<li>Mac OS X users are already running UNIX, as Mac OS X runs on top of FreeBSD (a version of UNIX). So you can just use the computer you have. HOWEVER, note that you still can't use an IDE (Eclipse, Xcode, etc.). You can download Emacs (an editor) from <a href="http://emacsformacosx.com/">here</a>. From a terminal window, try typing in <code>clang++</code> - if you get &quot;Command not found&quot;, you will need to install Xcode from the App Store, and then install the Command Line Tools (under Preferences - Downloads). In newer versions of OS X, after typing <code>clang++</code>, a popup should appear asking if you would like to install command line developer tools. Also note that you cannot load up Emacs easily from a command line, but you can load it up as you would any other application.
+<li>macOS users are already running UNIX, as macOS runs on top of
+FreeBSD (a version of UNIX). So you can just use the computer you have.
+HOWEVER, note that you still can’t use an IDE (Eclipse, Xcode, etc.).
+You can download Emacs (an editor) from <a
+href="http://emacsformacosx.com/">here</a>. From a terminal window, try
+typing in <code>clang++ --version</code> - if you get “Command not
+found”, you will need to install Xcode from the App Store, and then
+install the Command Line Tools (under Preferences - Downloads). In newer
+versions of macOS, after typing <code>clang++ --version</code>, a pop-up
+should appear asking if you would like to install command line developer
+tools. Also note that you cannot load up Emacs easily from a command
+line, but you can load it up as you would any other application.
 <ul>
-<li>You will need to install Xcode and the command line tools (with the latest version of Xcode, you have to download and install the command-line tools separately)</li>
-<li>Note that some software that you will need for this course (in particular, doxygen and x86 code creation) does NOT work well on a Mac, and you will likely need the VirtualBox image for that</li>
+<li>You will need to install Xcode and the command line tools (with the
+latest version of Xcode, you have to download and install the
+command-line tools separately)</li>
+<li>Note that some software that you will need for this course (in
+particular, doxygen and x86 code creation) does NOT work well on a Mac,
+and you will likely need the VirtualBox image for that</li>
 </ul></li>
-<li>Install a Unix variant on your home machine. There are a number of options: Linux, FreeBSD, Solaris, etc. We use Linux (specifically, the Ubuntu distribution), as it has a large user community, both at the University and outside. Thus, if you run into a problem, the course staff might be able to help you. This will require repartitioning your hard drive, and thus there is a chance of data loss. <strong>THUS YOU NEED TO BACK UP YOUR DATA FIRST!!!</strong> You will have to choose a distribution of Linux to install -- as mentioned above, we use Ubuntu. You can find install guides on the web. Be sure to install the development environments with Linux -- pretty much all of the required software will be included in that. Also consider <a href="http://wubi-installer.org/">Wubi</a>, an easy-to use installer for Windows (while we have not used it ourselves, we have heard good reports about it from previous students).</li>
-</ul>
-<p>Should you not want to install anything on your machine, or you want to work elsewhere, there are other options available to you as well:</p>
-<ul>
-<li>Complete this lab in any ITC lab -- oh, wait. They got rid of them because undergraduate education is too expensive. Idiotic decision...</li>
-<li>Complete this lab in Olsson 001 using Linux. You should be able to use your University Id to swipe into the room. Note that while you can generally use the lab at any time, you are not allowed to be in the room when another lab is going on. The lab machines already have both Linux and Windows installed, although you will have to reboot the computer into Linux (see below).</li>
+<li>Install a Unix variant on your home machine. There are a number of
+options: Linux, FreeBSD, Solaris, etc. We use Linux (specifically, the
+Ubuntu distribution), as it has a large user community, both at the
+University and outside. Thus, if you run into a problem, the course
+staff might be able to help you. This will require repartitioning your
+hard drive, and thus there is a chance of data loss. <strong>THUS YOU
+NEED TO BACK UP YOUR DATA FIRST!!!</strong> You will have to choose a
+distribution of Linux to install – as mentioned above, we use Ubuntu.
+You can find install guides on the web. Be sure to install the
+development environments with Linux – pretty much all of the required
+software will be included in that.</li>
+<li>Windows 10 users have WSL (short for Windows Subsystem for Linux)
+available, which adds an entirely terminal-based Linux environment
+directly within Windows, with some limitations. You can follow the
+instructions to install WSL <a
+href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">here</a>.
+<strong>NOTE</strong>: WSL is still an evolving technology, and thus
+some tools may not work as expected – in particular, the lldb debugger
+will not work. Course staff will be less able to assist you if you run
+into WSL-specific issues.</li>
 </ul>
 <hr />
-<h2 id="part-ii-a-brief-unix-tutorial">Part II: A (brief!) Unix tutorial</h2>
-<p>Unix is a very powerful operating system that has been around, in one form or another, for almost 40 years. The fact that it still exists attests to how powerful it can be for completing tasks on a computer. The reason it is not more widely adopted is because it is not very easy to use or intuitive -- it was written by computer programmers for computer programmers. While the people in this course are certainly capable of learning it, many people just want a computer to work, and to run an Office suite and a set of Internet programs such as a browser. For those users, an easier to use operating system (such as Windows or Mac OS X) is often better. Unix is coming more into the mainstream lately with the increased popularity of Linux, as well as the fact that Mac OS X is built upon a Unix operating system (FreeBSD, in particular).</p>
-<p>The word &quot;Unix&quot; can mean any Unix-like operating system. There are many available -- Linux, FreeBSD, Solaris, Mac OSX, etc. We will be using the word Unix in this class to mean whichever Unix-like environment we are using for this course.</p>
-<p>A quick note: Unix IS CASE SENSITIVE. Thus, foo, Foo, FOO, and FoO are all different, and allowable, file names. This causes problems with Windows, which sees all those names as the same thing. So be careful about your cases!</p>
-<h3 id="connecting-to-unix">Connecting to Unix</h3>
-<p>First, you need to load up a command shell. For those who have used DOS, or the Windows command prompt, it is a somewhat similar interface.</p>
-<p><strong>A Unix system installed on your home machine, including VirtualBox:</strong> In Linux (or FreeBSD, Solaris, etc.): Log in (presumably to the X-Windows interface), and load up a command shell. How you load that up is dependent on your version of Linux. With VirtualBox, it's one of the icons on the top toolbar.</p>
-<p><strong>A Linux machine in Olsson 001:</strong> You will need to reboot the computer into Linux -- see the directions in the first lab for how to do this.</p>
+<h2 id="part-ii-a-tale-of-two-guis">Part II: A Tale of Two GUIs</h2>
+<p>When you install Linux, there are a number of graphical user
+interfaces – or window managers – that one can use. Think of how MS
+Windows is different than macOS, and you get the idea. The one we are
+using is <em>Gnome</em>. Gnome (pronounced guh-NOME) is a user interface
+that is specific to UNIX machines. The interactions with the GUI are a
+bit different, but the same concepts. One can interact with Gnome really
+quickly once one gets used to the new interface. You can see a screen
+shot of it <a
+href="https://149366088.v2.pressablecdn.com/wp-content/uploads/2018/04/ubuntu-1804-desktop-screenshot.jpg">here</a>.</p>
+<hr />
+<h2 id="part-iii-a-brief-unix-tutorial">Part III: A (brief!) Unix
+tutorial</h2>
+<p>Unix is a very powerful operating system that has been around, in one
+form or another, for almost 40 years. The fact that it still exists
+attests to how powerful it can be for completing tasks on a computer.
+The reason it is not more widely adopted is because it is not very easy
+to use or intuitive – it was written by computer programmers for
+computer programmers. While the people in this course are certainly
+capable of learning it, many people just want a computer to work, and to
+run an Office suite and a set of Internet programs such as a browser.
+For those users, an easier to use operating system (such as Windows or
+macOS) is often better. Unix is coming more into the mainstream lately
+with the increased popularity of Linux, as well as the fact that macOS
+is built upon a Unix operating system (FreeBSD, in particular).</p>
+<p>The word “Unix” can mean any Unix-like operating system. There are
+many available – Linux, FreeBSD, Solaris, macOS, etc. We will be using
+the word Unix in this class to mean whichever Unix-like environment we
+are using for this course.</p>
+<p>A quick note: Unix IS CASE SENSITIVE. Thus, foo, Foo, FOO, and FoO
+are all different, and allowable, file names. This causes problems with
+Windows, which sees all those names as the same thing. So be careful
+about your cases!</p>
+<h3 id="loading-a-terminal">Loading a terminal</h3>
+<p>First, you need to load up a terminal. For those who have used the
+Windows command prompt, it is a somewhat similar interface.</p>
+<ul>
+<li>With VirtualBox and Gnome, it’s an icon on the toolbar on the
+left-hand side of the desktop</li>
+<li>On macOS, open Spotlight and search for Terminal</li>
+</ul>
 <h3 id="the-unix-tutorial">The Unix Tutorial</h3>
-<p>Here is a quick primer of basic Unix commands. Try each of these out. The idea is for you to be able to manipulate files and directories -- the full Unix tutorial starts next week.</p>
+<p>Here is a quick primer of basic Unix commands. Try each of these out.
+The idea is for you to be able to manipulate files and directories – the
+full Unix tutorial starts next week.</p>
 <ul>
-<li><code>ls</code> will show the contents of the current directory (similar to <code>dir</code> in DOS). 'ls' stands for 'list', but without the 'i' and the 't'.</li>
-<li><code>pwd</code> (for print working directory) shows the current directory. If you enter it now, it will print something like '/home/Yourname'. Like Windows Explorer, you are always in a given directory at any given time -- if you modify files or create directories, for example, it will occur in the current working directory. The current directory ('/home/Yourname') is called your home directory.</li>
-<li><code>cd foo</code> will change to the foo directory -- in other words, it changes the current working directory. As there are no directories in '/home/Yourname', you can enter <code>cd ..</code> (notice the one space and then two periods) -- this will move you up one directory (to '/home'). Also, you can enter <code>cd -</code> to jump to the previous directory you were in (the Ctrl-Z of directory hopping).</li>
-<li>If you didn't already, change to the directory above your home directory (by entering <code>cd ..</code>). If you do an <code>ls</code>, you will probably see only one entry: 'Yourname'. Move up one more directory (<code>cd ..</code>), and do an <code>ls</code> -- there should be a dozen or so directory entries. At this point, it's hard to see what is a directory and what is not -- you can do an <code>ls -F</code>, which will put a single character after most files to let you know what they are -- for example, 'home/' shows up, and the slash tells you that 'home' is a directory.</li>
-<li>To get back to your home directory, just enter <code>cd</code>. The current working directory is changed to your home directory.</li>
-<li>You can make directories by <code>mkdir</code> (note that 'md' will not work), and remove them by <code>rmdir</code> (not 'rd'). This is the same as creating a folder in Windows Explorer. A directory that is not empty cannot be removed. For now, we recommend that any directory names (or file names) only have letters, digits, or the underscore in their names (there are ways around that, but they are complicated).</li>
-<li>Once we start saving files, we will want them to be somewhere easily accessible from Windows. With VirtualBox, the [Tutorial 1: Introduction to UNIX: VirtualBox use] page discusses how to transfer files back and forth to the virtual machine.</li>
+<li><code>ls</code> will show the contents of the current directory.
+‘ls’ stands for ‘list’, but without the ‘i’ and the ‘t’.</li>
+<li><code>cd pdr</code> will change to the <code>pdr</code> directory –
+in other words, it changes the current working directory to whatever you
+specify. You should notice the text at the beginning of the line change:
+the <em>prompt</em> will help you keep track of which directory you are
+in. To go up a directory, you can enter <code>cd ..</code> (notice the
+one space and then two periods). Also, you can enter <code>cd -</code>
+to jump to the previous directory you were in (the Ctrl-Z of directory
+hopping). Finally, typing <code>cd</code> with nothing after it will
+move you back to your home directory.</li>
+<li>You can make directories by <code>mkdir</code> and remove them by
+<code>rmdir</code>. This is the same as creating a folder in Windows
+Explorer. A directory that is not empty cannot be removed. For now, we
+recommend that any directory names (or file names) only have letters,
+digits, or the underscore in their names (there are ways around that,
+but they are complicated).</li>
+<li>Remove individual files with <code>rm</code>.</li>
+<li>Once we start saving files, we will want them to be somewhere easily
+accessible from Windows. With VirtualBox, the <a
+href="virtual-box.html">Tutorial 1: Introduction to UNIX: VirtualBox
+use</a> page discusses how to transfer files back and forth to the
+virtual machine.</li>
 </ul>
-<p>That's it for the Unix tutorial for now. There are many further tutorials online, feel free to read those. You can do all your editing in your desktop folder -- this way, if you want to rename or move your files, you can use Windows Explorer to do so (there are Unix ways to do it, and we'll get to those later).</p>
+<p>That’s it for the Unix tutorial for now. There are many further
+tutorials online, feel free to read those. You can do all your editing
+in your desktop folder – this way, if you want to rename or move your
+files, you can use Windows Explorer to do so (there are Unix ways to do
+it, and we’ll get to those later).</p>
 <hr />
-<h2 id="part-iii-editing-compiling-and-running-a-c-program">Part III: Editing, compiling, and running a C++ program</h2>
-<p>First, you will need to load up a command shell (as in the previous section), from which we will load up the editor. We will be using a version of Emacs for this course.</p>
-<p>For this course, you will need to be familiar with Emacs. You are welcome to use any editor that is not an IDE (Integrated Development Environment), but I will expect that you are very familiar with Emacs, or optionally Vim, for the exams. This includes the keyboard shortcuts!</p>
-<p>To load up the editor:</p>
-<ul>
-<li>In Linux (via VirtualBox, or in FreeBSD, Solaris, etc.): Log in (presumably to the X-Windows interface), and load up <code>emacs</code>. How you load that up is dependent on your version of Linux -- the easy way is to load up a command shell, or <em>terminal</em>, (which you will need anyway), and enter <code>emacs &amp;</code> (note the ampersand ('&amp;') at the end, this tells the command shell to start the <code>emacs</code> process in the background, which means you can continue to use the command shell and do not have to wait until emacs is closed). To use emacs within your command shell, enter <code>emacs -nw</code> (note the <code>-nw</code> means no-window, and also note we don't put an <code>&amp;</code> here).</li>
-<li>Through SecureCRT to the departmental machines: log in as above. A few notes: when you load up the editor, enter <code>emacs helloworld.cpp</code> -- note that you are not loading the GUI (as this is a text-based terminal you are using), and you are not using an ampersand (<code>&amp;</code>). When you have to switch back to using the shell, you will need to exit Emacs (<code>C-x C-c</code> -- see below), run the command, and then re-start Emacs.</li>
-</ul>
-<p>You should now have emacs loaded and running -- if not, then something is wrong. If you are using the VirtualBox image, it will look like the following. Other systems will look similar.</p>
-<div class="figure">
-<img src="screenshot-1.png" alt="Emacs screenshot" />
-<p class="caption">Emacs screenshot</p>
-</div>
-<p>All of the mouse commands in Emacs have keyboard shortcuts. Eventually, you will want to learn the shortcuts, as they are much faster to enter once they are known. For the commands below, the keyboard shortcut commands are listed -- partly so you can get used to seeing and using them, and partly because for those using SecureCRT, they cannot use the mouse.</p>
-<p>The first commands in Emacs that we will learn will use the control key. For example, the exit command (to leave emacs) is listed as <code>C-x C-c</code>. This means hit Control-x then Control-c. We will be going over Emacs command in more detail later. For now, remember that if you get stuck, hit <code>C-g</code> (Control-g) a few times, and that should un-stick it.</p>
-<p>We recommend you create a new directory in your desktop for the rest of this tutorial (<code>mkdir tutorial</code>). Either way, <code>cd</code> into that directory.</p>
-<p>Next, let's open up a new file. Do do that, go to File-&gt;Open (<code>C-x C-f</code>). Enter the name of the file (<code>helloworld.cpp</code>). Note that if the file does not exist, then it is created (thus, it is like File-&gt;New in other programs). If the file does exist, it is opened (like File-&gt;Open in other programs). Also note that in the lower part of the Emacs screen, it should now say &quot;C++ Abbrev&quot; -- this is the mode that Emacs is in. The &quot;C++ Abbrev&quot; means that it is in C++ mode, which is what we want.</p>
-<p>Enter the following program -- feel free to cut-and-paste (there is a 'Edit-&gt;Paste' menu entry). This is the same program found in the first set of slides. What all this C++ code means, we'll get to later -- this tutorial is just for entering, compiling, and running the programs.</p>
-<pre><code>// C++
-#include &lt;iostream&gt;
+<h2 id="part-iv-editing-compiling-and-running-a-c-program">Part IV:
+Editing, compiling, and running a C++ program</h2>
+<p>First, you will need to open a terminal (as in the previous section),
+from which we will load up an editor. We will be using the Emacs editor
+for all our examples, but you are welcome to use any editor that is not
+an integrated development environment (IDE). Whatever you decide to use,
+know that you will be expected to be familiar with it! This includes
+keyboard shortcuts.</p>
+<p>To load up the editor, enter <code>emacs &amp;</code> into the
+terminal. The ampersand (<code>&amp;</code>) at the end is very
+imporant! This tells the terminal to start the <code>emacs</code>
+process in the background, which means you can continue to use the
+terminal while emacs is open.</p>
+<p>If you are using macOS, you can open Emacs from the Dock or Spotlight
+if the above instructions do not work.</p>
+<p>You should now have Emacs loaded and running – it should look
+something like the following.</p>
+<figure>
+<img src="emacs-on-open.png" alt="Emacs on open" />
+<figcaption aria-hidden="true">Emacs on open</figcaption>
+</figure>
+<p>All of the mouse commands in Emacs have keyboard shortcuts.
+Eventually, you will want to learn the shortcuts, as they are much
+faster to enter once they are known. To help you with getting used to
+them, we have provided the shortcuts for the commands below.</p>
+<p>The first commands in Emacs that we will learn will use the control
+key (even on macOS!). For example, the save command is listed as
+<code>C-x C-s</code>. This means hit Control-x then Control-s. We will
+be going over Emacs command in more detail later. For now, remember that
+if you get stuck, hit <code>C-g</code> (Control-g) a few times, and that
+should un-stick it.</p>
+<p>We recommend you create a new directory for the rest of this tutorial
+(<code>mkdir tutorial</code>). <code>cd</code> into that directory.</p>
+<p>Next, let’s open up a new file. To do that, go to File-&gt;Open
+(<code>C-x C-f</code>). Enter the name of the file
+(<code>helloworld.cpp</code>). Note that if the file does not exist,
+then it is created (thus, it is like File-&gt;New in other programs). If
+the file does exist, it is opened (like File-&gt;Open in other
+programs). Also note that in the lower part of the Emacs screen, it
+should now say “C++ Abbrev” – this is the mode that Emacs is in. The
+“C++ Abbrev” means that it is in C++ mode, which is what we want.</p>
+<p>Enter the following program – feel free to cut-and-paste (there is an
+‘Edit-&gt;Paste’ menu entry, or <code>C-y</code>). This is the same
+program found in the first set of slides. What all this C++ code means,
+we’ll get to later – this tutorial is just for entering, compiling, and
+running the programs.</p>
+<pre><code>#include &lt;iostream&gt;
 using namespace std;
-int main() {
+
+int main () {
     cout &lt;&lt; &quot;Hello World!&quot; &lt;&lt; endl;
     return 0;
 }</code></pre>
-<p>Save the file (File-&gt;Save or <code>C-x C-s</code>). If you switch back to the shell, and do an <code>ls</code>, you should see that file listed.</p>
-<p>Next, we need to compile that file. To do so, switch to the shell, and enter the command: <code>clang++ helloworld.cpp</code>. It will compile, and if successful, the command prompt will be displayed after a brief pause. If there were errors, then the it will list them to the screen.</p>
-<p>After a successful compilation, do an <code>ls</code> -- you will see a second file, called <code>a.exe</code> (<code>a.out</code> if you are using Linux, OS X, or one of the lava machines). This is the compiled version of that program. To run it, enter <code>./a.exe</code> (or <code>./a.out</code>). Note the period and slash before the <code>a.exe</code> -- why this is there (and how to get rid of it) we will see later in the semester.</p>
-<p>Another useful command is the undo command: <code>C-_</code>. This means hold down the control and shift keys, and hit the dash/underscore key.</p>
-<p>Right now your Emacs should look approximately like this (with the helloworld.cpp file loaded):</p>
-<div class="figure">
-<img src="emacs-screenshot-new.png" alt="Emacs screenshot" />
-<p class="caption">Emacs screenshot</p>
-</div>
-<p>The following is useful for older versions of Emacs. Read over it and familiarize yourself with it, specifically the meta-commands, but note that if you see text coloring and line-numbers, you are good to go.</p>
-<p>There are two more Emacs commands that will be very useful as we continue in the course. The Emacs editor is very powerful, but you would never know it by looking at the code that you just entered. It really just looks like Notepad right now:</p>
-<div class="figure">
-<img src="screenshot-2.png" alt="Emacs screenshot" />
-<p class="caption">Emacs screenshot</p>
-</div>
-<p>Let's color the text and turn on line numbers -- both very useful things to have when you are editing code. We've seen control commands (such as <code>C-x C-s</code> for saving a file). Next up are commands called meta-commands, because they use the meta (or escape) key. A meta-command looks like <code>M-x linum-mode</code>. Thus, to enter the command, hit the escape key, RELEASE THE ESCAPE KEY, and hit <code>x</code>. Note that with the control commands, you hold down the control key while pressing the other key -- with meta commands, you press and then release the escape key, and then hit <code>x</code>. At that point, the bottom of your Emacs screen will look like the following:</p>
-<div class="figure">
-<img src="screenshot-3.png" alt="Emacs screenshot" />
-<p class="caption">Emacs screenshot</p>
-</div>
-<p>Note the <code>M-x</code> at the bottom -- Emacs is ready to receive an 'extended' meta command. Type in <code>linum-mode</code>, hit Enter, and the line number that the cursor is on will appear in the status bar at the bottom of the Emacs screen. Note that it is going to be annoying to have to type all of that in each time. This, if you hit the tab key after entering <code>line</code>, it will complete the rest of the command for you. While this may seem like a lot of typing, once you get used to it, these commands can be entered significantly faster than the mouse clicks needed to do this in other editors. There are ways you can have line numbers always displayed when you enter Emacs -- we'll get to these later in the semester. Note that you can enter <code>M-x linum-mode</code> as many times as you want -- it will just toggle the display of the line numbers on and off.</p>
-<p>The other command that is useful is to color the program text. Use the command <code>M-x font-lock-mode</code>. Note that if you hit the tab key after entering <code>font</code>, it doesn't fully complete it (you still have to enter 'mode'). Your C++ program should now be colored, and your Emacs window should look like the following.</p>
-<div class="figure">
-<img src="screenshot-4.png" alt="Emacs screenshot" />
-<p class="caption">Emacs screenshot</p>
-</div>
-<p>In addition to the font coloring of the C++ program code, note that the word 'Font' is between 'C++' and 'Abbrev' on the status bar (as we are now using font colors), and the line number is shown to the right of that (the cursor is on line 1 in the image).</p>
+<p>Save the file (File-&gt;Save or <code>C-x C-s</code>). If you switch
+back to the shell, and do an <code>ls</code>, you should see that file
+listed.</p>
+<p>Next, we need to compile that file. To do so, switch to the shell,
+and enter the command: <code>clang++ helloworld.cpp</code>. It will
+compile, and if successful, the command prompt will be displayed after a
+brief pause. If there were errors, then the it will list them to the
+screen.</p>
+<p>After a successful compilation, do an <code>ls</code> – you will see
+a second file, called <code>a.out</code>. This is the compiled version
+of that program. To run it, enter <code>./a.out</code>. Note the period
+and slash before the <code>a.out</code> – why this is there (and how to
+get rid of it) we will see later in the semester.</p>
+<p>Another useful command is the undo command: <code>C-_</code>
+(Control-underscore).</p>
+<p>Right now your Emacs should look approximately like this (with the
+helloworld.cpp file loaded):</p>
+<figure>
+<img src="emacs-with-code.png" alt="Emacs with code" />
+<figcaption aria-hidden="true">Emacs with code</figcaption>
+</figure>
+<p>Now, let’s turn on line numbers, which will be very helpful when
+debugging your code. We’ve seen control commands (such as <code>C-x
+C-s</code> for saving a file). Next up are commands called
+meta-commands, because they use the meta (or escape) key. A meta-command
+looks like <code>M-x linum-mode</code>. Thus, to enter the command, hit
+the escape key, RELEASE THE ESCAPE KEY, and hit <code>x</code>. Note
+that with the control commands, you hold down the control key while
+pressing the other key – with meta commands, you press and then release
+the escape key, and then hit <code>x</code>. At that point, the bottom
+of your Emacs screen will look like the following:</p>
+<figure>
+<img src="emacs-meta-command.png" alt="Emacs meta command" />
+<figcaption aria-hidden="true">Emacs meta command</figcaption>
+</figure>
+<p>Note the <code>M-x</code> at the bottom – Emacs is ready to receive
+an ‘extended’ meta command. Type in <code>linum-mode</code>, hit Enter,
+and the line number that the cursor is on will appear in the status bar
+at the bottom of the Emacs screen. Note that it is going to be annoying
+to have to type all of that in each time. This, if you hit the tab key
+after entering <code>line</code>, it will complete the rest of the
+command for you. While this may seem like a lot of typing, once you get
+used to it, these commands can be entered significantly faster than the
+mouse clicks needed to do this in other editors. There are ways you can
+have line numbers always displayed when you enter Emacs – we’ll get to
+these later in the semester. Note that you can enter <code>M-x
+linum-mode</code> as many times as you want – it will just toggle the
+display of the line numbers on and off.</p>
 <h2 id="summary">Summary</h2>
-<p>In summary, you should be familiar with the following Emacs commands:</p>
+<p>In summary, you should be familiar with the following Emacs
+commands:</p>
 <ul>
-<li><code>C-x C-f</code>: Open a file, or create a new file if the file name is not found</li>
-<li><code>C-x C-c</code>: Exit Emacs (prompts to save the file if it is not saved)</li>
-<li><code>C-g</code>: Quit (stops the current command, doesn't exit Emacs)</li>
+<li><code>C-x C-s</code>: Save the file</li>
+<li><code>C-x C-f</code>: Open a file, or create a new file if the file
+name is not found</li>
+<li><code>C-x C-c</code>: Exit Emacs (prompts to save the file if it is
+not saved)</li>
+<li><code>C-g</code>: Stop the current command</li>
 <li><code>C-_</code>: Undo</li>
 <li><code>M-x linum-mode</code>: Turn on line numbers</li>
-<li><code>M-x font-lock-mode</code>: Turn on font coloring</li>
 </ul>
-<p>A good Emacs reference sheet can be found <a href="http://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf">here</a>. This file is also in the Collab Resources section, under the misc folder. Note that this page is formatted for A4 paper -- it should print out fine on our letter-sized paper, but you may have to scale the image in Acrobat Reader when you print it out.</p>
-<p>When you are all finished, you should exit Emacs (<code>C-x C-c</code>), and logout (by typing <code>logout</code>).</p>
-<p>That's it! You can now edit, compile, and run C++ programs. You are ready to proceed to the pre-lab for lab 1.</p>
+<p>A good Emacs reference sheet can be found <a
+href="http://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf">here</a>.
+This file is also in the Collab Resources section, under the misc
+folder. Note that this page is formatted for A4 paper – it should print
+out fine on our letter-sized paper, but you may have to scale the image
+in Acrobat Reader when you print it out.</p>
+<p>When you are all finished, you should exit Emacs (<code>C-x
+C-c</code>), and logout (by typing <code>logout</code>).</p>
+<p>That’s it! You can now edit, compile, and run C++ programs. You are
+ready to proceed to the pre-lab for lab 1.</p>
 </body>
 </html>

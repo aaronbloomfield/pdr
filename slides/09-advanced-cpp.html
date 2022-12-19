@@ -4,33 +4,31 @@
     <meta charset="utf-8">
     <title>CS 2150: 09-advanced-cpp slide set</title>
     <meta name="description" content="A set of slides for a course on Program and Data Representation">
-    <meta name="author" content="Mark Floryan">
+    
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
-    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/theme/black.css" id="theme">
     <link rel="stylesheet" href="../slides/css/pdr.css">
     <!-- Code syntax highlighting -->
-    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <link rel="stylesheet" href="../slides/reveal.js/plugin/highlight/zenburn.css">
     <!-- Printing and PDF exports -->
     <script>
       var link = document.createElement( 'link' );
       link.rel = 'stylesheet';
       link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.scss' : '../slides/reveal.js/css/print/paper.scss';
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
     <!--[if lt IE 9]>
 	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
 	<![endif]-->
-    <script type="text/javascript" src="../slides/js/dhtmlwindow.js"></script>
-    <script type="text/javascript" src="../slides/js/canvas.js"></script>
-    <link rel="stylesheet" href="../slides/css/dhtmlwindow.css" type="text/css">
+    <style>.reveal li { font-size:93%; line-height:120%; }</style>
   </head>
 
-  <body onload="canvasinit()">
-    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+  <body>
 
     <div class="reveal">
 
@@ -41,11 +39,15 @@
 # CS 2150
 &nbsp;
 ### Program and Data Representation
-&nbsp;
-<center><small>[Mark Floryan](http://www.cs.virginia.edu/~mrf8t) / [mrf8t@virginia.edu](mailto:mrf8t@virginia.edu)</small></center>
-<center><small>Repository: [github.com/markfloryan/pdr](http://github.com/markfloryan/pdr) / [&uarr;](index.html) / <a href="09-advanced-cpp.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
-&nbsp;  
-&nbsp;  
+
+<p class='titlep'>&nbsp;</p>
+<div class="titlesmall"><p>
+<a href="http://www.cs.virginia.edu/~mrf8t">Mark Floryan</a> (mrf8t@virginia.edu)<br>
+<a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)<br>
+<a href="http://github.com/uva-cs/pdr">@github</a> | <a href="index.html">&uarr;</a> | <a href="./09-advanced-cpp.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png" style="top:0px;vertical-align:middle"></a>
+</p></div>
+<p class='titlep'>&nbsp;</p>
+
 ## Advanced C++
 	</script></section>
 
@@ -79,7 +81,7 @@
 
 	<section>
 
-	  <section id="youshouldknowthis" data-markdown><script type="text/template">
+	  <section id="youshouldknowthis" data-markdown class="center"><script type="text/template">
 # C++ Review
 	  </script></section>
 
@@ -232,12 +234,12 @@ void insert (const Comparable &x, BinaryNode * & t)
 
 	<section>
 
-	  <section id="youshouldknowthistoo" data-markdown><script type="text/template">
+	  <section id="youshouldknowthistoo" data-markdown class="center"><script type="text/template">
 # Dynamic Memory<br>Review
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## For the upcomign examples...
+## For the upcoming examples...
 - Is this code correct?
 - Identify the problems in these code examples, if any...
 	  </script></section>
@@ -370,7 +372,7 @@ int main() {
 
 	<section>
 
-	  <section id="multinheritanceisfun" data-markdown><script type="text/template">
+	  <section id="multinheritanceisfun" data-markdown class="center"><script type="text/template">
 # C++ Inheritance
 	  </script></section>
 
@@ -450,7 +452,7 @@ int main(void) {
     c.SetAddress("009 Olsson Hall"); 
     c.print(); 
 }
-````
+```
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -663,8 +665,8 @@ class shape {
   - If you make a class that has all pure virtual methods, then it effectively acts like a Java interface  
 &nbsp;  
 - Note that a subclass does not need to define the method body...
-  - ... unless it wants to be able to be instantiated
-As a class can only be instantiated into an object if ALL the methods have defined bodies
+  - ... unless it wants to be able to be instantiated,
+as a class can only be instantiated into an object if ALL the methods have defined bodies
 	  </script></section>
 
 	</section>
@@ -672,7 +674,7 @@ As a class can only be instantiated into an object if ALL the methods have defin
 
 	<section>
 
-	  <section id="andithoughtpointerswerebad" data-markdown><script type="text/template">
+	  <section id="andithoughtpointerswerebad" data-markdown class="center"><script type="text/template">
 # C++ Inheritance Problems
 	  </script></section>
 
@@ -747,15 +749,12 @@ class Fruit {
         { basket[0] = new Apple(); }
   public String toString() { return "I am a Fruit"; }
 }
-
 class Apple extends Fruit {
   public String toString() { return "I am an Apple"; }
 }
-
 class Orange extends Fruit {
   public String toString() { return "I am an Orange"; }
 }
-
 public class Covariant {
   public static void main (String[] args) {
     Orange oranges[] = { new Orange(), new Orange(), 
@@ -792,7 +791,7 @@ b[0] = new Integer (1);
 
 	<section>
 
-	  <section id="becauseweneedthreemorepointertypes" data-markdown><script type="text/template">
+	  <section id="becauseweneedthreemorepointertypes" data-markdown class="center"><script type="text/template">
 # C++11
 	  </script></section>
 
@@ -929,7 +928,7 @@ auto SomeStruct::func_name(int x, int y) -> int {
 
 	  <section data-markdown><script type="text/template">
 ## What all this means
-- Modern C++ code is very complicated, and very difficult for us anybody to understand easily
+- Modern C++ code is very complicated, and very difficult for us to understand easily
 - And it makes a single C++ course insufficient to understand the level of C++ used in the industry...
 	  </script></section>
 
@@ -948,15 +947,7 @@ auto SomeStruct::func_name(int x, int y) -> int {
 
     </div>
 
-    <div id="calibratediv" style="display:none">
-      <div id="calibratecanvasdiv">
-        <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
-      </div>
-      <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
-    </div>
-
-    <script src="reveal.js/lib/js/head.min.js"></script>
-    <script src="reveal.js/js/reveal.js"></script>
+    <script src='../slides/reveal.js/dist/reveal.js'></script><script src='../slides/reveal.js/plugin/zoom/zoom.js'></script><script src='../slides/reveal.js/plugin/notes/notes.js'></script><script src='../slides/reveal.js/plugin/search/search.js'></script><script src='../slides/reveal.js/plugin/markdown/markdown.js'></script><script src='../slides/reveal.js/plugin/highlight/highlight.js'></script><script src='../slides/reveal.js/plugin/math/math.js'></script>
     <script src="js/settings.js"></script>
 
   </body>

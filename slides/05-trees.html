@@ -4,33 +4,31 @@
     <meta charset="utf-8">
     <title>CS 2150: 05-trees slide set</title>
     <meta name="description" content="A set of slides for a course on Program and Data Representation">
-    <meta name="author" content="Mark Floryan">
+    
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
-    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/theme/black.css" id="theme">
     <link rel="stylesheet" href="../slides/css/pdr.css">
     <!-- Code syntax highlighting -->
-    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <link rel="stylesheet" href="../slides/reveal.js/plugin/highlight/zenburn.css">
     <!-- Printing and PDF exports -->
     <script>
       var link = document.createElement( 'link' );
       link.rel = 'stylesheet';
       link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.scss' : '../slides/reveal.js/css/print/paper.scss';
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
     <!--[if lt IE 9]>
 	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
 	<![endif]-->
-    <script type="text/javascript" src="../slides/js/dhtmlwindow.js"></script>
-    <script type="text/javascript" src="../slides/js/canvas.js"></script>
-    <link rel="stylesheet" href="../slides/css/dhtmlwindow.css" type="text/css">
+    <style>.reveal li { font-size:93%; line-height:120%; }</style>
   </head>
 
-  <body onload="canvasinit()">
-    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+  <body>
 
     <div class="reveal">
 
@@ -41,11 +39,15 @@
 # CS 2150
 &nbsp;
 ### Program and Data Representation
-&nbsp;
-<center><small>[Mark Floryan](http://www.cs.virginia.edu/~mrf8t) / [mrf8t@virginia.edu](mailto:mrf8t@virginia.edu)</small></center>
-<center><small>Repository: [github.com/markfloryan/pdr](http://github.com/markfloryan/pdr) / [&uarr;](index.html) / <a href="05-trees.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
-&nbsp;  
-&nbsp;  
+
+<p class='titlep'>&nbsp;</p>
+<div class="titlesmall"><p>
+<a href="http://www.cs.virginia.edu/~mrf8t">Mark Floryan</a> (mrf8t@virginia.edu)<br>
+<a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)<br>
+<a href="http://github.com/uva-cs/pdr">@github</a> | <a href="index.html">&uarr;</a> | <a href="./05-trees.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png" style="top:0px;vertical-align:middle"></a>
+</p></div>
+<p class='titlep'>&nbsp;</p>
+
 ## Trees
 	</script></section>
     <section>
@@ -72,6 +74,7 @@
 [Binary Search Trees](#/bsts)  
 [Expression Trees](#/exptrees)  
 [AVL Trees](#/avltrees)  
+[Recursion](#/recursion)  
 [Red-black Trees](#/redblacktrees)  
 [Splay Trees](#/splaytrees)  
 [Applications](#/applications)  
@@ -80,7 +83,7 @@
 
 	<section>
 
-	  <section id="introduction" data-markdown><script type="text/template">
+	  <section id="introduction" data-markdown class="center"><script type="text/template">
 # Introduction
 	  </script></section>
 
@@ -90,6 +93,7 @@
 - For computing: ***no***
   - We can compute everything with just lists (actually even less).  The underlying machine memory can be thought of as a list
 - For thinking: ***yes***
+  - And for organizing the data
   - Lists are a very limited way of thinking about problems
 	  </script></section>
 
@@ -254,7 +258,7 @@ int TreeNode::numNodes(TreeNode *tnode) {
 
     <section>
 
-      <section id="bsts" data-markdown><script type="text/template">
+      <section id="bsts" data-markdown class="center"><script type="text/template">
 # Binary Search Trees
       </script></section>
 
@@ -366,7 +370,6 @@ BinaryNode * BST::find(int x, BinaryNode *curNode) {
         ;    // duplicate... do nothing
 }
 </code></pre>
-<script type="text/javascript">insertCanvas();</script>
       </section>
 
       <section data-markdown><script type="text/template">
@@ -438,12 +441,12 @@ Similarly down the left subttree links for `findMin()`
 
       <section data-markdown><script type="text/template">
 ## Proof by Induction on *h*
-- Claim: the maximum number nodes in a  binary tree of height *h* is 2<sup>*h*+1</sup>-1
+- Claim: max nodes in a  binary tree of height *h* is 2<sup>*h*+1</sup>-1
   - Or: *n* &le; 2<sup>*h*+1</sup>-1
-- For *h*=0, tree has one node, which yields 2<sup>0+1</sup>-1 = 1 nodes
+- For *h*=0: number of nodes is 2<sup>0+1</sup>-1 = 1
 - Assume the claim is true for any tree of height *h*
   - This would mean *n* &le; 2<sup>*h*+2</sup>-1 for a tree of height *h*+1
-- Any tree of height *h*+1 has at most 2 subtrees of height *h*; each subtree has 2<sup>*h*+1</sup>-1 nodes; add one more for the root
+- A tree of height *h*+1 can have 2 subtrees of height *h*; each subtree has 2<sup>*h*+1</sup>-1 nodes; add one for the root
 - Thus, our new tree of height *h*+1 has:
   - 2(2<sup>*h*+1</sup>-1)+1 = 2<sup>*h*+2</sup>-1 nodes
 - If we put *h*+1 into our inductive hypothesis (instead of *h*), we get the same value; thus, it is proven
@@ -468,8 +471,8 @@ Similarly down the left subttree links for `findMin()`
   - And all nodes have zero or two children, but not one
 - Number of leaves: 2<sup>*h*</sup>
 - Number of nodes: 1 + 2 + 2<sup>2</sup> + 2<sup>3</sup> + ... + 2<sup>*h*</sup> = 2<sup>*h*+1</sup>-1
-- Problem: a perfect binary tree can only hold *n* values where *n* = 2<sup>*h*+1</sup>-1
-  - So you can't have, say, 5 values in a perfect binary tree!
+- Problem: a perfect binary only holds 2<sup>*h*+1</sup>-1 values
+  - So you can't have 5 values in a perfect binary tree!
       </script></section>
 
 	</section>
@@ -477,7 +480,7 @@ Similarly down the left subttree links for `findMin()`
 
 	<section>
 
-	  <section id="exptrees" data-markdown><script type="text/template">
+	  <section id="exptrees" data-markdown class="center"><script type="text/template">
 # Expression Trees
 	  </script></section>
 
@@ -487,8 +490,7 @@ Similarly down the left subttree links for `findMin()`
   - This allows a computer to compute the value of each node
 - You will have to do this for [lab 5](../labs/lab05/index.html)
  - The lab expression tree only takes in integers as input; the more generalized version presented here includes variables as well
-- See the [Wikipedia article on Expression trees](http://en.wikipedia.org/wiki/Expression_tree), specifically the [section on construction of expression trees](http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_Expression_Tree)
-  - That example is the same as the one here
+- See the [Wikipedia article on Expression trees](http://en.wikipedia.org/wiki/Expression_tree), specifically the [section on construction of expression trees](http://en.wikipedia.org/wiki/Expression_tree#Construction_of_an_Expression_Tree) (same example as this one)
   - Uses a stack!
 	  </script></section>
 
@@ -590,14 +592,13 @@ Consider the postfix expression: a b + c d e + \* \*; the final expression tree 
 
 	<section>
 
-	  <section id="avltrees" data-markdown><script type="text/template">
+	  <section id="avltrees" data-markdown class="center"><script type="text/template">
 # AVL Trees
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Animation Tools
-- A good AVL tree animation tool is [here](http://www.qmatica.com/DataStructures/Trees/BST.html)
-  - A mirror that also contains the animation tool is [here](http://webdiis.unizar.es/asignaturas/EDA/AVLTree/avltree.html)
+- A good AVL tree animation tool is [here](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html)
 - We'll be using this website throughout this slide set
 	  </script></section>
 
@@ -625,7 +626,7 @@ For every node in the tree, the *height* of the left and right sub-trees differs
   - The data
   - Left and right child pointers
   - Possibly a parent node pointer
-- An AVL tree also holds a balance factor
+- An AVL tree node also holds a balance factor
   - The height of the *right* subtree minus the height of the *left* subtree
     - We could have it be left minus right, but the convention in this class is to always have it be right minus left
   - Can be computed on the fly, as well, but that's VERY slow, and defeats the purpose of using AVL trees for speed
@@ -889,7 +890,7 @@ Note that the trees shown are not necessarily AVL trees, but the rotations are c
 </table>
 <ul>
   <li>Given the lowest unbalanced node, and the child in the direction of the insert, compare the balance factors</li>
-  <li>-2/+1 means a double left-right, +2/+1 means a singe left, etc.</li>
+  <li>-2/+1 means a double left-right, +2/+1 means a single left, etc.</li>
 </ul>
 	  </section>
 
@@ -911,14 +912,216 @@ Note that the trees shown are not necessarily AVL trees, but the rotations are c
 
 	<section>
 
-	  <section id="redblacktrees" data-markdown><script type="text/template">
+	  <section id="recursion" data-markdown class="center"><script type="text/template">
+# Recursion
+	  </script></section>
+
+
+<section data-markdown><script type="text/template">
+## Sum the numbers from 1 to n
+
+- We can do it iteratively:
+```
+int sum (int n) {
+    int s = 0;
+    for ( int i = 1; i <= n; i++ )
+        s += i;
+	return s;
+}
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Sum the numbers from 1 to n
+
+- We can do it *recursively*:
+```
+int sum (int n) {
+    return n + sum (n-1);
+}
+```
+What problems arise?
+</script></section>
+
+	  <section data-markdown><script type="text/template">
+## Recursion
+- Recursion always needs three things to work:
+  - A way to make the problem *simpler* or smaller
+  - A way to *detect* when it should terminate or end
+  - A way to *terminate* or end
+- The last example didn't end (among other issues)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Sum the numbers from 1 to n
+
+- We can do it *recursively*, but right this time:
+```
+unsigned int sum (unsigned int n) {
+    if ( n == 0 )
+	    return 0;
+	else
+        return n + sum (n-1);
+}
+```
+- Making the problem simpler is the `sum(n-1)`
+- Detecting when to end is the `if (n==0)`
+- Termination is the `return 0`
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Factorial via recursion
+
+- We can do factorial recursively also:
+```
+unsigned long fact (unsigned long n) {
+    if ( n == 0 )
+	    return 1;
+	else
+        return n * fact (n-1);
+}
+```
+- Making the problem simpler is the `fact(n-1)`
+- Detecting when to end is the `if (n==0)`
+- Termination is the `return 1`
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Recursion: pros and cons
+- Pros
+  - It's a more natural way to think of the problem, as you only focus on that one "instance"
+  - Some problems work well with recursion, but not with iteration (such as tree traversals)
+- Cons
+  - Invoking a subroutine at each step slows performance
+    - We'll see a way to solve that shortly...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Recursion: Fibonacci sequence
+```
+unsigned int fib (unsigned int n) {
+    if ( n <= 1 )
+	    return 1;
+	else
+	    return fib(n-1) + fib(n-2);
+}
+```
+- Making the problem simpler is the `fib(n-1)` and the `fib(n-2)`
+- Detecting when to end is the `if (n<=1)`
+- Termination is the `return 1`
+
+(this one example is horrendously inefficient, and there are many better ways to handle this, but we won't see them here)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Recursion on trees
+```
+void func (BinaryNode *node) {
+    if ( node == NULL )
+	    return;
+    func (node->left);
+    do_something_with_node_value (node);
+    func (node->right);
+}
+```
+- Making the problem simpler is the `func(node->left)` and the `func(node->right)`
+- Detecting when to end is the `if (node==NULL)`
+- Termination is the `return`
+
+You cannot traverse a tree via iteration!  (at least not easily)
+</script></section>
+
+	  <section data-markdown><script type="text/template">
+## Recursion on lists
+- Yes, you can do recursion on lists:
+```
+bool is_in_list (int x, ListNode *l) {
+    if ( l == NULL )
+	    return false;
+    else if ( x == l->value )
+	    return true;
+	else
+	    return is_in_list (x, l->next);
+}
+```
+- We are ignoring `private` visibility concerns here
+- And yes, this example probably would be better with iteration
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Tail recursion
+In the non-tail recursive version of `sum()`:
+```
+unsigned int sum (unsigned int n) {
+    if ( n == 0 )
+	    return 0;
+	else
+        return n + sum (n-1);
+}
+```
+Note that after the recursive call returns, we have to do something to it (add n) and then return that value
+	  </script></section>
+	  <section data-markdown><script type="text/template">
+## Tail recursion
+In the tail recursive version of `sum()`:
+```
+unsigned int sum (unsigned int n, unsigned int s) {
+    if ( n == 0 )
+	    return s;
+	else
+        return sum (n-1, n+s);
+}
+```
+- We invoke it with `sum(n,0)`
+- Note that the return value of the recursive call is the *only* thing returned by this call
+- In effect, the return of the recursive call can *replace* the return of the one-level-up call
+	</script></section>
+
+	  <section data-markdown><script type="text/template">
+## Why tail recursion
+- Compilers recognize tail recursion, and convert it into a `for` loop
+  - And then optimize it, so there is no subroutine invocation penalty
+- So we get to write it (tail) recursively, and still get the speed benefits of iteration
+- Note that not all problems can be solved with tail recursion
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Factorial via tail recursion
+```
+unsigned long fact_tr (unsigned int n, unsigned long s) {
+    if ( n == 0 )
+	    return s;
+	else
+	    return fact_tr (n-1, n*s);
+}
+
+unsigned long fact (unsigned int n) {
+    return fact_tr (n,1);
+}
+```
+</script></section>
+
+	  <section data-markdown><script type="text/template">
+## Recursion
+> recursion: n.
+> See recursion. See also tail recursion.
+      </script></section>
+
+	</section>
+
+
+
+
+	  <section>
+
+	  <section id="redblacktrees" data-markdown class="center"><script type="text/template">
 # Red-black Trees
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Red-black trees
 - Each node has a color attribute, which is either (wait for it...) red or black
-- Animation site is [here](http://www.qmatica.com/DataStructures/Trees/BST.html) ([mirror](http://webdiis.unizar.es/asignaturas/EDA/AVLTree/avltree.html))
+- Animation site is [here](https://www.cs.usfca.edu/~galles/visualization/RedBlack.html)
 
 ![red black tree 1](graphs/rb-tree-1.svg)
 	  </script></section>
@@ -1026,7 +1229,7 @@ All of these properties must hold for a red-black tree
 
 	<section>
 
-	  <section id="splaytrees" data-markdown><script type="text/template">
+	  <section id="splaytrees" data-markdown class="center"><script type="text/template">
 # Splay Trees
 	  </script></section>
 
@@ -1043,7 +1246,7 @@ All of these properties must hold for a red-black tree
 ## Main operation: splaying
 - Anytime you find / insert / delete a node, you *splay* the tree around that node
   - Perform tree rotations to make that node the new root node
-- Animation site is [here](http://www.qmatica.com/DataStructures/Trees/BST.html) ([mirror](http://webdiis.unizar.es/asignaturas/EDA/AVLTree/avltree.html))
+- Animation site is [here](https://www.cs.usfca.edu/~galles/visualization/SplayTree.html)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -1114,7 +1317,7 @@ All of these properties must hold for a red-black tree
 
 	<section>
 
-	  <section id="applications" data-markdown><script type="text/template">
+	  <section id="applications" data-markdown class="center"><script type="text/template">
 # Applications
 	  </script></section>
 
@@ -1225,15 +1428,7 @@ Because these results involve (anonymized) student work, they are not included i
 
     </div>
 
-    <div id="calibratediv" style="display:none">
-      <div id="calibratecanvasdiv">
-        <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
-      </div>
-      <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
-    </div>
-
-    <script src="reveal.js/lib/js/head.min.js"></script>
-    <script src="reveal.js/js/reveal.js"></script>
+    <script src='../slides/reveal.js/dist/reveal.js'></script><script src='../slides/reveal.js/plugin/zoom/zoom.js'></script><script src='../slides/reveal.js/plugin/notes/notes.js'></script><script src='../slides/reveal.js/plugin/search/search.js'></script><script src='../slides/reveal.js/plugin/markdown/markdown.js'></script><script src='../slides/reveal.js/plugin/highlight/highlight.js'></script><script src='../slides/reveal.js/plugin/math/math.js'></script>
     <script src="js/settings.js"></script>
 
   </body>

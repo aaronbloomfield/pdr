@@ -1,114 +1,239 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>PDR: Laboratory 10: Huffman Coding</title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../../markdown.css" type="text/css" />
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../../markdown.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
-<h1 id="pdr-laboratory-10-huffman-coding">PDR: Laboratory 10: Huffman Coding</h1>
-<p><a href="../index.html">Go up to the Labs table of contents page</a></p>
+<h1 id="pdr-laboratory-10-huffman-coding">PDR: Laboratory 10: Huffman
+Coding</h1>
+<p><a href="../index.html">Go up to the Labs table of contents
+page</a></p>
 <h3 id="objective">Objective</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>To become familiar with prefix codes</li>
-<li>To implement a useful application using a variety of data structures</li>
-<li>To analyze the efficiency of your implementation.</li>
+<li>To implement a useful application using a variety of data
+structures</li>
+<li>To analyze the efficiency of your implementation</li>
 </ol>
 <h3 id="background">Background</h3>
-<p>In lecture we discussed Huffman coding and the construction of prefix code trees. We have also covered a variety of data structures this semester: lists, trees, hash tables, and heaps. Several of these may be useful for this lab. In addition, in this lab you are required to think about the underlying representation and efficiency of these structures.</p>
-<h3 id="readings">Reading(s):</h3>
+<p>In lecture we discussed Huffman coding and the construction of prefix
+code trees. We have also covered a variety of data structures this
+semester: lists, trees, hash tables, and heaps. Several of these may be
+useful for this lab. In addition, in this lab you are required to think
+about the underlying representation and efficiency of these
+structures.</p>
+<h3 id="tutorial">Tutorial</h3>
+<p>There is no tutorial for this lab.</p>
+<h3 id="recommended-readings">Recommended Readings</h3>
 <ul>
-<li>The <a href="../../slides/10-heaps-huffman.html">Heaps and Huffman slide set</a> are available in the repository, and that covers Huffman compression and decompression.</li>
-<li>Code for binary heaps is also available from that slide set: <a href="../../slides/code/10-heaps-huffman/binary_heap.cpp.html">binary_heap.cpp</a> (<a href="../../slides/code/10-heaps-huffman/binary_heap.cpp">src</a>), <a href="../../slides/code/10-heaps-huffman/binary_heap.h.html">binary_heap.h</a> (<a href="../../slides/code/10-heaps-huffman/binary_heap.h">src</a>), <a href="../../slides/code/10-heaps-huffman/heap-test.cpp.html">heap-test.cpp</a> (<a href="../../slides/code/10-heaps-huffman/heap-test.cpp">src</a>). You may use/modify this code if you wish, or implement your own heaps, but you may NOT use the STL priority_queue class (you can use other STL classes -- i.e. non-heap related classes).</li>
+<li>The <a href="../../slides/10-heaps-huffman.html">Heaps and Huffman
+slide set</a> are available in the repository, and that covers Huffman
+compression and decompression.</li>
+<li>Code for binary heaps is also available from that slide set: <a
+href="../../slides/code/10-heaps-huffman/binary_heap.cpp.html">binary_heap.cpp</a>
+(<a href="../../slides/code/10-heaps-huffman/binary_heap.cpp">src</a>),
+<a
+href="../../slides/code/10-heaps-huffman/binary_heap.h.html">binary_heap.h</a>
+(<a href="../../slides/code/10-heaps-huffman/binary_heap.h">src</a>), <a
+href="../../slides/code/10-heaps-huffman/heap-test.cpp.html">heap-test.cpp</a>
+(<a
+href="../../slides/code/10-heaps-huffman/heap-test.cpp">src</a>).</li>
 </ul>
 <h2 id="lab-procedure">Lab Procedure</h2>
 <h3 id="pre-lab">Pre-lab</h3>
-<ol style="list-style-type: decimal">
-<li>The pre-lab is the compression phase of the Huffman coding.</li>
-<li>You may NOT use a STL class for the heap (such as priority_queue), but you may use other STL classes (i.e. non-heap related classes).</li>
-<li>Implement the Huffman encoding routine discussed in the pre-lab section.</li>
-<li>Your program must compile with make!</li>
-<li>Your program should only take in one command-line parameter!</li>
-<li>Files to download: <a href="fileio.cpp.html">fileio.cpp</a> (<a href="fileio.cpp">src</a>), and the example files (in the <a href="examples/">labs/lab10/examples/ directory</a>, or as one <a href="examples.zip" class="uri">examples.zip</a> file)</li>
-<li>Files to submit: heap.cpp, heap.h, huffmanenc.cpp, Makefile (you can submit additional .cpp/.h files, if needed, as long as it compiles with <code>make</code>)</li>
+<ol type="1">
+<li>Create a heap</li>
+<li>Implement the Huffman encoding (compression) routine using your
+heap</li>
+<li>Files to download: <a href="fileio.cpp.html">fileio.cpp</a> (<a
+href="fileio.cpp">src</a>), and the example files (in the
+labs/lab10/examples/ directory), or as one <a
+href="examples.zip">examples.zip</a> file)</li>
+<li>Files to submit: heap.cpp, heap.h, huffmanenc.cpp, Makefile (you can
+submit additional .cpp/.h files, if needed, as long as it compiles with
+<code>make</code>)</li>
 </ol>
 <h3 id="in-lab">In-lab</h3>
-<ol style="list-style-type: decimal">
-<li>The in-lab is the decompression phase of the Huffman coding.</li>
-<li>Implement the Huffman decoding routine discussed in the in-lab section.</li>
-<li>Your program must compile with make!</li>
-<li>Your program should only take in one command-line parameter!</li>
-<li>Files to download: <a href="inlab-skeleton.cpp.html">inlab-skeleton.cpp</a> (<a href="inlab-skeleton.cpp">src</a>), and your pre-lab files</li>
-<li>Files to submit: huffmandec.cpp, Makefile (you can submit additional .cpp/.h files, if needed, as long as it compiles with <code>make</code>)</li>
+<p>For spring 2022, there is an extension to the in-lab due date; see
+the <a href="../../uva/daily-announcements.html#/">daily
+announcements</a> for details.</p>
+<ol type="1">
+<li>Implement the Huffman decoding (decompression) routine discussed in
+the in-lab section</li>
+<li>Files to download: <a
+href="inlab-skeleton.cpp.html">inlab-skeleton.cpp</a> (<a
+href="inlab-skeleton.cpp">src</a>), and your pre-lab files</li>
+<li>Files to submit: huffmandec.cpp, Makefile (you can submit additional
+.cpp/.h files, if needed, as long as it compiles with
+<code>make</code>)</li>
 </ol>
 <h3 id="post-lab">Post-lab</h3>
-<ol style="list-style-type: decimal">
-<li>Complete the post-lab report, as described in the post-lab section.</li>
-<li>Ensure that the pre-lab code (compression) and post-lab code (decompression) work properly, as they will be submitted again</li>
-<li>Create a new Makefile, as specified below</li>
-<li>Files to submit: postlab10.pdf, Makefile, all necessary source code files</li>
+<p>The post-lab is cancelled for the spring 2022 semester.</p>
+<ol type="1">
+<li><del>Analyze the time and space complexity of your encoding and
+decoding code</del></li>
+<li><del>Create a Makefile to compile both the encoding and decoding
+portions of your Huffman routine in one step</del></li>
+<li><del>Files to submit: Makefile, all necessary source code
+files</del></li>
 </ol>
 <hr />
-<h2 id="huffman-encoding-and-decoding">Huffman Encoding and Decoding</h2>
-<p>The basic steps in compression (for the pre-lab) are:</p>
-<ol style="list-style-type: decimal">
-<li>Read the source file and determine the frequencies of the characters in the file.</li>
-<li>Store the character frequencies in a heap (priority queue).</li>
-<li>Build a tree of prefix codes (a Huffman code) that determines the unique bit codes for each character.</li>
-<li>Write the prefix codes to the output file, following the file format above.</li>
-<li>Re-read the source file and for each character read, write its prefix code to the output, following the file format described herein.</li>
-</ol>
-<p>We are also writing additional information to the file (compression ratio and tree cost), as described herein.</p>
-<p>The basic steps in decompression (for the in-lab) are:</p>
-<ol style="list-style-type: decimal">
-<li>Read in the prefix code structure from the compressed file. You can NOT assume that you can re-use the tree currently in memory, as we will be testing your in-lab code on files that you have not encoded.</li>
-<li>Re-create the Huffman tree from the code structure read in from the file.</li>
-<li>Read in one bit at a time from the compressed file and move through the prefix code tree until a leaf node is reached.</li>
-<li>Output the character stored at the leaf node.</li>
-<li>Repeat the last two steps until the encoded file is finished.</li>
-</ol>
-<p>Huffman compression and decompression are both covered in the <a href="../../slides/10-heaps-huffman.html">Heaps and Huffman slide set</a>.</p>
+<h2 id="huffman-encoding-and-decoding">Huffman Encoding and
+Decoding</h2>
+<p>There are a few points that apply to the Huffman implementation as a
+whole that are important to keep in mind.</p>
 <h3 id="requirements">Requirements</h3>
-<p>Assume that only printable ASCII characters will occur in the source (original, uncompressed) text file. That is, your program should ignore newlines and tabs, but should not ignore spaces -- thus, spaces need to be encoded, just like with other (printable) characters (note, however, that spaces are encoded differently; see the input format for details). Your program should be case-sensitive (count upper-case and lower-case versions of the same letter as different characters). The lecture notes describe <a href="../../slides/10-heaps-huffman.html#asciiset">which characters are to be encoded</a>.</p>
-<p>You <strong><em>must</em></strong> use a heap (priority queue) data structure to receive full credit on this pre-lab. You may use heap code from the slides (give said credit if you do so), or you may implement your own. You may NOT use the priority_queue class from the STL, but you may use other classes from the STL (i.e. non-heap related classes).</p>
-<p>Real Huffman encoding involves writing bit codes to the compressed file. To simplify things in your implementation, you will only be reading and writing whole ASCII characters the entire time. To represent the zeroes and ones of the bit codes you will write the characters <code>0</code> and <code>1</code> to your output file. Yes, this means that the actual size of our compressed file will be larger than our original file (terrific, you &quot;compressed&quot; the character<code>t</code> into the five characters <code>01011</code>), but it will simplify the lab considerably.</p>
-<h3 id="hints-and-common-mistakes">Hints and Common Mistakes</h3>
-<p><strong>Implementation.</strong> You will need to select several different data structures to implement Huffman compression and decompression. Don't get more complicated than is necessary, but do keep efficiency in mind. Consider the following questions:</p>
+<p>Your Huffman implementation should:</p>
 <ul>
-<li>What will be the most common operations required on each data structure?<br />
-</li>
+<li>Case-sensitively encode and decode <em>only</em> printable ASCII
+characters
+<ul>
+<li>Newlines, tabs, etc. are not printable, while spaces are</li>
+<li>The lecture notes describe <a
+href="../../slides/10-heaps-huffman.html#asciiset">which characters are
+to be encoded</a></li>
+</ul></li>
+<li>Read and write ASCII characters rather than individual bits
+<ul>
+<li>Yes, this means that the actual size of our compressed file will be
+larger than our original file (terrific, you “compressed” the character
+<code>t</code> into the five characters <code>01011</code>), but it will
+simplify the lab considerably</li>
+</ul></li>
+<li>Use a heap (priority queue) data structure
+<ul>
+<li>You may NOT use the STL <code>priority_queue</code></li>
+<li>You may use the heap code from the slides as long as you cite
+it</li>
+</ul></li>
+</ul>
+<h3 id="efficiency">Efficiency</h3>
+<p>You will need to select several different data structures to
+implement Huffman compression and decompression. Don’t get more
+complicated than is necessary, but do keep efficiency in mind. Consider
+the following questions:</p>
+<ul>
+<li>What will be the most common operations required on each data
+structure?</li>
 <li>How much time and space will be required?</li>
 </ul>
-<p>Use the answers to these questions to guide your selection. Your solution will be judged slightly on how efficient it is (both in terms of time and space). Very inefficient solutions will lose a few points. Be sure you have a good explanation for your implementation choices:</p>
+<p>Use the answers to these questions to guide your selection. Your
+solution will be judged slightly on how efficient it is (both in terms
+of time and space). Very inefficient solutions will lose a few points.
+Be sure you have a good explanation for your implementation choices:</p>
 <ul>
 <li>Do you predict better data locality?<br />
 </li>
 <li>Does a purely Big-Theta analysis not tell the whole story?</li>
 </ul>
-<p>Whatever your implementation, you should be able to accurately describe its worst case Big-Theta performance both in running time and space (memory) usage.</p>
-<p><strong>Serializing Data Structures.</strong> One thing we have not dealt with in previous labs is serializing various data structures (writing them to a file or standard output, and reading them back in). You will need to do this with your prefix code tree. The fact that you must read this data structure from a file and write to standard output may affect how you choose to represent it in your program. Keep in mind that the format for how to write it to a file is fixed, as described below (in the pre-lab section). You will need to re-create your Huffman coding tree from the first part of the file format described below.</p>
-<p><strong>operator&lt;():</strong> If you are creating a <code>HuffmanNode</code> (or similar) with an <code>operator&lt;()</code> method, make sure that method is <code>const</code> (both in the .h file and in the .cpp file).</p>
+<p>Whatever your implementation, you should be able to accurately
+describe its worst case Big-Theta performance both in running time and
+space (memory) usage.</p>
+<p>One thing we have not dealt with in previous labs is serializing
+various data structures (writing them to a file or standard output, and
+reading them back in). You will need to do this with your prefix code
+tree. The fact that you must read this data structure from a file and
+write to standard output may affect how you choose to represent it in
+your program. Keep in mind that the format for how to write it to a file
+is fixed, as described in the pre-lab section. You will need to
+re-create your Huffman coding tree from the first part of that file
+format.</p>
 <hr />
 <h2 id="pre-lab-1">Pre-lab</h2>
-<p>For the pre-lab, you will implement the Huffman encoding algorithm using a binary heap. In particular, you will need to implement all of the basic compression steps described later in this document. You may use and modify code from the lecture notes, any code you generated, but you may NOT use the STL heap class (called priority_queue) -- you can use other (non-heap related) classes from the STL.</p>
-<p>Your program must take in a single command-line parameter, which is the name of the file whose contents will be encoded. We have some sample plain text and encoded text files (in the <a href="examples/">labs/lab10/examples/ directory</a>) -- a description of these files is in the in-lab section. Keep in mind that, as described below, your program will need to ignore newlines and non-printable characters in the input file.</p>
-<p>Your program should output to the standard output (i.e. <code>cout</code>) the exact file format described below, and nothing else. It should <strong><em>NOT</em></strong> output to a file!</p>
-<p>As part of the file format described below, your program will need to print out the compression ratio and the Huffman tree cost. The compression ratio is defined, in bits, as: (size of the original file)/(size of compressed file). You should exclude the size of the prefix code tree in the compression ratio, and assume that the 0's and 1's you generated for the compressed file count as one bit each (rather than an 8-bit character). The Huffman tree cost is the same as described in lecture.</p>
-<p>Your program should be in at least three files: heap.h, heap.cpp, and huffmanenc.cpp; it may contain more, depending on your implementation. The heap.h and heap.cpp will contain the heap implementation, and the huffmanenc.cpp will contain the <code>main()</code> method and the other Huffman encoding methods needed by your program. We'll be calling <code>make</code> to compile your program, so make sure your Makefile works as well.</p>
-<p>To read in the input file character by character, see the <a href="fileio.cpp.html">fileio.cpp</a> (<a href="fileio.cpp">src</a>) file.</p>
+<p>For the pre-lab, you will implement, in huffmanenc.cpp, the Huffman
+encoding algorithm using a binary heap that you implement in
+heap.cpp/h.</p>
+<p>The basic steps for compression are:</p>
+<ol type="1">
+<li>Read the source file and determine the frequencies of the characters
+in the file</li>
+<li>Store the character frequencies in a heap (priority queue)</li>
+<li>Build a tree of prefix codes (a Huffman code) that determines the
+unique bit codes for each character</li>
+<li>Re-read the source file and for each character read, write its
+prefix code to the output, following the file format described
+below</li>
+</ol>
+<p>Your program must take in a single command-line parameter, which is
+the name of the file whose contents will be encoded. We have some sample
+plain text and encoded text files (in the labs/lab10/examples/
+directory) – a description of these files is in the in-lab section.</p>
+<p>Your program should output to the standard output
+(i.e. <code>cout</code>) the exact file format described below, and
+nothing else.</p>
+<p>As part of the file format described below, your program will need to
+print out the compression ratio and the Huffman tree cost. The
+compression ratio is defined, in bits, as: (size of the original
+file)/(size of compressed file). You should exclude the size of the
+prefix code tree in the compression ratio, and assume that the 0’s and
+1’s you generated for the compressed file count as one bit each (rather
+than an 8-bit character). The Huffman tree cost is the same as described
+in lecture.</p>
+<p>To read in the input file character by character, see the <a
+href="fileio.cpp.html">fileio.cpp</a> (<a href="fileio.cpp">src</a>)
+file.</p>
 <h3 id="file-format">File Format</h3>
-<p>In an effort to both ease the in-lab implementation (as we can thus provide examples) as well as ease the grading, there is a very strict file format for a Huffman encoded message for this lab. This allows the two parts to be developed, implemented, and tested separately. Although real Huffman encoding uses bits, we will write these bits to a file using the characters <code>0</code> and <code>1</code>, as that will make it easier to check and debug our code. The challenging part of reading in a file (which is done during the in-lab) is re-creating the Huffman coding tree. This is discussed in detail in the in-lab section.</p>
-<p>The file format is as follows. There are three sections to an encoded file, each separated by a specific separator.</p>
-<p>The first section of the file are the ASCII characters that are encoded, followed by their bit encoding. Only one such encoding per line, with no blank lines allowed. The format for a line is the ASCII character, a single space, and then the <code>1</code> and <code>0</code> characters that are the encoding for that character, followed by a newline. The order of the characters does not matter. However, your code to read in the file must be able to handle the characters in any order. If the character being written is the space character itself, you should write <code>space</code> instead of &quot; &quot;; thus a line for the space character might look like: <code>space 101010</code>. Keep in mind that the first character on this type of line cannot be a newline, tab, or a non-printable character. No line in this part can be more than 256 characters. You can safely assume that the data provided will be a valid Huffman coding tree (i.e. there won't be an internal node with one child, etc.).</p>
-<p>Following that is a separator line, and is a single line containing 40 dashes and no spaces.</p>
-<p>The second section is the encoded message, using the characters <code>0</code> and <code>1</code>. You may separate these any way you would like using whitespace (space, tab, return) -- thus, you can have one per line, if you would like. The only valid characters in this section, therefore, are the two digits (<code>0</code> and <code>1</code>), as well as the three whitespace characters (space, tab, and newline). For the pre-lab, separating the encodings by spaces or newlines will make checking and debugging your code easier: having a space between each encoded letter, and a return between each encoded word, will help considerably. However, when the file is read in, your code MUST be able to read in a Huffman encoded message regardless of the whitespace formatting.</p>
-<p>The next line is a separator, and is also a single line containing 40 dashes and no spaces.</p>
-<p>The last section of the file are English text, which displays the compression ratio and the cost of the Huffman tree. This does not need to be read in by the decompression routines. As long as you output the required information, and it is easily understandable by a human, it can be in a format similar to (but not necessarily the same as) what is shown below. You can have additional information as well, as long as we can easily find what we are looking for (compression ratio and Huffamn tree cost).</p>
-<p>For the in-lab, you can assume that we will not provide you with invalid Huffman file formats. You can safely assume that we will provide you with a few different valid file formats (a few such examples are available in the <a href="examples/">labs/lab10/examples/ directory</a>).</p>
-<p>The following is the Huffman file format for example in the slide set that has the characers 'a', 'b', 'c', and 'd'.</p>
+<p>In an effort to simplify both the in-lab implementation and the
+grading, there is a very strict file format for a Huffman encoded
+message for this lab. This allows the two parts to be developed,
+implemented, and tested separately. Although real Huffman encoding uses
+bits, we will write these bits to a file using the characters
+<code>0</code> and <code>1</code>, as that will make it easier to check
+and debug our code.</p>
+<p>There are three sections to an encoded file, each separated by a
+specific separator.</p>
+<h4 id="section-1">Section 1</h4>
+<p>The first section of the file are the ASCII characters that are
+encoded, followed by their bit encoding. Only one such encoding per
+line, with no blank lines allowed. The format for a line is the ASCII
+character, a single space, and then the <code>1</code> and
+<code>0</code> characters that are the encoding for that character,
+followed by a newline. The order of the lines does not matter. If the
+character being written is the space character itself, you should write
+<code>space</code> instead of ” “; thus a line for the space character
+might look like: <code>space 101010</code>. Keep in mind that the first
+character on this type of line cannot be a newline, tab, or a
+non-printable character. No line in this part can be more than 256
+characters. You can safely assume that the data provided will be a valid
+Huffman coding tree (i.e. there won’t be an internal node with one
+child, etc.).</p>
+<p>Following that is a separator line, and is a single line containing
+40 dashes and no spaces.</p>
+<h4 id="section-2">Section 2</h4>
+<p>The second section is the encoded message, using the characters
+<code>0</code> and <code>1</code>. You may optionally separate each
+encoded character by any form of whitespace. For example, to help
+debugging, you might want to separate each encoded letter by a space and
+place each encoded word on its own line.</p>
+<p>The next line is a separator, and is also a single line containing 40
+dashes and no spaces.</p>
+<h4 id="section-3">Section 3</h4>
+<p>The last section of the file displays several stats about the
+compression. You should output the total number of symbols encoded, how
+many unique symbols are used, the number of bits in the original and
+compressed files, the compression ratio to five decimal places, and the
+cost of the huffman tree to five decimal places. The output format
+should look exactly as shown below. The information is required as we
+will be grading your submissions with these results. All floating point
+results must be reported to <strong>5 decimal places</strong>.</p>
+<p>The following is the Huffman file format for the example in the slide
+set that has the characers ‘a’, ‘b’, ‘c’, and ‘d’.</p>
 <pre><code>a 0
 b 100
 c 101
@@ -122,77 +247,200 @@ There were 56 bits in the original file.
 There were 13 bits in the compressed file.
 This gives a compression ratio of 4.30769.
 The cost of the Huffman tree is 1.85714 bits per character.</code></pre>
-<p>The Huffman tree that this forms is the same as the one shown in the slide set (specifically, <a href="../../slides/10-heaps-huffman.html#/lab10tree">here</a>), and is dupliated below.</p>
-<div class="figure">
-<img src="prelab-tree.png" />
-
-</div>
-<p>Below is an equivalent version of the same file. Note that the characters are not in the same order in the previous example, the whitespace for the middle part is quite different, the English explanation in the third part says the same thing but in a different format, and the particular prefix codes are different (but note that the lengths are the same). Your in-lab code will need to be able to read in both of these files (as well as others in the <a href="examples/">labs/lab10/examples/ directory</a>). For writing your pre-lab, you should consider having a space or a newline between the Huffman encoded characters, as that will make your code easier to check and debug.</p>
-<pre><code>d 11
-c 101
-b 100
-a 0
-----------------------------------------
-11
-100
-0 1 0 1 0 0 1 1
-----------------------------------------
-Compression ratio: 4.31
-The Huffman tree cost: 1.85 bits per character</code></pre>
-<p>Note that your encoding does not have to exactly match -- in particular, the bits that your program uses to encode it will depend on the implementation of your heap. So while your bits can be off, the number of bits for each character should NOT be different than the examples given.</p>
-<p>To read in the input file character by character, see the <a href="fileio.cpp.html">fileio.cpp</a> (<a href="fileio.cpp">src</a>) file.</p>
+<p>The Huffman tree that this forms is the same as the one shown in <a
+href="../../slides/10-heaps-huffman.html#/lab10tree">the slide set</a>),
+and is duplicated below.</p>
+<p><img src="prelab-tree.png" /></p>
+<p>Note that your encoding does not have to exactly match – in
+particular, the bits that your program uses to encode it will depend on
+the implementation of your heap. So while your bits can be off, the
+number of bits for each character should <strong>NOT</strong> be
+different than the examples given. For example, in the output above, if
+<em>b</em> was given the prefix code <em>101</em> and <em>c</em> was
+given <em>100</em> (i.e., <em>b</em> and <em>c</em> have their codes
+swapped), then that is ok. The statistics in section 3 of the output
+will be the same.</p>
 <h3 id="hints">Hints</h3>
 <p>A few hints from experience with this in previous semesters.</p>
-<ul>
-<li>Just copying the supplied code verbatim will not help you, as you need to <em>understand</em> what is going on - the code does not work &quot;out of the box.&quot; Either make sure you understand it, or write your own code.</li>
-<li>It will be <strong>far</strong> easier to put HuffmanNode pointers in your heap, rather than HuffmanNode objects (or whatever your Huffman tree nodes are called). If you put the actual objects in, then you are going to be running into problems with scoping issues, inadvertent calls to <code>operator=()</code>, etc. Stay with the pointers, as it will save you time in the long run.</li>
-</ul>
+<h4 id="take-the-time-to-understand-the-code">Take the time to
+understand the code</h4>
+<p>Just copying the supplied code verbatim will not help you, as you
+need to <em>understand</em> what is going on – the code does not work
+“out of the box.” Either make sure you understand it, or write your own
+code.</p>
+<h4 id="need-a-pointer-or-two">Need a pointer or two?</h4>
+<p>It will be <strong>far</strong> easier to put HuffmanNode pointers in
+your heap, rather than HuffmanNode objects (or whatever your Huffman
+tree nodes are called). If you put the actual objects in, then you are
+going to run into problems with scoping issues, inadvertent calls to
+<code>operator=()</code>, etc. Trust us, stick with the pointers.</p>
+<h4 id="okay-but-actually">Okay but actually</h4>
+<p>You will need some secondary data structures in order to hold all the
+information necessary for compression. You’ll need some way of holding
+the frequencies of each character, as well as each character’s prefix
+codes – what would be efficient data structures to store and retrieve
+that information?</p>
+<h4 id="getting-the-prefix-codes">Getting the prefix codes</h4>
+<p>The best way to do this is recursively. Once you have your Huffman
+tree, you can recurse down both sides of your tree to grab every prefix
+code and print them out.</p>
 <hr />
 <h2 id="in-lab-1">In-lab</h2>
-<p>Make sure your pre-lab code can read in any printable ASCII character, including spaces (which are encoded differently!), but not newlines or tabs. If you look at the ASCII table in the Huffman coding lecture notes, you want to be able to handle all of the characters in the red box. Keep in mind that text files will always have a newline character (<code>\n</code>) at the end of each line. Some text files might also have the carriage return character (<code>\r</code>) at the end of each line as well. This is from the difference in text file formats between Windows and Unix.</p>
-<p>Your program should output to the standard output (i.e. <code>cout</code>) the <em>exact</em> file format described above, and nothing else.</p>
-<p>There are additional examples of encodings in the <a href="examples/">labs/lab10/examples/ directory</a>. Keep in mind that the bits that your code generates for a given character do not have to match the bits that are shown in the examples (as this will depend on the implementation of your heap), but the number of bits per character DOES have to match.</p>
-<p>We provide a number of sample files for you to test your code with. A brief description of each is described here. The &quot;normal&quot; files are the English input. The &quot;encoded&quot; files are the Huffman encoded files, following the file format described above. Except where indicated, the middle part of each encoded file (the digits <code>0</code> and <code>1</code>) has a space is inserted between each letter from the original file, so that you can see which letter is encoded as which bitcode.</p>
+<p>For the in-lab, you will implement, in huffmandec.cpp, the Huffman
+decoding algorithm.</p>
+<p>The basic steps for decompression are:</p>
+<ol type="1">
+<li>Read in the prefix code structure from the encoded file</li>
+<li>Re-create the Huffman tree from the code structure read in from the
+file</li>
+<li>Read in one bit at a time from the encoded file and move through the
+prefix code tree until a leaf node is reached</li>
+<li>Output the character stored at the leaf node</li>
+<li>Repeat the last two steps until the encoded file has been entirely
+decoded</li>
+</ol>
+<p>First, make sure that your code can read in encoded files – you can
+download the <a href="inlab-skeleton.cpp">inlab-skeleton.cpp</a> file,
+which can properly read in the encoded input files.</p>
+<p>Next, create the Huffman coding tree from the prefix codes you read
+in from the input file. Not creating a Huffman tree from the file will
+result in zero credit for the in-lab. The whole point of this part is to
+create the tree!</p>
+<p>Lastly, read in the second part of the file, traverse your Huffman
+tree, and output a character whenever you reach a leaf node. For this
+lab, you must only print out the decoded message and nothing else.</p>
+<p>We provide a number of sample files for you to test your code with. A
+brief description of each is described here. The “normal” files are the
+English input. The “encoded” files are the Huffman encoded files,
+following the file format described above. Except where indicated, the
+second section of each encoded file (the digits <code>0</code> and
+<code>1</code>) has a space inserted between each letter from the
+original file, so that you can see which letter is encoded as which
+bitcode.</p>
 <ul>
-<li><a href="examples/normal1.txt">normal1.txt</a> / <a href="examples/encoded1.txt">encoded1.txt</a>: This is the first example from the lecture slides (<code>dbacaad</code>). The Huffman tree can be viewed <a href="prelab-tree.png">here</a>.</li>
-<li><a href="examples/normal2.txt">normal2.txt</a> / <a href="examples/encoded2.txt">encoded2.txt</a>: This is the second example from the lecture slides, in the &quot;Huffman Encoding&quot; section. This is the example that we built up the Huffman tree from. The Huffman tree can be viewed <a href="inlab-tree-2.png">here</a>.</li>
-<li><a href="examples/normal3.txt">normal3.txt</a> / <a href="examples/encoded3.txt">encoded3.txt</a>: This is a paragraph from <a href="http://en.wikipedia.org/wiki/%20Gadsby_%28novel%29">Gadsby</a>, which is a novel that does not ever use the letter 'e'.</li>
-<li><a href="examples/normal4.txt">normal4.txt</a> / <a href="examples/encoded4.txt">encoded4.txt</a>: The first paragraph from a <a href="http://www.cavalierdaily.com/CVArticle.asp?ID=31789&amp;pid=1656">front page story in the 27 November 2007 edition of the Cavalier Daily</a>.
+<li><a href="examples/normal1.txt">normal1.txt</a> / <a
+href="examples/encoded1.txt">encoded1.txt</a>: This is the first example
+from the lecture slides (<code>dbacaad</code>). The Huffman tree can be
+viewed <a href="prelab-tree.png">here</a>.</li>
+<li><a href="examples/normal2.txt">normal2.txt</a> / <a
+href="examples/encoded2.txt">encoded2.txt</a>: This is the second
+example from the lecture slides, in the “Huffman Encoding” section. This
+is the example that we built up the Huffman tree from. The Huffman tree
+can be viewed <a href="inlab-tree-2.png">here</a>.</li>
+<li><a href="examples/normal3.txt">normal3.txt</a> / <a
+href="examples/encoded3.txt">encoded3.txt</a>: This is a paragraph from
+<a href="https://en.wikipedia.org/wiki/Gadsby_%28novel%29">Gadsby</a>,
+which is a novel that does not ever use the letter ‘e’.</li>
+<li><a href="examples/normal4.txt">normal4.txt</a> / <a
+href="examples/encoded4.txt">encoded4.txt</a>: The first paragraph from
+a <a
+href="https://www.cavalierdaily.com/article/2007/11/rolls-royce-partners-with-va-universities">front
+page story in the 27 November 2007 edition of the Cavalier Daily</a>.
 <ul>
-<li><a href="examples/encoded4a.txt">encoded4a.txt</a>: This is the same encoding as the previous file (<a href="examples/encoded4.txt">encoded4.txt</a>), but with all spaces in the middle section of the file removed, so that it's just a very long string of <code>0</code>s and <code>1</code>s.</li>
+<li><a href="examples/encoded4a.txt">encoded4a.txt</a>: This is the same
+encoding as <a href="examples/encoded4.txt">encoded4.txt</a>, but with
+all spaces in the second section of the file removed, so that it’s just
+a very long string of <code>0</code>s and <code>1</code>s.</li>
 </ul></li>
 </ul>
-<p>During in-lab, you will implement the decompression steps for the Huffman encoding. These steps are listed at the beginning of this lab document.</p>
-<p>First, make sure that your code can read in the file -- you can download the <a href="inlab-skeleton.cpp" class="uri">inlab-skeleton.cpp</a> file, which can properly read in the encoded input files.</p>
-<p>Next, focus on creating the Huffman coding tree. There are a number of ways to go about doing this -- we present one such algorithm here. As you are (recursively) creating each node in the tree, you know the bitcode code so far to get to that node (remember that following a left child pointer generates a <code>0</code>, and following a right child pointer generates a <code>1</code>). We'll call this bitcode-so-far the &quot;prefix&quot; (as it is the prefix for all bitcodes below this node). If that prefix is one of the listed bitcodes in the first part of the file, then we are at a leaf (remember that all characters in a Huffman tree are leaves), and the node will not have any children. Otherwise, we are dealing with an internal node -- and you will have to create left and right child nodes, calling yourself recursively on each one. Keep in mind that when you call yourself recursively on the left child, you have to add <code>0</code> to the end of the prefix; likewise, you have to add <code>1</code> to the prefix for the right child. This algorithm will require you to search through the bit codes that were read in from the first part of the file. Also keep in mind that the size of the input here (the number of characters) is very small (only 80 or so) -- which means that if you choose a linear time complexity data structure (vector, for example), your code will run just fine.</p>
-<p>Not creating a Huffman tree from the file will result in zero credit for the in-lab. The whole point of this part is to create the tree!</p>
-<p>Lastly, read in the second part of the file, transverse your Huffman tree, and output a character when you reach a leaf node. You can output as much text as you would like, such as status updates as to how the program is progressing. The only caveat is that the decoded file must be the last thing printed, and it must be clear where the other text ends and the decoded message that you are decoding begins (a separator of dashes would be fine for this). Of course, you are more than welcome to just print out the decoded message and nothing else.</p>
-<p>If you cannot get the Huffman decoder working during the in-lab time, then you should request a lab extension, and submit what you have done so far.</p>
-<p>As with the pre-lab, you should ensure that those files compile successfully with <code>make</code>.</p>
+<h3 id="hints-1">Hints</h3>
+<h4 id="more-data-structures">More data structures</h4>
+<p>Like the pre-lab, you’ll need some way to store the prefix codes for
+each character. Unlike the pre-lab, though, you don’t need to deal with
+frequencies anymore. The prefix codes is enough to generate the Huffman
+tree, which you can then use to decode the input file.</p>
+<h4 id="creating-the-huffman-tree">Creating the Huffman tree</h4>
+<p>As you are (recursively) creating each node in the tree, you know the
+<em>prefix</em> code to get to that node (remember that following a left
+child pointer generates a <code>0</code>, and following a right child
+pointer generates a <code>1</code>). If that prefix is one of the listed
+bitcodes in the first part of the file, then we know we are at a leaf
+(remember that all characters in a Huffman tree are leaves). Otherwise,
+we are dealing with an internal node and you will have to create left
+and right child nodes, calling yourself recursively on each one. Keep in
+mind that when you call yourself recursively on the left child, you have
+to add <code>0</code> to the end of the prefix; likewise, you have to
+add <code>1</code> to the prefix for the right child. This algorithm
+will require you to search through the bit codes that were read in from
+the first part of the file. Also keep in mind that the size of the input
+here (the number of characters) is very small (only 80 or so) – which
+means that if you choose a linear time complexity data structure
+(vector, for example), your code will run just fine.</p>
 <hr />
 <h2 id="post-lab-1">Post-lab</h2>
-<p>There are two parts to this post-lab: the time and space complexity analysis, and submitting all your (working) code again.</p>
-<h3 id="time-and-space-complexity">Time and Space Complexity</h3>
-<p>For the post-lab, we want you to do a time and space complexity analysis of your compression and decompression code. You'll submit a written report that describes your implementation choices, and also documents your analysis of time and space complexity. See below for a discussion about the space/time complexity.</p>
-<p>The deliverable for the post-lab is a PDF document named postlab10.pdf. It must be in PDF format! See <a href="../../docs/convert_to_pdf.html">How to convert a file to PDF</a> for details.</p>
-<p>A written post-lab report (a page is fine) that includes the following. You can double-space your report, but no funky stuff with the formatting (standard size fonts, standard margins, etc.). And if you double-space your report, you need to increase the number of pages appropriately.</p>
-<ol style="list-style-type: decimal">
-<li>A description of your implementation. Describe the data structures used in your implementation and <em>why</em> you selected them.</li>
-<li>An efficiency analysis of <em>all steps</em> in Huffman encoding/decoding.
+<p>The post-lab is cancelled for the spring 2021 semester.</p>
+<p><del>There are two parts to this post-lab: the time and space
+complexity analysis and submitting all your (working) code
+again.</del></p>
+<h3 id="time-and-space-complexity"><del>Time and Space
+Complexity</del></h3>
+<p><del>For the post-lab, we want you to think about the time and space
+complexity analysis of your compression and decompression code. You
+aren’t required to submit anything for this part, but you should think
+carefully about the following points, as you may need to know them on
+exams. See below for a discussion about the space/time
+complexity.</del></p>
 <ul>
-<li>For each of the steps of compression and decompression (see &quot;Huffman Encoding and Decoding&quot;), give the worst case running time of your implementation.<br />
-</li>
-<li>In addition, give the worst case <em>space complexity</em> (i.e. how many bytes of memory are used in each data structure) of your implementation.</li>
+<li><del>Think about your implmentation: what data structures did you
+use in your implementation and <em>why</em> did you selected
+them.</del></li>
+<li><del>Analyze the efficiency of <em>all steps</em> in Huffman
+encoding/decoding. For each of the steps of compression and
+decompression (see “Huffman Encoding and Decoding”), what is:</del>
+<ul>
+<li><del>The worst case running time of your implementation</del></li>
+<li><del>The worst case space complexity of your
+implementation</del></li>
 </ul></li>
-</ol>
-<p>Worst case running time -- for this be sure to include all steps of the compression and decompression. You can leave off the cost of calculating the compression ratio, printing the cost of the tree, and printing a listing of the bit code for each character that was asked for in the pre-lab. Refer to the list of steps given earlier in the lab.</p>
-<p>Space complexity -- for this, you should calculate the number of bytes that are used by each data structure in your implementation. The easiest way to do this is to step through your code, just as you have done for the worst case running time, and make a note each time you use a new data structure. You do not need to take into account scalar variables (loop counters, other singleton variables), focus on the data structures whose size depends on values such as the total number of characters and the total number of unique characters, and use those values in your answer.</p>
-<h3 id="huffman-encoding-and-decoding-1">Huffman Encoding and Decoding</h3>
-<p>For the post-lab, the purpose is to clean up your code from the pre-lab and in-lab, and submit all of it together. If your pre-lab and in-lab code work properly, then there is no futher clean-up to do; however, you must still submit the files along with a <em>new</em> Makefile.</p>
-<p>When we run <code>make</code>, the code should be compiled into two executables: <code>encoder</code> and <code>decoder</code>, which are the pre-lab and in-lab code bases, respectively. Unlike the pre-lab and in-lab, you should <strong><em>NOT</em></strong> name your executables <code>a.out</code>! After compiling your code with <code>make</code>, we will test it as such:</p>
+</ul>
+<p><del>Worst case running time – for this be sure to consider all steps
+of the compression and decompression. You can leave off the cost of
+calculating the compression ratio, printing the cost of the tree, and
+printing a listing of the bit code for each character that was asked for
+in the pre-lab. Refer to the list of steps given earlier in the
+lab.</del></p>
+<p><del>Space complexity – for this, you should calculate the number of
+bytes that are used by each data structure in your implementation. The
+easiest way to do this is to step through your code, just as you have
+done for the worst case running time, and make a note each time you use
+a new data structure. You do not need to take into account scalar
+variables (loop counters, other singleton variables), focus on the data
+structures whose size depends on values such as the total number of
+characters and the total number of unique characters, and use those
+values in your answer.</del></p>
+<p><del>Again, you aren’t required to submit anything for this section,
+but you should use these points as a way to reflect on the work you have
+done for the pre-lab and in-lab.</del></p>
+<h3 id="bringing-it-all-together"><del>Bringing it all
+together</del></h3>
+<p><del>The purpose of this part of the post-lab is to clean up your
+code from the pre-lab and in-lab, and submit all of it together. If your
+pre-lab and in-lab code work properly, then there is no futher clean-up
+to do; however, you must still submit the files along with a
+<em>new</em> Makefile.</del></p>
+<p><del>When we run <code>make</code>, the code should be compiled into
+two executables: <code>encoder</code> and <code>decoder</code>, which
+are the pre-lab and in-lab code bases, respectively. Unlike the pre-lab
+and in-lab, you should <strong><em>NOT</em></strong> name your
+executables <code>a.out</code>! After compiling your code with
+<code>make</code>, we will test it as such:</del></p>
 <pre><code>./encoder testfile.txt &gt; encoded.txt
 ./decoder encoded.txt &gt; output.txt
 diff testfile.txt output.txt</code></pre>
-<p>This encodes a sample text file, then decodes it. Both the original file (<code>testfile.txt</code>) and the final file (<code>output.txt</code>) should be the same, which is what the <code>diff</code> command does. Note that, if there are no differences between the two files, then <code>diff</code> does not print any output.</p>
+<p><del>This encodes a sample text file, then decodes it. Both the
+original file (<code>testfile.txt</code>) and the final file
+(<code>output.txt</code>) should be the same, which is what the
+<code>diff</code> command checks. If there are no differences between
+the two files, then <code>diff</code> will not print any
+output.</del></p>
+<h3 id="hints-2"><del>Hints</del></h3>
+<h4 id="two-executables"><del>Two executables???</del></h4>
+<p><del>Up until now, all of our Makefiles have generated a single
+<code>a.out</code> from the inputs given through <code>OBJECTS</code>.
+Now that we have two separate executables we need to create, you may
+need some way to differentiate between the object files for each
+one…</del></p>
+<h4 id="naming-the-executables"><del>Naming the executables</del></h4>
+<p><del>Remember the <code>-o</code> flag for clang++? :)</del></p>
 </body>
 </html>

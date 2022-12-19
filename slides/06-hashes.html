@@ -4,33 +4,31 @@
     <meta charset="utf-8">
     <title>CS 2150: 06-hashes slide set</title>
     <meta name="description" content="A set of slides for a course on Program and Data Representation">
-    <meta name="author" content="Mark Floryan">
+    
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
-    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/theme/black.css" id="theme">
     <link rel="stylesheet" href="../slides/css/pdr.css">
     <!-- Code syntax highlighting -->
-    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <link rel="stylesheet" href="../slides/reveal.js/plugin/highlight/zenburn.css">
     <!-- Printing and PDF exports -->
     <script>
       var link = document.createElement( 'link' );
       link.rel = 'stylesheet';
       link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.scss' : '../slides/reveal.js/css/print/paper.scss';
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
     <!--[if lt IE 9]>
 	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
 	<![endif]-->
-    <script type="text/javascript" src="../slides/js/dhtmlwindow.js"></script>
-    <script type="text/javascript" src="../slides/js/canvas.js"></script>
-    <link rel="stylesheet" href="../slides/css/dhtmlwindow.css" type="text/css">
+    <style>.reveal li { font-size:93%; line-height:120%; }</style>
   </head>
 
-  <body onload="canvasinit()">
-    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+  <body>
 
     <div class="reveal">
 
@@ -41,11 +39,15 @@
 # CS 2150
 &nbsp;
 ### Program and Data Representation
-&nbsp;
-<center><small>[Mark Floryan](http://www.cs.virginia.edu/~mrf8t) / [mrf8t@virginia.edu](mailto:mrf8t@virginia.edu)</small></center>
-<center><small>Repository: [github.com/markfloryan/pdr](http://github.com/markfloryan/pdr) / [&uarr;](index.html) / <a href="06-hashes.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
-&nbsp;  
-&nbsp;  
+
+<p class='titlep'>&nbsp;</p>
+<div class="titlesmall"><p>
+<a href="http://www.cs.virginia.edu/~mrf8t">Mark Floryan</a> (mrf8t@virginia.edu)<br>
+<a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)<br>
+<a href="http://github.com/uva-cs/pdr">@github</a> | <a href="index.html">&uarr;</a> | <a href="./06-hashes.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png" style="top:0px;vertical-align:middle"></a>
+</p></div>
+<p class='titlep'>&nbsp;</p>
+
 ## Hash Tables
 	</script></section>
     <section>
@@ -78,7 +80,7 @@
 
 	<section>
 
-	  <section id="adtssofar" data-markdown><script type="text/template">
+	  <section id="adtssofar" data-markdown class="center"><script type="text/template">
 # ADTs Covered So Far
 	  </script></section>
 
@@ -102,7 +104,8 @@
 | insert | &Theta;(*n*) worst case,<br>but often &Theta;(1) | &Theta;(1) |
 | remove | &Theta;(*n*) | &Theta;(*n*) |
 | findKth | &Theta;(1) | &Theta;(*n*) |
-<center>The operations are *generally* linear-time operations</center>
+
+<center>The operations are <i>generally</i> linear-time operations</center>
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -124,7 +127,8 @@
 | push | &Theta;(*n*) worst case,<br>but often &Theta;(1) | &Theta;(1) |
 | pop | &Theta;(1) | &Theta;(1) |
 | top | &Theta;(1) | &Theta;(1) |
-<center>The operations are *generally* constant-time operations</center>
+
+<center>The operations are <i>generally</i> constant-time operations</center>
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -144,7 +148,8 @@
 |-|-|-|
 | enqueue | &Theta;(*n*) worst case,<br>but often &Theta;(1) | &Theta;(1) |
 | dequeue | &Theta;(1) | &Theta;(1) |
-<center>The operations are *generally* constant-time operations</center>
+
+<center>The operations are <i>generally</i> constant-time operations</center>
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -163,12 +168,14 @@
 | find | &Theta;(*h*), where<br>log *n* < *h* &le; *n*-1;<br>worst case is &Theta;(*n*) | &Theta;(log *n*) | &Theta;(log *n*) | &Theta;(log *n*)<br>amortized |
 | insert | &Theta;(*h*), where<br>log *n* < *h* &le; *n*-1;<br>worst case is &Theta;(*n*) | &Theta;(log *n*) | &Theta;(log *n*) | &Theta;(log *n*)<br>amortized |
 | remove | &Theta;(*h*), where<br>log *n* < *h* &le; *n*-1;<br>worst case is &Theta;(*n*) | &Theta;(log *n*) | &Theta;(log *n*) | &Theta;(log *n*)<br>amortized |
-<center>Balanced trees are *generally* logarithmic-time operations</center>
+
+<center>Balanced trees are <i>generally</i> logarithmic-time operations</center>
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Is There Anything Faster?
 - Fastest possible search using binary comparison: &Theta;(log *n*)
+  - Rephrased: binary comparison searches are &Omega;(log *n*)
 - We can do better: (almost) constant (&Theta;(1)) is possible with *hash tables*
 - Hash tables (lookup table)
   - Standard set of operations: find, insert, delete
@@ -181,7 +188,7 @@
 
 	<section>
 
-	  <section id="hashtables" data-markdown><script type="text/template">
+	  <section id="hashtables" data-markdown class="center"><script type="text/template">
 # Hash Tables
 	  </script></section>
 
@@ -269,7 +276,7 @@
 <table class="wide">
   <tr>
     <td class="top">
-<div style="font-size:130%;line-height:110%">
+<div style="width:400px;font-size:130%;line-height:110%">
 <ul>
 <li>How can we hash the keys if the keys can be anything?</li>
 <li>Best one binary comparison can do is eliminate one half of the elements &Theta;(log <i>n</i>)</li>
@@ -281,7 +288,7 @@
 <td class="top">
 &nbsp;<br><small>&quot;Hello&quot;</small><br>&nbsp;<br><small>['H','i',\0]</small><br>&nbsp;<br><small>3.14</small><br>&nbsp;<br><small>'x'</small><br>&nbsp;<br><small>0x42381a</small><br>&nbsp;<br><small>01001010</small></td>
     <!-- image adapted from http://openclipart.org/detail/3677/arrow-left-right-by-torfnase -->
-    <td style="width:150px"><img class="noborder" src="images/red-double-arrow.png" height="500" alt="vertical red double arrow"></td>
+    <td style="width:150px;vertical-align:top"><img class="noborder" src="images/red-double-arrow.png" height="500" alt="vertical red double arrow"></td>
     <td class="top">&nbsp;<br>&nbsp;<br><small>Objects</small><br>&nbsp;<br><small>Arrays</small><br>&nbsp;<br><small>Primitive types</small><br>&nbsp;<br><small>Addresses</small><br>&nbsp;<br><small>bits</small></td>
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
   </tr>
@@ -297,9 +304,9 @@
 | 000010 | "blue" |
 | 000011 | `null` |
 | 000100 | "green" |
-| 000101 | "white" |
-| 000110 | ... |
+| 000101 | ... |
 &nbsp;  
+
 This can work, unless the key space is sparse, or we don't know the keys ahead of time.  But it's slow to look up a value in a table!
 	  </script></section>
 
@@ -435,8 +442,15 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 
 	<section>
 
-	  <section id="separatechaining" data-markdown><script type="text/template">
+	  <section id="separatechaining" data-markdown class="center"><script type="text/template">
 # Separate Chaining
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Separate Chaining
+
+- An animation of this can be found [here](https://www.cs.usfca.edu/~galles/visualization/OpenHash.html)
+  - Although it is really called "separate chaining", that site calls it "open hashing"
 	  </script></section>
 
 	  <section>
@@ -529,7 +543,7 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 	  <section data-markdown><script type="text/template">
 ## Separate chaining insert is &Theta;(1)
 - In an unsorted linked list, you can just put it on the front
-- So all inserts into a seprate chained hash table, that uses linked lists, are actually in constant time
+- So all inserts into a separate chained hash table, that uses linked lists, are actually in constant time
   - If you were to *sort* the linked list, that would be linear time
   - And finds (and thus deletes) are still linear time
 	  </script></section>
@@ -539,8 +553,15 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 
 	<section>
 
-	  <section id="openaddressing" data-markdown><script type="text/template">
+	  <section id="openaddressing" data-markdown class="center"><script type="text/template">
 # Open Addressing
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Open addressing
+
+- An animation of all three open addressing strategies can be found [here](https://www.cs.usfca.edu/~galles/visualization/ClosedHash.html)
+  - Although it is really called "open addressing", that site calls it "closed hashing"
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -666,7 +687,7 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 - With all open addressing schemes, we examine ('probe') the cells in the order:
   - *p*<sub>0</sub>(*k*), *p*<sub>1</sub>(*k*), *p*<sub>2</sub>(*k*), ...
   - where: *p*<sub>i</sub>(*k*) = (*hash*(*k*) + *f*(*i*)) mod *table_size*
-- With *double hasing*, <span class="red">*f*(*i*) = *i* \* hash<sub>2</sub>(*k*)</span>
+- With *double hashing*, <span class="red">*f*(*i*) = *i* \* hash<sub>2</sub>(*k*)</span>
   - Which means we have to define a *secondary* hash function!
   - After searching spot *hash*(*k*) in the array, look in:
     - *hash*(*k*) + 1 \* *hash*<sub>2</sub>(*k*)
@@ -753,7 +774,7 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 
 	<section>
 
-	  <section id="miscellaneous" data-markdown><script type="text/template">
+	  <section id="miscellaneous" data-markdown class="center"><script type="text/template">
 # Miscellaneous
 	  </script></section>
 
@@ -797,7 +818,7 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 - Given a string (or file contents, etc.) generate a 128-bit hash
   - 2<sup>128</sup> = 3.4*10<sup>38</sup> (coincidentally, this is is also the [maximum finite value](03-numbers.html#/maxfloatvalue) of a `float`)
   - Typically an MD5 is always written in hex: 16e28b7986fd74f65b061de89dc8b78e
-- This could then be used as they key
+- This could then be used as the key
   - Obviously having to mod it by the table size
 - (Was) good for checking if a download completed successfully
 	  </script></section>
@@ -822,6 +843,7 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
   - So it is useless for any security-related purposes
 - [SHA (Secure Hash Algorithm)](http://en.wikipedia.org/wiki/Secure_Hash_Algorithm) is a family of algorithms that (the more recent ones) are much more secure
   - Same overall idea: it generates a hash value up to 512 bits
+  - SHA-1 has been broken also, but more recent SHAs are secure
 	  </script></section>
 
 	</section>
@@ -832,15 +854,7 @@ This can work, unless the key space is sparse, or we don't know the keys ahead o
 
     </div>
 
-    <div id="calibratediv" style="display:none">
-      <div id="calibratecanvasdiv">
-        <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
-      </div>
-      <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
-    </div>
-
-    <script src="reveal.js/lib/js/head.min.js"></script>
-    <script src="reveal.js/js/reveal.js"></script>
+    <script src='../slides/reveal.js/dist/reveal.js'></script><script src='../slides/reveal.js/plugin/zoom/zoom.js'></script><script src='../slides/reveal.js/plugin/notes/notes.js'></script><script src='../slides/reveal.js/plugin/search/search.js'></script><script src='../slides/reveal.js/plugin/markdown/markdown.js'></script><script src='../slides/reveal.js/plugin/highlight/highlight.js'></script><script src='../slides/reveal.js/plugin/math/math.js'></script>
     <script src="js/settings.js"></script>
 
   </body>

@@ -4,15 +4,15 @@
 using namespace std;
 
 class AVLNode {
-  AVLNode();
-  ~AVLNode();
+    AVLNode();
+    ~AVLNode();
 
-  string value;
-  AVLNode* left;
-  AVLNode* right;
-  int height;
+    string value;
+    AVLNode* left;
+    AVLNode* right;
+    int height;
 
-  friend class AVLTree;
+    friend class AVLTree;
 };
 
 #endif

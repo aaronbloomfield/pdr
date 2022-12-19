@@ -16,8 +16,7 @@ Some terminology:
   later in the semester.)
 - "LLVM" is the compiler framework that includes many things,
   including the `clang` compiler that we are using, as well as `lldb`
-- `gdb` is the debugger that was used in the past, and is often used
-  elsewhere -- it is analogous to `lldb` in how it works
+- `gdb` is another commonly-used debugger
 
 ------------------------------------------------------------
 
@@ -46,8 +45,8 @@ tremendously in a matter of weeks.  Work smart!
 
 ### Sample Program ###
 
-Consider the following buggy program into [prog1.cpp](prog1.cpp.html)
-([src](prog1.cpp)):
+Consider the following buggy program [prog1.cpp](prog1.cpp.html)
+([src](prog1.cpp)), which is reproduced here:
 
 ```
 #include <iostream>
@@ -78,19 +77,13 @@ debugging to take place.  On UNIX, the option for clang++ is the `-g`
 option.  For example:
 
 ```
-clang++ -Wall -g -o prog1 prog1.cpp 
+clang++ prog1.cpp -Wall -g
 ```
 
 We also include the `-Wall` option, which lists warnings (the 'all' is
-to list all warnings).  Note that this option leads to executable
-files that are larger and slower, so you may not want to use it for
-final distributions or time-critical programs.  But you can always
-remove the debugging information from an executable without
-recompiling it with the `strip` command.  For more information on
-that, see the man page for `strip` (i.e., run `man strip` from the
-command line).
+to list all warnings).
 
-The `-g` option causes the compiler to include information about the
+The `-g` option (short for `--debug`) causes the compiler to include information about the
 source file (the .cpp file) that is needed for debugging as part of
 the executable file.  This causes the executable to be larger in size,
 and slightly slower, but allows for debugging.  So when you run the
@@ -104,22 +97,18 @@ run the command-line version, compile your program as described above,
 and then type:
 
 ```
-lldb prog1
+lldb a.out
 ```
 
 Note that some systems may have the debugger have a slightly different
 name:
 
 ```
-lldb-3.4 prog1
+lldb-6.0 a.out
 ```
 
-This was assuming your executable (created with clang's `-o` option)
-was "prog1".  If you didn't use the -o option, then you'll type:
-
-```
-lldb a.out
-```
+Replace `6.0` with the current version; that was the version as of the
+2018-2019 academic year.
 
 The following sections describe the important types of things you can
 do with lldb, organized by "category" of activity.  These activities
@@ -139,7 +128,7 @@ after the run command.  If you would normally run the program on the
 command line by entering:
 
 ```
-prog1 100 test1.dat
+./a.out 100 test1.dat
 ```
 
 In the debugger, you would enter: 
@@ -148,7 +137,7 @@ In the debugger, you would enter:
 run 100 test1.dat
 ```
 
-Note, however, that the prog1 that we are editing here does not need
+Note, however, that the program that we are editing here does not need
 any command line parameters.
 
 ### Where Am I? Where Did It Crash? ###
@@ -168,8 +157,8 @@ More usefully, you can see a list of the function calls that led you
 to this point in your program.  Your program may have died deep inside
 a function that is called many times in your program, and you need to
 know which sequence of nested functions calls led to the failure.  In
-the command-line mode, type `backtrace` or `bt` to show this list.
-IMPORTANT: this command is one of the most important and useful
+the command-line mode, type `bt` to show this list.\
+**IMPORTANT:** this command is one of the most important and useful
 debugging commands you'll see in this lesson!
 
 While we're talking about reaching a point in a sequence of nested
@@ -188,8 +177,9 @@ commands about the function that's "active" at each level.
 One of the most fundamental things you want to do while debugging is
 make the program pause at a particular line or at the start of a
 function.  These locations in a program where execution pauses are
-called "breakpoints."  IMPORTANT: You must choose a line of code that
-actually executes something: not a comment, for example.
+called "breakpoints".\
+**IMPORTANT:** You must choose a line of code that actually executes
+something: not a comment, for example.
 
 In lldb you can set breakpoints by typing either `break` or `b`
 followed by information on where you want the program to pause.  After
@@ -272,8 +262,8 @@ To remove a variable from the automatic display list, use the
 
 If you see that a variable has the wrong value, and you'd like to
 change that value in mid-stream before continuing execution, you can
-do this easily.  Enter `expr` followed by the type, then the variable,
-an equals symbol (`=`), and the value or expression.  It's just like a
+do this easily.  Enter `expr` followed by the variable,
+an equals symbol (`=`), and the value or expression.  It's like a
 C++ assignment statement but without the semi-colon at the end.  For
 example:
 
@@ -311,7 +301,7 @@ Compile and run the prog1.cpp file shown above; this should segfault.
 The problem is on line 12, when it tries to dereference the NULL
 pointer.
 
-Run it in LLDB with the program (`lldb prog`), and try the following:
+Run it in LLDB with the program (`lldb a.out`), and try the following:
 
 - type `run`, and let it run to completion (really until it crashes)
 - try the `bt` and `f` commands
@@ -328,7 +318,7 @@ Run it in LLDB with the program (`lldb prog`), and try the following:
 ### Frames ###
 
 When a program crashes, you can see the list of subroutine calls that
-led to that point via the 'bt' command.  This prints a *stack trace*,
+led to that point via the `bt` command.  This prints a *stack trace*,
 similar to what Java prints when an exception is thrown (but not
 caught).  Each level in that stack trace is called a *frame*.
 Sometimes you may want to look at the variables and what-not a few
@@ -399,7 +389,10 @@ in the future.
 ------------------------------------------------------------
 
 Part II: LLDB Lab Exercise
--------------------------
+--------------------------
+
+Part II of this tutorial is designed to complement Lab 2's in-lab.
+You can stop here for now and return when you are working on the in-lab.
 
 ### The Source Code ###
 
@@ -409,20 +402,16 @@ We'll use the debugger to find them.
  
 ### Running the Debugger ###
 
-After you enter the code (remember: if you spot the errors do not
-correct them -- we will use the debugger to find them!), compile the
-code.  If you plan on using the debugger, you have to specifically
-tell clang++ to include debugging information.  To do that, enter the
-`-g` flag.  For example, enter:
+First, compile the code:
 
 ```
-clang++ -Wall -g -o lab2 debug.cpp
+clang++ debug.cpp -Wall -g -o lab2
 ```
 
-The `-g` flag will include debugging information.  The `-o lab2` flag
-will cause the output executable to be `lab2`.  The `-Wall` flag is a
-new one -- it will include all warnings about your code (errors are
-still reported without the flag; this includes warnings as well).
+We've seen `-Wall` and `-g` already -- the `-o lab2` flag
+(short for `--output`) will cause the output executable to be `lab2`
+instead of `a.out`.  Thus, we also need to run lldb with `lldb lab2`
+rather than `lldb a.out`.
 
 There are no compiler or linker errors (or warnings!), so if you get
 any you will need to find and fix them.  We should now be ready to go.
@@ -455,9 +444,9 @@ by entering:
 If we knew where the problems were, we could skip over some lines, but
 since we don't, put a breakpoint on the first line of the code, the
 cout statement.  You probably want to set the breakpoint based on the
-line number in the code -- you can use the Emacs command `M-x
-linum-mode` to have Emacs display line numbers.  Enter `break
-x`, where x is the line of the first cout statement in the main()
+line number in the code -- you can use the Emacs command
+`M-x linum-mode` to have Emacs display line numbers.  Enter `break x`,
+where x is the line of the first cout statement in the main()
 method.  Now we need to run the program -- to do this, enter `run`.
 Lldb should start running, then should pause and display approximately
 the following:
@@ -562,9 +551,9 @@ button twice more, entering successive values when prompted (2, 4, 6,
 8, 10).  See what happens to the variables.
 
 This shows you one of the errors - the data is all going into
-nValues\[1\].  Go to the source window, and correct the line.  Exit
-lldb (`quit`), recompile the program, and start up lldb again (`lldb
-lab2`).  Set your breakpoint, run the code, and make sure that it is
+`nValues[1]`.  Go to the source window, and correct the line.  Exit
+lldb (`quit`), recompile the program, and start up lldb again
+(`lldb lab2`).  Set your breakpoint, run the code, and make sure that it is
 getting the input correctly.  Try entering `display nValues` after the
 first breakpoint -- it will always display the contents of the nValues
 array each time the program pauses.

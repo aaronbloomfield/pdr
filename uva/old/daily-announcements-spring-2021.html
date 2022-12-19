@@ -1,0 +1,1252 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 2150: daily announcements slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/css/pdr.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
+	<![endif]-->
+    <style>
+.reveal li {
+font-size:70%;
+line-height:120%;
+}
+    </style>
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <div class="slides">
+
+	  <section data-markdown><script type="text/template">
+# CS 2150
+### Program & Data Representation
+### Spring 2021
+&nbsp;
+<center><small><a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)</small></center>
+<center><small><a href="http://github.com/uva-cs/pdr">@github</a> | <a href="index.html">&uarr;</a> | <a href="daily-announcements.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png"></a></small></center>
+<p>&nbsp;</p>
+<h2>Daily Announcements</h2>
+	</script></section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Merlin</h4><img class="stretch" src="http://imgs.xkcd.com/comics/merlin.png" title="I mean, the black-and-white stuff was running backward, but it hardly mattered to the story." alt="Merlin"><p class="center"><a href="http://xkcd.com/270/">xkcd # 270</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 39: Wed, May 5th
+- [Lab 11](../labs/lab11/index.html), on Graphs, is done!
+- Office hours are 5pm - 11pm on Sun, Mon, Wed, & Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously
+	- In addition to our new [queue](https://pegasus.cs.virginia.edu/satori), we also have a new [support ticket system](https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/)
+- Final exam: this Saturday, May 8th, from 7pm to 10pm
+	- A sample exam is available at https://libra.cs.virginia.edu/exams/sample_exam/; netbadge authentication is required
+	- You should definitely try it out BEFORE the actual final exam
+    - I have emailed all those with exam conflicts or SDAC accommodations
+- Final exam review period: Friday at 1pm
+	- The link will be the Collab -> Online Meetings tools, and it will be recorded
+- Links and announcements for each lecture period:
+    - Course links on the [Collab landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+    - [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+    - [Readings](../docs/readings.html) are optional, and are posted in the git repo
+    - Recall that the [lectures page](lectures/index.html) has the code gone over that day
+- No posted lecture for today, but we will go over the material live via Zoom: [esoteric programming languages](../slides/13-esoteric-pls.html) and the wrap up with the [course conclusion](course-conclusion.html)
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">NP-Complete</h4><img class="stretch" src="http://imgs.xkcd.com/comics/np_complete.png" title="General solutions get you a 50% tip." alt="NP-Complete"><p class="center"><a href="http://xkcd.com/287/">xkcd # 287</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 38: Mon, May 3rd
+- [Lab 11](../labs/lab11/index.html), on Graphs, is out
+    - The post-lab is canceled
+	- The pre-lab and in-lab are due at the normal times
+- Office hours are 5pm - 11pm on Sun, Mon, Wed, & Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously
+	- In addition to our new [queue](https://pegasus.cs.virginia.edu/satori), we also have a new [support ticket system](https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/)
+- Final exam: this Saturday, May 8th, from 7pm to 10pm
+	- A sample exam is available at https://libra.cs.virginia.edu/exams/sample_exam/; netbadge authentication is required
+	- You should definitely try it out BEFORE the actual final exam
+    - I have emailed all those with exam conflicts or SDAC accommodations
+- Links and announcements for each lecture period:
+    - Course links on the [Collab landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+    - [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+    - [Readings](../docs/readings.html) are optional, and are posted in the git repo
+    - Recall that the [lectures page](lectures/index.html) has the code gone over that day
+- Today's posted lecture finished [memory](../slides/12-memory.html#/)
+- There will NOT be a pre-recorded lecture for Wednesday's class, which will instead be a live class
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Travelling Sales[person] Problem</h4><img class="stretch" src="http://imgs.xkcd.com/comics/travelling_salesman_problem.png" title="What&#39;s the complexity class of the best linear programming cutting-plane techniques?  I couldn&#39;t find it anywhere.  Man, the Garfield guy doesn&#39;t have these problems ..." alt="Travelling Salesman Problem"><p class="center"><a href="http://xkcd.com/399/">xkcd # 399</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 37: Fri, Apr 30th
+- [Lab 11](../labs/lab11/index.html), on Graphs, is out
+    - The post-lab is canceled
+	- The pre-lab and in-lab are due at the normal times
+- Office hours are 5pm - 11pm on Sun, Mon, Wed, & Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously
+	- In addition to our new [queue](https://pegasus.cs.virginia.edu/satori), we also have a new [support ticket system](https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/)
+- Final exam: Saturday, May 8th, from 7pm to 10pm
+	- A sample exam is available at https://libra.cs.virginia.edu/exams/sample_exam/; netbadge authentication is required
+	- You should definitely try it out BEFORE the actual final exam
+    - I have emailed all those with exam conflicts or SDAC accommodations
+- Links and announcements for each lecture period:
+    - Course links on the [Collab landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+    - [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+    - [Readings](../docs/readings.html) are optional, and are posted in the git repo
+    - Recall that the [lectures page](lectures/index.html) has the code gone over that day
+- Today's posted lecture finished [graphs](../slides/11-graphs.html#/) and started [memory](../slides/12-memory.html#/) through slide 4.8
+    - There will be a pre-recorded lecture for this Monday, but next Wednesday's class (the last one of the semester) will be a live class without a pre-recorded lecture	
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2 class='xkcd'>Google Maps</h2><img class='stretch' src="https://imgs.xkcd.com/comics/google_maps.png" title="Apparently Google assumes you&#39;re traveling during the ferry&#39;s normal operating hours.  We lost two hours circling that damn lake (to say nothing of the Straw Man)." alt="Google Maps"  style="image-orientation:none" ><p class='center'><a href='http://xkcd.com/461/'>xkcd # 461</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 36: Wed, Apr 28th
+- [Lab 10](../labs/lab10/index.html), on Huffman coding, is out
+    - In an effort to make the work load more manageable:
+    - The pre-lab is (was?) due Wednesday (today) at noon
+        - The in-lab is due Friday at 10am
+        - The post-lab is cancelled!
+- Office hours are 5pm - 11pm on Sun, Mon, Wed, & Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously
+	- In addition to our new [queue](https://pegasus.cs.virginia.edu/satori), we also have a new [support ticket system](https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/) (same functionality, different URL and interface)
+- Final exam: Saturday, May 8th, from 7pm to 10pm
+	- A sample exam is available at https://libra.cs.virginia.edu/exams/sample_exam/; netbadge authentication is required
+	- You should definitely try it out BEFORE the actual final exam
+    - I have emailed all those with exam conflicts or SDAC accommodations
+- Links and announcements for each lecture period:
+    - Course links on the [Collab landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+    - [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+    - [Readings](../docs/readings.html) are optional, and are posted in the git repo
+    - Recall that the [lectures page](lectures/index.html) has the code gone over that day
+- Today's posted lecture continued with [graphs](../slides/11-graphs.html#/) through slide 8.9
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Pillow Talk</h4><img class="stretch" src="http://imgs.xkcd.com/comics/pillow_talk.jpg" title="Maybe I should&#39;ve tried Wexler?" alt="Pillow Talk"><p class="center"><a href="http://xkcd.com/69/">xkcd # 69</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 35: Mon, Apr 26th
+- [Lab 10](../labs/lab10/index.html), on Huffman coding, is out
+    - In an effort to make the work load more manageable:
+        - The pre-lab is due Wednesday at noon
+        - The in-lab is due Friday at 10am
+        - The post-lab is cancelled!
+- Office hours are 5pm - 11pm on Sun, Mon, Wed, & Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously
+	- In addition to our new [queue](https://pegasus.cs.virginia.edu/satori), we also have a new [support ticket system](https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/) (same functionality, different URL and interface)
+- Final exam: Saturday, May 8th, from 7pm to 10pm
+	- A sample exam is available at https://libra.cs.virginia.edu/exams/sample_exam/; netbadge authentication is required
+	- You should definitely try it out BEFORE the actual final exam
+- Links and announcements for each lecture period:
+    - Course links on the [Collab landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+    - [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+    - [Readings](../docs/readings.html) are optional, and are posted in the git repo
+    - Recall that the [lectures page](lectures/index.html) has the code gone over that day
+- Today's posted lecture continued with [graphs](../slides/11-graphs.html#/) through slide 6.9
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Dependencies</h4><img class="stretch" src="http://imgs.xkcd.com/comics/dependencies.png" title="The prereqs for CPSC 357, the class on package management, are CPSC 432, CPSC 357, and glibc2.5 or later." alt="Dependencies"><p class="center"><a href="http://xkcd.com/754/">xkcd # 754</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 34: Fri, Apr 23rd
+- [Lab 9](../labs/lab09-64bit/index.html) is all done!
+- [Lab 10](../labs/lab10/index.html), on Huffman coding, is out
+- Office hours are 5pm - 11pm on Sun, Mon, Wed, & Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously
+	- In addition to our new [queue](https://pegasus.cs.virginia.edu/satori), we also have a new [support ticket system](https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/) (same functionality, different URL and interface)
+- Final exam: Saturday, May 8th, from 7pm to 10pm
+	- A sample exam is available at https://libra.cs.virginia.edu/exams/sample_exam/; netbadge authentication is required
+	- You should definitely try it out BEFORE the actual final exam
+- Links and announcements for each lecture period:
+    - Course links on the [Collab landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+    - [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+    - [Readings](../docs/readings.html) are optional, and are posted in the git repo
+    - Recall that the [lectures page](lectures/index.html) has the code gone over that day
+- Today's posted lecture finished [heaps and Huffman](../slides/10-heaps-huffman.html#/) and started on [graphs](../slides/11-graphs.html#/) to slide 5.3
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Golden Hammer</h4><img class="stretch" src="http://imgs.xkcd.com/comics/golden_hammer.png" title="Took me five tries to find the right one, but I managed to salvage our night out--if not the boat--in the end." alt="Golden Hammer"><p class="center"><a href="http://xkcd.com/801/">xkcd # 801</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 33: Wed, Apr 21st
+- [Lab 9](../labs/lab09-64bit/index.html), also on assembly, is out
+- [Lab 10](../labs/lab10/index.html), for next week, is all ready in the repo
+- Office hours are 5pm - 11pm on Sun, Mon, Wed, & Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously
+	- In addition to our new [queue](https://pegasus.cs.virginia.edu/satori), we also have a new [support ticket system](https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/) (same functionality, different URL and interface)
+- We discussed the final exam procedure last week
+	- A sample exam will be out early next week; this is so you can familiarize yourself with the system
+- Links and announcements for each lecture period:
+    - Course links on the [Collab landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+    - [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+    - [Readings](../docs/readings.html) are optional, and are posted in the git repo
+    - Recall that the [lectures page](lectures/index.html) has the code gone over that day
+- Today's posted lecture continued [heaps and Huffman](../slides/10-heaps-huffman.html#/) through slide 8.31
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Collatz Conjecture</h4><img class="stretch" src="http://imgs.xkcd.com/comics/collatz_conjecture.png" title="The Strong Collatz Conjecture states that this holds for any set of obsessively-hand-applied rules." alt="Collatz Conjecture"><p class="center"><a href="http://xkcd.com/710/">xkcd # 710</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 32: Mon, Apr 19th
+- [Lab 9](../labs/lab09-64bit/index.html), also on assembly, is out
+    - We will *not* be extending the pre-lab deadline for that lab
+- Office hours are 5pm - 11pm on Sun, Mon, Wed, & Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously
+	- In addition to our new [queue](https://pegasus.cs.virginia.edu/satori), we also have a new [support ticket system](https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/) (same functionality, different URL and interface)
+- We discussed the final exam procedure last week
+	- A sample exam will be out later this week or early next week; this is so you can familiarize yourself with the system
+- Links and announcements for each lecture period:
+    - Course links on the [Collab landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+    - [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+    - [Readings](../docs/readings.html) are optional, and are posted in the git repo
+    - Recall that the [lectures page](lectures/index.html) has the code gone over that day
+- Today's posted lecture continued [heaps and Huffman](../slides/10-heaps-huffman.html#/) through slide 8.19
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Git Commit</h4><img class="stretch" src="http://imgs.xkcd.com/comics/git_commit.png" title="Merge branch &#39;asdfasjkfdlas/alkdjf&#39; into sdkjfls-final" alt="Git Commit"><p class="center"><a href="http://xkcd.com/1296/">xkcd # 1296</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 31: Fri, Apr 16th
+- [Lab 9](../labs/lab09-64bit/index.html), also on assembly, is out
+    - We will *not* be extending the pre-lab deadline for that lab
+- Office hours are 5pm - 11pm on Sun, Mon, Wed, & Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously; and we have a new [queue](https://pegasus.cs.virginia.edu/satori)
+- Let's discuss the final exam procedure...
+- Links and announcements for each lecture period:
+    - Course links on the [Collab landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+    - [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+    - [Readings](../docs/readings.html) are optional, and are posted in the git repo
+    - Recall that the [lectures page](lectures/index.html) has the code gone over that day
+- Today's posted lecture continued [heaps and Huffman](../slides/10-heaps-huffman.html#/) through slide 6.16
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Applied Math</h4><img class="stretch" src="http://imgs.xkcd.com/comics/applied_math.png" title="Dear Reader: Enclosed is a check for ninety-eight cents. Using your work, I have proven that this equals the amount you requested." alt="Applied Math"><p class="center"><a href="http://xkcd.com/816/">xkcd # 816</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 30: Wed, Apr 14th
+- [Lab 8](../labs/lab08-64bit/index.html), on assembly, is out
+    - We will be extending the pre-lab deadline for pre-lab 8
+    - Make sure you do the 64 bit version of the lab!
+    - I emailed the M1 Mac people on Wednesday with a solution for them
+- [Lab 9](../labs/lab09-64bit/index.html), also on assembly, is ready in the repo
+    - We will *not* be extending the pre-lab deadline for that lab
+- Office hours are 5pm - 11pm on Sun, Mon, Wed, & Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously; and we have a new [queue](https://pegasus.cs.virginia.edu/satori)
+- Links and announcements for each lecture period:
+    - Course links on the [Collab landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+    - [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+    - [Readings](../docs/readings.html) are optional, and are posted in the git repo
+    - Recall that the [lectures page](lectures/index.html) has the code gone over that day
+- Today's posted lecture finished [advanced C++](../slides/09-advanced-cpp.html#/) and started [heaps and Huffman](../slides/10-heaps-huffman.html#/) through slide 6.2
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Science Valentine</h4><img class="stretch" src="http://imgs.xkcd.com/comics/science_valentine.png" title="You don&#39;t use science to show that you&#39;re right, you use science to become right." alt="Science Valentine"><p class="center"><a href="http://xkcd.com/701/">xkcd # 701</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 29: Mon, Apr 12th
+- [Lab 8](../labs/lab08-64bit/index.html), on assembly, is out
+    - We will be extending the pre-lab deadline for pre-lab 8
+    - Make sure you do the 64 bit version of the lab!
+    - I emailed the M1 Mac people on Wednesday with a solution for them
+- Office hours are 5pm - 11pm on Sun, Mon, Wed, & Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously; and we have a new [queue](https://pegasus.cs.virginia.edu/satori)
+- Links and announcements for each lecture period:
+    - Course links on the [Collab landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+    - [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+    - [Readings](../docs/readings.html) are optional, and are posted in the git repo
+    - Recall that the [lectures page](lectures/index.html) has the code gone over that day
+- Today's posted lecture continued [advanced C++](../slides/09-advanced-cpp.html#/) through slide 8.5
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Security</h4><img class="stretch" src="http://imgs.xkcd.com/comics/security.png" title="Actual actual reality: nobody cares about his secrets.  (Also, I would be hard-pressed to find that wrench for $5.)" alt="Security"><p class="center"><a href="http://xkcd.com/538/">xkcd # 538</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 28: Fri, Apr 9th
+- [Lab 7](../labs/lab07/index.html), on IBCM, is all done
+- [Lab 8](../labs/lab08-64bit/index.html), on x86, is ready in the repo
+    - We will be extending the pre-lab deadline for pre-lab 8
+    - Make sure you do the 64 bit version of the lab!
+    - I emailed the M1 Mac people on Wednesday with a solution for them
+- Office hours are 5pm - 11pm on Sun, Mon, Wed, & Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously; and we have a new [queue](https://pegasus.cs.virginia.edu/satori)
+- Links and announcements for each lecture period:
+    - Course links on the [Collab landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+    - [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+    - [Readings](../docs/readings.html) are optional, and are posted in the git repo
+    - Recall that the [lectures page](lectures/index.html) has the code gone over that day
+- Today's posted lecture finished [assembly](../slides/08-assembly-64bit.html#/), and started [advanced C++](../slides/09-advanced-cpp.html#/) through slide 6.11
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Surgery</h4><img class="stretch" src="http://imgs.xkcd.com/comics/surgery.png" title="Damn. Not only did he not install it, he sutured a &#39;Vista-Ready&#39; sticker onto my arm." alt="Surgery"><p class="center"><a href="http://xkcd.com/644/">xkcd # 644</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 27: Wed, Apr 7th
+- [Lab 7](../labs/lab07/index.html), on IBCM, is out
+    - The simulators are at https://pegasus.cs.virginia.edu/ibcm/ and https://libra.cs.virginia.edu/ibcm/
+- [Lab 8](../labs/lab08-64bit/index.html), on x86, is ready in the repo
+    - We will be extending the pre-lab deadline for pre-lab 8
+    - Make sure you do the 64 bit version of the lab!
+	- I will be emailing the M1 Mac people about how they can compile assembly
+- Office hours are 5pm - 11pm on Sun, Mon, Wed, & Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously; and we have a new [queue](https://pegasus.cs.virginia.edu/satori)
+- Links and announcements for each lecture period:
+    - Course links on the [Collab landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+    - [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+    - [Readings](../docs/readings.html) are optional, and are posted in the git repo
+    - Recall that the [lectures page](lectures/index.html) has the code gone over that day
+    - Do you have an M1 Mac?  Let us know by support request
+- Today's posted lecture continued with [assembly](../slides/08-assembly-64bit.html#/) through slide 10.12
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Abstraction</h4><img class="stretch" src="http://imgs.xkcd.com/comics/abstraction.png" title="If I&#39;m such a god, why isn&#39;t Maru *my* cat?" alt="Abstraction"><p class="center"><a href="http://xkcd.com/676/">xkcd # 676</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 26: Mon, Apr 5th
+- [Lab 7](../labs/lab07/index.html), on IBCM, is out
+    - The simulators are at https://pegasus.cs.virginia.edu/ibcm/ and https://libra.cs.virginia.edu/ibcm/
+- Office hours are 5pm - 11pm on Sun, Mon, Wed, & Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously; and we have a new [queue](https://pegasus.cs.virginia.edu/satori)
+- Links and announcements for each lecture period:
+    - Course links on the [Collab landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+    - [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+    - [Readings](../docs/readings.html) are optional, and are posted in the git repo
+    - Recall that the [lectures page](lectures/index.html) has the code gone over that day
+    - Do you have an M1 Mac?  Let us know by support request
+- Today's posted lecture continued with [assembly](../slides/08-assembly-64bit.html#/) through slide 8.15
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Tabletop Roleplaying</h4><img class="stretch" src="http://imgs.xkcd.com/comics/tabletop_roleplaying.png" title="I may have also tossed one of a pair of teleportation rings into the ocean, with interesting results." alt="Tabletop Roleplaying"><p class="center"><a href="http://xkcd.com/244/">xkcd # 244</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 25: Fri, Apr 2nd
+- [Lab 6](../labs/lab06/index.html) (hashes) is done!
+    - I have some comments on lab 6...
+- [Lab 7](../labs/lab07/index.html), on IBCM, is out
+    - The simulators are at https://pegasus.cs.virginia.edu/ibcm/ and https://libra.cs.virginia.edu/ibcm/
+- Office hours are 5pm - 11pm on Sun, Mon, Wed, & Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously; and we have a new [queue](https://pegasus.cs.virginia.edu/satori)
+- Links and announcements for each lecture period:
+    - Course links on the [Collab landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+    - [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+    - [Readings](../docs/readings.html) are optional, and are posted in the git repo
+    - Recall that the [lectures page](lectures/index.html) has the code gone over that day
+    - Do you have an M1 Mac?  Let us know by support request
+- Today's posted lecture continued with [assembly](../slides/08-assembly-64bit.html#/) through slide 7.3
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Single Ladies</h4><img class="stretch" src="http://imgs.xkcd.com/comics/single_ladies.png" title="Using a ring to bind someone you covet into your dark and twisted world? Wow, just got the subtext there. Also, the apparently eager Beyonc&eacute; would&#39;ve made one badass Nazg&ucirc;l." alt="Single Ladies"><p class="center"><a href="http://xkcd.com/712/">xkcd # 712</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 24: Wed, Mar 31st
+- [Lab 6](../labs/lab06/index.html) (hashes) and the tutorial are out
+    - How are they going?
+    - We are still working on improving staffing levels
+	- About the shell script...
+- Lab 7 (IBCM) will be out tomorrow
+- Office hours are 5pm - 11pm on Sun, Mon, Wed, & Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously; and we have a new [queue](https://pegasus.cs.virginia.edu/satori)
+- Links and announcements for each lecture period:
+    - Course links on the [Collab landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+    - [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+    - [Readings](../docs/readings.html) are optional, and are posted in the git repo
+    - Recall that the [lectures page](lectures/index.html) has the code gone over that day
+    - Do you have an M1 Mac?  Let us know by support request
+- Today's posted lecture started [assembly](../slides/08-assembly-64bit.html#/) through slide 5.6
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section data-markdown><script type="text/template">
+## Mon, Mar 29th
+
+Today was a UVA break day, so no lecture content from today
+	  </script></section>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Fight</h4><img class="stretch" src="http://imgs.xkcd.com/comics/fight.png" title="And she put sweet nothings in all my .conf files.  It&#39;ll take me forever to get X working again." alt="Fight"><p class="center"><a href="http://xkcd.com/340/">xkcd # 340</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 23: Fri, Mar 26th
+- [Lab 5](../labs/lab05/index.html) (trees) this past week
+    - We thought we had enough TA capacity on Thursday night, but apparently not -- our apologies about that
+- [Lab 6](../labs/lab06/index.html) (hashes) and the tutorial are out
+    - We are extending the pre-lab deadline like we did with lab 5
+	- Formally, pre-lab 6 will be due at 11:59 pm on Tuesday, along with in-lab 6
+- There is no lecture this upcoming Monday, as it's a UVA break day
+	- We still are holding TA office hours
+- Office hours are 5pm - 11pm on Sun, Mon, Wed, & Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously; and we have a new [queue](https://pegasus.cs.virginia.edu/satori)
+- Links and announcements for each lecture period:
+    - Course links on the [Collab landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+    - [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+    - [Readings](../docs/readings.html) are optional, and are posted in the git repo
+    - Recall that the [lectures page](lectures/index.html) has the code gone over that day
+    - Do you have an M1 Mac?  Let us know by support request
+- Today's posted lecture finished the [IBCM](../slides/07-ibcm.html#/) slide set and then went back and finished the [trees](../slides/05-trees.html#/) slide set
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Success</h4><img class="stretch" src="http://imgs.xkcd.com/comics/success.png" title="40% of OpenBSD installs lead to shark attacks.  It&#39;s their only standing security issue." alt="Success"><p class="center"><a href="http://xkcd.com/349/">xkcd # 349</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 22: Wed, Mar 24th
+- [Lab 5](../labs/lab05/index.html) (trees) and the tutorial (make) is out -- how is it going?
+    - The pre-lab deadline was extended -- comments or thoughts on that?
+    - If you are done with the pre-lab and in-lab, you can seek help on the post-lab during your lab time as well
+- Office hours are 5pm - 11pm on Sun, Mon, Wed, & Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously; and we have a new [queue](https://pegasus.cs.virginia.edu/satori)
+- Links and announcements for each lecture period:
+    - Course links on the [Collab landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+    - [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+    - [Readings](../docs/readings.html) are optional, and are posted in the git repo
+    - Recall that the [lectures page](lectures/index.html) has the code gone over that day
+    - Do you have an M1 Mac?  Let us know by support request
+- Due to the non-standard spring 2021 semester schedule, lectures are now about two weeks ahead of the labs
+- Today's posted lecture started the [IBCM](../slides/07-ibcm.html#/) slide set (through slide 6.12)
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Ballmer Peak</h4><img class="stretch" src="http://imgs.xkcd.com/comics/ballmer_peak.png" title="Apple uses automated schnapps IVs." alt="Ballmer Peak"><p class="center"><a href="http://xkcd.com/323/">xkcd # 323</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 21: Mon, Mar 22nd
+- [Lab 5](../labs/lab05/index.html) (trees) and the tutorial (make) is out
+    - The pre-lab deadline is going to be the same as the in-lab deadline: the end of the day on Tuesday
+    - You still can submit it up to 24 hours late (by the end of the day on Wed) with a 25% penalty
+    - This will allow you to get more help on the pre-lab on Tuesday
+    - If you are done with the pre-lab and in-lab, you can seek help on the post-lab during your lab time as well
+- Office hours are 5pm - 11pm on Sun, Mon, Wed, & Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously; and we have a new [queue](https://pegasus.cs.virginia.edu/satori)
+- Links and announcements for each lecture period:
+    - Course links on the [Collab landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+    - [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+    - [Readings](../docs/readings.html) are optional, and are posted in the git repo
+    - Recall that the [lectures page](lectures/index.html) has the code gone over that day
+    - Do you have an M1 Mac?  Let us know by support request
+- Due to the non-standard spring 2021 semester schedule, lectures are now about two weeks ahead of the labs
+- Today's posted lecture started the [IBCM](../slides/07-ibcm.html#/) slide set (through slide 5.15)
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Devotion to Duty</h4><img class="stretch" src="http://imgs.xkcd.com/comics/devotion_to_duty.png" title="The weird sense of duty really good sysadmins have can border on the sociopathic, but it&#39;s nice to know that it stands between the forces of darkness and your cat blog&#39;s servers." alt="Devotion to Duty"><p class="center"><a href="http://xkcd.com/705/">xkcd # 705</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 20: Fri, Mar 19th
+- [Lab 4](../labs/lab04/index.html) (numbers) is done
+- [Lab 5](../labs/lab05/index.html) (trees) and the tutorial (make) is out
+- Office hours are 5pm - 11pm on Sun, Mon, Wed, & Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously; and we have a new [queue](https://pegasus.cs.virginia.edu/satori)
+- Links and announcements for each lecture period:
+    - Course links on the [Collab landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+    - [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+    - [Readings](../docs/readings.html) are optional, and are posted in the git repo
+    - Recall that the [lectures page](lectures/index.html) has the code gone over that day
+    - Do you have an M1 Mac?  Let us know by support request
+- Due to the non-standard spring 2021 semester schedule, lectures are now about two weeks ahead of the labs
+- Today's posted lecture finished the [hashes](../slides/06-hashes.html#/) slide set
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Black Hat Support</h4><img class="stretch" src="http://imgs.xkcd.com/comics/black_hat_support.png" title="So as not to leave you hanging -- it was a problem with select() calls." alt="Black Hat Support"><p class="center"><a href="http://xkcd.com/278/">xkcd # 278</a></p>
+	  </section>
+
+	  <section data-markdown data-background-color="darkgreen"><script type="text/template">
+## Lecture 19: Wed, Mar 17th
+- [Lab 4](../labs/lab04/index.html) (numbers) is out!
+- Office hours are 5pm - 11pm on Sun, Mon, Wed, & Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously; and we have a new [queue](https://pegasus.cs.virginia.edu/satori)
+- Links and announcements for each lecture period:
+    - Course links on the [Collab landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+    - [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+    - [Readings](../docs/readings.html) are optional, and are posted in the git repo
+    - Recall that the [lectures page](lectures/index.html) has the code gone over that day
+    - Do you have an M1 Mac?  Let us know by support request
+- Due to the non-standard spring 2021 semester schedule, lectures are now about two weeks ahead of the labs
+- Today's posted lecture continued [hashes](../slides/06-hashes.html#/) (through slide 7.4)
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">The Economic Argument</h4><img class="stretch" src="http://imgs.xkcd.com/comics/the_economic_argument.png" title="Not to be confused with &#39;making money selling this stuff to OTHER people who think it works&#39;, which corporate accountants and actuaries have zero problems with." alt="The Economic Argument"><p class="center"><a href="http://xkcd.com/808/">xkcd # 808</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 18: Mon, Mar 15th
+- [Lab 4](../labs/lab04/index.html) (numbers) is out!
+- Office hours have resumed: 5pm - 11pm on Sun, Mon, Wed, & Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously; and we have a new [queue](https://pegasus.cs.virginia.edu/satori)
+- Links and announcements for each lecture period:
+    - Course links on the [Collab landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+    - [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+    - [Readings](../docs/readings.html) are optional, and are posted in the git repo
+    - Recall that the [lectures page](lectures/index.html) has the code gone over that day
+    - Do you have an M1 Mac?  Let us know by support request
+- Due to the non-standard spring 2021 semester schedule, lectures are now about two weeks ahead of the labs
+- Today's posted lecture finished the [trees](../slides/05-trees.html#/) slide set and started on [hashes](../slides/06-hashes.html#/) (through slide 5.5)
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Academia vs. Business</h4><img class="stretch" src="http://imgs.xkcd.com/comics/academia_vs_business.png" title="Some engineer out there has solved P=NP and it&#39;s locked up in an electric eggbeater calibration routine.  For every 0x5f375a86 we learn about, there are thousands we never see." alt="Academia vs. Business"><p class="center"><a href="http://xkcd.com/664/">xkcd # 664</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 17: Fri, Mar 12th
+- [Lab 4](../labs/lab04/index.html) is all ready in the repo
+- Office hours resume this Sunday
+    - They are Sun, Mon, Wed, & Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously; and we have a new [queue](https://pegasus.cs.virginia.edu/satori)
+- Links and announcements for each lecture period:
+    - Course links on the [Collab landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+    - [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+    - [Readings](../docs/readings.html) are optional, and are posted in the git repo
+    - Recall that the [lectures page](lectures/index.html) has the code gone over that day
+    - Do you have an M1 Mac?  Let us know by support request
+- Due to the non-standard spring 2021 semester schedule, lectures are now about two weeks ahead of the labs
+- Today's posted lecture continued the [trees](../slides/05-trees.html#/) slide set (through slide 7.31)
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Real Programmers</h4><img class="stretch" src="http://imgs.xkcd.com/comics/real_programmers.png" title="Real programmers set the universal constants at the start such that the universe evolves to contain the disk with the data they want." alt="Real Programmers"><p class="center"><a href="http://xkcd.com/378/">xkcd # 378</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 16: Wed, Mar 10th
+- [Lab 4](../labs/lab04/index.html), for next week, is ready to go in the repo
+- No office hours this week -- they resume this Sunday, March 14th
+    - Starting Sunday the office hours are Sun, Mon, Wed, & Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously; and we have a new [queue](https://pegasus.cs.virginia.edu/satori)
+- Links and announcements for each lecture period:
+    - Course links on the [Collab landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+    - [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+    - [Readings](../docs/readings.html) are optional, and are posted in the git repo
+    - Recall that the [lectures page](lectures/index.html) has the code gone over that day
+    - Do you have an M1 Mac?  Let us know by support request
+- Due to the non-standard spring 2021 semester schedule, lectures are now about two weeks ahead of the labs
+- Review session: Thursday (tomorrow) from 6-8; Zoom link via the [Collab landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - With TA Harish, it's meant to be conceptual (high-level), and also cover debugging
+- Today's posted lecture continued the [trees](../slides/05-trees.html#/) slide set (through slide 7.9)
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Sandwich</h4><img class="stretch" src="http://imgs.xkcd.com/comics/sandwich.png" title="Proper User Policy apparently means Simon Says." alt="Sandwich"><p class="center"><a href="http://xkcd.com/149/">xkcd # 149</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 15: Mon, Mar 8th
+- No lab this week, since tomorrow is a UVA break day
+- [Lab 4](../labs/lab04/index.html), for next week, is ready to go in the repo
+- No office hours this week, either; they resume Sunday, March 14th
+    - Starting Sunday the office hours are Sun, Mon, Wed, & Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously; and we have a new [queue](https://pegasus.cs.virginia.edu/satori)
+- Links and announcements for each lecture period:
+    - Course links on the [Collab landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+    - [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+    - [Readings](../docs/readings.html) are optional, and are posted in the git repo
+    - Recall that the [lectures page](lectures/index.html) has the code gone over that day
+    - Do you have an M1 Mac?  Let us know by support request
+- Due to the non-standard spring 2021 semester schedule, lectures are about a week ahead of the labs
+	- And about to get two weeks ahead, but we'll catch up by the end of the semester
+- Today's posted lecture started the [trees](../slides/05-trees.html#/) slide set (through slide 5.11)
+    - Apparently I forgot to move the lecture recording over on Friday...	
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Bug</h4><img class="stretch" src="http://imgs.xkcd.com/comics/bug.png" title="The universe started in 1970.  Anyone claiming to be over 38 is lying about their age." alt="Bug"><p class="center"><a href="http://xkcd.com/376/">xkcd # 376</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 14: Fri, Mar 5th
+- [Lab 3](../labs/lab03/index.html) this week seemed to go fairly well
+- No lab next week, since that Tuesday is a UVA break day
+- [Lab 4](../labs/lab04/index.html) is the week after next
+    - It's all ready in the repo
+- Do you have an M1 Mac?  Let us know by support request
+- Office hours have are Sun, Mon, Wed, & Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously; and we have a new [queue](https://pegasus.cs.virginia.edu/satori)
+- But we are NOT having office hours all of next week; they will resume Sunday, March 14th
+- Links announced each lecture period:
+    - Course links on the [Collab landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+    - [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+    - [Readings](../docs/readings.html) are optional, and are posted in the git repo
+    - Recall that the [lectures page](lectures/index.html) has the code gone over that day
+- Due to the non-standard spring 2021 semester schedule, lectures are about a week ahead of the labs
+	- And about to get two weeks ahead, but we'll catch up by the end of the semester
+- Today's posted lecture finished [arrays & big-Oh](../slides/04-arrays-bigoh.html#/)
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Code Talkers</h4><img class="stretch" src="http://imgs.xkcd.com/comics/code_talkers.png" title="As far as I can tell, Navajo doesn&#39;t have a common word for &#39;zero&#39;.  do-neh-lini means &#39;neutral&#39;." alt="Code Talkers"><p class="center"><a href="http://xkcd.com/257/">xkcd # 257</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 13: Wed, Mar 3rd
+- [Lab 3](../labs/lab03/index.html) is this week
+- No lab next week, since that Tuesday is a UVA break day
+- [Lab 4](../labs/lab04/index.html) is the week after next
+    - It's all ready in the repo
+- Do you have an M1 Mac?  Let us know by support request
+- Office hours have are Sun, Mon, Wed, & Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously; and we have a new [queue](https://pegasus.cs.virginia.edu/satori)
+- Links announced each lecture period:
+    - Course links on the [Collab landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+    - [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+    - [Readings](../docs/readings.html) are optional, and are posted in the git repo
+    - Recall that the [lectures page](lectures/index.html) has the code gone over that day
+- Due to the non-standard spring 2021 semester schedule, lectures are about a week ahead of the labs
+	- And about to get two weeks ahead, but we'll catch up by the end of the semester
+- Today's posted lecture continued [arrays & big-Oh](../slides/04-arrays-bigoh.html#/) (through slide 5.8)
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">e to the pi Minus pi</h4><img class="stretch" src="http://imgs.xkcd.com/comics/e_to_the_pi_minus_pi.png" title="Also, I hear the 4th root of (9^2 + 19^2/22) is pi." alt="e to the pi Minus pi"><p class="center"><a href="http://xkcd.com/217/">xkcd # 217</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 12: Mon, Mar 1st
+- [Lab 3](../labs/lab03/index.html) is all ready
+    - It's easier than lab 2!
+- There is no lab next week, as Tuesday of next week is a UVA break day
+    - Lab 4 will be the following week
+- Do you have an M1 Mac?  Let us know by support request
+- Office hours have are Sun, Mon, Wed, & Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously; and we have a new [queue](https://pegasus.cs.virginia.edu/satori)
+- Links announced each lecture period:
+    - Course links on the [Collab landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+    - [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+    - [Readings](../docs/readings.html) are optional, and are posted in the git repo
+    - Recall that the [lectures page](lectures/index.html) has the code gone over that day
+- Due to the non-standard spring 2021 semester schedule, lectures are about a week ahead of the labs
+	- And about to get two weeks ahead, but we'll catch up by the end of the semester
+- Today's posted lecture finished [Numbers](../slides/03-numbers.html#/) and started [arrays & big-Oh](../slides/04-arrays-bigoh.html#/) (through slide 4.4)
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2 class='xkcd'>Can't Sleep</h2><img class='stretch' src="http://imgs.xkcd.com/comics/cant_sleep.png" title="If androids someday DO dream of electric sheep, don&#39;t forget to declare sheepCount as a long int." alt="Can&#39;t Sleep" ><p class='center'><a href='http://xkcd.com/571/'>xkcd # 571</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 11: Fri, Feb 26th
+- [Lab 2](../labs/lab02/index.html) -- we all made it!
+- [Lab 3](../labs/lab03/index.html) is all ready
+    - It's easier than lab 2!
+- Do you have an M1 Mac?
+    - If so, VirtualBox won't work -- you will have to use the terminal; also let us know who you are (via a [support request](https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/tickets/)), as we are going to have to do something different for assembly...
+- Office hours have are Sun, Mon, Wed, & Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously; and we have a new [queue](https://pegasus.cs.virginia.edu/satori)
+- Links announced each lecture period:
+    - Course links on the [Collab landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+    - [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+    - [Readings](../docs/readings.html) are optional, and are posted in the git repo
+    - Recall that the [lectures page](lectures/index.html) has the code gone over that day
+- Due to the non-standard spring 2021 semester schedule, lectures are about a week ahead of the labs
+	- And about to get two weeks ahead, but we'll catch up by the end of the semester
+- Today's posted lecture continued [Numbers](../slides/03-numbers.html#/) (through slide 9.21)
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">RPS</h4><img class="stretch" src="http://imgs.xkcd.com/comics/rps.png" title="It looks good, but it needs more postfixins." alt="RPS"><p class="center"><a href="http://xkcd.com/645/">xkcd # 645</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 10: Wed, Feb 24th
+- [Lab 2](../labs/lab02/index.html) is out
+	- Recall the diagram for the lab is on [C++ slide 10.13](../slides/01-cpp.html#/lab2uml) and on the next slide
+- [Lab 3](../labs/lab03/index.html) is all ready to go
+    - It's easier than lab 2!
+- Do you have an M1 Mac?
+    - If so, VirtualBox won't work -- you will have to use the terminal; also let us know who you are (via a [support request](https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/tickets/)), as we are going to have to do something different for assembly...
+- Office hours have are Sun, Mon, Wed, & Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously; and we have a new [queue](https://pegasus.cs.virginia.edu/satori)
+- Course links: see the landing page in the [Collab workspace](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+- Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Recall that the [lectures page](lectures/index.html) has the code gone over that day
+- Today's posted lecture continued [Numbers](../slides/03-numbers.html#/) (through slide 8.10)
+	  </script></section>
+
+<section data-markdown id='lab2uml'><script type="text/template">
+## Doubly linked lists (lab 2)
+- This is the UML diagram from [Lab 2](../labs/lab02/index.html)
+![Lab 2 UML diagram](../labs/lab02/list-diagram.png)
+</script></section>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Forgetting</h4><img class="stretch" src="http://imgs.xkcd.com/comics/forgetting.png" title="Of course, the assert doesn&#39;t work." alt="Forgetting"><p class="center"><a href="http://xkcd.com/379/">xkcd # 379</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 9: Mon, Feb 22nd
+- [Lab 2](../labs/lab02/index.html) is out
+    - It's not the easiest lab, so don't wait until the last minute to start it!
+	- Recall the diagram for the lab is on [C++ slide 10.13](../slides/01-cpp.html#/lab2uml) and on the next slide
+- Do you have an M1 Mac?
+    - If so, VirtualBox won't work -- you will have to use the terminal; also let us know who you are (via a [support request](https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/tickets/)), as we are going to have to do something different for assembly...
+- Office hours have are Sun, Mon, Wed, & Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously
+    - And we have a new [office hours queue](https://pegasus.cs.virginia.edu/satori) for both office hours and labs
+- If you are a CLAS student and want to apply for the BA CS degree, deadline is TODAY: Mon, Feb 22 -- see http://bit.ly/apply-bacs-s21
+- Course links: see the landing page in the [Collab workspace](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+- Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Recall that the [lectures page](lectures/index.html) has the code gone over that day
+- Today's posted lecture finished [Lists](../slides/02-lists.html#/) and started on [Numbers](../slides/03-numbers.html#/) (through slide 5.2)
+	  </script></section>
+
+<section data-markdown id='lab2uml'><script type="text/template">
+## Doubly linked lists (lab 2)
+- This is the UML diagram from [Lab 2](../labs/lab02/index.html)
+![Lab 2 UML diagram](../labs/lab02/list-diagram.png)
+</script></section>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Compiling</h4><img class="stretch" src="http://imgs.xkcd.com/comics/compiling.png" title="&#39;Are you stealing those LCDs?&#39; &#39;Yeah, but I&#39;m doing it while my code compiles.&#39;" alt="Compiling"><p class="center"><a href="http://xkcd.com/303/">xkcd # 303</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 8: Fri, Feb 19th
+- Labs this week -- how did they go?
+    - Remember that If you attend, you have to attend *your* lab section
+- [Lab 2: lists](../labs/lab02/index.html) is out
+    - It's not the easiest lab, so don't wait until the last minute to start it!
+	- Recall the diagram for the lab is on [C++ slide 10.13](../slides/01-cpp.html#/lab2uml) and on the next slide
+- Do you have an M1 Mac?
+    - If so, VirtualBox won't work -- you will have to use the terminal; also let us know who you are (via a [support request](https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/tickets/)), as we are going to have to do something different for assembly...
+- Office hours have are in full swing: Sun, Mon, Wed, & Thu, 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed previously
+- New [office hours queue](https://pegasus.cs.virginia.edu/satori) for both office hours and labs
+	- The links will all be updated prior to Sunday's office hours
+- If you are a CLAS student and want to apply for the BA CS degree, deadline is Mon, Feb 22 -- see http://bit.ly/apply-bacs-s21 for details
+- Course links: see the landing page in the [Collab workspace](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+- Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Recall that the [lectures page](lectures/index.html) has the code gone over that day
+- Today's posted lecture continued [Lists](../slides/02-lists.html#/) (through slide 6.11)
+	  </script></section>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section data-markdown><script type="text/template">
+## Wed, Feb 17th
+
+Today was a UVA break day, so no lecture content from today
+	  </script></section>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Cautionary</h4><img class="stretch" src="http://imgs.xkcd.com/comics/cautionary.png" title="This really is a true story, and she doesn&#39;t know I put it in my comic because her wifi hasn&#39;t worked for weeks." alt="Cautionary"><p class="center"><a href="http://xkcd.com/456/">xkcd # 456</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 7: Mon, Feb 15th
+- Labs start this week; [lab 1](../labs/lab01/index.html) is all ready
+    - The link for the VB image is on the [Collab workspace landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - If you attend, you have to attend *your* lab section
+- Do you have an M1 Mac?
+    - VirtualBox won't work -- you will have to use the terminal
+    - Let us know who you are (via a [support request](https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/tickets/)), as we are going to have to do something different for assembly...
+- Office hours have started!  Sun, Mon, Wed, and Thu from 5pm to 11pm
+    - The [office hours procedure](#/ohprocedure) was discussed last time
+- If you are a CLAS student and want to apply for the BA CS degree, deadline is Mon, Feb 22 -- see http://bit.ly/apply-bacs-s21 for details
+- Course links: see the landing page in the [Collab workspace](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+- Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Recall that the [lectures page](lectures/index.html) has the code gone over that day
+- Today's posted lecture finished with [C++](../slides/01-cpp.html#/) and started on [Lists](../slides/02-lists.html#/) (through slide 4.6)
+- Wednesday is a break day, so the next lecture is Friday
+	  </script></section>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Compiler Complaint</h4><img class="stretch" src="http://imgs.xkcd.com/comics/compiler_complaint.png" title="Checking whether build environment is sane ... build environment is grinning and holding a spatula.  Guess not." alt="Compiler Complaint"><p class="center"><a href="http://xkcd.com/371/">xkcd # 371</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 6: Fri, Feb 12th
+- Labs start next week; [lab 1](../labs/lab01/index.html) is all ready
+    - The link for the VB image is on the [Collab workspace landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - You have to attend *your* lab section
+- Do you have an M1 Mac?
+    - VirtualBox won't work -- you will have to use the terminal
+    - Let us know who you are (via a [support request](https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/tickets/)), as we are going to have to do something different for assembly...
+- Office hours start this upcoming Sunday
+    - The [office hours procedure](#/ohprocedure) was discussed last time
+- If you are a CLAS student and want to apply for the BA CS degree, deadline is Mon, Feb 22 -- see http://bit.ly/apply-bacs-s21 for details
+- Interested in hack-a-thons?  Check out HooHacks (Mar 27-28) at https://www.hoohacks.io/
+- Course links: see the landing page in the [Collab workspace](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+- Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Recall that the [lectures page](lectures/index.html) has the code gone over that day
+- Today's posted lecture continued with [C++](../slides/01-cpp.html#/) (through slide 12.10)
+	  </script></section>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Pointers</h4><img class="stretch" src="http://imgs.xkcd.com/comics/pointers.png" title="Every computer, at the unreachable memory address 0x-1, stores a secret.  I found it, and it is that all humans ar-- SEGMENTATION FAULT." alt="Pointers"><p class="center"><a href="http://xkcd.com/138/">xkcd # 138</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 5: Wed, Feb 10th
+- Labs start next week; lab 1 is all ready, as is the VirtualBox image
+    - The link for the VB image is on the [Collab workspace landing page](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+    - If you have a M1 Mac, then VB won't work for you; please contact me for how to resolve this
+- We are aiming to hold office hours tonight; if so, we'll post it on the [Twitter announcement feed](https://twitter.com/@UVaCS2150)
+- Office hours start this upcoming Sunday
+    - We will discuss the office hours procedure today
+    - Until then, if you have a concern that can be talked about in a public space, please discuss it during one of the lecture times or on Piazza or submit a [support request](https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/tickets/)
+- If you are a CLAS student and want to apply for the BA CS degree, deadline is Mon, Feb 22 -- see http://bit.ly/apply-bacs-s21 for details
+- Interested in hack-a-thons?  Check out HooHacks (Mar 27-28) at https://www.hoohacks.io/
+- Course links: see the landing page in the [Collab workspace](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+- Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Recall that the [lectures page](lectures/index.html) has the code gone over that day
+- Today's posted lecture continued with [C++](../slides/01-cpp.html#/) (through slide 10.17)
+	  </script></section>
+
+      <section data-markdown id='ohprocedure'><script type="text/template">
+## Online lab & office hours procedure
+- All are held virtually (of course)
+- Office hours are 5pm - 11pm on Sun, Mon, Wed, and Thu
+    - Your lab section, on Tuesdays, is also office hours (but with a better TA-to-student ratio)
+	- You have to attend *your* lab section!  The TAs will check this
+- Students should enter themselves into the [office hours queue](https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/queue/)
+	- There will be a 'how to contact you' box that you have to fill in
+- You can opt to have help via:
+    - Slack (via a private message chat): enter your Slack username in the 'how to contact you' box
+		- To join the Slack workspace, see the links on the Collab landing page
+    - Zoom (a video conference): enter your *personal meeting room ID link* in the 'how to contact you' box
+	    - To find your personal meeting room link, go to https://virginia.zoom.us, and follow the login prompts.  Click on the 'personal room' tab, and the link will be displayed there -- it will be of the form https://virginia.zoom.us/j/1234567890
+		- You then have to start that meeting so that when the TA connects, they can chat with you
+- Please have patience
+    - We *think* we have sufficient staffing for all the office hours and labs, but if we don't we'll reconfigure -- but that likely won't be able to happen that day
+	- Because a lot of people wait until the last minute to start the lab parts, the waits will be quite long on Monday nights and Thursday nights
+</script></section>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Donald Knuth</h4><img class="stretch" src="http://imgs.xkcd.com/comics/donald_knuth.png" title="His books were kinda intimidating; rappelling down through his skylight seemed like the best option." alt="Donald Knuth"><p class="center"><a href="http://xkcd.com/163/">xkcd # 163</a></p>
+
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 4: Mon, Feb 8th
+- Labs start next week; lab 1 will be ready this Thursday
+    - And the VirtualBox image will be ready by then
+- Office hours start this upcoming Sunday
+    - We will discuss the office hours procedure on Friday	      
+    - Until then, if you have a concern that can be talked about in a public space, please discuss it during one of the lecture times or on Piazza
+    - Otherwise, you can also submit a [support request](https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/tickets/)
+	- We may have some this week -- check the [Twitter announcement feed](https://twitter.com/@UVaCS2150)
+- If you do not have sufficient access to broadband, let us know, and we will postal mail you a USB key with the relevant course content on it
+- Course links: see the landing page in the [Collab workspace](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+- Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+- Interested in installing Linux?  We suggest Ubuntu
+    - Back up your data first!
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Recall that the [lectures page](lectures/index.html) has the code gone over that day
+    - It's updated after the second lecture of the day
+- Today's posted lecture continued with [C++](../slides/01-cpp.html#/) (through slide 9.19)
+	  </script></section>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Goto</h4><img class="stretch" src="http://imgs.xkcd.com/comics/goto.png" title="Neal Stephenson thinks it&#39;s cute to name his labels &#39;dengo&#39;" alt="goto"><p class="center"><a href="http://xkcd.com/292/">xkcd # 292</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 3: Fri, Feb 5th
+- Labs start the week after next
+    - There will be no changes to the current version of the pre-lab and in-lab, but we ARE making changes to the post-lab
+- We expect to have limited office hours next week, and they start in full on Sunday, February 14th
+    - Until then, if you have a concern that can be talked about in a public space, please discuss it during one of the lecture times or on Piazza
+    - Otherwise, you can also submit a [support request](https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/tickets/)
+- If you do not have sufficient access to broadband, let us know, and we will postal mail you a USB key with the relevant course content on it
+- Course links: see the landing page in the [Collab workspace](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+- Everybody has to sign the [UNIX honor pledge](https://docs.google.com/forms/d/e/1FAIpQLSevof03xe6syKaPjfXVJ9XGii2Z6gwfGpbM9kldfvK-qO0aqA/viewform)
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+- Interested in installing Linux?  We suggest Ubuntu
+    - Back up your data first!
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Recall that the [lectures page](lectures/index.html) has the code gone over that day
+    - It's updated after the second lecture
+- Today's posted lecture continued with [C++](../slides/01-cpp.html#/) (through slide 8.1)
+	  </script></section>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4 class="xkcd">Good Code</h4>
+<img class="stretch" src="http://imgs.xkcd.com/comics/good_code.png" title="You can either hang out in the Android Loop or the HURD loop." alt="Good Code">
+<p class="center"><a href="http://xkcd.com/844/">xkcd # 844</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 2: Wed, Feb 3rd
+- Office hours start a week from this Sunday (Feb 14)
+    - As labs do not start next week, but instead the week after
+    - Until then, if you have a concern that can be talked about in a public space, discuss it during one of the lecture times or on Piazza
+	- Otherwise, you can also submit a [support request](https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/tickets/)
+- If you do not have sufficient access to broadband, let us know, and we will postal mail you a USB key with the relevant course content on it
+- Course links
+    - Our twitter announcement feed is [@UVaCS2150](https://twitter.com/@UVaCS2150)
+	- The course content is available at https://uva-cs.github.io/pdr/
+	- All of the course tools are in the [Collab workspace](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b)
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/0a5bc0bf-4118-4565-b30a-3b32f4934d4b/tool/bba7c79a-857d-4254-aa66-4bef15c95b86/main)!  It's through Collab
+- Interested in installing Linux?  We suggest Ubuntu; as always, back up your data first!
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today's posted lecture recording finished the [course introduction](course-introduction.html#/) and started on [C++](../slides/01-cpp.html#/) (through slide 5.5)
+  - We saw a brief tour of the Collab workspace and the git repo in the lecture recording posted for today
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+      </div>
+
+    </div>
+
+    <script src="../slides/reveal.js/lib/js/head.min.js"></script>
+    <script src="../slides/reveal.js/js/reveal.js"></script>
+    <!-- You cannot, apparently, include this from another directory, hence why settings.js is reproduced here in full -->
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      controlsTutorial: false,
+      progress: true,
+      history: true,
+      center: true,
+      slideNumber: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: '../slides/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: '../slides/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: '../slides/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: '../slides/reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: '../slides/reveal.js/plugin/zoom-js/zoom.js', async: true },
+      { src: '../slides/reveal.js/plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+
+  </body>
+</html>

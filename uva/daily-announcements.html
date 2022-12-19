@@ -1,1160 +1,1300 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <base target="_blank">
     <meta charset="utf-8">
     <title>CS 2150: daily announcements slide set</title>
     <meta name="description" content="A set of slides for a course on Program and Data Representation">
-    <meta name="author" content="Mark Floryan">
+    <meta name="author" content="Aaron Bloomfield">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
-    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/theme/black.css" id="theme">
     <link rel="stylesheet" href="../slides/css/pdr.css">
     <!-- Code syntax highlighting -->
-    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <link rel="stylesheet" href="../slides/reveal.js/plugin/highlight/zenburn.css">
     <!-- Printing and PDF exports -->
     <script>
       var link = document.createElement( 'link' );
       link.rel = 'stylesheet';
       link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.scss' : '../slides/reveal.js/css/print/paper.scss';
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
     <!--[if lt IE 9]>
 	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
 	<![endif]-->
-    <script type="text/javascript" src="../slides/js/dhtmlwindow.js"></script>
-    <script type="text/javascript" src="../slides/js/canvas.js"></script>
-    <link rel="stylesheet" href="../slides/css/dhtmlwindow.css" type="text/css">
     <style>
 .reveal li {
-font-size:75%;
-line-height:120%;
+font-size:68%;
+line-height:115%;
 }
     </style>
   </head>
 
-  <body onload="canvasinit()">
-    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+  <body>
 
     <div class="reveal">
 
       <div class="slides">
 
-	  <section data-markdown><script type="text/template">
+	<section data-markdown><script type="text/template">
 # CS 2150
 &nbsp;
 ### Program and Data Representation
-### Spring 2018
-&nbsp;
-<center><small>[Mark Floryan](http://www.cs.virginia.edu/~mrf8t) / [mrf8t@virginia.edu](mailto:mrf8t@virginia.edu)</small></center>
-<center><small>Repository: [github.com/markfloryan/pdr](http://github.com/markfloryan/pdr) / [&uarr;](index.html) / <a href="daily-announcements.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png"></a></small></center>
-&nbsp;
-&nbsp;
+### Fall 2022
+
+<p class='titlep'>&nbsp;</p>
+<div class="titlesmall"><p>
+<a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)<br>
+<a href="http://github.com/uva-cs/pdr">@github</a> | <a href="index.html">&uarr;</a> | <a href="./01-cpp.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png" style="top:0px;vertical-align:middle"></a>
+</p></div>
+<p class='titlep'>&nbsp;</p>
+
 ## Daily Announcements
 	</script></section>
 
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- xkcd template for cut-and-paste (first two lines are the date and title)
 
-<section>
+<h2></h2>
+<h4 class="xkcd"></h4>
+<img class="stretch" src="http://imgs.xkcd.com/comics/.png" title="" alt="">
+<p class="center"><a href="http://xkcd.com/2040/">xkcd # 2040</a></p>
 
-
- <section>
-<h4>Pillow Talk</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/pillow_talk.jpg" title="Maybe I should&#39;ve tried Wexler?" alt="Pillow Talk">
-<p class="center"><a href="http://xkcd.com/69/">xkcd # 69</a></p>
-    </section>
-
-<section data-markdown><script type="text/template">
-## Lecture 40 Wednesday, Apr. 25
-- Please don't forget that you should not be using a laptop in lecture. Talk to me if you REALLY need to.
-- We have a final exam room.
-  - Chem 402. Both sections will take the final exam together.
-  - Google calendar has been updated with this info.
-- Lab 9 is graded and released
-  - Regrades open and such
-- Lab 10 is being graded now.
-- Lab 11 is happening right now.
-  - How's it going so far?
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will begin discussing [Memory](../slides/12-memory.html).
-    </script></section>
-
-   </section>
-
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-<section>
-
- <section>
-<h4>Dependencies</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/dependencies.png" title="The prereqs for CPSC 357, the class on package management, are CPSC 432, CPSC 357, and glibc2.5 or later." alt="Dependencies">
-<p class="center"><a href="http://xkcd.com/754/">xkcd # 754</a></p>
-    </section>
-
-<section data-markdown><script type="text/template">
-## Lecture 39? Monday, Apr. 23
-- Please don't forget that you should not be using a laptop in lecture. Talk to me if you REALLY need to.
-- We have a final exam room.
-  - Chem 402. Both sections will take the final exam together.
-  - Google calendar has been updated with this info.
-- Lab 8 is graded.
-  - Regrades and all that
-- Lab 9 is graded, but not released.
-  - Will release it today.
-- Lab 10 is happening right now.
-  - How's it going so far?
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will continue discussing [Graphs](../slides/11-graphs.html).
-    </script></section>
-
-   </section>
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-<section>
-
- <section>
-<h4>Tech Support Cheat Sheet</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/tech_support_cheat_sheet.png" title="&#39;Hey Megan, it&#39;s your father. How do I print out a flowchart?&#39;" alt="Tech Support Cheat Sheet">
-<p class="center"><a href="http://xkcd.com/627/">xkcd # 627</a></p>
-    </section>
-
-<section data-markdown><script type="text/template">
-## Lecture 37: Wednesday, Apr. 18
-- Please don't forget that you should not be using a laptop in lecture. Talk to me if you REALLY need to.
-- We have a final exam room.
-  - Chem 402. Both sections will take the final exam together.
-  - Google calendar has been updated with this info.
-- Lab 8 is ALMOST graded.
-  - Problems with the grading. Sorry about this. Should be back to you VERY soon.
-- Lab 9 is being graded this week.
-  - Should get it back to you next week.
-- Lab 10 is happening right now.
-  - How's it going
-- Exam 2 is graded
-  - See my email for average (~68%) and std. dev. (~15% I think).
-  - Guidelines posted on wiki, regrades open
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will continue discussing [Graphs](../slides/11-graphs.html).
-    </script></section>
-
-   </section>
-
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-<section>
-
- <section>
-<h4>Westley's a D*ck</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/westleys_a_dick.png" title="Inigo/Buttercup 4eva &lt;3" alt="Westley&#39;s a Dick">
-<p class="center"><a href="http://xkcd.com/549/">xkcd # 549</a></p>
-    </section>
-
-<section data-markdown><script type="text/template">
-## Lecture 36: Monday, April 16
-- Please don't forget that you should not be using a laptop in lecture. Talk to me if you REALLY need to.
-- Lab 8 is ALMOST graded.
-- Lab 9 is being graded this week.
-  - Should get it back to you next week.
-- Lab 10 is happening right now?
-- Exam 2 is graded
-  - See my email for average (~68%) and std. dev. (~15% I think).
-  - Guidelines posted on wiki, regrades open
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will continue discussing [Graphs](../slides/11-graphs.html).
-    </script></section>
-
-   </section>
-
-  
-   
-
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-<section>
-
- <section>
-<h4>Git</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/git.png" title="If that doesn&#39;t fix it, git.txt contains the phone number of a friend of mine who understands git. Just wait through a few minutes of &#39;It&#39;s really pretty simple, just think of branches as...&#39; and eventually you&#39;ll learn the commands that will fix everything." alt="Git">
-<p class="center"><a href="http://xkcd.com/1597/">xkcd # 1597</a></p>
-    </section>
-
-<section data-markdown><script type="text/template">
-## Lecture 35: Wednesday, April 13
-- Please don't forget that you should not be using a laptop in lecture. Talk to me if you REALLY need to.
-- Lab 7 is graded
-  - Same deal as always
-- Lab 8 is being graded right now.
-- Lab 9 is finished.
-  - Hope that went ok.
-- Exam 2 is graded
-  - See my email for average (~68%) and std. dev. (~15% I think).
-  - Guidelines posted on wiki, regrades open
-- Midterm 1 regrades are complete. Already started handling a few of the midterm 2 ones.
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will probably finish discussing [Heaps](../slides/10-heaps-huffman.html).
-    </script></section>
-
-   </section>
-
-  
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-<section>
-
- <section>
-<h4>Collatz Conjecture</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/collatz_conjecture.png" title="The Strong Collatz Conjecture states that this holds for any set of obsessively-hand-applied rules." alt="Collatz Conjecture">
-<p class="center"><a href="http://xkcd.com/710/">xkcd # 710</a></p>
-    </section>
-
-<section data-markdown><script type="text/template">
-## Lecture 34: Wednesday, April 11
-- Please don't forget that you should not be using a laptop in lecture. Talk to me if you REALLY need to.
-- Lab 7 is graded
-  - Same deal as always
-- Lab 8 is being graded right now.
-- Lab 9 is happening right now.
-  - How's it going?
-- Exam 2 is graded
-  - See my email for average (~68%) and std. dev. (~15% I think).
-  - Guidelines posted on wiki, regrades open
-- Midterm 1 regrades are complete.
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will continue discussing [Heaps](../slides/10-heaps-huffman.html).
-    </script></section>
-
-   </section>
-
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-<section>
-
- <section>
-<h4>Old Days</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/old_days.png" title="Lot of drama in those days, including constant efforts to force the &quot;Reflections on Trusting Trust&quot; guy into retirement so we could stop being so paranoid about compilers." alt="Old Days" srcset="//imgs.xkcd.com/comics/old_days_2x.png 2x">
-<p class="center"><a href="http://xkcd.com/1755/">xkcd # 1755</a></p>
-    </section>
-
-<section data-markdown><script type="text/template">
-## Lecture 33: Monday, April 9
-- Please don't forget that you should not be using a laptop in lecture. Talk to me if you REALLY need to.
-- Lab 7 is graded
-  - Same deal as always
-- Lab 8 is being graded right now.
-- Exam 2 is graded
-  - See my email for average (~68%) and std. dev. (~15% I think).
-  - Guidelines posted on wiki, regrades open
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will continue discussing [Heaps](../slides/10-heaps-huffman.html).
-    </script></section>
-
-   </section>
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-<section>
-
- <section>
-<h4>Git Commit</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/git_commit.png" title="Merge branch &#39;asdfasjkfdlas/alkdjf&#39; into sdkjfls-final" alt="Git Commit">
-<p class="center"><a href="http://xkcd.com/1296/">xkcd # 1296</a></p>
-    </section>
-
-<section data-markdown><script type="text/template">
-## Lecture 32: Friday, April 6
-- Please don't forget that you should not be using a laptop in lecture. Talk to me if you REALLY need to.
-- Lab 7 is graded
-  - Same deal as always
-- Lab 8 is being graded right now.
-- Exam 2 is graded
-  - See my email for average (~68%) and std. dev. (~15% I think).
-  - Guidelines and regrades will be up soon. Watch the twitter for this.
-  - We'll go over it very quickly today.
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will finish discussing [Advanced C++](../slides/09-advanced-cpp.html) and move onto [Heaps](../slides/10-heaps-huffman.html).
-    </script></section>
-
-   </section>
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-<section>
-
-  <section>
-<h4>Applied Math</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/applied_math.png" title="Dear Reader: Enclosed is a check for ninety-eight cents. Using your work, I have proven that this equals the amount you requested." alt="Applied Math">
-<p class="center"><a href="http://xkcd.com/816/">xkcd # 816</a></p>
-    </section>
-
-<section data-markdown><script type="text/template">
-## Lecture 31: Wednesday, April 4
-- Please don't forget that you should not be using a laptop in lecture. Talk to me if you REALLY need to.
-- Lab 7 is almost graded.
-  - Sorry for the delay
-- Lab 8 is being graded right now.
-- Exam 2 is tomorrow in lab.
-  - Same procedure as last time. 
-  - It IS cumulative.
-  - No (typical) lab this week
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will continue discussing [Advanced C++](../slides/09-advanced-cpp.html).
-    </script></section>
-
-   </section>
-
- 
-
-
-   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-<section>
-
-  <section>
-<h4>I'm An Idiot</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/im_an_idiot.png" title="Sadly, this is a true story.  At least I learned about the OS X &#39;say&#39; command." alt="I&#39;m An Idiot">
-<p class="center"><a href="http://xkcd.com/530/">xkcd # 530</a></p>
-    </section>
-
-<section data-markdown><script type="text/template">
-## Lecture 30: Monday, April 2
-- Please don't forget that you should not be using a laptop in lecture. Talk to me if you REALLY need to.
-- Lab 7 is almost graded.
-  - Sorry for the delay
-- Lab 8 is being graded right now.
-- Exam 2 is tomorrow in lab.
-  - Same procedure as last time. 
-  - It IS cumulative.
-  - No (typical) lab this week
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will continue discussing [Advanced C++](../slides/09-advanced-cpp.html).
-    </script></section>
-
-   </section>
-
-  
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-<section>
-
- <section>
-<h4>Fight</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/fight.png" title="And she put sweet nothings in all my .conf files.  It&#39;ll take me forever to get X working again." alt="Fight">
-<p class="center"><a href="http://xkcd.com/340/">xkcd # 340</a></p>
-    </section>
-
-<section data-markdown><script type="text/template">
-## Lecture 29: Friday, March 30
-- Please don't forget that you should not be using a laptop in lecture. Talk to me if you REALLY need to.
-- Lab 6 is graded.
-  - Same deal as always regarding regrades, guidelines, etc.
-- Lab 7 is being graded right now.
-- Exam 2 is next week in lab.
-  - Same procedure as last time. 
-  - It IS cumulative.
-- [Lab 8](../labs/lab07/index.html) is this over.
-  - How did it go?
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will move onto [Advanced C++](../slides/09-advanced-cpp.html).
-    </script></section>
-
-   </section>
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-<section>
-
- <section>
-<h4>Electric Skateboard</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/electric_skateboard_double_comic.png" title="Unsafe vehicles, hills, and philosophy go hand in hand." alt="Electric Skateboard (Double Comic)">
-<p class="center"><a href="http://xkcd.com/409/">xkcd # 409</a></p>
-    </section>
-
-<section data-markdown><script type="text/template">
-## Lecture 28: Wednesday, March 28
-- Office Hours have resumed! Yay!
-- The lecture number matches the date...ah!
-- Please don't forget that you should not be using a laptop in lecture. Talk to me if you REALLY need to.
-- Lab 6 is graded.
-  - Same deal as always regarding regrades, guidelines, etc.
-- Exam 2 is next week in lab.
-  - Same procedure as last time. 
-  - It IS cumulative.
-- [Lab 8](../labs/lab07/index.html) is this week.
-  - Any questions so far?
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will wrap up [Assembly](../slides/08-assembly-64bit.html#/) and maybe move on.
-    </script></section>
-
-   </section>
-
-
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-<section>
-
- <section>
-<h4>Golden Hammer</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/golden_hammer.png" title="Took me five tries to find the right one, but I managed to salvage our night out--if not the boat--in the end." alt="Golden Hammer">
-<p class="center"><a href="http://xkcd.com/801/">xkcd # 801</a></p>
-    </section>
-
-<section data-markdown><script type="text/template">
-## Lecture 27: Monday, Mar. 26
-- Please don't forget that you should not be using a laptop in lecture. Talk to me if you REALLY need to.
-- Lab 6 is almost graded. I'm told they will be done tonight.
-- Lab 7 is also being graded.
-- [Lab 8](../labs/lab08-64bit/index.html) is THIS week.
-  - No tutorial this week.
-  - Any questions on it so far?
-  - Going ok?
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will continue discussing [Assembly](../slides/08-assembly-64bit.html#/).
-    </script></section>
-
-   </section>
-
-
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-<section>
-
- <section>
-<h4>Success</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/success.png" title="40% of OpenBSD installs lead to shark attacks.  It&#39;s their only standing security issue." alt="Success">
-<p class="center"><a href="http://xkcd.com/349/">xkcd # 349</a></p>
-    </section>
-
-<section data-markdown><script type="text/template">
-## Lecture 26: Friday, Mar. 23
-- Floryan didn't have time for announcements this day.
-    </script></section>
-
-   </section>
-
-
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-<section>
-
- <section>
-<h4>Ballmer Peak</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/ballmer_peak.png" title="Apple uses automated schnapps IVs." alt="Ballmer Peak">
-<p class="center"><a href="http://xkcd.com/323/">xkcd # 323</a></p>
-    </section>
-
-<section data-markdown><script type="text/template">
-## Lecture 25: Wednesday, Mar. 21
-- No daily announcements. No class
-    </script></section>
-
-   </section>
-
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section>
-
- <section>
-<h4>Devotion to Duty</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/devotion_to_duty.png" title="The weird sense of duty really good sysadmins have can border on the sociopathic, but it&#39;s nice to know that it stands between the forces of darkness and your cat blog&#39;s servers." alt="Devotion to Duty">
-<p class="center"><a href="http://xkcd.com/705/">xkcd # 705</a></p>
-    </section>
-
-<section data-markdown><script type="text/template">
-## Lecture 24: Monday, March 19
-- Office Hours have resumed! Yay!
-- Please don't forget that you should not be using a laptop in lecture. Talk to me if you REALLY need to.
-- Lab 5 is almost graded. Just need to confirm and hit the release button. Stay tuned.
-- Exam 1 is Graded!
-  - The average was a 44.65/65 (68%) and the std. dev. was 10.31/65
-  - Guidelines have been posted. Regrades open until March 20 @ 9am
-- [Lab 7](../labs/lab07/index.html) and [Tutorial 7](../tutorials/06-07-bash-scripting/bash-shell-scripting-from-wikibooks.html) are this week.
-  - Any questions so far?
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will begin [Assembly](../slides/08-assembly-64bit.html#/).
-    </script></section>
-
-   </section>
-
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section>
-
- <section>
-<h4>Black Hat Support</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/black_hat_support.png" title="So as not to leave you hanging -- it was a problem with select() calls." alt="Black Hat Support">
-<p class="center"><a href="http://xkcd.com/278/">xkcd # 278</a></p>
-    </section>
-
-<section data-markdown><script type="text/template">
-## Lecture 23: Friday, March 16
-- Office Hours have resumed! Yay!
-- Please don't forget that you should not be using a laptop in lecture. Talk to me if you REALLY need to.
-- Help out with the High School Programming Contest. It's fun and a great way to give back!
-  - Interest form [here](https://facebook.us13.list-manage.com/track/click?u=2b6c2d498d42478da1869463d&id=ec4c13daf3&e=e4a8d97be0)
-  - Or [email Marina](mailto:mgs9y@virginia.edu)
-- Lab 5 is being graded now. Should be done by next Monday.
-- Exam 1 is Graded!
-  - The average was a 44.65/65 (68%) and the std. dev. was 10.31/65
-  - Guidelines have been posted. Regrades open until March 20 @ 9am
-- [Lab 6](../labs/lab06/index.html) and [Tutorial 6](../tutorials/06-07-bash-scripting/bash-shell-scripting-from-wikibooks.html) is over.
-  - Yay! A big accomplishment!
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will begin talking more about [IBCM](../slides/07-ibcm.html#/).
-    </script></section>
-
-     
-   </section>
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section>
-
- <section>
-<h4>The Economic Argument</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/the_economic_argument.png" title="Not to be confused with &#39;making money selling this stuff to OTHER people who think it works&#39;, which corporate accountants and actuaries have zero problems with." alt="The Economic Argument">
-<p class="center"><a href="http://xkcd.com/808/">xkcd # 808</a></p>
-    </section>
-
-<section data-markdown><script type="text/template">
-## Lecture 22: Wednesday, March 14
-- Office Hours have resumed! Yay!
-- Please don't forget that you should not be using a laptop in lecture. Talk to me if you REALLY need to.
-- Help out with the High School Programming Contest. It's fun and a great way to give back!
-  - Interest form [here](https://facebook.us13.list-manage.com/track/click?u=2b6c2d498d42478da1869463d&id=ec4c13daf3&e=e4a8d97be0)
-  - Or [email Marina](mailto:mgs9y@virginia.edu)
-- Lab 5 is being graded now. Should be done by next Monday.
-- Exam 1 is Graded!
-  - The average was a 44.65/65 (68%) and the std. dev. was 10.31/65
-  - Guidelines have been posted. Regrades open until March 20 @ 9am
-- [Lab 6](../labs/lab06/index.html) and [Tutorial 6](../tutorials/06-07-bash-scripting/bash-shell-scripting-from-wikibooks.html) are this week.
-  - Good luck!
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will begin talking about [IBCM](../slides/07-ibcm.html#/).
-</script></section>
-</section>
-
-     
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section>
-
- <section>
-<h4>Tar</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/tar.png" title="I don&#39;t know what&#39;s worse--the fact that after 15 years of using tar I still can&#39;t keep the flags straight, or that after 15 years of technological advancement I&#39;m still mucking with tar flags that were 15 years old when I started." alt="tar">
-<p class="center"><a href="http://xkcd.com/1168/">xkcd # 1168</a></p>
-    </section>
-
-<section data-markdown><script type="text/template">
-## Lecture 21: Monday, March 12
-- Office Hours have resumed! Yay!
-- Please don't forget that you should not be using a laptop in lecture. Talk to me if you REALLY need to.
-- Lab 4 has been graded.
-  - Regrades enabled, etc.
-- Lab 5 is being graded now. Should be done by next Monday.
-- Exam 1 is Graded!
-  - The average was a 44.65/65 (68%) and the std. dev. was 10.31/65
-  - Guidelines have been posted. Regrades open until March 20 @ 9am
-- [Lab 6](../labs/lab06/index.html) and [Tutorial 6](../tutorials/06-07-bash-scripting/bash-shell-scripting-from-wikibooks.html) is this week.
-  - Good luck!
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will continue talking about [Hash Tables](../slides/06-hashes.html#/).
-    </script></section>
-
-     
-   </section>
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section>
-
- <section>
-<h4>Single Ladies</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/single_ladies.png" title="Using a ring to bind someone you covet into your dark and twisted world? Wow, just got the subtext there. Also, the apparently eager Beyonc&eacute; would&#39;ve made one badass Nazg&ucirc;l." alt="Single Ladies">
-<p class="center"><a href="http://xkcd.com/712/">xkcd # 712</a></p>
-    </section>
-
-<section data-markdown><script type="text/template">
-## Lecture 20: Friday, Mar. 2
-- Office Hours have resumed! Yay!
-- Please don't forget that you should not be using a laptop in lecture. Talk to me if you REALLY need to.
-- Lab 4 has been graded.
-  - Regrades enabled, etc.
-- Exam 1 is Graded!
-  - The average was a 44.65/65 (68%) and the std. dev. was 10.31/65
-  - Guidelines have been posted. Regrades open until March 20 @ 9am
-- [Lab 5](../labs/lab05/index.html) and [Tutorial 5](../tutorials/05-make/index.html) is over.
-  - Sounds like the post-lab was a little tough. We'll look over the scores and such and make adjustments if necessary.
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will continue talking about [Hash Tables](../slides/06-hashes.html#/).
-    </script></section>
-
-     
-   </section>
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section>
-
- <section>
-<h4>The Important Field</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/the_important_field.png" title="I hear in some places, you need one form of ID to buy a gun, but two to pay for it by check. It&#39;s interesting who has what incentives to care about what mistakes." alt="The Important Field">
-<p class="center"><a href="http://xkcd.com/970/">xkcd # 970</a></p>
-    </section>
-
-<section data-markdown><script type="text/template">
-## Lecture 19: Wednesday, Feb. 28
-- Office Hours have resumed! Yay!
-- Please don't forget that you should not be using a laptop in lecture. Talk to me if you REALLY need to.
-- Lab 4 has been graded.
-  - Regrades enabled, etc.
-- Exam 1 is Graded!
-  - The average was a 44.65/65 (68%) and the std. dev. was 10.31/65
-  - Guidelines will be posted very soon.
-  - At that time, regrades will be opened for 10 days (not including the break).
-- [Lab 5](../labs/lab05/index.html) and [Tutorial 5](../tutorials/05-make/index.html) is now.
-  - How's it going
-  - The in-lab can be submitted now without the compilation problems.
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will begin talking about [Hash Tables](../slides/06-hashes.html#/).
-    </script></section>
-
-     
-   </section>
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section>
-
- <section>
-<h4>Academia vs. Business</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/academia_vs_business.png" title="Some engineer out there has solved P=NP and it&#39;s locked up in an electric eggbeater calibration routine.  For every 0x5f375a86 we learn about, there are thousands we never see." alt="Academia vs. Business">
-<p class="center"><a href="http://xkcd.com/664/">xkcd # 664</a></p>
-    </section>
-
-<section data-markdown><script type="text/template">
-## Lecture 18: Monday, Feb. 26
-- Office Hours have resumed! Yay!
-- Please don't forget that you should not be using a laptop in lecture. Talk to me if you REALLY need to.
-- Lab 4 grades have been released
-  - As always, regrades enabled for 10 grades
-  - Guidelines on Collab wiki
-- Exam 1 SHOULD be graded tonight
-  - If nothing goes wrong, you'll receive an email this evening with details.
-- [Lab 5](../labs/lab05/index.html) and [Tutorial 5](../tutorials/05-make/index.html) is this week.
-  - Be aware that there is an [avl-worksheet](../labs/lab05/avl-worksheet.pdf) that you need to print out and submit at lab.
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will continue talking about [Trees](../slides/05-trees.html#/).
-    </script></section>
-
-     
-   </section>
-
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section>
-
-<section>
-<h4>Real Programmers</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/real_programmers.png" title="Real programmers set the universal constants at the start such that the universe evolves to contain the disk with the data they want." alt="Real Programmers">
-<p class="center"><a href="http://xkcd.com/378/">xkcd # 378</a></p>
-</section>
-
-<section data-markdown><script type="text/template">
-## Lecture 17: Friday, Feb. 23
-- Marina substituded for Floryan on this day
-    </script></section>
-
-     
-   </section>
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section>
- <section>
-<h4>Surgery</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/surgery.png" title="Damn. Not only did he not install it, he sutured a &#39;Vista-Ready&#39; sticker onto my arm." alt="Surgery">
-<p class="center"><a href="http://xkcd.com/644/">xkcd # 644</a></p>
-    </section>
-<section data-markdown><script type="text/template">
-## Lecture 16: Wednesday, Feb. 21
-- Course staff will not have office hours Wednesday and Thursday this week.
-- Please don't forget that you should not be using a laptop in lecture. Talk to me if you REALLY need to.
-- Lab 3 grades have been returned!
-  - Go to Course Tools -> Gradebook to see your grade and details
-  - Regrades (via Course Tools -> Regrades) are enabled for 10 days (from this morning @ ~10am).
-  - Grading guidelines for the lab can be found on Collab -> Wiki -> Lab 3 Grading Guidelines.
-- Lab 4 is being graded now.
-- Exam 1 is Finished!
-  - How'd it go? 
-  - We will have it graded (hopefully) next Monday night.
-  - Don't talk about it yet, still a couple folks who need to take it today.
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will continue talking about [Trees](../slides/05-trees.html#/).
-    </script></section>
-
-     
-   </section>
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+-->
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
   <section>
- <section>
-<h4>Sandwich</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/sandwich.png" title="Proper User Policy apparently means Simon Says." alt="Sandwich">
-<p class="center"><a href="http://xkcd.com/149/">xkcd # 149</a></p>
-    </section>
-<section data-markdown><script type="text/template">
-## Lecture 15: Monday, February 19
-- [Lab 4](../labs/lab04/index.html) and [Tutorial 4](../tutorials/03-04-more-unix/index.html) is over.
-  - How did it go?
-- Lab 3 grading is almost done!
-  - Sorry for the delay.
-- Exam 1 is tomorrow!
-  - See next slide for details.
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will continue discussing [Arrays/Big-Oh](../slides/04-arrays-bigoh.html#/).
-    </script></section>
 
-     <section id="midterm" data-markdown><script type="text/template">
-## Midterm procedure
-- This is the procedure for both midterms this semester
-- It is taken during your normal lab section
-- The first rule of 2150 midterm is that you don't speak about 2150 midterm
-  - Translation: it is an honor violation to speak about it to somebody who has not taken it yet
-- You have to fill out the bubble footer at the bottom of the first page of the exam
-  - And put your name and UVa userid at the top of each page
-  - And sign the honor pledge
-- We hope to have it graded next Monday evening. (Normally this would be faster but faculty have a conference to go to).
-- There will not be office hours the Wednesday, Thursday, or Friday of a midterm week
-- No lab this week due to this.
-- Many questions will have a "word limit"...
-    </script></section>
-   </section>
-  
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section>
- <section>
-<h4>Bug</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/bug.png" title="The universe started in 1970.  Anyone claiming to be over 38 is lying about their age." alt="Bug">
-<p class="center"><a href="http://xkcd.com/376/">xkcd # 376</a></p>
-    </section>
-<section data-markdown><script type="text/template">
-## Lecture 14: Friday, February 16
-- [Lab 4](../labs/lab04/index.html) and [Tutorial 4](../tutorials/03-04-more-unix/index.html) is over.
-  - How did it go?
-- Lab 2 grades have been returned!
-  - Go to Course Tools -> Gradebook to see your grade and details
-  - Regrades (via Course Tools -> Regrades) are enabled for 10 days (from this morning @ ~10am).
-  - Grading guidelines for the lab can be found on Collab -> Wiki -> Lab 2 Grading Guidelines.
-- Lab 3 is being graded right now.
-- Exam 1 is NEXT WEEK!
-  - You will take the exam in-lab during your scheduled lab section.
-  - No lab next week because of the exam
-  - Old exams can be found in the repo.
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will continue discussing [Arrays/Big-Oh](../slides/04-arrays-bigoh.html#/).
-    </script></section>
-   </section>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section>
- <section>
-<h4>Code Talkers</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/code_talkers.png" title="As far as I can tell, Navajo doesn&#39;t have a common word for &#39;zero&#39;.  do-neh-lini means &#39;neutral&#39;." alt="Code Talkers">
-<p class="center"><a href="http://xkcd.com/257/">xkcd # 257</a></p>
-    </section>
-<section data-markdown><script type="text/template">
-## Lecture 13: Wednesday, February 14
-- [Lab 4](../labs/lab04/index.html) and [Tutorial 4](../tutorials/03-04-more-unix/index.html) are this week.
-  - How's it going so far?
-- Lab 2 grades have been returned!
-  - Go to Course Tools -> Gradebook to see your grade and details
-  - Regrades (via Course Tools -> Regrades) are enabled for 10 days (from this morning @ ~10am).
-  - Grading guidelines for the lab can be found on Collab -> Wiki -> Lab 2 Grading Guidelines.
-- Lab 3 is being graded right now.
-- Exam 1 is NEXT WEEK!
-  - You will take the exam in-lab during your scheduled lab section.
-  - No lab next week because of the exam
-  - Old exams can be found in the repo.
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will begin discussing [Arrays/Big-Oh](../slides/04-arrays-bigoh.html#/).
-    </script></section>
-   </section>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section>
- <section>
-<h4>e to the pi Minus pi</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/e_to_the_pi_minus_pi.png" title="Also, I hear the 4th root of (9^2 + 19^2/22) is pi." alt="e to the pi Minus pi">
-<p class="center"><a href="http://xkcd.com/217/">xkcd # 217</a></p>
-    </section>
-<section data-markdown><script type="text/template">
-## Lecture 12: Monday, February 12
-- Office hours are all listed on the Google calendar
-- [Lab 4](../labs/lab04/index.html) and [Tutorial 4](../tutorials/03-04-more-unix/index.html) are ready in the repo.
-  - Make sure to get new version. One item was moved from pre to in lab!!
-- Lab 2 grading is done.
-  - Regrades enabled in course tools for 10 days (from time of grade release)
-  - Grading guidelines are located on Collab wiki. You can only submit a regrade if your grade was not consistent with the grading guidelines, not if you don't agree with the guidelines.
-- Lab 3 is being graded right now. Hopefully will be returned next Monday
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-  - The ENTIRE Bee Movie? Really? Surely we can be more creative.
-- Interested in installing Linux?  We suggest Ubuntu; speak to us for details
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will continue discussing [Numbers](../slides/03-numbers.html#/)
-    </script></section>
-   </section>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section>
- <section>
-<h4>Can't Sleep</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/cant_sleep.png" title="If androids someday DO dream of electric sheep, don&#39;t forget to declare sheepCount as a long int." alt="Can&#39;t Sleep">
-<p class="center"><a href="http://xkcd.com/571/">xkcd # 571</a></p>
-    </section>
-<section data-markdown><script type="text/template">
-## Lecture 11: Friday, February 9
-- Office hours are all listed on the Google calendar
-- [Lab 3](../labs/lab03/index.html) and [Tutorial 3](../tutorials/03-04-more-unix/index.html) is done.
-  - How did it go?
-- [Lab 4](../labs/lab04/index.html) and [Tutorial 4](../tutorials/03-04-more-unix/index.html) are ready in the repo.
-  - Make sure to get new version. One item was moved from pre to in lab!!
-- Lab 1 grades have been released
-  - Regrades enabled in course tools for 10 days (from time of grade release)
-  - Grading guidelines are located on Collab wiki. You can only submit a regrade if your grade was not consistent with the grading guidelines, not if you don't agree with the guidelines.
-- Lab 2 is being graded right now. Hopefully will be returned next Monday
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- Interested in installing Linux?  We suggest Ubuntu; speak to us for details
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will continue discussing [Numbers](../slides/03-numbers.html#/)
-    </script></section>
-   </section>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section>
- <section>
-<h4>Compiling</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/compiling.png" title="&#39;Are you stealing those LCDs?&#39; &#39;Yeah, but I&#39;m doing it while my code compiles.&#39;" alt="Compiling">
-<p class="center"><a href="http://xkcd.com/303/">xkcd # 303</a></p>
-    </section>
-<section data-markdown><script type="text/template">
-## Lecture 10: Wednesday, February 7
-- Office hours are all listed on the Google calendar
-- [Lab 3](../labs/lab03/index.html) and [Tutorial 3](../tutorials/03-04-more-unix/index.html) is happening now.
-  - There were some fairly substantial changes at end of last week. Please make sure you have the newest version!!
-  - How's it going so far?
-- Lab 1 grades have been released
-  - Regrades enabled in course tools for 10 days (from time of grade release)
-  - Grading guidelines are located on Collab wiki. You can only submit a regrade if your grade was not consistent with the grading guidelines, not if you don't agree with the guidelines.
-- Lab 2 is being graded right now. Hopefully will be returned next Monday
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- Interested in installing Linux?  We suggest Ubuntu; speak to us for details
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will very quickly finish [Lists](../slides/02-lists.html#/) and begin discussing [Numbers](../slides/03-numbers.html#/)
-    </script></section>
-   </section>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section>
- <section>
-<h4>RPS</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/rps.png" title="It looks good, but it needs more postfixins." alt="RPS">
-<p class="center"><a href="http://xkcd.com/645/">xkcd # 645</a></p>
-    </section>
-<section data-markdown><script type="text/template">
-## Lecture 9: Monday, February 5
-- Office hours are all listed on the Google calendar
-- [Lab 3](../labs/lab03/index.html) and [Tutorial 3](../tutorials/03-04-more-unix/index.html) are ready in the repo.
-  - There were some fairly substantial changes. Please make sure to get the newest version!!
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- Interested in installing Linux?  We suggest Ubuntu; speak to us for details
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will continue discussing [Lists](../slides/02-lists.html#/)
-    </script></section>
-   </section>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section>
-<section>
-<h4>Cautionary</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/cautionary.png" title="This really is a true story, and she doesn&#39;t know I put it in my comic because her wifi hasn&#39;t worked for weeks." alt="Cautionary">
-<p class="center"><a href="http://xkcd.com/456/">xkcd # 456</a></p>
-    </section>
-<section data-markdown><script type="text/template">
-## Lecture 8: Friday, February 2
-- Office hours are all listed on the Google calendar
-- Enrollment issues are now complete
-  - Come to OH if there are any lingering issues regarding this.
-  - If you still don't have a lab login, you can email cshelpdesk@virginia.edu 
-- I think everyone finally has a course tools account. Bug me if not.
-- [Lab 2](../labs/lab02/index.html) and [Tutorial 2](../tutorials/02-gdb/index.html) is complete.
-  - How did it go?
-- [Lab 3](../labs/lab03/index.html) and [Tutorial 3](../tutorials/03-04-more-unix/index.html) are ready in the repo.
-  - There were some fairly substantial changes. Please make sure to get the newest version!!
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- Interested in installing Linux?  We suggest Ubuntu; speak to us for details
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will begin discussing [Lists](../slides/02-lists.html#/)
-    </script></section>
-   </section>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section>
-<section>
-<h4>Forgetting</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/forgetting.png" title="Of course, the assert doesn&#39;t work." alt="Forgetting">
-<p class="center"><a href="http://xkcd.com/379/">xkcd # 379</a></p>
-    </section>
-<section data-markdown><script type="text/template">
-## Lecture 7: Wednesday, January 31
-- Office hours are all listed on the Google calendar
-- Enrollment issues are now complete
-  - If you still need to submit lab 1 for some reason, come to Instructor OH asap to get extensions.
-- There was an issue with the 8am lab extensions. That is fixed for the future.
-  - 8am folks will get a free extension this week. I'll add it for everyone shortly.
-- I think everyone finally has a course tools account. Bug me if not.
-- [Lab 2](../labs/lab02/index.html) and [Tutorial 2](../tutorials/02-gdb/index.html) is this week.
-  - How's it going so far?
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- Interested in installing Linux?  We suggest Ubuntu; speak to us for details
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will continue discussing, and possibly finish [C++](../slides/01-cpp.html#/)
-    </script></section>
-   </section>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section>
     <section>
-<h4>Compiler Complaint</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/compiler_complaint.png" title="Checking whether build environment is sane ... build environment is grinning and holding a spatula.  Guess not." alt="Compiler Complaint">
-<p class="center"><a href="http://xkcd.com/371/">xkcd # 371</a></p>
-    </section>
-<section data-markdown><script type="text/template">
-## Lecture 6: Monday, January 29
-- Office hours are all listed on the Google calendar
-- Enrollment issues are now complete
-  - If you still need to submit lab 1 for some reason, come to Instructor OH asap to get extensions.
-- Anybody still NOT have a course tools account? If so, email me asap and I'll get you one.
-- [Lab 2](../labs/lab02/index.html) and [Tutorial 2](../tutorials/02-gdb/index.html) is this week.
-  - Lab 2 is generally considered to be significantly more difficult than lab 1. Please start early.
-  - How's it going so far?
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- Interested in installing Linux?  We suggest Ubuntu; speak to us for details
+<h4 class="xkcd">Merlin</h4><img class="stretch" src="http://imgs.xkcd.com/comics/merlin.png" title="I mean, the black-and-white stuff was running backward, but it hardly mattered to the story." alt="Merlin"><p class="center"><a href="http://xkcd.com/270/">xkcd # 270</a></p>    </section>
+
+  <section data-markdown><script type="text/template">
+## The End
+- Office hours end on Tuesday (tomorrow)
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing)
+  - TA office hours during finals week: Thu (12/8) from 6-8 and Mon (12/12) from 6-8, all in the Thornton stacks
+- There will be TAs in lab tomorrow; you can use it as a exam review
+- [Lab 9: Graphs](../labs/lab11/index.html): the pre-lab is due tomorrow at 8 a.m.
+  - There is no in-lab nor post-lab this week
+- The lack of exam 2:
+  - Your midterm 2 grade will be a weighted average of your first exam and final exam scores, with more weight on the higher of the two scores
+- Final exam: Thu, Dec 15 from 9am - noon
+  - In person, in the lecture classroom; paper based, similar in form to the exams in the repo
+  - There will be a review session via Zoom, likely next Tuesday (12/13) evening; details to be posted on Piazza
+- A thought about final grades...
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
 - [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will continue discussing [C++](../slides/01-cpp.html#/)
-    </script></section>
-   </section>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section>
-<section>
-<h4>Pointers</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/pointers.png" title="Every computer, at the unreachable memory address 0x-1, stores a secret.  I found it, and it is that all humans ar-- SEGMENTATION FAULT." alt="Pointers">
-<p class="center"><a href="http://xkcd.com/138/">xkcd # 138</a></p>
-    </section>
-<section data-markdown><script type="text/template">
-## Lecture 5: Friday, January 26
-- Office hours are all listed on the Google calendar
-- Enrollment issues are now complete
-  - I'll be giving those necessary lab 1 extensions via support request as quickly as I can.
-  - You'll get an email when I respond and then you can submit the lab
-- Anybody still NOT have a course tools account? If so, email me asap and I'll get you one.
-- [Lab 1](../labs/lab01/index.html) and [Tutorial 1](../tutorials/01-intro-unix/index.html) is now done.
-  - We plan to get the lab to the TAs to grade over the weekend, and then return them to you a week after that.
-- [Lab 2](../labs/lab02/index.html) and [Tutorial 2](../tutorials/02-gdb/index.html) is now ready.
-  - Lab 2 is generally considered to be significantly more difficult than lab 1. Please start early.
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- Interested in installing Linux?  We suggest Ubuntu; speak to us for details
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will continue discussing [C++](../slides/01-cpp.html#/)
-    </script></section>
-   </section>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-
-	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section>
-<section>
-<h4>Goto</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/goto.png" title="Neal Stephenson thinks it&#39;s cute to name his labels &#39;dengo&#39;" alt="goto">
-<p class="center"><a href="http://xkcd.com/292/">xkcd # 292</a></p>
-    </section>
-<section data-markdown><script type="text/template">
-## Lecture 4: Wednesday, January 24
-- Office hours are all listed on the Google calendar
-  - They start this Sunday!
-  - No more OH on Tuesday evenings...we instead more heavily staffed the other nights.
-- Enrollment: I will be enrolling a few special cases today.
-	- The 8am lab will rise to 35 seats today
-	- All the other labs will go back up to 45 seats today.
-- Course tools accounts: If don't have one, I'm re-adding the roster periodically so keep checking back in.
-	- Support request for lab 1 extensions if this causes you to not turn in this week's lab on time.
-- [Lab 1](../labs/lab01/index.html) and [Tutorial 1](../tutorials/01-intro-unix/index.html) are out
-  - When labs are ready, it is be posted on the twitter feed: [@UVaCS2150](https://twitter.com/@UVaCS2150)
-  - The VirtualBox image is uploaded (Check the lab1 tutorial or collab resources for a link to it).
-  - You will need [7-zip](http://www.7-zip.org/) to unzip it
-  - Make sure you specify that the guest is 64-bit!
-  - The assignment submission will automatically open Sunday at noon
-  - To get started, you can view the repo online at http://markfloryan.github.io/pdr/ (the lab is [here](http://markfloryan.github.io/pdr/labs/lab01/index.html); the tutorial is [here](http://markfloryan.github.io/pdr/tutorials/01-intro-unix/index.html))
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- Interested in installing Linux?  We suggest Ubuntu; speak to us for details
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will continue discussing [C++](../slides/01-cpp.html#/)
+- Today we start (and finish) [esoteric programming languages](../slides/13-esoteric-pls.html#/) and then the [course conclusion](course-conclusion.html#/)
     </script></section>
 
-<section data-markdown><script type="text/template">
-## Anonymous Feedback Fun
-- "Why are we being made to go through an unnecessary amount of github files? It's not like we're learning how to use github from this. It's easy to set up github pages as a website and just make this a proper webpage. It might be worth one person's additional effort because it would save ~600+ people a good amount of time per semester. I would even volunteer helping set up a proper website using github pages if you want, similar to the one they have for 2102. Just ask in class, I'm sure a bunch of students know how github pages works."
-
-- "https://aaronbloomfield.github.io/pdr/readme-old.html 
-uvacs2102.github.io     it's not hard to host github pages"
-    </script></section>
-   </section>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<section>
-<section>
-<h4>Donald Knuth</h4><!-- xkcd -->
-<img class="stretch" src="http://imgs.xkcd.com/comics/donald_knuth.png" title="His books were kinda intimidating; rappelling down through his skylight seemed like the best option." alt="Donald Knuth">
-<p class="center"><a href="http://xkcd.com/163/">xkcd # 163</a></p>
-    </section>
-<section data-markdown><script type="text/template">
-## Lecture 3: Monday, January 22
-- Office hours are all listed on the Google calendar
-  - They start this Sunday!
-- We will start adding special cases to the class soon. My goal is today! Sorry!
-  - Afterwards, the lab capacity will be set to 45 (the maximum possible) for all labs.
-- [Lab 1](../labs/lab01/index.html) and [Tutorial 1](../tutorials/01-intro-unix/index.html) are out
-  - When labs are ready, it is be posted on the twitter feed: [@UVaCS2150](https://twitter.com/@UVaCS2150)
-  - The VirtualBox image is uploaded (Check the lab1 tutorial or collab resources for a link to it).
-  - You will need [7-zip](http://www.7-zip.org/) to unzip it
-  - Make sure you specify that the guest is 64-bit!
-  - The assignment submission will automatically open Sunday at noon
-  - To get started, you can view the repo online at http://markfloryan.github.io/pdr/ (the lab is [here](http://markfloryan.github.io/pdr/labs/lab01/index.html); the tutorial is [here](http://markfloryan.github.io/pdr/tutorials/01-intro-unix/index.html))
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- Interested in installing Linux?  We suggest Ubuntu; speak to us for details
-- [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will finish the [course introduction](course-introduction.html#/) and start on [C++](../slides/01-cpp.html#/)
-  - We will see a brief tour of the Collab workspace and the git repo today
-    </script></section>
-   </section>
-
+  </section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
+  <section>
 
-	<section>
+    <section>
+<h4 class="xkcd">NP-Complete</h4><img class="stretch" src="http://imgs.xkcd.com/comics/np_complete.png" title="General solutions get you a 50% tip." alt="NP-Complete"><p class="center"><a href="http://xkcd.com/287/">xkcd # 287</a></p>
+    </section>
 
+  <section data-markdown><script type="text/template">
+## Lecture 41: Fri, Dec 2nd
+- Office hours end on Tuesday
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing)
+  - We'll likely have some more during finals week, which will be posted on Piazza
+- [Lab 11: Graphs](../labs/lab11/index.html): how was it?
+- Pre-lab 9 will is due Tuesday (the last day of classes)
+  - No in-lab next week
+- The lack of exam 2:
+  - Your midterm 2 grade will be a weighted average of your first exam and final exam scores, with more weight on the higher of the two scores
+- Final exam: Thu, Dec 15 from 9am - noon
+  - In person, in the lecture classroom; paper based, similar in form to the exams in the repo
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will finish [memory](../slides/12-memory.html#/)
+    </script></section>
 
-	  <section>
-<h4>Good Code</h4><!-- xkcd -->
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h2 class='xkcd'>Google Maps</h2><img class='stretch' src="https://imgs.xkcd.com/comics/google_maps.png" title="Apparently Google assumes you&#39;re traveling during the ferry&#39;s normal operating hours.  We lost two hours circling that damn lake (to say nothing of the Straw Man)." alt="Google Maps"  style="image-orientation:none" ><p class='center'><a href='http://xkcd.com/461/'>xkcd # 461</a></p>
+    </section>
+
+  <section data-markdown><script type="text/template">
+## Lecture 40: Wed, Nov 30th
+- Office hours have resumed
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing)
+  - Faculty office hours are Wed 10-noon in Rice 402
+- [Lab 11: Graphs](../labs/lab11/index.html) is out, due this week at the normal times
+  - We'll see the necessary in-lab material today
+- Pre-lab 9 will be due next Tuesday (the last day of classes)
+  - If you turned it in previously, you don't have to do so again
+- The lack of exam 2:
+  - Your midterm 2 grade will be a weighted average of your first exam and final exam scores, with more weight on the higher of the two scores
+- Final exam: Thu, Dec 15 from 9am - noon
+  - In person, in the lecture classroom; paper based, similar in form to the exams in the repo
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will finish [graphs](../slides/11-graphs.html#/) and start on [memory](../slides/12-memory.html#/)
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h2 class='xkcd'>Flow Charts</h2><img src="https://imgs.xkcd.com/comics/flow_charts.png" title="At 8 drinks, you switch the torrent from FreeBSD to Microsoft Bob.  C&#39;mon, it&#39;ll be fun!" alt="Flow Charts"  style="image-orientation:none" ><p class='center'><a href='http://xkcd.com/518/'>xkcd # 518</a></p>
+    </section>
+
+  <section data-markdown><script type="text/template">
+## Lecture 39: Mon, Nov 28th
+- Office hours have resumed
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing)
+  - Faculty office hours are Wed 10-noon in Rice 402
+- [Lab 11: Graphs](../labs/lab11/index.html) is out, due this week at the normal times
+  - We'll see the necessary in-lab material today
+- Pre-lab 9 will be due next Tuesday (the last day of classes)
+  - If you turned it in previously, you don't have to do so again
+- The lack of exam 2:
+  - Your midterm 2 grade will be a weighted average of your first exam and final exam scores, with more weight on the higher of the two scores
+- Final exam: Thu, Dec 15 from 9am - noon
+  - In person, in the lecture classroom; paper based, similar in form to the exams in the repo
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [graphs](../slides/11-graphs.html#/)
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h2 class='xkcd'>Weird Unicode Math Symbols</h2><img src="https://imgs.xkcd.com/comics/weird_unicode_math_symbols.png" title="U+2A0B ⨋ Mathematicians need to calm down" alt="Weird Unicode Math Symbols" srcset="https://imgs.xkcd.com/comics/weird_unicode_math_symbols_2x.png 2x" style="image-orientation:none" ><p class='center'><a href='http://xkcd.com/2606/'>xkcd # 2606</a></p>
+    </section>
+
+  <section data-markdown><script type="text/template">
+## Lecture 37: Fri, Nov 18th
+- As per the Provost's statement, no assignments will be due prior to Thanksgiving
+- The plan after Thanksgiving
+  - Week of Mon, 11/28: one full lab, which is likely going to be graphs (confirmation next week)
+  - Week of Mon, 12/5: one of the missed pre-labs, likely pre-lab 9 (but this is not definite)
+- Office hours will resume after Thanksgiving break
+  - That Sunday may not be fully staffed, as the TAs are returning from break as well, but we will hopefully know more about that late next week
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing)
+  - Faculty office hours are Wed 10-noon in Rice 402
+- The lack of exam 2:
+  - Your midterm 2 grade will be a weighted average of your first exam and final exam scores, with more weight on the higher of the two scores
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [graphs](../slides/11-graphs.html#/)
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">Collatz Conjecture</h4><img class="stretch" src="http://imgs.xkcd.com/comics/collatz_conjecture.png" title="The Strong Collatz Conjecture states that this holds for any set of obsessively-hand-applied rules." alt="Collatz Conjecture"><p class="center"><a href="http://xkcd.com/710/">xkcd # 710</a></p>
+    </section>
+
+  <section data-markdown><script type="text/template">
+## Lecture 36: Wed, Nov 16th
+- As per the Provost's statement, no assignments will be due prior to Thanksgiving
+- The plan after Thanksgiving
+  - Week of Mon, 11/28: one full lab, either Huffman or graphs
+  - Week of Mon, 12/5: one of the missed pre-labs
+- Office hours: likely to not resume until after Thanksgiving break; details will be posted on Piazza
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing)
+  - Faculty office hours are Wed 10-noon in Rice 402
+- The lack of exam 2:
+  - Your midterm 2 grade will be a weighted average of your first exam and final exam scores, with more weight on the higher of the two scores
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue [Heaps & Huffman coding](../slides/10-heaps-huffman.html#/)
+  - Up next: [graphs](../slides/11-graphs.html#/)
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+  <section data-markdown><script type="text/template">
+## Lecture 35: Mon, Nov 14th
+
+All UVA classes were cancelled today
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+  <section data-markdown><script type="text/template">
+## Lecture 34: Fri, Nov 11th
+
+CS 2150 lecture was canceled today
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h2 class='xkcd'>Workflow</h2><img src="https://imgs.xkcd.com/comics/workflow.png" title="There are probably children out there holding down spacebar to stay warm in the winter! YOUR UPDATE MURDERS CHILDREN." alt="Workflow" srcset="https://imgs.xkcd.com/comics/workflow_2x.png 2x" style="image-orientation:none" ><p class='center'><a href='http://xkcd.com/1172/'>xkcd # 1172</a></p>
+    </section>
+
+  <section data-markdown><script type="text/template">
+## Lecture 33: Wed, Nov 9th
+- Office hours are in full swing
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing)
+  - Faculty office hours are Wed 10-noon in Rice 402
+- [Lab 9](../labs/lab09-64bit/index.html) (x86, part 2) is ready, but not due until *next* week
+- The lack of exam 2:
+  - Your midterm 2 grade will be a weighted average of your first exam and final exam scores, with more weight on the higher of the two scores
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Friday's lecture: I have a conflict, so I'm inclined to cancel class
+  - I could post a recording, but those don't work as well
+  - We are ahead of where we need to be in the slide progress
+- Today we will continue [Heaps & Huffman coding](../slides/10-heaps-huffman.html#/)
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h2 class='xkcd'>Childhood Toys</h2><img src="https://imgs.xkcd.com/comics/childhood_toys.png" title="The rope keeps breaking, I&#39;m covered in bruises and scrapes, and I&#39;ve barely reached the end of my driveway, but I don&#39;t care--I&#39;m determined to become the first person to commute to work by tetherball." alt="Childhood Toys" srcset="https://imgs.xkcd.com/comics/childhood_toys_2x.png 2x" style="image-orientation:none" ><p class='center'><a href='http://xkcd.com/2603/'>xkcd # 2603</a></p>
+    </section>
+
+  <section data-markdown><script type="text/template">
+## Lecture 32: Mon, Nov 7th
+- Office hours are in full swing
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing)
+  - Faculty office hours are Wed 10-noon in Rice 402
+- No lab, OR EXAM, tomorrow!
+- [Lab 9](../labs/lab09-64bit/index.html) (x86, part 2) is ready, but not due until *next* week
+- November 8th is election day, and there are no classes
+  - The second midterm, scheduled for that day, is canceled
+  - Your midterm 2 grade will be a weighted average of your first exam and final exam scores
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue [Heaps & Huffman coding](../slides/10-heaps-huffman.html#/)
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h2 class='xkcd'>Trochee Fixation</h2><img class='stretch' src="https://imgs.xkcd.com/comics/trochee_fixation.png" title="If you Huffman-coded all the &#39;random&#39; things everyone on the internet has said over the years, you&#39;d wind up with, like, 30 or 40 bytes *tops*." alt="Trochee Fixation"  style="image-orientation:none" ><p class='center'><a href='http://xkcd.com/856/'>xkcd # 856</a></p>
+    </section>
+
+  <section data-markdown><script type="text/template">
+## Lecture 31: Fri, Nov 4th
+- Office hours are in full swing
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing)
+  - Faculty office hours are Wed 10-noon in Rice 402
+- [Lab 8](../labs/lab08-64bit/index.html) (x86, part 1): how did it go?
+- [Lab 9](../labs/lab09-64bit/index.html) (x86, part 2) is ready, but not due for *two* weeks
+- November 8th is election day, and there are no classes
+  - The second midterm, scheduled for that day, is canceled
+  - Your midterm 2 grade will be a weighted average of your first exam and final exam scores
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue (and possibly finish) with [advanced C++](../slides/09-advanced-cpp.html#/)
+  - Next up: [Heaps & Huffman coding](../slides/10-heaps-huffman.html#/)
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class='xkcd'>Old Days</h4><img class='stretch' src="https://imgs.xkcd.com/comics/old_days.png" title="Lot of drama in those days, including constant efforts to force the &quot;Reflections on Trusting Trust&quot; guy into retirement so we could stop being so paranoid about compilers." alt="Old Days" srcset="https://imgs.xkcd.com/comics/old_days_2x.png 2x" style="image-orientation:none" ><p class='center'><a href='http://xkcd.com/1755/'>xkcd # 1755</a></p>
+    </section>
+
+  <section data-markdown><script type="text/template">
+## Lecture 30: Wed, Nov 2nd
+- Office hours are in full swing
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing)
+  - Faculty office hours are Wed 10-noon in Rice 402
+- [Lab 8](../labs/lab08-64bit/index.html) (x86, part 1) is out: how is it going?
+  - Mac M1 folks: submit a support request, and you will be able to use an online assembler
+- [Lab 9](../labs/lab09-64bit/index.html) (x86, part 2) is ready, but not due for *two* weeks
+- November 8th is election day, and there are no classes
+  - The second midterm, scheduled for that day, is canceled
+  - Your midterm 2 grade will be a weighted average of your first exam and final exam scores
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [advanced C++](../slides/09-advanced-cpp.html#/)
+  - Next up: [Heaps & Huffman coding](../slides/10-heaps-huffman.html#/)
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">Westley's a D*ck</h4><img class="stretch" src="http://imgs.xkcd.com/comics/westleys_a_dick.png" title="Inigo/Buttercup 4eva &lt;3" alt="Westley&#39;s a Dick"><p class="center"><a href="http://xkcd.com/549/">xkcd # 549</a></p>
+    </section>
+
+  <section data-markdown><script type="text/template">
+## Lecture 29: Halloween
+- Office hours are in full swing
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing)
+  - Faculty office hours are Wed 10-noon in Rice 402
+- [Lab 8](../labs/lab08-64bit/index.html) (x86, part 1) is out
+  - Mac M1 folks: submit a support request, and you will be able to use an online assembler
+- November 8th is election day, and there are no classes
+  - The second midterm, scheduled for that day, is canceled
+  - Your midterm 2 grade will be a weighted average of your first exam and final exam scores
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will go back to finish up [trees](../slides/05-trees.html#/)
+  - Next up: [advanced C++](../slides/09-advanced-cpp.html#/)
+
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">Tabletop Roleplaying</h4><img class="stretch" src="http://imgs.xkcd.com/comics/tabletop_roleplaying.png" title="I may have also tossed one of a pair of teleportation rings into the ocean, with interesting results." alt="Tabletop Roleplaying"><p class="center"><a href="http://xkcd.com/244/">xkcd # 244</a></p>
+    </section>
+
+  <section data-markdown><script type="text/template">
+## Lecture 28: Fri, Oct 28th
+- Office hours are in full swing
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing)
+  - Faculty office hours are Wed 10-noon in Rice 402
+- [Lab 8](../labs/lab08-64bit/index.html) (x86, part 1) is out
+  - Mac M1 folks: submit a support request, and you will be able to use an online assembler
+- November 8th is election day, and there are no classes
+  - The second midterm, scheduled for that day, is canceled
+  - Your midterm 2 grade will be a weighted average of your first exam and final exam scores
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue (and likely finish) with [assembly](../slides/08-assembly-64bit.html#/)
+  - Next up: back to [trees](../slides/05-trees.html#/) to finish that slide set
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">Single Ladies</h4><img class="stretch" src="http://imgs.xkcd.com/comics/single_ladies.png" title="Using a ring to bind someone you covet into your dark and twisted world? Wow, just got the subtext there. Also, the apparently eager Beyonc&eacute; would&#39;ve made one badass Nazg&ucirc;l." alt="Single Ladies"><p class="center"><a href="http://xkcd.com/712/">xkcd # 712</a></p>
+    </section>
+
+  <section data-markdown><script type="text/template">
+## Lecture 27: Wed, Oct 26th
+- Office hours are in full swing
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing)
+  - Faculty office hours are Wed 10-noon in Rice 402
+- We'll go over CS electives today
+- [Lab 7](../labs/lab07/index.html) (IBCM): how is it going?
+- About regrade response times...
+- I was caught up with the support requests, then fell behind...
+- November 8th is election day, and there are no classes
+  - The second midterm, scheduled for that day, is canceled
+  - Your midterm 2 grade will be a weighted average of your first exam and final exam scores
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [assembly](../slides/08-assembly-64bit.html#/)
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">Abstraction</h4><img class="stretch" src="http://imgs.xkcd.com/comics/abstraction.png" title="If I&#39;m such a god, why isn&#39;t Maru *my* cat?" alt="Abstraction"><p class="center"><a href="http://xkcd.com/676/">xkcd # 676</a></p>
+    </section>
+
+  <section data-markdown><script type="text/template">
+## Lecture 26: Mon, Oct 24th
+- Office hours are in full swing
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing)
+  - Faculty office hours are Wed 10-noon in Rice 402
+- [Lab 7](../labs/lab07/index.html) (IBCM): how is it going?
+- About regrade response times...
+- I was caught up with the support requests, then fell behind...
+- November 8th is election day, and there are no classes
+  - And that was going to be the second midterm
+  - I'm still not sure what I'm going to do -- I may cancel the midterm or cancel a lab and move the midterm
+  - Details to follow...
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [assembly](../slides/08-assembly-64bit.html#/)
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">Applied Math</h4><img class="stretch" src="http://imgs.xkcd.com/comics/applied_math.png" title="Dear Reader: Enclosed is a check for ninety-eight cents. Using your work, I have proven that this equals the amount you requested." alt="Applied Math"><p class="center"><a href="http://xkcd.com/816/">xkcd # 816</a></p>
+    </section>
+
+  <section data-markdown><script type="text/template">
+## Lecture 25: Fri, Oct 21st
+- Office hours are in full swing
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing)
+  - Faculty office hours are Wed 10-noon in Rice 402
+- [Lab 6](../labs/lab06/index.html) (hashes): how did it go?
+  - Why that lab is important...
+- About regrade response times...
+- I was caught up with the support requests, then fell behind...
+- November 8th is election day, and there are no classes
+  - And that was going to be the second midterm
+  - I'm still not sure what I'm going to do -- I may cancel the midterm or cancel a lab and move the midterm
+  - Details to follow...
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [assembly](../slides/08-assembly-64bit.html#/)
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">Security</h4><img class="stretch" src="http://imgs.xkcd.com/comics/security.png" title="Actual actual reality: nobody cares about his secrets.  (Also, I would be hard-pressed to find that wrench for $5.)" alt="Security"><p class="center"><a href="http://xkcd.com/538/">xkcd # 538</a></p>
+    </section>
+
+          <section data-markdown><script type="text/template">
+## Pop Quiz!
+
+After having worked on [Lab 6](../labs/lab06/index.html) (hashes), I think:
+
+1. It was easy!
+2. It was hard, but doable
+3. It was insane!  Where do you get off assigning this much work?
+4. I'm not talking to you.  Ever.  Again.
+          </script></section>
+
+  <section data-markdown><script type="text/template">
+## Lecture 24: Wed, Oct 19th
+- Office hours are in full swing
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing)
+  - Faculty office hours are Wed 10-noon in Rice 402
+- [Lab 6](../labs/lab06/index.html) (hashes): how is it going?
+- About regrade response times...
+- I'm mostly caught up with the support requests
+- November 8th is election day, and there are no classes
+  - And that was going to be the second midterm
+  - I'm still not sure what I'm going to do -- I may cancel the midterm or cancel a lab and move the midterm
+  - Details to follow...
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue, and likely finish, with [IBCM](../slides/07-ibcm.html#/) (machine language)
+  - Next up: [assembly](../slides/08-assembly-64bit.html#/)
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">Surgery</h4><img class="stretch" src="http://imgs.xkcd.com/comics/surgery.png" title="Damn. Not only did he not install it, he sutured a &#39;Vista-Ready&#39; sticker onto my arm." alt="Surgery"><p class="center"><a href="http://xkcd.com/644/">xkcd # 644</a></p>
+    </section>
+
+  <section data-markdown><script type="text/template">
+## Lecture 23: Mon, Oct 17th
+- Office hours are in full swing
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing)
+  - Faculty office hours are Wed 10-noon in Rice 402
+- [Lab 6](../labs/lab06/index.html) (hashes): how is it going?
+- About regrade response times...
+- I'm mostly caught up with the support requests
+- November 8th is election day, and there are no classes
+  - And that was going to be the second midterm
+  - I'm still not sure what I'm going to do -- I may cancel the midterm or cancel a lab and move the midterm
+  - Details to follow...
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [IBCM](../slides/07-ibcm.html#/) (machine language)
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">Golden Hammer</h4><img class="stretch" src="http://imgs.xkcd.com/comics/golden_hammer.png" title="Took me five tries to find the right one, but I managed to salvage our night out--if not the boat--in the end." alt="Golden Hammer"><p class="center"><a href="http://xkcd.com/801/">xkcd # 801</a></p>
+    </section>
+
+  <section data-markdown><script type="text/template">
+## Lecture 22: Fri, Oct 14th
+- Office hours are in full swing
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing)
+  - Faculty office hours are Wed 10-noon in Rice 402
+- [Lab 5](../labs/lab05/index.html) (trees): how did it go?
+- [Lab 6](../labs/lab06/index.html) (hashes) for next week is out
+- About regrade response times...
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- Everybody has to sign the UNIX honor pledge (link in Collab)
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will start on [IBCM](../slides/07-ibcm.html#/) (machine language)
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">Git Commit</h4><img class="stretch" src="http://imgs.xkcd.com/comics/git_commit.png" title="Merge branch &#39;asdfasjkfdlas/alkdjf&#39; into sdkjfls-final" alt="Git Commit"><p class="center"><a href="http://xkcd.com/1296/">xkcd # 1296</a></p>
+    </section>
+
+  <section data-markdown><script type="text/template">
+## Lecture 21: Wed, Oct 12th
+- Office hours are in full swing
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing)
+  - Faculty office hours are Wed 10-noon in Rice 402
+- [Lab 5](../labs/lab05/index.html) (trees): how is it going?
+- [Lab 6](../labs/lab06/index.html) (hashes) for next week is ready
+- About regrade response times...
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- Everybody has to sign the UNIX honor pledge (link in Collab)
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue (and possibly finish) with [hashes](../slides/06-hashes.html#/)
+  - Next up: [IBCM](../slides/07-ibcm.html#/) (machine language)
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">Fight</h4><img class="stretch" src="http://imgs.xkcd.com/comics/fight.png" title="And she put sweet nothings in all my .conf files.  It&#39;ll take me forever to get X working again." alt="Fight"><p class="center"><a href="http://xkcd.com/340/">xkcd # 340</a></p>
+    </section>
+
+  <section data-markdown><script type="text/template">
+## Lecture 20: Mon, Oct 10th
+- Office hours are in full swing
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing)
+  - Faculty office hours are Wed 10-noon in Rice 402
+- [Lab 5](../labs/lab05/index.html) is out
+  - It's not an easy lab, so don't wait until the last minute to start it
+- Tuesday was [exam 1](../exams/exam1-f22.pdf)
+  - Avg was 25.4/42 (60.4%) with a stdev of 8.3 (19.8%)
+  - Question 7 (run-time table) was canceled entirely, and not graded
+  - Regrades open until the end of the day on October 10th (next Monday)
+  - There will be a 15 *percentage point* curve (handled at the end of the semester)
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- Everybody has to sign the UNIX honor pledge (link in Collab)
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [hashes](../slides/06-hashes.html#/)
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">Devotion to Duty</h4><img class="stretch" src="http://imgs.xkcd.com/comics/devotion_to_duty.png" title="The weird sense of duty really good sysadmins have can border on the sociopathic, but it&#39;s nice to know that it stands between the forces of darkness and your cat blog&#39;s servers." alt="Devotion to Duty"><p class="center"><a href="http://xkcd.com/705/">xkcd # 705</a></p>
+    </section>
+
+  <section data-markdown><script type="text/template">
+## Lecture 19: Fri, Oct 7th
+- Office hours are in full swing
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (hopefully) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+  - Faculty office hours are Wed 10-noon in Rice 402
+- [Lab 5](../labs/lab05/index.html) is out
+  - It's not an easy lab, so don't wait until the last minute to start it
+- Tuesday was [exam 1](../exams/exam1-f22.pdf)
+  - Avg was 25.4/42 (60.4%) with a stdev of 8.3 (19.8%)
+  - Question 7 (run-time table) was canceled entirely, and not graded
+  - Regrades open until the end of the day on October 10th (next Monday)
+  - There will be a 15 *percentage point* curve (handled at the end of the semester)
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- Everybody has to sign the UNIX honor pledge (link in Collab)
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [trees](../slides/05-trees.html#/)
+  - We are going to skip the last two columns for now, and come back to them later
+  - Next up: [hashes](../slides/06-hashes.html#/)
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">Black Hat Support</h4><img class="stretch" src="http://imgs.xkcd.com/comics/black_hat_support.png" title="So as not to leave you hanging -- it was a problem with select() calls." alt="Black Hat Support"><p class="center"><a href="http://xkcd.com/278/">xkcd # 278</a></p>
+    </section>
+
+  <section data-markdown><script type="text/template">
+## Lecture 18: Wed, Oct 5th
+- Office hours are back!
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (hopefully) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+  - Faculty office hours are Wed 10-noon in Rice 402
+- [Lab 5](../labs/lab05/index.html) is ready
+- Tuesday was [exam 1](../exams/exam1-f22.pdf)
+  - Avg was 25.4/42 (60.4%) with a stdev of 8.3 (19.8%)
+  - Question 7 (run-time table) was canceled entirely, and not graded
+  - Regrades open until the end of the day on October 10th (next Monday)
+  - There will be a 15 *percentage point* curve (handled at the end of the semester)
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- Everybody has to sign the UNIX honor pledge (link in Collab)
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [trees](../slides/05-trees.html#/)
+  - Next up: [hashes](../slides/06-hashes.html#/)
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">The Economic Argument</h4><img class="stretch" src="http://imgs.xkcd.com/comics/the_economic_argument.png" title="Not to be confused with &#39;making money selling this stuff to OTHER people who think it works&#39;, which corporate accountants and actuaries have zero problems with." alt="The Economic Argument"><p class="center"><a href="http://xkcd.com/808/">xkcd # 808</a></p>
+    </section>
+
+  <section data-markdown><script type="text/template">
+## Lecture 17: Fri, Sep 30th
+- Office hours are going to pause until the day after fall break (Wed, 10/5)
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (hopefully) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+  - Faculty office hours are Wed 10-noon in Rice 402
+- [Lab 5](../labs/lab05/index.html) will not be out until next Thursday
+- Tuesday was [exam 1](../exams/exam1-f22.pdf)
+  - Avg was 25.4/42 (60.4%) with a stdev of 8.3 (19.8%)
+  - Question 7 (run-time table) was canceled entirely, and not graded
+  - We'll go over it today; regrades will open up tonight, and stay open for "one week"
+  - There will be a 15 *percentage point* curve (handled at the end of the semester)
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- Everybody has to sign the UNIX honor pledge (link in Collab)
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [trees](../slides/05-trees.html#/), which will take us into next week
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">Academia vs. Business</h4><img class="stretch" src="http://imgs.xkcd.com/comics/academia_vs_business.png" title="Some engineer out there has solved P=NP and it&#39;s locked up in an electric eggbeater calibration routine.  For every 0x5f375a86 we learn about, there are thousands we never see." alt="Academia vs. Business"><p class="center"><a href="http://xkcd.com/664/">xkcd # 664</a></p>
+    </section>
+
+          <section data-markdown><script type="text/template">
+## Pop Quiz!
+
+Reflecting on Exam 1, I think:
+
+1. It was easy!
+2. It was hard, but doable
+3. It was insane!  Where do you get off giving us such a hard exam?
+4. I'm not talking to you.  Ever.  Again.
+  </script></section>
+
+  <section data-markdown><script type="text/template">
+## Lecture 16: Wed, Sep 28th
+- Office hours are going to pause until the day after fall break (Wed, 10/5)
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (hopefully) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+  - Faculty office hours are Wed 10-noon in Rice 402
+- [Lab 5](../labs/lab05/index.html) will not be out until a week from this Thursday
+- Yesterday was the first midterm.  How bad was it?
+  - We'll go over it once it's graded (either Friday or next)
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- Everybody has to sign the UNIX honor pledge (link in Collab)
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [trees](../slides/05-trees.html#/), which will take us into next week
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">Real Programmers</h4><img class="stretch" src="http://imgs.xkcd.com/comics/real_programmers.png" title="Real programmers set the universal constants at the start such that the universe evolves to contain the disk with the data they want." alt="Real Programmers"><p class="center"><a href="http://xkcd.com/378/">xkcd # 378</a></p>
+    </section>
+
+    <section data-markdown><script type="text/template">
+## Lecture 15: Mon, Sep 26th
+- Office hours are going to pause until the day after fall break (Wed, 10/5)
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (hopefully) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+  - Faculty office hours are Wed 10-noon in Rice 402
+- [Lab 5](../labs/lab05/index.html) will not be out until a week from this Thursday
+- Tomorrow is the first midterm.  Yay!
+  - You have to bring your UVA ID
+  - Topic coverage: through the end of [arrays & big-Oh](../slides/04-arrays-bigoh.html#/)
+  - During your lab section on Tuesday (9/27)
+  - Review session yesterday is recorded in Collab's Online Meetings tool
+  - About the TAs solving exam questions on Piazza...
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- Everybody has to sign the UNIX honor pledge (link in Collab)
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will finish [arrays & big-Oh](../slides/04-arrays-bigoh.html#/) and start on [trees](../slides/05-trees.html#/)
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">Bug</h4><img class="stretch" src="http://imgs.xkcd.com/comics/bug.png" title="The universe started in 1970.  Anyone claiming to be over 38 is lying about their age." alt="Bug"><p class="center"><a href="http://xkcd.com/376/">xkcd # 376</a></p>
+    </section>
+
+    <section data-markdown><script type="text/template">
+## Lecture 14: Fri, Sep 23rd
+- Office hours are in full swing; schedule is on the [Collab landing page](https://collab.its.virginia.edu/x/ojqNTV)
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (hopefully) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+  - Faculty office hours are Wed 10-noon in Rice 402
+  - After next Monday, we won't have office hours until after fall break
+- [Lab 4](../labs/lab04/index.html) is out; how did it go?
+- Next week is the first midterm.  Yay!
+  - About topic coverage...
+  - During your lab section on Tuesday (9/27)
+  - Review session will be Sunday evening via Zoom; time and Zoom link TBA
+  - It's a Q&A style review session, so bring questions to ask!
+  - About the TAs solving exam questions on Piazza...
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- Everybody has to sign the UNIX honor pledge (link in Collab)
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue (possibly finish) with [arrays & big-Oh](../slides/04-arrays-bigoh.html#/)
+  - Next up: [trees](../slides/05-trees.html#/)
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">e to the pi Minus pi</h4><img class="stretch" src="http://imgs.xkcd.com/comics/e_to_the_pi_minus_pi.png" title="Also, I hear the 4th root of (9^2 + 19^2/22) is pi." alt="e to the pi Minus pi"><p class="center"><a href="http://xkcd.com/217/">xkcd # 217</a></p>
+    </section>
+
+    <section data-markdown><script type="text/template">
+## Lecture 13: Wed, Sep 21st
+- Office hours are in full swing; schedule is on the [Collab landing page](https://collab.its.virginia.edu/x/ojqNTV)
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (hopefully) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+    - Today's Mon 6-8 will be light in terms of TA coverage
+  - Faculty office hours are Wed 10-noon in Rice 402
+- Support requests are up and running, but the system has changed; the link for them is on the Collab landing page
+  - The new system is not going to look as nice...
+- [Lab 4](../labs/lab04/index.html) is out; how is it going?
+- Next week is the first midterm.  Yay!
+  - During your lab section on Tuesday (9/27)
+  - Do you want a review session?
+  - About the TAs solving exam questions on Piazza...
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- Everybody has to sign the UNIX honor pledge (link in Collab)
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [arrays & big-Oh](../slides/04-arrays-bigoh.html#/)
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h2 class='xkcd'>Science Valentine</h2>
+<img src="https://imgs.xkcd.com/comics/science_valentine.png" title="You don&#39;t use science to show that you&#39;re right, you use science to become right." alt="Science Valentine"  style="image-orientation:none" >
+<p class='center'><a href='http://xkcd.com/701/'>xkcd # 701</a></p>
+    </section>
+
+    <section data-markdown><script type="text/template">
+## Lecture 12: Mon, Sep 19th
+- Office hours are in full swing; schedule is on the [Collab landing page](https://collab.its.virginia.edu/x/ojqNTV)
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (hopefully) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+    - Today's Mon 6-8 will be light in terms of TA coverage
+  - Faculty office hours are Wed 10-noon in Rice 402
+- Support requests are up and running, but the system has changed; the link for them is on the Collab landing page
+  - The new system is not going to look as nice...
+- [Lab 4](../labs/lab04/index.html) is out; how is it going?
+- Next week is the first midterm.  Yay!
+  - During your lab section on Tuesday (9/27)
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- Everybody has to sign the UNIX honor pledge (link in Collab)
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will finish with [numbers](../slides/03-numbers.html#/) and start [arrays & big-Oh](../slides/04-arrays-bigoh.html#/)
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h2 class='xkcd'>Can't Sleep</h2><img class='stretch' src="http://imgs.xkcd.com/comics/cant_sleep.png" title="If androids someday DO dream of electric sheep, don&#39;t forget to declare sheepCount as a long int." alt="Can&#39;t Sleep" ><p class='center'><a href='http://xkcd.com/571/'>xkcd # 571</a></p>
+    </section>
+
+    <section data-markdown><script type="text/template">
+## Lecture 11: Fri, Sep 16th
+- Office hours are in full swing; schedule is on the [Collab landing page](https://collab.its.virginia.edu/x/ojqNTV)
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (hopefully) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+    - Today's Mon 6-8 will be light in terms of TA coverage
+  - Faculty office hours are Wed 10-noon in Rice 402
+- Support requests are up and running, but the system has changed; the link for them is on the Collab landing page
+  - The new system is not going to look as nice...
+- [Lab 3](../labs/lab03/index.html): how did it go?
+- [Lab 4](../labs/lab04/index.html) is out
+  - We'll see enough content for it by the end of the day today
+- The next week is the midterm!  (Tuesday, 9/27, during lab)
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- Everybody has to sign the UNIX honor pledge (link in Collab)
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [numbers](../slides/03-numbers.html#/)
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">Cautionary</h4><img class="stretch" src="http://imgs.xkcd.com/comics/cautionary.png" title="This really is a true story, and she doesn&#39;t know I put it in my comic because her wifi hasn&#39;t worked for weeks." alt="Cautionary"><p class="center"><a href="http://xkcd.com/456/">xkcd # 456</a></p>
+    </section>
+
+    <section data-markdown><script type="text/template">
+## Lecture 10: Wed, Sep 14th
+- Office hours are in full swing; schedule is on the [Collab landing page](https://collab.its.virginia.edu/x/ojqNTV)
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (hopefully) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+    - Today's Mon 6-8 will be light in terms of TA coverage
+  - Faculty office hours are Wed 10-noon in Rice 402
+- Support requests are up and running, but the system has changed; the link for them is on the Collab landing page
+  - The new system is not going to look as nice...
+- [Lab 3](../labs/lab03/index.html) is out; how is it going
+- [Lab 4](../labs/lab04/index.html) will be out tomorrow
+  - We'll see enough content for it by Friday
+- The next week is the midterm!  (Tuesday, 9/27, during lab)
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- Everybody has to sign the UNIX honor pledge (link in Collab)
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [numbers](../slides/03-numbers.html#/)
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">RPS</h4><img class="stretch" src="http://imgs.xkcd.com/comics/rps.png" title="It looks good, but it needs more postfixins." alt="RPS"><p class="center"><a href="http://xkcd.com/645/">xkcd # 645</a></p>
+    </section>
+
+    <section data-markdown><script type="text/template">
+## Lecture 9: Mon, Sep 12th
+- Office hours are in full swing; schedule is on the [Collab landing page](https://collab.its.virginia.edu/x/ojqNTV)
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (hopefully) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+    - Today's Mon 6-8 will be light in terms of TA coverage
+  - Faculty office hours are Wed 10-noon in Rice 402
+- Support requests are up and running, but the system has changed; the link for them is on the Collab landing page
+  - The new system is not going to look as nice...
+- If you added the class late, submit a support request, and we'll give you an extension to submit any lab 1 parts late; this may take some time
+- [Lab 3](../labs/lab03/index.html) is out
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- Everybody has to sign the UNIX honor pledge (link in Collab)
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [lists](../slides/02-lists.html#/); next up: [numbers](../slides/03-numbers.html#/)
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">Compiling</h4><img class="stretch" src="http://imgs.xkcd.com/comics/compiling.png" title="&#39;Are you stealing those LCDs?&#39; &#39;Yeah, but I&#39;m doing it while my code compiles.&#39;" alt="Compiling"><p class="center"><a href="http://xkcd.com/303/">xkcd # 303</a></p>
+    </section>
+
+    <section data-markdown><script type="text/template">
+## Lecture 8: Fri, Sep 9th
+- Office hours are in full swing; schedule is on the [Collab landing page](https://collab.its.virginia.edu/x/ojqNTV)
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (hopefully) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+  - Faculty office hours are Wed 10-noon in Rice 402
+- Support requests are up and running; the link for them is on the Collab landing page
+- We are changing our support request / office hours queue system
+  - The new one is not going to look as nice...
+- If you added the class late, submit a support request, and we'll give you an extension to submit any lab 1 parts late; this may take some time
+- [Lab 2](../labs/lab02/index.html), and the tutorial, is done!
+- [Lab 3](../labs/lab03/index.html) is out; we'll see stacks today
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- Everybody has to sign the UNIX honor pledge (link in Collab)
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [lists](../slides/02-lists.html#/)
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">Forgetting</h4><img class="stretch" src="http://imgs.xkcd.com/comics/forgetting.png" title="Of course, the assert doesn&#39;t work." alt="Forgetting"><p class="center"><a href="http://xkcd.com/379/">xkcd # 379</a></p>
+    </section>
+
+    <section data-markdown><script type="text/template">
+## Lecture 7: Wed, Sep 7th
+- Office hours are in full swing; schedule is on the [Collab landing page](https://collab.its.virginia.edu/x/ojqNTV)
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (hopefully) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+  - Faculty office hours are Wed 10-noon in Rice 402
+- Support requests are up and running; the link for them is on the Collab landing page
+  - You have to check back for a response, but we are going to get email notifications working "soon"...
+- If you added the class late, submit a support request, and we'll give you an extension to submit any lab 1 parts late; this may take some time
+- [Lab 2](../labs/lab02/index.html), and the tutorial, is out
+    - It's not an easy lab, so please don't wait until the last minute to start it
+- [Lab 3](../labs/lab03/index.html) will be ready tomorrow at noon
+    - We'll see the stack material on Friday
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- Everybody has to sign the UNIX honor pledge (link in Collab)
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [C++](../slides/01-cpp.html#/)
+  - Next up: [lists](../slides/02-lists.html#/)
+    </script></section>
+
+<section data-markdown id='lab2uml'><script type="text/template">
+## Doubly linked lists (lab 2)
+- This is the UML diagram from [Lab 2](../labs/lab02/index.html)
+![Lab 2 UML diagram](../labs/lab02/list-diagram.png)
+</script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">Compiler Complaint</h4><img class="stretch" src="http://imgs.xkcd.com/comics/compiler_complaint.png" title="Checking whether build environment is sane ... build environment is grinning and holding a spatula.  Guess not." alt="Compiler Complaint"><p class="center"><a href="http://xkcd.com/371/">xkcd # 371</a></p>
+    </section>
+
+          <section data-markdown><script type="text/template">
+## Pop Quiz!
+
+After having worked on [Lab 2](../../../../labs/lab02/index.html) (lists), I think:
+
+1. It was easy!
+2. It was hard, but doable
+3. It was insane!  Where do you get off assigning this much work?
+4. I'm not talking to you.  Ever.  Again.
+          </script></section>
+
+    <section data-markdown><script type="text/template">
+## Lecture 6: Mon, Sep 5th
+- Office hours are in full swing; schedule is on the [Collab landing page](https://collab.its.virginia.edu/x/ojqNTV)
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (hopefully) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+  - Faculty office hours are Wed 10-noon in Rice 402
+- Support requests are up and running; the link for them is on the Collab landing page
+  - You have to check back for a response, but we are going to get email notifications working "soon"...
+- If you added the class late, submit a support request, and we'll give you an extension to submit any lab 1 parts late; this may take some time
+- [Lab 2](..//labs/lab02/index.html), and the tutorial, is out
+    - It's not an easy lab, so please don't wait until the last minute to start it
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- Everybody has to sign the UNIX honor pledge (link in Collab)
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [C++](..//slides/01-cpp.html#/)
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">Pointers</h4><img class="stretch" src="http://imgs.xkcd.com/comics/pointers.png" title="Every computer, at the unreachable memory address 0x-1, stores a secret.  I found it, and it is that all humans ar-- SEGMENTATION FAULT." alt="Pointers"><p class="center"><a href="http://xkcd.com/138/">xkcd # 138</a></p>
+    </section>
+
+    <section data-markdown><script type="text/template">
+## Lecture 5: Fri, Sep 2nd
+- Office hours are in full swing; schedule is on the [Collab landing page](https://collab.its.virginia.edu/x/ojqNTV)
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (hopefully) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+  - Faculty office hours are Wed 10-noon in Rice 402
+- Support requests are up and running; the link for them is on the Collab landing page
+  - You have to check back for a response, but we are going to get email notifications working "soon"...
+- [Lab 1](..//labs/lab01/index.html): how did it go?
+  - If you added the class late, submit a support request, and we'll give you an extension to submit any lab 1 parts late; this may take some time
+- [Lab 2](..//labs/lab02/index.html), and the tutorial, is out
+    - It's not an easy lab, so please don't wait until the last minute to start it
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- Everybody has to sign the UNIX honor pledge (link in Collab)
+- Course links
+  - The course content is available at https://uva-cs.github.io/pdr/
+  - All of these links and the course tools are in the [Collab workspace](https://collab.its.virginia.edu/portal/site/8e2b3141-8dc4-460e-a4a3-9e005a88ce5a/page/2dbbf579-12b0-4e74-9eba-f1317737fd47)
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [C++](..//slides/01-cpp.html#/)
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">Donald Knuth</h4><img class="stretch" src="http://imgs.xkcd.com/comics/donald_knuth.png" title="His books were kinda intimidating; rappelling down through his skylight seemed like the best option." alt="Donald Knuth"><p class="center"><a href="http://xkcd.com/163/">xkcd # 163</a></p>
+    </section>
+
+    <section data-markdown><script type="text/template">
+## Lecture 4: Wed, Aug 31st
+- Office hours are in full swing
+  - Schedule is on the [Collab landing page](https://collab.its.virginia.edu/x/ojqNTV)
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (hopefully) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+  - Faculty office hours are Wed 10-noon in Rice 402
+- Support requests are up and running; the link for them is on the Collab landing page
+- [Lab 1](..//labs/lab01/index.html), and the tutorial, is out
+    - The VirtualBox image is available for download on the Collab landing page
+    - If you are having problems configuring VB, come to office hours
+- Gradescope is having compilation issues; please be patient (and let me know!) if it happens again
+- Do you have an M1 Mac?  If so, you can't run VirtualBox
+- Course links
+  - The course content is available at https://uva-cs.github.io/pdr/
+  - All of these links and the course tools are in the [Collab workspace](https://collab.its.virginia.edu/portal/site/8e2b3141-8dc4-460e-a4a3-9e005a88ce5a/page/2dbbf579-12b0-4e74-9eba-f1317737fd47)
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- Today we will continue with [C++](..//slides/01-cpp.html#/)
+    </script></section>
+
+    <section data-markdown><script type="text/template">
+## Course registration issues
+- Current enrollment this morning was 75 with 15 on the wait list
+- The room capacity is 90
+- I had the course cap increased to 90, so everybody on the wait list should be able to enroll
+- This should close out the registration issues
+- I will give all of those people extensions on prelab 1 and inlab 1 until Friday at 10am
+  - However, I can't do that until you are in the course roster
+  - So please submit a support request
+  - It's fine if this takes a few days to resolve itself
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">Goto</h4><img class="stretch" src="http://imgs.xkcd.com/comics/goto.png" title="Neal Stephenson thinks it&#39;s cute to name his labels &#39;dengo&#39;" alt="goto"><p class="center"><a href="http://xkcd.com/292/">xkcd # 292</a></p>
+    </section>
+
+    <section data-markdown><script type="text/template">
+## Lecture 3: Mon, Aug 29th
+- TA office hours start today
+  - Schedule is on the [Collab landing page](https://collab.its.virginia.edu/x/ojqNTV)
+  - TA office hours are Sun 8-10, Mon 6-10, Thu 6-8; all are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (hopefully) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+  - Faculty office hours are Wed 10-noon in Rice 402
+- Support requests are up and running; the link for them is on the Collab landing page
+- [Lab 1](..//labs/lab01/index.html), and the tutorial, is out
+    - The VirtualBox image is available for download on the Collab landing page
+    - If you are having problems configuring VB, come to office hours
+- Do you have an M1 Mac?  If so, you can't run VirtualBox
+- Course links
+  - The course content is available at https://uva-cs.github.io/pdr/
+  - All of these links and the course tools are in the [Collab workspace](https://collab.its.virginia.edu/portal/site/8e2b3141-8dc4-460e-a4a3-9e005a88ce5a/page/2dbbf579-12b0-4e74-9eba-f1317737fd47)
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- Interested in installing Linux?  We suggest Ubuntu; as always, back up your data first!
+- [Readings](../docs/readings.html) are optional, and are posted in the git repo
+- The lecture recording from Friday is posted in Collab
+- Today we will continue with [C++](..//slides/01-cpp.html#/)
+    </script></section>
+
+    <section data-markdown><script type="text/template">
+## Course registration issues
+- Current enrollment is 75, with 17 on the waitlist
+  - If you are not on the wait list, you are not going to be considered for a spot in the course
+- This room has a fire marshal limit of 90 students
+  - We want accommodate everybody we can in the course, but we cannot go above the fire marshal limit
+- For those on the wait list:
+  - Please fill out [this form](https://docs.google.com/forms/d/e/1FAIpQLSfuUPjkBhif77d5jb4J4k2JSc_wA8VojTzHRAz_nvWx5SSQiA/viewform)
+  - Easier URL to remember: [https://tinyurl.com/2kt38zpw](https://tinyurl.com/2kt38zpw)
+- If the number enrolled plus those on the wait list drops to 90 or lower, everybody will be allowed in
+- If you don't fill that out, we will not let you into the course!
+- We will start handling these sometime early this week
+  - You'll get an extension on lab 1
+    </script></section>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section>
+<h4 class="xkcd">Good Code</h4>
 <img class="stretch" src="http://imgs.xkcd.com/comics/good_code.png" title="You can either hang out in the Android Loop or the HURD loop." alt="Good Code">
 <p class="center"><a href="http://xkcd.com/844/">xkcd # 844</a></p>
-	  </section>
+    </section>
 
-	  <section data-markdown><script type="text/template">
-## Lecture 2: Friday, January 19
-- Office hours are all listed on the Google calendar
-  - They start this Sunday!
-- We will start adding special cases to the class soon. Sorry for the delay!
-  - Afterwards, the lab capacity will be set to 45 (the maximum possible) for all labs.
-- [Lab 1](../labs/lab01/index.html) and [Tutorial 1](../tutorials/01-intro-unix/index.html) are out
-  - When labs are ready, it is be posted on the twitter feed: [@UVaCS2150](https://twitter.com/@UVaCS2150)
-  - The VirtualBox image is uploaded (Check the lab1 tutorial or collab resources for a link to it).
-  - You will need [7-zip](http://www.7-zip.org/) to unzip it
-  - Make sure you specify that the guest is 64-bit!
-  - The assignment submission will automatically open Sunday at noon
-  - To get started, you can view the repo online at http://markfloryan.github.io/pdr/ (the lab is [here](http://markfloryan.github.io/pdr/labs/lab01/index.html); the tutorial is [here](http://markfloryan.github.io/pdr/tutorials/01-intro-unix/index.html))
-- [Anonymous feedback](https://collab.itc.virginia.edu/portal/directtool/5cb9faf8-a234-47f1-b29a-4698cf245b48/)!  It's through Collab
-- Interested in installing Linux?  We suggest Ubuntu; speak to us for details
+    <section data-markdown><script type="text/template">
+## Lecture 2: Fri, Aug 26th
+- TA office hours start this *Monday* (Aug 29th)
+    - There will be no office hours this Sunday
+    - The full schedule will be posted on the Collab landing page on Monday in the late morning
+    - TA office hours are in the Thornton Stacks (second floor of Thornton A-wing), and the TAs will (hopefully) be wearing our [TA t-shirts](https://twitter.com/UVaCS2150/status/829727019936124929/photo/1)
+  - Faculty office hours are TBA for Bloomfield
+- Support requests are up and running; the link for them will be on the Collab landing page
+- [Lab 1](..//labs/lab01/index.html), and the tutorial, is out
+    - The VirtualBox image is available for download on the Collab landing page
+- Do you have an M1 Mac?  If so, you can't run VirtualBox
+- Course links
+  - The course content is available at https://uva-cs.github.io/pdr/
+  - All of these links and the course tools are in the [Collab workspace](https://collab.its.virginia.edu/portal/site/8e2b3141-8dc4-460e-a4a3-9e005a88ce5a/page/2dbbf579-12b0-4e74-9eba-f1317737fd47)
+- [Anonymous feedback](https://collab.its.virginia.edu/x/Ro6eKi)!  It's through Collab
+- Interested in installing Linux?  We suggest Ubuntu; as always, back up your data first!
 - [Readings](../docs/readings.html) are optional, and are posted in the git repo
-- Today we will finish the [course introduction](course-introduction.html#/) and start on [C++](../slides/01-cpp.html#/)
-  - We will see a brief tour of the Collab workspace and the git repo today
-	  </script></section>
+- The lecture recording from Wednesday is posted in Collab
+- Today we will finish the [course introduction](course-introduction.html#/) and start on [C++](..//slides/01-cpp.html#/)
+    </script></section>
+
+    <section data-markdown><script type="text/template">
+## Course registration issues
+- Clarification: if you are *currently* in the class, you are not going to be forced to drop it, even if you are a minor
+  - Sorry if I was unclear on that last time
+- Currently there are 76 students enrolled and 17 on the wait list
+  - If you are not on the wait list, you are not going to be considered for a spot in the course
+- This room has a fire marshal limit of 90 students
+- We will accommodate everybody we can in the course, but we cannot go above the fire marshal limit
+- For those on the wait list:
+  - Please fill out [this form](https://docs.google.com/forms/d/e/1FAIpQLSfuUPjkBhif77d5jb4J4k2JSc_wA8VojTzHRAz_nvWx5SSQiA/viewform)
+  - Easier URL to remember: [https://tinyurl.com/2kt38zpw](https://tinyurl.com/2kt38zpw)
+- We will start handling these early next week
+  - You'll get an extension on lab 1
+    </script></section>
+
+  </section>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
 
-	</section>
+  </section>
 
-	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
       </div>
 
     </div>
 
-    <div id="calibratediv" style="display:none">
-      <div id="calibratecanvasdiv">
-        <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
-      </div>
-      <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
-    </div>
-    <script src="../slides/reveal.js/lib/js/head.min.js"></script>
-    <script src="../slides/reveal.js/js/reveal.js"></script>
+<script src="../slides/reveal.js/dist/reveal.js"></script>
+<script src="../slides/reveal.js/plugin/zoom/zoom.js"></script>
+<script src="../slides/reveal.js/plugin/notes/notes.js"></script>
+<script src="../slides/reveal.js/plugin/search/search.js"></script>
+<script src="../slides/reveal.js/plugin/markdown/markdown.js"></script>
+<script src="../slides/reveal.js/plugin/highlight/highlight.js"></script>
+<script src="../slides/reveal.js/plugin/math/math.js"></script>
     <!-- You cannot, apparently, include this from another directory, hence why settings.js is reproduced here in full -->
     <script>
       // Full list of configuration options available here:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
+      controlsTutorial: false,
       controls: true,
       progress: true,
       history: true,
-      center: true,
       slideNumber: true,
       transition: 'slide', // none/fade/slide/convex/concave/zoom
-      // Optional reveal.js plugins
-      dependencies: [
-      { src: '../slides/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-      { src: '../slides/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-      { src: '../slides/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-      { src: '../slides/reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-      { src: '../slides/reveal.js/plugin/zoom-js/zoom.js', async: true },
-      { src: '../slides/reveal.js/plugin/notes/notes.js', async: true }
-      ]
+
+    hash: true,
+
+    math: {
+      mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+      config: 'TeX-AMS_HTML-full',
+      // pass other options into `MathJax.Hub.Config()`
+      TeX: { Macros: { RR: "{\\bf R}" } }
+    },
+
+    // Learn about plugins: https://revealjs.com/plugins/
+    plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ],
+
       });
     </script>
 

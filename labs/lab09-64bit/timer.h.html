@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>timer.h</title>
+</head>
+<body style="background-color:white">
+<pre><i><span style="color:#9A1900">// NOTE: in order to compile this system on Linux (and most Unix</span></i>
+<i><span style="color:#9A1900">// systems) you will have to include the -lrt flag to your compiler.</span></i>
+<i><span style="color:#9A1900">//</span></i>
+<i><span style="color:#9A1900">// This timer typically has 1/1000000 second (1 micro-second) accuracy</span></i>
+<i><span style="color:#9A1900">// under most Linux distributions</span></i>
+
+<i><span style="color:#9A1900">/*Nicholas Mohammad</span></i>
+<i><span style="color:#9A1900">  nm9ur</span></i>
+<i><span style="color:#9A1900">  timer.h</span></i>
+<i><span style="color:#9A1900">  10/19/2017</span></i>
+<i><span style="color:#9A1900">*/</span></i>
+
+
+<b><span style="color:#000080">#ifndef</span></b> TIMER_H
+<b><span style="color:#000080">#define</span></b> TIMER_H
+
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;iostream&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;string&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;time.h&gt;</span>
+<b><span style="color:#000080">#include</span></b> <span style="color:#FF0000">&lt;sys/time.h&gt;</span>
+
+<b><span style="color:#0000FF">using</span></b> <b><span style="color:#0000FF">namespace</span></b> std<span style="color:#990000">;</span>
+
+<b><span style="color:#0000FF">class</span></b> <span style="color:#008080">timer</span> <span style="color:#FF0000">{</span>
+<b><span style="color:#0000FF">private</span></b><span style="color:#990000">:</span>
+    <span style="color:#008080">timeval</span> startVar<span style="color:#990000">,</span> stopVar<span style="color:#990000">;</span>
+    <span style="color:#009900">bool</span> running<span style="color:#990000">;</span>
+
+<b><span style="color:#0000FF">public</span></b><span style="color:#990000">:</span>
+    <b><span style="color:#000000">timer</span></b><span style="color:#990000">()</span> <span style="color:#990000">:</span> <b><span style="color:#000000">running</span></b><span style="color:#990000">(</span><span style="color:#993399">0</span><span style="color:#990000">)</span> <span style="color:#FF0000">{}</span>
+    <span style="color:#990000">~</span><b><span style="color:#000000">timer</span></b><span style="color:#990000">()</span> <span style="color:#FF0000">{}</span>
+    <b><span style="color:#000000">timer</span></b><span style="color:#990000">(</span>timer <span style="color:#990000">&amp;</span> myTimer<span style="color:#990000">);</span>
+    <span style="color:#009900">int</span> <b><span style="color:#000000">start</span></b><span style="color:#990000">();</span>
+    <span style="color:#009900">int</span> <b><span style="color:#000000">stop</span></b><span style="color:#990000">();</span>
+    <span style="color:#008080">string</span> <b><span style="color:#000000">toString</span></b><span style="color:#990000">();</span>
+    ostream <span style="color:#990000">&amp;</span> <b><span style="color:#000000">print</span></b><span style="color:#990000">(</span><span style="color:#008080">ostream</span> <span style="color:#990000">&amp;</span>theStream<span style="color:#990000">);</span>
+    <span style="color:#009900">double</span> <b><span style="color:#000000">getTime</span></b><span style="color:#990000">();</span>
+<span style="color:#FF0000">}</span><span style="color:#990000">;</span>
+
+ostream <span style="color:#990000">&amp;</span> <b><span style="color:#0000FF">operator</span></b><span style="color:#990000">&lt;&lt;(</span>ostream <span style="color:#990000">&amp;</span> theStream<span style="color:#990000">,</span> timer <span style="color:#990000">&amp;</span> theTimer<span style="color:#990000">);</span>
+
+<b><span style="color:#000080">#endif</span></b>
+</pre>
+</body>
+</html>

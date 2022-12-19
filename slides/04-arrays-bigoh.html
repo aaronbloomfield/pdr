@@ -4,33 +4,31 @@
     <meta charset="utf-8">
     <title>CS 2150: 04-arrays-bigoh slide set</title>
     <meta name="description" content="A set of slides for a course on Program and Data Representation">
-    <meta name="author" content="Mark Floryan">
+    
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
-    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/theme/black.css" id="theme">
     <link rel="stylesheet" href="../slides/css/pdr.css">
     <!-- Code syntax highlighting -->
-    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <link rel="stylesheet" href="../slides/reveal.js/plugin/highlight/zenburn.css">
     <!-- Printing and PDF exports -->
     <script>
       var link = document.createElement( 'link' );
       link.rel = 'stylesheet';
       link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.scss' : '../slides/reveal.js/css/print/paper.scss';
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
     <!--[if lt IE 9]>
 	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
 	<![endif]-->
-    <script type="text/javascript" src="../slides/js/dhtmlwindow.js"></script>
-    <script type="text/javascript" src="../slides/js/canvas.js"></script>
-    <link rel="stylesheet" href="../slides/css/dhtmlwindow.css" type="text/css">
+    <style>.reveal li { font-size:93%; line-height:120%; }</style>
   </head>
 
-  <body onload="canvasinit()">
-    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+  <body>
 
     <div class="reveal">
 
@@ -41,11 +39,15 @@
 # CS 2150
 &nbsp;
 ### Program and Data Representation
-&nbsp;
-<center><small>[Mark Floryan](http://www.cs.virginia.edu/~mrf8t) / [mrf8t@virginia.edu](mailto:mrf8t@virginia.edu)</small></center>
-<center><small>Repository: [github.com/markfloryan/pdr](http://github.com/markfloryan/pdr) / [&uarr;](index.html) / <a href="04-arrays-bigoh.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
-&nbsp;  
-&nbsp;
+
+<p class='titlep'>&nbsp;</p>
+<div class="titlesmall"><p>
+<a href="http://www.cs.virginia.edu/~mrf8t">Mark Floryan</a> (mrf8t@virginia.edu)<br>
+<a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)<br>
+<a href="http://github.com/uva-cs/pdr">@github</a> | <a href="index.html">&uarr;</a> | <a href="./04-arrays-bigoh.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png" style="top:0px;vertical-align:middle"></a>
+</p></div>
+<p class='titlep'>&nbsp;</p>
+
 ## Arrays & Big-Oh
 	</script></section>
     <section>
@@ -76,7 +78,7 @@
 
 	<section>
 
-	  <section id="arrays" data-markdown><script type="text/template">
+	  <section id="arrays" data-markdown class="center"><script type="text/template">
 # Arrays in C/C++
 	  </script></section>
 
@@ -123,8 +125,7 @@ someInts[0], someInts[1], someInts[2]
   <li>Local constant that cannot be changed</li></ul></li>
 <li>Note that the previous declaration is almost the same as:
 <pre><code>int* someInts = new int[3];</code></pre><ul>
-  <li>But since this second declaration is declared with <code>new</code>, the programmer must delete it with <code>delete</code></li></ul></li>
-<script type="text/javascript">insertCanvas();</script>
+  <li>But since this second declaration is declared with <code>new</code>, the programmer must delete it: <code>delete []</code></li></ul></li>
 </ul>
 	  </section>
 
@@ -167,7 +168,7 @@ someInts[0], someInts[1], someInts[2]
 ## Function Calls and Arrays
 (no external source code)
 ```
-someFunc(int arrayOfInts[]) { /* ... */ }
+void someFunc(int arrayOfInts[]) { /* ... */ }
 
 // ...
 
@@ -212,8 +213,8 @@ Multi-dimensional arrays in C++ are stored in ***row major*** order
   - An array of C-style strings (`char*`) containing those parameters
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
-## Command-line parameters example
+	  <section data-markdown id="cmdlineparams"><script type="text/template">
+## Command-line parameters
 Source code: [cmdlineparams.cpp](code/04-arrays-bigoh/cmdlineparams.cpp.html) ([src](code/04-arrays-bigoh/cmdlineparams.cpp))
 ```
 int main (int argc, char* argv[]) {
@@ -244,7 +245,7 @@ int main (int argc, char* argv[]) {
 
 	<section>
 
-	  <section id="growth" data-markdown><script type="text/template">
+	  <section id="growth" data-markdown class="center"><script type="text/template">
 # Orders of Growth
 	  </script></section>
 
@@ -276,9 +277,9 @@ int main (int argc, char* argv[]) {
   - A [bogosort](http://en.wikipedia.org/wiki/Bogosort) will work just fine
 - Consider big input sizes:
   - UVa's e-mail probably has about 100,000 e-mail addresses
-  - [OpenStreetMap](http://www.openstreetmap.org), for driving routes, has over 3.2 billion nodes and 5.1 million GPS points ([ref](http://www.openstreetmap.org/stats/data_stats.html)) (as of Feb 2016)
+  - [OpenStreetMap](http://www.openstreetmap.org), for driving routes, has over 4.7 billion nodes and 6.4 million GPS points ([ref](http://www.openstreetmap.org/stats/data_stats.html)) (as of Sep 2018)
     - A 'node' is a point on the Earth's surface, and not necessarily an intersection
-  - Google's index has almost 50 billion items ([ref](http://www.worldwidewebsize.com/)) (as of Feb 2016)
+  - Google's index has almost 47 billion items ([ref](http://www.worldwidewebsize.com/)) (as of Sep 2018)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -336,7 +337,7 @@ int main (int argc, char* argv[]) {
     <li><i>f</i> &isin; &Theta;(<i>g</i>) read as &quot;<i>f</i> is asymptotic order <i>g</i>&quot; or &quot;<i>f</i> is order <i>g</i>&quot;</li></ul></li>
 </ul></li>
 </ul>
-<script type="text/javascript">insertCanvas();</script>
+<!-- <script type="text/javascript">insertCanvas();</script> -->
 	  </section>
 
 	  <section data-markdown><script type="text/template">
@@ -538,7 +539,6 @@ int main (int argc, char* argv[]) {
 |----------|------|
 | *c* | constant |
 | log *n* | logarithmic |
-| log<sup>2</sup>*n* | log-squared |
 | *n* | linear |
 | *n* log *n* | log-linear |
 | *n*<sup>2</sup> | quadratic |
@@ -585,7 +585,7 @@ int main (int argc, char* argv[]) {
   - Analyze from inside to out
     - Runtime of the statement \* product of the sizes of the loops
 - Consecutive statements
-  - Additive (remember that we remove constants!)
+  - Take the max runtime of the individual statements
 - if/else
   - Time for the test plus the longer of the runtimes
 	  </script></section>
@@ -595,7 +595,7 @@ int main (int argc, char* argv[]) {
 
 	<section>
 
-	  <section id="runningtimes" data-markdown><script type="text/template">
+	  <section id="runningtimes" data-markdown class="center"><script type="text/template">
 # Determining Running Times
 	  </script></section>
 
@@ -676,15 +676,7 @@ int main (int argc, char* argv[]) {
 
     </div>
 
-    <div id="calibratediv" style="display:none">
-      <div id="calibratecanvasdiv">
-        <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
-      </div>
-      <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
-    </div>
-
-    <script src="reveal.js/lib/js/head.min.js"></script>
-    <script src="reveal.js/js/reveal.js"></script>
+    <script src='../slides/reveal.js/dist/reveal.js'></script><script src='../slides/reveal.js/plugin/zoom/zoom.js'></script><script src='../slides/reveal.js/plugin/notes/notes.js'></script><script src='../slides/reveal.js/plugin/search/search.js'></script><script src='../slides/reveal.js/plugin/markdown/markdown.js'></script><script src='../slides/reveal.js/plugin/highlight/highlight.js'></script><script src='../slides/reveal.js/plugin/math/math.js'></script>
     <script src="js/settings.js"></script>
 
   </body>

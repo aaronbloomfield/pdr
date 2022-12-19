@@ -4,14 +4,14 @@
 using namespace std;
 
 class BinaryNode {
-  BinaryNode();
-  ~BinaryNode();
+    BinaryNode();
+    ~BinaryNode();
 
-  string value;
-  BinaryNode* left;
-  BinaryNode* right;
+    string value;
+    BinaryNode* left;
+    BinaryNode* right;
 
-  friend class BinarySearchTree;
+    friend class BinarySearchTree;
 };
 
 #endif

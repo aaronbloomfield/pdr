@@ -1,68 +1,119 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>Program and Data Representation: Tutorials</title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../markdown.css" type="text/css" />
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../markdown.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
-<h1 id="program-and-data-representation-tutorials">Program and Data Representation: Tutorials</h1>
-<p><a href="../readme-old.html">Go up to the main README file</a></p>
+<h1 id="program-and-data-representation-tutorials">Program and Data
+Representation: Tutorials</h1>
+<p><a href="../readme.html">Go up to the main README file</a></p>
 <p>The tutorials for this course are listed below.</p>
 <ul>
-<li><a href="01-intro-unix/index.html">Tutorial 1: Introduction to Unix</a>
+<li><a href="01-intro-unix/index.html">Tutorial 1: Introduction to
+Unix</a>
 <ul>
-<li>And <a href="01-intro-unix/virtual-box.html">Tutorial 1: Introduction to Unix: VirtualBox use</a></li>
-<li>And <a href="01-intro-unix/vb-image-details.html">Tutorial 1: Introduction to Unix: VirtualBox image creation details</a></li>
+<li>If you are installing VirtualBox, see the <a
+href="01-intro-unix/virtual-box.html">Introduction to UNIX: VirtualBox
+Use</a> page</li>
 </ul></li>
 <li>Tutorial 2: Debugger
 <ul>
-<li>There are <em>two</em> different tutorials, depending on whether you want to use gdb or lldb; only one is required. Pick the one that works best in your environment (lldb is preferred, but that does not work in the Ubuntu VirtualBox image). The source code provided is the same.</li>
-<li><a href="02-gdb/index.html">Tutorial 2: GDB</a>
-<ul>
-<li>Source code: <a href="02-gdb/prog1.cpp.html">prog1.cpp</a> (<a href="02-gdb/prog1.cpp">src</a>), <a href="02-gdb/debug.cpp.html">debug.cpp</a> (<a href="02-gdb/debug.cpp">src</a>)</li>
-</ul></li>
+<li>There are <em>two</em> different tutorials, depending on whether you
+want to use LLDB or GDB; only one is required. GDB is listed as a backup
+in case LLDB doesn’t work on your machine.</li>
 <li><a href="02-lldb/index.html">Tutorial 2: LLDB</a>
 <ul>
-<li>Source code: <a href="02-lldb/prog1.cpp.html">prog1.cpp</a> (<a href="02-lldb/prog1.cpp">src</a>), <a href="02-lldb/debug.cpp.html">debug.cpp</a> (<a href="02-lldb/debug.cpp">src</a>)</li>
+<li>Source code: <a href="02-lldb/prog1.cpp.html">prog1.cpp</a> (<a
+href="02-lldb/prog1.cpp">src</a>), <a
+href="02-lldb/debug.cpp.html">debug.cpp</a> (<a
+href="02-lldb/debug.cpp">src</a>)</li>
+</ul></li>
+<li><a href="02-gdb/index.html">Tutorial 2: GDB</a>
+<ul>
+<li>Source code: <a href="02-gdb/prog1.cpp.html">prog1.cpp</a> (<a
+href="02-gdb/prog1.cpp">src</a>), <a
+href="02-gdb/debug.cpp.html">debug.cpp</a> (<a
+href="02-gdb/debug.cpp">src</a>)</li>
 </ul></li>
 </ul></li>
-<li><a href="03-04-more-unix/index.html">Tutorial 3: More Unix, part 1</a>, which is sections 1-4; this tutorial is originally from <a href="http://www.ee.surrey.ac.uk/Teaching/Unix/">here</a></li>
-<li><a href="03-04-more-unix/index.html">Tutorial 4: More Unix, part 2</a>, which is sections 5-8; this tutorial is originally from <a href="http://www.ee.surrey.ac.uk/Teaching/Unix/">here</a></li>
-<li><a href="05-make/index.html">Tutorial 5: make</a>, and the necessary <a href="05-make/pizza.zip">pizza.zip</a></li>
+<li><a href="03-04-more-unix/index.html">Tutorial 3: More Unix, part
+1</a>, which is sections 1-4; this tutorial is originally from <a
+href="http://www.ee.surrey.ac.uk/Teaching/Unix/">here</a></li>
+<li><a href="03-04-more-unix/index.html">Tutorial 4: More Unix, part
+2</a>, which is sections 5-8; this tutorial is originally from <a
+href="http://www.ee.surrey.ac.uk/Teaching/Unix/">here</a></li>
+<li><a href="05-make/index.html">Tutorial 5: make</a>, and the necessary
+<a href="05-make/pizza.zip">pizza.zip</a></li>
 <li>Tutorial 6: Shell scripting, part 1
 <ul>
-<li>This part of the <a href="http://en.wikibooks.org/wiki/Bash_Shell_Scripting">Wikibooks article on Bash Shell Scripting</a></li>
-<li>In particular, it is <a href="http://en.wikibooks.org/w/index.php?title=Bash_Shell_Scripting#Introduction">section 1 (introduction)</a> through <a href="http://en.wikibooks.org/w/index.php?title=Bash_Shell_Scripting#Variables">section 4 (variables)</a>, as well as <a href="http://en.wikibooks.org/w/index.php?title=Bash_Shell_Scripting#Shell_arithmetic">section 12 (shell arithmetic)</a> and <a href="http://en.wikibooks.org/w/index.php?title=Bash_Shell_Scripting#Input.2FOutput">section 14 (input/output)</a></li>
+<li>This part of the <a
+href="http://en.wikibooks.org/wiki/Bash_Shell_Scripting">Wikibooks
+article on Bash Shell Scripting</a></li>
+<li>In particular, it is <a
+href="http://en.wikibooks.org/w/index.php?title=Bash_Shell_Scripting#Introduction">section
+1 (introduction)</a> through <a
+href="http://en.wikibooks.org/w/index.php?title=Bash_Shell_Scripting#Variables">section
+4 (variables)</a>, as well as <a
+href="http://en.wikibooks.org/w/index.php?title=Bash_Shell_Scripting#Shell_arithmetic">section
+12 (shell arithmetic)</a> and <a
+href="http://en.wikibooks.org/w/index.php?title=Bash_Shell_Scripting#Input.2FOutput">section
+14 (input/output)</a></li>
 </ul></li>
 <li>Tutorial 7: Shell scripting, part 2
 <ul>
-<li>This is the remainder of the <a href="http://en.wikibooks.org/wiki/Bash_Shell_Scripting">Wikibooks article on Bash Shell Scripting</a></li>
+<li>This is the remainder of the <a
+href="http://en.wikibooks.org/wiki/Bash_Shell_Scripting">Wikibooks
+article on Bash Shell Scripting</a></li>
 </ul></li>
 <li>Tutorial 8: assembly
 <ul>
-<li><del>32-bit: This two PDF book chapters that are contained in this repository: <a href="../book/x86-32bit-asm-chapter.pdf">x86 Assembly, 32 bit</a> and <a href="../book/x86-32bit-ccc-chapter.pdf">The 32 bit x86 C Calling Convention</a></del></li>
-<li>64-bit: This two PDF book chapters that are contained in this repository: <a href="../book/x86-64bit-asm-chapter.pdf">x86 Assembly, 64 bit</a> and <a href="../book/x86-64bit-ccc-chapter.pdf">The 64 bit x86 C Calling Convention</a>
+<li><del>32-bit: This two PDF book chapters that are contained in this
+repository: <a href="../book/x86-32bit-asm-chapter.pdf">x86 Assembly, 32
+bit</a> and <a href="../book/x86-32bit-ccc-chapter.pdf">The 32 bit x86 C
+Calling Convention</a></del></li>
+<li>64-bit: This two PDF book chapters that are contained in this
+repository: <a href="../book/x86-64bit-asm-chapter.pdf">x86 Assembly, 64
+bit</a> and <a href="../book/x86-64bit-ccc-chapter.pdf">The 64 bit x86 C
+Calling Convention</a>
 <ul>
-<li>Another good reading document is the <a href="https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf">x86-64 Machine-Level Programming document</a> from CMU, although they use the other assembly language format</li>
+<li>Another good reading document is the <a
+href="https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf">x86-64
+Machine-Level Programming document</a> from CMU, although they use the
+other assembly language format</li>
 </ul></li>
 </ul></li>
 <li><a href="09-c/index.html">Tutorial 9: C</a></li>
 <li>(no tutorial 10)</li>
 <li><a href="11-doxygen/index.html">Tutorial 11: Doxygen</a>
 <ul>
-<li>Source code: <a href="11-doxygen/average.cpp.html">average.cpp</a> (<a href="11-doxygen/average.cpp">src</a>)</li>
+<li>Source code: <a href="11-doxygen/average.cpp.html">average.cpp</a>
+(<a href="11-doxygen/average.cpp">src</a>)</li>
 </ul></li>
 <li><a href="12-objc/index.html">Tutorial 12: Objective C</a>
 <ul>
-<li>Source code: <a href="12-objc/helloworld.m.html">helloworld.m</a> (<a href="12-objc/helloworld.m">src</a>)</li>
+<li>Source code: <a href="12-objc/helloworld.m.html">helloworld.m</a>
+(<a href="12-objc/helloworld.m">src</a>)</li>
 </ul></li>
 </ul>
 <h3 id="other-tutorials">Other Tutorials</h3>
-<p>These are tutorials that may be useful to students, but are not assigned as part of the labs.</p>
+<p>These are tutorials that may be useful to students, but are not
+assigned as part of the labs.</p>
 <ul>
 <li><a href="other/ssh-scp.html">SSH and SCP tutorial</a></li>
 </ul>

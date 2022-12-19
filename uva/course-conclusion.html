@@ -4,33 +4,31 @@
     <meta charset="utf-8">
     <title>CS 2150: course-conclusion slide set</title>
     <meta name="description" content="A set of slides for a course on Program and Data Representation">
-    <meta name="author" content="Aaron Bloomfield">
+
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
-    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/theme/black.css" id="theme">
     <link rel="stylesheet" href="../slides/css/pdr.css">
     <!-- Code syntax highlighting -->
-    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <link rel="stylesheet" href="../slides/reveal.js/plugin/highlight/zenburn.css">
     <!-- Printing and PDF exports -->
     <script>
       var link = document.createElement( 'link' );
       link.rel = 'stylesheet';
       link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.scss' : '../slides/reveal.js/css/print/paper.scss';
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
     <!--[if lt IE 9]>
 	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
 	<![endif]-->
-    <script type="text/javascript" src="../slides/js/dhtmlwindow.js"></script>
-    <script type="text/javascript" src="../slides/js/canvas.js"></script>
-    <link rel="stylesheet" href="../slides/css/dhtmlwindow.css" type="text/css">
+    <style>.reveal li { font-size:93%; line-height:120%; }</style>
   </head>
 
-  <body onload="canvasinit()">
-    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+  <body>
 
     <div class="reveal">
 
@@ -41,19 +39,21 @@
 # CS 2150
 &nbsp;
 ### Program and Data Representation
-### Spring 2017
-&nbsp;
-<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
-<center><small>Repository: [github.com/aaronbloomfield/pdr](http://github.com/aaronbloomfield/pdr) / [&uarr;](index.html) / <a href="course-conclusion.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png"></a></small></center>
-&nbsp;  
-&nbsp;  
+
+<p class='titlep'>&nbsp;</p>
+<div class="titlesmall"><p>
+<a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)<br>
+<a href="http://github.com/uva-cs/pdr">@github</a> | <a href="index.html">&uarr;</a> | <a href="./course-conclusion.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png" style="top:0px;vertical-align:middle"></a>
+</p></div>
+<p class='titlep'>&nbsp;</p>
+
 ## Course Conclusion
 	</script></section>
 
 	<section data-markdown><script type="text/template">
 ## Course Objectives
 
-<div style="font-size:80%">
+<div style="font-size:67%">
 <ul>
 <li>Understand program representation from the high-level programming language perspective down to the underlying machine level representation, including: number representation, operations, conditionals, and control structures</li>
 <li>Be able to implement basic and advanced abstract data types in C++ including: linked lists, stacks, queues, hash tables, trees, and graphs</li>
@@ -65,12 +65,10 @@
 
 	<section data-markdown><script type="text/template">
 ## What was new this semester
-- Many tweaks and updates to the [github repo](https://github.com/aaronbloomfield/pdr)
-- A (somewhat) reasonable amount of TA resources
-  - But still less than we would like it to be
-- The largest enrollment ever (300 students)
-- Streamlined grading, even if we did run into hitches and delays
-- Two instructors meant synchronizing the lectures more carefully
+- Much better TA-to-student ratio due to the smaller class size
+- Very experienced TAs
+- A few tweaks and updates to the [github repo](https://github.com/uva-cs/pdr)
+- A very small class (about 80 students)
 	</script></section>
 
 	<section>
@@ -89,18 +87,16 @@
 <li>Lab 9: x86 part 2</li>
 <li>Lab 10: Huffman</li>
 <li>Lab 11: Graphs</li>
-<li>Lab 12: Objective C</li>
+<li><strike>Lab 12: Survey</strike></li>
 </td></tr></table>
 	</section>
 
 	<section data-markdown><script type="text/template">
 ## What didn't work well
-- Some minor submission server issues
-- Occassionaly falling behind in the grading, although we generally kept up
-- Support request response slowness
-- Still not as many TA resources as we would like due to lack of departmental $$$
-- Not having as many readings available as I would have liked
-- VirtualBox caused a lot of issues for some people
+- More individual student issues (illness, mental health) than is typical, which was not surprising
+- Only one instructor keeping up with all the logistics
+- M1 Macs not being able to run x86 assembly
+- Gradescope compilation issues due to a reconfiguration on their side
 	</script></section>
 
 	<section data-markdown><script type="text/template">
@@ -110,20 +106,18 @@
 
 	<section data-markdown><script type="text/template">
 ## What did work well
-- Submission and gradebook scripts!  This saved a HUGE amount of TA time, and streamlined submission and grading
-  - Especially the support ticket system
+- Gradescope as the submission system (even if there were tweaks to be made)
+  - Especially the support ticket system, even if we were occassionally slow to respond
+- The office hours queue system (but not Thursdays)
 - An excellent group of undergraduate TAs
-  - All were returning TAs, which was has never happened before
 - None of the labs had any major issues!  W00t!
-  - Labs 6 & 10 do not count as "major issues"
-- Use of the [github repo](https://github.com/aaronbloomfield/pdr), and almost no use of Collab
+- Use of the [github repo](https://github.com/uva-cs/pdr), and almost no use of Collab
 - Behind-the-scenes stuff: TA management, organization, etc.
 	</script></section>
 
 	<section data-markdown><script type="text/template">
 ## Did we push too hard?
 - We got as many "things are going great" comments as "things are going terrible"
-  - Although anonymous feedback was rather lonely this semester...
 - Part of the issues were the hard labs
 - This course is meant to be a lot of work: a gateway into the CS electives
 - The goal is to make you work efficiently, not necessarily more
@@ -132,35 +126,26 @@
 
 	<section data-markdown><script type="text/template">
 ## Changes for next semester
-- After 10 straight years (20 semesters!), Bloomfield will no longer be teaching CS 2150
-  - Floryan will be taking over both sections
-- More students than ever (approximately 330)
-- Updates to the content in the [github repo](https://github.com/aaronbloomfield/pdr) (specifically what's listed in the [github repo issues](https://github.com/aaronbloomfield/pdr/issues))
-- With the office hour queue data, we can better target where to staff extra TAs for the busiest office hours
-- More book chapters; we only had a few this semester; I'd like to expand on the x86 one for next semester, and add a heap/Huffman chapter
-- VirtualBox is showing it's age, and may be replaced
-- Course content changes (next slide)
+- This is the last semester of CS 2150!
+- The course content is being split into multiple classes in the new curriculum:
+  - Data structures into CS 3100 (DSA2)
+  - Assembly into CS 2130 & 3130 (CSO1 & CSO2, but more so the former) 
 	</script></section>
 
 	<section data-markdown><script type="text/template">
 ## CS 2150 moving forward
-- We moved to 64-bit x86 assembly in the fall 2016 semester
-  - This semester, CS 2110 focused more on lists and BSTs (only)
-- Fall 2017 changes
-  - The data structures covered will change
-  - CS 2150 may spend less time on lists and BSTs (now covered in CS 2110), but cover all the remaining data structures
-    - We will introduce some new ones: perhaps set data structures
+- RIP
 	</script></section>
 
 	<section data-markdown><script type="text/template">
 ## Let us know your comments!
-- Please send me your feedback!
+- Please send us your feedback!
   - Either by e-mail or anonymously or on the course surveys
 - Please fill out the course surveys!
 	</script></section>
 
 	<section>
-<h2>Have a great summer break!</h2>
+<h2>Have a great break!</h2>
 <img class="stretch" src="http://www.adamfishercox.com/calvinandhobbes/pageimages/laststrip.png" alt="calvin and hobbes" style="width:100%;background-color:white">
 	</section>
 
@@ -168,34 +153,37 @@
 
     </div>
 
-    <div id="calibratediv" style="display:none">
-      <div id="calibratecanvasdiv">
-        <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
-      </div>
-      <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
-    </div>
-    <script src="../slides/reveal.js/lib/js/head.min.js"></script>
-    <script src="../slides/reveal.js/js/reveal.js"></script>
+<script src="../slides/reveal.js/dist/reveal.js"></script>
+<script src="../slides/reveal.js/plugin/zoom/zoom.js"></script>
+<script src="../slides/reveal.js/plugin/notes/notes.js"></script>
+<script src="../slides/reveal.js/plugin/search/search.js"></script>
+<script src="../slides/reveal.js/plugin/markdown/markdown.js"></script>
+<script src="../slides/reveal.js/plugin/highlight/highlight.js"></script>
+<script src="../slides/reveal.js/plugin/math/math.js"></script>
     <!-- You cannot, apparently, include this from another directory, hence why settings.js is reproduced here in full -->
     <script>
       // Full list of configuration options available here:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
+      controlsTutorial: false,
       controls: true,
       progress: true,
       history: true,
-      center: true,
       slideNumber: true,
       transition: 'slide', // none/fade/slide/convex/concave/zoom
-      // Optional reveal.js plugins
-      dependencies: [
-      { src: '../slides/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-      { src: '../slides/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-      { src: '../slides/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-      { src: '../slides/reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-      { src: '../slides/reveal.js/plugin/zoom-js/zoom.js', async: true },
-      { src: '../slides/reveal.js/plugin/notes/notes.js', async: true }
-      ]
+
+    hash: true,
+
+    math: {
+      mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+      config: 'TeX-AMS_HTML-full',
+      // pass other options into `MathJax.Hub.Config()`
+      TeX: { Macros: { RR: "{\\bf R}" } }
+    },
+
+    // Learn about plugins: https://revealjs.com/plugins/
+    plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ],
+
       });
     </script>
 

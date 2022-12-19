@@ -4,33 +4,31 @@
     <meta charset="utf-8">
     <title>CS 2150: 07-ibcm slide set</title>
     <meta name="description" content="A set of slides for a course on Program and Data Representation">
-    <meta name="author" content="Mark Floryan">
+
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
-    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/theme/black.css" id="theme">
     <link rel="stylesheet" href="../slides/css/pdr.css">
     <!-- Code syntax highlighting -->
-    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <link rel="stylesheet" href="../slides/reveal.js/plugin/highlight/zenburn.css">
     <!-- Printing and PDF exports -->
     <script>
       var link = document.createElement( 'link' );
       link.rel = 'stylesheet';
       link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.scss' : '../slides/reveal.js/css/print/paper.scss';
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
     <!--[if lt IE 9]>
 	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
 	<![endif]-->
-    <script type="text/javascript" src="../slides/js/dhtmlwindow.js"></script>
-    <script type="text/javascript" src="../slides/js/canvas.js"></script>
-    <link rel="stylesheet" href="../slides/css/dhtmlwindow.css" type="text/css">
+    <style>.reveal li { font-size:93%; line-height:120%; }</style>
   </head>
 
-  <body onload="canvasinit()">
-    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+  <body>
 
     <div class="reveal">
 
@@ -41,11 +39,15 @@
 # CS 2150
 &nbsp;
 ### Program and Data Representation
-&nbsp;
-<center><small>[Mark Floryan](http://www.cs.virginia.edu/~mrf8t) / [mrf8t@virginia.edu](mailto:mrf8t@virginia.edu)</small></center>
-<center><small>Repository: [github.com/markfloryan/pdr](http://github.com/markfloryan/pdr) / [&uarr;](index.html) / <a href="07-ibcm.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
-&nbsp;  
-&nbsp;  
+
+<p class='titlep'>&nbsp;</p>
+<div class="titlesmall"><p>
+<a href="http://www.cs.virginia.edu/~mrf8t">Mark Floryan</a> (mrf8t@virginia.edu)<br>
+<a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)<br>
+<a href="http://github.com/uva-cs/pdr">@github</a> | <a href="index.html">&uarr;</a> | <a href="./07-ibcm.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png" style="top:0px;vertical-align:middle"></a>
+</p></div>
+<p class='titlep'>&nbsp;</p>
+
 ## IBCM (machine language)
 	</script></section>
 
@@ -69,7 +71,6 @@
 
 	<section data-markdown><script type="text/template">
 # Contents
-&nbsp;  
 [Introduction](#/introduction)  
 [IBCM Description](#/ibcmdesc)  
 [Writing IBCM code](#/writingibcm)  
@@ -79,7 +80,7 @@
 
 	<section>
 
-	  <section id="introduction" data-markdown><script type="text/template">
+	  <section id="introduction" data-markdown class="center"><script type="text/template">
 # Introduction
 	  </script></section>
 
@@ -177,18 +178,15 @@ store 300
 
 	<section>
 
-	  <section id="ibcmdesc" data-markdown><script type="text/template">
+	  <section id="ibcmdesc" data-markdown class="center"><script type="text/template">
 # IBCM Description
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Running IBCM programs
 - Online IBCM simulator
-  - http://www.cs.virginia.edu/~cs216/ibcm/
-- Mirrors (best to use in this order):
-  - http://people.virginia.edu/~asb2t/ibcm/
-  - http://pegasus.cs.virginia.edu/ibcm/
-  - http://libra.cs.virginia.edu/ibcm/
+  - https://andromeda.cs.virginia.edu/ibcm/
+  - https://libra.cs.virginia.edu/ibcm/
 - This program will hang your browser if it gets stuck in an infinite loop, due to how web browsers (don't) handle Javascript threads and polling of web pages
 	  </script></section>
 
@@ -204,7 +202,7 @@ store 300
 	  </script></section>
 
 	  <section>
-<h2>IBCM Machine Description: Memory</h2>
+<h2>IBCM Machine: Memory</h2>
 <table class="transparent">
 <tr><td class="middle"><ul>
 <li>4096 16-bit words<ul>
@@ -283,7 +281,7 @@ store 300
 - Shifts
   - Opcode is 2
   - next 2 bits specify shift type
-  - last 5 bits specify shift amount
+  - last 4 bits specify shift amount
 - Others
   - Opcode is 3 to F (15)
   - Last 12 bits specify the address for the instruction
@@ -345,9 +343,9 @@ store 300
 <tr><td>A</td><td>not</td><td><code>a := ~a</code></td><td>logical complement of accumulator</td></tr>
 <tr><td>B</td><td>nop</td><td><code>/* */</code></td><td>do nothing (no operation)</td></tr>
 <tr><td>C</td><td>jmp</td><td><code>goto addr</code></td><td>jump to 'addr'</td></tr>
-<tr><td>D</td><td>jmpe</td><td><code>if a == 0 goto addr</code></td><td>jump to 'addr' if accumulator equals zero</td></tr>
-<tr><td>E</td><td>jmpl</td><td><code>if a &lt; 0 goto addr</code></td><td>jump to 'addr' if accum. is less than zero</td></tr>
-<tr><td>F</td><td>brl</td><td><code>a := PC+1; goto addr</code></td><td>jump (branch) to 'addr'; set accum. to<br>the value of the PC just before the jump<br>(i.e., to the address following the `brl`)</td></tr>
+<tr><td>D</td><td>jmpe</td><td><code>if a == 0 goto addr</code></td><td>jump to 'addr' if accumulator == zero</td></tr>
+<tr><td>E</td><td>jmpl</td><td><code>if a &lt; 0 goto addr</code></td><td>jump to 'addr' if accum. is < zero</td></tr>
+<tr><td>F</td><td>brl</td><td><code>a := PC+1; goto addr</code></td><td>jump (branch) to 'addr'; set accum. to<br>PC+1 (next inst) and jump</td></tr>
 </table>
 	  </section>
 
@@ -398,7 +396,6 @@ xit     load	s
       <tr><td>Accum</td><td class="border" style="border-bottom:medium solid;"></td></tr>
     </table>
 </td></tr></table>
-<script type="text/javascript">insertCanvas();</script>
 	  </section>
 
 	  <section>
@@ -426,7 +423,6 @@ xit     load	s
       <tr><td>Accum</td><td class="border" style="border-bottom:medium solid;"></td></tr>
     </table>
 </td></tr></table>
-<script type="text/javascript">insertCanvas();</script>
 	  </section>
 
 	  <section data-markdown><script type="text/template">
@@ -452,7 +448,7 @@ xit     load	s
 
 	<section>
 
-	  <section id="writingibcm" data-markdown><script type="text/template">
+	  <section id="writingibcm" data-markdown class="center"><script type="text/template">
 # Writing IBCM Code
 	  </script></section>
 
@@ -583,7 +579,6 @@ C010 019         jmp     loop      goto loop
 else
     S2;
 </code></pre>
-<script type="text/javascript">insertCanvas();</script>
       </section>
 
       <section>
@@ -591,7 +586,6 @@ else
 <pre><code>while(B >= 5)
     S;
 </code></pre>
-<script type="text/javascript">insertCanvas();</script>
       </section>
 
       <section data-markdown><script type="text/template">
@@ -712,7 +706,7 @@ C011 01F         jmp      loop   goto loop
 
 	<section>
 
-	  <section id="conclusions" data-markdown><script type="text/template">
+	  <section id="conclusions" data-markdown class="center"><script type="text/template">
 # Conclusions
 	  </script></section>
 
@@ -806,7 +800,7 @@ union ibcm_instruction {
 #endif // BIG_ENDIAN
     struct { unsigned int op:4, unused:12; } halt;
     struct { unsigned int op:4, ioopt:2, unused:10 } io;
-    struct { unsigned int op:4, shiftop: 2, 
+    struct { unsigned int op:4, shiftop: 2,
              unused:5, shiftcount:5; } shifts;
     struct { unsigned int op:4, address:12; } others;
 };
@@ -841,15 +835,7 @@ if ( inst.halt.op == 0 ) { // halt
 
     </div>
 
-    <div id="calibratediv" style="display:none">
-      <div id="calibratecanvasdiv">
-        <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
-      </div>
-      <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
-    </div>
-
-    <script src="reveal.js/lib/js/head.min.js"></script>
-    <script src="reveal.js/js/reveal.js"></script>
+    <script src='../slides/reveal.js/dist/reveal.js'></script><script src='../slides/reveal.js/plugin/zoom/zoom.js'></script><script src='../slides/reveal.js/plugin/notes/notes.js'></script><script src='../slides/reveal.js/plugin/search/search.js'></script><script src='../slides/reveal.js/plugin/markdown/markdown.js'></script><script src='../slides/reveal.js/plugin/highlight/highlight.js'></script><script src='../slides/reveal.js/plugin/math/math.js'></script>
     <script src="js/settings.js"></script>
 
   </body>

@@ -4,29 +4,27 @@
     <meta charset="utf-8">
     <title>CS 2150: course-introduction slide set</title>
     <meta name="description" content="A set of slides for a course on Program and Data Representation">
-    <meta name="author" content="Mark Floryan">
+
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
-    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/theme/black.css" id="theme">
     <link rel="stylesheet" href="../slides/css/pdr.css">
     <!-- Code syntax highlighting -->
-    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <link rel="stylesheet" href="../slides/reveal.js/plugin/highlight/zenburn.css">
     <!-- Printing and PDF exports -->
     <script>
       var link = document.createElement( 'link' );
       link.rel = 'stylesheet';
       link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.scss' : '../slides/reveal.js/css/print/paper.scss';
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
     <!--[if lt IE 9]>
 	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
 	<![endif]-->
-    <script type="text/javascript" src="../slides/js/dhtmlwindow.js"></script>
-    <script type="text/javascript" src="../slides/js/canvas.js"></script>
-    <link rel="stylesheet" href="../slides/css/dhtmlwindow.css" type="text/css">
     <style>
 .reveal li {
 font-size:90%;
@@ -35,8 +33,7 @@ line-height:120%;
     </style>
   </head>
 
-  <body onload="canvasinit()">
-    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+  <body>
 
 		<div class="reveal">
 
@@ -45,14 +42,18 @@ line-height:120%;
 
 	<section data-markdown><script type="text/template">
 # CS 2150
-&nbsp;
-### Program and Data Representation
-### Spring 2018
-&nbsp;
-<center><small>[Mark Floryan](http://www.cs.virginia.edu/~mrf8t) / [mrf8t@virginia.edu](mailto:mrf8t@virginia.edu)</small></center>
-<center><small>Repository: [github.com/markfloryan/pdr](http://github.com/markfloryan/pdr) / [&uarr;](index.html) / <a href="course-introduction.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png"></a></small></center>
-&nbsp;  
-&nbsp;
+
+### Program & Data Representation
+### Fall 2022
+
+<p class='titlep'>&nbsp;</p>
+<div class="titlesmall"><p>
+<!-- <a href="http://www.cs.virginia.edu/~mrf8t">Mark Floryan</a> (mrf8t@virginia.edu)<br> -->
+<a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)<br>
+<a href="http://github.com/uva-cs/pdr">@github</a> | <a href="index.html">&uarr;</a> | <a href="./course-introduction.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png" style="top:0px;vertical-align:middle"></a>
+</p></div>
+<p class='titlep'>&nbsp;</p>
+
 ## Course Introduction
 	</script></section>
 
@@ -68,132 +69,114 @@ line-height:120%;
 
 	<section>
 
-	  <section id="course" data-markdown><script type="text/template">
+	  <section id="course" data-markdown class="center"><script type="text/template">
 # Course Structure and Logistics
 	  </script></section>
 
-	  <section>
+	  <section id="profoh">
 <h2>Instructional Staff</h2>
 <table class="transparent">
 <tr>
-  <td><img src="images/introduction/Floryan.jpg"></td>
+  <!-- <td><img src="images/introduction/Floryan.jpg"></td> -->
+  <td><img src="images/introduction/aaronbloomfield.jpg"></td>
 </tr>
 <tr>
-  <td><b>Mark Floryan</b><br>Rice Hall, room 203<br>mrf8t@virginia.edu<br>OH: MT 2:00 - 3:30</td>
+<!-- <td><b>Mark Floryan</b><br>Rice Hall, room 203<br>mrf8t@virginia.edu</td> -->
+  <td><b>Aaron Bloomfield</b><br>Rice Hall, room 402<br>aaron@virginia.edu</td>
 </tr>
 </table>
-<p style='text-align:center'>All office hours start next week</p>
+
 	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## Instructional Staff
-- About 20-24 undergraduate TAs
-- About 7 graduate graders
+- Eight undergraduate TAs
+    - You can read their bios and see their pictures at: https://uva-cs.github.io/pdr/uva/tas.html
+    - That page may not be updated fully quite yet, but will be soon.
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Collab
-- We try to avoid it at all costs.  But we'll use it for:
-  - Large file downloads (VirtualBox image)
+- We use it for only a few things:
+  - Links to lecture recordings, Piazza, Gradescope, and various external tools
   - The email list and anonymous feedback
-  - The wiki, but only for very few things (such as the grading guidelines)
 - Most everything else is external to Collab
-  - Course tools: [support requests](https://libra.cs.virginia.edu/~pedagogy/index.php?redirect=support.php), 
-    [lab submission](https://libra.cs.virginia.edu/~pedagogy/index.php?redirect=submit.php), 
-    [regrades](https://libra.cs.virginia.edu/~pedagogy/index.php?redirect=regrades.php), 
-    [gradebook](https://libra.cs.virginia.edu/~pedagogy/index.php?redirect=gradebook.php), 
-    [lab extensions](https://libra.cs.virginia.edu/~pedagogy/index.php?redirect=labextension.php), and the [office hours queue](https://libra.cs.virginia.edu/~pedagogy/index.php?redirect=queue.php)
-  - Slides, labs, and tutorials are in the [github repo](https://github.com/aaronbloomfield/pdr) (more on this in a bit)
+  - Course tools: support requests, office hours queue
+  - Slides, labs, and tutorials are in the [github repo](https://github.com/uva-cs/pdr) (more on this in a bit)
+  - [Gradescope](https://gradescope.com) for lab submission
 - We'll see a tour of the Collab tools, and the github repo, in the next lecture
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Contacting Us
-- [Support requests](https://libra.cs.virginia.edu/~pedagogy/index.php?redirect=support.php); we will try to respond within 24 hours
+- Support requests (not yet ready); we will try to respond within 24 hours
 - Questions posed through [Piazza](https://piazza.com/class)
   - Typically answered by other students or the TAs
 - Office hours
-  - Will start this Sunday; we will likely have over 40 hours per week
-  - Will be posted in the [CS 2150 Google Calendar](https://calendar.google.com/calendar/embed?src=fnt7qr3f64egh65rfe1bng8f8s%40group.calendar.google.com&ctz=America/New_York)
-    - Please check it before heading over in case there are any changes
-  - My OH are in my office (Rice 203); the TA's are in the Thornton stacks
+  - Will start on Sunday in a week or so; we will expect to have about 24 per week
+    - Will be posted on the Collab landing page
+	  - TA office hours are in the evenings on Sun/Mon/Wed/Thu
+    - Any changes will be announced in class or on Piazza.
 - Anonymous feedback through Collab
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Contacting Us
-![Who to contact](images/introduction/contacting-flowchart-with-mrf8t-small.png)
+<img class='stretch' alt='Who to contact' src='images/introduction/contacting-flowchart.png'>
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Please don't (well, try not to) email me
-- It's not because I'm trying to be a jerk (really!)
+## Please don't (well, try not to) email us
+- It's not because we are trying to be jerks (really!)
 - Email is not an efficient form of communication
-  - I get too bogged down in way too many emails, and then can't respond in a reasonable amount of time, which is not fair to you
-- You can always fill out a [support request](https://libra.cs.virginia.edu/~pedagogy/index.php?redirect=support.php) -- that's what they are there for
-- There are other ways to get in touch with us...
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
-## How to get in contact with us
-- Swing by our office hours
-- See us right after class to either discuss the issue (if it's quick) or arrange a time to meet (if it's not)
-- Swing by our offices when we are in to likewise either discuss the issue (if it's quick) or arrange a time to meet (if it's not)
-- Submit a support request to arrange a time to meet (include your availability!)
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
-## Swinging by my office
-- If you have a concern, feel free to swing by my office (Rice 203); some caveats:
-  - If it is something that can be handled by a support request, I'll ask you to do that
-  - Likewise if the TA office hours can handle it, I may direct you to them
-  - If I am busy, I'll try to find a time that we can meet later
-- This needs to be used only when necessary -- as there are about 300 students in this course, I cannot handle everybody swinging by my office at all times...
+  - We get bogged down in way too many emails, and then can't respond in a reasonable amount of time, which is not fair to you
+- With lots of students and one instructor, we can't keep up
+- You can always fill out support request -- that's what they are there for
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Contacting You
-- Announcements are posted to the course twitter feed: [@UVaCS2150](https://twitter.com/@UVaCS2150)
-  - In an effort to keep it uncluttered, so that people can find what they are looking for, we will generally not respond from that account to individual tweets
+- The [daily announcements slide set](daily-announcements.html)
+  - If you miss lecture, you are responsible for checking it!
+- It is your responsiblity to check these two announcement locations on a regular basis
 - Class email
-  - We will use this sparingly -- we expect to send 4 (four!) emails this entire semester, unless something goes very wrong (snow day, etc.)
+  - We expect to send only 5 this entire semester
 - Everything in this course happens on a very structured schedule, so there will be no surprises as to when things happen
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Meetings
-- Lectures: M/W/F 9:00-9:50 in Nau 101, and 1:00-1:50 in Rice 130
-- Lab meetings: 1 per week
-  - Tues 9:30 am - 10:45 am, 11:00 am - 12:15 pm, 12:30 pm - 1:45 pm, 2:00 pm - 3:15 pm, 3:30 pm - 4:45 pm, 5:00 pm - 6:15 pm, or 6:30 pm - 7:45 pm
-  - You cannot attend another lab section without prior permission
-    - And due to lab size, that generally cannot be granted
-- Office hours, if you choose to attend them
+- Lectures: M/W/F from 1:00-1:50 in Olsson 018
+- Lab meetings: 1 per week at your scheduled lab time (6:30 pm on Tuesdays in Olsson 018)
+- Evening office hours, if you choose to attend them
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Lectures
-- Lecture attendance is not required!
-  - But lab attendance is; more on this later
-- If you come to lecture, then come to listen and (hopefully) learn
-  - This means no social media, no cell phones, no laptops, no sleeping, no nothing other than paying attention
-  - If you are using your laptop to follow along, that's fine -- but I may still ask you to close it
+- Lecture attendance is NOT required
+- They are recorded, and you can veiw the recordings on your own
+- If you come to lecture, then you have to pay attention
+    - Which means we are going to ask you to close your computers, cell phones, etc.
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Snow days
-- The schedule for the material this semester is rather tight, and we can withstand missing one lecture due to unforseen circumstances
-  - Snow days, alien invasion, nuclear war, end of the world, Godzilla attack, etc.
-- If we miss more than one day, there will be a recorded lecture posted online for each additional lecture day missed
-  - You will need to listen to it, as the next lecture will pick up where that recorded one left off
+- The schedule for the material this semester is rather tight, and we can withstand missing (maybe) one lecture due to unforeseen circumstances
+  - We don't know if snow days will affect us this semester given the circumstances. We will deal with it and communicate with you if it comes up.
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Expectations
-- Prerequisites: (CS 2110 or CS 2220) and CS 2102, all with a C- or above
+- Prerequisites: (CS 2110 or CS 2220) and (CS 2102 or CS 2120), all with a C- or above
+  - CS 2110 is a strict pre-req, and no expections will be made for this
 - You understand basic programming (CS I & II):
   - Can write a program longer than a screen-full
   - Understand references, classes, objects, templates (generics)
   - Familiar with common control structures, procedures, recursive definitions
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Expectations
 - You remember some things from CS 2102 (or will learn/refresh your understanding when you need them):
   - Arithmetic, logarithms, sets, graphs
   - Proof techniques (induction, contradiction)
@@ -201,90 +184,130 @@ line-height:120%;
 	  </script></section>
 	  
 	  <section id="cs2102" data-markdown><script type="text/template">
-## CS 2102 as a co-req
-- If you have not already taken CS 2102 previously, you may take it this semester
-- However, by doing so, you understand and agree that any 2102 material that ends up on the exam is your bad luck
-- That's why it's listed as a pre-req!
-- For the current semester, there may still be some spots available in CS 2102
+## CS 2102 (or CS 2120) as a co-req
+- If you have not already taken CS 2102 previously, you may take it this semester; it is allowed as a co-req
+    - But you can't wait until next semester to take it
+- For the current semester, there may still be some spots available in CS 2120
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Labs / HWs
 - Labs are much bigger in this course, and essentially are the homeworks
-- Labs will generally be made available on Thursday by noon, and due throughout the following week
-  - Pre-lab to be done BEFORE showing up to Tuesday's lab section: all are due at the same time on Tuesday (9:00am)
+- Labs will officially be made available on Thursday by noon, and due throughout the following week
+  - However, all labs are posted now and will likely incur only minor changes, if you'd like to get ahead.
+  - Pre-lab to be done BEFORE showing up to Tuesday's lab section: all are due at the same time on Tuesday (8 am)
     - Often includes a tutorial
-  - In-lab to be done IN lab section (due at the end of your lab section)
-  - Post-lab to be done AFTER lab section (due Friday morning before the *first* lecture)
+  - In-lab to be done IN lab section (due Tuesday 11:59 pm)
+  - Post-lab to be done AFTER lab section (due Friday 10 am)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## More on Labs
-- Labs begin *next* week
-- Labs are posted on Thursdays, generally by noon
-  - Which means the first one should be available tomorrow
-  - We announce when they are ready on our Twitter announcement feed: [@UVaCS2150](https://twitter.com/@UVaCS2150)
+- Labs begin next Tuesday (August 30th)
+- Labs are officially "ready" on Thursdays at noon
+  - Before then, lab updates are possible.
+  - Which means the first one should be posted *this Thursday*
+  - See [lab due dates page](./labduedates.html) for more info.
 - There are late policies for the labs -- these are discussed in the first lab
-- Lab attendance is required!
-  - And you can't change sections without prior permission, as we don't have the computers or TAs to support this
+- You can't change sections without prior permission (via a support request), as we don't have the TAs to support this
 	  </script></section>
 
-	  <section id="registration" data-markdown><script type="text/template">
-## Spring 2018 registration issues
-- We cannot have more than 45 people registered for a given lab due to fire marshal limits
-  - And those limits can't be changed (we've asked)
-  - Students with truly special circumstances will fill those spots first.
-  - Then, all lab course caps will increase to 45 within a day or so.
-	  </script></section>
+<section data-markdown><script type="text/template">
+## Lab attendance
+- Lab attendance is not required, either
+- However, it may be the only chance for you to receive help on the in-lab
+  - Monday office hours will give priority to those working on the pre-lab
+  - By Wednesday's office hours, the in-lab will be late and will be receiving a penalty
+</script></section>
 
+<section id="registration" data-markdown><script type="text/template">
+## Should you be taking CS 2150?
+- The course is ending; the new curriculum is taking over
+- You should take this class ONLY if ALL of the these are true:
+  - You are a currently declared computing major
+    - Not-yet-declared students should take the new curriculum
+  - You are NOT a CS minor
+    - CS minors will be able to take another path to complete the minor
+  - You have a C- or above in CS 2110
+    - If you have less than a C- in CS 2110, or you have taken CS 2100, then move to the new curriculum
+  - You are NOT a first year student
+    - They take the new curriculum
+  - You are NOT a transfer student
+    - They also take the new curriculum
+</script></section>
+
+
+
+<section id="registration" data-markdown><script type="text/template">
+## Fall 2022 registration issues
+- There should (eventually) be enough space
+- We are going to wait for the registration count to settle...
+  - Including those who drop from the previous slide
+- We'll look at it briefly on Friday, but really get back to it on Monday
+</script></section>
+	  <!--
 	  <section id="labswaps" data-markdown><script type="text/template">
 ## Lab and Lecture Swaps
 - You are welcome to swap labs (or lectures) with somebody else, or switch into a lab that has free spots
 - To switch to an open lab, do a lab section swap in SIS
-  - If you attempt to drop and then re-add the course, you will go to the END of the waitlist, and then you will not be allowed back into the course!
+  - If you attempt to drop and then re-add the course, you will go to the END of the wait list, and then you will not be allowed back into the course!
   - And make sure there is room in the destination lab before you try this!!!
 - To swap with somebody:
   - Post on [Piazza](https://piazza.com/class) to find somebody to switch with
     - If you are reading this before the semester starts, then wait until the first day of class to post...
-  - Once you have found somebody, ask somebody in the main engineering office (in Thorton A122) *nicely* to swap the two of you
-- Please understand that we do not have the ability to do any of these actions ourselves
 	  </script></section>
 
+	  <section id="labswaps2" data-markdown><script type="text/template">
+## Lab and Lecture Swaps, part 2
+- Once you have found somebody, ask somebody in the main engineering office (in Thorton A122) *nicely* to swap the two of you
+- Please understand that we do not have the ability to do any of these actions ourselves
+	  </script></section>
+-->
 	  <section data-markdown><script type="text/template">
 ## Lab due times
 - All the labs have a [specified due time](labduedates.html), as described in lab 1, and mentioned previously
-  - The submission server has it's clock set to the US Navy atomic clock
+  - The submission server has it's clock set to the [US Navy atomic clock](http://time.gov)
 - If the lab is late for ANY reason, then you will receive the late penalty.  
 - Thus, you should take this into account and not wait until the last minute to try to submit.  These reasons include:
-  - Your Internet being down
-  - Your computer being slow
-  - UVa's Internet being down
+  - Your Internet being slow (or down)
   - Your younger sibling messing up your submission
   - Your dog eating your homework
   - You missing the deadline by 1 minute, but pleeeaaaassseeeee!!!!!111oneoneONEONE
-- The ONLY exception is if any of the following are down: the submission server itself or the CS department's network (which is what allows the server to be accessed)
 	  </script></section>
 
-	  <section id="inlabsubmission" data-markdown><script type="text/template">
-## In-lab submission
-- In-labs ***MUST*** be (initially) done from <font color='#ff0000'>an Olsson 001 computer</font>, during your scheduled lab time, or else you will receive zero credit!
-  - This means either submitting the assignment, or submitting a lab extension, from that computer
-  - If you submit a lab extension, then you can complete it from another computer, such as your personal one
-  - Likewise, if you submit your assignment during lab, you can revise it (up until the due date/time) from another computer
+	  <section data-markdown><script type="text/template">
+## Lab submission - Gradescope
+- We will be using [Gradescope](https://gradescope.com)
+- ALL assignments are ***autograded;*** when you submit it, it will check:
+  - If your code compiles
+  - If your output format is correct
+  - Execute and check output on 1 or 2 simple cases (likely the ones provided with the lab)
+- It will then ***secretly*** run your code on several grading test cases
+    - You won't see this part until the grade is fully released after the deadline has passed.
+- You may submit as many times as you want before the deadline passes.
 	  </script></section>
+<!--
+    <section data-markdown><script type="text/template">
+## Gradescope Disclaimer
+- Every lab assignment this year is a fully auto-graded coding assignment 
+    - We feel this works better with the virtual format and the class size
+- [Gradescope](https://gradescope.com) should make this easier, giving you more feedback than before
+- However, please understand that there may be a few bumps, and we will address them as best we can when/if they arise
+    </script></section>
 
 	  <section data-markdown id="break1"><script type="text/template">
 ## Thanksgiving break!
-![UVa's spring break](images/introduction/thanksgiving-2016-uva.png)
+![UVa's thanksgiving break](images/introduction/thanksgiving-2015-uva.png)
 What UVa defines as "Thanksgiving break"
 	  </script></section>
 
 	  <section data-markdown id="break2"><script type="text/template">
 ## Thanksgiving break!
-![UVa students' spring break](images/introduction/thanksgiving-2016-student.png)
+![UVa students' thanksgiving break](images/introduction/thanksgiving-2015-student.png)
 What UVa *students* define as "Thanksgiving break"
+- Luckily, should not be an issue this semester as courses end that Tuesday anyway.
 	  </script></section>
-
+-->
 	  <section data-markdown><script type="text/template">
 ## Piazza
 - [Piazza](https://piazza.com) is a useful newsgroup-like tool for collegiate courses
@@ -294,39 +317,53 @@ What UVa *students* define as "Thanksgiving break"
   - In Piazza, in the upper-right, click on the gear/settings icon, select "Account/Email Settings", and then select "Edit Email Notifications" under "Class & Email Settings"
 - Piazza posts are generally answered by the TAs and other students
 	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Piazza rules
+- Don't post any code on it, period (that's an honor violation!)
+- The TAs and instructors will specifically ***NOT*** respond to "what is the answer to this exam question" postings
+- Note that you can post anonymously to each other, but the course instructional staff will know who you are
+- If you start trolling other students on Piazza, I will permanently ban you from it -- please be respectful of your fellow students in the course
+	  </script></section>
 	  
 	  <section data-markdown><script type="text/template">
 ## Accounts
-- Lab Accounts (for Olsson 001 or Rice 340)
-  - There are two of these: one for Linux, one for Windows; we do not expect to use the Windows account
-  - You will receive two email about this, one for each account (but likely only the Linux one for Monday)
 - Your [Collab](http://collab.itc.virginia.edu/portal) account, which you should already have
+- Your [Gradescope](https://gradescope.com) account, which you can access via Collab
 - Your [Piazza](https://piazza.com) account, which will be created when you log into Piazza via Collab
 - You do *NOT* need a [github](https://github.com) account for this course (more on this shortly)
   - But feel free to create one!  It will be used heavily in successive courses.
 	  </script></section>
 
 	  <section data-markdown id="unixinfo"><script type="text/template">
-## Unix
+## Unix Options
 This class will program exclusively in a Unix environment.  There are a number of options to do so (listed from easy to hard):
 
 - Run VirtualBox (it's free) and use the course Linux image
-  - This is recommended; there will be extensive directions
-- Program in Linux in Olsson 001 (when a lab is not in session)
-  - It is now a ID card access, and you all will be granted said access
+  - This is the recommended option; there will be extensive directions
+  - This will be fine for slow (or non-existent) home Internet connections
+	  </script></section>
+
+	  <section data-markdown id="unixinfo"><script type="text/template">
+## More Unix Options
 - Mac users can use a terminal window, as Mac OS X is based on Unix -- but you can't use an IDE!
   - Note that some things (such as doxygen and some x86 features) are not compatible!
 - Install a Unix OS (Linux, etc.) on your home machine
   - Backup everything first!!!
 - You can try the Windows 10 Bash shell, but you are on your own
-  - But you must use Linux editors, not Windows editors!
+  - In the past, students have found this works very well
+	  </script></section>
+
+	  <section data-markdown id='unixhonorpledge'><script type="text/template">
+## Unix honor pledge
+
+In order to take this class, you must agree to sign an honor pledge stating that you will not use any MS Windows development environment (including Visual Studio) for any work for this class.  If you do, it will be an honor violation, and you will receive an automatic F for the course. 
+&nbsp;  
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Unix honor pledge
 
-In order to take this class, you must agree to sign an honor pledge stating that you will not use any MS Windows development environment (including Visual Studio) for any work for this class.  If you do, it will be an honor violation, and you will receive an automatic F for the course. 
-&nbsp;  
 Furthermore, you cannot use any IDE (Xcode, Eclipse, Netbeans, Visual Studio, etc.) on any OS for the code development in this course. The Sublime editor is allowed, provided it is used without extensions for build automation, debugging, or code completion; it shouldn't be any more powerful than a text editor like Emacs.
 &nbsp;  
 (the reason for this is to teach you Unix, not a vendetta against IDEs)
@@ -334,9 +371,7 @@ Furthermore, you cannot use any IDE (Xcode, Eclipse, Netbeans, Visual Studio, et
 
 	  <section data-markdown><script type="text/template">
 ## Compiler usage
-- We are NOT using gcc/g++ this semester
-  - This is a change from previous semesters
-- Instead we are using clang++ (from LLVM)
+- We will be using clang++ (from LLVM), *not* g++
   - If you don't know what this means, you can safely ignore it
   - But if you are familiar with gcc/g++, please don't use it, as clang has MUCH better error messages
 - (Note that we will use gcc/g++ for the two x86 labs, but more on that later)
@@ -374,15 +409,15 @@ Furthermore, you cannot use any IDE (Xcode, Eclipse, Netbeans, Visual Studio, et
 - git is a revision control system which is used to track changes to "stuff" (source code, slide sets, etc.)
   - It keeps them in "repositories" or "repos"
   - It also easily allows group work on a single code base, although we won't see that in this course
-- Most of the course materials can be found online at http://github.com/markfloryan/pdr
-  - The contents of that repo can be viewed online at http://markfloryan.github.io/pdr
+- Most of the course materials can be found online at http://github.com/uva-cs/pdr
+  - The contents of that repo can be viewed online at: https://uva-cs.github.io/pdr
   - As mentioned previously, a few things are still in Collab
-  - And the stuff specific to you (grades, submissions, etc.) are available through the [set of online tools](https://libra.cs.virginia.edu/~pedagogy/index.php)
+  - And the stuff specific to you (grades, submissions, etc.) are available through the set of online tools
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Not using git
-- If you choose not to use git, then every time you want to download any updates to the course materials, you will have to go to http://github.com/markfloryan/pdr, re-download the *entire* .zip file, delete the old directory, and uncompress the newly downloaded file
+- If you choose not to use git, then every time you want to download any updates to the course materials, you will have to go to http://github.com/uva-cs/pdr, re-download the *entire* .zip file, delete the old directory, and uncompress the newly downloaded file
   - As we are going to be updating the content in the repository throughout the semester, this will very quickly become a real pain to deal with
 	  </script></section>
 
@@ -391,7 +426,7 @@ Furthermore, you cannot use any IDE (Xcode, Eclipse, Netbeans, Visual Studio, et
 - git is installed on the VirtualBox image (more on VirtualBox shortly)
 - To use git, enter the following command only once (no github account needed!):
 ```
-git clone https://github.com/markfloryan/pdr.git
+git clone https://github.com/uva-cs/pdr
 ```
   - This will create a 'pdr' directory that contains everything from the repo: the slides, the labs, the tutorials, etc.
   - Note that much of the content of this repository will be updated throughout the semester
@@ -413,31 +448,30 @@ git pull
 - You will see future assignments (labs, mostly) in the git repo
 - Feel free to look at these, but...
 - We will be making many changes up until the time we officially "release" them to the class
-  - This "official release" is as of the date of posting of the lab availability on the Twitter feed: [@UVaCS2150](https://twitter.com/@UVaCS2150)
-  - This will be the Wednesday or Thursday the week before they are due
+  - This will be the Thursday (noon) the week before they are due
 - If you start them early, then it is **YOUR** responsibility to figure out what changes have been made to the assignment between when you started it and when we finalized it
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Course syllabus
-- It is availabe in the github repo; you can click [here](../uva/syllabus.html) to view it
+- It is available in the github repo; you can click [here](../uva/syllabus.html) to view it
 - It contains all the information covered so far, plus some more stuff
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Learning your names...
-We are determined to learn each of your (first) names  
+I am determined to learn each of your (first) names  
 &nbsp;  
-So if you raise your hand in lecture, and we don't call on you by name, you have to say your first name before your question  
+So if you raise your hand in lecture, and I don't call on you by name, you have to say your first name before your question  
 &nbsp;  
-Don't be offended if it takes me a while -- there are almost 300 students in this course...
+Don't be offended if it takes me a while -- there are almost 100 students in this course...
 	  </script></section>
 
 	</section>
 
 	<section>
 
-	  <section id="honor" data-markdown><script type="text/template">
+	  <section id="honor" data-markdown class="center"><script type="text/template">
 # Honor Policy
 	  </script></section>
 
@@ -450,7 +484,15 @@ The University of Virginia Honor Policy in effect.  In addition to the normal ru
 3. You may not discuss the midterm details to someone who has not already taken it
 4. You may not release your source code online (including in a public github repo)
 5. You may not use a computer to generate your submitted *assembly* code unless otherwise allowed
-	</script></section>
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Class Honor Policy, continued
+The University of Virginia Honor Policy in effect.  In addition to the normal rules, we have additional rules (full details in the [course syllabus](syllabus.html)):
+
+6. We realize we shouldn't have to say this, but we will not sign more than one conscientious retraction for a given student within one semester.
+7. We thought this was obvious also, but apparently we have to say it: you can't submit somebody else's code as the main part of the assignment and claim it is valid because you cited that code.  The point of the labs is for *you* to do the work, not for you to do a Google search.
+	  </script></section>
 
 	<section data-markdown><script type="text/template">
 ## Class Honor Policy
@@ -468,15 +510,19 @@ We will see the cheat-checking program later this semester, as we will have lear
 - A student who, upon taking the class a second time, claimed s/he had already submitted the assignment before (being in the class previously), and thus was allowed to copy the assignment from somebody else
 - Taking a 45 minute bathroom break during the final exam to look up the answers
 - Looking up the answers on your cell phone during an exam.
-<p class="fragment">The answer to all of these is yes, by the way.  And they have all happened in my courses.</p>
+	  </script></section>
+
+	<section data-markdown><script type="text/template">
+## Do these count as honor violations?
+The answer to all of these is yes, by the way.  And they have all happened in this course.
 	  </script></section>
 
 	<section data-markdown><script type="text/template">
 ## Recent Honor Issues
-- In spring 2016 we caught 16 people (out of 264: over 6%), and failed all of them
+- In previous semesters we have caught almost 10% of the students in the course cheating
+ - And failed them all and raised honor charges
  - If we had time to look harder, we would have likely found more people
-- In fall 2016 we caught about 6 (and also failed all of them)
-- We are in the process of raising honor charges as well
+- Please don't test us on this
 	</script></section>
 
 
@@ -484,36 +530,32 @@ We will see the cheat-checking program later this semester, as we will have lear
 
 	<section>
 
-	  <section id="grading" data-markdown><script type="text/template">
+	  <section id="grading" data-markdown class="center"><script type="text/template">
 # Grading Criteria
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Grading Criteria
-- 45% Labs (there will be 11-12 labs)
-- 30% Midterms, during lab and in lab classroom
-  - Midterm 1: Tuesday, September 26; midterm 2: Tuesday, November 7
-- 25% Final Exam
-  - Monday, May 7 from 7:00 pm to 10:00 pm
+- 45%: Labs (there will be 11-12 labs)
+- 30%: Two midterms (15% each): Tuesday, Sep 27 & Tuesday, Nov 8
+- 25%: Final Exam
+  - Thursday, Dec 15 from 9 a.m. to noon
   - It can NOT be taken early, so please don't ask
-- We reserve the right to change this!  See the course syllabus for details...
+- We reserve the right to change this weighting!  See the [course syllabus](syllabus.html) for details...
 	</script></section>
 
-	<section data-markdown><script type="text/template">
+	<section data-markdown id="finalconflicts"><script type="text/template">
 ## Final exam
-- Because there are two lecture periods, this class has a common exam time: Monday, December 11 from 7-10pm
-  - You may NOT take it early for any reason
-  - You may NOT take the exam at a different time because you have a busy final exam schedule
-- Other classes that also have an exam then:
-  - APMA 3110; ARCH 2240,6240; ECON 2020 (Sections 001 and 002); MATH 3100 (Sections 002 and 003)
-- You must let us know by the end of January if you have a conflict (submit a [support request](https://libra.cs.virginia.edu/~pedagogy/index.php?redirect=support.php))
-  - If you don't let us know by the end of January, then you will have to take it at the common time
+- Thursday, December 15th, from 9 a.m. to noon
+- This is at the very end of finals week
+- I don't like this time either, but we are stuck with it
+- No, you can't take it early or late
 	  </script></section>
 
 	  <section data-markdown id="compilation"><script type="text/template">
 ## Compilation
 - You will receive <strong class="red">zero credit</strong> for code that does not compile
-  - Unless my compiler breaks, there will be absolutely NO exceptions to this rule, so please don't even ask
+  - Unless the compiler breaks on Gradescope, there will be absolutely NO exceptions to this rule, so please don't even ask
   - This is an advanced programming class, and under no circumstances should you submit code that does not compile
 - The submission system will compile the code when you submit it
   - But that means you have to actually watch the result of your submission (it takes all of 5 seconds)
@@ -524,7 +566,7 @@ We will see the cheat-checking program later this semester, as we will have lear
 
 	<section>
 
-	  <section id="goals" data-markdown><script type="text/template">
+	  <section id="goals" data-markdown class="center"><script type="text/template">
 # Course Goals
 	  </script></section>
 
@@ -582,16 +624,14 @@ From a Pentium 3.0 Ghz PC with enough memory
 | HashSet        | 0.122 sec    | Very fast |
 | TreeSet        | 0.119 sec    | Fastest |
 
-&nbsp;  
-<p class="fragment">Difference between a ArrayList and TreeSet: a factor of ~150</p>
-<p class="fragment">Difference between a LinkedList and TreeSet: a factor of ~200</p>
+<p class="fragment">Difference between a ArrayList & TreeSet: ~150x</p>
+<p class="fragment">Difference between a LinkedList & TreeSet: ~200x</p>
 
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## The results, in more detail
 All times are in ms (1/1000<sup>th</sup> of a second)  
-&nbsp;  
 
 | Data Structure | Total time | Insert time | Search time | Delete time |
 |----------------|------------|-------------|-------------|-------------|
@@ -602,8 +642,7 @@ All times are in ms (1/1000<sup>th</sup> of a second)
 | TreeSet        | 119        | 93          | 14          | 12          |
 | Vector, sorted | 294        | 36          | 19          | 239         |
 
-&nbsp;  
-Note that we sneakily inserted the "Vector, sorted" line there...
+Note that we sneakily inserted the "Vector, sorted" line
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -652,18 +691,23 @@ Be able to implement basic control and data structures in assembly language (x86
 
 	<section>
 
-	  <section id="closing" data-markdown><script type="text/template">
+	  <section id="closing" data-markdown class="center"><script type="text/template">
 # Closing Thoughts
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Feedback from previous semesters
-Some things folks have said in the past about the course:
+- Some things folks have said in the past about the course:
+  - "This has been the most informative / difficult CS course I've taken so far, but definitely worth it"
+  - "This course was incredibly challenging, especially for me having not programmed in over a year -- This class changed my entire perspective on computer science, and is giving me an awesome foundation for the rest of my computer science education."
+  - "Course was difficult, however I learned a lot."
+  - (and a bunch of complaints about the amount of work, blah, blah, blah)
+	  </script></section>
 
-- "This has been the most informative / difficult CS course I've taken so far, but definitely worth it"
-- "This course was incredibly challenging, especially for me having not programmed in over a year -- This class changed my entire perspective on computer science, and is giving me an awesome foundation for the rest of my computer science education."
-- "Course was difficult, however I learned a lot."
-- (and a bunch of complaints about the amount of work, blah, blah, blah)
+	  <section data-markdown><script type="text/template">
+## External links
+- [Github repo](https://github.com/uva-cs/pdr) and the [online version](http://uva-cs.github.com/pdr/)
+- [Collab workspace](https://collab.its.virginia.edu/portal)
 	  </script></section>
 
 	</section>
@@ -672,34 +716,37 @@ Some things folks have said in the past about the course:
 
     </div>
 
-    <div id="calibratediv" style="display:none">
-      <div id="calibratecanvasdiv">
-        <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
-      </div>
-      <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
-    </div>
-    <script src="../slides/reveal.js/lib/js/head.min.js"></script>
-    <script src="../slides/reveal.js/js/reveal.js"></script>
+<script src="../slides/reveal.js/dist/reveal.js"></script>
+<script src="../slides/reveal.js/plugin/zoom/zoom.js"></script>
+<script src="../slides/reveal.js/plugin/notes/notes.js"></script>
+<script src="../slides/reveal.js/plugin/search/search.js"></script>
+<script src="../slides/reveal.js/plugin/markdown/markdown.js"></script>
+<script src="../slides/reveal.js/plugin/highlight/highlight.js"></script>
+<script src="../slides/reveal.js/plugin/math/math.js"></script>
     <!-- You cannot, apparently, include this from another directory, hence why settings.js is reproduced here in full -->
     <script>
       // Full list of configuration options available here:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
+      controlsTutorial: false,
       controls: true,
       progress: true,
       history: true,
-      center: true,
       slideNumber: true,
       transition: 'slide', // none/fade/slide/convex/concave/zoom
-      // Optional reveal.js plugins
-      dependencies: [
-      { src: '../slides/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-      { src: '../slides/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-      { src: '../slides/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-      { src: '../slides/reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-      { src: '../slides/reveal.js/plugin/zoom-js/zoom.js', async: true },
-      { src: '../slides/reveal.js/plugin/notes/notes.js', async: true }
-      ]
+
+    hash: true,
+
+    math: {
+      mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+      config: 'TeX-AMS_HTML-full',
+      // pass other options into `MathJax.Hub.Config()`
+      TeX: { Macros: { RR: "{\\bf R}" } }
+    },
+
+    // Learn about plugins: https://revealjs.com/plugins/
+    plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ],
+
       });
     </script>
 

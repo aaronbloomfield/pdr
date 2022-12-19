@@ -4,33 +4,31 @@
     <meta charset="utf-8">
     <title>CS 2150: 11-graphs slide set</title>
     <meta name="description" content="A set of slides for a course on Program and Data Representation">
-    <meta name="author" content="Mark Floryan">
+    
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
-    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/theme/black.css" id="theme">
     <link rel="stylesheet" href="../slides/css/pdr.css">
     <!-- Code syntax highlighting -->
-    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <link rel="stylesheet" href="../slides/reveal.js/plugin/highlight/zenburn.css">
     <!-- Printing and PDF exports -->
     <script>
       var link = document.createElement( 'link' );
       link.rel = 'stylesheet';
       link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.scss' : '../slides/reveal.js/css/print/paper.scss';
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
     <!--[if lt IE 9]>
 	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
 	<![endif]-->
-    <script type="text/javascript" src="../slides/js/dhtmlwindow.js"></script>
-    <script type="text/javascript" src="../slides/js/canvas.js"></script>
-    <link rel="stylesheet" href="../slides/css/dhtmlwindow.css" type="text/css">
+    <style>.reveal li { font-size:93%; line-height:120%; }</style>
   </head>
 
-  <body onload="canvasinit()">
-    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+  <body>
 
     <div class="reveal">
 
@@ -41,11 +39,15 @@
 # CS 2150
 &nbsp;
 ### Program and Data Representation
-&nbsp;
-<center><small>[Mark Floryan](http://www.cs.virginia.edu/~mrf8t) / [mrf8t@virginia.edu](mailto:mrf8t@virginia.edu)</small></center>
-<center><small>Repository: [github.com/markfloryan/pdr](http://github.com/markfloryan/pdr) / [&uarr;](index.html) / <a href="11-graphs.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
-&nbsp;  
-&nbsp;  
+
+<p class='titlep'>&nbsp;</p>
+<div class="titlesmall"><p>
+<a href="http://www.cs.virginia.edu/~mrf8t">Mark Floryan</a> (mrf8t@virginia.edu)<br>
+<a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)<br>
+<a href="http://github.com/uva-cs/pdr">@github</a> | <a href="index.html">&uarr;</a> | <a href="./11-graphs.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png" style="top:0px;vertical-align:middle"></a>
+</p></div>
+<p class='titlep'>&nbsp;</p>
+
 ## Graphs
 	</script></section>
 
@@ -82,7 +84,7 @@
 
 	<section>
 
-	  <section id="introduction" data-markdown><script type="text/template">
+	  <section id="introduction" data-markdown class="center"><script type="text/template">
 # Introduction
 	  </script></section>
 
@@ -181,7 +183,6 @@
 <tr><th>4</th><td></td><td></td><td></td><td></td></tr>
 </table>
 </td><td style="width:100px"></td><td class="top"><img src="graphs/graph-3.svg" alt="graph"></td></tr></table>
-<script type="text/javascript">insertCanvas();</script>
 	  </section>
 
 	  <section>
@@ -209,7 +210,7 @@
 
 	<section>
 
-	  <section id="topological" data-markdown><script type="text/template">
+	  <section id="topological" data-markdown class="center"><script type="text/template">
 # Topological Sort
 	  </script></section>
 
@@ -225,7 +226,6 @@
 <h2>Topological Sort</h2>
 <img src="graphs/graph-4.svg" alt="graph">
 <p class="fragment" style="text-align:center">One valid topological sort is: v1, v6, v8, v3, v2, v7, v4, v5</p>
-<script type="text/javascript">insertCanvas();</script>
 	  </section>
 
 	  <section data-markdown><script type="text/template">
@@ -291,7 +291,6 @@ void Graph::topsort() {
 	  <section>
 <h2>Another Topological Sort Example</h2>
 <img src="graphs/graph-7.svg" alt="graph">
-<script type="text/javascript">insertCanvas();</script>
 	  </section>
 
 	</section>
@@ -300,7 +299,7 @@ void Graph::topsort() {
 
 	<section>
 
-	  <section id="shortestpath" data-markdown><script type="text/template">
+	  <section id="shortestpath" data-markdown class="center"><script type="text/template">
 # Shortest Path<br>Algorithms
 	  </script></section>
 
@@ -343,7 +342,6 @@ void Graph::topsort() {
 <li>Solution: breadth-first search; similar to level-order traversal for trees</li>
 </ul>
 <img src="graphs/graph-8.svg" alt="graph">
-<script type="text/javascript">insertCanvas();</script>
 	  </section>
 
 	  <section data-markdown><script type="text/template">
@@ -409,7 +407,6 @@ What is the big-Theta running time?
 </table>
 </td><td style="width:50px"></td><td class="top"><img alt="graph" style="width:400px" src="graphs/graph-9.svg"></td></tr>
 </table>
-<script type="text/javascript">insertCanvas();</script>
 	  </section>
 
 	  <section data-markdown><script type="text/template">
@@ -451,7 +448,6 @@ void Graph::dijkstra(Vertex s) {
 </table>
 <p>&nbsp;</p>
 <p style="font-size:90%">This is the same graph as in the <a href="http://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Wikipedia article on Dijkstra's algorithm</a></p>
-<script type="text/javascript">insertCanvas();</script>
 	  </section>
 
 	  <section data-markdown><script type="text/template">
@@ -462,8 +458,7 @@ void Graph::dijkstra(Vertex s) {
   - Using a simple scan: &Theta;(*v*<sup>2</sup>+*e*) = &Theta;(*v*<sup>2</sup>)
 - Optimizations?
   - Use adjacency lists and heaps
-  - Assuming that the graph is connected (i.e. *e* > *v*-1), then the running time decreases to &Theta;(*e*+*v* log *v*)
-  - This can be further simplified to &Theta;(*e* log *v*)
+  - Assuming that the graph is connected (i.e. *e* > *v*-1), then the running time decreases to &Theta;(*e* log *v*)
     - Although we won't see how to do that in this course
 	  </script></section>
 
@@ -489,7 +484,7 @@ void Graph::dijkstra(Vertex s) {
 
 	<section>
 
-	  <section id="maproutes" data-markdown><script type="text/template">
+	  <section id="maproutes" data-markdown class="center"><script type="text/template">
 # Map Routing
 	  </script></section>
 
@@ -534,7 +529,7 @@ void Graph::dijkstra(Vertex s) {
 
 	<section>
 
-	  <section id="tsp" data-markdown><script type="text/template">
+	  <section id="tsp" data-markdown class="center"><script type="text/template">
 # Travelling<br>Salesperson<br>(TSP)
 	  </script></section>
 
@@ -605,7 +600,7 @@ void Graph::dijkstra(Vertex s) {
   - Pre-lab: implement a topological sort
   - In-lab: implement a brute-force traveling salesperson problem
     - Using locations in Tolkien's Middle Earth
-  - Post-lab: do a report containing analysis and a study of acceleration techniques
+  - Post-lab: shortest path solution to a puzzle problem
 	  </script></section>
 
 	</section>
@@ -614,7 +609,7 @@ void Graph::dijkstra(Vertex s) {
 
 	<section>
 
-	  <section id="mst" data-markdown><script type="text/template">
+	  <section id="mst" data-markdown class="center"><script type="text/template">
 # Minimum Spanning Tree (MST)
 	  </script></section>
 
@@ -720,7 +715,6 @@ Idea: Grow a tree by adding an edge to the "known" vertices from the "unknown" v
 </table>
 <p>&nbsp;</p>
 <p class="fragment" data-fragment-index="1" style="text-align:center">Edges: (v1,v2), (v1,v4), (v3,v4), (v4,v7), (v5,v7), (v6,v7)</p>
-<script type="text/javascript">insertCanvas();</script>
 	  </section>
 
 	  <section data-markdown><script type="text/template">
@@ -746,8 +740,7 @@ Idea: Grow a forest out of edges that do not create a cycle.  Pick an edge with 
 <tr><td><img alt="graph" src="graphs/graph-14.svg"></td><td style="width:50px"></td><td><img class="fragment" data-fragment-index="1" alt="graph" src="graphs/graph-15.svg"></td></tr>
 </table>
 <p>&nbsp;</p>
-<p class="fragment" data-fragment-index="1" style="text-align:center">Edges: (v1,v2), (v1,v4), (v3,v4), (v4,v7), (v5,v7), (v6,v7)</p>
-<script type="text/javascript">insertCanvas();</script>
+<p class="fragment" data-fragment-index="1" style="text-align:center">Edges: (v1,v4), (v6,v7), (v1,v2), (v3,v4), (v4,v7), (v5,v7) </p>
 	  </section>
 
 	  <section data-markdown><script type="text/template">
@@ -775,24 +768,11 @@ When optimized, it has the same running time as Prim's and Dijkstra's: &Theta;(*
 
 	</section>
 
-
-
-
-
-
       </div>
 
     </div>
 
-    <div id="calibratediv" style="display:none">
-      <div id="calibratecanvasdiv">
-        <canvas id="calibratecanvas" width="300" height="300">Your browser does not support the canvas tag</canvas>
-      </div>
-      <p style="text-align:center">Click the center of the target<br><a href="#" onClick="calibratewin.close(); return false">Close window</a></p>
-    </div>
-
-    <script src="reveal.js/lib/js/head.min.js"></script>
-    <script src="reveal.js/js/reveal.js"></script>
+    <script src='../slides/reveal.js/dist/reveal.js'></script><script src='../slides/reveal.js/plugin/zoom/zoom.js'></script><script src='../slides/reveal.js/plugin/notes/notes.js'></script><script src='../slides/reveal.js/plugin/search/search.js'></script><script src='../slides/reveal.js/plugin/markdown/markdown.js'></script><script src='../slides/reveal.js/plugin/highlight/highlight.js'></script><script src='../slides/reveal.js/plugin/math/math.js'></script>
     <script src="js/settings.js"></script>
 
   </body>

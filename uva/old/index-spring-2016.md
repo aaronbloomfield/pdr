@@ -195,8 +195,8 @@ None yet!
 [108]: ../labs/index.md
 [109]: frivolous-regrades.html
 [110]: frivolous-regrades.md
-[111]: ../readme-old.html
-[112]: ../readme-old.md
+[111]: ../readme.html
+[112]: ../readme.md
 [113]: exam-review.html#/
 [114]: unix-honor-pledge.tex
 [115]: grades.md
