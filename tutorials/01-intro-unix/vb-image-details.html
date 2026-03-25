@@ -8,16 +8,21 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../../markdown.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <h1 id="virtualbox-image-creation-details">VirtualBox image creation
@@ -100,8 +105,8 @@ don’t know what this means, you can safely ignore it</li>
 <li>Once it was finished, I rebooted, and logged in; I skipped the
 online account creation, did not send usage staistics back to Ubuntu,
 and ensured that location services were turned off</li>
-<li>Via a Konsole, ran <code>sudo apt update</code> then <code>sudo apt
-dist-upgrade</code></li>
+<li>Via a Konsole, ran <code>sudo apt update</code> then
+<code>sudo apt dist-upgrade</code></li>
 <li>Reboot!</li>
 <li>Ran <code>sudo apt autoremove</code> (which didn’t have to remove
 much)</li>
@@ -124,8 +129,8 @@ href="https://askubuntu.com/questions/973017/wrong-nameserver-set-by-resolvconf-
 to fix an issue with /etc/resolv.conf, edited /etc/systemd/resolved.conf
 to put 8.8.8.8 as the DNS line, and then ran the commands from the
 second answer: <code>sudo rm -f /etc/resolv.conf</code> followed by
-<code>sudo ln -s /run/systemd/resolve/resolv.conf
-/etc/resolv.conf</code>, and then rebooted</del></li>
+<code>sudo ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf</code>,
+and then rebooted</del></li>
 <li>Ran <code>sudo apt remove thunderbird</code></li>
 <li>Disable the KDE wallet system (if using KDE)</li>
 </ul>
@@ -138,11 +143,8 @@ run Python 3 and the Django framework.</p>
 <h3 id="program-and-data-representation-configuration">Program and Data
 Representation configuration</h3>
 <ul>
-<li>Installed the other packages: <code>sudo apt install clang llvm
-emacs vim nasm astyle tofrodos source-highlight gdb lldb doxygen
-doxygen-doc graphviz ddd git g++ gobjc gnustep gnustep-make
-gnustep-common libgnustep-base-dev evince g++-multilib libc6-dev-i386
-libc6-dev:i386 flex make</code>
+<li>Installed the other packages:
+<code>sudo apt install clang llvm emacs vim nasm astyle tofrodos source-highlight gdb lldb doxygen doxygen-doc graphviz ddd git g++ gobjc gnustep gnustep-make gnustep-common libgnustep-base-dev evince g++-multilib libc6-dev-i386 libc6-dev:i386 flex make</code>
 <ul>
 <li>Note that there are other <code>apt install</code> lines to be run,
 below, depending on what else you are installing
@@ -157,11 +159,12 @@ sudo update-alternatives --install /usr/bin/llvm-symbolizer llvm-symbolizer /usr
 <ul>
 <li>Downloaded Google Chrome from <a
 href="https://www.google.com/chrome/browser/desktop/index.html">here</a>,
-and installed it via <code>sudo dpkg -i
-google-chrome-stable_current_i386.deb</code>
+and installed it via
+<code>sudo dpkg -i google-chrome-stable_current_i386.deb</code>
 <ul>
-<li>If that installation does not work perfectly, run <code>sudo apt
-install -f</code> (although it worked fine for this install)</li>
+<li>If that installation does not work perfectly, run
+<code>sudo apt install -f</code> (although it worked fine for this
+install)</li>
 <li>Then the .deb file was removed</li>
 <li>When Chrome was loaded, it was made the default browser and sending
 usage statistics were deselected</li>
@@ -176,8 +179,9 @@ side – this was done by loading them up, and the clicking on the icon
 and selecting “add to favorites”</li>
 <li>Disabled the screen saver lock, as detailed in the first answer <a
 href="https://stackoverflow.com/questions/28281077/how-do-i-disable-the-gnome-desktop-screen-lock">here</a>
-(this meant running <code>gsettings set org.gnome.desktop.session
-idle-delay 0</code> from the terminal)</li>
+(this meant running
+<code>gsettings set org.gnome.desktop.session idle-delay 0</code> from
+the terminal)</li>
 </ul></li>
 <li>Browser customization
 <ul>
@@ -198,9 +202,10 @@ alias rm=&#39;rm -i&#39;
 alias cp=&#39;cp -i&#39;
 alias xemacs=&#39;emacs&#39;</code></pre>
 <ul>
-<li>Cloned the github repo via <code>git clone
-https://github.com/uva-cs/pdr</code>; note that a <code>git pull</code>
-will still have to be executed each time to update it</li>
+<li>Cloned the github repo via
+<code>git clone https://github.com/uva-cs/pdr</code>; note that a
+<code>git pull</code> will still have to be executed each time to update
+it</li>
 <li>Removed all the empty default directories in ~/student other than
 Desktop and Downloads</li>
 </ul>
@@ -233,23 +238,24 @@ spring of 2018.</p>
 <p><strong>Image finalization</strong></p>
 <ul>
 <li>Reboot (rebooting also clears out /tmp)</li>
-<li>Run <code>sudo apt autoremove</code> and <code>sudo apt
-clean</code></li>
+<li>Run <code>sudo apt autoremove</code> and
+<code>sudo apt clean</code></li>
 <li>Cleared browser history (for both browsers)</li>
-<li>Removed the apt proxy, if present: <code>sudo /bin/rm -f
-/etc/apt/apt.conf.d/02proxy</code></li>
+<li>Removed the apt proxy, if present:
+<code>sudo /bin/rm -f /etc/apt/apt.conf.d/02proxy</code></li>
 <li>To reduce the size of the hard disk (since I have to host it for
-people to download), I ran <code>sudo cat /dev/zero &gt; zero; sudo
-/bin/rm -f zero</code>. This creates a large file of all 0’s until it
-runs out of space, then removes that file.</li>
+people to download), I ran
+<code>sudo cat /dev/zero &gt; zero; sudo /bin/rm -f zero</code>. This
+creates a large file of all 0’s until it runs out of space, then removes
+that file.</li>
 <li>Ran <code>history -c</code> to remove the history of the commands
 entered on the command line</li>
-<li>Logged out then shut down the guest, and ran: <code>VBoxManage
-modifyhd disk.vdi --compact</code> (using the real image file name
-instead of “disk.vdi”). This required me to remove it from the list of
-known hard drive images via VB’s File -&gt; Virtual Media Manager menu
-option. Note that there are other ways to do this, but that command
-worked just fine.</li>
+<li>Logged out then shut down the guest, and ran:
+<code>VBoxManage modifyhd disk.vdi --compact</code> (using the real
+image file name instead of “disk.vdi”). This required me to remove it
+from the list of known hard drive images via VB’s File -&gt; Virtual
+Media Manager menu option. Note that there are other ways to do this,
+but that command worked just fine.</li>
 </ul>
 <p><strong>Increasing the disk size</strong></p>
 <p>With the current selected size of the image, this is no longer

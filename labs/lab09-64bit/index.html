@@ -8,16 +8,21 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../../markdown.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-laboratory-9-x86-assembly-language-part-2-64-bit">PDR:
@@ -181,8 +186,8 @@ used for this purpose – Google is your friend, here.</li>
 instruction.</li>
 <li>Multiplication and division are expensive. Try to use bit shifts
 whenever possible – <code>4*x+x</code> is likely to be faster than
-<code>5*x</code>, as the former can be optimized to <code>x &lt;&lt; 2 +
-x</code>.</li>
+<code>5*x</code>, as the former can be optimized to
+<code>x &lt;&lt; 2 + x</code>.</li>
 <li>Branching slows down the execution speed of a program as the branch
 condition must be checked every iteration. As much as possible,
 eliminate branching (if/else statements, loops, etc.). For loops,

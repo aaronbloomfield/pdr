@@ -8,16 +8,21 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../../markdown.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-laboratory-3-stacks">PDR: Laboratory 3: Stacks</h1>
@@ -183,9 +188,9 @@ Negative numbers still use a regular minus sign (i.e. ‘-3’) and just
 pushes the negative number on the stack. But, if you want to do negation
 (which involves popping the top value, negating it, and pushing that new
 value back on the stack), then you would use the tilde.</li>
-<li>Each binary operation follows the format <code>left_operand
-right_operand operator</code>. For example, <code>1 2 -</code>
-translates to <code>1 - 2</code>.</li>
+<li>Each binary operation follows the format
+<code>left_operand right_operand operator</code>. For example,
+<code>1 2 -</code> translates to <code>1 - 2</code>.</li>
 </ul>
 <h3 id="input">Input</h3>
 <p>For your keyboard input, your program should read in a single line of
@@ -245,9 +250,10 @@ Control-D if necessary.</li>
 printing to standard output, it reads from standard input. When you type
 a line and press enter, that entire line gets sent to <code>cin</code>,
 which then automatically splits on whitespace to produce multiple
-<em>tokens</em>. Therefore, if we were to supply <code>+ 2 3 isn't 2150
-great??</code> as input, we would get six tokens back. This is very
-helpful as the postfix expressions are already space-delimited.</p>
+<em>tokens</em>. Therefore, if we were to supply
+<code>+ 2 3 isn't 2150 great??</code> as input, we would get six tokens
+back. This is very helpful as the postfix expressions are already
+space-delimited.</p>
 <p>A sample code snippet to continuously read from standard input would
 look something like this:</p>
 <pre><code>string token;
@@ -325,9 +331,10 @@ modifying your postfix calculator to use that stack instead of the STL
 stack.</p>
 <p>Your stack class must:</p>
 <ul>
-<li>Implement the <code>void push(int e)</code>, <code>void
-pop()</code>, <code>int top()</code>, and <code>bool empty()</code>
-methods to perform the same functionality as the STL stack</li>
+<li>Implement the <code>void push(int e)</code>,
+<code>void pop()</code>, <code>int top()</code>, and
+<code>bool empty()</code> methods to perform the same functionality as
+the STL stack</li>
 <li>Internally use a linked list</li>
 <li>Have no maximum capacity (we should be able to push as many elements
 as we’d like)</li>
@@ -350,14 +357,14 @@ as it works, we don’t really care, provided that is compiles with
 <h2 id="test-files">Test files</h2>
 <p>The following examples provide postfix expressions and their expected
 value.</p>
-<p><a href="input/addition.txt">addition.txt</a>: <code>1 2 3 4 5 + + +
-+</code>; expected output: 15</p>
-<p><a href="input/subtraction.txt">subtraction.txt</a>: <code>20 10 - -3
-10 - - 2 -</code>; expected output: 21</p>
-<p><a href="input/multiplication.txt">multiplication.txt</a>: <code>-1
--2 -5 3 * 2 -2 * * * *</code>; expected output: 120</p>
-<p><a href="input/division.txt">division.txt</a>: <code>-1512 -12 -2 / /
--2 / 3 /</code>; expected output: 42</p>
+<p><a href="input/addition.txt">addition.txt</a>:
+<code>1 2 3 4 5 + + + +</code>; expected output: 15</p>
+<p><a href="input/subtraction.txt">subtraction.txt</a>:
+<code>20 10 - -3 10 - - 2 -</code>; expected output: 21</p>
+<p><a href="input/multiplication.txt">multiplication.txt</a>:
+<code>-1 -2 -5 3 * 2 -2 * * * *</code>; expected output: 120</p>
+<p><a href="input/division.txt">division.txt</a>:
+<code>-1512 -12 -2 / / -2 / 3 /</code>; expected output: 42</p>
 <p><a href="input/negation.txt">negation.txt</a>: <code>-1 ~ ~ ~</code>;
 expected output: 1</p>
 </body>

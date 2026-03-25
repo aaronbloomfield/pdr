@@ -8,16 +8,21 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../../markdown.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-laboratory-4-number-representation">PDR: Laboratory 4:
@@ -324,9 +329,9 @@ number.</li>
 <h3 id="inlab4.cpp">inlab4.cpp</h3>
 <p>There are two parts to the C++ file you will be submitting as a part
 of the in-lab. 1. The two arrays that you will fill out with the
-appropriate information 2. A <code>tableDump(string (*arr)[5], string
-(*arr1)[4])</code> method that prints out the two arrays in a format
-that we can autograde</p>
+appropriate information 2. A
+<code>tableDump(string (*arr)[5], string (*arr1)[4])</code> method that
+prints out the two arrays in a format that we can autograde</p>
 <p>You <strong>must only</strong> replace the empty strings in those
 arrays with your findings, you do not need to modify anything else in
 the file. Since we take care of the output for you, don’t worry about
@@ -353,10 +358,11 @@ hit, type expressions to examine the addresses of all of these variables
 contents of their addresses (via the <code>x/x</code> command from
 above).</p>
 <p>Find one of your <code>int</code> variables in memory. Change its
-value via the <code>expr (var) = (value)</code> (LLDB) or <code>set
-variable &lt;var&gt; = &lt;value&gt;</code> (GDB) command. Examine the
-new variable’s contents in memory. Is it what you expected? Continue the
-program execution – did it properly print the changed value?</p>
+value via the <code>expr (var) = (value)</code> (LLDB) or
+<code>set variable &lt;var&gt; = &lt;value&gt;</code> (GDB) command.
+Examine the new variable’s contents in memory. Is it what you expected?
+Continue the program execution – did it properly print the changed
+value?</p>
 <p>After completing this section of the lab, you will be expected to
 understand how to use the debugger to:</p>
 <ul>
@@ -414,11 +420,11 @@ start the program execution.</p>
 <p>When using LLDB, you can use the ‘x’ (for ‘eXamine’) command to print
 out the pointee of an address. Consider the C++ program that has two
 variables defined, <code>int i</code> and <code>int *p</code>. To print
-out the int variable <code>i</code>, you would enter <code>x
-&amp;i</code> (as you have to enter the address of where the data is
-located). If <code>p</code> is a pointer to a value, you would enter
-<code>x p</code> to print out the <em>pointee</em>. This may print it
-using many more hexadecimal digits than you wanted, so you can add a
+out the int variable <code>i</code>, you would enter
+<code>x &amp;i</code> (as you have to enter the address of where the
+data is located). If <code>p</code> is a pointer to a value, you would
+enter <code>x p</code> to print out the <em>pointee</em>. This may print
+it using many more hexadecimal digits than you wanted, so you can add a
 parameter to the ‘x’ command to have it print only a certain amount:</p>
 <ul>
 <li><code>x/xb p</code>: this will print the one byte at the address

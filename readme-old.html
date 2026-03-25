@@ -8,16 +8,21 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="markdown.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <h1 id="program-and-data-representation">Program and Data
@@ -219,8 +224,8 @@ calibration feature):</p></li>
 &lt;link rel=&quot;stylesheet&quot; href=&quot;css/dhtmlwindow.css&quot; type=&quot;text/css&quot;&gt;</code></pre>
 <ol start="3" type="1">
 <li><p>Add an <code>onload="canvasinit()"</code> to the
-<code>&lt;body&gt;</code> tag: <code>&lt;body
-onload="canvasinit()"&gt;</code></p></li>
+<code>&lt;body&gt;</code> tag:
+<code>&lt;body onload="canvasinit()"&gt;</code></p></li>
 <li><p>Add the following immediately after the <code>&lt;body&gt;</code>
 tag (this is for the calibration feature):</p></li>
 </ol>

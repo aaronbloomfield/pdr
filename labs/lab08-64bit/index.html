@@ -8,16 +8,21 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../../markdown.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-laboratory-8-x86-assembly-language-part-1-64-bit">PDR:
@@ -152,9 +157,9 @@ have in the past:</p>
 but not link the program. Linking it will create the final executable –
 but as there is not a <code>vecsum()</code> function defined (yet), the
 compiler will report an error stating that it does not know what the
-vecsum() function is. We also added a few more flags (<code>-Wall
--g</code>) to print all warnings and compile debugging symbols into the
-program.</p>
+vecsum() function is. We also added a few more flags
+(<code>-Wall -g</code>) to print all warnings and compile debugging
+symbols into the program.</p>
 <p>Next, we need to compile the assembly file. To do this, we enter the
 following:</p>
 <pre><code>nasm -f elf64 -g vecsum.s</code></pre>
@@ -207,17 +212,19 @@ want.</li>
 displays the assembly code instead of the C++ code.</li>
 <li>Note that this prints things in a different assembly format. To set
 the format to the style we are used to (and the style we are programming
-in with nasm), enter <code>settings set target.x86-disassembly-flavor
-intel</code>. Now enter <code>disassemble</code> again – the format
-should look more familiar. You only have to enter that set command once
-(unless you exit and re-enter lldb).</li>
-<li>To see the vecsum function, enter <code>disassemble --name
-vecsum</code>. Note that this only lists the first third (or so) of the
-routine – up until the <code>start</code> label. To see the rest of the
-code, enter <code>disassemble --name start</code>, <code>disassemble
---name done</code>, etc.</li>
-<li>To show the contents of the registers, use the <code>register
-read</code> command.</li>
+in with nasm), enter
+<code>settings set target.x86-disassembly-flavor intel</code>. Now enter
+<code>disassemble</code> again – the format should look more familiar.
+You only have to enter that set command once (unless you exit and
+re-enter lldb).</li>
+<li>To see the vecsum function, enter
+<code>disassemble --name vecsum</code>. Note that this only lists the
+first third (or so) of the routine – up until the <code>start</code>
+label. To see the rest of the code, enter
+<code>disassemble --name start</code>,
+<code>disassemble --name done</code>, etc.</li>
+<li>To show the contents of the registers, use the
+<code>register read</code> command.</li>
 </ul>
 <h3 id="pre-lab-program-mathlib.s">Pre-lab program: mathlib.s</h3>
 <p>You will need to write two routines in assembly, one that computes
@@ -357,9 +364,9 @@ in Assembly</h4>
 <p>Recall that C++ arrays are stored contiguously in memory. This means
 that if you know the start address of the array <code>&amp;a</code>, and
 the size of the elements that are being stored, you can find the address
-of an element at any index <code>i</code> with <code>&amp;a[i] = &amp;a
-+ &lt;size_of_elements&gt;*i</code> (if the array is one-dimensional).
-Use this fact along with <a
+of an element at any index <code>i</code> with
+<code>&amp;a[i] = &amp;a + &lt;size_of_elements&gt;*i</code> (if the
+array is one-dimensional). Use this fact along with <a
 href="../slides/08-assembly-64bit.html#/3/8">the memory addressing
 slide</a> from lecture to access array elements in assembly.</p>
 </body>

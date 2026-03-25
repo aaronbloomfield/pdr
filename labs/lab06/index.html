@@ -8,16 +8,21 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../../markdown.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-laboratory-6-hashing">PDR: Laboratory 6: Hashing</h1>
@@ -411,9 +416,9 @@ the last line of output. Floating point arithmetic in bash is quite
 complicated, so try to use integers when possible – you may want to
 multiply the result from <code>Timer::getTime()</code> by 1000 to obtain
 the number of milliseconds taken.</p>
-<p>You can then capture that line by piping it through the <code>tail
--1</code> command – the following line would run the program, only keep
-the last line, and save that output to a variable.</p>
+<p>You can then capture that line by piping it through the
+<code>tail -1</code> command – the following line would run the program,
+only keep the last line, and save that output to a variable.</p>
 <pre><code>RUNNING_TIME=`./a.out | tail -1`</code></pre>
 <p>The back quote <code>`</code> tells bash to execute whatever is in
 between the quotes rather than treating it as a string. It is usually
@@ -422,9 +427,9 @@ located right below the Escape key on a keyboard.</p>
 script are in first six sections of the article.</p>
 <p>As you are going through the tutorial, if there is a Unix command
 that you do not know (or you once knew and have since forgotten), you
-can find out more information about that command by entering <code>man
-command</code> at the Unix prompt. This brings up the manual for that
-command, including all of the command-line parameters.</p>
+can find out more information about that command by entering
+<code>man command</code> at the Unix prompt. This brings up the manual
+for that command, including all of the command-line parameters.</p>
 <p>Your script should have comments (anything on a line after a ‘#’ is a
 comment).</p>
 <p>Below are a few notes to keep in mind when writing your shell script.
@@ -446,9 +451,9 @@ sign</li>
 binary program), you use back quotes (`)</li>
 <li>To execute your script, you can just enter
 <code>./averagetime.sh</code>. If your computer denies you permission,
-remind it who’s boss and put it in its place with <code>chmod +x
-averagetime.sh</code>. This tells your Unix system that averagetime.sh
-is a program that can be executed (remember chmod?).</li>
+remind it who’s boss and put it in its place with
+<code>chmod +x averagetime.sh</code>. This tells your Unix system that
+averagetime.sh is a program that can be executed (remember chmod?).</li>
 </ul>
 <h3 id="hints-1">Hints</h3>
 <h4 id="debugging-shell-scripts">Debugging shell scripts</h4>

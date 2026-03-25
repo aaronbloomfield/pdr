@@ -8,16 +8,21 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../../markdown.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-laboratory-8-x86-assembly-language-part-1-32-bit">PDR:
@@ -319,8 +324,8 @@ default to vecsum.obj, NOT vecsum.o – this is why we are using the
 <p>The new flag here is the <code>-f elf</code>. This tells the
 assembler the output format for the final executable. Operating systems
 can typically execute a number of different formats. As we are running
-under 32 bit Linux, we specify the elf format. Mac OS X uses <code>-f
-macho</code> – see the above section for more details.</p>
+under 32 bit Linux, we specify the elf format. Mac OS X uses
+<code>-f macho</code> – see the above section for more details.</p>
 <p>Finally, we have to link the two files into the final executable. We
 do this as before:</p>
 <pre><code>clang++ -m32 -Wall -g vecsum.o main.o</code></pre>
@@ -378,10 +383,10 @@ and re-enter gdb).</li>
 <li>To see the vecsum function, enter <code>disassemble vecsum</code>.
 Note that this only lists the first third (or so) of the routine – up
 until the <code>vecsum_loop</code> label. To see the rest of the code,
-enter <code>disassemble vecsum_loop</code>, <code>disassemble
-vecsum_done</code>, etc.</li>
-<li>To show the contents of the registers, use the <code>info
-registers</code> command.</li>
+enter <code>disassemble vecsum_loop</code>,
+<code>disassemble vecsum_done</code>, etc.</li>
+<li>To show the contents of the registers, use the
+<code>info registers</code> command.</li>
 </ul>
 <h3 id="pre-lab-program-mathlib.s">Pre-lab program: mathlib.s</h3>
 <p>You will need to write two routines in assembly, one that computes
@@ -450,8 +455,8 @@ explained. We are looking for significant evidence that you were able to
 complete some work during the in-lab, and thus are not setting page
 length requirements.</p>
 <p>Recall that using the <code>-S</code> flag with clang++ will generate
-the assembly code. You will also want to use the <code>-mllvm
---x86-asm-syntax=intel</code> flags.</p>
+the assembly code. You will also want to use the
+<code>-mllvm --x86-asm-syntax=intel</code> flags.</p>
 <h3 id="clang-and-the-calling-convention">clang++ and the Calling
 Convention</h3>
 <p>As discussed in class (specifically, <a

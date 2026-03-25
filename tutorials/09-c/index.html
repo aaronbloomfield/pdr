@@ -8,16 +8,21 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../../markdown.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-c-tutorial-for-c-programmers">PDR: C Tutorial for C++
@@ -341,11 +346,11 @@ typedef struct list_item {
 } list_item_t; // what you want to call your struct goes after the closing brace</code></pre>
 <p>With the typedef, we can now refer to our struct as simply
 <code>list_item_t</code>. Therefore, variable declarations become
-<code>list_item_t my_item</code>. Note that the <code>struct list_item*
-prev</code> inside of the struct declaration cannot be replaced with
-<code>list_item_t* prev</code>, as the typedef hasn’t been finished by
-that point! We don’t know the name of the typedef until after the
-closing brace.</p>
+<code>list_item_t my_item</code>. Note that the
+<code>struct list_item* prev</code> inside of the struct declaration
+cannot be replaced with <code>list_item_t* prev</code>, as the typedef
+hasn’t been finished by that point! We don’t know the name of the
+typedef until after the closing brace.</p>
 <h3 id="union">union</h3>
 <p>A union is a type for which the compiler allocates space sufficient
 only for the largest member, not for all members. At any moment in a

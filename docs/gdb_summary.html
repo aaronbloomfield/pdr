@@ -8,16 +8,21 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../markdown.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-docs-gdb-command-summary">PDR: Docs: GDB Command
@@ -67,10 +72,10 @@ then pauses</li>
 <p>Breakpoints</p>
 <ul>
 <li><code>b (pos)</code> (or <code>break (pos)</code>): set a breakpoint
-at (pos). A breakpoint can be a function name (e.g., <code>b
-GetMax</code>), a line number (e.g., <code>b 22</code>), or either of
-the above preceded by a file name (e.g., <code>b lab2.cpp:22</code> or
-<code>b lab2.cpp:GetMax</code>)</li>
+at (pos). A breakpoint can be a function name (e.g.,
+<code>b GetMax</code>), a line number (e.g., <code>b 22</code>), or
+either of the above preceded by a file name (e.g.,
+<code>b lab2.cpp:22</code> or <code>b lab2.cpp:GetMax</code>)</li>
 <li><code>tbreak (pos)</code>: set a temporary breakpoint (only breaks
 the first time)</li>
 <li><code>info break</code>: show breakpoints</li>

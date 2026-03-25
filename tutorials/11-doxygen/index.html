@@ -8,16 +8,21 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../../markdown.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-doxygen-tutorial">PDR: Doxygen Tutorial</h1>
@@ -73,12 +78,12 @@ that function is not commented.</p>
 <h3 id="creating-a-doxyfile">Creating a Doxyfile</h3>
 <p>We need to tell doxygen what files to process, and a large number of
 other options. These are all kept in a file called
-<code>Doxyfile</code>. To generate that file, run <code>doxygen
--g</code> in the same directory as the files you want to document (the
-<code>-g</code> means “generate”). This will create a Doxyfile with the
-default options. We will need to edit it to set a few things. The line
-numbers provided are for version 1.8.6 of Doxygen; if you are using a
-different version, then your line numbers may vary.</p>
+<code>Doxyfile</code>. To generate that file, run
+<code>doxygen -g</code> in the same directory as the files you want to
+document (the <code>-g</code> means “generate”). This will create a
+Doxyfile with the default options. We will need to edit it to set a few
+things. The line numbers provided are for version 1.8.6 of Doxygen; if
+you are using a different version, then your line numbers may vary.</p>
 <ul>
 <li>The <code>GENERATE_LATEX</code> option (line 1,543): change
 <code>YES</code> to <code>NO</code>. We want HTML output (which is
@@ -91,9 +96,9 @@ already set to yes), but we don’t want LaTeX output.</li>
 <code>doc/</code>. This will cause all the created files to be in the
 doc/ sub-directory, and this is <em>necessary</em> for us to find your
 files.</li>
-<li>The <code>PROJECT_NAME</code> option (line 35): set to <code>"PDR
-Lab 11"</code>. This creates the appropriate title for the created
-documentation.</li>
+<li>The <code>PROJECT_NAME</code> option (line 35): set to
+<code>"PDR Lab 11"</code>. This creates the appropriate title for the
+created documentation.</li>
 <li>You may want to set the <code>QUIET</code> option (line 686) to
 <code>YES</code>.</li>
 </ul>

@@ -8,16 +8,21 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../../markdown.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-makefile-tutorial">PDR: Makefile Tutorial</h1>
@@ -81,10 +86,11 @@ such as hundreds (or thousands) of .cpp files. If you modify only one
 file, you just have to compile that single file, and then link
 everything together. Specifically, you don’t have to compile all the
 other files again. So far, we have been telling the compiler to do these
-two commands at the same time (i.e., <code>clang++ postfixCalculator.cpp
-stack.cpp testPostfixCalc.cpp</code> or <code>clang++ *.cpp</code>).
-This tells clang++ to compile each file separately, and then link them
-together to create the executable a.out.</p>
+two commands at the same time (i.e.,
+<code>clang++ postfixCalculator.cpp stack.cpp testPostfixCalc.cpp</code>
+or <code>clang++ *.cpp</code>). This tells clang++ to compile each file
+separately, and then link them together to create the executable
+a.out.</p>
 <p>If you specify the -c option to clang++, it tells the compiler to
 just compile the file, but do not link it. The result of this
 compilation is called an <em>object file</em>, and has a .o extension.
@@ -167,8 +173,8 @@ should also be recompiled (into toppings.o).</p>
 capitalization). You can name it something else (how to do this is at
 the very end of this tutorial), but it’s easier to keep this naming
 convention. If you name it something else, you will need to call
-<code>make</code> with the -f flag: <code>make -f
-Makefile-by-any-other-name</code>.</p>
+<code>make</code> with the -f flag:
+<code>make -f Makefile-by-any-other-name</code>.</p>
 <h3 id="comments">Comments</h3>
 <p>Comments in a Makefile must begin with <code>#</code>, and should
 generally start in the left-most column of a given line. Put your name
@@ -229,8 +235,8 @@ the flags to be ‘-Wall’, then each compilation by <code>$(CXX)</code>
 would include that option.</p>
 <p>To use a variable, surround it by $ and parentheses. For example,
 <code>$(CXX) project.cpp</code> would substitute the value of the
-<code>CXX</code> variable and result in <code>clang++
-project.cpp</code>.</p>
+<code>CXX</code> variable and result in
+<code>clang++ project.cpp</code>.</p>
 <h3 id="rules">Rules</h3>
 <p>Rules dictate what Makefiles can do, and each one is composed of a
 <em>target</em> (the name of the rule), <em>prerequisites</em> (any
@@ -320,8 +326,8 @@ them.</p>
 it! This is because <code>make</code> contains some <a
 href="https://www.gnu.org/software/make/manual/make.html#Catalogue-of-Rules">implicit
 rules</a> and knows to convert <code>*.cpp</code> files to
-<code>*.o</code> files using <code>$(CXX) $(CXXFLAGS) -c
-filename.cpp</code>.</p>
+<code>*.o</code> files using
+<code>$(CXX) $(CXXFLAGS) -c filename.cpp</code>.</p>
 <h3 id="automatically-generating-prerequisites">Automatically generating
 prerequisites</h3>
 <p>Creating these prerequisite lists are essential for a properly
@@ -378,9 +384,9 @@ target rule. We can avoid this by creating a variable:</p>
 <p>If we set up our CXX variable to include the C++ flags variable
 (i.e., <code>CXX = clang++ $(CXXFLAGS)</code> at the top of the
 Makefile), then we do not need to include CXXFLAGS in the above line.
-Otherwise, we will want to replace that line with, <code>$(CXX)
-$(CXXFLAGS) $(DEBUG) $(OBJECTS) -o pizza</code>. This will allow any
-clang++ compiler options to be included also.</p>
+Otherwise, we will want to replace that line with,
+<code>$(CXX) $(CXXFLAGS) $(DEBUG) $(OBJECTS) -o pizza</code>. This will
+allow any clang++ compiler options to be included also.</p>
 <p>What happens when <code>make</code> is run is that it knows it has to
 create eight .o files (pizza.o, toppings.o, etc.), and looks at the
 various .o rules to figure out how to do that. After that,
@@ -445,9 +451,10 @@ Makefile.</li>
 to ‘Makefile-pizza’, <del>and submit it as part of pre-lab 5 (we can’t
 name it ‘Makefile’, as you are submitting a Makefile for the other parts
 of the lab already)</del>. To force <code>make</code> to use a different
-Makefile, you can use the <code>-f</code> flag: <code>make -f
-Makefile-pizza</code>. To specify a different target, the target name
-goes after the file name: <code>make -f Makefile-pizza clean</code>.</p>
+Makefile, you can use the <code>-f</code> flag:
+<code>make -f Makefile-pizza</code>. To specify a different target, the
+target name goes after the file name:
+<code>make -f Makefile-pizza clean</code>.</p>
 <h3 id="further-information">Further information</h3>
 <p>This tutorial only scratches the surface of what <code>make</code>
 can do! There are many more powerful concepts that can be very useful

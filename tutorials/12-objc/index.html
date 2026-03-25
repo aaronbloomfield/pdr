@@ -8,16 +8,21 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../../markdown.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-objective-c-tutorial">PDR: Objective C Tutorial</h1>
@@ -74,12 +79,12 @@ the wall. And you probably shouldn’t wait until the last minute to try
 out the compilation commands…</p>
 <h3 id="compiling-an-objective-c-program">Compiling an Objective C
 program</h3>
-<p>To compile your code on either Mac OS X or Linux, enter <code>clang
-*.m -lobjc</code>. With C++, you would compile all of your .cpp files
-(<code>*.cpp</code>); with Objective C, you compile all of your .m files
-(hence, <code>*.m</code>). Note that you will use a longer compilation
-command later, which is described below. Since this is not Objective C++
-(which <a
+<p>To compile your code on either Mac OS X or Linux, enter
+<code>clang *.m -lobjc</code>. With C++, you would compile all of your
+.cpp files (<code>*.cpp</code>); with Objective C, you compile all of
+your .m files (hence, <code>*.m</code>). Note that you will use a longer
+compilation command later, which is described below. Since this is not
+Objective C++ (which <a
 href="http://en.wikipedia.org/wiki/Objective-C#Objective-C.2B.2B">does
 exist</a>), we are using <code>clang</code> instead of
 <code>clang++</code>. You should put the <code>-lobjc</code> part in
@@ -226,9 +231,9 @@ and main.m).</p>
 no Makefile is being submitted. As long as it compiles with the
 following compilation command, we really don’t care what the files are
 named (within reason). The compile command that we will use to compile
-your code on Linux is <code>clang -I /usr/include/GNUstep/ *.m -lobjc
--lgnustep-base</code>; this is equivalent to <code>clang *.m
--lobjc</code> on Mac OS X.</p>
+your code on Linux is
+<code>clang -I /usr/include/GNUstep/ *.m -lobjc -lgnustep-base</code>;
+this is equivalent to <code>clang *.m -lobjc</code> on Mac OS X.</p>
 <p>This is not meant to be a complicated program! We don’t care about
 the order that the list is printed (forward or reverse is fine); you
 don’t need to implement iterators, or anything too complicated. Our code
@@ -285,8 +290,8 @@ destructor, override the <code>dealloc</code> method, and just call
 <code>super dealloc</code> as the last command of that destructor. But
 you probably don’t need a custom constructor for this program. To
 indicate to the runtime that you are no longer using the object, call
-<code>release</code> on that object (e.g., <code>[myObj
-release]</code>).</li>
+<code>release</code> on that object (e.g.,
+<code>[myObj release]</code>).</li>
 </ol>
 <h3 id="constructors">Constructors</h3>
 <p>Constructors are not explained very well in the tutorial, so we
@@ -299,10 +304,10 @@ created. Like C++, if you don’t declare any constructors, then the
 default one is automatically included.</p>
 <p>In Objective C, constructors are just functions that start with
 “init” (for convenience sake), and return a pointer to the type we are
-constructing. Typically, the first line in constructor is <code>[super
-init];</code>, which will call the parent’s constructor. The last line
-is typically <code>return self;</code>. There is no special handling for
-constructors as there is in Java or C++.</p>
+constructing. Typically, the first line in constructor is
+<code>[super init];</code>, which will call the parent’s constructor.
+The last line is typically <code>return self;</code>. There is no
+special handling for constructors as there is in Java or C++.</p>
 <p>You call the default constructor (<code>init()</code>) by the
 syntax:</p>
 <pre><code>ListNode *node = [[ListNode alloc] init];</code></pre>

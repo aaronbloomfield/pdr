@@ -8,16 +8,21 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../../markdown.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-gdb-tutorial">PDR: GDB Tutorial</h1>
@@ -99,8 +104,8 @@ executable files that are larger and slower, so you may not want to use
 it for final distributions or time-critical programs. But you can always
 remove the debugging information from an executable without recompiling
 it with the <code>strip</code> command. For more information on that,
-see the man page for <code>strip</code> (i.e., run <code>man
-strip</code> from the command line).</p>
+see the man page for <code>strip</code> (i.e., run
+<code>man strip</code> from the command line).</p>
 <p>The <code>-g</code> option causes the compiler to include information
 about the source file (the .cpp file) that is needed for debugging as
 part of the executable file. This causes the executable to be larger in
@@ -177,8 +182,9 @@ pause. After the <code>b</code> command, you can put either:</p>
 <ul>
 <li>a function name (e.g., <code>b my_subroutine</code>)</li>
 <li>a line number (e.g., <code>b 12</code>)</li>
-<li>either of the above preceded by a file name (e.g., <code>b
-prog1.cpp:12</code> or <code>b prog1.cpp:my_subroutine</code>)</li>
+<li>either of the above preceded by a file name (e.g.,
+<code>b prog1.cpp:12</code> or
+<code>b prog1.cpp:my_subroutine</code>)</li>
 </ul>
 <p>Here, the <code>my_subroutine()</code> function doesn’t start on line
 12 (it starts on line 4) – the breakpoint on line 12 is for the
@@ -276,8 +282,8 @@ crashes)</li>
 the crash</li>
 <li>type <code>run</code>, and confirm that you want to restart the
 program</li>
-<li>at the breakpoint, try printing out the value in p (<code>p
-p</code>); note that it is <code>NULL</code></li>
+<li>at the breakpoint, try printing out the value in p
+(<code>p p</code>); note that it is <code>NULL</code></li>
 <li>set the <code>p</code> pointer, which is currently
 <code>NULL</code>, to point to a valid value (the <code>int</code>
 variable <code>x</code>): <code>set variable p = &amp;x</code></li>
@@ -377,16 +383,16 @@ entering:</p>
 <ul>
 <li>a function name (e.g., <code>b GetAverage</code>)</li>
 <li>a line number (e.g., <code>b 23</code>)</li>
-<li>either of the above preceded by a file name (e.g., <code>b
-debug.cpp:23</code> or <code>b debug.cpp:GetAverage</code>)</li>
+<li>either of the above preceded by a file name (e.g.,
+<code>b debug.cpp:23</code> or <code>b debug.cpp:GetAverage</code>)</li>
 </ul>
 <p>If we knew where the problems were, we could skip over some lines,
 but since we don’t, put a breakpoint on the first line of the code, the
 cout statement. You probably want to set the breakpoint based on the
-line number in the code – you can use the Emacs command <code>M-x
-linum-mode</code> to have Emacs display line numbers. Enter <code>break
-x</code>, where x is the line of the first cout statement in the main()
-method. Now we need to run the program – to do this, enter
+line number in the code – you can use the Emacs command
+<code>M-x linum-mode</code> to have Emacs display line numbers. Enter
+<code>break x</code>, where x is the line of the first cout statement in
+the main() method. Now we need to run the program – to do this, enter
 <code>run</code>. Gdb should start running, then should pause and
 display approximately the following:</p>
 <pre><code>(gdb) break 23
@@ -485,9 +491,10 @@ over button twice more, entering successive values when prompted (2, 4,
 nValues[1]. Go to the source window, and correct the line. Exit gdb
 (<code>quit</code>), recompile the program, and start up gdb again
 (<code>gdb lab2</code>). Set your breakpoint, run the code, and make
-sure that it is getting the input correctly. Try entering <code>display
-nValues</code> after the first breakpoint – it will always display the
-contents of the nValues array each time the program pauses.</p>
+sure that it is getting the input correctly. Try entering
+<code>display nValues</code> after the first breakpoint – it will always
+display the contents of the nValues array each time the program
+pauses.</p>
 <p>When you are satisfied that the input is working, you can
 <code>continue</code> (or <code>c</code>), and the program will run
 until the next breakpoint, or the end of the program.</p>

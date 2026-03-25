@@ -8,16 +8,21 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../../markdown.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <h1 id="pdr-ssh-and-scp-tutorial">PDR: ssh and scp Tutorial</h1>
@@ -189,8 +194,8 @@ machine”. If you just want the files/directories to be put in your
 remote machine’s home directory, <code>~/</code> is the remote path to
 use.</p>
 <p><strong>For more complicated file moves, try <code>sftp</code> or
-<code>rsync</code>. Learn more with <code>man sftp</code> or <code>man
-rsync</code>.</strong></p>
+<code>rsync</code>. Learn more with <code>man sftp</code> or
+<code>man rsync</code>.</strong></p>
 <h2 id="still-need-assistance-stuck-somewhere">Still need assistance?
 Stuck somewhere?</h2>
 <p>Here are some good ways to get any help you may need:</p>
